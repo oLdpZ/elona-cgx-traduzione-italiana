@@ -39,10 +39,15 @@ Stato: **design approvato (`SPEC.md`), Fase 0 non ancora eseguita.**
 7. `installa.py` copia la build nel gioco, preservando eseguibile inglese e salvataggi
 8. prova in gioco, poi aggiornamento di `avanzamento.md` e `RIPRESA-sessione.md`
 
-## Attenzione
+## Accenti
 
-**CP932 cancella silenziosamente le vocali accentate** (`perché` → `perche`). È
-il rischio primario del progetto e la prima cosa che la Fase 0 deve risolvere.
+**CP932 cancella silenziosamente le vocali accentate** (`perché` → `perche`).
+Soluzione adottata: forma con apostrofo, `perche'`.
+
+Ma **nel dizionario si scrive sempre l'italiano corretto, con gli accenti veri**.
+La degradazione ad apostrofo la fa `applica.py` durante la build. Chi traduce non
+deve mai scrivere `perche'` a mano — `verifica.py` lo segnala come errore.
+
 Vedi `SPEC.md` §4.
 
 ## Note

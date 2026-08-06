@@ -136,7 +136,7 @@ interfaccia e termini generici) e da lì diverge.
 
 ---
 
-## 4. Rischio primario: l'encoding uccide gli accenti
+## 4. Encoding e accenti — risolto
 
 **CP932 non contiene le vocali accentate italiane, e non segnala l'errore.**
 Verificato empiricamente: ogni accentata viene sostituita silenziosamente con la
@@ -153,16 +153,37 @@ vocale nuda.
 Siccome git fa checkout in CP932, la perdita avverrebbe **automaticamente e senza
 un solo avviso**: `perché` → `perche`, `città` → `citta`.
 
-Tre strade, da valutare in Fase 0 in quest'ordine:
+Le strade possibili erano tre:
 
 | | Strada | Valutazione |
 |---|---|---|
-| **A** | Forma con apostrofo — `perche'`, `citta'`, `piu'` | Funziona con certezza. Estetica da localizzazione anni '90. **Piano di riserva garantito.** |
-| **B** | Byte CP1252 diretti (`0xE8` = `è`) nel sorgente | `0xE8` è un lead byte Shift-JIS valido: il compilatore HSP può inglobare il carattere successivo. Da provare, non su cui contare. |
+| **A** | Forma con apostrofo — `perche'`, `citta'`, `piu'` | Funziona con certezza, tutto ASCII. Estetica da localizzazione anni '90. |
+| **B** | Byte CP1252 diretti (`0xE8` = `è`) nel sorgente | `0xE8` è un lead byte Shift-JIS valido: il compilatore HSP può inglobare il carattere successivo. Inaffidabile. |
 | **C** | Stringhe tradotte in tabella esterna caricata a runtime | Risolve accenti e manutenzione insieme; Elona legge già `book.txt`/`talk.txt` esterni. Ma è modifica al codice del gioco, non solo traduzione. |
 
-L'esito determina se il risultato è "un Elona in italiano con gli apostrofi" o
-"un Elona in italiano". **Va deciso prima di tradurre in volume**, non dopo.
+### Decisione: strada A, con degradazione in fase di build
+
+Adottata la **forma con apostrofo**. Ma con una separazione che vale la pena
+tenere ferma:
+
+> **Il dizionario conserva l'italiano corretto, con gli accenti veri, in UTF-8.
+> È `applica.py` a degradarli in forma con apostrofo mentre costruisce l'albero
+> di build.**
+
+`perché` resta scritto `perché` nel dizionario e diventa `perche'` solo nel
+sorgente che va al compilatore. Conseguenze:
+
+- se la strada C diventasse praticabile in futuro, si disattiva la degradazione e
+  tutte le stringhe già tradotte acquistano gli accenti veri, **senza ritradurre
+  nulla**;
+- il dizionario resta italiano leggibile e riusabile fuori da questo gioco;
+- la conversione avviene in un punto solo, testabile, invece che nella testa di
+  chi traduce.
+
+Regola di degradazione: `à è é ì ò ù` → `a' e' e' i' o' u'`, e le maiuscole
+corrispondenti. Applicata solo alle vocali accentate italiane; qualsiasi altro
+carattere non-ASCII che arrivi all'albero di build è un errore e va segnalato,
+non convertito.
 
 ---
 
@@ -208,16 +229,21 @@ Somma verificata: 7.937 + 8.095 + 4.828 + 5.957 = **26.817**, il totale delle
 
 ### Fase 0 — il cancello
 
-Tre prove in ordine. Nessuna traduzione in volume inizia prima che passino tutte.
+Due prove. Nessuna traduzione in volume inizia prima che passino entrambe.
 
-1. **Gli accenti arrivano a schermo?** Valutare A, B, C della §4 e fissare la
-   scelta in `decisioni.md`.
-2. **L'exe si ricompila?** SDK HSP 3.4 più `hsplua.dll`, build da sorgente **non
+1. **L'exe si ricompila?** SDK HSP 3.4 più `hsplua.dll`, build da sorgente **non
    modificato**; l'eseguibile prodotto deve avviarsi e caricare un salvataggio.
-   Senza una build riproducibile dall'originale, il resto è teoria.
-3. **Il ciclo gira end-to-end?** ~50 stringhe scelte apposta (metà statiche, metà
-   dinamiche) attraverso `estrai → traduci → applica → compila → installa →
-   verifica → visto a schermo`.
+   Senza una build riproducibile dall'originale, il resto è teoria. **È il vero
+   cancello del progetto.**
+2. **Il ciclo gira end-to-end?** ~50 stringhe scelte apposta (metà statiche, metà
+   dinamiche, e almeno cinque con vocali accentate) attraverso `estrai → traduci
+   → applica → compila → installa → verifica → visto a schermo`. Verifica anche
+   che la degradazione degli accenti della §4 funzioni: `perché` nel dizionario,
+   `perche'` a schermo.
+
+La questione accenti non è più una prova aperta: la §4 la chiude in favore della
+forma con apostrofo. Resta da confermare che la degradazione sia corretta, cosa
+che la prova 2 copre.
 
 In parallelo: individuare dove risiedono i nomi degli oggetti (§2, punto aperto).
 
@@ -231,8 +257,12 @@ In parallelo: individuare dove risiedono i nomi degli oggetti (§2, punto aperto
   stesse chiamate di funzione;
 - una traduzione è identica all'inglese e non è in whitelist in `invariati.md`;
 - il glossario è violato;
-- **un accento è andato perso nella conversione di encoding** (confronto prima/dopo
-  round-trip);
+- una traduzione nel **dizionario** contiene una forma con apostrofo scritta a mano
+  (`perche'`, `citta'`) invece dell'accento vero — la degradazione è compito di
+  `applica.py`, non di chi traduce;
+- nell'**albero di build** sopravvive un carattere non-ASCII che non sia
+  giapponese preesistente: significa che la degradazione della §4 ha mancato
+  qualcosa e CP932 lo cancellerebbe in silenzio;
 - una stringa di interfaccia supera la larghezza massima del suo riquadro;
 - l'eseguibile non compila.
 
@@ -284,3 +314,5 @@ Registrate anche in `decisioni.md` man mano che se ne aggiungono.
 | 5 | Copertura per priorità a fasi giocabili | Ogni fase ha valore autonomo; l'abbandono a metà lascia comunque un risultato |
 | 6 | Prova encoding **prima** di ogni traduzione in volume | Il rischio più grave del progetto; costa ore, non settimane |
 | 7 | Base 2.31, non 2.32 | CGX non ha ancora rilasciato il port alla 2.32 |
+| 8 | Accenti in forma con apostrofo (`perche'`) | CP932 non contiene le vocali accentate e le cancella senza avviso; è l'unica strada affidabile |
+| 9 | Il dizionario conserva gli accenti veri, `applica.py` degrada in build | Tiene aperta la strada C senza ritraduzioni; converte in un punto solo e testabile |
