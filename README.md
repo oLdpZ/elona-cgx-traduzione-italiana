@@ -10,7 +10,7 @@ modificato.
 Stato: **design approvato (`SPEC.md`); Fase 0 eseguita per la parte automatizzabile.**
 
 Fatto: la catena `estrai → verifica → reimporta → applica` esiste, è sotto test
-(80 test verdi) ed è stata provata end-to-end sul sorgente vero — round-trip
+(83 test verdi) ed è stata provata end-to-end sul sorgente vero — round-trip
 CP932, CRLF conservati, manifesto di `sorgente/` intatto.
 
 Non ancora fatto, perché richiede la GUI del compilatore HSP o una prova in

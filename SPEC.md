@@ -6,7 +6,7 @@ dentro si cambiano modificando questo file, non improvvisando in sessione.
 Stato: **design approvato; Fase 0 eseguita per la parte automatizzabile.**
 
 Fatto: la catena `estrai → verifica → reimporta → applica` esiste, è sotto test
-(80 test verdi) ed è stata provata end-to-end sul sorgente vero, con round-trip
+(83 test verdi) ed è stata provata end-to-end sul sorgente vero, con round-trip
 CP932 e CRLF verificati e il manifesto di `sorgente/` intatto.
 
 Da fare, e non ancora fatto perché richiede la GUI del compilatore HSP o una
