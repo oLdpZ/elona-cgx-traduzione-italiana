@@ -237,6 +237,25 @@ corrispondenti. Applicata solo alle vocali accentate italiane; qualsiasi altro
 carattere non-ASCII che arrivi all'albero di build è un errore e va segnalato,
 non convertito.
 
+### Virgolette: `“ ”`, mai `"` e mai `«»`
+
+Una traduzione **statica** non può contenere la virgoletta dritta `"`: finirebbe
+dentro il letterale HSP e produrrebbe sorgente che non compila. Per le
+**dinamiche** invece è legittima, perché lì fa parte dell'espressione.
+
+Le caporali `«»`, che sarebbero lo standard tipografico italiano, **non esistono
+in CP932**. Verificato: in Python sollevano `UnicodeEncodeError`, in .NET
+diventano silenziosamente `≪≫`, i simboli matematici di molto-minore e
+molto-maggiore.
+
+Sopravvivono al round-trip CP932, verificate una per una: `“ ”` (U+201C/U+201D,
+byte `0x8167`/`0x8168`), `‘ ’` e `「 」`. Adottate le doppie tipografiche `“ ”`,
+che sono l'equivalente semantico diretto delle dritte.
+
+`verifica.py` blocca le statiche con virgolette dritte e il messaggio d'errore
+nomina l'alternativa: chi traduce migliaia di stringhe non deve indagare ogni
+volta.
+
 ---
 
 ## 5. Rischio secondario: l'accordo grammaticale
@@ -375,3 +394,5 @@ Registrate anche in `decisioni.md` man mano che se ne aggiungono.
 | 7 | Base 2.31, non 2.32 | CGX non ha ancora rilasciato il port alla 2.32 |
 | 8 | Accenti in forma con apostrofo (`perche'`) | CP932 non contiene le vocali accentate e le cancella senza avviso; è l'unica strada affidabile |
 | 9 | Il dizionario conserva gli accenti veri, `applica.py` degrada in build | Tiene aperta la strada C senza ritraduzioni; converte in un punto solo e testabile |
+| 10 | Virgolette `“ ”`, mai `"` nelle statiche, mai `«»` | `"` rompe il letterale HSP; `«»` non esiste in CP932 |
+| 11 | Controllo d'integrità del sorgente con manifesto SHA-256, non `git status` | Nel clone del sorgente `git status` è permanentemente sporco per l'asimmetria di iconv sul byte `0x8160` |
