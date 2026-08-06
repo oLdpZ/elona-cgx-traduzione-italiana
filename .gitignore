@@ -1,0 +1,10 @@
+# clone upstream CGX: ricreabile, non va versionato
+sorgente/
+
+# build prodotta
+dist/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
