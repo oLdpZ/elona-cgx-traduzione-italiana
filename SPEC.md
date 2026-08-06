@@ -197,9 +197,14 @@ Interrompere il progetto dopo una qualsiasi di esse lascia un risultato usabile.
 | Fase | Contenuto | Volume | Risultato |
 |---|---|---|---|
 | **0** | Prototipo tecnico | ~50 stringhe | Le tre prove passano, strada accenti decisa, posizione dei nomi oggetto individuata |
-| **1** | UI e messaggi — `text` `command` `action` `proc` `skill` `trait` | ~8.000 | Interfaccia e messaggistica in italiano |
-| **2** | Nomi — creature, oggetti, carte | ~9.000 | Gioco sostanzialmente italiano |
-| **3** | Dialoghi e testi lunghi — `chat.hsp` + `book/talk/board.txt` | ~5.000 + 250 KB | Copertura completa |
+| **1** | UI e messaggi — `text` `command` `action` `proc` `skill` `trait` | 7.937 | Interfaccia e messaggistica in italiano |
+| **2** | Nomi — `db_creature` `db_card`, più i nomi oggetto una volta localizzati | 8.095 + nomi oggetto | Gioco sostanzialmente italiano |
+| **3** | Dialoghi — `chat.hsp` | 4.828 | Conversazioni con NPC in italiano |
+| **4** | Coda — i restanti 60 file `.hsp` minori e i testi esterni | 5.957 + 250 KB | Copertura completa |
+
+Somma verificata: 7.937 + 8.095 + 4.828 + 5.957 = **26.817**, il totale delle
+`lang()` nel sorgente. I 250 KB di testi esterni (`book.txt`, `talk.txt`,
+`exhelp.txt`, `board.txt`) sono aggiuntivi e non passano da `lang()`.
 
 ### Fase 0 — il cancello
 
