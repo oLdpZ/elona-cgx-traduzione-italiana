@@ -156,6 +156,28 @@ def _letterali(argomento_grezzo: str) -> str:
     return "".join(pezzi)
 
 
+def virgola_nuda(argomento_grezzo: str) -> bool:
+    """Vero se l'argomento contiene una virgola di primo livello.
+
+    Una virgola cosi' e' un argomento in piu': `lang(jp, a, b)` ha tre
+    argomenti per il compilatore HSP, ma `_argomenti` legge `a, b` come
+    secondo argomento e non se ne accorge. Le virgole dentro una chiamata
+    annidata (`cdata(A, B)`) o dentro un letterale non contano.
+    """
+    stato = _dentro_stringa(argomento_grezzo)
+    profondita = 0
+    for indice, carattere in enumerate(argomento_grezzo):
+        if stato[indice]:
+            continue
+        if carattere == "(":
+            profondita += 1
+        elif carattere == ")":
+            profondita -= 1
+        elif carattere == "," and profondita == 0:
+            return True
+    return False
+
+
 def avvii(riga: str) -> list[int]:
     """Indici dei `lang(` della riga che stanno **fuori** da un letterale.
 

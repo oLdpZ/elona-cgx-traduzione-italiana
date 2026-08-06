@@ -1,5 +1,8 @@
-from strumenti.applica import applica_a_testo
-from strumenti.estrai import firma
+import pytest
+
+from strumenti import percorsi
+from strumenti.applica import SorgenteCorrotto, applica_a_testo
+from strumenti.estrai import estrai_da_testo, firma, siti, spezza_righe
 
 STATICA = '	txt lang("バックパックが一杯だ。", "Your inventory is full.")'
 
@@ -86,3 +89,125 @@ def test_due_lang_sulla_stessa_riga_con_lunghezze_diverse():
         '+ lang("jp2", "corta")'
     )
     assert testo == atteso
+
+
+# --- estrai e applica camminano sugli stessi siti (rilievo IMPORTANT 3) ------
+
+def test_scansione_condivisa_su_un_file_vero():
+    """estrai.py e applica.py non riscrivono piu' a mano la stessa scansione.
+
+    La coincidenza dev'essere strutturale, non frutto di disciplina: qui si
+    asserisce su un file reale che le voci estratte e i siti che applica.py
+    percorre sono gli stessi, nello stesso ordine, con gli stessi span.
+    """
+    percorso = percorsi.SORGENTE_HSP / "text.hsp"
+    if not percorso.exists():
+        pytest.skip("il clone del sorgente non e' disponibile")
+    testo = percorso.read_bytes().decode("cp932")
+
+    voci = estrai_da_testo("text.hsp", testo)
+    elenco = list(siti(testo))
+    assert len(voci) == len(elenco) > 2000
+
+    righe, _, _ = spezza_righe(testo)
+    for voce, sito in zip(voci, elenco):
+        numero_riga, chiave, occorrenza, jp, _, en, grezzo_en, inizio, fine = sito
+        assert (voce["riga"], voce["firma"], voce["occorrenza"]) == (numero_riga, chiave, occorrenza)
+        assert (voce["jp"], voce["en"], voce["en_grezzo"]) == (jp, en, grezzo_en)
+        # lo span e' quello che applica.py sostituisce: deve ritagliare
+        # esattamente il secondo argomento della riga reale
+        assert righe[numero_riga - 1][inizio:fine] == grezzo_en
+
+    # e applica.py, guidato dal dizionario completo, li tocca tutti
+    diz = {v["firma"]: dict(v, it="X") for v in voci}
+    _, sostituzioni = applica_a_testo("text.hsp", testo, diz)
+    assert sostituzioni == len(voci)
+
+
+def test_applica_consuma_tutte_le_firme_del_dizionario():
+    consumate = set()
+    diz = dizionario_con("バックパックが一杯だ。", "Your inventory is full.", "Zaino pieno.")
+    applica_a_testo("text.hsp", STATICA, diz, consumate)
+    assert consumate == set(diz)
+
+
+def test_le_firme_orfane_restano_fuori_dalle_consumate():
+    # SPEC 3.1: al riallineamento a una nuova versione CGX le firme sparite
+    # a monte sono la coda di ritraduzione, non voci da ignorare in silenzio.
+    consumate = set()
+    diz = dizionario_con("non", "esiste piu' a monte", "sparita")
+    applica_a_testo("text.hsp", STATICA, diz, consumate)
+    assert consumate == set()
+
+
+# --- post-condizione strutturale (rilievo IMPORTANT 4) ----------------------
+# Quattro classi di traduzione passano verifica.py e producono sorgente rotto.
+
+DINAMICA = (
+    '	txt lang(name(tc) + "を守った。", name(tc) + " guarded.")'
+)
+
+
+def dinamica_con(it):
+    return dizionario_con("を守った。", " guarded.", it, tipo="dinamica")
+
+
+def test_rifiuta_una_dinamica_con_virgoletta_non_chiusa():
+    with pytest.raises(SorgenteCorrotto, match="text.hsp:1"):
+        applica_a_testo("text.hsp", DINAMICA, dinamica_con('name(tc) + " ha protetto'))
+
+
+def test_rifiuta_una_dinamica_con_parentesi_non_chiusa():
+    with pytest.raises(SorgenteCorrotto, match="text.hsp:1"):
+        applica_a_testo("text.hsp", DINAMICA, dinamica_con('name(tc + " ha protetto."'))
+
+
+def test_rifiuta_una_dinamica_con_una_virgola_nuda():
+    # il caso senza segnale: virgolette pari, parentesi pari, riestrazione
+    # riuscita — ma lang() si ritrova a tre argomenti.
+    with pytest.raises(SorgenteCorrotto, match="tre argomenti"):
+        applica_a_testo("text.hsp", DINAMICA, dinamica_con('name(tc) + " ha protetto", x'))
+
+
+def test_rifiuta_una_statica_che_finisce_con_un_backslash():
+    # il backslash escapa la virgoletta di chiusura che applica.py aggiunge
+    diz = dizionario_con("バックパックが一杯だ。", "Your inventory is full.", "Zaino pieno.\\")
+    with pytest.raises(SorgenteCorrotto):
+        applica_a_testo("text.hsp", STATICA, diz)
+
+
+def test_l_errore_nomina_file_riga_e_firma():
+    chiave = firma("を守った。", " guarded.")
+    with pytest.raises(SorgenteCorrotto) as errore:
+        applica_a_testo("proc.hsp", "\r\n" + DINAMICA, dinamica_con('f( + "rotta'))
+    messaggio = str(errore.value)
+    assert "proc.hsp:2" in messaggio
+    assert chiave in messaggio
+
+
+def test_una_riga_gia_malformata_a_monte_non_e_colpa_nostra():
+    # una lang() malformata gia' nel sorgente non deve far fallire la
+    # sostituzione di una lang() sana sulla stessa riga
+    sorgente = '	txt lang("jp1", "en1") + lang("rotta"'
+    diz = dizionario_con("jp1", "en1", "tradotta")
+    testo, sostituzioni = applica_a_testo("text.hsp", sorgente, diz)
+    assert sostituzioni == 1
+    assert '"tradotta"' in testo
+
+
+# --- accessi coerenti (rilievo IMPORTANT 7) ---------------------------------
+
+def test_una_voce_senza_tipo_nomina_file_e_riga():
+    diz = dizionario_con("バックパックが一杯だ。", "Your inventory is full.", "Zaino pieno.")
+    for voce in diz.values():
+        del voce["tipo"]
+    with pytest.raises(ValueError, match="text.hsp:1.*tipo"):
+        applica_a_testo("text.hsp", STATICA, diz)
+
+
+def test_una_virgola_dentro_una_chiamata_annidata_e_legittima():
+    # cdata(CDATA_SEX, CHARA_PLAYER) e' un solo argomento, non due
+    espressione = 'name(tc) + " e\' " + _onii(cdata(CDATA_SEX, CHARA_PLAYER))'
+    testo, sostituzioni = applica_a_testo("text.hsp", DINAMICA, dinamica_con(espressione))
+    assert sostituzioni == 1
+    assert espressione in testo
