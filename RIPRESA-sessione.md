@@ -4,9 +4,10 @@ Aggiornato: 2026-08-06, seconda sessione.
 
 ## Dove siamo
 
-**Il cancello della Fase 0 è passato.** Il sorgente non modificato ricompila e
-l'eseguibile che ne esce si avvia. Resta da provare a mano una cosa sola di quel
-cancello: che carichi un salvataggio.
+**Il cancello della Fase 0 è passato per intero.** Il sorgente non modificato
+ricompila, l'eseguibile che ne esce si avvia e **carica un salvataggio
+esistente** — provato in gioco il 2026-08-06. Non è più una catena verificata: è
+un gioco verificato, e la Fase 1 può cominciare.
 
 - Branch `fase-0`, **106 test verdi**
 - [PR #1](https://github.com/oLdpZ/elona-cgx-traduzione-italiana/pull/1) aperta verso `master`, non ancora unita
@@ -51,8 +52,10 @@ sulla testa di `work`, tenuto solo per confronto. Si può cancellare.
 
 ## Il prossimo passo
 
-**Provare in gioco che l'eseguibile ricompilato carichi un salvataggio.** È
-l'ultimo pezzo manuale del cancello, e nessun codice lo può sostituire.
+**Decidere la firma delle dinamiche**, poi scrivere il piano della Fase 1. Il
+cancello non blocca più niente.
+
+Per rifare la prova in gioco quando serve:
 
 ```powershell
 python -m strumenti.compila --eseguibile
@@ -60,13 +63,11 @@ Copy-Item "C:\Games\Elona\_traduzione\build\2.05-custom-gx\elonapluscgx.exe" "C:
 Start-Process "C:\Games\Elona\elonaplus2.31\cgx-test.exe" -WorkingDirectory "C:\Games\Elona\elonaplus2.31"
 ```
 
-Il titolo mostrerà **2.31.1.0**, non 2.31.2.0: è la costante di versione che il
-tag non ha aggiornato al rilascio, non un errore di build. Il dettaglio è in
+Il titolo mostra **2.31.1.0**, non 2.31.2.0: è la costante di versione che il tag
+non ha aggiornato al rilascio, non un errore di build. Il dettaglio è in
 `decisioni.md`.
 
-Se un salvataggio esistente non si carica, il problema è il disallineamento fra
-l'exe ricompilato dal tag e i dati della 2.31.2.0 installata — e va risolto prima
-di tradurre, non dopo.
+Copia dei salvataggi di prima della prima prova: `C:\Games\Elona\save-backup\`.
 
 ## La decisione che ha una finestra, e si chiude
 

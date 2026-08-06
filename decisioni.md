@@ -65,9 +65,14 @@ improvvisata dentro una correzione.
 
 ## Il cancello è passato — 2026-08-06, seconda sessione
 
-Il sorgente non modificato **ricompila**, e l'eseguibile che ne esce si avvia dalla
-cartella del gioco. Da *catena verificata* a *catena più gioco che parte*. Resta
-da provare a mano il caricamento di un salvataggio.
+Il sorgente non modificato **ricompila**, l'eseguibile che ne esce si avvia dalla
+cartella del gioco e **carica un salvataggio esistente**, provato in gioco. Da
+*catena verificata* a *gioco verificato*: il salto che il progetto aspettava.
+
+Il caricamento del salvataggio chiude anche la questione aperta dal pin: l'exe
+ricompilato dal tag `2.31.2.0` e i dati della 2.31.2.0 installata sono
+compatibili, nonostante la costante di versione discordante. Il disallineamento
+è nominale, non sostanziale.
 
 ### La GUI non era un vincolo, era un'assunzione
 

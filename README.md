@@ -7,19 +7,19 @@ La traduzione è un **dizionario esterno** applicato a un clone pulito del
 sorgente CGX al momento della build. Il sorgente upstream non viene mai
 modificato.
 
-Stato: **design approvato (`SPEC.md`); il cancello della Fase 0 è passato.**
+Stato: **design approvato (`SPEC.md`); il cancello della Fase 0 è passato per intero.**
 
 Fatto: la catena `estrai → verifica → reimporta → applica` esiste, è sotto test
 (106 test verdi) ed è stata provata end-to-end sul sorgente vero — round-trip
 CP932, CRLF conservati, manifesto di `sorgente/` intatto. Il sorgente non
-modificato **ricompila** e l'eseguibile prodotto si avvia:
+modificato **ricompila, e l'eseguibile prodotto si avvia e carica un salvataggio
+esistente**:
 
 ```
 python -m strumenti.compila --cancello
 ```
 
-Non ancora fatto, perché richiede una prova in gioco: caricare un salvataggio con
-l'eseguibile ricompilato, `installa.py`, vedere le stringhe tradotte a schermo, e
+Non ancora fatto: `installa.py`, vedere le stringhe tradotte a schermo, e
 individuare dove risiedono i nomi degli oggetti.
 
 ## Struttura

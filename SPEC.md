@@ -3,15 +3,16 @@
 Design approvato il 2026-08-06. Questo documento è vincolante: le decisioni qui
 dentro si cambiano modificando questo file, non improvvisando in sessione.
 
-Stato: **design approvato; il cancello della Fase 0 è passato.**
+Stato: **design approvato; il cancello della Fase 0 è passato per intero.**
 
 Fatto: la catena `estrai → verifica → reimporta → applica` esiste, è sotto test
 (106 test verdi) ed è stata provata end-to-end sul sorgente vero, con round-trip
 CP932 e CRLF verificati e il manifesto di `sorgente/` intatto. **Il sorgente non
-modificato ricompila e l'eseguibile prodotto si avvia** (§6, prova 1), e la
-compilazione è automatica: `compila.py`, nessuna GUI.
+modificato ricompila, l'eseguibile prodotto si avvia e carica un salvataggio
+esistente** (§6, prova 1), e la compilazione è automatica: `compila.py`, nessuna
+GUI.
 
-Da fare, e non ancora fatto perché richiede una prova in gioco:
+Da fare:
 
 1. `installa.py`;
 2. vedere le ~50 stringhe tradotte a schermo in gioco, con l'accentata resa
@@ -363,11 +364,16 @@ Due prove. Nessuna traduzione in volume inizia prima che passino entrambe.
    riproducibile dall'originale, il resto è teoria. **È il vero cancello del
    progetto.**
 
-   **Passato il 2026-08-06**, e automatizzato: `python -m strumenti.compila
-   --cancello`. Il sorgente pinnato compila con `#No error detected.`, e l'exe
-   che ne esce (17.396.351 byte) si avvia dalla cartella del gioco. Il
-   caricamento di un salvataggio resta da provare a mano. Il manifesto è stato
-   verificato prima e dopo: 72 file su 72, nessuna scrittura nel sorgente.
+   **Passato per intero il 2026-08-06**, e automatizzato nella parte
+   automatizzabile: `python -m strumenti.compila --cancello`. Il sorgente pinnato
+   compila con `#No error detected.`, l'exe che ne esce (17.396.351 byte) si
+   avvia dalla cartella del gioco **e carica un salvataggio esistente** — provato
+   a mano, che è l'unico modo di provarlo. Il manifesto è stato verificato prima
+   e dopo: 72 file su 72, nessuna scrittura nel sorgente.
+
+   Da qui in avanti la base non è più teorica: è una build riproducibile
+   dall'originale, indistinguibile dal gioco installato per quel che riguarda i
+   dati salvati.
 2. **Il ciclo gira end-to-end?** ~50 stringhe scelte apposta (metà statiche, metà
    dinamiche, e almeno cinque con vocali accentate) attraverso `estrai → traduci
    → applica → compila → installa → verifica → visto a schermo`. Verifica anche
