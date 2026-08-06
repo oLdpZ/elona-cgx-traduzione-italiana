@@ -7,7 +7,17 @@ La traduzione è un **dizionario esterno** applicato a un clone pulito del
 sorgente CGX al momento della build. Il sorgente upstream non viene mai
 modificato.
 
-Stato: **design approvato (`SPEC.md`), Fase 0 non ancora eseguita.**
+Stato: **design approvato (`SPEC.md`); Fase 0 eseguita per la parte automatizzabile.**
+
+Fatto: la catena `estrai → verifica → reimporta → applica` esiste, è sotto test
+(80 test verdi) ed è stata provata end-to-end sul sorgente vero — round-trip
+CP932, CRLF conservati, manifesto di `sorgente/` intatto.
+
+Non ancora fatto, perché richiede la GUI del compilatore HSP o una prova in
+gioco: ricompilare l'eseguibile da sorgente non modificato (**il vero cancello
+del progetto**), `compila.py` e `installa.py`, vedere le stringhe tradotte a
+schermo, e individuare dove risiedono i nomi degli oggetti. Sono i task manuali
+1, 8, 9 e 10 del piano di Fase 0.
 
 ## Struttura
 

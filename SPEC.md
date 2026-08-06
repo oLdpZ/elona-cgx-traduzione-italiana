@@ -3,7 +3,21 @@
 Design approvato il 2026-08-06. Questo documento è vincolante: le decisioni qui
 dentro si cambiano modificando questo file, non improvvisando in sessione.
 
-Stato: **design approvato, Fase 0 non ancora eseguita.**
+Stato: **design approvato; Fase 0 eseguita per la parte automatizzabile.**
+
+Fatto: la catena `estrai → verifica → reimporta → applica` esiste, è sotto test
+(80 test verdi) ed è stata provata end-to-end sul sorgente vero, con round-trip
+CP932 e CRLF verificati e il manifesto di `sorgente/` intatto.
+
+Da fare, e non ancora fatto perché richiede la GUI del compilatore HSP o una
+prova in gioco — sono i task manuali 1, 8, 9 e 10 del piano di Fase 0:
+
+1. ricompilare l'eseguibile da sorgente non modificato e avviarlo (§6, prova 1:
+   **è il vero cancello del progetto** e non è ancora passato);
+2. `compila.py` e `installa.py`, che l'SDK HSP 3.4 richiede via GUI;
+3. vedere le ~50 stringhe tradotte a schermo in gioco, con l'accentata resa
+   `perche'` (§6, prova 2);
+4. individuare dove risiedono i nomi degli oggetti (§2, punto aperto).
 
 ---
 
@@ -35,38 +49,44 @@ port non è ancora rilasciato.
 
 | Collocazione | Volume | Note |
 |---|---|---|
-| Sorgente HSP (`2.05-custom-gx/*.hsp`, 72 file) | 26.817 occorrenze di `lang()`, di cui **26.423 traducibili** | Il grosso del gioco |
+| Sorgente HSP (`2.05-custom-gx/*.hsp`, 72 file) | 26.817 occorrenze di `lang()`, di cui **26.434 traducibili** | Il grosso del gioco |
 | File esterni in `data/` | ~250 KB | `book.txt` 115 KB, `talk.txt` 86 KB, `exhelp.txt` 17 KB, `board.txt` 15 KB |
 
-Le 394 occorrenze non traducibili hanno l'argomento inglese **vuoto di proposito**:
+Le 383 occorrenze non traducibili hanno l'argomento inglese **vuoto di proposito**:
 sono particelle giapponesi che in inglese non esistono, come `lang("層", "")`.
 
-Delle 26.423 traducibili, **22.727 sono statiche e 3.696 dinamiche** (contengono
-concatenazioni). Il 14% di stringhe dinamiche è la quota che richiede attenzione
+Delle 26.434 traducibili, **22.852 sono statiche e 3.582 dinamiche** (contengono
+concatenazioni). Il 13,5% di stringhe dinamiche è la quota che richiede attenzione
 grammaticale — vedi §5.
 
-**Il lavoro effettivo è però inferiore: 21.957 stringhe uniche.** Il 16,9% delle
+**Il lavoro effettivo è però inferiore: 21.965 stringhe uniche.** Il 16,9% delle
 occorrenze sono duplicati esatti — stessa coppia giapponese/inglese ripetuta più
 volte nello stesso file — e il dizionario è indicizzato per firma, quindi si
 traducono una volta sola e la traduzione si applica a tutte le occorrenze. Il
 campo `occorrenza` resta a fini diagnostici, non moltiplica il lavoro.
 
-Distribuzione sui file principali (occorrenze grezze → traducibili):
+Distribuzione sui file principali:
 
-| File | grezze | traducibili |
-|---|---|---|
-| `db_creature.hsp` | 5.755 | 5.751 |
-| `chat.hsp` | 4.828 | 4.818 |
-| `db_card.hsp` | 2.340 | 2.322 |
-| `text.hsp` | 2.152 | 2.146 |
-| `command.hsp` | 1.590 | 1.510 |
-| `action.hsp` | 1.502 | 1.502 |
-| `proc.hsp` | 1.370 | 1.359 |
-| `skill.hsp` | 917 | 898 |
-| `trait.hsp` | 406 | 406 |
+| File | grezze | traducibili | statiche | dinamiche |
+|---|---|---|---|---|
+| `db_creature.hsp` | 5.755 | 5.754 | 5.528 | 226 |
+| `chat.hsp` | 4.828 | 4.818 | 4.310 | 508 |
+| `db_card.hsp` | 2.340 | 2.322 | 2.322 | 0 |
+| `text.hsp` | 2.152 | 2.146 | 1.915 | 231 |
+| `command.hsp` | 1.590 | 1.510 | 1.274 | 236 |
+| `action.hsp` | 1.502 | 1.502 | 1.129 | 373 |
+| `proc.hsp` | 1.370 | 1.365 | 683 | 682 |
+| `skill.hsp` | 917 | 898 | 898 | 0 |
+| `trait.hsp` | 406 | 406 | 386 | 20 |
 
-Conteggi ottenuti eseguendo l'algoritmo di estrazione sul sorgente reale il
-2026-08-06, non stimati.
+Conteggi ottenuti eseguendo l'algoritmo di estrazione sul sorgente reale, non
+stimati. **Rimisurati il 2026-08-06 dopo la revisione finale della Fase 0**, che
+ha corretto due difetti del parser: la cecità all'escape `\"` (11 `lang()`
+scartate e 295 voci con l'inglese mutilato) e la ricerca del `+` anche dentro i
+letterali, che classificava dinamiche 163 stringhe statiche il cui testo contiene
+un `+` — `"Enchantment Bonus + 4"`, `"RES+ magic"`. Prima della correzione i
+totali erano 26.423 traducibili, 394 non traducibili e 22.727/3.696 fra statiche
+e dinamiche.
 
 **Forma delle stringhe.** Il sorgente usa ovunque la macro `lang(giapponese, inglese)`:
 
@@ -136,12 +156,20 @@ Motivazioni:
 
 ### 3.2 Chiave di identificazione della stringa
 
-`sha1(giapponese + "\x00" + inglese)`, con ambito **per-file** e contatore di
-occorrenza progressivo a disambiguare i duplicati esatti dentro lo stesso file.
+`sha1(giapponese + "\x00" + inglese)`, con ambito **per-file**. La chiave è la
+sola firma: `dizionario/<nome>.hsp.jsonl` è indicizzato per firma e basta.
 
 Il giapponese è la componente stabile: se a monte cambia solo la formulazione
 inglese, la firma si rompe **di proposito** e la stringa entra in coda di
 revisione invece di restare tradotta su un testo che non esiste più.
+
+**Il contatore `occorrenza` non entra nella chiave.** È diagnostico: dice quante
+volte quella coppia si era già vista nel file, serve a ordinare il dizionario e a
+orientarsi leggendo un lotto. I duplicati esatti **non si disambiguano**, perché
+non c'è niente da disambiguare: sono la stessa stringa, si traducono una volta
+sola e `applica.py` applica la traduzione a **tutte** le occorrenze. È quello che
+dice il §2 e quello che fa il codice. Una versione precedente di questo paragrafo
+affermava il contrario: era il documento a sbagliare, non il codice.
 
 ### 3.3 Dove finisce l'italiano
 
@@ -289,16 +317,18 @@ Interrompere il progetto dopo una qualsiasi di esse lascia un risultato usabile.
 | Fase | Contenuto | Occorrenze | **Da tradurre** | Risultato |
 |---|---|---|---|---|
 | **0** | Prototipo tecnico | ~50 | ~50 | Le due prove passano, posizione dei nomi oggetto individuata |
-| **1** | UI e messaggi — `text` `command` `action` `proc` `skill` `trait` | 7.821 | **6.728** | Interfaccia e messaggistica in italiano |
-| **2** | Nomi — `db_creature` `db_card`, più i nomi oggetto una volta localizzati | 8.073 | **5.973** + nomi oggetto | Gioco sostanzialmente italiano |
+| **1** | UI e messaggi — `text` `command` `action` `proc` `skill` `trait` | 7.827 | **6.731** | Interfaccia e messaggistica in italiano |
+| **2** | Nomi — `db_creature` `db_card`, più i nomi oggetto una volta localizzati | 8.076 | **5.976** + nomi oggetto | Gioco sostanzialmente italiano |
 | **3** | Dialoghi — `chat.hsp` | 4.818 | **4.381** | Conversazioni con NPC in italiano |
-| **4** | Coda — i restanti 60 file `.hsp` minori e i testi esterni | 5.711 | **4.875** + 250 KB | Copertura completa |
+| **4** | Coda — i restanti 60 file `.hsp` minori e i testi esterni | 5.713 | **4.877** + 250 KB | Copertura completa |
 
-Somma verificata: 6.728 + 5.973 + 4.381 + 4.875 = **21.957** stringhe uniche da
-tradurre, su 26.423 occorrenze. La colonna che conta per stimare il lavoro è
-"da tradurre": i duplicati si traducono una volta sola.
+Somma verificata: 6.731 + 5.976 + 4.381 + 4.877 = **21.965** stringhe uniche da
+tradurre, su 26.434 occorrenze. La colonna che conta per stimare il lavoro è
+"da tradurre": i duplicati si traducono una volta sola. L'unicità è **per file**,
+coerentemente con l'ambito della firma (§3.2): la stessa stringa presente in due
+file diversi si traduce due volte.
 
-La Fase 2 è quella che ci guadagna di più — 8.073 occorrenze per 5.973 stringhe,
+La Fase 2 è quella che ci guadagna di più — 8.076 occorrenze per 5.976 stringhe,
 il 26% in meno — perché i database di creature e carte ripetono molte formule
 identiche.
 
@@ -344,6 +374,14 @@ In parallelo: individuare dove risiedono i nomi degli oggetti (§2, punto aperto
 - una stringa di interfaccia supera la larghezza massima del suo riquadro;
 - l'eseguibile non compila.
 
+`applica.py` inoltre **conta e stampa le voci di dizionario non consumate**, per
+file: sono le firme che non esistono più nel sorgente. Al riallineamento a una
+nuova versione CGX (§3.1) sono la coda di ritraduzione, e sparire in silenzio
+significherebbe tornare in inglese a macchia di leopardo senza accorgersene. Il
+modo completo `verifica --dizionario`, che le classificherebbe in *cambiate a
+monte* e *sparite*, entra nel piano della Fase 1.
+
+
 ---
 
 ## 8. Strumenti
@@ -388,6 +426,10 @@ Registrate anche in `decisioni.md` man mano che se ne aggiungono.
 | 1 | Dizionario esterno, non fork del sorgente | Riallineamento senza conflitti a ogni release CGX; pubblicabilità; coerenza con Elin |
 | 2 | Chiave = `sha1(jp + \0 + en)` per-file | Il giapponese è stabile; una modifica dell'inglese a monte deve rompere la firma di proposito |
 | 3 | L'italiano sostituisce l'argomento inglese di `lang()` | Nessuna modifica alla macro né ai 26.817 siti di chiamata |
+| 12 | La chiave è la sola firma; `occorrenza` è diagnostica | I duplicati esatti sono la stessa stringa: si traducono una volta e la traduzione vale per tutte le occorrenze |
+| 13 | Il parser onora l'escape `\"` e cerca il `+` fuori dai letterali | Ignorarli scartava 11 `lang()`, produceva span che cancellavano codice dal sorgente e classificava dinamiche 163 statiche, facendo finire l'italiano nudo nel sorgente HSP |
+| 14 | `applica.py` rilegge ogni riga che ha modificato | Quattro classi di traduzione passano `verifica.py` e producono sorgente rotto; una di esse — la virgola nuda — non dà alcun altro segnale |
+| 15 | La scansione del sorgente è una sola, in `estrai.siti()` | Estrazione e applicazione devono percorrere gli stessi siti per costruzione, non per disciplina |
 | 4 | Traduzione dall'inglese, non dal giapponese | È la versione mantenuta da CGX |
 | 5 | Copertura per priorità a fasi giocabili | Ogni fase ha valore autonomo; l'abbandono a metà lascia comunque un risultato |
 | 6 | Prova encoding **prima** di ogni traduzione in volume | Il rischio più grave del progetto; costa ore, non settimane |

@@ -625,7 +625,11 @@ Atteso: 10 passed.
 python -m strumenti.estrai text.hsp --uscita lavoro\controllo-text.jsonl
 ```
 
-Atteso: **2146 voci** — di cui 1909 statiche e 237 dinamiche.
+Atteso: **2146 voci** — di cui **1915 statiche e 231 dinamiche**.
+
+(La ripartizione era 1909/237 prima della revisione finale della Fase 0: sei
+stringhe statiche il cui testo contiene un `+` — `"Enchantment Bonus + 4"` e
+simili — risultavano dinamiche. Vedi `SPEC.md` §2. Il totale non cambia.)
 
 `text.hsp` contiene 2152 occorrenze di `lang(`, ma 6 hanno l'inglese **vuoto di
 proposito**: sono particelle giapponesi che in inglese non esistono, come
@@ -1552,7 +1556,7 @@ La fase è conclusa quando tutte queste affermazioni sono vere:
 
 - [ ] L'eseguibile si ricompila da sorgente **non modificato** e si avvia (Task 1)
 - [ ] `python -m pytest strumenti/tests -v` passa interamente
-- [ ] `strumenti.estrai text.hsp` conta esattamente **2146** voci (1909 statiche, 237 dinamiche)
+- [ ] `strumenti.estrai text.hsp` conta esattamente **2146** voci (**1915** statiche, **231** dinamiche)
 - [ ] 50 stringhe sono nel dizionario e `verifica.py` non segnala nulla
 - [ ] Il manifesto di hash di `sorgente/` combacia dopo una build completa (**non** `git status`: nel clone del sorgente è permanentemente sporco, vedi `SPEC.md` §2)
 - [ ] Le 50 stringhe si vedono in italiano in gioco, e una accentata appare come `perche'`
