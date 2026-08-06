@@ -1,5 +1,7 @@
 # strumenti/tests/test_estrai.py
-from strumenti.estrai import estrai_da_testo, firma, e_dinamica
+from strumenti.estrai import (
+    _argomenti, _letterali, avvii, e_dinamica, estrai_da_testo, firma, siti, spezza_righe,
+)
 
 STATICA = '#define global txt_invfull txt lang("バックパックが一杯だ。", "Your inventory is full.")'
 DINAMICA = '#define global txt_guard txt lang(name(tc) + "は" + name(x) + "をかばった！", name(tc) + " guarded " + name(x) + ".")'
@@ -75,3 +77,82 @@ def test_ignora_le_stringhe_con_inglese_vuoto():
     # particelle giapponesi che in inglese non esistono: niente da tradurre.
     # In text.hsp sono 6 casi reali, es. lang("層", "")
     assert estrai_da_testo("text.hsp", 'buff += lang("残り", "")') == []
+
+
+# --- escape \" nei letterali (revisione finale, rilievo CRITICAL 1) -----------
+# Nel sorgente HSP \" e' una virgoletta dentro un letterale. Il parser che
+# faceva toggle su ogni virgoletta scartava 11 lang(), sbagliava 5 span e
+# mutilava 295 voci. La riga qui sotto e' db_creature.hsp:50728, ridotta.
+
+RIGA_CON_ESCAPE = (
+    '\t\t\ttxt lang("「なに？", "\\"Oh, my ") + _onii(cdata(CDATA_SEX, CHARA_PLAYER))'
+    ' + lang("さんも味わいたいの？」", " want to taste it too?\\"")'
+)
+
+
+def test_l_escape_non_chiude_il_letterale():
+    voci = estrai_da_testo("db_creature.hsp", RIGA_CON_ESCAPE)
+    assert [v["en"] for v in voci] == ['\\"Oh, my ', ' want to taste it too?\\"']
+
+
+def test_lo_span_non_inghiotte_il_codice_fra_due_lang():
+    # il difetto grave: lo span del secondo argomento arrivava fino alla
+    # virgoletta successiva, e applica.py sostituendolo faceva sparire dal
+    # sorgente sia _onii(...) sia l'intera coppia lang() seguente.
+    elenco = list(siti(RIGA_CON_ESCAPE))
+    assert len(elenco) == 2
+    _, _, _, _, _, _, grezzo_en, inizio, fine = elenco[0]
+    assert RIGA_CON_ESCAPE[inizio:fine] == grezzo_en
+    assert "_onii" not in grezzo_en
+    assert "lang(" not in grezzo_en
+
+
+def test_un_lang_dentro_un_letterale_non_e_un_sito():
+    # 'lang(' che compare dentro una stringa e' testo, non codice
+    riga = 'txt lang("説明: lang(a, b) と書く", "write lang(a, b) here")'
+    assert len(avvii(riga)) == 1
+    voci = estrai_da_testo("text.hsp", riga)
+    assert len(voci) == 1
+    assert voci[0]["en"] == "write lang(a, b) here"
+
+
+def test_letterali_onora_gli_escape():
+    assert _letterali('"say \\"hi\\" now"') == 'say \\"hi\\" now'
+    assert _letterali('"a" + f() + "b"') == "ab"
+    # il backslash raddoppiato non si mangia la virgoletta di chiusura
+    assert _letterali('"finisce con \\\\" + x') == "finisce con \\\\"
+
+
+def test_argomenti_non_si_ferma_su_una_parentesi_dentro_un_letterale():
+    riga = 'lang("jp)", "en)")'
+    assert _argomenti(riga, 4) == ('"jp)"', '"en)"', 12, 17)
+    assert riga[12:17] == '"en)"'
+
+
+# --- il + va cercato fuori dai letterali (rilievo CRITICAL 2) ----------------
+
+def test_un_piu_dentro_il_testo_non_rende_dinamica_la_stringa():
+    # 163 stringhe reali contengono un + nel testo. Classificarle dinamiche
+    # fa finire l'italiano nudo, senza virgolette, nel sorgente HSP.
+    assert e_dinamica('"Enchantment Bonus + 4"') is False
+    assert e_dinamica('"RES+ magic"') is False
+    voce = estrai_da_testo("trait.hsp", 'txt lang("jp", "Enchantment Bonus + 4")')[0]
+    assert voce["tipo"] == "statica"
+
+
+def test_un_piu_di_concatenazione_resta_dinamico():
+    assert e_dinamica('"Bonus + " + str(n)') is True
+    assert e_dinamica('name(tc) + " guarded " + name(x) + "."') is True
+
+
+# --- fine riga: split() sul terminatore, mai splitlines() -------------------
+
+def test_le_righe_si_spezzano_solo_sul_terminatore_effettivo():
+    # \x0c e U+2028 sono fine riga per splitlines() ma non per il file:
+    # spezzarli sfalserebbe i numeri di riga rispetto al sorgente reale.
+    testo = 'a = lang("jp", "en1")\x0c ancora\r\nb = lang("jp2", "en2")\r\n'
+    righe, fine_riga, coda = spezza_righe(testo)
+    assert fine_riga == "\r\n"
+    assert coda is True
+    assert len(righe) == 2
+    assert [v["riga"] for v in estrai_da_testo("text.hsp", testo)] == [1, 2]
