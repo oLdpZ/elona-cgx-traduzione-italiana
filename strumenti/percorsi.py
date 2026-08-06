@@ -12,7 +12,9 @@ HSP = RADICE_LAVORO / "hsp34"
 
 GIOCO = Path(os.environ.get("ELONA_IT_GIOCO", r"C:\Games\Elona\elonaplus2.31"))
 
-DIZIONARIO = PROGETTO / "dizionario"
+# ridefinibile perche' altrimenti ogni prova d'integrazione scriverebbe nel
+# dizionario vero del vault, che e' la sorgente di verita' del progetto
+DIZIONARIO = Path(os.environ.get("ELONA_IT_DIZIONARIO", PROGETTO / "dizionario"))
 LAVORO_LOTTI = PROGETTO / "lavoro"
 
 # sottocartella del sorgente che contiene gli .hsp

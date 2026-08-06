@@ -80,3 +80,22 @@ def test_controlla_lotto_indicizza_per_firma():
     esito = controlla_lotto([voce(firma="uno", it=""), voce(firma="due", it="Zaino pieno.")])
     assert "uno" in esito
     assert "due" not in esito
+
+
+# --- accessi coerenti (rilievo IMPORTANT 7) ---------------------------------
+
+def test_una_voce_senza_tipo_non_solleva_un_keyerror_nudo():
+    # un dizionario ritoccato a mano non deve far esplodere la validazione
+    # di un lotto intero con un KeyError senza contesto
+    problemi = controlla_voce({"file": "text.hsp", "riga": 42, "en": "Yes", "it": "Sì"})
+    assert problemi
+    assert "text.hsp:42" in problemi[0]
+    assert "tipo" in problemi[0]
+
+
+def test_un_tipo_non_valido_viene_segnalato_con_file_e_riga():
+    problemi = controlla_voce({
+        "file": "proc.hsp", "riga": 7, "tipo": "boh",
+        "en": "Yes", "en_grezzo": '"Yes"', "it": "Sì",
+    })
+    assert problemi and "proc.hsp:7" in problemi[0] and "boh" in problemi[0]

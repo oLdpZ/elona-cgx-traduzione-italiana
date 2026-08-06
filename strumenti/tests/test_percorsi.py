@@ -28,3 +28,14 @@ def test_la_radice_di_lavoro_si_puo_ridefinire(monkeypatch):
     assert ricaricato.SORGENTE == Path(r"D:\altrove\sorgente")
     monkeypatch.delenv("ELONA_IT_LAVORO")
     importlib.reload(percorsi)
+
+
+def test_il_dizionario_si_puo_ridefinire(monkeypatch, tmp_path):
+    # senza questa variabile ogni prova d'integrazione scriverebbe nel
+    # dizionario vero del vault
+    monkeypatch.setenv("ELONA_IT_DIZIONARIO", str(tmp_path / "diz"))
+    import importlib
+    ricaricato = importlib.reload(percorsi)
+    assert ricaricato.DIZIONARIO == tmp_path / "diz"
+    monkeypatch.delenv("ELONA_IT_DIZIONARIO")
+    importlib.reload(percorsi)

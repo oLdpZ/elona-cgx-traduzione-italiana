@@ -14,17 +14,40 @@ def _chiamate(testo: str) -> list[str]:
     return sorted(_CHIAMATE.findall(testo))
 
 
+_RICHIESTI = ("tipo", "en", "en_grezzo")
+
+
+def _dove(voce: dict) -> str:
+    """`file:riga` per un messaggio d'errore che si possa seguire."""
+    return f"{voce.get('file', '?')}:{voce.get('riga', '?')}"
+
+
 def controlla_voce(voce: dict) -> list[str]:
-    """Ritorna la lista dei problemi. Lista vuota significa voce pulita."""
+    """Ritorna la lista dei problemi. Lista vuota significa voce pulita.
+
+    L'accesso ai campi e' coerente e difensivo: un dizionario ritoccato a mano
+    con un campo mancante produce un problema che nomina file e riga, non un
+    `KeyError` nudo a meta' della validazione di un lotto.
+    """
     problemi: list[str] = []
     italiano = voce.get("it", "")
+
+    mancanti = [nome for nome in _RICHIESTI if nome not in voce]
+    if mancanti:
+        problemi.append(f"{_dove(voce)}: campi mancanti nella voce: {', '.join(mancanti)}")
+        return problemi
+
+    tipo = voce["tipo"]
+    if tipo not in ("statica", "dinamica"):
+        problemi.append(f"{_dove(voce)}: tipo {tipo!r} non valido, attesi 'statica' o 'dinamica'")
+        return problemi
 
     if not italiano.strip():
         problemi.append("traduzione vuota")
         return problemi
 
     # per le dinamiche il termine di paragone e' l'espressione intera
-    originale = voce["en_grezzo"] if voce["tipo"] == "dinamica" else voce["en"]
+    originale = voce["en_grezzo"] if tipo == "dinamica" else voce["en"]
     if italiano == originale:
         problemi.append("traduzione identica all'inglese")
 
@@ -40,7 +63,7 @@ def controlla_voce(voce: dict) -> list[str]:
     # Per le dinamiche invece l'italiano e' gia' un'espressione HSP intera
     # (es. name(tc) + " ha protetto " + name(x) + "."), dove le virgolette
     # doppie sono legittime e necessarie: la regola non si applica li'.
-    if voce["tipo"] != "dinamica" and '"' in italiano:
+    if tipo != "dinamica" and '"' in italiano:
         problemi.append(
             'le traduzioni statiche non possono contenere il carattere " '
             "perche' romperebbe la stringa HSP generata da applica.py "
@@ -58,7 +81,7 @@ def controlla_voce(voce: dict) -> list[str]:
     if residui:
         problemi.append(f"caratteri che CP932 cancellerebbe: {residui}")
 
-    if voce["tipo"] == "dinamica":
+    if tipo == "dinamica":
         attese = _chiamate(voce["en_grezzo"])
         trovate = _chiamate(italiano)
         if attese != trovate:
@@ -73,7 +96,7 @@ def controlla_lotto(voci: list[dict]) -> dict[str, list[str]]:
     for voce in voci:
         problemi = controlla_voce(voce)
         if problemi:
-            esito[voce["firma"]] = problemi
+            esito[voce.get("firma", _dove(voce))] = problemi
     return esito
 
 
