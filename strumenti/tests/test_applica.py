@@ -243,14 +243,40 @@ def test_una_virgola_dentro_una_chiamata_annidata_e_legittima():
 # Non erano nell'elenco della revisione: li ha scoperti l'applicazione di un
 # dizionario identita' su tutti e 72 i file, che deve riprodurli byte per byte.
 
-def test_rifiuta_una_statica_avvolta_in_una_chiamata():
-    # cnvtalk("...") non ha un + di primo livello, quindi e' classificata
-    # statica; sostituire l'intero span con un letterale farebbe sparire
-    # cnvtalk dal sorgente. 3.499 occorrenze reali.
-    sorgente = '	txt lang("「うにーっ！」", cnvtalk("Urchinn!"))'
-    diz = dizionario_con("「うにーっ！」", "Urchinn!", "Ricciooo!")
-    with pytest.raises(SorgenteCorrotto, match="letterale nudo"):
-        applica_a_testo("action.hsp", sorgente, diz)
+def test_sostituisce_dentro_cnvtalk_conservando_l_involucro():
+    sorgente = '\ttxt lang("「うにーっ！」", cnvtalk("Urchinn!"))'
+    diz = dizionario_con("「うにーっ！」", "Urchinn!", "Ricciooo!",
+                         en_grezzo='cnvtalk("Urchinn!")')
+    testo, sostituzioni = applica_a_testo("action.hsp", sorgente, diz)
+    assert sostituzioni == 1
+    assert 'cnvtalk("Ricciooo!")' in testo
+    assert "Urchinn!" not in testo
+
+
+def test_sostituisce_dentro_cnven():
+    sorgente = '\ttxt lang("jp", cnven("Hello."))'
+    diz = dizionario_con("jp", "Hello.", "Ciao.", en_grezzo='cnven("Hello.")')
+    testo, _ = applica_a_testo("chat.hsp", sorgente, diz)
+    assert 'cnven("Ciao.")' in testo
+
+
+def test_la_stessa_voce_serve_il_sito_nudo_e_quello_avvolto():
+    # l'involucro si prende dal sito, non dal dizionario: e' il caso delle 3
+    # firme ambigue di db_creature.hsp
+    sorgente = '\ttxt lang("jp", "Ciao.")\r\n\ttxt lang("jp", cnvtalk("Ciao."))'
+    diz = dizionario_con("jp", "Ciao.", "Salve.")
+    testo, sostituzioni = applica_a_testo("db_creature.hsp", sorgente, diz)
+    assert sostituzioni == 2
+    assert '"Salve."' in testo
+    assert 'cnvtalk("Salve.")' in testo
+
+
+def test_un_involucro_sconosciuto_viene_ancora_rifiutato():
+    # la famiglia e' chiusa: due forme. Una terza va vista, non indovinata
+    sorgente = '\ttxt lang("jp", qualcosaDiNuovo("Hello."))'
+    diz = dizionario_con("jp", "Hello.", "Ciao.", en_grezzo='qualcosaDiNuovo("Hello.")')
+    with pytest.raises(SorgenteCorrotto, match="involucro non riconosciuto"):
+        applica_a_testo("chat.hsp", sorgente, diz)
 
 
 def test_una_statica_con_letterale_nudo_passa_normalmente():

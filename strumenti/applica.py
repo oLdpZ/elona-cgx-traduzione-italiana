@@ -9,6 +9,7 @@ per costruzione (vedi il test `test_scansione_condivisa`).
 """
 import argparse
 import json
+import re
 import shutil
 
 from strumenti import percorsi
@@ -19,6 +20,35 @@ from strumenti.estrai import (_argomenti, avvii, normalizza_espressione, siti,
 
 class SorgenteCorrotto(ValueError):
     """Una sostituzione ha prodotto una riga che non si rilegge come l'originale."""
+
+
+# Gli involucri sono due, misurati sul sorgente pinnato: cnvtalk 3.390,
+# cnven 76. Non e' una famiglia aperta, ed e' giusto che un terzo involucro
+# faccia fermare la catena invece di essere gestito per analogia.
+INVOLUCRI = frozenset({"cnvtalk", "cnven"})
+
+_AVVOLTA = re.compile(r'^\s*([A-Za-z_][A-Za-z0-9_]*)\s*\(\s*(".*")\s*\)\s*$', re.DOTALL)
+
+
+def riscrivi_statica(grezzo_en: str, italiano: str) -> str | None:
+    """L'HSP da mettere al posto di `grezzo_en`, con l'italiano al posto dell'inglese.
+
+    L'involucro si prende **dal sito**, non dalla voce di dizionario: cosi' la
+    stessa traduzione serve sia `"Ciao."` sia `cnvtalk("Ciao.")`, che nel
+    sorgente convivono e condividono la firma.
+
+    `None` se la forma non e' riconosciuta: il chiamante rifiuta.
+    """
+    letterale = '"' + italiano + '"'
+    trovato = _AVVOLTA.match(grezzo_en)
+    if trovato:
+        return f"{trovato.group(1)}({letterale})" if trovato.group(1) in INVOLUCRI else None
+    # una statica senza involucro e' per definizione un letterale nudo: non ha
+    # un `+` di primo livello, altrimenti sarebbe classificata dinamica
+    nudo = grezzo_en.strip()
+    if nudo.startswith('"') and nudo.endswith('"') and len(nudo) >= 2:
+        return letterale
+    return None
 
 
 def _profilo(riga: str) -> list[tuple[str | None, tuple[int, int] | None]]:
@@ -130,7 +160,7 @@ def applica_a_testo(nome_file: str, testo: str, dizionario: dict,
         chiavi: dict[int, str] = {}
 
         for sito in elenco:
-            _, chiave, _, _, _, inglese, grezzo_en, inizio_en, fine_en = sito
+            _, chiave, _, _, _, _, grezzo_en, inizio_en, fine_en = sito
 
             voce = dizionario.get(chiave)
             if voce is None or not voce.get("it"):
@@ -146,20 +176,19 @@ def applica_a_testo(nome_file: str, testo: str, dizionario: dict,
                 )
 
             # Una statica il cui argomento inglese non e' un letterale nudo e'
-            # avvolta in una chiamata: cnvtalk("..."), _(...). Sostituire l'intero
-            # span con un letterale FAREBBE SPARIRE la chiamata dal sorgente.
-            # Sono 3.499 occorrenze reali (2.726 in db_creature.hsp, 425 in file
-            # di Fase 1). Finche' la sostituzione dentro l'involucro non e'
-            # implementata, si rifiuta a voce alta invece di corrompere in
-            # silenzio. Vedi il rapporto della revisione finale.
-            if tipo == "statica" and grezzo_en != '"' + inglese + '"':
-                raise SorgenteCorrotto(
-                    f"{nome_file}:{numero_riga} firma {chiave}: l'argomento inglese "
-                    f"{grezzo_en!r} non e' un letterale nudo ma una chiamata che lo "
-                    "avvolge; sostituirlo la farebbe sparire dal sorgente. La "
-                    "sostituzione dentro l'involucro non e' ancora implementata: "
-                    "togli questa voce dal dizionario."
-                )
+            # avvolta in una chiamata: cnvtalk("..."), cnven("..."). L'involucro
+            # si prende dal sito (vedi riscrivi_statica), non dalla voce di
+            # dizionario: cosi' la stessa voce serve sia il sito nudo sia
+            # quello avvolto.
+            if tipo == "statica":
+                nuovo = riscrivi_statica(grezzo_en, degrada(voce["it"]))
+                if nuovo is None:
+                    raise SorgenteCorrotto(
+                        f"{nome_file}:{numero_riga} firma {chiave}: involucro non "
+                        f"riconosciuto in {grezzo_en!r}. Gli involucri gestiti sono "
+                        f"{sorted(INVOLUCRI)}: se il sorgente ne ha introdotto un "
+                        "altro va guardato, non gestito per analogia."
+                    )
 
             # Da quando l'espressione entra nella firma (SPEC 3.2) due espressioni
             # diverse non condividono piu' la chiave, quindi sul sorgente questo
@@ -181,8 +210,6 @@ def applica_a_testo(nome_file: str, testo: str, dizionario: dict,
             if tipo == "dinamica":
                 # per le dinamiche l'italiano e' gia' un'espressione HSP completa
                 nuovo = degrada(voce["it"])
-            else:
-                nuovo = '"' + degrada(voce["it"]) + '"'
 
             pezzi.append(riga[cursore:inizio_en])
             pezzi.append(nuovo)

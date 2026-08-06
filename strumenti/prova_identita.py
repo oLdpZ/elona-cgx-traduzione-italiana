@@ -11,11 +11,13 @@ Qui e' un comando:
 
     python -m strumenti.prova_identita
 
-Due classi di voci sono **escluse per costruzione**, non per comodita': sono
-esattamente quelle che `applica.py` rifiuta con un errore esplicito — statiche
-avvolte in una chiamata, e firme a cui il sorgente associa piu' di una
-espressione. Includerle farebbe fallire la prova sul rifiuto invece che sulla
-corruzione, che e' il contrario di quello che deve misurare.
+Una classe di voci resta **esclusa per costruzione**, non per comodita': le
+firme a cui il sorgente associa piu' di un'espressione (le dinamiche con
+variabili diverse dietro la stessa firma). Includerle farebbe fallire la
+prova sul rifiuto invece che sulla corruzione, che e' il contrario di quello
+che deve misurare. Le statiche avvolte in `cnvtalk(`/`cnven(` non sono piu'
+escluse: l'involucro si prende dal sito, quindi si sostituiscono come le
+altre.
 
 I conteggi vengono stampati apposta. Se calano senza che nessuno abbia
 implementato niente, la prova sta misurando meno di prima e nessun test lo
@@ -36,7 +38,6 @@ class Esito:
     file_provati: int = 0
     file_identici: int = 0
     sostituzioni: int = 0
-    esclusi_avvolti: int = 0
     esclusi_ambigui: int = 0
     difformi: list[str] = field(default_factory=list)
 
@@ -45,32 +46,28 @@ class Esito:
         return self.file_provati > 0 and not self.difformi
 
 
-def dizionario_identita(nome_file: str, testo: str) -> tuple[dict, int, int]:
+def dizionario_identita(nome_file: str, testo: str) -> tuple[dict, int]:
     """Ogni stringa tradotta in se' stessa, meno le voci che `applica` rifiuta."""
     voci = estrai_da_testo(nome_file, testo)
 
     # Una firma che compare con espressioni diverse non ha una sostituzione sola.
-    # Da quando l'espressione entra nella chiave (SPEC 3.2) le dinamiche non
-    # collidono piu': quel che resta e' la stessa statica presente sia nuda sia
-    # avvolta in `cnvtalk(`, che condivide la chiave perche' per le statiche
-    # l'involucro non vi entra. Sparira' quando la sostituzione dentro
-    # l'involucro sara' implementata; fino ad allora e' giusto escluderla.
-    # Il confronto e' sulla forma normalizzata, la stessa che entra nella chiave.
+    # Per le statiche l'involucro non entra nella firma per progetto, e non deve
+    # entrare neppure qui: `applica.py` lo prende dal sito, quindi lo stesso
+    # inglese nudo o avvolto in cnvtalk( e' la stessa identita', non una
+    # collisione. Il confronto vero e' sul testo inglese estratto (`en`), non
+    # sull'espressione grezza che include l'involucro. Per le dinamiche resta
+    # l'espressione grezza normalizzata: li' le variabili contano.
     espressioni = defaultdict(set)
     for voce in voci:
-        espressioni[voce["firma"]].add(normalizza_espressione(voce["en_grezzo"]))
+        confronto = voce["en"] if voce["tipo"] == "statica" else voce["en_grezzo"]
+        espressioni[voce["firma"]].add(normalizza_espressione(confronto))
     ambigue = {f for f, e in espressioni.items() if len(e) > 1}
 
     dizionario: dict[str, dict] = {}
-    avvolti = 0
     for voce in voci:
         if voce["firma"] in ambigue:
             continue
         if voce["tipo"] == "statica":
-            # caso 3: l'inglese non e' un letterale nudo ma una chiamata che lo avvolge
-            if voce["en_grezzo"] != '"' + voce["en"] + '"':
-                avvolti += 1
-                continue
             identita = voce["en"]
         else:
             # per le dinamiche si sostituisce l'espressione intera
@@ -78,7 +75,7 @@ def dizionario_identita(nome_file: str, testo: str) -> tuple[dict, int, int]:
         dizionario[voce["firma"]] = {**voce, "it": identita}
 
     scartati_ambigui = sum(1 for v in voci if v["firma"] in ambigue)
-    return dizionario, avvolti, scartati_ambigui
+    return dizionario, scartati_ambigui
 
 
 def prova(radice: Path | None = None) -> Esito:
@@ -87,12 +84,11 @@ def prova(radice: Path | None = None) -> Esito:
     for percorso in sorted(radice.glob("*.hsp")):
         grezzo = percorso.read_bytes()
         testo = grezzo.decode("cp932")
-        dizionario, avvolti, ambigue = dizionario_identita(percorso.name, testo)
+        dizionario, ambigue = dizionario_identita(percorso.name, testo)
         nuovo, sostituzioni = applica_a_testo(percorso.name, testo, dizionario)
 
         esito.file_provati += 1
         esito.sostituzioni += sostituzioni
-        esito.esclusi_avvolti += avvolti
         esito.esclusi_ambigui += ambigue
         if nuovo.encode("cp932") == grezzo:
             esito.file_identici += 1
@@ -110,7 +106,6 @@ def main(argv: list[str] | None = None) -> int:
     esito = prova(argomenti.radice)
     print(f"file riprodotti byte per byte : {esito.file_identici}/{esito.file_provati}")
     print(f"sostituzioni eseguite         : {esito.sostituzioni}")
-    print(f"escluse, statiche avvolte     : {esito.esclusi_avvolti}")
     print(f"escluse, firme ambigue        : {esito.esclusi_ambigui}")
     if esito.difformi:
         print("\nFILE DIFFORMI — la catena corrompe il sorgente:")
