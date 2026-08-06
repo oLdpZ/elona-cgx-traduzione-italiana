@@ -1,23 +1,26 @@
 # Elona+ Custom-GX — Traduzione Italiana
 
-Traduzione italiana di **Elona+ Custom-GX 2.31.2.0**, installato in
-`C:\Games\Elona\elonaplus2.31\`.
+Traduzione italiana di **Elona+ Custom-GX**, sorgente pinnato al tag `2.31.2.0`,
+gioco di riferimento installato in `C:\Games\Elona\elonaplus2.31\`.
 
 La traduzione è un **dizionario esterno** applicato a un clone pulito del
 sorgente CGX al momento della build. Il sorgente upstream non viene mai
 modificato.
 
-Stato: **design approvato (`SPEC.md`); Fase 0 eseguita per la parte automatizzabile.**
+Stato: **design approvato (`SPEC.md`); il cancello della Fase 0 è passato.**
 
 Fatto: la catena `estrai → verifica → reimporta → applica` esiste, è sotto test
-(83 test verdi) ed è stata provata end-to-end sul sorgente vero — round-trip
-CP932, CRLF conservati, manifesto di `sorgente/` intatto.
+(106 test verdi) ed è stata provata end-to-end sul sorgente vero — round-trip
+CP932, CRLF conservati, manifesto di `sorgente/` intatto. Il sorgente non
+modificato **ricompila** e l'eseguibile prodotto si avvia:
 
-Non ancora fatto, perché richiede la GUI del compilatore HSP o una prova in
-gioco: ricompilare l'eseguibile da sorgente non modificato (**il vero cancello
-del progetto**), `compila.py` e `installa.py`, vedere le stringhe tradotte a
-schermo, e individuare dove risiedono i nomi degli oggetti. Sono i task manuali
-1, 8, 9 e 10 del piano di Fase 0.
+```
+python -m strumenti.compila --cancello
+```
+
+Non ancora fatto, perché richiede una prova in gioco: caricare un salvataggio con
+l'eseguibile ricompilato, `installa.py`, vedere le stringhe tradotte a schermo, e
+individuare dove risiedono i nomi degli oggetti.
 
 ## Struttura
 
@@ -33,7 +36,7 @@ schermo, e individuare dove risiedono i nomi degli oggetti. Sono i task manuali
 | `piani/` | piani di fase |
 | `dizionario/` | la traduzione — sorgente di verità |
 | `lavoro/` | lotti JSONL in lavorazione |
-| `strumenti/` | `estrai.py`, `applica.py`, `reimporta.py`, `verifica.py`, `compila.py`, `installa.py` |
+| `strumenti/` | `estrai.py`, `applica.py`, `reimporta.py`, `verifica.py`, `compila.py`, `prova_identita.py`, `installa.py` |
 
 Nel vault sta solo testo. Gli artefatti pesanti e rigenerabili vivono in
 `C:\Games\Elona\_traduzione\`: `hsp34/` (SDK), `sorgente/` (clone upstream),
@@ -47,7 +50,7 @@ Nel vault sta solo testo. Gli artefatti pesanti e rigenerabili vivono in
 3. `reimporta.py` valida il lotto e, solo se pulito, lo scrive nel dizionario
 4. `verifica.py` controlla interpolazioni, glossario, accenti persi, larghezza UI
 5. `applica.py` inietta il dizionario su un clone pulito → albero di build
-6. `compila.py` produce `elonapluscgx-it.exe` con l'SDK HSP 3.4
+6. `compila.py` produce l'eseguibile italiano pilotando `hspcmp.dll` senza GUI
 7. `installa.py` copia la build nel gioco, preservando eseguibile inglese e salvataggi
 8. prova in gioco, poi aggiornamento di `avanzamento.md` e `RIPRESA-sessione.md`
 

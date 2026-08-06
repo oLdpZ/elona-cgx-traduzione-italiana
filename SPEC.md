@@ -3,27 +3,27 @@
 Design approvato il 2026-08-06. Questo documento è vincolante: le decisioni qui
 dentro si cambiano modificando questo file, non improvvisando in sessione.
 
-Stato: **design approvato; Fase 0 eseguita per la parte automatizzabile.**
+Stato: **design approvato; il cancello della Fase 0 è passato.**
 
 Fatto: la catena `estrai → verifica → reimporta → applica` esiste, è sotto test
-(83 test verdi) ed è stata provata end-to-end sul sorgente vero, con round-trip
-CP932 e CRLF verificati e il manifesto di `sorgente/` intatto.
+(106 test verdi) ed è stata provata end-to-end sul sorgente vero, con round-trip
+CP932 e CRLF verificati e il manifesto di `sorgente/` intatto. **Il sorgente non
+modificato ricompila e l'eseguibile prodotto si avvia** (§6, prova 1), e la
+compilazione è automatica: `compila.py`, nessuna GUI.
 
-Da fare, e non ancora fatto perché richiede la GUI del compilatore HSP o una
-prova in gioco — sono i task manuali 1, 8, 9 e 10 del piano di Fase 0:
+Da fare, e non ancora fatto perché richiede una prova in gioco:
 
-1. ricompilare l'eseguibile da sorgente non modificato e avviarlo (§6, prova 1:
-   **è il vero cancello del progetto** e non è ancora passato);
-2. `compila.py` e `installa.py`, che l'SDK HSP 3.4 richiede via GUI;
-3. vedere le ~50 stringhe tradotte a schermo in gioco, con l'accentata resa
+1. `installa.py`;
+2. vedere le ~50 stringhe tradotte a schermo in gioco, con l'accentata resa
    `perche'` (§6, prova 2);
-4. individuare dove risiedono i nomi degli oggetti (§2, punto aperto).
+3. individuare dove risiedono i nomi degli oggetti (§2, punto aperto).
 
 ---
 
 ## 1. Scopo
 
-Tradurre in italiano il roguelike **Elona+ Custom-GX 2.31.2.0**, installato in
+Tradurre in italiano il roguelike **Elona+ Custom-GX**, sorgente pinnato al tag
+`2.31.2.0`, con il gioco di riferimento installato in
 `C:\Games\Elona\elonaplus2.31\`.
 
 Destinazione: uso personale, ma il progetto è strutturato fin dall'inizio come
@@ -41,25 +41,38 @@ Fatti verificati il 2026-08-06, non stime.
 
 **Il gioco.** Elona+ Custom-GX è una variante di Elona+ mantenuta da
 [JianmengYu](https://github.com/JianmengYu/ElonaPlusCustom-GX) (l'originale di
-Ruin0x11 è fermo alla 2.15R). La release corrente è **2.31.2.0** (24/05/2026),
-basata su Elona+ 2.31. Il `README` del branch `work` parla già di 2.32, ma quel
-port non è ancora rilasciato.
+Ruin0x11 è fermo alla 2.15R). Il gioco installato è **2.31.2.0** (24/05/2026),
+basato su Elona+ 2.31.
+
+**Il sorgente è pinnato al tag `2.31.2.0`** (commit `a9135a6`, 15/05/2026), non
+alla testa del branch `work`: un branch che si muove invaliderebbe in silenzio il
+manifesto e ogni conteggio di questo documento. Vedi la decisione 16.
+
+Due fatti misurati che il pin porta con sé, e che non vanno confusi con errori:
+
+- il tag `2.31.2.0` dichiara `VARIANT_TITLE "Elona+ Custom-GX 2.31.1.0"`, e
+  l'eseguibile che se ne ricava si intitola così. Nessun commit della storia
+  pubblica dichiara `2.31.2.0`: la costante non è stata aggiornata al rilascio,
+  quindi **il binario installato non è riproducibile byte per byte da nessun ref
+  pubblico**. Non tocca la traduzione, tocca solo il numero mostrato nel titolo;
+- la testa di `work` è già alla 2.32.1.2, non rilasciata. Resta la base naturale
+  per un futuro riallineamento, non per questa fase.
 
 **Dove sta il testo.**
 
 | Collocazione | Volume | Note |
 |---|---|---|
-| Sorgente HSP (`2.05-custom-gx/*.hsp`, 72 file) | 26.817 occorrenze di `lang()`, di cui **26.434 traducibili** | Il grosso del gioco |
+| Sorgente HSP (`2.05-custom-gx/*.hsp`, 72 file) | 26.588 occorrenze di `lang()`, di cui **26.206 traducibili** | Il grosso del gioco |
 | File esterni in `data/` | ~250 KB | `book.txt` 115 KB, `talk.txt` 86 KB, `exhelp.txt` 17 KB, `board.txt` 15 KB |
 
-Le 383 occorrenze non traducibili hanno l'argomento inglese **vuoto di proposito**:
+Le 382 occorrenze non traducibili hanno l'argomento inglese **vuoto di proposito**:
 sono particelle giapponesi che in inglese non esistono, come `lang("層", "")`.
 
-Delle 26.434 traducibili, **22.852 sono statiche e 3.582 dinamiche** (contengono
-concatenazioni). Il 13,5% di stringhe dinamiche è la quota che richiede attenzione
+Delle 26.206 traducibili, **22.682 sono statiche e 3.524 dinamiche** (contengono
+concatenazioni). Il 13,4% di stringhe dinamiche è la quota che richiede attenzione
 grammaticale — vedi §5.
 
-**Il lavoro effettivo è però inferiore: 21.965 stringhe uniche.** Il 16,9% delle
+**Il lavoro effettivo è però inferiore: 21.795 stringhe uniche.** Il 16,8% delle
 occorrenze sono duplicati esatti — stessa coppia giapponese/inglese ripetuta più
 volte nello stesso file — e il dizionario è indicizzato per firma, quindi si
 traducono una volta sola e la traduzione si applica a tutte le occorrenze. Il
@@ -175,7 +188,7 @@ affermava il contrario: era il documento a sbagliare, non il codice.
 
 L'italiano **sostituisce il secondo argomento** di `lang()`, producendo un
 eseguibile separato `elonapluscgx-it.exe`. La macro `lang()` non viene toccata e
-i 26.817 siti di chiamata restano invariati. L'inglese resta disponibile nella
+i 26.588 siti di chiamata restano invariati. L'inglese resta disponibile nella
 build ufficiale, che non viene sovrascritta.
 
 ### 3.4 Struttura della cartella
@@ -317,16 +330,22 @@ Interrompere il progetto dopo una qualsiasi di esse lascia un risultato usabile.
 | Fase | Contenuto | Occorrenze | **Da tradurre** | Risultato |
 |---|---|---|---|---|
 | **0** | Prototipo tecnico | ~50 | ~50 | Le due prove passano, posizione dei nomi oggetto individuata |
-| **1** | UI e messaggi — `text` `command` `action` `proc` `skill` `trait` | 7.827 | **6.731** | Interfaccia e messaggistica in italiano |
-| **2** | Nomi — `db_creature` `db_card`, più i nomi oggetto una volta localizzati | 8.076 | **5.976** + nomi oggetto | Gioco sostanzialmente italiano |
-| **3** | Dialoghi — `chat.hsp` | 4.818 | **4.381** | Conversazioni con NPC in italiano |
-| **4** | Coda — i restanti 60 file `.hsp` minori e i testi esterni | 5.713 | **4.877** + 250 KB | Copertura completa |
+| **1** | UI e messaggi — `text` `command` `action` `proc` `skill` `trait` | 7.737 | **6.644** | Interfaccia e messaggistica in italiano |
+| **2** | Nomi — `db_creature` `db_card`, più i nomi oggetto una volta localizzati | 8.025 | **5.941** + nomi oggetto | Gioco sostanzialmente italiano |
+| **3** | Dialoghi — `chat.hsp` | 4.762 | **4.349** | Conversazioni con NPC in italiano |
+| **4** | Coda — i restanti 63 file `.hsp` minori e i testi esterni | 5.682 | **4.861** + 250 KB | Copertura completa |
 
-Somma verificata: 6.731 + 5.976 + 4.381 + 4.877 = **21.965** stringhe uniche da
-tradurre, su 26.434 occorrenze. La colonna che conta per stimare il lavoro è
+Somma verificata: 6.644 + 5.941 + 4.349 + 4.861 = **21.795** stringhe uniche da
+tradurre, su 26.206 occorrenze. La colonna che conta per stimare il lavoro è
 "da tradurre": i duplicati si traducono una volta sola. L'unicità è **per file**,
 coerentemente con l'ambito della firma (§3.2): la stessa stringa presente in due
 file diversi si traduce due volte.
+
+Per confronto, le firme distinte sull'intero corpus sono **19.399**: un dizionario
+a chiave globale risparmierebbe 2.396 traduzioni, il 11,0% del lavoro. Non è una
+proposta — è il prezzo misurato dell'ambito per-file, da conoscere prima di
+discuterlo. Sommare gruppi di file non dà mai il totale globale, e questa è la
+distanza esatta fra le due letture.
 
 La Fase 2 è quella che ci guadagna di più — 8.076 occorrenze per 5.976 stringhe,
 il 26% in meno — perché i database di creature e carte ripetono molte formule
@@ -339,10 +358,16 @@ sono aggiuntivi e non passano da `lang()`.
 
 Due prove. Nessuna traduzione in volume inizia prima che passino entrambe.
 
-1. **L'exe si ricompila?** SDK HSP 3.4 più `hsplua.dll`, build da sorgente **non
-   modificato**; l'eseguibile prodotto deve avviarsi e caricare un salvataggio.
-   Senza una build riproducibile dall'originale, il resto è teoria. **È il vero
-   cancello del progetto.**
+1. **L'exe si ricompila?** SDK HSP 3.4, build da sorgente **non modificato**;
+   l'eseguibile prodotto deve avviarsi e caricare un salvataggio. Senza una build
+   riproducibile dall'originale, il resto è teoria. **È il vero cancello del
+   progetto.**
+
+   **Passato il 2026-08-06**, e automatizzato: `python -m strumenti.compila
+   --cancello`. Il sorgente pinnato compila con `#No error detected.`, e l'exe
+   che ne esce (17.396.351 byte) si avvia dalla cartella del gioco. Il
+   caricamento di un salvataggio resta da provare a mano. Il manifesto è stato
+   verificato prima e dopo: 72 file su 72, nessuna scrittura nel sorgente.
 2. **Il ciclo gira end-to-end?** ~50 stringhe scelte apposta (metà statiche, metà
    dinamiche, e almeno cinque con vocali accentate) attraverso `estrai → traduci
    → applica → compila → installa → verifica → visto a schermo`. Verifica anche
@@ -421,8 +446,9 @@ Contratti, non implementazione. Python, coerente con il progetto Elin.
 | `applica.py` | inietta il dizionario su un clone pulito producendo l'albero di build; non scrive mai dentro `sorgente/` |
 | `reimporta.py` | valida un lotto tradotto (firma, campi presenti, controlli di contenuto) e solo se pulito lo scrive nel dizionario |
 | `verifica.py` | esegue le regole della §7 su un lotto o sull'intero dizionario |
-| `compila.py` | invoca l'SDK HSP 3.4 sull'albero di build e produce `elonapluscgx-it.exe` |
+| `compila.py` | pilota `hspcmp.dll` senza GUI e produce `.ax` ed eseguibile; `--cancello` verifica che il sorgente non modificato ricompili, senza produrre nulla |
 | `installa.py` | copia la build in `C:\Games\Elona\elonaplus2.31\`, preservando l'eseguibile inglese e i salvataggi |
+| `prova_identita.py` | applica un dizionario identità a tutto il corpus: i 72 file devono tornare byte per byte. Da rifare a ogni giro, prima di fidarsi dei test |
 
 Ogni script è indipendente, con ingresso e uscita su file, invocabile da solo e
 testabile senza gli altri.
@@ -461,6 +487,8 @@ Registrate anche in `decisioni.md` man mano che se ne aggiungono.
 | 5 | Copertura per priorità a fasi giocabili | Ogni fase ha valore autonomo; l'abbandono a metà lascia comunque un risultato |
 | 6 | Prova encoding **prima** di ogni traduzione in volume | Il rischio più grave del progetto; costa ore, non settimane |
 | 7 | Base 2.31, non 2.32 | CGX non ha ancora rilasciato il port alla 2.32 |
+| 16 | Sorgente pinnato al **tag** `2.31.2.0`, non alla testa di `work` | La testa di `work` è alla 2.32.1.2 non rilasciata, e si muove: ogni suo spostamento invaliderebbe in silenzio manifesto e conteggi. Il pin costa una rimisura, e il momento più economico per pagarla è con il dizionario vuoto |
+| 17 | La compilazione si pilota da `hspcmp.dll`, non dalla GUI | La GUI non era un vincolo dell'SDK ma un'assunzione: la DLL espone tutta l'API. Serviva solo un host a 32 bit, e Windows ne ha già uno. Il cancello diventa così un comando ripetibile invece di un rito manuale |
 | 8 | Accenti in forma con apostrofo (`perche'`) | CP932 non contiene le vocali accentate e le cancella senza avviso; è l'unica strada affidabile |
 | 9 | Il dizionario conserva gli accenti veri, `applica.py` degrada in build | Tiene aperta la strada C senza ritraduzioni; converte in un punto solo e testabile |
 | 10 | Virgolette `“ ”`, mai `"` nelle statiche, mai `«»` | `"` rompe il letterale HSP; `«»` non esiste in CP932 |

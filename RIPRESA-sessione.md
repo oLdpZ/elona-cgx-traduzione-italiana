@@ -1,24 +1,25 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-06, fine della prima sessione.
+Aggiornato: 2026-08-06, seconda sessione.
 
 ## Dove siamo
 
-Fase 0 eseguita per la parte automatizzabile. **Il cancello vero non è ancora
-passato**: quella che c'è è una *catena verificata*, non un *gioco verificato*.
+**Il cancello della Fase 0 è passato.** Il sorgente non modificato ricompila e
+l'eseguibile che ne esce si avvia. Resta da provare a mano una cosa sola di quel
+cancello: che carichi un salvataggio.
 
-- Branch `fase-0`, 18 commit, **83 test verdi**
+- Branch `fase-0`, **106 test verdi**
 - [PR #1](https://github.com/oLdpZ/elona-cgx-traduzione-italiana/pull/1) aperta verso `master`, non ancora unita
 - `dizionario/` è **vuoto**: nessuna stringa è ancora tradotta
+- Sorgente **pinnato al tag `2.31.2.0`** (`a9135a6`), non più alla testa di `work`
 
 ## Per riprendere da un altro terminale
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-git fetch origin
-git checkout fase-0
-git pull
-python -m pytest strumenti/tests -q     # atteso: 83 passed
+git fetch origin; git checkout fase-0; git pull
+python -m pytest strumenti/tests -q          # atteso: 106 passed
+python -m strumenti.compila --cancello       # atteso: #No error detected.
 ```
 
 Se il repo non c'è ancora su quella macchina:
@@ -34,38 +35,38 @@ Niente di tutto questo è versionato: va ricreato se manca.
 | percorso | come ottenerlo |
 |---|---|
 | `C:\Games\Elona\_traduzione\hsp34\` | `hsp34a.zip` da <https://www.onionsoft.net/hsp/file/hsp34a.zip>, estratto **specificando CP932 per i nomi delle voci** — `Expand-Archive` corrompe i nomi giapponesi e fallisce |
-| `C:\Games\Elona\_traduzione\sorgente\` | `git clone --depth 1 --branch work https://github.com/JianmengYu/ElonaPlusCustom-GX.git` |
-| `C:\Games\Elona\_traduzione\manifesto-sorgente.txt` | manifesto SHA-256 dei 72 `.hsp`, ricetta nel piano di Fase 0, Task 7 passo 5 |
+| `C:\Games\Elona\_traduzione\sorgente\` | `git clone --depth 1 --branch 2.31.2.0 https://github.com/JianmengYu/ElonaPlusCustom-GX.git sorgente` — **il tag, non il branch `work`** |
+| `C:\Games\Elona\_traduzione\manifesto-sorgente.txt` | SHA-256 dei 72 `.hsp` di `2.05-custom-gx\`, una riga `HASH  nome.hsp` per file |
 | `C:\Games\Elona\elonaplus2.31\` | il gioco installato |
 
 I percorsi si ridefiniscono con `ELONA_IT_LAVORO`, `ELONA_IT_GIOCO` e
 `ELONA_IT_DIZIONARIO`.
 
-⚠️ **`git status` dentro `sorgente\` è permanentemente sporco** (1198 file su un
-clone intatto). Non è una scrittura nostra: vedi `SPEC.md` §2. Per l'integrità
-usa il manifesto, mai `git status`.
+⚠️ **`git status` dentro `sorgente\` è permanentemente sporco.** Non è una
+scrittura nostra: vedi `SPEC.md` §2. Per l'integrità usa il manifesto, mai
+`git status`.
 
-## Il prossimo passo, e blocca tutto il resto
+🗑️ `C:\Games\Elona\_traduzione\sorgente-work-2.32-obsoleto\` è il vecchio clone
+sulla testa di `work`, tenuto solo per confronto. Si può cancellare.
 
-**Provare a ricompilare l'eseguibile da sorgente non modificato.** Richiede la
-GUI, quindi va fatto a mano:
+## Il prossimo passo
 
-1. avviare `C:\Games\Elona\_traduzione\hsp34\hsed3.exe`
-2. aprire `C:\Games\Elona\_traduzione\sorgente\2.05-custom-gx\main.hsp`
-3. premere `Ctrl+F9`
-
-Atteso: viene prodotto `elonapluscgx.exe` in `2.05-custom-gx\`, si avvia e mostra
-il titolo `Elona+ Custom-GX 2.31.2.0`.
-
-Se compare un errore di compilazione **il progetto si ferma lì**, e non c'è
-codice che possa aggirarlo. È per questo che è il primo task del piano.
-
-Prima di lanciarlo, copiare `hsplua.dll` dal sorgente nella cartella dell'SDK,
-altrimenti il gioco non parte dall'editor:
+**Provare in gioco che l'eseguibile ricompilato carichi un salvataggio.** È
+l'ultimo pezzo manuale del cancello, e nessun codice lo può sostituire.
 
 ```powershell
-Copy-Item "C:\Games\Elona\_traduzione\sorgente\2.05-custom-gx\hsplua.dll" "C:\Games\Elona\_traduzione\hsp34\hsplua.dll"
+python -m strumenti.compila --eseguibile
+Copy-Item "C:\Games\Elona\_traduzione\build\2.05-custom-gx\elonapluscgx.exe" "C:\Games\Elona\elonaplus2.31\cgx-test.exe"
+Start-Process "C:\Games\Elona\elonaplus2.31\cgx-test.exe" -WorkingDirectory "C:\Games\Elona\elonaplus2.31"
 ```
+
+Il titolo mostrerà **2.31.1.0**, non 2.31.2.0: è la costante di versione che il
+tag non ha aggiornato al rilascio, non un errore di build. Il dettaglio è in
+`decisioni.md`.
+
+Se un salvataggio esistente non si carica, il problema è il disallineamento fra
+l'exe ricompilato dal tag e i dati della 2.31.2.0 installata — e va risolto prima
+di tradurre, non dopo.
 
 ## La decisione che ha una finestra, e si chiude
 
@@ -78,15 +79,15 @@ Includere `en_grezzo` risolve la collisione ma rende la chiave fragile: qualunqu
 ritocco all'espressione a monte, anche rinominare una variabile, manderebbe la
 stringa in coda di ritraduzione a testo invariato.
 
-**Va decisa finché `dizionario/` è vuoto.** Dopo la prima ondata di traduzioni
-costa una migrazione. Il ragionamento completo è in `decisioni.md`.
+**Va decisa finché `dizionario/` è vuoto.** Il ragionamento completo è in
+`decisioni.md`.
 
 ## Da mettere nel piano della Fase 1
 
 In quest'ordine — l'elenco completo con le motivazioni è in `decisioni.md`:
 
 1. sostituzione dentro `cnvtalk(` / `cnven(` — bloccante per la Fase 2, ma sono
-   due sole forme su 3.499 occorrenze: poche righe
+   due sole forme: poche righe
 2. la decisione sulla firma, §3.2
 3. spostare a monte il rilevamento dei casi rifiutati: oggi il traduttore lo
    scopre solo a build abortito
@@ -96,9 +97,22 @@ In quest'ordine — l'elenco completo con le motivazioni è in `decisioni.md`:
 
 ## Cosa rifare a ogni giro
 
-**La prova d'identità.** Un dizionario che traduce ogni stringa in sé stessa
-deve riprodurre i file byte per byte. Non dipende da quali casi qualcuno si è
-ricordato di coprire: attraversa tutti i 26.434 siti. Ha trovato i due difetti
-peggiori del progetto quando 83 test erano verdi.
+**La prova d'identità**, che ora è un comando e non più una procedura a mano:
+
+```powershell
+python -m strumenti.prova_identita     # atteso: 72/72 byte per byte
+```
+
+Un dizionario che traduce ogni stringa in sé stessa deve riprodurre i file byte
+per byte. Non dipende da quali casi qualcuno si è ricordato di coprire: attraversa
+tutti i 26.206 siti. Ha trovato i due difetti peggiori del progetto quando 83 test
+erano verdi. Sul sorgente pinnato: **72/72**, 22.414 sostituzioni, con 3.465
+statiche avvolte e 327 firme collidenti escluse per costruzione — sono le due
+classi che `applica.py` rifiuta, e i loro conteggi vanno guardati: se calano senza
+che nessuno abbia implementato niente, la prova sta misurando meno.
+
+Ora ha un seguito naturale: **ricompilare dopo la prova d'identità**. Se i file
+identici producono anche un `.ax` identico, la prova si estende dal testo al
+bytecode. È il primo esperimento da fare in Fase 1.
 
 Vedi [[prova-identita-pipeline-trasformazione]] e [[cp932-perdite-silenziose]].

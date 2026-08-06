@@ -63,6 +63,72 @@ improvvisata dentro una correzione.
 
 ---
 
+## Il cancello è passato — 2026-08-06, seconda sessione
+
+Il sorgente non modificato **ricompila**, e l'eseguibile che ne esce si avvia dalla
+cartella del gioco. Da *catena verificata* a *catena più gioco che parte*. Resta
+da provare a mano il caricamento di un salvataggio.
+
+### La GUI non era un vincolo, era un'assunzione
+
+`hspcmp.dll` espone l'intera API del compilatore: `hsc_ini`, `hsc_comp`,
+`hsc3_make`. L'unico ostacolo reale è che la DLL è a **32 bit** e un Python a 64
+non la carica. Windows ha però già un host a 32 bit installato di serie,
+`SysWOW64\WindowsPowerShell`, e da lì si pilota tutto.
+
+Tre trappole, nell'ordine in cui sono costate:
+
+1. **I nomi puliti di `hspcmp.as` non esistono nella tabella di export.** Sono
+   tutti decorati: `_hsc_ini@16`.
+2. **L'ABI dei plugin HSP passa sempre quattro slot, e non nello stesso ordine
+   per tutti.** Dal disassemblato: chi prende una stringa la legge da `[esp+8]`,
+   cioè lo **slot 2**, con lo slot 1 inutilizzato; chi prende un buffer lo legge
+   da `[esp+4]`, lo **slot 1**. Passare la stringa nel primo slot non dà errore:
+   fa saltare il processo con una access violation. Questo è il motivo per cui
+   `test_compila.py` verifica le firme dichiarate — è l'unica difesa contro una
+   "semplificazione" che riporterebbe il crash.
+3. **`Set-Location` non sposta la cwd del processo**, solo quella di PowerShell.
+   La DLL legge la cwd vera e rispondeva `Source file not found` su un file che
+   esisteva. Gli `#include` del sorgente sono relativi, quindi la cwd conta.
+
+Il cancello è ora un comando: `python -m strumenti.compila --cancello`. Gli
+strumenti si rifiutano di scrivere dentro `sorgente/`, e la costruzione dell'exe
+è ammessa solo fuori, perché `#pack` scrive `packfile` nella cartella corrente.
+
+### Il sorgente era sul ref sbagliato
+
+Il clone era sulla testa di `work`, che dichiara **2.32.1.2** — una versione non
+rilasciata — mentre `SPEC.md` decisione 7 sceglie la base 2.31. Il tag `2.31.2.0`
+esiste, compila, ed è immutabile: il sorgente è stato pinnato lì (`a9135a6`).
+
+Un branch che si muove è la peggiore base possibile per questo progetto: al primo
+`git pull` manifesto e conteggi diventerebbero falsi **senza alcun segnale**. Il
+pin costa una rimisura del corpus, e il momento più economico per pagarla è
+adesso, con `dizionario/` vuoto.
+
+Un fatto emerso strada facendo, che non è un difetto nostro: **il binario
+installato non è riproducibile da nessun ref pubblico**. Il tag `2.31.2.0`
+dichiara `VARIANT_TITLE "… 2.31.1.0"` e produce un eseguibile intitolato così;
+nessun commit della storia dichiara `2.31.2.0`. La costante non è stata aggiornata
+al rilascio. Tocca solo il numero nel titolo, non il testo da tradurre.
+
+### I numeri, rimisurati sul tag
+
+| | prima (testa di `work`) | ora (tag `2.31.2.0`) |
+|---|---|---|
+| occorrenze `lang()` | 26.817 | 26.588 |
+| traducibili | 26.434 | 26.206 |
+| da tradurre (uniche per file) | 21.965 | 21.795 |
+
+**Il 21.965 non era sbagliato**, contrariamente a quanto sembrava a prima vista:
+è l'unicità **per file**, che è l'ambito dichiarato in `SPEC.md` §3.2 e realizzato
+dal partizionamento del dizionario in un `.jsonl` per file sorgente. Le firme
+distinte sull'intero corpus sono invece 19.399: la differenza, 2.396 traduzioni
+pari all'11% del lavoro, è il prezzo misurato dell'ambito per-file. Da conoscere
+prima di discuterlo, non una proposta di cambiarlo.
+
+---
+
 ## Domande aperte, da decidere prima della Fase 1
 
 ### 1. La firma delle dinamiche deve includere l'espressione? — DA DECIDERE
