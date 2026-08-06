@@ -34,6 +34,23 @@ def controlla_voce(voce: dict) -> list[str]:
             "la degradazione la fa applica.py"
         )
 
+    # per le statiche applica.py avvolge l'italiano fra virgolette doppie
+    # ("...") per farne una stringa letterale HSP: una " dentro il testo
+    # chiude la stringa in anticipo e produce sorgente non compilabile.
+    # Per le dinamiche invece l'italiano e' gia' un'espressione HSP intera
+    # (es. name(tc) + " ha protetto " + name(x) + "."), dove le virgolette
+    # doppie sono legittime e necessarie: la regola non si applica li'.
+    if voce["tipo"] != "dinamica" and '"' in italiano:
+        problemi.append(
+            'le traduzioni statiche non possono contenere il carattere " '
+            "perche' romperebbe la stringa HSP generata da applica.py "
+            '(lang("...", "...") si chiuderebbe in anticipo); '
+            "usa le virgolette doppie tipografiche “” al suo posto "
+            "(es. “ciao”) — sopravvivono al round-trip CP932, a "
+            "differenza delle virgolette caporali «» che CP932 non "
+            "sa codificare (UnicodeEncodeError)"
+        )
+
     # gli accenti veri (perche') si degradano regolarmente in fase di build:
     # non sono un residuo. Il residuo vero e' cio' che resta non rappresentabile
     # anche dopo la degradazione (es. un trattino lungo, virgolette tipografiche).

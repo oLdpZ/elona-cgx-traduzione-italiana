@@ -56,6 +56,26 @@ def test_le_dinamiche_devono_conservare_le_stesse_chiamate():
     assert any("interpolazion" in p for p in problemi)
 
 
+def test_blocca_la_virgoletta_doppia_nelle_statiche():
+    problemi = controlla_voce(voce(it='Ha detto "ciao".'))
+    assert any('"' in p and "«" in p and "“" in p for p in problemi)
+
+
+def test_non_blocca_la_virgoletta_doppia_nelle_dinamiche():
+    pulita = voce(
+        tipo="dinamica",
+        en=" guarded .",
+        en_grezzo='name(tc) + " guarded " + name(x) + "."',
+        it='name(tc) + " ha protetto " + name(x) + "."',
+    )
+    problemi = controlla_voce(pulita)
+    assert not any("virgolette" in p for p in problemi)
+
+
+def test_le_virgolette_tipografiche_alte_passano_nelle_statiche():
+    assert controlla_voce(voce(it="Ha detto “ciao”.")) == []
+
+
 def test_controlla_lotto_indicizza_per_firma():
     esito = controlla_lotto([voce(firma="uno", it=""), voce(firma="due", it="Zaino pieno.")])
     assert "uno" in esito

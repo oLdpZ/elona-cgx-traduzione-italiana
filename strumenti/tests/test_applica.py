@@ -54,3 +54,35 @@ def test_conserva_i_fine_riga_crlf():
     assert "\r\n" in testo
     assert "\n" not in testo.replace("\r\n", "")
     assert testo.endswith("\r\n")
+
+
+def test_la_dinamica_non_viene_messa_fra_virgolette():
+    # per le dinamiche l'italiano e' gia' un'espressione HSP completa: se viene
+    # avvolta fra virgolette come una statica, il codice HSP finisce a schermo.
+    sorgente = (
+        '	txt lang(name(tc) + "を守った。" + name(x) + "。", '
+        'name(tc) + " guarded " + name(x) + ".")'
+    )
+    espressione = 'name(tc) + " ha protetto " + name(x) + "."'
+    diz = dizionario_con("を守った。。", " guarded .", espressione, tipo="dinamica")
+    testo, sostituzioni = applica_a_testo("text.hsp", sorgente, diz)
+    assert sostituzioni == 1
+    assert espressione in testo
+    assert '"' + espressione + '"' not in testo
+
+
+def test_due_lang_sulla_stessa_riga_con_lunghezze_diverse():
+    # due lang() sulla stessa riga, con traduzioni di lunghezza diversa
+    # dall'inglese originale (una piu' lunga, una piu' corta): verifica che
+    # le posizioni di sostituzione non si sfalsino tra la prima e la seconda.
+    sorgente = '	txt lang("jp1", "en1") + "  " + lang("jp2", "en2")'
+    diz = {}
+    diz.update(dizionario_con("jp1", "en1", "Una traduzione molto piu' lunga dell'originale"))
+    diz.update(dizionario_con("jp2", "en2", "corta"))
+    testo, sostituzioni = applica_a_testo("text.hsp", sorgente, diz)
+    assert sostituzioni == 2
+    atteso = (
+        '	txt lang("jp1", "Una traduzione molto piu\' lunga dell\'originale") + "  " '
+        '+ lang("jp2", "corta")'
+    )
+    assert testo == atteso
