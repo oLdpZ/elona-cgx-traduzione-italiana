@@ -7,11 +7,13 @@ from strumenti.estrai import estrai_da_testo, firma, siti, spezza_righe
 STATICA = '	txt lang("バックパックが一杯だ。", "Your inventory is full.")'
 
 
-def dizionario_con(jp, en, it, tipo="statica"):
+def dizionario_con(jp, en, it, tipo="statica", en_grezzo=None, jp_grezzo=None):
+    # en_grezzo dev'essere l'espressione che compare davvero nel sorgente: per
+    # una dinamica non e' mai un letterale nudo, e applica.py lo confronta.
     chiave = firma(jp, en)
     return {chiave: {
-        "firma": chiave, "jp": jp, "jp_grezzo": f'"{jp}"',
-        "en": en, "en_grezzo": f'"{en}"',
+        "firma": chiave, "jp": jp, "jp_grezzo": jp_grezzo or f'"{jp}"',
+        "en": en, "en_grezzo": en_grezzo or f'"{en}"',
         "it": it, "tipo": tipo, "occorrenza": 0,
     }}
 
@@ -67,7 +69,10 @@ def test_la_dinamica_non_viene_messa_fra_virgolette():
         'name(tc) + " guarded " + name(x) + ".")'
     )
     espressione = 'name(tc) + " ha protetto " + name(x) + "."'
-    diz = dizionario_con("を守った。。", " guarded .", espressione, tipo="dinamica")
+    diz = dizionario_con(
+        "を守った。。", " guarded .", espressione, tipo="dinamica",
+        en_grezzo='name(tc) + " guarded " + name(x) + "."',
+    )
     testo, sostituzioni = applica_a_testo("text.hsp", sorgente, diz)
     assert sostituzioni == 1
     assert espressione in testo
@@ -118,10 +123,24 @@ def test_scansione_condivisa_su_un_file_vero():
         # esattamente il secondo argomento della riga reale
         assert righe[numero_riga - 1][inizio:fine] == grezzo_en
 
-    # e applica.py, guidato dal dizionario completo, li tocca tutti
-    diz = {v["firma"]: dict(v, it="X") for v in voci}
-    _, sostituzioni = applica_a_testo("text.hsp", testo, diz)
-    assert sostituzioni == len(voci)
+    # e applica.py, guidato da un dizionario identita', li tocca tutti e
+    # riproduce il file byte per byte. Restano fuori le voci che applica.py
+    # rifiuta per progetto: le statiche avvolte in una chiamata e le firme
+    # con espressioni grezze divergenti (vedi i due test in fondo al file).
+    per_firma = {}
+    for v in voci:
+        per_firma.setdefault(v["firma"], set()).add(v["en_grezzo"])
+    applicabili = {
+        v["firma"]: dict(v, it=(v["en_grezzo"] if v["tipo"] == "dinamica" else v["en"]))
+        for v in voci
+        if len(per_firma[v["firma"]]) == 1
+        and (v["tipo"] == "dinamica" or v["en_grezzo"] == '"' + v["en"] + '"')
+    }
+    attese = sum(1 for v in voci if v["firma"] in applicabili)
+    nuovo, sostituzioni = applica_a_testo("text.hsp", testo, applicabili)
+    assert sostituzioni == attese > 1900
+    # sostituire ogni stringa con se stessa deve riprodurre il file identico
+    assert nuovo == testo
 
 
 def test_applica_consuma_tutte_le_firme_del_dizionario():
@@ -149,7 +168,10 @@ DINAMICA = (
 
 
 def dinamica_con(it):
-    return dizionario_con("を守った。", " guarded.", it, tipo="dinamica")
+    return dizionario_con(
+        "を守った。", " guarded.", it, tipo="dinamica",
+        en_grezzo='name(tc) + " guarded."',
+    )
 
 
 def test_rifiuta_una_dinamica_con_virgoletta_non_chiusa():
@@ -211,3 +233,39 @@ def test_una_virgola_dentro_una_chiamata_annidata_e_legittima():
     testo, sostituzioni = applica_a_testo("text.hsp", DINAMICA, dinamica_con(espressione))
     assert sostituzioni == 1
     assert espressione in testo
+
+
+# --- due difetti trovati dalla prova d'identita' sul corpus reale ------------
+# Non erano nell'elenco della revisione: li ha scoperti l'applicazione di un
+# dizionario identita' su tutti e 72 i file, che deve riprodurli byte per byte.
+
+def test_rifiuta_una_statica_avvolta_in_una_chiamata():
+    # cnvtalk("...") non ha un + di primo livello, quindi e' classificata
+    # statica; sostituire l'intero span con un letterale farebbe sparire
+    # cnvtalk dal sorgente. 3.499 occorrenze reali.
+    sorgente = '	txt lang("「うにーっ！」", cnvtalk("Urchinn!"))'
+    diz = dizionario_con("「うにーっ！」", "Urchinn!", "Ricciooo!")
+    with pytest.raises(SorgenteCorrotto, match="letterale nudo"):
+        applica_a_testo("action.hsp", sorgente, diz)
+
+
+def test_una_statica_con_letterale_nudo_passa_normalmente():
+    testo, sostituzioni = applica_a_testo(
+        "text.hsp", STATICA,
+        dizionario_con("バックパックが一杯だ。", "Your inventory is full.", "Zaino pieno."),
+    )
+    assert sostituzioni == 1
+
+
+def test_rifiuta_una_dinamica_la_cui_firma_collide_con_un_altra_espressione():
+    # stessa firma (i letterali coincidono) ma espressione diversa: la
+    # traduzione porterebbe le variabili sbagliate. 77 casi reali.
+    sorgente = '	txt lang("jp", name(gdata(GDATA_RIDER)) + " glare" + _s(gdata(GDATA_RIDER)) + " at you.")'
+    chiave = firma("jp", " glare at you.")
+    diz = {chiave: {
+        "firma": chiave, "jp": "jp", "en": " glare at you.",
+        "en_grezzo": 'cdatan(CDATAN_NAME, ttc) + " glare" + _s(ttc) + " at you."',
+        "it": 'cdatan(CDATAN_NAME, ttc) + " ti fissa."', "tipo": "dinamica", "occorrenza": 0,
+    }}
+    with pytest.raises(SorgenteCorrotto, match="espressioni diverse"):
+        applica_a_testo("action.hsp", sorgente, diz)

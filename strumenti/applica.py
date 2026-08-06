@@ -129,7 +129,7 @@ def applica_a_testo(nome_file: str, testo: str, dizionario: dict,
         chiavi: dict[int, str] = {}
 
         for sito in elenco:
-            _, chiave, _, _, _, _, grezzo_en, inizio_en, fine_en = sito
+            _, chiave, _, _, _, inglese, grezzo_en, inizio_en, fine_en = sito
 
             voce = dizionario.get(chiave)
             if voce is None or not voce.get("it"):
@@ -142,6 +142,36 @@ def applica_a_testo(nome_file: str, testo: str, dizionario: dict,
                 raise ValueError(
                     f"{nome_file}:{numero_riga} firma {chiave}: campo 'tipo' assente o "
                     f"non valido ({tipo!r}); attesi 'statica' o 'dinamica'"
+                )
+
+            # Una statica il cui argomento inglese non e' un letterale nudo e'
+            # avvolta in una chiamata: cnvtalk("..."), _(...). Sostituire l'intero
+            # span con un letterale FAREBBE SPARIRE la chiamata dal sorgente.
+            # Sono 3.499 occorrenze reali (2.726 in db_creature.hsp, 425 in file
+            # di Fase 1). Finche' la sostituzione dentro l'involucro non e'
+            # implementata, si rifiuta a voce alta invece di corrompere in
+            # silenzio. Vedi il rapporto della revisione finale.
+            if tipo == "statica" and grezzo_en != '"' + inglese + '"':
+                raise SorgenteCorrotto(
+                    f"{nome_file}:{numero_riga} firma {chiave}: l'argomento inglese "
+                    f"{grezzo_en!r} non e' un letterale nudo ma una chiamata che lo "
+                    "avvolge; sostituirlo la farebbe sparire dal sorgente. La "
+                    "sostituzione dentro l'involucro non e' ancora implementata: "
+                    "togli questa voce dal dizionario."
+                )
+
+            # Due siti diversi possono condividere la firma — che si calcola sui
+            # soli letterali — e avere espressioni grezze diverse: 77 casi reali,
+            # 23 in file di Fase 1. La traduzione e' stata scritta su una delle
+            # due espressioni e iniettarla nell'altra vi porta le variabili
+            # sbagliate. Si rifiuta invece di scrivere codice errato.
+            atteso_grezzo = voce.get("en_grezzo")
+            if tipo == "dinamica" and atteso_grezzo is not None and atteso_grezzo != grezzo_en:
+                raise SorgenteCorrotto(
+                    f"{nome_file}:{numero_riga} firma {chiave}: qui l'espressione inglese "
+                    f"e' {grezzo_en!r} ma la voce di dizionario e' stata tradotta su "
+                    f"{atteso_grezzo!r}. Stessa firma, espressioni diverse: la traduzione "
+                    "porterebbe le variabili sbagliate su questa riga."
                 )
 
             if tipo == "dinamica":

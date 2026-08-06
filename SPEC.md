@@ -381,6 +381,33 @@ significherebbe tornare in inglese a macchia di leopardo senza accorgersene. Il
 modo completo `verifica --dizionario`, che le classificherebbe in *cambiate a
 monte* e *sparite*, entra nel piano della Fase 1.
 
+### Due limiti noti, oggi rifiutati a voce alta
+
+Scoperti applicando un dizionario **identità** a tutti e 72 i file: sostituire
+ogni stringa con se stessa deve riprodurre il sorgente byte per byte, e non lo
+faceva. Entrambi corrompevano il sorgente in silenzio; entrambi ora sollevano un
+errore che nomina file, riga e firma, invece di scrivere codice sbagliato.
+
+1. **Statiche avvolte in una chiamata — 3.499 occorrenze** (2.726 in
+   `db_creature.hsp`, 425 in file di Fase 1). `lang("…", cnvtalk("Urchinn!"))`
+   non ha un `+` di primo livello, quindi è classificata statica; ma l'argomento
+   inglese non è un letterale nudo. Sostituire l'intero span con `"Ricciooo!"`
+   **farebbe sparire `cnvtalk` dal sorgente**. La correzione vera è sostituire il
+   letterale *dentro* l'involucro, lasciando la chiamata al suo posto: è lavoro
+   di Fase 1, e senza di essa la Fase 2 non può partire (`db_creature.hsp` è il
+   file più colpito).
+2. **Firme che collidono su espressioni diverse — 77 casi** (23 in file di
+   Fase 1). La firma si calcola sui soli letterali, quindi due dinamiche con lo
+   stesso giapponese e lo stesso testo inglese ma **espressioni diverse** —
+   `name(gdata(GDATA_RIDER)) + " glare" …` e `cdatan(CDATAN_NAME, ttc) + " glare" …`
+   — condividono la chiave. La traduzione scritta su una finirebbe nell'altra,
+   portandoci le variabili sbagliate. La correzione vera è includere `en_grezzo`
+   nella firma delle dinamiche, che è una modifica alla §3.2: da decidere in
+   Fase 1, prima che il dizionario si riempia.
+
+Dopo queste esclusioni il dizionario identità riproduce **tutti e 72 i file byte
+per byte**, con 22.602 sostituzioni e 3.832 occorrenze rifiutate.
+
 
 ---
 
