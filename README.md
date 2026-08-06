@@ -24,8 +24,10 @@ Stato: **design approvato (`SPEC.md`), Fase 0 non ancora eseguita.**
 | `dizionario/` | la traduzione — sorgente di verità |
 | `lavoro/` | lotti JSONL in lavorazione |
 | `strumenti/` | `estrai.py`, `applica.py`, `reimporta.py`, `verifica.py`, `compila.py`, `installa.py` |
-| `sorgente/` | clone upstream CGX — git-ignored, ricreabile |
-| `dist/` | build italiana installabile |
+
+Nel vault sta solo testo. Gli artefatti pesanti e rigenerabili vivono in
+`C:\Games\Elona\_traduzione\`: `hsp34/` (SDK), `sorgente/` (clone upstream),
+`build/` (albero di build), `dist/` (eseguibile italiano).
 
 ## Flusso di lavoro
 

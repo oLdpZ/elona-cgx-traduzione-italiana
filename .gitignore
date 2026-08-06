@@ -1,8 +1,9 @@
-# clone upstream CGX: ricreabile, non va versionato
+# Gli artefatti pesanti stanno fuori dal vault, in C:\Games\Elona\_traduzione\
+# Queste voci restano come rete di sicurezza se qualcuno li ricrea qui.
 sorgente/
-
-# build prodotta
+build/
 dist/
+hsp34/
 
 # Python
 __pycache__/

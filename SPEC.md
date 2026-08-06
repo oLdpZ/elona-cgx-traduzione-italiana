@@ -35,22 +35,32 @@ port non è ancora rilasciato.
 
 | Collocazione | Volume | Note |
 |---|---|---|
-| Sorgente HSP (`2.05-custom-gx/*.hsp`, 72 file) | **26.817 coppie `lang()`** | Il grosso del gioco |
+| Sorgente HSP (`2.05-custom-gx/*.hsp`, 72 file) | 26.817 occorrenze di `lang()`, di cui **26.423 traducibili** | Il grosso del gioco |
 | File esterni in `data/` | ~250 KB | `book.txt` 115 KB, `talk.txt` 86 KB, `exhelp.txt` 17 KB, `board.txt` 15 KB |
 
-Distribuzione delle `lang()` sui file principali:
+Le 394 occorrenze non traducibili hanno l'argomento inglese **vuoto di proposito**:
+sono particelle giapponesi che in inglese non esistono, come `lang("層", "")`.
 
-| File | `lang()` |
-|---|---|
-| `db_creature.hsp` | 5.755 |
-| `chat.hsp` | 4.828 |
-| `db_card.hsp` | 2.340 |
-| `text.hsp` | 2.152 |
-| `command.hsp` | 1.590 |
-| `action.hsp` | 1.502 |
-| `proc.hsp` | 1.370 |
-| `skill.hsp` | 917 |
-| `event.hsp` | 756 |
+Delle 26.423 traducibili, **22.727 sono statiche e 3.696 dinamiche** (contengono
+concatenazioni). Il 14% di stringhe dinamiche è la quota che richiede attenzione
+grammaticale — vedi §5.
+
+Distribuzione sui file principali (occorrenze grezze → traducibili):
+
+| File | grezze | traducibili |
+|---|---|---|
+| `db_creature.hsp` | 5.755 | 5.751 |
+| `chat.hsp` | 4.828 | 4.818 |
+| `db_card.hsp` | 2.340 | 2.322 |
+| `text.hsp` | 2.152 | 2.146 |
+| `command.hsp` | 1.590 | 1.510 |
+| `action.hsp` | 1.502 | 1.502 |
+| `proc.hsp` | 1.370 | 1.359 |
+| `skill.hsp` | 917 | 898 |
+| `trait.hsp` | 406 | 406 |
+
+Conteggi ottenuti eseguendo l'algoritmo di estrazione sul sorgente reale il
+2026-08-06, non stimati.
 
 **Forma delle stringhe.** Il sorgente usa ovunque la macro `lang(giapponese, inglese)`:
 
@@ -127,9 +137,23 @@ build ufficiale, che non viene sovrascritta.
 | `piani/` | piani di fase |
 | `dizionario/` | **la traduzione — sorgente di verità** |
 | `lavoro/` | lotti JSONL in lavorazione |
-| `strumenti/` | script Python |
-| `sorgente/` | clone upstream CGX — git-ignored, ricreabile |
-| `dist/` | build italiana installabile |
+| `strumenti/` | script Python e relativi test |
+
+Nel vault sta **solo testo**: documenti, dizionario, lotti, script. Tutto ciò che
+è pesante e rigenerabile vive fuori, in `C:\Games\Elona\_traduzione\`:
+
+| percorso | contenuto |
+|---|---|
+| `_traduzione\hsp34\` | SDK HSP 3.4 (~35 MB) |
+| `_traduzione\sorgente\` | clone upstream CGX (~20 MB), mai modificato |
+| `_traduzione\build\` | albero di build: clone + dizionario applicato |
+| `_traduzione\dist\` | `elonapluscgx-it.exe` (~17 MB) |
+
+Motivo: il vault contiene 16.500 note, viene indicizzato da Obsidian ed è o è
+stato sincronizzato su Google Drive (`.tmp.driveupload`). Un clone git da 20 MB e
+build da 17 MB rigenerate a ogni compilazione non hanno niente da fare lì dentro.
+Il percorso della radice di lavoro è configurabile e vale come unico parametro
+d'ambiente degli strumenti.
 
 `glossario.md` nasce come copia del glossario Elin (451 righe, in larga parte
 interfaccia e termini generici) e da lì diverge.
@@ -218,13 +242,13 @@ Interrompere il progetto dopo una qualsiasi di esse lascia un risultato usabile.
 | Fase | Contenuto | Volume | Risultato |
 |---|---|---|---|
 | **0** | Prototipo tecnico | ~50 stringhe | Le tre prove passano, strada accenti decisa, posizione dei nomi oggetto individuata |
-| **1** | UI e messaggi — `text` `command` `action` `proc` `skill` `trait` | 7.937 | Interfaccia e messaggistica in italiano |
-| **2** | Nomi — `db_creature` `db_card`, più i nomi oggetto una volta localizzati | 8.095 + nomi oggetto | Gioco sostanzialmente italiano |
-| **3** | Dialoghi — `chat.hsp` | 4.828 | Conversazioni con NPC in italiano |
-| **4** | Coda — i restanti 60 file `.hsp` minori e i testi esterni | 5.957 + 250 KB | Copertura completa |
+| **1** | UI e messaggi — `text` `command` `action` `proc` `skill` `trait` | 7.821 | Interfaccia e messaggistica in italiano |
+| **2** | Nomi — `db_creature` `db_card`, più i nomi oggetto una volta localizzati | 8.073 + nomi oggetto | Gioco sostanzialmente italiano |
+| **3** | Dialoghi — `chat.hsp` | 4.818 | Conversazioni con NPC in italiano |
+| **4** | Coda — i restanti 60 file `.hsp` minori e i testi esterni | 5.711 + 250 KB | Copertura completa |
 
-Somma verificata: 7.937 + 8.095 + 4.828 + 5.957 = **26.817**, il totale delle
-`lang()` nel sorgente. I 250 KB di testi esterni (`book.txt`, `talk.txt`,
+Somma verificata: 7.821 + 8.073 + 4.818 + 5.711 = **26.423**, il totale delle
+stringhe traducibili. I 250 KB di testi esterni (`book.txt`, `talk.txt`,
 `exhelp.txt`, `board.txt`) sono aggiuntivi e non passano da `lang()`.
 
 ### Fase 0 — il cancello
