@@ -27,7 +27,31 @@ class SorgenteCorrotto(ValueError):
 # faccia fermare la catena invece di essere gestito per analogia.
 INVOLUCRI = frozenset({"cnvtalk", "cnven"})
 
+# Il gruppo 2 e' greedy fino all'ultima virgoletta prima della parentesi
+# chiusa apposta: cosi' cattura anche un eventuale secondo argomento
+# (`cnvtalk("x", "y")`), che va rifiutato esplicitamente invece di sparire in
+# silenzio — vedi il controllo con virgola_nuda sotto. `\s*` intorno alle
+# parentesi accetta anche `cnvtalk( "..." )`, ma la ricostruzione in
+# `riscrivi_statica` normalizza sempre a `nome("...")` senza gli spazi
+# interni: e' sicuro solo perche' quella forma non esiste nel sorgente
+# pinnato (0 occorrenze verificate su 3.853 chiamate). Se un domani comparisse,
+# la prova d'identita' smetterebbe di riprodurre il file byte per byte e lo
+# segnalerebbe.
 _AVVOLTA = re.compile(r'^\s*([A-Za-z_][A-Za-z0-9_]*)\s*\(\s*(".*")\s*\)\s*$', re.DOTALL)
+
+
+def _analizza_involucro(grezzo_en: str) -> tuple[str | None, str | None]:
+    """Nome dell'involucro e contenuto fra parentesi, o `(None, None)` se
+    `grezzo_en` non ha la forma `nome(...)`.
+
+    Un solo punto che applica `_AVVOLTA`: sia `riscrivi_statica` sia il
+    messaggio d'errore del chiamante lo usano, cosi' la diagnosi del rifiuto
+    non puo' disallinearsi dalla logica che accetta.
+    """
+    trovato = _AVVOLTA.match(grezzo_en)
+    if not trovato:
+        return None, None
+    return trovato.group(1), trovato.group(2)
 
 
 def riscrivi_statica(grezzo_en: str, italiano: str) -> str | None:
@@ -37,12 +61,18 @@ def riscrivi_statica(grezzo_en: str, italiano: str) -> str | None:
     stessa traduzione serve sia `"Ciao."` sia `cnvtalk("Ciao.")`, che nel
     sorgente convivono e condividono la firma.
 
-    `None` se la forma non e' riconosciuta: il chiamante rifiuta.
+    `None` se la forma non e' riconosciuta, se l'involucro non e' fra quelli
+    gestiti, o se contiene piu' di un argomento (`cnvtalk("x", "y")`): in
+    quest'ultimo caso sostituire il gruppo catturato con un solo letterale
+    farebbe sparire il secondo argomento in silenzio, la stessa classe di
+    corruzione che questo modulo esiste per evitare. Il chiamante rifiuta.
     """
     letterale = '"' + italiano + '"'
-    trovato = _AVVOLTA.match(grezzo_en)
-    if trovato:
-        return f"{trovato.group(1)}({letterale})" if trovato.group(1) in INVOLUCRI else None
+    nome, contenuto = _analizza_involucro(grezzo_en)
+    if nome is not None:
+        if nome in INVOLUCRI and not virgola_nuda(contenuto):
+            return f"{nome}({letterale})"
+        return None
     # una statica senza involucro e' per definizione un letterale nudo: non ha
     # un `+` di primo livello, altrimenti sarebbe classificata dinamica
     nudo = grezzo_en.strip()
@@ -183,6 +213,13 @@ def applica_a_testo(nome_file: str, testo: str, dizionario: dict,
             if tipo == "statica":
                 nuovo = riscrivi_statica(grezzo_en, degrada(voce["it"]))
                 if nuovo is None:
+                    nome_involucro, contenuto = _analizza_involucro(grezzo_en)
+                    if nome_involucro in INVOLUCRI and contenuto is not None and virgola_nuda(contenuto):
+                        raise SorgenteCorrotto(
+                            f"{nome_file}:{numero_riga} firma {chiave}: l'involucro "
+                            f"{nome_involucro!r} in {grezzo_en!r} ha piu' di un argomento; "
+                            "sostituirlo con un solo letterale ne farebbe sparire uno."
+                        )
                     raise SorgenteCorrotto(
                         f"{nome_file}:{numero_riga} firma {chiave}: involucro non "
                         f"riconosciuto in {grezzo_en!r}. Gli involucri gestiti sono "

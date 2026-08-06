@@ -279,6 +279,27 @@ def test_un_involucro_sconosciuto_viene_ancora_rifiutato():
         applica_a_testo("chat.hsp", sorgente, diz)
 
 
+def test_un_involucro_noto_con_due_argomenti_viene_rifiutato():
+    # cnvtalk("x", "y") ha due argomenti: sostituire il gruppo catturato con
+    # un solo letterale farebbe sparire "y" in silenzio. L'involucro e'
+    # riconosciutissimo, quindi il motivo non puo' essere "non riconosciuto".
+    sorgente = '\ttxt lang("jp", cnvtalk("x", "y"))'
+    diz = dizionario_con("jp", "xy", "Ciao.", en_grezzo='cnvtalk("x", "y")')
+    with pytest.raises(SorgenteCorrotto, match="piu' di un argomento"):
+        applica_a_testo("chat.hsp", sorgente, diz)
+
+
+def test_una_virgola_dentro_il_letterale_avvolto_resta_legittima():
+    # cnvtalk("a, b") ha un solo argomento: la virgola sta dentro il
+    # letterale, non e' un secondo argomento. Senza questo test la correzione
+    # del rilievo sopra potrebbe rompere i casi legittimi.
+    sorgente = '\ttxt lang("jp", cnvtalk("a, b"))'
+    diz = dizionario_con("jp", "a, b", "c, d", en_grezzo='cnvtalk("a, b")')
+    testo, sostituzioni = applica_a_testo("chat.hsp", sorgente, diz)
+    assert sostituzioni == 1
+    assert 'cnvtalk("c, d")' in testo
+
+
 def test_una_statica_con_letterale_nudo_passa_normalmente():
     testo, sostituzioni = applica_a_testo(
         "text.hsp", STATICA,
