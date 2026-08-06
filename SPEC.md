@@ -76,6 +76,28 @@ premessa che rende il progetto fattibile.
 `.gitattributes` (`working-tree-encoding=CP932`). Il compilatore HSP lavora in
 CP932.
 
+**Trappola: `git status` nel clone del sorgente è permanentemente sporco.**
+Su un clone appena fatto e mai toccato, `git status` segnala **1198 file
+modificati**, tra cui tre `.hsp` che dobbiamo tradurre: `ai.hsp`, `command.hsp`,
+`main.hsp`. Non è una scrittura nostra. È l'ambiguità storica fra Shift-JIS e
+Unicode sul byte `0x8160`: git lo *scrive* partendo da `～` (U+FF5E, tilde a
+larghezza intera) e lo *rilegge* come `〜` (U+301C, wave dash). La conversione di
+iconv è asimmetrica, quindi ogni file che contiene quel byte risulta modificato
+appena git è costretto a rileggerlo.
+
+Due conseguenze operative:
+
+1. **`git status` non è un controllo d'integrità utilizzabile** sul clone del
+   sorgente. Per verificare che nessuno strumento abbia scritto in `sorgente/`
+   serve un manifesto di hash preso al momento del clone.
+2. **Non si committa mai dentro il clone del sorgente.** Un commit lì
+   riscriverebbe 1198 blob con caratteri diversi da quelli di upstream.
+
+Il round-trip di **Python** è invece **byte-esatto**: verificato su tutti e 72 i
+file `.hsp`, `bytes → decode("cp932") → encode("cp932")` restituisce byte
+identici. Gli strumenti del progetto sono quindi al sicuro; il problema è
+circoscritto a git.
+
 **Punto aperto.** `db_item.hsp` (4,6 MB) contiene **zero** `lang()`: i nomi degli
 oggetti passano da `ioriginalnameref` e risiedono altrove. `ndata.csv` /
 `ndata-e.csv` in `data/` sono liste di parole per la generazione di nomi casuali,

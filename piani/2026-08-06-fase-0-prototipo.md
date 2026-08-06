@@ -1166,11 +1166,33 @@ Atteso: 6 passed. Il test `test_il_risultato_e_codificabile_in_cp932` è il più
 
 - [ ] **Passo 5: Verificare che il sorgente sia rimasto intatto**
 
+⚠️ **`git status` non serve a questo scopo.** Su un clone appena fatto e mai toccato segnala già 1198 file modificati, fra cui `ai.hsp`, `command.hsp` e `main.hsp`, per via dell'asimmetria di iconv sul byte `0x8160` (`～` U+FF5E scritto, `〜` U+301C riletto). Vedi `SPEC.md` §2.
+
+Serve un manifesto di hash. Crearlo **una volta sola**, subito dopo il clone:
+
 ```powershell
-git -C "C:\Games\Elona\_traduzione\sorgente" status --porcelain
+$src = "C:\Games\Elona\_traduzione\sorgente\2.05-custom-gx"
+Get-ChildItem $src -Filter *.hsp | ForEach-Object {
+  "{0}  {1}" -f (Get-FileHash $_.FullName -Algorithm SHA256).Hash, $_.Name
+} | Set-Content "C:\Games\Elona\_traduzione\manifesto-sorgente.txt"
+(Get-Content "C:\Games\Elona\_traduzione\manifesto-sorgente.txt" | Measure-Object -Line).Lines
 ```
 
-Atteso: **nessun output**. Qualsiasi riga significa che uno strumento ha scritto dove non doveva; fermarsi e correggere prima di proseguire.
+Atteso: **72 righe**.
+
+Poi, dopo ogni build, confrontare:
+
+```powershell
+$src = "C:\Games\Elona\_traduzione\sorgente\2.05-custom-gx"
+$atteso = Get-Content "C:\Games\Elona\_traduzione\manifesto-sorgente.txt"
+$attuale = Get-ChildItem $src -Filter *.hsp | ForEach-Object {
+  "{0}  {1}" -f (Get-FileHash $_.FullName -Algorithm SHA256).Hash, $_.Name
+}
+$diff = Compare-Object $atteso $attuale
+if ($diff) { $diff | Format-Table -AutoSize } else { "sorgente intatto" }
+```
+
+Atteso: `sorgente intatto`. Qualsiasi differenza significa che uno strumento ha scritto dove non doveva; fermarsi e correggere prima di proseguire.
 
 - [ ] **Passo 6: Commit**
 
@@ -1434,11 +1456,19 @@ Atteso: `applica` riporta `text.hsp: 50 sostituzioni`; `compila` produce `C:\Gam
 
 - [ ] **Passo 7: Verificare che il sorgente sia ancora intatto**
 
+Con il manifesto di hash creato al Task 7, passo 5 — **non** con `git status`, che nel clone del sorgente è permanentemente sporco:
+
 ```powershell
-git -C "C:\Games\Elona\_traduzione\sorgente" status --porcelain
+$src = "C:\Games\Elona\_traduzione\sorgente\2.05-custom-gx"
+$atteso = Get-Content "C:\Games\Elona\_traduzione\manifesto-sorgente.txt"
+$attuale = Get-ChildItem $src -Filter *.hsp | ForEach-Object {
+  "{0}  {1}" -f (Get-FileHash $_.FullName -Algorithm SHA256).Hash, $_.Name
+}
+$diff = Compare-Object $atteso $attuale
+if ($diff) { $diff | Format-Table -AutoSize } else { "sorgente intatto" }
 ```
 
-Atteso: nessun output.
+Atteso: `sorgente intatto`.
 
 - [ ] **Passo 8: Installare e provare in gioco**
 
@@ -1524,7 +1554,7 @@ La fase è conclusa quando tutte queste affermazioni sono vere:
 - [ ] `python -m pytest strumenti/tests -v` passa interamente
 - [ ] `strumenti.estrai text.hsp` conta esattamente **2146** voci (1909 statiche, 237 dinamiche)
 - [ ] 50 stringhe sono nel dizionario e `verifica.py` non segnala nulla
-- [ ] `git -C $LAVORO\sorgente status --porcelain` è vuoto dopo una build completa
+- [ ] Il manifesto di hash di `sorgente/` combacia dopo una build completa (**non** `git status`: nel clone del sorgente è permanentemente sporco, vedi `SPEC.md` §2)
 - [ ] Le 50 stringhe si vedono in italiano in gioco, e una accentata appare come `perche'`
 - [ ] L'eseguibile inglese e i salvataggi sono intatti
 - [ ] La collocazione dei nomi degli oggetti è documentata in `SPEC.md`

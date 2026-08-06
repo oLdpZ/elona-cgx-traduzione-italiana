@@ -9,3 +9,6 @@ hsp34/
 __pycache__/
 *.py[cod]
 .pytest_cache/
+
+# artefatti di verifica prodotti dagli strumenti
+lavoro/controllo-*.jsonl
