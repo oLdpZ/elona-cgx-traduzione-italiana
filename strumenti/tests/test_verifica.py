@@ -99,3 +99,46 @@ def test_un_tipo_non_valido_viene_segnalato_con_file_e_riga():
         "en": "Yes", "en_grezzo": '"Yes"', "it": "Sì",
     })
     assert problemi and "proc.hsp:7" in problemi[0] and "boh" in problemi[0]
+
+
+# --- morfologia inglese vs contenuto (task 1, Fase 1) -----------------------
+
+def test_togliere_la_morfologia_inglese_non_e_un_problema():
+    # _s(tc) e' la desinenza della terza persona inglese: in italiano non
+    # esiste. Sono 510 dinamiche su 1.522 in Fase 1.
+    voce = {
+        "tipo": "dinamica", "en": " attacks.", "it": 'name(tc) + " attacca."',
+        "en_grezzo": 'name(tc) + " attack" + _s(tc) + "."',
+    }
+    assert controlla_voce(voce) == []
+
+
+def test_perdere_una_funzione_di_contenuto_resta_un_problema():
+    voce = {
+        "tipo": "dinamica", "en": " attacks.", "it": '"Attacca."',
+        "en_grezzo": 'name(tc) + " attack" + _s(tc) + "."',
+    }
+    assert any("interpolazioni" in p for p in controlla_voce(voce))
+
+
+def test_lasciare_la_morfologia_inglese_nell_italiano_e_un_problema():
+    # scriverebbe "attacca s" a schermo
+    voce = {
+        "tipo": "dinamica", "en": " attacks.", "it": 'name(tc) + " attacca" + _s(tc) + "."',
+        "en_grezzo": 'name(tc) + " attack" + _s(tc) + "."',
+    }
+    assert any("morfologia inglese" in p for p in controlla_voce(voce))
+
+
+def test_un_pronome_puo_restare_o_sparire():
+    # nota: il testo usa l'accento vero (è), non l'apostrofo scritto a mano
+    # (e'), perche' quest'ultimo farebbe scattare una regola indipendente
+    # (ha_apostrofo_scritto_a_mano) e confonderebbe l'esito di questo test,
+    # che vuole isolare solo la regola sui pronomi
+    grezzo = 'cnven(he(tc, 1)) + " is a citizen."'
+    con = {"tipo": "dinamica", "en": " is a citizen.",
+           "it": 'cnven(he(tc, 1)) + " è un cittadino."', "en_grezzo": grezzo}
+    senza = {"tipo": "dinamica", "en": " is a citizen.",
+             "it": 'cnven("È") + " un cittadino."', "en_grezzo": grezzo}
+    assert controlla_voce(con) == []
+    assert controlla_voce(senza) == []
