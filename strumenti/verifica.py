@@ -2,14 +2,10 @@
 """Regole di blocco sui lotti e sul dizionario. Vedi SPEC.md paragrafo 7."""
 import argparse
 import json
-import re
 from pathlib import Path
 
 from strumenti.accenti import degrada, ha_apostrofo_scritto_a_mano, non_ascii_residuo
-from strumenti.funzioni import MORFOLOGIA_INGLESE, funzioni_di_contenuto
-
-_CHIAMATE = re.compile(r"\b([A-Za-z_][A-Za-z0-9_]*)\s*\(")
-
+from strumenti.funzioni import funzioni_di_contenuto, morfologia_residua
 
 _RICHIESTI = ("tipo", "en", "en_grezzo")
 
@@ -79,20 +75,22 @@ def controlla_voce(voce: dict) -> list[str]:
         problemi.append(f"caratteri che CP932 cancellerebbe: {residui}")
 
     if tipo == "dinamica":
-        # la morfologia inglese (_s, is, was, your, ...) non e' contenuto: non
-        # passa mai da lang(), quindi non si localizzera' mai, e pretendere
-        # che l'italiano la conservi tal quale e' il difetto che questa
-        # funzione correggeva. Il confronto vero e' sulle sole chiamate di
-        # contenuto (nomi, oggetti, dati...); i pronomi (he/his/him) sono
-        # facoltativi e non entrano nel confronto in nessuno dei due sensi.
+        # la morfologia inglese (_s, is, was, your, ... e he/his/him quando
+        # chiamate con un solo argomento) non e' contenuto: non passa mai da
+        # lang(), quindi non si localizzera' mai, e pretendere che l'italiano
+        # la conservi tal quale e' il difetto che questa funzione correggeva.
+        # Il confronto vero e' sulle sole chiamate di contenuto (nomi,
+        # oggetti, dati... e he/his/him quando chiamate con due argomenti);
+        # i pronomi non entrano nel confronto in nessuno dei due sensi.
         attese = funzioni_di_contenuto(voce["en_grezzo"])
         trovate = funzioni_di_contenuto(italiano)
         if attese != trovate:
             problemi.append(f"interpolazioni non conservate: attese {attese}, trovate {trovate}")
 
         # la morfologia inglese non si localizza mai: _s(tc) scrive "s" a
-        # schermo anche dentro una frase italiana
-        residue = sorted(set(_CHIAMATE.findall(italiano)) & MORFOLOGIA_INGLESE)
+        # schermo anche dentro una frase italiana, e cosi' his(tc) senza
+        # secondo argomento scrive "his" per sempre
+        residue = morfologia_residua(italiano)
         if residue:
             problemi.append(
                 f"morfologia inglese rimasta nella traduzione: {residue}. "

@@ -152,6 +152,39 @@ def _argomenti(testo: str, apertura: int) -> tuple[str, str, int, int] | None:
     return None
 
 
+def argomenti_di(testo: str, apertura: int) -> list[str] | None:
+    """Argomenti grezzi (N-ari) di una chiamata `nome(...)`, dato l'indice della
+    parentesi aperta (fuori da un letterale).
+
+    Generalizza `_argomenti` — che vale solo per i due argomenti di `lang()` —
+    a una chiamata con un numero qualsiasi di argomenti, usata da
+    `strumenti/funzioni.py` per distinguere `his(tc)` (un argomento, morfologia
+    inglese) da `his(tc, 1)` (due argomenti, si localizza con `init.hsp`).
+    Riusa `_dentro_stringa` per lo stato dei letterali invece di riscrivere una
+    terza scansione a parentesi bilanciate. Ritorna None se la chiamata non si
+    chiude nella stessa riga.
+    """
+    stato = _dentro_stringa(testo)
+    profondita = 0
+    inizio_arg = apertura + 1
+    argomenti: list[str] = []
+    for indice in range(apertura, len(testo)):
+        if stato[indice]:
+            continue
+        carattere = testo[indice]
+        if carattere == "(":
+            profondita += 1
+        elif carattere == ")":
+            profondita -= 1
+            if profondita == 0:
+                argomenti.append(testo[inizio_arg:indice].strip())
+                return argomenti
+        elif carattere == "," and profondita == 1:
+            argomenti.append(testo[inizio_arg:indice].strip())
+            inizio_arg = indice + 1
+    return None
+
+
 def _letterali(argomento_grezzo: str) -> str:
     """Concatena i letterali fra virgolette, che sono la parte traducibile.
 

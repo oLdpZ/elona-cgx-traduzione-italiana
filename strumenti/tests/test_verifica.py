@@ -105,7 +105,16 @@ def test_un_tipo_non_valido_viene_segnalato_con_file_e_riga():
 
 def test_togliere_la_morfologia_inglese_non_e_un_problema():
     # _s(tc) e' la desinenza della terza persona inglese: in italiano non
-    # esiste. Sono 510 dinamiche su 1.522 in Fase 1.
+    # esiste. Sul sorgente vero (non sul file di lavoro, che e' un residuo):
+    # i sei file di Fase 1 (text, command, action, proc, skill, trait) hanno
+    # 1.522 dinamiche in tutto, di cui almeno 477 contengono una chiamata di
+    # morfologia inglese pura (_s/_s2/_s3/_s4/is/was/your/your2/have/does/
+    # him2/his3/its/its2/yourself) — verificato con
+    # `strumenti.estrai.estrai_da_file` su
+    # `C:\Games\Elona\_traduzione\sorgente\2.05-custom-gx\`. Il conteggio
+    # esatto delle sole voci che il difetto rifiutava (serve la traduzione
+    # italiana per saperlo, non disponibile in questa cartella) resta da
+    # misurare quando il corpus tradotto di Fase 1 sara' pronto.
     voce = {
         "tipo": "dinamica", "en": " attacks.", "it": 'name(tc) + " attacca."',
         "en_grezzo": 'name(tc) + " attack" + _s(tc) + "."',
@@ -130,15 +139,39 @@ def test_lasciare_la_morfologia_inglese_nell_italiano_e_un_problema():
     assert any("morfologia inglese" in p for p in controlla_voce(voce))
 
 
-def test_un_pronome_puo_restare_o_sparire():
-    # nota: il testo usa l'accento vero (è), non l'apostrofo scritto a mano
-    # (e'), perche' quest'ultimo farebbe scattare una regola indipendente
-    # (ha_apostrofo_scritto_a_mano) e confonderebbe l'esito di questo test,
-    # che vuole isolare solo la regola sui pronomi
-    grezzo = 'cnven(he(tc, 1)) + " is a citizen."'
-    con = {"tipo": "dinamica", "en": " is a citizen.",
-           "it": 'cnven(he(tc, 1)) + " è un cittadino."', "en_grezzo": grezzo}
-    senza = {"tipo": "dinamica", "en": " is a citizen.",
-             "it": 'cnven("È") + " un cittadino."', "en_grezzo": grezzo}
-    assert controlla_voce(con) == []
-    assert controlla_voce(senza) == []
+def test_un_pronome_con_due_argomenti_va_conservato_come_contenuto():
+    # giro di correzione 1: he/his/him NON sono piu' facoltativi. Con due
+    # argomenti passano da lang() (action.hsp:9631, sorgente vero) e vanno
+    # trattati come name() o itemname(): perderli e' un problema come
+    # perdere qualunque altro contenuto.
+    grezzo = 'name(tc) + " changed " + his(tc, 1) + " elemental affinity."'
+    conservato = {
+        "tipo": "dinamica", "en": " changed  elemental affinity.",
+        "it": 'name(tc) + " ha cambiato " + his(tc, 1) + " affinità elementale."',
+        "en_grezzo": grezzo,
+    }
+    perso = {
+        "tipo": "dinamica", "en": " changed  elemental affinity.",
+        "it": 'name(tc) + " ha cambiato la sua affinità elementale."',
+        "en_grezzo": grezzo,
+    }
+    assert controlla_voce(conservato) == []
+    assert any("interpolazioni" in p for p in controlla_voce(perso))
+
+
+def test_un_pronome_con_un_argomento_deve_sparire():
+    # command.hsp:6667 (sorgente vero) — his(tc) non ha mai un ramo lang()
+    # raggiungibile: se resta nell'italiano scrive "his"/"her" per sempre,
+    # esattamente come _s(tc) scriverebbe "s"
+    grezzo = 'name(tc) + " puffs out " + his(tc) + " chest with pride."'
+    corretto = {
+        "tipo": "dinamica", "en": " puffs out  chest with pride.",
+        "it": 'name(tc) + " gonfia il petto con orgoglio."', "en_grezzo": grezzo,
+    }
+    lasciato = {
+        "tipo": "dinamica", "en": " puffs out  chest with pride.",
+        "it": 'name(tc) + " gonfia " + his(tc) + " petto con orgoglio."',
+        "en_grezzo": grezzo,
+    }
+    assert controlla_voce(corretto) == []
+    assert any("morfologia inglese" in p for p in controlla_voce(lasciato))

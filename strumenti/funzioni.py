@@ -6,40 +6,61 @@ grammatica **inglese**, e in italiano vanno tolte: `_s(tc)` restituisce la `s`
 della terza persona, `your(tc)` il suffisso possessivo `'s`. Conservarle
 significherebbe scrivere inglese dentro una frase italiana.
 
-La distinzione fra le due classi non ovvie sta nel valore restituito, verificato
-leggendo `init.hsp` (Fase 1, task 1 — vedi `.superpowers/sdd/2026-08-06-fase-1-
-ui-e-messaggi/task-1-report.md` per l'elenco completo delle prove):
+La distinzione, verificata leggendo `init.hsp` (Fase 1, task 1 — vedi
+`.superpowers/sdd/2026-08-06-fase-1-ui-e-messaggi/task-1-report.md` per
+l'elenco completo delle prove, incluso il giro di correzione):
 
 - **morfologia**: restituisce sempre una stringa inglese nuda, mai passata da
-  `lang()`. Non si localizzera' mai, qualunque cosa succeda in Fase 4. In
+  `lang()`, qualunque siano gli argomenti. Non si localizzera' mai. In
   italiano va tolta.
-- **pronome**: restituisce (almeno nel ramo che conta per l'uso reale nel
-  corpus) `lang("彼", "he")` e simili, quindi si localizzera' insieme a
-  `init.hsp` in Fase 4. Tenerla o toglierla sono due scelte entrambe
-  legittime, e la verifica non deve imporne nessuna.
+- **pronome per sito di chiamata**: `he`, `his`, `him` hanno *la stessa
+  funzione* che si comporta diversamente a seconda del numero di argomenti
+  con cui viene chiamata — non e' una proprieta' del nome, e' una proprieta'
+  del sito. Il corpo di ciascuna (letto per intero in `init.hsp`) e':
+
+      if ( <nome>_arg2 ) {
+          ... return lang("...", "...") ...   # con secondo argomento
+      }
+      ... return "it" / "you" / "he" / ...    # senza: inglese nudo per sempre
+
+  Una prima versione di questo modulo classificava `he/his/him` per nome
+  (sempre "pronome facoltativo"), ignorando questa biforcazione: `his(tc)`
+  (un argomento, MAI lang()) veniva trattata come i suoi rispettivi
+  `his(tc, 1)` (due argomenti, sempre lang()), e la verifica non avrebbe
+  segnalato un `his(tc)` a un argomento lasciato per sempre in inglese dentro
+  una frase italiana. Sul sorgente intero (72 file) `his` compare 111 volte a
+  un argomento contro 12 a due; `he` 22 contro 17; `him` 36 contro 0 — il caso
+  "morfologia nuda" e' la maggioranza, non l'eccezione.
+  Regola: **due argomenti -> contenuto** (si localizzera' con `init.hsp` in
+  Fase 4, va conservata); **un argomento -> morfologia** (resta inglese per
+  sempre, va tolta).
 
 Tutto il resto e' contenuto e va conservato: perdere `name(tc)` significa
 perdere il nome del personaggio dalla frase.
 
-Un caso non entra in nessuna delle due liste apposta: `his2(EntityID)`. Il suo
-codice sorgente e':
+Casi verificati e lasciati fuori da entrambe le classi:
 
-    if ( EntityID == CHARA_PLAYER ) { return "your" }
-    return name(EntityID)
-
-Nel ramo non-giocatore restituisce il nome vero del personaggio (contenuto),
-non morfologia ne' pronome: classificarla in uno dei due set le farebbe
-perdere un nome reale. Resta contenuto per esclusione (comportamento di
-default di `funzioni_di_contenuto`), com'e' corretto che sia finche' non la
-si vede usata nel corpus con un'analisi caso per caso.
+- `his2(EntityID)`: `if (EntityID==CHARA_PLAYER) return "your"` altrimenti
+  `return name(EntityID)` — nel ramo non-giocatore restituisce il nome vero
+  del personaggio, cioe' contenuto, non morfologia ne' pronome. A differenza
+  di `he/his/him` non ha un secondo argomento con cui distinguere i siti (la
+  sua firma e' `his2(EntityID)`, un solo parametro): non c'e' un sito "con
+  lang()" da riconoscere, quindi la regola per sito non si applica. Resta
+  contenuto per esclusione (comportamento di default). Non e' usata nei sei
+  file di Fase 1 con l'argomento che farebbe restituire `name(...)`.
+- `him2(EntityID)`, `his3(EntityID)`: firma a un solo parametro, nessun ramo
+  `lang()` in nessun caso (letti per intero) — morfologia incondizionata,
+  senza distinzione di sito perche' il sito non varia mai.
 """
 import re
 
+from strumenti.estrai import argomenti_di
+
 # Verificate su init.hsp: restituiscono SEMPRE una stringa inglese nuda,
-# mai attraverso lang(). _s/_s2/_s3/_s4 sono varianti della stessa desinenza
-# di terza persona ("s"/"es"/""); him2/his3/its/its2/your2/yourself sono
-# varianti di possessivi e riflessivi inglesi che, a differenza di he/his/him,
-# non hanno alcun ramo che passa da lang() — restano inglese per sempre.
+# mai attraverso lang(), qualunque siano gli argomenti. _s/_s2/_s3/_s4 sono
+# varianti della stessa desinenza di terza persona ("s"/"es"/""); him2/his3/
+# its/its2/your2/yourself sono varianti di possessivi e riflessivi inglesi
+# che, a differenza di he/his/him, non hanno alcun ramo che passa da lang().
 # have/does sono coniugazioni verbali (has/have, do/does), stesso discorso.
 MORFOLOGIA_INGLESE = frozenset({
     "_s", "_s2", "_s3", "_s4",
@@ -48,18 +69,48 @@ MORFOLOGIA_INGLESE = frozenset({
     "him2", "his3", "its", "its2", "yourself",
 })
 
-# Verificate su init.hsp: restituiscono lang("彼", "he") e simili (almeno nel
-# ramo usato nel corpus reale, es. he(tc, 1)): si localizzeranno con init.hsp
-# in Fase 4. A differenza della morfologia, tenerle o toglierle in italiano
-# sono due scelte entrambe legittime.
-PRONOMI = frozenset({"he", "his", "him"})
+# Pronomi il cui esito dipende dal sito di chiamata, non dal nome: con un
+# secondo argomento passano da lang() (contenuto), senza restano per sempre
+# inglese nudo (morfologia). Vedi la spiegazione estesa sopra.
+PRONOMI_PER_SITO = frozenset({"he", "his", "him"})
 
-_CHIAMATA = re.compile(r"\b([A-Za-z_][A-Za-z0-9_]*)\s*\(")
+CHIAMATA = re.compile(r"\b([A-Za-z_][A-Za-z0-9_]*)\s*\(")
+
+
+def _classifica(espressione: str) -> tuple[list[str], list[str]]:
+    """Per ogni chiamata dell'espressione, decide se e' contenuto o morfologia.
+
+    Ritorna (contenuto, morfologia): i nomi delle chiamate, non ordinati e con
+    ripetizioni, nell'ordine in cui compaiono. Le chiamate a `he/his/him`
+    guardano il numero di argomenti al sito, non il solo nome.
+    """
+    contenuto: list[str] = []
+    morfologia: list[str] = []
+    for corrispondenza in CHIAMATA.finditer(espressione):
+        nome = corrispondenza.group(1)
+        if nome in MORFOLOGIA_INGLESE:
+            morfologia.append(nome)
+        elif nome in PRONOMI_PER_SITO:
+            apertura = corrispondenza.end() - 1
+            argomenti = argomenti_di(espressione, apertura)
+            if argomenti is not None and len(argomenti) >= 2:
+                contenuto.append(nome)
+            else:
+                morfologia.append(nome)
+        else:
+            contenuto.append(nome)
+    return contenuto, morfologia
 
 
 def funzioni_di_contenuto(espressione: str) -> list[str]:
     """Le chiamate che devono sopravvivere alla traduzione, ordinate."""
-    return sorted(
-        nome for nome in _CHIAMATA.findall(espressione)
-        if nome not in MORFOLOGIA_INGLESE and nome not in PRONOMI
-    )
+    contenuto, _ = _classifica(espressione)
+    return sorted(contenuto)
+
+
+def morfologia_residua(espressione: str) -> list[str]:
+    """I nomi di morfologia inglese presenti nell'espressione, ordinati e senza
+    ripetizioni: se compaiono nell'italiano tradotto e' un problema, non una
+    scelta stilistica (a differenza dei pronomi, che sono facoltativi)."""
+    _, morfologia = _classifica(espressione)
+    return sorted(set(morfologia))
