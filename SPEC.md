@@ -45,6 +45,12 @@ Delle 26.423 traducibili, **22.727 sono statiche e 3.696 dinamiche** (contengono
 concatenazioni). Il 14% di stringhe dinamiche è la quota che richiede attenzione
 grammaticale — vedi §5.
 
+**Il lavoro effettivo è però inferiore: 21.957 stringhe uniche.** Il 16,9% delle
+occorrenze sono duplicati esatti — stessa coppia giapponese/inglese ripetuta più
+volte nello stesso file — e il dizionario è indicizzato per firma, quindi si
+traducono una volta sola e la traduzione si applica a tutte le occorrenze. Il
+campo `occorrenza` resta a fini diagnostici, non moltiplica il lavoro.
+
 Distribuzione sui file principali (occorrenze grezze → traducibili):
 
 | File | grezze | traducibili |
@@ -261,17 +267,24 @@ documentata**, non per dimenticanza.
 Ogni fase termina con un gioco installabile e più italiano della precedente.
 Interrompere il progetto dopo una qualsiasi di esse lascia un risultato usabile.
 
-| Fase | Contenuto | Volume | Risultato |
-|---|---|---|---|
-| **0** | Prototipo tecnico | ~50 stringhe | Le tre prove passano, strada accenti decisa, posizione dei nomi oggetto individuata |
-| **1** | UI e messaggi — `text` `command` `action` `proc` `skill` `trait` | 7.821 | Interfaccia e messaggistica in italiano |
-| **2** | Nomi — `db_creature` `db_card`, più i nomi oggetto una volta localizzati | 8.073 + nomi oggetto | Gioco sostanzialmente italiano |
-| **3** | Dialoghi — `chat.hsp` | 4.818 | Conversazioni con NPC in italiano |
-| **4** | Coda — i restanti 60 file `.hsp` minori e i testi esterni | 5.711 + 250 KB | Copertura completa |
+| Fase | Contenuto | Occorrenze | **Da tradurre** | Risultato |
+|---|---|---|---|---|
+| **0** | Prototipo tecnico | ~50 | ~50 | Le due prove passano, posizione dei nomi oggetto individuata |
+| **1** | UI e messaggi — `text` `command` `action` `proc` `skill` `trait` | 7.821 | **6.728** | Interfaccia e messaggistica in italiano |
+| **2** | Nomi — `db_creature` `db_card`, più i nomi oggetto una volta localizzati | 8.073 | **5.973** + nomi oggetto | Gioco sostanzialmente italiano |
+| **3** | Dialoghi — `chat.hsp` | 4.818 | **4.381** | Conversazioni con NPC in italiano |
+| **4** | Coda — i restanti 60 file `.hsp` minori e i testi esterni | 5.711 | **4.875** + 250 KB | Copertura completa |
 
-Somma verificata: 7.821 + 8.073 + 4.818 + 5.711 = **26.423**, il totale delle
-stringhe traducibili. I 250 KB di testi esterni (`book.txt`, `talk.txt`,
-`exhelp.txt`, `board.txt`) sono aggiuntivi e non passano da `lang()`.
+Somma verificata: 6.728 + 5.973 + 4.381 + 4.875 = **21.957** stringhe uniche da
+tradurre, su 26.423 occorrenze. La colonna che conta per stimare il lavoro è
+"da tradurre": i duplicati si traducono una volta sola.
+
+La Fase 2 è quella che ci guadagna di più — 8.073 occorrenze per 5.973 stringhe,
+il 26% in meno — perché i database di creature e carte ripetono molte formule
+identiche.
+
+I 250 KB di testi esterni (`book.txt`, `talk.txt`, `exhelp.txt`, `board.txt`)
+sono aggiuntivi e non passano da `lang()`.
 
 ### Fase 0 — il cancello
 
