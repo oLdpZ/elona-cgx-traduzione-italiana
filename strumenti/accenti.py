@@ -37,6 +37,17 @@ _TRONCAMENTI = {
     "va'", "Va'", "fa'", "Fa'", "da'", "Da'", "di'", "Di'",
     "sta'", "Sta'", "to'", "To'", "mo'", "Mo'", "be'", "Be'", "po'", "Po'",
 }
+# Il troncamento va tolto solo quando e' parola a se stante, non quando e' la
+# coda di una parola piu' lunga (es. "rida'" contiene "da'" ma non e' un
+# troncamento legittimo: e' la forma sbagliata di "ridà"). Il confine va
+# controllato PRIMA del troncamento: un lookbehind negativo su una lettera,
+# perche' un \b subito dopo l'apostrofo finale non si comporta come un
+# confine di parola normale (l'apostrofo non e' un carattere di parola).
+_TRONCAMENTI_PATTERN = re.compile(
+    r"(?<![a-zA-Zà-ùÀ-Ù])(?:"
+    + "|".join(re.escape(t) for t in sorted(_TRONCAMENTI, key=len, reverse=True))
+    + ")"
+)
 _APOSTROFO_A_MANO = re.compile(r"[aeiouAEIOU]'(?![a-zA-Zà-ùÀ-Ù])")
 
 
@@ -52,11 +63,12 @@ def ha_apostrofo_scritto_a_mano(testo: str) -> bool:
 
     Distingue dall'elisione italiana, in cui l'apostrofo e' seguito da una
     lettera (l'oggetto, un'arma), e dai troncamenti legittimi elencati in
-    `_TRONCAMENTI` (imperativi monosillabici e "po'"). Vedi il docstring del
-    modulo per il compromesso noto su "da'" e "di'".
+    `_TRONCAMENTI` (imperativi monosillabici e "po'"), riconosciuti solo
+    come parola a se stante e non come coda di una parola piu' lunga
+    (es. "rida'" resta segnalato). Vedi il docstring del modulo per il
+    compromesso noto su "da'" e "di'".
     """
-    for troncamento in _TRONCAMENTI:
-        testo = testo.replace(troncamento, "")
+    testo = _TRONCAMENTI_PATTERN.sub("", testo)
     return _APOSTROFO_A_MANO.search(testo) is not None
 
 

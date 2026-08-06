@@ -68,6 +68,37 @@ def test_apostrofo_davvero_sbagliato_resta_segnalato():
     assert ha_apostrofo_scritto_a_mano("l'ho gia' fatto") is True
 
 
+def test_troncamento_ancorato_a_confine_di_parola():
+    # il troncamento va escluso solo come parola a se stante: se e' la coda
+    # di una parola piu' lunga, l'apostrofo resta un errore vero.
+    # "rida'" e' la forma sbagliata di "ridà" (terza persona di "ridare").
+    assert ha_apostrofo_scritto_a_mano("rida' domani") is True
+    assert ha_apostrofo_scritto_a_mano("grida' forte") is True
+    assert ha_apostrofo_scritto_a_mano("trova' la strada") is True
+    assert ha_apostrofo_scritto_a_mano("leva' la mano") is True
+    assert ha_apostrofo_scritto_a_mano("guarda' li") is True
+    # gli stessi troncamenti come parola isolata restano legittimi,
+    # sia a inizio frase sia a meta' frase, minuscoli e maiuscoli
+    assert ha_apostrofo_scritto_a_mano("va' via") is False
+    assert ha_apostrofo_scritto_a_mano("Va' via") is False
+    assert ha_apostrofo_scritto_a_mano("presto, fa' silenzio") is False
+    assert ha_apostrofo_scritto_a_mano("Fa' silenzio") is False
+    assert ha_apostrofo_scritto_a_mano("adesso da' il libro") is False
+    assert ha_apostrofo_scritto_a_mano("Da' il libro") is False
+    assert ha_apostrofo_scritto_a_mano("resta li, sta' fermo") is False
+    assert ha_apostrofo_scritto_a_mano("Sta' fermo") is False
+    assert ha_apostrofo_scritto_a_mano("ora di' la verita") is False
+    assert ha_apostrofo_scritto_a_mano("Di' la verita") is False
+    assert ha_apostrofo_scritto_a_mano("prendine un po'") is False
+    assert ha_apostrofo_scritto_a_mano("Po' di pazienza") is False
+    assert ha_apostrofo_scritto_a_mano("mah, be' non lo so") is False
+    assert ha_apostrofo_scritto_a_mano("Be' non lo so") is False
+    # elisione: l'apostrofo deve restare non segnalato anche vicino ai troncamenti
+    assert ha_apostrofo_scritto_a_mano("l'oggetto") is False
+    assert ha_apostrofo_scritto_a_mano("un'arma") is False
+    assert ha_apostrofo_scritto_a_mano("dell'acqua") is False
+
+
 def test_non_ascii_residuo_elenca_cio_che_cp932_cancellerebbe():
     assert non_ascii_residuo("perche' tutto ok") == []
     assert non_ascii_residuo("perché") == ["é"]
