@@ -32,13 +32,27 @@ def test_per_una_dinamica_l_identita_e_l_espressione_intera():
     assert "cdatan" in voce["it"], "l'identita' deve conservare le variabili"
 
 
-def test_due_espressioni_diverse_con_la_stessa_firma_sono_escluse_entrambe():
-    # stessi letterali, variabili diverse: la firma coincide, l'espressione no
+def test_due_espressioni_diverse_ora_hanno_chiavi_diverse():
+    # stessi letterali, variabili diverse: prima condividevano la firma e
+    # venivano escluse entrambe. Da SPEC 3.2 l'espressione entra nella chiave,
+    # quindi sono due voci distinte e tornano traducibili.
     testo = ('\ttxt lang("jp", name(gdata(GDATA_RIDER)) + " glare")\n'
              '\ttxt lang("jp", cdatan(CDATAN_NAME, ttc) + " glare")\n')
-    diz, avvolti, collidenti = dizionario_identita("action.hsp", testo)
-    assert diz == {}, "escludere una sola delle due la farebbe iniettare nell'altra"
-    assert (avvolti, collidenti) == (0, 2)
+    diz, avvolti, ambigue = dizionario_identita("action.hsp", testo)
+    assert len(diz) == 2
+    assert (avvolti, ambigue) == (0, 0)
+
+
+def test_la_stessa_statica_nuda_e_avvolta_resta_ambigua():
+    # per le statiche l'involucro non entra nella chiave, quindi queste due
+    # condividono la firma pur volendo sostituzioni diverse. Sono le 3
+    # occorrenze residue in db_creature.hsp: spariranno quando la sostituzione
+    # dentro cnvtalk( sara' implementata
+    testo = ('\ttxt lang("jp", "Ciao.")\n'
+             '\ttxt lang("jp", cnvtalk("Ciao."))\n')
+    diz, avvolti, ambigue = dizionario_identita("db_creature.hsp", testo)
+    assert diz == {}, "sostituire l'una con l'altra farebbe sparire cnvtalk"
+    assert ambigue == 2
 
 
 def test_su_un_file_finto_la_prova_riproduce_i_byte(tmp_path):

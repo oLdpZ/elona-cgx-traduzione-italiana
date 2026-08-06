@@ -9,7 +9,7 @@ ricompila, l'eseguibile che ne esce si avvia e **carica un salvataggio
 esistente** — provato in gioco il 2026-08-06. Non è più una catena verificata: è
 un gioco verificato, e la Fase 1 può cominciare.
 
-- Branch `fase-0`, **106 test verdi**
+- Branch `fase-0`, **122 test verdi**
 - [PR #1](https://github.com/oLdpZ/elona-cgx-traduzione-italiana/pull/1) aperta verso `master`, non ancora unita
 - `dizionario/` è **vuoto**: nessuna stringa è ancora tradotta
 - Sorgente **pinnato al tag `2.31.2.0`** (`a9135a6`), non più alla testa di `work`
@@ -19,7 +19,7 @@ un gioco verificato, e la Fase 1 può cominciare.
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
 git fetch origin; git checkout fase-0; git pull
-python -m pytest strumenti/tests -q          # atteso: 106 passed
+python -m pytest strumenti/tests -q          # atteso: 122 passed
 python -m strumenti.compila --cancello       # atteso: #No error detected.
 ```
 
@@ -69,29 +69,25 @@ non ha aggiornato al rilascio, non un errore di build. Il dettaglio è in
 
 Copia dei salvataggi di prima della prima prova: `C:\Games\Elona\save-backup\`.
 
-## La decisione che ha una finestra, e si chiude
+## La decisione che aveva una finestra: chiusa
 
-**Se la firma delle dinamiche debba includere l'espressione.** Oggi
-`firma = sha1(giapponese + NUL + inglese)` usa i soli letterali, e **77 firme
-collidono** su espressioni diverse: la traduzione di una porterebbe all'altra le
-variabili sbagliate.
+**La firma delle dinamiche include l'espressione**, con gli spazi normalizzati;
+le statiche restano com'erano. Decisa e implementata il 2026-08-06, finché
+`dizionario/` era ancora vuoto: nessun debito di migrazione.
 
-Includere `en_grezzo` risolve la collisione ma rende la chiave fragile: qualunque
-ritocco all'espressione a monte, anche rinominare una variabile, manderebbe la
-stringa in coda di ritraduzione a testo invariato.
-
-**Va decisa finché `dizionario/` è vuoto.** Il ragionamento completo è in
-`decisioni.md`.
+Le 77 firme collidenti non esistono più. Prezzo misurato: +235 stringhe da
+tradurre, 324 occorrenze che erano irraggiungibili tornano traducibili. Il
+ragionamento completo è in `decisioni.md`.
 
 ## Da mettere nel piano della Fase 1
 
 In quest'ordine — l'elenco completo con le motivazioni è in `decisioni.md`:
 
 1. sostituzione dentro `cnvtalk(` / `cnven(` — bloccante per la Fase 2, ma sono
-   due sole forme: poche righe
-2. la decisione sulla firma, §3.2
-3. spostare a monte il rilevamento dei casi rifiutati: oggi il traduttore lo
-   scopre solo a build abortito
+   due sole forme: poche righe. Chiude anche le 3 firme ambigue residue
+2. ~~la decisione sulla firma, §3.2~~ — **fatta**
+3. spostare a monte il rilevamento delle 3.465 statiche avvolte: oggi il
+   traduttore lo scopre solo a build abortito
 4. la whitelist `invariati.md`, che `SPEC.md` §7 promette e che non esiste
 5. `verifica --dizionario`, la coda di ritraduzione su cui `SPEC.md` §3.1 fonda
    l'intera architettura
@@ -107,10 +103,10 @@ python -m strumenti.prova_identita     # atteso: 72/72 byte per byte
 Un dizionario che traduce ogni stringa in sé stessa deve riprodurre i file byte
 per byte. Non dipende da quali casi qualcuno si è ricordato di coprire: attraversa
 tutti i 26.206 siti. Ha trovato i due difetti peggiori del progetto quando 83 test
-erano verdi. Sul sorgente pinnato: **72/72**, 22.414 sostituzioni, con 3.465
-statiche avvolte e 327 firme collidenti escluse per costruzione — sono le due
-classi che `applica.py` rifiuta, e i loro conteggi vanno guardati: se calano senza
-che nessuno abbia implementato niente, la prova sta misurando meno.
+erano verdi. Sul sorgente pinnato: **72/72**, 22.738 sostituzioni, con 3.465
+statiche avvolte e 3 firme ambigue escluse per costruzione — sono le due classi
+che `applica.py` rifiuta, e i loro conteggi vanno guardati: se calano senza che
+nessuno abbia implementato niente, la prova sta misurando meno.
 
 Ora ha un seguito naturale: **ricompilare dopo la prova d'identità**. Se i file
 identici producono anche un `.ax` identico, la prova si estende dal testo al

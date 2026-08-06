@@ -13,7 +13,8 @@ import shutil
 
 from strumenti import percorsi
 from strumenti.accenti import degrada
-from strumenti.estrai import _argomenti, avvii, siti, spezza_righe, virgola_nuda
+from strumenti.estrai import (_argomenti, avvii, normalizza_espressione, siti,
+                              spezza_righe, virgola_nuda)
 
 
 class SorgenteCorrotto(ValueError):
@@ -160,13 +161,16 @@ def applica_a_testo(nome_file: str, testo: str, dizionario: dict,
                     "togli questa voce dal dizionario."
                 )
 
-            # Due siti diversi possono condividere la firma — che si calcola sui
-            # soli letterali — e avere espressioni grezze diverse: 77 casi reali,
-            # 23 in file di Fase 1. La traduzione e' stata scritta su una delle
-            # due espressioni e iniettarla nell'altra vi porta le variabili
-            # sbagliate. Si rifiuta invece di scrivere codice errato.
+            # Da quando l'espressione entra nella firma (SPEC 3.2) due espressioni
+            # diverse non condividono piu' la chiave, quindi sul sorgente questo
+            # controllo non scatta piu'. Resta come difesa contro una voce di
+            # dizionario ritoccata a mano: e' l'unico punto in cui una traduzione
+            # scritta su un'altra espressione verrebbe fermata.
+            # Il confronto e' sulla forma normalizzata, la stessa che entra nella
+            # chiave: differire di soli spazi non e' un motivo per rifiutare.
             atteso_grezzo = voce.get("en_grezzo")
-            if tipo == "dinamica" and atteso_grezzo is not None and atteso_grezzo != grezzo_en:
+            if (tipo == "dinamica" and atteso_grezzo is not None
+                    and normalizza_espressione(atteso_grezzo) != normalizza_espressione(grezzo_en)):
                 raise SorgenteCorrotto(
                     f"{nome_file}:{numero_riga} firma {chiave}: qui l'espressione inglese "
                     f"e' {grezzo_en!r} ma la voce di dizionario e' stata tradotta su "

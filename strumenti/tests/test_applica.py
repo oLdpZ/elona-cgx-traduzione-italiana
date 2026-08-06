@@ -10,10 +10,14 @@ STATICA = '	txt lang("バックパックが一杯だ。", "Your inventory is ful
 def dizionario_con(jp, en, it, tipo="statica", en_grezzo=None, jp_grezzo=None):
     # en_grezzo dev'essere l'espressione che compare davvero nel sorgente: per
     # una dinamica non e' mai un letterale nudo, e applica.py lo confronta.
-    chiave = firma(jp, en)
+    # Per le dinamiche l'espressione entra anche nella chiave (SPEC 3.2), quindi
+    # va passata a firma(): calcolarla sui soli letterali darebbe una chiave che
+    # il sorgente non produce, e la sostituzione non avverrebbe mai.
+    grezzo = en_grezzo or f'"{en}"'
+    chiave = firma(jp, en, grezzo if tipo == "dinamica" else None)
     return {chiave: {
         "firma": chiave, "jp": jp, "jp_grezzo": jp_grezzo or f'"{jp}"',
-        "en": en, "en_grezzo": en_grezzo or f'"{en}"',
+        "en": en, "en_grezzo": grezzo,
         "it": it, "tipo": tipo, "occorrenza": 0,
     }}
 
@@ -199,7 +203,7 @@ def test_rifiuta_una_statica_che_finisce_con_un_backslash():
 
 
 def test_l_errore_nomina_file_riga_e_firma():
-    chiave = firma("を守った。", " guarded.")
+    chiave = firma("を守った。", " guarded.", 'name(tc) + " guarded."')
     with pytest.raises(SorgenteCorrotto) as errore:
         applica_a_testo("proc.hsp", "\r\n" + DINAMICA, dinamica_con('f( + "rotta'))
     messaggio = str(errore.value)
@@ -257,15 +261,42 @@ def test_una_statica_con_letterale_nudo_passa_normalmente():
     assert sostituzioni == 1
 
 
-def test_rifiuta_una_dinamica_la_cui_firma_collide_con_un_altra_espressione():
-    # stessa firma (i letterali coincidono) ma espressione diversa: la
-    # traduzione porterebbe le variabili sbagliate. 77 casi reali.
-    sorgente = '	txt lang("jp", name(gdata(GDATA_RIDER)) + " glare" + _s(gdata(GDATA_RIDER)) + " at you.")'
-    chiave = firma("jp", " glare at you.")
+QUI = 'name(gdata(GDATA_RIDER)) + " glare" + _s(gdata(GDATA_RIDER)) + " at you."'
+ALTROVE = 'cdatan(CDATAN_NAME, ttc) + " glare" + _s(ttc) + " at you."'
+
+
+def test_due_espressioni_diverse_non_condividono_piu_la_chiave():
+    # Erano 77 firme e 327 occorrenze: stessi letterali, variabili diverse.
+    # Da SPEC 3.2 l'espressione entra nella firma, quindi la collisione non
+    # esiste piu' e quelle occorrenze tornano traducibili.
+    assert firma("jp", " glare at you.", QUI) != firma("jp", " glare at you.", ALTROVE)
+
+
+def test_rifiuta_una_voce_ritoccata_a_mano_su_un_altra_espressione():
+    # Il sorgente non produce piu' questo caso, ma un dizionario modificato a
+    # mano si': la chiave e' quella giusta, l'espressione su cui la traduzione
+    # e' stata scritta no. Iniettarla porterebbe le variabili sbagliate, ed e'
+    # l'unico punto della catena in cui verrebbe fermata.
+    sorgente = f'	txt lang("jp", {QUI})'
+    chiave = firma("jp", " glare at you.", QUI)
     diz = {chiave: {
         "firma": chiave, "jp": "jp", "en": " glare at you.",
-        "en_grezzo": 'cdatan(CDATAN_NAME, ttc) + " glare" + _s(ttc) + " at you."',
+        "en_grezzo": ALTROVE,
         "it": 'cdatan(CDATAN_NAME, ttc) + " ti fissa."', "tipo": "dinamica", "occorrenza": 0,
     }}
     with pytest.raises(SorgenteCorrotto, match="espressioni diverse"):
         applica_a_testo("action.hsp", sorgente, diz)
+
+
+def test_una_differenza_di_soli_spazi_non_e_un_motivo_per_rifiutare():
+    # la firma normalizza gli spazi, quindi il controllo deve normalizzarli
+    # anche lui: altrimenti reindentare a monte farebbe abortire il build
+    sorgente = f'	txt lang("jp", {QUI})'
+    chiave = firma("jp", " glare at you.", QUI)
+    diz = {chiave: {
+        "firma": chiave, "jp": "jp", "en": " glare at you.",
+        "en_grezzo": QUI.replace(" + ", "  +  "),
+        "it": 'name(gdata(GDATA_RIDER)) + " ti fissa."', "tipo": "dinamica", "occorrenza": 0,
+    }}
+    _, sostituzioni = applica_a_testo("action.hsp", sorgente, diz)
+    assert sostituzioni == 1

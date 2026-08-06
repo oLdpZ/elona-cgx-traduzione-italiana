@@ -6,7 +6,7 @@ dentro si cambiano modificando questo file, non improvvisando in sessione.
 Stato: **design approvato; il cancello della Fase 0 è passato per intero.**
 
 Fatto: la catena `estrai → verifica → reimporta → applica` esiste, è sotto test
-(106 test verdi) ed è stata provata end-to-end sul sorgente vero, con round-trip
+(122 test verdi) ed è stata provata end-to-end sul sorgente vero, con round-trip
 CP932 e CRLF verificati e il manifesto di `sorgente/` intatto. **Il sorgente non
 modificato ricompila, l'eseguibile prodotto si avvia e carica un salvataggio
 esistente** (§6, prova 1), e la compilazione è automatica: `compila.py`, nessuna
@@ -73,7 +73,7 @@ Delle 26.206 traducibili, **22.682 sono statiche e 3.524 dinamiche** (contengono
 concatenazioni). Il 13,4% di stringhe dinamiche è la quota che richiede attenzione
 grammaticale — vedi §5.
 
-**Il lavoro effettivo è però inferiore: 21.795 stringhe uniche.** Il 16,8% delle
+**Il lavoro effettivo è però inferiore: 22.030 stringhe uniche.** Il 15,9% delle
 occorrenze sono duplicati esatti — stessa coppia giapponese/inglese ripetuta più
 volte nello stesso file — e il dizionario è indicizzato per firma, quindi si
 traducono una volta sola e la traduzione si applica a tutte le occorrenze. Il
@@ -83,18 +83,20 @@ Distribuzione sui file principali:
 
 | File | grezze | traducibili | statiche | dinamiche |
 |---|---|---|---|---|
-| `db_creature.hsp` | 5.755 | 5.754 | 5.528 | 226 |
-| `chat.hsp` | 4.828 | 4.818 | 4.310 | 508 |
-| `db_card.hsp` | 2.340 | 2.322 | 2.322 | 0 |
-| `text.hsp` | 2.152 | 2.146 | 1.915 | 231 |
-| `command.hsp` | 1.590 | 1.510 | 1.274 | 236 |
+| `db_creature.hsp` | 5.718 | 5.717 | 5.494 | 223 |
+| `chat.hsp` | 4.772 | 4.762 | 4.277 | 485 |
+| `db_card.hsp` | 2.326 | 2.308 | 2.308 | 0 |
+| `text.hsp` | 2.134 | 2.127 | 1.896 | 231 |
+| `command.hsp` | 1.560 | 1.481 | 1.248 | 233 |
 | `action.hsp` | 1.502 | 1.502 | 1.129 | 373 |
-| `proc.hsp` | 1.370 | 1.365 | 683 | 682 |
-| `skill.hsp` | 917 | 898 | 898 | 0 |
+| `proc.hsp` | 1.332 | 1.327 | 662 | 665 |
+| `skill.hsp` | 913 | 894 | 894 | 0 |
 | `trait.hsp` | 406 | 406 | 386 | 20 |
 
 Conteggi ottenuti eseguendo l'algoritmo di estrazione sul sorgente reale, non
-stimati. **Rimisurati il 2026-08-06 dopo la revisione finale della Fase 0**, che
+stimati. **Rimisurati il 2026-08-06 sul tag `2.31.2.0`** dopo il pin: i numeri
+precedenti venivano dalla testa di `work`, che è un albero diverso. Prima ancora
+erano stati rimisurati dopo la revisione finale della Fase 0, che
 ha corretto due difetti del parser: la cecità all'escape `\"` (11 `lang()`
 scartate e 295 voci con l'inglese mutilato) e la ricerca del `+` anche dentro i
 letterali, che classificava dinamiche 163 stringhe statiche il cui testo contiene
@@ -170,8 +172,28 @@ Motivazioni:
 
 ### 3.2 Chiave di identificazione della stringa
 
-`sha1(giapponese + "\x00" + inglese)`, con ambito **per-file**. La chiave è la
-sola firma: `dizionario/<nome>.hsp.jsonl` è indicizzato per firma e basta.
+`sha1(giapponese + "\x00" + inglese)` per le **statiche**;
+`sha1(giapponese + "\x00" + inglese + "\x00" + espressione)` per le **dinamiche**,
+dove `espressione` è l'argomento inglese grezzo con gli spazi normalizzati. Ambito
+**per-file**: `dizionario/<nome>.hsp.jsonl` è indicizzato per firma e basta.
+
+**Perché l'espressione entra solo nelle dinamiche.** Sui soli letterali,
+`name(gdata(GDATA_RIDER)) + " glare"` e `cdatan(CDATAN_NAME, ttc) + " glare"`
+condividono la chiave: 77 firme, 327 occorrenze. Tradurne una porterebbe
+sull'altra **le variabili sbagliate**. Includere l'espressione rende la chiave più
+fragile — rinominare una variabile a monte la rompe a testo invariato — ma i due
+errori non costano uguale: una chiave debole scrive codice sbagliato in silenzio,
+una chiave fragile manda la stringa in coda di ritraduzione, dove una persona la
+guarda. È la stessa asimmetria delle decisioni 13 e 14.
+
+Due correttivi riducono la fragilità a poco: la firma **normalizza gli spazi**,
+quindi reindentare a monte non rompe nulla; e la voce conserva `jp` ed `en`,
+quindi una firma orfana la cui coppia corrisponde a una sola firma nuova si
+riaggancia meccanicamente. Per le statiche l'involucro **non** entra: cambiarle
+sarebbe churn senza guadagno.
+
+Costo misurato della decisione: **+235 stringhe da tradurre** (21.795 → 22.030),
+e 324 occorrenze che erano irraggiungibili tornano traducibili.
 
 Il giapponese è la componente stabile: se a monte cambia solo la formulazione
 inglese, la firma si rompe **di proposito** e la stringa entra in coda di
@@ -331,19 +353,19 @@ Interrompere il progetto dopo una qualsiasi di esse lascia un risultato usabile.
 | Fase | Contenuto | Occorrenze | **Da tradurre** | Risultato |
 |---|---|---|---|---|
 | **0** | Prototipo tecnico | ~50 | ~50 | Le due prove passano, posizione dei nomi oggetto individuata |
-| **1** | UI e messaggi — `text` `command` `action` `proc` `skill` `trait` | 7.737 | **6.644** | Interfaccia e messaggistica in italiano |
-| **2** | Nomi — `db_creature` `db_card`, più i nomi oggetto una volta localizzati | 8.025 | **5.941** + nomi oggetto | Gioco sostanzialmente italiano |
-| **3** | Dialoghi — `chat.hsp` | 4.762 | **4.349** | Conversazioni con NPC in italiano |
-| **4** | Coda — i restanti 63 file `.hsp` minori e i testi esterni | 5.682 | **4.861** + 250 KB | Copertura completa |
+| **1** | UI e messaggi — `text` `command` `action` `proc` `skill` `trait` | 7.737 | **6.688** | Interfaccia e messaggistica in italiano |
+| **2** | Nomi — `db_creature` `db_card`, più i nomi oggetto una volta localizzati | 8.025 | **5.942** + nomi oggetto | Gioco sostanzialmente italiano |
+| **3** | Dialoghi — `chat.hsp` | 4.762 | **4.373** | Conversazioni con NPC in italiano |
+| **4** | Coda — i restanti 63 file `.hsp` minori e i testi esterni | 5.682 | **5.027** + 250 KB | Copertura completa |
 
-Somma verificata: 6.644 + 5.941 + 4.349 + 4.861 = **21.795** stringhe uniche da
+Somma verificata: 6.688 + 5.942 + 4.373 + 5.027 = **22.030** stringhe uniche da
 tradurre, su 26.206 occorrenze. La colonna che conta per stimare il lavoro è
 "da tradurre": i duplicati si traducono una volta sola. L'unicità è **per file**,
 coerentemente con l'ambito della firma (§3.2): la stessa stringa presente in due
 file diversi si traduce due volte.
 
-Per confronto, le firme distinte sull'intero corpus sono **19.399**: un dizionario
-a chiave globale risparmierebbe 2.396 traduzioni, il 11,0% del lavoro. Non è una
+Per confronto, le firme distinte sull'intero corpus sono **19.659**: un dizionario
+a chiave globale risparmierebbe 2.371 traduzioni, il 10,8% del lavoro. Non è una
 proposta — è il prezzo misurato dell'ambito per-file, da conoscere prima di
 discuterlo. Sommare gruppi di file non dà mai il totale globale, e questa è la
 distanza esatta fra le due letture.

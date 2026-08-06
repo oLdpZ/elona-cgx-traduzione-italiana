@@ -31,9 +31,38 @@ from strumenti import percorsi
 _INIZIO = re.compile(r"\blang\(")
 
 
-def firma(giapponese: str, inglese: str) -> str:
-    """Chiave stabile della stringa. Se l'inglese cambia a monte, la firma si rompe di proposito."""
-    grezzo = giapponese.encode("utf-8") + b"\x00" + inglese.encode("utf-8")
+_SPAZI = re.compile(r"\s+")
+
+
+def normalizza_espressione(espressione: str) -> str:
+    """Riduce ogni sequenza di spazi a uno solo.
+
+    Serve a non far dipendere la chiave dall'indentazione: reindentare una riga a
+    monte non deve mandare la stringa in coda di ritraduzione a testo invariato.
+    """
+    return _SPAZI.sub(" ", espressione).strip()
+
+
+def firma(giapponese: str, inglese: str, espressione: str | None = None) -> str:
+    """Chiave stabile della stringa. Se l'inglese cambia a monte, la firma si rompe di proposito.
+
+    `espressione` va passata **solo per le dinamiche**, ed e' l'argomento inglese
+    grezzo. Senza di essa due espressioni diverse che condividono i letterali
+    condividono anche la chiave — `name(gdata(GDATA_RIDER)) + " glare"` e
+    `cdatan(CDATAN_NAME, ttc) + " glare"` — e la traduzione dell'una finirebbe
+    sull'altra portandosi **le variabili sbagliate**: 77 firme, 327 occorrenze
+    reali, oggi non traducibili perche' `applica.py` le rifiuta.
+
+    Includerla rende la chiave piu' fragile: rinominare una variabile a monte la
+    rompe a testo invariato. E' la scelta giusta lo stesso, perche' i due errori
+    non costano uguale. Una chiave troppo debole scrive codice sbagliato **in
+    silenzio**; una chiave troppo fragile manda la stringa in coda di
+    ritraduzione, dove una persona la guarda. Vedi `decisioni.md` e SPEC §3.2.
+    """
+    pezzi = [giapponese, inglese]
+    if espressione is not None:
+        pezzi.append(normalizza_espressione(espressione))
+    grezzo = b"\x00".join(pezzo.encode("utf-8") for pezzo in pezzi)
     return hashlib.sha1(grezzo).hexdigest()
 
 
@@ -234,7 +263,10 @@ def siti(testo: str) -> Iterator[tuple]:
             inglese = _letterali(grezzo_en)
             if not inglese:
                 continue
-            chiave = firma(giapponese, inglese)
+            # solo le dinamiche portano l'espressione nella chiave: per una
+            # statica il grezzo e' il letterale stesso, e includerlo sarebbe churn
+            chiave = firma(giapponese, inglese,
+                           grezzo_en if e_dinamica(grezzo_en) else None)
             occorrenza = conteggio.get(chiave, 0)
             conteggio[chiave] = occorrenza + 1
             yield (

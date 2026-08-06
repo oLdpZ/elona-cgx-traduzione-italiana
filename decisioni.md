@@ -136,19 +136,50 @@ prima di discuterlo, non una proposta di cambiarlo.
 
 ## Domande aperte, da decidere prima della Fase 1
 
-### 1. La firma delle dinamiche deve includere l'espressione? — DA DECIDERE
+### 1. La firma delle dinamiche include l'espressione — DECISA il 2026-08-06
 
-Oggi `firma = sha1(giapponese + NUL + inglese)` usa i **soli letterali**. Per le
-dinamiche questo fa collidere espressioni diverse che condividono il testo (77
-casi).
+**Sì, ma solo per le dinamiche**, e con gli spazi normalizzati.
 
-Includere `en_grezzo` nella firma risolverebbe la collisione, ma renderebbe la
-chiave più fragile ai cambiamenti a monte: qualunque ritocco all'espressione,
-anche il rinominare una variabile, romperebbe la firma e manderebbe la stringa
-in coda di ritraduzione anche se il testo non è cambiato.
+Il nodo: `firma = sha1(giapponese + NUL + inglese)` usava i soli letterali, e per
+le dinamiche faceva collidere espressioni diverse che condividono il testo — 77
+firme, 327 occorrenze. Includere `en_grezzo` risolve la collisione ma rende la
+chiave fragile: rinominare una variabile a monte la rompe a testo invariato.
 
-**Va decisa adesso**, perché `dizionario/` è ancora vuoto e non c'è debito di
-migrazione. Dopo la prima ondata di traduzioni la finestra si chiude.
+**Quello che scioglie il nodo è che i due errori non costano uguale.** Una chiave
+troppo debole scrive codice sbagliato **in silenzio** — la traduzione di
+`name(gdata(GDATA_RIDER)) + " glare"` iniettata su `cdatan(CDATAN_NAME, ttc) + " glare"`
+si porta dietro le variabili sbagliate. Una chiave troppo fragile manda la stringa
+in **coda di ritraduzione**, dove una persona la guarda. È la stessa asimmetria su
+cui il progetto aveva già deciso con le decisioni 13 e 14: preferire il guasto
+rumoroso a quello silenzioso.
+
+Due correttivi tolgono quasi tutta la fragilità:
+
+1. **la firma normalizza gli spazi**, quindi reindentare a monte non rompe nulla;
+2. **la voce conserva `jp` ed `en`**, quindi una firma orfana la cui coppia
+   corrisponde a una sola firma nuova si riaggancia meccanicamente. La fragilità
+   diventa recuperabile invece che distruttiva.
+
+Le statiche restano com'erano: includere l'involucro sarebbe churn senza guadagno.
+
+**Il prezzo, misurato e non stimato:**
+
+| | prima | dopo |
+|---|---|---|
+| da tradurre (uniche per file) | 21.795 | **22.030** (+235) |
+| occorrenze irraggiungibili | 327 | **3** |
+| sostituzioni nella prova d'identità | 22.414 | **22.738** (+324) |
+
+Le 3 residue non sono una collisione di espressioni: sono la stessa statica
+presente sia nuda sia avvolta in `cnvtalk(`, in `db_creature.hsp`. Per le statiche
+l'involucro non entra nella chiave, quindi condividono la firma pur volendo
+sostituzioni diverse. Spariranno quando la sostituzione dentro l'involucro sarà
+implementata — che è comunque il punto 1 del piano di Fase 1.
+
+Il controllo in `applica.py` che rifiutava le collisioni **resta**, ma cambia
+significato: il sorgente non le produce più, quindi ora è la difesa contro una
+voce di dizionario ritoccata a mano. Confronta le espressioni normalizzate, non
+le grezze: differire di soli spazi non è un motivo per abortire un build.
 
 ### 2. Il rifiuto arriva troppo tardi nel ciclo
 
@@ -185,9 +216,10 @@ In quest'ordine:
 1. Sostituzione dentro `cnvtalk(` / `cnven(` — **bloccante per la Fase 2**, ma è
    lavoro di poche righe: non è una famiglia aperta di involucri, sono due forme
    sole.
-2. La decisione sulla firma delle dinamiche, §3.2 — **prima** che il dizionario
-   si riempia.
-3. Spostare a monte il rilevamento dei casi 3 e 4.
+2. ~~La decisione sulla firma delle dinamiche, §3.2~~ — **fatta**, vedi sopra.
+3. Spostare a monte il rilevamento dei casi 3 e 4. Il caso 4 non si presenta più
+   dal sorgente, quindi resta il solo caso 3: `estrai`/`verifica` devono marcare
+   le 3.465 statiche avvolte, invece di lasciarle scoprire a build abortito.
 4. La whitelist `invariati.md` per la regola «identica all'inglese»: `SPEC.md` §7
    la promette ma non è implementata, e senza di essa i nomi propri e le sigle
    non hanno via d'uscita — il rischio concreto è che si aggiri la regola

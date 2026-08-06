@@ -1,6 +1,7 @@
 # strumenti/tests/test_estrai.py
 from strumenti.estrai import (
-    _argomenti, _letterali, avvii, e_dinamica, estrai_da_testo, firma, siti, spezza_righe,
+    _argomenti, _letterali, avvii, e_dinamica, estrai_da_testo, firma,
+    normalizza_espressione, siti, spezza_righe,
 )
 
 STATICA = '#define global txt_invfull txt lang("バックパックが一杯だ。", "Your inventory is full.")'
@@ -156,3 +157,46 @@ def test_le_righe_si_spezzano_solo_sul_terminatore_effettivo():
     assert coda is True
     assert len(righe) == 2
     assert [v["riga"] for v in estrai_da_testo("text.hsp", testo)] == [1, 2]
+
+
+# --- la firma: cosa vi entra e cosa no (SPEC 3.2) ----------------------------
+
+QUI = 'name(gdata(GDATA_RIDER)) + " glare"'
+ALTROVE = 'cdatan(CDATAN_NAME, ttc) + " glare"'
+
+
+def test_senza_espressione_la_firma_e_quella_dei_soli_letterali():
+    # e' il caso delle statiche: l'involucro non entra nella chiave
+    assert firma("jp", "en") == firma("jp", "en", None)
+
+
+def test_l_espressione_cambia_la_firma():
+    assert firma("jp", " glare", QUI) != firma("jp", " glare")
+
+
+def test_due_espressioni_diverse_con_gli_stessi_letterali_hanno_firme_diverse():
+    # erano 77 firme collidenti: la traduzione dell'una finiva sull'altra
+    # portandosi le variabili sbagliate
+    assert firma("jp", " glare", QUI) != firma("jp", " glare", ALTROVE)
+
+
+def test_gli_spazi_non_contano_nella_firma():
+    # reindentare a monte non deve mandare la stringa in coda di ritraduzione
+    assert firma("jp", " glare", QUI) == firma("jp", " glare", QUI.replace(" + ", "\t+  "))
+
+
+def test_normalizza_riduce_ogni_sequenza_di_spazi_a_uno():
+    assert normalizza_espressione('  a  +\t\t"b"  ') == 'a + "b"'
+
+
+def test_una_dinamica_del_sorgente_porta_l_espressione_nella_chiave():
+    voce = estrai_da_testo("proc.hsp", DINAMICA)[0]
+    assert voce["tipo"] == "dinamica"
+    assert voce["firma"] == firma(voce["jp"], voce["en"], voce["en_grezzo"])
+    assert voce["firma"] != firma(voce["jp"], voce["en"])
+
+
+def test_una_statica_del_sorgente_non_la_porta():
+    voce = estrai_da_testo("text.hsp", STATICA)[0]
+    assert voce["tipo"] == "statica"
+    assert voce["firma"] == firma(voce["jp"], voce["en"])

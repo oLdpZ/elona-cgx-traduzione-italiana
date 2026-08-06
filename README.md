@@ -10,7 +10,7 @@ modificato.
 Stato: **design approvato (`SPEC.md`); il cancello della Fase 0 è passato per intero.**
 
 Fatto: la catena `estrai → verifica → reimporta → applica` esiste, è sotto test
-(106 test verdi) ed è stata provata end-to-end sul sorgente vero — round-trip
+(122 test verdi) ed è stata provata end-to-end sul sorgente vero — round-trip
 CP932, CRLF conservati, manifesto di `sorgente/` intatto. Il sorgente non
 modificato **ricompila, e l'eseguibile prodotto si avvia e carica un salvataggio
 esistente**:

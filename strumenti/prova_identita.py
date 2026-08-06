@@ -12,11 +12,14 @@ Qui e' un comando:
     python -m strumenti.prova_identita
 
 Due classi di voci sono **escluse per costruzione**, non per comodita': sono
-esattamente quelle che `applica.py` rifiuta con un errore esplicito (statiche
-avvolte in una chiamata, firme che collidono su espressioni diverse). Includerle
-farebbe fallire la prova sul rifiuto invece che sulla corruzione, che e' il
-contrario di quello che deve misurare. I conteggi vengono stampati: se calano
-senza che nessuno abbia implementato niente, e' un segnale.
+esattamente quelle che `applica.py` rifiuta con un errore esplicito — statiche
+avvolte in una chiamata, e firme a cui il sorgente associa piu' di una
+espressione. Includerle farebbe fallire la prova sul rifiuto invece che sulla
+corruzione, che e' il contrario di quello che deve misurare.
+
+I conteggi vengono stampati apposta. Se calano senza che nessuno abbia
+implementato niente, la prova sta misurando meno di prima e nessun test lo
+direbbe.
 """
 import argparse
 from collections import defaultdict
@@ -25,7 +28,7 @@ from pathlib import Path
 
 from strumenti import percorsi
 from strumenti.applica import applica_a_testo
-from strumenti.estrai import estrai_da_testo
+from strumenti.estrai import estrai_da_testo, normalizza_espressione
 
 
 @dataclass
@@ -34,7 +37,7 @@ class Esito:
     file_identici: int = 0
     sostituzioni: int = 0
     esclusi_avvolti: int = 0
-    esclusi_collidenti: int = 0
+    esclusi_ambigui: int = 0
     difformi: list[str] = field(default_factory=list)
 
     @property
@@ -46,17 +49,22 @@ def dizionario_identita(nome_file: str, testo: str) -> tuple[dict, int, int]:
     """Ogni stringa tradotta in se' stessa, meno le voci che `applica` rifiuta."""
     voci = estrai_da_testo(nome_file, testo)
 
-    # una firma che compare con espressioni grezze diverse e' il caso 4: la
-    # traduzione dell'una finirebbe sull'altra portandosi le variabili sbagliate
+    # Una firma che compare con espressioni diverse non ha una sostituzione sola.
+    # Da quando l'espressione entra nella chiave (SPEC 3.2) le dinamiche non
+    # collidono piu': quel che resta e' la stessa statica presente sia nuda sia
+    # avvolta in `cnvtalk(`, che condivide la chiave perche' per le statiche
+    # l'involucro non vi entra. Sparira' quando la sostituzione dentro
+    # l'involucro sara' implementata; fino ad allora e' giusto escluderla.
+    # Il confronto e' sulla forma normalizzata, la stessa che entra nella chiave.
     espressioni = defaultdict(set)
     for voce in voci:
-        espressioni[voce["firma"]].add(voce["en_grezzo"])
-    collidenti = {f for f, e in espressioni.items() if len(e) > 1}
+        espressioni[voce["firma"]].add(normalizza_espressione(voce["en_grezzo"]))
+    ambigue = {f for f, e in espressioni.items() if len(e) > 1}
 
     dizionario: dict[str, dict] = {}
     avvolti = 0
     for voce in voci:
-        if voce["firma"] in collidenti:
+        if voce["firma"] in ambigue:
             continue
         if voce["tipo"] == "statica":
             # caso 3: l'inglese non e' un letterale nudo ma una chiamata che lo avvolge
@@ -69,8 +77,8 @@ def dizionario_identita(nome_file: str, testo: str) -> tuple[dict, int, int]:
             identita = voce["en_grezzo"]
         dizionario[voce["firma"]] = {**voce, "it": identita}
 
-    scartati_collidenti = sum(1 for v in voci if v["firma"] in collidenti)
-    return dizionario, avvolti, scartati_collidenti
+    scartati_ambigui = sum(1 for v in voci if v["firma"] in ambigue)
+    return dizionario, avvolti, scartati_ambigui
 
 
 def prova(radice: Path | None = None) -> Esito:
@@ -79,13 +87,13 @@ def prova(radice: Path | None = None) -> Esito:
     for percorso in sorted(radice.glob("*.hsp")):
         grezzo = percorso.read_bytes()
         testo = grezzo.decode("cp932")
-        dizionario, avvolti, collidenti = dizionario_identita(percorso.name, testo)
+        dizionario, avvolti, ambigue = dizionario_identita(percorso.name, testo)
         nuovo, sostituzioni = applica_a_testo(percorso.name, testo, dizionario)
 
         esito.file_provati += 1
         esito.sostituzioni += sostituzioni
         esito.esclusi_avvolti += avvolti
-        esito.esclusi_collidenti += collidenti
+        esito.esclusi_ambigui += ambigue
         if nuovo.encode("cp932") == grezzo:
             esito.file_identici += 1
         else:
@@ -103,7 +111,7 @@ def main(argv: list[str] | None = None) -> int:
     print(f"file riprodotti byte per byte : {esito.file_identici}/{esito.file_provati}")
     print(f"sostituzioni eseguite         : {esito.sostituzioni}")
     print(f"escluse, statiche avvolte     : {esito.esclusi_avvolti}")
-    print(f"escluse, firme collidenti     : {esito.esclusi_collidenti}")
+    print(f"escluse, firme ambigue        : {esito.esclusi_ambigui}")
     if esito.difformi:
         print("\nFILE DIFFORMI — la catena corrompe il sorgente:")
         for nome in esito.difformi:
