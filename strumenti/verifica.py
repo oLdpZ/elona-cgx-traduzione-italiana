@@ -149,7 +149,13 @@ def controlla_voce(voce: dict, invariati: set[str] | None = None) -> list[str]:
         problemi.append(f"{_dove(voce)}: tipo {tipo!r} non valido, attesi 'statica' o 'dinamica'")
         return problemi
 
-    if not italiano.strip():
+    # Un invariato fatto di soli spazi non e' una traduzione vuota: `text.hsp:198`
+    # e' `strblank = lang("", " ")`, uno spazio di RIEMPIMENTO. Senza questa
+    # eccezione la regola scattava prima di quella sugli invariati, e quel valore
+    # era irraggiungibile per costruzione — nessuna traduzione lo faceva passare,
+    # nemmeno quella giusta. La regola resta per tutto il resto, dove una
+    # traduzione vuota e' quasi sempre una riga dimenticata.
+    if not italiano.strip() and italiano not in (invariati or set()):
         problemi.append("traduzione vuota")
         return problemi
 

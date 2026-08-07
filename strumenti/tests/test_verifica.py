@@ -437,3 +437,19 @@ def test_gli_apici_inversi_non_si_mangiano_il_contenuto(tmp_path):
         encoding="utf-8",
     )
     assert carica_invariati(percorso) == {"a`b"}
+
+
+def test_un_invariato_fatto_di_spazi_non_e_una_traduzione_vuota():
+    # text.hsp:198 e' strblank = lang("", " "): uno spazio di RIEMPIMENTO, non
+    # testo. La regola "traduzione vuota" scattava prima di quella sugli
+    # invariati, quindi un invariato fatto di soli spazi era irraggiungibile
+    # per costruzione: nessun valore lo faceva passare, nemmeno quello giusto
+    v = voce(en=" ", en_grezzo='" "', jp="", jp_grezzo='""', it=" ")
+    assert controlla_voce(v, invariati={" "}) == []
+
+
+def test_una_traduzione_vuota_resta_un_problema_se_non_e_invariata():
+    # la regola serve ancora: quasi sempre una traduzione vuota e' una riga
+    # dimenticata, ed e' proprio cio' che deve continuare a fermare il lotto
+    assert any("vuota" in p for p in controlla_voce(voce(it="   "), invariati={" "}))
+    assert any("vuota" in p for p in controlla_voce(voce(it="")))

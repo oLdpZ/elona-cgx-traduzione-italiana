@@ -39,6 +39,42 @@ scrivere, probabilmente la stringa va tradotta.
 | MAG | sigla di Magia: identica in italiano e in inglese |
 | ` PER` | la stessa sigla di `text.hsp:62`, che allinea con uno spazio iniziale (`lang("感覚", " PER")`). Gli apici inversi la prendono verbatim: una cella markdown si legge con `strip()`, e senza di essi lo spazio si perderebbe |
 | ` MAG` | idem, `lang("魔力", " MAG")` |
+| ` ` | `strblank` (`text.hsp:198`): uno spazio di riempimento, non testo. Gli apici inversi lo prendono verbatim |
+| lastwords-e.txt | nome di file (`text.hsp:465`), non testo |
+| Itzpalt | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| Itzpatl | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| Itzpait | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| Itspalt | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| Zashim | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| Zeome | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| Zenum | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| Zanam | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| Larnneire | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| Larnreire | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| Larnneine | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| Larnreine | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| Valm | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| Kurualm | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| <Azzrssil> | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| <Issizzle> | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| <Ulzassil> | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| <Exossil> | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| <Leiki> | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| <Renki> | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| <Lenki> | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| <Leike> | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| <Karam> | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| <Slan> | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| <Caim> | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| <Lend> | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| <Lexus> | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| <Lenas> | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| <Revlus> | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| <Redos> | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| Ludus | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| Eirel | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| Melkawn | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
+| Ruoza | nome proprio opaco del quiz (`text.hsp`). Molte voci sono **esche**: storpiature volute della risposta giusta, e tradurle o normalizzarle distruggerebbe la domanda |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 

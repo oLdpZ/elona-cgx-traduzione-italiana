@@ -14,13 +14,13 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 
 | file | tradotte | firme | % | occorrenze |
 |---|---|---|---|---|
-| `text.hsp` | 482 | 1.740 | 28% | 2.127 |
+| `text.hsp` | 643 | 1.740 | 37% | 2.127 |
 | `command.hsp` | 0 | 1.304 | 0% | 1.481 |
 | `action.hsp` | 0 | 1.288 | 0% | 1.502 |
 | `proc.hsp` | 0 | 1.098 | 0% | 1.327 |
 | `skill.hsp` | 0 | 885 | 0% | 894 |
 | `trait.hsp` | 0 | 373 | 0% | 406 |
-| **totale** | **482** | **6.688** | **7%** | **7.737** |
+| **totale** | **643** | **6.688** | **10%** | **7.737** |
 
 L'ordine è quello del piano, per visibilità decrescente: quello che si vede di
 più si traduce prima, così ogni lotto ha valore anche se il progetto si ferma lì.
@@ -59,7 +59,17 @@ a mano. Il `motivo` è obbligatorio, come per le toppe.
 | `_furniture` (`text.hsp:56`) | 11 | qualità del mobile, concatenata: `_furniture(...) + " " + itemname` |
 | `_weight` (`text.hsp:57`) | 10 | taglia dell'oggetto, concatenata |
 | nomi casuali degli oggetti (`text.hsp:176-192`) | 33 | `_namepotion`+`strpotion` costruiscono «clear potion»; `strcursed`/`strblessed` li prefissano. In italiano cambia **l'ordine** («pozione trasparente») oltre al genere |
-| **totale** | **68** | |
+| `elename()` (`text.hsp:203-271`) | 20 | → **con `proc.hsp`, in questa fase.** Aggettivo elementale che modifica la parte del corpo di `_melee(2,…)`: `proc.hsp:8797` compone `elename(ele) + " " + _melee(2,…)`. In italiano l'aggettivo segue il nome e ne prende il genere, e i nomi sono di generi misti (mano, artiglio, zanna, occhio). L'ordine si sistema traducendo `proc.hsp`, che è una dinamica e permette di riordinare la concatenazione |
+| nomi di magia nel quiz (`text.hsp:978-987`) | 4 | → **con `skill.hsp`, in questa fase** |
+| nomi di creatura e oggetto nel quiz | 59 | risposte del quiz che nominano creature e oggetti. Il nome vero sta in `db_creature.hsp`/`db_item.hsp`: tradurlo qui prima farebbe divergere la risposta dal nome che il giocatore legge |
+| parti meccaniche (`text.hsp:1387-1402`) | 6 | verificato che compaiono anche in `db_item.hsp` |
+| **totale** | **157** | |
+
+⚠️ **Il conto è cresciuto da 68 a 157 in un lotto solo**, ed è quasi tutto la
+stessa dipendenza: i nomi di creature e oggetti della Fase 2. Vale la pena
+guardarlo prima di tirare avanti — la Fase 1 sta accumulando debito verso una
+decisione che non ha preso, esattamente come `init.hsp` accumulava debito
+verso il registro finché non è stato promosso da Fase 4 a Fase 1.
 
 Sono **aggettivi prefissi al nome di un oggetto**, e in italiano un aggettivo
 prefisso vuole il genere del nome che segue. Quel nome vive in `db_item.hsp`,
