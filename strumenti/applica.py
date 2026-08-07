@@ -15,8 +15,9 @@ from pathlib import Path
 
 from strumenti import percorsi
 from strumenti.accenti import degrada
-from strumenti.estrai import (_argomenti, avvii, normalizza_espressione, siti,
-                              spezza_righe, virgola_nuda)
+from strumenti.estrai import (_argomenti, avvii, avvio_nome,
+                              normalizza_espressione, siti, spezza_righe,
+                              virgola_nuda)
 
 
 class SorgenteCorrotto(ValueError):
@@ -119,7 +120,16 @@ def riscrivi_statica(grezzo_en: str, italiano: str) -> str | None:
 
 
 def _profilo(riga: str) -> list[tuple[str | None, tuple[int, int] | None]]:
-    """Per ogni `lang(` fuori dai letterali: il secondo argomento e le sue posizioni.
+    """Per ogni sito della riga: il testo sostituibile e le sue posizioni.
+
+    Copre i due tipi di sito di `estrai.siti()`: il secondo argomento di ogni
+    `lang(` fuori dai letterali, e — in coda — il letterale di un'assegnazione
+    `ioriginalnameref`/`ioriginalnameref2`.
+
+    Il riconoscitore dei nomi e' quello **per riga**, che aggancia anche il ramo
+    giapponese del blocco. E' voluto: qui non serve sapere quale dei due sia,
+    perche' il confronto e' fra la riga di partenza e quella prodotta, e la riga
+    giapponese non viene mai toccata — si rilegge identica e passa.
 
     `(None, None)` per una chiamata malformata, che va conservata com'e': se una
     riga del sorgente era gia' malformata prima di noi, non e' colpa nostra.
@@ -131,6 +141,10 @@ def _profilo(riga: str) -> list[tuple[str | None, tuple[int, int] | None]]:
             profilo.append((None, None))
         else:
             profilo.append((argomenti[1], (argomenti[2], argomenti[3])))
+    nome = avvio_nome(riga)
+    if nome is not None:
+        grezzo, inizio, fine = nome
+        profilo.append((grezzo, (inizio, fine)))
     return profilo
 
 
@@ -145,9 +159,10 @@ def _riscontro(nome_file: str, numero_riga: int, riga_nuova: str,
     segnale) e statica che finisce con `\\` (che escapa la virgoletta di
     chiusura). Rifare il parsing della riga prodotta le copre tutte e quattro.
 
-    Si pretende che: il numero di siti `lang()` sulla riga sia invariato;
-    ogni chiamata che prima si leggeva si rilegga ancora; il secondo argomento
-    coincida con quello inserito, o resti quello di partenza se non toccato.
+    Si pretende che: il numero di siti sulla riga sia invariato; ogni sito che
+    prima si leggeva si rilegga ancora; il testo sostituibile coincida con
+    quello inserito, o resti quello di partenza se non toccato. Vale per
+    entrambi i tipi di sito, `lang()` e nomi (vedi `_profilo`).
     """
     def guasto(indice: int, motivo: str) -> SorgenteCorrotto:
         chiave = chiavi.get(indice) or next(iter(chiavi.values()), "?")
@@ -160,7 +175,7 @@ def _riscontro(nome_file: str, numero_riga: int, riga_nuova: str,
     if len(dopo) != len(prima):
         raise guasto(
             next(iter(inseriti), 0),
-            f"il numero di chiamate lang() sulla riga passa da {len(prima)} a {len(dopo)}",
+            f"il numero di siti traducibili sulla riga passa da {len(prima)} a {len(dopo)}",
         )
     for indice, ((atteso_prima, _), (trovato, _)) in enumerate(zip(prima, dopo)):
         atteso = inseriti.get(indice, atteso_prima)
@@ -169,13 +184,13 @@ def _riscontro(nome_file: str, numero_riga: int, riga_nuova: str,
         if trovato is None:
             raise guasto(
                 indice,
-                f"la chiamata lang() numero {indice + 1} non si rilegge "
+                f"il sito numero {indice + 1} non si rilegge "
                 "(virgolette o parentesi non chiuse)",
             )
         if trovato != atteso:
             raise guasto(
                 indice,
-                f"il secondo argomento riletto e' {trovato!r} invece di {atteso!r}",
+                f"il testo riletto e' {trovato!r} invece di {atteso!r}",
             )
         if indice in inseriti and virgola_nuda(trovato):
             # virgolette pari, parentesi pari, riestrazione riuscita: senza

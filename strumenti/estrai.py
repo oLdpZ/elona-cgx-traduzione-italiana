@@ -1,10 +1,18 @@
 # strumenti/estrai.py
-"""Estrazione delle coppie lang(giapponese, inglese) dal sorgente HSP verso lotti JSONL.
+"""Estrazione delle coppie (giapponese, inglese) dal sorgente HSP verso lotti JSONL.
 
 Questo modulo possiede **l'unica** scansione del sorgente del progetto: `siti()`.
 `estrai_da_testo` ci costruisce sopra i dizionari e `applica.py` ci costruisce
 sopra le sostituzioni, cosi' che i due moduli camminino sugli stessi siti per
 costruzione e non per disciplina.
+
+DUE TIPI DI SITO. Il primo e' la chiamata `lang(jp, en)`, che copre il 99% del
+testo. Il secondo sono i **nomi degli oggetti** di `db_item.hsp`, che stanno
+fuori da `lang()` in un blocco `if ( jp ) … else …` (vedi `_ASSEGNA_NOME` e
+`contratto-nomi.md`). Sono entrati qui, e non in una catena a parte, perche'
+questa e' l'unica scansione: cosi' i nomi ereditano firma, `verifica`, coda di
+ritraduzione di SPEC 3.1 e la prova d'identita', che li attraversa come tutto
+il resto.
 
 ESCAPE. Nel sorgente HSP il backslash e' un escape dentro i letterali: `\\"` e'
 una virgoletta che **non** chiude la stringa. Ogni scansione di questo modulo lo
@@ -30,6 +38,32 @@ from strumenti import percorsi
 # Le parentesi annidate delle chiamate di funzione richiedono una scansione, non una regex sola.
 _INIZIO = re.compile(r"\blang\(")
 
+
+# Il secondo tipo di sito: i nomi degli oggetti di `db_item.hsp`, che stanno
+# fuori da `lang()` in un blocco `if ( jp ) … else …`. Vedi `contratto-nomi.md`
+# §1-2. La forma e' una sola, misurata sul sorgente pinnato: 1.321 blocchi su
+# 1.321, zero eccezioni.
+#
+#     if ( jp ) {
+#         ioriginalnameref(ITEM_ID_BANANA) = "バナナ"
+#     }
+#     else {
+#         ioriginalnameref(ITEM_ID_BANANA) = "banana"
+#         ioriginalnameref2(ITEM_ID_BANANA) = ""
+#     }
+#
+# Il riconoscimento e' tollerante sull'indentazione e severo sulla struttura:
+# pretende le sette righe nell'ordine, e **lo stesso identificatore** in tutte
+# e quattro le assegnazioni. Gli `if ( jp )` di `db_item.hsp` sono 2.902 e solo
+# 1.321 riguardano i nomi: agganciare gli altri per analogia e' il modo di
+# corrompere il sorgente in silenzio.
+_IF_JP = re.compile(r"^\s*if\s*\(\s*jp\s*\)\s*\{\s*$")
+_ELSE = re.compile(r"^\s*else\s*\{\s*$")
+_CHIUSA = re.compile(r"^\s*\}\s*$")
+# il letterale si cammina con la regola del backslash, come ogni scansione di
+# questo modulo: `\"` non chiude la stringa
+_ASSEGNA_NOME = re.compile(
+    r'^\s*(ioriginalnameref2?)\((\w+)\)\s*=\s*("(?:[^"\\]|\\.)*")\s*$')
 
 _SPAZI = re.compile(r"\s+")
 
@@ -254,6 +288,60 @@ def avvii(riga: str) -> list[int]:
     ]
 
 
+def avvio_nome(riga: str) -> tuple[str, int, int] | None:
+    """(letterale grezzo, inizio, fine) se la riga assegna un nome, altrimenti None.
+
+    E' il riconoscitore **per riga**, e da solo non distingue il ramo giapponese
+    da quello inglese: le due righe hanno la stessa forma. Serve a `applica.py`
+    per il riscontro strutturale, che confronta la riga prodotta con quella di
+    partenza e non ha bisogno di sapere quale delle due sia — la riga giapponese
+    non viene mai toccata, quindi si rilegge identica.
+
+    Chi deve sapere **quale** letterale e' traducibile usa `siti()`, che guarda
+    il blocco intero.
+    """
+    trovato = _ASSEGNA_NOME.match(riga)
+    if trovato is None:
+        return None
+    return trovato.group(3), trovato.start(3), trovato.end(3)
+
+
+def _nomi_per_riga(righe: list[str]) -> dict[int, tuple[str, str, int, int]]:
+    """Indice di riga (base 0) -> (jp_grezzo, en_grezzo, inizio_en, fine_en).
+
+    Una voce per ciascuno dei due letterali inglesi del ramo `else`, entrambi
+    col giapponese del blocco: `ioriginalnameref2` non ha un giapponese proprio
+    perche' il nome giapponese non si compone (`deed of camp` e' un pezzo solo
+    in giapponese). Vedi `contratto-nomi.md` §1.
+    """
+    trovati: dict[int, tuple[str, str, int, int]] = {}
+    for indice in range(len(righe) - 6):
+        if not _IF_JP.match(righe[indice]):
+            continue
+        giapponese = _ASSEGNA_NOME.match(righe[indice + 1])
+        if giapponese is None or giapponese.group(1) != "ioriginalnameref":
+            continue
+        if not _CHIUSA.match(righe[indice + 2]) or not _ELSE.match(righe[indice + 3]):
+            continue
+        primo = _ASSEGNA_NOME.match(righe[indice + 4])
+        secondo = _ASSEGNA_NOME.match(righe[indice + 5])
+        if primo is None or secondo is None:
+            continue
+        if (primo.group(1), secondo.group(1)) != ("ioriginalnameref", "ioriginalnameref2"):
+            continue
+        # lo stesso oggetto in tutte e quattro le assegnazioni, o non e' un blocco
+        if len({giapponese.group(2), primo.group(2), secondo.group(2)}) != 1:
+            continue
+        if not _CHIUSA.match(righe[indice + 6]):
+            continue
+        grezzo_jp = giapponese.group(3)
+        for scarto, trovato in ((4, primo), (5, secondo)):
+            trovati[indice + scarto] = (
+                grezzo_jp, trovato.group(3), trovato.start(3), trovato.end(3),
+            )
+    return trovati
+
+
 def spezza_righe(testo: str) -> tuple[list[str], str, bool]:
     """(righe, fine_riga, termina_con_a_capo) — l'unica gestione dei fine riga.
 
@@ -276,8 +364,17 @@ def siti(testo: str) -> Iterator[tuple]:
     """(riga, firma, occorrenza, jp, jp_grezzo, en, en_grezzo, inizio_en, fine_en)
 
     L'unica scansione del sorgente del progetto. Genera un elemento per ogni
-    chiamata `lang()` **traducibile** — cioe' ben formata e con l'argomento
-    inglese non vuoto — nell'ordine in cui compaiono nel testo.
+    sito **traducibile** — ben formato e con l'inglese non vuoto — nell'ordine
+    in cui compaiono nel testo. I siti sono di due tipi:
+
+    - le chiamate `lang(jp, en)`, che coprono il 99% del testo;
+    - i **nomi degli oggetti** di `db_item.hsp`, che stanno fuori da `lang()`
+      nella forma canonica descritta sopra (vedi `contratto-nomi.md` §2).
+
+    Il secondo tipo entra qui, e non in una catena a parte, proprio perche'
+    questa e' l'unica scansione: cosi' i nomi ereditano firma, `verifica`, coda
+    di ritraduzione e — soprattutto — la prova d'identita', che e' cio' che
+    tiene in piedi la garanzia byte per byte.
 
     `riga` e' il numero di riga a base 1; `inizio_en` e `fine_en` sono posizioni
     **dentro quella riga**. `occorrenza` e' il contatore progressivo dei
@@ -286,27 +383,38 @@ def siti(testo: str) -> Iterator[tuple]:
     """
     conteggio: dict[str, int] = {}
     righe, _, _ = spezza_righe(testo)
+    nomi = _nomi_per_riga(righe)
+
+    def emetti(numero_riga, grezzo_jp, grezzo_en, inizio_en, fine_en):
+        giapponese = _letterali(grezzo_jp)
+        inglese = _letterali(grezzo_en)
+        if not inglese:
+            return None
+        # solo le dinamiche portano l'espressione nella chiave: per una
+        # statica il grezzo e' il letterale stesso, e includerlo sarebbe churn
+        chiave = firma(giapponese, inglese,
+                       grezzo_en if e_dinamica(grezzo_en) else None)
+        occorrenza = conteggio.get(chiave, 0)
+        conteggio[chiave] = occorrenza + 1
+        return (
+            numero_riga, chiave, occorrenza,
+            giapponese, grezzo_jp, inglese, grezzo_en,
+            inizio_en, fine_en,
+        )
+
     for numero_riga, riga in enumerate(righe, start=1):
         for apertura in avvii(riga):
             argomenti = _argomenti(riga, apertura)
             if argomenti is None:
                 continue
-            grezzo_jp, grezzo_en, inizio_en, fine_en = argomenti
-            giapponese = _letterali(grezzo_jp)
-            inglese = _letterali(grezzo_en)
-            if not inglese:
-                continue
-            # solo le dinamiche portano l'espressione nella chiave: per una
-            # statica il grezzo e' il letterale stesso, e includerlo sarebbe churn
-            chiave = firma(giapponese, inglese,
-                           grezzo_en if e_dinamica(grezzo_en) else None)
-            occorrenza = conteggio.get(chiave, 0)
-            conteggio[chiave] = occorrenza + 1
-            yield (
-                numero_riga, chiave, occorrenza,
-                giapponese, grezzo_jp, inglese, grezzo_en,
-                inizio_en, fine_en,
-            )
+            sito = emetti(numero_riga, *argomenti)
+            if sito is not None:
+                yield sito
+        nome = nomi.get(numero_riga - 1)
+        if nome is not None:
+            sito = emetti(numero_riga, *nome)
+            if sito is not None:
+                yield sito
 
 
 def estrai_da_testo(nome_file: str, testo: str) -> list[dict]:

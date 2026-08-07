@@ -20,10 +20,22 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | `proc.hsp` | 0 | 1.098 | 0% | 1.327 |
 | `skill.hsp` | 0 | 885 | 0% | 894 |
 | `trait.hsp` | 0 | 373 | 0% | 406 |
-| **totale** | **643** | **6.688** | **10%** | **7.737** |
+| `db_item.hsp` | 0 | 1.591 | 0% | 1.607 |
+| **totale** | **643** | **8.279** | **8%** | **9.344** |
 
 L'ordine è quello del piano, per visibilità decrescente: quello che si vede di
 più si traduce prima, così ogni lotto ha valore anche se il progetto si ferma lì.
+
+`db_item.hsp` è entrato in coda il 2026-08-07, quando `siti()` ha imparato il
+**secondo tipo di sito** (`contratto-nomi.md` §2). La percentuale totale è scesa
+dal 10% all'8% senza che nessuno abbia disfatto niente: il denominatore era
+incompleto, e i nomi degli oggetti erano lavoro che il conteggio non vedeva.
+Una metrica che scende perché ha smesso di mentire è una metrica migliore.
+
+I 1.607 siti sono 1.321 blocchi canonici meno 12 nomi inglesi vuoti, più i 298
+`ioriginalnameref2` non vuoti — i nomi che si compongono (`deed of camp`). Le
+firme sono 16 meno dei siti: nomi inglesi diversi con lo stesso giapponese, o
+coppie ripetute.
 
 ## Prima di cominciare un file nuovo
 

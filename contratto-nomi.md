@@ -69,6 +69,24 @@ la scansione nuova deve essere sicura quanto quella di `lang()`, e la prova
 d'identità è il giudice — un dizionario che traduce ogni nome in sé stesso deve
 riprodurre `db_item.hsp` byte per byte.
 
+**Fatto il 2026-08-07.** `siti()` riconosce le sette righe del blocco e ne emette
+due siti, uno per `ioriginalnameref` e uno per `ioriginalnameref2`, entrambi col
+giapponese del blocco. Il riconoscimento è tollerante sull'indentazione e severo
+sulla struttura: pretende l'ordine delle righe e **lo stesso identificatore** in
+tutte e quattro le assegnazioni, così i 1.581 `if ( jp )` che non sono nomi non
+si agganciano.
+
+Il giudice ha risposto: **72/72 byte per byte, 27.813 sostituzioni** contro le
+26.206 di prima — esattamente i 1.607 siti nuovi, senza toccarne uno dei vecchi.
+I test sono 194 (erano 180), e quelli nuovi stanno in `strumenti/tests/test_nomi.py`.
+
+Il riconoscitore **per riga** (`avvio_nome`) aggancia anche il ramo giapponese,
+perché le due righe hanno la stessa forma. È voluto: serve solo al riscontro
+strutturale di `applica.py`, che confronta la riga prodotta con quella di
+partenza e non ha bisogno di sapere quale sia — la riga giapponese non viene mai
+toccata e si rilegge identica. Chi deve sapere **quale** letterale è traducibile
+guarda il blocco intero, e quello lo fa `siti()`.
+
 ## 3. Ordine di aggettivo e nome — si riordina dove si compone
 
 **Decisione presa.** In inglese l'aggettivo precede (`clear potion`), in italiano
