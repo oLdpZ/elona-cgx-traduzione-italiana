@@ -410,3 +410,30 @@ def test_le_orfane_escono_ordinate_per_riga(tmp_path, monkeypatch):
     )
     orfane, _ = confronta_col_sorgente("text.hsp")
     assert [v["firma"] for v in orfane] == ["a", "b"]
+
+
+def test_un_invariato_fra_apici_inversi_conserva_gli_spazi(tmp_path):
+    # text.hsp:62 allinea le sigle delle statistiche con uno spazio iniziale:
+    # lang("感覚", " PER"). La sigla italiana e' " PER" identica, ed e' una
+    # coincidenza legittima, non una traduzione dimenticata. Ma la cella di una
+    # tabella markdown si legge con strip(), e lo spazio non e' esprimibile:
+    # gli apici inversi lo proteggono, e sono gia' la convenzione del progetto
+    # per il codice dentro la prosa
+    percorso = tmp_path / "invariati.md"
+    percorso.write_text(
+        "| valore | motivo |\n|---|---|\n"
+        "| ` PER` | sigla di Percezione, con lo spazio di allineamento |\n"
+        "| MAG | sigla di Magia, identica in italiano |\n",
+        encoding="utf-8",
+    )
+    assert carica_invariati(percorso) == {" PER", "MAG"}
+
+
+def test_gli_apici_inversi_non_si_mangiano_il_contenuto(tmp_path):
+    # un valore che contiene davvero un apice inverso non deve sparire
+    percorso = tmp_path / "invariati.md"
+    percorso.write_text(
+        "| valore | motivo |\n|---|---|\n| `a`b` | strano ma legittimo |\n",
+        encoding="utf-8",
+    )
+    assert carica_invariati(percorso) == {"a`b"}

@@ -339,16 +339,63 @@ def estrai_da_file(percorso: Path) -> list[dict]:
     return estrai_da_testo(percorso.name, testo)
 
 
+def da_tradurre(voci: list[dict], gia_tradotte: set[str]) -> list[dict]:
+    """Il lavoro che resta: una voce per firma, escluse quelle gia' tradotte.
+
+    `estrai_da_testo` emette una voce per **occorrenza**, ed e' giusto: la prova
+    d'identita' e `verifica` devono attraversare tutti i siti. Ma tradurre si
+    conta in **firme** — il dizionario e' indicizzato cosi', e una stringa che
+    compare tre volte e' una voce da tradurre e tre sostituzioni in fase di
+    build. Senza questo filtro un lotto da 250 ne conterrebbe alcune identiche,
+    e rieseguire il comando dopo la reimportazione ridarebbe le stesse voci:
+    il ciclo del Task 7 non avanzerebbe.
+
+    L'ordine del sorgente si conserva: i lotti si leggono in ordine di file, e
+    per le dinamiche il contesto della riga e' spesso l'unica cosa che c'e'.
+    """
+    viste: set[str] = set()
+    resta: list[dict] = []
+    for voce in voci:
+        chiave = voce["firma"]
+        if chiave in gia_tradotte or chiave in viste:
+            continue
+        viste.add(chiave)
+        resta.append(voce)
+    return resta
+
+
+def firme_tradotte(nome_file: str) -> set[str]:
+    """Le firme che nel dizionario hanno gia' una traduzione non vuota."""
+    percorso = percorsi.DIZIONARIO / f"{nome_file}.jsonl"
+    if not percorso.exists():
+        return set()
+    fatte = set()
+    for riga in percorso.read_text(encoding="utf-8").splitlines():
+        if not riga.strip():
+            continue
+        voce = json.loads(riga)
+        if voce.get("it"):
+            fatte.add(voce["firma"])
+    return fatte
+
+
 def main() -> None:
     analizzatore = argparse.ArgumentParser(description="Estrae un lotto JSONL dal sorgente HSP.")
     analizzatore.add_argument("file", nargs="+", help="nomi dei file .hsp, es. text.hsp")
     analizzatore.add_argument("--uscita", required=True, help="percorso del lotto JSONL da scrivere")
     analizzatore.add_argument("--max", type=int, default=0, help="numero massimo di voci (0 = tutte)")
+    analizzatore.add_argument(
+        "--da-tradurre", action="store_true",
+        help="solo il lavoro che resta: una voce per firma, escluse le gia' tradotte",
+    )
     argomenti = analizzatore.parse_args()
 
     voci: list[dict] = []
     for nome in argomenti.file:
-        voci.extend(estrai_da_file(percorsi.SORGENTE_HSP / nome))
+        estratte = estrai_da_file(percorsi.SORGENTE_HSP / nome)
+        if argomenti.da_tradurre:
+            estratte = da_tradurre(estratte, firme_tradotte(nome))
+        voci.extend(estratte)
     if argomenti.max:
         voci = voci[:argomenti.max]
 

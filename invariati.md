@@ -30,6 +30,10 @@ scrivere, probabilmente la stringa va tradotta.
 | Karma | termine acquisito in italiano |
 | Mana | termine acquisito nei giochi di ruolo |
 | * | simbolo, non testo: `text.hsp:12` lo stampa come marcatore. Non c'è niente da tradurre |
+| PER | sigla di Percezione: **identica** in italiano e in inglese. È una coincidenza, non una traduzione dimenticata |
+| MAG | sigla di Magia: identica in italiano e in inglese |
+| ` PER` | la stessa sigla di `text.hsp:62`, che allinea con uno spazio iniziale (`lang("感覚", " PER")`). Gli apici inversi la prendono verbatim: una cella markdown si legge con `strip()`, e senza di essi lo spazio si perderebbe |
+| ` MAG` | idem, `lang("魔力", " MAG")` |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 

@@ -200,3 +200,42 @@ def test_una_statica_del_sorgente_non_la_porta():
     voce = estrai_da_testo("text.hsp", STATICA)[0]
     assert voce["tipo"] == "statica"
     assert voce["firma"] == firma(voce["jp"], voce["en"])
+
+
+# --- il lavoro che resta (--da-tradurre, Task 7) -----------------------------
+
+def test_da_tradurre_tiene_una_voce_per_firma():
+    # estrai emette una voce per OCCORRENZA, perche' prova_identita e verifica
+    # devono attraversare tutti i siti. Ma tradurre si conta in firme: il
+    # dizionario e' indicizzato cosi', e una stringa che compare tre volte e'
+    # una voce da tradurre e tre sostituzioni in fase di build
+    from strumenti.estrai import da_tradurre
+    voci = estrai_da_testo("text.hsp", 'a = lang("はい", "Yes")\nb = lang("はい", "Yes")')
+    assert len(voci) == 2
+    resta = da_tradurre(voci, gia_tradotte=set())
+    assert len(resta) == 1
+    assert resta[0]["en"] == "Yes"
+
+
+def test_da_tradurre_esclude_le_firme_gia_tradotte():
+    from strumenti.estrai import da_tradurre
+    voci = estrai_da_testo("text.hsp", DUE_SULLA_STESSA_RIGA)
+    assert len(voci) == 2
+    fatta = voci[0]["firma"]
+    resta = da_tradurre(voci, gia_tradotte={fatta})
+    assert [v["en"] for v in resta] == ["No"]
+
+
+def test_da_tradurre_conserva_l_ordine_del_sorgente():
+    # i lotti si leggono in ordine di file: saltare avanti e indietro fa
+    # perdere il contesto, che per le dinamiche e' l'unica cosa che c'e'
+    from strumenti.estrai import da_tradurre
+    testo = 'a = lang("いち", "One")\nb = lang("に", "Two")\nc = lang("さん", "Three")'
+    resta = da_tradurre(estrai_da_testo("text.hsp", testo), gia_tradotte=set())
+    assert [v["en"] for v in resta] == ["One", "Two", "Three"]
+
+
+def test_da_tradurre_su_un_lotto_gia_finito_non_ritorna_niente():
+    from strumenti.estrai import da_tradurre
+    voci = estrai_da_testo("text.hsp", DUE_SULLA_STESSA_RIGA)
+    assert da_tradurre(voci, gia_tradotte={v["firma"] for v in voci}) == []

@@ -51,7 +51,15 @@ def _e_invariante(titolo: str) -> bool:
 
 
 def _valore_di_riga(riga: str) -> str | None:
-    """La prima cella di una riga di tabella, se e' una riga di dati."""
+    """La prima cella di una riga di tabella, se e' una riga di dati.
+
+    Un valore fra apici inversi si prende **verbatim**, spazi compresi. Serve
+    perche' una cella markdown si legge con `strip()`, e alcuni invariati hanno
+    uno spazio che conta: `text.hsp:62` allinea le sigle delle statistiche con
+    `lang("感覚", " PER")`, e la sigla italiana e' " PER" identica — una
+    coincidenza legittima, non una traduzione dimenticata. Gli apici inversi
+    sono gia' la convenzione del progetto per il codice dentro la prosa.
+    """
     spoglia = riga.strip()
     if not spoglia.startswith("|"):
         return None
@@ -60,7 +68,10 @@ def _valore_di_riga(riga: str) -> str | None:
         return None
     if set(celle[0]) <= {"-", ":"}:  # riga separatrice
         return None
-    return celle[0]
+    valore = celle[0]
+    if len(valore) >= 2 and valore.startswith("`") and valore.endswith("`"):
+        return valore[1:-1]
+    return valore
 
 
 def carica_invariati(percorso: Path | None = None) -> set[str]:
