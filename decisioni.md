@@ -211,19 +211,130 @@ Reali ma non bloccanti, valutati e lasciati:
 
 ## Da portare nel piano della Fase 1
 
-In quest'ordine:
+Chiuso tutto il 2026-08-07.
 
-1. Sostituzione dentro `cnvtalk(` / `cnven(` — **bloccante per la Fase 2**, ma è
-   lavoro di poche righe: non è una famiglia aperta di involucri, sono due forme
-   sole.
+1. ~~Sostituzione dentro `cnvtalk(` / `cnven(`~~ — **fatta** (Task 2).
 2. ~~La decisione sulla firma delle dinamiche, §3.2~~ — **fatta**, vedi sopra.
-3. Spostare a monte il rilevamento dei casi 3 e 4. Il caso 4 non si presenta più
-   dal sorgente, quindi resta il solo caso 3: `estrai`/`verifica` devono marcare
-   le 3.465 statiche avvolte, invece di lasciarle scoprire a build abortito.
-4. La whitelist `invariati.md` per la regola «identica all'inglese»: `SPEC.md` §7
-   la promette ma non è implementata, e senza di essa i nomi propri e le sigle
-   non hanno via d'uscita — il rischio concreto è che si aggiri la regola
-   scrivendo traduzioni finte.
-5. Il modo `verifica --dizionario` che confronta dizionario e sorgente e produce
-   la coda di ritraduzione. `SPEC.md` §3.1 ne fa il cardine dell'architettura, ma
-   non esiste: oggi una firma orfana viene solo contata da `applica`.
+3. ~~Spostare a monte il rilevamento delle statiche avvolte~~ — **decaduta**: dal
+   momento in cui si sostituiscono, non c'è più niente da segnalare a monte.
+4. ~~La whitelist `invariati.md`~~ — **fatta** (Task 3).
+5. ~~`verifica --dizionario`~~ — **fatta** (Task 4).
+
+---
+
+## La quarta sessione — 2026-08-07
+
+### Il registro: terza persona, e `init.hsp` risale alla Fase 1
+
+Il piano della Fase 1 affermava che qui il «tu» fosse sicuro, «perché le righe
+del giocatore e quelle dei PNG sono chiamate `lang()` diverse». **È falso**, e la
+guida di stile stava per essere scritta su quella premessa.
+
+`init.hsp:1699` — `name()` risolve da sé chi è il soggetto:
+
+```hsp
+if ( name_arg1 == CHARA_PLAYER ) { return lang("あなた", "you") }
+...
+return "the " + cdatan(CDATAN_NAME, name_arg1)
+```
+
+Una sola `lang()` serve entrambi, come il `#1` di Elin. Il caso canonico è
+`text.hsp:3137`: `name(X) + " lose" + _s(X) + " patience."` diventa «you lose
+patience.» oppure «the putit loses patience.» L'inglese se la cava con `_s()`,
+che è morfologia; l'italiano no, e il Task 1 aveva già stabilito che `_s()` va
+tolta. Resta una forma verbale sola, e la seconda persona non regge: «il putit
+perdi la pazienza».
+
+Misurato sui sei file di Fase 1: 1.522 dinamiche, **901 con `name()`**, **472
+(31%) con un marcatore di morfologia**, cioè dimostrabilmente condivise.
+
+**Decisione: terza persona singolare presente indicativo**, l'unica forma senza
+accordo di genere. `you` → «il viandante», `he`/`she` → «lui»/«lei».
+
+**Conseguenza sul piano: `init.hsp` non è lavoro di Fase 4, è una premessa della
+Fase 1.** Sei voci tradotte subito, 16 sostituzioni.
+
+Elin era arrivata alla stessa conclusione dopo averlo visto a schermo; qui è
+arrivata prima, leggendo il codice.
+
+### Le stringhe che sono dati — la trappola peggiore trovata finora
+
+Le otto stringhe di `CDATAN_NEWSEX` (`male`, `female`, `none`, `hermaphrodite`,
+`male?`, `female?`, `trans-male`, `trans-female`) stanno **nella stessa funzione**
+dei pronomi appena tradotti, dentro `lang()` identiche a quelle dei messaggi.
+Sembrano testo. Non lo sono: `chara.hsp:2790` e `4390` le **scrivono** nei dati
+del personaggio, `init.hsp:1813-1823` le rilegge come **operandi di confronto**, e
+i dati del personaggio finiscono nel salvataggio.
+
+Tradurle non rompe niente il giorno stesso: rompe il genere di ogni personaggio
+creato **prima** della traduzione, cioè vanifica in silenzio proprio ciò che il
+cancello della Fase 0 aveva verificato con cura — che i salvataggi esistenti si
+carichino.
+
+Sono in `invariati.md`, sezione «valori di dato, non testo». La ricerca da fare
+prima di tradurre un file nuovo:
+
+```
+grep -nE '(=|==|!=|instr\().*lang\(' <file>.hsp
+```
+
+**La prova d'identità non le prende**, ed è importante saperlo: la stringa cambia
+legittimamente, la forma resta valida, ed è il significato a rompersi. Contro
+questa classe serve la lettura, non il round-trip.
+
+### `toppe.jsonl` — le sostituzioni fuori da `lang()`
+
+`init.hsp:1718` concatena `"the "` davanti al nome dei PNG **fuori** da una
+`lang()`: il dizionario non lo raggiunge, e senza quel pezzo la decisione sul
+registro non sta in piedi. Sul sorgente intero i casi così sono **dieci**, in
+quattro file.
+
+Non è una deroga alla §3.1: come il dizionario, le toppe sono dati esterni
+applicati all'albero di build. Verificato col manifesto dopo la build, 72/72 hash
+concordi. Hanno un giro proprio in `applica.main()` e **la prova d'identità non ci
+passa**, quindi la garanzia byte per byte resta quella di prima.
+
+**La toppa toglie invece di scegliere.** L'articolo italiano dipende da genere ed
+elisione — *il* putit, *lo* gnomo, *l'* orco — che si sanno per nome e non per
+regola. Il prefisso si rimuove e l'articolo lo porterà il nome della creatura in
+`db_creature.hsp`, **dove a decidere è un umano**. È una decisione di Fase 2 e
+vale per ogni uso di `cdatan()`, non solo per `name()`.
+
+`custom_dmgpop.hsp:224-231` *legge* la stringa `"the "` per toglierla dagli
+alias: era il rischio di accoppiamento silenzioso. È protetto da `instr(...) !=
+-1`, quindi senza `"the "` diventa un no-op — verificato leggendolo.
+
+### La re-revisione di `dfe530b`: un fratello del difetto
+
+I due punti che il rilievo chiedeva reggevano. Ma il controllo lasciava passare
+`cnvtalk("x"), cnvtalk("y")`: il gruppo greedy ne cattura `"x"), cnvtalk("y"`, un
+frammento con le parentesi **sbilanciate**, dove `virgola_nuda` arriva con la
+profondità già a -1 e non vede la virgola di primo livello. La ricostruzione
+avrebbe prodotto `cnvtalk("Ciao")`, facendo sparire la seconda chiamata.
+
+La causa era contare sulla struttura di un frammento che per costruzione può
+essere sbilanciato. `_e_letterale_singolo` non la interpreta: pretende che fra le
+parentesi ci sia un letterale e nient'altro. Zero occorrenze nel sorgente
+pinnato: era latente.
+
+### Il primo lotto, visto a schermo
+
+50 stringhe di `text.hsp`, **composte** e non prese in ordine: la prima dinamica
+con morfologia sta alla voce 642, e seguire il piano alla lettera avrebbe voluto
+`--max 646`. Il lotto è 44 statiche di testa più le 6 dinamiche delle righe
+276-290, che sono la prova della decisione sul registro.
+
+Sulle sei, la resa evita i **sostantivi di genere**: «un cittadino rispettoso
+della legge» non regge con `he(tc,1)` che può valere «lei». Si traduce con un
+verbo — «rispetta la legge di questa pacifica città». Regola generale per le
+condivise.
+
+**Il collaudo a schermo è passato il 2026-08-07**: `Non e' roba tua.` letta in
+gioco, con l'apostrofo. La degradazione CP932 non è più verificata sui byte, è
+osservata. Era il punto in cui il piano diceva di fermare tutto.
+
+Un artefatto atteso dello stato intermedio: «il viandante pick up a book», con il
+verbo inglese senza `s` perché `_s(cc)` restituisce `""` per il giocatore.
+Sparisce quando `action.hsp` sarà tradotto. E la minuscola iniziale non è una
+regressione: nella catena `txt` → `txt_select` → `txt_conv` non c'è nessuna
+capitalizzazione, e in inglese quella riga esce «you pick up…» uguale.
