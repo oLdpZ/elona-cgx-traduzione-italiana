@@ -33,26 +33,50 @@ scrivere, probabilmente la stringa va tradotta.
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 
-⚠️ Queste `lang()` non finiscono a schermo: sono i valori del campo
-`CDATAN_NEWSEX`, **scritti** nei dati del personaggio (`chara.hsp:2790`,
-`chara.hsp:4390`) e **riletti** come operandi di confronto (`init.hsp:1813-1823`,
-dentro `he()`/`his()`/`him()`).
+Sono i valori del campo `CDATAN_NEWSEX`, **scritti** nei dati del personaggio
+(`chara.hsp:2790`, `chara.hsp:4390`) e **riletti** come operandi di confronto
+(`init.hsp:1813-1823` dentro `he()`/`his()`/`him()`, `text.hsp:359-375`,
+`command.hsp:3639-3654`).
 
 Tradurle sembra innocuo e non lo è: un salvataggio esistente contiene la stringa
 inglese, il confronto col valore italiano fallisce, e il gioco sbaglia il genere
 di ogni personaggio già creato. Il cancello della Fase 0 ha verificato proprio
 che i salvataggi esistenti si carichino: questo lo vanificherebbe in silenzio.
 
+⚠️ **Correzione del 2026-08-07.** Qui c'era scritto «queste `lang()` non
+finiscono a schermo». **È falso per `male` e `female`**: `text.hsp:123-124` le
+assegna a `strmale`/`strfemale`, che sono mostrate in sei punti — creazione del
+personaggio (`chara.hsp:3629`, `command.hsp:4651`), scheda
+(`command.hsp:10652`), `init.hsp:2074` e `text.hsp:379`. E siccome il dizionario
+è indicizzato **per contenuto**, l'etichetta di riga 123 e l'operando di riga
+365 sono **la stessa firma**: non si possono separare traducendo.
+
+La separazione la fanno sei **toppe** su `text.hsp` (righe 123, 124, 366, 369,
+372, 375), che traducono le sole righe di display e lasciano intatti gli
+operandi. Verificato che il valore scritto nel salvataggio non deriva
+dall'etichetta: `zisyousex` prende i suoi valori da `lang()` proprie
+(`chara.hsp:3665-3680`), non da `strmale`/`strfemale`.
+
+`none` **non** ha una toppa, ed è l'unica che resta inglese anche a schermo: le
+sue righe di display (`text.hsp:49` e `52`) sono array che contengono altre sei
+stringhe traducibili ciascuno, e siccome il dizionario passa **prima** delle
+toppe la riga da cercare cambierebbe a ogni traduzione. Toppare l'operando
+invece dell'etichetta non è un'alternativa: `none` viene anche **scritto**
+(`chara.hsp:4390`), quindi servirebbe toccare anche quello, e a quel punto nel
+salvataggio finirebbe italiano.
+
 | valore | motivo |
 |---|---|
-| male | valore di `CDATAN_NEWSEX`, non testo a schermo |
-| female | valore di `CDATAN_NEWSEX` |
-| none | valore di `CDATAN_NEWSEX` |
+| male | operando di `CDATAN_NEWSEX`; a schermo ci arriva per toppa |
+| female | operando di `CDATAN_NEWSEX`; a schermo ci arriva per toppa |
+| none | valore di `CDATAN_NEWSEX`, scritto e riletto. Resta inglese anche a schermo |
 | hermaphrodite | valore di `CDATAN_NEWSEX` |
-| male? | valore di `CDATAN_NEWSEX` |
-| female? | valore di `CDATAN_NEWSEX` |
+| hermaphorodite | **refuso di upstream**, non nostro: `chara.hsp:2790` scrive `hermaphrodite`, ma `text.hsp:359` confronta con `hermaphorodite`. In inglese quel ramo è **morto** — nessuno scrive mai quella grafia — mentre in giapponese la stringa è la stessa e funziona. È un operando, e i difetti di upstream non si correggono da qui |
+| male? | valore di `CDATAN_NEWSEX`; a schermo ci arriva per toppa |
+| female? | valore di `CDATAN_NEWSEX`; a schermo ci arriva per toppa |
 | trans-male | valore di `CDATAN_NEWSEX` |
 | trans-female | valore di `CDATAN_NEWSEX` |
+| EN | **non è testo, è un marcatore di formato.** `text.hsp` lo usa in 52 punti dentro `instr(buff, 0, "%DEFAULT," + lang("JP", "EN"))` per trovare la sezione di lingua nei testi esterni (`talk.txt`, `board.txt`...). Tradurlo romperebbe la lettura di ogni file esterno. Presente anche in `action.hsp`, `chat.hsp`, `command.hsp`, `help.hsp`, `chara_func.hsp`, `item_func.hsp` |
 
 ## Nomi di creatura riscritti nel salvataggio — non decidibili qui
 
