@@ -285,7 +285,19 @@ def test_un_involucro_noto_con_due_argomenti_viene_rifiutato():
     # riconosciutissimo, quindi il motivo non puo' essere "non riconosciuto".
     sorgente = '\ttxt lang("jp", cnvtalk("x", "y"))'
     diz = dizionario_con("jp", "xy", "Ciao.", en_grezzo='cnvtalk("x", "y")')
-    with pytest.raises(SorgenteCorrotto, match="piu' di un argomento"):
+    with pytest.raises(SorgenteCorrotto, match="un solo letterale"):
+        applica_a_testo("chat.hsp", sorgente, diz)
+
+
+def test_due_involucri_affiancati_vengono_rifiutati():
+    # cnvtalk("x"), cnvtalk("y") e' il fratello del caso sopra, e sfugge a un
+    # controllo sulle virgole: il gruppo greedy cattura '"x"), cnvtalk("y"',
+    # dove la virgola non e' piu' di primo livello perche' la parentesi che la
+    # precede ha gia' portato la profondita' a -1. Ricostruire darebbe
+    # cnvtalk("Ciao.") e la seconda chiamata sparirebbe in silenzio.
+    sorgente = '\ttxt lang("jp", cnvtalk("x"), cnvtalk("y"))'
+    diz = dizionario_con("jp", "xy", "Ciao.", en_grezzo='cnvtalk("x"), cnvtalk("y")')
+    with pytest.raises(SorgenteCorrotto, match="un solo letterale"):
         applica_a_testo("chat.hsp", sorgente, diz)
 
 

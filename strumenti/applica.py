@@ -28,9 +28,12 @@ class SorgenteCorrotto(ValueError):
 INVOLUCRI = frozenset({"cnvtalk", "cnven"})
 
 # Il gruppo 2 e' greedy fino all'ultima virgoletta prima della parentesi
-# chiusa apposta: cosi' cattura anche un eventuale secondo argomento
-# (`cnvtalk("x", "y")`), che va rifiutato esplicitamente invece di sparire in
-# silenzio — vedi il controllo con virgola_nuda sotto. `\s*` intorno alle
+# chiusa apposta: cosi' cattura tutto quello che c'e' oltre al primo letterale
+# (`cnvtalk("x", "y")`, `cnvtalk("x"), cnvtalk("y")`), che va rifiutato
+# esplicitamente invece di sparire in silenzio — vedi `_e_letterale_singolo`
+# sotto. Il prezzo del greedy e' che il contenuto catturato puo' avere le
+# parentesi sbilanciate, quindi il controllo non puo' contare su una
+# profondita' sensata. `\s*` intorno alle
 # parentesi accetta anche `cnvtalk( "..." )`, ma la ricostruzione in
 # `riscrivi_statica` normalizza sempre a `nome("...")` senza gli spazi
 # interni: e' sicuro solo perche' quella forma non esiste nel sorgente
@@ -54,6 +57,38 @@ def _analizza_involucro(grezzo_en: str) -> tuple[str | None, str | None]:
     return trovato.group(1), trovato.group(2)
 
 
+def _e_letterale_singolo(contenuto: str) -> bool:
+    """Vero se `contenuto` e' **un solo** letterale HSP e nient'altro.
+
+    E' la condizione esatta perche' rimpiazzare il gruppo catturato con
+    `"italiano"` non perda niente: se fuori dai letterali resta anche un solo
+    carattere, quel carattere sparisce nella ricostruzione.
+
+    Non si usa `virgola_nuda` qui: quella cerca una virgola di **primo
+    livello**, e il contenuto che il greedy cattura puo' essere sbilanciato.
+    In `cnvtalk("x"), cnvtalk("y")` il gruppo e' `"x"), cnvtalk("y"`, dove la
+    parentesi porta la profondita' a -1 prima della virgola e la virgola non
+    risulta piu' di primo livello: il caso passerebbe, e la seconda chiamata
+    sparirebbe. Contare i letterali invece di interpretare la struttura non ha
+    quel punto cieco.
+    """
+    if not contenuto.startswith('"'):
+        return False
+    # si cammina il primo letterale con la regola del backslash e si pretende
+    # che la sua chiusura sia l'ultimo carattere: cosi' `"x""y"` (due letterali
+    # adiacenti, che un semplice "tutto dentro una stringa" accetterebbe) cade
+    indice = 1
+    while indice < len(contenuto):
+        carattere = contenuto[indice]
+        if carattere == "\\":
+            indice += 2
+            continue
+        if carattere == '"':
+            return indice == len(contenuto) - 1
+        indice += 1
+    return False
+
+
 def riscrivi_statica(grezzo_en: str, italiano: str) -> str | None:
     """L'HSP da mettere al posto di `grezzo_en`, con l'italiano al posto dell'inglese.
 
@@ -62,15 +97,16 @@ def riscrivi_statica(grezzo_en: str, italiano: str) -> str | None:
     sorgente convivono e condividono la firma.
 
     `None` se la forma non e' riconosciuta, se l'involucro non e' fra quelli
-    gestiti, o se contiene piu' di un argomento (`cnvtalk("x", "y")`): in
-    quest'ultimo caso sostituire il gruppo catturato con un solo letterale
-    farebbe sparire il secondo argomento in silenzio, la stessa classe di
-    corruzione che questo modulo esiste per evitare. Il chiamante rifiuta.
+    gestiti, o se fra le parentesi non c'e' esattamente un letterale
+    (`cnvtalk("x", "y")`, `cnvtalk("x"), cnvtalk("y")`): in quest'ultimo caso
+    sostituire il gruppo catturato con un solo letterale farebbe sparire il
+    resto in silenzio, la stessa classe di corruzione che questo modulo esiste
+    per evitare. Il chiamante rifiuta.
     """
     letterale = '"' + italiano + '"'
     nome, contenuto = _analizza_involucro(grezzo_en)
     if nome is not None:
-        if nome in INVOLUCRI and not virgola_nuda(contenuto):
+        if nome in INVOLUCRI and _e_letterale_singolo(contenuto):
             return f"{nome}({letterale})"
         return None
     # una statica senza involucro e' per definizione un letterale nudo: non ha
@@ -214,11 +250,12 @@ def applica_a_testo(nome_file: str, testo: str, dizionario: dict,
                 nuovo = riscrivi_statica(grezzo_en, degrada(voce["it"]))
                 if nuovo is None:
                     nome_involucro, contenuto = _analizza_involucro(grezzo_en)
-                    if nome_involucro in INVOLUCRI and contenuto is not None and virgola_nuda(contenuto):
+                    if nome_involucro in INVOLUCRI and contenuto is not None:
                         raise SorgenteCorrotto(
                             f"{nome_file}:{numero_riga} firma {chiave}: l'involucro "
-                            f"{nome_involucro!r} in {grezzo_en!r} ha piu' di un argomento; "
-                            "sostituirlo con un solo letterale ne farebbe sparire uno."
+                            f"{nome_involucro!r} in {grezzo_en!r} non racchiude un solo "
+                            "letterale; sostituirlo con un solo letterale farebbe "
+                            "sparire il resto."
                         )
                     raise SorgenteCorrotto(
                         f"{nome_file}:{numero_riga} firma {chiave}: involucro non "
