@@ -338,3 +338,109 @@ verbo inglese senza `s` perché `_s(cc)` restituisce `""` per il giocatore.
 Sparisce quando `action.hsp` sarà tradotto. E la minuscola iniziale non è una
 regressione: nella catena `txt` → `txt_select` → `txt_conv` non c'è nessuna
 capitalizzazione, e in inglese quella riga esce «you pick up…» uguale.
+
+## La quinta sessione — 2026-08-07
+
+### I sei termini: cinque erano misura, uno era già deciso altrove
+
+I sei di «Da decidere» sembravano sei scelte di gusto. Misurandoli, quattro
+avevano una risposta nei dati e due erano già vincolati da Elin.
+
+**`Gauge` non è prosa.** 60 occorrenze su 75 sono etichette dell'elenco delle
+mosse speciali, a larghezza compressa: `[50% Gauge] Party Shooting`. La scelta
+non era fra sinonimi ma fra lunghezze — «Barra» costa 5 caratteri come
+l'inglese, «Indicatore» ne costava 6 in più su ogni riga. In prosa «barra di
+potenza», che si aggancia a `Power` → «Potenza» invece di derogarci.
+
+**La collisione di `Skill` non esisteva.** Il timore era che «Abilità» si
+scontrasse con *ability*. Nel sorgente non si incontrano mai: `Skill` è sempre
+il concetto di motore, *ability* è quasi sempre prosa generica («enhances your
+ability to hide»), che in italiano vuole «capacità». Un dubbio che si scioglie
+guardando, non discutendo.
+
+**`Chaos` e `Abyss` erano già decisi**, in `Elin - Traduzione Italiana`: «Caos»
+e «Abisso». Sono termini di universo, non di motore, e il glossario dichiara
+che quelli devono coincidere fra i due progetti. Non erano da decidere: erano
+da andare a leggere.
+
+**`Body` non era un termine, erano tre.** Lo slot d'equipaggiamento
+(`text.hsp:136`, giapponese 胴), l'aspetto nell'editor del ritratto (giapponese
+体) e la prosa. «Torso» per il primo, perché in fila con Testa · Collo ·
+Schiena · Mano · Braccio · Gamba un «Corpo» metterebbe il tutto insieme alle
+parti. Registrato anche un vincolo che non si vede dal glossario: l'editor è a
+**larghezza fissa di 8 caratteri**, e «Colore corpo» per `Body CL ` non ci sta.
+
+### La regola dei nomi propri, che vale più delle cinque decisioni che l'hanno prodotta
+
+I cinque toponimi aperti si potevano chiudere uno per uno. Ma altri ne
+arriveranno a ogni file, e cinque decisioni singole non dicono niente al
+prossimo. La regola:
+
+- nome **descrittivo**, fatto di parole comuni → si traduce (`Fort of Chaos
+  <Beast>` → «Forte del Caos `<Bestia>`», come `Mages Guild` → «Gilda dei
+  Maghi» che era già in glossario);
+- nome **opaco**, inventato → resta (`Vernis`, `Larna`, `Arcbelc`, `Lesimas`);
+- nome **misto** → si divide (`Port Kapul` → «Porto Kapul»).
+
+È lo stesso criterio con cui Elin ha reso `Blessing of the Abyss`. Chiude anche
+il sotto-caso di `Chaos`, che era la ragione per cui quel termine era in
+«Da decidere»: l'elemento e i luoghi si decidono insieme perché li decide la
+stessa regola.
+
+### 424 nomi di creatura travestiti da testo, in un file di Fase 1
+
+Trovato cercando le occorrenze di `Sister`. `Wolf Sister`, `older sister`,
+`younger sister` in `action.hsp` non sono prosa: sono `evname`/`evold`, il
+sistema di evoluzione dei nemici. **424 assegnazioni, 232 valori `evold`
+distinti, 203 dei quali sono nomi di creatura letterali di `db_creature.hsp`** —
+che è Fase 2.
+
+```
+if ( strmid(cdatan(CDATAN_NAME, cc), 0, strlen(evold)) == evold ) {
+    cdatan(CDATAN_NAME, cc) = evname + strmid(cdatan(CDATAN_NAME, cc), ...)
+```
+
+`evold` è l'**operando** confrontato col nome memorizzato del personaggio;
+`evname` è il pezzo che lo **sostituisce**, e che poi si legge a schermo come
+nome della creatura evoluta. In inglese `evname` non è mai stampato
+direttamente: l'unico `txt` che lo contiene (`action.hsp:18632`) lo ha solo nel
+ramo giapponese.
+
+È la stessa classe di `CDATAN_NEWSEX`, ma con un vincolo in più: non basta
+lasciarli stare. **Vanno tradotti in blocco con `db_creature.hsp`, mai prima** —
+se uno dei due è italiano e l'altro no il confronto fallisce e l'evoluzione
+smette di rinominare **in silenzio**; e sui salvataggi esistenti si rompono
+comunque, perché lì il nome è già inglese. La prova d'identità non li prende.
+
+Non sono fra gli invariati: dichiararli tali deciderebbe di lasciare i nomi
+delle creature in inglese per sempre, che è una decisione di Fase 2 e non è
+stata presa. Hanno una sezione propria in `invariati.md`.
+
+### Il difetto che rendeva obbligatorio cadere nella trappola
+
+Le otto stringhe di `CDATAN_NEWSEX` **non erano protette**. Verificato:
+`carica_invariati()` restituiva dieci valori, e `male` non era fra loro.
+
+La difesa scritta nella seconda sessione era «`carica_invariati` si ferma al
+primo `##`», per non leggere i candidati di «Da decidere». Ragionamento giusto,
+difesa fragile: quando la sezione «Valori di dato» fu inserita **in mezzo**,
+ereditò l'esclusione senza che nessuno lo decidesse.
+
+La conseguenza non era quella che sembrava. Il conteggio «non ancora tradotte»
+non ha mai consultato gli invariati. `invariati` entra in un punto solo,
+`controlla_voce`, sulla regola «traduzione identica all'inglese». Un lotto che
+lasciava `male` → `male`, cioè che faceva **esattamente ciò che `invariati.md`
+prescrive**, inciampava in quella regola e `controlla_lotto` rifiutava il lotto
+**intero**. L'unico modo di farlo passare era tradurle.
+
+Il controllo non sollecitava la trappola: la **imponeva**.
+
+La correzione non sposta il confine — sarebbe il sintomo, e il prossimo che
+aggiunge una sezione rifarebbe il buco. `carica_invariati` legge sezione per
+sezione e le **classifica**, e **non c'è un default**: una sezione che porta
+valori senza essere classificata alza `ValueError` con scritto cosa fare. Una
+sezione di sola prosa non è una decisione, e si ignora.
+
+La lezione, che vale oltre questo file: una difesa fatta di «fermati al primo
+X» presume che nessuno inserisca niente prima di X. Una fatta di «ogni caso va
+classificato, e il silenzio è un errore» no.
