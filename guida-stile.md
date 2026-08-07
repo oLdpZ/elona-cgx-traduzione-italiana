@@ -53,6 +53,37 @@ genere non si conosce. `You are too full` → «Non riesci a mangiare altro», n
 «Sei sazio». `name(tc) + " has arrived"` → `name(tc) + " arriva"`, non «è
 arrivato».
 
+## Le etichette di stato sono sostantivi
+
+Vale per ogni array di livelli: stati del giocatore, livelli di rapporto,
+carattere, qualità. L'inglese usa aggettivi (`Starving`, `Satisfied`,
+`Unconscious`, `Cheerful`), e tradurli con aggettivi rimetterebbe l'accordo di
+genere proprio dove la regola qui sopra lo vieta — un'etichetta descrive il
+giocatore o un PNG, e nessuno dei due ha un genere noto.
+
+**Il giapponese lo fa già.** `text.hsp:63-72` non ha aggettivi: 飢餓, 満腹,
+食過ぎ, 気絶, 激怒. Sono sostantivi. La scelta neutra non è un ripiego
+italiano: è la forma dell'originale, e l'inglese è la lingua che se ne discosta.
+
+| EN | ❌ | ✅ |
+|---|---|---|
+| `Starving` | Affamato | **Inedia** |
+| `Satisfied` | Sazio | **Sazietà** |
+| `Bloated` | Rimpinzato | **Abbuffata** |
+| `Unconscious` | Svenuto | **Svenimento** |
+| `Cheerful` | Allegro | **Allegria** |
+| `Cowardly` | Codardo | **Codardia** |
+
+Vale anche per i **nomi di ruolo**, che sono aggettivi travestiti: un livello di
+rapporto reso «Allievo», «Padrone» o «Discepolo» vuole il genere del PNG. Si
+rende il **legame**, non la persona: «Tutela», «Appartenenza», «Discepolato».
+
+⚠️ Sono etichette di barre e liste a larghezza compressa. Il più lungo
+dell'inglese in `text.hsp` è 13 caratteri (`Poisoned Bad!`, `Anorexia-Lv??`):
+è il tetto pratico, anche se `verifica.py` non misura la larghezza. Ricorda che
+un accento vero diventa due caratteri dopo la degradazione — «Sazietà» esce
+`Sazieta'`.
+
 ## Preposizioni davanti a un personaggio
 
 `name()` restituisce un sintagma **con l'articolo** («il viandante», «il
