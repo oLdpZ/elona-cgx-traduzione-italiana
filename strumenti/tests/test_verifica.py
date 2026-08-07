@@ -234,10 +234,15 @@ def test_senza_il_file_non_si_rompe_niente(tmp_path):
     assert carica_invariati(tmp_path / "assente.md") == set()
 
 
-def test_il_file_vero_del_progetto_si_legge_e_non_include_i_da_decidere():
+def test_il_file_vero_del_progetto_si_legge():
+    # l'esclusione dei "Da decidere" e' coperta, sul meccanismo, dal test su
+    # tmp_path qui sopra, che non invecchia. Qui si verifica solo che il file
+    # vero si legga e porti le decisioni prese: `Larna` stava fra i da
+    # decidere fino al 2026-08-07, poi e' stato deciso invariato, e
+    # l'asserzione che lo escludeva e' invecchiata insieme alla decisione.
     caricati = carica_invariati()
     assert "Vernis" in caricati
-    assert "Larna" not in caricati
+    assert "Larna" in caricati
 
 
 def test_controlla_lotto_propaga_gli_invariati_a_tutte_le_voci():

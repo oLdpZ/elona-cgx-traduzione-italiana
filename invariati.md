@@ -24,6 +24,9 @@ scrivere, probabilmente la stringa va tradotta.
 | Yowyn | nome proprio di città, canone Elona |
 | Lumiest | nome proprio di città, canone Elona |
 | Melugas | nome proprio di luogo, canone Elona |
+| Larna | nome proprio di città, canone Elona; nome opaco, vedi «la regola dei nomi propri» in `glossario.md` |
+| Arcbelc | nome proprio di luogo Elona+; nome opaco |
+| Lesimas | nome proprio del dungeon sotto Vernis; nome opaco |
 | Karma | termine acquisito in italiano |
 | Mana | termine acquisito nei giochi di ruolo |
 | * | simbolo, non testo: `text.hsp:12` lo stampa come marcatore. Non c'è niente da tradurre |
@@ -51,17 +54,50 @@ che i salvataggi esistenti si carichino: questo lo vanificherebbe in silenzio.
 | trans-male | valore di `CDATAN_NEWSEX` |
 | trans-female | valore di `CDATAN_NEWSEX` |
 
+## Nomi di creatura riscritti nel salvataggio — non decidibili qui
+
+⚠️ Trovate il 2026-08-07 misurando `Sister`. In `action.hsp` (Fase 1) ci sono
+**424 assegnazioni** di `evname`/`evold`, il sistema di evoluzione dei nemici:
+**232 valori `evold` distinti, 203 dei quali sono nomi di creatura letterali di
+`db_creature.hsp`**, che è Fase 2.
+
+Non sono testo e non sono nemmeno solo dati. Il codice fa chirurgia di stringa
+sul nome memorizzato del personaggio:
+
+```
+if ( strmid(cdatan(CDATAN_NAME, cc), 0, strlen(evold)) == evold ) {
+    cdatan(CDATAN_NAME, cc) = evname + strmid(cdatan(CDATAN_NAME, cc), ...)
+```
+
+`evold` è l'**operando** confrontato col nome che sta nel salvataggio; `evname`
+è il pezzo che lo **sostituisce**, e quindi finisce a schermo come nuovo nome
+della creatura evoluta. In inglese `evname` non è mai stampato direttamente:
+l'unico `txt` che lo contiene (`action.hsp:18632`) lo ha solo nel ramo
+giapponese.
+
+Le conseguenze, nessuna delle quali si vede provandolo su una partita nuova:
+
+- **vanno tradotti in blocco con `db_creature.hsp`**, mai prima: se `evold`
+  diventa italiano e il nome della creatura no (o viceversa), il confronto
+  fallisce e l'evoluzione smette di rinominare **in silenzio**;
+- **rompono i salvataggi esistenti comunque li si tratti**, perché lì il nome
+  memorizzato è già in inglese;
+- la **prova d'identità non li prende**: come per `CDATAN_NEWSEX`, la forma
+  resta giusta ed è il significato a rompersi.
+
+Non li metto nella tabella sopra: dichiararli invariati deciderebbe di lasciare
+i nomi delle creature in inglese per sempre, che è una decisione di Fase 2 e
+non è stata presa. Restano segnalati da `verifica.py` come non tradotti, che è
+il comportamento voluto finché la Fase 2 non li affronta.
+
+Vedi [[stringhe-che-sono-dati]].
+
 ## Da decidere nel glossario
 
-Nomi propri presenti nel sorgente come valore intero, che appartengono al
-canone Elona ma su cui la scelta lessicale non è ancora stata presa (Task 5).
-Finché restano qui e non nella tabella sopra, `verifica.py` li segnala: è
-voluto, così la decisione non passa inosservata.
+*Vuota dal 2026-08-07.* I cinque toponimi che stavano qui sono stati decisi con
+«la regola dei nomi propri» di `glossario.md`: `Larna`, `Arcbelc` e `Lesimas`
+sono saliti nella tabella degli invariati; `Port Kapul` → «Porto Kapul» e
+`Cyber Dome` → «Cupola Cibernetica» si traducono e quindi qui non ci vanno.
 
-| valore | occorrenze | nota |
-|---|---|---|
-| Larna | 3 | città |
-| Port Kapul | 1 | città; `Port` potrebbe volere `Porto` |
-| Cyber Dome | 1 | luogo Elona+ |
-| Arcbelc | 3 | luogo Elona+ |
-| Lesimas | 1 | il dungeon sotto Vernis |
+La sezione resta perché il meccanismo serve: un candidato messo qui è segnalato
+da `verifica.py`, così la decisione non passa inosservata.

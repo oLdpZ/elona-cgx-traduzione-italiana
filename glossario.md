@@ -27,6 +27,9 @@ in inglese per scelta. Non vanno in queste tabelle.
 | Item / Items | Oggetto / Oggetti | |
 | Weight | Peso | |
 | Level | Livello | abbreviato `Lv.` come in inglese |
+| Body (slot) | Torso | lo slot d'equipaggiamento di `text.hsp:136`, in fila con Testa · Collo · Schiena · **Torso** · Mano · Anello · Braccio · Vita · Gamba · Tiro · Munizioni. Il giapponese è 胴, «torso»: «Corpo» accanto a Braccio e Gamba sarebbe il tutto in fila con le parti |
+| Body (aspetto) | Corpo | l'editor del ritratto, giapponese 体. ⚠️ **campo a larghezza fissa di 8 caratteri**: `"Body    "` → `"Corpo   "`. `"Body CL "` è il colore del corpo e in 8 caratteri non ci sta: da risolvere nel lotto, non qui |
+| Body (prosa) | corpo | `Your body is changing every moment.`, `Restore Body` → «Ripristina Corpo», `Body Blow` → «Colpo al corpo», `Body Parts` → «Parti del corpo» |
 
 ## Statistiche e attributi
 
@@ -66,6 +69,9 @@ progetti.
 | Summon | Evoca / Evocazione | |
 | Charge | Carica | |
 | Sleep | Sonno / Dormi | sostantivo per lo stato, verbo per il comando |
+| Gauge | Barra | la barra delle mosse speciali di Elona+. `[50% Gauge]` → «`[Barra 50%]`»: 5 caratteri come l'inglese, e le etichette dell'elenco sono a larghezza compressa. In prosa `power gauge` → «barra di potenza», che si aggancia a `Power` → «Potenza» |
+| Chaos | Caos | l'elemento. `Chaos damage` → «Danno caotico», aggettivo come `Mind`. Coincide con Elin (`Nether / Ether / Chaos` → «Oltretomba / Etere / Caos») |
+| Skill | Abilità | coincide con Elin. **Non** collide con *ability*, che nel sorgente è quasi sempre prosa generica e in italiano vuole «capacità»: `enhances your ability to hide` → «migliora la capacità di nascondersi» |
 
 ## Stati e qualità
 
@@ -83,20 +89,44 @@ progetti.
 | Gold | Oro | la valuta di Elona; in Elin è «Oren» e resta invariata, qui no |
 | Area | Area | parola identica in italiano, ma **non** metterla in `invariati.md`: come stringa intera compare solo in contesti dove «Area» è già italiano |
 | Ground | Terreno | «per terra» quando è dove cadono gli oggetti |
+| Abyss | Abisso | il luogo: `The Abyss of Magic` → «L'Abisso della Magia», `<Abyss Princess>` → «`<Principessa dell'Abisso>`» |
+| abyss power | potere abissale | la risorsa che si spende. Aggettivo e non complemento, come `Mind` → «Danno mentale»; e non deroga a `Power` → «Potenza». Nell'etichetta stretta delle mosse abissali la sigla resta «Abisso»: `SAN300/Abisso300/…`, un carattere in più dell'inglese |
+| Port Kapul | Porto Kapul | `Port` è parola comune, `Kapul` no: vedi la regola qui sotto |
+| Cyber Dome | Cupola Cibernetica | idem, entrambe le parole sono comuni |
+
+## La regola dei nomi propri
+
+Decisa il 2026-08-07 insieme a `Chaos` e ai cinque toponimi aperti, e valida per
+ogni nome che arriverà dopo:
+
+- un nome **descrittivo**, fatto di parole comuni, **si traduce** — `Mages Guild`
+  → «Gilda dei Maghi», `Fort of Chaos <Beast>` → «Forte del Caos `<Bestia>`»,
+  `Cradle of Chaos` → «Culla del Caos», `Chaos Shrine` → «Santuario del Caos»,
+  `the Mansion of Younger Sister` → «la Magione della Sorella Minore»;
+- un nome **opaco**, inventato, **resta invariato** e va in `invariati.md` —
+  `Vernis`, `Derphy`, `Larna`, `Arcbelc`, `Lesimas`;
+- un nome **misto** si traduce per la parte comune e conserva quella opaca —
+  `Port Kapul` → «Porto Kapul».
+
+È lo stesso criterio con cui Elin ha reso `Blessing of the Abyss` →
+«Benedizione dell'Abisso».
+
+## Persone e parentela
+
+| EN | IT | note |
+|---|---|---|
+| older sister / younger sister | sorella maggiore / sorella minore | **solo quando è parentela in prosa**: `How...! You suddenly get a younger sister!` → «Ottieni all'improvviso una sorella minore!» |
+| `<Big Sister>` / `<Little Sister>` | invariati | la citazione di BioShock (`Little Sister` + `Big Daddy`), che in italiano non è mai stata tradotta. Restano inglesi anche dentro le frasi che li contengono |
+| H Sister | invariato | nome proprio di missione e di creatura (`[Lv. 80] H Sister`) |
+
+⚠️ Attenzione: in `action.hsp` le stringhe `Wolf Sister`, `Yandere Sister`,
+`Small Older Sister`, `older sister`, `younger sister` **non sono prosa**: sono
+`evname`/`evold`, cioè nomi di creatura del sistema di evoluzione. Non si
+traducono qui — vedi la sezione «nomi di creatura riscritti nel salvataggio» di
+`invariati.md`.
 
 ## Da decidere
 
-Termini ricorrenti su cui la scelta non è meccanica. Finché restano qui non sono
-vincolanti, e vanno risolti prima del primo lotto che li contiene.
-
-| EN | occorrenze | il problema |
-|---|---|---|
-| Gauge | 75 | è la barra delle mosse speciali di Elona+ (`[50% Gauge]`, `Gauge +15%`, `Power gauge +3`). «Indicatore» è corretto ma lungo per un'etichetta; «Carica» collide con `Charge` |
-| Chaos | 54 | ricorre nei nomi propri (`Fort of Chaos <Beast>`) **e** come elemento (`Chaos` da solo, `text.hsp:1978`). Se l'elemento diventa «Caos», il nome del forte va deciso insieme |
-| Abyss | 33 | meccanica Elona+ (`abyss power`, `Abyss Leading`, `The Abyss of Magic`). «Abisso» funziona per il luogo, meno per la risorsa |
-| Skill | 98 | «Abilità» collide con l'uso italiano corrente per *ability*; verificare che non serva distinguere le due |
-| Sister | 37 | quasi sempre dentro nomi propri di missioni (`H Sister`, `the older sister in Ludus`): decidere se la parentela si traduce e il titolo no |
-| Body | 57 | `Body`, `Body Parts`, `Body CL` — parte anatomica, slot d'equipaggiamento e sigla convivono |
-
-Nomi propri di luogo ancora aperti: vedi la sezione «Da decidere nel glossario»
-di `invariati.md` (Larna, Port Kapul, Cyber Dome, Arcbelc, Lesimas).
+*Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,
+`Abyss`, `Skill`, `Sister`, `Body` — sono decisi e spostati nelle tabelle sopra,
+insieme ai cinque toponimi che erano in `invariati.md`.
