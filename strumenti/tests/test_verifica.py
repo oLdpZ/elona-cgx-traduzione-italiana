@@ -326,6 +326,106 @@ def test_controlla_lotto_propaga_gli_invariati_a_tutte_le_voci():
     assert len(controlla_lotto(voci, invariati=set())) == 3
 
 
+# --- il plurale dei nomi (buco chiuso il 2026-08-07) -------------------------
+#
+# Le voci dei nomi di `db_item.hsp` portano tre campi in piu' -- `plurale`,
+# `array`, `oggetto` -- e fino a qui `verifica.py` non ne guardava nessuno. Un
+# lotto con `it` pieno e `plurale` vuoto passava senza un fiato: il gioco
+# ripiegava sul singolare («2 spada lunga») e nessuno lo sapeva finche' non lo
+# vedeva a schermo. E' lo stesso difetto di forma gia' corretto due volte in
+# questo progetto: una difesa che non copre un campo nuovo tace invece di
+# parlare.
+
+def nome(**sovrascritture):
+    """Una voce dei nomi: quella che `estrai` emette per `db_item.hsp`."""
+    base = voce(
+        file="db_item.hsp", riga=1200,
+        jp="ロングソード", jp_grezzo='"ロングソード"',
+        en="long sword", en_grezzo='"long sword"',
+        it="spada lunga", plurale="spade lunghe",
+        array="ioriginalnameref", oggetto="ITEM_ID_LONG_SWORD",
+    )
+    base.update(sovrascritture)
+    return base
+
+
+def test_un_nome_col_suo_plurale_non_ha_problemi():
+    assert controlla_voce(nome()) == []
+
+
+def test_un_nome_tradotto_senza_plurale_e_un_problema():
+    # il buco vero: `it` pieno, `plurale` vuoto, e il lotto passava
+    problemi = controlla_voce(nome(plurale=""))
+    assert any("plurale" in p for p in problemi)
+
+
+def test_un_plurale_di_soli_spazi_non_e_un_plurale():
+    assert any("plurale" in p for p in controlla_voce(nome(plurale="   ")))
+
+
+def test_un_nome_non_ancora_tradotto_non_reclama_il_plurale():
+    # `it` vuoto significa "non ancora tradotta": il problema e' gia' la
+    # traduzione mancante, e chiedere anche il plurale sarebbe rumore
+    problemi = controlla_voce(nome(it="", plurale=""))
+    assert any("vuota" in p for p in problemi)
+    assert not any("plurale" in p for p in problemi)
+
+
+def test_un_nome_lasciato_inglese_deve_comunque_dichiarare_il_plurale():
+    # il pluralizzatore inglese e' spento da una toppa: se il nome resta
+    # inglese il suo plurale non lo fa piu' nessuno. Una coincidenza fra
+    # singolare e plurale si dichiara, non si deduce -- e' la stessa regola
+    # per cui il plurale e' un dato e non una funzione
+    v = nome(en="putit", en_grezzo='"putit"', it="putit", plurale="")
+    assert any("plurale" in p for p in controlla_voce(v, invariati={"putit"}))
+    assert controlla_voce(nome(en="putit", en_grezzo='"putit"', it="putit",
+                               plurale="putit"), invariati={"putit"}) == []
+
+
+def test_una_voce_che_non_e_un_nome_non_deve_portare_il_plurale():
+    # la regola non deve straripare sulle 27.813 voci di `lang()`, dove il
+    # plurale -- quando serve -- sta gia' dentro la stringa
+    assert controlla_voce(voce(it="Il tuo zaino è pieno.")) == []
+
+
+def test_mezzo_nome_e_una_voce_rotta():
+    # `array` e `oggetto` dicono a `applica.py` dove scrivere la riga gemella:
+    # una voce che porta il plurale senza di loro e' stata ritoccata a mano, e
+    # va detto invece di lasciarla passare
+    v = nome()
+    del v["array"]
+    problemi = controlla_voce(v)
+    assert problemi and "db_item.hsp:1200" in problemi[0] and "array" in problemi[0]
+
+
+def test_il_plurale_finisce_in_una_stringa_hsp_come_il_singolare():
+    # `applica_plurali` scrive ioriginalnamerefplur(...) = "<plurale>": una
+    # virgoletta doppia chiude la stringa in anticipo, esattamente come nel
+    # singolare, e il sorgente non compila piu'
+    assert any("plurale" in p for p in controlla_voce(nome(plurale='spade "lunghe"')))
+
+
+def test_il_plurale_passa_dal_controllo_di_cp932():
+    assert any("plurale" in p and "CP932" in p
+               for p in controlla_voce(nome(plurale="spade — lunghe")))
+
+
+def test_l_apostrofo_scritto_a_mano_nel_plurale_si_vede():
+    # nel dizionario va l'accento vero: la degradazione la fa applica.py, sul
+    # plurale come sul singolare
+    assert any("plurale" in p and "apostrofo" in p
+               for p in controlla_voce(nome(it="città", plurale="citta'")))
+
+
+def test_controlla_lotto_ferma_il_lotto_dei_nomi_senza_plurale():
+    # la conseguenza che conta: `reimporta` chiama `controlla_lotto`, quindi un
+    # lotto di nomi a meta' non entra nel dizionario
+    voci = [nome(firma="a"), nome(firma="b", plurale="")]
+    esito = controlla_lotto(voci, invariati=set())
+    assert "a" not in esito
+    assert any("plurale" in p for p in esito["b"])
+
+
 def _prepara(tmp_path, monkeypatch, sorgente_hsp: dict, dizionario_jsonl: dict):
     """Un sorgente e un dizionario finti, montati al posto di quelli veri."""
     sorgente = tmp_path / "sorgente"

@@ -449,6 +449,17 @@ In parallelo: individuare dove risiedono i nomi degli oggetti (§2, punto aperto
   giapponese preesistente: significa che la degradazione della §4 ha mancato
   qualcosa e CP932 lo cancellerebbe in silenzio;
 - una stringa di interfaccia supera la larghezza massima del suo riquadro;
+- un **nome** di `db_item.hsp` è tradotto ma non porta il suo `plurale` — in
+  italiano il plurale non si deduce (§4-bis di `contratto-nomi.md`), e a valle
+  `applica_plurali` lo tratta come facoltativo perché il ripiego sul singolare
+  serve ai nomi **non ancora tradotti**. Su un nome già tradotto quel ripiego
+  scriverebbe «2 spada lunga» per sempre, e il momento della traduzione è il
+  solo in cui qualcuno sta guardando quel nome. Il plurale eredita anche i tre
+  controlli di carattere del singolare (virgoletta doppia, apostrofo a mano,
+  residuo CP932): finisce in una stringa letterale HSP esattamente come lui;
+- una voce di nome porta `plurale` senza `array` e `oggetto`, o viceversa: i tre
+  campi viaggiano insieme, e senza gli ultimi due `applica.py` non sa dove
+  scrivere la riga gemella;
 - l'eseguibile non compila.
 
 `applica.py` inoltre **conta e stampa le voci di dizionario non consumate**, per

@@ -160,8 +160,17 @@ I punti dove il nome si concatena sembrano sei, ma **tre sono morti**: due stann
 dentro blocchi `/* ORIGINAL */`, cioè in commento, e uno è nel ramo `jp`. I vivi
 sono `item_func.hsp:1731, 1747, 1770`.
 
-Un plurale che manca **non è un errore**: si ripiega sul singolare. Serve perché
-i 1.023 plurali arrivano a lotti, e lo stato intermedio deve restare leggibile.
+Un plurale che manca **non è un errore a valle**: `applica_plurali` lo salta e il
+gioco ripiega sul singolare. Serve perché i 1.023 plurali arrivano a lotti, e lo
+stato intermedio deve restare leggibile.
+
+⚠️ Ma il ripiego è per i nomi **non ancora tradotti**. Su un nome già tradotto
+scriverebbe «2 spada lunga» per sempre, in silenzio, e il momento della
+traduzione è il solo in cui qualcuno sta guardando quel nome. Perciò
+`verifica.py` **pretende** il `plurale` su ogni nome con `it` pieno (dal
+2026-08-07: prima non guardava il campo, e un lotto a metà passava senza un
+fiato). Se plurale e singolare coincidono, si riscrive uguale: la coincidenza si
+dichiara, non si indovina.
 
 Le otto toppe sono generate prendendo `cerca` dal sorgente pinnato, non scritte a
 mano, e lo strumento rifiuta di emetterne una il cui blocco non compaia

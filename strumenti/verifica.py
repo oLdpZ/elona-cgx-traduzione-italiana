@@ -11,6 +11,12 @@ from strumenti.funzioni import funzioni_di_contenuto, morfologia_residua
 
 _RICHIESTI = ("tipo", "en", "en_grezzo")
 
+# I tre campi che `estrai` aggiunge alle sole voci dei nomi di `db_item.hsp`.
+# Vanno insieme: `plurale` e' il dato, `array` e `oggetto` dicono a `applica.py`
+# dove scrivere la riga gemella. Una voce che ne porta uno li porta tutti, o e'
+# stata ritoccata a mano.
+_CAMPI_NOME = ("plurale", "array", "oggetto")
+
 
 # Le sezioni di `invariati.md` che portano una tabella, classificate per
 # prefisso del titolo. Non c'e' un default: una sezione con valori che non
@@ -119,6 +125,65 @@ def carica_invariati(percorso: Path | None = None) -> set[str]:
     return valori
 
 
+def _problemi_del_plurale(voce: dict) -> list[str]:
+    """Le regole che valgono sul `plurale` di un nome gia' tradotto.
+
+    Si chiama solo dopo che `it` e' stato riconosciuto pieno: un nome non
+    ancora tradotto ha gia' il suo problema, e chiedergli anche il plurale
+    sarebbe rumore.
+
+    Perche' il plurale e' obbligatorio qui, mentre `applica_plurali` lo tratta
+    come facoltativo: a valle un plurale che manca **non e' un errore**, il
+    gioco ripiega sul singolare e lo stato intermedio resta leggibile. Ma il
+    ripiego serve ai nomi **non ancora tradotti**, non a quelli tradotti male:
+    su un nome tradotto senza plurale il gioco scriverebbe «2 spada lunga» per
+    sempre, e nessuno lo saprebbe finche' non lo vedesse a schermo. E' il
+    momento della traduzione il solo in cui qualcuno sta guardando quel nome.
+
+    Il plurale finisce in una stringa letterale HSP come il singolare
+    (`ioriginalnamerefplur(ITEM_ID_X) = "..."`), quindi eredita gli stessi tre
+    controlli di carattere: virgoletta doppia, apostrofo scritto a mano,
+    residuo non rappresentabile in CP932.
+    """
+    presenti = [nome for nome in _CAMPI_NOME if nome in voce]
+    if not presenti:
+        return []  # non e' un nome: in `lang()` il plurale sta gia' nella stringa
+
+    mancanti = [nome for nome in _CAMPI_NOME if nome not in voce]
+    if mancanti:
+        return [
+            f"{_dove(voce)}: voce di nome incompleta, mancano: {', '.join(mancanti)}."
+            " I tre campi dei nomi viaggiano insieme: senza `array` e `oggetto`"
+            " applica.py non sa dove scrivere la riga del plurale."
+        ]
+
+    plurale = voce["plurale"]
+    if not plurale.strip():
+        return [
+            f"{_dove(voce)}: nome tradotto senza plurale. In italiano il plurale"
+            " non si deduce (paio/paia, spada lunga/spade lunghe): e' un dato, e"
+            " va scritto qui. Se coincide col singolare, riscrivilo uguale: la"
+            " coincidenza si dichiara, non si indovina."
+        ]
+
+    problemi: list[str] = []
+    if '"' in plurale:
+        problemi.append(
+            'il plurale non puo\' contenere il carattere " : applica.py lo scrive'
+            ' in ioriginalnamerefplur(...) = "...", e la stringa HSP si'
+            " chiuderebbe in anticipo. Usa le virgolette tipografiche “”"
+        )
+    if ha_apostrofo_scritto_a_mano(plurale):
+        problemi.append(
+            "apostrofo scritto a mano nel plurale: nel dizionario va l'accento"
+            " vero, la degradazione la fa applica.py"
+        )
+    residui = non_ascii_residuo(degrada(plurale))
+    if residui:
+        problemi.append(f"caratteri del plurale che CP932 cancellerebbe: {residui}")
+    return problemi
+
+
 def _dove(voce: dict) -> str:
     """`file:riga` per un messaggio d'errore che si possa seguire."""
     return f"{voce.get('file', '?')}:{voce.get('riga', '?')}"
@@ -166,6 +231,9 @@ def controlla_voce(voce: dict, invariati: set[str] | None = None) -> list[str]:
     # quella, se e' rimasta inglese, e' proprio cio' che la regola cerca
     if italiano == originale and italiano not in (invariati or set()):
         problemi.append("traduzione identica all'inglese")
+
+    # i nomi di `db_item.hsp` portano un secondo testo che arriva fino al gioco
+    problemi.extend(_problemi_del_plurale(voce))
 
     if ha_apostrofo_scritto_a_mano(italiano):
         problemi.append(
