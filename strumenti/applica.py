@@ -355,13 +355,30 @@ def carica_toppe(percorso: Path | None = None) -> list[dict]:
     return toppe
 
 
+def righe_di_toppa(valore: str | list[str]) -> list[str]:
+    """Le righe di `cerca`/`sostituisci`: una stringa e' un blocco di una riga.
+
+    Le toppe sono nate per una riga sola, e la stragrande maggioranza lo resta.
+    La forma a lista e' arrivata quando la composizione del nome degli oggetti
+    ha chiesto uno `switch` (`item_func.hsp`, plurale della parola-contatore):
+    una riscrittura che sta su piu' righe non si esprime riga per riga senza
+    passare da stati intermedi che non compilano.
+    """
+    return list(valore) if isinstance(valore, list) else [valore]
+
+
 def applica_toppe(nome_file: str, testo: str, toppe: list[dict]) -> tuple[str, int]:
     """Applica a `testo` le toppe che riguardano `nome_file`. (testo, quante).
 
-    Una toppa si aggancia alla **riga intera**, non al numero di riga: i numeri
-    scivolano a ogni release CGX, il testo no. Se la riga attesa non c'e' piu' o
-    compare due volte la catena si ferma, invece di toppare a caso: e' la stessa
-    scelta che governa le sostituzioni di `lang()`.
+    Una toppa si aggancia al **testo intero** delle righe, non al numero di
+    riga: i numeri scivolano a ogni release CGX, il testo no. Se il blocco
+    atteso non c'e' piu' o compare due volte la catena si ferma, invece di
+    toppare a caso: e' la stessa scelta che governa le sostituzioni di `lang()`.
+
+    `cerca` e `sostituisci` sono una riga sola oppure una **lista di righe
+    consecutive**, e le due liste possono avere lunghezze diverse. Lo
+    scivolamento dei numeri di riga che ne deriva non fa danni: le toppe girano
+    dopo il dizionario, e nessuno legge piu' quei numeri dopo.
     """
     mie = [t for t in toppe if t["file"] == nome_file]
     if not mie:
@@ -369,25 +386,31 @@ def applica_toppe(nome_file: str, testo: str, toppe: list[dict]) -> tuple[str, i
 
     righe, fine_riga, termina_con_a_capo = spezza_righe(testo)
     for toppa in mie:
-        if toppa["cerca"] == toppa["sostituisci"]:
+        cerca = righe_di_toppa(toppa["cerca"])
+        sostituisci = righe_di_toppa(toppa["sostituisci"])
+        quante_righe = "la riga" if len(cerca) == 1 else f"il blocco di {len(cerca)} righe"
+        if cerca == sostituisci:
             raise SorgenteCorrotto(
                 f"{nome_file}: la toppa {toppa['motivo']!r} ha cerca identica a "
                 "sostituisci: non cambierebbe niente e resterebbe muta."
             )
-        indici = [i for i, riga in enumerate(righe) if riga == toppa["cerca"]]
+        indici = [
+            i for i in range(len(righe) - len(cerca) + 1)
+            if righe[i:i + len(cerca)] == cerca
+        ]
         if not indici:
             raise SorgenteCorrotto(
-                f"{nome_file}: la riga della toppa {toppa['motivo']!r} non esiste piu': "
-                f"{toppa['cerca']!r}. Se upstream l'ha riscritta, la toppa va rifatta "
-                "sulla nuova versione, non applicata alla cieca."
+                f"{nome_file}: {quante_righe} della toppa {toppa['motivo']!r} non "
+                f"esiste piu': {toppa['cerca']!r}. Se upstream l'ha riscritta, la "
+                "toppa va rifatta sulla nuova versione, non applicata alla cieca."
             )
         if len(indici) > 1:
             raise SorgenteCorrotto(
-                f"{nome_file}: la riga della toppa {toppa['motivo']!r} compare "
+                f"{nome_file}: {quante_righe} della toppa {toppa['motivo']!r} compare "
                 f"{len(indici)} volte (righe {[i + 1 for i in indici]}): e' ambigua, "
                 "e indovinare significa toppare quella sbagliata una volta su due."
             )
-        righe[indici[0]] = toppa["sostituisci"]
+        righe[indici[0]:indici[0] + len(cerca)] = sostituisci
 
     risultato = fine_riga.join(righe)
     if termina_con_a_capo:

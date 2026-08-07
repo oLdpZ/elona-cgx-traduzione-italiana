@@ -115,3 +115,100 @@ def test_le_toppe_del_progetto_si_applicano_al_sorgente_pinnato():
         nuovo, quante = applica_toppe(t["file"], testo, [t])
         assert quante == 1
         assert nuovo != testo
+
+
+# ---------------------------------------------------------------------------
+# Toppe a blocco: piu' righe consecutive al posto di una sola.
+#
+# Nate il 2026-08-07 per la composizione del nome degli oggetti
+# (`item_func.hsp:1259-1285`), dove il plurale della parola-contatore si fa col
+# suffisso inglese (`scroll` + `"s "`). In italiano il plurale e' irregolare per
+# parola: la riscrittura corretta vuole uno `switch`, cioe' un blocco, e una
+# toppa di riga non ci arriva.
+# ---------------------------------------------------------------------------
+
+BLOCCO_CERCA = [
+    "\tif ( n > 1 ) {",
+    '\t\ts = "" + n + " " + tipo + "s of "',
+    "\t}",
+]
+BLOCCO_SOSTITUISCI = [
+    "\tif ( n > 1 ) {",
+    "\t\tswitch tipo",
+    '\t\t\tcase "pergamena"',
+    '\t\t\t\ts = "" + n + " pergamene di "',
+    "\t\t\t\tswbreak",
+    "\t\tswend",
+    "\t}",
+]
+
+
+def toppa_blocco(**sovrascritture):
+    base = {
+        "file": "item_func.hsp",
+        "cerca": BLOCCO_CERCA,
+        "sostituisci": BLOCCO_SOSTITUISCI,
+        "motivo": "prova a blocco",
+    }
+    base.update(sovrascritture)
+    return base
+
+
+def test_una_toppa_a_blocco_sostituisce_le_righe_consecutive():
+    testo = sorgente("*itemname", *BLOCCO_CERCA, "\treturn s")
+    nuovo, quante = applica_toppe("item_func.hsp", testo, [toppa_blocco()])
+    assert quante == 1
+    assert nuovo == sorgente("*itemname", *BLOCCO_SOSTITUISCI, "\treturn s")
+
+
+def test_una_toppa_a_blocco_puo_cambiare_il_numero_di_righe():
+    """Le toppe girano dopo il dizionario, quindi lo scivolamento non fa danni."""
+    testo = sorgente("*itemname", *BLOCCO_CERCA, "\treturn s")
+    nuovo, _ = applica_toppe("item_func.hsp", testo, [toppa_blocco()])
+    righe = nuovo.split("\r\n")[:-1]
+    assert len(righe) == 2 + len(BLOCCO_SOSTITUISCI)
+
+
+def test_un_blocco_che_non_esiste_piu_ferma_la_catena():
+    """Stessa regola delle toppe di riga: upstream l'ha riscritto, non si indovina."""
+    testo = sorgente("*itemname", BLOCCO_CERCA[0], "\ts = 0", "\t}")
+    with pytest.raises(SorgenteCorrotto, match="non esiste piu'"):
+        applica_toppe("item_func.hsp", testo, [toppa_blocco()])
+
+
+def test_un_blocco_ambiguo_ferma_la_catena():
+    testo = sorgente("*itemname", *BLOCCO_CERCA, "*altro", *BLOCCO_CERCA)
+    with pytest.raises(SorgenteCorrotto, match="ambigu"):
+        applica_toppe("item_func.hsp", testo, [toppa_blocco()])
+
+
+def test_un_blocco_identico_alla_sostituzione_e_un_errore():
+    testo = sorgente("*itemname", *BLOCCO_CERCA)
+    with pytest.raises(SorgenteCorrotto, match="cerca identica"):
+        applica_toppe("item_func.hsp", testo, [toppa_blocco(sostituisci=BLOCCO_CERCA)])
+
+
+def test_un_blocco_vuoto_e_un_errore(tmp_path):
+    """`carica_toppe` pretende i campi non vuoti: una lista vuota e' vuota."""
+    percorso = tmp_path / "toppe.jsonl"
+    percorso.write_text(json.dumps(toppa_blocco(cerca=[]), ensure_ascii=False) + "\n",
+                        encoding="utf-8")
+    with pytest.raises(SorgenteCorrotto, match="campi mancanti o vuoti"):
+        carica_toppe(percorso)
+
+
+def test_riga_e_blocco_convivono_nello_stesso_file():
+    testo = sorgente("*itemname", RIGA_NAME, *BLOCCO_CERCA)
+    toppe = [toppa(file="item_func.hsp"), toppa_blocco()]
+    nuovo, quante = applica_toppe("item_func.hsp", testo, toppe)
+    assert quante == 2
+    assert '"the "' not in nuovo
+    assert '"s of "' not in nuovo
+
+
+def test_carica_toppe_conserva_i_blocchi(tmp_path):
+    percorso = tmp_path / "toppe.jsonl"
+    percorso.write_text(json.dumps(toppa_blocco(), ensure_ascii=False) + "\n",
+                        encoding="utf-8")
+    caricate = carica_toppe(percorso)
+    assert caricate[0]["cerca"] == BLOCCO_CERCA
