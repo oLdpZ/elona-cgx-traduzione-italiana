@@ -1,133 +1,137 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-07, fine della quarta sessione.
+Aggiornato: 2026-08-07, fine della quinta sessione.
 
 ## La prima cosa da fare domani
 
-**Decidere i sei termini aperti di `glossario.md`**, sezione «Da decidere». Sono
-lessico, non codice: nessuno può prenderli al posto tuo, e ogni lotto del Task 7
-che li contiene resta bloccato finché non sono chiusi.
+**Implementare il secondo tipo di sito in `siti()`** — la decisione di
+`contratto-nomi.md` §2. È il cambiamento più grosso alla catena dalla Fase 0, e
+sblocca tutte e 157 le voci di `rinviate.jsonl`.
 
-| termine | occorrenze | il nodo |
-|---|---|---|
-| Skill | 98 | «Abilità» collide con l'uso italiano di *ability* |
-| Gauge | 75 | la barra delle mosse speciali. «Indicatore» è lungo, «Carica» collide con `Charge` |
-| Body | 57 | parte anatomica, slot d'equipaggiamento e sigla convivono |
-| Chaos | 54 | è insieme elemento (`Chaos`) e nome proprio (`Fort of Chaos <Beast>`) |
-| Sister | 37 | quasi sempre dentro nomi di missione (`H Sister`) |
-| Abyss | 33 | «Abisso» regge per il luogo, meno per la risorsa (`abyss power`) |
+`siti()` oggi scandisce solo `lang(jp, en)`. Deve imparare anche questa forma,
+che in `db_item.hsp` compare **1.321 volte e sempre uguale** (verificato con una
+regex sola, zero eccezioni):
 
-Restano aperti anche i cinque nomi di luogo nella sezione «Da decidere nel
-glossario» di `invariati.md`: Larna, Port Kapul, Cyber Dome, Arcbelc, Lesimas.
-`Port Kapul` è quello che decide la regola per tutti: `Porto Kapul` o invariato.
+```
+if ( jp ) {
+    ioriginalnameref(ITEM_ID_BANANA) = "バナナ"
+}
+else {
+    ioriginalnameref(ITEM_ID_BANANA) = "banana"
+    ioriginalnameref2(ITEM_ID_BANANA) = ""
+}
+```
 
-Poi il **Task 7**: i lotti restanti di `text.hsp` (1.690 stringhe ancora da
-tradurre) e `avanzamento.md`.
+**Il giudice è la prova d'identità.** Un dizionario che traduce ogni nome in sé
+stesso deve riprodurre `db_item.hsp` byte per byte, esattamente come già fa per i
+26.206 siti `lang()`. Con quella verde, i 1.321 nomi hanno le stesse garanzie di
+tutto il resto: firma, `verifica`, coda di ritraduzione di SPEC 3.1.
+
+Attenzione: gli `if ( jp )` in `db_item.hsp` sono **2.902**, ma solo 1.321
+riguardano i nomi. Gli altri 1.581 non vanno toccati.
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-python -m pytest strumenti/tests -q        # atteso: 163 passed, 2 skipped
+python -m pytest strumenti/tests -q        # atteso: 180 passed, 2 skipped
 python -m strumenti.prova_identita         # atteso: 72/72, 26.206, ambigue 0
 python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre
 ```
 
 ## Dove siamo
 
-**La Fase 1 è arrivata a schermo.** Le prime 50 stringhe di `text.hsp` sono
-tradotte, compilate e **viste in gioco** il 2026-08-07: le accentate si leggono
-`e'`, «il viandante» funziona, nessuna riga esce dal riquadro. Il rischio numero
-uno del progetto — la degradazione CP932 — non è più un'ipotesi verificata sui
-byte: è un fatto osservato.
+**Il Task 7 è partito e `text.hsp` è al 37%** — 643 firme su 1.740. Quattro
+lotti, catena verde a ogni giro, **180 test**. La Fase 1 è per il resto chiusa:
+i task 1-6 sono fatti, e il Task 5 (glossario) è stato completato oggi.
 
-- Branch `fase-0`, **163 test verdi**
-- [PR #1](https://github.com/oLdpZ/elona-cgx-traduzione-italiana/pull/1) verso `master`, **ancora non unita**
-- `dizionario/`: `text.hsp` 50 voci, `init.hsp` 6 voci
-- Sorgente pinnato al tag `2.31.2.0` (`a9135a6`)
+- Branch `fase-0`, 13 commit oggi, **niente pushato**
+- [PR #1](https://github.com/oLdpZ/elona-cgx-traduzione-italiana/pull/1) sempre
+  aperta verso `master`, mai unita
+- Sorgente pinnato al tag `2.31.2.0` (`a9135a6`), manifesto **72/72 concordi**
 
-| task Fase 1 | stato |
-|---|---|
-| 1 — funzioni grammaticali inglesi | chiuso |
-| 2 — sostituzione dentro `cnvtalk(`/`cnven(` | **chiuso**: re-revisione fatta, un fratello del difetto trovato e corretto |
-| 3 — `invariati.md` | **chiuso** |
-| 4 — `verifica --dizionario` | **chiuso** |
-| 5 — glossario e guida di stile | **chiuso** |
-| 6 — primo lotto + collaudo a schermo | **chiuso** |
-| 7 — i lotti restanti e `avanzamento.md` | **tuo**, non iniziato |
+| file | tradotte | firme | % |
+|---|---|---|---|
+| `text.hsp` | 643 | 1.740 | 37% |
+| gli altri cinque | 0 | 4.948 | 0% |
+
+**157 voci rinviate** in `rinviate.jsonl`, ciascuna col suo motivo. Non sono
+debito di traduzione: sono la dipendenza dai nomi, che il contratto risolve.
 
 ## La scoperta che ha cambiato il piano
 
-**`init.hsp` è una premessa della Fase 1, non lavoro di Fase 4.**
+**I nomi non sono una conseguenza, sono una premessa.**
 
-Il piano dava per acquisito che qui il «tu» fosse sicuro, «perché le righe del
-giocatore e quelle dei PNG sono chiamate `lang()` diverse». Il sorgente dice il
-contrario: `name()` (`init.hsp:1699`) risolve **da sé** chi è il soggetto —
-`lang("あなた", "you")` per il giocatore, `"the " + nome` per un PNG. Una sola
-`lang()` serve entrambi, esattamente come il `#1` di Elin.
+Il conteggio delle rinviate è passato da 0 a 35 a 68 a 157 in quattro lotti, e
+sempre per lo stesso motivo: la voce citava un nome di creatura o di oggetto.
+Quando il motivo del rinvio è sempre lo stesso, non stai accumulando eccezioni —
+stai scoprendo una dipendenza che il piano non aveva.
 
-Misurato sui sei file di Fase 1: 1.522 dinamiche, **901 con `name()`**, **472
-(31%) con un marcatore di morfologia inglese**, cioè dimostrabilmente condivise.
+È già successo in questo progetto, con `init.hsp` promosso da Fase 4 a Fase 1. E
+il segnale d'allarme più chiaro era una **metrica che stava per mentire**:
+`avanzamento.md` avrebbe finito per dire `text.hsp 100%` mentre il giocatore
+leggeva nomi inglesi ovunque.
 
-Decisione: **terza persona singolare presente indicativo**, l'unica forma senza
-accordo di genere. `you` → **«il viandante»**, `he`/`she` → «lui»/«lei». Sei voci
-di dizionario, 16 sostituzioni. È la stessa conclusione a cui Elin era arrivata
-dopo averlo visto a schermo — qui è arrivata prima, leggendo il codice.
+**SPEC §2 è chiuso.** I nomi degli oggetti non erano «altrove»: erano in
+`db_item.hsp`, fuori da `lang()`. Vedi `contratto-nomi.md`, che è il documento
+nuovo da leggere prima di riprendere.
 
-## Due trappole trovate, entrambe silenziose
+## Il prezzo dei nomi di creatura — da non dimenticare
 
-**1. Le stringhe che sono dati.** Le otto di `CDATAN_NEWSEX` (`male`, `female`,
-`none`, `hermaphrodite`, `male?`, `female?`, `trans-male`, `trans-female`) stanno
-nella *stessa funzione* dei pronomi appena tradotti e sembrano testo. Non lo
-sono: `chara.hsp:2790` e `4390` le **scrivono** nei dati del personaggio,
-`init.hsp:1813-1823` le rilegge come **operandi di confronto**, e i dati finiscono
-nel salvataggio. Tradurle romperebbe il genere di ogni personaggio già creato —
-vanificando in silenzio proprio ciò che il cancello della Fase 0 aveva
-verificato. Sono in `invariati.md`, sezione «valori di dato, non testo».
-Vedi [[stringhe-che-sono-dati]].
+`db_creature.hsp` fa `cdatan(CDATAN_NAME, rc) = lang(…)`: **scrive i nomi nel
+salvataggio**. Sono la stessa classe di `CDATAN_NEWSEX`, e sono ciò contro cui si
+confrontano i **424 `evold`/`evname`** di `action.hsp`.
 
-**Prima di tradurre un file nuovo, fai questa ricerca:**
+Vanno quindi tradotti **nello stesso momento** di quelli, mai prima e mai dopo, o
+il confronto fallisce **in silenzio**. I nomi delle creature sono un lavoro
+atomico, non incrementale.
 
+## Cosa ha insegnato il collaudo in gioco
+
+Fatto il 2026-08-07 con 643 firme tradotte. Il salvataggio esistente carica, e
+`Sex Maschio` compare su un personaggio **già creato**: le sei toppe che separano
+l'etichetta dall'operando di `CDATAN_NEWSEX` reggono sul caso rischioso.
+
+Due difetti che nessun test poteva prendere:
+
+- **la colonna degli slot taglia a 6 caratteri**, contro un tetto di 13 che avevo
+  *dedotto* dalla stringa più lunga del file invece che *misurato* sul campo. La
+  regola giusta è in `guida-stile.md`, con una tabella dei tetti misurati;
+- **le qualità dell'oggetto escono attaccate al nome** (`a light cloak (Ottima)`),
+  non nella frase su cui avevo scelto il femminile. Ora sono invariabili.
+
+Vale la pena averlo fatto adesso: le correzioni hanno toccato 9 voci, a fine file
+ne avrebbero toccate centinaia. È la terza volta che il collaudo cambia una regola
+in questo progetto.
+
+## I meccanismi, e cosa protegge cosa
+
+| file | cosa dichiara | chi lo legge |
+|---|---|---|
+| `glossario.md` | rese vincolanti + la regola dei nomi propri | umani |
+| `invariati.md` | stringhe che restano inglesi, per sezione classificata | `verifica.py` |
+| `rinviate.jsonl` | voci rinviate, con motivo obbligatorio | `estrai --da-tradurre` |
+| `toppe.jsonl` | sostituzioni fuori dal dizionario (7 oggi) | `applica.py` |
+| `avanzamento.md` | firme tradotte per file, e i rinvii | umani |
+| `contratto-nomi.md` | dove stanno i nomi e come si compongono | umani |
+
+⚠️ `carica_invariati` ora **classifica le sezioni e non ha default**: aggiungere
+una sezione con valori senza classificarla alza `ValueError`. È voluto — il
+difetto che ha corretto nasceva proprio da un'esclusione silenziosa.
+
+## Cosa rifare a ogni giro
+
+**La prova d'identità**, che attraversa tutti i 26.206 siti e non dipende da
+quali casi qualcuno si è ricordato di coprire.
+
+```powershell
+python -m strumenti.prova_identita     # atteso: 72/72, 26.206, ambigue 0
 ```
-grep -nE '(=|==|!=|instr\().*lang\(' <file>.hsp
-```
 
-**2. L'accoppiamento della toppa.** `custom_dmgpop.hsp:224-231` *legge* la
-stringa `"the "` che la toppa toglie da `init.hsp:1718`. È protetto da
-`instr(...) != -1`, quindi diventa un no-op — verificato, non sperato.
-
-## Il meccanismo nuovo: `toppe.jsonl`
-
-Le sostituzioni **fuori da `lang()`**, che il dizionario non raggiunge. Sul
-sorgente intero sono dieci, in quattro file; oggi ce n'è una sola:
-`init.hsp:1718` toglie l'articolo inglese davanti ai nomi dei PNG.
-
-Non è un fork: come il dizionario, sono dati esterni applicati all'albero di
-build. Verificato col manifesto dopo la build, 72/72 hash concordi. Le toppe
-hanno un giro proprio e **la prova d'identità non ci passa**, quindi la garanzia
-byte per byte resta intatta. Vedi [[toppe-fuori-dal-dizionario]].
-
-**La conseguenza è una decisione di Fase 2:** l'articolo lo porterà il nome della
-creatura in `db_creature.hsp` («il putit», «lo gnomo», «l'orco»). Vale per *ogni*
-uso di `cdatan()`, non solo per `name()`: prima di tradurre quel file va guardato
-dove altro quei nomi compaiono — elenchi, negozi — perché lì l'articolo potrebbe
-non starci bene.
-
-## Cosa deve esistere fuori dal repo
-
-Niente di tutto questo è versionato: va ricreato se manca.
-
-| percorso | come ottenerlo |
-|---|---|
-| `C:\Games\Elona\_traduzione\hsp34\` | `hsp34a.zip` da <https://www.onionsoft.net/hsp/file/hsp34a.zip>, estratto **specificando CP932 per i nomi delle voci** — `Expand-Archive` corrompe i nomi giapponesi e fallisce |
-| `C:\Games\Elona\_traduzione\sorgente\` | `git clone --depth 1 --branch 2.31.2.0 https://github.com/JianmengYu/ElonaPlusCustom-GX.git sorgente` — **il tag, non il branch `work`** |
-| `C:\Games\Elona\_traduzione\manifesto-sorgente.txt` | SHA-256 dei 72 `.hsp` di `2.05-custom-gx\`, una riga `HASH  nome.hsp` per file |
-| `C:\Games\Elona\elonaplus2.31\` | il gioco installato |
-
-I percorsi si ridefiniscono con `ELONA_IT_LAVORO`, `ELONA_IT_GIOCO` e
-`ELONA_IT_DIZIONARIO`.
-
-⚠️ **`git status` dentro `sorgente\` è permanentemente sporco.** Non è una
-scrittura nostra: vedi `SPEC.md` §2. Per l'integrità usa il manifesto, mai
-`git status`.
+**Ma non prende tutto.** Le stringhe-dato le attraversa senza accorgersene: lì la
+forma resta giusta ed è il significato che si rompe. Contro quelle serve la
+lettura, e la ricerca da fare **prima di tradurre un file nuovo** è in
+`avanzamento.md` — quella del piano è troppo larga, su `text.hsp` dà 1.187 righe.
+La misura che conta è **per firma**: una firma condivisa fra un sito-dato e un
+sito-display non si può separare traducendo.
 
 ## Per rifare la prova in gioco
 
@@ -138,32 +142,29 @@ Copy-Item "C:\Games\Elona\_traduzione\build\2.05-custom-gx\elonapluscgx.exe" "C:
 Start-Process "C:\Games\Elona\elonaplus2.31\cgx-test.exe" -WorkingDirectory "C:\Games\Elona\elonaplus2.31"
 ```
 
-Il titolo mostra **2.31.1.0**, non 2.31.2.0: è la costante di versione che il tag
-non ha aggiornato al rilascio, non un errore di build.
+Il titolo mostra **2.31.1.0**: è la costante di versione che il tag non ha
+aggiornato al rilascio, non un errore di build. Copia dei salvataggi in
+`C:\Games\Elona\save-backup\`.
 
-**Per far uscire una stringa accentata a comando:** prova a raccogliere un
-oggetto di qualcun altro in una casa. `text.hsp:27` è un `txt` a tre varianti
-sorteggiate, e una sola porta l'accento — `Non e' roba tua.` Riprova finché non
-esce quella. *(Il pozzo non serve: `Ah, che bonta' l'acqua fresca.` è dietro
-`osakana == 100`, che si accende solo con la Mug of Ehekatl in inventario.)*
+Artefatto atteso dello stato intermedio: **«colpisces»** nei messaggi di mischia.
+`action.hsp:4887` concatena ancora `_s(cc)` dopo il verbo, e quel file non è
+tradotto. Sparisce con `action.hsp`.
 
-Copia dei salvataggi di prima della prima prova: `C:\Games\Elona\save-backup\`.
+## Cosa deve esistere fuori dal repo
 
-## Cosa rifare a ogni giro
+| percorso | come ottenerlo |
+|---|---|
+| `C:\Games\Elona\_traduzione\hsp34\` | `hsp34a.zip` da <https://www.onionsoft.net/hsp/file/hsp34a.zip>, estratto **specificando CP932 per i nomi delle voci** |
+| `C:\Games\Elona\_traduzione\sorgente\` | `git clone --depth 1 --branch 2.31.2.0 https://github.com/JianmengYu/ElonaPlusCustom-GX.git sorgente` — **il tag, non il branch `work`** |
+| `C:\Games\Elona\_traduzione\manifesto-sorgente.txt` | SHA-256 dei 72 `.hsp`, una riga `HASH  nome.hsp` per file. ⚠️ **gli hash sono in MAIUSCOLO**: confrontarli case-sensitive dà 0/72 e sembra un disastro |
+| `C:\Games\Elona\elonaplus2.31\` | il gioco installato |
 
-**La prova d'identità.** Un dizionario che traduce ogni stringa in sé stessa deve
-riprodurre i file byte per byte: attraversa tutti i 26.206 siti, e non dipende da
-quali casi qualcuno si è ricordato di coprire.
+I percorsi si ridefiniscono con `ELONA_IT_LAVORO`, `ELONA_IT_GIOCO` e
+`ELONA_IT_DIZIONARIO`.
 
-```powershell
-python -m strumenti.prova_identita     # atteso: 72/72, 26.206, ambigue 0
-```
+⚠️ **`git status` dentro `sorgente\` è permanentemente sporco.** Per l'integrità
+si usa il manifesto, mai `git status`. Vedi `SPEC.md` §2.
 
-Il contatore delle ambigue va guardato lo stesso: se risalisse senza che nessuno
-abbia toccato niente, qualcosa è cambiato a monte.
-
-**Ma non prende tutto.** Le stringhe-dato del paragrafo sopra le attraversa senza
-accorgersene: lì la forma resta giusta ed è il significato che si rompe. Contro
-quelle serve la lettura, e la lista scritta in `invariati.md`.
-
-Vedi [[prova-identita-pipeline-trasformazione]] e [[cp932-perdite-silenziose]].
+Vedi [[terminologia-prima-del-testo]], [[larghezza-per-campo]],
+[[stringhe-che-sono-dati]], [[toppe-fuori-dal-dizionario]],
+[[prova-identita-pipeline-trasformazione]] e [[cp932-perdite-silenziose]].
