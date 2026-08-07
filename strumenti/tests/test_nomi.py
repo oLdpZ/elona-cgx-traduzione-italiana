@@ -182,3 +182,110 @@ def test_i_conteggi_sul_sorgente_vero():
     righe, _, _ = spezza_righe(testo)
     for voce in voci:
         assert righe[voce["riga"] - 1].lstrip().startswith("ioriginalnameref")
+
+
+# ---------------------------------------------------------------------------
+# Il plurale dei nomi, che in `item_func.hsp` l'inglese fa col suffisso.
+#
+# Decisione del 2026-08-07: il plurale sta nel dizionario, una forma per nome,
+# e viaggia fino al gioco in due array HSP nuovi (`ioriginalnamerefplur` e
+# `ioriginalnameref2plur`) che `applica.py` popola accanto al singolare.
+#
+# La regola italiana non basta: «paio → paia», «asse → assi», e l'aggettivo si
+# accorda col nome («spada lunga → spade lunghe»). Scritto a mano si sbaglia una
+# volta; dedotto si sbaglia per sempre e in silenzio.
+# ---------------------------------------------------------------------------
+from strumenti.applica import applica_plurali
+
+
+def test_le_voci_dei_nomi_portano_il_campo_plurale():
+    voce = estrai_da_testo("db_item.hsp", BLOCCO)[0]
+    assert voce["plurale"] == ""
+    assert voce["oggetto"] == "ITEM_ID_BANANA"
+    assert voce["array"] == "ioriginalnameref"
+
+
+def test_le_voci_di_lang_non_lo_portano():
+    """Solo i nomi hanno un array del plurale: aggiungerlo altrove sarebbe rumore."""
+    voce = estrai_da_testo("text.hsp", 'a = lang("はい", "Yes")')[0]
+    assert "plurale" not in voce
+    assert "oggetto" not in voce
+
+
+def test_il_secondo_riferimento_dichiara_il_suo_array():
+    voci = estrai_da_testo("db_item.hsp", BLOCCO_COMPOSTO)
+    assert [v["array"] for v in voci] == ["ioriginalnameref", "ioriginalnameref2"]
+
+
+def _dizionario(testo, **plurali):
+    voci = estrai_da_testo("db_item.hsp", testo)
+    return {v["firma"]: {**v, "it": v["en"], "plurale": plurali.get(v["en"], "")}
+            for v in voci}
+
+
+def test_il_plurale_si_scrive_accanto_al_singolare():
+    dizionario = _dizionario(BLOCCO, banana="banane")
+    nuovo, quanti = applica_plurali("db_item.hsp", BLOCCO, dizionario)
+    assert quanti == 1
+    righe = nuovo.split("\n")
+    assert righe[4] == '\t\tioriginalnameref(ITEM_ID_BANANA) = "banana"'
+    assert righe[5] == '\t\tioriginalnamerefplur(ITEM_ID_BANANA) = "banane"'
+    # la riga che seguiva non si perde
+    assert righe[6] == '\t\tioriginalnameref2(ITEM_ID_BANANA) = ""'
+
+
+def test_senza_plurale_non_si_scrive_niente():
+    """Lo stato intermedio e' leggibile: il gioco ripiega sul singolare."""
+    nuovo, quanti = applica_plurali("db_item.hsp", BLOCCO, _dizionario(BLOCCO))
+    assert (nuovo, quanti) == (BLOCCO, 0)
+
+
+def test_ogni_array_prende_il_suo_plurale():
+    dizionario = _dizionario(BLOCCO_COMPOSTO, harvest="raccolti", scroll="pergamene")
+    nuovo, quanti = applica_plurali("db_item.hsp", BLOCCO_COMPOSTO, dizionario)
+    assert quanti == 2
+    assert 'ioriginalnamerefplur(ITEM_ID_SCROLL_HARVEST) = "raccolti"' in nuovo
+    assert 'ioriginalnameref2plur(ITEM_ID_SCROLL_HARVEST) = "pergamene"' in nuovo
+
+
+def test_piu_blocchi_non_si_sfalsano():
+    """L'inserimento sposta le righe: se si lavora dall'alto ci si perde."""
+    testo = BLOCCO + BLOCCO_COMPOSTO
+    dizionario = _dizionario(testo, banana="banane", harvest="raccolti", scroll="pergamene")
+    nuovo, quanti = applica_plurali("db_item.hsp", testo, dizionario)
+    assert quanti == 3
+    assert 'ioriginalnamerefplur(ITEM_ID_BANANA) = "banane"' in nuovo
+    assert 'ioriginalnamerefplur(ITEM_ID_SCROLL_HARVEST) = "raccolti"' in nuovo
+    # nessuna riga originale persa
+    for riga in testo.split("\n"):
+        if riga.strip():
+            assert riga in nuovo
+
+
+def test_il_plurale_passa_dalla_degradazione_degli_accenti():
+    """Come `it`: nel dizionario c'e' l'accento vero, nel sorgente CP932 no."""
+    dizionario = _dizionario(BLOCCO, banana="virtù")
+    nuovo, _ = applica_plurali("db_item.hsp", BLOCCO, dizionario)
+    assert 'ioriginalnamerefplur(ITEM_ID_BANANA) = "virtu\'"' in nuovo
+
+
+def test_il_plurale_si_inserisce_nel_testo_gia_tradotto():
+    """L'ordine vero della catena: prima si sostituisce, poi si inserisce.
+
+    Le firme si leggono dal sorgente, perche' nel tradotto non ci sono piu'.
+    """
+    voci = estrai_da_testo("db_item.hsp", BLOCCO)
+    dizionario = {v["firma"]: {**v, "it": "banana", "plurale": "banane"} for v in voci}
+    tradotto, _ = applica_a_testo("db_item.hsp", BLOCCO, dizionario)
+    nuovo, quanti = applica_plurali("db_item.hsp", BLOCCO, dizionario, tradotto)
+    assert quanti == 1
+    assert 'ioriginalnameref(ITEM_ID_BANANA) = "banana"' in nuovo
+    assert 'ioriginalnamerefplur(ITEM_ID_BANANA) = "banane"' in nuovo
+
+
+def test_due_testi_sfalsati_fermano_la_catena():
+    from strumenti.applica import SorgenteCorrotto
+
+    dizionario = _dizionario(BLOCCO, banana="banane")
+    with pytest.raises(SorgenteCorrotto, match="sfalsati"):
+        applica_plurali("db_item.hsp", BLOCCO, dizionario, BLOCCO + "\tx = 1\n")

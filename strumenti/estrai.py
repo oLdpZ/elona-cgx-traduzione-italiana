@@ -306,15 +306,20 @@ def avvio_nome(riga: str) -> tuple[str, int, int] | None:
     return trovato.group(3), trovato.start(3), trovato.end(3)
 
 
-def _nomi_per_riga(righe: list[str]) -> dict[int, tuple[str, str, int, int]]:
-    """Indice di riga (base 0) -> (jp_grezzo, en_grezzo, inizio_en, fine_en).
+def nomi_per_riga(righe: list[str]) -> dict[int, tuple[str, str, int, int, str, str]]:
+    """Indice di riga (base 0) -> (jp_grezzo, en_grezzo, inizio_en, fine_en,
+    array, oggetto).
 
     Una voce per ciascuno dei due letterali inglesi del ramo `else`, entrambi
     col giapponese del blocco: `ioriginalnameref2` non ha un giapponese proprio
     perche' il nome giapponese non si compone (`deed of camp` e' un pezzo solo
     in giapponese). Vedi `contratto-nomi.md` §1.
+
+    `array` e `oggetto` (`ioriginalnameref`, `ITEM_ID_BANANA`) servono al
+    plurale: `applica.py` scrive `ioriginalnamerefplur(ITEM_ID_BANANA)` accanto
+    al singolare, e per farlo deve sapere quale array e quale oggetto.
     """
-    trovati: dict[int, tuple[str, str, int, int]] = {}
+    trovati: dict[int, tuple[str, str, int, int, str, str]] = {}
     for indice in range(len(righe) - 6):
         if not _IF_JP.match(righe[indice]):
             continue
@@ -338,6 +343,7 @@ def _nomi_per_riga(righe: list[str]) -> dict[int, tuple[str, str, int, int]]:
         for scarto, trovato in ((4, primo), (5, secondo)):
             trovati[indice + scarto] = (
                 grezzo_jp, trovato.group(3), trovato.start(3), trovato.end(3),
+                trovato.group(1), trovato.group(2),
             )
     return trovati
 
@@ -383,7 +389,7 @@ def siti(testo: str) -> Iterator[tuple]:
     """
     conteggio: dict[str, int] = {}
     righe, _, _ = spezza_righe(testo)
-    nomi = _nomi_per_riga(righe)
+    nomi = nomi_per_riga(righe)
 
     def emetti(numero_riga, grezzo_jp, grezzo_en, inizio_en, fine_en):
         giapponese = _letterali(grezzo_jp)
@@ -412,7 +418,7 @@ def siti(testo: str) -> Iterator[tuple]:
                 yield sito
         nome = nomi.get(numero_riga - 1)
         if nome is not None:
-            sito = emetti(numero_riga, *nome)
+            sito = emetti(numero_riga, *nome[:4])
             if sito is not None:
                 yield sito
 
@@ -421,10 +427,11 @@ def estrai_da_testo(nome_file: str, testo: str) -> list[dict]:
     """Estrae tutte le coppie lang() da un sorgente gia' decodificato."""
     voci: list[dict] = []
     righe, _, _ = spezza_righe(testo)
+    nomi = nomi_per_riga(righe)
     for sito in siti(testo):
         numero_riga, chiave, occorrenza, giapponese, grezzo_jp, inglese, grezzo_en, _, _ = sito
         dinamica = e_dinamica(grezzo_en)
-        voci.append({
+        voce = {
             "firma": chiave,
             "file": nome_file,
             "riga": numero_riga,
@@ -438,7 +445,16 @@ def estrai_da_testo(nome_file: str, testo: str) -> list[dict]:
             "tipo": "dinamica" if dinamica else "statica",
             "contesto": righe[numero_riga - 1] if dinamica else "",
             "it": "",
-        })
+        }
+        # solo i nomi hanno un plurale da portare fino al gioco: in `lang()` il
+        # plurale, dove serve, sta gia' dentro la stringa. `oggetto` e `array`
+        # dicono a `applica.py` dove scriverlo.
+        nome = nomi.get(numero_riga - 1)
+        if nome is not None:
+            voce["plurale"] = ""
+            voce["array"] = nome[4]
+            voce["oggetto"] = nome[5]
+        voci.append(voce)
     return voci
 
 

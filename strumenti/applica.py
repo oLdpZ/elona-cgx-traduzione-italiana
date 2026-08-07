@@ -15,7 +15,7 @@ from pathlib import Path
 
 from strumenti import percorsi
 from strumenti.accenti import degrada
-from strumenti.estrai import (_argomenti, avvii, avvio_nome,
+from strumenti.estrai import (_argomenti, avvii, avvio_nome, nomi_per_riga,
                               normalizza_espressione, siti, spezza_righe,
                               virgola_nuda)
 
@@ -323,6 +323,81 @@ def applica_a_testo(nome_file: str, testo: str, dizionario: dict,
     return risultato, sostituzioni
 
 
+def applica_plurali(nome_file: str, testo: str, dizionario: dict,
+                    tradotto: str | None = None) -> tuple[str, int]:
+    """Scrive il plurale italiano accanto al singolare. (testo, quanti).
+
+    `item_func.hsp` costruisce il plurale col **suffisso inglese** in due punti:
+    sulla parola-contatore (`scroll` + "s ") e sul nome dell'oggetto
+    (`long sword` + "s"). In italiano non si deduce — «paio → paia», «asse →
+    assi», e l'aggettivo si accorda col nome («spada lunga → spade lunghe») —
+    quindi il plurale e' un **dato**, scritto una volta per nome nel dizionario.
+
+    Qui viaggia fino al gioco: per ogni nome tradotto che porta un `plurale` non
+    vuoto si inserisce, subito sotto la riga del singolare, la riga gemella
+    nell'array del plurale:
+
+        ioriginalnameref(ITEM_ID_BANANA) = "banana"
+        ioriginalnamerefplur(ITEM_ID_BANANA) = "banane"     <- inserita
+
+    Gli array nuovi li dichiara una toppa su `init.hsp` (`sdim` si autoespande,
+    come per quelli che affianca). Un plurale che manca **non e' un errore**: il
+    gioco ripiega sul singolare, cosi' lo stato intermedio resta leggibile e
+    migliora man mano che i lotti arrivano.
+
+    L'ordine dei due passaggi non e' libero, ed e' il motivo dei due testi:
+
+    - **prima** dell'inserimento, perche' le righe aggiunte spezzano la forma
+      canonica del blocco (sette righe esatte) e `applica_a_testo` non
+      riconoscerebbe piu' i nomi;
+    - **dopo** la sostituzione, perche' i siti si cercano per firma e nel testo
+      tradotto la firma non c'e' piu': l'inglese e' diventato italiano.
+
+    Percio' `testo` e' il **sorgente**, da cui si leggono siti e firme, e
+    `tradotto` e' dove le righe si inseriscono davvero. Le due versioni hanno lo
+    stesso numero di righe per costruzione — la sostituzione non ne aggiunge
+    mai — e se non ce l'hanno la catena si ferma invece di scrivere a caso.
+
+    L'inserimento si fa dal fondo verso l'alto: lavorando dall'alto ogni riga
+    aggiunta sfalserebbe tutte quelle sotto.
+    """
+    righe_sorgente, _, _ = spezza_righe(testo)
+    righe, fine_riga, termina_con_a_capo = spezza_righe(
+        testo if tradotto is None else tradotto)
+    if len(righe) != len(righe_sorgente):
+        raise SorgenteCorrotto(
+            f"{nome_file}: il sorgente ha {len(righe_sorgente)} righe e il tradotto "
+            f"{len(righe)}. Il plurale si aggancia per numero di riga: con i due "
+            "testi sfalsati finirebbe sull'oggetto sbagliato."
+        )
+    nomi = nomi_per_riga(righe_sorgente)
+
+    inserimenti: list[tuple[int, str]] = []
+    for sito in siti(testo):
+        numero_riga, chiave = sito[0], sito[1]
+        nome = nomi.get(numero_riga - 1)
+        if nome is None:
+            continue
+        voce = dizionario.get(chiave)
+        if voce is None or not voce.get("plurale"):
+            continue
+        _, _, _, _, array, oggetto = nome
+        riga = righe_sorgente[numero_riga - 1]
+        indentazione = riga[:len(riga) - len(riga.lstrip())]
+        plurale = degrada(voce["plurale"])
+        inserimenti.append(
+            (numero_riga, f'{indentazione}{array}plur({oggetto}) = "{plurale}"')
+        )
+
+    for numero_riga, riga_nuova in reversed(inserimenti):
+        righe.insert(numero_riga, riga_nuova)
+
+    risultato = fine_riga.join(righe)
+    if termina_con_a_capo:
+        risultato += fine_riga
+    return risultato, len(inserimenti)
+
+
 _CAMPI_TOPPA = ("file", "cerca", "sostituisci", "motivo")
 
 
@@ -435,6 +510,7 @@ def main() -> None:
 
     totale = 0
     totale_orfane = 0
+    totale_plurali = 0
     for percorso_dizionario in sorted(percorsi.DIZIONARIO.glob("*.jsonl")):
         nome_file = percorso_dizionario.stem
         voci = [json.loads(r) for r in percorso_dizionario.read_text(encoding="utf-8").splitlines() if r.strip()]
@@ -453,10 +529,14 @@ def main() -> None:
         consumate: set[str] = set()
         try:
             nuovo, sostituzioni = applica_a_testo(nome_file, testo, dizionario, consumate)
+            # il plurale si legge dal sorgente (li' ci sono le firme) e si
+            # scrive nel tradotto: vedi applica_plurali
+            nuovo, plurali = applica_plurali(nome_file, testo, dizionario, nuovo)
         except ValueError as errore:
             raise SystemExit(str(errore))
         bersaglio.write_bytes(nuovo.encode("cp932"))
         totale += sostituzioni
+        totale_plurali += plurali
 
         # SPEC 3.1: al riallineamento a una nuova versione CGX le firme che non
         # esistono piu' nel sorgente sono la coda di ritraduzione. Sparire in
@@ -464,6 +544,7 @@ def main() -> None:
         orfane = sorted(tradotte - consumate)
         totale_orfane += len(orfane)
         avviso = f", {len(orfane)} voci orfane" if orfane else ""
+        avviso += f", {plurali} plurali" if plurali else ""
         print(f"{nome_file}: {sostituzioni} sostituzioni{avviso}")
         for chiave in orfane[:5]:
             voce = dizionario[chiave]
