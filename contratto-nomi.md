@@ -127,6 +127,48 @@ gnomo», «l'orco» — e questo si sa per nome, non per regola.
   in `item_func.hsp` (`itemname()`), che ha un ramo `if ( jp )` proprio — quindi
   il ramo inglese è il posto dove va l'italiano.
 
+## 4-bis. Il plurale — due macchine, non una
+
+Scoperto il 2026-08-07 leggendo `item_func.hsp`, e non previsto da questo
+documento. Il plurale in inglese si fa **col suffisso**, e il file lo fa in due
+punti diversi:
+
+| | dove | su cosa | quanti oggetti |
+|---|---|---|---|
+| parola-contatore | `1259-1285` | `scroll` + `"s "`, `dish` + `"es "` | i **298** composti |
+| nome dell'oggetto | `1840-1932`, 91 righe, 47 `case ITEM_ID` | `long sword` + `"s"` | i **1.023** semplici |
+
+**In italiano il plurale non si deduce**: paio/paia, asse/assi, e l'aggettivo si
+accorda col nome (spada lunga → spade lunghe). Quindi è un **dato**, scritto una
+volta per nome nel campo `plurale` del dizionario, e portato fino al gioco da
+due array nuovi che `applica_plurali` popola accanto al singolare:
+
+```
+ioriginalnameref(ITEM_ID_SCROLL_HARVEST)      = "raccolto"
+ioriginalnamerefplur(ITEM_ID_SCROLL_HARVEST)  = "raccolti"
+ioriginalnameref2(ITEM_ID_SCROLL_HARVEST)     = "pergamena"
+ioriginalnameref2plur(ITEM_ID_SCROLL_HARVEST) = "pergamene"
+```
+
+⚠️ **Il nome si flette dove si concatena, non dopo.** Il primo disegno voleva
+sostituire il pluralizzatore di riga 1842, ma lì `locvar_itemowner_s` non è il
+nome: è la stringa già composta — benedizione, materiale, nome dell'ego, il nome
+vero, e in coda i titoli fra `<>`. L'inglese può appiccicare la `s` in fondo
+perché il sostantivo testa sta alla fine; in italiano sta **in mezzo**.
+
+I punti dove il nome si concatena sembrano sei, ma **tre sono morti**: due stanno
+dentro blocchi `/* ORIGINAL */`, cioè in commento, e uno è nel ramo `jp`. I vivi
+sono `item_func.hsp:1731, 1747, 1770`.
+
+Un plurale che manca **non è un errore**: si ripiega sul singolare. Serve perché
+i 1.023 plurali arrivano a lotti, e lo stato intermedio deve restare leggibile.
+
+Le otto toppe sono generate prendendo `cerca` dal sorgente pinnato, non scritte a
+mano, e lo strumento rifiuta di emetterne una il cui blocco non compaia
+**esattamente una volta**. Ha già impedito un errore: la riga da spegnere a 1842
+compare due volte, perché upstream tiene la versione originale in commento poco
+sopra.
+
 ## 5. Il prezzo dei nomi di creatura: i salvataggi
 
 ⚠️ `db_creature.hsp` non si limita a dichiarare i nomi: fa
