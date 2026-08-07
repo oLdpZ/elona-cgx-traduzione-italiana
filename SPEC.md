@@ -140,11 +140,35 @@ file `.hsp`, `bytes → decode("cp932") → encode("cp932")` restituisce byte
 identici. Gli strumenti del progetto sono quindi al sicuro; il problema è
 circoscritto a git.
 
-**Punto aperto.** `db_item.hsp` (4,6 MB) contiene **zero** `lang()`: i nomi degli
-oggetti passano da `ioriginalnameref` e risiedono altrove. `ndata.csv` /
-`ndata-e.csv` in `data/` sono liste di parole per la generazione di nomi casuali,
-non il database dei nomi oggetto. **Individuare dove stanno i nomi degli oggetti
-è un compito esplicito della Fase 0** e condiziona il dimensionamento della Fase 2.
+**Punto chiuso il 2026-08-07.** Era: `db_item.hsp` (4,6 MB) contiene **zero**
+`lang()`, i nomi degli oggetti passano da `ioriginalnameref` e risiedono altrove.
+
+Non risiedono altrove: **risiedono lì**, fuori da `lang()`. La forma è un ramo
+sulla lingua invece che una chiamata:
+
+```
+if ( jp ) {
+    ioriginalnameref(ITEM_ID_BANANA) = "バナナ"
+}
+else {
+    ioriginalnameref(ITEM_ID_BANANA) = "banana"
+    ioriginalnameref2(ITEM_ID_BANANA) = ""
+}
+```
+
+Sono **1.321 nomi**, e tutti e 1.321 corrispondono a **una sola forma canonica**
+— verificato con una espressione regolare sola, zero eccezioni su 1.321. Non
+erano irraggiungibili: erano fuori dal tipo di sito che `siti()` sa scandire.
+
+`ndata.csv` / `ndata-e.csv` restano quello che dicevamo: liste di parole per i
+nomi casuali, non il database.
+
+**298 dei 1.321** si compongono come `ioriginalnameref2 + " of " + ioriginalnameref`
+(`init.hsp:189`) — `deed of camp`, `scroll of harvest` — con un `" of "` inglese
+cablato **fuori da `lang()`**, come il `"the "` di `init.hsp:1718`.
+
+La conseguenza sul dimensionamento della Fase 2 e la decisione presa
+(«un secondo tipo di sito nella catena») stanno in `contratto-nomi.md`.
 
 ---
 
