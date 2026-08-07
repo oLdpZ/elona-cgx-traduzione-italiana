@@ -113,15 +113,21 @@ solo quando la resa italiana non porta l'articolo: controllali caso per caso.
    regge entrambi i soggetti. Il piano lo collocava in Fase 4; è invece una
    premessa della Fase 1.
 
-2. **L'articolo dei PNG non è raggiungibile dal dizionario.** `init.hsp:1718`
-   fa `"the " + cdatan(...)` **fuori** da una `lang()`, quindi la catena non lo
-   vede: un PNG senza nome proprio resterà «the putit» finché quel sito non è
-   trattato a parte. Su tutto il sorgente gli articoli inglesi nudi fuori da
-   `lang()` sono **10**, in quattro file.
+2. ~~L'articolo dei PNG non è raggiungibile dal dizionario.~~ **Risolto con una
+   toppa** (`toppe.jsonl`). `init.hsp:1718` faceva `"the " + cdatan(...)`
+   **fuori** da una `lang()`, dove il dizionario non arriva. Il prefisso ora si
+   **toglie**, invece di sceglierne uno italiano: l'articolo italiano dipende da
+   genere ed elisione, che si conoscono per nome e non per regola.
 
-   ⚠️ **Accoppiamento nascosto:** `custom_dmgpop.hsp:224-226` *legge* la stringa
-   `"the "` per toglierla dagli alias (`instr`, `split`). Cambiare
-   `init.hsp:1718` senza toccare anche quello lo rompe in silenzio.
+   **La conseguenza è una decisione di Fase 2:** l'articolo lo porta il nome
+   della creatura in `db_creature.hsp` — «il putit», «lo gnomo», «l'orco».
+   Vale per *ogni* uso di `cdatan()`, non solo per `name()`: prima di tradurre
+   `db_creature.hsp` va guardato dove altro quei nomi compaiono (elenchi,
+   negozi), perché lì l'articolo potrebbe non starci bene.
+
+   `custom_dmgpop.hsp:224-231` *legge* la stringa `"the "` per toglierla dagli
+   alias, ma è protetto da `instr(...) != -1`: senza `"the "` quel blocco è un
+   no-op. Verificato: nessuna seconda toppa serve.
 
 ## Prima di reimportare
 

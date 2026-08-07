@@ -11,6 +11,7 @@ import argparse
 import json
 import re
 import shutil
+from pathlib import Path
 
 from strumenti import percorsi
 from strumenti.accenti import degrada
@@ -307,6 +308,78 @@ def applica_a_testo(nome_file: str, testo: str, dizionario: dict,
     return risultato, sostituzioni
 
 
+_CAMPI_TOPPA = ("file", "cerca", "sostituisci", "motivo")
+
+
+def carica_toppe(percorso: Path | None = None) -> list[dict]:
+    """Le sostituzioni fuori da `lang()`, che il dizionario non raggiunge.
+
+    Il dizionario copre i siti `lang(jp, en)`, che sono il 99% del testo. Restano
+    fuori i letterali inglesi concatenati nel codice — su tutto il sorgente gli
+    articoli nudi di questo tipo sono dieci, in quattro file. `init.hsp:1718`
+    (`"the " + cdatan(...)`) e' l'unico che la Fase 1 non puo' aggirare.
+
+    Non e' una deroga alla SPEC 3.1: come il dizionario, le toppe sono **dati
+    esterni applicati all'albero di build**. Il clone upstream resta intatto.
+
+    Il file e' un'aggiunta, non un requisito: se manca, la build non ne applica
+    nessuna.
+    """
+    percorso = percorso or (percorsi.PROGETTO / "toppe.jsonl")
+    if not percorso.exists():
+        return []
+    toppe = [json.loads(r) for r in percorso.read_text(encoding="utf-8").splitlines() if r.strip()]
+    for indice, toppa in enumerate(toppe, start=1):
+        mancanti = [campo for campo in _CAMPI_TOPPA if not toppa.get(campo)]
+        if mancanti:
+            raise SorgenteCorrotto(
+                f"{percorso.name}, toppa {indice}: campi mancanti o vuoti: "
+                f"{', '.join(mancanti)}. Una toppa senza motivo e' una modifica al "
+                "sorgente di cui fra sei mesi nessuno sa piu' il perche'."
+            )
+    return toppe
+
+
+def applica_toppe(nome_file: str, testo: str, toppe: list[dict]) -> tuple[str, int]:
+    """Applica a `testo` le toppe che riguardano `nome_file`. (testo, quante).
+
+    Una toppa si aggancia alla **riga intera**, non al numero di riga: i numeri
+    scivolano a ogni release CGX, il testo no. Se la riga attesa non c'e' piu' o
+    compare due volte la catena si ferma, invece di toppare a caso: e' la stessa
+    scelta che governa le sostituzioni di `lang()`.
+    """
+    mie = [t for t in toppe if t["file"] == nome_file]
+    if not mie:
+        return testo, 0
+
+    righe, fine_riga, termina_con_a_capo = spezza_righe(testo)
+    for toppa in mie:
+        if toppa["cerca"] == toppa["sostituisci"]:
+            raise SorgenteCorrotto(
+                f"{nome_file}: la toppa {toppa['motivo']!r} ha cerca identica a "
+                "sostituisci: non cambierebbe niente e resterebbe muta."
+            )
+        indici = [i for i, riga in enumerate(righe) if riga == toppa["cerca"]]
+        if not indici:
+            raise SorgenteCorrotto(
+                f"{nome_file}: la riga della toppa {toppa['motivo']!r} non esiste piu': "
+                f"{toppa['cerca']!r}. Se upstream l'ha riscritta, la toppa va rifatta "
+                "sulla nuova versione, non applicata alla cieca."
+            )
+        if len(indici) > 1:
+            raise SorgenteCorrotto(
+                f"{nome_file}: la riga della toppa {toppa['motivo']!r} compare "
+                f"{len(indici)} volte (righe {[i + 1 for i in indici]}): e' ambigua, "
+                "e indovinare significa toppare quella sbagliata una volta su due."
+            )
+        righe[indici[0]] = toppa["sostituisci"]
+
+    risultato = fine_riga.join(righe)
+    if termina_con_a_capo:
+        risultato += fine_riga
+    return risultato, len(mie)
+
+
 def prepara_albero() -> None:
     """Copia SORGENTE in BUILD da zero. BUILD e' usa e getta."""
     if percorsi.BUILD.exists():
@@ -359,6 +432,25 @@ def main() -> None:
             print(f"    orfana {chiave} (riga {voce.get('riga', '?')}): {voce.get('en', '')[:60]!r}")
         if len(orfane) > 5:
             print(f"    ... e altre {len(orfane) - 5}")
+
+    # le toppe hanno un giro proprio: riguardano siti fuori da lang(), quindi
+    # file che possono non avere nessuna voce di dizionario (init.hsp oggi non
+    # ne ha) e che il ciclo qui sopra non visiterebbe mai
+    toppe = carica_toppe()
+    for nome_file in sorted({t["file"] for t in toppe}):
+        bersaglio = percorsi.BUILD_HSP / nome_file
+        if not bersaglio.exists():
+            raise SystemExit(
+                f"{nome_file}: una toppa nomina un file assente dall'albero di build "
+                f"({bersaglio}). Rigenera l'albero senza --salta-copia."
+            )
+        testo = bersaglio.read_bytes().decode("cp932")
+        try:
+            nuovo, quante = applica_toppe(nome_file, testo, toppe)
+        except ValueError as errore:
+            raise SystemExit(str(errore))
+        bersaglio.write_bytes(nuovo.encode("cp932"))
+        print(f"{nome_file}: {quante} toppe")
 
     print(f"totale: {totale} sostituzioni in {percorsi.BUILD_HSP}")
     if totale_orfane:
