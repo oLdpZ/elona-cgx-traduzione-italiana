@@ -1,5 +1,5 @@
 # strumenti/tests/test_verifica.py
-from strumenti.verifica import controlla_voce, controlla_lotto
+from strumenti.verifica import carica_invariati, controlla_voce, controlla_lotto
 
 
 def voce(**sovrascritture):
@@ -175,3 +175,68 @@ def test_un_pronome_con_un_argomento_deve_sparire():
     }
     assert controlla_voce(corretto) == []
     assert any("morfologia inglese" in p for p in controlla_voce(lasciato))
+
+
+def test_una_stringa_negli_invariati_non_e_segnalata():
+    v = voce(en="Vernis", en_grezzo='"Vernis"', it="Vernis")
+    assert controlla_voce(v, invariati={"Vernis"}) == []
+
+
+def test_senza_gli_invariati_resta_segnalata():
+    v = voce(en="Vernis", en_grezzo='"Vernis"', it="Vernis")
+    assert any("identica all'inglese" in p for p in controlla_voce(v))
+
+
+def test_l_invariato_copre_la_stringa_intera_non_la_parola():
+    # "Vernis" invariato non deve zittire una frase che lo contiene: quella
+    # frase e' rimasta inglese, ed e' proprio cio' che la regola cerca
+    v = voce(en="You arrive at Vernis.", en_grezzo='"You arrive at Vernis."',
+             it="You arrive at Vernis.")
+    assert any("identica all'inglese" in p for p in controlla_voce(v, invariati={"Vernis"}))
+
+
+def test_carica_invariati_legge_la_tabella(tmp_path):
+    percorso = tmp_path / "invariati.md"
+    percorso.write_text(
+        "# Invariati\n\n| valore | motivo |\n|---|---|\n"
+        "| Vernis | nome proprio |\n| Karma | termine acquisito |\n",
+        encoding="utf-8",
+    )
+    assert carica_invariati(percorso) == {"Vernis", "Karma"}
+
+
+def test_carica_invariati_ignora_l_intestazione_e_i_separatori(tmp_path):
+    percorso = tmp_path / "invariati.md"
+    percorso.write_text("| valore | motivo |\n|---|---|\n| Vernis | x |\n", encoding="utf-8")
+    assert carica_invariati(percorso) == {"Vernis"}
+
+
+def test_carica_invariati_si_ferma_alla_prima_sezione(tmp_path):
+    # il file vero ha una seconda tabella, "Da decidere nel glossario", che
+    # elenca i candidati NON ancora accettati: leggerla li renderebbe
+    # invariati di fatto, cioe' l'esatto contrario di cio' che dichiara
+    percorso = tmp_path / "invariati.md"
+    percorso.write_text(
+        "| valore | motivo |\n|---|---|\n| Vernis | nome proprio |\n"
+        "\n## Da decidere nel glossario\n\n"
+        "| valore | occorrenze | nota |\n|---|---|---|\n| Larna | 3 | citta' |\n",
+        encoding="utf-8",
+    )
+    assert carica_invariati(percorso) == {"Vernis"}
+
+
+def test_senza_il_file_non_si_rompe_niente(tmp_path):
+    assert carica_invariati(tmp_path / "assente.md") == set()
+
+
+def test_il_file_vero_del_progetto_si_legge_e_non_include_i_da_decidere():
+    caricati = carica_invariati()
+    assert "Vernis" in caricati
+    assert "Larna" not in caricati
+
+
+def test_controlla_lotto_propaga_gli_invariati_a_tutte_le_voci():
+    voci = [voce(firma=f"f{i}", en="Vernis", en_grezzo='"Vernis"', it="Vernis")
+            for i in range(3)]
+    assert controlla_lotto(voci, invariati={"Vernis"}) == {}
+    assert len(controlla_lotto(voci, invariati=set())) == 3
