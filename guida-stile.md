@@ -78,11 +78,43 @@ Vale anche per i **nomi di ruolo**, che sono aggettivi travestiti: un livello di
 rapporto reso «Allievo», «Padrone» o «Discepolo» vuole il genere del PNG. Si
 rende il **legame**, non la persona: «Tutela», «Appartenenza», «Discepolato».
 
-⚠️ Sono etichette di barre e liste a larghezza compressa. Il più lungo
-dell'inglese in `text.hsp` è 13 caratteri (`Poisoned Bad!`, `Anorexia-Lv??`):
-è il tetto pratico, anche se `verifica.py` non misura la larghezza. Ricorda che
-un accento vero diventa due caratteri dopo la degradazione — «Sazietà» esce
-`Sazieta'`.
+### La larghezza è per campo, non per file
+
+⚠️ **Corretta il 2026-08-07 dopo il primo collaudo di Task 7.** Qui c'era
+scritto che il tetto era 13 caratteri, dedotto dalla stringa inglese più lunga
+di `text.hsp`. Era un ragionamento sbagliato, non solo un numero sbagliato:
+ogni campo dell'interfaccia ha una larghezza sua, e la stringa più lunga *del
+file* non dice niente su *quel* campo.
+
+A schermo si è visto: la colonna degli slot d'equipaggiamento taglia a **6
+caratteri**. «Schiena», «Braccio» e «Munizioni» uscivano `Schien`, `Bracci`,
+`Munizi`. Lì l'inglese più lungo è `Waist`/`Shoot`, cinque caratteri — e cinque,
+non tredici, era il vero budget.
+
+**La regola: il tetto di un campo è la stringa inglese più lunga che ci
+compare**, non quella del file. Se l'inglese sta in cinque caratteri, quel
+campo è stato disegnato per cinque.
+
+| campo | tetto misurato | fonte |
+|---|---|---|
+| slot d'equipaggiamento (`text.hsp:136`) | 6 | osservato a schermo, 2026-08-07 |
+| barra di stato (`text.hsp:63-72`) | ≥ 14 | `Marchio letale` ci sta |
+
+Ricorda che un accento vero diventa **due** caratteri dopo la degradazione:
+«Sazietà» esce `Sazieta'`, «Umidità» esce `Umidita'`.
+
+### L'etichetta si legge dove esce, non dove pensi
+
+Le sei qualità dell'oggetto (`text.hsp:106`) le avevo rese al femminile perché
+`item.hsp:2122` dice «You sense the quality of X is Y» — e lì l'aggettivo
+concorda con «qualità». Ma a schermo escono **attaccate al nome dell'oggetto**:
+`a light cloak (Ottima)`. Con i nomi tradotti si leggerebbe «un mantello
+leggero (Ottima)», e `mantello` è maschile.
+
+Sono ora **invariabili in genere** — scadente, comune, eccellente, eccezionale,
+celestiale, speciale — così reggono qualunque nome le preceda. Vale in generale:
+prima di scegliere il genere di un'etichetta, guarda **tutti** i posti in cui
+esce, non il primo che trovi nel codice.
 
 ## Preposizioni davanti a un personaggio
 
