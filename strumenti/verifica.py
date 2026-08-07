@@ -12,33 +12,99 @@ from strumenti.funzioni import funzioni_di_contenuto, morfologia_residua
 _RICHIESTI = ("tipo", "en", "en_grezzo")
 
 
+# Le sezioni di `invariati.md` che portano una tabella, classificate per
+# prefisso del titolo. Non c'e' un default: una sezione con valori che non
+# compare qui alza `ValueError`.
+#
+# Il motivo e' un difetto vero, trovato il 2026-08-07. Prima si leggeva "la
+# tabella fino al primo `##`", e quando la sezione dei valori di dato fu
+# inserita in mezzo eredito' l'esclusione **in silenzio**: le otto stringhe di
+# `CDATAN_NEWSEX`, che devono restare inglesi per non rompere i salvataggi,
+# non arrivavano a `controlla_voce`. Un lotto che le lasciava inglesi -- cioe'
+# che faceva esattamente cio' che `invariati.md` prescrive -- inciampava nella
+# regola "traduzione identica all'inglese", e `controlla_lotto` rifiutava il
+# lotto **intero**. L'unico modo di far passare il lotto era tradurle: il
+# controllo spingeva verso la trappola che il cancello della Fase 0 doveva
+# impedire.
+#
+# Spostare il confine avrebbe corretto il sintomo: il prossimo che aggiunge una
+# sezione avrebbe rifatto il buco. Quello che non deve piu' essere possibile e'
+# il silenzio.
+_SEZIONI_INVARIANTI = ("Valori di dato",)
+_SEZIONI_NON_INVARIANTI = ("Da decidere", "Nomi di creatura")
+
+
+def _e_invariante(titolo: str) -> bool:
+    """Da che parte sta una sezione. Nessun default: o e' scritto, o si rompe."""
+    for prefisso in _SEZIONI_INVARIANTI:
+        if titolo.startswith(prefisso):
+            return True
+    for prefisso in _SEZIONI_NON_INVARIANTI:
+        if titolo.startswith(prefisso):
+            return False
+    raise ValueError(
+        f"invariati.md: la sezione {titolo!r} porta dei valori ma non e'"
+        " classificata. Aggiungi il suo prefisso a _SEZIONI_INVARIANTI (i suoi"
+        " valori restano inglesi per scelta) oppure a _SEZIONI_NON_INVARIANTI"
+        " (sono candidati, e verifica.py deve continuare a segnalarli)."
+    )
+
+
+def _valore_di_riga(riga: str) -> str | None:
+    """La prima cella di una riga di tabella, se e' una riga di dati."""
+    spoglia = riga.strip()
+    if not spoglia.startswith("|"):
+        return None
+    celle = [cella.strip() for cella in spoglia.strip("|").split("|")]
+    if len(celle) < 2 or not celle[0] or celle[0] == "valore":
+        return None
+    if set(celle[0]) <= {"-", ":"}:  # riga separatrice
+        return None
+    return celle[0]
+
+
 def carica_invariati(percorso: Path | None = None) -> set[str]:
-    """I valori della prima tabella di `invariati.md`, prima colonna.
+    """I valori che possono restare identici all'inglese senza che sia un difetto.
 
     Il file e' un'aggiunta, non un requisito: se manca, la regola si comporta
     come prima. Un progetto senza eccezioni e' un progetto senza il file.
 
-    Si legge **solo la tabella prima di ogni `##`**. Il file ha una seconda
-    sezione, "Da decidere nel glossario", che elenca i candidati non ancora
-    accettati: leggerla li renderebbe invariati di fatto, cioe' l'opposto di
-    cio' che quella sezione dichiara.
+    Si legge **sezione per sezione**. La tabella iniziale, prima di ogni
+    titolo, sono gli invariati per scelta esplicita. Le sezioni successive
+    valgono secondo `_SEZIONI_INVARIANTI` e `_SEZIONI_NON_INVARIANTI`: alcune
+    elencano valori che devono restare inglesi (i valori di dato), altre
+    elencano candidati non ancora accettati, e leggerle li renderebbe
+    invariati di fatto, cioe' l'opposto di cio' che dichiarano.
+
+    Una sezione che porta valori senza essere classificata alza `ValueError`.
+    Una sezione di sola prosa non e' una decisione da prendere, e si ignora.
     """
     percorso = percorso or (percorsi.PROGETTO / "invariati.md")
     if not percorso.exists():
         return set()
-    valori = set()
+
+    # prima si raccoglie per sezione, poi si classifica: cosi' una sezione di
+    # sola prosa non deve essere classificata, perche' non ha valori da dare
+    titolo = ""  # la tabella iniziale, che non ha titolo
+    per_sezione: dict[str, list[str]] = {titolo: []}
     for riga in percorso.read_text(encoding="utf-8").splitlines():
         spoglia = riga.strip()
+        # solo `##` e oltre aprono una sezione: `#` e' il titolo del
+        # documento, e la tabella che lo segue e' la prima, senza sezione
         if spoglia.startswith("##"):
-            break
-        if not spoglia.startswith("|"):
+            titolo = spoglia.lstrip("#").strip()
+            per_sezione.setdefault(titolo, [])
             continue
-        celle = [cella.strip() for cella in spoglia.strip("|").split("|")]
-        if len(celle) < 2 or not celle[0] or celle[0] == "valore":
+        valore = _valore_di_riga(spoglia)
+        if valore is not None:
+            per_sezione[titolo].append(valore)
+
+    valori: set[str] = set()
+    for titolo, trovati in per_sezione.items():
+        if not trovati:
             continue
-        if set(celle[0]) <= {"-", ":"}:  # riga separatrice
-            continue
-        valori.add(celle[0])
+        if titolo == "" or _e_invariante(titolo):
+            valori.update(trovati)
     return valori
 
 

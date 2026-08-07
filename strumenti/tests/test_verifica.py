@@ -234,6 +234,80 @@ def test_senza_il_file_non_si_rompe_niente(tmp_path):
     assert carica_invariati(tmp_path / "assente.md") == set()
 
 
+def test_carica_i_valori_di_dato_che_stanno_dopo_la_prima_sezione(tmp_path):
+    # il difetto del 2026-08-07: la sezione dei valori di dato fu inserita
+    # DOPO il primo `##`, e la lettura si fermava li'. Le otto stringhe che
+    # devono restare inglesi per non rompere i salvataggi non arrivavano a
+    # `controlla_voce`, e un lotto che le lasciava inglesi -- cioe' corretto --
+    # veniva rifiutato intero per "traduzione identica all'inglese"
+    percorso = tmp_path / "invariati.md"
+    percorso.write_text(
+        "| valore | motivo |\n|---|---|\n| Vernis | nome proprio |\n"
+        "\n## Valori di dato, non testo\n\n"
+        "| valore | motivo |\n|---|---|\n| male | valore di CDATAN_NEWSEX |\n",
+        encoding="utf-8",
+    )
+    assert carica_invariati(percorso) == {"Vernis", "male"}
+
+
+def test_una_sezione_non_classificata_si_fa_sentire(tmp_path):
+    # il cuore della correzione: il modo in cui il difetto e' nato non deve
+    # poter succedere di nuovo. Chi aggiunge una sezione la classifica, oppure
+    # rompe. Il silenzio non e' fra le possibilita'
+    percorso = tmp_path / "invariati.md"
+    percorso.write_text(
+        "| valore | motivo |\n|---|---|\n| Vernis | nome proprio |\n"
+        "\n## Una sezione che nessuno ha classificato\n\n"
+        "| valore | motivo |\n|---|---|\n| Qualcosa | boh |\n",
+        encoding="utf-8",
+    )
+    try:
+        carica_invariati(percorso)
+    except ValueError as errore:
+        assert "Una sezione che nessuno ha classificato" in str(errore)
+    else:
+        raise AssertionError("una sezione non classificata deve alzare ValueError")
+
+
+def test_una_sezione_senza_tabella_non_va_classificata(tmp_path):
+    # solo le sezioni che portano una tabella sono una decisione da prendere:
+    # una sezione di sola prosa non ha valori, quindi non ha nulla da dire
+    percorso = tmp_path / "invariati.md"
+    percorso.write_text(
+        "| valore | motivo |\n|---|---|\n| Vernis | nome proprio |\n"
+        "\n## Note\n\nSolo prosa, nessun valore.\n",
+        encoding="utf-8",
+    )
+    assert carica_invariati(percorso) == {"Vernis"}
+
+
+def test_il_file_vero_ha_tutte_le_sezioni_classificate():
+    # la rete di sicurezza vera: gira sul file del progetto, non su un
+    # tmp_path costruito ad arte. Se domani qualcuno aggiunge una sezione a
+    # `invariati.md` senza dire da che parte sta, questo test lo dice subito
+    carica_invariati()
+
+
+def test_il_file_vero_protegge_le_stringhe_che_sono_dati():
+    caricati = carica_invariati()
+    for valore in ("male", "female", "hermaphrodite", "trans-female"):
+        assert valore in caricati, f"{valore} deve restare inglese e non essere sollecitato"
+
+
+def test_un_lotto_che_lascia_inglesi_i_valori_di_dato_passa():
+    # la conseguenza vera del difetto, che nessun test copriva: `controlla_voce`
+    # non riceveva `male`, quindi la voce corretta -- lasciata inglese, come
+    # `invariati.md` prescrive -- inciampava in "traduzione identica
+    # all'inglese", e `controlla_lotto` rifiutava il lotto INTERO. L'unico modo
+    # di farlo passare era tradurla, cioe' rompere il genere dei personaggi
+    # gia' creati in ogni salvataggio esistente
+    voci = [voce(firma=f"sex{i}", file="init.hsp", en=valore,
+                 en_grezzo=f'"{valore}"', jp=valore, jp_grezzo=f'"{valore}"', it=valore)
+            for i, valore in enumerate(("male", "female", "none", "hermaphrodite",
+                                        "male?", "female?", "trans-male", "trans-female"))]
+    assert controlla_lotto(voci) == {}
+
+
 def test_il_file_vero_del_progetto_si_legge():
     # l'esclusione dei "Da decidere" e' coperta, sul meccanismo, dal test su
     # tmp_path qui sopra, che non invecchia. Qui si verifica solo che il file
