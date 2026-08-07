@@ -1,5 +1,10 @@
 # strumenti/tests/test_verifica.py
-from strumenti.verifica import carica_invariati, controlla_voce, controlla_lotto
+import json
+
+from strumenti import percorsi
+from strumenti.estrai import estrai_da_testo
+from strumenti.verifica import (carica_invariati, confronta_col_sorgente,
+                                controlla_lotto, controlla_voce)
 
 
 def voce(**sovrascritture):
@@ -240,3 +245,89 @@ def test_controlla_lotto_propaga_gli_invariati_a_tutte_le_voci():
             for i in range(3)]
     assert controlla_lotto(voci, invariati={"Vernis"}) == {}
     assert len(controlla_lotto(voci, invariati=set())) == 3
+
+
+def _prepara(tmp_path, monkeypatch, sorgente_hsp: dict, dizionario_jsonl: dict):
+    """Un sorgente e un dizionario finti, montati al posto di quelli veri."""
+    sorgente = tmp_path / "sorgente"
+    sorgente.mkdir()
+    for nome, testo in sorgente_hsp.items():
+        (sorgente / nome).write_bytes(testo.encode("cp932"))
+    diz = tmp_path / "diz"
+    diz.mkdir()
+    for nome, voci in dizionario_jsonl.items():
+        (diz / nome).write_text(
+            "".join(json.dumps(v, ensure_ascii=False) + "\n" for v in voci),
+            encoding="utf-8",
+        )
+    monkeypatch.setattr(percorsi, "SORGENTE_HSP", sorgente)
+    monkeypatch.setattr(percorsi, "DIZIONARIO", diz)
+    return sorgente, diz
+
+
+RIGA = '\ttxt lang("jp", "Ciao.")\r\n'
+
+
+def test_una_firma_sparita_dal_sorgente_finisce_in_coda(tmp_path, monkeypatch):
+    _prepara(
+        tmp_path, monkeypatch,
+        {"text.hsp": RIGA},
+        {"text.hsp.jsonl": [{"firma": "sparita", "jp": "vecchio", "en": "Old.",
+                             "it": "Vecchio.", "tipo": "statica",
+                             "en_grezzo": '"Old."', "riga": 1, "occorrenza": 0}]},
+    )
+    orfane, non_tradotte = confronta_col_sorgente("text.hsp")
+    assert [v["firma"] for v in orfane] == ["sparita"]
+    assert non_tradotte == 1
+
+
+def test_un_dizionario_allineato_non_ha_coda(tmp_path, monkeypatch):
+    voci = estrai_da_testo("text.hsp", RIGA)
+    _prepara(tmp_path, monkeypatch, {"text.hsp": RIGA},
+             {"text.hsp.jsonl": [{**voci[0], "it": "Salve."}]})
+    orfane, non_tradotte = confronta_col_sorgente("text.hsp")
+    assert orfane == []
+    assert non_tradotte == 0
+
+
+def test_una_voce_senza_traduzione_non_e_una_orfana(tmp_path, monkeypatch):
+    # "it" vuoto significa "non ancora tradotta", non "da ritradurre": non c'e'
+    # nessun lavoro da rifare, e metterla in coda gonfierebbe il numero che
+    # decide se la catena si ferma
+    _prepara(
+        tmp_path, monkeypatch,
+        {"text.hsp": RIGA},
+        {"text.hsp.jsonl": [{"firma": "sparita", "en": "Old.", "it": "",
+                             "tipo": "statica", "en_grezzo": '"Old."', "riga": 1}]},
+    )
+    orfane, non_tradotte = confronta_col_sorgente("text.hsp")
+    assert orfane == []
+    assert non_tradotte == 1
+
+
+def test_un_file_sparito_a_monte_manda_in_coda_tutte_le_sue_voci(tmp_path, monkeypatch):
+    # il caso che SPEC 3.1 contempla e che un read_bytes nudo trasformerebbe in
+    # FileNotFoundError a meta' scansione: upstream ha rimosso il .hsp, quindi
+    # nessuna delle sue traduzioni ha piu' un sito
+    _prepara(
+        tmp_path, monkeypatch,
+        {"text.hsp": RIGA},
+        {"rimosso.hsp.jsonl": [{"firma": "a", "en": "Old.", "it": "Vecchio.",
+                                "tipo": "statica", "en_grezzo": '"Old."', "riga": 1}]},
+    )
+    orfane, non_tradotte = confronta_col_sorgente("rimosso.hsp")
+    assert [v["firma"] for v in orfane] == ["a"]
+    assert non_tradotte == 0
+
+
+def test_le_orfane_escono_ordinate_per_riga(tmp_path, monkeypatch):
+    _prepara(
+        tmp_path, monkeypatch,
+        {"text.hsp": RIGA},
+        {"text.hsp.jsonl": [
+            {"firma": "b", "en": "B", "it": "B.", "tipo": "statica", "en_grezzo": '"B"', "riga": 90},
+            {"firma": "a", "en": "A", "it": "A.", "tipo": "statica", "en_grezzo": '"A"', "riga": 7},
+        ]},
+    )
+    orfane, _ = confronta_col_sorgente("text.hsp")
+    assert [v["firma"] for v in orfane] == ["a", "b"]

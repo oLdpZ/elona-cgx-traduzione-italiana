@@ -6,6 +6,7 @@ from pathlib import Path
 
 from strumenti import percorsi
 from strumenti.accenti import degrada, ha_apostrofo_scritto_a_mano, non_ascii_residuo
+from strumenti.estrai import estrai_da_testo
 from strumenti.funzioni import funzioni_di_contenuto, morfologia_residua
 
 _RICHIESTI = ("tipo", "en", "en_grezzo")
@@ -156,10 +157,61 @@ def controlla_lotto(voci: list[dict], invariati: set[str] | None = None) -> dict
     return esito
 
 
+def confronta_col_sorgente(nome_file: str) -> tuple[list[dict], int]:
+    """Coda di ritraduzione per un file: SPEC 3.1.
+
+    Ritorna le voci tradotte la cui firma **non esiste piu'** nel sorgente — la
+    stringa e' cambiata o sparita a monte, e la traduzione va rifatta — e quante
+    firme del sorgente non hanno ancora una traduzione.
+
+    Sono due domande diverse e vanno lette insieme: un dizionario puo' essere
+    completo e tutto da ritradurre.
+
+    Una voce con `it` vuoto non e' orfana: non c'e' nessun lavoro da rifare, e
+    contarla gonfierebbe il numero che decide se la catena si ferma.
+    """
+    percorso = percorsi.DIZIONARIO / f"{nome_file}.jsonl"
+    voci = []
+    if percorso.exists():
+        voci = [json.loads(r) for r in percorso.read_text(encoding="utf-8").splitlines() if r.strip()]
+    tradotte = {v["firma"]: v for v in voci if v.get("it")}
+
+    # un .hsp puo' sparire a monte fra due versioni CGX: e' il caso che SPEC 3.1
+    # contempla, e un read_bytes nudo lo trasformerebbe in un FileNotFoundError
+    # a meta' scansione invece che in una coda da ritradurre
+    sorgente = percorsi.SORGENTE_HSP / nome_file
+    if sorgente.exists():
+        nel_sorgente = {v["firma"] for v in estrai_da_testo(nome_file, sorgente.read_bytes().decode("cp932"))}
+    else:
+        nel_sorgente = set()
+
+    orfane = [v for f, v in tradotte.items() if f not in nel_sorgente]
+    non_tradotte = len(nel_sorgente - set(tradotte))
+    return sorted(orfane, key=lambda v: v.get("riga", 0)), non_tradotte
+
+
 def main() -> None:
     analizzatore = argparse.ArgumentParser(description="Verifica un lotto JSONL tradotto.")
-    analizzatore.add_argument("lotto", help="percorso del lotto JSONL")
+    analizzatore.add_argument("lotto", nargs="?", help="percorso del lotto JSONL")
+    analizzatore.add_argument(
+        "--dizionario", action="store_true",
+        help="confronta il dizionario col sorgente invece di validare un lotto")
     argomenti = analizzatore.parse_args()
+
+    if argomenti.dizionario:
+        totale_orfane = 0
+        for percorso in sorted(percorsi.DIZIONARIO.glob("*.jsonl")):
+            orfane, non_tradotte = confronta_col_sorgente(percorso.stem)
+            totale_orfane += len(orfane)
+            print(f"{percorso.stem}: {len(orfane)} da ritradurre, {non_tradotte} non ancora tradotte")
+            for voce in orfane[:5]:
+                print(f"    {voce['firma'][:10]} (riga {voce.get('riga', '?')}): {voce.get('en', '')[:60]!r}")
+            if len(orfane) > 5:
+                print(f"    ... e altre {len(orfane) - 5}")
+        raise SystemExit(1 if totale_orfane else 0)
+
+    if argomenti.lotto is None:
+        analizzatore.error("serve il percorso di un lotto, oppure --dizionario")
 
     voci = [json.loads(riga) for riga in Path(argomenti.lotto).read_text(encoding="utf-8").splitlines() if riga.strip()]
     esito = controlla_lotto(voci)
