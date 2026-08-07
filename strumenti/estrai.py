@@ -339,7 +339,43 @@ def estrai_da_file(percorso: Path) -> list[dict]:
     return estrai_da_testo(percorso.name, testo)
 
 
-def da_tradurre(voci: list[dict], gia_tradotte: set[str]) -> list[dict]:
+_CAMPI_RINVIATA = ("firma", "file", "en", "motivo")
+
+
+def carica_rinviate(percorso: Path | None = None) -> set[str]:
+    """Le firme rinviate a una fase successiva, da `rinviate.jsonl`.
+
+    Non sono tradotte e non lo saranno in questa fase: dipendono da una
+    decisione che questa fase dichiara di non prendere. Senza questo elenco
+    tornerebbero in testa a ogni estrazione e andrebbero riscartate a mano.
+
+    `verifica --dizionario` continua a contarle fra le non tradotte, ed e'
+    giusto: sono lavoro che resta, non lavoro chiuso.
+
+    Il `motivo` e' obbligatorio, come per le toppe. Una riga senza motivo e' un
+    pezzo di lavoro saltato di cui fra sei mesi nessuno sa il perche'.
+    """
+    percorso = percorso or (percorsi.PROGETTO / "rinviate.jsonl")
+    if not percorso.exists():
+        return set()
+    firme = set()
+    for indice, riga in enumerate(percorso.read_text(encoding="utf-8").splitlines(), start=1):
+        if not riga.strip():
+            continue
+        voce = json.loads(riga)
+        mancanti = [campo for campo in _CAMPI_RINVIATA if not voce.get(campo)]
+        if mancanti:
+            raise ValueError(
+                f"{percorso.name}, riga {indice}: campi mancanti o vuoti: "
+                f"{', '.join(mancanti)}. Una voce rinviata senza motivo e' lavoro "
+                "saltato di cui fra sei mesi nessuno sa il perche'."
+            )
+        firme.add(voce["firma"])
+    return firme
+
+
+def da_tradurre(voci: list[dict], gia_tradotte: set[str],
+                rinviate: set[str] | None = None) -> list[dict]:
     """Il lavoro che resta: una voce per firma, escluse quelle gia' tradotte.
 
     `estrai_da_testo` emette una voce per **occorrenza**, ed e' giusto: la prova
@@ -353,11 +389,12 @@ def da_tradurre(voci: list[dict], gia_tradotte: set[str]) -> list[dict]:
     L'ordine del sorgente si conserva: i lotti si leggono in ordine di file, e
     per le dinamiche il contesto della riga e' spesso l'unica cosa che c'e'.
     """
+    saltare = gia_tradotte | (rinviate or set())
     viste: set[str] = set()
     resta: list[dict] = []
     for voce in voci:
         chiave = voce["firma"]
-        if chiave in gia_tradotte or chiave in viste:
+        if chiave in saltare or chiave in viste:
             continue
         viste.add(chiave)
         resta.append(voce)
@@ -394,7 +431,7 @@ def main() -> None:
     for nome in argomenti.file:
         estratte = estrai_da_file(percorsi.SORGENTE_HSP / nome)
         if argomenti.da_tradurre:
-            estratte = da_tradurre(estratte, firme_tradotte(nome))
+            estratte = da_tradurre(estratte, firme_tradotte(nome), carica_rinviate())
         voci.extend(estratte)
     if argomenti.max:
         voci = voci[:argomenti.max]

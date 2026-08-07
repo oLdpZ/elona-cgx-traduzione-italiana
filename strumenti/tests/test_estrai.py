@@ -239,3 +239,32 @@ def test_da_tradurre_su_un_lotto_gia_finito_non_ritorna_niente():
     from strumenti.estrai import da_tradurre
     voci = estrai_da_testo("text.hsp", DUE_SULLA_STESSA_RIGA)
     assert da_tradurre(voci, gia_tradotte={v["firma"] for v in voci}) == []
+
+
+def test_da_tradurre_salta_anche_le_rinviate():
+    # una voce rinviata a una fase successiva non e' tradotta e non lo sara' in
+    # questa fase: senza saltarla tornerebbe in testa a ogni estrazione, e
+    # andrebbe riscartata a mano ogni volta
+    from strumenti.estrai import da_tradurre
+    voci = estrai_da_testo("text.hsp", DUE_SULLA_STESSA_RIGA)
+    rinviata = voci[0]["firma"]
+    resta = da_tradurre(voci, gia_tradotte=set(), rinviate={rinviata})
+    assert [v["en"] for v in resta] == ["No"]
+
+
+def test_le_rinviate_vogliono_un_motivo(tmp_path):
+    # stessa regola delle toppe: una riga senza motivo e' un pezzo di lavoro
+    # saltato di cui fra sei mesi nessuno sa il perche'
+    import json, pytest
+    from strumenti.estrai import carica_rinviate
+    percorso = tmp_path / "rinviate.jsonl"
+    percorso.write_text(json.dumps({"firma": "abc", "file": "text.hsp", "en": "x"}) + "\n",
+                        encoding="utf-8")
+    with pytest.raises(ValueError) as errore:
+        carica_rinviate(percorso)
+    assert "motivo" in str(errore.value)
+
+
+def test_carica_rinviate_senza_file_non_rompe_niente(tmp_path):
+    from strumenti.estrai import carica_rinviate
+    assert carica_rinviate(tmp_path / "assente.jsonl") == set()

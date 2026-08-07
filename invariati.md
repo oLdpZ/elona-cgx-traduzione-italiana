@@ -30,6 +30,11 @@ scrivere, probabilmente la stringa va tradotta.
 | Karma | termine acquisito in italiano |
 | Mana | termine acquisito nei giochi di ruolo |
 | * | simbolo, non testo: `text.hsp:12` lo stampa come marcatore. Non c'è niente da tradurre |
+| . | punteggiatura: `text.hsp:108` sceglie il segno di fine frase. Identica in italiano |
+| ? | punteggiatura, idem |
+| ! | punteggiatura, idem |
+| bonus | prestito acquisito, già in glossario. `strfix` (`text.hsp:190`) etichetta il `+3` di un oggetto |
+| http://homepage3.nifty.com/rfish/index_e.html | indirizzo web (`text.hsp:181`), non testo |
 | PER | sigla di Percezione: **identica** in italiano e in inglese. È una coincidenza, non una traduzione dimenticata |
 | MAG | sigla di Magia: identica in italiano e in inglese |
 | ` PER` | la stessa sigla di `text.hsp:62`, che allinea con uno spazio iniziale (`lang("感覚", " PER")`). Gli apici inversi la prendono verbatim: una cella markdown si legge con `strip()`, e senza di essi lo spazio si perderebbe |
