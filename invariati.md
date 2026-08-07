@@ -26,6 +26,30 @@ scrivere, probabilmente la stringa va tradotta.
 | Melugas | nome proprio di luogo, canone Elona |
 | Karma | termine acquisito in italiano |
 | Mana | termine acquisito nei giochi di ruolo |
+| * | simbolo, non testo: `text.hsp:12` lo stampa come marcatore. Non c'è niente da tradurre |
+
+## Valori di dato, non testo — tradurli rompe i salvataggi
+
+⚠️ Queste `lang()` non finiscono a schermo: sono i valori del campo
+`CDATAN_NEWSEX`, **scritti** nei dati del personaggio (`chara.hsp:2790`,
+`chara.hsp:4390`) e **riletti** come operandi di confronto (`init.hsp:1813-1823`,
+dentro `he()`/`his()`/`him()`).
+
+Tradurle sembra innocuo e non lo è: un salvataggio esistente contiene la stringa
+inglese, il confronto col valore italiano fallisce, e il gioco sbaglia il genere
+di ogni personaggio già creato. Il cancello della Fase 0 ha verificato proprio
+che i salvataggi esistenti si carichino: questo lo vanificherebbe in silenzio.
+
+| valore | motivo |
+|---|---|
+| male | valore di `CDATAN_NEWSEX`, non testo a schermo |
+| female | valore di `CDATAN_NEWSEX` |
+| none | valore di `CDATAN_NEWSEX` |
+| hermaphrodite | valore di `CDATAN_NEWSEX` |
+| male? | valore di `CDATAN_NEWSEX` |
+| female? | valore di `CDATAN_NEWSEX` |
+| trans-male | valore di `CDATAN_NEWSEX` |
+| trans-female | valore di `CDATAN_NEWSEX` |
 
 ## Da decidere nel glossario
 
