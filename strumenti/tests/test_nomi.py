@@ -410,3 +410,75 @@ def test_le_parole_contatore_cablate_hanno_il_loro_plurale():
     nuovo = _item_func_toppato()
     for _, italiano, plurale in CABLATE:
         assert f'"{plurale}"' in nuovo, plurale
+
+
+# ---------------------------------------------------------------------------
+# Il materiale: si mette da parte e si riversa dopo il nome (2026-08-08).
+#
+# Visto a schermo: «bronze corazza», «silk veste», «raw cintura» — 12 righe su
+# 16 nella lista di un negoziante. In inglese il materiale precede; in italiano
+# e' un complemento che segue, ed e' gia' la regola di `guida-stile.md`:
+# «spada d'acciaio», mai «spada acciaiosa».
+#
+# I nomi dei materiali stanno in `item_data.hsp` dentro normali `lang()`, quindi
+# la catena li raggiunge senza inventare niente. Due vincoli, misurati:
+#
+# - **il materiale resta un sostantivo nudo**, perche' `command.hsp:16289` dice
+#   «It is made of » + mtname(...): col «di» cotto nel dato uscirebbe «fatto di
+#   di cuoio». Il giunto va nella toppa. E' la seconda volta che questo progetto
+#   impara la stessa cosa, dopo il `" of "` dei nomi composti;
+# - **il buffer e' di 18 byte** (`sdim mtname, 18, 2, ITEM_MATERIAL_MAX`), e in
+#   italiano non ci si sta: «scaglia di grifone» sono 18 esatti, e un accento
+#   vero ne vale due dopo la degradazione. Si allarga la dichiarazione, come per
+#   gli array del plurale: e' lo stesso difetto visto dal lato del buffer.
+# ---------------------------------------------------------------------------
+
+SITI_MATERIALE = ("mtname(0, inv(INV_ITEM_MATERIAL, itemname_itemid))",
+                  "mtname(1, inv(INV_ITEM_MATERIAL, itemname_itemid))")
+
+
+def test_il_materiale_non_si_antepone_piu_al_nome():
+    # solo **prima** di `*skipName`: dopo, il nome c'e' gia' e un `+=` con
+    # mtname e' un suffisso legittimo -- la targhetta `[Bronzo]` di riga 2175,
+    # che era gia' al posto giusto e non va spostata
+    righe = [r.strip() for r in _item_func_toppato().split("\r\n")]
+    for spoglia in righe[:righe.index("*skipName")]:
+        if "mtname(" in spoglia and spoglia.startswith("locvar_itemowner_s +="):
+            raise AssertionError(
+                f"{spoglia!r}: il materiale si antepone ancora. In italiano segue"
+                " il nome, quindi va messo da parte in locvar_itemname_s6 e"
+                " riversato dopo")
+
+
+def test_il_materiale_si_riversa_dopo_il_nome_una_volta_sola():
+    # il riversamento sta dopo `*skipName`, che e' il punto in cui **tutti** i
+    # rami del nome convergono: metterlo sui singoli rami significherebbe
+    # dimenticarne uno e perdere il materiale in silenzio
+    nuovo = _item_func_toppato()
+    righe = [r.strip() for r in nuovo.split("\r\n")]
+    flussi = [i for i, r in enumerate(righe)
+              if r == "locvar_itemowner_s += locvar_itemname_s6"]
+    assert len(flussi) == 1, f"riversamenti trovati: {len(flussi)}"
+    etichetta = righe.index("*skipName")
+    assert etichetta < flussi[0] < etichetta + 4, (
+        "il riversamento va subito dopo *skipName, dove tutti i rami del nome"
+        " sono gia' passati e l'articolo non e' ancora stato anteposto")
+
+
+def test_il_materiale_si_azzera_a_ogni_chiamata():
+    nuovo = _item_func_toppato()
+    righe = [r.strip() for r in nuovo.split("\r\n")]
+    assert righe.count('locvar_itemname_s6 = ""') == 1
+    assert righe.index('locvar_itemname_s6 = ""') < righe.index("*skipName")
+
+
+def test_il_buffer_dei_materiali_sta_largo_per_l_italiano():
+    from strumenti.applica import applica_toppe, carica_toppe
+    percorso = percorsi.SORGENTE_HSP / "item_data.hsp"
+    if not percorso.exists():
+        pytest.skip("il clone del sorgente non e' disponibile")
+    testo = percorso.read_bytes().decode("cp932")
+    toppe = [t for t in carica_toppe() if t["file"] == "item_data.hsp"]
+    nuovo, _ = applica_toppe("item_data.hsp", testo, toppe)
+    assert "sdim mtname, 18, 2, ITEM_MATERIAL_MAX" not in nuovo
+    assert "sdim mtname, 48, 2, ITEM_MATERIAL_MAX" in nuovo

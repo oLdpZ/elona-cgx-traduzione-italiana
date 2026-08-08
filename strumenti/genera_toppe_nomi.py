@@ -32,6 +32,7 @@ def righe(nome):
 
 INIT = righe('init.hsp')
 ITEM = righe('item_func.hsp')
+DATA = righe('item_data.hsp')
 
 def fetta(r, primo, ultimo):
     """righe da `primo` a `ultimo` compresi, a base 1"""
@@ -234,8 +235,87 @@ toppe.append({
     "motivo": "spegne il pluralizzatore inglese del nome (91 righe di suffissi e di eccezioni per oggetti gia' plurali). Si rende irraggiungibile invece di cancellarlo, cosi' resta leggibile accanto alla versione originale che upstream tiene in commento",
 })
 
+# 9-14. il materiale, che in inglese precede il nome e in italiano lo segue.
+#
+# Si mette da parte in `locvar_itemname_s6` dove l'inglese lo scriveva, e si
+# riversa **dopo** `*skipName`, che e' il punto in cui tutti i rami del nome
+# convergono -- identificato, non identificato, unico, nome casuale, nome da
+# file dell'utente. Riversarlo sui singoli rami significherebbe dimenticarne
+# uno e perdere il materiale in silenzio; li' invece o ci passano tutti o non
+# ci passa nessuno. E' anche prima dell'articolo inglese (riga 1809), che si
+# antepone.
+#
+# Il giunto sta qui e non nel dato: `mtname` va letto anche da `command.hsp`
+# («It is made of » + mtname), dove un «di» cotto nella stringa direbbe «fatto
+# di di cuoio». Stessa lezione del `" of "` dei nomi composti.
+MATERIALE = 'mtname(0, inv(INV_ITEM_MATERIAL, itemname_itemid))'
+EPITETO = 'mtname(1, inv(INV_ITEM_MATERIAL, itemname_itemid))'
+
+# riga -> (cosa si legge, come si aggancia). L'epiteto porta gia' la sua
+# preposizione dal dizionario («di mistero», «dell'antichita'»): li' basta lo
+# spazio. Per gli arredi l'inglese dice «silk work chair»: «di manifattura in
+# seta» non chiede accordo di genere a nessuno dei due lati, mentre «lavorato»
+# lo chiederebbe al materiale e «lavorata» all'oggetto.
+#
+# I due siti degli arredi (1399 e 1404) sono **identici riga per riga**: si
+# distinguono solo per l'`if` che li racchiude, `!= SAND` contro `!= RAW`. Da
+# sole sarebbero ambigue e lo strumento rifiuterebbe di emetterle -- e' la
+# quarta volta che il controllo di unicita' cambia la forma di una toppa
+# invece di lasciar passare un'ambiguita'.
+DA_ANTEPORRE = (
+    (1386, 1386, MATERIALE, ' di '),
+    (1398, 1400, MATERIALE, ' di manifattura in '),
+    (1403, 1405, MATERIALE, ' di manifattura in '),
+    (1476, 1476, EPITETO, ' '),
+    (1481, 1481, MATERIALE, ' di '),
+)
+
+for primo, ultimo, lettura, giunto in DA_ANTEPORRE:
+    blocco = fetta(ITEM, primo, ultimo)
+    da_spostare = [r for r in blocco if 'locvar_itemowner_s +=' in r and lettura in r]
+    assert len(da_spostare) == 1, (primo, blocco)
+    nuovo = [f'{ind(r)}locvar_itemname_s6 += "{giunto}" + {lettura}'
+             if r in da_spostare else r for r in blocco]
+    toppe.append({
+        "file": "item_func.hsp",
+        "cerca": blocco if len(blocco) > 1 else blocco[0],
+        "sostituisci": nuovo if len(nuovo) > 1 else nuovo[0],
+        "motivo": f"il materiale si antepone in inglese e segue in italiano: qui si mette da parte in locvar_itemname_s6 col giunto «{giunto.strip()}», e si riversa dopo *skipName. Il giunto sta nella toppa e non nel dato perche' mtname lo legge anche command.hsp, dove «fatto di» + «di cuoio» direbbe due volte la stessa preposizione",
+    })
+
+# l'azzeramento, una volta per chiamata, prima di ogni ramo
+blocco = fetta(ITEM, 1143, 1144)
+assert blocco[0].strip() == 'item_checkknown itemname_itemid', blocco[0]
+toppe.append({
+    "file": "item_func.hsp",
+    "cerca": blocco,
+    "sostituisci": [f'{ind(blocco[0])}locvar_itemname_s6 = ""'] + blocco,
+    "motivo": "azzera la coda del materiale a ogni chiamata di itemname(): senza, il materiale dell'oggetto precedente resterebbe attaccato al successivo",
+})
+
+# il riversamento
+blocco = fetta(ITEM, 1805, 1806)
+assert blocco[0].strip() == '*skipName', blocco[0]
+toppe.append({
+    "file": "item_func.hsp",
+    "cerca": blocco,
+    "sostituisci": [blocco[0],
+                    f'{ind(blocco[1])}locvar_itemowner_s += locvar_itemname_s6'] + blocco[1:],
+    "motivo": "riversa il materiale dopo il nome. Sta su *skipName perche' e' il punto dove tutti i rami del nome convergono: sui singoli rami se ne dimenticherebbe uno e il materiale sparirebbe in silenzio. Ed e' prima dell'articolo inglese, che si antepone",
+})
+
+# 15. il buffer dei materiali: 18 byte non bastano all'italiano
+riga = DATA[1266 - 1]
+assert riga.strip() == 'sdim mtname, 18, 2, ITEM_MATERIAL_MAX', riga
+toppe.append({
+    "file": "item_data.hsp",
+    "cerca": riga,
+    "sostituisci": riga.replace('sdim mtname, 18,', 'sdim mtname, 48,'),
+    "motivo": "18 byte per stringa non bastano: l'inglese piu' lungo e' `griffon scale` (13), «scaglia di grifone» sono 18 esatti, e un accento vero ne vale due dopo la degradazione. Stesso difetto degli array del plurale, visto dal lato del buffer invece che dell'indice",
+})
+
 # --- il controllo che conta: ogni blocco compare esattamente una volta -------
-sorgenti = {"init.hsp": INIT, "item_func.hsp": ITEM}
+sorgenti = {"init.hsp": INIT, "item_func.hsp": ITEM, "item_data.hsp": DATA}
 for t in toppe:
     cerca = t["cerca"] if isinstance(t["cerca"], list) else [t["cerca"]]
     r = sorgenti[t["file"]]

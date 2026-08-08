@@ -21,7 +21,14 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | `skill.hsp` | 0 | 885 | 0% | 894 |
 | `trait.hsp` | 0 | 373 | 0% | 406 |
 | `db_item.hsp` | 86 | 1.606 | 5% | 1.607 |
-| **totale** | **729** | **8.294** | **9%** | **9.344** |
+| `item_data.hsp` | 83 | 318 | 26% | 318 |
+| **totale** | **812** | **8.612** | **9%** | **9.662** |
+
+`item_data.hsp` è entrato il 2026-08-08, e non era nel piano: ci sono i **45
+materiali** (`mtname`), che il primo collaudo ha mostrato anteposti al nome in
+ordine inglese — «bronze corazza». Le 83 voci fatte sono i 38 materiali, i 38
+epiteti e le 7 piante dei semi; le altre 235 sono altri dati degli oggetti,
+ancora da guardare.
 
 L'ordine è quello del piano, per visibilità decrescente: quello che si vede di
 più si traduce prima, così ogni lotto ha valore anche se il progetto si ferma lì.

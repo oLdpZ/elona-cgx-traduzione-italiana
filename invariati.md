@@ -78,6 +78,10 @@ scrivere, probabilmente la stringa va tradotta.
 | <Mournblade> | nome proprio opaco di artefatto (`db_item.hsp`). Il giapponese lo **traslittera** — 《モーンブレイド》 — invece di tradurlo: quando l'originale traslittera, nemmeno lui legge il nome come descrizione. Citazione di Moorcock, mai tradotta in italiano |
 | <Zantetsuken> | nome proprio opaco di artefatto (`db_item.hsp`), giapponese 《斬鉄剣》: un nome proprio giapponese, non una descrizione |
 | <Diablos> | nome proprio opaco di artefatto (`db_item.hsp`), giapponese 《ディアボロス》, traslitterato |
+| mithril | materiale (`item_data.hsp`), nome opaco del canone fantasy: Tolkien in italiano lo lascia «mithril». Il giapponese lo traslittera, ミスリル |
+| rubynus | materiale (`item_data.hsp`), minerale inventato da Elona; nome opaco |
+| zylon | materiale (`item_data.hsp`), nome opaco. Esiste una fibra reale omonima, e in italiano si chiama così |
+| mica | materiale (`item_data.hsp`): **il minerale si chiama «mica» anche in italiano**. Coincidenza, come `PER` e `MAG`. ⚠️ In una frase è anche un avverbio di negazione, ma qui la stringa intera è il nome del materiale e non compare mai da sola in prosa |
 | incognito | nome dell'incantesimo (`db_item.hsp`: pergamena e grimorio). **Parola italiana identica all'inglese** — «in incognito» — e quindi la resa naturale coincide. È una coincidenza, come `PER` e `MAG`, non una traduzione dimenticata |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
