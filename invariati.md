@@ -263,6 +263,22 @@ scrivere, probabilmente la stringa va tradotta.
 | koma-inu | cane-leone dei santuari (`db_item.hsp`), giapponese 阿形の狛犬 e 吽形の狛犬: romanizzazione. **Una riga copre tutti e due gli oggetti**, perche' il confronto e' sulla stringa inglese e in inglese sono lo stesso nome |
 | zizou | statua di Jizo (`db_item.hsp`), giapponese 地蔵: romanizzazione di un nome proprio buddhista. «Statua di Jizo» sarebbe la definizione |
 | kumiromi-gurumi | peluche di Kumiromi (`db_item.hsp`), giapponese くみろみぐるみ: **coniazione** sul giapponese ぬいぐるみ, e l'inglese la riporta tale e quale. Nome opaco e scherzoso, come `yith-yaki` |
+| TZ500-K | sigla di modello (`db_item.hsp`), giapponese TZ500-K型麻酔銃: numero di modello, che non si traduce in nessuna lingua. Come `<HL-KRSW>`. I quattro fucili anestetici `TZ` si distinguono solo per la sigla |
+| TZC-500 | sigla di modello (`db_item.hsp`), giapponese TZC-500型麻酔銃: numero di modello, che non si traduce in nessuna lingua. Come `<HL-KRSW>` |
+| TZ30-C | sigla di modello (`db_item.hsp`), giapponese TZ30-C型麻酔銃: numero di modello, che non si traduce in nessuna lingua. Come `<HL-KRSW>` |
+| TZ-30 | sigla di modello (`db_item.hsp`), giapponese TZ-30型麻酔銃: numero di modello, che non si traduce in nessuna lingua. Come `<HL-KRSW>` |
+| M202 special | lanciarazzi (`db_item.hsp`), giapponese M202スペシャル: **arma reale**, e `M202` e' la sua designazione militare. Come `<Mauser C96 Custom>` |
+| panzerfaust X | lanciarazzi (`db_item.hsp`), giapponese パンツァーファウストＸ: **arma reale**, e in italiano il Panzerfaust si chiama cosi' |
+| G-Finger | attrezzo di Elona+ (`db_item.hsp`), giapponese Ｇフィンガー: sigla piu' parola, coniazione opaca. Non c'e' una descrizione da rendere |
+| waribasi | bacchette usa e getta (`db_item.hsp`), giapponese わりばし: l'inglese e' gia' una **romanizzazione**. «Bacchette usa e getta» sarebbe la definizione, non il nome |
+| kiseru | pipa giapponese (`db_item.hsp`), giapponese キセル: romanizzazione. `tobacco pipe` resta reso «pipa» dove l'inglese dice pipe: sono due oggetti diversi e l'inglese li distingue cosi' |
+| hamaki | sigaro (`db_item.hsp`), giapponese 葉巻. ⚠️ Il giapponese dice la **parola comune** per sigaro, ma l'inglese ha scelto di romanizzarla invece di tradurla, e si traduce dall'inglese. Come `wakizashi`, dove il giapponese diceva 忍刀 |
+| hanabi | fuochi d'artificio (`db_item.hsp`), giapponese 連装花火ランチャー: l'inglese romanizza 花火. Nome opaco, maschile, invariato |
+| kemuridama | bomba fumogena (`db_item.hsp`), giapponese 煙玉: romanizzazione, come `hanabi` |
+| nyoi mimikaki | attrezzo di Elona+ (`db_item.hsp`), giapponese 如意耳掻棒: romanizzazione di un nome scherzoso. Nome opaco |
+| mimirrocry | attrezzo di Elona+ (`db_item.hsp`), giapponese ミラクリー: **coniazione**, opaca in tutte e due le lingue |
+| spiritium | materia di Elona (`db_item.hsp`), giapponese スピリチウム: nome opaco del canone, come `magistus` e `rubynus` |
+| anering | attrezzo di Elona+ (`db_item.hsp`), giapponese アネワッシャー: coniazione opaca. ⚠️ Le due lingue coniano **cose diverse** — il giapponese dice «rondella», l'inglese «anello» — e questo conferma che non e' una descrizione |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 
