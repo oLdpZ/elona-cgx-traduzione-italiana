@@ -124,6 +124,18 @@ scrivere, probabilmente la stringa va tradotta.
 | mareilon | erba di Elona (`db_item.hsp`, `/herb/`), giapponese マレイロン; nome opaco, invariato al plurale |
 | morgia | erba di Elona (`db_item.hsp`, `/herb/`), giapponese モージア; nome opaco, invariato al plurale. Femminile per la desinenza |
 | dernefia | fiore di Elona (`db_item.hsp`, `/hana/`), giapponese デルネフィアの花. Il giapponese dice «il fiore di dernefia», l'inglese solo il nome: si traduce dall'inglese. Invariato al plurale |
+| chip | componente elettronico (`db_item.hsp`, `/sf/`), giapponese チップ: **parola italiana identica all'inglese**, prestito acquisito nell'informatica. Invariato al plurale, come tutti i prestiti non adattati |
+| server | macchina (`db_item.hsp`, `/sf/`), giapponese サーバー; prestito acquisito, maschile, invariato al plurale |
+| computer | macchina (`db_item.hsp`, `/sf/`), giapponese コンピューター; prestito acquisito, maschile, invariato al plurale. ⚠️ «calcolatore» esiste ma in un gioco suonerebbe d'epoca |
+| molotov | arma (`db_item.hsp`, `/nogive/`), giapponese 火炎瓶. In italiano «molotov» è il nome corrente della bottiglia incendiaria; femminile per il sostantivo sottinteso, invariato al plurale |
+| mochi | dolce (`db_item.hsp`, `/fest/`), giapponese もち; prestito acquisito, maschile, invariato al plurale |
+| yith-yaki | cibo di festa (`db_item.hsp`, `/fest/`), giapponese イス焼き — gioco di parole fra gli Yith di Lovecraft e il suffisso 焼き «alla griglia». Nome opaco e scherzoso, invariato |
+| crimberry | bacca inventata da Elona (`db_item.hsp`, `/noshop/`), giapponese クラムベリー. «crim» è già del canone (`crim ale` → «birra crim»); nome opaco, femminile per il sostantivo «bacca», invariato al plurale |
+| trismagistus | materia di Elona (`db_item.hsp`, `/magi/`), giapponese トリス・マギストス; nome opaco del canone, invariato al plurale |
+| magistus | materia di Elona (`db_item.hsp`, `/magi/`), giapponese マギスト; nome opaco del canone, invariato al plurale |
+| `<HL-KRSW>` | artefatto (`db_item.hsp`, `/sf/`), giapponese 《HL-KRSW》: una sigla, che non si traduce in nessuna lingua |
+| `<Mauser C96 Custom>` | artefatto (`db_item.hsp`, `/sf/`), giapponese 《マウザーC96カスタム》: nome commerciale di un'arma reale, che in italiano si scrive uguale |
+| `<Rail Gun>` | artefatto (`db_item.hsp`, `/sf/`), giapponese 《レールガン》. L'italiano usa «rail gun» così com'è: «cannone a rotaia» è la definizione da enciclopedia, non il nome |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 
