@@ -20,8 +20,8 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | `proc.hsp` | 0 | 1.098 | 0% | 1.327 |
 | `skill.hsp` | 0 | 885 | 0% | 894 |
 | `trait.hsp` | 0 | 373 | 0% | 406 |
-| `db_item.hsp` | 0 | 1.591 | 0% | 1.607 |
-| **totale** | **643** | **8.279** | **8%** | **9.344** |
+| `db_item.hsp` | 86 | 1.606 | 5% | 1.607 |
+| **totale** | **729** | **8.294** | **9%** | **9.344** |
 
 L'ordine è quello del piano, per visibilità decrescente: quello che si vede di
 più si traduce prima, così ogni lotto ha valore anche se il progetto si ferma lì.
@@ -34,8 +34,23 @@ Una metrica che scende perché ha smesso di mentire è una metrica migliore.
 
 I 1.607 siti sono 1.321 blocchi canonici meno 12 nomi inglesi vuoti, più i 298
 `ioriginalnameref2` non vuoti — i nomi che si compongono (`deed of camp`). Le
-firme sono 16 meno dei siti: nomi inglesi diversi con lo stesso giapponese, o
-coppie ripetute.
+firme sono **1.606**, una sola in meno dei siti: una coppia giapponese-inglese
+ripetuta.
+
+⚠️ **Corretto il 2026-08-08: qui c'era scritto 1.591, e la differenza erano
+esattamente le 15 firme che `estrai --da-tradurre` non offriva.** Il numero era
+stato preso dall'uscita dell'estrazione invece che dalla scansione, e portava
+dentro il suo difetto: `rinviate.jsonl` è indicizzato per firma, e 15 voci
+rinviate su `text.hsp` (risposte del quiz, nomi casuali) hanno lo stesso
+contenuto di 15 nomi di oggetto. Quei nomi sparivano da ogni lotto, e la
+metrica li aveva già dimenticati.
+
+**La regola che ne resta: il denominatore si misura sul sorgente, mai
+sull'uscita di uno strumento.** Uno strumento che filtra fa passare il suo
+filtro dentro il numero, e una metrica costruita così non può segnalare il
+difetto che la produce. Le due misure vanno tenute separate e confrontate: se
+`verifica --dizionario` e `estrai --da-tradurre` non tornano, è un difetto, non
+un arrotondamento.
 
 ## Prima di cominciare un file nuovo
 
