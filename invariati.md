@@ -291,6 +291,11 @@ scrivere, probabilmente la stringa va tradotta.
 | expoopsion | esplosivo di Elona+ (`db_item.hsp`), giapponese エクソプロージョン: **coniazione** scherzosa su `explosion`. Nome opaco |
 | echinobox | attrezzo di Elona+ (`db_item.hsp`), giapponese エキノボックス: coniazione opaca |
 | fukagurumi | oggetto di Elona+ (`db_item.hsp`), giapponese フカグルミ: coniazione opaca su ぬいぐるみ, come `kumiromi-gurumi` |
+| cola | bevanda (`db_item.hsp`), giapponese コーラ: **parola italiana identica all'inglese**, femminile e invariata al plurale. Coincidenza come `mica` e `guava` |
+| kombu | alga (`db_item.hsp`), giapponese 昆布: **prestito acquisito** nella cucina italiana, dove l'alga si chiama cosi'. Maschile, invariato al plurale |
+| wakame | alga (`db_item.hsp`), giapponese ワカメ: prestito acquisito, come `kombu` |
+| mozuku | alga (`db_item.hsp`), giapponese もずく: l'italiano non ha un nome per *Cladosiphon okamuranus*, e l'inglese si limita a romanizzare. Nome opaco |
+| marimo | palla d'alga (`db_item.hsp`), giapponese 巨大マリモ: nome opaco, e l'italiano usa «marimo» quando ne parla. Maschile, invariato |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 
