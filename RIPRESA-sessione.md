@@ -1,119 +1,132 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-07, fine della sesta sessione.
+Aggiornato: 2026-08-08, fine della settima sessione.
 
 ## La prima cosa da fare domani
 
-**Il primo lotto di nomi di `db_item.hsp`, e subito dopo il collaudo in gioco.**
-
-La catena dei nomi è finita e nessuno l'ha ancora esercitata davvero: senza
-traduzioni il gioco gira sui **rami di ripiego** delle otto toppe nuove, cioè
-sul singolare. Il primo lotto è anche il primo vero collaudo di quel codice.
-
-Il lotto va tradotto su **due colonne**, non una: `it` e `plurale`. Le rese delle
-43 parole-contatore sono già decise in `contatori.jsonl` e vanno rispettate
-(`scroll` → pergamena/pergamene, `pair` → paio/**paia**).
+**Il secondo lotto di nomi di `db_item.hsp`.** Il primo è in gioco e la catena
+regge; restano **1.520 nomi**. I prossimi per visibilità sono il cibo e le erbe
+(mela, uva, carota, `tomato`…) e le pozioni e pergamene rimaste (`cure major
+wound`, `restore body`, `teleport other`).
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-python -m pytest strumenti/tests -q        # atteso: 212 passed, 2 skipped
+python -m pytest strumenti/tests -q        # atteso: 236 passed, 2 skipped
 python -m strumenti.prova_identita         # atteso: 72/72, 27.813, ambigue 0
 python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre
-python -m strumenti.estrai db_item.hsp --uscita lotti/db_item-001.jsonl --da-tradurre --max 250
+python -m strumenti.estrai db_item.hsp --uscita lavoro/fase1-db_item-002.jsonl --da-tradurre --max 120
 ```
 
-⚠️ **`verifica.py` non guarda ancora il campo `plurale`.** Un lotto con `it`
-pieno e `plurale` vuoto passa senza un fiato. È il primo buco da chiudere, ed è
-lo stesso difetto di forma che questo progetto ha già corretto due volte:
-una difesa che non copre un campo nuovo tace invece di parlare.
+⚠️ **L'ordine del file non è l'ordine di visibilità.** I primi per riga sono gli
+oggetti aggiunti da CGX (righe 133934+), che per vederli a schermo bisogna
+andarseli a cercare; gli oggetti vanilla stanno in **coda** (151853→152820), ed è
+da lì che è venuto il primo lotto. Il cibo sta intorno a 150085-150400.
+
+Il lotto va tradotto su **due colonne**, `it` e `plurale`, e ora il cancello lo
+pretende davvero. Le 43 parole-contatore sono in `contatori.jsonl` e non si
+derogano.
 
 ## Dove siamo
 
-**La catena dei nomi è chiusa, dalla scansione fino al gioco.** Quattro commit
-oggi, tutti verdi. Il Task 7 di `text.hsp` è fermo dov'era: la sessione è andata
-tutta sui nomi, che erano la premessa.
+**La catena dei nomi è in gioco e funziona**, vista a schermo in quattro
+collaudi. Otto commit, tutti verdi.
 
-- Branch `fase-0`, **22 commit avanti su origin**, niente pushato
+- Branch `fase-0`, **34 commit avanti su origin**, niente pushato
 - [PR #1](https://github.com/oLdpZ/elona-cgx-traduzione-italiana/pull/1) sempre
   aperta verso `master`, mai unita
-- Sorgente pinnato al tag `2.31.2.0` (`a9135a6`), manifesto **72/72 concordi**
-- **212 test**, prova d'identità **72/72 byte per byte, 27.813 sostituzioni**,
-  **15 toppe**, la build compila
+- Sorgente pinnato al tag `2.31.2.0` (`a9135a6`), manifesto 72/72
+- **236 test**, prova d'identità **72/72 byte per byte, 27.813 sostituzioni**,
+  **32 toppe** (7 a mano, 25 generate), la build compila
 
 | file | tradotte | firme | % |
 |---|---|---|---|
-| `text.hsp` | 643 | 1.740 | 37% |
-| `db_item.hsp` | 0 | 1.591 | 0% |
+| `text.hsp` | 646 | 1.740 | 37% |
+| `db_item.hsp` | 86 | 1.606 | 5% |
+| `item_data.hsp` | 83 | 318 | 26% |
 | gli altri cinque | 0 | 4.948 | 0% |
+| **totale** | **815** | **8.612** | **9%** |
 
-La percentuale totale è **scesa dal 10% all'8%** e nessuno ha disfatto niente:
-il denominatore era incompleto di 1.591 firme. Una metrica che scende perché ha
-smesso di mentire è una metrica migliore.
+## Cosa si legge a schermo adesso
 
-## Cosa è stato costruito, in ordine
+```
+2 pozioni di cura delle ferite lievi        6 pergamene di identificazione
+8 bottiglie di juice                        7 carichi di traveler's food
+un mantello leggero di platino con benedizione
+una freccia di vetro                        un paio di stivali pesanti di cuoio
+```
 
-**1. Il secondo tipo di sito** (`499b772`). `siti()` non scandisce più solo
-`lang()`: riconosce le sette righe di `if ( jp ) … else …` di `db_item.hsp`. Il
-riconoscimento è tollerante sull'indentazione e **severo sulla struttura** —
-pretende l'ordine delle righe e lo stesso identificatore in tutte e quattro le
-assegnazioni — così i 1.581 `if ( jp )` che non sono nomi non si agganciano. La
-prova d'identità è passata da 26.206 a 27.813 sostituzioni: esattamente i 1.607
-siti nuovi, senza toccarne uno dei vecchi.
+## I quattro difetti chiusi, in ordine di scoperta
 
-**2. Le toppe imparano il blocco** (`1c8bf4d`). `cerca` e `sostituisci`
-accettano una lista di righe consecutive, di lunghezza anche diversa. Le
-garanzie valgono per il blocco intero: se non esiste più, o se compare due
-volte, la catena si ferma.
+**1. `verifica.py` non guardava il campo `plurale`** (`770df34`). Un lotto con
+`it` pieno e `plurale` vuoto passava senza un fiato. Ora è preteso su ogni nome
+tradotto, coi tre controlli di carattere del singolare.
 
-**3. Il plurale diventa un dato** (`09791b5`). Le voci dei nomi portano
-`plurale`, `array`, `oggetto`; `applica_plurali` scrive la riga gemella accanto
-al singolare in due array nuovi.
+**2. Le tre toppe della concatenazione avevano perso una guardia** (`e6694a7`).
+Il pluralizzatore inglese spento era protetto da `locvar_itemname_s2 == ""`: si
+flette la parola-contatore **oppure** il nome, mai tutti e due. Senza, «3
+pergamene di identificazion**i**».
 
-**4. Le otto toppe della composizione** (`f0a4149`), generate da
-`strumenti/genera_toppe_nomi.py`.
+**3. `rinviate.jsonl` era indicizzato per firma, e la firma non porta il file**
+(`7d2f48f`). 15 nomi di `db_item.hsp` sparivano da **ogni** lotto perché una
+decisione presa su `text.hsp` glieli toglieva. Si vedeva solo dal fatto che
+`verifica` ne contava 1.606 ed `estrai` ne offriva 1.591.
 
-## Le due lezioni che valgono più del codice
+**4. Gli array del plurale sono sparsi e non erano dimensionati** (`fdf0c6a`).
+`Array overflow`, crash aprendo la lista di un negoziante. L'autoespansione di
+`sdim` vale **in scrittura**, non in lettura.
 
-**Il plurale non si deduce, e si flette dove si compone.** L'inglese appiccica
-la `s` in fondo alla stringa composta perché il sostantivo testa sta alla fine;
-in italiano sta **in mezzo**. Al punto in cui il codice inglese pluralizzava,
-`locvar_itemowner_s` era già `«maledetta spada lunga di ferro <Distruttore>»`.
-La flessione va fatta **dove il nome si concatena**, e lì i siti apparenti erano
-sei ma tre erano morti: due dentro blocchi `/* ORIGINAL */` in commento, uno nel
-ramo `jp`. I vivi: `item_func.hsp:1731, 1747, 1770`.
+## Cosa è stato costruito
 
-**Le toppe si generano dal sorgente.** `cerca` è una fetta del file vero, e lo
-strumento rifiuta di emettere una toppa il cui blocco non compaia **esattamente
-una volta**. Ha già impedito un errore: la riga che spegne il pluralizzatore
-inglese compare **due volte**, perché upstream tiene l'originale in commento
-poco sopra. È ripetibile — marca le sue toppe con `"generata": "nomi"` — ed è
-**il primo comando da rilanciare** quando arriverà una nuova versione CGX.
+- **86 nomi** di `db_item.hsp`, scelti per visibilità (la coda del file, cioè il
+  corredo vanilla) invece che per ordine di riga
+- **le sei parole-contatore cablate** in `item_func.hsp` (`bottle`, `cup` ×2,
+  `cargo`, `pair`, `dish`): non stanno in `db_item.hsp` e non passano da
+  `lang()`, e il loro plurale inglese lo faceva il pluralizzatore che avevamo
+  spento — era una **regressione**, non un pezzo mancante
+- **i 38 materiali, i 38 epiteti e le 7 piante** di `item_data.hsp`, con
+  l'ordine spostato: il materiale segue il nome
+- **benedizione, maledizione e dannazione** come complementi in coda
 
-Vedi [[plurale-e-un-dato-non-una-regola]] e [[toppe-generate-dal-sorgente]].
+## Le lezioni, che valgono più del codice
 
-## L'ordine dei passaggi, che non è libero
+**Il giunto sta nel codice, il dato resta nudo.** Imparata due volte: sul
+`" of "` dei nomi composti, e sul materiale — `command.hsp:16289` dice «It is
+made of » + `mtname(...)`, quindi col «di» cotto nel dato uscirebbe «fatto di di
+cuoio».
 
-`applica_plurali` prende **due** testi, e il motivo è che i due vincoli tirano in
-direzioni opposte:
+**Il genere ignoto si risolve sempre allo stesso modo: complemento o
+sostantivo.** Quattro volte ormai — etichette di stato, qualità dell'oggetto,
+epiteti del materiale, benedizione. Un aggettivo anteposto a un oggetto di
+genere sconosciuto non si può scegliere.
 
-- **prima** dell'inserimento, perché le righe aggiunte spezzano la forma
-  canonica a sette righe e i nomi non verrebbero più riconosciuti;
-- **dopo** la sostituzione, perché i siti si cercano per firma e nel tradotto la
-  firma non c'è più: l'inglese è diventato italiano.
+**Un array sparso si dimensiona.** L'autoespansione vale in scrittura. La
+sparsità era il disegno (il ripiego sul singolare esiste apposta), quindi era
+prevedibile leggendo.
 
-Quindi le firme si leggono dal **sorgente** e le righe si inseriscono nel
-**tradotto**. Se i due testi hanno un numero di righe diverso, la catena si
-ferma.
+**Il denominatore si misura sul sorgente, mai sull'uscita di uno strumento che
+filtra.** Il numero sbagliato in `avanzamento.md` portava dentro il difetto che
+avrebbe dovuto segnalare.
+
+**Un rinvio con un motivo scritto si può riaprire quando il motivo scade.**
+`blessed` era rinviata «finché i nomi di `db_item.hsp` non si risolvono»: quella
+premessa è caduta, e il motivo scritto ha permesso di accorgersene.
+
+Vedi [[plurale-e-un-dato-non-una-regola]], [[toppe-generate-dal-sorgente]] e
+[[genere-ignoto-si-risolve-col-complemento]].
 
 ## Cosa resta, in ordine
 
-1. `verifica.py` deve guardare il campo `plurale` (vedi l'avvertenza sopra)
-2. i **1.591 nomi** con i loro plurali, a lotti — e il collaudo in gioco presto
-3. `_bookselfs` (7 valori in `text.hsp`, oggi rinviati) finisce nella
-   parola-contatore: senza traduzione ripiega, ma è un buco noto
-4. le **157 voci rinviate** di `text.hsp`, che i nomi sbloccano
-5. i nomi di **creatura** — lavoro **atomico** insieme ai 424 `evold`/`evname`
-   di `action.hsp`, mai prima e mai dopo (vedi §5 di `contratto-nomi.md`)
+1. i **1.520 nomi** restanti di `db_item.hsp`, a lotti
+2. **l'articolo inglese** `a`/`an`/`the` (`item_func.hsp:1809-1821`), l'ultima
+   parola inglese su *ogni* oggetto. Nota buffa che conferma il sito: sceglie
+   già «**an** arco lungo» leggendo la prima lettera della stringa **italiana**
+3. le **154 voci rinviate** di `text.hsp`, di cui 30 sono il sistema dei nomi
+   casuali — aggettivi condivisi fra sei classi di sostantivo di genere diverso,
+   «pozione chiara» ma «anello chiaro»
+4. le altre **235 voci** di `item_data.hsp`, mai guardate
+5. `_bookselfs` (7 valori), che finisce nella parola-contatore
+6. i nomi di **creatura** — lavoro **atomico** insieme ai 424 `evold`/`evname`
+   di `action.hsp`, mai prima e mai dopo (§5 di `contratto-nomi.md`)
 
 ## Il prezzo dei nomi di creatura — da non dimenticare
 
@@ -121,25 +134,6 @@ ferma.
 salvataggio**. Sono la stessa classe di `CDATAN_NEWSEX`, e sono ciò contro cui
 si confrontano i **424 `evold`/`evname`** di `action.hsp`. Vanno tradotti nello
 stesso momento di quelli, o il confronto fallisce **in silenzio**.
-
-## Una cosa che si sblocca da sola
-
-`command.hsp:4880` confronta il nome dell'oggetto con **quello che il giocatore
-digita** — è il sistema dei desideri (bacchetta e libro del desiderio). Non è un
-problema: nome e input si muovono insieme, quindi tradurre i nomi localizza
-anche i desideri.
-
-## I meccanismi, e cosa protegge cosa
-
-| file | cosa dichiara | chi lo legge |
-|---|---|---|
-| `glossario.md` | rese vincolanti + la regola dei nomi propri | umani |
-| `contatori.jsonl` | le 43 parole-contatore, resa e plurale | umani (per ora) |
-| `invariati.md` | stringhe che restano inglesi, per sezione classificata | `verifica.py` |
-| `rinviate.jsonl` | voci rinviate, con motivo obbligatorio | `estrai --da-tradurre` |
-| `toppe.jsonl` | sostituzioni fuori dal dizionario (15: 7 a mano, 8 generate) | `applica.py` |
-| `avanzamento.md` | firme tradotte per file, e i rinvii | umani |
-| `contratto-nomi.md` | dove stanno i nomi, come si compongono, e il plurale | umani |
 
 ## Cosa rifare a ogni giro
 
@@ -150,13 +144,21 @@ quali casi qualcuno si è ricordato di coprire.
 python -m strumenti.prova_identita     # atteso: 72/72, 27.813, ambigue 0
 ```
 
-⚠️ **Non giudica le toppe.** Attraversa solo il percorso del dizionario: le
-toppe girano dopo, in un giro loro. Il loro guardiano è la regola «esiste
-esatto e una volta sola», più il compilatore, più il collaudo in gioco.
+⚠️ **Non giudica le toppe**, che girano dopo in un giro loro. Il loro guardiano
+è la regola «esiste esatto e una volta sola», più il compilatore, **più il
+collaudo in gioco** — e oggi il collaudo ha preso un crash che nessun test
+poteva prendere.
 
-E non prende le **stringhe-dato**: lì la forma resta giusta ed è il significato
-che si rompe. La ricerca da fare prima di un file nuovo è in `avanzamento.md`;
-su `db_item.hsp` è già stata fatta, e ha trovato le tre cose scritte sopra.
+**Il generatore delle toppe** è il primo comando da rilanciare quando arriva una
+versione CGX nuova:
+
+```powershell
+python -m strumenti.genera_toppe_nomi   # atteso: 25 generate, tutte «ok»
+```
+
+Se upstream ha riscritto uno dei blocchi lo dice lì, invece che alla build. Il
+controllo di unicità ha già cambiato la forma di quattro toppe invece di lasciar
+passare un'ambiguità.
 
 ## Per rifare la prova in gioco
 
@@ -171,8 +173,10 @@ Il titolo mostra **2.31.1.0**: è la costante di versione che il tag non ha
 aggiornato al rilascio, non un errore di build. Copia dei salvataggi in
 `C:\Games\Elona\save-backup\`.
 
-Artefatto atteso dello stato intermedio: **«colpisces»** nei messaggi di
-mischia. Sparisce con `action.hsp`.
+⚠️ **Il posto dove guardare è la lista di un negoziante**, non l'inventario:
+serve vedere pile da due o più, ed è lì che il plurale, il materiale e il crash
+si sono manifestati. Al primo avvio esce «Invalid screen resolution»: si dà OK e
+si prosegue.
 
 ## Cosa deve esistere fuori dal repo
 
@@ -192,4 +196,5 @@ si usa il manifesto, mai `git status`. Vedi `SPEC.md` §2.
 Vedi [[terminologia-prima-del-testo]], [[larghezza-per-campo]],
 [[stringhe-che-sono-dati]], [[toppe-fuori-dal-dizionario]],
 [[plurale-e-un-dato-non-una-regola]], [[toppe-generate-dal-sorgente]],
+[[genere-ignoto-si-risolve-col-complemento]],
 [[prova-identita-pipeline-trasformazione]] e [[cp932-perdite-silenziose]].
