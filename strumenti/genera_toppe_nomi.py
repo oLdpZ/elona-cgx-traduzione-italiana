@@ -43,15 +43,17 @@ def ind(riga):
 
 toppe = []
 
-# 1. i due array del plurale, dichiarati accanto a quelli che affiancano
+# 1. i quattro array italiani, dichiarati accanto a quelli che affiancano
 toppe.append({
     "file": "init.hsp",
     "cerca": fetta(INIT, 2569, 2570),
     "sostituisci": fetta(INIT, 2569, 2570) + [
         "\tsdim ioriginalnamerefplur, 128, MAX_DB",
         "\tsdim ioriginalnameref2plur, 128, MAX_DB",
+        "\tsdim ioriginalnamearticolo, 128, MAX_DB",
+        "\tsdim ioriginalnamearticolodet, 128, MAX_DB",
     ],
-    "motivo": "i due array del plurale italiano dei nomi degli oggetti. Dimensionati a MAX_DB, non lasciati autoespandere come i due che affiancano: quelli li assegna db_item.hsp per OGNI oggetto, il plurale ce l'hanno solo i nomi tradotti. Un array sparso letto oltre l'ultimo indice assegnato e' un Array overflow (crash in negozio, 2026-08-08), perche' l'autoespansione vale in scrittura e non in lettura. Li popola applica_plurali dal campo `plurale` del dizionario",
+    "motivo": "i quattro array italiani dei nomi degli oggetti: due per il plurale (uno per array del nome) e due per l'articolo, indeterminativo e determinativo, che ne bastano due perche' l'articolo lo regge la sola TESTA del nome. Dimensionati a MAX_DB, non lasciati autoespandere come i due che affiancano: quelli li assegna db_item.hsp per OGNI oggetto, questi ce l'hanno solo i nomi tradotti. Un array sparso letto oltre l'ultimo indice assegnato e' un Array overflow (crash in negozio, 2026-08-08), perche' l'autoespansione vale in scrittura e non in lettura. Li popola applica_dati_nome dai campi `plurale` e `genere` del dizionario",
 })
 
 # 2. il giunto dei nomi composti: in italiano e' sempre "di"
@@ -334,6 +336,85 @@ toppe.append({
     "cerca": riga,
     "sostituisci": riga.replace('sdim mtname, 18,', 'sdim mtname, 48,'),
     "motivo": "18 byte per stringa non bastano: l'inglese piu' lungo e' `griffon scale` (13), «scaglia di grifone» sono 18 esatti, e un accento vero ne vale due dopo la degradazione. Stesso difetto degli array del plurale, visto dal lato del buffer invece che dell'indice",
+})
+
+# 18. l'articolo. L'inglese lo sceglie guardando la PRIMA LETTERA della stringa
+#     composta (`a`/`an`, riga 1816) piu' un caso speciale scritto a mano per
+#     `unicorn horn`. E' fonetica, e in inglese basta perche' l'articolo non ha
+#     genere. In italiano l'articolo dipende dal genere del sostantivo TESTA,
+#     che nella stringa composta sta in mezzo — «una pozione di cura delle
+#     ferite lievi» — e nessuna lettera lo rivela.
+#
+#     Il genere e' quindi un dato del dizionario; la stringa dell'articolo la
+#     deriva `strumenti/articolo.py` e viaggia in due array, come il plurale.
+#     Qui si legge, con lo stesso ripiego: se l'articolo italiano manca resta
+#     quello inglese, cosi' lo stato intermedio e' leggibile.
+#
+#     ⚠️ Le parole-contatore cablate vengono PRIMA dell'array, al contrario del
+#     plurale. Non e' una svista: quando `itemname()` mette «paio» davanti al
+#     nome, la testa del sintagma diventa «paio», e l'articolo lo regge lui —
+#     «un paio di stivali pesanti», non «uno stivali pesanti». Il plurale non ha
+#     lo stesso problema perche' li' l'array e la parola cablata non sono mai
+#     pieni tutti e due.
+from strumenti.articolo import articoli
+
+
+def articolo_delle_cablate(indentazione):
+    righe = [f'{indentazione}switch locvar_itemname_s2']
+    for resa in {r["it"]: r for r in parole_cablate}.values():
+        indeterminativo, determinativo = articoli(resa["genere"], resa["it"])
+        righe += [f'{indentazione}\tcase "{resa["it"]}"',
+                  f'{indentazione}\t\tlocvar_itemname_s8 = "{indeterminativo}"',
+                  f'{indentazione}\t\tlocvar_itemname_s9 = "{determinativo}"',
+                  f'{indentazione}\t\tswbreak']
+    righe += [f'{indentazione}\tdefault', f'{indentazione}\t\tswbreak',
+              f'{indentazione}swend']
+    return righe
+
+
+blocco = fetta(ITEM, 1807, 1826)
+assert blocco[0].strip() == 'if ( itemname_arg3 == 0 ) {', blocco[0]
+assert '"the " + locvar_itemowner_s' in blocco[2], blocco[2]
+assert blocco[4].strip() == 'else {', blocco[4]
+assert blocco[5].strip() == 'if ( locvar_itemowner_num2 == 1 ) {', blocco[5]
+i0, i1 = ind(blocco[0]), ind(blocco[1])
+# la condizione del «the» e il ripiego inglese si prendono VERBATIM dal
+# sorgente: sono le due cose che non vogliamo riscrivere a mano
+condizione_the = blocco[1]
+ripiego_inglese = ['\t\t' + r for r in blocco[6:17]]
+toppe.append({
+    "file": "item_func.hsp",
+    "cerca": blocco,
+    "sostituisci": [
+        blocco[0],
+        f'{i1}locvar_itemname_s8 = ""',
+        f'{i1}locvar_itemname_s9 = ""',
+    ] + articolo_delle_cablate(i1) + [
+        f'{i1}if ( locvar_itemname_s8 == "" ) {{',
+        f'{i1}\tlocvar_itemname_s8 = ioriginalnamearticolo(inv(INV_ITEM_ID, itemname_itemid))',
+        f'{i1}\tlocvar_itemname_s9 = ioriginalnamearticolodet(inv(INV_ITEM_ID, itemname_itemid))',
+        f'{i1}}}',
+        condizione_the,
+        f'{i1}\tif ( locvar_itemname_s9 != "" ) {{',
+        f'{i1}\t\tlocvar_itemowner_s = locvar_itemname_s9 + locvar_itemowner_s',
+        f'{i1}\t}}',
+        f'{i1}\telse {{',
+        blocco[2],
+        f'{i1}\t}}',
+        blocco[3],
+        blocco[4],
+        blocco[5],
+        f'{i1}\t\tif ( locvar_itemname_s8 != "" ) {{',
+        f'{i1}\t\t\tlocvar_itemowner_s = locvar_itemname_s8 + locvar_itemowner_s',
+        f'{i1}\t\t}}',
+        f'{i1}\t\telse {{',
+    ] + ripiego_inglese + [
+        f'{i1}\t\t}}',
+        blocco[17],
+        blocco[18],
+        blocco[19],
+    ],
+    "motivo": "l'articolo inglese si sceglie sulla prima lettera della stringa (a/an); in italiano dipende dal GENERE della testa del nome, che nella stringa composta sta in mezzo. Il genere e' un dato del dizionario, la stringa dell'articolo la deriva strumenti/articolo.py e arriva in ioriginalnamearticolo/ioriginalnamearticolodet. Le parole-contatore cablate vincono sull'array perche' quando ci sono la testa del sintagma e' la parola-contatore («un paio di stivali pesanti»). Se l'articolo italiano manca resta quello inglese, come il plurale ripiega sul singolare",
 })
 
 # --- il controllo che conta: ogni blocco compare esattamente una volta -------

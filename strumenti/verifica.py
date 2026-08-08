@@ -6,16 +6,18 @@ from pathlib import Path
 
 from strumenti import percorsi
 from strumenti.accenti import degrada, ha_apostrofo_scritto_a_mano, non_ascii_residuo
+from strumenti.articolo import GENERI
 from strumenti.estrai import estrai_da_testo
 from strumenti.funzioni import funzioni_di_contenuto, morfologia_residua
 
 _RICHIESTI = ("tipo", "en", "en_grezzo")
 
-# I tre campi che `estrai` aggiunge alle sole voci dei nomi di `db_item.hsp`.
-# Vanno insieme: `plurale` e' il dato, `array` e `oggetto` dicono a `applica.py`
-# dove scrivere la riga gemella. Una voce che ne porta uno li porta tutti, o e'
+# I quattro campi che `estrai` aggiunge alle sole voci dei nomi di
+# `db_item.hsp`. Vanno insieme: `plurale` e `genere` sono i due dati che
+# l'italiano non deduce, `array` e `oggetto` dicono a `applica.py` dove
+# scrivere le righe gemelle. Una voce che ne porta uno li porta tutti, o e'
 # stata ritoccata a mano.
-_CAMPI_NOME = ("plurale", "array", "oggetto")
+_CAMPI_NOME = ("plurale", "genere", "array", "oggetto")
 
 
 # Le sezioni di `invariati.md` che portano una tabella, classificate per
@@ -125,8 +127,8 @@ def carica_invariati(percorso: Path | None = None) -> set[str]:
     return valori
 
 
-def _problemi_del_plurale(voce: dict) -> list[str]:
-    """Le regole che valgono sul `plurale` di un nome gia' tradotto.
+def _problemi_del_nome(voce: dict) -> list[str]:
+    """Le regole che valgono sui due dati di un nome gia' tradotto: `plurale` e `genere`.
 
     Si chiama solo dopo che `it` e' stato riconosciuto pieno: un nome non
     ancora tradotto ha gia' il suo problema, e chiedergli anche il plurale
@@ -153,8 +155,8 @@ def _problemi_del_plurale(voce: dict) -> list[str]:
     if mancanti:
         return [
             f"{_dove(voce)}: voce di nome incompleta, mancano: {', '.join(mancanti)}."
-            " I tre campi dei nomi viaggiano insieme: senza `array` e `oggetto`"
-            " applica.py non sa dove scrivere la riga del plurale."
+            " I quattro campi dei nomi viaggiano insieme: senza `array` e"
+            " `oggetto` applica.py non sa dove scrivere le righe gemelle."
         ]
 
     plurale = voce["plurale"]
@@ -181,6 +183,21 @@ def _problemi_del_plurale(voce: dict) -> list[str]:
     residui = non_ascii_residuo(degrada(plurale))
     if residui:
         problemi.append(f"caratteri del plurale che CP932 cancellerebbe: {residui}")
+
+    # Il genere: stessa natura del plurale, stesso momento buono per scriverlo.
+    # Non e' l'articolo — quello lo deriva `strumenti/articolo.py`, perche' la
+    # scelta fra «un» e «uno» e' una regola meccanica sulla parola che segue.
+    # Il numero fa parte del dato: «cianfrusaglie» e «attrezzi» esistono solo al
+    # plurale, e su di loro l'articolo indeterminativo non c'e'.
+    genere = voce["genere"]
+    if genere not in GENERI:
+        problemi.append(
+            f"genere {genere!r} assente o non valido, attesi {', '.join(GENERI)}"
+            " (m/f al singolare, mp/fp per i nomi che esistono solo al plurale)."
+            " Serve all'articolo, che in italiano dipende dal genere del nome e"
+            " non dalla lettera iniziale come in inglese: senza, il gioco ripiega"
+            " sull'articolo inglese davanti a un nome italiano."
+        )
     return problemi
 
 
@@ -232,8 +249,8 @@ def controlla_voce(voce: dict, invariati: set[str] | None = None) -> list[str]:
     if italiano == originale and italiano not in (invariati or set()):
         problemi.append("traduzione identica all'inglese")
 
-    # i nomi di `db_item.hsp` portano un secondo testo che arriva fino al gioco
-    problemi.extend(_problemi_del_plurale(voce))
+    # i nomi di `db_item.hsp` portano due dati in piu' che arrivano fino al gioco
+    problemi.extend(_problemi_del_nome(voce))
 
     if ha_apostrofo_scritto_a_mano(italiano):
         problemi.append(

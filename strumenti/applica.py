@@ -15,7 +15,8 @@ from pathlib import Path
 
 from strumenti import percorsi
 from strumenti.accenti import degrada
-from strumenti.estrai import (_argomenti, avvii, avvio_nome, nomi_per_riga,
+from strumenti.articolo import GENERI, articoli
+from strumenti.estrai import (_argomenti, _letterali, avvii, avvio_nome, nomi_per_riga,
                               normalizza_espressione, siti, spezza_righe,
                               virgola_nuda)
 
@@ -323,9 +324,39 @@ def applica_a_testo(nome_file: str, testo: str, dizionario: dict,
     return risultato, sostituzioni
 
 
-def applica_plurali(nome_file: str, testo: str, dizionario: dict,
-                    tradotto: str | None = None) -> tuple[str, int]:
-    """Scrive il plurale italiano accanto al singolare. (testo, quanti).
+def _teste(nomi: dict) -> set[int]:
+    """Gli indici di riga (base 0) dei siti che sono la **testa** del nome.
+
+    La testa e' il sostantivo che sta davanti nella stringa composta, ed e'
+    quello che regge l'articolo: `ioriginalnameref2` quando c'e' («pozione» di
+    «pozione di cura delle ferite lievi»), altrimenti `ioriginalnameref` («spada
+    lunga»). Il plurale invece riguarda **tutti** i siti, perche' il gioco puo'
+    flettere l'uno o l'altro a seconda che il nome sia composto.
+
+    ⚠️ Il composto si riconosce dal **letterale vuoto**, non dalla presenza
+    della riga: `nomi_per_riga` emette sempre tutte e due le righe del ramo
+    inglese, anche quando la seconda e' `ioriginalnameref2(...) = ""`. E' invece
+    `estrai.siti()` a scartare i letterali vuoti, e i due non vanno confusi —
+    prendere la riga per buona faceva finire l'articolo su un sito che non
+    esiste, cioe' da nessuna parte, in silenzio.
+    """
+    teste = set()
+    for riga, dati in nomi.items():
+        array, oggetto = dati[4], dati[5]
+        if array != "ioriginalnameref":
+            continue
+        gemella = nomi.get(riga + 1)
+        composto = (gemella is not None
+                    and gemella[4] == "ioriginalnameref2"
+                    and gemella[5] == oggetto
+                    and _letterali(gemella[1]) != "")
+        teste.add(riga + 1 if composto else riga)
+    return teste
+
+
+def applica_dati_nome(nome_file: str, testo: str, dizionario: dict,
+                      tradotto: str | None = None) -> tuple[str, int]:
+    """Scrive plurale e articolo accanto al singolare. (testo, quante righe).
 
     `item_func.hsp` costruisce il plurale col **suffisso inglese** in due punti:
     sulla parola-contatore (`scroll` + "s ") e sul nome dell'oggetto
@@ -338,7 +369,16 @@ def applica_plurali(nome_file: str, testo: str, dizionario: dict,
     nell'array del plurale:
 
         ioriginalnameref(ITEM_ID_BANANA) = "banana"
-        ioriginalnamerefplur(ITEM_ID_BANANA) = "banane"     <- inserita
+        ioriginalnamerefplur(ITEM_ID_BANANA) = "banane"       <- inserita
+        ioriginalnamearticolo(ITEM_ID_BANANA) = "una "        <- inserita
+        ioriginalnamearticolodet(ITEM_ID_BANANA) = "la "      <- inserita
+
+    L'articolo va **solo sulla testa** del nome (vedi `_teste`), perche' e' il
+    sostantivo che sta davanti nella stringa composta: su «pozione di cura delle
+    ferite lievi» l'articolo lo regge «pozione», non «cura». E non e' un dato del
+    dizionario ma una derivata: il dizionario porta il **genere**, che non si
+    deduce, e `strumenti/articolo.py` ne ricava «un/uno/una/un'» applicando le
+    regole dell'elisione alla prima parola della testa.
 
     Gli array nuovi li dichiara una toppa su `init.hsp`, **dimensionati a
     MAX_DB** e non lasciati autoespandere come quelli che affiancano: quelli
@@ -374,31 +414,46 @@ def applica_plurali(nome_file: str, testo: str, dizionario: dict,
             "testi sfalsati finirebbe sull'oggetto sbagliato."
         )
     nomi = nomi_per_riga(righe_sorgente)
+    teste = _teste(nomi)
 
-    inserimenti: list[tuple[int, str]] = []
+    inserimenti: list[tuple[int, list[str]]] = []
     for sito in siti(testo):
         numero_riga, chiave = sito[0], sito[1]
         nome = nomi.get(numero_riga - 1)
         if nome is None:
             continue
         voce = dizionario.get(chiave)
-        if voce is None or not voce.get("plurale"):
+        if voce is None:
             continue
         _, _, _, _, array, oggetto = nome
         riga = righe_sorgente[numero_riga - 1]
         indentazione = riga[:len(riga) - len(riga.lstrip())]
-        plurale = degrada(voce["plurale"])
-        inserimenti.append(
-            (numero_riga, f'{indentazione}{array}plur({oggetto}) = "{plurale}"')
-        )
 
-    for numero_riga, riga_nuova in reversed(inserimenti):
-        righe.insert(numero_riga, riga_nuova)
+        nuove: list[str] = []
+        if voce.get("plurale"):
+            plurale = degrada(voce["plurale"])
+            nuove.append(f'{indentazione}{array}plur({oggetto}) = "{plurale}"')
+        # l'articolo solo sulla testa, e solo se il genere c'e': un genere che
+        # manca non e' un errore a valle, il gioco ripiega sull'articolo inglese
+        # e lo stato intermedio resta leggibile — come per il plurale
+        if (numero_riga - 1) in teste and voce.get("genere") in GENERI:
+            indeterminativo, determinativo = articoli(voce["genere"], voce["it"])
+            if indeterminativo:
+                nuove.append(
+                    f'{indentazione}ioriginalnamearticolo({oggetto}) = "{degrada(indeterminativo)}"')
+                nuove.append(
+                    f'{indentazione}ioriginalnamearticolodet({oggetto}) = "{degrada(determinativo)}"')
+        if nuove:
+            inserimenti.append((numero_riga, nuove))
+
+    quante = sum(len(nuove) for _, nuove in inserimenti)
+    for numero_riga, nuove in reversed(inserimenti):
+        righe[numero_riga:numero_riga] = nuove
 
     risultato = fine_riga.join(righe)
     if termina_con_a_capo:
         risultato += fine_riga
-    return risultato, len(inserimenti)
+    return risultato, quante
 
 
 _CAMPI_TOPPA = ("file", "cerca", "sostituisci", "motivo")
@@ -513,7 +568,7 @@ def main() -> None:
 
     totale = 0
     totale_orfane = 0
-    totale_plurali = 0
+    totale_plurali = 0  # righe di plurale e articolo
     for percorso_dizionario in sorted(percorsi.DIZIONARIO.glob("*.jsonl")):
         nome_file = percorso_dizionario.stem
         voci = [json.loads(r) for r in percorso_dizionario.read_text(encoding="utf-8").splitlines() if r.strip()]
@@ -532,9 +587,9 @@ def main() -> None:
         consumate: set[str] = set()
         try:
             nuovo, sostituzioni = applica_a_testo(nome_file, testo, dizionario, consumate)
-            # il plurale si legge dal sorgente (li' ci sono le firme) e si
-            # scrive nel tradotto: vedi applica_plurali
-            nuovo, plurali = applica_plurali(nome_file, testo, dizionario, nuovo)
+            # plurale e articolo si leggono dal sorgente (li' ci sono le firme)
+            # e si scrivono nel tradotto: vedi applica_dati_nome
+            nuovo, plurali = applica_dati_nome(nome_file, testo, dizionario, nuovo)
         except ValueError as errore:
             raise SystemExit(str(errore))
         bersaglio.write_bytes(nuovo.encode("cp932"))
@@ -547,7 +602,7 @@ def main() -> None:
         orfane = sorted(tradotte - consumate)
         totale_orfane += len(orfane)
         avviso = f", {len(orfane)} voci orfane" if orfane else ""
-        avviso += f", {plurali} plurali" if plurali else ""
+        avviso += f", {plurali} righe di plurale e articolo" if plurali else ""
         print(f"{nome_file}: {sostituzioni} sostituzioni{avviso}")
         for chiave in orfane[:5]:
             voce = dizionario[chiave]

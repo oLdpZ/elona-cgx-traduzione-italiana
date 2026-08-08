@@ -195,7 +195,7 @@ def test_i_conteggi_sul_sorgente_vero():
 # accorda col nome («spada lunga → spade lunghe»). Scritto a mano si sbaglia una
 # volta; dedotto si sbaglia per sempre e in silenzio.
 # ---------------------------------------------------------------------------
-from strumenti.applica import applica_plurali
+from strumenti.applica import applica_dati_nome
 
 
 def test_le_voci_dei_nomi_portano_il_campo_plurale():
@@ -225,7 +225,7 @@ def _dizionario(testo, **plurali):
 
 def test_il_plurale_si_scrive_accanto_al_singolare():
     dizionario = _dizionario(BLOCCO, banana="banane")
-    nuovo, quanti = applica_plurali("db_item.hsp", BLOCCO, dizionario)
+    nuovo, quanti = applica_dati_nome("db_item.hsp", BLOCCO, dizionario)
     assert quanti == 1
     righe = nuovo.split("\n")
     assert righe[4] == '\t\tioriginalnameref(ITEM_ID_BANANA) = "banana"'
@@ -236,13 +236,13 @@ def test_il_plurale_si_scrive_accanto_al_singolare():
 
 def test_senza_plurale_non_si_scrive_niente():
     """Lo stato intermedio e' leggibile: il gioco ripiega sul singolare."""
-    nuovo, quanti = applica_plurali("db_item.hsp", BLOCCO, _dizionario(BLOCCO))
+    nuovo, quanti = applica_dati_nome("db_item.hsp", BLOCCO, _dizionario(BLOCCO))
     assert (nuovo, quanti) == (BLOCCO, 0)
 
 
 def test_ogni_array_prende_il_suo_plurale():
     dizionario = _dizionario(BLOCCO_COMPOSTO, harvest="raccolti", scroll="pergamene")
-    nuovo, quanti = applica_plurali("db_item.hsp", BLOCCO_COMPOSTO, dizionario)
+    nuovo, quanti = applica_dati_nome("db_item.hsp", BLOCCO_COMPOSTO, dizionario)
     assert quanti == 2
     assert 'ioriginalnamerefplur(ITEM_ID_SCROLL_HARVEST) = "raccolti"' in nuovo
     assert 'ioriginalnameref2plur(ITEM_ID_SCROLL_HARVEST) = "pergamene"' in nuovo
@@ -252,7 +252,7 @@ def test_piu_blocchi_non_si_sfalsano():
     """L'inserimento sposta le righe: se si lavora dall'alto ci si perde."""
     testo = BLOCCO + BLOCCO_COMPOSTO
     dizionario = _dizionario(testo, banana="banane", harvest="raccolti", scroll="pergamene")
-    nuovo, quanti = applica_plurali("db_item.hsp", testo, dizionario)
+    nuovo, quanti = applica_dati_nome("db_item.hsp", testo, dizionario)
     assert quanti == 3
     assert 'ioriginalnamerefplur(ITEM_ID_BANANA) = "banane"' in nuovo
     assert 'ioriginalnamerefplur(ITEM_ID_SCROLL_HARVEST) = "raccolti"' in nuovo
@@ -265,7 +265,7 @@ def test_piu_blocchi_non_si_sfalsano():
 def test_il_plurale_passa_dalla_degradazione_degli_accenti():
     """Come `it`: nel dizionario c'e' l'accento vero, nel sorgente CP932 no."""
     dizionario = _dizionario(BLOCCO, banana="virtù")
-    nuovo, _ = applica_plurali("db_item.hsp", BLOCCO, dizionario)
+    nuovo, _ = applica_dati_nome("db_item.hsp", BLOCCO, dizionario)
     assert 'ioriginalnamerefplur(ITEM_ID_BANANA) = "virtu\'"' in nuovo
 
 
@@ -277,7 +277,7 @@ def test_il_plurale_si_inserisce_nel_testo_gia_tradotto():
     voci = estrai_da_testo("db_item.hsp", BLOCCO)
     dizionario = {v["firma"]: {**v, "it": "banana", "plurale": "banane"} for v in voci}
     tradotto, _ = applica_a_testo("db_item.hsp", BLOCCO, dizionario)
-    nuovo, quanti = applica_plurali("db_item.hsp", BLOCCO, dizionario, tradotto)
+    nuovo, quanti = applica_dati_nome("db_item.hsp", BLOCCO, dizionario, tradotto)
     assert quanti == 1
     assert 'ioriginalnameref(ITEM_ID_BANANA) = "banana"' in nuovo
     assert 'ioriginalnamerefplur(ITEM_ID_BANANA) = "banane"' in nuovo
@@ -288,7 +288,7 @@ def test_due_testi_sfalsati_fermano_la_catena():
 
     dizionario = _dizionario(BLOCCO, banana="banane")
     with pytest.raises(SorgenteCorrotto, match="sfalsati"):
-        applica_plurali("db_item.hsp", BLOCCO, dizionario, BLOCCO + "\tx = 1\n")
+        applica_dati_nome("db_item.hsp", BLOCCO, dizionario, BLOCCO + "\tx = 1\n")
 
 
 # ---------------------------------------------------------------------------
@@ -519,3 +519,79 @@ def test_lo_stato_si_riversa_dopo_il_materiale():
     stato = righe.index("locvar_itemowner_s += locvar_itemname_s7")
     assert materiale < stato
     assert righe.count('locvar_itemname_s7 = ""') == 1
+
+
+# ---------------------------------------------------------------------------
+# L'articolo: derivato dal genere, e scritto SOLO sulla testa del nome.
+#
+# Decisione del 2026-08-08. L'inglese sceglie `a`/`an` guardando la prima
+# lettera della stringa composta (`item_func.hsp:1816`), che e' una regola di
+# fonetica. In italiano l'articolo dipende dal **genere del sostantivo testa**,
+# che sta in mezzo alla stringa e non si deduce da nessuna lettera. Il genere e'
+# quindi un dato, come il plurale; l'articolo no, perche' una volta noto il
+# genere la scelta fra «un» e «uno» e' meccanica.
+# ---------------------------------------------------------------------------
+
+def _dizionario_genere(testo, **generi):
+    """Come `_dizionario`, ma riempie `genere` invece del plurale."""
+    voci = estrai_da_testo("db_item.hsp", testo)
+    return {v["firma"]: {**v, "it": v["en"], "plurale": v["en"],
+                         "genere": generi.get(v["en"], "")}
+            for v in voci}
+
+
+def test_le_voci_dei_nomi_portano_il_campo_genere():
+    voce = estrai_da_testo("db_item.hsp", BLOCCO)[0]
+    assert voce["genere"] == ""
+
+
+def test_le_voci_di_lang_non_portano_il_genere():
+    """Nessuna `lang()` finisce dietro un articolo scelto dal codice."""
+    voce = estrai_da_testo("text.hsp", 'a = lang("はい", "Yes")')[0]
+    assert "genere" not in voce
+
+
+def test_l_articolo_si_scrive_sul_nome_semplice():
+    dizionario = _dizionario_genere(BLOCCO, banana="f")
+    nuovo, _ = applica_dati_nome("db_item.hsp", BLOCCO, dizionario)
+    assert 'ioriginalnamearticolo(ITEM_ID_BANANA) = "una "' in nuovo
+    assert 'ioriginalnamearticolodet(ITEM_ID_BANANA) = "la "' in nuovo
+
+
+def test_sul_composto_l_articolo_lo_regge_la_testa_e_non_il_complemento():
+    """«una pergamena di raccolto», non «un raccolto»: davanti sta `ref2`."""
+    dizionario = _dizionario_genere(BLOCCO_COMPOSTO, scroll="f", harvest="m")
+    nuovo, _ = applica_dati_nome("db_item.hsp", BLOCCO_COMPOSTO, dizionario)
+    assert 'ioriginalnamearticolo(ITEM_ID_SCROLL_HARVEST) = "una "' in nuovo
+    # il complemento non ne scrive uno suo: ce n'e' uno solo per oggetto
+    assert nuovo.count("ioriginalnamearticolo(ITEM_ID_SCROLL_HARVEST)") == 1
+
+
+def test_senza_genere_non_si_scrive_niente():
+    """Ripiego leggibile, come per il plurale: resta l'articolo inglese."""
+    nuovo, _ = applica_dati_nome("db_item.hsp", BLOCCO, _dizionario_genere(BLOCCO))
+    assert "ioriginalnamearticolo" not in nuovo
+
+
+def test_l_elisione_arriva_fino_al_sorgente():
+    """«un'incudine» senza spazio, «uno scudo» con: la stringa e' gia' pronta."""
+    dizionario = _dizionario_genere(BLOCCO, banana="f")
+    dizionario = {k: {**v, "it": "incudine"} for k, v in dizionario.items()}
+    nuovo, _ = applica_dati_nome("db_item.hsp", BLOCCO, dizionario)
+    assert 'ioriginalnamearticolo(ITEM_ID_BANANA) = "un\'"' in nuovo
+    assert 'ioriginalnamearticolodet(ITEM_ID_BANANA) = "l\'"' in nuovo
+
+
+def test_plurale_e_articolo_stanno_nello_stesso_blocco():
+    """Le due righe gemelle si inseriscono insieme, senza sfalsare le altre."""
+    voci = estrai_da_testo("db_item.hsp", BLOCCO)
+    dizionario = {v["firma"]: {**v, "it": "banana", "plurale": "banane",
+                               "genere": "f"} for v in voci}
+    nuovo, quante = applica_dati_nome("db_item.hsp", BLOCCO, dizionario)
+    assert quante == 3
+    righe = nuovo.split("\n")
+    assert righe[4] == '\t\tioriginalnameref(ITEM_ID_BANANA) = "banana"'
+    assert righe[5] == '\t\tioriginalnamerefplur(ITEM_ID_BANANA) = "banane"'
+    assert righe[6] == '\t\tioriginalnamearticolo(ITEM_ID_BANANA) = "una "'
+    assert righe[7] == '\t\tioriginalnamearticolodet(ITEM_ID_BANANA) = "la "'
+    assert righe[8] == '\t\tioriginalnameref2(ITEM_ID_BANANA) = ""'

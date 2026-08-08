@@ -328,8 +328,8 @@ def test_controlla_lotto_propaga_gli_invariati_a_tutte_le_voci():
 
 # --- il plurale dei nomi (buco chiuso il 2026-08-07) -------------------------
 #
-# Le voci dei nomi di `db_item.hsp` portano tre campi in piu' -- `plurale`,
-# `array`, `oggetto` -- e fino a qui `verifica.py` non ne guardava nessuno. Un
+# Le voci dei nomi di `db_item.hsp` portano quattro campi in piu' -- `plurale`,
+# `genere`, `array`, `oggetto` -- e fino a qui `verifica.py` non ne guardava nessuno. Un
 # lotto con `it` pieno e `plurale` vuoto passava senza un fiato: il gioco
 # ripiegava sul singolare («2 spada lunga») e nessuno lo sapeva finche' non lo
 # vedeva a schermo. E' lo stesso difetto di forma gia' corretto due volte in
@@ -342,7 +342,7 @@ def nome(**sovrascritture):
         file="db_item.hsp", riga=1200,
         jp="ロングソード", jp_grezzo='"ロングソード"',
         en="long sword", en_grezzo='"long sword"',
-        it="spada lunga", plurale="spade lunghe",
+        it="spada lunga", plurale="spade lunghe", genere="f",
         array="ioriginalnameref", oggetto="ITEM_ID_LONG_SWORD",
     )
     base.update(sovrascritture)
@@ -399,7 +399,7 @@ def test_mezzo_nome_e_una_voce_rotta():
 
 
 def test_il_plurale_finisce_in_una_stringa_hsp_come_il_singolare():
-    # `applica_plurali` scrive ioriginalnamerefplur(...) = "<plurale>": una
+    # `applica_dati_nome` scrive ioriginalnamerefplur(...) = "<plurale>": una
     # virgoletta doppia chiude la stringa in anticipo, esattamente come nel
     # singolare, e il sorgente non compila piu'
     assert any("plurale" in p for p in controlla_voce(nome(plurale='spade "lunghe"')))
@@ -553,3 +553,36 @@ def test_una_traduzione_vuota_resta_un_problema_se_non_e_invariata():
     # dimenticata, ed e' proprio cio' che deve continuare a fermare il lotto
     assert any("vuota" in p for p in controlla_voce(voce(it="   "), invariati={" "}))
     assert any("vuota" in p for p in controlla_voce(voce(it="")))
+
+
+# ---------------------------------------------------------------------------
+# Il genere, secondo dato dei nomi. Stessa natura del plurale e stesso momento
+# buono per scriverlo: quello in cui qualcuno sta guardando quel nome.
+# ---------------------------------------------------------------------------
+
+def test_un_nome_senza_genere_e_un_problema():
+    problemi = controlla_voce(nome(genere=""))
+    assert any("genere" in p for p in problemi)
+
+
+def test_un_genere_inventato_non_passa():
+    problemi = controlla_voce(nome(genere="maschile"))
+    assert any("genere" in p for p in problemi)
+
+
+def test_i_quattro_generi_validi_passano():
+    for genere in ("m", "f", "mp", "fp"):
+        assert controlla_voce(nome(genere=genere)) == []
+
+
+def test_il_genere_non_si_chiede_alle_voci_di_lang():
+    """Nessuna `lang()` finisce dietro un articolo scelto dal codice."""
+    assert controlla_voce(voce(it="Sei sicuro?")) == []
+
+
+def test_controlla_lotto_ferma_il_lotto_dei_nomi_senza_genere():
+    """La conseguenza che conta: un lotto a meta' non entra nel dizionario."""
+    esito = controlla_lotto([nome(firma="a"), nome(firma="b", genere="")],
+                            invariati=set())
+    assert "a" not in esito
+    assert "b" in esito

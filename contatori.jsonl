@@ -1,43 +1,43 @@
-{"en": "spellbook", "it": "grimorio", "plurale": "grimori", "fonte": "db_item"}
-{"en": "scroll", "it": "pergamena", "plurale": "pergamene", "fonte": "db_item"}
-{"en": "potion", "it": "pozione", "plurale": "pozioni", "fonte": "db_item"}
-{"en": "high potion", "it": "pozione superiore", "plurale": "pozioni superiori", "fonte": "db_item"}
-{"en": "rod", "it": "bacchetta", "plurale": "bacchette", "fonte": "db_item"}
-{"en": "deed", "it": "atto", "plurale": "atti", "fonte": "db_item"}
-{"en": "jewel", "it": "gioiello", "plurale": "gioielli", "fonte": "db_item"}
-{"en": "bottle", "it": "bottiglia", "plurale": "bottiglie", "fonte": "db_item"}
-{"en": "statue", "it": "statua", "plurale": "statue", "fonte": "db_item"}
-{"en": "painting", "it": "dipinto", "plurale": "dipinti", "fonte": "db_item"}
-{"en": "lot", "it": "lotto", "plurale": "lotti", "fonte": "db_item"}
-{"en": "variety", "it": "varieta", "plurale": "varieta", "fonte": "db_item"}
-{"en": "sack", "it": "sacco", "plurale": "sacchi", "fonte": "db_item"}
-{"en": "book", "it": "libro", "plurale": "libri", "fonte": "db_item"}
-{"en": "horrible book", "it": "libro orribile", "plurale": "libri orribili", "fonte": "db_item"}
-{"en": "secret experience", "it": "esperienza segreta", "plurale": "esperienze segrete", "fonte": "db_item"}
-{"en": "rack", "it": "rastrelliera", "plurale": "rastrelliere", "fonte": "db_item"}
-{"en": "figurine", "it": "statuetta", "plurale": "statuette", "fonte": "db_item"}
-{"en": "bundle", "it": "fascio", "plurale": "fasci", "fonte": "db_item"}
-{"en": "mysterious machine", "it": "macchina misteriosa", "plurale": "macchine misteriose", "fonte": "db_item"}
-{"en": "mysterious stone", "it": "pietra misteriosa", "plurale": "pietre misteriose", "fonte": "db_item"}
-{"en": "yellow gem stone", "it": "gemma gialla", "plurale": "gemme gialle", "fonte": "db_item"}
-{"en": "black gem stone", "it": "gemma nera", "plurale": "gemme nere", "fonte": "db_item"}
-{"en": "Mani's gem stone", "it": "gemma di Mani", "plurale": "gemme di Mani", "fonte": "db_item"}
-{"en": "Yacatect's gem stone", "it": "gemma di Yacatect", "plurale": "gemme di Yacatect", "fonte": "db_item"}
-{"en": "Kumiromi's gem stone", "it": "gemma di Kumiromi", "plurale": "gemme di Kumiromi", "fonte": "db_item"}
-{"en": "Jure's gem stone", "it": "gemma di Jure", "plurale": "gemme di Jure", "fonte": "db_item"}
-{"en": "Lulwy's gem stone", "it": "gemma di Lulwy", "plurale": "gemme di Lulwy", "fonte": "db_item"}
-{"en": "red spindle", "it": "fuso rosso", "plurale": "fusi rossi", "fonte": "db_item"}
-{"en": "tablet", "it": "tavoletta", "plurale": "tavolette", "fonte": "db_item"}
-{"en": "objet", "it": "oggetto d'arte", "plurale": "oggetti d'arte", "fonte": "db_item"}
-{"en": "box", "it": "scatola", "plurale": "scatole", "fonte": "db_item"}
-{"en": "plank", "it": "asse", "plurale": "assi", "fonte": "db_item"}
-{"en": "license", "it": "licenza", "plurale": "licenze", "fonte": "db_item"}
-{"en": "token", "it": "gettone", "plurale": "gettoni", "fonte": "db_item"}
-{"en": "energy crystal", "it": "cristallo di energia", "plurale": "cristalli di energia", "fonte": "db_item"}
-{"en": "handful", "it": "manciata", "plurale": "manciate", "fonte": "db_item"}
-{"en": "chest", "it": "baule", "plurale": "bauli", "fonte": "db_item"}
-{"en": "grave", "it": "tomba", "plurale": "tombe", "fonte": "db_item"}
-{"en": "cup", "it": "tazza", "plurale": "tazze", "fonte": "item_func"}
-{"en": "pair", "it": "paio", "plurale": "paia", "fonte": "item_func"}
-{"en": "cargo", "it": "carico", "plurale": "carichi", "fonte": "item_func"}
-{"en": "dish", "it": "piatto", "plurale": "piatti", "fonte": "item_func"}
+{"en": "spellbook", "it": "grimorio", "plurale": "grimori", "fonte": "db_item", "genere": "m"}
+{"en": "scroll", "it": "pergamena", "plurale": "pergamene", "fonte": "db_item", "genere": "f"}
+{"en": "potion", "it": "pozione", "plurale": "pozioni", "fonte": "db_item", "genere": "f"}
+{"en": "high potion", "it": "pozione superiore", "plurale": "pozioni superiori", "fonte": "db_item", "genere": "f"}
+{"en": "rod", "it": "bacchetta", "plurale": "bacchette", "fonte": "db_item", "genere": "f"}
+{"en": "deed", "it": "atto", "plurale": "atti", "fonte": "db_item", "genere": "m"}
+{"en": "jewel", "it": "gioiello", "plurale": "gioielli", "fonte": "db_item", "genere": "m"}
+{"en": "bottle", "it": "bottiglia", "plurale": "bottiglie", "fonte": "db_item", "genere": "f"}
+{"en": "statue", "it": "statua", "plurale": "statue", "fonte": "db_item", "genere": "f"}
+{"en": "painting", "it": "dipinto", "plurale": "dipinti", "fonte": "db_item", "genere": "m"}
+{"en": "lot", "it": "mucchio", "plurale": "mucchi", "fonte": "db_item", "genere": "m"}
+{"en": "variety", "it": "assortimento", "plurale": "assortimenti", "fonte": "db_item", "genere": "m"}
+{"en": "sack", "it": "sacco", "plurale": "sacchi", "fonte": "db_item", "genere": "m"}
+{"en": "book", "it": "libro", "plurale": "libri", "fonte": "db_item", "genere": "m"}
+{"en": "horrible book", "it": "libro orribile", "plurale": "libri orribili", "fonte": "db_item", "genere": "m"}
+{"en": "secret experience", "it": "esperienza segreta", "plurale": "esperienze segrete", "fonte": "db_item", "genere": "f"}
+{"en": "rack", "it": "rastrelliera", "plurale": "rastrelliere", "fonte": "db_item", "genere": "f"}
+{"en": "figurine", "it": "statuetta", "plurale": "statuette", "fonte": "db_item", "genere": "f"}
+{"en": "bundle", "it": "fascio", "plurale": "fasci", "fonte": "db_item", "genere": "m"}
+{"en": "mysterious machine", "it": "macchina misteriosa", "plurale": "macchine misteriose", "fonte": "db_item", "genere": "f"}
+{"en": "mysterious stone", "it": "pietra misteriosa", "plurale": "pietre misteriose", "fonte": "db_item", "genere": "f"}
+{"en": "yellow gem stone", "it": "gemma gialla", "plurale": "gemme gialle", "fonte": "db_item", "genere": "f"}
+{"en": "black gem stone", "it": "gemma nera", "plurale": "gemme nere", "fonte": "db_item", "genere": "f"}
+{"en": "Mani's gem stone", "it": "gemma di Mani", "plurale": "gemme di Mani", "fonte": "db_item", "genere": "f"}
+{"en": "Yacatect's gem stone", "it": "gemma di Yacatect", "plurale": "gemme di Yacatect", "fonte": "db_item", "genere": "f"}
+{"en": "Kumiromi's gem stone", "it": "gemma di Kumiromi", "plurale": "gemme di Kumiromi", "fonte": "db_item", "genere": "f"}
+{"en": "Jure's gem stone", "it": "gemma di Jure", "plurale": "gemme di Jure", "fonte": "db_item", "genere": "f"}
+{"en": "Lulwy's gem stone", "it": "gemma di Lulwy", "plurale": "gemme di Lulwy", "fonte": "db_item", "genere": "f"}
+{"en": "red spindle", "it": "fuso rosso", "plurale": "fusi rossi", "fonte": "db_item", "genere": "m"}
+{"en": "tablet", "it": "tavoletta", "plurale": "tavolette", "fonte": "db_item", "genere": "f"}
+{"en": "objet", "it": "oggetto d'arte", "plurale": "oggetti d'arte", "fonte": "db_item", "genere": "m"}
+{"en": "box", "it": "scatola", "plurale": "scatole", "fonte": "db_item", "genere": "f"}
+{"en": "plank", "it": "asse", "plurale": "assi", "fonte": "db_item", "genere": "f"}
+{"en": "license", "it": "licenza", "plurale": "licenze", "fonte": "db_item", "genere": "f"}
+{"en": "token", "it": "gettone", "plurale": "gettoni", "fonte": "db_item", "genere": "m"}
+{"en": "energy crystal", "it": "cristallo di energia", "plurale": "cristalli di energia", "fonte": "db_item", "genere": "m"}
+{"en": "handful", "it": "manciata", "plurale": "manciate", "fonte": "db_item", "genere": "f"}
+{"en": "chest", "it": "baule", "plurale": "bauli", "fonte": "db_item", "genere": "m"}
+{"en": "grave", "it": "tomba", "plurale": "tombe", "fonte": "db_item", "genere": "f"}
+{"en": "cup", "it": "tazza", "plurale": "tazze", "fonte": "item_func", "genere": "f"}
+{"en": "pair", "it": "paio", "plurale": "paia", "fonte": "item_func", "genere": "m"}
+{"en": "cargo", "it": "carico", "plurale": "carichi", "fonte": "item_func", "genere": "m"}
+{"en": "dish", "it": "piatto", "plurale": "piatti", "fonte": "item_func", "genere": "m"}

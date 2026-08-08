@@ -446,12 +446,14 @@ def estrai_da_testo(nome_file: str, testo: str) -> list[dict]:
             "contesto": righe[numero_riga - 1] if dinamica else "",
             "it": "",
         }
-        # solo i nomi hanno un plurale da portare fino al gioco: in `lang()` il
-        # plurale, dove serve, sta gia' dentro la stringa. `oggetto` e `array`
-        # dicono a `applica.py` dove scriverlo.
+        # solo i nomi hanno un plurale e un genere da portare fino al gioco: in
+        # `lang()` il plurale, dove serve, sta gia' dentro la stringa, e nessuna
+        # `lang()` finisce dietro un articolo scelto dal codice. `oggetto` e
+        # `array` dicono a `applica.py` dove scriverli.
         nome = nomi.get(numero_riga - 1)
         if nome is not None:
             voce["plurale"] = ""
+            voce["genere"] = ""
             voce["array"] = nome[4]
             voce["oggetto"] = nome[5]
         voci.append(voce)
