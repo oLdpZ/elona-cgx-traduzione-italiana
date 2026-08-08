@@ -570,3 +570,112 @@ cambiato il termbase, che e' la regola scritta in testa a `glossario.md`.
   libri» e' gergo commerciale;
 - `variety` → **assortimento**, non «varietà»: regge meglio dopo «di» e non
   porta un accento in un punto molto visibile.
+
+## La nona sessione — 2026-08-08
+
+Sei blocchi, dodici commit, il primo push. `db_item.hsp` dal 47% al 63%.
+
+### «Stessa forma» era un'ipotesi, e quattro array su quattro l'hanno smentita
+
+Il documento di ripresa dava `_furniture`, `_bookself`, `_weight` e
+`_bookselfs` per «la stessa identica forma»: sono tutti aggettivi prefissi in
+`text.hsp`, e nel **dizionario** si somigliano davvero. Nel **codice** no.
+
+| array | dove esce | cura |
+|---|---|---|
+| `_furniture` | prefisso (`item_func.hsp:1324`) | toppa: in coda su `locvar_itemname_s6` |
+| `_bookself` | già fra parentesi (`:988`) | **nessuna toppa**, solo dato |
+| `_weight` | già suffisso, giunto « grown » (`:974`) | toppa **sul giunto** |
+| `_bookselfs` | slot parola-contatore (`:1233`) | trattamento `contatori.jsonl` |
+
+**La regola che ne resta: prima di scrivere la toppa si guarda il sito di
+concatenazione.** La somiglianza nel dizionario non dice niente su dove il
+codice mette la stringa, e la cura la decide il codice.
+
+Il caso più istruttivo è `_weight`. Era già un suffisso, quindi «spostarlo» non
+voleva dire nulla; ma un aggettivo italiano in coda si sarebbe accordato lo
+stesso col nome, di genere ignoto. **La leva non era la posizione ma il
+giunto**: « grown » → « di taglia » introduce una testa femminile e fissa, e da
+lì in poi l'accordo è con «taglia». È un modo nuovo di risolvere il genere
+ignoto, il terzo dopo il complemento e il sostantivo al posto dell'aggettivo.
+
+E `_bookself` è il primo caso della famiglia in cui **il sorgente andava bene
+com'era**: esce fra parentesi, dove la parola sta da sola e non si accorda con
+niente. Valeva la pena guardare prima di toccare.
+
+### Un legame per stringa, che nessun controllo esistente vedeva
+
+`_bookselfs` finisce in `locvar_itemname_s2`, e i due `switch` generati
+confrontano la resa di `contatori.jsonl` con quella che l'array porta a
+runtime, che viene dal dizionario. **Se divergono, il `case` non aggancia mai —
+e restano verdi sia il compilatore sia la prova d'identità.**
+
+Non è un difetto della prova d'identità: lei giudica la pipeline delle
+sostituzioni, e le toppe girano dopo, in un giro loro. È una classe di errore
+che nessuno dei due guardiani copre. Ora lo pretendono `genera_toppe_nomi.py`
+alla generazione e un test a ogni giro.
+
+### Il criterio della classe, e dove finisce
+
+I lotti dal terzo al sesto sono stati scelti per `filter_item(ITEM_ID_X)`, che
+sta in un blocco lontano dai nomi. Ha funzionato ogni volta, per un motivo che
+conviene scrivere: **una classe raccoglie oggetti che pongono la stessa
+domanda**, e una domanda posta una volta si risponde una volta.
+
+Ha smesso di funzionare quando le classi sono finite. Le 599 voci rimaste sono
+esattamente quelle **senza** filtro: non una classe, un residuo. Dentro ci sono
+169 artefatti fra `<>`, per i quali la domanda non è di resa ma di
+**invarianza** — e il criterio nuovo sarà la forma del nome.
+
+### Quattro decisioni di resa dell'equipaggiamento
+
+- `gauntlets` → «guanti d'arme» contro `gloves` → «guanti». L'inglese distingue
+  protezione e indumento, e l'italiano può seguirlo. **Eccezione dichiarata**:
+  `decorated gloves` è «guanti d'arme decorati» benché l'inglese dica *gloves*,
+  perché il sorgente lo tratta come guanto d'arme (`item_func.hsp:1849-1850`);
+- `mail` → «corazza», non «cotta» — tranne `chain mail` → «cotta di maglia»,
+  dove la cotta è davvero la cosa;
+- `lance`/`spear`: l'inglese ha due parole, l'italiano una. La distinzione si
+  tiene col **complemento** («lancia da cavaliere» contro «lancia»), non
+  inventando un secondo sostantivo. È la stessa cura del giunto dei composti;
+- `claymore` → «spadone», `bardish` → «ascia lunga»: il giapponese dice 大剣 e
+  大斧, e i nomi scozzese e slavo in italiano non aggiungono nulla.
+
+### La storia naturale: nome vero se esiste, invariante se inventato
+
+`hotate` → «capasanta», `cutlassfish` → «pesce sciabola», `spotted garden eel`
+→ «anguilla giardiniera». E quando due pesci rischiano lo stesso nome si
+separano apposta: `manboo` → «pesce luna» (mola mola), `moonfish` → «pesce re»
+(Lampris), che è il nome italiano vero del secondo.
+
+Restano invariati e dichiarati i nomi inventati da Elona — `mesugaki`, `sazae`,
+`fane`, `dernefia` e le quattro erbe del canone.
+
+### Una deroga dichiarata: i diari delle sorelle
+
+`dog sister's diary` e `cat sister's diary` traducono 姉の秘密の日記 e
+妹の秘密の日記, cioè «il diario **segreto** della sorella maggiore/minore».
+Tradurre dall'inglese avrebbe dato «diario della sorella cane», che non vuol
+dire nulla in nessuna lingua.
+
+**Qui si è derogato alla regola «si traduce dall'inglese», perché l'inglese è
+una svista e non una scelta.** Le rese sono «diario segreto della sorella
+maggiore/minore», e restano distinte dalle due non segrete, che nel gioco sono
+oggetti diversi. La deroga è dichiarata perché la prossima volta il criterio
+sia già scritto: si deroga quando l'inglese perde informazione che il giapponese
+ha, e la resa letterale produrrebbe una frase priva di senso.
+
+### Il verificatore che rifiuta il lotto intero è un pregio
+
+Ha bloccato l'equipaggiamento finché i sette prestiti giapponesi — `katana`,
+`wakizashi`, `kunai`, `shuriken`, `nunchaku`, `shakujo`, `tomahawk` — non erano
+in `invariati.md`. È la regola «si dichiara, non si evita» che morde invece di
+lasciar passare, ed è costato cinque minuti contro un elenco di invarianti che
+sarebbe rimasto incompleto per sempre.
+
+### Un caso in cui i due campi del dizionario dicono cose diverse
+
+`unicorn horn` ha genere `m` e plurale «corna di unicorno». In italiano «corno»
+fa «corna» quando sono di un animale: il genere del singolare e la forma del
+plurale non si deducono l'uno dall'altra, ed è esattamente il motivo per cui
+sono due campi.
