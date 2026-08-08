@@ -78,6 +78,27 @@ toppe.append({
     "motivo": "il giunto si sceglieva cercando la sottostringa \"with\" DENTRO il nome inglese (un solo nome la contiene, `ornamented with flowers`): tradurre i nomi cambierebbe il ramo in silenzio. In italiano il giunto e' sempre \"di\"",
 })
 
+# 3-ter. il giunto della taglia. `_weight` (text.hsp:57) e' gia' un SUFFISSO
+#        anche in inglese -- « grown huge » -- quindi non va spostato: il
+#        problema e' un altro, ed e' che un aggettivo italiano in coda si
+#        accorderebbe comunque col nome, che ha genere ignoto.
+#
+#        La leva e' il giunto. « grown » non passa dal dizionario perche'
+#        `item_func.hsp` non e' fra i file estratti; qui diventa « di taglia »,
+#        e da quel punto in poi l'accordo e' con «taglia» -- femminile,
+#        singolare, fisso. Le dieci rese sono percio' aggettivi femminili
+#        («di taglia enorme», «di taglia mostruosa») e il genere dell'oggetto
+#        non entra mai in gioco. Stessa cura di sempre, applicata al giunto
+#        invece che alla posizione.
+riga = ITEM[974 - 1]
+assert 'lang("", " grown ")' in riga and '_weight(' in riga, riga
+toppe.append({
+    "file": "item_func.hsp",
+    "cerca": riga,
+    "sostituisci": riga.replace('lang("", " grown ")', 'lang("", " di taglia ")'),
+    "motivo": "il giunto della taglia non passa dal dizionario (item_func.hsp non e' fra i file estratti). « grown » diventa « di taglia » perche' cosi' le dieci rese di _weight si accordano con «taglia», femminile e fisso, invece che con l'oggetto, di genere ignoto",
+})
+
 # 3-bis. le sei parole-contatore cablate in item_func, che il dizionario non
 #        raggiunge: non stanno in db_item.hsp e non passano da lang(). Le rese
 #        vengono da contatori.jsonl, unica sorgente di verita': cambiarle li'

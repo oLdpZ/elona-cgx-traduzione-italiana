@@ -660,3 +660,50 @@ def test_le_rese_dell_arredo_sono_complementi_non_aggettivi():
             f"{v['en']} -> {v['it']!r}: comincia per {prima!r}, che non e' una"
             " testa di complemento. Un aggettivo si accorderebbe con un nome"
             " di genere e numero ignoti -- l'arredamento ha anche plurali")
+
+
+# ---------------------------------------------------------------------------
+# La taglia e la qualita' del manoscritto (2026-08-08).
+#
+# Questi due NON sono la forma di `_furniture`, per quanto il documento di
+# ripresa li desse per identici. Sono gia' suffissi anche in inglese, quindi
+# non c'e' niente da spostare -- e la cura e' un'altra per ciascuno:
+#
+# `_weight` (text.hsp:57) esce come « grown huge » (item_func.hsp:974). Un
+# aggettivo italiano in coda si accorderebbe lo stesso col nome. La leva e' il
+# **giunto**: « di taglia » introduce una testa femminile e fissa, e da li' in
+# poi l'accordo e' con «taglia», non con l'oggetto.
+#
+# `_bookself` (text.hsp:54) esce gia' fra parentesi (item_func.hsp:988), dove
+# sta da sola e non si accorda con niente. Non chiede nessuna toppa: e' solo
+# dato, ed e' l'unico caso di questa famiglia in cui il codice andava bene.
+# ---------------------------------------------------------------------------
+
+def test_il_giunto_della_taglia_diventa_di_taglia():
+    nuovo = _item_func_toppato()
+    assert 'lang("", " grown ")' not in nuovo, (
+        "il giunto inglese e' ancora li': le rese di _weight si accorderebbero"
+        " con l'oggetto invece che con «taglia»")
+    assert 'lang("", " di taglia ")' in nuovo
+
+
+def test_le_rese_della_taglia_si_accordano_con_taglia():
+    """Femminili singolari, perche' seguono «di taglia»."""
+    from strumenti.reimporta import carica_dizionario
+
+    voci = [v for v in carica_dizionario("text.hsp").values()
+            if v.get("riga") == 57 and v.get("it")]
+    assert len(voci) == 10, f"attese 10 rese di _weight, trovate {len(voci)}"
+    for v in voci:
+        ultima = v["it"].split()[-1]
+        assert not ultima.endswith(("o", "i")), (
+            f"{v['en']} -> {v['it']!r}: {ultima!r} finisce da maschile o da"
+            " plurale, ma segue «di taglia», che e' femminile singolare")
+
+
+def test_la_qualita_del_manoscritto_resta_dov_e():
+    """Riga 988: l'inglese la mette gia' fra parentesi. Niente da spostare."""
+    righe = [r.strip() for r in _item_func_toppato().split("\r\n")]
+    parentesi = [r for r in righe if "_bookself(" in r and '" ("' in r]
+    assert len(parentesi) == 1, (
+        f"il sito fra parentesi non e' piu' uno solo: {parentesi}")
