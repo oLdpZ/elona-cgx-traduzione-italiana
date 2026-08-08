@@ -20,32 +20,51 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | `proc.hsp` | 0 | 1.098 | 0% | 1.327 |
 | `skill.hsp` | 0 | 885 | 0% | 894 |
 | `trait.hsp` | 0 | 373 | 0% | 406 |
-| `db_item.hsp` | 1.007 | 1.606 | 63% | 1.607 |
+| `db_item.hsp` | **1.605** | 1.606 | **100%** | 1.607 |
 | `item_data.hsp` | 83 | 318 | 26% | 318 |
-| **totale** | **1.777** | **8.612** | **21%** | **9.662** |
+| **totale** | **2.369** | **8.612** | **28%** | **9.662** |
 
-## I 599 che restano in `db_item.hsp`, e perché sono un gruppo diverso
+## `db_item.hsp` è chiuso — 2026-08-09, decima sessione
 
-Aggiornato il 2026-08-08, nona sessione. I lotti dal terzo al sesto sono stati
-scelti per **classe**, cioè per il valore di `filter_item(ITEM_ID_X)` — che sta
-in un blocco a parte, lontano dai nomi. Il criterio ha retto sei volte di
-seguito, perché una classe raccoglie oggetti che pongono la **stessa domanda**,
-e una domanda posta una volta si risponde una volta.
+**Primo file completo del progetto**: 1.605 firme su 1.606. L'unica mancante è
+`<Pants of Ogre>`, che è **rinviata** e non dimenticata (vedi più sotto).
 
-Adesso è finito il suo lavoro: le 599 voci rimaste sono **esattamente quelle
-senza filtro**, e non sono una classe ma un residuo. Dentro ci sono:
+Il file è passato da 599 nomi da guardare a zero in una sessione, con sei lotti.
+Il criterio non è stato la forma del nome, che era il candidato scritto qui
+ieri, ma **la categoria che il sorgente dichiara**.
 
-- **169 artefatti fra `<>`** — `<Turahagi>`, `<Genocide Tail>`, `<Ravenbrand>`…
-  Per questi la domanda non è di resa ma di **invarianza**: ognuno va deciso
-  fra nome opaco (resta, e va in `invariati.md` con la sua ragione) e nome
-  descrittivo (si traduce, come `<Abyss Princess>` → «`<Principessa
-  dell'Abisso>`»). È lavoro di decisione, non di traduzione, e conviene
-  affrontarlo come tale;
-- il resto, oggetti aggiunti da CGX senza una classe dichiarata.
+I lotti dal terzo al sesto erano stati scelti per `filter_item`. Quando quel
+criterio si è esaurito, ciò che restava si chiamava «il gruppo senza filtro»: un
+residuo da affrontare a occhio. Non era un residuo. La categoria c'è, solo che
+sta **dentro il blocco di ogni oggetto** — `reftype = FILTER_ITEM_...` — e
+classifica **1.320 oggetti**.
 
-Il criterio nuovo non può più essere il filtro. Il candidato è la **forma del
-nome** — angolari, sigle, traslitterazioni — che è ciò che distingue le
-domande in questo gruppo.
+Lo strumento è `strumenti/categorie.py`, con cinque test:
+
+```powershell
+python -m strumenti.categorie                                 # il resto, per categoria
+python -m strumenti.categorie --categoria FILTER_ITEM_TOOL --uscita lavoro/x.jsonl
+```
+
+⚠️ **Vale anche per gli altri file.** `item_data.hsp` e i cinque mai guardati
+non sono stati letti con questa chiave: prima di dichiararli senza struttura,
+si cerca dove il codice li struttura.
+
+| lotto | criterio | voci |
+|---|---|---|
+| artefatti fra `<>` | forma del nome più la marca 《》 | 169 (105 invariati, 63 tradotti, 1 rinviato) |
+| arredamento da `map_fur_*` | array del generatore di mappe | 46 |
+| cibo | `FILTER_ITEM_FOOD` | 51 |
+| arredamento | `FILTER_FURNITURE` | 100 |
+| attrezzi | `FILTER_ITEM_TOOL` | 107 |
+| scarto | `FILTER_JUNK` | 59 |
+| code corte | nove categorie insieme | 67 |
+
+**Sui 169 artefatti la domanda era di invarianza, non di resa**, e la regola sta
+in `decisioni.md`: l'inglese romanizzato o siglato resta; il giapponese fra
+《》 e traslitterato resta; il giapponese descrittivo si traduce. La prova che
+non è stata cucita addosso al lotto è che riproduce tutti e otto i precedenti
+già presi.
 
 `item_data.hsp` è entrato il 2026-08-08, e non era nel piano: ci sono i **45
 materiali** (`mtname`), che il primo collaudo ha mostrato anteposti al nome in
@@ -117,7 +136,8 @@ a mano. Il `motivo` è obbligatorio, come per le toppe.
 | nomi di magia nel quiz (`text.hsp:978-987`) | 4 | → **con `skill.hsp`, in questa fase** |
 | nomi di creatura e oggetto nel quiz | 59 | risposte del quiz che nominano creature e oggetti. Il nome vero sta in `db_creature.hsp`/`db_item.hsp`: tradurlo qui prima farebbe divergere la risposta dal nome che il giocatore legge |
 | parti meccaniche (`text.hsp:1387-1402`) | 6 | verificato che compaiono anche in `db_item.hsp` |
-| **totale** | **119** | |
+| `<Pants of Ogre>` (`db_item.hsp`) | 1 | il nome contiene `ogre`, e in `db_creature.hsp` `orc` e `ogre` convivono come creature distinte (`orc warrior`, `black orc` contro `slash ogre`, `shine ogre`): «orco» non può coprirle entrambe. **Primo rinvio deciso da `db_item.hsp`**, e per questo `test_i_nomi_di_db_item_non_sono_rinviati_da_text` ha smesso di asserire `== set()` — era una procura — e adesso pretende la proprietà vera: ogni firma che esce per `db_item.hsp` viene da una riga **di** `db_item.hsp` |
+| **totale** | **120** | |
 
 ## Le 35 uscite della nona sessione (2026-08-08)
 
@@ -149,6 +169,20 @@ del primo con quella che l'array porta a runtime, che viene dal secondo. Se
 divergono il `case` non aggancia mai — e restano verdi sia il compilatore sia la
 prova d'identità. Ora lo pretendono `genera_toppe_nomi.py` (alla generazione) e
 un test (a ogni giro).
+
+**Coperte anche le altre 39, il 2026-08-09.** `contatori.jsonl` ha tre fonti:
+`text` (le sette del libro prodotto) e `item_func` (le sei cablate) alimentano
+il generatore ed erano già difese; le **39 con `fonte: "db_item"`** sono il
+registro di ciò che il dizionario dice per lo slot `ioriginalnameref2`, e su di
+esse non guardava nessuno.
+
+Il confronto giusto **non è l'uguaglianza**, e a insegnarlo è `grave`: il
+registro dice «tomba», il dizionario «tomba ornata», e ha ragione il dizionario,
+perché il nome si monta `s2 + " " + s3 + " " + s1` col giunto fissato a «di» e
+l'aggettivo deve stare in `s2` per accordarsi con la testa. A schermo esce
+«tomba ornata di fiori». Il registro dice il **termine**, il dizionario il
+**segmento**: due livelli, non due verità. Il test pretende quindi che la resa
+del dizionario **cominci con** il termine del registro.
 
 **Tre uscite precedenti, sempre il 2026-08-08: `blessed`, `cursed`, `doomed`.** Erano rinviate
 perché si antepongono al nome e in italiano un participio si accorderebbe con

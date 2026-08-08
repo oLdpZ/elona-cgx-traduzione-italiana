@@ -679,3 +679,120 @@ sarebbe rimasto incompleto per sempre.
 fa «corna» quando sono di un animale: il genere del singolare e la forma del
 plurale non si deducono l'uno dall'altra, ed è esattamente il motivo per cui
 sono due campi.
+
+## La decima sessione — 2026-08-09
+
+### Il residuo non esisteva: la categoria che il sorgente dichiara
+
+I lotti dal terzo al sesto erano stati scelti per `filter_item`, e quando quel
+criterio si è esaurito ciò che restava di `db_item.hsp` si chiamava «il gruppo
+senza filtro»: un residuo da affrontare a occhio.
+
+Non era un residuo. La categoria c'è, solo che non sta in `filter_item` ma
+**dentro il blocco di ogni oggetto**:
+
+```
+if ( dbid == ITEM_ID_HAMBURGER ) {
+    ...
+    reftype = FILTER_ITEM_FOOD
+```
+
+Sono **1.320 oggetti classificati dal sorgente**. Letto con quella chiave, il
+residuo torna a essere fatto di classi — `FILTER_ITEM_TOOL`, `FILTER_FURNITURE`,
+`FILTER_JUNK`, `FILTER_ITEM_FOOD`, `FILTER_CONTAINER` — e i cinque lotti che
+hanno chiuso il file sono usciti tutti da lì.
+
+**La regola: prima di dichiarare che una cosa non ha struttura, si cerca dove il
+codice la struttura.** Il criterio è diventato `strumenti/categorie.py`, con
+cinque test, perché uno script usa e getta avrebbe costretto la prossima
+sessione a riscoprirlo. Il quinto test è la rete: **ogni nome ancora da tradurre
+ha una categoria**, così se domani ne arrivasse uno senza, il criterio non
+tornerebbe a essere un occhio senza che nessuno lo dica.
+
+### La marca 《》: l'invarianza degli artefatti si legge nei dati
+
+I 169 artefatti fra `<>` ponevano una domanda di invarianza, non di resa. La
+regola che ne è uscita ha tre gradini in ordine di precedenza:
+
+1. l'inglese è già una **romanizzazione, una coniazione o una sigla** →
+   invariato. Si traduce dall'inglese, e se l'inglese non dice niente non c'è
+   niente da rendere;
+2. il giapponese sta fra 《》 **ed è traslitterato in katakana** → invariato:
+   quando l'originale traslittera, non legge il nome come descrizione;
+3. il giapponese è **descrittivo in kanji**, o non porta la marca 《》 →
+   tradotto, tenendo le `<>`.
+
+Il pezzo nuovo è la **marca 《》**, e viene dai dati: 157 nomi su 169 ce l'hanno,
+dodici no — e quei dodici sono esattamente quelli che si leggono come oggetti
+ordinari a cui l'inglese ha messo le `<>` per decorazione (`<Dog Whistle>` 犬笛,
+`<Amulet of Jure>` 健康のお守り).
+
+**La prova che la regola non è stata cucita addosso al lotto: riproduce tutti e
+otto i precedenti già presi**, compresi i due che tirano in direzioni opposte —
+`<Zantetsuken>` 《斬鉄剣》 invariato benché kanji, perché l'inglese è
+romanizzazione, e `<Scythe of the Void>` 《虚無の大鎌》 tradotto benché porti la
+marca, perché il kanji descrive.
+
+Esito: 105 invariati e 63 tradotti.
+
+### Quando l'inglese sceglie una lingua, la scelta è informazione
+
+Tre casi diversi della stessa idea, trovati in tre lotti diversi:
+
+- **`hamaki`** (葉巻). Il giapponese usa la **parola comune** per «sigaro», ma
+  l'inglese ha scelto di romanizzarla. È il caso di `wakizashi` rifatto: si
+  traduce dall'inglese, quindi resta. E poiché `cigarette` (紙巻タバコ) nello
+  stesso lotto diventa «sigaretta», la distinzione che l'inglese fa fra i due
+  resta visibile anche in italiano.
+- **`Taktstock`** (コマンドタクト). L'inglese ha scelto il **tedesco**, e il
+  tedesco resta tedesco come il latino resta latino in `aqua sanctio`. Renderlo
+  «bacchetta» perderebbe la scelta di lingua che l'originale ha fatto.
+- **`anering`** (アネワッシャー). Invariato per una ragione che si vede solo
+  guardando le due lingue **insieme**: coniano cose diverse — il giapponese dice
+  «rondella», l'inglese «anello». Quando le due lingue non descrivono la stessa
+  cosa, non stanno descrivendo: stanno nominando.
+
+### Il registro e il segmento: due livelli, non due verità
+
+Chiudendo `db_item.hsp` una voce non tornava: `contatori.jsonl` registra
+`grave` → «tomba», il dizionario rende lo stesso `grave` con «tomba ornata».
+
+Sembrava una divergenza da sanare, e a dire di no è stato il **sito di
+concatenazione**, come sempre. Il nome si monta `s2 + " " + s3 + " " + s1`, e la
+toppa 3 fissa il giunto a «di». Per `ITEM_ID_GRAVE_ORNAMENTED_WITH_FLOWERS` le
+due parti sono «tomba ornata» e «fiori»: a schermo esce **«tomba ornata di
+fiori»**, e al plurale «3 tombe ornate di fiori».
+
+L'aggettivo sta in `s2` perché **è lì che può accordarsi con la testa**. Con
+«tomba» in `s2` uscirebbe «tomba di ornata di fiori»; con «tomba» più «fiori» si
+perderebbe l'«ornamented». Il giunto è fisso: l'unico posto dove l'accordo può
+vivere è la testa.
+
+**Quindi il registro dice il termine e il dizionario dice il segmento.** Sono
+due livelli, non due verità in conflitto — e allineare i due file avrebbe rotto
+una resa giusta per far tornare un confronto sbagliato.
+
+Il test nuovo vive al livello che li tiene insieme: la resa del dizionario
+**comincia con** il termine del registro. Prende i 38 casi identici, accetta la
+variante contestuale senza costringere a dichiarare un'eccezione falsa, e se un
+domani una variante non fosse un prefisso lo dice — perché allora sarebbe una
+testa diversa, e le teste diverse si dichiarano.
+
+### Il primo rinvio deciso da `db_item.hsp`, e una procura che si è rotta
+
+`<Pants of Ogre>` è rinviato alla Fase 2: il nome contiene `ogre`, e in
+`db_creature.hsp` `orc` e `ogre` convivono come creature distinte (`orc
+warrior`, `black orc` contro `slash ogre`, `shine ogre`). «Orco» non può
+coprirle entrambe, e quale delle due se lo prenda è una decisione dei nomi di
+creatura.
+
+Il test `test_i_nomi_di_db_item_non_sono_rinviati_da_text` è caduto, e non
+perché la proprietà che difende fosse violata. Diceva `== set()`: una
+**procura**, vera solo finché `db_item.hsp` non aveva rinvii suoi. La proprietà
+— nessuna rinviata di `text.hsp` toglie lavoro alla coda di `db_item.hsp` — è
+rimasta vera per tutto il tempo. Adesso è scritta com'è: ogni firma che esce per
+`db_item.hsp` viene da una riga **di** `db_item.hsp`.
+
+**La lezione: un test che passa per procura passa finché il mondo somiglia a
+quando l'hai scritto.** Quando cade, la prima domanda è se sia caduta la
+proprietà o la procura.
