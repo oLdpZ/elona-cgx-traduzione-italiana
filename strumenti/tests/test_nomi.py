@@ -761,6 +761,66 @@ def test_le_due_scale_del_libro_sono_la_stessa_scala():
             " come due cose diverse")
 
 
+# ---------------------------------------------------------------------------
+# Le 39 teste che vengono da db_item.hsp (2026-08-09).
+#
+# `contatori.jsonl` ha tre fonti: `text` (le sette del libro prodotto),
+# `item_func` (le sei cablate) e `db_item` (39). Le prime due alimentano
+# `genera_toppe_nomi.py` ed erano gia' difese. Le 39 no: sono un **registro**
+# di cio' che il dizionario dice per lo slot `ioriginalnameref2`, e su di esse
+# non guardava nessuno.
+#
+# Il confronto non e' l'uguaglianza, ed e' `grave` a insegnarlo. Il nome si
+# monta come `s2 + " " + s3 + " " + s1`, e la toppa 3 fissa il giunto a «di».
+# Per ITEM_ID_GRAVE_ORNAMENTED_WITH_FLOWERS le due parti sono «tomba ornata» e
+# «fiori», che danno «tomba ornata di fiori». L'aggettivo sta in `s2` perche'
+# **e' li' che puo' accordarsi con la testa**: con «tomba» in `s2` uscirebbe
+# «tomba di ornata di fiori», e con «tomba» piu' «fiori» si perderebbe del
+# tutto l'«ornamented».
+#
+# Quindi il registro dice il **termine** e il dizionario dice il **segmento**,
+# che porta l'accordo. Sono due livelli, non due verita' in conflitto. Il test
+# vive al livello che li tiene insieme: la resa del dizionario **comincia con**
+# il termine del registro. Cosi' prende i 38 casi identici e accetta la
+# variante contestuale senza costringere a dichiarare un'eccezione falsa.
+#
+# Se un domani una variante non fosse un prefisso, allora si' che andrebbe
+# dichiarata: sarebbe una testa diversa, non la stessa testa accordata.
+# ---------------------------------------------------------------------------
+
+def _teste_da_db_item():
+    """Le teste di s2 che vengono dallo slot ioriginalnameref2 di db_item.hsp."""
+    import json
+
+    righe = (percorsi.PROGETTO / "contatori.jsonl").read_text(encoding="utf-8")
+    return [json.loads(r) for r in righe.splitlines()
+            if r.strip() and json.loads(r).get("fonte") == "db_item"]
+
+
+def test_il_dizionario_non_contraddice_il_registro_delle_teste_di_db_item():
+    from strumenti.reimporta import carica_dizionario
+
+    rese: dict[str, set[str]] = {}
+    for voce in carica_dizionario("db_item.hsp").values():
+        if voce.get("array") == "ioriginalnameref2" and voce.get("it"):
+            rese.setdefault(voce["en"], set()).add(voce["it"])
+
+    teste = _teste_da_db_item()
+    assert len(teste) == 39, f"attese 39 teste da db_item.hsp, trovate {len(teste)}"
+    for testa in teste:
+        varianti = rese.get(testa["en"])
+        assert varianti, (
+            f"{testa['en']}: contatori.jsonl lo registra come testa di"
+            " ioriginalnameref2, ma il dizionario non ha nessuna voce tradotta"
+            " in quello slot. O il registro e' vecchio, o la voce e' sfuggita")
+        for variante in sorted(varianti):
+            assert variante.startswith(testa["it"]), (
+                f"{testa['en']}: il registro dice {testa['it']!r}, il dizionario"
+                f" {variante!r}, che non ne e' una specificazione. Se e' voluto"
+                " e' una testa diversa, e va dichiarata invece che divergere in"
+                " silenzio")
+
+
 def test_il_libro_prodotto_ha_un_case_in_entrambi_gli_switch():
     """Senza, cadrebbe nel default: «2 libro sublime» e l'articolo dell'array."""
     nuovo = _item_func_toppato()
