@@ -14,7 +14,7 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 
 | file | tradotte | firme | % | occorrenze |
 |---|---|---|---|---|
-| `text.hsp` | 643 | 1.740 | 37% | 2.127 |
+| `text.hsp` | 646 | 1.740 | 37% | 2.127 |
 | `command.hsp` | 0 | 1.304 | 0% | 1.481 |
 | `action.hsp` | 0 | 1.288 | 0% | 1.502 |
 | `proc.hsp` | 0 | 1.098 | 0% | 1.327 |
@@ -22,7 +22,7 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | `trait.hsp` | 0 | 373 | 0% | 406 |
 | `db_item.hsp` | 86 | 1.606 | 5% | 1.607 |
 | `item_data.hsp` | 83 | 318 | 26% | 318 |
-| **totale** | **812** | **8.612** | **9%** | **9.662** |
+| **totale** | **815** | **8.612** | **9%** | **9.662** |
 
 `item_data.hsp` è entrato il 2026-08-08, e non era nel piano: ci sono i **45
 materiali** (`mtname`), che il primo collaudo ha mostrato anteposti al nome in
@@ -92,12 +92,24 @@ a mano. Il `motivo` è obbligatorio, come per le toppe.
 | `_bookself`, `_bookselfs` (`text.hsp:54-55`) | 14 | qualità del libro scritto, concatenata al nome |
 | `_furniture` (`text.hsp:56`) | 11 | qualità del mobile, concatenata: `_furniture(...) + " " + itemname` |
 | `_weight` (`text.hsp:57`) | 10 | taglia dell'oggetto, concatenata |
-| nomi casuali degli oggetti (`text.hsp:176-192`) | 33 | `_namepotion`+`strpotion` costruiscono «clear potion»; `strcursed`/`strblessed` li prefissano. In italiano cambia **l'ordine** («pozione trasparente») oltre al genere |
+| nomi casuali degli oggetti (`text.hsp:176-192`) | 30 | `_namepotion`+`strpotion` costruiscono «clear potion». In italiano cambia **l'ordine** («pozione trasparente») oltre al genere, e gli aggettivi sono condivisi fra sei classi di sostantivo con generi diversi: «pozione chiara» ma «anello chiaro» |
 | `elename()` (`text.hsp:203-271`) | 20 | → **con `proc.hsp`, in questa fase.** Aggettivo elementale che modifica la parte del corpo di `_melee(2,…)`: `proc.hsp:8797` compone `elename(ele) + " " + _melee(2,…)`. In italiano l'aggettivo segue il nome e ne prende il genere, e i nomi sono di generi misti (mano, artiglio, zanna, occhio). L'ordine si sistema traducendo `proc.hsp`, che è una dinamica e permette di riordinare la concatenazione |
 | nomi di magia nel quiz (`text.hsp:978-987`) | 4 | → **con `skill.hsp`, in questa fase** |
 | nomi di creatura e oggetto nel quiz | 59 | risposte del quiz che nominano creature e oggetti. Il nome vero sta in `db_creature.hsp`/`db_item.hsp`: tradurlo qui prima farebbe divergere la risposta dal nome che il giocatore legge |
 | parti meccaniche (`text.hsp:1387-1402`) | 6 | verificato che compaiono anche in `db_item.hsp` |
-| **totale** | **157** | |
+| **totale** | **154** | |
+
+**Tre uscite il 2026-08-08: `blessed`, `cursed`, `doomed`.** Erano rinviate
+perché si antepongono al nome e in italiano un participio si accorderebbe con
+un oggetto di genere ignoto. La premessa del rinvio — «i nomi di `db_item.hsp`
+non li risolviamo in questa fase» — è caduta quando i nomi sono entrati nella
+catena, e la forma è la stessa degli epiteti del materiale: **complemento**,
+«con benedizione», che non chiede accordo a nessuno. Le tre stringhe si
+spostano in coda con `locvar_itemname_s7` (`item_func.hsp:1204, 1207, 1210`,
+solo il ramo inglese).
+
+Il resto del loro motivo **non** è caduto: il sistema dei nomi casuali resta
+rinviato, ed è un problema suo.
 
 ⚠️ **Il conto è cresciuto da 68 a 157 in un lotto solo**, ed è quasi tutto la
 stessa dipendenza: i nomi di creature e oggetti della Fase 2. Vale la pena

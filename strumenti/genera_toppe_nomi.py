@@ -283,25 +283,47 @@ for primo, ultimo, lettura, giunto in DA_ANTEPORRE:
         "motivo": f"il materiale si antepone in inglese e segue in italiano: qui si mette da parte in locvar_itemname_s6 col giunto «{giunto.strip()}», e si riversa dopo *skipName. Il giunto sta nella toppa e non nel dato perche' mtname lo legge anche command.hsp, dove «fatto di» + «di cuoio» direbbe due volte la stessa preposizione",
     })
 
-# l'azzeramento, una volta per chiamata, prima di ogni ramo
+# 15-17. benedizione, maledizione e dannazione: stessa storia dell'epiteto.
+#        `strblessed` si antepone e in italiano «benedetto» seguirebbe il nome
+#        **accordandosi** — «mantello benedetto», «pozione benedetta» — e il
+#        genere non si conosce. Diventano complementi («con benedizione») e
+#        vanno in una coda **loro**, perche' l'ordine italiano e' materiale
+#        prima e stato dopo: «mantello leggero di platino con benedizione».
+#        Solo il ramo inglese: nel ramo `jp` (riga 1151) l'ordine e' gia' quello
+#        giusto e le stringhe giapponesi non si toccano.
+for stato in ('strblessed', 'strcursed', 'strdoomed'):
+    righe_stato = [i for i in range(1200, 1213)
+                   if ITEM[i - 1].strip() == f'locvar_itemowner_s = {stato} + " "']
+    assert len(righe_stato) == 1, (stato, righe_stato)
+    riga = ITEM[righe_stato[0] - 1]
+    toppe.append({
+        "file": "item_func.hsp",
+        "cerca": riga,
+        "sostituisci": f'{ind(riga)}locvar_itemname_s7 = " " + {stato}',
+        "motivo": f"{stato} si antepone al nome; in italiano e' un complemento che segue («con benedizione»), perche' un participio si accorderebbe con un oggetto di genere ignoto. Coda separata dal materiale: prima il materiale, poi lo stato",
+    })
+
+# l'azzeramento delle due code, una volta per chiamata, prima di ogni ramo
 blocco = fetta(ITEM, 1143, 1144)
 assert blocco[0].strip() == 'item_checkknown itemname_itemid', blocco[0]
 toppe.append({
     "file": "item_func.hsp",
     "cerca": blocco,
-    "sostituisci": [f'{ind(blocco[0])}locvar_itemname_s6 = ""'] + blocco,
-    "motivo": "azzera la coda del materiale a ogni chiamata di itemname(): senza, il materiale dell'oggetto precedente resterebbe attaccato al successivo",
+    "sostituisci": [f'{ind(blocco[0])}locvar_itemname_s6 = ""',
+                    f'{ind(blocco[0])}locvar_itemname_s7 = ""'] + blocco,
+    "motivo": "azzera le due code (materiale e stato) a ogni chiamata di itemname(): senza, la coda dell'oggetto precedente resterebbe attaccata al successivo",
 })
 
-# il riversamento
+# il riversamento, nell'ordine italiano: prima il materiale, poi lo stato
 blocco = fetta(ITEM, 1805, 1806)
 assert blocco[0].strip() == '*skipName', blocco[0]
 toppe.append({
     "file": "item_func.hsp",
     "cerca": blocco,
     "sostituisci": [blocco[0],
-                    f'{ind(blocco[1])}locvar_itemowner_s += locvar_itemname_s6'] + blocco[1:],
-    "motivo": "riversa il materiale dopo il nome. Sta su *skipName perche' e' il punto dove tutti i rami del nome convergono: sui singoli rami se ne dimenticherebbe uno e il materiale sparirebbe in silenzio. Ed e' prima dell'articolo inglese, che si antepone",
+                    f'{ind(blocco[1])}locvar_itemowner_s += locvar_itemname_s6',
+                    f'{ind(blocco[1])}locvar_itemowner_s += locvar_itemname_s7'] + blocco[1:],
+    "motivo": "riversa materiale e stato dopo il nome, in quest'ordine («mantello di platino con benedizione»). Sta su *skipName perche' e' il punto dove tutti i rami del nome convergono: sui singoli rami se ne dimenticherebbe uno e la coda sparirebbe in silenzio. Ed e' prima dell'articolo inglese, che si antepone",
 })
 
 # 15. il buffer dei materiali: 18 byte non bastano all'italiano

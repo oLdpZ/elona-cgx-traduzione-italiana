@@ -1,0 +1,3 @@
+{"firma": "1c847b0a34f32b4f006c459cd8b5de846b90186f", "file": "text.hsp", "riga": 182, "occorrenza": 0, "jp": "呪われた", "jp_grezzo": "\"呪われた\"", "en": "cursed", "en_grezzo": "\"cursed\"", "tipo": "statica", "contesto": "", "it": "con maledizione"}
+{"firma": "b67a17ecd931a4e60b040a58e9558b984a92b1aa", "file": "text.hsp", "riga": 183, "occorrenza": 0, "jp": "祝福された", "jp_grezzo": "\"祝福された\"", "en": "blessed", "en_grezzo": "\"blessed\"", "tipo": "statica", "contesto": "", "it": "con benedizione"}
+{"firma": "1d7778105468be2c6a29212c1171df84f3f17429", "file": "text.hsp", "riga": 192, "occorrenza": 0, "jp": "堕落した", "jp_grezzo": "\"堕落した\"", "en": "doomed", "en_grezzo": "\"doomed\"", "tipo": "statica", "contesto": "", "it": "con dannazione"}

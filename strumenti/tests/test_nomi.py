@@ -482,3 +482,40 @@ def test_il_buffer_dei_materiali_sta_largo_per_l_italiano():
     nuovo, _ = applica_toppe("item_data.hsp", testo, toppe)
     assert "sdim mtname, 18, 2, ITEM_MATERIAL_MAX" not in nuovo
     assert "sdim mtname, 48, 2, ITEM_MATERIAL_MAX" in nuovo
+
+
+# ---------------------------------------------------------------------------
+# Benedizione e maledizione: complementi, come gli epiteti (2026-08-08).
+#
+# `strblessed`/`strcursed`/`strdoomed` si antepongono al nome
+# (`item_func.hsp:1204, 1207, 1210`, ramo inglese). In italiano «benedetto»
+# segue il nome **e si accorda**: «mantello benedetto», «pozione benedetta».
+# Il genere non si conosce, come per gli epiteti del materiale, e la soluzione
+# e' la stessa: un complemento che non chiede accordo a nessuno.
+#
+# Erano in `rinviate.jsonl` dal 2026-08-07, e il motivo diceva «va deciso
+# insieme ai nomi di db_item.hsp, che la Fase 1 dichiara di non risolvere».
+# Quella premessa e' caduta il 2026-08-08, quando i nomi sono entrati nella
+# catena. L'altra meta' del motivo -- il sistema dei nomi casuali -- resta.
+# ---------------------------------------------------------------------------
+
+def test_lo_stato_dell_oggetto_non_si_antepone_piu():
+    righe = [r.strip() for r in _item_func_toppato().split("\r\n")]
+    prima_del_nome = righe[:righe.index("*skipName")]
+    for stato in ("strblessed", "strcursed", "strdoomed"):
+        anteposti = [r for r in prima_del_nome
+                     if r.startswith("locvar_itemowner_s") and stato in r]
+        # nel ramo `jp` resta al suo posto: li' l'ordine e' quello giusto
+        assert len(anteposti) == 1, f"{stato}: {anteposti}"
+        assert "locvar_itemname_s2 = " not in anteposti[0]
+
+
+def test_lo_stato_si_riversa_dopo_il_materiale():
+    # «mantello leggero di platino con benedizione»: prima il materiale, poi
+    # lo stato. Sono due code distinte proprio per questo -- una sola le
+    # metterebbe nell'ordine in cui l'inglese le scrive, che e' l'inverso
+    righe = [r.strip() for r in _item_func_toppato().split("\r\n")]
+    materiale = righe.index("locvar_itemowner_s += locvar_itemname_s6")
+    stato = righe.index("locvar_itemowner_s += locvar_itemname_s7")
+    assert materiale < stato
+    assert righe.count('locvar_itemname_s7 = ""') == 1
