@@ -108,6 +108,13 @@ scrivere, probabilmente la stringa va tradotta.
 | soma | la bevanda vedica (`db_item.hsp`: pozione superiore), giapponese ソーマ. **Parola italiana identica all'inglese** nel significato religioso. ⚠️ Esiste anche l'italiano «soma» femminile, «bestia da soma»: è un omografo, non una traduzione |
 | aqua sanctio | nome latino (`db_item.hsp`: pozione superiore), giapponese サンクティオ. Il latino è latino in tutte e due le lingue: tradurlo con «acqua santa» direbbe un'altra cosa |
 | mana | la risorsa magica (`db_item.hsp`: pergamena e bacchetta). È lo **stesso termine** di `Mana` qui sopra, ma minuscolo, e il confronto è sensibile alle maiuscole: senza questa riga la resa corretta verrebbe segnalata |
+| katana | arma (`db_item.hsp`, `/sharp/`), giapponese 刀. **Prestito acquisito in italiano**, femminile — «la katana» — e invariato al plurale come i prestiti non adattati. «Spada giapponese» sarebbe la definizione, non il nome |
+| wakizashi | arma (`db_item.hsp`, `/sharp/`), giapponese 忍刀; prestito acquisito, maschile, invariato al plurale. ⚠️ Il giapponese dice 忍刀 («spada ninja»), non 脇差: l'inglese ha scelto `wakizashi` e si traduce dall'inglese |
+| kunai | arma (`db_item.hsp`, `/sharp/`), giapponese 苦無; prestito acquisito, maschile, invariato al plurale |
+| shuriken | arma (`db_item.hsp`, `/sharp/`), giapponese 手裏剣; prestito acquisito, maschile, invariato al plurale |
+| nunchaku | arma (`db_item.hsp`, `/metal/`), giapponese 節棍; prestito acquisito, maschile, invariato al plurale |
+| shakujo | bastone del monaco buddhista (`db_item.hsp`, `/metal/`), giapponese 錫杖. Meno noto degli altri quattro, ma **oggetto reale con un nome proprio**: «bastone da monaco» sarebbe una perifrasi |
+| tomahawk | arma (`db_item.hsp`, `/sharp/`), giapponese 投斧 («ascia da lancio»). L'inglese ha scelto il nome algonchino, che l'italiano ha acquisito identico; maschile, invariato al plurale |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 

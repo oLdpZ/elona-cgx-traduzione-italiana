@@ -95,6 +95,38 @@ progetti.
 | Port Kapul | Porto Kapul | `Port` è parola comune, `Kapul` no: vedi la regola qui sotto |
 | Cyber Dome | Cupola Cibernetica | idem, entrambe le parole sono comuni |
 
+## Armi e armature
+
+Il lotto dell'equipaggiamento (`db_item.hsp`, filtri `/metal/`, `/sharp/`,
+`/soft/`, 94 nomi, 2026-08-08). Questi termini sono **teste di famiglia**: si
+ripresentano decine di volte con un modificatore davanti, e cambiarne uno dopo
+significa ritradurre tutta la famiglia.
+
+| EN | IT | note |
+|---|---|---|
+| shield | scudo | `kite shield` → «scudo a mandorla», che è il nome storico italiano; `tower shield` → «scudo a torre» |
+| mail | corazza | ⚠️ **non** «cotta»: `chain mail` è «cotta di maglia» perché lì la cotta è la cosa, ma `plate mail` è «corazza a piastre» e `light mail` «corazza leggera» |
+| armor | armatura | resta distinto da `mail`: l'inglese usa i due, e l'italiano ha entrambe le parole |
+| helm | elmo | |
+| gauntlets | guanti d'arme | ⚠️ distinti da `gloves` → «guanti». La coppia regge la distinzione che l'inglese fa fra protezione e indumento. **Eccezione nota**: `decorated gloves` è reso «guanti d'arme decorati» benché l'inglese dica *gloves* — nel sorgente sta nello stesso ramo di `thick gauntlets` (`item_func.hsp:1849-1850`), quindi è un guanto d'arme che l'inglese chiama male |
+| boots | stivali | maschile **plurale**: il genere nel dizionario è `mp` e l'articolo è partitivo, «degli stivali» |
+| shoes | scarpe | femminile plurale, `fp` |
+| girdle | cintura | |
+| cloak | mantello | |
+| composite | composito | l'aggettivo della famiglia «lega/sintetico» di Elona: `composite ring/helm/mail/girdle` → «composito, -a». Coerente con `composite boots` → «stivali compositi», già in dizionario |
+| armored | corazzato | `armored ring/boots/cloak` |
+| plate | a piastre | complemento e non aggettivo: `plate mail` → «corazza a piastre», `plate girdle` → «cintura a piastre» |
+| scythe / sickle | falce / falcetto | due oggetti diversi in Elona, e l'italiano li distingue per taglia |
+| lance / spear | lancia da cavaliere / lancia | l'inglese ha due parole, l'italiano una sola: la distinzione si tiene col complemento, non con un secondo sostantivo |
+| bow / crossbow | arco / balestra | |
+| claymore | spadone | il giapponese dice 大剣, «grande spada»: il nome scozzese in italiano non aggiunge nulla, «spadone» è la parola vera |
+| bardish | ascia lunga | 大斧, «grande ascia». «Bardiche» in italiano non si legge, e resta distinta da `battle axe` → «ascia da battaglia» |
+
+I sette prestiti giapponesi del lotto — `katana`, `wakizashi`, `kunai`,
+`shuriken`, `nunchaku`, `shakujo`, `tomahawk` — restano invariati e stanno in
+`invariati.md`: sono nomi acquisiti, e il verificatore li segnalerebbe come
+«traduzione identica all'inglese» se non fossero dichiarati.
+
 ## La regola dei nomi propri
 
 Decisa il 2026-08-07 insieme a `Chaos` e ai cinque toponimi aperti, e valida per
