@@ -241,6 +241,7 @@ scrivere, probabilmente la stringa va tradotta.
 | <Yomi-To> | artefatto (`db_item.hsp`), giapponese 《黄泉戸欠片》: **l'inglese è già una romanizzazione o una coniazione**, non una descrizione. Come `<Zantetsuken>`: se l'inglese non dice niente, non c'è niente da rendere |
 | <Zugaikurai> | artefatto (`db_item.hsp`), giapponese 《ズガイクライ》, **traslitterato** in katakana dentro la marca 《》: quando l'originale traslittera non legge il nome come descrizione. Come `<Mournblade>` |
 | <Zwiebel> | artefatto (`db_item.hsp`), giapponese 《ゴルネ・ツィーベル》, **traslitterato** in katakana dentro la marca 《》: quando l'originale traslittera non legge il nome come descrizione. Come `<Mournblade>` |
+| slot machine | macchina da gioco d’azzardo (`db_item.hsp`), giapponese スロットマシーン: **prestito acquisito in italiano**, femminile e invariato al plurale. «Macchina mangiasoldi» è gergo, non il nome |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 
