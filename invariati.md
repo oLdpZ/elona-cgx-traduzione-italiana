@@ -255,6 +255,14 @@ scrivere, probabilmente la stringa va tradotta.
 | romias | cibo di Elona+ (`db_item.hsp`), giapponese ロミアス: e' il personaggio `Lomias`, gia' invariato, con la r/l del giapponese. Nome proprio opaco, maschile, invariato |
 | stomafillia | erba di Elona (`db_item.hsp`), giapponese ストマフィリア: nome opaco del canone, come `alraunia`. Femminile per la desinenza, invariata al plurale |
 | curaria | erba di Elona (`db_item.hsp`), giapponese キュラリア: nome opaco del canone, come `morgia`. Femminile per la desinenza, invariata al plurale |
+| ocarina | strumento musicale (`db_item.hsp`), giapponese オカリナ: **parola italiana identica all'inglese** — l'ocarina e' un'invenzione italiana e il nome e' il nostro. Coincidenza come `mica` e `guava`, non una traduzione dimenticata |
+| daruma | bambola portafortuna (`db_item.hsp`), giapponese だるま: nome opaco, oggetto giapponese senza nome italiano. Maschile, invariato al plurale |
+| kotatsu | tavolo riscaldato (`db_item.hsp`), giapponese こたつ: prestito acquisito nei testi italiani sul Giappone; «tavolo riscaldato» sarebbe la definizione, non il nome |
+| chochin | lanterna di carta (`db_item.hsp`), giapponese 提灯: l'inglese e' gia' una **romanizzazione**, non una descrizione. `lantern` resta reso «lanterna» dove l'inglese dice lantern |
+| wadaiko | tamburo giapponese (`db_item.hsp`), giapponese 和太鼓: romanizzazione, come `chochin`. Maschile, invariato al plurale |
+| koma-inu | cane-leone dei santuari (`db_item.hsp`), giapponese 阿形の狛犬 e 吽形の狛犬: romanizzazione. **Una riga copre tutti e due gli oggetti**, perche' il confronto e' sulla stringa inglese e in inglese sono lo stesso nome |
+| zizou | statua di Jizo (`db_item.hsp`), giapponese 地蔵: romanizzazione di un nome proprio buddhista. «Statua di Jizo» sarebbe la definizione |
+| kumiromi-gurumi | peluche di Kumiromi (`db_item.hsp`), giapponese くみろみぐるみ: **coniazione** sul giapponese ぬいぐるみ, e l'inglese la riporta tale e quale. Nome opaco e scherzoso, come `yith-yaki` |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 
