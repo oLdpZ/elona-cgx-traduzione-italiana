@@ -1,101 +1,151 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-08, fine della nona sessione.
+Aggiornato: 2026-08-09, fine della decima sessione.
 
 ## La prima cosa da fare domani
 
-**Il collaudo in gioco di tutto quel che è stato fatto oggi.** Sono sei blocchi
-e nessuno è stato visto a schermo. Non è pigrizia: nessuno di essi si vede da un
-negoziante qualsiasi, e servono posti diversi.
+**Il collaudo in gioco di `db_item.hsp`**, che oggi è arrivato al 100% e di cui
+non si è visto a schermo quasi niente. Il gioco è già pronto:
+`C:\Games\Elona\elonaplus2.31\cgx-test.exe` è la build di stasera.
 
 | cosa guardare | dove | cosa deve uscire |
 |---|---|---|
-| equipaggiamento (94 nomi) | **fabbro** | «uno scudo», «un elmo da cavaliere», «degli stivali corazzati» |
-| cibo e pesci (48 nomi) | **negoziante di cibo**, pesca | «una capasanta», «un pesce sciabola», «delle patatine fritte» |
-| qualità dell'arredo | **magazzino di casa** | «un tavolo moderno **di fattura scadente**», non «un shabby tavolo moderno» |
-| taglia | un oggetto da **quest** | «… **di taglia enorme**», non «grown huge» |
-| qualità del manoscritto | un **manoscritto** | «(sublime)» fra parentesi |
-| libro prodotto | un **libro scritto dal giocatore** | «un libro sublime», e al plurale «2 libri sublimi» |
+| arredamento, 146 nomi | **magazzino di casa** | «un tavolo moderno **di fattura scadente**», «una toeletta pregiata», «un letto matrimoniale» |
+| nomi composti | magazzino, cimitero | «**tomba ornata di fiori**», «atto dell'accampamento» — il giunto è « di » e il plurale viene dal dizionario |
+| attrezzi, 107 nomi | **negoziante generico**, fabbro | «una canna da pesca», «un sacco a pelo», «un kit di pronto soccorso» |
+| cibo, 51 nomi | **negoziante di cibo** | «una polpetta di riso», «della carne secca», «un uovo» → al plurale «2 uova» |
+| artefatti | un artefatto qualsiasi | «`<Mantello dell'Eroe>`» tradotto, «`<Turahagi>`» invariato |
 
-Il fabbro e il negoziante di cibo coprono i due lotti grossi e si fanno in
-cinque minuti. Gli altri quattro sono rari e possono aspettare l'occasione.
+⚠️ **Il posto dove guardare è la lista di un negoziante**, non l'inventario:
+serve vedere pile da due o più. Per l'arredamento serve il **magazzino di casa**.
+
+I sei blocchi della nona sessione sono già stati collaudati stamattina e sono
+usciti tutti giusti.
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-python -m pytest strumenti/tests -q        # atteso: 291 passed, 2 skipped
+python -m pytest strumenti/tests -q        # atteso: 297 passed, 2 skipped
 python -m strumenti.prova_identita         # atteso: 72/72, 27.813, ambigue 0
 python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre
+python -m strumenti.categorie              # atteso: 0 voci ancora da tradurre
 ```
 
 ## Dove siamo
 
-**Dodici commit oggi, tutti verdi, e per la prima volta il branch è pushato.**
-`db_item.hsp` è passato dal 47% al 63% in una sessione.
+**`db_item.hsp` è il primo file completo del progetto**: 1.605 firme su 1.606.
+La mancante è `<Pants of Ogre>`, **rinviata** alla Fase 2 e non dimenticata.
 
-- Branch `fase-0`, **allineato con `origin`** (`ae93f63`). Il conto esatto lo dà
-  `git status -sb`, non questo documento
-- [PR #1](https://github.com/oLdpZ/elona-cgx-traduzione-italiana/pull/1) sempre
-  aperta verso `master`, mai unita
-- Sorgente pinnato al tag `2.31.2.0` (`a9135a6`), manifesto 72/72
-- **291 test** (erano 281), prova d'identità **72/72 byte per byte, 27.813
-  sostituzioni**, **35 toppe** (7 a mano, 28 generate), 1.907 sostituzioni nella
-  build, il compilatore non dice nulla
+Dieci commit oggi, tutti verdi, **tutti pushati**. Branch `fase-0` allineato con
+`origin` (`55a3f02`), [PR #1](https://github.com/oLdpZ/elona-cgx-traduzione-italiana/pull/1)
+sempre aperta verso `master`. Sorgente pinnato al tag `2.31.2.0`, manifesto 72/72.
 
 | file | tradotte | firme | % |
 |---|---|---|---|
 | `text.hsp` | 681 | 1.740 | 39% |
-| `db_item.hsp` | **1.007** | 1.606 | **63%** |
+| `db_item.hsp` | **1.605** | 1.606 | **100%** |
 | `item_data.hsp` | 83 | 318 | 26% |
 | gli altri cinque | 0 | 4.948 | 0% |
-| **totale** | **1.777** | **8.612** | **21%** |
+| **totale** | **2.369** | **8.612** | **28%** |
 
-Rinviate: **119** (erano 154).
+**297 test** (erano 291), prova d'identità **72/72 byte per byte, 27.813
+sostituzioni**, **2.505 sostituzioni nella build** (erano 1.907), il compilatore
+non dice nulla. Rinviate: **120**. Righe in `invariati.md`: **289**.
 
-## Le due cose imparate oggi, che valgono oltre oggi
+## La cosa imparata oggi che vale più di tutte
 
-### «Stessa forma» è un'ipotesi, non un fatto
+### Il residuo non esisteva
 
-Questo documento, ieri, dava `_furniture`, `_bookself`, `_weight` e
-`_bookselfs` per «la stessa identica forma». Sono quattro array di aggettivi
-prefissi in `text.hsp`: nel **dizionario** si somigliano. Nel **codice** no, e
-hanno chiesto quattro cure diverse:
+Ieri questo documento diceva che `db_item.hsp` aveva 599 nomi «senza filtro», un
+**residuo** da affrontare a occhio, e che il criterio nuovo sarebbe stata «la
+forma del nome». La forma del nome è servita per i 169 artefatti. Gli altri 430
+li ha sciolti una cosa che era lì da sempre:
 
-- `_furniture` — prefisso vero: toppa che lo sposta in `locvar_itemname_s6`;
-- `_bookself` — esce **già fra parentesi**, dove la parola sta da sola:
-  **nessuna toppa**, solo dato. L'unico caso in cui il sorgente andava bene;
-- `_weight` — già suffisso, ma con giunto « grown ». La cura non è la posizione
-  ma **il giunto**: « di taglia » introduce una testa femminile fissa, e
-  l'accordo smette di dipendere dal genere dell'oggetto;
-- `_bookselfs` — finisce nello **slot della parola-contatore**: vuole il
-  trattamento di `contatori.jsonl`, non quello di `_furniture`.
+```
+if ( dbid == ITEM_ID_HAMBURGER ) {
+    ...
+    reftype = FILTER_ITEM_FOOD
+```
 
-**La regola: prima di scrivere la toppa si guarda il sito di concatenazione.**
-La somiglianza nel dizionario non dice niente su dove il codice mette la
-stringa. Vedi [[stessa-forma-va-verificata-nel-codice]].
+**Ogni oggetto dichiara la propria categoria dentro il proprio blocco.** Sono
+1.320 oggetti classificati dal sorgente, e con quella chiave il residuo torna a
+essere fatto di classi. Cinque lotti su sei sono usciti da lì.
 
-### Il criterio della classe ha finito il suo lavoro
+> **Prima di dichiarare che una cosa non ha struttura, si cerca dove il codice
+> la struttura.**
 
-I lotti dal terzo al sesto sono stati scelti per `filter_item`, e ha funzionato
-ogni volta: una classe raccoglie oggetti che pongono la **stessa domanda**.
-Adesso in `db_item.hsp` restano **599 nomi, ed è esattamente il gruppo senza
-filtro** — cioè un residuo, non una classe.
+Lo strumento è `strumenti/categorie.py`, con cinque test:
 
-Dentro ci sono **169 artefatti fra `<>`**. Per quelli la domanda non è di resa
-ma di **invarianza**: nome opaco (resta, e va in `invariati.md` con la sua
-ragione) contro nome descrittivo (si traduce, come `<Abyss Princess>` →
-«`<Principessa dell'Abisso>`»). È lavoro di decisione, e il criterio nuovo sarà
-la **forma del nome**, non più il filtro.
+```powershell
+python -m strumenti.categorie
+python -m strumenti.categorie --categoria FILTER_ITEM_TOOL --uscita lavoro/x.jsonl
+```
 
-## Il pezzo fragile costruito oggi
+⚠️ **Non è stato ancora usato sugli altri file.** `item_data.hsp` ha 235 voci e i
+cinque file mai guardati ne hanno 4.948: nessuno di loro è stato letto con questa
+chiave. È la prima cosa da provare prima di decidere come tagliarli.
 
-Fra `contatori.jsonl` e il dizionario il legame è **per stringa**: il `case`
-dello switch confronta la resa del primo con quella che l'array porta a runtime,
-che viene dal secondo. Se divergono il `case` non aggancia mai, e **restano
-verdi sia il compilatore sia la prova d'identità**.
+## Le altre tre, più corte
 
-Ora lo pretendono `genera_toppe_nomi.py` (alla generazione) e un test (a ogni
-giro). Chi tocca una delle sette rese di `_bookselfs` deve toccarle tutte e due
-le volte.
+### La marca 《》 decide l'invarianza degli artefatti
+
+Per i 169 nomi fra `<>` la domanda non era di resa ma di invarianza. La regola,
+in tre gradini di precedenza:
+
+1. l'inglese è **romanizzazione, coniazione o sigla** → invariato;
+2. il giapponese è fra 《》 **e traslitterato** → invariato;
+3. il giapponese è **descrittivo in kanji**, o non porta la marca → tradotto.
+
+Il pezzo nuovo è la marca 《》, e viene dai dati: 157 su 169 ce l'hanno, e i
+dodici che non ce l'hanno sono esattamente quelli che si leggono come oggetti
+ordinari (`<Dog Whistle>` 犬笛). La regola **riproduce tutti e otto i precedenti
+già presi**, ed è questa la prova che non è stata cucita addosso al lotto.
+
+Esito: 105 invariati, 63 tradotti, 1 rinviato.
+
+### Il registro dice il termine, il dizionario dice il segmento
+
+`contatori.jsonl` registra `grave` → «tomba», il dizionario rende lo stesso
+`grave` con «tomba ornata». Sembrava una divergenza; non lo è, e a dirlo è il
+**sito di concatenazione**.
+
+Il nome si monta `s2 + " " + s3 + " " + s1`, e la toppa 3 fissa il giunto a «di».
+Le due parti sono «tomba ornata» e «fiori» → **«tomba ornata di fiori»**.
+L'aggettivo sta in `s2` perché **è lì che può accordarsi con la testa**: con
+«tomba» in `s2` uscirebbe «tomba di ornata di fiori».
+
+Il test nuovo pretende quindi che la resa del dizionario **cominci con** il
+termine del registro — non che sia uguale. Copre 39 teste che prima non guardava
+nessuno.
+
+### Una procura non è una proprietà
+
+`test_i_nomi_di_db_item_non_sono_rinviati_da_text` asseriva `== set()`: vero
+solo finché `db_item.hsp` non aveva rinvii suoi. Col primo rinvio legittimo è
+caduto **senza che la proprietà difesa fosse violata**.
+
+> Quando un test cade, la prima domanda è se sia caduta la proprietà o la
+> procura.
+
+## Cosa resta, in ordine
+
+1. **il collaudo in gioco** di oggi (tabella in cima)
+2. **`item_data.hsp`**, 235 voci mai guardate — provare prima `categorie.py`
+3. le **119 voci rinviate** di `text.hsp`, di cui 30 sono il sistema dei nomi
+   casuali
+4. i nomi di **creatura** — lavoro **atomico** insieme ai 424 `evold`/`evname`
+   di `action.hsp`, mai prima e mai dopo (§5 di `contratto-nomi.md`)
+
+## Il prezzo dei nomi di creatura — da non dimenticare
+
+`db_creature.hsp` fa `cdatan(CDATAN_NAME, rc) = lang(…)`: **scrive i nomi nel
+salvataggio**. Sono la stessa classe di `CDATAN_NEWSEX`, e sono ciò contro cui si
+confrontano i **424 `evold`/`evname`** di `action.hsp`. Vanno tradotti nello
+stesso momento di quelli, o il confronto fallisce **in silenzio**.
+
+⚠️ Da oggi c'è un vincolo in più, piccolo ma reale: `<Pants of Ogre>` aspetta
+quella decisione. In `db_creature.hsp` **`orc` e `ogre` convivono** (`orc
+warrior`, `black orc` contro `slash ogre`, `shine ogre`), quindi «orco» non può
+coprirle entrambe.
 
 ## Il disegno dei nomi, in una riga
 
@@ -103,71 +153,12 @@ le volte.
 > L'**articolo** no: è una derivata del genere, e la calcola `strumenti/articolo.py`.
 
 I quattro generi sono `m`, `f`, `mp`, `fp`: il **numero fa parte del dato**.
-Oggi è servito parecchio — «stivali», «guanti», «calzini» sono `mp`; «cesoie»,
-«scarpe», «mutandine», «patatine fritte» sono `fp`.
 
-⚠️ **Le parole-contatore cablate vincono sull'array dell'articolo**, al
-contrario di quel che fanno col plurale: «un paio di stivali pesanti», non
-«degli stivali pesanti».
+⚠️ **Le parole-contatore cablate vincono sull'articolo dell'array**: «un paio di
+stivali pesanti», non «degli stivali pesanti».
 
-⚠️ **`unicorn horn` ha genere `m` e plurale «corna di unicorno».** Non è
-un'incoerenza: in italiano «corno» fa «corna» quando sono di un animale, ed è il
-caso in cui i due campi del dizionario dicono davvero cose diverse.
-
-## Cosa è stato costruito, in ordine
-
-1. **`_furniture`** — 11 rese a complemento, una toppa a `item_func.hsp:1324`;
-2. **`_weight` + `_bookself`** — 17 rese, una toppa **sul giunto**;
-3. **`_bookselfs`** — 7 teste con singolare, plurale, genere e i `case` nei due
-   switch; riallineata anche la scala del manoscritto, perché le due scale sono
-   **la stessa scala** e due rese diverse si leggerebbero come due cose diverse;
-4. **equipaggiamento** — 94 nomi (`/metal/`, `/sharp/`, `/soft/`) e la sezione
-   «Armi e armature» del glossario;
-5. **cibo, piante e pesci** — 48 nomi;
-6. **tutte le classi dichiarate** — 108 nomi, undici filtri.
-
-## Le lezioni di resa
-
-**Dove l'italiano ha un nome vero, si usa quello.** `hotate` → «capasanta»,
-`cutlassfish` → «pesce sciabola», `spotted garden eel` → «anguilla giardiniera».
-E quando due pesci rischiano lo stesso nome si separano: `manboo` → «pesce
-luna», `moonfish` → «pesce re».
-
-**L'inglese si traduce, tranne quando è una svista.** `dog sister's diary` e
-`cat sister's diary` traducono 姉の秘密の日記 e 妹の秘密の日記, cioè «il diario
-**segreto** della sorella maggiore/minore». La resa letterale avrebbe dato
-«diario della sorella cane». Qui si è derogato, e la deroga è dichiarata.
-
-**Il verificatore che rifiuta il lotto intero è un pregio.** Ha bloccato
-l'equipaggiamento finché i sette prestiti giapponesi non erano in
-`invariati.md`. È la regola «si dichiara, non si evita» che morde invece di
-lasciar passare.
-
-**Un'immagine piccola non è una prova — seconda volta in due giorni.** Un «1 un
-mucchio di bottiglie vuote» letto di fretta ha aperto un'indagine su un difetto
-che non esisteva. Prima di dare la caccia, ingrandire.
-
-Vedi [[dato-o-derivata]], [[plurale-e-un-dato-non-una-regola]],
-[[toppe-generate-dal-sorgente]], [[genere-ignoto-si-risolve-col-complemento]]
-e [[stessa-forma-va-verificata-nel-codice]].
-
-## Cosa resta, in ordine
-
-1. **il collaudo in gioco** dei sei blocchi di oggi (tabella in cima)
-2. i **599 nomi** senza filtro di `db_item.hsp`, di cui **169 artefatti fra
-   `<>`**: lavoro di decisione sull'invarianza, non di traduzione
-3. le altre **235 voci** di `item_data.hsp`, mai guardate
-4. le **119 voci rinviate** di `text.hsp`, di cui 30 sono il sistema dei nomi
-   casuali — aggettivi condivisi fra sei classi di sostantivo di genere diverso
-5. i nomi di **creatura** — lavoro **atomico** insieme ai 424 `evold`/`evname`
-   di `action.hsp`, mai prima e mai dopo (§5 di `contratto-nomi.md`)
-
-## Il prezzo dei nomi di creatura — da non dimenticare
-
-`db_creature.hsp` fa `cdatan(CDATAN_NAME, rc) = lang(…)`: **scrive i nomi nel
-salvataggio**. Sono la stessa classe di `CDATAN_NEWSEX`, e sono ciò contro cui
-si confrontano i **424 `evold`/`evname`** di `action.hsp`. Vanno tradotti nello
-stesso momento di quelli, o il confronto fallisce **in silenzio**.
+⚠️ **I due campi possono dire cose diverse, ed è voluto.** `unicorn horn` è `m`
+con plurale «corna»; `bone` è `m` con «ossa»; `egg` è `m` con «uova».
 
 ## Cosa rifare a ogni giro
 
@@ -178,9 +169,9 @@ quali casi qualcuno si è ricordato di coprire.
 python -m strumenti.prova_identita     # atteso: 72/72, 27.813, ambigue 0
 ```
 
-⚠️ **Non giudica le toppe**, che girano dopo in un giro loro. Il loro guardiano
-è la regola «esiste esatto e una volta sola», più il compilatore, **più il
-collaudo in gioco**.
+⚠️ **Non giudica le toppe**, che girano dopo in un giro loro. Il loro guardiano è
+la regola «esiste esatto e una volta sola», più il compilatore, **più il collaudo
+in gioco**.
 
 **Il generatore delle toppe** è il primo comando da rilanciare quando arriva una
 versione CGX nuova:
@@ -188,10 +179,6 @@ versione CGX nuova:
 ```powershell
 python -m strumenti.genera_toppe_nomi   # atteso: 28 generate, tutte «ok»
 ```
-
-Legge anche `contatori.jsonl`: cambiare lì una resa o un genere e rilanciare
-aggiorna singolare, plurale e articolo delle parole-contatore, **comprese le
-sette di `_bookselfs`**, che però vanno cambiate anche nel dizionario.
 
 ## Per rifare la prova in gioco
 
@@ -202,29 +189,40 @@ Copy-Item "C:\Games\Elona\_traduzione\build\2.05-custom-gx\elonapluscgx.exe" "C:
 Start-Process "C:\Games\Elona\elonaplus2.31\cgx-test.exe" -WorkingDirectory "C:\Games\Elona\elonaplus2.31"
 ```
 
-Il titolo mostra **2.31.1.0**: è la costante di versione che il tag non ha
-aggiornato al rilascio, non un errore di build. Copia dei salvataggi in
-`C:\Games\Elona\save-backup\`, più `pre-collaudo-20260808\` fatta oggi.
+⚠️ **La copia fallisce con «Device or resource busy» se il gioco è aperto.**
+Chiuderlo prima.
 
-⚠️ **Il posto dove guardare è la lista di un negoziante**, non l'inventario:
-serve vedere pile da due o più. Per l'arredamento serve invece il **magazzino di
-casa**. Al primo avvio esce «Invalid screen resolution»: si dà OK e si prosegue.
+Il titolo mostra **2.31.1.0**: è la costante di versione che il tag non ha
+aggiornato al rilascio, non un errore di build. Al primo avvio esce «Invalid
+screen resolution»: si dà OK e si prosegue.
+
+### Il personaggio che cammina da solo — risolto il 2026-08-09
+
+Sintomo: in gioco il personaggio si muoveva **da solo verso nord-est**, e solo
+con Elona. Non era la build.
+
+`config.txt` del gioco aveva `joypad. "1"`, e nella macchina ci sono un pad
+Bluetooth associato e **due bus che creano pad virtuali** (Nefarius ViGEm,
+Virtual Desktop). Un pad che appare per un attimo con lo stick fuori centro
+basta: Elona interroga il joystick alla vecchia maniera, i giochi moderni no —
+da qui il «solo con Elona».
+
+**Cura: `joypad. "0"` in `C:\Games\Elona\elonaplus2.31\config.txt`.** Backup in
+`config.txt.bak-prima-joypad0`. La modifica è di **un solo byte**, verificata col
+diff.
+
+⚠️ La diagnosi per esclusione è stata utile e va rifatta così: `joyGetPosEx` su
+tutti e 16 gli ID dice se un pad si presenta **adesso**; se dice
+`JOYERR_UNPLUGGED` ovunque il joystick non è la causa *in quel momento*, ma
+`joypad. "1"` lascia comunque la porta aperta a un pad che compaia dopo.
 
 ### Il gioco si può pilotare da qui
 
-Scoperto oggi, in `collaudo/schermo.ps1`. Serve quando il collaudo va fatto e
-non c'è nessuno a giocare:
+`collaudo/schermo.ps1`. Serve quando il collaudo va fatto e non c'è nessuno a
+giocare: cattura con `CopyFromScreen`, tasti con `keybd_event`, associazioni
+vere in `sorgente/dist/2.05-custom-gx/original/config.txt` (`key_interact` è `i`).
 
-- la finestra si cattura con `CopyFromScreen` — **non** è DirectX esclusivo, la
-  cattura funziona;
-- i tasti si mandano con `keybd_event`, e il gioco li riceve;
-- **le associazioni vere stanno in `sorgente/dist/2.05-custom-gx/original/config.txt`**,
-  non nella documentazione: `key_interact` è `i`, non Invio. Leggerle lì è
-  costato un minuto e ha evitato di tirare a indovinare;
-- il personaggio si trova col **puntino blu della minimappa** in basso a
-  sinistra: la pioggia animata rende inutile il confronto fra due fotogrammi.
-
-⚠️ Pilotarlo è **lento**: ci vogliono molti giri per attraversare una città.
+⚠️ È **lento**, e l'utente preferisce una lista di passi da eseguire lui.
 Conviene solo se non c'è alternativa.
 
 ## Cosa deve esistere fuori dal repo
@@ -247,4 +245,6 @@ Vedi [[terminologia-prima-del-testo]], [[larghezza-per-campo]],
 [[dato-o-derivata]], [[plurale-e-un-dato-non-una-regola]],
 [[toppe-generate-dal-sorgente]], [[genere-ignoto-si-risolve-col-complemento]],
 [[stessa-forma-va-verificata-nel-codice]],
+[[la-categoria-che-il-sorgente-dichiara]], [[registro-e-segmento]],
+[[una-procura-non-e-una-proprieta]],
 [[prova-identita-pipeline-trasformazione]] e [[cp932-perdite-silenziose]].
