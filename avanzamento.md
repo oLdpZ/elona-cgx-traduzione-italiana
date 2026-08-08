@@ -20,9 +20,9 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | `proc.hsp` | 0 | 1.098 | 0% | 1.327 |
 | `skill.hsp` | 0 | 885 | 0% | 894 |
 | `trait.hsp` | 0 | 373 | 0% | 406 |
-| `db_item.hsp` | 86 | 1.606 | 5% | 1.607 |
+| `db_item.hsp` | 252 | 1.606 | 16% | 1.607 |
 | `item_data.hsp` | 83 | 318 | 26% | 318 |
-| **totale** | **815** | **8.612** | **9%** | **9.662** |
+| **totale** | **981** | **8.612** | **11%** | **9.662** |
 
 `item_data.hsp` è entrato il 2026-08-08, e non era nel piano: ci sono i **45
 materiali** (`mtname`), che il primo collaudo ha mostrato anteposti al nome in

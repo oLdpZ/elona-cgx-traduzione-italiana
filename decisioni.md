@@ -444,3 +444,54 @@ sezione di sola prosa non è una decisione, e si ignora.
 La lezione, che vale oltre questo file: una difesa fatta di «fermati al primo
 X» presume che nessuno inserisca niente prima di X. Una fatta di «ogni caso va
 classificato, e il silenzio è un errore» no.
+
+## L'ottava sessione — 2026-08-08
+
+Il secondo lotto dei nomi di `db_item.hsp`: **166 firme**, da riga 150006 a
+151839, cioè tutto quel che restava del **corredo vanilla** in coda al file —
+cibo ed erbe, l'arredamento della casa, le bacchette, i grimori e le pozioni.
+Il lotto non è stato scelto con `--max`: quello prende le prime per **riga**,
+che sono gli oggetti aggiunti da CGX e si vedono solo andandoseli a cercare.
+
+### Quattro decisioni di resa che valgono oltre il lotto
+
+**Il giunto è sempre «di», quindi la testa del nome composto può portarsi
+dietro il participio.** `grave` + `ornamented with flowers` non poteva diventare
+«tomba di fiori ornamentali» senza perdere l'ornamento. La soluzione non è nel
+modificatore ma nella **testa**: `ioriginalnameref2` → «tomba ornata»,
+`ioriginalnameref` → «fiori», e il giunto cablato fa il resto — «tomba ornata
+di fiori», «tombe ornate di fiori». Il pezzo che si flette al plurale è la
+testa, quindi l'accordo del participio viene gratis.
+
+**I nomi di divinità restano complemento, e l'epiteto diventa sostantivo.**
+`potion of sacred healer <Jure>` non poteva essere «pozione di sacra guaritrice
+<Jure>»: il giunto fisso «di» non diventa «della», e senza articolo il
+sintagma non regge. Le quattro pozioni curative diventano una scala di
+sostantivi — «guarigione», «guarigione <Odina>», «guarigione bianca <Eris>»,
+«guarigione sacra <Jure>» — che dopo «pozione di» si leggono tutte. È la
+**quinta** volta che il genere ignoto si risolve col sostantivo invece che con
+l'aggettivo, ed è la prima in cui il vincolo non è il genere ma la preposizione.
+
+**Quando la parola italiana coincide con l'inglese si dichiara, non si evita.**
+Dodici voci su 166: due artefatti che il giapponese traslittera
+(《エーテルダガー》, 《ラグナロク》), quattro frutti inventati da Elona
+(`leccho`, `qucche`, `imo`, `quwapana`), cinque nomi botanici che l'italiano
+scrive uguale (`guava`, `kiwi`, `aloe`, `anemone`, `gazania`) e `whisky`. Sono
+tutte righe di `invariati.md` con un motivo scritto, perché senza `verifica.py`
+rifiuta il lotto intero — ed è il comportamento voluto: una coincidenza
+dichiarata e una traduzione dimenticata si somigliano troppo per distinguerle
+a occhio.
+
+⚠️ **Un nome opaco può collidere con una parola comune italiana.**
+`api nut` (アピの実) reso «noce di api» si legge «noce di insetti». La maiuscola
+lo rimette dov'era: «noce di **A**pi». Da rifare a ogni nome opaco che, tradotto
+alla lettera, produce una parola italiana esistente.
+
+### Due rese scelte per non collidere con un'etichetta
+
+`cheap chair` e `cheap bed` sono «sedia **dozzinale**» e «letto dozzinale», non
+«scadente»: `scadente` è già la prima delle sei qualità dell'oggetto
+(`text.hsp:106`), e le due escono **attaccate** — «una sedia scadente
+(Scadente)». Stessa logica di «l'etichetta si legge dove esce» in
+`guida-stile.md`, applicata al verso opposto: lì si sceglieva l'etichetta
+guardando il nome, qui si sceglie il nome guardando l'etichetta.

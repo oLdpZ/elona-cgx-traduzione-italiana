@@ -83,6 +83,18 @@ scrivere, probabilmente la stringa va tradotta.
 | zylon | materiale (`item_data.hsp`), nome opaco. Esiste una fibra reale omonima, e in italiano si chiama così |
 | mica | materiale (`item_data.hsp`): **il minerale si chiama «mica» anche in italiano**. Coincidenza, come `PER` e `MAG`. ⚠️ In una frase è anche un avverbio di negazione, ma qui la stringa intera è il nome del materiale e non compare mai da sola in prosa |
 | incognito | nome dell'incantesimo (`db_item.hsp`: pergamena e grimorio). **Parola italiana identica all'inglese** — «in incognito» — e quindi la resa naturale coincide. È una coincidenza, come `PER` e `MAG`, non una traduzione dimenticata |
+| <Ether Dagger> | nome proprio opaco di artefatto (`db_item.hsp`), giapponese 《エーテルダガー》, **traslitterato**: come `<Mournblade>` e `<Diablos>`, nemmeno l'originale legge il nome come descrizione |
+| <Ragnarok> | nome proprio opaco di artefatto (`db_item.hsp`), giapponese 《ラグナロク》, traslitterato. Nome del mito norreno, in italiano usato tale e quale |
+| whisky | nome del distillato (`db_item.hsp`), giapponese ウィスキー. **Grafia italiana corrente**: i dizionari registrano «whisky», non una forma adattata |
+| leccho | frutto inventato da Elona (`db_item.hsp`), giapponese レッチョ, traslitterato. Nome opaco, come `rubynus`. Invariato anche al plurale, come l'italiano fa con i nomi di frutti esotici |
+| qucche | frutto inventato da Elona (`db_item.hsp`), giapponese クッチェ; nome opaco, invariato al plurale |
+| imo | tubero inventato da Elona (`db_item.hsp`), giapponese イーモ in katakana — non il 芋 comune; nome opaco, invariato al plurale |
+| quwapana | frutto inventato da Elona (`db_item.hsp`), giapponese クワパナ; nome opaco, invariato al plurale |
+| guava | frutto (`db_item.hsp`): **il nome italiano è «guava»**, identico all'inglese. Coincidenza, come `mica`. Invariato al plurale |
+| kiwi | frutto (`db_item.hsp`): nome italiano identico all'inglese, invariato al plurale |
+| aloe | pianta (`db_item.hsp`): nome italiano identico all'inglese, invariato al plurale |
+| anemone | fiore (`db_item.hsp`), giapponese アネモネの花: nome italiano identico all'inglese al singolare. Il plurale italiano è «anemoni» e sta nel campo `plurale`, che questa lista non tocca |
+| gazania | fiore (`db_item.hsp`), giapponese ガザニアの花: nome italiano identico all'inglese al singolare, plurale «gazanie» |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 
