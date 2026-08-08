@@ -95,6 +95,19 @@ scrivere, probabilmente la stringa va tradotta.
 | aloe | pianta (`db_item.hsp`): nome italiano identico all'inglese, invariato al plurale |
 | anemone | fiore (`db_item.hsp`), giapponese アネモネの花: nome italiano identico all'inglese al singolare. Il plurale italiano è «anemoni» e sta nel campo `plurale`, che questa lista non tocca |
 | gazania | fiore (`db_item.hsp`), giapponese ガザニアの花: nome italiano identico all'inglese al singolare, plurale «gazanie» |
+| Mani | divinità di Elona (`db_item.hsp`: statua e gemma), giapponese マニ. Nome opaco del canone. ⚠️ **La maiuscola non è decorativa**: «mani» minuscolo è una parola italiana comunissima, e la statua si legge «statua di Mani» |
+| Yacatect | divinità di Elona (`db_item.hsp`), giapponese ヤカテクト; nome opaco del canone |
+| Kumiromi | divinità di Elona (`db_item.hsp`), giapponese クミロミ; nome opaco del canone |
+| Ehekatl | divinità di Elona (`db_item.hsp`), giapponese エヘカトル; nome opaco del canone |
+| Jure | divinità di Elona (`db_item.hsp`), giapponese ジュア; nome opaco del canone |
+| Lulwy | divinità di Elona (`db_item.hsp`), giapponese ルルウィ; nome opaco del canone |
+| Opatos | divinità di Elona (`db_item.hsp`), giapponese オパートス; nome opaco del canone |
+| Lomias | personaggio di Elona (`db_item.hsp`: l'esperienza segreta), giapponese ロミアス; nome proprio opaco |
+| Aurtehom | libro orribile di Elona+ (`db_item.hsp`), giapponese アウルテホム, traslitterato; nome opaco alla maniera di Lovecraft |
+| Bokonon | il libro di Bokonon, citazione da *Ghiaccio-nove* di Vonnegut (`db_item.hsp`), giapponese ボコノン: in italiano il romanzo lo lascia «Bokonon» |
+| soma | la bevanda vedica (`db_item.hsp`: pozione superiore), giapponese ソーマ. **Parola italiana identica all'inglese** nel significato religioso. ⚠️ Esiste anche l'italiano «soma» femminile, «bestia da soma»: è un omografo, non una traduzione |
+| aqua sanctio | nome latino (`db_item.hsp`: pozione superiore), giapponese サンクティオ. Il latino è latino in tutte e due le lingue: tradurlo con «acqua santa» direbbe un'altra cosa |
+| mana | la risorsa magica (`db_item.hsp`: pergamena e bacchetta). È lo **stesso termine** di `Mana` qui sopra, ma minuscolo, e il confronto è sensibile alle maiuscole: senza questa riga la resa corretta verrebbe segnalata |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 
