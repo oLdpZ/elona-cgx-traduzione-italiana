@@ -1,130 +1,142 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-08, fine della settima sessione.
+Aggiornato: 2026-08-08, fine dell'ottava sessione.
 
 ## La prima cosa da fare domani
 
-**Il secondo lotto di nomi di `db_item.hsp`.** Il primo è in gioco e la catena
-regge; restano **1.520 nomi**. I prossimi per visibilità sono il cibo e le erbe
-(mela, uva, carota, `tomato`…) e le pozioni e pergamene rimaste (`cure major
-wound`, `restore body`, `teleport other`).
+**Gli 11 aggettivi di `_furniture`** (`text.hsp:56`): `shabby`, `comfy`,
+`royal`, `masterpiece`… Sono l'ultima cosa brutta che si legge, e adesso si
+legge peggio di prima: da quando l'articolo è italiano escono frasi come «**un**
+shabby tavolo moderno». Non è una regressione — prima era «a shabby tavolo
+moderno» — ma è il pezzo col miglior rapporto fra fatica e resa.
+
+Sono **prefissi a un nome di genere ignoto**, cioè esattamente la forma già
+chiusa due volte: materiale ed epiteti (2026-08-08 mattina),
+`blessed`/`cursed`/`doomed` (stessa mattina). La cura è la stessa: **una toppa
+che li sposta in coda** con `locvar_itemname_s6`/`s7`, e la traduzione come
+complemento o aggettivo posposto. Il sito è `item_func.hsp:1324`, dentro il ramo
+`if ( en )`, e le voci stanno in `rinviate.jsonl` col loro motivo.
+
+Dopo quelli, in ordine: `_bookself`/`_bookselfs` (14 voci) e `_weight` (10), che
+sono la stessa identica forma.
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-python -m pytest strumenti/tests -q        # atteso: 236 passed, 2 skipped
+python -m pytest strumenti/tests -q        # atteso: 281 passed, 2 skipped
 python -m strumenti.prova_identita         # atteso: 72/72, 27.813, ambigue 0
 python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre
-python -m strumenti.estrai db_item.hsp --uscita lavoro/fase1-db_item-002.jsonl --da-tradurre --max 120
 ```
-
-⚠️ **L'ordine del file non è l'ordine di visibilità.** I primi per riga sono gli
-oggetti aggiunti da CGX (righe 133934+), che per vederli a schermo bisogna
-andarseli a cercare; gli oggetti vanilla stanno in **coda** (151853→152820), ed è
-da lì che è venuto il primo lotto. Il cibo sta intorno a 150085-150400.
-
-Il lotto va tradotto su **due colonne**, `it` e `plurale`, e ora il cancello lo
-pretende davvero. Le 43 parole-contatore sono in `contatori.jsonl` e non si
-derogano.
 
 ## Dove siamo
 
-**La catena dei nomi è in gioco e funziona**, vista a schermo in quattro
-collaudi. Otto commit, tutti verdi.
+**La catena dei nomi è completa**: nome, plurale, genere, articolo. Quattro
+commit oggi, tutti verdi, `db_item.hsp` è passato dal 5% al 47% in una sessione.
 
-- Branch `fase-0`, **34 commit avanti su origin**, niente pushato
+- Branch `fase-0`, **4 commit avanti su origin**, niente pushato
 - [PR #1](https://github.com/oLdpZ/elona-cgx-traduzione-italiana/pull/1) sempre
   aperta verso `master`, mai unita
 - Sorgente pinnato al tag `2.31.2.0` (`a9135a6`), manifesto 72/72
-- **236 test**, prova d'identità **72/72 byte per byte, 27.813 sostituzioni**,
-  **32 toppe** (7 a mano, 25 generate), la build compila
+- **281 test** (erano 236), prova d'identità **72/72 byte per byte, 27.813
+  sostituzioni**, **33 toppe** (7 a mano, 26 generate), la build compila
 
 | file | tradotte | firme | % |
 |---|---|---|---|
 | `text.hsp` | 646 | 1.740 | 37% |
-| `db_item.hsp` | 86 | 1.606 | 5% |
+| `db_item.hsp` | **756** | 1.606 | **47%** |
 | `item_data.hsp` | 83 | 318 | 26% |
 | gli altri cinque | 0 | 4.948 | 0% |
-| **totale** | **815** | **8.612** | **9%** |
+| **totale** | **1.485** | **8.612** | **17%** |
 
 ## Cosa si legge a schermo adesso
 
 ```
-2 pozioni di cura delle ferite lievi        6 pergamene di identificazione
-8 bottiglie di juice                        7 carichi di traveler's food
-un mantello leggero di platino con benedizione
-una freccia di vetro                        un paio di stivali pesanti di cuoio
+una pozione di cura delle ferite lievi      6 pergamene di identificazione
+un grimorio di dardo caotico                una pozione superiore di calamità
+un atto di nave da guerra                   uno scudo da cavaliere
+un mucchio di bottiglie vuote               un paio di stivali pesanti
 ```
 
-## I quattro difetti chiusi, in ordine di scoperta
+⚠️ Le due righe verificate **a schermo** sono quelle dei nomi e del plurale
+(collaudo delle 10:53). **L'articolo e i 252 composti sono compilati ma non
+ancora visti in gioco**: il collaudo è la prima cosa da fare, prima di
+`_furniture`.
 
-**1. `verifica.py` non guardava il campo `plurale`** (`770df34`). Un lotto con
-`it` pieno e `plurale` vuoto passava senza un fiato. Ora è preteso su ogni nome
-tradotto, coi tre controlli di carattere del singolare.
+## Il disegno dei nomi, in una riga
 
-**2. Le tre toppe della concatenazione avevano perso una guardia** (`e6694a7`).
-Il pluralizzatore inglese spento era protetto da `locvar_itemname_s2 == ""`: si
-flette la parola-contatore **oppure** il nome, mai tutti e due. Senza, «3
-pergamene di identificazion**i**».
+> Il **plurale** e il **genere** sono dati, perché l'italiano non li deduce.
+> L'**articolo** no: è una derivata del genere, e la calcola `strumenti/articolo.py`.
 
-**3. `rinviate.jsonl` era indicizzato per firma, e la firma non porta il file**
-(`7d2f48f`). 15 nomi di `db_item.hsp` sparivano da **ogni** lotto perché una
-decisione presa su `text.hsp` glieli toglieva. Si vedeva solo dal fatto che
-`verifica` ne contava 1.606 ed `estrai` ne offriva 1.591.
+Chiedere l'articolo a chi traduce sarebbe raddoppiare le occasioni di sbagliare,
+e nessun controllo se ne accorgerebbe — «un scudo» è una stringa valida quanto
+«uno scudo». Il genere invece ha quattro valori leciti e `verifica.py` li
+pretende. Vedi [[dato-o-derivata]].
 
-**4. Gli array del plurale sono sparsi e non erano dimensionati** (`fdf0c6a`).
-`Array overflow`, crash aprendo la lista di un negoziante. L'autoespansione di
-`sdim` vale **in scrittura**, non in lettura.
+I quattro valori sono `m`, `f`, `mp`, `fp`: il **numero fa parte del dato**,
+perché «cianfrusaglie», «attrezzi» e «armi» esistono solo al plurale e su quelli
+l'articolo indeterminativo non c'è — ci vuole il partitivo, che è ciò che
+l'inglese sbaglia già oggi scrivendo «a goods».
 
-## Cosa è stato costruito
+⚠️ **Le parole-contatore cablate vincono sull'array dell'articolo**, al
+contrario di quel che fanno col plurale. Quando `itemname()` mette «paio»
+davanti al nome la testa del sintagma diventa quella: «un paio di stivali
+pesanti», non «uno stivali pesanti».
 
-- **86 nomi** di `db_item.hsp`, scelti per visibilità (la coda del file, cioè il
-  corredo vanilla) invece che per ordine di riga
-- **le sei parole-contatore cablate** in `item_func.hsp` (`bottle`, `cup` ×2,
-  `cargo`, `pair`, `dish`): non stanno in `db_item.hsp` e non passano da
-  `lang()`, e il loro plurale inglese lo faceva il pluralizzatore che avevamo
-  spento — era una **regressione**, non un pezzo mancante
-- **i 38 materiali, i 38 epiteti e le 7 piante** di `item_data.hsp`, con
-  l'ordine spostato: il materiale segue il nome
-- **benedizione, maledizione e dannazione** come complementi in coda
+## Cosa è stato costruito, in ordine
 
-## Le lezioni, che valgono più del codice
+1. **166 nomi**, il resto del corredo vanilla (righe 150006-151839): cibo, erbe,
+   arredamento della casa, bacchette, grimori, pozioni;
+2. **la colonna `genere`** nel dizionario, `strumenti/articolo.py` con le regole
+   dell'elisione, due array HSP nuovi e la toppa che li legge; riempite a
+   ritroso le 252 voci già tradotte;
+3. **i 252 oggetti composti** (504 firme), cioè la lista di un negoziante per
+   intero.
 
-**Il giunto sta nel codice, il dato resta nudo.** Imparata due volte: sul
-`" of "` dei nomi composti, e sul materiale — `command.hsp:16289` dice «It is
-made of » + `mtname(...)`, quindi col «di» cotto nel dato uscirebbe «fatto di di
-cuoio».
+## Le lezioni
 
-**Il genere ignoto si risolve sempre allo stesso modo: complemento o
-sostantivo.** Quattro volte ormai — etichette di stato, qualità dell'oggetto,
-epiteti del materiale, benedizione. Un aggettivo anteposto a un oggetto di
-genere sconosciuto non si può scegliere.
+**L'euristica della regione è più debole di quella della classe.** Avevo scelto
+il secondo lotto per zona di file — «il corredo vanilla sta in coda» — e la
+lista del negoziante l'ha smentito: `restore body`, `speed`, `beer`, `molotov`
+sono roba vanilla di tutti i giorni e stanno **sopra** riga 150000, in mezzo agli
+oggetti aggiunti da CGX. Il criterio buono è la **classe dell'oggetto**, ed è
+per questo che il terzo lotto è stato «tutti i composti».
 
-**Un array sparso si dimensiona.** L'autoespansione vale in scrittura. La
-sparsità era il disegno (il ripiego sul singolare esiste apposta), quindi era
-prevedibile leggendo.
+**Il termbase si guarda prima di tradurre, non dopo.** Due rese del secondo
+lotto — `lot` e `variety` — deviavano da `contatori.jsonl` senza che me ne
+accorgessi. La correzione non è stata allineare il lotto ma **cambiare il
+termbase**, che è la regola scritta in testa a `glossario.md`: «se una resa non
+funziona si cambia qui, non si deroga nel lotto».
 
-**Il denominatore si misura sul sorgente, mai sull'uscita di uno strumento che
-filtra.** Il numero sbagliato in `avanzamento.md` portava dentro il difetto che
-avrebbe dovuto segnalare.
+**Un nome opaco può collidere con una parola comune italiana, ed è successo due
+volte in un giorno**: `api nut` → «noce di **A**pi» (minuscolo sarebbe gli
+insetti) e la divinità `Mani` (minuscolo sarebbe le mani). La maiuscola non è
+decorativa, è ciò che tiene distinti i due sensi.
 
-**Un rinvio con un motivo scritto si può riaprire quando il motivo scade.**
-`blessed` era rinviata «finché i nomi di `db_item.hsp` non si risolvono»: quella
-premessa è caduta, e il motivo scritto ha permesso di accorgersene.
+**Quando l'inglese distingue e il giapponese no, si tiene la distinzione.**
+`magical map` e `magic mapping` hanno lo stesso giapponese 魔法の地図 e nomi
+inglesi diversi: «mappa magica» e «cartografia magica». Si traduce dall'inglese.
 
-Vedi [[plurale-e-un-dato-non-una-regola]], [[toppe-generate-dal-sorgente]] e
-[[genere-ignoto-si-risolve-col-complemento]].
+**Il giunto sta nel codice, il dato resta nudo — terza applicazione.** Il giunto
+dei composti è cablato a «di», quindi «tomba ornata di fiori» si ottiene
+spostando il participio sulla **testa** (`ioriginalnameref2` = «tomba ornata»),
+non arricchendo il complemento.
+
+**Un'immagine piccola non è una prova.** Ho letto «6 pergamena» in uno
+screenshot e ho aperto un'indagine su una regressione che non esisteva:
+ingrandendo, diceva «6 pergamene». Prima di dare la caccia a un difetto, ingrandire.
+
+Vedi [[dato-o-derivata]], [[plurale-e-un-dato-non-una-regola]],
+[[toppe-generate-dal-sorgente]] e [[genere-ignoto-si-risolve-col-complemento]].
 
 ## Cosa resta, in ordine
 
-1. i **1.520 nomi** restanti di `db_item.hsp`, a lotti
-2. **l'articolo inglese** `a`/`an`/`the` (`item_func.hsp:1809-1821`), l'ultima
-   parola inglese su *ogni* oggetto. Nota buffa che conferma il sito: sceglie
-   già «**an** arco lungo» leggendo la prima lettera della stringa **italiana**
-3. le **154 voci rinviate** di `text.hsp`, di cui 30 sono il sistema dei nomi
-   casuali — aggettivi condivisi fra sei classi di sostantivo di genere diverso,
-   «pozione chiara» ma «anello chiaro»
+1. **il collaudo in gioco** di articolo e composti, mai visti a schermo
+2. gli **11 `_furniture`** più `_bookself` (14) e `_weight` (10): stessa forma,
+   una toppa che li sposta in coda
+3. gli **850 nomi** restanti di `db_item.hsp`, ormai quasi tutti oggetti semplici
+   aggiunti da CGX
 4. le altre **235 voci** di `item_data.hsp`, mai guardate
-5. `_bookselfs` (7 valori), che finisce nella parola-contatore
+5. le **154 voci rinviate** di `text.hsp`, di cui 30 sono il sistema dei nomi
+   casuali — aggettivi condivisi fra sei classi di sostantivo di genere diverso
 6. i nomi di **creatura** — lavoro **atomico** insieme ai 424 `evold`/`evname`
    di `action.hsp`, mai prima e mai dopo (§5 di `contratto-nomi.md`)
 
@@ -146,19 +158,17 @@ python -m strumenti.prova_identita     # atteso: 72/72, 27.813, ambigue 0
 
 ⚠️ **Non giudica le toppe**, che girano dopo in un giro loro. Il loro guardiano
 è la regola «esiste esatto e una volta sola», più il compilatore, **più il
-collaudo in gioco** — e oggi il collaudo ha preso un crash che nessun test
-poteva prendere.
+collaudo in gioco**.
 
 **Il generatore delle toppe** è il primo comando da rilanciare quando arriva una
 versione CGX nuova:
 
 ```powershell
-python -m strumenti.genera_toppe_nomi   # atteso: 25 generate, tutte «ok»
+python -m strumenti.genera_toppe_nomi   # atteso: 26 generate, tutte «ok»
 ```
 
-Se upstream ha riscritto uno dei blocchi lo dice lì, invece che alla build. Il
-controllo di unicità ha già cambiato la forma di quattro toppe invece di lasciar
-passare un'ambiguità.
+Legge anche `contatori.jsonl`: cambiare lì una resa o un genere e rilanciare
+aggiorna singolare, plurale e articolo delle sei parole-contatore cablate.
 
 ## Per rifare la prova in gioco
 
@@ -174,9 +184,8 @@ aggiornato al rilascio, non un errore di build. Copia dei salvataggi in
 `C:\Games\Elona\save-backup\`.
 
 ⚠️ **Il posto dove guardare è la lista di un negoziante**, non l'inventario:
-serve vedere pile da due o più, ed è lì che il plurale, il materiale e il crash
-si sono manifestati. Al primo avvio esce «Invalid screen resolution»: si dà OK e
-si prosegue.
+serve vedere pile da due o più. Per l'arredamento serve invece il **magazzino di
+casa**. Al primo avvio esce «Invalid screen resolution»: si dà OK e si prosegue.
 
 ## Cosa deve esistere fuori dal repo
 
@@ -195,6 +204,6 @@ si usa il manifesto, mai `git status`. Vedi `SPEC.md` §2.
 
 Vedi [[terminologia-prima-del-testo]], [[larghezza-per-campo]],
 [[stringhe-che-sono-dati]], [[toppe-fuori-dal-dizionario]],
-[[plurale-e-un-dato-non-una-regola]], [[toppe-generate-dal-sorgente]],
-[[genere-ignoto-si-risolve-col-complemento]],
+[[dato-o-derivata]], [[plurale-e-un-dato-non-una-regola]],
+[[toppe-generate-dal-sorgente]], [[genere-ignoto-si-risolve-col-complemento]],
 [[prova-identita-pipeline-trasformazione]] e [[cp932-perdite-silenziose]].
