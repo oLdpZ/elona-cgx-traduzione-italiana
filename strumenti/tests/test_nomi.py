@@ -329,3 +329,37 @@ def test_il_plurale_del_nome_si_usa_solo_senza_parola_contatore():
             "il plurale del nome va usato solo quando non c'e' parola-contatore,"
             " come faceva il pluralizzatore inglese spento a item_func.hsp:1842."
             " Senza la guardia esce «3 pergamene di identificazioni»")
+
+
+def test_gli_array_del_plurale_sono_dimensionati():
+    """Un array **sparso** va dimensionato: leggerlo oltre e' un overflow.
+
+    Crash del 2026-08-08, in gioco, aprendo la lista di un negoziante:
+    `HspError 7 — Array overflow`, in `itemName`. La toppa dichiarava
+    `sdim ioriginalnamerefplur` senza dimensione, com'e' dichiarato
+    `ioriginalnameref` che affianca, e il motivo diceva «si autoespande
+    all'assegnazione». E' vero, ma l'autoespansione vale **in scrittura**:
+    in lettura un indice mai assegnato e' fuori dall'array e il gioco muore.
+
+    La differenza fra i due array e' che `ioriginalnameref` lo assegna
+    `db_item.hsp` per **ogni** oggetto, quindi arriva sempre in fondo; il
+    plurale ce l'hanno solo i nomi tradotti — 86 su 1.606 — e gli ID degli
+    oggetti vanilla sono bassi. Bastava un oggetto con ID alto in una pila da
+    due (il negozio ne e' pieno) per leggere oltre la fine.
+
+    La regola generale: un array dichiarato senza dimensione e' sicuro solo se
+    chi lo riempie lo riempie tutto. Il nostro e' sparso per costruzione.
+    """
+    from strumenti.applica import carica_toppe
+
+    dichiarazioni = [t for t in carica_toppe()
+                     if any("sdim ioriginalnamerefplur" in r
+                            for r in t["sostituisci"])]
+    assert len(dichiarazioni) == 1, "la dichiarazione degli array del plurale e' una sola"
+    righe = [r for r in dichiarazioni[0]["sostituisci"] if "plur" in r]
+    assert len(righe) == 2, righe
+    for riga in righe:
+        assert "MAX_DB" in riga, (
+            f"{riga!r}: l'array del plurale e' sparso (solo i nomi tradotti ne"
+            " hanno uno) e va dimensionato a MAX_DB, o leggere l'ID di un"
+            " oggetto non tradotto e' un Array overflow — crash in negozio")

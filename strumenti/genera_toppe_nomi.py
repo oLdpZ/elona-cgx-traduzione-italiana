@@ -47,10 +47,10 @@ toppe.append({
     "file": "init.hsp",
     "cerca": fetta(INIT, 2569, 2570),
     "sostituisci": fetta(INIT, 2569, 2570) + [
-        "\tsdim ioriginalnamerefplur",
-        "\tsdim ioriginalnameref2plur",
+        "\tsdim ioriginalnamerefplur, 128, MAX_DB",
+        "\tsdim ioriginalnameref2plur, 128, MAX_DB",
     ],
-    "motivo": "i due array del plurale italiano dei nomi degli oggetti. `sdim` senza dimensione si autoespande all'assegnazione, come per i due che affianca. Li popola applica_plurali dal campo `plurale` del dizionario",
+    "motivo": "i due array del plurale italiano dei nomi degli oggetti. Dimensionati a MAX_DB, non lasciati autoespandere come i due che affiancano: quelli li assegna db_item.hsp per OGNI oggetto, il plurale ce l'hanno solo i nomi tradotti. Un array sparso letto oltre l'ultimo indice assegnato e' un Array overflow (crash in negozio, 2026-08-08), perche' l'autoespansione vale in scrittura e non in lettura. Li popola applica_plurali dal campo `plurale` del dizionario",
 })
 
 # 2. il giunto dei nomi composti: in italiano e' sempre "di"
