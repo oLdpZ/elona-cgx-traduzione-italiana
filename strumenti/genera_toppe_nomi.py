@@ -23,6 +23,7 @@ import json
 import sys
 
 from strumenti import percorsi
+from strumenti.reimporta import carica_dizionario
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 GENERATA = "nomi"
@@ -130,6 +131,40 @@ for primo, inglese in CABLATE:
     })
 
 
+# 3-quater. `_bookselfs` (text.hsp:55) non e' cablata: la stringa arriva
+#           dall'array e finisce in `locvar_itemname_s2` (item_func.hsp:1233),
+#           cioe' nello **slot della parola-contatore**. Non e' quindi la forma
+#           di `_furniture` -- non c'e' niente da spostare -- ma quella di
+#           `contatori.jsonl`: vuole singolare, plurale, genere, e un `case` in
+#           entrambi gli switch, o cadrebbe nel `default` e il gioco direbbe
+#           «2 libro sublime» e «un libro sublime» scelto dall'array sbagliato.
+#
+#           ⚠️ Il legame fra i due file e' per STRINGA: il `case` confronta la
+#           resa di contatori.jsonl con quella che l'array porta a runtime, che
+#           viene dal dizionario. Se divergono il case non aggancia mai e non
+#           lo dice nessuno -- ne' il compilatore ne' la prova d'identita'.
+#           Per questo qui si pretende che coincidano.
+#           Il filtro e' la FONTE e non il suffisso « book»: `horrible book`
+#           finisce in `-s2` per un'altra strada (viene da db_item.hsp) e non
+#           sta nell'array di text.hsp -- pretenderlo li' fallirebbe a vuoto.
+BOOKSELFS = [v for v in CONTATORI.values() if v.get("fonte") == "text"]
+if BOOKSELFS:
+    _rese_dizionario = {
+        v["en"]: v.get("it")
+        for v in carica_dizionario("text.hsp").values() if v.get("riga") == 55
+    }
+    for _resa in BOOKSELFS:
+        _atteso = _rese_dizionario.get(_resa["en"])
+        assert _atteso == _resa["it"], (
+            f"{_resa['en']}: contatori.jsonl dice {_resa['it']!r}, il "
+            f"dizionario {_atteso!r}. Il `case` dello switch confronta le due "
+            "stringhe: se divergono non aggancia mai, in silenzio")
+
+# le teste che possono comparire in locvar_itemname_s2: le cablate piu' quelle
+# che ci arrivano da un array di text.hsp
+parole_s2 = parole_cablate + BOOKSELFS
+
+
 def plurale_delle_cablate(indentazione):
     """Il plurale delle parole-contatore che non vengono dal dizionario.
 
@@ -142,7 +177,7 @@ def plurale_delle_cablate(indentazione):
     blocco non si esegue.
     """
     righe = [f'{indentazione}switch locvar_itemname_s2']
-    for resa in {r["it"]: r for r in parole_cablate}.values():
+    for resa in {r["it"]: r for r in parole_s2}.values():
         righe += [f'{indentazione}\tcase "{resa["it"]}"',
                   f'{indentazione}\t\tlocvar_itemname_s5 = "{resa["plurale"]}"',
                   f'{indentazione}\t\tswbreak']
@@ -410,7 +445,7 @@ from strumenti.articolo import articoli
 
 def articolo_delle_cablate(indentazione):
     righe = [f'{indentazione}switch locvar_itemname_s2']
-    for resa in {r["it"]: r for r in parole_cablate}.values():
+    for resa in {r["it"]: r for r in parole_s2}.values():
         indeterminativo, determinativo = articoli(resa["genere"], resa["it"])
         righe += [f'{indentazione}\tcase "{resa["it"]}"',
                   f'{indentazione}\t\tlocvar_itemname_s8 = "{indeterminativo}"',

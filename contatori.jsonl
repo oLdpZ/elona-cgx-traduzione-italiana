@@ -41,3 +41,10 @@
 {"en": "pair", "it": "paio", "plurale": "paia", "fonte": "item_func", "genere": "m"}
 {"en": "cargo", "it": "carico", "plurale": "carichi", "fonte": "item_func", "genere": "m"}
 {"en": "dish", "it": "piatto", "plurale": "piatti", "fonte": "item_func", "genere": "m"}
+{"en": "paper scraps book", "it": "libro pessimo", "plurale": "libri pessimi", "fonte": "text", "genere": "m"}
+{"en": "noob book", "it": "libro dilettantesco", "plurale": "libri dilettanteschi", "fonte": "text", "genere": "m"}
+{"en": "commonplace book", "it": "libro banale", "plurale": "libri banali", "fonte": "text", "genere": "m"}
+{"en": "good sense book", "it": "libro promettente", "plurale": "libri promettenti", "fonte": "text", "genere": "m"}
+{"en": "cool book", "it": "libro piacevole", "plurale": "libri piacevoli", "fonte": "text", "genere": "m"}
+{"en": "satisfied book", "it": "libro convincente", "plurale": "libri convincenti", "fonte": "text", "genere": "m"}
+{"en": "masterpiece book", "it": "libro sublime", "plurale": "libri sublimi", "fonte": "text", "genere": "m"}

@@ -707,3 +707,65 @@ def test_la_qualita_del_manoscritto_resta_dov_e():
     parentesi = [r for r in righe if "_bookself(" in r and '" ("' in r]
     assert len(parentesi) == 1, (
         f"il sito fra parentesi non e' piu' uno solo: {parentesi}")
+
+
+# ---------------------------------------------------------------------------
+# Il libro prodotto dal giocatore: una testa, non un prefisso (2026-08-08).
+#
+# `_bookselfs` (text.hsp:55) finisce in `locvar_itemname_s2`
+# (item_func.hsp:1233), lo slot della **parola-contatore**. E' percio' la forma
+# di `contatori.jsonl` e non quella di `_furniture`: niente da spostare, ma
+# singolare, plurale, genere e un `case` in **entrambi** gli switch.
+#
+# Il legame fra i due file e' per stringa: il `case` confronta la resa di
+# `contatori.jsonl` con quella che l'array porta a runtime, che viene dal
+# dizionario. Se divergono, il case non aggancia mai -- e non lo dice nessuno,
+# ne' il compilatore ne' la prova d'identita'. Da qui il primo test.
+# ---------------------------------------------------------------------------
+
+def _teste_da_text():
+    """Le teste di s2 che arrivano da un array di text.hsp, da contatori.jsonl."""
+    import json
+
+    righe = (percorsi.PROGETTO / "contatori.jsonl").read_text(encoding="utf-8")
+    return [json.loads(r) for r in righe.splitlines()
+            if r.strip() and json.loads(r).get("fonte") == "text"]
+
+
+def test_contatori_e_dizionario_concordano_sulle_teste_di_s2():
+    from strumenti.reimporta import carica_dizionario
+
+    rese = {v["en"]: v.get("it")
+            for v in carica_dizionario("text.hsp").values() if v.get("riga") == 55}
+    teste = _teste_da_text()
+    assert len(teste) == 7, f"attese 7 teste da text.hsp, trovate {len(teste)}"
+    for testa in teste:
+        assert rese.get(testa["en"]) == testa["it"], (
+            f"{testa['en']}: contatori.jsonl dice {testa['it']!r}, il dizionario"
+            f" {rese.get(testa['en'])!r}. Il `case` confronta le due stringhe:"
+            " se divergono non aggancia mai, in silenzio")
+
+
+def test_le_due_scale_del_libro_sono_la_stessa_scala():
+    """`_bookself` e `_bookselfs` differiscono solo per la testa «libro»."""
+    from strumenti.reimporta import carica_dizionario
+
+    voci = carica_dizionario("text.hsp").values()
+    manoscritto = {v["en"]: v["it"] for v in voci if v.get("riga") == 54 and v.get("it")}
+    libro = {v["en"]: v["it"] for v in voci if v.get("riga") == 55 and v.get("it")}
+    assert len(manoscritto) == 7 and len(libro) == 7, (manoscritto, libro)
+    for en, resa in manoscritto.items():
+        assert libro[f"{en} book"] == f"libro {resa}", (
+            f"{en}: «{resa}» contro «{libro[f'{en} book']}». Sono la stessa"
+            " qualita' vista in due punti: due scale diverse si leggerebbero"
+            " come due cose diverse")
+
+
+def test_il_libro_prodotto_ha_un_case_in_entrambi_gli_switch():
+    """Senza, cadrebbe nel default: «2 libro sublime» e l'articolo dell'array."""
+    nuovo = _item_func_toppato()
+    for testa in _teste_da_text():
+        assert nuovo.count(f'case "{testa["it"]}"') == 2, (
+            f"{testa['it']}: servono due case, uno per il plurale e uno per"
+            " l'articolo")
+        assert f'locvar_itemname_s5 = "{testa["plurale"]}"' in nuovo
