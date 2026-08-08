@@ -316,5 +316,27 @@ def test_i_nomi_di_db_item_non_sono_rinviati_da_text():
     # la rete di sicurezza sul file vero: se domani qualcuno rinvia una voce di
     # `text.hsp` che ha lo stesso contenuto di un nome, il nome deve restare
     # nella coda di `db_item.hsp`
+    #
+    # ⚠️ 2026-08-09. Qui c'era `== set()`: una **procura**, che reggeva solo
+    # finche' `db_item.hsp` non aveva nessun rinvio suo. `<Pants of Ogre>` e' il
+    # primo — il nome contiene `ogre`, e quale creatura si prenda «orco» e' una
+    # decisione di Fase 2 — e la procura si e' rotta pur restando vera la
+    # proprieta' che il test difende. Adesso la proprieta' e' scritta com'e':
+    # ogni firma che esce per `db_item.hsp` viene da una riga **di**
+    # `db_item.hsp`, mai da un altro file.
+    import json
+
     from strumenti.estrai import carica_rinviate
-    assert carica_rinviate(None, "db_item.hsp") == set()
+    from strumenti.percorsi import PROGETTO
+
+    percorso = PROGETTO / "rinviate.jsonl"
+    if not percorso.exists():
+        return
+
+    righe = [
+        json.loads(riga)
+        for riga in percorso.read_text(encoding="utf-8").splitlines()
+        if riga.strip()
+    ]
+    proprie = {r["firma"] for r in righe if r["file"] == "db_item.hsp"}
+    assert carica_rinviate(None, "db_item.hsp") <= proprie
