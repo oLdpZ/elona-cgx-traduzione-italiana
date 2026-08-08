@@ -363,3 +363,50 @@ def test_gli_array_del_plurale_sono_dimensionati():
             f"{riga!r}: l'array del plurale e' sparso (solo i nomi tradotti ne"
             " hanno uno) e va dimensionato a MAX_DB, o leggere l'ID di un"
             " oggetto non tradotto e' un Array overflow — crash in negozio")
+
+
+# ---------------------------------------------------------------------------
+# Le sei parole-contatore cablate in `item_func.hsp` (2026-08-08).
+#
+# Viste a schermo: «2 bottle di juice». Non stanno in `db_item.hsp` e non
+# passano da `lang()`: sono letterali inglesi dentro `itemname()`, assegnati per
+# classe di oggetto — succo, caffe', te', merce pesante, guanti e stivali, cibo
+# cucinato. Il dizionario non le raggiunge, e il loro plurale inglese lo faceva
+# proprio il pluralizzatore che la toppa 8 spegne: senza toppa hanno perso anche
+# quello, e «2 bottles of juice» era diventato «2 bottle di juice» — una
+# regressione rispetto all'inglese.
+#
+# Le rese sono gia' decise in `contatori.jsonl` (paio/paia, piatto/piatti): il
+# dato c'era, mancava il codice che lo legge.
+# ---------------------------------------------------------------------------
+
+CABLATE = (("bottle", "bottiglia", "bottiglie"), ("cup", "tazza", "tazze"),
+           ("cargo", "carico", "carichi"), ("pair", "paio", "paia"),
+           ("dish", "piatto", "piatti"))
+
+
+def _item_func_toppato():
+    from strumenti.applica import applica_toppe, carica_toppe
+    percorso = percorsi.SORGENTE_HSP / "item_func.hsp"
+    if not percorso.exists():
+        pytest.skip("il clone del sorgente non e' disponibile")
+    testo = percorso.read_bytes().decode("cp932")
+    toppe = [t for t in carica_toppe() if t["file"] == "item_func.hsp"]
+    nuovo, _ = applica_toppe("item_func.hsp", testo, toppe)
+    return nuovo
+
+
+def test_le_parole_contatore_cablate_diventano_italiane():
+    nuovo = _item_func_toppato()
+    for inglese, italiano, _ in CABLATE:
+        assert f'locvar_itemname_s2 += "{inglese}"' not in nuovo, inglese
+        assert f'locvar_itemname_s2 = "{inglese}"' not in nuovo, inglese
+        assert f'"{italiano}"' in nuovo, italiano
+
+
+def test_le_parole_contatore_cablate_hanno_il_loro_plurale():
+    # non ce l'hanno dal dizionario -- non sono nomi di `db_item.hsp` -- quindi
+    # il ripiego sul singolare le lascerebbe a «2 bottiglia di succo»
+    nuovo = _item_func_toppato()
+    for _, italiano, plurale in CABLATE:
+        assert f'"{plurale}"' in nuovo, plurale

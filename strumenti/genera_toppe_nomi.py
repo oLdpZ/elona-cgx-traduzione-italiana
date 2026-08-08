@@ -75,6 +75,58 @@ toppe.append({
     "motivo": "il giunto si sceglieva cercando la sottostringa \"with\" DENTRO il nome inglese (un solo nome la contiene, `ornamented with flowers`): tradurre i nomi cambierebbe il ramo in silenzio. In italiano il giunto e' sempre \"di\"",
 })
 
+# 3-bis. le sei parole-contatore cablate in item_func, che il dizionario non
+#        raggiunge: non stanno in db_item.hsp e non passano da lang(). Le rese
+#        vengono da contatori.jsonl, unica sorgente di verita': cambiarle li'
+#        e rilanciare questo comando aggiorna sia il singolare sia il plurale.
+CONTATORI = {v["en"]: v for v in (
+    json.loads(r) for r in
+    (percorsi.PROGETTO / "contatori.jsonl").read_text(encoding="utf-8").splitlines()
+    if r.strip())}
+
+# riga dell'assegnazione -> parola inglese. Il blocco preso e' di tre righe --
+# `if`, assegnazione, `}` -- perche' `cup` compare due volte con lo stesso
+# testo: da sola sarebbe ambigua, e lo strumento rifiuterebbe di emetterla.
+CABLATE = ((1223, "bottle"), (1226, "cup"), (1229, "cup"),
+           (1243, "cargo"), (1246, "pair"), (1253, "dish"))
+
+parole_cablate = []
+for primo, inglese in CABLATE:
+    blocco = fetta(ITEM, primo, primo + 2)
+    resa = CONTATORI[inglese]
+    assert f'"{inglese}"' in blocco[1], (primo, blocco[1])
+    parole_cablate.append(resa)
+    toppe.append({
+        "file": "item_func.hsp",
+        "cerca": blocco,
+        "sostituisci": [blocco[0],
+                        blocco[1].replace(f'"{inglese}"', f'"{resa["it"]}"'),
+                        blocco[2]],
+        "motivo": f"la parola-contatore «{inglese}» e' cablata in itemname() per classe di oggetto: non sta in db_item.hsp e non passa da lang(), quindi il dizionario non la raggiunge. Resa presa da contatori.jsonl: «{resa['it']}»",
+    })
+
+
+def plurale_delle_cablate(indentazione):
+    """Il plurale delle parole-contatore che non vengono dal dizionario.
+
+    Il loro plurale inglese lo faceva il pluralizzatore spento dalla toppa 4:
+    senza questo `switch` ripiegherebbero sul singolare — «2 bottiglia di
+    succo» — che e' peggio dell'inglese di partenza, non solo diverso.
+
+    Si entra qui **solo** se il dizionario non ha gia' detto la sua: per i nomi
+    di `db_item.hsp` il plurale arriva da `ioriginalnameref2plur` e questo
+    blocco non si esegue.
+    """
+    righe = [f'{indentazione}switch locvar_itemname_s2']
+    for resa in {r["it"]: r for r in parole_cablate}.values():
+        righe += [f'{indentazione}\tcase "{resa["it"]}"',
+                  f'{indentazione}\t\tlocvar_itemname_s5 = "{resa["plurale"]}"',
+                  f'{indentazione}\t\tswbreak']
+    righe += [f'{indentazione}\tdefault', f'{indentazione}\t\tswbreak',
+              f'{indentazione}swend']
+    return righe
+
+
 # 4. il plurale della parola-contatore, che l'inglese fa col suffisso
 blocco = fetta(ITEM, 1259, 1285)
 assert blocco[0].strip() == 'if ( locvar_itemname_s2 != "" ) {', blocco[0]
@@ -87,6 +139,9 @@ toppe.append({
         f'{i0}\tlocvar_itemname_s5 = ""',
         f'{i0}\tif ( locvar_itemowner_num2 > 1 ) {{',
         f'{i0}\t\tlocvar_itemname_s5 = ioriginalnameref2plur(inv(INV_ITEM_ID, itemname_itemid))',
+        f'{i0}\t\tif ( locvar_itemname_s5 == "" ) {{',
+    ] + plurale_delle_cablate(f'{i0}\t\t\t') + [
+        f'{i0}\t\t}}',
         f'{i0}\t}}',
         f'{i0}\tif ( locvar_itemname_s5 == "" ) {{',
         f'{i0}\t\tlocvar_itemname_s5 = locvar_itemname_s2',
