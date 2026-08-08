@@ -242,6 +242,19 @@ scrivere, probabilmente la stringa va tradotta.
 | <Zugaikurai> | artefatto (`db_item.hsp`), giapponese 《ズガイクライ》, **traslitterato** in katakana dentro la marca 《》: quando l'originale traslittera non legge il nome come descrizione. Come `<Mournblade>` |
 | <Zwiebel> | artefatto (`db_item.hsp`), giapponese 《ゴルネ・ツィーベル》, **traslitterato** in katakana dentro la marca 《》: quando l'originale traslittera non legge il nome come descrizione. Come `<Mournblade>` |
 | slot machine | macchina da gioco d’azzardo (`db_item.hsp`), giapponese スロットマシーン: **prestito acquisito in italiano**, femminile e invariato al plurale. «Macchina mangiasoldi» è gergo, non il nome |
+| hamburger | panino (`db_item.hsp`), giapponese ハンバーガー: **prestito acquisito in italiano**, maschile e invariato al plurale. «Panino di carne» sarebbe la definizione, non il nome |
+| tofu | alimento (`db_item.hsp`), giapponese とうふ: **parola italiana identica all'inglese**, maschile e invariata al plurale. Coincidenza come `mica` e `guava` |
+| natto | alimento (`db_item.hsp`), giapponese 納豆: prestito acquisito, maschile e invariato al plurale. In italiano la soia fermentata si chiama «natto» |
+| yogurt | alimento (`db_item.hsp`), giapponese ヨーグルト: **grafia italiana corrente identica all'inglese**, come `whisky`. Maschile, invariato al plurale |
+| osiruko | dolce giapponese (`db_item.hsp`), giapponese おしるこ: l'inglese e' gia' una **romanizzazione**, non una descrizione, e l'italiano non ha un nome per questa zuppa di fagioli azuki. Maschile, invariato |
+| ozouni | zuppa di capodanno (`db_item.hsp`), giapponese お雑煮: l'inglese e' una romanizzazione, come `osiruko`. Maschile, invariato |
+| kagami mochi | dolce di capodanno (`db_item.hsp`), giapponese 鏡もち: romanizzazione, e `mochi` e' gia' invariato nel dizionario. Maschile, invariato |
+| bannou mugi | cereale di Elona (`db_item.hsp`), giapponese 万能ムギ: l'inglese e' una romanizzazione. Nome opaco, maschile, invariato |
+| b-jerky | cibo di Elona+ (`db_item.hsp`), giapponese ビジャーキー: **coniazione**, non una descrizione. Nome opaco, maschile, invariato |
+| putitoro | cibo di Elona (`db_item.hsp`), giapponese プチトロ: nome opaco e scherzoso, come `mesugaki`. Maschile, invariato |
+| romias | cibo di Elona+ (`db_item.hsp`), giapponese ロミアス: e' il personaggio `Lomias`, gia' invariato, con la r/l del giapponese. Nome proprio opaco, maschile, invariato |
+| stomafillia | erba di Elona (`db_item.hsp`), giapponese ストマフィリア: nome opaco del canone, come `alraunia`. Femminile per la desinenza, invariata al plurale |
+| curaria | erba di Elona (`db_item.hsp`), giapponese キュラリア: nome opaco del canone, come `morgia`. Femminile per la desinenza, invariata al plurale |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 
