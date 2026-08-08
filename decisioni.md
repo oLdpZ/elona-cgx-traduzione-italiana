@@ -495,3 +495,78 @@ alla lettera, produce una parola italiana esistente.
 (Scadente)». Stessa logica di «l'etichetta si legge dove esce» in
 `guida-stile.md`, applicata al verso opposto: lì si sceglieva l'etichetta
 guardando il nome, qui si sceglie il nome guardando l'etichetta.
+
+### L'articolo: il genere e' il dato, l'articolo e' una derivata
+
+L'inglese sceglie `a`/`an` guardando la **prima lettera** della stringa gia'
+composta (`item_func.hsp:1816`), piu' un caso speciale scritto a mano per
+`unicorn horn`. Funziona perche' in inglese l'articolo non ha genere: e'
+fonetica pura. In italiano l'articolo dipende dal **genere della testa**, che
+nella stringa composta sta in mezzo — «una pozione di cura delle ferite lievi»
+— e nessuna lettera lo rivela.
+
+Il genere entra quindi nel dizionario come quinta colonna dei nomi, accanto al
+plurale, e per la stessa ragione: non si deduce. Ma **l'articolo no**. Una
+volta noto il genere, la scelta fra «un» e «uno», fra «la» e «l'», e' una
+regola meccanica sulla forma della parola che segue — s impura, z, gn, ps, pn,
+x, y, semiconsonante, h muta. Chiederla a chi traduce vorrebbe dire chiedergli
+di applicare a mano una regola che una macchina applica meglio, e raddoppiare
+le occasioni di sbagliarla. La deriva `strumenti/articolo.py`; nel gioco arriva
+la stringa gia' fatta, come per il plurale.
+
+**Il numero fa parte del genere**, e i valori sono quattro: `m`, `f`, `mp`,
+`fp`. Non e' pignoleria: in `db_item.hsp` i nomi che esistono solo al plurale
+non sono pochi — «cianfrusaglie», «attrezzi», «armi», «vestiti» — e su quelli
+l'articolo indeterminativo **non esiste**. Ci vuole il partitivo, «delle
+cianfrusaglie», che e' esattamente cio' che l'inglese sbaglia gia' oggi
+scrivendo «a goods».
+
+⚠️ **Le parole-contatore cablate vincono sull'array, al contrario del
+plurale.** Quando `itemname()` mette «paio» davanti al nome, la testa del
+sintagma diventa «paio» e l'articolo lo regge lui: «un paio di stivali
+pesanti», non «uno stivali pesanti». Il plurale non ha lo stesso problema
+perche' li' l'array e la parola cablata non sono mai pieni tutti e due.
+
+L'articolo si scrive **solo sulla testa**: 207 oggetti su 252 voci tradotte,
+perche' i composti hanno due voci e una testa sola.
+
+### I 252 composti, e la terminologia degli incantesimi
+
+Le teste non si sono decise nel lotto: erano gia' in `contatori.jsonl`. Il
+lavoro erano i **218 modificatori distinti**, e il giapponese e' servito piu'
+di una volta a non sbagliare — `butuzou` e' 仏像, la statua di Budda; `soul` e'
+リンカネイト, la reincarnazione; `acid ground` e' 酸の海, che alla lettera e' un
+mare d'acido ma in gioco e' un suolo.
+
+Da qui in avanti questa terminologia vincola `skill.hsp`, che gli stessi
+incantesimi li nomina di nuovo:
+
+- **la famiglia dei dardi** segue quella gia' a schermo (dardo di fuoco, di
+  ghiaccio, di fulmine). Per l'elemento si usa **l'aggettivo dove l'italiano ce
+  l'ha** — mentale, caotico, oscuro, sonoro, neurale, che e' anche cio' che il
+  glossario aveva gia' deciso per `Mind` e `Chaos` — e il **complemento dove
+  no**: di veleno, d'oltretomba, d'acqua;
+- `magic bolt` e `magic missile` **convivono nel sorgente**, quindi devono
+  convivere anche in italiano: «dardo arcano» e «dardo magico». Una resa sola
+  per due nomi diversi fonderebbe due oggetti distinti in uno;
+- `magical map` (pergamena) e `magic mapping` (grimorio e bacchetta) hanno lo
+  **stesso giapponese** 魔法の地図 e nomi inglesi diversi: «mappa magica» e
+  «cartografia magica». Quando l'inglese distingue e il giapponese no, la
+  distinzione si tiene: e' l'inglese la lingua da cui si traduce.
+
+⚠️ **`Mani` entra negli invariati con una nota che vale oltre lui.** La
+divinita' si chiama Mani, e «mani» minuscolo e' una parola italiana
+comunissima: la maiuscola non e' decorativa, e' cio' che tiene «statua di Mani»
+distinto da «statua di mani». Stessa classe di `noce di Api` del lotto
+precedente, ed e' la seconda volta in un giorno.
+
+### Due rese di `contatori.jsonl` riviste
+
+Il secondo lotto aveva reso `lot` e `variety` senza guardare il termbase, e ci
+sono finite dentro due deviazioni. Non si e' derogato nel lotto: si e'
+cambiato il termbase, che e' la regola scritta in testa a `glossario.md`.
+
+- `lot` → **mucchio**, non «lotto»: 本の山 e' una pila di libri, e «un lotto di
+  libri» e' gergo commerciale;
+- `variety` → **assortimento**, non «varietà»: regge meglio dopo «di» e non
+  porta un accento in un punto molto visibile.
