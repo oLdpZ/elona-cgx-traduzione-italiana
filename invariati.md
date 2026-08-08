@@ -279,6 +279,18 @@ scrivere, probabilmente la stringa va tradotta.
 | mimirrocry | attrezzo di Elona+ (`db_item.hsp`), giapponese ミラクリー: **coniazione**, opaca in tutte e due le lingue |
 | spiritium | materia di Elona (`db_item.hsp`), giapponese スピリチウム: nome opaco del canone, come `magistus` e `rubynus` |
 | anering | attrezzo di Elona+ (`db_item.hsp`), giapponese アネワッシャー: coniazione opaca. ⚠️ Le due lingue coniano **cose diverse** — il giapponese dice «rondella», l'inglese «anello» — e questo conferma che non e' una descrizione |
+| magatama | perla ricurva (`db_item.hsp`), giapponese 火吸の勾玉: prestito acquisito nei testi italiani sul Giappone, e il 勾玉 non ha un nome italiano. Maschile, invariato al plurale |
+| magaice | perla ricurva (`db_item.hsp`), giapponese 冷吸の勾玉: **coniazione** su `magatama` piu' `ice`, e la stessa famiglia di `magaqua`. Nome opaco, come il capostipite |
+| magaqua | perla ricurva (`db_item.hsp`), giapponese 被水の勾玉: coniazione su `magatama` piu' `aqua`, come `magaice` |
+| hibachi | braciere giapponese (`db_item.hsp`), giapponese 火鉢: prestito acquisito in italiano. «Braciere» direbbe un'altra cosa |
+| ohuda | talismano shintoista (`db_item.hsp`), giapponese 退芭符: l'inglese e' una **romanizzazione** di お札. Nome opaco |
+| b-dama | biglia (`db_item.hsp`), giapponese ビーダマ: romanizzazione di ビー玉. Nome opaco |
+| surstromming | conserva di aringhe (`db_item.hsp`), giapponese シュールストレミング: **nome proprio svedese** di un alimento reale, che l'italiano usa tale e quale |
+| Taktstock | bacchetta da direttore d'orchestra (`db_item.hsp`), giapponese コマンドタクト. ⚠️ **L'inglese ha scelto il tedesco**, e il tedesco resta tedesco come il latino resta latino in `aqua sanctio`. Renderlo «bacchetta» perderebbe la scelta di lingua che l'originale ha fatto |
+| E.G.G | attrezzo di Elona+ (`db_item.hsp`), giapponese E,G,G: **sigla**, non una parola. Come `<HL-KRSW>` |
+| expoopsion | esplosivo di Elona+ (`db_item.hsp`), giapponese エクソプロージョン: **coniazione** scherzosa su `explosion`. Nome opaco |
+| echinobox | attrezzo di Elona+ (`db_item.hsp`), giapponese エキノボックス: coniazione opaca |
+| fukagurumi | oggetto di Elona+ (`db_item.hsp`), giapponese フカグルミ: coniazione opaca su ぬいぐるみ, come `kumiromi-gurumi` |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 
