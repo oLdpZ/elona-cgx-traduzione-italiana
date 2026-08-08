@@ -115,6 +115,15 @@ scrivere, probabilmente la stringa va tradotta.
 | nunchaku | arma (`db_item.hsp`, `/metal/`), giapponese 節棍; prestito acquisito, maschile, invariato al plurale |
 | shakujo | bastone del monaco buddhista (`db_item.hsp`, `/metal/`), giapponese 錫杖. Meno noto degli altri quattro, ma **oggetto reale con un nome proprio**: «bastone da monaco» sarebbe una perifrasi |
 | tomahawk | arma (`db_item.hsp`, `/sharp/`), giapponese 投斧 («ascia da lancio»). L'inglese ha scelto il nome algonchino, che l'italiano ha acquisito identico; maschile, invariato al plurale |
+| banana | frutto (`db_item.hsp`, `/fruit/`), giapponese バナナ: **il nome italiano è «banana»**, identico all'inglese. Coincidenza, come `guava` e `kiwi`. A differenza di quelli il plurale italiano esiste ed è «banane», e sta nel campo `plurale` |
+| mesugaki | pesce (`db_item.hsp`, `/fish/`), giapponese メス牡蠣 — gioco di parole su 牡蠣 «ostrica». Nome opaco e scherzoso, invariato al plurale |
+| sazae | mollusco (`db_item.hsp`, `/fish/`), giapponese サザエ, *Turbo cornutus*. L'italiano non ha un nome comune per questa conchiglia: «turbante» è ambiguo e direbbe un'altra cosa. Invariato al plurale |
+| fane | ortaggio inventato da Elona (`db_item.hsp`, `/vege/`), giapponese フェーン; nome opaco, invariato al plurale |
+| alraunia | erba di Elona (`db_item.hsp`, `/herb/`), giapponese アルローニア; nome opaco del canone, invariato al plurale. Femminile per la desinenza |
+| spenseweed | erba di Elona (`db_item.hsp`, `/herb/`), giapponese スペンスウィード; nome opaco, invariato al plurale |
+| mareilon | erba di Elona (`db_item.hsp`, `/herb/`), giapponese マレイロン; nome opaco, invariato al plurale |
+| morgia | erba di Elona (`db_item.hsp`, `/herb/`), giapponese モージア; nome opaco, invariato al plurale. Femminile per la desinenza |
+| dernefia | fiore di Elona (`db_item.hsp`, `/hana/`), giapponese デルネフィアの花. Il giapponese dice «il fiore di dernefia», l'inglese solo il nome: si traduce dall'inglese. Invariato al plurale |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 
