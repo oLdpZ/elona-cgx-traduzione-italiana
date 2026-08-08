@@ -36,7 +36,7 @@ individuare dove risiedono i nomi degli oggetti.
 | `piani/` | piani di fase |
 | `dizionario/` | la traduzione — sorgente di verità |
 | `lavoro/` | lotti JSONL in lavorazione |
-| `strumenti/` | `estrai.py`, `applica.py`, `reimporta.py`, `verifica.py`, `compila.py`, `prova_identita.py`, `installa.py` |
+| `strumenti/` | `estrai.py`, `categorie.py`, `applica.py`, `reimporta.py`, `verifica.py`, `compila.py`, `prova_identita.py`, `installa.py` |
 
 Nel vault sta solo testo. Gli artefatti pesanti e rigenerabili vivono in
 `C:\Games\Elona\_traduzione\`: `hsp34/` (SDK), `sorgente/` (clone upstream),
@@ -45,7 +45,10 @@ Nel vault sta solo testo. Gli artefatti pesanti e rigenerabili vivono in
 ## Flusso di lavoro
 
 1. `estrai.py` produce un lotto **JSONL** da un intervallo di file del sorgente,
-   classificando le stringhe in statiche e dinamiche
+   classificando le stringhe in statiche e dinamiche. Per i nomi di
+   `db_item.hsp`, `categorie.py` taglia il lotto per la categoria che **il
+   sorgente dichiara** (`reftype = FILTER_...` dentro il blocco di ogni
+   oggetto): un lotto è una classe, e una classe pone la stessa domanda
 2. si traduce il campo `it` di ogni riga del lotto
 3. `reimporta.py` valida il lotto e, solo se pulito, lo scrive nel dizionario
 4. `verifica.py` controlla interpolazioni, glossario, accenti persi, larghezza UI
