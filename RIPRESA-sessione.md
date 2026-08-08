@@ -32,7 +32,8 @@ python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre
 **La catena dei nomi è completa**: nome, plurale, genere, articolo. Quattro
 commit oggi, tutti verdi, `db_item.hsp` è passato dal 5% al 47% in una sessione.
 
-- Branch `fase-0`, **4 commit avanti su origin**, niente pushato
+- Branch `fase-0`, avanti su `origin`, **niente pushato** — il conto esatto
+  lo dà `git status -sb`, non questo documento
 - [PR #1](https://github.com/oLdpZ/elona-cgx-traduzione-italiana/pull/1) sempre
   aperta verso `master`, mai unita
 - Sorgente pinnato al tag `2.31.2.0` (`a9135a6`), manifesto 72/72
