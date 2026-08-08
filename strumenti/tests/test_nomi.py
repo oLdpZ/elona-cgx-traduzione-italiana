@@ -595,3 +595,68 @@ def test_plurale_e_articolo_stanno_nello_stesso_blocco():
     assert righe[6] == '\t\tioriginalnamearticolo(ITEM_ID_BANANA) = "una "'
     assert righe[7] == '\t\tioriginalnamearticolodet(ITEM_ID_BANANA) = "la "'
     assert righe[8] == '\t\tioriginalnameref2(ITEM_ID_BANANA) = ""'
+
+
+# ---------------------------------------------------------------------------
+# La qualita' dell'arredo: complementi, come materiale ed epiteti (2026-08-08).
+#
+# `_furniture` (`text.hsp:56`) sono undici gradini che l'inglese antepone al
+# nome (`item_func.hsp:1324`). E' la sesta volta che si presenta la stessa
+# forma -- un prefisso a un nome di **genere ignoto** -- e la cura non cambia:
+# spostarli in coda e renderli con complementi che non chiedono accordo.
+#
+# Qui il vincolo e' piu' stretto che altrove: l'arredamento comprende nomi che
+# esistono solo al plurale («dei libri sparsi»), quindi la resa deve essere
+# invariante per genere **e** per numero. «malandato» fallirebbe su entrambi.
+# ---------------------------------------------------------------------------
+
+def test_la_qualita_dell_arredo_non_si_antepone_piu():
+    righe = [r.strip() for r in _item_func_toppato().split("\r\n")]
+    for spoglia in righe[:righe.index("*skipName")]:
+        if "_furniture(" in spoglia and spoglia.startswith("locvar_itemowner_s +="):
+            assert "itemowner_itemid" in spoglia, (
+                f"{spoglia!r}: la qualita' dell'arredo si antepone ancora nel"
+                " ramo inglese. In italiano segue il nome, quindi va messa da"
+                " parte in locvar_itemname_s6 e riversata dopo")
+
+
+def test_il_ramo_giapponese_dell_arredo_resta_intatto():
+    """Riga 1077: sta dentro `if ( jp )`, dove l'ordine e' gia' quello giusto."""
+    righe = [r.strip() for r in _item_func_toppato().split("\r\n")]
+    intatte = [r for r in righe
+               if r == "locvar_itemowner_s += _furniture("
+                       "inv(INV_ITEM_SUB_NAME, itemowner_itemid))"]
+    assert len(intatte) == 1, intatte
+
+
+def test_la_qualita_dell_arredo_precede_il_materiale_nella_coda():
+    """Nella stessa coda s6, e prima: «tavolo di buona fattura di seta».
+
+    Non e' una convenzione ma una conseguenza: il sito dell'arredo (1324) gira
+    prima di quelli del materiale (1386+), quindi due `+=` sulla stessa coda
+    bastano e non serve una terza coda da azzerare.
+    """
+    righe = [r.strip() for r in _item_func_toppato().split("\r\n")]
+    arredo = [i for i, r in enumerate(righe)
+              if r.startswith("locvar_itemname_s6 +=") and "_furniture(" in r]
+    materiale = [i for i, r in enumerate(righe)
+                 if r.startswith("locvar_itemname_s6 +=") and "mtname(" in r]
+    assert len(arredo) == 1, arredo
+    assert materiale, "nessun materiale in coda: la toppa del materiale e' sparita"
+    assert arredo[0] < min(materiale)
+
+
+def test_le_rese_dell_arredo_sono_complementi_non_aggettivi():
+    """Un aggettivo si accorderebbe; questi undici non possono permetterselo."""
+    from strumenti.reimporta import carica_dizionario
+
+    voci = [v for v in carica_dizionario("text.hsp").values()
+            if v.get("riga") == 56 and v.get("it")]
+    assert len(voci) == 11, f"attese 11 rese di _furniture, trovate {len(voci)}"
+    teste = {"di", "da", "dal", "che", "senza", "con", "in", "a"}
+    for v in voci:
+        prima = v["it"].split()[0]
+        assert prima in teste, (
+            f"{v['en']} -> {v['it']!r}: comincia per {prima!r}, che non e' una"
+            " testa di complemento. Un aggettivo si accorderebbe con un nome"
+            " di genere e numero ignoti -- l'arredamento ha anche plurali")

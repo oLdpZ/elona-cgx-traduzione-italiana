@@ -285,6 +285,34 @@ for primo, ultimo, lettura, giunto in DA_ANTEPORRE:
         "motivo": f"il materiale si antepone in inglese e segue in italiano: qui si mette da parte in locvar_itemname_s6 col giunto «{giunto.strip()}», e si riversa dopo *skipName. Il giunto sta nella toppa e non nel dato perche' mtname lo legge anche command.hsp, dove «fatto di» + «di cuoio» direbbe due volte la stessa preposizione",
     })
 
+# 14-bis. la qualita' dell'arredo (`_furniture`, text.hsp:56): undici gradini
+#         da «shabby» a «godly» che l'inglese antepone al nome. E' la stessa
+#         forma gia' chiusa per materiale ed epiteti, e per lo stesso motivo:
+#         sono **prefissi a un nome di genere ignoto**, e un aggettivo italiano
+#         si accorderebbe — «tavolo scadente» ma «sedia scadente**a**»? No:
+#         «shabby» andrebbe reso «malandato/malandata», e l'arredamento include
+#         anche plurali («dei libri sparsi»). Le rese sono percio' complementi
+#         invarianti per genere **e numero** («di fattura scadente»,
+#         «da capolavoro»), che e' la sesta applicazione della stessa cura.
+#
+#         Va nella coda del materiale e non in una sua: il sito (1324) gira
+#         PRIMA dei siti del materiale (1386+), quindi un `+=` sulla stessa s6
+#         produce gia' l'ordine giusto — «tavolo moderno di fattura scadente di
+#         manifattura in seta» — senza aggiungere una terza coda da azzerare.
+#
+#         Il gemello a riga 1077 NON si tocca: sta dentro `if ( jp )`, un ramo
+#         che questa build non percorre mai.
+riga = ITEM[1324 - 1]
+assert 'locvar_itemowner_s +=' in riga and '_furniture(' in riga, riga
+assert 'itemname_itemid' in riga, riga
+toppe.append({
+    "file": "item_func.hsp",
+    "cerca": riga,
+    "sostituisci": (f'{ind(riga)}locvar_itemname_s6 += " " + '
+                    '_furniture(inv(INV_ITEM_SUB_NAME, itemname_itemid))'),
+    "motivo": "la qualita' dell'arredo si antepone in inglese e segue in italiano, come materiale ed epiteti: e' un prefisso a un nome di genere ignoto, e le rese sono complementi invarianti. Stessa coda s6 del materiale perche' questo sito precede i suoi e l'ordine viene gratis. Il gemello a riga 1077 sta nel ramo jp e non si tocca",
+})
+
 # 15-17. benedizione, maledizione e dannazione: stessa storia dell'epiteto.
 #        `strblessed` si antepone e in italiano «benedetto» seguirebbe il nome
 #        **accordandosi** — «mantello benedetto», «pozione benedetta» — e il
