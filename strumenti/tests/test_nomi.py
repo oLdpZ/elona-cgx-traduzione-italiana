@@ -289,3 +289,43 @@ def test_due_testi_sfalsati_fermano_la_catena():
     dizionario = _dizionario(BLOCCO, banana="banane")
     with pytest.raises(SorgenteCorrotto, match="sfalsati"):
         applica_plurali("db_item.hsp", BLOCCO, dizionario, BLOCCO + "\tx = 1\n")
+
+
+# ---------------------------------------------------------------------------
+# La guardia del plurale del nome: solo quando NON c'e' parola-contatore.
+#
+# Trovata il 2026-08-08, leggendo il sorgente prima del primo lotto di nomi.
+# Il pluralizzatore inglese che le toppe spengono (`item_func.hsp:1842`) era
+# protetto da `if ( locvar_itemname_s2 == "" )`: in inglese si flette la
+# parola-contatore **oppure** il nome, mai tutti e due. «3 scrolls of identify»,
+# non «3 scrolls of identifies».
+#
+# In italiano vale lo stesso, e per la stessa ragione grammaticale: la testa del
+# sintagma e' il contatore, e il complemento dopo «di» resta al singolare —
+# «3 pergamene di identificazione». Le tre toppe dei siti di concatenazione
+# avevano perso quella guardia: con `plurale` pieno su entrambe le voci del
+# blocco composto avrebbero scritto «3 pergamene di identificazioni».
+#
+# La difesa e' nel codice e non nel dato: `verifica.py` pretende il `plurale` su
+# ogni nome tradotto, quindi la coda di un composto un plurale ce l'ha per forza.
+# ---------------------------------------------------------------------------
+
+def test_il_plurale_del_nome_si_usa_solo_senza_parola_contatore():
+    from strumenti.applica import carica_toppe
+
+    # solo le toppe che **leggono** il plurale: la dichiarazione degli array e
+    # il commento della toppa che spegne il pluralizzatore inglese lo nominano
+    # soltanto
+    interessate = [t for t in carica_toppe()
+                   if "= ioriginalnamerefplur(" in "\n".join(
+                       t["sostituisci"] if isinstance(t["sostituisci"], list)
+                       else [t["sostituisci"]])]
+    assert len(interessate) == 3, (
+        "i siti di concatenazione del nome sono tre (item_func.hsp:1731, 1747,"
+        f" 1770): trovate {len(interessate)} toppe che leggono il plurale")
+    for toppa in interessate:
+        testo = "\n".join(toppa["sostituisci"])
+        assert 'locvar_itemname_s2 == ""' in testo, (
+            "il plurale del nome va usato solo quando non c'e' parola-contatore,"
+            " come faceva il pluralizzatore inglese spento a item_func.hsp:1842."
+            " Senza la guardia esce «3 pergamene di identificazioni»")

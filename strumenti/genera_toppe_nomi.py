@@ -108,10 +108,29 @@ toppe.append({
 APPENDE = 'locvar_itemowner_s += ioriginalnameref(inv(INV_ITEM_ID, itemname_itemid))'
 
 def scelta_plurale(indentazione):
+    """Il nome al plurale, ma solo dove l'inglese lo faceva.
+
+    La guardia `locvar_itemname_s2 == ""` e' quella del pluralizzatore inglese
+    che la toppa 8 spegne (`item_func.hsp:1842`): si flette **la parola-contatore
+    oppure il nome, mai tutti e due**. In inglese «3 scrolls of identify»; in
+    italiano «3 pergamene di identificazione», perche' la testa del sintagma e'
+    il contatore e il complemento dopo «di» resta singolare.
+
+    Senza la guardia uscirebbe «3 pergamene di identificazioni», e non per un
+    dato sbagliato: `verifica.py` pretende il `plurale` su ogni nome tradotto,
+    quindi la coda di un composto un plurale ce l'ha per forza. La regola su
+    quando usarlo sta qui, nel codice, non nella disciplina di chi traduce.
+
+    Le if sono annidate e non unite con `&`: HSP valuta le espressioni da
+    sinistra a destra senza precedenza fra operatori, e una condizione composta
+    andrebbe letta con attenzione ogni volta che qualcuno ci ripassa.
+    """
     return [
         f'{indentazione}locvar_itemname_s5 = ""',
-        f'{indentazione}if ( locvar_itemowner_num2 > 1 ) {{',
-        f'{indentazione}\tlocvar_itemname_s5 = ioriginalnamerefplur(inv(INV_ITEM_ID, itemname_itemid))',
+        f'{indentazione}if ( locvar_itemname_s2 == "" ) {{',
+        f'{indentazione}\tif ( locvar_itemowner_num2 > 1 ) {{',
+        f'{indentazione}\t\tlocvar_itemname_s5 = ioriginalnamerefplur(inv(INV_ITEM_ID, itemname_itemid))',
+        f'{indentazione}\t}}',
         f'{indentazione}}}',
         f'{indentazione}if ( locvar_itemname_s5 != "" ) {{',
         f'{indentazione}\tlocvar_itemowner_s += locvar_itemname_s5',
