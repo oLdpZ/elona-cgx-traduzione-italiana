@@ -268,3 +268,53 @@ def test_le_rinviate_vogliono_un_motivo(tmp_path):
 def test_carica_rinviate_senza_file_non_rompe_niente(tmp_path):
     from strumenti.estrai import carica_rinviate
     assert carica_rinviate(tmp_path / "assente.jsonl") == set()
+
+
+# --- il rinvio vale per il file che l'ha deciso (2026-08-08) -----------------
+#
+# `rinviate.jsonl` era indicizzato per **firma**, e la firma e' contenuto: non
+# porta il file. Le 157 voci rinviate di `text.hsp` — risposte del quiz e nomi
+# casuali — hanno per costruzione lo stesso contenuto dei nomi veri, e cosi'
+# **15 nomi di `db_item.hsp` sparivano da ogni lotto**: `ring`, `lemon`,
+# `strawberry`, `cherry`, `gold bar`, `broken sword`, `flag`, `earth crystal`...
+#
+# Non c'era nessun accoppiamento vero da rispettare: i dizionari sono per file
+# (`dizionario/text.hsp.jsonl`, `dizionario/db_item.hsp.jsonl`), quindi tradurre
+# il nome in `db_item` non tocca la risposta del quiz in `text.hsp`. Era solo
+# una decisione presa su un file che toglieva lavoro alla coda di un altro, in
+# silenzio e per sempre — la coda non si sarebbe mai svuotata e nessuno avrebbe
+# saputo perche'.
+
+def test_una_rinviata_di_un_file_non_toglie_lavoro_a_un_altro(tmp_path):
+    import json
+    from strumenti.estrai import carica_rinviate
+
+    percorso = tmp_path / "rinviate.jsonl"
+    percorso.write_text(json.dumps({
+        "firma": "abc", "file": "text.hsp", "en": "gold bar",
+        "motivo": "risposta del quiz, dipende dai nomi degli oggetti",
+    }, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    assert carica_rinviate(percorso, "text.hsp") == {"abc"}
+    assert carica_rinviate(percorso, "db_item.hsp") == set()
+
+
+def test_senza_file_le_rinviate_si_leggono_tutte(tmp_path):
+    # il comportamento storico resta disponibile: serve a chi vuole l'elenco
+    # intero, per esempio per contarle
+    import json
+    from strumenti.estrai import carica_rinviate
+
+    percorso = tmp_path / "rinviate.jsonl"
+    percorso.write_text(json.dumps({
+        "firma": "abc", "file": "text.hsp", "en": "x", "motivo": "y",
+    }) + "\n", encoding="utf-8")
+    assert carica_rinviate(percorso) == {"abc"}
+
+
+def test_i_nomi_di_db_item_non_sono_rinviati_da_text():
+    # la rete di sicurezza sul file vero: se domani qualcuno rinvia una voce di
+    # `text.hsp` che ha lo stesso contenuto di un nome, il nome deve restare
+    # nella coda di `db_item.hsp`
+    from strumenti.estrai import carica_rinviate
+    assert carica_rinviate(None, "db_item.hsp") == set()

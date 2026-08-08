@@ -466,12 +466,25 @@ def estrai_da_file(percorso: Path) -> list[dict]:
 _CAMPI_RINVIATA = ("firma", "file", "en", "motivo")
 
 
-def carica_rinviate(percorso: Path | None = None) -> set[str]:
+def carica_rinviate(percorso: Path | None = None,
+                    nome_file: str | None = None) -> set[str]:
     """Le firme rinviate a una fase successiva, da `rinviate.jsonl`.
 
     Non sono tradotte e non lo saranno in questa fase: dipendono da una
     decisione che questa fase dichiara di non prendere. Senza questo elenco
     tornerebbero in testa a ogni estrazione e andrebbero riscartate a mano.
+
+    `nome_file` limita l'elenco al file che il rinvio riguarda, ed e' cosi' che
+    lo chiama l'estrazione. La firma e' **contenuto**, non porta il file: le 157
+    voci rinviate di `text.hsp` — risposte del quiz, nomi casuali — hanno per
+    costruzione lo stesso contenuto dei nomi veri, e senza il filtro toglievano
+    **15 nomi di `db_item.hsp`** da ogni lotto, per sempre e in silenzio
+    (`ring`, `lemon`, `cherry`, `gold bar`, `broken sword`, `flag`...).
+
+    Non c'e' nessun accoppiamento da rispettare: i dizionari sono per file,
+    quindi tradurre il nome in `db_item.hsp` non tocca la risposta del quiz in
+    `text.hsp`. Era una decisione presa su un file che toglieva lavoro alla coda
+    di un altro. Senza `nome_file` si leggono tutte, che serve per contarle.
 
     `verifica --dizionario` continua a contarle fra le non tradotte, ed e'
     giusto: sono lavoro che resta, non lavoro chiuso.
@@ -494,7 +507,8 @@ def carica_rinviate(percorso: Path | None = None) -> set[str]:
                 f"{', '.join(mancanti)}. Una voce rinviata senza motivo e' lavoro "
                 "saltato di cui fra sei mesi nessuno sa il perche'."
             )
-        firme.add(voce["firma"])
+        if nome_file is None or voce["file"] == nome_file:
+            firme.add(voce["firma"])
     return firme
 
 
@@ -555,7 +569,8 @@ def main() -> None:
     for nome in argomenti.file:
         estratte = estrai_da_file(percorsi.SORGENTE_HSP / nome)
         if argomenti.da_tradurre:
-            estratte = da_tradurre(estratte, firme_tradotte(nome), carica_rinviate())
+            estratte = da_tradurre(estratte, firme_tradotte(nome),
+                                   carica_rinviate(None, nome))
         voci.extend(estratte)
     if argomenti.max:
         voci = voci[:argomenti.max]
