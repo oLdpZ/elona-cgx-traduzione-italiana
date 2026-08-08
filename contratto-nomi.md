@@ -164,6 +164,15 @@ Un plurale che manca **non è un errore a valle**: `applica_plurali` lo salta e 
 gioco ripiega sul singolare. Serve perché i 1.023 plurali arrivano a lotti, e lo
 stato intermedio deve restare leggibile.
 
+⚠️ **E la sparsità ha un prezzo, scoperto in gioco il 2026-08-08.** I due array
+del plurale sono dichiarati `sdim ..., 128, MAX_DB`, dimensionati, non lasciati
+autoespandere come `ioriginalnameref` che affiancano. La differenza non è la
+dichiarazione, è chi li riempie: `db_item.hsp` assegna il singolare per **ogni**
+oggetto, il plurale ce l'hanno solo i nomi tradotti. L'autoespansione di HSP vale
+**in scrittura**; in lettura un indice mai assegnato è un `Array overflow`, e il
+gioco muore — è successo aprendo la lista di un negoziante, che di pile da due è
+pieno. Un array sparso si dimensiona.
+
 ⚠️ Ma il ripiego è per i nomi **non ancora tradotti**. Su un nome già tradotto
 scriverebbe «2 spada lunga» per sempre, in silenzio, e il momento della
 traduzione è il solo in cui qualcuno sta guardando quel nome. Perciò

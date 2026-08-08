@@ -340,8 +340,11 @@ def applica_plurali(nome_file: str, testo: str, dizionario: dict,
         ioriginalnameref(ITEM_ID_BANANA) = "banana"
         ioriginalnamerefplur(ITEM_ID_BANANA) = "banane"     <- inserita
 
-    Gli array nuovi li dichiara una toppa su `init.hsp` (`sdim` si autoespande,
-    come per quelli che affianca). Un plurale che manca **non e' un errore**: il
+    Gli array nuovi li dichiara una toppa su `init.hsp`, **dimensionati a
+    MAX_DB** e non lasciati autoespandere come quelli che affiancano: quelli
+    `db_item.hsp` li assegna per ogni oggetto, questi sono sparsi per
+    costruzione, e in lettura un indice mai assegnato e' un Array overflow.
+    Un plurale che manca **non e' un errore**: il
     gioco ripiega sul singolare, cosi' lo stato intermedio resta leggibile e
     migliora man mano che i lotti arrivano.
 
