@@ -16,8 +16,9 @@ import pytest
 
 from strumenti import percorsi
 from strumenti.creature import (
-    FILE, classi, classi_da_testo, evoluzioni, nessuna_firma_in_due_classi,
-    nomi_per_creatura, nomi_visibili,
+    AZIONI, FILE, classi, classi_da_testo, evoluzioni, lotto_nucleo,
+    nessuna_firma_in_due_classi, nomi_per_creatura, nomi_visibili,
+    nucleo_atomico,
 )
 
 SORGENTE = """\
@@ -72,6 +73,56 @@ def test_il_sorgente_pinnato_ha_le_classi_che_il_piano_dichiara():
     for classe in classi().values():
         conto[classe] = conto.get(classe, 0) + 1
     assert conto == {"nome": 1131, "voce": 320}
+
+
+# --- il nucleo atomico -------------------------------------------------------
+
+def test_il_nucleo_ha_la_misura_che_il_piano_dichiara():
+    """378 stringhe inglesi, 380 firme, 203 + 373 voci nei due file.
+
+    Se il sorgente cambiasse a monte questi numeri si muoverebbero, ed e'
+    proprio cio' che il pin al tag deve rendere impossibile in silenzio.
+    """
+    voci = lotto_nucleo()
+    per_file = {}
+    for voce in voci:
+        per_file[voce["file"]] = per_file.get(voce["file"], 0) + 1
+    assert len(nucleo_atomico()) == 378
+    assert len({v["firma"] for v in voci}) == 380
+    assert per_file == {FILE: 203, AZIONI: 373}
+
+
+def test_lo_stesso_inglese_non_riceve_due_rese():
+    """⚠️ La guardia che le altre due non possono dare.
+
+    Due inglesi del nucleo portano due giapponesi diversi, quindi due firme:
+    `rabbit` (野うさぎ / ウサギ) e `wild horse` (野生馬 / サラブレッド). Il
+    confronto che il taglio fa a runtime e' fra **stringhe**, non fra firme: se
+    le due voci ricevono rese diverse, `evold` non aggancia piu' il nome e
+    l'evoluzione smette di rinominare.
+
+    `test_evold_resta_agganciato_ai_nomi_che_in_inglese_lo_erano` non lo vede:
+    costruisce `reso = {v["en"]: v["it"]}`, cioe' una mappa **per inglese**, e
+    di due rese ne tiene una sola — silenziosamente quella che arriva dopo.
+    """
+    tradotte = list(carica(FILE).values()) + list(carica(AZIONI).values())
+    if not tradotte:
+        pytest.skip("i dizionari di db_creature.hsp e action.hsp non esistono ancora")
+
+    nucleo = nucleo_atomico()
+    per_inglese: dict[str, set[str]] = {}
+    for voce in tradotte:
+        if voce["en"] in nucleo:
+            per_inglese.setdefault(voce["en"], set()).add(voce["it"])
+
+    divergenti = [
+        f"{en!r} -> {sorted(rese)}"
+        for en, rese in per_inglese.items() if len(rese) > 1
+    ]
+    assert not divergenti, (
+        "lo stesso inglese ha ricevuto rese diverse: il taglio confronta "
+        "stringhe, non firme, e cosi' non aggancia piu':\n" + "\n".join(divergenti)
+    )
 
 
 # --- le due proprieta' della rinomina ---------------------------------------

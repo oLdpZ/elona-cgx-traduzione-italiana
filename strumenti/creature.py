@@ -176,11 +176,88 @@ def nomi_visibili(evmode: int, mappa: dict | None = None, nomi: dict | None = No
     return fuori
 
 
+# --- il nucleo atomico -------------------------------------------------------
+
+AZIONI = "action.hsp"
+
+
+def nucleo_atomico(mappa: dict | None = None, nomi: dict | None = None) -> set[str]:
+    """Le stringhe inglesi che **non si possono tradurre separatamente**.
+
+    Sono l'unione di due insiemi che il taglio della rinomina mette a confronto:
+    gli `evold`/`evname` di `action.hsp` da una parte, e dall'altra i nomi di
+    creatura che quel taglio puo' incontrare (`nomi_visibili`). Un `evold`
+    italiano che incontra un nome ancora inglese non aggancia, e l'evoluzione
+    smette di rinominare **in silenzio**: e' la ragione per cui il lotto entra
+    in dizionario tutto insieme o niente.
+
+    ⚠️ **Le stringhe sono 378, le firme 380.** Due inglesi portano due
+    giapponesi diversi — `rabbit` (野うさぎ contro ウサギ) e `wild horse`
+    (野生馬 contro サラブレッド, che vuol dire *purosangue*) — e la firma e'
+    contenuto, quindi sono voci di dizionario distinte che **devono ricevere la
+    stessa resa**. Il confronto a runtime e' fra stringhe, non fra firme: due
+    rese diverse per lo stesso inglese rompono l'aggancio. Lo guarda
+    `test_lo_stesso_inglese_non_riceve_due_rese`.
+    """
+    mappa = mappa if mappa is not None else evoluzioni()
+    nomi = nomi if nomi is not None else nomi_per_creatura()
+    fuori = {s for d in mappa.values() for coppia in d["coppie"] for s in coppia}
+    for evmode in mappa:
+        fuori |= nomi_visibili(evmode, mappa, nomi)
+    return fuori
+
+
+def _unici_per_firma(voci: list[dict]) -> list[dict]:
+    viste, fuori = set(), []
+    for voce in voci:
+        if voce["firma"] not in viste:
+            viste.add(voce["firma"])
+            fuori.append(voce)
+    return fuori
+
+
+def lotto_nucleo() -> list[dict]:
+    """Il lotto del nucleo: le voci dei due file, una per firma, in ordine di file.
+
+    Da `db_creature.hsp` entrano le sole stringhe di classe **nome**: il
+    filtro sull'inglese da solo prenderebbe una voce che dicesse la stessa cosa
+    fra virgolette, e un nome tradotto col metodo della prosa e' proprio cio'
+    che `classi()` esiste per impedire.
+
+    Da `action.hsp` entra tutto cio' che sta nel nucleo, senza filtro di classe:
+    li' non c'e' una classificazione da fare, e un `evold` e' un `evold`.
+    """
+    from strumenti.estrai import estrai_da_file
+
+    bersaglio = nucleo_atomico()
+    mappa = classi()
+    creature = _unici_per_firma([
+        v for v in estrai_da_file(percorsi.SORGENTE_HSP / FILE)
+        if v["en"] in bersaglio and mappa.get((v["jp"], v["en"])) == "nome"
+    ])
+    azioni = _unici_per_firma([
+        v for v in estrai_da_file(percorsi.SORGENTE_HSP / AZIONI)
+        if v["en"] in bersaglio
+    ])
+    return creature + azioni
+
+
+def _scrivi(voci: list[dict], uscita: str) -> None:
+    percorso = Path(uscita)
+    percorso.parent.mkdir(parents=True, exist_ok=True)
+    with percorso.open("w", encoding="utf-8", newline="\n") as f:
+        for voce in voci:
+            f.write(json.dumps(voce, ensure_ascii=False) + "\n")
+    print("scritto", uscita)
+
+
 def main() -> None:
     sys.stdout = __import__("io").TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
     p = argparse.ArgumentParser(description=f"Classi delle stringhe di {FILE}.")
     p.add_argument("--classe", choices=("nome", "voce"), help="elenca le voci di una classe")
-    p.add_argument("--uscita", help="scrive la classe scelta come lotto JSONL")
+    p.add_argument("--nucleo", action="store_true",
+                   help="il nucleo atomico: nomi e stringhe di evoluzione, dai due file")
+    p.add_argument("--uscita", help="scrive come lotto JSONL cio' che si e' chiesto")
     a = p.parse_args()
 
     mappa = classi()
@@ -192,18 +269,21 @@ def main() -> None:
 
     if a.classe:
         from strumenti.estrai import estrai_da_file
-        voci = [v for v in estrai_da_file(FILE) if mappa.get((v["jp"], v["en"])) == a.classe]
-        viste, unici = set(), []
-        for v in voci:
-            if v["firma"] not in viste:
-                viste.add(v["firma"])
-                unici.append(v)
+        voci = [v for v in estrai_da_file(percorsi.SORGENTE_HSP / FILE)
+                if mappa.get((v["jp"], v["en"])) == a.classe]
+        unici = _unici_per_firma(voci)
         print(f"{a.classe}: {len(unici)} firme, {len(voci)} occorrenze")
         if a.uscita:
-            with open(a.uscita, "w", encoding="utf-8", newline="\n") as f:
-                for v in unici:
-                    f.write(json.dumps(v, ensure_ascii=False) + "\n")
-            print("scritto", a.uscita)
+            _scrivi(unici, a.uscita)
+
+    if a.nucleo:
+        voci = lotto_nucleo()
+        per_file = collections.Counter(v["file"] for v in voci)
+        print(f"nucleo: {len(nucleo_atomico())} stringhe, {len({v['firma'] for v in voci})} firme")
+        for nome_file, quante in sorted(per_file.items()):
+            print(f"  {nome_file:18} {quante:4} voci")
+        if a.uscita:
+            _scrivi(voci, a.uscita)
 
 
 if __name__ == "__main__":
