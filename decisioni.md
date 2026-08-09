@@ -931,3 +931,65 @@ magici», cioè `Capaci` e `Dispos`.
 scegliere teste diverse per le famiglie che collidono, abbreviare la testa, o
 accettare la collisione nel solo tracciatore (dove il nome intero resta
 visibile nella lista).
+
+### I nove gradi di `_resist`: un campo che non tronca, invade — 2026-08-09
+
+Trovato **in gioco**, non dai test: nella lista abilità (`a`, pagina delle
+resistenze) «Resistenza debole» finiva sopra `Resist Fulmine`.
+
+Il campo non è come quelli misurati finora. Gli altri **tagliano**, e il taglio
+si vede nel campo stesso. Questo è **ancorato a destra**:
+
+```
+command.hsp:11002   pos wx + 280 - strlen(s) * 7, ...   ← la colonna dei gradi
+command.hsp:10893   x = 54                              ← da dove parte il nome
+```
+
+> Un campo allineato a destra non ha un tetto: cresce verso sinistra finché
+> non copre il vicino. **Il difetto non compare nel campo lungo, compare in
+> quello accanto** — e nessun test che guardi una stringa alla volta lo vede.
+
+Lo spazio fra i due estremi è **226 px**, e va diviso fra il nome e il grado.
+Il caso peggiore è la coppia più lunga possibile, non la media: `Resist
+Oltretomba` (17 caratteri, il nome più lungo dei nostri) col grado più lungo.
+L'inglese nel suo peggiore ne impegna 30, `Resist Lightning` + `Criticaly Weak`.
+
+Sette gradi su nove sforavano, e per la stessa ragione strutturale del campo da
+6: **ripetevano una testa che la colonna non deve dire.** «Resistenza debole»
+accanto a una riga che si chiama già `Resist Fulmine` dice «resistenza» due
+volte. La cura è la stessa già usata per i nomi tracciabili — **togliere la
+testa, tenere ciò che distingue**:
+
+| jp | en | prima | ora |
+|---|---|---|---|
+| 致命的な弱点 | Criticaly Weak | Debolezza critica | **Fatale** |
+| 弱点 | Weak | Debolezza | Debolezza |
+| 耐性なし | No Resist | Nessuna resistenza | **Nessuna** |
+| 弱い耐性 | Little | Resistenza debole | **Scarsa** |
+| 普通の耐性 | Normal | Resistenza normale | **Normale** |
+| 強い耐性 | Strong | Resistenza forte | **Forte** |
+| 素晴らしい耐性 | Superb | Resistenza ottima | **Ottima** |
+| 凄まじい耐性 | Amazing | Resistenza enorme | **Enorme** |
+| 究極の耐性 | Supreme | Resistenza suprema | **Suprema** |
+
+Il peggiore passa da 17 caratteri a **9**, e i nostri 17 + 9 = 26 stanno sotto
+i 30 dell'inglese. Il 9 non è dedotto: la schermata di prima della correzione
+mostrava già `Resist Oltretomba` con «Debolezza» **senza toccarsi**.
+
+`Fatale` viene dal giapponese, 致命的 — più fedele di «critica», e in più
+inequivocabile: un aggettivo da solo in una colonna di gradi si può leggere al
+contrario, e «critica» poteva passare per un pregio.
+
+⚠️ **I due gradi che si somigliano vanno tenuti distinti a vista.**
+`Debolezza` (slot 1, si subisce il 133%) e `Scarsa` (slot 3, il 37%) sono
+opposti. L'inglese li separa cambiando il sostantivo sottinteso a metà scala —
+*Weak* è una debolezza, *Little* è una resistenza — e l'italiano deve fare lo
+stesso: nome per la metà cattiva, aggettivo per quella buona.
+
+Il secondo sito che legge `_resist` è `command.hsp:8136`, la scheda di un PNG
+conosciuto (`_resist(...) + " " + skilldesc(...)`): testo che scorre, senza
+vincolo di larghezza, e il grado corto ci sta come ci stava quello inglese.
+
+⚠️ **Il `#####` accanto ai gradi non è nostro.** È `putenclv`
+(`item_data.hsp:145`), disegnato a `wx+282` fisso: un `#` per livello di bonus,
+`+` oltre il quinto. Esce identico nel gioco inglese.
