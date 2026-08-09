@@ -1415,3 +1415,47 @@ col tutto è di nuovo il prefisso a scattare, perché il confronto è lo stesso.
 
 > Una riparazione che nessun collaudo può raggiungere non è una riparazione
 > inutile: è una riparazione che non saprai mai se hai rotto.
+
+### «Sorcas the il cane»: il collaudo trova il secondo sito che compone l'articolo
+
+Il primo giro in gioco, con i nomi di creatura appena entrati, ha mostrato
+**«Sorcas the il cane»**. Non è la toppa di `init.hsp:1718` che ha ceduto: è un
+**secondo** sito, e non è nemmeno una toppa da scrivere.
+
+`db_creature.hsp` compone l'epiteto dei personaggi con nome proprio così, in
+**152 punti**:
+
+```hsp
+cdatan(CDATAN_NAME, rc) = lang(cdatan(CDATAN_NAME, rc) + "の" + randomname(),
+                               randomname() + " the " + cdatan(CDATAN_NAME, rc))
+```
+
+È dentro `lang()`, quindi è una **dinamica traducibile** — una firma sola per
+tutte e 152 le occorrenze — e stava semplicemente fra le 3.452 di
+`db_creature.hsp` non ancora tradotte. Con l'articolo dentro il nome la resa è
+`randomname() + " " + cdatan(CDATAN_NAME, rc)`: il `the` sparisce e resta
+«Sorcas il cane», che è la forma italiana dell'epiteto («Alessandro il Grande»).
+
+**La lezione è sull'ordine, non sul difetto.** `guida-stile.md` avvertiva di
+guardare *dove altro* quei nomi compaiono prima di tradurli, e l'avvertimento
+era giusto; ma il posto dove compaiono non si trova leggendo, si trova
+**guardando lo schermo**. Cinque minuti di gioco hanno mostrato in una riga ciò
+che due sessioni di lettura del sorgente non avevano tirato fuori.
+
+⚠️ **Da rifare quando arrivano gli altri ~930 nomi**: gli stessi 152 siti sono
+`cbitmod CHARA_BIT_HAS_NAME`, cioè i personaggi che `name()` mostra **senza**
+articolo. L'articolo lì lo porta il nome di specie dentro l'epiteto, ed è
+giusto; ma un nome di specie che finisse in quell'epiteto senza articolo
+darebbe «Sorcas cane». La guardia dell'articolo lo copre.
+
+### La guardia dell'articolo guardava anche le dinamiche
+
+La stessa voce ha fatto cadere `test_ogni_nome_e_ogni_stringa_di_evoluzione_
+porta_il_proprio_articolo`: caricava **tutte** le voci tradotte di
+`db_creature.hsp` e pretendeva l'articolo da ciascuna, epiteto compreso.
+
+Chiedere l'articolo a quell'espressione voleva dire chiederle di cominciare per
+«il », cioè di scrivere un articolo **fuori** dal nome — l'opposto esatto della
+regola che la guardia difende. Il filtro giusto c'era già ed è `classi()`, la
+stessa autorità che decide i lotti: la riga è di forma `cdatan(...) = lang(...)`
+ma non contiene nessuna coppia di letterali, quindi non è un nome.

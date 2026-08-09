@@ -363,7 +363,20 @@ def test_ogni_nome_e_ogni_stringa_di_evoluzione_porta_il_proprio_articolo():
       vede.
 
     I nomi propri fra `<>` e fra virgolette restano fuori: `name()` li
-    riconosce dalla prima lettera e non ci ha mai messo l'articolo davanti.
+    riconosce dalla prima lettera (`init.hsp:1713-1716`) e non ci ha mai messo
+    l'articolo davanti. ⚠️ **La maiuscola invece non c'entra**: `name()` guarda
+    `CHARA_BIT_HAS_NAME`, che sta sul personaggio e non sulla stringa, quindi
+    anche `Unicorn` e `Nekomata` ricevevano «the » e in italiano prendono
+    l'articolo.
+
+    ⚠️ **Solo le stringhe che il sorgente dichiara nomi.** `db_creature.hsp`
+    contiene anche una **dinamica** — `randomname() + " the " + cdatan(...)`,
+    l'epiteto dei 152 personaggi con nome proprio — che sta su una riga di forma
+    `cdatan(CDATAN_NAME, rc) = lang(...)` ma non e' un nome: e' l'espressione
+    che ne compone uno. Chiederle l'articolo era chiederle di cominciare per
+    «il », cioe' di scrivere un articolo **fuori** dal nome, che e' l'opposto
+    della regola. Il filtro e' `classi()`, la stessa autorita' che decide i
+    lotti.
     """
     articoli = ("il ", "lo ", "la ", "i ", "gli ", "le ", "l'")
     nomi_it = carica(FILE)
@@ -371,7 +384,9 @@ def test_ogni_nome_e_ogni_stringa_di_evoluzione_porta_il_proprio_articolo():
     if not nomi_it and not azioni_it:
         pytest.skip("i dizionari di db_creature.hsp e action.hsp non esistono ancora")
 
-    da_guardare = list(nomi_it.values())
+    mappa_classi = classi()
+    da_guardare = [v for v in nomi_it.values()
+                   if mappa_classi.get((v["jp"], v["en"])) == "nome"]
     evoluzione = {e for d in evoluzioni().values() for coppia in d["coppie"] for e in coppia}
     da_guardare += [v for v in azioni_it.values() if v["en"] in evoluzione]
 
