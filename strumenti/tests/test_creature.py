@@ -225,6 +225,26 @@ def test_il_campo_della_rinomina_e_delimitato_dal_cancello():
     assert (esatti, parziali) == (236, 47)
 
 
+# Gli agganci che esistono in inglese e che l'italiano **non** puo' conservare,
+# uno per uno e col motivo. Ogni riga e' una decisione: cio' che non e' qui
+# dentro deve agganciare, e il test lo pretende.
+#
+# Non e' un modo per zittire la guardia. Un aggancio che sparisce costa una
+# rinomina mancata, e va speso solo dove la rinomina che si perde non esiste.
+AGGANCI_SOLO_INGLESI = {
+    # `bisque doll` e' prefisso di `bisque dolls` solo per la **-s del plurale**,
+    # che in italiano non c'e': «la bambola di porcellana» diventa «le bambole di
+    # porcellana», e cambiano articolo e sostantivo insieme.
+    #
+    # L'evoluzione vera — ビスクドール -> ビスクドールズ — passa lo stesso,
+    # perche' li' il confronto e' **esatto**. L'aggancio parziale descrive solo
+    # il rientro: una `bisque dolls` che ripassa da evmode 154 diventa in inglese
+    # `bisque dollss`, che e' una stortura di upstream e non una rinomina.
+    # In italiano il rientro non fa niente, ed e' il comportamento migliore.
+    ("bisque doll", "bisque dolls"): "e' la -s del plurale inglese, non una specie",
+}
+
+
 def test_evold_resta_agganciato_ai_nomi_che_in_inglese_lo_erano():
     """Prima proprieta': la rinomina deve continuare ad attaccare.
 
@@ -242,6 +262,13 @@ def test_evold_resta_agganciato_ai_nomi_che_in_inglese_lo_erano():
     funzione costruiva `{v["en"]: v["it"]}`, e su `wild horse` — che in
     `action.hsp` sono due creature, `野生馬` e `サラブレッド` — di due rese ne
     teneva una sola, silenziosamente quella che arrivava dopo.
+
+    ⚠️ **Un aggancio inglese fra due giapponesi diversi non e' un aggancio**, e
+    va saltato: e' l'artefatto della collisione, non un rapporto da conservare.
+    `evold` `wild horse` che e' `サラブレッド` «aggancia» il nome `wild horse`
+    che e' `野生馬` solo perche' upstream ha scritto lo stesso inglese per due
+    creature. Pretenderlo in italiano vorrebbe dire chiamare il purosangue
+    «cavallo selvatico», cioe' ricopiare l'errore.
     """
     reso = rese_per_firma()
     if reso is None:
@@ -257,6 +284,10 @@ def test_evold_resta_agganciato_ai_nomi_che_in_inglese_lo_erano():
                 continue
             for nome in visibili:
                 if not (nome[1].startswith(vecchio[1]) or nome[1].endswith(vecchio[1])):
+                    continue
+                if nome[1] == vecchio[1] and nome[0] != vecchio[0]:
+                    continue  # stesso inglese, giapponesi diversi: collisione
+                if (vecchio[1], nome[1]) in AGGANCI_SOLO_INGLESI:
                     continue
                 nome_it = reso.get(nome)
                 if nome_it is None:

@@ -17,6 +17,8 @@ scrivere, probabilmente la stringa va tradotta.
 
 | valore | motivo |
 |---|---|
+| `<Big Sister>` | nome di creatura (`action.hsp`, `db_creature.hsp`), giapponese 『ビッグシスター』: la citazione di BioShock, che in italiano non è mai stata tradotta. Già deciso in `glossario.md` insieme a `<Little Sister>`, ma non era mai arrivato qui: la coppia si è presentata nel primo lotto della Fase 2, dove non porta l'articolo perché sta fra `<>` |
+| `<Little Sister>` | nome di creatura (`action.hsp`, `db_creature.hsp`), giapponese 『リトルシスター』: vedi la riga sopra, è l'altra metà della coppia |
 | Vernis | nome proprio di città, canone Elona |
 | Palmia | nome proprio di città, canone Elona |
 | Derphy | nome proprio di città, canone Elona |
