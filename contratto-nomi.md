@@ -201,7 +201,13 @@ contro cui si confrontano i **424 `evold`/`evname`** di `action.hsp` (vedi
 `invariati.md`). Le conseguenze:
 
 - un salvataggio esistente contiene i nomi **inglesi**: tradurre `db_creature.hsp`
-  non li rinomina, e l'evoluzione dei nemici smette di riconoscerli;
+  non li rinomina, e la **rinomina** dell'evoluzione non attacca piu' su di loro.
+  ⚠️ **Corretto il 2026-08-09**: qui c'era scritto «l'evoluzione dei nemici
+  smette di riconoscerli», ed era troppo forte. L'idoneita' non passa dal nome —
+  `action.hsp:16604` la decide su `cdata(CDATA_ID, tc)`, sullo stadio e
+  sull'oggetto usato. Su un salvataggio vecchio l'evoluzione **funziona** e
+  fallisce solo la rinomina: un difetto estetico permanente, non un sistema
+  rotto. Vedi `piani/2026-08-09-fase-2-nomi-di-creatura.md`;
 - `evold`/`evname` vanno tradotti **nello stesso momento** di `db_creature.hsp`,
   mai prima e mai dopo, o il confronto fallisce **in silenzio**.
 
