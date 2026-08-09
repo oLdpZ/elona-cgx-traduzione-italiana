@@ -14,15 +14,52 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 
 | file | tradotte | firme | % | occorrenze |
 |---|---|---|---|---|
-| `text.hsp` | 681 | 1.740 | 39% | 2.127 |
+| `text.hsp` | 721 | 1.740 | 41% | 2.127 |
 | `command.hsp` | 0 | 1.304 | 0% | 1.481 |
 | `action.hsp` | 0 | 1.288 | 0% | 1.502 |
 | `proc.hsp` | 0 | 1.098 | 0% | 1.327 |
-| `skill.hsp` | 111 | 885 | 13% | 894 |
+| `skill.hsp` | **885** | 885 | **100%** | 894 |
 | `trait.hsp` | 0 | 373 | 0% | 406 |
 | `db_item.hsp` | **1.605** | 1.606 | **100%** | 1.607 |
 | `item_data.hsp` | **318** | 318 | **100%** | 318 |
-| **totale** | **2.715** | **8.612** | **32%** | **9.662** |
+| `custom_tweaks.hsp` | **12** | 12 | **100%** | 28 |
+| **totale** | **3.541** | **8.624** | **41%** | **9.690** |
+
+## `skill.hsp` è chiuso — 2026-08-09, tredicesima sessione
+
+**Quarto file completo**, 885 su 885, e il più grosso dei quattro dopo
+`db_item.hsp`. L'ultimo blocco erano le **276 mosse speciali**, tetto 24
+caratteri già misurato il giorno prima.
+
+Quindici nomi restano inglesi per scelta, dichiarati in `invariati.md`.
+⚠️ **La regola della marca 《》 degli artefatti non si applica alle mosse**: il
+nome di un artefatto è un nome proprio, quello di una mossa è un'etichetta
+funzionale che si sceglie da un elenco. Vedi `decisioni.md`.
+
+## Le rinviate scendono da 120 a 80 — 2026-08-09, tredicesima sessione
+
+Tre dei cinque motivi erano scaduti o falsi.
+
+| gruppo | voci | esito |
+|---|---|---|
+| risposte del quiz sui grimori | 4 | il rinvio era a `skill.hsp`, che oggi è chiuso |
+| parti meccaniche `Change …` | 6 | ⚠️ **la dipendenza dichiarata non esisteva**: in `db_item.hsp` non ce n'è nessuna |
+| nomi casuali degli oggetti | 30 | risolti con 213 toppe generate, vedi sotto |
+| risposte del quiz su creature | 59 | rinvio **vivo**: aspettano i nomi di creatura |
+| `elename()` | 20 | rinvio **vivo**: aspettano `proc.hsp` |
+| `<Pants of Ogre>` | 1 | rinvio **vivo**: aspetta `orc`/`ogre` |
+
+I nomi casuali hanno chiesto il primo ribaltamento d'ordine del progetto:
+`db_item.hsp` compone «aggettivo + nome» in **213 siti**, e in italiano
+l'aggettivo segue il nome. L'ordine sta nel codice, non nelle stringhe, quindi
+il dizionario non lo raggiunge: le toppe le genera
+`strumenti/genera_toppe_casuali.py`, una per sito, ognuna con l'aggancio unico
+del proprio `ITEM_ID`.
+
+⚠️ **Il genere è una proprietà dell'array, non della riga**, come l'articolo dei
+pesci: le rese si accordano una volta per famiglia. Le sei firme condivise fra
+due famiglie prendono la **forma invariabile** — quattro sono materiali e lo
+sono già, due l'hanno presa apposta.
 
 ## `item_data.hsp` è chiuso — 2026-08-09, undicesima sessione
 
