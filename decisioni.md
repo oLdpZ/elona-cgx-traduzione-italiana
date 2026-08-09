@@ -796,3 +796,87 @@ rimasta vera per tutto il tempo. Adesso è scritta com'è: ogni firma che esce p
 **La lezione: un test che passa per procura passa finché il mondo somiglia a
 quando l'hai scritto.** Quando cade, la prima domanda è se sia caduta la
 proprietà o la procura.
+
+## L'undicesima sessione — 2026-08-09
+
+### `item_data.hsp` è chiuso, e la classe era di nuovo nel sorgente
+
+Le 235 voci rimaste non erano un residuo. La chiave qui non è `reftype` come
+in `db_item.hsp` ma **l'array che dichiara la voce**, e con quella si sciolgono
+in cinque discipline: `fishdatan` 113, `encDisp` 62, le dinamiche di
+`*item_encdetail` 21, i due ego 29, `ammoname` 6. Tre lotti, nessun rinvio,
+318 su 318.
+
+### Il posto decide se i dati arrivano in tempo
+
+`ioriginalnameref(ITEM_ID_FISH)` è la **stringa vuota**: il nome della specie
+non è un pezzo del nome dell'oggetto, è tutto il nome, e arriva da
+`itemNameSub` (`item_func.hsp:997`), che gira a riga 1936 — cioè **dopo** che
+l'articolo è stato messo davanti e dopo che il plurale è stato scelto.
+
+Tradurre i 113 nomi e basta avrebbe dato «a salmone». E **nessun test lo
+avrebbe visto**: `verifica` non chiede plurale e genere a una voce che non
+dichiara un array, e i pesci non lo dichiaravano.
+
+> Prima di tradurre un nome si guarda **dove** il gioco lo mette. Il posto
+> decide se i dati che porta arrivano in tempo.
+
+I pesci usano ora la stessa macchina di `db_item` invece di una nuova:
+`ARRAY_IN_LANG` in `estrai.py` riconosce la forma su una riga sola dentro
+`lang()`, `ARTICOLO_DI` in `applica.py` fa dell'array dell'articolo una
+proprietà della **famiglia** e non della riga, e `siti()` non riemette il nome
+che il ciclo di `lang()` ha già visto — erano 113 sostituzioni doppie.
+
+### Prima di scegliere la forma di una frase si contano i posti da cui esce
+
+La descrizione d'incantamento (`s` di `*item_encdetail`) esce da **quattro
+siti** e solo uno le mette un soggetto davanti — `command.hsp:16405` scrive
+`lang("それは", "It ") + s`; gli altri tre la usano nuda. Un soggetto italiano
+cablato lì andrebbe bene in un sito e male negli altri tre.
+
+Le rese sono quindi **verbi alla terza persona senza soggetto**, e il prefisso
+si spegne con una toppa a mano — `command.hsp` non è fra i file estratti.
+
+### La stessa cura, tre cose ignote diverse
+
+«Non accordarsi con ciò che non si conosce» ha scelto la forma tre volte in
+questa sessione, e ogni volta l'ignoto era un altro:
+
+| dove | cosa non si conosce |
+|---|---|
+| ego, `egominorn` | il genere dell'**oggetto** |
+| `"deals X damage."` | il genere dell'**abilità**, che è pure ancora inglese |
+| `skillencdesc` | il genere del **giocatore** — «ti rende letterato/letterata» |
+
+### La `h` muta non rende pura la `s` impura
+
+`articolo.py` teneva la `h` fra le vocali, perché a inizio di parola è muta e
+chiede l'elisione («l'hotel»). Ma `_s_impura` interrogava lo stesso insieme
+per una domanda **diversa** — «la lettera dopo la `s` è una consonante?» — e
+per `sh` le due danno risposte opposte: usciva «un shuriken».
+
+> Due domande che si somigliano non sono la stessa domanda. Il posto dove si
+> separano è un caso solo, e lo trova il collaudo, non i test.
+
+### Il giunto del materiale non è uno solo: sette elidono
+
+« di » era cablato nella toppa, e lì deve restare — `command.hsp` legge
+`mtname` nudo, e «fatto di» + «di cuoio» direbbe due volte la preposizione. Ma
+una preposizione sola non copre 38 materiali: sette cominciano per vocale.
+Terza via, quella già usata per plurale e articolo: `mtcomplemento`, un array
+italiano accanto a quello inglese col complemento già montato.
+
+### `skill.hsp`: solo le prime tre lettere arrivano a schermo
+
+`chara.hsp:4679` fa `strmid(skillname(r), 0, 4 - (jp == 0))`: nella schermata
+di razza e classe gli attributi sono **tagliati a 3 caratteri**.
+
+Le scelte del glossario sopravvivono tutte — Vit, Man, For, Cos, Des, Per,
+App, Vol, Mag, Car, Vel, undici distinte, e coincidono con le sigle già
+fissate in `text.hsp:61`. La collisione che ci sarebbe (`Forza` e `Fortuna`
+tagliano entrambe a «For») **non arriva a schermo**: il campo mostra
+STR…SPD più Vita e Mana, e `Luck` non ci passa. Lo dice il sorgente stesso:
+`MAX_SKILL_ATTR_BASIC 8 // this basically excludes luck and speed`.
+
+⚠️ Vale per gli attributi, non per le 445 voci di `skillname`: il resto del
+file va in altri campi, che vanno guardati prima di tradurlo.

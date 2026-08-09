@@ -18,11 +18,11 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | `command.hsp` | 0 | 1.304 | 0% | 1.481 |
 | `action.hsp` | 0 | 1.288 | 0% | 1.502 |
 | `proc.hsp` | 0 | 1.098 | 0% | 1.327 |
-| `skill.hsp` | 0 | 885 | 0% | 894 |
+| `skill.hsp` | 34 | 885 | 4% | 894 |
 | `trait.hsp` | 0 | 373 | 0% | 406 |
 | `db_item.hsp` | **1.605** | 1.606 | **100%** | 1.607 |
 | `item_data.hsp` | **318** | 318 | **100%** | 318 |
-| **totale** | **2.604** | **8.612** | **30%** | **9.662** |
+| **totale** | **2.638** | **8.612** | **31%** | **9.662** |
 
 ## `item_data.hsp` è chiuso — 2026-08-09, undicesima sessione
 
