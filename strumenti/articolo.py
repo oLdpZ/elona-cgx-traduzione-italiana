@@ -24,9 +24,18 @@ scrivendo «a goods».
 
 GENERI = ("m", "f", "mp", "fp")
 
-# La h iniziale sta qui perche' in italiano e' muta: «l'hotel», «un'hostess».
-# Per l'elisione si comporta come una vocale, e tenerla fuori darebbe «lo hotel».
-_VOCALI = "aeiouàáèéìíòóùúAEIOUÀÁÈÉÌÍÒÓÙÚhH"
+# Due insiemi, perche' le domande sono due e non coincidono.
+#
+# `_VOCALI_VERE` e' l'alfabeto: serve a chiedere «la lettera dopo la s e' una
+# consonante?».
+#
+# `_ELIDONO` aggiunge la `h`, che a inizio di parola e' muta e quindi si comporta
+# da vocale: «l'hotel», non «lo hotel».
+#
+# Tenerne uno solo, con la h dentro, fa leggere `sh` come s + vocale e produce
+# «un shuriken» invece di «uno shuriken»: la h muta non rende pura la s impura.
+_VOCALI_VERE = "aeiouàáèéìíòóùúAEIOUÀÁÈÉÌÍÒÓÙÚ"
+_ELIDONO = _VOCALI_VERE + "hH"
 
 # Le consonanti che chiedono `uno`/`gli`: s impura (s + consonante), z, gn, ps,
 # pn, x, y. Non e' un elenco inventato: e' la regola scolastica, e i nomi del
@@ -36,13 +45,18 @@ _DIGRAMMI = ("gn", "ps", "pn", "x", "y", "z")
 
 
 def _vocale(carattere: str) -> bool:
-    return carattere in _VOCALI
+    """Vero se il carattere fa elidere l'articolo. La h muta e' qui dentro."""
+    return carattere in _ELIDONO
 
 
 def _s_impura(parola: str) -> bool:
-    """`s` seguita da consonante: «scudo», «stivale», «sgabello». Non «sale»."""
+    """`s` seguita da consonante: «scudo», «stivale», «sgabello». Non «sale».
+
+    Guarda le vocali vere, non quelle che elidono: «shuriken» ha una consonante
+    dopo la `s`, per quanto muta.
+    """
     return (len(parola) >= 2 and parola[0] in "sS"
-            and not _vocale(parola[1]))
+            and parola[1] not in _VOCALI_VERE)
 
 
 def _semiconsonante(parola: str) -> bool:

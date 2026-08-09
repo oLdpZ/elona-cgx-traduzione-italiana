@@ -52,6 +52,18 @@ def test_h_muta_si_comporta_da_vocale():
     assert articoli("m", "hotel") == ("un ", "l'")
 
 
+def test_la_h_muta_non_rende_pura_la_s_impura():
+    """«uno shuriken», non «un shuriken».
+
+    La `h` sta fra le vocali perche' a inizio di parola e' muta e chiede
+    l'elisione («l'hotel»). Ma in seconda posizione, dopo la `s`, non e' una
+    vocale: `sh` e' `s` impura come `sc` e `st`. Le due domande — «elide?» e
+    «e' consonante?» — si somigliano e non sono la stessa, e questo caso e' il
+    posto dove si separano. Visto a schermo nel collaudo del 2026-08-09.
+    """
+    assert articoli("m", "shuriken") == ("uno ", "lo ")
+
+
 def test_i_semiconsonante_chiede_uno():
     """«uno iato»: la i seguita da vocale fa consonante, e non elide."""
     assert articoli("m", "iato") == ("uno ", "lo ")
