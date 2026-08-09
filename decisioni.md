@@ -1383,3 +1383,35 @@ nucleo è diventato un comando suo: `--nucleo`.
 `invariati.md`, che è il file che `verifica.py` legge davvero. Il lotto veniva
 rifiutato per «traduzione identica all'inglese». **Una decisione scritta nel
 posto sbagliato non è una decisione presa.**
+
+### In italiano il ramo del suffisso è irraggiungibile, e va saputo prima del collaudo
+
+La RIPRESA della tredicesima sessione chiedeva di collaudare in gioco la
+riparazione di `action.hsp:18644` — il ramo del **suffisso** della rinomina,
+l'unica cosa della Fase 2 già nell'eseguibile. **Con i nomi del nucleo quel
+ramo non scatta mai.**
+
+Contati sui 43 agganci parziali più tutti gli esatti: **zero** passano dal
+suffisso. Il motivo è strutturale e non un caso. `action.hsp:18640` prova
+**prima** il prefisso e cade nell'`else` solo se fallisce; in italiano `evold`
+è «articolo + testa di famiglia» e il modificatore va **dopo** — «l'orco» sta
+in testa a «l'orco re», «il lich» in testa a «il lich maestro». Dove l'inglese
+agganciava in coda (`lesser mummy` finisce per `mummy`), l'italiano aggancia in
+testa («la mummia minore» comincia per «la mummia»), e dove il nome coincide
+col tutto è di nuovo il prefisso a scattare, perché il confronto è lo stesso.
+
+**Conseguenze pratiche:**
+
+- il collaudo in gioco dell'evoluzione prova il ramo del **prefisso**, non
+  quello riparato. Non c'è un'evoluzione da scegliere meglio: non ne esiste
+  nessuna che ci passi;
+- la riparazione **resta**, ed è giusta lo stesso. Serve al ramo che un
+  giocatore può ancora raggiungere rinominando un alleato in modo che la specie
+  finisca in coda, e servirebbe subito a un nome futuro che mettesse il
+  modificatore davanti;
+- il giorno che un nome invertisse l'ordine — «il grande orco» invece di
+  «l'orco grande» — il ramo si riaccenderebbe **in silenzio**, con dentro una
+  riga che senza la toppa porta la lunghezza del nome di un'altra creatura.
+
+> Una riparazione che nessun collaudo può raggiungere non è una riparazione
+> inutile: è una riparazione che non saprai mai se hai rotto.
