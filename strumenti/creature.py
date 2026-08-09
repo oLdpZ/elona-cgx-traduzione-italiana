@@ -88,6 +88,94 @@ def nessuna_firma_in_due_classi(percorso: Path | None = None) -> set[tuple[str, 
     return {k for k, v in viste.items() if len(v) > 1}
 
 
+# --- il campo che la rinomina puo' vedere -----------------------------------
+
+_BLOCCO = re.compile(r"if\s*\(\s*dbid\s*==\s*(CREATURE_ID_[A-Z_0-9]+)\s*\)")
+_NOME_ASSEGNATO = re.compile(r'cdatan\(CDATAN_NAME,\s*rc\)\s*=\s*lang\("[^"]*", "([^"]*)"\)')
+_CANCELLO = re.compile(r"cdata\(CDATA_ID,\s*tc\)\s*==\s*(CREATURE_ID_[A-Z_0-9]+)")
+_EVMODE = re.compile(r"^\s*evmode = (\d+)")
+_RAMO = re.compile(r"^\s*if \( evmode == (\d+) \)")
+_EV = re.compile(r'^\s*(evold|evname) = lang\("[^"]*", "([^"]*)"\)')
+
+
+def nomi_per_creatura(percorso: Path | None = None) -> dict[str, str]:
+    """CREATURE_ID -> nome inglese, letto da `db_creature.hsp`."""
+    percorso = percorso or (percorsi.SORGENTE_HSP / FILE)
+    fuori, blocco = {}, None
+    for riga in percorso.read_bytes().decode("cp932").split("\r\n"):
+        m = _BLOCCO.search(riga)
+        if m:
+            blocco = m.group(1)
+        m = _NOME_ASSEGNATO.search(riga)
+        if m and blocco:
+            fuori.setdefault(blocco, m.group(1))
+    return fuori
+
+
+def evoluzioni(percorso: Path | None = None) -> dict[int, dict]:
+    """evmode -> {'creature': {CREATURE_ID…}, 'coppie': [(evold, evname)…]}.
+
+    ⚠️ **Il campo della rinomina non sono tutti i nomi: sono quelli che possono
+    entrare in quel ramo.** L'idoneita' la decide `cdata(CDATA_ID, tc)`, quindi
+    un `evold` non incontrera' mai un nome che non sta dietro al suo cancello.
+
+    Serve saperlo, perche' senza il cancello il confronto e' pieno di agganci
+    per caso: `imp` e' prefisso di `impure eye` e `zombie` di `zombie girl`, e
+    una guardia che li pretendesse conservati in italiano chiederebbe che
+    «occhio impuro» cominci per «folletto». Il taglio non ha un controllo di
+    confine di parola, ma il cancello lo rende innocuo.
+    """
+    percorso = percorso or (percorsi.SORGENTE_HSP / "action.hsp")
+    righe = percorso.read_bytes().decode("cp932").split("\r\n")
+
+    cancelli: dict[int, set[str]] = collections.defaultdict(set)
+    visti: list[tuple[int, str]] = []
+    for i, riga in enumerate(righe):
+        for m in _CANCELLO.finditer(riga):
+            visti.append((i, m.group(1)))
+        m = _EVMODE.match(riga)
+        if m:
+            n = int(m.group(1))
+            cancelli[n].update(cid for j, cid in visti if 0 <= i - j <= 8)
+
+    coppie: dict[int, list[tuple[str, str]]] = collections.defaultdict(list)
+    ramo, evname = None, None
+    for riga in righe:
+        m = _RAMO.match(riga)
+        if m:
+            ramo, evname = int(m.group(1)), None
+        m = _EV.match(riga)
+        if m and ramo is not None:
+            if m.group(1) == "evname":
+                evname = m.group(2)
+            elif evname is not None:
+                coppie[ramo].append((m.group(2), evname))
+
+    return {
+        n: {"creature": cancelli[n], "coppie": coppie[n]}
+        for n in sorted(set(cancelli) & set(coppie))
+    }
+
+
+def nomi_visibili(evmode: int, mappa: dict | None = None, nomi: dict | None = None) -> set[str]:
+    """I nomi inglesi che il taglio di `evmode` puo' davvero incontrare.
+
+    Sono i nomi delle creature dietro al suo cancello, **piu'** gli `evname`
+    dei rami che condividono una di quelle creature: un'evoluzione incatenata
+    vede il nome che le ha lasciato lo stadio prima. `evmode 5` ha il cancello
+    su `DOG` e `HOUND` e cerca `Silver Fang`, che nessun cane si chiama alla
+    nascita.
+    """
+    mappa = mappa if mappa is not None else evoluzioni()
+    nomi = nomi if nomi is not None else nomi_per_creatura()
+    creature = mappa[evmode]["creature"]
+    fuori = {nomi[c] for c in creature if c in nomi}
+    for altro in mappa.values():
+        if altro["creature"] & creature:
+            fuori.update(nuovo for _, nuovo in altro["coppie"])
+    return fuori
+
+
 def main() -> None:
     sys.stdout = __import__("io").TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
     p = argparse.ArgumentParser(description=f"Classi delle stringhe di {FILE}.")

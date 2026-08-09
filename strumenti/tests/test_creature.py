@@ -15,7 +15,10 @@ import json
 import pytest
 
 from strumenti import percorsi
-from strumenti.creature import FILE, classi, classi_da_testo, nessuna_firma_in_due_classi
+from strumenti.creature import (
+    FILE, classi, classi_da_testo, evoluzioni, nessuna_firma_in_due_classi,
+    nomi_per_creatura, nomi_visibili,
+)
 
 SORGENTE = """\
 	if ( dbid == 1 ) {
@@ -133,28 +136,69 @@ def test_l_accoppiamento_trova_tutti_gli_evold_tranne_quello_senza_evname():
     assert sum(1 for _, nuovo in coppie if nuovo == "Unicorn") == 5
 
 
-def test_evold_resta_prefisso_o_suffisso_dei_nomi_che_in_inglese_lo_erano():
+def test_il_campo_della_rinomina_e_delimitato_dal_cancello():
+    """Senza il cancello la prima proprieta' e' impossibile da soddisfare.
+
+    `imp` e' prefisso di `impure eye` e `zombie` di `zombie girl`: il taglio non
+    ha un controllo di confine di parola, e una guardia che pretendesse
+    conservati **tutti** gli agganci chiederebbe che «occhio impuro» cominci per
+    «folletto». Il cancello su `cdata(CDATA_ID, tc)` li rende innocui, perche'
+    un occhio impuro non entrera' mai nel ramo dei folletti.
+
+    Dentro al cancello gli agganci parziali che restano sono **veri**:
+    `mummy` -> `greater mummy`, `orc` -> `king orc`.
+    """
+    mappa, nomi = evoluzioni(), nomi_per_creatura()
+    esatti = parziali = 0
+    for evmode, dati in mappa.items():
+        visibili = nomi_visibili(evmode, mappa, nomi)
+        for vecchio, _ in dati["coppie"]:
+            for nome in visibili:
+                if nome == vecchio:
+                    esatti += 1
+                elif nome.startswith(vecchio) or nome.endswith(vecchio):
+                    parziali += 1
+    assert (esatti, parziali) == (236, 47)
+
+
+def test_evold_resta_agganciato_ai_nomi_che_in_inglese_lo_erano():
     """Prima proprieta': la rinomina deve continuare ad attaccare.
 
-    Il taglio riconosce `evold` **solo** in testa o in coda. Se in inglese un
-    nome di creatura cominciava o finiva con `evold` e in italiano non lo fa
-    piu', quella creatura evolve e **non viene rinominata** — in silenzio, e
-    solo per chi ce l'ha in squadra.
+    Il taglio riconosce `evold` **solo** in testa o in coda, e solo sui nomi che
+    possono entrare in quel ramo. Se in inglese un nome cominciava o finiva con
+    `evold` e in italiano non lo fa piu', quella creatura evolve e **non viene
+    rinominata** — in silenzio, e solo per chi ce l'ha in squadra.
+
+    ⚠️ Il ramo che scatta puo' cambiare fra le due lingue, ed e' previsto: il
+    codice li prova tutti e due. `lesser mummy` aggancia `mummy` in coda, mentre
+    «mummia minore» lo aggancia in testa — l'italiano mette la specie davanti.
+    Cio' che conta e' che agganci, non da che parte.
     """
-    nomi = carica(FILE)
-    coppie = coppie_evoluzione()
-    if not nomi or not coppie:
+    nomi_it = carica(FILE)
+    azioni_it = carica("action.hsp")
+    if not nomi_it or not azioni_it:
         pytest.skip("i dizionari di db_creature.hsp e action.hsp non esistono ancora")
 
+    reso = {v["en"]: v["it"] for v in list(nomi_it.values()) + list(azioni_it.values())}
+    mappa, nomi_en = evoluzioni(), nomi_per_creatura()
     rotte = []
-    for vecchio, _ in coppie:
-        for nome in nomi.values():
-            attaccava = nome["en"].startswith(vecchio["en"]) or nome["en"].endswith(vecchio["en"])
-            if not attaccava:
+    for evmode, dati in mappa.items():
+        visibili = nomi_visibili(evmode, mappa, nomi_en)
+        for vecchio_en, _ in dati["coppie"]:
+            vecchio_it = reso.get(vecchio_en)
+            if vecchio_it is None:
                 continue
-            attacca = nome["it"].startswith(vecchio["it"]) or nome["it"].endswith(vecchio["it"])
-            if not attacca:
-                rotte.append(f"{nome['en']!r} -> {nome['it']!r} non contiene piu' {vecchio['it']!r} in testa o in coda")
+            for nome_en in visibili:
+                if not (nome_en.startswith(vecchio_en) or nome_en.endswith(vecchio_en)):
+                    continue
+                nome_it = reso.get(nome_en)
+                if nome_it is None:
+                    continue
+                if not (nome_it.startswith(vecchio_it) or nome_it.endswith(vecchio_it)):
+                    rotte.append(
+                        f"evmode {evmode}: {nome_en!r} -> {nome_it!r} non aggancia piu' "
+                        f"{vecchio_en!r} -> {vecchio_it!r} ne' in testa ne' in coda"
+                    )
     assert not rotte, "la rinomina dell'evoluzione non attacca piu':\n" + "\n".join(rotte[:20])
 
 
