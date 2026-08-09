@@ -1138,3 +1138,63 @@ L'inglese conferma il 24 dal lato suo, come vuole la regola della guida:
 **Il tetto è 24.** Cinque nomi inglesi superano i 20, e con una scorciatoia
 assegnata sforano già oggi: la sovrapposizione col costo è un difetto che il
 gioco inglese ha per conto suo, non un margine da spendere.
+
+### I nomi delle mosse speciali, e perché la traslitterazione qui non basta — 2026-08-09
+
+Per gli artefatti di `db_item.hsp` vale la regola della marca 《》: se il
+giapponese **traslittera** invece di descrivere, nemmeno lui legge il nome come
+descrizione, e il nome resta inglese. Applicata alle 276 mosse quella regola ne
+lascerebbe inglesi una quarantina — `シャドウステップ`, `ブースト`, `グレネード`.
+
+Non si applica, e la ragione è che **le due cose non sono lo stesso genere di
+nome**. Il nome di un artefatto è un nome proprio: si legge una volta, dà colore,
+e nessuna decisione dipende dal capirlo. Il nome di una mossa è un'**etichetta
+funzionale**: sta in un elenco da cui il giocatore sceglie mentre combatte, ed è
+la stessa classe delle voci di menù, che nessuno si sognerebbe di lasciare in
+inglese perché il giapponese le scrive in katakana.
+
+Quindi per le mosse vale il criterio dei nomi propri e basta: **fatto di parole
+comuni → si traduce**, qualunque alfabeto abbia usato il giapponese; **opaco →
+resta**. Restano quindici nomi, dichiarati in `invariati.md`.
+
+Due rese sono cambiate proprio per questo criterio, dopo la prima stesura:
+
+- `Dupli-Cane` → «Duplibacchetta». Lasciato com'era, un lettore italiano ci
+  legge **«doppio cane»**: una coniazione opaca in inglese può essere
+  trasparente e sbagliata in italiano;
+- `Shine Snail` → «Lumaca lucente», che è katakana ma di parole comunissime.
+
+⚠️ **`Ensemble` e `Knockout` restano, e non è una deroga**: sono prestiti che
+l'italiano ha davvero, come `bonus`. `Tuin der Lusten` resta perché l'inglese ha
+scelto l'**olandese** — è il trittico di Bosch — come `Taktstock` aveva scelto il
+tedesco: la lingua scelta è informazione.
+
+### Un rinvio motivato da una dipendenza che non esiste — 2026-08-09
+
+Le sei parti meccaniche di `text.hsp` (`Change Spinning Foot` e compagne) erano
+rinviate alla Fase 2 con questa motivazione:
+
+> Nome di parte meccanica. **Verificato** che compare anche in `db_item.hsp`,
+> quindi è un nome d'oggetto: stessa dipendenza di Fase 2.
+
+In `db_item.hsp` non ce n'è nessuna, né in inglese né in katakana. Le sei
+vivono in `text.hsp`, `action.hsp` e `proc.hsp` — e le ultime due sono file non
+ancora tradotti, il che impone **coerenza**, non una dipendenza di fase.
+
+> La parola «verificato» dentro una motivazione non è una verifica: è il
+> ricordo di una verifica, e invecchia come tutto il resto.
+
+Le quattro risposte del quiz sui grimori erano rinviate a `skill.hsp`, che oggi
+è chiuso: il rinvio era giusto ed è scaduto da sé. ⚠️ Le rese **non** sono i
+nomi d'incantesimo di `skill.hsp` («Terreno acido») ma i nomi di **grimorio** di
+`db_item.hsp` («suolo acido»): la domanda è «quale grimorio non esiste?», e la
+risposta deve combaciare con ciò che il giocatore legge sullo scaffale.
+
+Le sei parti si traducono nella cornice e non nel nome — «Passa a Spinning
+Foot» — perché sono modelli di ricambio di un automa, gridati come nome proprio
+al momento del cambio (`action.hsp:12969`, `proc.hsp:17424`), e perché `server`
+e `computer` sono già invariati per conto loro.
+
+**Cosa resta rinviato: 110 voci**, e i tre motivi sono vivi — 59 risposte di
+quiz che aspettano i nomi di creatura, 30 del sistema dei nomi casuali, 20
+`elename()` che aspettano `proc.hsp`, più `<Pants of Ogre>`.
