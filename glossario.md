@@ -72,6 +72,31 @@ progetti.
 | Gauge | Barra | la barra delle mosse speciali di Elona+. `[50% Gauge]` → «`[Barra 50%]`»: 5 caratteri come l'inglese, e le etichette dell'elenco sono a larghezza compressa. In prosa `power gauge` → «barra di potenza», che si aggancia a `Power` → «Potenza» |
 | Chaos | Caos | l'elemento. `Chaos damage` → «Danno caotico», aggettivo come `Mind`. Coincide con Elin (`Nether / Ether / Chaos` → «Oltretomba / Etere / Caos») |
 | Skill | Abilità | coincide con Elin. **Non** collide con *ability*, che nel sorgente è quasi sempre prosa generica e in italiano vuole «capacità»: `enhances your ability to hide` → «migliora la capacità di nascondersi» |
+| hex | malocchio | ⚠️ **non** «maledizione», che è già `curse`. Il gioco ha due 呪い e li distingue: `cursed` sta sull'**oggetto** e si oppone a `blessed`; `hex` sta sulla **persona** e si oppone a un buff (`command.hsp:10814`, «blessed or hexed»). L'italiano separa le due sullo stesso asse. Il sorgente conferma che il giapponese da solo non bastava: `skill.hsp:440` scrive `呪い(hex)`, con la glossa inglese accanto |
+
+## Gli atomi delle etichette di `skilldesc`
+
+Le 348 descrizioni di incantesimi e mosse speciali non sono prosa: sono formule
+che si ripetono. Questi pezzi valgono **ovunque ricompaiano**, e cambiarne uno
+significa ritradurre la famiglia intera.
+
+| EN | IT | note |
+|---|---|---|
+| `Target(X)` | `Bersaglio(X)` | giapponese 属性の**矢**, la freccia a bersaglio singolo |
+| `Line(X)` | `Linea(X)` | 属性の**ボルト** |
+| `Surround(X)` | `Area(X)` | 属性の**範囲攻撃**, «attacco ad area» alla lettera. Più corto dell'inglese, e non collide con `AOE`, che resta sigla |
+| `Breath(X)` | `Soffio(X)` | 属性の**放射攻撃** |
+| `Indiscriminate(X)` | `Indiscriminato(X)` | |
+| `[N% Gauge]` | `[Barra N%]` | deciso il 2026-08-07 |
+| `[N%GaugeDomain]` | `[Barra N%]` | ⚠️ l'inglese distingue il costo dalla portata (全域, «tutta l'area»); l'italiano tiene l'etichetta uguale alle altre e mette la portata nel testo |
+| `Con-Attack/X` | `Attacco Cos/X` | 耐久属性攻撃: `Con` è **Costituzione** |
+| `AOE`, `PVDV`, `SP`, `MP`, `HP`, `PURGE` | invariati | in fila con `PV fixer` → «correttore di PV» e «Assorbe SP», già in dizionario |
+| `WIL-Check:` e i sei fratelli | `Vol:`, `Per:`, `Des:`, `For:`, `Mag:`, `Car:` | le sigle da 3 caratteri già fissate in `text.hsp:61` |
+
+⚠️ **Due sigle inglesi sono la stessa cosa scritta due volte, e il giapponese lo
+dice.** `END` e `CON` sono entrambe 耐久 (`Apply Bleeding/Weaken END` contro
+`Gravity and CON attack`); `CHR` e `CHA` sono entrambe 魅力. In italiano
+diventano una sola resa — **Cos** e **Car** — e la doppia grafia sparisce.
 
 ## Stati e qualità
 

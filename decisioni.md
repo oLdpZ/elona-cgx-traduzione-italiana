@@ -993,3 +993,79 @@ vincolo di larghezza, e il grado corto ci sta come ci stava quello inglese.
 ⚠️ **Il `#####` accanto ai gradi non è nostro.** È `putenclv`
 (`item_data.hsp:145`), disegnato a `wx+282` fisso: un `#` per livello di bonus,
 `+` oltre il quinto. Esce identico nel gioco inglese.
+
+### `skilldesc`, tutte e 415 — 2026-08-09
+
+Un solo campo, la finestra da 34 caratteri di `command.hsp:5389`, ma **due
+corpora diversi**, e trattarli allo stesso modo sarebbe stato l'errore:
+
+| | quante | forma |
+|---|---|---|
+| prosa | **67** | `Indicates your skill with axes.` — frasi, termini già in glossario |
+| etichette | **348** | `Line(Cold)`, `[100% Gauge] Rapid Slash`, `WIL-Check:Fatigue low-SP enemies` |
+
+Le 348 non si traducono una per una: si traducono **gli atomi**, che stanno ora
+in `glossario.md`. Tradurne una alla volta avrebbe prodotto quattordici rese
+diverse di `Surround`.
+
+#### Il riempitivo inglese non è contenuto
+
+`Indicates your skill with…` compare **dodici volte** e non dice nulla: la
+colonna si chiama già `Detail` e la riga porta già il nome dell'abilità.
+Toglierlo fa entrare tutte e dodici nella finestra — `Indicates your skill with
+blunt weapons.` (40) → «Abilità con le armi contundenti.» (32).
+
+Il bilancio sulla finestra, che è la misura vera del lotto: **41 delle 415
+inglesi la sforano**, delle nostre **cinque**, e quattro di quelle cinque sono
+più corte del loro inglese.
+
+#### Il giapponese scioglie le sigle che l'inglese lascia opache
+
+`Con-Attack`, `END`, `PVDV`, `CHR` non sono spiegate da nessuna parte
+nell'inglese. Il giapponese le dice tutte — 耐久属性攻撃, 耐久, 魅力 — e ha
+mostrato **due sigle che sono la stessa cosa scritta due volte**:
+
+| | inglese | giapponese | italiano |
+|---|---|---|---|
+| Costituzione | `CON` **e** `END` | 耐久 in entrambi | **Cos** |
+| Carisma | `CHA` **e** `CHR` | 魅力 in entrambi | **Car** |
+
+> Una sigla che l'inglese non scioglie va cercata nell'originale, non indovinata
+> dal contesto. Due volte su quattro l'originale ha detto che le sigle erano una.
+
+E ha corretto una scelta già fatta: `Surround(X)` è 範囲**攻撃**, «attacco ad
+area». Avevo proposto `Attorno(X)` per tenere `Area` libera; con `AOE` che resta
+sigla, `Area(X)` è insieme più fedele e più corto.
+
+#### Chiavare sull'inglese avrebbe fuso sette voci distinte
+
+Sette stringhe inglesi si ripetono con un **giapponese diverso**:
+
+```
+Create mist   →  濃い霧の発生    nebbia fitta
+Create mist   →  眩い霧の発生    nebbia abbagliante
+Teleport self →  瞬間移動        teletrasporto
+Teleport self →  近くへの瞬間移動 teletrasporto vicino
+```
+
+Il lotto è quindi chiavato sull'**indice**, con l'inglese atteso accanto e
+verificato a ogni voce. Una mappa `inglese → italiano` avrebbe silenziosamente
+tradotto due cose diverse allo stesso modo — e nessuna guardia lo vedeva,
+perché ogni firma sarebbe stata comunque tradotta.
+
+#### Tre voci inglesi sono `?`
+
+`skilldesc` 218, 263 e 355 dicono letteralmente `?`: buchi che l'autore inglese
+non ha mai riempito. Il giapponese c'è ed è pieno (治癒力超上昇, 能力の変動・
+暴れ回る, 煙幕＆能力転写). Sono rese **dal giapponese**: un `?` non è una
+stringa da tradurre, è una che manca, e noi la fonte ce l'abbiamo.
+
+#### L'accento a metà parola degrada male
+
+Avevo scritto «dèi», che è la grafia giusta. `applica.py` degrada gli accenti in
+apostrofo e ne esce **`de'i`**, con l'apostrofo dentro la parola. Tutti gli
+accenti incontrati finora stavano a fine parola — «Abilità» → `Abilita'`, «più»
+→ `piu'` — e lì la degradazione è invisibile.
+
+> Prima di scrivere un accento, guardare **dove** cade nella parola. In fondo è
+> gratis, in mezzo no.
