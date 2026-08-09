@@ -880,3 +880,54 @@ STR…SPD più Vita e Mana, e `Luck` non ci passa. Lo dice il sorgente stesso:
 
 ⚠️ Vale per gli attributi, non per le 445 voci di `skillname`: il resto del
 file va in altri campi, che vanno guardati prima di tradurlo.
+
+### La misura dei campi di `skillname` — 2026-08-09
+
+Fatta **prima** di tradurre, come per i pesci. Quattro campi, misurati sul
+sorgente e non a occhio:
+
+| campo | dove | larghezza | chi ci passa |
+|---|---|---|---|
+| tracciatore abilità (HUD) | `screen.hsp:2002` e `:2029` | **6 caratteri** | i 77 nomi tracciabili |
+| razza e classe | `chara.hsp:4679`, `:4682`, `:4686` | **3 caratteri** | gli 11 attributi |
+| lista abilità, nome | `command.hsp:5383` | ~**29 caratteri** | tutti i 445 |
+| lista abilità, descrizione | `command.hsp:5389` | **34 caratteri** | i 415 `skilldesc` |
+
+**Il 6 non è un numero a caso, è una misura.** Il nome sta a `pos 16` e il
+valore a `pos 66`: cinquanta pixel, e il sorgente stesso assume 7 px per
+carattere (`command.hsp:5385` fa `288 - strlen(s) * 7`). 50/7 = 7,14 — sei
+caratteri con un carattere di margine.
+
+Stessa aritmetica per la lista: nome a `wx+84`, costo allineato a destra a
+`wx+288`, cioè 204 px ≈ 29 caratteri. L'inglese più lungo ne ha 24
+(`Critical Particle Cannon`), quindi il margine c'è ma è sottile.
+
+**I 34 caratteri della descrizione non sono un tetto da rispettare**: 41 delle
+415 descrizioni inglesi lo superano già, e il gioco le tronca. È invece la
+**finestra**: i primi 34 caratteri devono portare il senso.
+
+#### Il vincolo che morde è il 6, e in inglese quasi non si vede
+
+Fra i 77 nomi tracciabili le collisioni inglesi nei primi sei caratteri sono
+**due**: `Magic`/`magic` (attributo e resistenza, distinte solo dal caso) e
+`Magic Capacity`/`Magic Device`, che è una collisione vera già oggi.
+
+In italiano il rischio è più alto, e per una ragione strutturale: **l'inglese
+mette il qualificatore davanti, l'italiano dietro**, quindi la parte che
+distingue esce dalla finestra. Le famiglie a rischio, trovate sul set vero:
+
+| inglese | italiano naturale | primi 6 |
+|---|---|---|
+| Heavy / Medium / Light Armor | Armatura pesante / media / leggera | `Armatu` ×3 |
+| Long / Short Sword | Spada lunga / corta | `Spada ` ×2 |
+| Evasion / Greater Evasion | Evasione / Evasione superiore | `Evasio` ×2 |
+| Throwing / Casting | Lancio / Lancio incantesimi | `Lancio` ×2 |
+
+Da notare che l'italiano **risolve** l'unica collisione vera dell'inglese:
+`Magic Capacity` e `Magic Device` diventano «Capacità magica» e «Dispositivi
+magici», cioè `Capaci` e `Dispos`.
+
+⚠️ **Decisione ancora aperta**, e va presa prima del lotto di `skillname`: se
+scegliere teste diverse per le famiglie che collidono, abbreviare la testa, o
+accettare la collisione nel solo tracciatore (dove il nome intero resta
+visibile nella lista).
