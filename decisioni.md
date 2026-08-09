@@ -1307,3 +1307,79 @@ acquisiti. Sono due creature distinte in `db_creature.hsp` (`orc warrior`,
 italiano.
 
 Sblocca `<Pants of Ogre>`, l'unica firma rinviata di `db_item.hsp`.
+
+## La quattordicesima sessione — 2026-08-09
+
+### Il giapponese arbitra, perché in due punti l'inglese non identifica un nome
+
+Il primo lotto della Fase 2 ha messo in luce che la colonna inglese di upstream
+non è una chiave. Sbaglia in due direzioni opposte, e tutte e due rompono la
+rinomina dell'evoluzione, che confronta **stringhe**:
+
+- **un giapponese scritto in due modi in inglese.** `フレアチック` è
+  `Flare Chick` in `action.hsp:18191` e `Flare chick` in `18202`; lo stesso per
+  `イノブタ`, `ヤドナシ`, `デュラハン`. Il confronto distingue le maiuscole,
+  quindi quelle **quattro evoluzioni di secondo stadio in inglese non scattano
+  mai**, mentre in giapponese funzionano;
+- **due giapponesi ridotti a un inglese solo.** `サラブレッド` — *purosangue* —
+  è `wild horse` in `action.hsp:16684`, ma `db_creature.hsp` lo chiama
+  `thoroughbred`: quell'`evold` non aggancia nessuno. Idem `野うさぎ`, che è
+  `rabbit` in `action.hsp` e `wild rabbit` in `db_creature.hsp`. E i due
+  segnaposto `aaaaaaa` ed `EV`, che in giapponese sono `トゥーンコボルト` e
+  `コボルト`.
+
+**La decisione: dove le due colonne divergono, si traduce il giapponese.** Non
+è correggere upstream per gusto — è l'unico modo di non scrivere un nome falso
+in dizionario. Rendere `サラブレッド` con «cavallo selvatico» sarebbe sbagliato
+in italiano a prescindere dal codice, e scrivere lo stesso nome con due
+maiuscole diverse per riprodurre un refuso sarebbe inventare un difetto in una
+lingua che non ce l'ha. Che quattro catene tornino a funzionare è la
+conseguenza, non lo scopo.
+
+> Un difetto di upstream non si corregge; ma una colonna che sbaglia il nome
+> non è un difetto da conservare, è una fonte da non usare.
+
+**Conseguenza sulle guardie: la chiave è la firma, non l'inglese.**
+`test_evold_resta_agganciato` costruiva `{v["en"]: v["it"]}` e su `wild horse`
+di due rese ne teneva una sola, in silenzio — la guardia sarebbe passata
+guardando il nome sbagliato. Ora tutto il campo della rinomina si legge in
+coppie (giapponese, inglese): `evoluzioni_con_jp`, `nomi_per_creatura_con_jp`,
+`nomi_visibili_con_jp`.
+
+### L'articolo lo prende tutto ciò che non comincia per `<` o `"`
+
+Verificato in `init.hsp:1712-1719`, e non era ovvio: si poteva credere che
+`name()` riconoscesse i nomi propri **dalla maiuscola**, e allora metà del
+nucleo — `Unicorn`, `Silver Fang`, `Nekomata` — sarebbe rimasta senza articolo.
+Non è così. Il codice guarda solo il primo carattere (`"` o `<`) e il bit
+`CHARA_BIT_HAS_NAME`, che sta sul personaggio e non sulla stringa: un nome di
+specie, anche capitalizzato, riceveva «the ». Quindi lo riceve anche in
+italiano: «l'unicorno», «la zanna d'argento», «la Nekomata».
+
+### Un aggancio dichiarato non conservabile, e perché è l'unico
+
+`bisque doll` è prefisso di `bisque dolls` **solo per la -s del plurale
+inglese**, che in italiano non esiste: «la bambola di porcellana» diventa «le
+bambole di porcellana», e cambiano articolo e sostantivo insieme.
+
+L'evoluzione vera passa lo stesso, perché lì il confronto è **esatto**.
+L'aggancio parziale descriveva solo il **rientro** — una `bisque dolls` che
+ripassa dallo stesso ramo — e in inglese quel rientro produce `bisque dollss`,
+che è una stortura, non una rinomina. In italiano non fa niente, ed è meglio.
+
+Sta in `AGGANCI_SOLO_INGLESI`, con il motivo accanto. Tutto ciò che non è in
+quella lista deve agganciare: la deroga si dichiara una per una, come le
+rinviate e le toppe.
+
+### Due strumenti che non erano mai stati eseguiti
+
+`python -m strumenti.creature --classe nome` — il comando che la RIPRESA
+documentava per il lotto dei ~750 nomi — passava una `str` dove
+`estrai_da_file` vuole un `Path`, e moriva in `AttributeError`. Riparato, e il
+nucleo è diventato un comando suo: `--nucleo`.
+
+`<Big Sister>` e `<Little Sister>` erano dichiarati invariati in
+`glossario.md` da due sessioni, ma non erano mai stati scritti in
+`invariati.md`, che è il file che `verifica.py` legge davvero. Il lotto veniva
+rifiutato per «traduzione identica all'inglese». **Una decisione scritta nel
+posto sbagliato non è una decisione presa.**

@@ -16,14 +16,43 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 |---|---|---|---|---|
 | `text.hsp` | 721 | 1.740 | 41% | 2.127 |
 | `command.hsp` | 0 | 1.304 | 0% | 1.481 |
-| `action.hsp` | 0 | 1.288 | 0% | 1.502 |
+| `action.hsp` | **373** | 1.288 | 29% | 1.502 |
 | `proc.hsp` | 0 | 1.098 | 0% | 1.327 |
 | `skill.hsp` | **885** | 885 | **100%** | 894 |
 | `trait.hsp` | 0 | 373 | 0% | 406 |
-| `db_item.hsp` | **1.605** | 1.606 | **100%** | 1.607 |
+| `db_item.hsp` | **1.606** | 1.606 | **100%** | 1.607 |
 | `item_data.hsp` | **318** | 318 | **100%** | 318 |
 | `custom_tweaks.hsp` | **12** | 12 | **100%** | 28 |
-| **totale** | **3.541** | **8.624** | **41%** | **9.690** |
+| **totale** | **3.915** | **8.624** | **45%** | **9.690** |
+
+Fuori dalla Fase 1, con conteggio proprio: `db_creature.hsp`, **203 firme su
+3.655** — i soli nomi del nucleo atomico.
+
+## Il nucleo atomico è dentro — 2026-08-09, quattordicesima sessione
+
+**Il primo lotto della Fase 2**, e il primo che entra in **due dizionari
+insieme**: 203 nomi di `db_creature.hsp` più 373 stringhe di evoluzione di
+`action.hsp`, 576 voci per 380 firme e 372 rese distinte. 378 stringhe
+inglesi, e le firme sono 380 perché due inglesi ne coprono due creature.
+
+Si rifà in un comando:
+
+```powershell
+python -m strumenti.creature --nucleo --uscita lavoro/fase2-nucleo-001.jsonl
+```
+
+**Le firme sono 380 e le rese 372** perché otto giapponesi compaiono con due
+inglesi diversi. Non è rumore: è il motivo per cui il giapponese arbitra (vedi
+`decisioni.md`, quattordicesima sessione).
+
+`<Pants of Ogre>` → «`<Mutande dell'Ogre>`» chiude `db_item.hsp` a **1.606 su
+1.606**. Rinviate da 80 a **79**: restano le 59 risposte del quiz, che aspettano
+gli altri ~930 nomi, e le 20 `elename()` che aspettano `proc.hsp`.
+
+⚠️ **Cinque delle 59 sono già sbloccate nel merito** — `steel golem`, `spider`,
+`scorpion`, `black widow`, `paralyzer` sono nel nucleo — ma restano rinviate
+perché il motivo dice «insieme a quelli», e «quelli» sono 203 su 1.131. Si
+sciolgono col resto.
 
 ## `skill.hsp` è chiuso — 2026-08-09, tredicesima sessione
 

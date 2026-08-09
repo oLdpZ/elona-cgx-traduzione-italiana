@@ -177,6 +177,39 @@ I sette prestiti giapponesi del lotto — `katana`, `wakizashi`, `kunai`,
 `invariati.md`: sono nomi acquisiti, e il verificatore li segnalerebbe come
 «traduzione identica all'inglese» se non fossero dichiarati.
 
+## Le teste di famiglia dei nomi di creatura
+
+Fissate col nucleo atomico (2026-08-09). Come per le armi, **si ripresentano
+decine di volte con un modificatore**, e cambiarne una dopo significa
+ritradurre la famiglia intera. Qui non è solo una questione di coerenza: il
+taglio della rinomina cerca la testa in **testa o in coda** al nome, quindi il
+modificatore italiano va **dopo** — «il lich maestro», non «il maestro lich».
+
+| EN | IT | note |
+|---|---|---|
+| orc / ogre | orco / ogre | deciso il 2026-08-09: `ogre` resta invariato, vedi `decisioni.md` |
+| imp | folletto | `chaos imp` → «il folletto del caos», `nether imp` → «il folletto dell'oltretomba» |
+| putit | putit | prestito Elona, come `putitoro` in `invariati.md` |
+| yeek | yeek | idem |
+| kobold | coboldo | |
+| lich | lich | ⚠️ **non** «semilich» per `demi lich`: perderebbe l'aggancio. «il lich minore» |
+| mummy | mummia | `lesser`/`greater` → «minore»/«maggiore», postposti |
+| golem | golem | `wooden`/`stone`/`steel` → «di legno», «di pietra», «d'acciaio»; `small` → «minore», postposto |
+| slime | melma | `Slimeoid` → «il melmoide» |
+| ghost / phantom | spettro / fantasma | l'inglese ha due parole e l'italiano pure: tenerle separate evita «il fantasma» due volte |
+| spirit | spirito | `wisp` è a parte: «il fuoco fatuo» |
+| ent | ent | prestito tolkieniano già acquisito in italiano |
+| wyvern | viverna | la parola araldica italiana |
+| minotaur | minotauro | |
+| centipede / scorpion / spider | millepiedi / scorpione / ragno | |
+| king X | X re | postposto per l'aggancio: `king orc` → «l'orco re», `king cobra` → «il cobra reale» dove la lingua lo chiede |
+| older / younger sister | sorella maggiore / minore | i nomi di creatura, non la parentela in prosa (vedi sotto) |
+
+⚠️ **L'articolo sta dentro il nome**, per ogni nome che non cominci per `<` o
+`"`: `init.hsp:1712-1719` toglie l'articolo solo a quelli. Vale anche per i
+nomi capitalizzati — «l'unicorno», «la Nekomata» — perché la maiuscola non
+c'entra: il codice guarda `CHARA_BIT_HAS_NAME`, che sta sul personaggio.
+
 ## La regola dei nomi propri
 
 Decisa il 2026-08-07 insieme a `Chaos` e ai cinque toponimi aperti, e valida per
