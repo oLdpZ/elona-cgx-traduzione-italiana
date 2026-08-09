@@ -1069,3 +1069,72 @@ accenti incontrati finora stavano a fine parola — «Abilità» → `Abilita'`,
 
 > Prima di scrivere un accento, guardare **dove** cade nella parola. In fondo è
 > gratis, in mezzo no.
+
+### `custom_tweaks.hsp` riscrive `skill.hsp`, e vince — 2026-08-09
+
+Trovato guardando una schermata del collaudo: il menù delle mosse speciali
+mostrava `Enable/Disable **the** use of power gauge`, mentre la voce appena
+tradotta dice `Enable/Disable use of power gauge`. **Due stringhe diverse.**
+
+```
+skill.hsp:1529          skilldesc(SKILL_SPACT_GAUGE_RELEASE) = lang(…, "Enable/Disable use of power gauge")
+custom_tweaks.hsp:1261  skilldesc(SKILL_SPACT_GAUGE_RELEASE) = lang(…, "Enable/Disable the use of power gauge")
+```
+
+`custom_tweaks.hsp` applica le opzioni di configurazione **riassegnando** le
+stesse chiavi dopo `skill.hsp`. A schermo arriva l'ultima scrittura.
+
+> Una traduzione può essere giusta, verificata, byte per byte, dentro la build —
+> e non vedersi mai, perché un altro file scrive dopo. La firma garantisce
+> **dove** hai scritto, non **cosa** legge il gioco.
+
+Le chiavi riscritte sono **sei**: `SKILL_SPACT_GAUGE_RELEASE` e quattro
+resistenze (`LIGHTNING`, `MIND`, `NERVE`, `CHAOS`). Le quattro resistenze erano
+proprio fra quelle appena tradotte, e si vedevano nella schermata del collaudo:
+la colonna sarebbe uscita **mezza italiana**.
+
+I siti sono **dodici**, non sei, perché ogni tweak ha due rami — `if (Tweak…)`
+ed `else` — e quale gira lo decide il giocatore nelle opzioni. **Vanno tradotti
+entrambi.**
+
+**Non abbiamo usato le toppe.** Il file ha 28 `lang()` in tutto, e 16 sono
+`font lang(cfg_font1, cfg_font2)`, cioè scelta del carattere e non testo:
+restano **12 stringhe vere**. Dodici toppe le metterebbero fuori dalla
+garanzia byte per byte (`contratto-nomi.md` §2); `custom_tweaks.hsp` come
+settimo file di dizionario ce le tiene dentro, e **non è costato una riga di
+codice** — `estrai` prende qualunque `.hsp`, e il resto della catena scorre i
+dizionari, non una lista fissa.
+
+⚠️ **Da rifare a ogni versione CGX nuova**: cercare chi riassegna `skillname` e
+`skilldesc` fuori da `skill.hsp`. Oggi è solo `custom_tweaks.hsp`, ma è un file
+di *tweak*: cresce a ogni rilascio.
+
+Nessun buco nella prova d'identità, e per una ragione di disegno:
+`prova_identita.py:84` fa `radice.glob("*.hsp")` e attraversa **tutti e 72 i
+file**, non quelli che traduciamo. Le 12 stringhe erano già dentro i 27.813.
+
+### La misura dei campi di `skillname`, seconda parte — 2026-08-09
+
+Fatta prima di tradurre i 368 nomi che restano. ⚠️ **Corregge il «~29
+caratteri» scritto ieri**, che era una lettura sbagliata dello stesso codice:
+
+```
+command.hsp:5382   cs_list skillname(…) + s, wx + 84      ← il nome parte da 84
+command.hsp:5385   pos wx + 288 - strlen(s) * 7           ← il costo, ancorato a destra
+command.hsp:5389   mes strmid(s, 0, 34)                   ← la descrizione, tagliata
+```
+
+A 288 ci arriva **il costo**, non il nome. `"12 Sp"` sono 5 caratteri, 35 px, e
+al nome restano 169 px ≈ **24 caratteri**. Il nome porta inoltre appiccicato il
+segnaposto della scorciatoia (`{0}`…`{10}`), fino a 4 caratteri.
+
+L'inglese conferma il 24 dal lato suo, come vuole la regola della guida:
+
+| famiglia | nomi | max inglese | mediana |
+|---|---|---|---|
+| incantesimi | 90 | 20 (`4-Dimensional Pocket`) | 11 |
+| mosse speciali | 276 | **24** (`Critical Particle Cannon`) | 12 |
+
+**Il tetto è 24.** Cinque nomi inglesi superano i 20, e con una scorciatoia
+assegnata sforano già oggi: la sovrapposizione col costo è un difetto che il
+gioco inglese ha per conto suo, non un margine da spendere.
