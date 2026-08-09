@@ -6,7 +6,7 @@ reggere il corpus vero invece di un corpus di comodo.
 """
 import pytest
 
-from strumenti.articolo import articoli
+from strumenti.articolo import articoli, preposizione_di
 
 
 @pytest.mark.parametrize("genere, nome, atteso", [
@@ -50,6 +50,40 @@ def test_casi_del_dizionario(genere, nome, atteso):
 def test_h_muta_si_comporta_da_vocale():
     """«l'hotel», non «lo hotel»: la h italiana non si pronuncia."""
     assert articoli("m", "hotel") == ("un ", "l'")
+
+
+@pytest.mark.parametrize("nome, atteso", [
+    ("ferro", "di "),
+    ("seta", "di "),
+    ("materia grezza", "di "),
+    ("scaglie di drago", "di "),
+    ("bambù", "di "),
+    ("argento", "d'"),
+    ("oro", "d'"),
+    ("osso", "d'"),
+    ("ossidiana", "d'"),
+    ("acciaio", "d'"),
+    ("etere", "d'"),
+    ("adamantio", "d'"),
+])
+def test_la_preposizione_elide_davanti_a_vocale(nome, atteso):
+    """«d'argento», non «di argento»; ma «di ferro»."""
+    assert preposizione_di(nome) == atteso
+
+
+def test_la_preposizione_non_elide_davanti_a_semiconsonante():
+    """«di iato», non «d'iato»: la i seguita da vocale fa consonante.
+
+    E' la stessa domanda dell'articolo — «questa parola comincia per vocale?» —
+    e deve dare la stessa risposta, o il gioco direbbe «uno iato» e «d'iato»
+    nella stessa riga.
+    """
+    assert preposizione_di("iato") == "di "
+
+
+def test_la_preposizione_non_si_applica_al_nulla():
+    """Un materiale senza resa non deve produrre una preposizione orfana."""
+    assert preposizione_di("") == ""
 
 
 def test_la_h_muta_non_rende_pura_la_s_impura():

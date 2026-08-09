@@ -89,6 +89,32 @@ def _prima_parola(nome: str) -> str:
     return nome.strip().lstrip("<«“\"'([").strip()
 
 
+def preposizione_di(nome: str) -> str:
+    """`"di "` oppure `"d'"`, secondo la forma della parola che segue.
+
+    Stessa famiglia dell'articolo, e per lo stesso motivo sta qui: e' una
+    **derivata della forma**, non un dato da chiedere a chi traduce. Serve dove
+    il giunto e' cablato nel codice del gioco invece di venire dal dizionario —
+    il materiale degli oggetti, «un paio di stivali pesanti d'argento» — e
+    dove percio' una preposizione sola dovrebbe coprire trentotto parole
+    diverse.
+
+    Divide le parole esattamente come `articoli`, e non e' un caso: la domanda
+    e' la stessa. Se rispondessero in modo diverso il gioco direbbe «uno iato»
+    e «d'iato» nella stessa riga.
+
+        preposizione_di("ferro")     ->  "di "
+        preposizione_di("argento")   ->  "d'"
+        preposizione_di("iato")      ->  "di "
+    """
+    parola = _prima_parola(nome)
+    if not parola:
+        return ""
+    if _vocale(parola[0]) and not _semiconsonante(parola):
+        return "d'"
+    return "di "
+
+
 def articoli(genere: str, nome: str) -> tuple[str, str]:
     """(indeterminativo, determinativo) gia' pronti da concatenare al nome.
 

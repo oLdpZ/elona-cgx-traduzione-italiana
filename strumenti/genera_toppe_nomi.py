@@ -20,6 +20,7 @@ alla build.
 """
 import io
 import json
+import re
 import sys
 
 from strumenti import percorsi
@@ -308,6 +309,8 @@ toppe.append({
 # di di cuoio». Stessa lezione del `" of "` dei nomi composti.
 MATERIALE = 'mtname(0, inv(INV_ITEM_MATERIAL, itemname_itemid))'
 EPITETO = 'mtname(1, inv(INV_ITEM_MATERIAL, itemname_itemid))'
+# il complemento gia' montato, preposizione compresa: vedi la toppa 15
+COMPLEMENTO = 'mtcomplemento(inv(INV_ITEM_MATERIAL, itemname_itemid))'
 
 # riga -> (cosa si legge, come si aggancia). L'epiteto porta gia' la sua
 # preposizione dal dizionario («di mistero», «dell'antichita'»): li' basta lo
@@ -320,25 +323,33 @@ EPITETO = 'mtname(1, inv(INV_ITEM_MATERIAL, itemname_itemid))'
 # sole sarebbero ambigue e lo strumento rifiuterebbe di emetterle -- e' la
 # quarta volta che il controllo di unicita' cambia la forma di una toppa
 # invece di lasciar passare un'ambiguita'.
+# (riga, riga, cosa si LEGGE nel sorgente, giunto, cosa si SCRIVE al suo posto).
+# I due siti del materiale nudo leggono `mtname(0,…)` e scrivono `mtcomplemento`,
+# che porta gia' la preposizione: la' il giunto e' un semplice spazio. Gli altri
+# tre non ne hanno bisogno — «in» non elide («di manifattura in argento») e
+# l'epiteto la sua preposizione ce l'ha gia' dal dizionario.
 DA_ANTEPORRE = (
-    (1386, 1386, MATERIALE, ' di '),
-    (1398, 1400, MATERIALE, ' di manifattura in '),
-    (1403, 1405, MATERIALE, ' di manifattura in '),
-    (1476, 1476, EPITETO, ' '),
-    (1481, 1481, MATERIALE, ' di '),
+    (1386, 1386, MATERIALE, ' ', COMPLEMENTO),
+    (1398, 1400, MATERIALE, ' di manifattura in ', MATERIALE),
+    (1403, 1405, MATERIALE, ' di manifattura in ', MATERIALE),
+    (1476, 1476, EPITETO, ' ', EPITETO),
+    (1481, 1481, MATERIALE, ' ', COMPLEMENTO),
 )
 
-for primo, ultimo, lettura, giunto in DA_ANTEPORRE:
+for primo, ultimo, lettura, giunto, scrittura in DA_ANTEPORRE:
     blocco = fetta(ITEM, primo, ultimo)
     da_spostare = [r for r in blocco if 'locvar_itemowner_s +=' in r and lettura in r]
     assert len(da_spostare) == 1, (primo, blocco)
-    nuovo = [f'{ind(r)}locvar_itemname_s6 += "{giunto}" + {lettura}'
+    nuovo = [f'{ind(r)}locvar_itemname_s6 += "{giunto}" + {scrittura}'
              if r in da_spostare else r for r in blocco]
+    dove = ("in mtcomplemento, che porta gia' la preposizione elisa dove serve"
+            if scrittura is COMPLEMENTO else
+            f"col giunto «{giunto.strip()}»")
     toppe.append({
         "file": "item_func.hsp",
         "cerca": blocco if len(blocco) > 1 else blocco[0],
         "sostituisci": nuovo if len(nuovo) > 1 else nuovo[0],
-        "motivo": f"il materiale si antepone in inglese e segue in italiano: qui si mette da parte in locvar_itemname_s6 col giunto «{giunto.strip()}», e si riversa dopo *skipName. Il giunto sta nella toppa e non nel dato perche' mtname lo legge anche command.hsp, dove «fatto di» + «di cuoio» direbbe due volte la stessa preposizione",
+        "motivo": f"il materiale si antepone in inglese e segue in italiano: qui si mette da parte in locvar_itemname_s6 {dove}, e si riversa dopo *skipName. Il giunto non sta in mtname perche' lo legge anche command.hsp, dove «fatto di» + «di cuoio» direbbe due volte la stessa preposizione",
     })
 
 # 14-bis. la qualita' dell'arredo (`_furniture`, text.hsp:56): undici gradini
@@ -412,14 +423,68 @@ toppe.append({
     "motivo": "riversa materiale e stato dopo il nome, in quest'ordine («mantello di platino con benedizione»). Sta su *skipName perche' e' il punto dove tutti i rami del nome convergono: sui singoli rami se ne dimenticherebbe uno e la coda sparirebbe in silenzio. Ed e' prima dell'articolo inglese, che si antepone",
 })
 
-# 15. il buffer dei materiali: 18 byte non bastano all'italiano
+# 15. il buffer dei materiali, e accanto l'array del complemento italiano.
+#
+# Il giunto del materiale non puo' stare nel dato — `mtname` lo legge anche
+# `command.hsp` («It is made of » + mtname), dove un «di» cotto nella stringa
+# direbbe «fatto di di cuoio» — ma non puo' nemmeno essere **uno solo** per
+# trentotto materiali, perche' sette cominciano per vocale e l'italiano elide:
+# «d'argento», non «di argento». A schermo si e' visto «un paio di stivali
+# pesanti di argento» (collaudo del 2026-08-09).
+#
+# La terza via e' quella gia' usata per il plurale e per l'articolo: un array
+# italiano **accanto** a quello inglese, col complemento gia' montato. La
+# preposizione la deriva `strumenti/articolo.py` dalla forma della parola, come
+# l'articolo, e per la stessa ragione: e' una derivata, non un dato.
+#
+# ⚠️ Le rese si prendono dal dizionario per (riga, inglese) e finiscono qui
+# come **letterali**. E' l'unico punto del progetto dove una resa viene copiata
+# invece che sostituita, e regge solo perche' questo comando si rilancia a ogni
+# giro: se il dizionario cambia e nessuno lo rilancia, `mtname` e
+# `mtcomplemento` divergono in silenzio. Stessa fragilita' del `case` di
+# `contatori.jsonl`, e stessa cura — l'assert qui sotto pretende che ogni
+# materiale letto dal sorgente sia nel dizionario.
+#
+# ⚠️ Le rese si degradano qui. Una toppa e' l'unica strada per cui un testo
+# italiano arriva al sorgente **senza passare da `applica.py`**, che chiama
+# `degrada()` a ogni punto in cui un dato del dizionario diventa codice. Senza,
+# «bambù» fa esplodere la scrittura dell'albero di build, in fondo alla catena
+# e dopo che tutto il resto e' andato bene.
+from strumenti.accenti import degrada
+from strumenti.articolo import preposizione_di
+
+_MATERIALE = re.compile(
+    r'\tmtname\(0, (ITEM_MATERIAL_\w+)\) = lang\("[^"]*", "([^"]*)"\)')
+_rese_materiali = {(v["riga"], v["en"]): v.get("it")
+                   for v in carica_dizionario("item_data.hsp").values()}
+
+materiali = []
+for _i, _r in enumerate(DATA, start=1):
+    _m = _MATERIALE.match(_r)
+    if not _m:
+        continue
+    _costante, _inglese = _m.group(1), _m.group(2)
+    assert (_i, _inglese) in _rese_materiali, (
+        f"{_costante} ({_inglese!r}, riga {_i}) non e' nel dizionario di "
+        "item_data.hsp: il complemento non si puo' generare")
+    # senza resa si ripiega sull'inglese, come il plurale ripiega sul singolare:
+    # «di silver» e' brutto ma leggibile, e dice a chi guarda che manca un dato
+    _resa = _rese_materiali[(_i, _inglese)] or _inglese
+    materiali.append((_costante, degrada(f'{preposizione_di(_resa)}{_resa}')))
+
+assert len(materiali) >= 38, f"solo {len(materiali)} materiali letti dal sorgente"
+
 riga = DATA[1266 - 1]
 assert riga.strip() == 'sdim mtname, 18, 2, ITEM_MATERIAL_MAX', riga
 toppe.append({
     "file": "item_data.hsp",
     "cerca": riga,
-    "sostituisci": riga.replace('sdim mtname, 18,', 'sdim mtname, 48,'),
-    "motivo": "18 byte per stringa non bastano: l'inglese piu' lungo e' `griffon scale` (13), «scaglia di grifone» sono 18 esatti, e un accento vero ne vale due dopo la degradazione. Stesso difetto degli array del plurale, visto dal lato del buffer invece che dell'indice",
+    "sostituisci": [
+        riga.replace('sdim mtname, 18,', 'sdim mtname, 48,'),
+        f'{ind(riga)}sdim mtcomplemento, 48, ITEM_MATERIAL_MAX',
+    ] + [f'{ind(riga)}mtcomplemento({costante}) = "{complemento}"'
+         for costante, complemento in materiali],
+    "motivo": f"18 byte per stringa non bastano: l'inglese piu' lungo e' `griffon scale` (13), «scaglia di grifone» sono 18 esatti, e un accento vero ne vale due dopo la degradazione. Accanto nasce mtcomplemento, {len(materiali)} materiali col complemento gia' montato: il giunto non puo' stare in mtname (command.hsp lo legge nudo, «fatto di» + «di cuoio») ne' essere uno solo nella toppa, perche' sette materiali cominciano per vocale e l'italiano elide — «d'argento», non «di argento». La preposizione la deriva articolo.py dalla forma della parola, come l'articolo",
 })
 
 # 18. l'articolo. L'inglese lo sceglie guardando la PRIMA LETTERA della stringa

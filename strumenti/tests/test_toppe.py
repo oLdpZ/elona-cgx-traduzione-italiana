@@ -5,7 +5,8 @@ import json
 import pytest
 
 from strumenti import percorsi
-from strumenti.applica import (SorgenteCorrotto, applica_toppe, carica_toppe)
+from strumenti.applica import (SorgenteCorrotto, applica_toppe, carica_toppe,
+                               righe_di_toppa)
 
 RIGA_NAME = '\t\treturn "the " + cdatan(CDATAN_NAME, name_arg1)'
 
@@ -115,6 +116,31 @@ def test_le_toppe_del_progetto_si_applicano_al_sorgente_pinnato():
         nuovo, quante = applica_toppe(t["file"], testo, [t])
         assert quante == 1
         assert nuovo != testo
+
+
+def test_nessuna_toppa_porta_testo_che_cp932_non_sa_scrivere():
+    """Ogni toppa deve poter essere scritta nell'albero di build.
+
+    Le toppe sono l'unica strada per cui un testo italiano arriva al sorgente
+    **senza passare da `applica.py`**, che degrada gli accenti a ogni punto in
+    cui un dato del dizionario diventa codice. Una toppa che porti una vocale
+    accentata vera fa esplodere la scrittura del file — «bambù», 2026-08-09 —
+    e lo fa in fondo alla catena, dopo che tutto il resto e' gia' andato bene.
+
+    Qui si rompe subito, e per tutte le toppe: quella che c'e' oggi e quella
+    che qualcuno scrivera' domani.
+    """
+    for t in carica_toppe():
+        for chiave in ("cerca", "sostituisci"):
+            for riga in righe_di_toppa(t[chiave]):
+                try:
+                    riga.encode("cp932")
+                except UnicodeEncodeError as e:
+                    raise AssertionError(
+                        f"la toppa «{t['motivo'][:50]}…» porta in `{chiave}` un "
+                        f"carattere che CP932 non ha: {riga[e.start:e.end]!r}. "
+                        "Va degradato con accenti.degrada() da chi genera la "
+                        f"toppa.\n  {riga.strip()}") from None
 
 
 # ---------------------------------------------------------------------------
