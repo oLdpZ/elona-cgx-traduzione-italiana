@@ -1250,3 +1250,60 @@ prima di produrre qualcosa di sbagliato.
 > proteggere.
 
 Concetto: `wiki/concepts/una-guardia-agganciata-a-se-stessa.md`.
+
+### L'articolo dei nomi di creatura sta dentro il nome — 2026-08-09
+
+E con lui cade la concordanza di genere fra `evold` e `evname`, che avevo
+appena messo come guardia. Vale la pena scrivere il giro per intero, perché la
+proprietà sbagliata sembrava più prudente di quella giusta.
+
+`name()` (`init.hsp:1718`) anteponeva `"the "` **al momento di mostrare**, e una
+toppa di due sessioni fa l'ha tolto, con la nota: «in italiano l'articolo
+dipende da genere ed elisione, quindi lo porta il nome della creatura». Restava
+da capire *come*.
+
+Per gli oggetti la risposta era stata un **array parallelo**
+(`ioriginalnamearticolo`), indicizzato per id. Per le creature non funziona, e
+la ragione è tutta nell'evoluzione:
+
+> L'id della creatura **non cambia** quando evolve. Il nome sì. Un articolo
+> indicizzato per id darebbe per sempre l'articolo di prima della
+> trasformazione.
+
+Quindi l'articolo sta **dentro** il nome. Il prezzo si misura: `cdatan(CDATAN_NAME)`
+finisce grezzo dentro **1.815 siti di prosa**, e sono quasi tutti in posizione di
+soggetto — «`X` ti ha guardato in faccia» — dove «la giraffa ti ha guardato in
+faccia» è giusto. I pochi con preposizione («il cambiamento **di** `X`») sono
+stringhe **dinamiche**, cioè le traduciamo noi: si riformulano, e il problema
+sparisce dal lato del testo invece che dal lato del codice.
+
+⚠️ **La conseguenza è che anche `evold` e `evname` devono portare l'articolo**,
+e il taglio lo sostituisce insieme alla specie. Da qui il ribaltamento della
+guardia:
+
+| guardia | esito |
+|---|---|
+| ~~le due metà di ogni coppia concordano nel genere~~ | **cade**: con l'articolo dentro, `giraffe` → `Kirin` va da «la giraffa» a «il kirin» senza lasciare «la kirin» |
+| ogni nome e ogni stringa d'evoluzione **porta il proprio articolo** | **la sostituisce**, e vede il difetto vero: se una sola delle due metà lo dimentica, esce un nome senza articolo o con due |
+
+> La concordanza di genere era una guardia che difendeva un difetto che il
+> disegno giusto **non può avere**, e ne lasciava passare uno che può avere.
+
+I nomi propri fra `<>` e fra virgolette restano fuori: `name()` li riconosce
+dalla prima lettera e non ci ha mai messo l'articolo davanti.
+
+### `orc` è «orco», `ogre` resta «ogre» — 2026-08-09
+
+Forzata dal primo lotto della Fase 2, che contiene `orc`, `king orc` e
+`orc warrior`. È la coppia che teneva in ostaggio `<Pants of Ogre>` dal
+2026-08-09 mattina.
+
+L'italiano del fantasy ha un solo termine popolare, «orco», e due creature da
+coprire. La convenzione consolidata — quella dei manuali di D&D in italiano e
+delle traduzioni tolkieniane — assegna **«orco» a `orc`** e lascia **`ogre`
+invariato**, che è anche il trattamento che il progetto riserva ai prestiti
+acquisiti. Sono due creature distinte in `db_creature.hsp` (`orc warrior`,
+`black orc` contro `slash ogre`, `shine ogre`) e così restano distinte anche in
+italiano.
+
+Sblocca `<Pants of Ogre>`, l'unica firma rinviata di `db_item.hsp`.

@@ -202,35 +202,48 @@ def test_evold_resta_agganciato_ai_nomi_che_in_inglese_lo_erano():
     assert not rotte, "la rinomina dell'evoluzione non attacca piu':\n" + "\n".join(rotte[:20])
 
 
-def test_le_due_meta_di_ogni_coppia_concordano_nel_genere():
-    """Seconda proprieta', e la piu' insidiosa.
+def test_ogni_nome_e_ogni_stringa_di_evoluzione_porta_il_proprio_articolo():
+    """Seconda proprieta'. ⚠️ **Sostituisce la concordanza di genere**, che era
+    la proprieta' sbagliata.
 
-    Il taglio sostituisce **solo** la frase di specie: l'articolo che la
-    precede nel nome salvato resta quello di prima. Se `evold` e `evname` hanno
-    generi diversi esce «`<Nome>` **la** principe gatto», e il difetto non si
-    vede finche' una creatura non evolve — cioe' quasi mai in un collaudo.
+    `name()` (`init.hsp:1718`) anteponeva `"the "` al momento di mostrare, e la
+    toppa l'ha tolto: in italiano l'articolo dipende da genere ed elisione,
+    quindi lo porta il nome. Non e' una scelta di comodo — e' l'unica che
+    **sopravvive all'evoluzione**, perche' un array parallelo indicizzato per
+    `CREATURE_ID` darebbe l'articolo di prima della trasformazione: l'id non
+    cambia, il nome si'.
+
+    Se l'articolo sta dentro il nome, allora deve stare anche dentro `evold` e
+    `evname`, e il taglio lo sostituisce insieme al resto. Da qui due
+    conseguenze:
+
+    - la concordanza di genere fra le due meta' **non serve piu'**:
+      `giraffe` -> `Kirin` puo' andare da «la giraffa» a «il kirin» senza
+      lasciare «la kirin», che era il difetto temuto;
+    - ma se **una sola** delle due meta' dimentica l'articolo, il taglio
+      produce un nome senza articolo o con due. Questo test e' quello che lo
+      vede.
+
+    I nomi propri fra `<>` e fra virgolette restano fuori: `name()` li
+    riconosce dalla prima lettera e non ci ha mai messo l'articolo davanti.
     """
-    coppie = coppie_evoluzione()
-    if not coppie:
-        pytest.skip("il dizionario di action.hsp non esiste ancora")
+    articoli = ("il ", "lo ", "la ", "i ", "gli ", "le ", "l'")
+    nomi_it = carica(FILE)
+    azioni_it = carica("action.hsp")
+    if not nomi_it and not azioni_it:
+        pytest.skip("i dizionari di db_creature.hsp e action.hsp non esistono ancora")
 
-    discordi = [
-        f"{vecchio['it']!r} ({vecchio.get('genere')}) -> {nuovo['it']!r} ({nuovo.get('genere')})"
-        for vecchio, nuovo in coppie
-        if vecchio.get("genere") and nuovo.get("genere")
-        and vecchio["genere"] != nuovo["genere"]
+    da_guardare = list(nomi_it.values())
+    evoluzione = {e for d in evoluzioni().values() for coppia in d["coppie"] for e in coppia}
+    da_guardare += [v for v in azioni_it.values() if v["en"] in evoluzione]
+
+    senza = [
+        f"{v['en']!r} -> {v['it']!r}"
+        for v in da_guardare
+        if not v["it"].startswith(("<", '"')) and not v["it"].startswith(articoli)
     ]
-    assert not discordi, "coppie evold/evname di genere diverso:\n" + "\n".join(discordi)
-
-
-def test_ogni_meta_di_ogni_coppia_dichiara_il_genere():
-    """Senza il campo il test qui sopra non guarda niente e passa lo stesso.
-
-    E' la lezione di `una-procura-non-e-una-proprieta`: un test che si accontenta
-    di cio' che trova non difende la proprieta', difende la propria comodita'.
-    """
-    coppie = coppie_evoluzione()
-    if not coppie:
-        pytest.skip("il dizionario di action.hsp non esiste ancora")
-    senza = [v["en"] for coppia in coppie for v in coppia if not v.get("genere")]
-    assert not senza, f"{len(senza)} meta' di coppia senza campo `genere`: {senza[:10]}"
+    assert not senza, (
+        f"{len(senza)} nomi senza articolo: il taglio dell'evoluzione lo "
+        "sostituisce insieme alla specie, quindi deve esserci in tutti e due:\n"
+        + "\n".join(senza[:20])
+    )
