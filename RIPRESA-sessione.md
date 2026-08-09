@@ -1,24 +1,31 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-09, fine della tredicesima sessione.
+Aggiornato: 2026-08-09, fine della quattordicesima sessione.
 
 ## La prima cosa da fare
 
-**Il primo lotto della Fase 2: le 378 stringhe del nucleo atomico.** È tutto
-pronto — misurato, delimitato, con le guardie in piedi — e non è stata tradotta
-nessuna riga. Il lotto è in
-`C:\Users\old_p\AppData\Local\Temp\…\scratchpad\nucleo.txt` ma si rigenera in un
-comando (vedi «Come si rifà il lotto» più sotto): **non fidarsi dello
-scratchpad, che è di sessione.**
-
-⚠️ **Le 378 non entrano in dizionario finché non sono tutte pronte.** Sono
-atomiche: 203 vivono in `db_creature.hsp` e 373 in `action.hsp`, e chi entra da
-solo rompe la rinomina in silenzio. Si lavora in `lavoro/`, si reimporta alla
-fine.
+**Il lotto dei ~930 nomi di creatura che restano**, a lotti per **razza**. Il
+nucleo atomico è dentro e collaudato a schermo: da qui in poi non c'è più
+niente di atomico, si va per lotti normali.
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-python -m pytest strumenti/tests -q        # atteso: 325 passed, 4 skipped
+python -m strumenti.creature --classe nome --uscita lavoro/fase2-nomi-grezzo.jsonl
+```
+
+⚠️ Quel comando dà **tutti** i 1.131 nomi, nucleo compreso: va filtrato su chi
+ha già una resa in `dizionario/db_creature.hsp.jsonl`. `--classe` era rotto
+fino a ieri (passava una `str` dove serve un `Path`) ed è stato riparato in
+questa sessione: se si comporta in modo strano, è la prima volta che lo si usa
+davvero.
+
+Il taglio per razza si fa con `dbidn` prima di `*db_race`: 76 razze, da
+`norland` con 91 a quelle da una.
+
+### Le quattro verifiche d'apertura
+
+```powershell
+python -m pytest strumenti/tests -q        # atteso: 331 passed, 2 skipped
 python -m strumenti.prova_identita         # atteso: 72/72, 27.813, ambigue 0
 python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre ovunque
 python -m strumenti.creature               # atteso: nome 1131, voce 320, in due classi 0
@@ -28,125 +35,124 @@ python -m strumenti.creature               # atteso: nome 1131, voce 320, in due
 
 | file | tradotte | firme | % |
 |---|---|---|---|
-| `db_item.hsp` | 1.605 | 1.606 | **100%** |
+| `db_item.hsp` | 1.606 | 1.606 | **100%** ← chiuso oggi |
 | `item_data.hsp` | 318 | 318 | **100%** |
 | `custom_tweaks.hsp` | 12 | 12 | **100%** |
-| `skill.hsp` | **885** | 885 | **100%** ← chiuso oggi |
+| `skill.hsp` | 885 | 885 | **100%** |
+| `action.hsp` | **373** | 1.288 | 29% |
 | `text.hsp` | 721 | 1.740 | 41% |
-| gli altri quattro | 0 | 4.063 | 0% |
-| **totale Fase 1** | **3.541** | **8.624** | **41%** |
+| gli altri tre | 0 | 2.775 | 0% |
+| **totale Fase 1** | **3.915** | **8.624** | **45%** |
 
-Fuori dalla Fase 1, con conteggio proprio: `db_creature.hsp` (**1.131 nomi** +
-320 di voce) e le **2.555 descrizioni d'oggetto** di `db_item.hsp`.
+Fuori dalla Fase 1: `db_creature.hsp`, **204 firme su 3.655** (203 nomi del
+nucleo più l'epiteto), e le 2.555 descrizioni d'oggetto di `db_item.hsp`.
 
-Sette commit oggi, tutti verdi e pushati. **325 test** (erano 318), **254
-toppe** (erano 40), prova d'identità **72/72 e 27.813**, **3.694 sostituzioni**
-nella build, il compilatore non dice nulla.
+Sei commit oggi, tutti verdi e pushati. **331 test** (erano 325), prova
+d'identità **72/72 e 27.813**, **4.684 sostituzioni** nella build, il
+compilatore non dice nulla. **Rinviate: da 80 a 79** — restano le 59 risposte
+del quiz, che aspettano gli altri ~930 nomi, e le 20 `elename()` che aspettano
+`proc.hsp`.
 
-**Rinviate: da 120 a 80.** Restano solo i tre motivi vivi — 59 risposte di quiz
-che aspettano i nomi di creatura, 20 `elename()` che aspettano `proc.hsp`, e
-`<Pants of Ogre>`, che però **oggi si sblocca** (vedi `orc`/`ogre` più sotto).
+## Il lavoro di oggi, in cinque pezzi
 
-## Il lavoro di oggi, in quattro pezzi
+1. **Il nucleo atomico tradotto**: 576 voci in due dizionari insieme, 378
+   stringhe, 380 firme, 372 rese. L'articolo sta dentro il nome.
+2. **`<Pants of Ogre>` chiuso** → «`<Mutande dell'Ogre>`», e con lui
+   `db_item.hsp` a 1.606 su 1.606.
+3. **Il giapponese arbitra** dove la colonna inglese sbaglia: otto collisioni,
+   quattro catene di evoluzione riparate.
+4. **L'epiteto perde il `the`**: 152 siti con una voce sola, trovato guardando
+   lo schermo.
+5. **Una correzione a una mia conclusione sbagliata**, trovata dallo stesso
+   screenshot. È il pezzo più importante e sta qui sotto.
 
-1. **`skill.hsp` chiuso**, 276 mosse speciali, tetto 24. Collaudato a schermo.
-2. **Dieci rinviate riaperte**: quattro risposte del quiz sui grimori (il rinvio
-   era a `skill.hsp`) e sei parti meccaniche, la cui dipendenza dichiarata **non
-   esisteva**.
-3. **I nomi casuali degli oggetti**, 30 voci più **213 toppe generate** che
-   ribaltano «aggettivo + nome» in `db_item.hsp`. Collaudato a schermo.
-4. **La Fase 2 misurata e disegnata**, senza tradurre niente: è il pezzo lungo
-   di questo documento.
+## Le tre cose da non riscoprire
 
-## Fase 2 — tutto ciò che serve per cominciare
+### Il giapponese arbitra dove le due colonne divergono
 
-### La misura
+La colonna inglese di upstream **non è una chiave**. Sbaglia in due direzioni:
 
-| cosa | dove | quante |
-|---|---|---|
-| nomi di creatura | `db_creature.hsp` | **1.131** |
-| voce delle creature | `db_creature.hsp` | 320 |
-| stringhe di evoluzione | `action.hsp`, `evold`/`evname` | **373** |
-| **il nucleo atomico, primo lotto** | i due insieme | **378** |
+- `フレアチック` è `Flare Chick` in un punto e `Flare chick` nell'altro (idem
+  `イノブタ`, `ヤドナシ`, `デュラハン`): il confronto distingue le maiuscole,
+  quindi quelle **quattro evoluzioni di secondo stadio in inglese non scattano
+  mai**, in giapponese sì;
+- `サラブレッド` (*purosangue*) è `wild horse` in `action.hsp` ma
+  `thoroughbred` in `db_creature.hsp`; `野うさぎ` è `rabbit` di là e
+  `wild rabbit` di qua.
 
-### Le tre cose decise, e perché
+**Dove divergono si traduce il giapponese**, che è l'originale. Non per
+correggere upstream: perché rendere `サラブレッド` con «cavallo selvatico»
+sarebbe un nome falso a prescindere dal codice.
 
-**L'articolo sta dentro il nome.** Un array parallelo per `CREATURE_ID` non
-funziona: l'id **non cambia** quando la creatura evolve, il nome sì, e
-l'articolo resterebbe quello di prima. Perciò lo portano anche `evold` e
-`evname`, e il taglio lo sostituisce insieme alla specie.
+⚠️ **Conseguenza sulle guardie: la chiave è la firma, non l'inglese.** Le
+funzioni `evoluzioni_con_jp`, `nomi_per_creatura_con_jp` e
+`nomi_visibili_con_jp` esistono per questo. Una mappa `{en: it}` di due rese ne
+tiene una sola, in silenzio — è il difetto che c'era.
 
-**La chirurgia si tiene, i nomi si traducono.** Le altre due strade pagavano in
-qualità: lasciare i nomi inglesi rinuncia alla superficie più visibile del
-gioco, riscrivere il nome intero perde `<Momalaria>` all'evoluzione.
+### ⚠️ Il ramo del suffisso è la strada normale, non quella morta
 
-**`orc` → «orco», `ogre` invariato.** Forzata dal lotto, che contiene `orc`,
-`king orc`, `orc warrior`. ⚠️ **Sblocca `<Pants of Ogre>`**, l'ultima firma
-rinviata di `db_item.hsp` — da chiudere insieme al lotto.
+**Ho scritto il contrario a metà sessione ed era falso.** Il conto guardava il
+nome nudo della specie, dove `evold` sta in testa. Ma il nome che il
+**salvataggio** conserva per un alleato con nome proprio è l'epiteto —
+«Lazrof il cavallo zoppo» — e lì `evold` sta in coda, sempre.
 
-### Le guardie, e cosa hanno già evitato
+Simulato il taglio con un epiteto davanti: **245 su 245 dal suffisso, zero dal
+prefisso.** E i personaggi con epiteto sono i 152 con `CHARA_BIT_HAS_NAME`,
+cioè quelli che si tengono in squadra, cioè **quelli che evolvono**.
 
-Quattro test in `strumenti/tests/test_creature.py`, **armati prima del lavoro**.
-Due sono reti sotto gli altri due, e sono servite tutte e due:
+Quindi la riparazione di `action.hsp:18644` non è una precauzione: è la
+condizione perché l'evoluzione di un alleato con nome funzioni. Vale anche in
+inglese, dove `Lazrof the lame horse` finisce per `lame horse`.
+
+> Il dato non è quello che il sorgente scrive: è quello che il salvataggio
+> conserva.
+
+La guardia nuova non controlla l'aggancio: monta il nome come lo monta il
+gioco, esegue `18640-18646` col suffisso riparato e confronta il **risultato**.
+
+### L'articolo va su tutto ciò che non comincia per `<` o `"`
+
+`init.hsp:1712-1719` non guarda la maiuscola: guarda il primo carattere e
+`CHARA_BIT_HAS_NAME`, che sta sul **personaggio** e non sulla stringa. Quindi
+anche `Unicorn` e `Nekomata` prendono l'articolo: «l'unicorno», «la Nekomata».
+
+⚠️ La guardia dell'articolo è filtrata su `classi()`: le dinamiche di
+`db_creature.hsp` non sono nomi, e chiedere loro l'articolo vorrebbe dire
+chiederlo **fuori** dal nome.
+
+## Le sei guardie del nucleo, e cosa difendono
+
+In `strumenti/tests/test_creature.py`:
 
 | guardia | cosa difende |
 |---|---|
-| `evold` resta agganciato | la rinomina deve continuare ad attaccare in testa **o** in coda |
-| ogni nome porta l'articolo | se una sola metà lo dimentica esce un nome senza articolo o con due |
-| l'accoppiamento trova tutti gli `evold` | rete: se sbagliasse forma, i due sopra guarderebbero il vuoto |
-| il campo è delimitato dal cancello | rete: senza, la prima guardia è impossibile da soddisfare |
+| la misura del nucleo | 378 stringhe, 380 firme, 203 + 373 voci |
+| stessa firma, stessa resa nei due dizionari | i dizionari sono per file e non si parlano |
+| `evold` resta agganciato | la rinomina deve continuare ad attaccare, **per firma** |
+| dove agganciava il giapponese aggancia l'italiano | le quattro catene riparate |
+| il taglio su un alleato con epiteto | la chirurgia vera, simulata: 245 tagli |
+| ogni nome porta l'articolo | solo le stringhe di classe `nome` |
 
-⚠️ **Due guardie sono nate sbagliate e le ha corrette la misura, non il
-collaudo.** La prima pretendeva che ogni aggancio inglese si conservasse: ma il
-taglio non ha controllo di confine di parola, `imp` è prefisso di `impure eye`,
-e avrebbe chiesto che «occhio impuro» cominciasse per «folletto». La seconda
-pretendeva la concordanza di genere fra `evold` e `evname`, che con l'articolo
-dentro il nome **non serve** — e intanto non vedeva il difetto vero.
+`AGGANCI_SOLO_INGLESI` contiene **una** deroga, col motivo: `bisque doll` è
+prefisso di `bisque dolls` solo per la `-s` del plurale inglese. Tutto ciò che
+non è in quella lista deve agganciare.
 
-> Una guardia troppo severa non è prudente: è una guardia che verrà spenta.
+## Il collaudo a schermo, com'è andato
 
-### La riparazione già in build
+Provato su partita nuova, due giri. **Funziona:** «il putit», «il coboldo»,
+«il paguro», «l'occhio fluttuante», «Chinnba la bambina», «Lazrof il cavallo
+zoppo». L'articolo dentro il nome non stona in nessuno dei posti guardati.
 
-`action.hsp:18644`, ramo del **suffisso** della rinomina: la lunghezza da
-tagliare si calcolava su `cdatan(CDATAN_NAME, rc)` invece che su `tc`, mentre le
-altre tre occorrenze della riga dicono `tc`. `rc` non è assegnato né in
-`*act_use` né in `*charaRefresh`: portava la lunghezza del nome di un'**altra**
-creatura. Difetto di upstream, non della traduzione — l'inglese quasi non lo
-incontra perché usa il ramo del prefisso.
+**Non ancora provato:** un'evoluzione vera. Serve impressione ≥ 150
+(`action.hsp:16630`), stadio 0, e l'oggetto d'evoluzione usato sull'alleato.
+Il soggetto giusto è a portata di mano: **Lazrof è un `lame horse`**, evmode 3.
 
-⚠️ **Va collaudato in gioco su un'evoluzione vera**, ed è l'unica cosa della
-Fase 2 già nell'eseguibile.
+> esito atteso: `Lazrof il cavallo zoppo` → **`Lazrof l'unicorno`**
 
-⚠️ **Servono tutti e due i rami**, e il ramo che scatta cambia fra le lingue:
-`lesser mummy` aggancia `mummy` in coda, «la mummia minore» lo aggancia in
-testa, perché l'italiano mette la specie davanti.
-
-### Come si rifà il lotto
-
-```powershell
-python -m strumenti.estrai db_creature.hsp --uscita lavoro/creature-grezzo.jsonl
-python -m strumenti.estrai action.hsp --uscita lavoro/action-grezzo.jsonl
-```
-
-poi si filtra sull'unione di `evoluzioni()` e `nomi_visibili()` di
-`strumenti/creature.py`, che è esattamente il nucleo atomico. `creature.py`
-classifica anche nome contro voce, e `--classe nome --uscita …` scrive il lotto
-degli altri ~750 nomi, quelli fuori dal nucleo.
-
-### L'ordine che resta
-
-1. tradurre le **378** del nucleo, con l'articolo dentro, in `lavoro/`;
-2. reimportare **tutto insieme**, mai a metà;
-3. chiudere `<Pants of Ogre>` con «orco»;
-4. collaudo in gioco **su un salvataggio nuovo** — è l'unico dove la rinomina
-   può attaccare, perché un salvataggio vecchio contiene i nomi inglesi;
-5. gli altri ~750 nomi, a lotti per **razza** (`dbidn` prima di `*db_race`: 76
-   razze, da `norland` con 91 a quelle da una); poi le 320 di voce;
-6. le **59 rinviate** del quiz, che si sbloccano solo dopo.
-
-⚠️ Su un salvataggio esistente l'evoluzione **funziona** — statistiche, stadio,
-grafica — e fallisce **solo la rinomina**. È un difetto estetico permanente, non
-un sistema rotto: il contratto diceva il contrario ed è stato corretto oggi.
+**Non è un difetto** e non va inseguito: «Chinnba la bambina slashes il paguro»
+e «mordes» sono lo stato intermedio previsto. Il verbo viene da `_melee` in
+`text.hsp` (tradotto) e la frase che lo avvolge è `action.hsp:4887`, ancora fra
+le 915 inglesi, che ci attacca `_s(cc)`. Si ricompone quando arriva quel lotto.
 
 ## Per rifare la prova in gioco
 
@@ -161,8 +167,13 @@ Start-Process "C:\Games\Elona\elonaplus2.31\cgx-test.exe" -WorkingDirectory "C:\
 Al primo avvio esce «Invalid screen resolution»: si dà OK e si prosegue.
 Il titolo mostra 2.31.1.0: è la costante di versione, non un errore di build.
 
+⚠️ **Serve un salvataggio nuovo** per i nomi, e un **personaggio nuovo** per
+l'epiteto: quello vecchio ha la stringa sbagliata già scritta dentro.
+
 ⚠️ L'utente **preferisce una lista di passi da eseguire lui** al collaudo
-pilotato da qui. Dargli la tabella, con l'esito atteso di ogni riga.
+pilotato da qui. Dargli la tabella, con l'esito atteso di ogni riga. Ha
+funzionato: due screenshot hanno trovato un difetto vero e ribaltato una
+conclusione sbagliata.
 
 ## Cosa rifare a ogni giro
 
@@ -177,8 +188,18 @@ manifesto SHA-256, **mai** con `git status`, che in quel clone è
 permanentemente sporco. Gli hash del manifesto sono in MAIUSCOLO.
 
 ⚠️ **Da rifare a ogni versione CGX nuova**: cercare chi riassegna `skillname` e
-`skilldesc` fuori da `skill.hsp` — oggi è solo `custom_tweaks.hsp`, ma è un file
-di *tweak* e cresce a ogni rilascio.
+`skilldesc` fuori da `skill.hsp` — oggi è solo `custom_tweaks.hsp`, ma è un
+file di *tweak* e cresce a ogni rilascio.
+
+## L'ordine che resta
+
+1. gli altri **~930 nomi**, a lotti per razza; poi le **320 di voce**;
+2. le **59 rinviate** del quiz, che si sbloccano solo dopo (cinque lo sono già
+   nel merito — `steel golem`, `spider`, `scorpion`, `black widow`,
+   `paralyzer` — ma restano col resto);
+3. le **915 dinamiche di `action.hsp`**, che riparano anche «mordes»;
+4. `text.hsp` dal 41% in su, `command.hsp`, `proc.hsp`, `trait.hsp`;
+5. le **2.555 descrizioni d'oggetto** di `db_item.hsp`.
 
 ## I tetti misurati, con la loro ancora
 
@@ -191,12 +212,12 @@ di *tweak* e cresce a ogni rilascio.
 | nome nella lista abilità | **24** | sinistra, invade il costo | `command.hsp:5382` |
 | descrizione nella lista | 34 | taglia (`strmid`) | `command.hsp:5389` |
 
-Il 24 è stato **confermato a schermo** oggi: `<Serba/libera la forza>` è 23
-caratteri e non tocca la colonna del costo.
-
-Vedi [[una-guardia-agganciata-a-se-stessa]], [[larghezza-per-campo]],
-[[ultima-scrittura-vince]], [[percentuale-senza-denominatore]],
-[[una-procura-non-e-una-proprieta]], [[la-categoria-che-il-sorgente-dichiara]],
+Vedi [[la-forma-memorizzata-non-e-quella-scritta]],
+[[una-chiave-che-collide-non-e-una-chiave]],
+[[una-decisione-nel-posto-sbagliato]], [[una-guardia-agganciata-a-se-stessa]],
+[[guardia-troppo-severa]], [[larghezza-per-campo]], [[ultima-scrittura-vince]],
+[[percentuale-senza-denominatore]], [[una-procura-non-e-una-proprieta]],
+[[la-categoria-che-il-sorgente-dichiara]],
 [[il-posto-decide-quando-arriva-il-dato]], [[dato-o-derivata]],
 [[toppe-generate-dal-sorgente]], [[stessa-forma-va-verificata-nel-codice]] e
 [[cp932-perdite-silenziose]].
