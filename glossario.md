@@ -74,6 +74,31 @@ progetti.
 | Skill | Abilità | coincide con Elin. **Non** collide con *ability*, che nel sorgente è quasi sempre prosa generica e in italiano vuole «capacità»: `enhances your ability to hide` → «migliora la capacità di nascondersi» |
 | hex | malocchio | ⚠️ **non** «maledizione», che è già `curse`. Il gioco ha due 呪い e li distingue: `cursed` sta sull'**oggetto** e si oppone a `blessed`; `hex` sta sulla **persona** e si oppone a un buff (`command.hsp:10814`, «blessed or hexed»). L'italiano separa le due sullo stesso asse. Il sorgente conferma che il giapponese da solo non bastava: `skill.hsp:440` scrive `呪い(hex)`, con la glossa inglese accanto |
 
+## I nomi degli incantesimi
+
+Tetto **24 caratteri** (`command.hsp:5382-5385`, misurato il 2026-08-09).
+
+| EN | IT | note |
+|---|---|---|
+| `Dart` | Dardo | il colpo singolo debole, giapponese 魔法の**矢** |
+| `Bolt` | Saetta | la linea, giapponese …**ボルト** |
+| `Mist of X` | Nebbia di / d'X | |
+| `Jail` | Gabbia | `Eclipse Jail` → «Gabbia d'eclissi» |
+| `Roar` | Ruggito | |
+| `Restore Body` / `Restore Spirit` | Ripristina Corpo / Spirito | già fissato sopra |
+
+⚠️ **`Dart` e `Bolt` non si fondono.** In Elona sono due cose diverse — colpo
+singolo contro linea — e l'italiano ha due parole: usarne una sola perderebbe
+una distinzione che il gioco fa.
+
+L'elemento è **aggettivo** dove esiste («Saetta mentale», «Saetta caotica»,
+«Saetta velenosa», come `Mind damage` → «Danno mentale») e **complemento** dove
+no («Saetta di gelo», «Saetta d'oltretomba»).
+
+⚠️ `Hero` → **«Eroismo»**, non «Eroe»: è un'etichetta di stato, e vale la
+regola dei sostantivi astratti di `guida-stile.md`. `Incognito` resta identico
+e sta in `invariati.md`: è la stessa parola latina, non una svista.
+
 ## Gli atomi delle etichette di `skilldesc`
 
 Le 348 descrizioni di incantesimi e mosse speciali non sono prosa: sono formule

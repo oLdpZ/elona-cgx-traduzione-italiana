@@ -1,0 +1,2 @@
+{"firma": "92d106d79b99e4dca6bd6a019626a3f089c991ac", "file": "skill.hsp", "riga": 9, "occorrenza": 0, "jp": "生命力", "jp_grezzo": "\"生命力\"", "en": "Life", "en_grezzo": "\"Life\"", "tipo": "statica", "contesto": "", "it": "", "_chiave": "SKILL_ATTR_LIFE"}
+{"firma": "7d1e69b198eb4e4343b3e05217d9889f199e7fe3", "file": "skill.hsp", "riga": 14, "occorrenza": 0, "jp": "マナ", "jp_grezzo": "\"マナ\"", "en": "Mana", "en_grezzo": "\"Mana\"", "tipo": "statica", "contesto": "", "it": "", "_chiave": "SKILL_ATTR_MANA"}
