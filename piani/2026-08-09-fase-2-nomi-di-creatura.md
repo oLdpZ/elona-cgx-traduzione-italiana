@@ -102,9 +102,39 @@ Va deciso **prima di tradurre**, e la decisione è di disegno, non di lessico:
 3. **lasciare i nomi di creatura invariati**, come già si fa per gli artefatti
    opachi, e tradurre solo la voce e le descrizioni.
 
-⚠️ Nessuna delle tre è ovvia, e la seconda e la terza cambiano lo scopo della
-Fase 2. Questa è la prima domanda da sciogliere alla prossima sessione, e
-**non è una domanda di traduzione**.
+### La scelta: la prima, con la verifica a macchina — 2026-08-09
+
+La domanda è stata sciolta subito, sul criterio «la resa migliore a schermo».
+
+**La terza si scarta** perché i nomi di creatura sono la superficie più visibile
+del gioco e sono quasi tutti **descrittivi** (`big mosquito`, `masked
+musangod`): è esattamente la classe che il progetto traduce da sempre, e
+lasciarla inglese sarebbe la resa peggiore disponibile.
+
+**La seconda si scarta** perché la libertà che promette la paga un nome proprio.
+La chirurgia esiste per **conservare la parte che non è specie**: con
+l'assegnazione secca `<Momalaria> la succhiasangue` diventerebbe «la principessa
+gatta» e Momalaria sparirebbe. Si compra libertà lessicale e si vende un nome
+proprio.
+
+⚠️ **La chirurgia in italiano fa la cosa giusta, non quella sbagliata.** Il
+qualificatore italiano sta in fondo, quindi il ramo del suffisso è proprio
+quello che conserva il nome proprio in testa. Il ramo era rotto, non
+sbagliato — e riparato serve meglio l'italiano che l'inglese.
+
+Il vincolo che resta è molto più leggero di come era scritto qui sopra, e sono
+due proprietà **decidibili a macchina**:
+
+1. la frase di specie di ogni `evold` dev'essere un **suffisso contiguo** di
+   ogni nome italiano che la contiene;
+2. le due metà di ogni coppia `evold`/`evname` devono **concordare nel genere**,
+   perché l'articolo che le precede nel nome salvato non viene toccato dal
+   taglio.
+
+Nessuna delle due si verifica a occhio su 1.131 nomi: sono **due test**, e vanno
+scritti **prima** del primo lotto, non dopo. Il secondo test è il più
+importante, perché il difetto che previene — «`<Nome>` **la** principe gatto» —
+non si vede finché una creatura non evolve, cioè quasi mai durante un collaudo.
 
 ## Cosa questo piano non decide
 
@@ -117,8 +147,9 @@ Fase 2. Questa è la prima domanda da sciogliere alla prossima sessione, e
 ## L'ordine consigliato
 
 1. sciogliere la domanda della chirurgia (le tre strade qui sopra);
-2. toppa `rc` → `tc`, **prima** di tradurre: è una correzione che vale anche
-   per il gioco inglese, e va collaudata da sola;
+2. ~~toppa `rc` → `tc`~~ **fatta il 2026-08-09**: nona toppa a mano, 318 test
+   verdi, il compilatore non dice nulla. Va comunque **collaudata in gioco** su
+   un'evoluzione vera, ed è l'unica cosa di questo blocco già in build;
 3. mettere `db_creature.hsp` nella catena, con conteggio proprio;
 4. tradurre i 1.131 nomi e i 373 di `action.hsp` **nello stesso commit**;
 5. collaudo in gioco **su un salvataggio nuovo**, perché è l'unico dove la
