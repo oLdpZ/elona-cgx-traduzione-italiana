@@ -380,6 +380,43 @@ toppe.append({
     "motivo": "la qualita' dell'arredo si antepone in inglese e segue in italiano, come materiale ed epiteti: e' un prefisso a un nome di genere ignoto, e le rese sono complementi invarianti. Stessa coda s6 del materiale perche' questo sito precede i suoi e l'ordine viene gratis. Il gemello a riga 1077 sta nel ramo jp e non si tocca",
 })
 
+# 14-ter. i due ego, che vanno DOPO il materiale e prima dello stato.
+#
+# `egominorn` («conspicuous», «servant's») si antepone in tutte e due le lingue;
+# `egoname` («of fire») e' gia' un suffisso in inglese, ma cade **prima** del
+# materiale, che in italiano si e' spostato in coda. A schermo, il 2026-08-09:
+# «un conspicuous cappello piumato di scaglie», «un paio di scarpe of fire di
+# vetro».
+#
+# In italiano il materiale sta attaccato al nome e l'ego lo segue — «un paio di
+# scarpe di vetro di fuoco» — quindi ci vuole una coda **propria**, riversata
+# fra quella del materiale e quella dello stato. Non basta la s6: `egominorn`
+# gira PRIMA dei siti del materiale e finirebbe davanti, e `egoname` gira dopo
+# il riversamento.
+#
+# I due sono mutuamente esclusivi (`SUB_NAME` sotto 20000 e' egoname, sopra e'
+# egominorn), quindi la coda ne riceve al massimo uno.
+#
+# Come per epiteti, arredi e benedizioni, le rese sono **complementi
+# invarianti** e non aggettivi: un aggettivo si accorderebbe con un nome di
+# genere ignoto, e per giunta con un numero che cambia in vetrina.
+EGO = (
+    (1469, 'egominorn(inv(INV_ITEM_SUB_NAME, itemname_itemid) - 20000)',
+     "egominorn si antepone al nome in tutte e due le lingue"),
+    (1780, 'egoname(inv(INV_ITEM_SUB_NAME, itemname_itemid) - 10000)',
+     "egoname e' gia' un suffisso in inglese, ma cade prima del materiale"),
+)
+
+for primo, lettura, perche in EGO:
+    riga = ITEM[primo - 1]
+    assert 'locvar_itemowner_s +=' in riga and lettura in riga, (primo, riga)
+    toppe.append({
+        "file": "item_func.hsp",
+        "cerca": riga,
+        "sostituisci": f'{ind(riga)}locvar_itemname_s10 += " " + {lettura}',
+        "motivo": f"{perche}: in italiano l'ego segue il materiale — «un paio di scarpe di vetro di fuoco» — quindi va in una coda propria, riversata fra quella del materiale e quella dello stato. Non basta la s6 del materiale: egominorn gira prima dei suoi siti e finirebbe davanti, egoname gira dopo il riversamento. Le rese sono complementi invarianti, come per epiteti e benedizioni, perche' un aggettivo si accorderebbe con un nome di genere e numero ignoti",
+    })
+
 # 15-17. benedizione, maledizione e dannazione: stessa storia dell'epiteto.
 #        `strblessed` si antepone e in italiano «benedetto» seguirebbe il nome
 #        **accordandosi** — «mantello benedetto», «pozione benedetta» — e il
@@ -407,11 +444,12 @@ toppe.append({
     "file": "item_func.hsp",
     "cerca": blocco,
     "sostituisci": [f'{ind(blocco[0])}locvar_itemname_s6 = ""',
+                    f'{ind(blocco[0])}locvar_itemname_s10 = ""',
                     f'{ind(blocco[0])}locvar_itemname_s7 = ""'] + blocco,
-    "motivo": "azzera le due code (materiale e stato) a ogni chiamata di itemname(): senza, la coda dell'oggetto precedente resterebbe attaccata al successivo",
+    "motivo": "azzera le tre code (materiale, ego, stato) a ogni chiamata di itemname(): senza, la coda dell'oggetto precedente resterebbe attaccata al successivo",
 })
 
-# il riversamento, nell'ordine italiano: prima il materiale, poi lo stato
+# il riversamento, nell'ordine italiano: materiale, ego, stato
 blocco = fetta(ITEM, 1805, 1806)
 assert blocco[0].strip() == '*skipName', blocco[0]
 toppe.append({
@@ -419,8 +457,9 @@ toppe.append({
     "cerca": blocco,
     "sostituisci": [blocco[0],
                     f'{ind(blocco[1])}locvar_itemowner_s += locvar_itemname_s6',
+                    f'{ind(blocco[1])}locvar_itemowner_s += locvar_itemname_s10',
                     f'{ind(blocco[1])}locvar_itemowner_s += locvar_itemname_s7'] + blocco[1:],
-    "motivo": "riversa materiale e stato dopo il nome, in quest'ordine («mantello di platino con benedizione»). Sta su *skipName perche' e' il punto dove tutti i rami del nome convergono: sui singoli rami se ne dimenticherebbe uno e la coda sparirebbe in silenzio. Ed e' prima dell'articolo inglese, che si antepone",
+    "motivo": "riversa materiale, ego e stato dopo il nome, in quest'ordine («un paio di scarpe di vetro di fuoco con benedizione»): il materiale sta attaccato al nome, l'ego lo segue, lo stato chiude. Sta su *skipName perche' e' il punto dove tutti i rami del nome convergono: sui singoli rami se ne dimenticherebbe uno e la coda sparirebbe in silenzio. Ed e' prima dell'articolo inglese, che si antepone",
 })
 
 # 15. il buffer dei materiali, e accanto l'array del complemento italiano.
