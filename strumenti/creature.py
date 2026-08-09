@@ -30,6 +30,7 @@ import collections
 import json
 import re
 import sys
+from collections.abc import Iterable
 from pathlib import Path
 
 from strumenti import percorsi
@@ -303,6 +304,111 @@ def lotto_nucleo() -> list[dict]:
     return creature + azioni
 
 
+# --- il taglio per razza ------------------------------------------------------
+
+_DBIDN = re.compile(r'^\s*dbidn\s*=\s*"([^"]*)"')
+
+
+def _blocchi(percorso: Path | None = None) -> list[tuple[str, str | None, list[tuple[str, str]]]]:
+    """Ogni blocco `if ( dbid == CREATURE_ID_… )` come (id, razza, firme di nome).
+
+    Si legge una volta sola perche' le tre cose stanno **nello stesso blocco** e
+    separarle vorrebbe dire ripercorrere il file tre volte per riunirle dopo.
+    """
+    percorso = percorso or (percorsi.SORGENTE_HSP / FILE)
+    mappa = classi(percorso)
+    fuori: list[list] = []
+    for riga in percorso.read_bytes().decode("cp932").split("\r\n"):
+        m = _BLOCCO.search(riga)
+        if m:
+            fuori.append([m.group(1), None, []])
+        if not fuori:
+            continue
+        corrente = fuori[-1]
+        m = _DBIDN.match(riga)
+        if m and corrente[1] is None:
+            corrente[1] = m.group(1)
+        for coppia in _LANG.findall(riga):
+            if mappa.get(coppia) == "nome" and coppia not in corrente[2]:
+                corrente[2].append(coppia)
+    return [(a, b, c) for a, b, c in fuori]
+
+
+def razza_per_creatura(percorso: Path | None = None) -> dict[str, str]:
+    """CREATURE_ID -> razza, dal `dbidn` che precede `gosub *db_race`.
+
+    E' il campo che il **sorgente dichiara**, come `reftype` per gli oggetti
+    (vedi `categorie.py`): non lo si deduce dal nome, che e' esattamente il dato
+    che stiamo per tradurre e che quindi non puo' fare da chiave a se' stesso.
+    """
+    return {cid: razza for cid, razza, _ in _blocchi(percorso) if razza}
+
+
+def razze_per_firma(percorso: Path | None = None) -> dict[tuple[str, str], set[str]]:
+    """(giapponese, inglese) di classe **nome** -> le razze dei blocchi che la portano.
+
+    Un insieme e non una stringa: la stessa firma puo' comparire in due blocchi,
+    e schiacciarla sulla prima razza vista la farebbe sparire dal lotto
+    dell'altra — in silenzio, che e' il modo in cui questi criteri si guastano.
+    """
+    fuori: dict[tuple[str, str], set[str]] = collections.defaultdict(set)
+    for _, razza, firme in _blocchi(percorso):
+        if razza:
+            for firma in firme:
+                fuori[firma].add(razza)
+    return dict(fuori)
+
+
+def firme_senza_razza(percorso: Path | None = None) -> set[tuple[str, str]]:
+    """La rete del criterio: le firme di nome che nessun blocco con `dbidn` porta.
+
+    Oggi e' vuota, ed e' l'unica ragione per cui «un lotto e' una razza» sta in
+    piedi. Se domani ne comparisse una, il criterio tornerebbe a coprire
+    novecento nomi meno uno **senza dirlo**: meglio saperlo dal test.
+    """
+    con_razza = set(razze_per_firma(percorso))
+    return {c for c, k in classi(percorso).items() if k == "nome"} - con_razza
+
+
+def _gia_rese() -> set[tuple[str, str]]:
+    from strumenti.reimporta import carica_dizionario
+
+    return {(v["jp"], v["en"]) for v in carica_dizionario(FILE).values()}
+
+
+def lotto_razza(razze: Iterable[str], escludi_rese: bool = True) -> list[dict]:
+    """Le voci di classe **nome** delle razze chieste, una per firma.
+
+    ⚠️ `--classe nome` da solo emette tutti i 1.131 nomi, nucleo compreso: qui
+    le firme gia' in dizionario si tolgono, altrimenti ogni lotto ritradurrebbe
+    quello prima. `escludi_rese=False` esiste per i test, che non devono
+    dipendere da cosa e' stato tradotto oggi.
+    """
+    from strumenti.estrai import estrai_da_file
+
+    volute = set(razze)
+    di_firma = razze_per_firma()
+    fuori_gia = _gia_rese() if escludi_rese else set()
+    return _unici_per_firma([
+        v for v in estrai_da_file(percorsi.SORGENTE_HSP / FILE)
+        if di_firma.get((v["jp"], v["en"]), set()) & volute
+        and (v["jp"], v["en"]) not in fuori_gia
+    ])
+
+
+def conta_per_razza(escludi_rese: bool = True) -> collections.Counter:
+    """Quante firme di nome restano per ogni razza. Una firma condivisa conta in tutte."""
+    di_firma = razze_per_firma()
+    fuori_gia = _gia_rese() if escludi_rese else set()
+    conto: collections.Counter = collections.Counter()
+    for firma, razze in di_firma.items():
+        if firma in fuori_gia:
+            continue
+        for razza in razze:
+            conto[razza] += 1
+    return conto
+
+
 def _scrivi(voci: list[dict], uscita: str) -> None:
     percorso = Path(uscita)
     percorso.parent.mkdir(parents=True, exist_ok=True)
@@ -318,6 +424,10 @@ def main() -> None:
     p.add_argument("--classe", choices=("nome", "voce"), help="elenca le voci di una classe")
     p.add_argument("--nucleo", action="store_true",
                    help="il nucleo atomico: nomi e stringhe di evoluzione, dai due file")
+    p.add_argument("--razze", action="store_true",
+                   help="quante firme di nome restano per ogni razza")
+    p.add_argument("--razza", action="append", metavar="NOME",
+                   help="il lotto di una razza, gia' senza le firme in dizionario (ripetibile)")
     p.add_argument("--uscita", help="scrive come lotto JSONL cio' che si e' chiesto")
     a = p.parse_args()
 
@@ -327,6 +437,8 @@ def main() -> None:
         print(f"{k:8} {v:5} firme")
     doppie = nessuna_firma_in_due_classi()
     print(f"firme in due classi: {len(doppie)}")
+    orfane = firme_senza_razza()
+    print(f"nomi senza razza   : {len(orfane)}")
 
     if a.classe:
         from strumenti.estrai import estrai_da_file
@@ -336,6 +448,20 @@ def main() -> None:
         print(f"{a.classe}: {len(unici)} firme, {len(voci)} occorrenze")
         if a.uscita:
             _scrivi(unici, a.uscita)
+
+    if a.razze:
+        conto = conta_per_razza()
+        uniche = len({f for f, r in razze_per_firma().items() if f not in _gia_rese()})
+        print(f"\nrestano {uniche} firme in {len(conto)} razze"
+              f" ({sum(conto.values()) - uniche} contate due volte, stanno in due razze):")
+        for razza, quante in conto.most_common():
+            print(f"  {razza:24} {quante:4}")
+
+    if a.razza:
+        voci = lotto_razza(a.razza)
+        print(f"\n{'+'.join(a.razza)}: {len(voci)} firme da tradurre")
+        if a.uscita:
+            _scrivi(voci, a.uscita)
 
     if a.nucleo:
         voci = lotto_nucleo()

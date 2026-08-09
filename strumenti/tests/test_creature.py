@@ -17,9 +17,9 @@ import pytest
 from strumenti import percorsi
 from strumenti.creature import (
     AZIONI, FILE, classi, classi_da_testo, evoluzioni, evoluzioni_con_jp,
-    lotto_nucleo, nessuna_firma_in_due_classi, nomi_per_creatura,
-    nomi_per_creatura_con_jp, nomi_visibili, nomi_visibili_con_jp,
-    nucleo_atomico,
+    firme_senza_razza, lotto_nucleo, lotto_razza, nessuna_firma_in_due_classi,
+    nomi_per_creatura, nomi_per_creatura_con_jp, nomi_visibili,
+    nomi_visibili_con_jp, nucleo_atomico, razza_per_creatura, razze_per_firma,
 )
 
 SORGENTE = """\
@@ -450,3 +450,101 @@ def test_ogni_nome_e_ogni_stringa_di_evoluzione_porta_il_proprio_articolo():
         "sostituisce insieme alla specie, quindi deve esserci in tutti e due:\n"
         + "\n".join(senza[:20])
     )
+
+
+# --- il taglio per razza ------------------------------------------------------
+#
+# Il nucleo era atomico e si e' preso da se': gli altri ~930 nomi si tagliano
+# per **razza**, che e' un campo che il sorgente dichiara (`dbidn`, prima di
+# `gosub *db_race`) e non una proprieta' che qualcuno legge nel nome. La stessa
+# forma del criterio di `categorie.py` per `db_item.hsp`, e per la stessa
+# ragione: il nome e' il dato che stiamo per tradurre, quindi non puo' fare da
+# chiave a se' stesso.
+
+RAZZA_SORGENTE = """\
+	if ( dbid == CREATURE_ID_A ) {
+		if ( dbmode == DBMODE_REF ) {
+			dbidn = "dog"
+			gosub *db_race
+		}
+		cdatan(CDATAN_NAME, rc) = lang("\u72ac", "dog")
+		txt lang("\u300c\u30ef\u30f3\u300d", "*bark*")
+	}
+	if ( dbid == CREATURE_ID_B ) {
+		dbidn = "cat"
+		gosub *db_race
+		return lang("\u732b", "cat")
+	}
+"""
+
+
+def test_la_razza_si_legge_dal_dbidn_del_blocco(tmp_path):
+    percorso = tmp_path / FILE
+    percorso.write_bytes(RAZZA_SORGENTE.encode("cp932").replace(b"\n", b"\r\n"))
+
+    assert razza_per_creatura(percorso) == {
+        "CREATURE_ID_A": "dog", "CREATURE_ID_B": "cat"}
+    assert razze_per_firma(percorso) == {
+        ("\u72ac", "dog"): {"dog"}, ("\u732b", "cat"): {"cat"}}
+
+
+def test_la_voce_non_entra_nel_taglio_per_razza(tmp_path):
+    """`txt lang(…)` sta nello stesso blocco e ha la sua razza, ma non e' un nome.
+
+    Un lotto e' una classe **e** una razza: se la voce entrasse per la razza,
+    mille nomi e trecento battute finirebbero nella stessa domanda, che e'
+    esattamente cio' che `classi()` esiste per impedire.
+    """
+    percorso = tmp_path / FILE
+    percorso.write_bytes(RAZZA_SORGENTE.encode("cp932").replace(b"\n", b"\r\n"))
+    assert ("\u300c\u30ef\u30f3\u300d", "*bark*") not in razze_per_firma(percorso)
+
+
+def test_ogni_nome_ha_una_razza():
+    """La rete del criterio, la stessa forma del quinto test di `categorie.py`.
+
+    Oggi tutte e 1.131 le firme di classe nome stanno in un blocco che dichiara
+    `dbidn`. Se un domani ne arrivasse una senza, «un lotto e' una razza»
+    coprirebbe novecento nomi meno uno **e non lo direbbe**: il residuo si
+    scoprirebbe alla fine, quando non resta piu' niente da tagliare.
+    """
+    orfane = firme_senza_razza()
+    assert not orfane, (
+        f"{len(orfane)} nomi che nessuna razza porta, quindi che nessun lotto "
+        "per razza raggiungerebbe:\n"
+        + "\n".join(repr(f) for f in sorted(orfane)[:20])
+    )
+
+
+def test_la_misura_del_taglio_per_razza():
+    """76 razze su 1.131 nomi, misurate sul sorgente pinnato al tag 2.31.2.0.
+
+    Il numero non e' decorativo: se il prossimo CGX aggiunge una razza o sposta
+    un `dbidn`, i lotti gia' fatti restano validi ma il piano dei lotti cambia,
+    e questa riga e' il posto dove lo si vede.
+    """
+    di_firma = razze_per_firma()
+    assert len(di_firma) == 1131
+    assert len({r for razze in di_firma.values() for r in razze}) == 76
+    condivise = {f for f, r in di_firma.items() if len(r) > 1}
+    assert len(condivise) == 4, (
+        "le firme che stanno in due razze sono quattro: entrano nel lotto di "
+        "tutte e due, e la seconda volta le trova gia' in dizionario"
+    )
+
+
+def test_il_lotto_di_una_razza_non_ritraduce_cio_che_e_gia_reso():
+    """⚠️ `--classe nome` emette tutti i 1.131, nucleo compreso.
+
+    Il lotto per razza toglie le firme gia' in dizionario, altrimenti ogni
+    lotto porterebbe dentro il precedente e la resa nuova sovrascriverebbe
+    quella collaudata a schermo.
+    """
+    gia = {(v["jp"], v["en"]) for v in carica(FILE).values()}
+    if not gia:
+        pytest.skip("il dizionario di db_creature.hsp non esiste ancora")
+    tutte = lotto_razza(["dog"], escludi_rese=False)
+    restanti = lotto_razza(["dog"])
+    assert len(restanti) < len(tutte)
+    assert not [v for v in restanti if (v["jp"], v["en"]) in gia]
+    assert all(v["file"] == FILE for v in tutte)

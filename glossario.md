@@ -204,6 +204,20 @@ modificatore italiano va **dopo** — «il lich maestro», non «il maestro lich
 | centipede / scorpion / spider | millepiedi / scorpione / ragno | |
 | king X | X re | postposto per l'aggancio: `king orc` → «l'orco re», `king cobra` → «il cobra reale» dove la lingua lo chiede |
 | older / younger sister | sorella maggiore / minore | i nomi di creatura, non la parentela in prosa (vedi sotto) |
+| dog / hound | cane / segugio | fissate col nucleo. `X hound` → «il segugio di/del X», sulla forma di `chaos imp` |
+| wolf | lupo | `silver wolf` → «il lupo d'argento», materiale come complemento invariabile |
+| fox | volpe | 妖狐 `fox spirit` → «la volpe ammaliatrice»: 妖 è l'ammaliare, e «volpe spirito» sarebbe un calco dall'inglese |
+| werewolf | lupo mannaro | `werewolf detective` → «il lupo mannaro detective», modificatore postposto |
+| restoroid X | X redivivo | 復元獣 / 復元鳥, le specie estinte riportate in vita. ⚠️ **famiglia a cavallo di tre razze**: il `dire wolf` è in `dog`, il `saber tiger` in `cat`, i quattro uccelli in `bird`. Fissata col lotto `dog`, si applica agli altri quando arrivano |
+
+⚠️ **I dieci segugi elementali li dichiara il sorgente**, non il nome:
+`creaturepack = FILTER_RACE_HOUND_<ELEMENTO>` nel blocco di ognuno. È lì che si
+legge l'elemento, ed è la ragione per cui `illusion hound` è **il segugio
+mentale**: il suo filtro è `HOUND_MIND` e il suo giapponese, 幻惑, è lo stesso
+di `Resist Mind` (幻惑攻撃) → «Resiste a mente». L'inglese lo chiama `illusion`
+e stacca la creatura dal sistema delle resistenze; il giapponese non lo fa, e
+nemmeno l'italiano. Gli altri nove seguono le rese d'elemento di `skill.hsp`:
+fuoco, ghiaccio, fulmine, oscurità, nervi, veleno, suono, oltretomba, caos.
 
 ⚠️ **L'articolo sta dentro il nome**, per ogni nome che non cominci per `<` o
 `"`: `init.hsp:1712-1719` toglie l'articolo solo a quelli. Vale anche per i
@@ -226,6 +240,20 @@ ogni nome che arriverà dopo:
 
 È lo stesso criterio con cui Elin ha reso `Blessing of the Abyss` →
 «Benedizione dell'Abisso».
+
+### Un nome di creatura opaco resta opaco, ma **prende l'articolo**
+
+Aggiunto col lotto `dog` (2026-08-09). Per gli artefatti l'invarianza era tutto:
+`<Mournblade>` esce così com'è. Per una **creatura** no, perché l'articolo sta
+dentro il nome e `init.hsp:1712-1719` lo pretende da tutto ciò che non comincia
+per `<` o `"`. Quindi la parte opaca resta e l'articolo si aggiunge davanti,
+come «il Bearga» già deciso col nucleo:
+
+| EN | IT | perché resta |
+|---|---|---|
+| `command wolf` | il Command Wolf | コマンドーウルフ, il modello Zoids: nome commerciale, in italiano mai tradotto. Come `<Mauser C96 Custom>` |
+| `padangu` | il padangu | ラストパーダンク. **L'inglese romanizza**, cioè nemmeno lui legge il nome come descrizione — e lascia cadere ラスト, che è ambiguo fra *last* e *rust*. Scegliere quale dei due sarebbe inventare, non tradurre. Minuscolo come `putit` e `yeek`, che sono prestiti e non nomi propri |
+| `badger` → tanuki | il tanuki mutaforma | 化け狸 è il *bake-danuki* del folklore. Qui l'inglese non abbrevia: **sbaglia animale**, il tasso non è un procionide. Il giapponese arbitra, e «tanuki» è la parola che l'italiano usa per la creatura del folklore |
 
 ## Persone e parentela
 
