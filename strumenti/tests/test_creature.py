@@ -390,6 +390,15 @@ def test_il_taglio_rinomina_bene_anche_un_alleato_con_epiteto():
     )
 
 
+SENZA_ARTICOLO = {
+    # ＠ e' il simbolo del giocatore dei roguelike fatto creatura: parla «Qy@»
+    # e nient'altro. Un segno non prende articolo piu' di quanto ne prenda un
+    # nome fra `<>`, e `name()` gli metterebbe «the » davanti solo perche'
+    # guarda il primo carattere. Dichiarato anche in `invariati.md`.
+    "@": "e' un simbolo, non una parola",
+}
+
+
 def test_ogni_nome_e_ogni_stringa_di_evoluzione_porta_il_proprio_articolo():
     """Seconda proprieta'. ⚠️ **Sostituisce la concordanza di genere**, che era
     la proprieta' sbagliata.
@@ -430,6 +439,13 @@ def test_ogni_nome_e_ogni_stringa_di_evoluzione_porta_il_proprio_articolo():
     """
     articoli = ("il ", "lo ", "la ", "i ", "gli ", "le ", "l'")
     nomi_it = carica(FILE)
+    # ⚠️ Le deroghe si dichiarano una per una col loro motivo, come
+    # `AGGANCI_SOLO_INGLESI`. Una guardia allargata «perche' dava fastidio»
+    # smette di proteggere e continua a passare.
+    assert SENZA_ARTICOLO.keys() == {"@"}, (
+        "una deroga nuova alla regola dell'articolo va motivata qui e in "
+        "invariati.md, non aggiunta di straforo"
+    )
     azioni_it = carica("action.hsp")
     if not nomi_it and not azioni_it:
         pytest.skip("i dizionari di db_creature.hsp e action.hsp non esistono ancora")
@@ -444,6 +460,7 @@ def test_ogni_nome_e_ogni_stringa_di_evoluzione_porta_il_proprio_articolo():
         f"{v['en']!r} -> {v['it']!r}"
         for v in da_guardare
         if not v["it"].startswith(("<", '"')) and not v["it"].startswith(articoli)
+        and v["en"] not in SENZA_ARTICOLO
     ]
     assert not senza, (
         f"{len(senza)} nomi senza articolo: il taglio dell'evoluzione lo "

@@ -20,6 +20,7 @@ scrivere, probabilmente la stringa va tradotta.
 | `<Big Sister>` | nome di creatura (`action.hsp`, `db_creature.hsp`), giapponese 『ビッグシスター』: la citazione di BioShock, che in italiano non è mai stata tradotta. Già deciso in `glossario.md` insieme a `<Little Sister>`, ma non era mai arrivato qui: la coppia si è presentata nel primo lotto della Fase 2, dove non porta l'articolo perché sta fra `<>` |
 | `<Little Sister>` | nome di creatura (`action.hsp`, `db_creature.hsp`), giapponese 『リトルシスター』: vedi la riga sopra, è l'altra metà della coppia |
 | `<Pascal>` | nome di creatura (`db_creature.hsp`, razza `dog`), giapponese イヌの偉大なる『パスカル』. Il giapponese lo presenta come «il grande fra i cani, Pascal», ma l'inglese ha ridotto il nome al solo epiteto fra `<>`, e lì l'epiteto **è** il nome: non resta nessuna parola comune da rendere. Nome proprio opaco, come `Vernis`. Non porta l'articolo perché comincia per `<` |
+| `@` | nome di creatura (`db_creature.hsp`, razza `norland`), giapponese ＠. È il **simbolo del giocatore** dei roguelike fatto creatura — parla «Qy@» e nient'altro. Un segno, non una parola: non c'è niente da tradurre, e non prende articolo, come i nomi fra `<>`. È la sola deroga dichiarata alla regola dell'articolo dentro il nome |
 | Vernis | nome proprio di città, canone Elona |
 | Palmia | nome proprio di città, canone Elona |
 | Derphy | nome proprio di città, canone Elona |

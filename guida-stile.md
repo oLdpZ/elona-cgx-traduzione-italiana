@@ -116,6 +116,45 @@ celestiale, speciale — così reggono qualunque nome le preceda. Vale in genera
 prima di scegliere il genere di un'etichetta, guarda **tutti** i posti in cui
 esce, non il primo che trovi nel codice.
 
+## L'articolo di un nome di persona, quando il sesso non è deciso
+
+Scoperto col lotto `norland` (2026-08-09), e vale per ogni razza di persone che
+verrà dopo. L'articolo sta **dentro** il nome (vedi `contratto-nomi.md` §4), ma
+un nome di mestiere descrive una **persona**, e in italiano l'articolo di
+`negoziante` dipende da chi lo porta.
+
+**Il sorgente lo dichiara, ma solo per alcuni.** `cdata(CDATA_SEX, rc) = 0|1`
+sta nel ramo `DBMODE_SET` del blocco della creatura — 0 maschio, 1 femmina,
+confermato da 皇女『シルヴィア』 e パルミア王『ジャビ』. Su 90 nomi `norland`
+ce l'hanno **52**; per gli altri 38 il sesso è tirato a sorte alla generazione.
+
+⚠️ **`/man/` non è il sesso.** È la stringa che `DBSPEC_CHARA_FILTER`
+restituisce, e sta accanto a `/god/`, `/sf/`, `/nefia0/`, `/shopguard/`: è la
+categoria di generazione, non il genere. Ce l'hanno anche 修道女 e 娼婦.
+
+Il criterio, in quest'ordine:
+
+1. **sesso dichiarato** → si concorda: «la guaritrice» (SEX=1), «il capitano»
+   (SEX=0);
+2. **sesso casuale** → si sceglie un sostantivo il cui **articolo non dipenda
+   dalla persona**. Ce ne sono più di quanti sembri, in tre forme:
+   - genere grammaticale fisso: «**la** guardia», «**la** canaglia», «**la**
+     recluta», «**la** bestia sacra» — valgono per un uomo come per una donna;
+   - articolo elidibile: «**l'**artista», «**l'**insegnante», «**l'**istruttore»,
+     «**l'**anziano», «**l'**accattone» — l'`l'` regge i due generi;
+   - prestito invariabile: «il ninja», «il punk», «il samurai kamikaze»;
+3. **solo se l'italiano non offre nulla**, il maschile non marcato: «il mago»,
+   «il guerriero», «il negoziante», «il commesso». Sono quattordici su novanta,
+   ed è la forma che l'italiano usa da sempre per un mestiere di persona ignota.
+
+**Il dato per fare meglio esiste**, e vale saperlo prima di rimpiangerlo: il
+sesso è già assegnato quando `cdatan(CDATAN_NAME, rc)` viene montato — il ramo
+`if ( cdata(CDATA_SEX, rc) == 1 )` che sceglie lo sprite sta due righe sotto.
+Una resa femminile per nome sarebbe raggiungibile, al prezzo di un campo nuovo
+nel dizionario e di un array parallelo, come per il `plurale`. Non si è fatto
+perché tocca 14 nomi su 90 e il punto 2 ne copre la maggior parte: si rifà il
+conto quando le persone saranno tutte tradotte, non prima.
+
 ## Preposizioni davanti a un personaggio
 
 `name()` restituisce un sintagma **con l'articolo** («il viandante», «il
