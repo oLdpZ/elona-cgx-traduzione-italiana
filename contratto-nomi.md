@@ -44,6 +44,9 @@ else {
 Verificato con una espressione regolare sola: **1.321 su 1.321, zero eccezioni**.
 Gli altri 1.581 `if ( jp )` del file non riguardano i nomi.
 
+> **Aperti il 2026-08-09:** dentro ci sono le **descrizioni degli oggetti**,
+> 2.555 uniche e ~64.000 parole, fuori da ogni conteggio. Vedi `SPEC.md` §2.1.
+
 **298 si compongono** come `ioriginalnameref2 + " of " + ioriginalnameref`
 (`init.hsp:186-189`): `deed of camp`, `scroll of harvest`, `high potion of agony`.
 Il `" of "` è cablato **fuori da `lang()`**.

@@ -170,6 +170,41 @@ cablato **fuori da `lang()`**, come il `"the "` di `init.hsp:1718`.
 La conseguenza sul dimensionamento della Fase 2 e la decisione presa
 («un secondo tipo di sito nella catena») stanno in `contratto-nomi.md`.
 
+### 2.1 Cosa c'è negli **altri** `if ( jp )` — aperto il 2026-08-09
+
+`contratto-nomi.md:45` diceva «gli altri **1.581** `if ( jp )` del file non
+riguardano i nomi», e lì si era fermato. Ci sono dentro le **descrizioni degli
+oggetti**, e sono molte.
+
+| | siti | uniche | caratteri |
+|---|---|---|---|
+| nomi `ioriginalnameref` / `2` | 1.607 | — | già nel dizionario dal 2026-08-07 |
+| **`description(n)`** | **2.831** | **2.555** | **389.045** (~64.000 parole) |
+
+Il conto dei nomi torna esatto sui 1.607 siti aggiunti allora: è la prova che
+la scansione legge il file giusto. Fuori da `db_item.hsp` questa forma porta
+pochissimo — 34 siti in tutto fra `item_func`, `net`, `etc`, `text`, `command`
+e `init`.
+
+```
+db_item.hsp:115723   description(3) = "It is a heavier-than-usual longsword."
+```
+
+⚠️ **`db_item.hsp` è al 100%, e il numero è vero, ma è il 100% dei suoi siti di
+nome.** Le descrizioni non sono contate da nessuna parte: non stanno nelle
+8.612 firme, non entrano nella percentuale, e **si vedono in gioco** — trovate
+nel collaudo del 2026-08-09, non dai test.
+
+> Una percentuale dice la verità solo se si sa **su cosa** è calcolata. «100%»
+> senza il denominatore fa credere finito un file che ha ancora 64.000 parole
+> dentro.
+
+**Decisione: sono Fase 3, con un conteggio proprio, separato dalle 8.612.**
+Non si aprono prima di aver chiuso `skill.hsp`: le descrizioni sono colore, e
+il gioco si gioca lo stesso senza, mentre le abilità sono interfaccia. Tenerle
+in un conteggio separato serve a non far scendere di colpo una percentuale che
+misura un'altra cosa.
+
 ---
 
 ## 3. Architettura
