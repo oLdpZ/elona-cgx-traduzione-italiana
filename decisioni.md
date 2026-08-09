@@ -1198,3 +1198,55 @@ e `computer` sono già invariati per conto loro.
 **Cosa resta rinviato: 110 voci**, e i tre motivi sono vivi — 59 risposte di
 quiz che aspettano i nomi di creatura, 30 del sistema dei nomi casuali, 20
 `elename()` che aspettano `proc.hsp`, più `<Pants of Ogre>`.
+
+### I nomi casuali degli oggetti non identificati — 2026-08-09
+
+Il gruppo più grosso delle rinviate (30 voci). `db_item.hsp` compone il nome che
+il giocatore legge **prima** di identificare un oggetto:
+
+```hsp
+iknownnameref(ITEM_ID_POTION_GEM) = _namepotion(p) + strblank + strpotion
+```
+
+aggettivo, spazio, nome — «a clear potion». In italiano l'aggettivo segue il
+nome, e l'ordine sta **nel codice, non nelle stringhe**: il dizionario non lo
+raggiunge. I siti sono **213**, tutti della stessa forma e ognuno con il proprio
+`ITEM_ID`, quindi ognuno è un aggancio unico: si generano, con
+`strumenti/genera_toppe_casuali.py`.
+
+**Il genere è una proprietà dell'array, non della riga** — `_namepotion` serve
+solo pozioni, `_namespellbook` solo grimori — quindi le rese si accordano una
+volta per famiglia. È la stessa scoperta di `ARTICOLO_DI` per i pesci, e vale
+anche dove l'array ne serve due: `_namering` copre `strring` e `stramulet`, che
+in italiano sono entrambi maschili.
+
+⚠️ **L'articolo non era un terzo problema, e non è un caso.** La testa del nome
+vero è la **stessa parola di famiglia** — `ioriginalnameref2` vale `potion`,
+`spellbook`, `scroll` — quindi `ioriginalnamearticolo` porta già l'articolo
+giusto anche per il nome casuale. Il rinvio nominava ordine e genere, e su
+questo aveva ragione a non spaventarsi.
+
+**Trenta slot, ventiquattro firme.** Sei coppie condividono giapponese e
+inglese fra due famiglie, e siccome il dizionario è indicizzato per contenuto
+non può dare due rese. Quattro non fanno danno — 鉄の, サファイアの, 金の, 木の
+sono **materiali**, e in italiano diventano complementi invariabili («di ferro»,
+«d'oro»). Due erano un vero scontro di genere: 苔むした e 古びた stanno in
+`_namespellbook` (grimorio, m) e in `_namescroll` (pergamena, f).
+
+> Una firma condivisa fra due generi **impone la forma invariabile**: non è una
+> resa peggiore per pigrizia, è l'unica che non mente in uno dei due posti.
+
+Da qui «col muschio» e «d'altri tempi», che stanno bene a tutti e due.
+
+⚠️ **Il primo tentativo era una toppa, e un test l'ha respinta — con ragione.**
+La toppa accordava al femminile la riga di `_namescroll`, e per farlo cercava il
+testo **già tradotto**. `test_le_toppe_del_progetto_si_applicano_al_sorgente_pinnato`
+pretende che ogni toppa si agganci al sorgente pinnato, ed è quella pretesa a
+renderla una guardia: se upstream riscrive la riga, la build diventa rossa
+prima di produrre qualcosa di sbagliato.
+
+> Una toppa agganciata alla nostra uscita invece che al sorgente **combacia per
+> sempre**, qualunque cosa faccia upstream. Continua a funzionare e smette di
+> proteggere.
+
+Concetto: `wiki/concepts/una-guardia-agganciata-a-se-stessa.md`.
