@@ -296,6 +296,16 @@ scrivere, probabilmente la stringa va tradotta.
 | wakame | alga (`db_item.hsp`), giapponese ワカメ: prestito acquisito, come `kombu` |
 | mozuku | alga (`db_item.hsp`), giapponese もずく: l'italiano non ha un nome per *Cladosiphon okamuranus*, e l'inglese si limita a romanizzare. Nome opaco |
 | marimo | palla d'alga (`db_item.hsp`), giapponese 巨大マリモ: nome opaco, e l'italiano usa «marimo» quando ne parla. Maschile, invariato |
+| buergeri | pesce (`item_data.hsp`), giapponese キンブナ: upstream usa l'**epiteto di specie latino** come nome comune. Un epiteto latino non si traduce, si cita — stessa classe di `<Turahagi>` fra gli artefatti. Maschile, invariato |
+| longipinnis | pesce (`item_data.hsp`), giapponese ビワタナゴ: epiteto di specie latino, come `buergeri` |
+| grandoculis | pesce (`item_data.hsp`), giapponese ニゴロブナ: epiteto di specie latino, come `buergeri` |
+| rhombeus | pesce (`item_data.hsp`), giapponese カネヒラ: epiteto di specie latino, come `buergeri` |
+| barbus | pesce (`item_data.hsp`), giapponese ニゴイ: **genere** latino usato come nome comune, come `buergeri` |
+| remora | pesce (`item_data.hsp`), giapponese コバンザメ: **parola italiana identica all'inglese**, e viene dal latino. Femminile, plurale «remore». Coincidenza come `cola` e `mica` |
+| shishamo | pesce (`item_data.hsp`), giapponese シシャモ: l'italiano non ha un nome per *Spirinchus lanceolatus*, e l'inglese si limita a romanizzare. Nome opaco, come `mozuku` |
+| moopy | pesce (`item_data.hsp`), giapponese ムーピー: creatura di Elona, **nome proprio del bestiario**. Nome opaco |
+| yruas | pesce (`item_data.hsp`), giapponese マンサ: coniazione opaca, e l'inglese non romanizza nemmeno il giapponese. Nome opaco |
+| leggings | indumento da pescare (`item_data.hsp`), giapponese スパッツ: **prestito acquisito** in italiano, dove il capo si chiama cosi'. Maschile plurale, invariato |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 

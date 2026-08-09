@@ -829,3 +829,77 @@ def test_il_libro_prodotto_ha_un_case_in_entrambi_gli_switch():
             f"{testa['it']}: servono due case, uno per il plurale e uno per"
             " l'articolo")
         assert f'locvar_itemname_s5 = "{testa["plurale"]}"' in nuovo
+
+
+# ---------------------------------------------------------------------------
+# I pesci: la stessa macchina dei nomi, su una forma di riga diversa.
+#
+# `fishdatan` di item_data.hsp non ha il blocco a sette righe `if jp / else`:
+# e' una riga sola con `lang()`, e l'indice non e' una costante ma `p`, il
+# contatore che scorre la tabella. La riga gemella si inserisce comunque
+# subito sotto, dove `p` vale ancora quello.
+#
+# Serve perche' `ioriginalnameref(ITEM_ID_FISH)` e' la stringa VUOTA: il nome
+# del pesce non e' un pezzo del nome dell'oggetto, e' tutto il nome, e arriva
+# da `itemNameSub` DOPO che l'articolo e' stato messo davanti. Senza articolo
+# e plurale suoi, «a salmone».
+# ---------------------------------------------------------------------------
+
+RIGA_PESCE = '\tfishdatan(p) = lang("\u30b3\u30a4", "carp")'
+
+
+def test_una_riga_di_fishdatan_dichiara_array_e_oggetto():
+    voce = estrai_da_testo("item_data.hsp", RIGA_PESCE)[0]
+    assert voce["array"] == "fishdatan"
+    assert voce["oggetto"] == "p"
+
+
+def test_il_plurale_del_pesce_si_scrive_accanto_al_singolare():
+    voci = estrai_da_testo("item_data.hsp", RIGA_PESCE)
+    dizionario = {v["firma"]: {**v, "it": "carpa", "plurale": "carpe",
+                               "genere": "f"} for v in voci}
+    nuovo, _ = applica_dati_nome("item_data.hsp", RIGA_PESCE, dizionario)
+    righe = nuovo.split("\n")
+    assert righe[0] == RIGA_PESCE
+    assert righe[1] == '\tfishdatanplur(p) = "carpe"'
+
+
+def test_l_articolo_del_pesce_va_nel_suo_array():
+    """Non in `ioriginalnamearticolo`: quello e' indicizzato per ITEM_ID."""
+    voci = estrai_da_testo("item_data.hsp", RIGA_PESCE)
+    dizionario = {v["firma"]: {**v, "it": "carpa", "plurale": "carpe",
+                               "genere": "f"} for v in voci}
+    nuovo, _ = applica_dati_nome("item_data.hsp", RIGA_PESCE, dizionario)
+    assert '\tfishdatanarticolo(p) = "una "' in nuovo
+    assert '\tfishdatanarticolodet(p) = "la "' in nuovo
+    assert "ioriginalnamearticolo" not in nuovo
+
+
+def test_i_nomi_di_db_item_tengono_il_loro_array_dell_articolo():
+    """La generalizzazione non deve toccare cio' che gia' funziona.
+
+    La testa di un nome composto sta in `ioriginalnameref2`, ma il suo articolo
+    resta in `ioriginalnamearticolo`: l'array dell'articolo e' una proprieta'
+    della famiglia, non della riga.
+    """
+    dizionario = {v["firma"]: {**v, "it": v["en"], "plurale": "", "genere": "f"}
+                  for v in estrai_da_testo("db_item.hsp", BLOCCO_COMPOSTO)}
+    nuovo, _ = applica_dati_nome("db_item.hsp", BLOCCO_COMPOSTO, dizionario)
+    assert "ioriginalnamearticolo(ITEM_ID_SCROLL_HARVEST)" in nuovo
+    assert "ioriginalnameref2articolo" not in nuovo
+
+
+def test_il_pesce_e_un_sito_solo():
+    """Il letterale del pesce e' gia' il secondo argomento di `lang()`.
+
+    `nomi_per_riga` lo riconosce anche come nome — e deve, o il plurale non
+    saprebbe dove andare — ma `siti()` non deve emetterlo due volte: sarebbe
+    lo stesso testo tradotto due volte sulla stessa riga, e la prova
+    d'identita' conterebbe 113 sostituzioni di troppo.
+
+    Per i nomi di `db_item.hsp` il problema non si pone: quelli stanno FUORI
+    da `lang()`, ed e' il sito del nome l'unico che li vede.
+    """
+    voci = estrai_da_testo("item_data.hsp", RIGA_PESCE)
+    assert len(voci) == 1, [v["occorrenza"] for v in voci]
+    assert voci[0]["occorrenza"] == 0

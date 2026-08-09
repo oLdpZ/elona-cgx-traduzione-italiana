@@ -65,6 +65,27 @@ _CHIUSA = re.compile(r"^\s*\}\s*$")
 _ASSEGNA_NOME = re.compile(
     r'^\s*(ioriginalnameref2?)\((\w+)\)\s*=\s*("(?:[^"\\]|\\.)*")\s*$')
 
+# Gli array di nomi che stanno su UNA riga, dentro `lang()`, invece che nel
+# blocco a sette righe qui sopra. Oggi ce n'e' uno: `fishdatan` di
+# item_data.hsp, la tabella dei 113 pesci.
+#
+# Perche' sono nomi e non `lang()` qualunque: `ioriginalnameref(ITEM_ID_FISH)`
+# e' la stringa **vuota**. Il nome del pesce non e' un pezzo del nome
+# dell'oggetto, e' tutto il nome, e arriva da `itemNameSub` dopo che l'articolo
+# e' gia' stato messo davanti. Senza articolo e plurale suoi il gioco direbbe
+# «a salmone».
+#
+# ⚠️ L'indice non e' una costante ma `p`, il contatore che scorre la tabella.
+# Regge perche' la riga gemella si inserisce **subito sotto**, dove `p` vale
+# ancora quello; spostarla altrove la farebbe finire sul pesce sbagliato.
+#
+# L'elenco e' chiuso per la stessa ragione dell'altro: agganciare altri array
+# per analogia e' il modo di corrompere il sorgente in silenzio.
+ARRAY_IN_LANG = ("fishdatan",)
+_NOME_IN_LANG = re.compile(
+    r'^\s*(' + "|".join(ARRAY_IN_LANG) + r')\((\w+)\)\s*=\s*lang\('
+    r'("(?:[^"\\]|\\.)*")\s*,\s*("(?:[^"\\]|\\.)*")\)\s*$')
+
 _SPAZI = re.compile(r"\s+")
 
 
@@ -345,6 +366,16 @@ def nomi_per_riga(righe: list[str]) -> dict[int, tuple[str, str, int, int, str, 
                 grezzo_jp, trovato.group(3), trovato.start(3), trovato.end(3),
                 trovato.group(1), trovato.group(2),
             )
+    # i nomi che stanno su una riga sola dentro `lang()`: vedi ARRAY_IN_LANG
+    for indice, riga in enumerate(righe):
+        trovato = _NOME_IN_LANG.match(riga)
+        if trovato is None:
+            continue
+        trovati[indice] = (
+            trovato.group(3), trovato.group(4),
+            trovato.start(4), trovato.end(4),
+            trovato.group(1), trovato.group(2),
+        )
     return trovati
 
 
@@ -417,7 +448,11 @@ def siti(testo: str) -> Iterator[tuple]:
             if sito is not None:
                 yield sito
         nome = nomi.get(numero_riga - 1)
-        if nome is not None:
+        # i nomi dentro `lang()` li ha gia' emessi il ciclo qui sopra: sono lo
+        # stesso letterale visto due volte, e riemetterli qui vorrebbe dire
+        # tradurre due volte lo stesso testo sulla stessa riga. `nomi_per_riga`
+        # deve comunque riconoscerli, o il plurale non saprebbe dove andare.
+        if nome is not None and nome[4] not in ARRAY_IN_LANG:
             sito = emetti(numero_riga, *nome[:4])
             if sito is not None:
                 yield sito

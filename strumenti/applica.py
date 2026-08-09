@@ -16,7 +16,7 @@ from pathlib import Path
 from strumenti import percorsi
 from strumenti.accenti import degrada
 from strumenti.articolo import GENERI, articoli
-from strumenti.estrai import (_argomenti, _letterali, avvii, avvio_nome, nomi_per_riga,
+from strumenti.estrai import (ARRAY_IN_LANG, _argomenti, _letterali, avvii, avvio_nome, nomi_per_riga,
                               normalizza_espressione, siti, spezza_righe,
                               virgola_nuda)
 
@@ -324,6 +324,16 @@ def applica_a_testo(nome_file: str, testo: str, dizionario: dict,
     return risultato, sostituzioni
 
 
+# L'array dell'articolo e' una proprieta' della **famiglia**, non della riga: la
+# testa di un nome composto sta in `ioriginalnameref2`, ma il suo articolo resta
+# in `ioriginalnamearticolo`, perche' l'articolo il nome ce l'ha uno solo.
+ARTICOLO_DI = {
+    "ioriginalnameref": "ioriginalname",
+    "ioriginalnameref2": "ioriginalname",
+    "fishdatan": "fishdatan",
+}
+
+
 def _teste(nomi: dict) -> set[int]:
     """Gli indici di riga (base 0) dei siti che sono la **testa** del nome.
 
@@ -343,6 +353,10 @@ def _teste(nomi: dict) -> set[int]:
     teste = set()
     for riga, dati in nomi.items():
         array, oggetto = dati[4], dati[5]
+        # i nomi su una riga sola non si compongono: la testa e' la riga stessa
+        if array in ARRAY_IN_LANG:
+            teste.add(riga)
+            continue
         if array != "ioriginalnameref":
             continue
         gemella = nomi.get(riga + 1)
@@ -439,10 +453,11 @@ def applica_dati_nome(nome_file: str, testo: str, dizionario: dict,
         if (numero_riga - 1) in teste and voce.get("genere") in GENERI:
             indeterminativo, determinativo = articoli(voce["genere"], voce["it"])
             if indeterminativo:
+                famiglia = ARTICOLO_DI[array]
                 nuove.append(
-                    f'{indentazione}ioriginalnamearticolo({oggetto}) = "{degrada(indeterminativo)}"')
+                    f'{indentazione}{famiglia}articolo({oggetto}) = "{degrada(indeterminativo)}"')
                 nuove.append(
-                    f'{indentazione}ioriginalnamearticolodet({oggetto}) = "{degrada(determinativo)}"')
+                    f'{indentazione}{famiglia}articolodet({oggetto}) = "{degrada(determinativo)}"')
         if nuove:
             inserimenti.append((numero_riga, nuove))
 

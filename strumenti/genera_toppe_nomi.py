@@ -526,6 +526,54 @@ toppe.append({
     "motivo": f"18 byte per stringa non bastano: l'inglese piu' lungo e' `griffon scale` (13), «scaglia di grifone» sono 18 esatti, e un accento vero ne vale due dopo la degradazione. Accanto nasce mtcomplemento, {len(materiali)} materiali col complemento gia' montato: il giunto non puo' stare in mtname (command.hsp lo legge nudo, «fatto di» + «di cuoio») ne' essere uno solo nella toppa, perche' sette materiali cominciano per vocale e l'italiano elide — «d'argento», non «di argento». La preposizione la deriva articolo.py dalla forma della parola, come l'articolo",
 })
 
+# 15-bis. i pesci. `ioriginalnameref(ITEM_ID_FISH)` e' la stringa VUOTA: il nome
+#         della specie non e' un pezzo del nome dell'oggetto, e' tutto il nome, e
+#         arriva da `itemNameSub` (riga 997) che gira a riga 1936 — cioe' DOPO
+#         che l'articolo e' stato messo davanti e DOPO che il plurale e' stato
+#         scelto. Tradurre i 113 nomi e basta darebbe «a salmone».
+#
+#         Servono percio' tre array loro, che `applica.py` popola accanto al
+#         singolare con la stessa macchina di db_item — l'indice non e' una
+#         costante ma `p`, il contatore, e la riga gemella si inserisce subito
+#         sotto, dove `p` vale ancora quello.
+#
+#         ⚠️ Il buffer di `fishdatan` e' 24 byte: «pesce d'un miliardo d'anni»
+#         ne vuole 26, e il plurale di piu'. Stesso difetto di `mtname`.
+riga = DATA[1708 - 1]
+assert riga.strip() == 'sdim fishdatan, 24, MAX_FISH', riga
+toppe.append({
+    "file": "item_data.hsp",
+    "cerca": riga,
+    "sostituisci": [
+        riga.replace('sdim fishdatan, 24,', 'sdim fishdatan, 48,'),
+        f'{ind(riga)}sdim fishdatanplur, 48, MAX_FISH',
+        f'{ind(riga)}sdim fishdatanarticolo, 16, MAX_FISH',
+        f'{ind(riga)}sdim fishdatanarticolodet, 16, MAX_FISH',
+    ],
+    "motivo": "24 byte non bastano all'italiano («pesce d'un miliardo d'anni» ne vuole 26), e accanto nascono i tre array del pesce: plurale e articolo, che applica.py scrive accanto al singolare. Servono perche' ioriginalnameref(ITEM_ID_FISH) e' la stringa vuota — il nome della specie e' tutto il nome, e arriva da itemNameSub dopo che articolo e plurale sono gia' stati scelti. Dimensionati a MAX_FISH e non lasciati autoespandere: un array sparso letto oltre l'ultimo indice assegnato e' un Array overflow",
+})
+
+# 15-ter. il plurale del pesce, dove la specie si concatena.
+riga = ITEM[997 - 1]
+assert 'locvar_itemowner_s +=' in riga and 'fishdatan(' in riga, riga
+i0 = ind(riga)
+LETTURA = 'inv(INV_ITEM_SUB_NAME, itemowner_itemid)'
+toppe.append({
+    "file": "item_func.hsp",
+    "cerca": riga,
+    "sostituisci": [
+        f'{i0}locvar_itemname_s11 = ""',
+        f'{i0}if ( locvar_itemowner_num2 > 1 ) {{',
+        f'{i0}\tlocvar_itemname_s11 = fishdatanplur({LETTURA})',
+        f'{i0}}}',
+        f'{i0}if ( locvar_itemname_s11 == "" ) {{',
+        f'{i0}\tlocvar_itemname_s11 = fishdatan({LETTURA})',
+        f'{i0}}}',
+        f'{i0}locvar_itemowner_s += locvar_itemname_s11',
+    ],
+    "motivo": "il plurale della specie, che il gioco non aveva perche' in inglese il nome del pesce non si flette. Coda propria e non la s5 del contatore: quella l'ha gia' usata itemname() prima di arrivare qui. Se il plurale manca si ripiega sul singolare, come ovunque, cosi' lo stato intermedio resta leggibile. I limiti dell'indice li ha gia' controllati il blocco sopra, che per un SUB_NAME fuori scala esce con «/bugged/»",
+})
+
 # 18. l'articolo. L'inglese lo sceglie guardando la PRIMA LETTERA della stringa
 #     composta (`a`/`an`, riga 1816) piu' un caso speciale scritto a mano per
 #     `unicorn horn`. E' fonetica, e in inglese basta perche' l'articolo non ha
@@ -560,6 +608,36 @@ def articolo_delle_cablate(indentazione):
     return righe
 
 
+def articolo_del_pesce(indentazione):
+    """L'articolo del pesce, che non sta in `ioriginalnamearticolo`.
+
+    Quello e' indicizzato per `ITEM_ID`, e tutti i 113 pesci hanno lo stesso —
+    `ITEM_ID_FISH`. La specie e' in `SUB_NAME`, e ha un array suo.
+
+    Viene DOPO la lettura dell'array e la sovrascrive senza guardare: per un
+    pesce l'array e' vuoto per costruzione, perche' il nome dell'oggetto e' la
+    stringa vuota e un nome vuoto non ha ne' genere ne' articolo.
+
+    ⚠️ I limiti si controllano qui e non altrove: `SUB_NAME` puo' essere fuori
+    scala (il gioco lo sa, e piu' avanti stampa «/bugged/»), e leggere un array
+    oltre il suo indice massimo e' un Array overflow, cioe' un crash in negozio.
+    Le `if` sono annidate e non unite con `&` come ovunque qui: HSP valuta da
+    sinistra a destra senza precedenza fra operatori.
+    """
+    letto = 'inv(INV_ITEM_SUB_NAME, itemname_itemid)'
+    identita = 'inv(INV_ITEM_ID, itemname_itemid)'
+    return [
+        f'{indentazione}if ( {identita} == ITEM_ID_FISH | {identita} == ITEM_ID_FISH_JUNK ) {{',
+        f'{indentazione}\tif ( {letto} >= 0 ) {{',
+        f'{indentazione}\t\tif ( {letto} < MAX_FISH ) {{',
+        f'{indentazione}\t\t\tlocvar_itemname_s8 = fishdatanarticolo({letto})',
+        f'{indentazione}\t\t\tlocvar_itemname_s9 = fishdatanarticolodet({letto})',
+        f'{indentazione}\t\t}}',
+        f'{indentazione}\t}}',
+        f'{indentazione}}}',
+    ]
+
+
 blocco = fetta(ITEM, 1807, 1826)
 assert blocco[0].strip() == 'if ( itemname_arg3 == 0 ) {', blocco[0]
 assert '"the " + locvar_itemowner_s' in blocco[2], blocco[2]
@@ -582,6 +660,7 @@ toppe.append({
         f'{i1}\tlocvar_itemname_s8 = ioriginalnamearticolo(inv(INV_ITEM_ID, itemname_itemid))',
         f'{i1}\tlocvar_itemname_s9 = ioriginalnamearticolodet(inv(INV_ITEM_ID, itemname_itemid))',
         f'{i1}}}',
+    ] + articolo_del_pesce(i1) + [
         condizione_the,
         f'{i1}\tif ( locvar_itemname_s9 != "" ) {{',
         f'{i1}\t\tlocvar_itemowner_s = locvar_itemname_s9 + locvar_itemowner_s',
