@@ -309,6 +309,21 @@ scrivere, probabilmente la stringa va tradotta.
 | leggings | indumento da pescare (`item_data.hsp`), giapponese スパッツ: **prestito acquisito** in italiano, dove il capo si chiama cosi'. Maschile plurale, invariato |
 | # | simbolo, non testo: `item_data.hsp:151` lo aggiunge come marcatore accanto al `*` che sta gia' qui sopra. Non c'è niente da tradurre |
 | ] | simbolo, non testo: `item_data.hsp:567` chiude l'etichetta `[Mass. N]` del livello d'incantamento. La parentesi aperta si traduce perché porta la parola, questa non porta niente |
+| Houzanha | mossa speciale (`skill.hsp`), giapponese 土竜乱舞: l'inglese è già una **romanizzazione**, non una descrizione. Come `<Zantetsuken>` |
+| Kijin Shibari | mossa speciale (`skill.hsp`), giapponese 鬼神縛り: romanizzazione, come `Houzanha` |
+| Jyusou Goushin | mossa speciale (`skill.hsp`), giapponese 呪装豪身: romanizzazione, come `Houzanha` |
+| Kamikakushi | mossa speciale (`skill.hsp`), giapponese 紙隠し — **gioco di parole** su 神隠し, «rapimento divino», con 紙 «carta». L'inglese romanizza; l'italiano non ha una parola per la cosa, e il gioco di parole non si trasporta |
+| Kamui | mossa speciale (`skill.hsp`), giapponese 神威: romanizzazione di un nome del pantheon ainu, opaco anche in inglese |
+| Elementia | mossa speciale (`skill.hsp`), giapponese エレメンティア, traslitterato: **coniazione**, non una descrizione |
+| Venotrate | mossa speciale (`skill.hsp`), giapponese ヴェノトレイト, traslitterato: coniazione opaca, come `Elementia` |
+| Misteltein | mossa speciale (`skill.hsp`), giapponese ミストルティン: il vischio del mito norreno, che l'italiano cita nella grafia originale |
+| Aromageddon | mossa speciale (`skill.hsp`), giapponese アロマゲドン: **parola macedonia** su *aroma* e *Armageddon*, che si legge identica in italiano |
+| Ensemble | mossa speciale (`skill.hsp`), giapponese アンサンブル: **prestito acquisito in italiano** nel lessico musicale, e la mossa è un'esecuzione con gli alleati. Come `bonus` |
+| Knockout | mossa speciale (`skill.hsp`), giapponese ノックアウト攻撃: prestito acquisito in italiano, maschile. «Colpo che mette KO» sarebbe la definizione, non il nome |
+| Tuin der Lusten | mossa speciale (`skill.hsp`), giapponese 快楽の園. ⚠️ **L'inglese ha scelto l'olandese**, ed è il titolo del trittico di Bosch: come `Taktstock` col tedesco e `aqua sanctio` col latino, la lingua scelta è informazione |
+| ShikiOrigami-Shuriken | mossa speciale (`skill.hsp`), giapponese 式折神・荒紙手裏剣: `shuriken` è già invariato qui sopra, e `ShikiOrigami` è una **coniazione romanizzata** (式神 + 折り紙). Le altre due della famiglia traducono la parte comune — `ShikiOrigami-Gru`, `ShikiOrigami-Aereo` — e questa non ha parte comune da tradurre |
+| `<Clementia>` | mossa speciale (`skill.hsp`), giapponese 【命乞い】: **nome latino**, e il latino resta latino come in `aqua sanctio` |
+| `<Purge>` | mossa speciale (`skill.hsp`), giapponese *Purge*: **il giapponese la lascia già in inglese**, ed è l'etichetta `PURGE` che il glossario tiene invariata nelle descrizioni. Tradurla qui e non là spezzerebbe la coppia |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 
