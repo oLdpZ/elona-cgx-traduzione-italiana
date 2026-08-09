@@ -1500,3 +1500,131 @@ non controlla l'aggancio: monta il nome come lo monta il gioco, esegue le sette
 righe di `18640-18646` con il suffisso riparato e confronta il **risultato**.
 245 tagli, e pretende di trovarne più di 200 per non passare a vuoto il giorno
 che la simulazione smettesse di agganciare niente.
+
+## La quindicesima sessione — 2026-08-10
+
+Dodici lotti per razza, 351 nomi, tredici commit. Da 928 nomi da tradurre a
+**577 in 64 razze**. Non c'è stata una scoperta grossa come il ramo del
+suffisso: c'è stato un criterio che ha retto dodici volte di fila, e tre
+correzioni al criterio stesso, che sono la parte interessante.
+
+### Il taglio per razza è uno strumento, non uno script
+
+Il nucleo atomico si era preso da sé, per definizione. Tutto il resto si taglia
+per **razza**, che il sorgente dichiara in `dbidn` subito prima di
+`gosub *db_race`, e non si deduce dal nome.
+
+Il motivo per cui non si deduce merita una riga, perché è più forte del solito:
+**il nome è il dato che stiamo per tradurre, quindi non può fare da chiave a sé
+stesso.** Con `reftype` (`db_item.hsp`) e con l'array dichiarante
+(`item_data.hsp`) l'argomento era di comodità e di verificabilità; qui è di
+principio.
+
+`--razze` e `--razza` stanno in `strumenti/creature.py` con sei guardie nuove.
+La rete è `firme_senza_razza()`, oggi vuota su 1.131 nomi. Serve perché un
+criterio che copre novecento nomi meno uno **non lo dice**: il residuo si
+scopre alla fine, quando non c'è più niente da tagliare e i conti non tornano.
+
+Nuovo concept, che raccoglie i tre casi: `wiki/concepts/il-campo-che-il-sorgente-dichiara.md`.
+
+### L'articolo di un nome di persona, e la correzione che l'ha ridimensionato
+
+Il nucleo erano mostri; `norland` sono le persone delle città, e lì l'articolo
+dentro il nome smette di essere gratis: in italiano l'articolo di «negoziante»
+dipende da chi lo porta, e il sorgente dichiara `cdata(CDATA_SEX, rc)` **solo
+per 52 nomi su 90**.
+
+⚠️ `/man/` **non è il sesso**. È la stringa di `DBSPEC_CHARA_FILTER`, accanto a
+`/god/`, `/sf/`, `/nefia0/`: la categoria di generazione. Ce l'hanno anche
+修道女 e 娼婦, che femmine lo sono per definizione.
+
+Il criterio scritto in `guida-stile.md`: sesso dichiarato → si concorda; sesso
+casuale → sostantivo il cui articolo **non dipenda dalla persona**, e ce ne sono
+in tre forme (genere fisso «la guardia», articolo elidibile «l'artista»,
+prestito invariabile «il ninja»); maschile non marcato solo dove l'italiano non
+offre altro — 14 su 90.
+
+**Poi il lotto `imp` ha ridimensionato il problema.** Cinque demoni con sesso
+dichiarato, tre femmine e due maschi, ricevono tutti «il demone di X»: concorda
+**«demone»**, che è la testa del sintagma, e il sesso del personaggio non entra
+mai. `CDATA_SEX` conta solo quando la testa *è* la persona — «`<Neres>` la
+smemorata».
+
+Vale la pena averlo scoperto prima di costruire: si stava valutando un campo
+femminile nel dizionario con array paralleli fino al gioco, sulla stima
+sbagliata di quanti casi lo volessero. Nuovo concept:
+`wiki/concepts/la-testa-porta-il-genere.md`.
+
+### Il sorgente arbitra quattro volte su cinque, e la quinta è quella che insegna
+
+Quattro dubbi di traduzione sciolti dal blocco della creatura:
+`FILTER_RACE_HOUND_MIND` dice che `illusion hound` è il segugio **mentale**;
+`ACTION_RANGE` dice che ガン in ガンデグー è *gun*; tre attacchi in mischia più
+succhiasangue dicono che カオス・ブレーダー è uno **spadaccino** e non il
+paladino dell'inglese; il ringhiare nel proprio blocco dice che 面忘の獅子 è un
+uomo che non è più un uomo.
+
+⚠️ **La quinta volta la stessa prova non ha dato la stessa conclusione.**
+幻惑折鶴 lancia davvero `SKILL_SPELL_MIND_THORN`, quindi l'elemento è Mente —
+eppure non si rende «mentale». Perché nel caso dei segugi il nome era **uno di
+dieci**, uno per elemento, e funzionava da **etichetta**; una gru sola no, e lì
+幻惑 descrive cosa fa. *La stessa prova non porta alla stessa conclusione quando
+cambia cosa il nome sta facendo.*
+
+### Prima di scegliere, guardare cosa il nucleo ha scelto per i parenti
+
+ハムスター finisce per **スター**, e Elona+ ci costruisce sopra una famiglia:
+モーニングスター, デススター, シューティングスター. L'inglese salva il criceto
+(`death hamster`, `shooting hamster`) e perde il gioco di parole.
+
+La scelta sembrava aperta — criceti o stelle — e non lo era: il nucleo aveva
+già reso `Morningstar` → «la stella mattutina». Decidere per i criceti avrebbe
+spezzato la famiglia a metà, in silenzio, e nessun test l'avrebbe visto.
+
+### L'inglese sbaglia più di quanto il progetto stimasse
+
+Su 351 nomi, una dozzina di errori veri di lettura, non abbreviazioni: 腕白
+(*monella*) letto coi kanji separati e diventato `the white arms`; 猫かぶり
+(l'idioma «fingersi ingenui») preso alla lettera in `the cat freak`; 首切雀 (il
+passero mozzatesta) scambiato per la passera mattugia; 化け狸 reso `badger`, che
+è un altro animale; 魔剣士 reso `knight`; 淫婦 reso `camouflaged imp`; 虚空
+(*vuoto*) reso `vanity`; ヤミクミロミ (*oscuro*) reso `Insane`.
+
+E tre volte ha **spostato la razza**: la aggiunge dove il giapponese non ce l'ha
+(歴戦の老兵 → `zanan old soldier`) e la toglie dove ce l'ha (エレアの難民 →
+`refugee`; イェルス超重力砲 → `gravity cannon`). In tutti e tre i casi si segue
+il giapponese, che è quello che il nome dice.
+
+### Le fusioni si rifanno, non si leggono
+
+Razze intere sono costruite su giochi di parole, e **l'inglese non li traduce:
+li ricostruisce in inglese**. ダゴンズイ (ダゴン + ゴンズイ) diventa
+`daganotosus` col nome scientifico *Plotosus*; エンタメイド・ザンコック
+(残酷 + コック) diventa `cocruel`; インコニート (インコ dentro «incognito»)
+diventa `inconeet` con `keet` di *parakeet*.
+
+Quindi il precedente c'è già, ed è dell'inglese: si rende il **gioco**, non le
+sillabe. «Il pesce gatto Dagon», «la spettacameriera cuocrudele»,
+«l'incocorito».
+
+### Un aggancio riparato all'indietro, e la regola che ne resta
+
+`text.hsp` chiedeva «Come si chiama l'**investigatore** della Gilda dei
+Maghi?», ma la risposta è `<Lenas>` e `db_creature.hsp` le dà `SEX=1`.
+Ritradotta al femminile.
+
+**Le domande del quiz sono già a schermo, i nomi no**: di norma sono i nomi a
+doversi adeguare alle risposte già tradotte — `<Lexus>` è «il guardiano della
+Gilda dei Maghi» perché così dice la domanda. Tranne quando la domanda contiene
+un'ipotesi presa quando i nomi non c'erano ancora, ed è il caso di `<Lenas>`.
+
+### Due deroghe alla regola dell'articolo, e non una di più
+
+`SENZA_ARTICOLO` in `test_creature.py` ha due voci e un test pretende che
+restino esattamente quelle: `＠`, il simbolo del giocatore fatto creatura (parla
+«Qy@» e nient'altro), e `user`, che non è un nome ma lo slot dei PNG definiti
+dal giocatore.
+
+Il secondo lo firma il sorgente: `lang("user", "user")`. Il giapponese è
+**identico** all'inglese, e in un file dove ogni nome vero ha la sua forma
+giapponese quello è upstream che dice «questo non è testo».

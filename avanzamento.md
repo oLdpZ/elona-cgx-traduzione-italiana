@@ -25,8 +25,76 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | `custom_tweaks.hsp` | **12** | 12 | **100%** | 28 |
 | **totale** | **3.915** | **8.624** | **45%** | **9.690** |
 
-Fuori dalla Fase 1, con conteggio proprio: `db_creature.hsp`, **203 firme su
-3.655** — i soli nomi del nucleo atomico.
+Fuori dalla Fase 1, con conteggio proprio: `db_creature.hsp`, **555 firme su
+3.655**, cioè **554 nomi su 1.131** più l'epiteto. Restano **577 nomi in 64
+razze**, e le 320 stringhe di voce non sono ancora cominciate.
+
+## Dodici lotti per razza — 2026-08-10, quindicesima sessione
+
+**351 nomi in un giorno**, da 928 a 577. Il nucleo atomico si era preso da sé;
+tutto il resto si taglia per **razza**, che è un campo che il sorgente dichiara
+— `dbidn`, subito prima di `gosub *db_race` — e non una proprietà che qualcuno
+legge nel nome. È la terza volta che il criterio giusto è un campo del sorgente
+invece di un giudizio: `reftype` per `db_item.hsp`, l'array che dichiara la voce
+per `item_data.hsp`, `dbidn` qui.
+
+```powershell
+python -m strumenti.creature --razze              # quanto resta, razza per razza
+python -m strumenti.creature --razza dog --uscita lavoro/fase2-dog-001.jsonl
+```
+
+⚠️ `--classe nome` da solo emette tutti i 1.131, nucleo compreso: `--razza`
+toglie da sé le firme già in dizionario, o ogni lotto sovrascriverebbe il
+precedente. La rete del criterio è `firme_senza_razza()`, oggi vuota: se un
+domani non lo fosse, «un lotto è una razza» coprirebbe novecento nomi meno uno
+**senza dirlo**.
+
+| lotto | nomi | cosa ha insegnato |
+|---|---|---|
+| `dog` | 27 | i dieci segugi elementali li dichiara `FILTER_RACE_HOUND_<X>` |
+| `norland` | 90 | il sesso è dichiarato solo su 52 su 90 → il criterio dell'articolo |
+| `god` | 36 | l'inglese tiene il nome proprio e lascia cadere l'epiteto |
+| `juere` | 33 | `rogue` copre due giapponesi diversi |
+| `zanan` | 25 | la razza sta in `dbidn`, non nel nome |
+| `bird` | 24 | due uccelli sbagliati e uno abbandonato dall'inglese |
+| `spirit` | 21 | la stessa prova non dà la stessa conclusione |
+| `rat` | 21 | una famiglia di giochi di parole che l'inglese aveva spezzato |
+| `elea` | 19 | i nomi della trama, già vincolati dal quiz |
+| `seamonster` | 19 | una razza fatta di fusioni |
+| `machine` | 18 | l'inglese incoerente dove il giapponese non lo è |
+| `imp` | 18 | sei fusioni da rifare, non da leggere |
+
+### L'articolo di un nome di persona
+
+Il problema che il nucleo non poneva e che vale per tutti i 577 che restano: un
+nome di mestiere descrive una **persona**, e in italiano l'articolo di
+«negoziante» dipende da chi lo porta. Il sorgente dichiara `cdata(CDATA_SEX,
+rc)` **solo per una parte** — 52 su 90 in `norland`. Il criterio completo sta in
+`guida-stile.md`; qui basta la conseguenza pratica, scoperta col lotto `imp`:
+
+⚠️ **l'articolo sta sulla testa del sintagma, non sulla persona.** I cinque
+demoni di `imp` hanno sessi diversi e la stessa forma italiana — «il demone di
+X» — perché il genere lo dà «demone». `CDATA_SEX` conta solo quando la testa
+**è** la persona (`<Neres> la smemorata`). I casi difficili sono meno di quanti
+sembrassero.
+
+### Due deroghe alla regola dell'articolo, e nessuna di più
+
+`SENZA_ARTICOLO` in `test_creature.py` ha due voci, e un test pretende che
+restino esattamente quelle: `＠`, che è il simbolo del giocatore fatto creatura
+e parla «Qy@», e `user`, che non è un nome ma lo **slot** dei PNG definiti dal
+giocatore. Il secondo lo firma il sorgente: `lang("user", "user")`, col
+giapponese identico all'inglese in un file dove ogni nome vero ha la sua forma
+giapponese.
+
+### Un aggancio riparato all'indietro
+
+`text.hsp` chiedeva «Come si chiama l'**investigatore** della Gilda dei Maghi?»,
+ma la risposta è `<Lenas>` e `db_creature.hsp` le dà `SEX=1`. Il maschile era
+un'ipotesi presa quando i nomi di creatura non c'erano ancora: ora ci sono e
+dicono il contrario. **Le domande del quiz sono già a schermo, i nomi no** —
+quindi sono i nomi a doversi adeguare, tranne dove è la domanda a essere
+sbagliata.
 
 ## Il nucleo atomico è dentro — 2026-08-09, quattordicesima sessione
 
