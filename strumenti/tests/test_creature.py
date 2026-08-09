@@ -340,6 +340,56 @@ def test_dove_agganciava_il_giapponese_aggancia_anche_l_italiano():
         "in giapponese la rinomina scattava e in italiano no:\n" + "\n".join(rotte[:20]))
 
 
+def test_il_taglio_rinomina_bene_anche_un_alleato_con_epiteto():
+    """La chirurgia vera, simulata: `action.hsp:18640-18646` su un nome con epiteto.
+
+    ⚠️ **E' il caso normale, non un caso limite.** I 152 personaggi con
+    `CHARA_BIT_HAS_NAME` portano un nome composto — «Rashek il cavallo zoppo» —
+    e sono proprio quelli che si tengono in squadra, cioe' quelli che evolvono.
+    Li' `evold` non e' mai in testa, perche' davanti c'e' il nome proprio:
+    **scatta il ramo del suffisso**, quello riparato.
+
+    Le altre due guardie non lo vedono: guardano il nome nudo della specie, che
+    aggancia in testa. Questa monta il nome come lo monta il gioco e controlla
+    il **risultato**, non l'aggancio.
+    """
+    reso = rese_per_firma()
+    if reso is None:
+        pytest.skip("i dizionari di db_creature.hsp e action.hsp non esistono ancora")
+
+    def taglia(memorizzato: str, evold: str, evname: str) -> str:
+        """`action.hsp:18640-18646`, col suffisso gia' riparato (`tc`, non `rc`)."""
+        if memorizzato[:len(evold)] == evold:
+            return evname + memorizzato[len(evold):]
+        if memorizzato[len(memorizzato) - len(evold):] == evold:
+            return memorizzato[:len(memorizzato) - len(evold)] + evname
+        return memorizzato
+
+    epiteto = "Rashek "
+    mappa, nomi = evoluzioni_con_jp(), nomi_per_creatura_con_jp()
+    rotte, quanti = [], 0
+    for evmode, dati in mappa.items():
+        visibili = nomi_visibili_con_jp(evmode, mappa, nomi)
+        for vecchio, nuovo in dati["coppie"]:
+            vecchio_it, nuovo_it = reso.get(vecchio), reso.get(nuovo)
+            if vecchio_it is None or nuovo_it is None:
+                continue
+            for nome in visibili:
+                if reso.get(nome) != vecchio_it:
+                    continue  # solo la creatura che porta proprio quel nome
+                quanti += 1
+                atteso = epiteto + nuovo_it
+                ottenuto = taglia(epiteto + vecchio_it, vecchio_it, nuovo_it)
+                if ottenuto != atteso:
+                    rotte.append(f"evmode {evmode}: {ottenuto!r} invece di {atteso!r}")
+
+    assert quanti > 200, f"solo {quanti} tagli simulati: la simulazione non trova piu' niente"
+    assert not rotte, (
+        "il taglio dell'evoluzione sbaglia il nome di un alleato con epiteto:\n"
+        + "\n".join(sorted(set(rotte))[:20])
+    )
+
+
 def test_ogni_nome_e_ogni_stringa_di_evoluzione_porta_il_proprio_articolo():
     """Seconda proprieta'. ⚠️ **Sostituisce la concordanza di genere**, che era
     la proprieta' sbagliata.

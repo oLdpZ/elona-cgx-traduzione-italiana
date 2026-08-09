@@ -1459,3 +1459,44 @@ Chiedere l'articolo a quell'espressione voleva dire chiederle di cominciare per
 regola che la guardia difende. Il filtro giusto c'era già ed è `classi()`, la
 stessa autorità che decide i lotti: la riga è di forma `cdatan(...) = lang(...)`
 ma non contiene nessuna coppia di letterali, quindi non è un nome.
+
+### ⚠️ Correzione, mezz'ora dopo: il ramo del suffisso è la strada normale
+
+Poco sopra ho scritto che in italiano il ramo del suffisso di
+`action.hsp:18644` **non scatta mai**, e che la riparazione era di fatto
+irraggiungibile. **È falso**, e l'ha mostrato il secondo screenshot del
+collaudo: «Rashek il cavallo zoppo».
+
+Il conto di prima guardava il **nome nudo della specie** — «il cavallo zoppo» —
+e lì `evold` è davvero in testa. Ma il nome che sta nel salvataggio di un
+alleato con nome proprio è l'**epiteto**: `randomname() + " " + <specie>`. Con
+un nome proprio davanti, `evold` non può essere in testa: è in coda, sempre.
+
+Simulando il taglio su tutte le coppie con un epiteto davanti: **245 su 245
+passano dal suffisso, zero dal prefisso.**
+
+```
+'Rashek il cavallo zoppo' -['il cavallo zoppo']-> "Rashek l'unicorno"
+```
+
+E i personaggi con epiteto sono esattamente i 152 con `CHARA_BIT_HAS_NAME`,
+cioè quelli che si tengono in squadra — cioè **quelli che evolvono**. Non è un
+caso limite: è il caso normale, e la riparazione di `action.hsp:18644` non è
+una precauzione ma la condizione perché l'evoluzione di un alleato con nome
+funzioni. Vale anche in inglese, dove `Rashek the lame horse` finisce per
+`lame horse`: il difetto di upstream stava lì da sempre.
+
+**Perché l'errore è stato possibile:** ho contato la proprietà su una forma del
+nome — quella di `db_creature.hsp` — invece che sulla forma che il gioco
+**memorizza**. È lo stesso scarto delle due guardie nate sbagliate nella
+tredicesima sessione, e la correzione è arrivata dallo stesso posto: dal
+guardare, non dal contare.
+
+> Il dato non è quello che il sorgente scrive: è quello che il salvataggio
+> conserva.
+
+La guardia nuova, `test_il_taglio_rinomina_bene_anche_un_alleato_con_epiteto`,
+non controlla l'aggancio: monta il nome come lo monta il gioco, esegue le sette
+righe di `18640-18646` con il suffisso riparato e confronta il **risultato**.
+245 tagli, e pretende di trovarne più di 200 per non passare a vuoto il giorno
+che la simulazione smettesse di agganciare niente.
