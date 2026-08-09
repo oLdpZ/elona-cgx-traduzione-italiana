@@ -1465,7 +1465,7 @@ ma non contiene nessuna coppia di letterali, quindi non è un nome.
 Poco sopra ho scritto che in italiano il ramo del suffisso di
 `action.hsp:18644` **non scatta mai**, e che la riparazione era di fatto
 irraggiungibile. **È falso**, e l'ha mostrato il secondo screenshot del
-collaudo: «Rashek il cavallo zoppo».
+collaudo: «Lazrof il cavallo zoppo».
 
 Il conto di prima guardava il **nome nudo della specie** — «il cavallo zoppo» —
 e lì `evold` è davvero in testa. Ma il nome che sta nel salvataggio di un
@@ -1476,14 +1476,14 @@ Simulando il taglio su tutte le coppie con un epiteto davanti: **245 su 245
 passano dal suffisso, zero dal prefisso.**
 
 ```
-'Rashek il cavallo zoppo' -['il cavallo zoppo']-> "Rashek l'unicorno"
+'Lazrof il cavallo zoppo' -['il cavallo zoppo']-> "Lazrof l'unicorno"
 ```
 
 E i personaggi con epiteto sono esattamente i 152 con `CHARA_BIT_HAS_NAME`,
 cioè quelli che si tengono in squadra — cioè **quelli che evolvono**. Non è un
 caso limite: è il caso normale, e la riparazione di `action.hsp:18644` non è
 una precauzione ma la condizione perché l'evoluzione di un alleato con nome
-funzioni. Vale anche in inglese, dove `Rashek the lame horse` finisce per
+funzioni. Vale anche in inglese, dove `Lazrof the lame horse` finisce per
 `lame horse`: il difetto di upstream stava lì da sempre.
 
 **Perché l'errore è stato possibile:** ho contato la proprietà su una forma del

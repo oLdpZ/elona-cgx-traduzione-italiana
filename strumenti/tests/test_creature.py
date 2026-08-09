@@ -344,7 +344,7 @@ def test_il_taglio_rinomina_bene_anche_un_alleato_con_epiteto():
     """La chirurgia vera, simulata: `action.hsp:18640-18646` su un nome con epiteto.
 
     ⚠️ **E' il caso normale, non un caso limite.** I 152 personaggi con
-    `CHARA_BIT_HAS_NAME` portano un nome composto — «Rashek il cavallo zoppo» —
+    `CHARA_BIT_HAS_NAME` portano un nome composto — «Lazrof il cavallo zoppo» —
     e sono proprio quelli che si tengono in squadra, cioe' quelli che evolvono.
     Li' `evold` non e' mai in testa, perche' davanti c'e' il nome proprio:
     **scatta il ramo del suffisso**, quello riparato.
@@ -365,7 +365,7 @@ def test_il_taglio_rinomina_bene_anche_un_alleato_con_epiteto():
             return memorizzato[:len(memorizzato) - len(evold)] + evname
         return memorizzato
 
-    epiteto = "Rashek "
+    epiteto = "Lazrof "
     mappa, nomi = evoluzioni_con_jp(), nomi_per_creatura_con_jp()
     rotte, quanti = [], 0
     for evmode, dati in mappa.items():
