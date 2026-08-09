@@ -21,6 +21,7 @@ scrivere, probabilmente la stringa va tradotta.
 | `<Little Sister>` | nome di creatura (`action.hsp`, `db_creature.hsp`), giapponese 『リトルシスター』: vedi la riga sopra, è l'altra metà della coppia |
 | `<Pascal>` | nome di creatura (`db_creature.hsp`, razza `dog`), giapponese イヌの偉大なる『パスカル』. Il giapponese lo presenta come «il grande fra i cani, Pascal», ma l'inglese ha ridotto il nome al solo epiteto fra `<>`, e lì l'epiteto **è** il nome: non resta nessuna parola comune da rendere. Nome proprio opaco, come `Vernis`. Non porta l'articolo perché comincia per `<` |
 | `@` | nome di creatura (`db_creature.hsp`, razza `norland`), giapponese ＠. È il **simbolo del giocatore** dei roguelike fatto creatura — parla «Qy@» e nient'altro. Un segno, non una parola: non c'è niente da tradurre, e non prende articolo, come i nomi fra `<>`. È la sola deroga dichiarata alla regola dell'articolo dentro il nome |
+| `user` | nome di creatura (`db_creature.hsp`, razza `god`). ⚠️ **Non è un nome: è uno slot.** La riga è `lang("user", "user")`, cioè il giapponese è **identico** all'inglese — e in un file dove ogni nome vero ha la sua forma giapponese, quello è upstream che dice «questo non è testo». È il segnaposto dei PNG definiti dal giocatore (`cdata(CDATA_USERNPC_ID, rc)`), sovrascritto al caricamento. Non prende articolo perché non è una parola che qualcuno legga |
 | Vernis | nome proprio di città, canone Elona |
 | Palmia | nome proprio di città, canone Elona |
 | Derphy | nome proprio di città, canone Elona |
@@ -107,6 +108,26 @@ scrivere, probabilmente la stringa va tradotta.
 | Jure | divinità di Elona (`db_item.hsp`), giapponese ジュア; nome opaco del canone |
 | Lulwy | divinità di Elona (`db_item.hsp`), giapponese ルルウィ; nome opaco del canone |
 | Opatos | divinità di Elona (`db_item.hsp`), giapponese オパートス; nome opaco del canone |
+| `<Jure>` | la stessa divinità **come creatura** (`db_creature.hsp`, razza `god`), giapponese 《癒しのジュア》. ⚠️ Le sette righe qui sopra sono i nomi **nudi**, che compaiono in `db_item.hsp`; questa è un'altra stringa, e il confronto di `verifica.py` è sulla stringa intera. L'inglese tiene solo il nome proprio e lascia cadere l'epiteto giapponese: la forma fra `<>` è quella che il gioco mostra, e non prende articolo |
+| `<Lulwy>` | come sopra, giapponese 《風のルルウィ》 |
+| `<Opatos>` | come sopra, giapponese 《地のオパートス》 |
+| `<Kumiromi>` | come sopra, giapponese 《収穫のクミロミ》 |
+| `<Ehekatl>` | come sopra, giapponese 《幸運のエヘカトル》 |
+| `<Mani>` | come sopra, giapponese 《機械のマニ》 |
+| `<Itzpalt>` | come sopra, giapponese 《元素のイツパロトル》 |
+| `<Yacatect>` | come sopra, giapponese 《富のヤカテクト》 |
+| `<Deus ex manina>` | divinità di Elona+ (`db_creature.hsp`), giapponese 《デウス・エクス・マニナ》: è **latino** in tutte e tre le lingue, e il gioco di parole su `<Mani>` si perde a toccarlo |
+| `<Yayauhqui Tezcatlipoca>` | divinità azteca (`db_creature.hsp`), giapponese 《黒き軍神テスカトリポカ》. L'epiteto giapponese dice «nero dio della guerra» e l'inglese lo rende col nahuatl *yayauhqui*, che vuol dire «nero»: due modi di dire la stessa cosa, e nessuno dei due è italiano da tradurre |
+| `<Tezcatlipoca>` | come sopra, giapponese 《夜煙のテスカトリポカ》 |
+| `<Mikraanesis>` | divinità di Elona+ (`db_creature.hsp`), giapponese 《結束のミクラネシス》; nome opaco |
+| `<Enthumesis>` | divinità di Elona+ (`db_creature.hsp`), giapponese 《混沌のエンテュメイシス》; nome opaco |
+| `<Urcaguary>` | divinità di Elona+ (`db_creature.hsp`), giapponese 《剛石のウリカグアル》; nome opaco, dalla mitologia inca |
+| `<Karavika>` | divinità di Elona+ (`db_creature.hsp`), giapponese 《歌踊のカラヴィカ》; nome opaco |
+| `<Garziem>` | divinità di Elona+ (`db_creature.hsp`), giapponese 《鉄騎のガルジエム》; nome opaco |
+| `<Rovid>` | divinità di Elona+ (`db_creature.hsp`), giapponese 《守護のロヴィト》; nome opaco |
+| `<Sinaha>` | divinità di Elona+ (`db_creature.hsp`), giapponese 《不幸のシナア》; nome opaco |
+| `<Arasiel>` | divinità di Elona+ (`db_creature.hsp`), giapponese 《砂嵐のラシエル》; nome opaco |
+| `<Amurdad>` | divinità di Elona+ (`db_creature.hsp`), giapponese 《永遠のネヘルタード》. ⚠️ Le due lingue usano **nomi diversi** — l'inglese pesca lo zoroastriano *Amurdad*, il giapponese *Nehertard* — e quando non descrivono la stessa cosa non stanno descrivendo, stanno nominando. Come `anering` |
 | Lomias | personaggio di Elona (`db_item.hsp`: l'esperienza segreta), giapponese ロミアス; nome proprio opaco |
 | Aurtehom | libro orribile di Elona+ (`db_item.hsp`), giapponese アウルテホム, traslitterato; nome opaco alla maniera di Lovecraft |
 | Bokonon | il libro di Bokonon, citazione da *Ghiaccio-nove* di Vonnegut (`db_item.hsp`), giapponese ボコノン: in italiano il romanzo lo lascia «Bokonon» |

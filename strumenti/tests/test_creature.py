@@ -396,6 +396,11 @@ SENZA_ARTICOLO = {
     # nome fra `<>`, e `name()` gli metterebbe «the » davanti solo perche'
     # guarda il primo carattere. Dichiarato anche in `invariati.md`.
     "@": "e' un simbolo, non una parola",
+    # `lang("user", "user")`: il giapponese e' **identico** all'inglese, e in un
+    # file dove ogni nome vero ha la sua forma giapponese quello e' upstream che
+    # dice «questo non e' testo». E' il segnaposto dei PNG definiti dal
+    # giocatore, sovrascritto al caricamento. Dichiarato in `invariati.md`.
+    "user": "e' uno slot, non un nome",
 }
 
 
@@ -442,7 +447,7 @@ def test_ogni_nome_e_ogni_stringa_di_evoluzione_porta_il_proprio_articolo():
     # ⚠️ Le deroghe si dichiarano una per una col loro motivo, come
     # `AGGANCI_SOLO_INGLESI`. Una guardia allargata «perche' dava fastidio»
     # smette di proteggere e continua a passare.
-    assert SENZA_ARTICOLO.keys() == {"@"}, (
+    assert SENZA_ARTICOLO.keys() == {"@", "user"}, (
         "una deroga nuova alla regola dell'articolo va motivata qui e in "
         "invariati.md, non aggiunta di straforo"
     )
