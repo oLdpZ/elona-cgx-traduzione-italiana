@@ -306,6 +306,8 @@ scrivere, probabilmente la stringa va tradotta.
 | moopy | pesce (`item_data.hsp`), giapponese ムーピー: creatura di Elona, **nome proprio del bestiario**. Nome opaco |
 | yruas | pesce (`item_data.hsp`), giapponese マンサ: coniazione opaca, e l'inglese non romanizza nemmeno il giapponese. Nome opaco |
 | leggings | indumento da pescare (`item_data.hsp`), giapponese スパッツ: **prestito acquisito** in italiano, dove il capo si chiama cosi'. Maschile plurale, invariato |
+| # | simbolo, non testo: `item_data.hsp:151` lo aggiunge come marcatore accanto al `*` che sta gia' qui sopra. Non c'è niente da tradurre |
+| ] | simbolo, non testo: `item_data.hsp:567` chiude l'etichetta `[Mass. N]` del livello d'incantamento. La parentesi aperta si traduce perché porta la parola, questa non porta niente |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 

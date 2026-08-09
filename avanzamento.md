@@ -21,8 +21,37 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | `skill.hsp` | 0 | 885 | 0% | 894 |
 | `trait.hsp` | 0 | 373 | 0% | 406 |
 | `db_item.hsp` | **1.605** | 1.606 | **100%** | 1.607 |
-| `item_data.hsp` | 83 | 318 | 26% | 318 |
-| **totale** | **2.369** | **8.612** | **28%** | **9.662** |
+| `item_data.hsp` | **318** | 318 | **100%** | 318 |
+| **totale** | **2.604** | **8.612** | **30%** | **9.662** |
+
+## `item_data.hsp` è chiuso — 2026-08-09, undicesima sessione
+
+**Secondo file completo**, e a differenza del primo senza nemmeno un rinvio:
+318 su 318.
+
+I 235 rimasti a inizio sessione non erano un mucchio. La classe qui non è
+`reftype` come in `db_item.hsp` ma **l'array che dichiara la voce**, e con
+quella chiave si sciolgono in cinque discipline diverse, chiuse in tre lotti:
+
+| lotto | criterio | voci |
+|---|---|---|
+| ego | `egoname` + `egominorn` | 29 |
+| pesci | `fishdatan` | 113 (10 invariati) |
+| incantamenti | `encDisp`, le dinamiche di `*item_encdetail`, `ammoname` | 93 (2 invariati) |
+
+Le tre cose che il file ha insegnato, in ordine di prezzo:
+
+1. **Il posto decide se i dati arrivano in tempo.**
+   `ioriginalnameref(ITEM_ID_FISH)` è la stringa vuota: il nome della specie è
+   *tutto* il nome e arriva da `itemNameSub`, che gira **dopo** l'articolo.
+   Tradurre i 113 nomi e basta avrebbe dato «a salmone», e nessun test lo
+   avrebbe visto.
+2. **L'ego va dopo il materiale**, il che vuole una coda propria (`s10`)
+   riversata fra materiale e stato.
+3. **Il soggetto sta fuori dai file estratti.** `lang("それは", "It ")` è in
+   `command.hsp`, e `s` compare in quattro siti di cui tre senza soggetto: le
+   rese sono verbi alla terza persona senza soggetto, e il prefisso si spegne
+   con una toppa.
 
 ## `db_item.hsp` è chiuso — 2026-08-09, decima sessione
 
