@@ -91,29 +91,58 @@ def nessuna_firma_in_due_classi(percorso: Path | None = None) -> set[tuple[str, 
 # --- il campo che la rinomina puo' vedere -----------------------------------
 
 _BLOCCO = re.compile(r"if\s*\(\s*dbid\s*==\s*(CREATURE_ID_[A-Z_0-9]+)\s*\)")
-_NOME_ASSEGNATO = re.compile(r'cdatan\(CDATAN_NAME,\s*rc\)\s*=\s*lang\("[^"]*", "([^"]*)"\)')
+_NOME_ASSEGNATO = re.compile(
+    r'cdatan\(CDATAN_NAME,\s*rc\)\s*=\s*lang\("([^"]*)", "([^"]*)"\)')
 _CANCELLO = re.compile(r"cdata\(CDATA_ID,\s*tc\)\s*==\s*(CREATURE_ID_[A-Z_0-9]+)")
 _EVMODE = re.compile(r"^\s*evmode = (\d+)")
 _RAMO = re.compile(r"^\s*if \( evmode == (\d+) \)")
-_EV = re.compile(r'^\s*(evold|evname) = lang\("[^"]*", "([^"]*)"\)')
+_EV = re.compile(r'^\s*(evold|evname) = lang\("([^"]*)", "([^"]*)"\)')
 
 
-def nomi_per_creatura(percorso: Path | None = None) -> dict[str, str]:
-    """CREATURE_ID -> nome inglese, letto da `db_creature.hsp`."""
+# ⚠️ **L'inglese non basta a identificare un nome, il giapponese si'.** Upstream
+# ha sbagliato la colonna inglese in due punti, e i due errori sono opposti:
+#
+# - **una stringa giapponese scritta in due modi in inglese.** `フレアチック` e'
+#   `Flare Chick` in `action.hsp:18191` e `Flare chick` in `18202`; lo stesso per
+#   `イノブタ`, `ヤドナシ`, `デュラハン`. Il confronto della rinomina distingue
+#   le maiuscole, quindi in inglese quelle quattro evoluzioni di secondo stadio
+#   **non scattano mai**, mentre in giapponese funzionano;
+# - **due stringhe giapponesi ridotte a un inglese solo.** `サラブレッド`
+#   (*purosangue*) e' `wild horse` in `action.hsp:16684`, ma `db_creature.hsp` lo
+#   chiama `thoroughbred`: quell'`evold` non aggancia nessuno. Idem `野うさぎ`,
+#   che e' `rabbit` in `action.hsp` e `wild rabbit` in `db_creature.hsp`.
+#
+# Da qui la regola di questo lotto: **si traduce il giapponese**, che e'
+# l'originale. Non e' correggere upstream per gusto — e' l'unico modo di non
+# scrivere un nome sbagliato in dizionario, perche' rendere `サラブレッド` con
+# «cavallo selvatico» sarebbe falso in italiano a prescindere dal codice. Che
+# quattro catene tornino a funzionare e' la conseguenza, non lo scopo.
+#
+# Conseguenza per le guardie: la chiave e' la **firma** — (giapponese, inglese) —
+# e non l'inglese da solo. Le funzioni `*_con_jp` la portano fin dentro i test.
+
+def nomi_per_creatura_con_jp(percorso: Path | None = None) -> dict[str, tuple[str, str]]:
+    """CREATURE_ID -> (giapponese, inglese), letto da `db_creature.hsp`."""
     percorso = percorso or (percorsi.SORGENTE_HSP / FILE)
-    fuori, blocco = {}, None
+    fuori: dict[str, tuple[str, str]] = {}
+    blocco = None
     for riga in percorso.read_bytes().decode("cp932").split("\r\n"):
         m = _BLOCCO.search(riga)
         if m:
             blocco = m.group(1)
         m = _NOME_ASSEGNATO.search(riga)
         if m and blocco:
-            fuori.setdefault(blocco, m.group(1))
+            fuori.setdefault(blocco, (m.group(1), m.group(2)))
     return fuori
 
 
-def evoluzioni(percorso: Path | None = None) -> dict[int, dict]:
-    """evmode -> {'creature': {CREATURE_ID…}, 'coppie': [(evold, evname)…]}.
+def nomi_per_creatura(percorso: Path | None = None) -> dict[str, str]:
+    """CREATURE_ID -> nome inglese. La forma senza giapponese, per chi non ne ha bisogno."""
+    return {k: v[1] for k, v in nomi_per_creatura_con_jp(percorso).items()}
+
+
+def evoluzioni_con_jp(percorso: Path | None = None) -> dict[int, dict]:
+    """Come `evoluzioni`, ma ogni `evold`/`evname` e' la coppia (giapponese, inglese).
 
     ⚠️ **Il campo della rinomina non sono tutti i nomi: sono quelli che possono
     entrare in quel ramo.** L'idoneita' la decide `cdata(CDATA_ID, tc)`, quindi
@@ -138,7 +167,7 @@ def evoluzioni(percorso: Path | None = None) -> dict[int, dict]:
             n = int(m.group(1))
             cancelli[n].update(cid for j, cid in visti if 0 <= i - j <= 8)
 
-    coppie: dict[int, list[tuple[str, str]]] = collections.defaultdict(list)
+    coppie: dict[int, list[tuple[tuple[str, str], tuple[str, str]]]] = collections.defaultdict(list)
     ramo, evname = None, None
     for riga in righe:
         m = _RAMO.match(riga)
@@ -147,13 +176,27 @@ def evoluzioni(percorso: Path | None = None) -> dict[int, dict]:
         m = _EV.match(riga)
         if m and ramo is not None:
             if m.group(1) == "evname":
-                evname = m.group(2)
+                evname = (m.group(2), m.group(3))
             elif evname is not None:
-                coppie[ramo].append((m.group(2), evname))
+                coppie[ramo].append(((m.group(2), m.group(3)), evname))
 
     return {
         n: {"creature": cancelli[n], "coppie": coppie[n]}
         for n in sorted(set(cancelli) & set(coppie))
+    }
+
+
+def evoluzioni(percorso: Path | None = None) -> dict[int, dict]:
+    """evmode -> {'creature': {CREATURE_ID…}, 'coppie': [(evold, evname)…]}, in inglese.
+
+    La forma senza giapponese, che basta a chi guarda solo la struttura del
+    campo. Chi deve risalire alla voce di dizionario usa `evoluzioni_con_jp`:
+    l'inglese da solo non identifica un nome (vedi la nota qui sopra).
+    """
+    return {
+        n: {"creature": d["creature"],
+            "coppie": [(vecchio[1], nuovo[1]) for vecchio, nuovo in d["coppie"]]}
+        for n, d in evoluzioni_con_jp(percorso).items()
     }
 
 
@@ -168,6 +211,24 @@ def nomi_visibili(evmode: int, mappa: dict | None = None, nomi: dict | None = No
     """
     mappa = mappa if mappa is not None else evoluzioni()
     nomi = nomi if nomi is not None else nomi_per_creatura()
+    creature = mappa[evmode]["creature"]
+    fuori = {nomi[c] for c in creature if c in nomi}
+    for altro in mappa.values():
+        if altro["creature"] & creature:
+            fuori.update(nuovo for _, nuovo in altro["coppie"])
+    return fuori
+
+
+def nomi_visibili_con_jp(evmode: int, mappa: dict | None = None,
+                         nomi: dict | None = None) -> set[tuple[str, str]]:
+    """Come `nomi_visibili`, ma ogni nome e' la coppia (giapponese, inglese).
+
+    E' la forma che serve a chi deve cercare la resa italiana: `wild horse` in
+    inglese sono **due** creature — `野生馬` e `サラブレッド` — e la coppia le
+    tiene distinte dove l'inglese le confonde.
+    """
+    mappa = mappa if mappa is not None else evoluzioni_con_jp()
+    nomi = nomi if nomi is not None else nomi_per_creatura_con_jp()
     creature = mappa[evmode]["creature"]
     fuori = {nomi[c] for c in creature if c in nomi}
     for altro in mappa.values():

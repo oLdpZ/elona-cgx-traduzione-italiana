@@ -16,8 +16,9 @@ import pytest
 
 from strumenti import percorsi
 from strumenti.creature import (
-    AZIONI, FILE, classi, classi_da_testo, evoluzioni, lotto_nucleo,
-    nessuna_firma_in_due_classi, nomi_per_creatura, nomi_visibili,
+    AZIONI, FILE, classi, classi_da_testo, evoluzioni, evoluzioni_con_jp,
+    lotto_nucleo, nessuna_firma_in_due_classi, nomi_per_creatura,
+    nomi_per_creatura_con_jp, nomi_visibili, nomi_visibili_con_jp,
     nucleo_atomico,
 )
 
@@ -37,6 +38,19 @@ def carica(nome: str) -> dict[str, dict]:
         return {}
     voci = [json.loads(r) for r in percorso.read_text(encoding="utf-8").splitlines() if r.strip()]
     return {v["firma"]: v for v in voci if v.get("it")}
+
+
+def rese_per_firma() -> dict[tuple[str, str], str] | None:
+    """(giapponese, inglese) -> italiano, dai due dizionari del nucleo.
+
+    `None` se non c'e' ancora niente da guardare, cosi' il chiamante salta.
+    La chiave e' la coppia e non l'inglese: e' l'unica che tiene distinti i due
+    `wild horse` di `action.hsp`.
+    """
+    tradotte = list(carica(FILE).values()) + list(carica(AZIONI).values())
+    if not tradotte:
+        return None
+    return {(v["jp"], v["en"]): v["it"] for v in tradotte}
 
 
 # --- il classificatore -------------------------------------------------------
@@ -92,36 +106,35 @@ def test_il_nucleo_ha_la_misura_che_il_piano_dichiara():
     assert per_file == {FILE: 203, AZIONI: 373}
 
 
-def test_lo_stesso_inglese_non_riceve_due_rese():
-    """⚠️ La guardia che le altre due non possono dare.
+def test_la_stessa_firma_ha_la_stessa_resa_nei_due_dizionari():
+    """⚠️ Il vincolo atomico, quello che nessuna guardia vedeva.
 
-    Due inglesi del nucleo portano due giapponesi diversi, quindi due firme:
-    `rabbit` (野うさぎ / ウサギ) e `wild horse` (野生馬 / サラブレッド). Il
-    confronto che il taglio fa a runtime e' fra **stringhe**, non fra firme: se
-    le due voci ricevono rese diverse, `evold` non aggancia piu' il nome e
-    l'evoluzione smette di rinominare.
+    198 firme del nucleo vivono **in tutti e due** i file, quindi in due
+    dizionari distinti: `db_creature.hsp.jsonl` e `action.hsp.jsonl`. Niente
+    impedisce di scrivere due rese diverse — i dizionari sono per file e non si
+    parlano — e il risultato sarebbe un `evold` che non aggancia piu' il nome
+    che dovrebbe riconoscere, in silenzio.
 
-    `test_evold_resta_agganciato_ai_nomi_che_in_inglese_lo_erano` non lo vede:
-    costruisce `reso = {v["en"]: v["it"]}`, cioe' una mappa **per inglese**, e
-    di due rese ne tiene una sola — silenziosamente quella che arriva dopo.
+    E' il motivo per cui il lotto entra tutto insieme o niente, e questa e' la
+    rete sotto quella regola.
+
+    ⚠️ Non chiede che lo **stesso inglese** abbia la stessa resa, e sarebbe
+    sbagliato chiederlo: `wild horse` in `action.hsp` sono due firme — `野生馬`
+    e `サラブレッド` — e sono due creature diverse. La chiave e' la firma.
     """
-    tradotte = list(carica(FILE).values()) + list(carica(AZIONI).values())
-    if not tradotte:
+    creature_it, azioni_it = carica(FILE), carica(AZIONI)
+    if not creature_it or not azioni_it:
         pytest.skip("i dizionari di db_creature.hsp e action.hsp non esistono ancora")
 
-    nucleo = nucleo_atomico()
-    per_inglese: dict[str, set[str]] = {}
-    for voce in tradotte:
-        if voce["en"] in nucleo:
-            per_inglese.setdefault(voce["en"], set()).add(voce["it"])
-
     divergenti = [
-        f"{en!r} -> {sorted(rese)}"
-        for en, rese in per_inglese.items() if len(rese) > 1
+        f"{firma[:10]} {creature_it[firma]['en']!r}: "
+        f"{creature_it[firma]['it']!r} contro {azioni_it[firma]['it']!r}"
+        for firma in set(creature_it) & set(azioni_it)
+        if creature_it[firma]["it"] != azioni_it[firma]["it"]
     ]
     assert not divergenti, (
-        "lo stesso inglese ha ricevuto rese diverse: il taglio confronta "
-        "stringhe, non firme, e cosi' non aggancia piu':\n" + "\n".join(divergenti)
+        "la stessa firma ha due rese nei due dizionari: il taglio confronta "
+        "stringhe, e cosi' non aggancia piu':\n" + "\n".join(divergenti)
     )
 
 
@@ -224,33 +237,76 @@ def test_evold_resta_agganciato_ai_nomi_che_in_inglese_lo_erano():
     codice li prova tutti e due. `lesser mummy` aggancia `mummy` in coda, mentre
     «mummia minore» lo aggancia in testa — l'italiano mette la specie davanti.
     Cio' che conta e' che agganci, non da che parte.
+
+    ⚠️ **La ricerca della resa e' per firma, non per inglese.** Prima questa
+    funzione costruiva `{v["en"]: v["it"]}`, e su `wild horse` — che in
+    `action.hsp` sono due creature, `野生馬` e `サラブレッド` — di due rese ne
+    teneva una sola, silenziosamente quella che arrivava dopo.
     """
-    nomi_it = carica(FILE)
-    azioni_it = carica("action.hsp")
-    if not nomi_it or not azioni_it:
+    reso = rese_per_firma()
+    if reso is None:
         pytest.skip("i dizionari di db_creature.hsp e action.hsp non esistono ancora")
 
-    reso = {v["en"]: v["it"] for v in list(nomi_it.values()) + list(azioni_it.values())}
-    mappa, nomi_en = evoluzioni(), nomi_per_creatura()
+    mappa, nomi = evoluzioni_con_jp(), nomi_per_creatura_con_jp()
     rotte = []
     for evmode, dati in mappa.items():
-        visibili = nomi_visibili(evmode, mappa, nomi_en)
-        for vecchio_en, _ in dati["coppie"]:
-            vecchio_it = reso.get(vecchio_en)
+        visibili = nomi_visibili_con_jp(evmode, mappa, nomi)
+        for vecchio, _ in dati["coppie"]:
+            vecchio_it = reso.get(vecchio)
             if vecchio_it is None:
                 continue
-            for nome_en in visibili:
-                if not (nome_en.startswith(vecchio_en) or nome_en.endswith(vecchio_en)):
+            for nome in visibili:
+                if not (nome[1].startswith(vecchio[1]) or nome[1].endswith(vecchio[1])):
                     continue
-                nome_it = reso.get(nome_en)
+                nome_it = reso.get(nome)
                 if nome_it is None:
                     continue
                 if not (nome_it.startswith(vecchio_it) or nome_it.endswith(vecchio_it)):
                     rotte.append(
-                        f"evmode {evmode}: {nome_en!r} -> {nome_it!r} non aggancia piu' "
-                        f"{vecchio_en!r} -> {vecchio_it!r} ne' in testa ne' in coda"
+                        f"evmode {evmode}: {nome[1]!r} -> {nome_it!r} non aggancia piu' "
+                        f"{vecchio[1]!r} -> {vecchio_it!r} ne' in testa ne' in coda"
                     )
     assert not rotte, "la rinomina dell'evoluzione non attacca piu':\n" + "\n".join(rotte[:20])
+
+
+def test_dove_agganciava_il_giapponese_aggancia_anche_l_italiano():
+    """La proprieta' che l'inglese non puo' dare, perche' e' lui a essere rotto.
+
+    Upstream ha scritto `フレアチック` come `Flare Chick` in un punto e
+    `Flare chick` nell'altro (idem `イノブタ`, `ヤドナシ`, `デュラハン`), e ha
+    chiamato `サラブレッド` `wild horse` mentre `db_creature.hsp` lo chiama
+    `thoroughbred`. In tutti e cinque i casi l'`evold` **giapponese** coincide
+    con il nome giapponese della creatura, e l'evoluzione in giapponese scatta;
+    l'inglese non aggancia e la catena e' morta.
+
+    Qui si chiede che l'italiano si comporti come il giapponese, che e'
+    l'originale. Solo sulle coincidenze **esatte**: gli agganci parziali del
+    giapponese hanno accidenti loro, e pretenderli sarebbe la guardia troppo
+    severa che si finisce per spegnere.
+    """
+    reso = rese_per_firma()
+    if reso is None:
+        pytest.skip("i dizionari di db_creature.hsp e action.hsp non esistono ancora")
+
+    mappa, nomi = evoluzioni_con_jp(), nomi_per_creatura_con_jp()
+    rotte = []
+    for evmode, dati in mappa.items():
+        visibili = nomi_visibili_con_jp(evmode, mappa, nomi)
+        for vecchio, _ in dati["coppie"]:
+            vecchio_it = reso.get(vecchio)
+            if vecchio_it is None:
+                continue
+            for nome in visibili:
+                nome_it = reso.get(nome)
+                if nome_it is None or nome[0] != vecchio[0]:
+                    continue
+                if not (nome_it.startswith(vecchio_it) or nome_it.endswith(vecchio_it)):
+                    rotte.append(
+                        f"evmode {evmode}: {nome[0]} e' lo stesso giapponese di "
+                        f"{vecchio[1]!r}, ma {nome_it!r} non aggancia {vecchio_it!r}"
+                    )
+    assert not rotte, (
+        "in giapponese la rinomina scattava e in italiano no:\n" + "\n".join(rotte[:20]))
 
 
 def test_ogni_nome_e_ogni_stringa_di_evoluzione_porta_il_proprio_articolo():
