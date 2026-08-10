@@ -6,6 +6,55 @@ ancora aperte.
 
 ---
 
+## Due interpolazioni nella stessa funzione, e solo una porta l'articolo — 2026-08-10, ventiduesima sessione
+
+`foodname` (`text.hsp:3211`) compone il nome di ogni cibo cucinato del gioco:
+cinque famiglie — carne, verdura, frutta, pasta, dolci — e una decina di piatti
+per famiglia. Ma **interpola due cose diverse**, e la differenza decide la resa:
+
+| ramo | cosa interpola | forma |
+|---|---|---|
+| carne | `refchara(id, DBSPEC_CHARA_NAME_ORG, 1)` | **con l'articolo**: «il minotauro» |
+| verdura, frutta, dolci | `ioriginalnameref(id)` | **nuda**: «carota» |
+
+Non è un capriccio del sorgente, è il contratto dei nomi: per le **creature**
+l'articolo sta dentro il nome (`contratto-nomi.md` §4), per gli **oggetti** lo
+compone `itemname()`. `foodname` pesca dagli uni e dagli altri.
+
+Conseguenza: «carne di il minotauro» non si può scrivere, e nessuna preposizione
+italiana lo salva — `di`, `da`, `al` si fondono tutte con l'articolo.
+
+**Deciso:**
+
+- **carne → la creatura fra parentesi**: «bistecca (il minotauro)», «crocchetta
+  (la gallina)». Non è un'invenzione: è l'idioma che il sorgente stesso usa per
+  attaccare un nome di creatura a un nome di oggetto (`item_func.hsp:2159`).
+  Regge l'articolo, regge il genere, e regge anche il valore predefinito
+  «animale», che l'articolo non ce l'ha;
+- **verdura, frutta, dolci → «di»**, che davanti a un nome nudo non si fonde:
+  «insalata di carota», «budino di mela», «crostata di banana».
+
+⚠️ **Il modificatore va dopo, e si può perché sono dinamiche.** L'inglese scrive
+`"kitchen refuse " + S`, con l'aggettivo davanti a un nome di genere ignoto — lo
+stesso vincolo dei prefissi delle Nefia. Ma in una voce dinamica la resa è
+**l'espressione intera**, quindi l'ordine è nostro: `S + " da pattumiera"`. Dove
+l'aggettivo deve restare aggettivo si sceglie invariabile in -e:
+«S maleodorante». Dove no, diventa un complemento: «S in pappa», «S senza più
+forma», «S dall'aria immangiabile».
+
+⚠️ **`ペペロンチーノ` si traduce, `carbonara` no.** Il secondo è una parola
+italiana che il giapponese ha traslitterato e l'inglese ha copiato: lasciarla è
+farla tornare a casa. Il primo invece prende **l'ingrediente per il piatto**, e
+in italiano il piatto ha un nome suo: «aglio e olio».
+
+⚠️ **Da guardare a schermo**: la parentesi è la scelta più visibile di questa
+sessione, e i nomi dei cibi sono fra le stringhe che un giocatore legge di più.
+Se in inventario legge male, si cambia qui e in un posto solo.
+
+Vedi [[la-testa-porta-il-genere]] e [[una-decisione-nel-posto-sbagliato]].
+
+---
+
 ## Quando il giapponese è un copia-incolla, arbitra la mappa — 2026-08-10, ventiduesima sessione
 
 Due quiz portano **lo stesso identico giapponese**:
