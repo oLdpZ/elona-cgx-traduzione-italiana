@@ -25,6 +25,15 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | `custom_tweaks.hsp` | **12** | 12 | **100%** | 28 |
 | **totale** | **4.887** | **8.624** | **57%** | **9.690** |
 
+⚠️ **Due di questi 100% sono falsi, e il 2026-08-10 si è misurato di quanto.**
+`db_item.hsp` ha **261** `iknownnameref` — i nomi che il gioco mostra prima
+dell'identificazione, tipo `colorful eyes` — e `custom_tweaks.hsp` ha **77**
+etichette del menu opzioni: nessuna delle due classi passa da `lang()` né
+dall'estrattore, quindi non sta né al numeratore né al denominatore. In tutto
+sono **391 stringhe visibili** sparse su nove file. Non è un errore di calcolo:
+il denominatore conta solo ciò che l'estrattore sa vedere. Il dettaglio, il
+censimento e l'ordine con cui affrontarle stanno in `decisioni.md`, 2026-08-10.
+
 ⚠️ Le 2 firme che mancano ad `action.hsp` **non sono arretrato**: sono le due
 righe rinviate a toppa (`:4584`, l'articolo inglese davanti a un'arma unica, e
 `:9631`, il possessivo `his(tc, 1)` che in italiano si omette). Il file è

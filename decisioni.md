@@ -2206,3 +2206,84 @@ Test: **344** (erano 343).
    espressione: incapsularlo fra virgolette come si fa con le dinamiche fa
    fallire `verifica` su sedici voci in un colpo solo. E dentro una statica le
    virgolette devono essere le tipografiche `“”`.
+
+
+## 2026-08-10 — 391 stringhe che il giocatore legge e che nessun conteggio vedeva
+
+Trovate da uno screenshot dell'utente, non da una lettura del sorgente. Provando
+l'occhio elementale, a schermo compariva **`colorful eyes`**.
+
+Non era un difetto della traduzione di `action.hsp`: un oggetto di Elona ha
+**due** nomi, e noi ne traducevamo uno solo.
+
+- `ioriginalnameref(ITEM_ID_ELEMENTS_EYES)` = `<Elements Eyes>` — il nome vero,
+  quello dopo l'identificazione. In dizionario da sempre.
+- `iknownnameref(ITEM_ID_ELEMENTS_EYES)` = `colorful eyes` — il nome che il
+  gioco mostra **finché l'oggetto non è identificato**. Mai estratto.
+
+La causa è esplicita e non è una svista di scansione: `_ASSEGNA_NOME`
+(`estrai.py:65`) accetta `ioriginalnameref` e `ioriginalnameref2`, e basta. La
+scelta era motivata — il commento sopra dice che agganciare per analogia gli
+altri `if ( jp )` di `db_item.hsp`, che sono 2.902 contro 1.321 di nomi, è il
+modo di corrompere il sorgente in silenzio — ma ha lasciato fuori una classe
+intera di testo visibile.
+
+### Il censimento
+
+Contate tutte le assegnazioni `array(...) = "letterale"` con caratteri latini,
+fuori da `lang()`, che il dizionario del loro file non copre:
+
+| file | array | quante | cosa sono |
+|---|---|---|---|
+| `db_item.hsp` | `iknownnameref` | **261** | nomi non identificati |
+| `custom_tweaks.hsp` | `TweakData` | **77** | il menu opzioni di Custom-GX |
+| `custom_ai.hsp` | `listn` | **20** | il menu dell'IA dei compagni |
+| `custom_pet.hsp` | `listn` | **10** | il menu impostazioni dei compagni |
+| `custom_dmgparse.hsp` | `DmgParsesClass` | 12 | da classificare |
+| vari | `listn`, `cellobjname`, `description` | ~11 | spiccioli |
+
+**391 stringhe.** Escluso a mano ciò che è dato e non testo: `filter_item`,
+`rffilter_item` e `filter_creature` (1.489 stringhe come `/fish/`, `/noshop/`,
+`/nogive/`) e gli identificativi di razza di `db_race.hsp`
+(`listn(1, listmax) = "kobolt"`).
+
+⚠️ **Verificato che l'estrattore non ha altri buchi sui nomi.** I 39
+`ioriginalnameref` che risultavano scoperti sono il ramo **giapponese**, presi
+dal filtro perché contengono lettere latine (`Resアッパー`, `TZ500-K型麻酔銃`):
+il 1.321 su 1.321 dichiarato in `estrai.py` regge.
+
+### Due 100% falsi
+
+`db_item.hsp` e `custom_tweaks.hsp` risultano chiusi mentre hanno
+rispettivamente 261 e 77 stringhe visibili in inglese. Non è un errore di
+calcolo: il denominatore conta solo ciò che l'estrattore sa vedere.
+
+> Una percentuale non dice quanto manca: dice quanto manca **di ciò che lo
+> strumento guarda**. Le due cose divergono in silenzio, e a farle divergere è
+> sempre una classe di siti che nessuno ha dichiarato.
+
+### Decisione
+
+**Si annota e si prosegue col piano.** Il perimetro nuovo si affronta dopo la
+Fase 1. Quando ci si torna, l'ordine giusto è:
+
+1. **prima lo strumento che misura**, non la traduzione: un conteggio dei
+   letterali scoperti con l'elenco esplicito di ciò che è dato, così il buco
+   resta visibile invece di dipendere da chi si ricorda di questa pagina;
+2. poi i 261 `iknownnameref`, che sono la classe che si vede di più giocando —
+   ogni oggetto non identificato la mostra;
+3. ⚠️ e attenzione: `iknownnameref` alimenta `itemname()` come il nome vero,
+   quindi vuole lo **stesso trattamento** di articolo e plurale descritto in
+   `contratto-nomi.md`. Non è una tabella di etichette, è un nome.
+
+⚠️ **Restano fuori dal conteggio anche i nomi calcolati**, non solo i letterali:
+`iknownnameref(ITEM_ID_SCROLL_...) = _namescroll(p) + strblank + strscroll`. Le
+loro parti hanno già toppe generate (`genera_toppe_casuali`), ma nessuno ha
+verificato che la copertura sia completa.
+
+### La regola che questa scoperta conferma
+
+È la terza volta che una prova a schermo dell'utente trova ciò che due letture
+del sorgente non trovano. Le prime due erano difetti; questa è **un pezzo di
+perimetro**. Chiedere la prova presto non serve a validare: serve a scoprire
+cosa non stiamo nemmeno guardando.

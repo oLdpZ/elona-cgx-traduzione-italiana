@@ -59,6 +59,27 @@ già lui, ma il conto delle non tradotte le porta per sempre).
   è per questo che la resa è «ha cambiato elemento» e non «ha cambiato affinità
   elementale». Il dettaglio in `decisioni.md`.
 
+## 391 stringhe fuori perimetro, trovate a schermo
+
+⚠️ **Un oggetto di Elona ha due nomi, e ne traduciamo uno.** `iknownnameref` è
+quello che il gioco mostra **prima dell'identificazione** — l'occhio elementale
+si presenta come `colorful eyes` — e l'estrattore non lo guarda:
+`_ASSEGNA_NOME` (`estrai.py:65`) accetta solo `ioriginalnameref`.
+
+Censite tutte le assegnazioni di letterali inglesi fuori da `lang()` che il
+dizionario non copre: **391 stringhe visibili** — 261 `iknownnameref` di
+`db_item.hsp`, 77 `TweakData` (il menu opzioni di Custom-GX), 30 `listn` dei
+menu dei compagni, il resto spiccioli. Esclusi i dati (`filter_item` e affini,
+1.489 stringhe come `/fish/`).
+
+**Deciso il 2026-08-10: si annota e si prosegue col piano.** Il perimetro nuovo
+si affronta dopo la Fase 1, e prima si scrive lo strumento che lo misura. Il
+censimento e l'ordine stanno in `decisioni.md`.
+
+⚠️ Conseguenza da tenere a mente leggendo la tabella qui sopra: il 100% di
+`db_item.hsp` e di `custom_tweaks.hsp` **è falso**. Il denominatore conta solo
+ciò che l'estrattore sa vedere.
+
 ## Il metodo
 
 **I lotti si prendono per zona di riga**, non separando statiche e dinamiche.
