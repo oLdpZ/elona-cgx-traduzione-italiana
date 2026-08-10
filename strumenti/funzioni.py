@@ -62,9 +62,12 @@ from strumenti.estrai import argomenti_di
 # its/its2/your2/yourself sono varianti di possessivi e riflessivi inglesi
 # che, a differenza di he/his/him, non hanno alcun ramo che passa da lang().
 # have/does sono coniugazioni verbali (has/have, do/does), stesso discorso.
+# is2 e' la copula accordata al NUMERO invece che alla persona (are/is,
+# init.hsp:1768): mancava, e la guardia pretendeva che una frase italiana
+# conservasse un "is". L'elenco e' ora verificato da un test contro init.hsp.
 MORFOLOGIA_INGLESE = frozenset({
     "_s", "_s2", "_s3", "_s4",
-    "is", "was", "your", "your2",
+    "is", "is2", "was", "your", "your2",
     "have", "does",
     "him2", "his3", "its", "its2", "yourself",
 })

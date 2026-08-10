@@ -94,3 +94,55 @@ def test_argomenti_di_morfologia_annidata_profonda():
     espressione = '_s(cdata(CDATA_ID, name(tc))) + name(cc)'
     assert funzioni_di_contenuto(espressione) == ["name"]
     assert morfologia_residua(espressione) == ["_s"]
+
+
+def test_nessuna_morfologia_inglese_sfugge_all_elenco():
+    """⚠️ L'elenco della morfologia era scritto a mano, e `is2` mancava.
+
+    `init.hsp` definisce quattordici funzioni che restituiscono **solo**
+    stringhe inglesi nude, mai attraverso `lang()`. Quelle sono morfologia per
+    costruzione: se una manca dall'elenco, `verifica.py` pretende che la resa
+    italiana la conservi, cioe' chiede di scrivere «is» dentro una frase
+    italiana — e nessuna traduzione corretta puo' passare. E' lo stesso difetto
+    della guardia troppo severa del 2026-08-10, in un altro punto.
+
+    Qui l'elenco non si controlla piu' a memoria: si rilegge dal sorgente.
+    """
+    import re
+
+    from strumenti import percorsi
+    from strumenti.funzioni import MORFOLOGIA_INGLESE, PRONOMI_PER_SITO
+
+    percorso = percorsi.SORGENTE_HSP / "init.hsp"
+    if not percorso.exists():
+        pytest.skip("il sorgente non e' disponibile")
+    righe = percorso.read_bytes().decode("cp932").split("\r\n")
+
+    blocchi, nome, corpo = [], None, []
+    for riga in righe:
+        m = re.match(r"#defcfunc\s+(\w+)", riga.strip())
+        if m:
+            if nome:
+                blocchi.append((nome, corpo))
+            nome, corpo = m.group(1), []
+        elif nome is not None:
+            corpo.append(riga)
+    if nome:
+        blocchi.append((nome, corpo))
+
+    # solo-letterali-inglesi: ogni `return` e' una stringa nuda, nessun lang()
+    solo_inglese = set()
+    for n, corpo in blocchi:
+        ritorni = re.findall(r"return\s+(.+)", "\n".join(corpo))
+        if not ritorni or any("lang(" in r for r in ritorni):
+            continue
+        if all(re.fullmatch(r'"[A-Za-z\' ]*"', r.strip()) for r in ritorni):
+            solo_inglese.add(n)
+
+    assert solo_inglese, "il riconoscimento non ha trovato nulla: e' la sonda a essere rotta"
+    sfuggite = solo_inglese - MORFOLOGIA_INGLESE - PRONOMI_PER_SITO
+    assert not sfuggite, (
+        "queste funzioni di init.hsp restituiscono solo inglese nudo ma non sono "
+        f"dichiarate morfologia: {sorted(sfuggite)}. Finche' mancano, nessuna resa "
+        "italiana delle frasi che le usano puo' passare da verifica.py"
+    )
