@@ -98,6 +98,42 @@ def _fine_chiamata(espressione: str, apertura: int) -> int:
     return len(espressione)
 
 
+def _maschera_letterali(espressione: str) -> str:
+    """La stessa espressione con il **testo dentro le stringhe** ridotto a spazi.
+
+    ⚠️ Serve perche' `CHIAMATA` non sa distinguere il codice dal testo, e una
+    parola seguita da una parentesi **dentro una stringa** le sembra una
+    chiamata. `"Manuscript production (" + gdata(...) + " inspiration) "`
+    faceva contare una funzione `production`, e la resa italiana — «Scrittura
+    di manoscritti (» — ne faceva contare una di nome `manoscritti`: due
+    elenchi diversi, e la voce era intraducibile. Qualunque resa con una
+    parentesi dopo una parola sarebbe stata rifiutata.
+
+    Le posizioni non cambiano (ogni carattere mascherato diventa uno spazio),
+    quindi gli indici valgono ancora sull'originale. Sparisce anche la
+    punteggiatura dentro le stringhe, ed e' voluto: una parentesi o una virgola
+    scritte nel testo non aprono un argomento.
+    """
+    fuori = []
+    dentro = False
+    scappa = False
+    for carattere in espressione:
+        if scappa:
+            fuori.append(" ")
+            scappa = False
+            continue
+        if carattere == "\\" and dentro:
+            fuori.append(" ")
+            scappa = True
+            continue
+        if carattere == '"':
+            fuori.append('"')
+            dentro = not dentro
+            continue
+        fuori.append(" " if dentro else carattere)
+    return "".join(fuori)
+
+
 def _classifica(espressione: str) -> tuple[list[str], list[str]]:
     """Per ogni chiamata dell'espressione, decide se e' contenuto o morfologia.
 
@@ -119,6 +155,8 @@ def _classifica(espressione: str) -> tuple[list[str], list[str]]:
     contenuto: list[str] = []
     morfologia: list[str] = []
     salta_fino_a = 0
+    # il testo dentro le stringhe non e' codice: vedi _maschera_letterali
+    espressione = _maschera_letterali(espressione)
     for corrispondenza in CHIAMATA.finditer(espressione):
         if corrispondenza.start() < salta_fino_a:
             continue

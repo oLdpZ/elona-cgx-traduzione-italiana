@@ -146,3 +146,35 @@ def test_nessuna_morfologia_inglese_sfugge_all_elenco():
         f"dichiarate morfologia: {sorted(sfuggite)}. Finche' mancano, nessuna resa "
         "italiana delle frasi che le usano puo' passare da verifica.py"
     )
+
+
+def test_una_parola_seguita_da_parentesi_dentro_una_stringa_non_e_una_chiamata():
+    """⚠️ `CHIAMATA` non distingue il codice dal testo, e il testo puo' avere parentesi.
+
+    `action.hsp:7814` scrive `"Manuscript production (" + gdata(...) +
+    " inspiration) "`: la guardia ci leggeva una funzione `production`, e nella
+    resa italiana una funzione `manoscritti`. Due elenchi diversi, quindi la
+    voce era intraducibile — e lo sarebbe stata **qualunque** resa con una
+    parentesi dopo una parola.
+    """
+    from strumenti.funzioni import funzioni_di_contenuto
+
+    inglese = '"Manuscript production (" + gdata(GDATA_X) + " inspiration) "'
+    italiano = '"Scrittura di manoscritti (ispirazione: " + gdata(GDATA_X) + ") "'
+    assert funzioni_di_contenuto(inglese) == ["gdata"]
+    assert funzioni_di_contenuto(italiano) == funzioni_di_contenuto(inglese)
+
+
+def test_le_virgole_dentro_una_stringa_non_separano_argomenti():
+    """La stessa maschera protegge il conteggio degli argomenti dei pronomi.
+
+    `he(x)` e `he(x, y)` si distinguono per il numero di argomenti: una virgola
+    scritta dentro il testo non deve farne comparire uno.
+    """
+    from strumenti.funzioni import funzioni_di_contenuto
+
+    # con un solo argomento vero `his` e' morfologia e sparisce dal contenuto,
+    # anche se il testo accanto contiene una virgola
+    assert funzioni_di_contenuto('his(cc) + " uno, due e tre."') == []
+    # con due argomenti veri e' contenuto e resta
+    assert funzioni_di_contenuto('his(cc, 1) + " uno, due."') == ["his"]
