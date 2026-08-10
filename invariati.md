@@ -399,6 +399,8 @@ salvataggio finirebbe italiano.
 | trans-female | valore di `CDATAN_NEWSEX` |
 | EN | **non è testo, è un marcatore di formato.** `text.hsp` lo usa in 52 punti dentro `instr(buff, 0, "%DEFAULT," + lang("JP", "EN"))` per trovare la sezione di lingua nei testi esterni (`talk.txt`, `board.txt`...). Tradurlo romperebbe la lettura di ogni file esterno. Presente anche in `action.hsp`, `chat.hsp`, `command.hsp`, `help.hsp`, `chara_func.hsp`, `item_func.hsp` |
 
+| `<` | parentesi del nome proprio, non testo: `action.hsp:4612` compone `lang("『", "<") + s(1) + lang("』", ">")` attorno al nome di un'arma unica. Il giapponese usa le sue virgolette 『』, l'inglese le parentesi angolari, e l'italiano segue l'inglese perche' e' la forma che il progetto usa gia' per i nomi propri (`<Gwen>`, `<Vansesda>`). Non c'e' nessuna parola da rendere |
+| `>` | l'altra meta' della parentesi qui sopra |
 ## Nomi di creatura riscritti nel salvataggio — non decidibili qui
 
 ⚠️ Trovate il 2026-08-07 misurando `Sister`. In `action.hsp` (Fase 1) ci sono
