@@ -6,6 +6,112 @@ ancora aperte.
 
 ---
 
+## Il riquadro di un menu taglia, e il tetto lo dichiara il chiamante — 2026-08-10, ventunesima sessione
+
+La sessione ha tradotto 258 firme di `text.hsp` (dal 45% al 60%), ma la parte
+che vale di più è una misura e la guardia che ne è nata.
+
+### Il difetto
+
+Uno screenshot del menu della frusta da domatore, chiesto a metà sessione e non
+alla fine, ha mostrato otto frasi diverse che finivano **allo stesso identico
+pixel**. Otto stringhe che si fermano nello stesso punto sono un taglio, non una
+coincidenza: **il riquadro taglia**, non manda a capo e non restringe il
+carattere.
+
+### La misura
+
+Il metro non è a schermo, è nel sorgente: lo passa il chiamante a `*prompt_key`.
+
+```hsp
+val = promptx, prompty, 300, 1
+```
+
+Due letture dello stesso giorno — 300px → 33 caratteri visibili, 500px → 55 con
+margine — danno
+
+    caratteri = (pixel − 46) / 7,7
+
+I 46 pixel se ne vanno nella colonna della lettera di scelta. Le due costanti
+sono una **lettura con una data**, non una proprietà del motore: stanno in un
+punto solo (`strumenti/larghezze.py`) e due test le fissano, così se un giorno
+una voce dentro il tetto uscisse tagliata fallisce prima la misura del resto.
+
+### L'inglese non è il budget, e qui `guida-stile.md` si corregge
+
+Su 20 menu con voci fuori misura, **in 10 sforava anche l'inglese**:
+`txtsettamer` ha una voce inglese da 46 caratteri in un riquadro da 32, tagliata
+a monte da sempre. La regola scritta il 2026-08-07 — «il tetto di un campo è la
+stringa inglese più lunga che ci compare» — vale dove il numero non c'è; dove
+c'è, vince il numero.
+
+⚠️ **Sette delle 41 voci fuori misura non erano di questa sessione.** Avevo
+preso a modello «Quando agisce da solo, vaga lontano.» della quinta e copiato il
+difetto invece di misurarlo.
+
+### La stretta ha corretto anche un accordo
+
+«Quando agisce da solo» non entrava in 32 caratteri. La resa che ci sta —
+«Senza ordini» — **è anche invariante di genere**, che l'altra non era: «solo»
+concordava col compagno. Un vincolo di spazio che costringe a tornare sulla
+fonte migliora la traduzione, come già per le teste diverse di `skill.hsp`.
+
+### Tre trappole nel leggere la larghezza, e una nella guardia
+
+- `450 - 50 * en`: la larghezza **dipende dalla lingua**, e la nostra è la build
+  inglese (`map_user.hsp:1228`);
+- il `val =` può stare cento righe sotto la chiamata: i 35 menu del quiz ne
+  condividono uno solo (`chat.hsp:13055`);
+- dentro un `#deffunc` di menu solo le assegnazioni a `s(cnt)` sono voci; un
+  `txt lang(...)` come `text.hsp:1310` è la domanda del quiz e non ha tetto;
+- ⚠️ e la guardia cercava i chiamanti per **convenzione di nome**
+  (`txt(set|select)\w+`): `txtplusbody` non la segue e restava l'unico non
+  misurato, con l'aria di essere codice morto. Ora i nomi si leggono dal
+  sorgente. Terzo esemplare di [[una-guardia-vale-solo-dove-guarda]].
+
+---
+
+## Un prefisso che precede otto generi può solo essere un aggettivo in -e — 2026-08-10
+
+I nomi delle Nefia a caso si compongono di due pezzi che stanno a cinquecento
+righe di distanza:
+
+```hsp
+s  = mapnamerd(...)          ; text.hsp:3056, il prefisso
+s += lang("洞窟", "Cave")     ; text.hsp:3058, il tipo
+```
+
+Il tipo era **già tradotto** a `text.hsp:50` e ha **genere misto**: Grotta,
+Torre, Foresta, Tana, Miniera femminili; Forte, Cimitero, Lago maschili. Il
+prefisso li precede tutti e otto e non può accordarsi.
+
+Il giapponese non ha il problema perché i suoi prefissi sono genitivi — 死の,
+闇の, 不帰の — che in italiano andrebbero **dopo** il nome; ma l'ordine lo fissa
+il codice, che concatena e basta.
+
+**La resa: solo aggettivi in -e**, invarianti di genere al singolare. Iniziale,
+Mite, Audace, Palpitante, Ingannevole, Illustre, Mortale, Impenetrabile,
+Fatale, Informe. Qualche fedeltà si perde — 混沌の è «Informe» e non «Caotico» —
+ed è il prezzo del vincolo, non una svista.
+
+Conseguenza operativa: **un lotto non deve per forza essere una zona di riga**.
+Questo si è preso a cavallo di due zone lontane perché i due pezzi non si
+possono scrivere separati.
+
+---
+
+## Domanda aperta: `Cyber Dome` fu deciso sull'inglese, non sul giapponese — 2026-08-10
+
+Il 2026-08-07 `Cyber Dome` → «Cupola Cibernetica», con la regola dei nomi
+descrittivi. Ma il giapponese (`text.hsp:2791`) è **アクリ・テオラ**, cioè un nome
+**opaco**, che per la stessa regola resterebbe invariato — come `Vernis` o
+`Lesimas`. La decisione è già scritta anche in `db_creature.hsp` («l'abitante
+della cupola cibernetica»), quindi riaprirla tocca più file.
+
+**Non toccata**, solo segnalata. Se si riapre, si riapre insieme a tutti i siti.
+
+---
+
 ## Quattro difetti negli strumenti, trovati traducendo — 2026-08-11, diciannovesima sessione
 
 La sessione ha tradotto 439 firme di `action.hsp` e 45 di `chara_func.hsp`, ma

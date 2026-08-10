@@ -1,31 +1,36 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-10, fine della ventesima sessione.
+Aggiornato: 2026-08-10, fine della ventunesima sessione.
 
 ## La prima cosa da fare
 
-**`action.hsp` è chiuso.** Il prossimo file è **`text.hsp`**, che è a **780
-firme su 1.740 (45%)**: restano **960 firme**, e si prendono **per zona di
-riga**, col metodo qui sotto.
+**`text.hsp` è al 60%**: 1.038 firme su 1.740, ne restano **702**. Si prosegue
+per zona di riga da **riga 2836** (le descrizioni della mappa del mondo,
+Noyel in poi), col metodo qui sotto.
 
-⚠️ **Restano non provate in gioco le rinomine all'evoluzione dei nemici.**
-Verificate meccanicamente nella sessione scorsa: 249 `evold` su 250 combaciano
-con un nome che possono davvero incontrare, e la sola rotta — `<Gwen>` — è
-riparata. La prova a schermo serve ormai solo a confermare l'innesco. Vedi «Per
-rifare la prova in gioco».
+⚠️ **C'è un controllo nuovo nella catena, e va lanciato a ogni lotto di menu:**
 
-### Le quattro verifiche d'apertura
+```powershell
+python -m strumenti.larghezze
+```
+
+Deve dire `voci fuori misura: 0 su 75 menu misurati`. Se dice altro, la resa non
+sta nel riquadro e va accorciata **prima** di reimportare: a schermo verrebbe
+tagliata a metà parola. Vedi «Il tetto di un menu».
+
+### Le cinque verifiche d'apertura
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-python -m pytest strumenti/tests -q        # atteso: 344 passed, 2 skipped
+python -m pytest strumenti/tests -q        # atteso: 357 passed, 2 skipped
 python -m strumenti.prova_identita         # atteso: 72/72, 27.813, ambigue 0
 python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre ovunque
 python -m strumenti.creature               # atteso: nome 1131, voce 320, doppie 0, senza razza 0
+python -m strumenti.larghezze              # atteso: 0 fuori misura su 75 menu
 ```
 
-I test sono **344**, non più 343: uno nuovo, `test_la_deroga_all_evname_vale_per_una_riga_sola`,
-che tiene ferma l'unica deroga della guardia sulle rinomine.
+I test sono **357**, non più 344: tredici nuovi, tutti in
+`test_larghezze.py`.
 
 ## Dove siamo
 
@@ -36,16 +41,39 @@ che tiene ferma l'unica deroga della guardia sulle rinomine.
 | `skill.hsp` | 885 | 885 | **100%** |
 | `custom_tweaks.hsp` | 12 | 12 | **100%** |
 | `action.hsp` | 1.286 | 1.288 | **100%** (le 2 mancanti sono rinviate a toppa) |
-| `text.hsp` | 780 | 1.740 | 45% |
+| `text.hsp` | **1.038** | 1.740 | **60%** |
 | gli altri tre | 0 | 2.775 | 0% |
-| **totale Fase 1** | **4.887** | **8.624** | **57%** |
+| **totale Fase 1** | **5.145** | **8.624** | **60%** |
 
 Fuori dalla Fase 1: `db_creature.hsp` a 1.452 su 3.655;
 `custom_enemyevolution.hsp` **chiuso**; `ai.hsp` 6 su 100; `event.hsp` 5 su
 654; `chara_func.hsp` 45 su 331; `init.hsp` 0 su 133.
 
-**344 test**, prova d'identità **72/72 e 27.813**, **8.682 sostituzioni**, il
+**357 test**, prova d'identità **72/72 e 27.813**, **8.962 sostituzioni**, il
 compilatore non dice nulla.
+
+## Il tetto di un menu
+
+⚠️ **Il riquadro taglia**: non manda a capo, non restringe il carattere. Visto a
+schermo il 2026-08-10, dove otto frasi diverse finivano allo stesso pixel.
+
+Il metro sta nel sorgente, non a occhio: è il terzo argomento che il chiamante
+passa a `*prompt_key`.
+
+```hsp
+val = promptx, prompty, 300, 1      ← 300 pixel
+```
+
+`caratteri = (pixel − 46) / 7,7`, misurato su due riquadri. Lo fa
+`strumenti/larghezze.py`; `--tutti` elenca i 75 menu col loro tetto.
+
+⚠️ **La stringa inglese non è il budget.** In dieci menu su venti sfora anche
+lei: `txtsettamer` ha una voce inglese da 46 caratteri in un riquadro da 32.
+Prendere a modello una resa precedente senza misurarla è come sono nate sette
+delle 41 voci corrette in questa sessione.
+
+⚠️ **La larghezza può dipendere dalla lingua**: `450 - 50 * en` vale **400** per
+noi, che compiliamo la build inglese.
 
 ## Le due righe di `action.hsp` che non si traducono
 
@@ -66,19 +94,12 @@ quello che il gioco mostra **prima dell'identificazione** — l'occhio elemental
 si presenta come `colorful eyes` — e l'estrattore non lo guarda:
 `_ASSEGNA_NOME` (`estrai.py:65`) accetta solo `ioriginalnameref`.
 
-Censite tutte le assegnazioni di letterali inglesi fuori da `lang()` che il
-dizionario non copre: **391 stringhe visibili** — 261 `iknownnameref` di
-`db_item.hsp`, 77 `TweakData` (il menu opzioni di Custom-GX), 30 `listn` dei
-menu dei compagni, il resto spiccioli. Esclusi i dati (`filter_item` e affini,
-1.489 stringhe come `/fish/`).
-
 **Deciso il 2026-08-10: si annota e si prosegue col piano.** Il perimetro nuovo
 si affronta dopo la Fase 1, e prima si scrive lo strumento che lo misura. Il
 censimento e l'ordine stanno in `decisioni.md`.
 
-⚠️ Conseguenza da tenere a mente leggendo la tabella qui sopra: il 100% di
-`db_item.hsp` e di `custom_tweaks.hsp` **è falso**. Il denominatore conta solo
-ciò che l'estrattore sa vedere.
+⚠️ Conseguenza: il 100% di `db_item.hsp` e di `custom_tweaks.hsp` **è falso**.
+Il denominatore conta solo ciò che l'estrattore sa vedere.
 
 ## Il metodo
 
@@ -89,6 +110,7 @@ python -m strumenti.estrai text.hsp --da-tradurre --uscita lavoro/_r.jsonl
 # si ordina per (riga, occorrenza) e si prendono le prime ~50
 python -m strumenti.verifica lavoro/<lotto>.jsonl
 python -m strumenti.reimporta lavoro/<lotto>.jsonl
+python -m strumenti.larghezze
 python -m pytest strumenti/tests -q
 python -m strumenti.prova_identita
 python -m strumenti.genera_toppe_nomi
@@ -96,11 +118,13 @@ python -m strumenti.genera_toppe_casuali
 ```
 
 ⚠️ **Una riga può portare più voci, e la riga da sola non è una chiave.**
-`action.hsp:11442` ha quattro grida sulla stessa riga, e **due hanno lo stesso
-inglese** (`Transform!`) con giapponesi diversi. Chi scrive il lotto deve
-indicizzare per **(riga, giapponese)**, altrimenti ne perde tre su quattro senza
-accorgersene. Non è ambiguo per `applica`, che aggancia la coppia `lang()`
-intera.
+`text.hsp:2588` ha due prefissi sulla stessa riga. Chi scrive il lotto deve
+indicizzare per **(riga, giapponese)** o per (riga, inglese).
+
+⚠️ **Ma la zona di riga non è un dogma.** I dieci prefissi di `text.hsp:2588` si
+concatenano col tipo di Nefia che sta a `:3058`: si sono presi insieme, perché
+separati non si possono scrivere. Quando due pezzi si concatenano, il lotto
+segue la concatenazione e non la riga.
 
 ## Le regole di resa, aggiornate
 
@@ -108,64 +132,84 @@ Valgono le precedenti — terza persona sempre; mai `_s()`, `is()`, `was()`,
 `your()`, `have()`, `does()`, `yourself()`; mai una preposizione davanti a
 `name()` o `itemname()`, mentre `con`, `per`, `tra`, `sopra`, `dentro` e
 `contro` reggono; la preposizione sta nel valore, non nella frase; invarianza di
-genere prima di tutto; un nome di abilità o di oggetto si copia, non si traduce.
+genere prima di tutto; un nome di abilità o di oggetto si copia, non si traduce;
+una `statica` si scrive **nuda**, con le virgolette tipografiche `“”`.
 
-⚠️ **`his(x)` a un argomento si può togliere, `his(x, 1)` no.** Il primo è
-morfologia inglese, il secondo passa da `lang()`. La guardia lo sa e distingue.
+⚠️ **`his(x)` a un argomento si può togliere, `his(x, 1)` no.**
 
 Tre aggiunte di questa sessione:
 
-- **Quando il valore interpolato ha genere variabile, la frase rinuncia
-  all'articolo.** `_seikaku()` dà nomi astratti di generi misti («Allegria»,
-  «Coraggio») e `bodyn()` dà parti del corpo di generi misti: si scrive «ha
-  scoperto di avere Allegria» e «ha una parte nuova: Mano!». I due punti
-  prendono il posto dell'articolo.
-- **L'invarianza di genere costa una parola, non una perifrasi.** «prende
-  fuoco» invece di «è avvolto dalle fiamme»; «Quella creatura è già appesa»
-  invece di «È già appeso», dove il genere lo fissa il nome comune aggiunto. Per
-  gli insulti rivolti al giocatore c'è una parola che li risolve quasi tutti:
-  **«idiota»**, invariante.
-- **Una `statica` si scrive nuda.** Il suo `it` è testo, non espressione:
-  incapsularlo fra virgolette come si fa con le dinamiche fa fallire `verifica`
-  su sedici voci in un colpo. E dentro una statica le virgolette sono le
-  tipografiche `“”`.
+- **Un prefisso che precede sostantivi di genere diverso può solo essere un
+  aggettivo in -e.** I dieci prefissi delle Nefia stanno davanti a Grotta,
+  Torre, Forte, Lago: Iniziale, Mite, Audace, Palpitante, Ingannevole,
+  Illustre, Mortale, Impenetrabile, Fatale, Informe. Qualche fedeltà si perde,
+  ed è il prezzo del vincolo.
+- **Una frase d'amore non porta participi.** Né chi parla né chi ascolta ha un
+  genere noto: `You deceived me!?` è «Mi stavi ingannando!?»; `I'm fed up with
+  you` è «Mi dai sui nervi», non «Mi hai stufato».
+- **In un menu la valuta si abbrevia.** «Energia da lavoro» → «Energia» dentro
+  il suo negozio, come l'inglese abbrevia `Toil-Energy`. Per esteso resta nella
+  prosa.
 
 ## Le cose da non riscoprire
+
+### Metà delle voci di menu erano già decise altrove
+
+È il difetto più facile da introdurre in `text.hsp`, e ne ho evitati sei in una
+sessione sola cercando **prima** di scrivere:
+
+- i **tipi di negozio** (`txtsetshop`) sono gli stessi giapponesi dei titoli del
+  negoziante a `text.hsp:420-460`: 何でも屋 → «del bazar» → «Bazar»;
+- gli **elementi** dell'occhio elementale (`txtseteyes`) sono fissati da
+  `action.hsp:9588-9628`, dove l'occhio li ripete;
+- i **verbi dei menu della pianta** sono quelli dei messaggi di
+  `action.hsp:18881-18910`;
+- gli **assetti tattici** sono i messaggi di conferma di `action.hsp:15232-15250`;
+- le **parti del corpo** di `txtplusbody` sono `bodyn` (`text.hsp:136`), che
+  compone il messaggio dopo la scelta;
+- il **tipo di Nefia** è `_nefiatype` (`text.hsp:50`).
+
+⚠️ **L'inglese di `txtplusbody` non è mai stato tradotto**: dice `bodyHead`,
+`bodyNeck`, `bodyFinger`. Il giapponese sì.
 
 ### Aggiungere una funzione che l'inglese non aveva non si può
 
 `verifica` confronta l'elenco delle interpolazioni. Si possono **togliere** le
-morfologiche (`_s`, `your`, `is`, `was`, `its2`, `_s2`, `is2`), non se ne
-possono **aggiungere**: un `cnvtalk()` messo per far parlare qualcuno che in
-inglese non parlava fa fallire il lotto.
+morfologiche, non se ne possono **aggiungere**.
 
 ### La frase di combattimento vive in due file
 
 `action.hsp` scrive «… e» e imposta `gdata(GDATA_DMG_TYPE) = 2`;
 `chara_func.hsp:6323` legge il flag e stampa il resto con `txtcontinue`, che
-sopprime la maiuscola (`init.hsp:1663`). `init.hsp:1666` aggiunge già lo spazio
-fra due messaggi: **la giuntura non va spaziata a mano**.
+sopprime la maiuscola (`init.hsp:1663`). `init.hsp:1666` aggiunge già lo spazio:
+**la giuntura non va spaziata a mano**.
 
 ### Le stringhe che sembrano testo e sono codice
 
-`EN` (`action.hsp:4816`) è la chiave con cui il gioco cerca `%txtName,EN` nei
-file `user\item\plan*.txt`: tradotta, il nome dell'oggetto sparisce. Sta in
-`invariati.md` col motivo. ⚠️ E adesso c'è anche **` Lv`**
-(`action.hsp:12383`): non è un'etichetta, è la stringa che il gioco **cerca in
-coda al nome** per togliere il suffisso di livello. **Prima di tradurre una
-stringa corta, guardare chi la consuma.**
+`EN` (`action.hsp:4816`) è la chiave con cui il gioco cerca `%txtName,EN`. E
+` Lv` (`action.hsp:12383`) è la stringa che il gioco **cerca in coda al nome**
+per togliere il suffisso di livello. **Prima di tradurre una stringa corta,
+guardare chi la consuma.**
 
 ### Un letterale confrontato muore quando l'altro lato è tradotto
 
-La battuta dell'orso (`chara_func.hsp:6852`) era già morta: `cnv_str` cercava
-«was killed by motuhegui» dove ora c'è «lo sbudellatore». ⚠️ Le due toppe che la
-riparano vanno in **ordine invertito** rispetto al sorgente.
+La battuta dell'orso (`chara_func.hsp:6852`): `cnv_str` cercava «was killed by
+motuhegui» dove ora c'è «lo sbudellatore». ⚠️ Le due toppe che la riparano vanno
+in **ordine invertito** rispetto al sorgente.
+
+### Un'etichetta può parlare dello stato del gioco, e lì arbitra il codice
+
+`text.hsp:2271` è annotata 未実装, «non implementato», e l'inglese dice
+`Summon Joker`. Il codice sta con l'inglese: `proc.hsp:20175-20185` spende 50 di
+barra e trasforma un compagno in `{Variable Joker}`. **Il giapponese arbitra sul
+significato, non sullo stato del gioco.**
 
 ### Le altre, invariate dalle sessioni prima
 
 - il giapponese arbitra, e sulle voci l'inglese inventa — in questa sessione ha
-  arbitrato su `praise`/`authority`, dove l'inglese usa due parole per un
-  giapponese solo;
+  arbitrato otto volte, fra cui 頼りにしている («mi fido di te», non «I'm in your
+  debt»), 勇者の («dell'eroe», non `Servant's`) e 収容所 («campo di prigionia»,
+  non un `Camp` qualsiasi);
 - la carta di `db_card.hsp` dice cosa la creatura rappresenta;
 - l'articolo sta sulla testa del sintagma, non sulla persona;
 - `ドレイク` è «draco», confermato a schermo;
@@ -173,20 +217,28 @@ riparano vanno in **ordine invertito** rispetto al sorgente.
 
 ## L'ordine che resta
 
-1. **`text.hsp`**, 960 firme dal 45% in su — ⚠️ dentro ci sono le etichette
-   degli elementi (`:1951` e seguenti, `txtseteyes`), e le rese sono già fissate
-   da `action.hsp:9588`-`9628`: si **copiano**;
+1. **`text.hsp`**, 702 firme dal 60% in su, da riga 2836;
 2. `proc.hsp` — chiude le 20 rinviate e il gemello di «mordes»;
 3. `command.hsp`, `trait.hsp`;
 4. `ai.hsp` (94) ed `event.hsp` (649);
 5. `chara_func.hsp`, le 286 rimanenti — ⚠️ dentro ci sono le tre pietre di
-   Lesimas e l'ankh del sole, già fissate dal quiz in `glossario.md`: quelle
-   rese si **copiano**. E c'è la causa di morte (`:6850`), che però va insieme a
-   `main.hsp:4409`;
+   Lesimas e l'ankh del sole, già fissate dal quiz in `glossario.md`, e la causa
+   di morte (`:6850`), che va insieme a `main.hsp:4409`;
 6. `init.hsp` (133) — ⚠️ **lì sta la decisione sul possessivo** `his(x, 1)`, che
-   ha 36 siti di chiamata e nessuna resa che vada bene ovunque. Vedi
-   `decisioni.md`, 2026-08-10;
+   ha 36 siti di chiamata. Vedi `decisioni.md`, 2026-08-10;
 7. le 2.203 righe di `db_creature.hsp` e le 2.555 descrizioni di `db_item.hsp`.
+
+## Domande aperte
+
+⚠️ **`Cyber Dome` fu deciso sull'inglese.** Il 2026-08-07 → «Cupola
+Cibernetica», ma il giapponese è アクリ・テオラ, un nome **opaco** che per la
+regola dei nomi propri resterebbe invariato. La resa è già in `db_creature.hsp`:
+riaprirla tocca più file. Segnalata, non toccata.
+
+⚠️ **`spawn_item` ha prodotto due volte l'oggetto sbagliato**, poi ha ripreso.
+Escluso il parsing e la generazione a caso; l'unica pista è lo stato dei filtri:
+`spawn_item` **non chiama `flt`**, mentre `spawn_set_item` sì. Se ricapita,
+guardare lì.
 
 ## Cose che valgono sempre
 
@@ -195,19 +247,22 @@ manifesto SHA-256, **mai** con `git status`, che in quel clone è permanentement
 sporco. Gli hash del manifesto sono in MAIUSCOLO.
 
 ⚠️ **Da rifare a ogni versione CGX nuova**: cercare chi riassegna `skillname` e
-`skilldesc` fuori da `skill.hsp`; cercare chi copia nomi di creatura fuori da
-`db_creature.hsp`; cercare chi confronta un letterale contro un valore che
-abbiamo tradotto — `cnv_str`, `instr`, `==` su stringhe.
+`skilldesc` fuori da `skill.hsp`; chi copia nomi di creatura fuori da
+`db_creature.hsp`; chi confronta un letterale contro un valore tradotto —
+`cnv_str`, `instr`, `==` su stringhe.
 
 ⚠️ **CP932 non codifica tutto.** Niente `«»` (si usano le tipografiche `“”`),
 niente dieresi tedesche, niente `å`. Gli accenti veri si scrivono nel dizionario
 e li degrada `applica`; ⚠️ **guardare dove cade l'accento**: a fine parola è
-gratis, a metà no («dèi» → `de'i`, e infatti si è scritto «le divinità»).
-L'apostrofo è quello ASCII, non il tipografico. ⚠️ **Le toppe non passano da
-`degrada`**: lì gli accenti non si scrivono proprio.
+gratis, a metà no. L'apostrofo è quello ASCII. ⚠️ **Le toppe non passano da
+`degrada`**.
 
 ⚠️ Un guardiano dell'ambiente blocca i messaggi di commit che contengono `/man/`
 letto come percorso: passare il testo con `git commit -F <file>`.
+
+⚠️ **La shell di PowerShell mangia il backtick**: scrivere un documento che
+contiene `` `codice` `` da riga di comando lo corrompe in silenzio. Passare da
+un file `.py`.
 
 ## Per rifare la prova in gioco
 
@@ -222,55 +277,43 @@ Start-Process "C:\Games\Elona\elonaplus2.31\cgx-test.exe" -WorkingDirectory "C:\
 blocco di file lascia l'albero di build **incompleto**, e `compila` poi dice
 «main.hsp non è in ...»: si rilancia `applica` e basta.
 
+⚠️ **Controllare la data dell'exe prima di fidarsi di uno screenshot.** Il
+2026-08-10 un menu è sembrato non tradotto per venti minuti: era l'eseguibile
+della sessione prima.
+
+**L'eseguibile in `cgx-test.exe` è aggiornato a fine ventunesima sessione.**
+
 ### La console di debug
 
-**Si apre con F12** (`main.hsp:3322`, codice tasto 123; F11 è `dump_chara`).
-Esce con ESC. Parte in modalità **HSP, non Lua**: `spawn_chara <id>` funziona
-subito, ed è nativo (`system.hsp:4831`), quindi va anche in `cgx-test.exe`.
+**Si apre con F12** (`main.hsp:3322`; F11 è `dump_chara`). Esce con ESC. Parte in
+modalità **HSP, non Lua**: `spawn_chara <id>` funziona subito.
 
 ID utili, tutti con un'evoluzione: **165** il cane e **50** il segugio → la
 zanna d'argento; **267** il cavallo zoppo → l'unicorno; **386** la giraffa → il
 Kirin; **210** la sorella gatta minore.
 
-C'è anche **`spawn_item <id>`** (`system.hsp:4847`), che lascia l'oggetto **per
-terra**, non nello zaino: dopo il comando si raccoglie con `,`. Gli ID sono le
-costanti `ITEM_ID_*` di `defines/mod.hsp` — 1037 l'occhio elementale, 1275
-l'orbe bianco-nero, 1261 il pacco di tappi, 1023 il kit di pronto soccorso, 478
-lo stetoscopio, 634 il guinzaglio, 1248 i calzini, 1116 l'esca, 684 la macchina
-genetica.
-
-⚠️ **Domanda aperta, 2026-08-10.** Due volte di fila `spawn_item` ha prodotto un
-oggetto diverso da quello chiesto (una mela per il 478, un salvagente per il
-1037), e poi ha ripreso a funzionare senza che si capisse cosa fosse cambiato —
-e la casella era sgombra in entrambi i casi. **Non è un difetto di parsing**:
-misurato con un programmino HSP compilato con l'SDK, `int(" 478\r\n")` dà 478, e
-la generazione a caso richiede `dbid == -1`, che con un ID esplicito non si
-verifica mai (`item.hsp:2246`, `item_func.hsp:6`). L'unica pista rimasta è lo
-stato dei filtri: `spawn_item` **non chiama `flt`**, mentre `spawn_set_item`, tre
-righe più sotto, lo chiama a ogni giro. Se ricapita, guardare lì.
-
-⚠️ Non trarne conclusioni sul comando gemello: `spawn_chara` ha la stessa riga di
-parsing, e la prova qui sopra **conferma** la conclusione del 2026-08-09, cioè
-che l'ID veniva onorato anche allora.
+`spawn_item <id>` lascia l'oggetto **per terra**: si raccoglie con `,`. ID utili:
+**746** la frusta da domatore (apre il menu degli ordini al compagno), **1249**
+l'Aurtehom (il libro dell'abisso), 1037 l'occhio elementale, 1275 l'orbe
+bianco-nero, 1023 il kit di pronto soccorso, 478 lo stetoscopio, 634 il
+guinzaglio, 684 la macchina genetica.
 
 ⚠️ **Generare mostri a mano è un modo pessimo di provare l'evoluzione**:
 `chara.hsp:2319` la tira con `rnd(300) < gdata(GDATA_LEVEL)`, dove
-`GDATA_LEVEL` è **il piano del dungeon**. Al piano 1 è lo 0,3% per mostro. La
-prova buona è entrare in una **Nefia profonda** con *Spawn evolved enemies* su
-**always**.
+`GDATA_LEVEL` è **il piano del dungeon**. La prova buona è entrare in una
+**Nefia profonda** con *Spawn evolved enemies* su **always**.
 
 ### Il collaudo, punto per punto
 
-- ✅ **L'evoluzione degli alleati**: provata il 2026-08-10.
-- ✅ **I nomi a schermo**, ✅ **«draco»**: provati.
-- ✅ **Il combattimento in italiano**: provato.
-- ❌ **L'evoluzione dei nemici**: **mai vista**. È la sola prova mancante.
-- 🆕 **Da provare, tutto quello che questa sessione ha tradotto**: i messaggi
-  degli oggetti da usare — l'occhio elementale che grida l'elemento
-  (`action.hsp:9568`), la spirale di frasi dell'agricoltura (`:18881`-`:18910`),
-  la paghetta di Yacatect (`:14240`-`:14320`), la sintesi dei compagni
-  (`:18958`-`:19036`). Sono tutte righe che si vedono usando un oggetto, quindi
-  la prova è veloce: bastano gli oggetti giusti e un `spawn_chara`.
+- ✅ **L'evoluzione degli alleati**, ✅ **i nomi a schermo**, ✅ **«draco»**,
+  ✅ **il combattimento in italiano**: provati.
+- ✅ **Il menu degli ordini al compagno e il libro dell'abisso**: provati il
+  2026-08-10, ed è da lì che è venuta la misura dei riquadri.
+- ❌ **L'evoluzione dei nemici**: **mai vista**. È la sola prova mancante, e
+  dopo il controllo sulle 250 rinomine vale come conferma dell'innesco.
+- 🆕 **Da provare**: i menu tradotti in questa sessione che non si sono ancora
+  visti — il negozio a YacaPoint (`spawn_chara` di Yacatect), la banca, il
+  gioco di carte, la mappa del mondo con i nomi delle città.
 - ⚠️ **Il non tradotto esce in inglese, non in giapponese.**
 
 ## I tetti misurati, con la loro ancora
@@ -283,13 +326,14 @@ prova buona è entrare in una **Nefia profonda** con *Spawn evolved enemies* su
 | gradi di resistenza | 9 | **destra, invade** | `command.hsp:11002` |
 | nome nella lista abilità | **24** | sinistra, invade il costo | `command.hsp:5382` |
 | descrizione nella lista | 34 | taglia (`strmid`) | `command.hsp:5389` |
+| **voce di menu** | **(px − 46) / 7,7** | sinistra, taglia | il chiamante di `*prompt_key`, e `strumenti/larghezze.py` |
 
 ⚠️ Il nome di creatura compare in messaggi **senza limite**. Il più lungo del
 dizionario è `<Ratin> l'investigatrice della Gilda dei Guerrieri`, 50 caratteri:
 visto a schermo, non tronca.
 
-Vedi [[una-guardia-vale-solo-dove-guarda]], [[guardia-troppo-severa]],
-[[il-testo-dentro-la-stringa-non-e-codice]],
+Vedi [[larghezza-per-campo]], [[una-guardia-vale-solo-dove-guarda]],
+[[guardia-troppo-severa]], [[il-testo-dentro-la-stringa-non-e-codice]],
 [[la-frase-che-si-compone-in-due-file]],
 [[il-nome-interno-non-e-quello-a-schermo]],
 [[coerenza-fra-due-file-uno-solo-tracciato]],
@@ -297,9 +341,8 @@ Vedi [[una-guardia-vale-solo-dove-guarda]], [[guardia-troppo-severa]],
 [[una-chiave-che-collide-non-e-una-chiave]],
 [[il-campo-che-il-sorgente-dichiara]], [[la-testa-porta-il-genere]],
 [[una-decisione-nel-posto-sbagliato]], [[una-guardia-agganciata-a-se-stessa]],
-[[larghezza-per-campo]], [[ultima-scrittura-vince]],
-[[percentuale-senza-denominatore]], [[una-procura-non-e-una-proprieta]],
-[[la-categoria-che-il-sorgente-dichiara]],
+[[ultima-scrittura-vince]], [[percentuale-senza-denominatore]],
+[[una-procura-non-e-una-proprieta]], [[la-categoria-che-il-sorgente-dichiara]],
 [[il-posto-decide-quando-arriva-il-dato]], [[dato-o-derivata]],
 [[toppe-generate-dal-sorgente]], [[stessa-forma-va-verificata-nel-codice]],
 [[strumento-di-diagnosi-assente-non-guasto]],
