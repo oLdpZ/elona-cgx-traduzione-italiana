@@ -1,29 +1,40 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-10, fine della quindicesima sessione.
+Aggiornato: 2026-08-10, fine della sedicesima sessione.
 
 ## La prima cosa da fare
 
-**Continuare i lotti per razza.** Restano **577 nomi in 64 razze**, e la
-macchina è rodata: dodici lotti in una sessione, tutti verdi al primo colpo.
+**Continuare i lotti per razza.** Restano **455 nomi in 56 razze**, e la
+macchina è rodata: venti lotti in due sessioni, tutti verdi.
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
 python -m strumenti.creature --razze                # quanto resta, razza per razza
-python -m strumenti.creature --razza karune --uscita lavoro/fase2-karune-001.jsonl
+python -m strumenti.creature --razza yerles --uscita lavoro/fase2-yerles-001.jsonl
 ```
 
-Le prossime per taglia: `karune` 18, `ghost` 17, `roran` 16, `worm` 15,
-`dragon` 15, `yerles` 15, `cat` 14, `metal` 14, `eulderna` 14. Poi la coda
-lunga fino alle razze da una.
+Le prossime per taglia: `yerles` 13, `yith` 13, `eulderna` 13. Poi la coda lunga
+fino alle razze da una.
 
 ⚠️ **`--razza` toglie da sé le firme già in dizionario.** `--classe nome` no:
 quello emette tutti i 1.131, nucleo compreso.
 
-⚠️ **Il lotto `cat` ha un debito aperto**: 復元獣サーベルタイガー è l'ultimo
-membro della famiglia 復元 e va reso «la tigre dai denti a sciabola rediviva»,
-con l'accordo al femminile. Gli altri sette sono già dentro (`dog`, `bird`,
-`imp`).
+### Prima di tradurre un nome opaco, leggi la sua carta
+
+È la scoperta di metodo della sedicesima sessione, e cambia il giro di lavoro.
+Il blocco della creatura in `db_creature.hsp` dice cosa la creatura **è nel
+sistema** — razza, `CDATA_SEX`, classe, azioni. `db_card.hsp` dice cosa
+**rappresenta**: ogni creatura ha una carta con due o tre frasi di prosa in
+`cardrefskill`, poche righe sopra il `cardrefn` che ne porta il nome.
+
+Cercarla è banale — `cardrefn` col nome giapponese, poi si risale al
+`cardrefskill` dello stesso blocco — e su `ghost` e `roran` ha sciolto quasi
+tutti i nomi opachi e ribaltato l'inglese cinque volte. Talvolta dichiara una
+**regola** e non un caso: «i più forti prendono il prefisso `アーク`» ha deciso
+una famiglia intera.
+
+⚠️ **Non sostituisce il blocco, risponde a un'altra domanda.** Su `病兄`
+servivano tutti e due. Vedi [[il-database-che-spiega-invece-di-dichiarare]].
 
 ### Le quattro verifiche d'apertura
 
@@ -47,12 +58,20 @@ python -m strumenti.creature               # atteso: nome 1131, voce 320, doppie
 | gli altri tre | 0 | 2.775 | 0% |
 | **totale Fase 1** | **3.915** | **8.624** | **45%** |
 
-Fuori dalla Fase 1: `db_creature.hsp` a **555 firme su 3.655** — **554 nomi su
+Fuori dalla Fase 1: `db_creature.hsp` a **677 firme su 3.655** — **676 nomi su
 1.131** più l'epiteto — e le 2.555 descrizioni d'oggetto di `db_item.hsp`.
 
-Tredici commit oggi, tutti verdi e pushati. **336 test** (erano 331), prova
-d'identità **72/72 e 27.813**, **5.402 sostituzioni** nella build, il
-compilatore non dice nulla. Rinviate ferme a **79**.
+**336 test**, prova d'identità **72/72 e 27.813**, **5.646 sostituzioni** nella
+build, il compilatore non dice nulla. Rinviate a **79**: quella di `Ｓ少年` si è
+chiusa nella stessa sessione, perché il partner `Ｍ少女` stava nel lotto `roran`.
+
+### Rimasto aperto di proposito
+
+- **Un refuso nel già tradotto**: `action.hsp:17390`, `電気竜` → «il **draco**
+  elettrico». Unica occorrenza contro decine di «drago», quindi è una lettera e
+  non una distinzione. Non corretto perché una voce chiusa che si ritocca va
+  vista in un commit suo — è lavoro da cinque minuti, ma va deciso, non
+  infilato in un lotto.
 
 ## Il taglio per razza, e perché è uno strumento
 
@@ -66,6 +85,28 @@ del sorgente: `reftype` per `db_item.hsp`, l'array che dichiara la voce per
 Sta in `strumenti/creature.py` con sei guardie. La rete è `firme_senza_razza()`,
 oggi vuota su 1.131 nomi: se un domani non lo fosse, «un lotto è una razza»
 coprirebbe novecento nomi meno uno **e non lo direbbe**.
+
+## Le due aggiunte della sedicesima sessione
+
+### I kanji omofoni: si traduce la base, non la patina
+
+Un nome scritto con kanji che **suonano** come un'altra parola porta due strati
+insieme, e l'italiano non può sovrapporli: si traduce la base e si prova a far
+entrare la patina **dentro un idioma**, mai in una parola aggiunta. Criterio
+completo in `guida-stile.md`; i due casi decisi sono `非情ベル` → «la campana a
+martello» e `烈闘龍『サンライズ』` → «<Sunrise> il drago dell'arcipelago».
+
+⚠️ **Qui l'inglese aveva ragione**, ed è la parte che inganna: su questo file
+l'abitudine è che sbagli. Si distingue chiedendo alla carta — se descrive
+l'omofono e non i kanji scritti, i kanji sono la patina.
+
+### La guardia dell'articolo funziona, e va lasciata lavorare
+
+`シルバースカル陛下` era diventato «sua maestà il teschio d'argento» e il test
+l'ha bocciato: **non comincia con un articolo**. La rinomina all'evoluzione
+sostituisce la stringa intera, quindi il nome sarebbe uscito nudo. È la stessa
+proprietà che il collaudo di Norfor ha visto funzionare dal lato buono: quando
+quel test cade, ha ragione lui.
 
 ## Le cinque cose da non riscoprire
 
@@ -202,25 +243,64 @@ Al primo avvio esce «Invalid screen resolution»: si dà OK e si prosegue.
 Il titolo mostra 2.31.1.0: è la costante di versione, non un errore di build.
 
 ⚠️ **Serve un salvataggio nuovo** per i nomi, e un **personaggio nuovo** per
-l'epiteto.
+l'epiteto. La ragione è più forte di «i nomi sono memorizzati»: la rinomina
+all'evoluzione è una **sostituzione di stringa** sul nome nel salvataggio
+(`action.hsp:18640-18646`), quindi un alleato reclutato con l'exe non tradotto
+non combacia più con `evold` e **non viene rinominato affatto**. Un alleato
+generato dalla console dopo la patch va bene lo stesso.
+
+### La console di debug, per scrivere i campi che il gioco non espone
+
+`cgx-lua.exe` in `elonaplus2.31\` è la build della traduzione con
+`CUSTOM_GX_LUA` attiva — la define sta commentata a monte (`main.hsp:9`) e
+senza di lei **la console Lua non esiste nell'eseguibile**, qualunque cosa
+valga `dbg_luaConsole`. La modifica si fa in BUILD e si ripristina subito;
+serve anche `hsplua.dll`, già copiata nella cartella del gioco.
+
+```powershell
+Start-Process "C:\Games\Elona\elonaplus2.31\cgx-lua.exe" -ArgumentList "--develop" -WorkingDirectory "C:\Games\Elona\elonaplus2.31"
+```
+
+Senza `--develop` la console parte in modalità HSP e il comando `lua` per
+riaccendere il Lua non risponde. **F12** apre la console; la sintassi è
+`dim[attributo][indice]`:
+
+```lua
+return cdata[17][2]                 -- impressione dell'alleato 2 (serve ≥ 150)
+cdata[17][2] = 150
+return cdata[214][2]                -- stadio d'evoluzione, dev'essere 0
+return itemcreate(869, 0, 0, 0, 0)  -- gemma in inventario, torna l'indice
+inv[25][17] = 14                    -- PARAM1 = EVITEM_HEART_ANOTHER
+```
+
+⚠️ L'oggetto va usato su una delle **otto caselle adiacenti**
+(`*prompt_direction`, `system.hsp:4105`), e il bersaglio dev'essere in uno slot
+alleato — indice **< 16** (`action.hsp:16626`). `cgx-lua.exe` è uno strumento
+di collaudo: quello che si spedisce resta `cgx-test.exe`.
 
 ⚠️ L'utente **preferisce una lista di passi da eseguire lui** al collaudo
 pilotato da qui. Dargli la tabella, con l'esito atteso di ogni riga.
 
 ### Il collaudo ancora aperto
 
-- **L'evoluzione vera non è mai stata provata**, ed è in sospeso dalla
-  quattordicesima sessione. Serve impressione ≥ 150 (`action.hsp:16630`),
-  stadio 0, e l'oggetto d'evoluzione usato sull'alleato. Il soggetto è a portata
-  di mano: **Lazrof è un `lame horse`**, evmode 3.
-  > esito atteso: `Lazrof il cavallo zoppo` → **`Lazrof l'unicorno`**
-- **I 351 nomi di oggi** sono stati visti a schermo solo per i passanti delle
+- ✅ **L'evoluzione vera è stata provata** il 2026-08-10:
+  `Norfor il cavallo zoppo` → **`Norfor l'unicorno`**. È scattato il **ramo
+  suffisso** (`action.hsp:18643-18644`), quello con l'indice sbagliato
+  (`rc` invece di `tc`): ha dato il risultato giusto perché lì `rc` valeva
+  `tc`, quindi il difetto è **latente**, non attivo. Se un domani un'altra
+  evoluzione ci arriva con `rc` diverso, tronca il nome in silenzio.
+- ⚠️ **Il non tradotto esce in inglese, non in giapponese.** `applica`
+  sostituisce nello slot **inglese** di `lang(jp, en)` (`applica.py:305`) e il
+  gioco gira in inglese: a schermo si legge `Norfor il cavallo zoppo's speed
+  increases`. Atteso fino a che non si chiudono le 915 dinamiche di
+  `action.hsp`.
+- **I 351 nomi della quindicesima sessione** sono stati visti a schermo solo per i passanti delle
   città (l'articolo dentro il nome regge su una popolazione mista). I segugi
   elementali, gli dèi e i mostri marini no.
 
 ## L'ordine che resta
 
-1. gli altri **577 nomi**, a lotti per razza; poi le **320 di voce**;
+1. gli altri **455 nomi**, a lotti per razza; poi le **320 di voce**;
 2. le **59 rinviate** del quiz, che si sbloccano solo dopo;
 3. le **915 dinamiche di `action.hsp`**, che riparano anche «mordes»;
 4. `text.hsp` dal 41% in su, `command.hsp`, `proc.hsp`, `trait.hsp`;
@@ -245,5 +325,7 @@ Vedi [[la-forma-memorizzata-non-e-quella-scritta]],
 [[percentuale-senza-denominatore]], [[una-procura-non-e-una-proprieta]],
 [[la-categoria-che-il-sorgente-dichiara]],
 [[il-posto-decide-quando-arriva-il-dato]], [[dato-o-derivata]],
-[[toppe-generate-dal-sorgente]], [[stessa-forma-va-verificata-nel-codice]] e
-[[cp932-perdite-silenziose]].
+[[toppe-generate-dal-sorgente]], [[stessa-forma-va-verificata-nel-codice]],
+[[strumento-di-diagnosi-assente-non-guasto]],
+[[il-database-che-spiega-invece-di-dichiarare]], [[omofono-base-kanji-patina]]
+e [[cp932-perdite-silenziose]].

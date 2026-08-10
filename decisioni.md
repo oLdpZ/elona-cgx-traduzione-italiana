@@ -1628,3 +1628,157 @@ dal giocatore.
 Il secondo lo firma il sorgente: `lang("user", "user")`. Il giapponese è
 **identico** all'inglese, e in un file dove ogni nome vero ha la sua forma
 giapponese quello è upstream che dice «questo non è testo».
+
+## La sedicesima sessione — 2026-08-10
+
+Aperta con le quattro verifiche verdi (336 test, identità 72/72 e 27.813, 0 da
+ritradurre, creature 1131/320 senza doppie). Poi una domanda — «per il collaudo
+serve un salvataggio nuovo?» — che ha chiuso un collaudo in sospeso da due
+sessioni e ne ha tirato fuori tre cose da non riscoprire.
+
+### L'evoluzione vera è stata provata, e la rinomina regge
+
+`Norfor il cavallo zoppo` → **`Norfor l'unicorno`**. È il collaudo rimasto
+aperto dalla quattordicesima sessione, e adesso è chiuso.
+
+Le condizioni, tutte dal sorgente: impressione ≥ 150 (`action.hsp:16630`),
+`CDATA_EVOLUTION_STAGE == 0`, nessuna Form Shift, bersaglio in uno slot alleato
+(`tc < MAX_CHARA_FOLLOWER`, cioè 16 — `action.hsp:16626`), e l'oggetto usato su
+una delle **otto caselle adiacenti**, perché `*prompt_direction`
+(`system.hsp:4105`) non ne offre altre.
+
+### È scattato il ramo suffisso, e il bug che contiene è latente
+
+Il nome memorizzato era `Norfor il cavallo zoppo`: il prefisso non combacia, e
+la rinomina è passata da `action.hsp:18643-18644`. Quella riga calcola la
+lunghezza su `cdatan(CDATAN_NAME, rc)` invece che su `tc` — indice sbagliato,
+e `*charaRefresh` poco sopra lavora su `r1`, non tocca `rc`.
+
+**Ha dato il risultato giusto**, quindi lì `rc` valeva `tc`. Il difetto è
+latente, non attivo su questo percorso. Va scritto proprio perché non si è
+manifestato: se un domani un'altra evoluzione ci arriva con `rc` diverso, il
+nome viene troncato e non ci sarebbe modo di risalire al perché.
+
+Conferma sul campo di [[la-forma-memorizzata-non-e-quella-scritta]]: il ramo
+che il conteggio sul sorgente dava per irraggiungibile è quello che il gioco
+percorre davvero, perché il nome proprio va in testa e la specie in coda.
+
+### Il non tradotto esce in inglese, non in giapponese
+
+Sembra ovvio detto così, e non lo era: `applica` sostituisce l'italiano nello
+slot **inglese** di `lang(jp, en)` (`applica.py:305`, `inizio_en`), e il gioco
+gira in modalità inglese. Quindi ogni cornice non ancora tradotta si legge in
+inglese, con dentro i nomi italiani già fatti — `Norfor il cavallo zoppo's
+speed increases`, genitivo sassone su nome italiano.
+
+Non è un difetto: sono fra le **915 dinamiche di `action.hsp`**. Ma è il modo
+in cui il gioco si presenterà a ogni collaudo da qui alla fine del punto 3, e
+conviene saperlo prima di segnalarlo come rotto.
+
+### La console Lua non c'era, e la spiegazione che combaciava era un'altra
+
+Per scrivere impressione e `PARAM1` serviva la console Lua. Non rispondeva. La
+causa non era `--develop` — `dirinfo(4)` restituisce esattamente `[--develop]`,
+verificato compilando un exe di quattro righe con l'SDK — ma
+`main.hsp:9`, `;#define CUSTOM_GX_LUA`, **commentata a monte**: il ramo che
+sceglie fra le due console (`system.hsp:4417-4425`) è dentro `#ifdef`, quindi
+senza define si va sempre sulla console vecchia.
+
+Nel frattempo era emersa una spiegazione alternativa che combaciava con tutte
+le prove — il comando `lua` confronta con `"lua\n"` mentre il buffer finisce
+con `\r\n` (`system.hsp:4820` contro `5021`) — e che **resta non verificata**,
+perché in quel binario quel codice non era compilato. Sta in
+[[strumento-di-diagnosi-assente-non-guasto]].
+
+### Come si rifà il collaudo con la console
+
+Esiste ora `cgx-lua.exe` in `elonaplus2.31\`: stessa build della traduzione ma
+con `CUSTOM_GX_LUA` attiva. La modifica è stata fatta **solo in BUILD** e
+subito ripristinata — SORGENTE non è stato toccato e `compila --eseguibile`
+produce di nuovo l'exe normale. Serve anche `hsplua.dll`, che nella cartella
+del gioco non c'era ed è stata copiata dal sorgente.
+
+Si avvia con `--develop` (senza, `dbg_luaConsole` resta 0 e il comando `lua`
+per riaccenderlo è quello di cui sopra). Poi **F12**, e la sintassi che
+funziona è `dim[attributo][indice]`:
+
+```lua
+return cdata[17][2]                 -- CDATA_IMPRESSION dell'alleato 2
+cdata[17][2] = 150
+return cdata[214][2]                -- CDATA_EVOLUTION_STAGE, dev'essere 0
+return itemcreate(869, 0, 0, 0, 0)  -- ITEM_ID_EVITEM in inventario, torna ci
+inv[25][17] = 14                    -- INV_ITEM_PARAM1 = EVITEM_HEART_ANOTHER
+```
+
+`cgx-lua.exe` è uno strumento di collaudo, non l'eseguibile che si spedisce:
+quello resta `cgx-test.exe`.
+
+### Otto lotti, e `db_card.hsp` come arbitro
+
+122 nomi: `karune` 18, `ghost` 17, `roran` 17, `worm` 15, `dragon` 15, `cat` 14,
+`metal` 14, `largeanimal` 13. Il criterio del taglio per razza non è cambiato.
+È cambiato **a chi si chiede quando il nome è opaco**.
+
+Il blocco della creatura dice cosa la creatura è nel sistema — razza, sesso,
+classe, azioni. Non dice cosa **rappresenta**, e per un nome è quello che serve.
+`db_card.hsp` sì: ogni creatura ha una carta con due o tre frasi di prosa in
+`cardrefskill`, e lì c'è l'intenzione.
+
+Su `ghost` e `roran` ha deciso quasi tutti i nomi che dal solo blocco sarebbero
+rimasti opachi, e ha ribaltato l'inglese cinque volte. I casi in tabella stanno
+in `avanzamento.md`; qui vale la pena tenere i due che insegnano il metodo:
+
+- **`アークレイス`** — la carta non spiega il caso, spiega la **regola**: «gli
+  individui particolarmente forti si distinguono come rango sovrano e prendono
+  il prefisso `アーク`». Una riga che decide tutta la famiglia futura, non un
+  nome. «L'arcispettro».
+- **`『Ｈな妹』` contro `えっちな妹`** — stesso scherzo apparente, stessa resa
+  inglese (`H sister` due volte), e sono due cose diverse: la carta della
+  seconda comincia con «**ヒットマン**な妹». «La sorella minore maliziosa» e «la
+  sorella minore sicaria». Senza le carte sarebbero diventate lo stesso nome, e
+  nessun test l'avrebbe visto.
+
+⚠️ **La carta non sostituisce il blocco.** Su `病兄` servono tutti e due:
+`CDATA_SEX = 0` dal blocco, e dalla carta il fatto che i maschi di Roran siano
+davvero malati e muoiano da bambini — che è la ragione per cui **non** segue il
+precedente di `病妹` → «la sorella yandere». Terza volta che la stessa forma non
+porta alla stessa conclusione.
+
+### I kanji omofoni: si traduce la base, non la patina
+
+Due nomi scritti con kanji che suonano come un'altra parola, e l'inglese aveva
+tradotto l'omofono — stavolta **giustamente**, che è la parte che poteva
+ingannare, perché su questo file l'abitudine è che l'inglese sbagli.
+
+Il criterio, ora in `guida-stile.md`: il lettore giapponese sente per prima la
+parola base, i kanji sono la patina; l'italiano non ha gli ateji e non può
+sovrapporre i due strati, quindi traduce la base e prova a far entrare la patina
+**dentro un'espressione idiomatica** invece che in una parola in più.
+
+- `非情ベル` (spietato / `非常ベル`, il campanello antincendio) →
+  **«la campana a martello»**: suonare a martello *è* l'allarme, e «a martello»
+  porta da sé la durezza. I due strati in tre parole, come l'originale.
+- `烈闘龍『サンライズ』` (lotta feroce / `列島`, arcipelago) →
+  **«<Sunrise> il drago dell'arcipelago»**: qui una parola che faccia tutte e
+  due non c'è, e allora si prende la base — la carta parla di mare, alba e
+  dimensioni, di lotta non dice niente.
+
+Il modo di distinguerlo dal caso «l'inglese ha letto male» è di nuovo la carta:
+se descrive l'omofono e non i kanji scritti, i kanji sono la patina.
+
+### La guardia dell'articolo ha fermato un nome
+
+`シルバースカル陛下` era diventato «sua maestà il teschio d'argento» e il test
+l'ha bocciato: non comincia con un articolo. La rinomina all'evoluzione
+sostituisce la stringa intera e `name()` non antepone più nulla, quindi sarebbe
+uscito nudo a schermo. «La maestà del teschio d'argento».
+
+Vale la pena notarlo insieme al collaudo di questa stessa sessione: la proprietà
+che il test difende è **esattamente** quella che l'evoluzione di Norfor ha
+mostrato funzionare. Il test non era una precauzione teorica.
+
+### Lasciato aperto di proposito
+
+`action.hsp:17390`, `電気竜` → «il **draco** elettrico». Unica occorrenza contro
+decine di «drago»: è un refuso, non una distinzione. Non corretto perché sta
+fuori dai lotti, e una voce già chiusa che si ritocca va vista in un commit suo.

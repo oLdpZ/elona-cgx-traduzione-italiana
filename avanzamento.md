@@ -25,9 +25,61 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | `custom_tweaks.hsp` | **12** | 12 | **100%** | 28 |
 | **totale** | **3.915** | **8.624** | **45%** | **9.690** |
 
-Fuori dalla Fase 1, con conteggio proprio: `db_creature.hsp`, **555 firme su
-3.655**, cioè **554 nomi su 1.131** più l'epiteto. Restano **577 nomi in 64
+Fuori dalla Fase 1, con conteggio proprio: `db_creature.hsp`, **677 firme su
+3.655**, cioè **676 nomi su 1.131** più l'epiteto. Restano **455 nomi in 56
 razze**, e le 320 stringhe di voce non sono ancora cominciate.
+
+## Otto lotti, e un arbitro nuovo — 2026-08-10, sedicesima sessione
+
+**122 nomi**, da 577 a 455: `karune` 18, `ghost` 17, `roran` 17, `worm` 15,
+`dragon` 15, `cat` 14, `metal` 14, `largeanimal` 13. La macchina del taglio per
+razza non è cambiata; è cambiato **dove si va a chiedere**.
+
+### `db_card.hsp` descrive in prosa ogni creatura, e decide i nomi opachi
+
+Ogni creatura ha una carta del gioco di carte con `cardrefskill`, due o tre
+frasi che dicono **cos'è**. Dal blocco della creatura non si ricavano: il blocco
+dà razza, classe, sesso, azioni. La carta dà l'intenzione.
+
+```powershell
+# la descrizione sta poche righe sopra il cardrefn che porta il nome
+python -c "..."   # vedi strumenti/, oppure cerca cardrefn e risali a cardrefskill
+```
+
+Cosa ha sciolto, che altrimenti sarebbe rimasto opaco o sbagliato:
+
+| nome | senza la carta | con la carta |
+|---|---|---|
+| `シュイド` | katakana senza significato, l'inglese dice `shadow` | «più `シェイド` fusi insieme, e per questo chiamato così» → un collettivo coniato sul nome base → **«l'ombrame»** |
+| `アークレイス` | `アーク` = arch, e poi? | «gli individui più forti si distinguono come rango sovrano e prendono il prefisso `アーク`» — la **regola**, non il caso → «l'arcispettro» |
+| `ヴォルガーファントム` | l'inglese si arrende a `vol phantom` | fulmini, energia accumulata, scoppio → `ヴォル` è **volt** → «il fantasma voltaico» |
+| `黒お嬢様` | l'inglese dice `white young lady` | «i vestiti sono bianchi ma la sua sostanza è nera senza fine» → «la signorina dal cuore nero» |
+| `『Ｈな妹』` | uguale a `えっちな妹`, e l'inglese le rende entrambe `H sister` | «**ヒットマン**な妹», con la motosega → «la sorella minore **sicaria**» |
+| `シン・ゴリラ` | l'inglese legge `sin` | generatore nucleare in corpo, sigillato, distrugge per sfogare energia: è `シン・ゴジラ` → «lo Shin Gorilla» |
+| `バレットワーム` | l'inglese dice `rock worm` | ingoia minerali, fabbrica pallottole e le sputa → «il verme proiettile» |
+
+⚠️ **La carta non sostituisce il blocco: risponde a un'altra domanda.** Il
+blocco dice cosa la creatura *è nel sistema* (razza, sesso, classe, azioni), la
+carta cosa *rappresenta*. Su `病兄` servono tutti e due: `CDATA_SEX = 0` dal
+blocco, e dalla carta il fatto che i maschi di Roran siano malati sul serio —
+che è la ragione per cui **non** segue `病妹` → «la sorella yandere».
+
+### La guardia dell'articolo ha fermato un nome, e aveva ragione
+
+`シルバースカル陛下` era diventato «sua maestà il teschio d'argento», e
+`test_ogni_nome_e_ogni_stringa_di_evoluzione_porta_il_proprio_articolo` l'ha
+bocciato: non comincia con un articolo. Non è formalismo — la rinomina
+all'evoluzione sostituisce la stringa intera e `name()` non antepone più nulla,
+quindi il nome sarebbe uscito nudo. Corretto in «la maestà del teschio
+d'argento». **È lo stesso meccanismo che il collaudo di questa sessione ha visto
+funzionare dal lato buono.**
+
+### Un refuso nel già tradotto, lasciato lì apposta
+
+`action.hsp:17390`, `電気竜` → «il **draco** elettrico»: unica occorrenza di
+«draco» contro decine di «drago». Non è una distinzione voluta, è una lettera.
+Non corretto perché sta fuori dai lotti e una voce chiusa che si ritocca va
+vista in un commit suo.
 
 ## Dodici lotti per razza — 2026-08-10, quindicesima sessione
 
