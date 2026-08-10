@@ -155,6 +155,26 @@ nel dizionario e di un array parallelo, come per il `plurale`. Non si è fatto
 perché tocca 14 nomi su 90 e il punto 2 ne copre la maggior parte: si rifà il
 conto quando le persone saranno tutte tradotte, non prima.
 
+### Un nome proprio senza `<>` prende l'articolo lo stesso
+
+Scoperto col lotto `yith` (2026-08-10), e non è un dettaglio di quel lotto.
+Quattro divinità del ciclo di Cthulhu — クトゥグア, ツァトゥグァ,
+ナイアーラトテップ, シュブ＝ニグラス — hanno un nome proprio che **non si
+traduce in nessuna lingua**: le edizioni italiane di Lovecraft li lasciano
+`Cthugha`, `Tsathoggua`, `Nyarlathotep`, `Shub-Niggurath`. La tentazione è
+scriverli nudi, come si fa con gli dèi di Elona (`<Tezcatlipoca>`).
+
+**Ma gli dèi stanno fra `<>` e questi no**, e la differenza non è tipografica:
+`name()` riconosce i nomi propri **dalla prima lettera** (`init.hsp:1713-1716`),
+cioè da `<` o da `"`. Un nome che comincia con `C` non è riconosciuto, e
+l'inglese del gioco infatti scrive `the cthugha` con l'articolo e la minuscola:
+per il motore sono **specie**, non individui.
+
+Quindi l'articolo ci vuole: «**il** Cthugha», «**la** Shub-Niggurath». La
+maiuscola resta, perché in italiano un nome proprio la vuole e nessuna parola
+comune ci collide. Il test dell'articolo li ha bocciati tutti e quattro, ed
+è la seconda volta che ha ragione lui.
+
 ## Un nome scritto con kanji omofoni: si traduce la base, non la patina
 
 Deciso il 2026-08-10 su due nomi insieme, e vale per tutti quelli che verranno.
