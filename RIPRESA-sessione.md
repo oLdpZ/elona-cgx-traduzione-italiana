@@ -1,44 +1,27 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-10, fine della sedicesima sessione.
+Aggiornato: 2026-08-10, fine della diciassettesima sessione.
 
 ## La prima cosa da fare
 
-**Continuare i lotti per razza.** Restano **455 nomi in 56 razze**, e la
-macchina è rodata: venti lotti in due sessioni, tutti verdi.
+**I 1.131 nomi di creatura sono finiti.** `--razze` dice «restano 0 firme in 0
+razze». Il lavoro dei nomi è chiuso e il prossimo passo è **una scelta**, non
+una continuazione:
 
-```powershell
-cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-python -m strumenti.creature --razze                # quanto resta, razza per razza
-python -m strumenti.creature --razza yerles --uscita lavoro/fase2-yerles-001.jsonl
-```
+1. **le 320 firme di voce** di `db_creature.hsp` — stessa catena, stesso
+   strumento, `python -m strumenti.creature --classe voce`;
+2. **le 59 rinviate del quiz**, che i nomi hanno appena sbloccato e che si
+   chiudono col loro lotto di `text.hsp`, non una alla volta;
+3. **le 915 dinamiche di `action.hsp`**, che riparano anche «mordes».
 
-Le prossime per taglia: `yerles` 13, `yith` 13, `eulderna` 13. Poi la coda lunga
-fino alle razze da una.
-
-⚠️ **`--razza` toglie da sé le firme già in dizionario.** `--classe nome` no:
-quello emette tutti i 1.131, nucleo compreso.
-
-### Prima di tradurre un nome opaco, leggi la sua carta
-
-È la scoperta di metodo della sedicesima sessione, e cambia il giro di lavoro.
-Il blocco della creatura in `db_creature.hsp` dice cosa la creatura **è nel
-sistema** — razza, `CDATA_SEX`, classe, azioni. `db_card.hsp` dice cosa
-**rappresenta**: ogni creatura ha una carta con due o tre frasi di prosa in
-`cardrefskill`, poche righe sopra il `cardrefn` che ne porta il nome.
-
-Cercarla è banale — `cardrefn` col nome giapponese, poi si risale al
-`cardrefskill` dello stesso blocco — e su `ghost` e `roran` ha sciolto quasi
-tutti i nomi opachi e ribaltato l'inglese cinque volte. Talvolta dichiara una
-**regola** e non un caso: «i più forti prendono il prefisso `アーク`» ha deciso
-una famiglia intera.
-
-⚠️ **Non sostituisce il blocco, risponde a un'altra domanda.** Su `病兄`
-servivano tutti e due. Vedi [[il-database-che-spiega-invece-di-dichiarare]].
+⚠️ **Ma prima conviene il collaudo**, ed è la cosa che questa sessione lascia
+più scoperta: **1.131 nomi nuovi non sono mai stati visti a schermo**. Vedi
+«Per rifare la prova in gioco» più sotto. Serve un salvataggio nuovo.
 
 ### Le quattro verifiche d'apertura
 
 ```powershell
+cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
 python -m pytest strumenti/tests -q        # atteso: 336 passed, 2 skipped
 python -m strumenti.prova_identita         # atteso: 72/72, 27.813, ambigue 0
 python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre ovunque
@@ -58,158 +41,29 @@ python -m strumenti.creature               # atteso: nome 1131, voce 320, doppie
 | gli altri tre | 0 | 2.775 | 0% |
 | **totale Fase 1** | **3.915** | **8.624** | **45%** |
 
-Fuori dalla Fase 1: `db_creature.hsp` a **677 firme su 3.655** — **676 nomi su
-1.131** più l'epiteto — e le 2.555 descrizioni d'oggetto di `db_item.hsp`.
+Fuori dalla Fase 1: `db_creature.hsp` a **1.132 firme su 3.655** — **tutti e
+1.131 i nomi** più l'epiteto — e le 2.555 descrizioni d'oggetto di
+`db_item.hsp`.
 
 **336 test**, prova d'identità **72/72 e 27.813**, **5.646 sostituzioni** nella
-build, il compilatore non dice nulla. Rinviate a **79**: quella di `Ｓ少年` si è
-chiusa nella stessa sessione, perché il partner `Ｍ少女` stava nel lotto `roran`.
+build, il compilatore non dice nulla.
 
 ### Rimasto aperto di proposito
 
-- **Un refuso nel già tradotto**: `action.hsp:17390`, `電気竜` → «il **draco**
-  elettrico». Unica occorrenza contro decine di «drago», quindi è una lettera e
-  non una distinzione. Non corretto perché una voce chiusa che si ritocca va
-  vista in un commit suo — è lavoro da cinque minuti, ma va deciso, non
-  infilato in un lotto.
+- **Il collaudo dei nomi**: nessuno dei 1.131 è stato visto in gioco. È il
+  debito più grosso, ed è il tipo di debito che il collaudo di Norfor ha già
+  dimostrato saper ripagare — quella prova trovò un difetto latente che due
+  sessioni di lettura non avevano visto.
+- **«draco» è una decisione revisionabile.** Vedi sotto: se non convince,
+  si rifà in un giro solo.
 
-## Il taglio per razza, e perché è uno strumento
+## Il metodo, ormai rodato
 
-Il nucleo atomico si era preso da sé. Tutto il resto si taglia per **razza**,
-che il sorgente **dichiara** — `dbidn`, subito prima di `gosub *db_race` — e
-non si deduce dal nome, che è il dato che stiamo per tradurre e quindi non può
-fare da chiave a sé stesso. È la terza volta che il criterio giusto è un campo
-del sorgente: `reftype` per `db_item.hsp`, l'array che dichiara la voce per
-`item_data.hsp`, `dbidn` qui.
-
-Sta in `strumenti/creature.py` con sei guardie. La rete è `firme_senza_razza()`,
-oggi vuota su 1.131 nomi: se un domani non lo fosse, «un lotto è una razza»
-coprirebbe novecento nomi meno uno **e non lo direbbe**.
-
-## Le due aggiunte della sedicesima sessione
-
-### I kanji omofoni: si traduce la base, non la patina
-
-Un nome scritto con kanji che **suonano** come un'altra parola porta due strati
-insieme, e l'italiano non può sovrapporli: si traduce la base e si prova a far
-entrare la patina **dentro un idioma**, mai in una parola aggiunta. Criterio
-completo in `guida-stile.md`; i due casi decisi sono `非情ベル` → «la campana a
-martello» e `烈闘龍『サンライズ』` → «<Sunrise> il drago dell'arcipelago».
-
-⚠️ **Qui l'inglese aveva ragione**, ed è la parte che inganna: su questo file
-l'abitudine è che sbagli. Si distingue chiedendo alla carta — se descrive
-l'omofono e non i kanji scritti, i kanji sono la patina.
-
-### La guardia dell'articolo funziona, e va lasciata lavorare
-
-`シルバースカル陛下` era diventato «sua maestà il teschio d'argento» e il test
-l'ha bocciato: **non comincia con un articolo**. La rinomina all'evoluzione
-sostituisce la stringa intera, quindi il nome sarebbe uscito nudo. È la stessa
-proprietà che il collaudo di Norfor ha visto funzionare dal lato buono: quando
-quel test cade, ha ragione lui.
-
-## Le cinque cose da non riscoprire
-
-### 1. L'articolo sta sulla testa del sintagma, non sulla persona
-
-⚠️ **È la lezione più utile della sessione, e restringe il problema.** Un nome
-di mestiere descrive una persona, e in italiano l'articolo di «negoziante»
-dipende da chi lo porta; il sorgente dichiara `cdata(CDATA_SEX, rc)` solo per
-una parte (52 su 90 in `norland`). Ma i cinque demoni di `imp` hanno sessi
-diversi e la **stessa** forma italiana — «il demone di X» — perché il genere lo
-dà «demone». `CDATA_SEX` conta solo quando la testa **è** la persona
-(`<Neres> la smemorata`).
-
-Il criterio completo è in `guida-stile.md`, «L'articolo di un nome di persona,
-quando il sesso non è deciso». In breve: sesso dichiarato → si concorda; sesso
-casuale → sostantivo il cui articolo non dipende dalla persona («la guardia»,
-«l'artista», «il ninja»); maschile non marcato solo dove l'italiano non offre
-altro (14 su 90).
-
-⚠️ **`/man/` non è il sesso.** È la stringa di `DBSPEC_CHARA_FILTER`, accanto a
-`/god/`, `/sf/`, `/nefia0/`: la categoria di generazione. Ce l'hanno anche
-修道女 e 娼婦.
-
-**Il dato per fare meglio esiste**: il sesso è già assegnato quando
-`cdatan(CDATAN_NAME, rc)` viene montato — il ramo dello sprite sta due righe
-sotto. Una resa femminile per nome costerebbe un campo nuovo di dizionario e un
-array parallelo, come il `plurale`. Si rifà il conto quando le persone saranno
-tutte tradotte, non prima.
-
-### 2. Il sorgente arbitra, ma bisogna chiedergli la cosa giusta
-
-Quattro volte su cinque la risposta era nel blocco della creatura:
-
-- i **dieci segugi elementali** li dichiara `creaturepack = FILTER_RACE_HOUND_<X>`,
-  e da lì esce l'unica resa che l'inglese non avrebbe dato: `illusion hound` ha
-  filtro `HOUND_MIND` e giapponese 幻惑, lo stesso di `Resist Mind` → **«il
-  segugio mentale»**;
-- ガンデグー attacca `ACTION_RANGE`, quindi ガン è *gun* → «il degu pistolero»;
-- カオス・ブレーダー fa tre attacchi in mischia più ombra e succhiasangue: è uno
-  **spadaccino**, non il paladino che dice l'inglese;
-- 面忘の獅子 ringhia e graffia nel proprio blocco: è un uomo che non è più un
-  uomo, «il leone senza volto».
-
-⚠️ **Ma la quinta volta la stessa prova non ha dato la stessa conclusione.**
-幻惑折鶴 lancia davvero `SKILL_SPELL_MIND_THORN`, eppure **non** si rende
-«mentale»: lì il nome era **uno di dieci**, uno per elemento, e funzionava da
-etichetta; una gru sola no, e 幻惑 le descrive cosa fa. *La stessa prova non
-porta alla stessa conclusione quando cambia cosa il nome sta facendo.*
-
-### 3. Il giapponese arbitra, e non è un caso limite
-
-Su 351 nomi l'inglese ha sbagliato **una dozzina di volte**, e non per
-abbreviazione:
-
-| giapponese | inglese | cosa dice davvero |
-|---|---|---|
-| 腕白少女 | `the white arms` | 腕白 *wanpaku* = **monella**, letto coi kanji separati |
-| 猫かぶり | `the cat freak` | l'idioma «fingersi ingenui», preso alla lettera |
-| 首切雀 | `tree sparrow` | il passero **mozzatesta**, non la passera mattugia |
-| 化け狸 | `badger` | il *bake-danuki*: il tasso non è un procionide |
-| 魔剣士 | `knight of Elea` | lo **spadaccino magico** |
-| 淫婦 | `camouflaged imp` | la **lussuriosa** |
-| 虚空 | `vanity` | il **vuoto**, non la vanità |
-| ヤミクミロミ | `Insane Kumiromi` | *Yami* = **oscuro** |
-
-E tre volte ha **spostato la razza**: 歴戦の老兵 non nomina Zanan e l'inglese
-gliela aggiunge; エレアの難民 nomina Elea e l'inglese la toglie; イェルス超重力砲
-e イェルス防衛システム la perdono. In tutti e tre i casi si segue il giapponese.
-
-### 4. Le fusioni si rifanno, non si leggono
-
-Intere razze sono costruite su giochi di parole, e **l'inglese non li traduce:
-li ricostruisce in inglese**. ダゴンズイ (ダゴン + ゴンズイ) diventa
-`daganotosus` col nome scientifico; エンタメイド·ザンコック (残酷 + コック)
-diventa `cocruel`. L'italiano fa la stessa cosa, perché è il gioco a essere il
-contenuto: «il pesce gatto Dagon», «la spettacameriera cuocrudele».
-
-⚠️ **E una famiglia era già stata decisa a metà.** ハムスター finisce per
-**スター**, e Elona+ ci costruisce sopra モーニングスター, デススター,
-シューティングスター. L'inglese salva il criceto (`death hamster`) e perde il
-gioco — ma il nucleo aveva già reso `Morningstar` → «la stella mattutina».
-Proseguire era l'unico modo di non spezzare la famiglia: «la stella della
-morte», «la stella cadente». **Prima di scegliere, guardare cosa il nucleo ha
-già scelto per i parenti.**
-
-### 5. Il quiz e i nomi devono coincidere, e il quiz è arrivato prima
-
-`text.hsp` è al 41% e le sue domande sono **già a schermo**; i nomi no. Quindi
-di norma sono i nomi ad adeguarsi: `<Lexus>` è «il guardiano della Gilda dei
-Maghi» perché così dice la risposta, e `<Larnneire>` è «l'ascoltatrice del
-vento» per lo stesso motivo.
-
-⚠️ **Tranne quando è la domanda a essere sbagliata.** «Come si chiama
-l'**investigatore** della Gilda dei Maghi?» era al maschile, ma la risposta è
-`<Lenas>` e il sorgente le dà `SEX=1`. Ritradotta al femminile: era un'ipotesi
-presa quando i nomi non c'erano.
-
-`arena master` ha ora la condizione soddisfatta ma resta rinviato, con le altre
-58: si chiudono col loro lotto di `text.hsp`, non una alla volta.
-
-## Cosa rifare a ogni giro
+Un lotto è una razza. Il giro completo:
 
 ```powershell
+python -m strumenti.creature --razza <razza> --uscita lavoro/fase2-<razza>-001.jsonl
+# ... si traduce ...
 python -m strumenti.verifica lavoro/<lotto>.jsonl   # prima di reimportare
 python -m strumenti.reimporta lavoro/<lotto>.jsonl
 python -m pytest strumenti/tests -q
@@ -217,6 +71,130 @@ python -m strumenti.prova_identita        # 72/72, 27.813, ambigue 0
 python -m strumenti.genera_toppe_nomi     # 32 generate, tutte «ok»
 python -m strumenti.genera_toppe_casuali  # 213 generate, tutte «ok»
 ```
+
+### Prima di tradurre un nome opaco, leggi la sua carta
+
+Scoperta della sedicesima sessione, confermata cinquantasei volte nella
+diciassettesima. Il blocco della creatura in `db_creature.hsp` dice cosa la
+creatura **è nel sistema**; `db_card.hsp` dice cosa **rappresenta**: due o tre
+frasi di prosa in `cardrefskill`, poche righe sopra il `cardrefn` che ne porta
+il nome.
+
+⚠️ **La carta dà anche il sesso**, ed è spesso l'unica fonte. `<Spipha>` è una
+donna solo perché la carta dice «più di metà del suo corpo è trasformata dalla
+maledizione del drago e sceglie vestiti che la coprano».
+
+⚠️ **La carta tiene insieme le famiglie.** I tre lich sono una storia sola —
+`シズル` diventa non morta e scrive il **codice Ssil**, il 冒涜の魔導亡者 ne
+decifra un pezzo e sbaglia la fusione, `イスシズル` sorveglia gli appunti.
+Tradotti uno per uno sarebbero stati tre epiteti scollegati.
+
+⚠️ **Tre carte inglesi sono sbagliate nel sorgente**: `マンドレザッパー`
+(`db_card.hsp:4131`), `世界樹` (`9643`), `ガイドの『ノルン』` (`7017`) hanno la
+prosa inglese di un'altra creatura. Il giapponese è sempre corretto.
+
+## Le sette cose da non riscoprire
+
+### 1. Un nome già preso non si può riusare
+
+Due creature diverse non possono uscire a schermo con lo stesso nome. È
+successo tre volte, e ogni volta la seconda ha dovuto cambiare: `メイド` →
+«la domestica» perché `メイドさん` era già «la cameriera»; `沙羅曼蛇` →
+«la salamandra d'oriente» perché `メガサラマンダー` era già «la salamandra»;
+`ローパー` → «il tentacolare» perché `スライムローパー` era già «la melma
+tentacolare». **Cercare in dizionario prima di scegliere**, non dopo.
+
+Vedi [[una-chiave-che-collide-non-e-una-chiave]].
+
+### 2. `ドレイク` è «draco», e questo chiude il refuso di `action.hsp:17390`
+
+La razza `drake` è **亜竜**, sub-drago, e le carte lo dicono di tutti
+(`viashivan` è «mezza lucertola», `mass monster` «una sottospecie di drago»).
+Serviva un gradino sotto «drago» e l'italiano ce l'ha: **«draco»**, che è il
+nome del *Draco volans*, la lucertola che plana.
+
+⚠️ **Da qui viene che il preteso refuso non era un refuso.** `Electric Drake`
+(電気竜, l'evoluzione di 電気羊) è «il draco elettrico», e chiamarlo «il drago
+elettrico» lo farebbe collidere con エレキドラゴン. La voce resta com'è.
+
+⚠️ **È la decisione più revisionabile della sessione**: «draco» e «drago»
+differiscono di una lettera, ed è per questo che la sedicesima sessione l'aveva
+letta come un errore di battitura. L'alternativa seria è «dragonetto». Se si
+cambia, sono tre nomi del lotto `drake` più quella voce di `action.hsp`.
+
+### 3. L'articolo lo porta il nome, **anche** un nome proprio
+
+`name()` riconosce i nomi propri **dalla prima lettera** (`init.hsp:1713-1716`),
+cioè da `<` o da `"`. Gli dèi stanno fra `<>` e non prendono articolo; i quattro
+nomi del ciclo di Cthulhu no, e l'inglese infatti scrive `the cthugha`. Vanno
+con l'articolo: «il Cthugha», «la Shub-Niggurath». Criterio completo in
+`guida-stile.md`.
+
+⚠️ **Il test dell'articolo ha avuto ragione due volte su due.** Quando cade,
+ha ragione lui.
+
+### 4. Il giapponese arbitra, e il registro si è allungato
+
+Su 1.131 nomi l'inglese ha sbagliato molte decine di volte, e non per
+abbreviazione. Oltre ai casi già noti:
+
+| giapponese | inglese | cosa dice davvero |
+|---|---|---|
+| 機甲将軍 | `iron colonel` | è un **generale**, la carta lo ripete |
+| 生化学者 | `biologist` | **biochimico** |
+| 剣客 | `the cosmic sword` | uno **spadaccino**: perde la persona |
+| ネザーマッドゴーレム | `mad mud golem` | è **mud**, 地獄の泥 |
+| マルチプルゴーレム | `ultimate golem` | è **multiplo** |
+| ファラオの呪い | `cursed coffin` | la **maledizione del faraone** |
+| デビルコボルト | `dark kobold` | **diabolico** |
+| 自走雷撃砲 | `electric tank` | un **semovente**, e a fulmini |
+
+⚠️ **Ma non sempre.** `胡瓜の怪物` l'inglese lo chiama `cucumber horse` e ha
+ragione: la carta descrive il 精霊馬 di Obon, il cavallo di cetriolo che porta
+i morti. Si distingue chiedendo alla carta.
+
+### 5. Le fusioni si rifanno, e a volte l'italiano vince
+
+Il principio era già fissato; questa sessione ha aggiunto i casi in cui
+l'incastro italiano è **migliore** dell'inglese:
+
+- `アロマカリス` = アノマロカリス + アロマ → «l'aromalocaris», identico;
+- `ヒノキオ` = ヒノキ + ピノキオ, e Pinocchio è italiano → «il Pinocipresso»;
+- `魔女王蜂` sovrappone 魔女 e 女王蜂 → «l'ape stregina»;
+- `コンバット` = com + bat → «il combattistrello»;
+- `Ｅ・スケープゴート` = escape + scapegoat → «il capro espatriatorio»;
+- `ガジュマルの怪` la carta lo chiama 絞め殺しの木 → «il fico strangolatore».
+
+### 6. Il precedente decide più spesso di quanto sembri
+
+Prima di inventare, cercare: `db_item.hsp` aveva già fissato i tre 魔神石
+(«globo oscuro verde/blu/cremisi») e quindi i tre 魔神兵; `action.hsp` aveva
+già «il Meshera Soldado» e quindi tutta la famiglia; `<Neres> la smemorata`
+ha dato il genere a `<Ryutye> lo smemorato`; il **quiz** di `text.hsp` chiede
+già «il nome esatto della tartaruga di Valm» e ha vincolato `玄武の『レイキ』`.
+
+Lo strumento è banale — una ricerca per sottostringa su `dizionario/*.jsonl` —
+e va fatta **prima** di scegliere.
+
+### 7. L'articolo sta sulla testa del sintagma, non sulla persona
+
+Invariato dalla sedicesima sessione, e ha retto su tutti i lotti di persone.
+Sesso dichiarato (`cdata(CDATA_SEX, rc)`) → si concorda; sesso casuale →
+sostantivo il cui articolo non dipende dalla persona («la guardia»,
+«l'abitante», «l'agente di commercio»); maschile non marcato solo dove
+l'italiano non offre altro. ⚠️ `/man/` non è il sesso: è
+`DBSPEC_CHARA_FILTER`.
+
+## L'ordine che resta
+
+1. **il collaudo dei 1.131 nomi**, con un salvataggio nuovo;
+2. le **320 firme di voce** di `db_creature.hsp`;
+3. le **59 rinviate** del quiz, ora sbloccate;
+4. le **915 dinamiche di `action.hsp`**, che riparano anche «mordes»;
+5. `text.hsp` dal 41% in su, `command.hsp`, `proc.hsp`, `trait.hsp`;
+6. le **2.555 descrizioni d'oggetto** di `db_item.hsp`.
+
+## Cose che valgono sempre
 
 ⚠️ **Il sorgente è pinnato al tag `2.31.2.0`**, e l'integrità si verifica col
 manifesto SHA-256, **mai** con `git status`, che in quel clone è
@@ -228,6 +206,10 @@ file di *tweak* e cresce a ogni rilascio.
 
 ⚠️ Un guardiano dell'ambiente blocca i messaggi di commit che contengono
 `/man/` letto come percorso: passare il testo con `git commit -F <file>`.
+
+⚠️ **CP932 non codifica tutto.** Niente `«»`, niente dieresi tedesche
+(`Konigskatze`, non `Königskatze`), niente `å` — `verifica.py` blocca i primi,
+gli altri vanno evitati a mano.
 
 ## Per rifare la prova in gioco
 
@@ -253,20 +235,18 @@ generato dalla console dopo la patch va bene lo stesso.
 
 `cgx-lua.exe` in `elonaplus2.31\` è la build della traduzione con
 `CUSTOM_GX_LUA` attiva — la define sta commentata a monte (`main.hsp:9`) e
-senza di lei **la console Lua non esiste nell'eseguibile**, qualunque cosa
-valga `dbg_luaConsole`. La modifica si fa in BUILD e si ripristina subito;
-serve anche `hsplua.dll`, già copiata nella cartella del gioco.
+senza di lei **la console Lua non esiste nell'eseguibile**. La modifica si fa
+in BUILD e si ripristina subito; serve anche `hsplua.dll`, già copiata.
 
 ```powershell
 Start-Process "C:\Games\Elona\elonaplus2.31\cgx-lua.exe" -ArgumentList "--develop" -WorkingDirectory "C:\Games\Elona\elonaplus2.31"
 ```
 
-Senza `--develop` la console parte in modalità HSP e il comando `lua` per
-riaccendere il Lua non risponde. **F12** apre la console; la sintassi è
-`dim[attributo][indice]`:
+Senza `--develop` la console parte in modalità HSP. **F12** apre la console; la
+sintassi è `dim[attributo][indice]`:
 
 ```lua
-return cdata[17][2]                 -- impressione dell'alleato 2 (serve ≥ 150)
+return cdata[17][2]                 -- impressione dell'alleato 2 (serve >= 150)
 cdata[17][2] = 150
 return cdata[214][2]                -- stadio d'evoluzione, dev'essere 0
 return itemcreate(869, 0, 0, 0, 0)  -- gemma in inventario, torna l'indice
@@ -281,30 +261,18 @@ di collaudo: quello che si spedisce resta `cgx-test.exe`.
 ⚠️ L'utente **preferisce una lista di passi da eseguire lui** al collaudo
 pilotato da qui. Dargli la tabella, con l'esito atteso di ogni riga.
 
-### Il collaudo ancora aperto
+### Il collaudo, punto per punto
 
 - ✅ **L'evoluzione vera è stata provata** il 2026-08-10:
   `Norfor il cavallo zoppo` → **`Norfor l'unicorno`**. È scattato il **ramo
   suffisso** (`action.hsp:18643-18644`), quello con l'indice sbagliato
   (`rc` invece di `tc`): ha dato il risultato giusto perché lì `rc` valeva
-  `tc`, quindi il difetto è **latente**, non attivo. Se un domani un'altra
-  evoluzione ci arriva con `rc` diverso, tronca il nome in silenzio.
+  `tc`, quindi il difetto è **latente**, non attivo.
 - ⚠️ **Il non tradotto esce in inglese, non in giapponese.** `applica`
   sostituisce nello slot **inglese** di `lang(jp, en)` (`applica.py:305`) e il
-  gioco gira in inglese: a schermo si legge `Norfor il cavallo zoppo's speed
-  increases`. Atteso fino a che non si chiudono le 915 dinamiche di
-  `action.hsp`.
-- **I 351 nomi della quindicesima sessione** sono stati visti a schermo solo per i passanti delle
-  città (l'articolo dentro il nome regge su una popolazione mista). I segugi
-  elementali, gli dèi e i mostri marini no.
-
-## L'ordine che resta
-
-1. gli altri **455 nomi**, a lotti per razza; poi le **320 di voce**;
-2. le **59 rinviate** del quiz, che si sbloccano solo dopo;
-3. le **915 dinamiche di `action.hsp`**, che riparano anche «mordes»;
-4. `text.hsp` dal 41% in su, `command.hsp`, `proc.hsp`, `trait.hsp`;
-5. le **2.555 descrizioni d'oggetto** di `db_item.hsp`.
+  gioco gira in inglese. Atteso fino a che non si chiudono le 915 dinamiche.
+- ❌ **I 1.131 nomi non sono mai stati visti**, tranne i 351 della quindicesima
+  sessione sui passanti delle città. È il debito da pagare per primo.
 
 ## I tetti misurati, con la loro ancora
 
@@ -316,6 +284,12 @@ pilotato da qui. Dargli la tabella, con l'esito atteso di ogni riga.
 | gradi di resistenza | 9 | **destra, invade** | `command.hsp:11002` |
 | nome nella lista abilità | **24** | sinistra, invade il costo | `command.hsp:5382` |
 | descrizione nella lista | 34 | taglia (`strmid`) | `command.hsp:5389` |
+
+⚠️ Alcuni nomi di questa sessione sono lunghi — «la principessa ibrida
+<roccia e macchina>», «<Melugast AO-I> la macchina da combattimento» — e i
+tetti qui sopra non li coprono: il nome di creatura compare in messaggi senza
+limite. Se il collaudo mostra troncamenti, il posto dove guardare è questa
+tabella, non il dizionario.
 
 Vedi [[la-forma-memorizzata-non-e-quella-scritta]],
 [[una-chiave-che-collide-non-e-una-chiave]],

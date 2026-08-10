@@ -25,9 +25,79 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | `custom_tweaks.hsp` | **12** | 12 | **100%** | 28 |
 | **totale** | **3.915** | **8.624** | **45%** | **9.690** |
 
-Fuori dalla Fase 1, con conteggio proprio: `db_creature.hsp`, **677 firme su
-3.655**, cioè **676 nomi su 1.131** più l'epiteto. Restano **455 nomi in 56
-razze**, e le 320 stringhe di voce non sono ancora cominciate.
+Fuori dalla Fase 1, con conteggio proprio: `db_creature.hsp`, **1.132 firme su
+3.655**, cioè **tutti e 1.131 i nomi** più l'epiteto. `--razze` dice **restano
+0 firme in 0 razze**. Le 320 stringhe di voce non sono ancora cominciate, e le
+2.523 righe rimanenti del file sono dialoghi e descrizioni.
+
+## Cinquantasei lotti, e i nomi finiti — 2026-08-10, diciassettesima sessione
+
+I 455 nomi rimasti sono stati chiusi tutti, a lotti per razza, in dieci commit.
+Il metodo era quello della sedicesima sessione e non è cambiato: `--razza` per
+il taglio, la carta di `db_card.hsp` per i nomi opachi e per il sesso, il
+blocco della creatura per ciò che il sistema dichiara, e le quattro verifiche a
+ogni giro.
+
+### Il test dell'articolo ha avuto ragione due volte
+
+La prima sui quattro nomi del ciclo di Cthulhu (`クトゥグア`, `ツァトゥグァ`,
+`ナイアーラトテップ`, `シュブ＝ニグラス`), scritti nudi come gli dèi. Ma gli
+dèi stanno fra `<>` e questi no, e `name()` riconosce i nomi propri **dalla
+prima lettera** (`init.hsp:1713-1716`): per il motore sono specie, e l'inglese
+infatti scrive `the cthugha`. Vanno con l'articolo. Regola in `guida-stile.md`.
+
+### `ドレイク` è un gradino sotto `ドラゴン`, e questo chiude il preteso refuso
+
+La razza è **亜竜**, sub-drago, e le carte lo ripetono per tutti. L'italiano ha
+la parola: **«draco»**, il nome del *Draco volans*. Da qui viene che
+`action.hsp:17390` non era un errore di battitura: `Electric Drake` (電気竜) è
+«il draco elettrico», e renderlo «drago» lo farebbe **collidere** con
+エレキドラゴン, che quel nome ce l'ha già. La voce esce dalle cose in sospeso.
+
+### Un nome già preso non si può riusare, ed è successo tre volte
+
+| nome | prima scelta | perché no | resa |
+|---|---|---|---|
+| `メイド` | «la cameriera» | è già di `メイドさん` | «la domestica» |
+| `沙羅曼蛇` | «la salamandra» | è già di `メガサラマンダー` | «la salamandra d'oriente» |
+| `ローパー` | «la melma tentacolare» | è già di `スライムローパー` | «il tentacolare» |
+
+⚠️ E una collisione la crea **l'inglese**, non noi: `<Orphe> the chaos child`
+è il 混沌の**寵児**, ma `<The Chaos Child>` è già il 混沌の**超児** del lotto
+`god`, «<Il Figlio del Caos>». Un carattere li separa in giapponese —
+寵 «prediletto» contro 超 «oltre» — e si segue quello.
+
+### Due giochi di parole che solo la carta rivela
+
+- `先生きのこ` sembra «fungo insegnante»; la carta finisce con
+  「この先生きのこれないだろう」, cioè 「この先 生きのこれる」 «sopravvivere»
+  letto come 「この先生 きのこれる」. Il nome **è** la battuta →
+  **«il professore champignon»**;
+- `闘駐火草` si legge *tochukaso* ed è **冬虫夏草**, il cordiceps, scritto con
+  ateji. Vale la regola degli omofoni: si traduce la base → **«il cordiceps»**.
+- `邪拳王` la carta lo dichiara origine di じゃんけん, e in italiano il gioco ha
+  il suo nome → **«il re della morra»**.
+
+### Tre carte inglesi sono sbagliate nel sorgente
+
+`マンドレザッパー` (`db_card.hsp:4131`) ha la prosa di `胡瓜の怪物`, `世界樹`
+(`9643`) quella di `ヘブンズビートル`, e `ガイドの『ノルン』` (`7017`) quella
+di `メルガスト`. Il **giapponese è sempre corretto** ed è da lì che si è
+tradotto. Non toccate: sono upstream.
+
+### Il registro dei nomi che l'inglese sbaglia si è allungato
+
+| giapponese | inglese | cosa dice davvero |
+|---|---|---|
+| 機甲将軍 | `iron colonel` | è un **generale**, e la carta lo ripete |
+| 生化学者 | `biologist` | **biochimico**, la carta dice 生化学専門 |
+| 剣客 | `the cosmic sword` | uno **spadaccino**: perde la persona |
+| ネザーマッドゴーレム | `mad mud golem` | è **mud**, 地獄の泥から作られた |
+| マルチプルゴーレム | `ultimate golem` | è **multiplo**, 多数の素材を複合 |
+| ファラオの呪い | `cursed coffin` | la **maledizione del faraone** |
+| デビルコボルト | `dark kobold` | **diabolico** |
+| 暗黒宇宙蟹 | `dark dome` | un granchio spaziale nato in un buco nero |
+| 自走雷撃砲 | `electric tank` | un **semovente**, e a fulmini |
 
 ## Otto lotti, e un arbitro nuovo — 2026-08-10, sedicesima sessione
 

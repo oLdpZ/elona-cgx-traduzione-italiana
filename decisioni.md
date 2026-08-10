@@ -6,6 +6,72 @@ ancora aperte.
 
 ---
 
+## `ドレイク` è «draco», e il refuso di `action.hsp:17390` non era un refuso
+
+Decisa il 2026-08-10, diciassettesima sessione, col lotto `drake`.
+
+La sedicesima sessione aveva lasciato in sospeso una voce già tradotta:
+`action.hsp:17390`, `電気竜` → «il **draco** elettrico», unica occorrenza
+contro decine di «drago». La lettura era «è una lettera, non una distinzione»,
+e il commento diceva che andava corretta in un commit suo.
+
+Il lotto `drake` ha costretto a guardarla di nuovo, e ha ribaltato la
+conclusione. La razza è **亜竜**, che il sorgente dichiara e le carte ripetono
+per ognuno dei suoi membri: `viashivan` è «mezza lucertola», `mass monster` è
+«una sottospecie di drago», `powerful great wyrm` regna «sui sub-draghi».
+Serviva quindi un **gradino sotto «drago»**, e in italiano esiste: **«draco»**
+è il nome del *Draco volans*, la lucertola planante — l'immagine giusta per un
+drago minore.
+
+⚠️ **E soprattutto: correggere avrebbe creato una collisione.** `電気竜` è
+l'evoluzione di `電気羊` (`evold`/`evname` a `action.hsp:17390-17391`), mentre
+`エレキドラゴン` è un'altra creatura e ha **già** il nome «il drago elettrico».
+Due mostri diversi non possono uscire a schermo con lo stesso nome. La voce
+resta com'è ed esce dalle cose in sospeso.
+
+**Cosa serve per cambiare idea.** L'obiezione vera è che «draco» e «drago»
+differiscono di una lettera, ed è esattamente per questo che la sessione prima
+l'aveva letta come un errore di battitura: se al collaudo in gioco i due nomi
+si confondono, l'alternativa è **«dragonetto»**, e il costo è tre nomi del
+lotto `drake` più quella voce. La decisione è registrata qui proprio perché è
+la più revisionabile della sessione.
+
+Vedi `glossario.md`, «Le teste di famiglia dei nomi di creatura».
+
+## Un nome già preso non è disponibile, e va cercato prima
+
+Stessa sessione, tre volte. `メイド` non poteva essere «la cameriera» perché
+`メイドさん` lo era già; `沙羅曼蛇` non poteva essere «la salamandra» perché
+`メガサラマンダー` lo era già; `ローパー` non poteva essere «la melma
+tentacolare» perché `スライムローパー` lo era già.
+
+Nessuno dei tre casi è stato trovato dagli strumenti: `verifica.py` controlla
+che l'italiano non sia identico all'inglese, non che sia unico fra le
+creature. **Li ha trovati la ricerca a mano nel dizionario**, fatta prima di
+scegliere.
+
+⚠️ **Vale la pena farne una guardia?** Forse no, e la ragione è che
+l'omonimia non è sempre un errore: `伝説の職人『ガロク』` e
+`伝説の職人『ミラル』` sono entrambi «il fabbro leggendario», come in
+giapponese, perché il nome proprio fra `<>` li distingue. Una guardia che
+vietasse i duplicati boccerebbe anche quelli. Per ora resta una **cosa da
+fare a mano**, scritta in `RIPRESA-sessione.md`.
+
+## Quando le due lingue si nominano invece di descriversi
+
+Estensione della regola di `<Amurdad>` già in `invariati.md`. Su
+`星見の『サリム』` il giapponese dice サリム e l'inglese `<Thalia>`: non sono
+due traduzioni della stessa cosa, sono **due nomi diversi**. Si tiene la forma
+inglese, che è quella che il gioco mostra. Stesso caso per `白虎の『サンゲツ』`
+(`<Lityou>`) e `モー・ショボー` (`mayu sibayu`).
+
+⚠️ **Da non confondere col caso in cui l'inglese sbaglia**, che in questa
+sessione è capitato decine di volte. Il discrimine è se le due forme *provano*
+a dire la stessa cosa: `機甲将軍` e `iron colonel` sì — e allora una delle due
+ha torto, ed è l'inglese; `サリム` e `Thalia` no.
+
+---
+
 ## Come è andata la Fase 0
 
 La catena `estrai → verifica → reimporta → applica` esiste, è coperta da **83
