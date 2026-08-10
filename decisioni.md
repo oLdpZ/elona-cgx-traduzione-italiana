@@ -6,6 +6,46 @@ ancora aperte.
 
 ---
 
+## «In coda» non è un posto: dipende da chi scrive dopo di te — 2026-08-11, ventiduesima sessione
+
+Uno screenshot della vetrina del panettiere di Palmia:
+
+```
+un piatto di  con benedizionewalnut bread (Rank: 3)
+un piatto di walnut bread (Rank: 3)
+una pasta fresca con benedizione
+```
+
+La terza riga è giusta, la prima no, e sono lo **stesso codice**.
+
+`strblessed` in inglese si antepone (`blessed sword`); in italiano è un
+complemento che segue, perché un participio si accorderebbe con un oggetto di
+genere ignoto. Le toppe 41-45 lo differiscono in `locvar_itemname_s7` e lo
+appendono a `*skipName`. Per ogni oggetto normale quello **è** il fondo del
+nome, e infatti «pasta fresca con benedizione» esce bene.
+
+Ma per il **cibo cotto** il nome del piatto non c'è ancora: lo appende
+`gosub *itemNameSub` del ramo inglese, che sta **dopo** `*skipName`
+(`item_func.hsp`, `*skipName` → … → `gosub *itemNameSub` → ritorno). Quindi la
+benedizione finisce in mezzo, e senza spazio, perché `foodname()` si concatena
+nuda.
+
+**Corretto**: la toppa di `*skipName` non appende più `s7`; una toppa nuova lo
+appende **prima del controllo di lunghezza a 66 caratteri**, che è l'ultimo
+punto prima del ritorno — così la coda c'è sempre ed è anche misurata.
+
+⚠️ **La lezione, che vale oltre questo caso.** Una coda «in fondo al nome» non è
+un posto assoluto: è un posto **relativo a chi scrive dopo**. Prima di appendere
+qualcosa a una stringa che altri continuano a comporre, bisogna sapere **chi è
+l'ultimo a scrivere**, e in `itemname()` l'ultimo cambia con il tipo di oggetto.
+Le due metà erano corrette prese da sole: nessuna guardia poteva vederlo, e
+nessuna lettura del sorgente l'aveva visto in due sessioni. **L'ha trovato uno
+screenshot**, come le voci tagliate dei menu.
+
+Vedi [[ultima-scrittura-vince]] e [[una-guardia-vale-solo-dove-guarda]].
+
+---
+
 ## Due interpolazioni nella stessa funzione, e solo una porta l'articolo — 2026-08-10, ventiduesima sessione
 
 `foodname` (`text.hsp:3211`) compone il nome di ogni cibo cucinato del gioco:
