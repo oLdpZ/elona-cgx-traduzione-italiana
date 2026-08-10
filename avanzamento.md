@@ -16,14 +16,14 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 |---|---|---|---|---|
 | `text.hsp` | **780** | 1.740 | 45% | 2.127 |
 | `command.hsp` | 0 | 1.304 | 0% | 1.481 |
-| `action.hsp` | **399** | 1.288 | 31% | 1.502 |
+| `action.hsp` | **838** | 1.288 | **65%** | 1.502 |
 | `proc.hsp` | 0 | 1.098 | 0% | 1.327 |
 | `skill.hsp` | **885** | 885 | **100%** | 894 |
 | `trait.hsp` | 0 | 373 | 0% | 406 |
 | `db_item.hsp` | **1.606** | 1.606 | **100%** | 1.607 |
 | `item_data.hsp` | **318** | 318 | **100%** | 318 |
 | `custom_tweaks.hsp` | **12** | 12 | **100%** | 28 |
-| **totale** | **4.000** | **8.624** | **46%** | **9.690** |
+| **totale** | **4.439** | **8.624** | **51%** | **9.690** |
 
 Fuori dalla Fase 1, con conteggio proprio: `db_creature.hsp`, **1.452 firme su
 3.655** — tutti e 1.131 i nomi, l'epiteto e le **320 stringhe di voce**, chiuse
@@ -39,6 +39,28 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `ai.hsp` | 6 | 94 | 16 letterali, stessa causa |
 | `event.hsp` | 5 | 649 | 6 letterali, stessa causa |
 | `init.hsp` | 6 | 133 | già nel perimetro da prima |
+| `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
+
+## `chara_func.hsp` entra per 45 firme — 2026-08-11, diciannovesima sessione
+
+Quarto file fuori piano, ed entrato per la stessa ragione dei tre della
+sessione prima: un valore che il perimetro produce e che qualcuno fuori
+consuma. Qui però non è un confronto, è **una frase**.
+
+`action.hsp` scrive la prima metà del messaggio d'attacco — «il putit morde il
+viandante e» — e imposta `gdata(GDATA_DMG_TYPE) = 2`; `chara_func.hsp:6323`
+legge quel flag e stampa la seconda metà, «infligge una lieve ferita.», con
+`txtcontinue` che sopprime la maiuscola. Sono 45 firme su 331: **solo la zona
+del danno**, non il file intero.
+
+Il criterio del taglio è quello che vale la pena tenere: si allarga il
+perimetro alla **zona che chiude la frase**, non al file che la contiene. Le
+altre 286 firme di `chara_func.hsp` restano fuori finché non serviranno.
+
+⚠️ La causa di morte (`chara_func.hsp:6850`) è rimasta fuori di proposito: la
+frase la compone `main.hsp:4409`, che non è nel perimetro. Tradurla darebbe
+«<epiteto> <nome> per mano di il putit in Vernis» — metà italiano, metà
+inglese, e una preposizione che non si fonde.
 
 ## Il perimetro si allarga di tre file — 2026-08-10, diciottesima sessione
 

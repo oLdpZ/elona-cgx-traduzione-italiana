@@ -6,6 +6,92 @@ ancora aperte.
 
 ---
 
+## Quattro difetti negli strumenti, trovati traducendo — 2026-08-11, diciannovesima sessione
+
+La sessione ha tradotto 439 firme di `action.hsp` e 45 di `chara_func.hsp`, ma
+la parte che vale di più è un'altra: **quattro guardie erano rotte**, e tre lo
+erano in modo da rendere certe voci intraducibili.
+
+### 1. La guardia sulla rinomina leggeva un file solo
+
+`evoluzioni_con_jp()` ha `action.hsp` come percorso di default, e tutti i test
+che la usano guardavano lì. Gli stessi `evold` stanno in
+`custom_enemyevolution.hsp`, `ai.hsp` ed `event.hsp` — i tre file entrati nel
+perimetro **proprio perché** lì le rinomine erano morte.
+
+Il controllo esteso — ogni `evold` deve combaciare in testa o in coda con
+almeno un nome che può incontrare, cioè i 1.427 nomi di creatura più i 176
+`evname`, perché le evoluzioni si incatenano — ha dato **249 su 250**.
+
+L'unica rotta: `<Gwen> l'innocente` contro `evold` «la fanciulla innocente».
+Resa «l'innocente», che combacia in coda e produce «<Gwen> la guerriera
+innocente», la forma che il database usa già per «<Gwen> la guerriera
+spietata». ⚠️ **In inglese quella rinomina è rotta anche upstream**: `the
+innocent girl` non è né prefisso né suffisso di `<Gwen> the innocent`. In
+giapponese funziona. Vedi [[una-guardia-vale-solo-dove-guarda]].
+
+### 2. `is2` non era dichiarata morfologia inglese
+
+`init.hsp:1768`: la copula accordata al **numero** (`are`/`is`), gemella di
+`is` che si accorda alla persona. Fuori dall'elenco, `verifica.py` pretendeva
+che la resa italiana la conservasse — cioè chiedeva di scrivere «is» dentro una
+frase italiana.
+
+Riletto il sorgente invece di aggiungerla a mano: le `#defcfunc` di `init.hsp`
+che restituiscono **solo** stringhe inglesi nude sono quattordici, e `is2` era
+l'unica assente. Il test ora rilegge quell'elenco dal sorgente.
+
+### 3. Il parser leggeva il testo come codice
+
+`"Manuscript production (" + gdata(...) + " inspiration) "`: la ricerca delle
+chiamate vedeva una funzione `production`, e nella resa italiana una
+`manoscritti`. Nessuna resa con una parentesi dopo una parola poteva passare.
+Aggiunta `_maschera_letterali`. Vedi
+[[il-testo-dentro-la-stringa-non-e-codice]].
+
+### 4. Una resa vuota non ha modo di essere dichiarata
+
+`action.hsp:4584` compone `lang("", "The ")` davanti al nome di un'arma unica:
+il giapponese è vuoto, e vuoto è giusto anche in italiano perché il nome porta
+già il suo articolo. Ma `verifica.py` rifiuta le rese vuote, **e fa bene**:
+quasi sempre sono righe dimenticate. Risolto con due toppe che svuotano lo slot
+inglese, più una riga in `rinviate.jsonl` con
+`rinviata_a: nessuna fase: risolta da toppa`, altrimenti la firma tornava in
+testa a ogni estrazione per sempre.
+
+## Le decisioni di resa che vale la pena non rifare
+
+- **La preposizione sta nel valore, non nella frase.** Le quattro frasi dei
+  campi coltivati concatenano tutte « di » davanti alla variabile del tipo di
+  seme: « di » + « erba » dava «un seme di erba». Ora il valore è «d'erbe»,
+  «d'artefatti», e le frasi non portano la preposizione. È lo stesso criterio
+  dell'articolo dentro il nome di creatura.
+- **I nomi d'arma di `action.hsp` portano l'articolo; quelli di `db_item.hsp`
+  no.** I primi finiscono in `" con " + s(i)` e non hanno nessuno che gliela
+  metta; i secondi hanno l'array parallelo degli articoli. Stessa parola, due
+  forme, e la forma la decide chi stampa.
+- **`Sense Quality` non è un nome:** è l'identificativo interno dell'abilità
+  che a schermo si chiama «Analisi» (`skill.hsp:252`). Vedi
+  [[il-nome-interno-non-e-quello-a-schermo]].
+- **Le continuazioni del danno sono invarianti di genere** — «ne fa cenere»,
+  «infligge una ferita profonda» — perché il bersaglio è già nominato nella
+  prima metà della frase e il complemento si può omettere. Vedi
+  [[la-frase-che-si-compone-in-due-file]].
+- **La battuta dell'orso di James** (`chara_func.hsp:6852`) era già morta prima
+  di questa sessione: `cnv_str` cercava «was killed by motuhegui» in una
+  stringa che ora contiene «lo sbudellatore». ⚠️ Le due toppe che la riparano
+  vanno in **ordine invertito** rispetto al sorgente, perché «lo sbudellatore»
+  è prefisso di «lo sbudellatore marmocchio» mentre «motuhegui» non lo era di
+  «gaki-motuhegui». Stesso criterio che upstream applica in `fix_wish`
+  (`module.hsp:4805`): forme lunghe prima.
+
+## Un metodo cambiato: i lotti si prendono per zona di riga
+
+Separare statiche e dinamiche aveva messo le otto metà di frase in « and » in
+un lotto e le loro gemelle in un altro. Dalla quarta sessione di lotti si
+prende una **zona contigua** del file: il sorgente attorno si legge una volta
+sola, e le frasi spezzate restano insieme.
+
 ## `ドレイク` è «draco», e il refuso di `action.hsp:17390` non era un refuso
 
 Decisa il 2026-08-10, diciassettesima sessione, col lotto `drake`.

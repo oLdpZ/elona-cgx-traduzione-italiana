@@ -1,31 +1,31 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-10, fine della diciottesima sessione.
+Aggiornato: 2026-08-11, fine della diciannovesima sessione.
 
 ## La prima cosa da fare
 
-**Il collaudo dei nomi è stato fatto** e ha trovato due difetti, entrambi
-riparati. Il debito grosso della sessione scorsa è chiuso. Il prossimo passo non
-è una scelta: è **finire `action.hsp`**, dove restano 889 firme (292 dinamiche +
-597 statiche) e il modello è ormai fissato.
+Continuare `action.hsp`, che è a **838 firme su 1.288 (65%)**. Restano **450
+firme**: si prendono **per zona di riga**, dalla 8274 in avanti, senza separare
+statiche e dinamiche — vedi «Il metodo, cambiato».
 
-⚠️ **Una cosa resta non provata in gioco**, ed è la più importante: le **379
-rinomine all'evoluzione riparate**. La lettura del sorgente dice che ora il
-confronto combacia, ma è una deduzione, non una prova — e questo progetto ha già
-visto una deduzione ribaltarsi a schermo. Vedi «Per rifare la prova in gioco».
+⚠️ **Restano non provate in gioco le rinomine all'evoluzione dei nemici.**
+Questa sessione le ha però verificate meccanicamente: 249 `evold` su 250
+combaciano con un nome che possono davvero incontrare, e la sola rotta —
+`<Gwen>` — è stata riparata. La prova a schermo serve ormai solo a confermare
+l'innesco, non i nomi. Vedi «Per rifare la prova in gioco».
 
 ### Le quattro verifiche d'apertura
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-python -m pytest strumenti/tests -q        # atteso: 338 passed, 2 skipped
+python -m pytest strumenti/tests -q        # atteso: 343 passed, 2 skipped
 python -m strumenti.prova_identita         # atteso: 72/72, 27.813, ambigue 0
 python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre ovunque
 python -m strumenti.creature               # atteso: nome 1131, voce 320, doppie 0, senza razza 0
 ```
 
-I test sono **338**, non più 336: due nuovi sulla regola della morfologia
-annidata, vedi sotto.
+I test sono **343**, non più 338: cinque nuovi, tutti armati su difetti veri
+trovati in questa sessione.
 
 ## Dove siamo
 
@@ -35,70 +35,44 @@ annidata, vedi sotto.
 | `item_data.hsp` | 318 | 318 | **100%** |
 | `skill.hsp` | 885 | 885 | **100%** |
 | `custom_tweaks.hsp` | 12 | 12 | **100%** |
+| `action.hsp` | 838 | 1.288 | **65%** |
 | `text.hsp` | 780 | 1.740 | 45% |
-| `action.hsp` | 399 | 1.288 | 31% |
 | gli altri tre | 0 | 2.775 | 0% |
-| **totale Fase 1** | **4.000** | **8.624** | **46%** |
+| **totale Fase 1** | **4.439** | **8.624** | **51%** |
 
-Fuori dalla Fase 1: `db_creature.hsp` a **1.452 firme su 3.655** — i 1.131 nomi,
-l'epiteto e le 320 stringhe di voce.
+Fuori dalla Fase 1: `db_creature.hsp` a 1.452 su 3.655;
+`custom_enemyevolution.hsp` **chiuso**; `ai.hsp` 6 su 100; `event.hsp` 5 su
+654; `chara_func.hsp` **45 su 331**, entrato in questa sessione.
 
-⚠️ **Tre file sono entrati nel perimetro** il 2026-08-10, e non erano nel piano:
-`custom_enemyevolution.hsp` (368 firme, **chiuso al 100%**), `ai.hsp` (6 su 100),
-`event.hsp` (5 su 654). Perché, sta qui sotto.
+**343 test**, prova d'identità **72/72 e 27.813**, **7.922 sostituzioni**, il
+compilatore non dice nulla.
 
-**338 test**, prova d'identità **72/72 e 27.813**, **7.596 sostituzioni** nella
-build, il compilatore non dice nulla.
+## Quello che questa sessione ha cambiato negli strumenti
 
-## Le tre cose che questa sessione ha cambiato nel metodo
+Sono quattro guardie riparate, e tre rendevano certe voci **intraducibili**. Il
+dettaglio sta in `decisioni.md`; qui il minimo per non rifare la strada.
 
-### 1. Un difetto può stare **fra** due file, e nessuna guardia lo vede
+1. **La guardia sulla rinomina leggeva solo `action.hsp`** — `evoluzioni_con_jp()`
+   ha quel percorso come default. Ora il controllo copre anche
+   `custom_enemyevolution.hsp`, `ai.hsp` ed `event.hsp`, e ha trovato `<Gwen>`.
+2. **`is2` mancava dalla morfologia inglese** (`init.hsp:1768`). L'elenco ora
+   si rilegge dal sorgente invece di fidarsi di quello scritto a mano.
+3. **Il parser leggeva il testo dentro le stringhe come codice**: `production (`
+   in una frase inglese sembrava una chiamata di funzione. Aggiunta
+   `_maschera_letterali`.
+4. **Una resa vuota non si può dichiarare**, e va bene così: si risolve con una
+   toppa più una riga in `rinviate.jsonl`.
 
-La rinomina all'evoluzione confronta il nome memorizzato con un letterale del
-sorgente. In `action.hsp` quel letterale è tradotto; in
-`custom_enemyevolution.hsp`, `ai.hsp` ed `event.hsp` — **fuori dal perimetro** —
-era rimasto inglese. Il confronto non combaciava più: **440 rinomine morte**, in
-silenzio, con tutte le guardie verdi. Il nemico evolve e tiene il nome di prima.
+> Ogni guardia nuova l'ho vista **fallire** rimettendo il difetto, prima di
+> tenerla. Un controllo mai visto rosso non è una guardia.
 
-Riparato: 379 firme uniche, **tutte risolte cercando il giapponese** nel
-dizionario esistente, zero ambigue. Concetto:
-[[coerenza-fra-due-file-uno-solo-tracciato]].
+## Il metodo, cambiato
 
-> La domanda da rifare a ogni lotto: **chi altro, fuori dal perimetro, dipende
-> da un valore che dentro ho cambiato?** Si risponde con una ricerca per
-> contenuto su tutto il sorgente, non per nome di file.
-
-### 2. Il testo giusto non basta: conta **dove viene stampato**
-
-`custom_dmgpop.hsp:237` applicava il *title case* inglese agli epiteti —
-`L'investigatrice Della Gilda Dei Guerrieri` — con una chiamata cablata a mano
-che scavalcava l'opzione del gioco. Il dizionario era corretto; la deformazione
-avveniva a valle, dove nessuna guardia sul testo può guardare. Toppa 255ª.
-
-Sospetti abituali da controllare: `capitalize`, `strmid` a larghezza fissa,
-suffissi di plurale, articoli, allineamenti.
-
-### 3. Una guardia che nessuna resa può soddisfare è **la guardia** a essere rotta
-
-`verifica.py` contava come contenuto anche ciò che sta **dentro** una chiamata di
-morfologia inglese. In `name(gdata(R)) + is(gdata(R)) + " using it."` il secondo
-`gdata` serve solo alla copula; togliere `is()` — obbligatorio — lo porta via, e
-nessuna traduzione italiana corretta poteva passare.
-
-Corretto `strumenti/funzioni.py` (`_classifica` salta gli argomenti della
-morfologia) sul criterio verificato che **una funzione di grammatica non stampa
-mai ciò che riceve**. ⚠️ Ha fatto cadere **due test esistenti**, riletti per il
-loro obiettivo dichiarato e corretti nelle asserzioni incidentali; due test nuovi
-per la regola. Se la decisione non convince, si torna indietro in un commit — ma
-allora quelle voci restano intraducibili. Vedi [[guardia-troppo-severa]].
-
-## Il metodo per `action.hsp`, ormai fissato
-
-Le dinamiche sono espressioni HSP intere da riscrivere, non stringhe.
+**I lotti si prendono per zona di riga**, non separando statiche e dinamiche.
 
 ```powershell
-python -m strumenti.estrai action.hsp --da-tradurre --uscita lavoro/<lotto>.jsonl
-# ... si traduce ...
+python -m strumenti.estrai action.hsp --da-tradurre --uscita lavoro/_r.jsonl
+# si ordina per (riga, occorrenza) e si prendono le prime ~50
 python -m strumenti.verifica lavoro/<lotto>.jsonl
 python -m strumenti.reimporta lavoro/<lotto>.jsonl
 python -m pytest strumenti/tests -q
@@ -107,74 +81,83 @@ python -m strumenti.genera_toppe_nomi
 python -m strumenti.genera_toppe_casuali
 ```
 
-Le tre regole che governano ogni resa dinamica:
+Perché: separando i tipi, le otto metà di frase che finiscono in « and » erano
+finite in un lotto e le loro gemelle in un altro. Per zona, il sorgente attorno
+si legge una volta sola e le frasi spezzate restano insieme.
 
-1. **Terza persona, sempre.** `name(giocatore)` è «il viandante» (toppa su
-   `init.hsp`), quindi «perde la pazienza» regge per il giocatore e per il putit.
-2. **Mai `_s()`, `is()`, `was()`, `your()`, `have()`, `does()`, `yourself()`.**
-   Non passano da `lang()`: resterebbero inglesi dentro la frase italiana. La
-   frase si riscrive, non si rattoppa.
-3. **Mai una preposizione davanti a `name()` o `itemname()`** — portano già
-   l'articolo, e HSP non fonde: `" di " + name(tc)` esce «di il putit». Criterio
-   e ricerca da rifare a ogni lotto in `guida-stile.md:212`.
+⚠️ **La firma di `action.hsp:4584` non si traduce** ma resta contata fra le non
+tradotte: è in `rinviate.jsonl`, risolta da toppa. Va scartata a mano quando si
+compone un lotto (`x['riga'] != 4584`).
 
-⚠️ **`«mordes»` è localizzato**: `action.hsp:4887`, dove `_melee(0, ...)` è già
-tradotto «morde» in `text.hsp:164` e `_s(cc)` gli attacca la «s». Sparisce
-quando si traduce quella riga. Il gemello è in `proc.hsp:8797`, lo stesso file su
-cui puntano le **20 rinviate** rimaste: i due si chiudono insieme.
+## Le regole di resa, aggiornate
+
+Le tre di prima valgono ancora — terza persona sempre; mai `_s()`, `is()`,
+`was()`, `your()`, `have()`, `does()`, `yourself()`; mai una preposizione
+davanti a `name()` o `itemname()`. **`con`, `per`, `tra`, `sopra`, `dentro` e
+`contro` invece reggono**, perché non si fondono con l'articolo.
+
+Tre aggiunte di questa sessione:
+
+- **La preposizione sta nel valore, non nella frase.** Se quattro frasi
+  concatenano tutte « di » davanti alla stessa variabile, la preposizione va
+  **dentro i valori** («d'erbe», «di gemme») e tolta dalle frasi. Stesso
+  criterio dell'articolo dentro il nome di creatura.
+- **Invarianza di genere prima di tutto.** Il bersaglio può essere qualunque
+  creatura e l'oggetto qualunque cosa: «Non ha più cariche» e non «è scarico»,
+  «vibra di malumore» e non «è scontento», «Il peso ti schiaccia» e non «Sei
+  schiacciato». Nelle continuazioni del danno il complemento si omette del
+  tutto, perché il bersaglio è già nella prima metà della frase.
+- **Un nome di abilità o di oggetto non si traduce: si copia** dal file che
+  genera l'etichetta vera. ⚠️ E il nome interno può essere un altro:
+  `Sense Quality` è l'abilità che a schermo si chiama «Analisi»
+  (`skill.hsp:252`).
 
 ## Le cose da non riscoprire
 
-### Un nome già preso non si può riusare — **e vale anche per le esche**
+### La frase di combattimento vive in due file
 
-La regola era nota per i nomi di creatura. Questa sessione l'ha estesa: il quiz
-«quale segugio ha il nome esatto» offre un vero e tre falsi, e il falso
-`混沌ハウンド` sarebbe diventato «il segugio del caos» — che `カオスハウンド`
-**ha già**. Due opzioni identiche, e la domanda non ha più risposta.
+`action.hsp` scrive «… e» e imposta `gdata(GDATA_DMG_TYPE) = 2`;
+`chara_func.hsp:6323` legge il flag e stampa il resto con `txtcontinue`, che
+sopprime la maiuscola (`init.hsp:1663`). `init.hsp:1666` aggiunge già lo spazio
+fra due messaggi: **la giuntura non va spaziata a mano**.
 
-> Prima di scegliere una resa, cercarla in dizionario. Vale per i nomi veri e
-> per quelli inventati.
+Per ogni contenuto servono due rese: una che si aggancia, una autonoma.
 
-### Il giapponese arbitra, e sulle voci l'inglese **inventa**
+### Le stringhe che sembrano testo e sono codice
 
-Sulle 320 stringhe di voce l'inglese non abbrevia: aggiunge frasi che nel
-giapponese non esistono (`「ガルルル…」`, un ringhio, diventa «You hear the near
-silent footfalls of a cat»). E due volte capovolge il senso: `あの男`
-(*quell'uomo*) → «that girl»; `トドメを刺した` (*colpo di grazia*) → «tormented».
+`EN` (`action.hsp:4816`) è la chiave con cui il gioco cerca `%txtName,EN` nei
+file `user\item\plan*.txt`: tradotta, il nome dell'oggetto sparisce. Sta in
+`invariati.md` col motivo. **Prima di tradurre una stringa corta e maiuscola,
+guardare chi la consuma.**
 
-### La carta dice cosa la creatura rappresenta, il blocco cosa è
+### Un letterale confrontato muore quando l'altro lato è tradotto
 
-Invariato dalla sedicesima sessione. `db_card.hsp`, `cardrefskill`, poche righe
-sopra il `cardrefn`. Dà anche il sesso, e tiene insieme le famiglie. ⚠️ Tre carte
-inglesi sono sbagliate nel sorgente (`db_card.hsp:4131`, `9643`, `7017`): il
-giapponese è sempre corretto.
+La battuta dell'orso (`chara_func.hsp:6852`) era già morta: `cnv_str` cercava
+«was killed by motuhegui» dove ora c'è «lo sbudellatore». ⚠️ Le due toppe che
+la riparano vanno in **ordine invertito** rispetto al sorgente, perché in
+italiano la forma corta è prefisso di quella lunga e `cnv_str` sostituisce sul
+primo riscontro.
 
-### L'articolo sta sulla testa del sintagma, non sulla persona
+### Le altre, invariate dalle sessioni prima
 
-Sesso dichiarato → si concorda; sesso casuale → sostantivo il cui articolo non
-dipende dalla persona. ⚠️ `/man/` non è il sesso: è `DBSPEC_CHARA_FILTER`.
-
-### `ドレイク` è «draco» — **confermato a schermo**
-
-Non è più una decisione revisionabile: i tre draco sono stati guardati accanto a
-`<Vansesda> il drago della fiamma primordiale` e non si confondono.
+- il giapponese arbitra, e sulle voci l'inglese inventa;
+- la carta di `db_card.hsp` dice cosa la creatura rappresenta;
+- l'articolo sta sulla testa del sintagma, non sulla persona;
+- `ドレイク` è «draco», confermato a schermo;
+- un nome già preso non si può riusare, **e vale anche per le esche del quiz**.
 
 ## L'ordine che resta
 
-1. **`action.hsp`**: 292 dinamiche + 597 statiche;
+1. **`action.hsp`**: 450 firme, per zona dalla 8274;
 2. `text.hsp` dal 45% in su;
 3. `proc.hsp` — chiude le 20 rinviate e il gemello di «mordes»;
 4. `command.hsp`, `trait.hsp`;
-5. `ai.hsp` (94) ed `event.hsp` (649), ora nel perimetro;
-6. le 2.203 righe rimanenti di `db_creature.hsp` e le 2.555 descrizioni
-   d'oggetto di `db_item.hsp`.
-
-⚠️ **`chara_func.hsp` non è nel perimetro, ma il quiz ne ha già fissato quattro
-nomi.** Le tre pietre di Lesimas e l'ankh del sole si ottengono lì
-(`chara_func.hsp:7347-7448`) e la tabella EN→IT è in `glossario.md`: quando il
-file entrerà, quelle rese si copiano, non si reinventano. Finché non entra, il
-giocatore riceve `[Sage's Magic Stone]` in inglese e la ritrova in italiano nel
-quiz.
+5. `ai.hsp` (94) ed `event.hsp` (649);
+6. `chara_func.hsp`, le 286 rimanenti — ⚠️ dentro ci sono le tre pietre di
+   Lesimas e l'ankh del sole, già fissate dal quiz in `glossario.md`: quelle
+   rese si **copiano**. E c'è la causa di morte (`:6850`), che però va insieme
+   a `main.hsp:4409`;
+7. le 2.203 righe di `db_creature.hsp` e le 2.555 descrizioni di `db_item.hsp`.
 
 ## Cose che valgono sempre
 
@@ -183,15 +166,15 @@ manifesto SHA-256, **mai** con `git status`, che in quel clone è permanentement
 sporco. Gli hash del manifesto sono in MAIUSCOLO.
 
 ⚠️ **Da rifare a ogni versione CGX nuova**: cercare chi riassegna `skillname` e
-`skilldesc` fuori da `skill.hsp` — oggi è solo `custom_tweaks.hsp`, ma è un file
-di *tweak* e cresce a ogni rilascio. **E adesso anche**: cercare chi copia nomi
-di creatura fuori da `db_creature.hsp`, che è il difetto delle 440 rinomine.
+`skilldesc` fuori da `skill.hsp`; cercare chi copia nomi di creatura fuori da
+`db_creature.hsp`; **e adesso anche** cercare chi confronta un letterale contro
+un valore che abbiamo tradotto — `cnv_str`, `instr`, `==` su stringhe.
 
 ⚠️ **CP932 non codifica tutto.** Niente `«»` (si usano le tipografiche `“”`),
 niente dieresi tedesche, niente `å`. Gli accenti veri si scrivono nel dizionario
 e li degrada `applica`; ⚠️ **guardare dove cade l'accento**: a fine parola è
-gratis, a metà no («dèi» → `de'i`). Il controllo copre ora **tutti** i campi di
-testo, incluso `plurale`, che è separato dal singolare.
+gratis, a metà no («dèi» → `de'i`, e infatti si è scritto «le divinità»).
+L'apostrofo è quello ASCII, non il tipografico.
 
 ⚠️ Un guardiano dell'ambiente blocca i messaggi di commit che contengono `/man/`
 letto come percorso: passare il testo con `git commit -F <file>`.
@@ -209,69 +192,54 @@ Start-Process "C:\Games\Elona\elonaplus2.31\cgx-test.exe" -WorkingDirectory "C:\
 blocco di file lascia l'albero di build **incompleto**, e `compila` poi dice
 «main.hsp non è in ...»: si rilancia `applica` e basta.
 
-### La console di debug — la nota che ha fatto perdere tempo
+### La console di debug
 
-**La console parte in modalità HSP, non Lua.** `characreate` è il nome Lua e
-risponde «comando sconosciuto» finché non si digita `lua` da solo. Ma non serve:
+**Si apre con F12** (`main.hsp:3322`, codice tasto 123; F11 è `dump_chara`).
+Esce con ESC. Parte in modalità **HSP, non Lua**: `spawn_chara <id>` funziona
+subito, ed è nativo (`system.hsp:4831`), quindi va anche in `cgx-test.exe`, che
+è l'eseguibile che si spedisce.
 
-```
-spawn_chara <id>
-```
+ID utili, tutti con un'evoluzione: **165** il cane e **50** il segugio → la
+zanna d'argento; **267** il cavallo zoppo → l'unicorno; **386** la giraffa → il
+Kirin; **210** la sorella gatta minore.
 
-è il comando nativo (`system.hsp:4831`), sta **fuori** dall'`#ifdef
-CUSTOM_GX_LUA` e quindi funziona anche in **`cgx-test.exe`**, che è
-l'eseguibile che si spedisce — meglio collaudare quello. Genera la creatura
-sulla casella del giocatore e risponde `Done. (<indice>)`.
-
-`cgx-lua.exe` serve solo per scrivere i campi che il gioco non espone. Va
-ricostruito quando cambia il dizionario (`main.hsp:9`, si scommenta in BUILD e
-si ripristina subito); serve `hsplua.dll`, già copiata. Con `lua` attivo:
-
-```lua
-return cdata[27][N]   -- l'ID della creatura N (CDATA_ID)
-return cdatan[0][N]   -- il suo nome (CDATAN_NAME)
-return cdata[17][2]   -- impressione dell'alleato 2, serve >= 150
-```
-
-⚠️ **Un difetto riferito va verificato come uno trovato.** In questa sessione
-`spawn_chara 659` sembrava produrre un ratto: le ID erano corrette e il ratto era
-un mostro già sulla mappa. La lista di passi fa entrare prove che il codice non
-sa dare, ma non tutto ciò che arriva da lì è un difetto.
-
-⚠️ **Serve un salvataggio nuovo** per i nomi e un **personaggio nuovo** per
-l'epiteto: la rinomina all'evoluzione è una sostituzione di stringa sul nome nel
-salvataggio, quindi un alleato reclutato con l'exe non tradotto non combacia con
-`evold` e non viene rinominato affatto.
+⚠️ **Generare mostri a mano è un modo pessimo di provare l'evoluzione**:
+`chara.hsp:2319` la tira con `rnd(300) < gdata(GDATA_LEVEL)`, dove
+`GDATA_LEVEL` è **il piano del dungeon**. Al piano 1 è lo 0,3% per mostro. La
+prova buona è entrare in una **Nefia profonda** con *Spawn evolved enemies* su
+**always**, dove la mappa genera decine di mostri in un colpo solo.
 
 ### Il collaudo, punto per punto
 
-- ✅ **L'evoluzione degli alleati** (`action.hsp`): provata il 2026-08-10,
-  `Norfor il cavallo zoppo` → `Norfor l'unicorno`.
-- ✅ **I nomi a schermo**: provati, ed è così che è uscito il title case.
-- ✅ **«draco»**: confermato guardandolo accanto a «drago».
-- ❌ **L'evoluzione dei nemici** (`custom_enemyevolution.hsp`): **mai vista**.
-  È la prova che manca. Si mette *Spawn evolved enemies* su **always** nelle
-  opzioni Custom-GX e si entra in una Nefia: i nemici evoluti devono uscire col
-  **nome evoluto**. Prima di questa sessione uscivano col nome base.
-- ⚠️ **Il non tradotto esce in inglese, non in giapponese**: `applica` sostituisce
-  nello slot inglese e il gioco gira in inglese. Atteso fino a `action.hsp`.
+- ✅ **L'evoluzione degli alleati**: provata il 2026-08-10.
+- ✅ **I nomi a schermo**, ✅ **«draco»**: provati.
+- ✅ **Il combattimento in italiano**: provato il 2026-08-11 («tutto ok»
+  riferito dall'utente dopo l'avvio di `cgx-test.exe`).
+- ❌ **L'evoluzione dei nemici**: **mai vista**. Resta la sola prova mancante,
+  ma dopo il controllo meccanico sulle 250 rinomine vale come conferma
+  dell'innesco, non dei nomi.
+- ⚠️ **Il non tradotto esce in inglese, non in giapponese.**
 
 ## I tetti misurati, con la loro ancora
 
 | campo | tetto | ancora | fonte |
 |---|---|---|---|
-| tracciatore HUD | 6 | sinistra, taglia | `screen.hsp:2002` (è `skillname`, non un nome di creatura) |
+| tracciatore HUD | 6 | sinistra, taglia | `screen.hsp:2002` |
 | razza e classe | 3 | sinistra, taglia | `chara.hsp:4679` |
 | slot d'equipaggiamento | 6 | sinistra, taglia | osservato a schermo |
 | gradi di resistenza | 9 | **destra, invade** | `command.hsp:11002` |
 | nome nella lista abilità | **24** | sinistra, invade il costo | `command.hsp:5382` |
 | descrizione nella lista | 34 | taglia (`strmid`) | `command.hsp:5389` |
 
-⚠️ Il nome di creatura compare in messaggi **senza limite**, e i tetti qui sopra
-non lo coprono. Il più lungo del dizionario è `<Ratin> l'investigatrice della
-Gilda dei Guerrieri`, 50 caratteri: visto a schermo, non tronca.
+⚠️ Il nome di creatura compare in messaggi **senza limite**. Il più lungo del
+dizionario è `<Ratin> l'investigatrice della Gilda dei Guerrieri`, 50 caratteri:
+visto a schermo, non tronca.
 
-Vedi [[coerenza-fra-due-file-uno-solo-tracciato]], [[guardia-troppo-severa]],
+Vedi [[una-guardia-vale-solo-dove-guarda]],
+[[il-testo-dentro-la-stringa-non-e-codice]],
+[[la-frase-che-si-compone-in-due-file]],
+[[il-nome-interno-non-e-quello-a-schermo]],
+[[coerenza-fra-due-file-uno-solo-tracciato]], [[guardia-troppo-severa]],
 [[toppe-fuori-dal-dizionario]], [[la-forma-memorizzata-non-e-quella-scritta]],
 [[una-chiave-che-collide-non-e-una-chiave]],
 [[il-campo-che-il-sorgente-dichiara]], [[la-testa-porta-il-genere]],
