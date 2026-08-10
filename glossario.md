@@ -200,6 +200,9 @@ modificatore italiano va **dopo** — «il lich maestro», non «il maestro lich
 | spirit | spirito | `wisp` è a parte: «il fuoco fatuo» |
 | ent | ent | prestito tolkieniano già acquisito in italiano |
 | wyvern | viverna | la parola araldica italiana |
+| dragon | drago | la testa alta della famiglia: `red dragon` → «il drago rosso», `nether dragon` → «il drago dell'oltretomba» |
+| drake | draco | fissata col lotto `drake` (2026-08-10). ⚠️ **Non è un sinonimo di `dragon`, è un gradino sotto**: la razza è 亜竜, «sub-drago», e le carte lo dicono di tutti (`viashivan` è «mezza lucertola», `mass monster` è «una sottospecie di drago»). «draco» è italiano vero — il *Draco volans* è «il draco volante» — e la lucertola planante è esattamente l'immagine giusta. ⚠️ **Da qui viene che `action.hsp:17390` non era un refuso**: `Electric Drake` (電気竜, l'evoluzione di 電気羊) è «il draco elettrico», e renderlo «drago» lo farebbe **collidere** con エレキドラゴン, che è già «il drago elettrico» ed è un'altra creatura |
+| wyrm | wyrm | fissata col lotto `drake`. L'italiano non ha una parola per il *wyrm* — «verme» direbbe un'altra cosa e «drago» è il gradino sopra — e il fantasy italiano lo lascia così, come `ent` e `lich`. `powerful great wyrm` → «il wyrm possente», `wild wyrm` → «il wyrm selvatico» |
 | minotaur | minotauro | |
 | centipede / scorpion / spider | millepiedi / scorpione / ragno | |
 | king X | X re | postposto per l'aggancio: `king orc` → «l'orco re», `king cobra` → «il cobra reale» dove la lingua lo chiede |
