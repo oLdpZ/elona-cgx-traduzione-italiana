@@ -32,6 +32,11 @@ scrivere, probabilmente la stringa va tradotta.
 | Larna | nome proprio di città, canone Elona; nome opaco, vedi «la regola dei nomi propri» in `glossario.md` |
 | Arcbelc | nome proprio di luogo Elona+; nome opaco |
 | Lesimas | nome proprio del dungeon sotto Vernis; nome opaco |
+| Aimwell | nome proprio di villaggio di South Tyris (`text.hsp:2899`), giapponese イムウエル. Nome opaco: il katakana traslittera e basta, e come romanizzarlo è scelta dell'inglese — stesso criterio di `padangu` in `glossario.md` |
+| Zaile | nome proprio di città (`text.hsp:2902`), giapponese ザイール; nome opaco |
+| Ulm-Leson | nome proprio delle rovine nella foresta (`text.hsp:2920`), giapponese ウールム・レゾン; nome opaco, di due parti entrambe inventate |
+| Ol-dran | nome proprio della città degli angeli (`text.hsp:2944`), giapponese オルドラン; nome opaco |
+| `****` | **non è testo**: quattro asterischi, identici nelle due lingue (`text.hsp:2905`). È il nome **mascherato** di una località che il gioco non vuole svelare, e la descrizione accanto lo conferma — «qualcosa che somiglia a una città». Tradurre gli asterischi vorrebbe dire non averli capiti |
 | Karma | termine acquisito in italiano |
 | Mana | termine acquisito nei giochi di ruolo |
 | Arena | parola latina che le due lingue hanno identica. `text.hsp:2782`, dove il giapponese dice 闘技場. Non è un nome proprio lasciato in inglese: è la resa giusta, e coincide. Il gemello `Pet Arena` si traduce — «Arena delle Bestie» — perché lì c'è anche una parola comune |

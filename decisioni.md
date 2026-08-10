@@ -6,6 +6,45 @@ ancora aperte.
 
 ---
 
+## L'inglese chiama lo stesso giapponese in tre modi, e uno è il nome di un altro posto — 2026-08-10, ventiduesima sessione
+
+ルストール compare tre volte nel sorgente, e l'inglese lo rende **tre volte
+diverso**:
+
+| dove | inglese | cos'è |
+|---|---|---|
+| `chat.hsp:13645` | `Lustor` | «the hill of beginnings, Lustor» — la prosa, che il nome lo spiega |
+| `text.hsp:2938` | `Rust Plaza` | il nome della località sulla mappa (ルストール仙窟) |
+| `text.hsp:1131` | `Ruoza` | un'esca del quiz 24 |
+
+⚠️ E `Ruoza` **è già il nome di un'altra località**: ルオザ, `text.hsp:2985`,
+il campo profughi. Due giapponesi diversi, un inglese solo.
+
+Il lotto precedente aveva tradotto l'esca sull'inglese — «Ruoza» — e il lotto di
+oggi stava per introdurre l'altra «Ruoza» a 2985: la collisione sarebbe nata
+**dentro un quiz**, dove due risposte identiche non sono un difetto estetico ma
+una domanda senza risposta giusta.
+
+**Deciso: ルストール è «Lustor»**, cioè il nome che l'inglese stesso usa dove
+spiega la cosa invece di etichettarla. `text.hsp:1131` corretto, `2938` →
+«Grotta Eremitica di Lustor» (仙窟 è la grotta dell'eremita; `Plaza` è una
+lettura che il giapponese non autorizza).
+
+⚠️ **Regola operativa**: prima di accettare un nome proprio dall'inglese,
+cercare il suo giapponese **in tutto il sorgente**. Se l'inglese lo rende in più
+modi, quello della **prosa** batte quello dell'etichetta: la prosa lo spiega,
+l'etichetta lo abbrevia. Vedi [[una-chiave-che-collide-non-e-una-chiave]] e
+[[il-nome-interno-non-e-quello-a-schermo]].
+
+Nello stesso lotto l'inglese ha sbagliato altre tre volte, e il giapponese ha
+arbitrato: `Dragon's Volcano` è セルタ火山, il **vulcano di Selta** (nessun
+drago); `Shrine of Guardian` è 中央神殿, il **Santuario Centrale**; e la
+descrizione di ルストール仙窟 dice «In the desert» copiata dalla Torre del
+Miraggio, mentre il giapponese dice **ai piedi della collina** — coerente con la
+prosa di `chat.hsp`, dove ルストール è «la collina dell'inizio».
+
+---
+
 ## L'ordine di una concatenazione non è un vincolo: si topa — 2026-08-10, ventiduesima sessione
 
 Il 2026-08-10 avevo scritto, poche righe più sotto, che i prefissi delle Nefia
