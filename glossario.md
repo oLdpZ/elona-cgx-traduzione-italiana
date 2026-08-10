@@ -302,6 +302,32 @@ come «il Bearga» già deciso col nucleo:
 traducono qui — vedi la sezione «nomi di creatura riscritti nel salvataggio» di
 `invariati.md`.
 
+## Termini di `action.hsp`, decisi il 2026-08-10
+
+| EN | IT | note |
+|---|---|---|
+| praise / authority (発言力) | autorità | ⚠️ **l'inglese usa due parole per un giapponese solo.** `action.hsp:8506` scrive `praise`, ma le altre undici occorrenze di 発言力 — `chat.hsp`, `economy.hsp` — dicono `authority`, e il giapponese arbitra: è il credito che si spende per amministrare una città (`chat.hsp:14047`), non una lode |
+| mana charge (魔力の貯蓄) | mana di ricarica | la riserva di `GDATA_ABSORB_CHARGE`. Resa già fissata dall'etichetta di `skill.hsp:977`, «Bacchetta in mana di ricarica»: la prosa la segue invece di inventarne una seconda |
+| abyss power | potere abissale | già in tabella sopra; qui in prosa si conta a **punti**: «Servono 5 punti di potere abissale» |
+| feat | talento | il talento acquisito di Elona, non una prodezza. `action.hsp:15422` e `:18691` |
+| life core (生命核) | nucleo vitale | l'organo che la gravidanza artificiale genera (`action.hsp:8800`) |
+| sandbag | sacco da botte | la creatura appesa che serve da bersaglio (`action.hsp:10916`), non un sacco di sabbia |
+| showroom | sala d'esposizione | `AREA_SHOW_HOUSE` |
+| tag team | coppia | resa già fissata da `skill.hsp:1477` |
+| AP | AP | sigla invariata, come `HP` e `MP` |
+| mimikaki, potioman, YacaPoint | invariati | prestiti già fissati in `db_item.hsp` |
+| `<i primi undici elementi>` | Magia · Fuoco · Gelo · Fulmine · Oscurità · Mente · Veleno · Oltretomba · Suono · Nervi · Caos | l'occhio elementale li **grida** (`action.hsp:9588`-`9628`) e in italiano prendono la maiuscola. I nomi sono quelli di `skill.hsp:70`-`120`, che li scrive minuscoli dentro le frasi: è lo stesso elenco, non un secondo |
+
+⚠️ **Le personalità sono nomi astratti, e la frase deve accettarlo.** `_seikaku()`
+(`text.hsp:52`) è già reso con «Allegria», «Prudenza», «Coraggio»…, di generi
+misti. La frase che li ospita non può quindi portare articolo: `action.hsp:8851`
+dice «*ha scoperto di avere* Allegria», che regge per tutti e trentasei.
+
+⚠️ **Lo stesso vale per le parti del corpo.** `bodyn()` dà «Testa», «Mano»,
+«Braccio»: `a new <parte>` non si può rendere con «un nuovo», e la resa scelta è
+«**ha una parte nuova:** Mano!», dove i due punti prendono il posto
+dell'articolo. Vale per le diciannove righe fra `action.hsp:12530` e `:19012`.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

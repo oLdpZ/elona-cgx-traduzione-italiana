@@ -40,6 +40,7 @@ scrivere, probabilmente la stringa va tradotta.
 | ? | punteggiatura, idem |
 | ! | punteggiatura, idem |
 | bonus | prestito acquisito, già in glossario. `strfix` (`text.hsp:190`) etichetta il `+3` di un oggetto |
+| ` Lv` | la sigla di livello, che l'italiano scrive uguale. ⚠️ Non è solo un'etichetta: `action.hsp:12383` compone `evold = lang(" Lv", " Lv") + livello` e poi **cerca quella stringa in coda al nome** della creatura per togliere il suffisso (`:12384`). Tradurla qui, e non anche nel punto che il suffisso lo scrive, spezzerebbe il taglio: è la trappola del letterale confrontato contro un valore tradotto. Il resto del progetto scrive già `Lv` (`action.hsp:6545`, `text.hsp:65` e `:68`) |
 | http://homepage3.nifty.com/rfish/index_e.html | indirizzo web (`text.hsp:181`), non testo |
 | PER | sigla di Percezione: **identica** in italiano e in inglese. È una coincidenza, non una traduzione dimenticata |
 | MAG | sigla di Magia: identica in italiano e in inglese |

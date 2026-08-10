@@ -2132,3 +2132,77 @@ ratto è `412`, un numero mai dato. Era un mostro già presente sulla mappa.
 digita `lua`. Il comando nativo è `spawn_chara <id>`, sta fuori dall'`#ifdef
 CUSTOM_GX_LUA` (`system.hsp:4831`) e quindi funziona anche in `cgx-test.exe`,
 che è l'eseguibile che si spedisce — meglio collaudare quello.
+
+
+## 2026-08-10 — `action.hsp` chiuso: le due righe che non si traducono, e una guardia troppo severa
+
+`action.hsp` è finito: 1.286 firme su 1.288. Le due che restano non sono
+arretrato, sono decisioni.
+
+### `action.hsp:9631` — un possessivo che in italiano si omette
+
+La riga compone `name(tc) + " changed " + his(tc, 1) + " elemental affinity."`.
+`his(x, 1)` — **due** argomenti — passa da `lang()`, quindi va localizzato, e la
+guardia sulle interpolazioni pretende giustamente che sopravviva: a un argomento
+solo resterebbe inglese dentro una frase italiana.
+
+Ma in italiano il possessivo concorda con **la cosa posseduta**, non con chi
+possiede, e `his()` è una funzione sola per **36 siti di chiamata** sparsi su
+otto file, con nomi di generi diversi. Non esiste una forma che vada bene
+ovunque: «suo» sbaglia davanti a un femminile, «sua» davanti a un maschile. La
+resa giusta è quindi **vuota** — «ha cambiato elemento» —, e una resa vuota non
+si può dichiarare nel dizionario.
+
+Si risolve come `action.hsp:4584`: una riga in `rinviate.jsonl` e una toppa a
+mano che riscrive la riga intera. ⚠️ Le toppe girano **dopo** il dizionario e non
+passano da `degrada`, quindi il testo di una toppa va scritto **senza accenti**:
+è il motivo per cui la resa è «ha cambiato elemento» e non «ha cambiato
+affinità elementale».
+
+⚠️ Da qui in avanti le righe da scartare a mano quando si compone un lotto sono
+**due**: la 4584 e la 9631. `estrai --da-tradurre` le toglie già lui, ma il
+conto delle non tradotte le porta per sempre.
+
+### `action.hsp:12383` — ` Lv` invariato, e la guardia che ne è uscita rossa
+
+`evold = lang(" Lv", " Lv")` è l'unico `evold` del sorgente che **non**
+rinomina: cerca il suffisso di livello in coda al nome e lo taglia via
+(`strmid`, riga successiva). L'italiano scrive `Lv` uguale — lo fanno già
+`action.hsp:6545` e `text.hsp:65` — quindi la voce è andata in `invariati.md`.
+
+Dichiararla ha però fatto diventare rossa
+`test_ogni_evold_puo_combaciare_con_un_nome_che_esiste`: la guardia chiedeva a
+ogni `evold` **tradotto** di combaciare con un nome di creatura, e ` Lv` non
+combacia con niente. Non era un difetto della traduzione: era la guardia che
+guardava una riga che non è una rinomina.
+
+La discriminazione giusta il progetto ce l'aveva già: `accoppia_dal_sorgente`
+tiene fuori gli `evold` **senza `evname` davanti**, perché l'`evname` è il nome
+nuovo e senza di lui non c'è nessuna sostituzione. Portata su tutti e quattro i
+file dell'evoluzione, quella regola esclude **una riga sola** su 514, e
+`test_la_deroga_all_evname_vale_per_una_riga_sola` la inchioda a quella: se
+upstream ne scrivesse un'altra si vuole scoprirlo, non ereditarla in silenzio.
+
+> Verificato che la guardia resta viva: rimesso a mano un `evold` guasto
+> (`younger cat sister` → un nome che non esiste), il test è tornato **rosso**;
+> ripristinato il dizionario, verde. Una guardia allargata che non si è vista
+> fallire dopo l'allargamento non è più una guardia.
+
+Test: **344** (erano 343).
+
+### Tre trappole di resa che questa zona ha ripetuto
+
+1. **Il possessivo non è l'unico che concorda.** `_seikaku()` dà nomi astratti di
+   generi misti e `bodyn()` dà parti del corpo di generi misti: in entrambi i
+   casi la frase italiana ha dovuto **rinunciare all'articolo**, con «ha scoperto
+   di avere Allegria» e «ha una parte nuova: Mano!». È la stessa regola
+   dell'articolo dentro il nome di creatura, vista dal lato della frase.
+2. **L'invarianza di genere costa una parola, non una perifrasi.** «prende
+   fuoco» invece di «è avvolto dalle fiamme»; «Quella creatura è già appesa»
+   invece di «È già appeso», dove il genere lo fissa il nome comune che si
+   aggiunge. E per gli insulti rivolti al giocatore esiste una parola invariante
+   che li risolve quasi tutti: «idiota».
+3. **Una `statica` si scrive nuda.** Il `it` di una voce statica è testo, non
+   espressione: incapsularlo fra virgolette come si fa con le dinamiche fa
+   fallire `verifica` su sedici voci in un colpo solo. E dentro una statica le
+   virgolette devono essere le tipografiche `“”`.

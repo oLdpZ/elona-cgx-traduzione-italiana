@@ -16,14 +16,19 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 |---|---|---|---|---|
 | `text.hsp` | **780** | 1.740 | 45% | 2.127 |
 | `command.hsp` | 0 | 1.304 | 0% | 1.481 |
-| `action.hsp` | **838** | 1.288 | **65%** | 1.502 |
+| `action.hsp` | **1.286** | 1.288 | **100%** | 1.502 |
 | `proc.hsp` | 0 | 1.098 | 0% | 1.327 |
 | `skill.hsp` | **885** | 885 | **100%** | 894 |
 | `trait.hsp` | 0 | 373 | 0% | 406 |
 | `db_item.hsp` | **1.606** | 1.606 | **100%** | 1.607 |
 | `item_data.hsp` | **318** | 318 | **100%** | 318 |
 | `custom_tweaks.hsp` | **12** | 12 | **100%** | 28 |
-| **totale** | **4.439** | **8.624** | **51%** | **9.690** |
+| **totale** | **4.887** | **8.624** | **57%** | **9.690** |
+
+⚠️ Le 2 firme che mancano ad `action.hsp` **non sono arretrato**: sono le due
+righe rinviate a toppa (`:4584`, l'articolo inglese davanti a un'arma unica, e
+`:9631`, il possessivo `his(tc, 1)` che in italiano si omette). Il file è
+chiuso; il conto le porterà per sempre. Vedi `decisioni.md`, 2026-08-10.
 
 Fuori dalla Fase 1, con conteggio proprio: `db_creature.hsp`, **1.452 firme su
 3.655** — tutti e 1.131 i nomi, l'epiteto e le **320 stringhe di voce**, chiuse

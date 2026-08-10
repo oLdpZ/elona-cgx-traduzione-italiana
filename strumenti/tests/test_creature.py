@@ -579,14 +579,64 @@ def test_il_lotto_di_una_razza_non_ritraduce_cio_che_e_gia_reso():
 FILE_EVOLUZIONE = ("action.hsp", "custom_enemyevolution.hsp", "ai.hsp", "event.hsp")
 
 
+def _evold_senza_evname() -> list[tuple[str, int, str]]:
+    """Gli `evold` che nessun `evname` precede: non sono rinomine.
+
+    Un `evold` e' il **nome vecchio** che la rinomina cerca, e l'`evname` che lo
+    precede e' il nome nuovo che gli si sostituisce. Dove l'`evname` non c'e',
+    quella riga non rinomina niente: e' l'altro sito, quello che *toglie* un
+    suffisso invece di sostituirlo — `action.hsp:12383`, `evold = " Lv"`, cercato
+    in coda al nome con `strmid` e poi tagliato via.
+
+    E' la stessa discriminazione che `accoppia_dal_sorgente` fa gia', qui portata
+    su tutti e quattro i file. Sul sorgente 2.31.2.0 esclude **una riga sola**, e
+    `test_la_deroga_all_evname_vale_per_una_riga_sola` lo tiene fermo: se domani
+    upstream ne scrivesse un'altra, si vuole scoprirlo, non ereditarla in
+    silenzio.
+    """
+    import re
+    fuori = []
+    for nome in FILE_EVOLUZIONE:
+        percorso = percorsi.SORGENTE_HSP / nome
+        if not percorso.exists():
+            continue
+        visto_evname = False
+        for i, riga in enumerate(percorso.read_bytes().decode("cp932").split("\r\n"), 1):
+            m = re.match(r'\s*(evold|evname) = lang\("([^"]*)", "([^"]*)"\)', riga)
+            if not m:
+                continue
+            if m.group(1) == "evname":
+                visto_evname = True
+            elif not visto_evname:
+                fuori.append((nome, i, m.group(3)))
+    return fuori
+
+
+def test_la_deroga_all_evname_vale_per_una_riga_sola():
+    """La guardia della guardia: un solo `evold` puo' stare senza `evname`.
+
+    `_evold_senza_evname` toglie righe dal controllo sulle rinomine, e una
+    guardia che si allarga da sola smette di essere una guardia. Qui si fissa
+    **quale** riga esce e perche': `action.hsp:12383` e' il taglio del suffisso
+    di livello, non una rinomina. Ogni altra esclusione e' un difetto da
+    guardare, non una deroga da concedere.
+    """
+    assert _evold_senza_evname() == [("action.hsp", 12383, " Lv")]
+
+
 def evold_tradotti() -> list[tuple[str, int, str]]:
     """(file, riga, resa italiana) per ogni `evold` dei quattro file che ne hanno.
 
     Legge il **sorgente**, non il build: l'`evold` va cercato dov'e' scritto, e
     la sua resa si prende dal dizionario per numero di riga, che e' l'unica
     chiave che non confonde due voci con lo stesso inglese in file diversi.
+
+    ⚠️ Fuori restano gli `evold` senza `evname` (vedi `_evold_senza_evname`):
+    non rinominano nessuno, e chiedere che combacino con un nome di creatura
+    farebbe rosso su una riga sana. E' successo con `" Lv"`.
     """
     import re
+    escluse = {(f, r) for f, r, _ in _evold_senza_evname()}
     fuori = []
     for nome in FILE_EVOLUZIONE:
         percorso = percorsi.SORGENTE_HSP / nome
@@ -599,7 +649,7 @@ def evold_tradotti() -> list[tuple[str, int, str]]:
         righe = percorso.read_bytes().decode("cp932").split("\r\n")
         for i, riga in enumerate(righe, 1):
             m = re.match(r'\s*evold = lang\("([^"]*)", "([^"]*)"\)', riga)
-            if not m:
+            if not m or (nome, i) in escluse:
                 continue
             reso = per_riga.get(i)
             if reso:
