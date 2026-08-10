@@ -103,6 +103,43 @@ campo è stato disegnato per cinque.
 Ricorda che un accento vero diventa **due** caratteri dopo la degradazione:
 «Sazietà» esce `Sazieta'`, «Umidità» esce `Umidita'`.
 
+### Per un menu il tetto non si stima: sta scritto nel sorgente
+
+⚠️ **Corretta il 2026-08-10 dopo il collaudo del menu della frusta.** Qui sopra
+c'è scritto che il tetto di un campo è la stringa inglese più lunga che ci
+compare. Per i menu **è falso**, e in modo pericoloso: `txtsettamer` ha una voce
+inglese da 46 caratteri in un riquadro che ne tiene 32, tagliata a monte da
+sempre. Chi prende l'inglese come budget eredita il difetto.
+
+Il metro vero lo passa il chiamante a `*prompt_key`:
+
+```hsp
+txtsettamer 18
+repeat 18
+    promptAdd s(cnt), key_select(cnt)
+loop
+val = promptx, prompty, 300, 1        ← 300 pixel, e il riquadro taglia
+```
+
+`caratteri = (pixel − 46) / 7,7`, misurato a schermo lo stesso giorno su due
+riquadri (300px → 33 caratteri visibili, 500px → 55 con margine). Il riquadro
+**taglia**: non manda a capo, non restringe il carattere. Si è visto perché otto
+frasi diverse finivano allo stesso identico pixel.
+
+Tre trappole, tutte incontrate:
+
+- **la larghezza può dipendere dalla lingua** — `map_user.hsp:1228` scrive
+  `450 - 50 * en`, cioè 400 nella build inglese, che è la nostra;
+- **il `val =` può stare cento righe sotto la chiamata** — i 35 menu del quiz
+  ne condividono uno solo (`chat.hsp:13055`);
+- **dentro un `#deffunc` di menu non tutto è una voce** — solo le assegnazioni a
+  `s(cnt)`; un `txt lang(...)` come `text.hsp:1310` è un messaggio e non ha
+  tetto.
+
+Non si fa a mano: `python -m strumenti.larghezze` misura tutte le voci di menu
+di `text.hsp`, e `test_nessuna_voce_di_menu_sfora_il_suo_riquadro` impedisce che
+un lotto nuovo torni a sforare.
+
 ### L'etichetta si legge dove esce, non dove pensi
 
 Le sei qualità dell'oggetto (`text.hsp:106`) le avevo rese al femminile perché
