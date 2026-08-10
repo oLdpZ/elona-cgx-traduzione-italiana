@@ -570,3 +570,107 @@ def test_il_lotto_di_una_razza_non_ritraduce_cio_che_e_gia_reso():
     assert len(restanti) < len(tutte)
     assert not [v for v in restanti if (v["jp"], v["en"]) in gia]
     assert all(v["file"] == FILE for v in tutte)
+
+
+# ---------------------------------------------------------------------------
+# La rinomina non vive solo in `action.hsp`
+# ---------------------------------------------------------------------------
+
+FILE_EVOLUZIONE = ("action.hsp", "custom_enemyevolution.hsp", "ai.hsp", "event.hsp")
+
+
+def evold_tradotti() -> list[tuple[str, int, str]]:
+    """(file, riga, resa italiana) per ogni `evold` dei quattro file che ne hanno.
+
+    Legge il **sorgente**, non il build: l'`evold` va cercato dov'e' scritto, e
+    la sua resa si prende dal dizionario per numero di riga, che e' l'unica
+    chiave che non confonde due voci con lo stesso inglese in file diversi.
+    """
+    import re
+    fuori = []
+    for nome in FILE_EVOLUZIONE:
+        percorso = percorsi.SORGENTE_HSP / nome
+        if not percorso.exists():
+            continue
+        dizionario = carica(nome)
+        per_riga: dict[int, str] = {}
+        for v in dizionario.values():
+            per_riga.setdefault(v["riga"], v["it"])
+        righe = percorso.read_bytes().decode("cp932").split("\r\n")
+        for i, riga in enumerate(righe, 1):
+            m = re.match(r'\s*evold = lang\("([^"]*)", "([^"]*)"\)', riga)
+            if not m:
+                continue
+            reso = per_riga.get(i)
+            if reso:
+                fuori.append((nome, i, reso))
+    return fuori
+
+
+def nomi_che_la_rinomina_puo_incontrare() -> set[str]:
+    """I nomi italiani gia' salvati che un `evold` puo' trovare nel salvataggio.
+
+    Sono i nomi di creatura **piu'** gli `evname`: le evoluzioni si incatenano,
+    e lo stadio dopo cerca il nome che gli ha lasciato quello prima.
+    """
+    import re
+    nomi = {v["it"].strip() for v in carica(FILE).values() if v.get("it")}
+    for nome in FILE_EVOLUZIONE:
+        percorso = percorsi.SORGENTE_HSP / nome
+        if not percorso.exists():
+            continue
+        per_riga: dict[int, str] = {}
+        for v in carica(nome).values():
+            per_riga.setdefault(v["riga"], v["it"])
+        righe = percorso.read_bytes().decode("cp932").split("\r\n")
+        for i, riga in enumerate(righe, 1):
+            if re.match(r'\s*evname = lang\("([^"]*)", "([^"]*)"\)', riga):
+                if per_riga.get(i):
+                    nomi.add(per_riga[i].strip())
+    return {n for n in nomi if n}
+
+
+def test_ogni_evold_puo_combaciare_con_un_nome_che_esiste():
+    """⚠️ La guardia sulla rinomina leggeva **solo `action.hsp`**.
+
+    `evoluzioni_con_jp()` ha per difetto `action.hsp`, e i test che la usano
+    guardano li'. Ma la stessa rinomina, con gli stessi `evold`, sta anche in
+    `custom_enemyevolution.hsp` (i nemici), in `ai.hsp` e in `event.hsp`: e'
+    il difetto delle 440 rinomine del 2026-08-10, e la guardia che lo doveva
+    cogliere si fermava un file prima.
+
+    Qui il controllo e' piu' grezzo di quello col cancello `CDATA_ID` — non
+    sa *quale* creatura entra in quel ramo — ma coglie la cosa che conta: un
+    `evold` che **nessun** nome italiano puo' far combaciare, ne' in testa ne'
+    in coda, e' una rinomina morta.
+
+    Cosi' e' venuto fuori `<Gwen>`: `evold` era «la fanciulla innocente»
+    mentre il nome salvato e' «<Gwen> l'innocente». ⚠️ In inglese e' rotta
+    **anche upstream** (`the innocent girl` contro `<Gwen> the innocent`); in
+    giapponese no, perche' 無邪気な少女 e' il prefisso di 無邪気な少女『グウェン』.
+    """
+    evold = evold_tradotti()
+    if not evold:
+        pytest.skip("nessun evold tradotto: i dizionari non esistono ancora")
+    nomi = nomi_che_la_rinomina_puo_incontrare()
+    if not nomi:
+        pytest.skip("il dizionario di db_creature.hsp non esiste ancora")
+    morte = [
+        f"{f}:{r} evold {reso!r}" for f, r, reso in evold
+        if not any(n == reso or n.startswith(reso) or n.endswith(reso) for n in nomi)
+    ]
+    assert not morte, (
+        f"{len(morte)} rinomine che nessun nome puo' far combaciare:\n"
+        + "\n".join(morte[:20])
+    )
+
+
+def test_la_guardia_vede_oltre_action_hsp():
+    """La rete sotto il test qui sopra: se leggesse un file solo, passerebbe a vuoto."""
+    visti = {f for f, _, _ in evold_tradotti()}
+    if not visti:
+        pytest.skip("nessun evold tradotto: i dizionari non esistono ancora")
+    assert "custom_enemyevolution.hsp" in visti, (
+        "il file dei nemici non entra nel controllo: e' quello in cui le 440 "
+        "rinomine erano morte in silenzio"
+    )
