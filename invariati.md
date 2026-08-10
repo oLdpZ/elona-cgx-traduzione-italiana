@@ -129,6 +129,7 @@ scrivere, probabilmente la stringa va tradotta.
 | `<Sinaha>` | divinità di Elona+ (`db_creature.hsp`), giapponese 《不幸のシナア》; nome opaco |
 | `<Arasiel>` | divinità di Elona+ (`db_creature.hsp`), giapponese 《砂嵐のラシエル》; nome opaco |
 | `<Amurdad>` | divinità di Elona+ (`db_creature.hsp`), giapponese 《永遠のネヘルタード》. ⚠️ Le due lingue usano **nomi diversi** — l'inglese pesca lo zoroastriano *Amurdad*, il giapponese *Nehertard* — e quando non descrivono la stessa cosa non stanno descrivendo, stanno nominando. Come `anering` |
+| `<Big Daddy>` | creatura unica (`db_creature.hsp`, razza `machinegod`), giapponese 『ビッグダディ』. Citazione da *BioShock*, come `<Little Sister>` che sta gia' in questa lista: i due nomi vanno insieme, e in italiano il gioco non e' mai stato tradotto |
 | Lomias | personaggio di Elona (`db_item.hsp`: l'esperienza segreta), giapponese ロミアス; nome proprio opaco |
 | Aurtehom | libro orribile di Elona+ (`db_item.hsp`), giapponese アウルテホム, traslitterato; nome opaco alla maniera di Lovecraft |
 | Bokonon | il libro di Bokonon, citazione da *Ghiaccio-nove* di Vonnegut (`db_item.hsp`), giapponese ボコノン: in italiano il romanzo lo lascia «Bokonon» |
