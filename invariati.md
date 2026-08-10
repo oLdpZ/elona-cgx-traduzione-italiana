@@ -38,6 +38,7 @@ scrivere, probabilmente la stringa va tradotta.
 | Ol-dran | nome proprio della città degli angeli (`text.hsp:2944`), giapponese オルドラン; nome opaco |
 | `****` | **non è testo**: quattro asterischi, identici nelle due lingue (`text.hsp:2905`). È il nome **mascherato** di una località che il gioco non vuole svelare, e la descrizione accanto lo conferma — «qualcosa che somiglia a una città». Tradurre gli asterischi vorrebbe dire non averli capiti |
 | Karma | termine acquisito in italiano |
+| Dojo | termine acquisito in italiano (`text.hsp:3036`, giapponese 道場), come `Karma`. Sui vocabolari italiani con questa grafia; «palestra» direbbe un'altra cosa |
 | Mana | termine acquisito nei giochi di ruolo |
 | Arena | parola latina che le due lingue hanno identica. `text.hsp:2782`, dove il giapponese dice 闘技場. Non è un nome proprio lasciato in inglese: è la resa giusta, e coincide. Il gemello `Pet Arena` si traduce — «Arena delle Bestie» — perché lì c'è anche una parola comune |
 | Incognito | nome dell'incantesimo `skill.hsp` (giapponese インコグニート, a sua volta traslitterazione dell'inglese). **Parola italiana identica all'inglese**, dallo stesso latino: è la resa giusta, non una traduzione dimenticata. Sta qui perché `verifica.py` segnala le identità non dichiarate |

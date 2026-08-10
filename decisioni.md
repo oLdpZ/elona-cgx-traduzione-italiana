@@ -6,6 +6,39 @@ ancora aperte.
 
 ---
 
+## Quando il giapponese è un copia-incolla, arbitra la mappa — 2026-08-10, ventiduesima sessione
+
+Due quiz portano **lo stesso identico giapponese**:
+
+```
+text.hsp:998   「Ｑ．混沌の城《奇形》に住む死霊の神は？」   EN: Fort of Chaos <Collapsed>
+text.hsp:1214  「Ｑ．混沌の城《奇形》に住む死霊の神は？」   EN: Fort of Chaos <Hell>
+```
+
+Ma le **risposte giuste sono diverse**: `seitou` è `<Azzrssil>` nel quiz 19 e
+`<Ulzassil>` nel quiz 28. Stessa domanda, due risposte: uno dei due giapponesi è
+un copia-incolla.
+
+Chi arbitra non è nessuna delle due lingue, è il codice che costruisce la mappa:
+
+| forte | chi ci abita | dove sta scritto |
+|---|---|---|
+| `<Collapsed>` / 奇形 | Azzrssil | `map.hsp:2271` |
+| `<Hell>` / 地獄 | Ulzassil | `map.hsp:9009` |
+
+Le due risposte giuste combaciano con **l'inglese**, in entrambi i quiz. Quindi
+qui è il giapponese ad avere il difetto, e le rese già in dizionario —
+«`<Deforme>`» a 998, «`<Inferno>`» a 1214 — **sono giuste**. Non toccate.
+
+⚠️ Il gemello di «un'etichetta può parlare dello stato del gioco»
+(`text.hsp:2271`, 未実装 contro `Summon Joker`): là il codice stava con
+l'inglese contro l'annotazione giapponese, qui contro il testo giapponese. La
+regola non è «il giapponese arbitra» senza condizioni, è: **il giapponese
+arbitra sul significato; sullo stato del gioco arbitra il codice.** Chi
+riapre queste due righe trovi qui la ragione, invece di rifare la ricerca.
+
+---
+
 ## L'inglese chiama lo stesso giapponese in tre modi, e uno è il nome di un altro posto — 2026-08-10, ventiduesima sessione
 
 ルストール compare tre volte nel sorgente, e l'inglese lo rende **tre volte

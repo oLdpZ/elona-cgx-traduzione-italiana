@@ -14,7 +14,7 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 
 | file | tradotte | firme | % | occorrenze |
 |---|---|---|---|---|
-| `text.hsp` | **1.090** | 1.740 | **63%** | 2.127 |
+| `text.hsp` | **1.122** | 1.740 | **64%** | 2.127 |
 | `command.hsp` | 0 | 1.304 | 0% | 1.481 |
 | `action.hsp` | **1.286** | 1.288 | **100%** | 1.502 |
 | `proc.hsp` | 0 | 1.098 | 0% | 1.327 |
@@ -23,7 +23,7 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | `db_item.hsp` | **1.606** | 1.606 | **100%** | 1.607 |
 | `item_data.hsp` | **318** | 318 | **100%** | 318 |
 | `custom_tweaks.hsp` | **12** | 12 | **100%** | 28 |
-| **totale** | **5.197** | **8.624** | **60%** | **9.690** |
+| **totale** | **5.229** | **8.624** | **61%** | **9.690** |
 
 ⚠️ **Due di questi 100% sono falsi, e il 2026-08-10 si è misurato di quanto.**
 `db_item.hsp` ha **261** `iknownnameref` — i nomi che il gioco mostra prima
