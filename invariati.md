@@ -34,6 +34,7 @@ scrivere, probabilmente la stringa va tradotta.
 | Lesimas | nome proprio del dungeon sotto Vernis; nome opaco |
 | Karma | termine acquisito in italiano |
 | Mana | termine acquisito nei giochi di ruolo |
+| Arena | parola latina che le due lingue hanno identica. `text.hsp:2782`, dove il giapponese dice 闘技場. Non è un nome proprio lasciato in inglese: è la resa giusta, e coincide. Il gemello `Pet Arena` si traduce — «Arena delle Bestie» — perché lì c'è anche una parola comune |
 | Incognito | nome dell'incantesimo `skill.hsp` (giapponese インコグニート, a sua volta traslitterazione dell'inglese). **Parola italiana identica all'inglese**, dallo stesso latino: è la resa giusta, non una traduzione dimenticata. Sta qui perché `verifica.py` segnala le identità non dichiarate |
 | * | simbolo, non testo: `text.hsp:12` lo stampa come marcatore. Non c'è niente da tradurre |
 | . | punteggiatura: `text.hsp:108` sceglie il segno di fine frase. Identica in italiano |
