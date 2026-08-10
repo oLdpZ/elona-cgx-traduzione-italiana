@@ -6,6 +6,63 @@ ancora aperte.
 
 ---
 
+## L'ordine di una concatenazione non è un vincolo: si topa — 2026-08-10, ventiduesima sessione
+
+Il 2026-08-10 avevo scritto, poche righe più sotto, che i prefissi delle Nefia
+«in italiano andrebbero **dopo** il nome; ma l'ordine lo fissa il codice, che
+concatena e basta». **Non era vero**, e a scoprirlo è stato uno screenshot: a
+schermo si leggeva «Audace Miniera», «Fatale Miniera», e la domanda è stata
+«ma è sbagliato?».
+
+Le rese non lo erano — sono ancorate al giapponese, e `不帰の` («senza ritorno»)
+→ «Fatale» è più fedele dell'inglese `King's`, che è un'invenzione. Era
+sbagliato **l'ordine**: `死の`, `闇の`, `不帰の` sono genitivi, e in italiano un
+genitivo va dopo la testa del sintagma.
+
+### Perché due toppe e non otto
+
+Il primo tentativo agganciava una toppa a ciascuno degli otto `s += lang(...)`
+del tipo, facendo premettere invece di accodare. Rosso:
+`test_le_toppe_del_progetto_si_applicano_al_sorgente_pinnato` prova ogni toppa
+**contro il sorgente pinnato**, dove quella riga dice ancora `"Cave"`, mentre in
+build dice già `"Grotta"`.
+
+⚠️ **Una toppa può agganciarsi solo a una riga che il dizionario lascia
+identica**, cioè a una riga **senza `lang()`** — è la sola forma che coincide fra
+sorgente pinnato e albero di build. Le toppe che sostituiscono l'inglese dentro
+`lang()` sono un caso a parte: lì l'aggancio è la riga *non tradotta*, e infatti
+quella firma nel dizionario non c'è.
+
+Le due righe senza `lang()` erano lì: l'assegnazione del prefisso e l'`if` del
+risveglio.
+
+```hsp
+s = mapnamerd(...)        →   s = ""                    ; text.hsp:3056
+                              s += mapnamerd(...)       ; inserita prima di :3081
+```
+
+Gli otto `s += tipo` in mezzo restano intatti e ora scrivono per primi; il
+prefisso si riaccoda in fondo, prima del suffisso `《Risveglio》`, che resta dove
+stava. Lo spazio si sposta **in testa** ai dieci prefissi del dizionario
+(`" Fatale"` invece di `"Fatale "`).
+
+Ripetere l'espressione di `mapnamerd` invece di salvarla è deliberato: è una
+lettura di array senza effetti, e dentro un `defcfunc` una variabile nuova
+costerebbe più di quanto valga.
+
+Risultato su tutte e **ottanta** le combinazioni: «Miniera Fatale», «Grotta
+Iniziale», «Cimitero Impenetrabile», «Lago Informe».
+
+⚠️ **La toppa rompe l'ordine giapponese**, dove il genitivo *precede*. Non fa
+danni perché compiliamo la build inglese (`lang()` rende il secondo argomento),
+ma se un giorno si costruisse la build giapponese le due toppe vanno escluse.
+
+Concetto: [[l-ordine-di-una-concatenazione-si-toppa]] e
+[[una-guardia-vale-solo-dove-guarda]] — qui la guardia guardava il posto giusto,
+ed è lei che ha impedito la toppa sbagliata.
+
+---
+
 ## Il riquadro di un menu taglia, e il tetto lo dichiara il chiamante — 2026-08-10, ventunesima sessione
 
 La sessione ha tradotto 258 firme di `text.hsp` (dal 45% al 60%), ma la parte
@@ -88,6 +145,12 @@ prefisso li precede tutti e otto e non può accordarsi.
 Il giapponese non ha il problema perché i suoi prefissi sono genitivi — 死の,
 闇の, 不帰の — che in italiano andrebbero **dopo** il nome; ma l'ordine lo fissa
 il codice, che concatena e basta.
+
+> ⚠️ **Questo capoverso è stato smentito il 2026-08-10, ventiduesima sessione.**
+> L'ordine *si topa*, e costa due toppe: il vincolo che qui davo per
+> insuperabile non c'era. La resa a schermo oggi è «Miniera Fatale». Vedi
+> «L'ordine di una concatenazione non è un vincolo: si topa», in cima.
+> Resta valida la parte sugli aggettivi in -e: quella è imposta dal genere.
 
 **La resa: solo aggettivi in -e**, invarianti di genere al singolare. Iniziale,
 Mite, Audace, Palpitante, Ingannevole, Illustre, Mortale, Impenetrabile,
