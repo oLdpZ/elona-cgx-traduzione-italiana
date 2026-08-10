@@ -211,6 +211,27 @@ ID utili, tutti con un'evoluzione: **165** il cane e **50** il segugio → la
 zanna d'argento; **267** il cavallo zoppo → l'unicorno; **386** la giraffa → il
 Kirin; **210** la sorella gatta minore.
 
+C'è anche **`spawn_item <id>`** (`system.hsp:4847`), che lascia l'oggetto **per
+terra**, non nello zaino: dopo il comando si raccoglie con `,`. Gli ID sono le
+costanti `ITEM_ID_*` di `defines/mod.hsp` — 1037 l'occhio elementale, 1275
+l'orbe bianco-nero, 1261 il pacco di tappi, 1023 il kit di pronto soccorso, 478
+lo stetoscopio, 634 il guinzaglio, 1248 i calzini, 1116 l'esca, 684 la macchina
+genetica.
+
+⚠️ **Domanda aperta, 2026-08-10.** Due volte di fila `spawn_item` ha prodotto un
+oggetto diverso da quello chiesto (una mela per il 478, un salvagente per il
+1037), e poi ha ripreso a funzionare senza che si capisse cosa fosse cambiato —
+e la casella era sgombra in entrambi i casi. **Non è un difetto di parsing**:
+misurato con un programmino HSP compilato con l'SDK, `int(" 478\r\n")` dà 478, e
+la generazione a caso richiede `dbid == -1`, che con un ID esplicito non si
+verifica mai (`item.hsp:2246`, `item_func.hsp:6`). L'unica pista rimasta è lo
+stato dei filtri: `spawn_item` **non chiama `flt`**, mentre `spawn_set_item`, tre
+righe più sotto, lo chiama a ogni giro. Se ricapita, guardare lì.
+
+⚠️ Non trarne conclusioni sul comando gemello: `spawn_chara` ha la stessa riga di
+parsing, e la prova qui sopra **conferma** la conclusione del 2026-08-09, cioè
+che l'ID veniva onorato anche allora.
+
 ⚠️ **Generare mostri a mano è un modo pessimo di provare l'evoluzione**:
 `chara.hsp:2319` la tira con `rnd(300) < gdata(GDATA_LEVEL)`, dove
 `GDATA_LEVEL` è **il piano del dungeon**. Al piano 1 è lo 0,3% per mostro. La
