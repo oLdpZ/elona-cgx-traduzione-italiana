@@ -154,10 +154,21 @@ def test_nessuna_voce_di_menu_sfora_il_suo_riquadro():
         "%s (%dpx, tetto %d): riga %d, %d caratteri: %s" % s for s in sfori)
 
 
-def test_ogni_menu_ha_un_chiamante_tranne_quello_noto():
+def test_ogni_menu_ha_un_chiamante():
     """Un menu che smette di essere trovato smette di essere controllato.
 
-    `txtplusbody` e` l'unico senza chiamante nel sorgente pinnato: se ne
-    comparisse un altro, va capito prima perche', non aggiunto qui.
+    Oggi li trova tutti. Se un domani ne restasse fuori uno, va capito perche'
+    prima di scrivere qui il suo nome come eccezione.
     """
-    assert menu_senza_larghezza() == {"txtplusbody"}
+    assert menu_senza_larghezza() == set()
+
+
+def test_il_menu_del_corpo_si_trova_anche_se_non_si_chiama_txtset():
+    """`txtplusbody` non segue la convenzione `txtset*`/`txtselect*`.
+
+    La prima versione della guardia cercava le chiamate per quel prefisso, e
+    questo menu — la parte del corpo da farsi crescere, action.hsp:12510 —
+    restava l'unico non misurato, con l'aria di essere codice morto. I nomi si
+    prendono da `menu_per_riga`, che li legge dal sorgente.
+    """
+    assert larghezze()["txtplusbody"] == 200

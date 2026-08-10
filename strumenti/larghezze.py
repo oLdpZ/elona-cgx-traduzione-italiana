@@ -76,7 +76,7 @@ LARGHEZZA_NUMERO = 3
 
 _DEFFUNC = re.compile(r"^#deffunc\s+(\w+)")
 _VOCE = re.compile(r"^\s*s\(\s*cnt\s*\)\s*=\s*lang\(")
-_CHIAMATA = re.compile(r"^\s*(txt(?:set|select)\w+)\s+\w")
+_CHIAMATA = re.compile(r"^\s*(\w+)\s+\w")
 _PROMPT = re.compile(
     r"val\s*=\s*promptx\s*,\s*prompty\s*,\s*(\d+)(?:\s*-\s*(\d+)\s*\*\s*en)?"
 )
@@ -110,8 +110,15 @@ def menu_per_riga(percorso: Path | None = None) -> dict[int, str]:
     return fuori
 
 
-def larghezze(cartella: Path | None = None) -> dict[str, int]:
+def larghezze(cartella: Path | None = None, nomi: set[str] | None = None) -> dict[str, int]:
     """nome del menu -> larghezza in pixel del riquadro, nella build inglese.
+
+    ⚠️ **I nomi si prendono da `menu_per_riga`, non da una convenzione.** La
+    prima versione cercava le chiamate con `txt(set|select)\\w+`, e
+    `txtplusbody` — il menu della parte del corpo da farsi crescere — non si
+    chiama cosi': restava l'unico non misurato, e sembrava codice morto. Terzo
+    esemplare di [[una-guardia-vale-solo-dove-guarda]], e stavolta la guardia
+    ero io.
 
     Se piu' chiamanti costruiscono lo stesso menu si tiene **il piu' stretto**:
     una voce deve stare in tutti i posti in cui il menu compare.
@@ -126,12 +133,14 @@ def larghezze(cartella: Path | None = None) -> dict[str, int]:
     ferma dopo poche righe, ma solo a un'etichetta o a un `#deffunc`.
     """
     cartella = cartella or percorsi.SORGENTE_HSP
+    if nomi is None:
+        nomi = set(menu_per_riga(cartella / FILE).values())
     fuori: dict[str, int] = {}
     for percorso in sorted(cartella.glob("*.hsp")):
         righe = _righe(percorso)
         for i, riga in enumerate(righe):
             m = _CHIAMATA.match(riga)
-            if not m:
+            if not m or m.group(1) not in nomi:
                 continue
             for j in range(i + 1, len(righe)):
                 if righe[j].startswith(("#deffunc", "*")) or righe[j].lstrip().startswith("*"):
@@ -189,7 +198,8 @@ def menu_senza_larghezza(sorgente: Path | None = None) -> set[str]:
     trovato smette anche di essere controllato, in silenzio.
     """
     sorgente = sorgente or percorsi.SORGENTE_HSP
-    return set(menu_per_riga(sorgente / FILE).values()) - set(larghezze(sorgente))
+    nomi = set(menu_per_riga(sorgente / FILE).values())
+    return nomi - set(larghezze(sorgente, nomi))
 
 
 def main(argv: list[str] | None = None) -> int:
