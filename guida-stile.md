@@ -155,6 +155,40 @@ nel dizionario e di un array parallelo, come per il `plurale`. Non si è fatto
 perché tocca 14 nomi su 90 e il punto 2 ne copre la maggior parte: si rifà il
 conto quando le persone saranno tutte tradotte, non prima.
 
+## Un nome scritto con kanji omofoni: si traduce la base, non la patina
+
+Deciso il 2026-08-10 su due nomi insieme, e vale per tutti quelli che verranno.
+
+Elona+ scrive spesso un nome con kanji che **suonano** come un'altra parola. Il
+lettore giapponese sente per prima la parola base — l'orecchio arriva prima
+dell'occhio — e i kanji scelti sono la patina che la colora. I due strati
+stanno insieme; l'italiano non ha gli ateji e non può sovrapporli.
+
+**Si traduce la base**, che è quella su cui la creatura sta in piedi, e la
+patina si prova a farla entrare **dentro un'espressione idiomatica** invece che
+in una seconda parola. Se non entra, si lascia andare: aggiungere un aggettivo
+per salvarla produce un nome che non dice nessuna delle due cose.
+
+| nome | kanji scritti | base omofona | resa |
+|---|---|---|---|
+| `非情ベル` | 非情, spietato | 非常ベル, il campanello antincendio | **«la campana a martello»** |
+| `烈闘龍『サンライズ』` | 烈闘, lotta feroce | 列島, arcipelago | **«<Sunrise> il drago dell'arcipelago»** |
+
+Sul primo l'italiano ha l'idioma che serve: suonare **a martello** *è*
+l'allarme, e «a martello» porta da sé la durezza di 非情 e il modo in cui la
+bestia si comporta. Due strati in tre parole, come l'originale.
+
+Sul secondo non esiste una parola che faccia sia arcipelago sia battaglia, e
+allora si sceglie la base: la carta parla di mare, alba e dimensioni e di lotta
+non dice nulla, e con `サンライズ` nel nome lo scherzo è il sole che sorge
+sull'arcipelago giapponese.
+
+⚠️ **Non è il caso in cui l'inglese sbaglia.** Qui l'inglese aveva letto
+l'omofono ed era nel giusto: la somiglianza con i casi di `db_creature.hsp` in
+cui l'inglese si inventa la razza è solo apparente. Il modo di distinguerli è
+`db_card.hsp`: se la carta descrive l'omofono e non i kanji, i kanji sono la
+patina. Vedi [[stessa-forma-va-verificata-nel-codice]].
+
 ## Preposizioni davanti a un personaggio
 
 `name()` restituisce un sintagma **con l'articolo** («il viandante», «il
