@@ -36,6 +36,12 @@ si confondono, l'alternativa è **«dragonetto»**, e il costo è tre nomi del
 lotto `drake` più quella voce. La decisione è registrata qui proprio perché è
 la più revisionabile della sessione.
 
+✅ **Confermata a schermo il 2026-08-10, diciottesima sessione.** I tre draco
+(`97`, `98`, `580`) sono stati evocati accanto a `<Vansesda> il drago della
+fiamma primordiale` e guardati insieme. Non si confondono: l'utente ha scelto
+di tenere «draco». Esce dalle decisioni revisionabili — la prova che serviva
+era proprio quella, e non poteva darla il sorgente.
+
 Vedi `glossario.md`, «Le teste di famiglia dei nomi di creatura».
 
 ## Un nome già preso non è disponibile, e va cercato prima
@@ -1848,3 +1854,195 @@ mostrato funzionare. Il test non era una precauzione teorica.
 `action.hsp:17390`, `電気竜` → «il **draco** elettrico». Unica occorrenza contro
 decine di «drago»: è un refuso, non una distinzione. Non corretto perché sta
 fuori dai lotti, e una voce già chiusa che si ritocca va vista in un commit suo.
+
+## La diciottesima sessione — 2026-08-10
+
+Aperta per collaudare i 1.131 nomi mai visti a schermo. Il collaudo ha fatto il
+suo mestiere — ha confermato «draco» e ha mostrato un difetto tipografico — ma
+la scoperta più grossa è arrivata leggendo il sorgente per prepararlo.
+
+### 440 rinomine all'evoluzione erano morte, e nessuna guardia poteva vederlo
+
+Il difetto più grave trovato finora, e sta **fra due file**, non dentro uno.
+
+La rinomina all'evoluzione confronta il nome memorizzato con un letterale del
+sorgente (`strmid(nome, 0, strlen(evold)) == evold`). In `action.hsp` quel
+letterale è tradotto insieme al resto, ed è per questo che il collaudo di Norfor
+aveva visto la rinomina funzionare. Ma la stessa logica esiste in tre file **che
+non erano nel dizionario**:
+
+| file | letterali `evold`/`evname` ancora inglesi |
+|---|---|
+| `custom_enemyevolution.hsp` | 418 |
+| `ai.hsp` | 16 |
+| `event.hsp` | 6 |
+
+Là `evold` era rimasto inglese mentre il nome a schermo era diventato italiano:
+`strmid(nome, 0, strlen("hand of the murderer")) == "hand of the murderer"`
+contro «la mano dell'assassino». Non combacia mai, né col ramo prefisso né col
+suffisso. Il nemico evolve — statistiche e sprite cambiano — e **tiene il nome
+di prima**. Il codice è vivo: `init.hsp:117` lo include, `chara.hsp:2321` lo
+chiama quando l'opzione *Spawn evolved enemies* è attiva.
+
+Tutte le guardie erano verdi, e nessuna poteva vederlo: ognuna misura la salute
+di un file tracciato, e il difetto stava nella relazione con un file fuori
+perimetro. Nuovo concetto: [[coerenza-fra-due-file-uno-solo-tracciato]].
+
+**La riparazione.** I tre file sono entrati nel dizionario: 379 firme uniche
+(le 440 letterali contengono ripetizioni), **tutte risolte automaticamente
+cercando il giapponese** nel dizionario esistente — zero ambigue, zero mancanti.
+La chiave giusta era il giapponese, non l'inglese, perché entrambi i file
+copiano il nome della creatura e il giapponese è identico per costruzione.
+`custom_enemyevolution.hsp` risulta chiuso al 100%: le sue uniche stringhe
+`lang()` sono quelle.
+
+⚠️ **Riparare ha reso raggiungibile un ramo che non girava.**
+`custom_enemyevolution.hsp:2400` porta lo stesso scambio di indice (`rc` invece
+di `tc@PE`) del difetto latente noto di `action.hsp:18643`. Verificato che resta
+latente: non esiste nessun `#module PE`, quindi quel `rc` è il globale, nel
+modulo non viene mai riassegnato, e `chara.hsp:2320` fa `tc@PE = rc` subito
+prima della chiamata. È inerte **per coincidenza, non per costruzione** — ed è
+ora il secondo esemplare dello stesso difetto.
+
+### Il title case inglese sugli epiteti — una toppa di tipo nuovo
+
+Trovato al primo screenshot del collaudo: `<Ratin> L'investigatrice Della Gilda
+Dei Guerrieri`. Il dizionario aveva scritto tutto in minuscolo.
+
+`custom_dmgpop.hsp:237` — l'etichetta sopra la testa delle creature — faceva
+`capitalize(names@DP(0), 1)`, dove il modo `1` è il title case inglese. È
+**cablato a mano**: non passa dall'opzione `capitalizeItemName`, che l'utente
+può spegnere e che di default vale già 0. Le altre tre chiamate a `capitalize`
+riguardano i nomi d'oggetto e obbediscono all'opzione: quella era l'unica
+forzata.
+
+Si vedeva solo sulle creature **con epiteto**: senza alias il nome passa dal
+ramo `s@DP(0) == ""` (riga 239) che salta la capitalizzazione, ed è per questo
+che «il draco di fuoco» e «il ratto sanguinario» nello stesso screenshot erano
+corretti. Un collaudo su tre mostri comuni non l'avrebbe incontrato.
+
+Toppa 255ª. È un tipo che il progetto non aveva ancora incontrato: non una
+stringa che il dizionario non raggiunge, ma una **trasformazione che deforma una
+stringa tradotta bene**. Registrato in [[toppe-fuori-dal-dizionario]].
+
+### «sigillo dei nove dèi» usciva «de'i»
+
+Il caso che questo stesso documento descrive dalla decima sessione — l'accento a
+metà parola degrada male — era rimasto **nel dizionario**, mai corretto. Vivo nel
+build in due forme, singolare e plurale. Reso «sigillo delle nove divinità»:
+l'accento torna a fine parola, dove la degradazione è invisibile.
+
+⚠️ Il primo giro di correzione ha mancato il plurale, perché il plurale è un
+**campo separato** del dizionario (`plurale`), non derivato dal singolare in
+fase di build. Il controllo dell'accento a metà parola è stato riesteso a tutti
+i campi di testo — 6.772 invece di 5.053 — e ora sono zero.
+
+### Le 320 stringhe di voce, e l'inglese che inventa
+
+Chiuse tutte. Su questo lotto l'inglese non abbrevia: **inventa**. `「ガルルル…」`
+è un ringhio, e l'inglese ci ha messo «You hear the near silent footfalls of a
+cat. A Big cat.» — una frase intera che nel giapponese non esiste. Stessa cosa
+per il grifone, per il fabbro `<Garok>` e per la fatina. Due volte ha proprio
+capovolto il senso: `あの男` (*quell'uomo*) diventa «that girl» nella battuta di
+Loyter, e `トドメを刺した` (*ha dato il colpo di grazia*) diventa «tormented».
+Reso il giapponese, come da regola.
+
+**Le virgolette hanno sciolto un problema di identità.** Il grido del grifone è
+`Hjckrrh`, che in italiano resta `Hjckrrh`, e la guardia dell'identità l'avrebbe
+bocciato otto volte. Ma la resa corretta non è identica: il sorgente inglese
+scrive le virgolette dritte, e la convenzione del progetto impone le tipografiche
+`“”` perché una `"` chiuderebbe la stringa HSP. La differenza è reale, non un
+aggiramento della guardia.
+
+**Nuovo controllo: gli spazi esterni.** Molte di queste stringhe sono ` *così* `,
+con spazi che fanno parte della resa e che nessuna guardia esistente guardava.
+Il controllo ha segnalato 14 disallineamenti fra italiano e inglese: tutti e 14
+seguono il **giapponese**, coerentemente con la regola dell'arbitro. Uno solo è
+diverso per scelta — il frammento `, vuoi assaggiare anche tu?”`, dove la virgola
+deve seguire il nome interpolato senza spazio.
+
+### Le 59 rinviate del quiz, e un falso che rendeva una domanda irrisolvibile
+
+Chiuse. `rinviate.jsonl` scende da 79 a 20: restano solo quelle che aspettano
+`proc.hsp`.
+
+⚠️ **Il caso da non ripetere.** La domanda «quale di questi segugi ha il nome
+esatto?» offre un vero e tre falsi. Il falso `混沌ハウンド` sarebbe diventato «il
+segugio del caos» — ma `カオスハウンド` **esiste** (`db_creature.hsp:109000`) e
+in dizionario è già «il segugio del caos». Due opzioni identiche a schermo, e la
+domanda non ha più risposta. Trovato facendo controllare a uno script che
+nessuna resa collidesse con un nome già in dizionario, non a occhio. I tre falsi
+sono ora «degli inferi», «delle tenebre» e «caotico», vicini ai veri
+«dell'oltretomba», «dell'oscurità» e «del caos» senza toccarli — che è il
+rapporto che hanno anche in giapponese. Vedi
+[[una-chiave-che-collide-non-e-una-chiave]].
+
+⚠️ **Quattro risposte sono oggetti veri il cui nome vive in un file non
+tradotto.** Le tre pietre di Lesimas e l'ankh del sole si ottengono da
+`chara_func.hsp:7347-7448`. Tradurre il quiz e non quel file significa che il
+giocatore riceve `[Sage's Magic Stone]` in inglese e la ritrova in italiano
+nella domanda. Non risolvibile qui — è un file intero — ma il precedente è
+**fissato in `glossario.md`** con la tabella EN→IT e i riferimenti di riga:
+quando `chara_func.hsp` entrerà nella pipeline quelle rese si copiano, non si
+reinventano.
+
+Quattro voci non erano un quiz: `zombie + dragon zombie` e le altre tre sono il
+menù di negromanzia (`txtsetnecrom`), coppie di non morti da evocare.
+
+### La guardia delle interpolazioni rendeva certe dinamiche intraducibili
+
+Aperto `action.hsp` (26 dinamiche su 318) e la strada era bloccata.
+
+`verifica.py` pretende che la traduzione conservi le chiamate di contenuto
+dell'inglese — giusto, perdere `name(tc)` significa perdere il nome dal
+messaggio. Ma `funzioni_di_contenuto` contava anche ciò che sta **dentro** una
+chiamata di morfologia. In `action.hsp:1016`:
+
+```hsp
+name(gdata(GDATA_RIDER)) + " " + is(gdata(GDATA_RIDER)) + " using it."
+```
+
+il secondo `gdata` serve solo a scegliere fra «is» e «are». `is()` va tolta per
+forza — non passa mai da `lang()`, resterebbe inglese per sempre — e togliendola
+sparisce il suo argomento: **nessuna resa italiana corretta poteva passare**.
+L'unico modo di soddisfare la guardia era stampare il dato due volte.
+
+Corretto `_classifica` perché salti gli argomenti della morfologia. Il criterio
+non è «la guardia è scomoda», è che **una funzione di grammatica non stampa mai
+ciò che riceve**: verificate una per una, `is`, `was`, `_s`, `your`, `have`,
+`does`, `yourself` restituiscono tutte una parola inglese fissa, scelta
+guardando l'argomento e basta.
+
+⚠️ **La correzione ha fatto cadere due test esistenti**, ed è lì che si decide se
+si sta riparando o aggirando. Riletti per il loro obiettivo dichiarato: entrambi
+volevano dimostrare che `his` a un argomento e `_s2` sono morfologia, e quello è
+intatto. Le asserzioni cadute erano **incidentali** e sbagliate per la stessa
+ragione del difetto — `his(cdatan(CDATAN_NAME, tc))` pretendeva `cdatan` nella
+traduzione, ma la resa giusta è «il suo portafoglio», e pretenderlo significava
+chiedere una chiamata che a schermo stampa il **nome del personaggio**, cioè
+un'altra frase. Aggiunti due test per la regola nuova. Vedi
+[[guardia-troppo-severa]], di cui è il terzo esemplare.
+
+**«Mordes» è localizzato.** `action.hsp:4887`: `_melee(0, ...)` è già tradotto in
+`text.hsp:164` come «morde», e `_s(cc)` gli attacca la «s». Sparisce quando si
+traduce quella riga. Il gemello è in `proc.hsp:8797` — lo stesso file su cui
+puntano le 20 rinviate rimaste: i due difetti si chiudono insieme.
+
+### Cosa il collaudo ha insegnato sul collaudo
+
+Il primo screenshot ha trovato il title case, che due letture del sorgente non
+avevano visto. Ma è servita anche la direzione opposta: l'utente ha riferito che
+`spawn_chara 659` gli aveva prodotto un ratto. Verificato da qui che le ID erano
+corrette (`659` è davvero `<Vansesda>`, nessun `#define` doppio, e la
+sostituzione casuale in `chara_init` scatta **solo** con `dbid == -1`), e che il
+ratto è `412`, un numero mai dato. Era un mostro già presente sulla mappa.
+
+> Un difetto riferito va verificato come uno trovato. La lista di passi fa
+> entrare nel lavoro prove che il codice non sa dare, ma non tutto ciò che
+> arriva da lì è un difetto.
+
+⚠️ **Nota operativa:** la console di debug parte in **modalità HSP**, non Lua;
+`characreate` è il nome Lua e risponde «comando sconosciuto» finché non si
+digita `lua`. Il comando nativo è `spawn_chara <id>`, sta fuori dall'`#ifdef
+CUSTOM_GX_LUA` (`system.hsp:4831`) e quindi funziona anche in `cgx-test.exe`,
+che è l'eseguibile che si spedisce — meglio collaudare quello.

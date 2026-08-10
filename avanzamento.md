@@ -14,21 +14,75 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 
 | file | tradotte | firme | % | occorrenze |
 |---|---|---|---|---|
-| `text.hsp` | 721 | 1.740 | 41% | 2.127 |
+| `text.hsp` | **780** | 1.740 | 45% | 2.127 |
 | `command.hsp` | 0 | 1.304 | 0% | 1.481 |
-| `action.hsp` | **373** | 1.288 | 29% | 1.502 |
+| `action.hsp` | **399** | 1.288 | 31% | 1.502 |
 | `proc.hsp` | 0 | 1.098 | 0% | 1.327 |
 | `skill.hsp` | **885** | 885 | **100%** | 894 |
 | `trait.hsp` | 0 | 373 | 0% | 406 |
 | `db_item.hsp` | **1.606** | 1.606 | **100%** | 1.607 |
 | `item_data.hsp` | **318** | 318 | **100%** | 318 |
 | `custom_tweaks.hsp` | **12** | 12 | **100%** | 28 |
-| **totale** | **3.915** | **8.624** | **45%** | **9.690** |
+| **totale** | **4.000** | **8.624** | **46%** | **9.690** |
 
-Fuori dalla Fase 1, con conteggio proprio: `db_creature.hsp`, **1.132 firme su
-3.655**, cioè **tutti e 1.131 i nomi** più l'epiteto. `--razze` dice **restano
-0 firme in 0 razze**. Le 320 stringhe di voce non sono ancora cominciate, e le
-2.523 righe rimanenti del file sono dialoghi e descrizioni.
+Fuori dalla Fase 1, con conteggio proprio: `db_creature.hsp`, **1.452 firme su
+3.655** — tutti e 1.131 i nomi, l'epiteto e le **320 stringhe di voce**, chiuse
+il 2026-08-10. Le 2.203 righe rimanenti del file sono dialoghi e descrizioni.
+
+⚠️ **Tre file nuovi nel perimetro dal 2026-08-10**, entrati per riparare le
+rinomine all'evoluzione (vedi `decisioni.md`, diciottesima sessione). Non erano
+nel piano della Fase 1 e hanno un conteggio proprio:
+
+| file | tradotte | resta | perché è entrato |
+|---|---|---|---|
+| `custom_enemyevolution.hsp` | **368** | **0 — chiuso** | 418 letterali `evold`/`evname` rimasti inglesi |
+| `ai.hsp` | 6 | 94 | 16 letterali, stessa causa |
+| `event.hsp` | 5 | 649 | 6 letterali, stessa causa |
+| `init.hsp` | 6 | 133 | già nel perimetro da prima |
+
+## Il perimetro si allarga di tre file — 2026-08-10, diciottesima sessione
+
+Sessione aperta per collaudare i nomi, chiusa con **464 firme in più** e un
+difetto sistemico riparato.
+
+**379 rinomine all'evoluzione, in tre file che non erano nel perimetro.** Il
+dettaglio sta in `decisioni.md`. Qui conta il precedente di metodo: un file
+entra nel dizionario **anche se non è nel piano**, quando il piano lo esclude
+per una ragione che nel frattempo è caduta. `custom_enemyevolution.hsp` non era
+in Fase 1 perché non contiene interfaccia né messaggi — contiene solo copie di
+nomi di creatura. Ed era proprio quello il problema: erano copie **da tenere
+allineate**, e nessuno le teneva.
+
+Le 379 sono state risolte automaticamente cercando il **giapponese** nel
+dizionario esistente: zero ambigue, zero mancanti su 379. Vale la pena tenerlo
+come tecnica: quando un file duplica valori di un altro file già tradotto, la
+traduzione non si scrive, si **risolve**, e la chiave è il campo che i due
+condividono per costruzione — qui il giapponese, non l'inglese.
+
+**320 stringhe di voce** (`db_creature.hsp`, classe `voce`): chiuse tutte.
+
+**59 rinviate del quiz**: chiuse. `rinviate.jsonl` scende da 79 a **20**, e le
+20 che restano aspettano tutte `proc.hsp`.
+
+**26 dinamiche di `action.hsp`** su 318. Poche perché la strada era bloccata da
+una guardia che rendeva certe voci intraducibili; sbloccarla ha richiesto di
+correggere `strumenti/funzioni.py` e due test. Il modello per le restanti 292 è
+ora fissato:
+
+- terza persona, mai `_s()`, `is()`, `was()`, `your()`, `have()`, `does()`:
+  non passano da `lang()` e resterebbero inglesi;
+- mai una preposizione davanti a `name()` o `itemname()`, che portano già
+  l'articolo (`guida-stile.md:212`) — il controllo va rifatto a ogni lotto;
+- `name(giocatore)` è «il viandante», quindi la terza persona regge per tutti.
+
+### Il debito che questa sessione lascia
+
+- **292 dinamiche + 597 statiche** in `action.hsp`.
+- `chara_func.hsp` **non è nel perimetro** ma il quiz ne ha già fissato quattro
+  nomi (`glossario.md`): finché non entra, il giocatore riceve le pietre di
+  Lesimas in inglese e le ritrova in italiano nel quiz.
+- Le rinomine riparate **non sono state viste in gioco**: la lettura del
+  sorgente dice che ora combaciano, ma è una deduzione.
 
 ## Cinquantasei lotti, e i nomi finiti — 2026-08-10, diciassettesima sessione
 

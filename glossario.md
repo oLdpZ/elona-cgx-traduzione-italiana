@@ -145,6 +145,34 @@ diventano una sola resa — **Cos** e **Car** — e la doppia grafia sparisce.
 | Port Kapul | Porto Kapul | `Port` è parola comune, `Kapul` no: vedi la regola qui sotto |
 | Cyber Dome | Cupola Cibernetica | idem, entrambe le parole sono comuni |
 
+## Gli oggetti della trama, fissati dal quiz prima che dal loro file
+
+Il quiz di `text.hsp` nomina sette pietre magiche e quattro oggetti del sole.
+**Tre pietre e un ankh sono oggetti veri della trama**, ma il loro nome non vive
+in `db_item.hsp`: sta in `chara_func.hsp`, che **non è ancora nel dizionario**.
+Le risposte del quiz sono state tradotte per prime, quindi qui il precedente lo
+fissa il quiz: quando `chara_func.hsp` entrerà nella pipeline, queste rese non
+si reinventano, si copiano.
+
+| EN (`chara_func.hsp`) | IT | dove |
+|---|---|---|
+| `[Sage's Magic Stone]` | pietra magica del saggio | `chara_func.hsp:7359` |
+| `[Fool's Magic Stone]` | pietra magica del folle | `chara_func.hsp:7347` |
+| `[King's Magic Stone]` | pietra magica del conquistatore | `chara_func.hsp:7353`, giapponese 覇者 |
+| `[Ankh of The Sun]` | ankh del sole | `chara_func.hsp:7448` |
+
+⚠️ Le altre quattro pietre (`dell'eremita`, `del re`, `dei morti`, `del santo`) e
+i tre oggetti del sole (`bilancia`, `torque`, `collare`) sono **esche del quiz**:
+non esistono come oggetti. `王者` → «del re» e `覇者` → «del conquistatore» vanno
+tenuti distinti, perché il quiz li mette fianco a fianco apposta.
+
+⚠️ Stessa trappola per i segugi: il quiz «qual è il nome esatto» offre tre nomi
+falsi accanto a quello vero. `混沌ハウンド` **non** si rende «il segugio del
+caos», perché quello è `カオスハウンド`, una creatura che esiste
+(`db_creature.hsp:109000`): due opzioni identiche renderebbero la domanda
+irrisolvibile. I falsi sono «degli inferi», «delle tenebre» e «caotico», vicini
+ai veri «dell'oltretomba», «dell'oscurità» e «del caos» senza toccarli.
+
 ## Armi e armature
 
 Il lotto dell'equipaggiamento (`db_item.hsp`, filtri `/metal/`, `/sharp/`,

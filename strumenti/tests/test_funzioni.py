@@ -23,7 +23,11 @@ def test_le_varianti_di_morfologia_trovate_nel_sorgente_non_sono_contenuto():
     # (lavoro/controllo-text.jsonl). Se restassero fuori da MORFOLOGIA_INGLESE
     # il difetto che questo task chiude resterebbe aperto per queste voci.
     espressione = 'gdata(GDATA_GUEST) + " guest" + _s2(gdata(GDATA_GUEST))'
-    assert funzioni_di_contenuto(espressione) == ["gdata", "gdata"]
+    # un solo gdata: il secondo sta dentro _s2(), che sceglie fra "" e "s" e
+    # non stampa mai il numero. L'italiano dice «N ospiti» con un gdata solo;
+    # pretenderne due significherebbe stampare il numero due volte.
+    assert funzioni_di_contenuto(espressione) == ["gdata"]
+    assert morfologia_residua(espressione) == ["_s2"]
     assert funzioni_di_contenuto('"beat " + him2(tc)') == []
 
 
@@ -63,5 +67,30 @@ def test_una_chiamata_annidata_non_conta_come_secondo_argomento():
     # non due: la virgola dentro cdatan(...) non e' di his(...). Se contata
     # per errore, un his() sempre morfologia sfuggirebbe come "contenuto".
     espressione = 'his(cdatan(CDATAN_NAME, tc)) + " wallet."'
-    assert funzioni_di_contenuto(espressione) == ["cdatan"]
     assert morfologia_residua(espressione) == ["his"]
+    # e il cdatan annidato NON e' contenuto: his() a un argomento non stampa
+    # mai cio' che riceve, restituisce "his"/"her" e basta. La resa italiana e'
+    # «il suo portafoglio», che quel cdatan non lo contiene. Pretenderlo
+    # significherebbe chiedere alla traduzione una chiamata che a schermo
+    # stampa il nome del personaggio: un'altra frase.
+    assert funzioni_di_contenuto(espressione) == []
+
+
+def test_argomenti_di_morfologia_non_sono_contenuto():
+    # action.hsp:1016 — il secondo gdata sta dentro is(), cioe' serve solo a
+    # scegliere fra "is" e "are". Togliere is() porta via per forza il suo
+    # argomento, e l'italiano non puo' conservarlo: la copula non si traduce,
+    # si riscrive. Prima di questa regola la voce era intraducibile, perche'
+    # nessuna resa corretta poteva passare la verifica.
+    espressione = (
+        'name(gdata(GDATA_RIDER)) + " " + is(gdata(GDATA_RIDER)) + " using it."'
+    )
+    assert funzioni_di_contenuto(espressione) == ["gdata", "name"]
+    assert morfologia_residua(espressione) == ["is"]
+
+
+def test_argomenti_di_morfologia_annidata_profonda():
+    # la porzione da saltare e' l'intera chiamata, non fino al primo ")"
+    espressione = '_s(cdata(CDATA_ID, name(tc))) + name(cc)'
+    assert funzioni_di_contenuto(espressione) == ["name"]
+    assert morfologia_residua(espressione) == ["_s"]

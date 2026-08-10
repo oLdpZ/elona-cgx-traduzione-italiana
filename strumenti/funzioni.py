@@ -77,26 +77,60 @@ PRONOMI_PER_SITO = frozenset({"he", "his", "him"})
 CHIAMATA = re.compile(r"\b([A-Za-z_][A-Za-z0-9_]*)\s*\(")
 
 
+def _fine_chiamata(espressione: str, apertura: int) -> int:
+    """L'indice subito dopo la parentesi che chiude quella aperta in `apertura`.
+
+    Se le parentesi non si chiudono (espressione troncata), ritorna la fine
+    della stringa: meglio sovrastimare la porzione da saltare che classificare
+    come contenuto la coda di una chiamata di morfologia.
+    """
+    livello = 0
+    for i in range(apertura, len(espressione)):
+        if espressione[i] == "(":
+            livello += 1
+        elif espressione[i] == ")":
+            livello -= 1
+            if livello == 0:
+                return i + 1
+    return len(espressione)
+
+
 def _classifica(espressione: str) -> tuple[list[str], list[str]]:
     """Per ogni chiamata dell'espressione, decide se e' contenuto o morfologia.
 
     Ritorna (contenuto, morfologia): i nomi delle chiamate, non ordinati e con
     ripetizioni, nell'ordine in cui compaiono. Le chiamate a `he/his/him`
     guardano il numero di argomenti al sito, non il solo nome.
+
+    ⚠️ Gli **argomenti di una chiamata di morfologia non sono contenuto**, e non
+    entrano nel conteggio. Una funzione di morfologia non stampa mai cio' che
+    riceve: `is`, `was`, `_s`, `your`, `have`, `does`, `yourself` e le altre
+    restituiscono una parola inglese fissa, scelta guardando l'argomento e
+    basta. Quindi in `name(gdata(R)) + is(gdata(R)) + " using it."` il secondo
+    `gdata` non arriva a schermo: e' l'impianto idraulico della copula inglese.
+    Toglierlo e' obbligatorio insieme a `is()`, e pretenderlo nell'italiano
+    rendeva la voce intraducibile — nessuna resa corretta poteva passare.
+    Trovato traducendo le dinamiche di `action.hsp`, dove la morfologia annidata
+    compare per la prima volta in quantita'.
     """
     contenuto: list[str] = []
     morfologia: list[str] = []
+    salta_fino_a = 0
     for corrispondenza in CHIAMATA.finditer(espressione):
+        if corrispondenza.start() < salta_fino_a:
+            continue
         nome = corrispondenza.group(1)
+        apertura = corrispondenza.end() - 1
         if nome in MORFOLOGIA_INGLESE:
             morfologia.append(nome)
+            salta_fino_a = _fine_chiamata(espressione, apertura)
         elif nome in PRONOMI_PER_SITO:
-            apertura = corrispondenza.end() - 1
             argomenti = argomenti_di(espressione, apertura)
             if argomenti is not None and len(argomenti) >= 2:
                 contenuto.append(nome)
             else:
                 morfologia.append(nome)
+                salta_fino_a = _fine_chiamata(espressione, apertura)
         else:
             contenuto.append(nome)
     return contenuto, morfologia
