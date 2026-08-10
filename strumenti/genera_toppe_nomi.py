@@ -449,7 +449,16 @@ toppe.append({
     "motivo": "azzera le tre code (materiale, ego, stato) a ogni chiamata di itemname(): senza, la coda dell'oggetto precedente resterebbe attaccata al successivo",
 })
 
-# il riversamento, nell'ordine italiano: materiale, ego, stato
+# il riversamento, nell'ordine italiano: materiale, ego, stato.
+#
+# ⚠️ Materiale ed ego escono su `*skipName`, lo **stato** no. `*skipName` non e'
+# il punto dove tutti i rami convergono, come questo commento ha sostenuto fino
+# al 2026-08-11: per il cibo cotto il nome del piatto lo appende
+# `gosub *itemNameSub` del ramo inglese, che sta **dopo**, e la benedizione
+# finiva in mezzo — «un piatto di  con benedizionepane alle noci», visto in
+# vetrina dal panettiere di Palmia. Lo stato chiude il nome, quindi va dove il
+# nome e' davvero finito: subito prima del controllo di lunghezza, che e'
+# l'ultima riga prima del ritorno di itemname().
 blocco = fetta(ITEM, 1805, 1806)
 assert blocco[0].strip() == '*skipName', blocco[0]
 toppe.append({
@@ -457,9 +466,19 @@ toppe.append({
     "cerca": blocco,
     "sostituisci": [blocco[0],
                     f'{ind(blocco[1])}locvar_itemowner_s += locvar_itemname_s6',
-                    f'{ind(blocco[1])}locvar_itemowner_s += locvar_itemname_s10',
-                    f'{ind(blocco[1])}locvar_itemowner_s += locvar_itemname_s7'] + blocco[1:],
-    "motivo": "riversa materiale, ego e stato dopo il nome, in quest'ordine («un paio di scarpe di vetro di fuoco con benedizione»): il materiale sta attaccato al nome, l'ego lo segue, lo stato chiude. Sta su *skipName perche' e' il punto dove tutti i rami del nome convergono: sui singoli rami se ne dimenticherebbe uno e la coda sparirebbe in silenzio. Ed e' prima dell'articolo inglese, che si antepone",
+                    f'{ind(blocco[1])}locvar_itemowner_s += locvar_itemname_s10'] + blocco[1:],
+    "motivo": "riversa materiale ed ego dopo il nome, in quest'ordine («un paio di scarpe di vetro di fuoco»): il materiale sta attaccato al nome, l'ego lo segue. Sta su *skipName perche' e' il punto dove convergono i rami che scrivono il nome QUI; lo stato invece no, perche' il cibo cotto il nome se lo scrive dopo — vedi la toppa della coda. Ed e' prima dell'articolo inglese, che si antepone",
+})
+
+# lo stato (benedizione, maledizione, dannazione) chiude il nome, e «chiudere»
+# vuol dire dopo l'ultimo che scrive: l'ultima riga prima del ritorno.
+blocco = fetta(ITEM, 2254, 2254)
+assert blocco[0].strip() == 'if ( strlen(locvar_itemowner_s) > 66 ) {', blocco[0]
+toppe.append({
+    "file": "item_func.hsp",
+    "cerca": blocco,
+    "sostituisci": [f'{ind(blocco[0])}locvar_itemowner_s += locvar_itemname_s7'] + blocco,
+    "motivo": "lo stato in italiano e' un complemento in coda («con benedizione»), e la coda e' qui, non su *skipName: per il cibo cotto `gosub *itemNameSub` appende il nome del piatto DOPO *skipName, e lo stato finiva in mezzo e senza spazio. Questo e' l'ultimo punto prima del ritorno di itemname(), quindi il controllo di lunghezza a 66 caratteri misura anche la coda, com'e' giusto",
 })
 
 # 15. il buffer dei materiali, e accanto l'array del complemento italiano.

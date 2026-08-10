@@ -34,6 +34,27 @@ nuda.
 appende **prima del controllo di lunghezza a 66 caratteri**, che è l'ultimo
 punto prima del ritorno — così la coda c'è sempre ed è anche misurata.
 
+### E il primo tentativo è stato riscritto in silenzio
+
+⚠️ **Quelle toppe non stanno a mano: le genera `strumenti/genera_toppe_nomi.py`**
+(righe 452-463). Il primo tentativo modificava `toppe.jsonl` direttamente: la
+build usciva giusta, e il difetto sembrava chiuso. Poi il lotto successivo ha
+lanciato `genera_toppe_nomi`, che ha **riscritto la sua toppa sopra la mia
+modifica** — e in vetrina la benedizione è comparsa **due volte**, la vecchia in
+mezzo e la nuova in coda.
+
+**Regola operativa: prima di correggere una riga di `toppe.jsonl`, guardare se
+qualcuno la genera.** Il file è per due terzi prodotto — `toppe a mano: 230,
+generate: 33` — e una modifica a una toppa generata sopravvive esattamente fino
+al prossimo `genera_toppe_*`, cioè fino al prossimo lotto. Se la genera uno
+strumento, la correzione va **nello strumento**.
+
+⚠️ Nota di metodo: il difetto raddoppiato **si vedeva solo a schermo**, di
+nuovo. La catena era verde tutte e due le volte — 357 test, identità 72/72,
+compilatore muto — perché entrambe le toppe si agganciavano e si applicavano
+senza conflitto. Una guardia che conta le toppe non può accorgersi che due
+dicono la stessa cosa in due posti.
+
 ⚠️ **La lezione, che vale oltre questo caso.** Una coda «in fondo al nome» non è
 un posto assoluto: è un posto **relativo a chi scrive dopo**. Prima di appendere
 qualcosa a una stringa che altri continuano a comporre, bisogna sapere **chi è
