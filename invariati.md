@@ -368,6 +368,7 @@ scrivere, probabilmente la stringa va tradotta.
 | `-` | **non è testo: è un trattino.** È la scadenza di un incarico che non ne ha (`text.hsp:11692`, giapponese 即時, «subito»), e finisce dentro `"(" + nquestdate + ")"` in una colonna larga 48 pixel fra il livello e il nome del cliente (`command.hsp:3359`, `:3365`). «(subito)» sono otto caratteri e andrebbe addosso al nome. L'inglese ha già risolto così, e la soluzione è la stessa in italiano |
 | `[Lv. 30] Little Sister` | titolo di missione secondaria (`text.hsp:10599`), giapponese リトルシスター. **Il titolo è il nome della creatura**, e `<Little Sister>` è già invariato qui sopra: l'etichetta `[Lv. N]` la scrive l'inglese e non è testo. Non resta niente da tradurre |
 | `[Lv. 80] H Sister` | titolo di missione secondaria (`text.hsp:10851`), giapponese えっちないもうと. Come sopra: `H Sister` è già invariato qui sopra |
+| `...` | **non è testo: è un silenzio.** Battuta di `<Aime> la narratrice` quando la si offende (`db_creature.hsp:45494`), giapponese 「…」. La resa italiana dei puntini di sospensione è `...` — tre punti ASCII, perché `…` su un byte non esiste e la build inglese lo sbaglia (vedi `accenti.doppi_byte_cp932`) — e coincide con l'inglese per costruzione: la traduzione giusta **è** l'identità. Non c'è nessuna parola dentro |
 | `?\"` | **non è testo: è punteggiatura.** Coda di una domanda spezzata fra due `lang()` (`db_creature.hsp:49873`, giapponese さん？」). Non c'è nessuna parola da tradurre, e anche qui l'identità nasce dal passaggio a `\"` |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
