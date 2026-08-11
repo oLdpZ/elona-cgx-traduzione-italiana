@@ -17,13 +17,38 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | `text.hsp` | **1.718** | 1.720 | **100%** | 2.127 |
 | `command.hsp` | 0 | 1.304 | 0% | 1.481 |
 | `action.hsp` | **1.286** | 1.288 | **100%** | 1.502 |
-| `proc.hsp` | **78** | 1.098 | 7% | 1.327 |
+| `proc.hsp` | **127** | 1.098 | 12% | 1.327 |
 | `skill.hsp` | **885** | 885 | **100%** | 894 |
 | `trait.hsp` | 0 | 373 | 0% | 406 |
 | `db_item.hsp` | **1.606** | 1.606 | **100%** | 1.607 |
 | `item_data.hsp` | **318** | 318 | **100%** | 318 |
 | `custom_tweaks.hsp` | **12** | 12 | **100%** | 28 |
-| **totale** | **5.903** | **8.604** | **69%** | **9.690** |
+| **totale** | **5.952** | **8.604** | **69%** | **9.690** |
+
+## Fuori dalla Fase 1
+
+`db_creature.hsp` non è in Fase 1, ma dal 2026-08-11 è il file su cui si lavora
+insieme a `proc.hsp`: le sue **battute** sono le stringhe a frequenza più alta di
+tutto il gioco. Vedi `decisioni.md`, 2026-08-11.
+
+Le 3.655 firme del file, misurate con `strumenti/creature.py` più il dizionario:
+
+| classe | rese | da fare |
+|---|---|---|
+| nome | **1.131** | 0 |
+| battuta (`voce`) | **546** | **1.919** |
+| senza classe (dinamiche) | 3 | 56 |
+| **totale** | **1.680** | **1.975** |
+
+⚠️ **Il conto delle battute è cambiato di significato il 2026-08-11.**
+`strumenti.creature` ne dichiarava **320** e il numero era sbagliato: il ramo
+inglese di una battuta sta dentro `cnvtalk()`, e la classificazione ne vedeva un
+ottavo. Ora sono **2.465** firme in tutto. Un confronto con un numero scritto qui
+prima di quella data non ha senso.
+
+⚠️ `strumenti.creature` stampa **2.466** e non 2.465: conta le **coppie
+(giapponese, inglese)** delle righe, e una di esse non diventa una firma a sé.
+I due numeri misurano cose diverse e non vanno sommati fra loro.
 
 ⚠️ **Il denominatore di `text.hsp` è sceso da 1.740 a 1.720** il 2026-08-11: le
 20 firme di `elename()` non erano arretrato ma **rinviate**, e ora che sono

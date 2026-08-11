@@ -2877,3 +2877,205 @@ dio** (`db_item.hsp:119828` non tocca `INV_ITEM_GOD`), e pregarci rende
 «unbeliever» invece di convertire. La conversione vera vuole un altare di mappa,
 e il dio è quello dell'altare (`god.hsp:551`). La scorciatoia ovvia era
 sbagliata, come `spawn_item 733` per il cibo.
+
+## 2026-08-11 — La venticinquesima sessione: tre guardie che passavano guardando la cosa sbagliata
+
+Sessione lunga, sei commit. Il lavoro visibile è `proc.hsp` da 78 a 127 firme e
+`db_creature.hsp` da 2.203 a 1.975 da fare, ma la parte che conta sono **tre
+difetti**, tutti della stessa forma: un controllo verde perché misurava qualcosa
+di adiacente a ciò che doveva misurare.
+
+### 1. `name(cc)` e `name(tc)` erano la stessa cosa per ogni guardia
+
+`proc.hsp:763` faceva **tirare il sasso all'artista** invece che allo spettatore
+che si era stufato: il sorgente dice `name(tc)`, la resa diceva `name(cc)`.
+
+Il compilatore non ha niente da dire — `cc` e `tc` sono due variabili valide — e
+la prova d'identità nemmeno, perché giudica la pipeline delle sostituzioni.
+`funzioni_di_contenuto` (`funzioni.py:180`) confronta i **nomi** delle chiamate,
+e i due nomi sono entrambi `name`.
+
+La guardia nuova è `chiamate_di_contenuto`, che confronta la chiamata **intera,
+argomenti compresi**, e `verifica.py` pretende che ogni chiamata dell'italiano
+compaia identica in una delle **due** forme di monte.
+
+⚠️ **L'unione delle due, non il solo inglese.** I due rami di `lang()` a volte
+scelgono soggetti diversi per lo stesso evento: `action.hsp:1698` è
+`name(cc) + " disturb" + ... + his(tc) + " sleep."` in inglese e
+`name(tc) + "は睡眠を妨害された。"` in giapponese, e la resa italiana segue il
+giapponese («si sveglia di soprassalto») perché l'inglese chiederebbe il
+possessivo che l'italiano omette. Pretendere l'inglese avrebbe **rifiutato una
+resa giusta**.
+
+Il testo dentro le stringhe non conta come argomento: `cnvtalk("Ciao")` e
+`cnvtalk("Hi")` sono la stessa chiamata. Senza la maschera dei letterali la
+regola avrebbe segnalato 27 battute tradotte bene.
+
+Sul dizionario intero: **una sola violazione**, il difetto.
+
+> Una guardia che confronta i nomi delle chiamate non sta confrontando le
+> chiamate. Il personaggio sta negli argomenti.
+
+### 2. `creature.py` classificava 320 battute su 2.466
+
+`_LANG` pretendeva un letterale nudo subito dopo il giapponese, mentre **il ramo
+inglese di una battuta sta dentro `cnvtalk()`**. Restavano fuori 1.213 righe su
+1.304, cioè **2.939 firme su 5.717 senza classe** — e
+`nessuna_firma_in_due_classi`, la rete che impedisce a un nome di essere anche
+una battuta, girava a vuoto su **metà del file**.
+
+⚠️ **Il test pinnato non ha protetto niente, e non poteva.** Diceva
+`conto == {"nome": 1131, "voce": 320}`: era stato scritto sul numero che il
+codice produceva, quindi **confermava il difetto invece di trovarlo**, e ha
+resistito venti sessioni.
+
+Il test nuovo misura il **sorgente** e non le uscite dello strumento: 1.565 righe
+`txt lang(`, di cui 1.304 con `cnvtalk` dentro, e ognuna deve ricevere una
+classe. Le 241 che restano senza sono le dinamiche, ed è giusto.
+
+> Un test pinnato su un numero che lo strumento produce non è una misura: è una
+> fotografia. La misura indipendente parte dal dato, non dall'uscita.
+
+### 3. La cifra dopo il ♪ non arriva a schermo
+
+`msg_write` (`init.hsp:1372-1386`) cerca il ♪, legge il carattere **subito dopo**
+come indice dell'icona (`mark = int(strmid(msg, mp + 2, 1))`), disegna
+`gcopy 3, 600 + mark * 24, 360, 16, 16` e poi **toglie dal testo il ♪ e la
+cifra** (`mp + 2 + (mark != 0)`, riga 1382).
+
+Non è un difetto di monte: è una notazione, e upstream la usa di proposito —
+`item.hsp:3954` scrive `"Wow♪1 Zaaaako♪1♪1♪1 "`. Ma una resa che si trovasse una
+cifra dopo la nota la perderebbe **in silenzio**, e nessun controllo lo vede: il
+♪ è l'unico carattere a due byte ammesso, quindi passa `doppi_byte_cp932` per
+costruzione. Dieci righe del sorgente usano `♪` con una cifra, **quattro in
+`item.hsp`**, che non è ancora tradotto: la trappola è davanti a noi, non dietro.
+
+Regola: un `♪` seguito da una cifra nell'italiano deve comparire identico in una
+delle due forme di monte. Copiare l'icona che il sorgente sceglie è legittimo,
+inventarne una a partire dal testo no.
+
+Correzione dalla stessa lettura: `db_creature.hsp:46713` è
+`lang("「♪1～！」", cnvtalk("~ ~"))` — il giapponese sceglie l'icona **1**,
+l'inglese ha perso la nota del tutto, e la resa aveva due note nude (icona 0 due
+volte). Ora porta l'icona che il sorgente ha scelto.
+
+## 2026-08-11 — Le battute delle creature non possono stare ultime nel piano
+
+Deciso guardando uno screenshot, non il codice.
+
+Il log del gioco era dominato da **quattro stringhe inglesi** ripetute una
+ventina di volte in due ore — «Crawling in my Robes!», «Oh I once heard of a
+place called Nantucket...» — in mezzo a un log per il resto italiano. Sono le
+battute del menestrello, `db_creature.hsp:102878`.
+
+La misura che ne è seguita:
+
+| classe | firme da fare |
+|---|---|
+| `DBMODE_FLAVOR_ANGERED` | 685 |
+| `DBMODE_FLAVOR_DEATH` | 521 |
+| `DBMODE_FLAVOR_PASSIVE` | 454 |
+| `DBMODE_FLAVOR_KILL` | 438 |
+| `DBMODE_FLAVOR_WELCOME` | 104 |
+| un nome | 1 |
+
+**2.202 delle 2.203 firme che restavano in `db_creature.hsp` sono battute**, e
+delle 1.452 già fatte **1.131 sono nomi**: la Fase 2 ha chiuso i nomi e lasciato
+intatto il corpus a frequenza più alta di tutto il gioco. Un nome si legge **una
+volta**, quando incontri la creatura; una battuta oziosa **a ogni turno** in cui
+la creatura ti sta accanto, e quelle di offesa e di morte a ogni combattimento.
+
+`RIPRESA-sessione.md` le metteva al punto 7, ultime. Ora vengono prima di
+`command.hsp` e `trait.hsp`.
+
+> La frequenza di una stringa non si deduce dal file in cui vive. Il numero di
+> firme dice quanto lavoro è, non quanto si vede.
+
+### Il metodo: creature intere, non una classe alla volta
+
+Il lotto prende **creature intere**, tutte e cinque le classi insieme. Il
+registro di un mostro è uno, e scriverne una situazione per volta spezza la voce.
+Lo strumento che compone il lotto raggruppa per `dbid` e ordina per riga.
+
+### Le regole di resa che i quattro lotti hanno stabilito
+
+**Un verso si rende in ortografia italiana, non si copia dall'inglese**, che
+romanizza il katakana a modo suo. `Woof..` sta per l'ululato 「ワオーン…」, e
+`Beep` sta a `Bip` come `Woof` sta a `Bau`. Dove il giapponese identifica
+l'animale la resa lo segue: 「キーキー！」 su una **cavia** è uno squittio, cioè
+«Squit».
+
+⚠️ **Il giocatore è l'interlocutore, e non ha genere noto.** La regola del diario
+valeva per la prima persona; qui vale per la **seconda**, ed è più insidiosa
+perché «Welcome home!» chiede un participio in italiano. Le rese sono «Eccoti a
+casa!», «Rieccola a casa.», «Eccoti di ritorno.». Vale anche per i vocativi:
+`sir` sparisce, `You thief!` diventa «Al ladro!», `Die thief` diventa «Muori,
+canaglia» — che è invariabile.
+
+**Il registro può risolvere il genere.** Il maggiordomo e il vecchio maggiordomo
+danno del **lei**, che è il loro tono e per di più non concorda mai.
+
+**Il ♪ che l'inglese ha perso si rimette.** Le due battute della cthulhick sono
+「～♪」 e 「♪1～！」 in giapponese e `~` e `~ ~` in inglese: la nota è sparita a
+monte. ✅ **Verificato a schermo**: esce come icona, non come lettera latina.
+
+**`...` è un invariato dichiarato**, non una riga dimenticata: è il silenzio di
+`<Aime>`, giapponese 「…」, e la resa italiana dei puntini — tre punti ASCII,
+perché `…` la build inglese lo sbaglia — coincide con l'inglese per costruzione.
+La traduzione giusta **è** l'identità, e va scritta in `invariati.md` invece di
+essere aggirata con una variante peggiore.
+
+### `_onii` cambia genere col giocatore, e lo fa fuori da `lang()`
+
+`text.hsp:111` è `_onii = lang("お兄", "Big bro"), lang("お姉", "Big sis")`, un
+array indicizzato sul **sesso del giocatore**: in italiano «Fratellone» /
+«Sorellona». Ha **36 siti di chiamata**, 24 solo in `db_creature.hsp`.
+
+`db_creature.hsp:49879` lo interpola **fuori** da `lang()`: i due `lang()` sono
+**due statiche separate** attorno al nome, e l'inglese mette «my» nella prima —
+`"\"All thanks to my "` più `_onii(...)` più `"!\""`. In italiano «al mio»/«alla
+mia» dovrebbe accordarsi con una parola che a runtime non si conosce. Stessa
+forma delle 20 rinviate di `elename()`, e stessa soluzione: **si toglie
+l'articolo e resta la preposizione nuda**. «Fratellone» non porta articolo — a
+differenza di `name()` — quindi «a Fratellone» e «a Sorellona» reggono entrambe.
+
+⚠️ E la seconda statica non poteva restare `!\"`, che sarebbe stata identica
+all'inglese: le si fa portare la **domanda finale che il giapponese ha e
+l'inglese ha perso** (「…ね？」). Così entrambi i frammenti sono tradotti davvero,
+invece di uno tradotto e uno dichiarato invariante.
+
+> Quando una concatenazione si spezza in due `lang()`, i due frammenti sono un
+> lotto solo: il primo decide cosa il secondo può dire.
+
+## 2026-08-11 — `Party Room` non è testo: è l'operando di un confronto
+
+`proc.hsp:1123` confronta il nome della mappa con un letterale —
+`if ( mdatan(MDATAN_NAME) == lang("パーティー場", "Party Room") )` — e il nome lo
+**assegna** `map_rand.hsp:1287`, che è fuori perimetro. Tradurre solo il
+confronto lo fa fallire per sempre, in silenzio: il ballo nella sala delle feste
+torna a durare 4 turni invece di 41. Nessuna guardia lo vede, perché ognuna
+misura un file tracciato e il legame sta fra due file.
+
+**Rinviata**, come `evold`/`evname` con `db_creature.hsp`: si traduce **insieme**
+a `map_rand.hsp`, non prima. Sta in `rinviate.jsonl` con il motivo.
+
+## 2026-08-11 — Il collaudo delle esibizioni, e due percorsi che non esistono
+
+Provato in gioco con `spawn_chara 326` (il menestrello) e `spawn_chara 9` (il
+mendicante) in una piazza: dieci rese viste, tutte giuste, articoli compresi
+davanti a un nome con epiteto fra parentesi angolari.
+
+⚠️ **Due percorsi che sembravano provabili e non lo sono.** `ai.hsp:1654` e
+`:1668` accendono la predica e il ballo dei PNG con `CDATA_AI_CALM` a **7** e
+**8**, e in **tutto il sorgente nessuno assegna quei due valori**: sono codice
+morto. Le battute del ballo e le reazioni alla predica si vedono solo usando tu
+le abilità, e «Danza ammaliante» vuole un talento.
+
+L'interruttore delle battute, invece, è acceso per costruzione: `ai.hsp:766`
+chiede `cdata(CDATA_TXT, cc) != 0`, e `db_creature.hsp` lo incrementa **una
+volta per ogni classe di battuta che la creatura possiede**. Poi serve stare
+entro dieci caselle, e la battuta esce ogni 5 turni con probabilità 1 su 4
+(`ai.hsp:768-771`).
+
+> Prima di dare una lista di collaudo, cercare chi accende la stringa — e
+> accertarsi che **qualcuno** assegni quel valore.
