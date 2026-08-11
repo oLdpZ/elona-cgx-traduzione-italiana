@@ -6,6 +6,179 @@ ancora aperte.
 
 ---
 
+## Il round-trip non è una prova: vanno contati i byte — 2026-08-11, ventitreesima sessione
+
+Uno screenshot del diario, riga delle missioni giornaliere:
+
+```
+[Fatto]EVisitare le Terre selvagge.
+```
+
+La `E` non l'aveva scritta nessuno. Era il puntino d'elenco giapponese 「・」,
+che CP932 codifica `0x81 0x45`: `init.hsp:1391` sceglie il carattere con
+`font lang(cfg_font1, cfg_font2)`, e per l'inglese `cfg_font2` è **Courier New**
+(`config.txt:75`), un font latino. `mes` disegna **un glifo per byte**: `0x81`
+non ne ha uno, `0x45` è `E`.
+
+I quattro punti del sorgente che sanno riconoscere un byte guida — `init.hsp:1295`,
+`module.hsp:57` e `:4932`, `system.hsp:4050` — fanno il controllo **solo dentro
+`if ( jp )`**.
+
+### Perché la guardia esistente non lo vedeva
+
+`non_ascii_residuo` chiede a CP932 se sa **rappresentare** il carattere, con un
+round-trip codifica/decodifica. 「…」 e 「“”」 lo passano benissimo. Il problema
+non era la rappresentabilità: era la **larghezza in byte**, che nessuno contava.
+
+> Una guardia che chiede «CP932 sa scrivere questo carattere?» risponde sì anche
+> quando il carattere è inservibile. La domanda giusta era «in quanti byte?».
+
+### Il conto del danno
+
+**186 voci**, per due terzi da sessioni precedenti:
+
+| carattere | voci | ora |
+|---|---|---|
+| `…` | 130 | `...` |
+| `“ ”` | 54 | `\"` |
+| `・` | 17 | via |
+| `《 》` | 1 | `< >` |
+
+### La decisione, che ne rovescia una vecchia
+
+`verifica.py` **imponeva** le virgolette tipografiche `“”` e rifiutava la `"`.
+Era il contrario del vero. La forma giusta è la **virgoletta protetta** `\"`,
+che è quella che usa l'inglese upstream (`text.hsp:9879` scrive `\"Project LF\"`)
+e che `applica.riscrivi_statica` scrive tale e quale, perché HSP conosce
+l'escape.
+
+La controprova che ha deciso: in ~9.000 stringhe l'inglese upstream usa **un
+solo** carattere a due byte, `♪`, e per quello c'è codice apposta
+(`init.hsp:1374` lo intercetta e disegna un'icona). Quindi `♪` resta ammesso in
+`_DOPPI_AMMESSI`, tutto il resto no.
+
+⚠️ **Quattro stringhe sono diventate identiche all'inglese** una volta tolte le
+virgolette — i versi del corvo `\"Hjckrrh!\"` e una coda di punteggiatura `?\"`.
+Sono in `invariati.md`: prima differivano dall'inglese **per il difetto**.
+
+La guardia nuova è `accenti.doppi_byte_cp932()`, chiamata da `verifica` su resa
+e plurale. Il test che affermava il contrario del vero
+(`test_le_virgolette_tipografiche_alte_passano_nelle_statiche`) ora dice
+l'opposto, con la data e il perché.
+
+Vedi [[il-round-trip-non-basta-conta-i-byte]].
+
+---
+
+## `talk_conv` manda a capo, ma lascia scappare l'ultima parola — 2026-08-11, ventitreesima sessione
+
+Stesso screenshot, prima riga della trama:
+
+```
+Forse a Lesimas, uno dei labirinti
+di Nefia a sud di Vernis, si trova qualco
+```
+
+Non è il riquadro che taglia: è **un difetto di monte**. Il ramo inglese di
+`talk_conv` (`init.hsp:1326-1369`) accumula parola per parola cercando lo spazio
+successivo; quando lo spazio non c'è più — cioè sull'**ultima parola** — esce dai
+due cicli e fa `talk_conv_arg1 += msgtemp`, appendendo la coda **senza guardare
+la larghezza**.
+
+L'inglese lo sfiora appena, perché le sue ultime parole sono corte. L'italiano,
+più lungo del 20%, ci cade dentro di continuo: **24 righe su 214 siti**.
+
+### La guardia: `strumenti/diario.py`
+
+Gemello di `larghezze.py`, per l'altra famiglia di stringhe. Trova i siti che
+passano da `talk_conv`, legge il tetto dal sorgente (`40 - en * 4` = **36** con
+`en` = 1, `config.hsp:439`), simula l'algoritmo **difetto compreso** e segnala.
+Un simulatore che correggesse il difetto non troverebbe niente.
+
+⚠️ **Due modi di finire dentro `talk_conv`, e servono entrambi.** Il primo è
+l'assegnazione locale. Il secondo è l'argomento di chiamata: `addnews2`
+(`text.hsp:12100`) manda a capo il **proprio parametro**, e i chiamanti gli
+passano il `lang()` dentro la chiamata. Cercando solo le assegnazioni locali
+spariva tutta la pagina delle **notizie**, cioè metà del diario.
+
+⚠️ E il parametro ci arriva **per copia**: `addnews2` scrive
+`locvar_addnews2_n = addnews2_arg1` e manda a capo la copia. Cercare il nome del
+parametro e basta trovava zero `#deffunc`.
+
+### Il verso giusto è accorciare, non imbottire
+
+⚠️ La prima stesura delle 24 correzioni infilava zeppe — «…e le 23:59 **di
+sera**», «…è stato abbattuto **ormai**» — per spostare il punto di a capo. Cioè
+peggiorava la prosa per far quadrare il riquadro, che è esattamente il difetto
+al contrario.
+
+Accorciando si guadagna due volte: «Devo combattere fino in fondo senza
+arrendermi» sforava di 11; «fino in fondo, **senza mai** arrendermi» entra, e per
+giunta è italiano migliore. «Andare a dormire fra le 21:00 e le 23:59» →
+«Dormire fra le…», che è anche la forma dell'elenco.
+
+Vedi [[accorciare-non-imbottire]] e [[il-difetto-di-monte-lo-paghiamo-noi]].
+
+---
+
+## Sette intestazioni del diario scritte fuori da `lang()` — 2026-08-11, ventitreesima sessione
+
+`command.hsp` scrive `noteadd " - Quest - "` senza `lang()`: righe **2854, 2865,
+2883, 2895, 2916, 2952, 3114**. Il dizionario non le vede, e restano inglesi
+**anche nella build giapponese** — è una svista di upstream, non una scelta.
+
+Toppate a mano. ⚠️ **A mano, non generate**: `genera_toppe_nomi` riscriverebbe
+sopra una toppa che riconosce come sua, ed è già successo una volta con la
+benedizione (ventiduesima sessione). Le righe non contengono `lang()`, quindi la
+toppa vale identica sul sorgente pinnato e sulla build.
+
+> Se una stringa che il giocatore legge non è nel dizionario, prima di
+> concludere che è codice, guardare se è semplicemente **fuori da `lang()`**.
+
+---
+
+## Il diario delle missioni: quattro cose che il testo non dice — 2026-08-11, ventitreesima sessione
+
+Tradotte 285 firme di `text.hsp` (dal 70% all'**89%**): trama principale,
+giornaliere, 30 sottotrame, oggetti di missione, bacheca degli incarichi.
+
+- **Il giocatore non ha genere noto**, e il diario è scritto in prima persona.
+  Niente participio che concordi col soggetto: non «sono sopravvissuto» ma
+  «l'esperimento è finito e sono ancora in piedi»; non «quando sono pronto» ma
+  «quando sarà tutto pronto».
+- **`cnvarticle` non mette un articolo.** `init.hsp:173`: nella build inglese
+  avvolge il nome fra **parentesi quadre**. Il nome della funzione dice il
+  contrario di quello che fa.
+- **Una preposizione può agire a ventidue righe di distanza.** `s(12)` si compone
+  a `text.hsp:11837` e finisce dopo «da » a `:11859`. Reso «il bersaglio» avrebbe
+  prodotto «da il bersaglio»; con «chi abita a Vernis» non si fonde.
+- ⚠️ **Il diario diceva «slime», il codice dice «putit».** `text.hsp:10019` scrive
+  スライム, ma il dialogo di Miches (`chat.hsp:1505`, `:1517`) nomina プチ, e プチ
+  è quello che il giocatore trova in casa. Arbitra il codice sullo stato del
+  gioco, non la parola sciolta del diario.
+
+### La riga che si compone a runtime, e il calcolo a mano sbagliato
+
+`"Compenso: " + soldi + giunzione + categoria` (`text.hsp:11884`, tetto **30**):
+il misuratore vede solo l'etichetta, il resto arriva a runtime. Misurata a mano
+su tutte le cifre e tutte le dodici categorie di `fltname`:
+
+| giunzione | caso peggiore |
+|---|---|
+| inglese, `and` | 39 |
+| `e` | **43**, tagliata |
+| `, più` | **29** |
+
+⚠️ **Il primo calcolo, fatto a mente, era rovesciato**: credevo che accorciare
+«monete d'oro» in «oro» aiutasse, e fa il contrario — la frase **più lunga**
+provoca l'a capo prima, e così salva la categoria finale, che è la parola che
+scappa al controllo. Con `oro` il peggiore sale a 36.
+
+> Quando il difetto è nell'algoritmo di a capo, l'intuizione «più corto è
+> meglio» non vale. Si misura.
+
+---
+
 ## «In coda» non è un posto: dipende da chi scrive dopo di te — 2026-08-11, ventiduesima sessione
 
 Uno screenshot della vetrina del panettiere di Palmia:
