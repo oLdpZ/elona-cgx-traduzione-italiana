@@ -83,10 +83,50 @@ def test_nessuna_firma_del_sorgente_vero_sta_in_due_classi():
 
 
 def test_il_sorgente_pinnato_ha_le_classi_che_il_piano_dichiara():
+    """1.131 nomi e 2.466 voci.
+
+    ⚠️ Le voci erano **320** fino al 2026-08-11, e il numero era sbagliato: il
+    ramo inglese di una battuta sta dentro `cnvtalk()`, e `_LANG` pretendeva un
+    letterale nudo subito dopo la virgola. Restavano fuori 1.213 righe su 1.304,
+    cioe' 2.939 firme su 5.717 — meta' del file senza classe, e
+    `nessuna_firma_in_due_classi` che girava a vuoto proprio dove sta il grosso
+    delle battute.
+
+    Il test pinnato **non ha protetto niente**, perche' era stato scritto sul
+    numero che il codice produceva: confermava il difetto invece di trovarlo. Il
+    numero giusto si ricava dal sorgente e non dallo strumento — 1.565 righe
+    `txt lang(`, di cui 1.304 con `cnvtalk` dentro — ed e' per questo che il
+    test accanto conta le righe del sorgente, non le uscite di `classi()`.
+    """
     conto = {}
     for classe in classi().values():
         conto[classe] = conto.get(classe, 0) + 1
-    assert conto == {"nome": 1131, "voce": 320}
+    assert conto == {"nome": 1131, "voce": 2466}
+
+
+def test_ogni_riga_di_battuta_del_sorgente_riceve_una_classe():
+    """La misura indipendente: si contano le righe del SORGENTE, non le uscite.
+
+    Il test sopra si fida di `classi()`, quindi non puo' accorgersi che `classi()`
+    ne salta meta': e' esattamente cosi' che il difetto delle 320 e' sopravvissuto
+    a venti sessioni. Qui si parte dal sorgente — ogni riga che comincia per
+    `txt lang(` e porta un letterale inglese deve produrre almeno una coppia — e
+    si tollera solo cio' che e' dichiarato dinamico.
+    """
+    import re
+
+    from strumenti.creature import _LANG, _VOCE
+
+    testo = (percorsi.SORGENTE_HSP / FILE).read_bytes().decode("cp932")
+    righe = [r for r in testo.split("\n") if _VOCE.match(r)]
+    assert len(righe) == 1565, "il sorgente pinnato e' cambiato"
+
+    # una riga con un letterale inglese: nuda oppure dentro cnvtalk()
+    def ha_letterale(riga: str) -> bool:
+        return bool(re.search(r'lang\("(?:[^"\\]|\\.)*",\s*(?:cnvtalk\(\s*)?"', riga))
+
+    cieche = [r for r in righe if ha_letterale(r) and not _LANG.search(r)]
+    assert cieche == [], f"{len(cieche)} righe di battuta senza classe"
 
 
 # --- il nucleo atomico -------------------------------------------------------

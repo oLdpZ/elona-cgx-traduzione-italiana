@@ -41,7 +41,27 @@ FILE = "db_creature.hsp"
 # 1.144 `return` dentro *db_creature2, 1.565 `txt`. Non ce ne sono altre.
 _NOME = re.compile(r"^\s*(return lang\(|cdatan\(CDATAN_NAME,\s*\w+\)\s*=\s*lang\()")
 _VOCE = re.compile(r"^\s*txt\s+lang\(")
-_LANG = re.compile(r'lang\("((?:[^"\\]|\\.)*)", "((?:[^"\\]|\\.)*)"\)')
+# ⚠️ **Il ramo inglese di una battuta sta dentro `cnvtalk()`, e questa regola
+# non lo vedeva.** `cnvtalk` (`init.hsp:170`) avvolge la stringa fra virgolette
+# e non fa altro, quindi `lang("「...」", cnvtalk("Boring."))` e' una coppia di
+# letterali come le altre — ma pretendendo `", "` subito dopo il giapponese la
+# classificazione ne perdeva **1.213 righe su 1.304** con `cnvtalk` dentro, cioe'
+# 2.939 firme su 5.717 restavano senza classe. Misurato il 2026-08-11 traducendo
+# il primo lotto di battute: `strumenti.creature` stampava «voce 320» mentre il
+# file ne porta quattro volte tante, e `nessuna_firma_in_due_classi` — la rete
+# che impedisce a un nome di essere anche una battuta — girava a vuoto su
+# **metà del file**.
+#
+# La parentesi di chiusura non si pretende: serve solo riconoscere che dopo la
+# virgola comincia un letterale, eventualmente dentro `cnvtalk(`. Una riga
+# dinamica (`lang("...", name(tc) + " ...")`) continua a non agganciare, ed e'
+# giusto: la sua parte inglese non e' un letterale, e `estrai.py` la tratta a
+# parte.
+_LANG = re.compile(
+    r'lang\("((?:[^"\\]|\\.)*)",\s*'      # il giapponese
+    r'(?:cnvtalk\(\s*)?'                   # l'inglese puo' stare dentro cnvtalk()
+    r'"((?:[^"\\]|\\.)*)"'
+)
 
 
 def classi_da_testo(testo: str) -> dict[tuple[str, str], str]:
