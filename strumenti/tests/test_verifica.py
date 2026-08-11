@@ -207,6 +207,74 @@ def test_un_pronome_con_un_argomento_deve_sparire():
     assert any("morfologia inglese" in p for p in controlla_voce(lasciato))
 
 
+def test_scambiare_il_personaggio_di_una_interpolazione_e_un_problema():
+    # il difetto vero, `proc.hsp:763`: il sorgente fa tirare il sasso a `tc`,
+    # lo spettatore che si e' stufato, e la resa lo faceva tirare a `cc`,
+    # l'artista. `funzioni_di_contenuto` non lo vede — i due nomi di chiamata
+    # sono entrambi `name` — e nemmeno il compilatore, perche' `cc` e `tc`
+    # sono due variabili valide. A schermo esce il nome sbagliato.
+    grezzo = 'name(tc) + " throw" + _s(tc) + " a rock."'
+    giapponese = '"" + name(tc) + "は石を投げた。"'
+    corretto = {
+        "tipo": "dinamica", "en": " throw a rock.", "en_grezzo": grezzo,
+        "jp_grezzo": giapponese, "it": 'name(tc) + " tira un sasso."',
+    }
+    scambiato = {
+        "tipo": "dinamica", "en": " throw a rock.", "en_grezzo": grezzo,
+        "jp_grezzo": giapponese, "it": 'name(cc) + " tira un sasso."',
+    }
+    assert controlla_voce(corretto) == []
+    problemi = controlla_voce(scambiato)
+    assert any("non vengono da monte" in p for p in problemi)
+    assert any("name(cc)" in p for p in problemi)
+
+
+def test_una_resa_che_segue_il_giapponese_invece_dell_inglese_passa():
+    # `action.hsp:1698` (sorgente vero): i due rami di `lang()` scelgono
+    # soggetti diversi per lo stesso evento — l'inglese dice «cc disturba il
+    # sonno di tc», il giapponese «il sonno di tc e' stato disturbato». La resa
+    # italiana segue il giapponese per non dover scrivere il possessivo, ed e'
+    # giusta: la guardia confronta con l'UNIONE delle due forme di monte.
+    v = {
+        "tipo": "dinamica", "en": " disturb  sleep.",
+        "en_grezzo": 'name(cc) + " disturb" + _s(cc) + " " + his(tc) + " sleep."',
+        "jp_grezzo": 'name(tc) + "は睡眠を妨害された。"',
+        "it": 'name(tc) + " si sveglia di soprassalto."',
+    }
+    assert controlla_voce(v) == []
+
+
+def test_il_testo_dentro_una_chiamata_non_e_un_argomento():
+    # `cnvtalk("Hi")` e `cnvtalk("Ciao")` sono la stessa chiamata: il letterale
+    # e' contenuto da tradurre, non un argomento da conservare. Senza la
+    # maschera dei letterali la guardia avrebbe rifiutato ogni battuta tradotta
+    # del sorgente — 27 voci nel dizionario di oggi.
+    v = {
+        "tipo": "dinamica", "en": " moans, ",
+        "en_grezzo": 'name(tc) + " moans, " + cnvtalk("It stinks!")',
+        "jp_grezzo": 'name(tc) + "はうめいた。" + cnvtalk("くさい！")',
+        "it": 'name(tc) + " geme, " + cnvtalk("Che puzza!")',
+    }
+    assert controlla_voce(v) == []
+
+
+def test_nessuna_voce_del_dizionario_scambia_i_personaggi():
+    # La guardia vale solo dove guarda: `controlla_voce` gira sui lotti, e il
+    # dizionario porta 24 sessioni di rese scritte prima che questa regola
+    # esistesse. Questo test la punta sul corpus vero.
+    scambiate = []
+    for percorso in sorted(percorsi.DIZIONARIO.glob("*.jsonl")):
+        for riga in percorso.read_text(encoding="utf-8").splitlines():
+            if not riga.strip():
+                continue
+            v = json.loads(riga)
+            if v.get("tipo") != "dinamica" or not v.get("it"):
+                continue
+            if any("non vengono da monte" in p for p in controlla_voce(v)):
+                scambiate.append(f"{v['file']}:{v['riga']}")
+    assert scambiate == []
+
+
 def test_una_stringa_negli_invariati_non_e_segnalata():
     v = voce(en="Vernis", en_grezzo='"Vernis"', it="Vernis")
     assert controlla_voce(v, invariati={"Vernis"}) == []

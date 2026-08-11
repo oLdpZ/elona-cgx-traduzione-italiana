@@ -14,7 +14,11 @@ from strumenti.accenti import (
 )
 from strumenti.articolo import GENERI
 from strumenti.estrai import estrai_da_testo
-from strumenti.funzioni import funzioni_di_contenuto, morfologia_residua
+from strumenti.funzioni import (
+    chiamate_di_contenuto,
+    funzioni_di_contenuto,
+    morfologia_residua,
+)
 
 _RICHIESTI = ("tipo", "en", "en_grezzo")
 
@@ -321,6 +325,31 @@ def controlla_voce(voce: dict, invariati: set[str] | None = None) -> list[str]:
         trovate = funzioni_di_contenuto(italiano)
         if attese != trovate:
             problemi.append(f"interpolazioni non conservate: attese {attese}, trovate {trovate}")
+
+        # ⚠️ i NOMI delle chiamate non bastano: `name(cc)` e `name(tc)` hanno lo
+        # stesso nome e nominano due personaggi diversi. Ogni chiamata
+        # dell'italiano deve comparire identica, argomenti compresi, in una
+        # delle due forme di monte — l'inglese o il giapponese.
+        #
+        # L'unione delle due, e non il solo inglese, perche' i due rami di
+        # `lang()` a volte scelgono soggetti diversi per lo stesso evento:
+        # `action.hsp:1698` e' `name(cc) + " disturb" + ... + " sleep."` in
+        # inglese e `name(tc) + "は睡眠を妨害された。"` in giapponese, e la resa
+        # italiana segue il giapponese («si sveglia di soprassalto») perche'
+        # l'inglese chiederebbe il possessivo che l'italiano omette. Pretendere
+        # l'inglese avrebbe rifiutato una resa giusta.
+        estranee = sorted(
+            set(chiamate_di_contenuto(italiano))
+            - set(chiamate_di_contenuto(voce["en_grezzo"]))
+            - set(chiamate_di_contenuto(voce.get("jp_grezzo", "")))
+        )
+        if estranee:
+            problemi.append(
+                f"interpolazioni con argomenti che non vengono da monte: {estranee}. "
+                "Il sorgente sceglie il personaggio (cc chi agisce, tc chi subisce): "
+                "una resa che scambia i due nomina il personaggio sbagliato, e "
+                "nessun'altra guardia lo vede."
+            )
 
         # la morfologia inglese non si localizza mai: _s(tc) scrive "s" a
         # schermo anche dentro una frase italiana, e cosi' his(tc) senza

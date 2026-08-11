@@ -183,6 +183,44 @@ def funzioni_di_contenuto(espressione: str) -> list[str]:
     return sorted(contenuto)
 
 
+def chiamate_di_contenuto(espressione: str) -> list[str]:
+    """Le chiamate di contenuto **con i loro argomenti**, ordinate.
+
+    `funzioni_di_contenuto` confronta i soli **nomi**: `name(cc)` e `name(tc)`
+    le sembrano la stessa cosa, e una resa che scambia i due personaggi passa
+    ogni guardia. E' un difetto trovato il 2026-08-11 in `proc.hsp:763`: il
+    sorgente dice `name(tc)` — lo spettatore che tira il sasso all'artista — e
+    la resa diceva `name(cc)`, cioe' l'artista che tira il sasso a se stesso.
+    Il compilatore non ha niente da dire, la prova d'identita' nemmeno: `cc` e
+    `tc` sono due variabili valide, e il messaggio esce a schermo col nome
+    sbagliato.
+
+    Il testo **dentro** le stringhe non conta come argomento: `cnvtalk("Ciao")`
+    e `cnvtalk("Hi")` sono la stessa chiamata, con il contenuto tradotto. Si
+    confronta la forma mascherata, dove i letterali sono spazi, e gli spazi si
+    togliono perche' `name(tc)` e `name( tc )` sono la stessa chiamata.
+    """
+    mascherata = _maschera_letterali(espressione)
+    fuori: list[str] = []
+    salta_fino_a = 0
+    for corrispondenza in CHIAMATA.finditer(mascherata):
+        if corrispondenza.start() < salta_fino_a:
+            continue
+        nome = corrispondenza.group(1)
+        apertura = corrispondenza.end() - 1
+        fine = _fine_chiamata(mascherata, apertura)
+        if nome in MORFOLOGIA_INGLESE:
+            salta_fino_a = fine
+            continue
+        if nome in PRONOMI_PER_SITO:
+            argomenti = argomenti_di(mascherata, apertura)
+            if argomenti is None or len(argomenti) < 2:
+                salta_fino_a = fine
+                continue
+        fuori.append(re.sub(r"\s+", "", mascherata[corrispondenza.start():fine]))
+    return sorted(fuori)
+
+
 def morfologia_residua(espressione: str) -> list[str]:
     """I nomi di morfologia inglese presenti nell'espressione, ordinati e senza
     ripetizioni: se compaiono nell'italiano tradotto e' un problema, non una
