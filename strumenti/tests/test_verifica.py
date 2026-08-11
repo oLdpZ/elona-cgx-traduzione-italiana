@@ -275,6 +275,50 @@ def test_nessuna_voce_del_dizionario_scambia_i_personaggi():
     assert scambiate == []
 
 
+def test_una_cifra_inventata_dopo_il_nota_e_un_problema():
+    """`init.hsp:1382` toglie dal testo il ♪ **e la cifra che lo segue**.
+
+    La cifra e' il numero dell'icona (`gcopy 3, 600 + mark * 24, ...`), non
+    testo. Una resa che ci finisse una cifra per caso la perderebbe in silenzio:
+    il ♪ e' l'unico carattere a due byte ammesso, quindi `doppi_byte_cp932` non
+    ha niente da dire.
+    """
+    v = voce(jp_grezzo='"「るんるん♪」"', en_grezzo='"La la la♪"',
+             en="La la la♪", it="Tre♪3 volte")
+    problemi = controlla_voce(v)
+    assert any("cifra dopo il ♪" in p for p in problemi)
+
+
+def test_copiare_l_icona_che_il_sorgente_sceglie_e_permesso():
+    """Upstream usa `♪1` di proposito — `item.hsp:3954` scrive `Wow♪1 Zaaaako♪1♪1♪1`.
+
+    Copiare l'icona che il sorgente ha scelto non e' un difetto: e' la notazione.
+    """
+    v = voce(jp_grezzo='"「うっわぁ♪1雑魚すぎ♪1」"', en_grezzo='"Wow♪1 Zaaaako♪1"',
+             en="Wow♪1 Zaaaako♪1", it="Uau♪1 che schiappa♪1")
+    assert controlla_voce(v) == []
+
+
+def test_il_nota_nudo_resta_permesso():
+    v = voce(jp_grezzo='"「～♪」"', en_grezzo='"~"', en="~", it="~♪")
+    assert controlla_voce(v) == []
+
+
+def test_nessuna_voce_del_dizionario_perde_una_cifra_dopo_il_nota():
+    """Come per gli argomenti: la guardia gira sui lotti, il dizionario e' vecchio."""
+    perse = []
+    for percorso in sorted(percorsi.DIZIONARIO.glob("*.jsonl")):
+        for riga in percorso.read_text(encoding="utf-8").splitlines():
+            if not riga.strip():
+                continue
+            v = json.loads(riga)
+            if not v.get("it"):
+                continue
+            if any("cifra dopo il ♪" in p for p in controlla_voce(v)):
+                perse.append(f"{v['file']}:{v['riga']}")
+    assert perse == []
+
+
 def test_una_stringa_negli_invariati_non_e_segnalata():
     v = voce(en="Vernis", en_grezzo='"Vernis"', it="Vernis")
     assert controlla_voce(v, invariati={"Vernis"}) == []

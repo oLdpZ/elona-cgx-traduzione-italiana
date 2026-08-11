@@ -2,6 +2,7 @@
 """Regole di blocco sui lotti e sul dizionario. Vedi SPEC.md paragrafo 7."""
 import argparse
 import json
+import re
 from pathlib import Path
 
 from strumenti import percorsi
@@ -312,6 +313,32 @@ def controlla_voce(voce: dict, invariati: set[str] | None = None) -> list[str]:
             "latine a caso (「・」 e' uscito «E»). Usa ... per 「…」, "
             '\\" per 「“”」, <> per 「《》」'
         )
+
+    # ⚠️ **La cifra dopo un ♪ non e' testo: e' il numero dell'icona, e sparisce.**
+    # `msg_write` (`init.hsp:1372-1386`) cerca il ♪, legge il carattere subito
+    # dopo come indice (`mark = int(strmid(msg, mp + 2, 1))`), disegna
+    # `gcopy 3, 600 + mark * 24, ...` e poi togle dal testo il ♪ **e la cifra**
+    # (`mp + 2 + (mark != 0)`, riga 1382). Upstream la usa di proposito —
+    # `item.hsp:3954` scrive `"Wow♪1 Zaaaako♪1♪1♪1 "` — quindi non e' un difetto
+    # di monte: e' una notazione. Ma una resa che si trovasse una cifra dopo la
+    # nota per caso la perderebbe **in silenzio**, e nessun altro controllo lo
+    # vede: il ♪ e' l'unico carattere a due byte ammesso, quindi passa
+    # `doppi_byte_cp932` per costruzione.
+    #
+    # La regola: un `♪<cifra>` nell'italiano deve comparire **identico** in una
+    # delle due forme di monte. Copiare l'icona che il sorgente sceglie e'
+    # legittimo; inventarne una a partire dal testo no.
+    icone = set(re.findall(r"♪[0-9]", italiano))
+    if icone:
+        monte = set(re.findall(r"♪[0-9]", voce.get("jp_grezzo", "") + voce["en_grezzo"]))
+        inventate = sorted(icone - monte)
+        if inventate:
+            problemi.append(
+                f"cifra dopo il ♪ che non viene da monte: {inventate}. In "
+                "init.hsp:1376 la cifra dopo la nota e' il numero dell'icona, e "
+                "riga 1382 la TOGLIE dal testo: quel carattere non arriva a "
+                "schermo. Se e' testo, mettici uno spazio prima."
+            )
 
     if tipo == "dinamica":
         # la morfologia inglese (_s, is, was, your, ... e he/his/him quando
