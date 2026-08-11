@@ -1,19 +1,22 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-11, fine della ventitreesima sessione.
+Aggiornato: 2026-08-11, fine della ventiquattresima sessione.
 
 ## La prima cosa da fare
 
-**`text.hsp` è all'89%**: 1.549 firme su 1.740, ne restano **191** (169 in coda a
-`estrai --da-tradurre`, le altre sono rinviate o invariate). Si prosegue per zona
-di riga da **riga 12121**, col metodo qui sotto.
+**`text.hsp` è chiuso.** 1.718 firme su 1.718 estraibili; le 2 che restano
+aspettano `data/talk.txt`, fuori perimetro. Si prosegue con **`proc.hsp`**, che
+è a 78 su 1.098 e va per zona di riga dalla **riga 782** in avanti, col metodo
+qui sotto.
 
-⚠️ **Prima però c'è un collaudo aperto da due sessioni, e costa due minuti.** La
-resa dei cibi di carne mette la creatura **fra parentesi** — «bistecca (il
-cane)» — e non è mai stata vista a schermo. Adesso vale il doppio, perché la
-ventitreesima sessione ha tradotto la famiglia delle **uova e del formaggio**
-(`text.hsp:4216-4342`) e quella interpola `refchara(..., NAME_ORG, 1)`
-**esattamente come la carne**: stessa forma, stesso idioma. Se legge male si
+⚠️ **Prima però ci sono due collaudi aperti, e nessuno dei due l'ho potuto
+fare.**
+
+**1. La carne fra parentesi** — aperto da tre sessioni. La resa dei cibi di
+carne mette la creatura **fra parentesi** — «bistecca (il cane)» — e non è mai
+stata vista a schermo. Vale doppio perché la ventitreesima sessione ha tradotto
+la famiglia delle **uova e del formaggio** (`text.hsp:4216-4342`), che interpola
+`refchara(..., NAME_ORG, 1)` **esattamente come la carne**. Se legge male si
 cambia in due posti soli (`:3221-3356` e `:4222-4345`).
 
 ```
@@ -22,6 +25,43 @@ F12 → spawn_chara 165     il cane (defines/mod.hsp:6236)
 ESC → uccidi il cane, raccogli con , l'attrezzo e il cadavere
 usa l'attrezzo → scegli il cadavere → guarda il nome in inventario
 ```
+
+**2. Le 169 battute degli dèi**, tradotte in questa sessione e mai viste.
+⚠️ **Non escono se non si indossa l'amuleto giusto**, ed è la cosa che farebbe
+gridare al difetto: `GDATA_GOD_TALK` parte a **0** (`screen.hsp:8216`) e lo
+accende **solo** l'incantesimo `ENCHANT_GOD_SIGNALS`, che in tutto il gioco ce
+l'ha un oggetto solo — `<Conchiglia Ignota>`, `spawn_item 740`
+(`db_item.hsp:81492`, `defines/mod.hsp:5485`). E serve **seguire un dio**:
+`txtgod` con `GOD_EYTH` esce subito (`text.hsp:12144`).
+
+```
+F12 → spawn_item 740      la <Conchiglia Ignota>, un amuleto; raccogli con , e indossa con w
+c                          controlla che il personaggio segua un dio
+salva, esci, ricarica      → alla prima mossa esce il «bentornato» (main.hsp:3083)
+dormi in un letto          → il «sonno» (proc.hsp:4223), e col caso il «sogno»
+uccidi qualche mostro      → l'«uccisione», 1 volta su 20 (chara_func.hsp:7896)
+offri un oggetto su un altare → «offerta gradita» (god.hsp:990)
+j, pagina di sinistra      → le notizie nuove
+```
+
+⚠️ **Le notizie vecchie restano in inglese**: `newsbuff` sta dentro il
+salvataggio (`text.hsp:12107`). Contano solo quelle che nascono dopo.
+
+### Se il personaggio non segue nessun dio
+
+Ci si converte **pregando** (`p`, `key_pray` in `config.txt:157`) **sopra un
+altare**, e ⚠️ **il dio che prendi è quello dell'altare**: `god.hsp:551` copia
+`INV_ITEM_GOD` dell'altare, la finestra è solo una conferma.
+⚠️ **`spawn_item 171` non serve**: l'altare generato dalla console nasce senza
+dio (`db_item.hsp:119828` non tocca `INV_ITEM_GOD`) e pregarci rende
+«unbeliever». Il posto giusto è la **Terra della tregua**
+(`AREA_TRUCE_GROUND`), che tiene tutti e otto gli altari in una sala
+(`map.hsp:1651-1692`): Mani (10,8), Lulwy (13,8), Opatos (10,13), Ehekatl
+(13,13), Itzpalt (20,8), Kumiromi (23,8), Jure (20,13), Yacatect (23,13).
+
+💡 Conviene **Ehekatl**, che ripete l'ultima parola di ogni frase: si vede
+subito se il tic è passato. E chi cambia dio vede **due** battute nuove di
+fila, il tradimento e l'adesione (`god.hsp:557-570`), al prezzo della pietà.
 
 ### Le sei verifiche d'apertura
 
@@ -47,18 +87,57 @@ prima non c'era.
 | `skill.hsp` | 885 | 885 | **100%** |
 | `custom_tweaks.hsp` | 12 | 12 | **100%** |
 | `action.hsp` | 1.286 | 1.288 | **100%** (le 2 mancanti sono rinviate a toppa) |
-| `text.hsp` | **1.549** | 1.740 | **89%** |
-| gli altri tre | 0 | 2.775 | 0% |
-| **totale Fase 1** | **5.656** | **8.624** | **66%** |
+| `text.hsp` | **1.718** | 1.720 | **100%** (le 2 mancanti aspettano `talk.txt`) |
+| `proc.hsp` | **78** | 1.098 | 7% |
+| `command.hsp`, `trait.hsp` | 0 | ~1.680 | 0% |
+| **totale Fase 1** | **5.903** | **8.624** | **68%** |
 
 Fuori dalla Fase 1: `db_creature.hsp` a 1.452 su 3.655;
 `custom_enemyevolution.hsp` **chiuso**; `ai.hsp` 6 su 100; `event.hsp` 5 su
 654; `chara_func.hsp` 45 su 331; `init.hsp` 6 su 133.
 
-**372 test** (erano 357), prova d'identità **72/72 e 27.813**, **9.694
-sostituzioni**, il compilatore non dice nulla.
+**372 test**, prova d'identità **72/72 e 27.813**, **9.994 sostituzioni**, il
+compilatore non dice nulla.
 
-## Le due scoperte di questa sessione, che valgono per tutto il progetto
+## Le due scoperte della ventiquattresima sessione
+
+### 1. Le 20 rinviate di `elename()` si sciolgono spostando l'articolo
+
+`proc.hsp:8797` compone **aggettivo + parte del corpo** — «with his burning
+claw» — e in italiano l'aggettivo segue il nome e ne prende il genere, mentre le
+parti del corpo sono di generi misti (mano, artiglio, gamba, zanna, occhio,
+aculeo, spora, ramo, braccio, corpo, chela). Nessuna resa di `elename()` poteva
+accordarsi con tutte, ed era il motivo del rinvio.
+
+La soluzione ha **tre pezzi che vanno insieme**, e nessuno funziona da solo:
+
+1. `elename()` smette di essere un aggettivo e diventa un **complemento
+   invariabile**: «di fuoco», «di veleno», «di tenebra». Senza genere, niente
+   accordo;
+2. la parte del corpo si porta dietro **il proprio articolo** («la mano»,
+   «l'artiglio»), che a runtime nessuno potrebbe scegliere. ⚠️ Si può fare solo
+   perché la terza colonna di `_melee` esce da **due righe in tutto**
+   (`grep _melee(2,` dà `proc.hsp:8797` e `:8800`). **Verificarlo prima**;
+3. la resa **riordina** la concatenazione — permesso: `funzioni_di_contenuto`
+   confronta le interpolazioni **ordinate** (`funzioni.py:183`), quindi
+   l'ordine non è un vincolo.
+
+Esito: «tocca il cane con la zanna di veleno e...».
+
+> Un rinvio può dipendere da **dove sta l'articolo**, non dalla resa. Prima di
+> concludere che una concatenazione è intraducibile, guardare quanti chiamanti
+> ha ciascun pezzo: se sono pochi, il pezzo si può ridefinire.
+
+### 2. Una stringa può essere invisibile perché manca un interruttore
+
+Le 169 battute degli dèi non escono mai senza `ENCHANT_GOD_SIGNALS`
+(`screen.hsp:8474`), che ha **un solo oggetto** in tutto il gioco. Una prova a
+schermo fatta senza saperlo avrebbe detto «non tradotto» su lavoro giusto.
+
+> Prima di dare una lista di collaudo, cercare **chi accende** la stringa, non
+> solo chi la scrive.
+
+## Le due scoperte della ventitreesima sessione, che valgono per tutto il progetto
 
 ### 1. ⚠️ La build inglese non sa disegnare un carattere a due byte
 
@@ -108,7 +187,7 @@ frase più lunga provoca l'a capo prima e salva la parola finale.
 **I lotti si prendono per zona di riga**, non separando statiche e dinamiche.
 
 ```powershell
-python -m strumenti.estrai text.hsp --da-tradurre --uscita lavoro/_r.jsonl
+python -m strumenti.estrai proc.hsp --da-tradurre --uscita lavoro/_r.jsonl
 # si ordina per (riga, occorrenza) e si prendono le prime ~50
 python -m strumenti.verifica lavoro/<lotto>.jsonl
 python -m strumenti.reimporta lavoro/<lotto>.jsonl
@@ -120,7 +199,9 @@ python -m strumenti.genera_toppe_nomi
 python -m strumenti.genera_toppe_casuali
 ```
 
-⚠️ `lavoro/_r.jsonl` **non si versiona** (è in `.gitignore`): si rigenera.
+⚠️ **Tutto ciò che in `lavoro/` comincia con `_` non si versiona** (`.gitignore`
+tiene `lavoro/_*.jsonl`, allargato l'11/08 da `_r.jsonl`): sono estrazioni, si
+rigenerano. I lotti veri hanno un nome parlante e restano.
 
 ⚠️ **Una riga può portare più voci, e la riga da sola non è una chiave.** Chi
 scrive il lotto deve indicizzare per **(riga, giapponese)**.
@@ -213,9 +294,11 @@ dinamica non serve nessuna toppa**: l'ordine è già nostro.
 
 ### Non correggere una toppa che qualcuno genera
 
-`toppe.jsonl` è **270 toppe: 246 generate** (portano il campo `generata`) **e 24 a
-mano**. Una correzione fatta sul file è stata riscritta due lotti dopo. Se uno
-strumento la genera, la correzione va **nello strumento**.
+`toppe.jsonl` è **in larga parte generato**: le voci generate portano il campo
+`generata`, e `genera_toppe_nomi` e `genera_toppe_casuali` le riscrivono a ogni
+lotto (l'11/08 erano 33 + 213 generate contro 237 + 57 a mano; i due strumenti
+stampano il conto). Una correzione fatta sul file è stata riscritta due lotti
+dopo. **Se uno strumento la genera, la correzione va nello strumento.**
 
 ### Metà delle voci di menu erano già decise altrove
 
@@ -308,10 +391,9 @@ frase che le incornicia sta in `talk.txt:1633`. Tradurre solo il pezzo darebbe
 
 ## L'ordine che resta
 
-1. **`text.hsp`**, 191 firme dall'89% in su, da riga 12121 — le **notizie**
-   (`addnews2`, tetto **33**) e la coda del file;
-2. `proc.hsp` — chiude le 20 rinviate e il gemello di «mordes»;
-3. `command.hsp`, `trait.hsp`;
+1. **`proc.hsp`**, 1.020 firme, per zona di riga da **782** — le 20 rinviate di
+   `elename()` sono **sciolte**, resta il gemello di «mordes»;
+2. `command.hsp`, `trait.hsp`;
 4. `ai.hsp` (94) ed `event.hsp` (649);
 5. `chara_func.hsp`, le 286 rimanenti — ⚠️ dentro ci sono le tre pietre di
    Lesimas e l'ankh del sole, **già rese** in `text.hsp:11576-11594` e in
@@ -377,8 +459,8 @@ Start-Process "C:\Games\Elona\elonaplus2.31\cgx-test.exe" -WorkingDirectory "C:\
 
 ⚠️ **Controllare la data dell'exe prima di fidarsi di uno screenshot.**
 
-**L'eseguibile in `cgx-test.exe` è aggiornato a fine ventitreesima sessione
-(11/08/2026 03:21).**
+**L'eseguibile in `cgx-test.exe` è aggiornato a fine ventiquattresima sessione
+(11/08/2026 14:41).**
 
 ### La console di debug
 
@@ -430,6 +512,12 @@ e sul **dirigibile**. A Palmia c'è solo il **panettiere** (`ROLE_SHOP_BAKERY`,
 - ❌ **L'evoluzione dei nemici**: **mai vista**. È la prova mancante più vecchia.
 - ❌ **La carne fra parentesi**: mai vista. È il primo punto di questa ripresa,
   e ora decide due famiglie di cibi.
+- ❌ **Le 169 battute degli dèi**: mai viste, e servono l'amuleto e un dio —
+  vedi in cima. Dentro ci sono le **notizie** (`addnews`), che il diario mostra
+  nella pagina di sinistra.
+- ❌ **Il tocco elementale** (`proc.hsp:8797`): «tocca X con la zanna di
+  veleno». Lo fanno i mostri col tocco elementale — la mano affamata, l'occhio
+  di tenebra.
 - 🆕 **Da provare**: la **bacheca degli incarichi** nelle città (colonne
   *Cliente / Luogo / Scadenza / Compenso / Dettagli* e la riga del compenso con
   `, più`); i nomi delle Nefia con l'ordine nuovo; il gioco di carte; la banca.

@@ -14,16 +14,21 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 
 | file | tradotte | firme | % | occorrenze |
 |---|---|---|---|---|
-| `text.hsp` | **1.549** | 1.740 | **89%** | 2.127 |
+| `text.hsp` | **1.718** | 1.720 | **100%** | 2.127 |
 | `command.hsp` | 0 | 1.304 | 0% | 1.481 |
 | `action.hsp` | **1.286** | 1.288 | **100%** | 1.502 |
-| `proc.hsp` | 0 | 1.098 | 0% | 1.327 |
+| `proc.hsp` | **78** | 1.098 | 7% | 1.327 |
 | `skill.hsp` | **885** | 885 | **100%** | 894 |
 | `trait.hsp` | 0 | 373 | 0% | 406 |
 | `db_item.hsp` | **1.606** | 1.606 | **100%** | 1.607 |
 | `item_data.hsp` | **318** | 318 | **100%** | 318 |
 | `custom_tweaks.hsp` | **12** | 12 | **100%** | 28 |
-| **totale** | **5.656** | **8.624** | **66%** | **9.690** |
+| **totale** | **5.903** | **8.604** | **69%** | **9.690** |
+
+⚠️ **Il denominatore di `text.hsp` è sceso da 1.740 a 1.720** il 2026-08-11: le
+20 firme di `elename()` non erano arretrato ma **rinviate**, e ora che sono
+tradotte sono passate dal fuori-conto al numeratore. Le 2 che restano aspettano
+`data/talk.txt`, e il file è **chiuso**.
 
 ⚠️ **Due di questi 100% sono falsi, e il 2026-08-10 si è misurato di quanto.**
 `db_item.hsp` ha **261** `iknownnameref` — i nomi che il gioco mostra prima

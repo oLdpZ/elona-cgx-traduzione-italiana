@@ -289,9 +289,15 @@ solo quando la resa italiana non porta l'articolo: controllali caso per caso.
   degradazione ad apostrofo la fa `applica.py`. Scrivere `perche'` a mano è un
   errore, e `verifica.py` lo segnala. *(Qui la regola è l'opposto di Elin, che
   usa l'apostrofo tipografico `’`: là non c'è degradazione, qui sì.)*
-- **Mai il carattere `"` in una traduzione statica**: chiuderebbe in anticipo la
-  stringa HSP. Usa le virgolette tipografiche `“ ”`. **Mai `«»`**: CP932 non le
-  sa codificare e `verifica.py` le rifiuta.
+- **Mai il carattere `"` nudo in una traduzione statica**: chiuderebbe in
+  anticipo la stringa HSP. Si scrive la **virgoletta protetta** `\"`, come fa
+  l'inglese di monte (`text.hsp:9879`). ⚠️ **Mai le tipografiche `“ ”`**: CP932
+  le codifica, ma su **due byte**, e la build inglese disegna un glifo per byte
+  — a schermo escono sbagliate. Vale per tutti i caratteri a due byte: niente
+  `…` (si scrive `...`), niente `・`, niente `《》`. L'unico ammesso è `♪`,
+  perché `init.hsp:1374` ci disegna un'icona; in pratica lo si lascia cadere.
+  **Mai `«»`**: CP932 non le codifica affatto. La guardia giusta è
+  `accenti.doppi_byte_cp932()`, non `non_ascii_residuo`.
 - Le maiuscole dei nomi di abilità e oggetti seguono l'inglese solo dove il gioco
   le usa come nomi propri.
 - Materiali come complemento invariabile: «spada d'acciaio», mai «spada

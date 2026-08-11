@@ -2811,3 +2811,69 @@ verificato che la copertura sia completa.
 del sorgente non trovano. Le prime due erano difetti; questa è **un pezzo di
 perimetro**. Chiedere la prova presto non serve a validare: serve a scoprire
 cosa non stiamo nemmeno guardando.
+
+## 2026-08-11 — `text.hsp` chiuso, e le 20 rinviate di `elename()` sciolte spostando l'articolo
+
+`proc.hsp:8797` compone la frase del tocco elementale come **aggettivo + parte
+del corpo**:
+
+```hsp
+name(cc) + " touch" + _s(cc) + " " + name(tc) + " with " + his(cc)
++ " " + elename(ele) + " " + _melee(2, cdata(CDATA_MELEE_STYLE, cc)) + " and"
+```
+
+In italiano l'aggettivo **segue** il nome e ne prende il genere, e le parti del
+corpo sono di generi misti — mano, artiglio, gamba, zanna, occhio, aculeo,
+spora, ramo, braccio, corpo, chela. Nessuna resa di `elename()` poteva
+accordarsi con tutte, e per questo dalla nona sessione le sue 20 firme stavano
+in `rinviate.jsonl`.
+
+**La soluzione ha tre pezzi, e nessuno funziona da solo.**
+
+1. **`elename()` smette di essere un aggettivo.** Diventa un complemento
+   invariabile: «di fuoco», «di veleno», «di tenebra», «della fame». Senza
+   genere non c'è accordo da sbagliare.
+2. **La parte del corpo si porta dietro il proprio articolo** — «la mano»,
+   «l'artiglio» — che è la cosa che a runtime nessuno potrebbe scegliere.
+   ⚠️ Si può fare **solo** perché la terza colonna di `_melee` esce da due righe
+   in tutto: `grep _melee(2,` dà `proc.hsp:8797` e `:8800` e basta. Cambiare il
+   valore di una funzione condivisa senza contare i chiamanti è il modo di
+   rompere venti frasi per aggiustarne una.
+3. **La resa riordina la concatenazione.** È permesso: `funzioni_di_contenuto`
+   (`strumenti/funzioni.py:183`) confronta le interpolazioni **ordinate**, cioè
+   l'ordine non entra nel confronto. `his(cc)` a un argomento si toglie, e
+   l'articolo della parte del corpo copre il possessivo che l'italiano omette.
+
+Esito: «tocca il cane con la zanna di veleno e...».
+
+> **Un rinvio può dipendere da dove sta l'articolo, non dalla resa.** Prima di
+> dichiarare intraducibile una concatenazione, contare i chiamanti di ogni
+> pezzo: se sono pochi, il pezzo si può ridefinire, e il problema si sposta
+> dove è risolvibile.
+
+Con questo `text.hsp` è **chiuso**: 1.718 firme su 1.720, e le 2 che restano
+aspettano `data/talk.txt`, fuori perimetro. ⚠️ Il denominatore è **sceso** da
+1.740 a 1.720, perché venti firme sono passate dal fuori-conto al numeratore.
+
+## 2026-08-11 — Una stringa può essere invisibile perché manca un interruttore
+
+Le 169 battute degli dèi (`txtgod`, `text.hsp:12143-12522`) sono state tradotte
+tutte in questa sessione, e **non escono mai** se il giocatore non indossa un
+oggetto con `ENCHANT_GOD_SIGNALS`: `gdata(GDATA_GOD_TALK)` parte a 0
+(`screen.hsp:8216`) e solo quell'incantesimo lo accende (`screen.hsp:8474`). In
+tutto il gioco lo porta **un oggetto solo**, `<Conchiglia Ignota>`
+(`db_item.hsp:81492`). E serve anche seguire un dio: con `GOD_EYTH` la funzione
+esce alla prima riga (`text.hsp:12144`).
+
+Una lista di collaudo data senza saperlo avrebbe prodotto uno screenshot muto e
+la conclusione «non tradotto» su lavoro giusto — e sarebbe stata colpa mia, non
+sua.
+
+> **Prima di chiedere una prova a schermo, cercare chi accende la stringa, non
+> solo chi la scrive.** Il percorso va verificato fino all'interruttore.
+
+Corollario trovato nello stesso giro: `spawn_item 171` genera un altare **senza
+dio** (`db_item.hsp:119828` non tocca `INV_ITEM_GOD`), e pregarci rende
+«unbeliever» invece di convertire. La conversione vera vuole un altare di mappa,
+e il dio è quello dell'altare (`god.hsp:551`). La scorciatoia ovvia era
+sbagliata, come `spawn_item 733` per il cibo.

@@ -15,4 +15,4 @@ lavoro/controllo-*.jsonl
 
 # scratch degli agenti: ledger, brief, pacchetti di revisione
 .superpowers/
-lavoro/_r.jsonl
+lavoro/_*.jsonl
