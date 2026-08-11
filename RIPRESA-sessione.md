@@ -402,11 +402,8 @@ Start-Process "C:\Games\Elona\elonaplus2.31\cgx-test.exe" -WorkingDirectory "C:\
 
 ⚠️ **Controllare la data dell'exe prima di fidarsi di uno screenshot.**
 
-🔴 **`cgx-test.exe` è fermo alla build delle 18:50 dell'11/08 e NON contiene il
-quarto lotto di battute** (`fase2-battute-004`): la copia è fallita col gioco
-aperto. Il binario giusto è già compilato in
-`C:\Games\Elona\_traduzione\build\2.05-custom-gx\elonapluscgx.exe`: **la prima
-cosa da fare a gioco chiuso è ricopiarlo.**
+**L'eseguibile in `cgx-test.exe` è aggiornato a fine venticinquesima sessione
+(11/08/2026 19:20)** e contiene tutti e quattro i lotti di battute.
 
 ### La console di debug
 
