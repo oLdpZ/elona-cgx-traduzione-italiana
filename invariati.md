@@ -362,6 +362,13 @@ scrivere, probabilmente la stringa va tradotta.
 | ShikiOrigami-Shuriken | mossa speciale (`skill.hsp`), giapponese 式折神・荒紙手裏剣: `shuriken` è già invariato qui sopra, e `ShikiOrigami` è una **coniazione romanizzata** (式神 + 折り紙). Le altre due della famiglia traducono la parte comune — `ShikiOrigami-Gru`, `ShikiOrigami-Aereo` — e questa non ha parte comune da tradurre |
 | `<Clementia>` | mossa speciale (`skill.hsp`), giapponese 【命乞い】: **nome latino**, e il latino resta latino come in `aqua sanctio` |
 | `<Purge>` | mossa speciale (`skill.hsp`), giapponese *Purge*: **il giapponese la lascia già in inglese**, ed è l'etichetta `PURGE` che il glossario tiene invariata nelle descrizioni. Tradurla qui e non là spezzerebbe la coppia |
+| `\"Hjckrrh.\"` | verso del corvo (`db_creature.hsp:82915`, `:83085`), giapponese 「ヒックルー」 e 「ひっくるるう」. **Onomatopea, non parola**: l'inglese la prende dal *Corvo* di Poe e in italiano non c'è niente da cambiare. ⚠️ È diventata identica all'inglese solo il 2026-08-11, quando le virgolette tipografiche `“”` sono state sostituite dalla forma protetta `\"`: prima le due stringhe differivano **per le virgolette**, cioè per un difetto |
+| `\"Hjckrrh!\"` | come sopra (`db_creature.hsp:82915`, `:82921`, `:83085`), giapponese 「百苦縷々……」, 「ヒィックルー！」 e 「ひゃっくるる」 |
+| `\"Hjckrrh...\"` | come sopra (`db_creature.hsp:82921`), giapponese 「ヒジュクルル！」 |
+| `-` | **non è testo: è un trattino.** È la scadenza di un incarico che non ne ha (`text.hsp:11692`, giapponese 即時, «subito»), e finisce dentro `"(" + nquestdate + ")"` in una colonna larga 48 pixel fra il livello e il nome del cliente (`command.hsp:3359`, `:3365`). «(subito)» sono otto caratteri e andrebbe addosso al nome. L'inglese ha già risolto così, e la soluzione è la stessa in italiano |
+| `[Lv. 30] Little Sister` | titolo di missione secondaria (`text.hsp:10599`), giapponese リトルシスター. **Il titolo è il nome della creatura**, e `<Little Sister>` è già invariato qui sopra: l'etichetta `[Lv. N]` la scrive l'inglese e non è testo. Non resta niente da tradurre |
+| `[Lv. 80] H Sister` | titolo di missione secondaria (`text.hsp:10851`), giapponese えっちないもうと. Come sopra: `H Sister` è già invariato qui sopra |
+| `?\"` | **non è testo: è punteggiatura.** Coda di una domanda spezzata fra due `lang()` (`db_creature.hsp:49873`, giapponese さん？」). Non c'è nessuna parola da tradurre, e anche qui l'identità nasce dal passaggio a `\"` |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 

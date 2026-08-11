@@ -5,7 +5,13 @@ import json
 from pathlib import Path
 
 from strumenti import percorsi
-from strumenti.accenti import degrada, ha_apostrofo_scritto_a_mano, non_ascii_residuo
+from strumenti.accenti import (
+    degrada,
+    doppi_byte_cp932,
+    ha_apostrofo_scritto_a_mano,
+    non_ascii_residuo,
+    virgolette_non_protette,
+)
 from strumenti.articolo import GENERI
 from strumenti.estrai import estrai_da_testo
 from strumenti.funzioni import funzioni_di_contenuto, morfologia_residua
@@ -169,11 +175,13 @@ def _problemi_del_nome(voce: dict) -> list[str]:
         ]
 
     problemi: list[str] = []
-    if '"' in plurale:
+    if virgolette_non_protette(plurale):
         problemi.append(
-            'il plurale non puo\' contenere il carattere " : applica.py lo scrive'
+            'il plurale non puo\' contenere una " nuda: applica.py lo scrive'
             ' in ioriginalnamerefplur(...) = "...", e la stringa HSP si'
-            " chiuderebbe in anticipo. Usa le virgolette tipografiche “”"
+            ' chiuderebbe in anticipo. Scrivila protetta, \\" — NON con le'
+            " tipografiche “”, che CP932 scrive su due byte e la build"
+            " inglese non sa disegnare"
         )
     if ha_apostrofo_scritto_a_mano(plurale):
         problemi.append(
@@ -183,6 +191,12 @@ def _problemi_del_nome(voce: dict) -> list[str]:
     residui = non_ascii_residuo(degrada(plurale))
     if residui:
         problemi.append(f"caratteri del plurale che CP932 cancellerebbe: {residui}")
+    doppi = doppi_byte_cp932(degrada(plurale))
+    if doppi:
+        problemi.append(
+            f"caratteri del plurale che CP932 scrive su due byte: {doppi} — "
+            "la build inglese ne disegna uno per byte"
+        )
 
     # Il genere: stessa natura del plurale, stesso momento buono per scriverlo.
     # Non e' l'articolo — quello lo deriva `strumenti/articolo.py`, perche' la
@@ -264,15 +278,16 @@ def controlla_voce(voce: dict, invariati: set[str] | None = None) -> list[str]:
     # Per le dinamiche invece l'italiano e' gia' un'espressione HSP intera
     # (es. name(tc) + " ha protetto " + name(x) + "."), dove le virgolette
     # doppie sono legittime e necessarie: la regola non si applica li'.
-    if tipo != "dinamica" and '"' in italiano:
+    if tipo != "dinamica" and virgolette_non_protette(italiano):
         problemi.append(
-            'le traduzioni statiche non possono contenere il carattere " '
-            "perche' romperebbe la stringa HSP generata da applica.py "
+            'una statica non puo\' contenere una " nuda, perche\' romperebbe '
+            "la stringa HSP generata da applica.py "
             '(lang("...", "...") si chiuderebbe in anticipo); '
-            "usa le virgolette doppie tipografiche “” al suo posto "
-            "(es. “ciao”) — sopravvivono al round-trip CP932, a "
-            "differenza delle virgolette caporali «» che CP932 non "
-            "sa codificare (UnicodeEncodeError)"
+            'scrivila protetta, \\" , come fa l\'inglese upstream '
+            '(text.hsp:9879 scrive \\"Project LF\\"). '
+            "⚠️ NON usare le tipografiche “”: CP932 le codifica, ma su DUE "
+            "byte, e la build inglese disegna un glifo per byte — a schermo "
+            "esce un carattere latino a caso. Vedi doppi_byte_cp932()"
         )
 
     # gli accenti veri (perche') si degradano regolarmente in fase di build:
@@ -281,6 +296,18 @@ def controlla_voce(voce: dict, invariati: set[str] | None = None) -> list[str]:
     residui = non_ascii_residuo(degrada(italiano))
     if residui:
         problemi.append(f"caratteri che CP932 cancellerebbe: {residui}")
+
+    # CP932 li codifica — e' proprio questo che li rendeva invisibili al
+    # controllo di sopra — ma su due byte, e la build inglese disegna un glifo
+    # per byte (init.hsp:1391, font Courier New). Misurato a schermo.
+    doppi = doppi_byte_cp932(degrada(italiano))
+    if doppi:
+        problemi.append(
+            f"caratteri che CP932 scrive su due byte: {doppi} — la build "
+            "inglese ne disegna uno per byte e a schermo escono lettere "
+            "latine a caso (「・」 e' uscito «E»). Usa ... per 「…」, "
+            '\\" per 「“”」, <> per 「《》」'
+        )
 
     if tipo == "dinamica":
         # la morfologia inglese (_s, is, was, your, ... e he/his/him quando

@@ -61,9 +61,9 @@ def test_le_dinamiche_devono_conservare_le_stesse_chiamate():
     assert any("interpolazion" in p for p in problemi)
 
 
-def test_blocca_la_virgoletta_doppia_nelle_statiche():
+def test_blocca_la_virgoletta_doppia_nuda_nelle_statiche():
     problemi = controlla_voce(voce(it='Ha detto "ciao".'))
-    assert any('"' in p and "«" in p and "“" in p for p in problemi)
+    assert any("nuda" in p for p in problemi)
 
 
 def test_non_blocca_la_virgoletta_doppia_nelle_dinamiche():
@@ -77,8 +77,33 @@ def test_non_blocca_la_virgoletta_doppia_nelle_dinamiche():
     assert not any("virgolette" in p for p in problemi)
 
 
-def test_le_virgolette_tipografiche_alte_passano_nelle_statiche():
-    assert controlla_voce(voce(it="Ha detto “ciao”.")) == []
+def test_la_virgoletta_protetta_passa_nelle_statiche():
+    # e' la forma che usa l'inglese upstream (text.hsp:9879, \"Project LF\"):
+    # applica.py avvolge la statica fra virgolette, ma HSP conosce l'escape.
+    assert controlla_voce(voce(it='Ha detto \\"ciao\\".')) == []
+
+
+def test_le_virgolette_tipografiche_ora_sono_bloccate():
+    # ROVESCIA una decisione precedente, e la rovescia una misura: “” CP932 le
+    # codifica (quindi `non_ascii_residuo` le lasciava passare) ma su DUE byte,
+    # e la build inglese disegna un glifo per byte. Vedi doppi_byte_cp932().
+    problemi = controlla_voce(voce(it="Ha detto “ciao”."))
+    assert any("due byte" in p for p in problemi)
+
+
+def test_i_puntini_di_sospensione_giapponesi_sono_bloccati():
+    problemi = controlla_voce(voce(it="Aspetta…"))
+    assert any("due byte" in p for p in problemi)
+
+
+def test_i_puntini_ascii_passano():
+    assert controlla_voce(voce(it="Aspetta...")) == []
+
+
+def test_la_nota_musicale_resta_ammessa():
+    # unico carattere a due byte che l'inglese upstream si permette, perche'
+    # msg_write (init.hsp:1374) lo intercetta e ci disegna un'icona al posto.
+    assert controlla_voce(voce(it="*blip♪*")) == []
 
 
 def test_controlla_lotto_indicizza_per_firma():
