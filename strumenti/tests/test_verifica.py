@@ -723,3 +723,113 @@ def test_controlla_lotto_ferma_il_lotto_dei_nomi_senza_genere():
                             invariati=set())
     assert "a" not in esito
     assert "b" in esito
+
+
+ONII = '" + _onii(cdata(CDATA_SEX, CHARA_PLAYER)) + "'
+
+
+def battuta(**sovrascritture):
+    """Una battuta di `db_creature.hsp` che interpola `_onii`."""
+    base = voce(
+        file="db_creature.hsp",
+        tipo="dinamica",
+        jp=" ",
+        jp_grezzo=f'"「{ONII}ちゃん」"',
+        en="Welcome home, !",
+        en_grezzo=f'cnvtalk("Welcome home, {ONII}!")',
+        it=f'cnvtalk("Eccoti a casa, {ONII}!")',
+    )
+    base.update(sovrascritture)
+    return base
+
+
+def test_una_battuta_con_onii_nudo_passa():
+    """La preposizione nuda regge: e' la forma giusta, non deve inciampare."""
+    assert controlla_voce(battuta()) == []
+
+
+def test_blocca_l_articolo_davanti_a_onii():
+    """⚠️ `_onii` cambia col sesso del GIOCATORE, non con quello di chi parla.
+
+    `text.hsp:111` lo definisce «Fratellone» / «Sorellona»: un articolo davanti
+    e' scritto una volta sola e concorda con uno solo dei due, quindi sbaglia
+    genere meta' delle partite. Nessun'altra guardia lo vede, perche' entrambe
+    le stringhe sono italiano valido.
+    """
+    problemi = controlla_voce(battuta(it=f'cnvtalk("Eccoti a casa, il {ONII}!")'))
+    assert any("_onii" in p for p in problemi)
+
+    problemi = controlla_voce(battuta(it=f'cnvtalk("Aspettavo il mio {ONII}!")'))
+    assert any("_onii" in p for p in problemi)
+
+
+def test_blocca_l_articolo_anche_davanti_a_syujin():
+    """La stessa trappola con l'altra funzione: `_syujin` e' Padrone/Padroncina.
+
+    Vale la pena provarle entrambe: la guardia nacque per `_onii`, e una
+    scritta sul solo nome di quella avrebbe lasciato passare la domestica, che
+    dice `_syujin` e non `_onii`.
+    """
+    SYUJIN = '" + _syujin(cdata(CDATA_SEX, CHARA_PLAYER)) + "'
+    pulita = battuta(
+        jp_grezzo=f'"「{SYUJIN}〜」"',
+        en=" ~",
+        en_grezzo=f'"" + _syujin(cdata(CDATA_SEX, CHARA_PLAYER)) + "~"',
+        it=f'"" + _syujin(cdata(CDATA_SEX, CHARA_PLAYER)) + "..."',
+    )
+    assert controlla_voce(pulita) == []
+
+    problemi = controlla_voce(pulita.copy() | {
+        "it": f'"Eccolo, il {SYUJIN}!"'})
+    assert any("_syujin" in p for p in problemi)
+
+
+def test_lo_spazio_in_coda_all_inglese_va_conservato():
+    """La giuntura fra due pezzi di frase, che senza spazio si salda.
+
+    Entrambe le stringhe sono valide, quindi il difetto si vede solo a schermo:
+    e' il caso in cui una guardia serve piu' che altrove.
+    """
+    problemi = controlla_voce(voce(en="You hear ", it="Si sente"))
+    assert any("spazio" in p for p in problemi)
+
+    assert controlla_voce(voce(en="You hear ", it="Si sente ")) == []
+
+
+def test_lo_spazio_finale_non_si_pretende_dalle_dinamiche():
+    """⚠️ Per una dinamica `en` non e' la stringa intera.
+
+    E' il testo dei letterali concatenati, e finisce con uno spazio ogni volta
+    che l'ultimo letterale precede una chiamata: li' lo spazio sta in MEZZO
+    all'espressione. Pretenderlo in coda alla resa rifiuterebbe ogni battuta che
+    ha una chiamata in fondo — cioe' la forma piu' comune del file.
+    """
+    dinamica = voce(
+        tipo="dinamica",
+        en=" moans, ",
+        en_grezzo='name(tc) + " moans, " + cnvtalk("It stinks!")',
+        jp_grezzo='name(tc) + "はうめいた。" + cnvtalk("くさい！")',
+        it='name(tc) + " geme, " + cnvtalk("Che puzza!")',
+    )
+    assert controlla_voce(dinamica) == []
+
+
+def test_il_verso_della_creatura_chiocciola_e_un_invariante_dichiarato():
+    """⚠️ La stringa che non ha una forma italiana perche' non ha una forma linguistica.
+
+    `CREATURE_ID_AT_SIGN` emette `Qy@` in tutte e quattro le sue classi. Senza
+    la dichiarazione in `invariati.md` la regola «traduzione identica
+    all'inglese» rifiuterebbe la voce **e con lei il lotto intero**, e l'unico
+    modo di far passare il lotto sarebbe inventare un verso che nessuna delle
+    due lingue di monte ha. Il test guarda il file vero: e' li' che la sezione
+    puo' sparire o essere rinominata.
+    """
+    invariati = carica_invariati()
+    for verso in ("Qy@", "Qy@!", "Qy@!!", "Q...Qy@..."):
+        assert verso in invariati, f"{verso!r} non e' piu' dichiarato in invariati.md"
+
+    v = voce(file="db_creature.hsp", jp="「Ｑｙ＠」", jp_grezzo='"「Ｑｙ＠」"',
+             en="Qy@", en_grezzo='cnvtalk("Qy@")', it="Qy@")
+    assert controlla_voce(v, invariati) == []
+    # ...e senza la dichiarazione resterebbe un problema, come per ogni altra voce
+    assert any("identica" in p for p in controlla_voce(v, set()))

@@ -23,6 +23,22 @@ from strumenti.funzioni import (
 
 _RICHIESTI = ("tipo", "en", "en_grezzo")
 
+# Un articolo (o un possessivo, che concorda uguale) subito prima di una
+# funzione che cambia col sesso del GIOCATORE. Si guarda la forma grezza, dove
+# la funzione compare per nome: `" + _onii(...`, con lo spazio della
+# concatenazione.
+#
+# Sono due, e hanno lo stesso identico rischio: `_onii` (`text.hsp:111`)
+# «Fratellone»/«Sorellona» e `_syujin` (`text.hsp:112`)
+# «Padrone»/«Padroncina». Nessuna delle due porta l'articolo dentro — a
+# differenza di `name()` — quindi la preposizione nuda regge e l'articolo no.
+_APPELLATIVI_DEL_GIOCATORE = ("_onii", "_syujin")
+_ARTICOLO_DAVANTI_AD_APPELLATIVO = re.compile(
+    r"\b(il|lo|la|un|uno|una|del|dello|della|al|allo|alla|dal|dallo|dalla"
+    r"|nel|nello|nella|sul|sullo|sulla|mio|mia|tuo|tua|nostro|nostra)"
+    r'\s+"\s*\+\s*(' + "|".join(_APPELLATIVI_DEL_GIOCATORE) + r")\b"
+)
+
 # I quattro campi che `estrai` aggiunge alle sole voci dei nomi di
 # `db_item.hsp`. Vanno insieme: `plurale` e `genere` sono i due dati che
 # l'italiano non deduce, `array` e `oggetto` dicono a `applica.py` dove
@@ -49,7 +65,7 @@ _CAMPI_NOME = ("plurale", "genere", "array", "oggetto")
 # Spostare il confine avrebbe corretto il sintomo: il prossimo che aggiunge una
 # sezione avrebbe rifatto il buco. Quello che non deve piu' essere possibile e'
 # il silenzio.
-_SEZIONI_INVARIANTI = ("Valori di dato",)
+_SEZIONI_INVARIANTI = ("Valori di dato", "Versi senza contenuto linguistico")
 _SEZIONI_NON_INVARIANTI = ("Da decidere", "Nomi di creatura")
 
 
@@ -388,6 +404,45 @@ def controlla_voce(voce: dict, invariati: set[str] | None = None) -> list[str]:
                 "Sono desinenze e possessivi inglesi (\"s\", \"is\", \"'s\"): "
                 "in italiano vanno tolti e la frase va riscritta."
             )
+
+        # ⚠️ **Non portano l'articolo dentro, ma non ne vogliono uno davanti.**
+        # `text.hsp:111` e' `_onii = lang("お兄", "Big bro"), lang("お姉", "Big
+        # sis")` — «Fratellone» / «Sorellona» — e `text.hsp:112` e' `_syujin`,
+        # «Padrone» / «Padroncina». Cambiano col sesso del GIOCATORE, quindi un
+        # articolo davanti e' scritto una volta sola, concorda con uno dei due e
+        # sbaglia meta' delle partite. A differenza di `name()`, che l'articolo
+        # se lo porta dentro, qui la preposizione nuda regge: «a Fratellone»
+        # si', «al mio Fratellone» no. `_onii` ha 36 siti di chiamata, 24 in
+        # `db_creature.hsp`.
+        articolo = _ARTICOLO_DAVANTI_AD_APPELLATIVO.search(italiano)
+        if articolo:
+            determinante, funzione = articolo.group(1), articolo.group(2)
+            problemi.append(
+                f"articolo davanti a {funzione}: {determinante!r}. {funzione} "
+                "cambia col sesso del giocatore (Fratellone/Sorellona, "
+                "Padrone/Padroncina), quindi un articolo davanti sbaglia genere "
+                "meta' delle volte. La preposizione nuda regge: «a Fratellone», "
+                "non «al Fratellone»."
+            )
+
+    # ⚠️ **Lo spazio in coda all'inglese e' una giuntura, non una svista.**
+    # Quando la frase si compone di due pezzi il primo tiene lo spazio che li
+    # separa: se la resa lo lascia cadere, le due meta' si saldano a schermo e
+    # nessun'altra guardia lo vede, perche' entrambe le stringhe sono valide.
+    #
+    # ⚠️ **Solo per le statiche, e non e' un dettaglio.** Per una dinamica `en`
+    # non e' la stringa intera: e' il testo dei letterali concatenati, e finisce
+    # con uno spazio ogni volta che l'ultimo letterale precede una chiamata —
+    # `name(tc) + " moans, " + cnvtalk("It stinks!")` da' `en = " moans, "`.
+    # Li' lo spazio sta in MEZZO all'espressione, non in coda alla frase, e
+    # pretenderlo alla fine della resa italiana rifiuterebbe ogni battuta con
+    # una chiamata in fondo.
+    if tipo != "dinamica" and voce["en"].endswith(" ") and not italiano.endswith(" "):
+        problemi.append(
+            "l'inglese finisce con uno spazio e la traduzione no: quello "
+            "spazio e' la giuntura con il pezzo che segue, e senza di lui le "
+            "due meta' della frase si saldano."
+        )
 
     return problemi
 

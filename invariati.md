@@ -38,6 +38,10 @@ scrivere, probabilmente la stringa va tradotta.
 | Ol-dran | nome proprio della città degli angeli (`text.hsp:2944`), giapponese オルドラン; nome opaco |
 | `****` | **non è testo**: quattro asterischi, identici nelle due lingue (`text.hsp:2905`). È il nome **mascherato** di una località che il gioco non vuole svelare, e la descrizione accanto lo conferma — «qualcosa che somiglia a una città». Tradurre gli asterischi vorrebbe dire non averli capiti |
 | Karma | termine acquisito in italiano |
+| `Target Acquired.` | battuta dello `<Spazzino di sotterranei>` (`db_creature.hsp:99788`). ⚠️ **Il giapponese è inglese anche lui**: la riga è `lang("「Target Acquired.」", "Target Acquired.")`, cioè l'autore fa parlare inglese la macchina *anche al giocatore giapponese*. Sono quattro battute e formano un blocco solo — inglese da robot più gergo di rete. Tradurle darebbe all'italiano una cosa che né il giapponese né l'inglese hanno: una macchina che parla la lingua di chi legge. Stesso criterio di `user`, dove il giapponese identico all'inglese è upstream che dichiara l'intenzione |
+| `Resistance is futile!` | battuta dello `<Spazzino di sotterranei>` (`db_creature.hsp:99788`), giapponese 「Resistance is futile!」: vedi la riga sopra. È anche la citazione dei Borg, che il gioco fa in inglese in entrambe le lingue |
+| `Pwned!` | battuta dello `<Spazzino di sotterranei>` (`db_creature.hsp:99794`), giapponese 「Pwned!」: vedi due righe sopra. Gergo di rete, intraducibile per costruzione — è un refuso di *owned* diventato parola |
+| `WTF` | battuta dello `<Spazzino di sotterranei>` (`db_creature.hsp:99800`), giapponese 「wtf」: vedi tre righe sopra. Sigla di rete; il giapponese la porta in minuscolo, l'inglese in maiuscolo, e nessuna delle due la traduce |
 | Dojo | termine acquisito in italiano (`text.hsp:3036`, giapponese 道場), come `Karma`. Sui vocabolari italiani con questa grafia; «palestra» direbbe un'altra cosa |
 | udon | nome di piatto (`text.hsp:3702`, giapponese うどん). In italiano si chiama così, come `sushi`: tradurlo con «tagliatelle» direbbe un'altra cosa |
 | ramen | nome di piatto (`text.hsp:3762`, giapponese ラーメン); vedi `udon` |
@@ -421,6 +425,31 @@ salvataggio finirebbe italiano.
 | `<` | parentesi del nome proprio, non testo: `action.hsp:4612` compone `lang("『", "<") + s(1) + lang("』", ">")` attorno al nome di un'arma unica. Il giapponese usa le sue virgolette 『』, l'inglese le parentesi angolari, e l'italiano segue l'inglese perche' e' la forma che il progetto usa gia' per i nomi propri (`<Gwen>`, `<Vansesda>`). Non c'e' nessuna parola da rendere |
 | `>` | l'altra meta' della parentesi qui sopra |
 | `EN` | ⚠️ **non e' testo: e' una chiave di formato.** `action.hsp:4816` fa `instr(buff, 0, t + "," + lang("JP", "EN"))` per cercare la riga `%txtName,EN` dentro i file `user\item\plan*.txt` degli oggetti personalizzati. Tradotta, la ricerca non trova piu' niente e il nome dell'oggetto sparisce. Il giapponese e' `JP`: sono i due codici di lingua, non due parole |
+## Versi senza contenuto linguistico — non c'è niente da rendere
+
+La creatura `@` (`CREATURE_ID_AT_SIGN`, `db_creature.hsp:80862`) emette
+`「Ｑｙ＠」` in tutte e quattro le sue classi di battuta. Il giapponese lo scrive
+coi caratteri a **larghezza intera**, l'inglese li ha portati in ASCII, e in
+italiano non c'è nessuna parola: è il verso di una creatura che si chiama `@`.
+
+Non è come `Baa` della pecora, che ha un'onomatopea italiana propria (`Bee`):
+qui non esiste una forma italiana perché non esiste una forma linguistica.
+Qualunque «traduzione» sarebbe inventata, e lasciarla identica all'inglese è la
+scelta giusta — ma senza questa dichiarazione `verifica.py` la rifiuterebbe
+insieme al lotto intero, e l'unico modo di far passare il lotto sarebbe
+inventare qualcosa.
+
+⚠️ **I caratteri a larghezza intera non si copiano**: `Ｑ`, `ｙ` e `＠` sono a
+due byte in CP932, e la build inglese ne disegna uno per byte. Si usa la forma
+ASCII, che è quella che l'inglese ha già scelto.
+
+| valore | motivo |
+|---|---|
+| Qy@ | verso della creatura `@`, senza contenuto linguistico in nessuna lingua |
+| Qy@! | il verso quando uccide |
+| Qy@!! | il verso quando è furiosa |
+| Q...Qy@... | il verso in punto di morte |
+
 ## Nomi di creatura riscritti nel salvataggio — non decidibili qui
 
 ⚠️ Trovate il 2026-08-07 misurando `Sister`. In `action.hsp` (Fase 1) ci sono
