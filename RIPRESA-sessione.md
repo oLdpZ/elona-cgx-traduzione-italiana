@@ -1,10 +1,30 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-11, fine della **ventisettesima** sessione.
+Aggiornato: 2026-08-12, fine della **ventottesima** sessione.
 
 ## La prima cosa da fare
 
-Si va avanti su **due fronti insieme**:
+⚠️ **La ventottesima è stata una sessione di misura, non di resa: zero rese
+nuove.** Ha fatto due cose, e la seconda vale più della prima:
+
+1. **il lavoro della 26ª e della 27ª era tutto fuori da git** — 1.089 rese, tre
+   strumenti modificati e i documenti stavano solo sul disco. Ora sono **sei
+   commit** su `fase-0`, albero pulito, catena verde a HEAD;
+2. **la decisione 0 della ripresa è presa, e la premessa su cui stava era
+   sbagliata.** Vedi «Le due scoperte della ventottesima». Il blocco ad alta
+   frequenza di Fase 4 **non si anticipa in blocco**.
+
+**Il lavoro che riparte, in ordine:**
+
+1. i **~90 `buffname`** di `buff.hsp` — la fetta pulita del blocco anticipato,
+   dentro `lang()`, nessuna dipendenza strutturale. Cominciata e **non
+   iniziata**: nessun lotto scritto;
+2. le **battute di `db_creature.hsp`**, 882, per creatura intera in ordine di
+   livello;
+3. i **`bufftxt`** di `buff.hsp` come **lavoro strutturale a parte**, non come
+   lotto di rese: prima la toppa su `chara_func.hsp:2316-2375`, poi le rese.
+
+Poi si va avanti sui due fronti di prima:
 
 1. **le battute di `db_creature.hsp`**, **882 da fare**, per **creatura
    intera** e in **ordine di livello** — lo strumento compone il lotto da solo,
@@ -75,6 +95,77 @@ Altri fuori Fase 1: `custom_enemyevolution.hsp` **chiuso**; `ai.hsp` 6 su 100;
 **398 test**, prova d'identità **72/72 e 27.813**, **11.815 sostituzioni**, il
 compilatore non dice nulla, manifesto del sorgente **72/72**.
 
+## Le due scoperte della ventottesima sessione
+
+### 1. ⚠️ Il conteggio dell'estrattore non era il costo, e la motivazione era falsa
+
+La decisione 0 diceva: anticipare `buff.hsp` (199), `chara.hsp` (258),
+`item_func.hsp` (263), `screen.hsp` (103) perché sono ~830 firme ad alta
+frequenza in coda a tutto. I numeri sono giusti — rimisurati tutti — ma **non
+sono il costo**, e per il file che portava l'argomento erano metà della verità.
+
+**Ogni messaggio di `buff.hsp` è spezzato in due e solo la prima metà sta in
+`lang()`:**
+
+```hsp
+bufftxt(0, BUFF_HOLY_SHIELD) = lang("は光り輝いた。", " begin"), " to shine."
+```
+
+È un'assegnazione di **due** elementi. Il secondo (`" to shine."`) è un
+letterale nudo, invisibile al dizionario: **70** in quel file. Tradurre le 199
+voci contate darebbe «Nome inizia to shine.»
+
+**E il messaggio si compone solo nel ramo inglese**, in un blocco custom del mod
+(`chara_func.hsp:2316-2375`, `BLOODYSHADE CUSTOM`) che usa `_s()` e **sette casi
+speciali** anch'essi scritti come letterali nudi (` mind...`, ` out the power of
+his armor.`). ⚠️ **La riga originale, l'unica con `lang()`, è commentata**
+(`:2310`). Il ramo giapponese (`:2377`) usa invece un **frammento unico**:
+`name(id) + bufftxt(0, id)`.
+
+💡 **Quindi la strada è una toppa, non 90 rese**: riportare il ramo inglese alla
+forma giapponese — frammento unico, via `_s()`, via i sette casi — scioglie ~90
+messaggi in un colpo. Togliere una morfologica si può; il resto è lavoro
+strutturale e va fatto **prima** delle rese, non dentro un lotto.
+
+⚠️ **E la motivazione scritta nella ripresa era inventata.** Diceva che i nomi
+degli status «stanno nell'HUD in permanenza»: l'HUD ne disegna le **icone**
+(`gcopy`, `screen.hsp`), non il testo. Il nome come testo esce nel popup sopra la
+testa (`chara_func.hsp:2389`, `:2455`), in «The effect of X ends.» (`:2404`) e
+nella lista dei potenziamenti della scheda (`command.hsp:2005`, `:10800`).
+Frequenza alta comunque, conclusione salva — ma la prova era falsa.
+
+⚠️ **`screen.hsp` non è «etichette fisse dell'interfaccia».** Solo **9** delle
+103 voci sono statiche (`Gauge Ready`, `Autopickup`, `Blood`): le altre **94**
+sono dinamiche, ed è la scena degli dèi che ti parlano mentre stai morendo.
+
+💡 **`chara.hsp` invece costa molto meno di quanto dice il numero**: 258 firme ma
+**143 testi distinti**, e **87** sono la stessa frase, «You have learned a new
+ability, X.»
+
+**La misura da rifare, con lo strumento che ancora non c'è:** contare i letterali
+inglesi **fuori** da `lang()` per file, filtrando percorsi, nomi di file e chiavi
+di `#define`. La prima passata grezza sta in
+`scratchpad/fuori_lang.py` e dà 70 (`buff.hsp`), 55 (`chara.hsp`), 120
+(`item_func.hsp`), 175 (`screen.hsp`), 204 (`main.hsp`), 13 (`item.hsp`) — ma
+per tutti tranne `buff.hsp` è **quasi tutto rumore**, e senza il filtro il costo
+di quei file resta ignoto. È la stessa classe delle sette intestazioni del
+diario e di `main.hsp:227`.
+
+Concetto nuovo: [[un-conteggio-non-e-una-stima-di-costo]] nel vault.
+
+### 2. 💡 `sdim` non è un tetto: HSP riespande in scrittura
+
+`sdim buffname, 20, MAX_BUFF` sembra dire che un nome di status non può passare
+i 19 byte, e un tetto del genere in italiano si sfonda subito. **Non è così.**
+La controprova sta già in gioco: `skilldesc` è `sdim skilldesc, 40, MAX_SKILL` e
+contiene una resa da **59 caratteri** («Memorizza incantesimi. Migliora
+pergamene. Analizza nemici.»), vista a schermo nella lista abilità.
+
+⚠️ Vale in **scrittura**. Il limite vero resta quello del **riquadro** che
+disegna, che si misura a parte — e l'altra faccia, già nota, è che
+l'autoespansione **non** vale in lettura: un array sparso letto oltre l'ultimo
+indice assegnato è un `Array overflow`.
+
 ## Le quattro scoperte della ventisettesima sessione
 
 ### 1. ⚠️ Le righe commentate: l'ultimo «nome da fare» non esisteva
@@ -104,7 +195,7 @@ frequenza.** Dentro la Fase 4 — cioè *ultima* — stanno:
 
 | file | firme | che cosa contiene |
 |---|---|---|
-| `buff.hsp` | 199 | i **nomi degli status** («Holy Shield», «Speed», «Regeneration») e i messaggi «X inizia / svanisce». Stanno nell'HUD **in permanenza** |
+| `buff.hsp` | 199 | i **nomi degli status** («Holy Shield», «Speed», «Regeneration») e i messaggi «X inizia / svanisce». ⚠️ **«Stanno nell'HUD in permanenza» era falso** — l'HUD disegna le icone; e le 199 voci sono **metà** dei messaggi: vedi la scoperta 1 della 28ª |
 | `chara.hsp` | 258 | «You have learned a new ability, X.» e simili |
 | `item_func.hsp` | 263 | i messaggi di quando raccogli, lasci cadere, un oggetto va perduto |
 | `screen.hsp` | 103 | «Gauge Ready», «Autopickup»: etichette fisse dell'interfaccia |
@@ -470,9 +561,11 @@ quello prima dell'identificazione, e l'estrattore non lo guarda
 
 ## L'ordine che resta
 
-0. ⚠️ **Da decidere prima di tutto**: se anticipare il blocco ad alta frequenza
-   che oggi sta in Fase 4 — `buff.hsp`, `chara.hsp`, `item_func.hsp`,
-   `screen.hsp` (~830 firme fra tutti e quattro). Vedi la scoperta 2 della 27ª.
+0. ✅ **Deciso il 12/08, e la premessa era sbagliata**: il blocco di Fase 4
+   **non** si anticipa in blocco. Si anticipano solo i **~90 `buffname`**; i
+   `bufftxt` diventano lavoro strutturale a parte; `chara.hsp`, `item_func.hsp`,
+   `screen.hsp` e `main.hsp` restano dove sono finché non c'è il conteggio dei
+   letterali fuori da `lang()`. Vedi la scoperta 1 della 28ª.
 1. **le battute di `db_creature.hsp`**, 882, per creatura intera in ordine di
    livello;
 2. **`proc.hsp`**, 971 firme, per zona di riga da **1716**;
@@ -735,6 +828,17 @@ frase.
   che parla **inglese per scelta**: se stona a schermo, la riga di
   `invariati.md` va ridiscussa); `add_ally 326` (il menestrello, che ora
   **canticchia** invece di cantare parodie inglesi).
+- 🆕 **La lista data a fine 28ª, mai tornata** (l'eseguibile attuale la mostra
+  già, non serve ricompilare):
+  ```
+  add_ally 408   <Lune>: deve chiamare «Padrone!!», due punti esclamativi
+  add_ally 326   il menestrello: canticchia, non canta parodie inglesi
+  add_ally 620   il corvo mercante: parla come un bottegaio
+  add_ally 709   il gufo spaziale: tre versi storpiati DI PROPOSITO
+  ESC, poi tenere premuto 5 per ~40 turni
+  spawn_chara 32    lo spazzino: parla INGLESE per scelta; se stona si ridiscute
+  spawn_chara 471   l'addetto del casinò: attaccarlo e ucciderlo
+  ```
 - ⚠️ **Il non tradotto esce in inglese, non in giapponese.**
 
 ## I tetti misurati, con la loro ancora

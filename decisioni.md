@@ -3370,3 +3370,43 @@ resa già decisa, e la differenza dell'inglese è rumore. Stesso caso per
 ⚠️ Ma `<Carla>` invoca `ザビ王`, non `ジャビ王`: viene da un altro mondo, e
 l'inglese scrive «King Zabi» qui e «Xabi» per Palmia. **Sono due nomi**, e il
 riuso del resto non autorizza a fonderli.
+
+## Il blocco ad alta frequenza di Fase 4 non si anticipa in blocco (2026-08-12)
+
+La 27ª aveva aperto la domanda: `buff.hsp`, `chara.hsp`, `item_func.hsp` e
+`screen.hsp` sono ~830 firme che il giocatore legge a ogni partita e stanno in
+coda a tutto, come `adv.hsp`. Anticiparle?
+
+I numeri sono giusti, rimisurati tutti. Ma un conteggio dell'estrattore **non è
+una stima di costo**, e per il file che portava l'argomento era metà della
+verità: ogni messaggio di `buff.hsp` è spezzato in due elementi d'array e solo il
+primo sta dentro `lang()`. Il secondo è un letterale nudo — 70 in quel file — e
+il sito che ricompone la frase è un blocco custom del mod
+(`chara_func.hsp:2316-2375`) che compone **solo nel ramo inglese**, con `_s()` e
+sette casi speciali anch'essi scritti nudi. La riga originale con `lang()` è
+commentata.
+
+**Deciso, in tre parti:**
+
+1. si anticipano **solo i ~90 `buffname`**: sono dentro `lang()`, non dipendono
+   da nulla, e si vedono nel popup sopra la testa, in «The effect of X ends.» e
+   nella lista dei potenziamenti della scheda;
+2. i **`bufftxt`** diventano un lavoro **strutturale**, non un lotto di rese:
+   prima una toppa che riporti il ramo inglese alla forma giapponese — frammento
+   unico `name + bufftxt(0)`, via `_s()`, via i sette casi — poi le rese. Una
+   toppa scioglie ~90 messaggi; novanta toppe sarebbero il modo sbagliato;
+3. `chara.hsp`, `item_func.hsp`, `screen.hsp` e `main.hsp` **restano in Fase 4**
+   finché non esiste un conteggio dei letterali fuori da `lang()` che sappia
+   scartare percorsi, nomi di file e chiavi di `#define`. Senza quel filtro il
+   loro costo è ignoto, e decidere l'ordine su un numero che non misura il costo
+   è l'errore che questa decisione corregge.
+
+⚠️ **E la motivazione della 27ª era inventata.** «I nomi degli status stanno
+nell'HUD in permanenza» è falso: l'HUD disegna le **icone**. La frequenza è alta
+per altre vie e la conclusione tiene, ma la prova no — corretta nella ripresa
+dove era scritta.
+
+💡 Due cose utili trovate misurando: `chara.hsp` costa molto meno del suo numero
+(258 firme, 143 testi distinti, 87 dei quali la stessa frase), e `sdim` **non è
+un tetto** — `skilldesc` è dimensionato a 40 e porta già una resa da 59
+caratteri, vista a schermo.
