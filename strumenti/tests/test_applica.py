@@ -359,3 +359,32 @@ def test_una_differenza_di_soli_spazi_non_e_un_motivo_per_rifiutare():
     }}
     _, sostituzioni = applica_a_testo("action.hsp", sorgente, diz)
     assert sostituzioni == 1
+
+
+def test_l_albero_si_rifa_anche_con_le_cartelle_di_sola_lettura(tmp_path, monkeypatch):
+    """⚠️ Il difetto che ha fermato la build l'11/08, e che non si vede dove nasce.
+
+    Le cartelle del clone portano l'attributo di sola lettura e `copytree` lo
+    copia su BUILD. Su Windows `os.rmdir` rifiuta una cartella con
+    quell'attributo **anche quando e' vuota**, quindi `rmtree` muore a meta' e
+    lascia l'albero incompleto — e la `compila` successiva accusa
+    «#Error: in line 112 [main.hsp]», che e' la riga dell'`#include` e non dice
+    niente della vera causa.
+
+    Il test non prova `prepara_albero`, che copierebbe 3.380 file: prova
+    l'handler, che e' la parte che puo' rompersi in silenzio.
+    """
+    import os
+    import shutil
+    import stat
+
+    from strumenti.applica import _togli_sola_lettura
+
+    albero = tmp_path / "build"
+    (albero / "defines").mkdir(parents=True)
+    (albero / "defines" / "mod.hsp").write_text("#define X 1", encoding="utf-8")
+    for cartella in (albero, albero / "defines"):
+        os.chmod(cartella, stat.S_IREAD)
+
+    shutil.rmtree(albero, onexc=_togli_sola_lettura)
+    assert not albero.exists(), "l'albero di build non si e' potuto rifare"

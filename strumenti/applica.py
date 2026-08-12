@@ -11,6 +11,7 @@ import argparse
 import json
 import re
 import shutil
+import stat
 from pathlib import Path
 
 from strumenti import percorsi
@@ -566,10 +567,40 @@ def applica_toppe(nome_file: str, testo: str, toppe: list[dict]) -> tuple[str, i
     return risultato, len(mie)
 
 
+def _togli_sola_lettura(funzione, percorso, _errore) -> None:
+    """Toglie la sola lettura e ritenta. Handler di `shutil.rmtree`.
+
+    Tutte le cartelle del clone portano l'attributo di sola lettura e
+    `copytree` lo copia su quelle di BUILD. Su Windows `os.rmdir` rifiuta una
+    cartella con quell'attributo **anche quando e' vuota** — verificato il
+    2026-08-11 su una cartella vuota in `%TEMP%` — e `rmtree` muore a meta'.
+
+    Il guaio e' che lascia l'albero **incompleto**: `applica` si ferma, e la
+    `compila` successiva dice «#Error: in line 112 [main.hsp]», che e' la riga
+    dell'`#include "init.hsp"` e non dice niente della vera causa. Si perde
+    tempo a cercare un difetto nella traduzione appena scritta.
+
+    ⚠️ **Quell'attributo non e' la protezione del sorgente.** Verificato: i
+    3.374 file del clone sono tutti scrivibili, solo le 34 cartelle hanno il
+    flag — su Windows e' quasi sempre acceso, e non impedisce nulla. La regola
+    «il sorgente upstream non si scrive mai» la tengono la disciplina e il
+    **manifesto SHA-256**, non un permesso. Togliere il flag qui non toglie
+    nessuna difesa: la difesa e' il manifesto, e va ricontrollato lo stesso.
+
+    ⚠️ Si tocca **solo BUILD**, che e' usa e getta (`percorsi.BUILD`, cartella
+    distinta da `percorsi.SORGENTE`): il sorgente non passa mai di qui.
+    """
+    percorso = Path(percorso)
+    if not percorso.exists():
+        return
+    percorso.chmod(percorso.stat().st_mode | stat.S_IWRITE)
+    funzione(percorso)
+
+
 def prepara_albero() -> None:
     """Copia SORGENTE in BUILD da zero. BUILD e' usa e getta."""
     if percorsi.BUILD.exists():
-        shutil.rmtree(percorsi.BUILD)
+        shutil.rmtree(percorsi.BUILD, onexc=_togli_sola_lettura)
     shutil.copytree(percorsi.SORGENTE, percorsi.BUILD, ignore=shutil.ignore_patterns(".git"))
 
 
