@@ -35,10 +35,30 @@ Le 3.655 firme del file, misurate con `strumenti/creature.py` più il dizionario
 
 | classe | rese | da fare |
 |---|---|---|
-| nome | **1.131** | 0 |
-| battuta (`voce`) | **546** | **1.919** |
-| senza classe (dinamiche) | 3 | 56 |
-| **totale** | **1.680** | **1.975** |
+| nome | **1.131** | 0 ⭐ chiusi |
+| battuta (`voce`) | **1.637** | **882** |
+| senza classe | 1 | 0 |
+| rinviate (righe commentate) | — | 4 |
+| **totale** | **2.769** | **886** |
+
+⚠️ **Aggiornato a fine ventisettesima sessione (2026-08-12).** Le battute rese
+sono passate da 960 a 1.637 — dodici lotti, `fase2-battute-015` … `-026` — e
+coprono i livelli **6-45**: le creature di citta', i PNG di trama e i primi
+sotterranei.
+
+⚠️ **I nomi risultano chiusi solo dopo la 27ª**, e l'ultimo che i conteggi
+mostravano da fare **non esisteva**: stava su una riga commentata
+(`db_creature.hsp:105060`), e la riga viva sotto era gia' tradotta. Le 4
+rinviate sono tutte righe commentate senza nessuna occorrenza viva: `estrai` le
+toglie dai lotti, `verifica --dizionario` continua a contarle fra le non
+tradotte. Vedi `decisioni.md`, 2026-08-12.
+
+Quanto segue vale da fine ventiseiesima sessione (2026-08-11). Le battute rese
+sono passate da 546 a 960 in un giorno — quattordici lotti, `fase2-battute-001`
+… `-014` — e sono **tutte su creature di livello 1-6**, cioe' gli abitanti delle
+citta'. Non e' un caso: da questa sessione i lotti si compongono in **ordine di
+livello crescente** e non piu' in ordine di riga. Vedi `decisioni.md`, la
+sezione sull'ordine dei lotti.
 
 ⚠️ **Il conto delle battute è cambiato di significato il 2026-08-11.**
 `strumenti.creature` ne dichiarava **320** e il numero era sbagliato: il ramo

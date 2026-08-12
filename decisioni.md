@@ -3079,3 +3079,294 @@ entro dieci caselle, e la battuta esce ogni 5 turni con probabilità 1 su 4
 
 > Prima di dare una lista di collaudo, cercare chi accende la stringa — e
 > accertarsi che **qualcuno** assegni quel valore.
+
+## 2026-08-11, ventiseiesima sessione — L'ordine dei lotti passa dal file al giocatore
+
+Le battute si prendevano «per creatura intera, in ordine di riga». L'ordine di
+riga è quello in cui le creature sono state aggiunte al gioco negli anni, e non
+ha niente a che vedere con quante volte il giocatore le incontra: metteva
+l'accattone di livello 2, che sta in ogni città, accanto a `<Jure la Benedetta>`
+di livello 1200, che come creatura non si incontra mai.
+
+Misurato prima di decidere: delle 1.975 voci che restavano, **605 stavano su
+creature di livello 1-10** — quasi tutte con filtro `/man/`, cioè gli abitanti
+delle città — e **528 su creature oltre il livello 100**.
+
+**Deciso: ordine per livello crescente**, e a parità di livello prima chi ha più
+battute. `--per-riga` rimette l'ordine vecchio.
+
+⚠️ **Il livello è una procura, non una misura, e va detto.** Nel sorgente non
+esiste un campo «quanto spesso esce»: `DBSPEC_CHARA_RARE` non lo è — lo leggono
+solo il valore del cadavere (`item_func.hsp:2295`) e la mappa utente. Il livello
+decide in quale fascia di Nefia la creatura può comparire, e le creature di
+città lo hanno bassissimo: sbaglia sui casi singoli, ma sposta il lavoro dalla
+coda verso la testa, che è quello che serve.
+
+## 2026-08-11 — La stessa battuta giapponese può avere due firme
+
+Il punk (`db_creature.hsp:104157`) e il teppista dicono **tredici battute
+giapponesi identiche**, e da monte hanno ricevuto tredici inglesi tutti diversi
+(「チキショー」 è `Son of a..` per uno e `Shit.` per l'altro). Il dizionario è
+indicizzato per contenuto e nel contenuto c'è l'inglese: sono **due voci da
+tradurre**, a lotti di distanza.
+
+Se le due rese divergono, la stessa frase esce in due modi da due creature —
+e **nessuna guardia lo vede**: sono entrambe italiano valido, entrambe diverse
+dal loro inglese, entrambe senza morfologia residua. Le guardie erano scritte
+tutte per voce singola.
+
+Misurato: **88 giapponesi comparivano più di una volta**, dieci con rese già
+divergenti, trentasette con una resa decisa e una voce ancora da fare.
+
+⚠️ **Deciso: un promemoria, non un divieto.** Delle dieci divergenze **otto sono
+legittime**, perché l'inglese *specializza* ciò che il giapponese lascia
+generico: 「がおー」 è `*creaking*` su un golem di legno e `*growl*` su una
+divinità serpente, e le rese «scricchiolio» e «grooo» seguono l'inglese come
+devono — un golem di legno non ringhia. Una regola che pretendesse una resa sola
+per giapponese avrebbe rifiutato lavoro giusto.
+
+Quindi: `battute.rese_gia_decise()` stampa **nel referto del lotto**, accanto a
+ogni voce, la resa che quel giapponese ha già ricevuto altrove; e
+`battute --divergenti` elenca le divergenze da giudicare a mano. Allineate le
+due introdotte l'11/08 (「わふっ」, 「お、カモだ…」) e quella della cthulhick, che
+lasciava `~♪` non tradotto. Ne restano nove, tutte legittime.
+
+## 2026-08-11 — `adv.hsp` non era in nessun elenco, ed è in perimetro
+
+Uno screenshot ha mostrato «Hedorre il fratello volpe **joins your party!**»:
+nome tradotto, frase inglese. Viene da `adv.hsp:202`, un file **dentro il
+perimetro degli strumenti** ma assente da ogni elenco di lavoro — 12 voci, tutte
+messaggi ad alta frequenza (reclutamento, gruppo pieno, contratto scaduto,
+potere divino perduto). **Tradotto e chiuso al 100%.**
+
+Due cose imparate lì:
+
+- ⚠️ **`cdatan(CDATAN_NAME, rc)` porta l'articolo dentro**, come `name()`: il
+  nome italiano è «il fratello volpe». Quindi «Some of X's power» non si poteva
+  rendere con «di» — darebbe «di il fratello volpe» — mentre `con` regge
+  («Il contratto con il fratello volpe è scaduto»);
+- le righe 7 e 12 hanno **inglese identico e giapponese diverso** (chi se ne va
+  triste e chi decide di vivere solo): il giapponese le distingue, e vanno rese
+  diverse.
+
+💡 **Da rifare**: cercare altri file in perimetro che nessun elenco nomina.
+
+## 2026-08-11 — «Welcome traveler!» è fuori da `lang()`
+
+`main.hsp:227` è `msgtemp = " Welcome traveler! "`, il primo messaggio del log
+all'ingresso nel mondo: **inglese anche nella build giapponese**, come le sette
+intestazioni del diario. Toppata a mano.
+
+Resa «Buon cammino!» perché sia «Benvenuto» sia «viaggiatore» concorderebbero
+col giocatore, che non ha genere noto. Gli spazi ai due lati sono
+nell'originale e restano.
+
+## 2026-08-11 — Due simboli che non si possono usare, e uno che si può
+
+- ⚠️ **`☆` non si usa**: CP932 lo scrive su due byte e la build inglese ne
+  disegna uno per byte. Reso con **`♪`**, che ha la stessa funzione decorativa
+  ed è l'unico due-byte che il gioco disegna davvero, come icona
+  (`init.hsp:1385`). Stessa sorte per `～`, reso coi puntini;
+- ✅ **il `♪` senza cifra dopo è sicuro nella build inglese.** `msg_write` legge
+  il carattere successivo come indice icona; se non c'è, `mark` vale 0 e viene
+  disegnata l'icona 0. Il ramo che interromperebbe (`init.hsp:1377`) è **solo
+  quello giapponese**.
+
+## 2026-08-11 — La creatura `@` non è traducibile, ed è una decisione
+
+`CREATURE_ID_AT_SIGN` dice 「Ｑｙ＠」 in tutte e quattro le classi. Non esiste una
+forma italiana perché non esiste una forma linguistica: qualunque resa sarebbe
+inventata. Ma lasciarla identica all'inglese faceva **rifiutare il lotto
+intero**, e l'unico modo di farlo passare sarebbe stato inventare qualcosa.
+
+**Deciso: sezione nuova in `invariati.md`**, «Versi senza contenuto
+linguistico», registrata in `_SEZIONI_INVARIANTI`. Il file non ammette default:
+ogni sezione con valori va classificata, o `carica_invariati` alza `ValueError`.
+
+⚠️ Non vale per la pecora: `Baa` ha un'onomatopea italiana propria (`Bee`). La
+sezione è per ciò che non è lingua in nessuna delle due.
+
+## 2026-08-11 — `_syujin` è la gemella di `_onii`, e la guardia era scritta sul nome sbagliato
+
+`text.hsp:112` definisce `_syujin`: «Padrone» / «Padroncina», che cambia col
+sesso del **giocatore** esattamente come `_onii`. La guardia sull'articolo,
+scritta poche ore prima, cercava il solo `_onii` e avrebbe lasciato passare la
+domestica.
+
+Riscritta sulla famiglia — «gli appellativi che cambiano col sesso del
+giocatore» — invece che sul caso che l'aveva generata.
+
+## 2026-08-11 — La build si è rotta, e la prima spiegazione era falsa
+
+`applica` si è fermata con «Accesso negato» rifacendo l'albero, lasciandolo
+**incompleto**; `compila` poi accusava `#Error: in line 112 [main.hsp]`, che è
+la riga dell'`#include "init.hsp"` e non dice niente della causa.
+
+Causa verificata: le cartelle del clone portano l'attributo di sola lettura,
+`copytree` lo copia su BUILD, e su Windows `os.rmdir` rifiuta una cartella con
+quell'attributo **anche quando è vuota** (provato su una cartella temporanea).
+Corretto con un handler in `applica.prepara_albero`, che tocca **solo BUILD**.
+
+⚠️ **La prima spiegazione scritta nel commento era falsa e va ricordata come
+tale**: diceva che quell'attributo *era* il modo in cui è tenuta la regola «il
+sorgente non si scrive mai». Verificato: i **3.374 file del clone sono tutti
+scrivibili**, solo le 34 cartelle hanno il flag, che su Windows è acceso quasi
+ovunque. La regola la tengono la disciplina e il **manifesto SHA-256** —
+ricontrollato dopo la correzione: **72 file su 72**.
+
+Il primo fallimento, per onestà, l'ha causato una shell lasciata con la
+directory corrente dentro l'albero di build.
+
+## 2026-08-11 — L'inglese riscrive, e in cinque modi diversi
+
+Tradotte ~410 battute, e la lingua ponte ha sbagliato in cinque forme distinte,
+ognuna con una risposta diversa. Vedi [[l-inglese-non-traduce-riscrive]].
+
+- **inventa**: `<Gwen>` ha un ♪ in *ogni* battuta e contenuti nuovi («that's a
+  pretty flower» → «Eat flowers evil-doer!»); `<Mia>` ha filastrocche giapponesi
+  sostituite da battute sui gatti; 「がぼぼぼ」 (il gorgoglio di chi affoga) →
+  «I'm sorry I failed you»;
+- **amplia**: 「ククク…」 del ladro, tre sillabe, diventa una frase di venti
+  parole; 「お、カモだ…」 («oh, un pollo») diventa un paragrafo;
+- **restringe**: la canzoncina di `<Mia>` diventa «Meow♪!»;
+- **scambia**: `<Tam>` ha le prime due battute invertite;
+- ⚠️ **cambia il personaggio**: la macchina delle pulizie è **infantile** in
+  giapponese («spostatiii», «ho fame!») e **robotica** in inglese («Trash
+  detected», «Battery low»). Ogni singola frase è plausibile: si vede solo
+  guardando la creatura intera — un altro motivo per cui il lotto prende
+  creature intere.
+
+**Regola**: l'originale arbitra sul *significato*; l'inglese conserva il diritto
+di *specializzare* quando sa qualcosa che il giapponese non dice (vedi 「がおー」
+sopra). Se ha semplicemente messo altro, si scarta.
+
+## 2026-08-11 — Un gioco di parole visivo si rifà su un altro canale
+
+La recluta dice 「矢耐性かと思ったら失耐性だった」: il gioco sta in 矢 e 失, due kanji
+che **si somigliano a vederli** — ha letto male, non sentito male. L'inglese l'ha
+spostato sul suono (*nether* / *nerve*), che in italiano sono «oltretomba» e
+«nervi» e non si somigliano affatto: tradurre la soluzione inglese avrebbe dato
+una frase senza motivo.
+
+**Reso con suono / sonno**: una lettera di differenza, e «Suono» è una
+resistenza che **esiste davvero** (`text.hsp`, `Sound` → `Suono`), mentre
+«sonno» è l'inciampo naturale. Il personaggio resta quello che l'originale
+voleva — uno che confonde i nomi — e infatti nella battuta accanto sbaglia anche
+il nome di una città. Vedi [[il-gioco-di-parole-cambia-canale]].
+
+---
+
+## 2026-08-12 — L'ultimo «nome da fare» stava su una riga commentata
+
+`strumenti/estrai.py` non riconosce i commenti HSP: raccoglie anche le righe che
+cominciano per `;`, che il compilatore non vede. Misurato incrociando le 27.813
+voci estratte con la riga da cui vengono: **28 stanno su righe commentate**, di
+cui **17 in `db_creature.hsp`**, e 4 cadevano nel lavoro che restava.
+
+Una di quelle quattro era **l'unico `nome` di creatura ancora aperto**, e le
+riprese lo portavano avanti da sessioni come «1 nome»:
+
+```
+105060  ; return lang("ハードゲイ", "hard gay")
+105061    return lang("エクスプロージョマン", "explosioman")
+```
+
+La riga viva è la 105061, e `explosioman` era **già reso** «l'uomo esplosivo».
+L'altra occorrenza di `ハードゲイ` (`:105098`) è anch'essa commentata: **zero
+occorrenze vive**. Renderla avrebbe dato alla stessa creatura un secondo nome
+italiano, e un nome già preso non si riusa. Le altre tre erano i versi
+「フーーー」 dello stesso mostro, commentati in tutte e cinque le occorrenze.
+
+**Deciso:** le quattro voci in `rinviate.jsonl` col motivo, non tradotte.
+`estrai --da-tradurre` le toglie dai lotti, `verifica --dizionario` continua a
+contarle fra le non tradotte — che è giusto: sono lavoro *escluso*, non lavoro
+*chiuso*. **I nomi di `db_creature.hsp` risultano da qui chiusi.**
+
+**Rinviata, e va rinviata apertamente:** far saltare i commenti a `estrai.py` è
+la correzione giusta in astratto, ma sposterebbe la prova d'identità da
+**27.813 a 27.785**, e quel numero è citato come firma dello stato buono in
+`SPEC.md`, in `RIPRESA-sessione.md` e nelle attese di apertura. Cambiarlo di
+soppiatto renderebbe illeggibile ogni confronto con le sessioni precedenti. La
+decisione è **quando** pagarla, non **se**.
+
+⚠️ Il controllo va fatto sulla **riga**, non sul contenuto: una stringa può
+comparire in un commento e anche viva altrove. La domanda è se *tutte* le sue
+occorrenze sono morte.
+
+---
+
+## 2026-08-12 — Quattro battute restano in inglese, perché il giapponese è inglese
+
+Lo `<Spazzino di sotterranei>` (`db_creature.hsp:99788-99800`):
+
+```
+lang("「Target Acquired.」",      "Target Acquired.")
+lang("「Resistance is futile!」", "Resistance is futile!")
+lang("「Pwned!」",                "Pwned!")
+lang("「wtf」",                   "WTF")
+```
+
+In un file dove **ogni** altra voce ha due forme diverse, l'identità dei due
+slot è upstream che dichiara un'intenzione: la macchina parla inglese **anche al
+giocatore giapponese**. È inglese da robot più gergo di rete — «Resistance is
+futile!» è la citazione dei Borg, «Pwned!» è un refuso di *owned* diventato
+parola, «wtf» è una sigla.
+
+Il giocatore giapponese sente una macchina che parla **straniero**. Renderlo in
+italiano gli farebbe parlare la lingua di chi legge, cioè l'opposto
+dell'effetto voluto.
+
+**Deciso:** le quattro in `invariati.md`, col motivo scritto per esteso. Stesso
+criterio già usato per `user`, dove il giapponese identico all'inglese segnala
+uno slot e non un nome.
+
+⚠️ **Non vale per automatismo.** Nello stesso progetto un verso animale identico
+nelle due lingue *va* reso, perché l'italiano ha la sua onomatopea: lì
+l'identità è un caso, non una scelta. La prova è chiedersi se l'originale, letto
+da chi lo parla, suoni estraneo **di proposito**.
+
+⚠️ **Da rimettere in discussione con uno screenshot.** È la decisione della 27ª
+che regge su un ragionamento e non su una prova: se a schermo, in mezzo a un log
+italiano, quelle quattro righe stonano invece di caratterizzare, la riga di
+`invariati.md` va tolta. `spawn_chara 32`.
+
+---
+
+## 2026-08-12 — L'inglese non riscrive soltanto: ricicla il repertorio di un'altra creatura
+
+Sesto modo, che non era nei cinque della ventiseiesima. Le battute
+dell'**erudito** (`76452`/`76458`/`76464`) — «P-please, no sir...», «You are
+cruel.», «Ha ha ha!» — escono **identiche** in bocca a:
+
+| creatura | righe | che cosa dice il giapponese |
+|---|---|---|
+| profugo degli Elea | `88274`-`88286` | ha fame, vuole rivedere la sua terra |
+| viaggiatore | `88185`-`88197` | viene rapinato, chiede di smetterla |
+| saggio della collina | `73911` | muore riconoscendo di non aver saputo abbastanza |
+| pescatore | `90657` | impreca in parlata da porto |
+| addetto del casinò | `88363`-`88375` | minaccia la tortura, chiama i buttafuori |
+
+Cinque registri opposti, un solo testo inglese. ⚠️ Il rimedio contro «cambia il
+personaggio» — prendere la **creatura intera** nel lotto — qui non serve, perché
+anche l'insieme resta coerente con sé: chi traduce dall'inglese scrive cinque
+volte lo stesso vigliacco senza mai insospettirsi.
+
+**Misurato invece che scoperto un lotto per volta: 84 stringhe inglesi coprono
+231 giapponesi diversi** in `db_creature.hsp`. `Huh?` da solo ne copre sei;
+`Why are you doing this?`, `P-please, no sir...`, `You are cruel.`, `Ahhhh!`,
+`Go to hell!`, `Stop it!` ne coprono cinque ciascuna.
+
+**Deciso:** il raggruppamento per inglese entra nel metodo, prima di comporre il
+lotto — non come guardia automatica (non c'è niente da bocciare: ogni resa è
+legittima) ma come **elenco di righe su cui l'inglese non è una fonte**.
+Resta aperta `102518`/`102524`/`102530`.
+
+💡 **E funziona al rovescio.** La **guardia cittadina** (`98449`) e il
+**guerriero mercenario** (`115178`) hanno le stesse quattro frasi giapponesi con
+due inglesi diversi. Lì la regola si capovolge: non si reinventa, si **copia** la
+resa già decisa, e la differenza dell'inglese è rumore. Stesso caso per
+`<Carla> del Mondo Dimenticato` e `<Larnneire>`, che condividono tre battute.
+
+⚠️ Ma `<Carla>` invoca `ザビ王`, non `ジャビ王`: viene da un altro mondo, e
+l'inglese scrive «King Zabi» qui e «Xabi» per Palmia. **Sono due nomi**, e il
+riuso del resto non autorizza a fonderli.
