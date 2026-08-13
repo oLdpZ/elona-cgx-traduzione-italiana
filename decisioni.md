@@ -6,6 +6,83 @@ ancora aperte.
 
 ---
 
+## Il presente indicativo non e' stile: e' l'unico tempo che non concorda — 2026-08-13, trentatreesima sessione
+
+Aprendo `proc.hsp` per i due lotti della predica e delle tattiche, la domanda
+era che tempo verbale usare per righe come `name(cc) + "は空高く跳躍した。"`.
+Il giapponese e' al **passato**, l'inglese pure (`jumped high into the sky`).
+
+⚠️ **E in italiano il passato prossimo e' vietato qui**, non per gusto: «e'
+saltato» concorda con `name(cc)`, che e' **qualunque creatura** — «la strega e'
+saltato». E' la stessa trappola dei sei participi trovati nella 30ª, ma stavolta
+non e' una svista in una resa: sarebbe stata la forma **normale** di trecento
+righe di log.
+
+💡 **La risposta era gia' nel file e nessuno l'aveva scritta.** Le 31 dinamiche
+di `proc.hsp` gia' rese sono **tutte al presente**: `:226` «disinnesca la
+trappola», `:1094` «si mette a scrivere», `:1359` «torna in se'», `:850`
+«applaude». Le sessioni precedenti l'avevano applicato senza dichiararlo.
+
+**Regola, adesso scritta**: nelle righe di log con `name()` si usa il **presente
+indicativo**. Non e' una scelta di registro — e' la forma che non ha participio
+da accordare. Dove serve il passato si cerca un verbo che regga al presente, non
+si accetta l'accordo.
+
+💡 **E 「〜を始めた」 e' gia' «si mette a...» in quattro siti** (`:1094`, `:1118`,
+`:1397`, `:1587`). Copiato invece di ridecidere.
+
+### ⚠️ Lo stesso inglese per tre giapponesi diversi, a ottocento righe di distanza
+
+`The audience gives  total of  gold pieces.` sta a `:1000`, `:1571` e `:1834`,
+e i tre giapponesi sono **おひねり** (la mancia dell'esibizione), **めぐんでもらった**
+(l'elemosina) e **お布施** (l'offerta religiosa). Sono tre scene diverse del gioco.
+
+Le prime due erano gia' distinte in dizionario — «monete d'oro» e «monete d'oro
+di elemosina» — e la terza le segue con «monete d'oro in oboli», dove `obolo`
+viene da `db_creature.hsp:87382` («l'o-bo-lo» di `<Yacatect>`).
+
+💡 **E' il riciclo inglese della 27ª** (l'erudito e il profugo), qui applicato a
+righe di sistema invece che a battute. La rete 3 non lo prende, perche' i tre
+giapponesi sono diversi: lo prende solo chi guarda il giapponese.
+
+### 💡 La rete 3 ha lavorato di nuovo, e stavolta la resa vecchia aveva ragione
+
+「は歓声を上げた。」 di `:1791` (la predica) e' lo stesso giapponese di `:850`
+(l'esibizione), gia' reso **«applaude»**. Segnalato dalla rete, guardato, e
+**copiato**: e' la stessa figura — il pubblico che reagisce bene — e divergere
+avrebbe creato una divergenza che **nessuna guardia vede**, perche'
+`--divergenti` legge solo `db_creature.hsp`.
+
+⚠️ **E' la differenza con il caso 「ガウッ」 della 31ª**, dove la rete segnalo' e
+la resa vecchia era **sbagliata**. La rete non dice chi ha ragione: dice di
+guardare. Le due volte l'esito e' stato opposto.
+
+### 💡 Otto registri che non si sono decisi: si sono ritrovati
+
+Le sedici battute della predica sono gli **otto dei** che reagiscono a chi
+predica la loro fede, e il registro di ognuno era gia' fissato in
+`db_creature.hsp`. Non e' stato deciso niente di nuovo:
+
+- **Opatos** ride, e le sue risate erano gia' rese: フハッハハアッ → «Fuahhahaah!»
+  (`:100929`). 「フハハハハハーン！！！」 segue quell'ortografia.
+- **Ehekatl** **ripete la coda della frase**: 「なっちゃった！なっちゃった！」 era gia'
+  «Di muoversi! Di muoversi!» (`:101187`), quindi 「くれてるの？くれてるの？」 diventa
+  «Un complimento? Un complimento?».
+- **Jure** balbetta, e la balbuzie era gia' resa col raddoppio della lettera:
+  「さ、寂しく」 → «N-non è che mi mancassi» (`:100593`).
+- **Yacatect** parla kansai-ben, e il progetto lo rende **italiano parlato, non
+  un dialetto italiano** (`:87471`, «Ma piantala, va'!»).
+- **Mani** resta in **minuscolo**: la 31ª ha deciso che il maiuscolo lo porta il
+  katakana, e Mani parla giapponese normale (`:101522`, «Un risultato prevedibile.»).
+
+⚠️ **Due trappole nelle sedici.** 「いい子ね」 di Lulwy e' «brava/bravo», che
+concorda col giocatore: reso **«Così mi piaci»**, invariante. E 「恥ずかしいじゃない」
+di Jure ha じゃない **confermativo** — «è imbarazzante, no?» — mentre l'inglese
+scrive `I'm not embarrassed`, cioe' **lo nega**. Arbitra il giapponese, e il
+registro tsundere di Jure conferma che l'imbarazzo c'e'.
+
+---
+
 ## Tre `buffdesc` dove l'inglese e' incompleto, e chi arbitra e' il codice — 2026-08-13, trentatreesima sessione
 
 I 63 `buffdesc` chiudono `buff.hsp`. In tre di essi giapponese e inglese **non
