@@ -374,6 +374,7 @@ scrivere, probabilmente la stringa va tradotta.
 | `[Lv. 80] H Sister` | titolo di missione secondaria (`text.hsp:10851`), giapponese えっちないもうと. Come sopra: `H Sister` è già invariato qui sopra |
 | `...` | **non è testo: è un silenzio.** Battuta di `<Aime> la narratrice` quando la si offende (`db_creature.hsp:45494`), giapponese 「…」. La resa italiana dei puntini di sospensione è `...` — tre punti ASCII, perché `…` su un byte non esiste e la build inglese lo sbaglia (vedi `accenti.doppi_byte_cp932`) — e coincide con l'inglese per costruzione: la traduzione giusta **è** l'identità. Non c'è nessuna parola dentro |
 | `?\"` | **non è testo: è punteggiatura.** Coda di una domanda spezzata fra due `lang()` (`db_creature.hsp:49873`, giapponese さん？」). Non c'è nessuna parola da tradurre, e anche qui l'identità nasce dal passaggio a `\"` |
+| `...!` | **è lo stesso silenzio della riga sopra, con un punto esclamativo.** Battuta del ninja rosso quando lo si offende (`db_creature.hsp:87626`), giapponese 「…！」: un ninja che non parla. ⚠️ Lo stesso giapponese compare anche a `88185`, dove però l'inglese ci ha messo delle parole (`W-w-what...!`) e la resa italiana torna a essere `...!` **senza** coincidere: è la prova che l'identità qui nasce dall'inglese, non dalla resa |
 
 ## Valori di dato, non testo — tradurli rompe i salvataggi
 
