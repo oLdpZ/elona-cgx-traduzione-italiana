@@ -6,6 +6,43 @@ ancora aperte.
 
 ---
 
+## Due inglesi che si contraddicono: chi arbitra e' il giapponese — 2026-08-13, trentunesima sessione
+
+Il verso 「ガウッ」 compare due volte in `db_creature.hsp`, e i due rami inglesi
+dicono cose diverse:
+
+| dove | creatura | inglese |
+|---|---|---|
+| `44170` | il ghepardo di un altro mondo | `*gulp*` |
+| `52145` | `<Il Figlio del Caos>` | `*Growl*` |
+
+La resa vecchia di `44170` era **`*gnam*`**, cioe' seguiva `*gulp*`: un
+boccone. Ma ガウ in giapponese e' un **ringhio**, non una deglutizione, e la
+riga accanto — 「ガルル！」, `*grrr!*` — conferma che il repertorio e' quello di
+una bestia che ringhia.
+
+💡 **La regola vale gia' e qui si vede a occhio nudo**: quando i due inglesi
+dello stesso giapponese si contraddicono, non c'e' modo di «seguire l'inglese»
+— bisogna aprire il giapponese. Il caso e' piu' netto della famiglia gia' nota
+(l'inglese che *specializza* un giapponese generico, 「がおー」 = `*creaking*`
+su un golem di legno e `*growl*` su una divinita' serpente): li' le due letture
+convivono, qui una delle due e' semplicemente sbagliata.
+
+**Corrette tutte e due a `*ringhio*`**, che e' diverso da `*grrr!*` come ガウッ
+e' diverso da ガルル. La correzione e' stata fatta **nel dizionario**, non nel
+lotto: `44170` era gia' in dizionario da sessioni.
+
+⚠️ **Il conto di `--divergenti` non si e' mosso** (resta 13), ed e' il punto:
+se avessi reso solo `52145` sarebbe salito a 14, e la divergenza sarebbe stata
+mia. Correggere il sito vecchio costa una riga e toglie il problema invece di
+registrarlo.
+
+💡 **Come si e' trovato**: il referto del lotto stampa «⚠️ GIA' RESO ALTROVE»,
+e la terza rete dello script del lotto **si ferma** su una resa che diverge da
+una gia' decisa. E' la rete che ha fatto la segnalazione — non l'occhio.
+
+---
+
 ## Sei rese facevano concordare un participio col giocatore — 2026-08-13, trentesima sessione
 
 La regola «il giocatore non ha genere noto» è nel progetto da venti sessioni, e
