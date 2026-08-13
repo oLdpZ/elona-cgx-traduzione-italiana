@@ -7,6 +7,8 @@ sbagliato** — battute attribuite alla creatura accanto, o alla classe sbagliat
 """
 import json
 
+import pytest
+
 from strumenti import percorsi
 from strumenti.battute import (
     FILE,
@@ -16,6 +18,33 @@ from strumenti.battute import (
     repertori,
     rese_gia_decise,
 )
+
+
+def estrazione_da_fare():
+    """L'estrazione delle battute ancora da tradurre, o si salta.
+
+    ⚠️ Due motivi diversi per saltare, e tutt'e due sono normali:
+
+    - il file **non c'e'**: si rigenera con `strumenti.estrai`;
+    - il file c'e' ed e' **vuoto**, cioe' non resta niente da tradurre.
+
+    Il secondo e' successo per la prima volta il 2026-08-13, quando le battute
+    di `db_creature.hsp` si sono chiuse: tre test sono diventati rossi tutti
+    insieme — `max()` di una lista vuota, una divisione per zero, due ordini
+    vuoti che «coincidono». Nessuno dei tre aveva trovato un difetto: provano
+    proprieta' dell'ordinamento di un elenco, e su un elenco vuoto quelle
+    proprieta' non hanno senso da provare.
+
+    💡 Un test che diventa rosso perche' il lavoro **e' finito** e' rumore, e su
+    una catena di sette verifiche il rumore costa: chi apre la sessione dopo
+    legge «3 failed» e crede che qualcosa si sia rotto.
+    """
+    estrazione = percorsi.LAVORO_LOTTI / "_c.jsonl"
+    if not estrazione.exists():
+        pytest.skip("serve lavoro/_c.jsonl, che si rigenera con strumenti.estrai")
+    if not estrazione.read_text(encoding="utf-8").strip():
+        pytest.skip("lavoro/_c.jsonl e' vuoto: non restano battute da tradurre")
+    return estrazione
 
 
 SORGENTE_FINTO = "\n".join([
@@ -59,10 +88,7 @@ def test_ogni_voce_da_fare_riceve_una_creatura(tmp_path):
     gruppo senza nome e il lotto le porterebbe insieme a quelle di altre
     creature, con registri diversi mescolati.
     """
-    estrazione = percorsi.LAVORO_LOTTI / "_c.jsonl"
-    if not estrazione.exists():
-        import pytest
-        pytest.skip("serve lavoro/_c.jsonl, che si rigenera con strumenti.estrai")
+    estrazione = estrazione_da_fare()
 
     ordinate, _, _ = repertori(estrazione=estrazione)
     orfane = [ident for ident, _ in ordinate if not ident.startswith("CREATURE_ID_")]
@@ -77,10 +103,7 @@ def test_i_nomi_italiani_arrivano_dal_dizionario():
     hanno un nome italiano devono essere poche. Se diventassero molte vorrebbe
     dire che la mappa `dbid` si e' rotta, non che i nomi sono spariti.
     """
-    estrazione = percorsi.LAVORO_LOTTI / "_c.jsonl"
-    if not estrazione.exists():
-        import pytest
-        pytest.skip("serve lavoro/_c.jsonl")
+    estrazione = estrazione_da_fare()
 
     ordinate, nomi, _ = repertori(estrazione=estrazione)
     senza = [ident for ident, _ in ordinate if ident not in nomi]
@@ -154,10 +177,7 @@ def test_in_testa_stanno_le_creature_di_livello_piu_basso():
     che **il primo decimo e' piu' basso dell'ultimo**, che e' la cosa per cui il
     criterio esiste, e che resta vera mentre l'elenco si accorcia.
     """
-    estrazione = percorsi.LAVORO_LOTTI / "_c.jsonl"
-    if not estrazione.exists():
-        import pytest
-        pytest.skip("serve lavoro/_c.jsonl")
+    estrazione = estrazione_da_fare()
 
     testo = (percorsi.SORGENTE_HSP / FILE).read_bytes().decode("cp932")
     livello_di = livelli(testo, *contesto_per_riga(testo))
@@ -175,10 +195,7 @@ def test_in_testa_stanno_le_creature_di_livello_piu_basso():
 
 def test_per_riga_rimette_l_ordine_del_sorgente():
     """L'opzione di ripiego deve davvero cambiare l'ordine, non solo esistere."""
-    estrazione = percorsi.LAVORO_LOTTI / "_c.jsonl"
-    if not estrazione.exists():
-        import pytest
-        pytest.skip("serve lavoro/_c.jsonl")
+    estrazione = estrazione_da_fare()
 
     per_riga, _, _ = repertori(estrazione=estrazione, per_riga=True)
     righe = [min(v["riga"] for v in voci) for _, voci in per_riga]

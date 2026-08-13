@@ -36,15 +36,26 @@ Le 3.655 firme del file, misurate con `strumenti/creature.py` più il dizionario
 | classe | rese | da fare |
 |---|---|---|
 | nome | **1.131** | 0 ⭐ chiusi |
-| battuta (`voce`) | **1.637** | **882** |
+| battuta (`voce`) | **2.519** | 0 ⭐ chiuse |
 | senza classe | 1 | 0 |
 | rinviate (righe commentate) | — | 4 |
-| **totale** | **2.769** | **886** |
+| **totale** | **3.651** | **4** |
 
-⚠️ **Aggiornato a fine ventisettesima sessione (2026-08-12).** Le battute rese
-sono passate da 960 a 1.637 — dodici lotti, `fase2-battute-015` … `-026` — e
-coprono i livelli **6-45**: le creature di citta', i PNG di trama e i primi
-sotterranei.
+⭐ **Aggiornato a fine trentunesima sessione (2026-08-13): il file è chiuso.**
+Le quattro voci che restano sono le righe commentate rinviate apposta, e
+`verifica --dizionario` continuerà a contarle per sempre. Fuori conto resta
+`86293`, la battuta col ramo inglese vuoto, che `estrai.py` non vede nemmeno.
+
+Le battute si sono chiuse in tre tappe: i lotti `015`-`026` della 27ª coprono i
+livelli **6-45** — le creature di citta', i PNG di trama e i primi sotterranei;
+i dieci lotti `027`-`036` della 30ª i livelli **45-157**, cioè i PNG delle
+gilde, i boss di trama e i mostri di Nefia profonda; i sei lotti `037`-`042`
+della 31ª tutto il resto, **159-1200**: i demoni, gli dèi del Patto Eterno, gli
+otto dèi di Elona e le loro forme potenziate.
+
+⚠️ **Il file è chiuso nel dizionario, non a schermo.** Delle 2.519 battute rese
+ne sono state viste in gioco poche decine. Vedi `RIPRESA-sessione.md`, «Il
+collaudo, punto per punto».
 
 ⚠️ **I nomi risultano chiusi solo dopo la 27ª**, e l'ultimo che i conteggi
 mostravano da fare **non esisteva**: stava su una riga commentata

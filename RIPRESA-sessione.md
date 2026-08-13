@@ -1,6 +1,6 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-13, fine della **trentesima** sessione.
+Aggiornato: 2026-08-13, fine della **trentunesima** sessione.
 
 ## ⚠️ Prima di tutto: il progetto vive su due macchine
 
@@ -26,10 +26,11 @@ git), in una forma nuova: dentro git, ma su una macchina sola.
 aprendo una sessione su una macchina qualsiasi è `git fetch && git status -sb`.
 Chi apre a Firenze senza guardare riparte da prima di ferragosto.
 
-✅ **Spinto di nuovo a fine 30ª**, sempre dal portatile. La 30ª ha aperto con
-`git fetch && git status -sb` e le due copie erano allineate: la regola ha
-tenuto. Al 13/08 **il lavoro prosegue dal portatile**: la macchina di Firenze
-riprende a fine vacanze, e lì la prima cosa è `git pull`, non `git push`.
+✅ **Spinto di nuovo a fine 30ª e a fine 31ª**, sempre dal portatile. Tutt'e due
+hanno aperto con `git fetch && git status -sb` e tutt'e due hanno trovato le
+copie allineate: la regola ha tenuto due volte di fila. Al 13/08 **il lavoro
+prosegue dal portatile**: la macchina di Firenze riprende a fine vacanze, e lì
+la prima cosa è `git pull`, non `git push`.
 
 Sul portatile ogni comando degli strumenti va aperto così, perché `python`
 nudo è il segnaposto del Microsoft Store e non esegue niente:
@@ -46,38 +47,41 @@ giapponese** e lo stampa come `?`, il che rende illeggibili le colonne `jp`.
 
 ## La prima cosa da fare
 
-**La 30ª ha fatto dieci lotti di battute**, dal `027` al `036`: **562 rese**, 121
-creature chiuse, catena verde a ogni lotto. Le battute di `db_creature.hsp` sono
-passate da **882 a 316**, e le creature da fare da 172 a **51**.
+⭐ **`db_creature.hsp` è chiuso.** La 31ª ha fatto sei lotti, dal `037` al `042`:
+**315 rese**, 51 creature, catena verde a ogni lotto. Le battute sono passate da
+**316 a 0** e le creature da fare da 51 a **0**. Il file era a 1.563 da fare
+all'apertura della 27ª.
 
-⚠️ **La cosa che vale più dei lotti**: cercando una resa gemella si è scoperto che
-**sei rese in dizionario facevano concordare un participio col giocatore**, che
-non ha genere noto — e una delle sei l'avevo scritta io due ore prima, nel lotto
-029. Corrette tutte e sei; la ricerca che le trova sta in `decisioni.md` e **va
-rilanciata a ogni lotto**, perché non è automatizzabile in una guardia (dà falsi
-positivi legittimi: `Qual è il prossimo bersaglio?` concorda con `bersaglio`).
+Restano **quattro** voci non tradotte in quel file, e sono le quattro **rinviate
+apposta**: le righe commentate nel sorgente, registrate in `rinviate.jsonl` col
+motivo. Più `86293`, la battuta col ramo inglese vuoto, che `estrai.py` non vede
+nemmeno. Nient'altro.
 
 ⚠️ **Resta valida la domanda della 29ª all'apertura di ogni file nuovo**: *questo
 file nomina cose che un altro file ha già nominato?* La riga di comando che
-risponde sta in `decisioni.md`.
+risponde sta in `decisioni.md`. E resta la **ricerca dei participi** di
+`decisioni.md`, da rilanciare a ogni lotto: nella 31ª ha dato **0** ogni volta,
+su tutto il dizionario, il che vuol dire che le sei correzioni della 30ª hanno
+tenuto e che nessuna delle 315 rese nuove ne ha introdotte.
 
 **Il lavoro che riparte, in ordine:**
 
-1. le **battute di `db_creature.hsp`**, **316 da fare** su **51 creature**, per
-   creatura intera e in ordine di livello — lo strumento compone il lotto da
-   solo, vedi più sotto. È il fronte a frequenza più alta del gioco. ⚠️ Da qui in
-   avanti le creature sono tutte oltre il livello 157: la procura del livello ha
-   ormai speso quasi tutto il suo vantaggio, e le ultime creature sono quelle che
-   si incontrano meno — divinità, superboss e mostri di Nefia profondissima;
-2. i **`bufftxt`** di `buff.hsp` come **lavoro strutturale a parte**, non come
+1. i **`bufftxt`** di `buff.hsp` come **lavoro strutturale a parte**, non come
    lotto di rese: prima la toppa su `chara_func.hsp:2316-2375`, poi le rese.
    ⚠️ Prima ancora, la domanda qui sopra: quante delle 65 sono già rese altrove?
-3. i **63 `buffdesc`**, che nessun documento nominava prima della 29ª: sono
+2. i **63 `buffdesc`**, che nessun documento nominava prima della 29ª: sono
    dentro `lang()` ma molti si compongono con `+` da variabili a runtime, quindi
    vanno guardati prima di contarli come lotto;
-4. **`proc.hsp`**, a 127 su 1.098, per zona di riga dalla **riga 1716** in
+3. **`proc.hsp`**, a 127 su 1.098, per zona di riga dalla **riga 1716** in
    avanti (le esibizioni sono chiuse fino a 1665; 1716-1780 sono le reazioni
-   degli dèi alla predica).
+   degli dèi alla predica);
+4. `command.hsp` e `trait.hsp`, che sono ~1.680 firme mai toccate.
+
+💡 **E c'è un debito di collaudo grosso come il lavoro fatto.** Sei lotti in una
+sessione hanno prodotto una lista di prove a schermo che nessuno ha ancora
+guardato, e le liste delle sessioni 27-30 non sono mai tornate. Vedi «Il
+collaudo, punto per punto»: prima di aprire `buff.hsp` **conviene una sessione
+di sole prove in gioco**, con l'eseguibile che c'è già.
 
 ⚠️ **I nomi di creatura sono chiusi**: l'ultimo che i conteggi mostravano da
 fare era su una riga commentata. Vedi «Le righe commentate» più sotto.
@@ -86,7 +90,7 @@ fare era su una riga commentata. Vedi «Le righe commentate» più sotto.
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-python -m pytest strumenti/tests -q        # atteso: 398 passed, 2 skipped
+python -m pytest strumenti/tests -q        # atteso: 394 passed, 6 skipped
 python -m strumenti.prova_identita         # atteso: 72/72, 27.813, ambigue 0
 python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre ovunque
 python -m strumenti.creature               # atteso: nome 1131, voce 2466, doppie 0, senza razza 0
@@ -94,6 +98,20 @@ python -m strumenti.larghezze              # atteso: 0 fuori misura su 75 menu
 python -m strumenti.diario                 # atteso: 0 fuori misura su 214 siti
 python -m strumenti.battute --divergenti   # atteso: 13, tutte legittime
 ```
+
+⚠️ **I quattro test in più che saltano sono la chiusura di `db_creature.hsp`**,
+non un guasto. Leggono `lavoro/_c.jsonl` e provano proprietà dell'**ordinamento
+di un elenco**: su un elenco vuoto tre di loro morivano — `max()` di niente, una
+divisione per zero, due ordini vuoti che «coincidono». Il 13/08 sono diventati
+rossi tutti insieme per la prima volta, e nessuno dei tre aveva trovato un
+difetto. Adesso `estrazione_da_fare()` salta anche sul file **vuoto**, oltre che
+sul file assente. 💡 Provato che il guardiano non li ha spenti: con
+un'estrazione piena (`estrai` senza `--da-tradurre`) tornano a girare e passano.
+
+💡 **E l'ottava, che nessuno strumento fa**, il referto dei participi che
+concordano col giocatore (la riga di comando sta in `decisioni.md`): atteso
+**0** su tutto il dizionario. Non è una guardia — è un referto da leggere — ma
+adesso che è a zero un valore diverso da zero significa qualcosa.
 
 Se `--divergenti` sale, qualcuno ha reso due volte in modo diverso la stessa
 frase giapponese. Le due nuove della 27ª sono volute: 「きゅう…」 («*sbuffo*»
@@ -138,24 +156,79 @@ Nessun output = 72/72. ✅ Ricontrollato l'11/08 a fine 27ª.
 | `buff.hsp` | **71** | 199 | 36% — i `buffname` sono chiusi il 2026-08-13 |
 | `command.hsp`, `trait.hsp` | 0 | ~1.680 | 0% |
 
-`db_creature.hsp`: **1.131 nomi** (chiusi, sul serio: vedi sotto) + **2.199
-battute rese**, **316 da fare** su **51 creature**. Era a 1.563 all'apertura della
-27ª. I lotti `015`-`026` coprono i livelli **6-45** — le creature di città, i PNG
-di trama e i primi sotterranei — e i dieci lotti `027`-`036` della 30ª coprono i
-livelli **45-157**, cioè i PNG delle gilde, i boss di trama e i mostri di Nefia
-profonda. Quel che resta sta **tutto oltre il livello 157**.
+`db_creature.hsp`: **1.131 nomi** + **2.519 battute rese**, **0 da fare**. ⭐
+**Chiuso il 2026-08-13**, a parte le quattro righe commentate rinviate apposta.
+Era a 1.563 da fare all'apertura della 27ª. I lotti `015`-`026` coprono i livelli
+**6-45** — le creature di città, i PNG di trama e i primi sotterranei — i dieci
+lotti `027`-`036` della 30ª i livelli **45-157**, cioè i PNG delle gilde, i boss
+di trama e i mostri di Nefia profonda, e i sei lotti `037`-`042` della 31ª tutto
+il resto: **159-1200**, cioè i demoni, gli dèi del Patto Eterno, gli otto dèi di
+Elona e le loro forme potenziate.
 
 ⚠️ I conti per classe si rifanno così, e non si deducono: le classi si leggono
 dal `dbmode` che precede la riga nel sorgente, incrociando `dizionario/` per le
-rese e `lavoro/_c.jsonl` per quelle da fare. `2.092 + 1.563 = 3.655`, che è il
-totale delle firme del file.
+rese e `lavoro/_c.jsonl` per quelle da fare. Rifatti il 13/08 a fine 31ª:
+`2.519 voce + 1.131 nome + 1 senza classe + 4 rinviate = 3.655`, che è il totale
+delle firme del file. 💡 **Dedurli sbagliava**: la ripresa portava «2.199
+battute rese» e sommandoci i lotti veniva 2.515, quattro in meno del vero.
 
 Altri fuori Fase 1: `custom_enemyevolution.hsp` **chiuso**; `ai.hsp` 6 su 100;
 `event.hsp` 5 su 654; `chara_func.hsp` 45 su 331; `init.hsp` 6 su 133.
 
-**398 test**, prova d'identità **72/72 e 27.813**, **12.532 sostituzioni**, il
+**398 test**, prova d'identità **72/72 e 27.813**, **12.903 sostituzioni**, il
 compilatore non dice nulla, manifesto del sorgente **72/72** (ricontrollato il
-13/08 a inizio 30ª).
+13/08 a inizio 31ª).
+
+## Le tre scoperte della trentunesima sessione
+
+### 1. ⚠️ Due inglesi che si contraddicono, e chi arbitra è il giapponese
+
+Il verso 「ガウッ」 sta in due punti del file: a `44170` l'inglese dice `*gulp*`,
+a `52145` dice `*Growl*`. La resa vecchia era **`*gnam*`**, cioè seguiva
+`*gulp*`. Ma ガウ è un **ringhio**, non un boccone, e la riga accanto —
+「ガルル！」, `*grrr!*` — conferma il repertorio della bestia.
+
+💡 **È una famiglia diversa da quella già nota.** Nella 26ª si era visto
+l'inglese che *specializza* un giapponese generico (「がおー」 = `*creaking*` su
+un golem di legno e `*growl*` su una divinità serpente): lì le due letture
+convivono ed è legittimo. **Qui una delle due è semplicemente sbagliata**, e non
+c'è modo di accorgersene senza aprire il giapponese.
+
+⚠️ **Corrette tutte e due a `*ringhio*`**, e la correzione vecchia è andata **nel
+dizionario**, non nel lotto. Il punto è che `--divergenti` **non si è mosso**:
+rendendo solo il sito nuovo sarebbe salito a 14 e la divergenza sarebbe stata
+mia. Costa una riga togliere il problema invece di registrarlo.
+
+💡 **A trovarla è stata una rete dello script del lotto, non l'occhio.**
+
+### 2. 💡 La chiave del lotto conviene che sia `(riga, en)`, non `(riga, jp)`
+
+Il metodo della 27ª dice di chiavare il dizionario delle rese su `(riga, jp)`,
+perché il referto stampa riga e giapponese. **Ma il giapponese va scritto a
+mano, e due volte in questa sessione un codepoint era sbagliato** — `喧` scritto
+`U+5583`, `鉾` scritto `U+9243`. Tutt'e due le volte si è fermata la prima rete,
+quindi il danno è stato zero; ma è tempo perso a ogni lotto.
+
+Dal lotto `041` la chiave è **`(riga, en)`**: l'inglese è ASCII e non si sbaglia
+a copiarlo. ⚠️ Serve **una rete in più**, perché `(riga, en)` identifichi
+davvero: due voci sulla stessa riga con lo stesso inglese e giapponesi diversi
+esistono (è il riciclo inglese, 84 stringhe su 231 giapponesi), e in quel caso
+la chiave va cambiata per quella voce. Nei lotti `041` e `042` non è successo.
+
+💡 In alternativa c'è `scratchpad/scheletro.py`, che **genera le chiavi
+giapponesi dall'estrazione**, esatte per costruzione: chi preferisce `(riga, jp)`
+usa quello e non le scrive a mano.
+
+### 3. 💡 Una rete nuova: lo stesso giapponese due volte **dentro** lo stesso lotto
+
+`rese_gia_decise()` legge il **dizionario**, quindi non vede due voci dello
+stesso lotto che condividono il giapponese: non ci sono ancora. È la trappola
+della 26ª (il punk e il teppista) in forma nuova, e nel lotto `039` era reale —
+i due Yerleswood condividono 「突撃モード継続」 e 「対象ノ行動パターン解析中」 con
+inglesi diversi, quattro firme in tutto.
+
+La rete costa quattro righe: raggruppa le rese del lotto per giapponese e
+**muore** se un giapponese ne ha due diverse. Da copiare in ogni lotto futuro.
 
 ## Le quattro scoperte della trentesima sessione
 
@@ -402,8 +475,10 @@ python -m strumenti.genera_toppe_nomi
 python -m strumenti.genera_toppe_casuali
 ```
 
-Fatti `fase2-battute-001` … `-034`. Dopo aver rigenerato l'estrazione le
-creature già fatte spariscono, quindi si riparte sempre da `[0]`.
+Fatti `fase2-battute-001` … `-042`, e con il `042` **il file è chiuso**. Il
+metodo resta scritto qui perché serve tale e quale al prossimo file a battute.
+Dopo aver rigenerato l'estrazione le creature già fatte spariscono, quindi si
+riparte sempre da `[0]`.
 
 💡 **Il referto stampa solo l'inglese, e l'inglese non arbitra.** Serve il
 giapponese sotto gli occhi: nella 30ª il lotto si è sempre letto con uno script
@@ -423,9 +498,19 @@ JSONL del lotto: nessun carattere a doppia larghezza tranne `♪`; nessuno dei
 proibiti (`…`, `“”`, `～`, `«»`); nessuna parola inglese residua (`the`, `you`,
 `your`, `is`, `my`…) in una statica che non sia dichiarata invariata.
 
-💡 **Lo script del lotto tiene tre reti**, e conviene copiarle: nessuna voce
-senza resa, nessuna resa che non aggancia niente, e **nessuna resa che diverge
-da una già decisa** per lo stesso giapponese.
+💡 **Lo script del lotto tiene cinque reti**, e conviene copiarle tutte:
+
+0. la chiave **identifica una voce sola** (serve solo se si chiava su `en`);
+1. nessuna voce senza resa;
+2. nessuna resa che non aggancia niente;
+3. nessuna resa che **diverge da una già decisa** per lo stesso giapponese —
+   ⚠️ questa **non deve uccidere lo script**, deve stampare: nella 31ª la
+   divergenza segnalata era giusta ed era la resa *vecchia* a essere sbagliata;
+4. ⚠️ **nessun giapponese reso in due modi dentro il lotto stesso**, che la 3
+   non vede perché legge il dizionario.
+
+Nella 31ª la 1 ha fermato due volte un codepoint sbagliato e la 3 ha trovato
+`*gnam*`. Le reti hanno lavorato più dell'occhio.
 
 💡 Le altre guardie dei lotti: niente morfologia inglese residua; nessun
 carattere a due byte tranne `♪`; nessun **participio che concorderebbe col
@@ -487,6 +572,48 @@ identico all'espressione inglese, perché la funzione porta dentro la
 traduzione. Il giapponese di `db_creature.hsp:93453` è 「ー！」, cioè il grido è
 **allungato**: la resa diventa `+ "!!"`, e la guardia si scioglie senza inventare
 niente.
+
+### Trovate nella trentunesima
+
+- ⚠️ **Il maiuscolo dei robot lo porta il katakana, non l'essere una macchina.**
+  Metal Vesda (`92618`) e i due Yerleswood scrivono le particelle in katakana
+  (`ノ`, `ヲ`, `スル`) e vanno in maiuscolo; l'androide di `122654` e `<Mani>`,
+  che è il **dio delle macchine**, parlano giapponese normale e restano in
+  minuscolo. La domanda è sul katakana, non sul personaggio.
+- 💡 **Un bisticcio di segmentazione si rifà tenendo insieme le due letture.**
+  「この先生きのこるためには！」 si legge «sopravvivere d'ora in poi» e «questo
+  maestro fa i funghi»; l'inglese lo butta via e scrive `Live!`. Reso «Di qui in
+  avanti, o si sopravvive o si fa da concime ai funghi!», che dice tutt'e due.
+  Stessa famiglia: 「受けて断つ…もとい、受けて立つ！」 → «Ti faccio a fette...
+  cioè, ti faccio fronte!».
+- ⚠️ **Un idioma tradotto alla lettera dall'inglese non è una specializzazione,
+  è un errore.** 「腕が鳴る」 è «mi prudono le mani» e l'inglese scrive `It's
+  called arm ringing`; 「引き際を間違えた」 è il momento sbagliato per ritirarsi
+  e l'inglese ci legge un grilletto; 「引導を渡す」 è dare l'estremo saluto e
+  l'inglese scrive `I'll give you guidance`.
+- 💡 **Una citazione in bocca a un personaggio si rende con la versione italiana
+  che esiste già**, e la lista continua: 「計画通り」 è Light in Death Note
+  («Tutto secondo i piani»); 「テケリ・リ」 è Lovecraft e in italiano si scrive
+  uguale; 「でーんでんむーしむし」 è la filastrocca della chiocciola e si rende
+  con quella italiana; 「ご飯にするん？お風呂にするん？それとも…」 è la battuta
+  della moglie che aspetta a casa, dove `<Yacatect>` mette l'obolo al posto di
+  sé stessa.
+- ⚠️ **Il contrario esiste e va nell'altra direzione**: 「Destroy！Dynamite！」 e
+  「Noooooooooo！」 stanno in **lettere latine anche nel giapponese**, quindi si
+  tengono. La domanda resta quella della 30ª — «è una parola inglese, o è un
+  suono?» — con una seconda prova quando la resa coincide con l'inglese:
+  *sarebbe stata questa anche senza l'inglese sotto gli occhi?*
+- 💡 **Il nome di un incantesimo dentro una battuta si copia, e se il giapponese
+  lo tronca si tronca uguale.** 「ファイアボル…？」 è `ファイアボルト` mangiato
+  dalla memoria di `<Raizel>`: la resa parte da «Saetta di fuoco»
+  (`skill.hsp:509`) e diventa «saetta di fuo...?».
+- ⚠️ **Un vocativo sbagliato di proposito resta sbagliato di proposito.**
+  `<Raizel>` scambia il giocatore per sua moglie e lo chiama `ばあさん`
+  **comunque sia il giocatore**: il vocativo porta lo scherzo — «nonnina» — e
+  tutto il resto della frase resta invariante. È la stessa forma di `_syujin`.
+- 💡 **Il ♪ è l'unico carattere a due byte che ci resta, e il ☆ si perde.**
+  「シャドウシスター推参ッ☆」 ha perso la stella: CP932 non la codifica. È una
+  perdita silenziosa, non una scelta.
 
 ### Trovate nella trentesima
 
@@ -728,8 +855,7 @@ quello prima dell'identificazione, e l'estrattore non lo guarda
    `bufftxt` diventano lavoro strutturale a parte; `chara.hsp`, `item_func.hsp`,
    `screen.hsp` e `main.hsp` restano dove sono finché non c'è il conteggio dei
    letterali fuori da `lang()`. Vedi la scoperta 1 della 28ª.
-1. **le battute di `db_creature.hsp`**, **425**, per creatura intera in ordine di
-   livello — quel che resta è tutto oltre il livello 130;
+1. ✅ **le battute di `db_creature.hsp`**: chiuse il 2026-08-13, lotti `015`-`042`;
 2. **`proc.hsp`**, 971 firme, per zona di riga da **1716**;
 3. `command.hsp`, `trait.hsp`;
 4. `ai.hsp` (94) ed `event.hsp` (649);
@@ -740,6 +866,17 @@ quello prima dell'identificazione, e l'estrattore non lo guarda
 7. i nomi non identificati di `db_item.hsp` e le 2.555 descrizioni.
 
 ## Domande aperte
+
+⚠️ **`CDATA_SEX` e il registro giapponese si contraddicono, e capita più di una
+volta.** L'`<Ex spazzino>` (`95309`) ha `CDATA_SEX = 0`, cioè maschio, ma parla
+al femminile (`やだー`, `ですよ`, `ところね`); `<Urcaguary>` (`71913`) ha
+`CDATA_SEX = 1` e parla da vecchio guerriero (`フハハ`, `殺せ`, `肉を食え`);
+`<Egelveil>` (`63370`) è femmina e usa `〜のだ`. Nella 31ª **la questione non è
+stata decisa**: dove serviva un accordo la frase è stata girata («non ho
+combinato niente»), che è la stessa tecnica usata per il giocatore. 💡 La regola
+scritta dice che *il codice arbitra sullo stato del gioco*, quindi in teoria
+vince `CDATA_SEX` — ma non è mai stata messa alla prova su una creatura che
+parla chiaramente dell'altro genere, e **a schermo non l'ha vista nessuno**.
 
 ⚠️ **`db_creature.hsp:86293`, la battuta col ramo inglese vuoto**: si allarga
 `estrai.py` alle voci con inglese vuoto — e allora `applica` deve saper scrivere
@@ -853,10 +990,10 @@ basta.
 
 ⚠️ **Controllare la data dell'exe prima di fidarsi di uno screenshot.**
 
-**L'eseguibile in `cgx-test.exe` è aggiornato a fine trentesima sessione
-(13/08/2026 14:01)** e contiene tutto fino al lotto `036`, i 71 `buffname` della
-29ª e le sei correzioni di concordanza. Compilato senza errori, **12.532
-sostituzioni**.
+**L'eseguibile in `cgx-test.exe` è aggiornato a fine trentunesima sessione
+(13/08/2026 15:07)** e contiene **tutte le battute di `db_creature.hsp`**, i 71
+`buffname` della 29ª, le sei correzioni di concordanza della 30ª e la correzione
+di `*gnam*`. Compilato senza errori, **12.903 sostituzioni**.
 
 ### La console di debug
 
@@ -1038,6 +1175,31 @@ frase.
   ⚠️ Le prime quattro vanno **aspettate tenendo premuto `5`**; le altre si
   attaccano. Il toro e la carota servono a decidere una cosa che solo lo schermo
   decide: **se il maiuscolo del katakana regge o urla troppo**.
+- 🆕 **Dai sei lotti 037-042 della 31ª** (ID verificati in `defines/mod.hsp`).
+  ⚠️ Sono tutte creature di livello altissimo: `add_ally` serve proprio perché
+  incontrarle per caso non capita.
+  ```
+  add_ally 796    <Aribel>: i sette comandamenti, numerati da uno a sei
+  add_ally 805    <Renai> e 686 <Regulus>: fratello e sorella, «forma umana»
+  add_ally 628    <Raizel>: ti chiama «nonnina» e non ricorda «saetta di fuoco»
+  add_ally 842    la <Kunoichi alla moda>: «Sorella dell'Ombra», versione completa
+  add_ally 654    <Marka>: «Orsa a chi!»
+  add_ally 534    <Aile>: annunci di bordo, poi il dialetto ruvido
+  add_ally 640    <Sinaha>: il tic del gatto, e «Miaosa... come...»
+  add_ally 331    <Ehekatl>: ripete l'ultima parola di ogni frase
+  spawn_chara 601 e 664   i due Yerleswood: MAIUSCOLO, e le due frasi in comune
+                          devono uscire IDENTICHE
+  spawn_chara 379 <Siva>: quattro versi da cane, non «Woof»
+  spawn_chara 383 l'<Ex spazzino>: «con le chiocciole ho fatto pace»
+  spawn_chara 382 la <Lumaca> in sella all'androide: la filastrocca, e
+                  «Destroy! Dynamite!» che resta in inglese di proposito
+  spawn_chara 911 <Tezcatlipoca>: «Mi prudono le mani», «Ti avvolgo nel fumo»
+  spawn_chara 756 <Shuraida>: il concime ai funghi
+  ```
+  💡 **Le tre cose che solo lo schermo decide**, in ordine di dubbio: se
+  «Miaosa» si legge o sembra un refuso; se le due frasi dei Yerleswood escono
+  davvero uguali; se il maiuscolo dei robot regge su una riga lunga come
+  «ANALISI DEGLI SCHEMI DI COMPORTAMENTO DEL BERSAGLIO IN CORSO.».
 - ⚠️ **Il non tradotto esce in inglese, non in giapponese.**
 
 ## I tetti misurati, con la loro ancora
