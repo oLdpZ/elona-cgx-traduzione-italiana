@@ -99,10 +99,32 @@ la rete dello script controlla la stringa dopo `degrada`.
 `Malattia-LvN` stanno tutte su `text.hsp:68` con `occorrenza` **0**. La chiave
 buona e' `(riga, resa attuale)`.
 
-💡 **Quello che manca**: nessuna guardia copre questi due siti. `larghezze.py`
-misura solo i menu che passano da `*prompt_key`, e i 75 menu misurati non li
-includono. Finche' non c'e' lo strumento, il prossimo che scrive un `buffname`
-lungo lo rompe di nuovo e nessun test glielo dice.
+✅ **La guardia c'e', ed e' `strumenti/riquadri.py`**, scritta lo stesso giorno
+con 18 test, e sta nelle verifiche d'apertura. `larghezze.py` non poteva
+coprirli: misura i menu che passano da `*prompt_key`, e questi due non ci
+passano.
+
+💡 **Due difetti della guardia li ha trovati un test, non l'occhio**, e vale la
+pena saperli perche' sono due modi di essere «giusti per sbaglio»:
+
+1. la prima versione cercava la `gcopy` della piastrella **entro sei righe
+   sopra** la `mes`. Un'etichetta priva della propria si sarebbe presa in
+   silenzio quella dell'etichetta precedente, cioe' un tetto che non e' il suo.
+   La regola giusta non si misura in righe: risalendo, la `gcopy` e' sua solo
+   se arriva **prima** di un'altra `mes`;
+2. leggeva il passo della colonna dalla **prima** `cs_list` di
+   `custom_ai.hsp`. Ma gli elenchi a colonne di quel file sono **quattro**, e
+   quello dei potenziamenti e' il quarto: gli altri tre hanno passo **150**. Il
+   verdetto non cambiava — 150 / 7,2 fa comunque 20 — il che e' peggio, non
+   meglio: una guardia che da' la risposta giusta misurando il posto sbagliato
+   non avverte nessuno quando smette di essere giusta.
+
+⚠️ **E quei tre elenchi sono un tetto non guardato**, con l'ancora che dice il
+contrario: elencano nomi di incantesimo, e a sfondare i 20 caratteri sono **15
+italiani su 445 ma anche 5 inglesi** (fino a `Critical Particle Cannon`, 24).
+E' la famiglia dei `buffdesc` — un tetto che upstream accetta gia' rotto —
+quindi non si tocca niente prima di averlo visto a schermo. Vedi
+`RIPRESA-sessione.md`, «Domande aperte».
 
 ---
 

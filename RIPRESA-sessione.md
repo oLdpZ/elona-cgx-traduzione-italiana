@@ -82,12 +82,13 @@ frasi sono spezzate dall'helper morfologico: nel sorgente c'è
 `" aim" + _s(cc) + " at nearby enemies."`, non la frase intera. È il file che
 il giocatore legge a **ogni singolo combattimento**, ed è il numero 2 della coda.
 
-⚠️ **Quello che la 32ª ha lasciato indietro, ed è la cosa più importante da
-fare adesso: nessuna guardia copre i due tetti nuovi.** `larghezze.py` misura
-solo i menu che passano da `*prompt_key`. Finché non c'è lo strumento, il
-prossimo `buffname` lungo rompe il menu tattiche e **nessun test lo dice**. Le
-due misure, con la loro conversione px→caratteri, stanno in `decisioni.md` e
-sono pronte da trasformare in codice.
+✅ **E i due tetti nuovi hanno la loro guardia**, scritta nella stessa sessione:
+**`strumenti/riquadri.py`**, più 18 test. Sta nelle verifiche d'apertura. 💡 Due
+cose le ha trovate il test, non l'occhio: la prima versione prendeva la
+`gcopy` «entro sei righe sopra», e un'etichetta senza piastrella si sarebbe
+presa in silenzio quella dell'etichetta precedente; e leggeva il passo della
+colonna dalla **prima** `cs_list` del file, che è un altro menu con un passo di
+150 — verdetto giusto per sbaglio, perché 150 / 7,2 fa comunque 20.
 
 ⭐ **`db_creature.hsp` è chiuso.** La 31ª ha fatto sei lotti, dal `037` al `042`:
 **315 rese**, 51 creature, catena verde a ogni lotto. Le battute sono passate da
@@ -113,10 +114,7 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
 
 **Il lavoro che riparte, in ordine:**
 
-0. ⚠️ **La guardia sui due tetti nuovi** (menu tattiche e piastrelle dell'HUD).
-   Costa poco, e senza di essa le 33 rese della 32ª si rompono alla prima
-   distrazione. Le misure sono già fatte: vedi `decisioni.md`, «Due tetti che
-   nessuno aveva misurato».
+0. ✅ **La guardia sui due tetti nuovi**: fatta nella 32ª, `strumenti/riquadri.py`.
 1. i **63 `buffdesc`**. ⚠️ **La domanda sul tetto è già stata fatta ed è
    chiusa**: `buffdesc` finisce in tre punti, e il più stretto è la lista
    abilità (`command.hsp:5389`, `mes strmid(s, 0, 34)`), dove la stringa è
@@ -142,18 +140,24 @@ mettendosi ad aspettare.
 ⚠️ **I nomi di creatura sono chiusi**: l'ultimo che i conteggi mostravano da
 fare era su una riga commentata. Vedi «Le righe commentate» più sotto.
 
-### Le sette verifiche d'apertura
+### Le otto verifiche d'apertura
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-python -m pytest strumenti/tests -q        # atteso: 394 passed, 6 skipped
+python -m pytest strumenti/tests -q        # atteso: 412 passed, 6 skipped
 python -m strumenti.prova_identita         # atteso: 72/72, 27.813, ambigue 0
 python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre ovunque
 python -m strumenti.creature               # atteso: nome 1131, voce 2466, doppie 0, senza razza 0
 python -m strumenti.larghezze              # atteso: 0 fuori misura su 75 menu
 python -m strumenti.diario                 # atteso: 0 fuori misura su 214 siti
+python -m strumenti.riquadri               # atteso: 0 su 38 piastrelle, 0 su 71 buffname
 python -m strumenti.battute --divergenti   # atteso: 13, tutte legittime
 ```
+
+💡 **`riquadri.py` è nato nella 32ª**, il giorno stesso in cui i due tetti che
+misura sono stati scoperti sfondati. Copre le piastrelle degli stati nell'HUD e
+la colonna del menu tattiche, che `larghezze.py` non vede perché non passano da
+`*prompt_key`.
 
 ⚠️ **I quattro test in più che saltano sono la chiusura di `db_creature.hsp`**,
 non un guasto. Leggono `lavoro/_c.jsonl` e provano proprietà dell'**ordinamento
@@ -164,7 +168,7 @@ difetto. Adesso `estrazione_da_fare()` salta anche sul file **vuoto**, oltre che
 sul file assente. 💡 Provato che il guardiano non li ha spenti: con
 un'estrazione piena (`estrai` senza `--da-tradurre`) tornano a girare e passano.
 
-💡 **E l'ottava, che nessuno strumento fa**, il referto dei participi che
+💡 **E la nona, che nessuno strumento fa**, il referto dei participi che
 concordano col giocatore (la riga di comando sta in `decisioni.md`): atteso
 **0** su tutto il dizionario. Non è una guardia — è un referto da leggere — ma
 adesso che è a zero un valore diverso da zero significa qualcosa.
@@ -1007,6 +1011,19 @@ era** (20 esatti), e il sito che conta di più — l'elenco degli status sul
 personaggio — **manda a capo da solo a 70 caratteri** e non è a rischio. Vedi
 `decisioni.md`, «Due tetti che nessuno aveva misurato» e «Dove finisce un nome
 di status».
+
+⚠️ **Gli altri tre elenchi a colonne di `custom_ai.hsp` non sono guardati, e
+lì l'ancora dice il contrario.** Sono `:1263`, `:1337` e `:1821`, con un passo
+di **150 px su quindici righe** (contro i 145 su ventidue del menu dei
+potenziamenti), ed elencano azioni e **nomi di incantesimo**, che sono tradotti
+al 100%. Il tetto è sempre 20 caratteri, e lo sfondano **15 nomi italiani su
+445** — ma lo sfondano anche **5 inglesi**, fino a 24 (`Critical Particle
+Cannon`, `Thread of Innervation`). 💡 **È la famiglia dei `buffdesc`, non
+quella dei `buffname`**: un tetto che upstream accetta già rotto, quindi non è
+un vincolo che la resa italiana debba rispettare. E accorciare un nome di
+incantesimo per far stare un menu del mod lo peggiorerebbe in tutti gli altri
+posti dove sta benissimo. ⚠️ **Prima di decidere va guardato a schermo**: si
+apre parlando a un alleato → *Teach a spell or ability*.
 
 ⚠️ **`Cyber Dome` fu deciso sull'inglese.** Il giapponese è アクリ・テオラ, nome
 **opaco** che per la regola resterebbe invariato. Segnalata, non toccata.
