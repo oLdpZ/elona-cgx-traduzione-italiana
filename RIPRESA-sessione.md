@@ -46,9 +46,9 @@ giapponese** e lo stampa come `?`, il che rende illeggibili le colonne `jp`.
 
 ## La prima cosa da fare
 
-**La 30ª ha fatto otto lotti di battute**, dal `027` al `034`: **453 rese**, cento
+**La 30ª ha fatto dieci lotti di battute**, dal `027` al `036`: **562 rese**, 121
 creature chiuse, catena verde a ogni lotto. Le battute di `db_creature.hsp` sono
-passate da **882 a 425**, e le creature da fare da 172 a **72**.
+passate da **882 a 316**, e le creature da fare da 172 a **51**.
 
 ⚠️ **La cosa che vale più dei lotti**: cercando una resa gemella si è scoperto che
 **sei rese in dizionario facevano concordare un participio col giocatore**, che
@@ -63,12 +63,12 @@ risponde sta in `decisioni.md`.
 
 **Il lavoro che riparte, in ordine:**
 
-1. le **battute di `db_creature.hsp`**, **425 da fare** su **72 creature**, per
+1. le **battute di `db_creature.hsp`**, **316 da fare** su **51 creature**, per
    creatura intera e in ordine di livello — lo strumento compone il lotto da
    solo, vedi più sotto. È il fronte a frequenza più alta del gioco. ⚠️ Da qui in
-   avanti le creature sono tutte oltre il livello 130: la procura del livello ha
+   avanti le creature sono tutte oltre il livello 157: la procura del livello ha
    ormai speso quasi tutto il suo vantaggio, e le ultime creature sono quelle che
-   si incontrano meno;
+   si incontrano meno — divinità, superboss e mostri di Nefia profondissima;
 2. i **`bufftxt`** di `buff.hsp` come **lavoro strutturale a parte**, non come
    lotto di rese: prima la toppa su `chara_func.hsp:2316-2375`, poi le rese.
    ⚠️ Prima ancora, la domanda qui sopra: quante delle 65 sono già rese altrove?
@@ -138,12 +138,12 @@ Nessun output = 72/72. ✅ Ricontrollato l'11/08 a fine 27ª.
 | `buff.hsp` | **71** | 199 | 36% — i `buffname` sono chiusi il 2026-08-13 |
 | `command.hsp`, `trait.hsp` | 0 | ~1.680 | 0% |
 
-`db_creature.hsp`: **1.131 nomi** (chiusi, sul serio: vedi sotto) + **2.090
-battute rese**, **425 da fare** su **72 creature**. Era a 1.563 all'apertura della
+`db_creature.hsp`: **1.131 nomi** (chiusi, sul serio: vedi sotto) + **2.199
+battute rese**, **316 da fare** su **51 creature**. Era a 1.563 all'apertura della
 27ª. I lotti `015`-`026` coprono i livelli **6-45** — le creature di città, i PNG
-di trama e i primi sotterranei — e i lotti `027`-`034` della 30ª coprono i livelli
-**45-130**, cioè i PNG delle gilde, i boss di trama e i mostri di Nefia profonda.
-Quel che resta sta **tutto oltre il livello 130**.
+di trama e i primi sotterranei — e i dieci lotti `027`-`036` della 30ª coprono i
+livelli **45-157**, cioè i PNG delle gilde, i boss di trama e i mostri di Nefia
+profonda. Quel che resta sta **tutto oltre il livello 157**.
 
 ⚠️ I conti per classe si rifanno così, e non si deducono: le classi si leggono
 dal `dbmode` che precede la riga nel sorgente, incrociando `dizionario/` per le
@@ -153,7 +153,7 @@ totale delle firme del file.
 Altri fuori Fase 1: `custom_enemyevolution.hsp` **chiuso**; `ai.hsp` 6 su 100;
 `event.hsp` 5 su 654; `chara_func.hsp` 45 su 331; `init.hsp` 6 su 133.
 
-**398 test**, prova d'identità **72/72 e 27.813**, **12.417 sostituzioni**, il
+**398 test**, prova d'identità **72/72 e 27.813**, **12.532 sostituzioni**, il
 compilatore non dice nulla, manifesto del sorgente **72/72** (ricontrollato il
 13/08 a inizio 30ª).
 
@@ -168,6 +168,20 @@ sesta l'avevo scritta io **nel lotto 029**, due ore dopo aver scritto la ricerca
 Tutte corrette. Il dettaglio, la tabella e la riga di comando stanno in
 `decisioni.md`. 💡 **Va rilanciata a ogni lotto**: è un referto da leggere, non
 una guardia, perché i falsi positivi sono legittimi.
+
+### 1-bis. 💡 Le lettere latine dentro il giapponese non sono tutte uguali
+
+La bolla drago (`db_creature.hsp`) dice due cose scritte in alfabeto latino, e
+vanno in due direzioni opposte:
+
+- 「Pon」 è un'**onomatopea giapponese** scritta in latino — non è inglese, e si
+  rende in italiano: «Pop»;
+- 「HAPPY END！！」 è **inglese anche per chi legge in giapponese**, come
+  `Target Acquired.` dello spazzino, e si tiene. Dichiarato in `invariati.md`.
+
+⚠️ Idem 「URYYYYYYYYYY」 del vampiro (lotto 030): non è inglese, è il grido di Dio
+in JoJo, e sta in lettere latine in tutte e due le lingue. La domanda da farsi non
+è «sono lettere latine?» ma **«è una parola inglese, o è un suono?»**.
 
 ### 2. ⚠️ Copiare una resa già decisa può renderla identica all'inglese
 
@@ -499,6 +513,13 @@ niente.
   parola allungata la scrive una funzione — `_onii` — l'allungamento passa nella
   coda: i sette modi in cui la sorella minore chiama il giocatore diventano
   `!`, `!!`, `...`, `...♪`, `...?`, `...!`.
+- 💡 **Una preghiera non si translittera: si rende con la formula italiana.**
+  「南無三ッ」 della samuraformica è «Che il cielo mi assista!», 「南無阿弥陀仏」
+  dell'infernello è «Pace all'anima sua».
+- 💡 **Le citazioni continuano ad arrivare, e le riconosce solo il giapponese**:
+  「時を止めた者が…」 è JoJo (l'inglese al suo posto scrive «Hey, c'mon c'mon!»),
+  「わけがわからないよ」 in bocca a una fata è Kyubey, 「あくまでメイドですから」
+  è il maggiordomo di Kuroshitsuji col bisticcio su «diavolo».
 - 💡 **La narrazione dentro `cnvtalk` si rende narrazione lo stesso**, anche se
   le virgolette che la funzione aggiunge la fanno sembrare parlato: è quello che
   il progetto fa già dal fratellino di `82821`, visto a schermo.
@@ -833,8 +854,8 @@ basta.
 ⚠️ **Controllare la data dell'exe prima di fidarsi di uno screenshot.**
 
 **L'eseguibile in `cgx-test.exe` è aggiornato a fine trentesima sessione
-(13/08/2026 13:43)** e contiene tutto fino al lotto `034`, i 71 `buffname` della
-29ª e le sei correzioni di concordanza. Compilato senza errori, **12.417
+(13/08/2026 14:01)** e contiene tutto fino al lotto `036`, i 71 `buffname` della
+29ª e le sei correzioni di concordanza. Compilato senza errori, **12.532
 sostituzioni**.
 
 ### La console di debug
