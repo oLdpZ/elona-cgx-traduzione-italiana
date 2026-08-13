@@ -1,6 +1,6 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-13, fine della **ventinovesima** sessione.
+Aggiornato: 2026-08-13, fine della **trentesima** sessione.
 
 ## ⚠️ Prima di tutto: il progetto vive su due macchine
 
@@ -26,10 +26,10 @@ git), in una forma nuova: dentro git, ma su una macchina sola.
 aprendo una sessione su una macchina qualsiasi è `git fetch && git status -sb`.
 Chi apre a Firenze senza guardare riparte da prima di ferragosto.
 
-✅ **Spinto il 2026-08-13 a fine 29ª**: `origin/fase-0` è a `7347080` e le due
-copie sono allineate. Al 13/08 **il lavoro prosegue dal portatile** per qualche
-giorno: la macchina di Firenze riprende a fine vacanze, e lì la prima cosa è
-`git pull`, non `git push`.
+✅ **Spinto di nuovo a fine 30ª**, sempre dal portatile. La 30ª ha aperto con
+`git fetch && git status -sb` e le due copie erano allineate: la regola ha
+tenuto. Al 13/08 **il lavoro prosegue dal portatile**: la macchina di Firenze
+riprende a fine vacanze, e lì la prima cosa è `git pull`, non `git push`.
 
 Sul portatile ogni comando degli strumenti va aperto così, perché `python`
 nudo è il segnaposto del Microsoft Store e non esegue niente:
@@ -46,34 +46,36 @@ giapponese** e lo stampa come `?`, il che rende illeggibili le colonne `jp`.
 
 ## La prima cosa da fare
 
-**La 29ª ha chiuso i `buffname`**: 71 rese, catena verde, e ha trovato una cosa
-che vale più del lotto — vedi «Un buff è l'incantesimo che lo concede» in
-`decisioni.md`. **44 delle 71 voci erano già rese in `skill.hsp`** e andavano
-copiate, non ridecise; e `--divergenti` non se ne sarebbe accorto, perché guarda
-un file solo.
+**La 30ª ha fatto otto lotti di battute**, dal `027` al `034`: **453 rese**, cento
+creature chiuse, catena verde a ogni lotto. Le battute di `db_creature.hsp` sono
+passate da **882 a 425**, e le creature da fare da 172 a **72**.
 
-⚠️ **Da fare all'apertura di ogni file nuovo, da ora**: chiedersi *questo file
-nomina cose che un altro file ha già nominato?* Per `buff.hsp` erano 44 su 71.
-La riga di comando che risponde sta in `decisioni.md`. Vale di sicuro per
-`chara.hsp` e per i `bufftxt` rimanenti.
+⚠️ **La cosa che vale più dei lotti**: cercando una resa gemella si è scoperto che
+**sei rese in dizionario facevano concordare un participio col giocatore**, che
+non ha genere noto — e una delle sei l'avevo scritta io due ore prima, nel lotto
+029. Corrette tutte e sei; la ricerca che le trova sta in `decisioni.md` e **va
+rilanciata a ogni lotto**, perché non è automatizzabile in una guardia (dà falsi
+positivi legittimi: `Qual è il prossimo bersaglio?` concorda con `bersaglio`).
+
+⚠️ **Resta valida la domanda della 29ª all'apertura di ogni file nuovo**: *questo
+file nomina cose che un altro file ha già nominato?* La riga di comando che
+risponde sta in `decisioni.md`.
 
 **Il lavoro che riparte, in ordine:**
 
-1. le **battute di `db_creature.hsp`**, 882, per creatura intera in ordine di
-   livello;
+1. le **battute di `db_creature.hsp`**, **425 da fare** su **72 creature**, per
+   creatura intera e in ordine di livello — lo strumento compone il lotto da
+   solo, vedi più sotto. È il fronte a frequenza più alta del gioco. ⚠️ Da qui in
+   avanti le creature sono tutte oltre il livello 130: la procura del livello ha
+   ormai speso quasi tutto il suo vantaggio, e le ultime creature sono quelle che
+   si incontrano meno;
 2. i **`bufftxt`** di `buff.hsp` come **lavoro strutturale a parte**, non come
    lotto di rese: prima la toppa su `chara_func.hsp:2316-2375`, poi le rese.
    ⚠️ Prima ancora, la domanda qui sopra: quante delle 65 sono già rese altrove?
 3. i **63 `buffdesc`**, che nessun documento nominava prima della 29ª: sono
    dentro `lang()` ma molti si compongono con `+` da variabili a runtime, quindi
-   vanno guardati prima di contarli come lotto.
-
-E restano i due fronti di prima:
-
-1. **le battute di `db_creature.hsp`**, **882 da fare**, per **creatura
-   intera** e in **ordine di livello** — lo strumento compone il lotto da solo,
-   vedi più sotto. È il fronte a frequenza più alta del gioco;
-2. **`proc.hsp`**, a 127 su 1.098, per zona di riga dalla **riga 1716** in
+   vanno guardati prima di contarli come lotto;
+4. **`proc.hsp`**, a 127 su 1.098, per zona di riga dalla **riga 1716** in
    avanti (le esibizioni sono chiuse fino a 1665; 1716-1780 sono le reazioni
    degli dèi alla predica).
 
@@ -90,7 +92,7 @@ python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre ovunque
 python -m strumenti.creature               # atteso: nome 1131, voce 2466, doppie 0, senza razza 0
 python -m strumenti.larghezze              # atteso: 0 fuori misura su 75 menu
 python -m strumenti.diario                 # atteso: 0 fuori misura su 214 siti
-python -m strumenti.battute --divergenti   # atteso: 11, tutte legittime
+python -m strumenti.battute --divergenti   # atteso: 13, tutte legittime
 ```
 
 Se `--divergenti` sale, qualcuno ha reso due volte in modo diverso la stessa
@@ -98,6 +100,12 @@ frase giapponese. Le due nuove della 27ª sono volute: 「きゅう…」 («*sb
 altrove, «Quu...» sulla forma di vita quantistica, dove l'inglese fa il gioco
 di parole con Q) e 「わん！」 («*bau!*» dove l'inglese descrive un'azione,
 «Bau!» dove passa da `cnvtalk`, che mette le virgolette).
+
+⚠️ **Le due della 30ª (da 11 a 13) sono la stessa resa in due involucri diversi**:
+la sorella minore chiama il giocatore con `_onii` in due punti, e upstream avvolge
+un sito in `cnvtalk(...)` e l'altro in virgolette nude `"\"" + ... + "\""`. Il
+testo che il giocatore legge è identico; a differire è il codice HSP intorno. È la
+stessa classe di 「お、カモだ…」, che stava già fra le undici.
 
 ⚠️ **Ma `--divergenti` guarda solo `db_creature.hsp`** — misurato nella 29ª,
 `rese_gia_decise()` apre quel file e basta. Una divergenza introdotta in
@@ -130,10 +138,12 @@ Nessun output = 72/72. ✅ Ricontrollato l'11/08 a fine 27ª.
 | `buff.hsp` | **71** | 199 | 36% — i `buffname` sono chiusi il 2026-08-13 |
 | `command.hsp`, `trait.hsp` | 0 | ~1.680 | 0% |
 
-`db_creature.hsp`: **1.131 nomi** (chiusi, sul serio: vedi sotto) + **1.637
-battute rese**, **882 da fare**. Era a 1.563 all'apertura della 27ª:
-**677 rese** più 4 rinviate, sui lotti `015`-`026`, che coprono i livelli **6-45** — cioè
-tutte le creature di città, i PNG di trama e i primi sotterranei.
+`db_creature.hsp`: **1.131 nomi** (chiusi, sul serio: vedi sotto) + **2.090
+battute rese**, **425 da fare** su **72 creature**. Era a 1.563 all'apertura della
+27ª. I lotti `015`-`026` coprono i livelli **6-45** — le creature di città, i PNG
+di trama e i primi sotterranei — e i lotti `027`-`034` della 30ª coprono i livelli
+**45-130**, cioè i PNG delle gilde, i boss di trama e i mostri di Nefia profonda.
+Quel che resta sta **tutto oltre il livello 130**.
 
 ⚠️ I conti per classe si rifanno così, e non si deducono: le classi si leggono
 dal `dbmode` che precede la riga nel sorgente, incrociando `dizionario/` per le
@@ -143,8 +153,52 @@ totale delle firme del file.
 Altri fuori Fase 1: `custom_enemyevolution.hsp` **chiuso**; `ai.hsp` 6 su 100;
 `event.hsp` 5 su 654; `chara_func.hsp` 45 su 331; `init.hsp` 6 su 133.
 
-**398 test**, prova d'identità **72/72 e 27.813**, **11.815 sostituzioni**, il
-compilatore non dice nulla, manifesto del sorgente **72/72**.
+**398 test**, prova d'identità **72/72 e 27.813**, **12.417 sostituzioni**, il
+compilatore non dice nulla, manifesto del sorgente **72/72** (ricontrollato il
+13/08 a inizio 30ª).
+
+## Le quattro scoperte della trentesima sessione
+
+### 1. ⚠️ Sei rese facevano concordare col giocatore, e una era di quel giorno
+
+Cercando la resa gemella di una battuta della sorella maggiore ne è saltata fuori
+una vecchia — «Dove **sei andata** a finire» — che sbaglia in metà delle partite.
+La ricerca estesa a tutto il dizionario ne ha trovate **sei su 9.254 voci**, e la
+sesta l'avevo scritta io **nel lotto 029**, due ore dopo aver scritto la ricerca.
+Tutte corrette. Il dettaglio, la tabella e la riga di comando stanno in
+`decisioni.md`. 💡 **Va rilanciata a ogni lotto**: è un referto da leggere, non
+una guardia, perché i falsi positivi sono legittimi.
+
+### 2. ⚠️ Copiare una resa già decisa può renderla identica all'inglese
+
+Due volte in otto lotti. 「スシ！」 è già reso «Sushi!» a `104858`, dove l'inglese
+urla `SUSHI!!!`; a `83627` **lo stesso giapponese** ha inglese `Sushi!`, e la
+copia — che è ciò che il progetto chiede — fa scattare la guardia sull'identità.
+Non è un difetto della resa, è una proprietà di quel sito: si dichiara in
+`invariati.md`, **citando sempre l'altro sito come prova**. Aggiunte due righe,
+`Sushi!` e `...!`.
+
+⚠️ **Il caso opposto esiste**: 「はああああ…っ！」 reso `Haaaaah...!` era davvero la
+grafia inglese copiata, ed è diventato `Aaaaaah...!`. La differenza: chiedersi se
+la resa sarebbe stata quella **anche senza** l'inglese sotto gli occhi.
+
+### 3. ⚠️ Una battuta può avere il ramo inglese vuoto, e allora è fuori perimetro
+
+`db_creature.hsp:86293` è `lang("「この格好じゃ動きにくい…！」", cnvtalk(""))`: il
+giapponese ha la battuta, l'inglese ha la stringa vuota, e l'inglese che le
+spetterebbe è slittato sul `lang()` successivo. `estrai.py` non la vede — non c'è
+niente da sostituire — quindi non è né tradotta né contata. In tutto il sorgente i
+rami inglesi vuoti sono **31**, e **30 sono legittimi** (particelle come `位`,
+`歳`, `耐性`): questo è l'unico che è una frase. **Non si può toppare** (la riga ha
+tre `lang()`). Annotata, come `iknownnameref`.
+
+### 4. ⚠️ L'avviso «NOME NON TRADOTTO» di `battute.py` può essere falso
+
+Scatta quando una creatura **condivide il nome** con una che il file elenca prima:
+il dizionario è indicizzato per contenuto e tiene la voce alla **prima** riga, che
+sta in un blocco `DBMODE_SET`, mentre lo strumento cerca `DBMODE_REF_SPEC`.
+Successo con la sorella minore, il cui nome era reso da sessioni. Si legge come
+«non l'ho trovato», e si controlla cercando il giapponese in dizionario.
 
 ## Le due scoperte della ventottesima sessione
 
@@ -334,8 +388,15 @@ python -m strumenti.genera_toppe_nomi
 python -m strumenti.genera_toppe_casuali
 ```
 
-Fatti `fase2-battute-001` … `-022`. Dopo aver rigenerato l'estrazione le
+Fatti `fase2-battute-001` … `-034`. Dopo aver rigenerato l'estrazione le
 creature già fatte spariscono, quindi si riparte sempre da `[0]`.
+
+💡 **Il referto stampa solo l'inglese, e l'inglese non arbitra.** Serve il
+giapponese sotto gli occhi: nella 30ª il lotto si è sempre letto con uno script
+di dieci righe che chiama `battute.repertori()` e scrive `riga / classe / jp / en`
+su un file di testo, comprese le note «GIÀ RESO ALTROVE» e la forma grezza delle
+dinamiche. Senza quello si traduce l'inglese, che è la cosa che il progetto ha
+deciso di non fare.
 
 💡 **Il lotto si scrive con uno script, non a mano.** Dalla 27ª il metodo è: un
 file Python nello scratchpad con un dizionario `{(riga, jp): resa}` e un
@@ -412,6 +473,35 @@ identico all'espressione inglese, perché la funzione porta dentro la
 traduzione. Il giapponese di `db_creature.hsp:93453` è 「ー！」, cioè il grido è
 **allungato**: la resa diventa `+ "!!"`, e la guardia si scioglie senza inventare
 niente.
+
+### Trovate nella trentesima
+
+- ⚠️ **Un vocativo che il giapponese non declina non può diventare italiano
+  declinato.** La `マスター` del terminale Xeren non è `_syujin`: è un letterale, e
+  «Padrone» sbaglierebbe metà delle partite. Reso **«Comandante»**, che vale per
+  entrambi i generi ed è anche giusto per un'arma da guerra. Stessa famiglia:
+  `先生` dell'insegnante, il cui nome italiano non porta genere.
+- 💡 **Il katakana come tic si rende in maiuscolo.** Vale per i robot (Gilphem,
+  Metal Vesda, l'apparato di comunicazione), per la carota ninja che parla tutta
+  in katakana, e **a metà parola** per il soldato yerles infetto, dove il
+  giapponese si sfalda dentro la parola: «A... A... che maLE... CHE MALE...».
+- 💡 **Una citazione si riconosce dal giapponese e si rende con la versione
+  italiana che esiste già**: 「またつまらぬものを噛んでしまった」 è Goemon di Lupin
+  III col morso al posto del taglio; 「お前もまた、強敵（とも）だった」 è la
+  convenzione di Hokuto no Ken, dove «nemico forte» si legge «amico», e la resa
+  tiene tutte e due le letture.
+- 💡 **Un bisticcio si rifà sul materiale italiano già deciso**: il giapponese
+  「HはHでもHitmanの方だがなぁーっ！」 gioca sulla lettera H, e in italiano la
+  lettera diventa la **S** del nome che il progetto aveva già scelto, «La S sta
+  per Sicaria, mica per Sesso!». Idem 「イガいとやるな…」, dove イガ è il riccio
+  della castagna nascosto dentro 意外と: «e io di ricci me ne intendo».
+- ⚠️ **L'allungamento giapponese si porta con le vocali ripetute**, e quando la
+  parola allungata la scrive una funzione — `_onii` — l'allungamento passa nella
+  coda: i sette modi in cui la sorella minore chiama il giocatore diventano
+  `!`, `!!`, `...`, `...♪`, `...?`, `...!`.
+- 💡 **La narrazione dentro `cnvtalk` si rende narrazione lo stesso**, anche se
+  le virgolette che la funzione aggiunge la fanno sembrare parlato: è quello che
+  il progetto fa già dal fratellino di `82821`, visto a schermo.
 
 ### Trovate nella ventisettesima
 
@@ -617,8 +707,8 @@ quello prima dell'identificazione, e l'estrattore non lo guarda
    `bufftxt` diventano lavoro strutturale a parte; `chara.hsp`, `item_func.hsp`,
    `screen.hsp` e `main.hsp` restano dove sono finché non c'è il conteggio dei
    letterali fuori da `lang()`. Vedi la scoperta 1 della 28ª.
-1. **le battute di `db_creature.hsp`**, 882, per creatura intera in ordine di
-   livello;
+1. **le battute di `db_creature.hsp`**, **425**, per creatura intera in ordine di
+   livello — quel che resta è tutto oltre il livello 130;
 2. **`proc.hsp`**, 971 firme, per zona di riga da **1716**;
 3. `command.hsp`, `trait.hsp`;
 4. `ai.hsp` (94) ed `event.hsp` (649);
@@ -629,6 +719,15 @@ quello prima dell'identificazione, e l'estrattore non lo guarda
 7. i nomi non identificati di `db_item.hsp` e le 2.555 descrizioni.
 
 ## Domande aperte
+
+⚠️ **`db_creature.hsp:86293`, la battuta col ramo inglese vuoto**: si allarga
+`estrai.py` alle voci con inglese vuoto — e allora `applica` deve saper scrivere
+dentro un `cnvtalk("")` — oppure resta fuori perimetro per sempre. Rinviata, non
+dimenticata. È l'unica frase fra i 31 rami vuoti del sorgente.
+
+⚠️ **`battute.py` aggancia i nomi per riga e non per `dbid`**, e per questo dà
+«NOME NON TRADOTTO» a chi condivide il nome con una creatura elencata prima. La
+correzione tocca la funzione che compone i lotti e non si fa dentro un lotto.
 
 ⚠️ **Da guardare a schermo: il menu tattiche del mod** (`custom_ai.hsp:3174`).
 Elenca i `buffname` in colonne larghe **145 px**, cioè ~13 caratteri, e le rese
@@ -733,9 +832,10 @@ basta.
 
 ⚠️ **Controllare la data dell'exe prima di fidarsi di uno screenshot.**
 
-**L'eseguibile in `cgx-test.exe` è aggiornato a fine ventisettesima sessione
-(12/08/2026 00:10)** e contiene i lotti 001-026, `adv.hsp` e la toppa di
-`main.hsp`.
+**L'eseguibile in `cgx-test.exe` è aggiornato a fine trentesima sessione
+(13/08/2026 13:43)** e contiene tutto fino al lotto `034`, i 71 `buffname` della
+29ª e le sei correzioni di concordanza. Compilato senza errori, **12.417
+sostituzioni**.
 
 ### La console di debug
 
@@ -900,6 +1000,23 @@ frase.
   spawn_chara 32    lo spazzino: parla INGLESE per scelta; se stona si ridiscute
   spawn_chara 471   l'addetto del casinò: attaccarlo e ucciderlo
   ```
+- 🆕 **Dai lotti 027-034 della 30ª, con l'eseguibile nuovo** (ID verificati in
+  `defines/mod.hsp`):
+  ```
+  add_ally 249    la sorella minore: sette modi di chiamarti, tutti su _onii
+  add_ally 364    la sorella maggiore: parla di se' come «la sorellona»
+  add_ally 502    il terminale Xeren: deve dire «Comandante», non «Padrone»
+  add_ally 492    <Pascal>: abbaia, e le tre rese sono bau / bau bau / arf
+  spawn_chara 773 il toro blu: quattro muggiti, uno e' «Mo' basta...»
+  spawn_chara 829 la carota ninja: parla TUTTA IN MAIUSCOLO, e' voluto
+  spawn_chara 465 il soldato yerles infetto: le maiuscole a meta' parola
+  spawn_chara 508 l'apparato di comunicazione: robot, tutto maiuscolo
+  spawn_chara 627 il Gigante Castagna, 616 la samuraformica (parla da samurai)
+  spawn_chara 351 il guerriero dalla testa di leopardo: Janus, <Silvia>, torque
+  ```
+  ⚠️ Le prime quattro vanno **aspettate tenendo premuto `5`**; le altre si
+  attaccano. Il toro e la carota servono a decidere una cosa che solo lo schermo
+  decide: **se il maiuscolo del katakana regge o urla troppo**.
 - ⚠️ **Il non tradotto esce in inglese, non in giapponese.**
 
 ## I tetti misurati, con la loro ancora

@@ -6,6 +6,128 @@ ancora aperte.
 
 ---
 
+## Sei rese facevano concordare un participio col giocatore — 2026-08-13, trentesima sessione
+
+La regola «il giocatore non ha genere noto» è nel progetto da venti sessioni, e
+`guida-stile.md` la ripete. Non era mai stata **cercata**: si applicava mentre
+si scriveva, e chi scrive non rilegge trecento rese vecchie.
+
+L'occasione è stata la sorella maggiore del lotto 028. La sua battuta di
+bentornato è 「もう！お姉ちゃんを置いてどこに行ってたの？」, e la gemella quasi
+identica era già in dizionario da una sessione precedente, resa
+
+> Uffa! Dove **sei andata** a finire, lasciando qui la sorellona?
+
+che sbaglia in metà delle partite. Cercate allora tutte le forme della stessa
+famiglia in **tutto** il dizionario — seconda persona più participio, e il
+vocativo con aggettivo — ed erano **sei in 9.254 voci**:
+
+| dove | prima | dopo |
+|---|---|---|
+| `action.hsp:18721` | «Ti sei **aperto** il ventre» | «Ti **apri** il ventre» |
+| `db_creature.hsp:42140` | «ti sei **offeso** così tanto?» | «ti **offendi** così tanto?» |
+| `db_creature.hsp:42140` | «rosica di più, **sfigato**» | «rosica di più, **mezza cartuccia**» |
+| `db_creature.hsp:50938` | «ti sei **schiarito** le idee» | «hai le idee più chiare» |
+| `db_creature.hsp:86494` | «Dove sei **andata** a finire» | «Ma dove te ne stavi» |
+| `db_creature.hsp:87554` | «Il **prossimo** sei tu» | «Adesso tocca a te» |
+
+⚠️ **L'ultima era mia, di questa stessa sessione**, scritta due ore dopo aver
+scritto la ricerca che l'ha presa. «Il prossimo sei tu» sembra invariante e non
+lo è: `prossimo` è un aggettivo sostantivato che concorda con chi ascolta.
+È la prova che la regola non si applica «stando attenti».
+
+💡 **La ricerca costa una riga e va rilanciata a ogni lotto** (nel lotto 030 ha
+preso un falso positivo, `Qual è il prossimo bersaglio?`, dove `prossimo`
+concorda con `bersaglio` e non col giocatore — quindi è un referto da leggere,
+non una guardia da automatizzare):
+
+```powershell
+python -c "import json,io,glob,re; p=re.compile(r'\b(?:ti sei|te ne sei|sei|sarai|ti eri|eri|il prossimo|la prossima)\s+(\w+(?:ato|ata|uto|uta|ito|ita|tto|tta|so|sa))\b'); [print(f, json.loads(l)['riga'], m.group(0)) for f in glob.glob('dizionario/*.jsonl') for l in io.open(f,encoding='utf-8') if l.strip() for m in p.finditer(json.loads(l).get('it') or '')]"
+```
+
+⚠️ **Non è automatizzabile in una guardia** per la stessa ragione già scritta
+nella ripresa: su un lotto provato a mano dà tre falsi positivi su quattro. Il
+referto lo legge una persona.
+
+## Una resa copiata può diventare identica all'inglese — 2026-08-13, trentesima sessione
+
+Due volte in otto lotti è successa la stessa cosa, e la seconda ha chiarito la
+prima. Il giapponese 「スシ！」 compare in due punti di `db_creature.hsp`. A
+`104858` l'inglese urla `SUSHI!!!` e la resa italiana è `Sushi!`: diversa
+dall'inglese, nessun problema. A `83627` **lo stesso giapponese** ha come
+inglese `Sushi!`, e copiare la resa già decisa — che è quello che il progetto
+chiede di fare — la rende **identica all'inglese**, cioè fa scattare la guardia.
+
+💡 **Le due regole non sono in conflitto: dicono cose su piani diversi.**
+«Copia la resa già decisa» parla del giapponese; «non lasciare l'inglese» parla
+del sito. Quando il secondo sito ha un inglese che coincide con la resa giusta,
+l'identità **non è un difetto della resa**: è una proprietà di quel sito. Il
+posto per dirlo è `invariati.md`, ed è per questo che la riga aggiunta cita
+sempre **l'altro sito** come prova.
+
+Aggiunte due righe, tutte e due con quella struttura:
+
+- `Sushi!` — l'ombrame (`83627`), con la controprova di `104858`;
+- `...!` — il ninja rosso (`87626`), giapponese 「…！」, con la controprova di
+  `88185`, dove lo stesso giapponese ha un inglese pieno di parole
+  (`W-w-what...!`) e la stessa resa italiana **non** coincide.
+
+⚠️ **Il caso opposto esiste e va distinto**: nel lotto 033 la guardia ha preso
+「はああああ…っ！」 reso `Haaaaah...!`, che è la **grafia inglese** di un grido
+copiata pari pari. Lì l'identità era davvero un difetto, e la resa è diventata
+`Aaaaaah...!`. La differenza si vede guardando se la resa italiana sarebbe
+stata quella **anche senza** l'inglese sotto gli occhi.
+
+## Il ramo inglese di una battuta può essere vuoto — 2026-08-13, trentesima sessione
+
+`db_creature.hsp:86293` è la classe `ANGERED` della cittadina, e sono tre
+`lang()` in fila. Il secondo è
+
+```hsp
+lang("「この格好じゃ動きにくい…！」", cnvtalk(""))
+```
+
+cioè **il giapponese ha una battuta e l'inglese ha la stringa vuota**. Peggio:
+l'inglese che le spetterebbe (`It's hard to move in this outfit...!`, che
+traduce esattamente quel giapponese) sta sul **terzo** `lang()`, dove il
+giapponese dice un'altra cosa (「どうして僕を狙うのさ！」). È uno slittamento di
+monte, non un caso di inglese che riscrive.
+
+⚠️ **Per noi la conseguenza è che quella battuta è fuori perimetro**:
+`estrai.py` non la estrae — non c'è nessuna stringa inglese da sostituire — e
+quindi non è né tradotta né contata fra quelle da fare. Nella build italiana
+esce come esce oggi in inglese: due virgolette vuote.
+
+**Misurato su tutto il sorgente**: i `lang()` con giapponese pieno e inglese
+vuoto sono **31**, e **30 sono legittimi** — sono particelle e suffissi che
+l'inglese non ha (`位`, `歳`, `耐性`, `のレシピ`). Questo è **l'unico** che è una
+frase.
+
+💡 **Non si può toppare**: una toppa si aggancia solo a una riga senza `lang()`,
+e questa ne ha tre. Le strade sono due, e nessuna delle due è per un lotto di
+rese: far estrarre a `estrai.py` anche le voci con inglese vuoto (e allora
+`applica` deve saper scrivere dentro un `cnvtalk("")`), oppure lasciarla
+com'è e annotarla. **Per ora annotata**, come `iknownnameref`.
+
+## L'avviso «NOME NON TRADOTTO» di `battute.py` può essere falso — 2026-08-13, trentesima sessione
+
+Il lotto 027 ha stampato `⚠️ NOME NON TRADOTTO` per `CREATURE_ID_YOUNGER_SISTER2`.
+Il nome **è** reso: 「妹」 è «la sorella minore», deciso da sessioni.
+
+La causa è il modo in cui il dizionario è indicizzato. `nomi_italiani()` cerca
+le voci la cui **riga** ha `dbmode == DBMODE_REF_SPEC`; ma il dizionario è
+indicizzato **per contenuto**, e di due righe con lo stesso testo tiene la
+prima. Il nome 「妹」 compare per la prima volta a `117743`, dentro il blocco
+`DBMODE_SET` di **un'altra** creatura, e la voce resta agganciata lì. Alla riga
+`117836`, che è quella con `DBMODE_REF_SPEC`, non corrisponde nessuna voce.
+
+💡 **Quindi l'avviso va letto come «non l'ho trovato», non come «non c'è»**, e
+scatta esattamente quando una creatura **condivide il nome** con una che il file
+elenca prima. Prima di prenderlo per buono si cerca il giapponese del nome nel
+dizionario. Non è stato corretto nello strumento perché la correzione giusta —
+agganciare i nomi per `dbid` invece che per riga — tocca la stessa funzione che
+compone i lotti, e non si tocca dentro un lotto.
+
 ## Un buff è l'incantesimo che lo concede — 2026-08-13, ventinovesima sessione
 
 Aprendo i 71 `buffname` di `buff.hsp` la domanda sembrava «come si rendono 71
