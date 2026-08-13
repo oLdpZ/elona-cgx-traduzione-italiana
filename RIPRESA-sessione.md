@@ -26,8 +26,17 @@ git), in una forma nuova: dentro git, ma su una macchina sola.
 aprendo una sessione su una macchina qualsiasi è `git fetch && git status -sb`.
 Chi apre a Firenze senza guardare riparte da prima di ferragosto.
 
+✅ **Spinto il 2026-08-13 a fine 29ª**: `origin/fase-0` è a `7347080` e le due
+copie sono allineate. Al 13/08 **il lavoro prosegue dal portatile** per qualche
+giorno: la macchina di Firenze riprende a fine vacanze, e lì la prima cosa è
+`git pull`, non `git push`.
+
+Sul portatile ogni comando degli strumenti va aperto così, perché `python`
+nudo è il segnaposto del Microsoft Store e non esegue niente:
+
 ```powershell
 $py = "$env:LOCALAPPDATA\Programs\Python\Python312\python.exe"
+& $py -m strumenti.<nome>
 ```
 
 💡 Due comodità rimesse lo stesso giorno, se mancassero: la barra del contesto
