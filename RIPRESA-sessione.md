@@ -57,6 +57,10 @@ datate 13/08. In breve:
    «Marchio letal». Il carattere della build inglese è `Courier New`, cioè
    **monospaziato**: 11 caratteri sulla piastrella da 80 px, 13 su quella da
    95. Sfondavano **19 etichette su 61**, e l'inglese di upstream ne sfonda 2.
+   ✅ **Corretto e riverificato a schermo lo stesso giorno**: «Marchio» esce
+   intero, con «Stanchezza» e «Fardello!» comodi nella loro piastrella. La
+   prova sta in fondo al ciclo giusto — difetto visto, misurato sul sorgente,
+   corretto nel dizionario, ricompilato, riguardato.
 2. ⚠️ **Le colonne del menu tattiche del mod si sovrappongono** — la domanda
    aperta dalla 29ª si chiude sull'ipotesi peggiore: `cs_list` **non taglia**,
    sconfina sulla colonna accanto. 20 caratteri il tetto, **10 `buffname` su
