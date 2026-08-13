@@ -23,7 +23,11 @@ si committa.
 | `istogramma.py` | dove si addensano le voci che restano, per scegliere la zona | all'apertura di un file grosso |
 | `trova.py` | cerca frammenti inglesi nell'estrazione: serve a trovare una scena, non una riga | quando si cerca «dov'è il log di combattimento» |
 | `rese.py` | le voci **già rese** di un file che contengono un frammento: il modo di scoprire la convenzione che le sessioni passate hanno applicato senza dichiararla | ⚠️ prima di scegliere tempo verbale o stile |
-| `lotto-fase2-buffdesc-001.py`, `lotto-fase4-proc-001.py`, `lotto-fase4-proc-002.py` | i tre lotti della 33ª, tenuti come **modelli**: dizionario `{(riga, en): resa}` più le cinque reti del metodo | da copiare per il prossimo lotto |
+| `blocchi_en.py` | ⚠️ **le righe con letterali inglesi nudi dentro `if ( en )`**, che `estrai.py` non vede e che nessun conteggio di «non tradotte» include. Senza argomenti misura tutto il sorgente. È il filtro non rumoroso che la 28ª cercava: lì dentro tutto è testo che il giocatore legge, per costruzione | all'apertura di ogni file, **prima** di fidarsi del conteggio |
+| `genera-toppe-en.py` | genera le toppe su quelle righe: allarga il blocco `cerca` finché non è **unico** (`applica` si ferma anche sulle toppe ambigue) e **degrada gli accenti**, che per le toppe `applica` non degrada | dopo `blocchi_en.py` |
+| `aggiungi-toppe.py` | aggiunge toppe a `toppe.jsonl` senza duplicare, con identità `(file, cerca)` | dopo il generatore |
+| `code-virgolette.py` | trova le teste e le code di una frase spezzata fra `if ( en )` e `lang()` | quando una voce è un frammento |
+| `lotto-fase2-buffdesc-001.py`, `lotto-fase4-proc-001.py`, `lotto-fase4-proc-002.py`, `lotto-fase4-proc-003.py` | i lotti della 33ª, tenuti come **modelli**: dizionario `{(riga, en): resa}` più le cinque reti del metodo | da copiare per il prossimo lotto |
 
 Si lanciano dalla radice del repo, con l'interprete giusto:
 

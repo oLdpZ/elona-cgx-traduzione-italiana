@@ -68,7 +68,48 @@ legge e che nessun lotto tocchera' mai.
 ⚠️ **E la strada e' una toppa, non una resa.** La 28ª lo aveva gia' scritto — «il
 lavoro strutturale va fatto **prima** delle rese, non dentro un lotto» — quindi
 le tre code sono andate in `rinviate.jsonl` col motivo, e non sono state rese a
-meta'. `toppe.jsonl` ha 273 toppe e **nessuna su `proc.hsp`**: sarebbe la prima.
+meta'.
+
+### ✅ Fatta: 23 toppe, e le tre rinviate sono tornate rendibili
+
+`toppe.jsonl` passa da 273 a **296**, ed erano **zero** su `proc.hsp`. Poi le tre
+code sono uscite da `rinviate.jsonl` e sono state rese: la frase e' italiana da
+capo a fondo. Generatore in `scratchpad/genera-toppe-en.py`.
+
+**Tre cose che il meccanismo delle toppe ha imposto, e sono tutte guardie buone:**
+
+1. ⚠️ **`applica` si ferma se un `cerca` aggancia due volte**, non solo se non
+   aggancia. Cinque di queste righe sono identiche a un'altra dello stesso file,
+   quindi il `cerca` non poteva essere la riga sola: il generatore allarga il
+   blocco **verso l'alto** finche' non diventa unico. Per `:3319` e `:3487` ci
+   sono volute **otto righe** — i due vicinati sono identici fin sopra il ramo
+   giapponese. 💡 Ed e' la ragione per cui `4865` e `4898`, che sembravano
+   gemelle, sono bastate a una riga: una e' indentata con **tabulazioni** e
+   l'altra con **spazi**.
+2. ⚠️ **`applica` degrada gli accenti SOLO per le voci di dizionario**: le toppe
+   le scrive grezze, e il file esce con `nuovo.encode("cp932")` **strict**. Un
+   `più` in una toppa non si perde in silenzio — fa fallire la catena con un
+   `UnicodeEncodeError`, che e' il comportamento giusto. Le toppe si scrivono
+   gia' degradate (`piu'`, `faro'`, `cosi'`).
+3. ⚠️ **La chiusura delle virgolette e' identica in italiano e in inglese**, e la
+   guardia sull'identita' l'ha fermata: `lang("」", "\"")` sta a `:3376`, `:3402`,
+   `:3537` e `:3621` — quattro siti, **una firma**. Dichiarata in `invariati.md`,
+   come `...` di `<Aime>`.
+
+### ⚠️ E la testa della frase non va punteggiata: la prima stesura sbagliava
+
+Le tre teste erano state rese copiando la forma inglese, che il punto ce l'ha
+dentro («`You are awesome!`»). **Il giapponese no**: 「よかった」+`_yo(3)` non porta
+mai la punteggiatura finale, ed e' la **coda** a metterla — `！さあ…」` a `:3383` e
+`:3629`, oppure il solo 」. Con la testa punteggiata sarebbe uscito
+«`"Che bello...! Ecco, prendi questi spiccioli.`»
+
+💡 **Si e' visto solo leggendo cosa segue ogni testa**, e le tre non sono uguali:
+`:3372` e `:3617` proseguono in un'offerta di denaro, `:3533` no. Il conto dei
+siti e' 3 teste, 4 chiusure, 2+2 code — **undici righe per tre firme**.
+
+> Un frammento non si rende guardando il frammento. Si rende guardando la frase
+> che compone, e la frase puo' stare in tre punti diversi del file.
 
 💡 **Il filtro `if ( en )` e' la misura non rumorosa che la 28ª cercava.** Quella
 sessione aveva provato a contare i letterali fuori da `lang()` per file e aveva
