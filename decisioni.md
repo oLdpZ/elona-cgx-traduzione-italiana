@@ -6,6 +6,146 @@ ancora aperte.
 
 ---
 
+## Due tetti che nessuno aveva misurato, e li sfondavamo tutti e due — 2026-08-13, trentaduesima sessione
+
+La sessione era di solo collaudo, e in due schermate ha trovato due riquadri
+che tagliano, che `larghezze.py` non guarda perche' non sono menu.
+
+### 1. Le piastrelle degli stati nell'HUD
+
+A schermo si leggeva **«Marchio letal»**. `screen.hsp:853-859` disegna
+l'etichetta su una piastrella `gcopy ..., 65 + en * 30, 15`, cioe' **95 px**
+nella build inglese, col testo che parte a `+6`.
+
+Il carattere della build inglese e' **`Courier New`** (`config.txt`, `font2.`),
+che e' **monospaziato**: qui contare i caratteri e' la misura giusta, non una
+stima. La dimensione attiva in quel punto e' `13 - en * 2` = **11 px**, cioe'
+**6,6 px per carattere**.
+
+    piastrella 80 px -> (80 - 6) / 6,6 = 11 caratteri
+    piastrella 95 px -> (95 - 6) / 6,6 = 13 caratteri
+
+⚠️ **La misura si e' verificata da sola sullo screenshot**: «Marchio letal» sono
+esattamente 13 caratteri, cioe' il taglio cade dove il conto dice.
+
+**Fuori misura: 19 etichette su 61.** ⚠️ E qui l'ancora inglese **non**
+assolveva, al contrario dei `buffdesc`: upstream ne sfora **2 su 61**, di uno o
+due caratteri. Il tetto e' vero e lo rispetta.
+
+### 2. La colonna del menu tattiche del mod
+
+`custom_ai.hsp:3171-3175` dispone le voci in colonne ogni **145 px**, e con la
+condizione `Buff` elenca **tutti** i `buffname` (`:3138`). Il carattere li' e'
+`14 - en * 2` = 12 px, cioe' **7,2 px**: **20 caratteri**.
+
+⚠️ **`cs_list` non taglia: sconfina.** A schermo si leggeva «Crescita della
+destre**Cambio di forma (A)**», «Crescita della costitu**Concentrazione**»,
+«Cambio di forma final**Energia al massimo**». La domanda aperta dalla 29ª —
+«o le colonne si sovrappongono gia', o `cs_list` taglia come `*prompt_key`» —
+si chiude sulla **prima** ipotesi.
+
+**Fuori misura: 10 buffname su 71, e 0 inglesi su 71.** La colonna era
+dimensionata sul set inglese, che ci sta comodo.
+
+### Le rese cambiate, 33 in tutto
+
+La famiglia `GROW` e' di nove nomi e sei sfondavano: accorciare solo quelli
+avrebbe lasciato «Crescita della forza» accanto a «Cresce costituzione», quindi
+si e' cambiata tutta. 💡 Il modello col sostantivo **non bastava**: «Crescita
+costituzione» e' 21, cioe' ancora fuori.
+
+| era | e' | perche' |
+|---|---|---|
+| Crescita della X (9 voci) | **Cresce X** | l'unico modello uniforme che ci sta tutto |
+| Cambio di forma finale | **Cambio forma finale** | i fratelli `(A) (B) (G) (D)` erano gia' dentro |
+| Lancio oltre il limite | **Tiro oltre il limite** | 20 esatti |
+| Maledizione della fame | **Fame maledetta** | `fame` porta il proprio genere |
+| Lume della falsa vita | **Lume di falsa vita** | |
+| Invulnerabilita' | **Invincibile** | |
+| Marchio letale | **Marchio** | |
+| Sanguinamento / -! / Emorragia | **Sangue** / **Sangue!** / Emorragia | scala di tre |
+| Veleno letale! | **Veleno!** | la scala per enfasi che upstream usa per `Bleeding!` |
+| Sonno profondo | **Letargo** | |
+| Instabilita' | **Instabile** | in `-e`, non concorda |
+| Soffocamento | **Asfissia** | |
+| Malattia-LvN (11 voci) | **Morbo-LvN** | ⚠️ `Malato-LvN` concorderebbe col giocatore |
+
+⚠️ **Il tetto si misura sulla forma degradata, non su quella del dizionario.**
+`volontà` e' 14 caratteri, `volonta'` e' **15**, e a schermo ci va la seconda:
+la rete dello script controlla la stringa dopo `degrada`.
+
+⚠️ **`occorrenza` non distingue gli elementi di un array**: le undici
+`Malattia-LvN` stanno tutte su `text.hsp:68` con `occorrenza` **0**. La chiave
+buona e' `(riga, resa attuale)`.
+
+💡 **Quello che manca**: nessuna guardia copre questi due siti. `larghezze.py`
+misura solo i menu che passano da `*prompt_key`, e i 75 menu misurati non li
+includono. Finche' non c'e' lo strumento, il prossimo che scrive un `buffname`
+lungo lo rompe di nuovo e nessun test glielo dice.
+
+---
+
+## «lo Yerleswood», non «l'Yerleswood» — 2026-08-13, trentaduesima sessione
+
+Visto in combattimento: «**l'Yerleswood** di serie stands up.» La `Y` iniziale
+in italiano suona **semivocale** e vuole `lo`, come «lo yogurt», «lo yacht».
+
+💡 **La convenzione esisteva gia' e la voce le era sfuggita**: il dizionario
+rende «**lo yeek**» in 18 voci, piu' «gli yeek» e «degli yeek». Non e' una
+decisione nuova, e' una svista singola — cercata in tutto il dizionario, era
+**l'unica**: `db_creature.hsp:78249`.
+
+Il referto costa una riga e si rilancia quando si scrive un nome nuovo che
+comincia per consonante o semivocale:
+
+```powershell
+python -c "import glob,io,json,re; p=re.compile(r\"\b([Ll]|[Uu]n[ao]?|[Dd]ell|[Aa]ll|[Nn]ell|[Ss]ull|[Qq]uell)'([A-Za-z])\"); v=set('aeiouAEIOUhH'); [print(f, json.loads(l)['riga'], m.group(0)) for f in glob.glob('dizionario/*.jsonl') for l in io.open(f,encoding='utf-8') if l.strip() for m in p.finditer(json.loads(l).get('it') or '') if m.group(2) not in v]"
+```
+
+Atteso **0**. Come per i participi, e' un referto da leggere: un nome
+straniero che comincia per vocale muta darebbe un falso positivo.
+
+---
+
+## Undici creature su ventisette non parlano se aspetti — 2026-08-13, trentaduesima sessione
+
+Il metodo di collaudo scritto da cinque sessioni dice: `add_ally <id>`, poi
+**tenere premuto `5`** e aspettare. Per undici delle ventisette creature delle
+liste arretrate quel metodo **non produce niente**, e non perche' sia andato
+storto qualcosa: nel loro blocco di `db_creature.hsp` **manca
+`DBMODE_FLAVOR_PASSIVE`**.
+
+⚠️ **E' la spiegazione di perche' le liste non tornano mai.** Chi ci ha provato
+si e' messo davanti a una creatura muta, ha aspettato quaranta turni e ha
+lasciato perdere. La lista della 30ª diceva testualmente di aspettare per
+`add_ally 502` e `add_ally 492`: tutt'e due sono mute in attesa.
+
+| classe | quando esce | come si provoca |
+|---|---|---|
+| `PASSIVE` | oziosa | alleata a meno di dieci caselle, `5` premuto |
+| `ANGERED` | mentre combatte | `spawn_chara` (relazione di database) e farsi attaccare |
+| `DEATH` | quando muore | ucciderla |
+| `KILL` | quando ammazza | darle qualcosa di debole da uccidere |
+| `WELCOME` | bentornato | entrare in `AREA_HOME` con lei nell'area |
+
+Mute in attesa: **686** `<Regulus>`, **640** `<Sinaha>`, **331** `<Ehekatl>`,
+**601** e **664** i due Yerleswood, **379** `<Siva>`, **911** `<Tezcatlipoca>`,
+**756** `<Shuraida>`, **534** `<Aile>`, **465** il soldato yerles infetto,
+**627** il Gigante Castagna, **502** il terminale Xeren, **492** `<Pascal>`.
+
+💡 **E una serie di battute puo' essere sparsa su quattro classi.** Le sette
+regole di `<Aribel>` (796) escono cosi': la **uno** e' oziosa, **due** e **tre**
+sono offese, la **quattro** e' la morte, **cinque** e **sei** sono le uccisioni.
+Chi aspetta e basta ne vede una sola, e per giunta in concorrenza con altre tre
+oziose. Non e' un difetto della resa: e' come e' fatto il blocco.
+
+**Come applicarlo:** la lista di collaudo va scritta **per classe**, non per
+creatura — `add_ally` per le oziose, `spawn_chara` e farsi attaccare per le
+offese, uccidere per le morti. Riscritta cosi' in `RIPRESA-sessione.md`,
+«Il collaudo, punto per punto».
+
+---
+
 ## Due inglesi che si contraddicono: chi arbitra e' il giapponese — 2026-08-13, trentunesima sessione
 
 Il verso 「ガウッ」 compare due volte in `db_creature.hsp`, e i due rami inglesi

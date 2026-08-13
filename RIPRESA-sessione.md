@@ -1,6 +1,6 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-13, fine della **trentunesima** sessione.
+Aggiornato: 2026-08-13, fine della **trentaduesima** sessione.
 
 ## ⚠️ Prima di tutto: il progetto vive su due macchine
 
@@ -26,9 +26,9 @@ git), in una forma nuova: dentro git, ma su una macchina sola.
 aprendo una sessione su una macchina qualsiasi è `git fetch && git status -sb`.
 Chi apre a Firenze senza guardare riparte da prima di ferragosto.
 
-✅ **Spinto di nuovo a fine 30ª e a fine 31ª**, sempre dal portatile. Tutt'e due
-hanno aperto con `git fetch && git status -sb` e tutt'e due hanno trovato le
-copie allineate: la regola ha tenuto due volte di fila. Al 13/08 **il lavoro
+✅ **Spinto di nuovo a fine 30ª, 31ª e 32ª**, sempre dal portatile. Tutt'e tre
+hanno aperto con `git fetch && git status -sb` e tutt'e tre hanno trovato le
+copie allineate: la regola ha tenuto tre volte di fila. Al 13/08 **il lavoro
 prosegue dal portatile**: la macchina di Firenze riprende a fine vacanze, e lì
 la prima cosa è `git pull`, non `git push`.
 
@@ -46,6 +46,40 @@ Windows Terminal — il console host classico usa Consolas, che **non ha il
 giapponese** e lo stampa come `?`, il che rende illeggibili le colonne `jp`.
 
 ## La prima cosa da fare
+
+⭐ **La 32ª è stata una sessione di sole prove in gioco**, la prima da molto, e
+ha reso più di quanto costasse: **due tetti che nessuno aveva mai misurato**,
+tutti e due sfondati, **33 rese corrette**, e la spiegazione di perché le liste
+di collaudo non tornano mai. Il dettaglio sta in `decisioni.md`, in tre voci
+datate 13/08. In breve:
+
+1. ⚠️ **Le piastrelle degli stati nell'HUD tagliano** — a schermo si leggeva
+   «Marchio letal». Il carattere della build inglese è `Courier New`, cioè
+   **monospaziato**: 11 caratteri sulla piastrella da 80 px, 13 su quella da
+   95. Sfondavano **19 etichette su 61**, e l'inglese di upstream ne sfonda 2.
+2. ⚠️ **Le colonne del menu tattiche del mod si sovrappongono** — la domanda
+   aperta dalla 29ª si chiude sull'ipotesi peggiore: `cs_list` **non taglia**,
+   sconfina sulla colonna accanto. 20 caratteri il tetto, **10 `buffname` su
+   71** lo passavano, **0 inglesi**.
+3. ⚠️ **Undici creature su ventisette sono mute se aspetti**: non hanno
+   `DBMODE_FLAVOR_PASSIVE`, e il metodo «`add_ally` e tieni premuto `5`» per
+   loro non produce niente. Vedi «Il collaudo, punto per punto», riscritto per
+   classe di battuta.
+
+💡 **E il collaudo ha dato la prova sul campo dell'ordine già deciso.** Il log
+di un combattimento qualsiasi è pieno di inglese — «is drawn», «was knocked
+down», «stands up», «aims at nearby enemies», «teleports toward», «crushes with
+hip!» — e **viene tutto da `proc.hsp`**. Non lo si trovava col grep perché le
+frasi sono spezzate dall'helper morfologico: nel sorgente c'è
+`" aim" + _s(cc) + " at nearby enemies."`, non la frase intera. È il file che
+il giocatore legge a **ogni singolo combattimento**, ed è il numero 2 della coda.
+
+⚠️ **Quello che la 32ª ha lasciato indietro, ed è la cosa più importante da
+fare adesso: nessuna guardia copre i due tetti nuovi.** `larghezze.py` misura
+solo i menu che passano da `*prompt_key`. Finché non c'è lo strumento, il
+prossimo `buffname` lungo rompe il menu tattiche e **nessun test lo dice**. Le
+due misure, con la loro conversione px→caratteri, stanno in `decisioni.md` e
+sono pronte da trasformare in codice.
 
 ⭐ **`db_creature.hsp` è chiuso.** La 31ª ha fatto sei lotti, dal `037` al `042`:
 **315 rese**, 51 creature, catena verde a ogni lotto. Le battute sono passate da
@@ -71,6 +105,10 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
 
 **Il lavoro che riparte, in ordine:**
 
+0. ⚠️ **La guardia sui due tetti nuovi** (menu tattiche e piastrelle dell'HUD).
+   Costa poco, e senza di essa le 33 rese della 32ª si rompono alla prima
+   distrazione. Le misure sono già fatte: vedi `decisioni.md`, «Due tetti che
+   nessuno aveva misurato».
 1. i **63 `buffdesc`**. ⚠️ **La domanda sul tetto è già stata fatta ed è
    chiusa**: `buffdesc` finisce in tre punti, e il più stretto è la lista
    abilità (`command.hsp:5389`, `mes strmid(s, 0, 34)`), dove la stringa è
@@ -86,11 +124,12 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
    degli dèi alla predica);
 3. `command.hsp` e `trait.hsp`, che sono ~1.680 firme mai toccate.
 
-💡 **E c'è un debito di collaudo grosso come il lavoro fatto.** Sei lotti in una
-sessione hanno prodotto una lista di prove a schermo che nessuno ha ancora
-guardato, e le liste delle sessioni 27-30 non sono mai tornate. Vedi «Il
-collaudo, punto per punto»: prima di aprire `buff.hsp` **conviene una sessione
-di sole prove in gioco**, con l'eseguibile che c'è già.
+💡 **Il debito di collaudo è stato aggredito nella 32ª, non estinto.** Provati:
+i messaggi dei potenziamenti (la toppa strutturale, mai vista prima), il menu
+tattiche, le etichette di stato dell'HUD, `<Aribel>`, e un combattimento coi
+due Yerleswood. **Restano da guardare** le liste 27ª-30ª e le 169 battute
+degli dèi. ⚠️ Ma adesso si sa **come** guardarle: per classe di battuta, non
+mettendosi ad aspettare.
 
 ⚠️ **I nomi di creatura sono chiusi**: l'ultimo che i conteggi mostravano da
 fare era su una riga commentata. Vedi «Le righe commentate» più sotto.
@@ -186,7 +225,8 @@ Altri fuori Fase 1: `custom_enemyevolution.hsp` **chiuso**; `ai.hsp` 6 su 100;
 
 **394 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **12.974
 sostituzioni**, il compilatore non dice nulla, manifesto del sorgente **72/72**
-(ricontrollato il 13/08 a inizio 31ª).
+(ricontrollato il 13/08 a inizio 31ª). ✅ Tutta la batteria rilanciata a fine
+32ª dopo le 33 rese cambiate: **identica**, niente si è mosso.
 
 ## Le due toppe di `buff.hsp`, e perché ce ne volevano due
 
@@ -949,15 +989,16 @@ dimenticata. È l'unica frase fra i 31 rami vuoti del sorgente.
 «NOME NON TRADOTTO» a chi condivide il nome con una creatura elencata prima. La
 correzione tocca la funzione che compone i lotti e non si fa dentro un lotto.
 
-⚠️ **Da guardare a schermo: il menu tattiche del mod** (`custom_ai.hsp:3174`).
-Elenca i `buffname` in colonne larghe **145 px**, cioè ~13 caratteri, e le rese
-italiane ne fanno fino a 27. Il tetto è **già sfondato oggi** da nomi decisi
-settimane fa (`Schivata d'emergenza`, `Possessione di Lulwy`), quindi o le
-colonne si sovrappongono già, o `cs_list` non taglia come `*prompt_key`. Va
-aperto quel menu su un PNG con qualche status addosso. Il sito che conta invece
-— l'elenco degli status sul personaggio — **manda a capo da solo a 70
-caratteri** e non è a rischio. Vedi `decisioni.md`, «Dove finisce un nome di
-status».
+✅ **Il menu tattiche del mod è stato guardato il 13/08, e la risposta è la
+peggiore delle tre: `cs_list` non taglia, sconfina.** Le colonne si
+sovrapponevano davvero — «Crescita della destre**Cambio di forma (A)**». Il
+tetto vero è **20 caratteri** (145 px / 7,2), non 13 come si stimava, e lo
+passavano **10 `buffname` su 71**, adesso zero. ⚠️ Restano da sistemare due
+cose: la stima vecchia diceva `Schivata d'emergenza` fuori misura e **non lo
+era** (20 esatti), e il sito che conta di più — l'elenco degli status sul
+personaggio — **manda a capo da solo a 70 caratteri** e non è a rischio. Vedi
+`decisioni.md`, «Due tetti che nessuno aveva misurato» e «Dove finisce un nome
+di status».
 
 ⚠️ **`Cyber Dome` fu deciso sull'inglese.** Il giapponese è アクリ・テオラ, nome
 **opaco** che per la regola resterebbe invariato. Segnalata, non toccata.
@@ -1046,25 +1087,34 @@ Start-Process "C:\Games\Elona\elonaplus2.31\cgx-test.exe" -WorkingDirectory "C:\
 ⚠️ **Non lasciare una shell con la directory corrente dentro `build\`**: tiene la
 cartella occupata, `applica` muore a metà e `compila` accusa
 `#Error: in line 112 [main.hsp]`, che è la riga dell'`#include` e non dice
-niente della causa. Successo l'11/08.
+niente della causa. Successo l'11/08. ⚠️ **E di nuovo il 13/08**, con un
+sintomo diverso e più chiaro — `PermissionError: [WinError 32] ... utilizzato
+da un altro processo` sulla `rmtree` di `applica`. La colpevole era una shell
+di lavoro entrata lì dentro per leggere il sorgente. Si esce e si rilancia:
+`applica` riparte da capo senza danni.
 ⚠️ Se `applica` viene interrotta lascia l'albero **incompleto**: si rilancia e
 basta.
 
 ⚠️ **Controllare la data dell'exe prima di fidarsi di uno screenshot.**
 
-**L'eseguibile in `cgx-test.exe` è aggiornato a fine trentunesima sessione
-(13/08/2026 17:05)** e contiene **tutte le battute di `db_creature.hsp`**, i 71
-`buffname` della 29ª, le sei correzioni di concordanza della 30ª, la correzione
-di `*gnam*`, **le due toppe di `buff.hsp` e i 71 messaggi dei potenziamenti**.
+**L'eseguibile in `cgx-test.exe` è aggiornato a fine trentaduesima sessione
+(13/08/2026 18:28)** e contiene tutto quello di prima — le battute di
+`db_creature.hsp`, i `buffname`, le due toppe di `buff.hsp`, i 71 messaggi dei
+potenziamenti — più le **33 rese della 32ª** sui due tetti e «lo Yerleswood».
 Compilato senza errori, **12.974 sostituzioni**.
 
-⚠️ **I messaggi dei potenziamenti non sono mai stati visti a schermo**, ed è la
-prova che manca di più: la toppa cambia come il gioco compone una frase, non
-solo che cosa ci scrive dentro. Basta prendere un potenziamento qualsiasi —
-`Accelerazione` su di sé, o `add_ally` di una creatura femminile e guardare il
-suo messaggio — e leggere se esce «il viandante diventa più agile.» ⚠️ **La cosa
-da guardare per prima è la creatura femminile**, che è il caso per cui le rese
-sono state scritte invarianti.
+✅ **I messaggi dei potenziamenti sono stati visti a schermo il 13/08, e la
+toppa regge.** Con `add_ally 249` e una bacchetta di velocità (`spawn_item 377`,
+si punta con `z`) è uscito «**Aranart la sorella minore diventa piu' agile.**»:
+nome minuscolo con l'articolo dentro — cioè `cnven()` è tolto per davvero —
+frase unica, nessun residuo tipo « up.», nessun accordo. ✅ Provato anche sul
+**giocatore**, che è il caso da cui il `cnven()` era stato tolto: regge.
+💡 «Aranart» non è nostro: `db_creature.hsp:117782` compone
+`randomname() + " " + nome`, ed è la stessa cosa che upstream fa in inglese.
+
+💡 **Come si prova un potenziamento**: la console **non ha un comando** che li
+applichi. La via corta è la **bacchetta di velocità**, `spawn_item 377`, che si
+raccoglie con `,` e si punta su chiunque con `z`.
 
 ### La console di debug
 
@@ -1229,48 +1279,74 @@ frase.
   spawn_chara 32    lo spazzino: parla INGLESE per scelta; se stona si ridiscute
   spawn_chara 471   l'addetto del casinò: attaccarlo e ucciderlo
   ```
-- 🆕 **Dai lotti 027-034 della 30ª, con l'eseguibile nuovo** (ID verificati in
-  `defines/mod.hsp`):
+- 🆕 **Dai lotti 027-034 della 30ª** (ID verificati in `defines/mod.hsp`).
+  ⚠️ **La colonna «come» non è un dettaglio**: quattro di queste creature non
+  hanno battute oziose e davanti a loro si aspetta invano. Corretto il 13/08.
   ```
-  add_ally 249    la sorella minore: sette modi di chiamarti, tutti su _onii
-  add_ally 364    la sorella maggiore: parla di se' come «la sorellona»
-  add_ally 502    il terminale Xeren: deve dire «Comandante», non «Padrone»
-  add_ally 492    <Pascal>: abbaia, e le tre rese sono bau / bau bau / arf
-  spawn_chara 773 il toro blu: quattro muggiti, uno e' «Mo' basta...»
-  spawn_chara 829 la carota ninja: parla TUTTA IN MAIUSCOLO, e' voluto
-  spawn_chara 465 il soldato yerles infetto: le maiuscole a meta' parola
-  spawn_chara 508 l'apparato di comunicazione: robot, tutto maiuscolo
-  spawn_chara 627 il Gigante Castagna, 616 la samuraformica (parla da samurai)
-  spawn_chara 351 il guerriero dalla testa di leopardo: Janus, <Silvia>, torque
+  ASPETTA (add_ally, poi tieni premuto 5)
+  249   la sorella minore: sette modi di chiamarti, tutti su _onii
+  364   la sorella maggiore: parla di se' come «la sorellona»
+  773   il toro blu: quattro muggiti, uno e' «Mo' basta...»
+  829   la carota ninja: parla TUTTA IN MAIUSCOLO, e' voluto
+  508   l'apparato di comunicazione: robot, tutto maiuscolo
+  616   la samuraformica (parla da samurai)
+  351   il guerriero dalla testa di leopardo: Janus, <Silvia>, torque
+
+  ATTACCA (spawn_chara, e fatti attaccare: escono le offese)
+  465   il soldato yerles infetto: le maiuscole a meta' parola
+  627   il Gigante Castagna
+  829   616   351   (hanno anche le offese, oltre alle oziose)
+
+  TORNA A CASA (solo il bentornato: entrare in AREA_HOME con loro nell'area)
+  502   il terminale Xeren: deve dire «Comandante», non «Padrone»
+  492   <Pascal>: abbaia, e le tre rese sono bau / bau bau / arf
   ```
-  ⚠️ Le prime quattro vanno **aspettate tenendo premuto `5`**; le altre si
-  attaccano. Il toro e la carota servono a decidere una cosa che solo lo schermo
-  decide: **se il maiuscolo del katakana regge o urla troppo**.
+  ⚠️ **502 e 492 non hanno oziose**: la lista vecchia diceva di aspettarle, ed
+  è per questo che non tornava niente. Il loro bentornato è l'unica via comoda;
+  le altre battute che hanno sono morte e uccisioni.
+  Il toro e la carota servono a decidere una cosa che solo lo schermo decide:
+  **se il maiuscolo del katakana regge o urla troppo**.
 - 🆕 **Dai sei lotti 037-042 della 31ª** (ID verificati in `defines/mod.hsp`).
   ⚠️ Sono tutte creature di livello altissimo: `add_ally` serve proprio perché
-  incontrarle per caso non capita.
+  incontrarle per caso non capita. Lista rifatta per classe il 13/08 — **otto
+  di queste quindici non parlano se aspetti**.
   ```
-  add_ally 796    <Aribel>: i sette comandamenti, numerati da uno a sei
-  add_ally 805    <Renai> e 686 <Regulus>: fratello e sorella, «forma umana»
-  add_ally 628    <Raizel>: ti chiama «nonnina» e non ricorda «saetta di fuoco»
-  add_ally 842    la <Kunoichi alla moda>: «Sorella dell'Ombra», versione completa
-  add_ally 654    <Marka>: «Orsa a chi!»
-  add_ally 534    <Aile>: annunci di bordo, poi il dialetto ruvido
-  add_ally 640    <Sinaha>: il tic del gatto, e «Miaosa... come...»
-  add_ally 331    <Ehekatl>: ripete l'ultima parola di ogni frase
-  spawn_chara 601 e 664   i due Yerleswood: MAIUSCOLO, e le due frasi in comune
-                          devono uscire IDENTICHE
-  spawn_chara 379 <Siva>: quattro versi da cane, non «Woof»
-  spawn_chara 383 l'<Ex spazzino>: «con le chiocciole ho fatto pace»
-  spawn_chara 382 la <Lumaca> in sella all'androide: la filastrocca, e
-                  «Destroy! Dynamite!» che resta in inglese di proposito
-  spawn_chara 911 <Tezcatlipoca>: «Mi prudono le mani», «Ti avvolgo nel fumo»
-  spawn_chara 756 <Shuraida>: il concime ai funghi
+  ASPETTA (add_ally, poi tieni premuto 5)
+  796   <Aribel>: le sette regole — ✅ vista la numero uno il 13/08
+  805   <Renai>: fratello e sorella, «forma umana»
+  628   <Raizel>: ti chiama «nonnina», e «saetta di fuo...?» mangiata
+  842   la <Kunoichi alla moda>: «Sorella dell'Ombra»
+  654   <Marka>: «Orsa a chi!»
+  383   l'<Ex spazzino>: «con le chiocciole ho fatto pace»
+  382   la <Lumaca> in sella all'androide: la filastrocca, e
+        «Destroy! Dynamite!» che resta in inglese di proposito
+
+  ATTACCA (spawn_chara, e fatti attaccare: escono le offese)
+  601 e 664   i due Yerleswood: MAIUSCOLO, e le due frasi in comune
+              devono uscire IDENTICHE — ⚠️ mezza prova il 13/08
+  686   <Regulus>: il fratello, «forma umana»
+  379   <Siva>: quattro versi da cane, non «Woof»
+  911   <Tezcatlipoca>: «Mi prudono le mani», «Ti avvolgo nel fumo»
+  756   <Shuraida>: il concime ai funghi
+  534   <Aile>: annunci di bordo, poi il dialetto ruvido
+
+  UCCIDI (la battuta esce morendo)
+  640   <Sinaha>: «Miaosa... come...» — ⚠️ livello 250
+  331   <Ehekatl>: ripete l'ultima parola — ⚠️ ha solo uccisione e bentornato
   ```
-  💡 **Le tre cose che solo lo schermo decide**, in ordine di dubbio: se
-  «Miaosa» si legge o sembra un refuso; se le due frasi dei Yerleswood escono
-  davvero uguali; se il maiuscolo dei robot regge su una riga lunga come
-  «ANALISI DEGLI SCHEMI DI COMPORTAMENTO DEL BERSAGLIO IN CORSO.».
+  💡 **Le tre cose che solo lo schermo decide**, aggiornate al 13/08:
+  1. se «Miaosa» si legge o sembra un refuso — **ancora aperta**, ed è una
+     battuta di **morte** su una creatura di livello 250;
+  2. se le due frasi dei Yerleswood escono uguali — **mezza prova**: «AVVIO
+     L'AGGIORNAMENTO DEI DATI DI COMBATTIMENTO.» è uscita due volte identica,
+     ma il log non dice *chi* l'ha detta, quindi potrebbero essere due volte
+     lo stesso. Serve vederne una seconda, o la riga lunga;
+  3. ✅ **se il maiuscolo dei robot regge: sì.** «AVVIO L'AGGIORNAMENTO DEI
+     DATI DI COMBATTIMENTO.» si legge bene e non urla. Manca la riga più lunga
+     («ANALISI DEGLI SCHEMI DI COMPORTAMENTO DEL BERSAGLIO IN CORSO.»), ma il
+     dubbio era sul principio e il principio tiene.
+  ⚠️ **E in quel combattimento è saltato fuori «l'Yerleswood di serie»**,
+  corretto in «**lo** Yerleswood»: vedi `decisioni.md`.
 - ⚠️ **Il non tradotto esce in inglese, non in giapponese.**
 
 ## I tetti misurati, con la loro ancora
@@ -1289,6 +1365,18 @@ frase.
 | **riga del compenso** | **30** | idem | `text.hsp:11885` |
 | pagina del diario | ~40 | taglia | osservato a schermo |
 | nome di oggetto | 66 | oltre, passa da `zentohan` | `item_func.hsp:2254` |
+| **colonna del menu tattiche** | **20** = 145 / 7,2 | **destra, sconfina sulla colonna** | `custom_ai.hsp:3173` |
+| **etichetta di stato, HUD** | **11** = (80 − 6) / 6,6 | destra, taglia al bordo | `screen.hsp`, `gcopy 65+en*15` |
+| **etichetta di stato larga** | **13** = (95 − 6) / 6,6 | idem | `screen.hsp`, `gcopy 65+en*30` |
+
+💡 **I tre tetti nuovi si contano in caratteri e non si stimano**, perché il
+carattere della build inglese è **`Courier New`** (`config.txt`, `font2.`), che
+è monospaziato: 7,2 px a 12 px di corpo, 6,6 px a 11. Misurati e verificati a
+schermo il 13/08 — «Marchio letal» sono esattamente 13 caratteri.
+⚠️ **Nessuno dei tre ha una guardia**: `larghezze.py` guarda solo i menu che
+passano da `*prompt_key`. È il lavoro numero 0 della prossima sessione.
+⚠️ **E il tetto si misura sulla forma degradata**: `volonta'` è 15 caratteri,
+`volontà` 14, e a schermo ci va la prima.
 
 ⚠️ Il nome di creatura compare in messaggi **senza limite**. Il più lungo è
 `<Ratin> l'investigatrice della Gilda dei Guerrieri`, 50 caratteri: visto a
