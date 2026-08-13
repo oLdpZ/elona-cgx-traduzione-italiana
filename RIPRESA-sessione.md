@@ -2,17 +2,29 @@
 
 Aggiornato: 2026-08-13, fine della **ventinovesima** sessione.
 
-## ⚠️ Prima di tutto: l'ambiente era sparito, non il progetto
+## ⚠️ Prima di tutto: il progetto vive su due macchine
 
-All'apertura della 29ª **nessuno strumento partiva**. Sulla macchina restavano
-solo Python **3.7** (Anaconda) e **3.8**, e gli strumenti usano `str | None`:
-`strumenti.creature` moriva alla riga 67 prima di leggere un file. Il Python
-3.10+ che li faceva girare fino al 12/08 non c'era più, e nemmeno Elin, che
-risultava disinstallato — qualcosa ha ripulito la macchina.
+**La 29ª è stata fatta dal portatile**, non dalla macchina di Firenze. È la prima
+volta, e va saputo perché spiega tutto quello che sembrava rotto: all'apertura
+**nessuno strumento partiva**, c'erano solo Python **3.7** (Anaconda) e **3.8**,
+e gli strumenti usano `str | None`, quindi `strumenti.creature` moriva alla riga
+67 prima di leggere un file. Non era un guasto e non era una macchina ripulita:
+era **una macchina dove non era mai stato installato niente**. Idem per Elin,
+l'identità git e i plugin.
 
 **Risolto installando Python 3.12.10** (`winget install Python.Python.3.12
 --scope user`) più `pytest`. Se succede di nuovo, il sintomo è
 `TypeError: 'type' object is not subscriptable`, e non è un guasto del codice.
+
+⚠️ **Da qui nasce il rischio vero: le due copie possono divergere.** All'inizio
+della 29ª `origin/fase-0` era fermo a `8a10f82`, cioè **38 commit indietro**:
+tutto il lavoro dalla 26ª in poi — 1.089 battute più i 71 `buffname` — stava
+solo sul disco del portatile. È la stessa trappola della 28ª (lavoro fuori da
+git), in una forma nuova: dentro git, ma su una macchina sola.
+
+💡 **La regola: si spinge a fine sessione, sempre**, e la prima cosa che si fa
+aprendo una sessione su una macchina qualsiasi è `git fetch && git status -sb`.
+Chi apre a Firenze senza guardare riparte da prima di ferragosto.
 
 ```powershell
 $py = "$env:LOCALAPPDATA\Programs\Python\Python312\python.exe"
