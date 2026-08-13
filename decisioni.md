@@ -111,11 +111,48 @@ siti e' 3 teste, 4 chiusure, 2+2 code — **undici righe per tre firme**.
 > Un frammento non si rende guardando il frammento. Si rende guardando la frase
 > che compone, e la frase puo' stare in tre punti diversi del file.
 
-💡 **Il filtro `if ( en )` e' la misura non rumorosa che la 28ª cercava.** Quella
-sessione aveva provato a contare i letterali fuori da `lang()` per file e aveva
-trovato «quasi tutto rumore» — percorsi, nomi di file, chiavi di `#define`.
-Dentro un blocco `if ( en )` il rumore non c'e': **tutto quello che sta li' e'
-testo inglese che il giocatore legge**, per costruzione.
+💡 **Il filtro `if ( en )` e' molto meno rumoroso** di quello che la 28ª aveva
+provato — contare i letterali fuori da `lang()` per file, che dava «quasi tutto
+rumore»: percorsi, nomi di file, chiavi di `#define`.
+
+⚠️ **Ma «per costruzione li' dentro e' tutto testo» e' falso, e l'ho scritto
+prima di verificarlo.** Guardando le 18 righe dei file piccoli, **circa otto non
+sono testo**: `help.hsp:568` e `main.hsp:3117` sono sostituzioni di entita' HTML
+(`cnv_str s, "&quot;", "\""`), `init.hsp:1714` e `system.hsp:1682` sono operandi
+di confronto, `system.hsp:1758` e `:1762` sono chiavi di dati
+(`getnpctxt("raceAlias_en.", ...)`). Il filtro dimezza il rumore, non lo toglie:
+ogni riga va guardata.
+
+### ⚠️ E il conteggio di 136 era sbagliato: struttura e lingua sono due misure
+
+La prima stesura di `blocchi_en.py` leggeva la **build** e dava **136 righe**. Ma
+la build contiene anche quelle **gia' sistemate**: gli articoli italiani di
+`item_func.hsp` (`locvar_itemname_s8 = "una "`) sono letterali nudi dentro
+`if ( en )` esattamente come quelli inglesi, e finivano nel conto come se fossero
+da fare. Di piu': **37 di quelle righe non esistono nel sorgente**, le aggiunge
+`applica_dati_nome`.
+
+I numeri veri, misurando il **sorgente pinnato** per la struttura e il confronto
+sorgente/build per il lavoro che resta:
+
+| | righe |
+|---|---|
+| struttura, nel sorgente | **99** |
+| ancora intatte prima della 33ª | **92** |
+| ancora intatte dopo | **68** |
+
+I file: `event.hsp` 27, `screen.hsp` 14, `command.hsp` 10, `system.hsp` 4,
+`material.hsp` 3, `item_func.hsp` 3, `main.hsp` 3, piu' i singoli.
+
+💡 **E il grosso viaggia con file non ancora tradotti** (`event.hsp` e' a 5 su
+654, `screen.hsp` e `command.hsp` a zero): li' la toppa non ha fretta, si fara'
+insieme al file. **L'eccezione era `action.hsp`**, dato al **100%** e con una
+riga inglese: `:15221`, la **gemella esatta** di `proc.hsp:26886` — jp e en
+identici riga per riga. Toppata copiando la resa gia' decisa.
+
+> Un file «al 100%» lo e' rispetto a quello che il conteggio sa vedere. Se il
+> conteggio salta una classe di righe, la percentuale non e' sbagliata: e'
+> risposta a una domanda piu' stretta di quella che sembra.
 
 ### 💡 Un helper con due soli siti di chiamata si puo' cambiare
 

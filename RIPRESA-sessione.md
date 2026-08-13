@@ -155,9 +155,14 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
    avevano letterali inglesi **nudi** fuori da `lang()`, invisibili
    all'estrattore. `toppe.jsonl` passa da 273 a **296** ed erano zero su
    `proc.hsp`. Vedi `decisioni.md`, «Ventitré righe di `proc.hsp` parlano inglese
-   fuori da `lang()`». ⚠️ **Ma il conteggio resta una sottostima per gli altri
-   file**: `scratchpad/blocchi_en.py` senza argomenti li misura tutti, e non è
-   mai stato lanciato su tutto il sorgente;
+   fuori da `lang()`».
+   ✅ **E la misura è stata fatta su tutto il sorgente**: **99 righe** così in 14
+   file, di cui **68 ancora intatte** — `event.hsp` 27, `screen.hsp` 14,
+   `command.hsp` 10, `system.hsp` 4, `material.hsp`/`item_func.hsp`/`main.hsp` 3
+   ciascuno. 💡 Il grosso viaggia con file non ancora tradotti, quindi non ha
+   fretta. ⚠️ **Ma circa metà delle righe dei file piccoli non è testo** —
+   entità HTML, operandi di confronto, chiavi di dati — quindi il numero è un
+   punto di partenza, non un elenco di lavoro;
 3. `command.hsp` e `trait.hsp`, che sono ~1.680 firme mai toccate. ⚠️
    `command.hsp` è anche il file che **disegna** i `buffdesc` appena fatti.
 
@@ -248,7 +253,7 @@ Nessun output = 72/72. ✅ Ricontrollato l'11/08 a fine 27ª.
 | `skill.hsp` | 885 | 885 | **100%** |
 | `custom_tweaks.hsp` | 12 | 12 | **100%** |
 | `adv.hsp` | 12 | 12 | **100%** ⭐ chiuso il 2026-08-11 |
-| `action.hsp` | 1.286 | 1.288 | **100%** (le 2 mancanti sono rinviate a toppa) |
+| `action.hsp` | 1.286 | 1.288 | **100%** (le 2 mancanti sono rinviate a toppa). ⚠️ Aveva **una riga inglese** che nessun conteggio vedeva, `:15221`, fuori da `lang()`: toppata il 2026-08-13 |
 | `text.hsp` | 1.718 | 1.720 | **100%** (le 2 mancanti aspettano `talk.txt`) |
 | `proc.hsp` | **207** | 1.098 | 19% — più 23 righe fuori da `lang()`, ✅ toppate |
 | `buff.hsp` | 199 | 199 | **100%** ⭐ chiuso il 2026-08-13 — `buffname`, `bufftxt` e `buffdesc` |
