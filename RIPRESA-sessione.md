@@ -57,9 +57,24 @@ sessione può fare una cosa sola, faccia il collaudo.
 
 Da guardare, in ordine di rischio:
 
-1. **La scena ricucita**: la frase dev'essere «`"Che bello! Ecco, prendi questi
-   spiccioli."`», non «`"Che bello...! Ecco…`» né con le virgolette aperte e mai
-   chiuse. È il punto dove tre meccanismi diversi si incontrano.
+1. ✅ **La scena ricucita: guardata il 2026-08-14, e aveva un difetto.** I tre
+   pezzi si agganciavano e le virgolette chiudevano, ma a schermo usciva
+   «`"Che bello ! Questo e' tutto quello che ho nel portafogli.`» — **uno spazio
+   prima del punto esclamativo**. Lo mette `init.hsp:1666`, che nel **solo ramo
+   inglese** accoda uno spazio a ogni `txt`; il ramo giapponese no. Per questo
+   upstream punteggia la **testa** e fa ripartire la coda con la maiuscola,
+   mentre il giapponese fa l'opposto — e noi avevamo copiato il giapponese.
+   ✅ Corretto (tre toppe, due voci di dizionario), ricompilato e **riguardato lo
+   stesso giorno**: esce «`"I-incredibile! Questo e' tutto quello che ho nel
+   portafogli."`». Il dettaglio sta in `decisioni.md`.
+   ⚠️ **Resta lo spazio prima della virgoletta di chiusura** («`"Che bello! `»),
+   dove la coda è il solo `txt lang("」", "\"")`: ce l'ha anche l'inglese di
+   monte, non è nostro.
+   ⚠️ **E la regola vale oltre questa scena**: ogni resa che continua un `txt`
+   precedente e comincia per punteggiatura mostrerà lo spazio; ogni resa che
+   comincia per minuscola verrà maiuscolata d'ufficio (`init.hsp:1659-1661`).
+   **La misura su tutto il dizionario non è stata fatta**: è materiale da
+   guardia.
 2. **I 63 `buffdesc`**, nei tre siti: scheda del personaggio
    (`command.hsp:10800`), schermata di analisi (`:2005`), lista abilità
    (`:5389`, che taglia a 34 — e va guardata per ultima).
@@ -238,7 +253,21 @@ un'estrazione piena (`estrai` senza `--da-tradurre`) tornano a girare e passano.
 $env:PYTHONPATH = $repo
 python scratchpad/referti.py      # participi col giocatore: 0 | elisioni: 0
 python scratchpad/blocchi_en.py   # struttura 99 | ancora da fare 68
+python scratchpad/else_jp.py      # else-di-jp: 6.984 righe in 13 file
 ```
+
+⚠️ **`else_jp.py` è nato nella 34ª ed è il punto cieco di `blocchi_en.py`.** Gli
+stessi letterali inglesi nudi, ma scritti `if ( jp ) { … } else { … }` invece che
+`if ( en ) { … }`: il fratello non li vede, e nessun conteggio di «non tradotte»
+li include. Trovato perché la follia di `calculation.hsp:2352` — `"Forgive me!
+Forgive me!"`, `"P-P-Pika!"`, `"You snail!"` — è uscita **in inglese a schermo**
+durante il collaudo. Delle 6.984 righe, **6.840 sono le descrizioni di
+`db_item.hsp`** già dichiarate fuori perimetro: le vive sono **144**, e le
+interessanti sono `proc.hsp` 13, `ai.hsp` 3, `calculation.hsp` 2, `chat.hsp` 2.
+💡 `item_func.hsp` ne ha 30 con **0 intatte**: quella famiglia era già stata
+toppata a mano, un caso per volta, senza che nessuno sapesse che era una
+famiglia. ⚠️ E `calculation.hsp` non sta in **nessun elenco di fase**, perché non
+ha firme da tradurre: è `adv.hsp` della 26ª in forma nuova.
 
 `referti.py` fa la nona e la decima verifica — i participi che concordano col
 giocatore e le elisioni davanti a consonante. Attese **0** tutt'e due: adesso che
@@ -315,8 +344,10 @@ battute rese» e sommandoci i lotti veniva 2.515, quattro in meno del vero.
 Altri fuori Fase 1: `custom_enemyevolution.hsp` **chiuso**; `ai.hsp` 6 su 100;
 `event.hsp` 5 su 654; `chara_func.hsp` 45 su 331; `init.hsp` 6 su 133.
 
-**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **13.135
-sostituzioni** applicate alla build, il compilatore non dice nulla, manifesto del
+**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **13.143
+sostituzioni** applicate alla build (⚠️ la ripresa portava **13.135**: era un
+numero vecchio, non lo ha mosso la correzione della 34ª — rimisurato mettendo da
+parte la modifica, `applica` dava 13.143 anche prima), il compilatore non dice nulla, manifesto del
 sorgente **72/72** (ricontrollato il 13/08 a inizio 31ª). ✅ Tutta la batteria
 rilanciata a fine 33ª dopo le **165 rese nuove**: **identica in ogni valore**,
 niente si è mosso, e `verifica --dizionario` dà `buff.hsp: 0 da ritradurre, 0 non
@@ -1231,11 +1262,11 @@ basta.
 
 ⚠️ **Controllare la data dell'exe prima di fidarsi di uno screenshot.**
 
-**L'eseguibile in `cgx-test.exe` è aggiornato a fine trentaduesima sessione
-(13/08/2026 18:28)** e contiene tutto quello di prima — le battute di
-`db_creature.hsp`, i `buffname`, le due toppe di `buff.hsp`, i 71 messaggi dei
-potenziamenti — più le **33 rese della 32ª** sui due tetti e «lo Yerleswood».
-Compilato senza errori, **12.974 sostituzioni**.
+**L'eseguibile in `cgx-test.exe` è della 34ª (14/08/2026 01:42, 17.588.574
+byte)** e contiene tutto quello di prima — le battute di `db_creature.hsp`, i
+`buffname`, le due toppe di `buff.hsp`, i 71 messaggi dei potenziamenti, i 63
+`buffdesc` e le 24 toppe della 33ª — più la correzione dello spazio nella scena
+ricucita. Compilato senza errori, **13.143 sostituzioni**.
 
 ✅ **I messaggi dei potenziamenti sono stati visti a schermo il 13/08, e la
 toppa regge.** Con `add_ally 249` e una bacchetta di velocità (`spawn_item 377`,

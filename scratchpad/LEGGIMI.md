@@ -27,6 +27,7 @@ si committa.
 | `genera-toppe-en.py` | genera le toppe su quelle righe: allarga il blocco `cerca` finché non è **unico** (`applica` si ferma anche sulle toppe ambigue) e **degrada gli accenti**, che per le toppe `applica` non degrada | dopo `blocchi_en.py` |
 | `aggiungi-toppe.py` | aggiunge toppe a `toppe.jsonl` senza duplicare, con identità `(file, cerca)` | dopo il generatore |
 | `code-virgolette.py` | trova le teste e le code di una frase spezzata fra `if ( en )` e `lang()` | quando una voce è un frammento |
+| `else_jp.py` | ⚠️ **il punto cieco di `blocchi_en.py`**: gli stessi letterali inglesi nudi, ma nella forma `if ( jp ) { … } else { … }`, che il fratello non vede perché cerca `if ( en )`. Nato nella 34ª, quando la follia di `calculation.hsp:2352` è uscita in inglese a schermo. Atteso: **6.984 righe in 13 file**, di cui 6.840 sono le descrizioni di `db_item.hsp` già fuori perimetro — le vive sono **144** | insieme a `blocchi_en.py`, all'apertura di ogni file |
 | `lotto-fase2-buffdesc-001.py`, `lotto-fase4-proc-001.py`, `lotto-fase4-proc-002.py`, `lotto-fase4-proc-003.py` | i lotti della 33ª, tenuti come **modelli**: dizionario `{(riga, en): resa}` più le cinque reti del metodo | da copiare per il prossimo lotto |
 
 Si lanciano dalla radice del repo, con l'interprete giusto:

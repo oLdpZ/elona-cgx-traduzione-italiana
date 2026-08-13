@@ -6,6 +6,128 @@ ancora aperte.
 
 ---
 
+## Il ramo inglese accoda uno spazio a ogni `txt`, il giapponese no — 2026-08-14, trentaquattresima sessione
+
+La scena ricucita di `proc.hsp` è uscita a schermo così:
+
+```
+"Che bello ! Questo e' tutto quello che ho nel portafogli."
+```
+
+Le virgolette chiudevano, i tre pezzi si agganciavano, e la frase era comunque
+sbagliata: **uno spazio prima del punto esclamativo**.
+
+La causa sta in `init.hsp:1666`, dentro il ramo `else` di `if ( jp )` di
+`txt_conv`, cioè **nel solo ramo inglese**:
+
+```hsp
+msgtemp += " "
+```
+
+Ogni `txt` inglese si porta dietro uno spazio finale. Il ramo giapponese
+(`:1595-1647`) non lo fa. Due `txt` consecutivi, in inglese, sono sempre
+separati da uno spazio.
+
+⚠️ **E la conseguenza è che la struttura giapponese non si può ricopiare.** Il
+giapponese spezza la frase mettendo la punteggiatura sulla **coda**
+(「よかった + よ」 poi 「！さあ、小遣いを…」), e funziona perché lì lo spazio non
+c'è. Upstream in inglese fa l'opposto — punteggia la **testa** e fa ripartire la
+coda con la maiuscola — e non è uno stile: è l'unico modo di non pagare quello
+spazio.
+
+| | testa | coda | a schermo |
+|---|---|---|---|
+| giapponese | 「よかった + よ | ！さあ、小遣いを受け取ってくれ」 | 「よかったよ！さあ…」 |
+| upstream EN | `"You are awesome!` | `Here, take this."` | `"You are awesome! Here, take this."` |
+| noi, prima | `"Che bello` | `! Ecco, prendi questi spiccioli."` | ❌ `"Che bello ! Ecco…` |
+| noi, adesso | `"Che bello!` | `Ecco, prendi questi spiccioli."` | ✅ `"Che bello! Ecco…` |
+
+💡 **La prova che upstream lo sa** sta due righe sopra, a `init.hsp:1659-1661`:
+in inglese la prima lettera minuscola di ogni `txt` viene **maiuscolata
+d'ufficio** (`poke msgtemp, 0, b - 32`), a meno che non si sia chiamato
+`txtcontinue`. Il ramo inglese è progettato perché ogni `txt` sia una frase
+nuova. Le nostre code cominciavano per `!`, quindi la maiuscolatura non le
+toccava e il difetto non aveva nessuna guardia che lo vedesse.
+
+**Corretto in tre toppe** (le teste di `:3372`, `:3533`, `:3617`, cinque
+aperture ciascuna) **e due voci di dizionario** (le code di `:3383`/`:3629` e
+`:3389`/`:3635`). Riguardato a schermo lo stesso giorno: esce
+`"I-incredibile! Questo e' tutto quello che ho nel portafogli."`
+
+⚠️ **Lo spazio prima della virgoletta di chiusura resta, ed è di monte.** Dove
+la coda è il solo segno di chiusura (`txt lang("」", "\"")`, a `:3376`, `:3537`,
+`:3621`) a schermo esce `"Che bello! "`. Ce l'ha anche l'inglese di upstream, per
+la stessa `msgtemp += " "`, e toglierlo vorrebbe dire un'altra toppa
+strutturale. Segnalato, non toccato.
+
+⚠️ **E il `motivo` delle tre toppe diceva la regola sbagliata.** Portava scritto
+«la testa va senza punteggiatura finale, come il ramo giapponese: il punto lo
+porta la coda», cioè documentava esattamente ciò che ha prodotto il difetto: chi
+avesse riletto la toppa avrebbe rimesso lo spazio credendo di correggere. Il
+`motivo` è stato riscritto insieme alla toppa.
+
+> Una regola di resa dedotta dal ramo giapponese vale solo se il pezzo di codice
+> che la stampa è quello giapponese. Noi compiliamo il ramo inglese: le sue
+> abitudini tipografiche sono vincoli, non stile di upstream.
+
+💡 **Vale oltre questa scena.** Qualunque resa italiana che *continui* un `txt`
+precedente e cominci per punteggiatura mostrerà lo spazio orfano; qualunque resa
+che cominci per lettera minuscola verrà maiuscolata. È materiale da guardia — la
+misura su tutto il dizionario non è ancora stata fatta.
+
+Concetto per il vault: [[lo-spazio-lo-mette-il-ramo-che-stampa]].
+
+---
+
+## Il referto guardava una forma sola, e la follia parlava inglese — 2026-08-14, trentaquattresima sessione
+
+Nel log del collaudo, in mezzo alle rese nuove, c'erano `"Forgive me! Forgive
+me!"`, `"P-P-Pika!"`, `"You snail!"`, `"Shhhhhh!"`. Vengono da
+**`calculation.hsp:2352`**, le battute di chi impazzisce, e non stanno in nessun
+conteggio: né fra le «non tradotte» (sono letterali nudi, `estrai.py` non li
+vede) né fra le 99 righe di struttura misurate nella 33ª.
+
+Il motivo è che `scratchpad/blocchi_en.py` cerca **`if ( en )`**, e lì la forma è
+un'altra:
+
+```hsp
+if ( jp ) {
+    txt name(r1) + "「ごめんなさいごめんなさい！」", …
+}
+else {
+    txt cnvtalk("Forgive me! Forgive me!"), cnvtalk("P-P-Pika!"), …
+}
+```
+
+⚠️ **Stessa sostanza, sintassi diversa, e la guardia non la vede.** Misurato con
+`scratchpad/else_jp.py`: **144 righe in 12 file**, più 6.840 di `db_item.hsp`
+che sono le descrizioni già dichiarate fuori perimetro. Le vive:
+
+| file | righe | che cosa sono |
+|---|---|---|
+| `command.hsp` | 70 | intestazioni e voci di menu — file a 0%, viaggia col resto |
+| `item_func.hsp` | 30 | ✅ **0 intatte**: già toppate da sessioni passate, senza che nessuno sapesse che erano una famiglia |
+| `proc.hsp` | 13 | le suppliche di chi viene derubato, gli insulti |
+| `text.hsp` | 11 | ✅ 0 intatte |
+| `ai.hsp` | 3 | «I'll do anything! Please don't kill me....!» |
+| `calculation.hsp` | 2 | la follia vista a schermo, **con `_s()` e `his()`** da togliere |
+| `chat.hsp` | 2 | due righe lunghe di lore |
+| resto | 8 | URL, chiavi di `#define`, generatori di nomi: rumore |
+
+💡 **La riga di `item_func.hsp` è la lezione**: quella famiglia era già stata
+toppata trenta volte, a mano, un caso per volta, senza che il fatto di essere
+*una famiglia* fosse mai stato scritto. Un referto che guarda una sintassi sola
+non dice «non ce n'è», dice «non ne ho viste **di quella forma**».
+
+⚠️ `calculation.hsp` non era in nessun elenco di fase: è la stessa scoperta di
+`adv.hsp` nella 26ª, in forma nuova. Il file non ha *firme* da tradurre — per
+questo nessun conteggio lo nomina — ma ha testo che il giocatore legge.
+
+Concetto per il vault: [[una-guardia-vale-solo-dove-guarda]] (già esiste: questa
+ne è la seconda istanza, e stavolta il punto cieco era **sintattico**).
+
+---
+
 ## La catena verde non dimostra che la build sia tradotta — 2026-08-13, trentatreesima sessione
 
 `reimporta` scrive **solo nel dizionario**. `applica` e' il passo che porta
