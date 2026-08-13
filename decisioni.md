@@ -62,13 +62,34 @@ costituzione» e' 21, cioe' ancora fuori.
 | Maledizione della fame | **Fame maledetta** | `fame` porta il proprio genere |
 | Lume della falsa vita | **Lume di falsa vita** | |
 | Invulnerabilita' | **Invincibile** | |
-| Marchio letale | **Marchio** | |
+| Marchio letale | **Segno letale** | ⚠️ prima era «Marchio», vedi sotto |
 | Sanguinamento / -! / Emorragia | **Sangue** / **Sangue!** / Emorragia | scala di tre |
-| Veleno letale! | **Veleno!** | la scala per enfasi che upstream usa per `Bleeding!` |
+| Veleno letale! | **Gran veleno** | ⚠️ prima era «Veleno!», vedi sotto |
 | Sonno profondo | **Letargo** | |
 | Instabilita' | **Instabile** | in `-e`, non concorda |
 | Soffocamento | **Asfissia** | |
 | Malattia-LvN (11 voci) | **Morbo-LvN** | ⚠️ `Malato-LvN` concorderebbe col giocatore |
+
+### ⚠️ Accorciare per stare nel tetto puo' togliere il significato, non solo i byte
+
+Due rese di questa stessa sessione sono state rifatte poche ore dopo, e la
+domanda che le ha prese e' stata **«ma non era *letale* prima?»**.
+
+| era | primo tentativo | perche' non andava | adesso |
+|---|---|---|---|
+| Marchio letale (14) | Marchio (7) | 刻死紋 ha 死, *morte*: «marchio» e basta puo' essere un marchio di fabbrica | **Segno letale** (12) |
+| Veleno letale! (14) | Veleno! (7) | 猛毒 e' un veleno **piu' forte**, e il solo punto esclamativo non lo dice | **Gran veleno** (11) |
+
+💡 **La lezione e' che il tetto e' un vincolo, non un criterio.** Il primo
+accorciamento cerca i caratteri che avanzano; quello giusto cerca la resa piu'
+corta che **conserva le due meta' del senso** — qui la cosa marchiata e il
+fatto che uccida. Tutt'e due esistevano dentro il tetto e non erano state
+cercate: c'era un carattere di margine per «Segno letale» e zero, ma
+sufficienti, per «Gran veleno».
+
+⚠️ **Da rifare a ogni accorciamento**: rileggere la resa nuova **senza avere
+sotto gli occhi quella vecchia** e chiedersi se dice ancora quello che diceva
+il giapponese. «Marchio» letto da solo non lo diceva.
 
 ⚠️ **Il tetto si misura sulla forma degradata, non su quella del dizionario.**
 `volontà` e' 14 caratteri, `volonta'` e' **15**, e a schermo ci va la seconda:
