@@ -6,6 +6,79 @@ ancora aperte.
 
 ---
 
+## Un buff è l'incantesimo che lo concede — 2026-08-13, ventinovesima sessione
+
+Aprendo i 71 `buffname` di `buff.hsp` la domanda sembrava «come si rendono 71
+nomi di status». Era sbagliata: **44 di quei 71 giapponesi erano già resi**,
+quasi tutti in `skill.hsp`, chiuso da dieci giorni.
+
+Non è una coincidenza né un doppione da ripulire. 「聖なる盾」 è il nome
+dell'incantesimo *e* il nome dello status che l'incantesimo lascia addosso: per
+chi gioca sono **la stessa cosa vista due volte**, e devono leggersi uguale.
+Renderli di nuovo, anche bene, avrebbe prodotto due nomi per un oggetto solo.
+
+**Quindi il lotto ha copiato, non deciso**: `Scudo sacro`, `Nebbia di silenzio`,
+`Possessione di Lulwy`, `Velo sacro` vengono dal dizionario. Le rese nuove sono
+**27**, quelle il cui giapponese non compare da nessun'altra parte.
+
+### ⚠️ E nessuno strumento lo controllava
+
+`battute --divergenti` è la guardia contro «stesso giapponese, due rese
+diverse». Ma `rese_gia_decise()` legge **un solo file**:
+
+```python
+FILE = "db_creature.hsp"
+percorso = percorsi.DIZIONARIO / f"{FILE}.jsonl"
+```
+
+Fuori da lì è cieca. La controprova è in questo lotto: le quattro
+`Cambio di forma (A)/(B)/(G)/(D)` hanno **lo stesso giapponese** 「フォルムシフト」
+e quattro rese diverse, e dopo la reimportazione `--divergenti` stampa **11**
+come prima. Se le 44 le avessi ridecise a caso, la catena sarebbe rimasta verde.
+
+**Misurato sull'intero dizionario**: 436 giapponesi hanno più di una resa, 369
+dentro `db_creature.hsp` (quelli che lo strumento vede) e **67 a cavallo di più
+file**. ⚠️ **La maggior parte dei 67 è legittima e non va toccata**: lo stesso
+giapponese breve fa il nome dell'abilità in `skill.hsp`, il nome dell'oggetto in
+`db_item.hsp` e un frammento di frase in `action.hsp` — `Bastone` / `bastone` /
+`il bastone` sono tre ruoli grammaticali, non tre errori. È proprio perché la
+divergenza fra file è quasi sempre voluta che lo strumento è ristretto a un
+corpus solo: allargarlo darebbe 67 falsi allarmi.
+
+💡 **La regola che ne esce non è «scrivere una guardia», è una domanda da farsi
+all'apertura di ogni file nuovo**: *questo file nomina cose che un altro file ha
+già nominato?* Per `buff.hsp` la risposta era sì per 44 voci su 71. Vale
+sicuramente anche per `chara.hsp` («You have learned a new ability, X») e per i
+`bufftxt` rimanenti. Si risponde in una riga, non con un lotto:
+
+```powershell
+python -c "import json,io,glob; d=set(); [d.add(json.loads(l)['jp']) for p in glob.glob('dizionario/*.jsonl') for l in io.open(p,encoding='utf-8') if json.loads(l).get('it')]; v=[json.loads(l) for l in io.open('lavoro/_X.jsonl',encoding='utf-8')]; print(sum(1 for x in v if x['jp'] in d), 'su', len(v), 'gia rese altrove')"
+```
+
+## Dove finisce un nome di status: tre siti, tre regole — 2026-08-13, ventinovesima sessione
+
+Prima di fissare dieci `Crescita della…` da 24-27 caratteri serviva sapere il
+tetto, perché il progetto vieta di stimarlo. `buffname` esce in **tre** posti, e
+non hanno la stessa regola:
+
+| sito | come disegna | tetto |
+|---|---|---|
+| `command.hsp:10800` (status del personaggio) | `s = buffname + ": " + turni + buffdesc` | **manda a capo a 70**, non taglia |
+| `command.hsp:256` | `bmes` a `pos` libere | nessuno |
+| `custom_ai.hsp:3174` (menu tattiche del mod) | `cs_list …, wx + 18 + (145 * (cnt/22))` | colonne da **145 px**, ~13 caratteri |
+
+Il primo è il sito che conta e **si spezza da solo**: il blocco `ANNA CUSTOM`
+mette il ritorno a capo dentro `if ( en )`, cioè proprio nel ramo che
+compiliamo. Il terzo sarebbe strettissimo.
+
+⚠️ **Ma il tetto del terzo è già sfondato da rese decise settimane fa**:
+`Schivata d'emergenza`, `Possessione di Lulwy` e `Dominio dello spazio` sono 20
+caratteri e stanno nel dizionario da prima di questo lotto. Delle due l'una: o
+in quel menu le colonne si sovrappongono già oggi, o `cs_list` non taglia come
+`*prompt_key`. **Non è deducibile e va visto a schermo.** Nel frattempo i 27
+nomi nuovi sono scritti con la stessa misura dei 44 esistenti: essere gli unici
+corti non avrebbe sistemato niente e avrebbe reso il menu incoerente.
+
 ## Il round-trip non è una prova: vanno contati i byte — 2026-08-11, ventitreesima sessione
 
 Uno screenshot del diario, riga delle missioni giornaliere:

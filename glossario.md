@@ -132,6 +132,32 @@ diventano una sola resa — **Cos** e **Car** — e la doppia grafia sparisce.
 | `strblessed` / `strcursed` / `strdoomed` | con benedizione / con maledizione / con dannazione | ⚠️ **eccezione motivata alle due righe sopra**, e vale solo per le tre stringhe che `item_func.hsp` antepone al nome di un oggetto. Lì «benedetto» si accorderebbe con un oggetto di genere ignoto — «mantello benedetto», «pozione benedetta» — quindi diventa un complemento, e la toppa lo sposta **dopo** il nome: «mantello leggero di platino con benedizione». Nelle frasi in prosa resta «benedetto»: è un'altra firma |
 | Full | Sazio → *riscrivere* | mai riferito al giocatore: il genere non si conosce. `You are too full` → «Non riesci a mangiare altro» (vedi `guida-stile.md`) |
 
+## I nomi degli status (`buffname`, 2026-08-13)
+
+⚠️ **44 dei 71 non si decidono qui**: il loro giapponese è già reso in
+`skill.hsp`, perché un buff e l'incantesimo che lo concede sono la stessa cosa
+(`decisioni.md`, «Un buff è l'incantesimo che lo concede»). Quelli si copiano.
+Sotto ci sono solo le **27 rese nuove**.
+
+| EN | IT | note |
+|---|---|---|
+| `Grow Strength` … `Grow Speed` | `Crescita della forza`, `… della costituzione`, `… della destrezza`, `… della percezione`, `… dell'apprendimento`, `… della volontà`, `… della magia`, `… del carisma`, `… della velocità` | i nove nomi d'attributo vengono da `skill.hsp`: inventarne altri qui li avrebbe sdoppiati |
+| `Form Shift (A)/(B)/(G)/(D)` | `Cambio di forma (A)/(B)/(G)/(D)` | stesso giapponese 「フォルムシフト」, quattro inglesi: la lettera è l'unica cosa che li distingue e si conserva |
+| `Final Form Shift` | `Cambio di forma finale` | |
+| `Punishment` | `Punizione divina` | 天罰 è il castigo del cielo, non una punizione qualsiasi |
+| `Luck` / `Unlucky` | `Fortuna` / `Sfortuna` | sostantivi: `Sfortunato` vorrebbe il genere di chi lo subisce |
+| `Distracted` | `Distrazione` | idem, e vale la regola delle etichette di stato |
+| `Melancholy` | `Malinconia` | |
+| `Life Tasting` | `Gusto della vita` | |
+| `Black Mirror` | `Specchio d'ossidiana` | 黒曜鏡 porta il materiale che l'inglese perde: si traduce la base |
+| `Flame of Life` | `Lume della falsa vita` | 偽命 è la vita **falsa**, e l'inglese la perde |
+| `Curse of Hunger` | `Maledizione della fame` | |
+| `Chain of Mana` | `Catena del mana` | |
+| `Shooting Mode` | `Modalità tiro` | |
+| `Disinfection` | `Disinfezione` | |
+| `Energy MAX` | `Energia al massimo` | |
+| `Charge` | `Carica` | il dizionario lo dava sia `Carica` sia `carica`: un'etichetta vuole la maiuscola |
+
 ## Mondo e luoghi
 
 | EN | IT | note |

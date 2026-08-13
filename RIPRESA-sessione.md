@@ -1,30 +1,53 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-12, fine della **ventottesima** sessione.
+Aggiornato: 2026-08-13, fine della **ventinovesima** sessione.
+
+## ⚠️ Prima di tutto: l'ambiente era sparito, non il progetto
+
+All'apertura della 29ª **nessuno strumento partiva**. Sulla macchina restavano
+solo Python **3.7** (Anaconda) e **3.8**, e gli strumenti usano `str | None`:
+`strumenti.creature` moriva alla riga 67 prima di leggere un file. Il Python
+3.10+ che li faceva girare fino al 12/08 non c'era più, e nemmeno Elin, che
+risultava disinstallato — qualcosa ha ripulito la macchina.
+
+**Risolto installando Python 3.12.10** (`winget install Python.Python.3.12
+--scope user`) più `pytest`. Se succede di nuovo, il sintomo è
+`TypeError: 'type' object is not subscriptable`, e non è un guasto del codice.
+
+```powershell
+$py = "$env:LOCALAPPDATA\Programs\Python\Python312\python.exe"
+```
+
+💡 Due comodità rimesse lo stesso giorno, se mancassero: la barra del contesto
+(`~/.claude/statusline.py` + `statusLine` in `~/.claude/settings.json`) e
+Windows Terminal — il console host classico usa Consolas, che **non ha il
+giapponese** e lo stampa come `?`, il che rende illeggibili le colonne `jp`.
 
 ## La prima cosa da fare
 
-⚠️ **La ventottesima è stata una sessione di misura, non di resa: zero rese
-nuove.** Ha fatto due cose, e la seconda vale più della prima:
+**La 29ª ha chiuso i `buffname`**: 71 rese, catena verde, e ha trovato una cosa
+che vale più del lotto — vedi «Un buff è l'incantesimo che lo concede» in
+`decisioni.md`. **44 delle 71 voci erano già rese in `skill.hsp`** e andavano
+copiate, non ridecise; e `--divergenti` non se ne sarebbe accorto, perché guarda
+un file solo.
 
-1. **il lavoro della 26ª e della 27ª era tutto fuori da git** — 1.089 rese, tre
-   strumenti modificati e i documenti stavano solo sul disco. Ora sono **sei
-   commit** su `fase-0`, albero pulito, catena verde a HEAD;
-2. **la decisione 0 della ripresa è presa, e la premessa su cui stava era
-   sbagliata.** Vedi «Le due scoperte della ventottesima». Il blocco ad alta
-   frequenza di Fase 4 **non si anticipa in blocco**.
+⚠️ **Da fare all'apertura di ogni file nuovo, da ora**: chiedersi *questo file
+nomina cose che un altro file ha già nominato?* Per `buff.hsp` erano 44 su 71.
+La riga di comando che risponde sta in `decisioni.md`. Vale di sicuro per
+`chara.hsp` e per i `bufftxt` rimanenti.
 
 **Il lavoro che riparte, in ordine:**
 
-1. i **~90 `buffname`** di `buff.hsp` — la fetta pulita del blocco anticipato,
-   dentro `lang()`, nessuna dipendenza strutturale. Cominciata e **non
-   iniziata**: nessun lotto scritto;
-2. le **battute di `db_creature.hsp`**, 882, per creatura intera in ordine di
+1. le **battute di `db_creature.hsp`**, 882, per creatura intera in ordine di
    livello;
-3. i **`bufftxt`** di `buff.hsp` come **lavoro strutturale a parte**, non come
+2. i **`bufftxt`** di `buff.hsp` come **lavoro strutturale a parte**, non come
    lotto di rese: prima la toppa su `chara_func.hsp:2316-2375`, poi le rese.
+   ⚠️ Prima ancora, la domanda qui sopra: quante delle 65 sono già rese altrove?
+3. i **63 `buffdesc`**, che nessun documento nominava prima della 29ª: sono
+   dentro `lang()` ma molti si compongono con `+` da variabili a runtime, quindi
+   vanno guardati prima di contarli come lotto.
 
-Poi si va avanti sui due fronti di prima:
+E restano i due fronti di prima:
 
 1. **le battute di `db_creature.hsp`**, **882 da fare**, per **creatura
    intera** e in **ordine di livello** — lo strumento compone il lotto da solo,
@@ -55,6 +78,12 @@ altrove, «Quu...» sulla forma di vita quantistica, dove l'inglese fa il gioco
 di parole con Q) e 「わん！」 («*bau!*» dove l'inglese descrive un'azione,
 «Bau!» dove passa da `cnvtalk`, che mette le virgolette).
 
+⚠️ **Ma `--divergenti` guarda solo `db_creature.hsp`** — misurato nella 29ª,
+`rese_gia_decise()` apre quel file e basta. Una divergenza introdotta in
+qualunque altro file **non alza quel numero**. Non fidarsi dell'11 come se
+coprisse il dizionario intero: vedi `decisioni.md`, «Un buff è l'incantesimo che
+lo concede».
+
 💡 Vale anche il manifesto del sorgente, che nessuno strumento controlla:
 
 ```powershell
@@ -77,6 +106,7 @@ Nessun output = 72/72. ✅ Ricontrollato l'11/08 a fine 27ª.
 | `action.hsp` | 1.286 | 1.288 | **100%** (le 2 mancanti sono rinviate a toppa) |
 | `text.hsp` | 1.718 | 1.720 | **100%** (le 2 mancanti aspettano `talk.txt`) |
 | `proc.hsp` | **127** | 1.098 | 12% |
+| `buff.hsp` | **71** | 199 | 36% — i `buffname` sono chiusi il 2026-08-13 |
 | `command.hsp`, `trait.hsp` | 0 | ~1.680 | 0% |
 
 `db_creature.hsp`: **1.131 nomi** (chiusi, sul serio: vedi sotto) + **1.637
@@ -578,6 +608,16 @@ quello prima dell'identificazione, e l'estrattore non lo guarda
 7. i nomi non identificati di `db_item.hsp` e le 2.555 descrizioni.
 
 ## Domande aperte
+
+⚠️ **Da guardare a schermo: il menu tattiche del mod** (`custom_ai.hsp:3174`).
+Elenca i `buffname` in colonne larghe **145 px**, cioè ~13 caratteri, e le rese
+italiane ne fanno fino a 27. Il tetto è **già sfondato oggi** da nomi decisi
+settimane fa (`Schivata d'emergenza`, `Possessione di Lulwy`), quindi o le
+colonne si sovrappongono già, o `cs_list` non taglia come `*prompt_key`. Va
+aperto quel menu su un PNG con qualche status addosso. Il sito che conta invece
+— l'elenco degli status sul personaggio — **manda a capo da solo a 70
+caratteri** e non è a rischio. Vedi `decisioni.md`, «Dove finisce un nome di
+status».
 
 ⚠️ **`Cyber Dome` fu deciso sull'inglese.** Il giapponese è アクリ・テオラ, nome
 **opaco** che per la regola resterebbe invariato. Segnalata, non toccata.

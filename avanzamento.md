@@ -104,6 +104,40 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `event.hsp` | 5 | 649 | 6 letterali, stessa causa |
 | `init.hsp` | 6 | 133 | già nel perimetro da prima |
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
+| `buff.hsp` | **71** | 128 | 2026-08-13: i nomi degli status, fetta anticipata della Fase 4 |
+
+## I 71 `buffname` di `buff.hsp` — 2026-08-13, ventinovesima sessione
+
+Prima fetta del blocco di Fase 4 anticipato dalla decisione 0. **71 voci, tutte
+`statica`, tutte dentro `lang()` e autonome**: nessuna dipendenza strutturale,
+che era il motivo per cui erano state scelte.
+
+⚠️ **La ripresa diceva «~90 `buffname`»: sono 71.** Le 199 voci del file si
+dividono in **71 `buffname`**, **65 `bufftxt`** (quelle spezzate in due, lavoro
+strutturale) e **63 `buffdesc`**, che nessun documento nominava. La variabile
+non sta nel JSONL: si legge rileggendo la riga del sorgente.
+
+💡 **Solo 27 delle 71 sono state decise qui.** Le altre **44 avevano gia' una
+resa**, quasi tutte in `skill.hsp`: un buff e l'incantesimo che lo concede sono
+la stessa cosa per chi gioca, e il giapponese e' identico. Copiate dal
+dizionario, non ridecise — vedi `decisioni.md`, «Un buff e' l'incantesimo che lo
+concede».
+
+Le 27 nuove, per gruppo:
+
+- **i dieci `Grow X`** prendono il nome d'attributo gia' chiuso in `skill.hsp`
+  (`Crescita della forza`, `… della costituzione`, `… dell'apprendimento`);
+- **le cinque `Form Shift`**, `Cambio di forma (A)`/`(B)`/`(G)`/`(D)` e
+  `Cambio di forma finale`;
+- **dodici sparse**, fra cui `Punizione divina`, `Fortuna`, `Sfortuna`,
+  `Distrazione`, `Malinconia`, `Maledizione della fame`.
+
+Le tre etichette di stato pure — `Distracted`, `Melancholy`, `Unlucky` — sono
+rese **sostantivi** e non aggettivi, come impone la guida di stile: `Distrazione`
+e non `Distratto`, che vorrebbe il genere di chi lo subisce.
+
+Catena verde: `verifica` 0 problemi al primo colpo, **398 test**, prova
+d'identita' **72/72 e 27.813**, larghezze 0/75, diario 0/214.
 
 ## `chara_func.hsp` entra per 45 firme — 2026-08-11, diciannovesima sessione
 
