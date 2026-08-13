@@ -115,7 +115,25 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `event.hsp` | 5 | 649 | 6 letterali, stessa causa |
 | `init.hsp` | 6 | 133 | già nel perimetro da prima |
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
-| `buff.hsp` | **71** | 128 | 2026-08-13: i nomi degli status, fetta anticipata della Fase 4 |
+| `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
+
+## I 71 `bufftxt` di `buff.hsp` — 2026-08-13, trentunesima sessione
+
+**65 firme distinte coprono i 71 siti**: i tre 「装備の力を引き出した」 e i
+cinque cambi di forma condividono la firma.
+
+Non erano un lotto di rese ma **lavoro strutturale**, e sono servite due toppe:
+una riporta il ramo inglese di `chara_func.hsp:2316-2375` alla forma giapponese
+(63 righe diventano una, e `bufftxt(1)` — letterale nudo fuori da `lang()` in
+tutte e 71 le righe — smette di essere letto); l'altra allarga
+`sdim bufftxt, 30, 2, MAX_BUFF` a 128, perché l'italiano porta la frase intera e
+arriva a 59 byte dove il giapponese si fermava a 28. Il ragionamento sta in
+`RIPRESA-sessione.md`, «Le due toppe di `buff.hsp`».
+
+⚠️ **Dei 71, zero erano già resi altrove** — l'opposto dei `buffname`, dove 44
+su 71 si copiavano da `skill.hsp`. La differenza è che un nome di status è
+anche il nome di un incantesimo, mentre il messaggio che lo annuncia non
+compare da nessun'altra parte.
 
 ## I 71 `buffname` di `buff.hsp` — 2026-08-13, ventinovesima sessione
 

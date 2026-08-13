@@ -64,18 +64,27 @@ risponde sta in `decisioni.md`. E resta la **ricerca dei participi** di
 su tutto il dizionario, il che vuol dire che le sei correzioni della 30ª hanno
 tenuto e che nessuna delle 315 rese nuove ne ha introdotte.
 
+✅ **E i `bufftxt` di `buff.hsp` sono chiusi**, sempre il 13/08: la toppa
+strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
+«Le due toppe di `buff.hsp`» più sotto. `buff.hsp` passa da 128 non tradotte a
+**63**, e le 63 sono tutte `buffdesc`.
+
 **Il lavoro che riparte, in ordine:**
 
-1. i **`bufftxt`** di `buff.hsp` come **lavoro strutturale a parte**, non come
-   lotto di rese: prima la toppa su `chara_func.hsp:2316-2375`, poi le rese.
-   ⚠️ Prima ancora, la domanda qui sopra: quante delle 65 sono già rese altrove?
-2. i **63 `buffdesc`**, che nessun documento nominava prima della 29ª: sono
-   dentro `lang()` ma molti si compongono con `+` da variabili a runtime, quindi
-   vanno guardati prima di contarli come lotto;
-3. **`proc.hsp`**, a 127 su 1.098, per zona di riga dalla **riga 1716** in
+1. i **63 `buffdesc`**. ⚠️ **La domanda sul tetto è già stata fatta ed è
+   chiusa**: `buffdesc` finisce in tre punti, e il più stretto è la lista
+   abilità (`command.hsp:5389`, `mes strmid(s, 0, 34)`), dove la stringa è
+   `dur + "t " + buffdesc` e al `buffdesc` restano **29 byte**. Misurato:
+   **46 inglesi su 63 lo sfondano già**, mediana **38 byte**, il più lungo 76.
+   💡 Quindi la troncatura a 34 è una cosa che **upstream accetta**, non un
+   vincolo che la resa italiana debba rispettare — gli altri due siti
+   (`command.hsp:2005` la schermata di analisi, `:10800` la scheda) non
+   tagliano. **18 delle 63 sono dinamiche** e si compongono con `+` da variabili
+   a runtime: quelle vanno guardate una per una;
+2. **`proc.hsp`**, a 127 su 1.098, per zona di riga dalla **riga 1716** in
    avanti (le esibizioni sono chiuse fino a 1665; 1716-1780 sono le reazioni
    degli dèi alla predica);
-4. `command.hsp` e `trait.hsp`, che sono ~1.680 firme mai toccate.
+3. `command.hsp` e `trait.hsp`, che sono ~1.680 firme mai toccate.
 
 💡 **E c'è un debito di collaudo grosso come il lavoro fatto.** Sei lotti in una
 sessione hanno prodotto una lista di prove a schermo che nessuno ha ancora
@@ -153,7 +162,7 @@ Nessun output = 72/72. ✅ Ricontrollato l'11/08 a fine 27ª.
 | `action.hsp` | 1.286 | 1.288 | **100%** (le 2 mancanti sono rinviate a toppa) |
 | `text.hsp` | 1.718 | 1.720 | **100%** (le 2 mancanti aspettano `talk.txt`) |
 | `proc.hsp` | **127** | 1.098 | 12% |
-| `buff.hsp` | **71** | 199 | 36% — i `buffname` sono chiusi il 2026-08-13 |
+| `buff.hsp` | **136** | 199 | 68% — `buffname` e `bufftxt` chiusi il 2026-08-13; restano i 63 `buffdesc` |
 | `command.hsp`, `trait.hsp` | 0 | ~1.680 | 0% |
 
 `db_creature.hsp`: **1.131 nomi** + **2.519 battute rese**, **0 da fare**. ⭐
@@ -175,9 +184,55 @@ battute rese» e sommandoci i lotti veniva 2.515, quattro in meno del vero.
 Altri fuori Fase 1: `custom_enemyevolution.hsp` **chiuso**; `ai.hsp` 6 su 100;
 `event.hsp` 5 su 654; `chara_func.hsp` 45 su 331; `init.hsp` 6 su 133.
 
-**398 test**, prova d'identità **72/72 e 27.813**, **12.903 sostituzioni**, il
-compilatore non dice nulla, manifesto del sorgente **72/72** (ricontrollato il
-13/08 a inizio 31ª).
+**394 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **12.974
+sostituzioni**, il compilatore non dice nulla, manifesto del sorgente **72/72**
+(ricontrollato il 13/08 a inizio 31ª).
+
+## Le due toppe di `buff.hsp`, e perché ce ne volevano due
+
+### 1. La toppa strutturale: 63 righe diventano una
+
+Il ramo giapponese (`chara_func.hsp:2377`) compone il messaggio «X comincia
+a...» con un **frammento unico**, `name(id) + bufftxt(0, id)`. Il ramo inglese
+(`:2316-2375`) ne compone quattro — `name + bufftxt(0) + _s(id) + bufftxt(1)` —
+più **sette casi speciali** con `his(id)`. Nessuna delle due conseguenze si
+risolve traducendo: `bufftxt(1)` è un letterale nudo **fuori** da `lang()` in
+tutte e 71 le righe, e `_s()`/`his()` sono morfologia inglese che le regole
+vietano.
+
+La toppa riporta il ramo inglese alla forma giapponese. ✅ **Tolto anche
+`cnven()`**, che il ramo inglese applicava **al solo giocatore**: il resto della
+build non capitalizza il nome a inizio messaggio (`chara_func.hsp:6846`,
+«`name(id) + " perde la vita."`»), e tenerlo qui darebbe la maiuscola al
+giocatore e non alle creature, dentro lo stesso messaggio.
+
+💡 **La domanda della ripresa aveva risposta netta**: dei 71 `bufftxt`, **0**
+erano già resi altrove. Non c'era riuso da raccogliere.
+
+### 2. ⚠️ La toppa che non era nel piano: `sdim` non basta più
+
+`sdim bufftxt, 30, 2, MAX_BUFF` dà 30 byte per elemento, e **il numero non è
+casuale**: il giapponese più lungo ne occupa 28. L'inglese ci sta comodo perché
+in `bufftxt(0)` mette solo il verbo. Dopo la toppa l'italiano porta la frase
+intera e il più lungo ne occupa **59**, e accorciare non è una via d'uscita:
+qualunque italiano che porti la frase intera passa i 30 byte.
+
+💡 **La 28ª aveva ragione — `sdim` non è un tetto — e la controprova migliore
+sta nel gioco**, meglio di `skilldesc`: `sdim buffname, 20, MAX_BUFF` e il
+buffname **giapponese** più lungo ne occupa **22**. Upstream scrive già oltre il
+dichiarato, e funziona.
+
+⚠️ **Ma quella prova vale per un array a UNA dimensione.** `bufftxt` ne ha due,
+e per il caso a due dimensioni **non c'è nessuna controprova nel gioco**, perché
+né il giapponese né l'inglese ci arrivano mai. Il buffer è stato allargato a
+128: costa `2 * MAX_BUFF * 98` byte e toglie la domanda invece di scommetterci.
+
+💡 **Il vincolo delle rese è più stretto del solito**, e vale per il prossimo
+che ci mette mano: il soggetto è `name(addbuff_charid)`, che può essere
+**qualunque creatura** — «il cane», «la strega» — oltre al giocatore. Niente
+participio e niente aggettivo che concordi col soggetto; dove ne serviva uno
+l'accordo si è spostato su un nome che porta il proprio genere («una giornata
+fortunata», «catene intrise di magia», «il corpo leggero come una piuma»).
 
 ## Le tre scoperte della trentunesima sessione
 
@@ -855,6 +910,13 @@ quello prima dell'identificazione, e l'estrattore non lo guarda
    `bufftxt` diventano lavoro strutturale a parte; `chara.hsp`, `item_func.hsp`,
    `screen.hsp` e `main.hsp` restano dove sono finché non c'è il conteggio dei
    letterali fuori da `lang()`. Vedi la scoperta 1 della 28ª.
+   ✅ **Fatto il 13/08**: `buffname` e `bufftxt` sono chiusi, restano i
+   `buffdesc`. ⚠️ **Il conteggio dei letterali fuori da `lang()` non è ancora
+   stato fatto**, e finché non c'è, il costo di `chara.hsp`, `item_func.hsp`,
+   `screen.hsp` e `main.hsp` resta ignoto. 💡 Adesso però si sa che cosa
+   cercare: `buff.hsp` è il caso risolto, e la forma del difetto — una frase
+   spezzata in due con solo la prima metà dentro `lang()` — è quella che lo
+   strumento deve saper riconoscere.
 1. ✅ **le battute di `db_creature.hsp`**: chiuse il 2026-08-13, lotti `015`-`042`;
 2. **`proc.hsp`**, 971 firme, per zona di riga da **1716**;
 3. `command.hsp`, `trait.hsp`;
@@ -991,9 +1053,18 @@ basta.
 ⚠️ **Controllare la data dell'exe prima di fidarsi di uno screenshot.**
 
 **L'eseguibile in `cgx-test.exe` è aggiornato a fine trentunesima sessione
-(13/08/2026 15:07)** e contiene **tutte le battute di `db_creature.hsp`**, i 71
-`buffname` della 29ª, le sei correzioni di concordanza della 30ª e la correzione
-di `*gnam*`. Compilato senza errori, **12.903 sostituzioni**.
+(13/08/2026 17:05)** e contiene **tutte le battute di `db_creature.hsp`**, i 71
+`buffname` della 29ª, le sei correzioni di concordanza della 30ª, la correzione
+di `*gnam*`, **le due toppe di `buff.hsp` e i 71 messaggi dei potenziamenti**.
+Compilato senza errori, **12.974 sostituzioni**.
+
+⚠️ **I messaggi dei potenziamenti non sono mai stati visti a schermo**, ed è la
+prova che manca di più: la toppa cambia come il gioco compone una frase, non
+solo che cosa ci scrive dentro. Basta prendere un potenziamento qualsiasi —
+`Accelerazione` su di sé, o `add_ally` di una creatura femminile e guardare il
+suo messaggio — e leggere se esce «il viandante diventa più agile.» ⚠️ **La cosa
+da guardare per prima è la creatura femminile**, che è il caso per cui le rese
+sono state scritte invarianti.
 
 ### La console di debug
 
