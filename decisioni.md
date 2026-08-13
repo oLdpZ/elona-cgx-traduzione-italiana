@@ -6,6 +6,88 @@ ancora aperte.
 
 ---
 
+## Tre `buffdesc` dove l'inglese e' incompleto, e chi arbitra e' il codice — 2026-08-13, trentatreesima sessione
+
+I 63 `buffdesc` chiudono `buff.hsp`. In tre di essi giapponese e inglese **non
+dicono la stessa cosa**, e a differenza delle battute qui non serve interpretare:
+il blocco di codice che segue la riga **dice chi ha ragione**.
+
+| riga | il giapponese | l'inglese | il codice |
+|---|---|---|---|
+| `656` | sette attributi `+p`, azzera il terrore, **alza la Res magia** | «attribute by **10%**», `RES+ fear,**confusion**` | `:660-668`: sette `sdata(...) += p`, `CDATA_CONDITION_FEAR = 0`, `SKILL_RES_MAGIC += 80 + power/20`. **Niente 10%, niente confusione** |
+| `1195` | DV, **軽装備20%上昇**,耐重力, 浮遊 | DV, Float, RES+ Gravity — **il Farsetto sparisce** | `:1205`: `SKILL_NORMAL_LIGHT_ARMOR * 12 / 10` |
+| `1315` | «**certe** abilita'» + **barra con certi oggetti** | nomina le quattro abilita', **perde la barra** | `:1319-1322`: Dispositivi magici, Lancio, Alchimia, Lettura |
+
+💡 **E' una famiglia nuova rispetto alle due gia' note.** Nella 31ª si erano
+visti *due inglesi che si contraddicono* (「ガウッ」 = `*gulp*` e `*Growl*`), dove
+arbitra il giapponese; nella 26ª *l'inglese che specializza un giapponese
+generico*, dove convivono. Qui il testo e' **documentazione di un effetto
+meccanico**, e c'e' un terzo testimone che non e' una lingua.
+
+⚠️ **Su `1315` il terzo testimone smentisce anche il giapponese**, o meglio lo
+completa: 特定スキル («certe abilita'») e' vago, l'inglese e' preciso, il codice
+gli da' ragione. **Le due meta' non si scelgono, si sommano**: la resa nomina le
+quattro abilita' *e* tiene la barra. Prendere il giapponese per regola avrebbe
+buttato via l'unica cosa che l'inglese sapeva.
+
+> Quando la riga descrive un effetto e non una battuta, aprire il blocco di
+> codice sotto costa dieci righe e chiude la domanda invece di arbitrarla.
+
+### 💡 Il tetto misurato nella 32ª e' stato riverificato, e regge
+
+`command.hsp:9004` compone `s = dur + "t " + buffdesc` e `:5389` lo taglia con
+`mes strmid(s, 0, 34)`: al `buffdesc` restano **29 byte**. Rimisurato:
+**46 inglesi su 63 lo sfondano gia'**, mediana **38**, il piu' lungo **76**
+(`Heavy equipment reduces physical damage taken/...`). Quindi la troncatura e'
+una cosa che upstream accetta, e le due rese lunghe di questo lotto — l'elenco
+dei dieci elementi a `393` e quello delle quattro abilita' a `1315` — **non
+introducono un difetto nuovo**: gli altri due siti (`:2005`, `:10800`) non
+tagliano, e `:10802` manda a capo apposta.
+
+⚠️ **La scelta fra elencare e riassumere e' stata reale.** 「火冷雷闇幻毒獄音神混」
+dice dieci elementi in dieci caratteri; l'italiano no. «Res+ ai dieci elementi»
+sarebbe stato leggibile **anche troncato**, ed e' stato scartato lo stesso:
+l'inglese elenca, upstream accetta il taglio, e riassumere avrebbe tolto al
+giocatore un'informazione che nelle altre due schermate ci sta tutta.
+
+### 💡 Le `buffdesc` non erano gemelle dei `buffname`
+
+La domanda della 29ª — *questo file nomina cose che un altro file ha gia'
+nominato?* — sui 71 `buffname` aveva risposto **44 su 71**. Sui 63 `buffdesc`
+risponde **1 su 63** per identita' esatta (`707`, copiata da `skill.hsp:1241`) e
+**14 su 63** per somiglianza, di cui tre copiate perche' dicono la stessa cosa
+con altre parole (`1301`, `1333`, e la forma di `1230`).
+
+⚠️ **Il confronto per stringa esatta da solo avrebbe trovato una voce e chiuso
+la domanda con un no.** Il gemello concettuale si trova solo con una misura di
+somiglianza — `difflib` a 0,55 sul giapponese, tre candidati per voce — e le
+tredici in piu' sono esattamente quelle che avrebbero prodotto due modi di dire
+la stessa cosa. Vale per ogni file nuovo, non solo per questo.
+
+### ⚠️ E lo script che serviva era citato nella ripresa ma non esisteva
+
+Andando a cercare `scratchpad/scheletro.py`, nominato dalla ripresa come una
+cosa disponibile, si e' scoperto che **la cartella `scratchpad/` non era mai
+stata creata nel repo**. Idem `scratchpad/fuori_lang.py`. E **nessuno script di
+lotto e' mai stato committato**: `git ls-files "*.py"` fuori da `strumenti/`
+dava zero, dalla prima sessione alla trentaduesima. Ogni sessione riscriveva le
+cinque reti da capo.
+
+💡 **E' la trappola della 28ª — lavoro fuori da git — in forma minore**, e ha la
+stessa forma di quella della 29ª: non un guasto, ma una cosa scritta come vera
+che nessuno aveva verificato. La ripresa e' un documento che si legge fidandosi,
+e un riferimento a un file inesistente costa la ricerca a chi lo segue.
+
+**Corretto**: `scratchpad/` esiste, contiene i quattro script riusabili piu' il
+lotto della 33ª come modello, e ha un `LEGGIMI.md` che dice quando si lanciano.
+I due riferimenti falsi della ripresa sono stati marcati come tali invece di
+essere cancellati, perche' i numeri di `fuori_lang.py` erano ancora citati.
+
+> Quello che serve due volte si committa. Un riferimento a uno script si
+> controlla con `git ls-files`, non si presume.
+
+---
+
 ## Due tetti che nessuno aveva misurato, e li sfondavamo tutti e due — 2026-08-13, trentaduesima sessione
 
 La sessione era di solo collaudo, e in due schermate ha trovato due riquadri

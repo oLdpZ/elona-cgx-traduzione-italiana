@@ -16,3 +16,6 @@ lavoro/controllo-*.jsonl
 # scratch degli agenti: ledger, brief, pacchetti di revisione
 .superpowers/
 lavoro/_*.jsonl
+# referti derivati dagli script di scratchpad/: si rigenerano, non si versionano.
+# ⚠️ Gli script che li producono SI', invece: vedi scratchpad/LEGGIMI.md.
+lavoro/_*.txt

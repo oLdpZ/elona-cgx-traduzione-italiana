@@ -1,6 +1,6 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-13, fine della **trentaduesima** sessione.
+Aggiornato: 2026-08-13, fine della **trentatreesima** sessione.
 
 ## ⚠️ Prima di tutto: il progetto vive su due macchine
 
@@ -26,11 +26,11 @@ git), in una forma nuova: dentro git, ma su una macchina sola.
 aprendo una sessione su una macchina qualsiasi è `git fetch && git status -sb`.
 Chi apre a Firenze senza guardare riparte da prima di ferragosto.
 
-✅ **Spinto di nuovo a fine 30ª, 31ª e 32ª**, sempre dal portatile. Tutt'e tre
-hanno aperto con `git fetch && git status -sb` e tutt'e tre hanno trovato le
-copie allineate: la regola ha tenuto tre volte di fila. Al 13/08 **il lavoro
-prosegue dal portatile**: la macchina di Firenze riprende a fine vacanze, e lì
-la prima cosa è `git pull`, non `git push`.
+✅ **Spinto di nuovo a fine 30ª, 31ª, 32ª e 33ª**, sempre dal portatile. Tutt'e
+quattro hanno aperto con `git fetch && git status -sb` e tutt'e quattro hanno
+trovato le copie allineate: la regola ha tenuto quattro volte di fila. Al 13/08
+**il lavoro prosegue dal portatile**: la macchina di Firenze riprende a fine
+vacanze, e lì la prima cosa è `git pull`, non `git push`.
 
 Sul portatile ogni comando degli strumenti va aperto così, perché `python`
 nudo è il segnaposto del Microsoft Store e non esegue niente:
@@ -46,6 +46,30 @@ Windows Terminal — il console host classico usa Consolas, che **non ha il
 giapponese** e lo stampa come `?`, il che rende illeggibili le colonne `jp`.
 
 ## La prima cosa da fare
+
+⭐ **`buff.hsp` è chiuso.** La 33ª ha fatto i **63 `buffdesc`** in un lotto solo,
+`fase2-buffdesc-001`: il file passa da 63 non tradotte a **0**, ed è il primo
+file di Fase 4 chiuso per intero. Catena verde, compilatore muto, `cgx-test.exe`
+rifatto. ⚠️ **Ma non è ancora stato guardato a schermo**: vedi «Il debito di
+collaudo» più sotto — è la prima cosa che deve provare la 34ª, e i tre siti
+dove esce sono la lista abilità (`command.hsp:5389`), la schermata di analisi
+(`:2005`) e la scheda del personaggio (`:10800`).
+
+💡 **La scoperta della 33ª è che per una riga che descrive un effetto l'arbitro
+non è una lingua, è il codice.** Tre `buffdesc` su 63 avevano giapponese e
+inglese che dicevano cose diverse, e il blocco sotto la riga ha chiuso la
+domanda in dieci righe di lettura: a `656` l'inglese sbaglia **due volte** (dice
+«10%» dove non c'è e `RES+ confusion` dove il codice alza la resistenza alla
+**magia**); a `1195` perde il `軽装備+20%`; a `1315` — ed è il caso che rovescia
+la regola — **l'inglese è più preciso del giapponese** e il codice gli dà
+ragione, ma il giapponese porta la barra che l'inglese ha perso, **e le due metà
+si sommano invece di scegliersi**. Il dettaglio sta in `decisioni.md`.
+
+⚠️ **E la domanda della 29ª va posta con una misura di somiglianza, non per
+stringa esatta.** Sui 63 `buffdesc` il confronto esatto trovava **1** gemello e
+avrebbe chiuso la domanda con un no; `difflib` a 0,55 sul giapponese ne ha
+trovati **14**, e tre sono state copiate perché dicono la stessa cosa di
+`skill.hsp` con altre parole. Lo script sta in `scratchpad/simili.py`.
 
 ⭐ **La 32ª è stata una sessione di sole prove in gioco**, la prima da molto, e
 ha reso più di quanto costasse: **due tetti che nessuno aveva mai misurato**,
@@ -115,27 +139,32 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
 **Il lavoro che riparte, in ordine:**
 
 0. ✅ **La guardia sui due tetti nuovi**: fatta nella 32ª, `strumenti/riquadri.py`.
-1. i **63 `buffdesc`**. ⚠️ **La domanda sul tetto è già stata fatta ed è
-   chiusa**: `buffdesc` finisce in tre punti, e il più stretto è la lista
-   abilità (`command.hsp:5389`, `mes strmid(s, 0, 34)`), dove la stringa è
-   `dur + "t " + buffdesc` e al `buffdesc` restano **29 byte**. Misurato:
-   **46 inglesi su 63 lo sfondano già**, mediana **38 byte**, il più lungo 76.
-   💡 Quindi la troncatura a 34 è una cosa che **upstream accetta**, non un
-   vincolo che la resa italiana debba rispettare — gli altri due siti
-   (`command.hsp:2005` la schermata di analisi, `:10800` la scheda) non
-   tagliano. **18 delle 63 sono dinamiche** e si compongono con `+` da variabili
-   a runtime: quelle vanno guardate una per una;
+1. ✅ **I 63 `buffdesc`**: fatti nella 33ª, `buff.hsp` è chiuso. Il tetto è stato
+   riverificato e regge — 29 byte al `buffdesc` alla lista abilità, **46 inglesi
+   su 63 lo sfondano già**, mediana 38, il più lungo 76 — quindi la troncatura è
+   una cosa che upstream accetta e le due rese lunghe del lotto non introducono
+   un difetto nuovo. **Resta da guardare a schermo.**
 2. **`proc.hsp`**, a 127 su 1.098, per zona di riga dalla **riga 1716** in
    avanti (le esibizioni sono chiuse fino a 1665; 1716-1780 sono le reazioni
-   degli dèi alla predica);
-3. `command.hsp` e `trait.hsp`, che sono ~1.680 firme mai toccate.
+   degli dèi alla predica). 💡 È il file del log di combattimento — «is drawn»,
+   «was knocked down», «stands up» — quello che il giocatore legge a **ogni
+   singolo combattimento**;
+3. `command.hsp` e `trait.hsp`, che sono ~1.680 firme mai toccate. ⚠️
+   `command.hsp` è anche il file che **disegna** i `buffdesc` appena fatti.
 
-💡 **Il debito di collaudo è stato aggredito nella 32ª, non estinto.** Provati:
-i messaggi dei potenziamenti (la toppa strutturale, mai vista prima), il menu
-tattiche, le etichette di stato dell'HUD, `<Aribel>`, e un combattimento coi
-due Yerleswood. **Restano da guardare** le liste 27ª-30ª e le 169 battute
-degli dèi. ⚠️ Ma adesso si sa **come** guardarle: per classe di battuta, non
-mettendosi ad aspettare.
+💡 **Il debito di collaudo è stato aggredito nella 32ª, non estinto, e la 33ª
+l'ha aumentato.** Provati nella 32ª: i messaggi dei potenziamenti (la toppa
+strutturale, mai vista prima), il menu tattiche, le etichette di stato
+dell'HUD, `<Aribel>`, e un combattimento coi due Yerleswood. **Restano da
+guardare** le liste 27ª-30ª, le 169 battute degli dèi e — nuovi — i **63
+`buffdesc`** della 33ª, che nessuno ha ancora visto a schermo. ⚠️ Ma adesso si
+sa **come** guardarle: per classe di battuta, non mettendosi ad aspettare.
+
+💡 **I `buffdesc` si guardano senza aspettare niente**: basta avere un
+potenziamento addosso e aprire la scheda del personaggio (`command.hsp:10800`,
+non taglia e manda a capo), la schermata di analisi (`:2005`, non taglia) e la
+**lista abilità** (`:5389`, che taglia a 34 e va guardata per ultima, perché è
+lì che si vede quanto la troncatura di upstream costa in italiano).
 
 ⚠️ **I nomi di creatura sono chiusi**: l'ultimo che i conteggi mostravano da
 fare era su una riga commentata. Vedi «Le righe commentate» più sotto.
@@ -213,7 +242,7 @@ Nessun output = 72/72. ✅ Ricontrollato l'11/08 a fine 27ª.
 | `action.hsp` | 1.286 | 1.288 | **100%** (le 2 mancanti sono rinviate a toppa) |
 | `text.hsp` | 1.718 | 1.720 | **100%** (le 2 mancanti aspettano `talk.txt`) |
 | `proc.hsp` | **127** | 1.098 | 12% |
-| `buff.hsp` | **136** | 199 | 68% — `buffname` e `bufftxt` chiusi il 2026-08-13; restano i 63 `buffdesc` |
+| `buff.hsp` | 199 | 199 | **100%** ⭐ chiuso il 2026-08-13 — `buffname`, `bufftxt` e `buffdesc` |
 | `command.hsp`, `trait.hsp` | 0 | ~1.680 | 0% |
 
 `db_creature.hsp`: **1.131 nomi** + **2.519 battute rese**, **0 da fare**. ⭐
@@ -235,10 +264,11 @@ battute rese» e sommandoci i lotti veniva 2.515, quattro in meno del vero.
 Altri fuori Fase 1: `custom_enemyevolution.hsp` **chiuso**; `ai.hsp` 6 su 100;
 `event.hsp` 5 su 654; `chara_func.hsp` 45 su 331; `init.hsp` 6 su 133.
 
-**394 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **12.974
-sostituzioni**, il compilatore non dice nulla, manifesto del sorgente **72/72**
-(ricontrollato il 13/08 a inizio 31ª). ✅ Tutta la batteria rilanciata a fine
-32ª dopo le 33 rese cambiate: **identica**, niente si è mosso.
+**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, il compilatore
+non dice nulla, manifesto del sorgente **72/72** (ricontrollato il 13/08 a
+inizio 31ª). ✅ Tutta la batteria rilanciata a fine 33ª dopo le 63 rese nuove:
+**identica in ogni valore**, niente si è mosso, e `verifica --dizionario` dà
+`buff.hsp: 0 da ritradurre, 0 non ancora tradotte`.
 
 ## Le due toppe di `buff.hsp`, e perché ce ne volevano due
 
@@ -322,9 +352,12 @@ davvero: due voci sulla stessa riga con lo stesso inglese e giapponesi diversi
 esistono (è il riciclo inglese, 84 stringhe su 231 giapponesi), e in quel caso
 la chiave va cambiata per quella voce. Nei lotti `041` e `042` non è successo.
 
-💡 In alternativa c'è `scratchpad/scheletro.py`, che **genera le chiavi
-giapponesi dall'estrazione**, esatte per costruzione: chi preferisce `(riga, jp)`
-usa quello e non le scrive a mano.
+⚠️ **`scratchpad/scheletro.py` non esiste** — la 33ª è andata a cercarlo e la
+cartella `scratchpad/` non era mai stata creata. Generava le chiavi giapponesi
+dall'estrazione, esatte per costruzione, ma era scratch di sessione ed è andato
+perso. Chi preferisce `(riga, jp)` se lo riscrive, oppure usa `(riga, en)`.
+✅ Da adesso la cartella c'è e i suoi script sono committati: vedi
+`scratchpad/LEGGIMI.md`.
 
 ### 3. 💡 Una rete nuova: lo stesso giapponese due volte **dentro** lo stesso lotto
 
@@ -443,8 +476,10 @@ ability, X.»
 
 **La misura da rifare, con lo strumento che ancora non c'è:** contare i letterali
 inglesi **fuori** da `lang()` per file, filtrando percorsi, nomi di file e chiavi
-di `#define`. La prima passata grezza sta in
-`scratchpad/fuori_lang.py` e dà 70 (`buff.hsp`), 55 (`chara.hsp`), 120
+di `#define`. ⚠️ **La prima passata grezza era in `scratchpad/fuori_lang.py`,
+che non esiste più** (vedi sopra: la cartella non era in git, e il file è andato
+perso con lo scratch della sessione). I numeri che aveva dato — da rifare, non
+da fidarsene — erano 70 (`buff.hsp`), 55 (`chara.hsp`), 120
 (`item_func.hsp`), 175 (`screen.hsp`), 204 (`main.hsp`), 13 (`item.hsp`) — ma
 per tutti tranne `buff.hsp` è **quasi tutto rumore**, e senza il filtro il costo
 di quei file resta ignoto. È la stessa classe delle sette intestazioni del
