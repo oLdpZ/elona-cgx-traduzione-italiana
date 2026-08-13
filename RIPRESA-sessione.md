@@ -144,13 +144,19 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
    su 63 lo sfondano già**, mediana 38, il più lungo 76 — quindi la troncatura è
    una cosa che upstream accetta e le due rese lunghe del lotto non introducono
    un difetto nuovo. **Resta da guardare a schermo.**
-2. **`proc.hsp`**, a **179 su 1.098**, per zona di riga **dalla riga 2601** in
-   avanti. La 33ª ha fatto due lotti: `fase4-proc-001` (1716-1800, le reazioni
-   degli otto dèi alla predica) e `fase4-proc-002` (1801-2600, le mosse delle
-   tattiche — carica, balzo dall'alto, agguato sottoterra, tifo, persuasione,
-   battuta). Restano **919** non tradotte. 💡 È il file del log di combattimento
-   — «is drawn», «was knocked down», «stands up» — quello che il giocatore legge
-   a **ogni singolo combattimento**;
+2. **`proc.hsp`**, a **204 su 1.098**, per zona di riga **dalla riga 3401** in
+   avanti. La 33ª ha fatto tre lotti: `fase4-proc-001` (1716-1800, le reazioni
+   degli otto dèi alla predica), `-002` (1801-2600, le mosse delle tattiche) e
+   `-003` (2601-3400, bugia, minaccia, canto, pasto). Restano **894** non
+   tradotte. 💡 È il file del log di combattimento — «is drawn», «was knocked
+   down», «stands up» — quello che il giocatore legge a **ogni singolo
+   combattimento**;
+   ⚠️ **Ma prima conviene la toppa sui blocchi `if ( en )`**: 23 righe di questo
+   file hanno letterali inglesi **nudi** fuori da `lang()`, invisibili
+   all'estrattore, e tre voci sono già in `rinviate.jsonl` perché sono la coda di
+   una frase la cui testa sta lì. Vedi `decisioni.md`, «Ventitré righe di
+   `proc.hsp` parlano inglese fuori da `lang()`», e `scratchpad/blocchi_en.py`.
+   **894 sottostima il costo del file.**
 3. `command.hsp` e `trait.hsp`, che sono ~1.680 firme mai toccate. ⚠️
    `command.hsp` è anche il file che **disegna** i `buffdesc` appena fatti.
 
@@ -243,7 +249,7 @@ Nessun output = 72/72. ✅ Ricontrollato l'11/08 a fine 27ª.
 | `adv.hsp` | 12 | 12 | **100%** ⭐ chiuso il 2026-08-11 |
 | `action.hsp` | 1.286 | 1.288 | **100%** (le 2 mancanti sono rinviate a toppa) |
 | `text.hsp` | 1.718 | 1.720 | **100%** (le 2 mancanti aspettano `talk.txt`) |
-| `proc.hsp` | **179** | 1.098 | 16% |
+| `proc.hsp` | **204** | 1.098 | 19% ⚠️ più 23 righe fuori da `lang()` che nessun conteggio vede |
 | `buff.hsp` | 199 | 199 | **100%** ⭐ chiuso il 2026-08-13 — `buffname`, `bufftxt` e `buffdesc` |
 | `command.hsp`, `trait.hsp` | 0 | ~1.680 | 0% |
 
@@ -266,11 +272,13 @@ battute rese» e sommandoci i lotti veniva 2.515, quattro in meno del vero.
 Altri fuori Fase 1: `custom_enemyevolution.hsp` **chiuso**; `ai.hsp` 6 su 100;
 `event.hsp` 5 su 654; `chara_func.hsp` 45 su 331; `init.hsp` 6 su 133.
 
-**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, il compilatore
-non dice nulla, manifesto del sorgente **72/72** (ricontrollato il 13/08 a
-inizio 31ª). ✅ Tutta la batteria rilanciata a fine 33ª dopo le 63 rese nuove:
-**identica in ogni valore**, niente si è mosso, e `verifica --dizionario` dà
-`buff.hsp: 0 da ritradurre, 0 non ancora tradotte`.
+**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **13.135
+sostituzioni** applicate alla build, il compilatore non dice nulla, manifesto del
+sorgente **72/72** (ricontrollato il 13/08 a inizio 31ª). ✅ Tutta la batteria
+rilanciata a fine 33ª dopo le **165 rese nuove**: **identica in ogni valore**,
+niente si è mosso, e `verifica --dizionario` dà `buff.hsp: 0 da ritradurre, 0 non
+ancora tradotte`. ✅ E stavolta l'eseguibile è **davvero** quello nuovo: vedi i
+due passi che il metodo non nominava.
 
 ## Le due toppe di `buff.hsp`, e perché ce ne volevano due
 
@@ -618,6 +626,27 @@ python -m strumenti.battute --divergenti
 python -m strumenti.genera_toppe_nomi
 python -m strumenti.genera_toppe_casuali
 ```
+
+### ⚠️ E poi i due passi che questo elenco non nominava
+
+`reimporta` scrive **nel dizionario e basta**. L'albero di build resta com'era, e
+`compila` senza argomenti produce solo `start.ax`, **non** l'eseguibile. Chi si
+ferma qui vede la catena tutta verde e prova in gioco una build **che non
+contiene le rese nuove** — ed e' successo nella 33ª, che ha annunciato due volte
+un `cgx-test.exe` rifatto quando l'eseguibile era quello del giorno prima.
+
+```powershell
+python -m strumenti.applica                # dizionario + toppe -> albero di build
+python -m strumenti.compila --eseguibile   # e SOLO cosi' esce l'exe
+copy "C:\Games\Elona\_traduzione\build\2.05-custom-gx\elonapluscgx.exe" `
+     "C:\Games\Elona\elonaplus2.31\cgx-test.exe"
+```
+
+💡 **Come ci si accorge che manca `applica`**: si apre il `.hsp` di build alla
+riga appena tradotta e ci si legge ancora l'inglese. La catena delle verifiche
+**non** lo vede, perche' legge il dizionario e il sorgente pinnato, non la build.
+⚠️ E `applica` **ricrea l'albero da zero**, quindi cancella l'exe che c'era: se
+dopo `applica` non si ricompila, in `build/` non c'e' nessun eseguibile.
 
 Fatti `fase2-battute-001` … `-042`, e con il `042` **il file è chiuso**. Il
 metodo resta scritto qui perché serve tale e quale al prossimo file a battute.

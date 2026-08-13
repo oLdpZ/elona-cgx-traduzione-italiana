@@ -6,6 +6,95 @@ ancora aperte.
 
 ---
 
+## La catena verde non dimostra che la build sia tradotta — 2026-08-13, trentatreesima sessione
+
+`reimporta` scrive **solo nel dizionario**. `applica` e' il passo che porta
+dizionario e toppe dentro l'albero di build, e `compila` **senza
+`--eseguibile`** produce solo `start.ax`. Nessuno dei due sta nel metodo scritto
+in `RIPRESA-sessione.md`.
+
+⚠️ **Nella 33ª ho annunciato due volte un `cgx-test.exe` rifatto, e non lo era.**
+`compila` rispondeva `#No error detected.`, la catena era verde in ogni valore,
+e l'eseguibile in `elonaplus2.31/` era quello di una sessione precedente: ho
+letto un timestamp che combaciava e ne ho dedotto una cosa che non avevo
+verificato. Scoperto solo aprendo il `.hsp` di build alla riga appena tradotta e
+trovandoci ancora l'inglese.
+
+💡 **La catena delle verifiche non poteva accorgersene, ed e' giusto cosi'**:
+`prova_identita` legge il **sorgente pinnato**, `verifica` legge il
+**dizionario**, `larghezze`/`diario`/`riquadri` leggono la build ma misurano
+riquadri, non lingua. Nessuna guarda «la build contiene quello che il dizionario
+dice». Sono tutte verdi su una build vecchia.
+
+⚠️ **E `applica` ricrea l'albero da zero**, quindi **cancella l'exe**: dopo un
+`applica` senza ricompilazione, in `build/` non c'e' nessun eseguibile. Il
+sintomo e' un `Get-ChildItem *.exe` che non stampa niente.
+
+> Un comando che risponde «ok» dice che *quel* comando e' riuscito, non che il
+> risultato che ti aspetti esista. L'eseguibile si guarda col timestamp **dopo**,
+> non si deduce.
+
+**La sequenza intera**, adesso scritta anche nel metodo: `verifica` → `reimporta`
+→ batteria → **`applica`** → **`compila --eseguibile`** → copia in
+`elonaplus2.31\cgx-test.exe`.
+
+---
+
+## Ventitre' righe di `proc.hsp` parlano inglese fuori da `lang()` — 2026-08-13, trentatreesima sessione
+
+Tre voci della zona 2601-3400 (`:3376`, `:3383`, `:3389`) sono la **coda** di una
+frase la cui **testa** non e' nel dizionario: `:3372` e'
+
+```hsp
+if ( en ) {
+    txt "\"You are awesome!", "\"Oh my god...", "\"Okay, okay, you win!", "\"Holy...!"
+}
+```
+
+cioe' letterali **nudi** dentro un blocco `if ( en )`. `estrai.py` non li vede.
+Rendere la sola coda darebbe a schermo «`"You are awesome!Ecco, prendi questi.`»
+
+**Misurato su tutto il file: 23 righe**, ognuna con piu' stringhe — i versi della
+scena del sesso (`:3319`, `:3487`, `:3574`), i suoni (`:3822`, `:4865`, `:4926`),
+le battute di chi ti porta in groppa (`:10768`, `:10781`), le risate
+(`:22489`-`:22506`), gli ordini agli alleati (`:26818`, `:26886`). Lo strumento
+sta in `scratchpad/blocchi_en.py`.
+
+💡 **E' la scoperta 1 della 28ª — `bufftxt` — in un altro file**, e la
+conseguenza e' la stessa: **il conteggio delle non tradotte sottostima il
+costo**. `proc.hsp` dice 894, ma quelle 23 righe sono testo che il giocatore
+legge e che nessun lotto tocchera' mai.
+
+⚠️ **E la strada e' una toppa, non una resa.** La 28ª lo aveva gia' scritto — «il
+lavoro strutturale va fatto **prima** delle rese, non dentro un lotto» — quindi
+le tre code sono andate in `rinviate.jsonl` col motivo, e non sono state rese a
+meta'. `toppe.jsonl` ha 273 toppe e **nessuna su `proc.hsp`**: sarebbe la prima.
+
+💡 **Il filtro `if ( en )` e' la misura non rumorosa che la 28ª cercava.** Quella
+sessione aveva provato a contare i letterali fuori da `lang()` per file e aveva
+trovato «quasi tutto rumore» — percorsi, nomi di file, chiavi di `#define`.
+Dentro un blocco `if ( en )` il rumore non c'e': **tutto quello che sta li' e'
+testo inglese che il giocatore legge**, per costruzione.
+
+### 💡 Un helper con due soli siti di chiamata si puo' cambiare
+
+`_sex2` (`text.hsp:110`) rendeva 「男」/「女」 con «ragazzo»/«ragazza», nomi nudi, e
+`proc.hsp:3290` ci mette davanti un dimostrativo: «quel ragazzo» sta, «quel
+ragazza» no. Un determinante non si puo' mettere nella frase, perche' varrebbe
+per un genere solo.
+
+Misurato prima di toccare: `_sex2` ha **due soli siti di chiamata** (`:3290` e
+`:3450`), che sono **la stessa frase**, e le sue due voci sono uniche in
+dizionario (firme diverse da `Male`/`Female` di `text.hsp:109`). Quindi il
+determinante e' entrato **nel valore**: «quel ragazzo» / «quella ragazza».
+
+⚠️ **E' la regola della preposizione applicata al determinante** — «la
+preposizione sta nel valore, non nella frase» — ma vale solo perche' i siti di
+chiamata sono stati **contati**. Con trenta siti sarebbe stata la scelta
+sbagliata.
+
+---
+
 ## Il presente indicativo non e' stile: e' l'unico tempo che non concorda — 2026-08-13, trentatreesima sessione
 
 Aprendo `proc.hsp` per i due lotti della predica e delle tattiche, la domanda
