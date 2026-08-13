@@ -47,6 +47,26 @@ giapponese** e lo stampa come `?`, il che rende illeggibili le colonne `jp`.
 
 ## La prima cosa da fare
 
+⚠️⚠️ **Il debito di collaudo è la cosa più grossa aperta, e la 33ª l'ha
+raddoppiato.** In una sessione sola sono entrate **168 rese** e **24 toppe**, e
+**niente di tutto questo è mai stato visto a schermo**. In particolare la scena
+del sesso di `proc.hsp` (3372-3389, 3533-3537, 3617-3635) è stata **ricucita da
+tre pezzi diversi** — la testa da una toppa, la coda dal dizionario, la chiusura
+delle virgolette da `invariati.md` — e nessuno l'ha mai vista girare. Se una
+sessione può fare una cosa sola, faccia il collaudo.
+
+Da guardare, in ordine di rischio:
+
+1. **La scena ricucita**: la frase dev'essere «`"Che bello! Ecco, prendi questi
+   spiccioli."`», non «`"Che bello...! Ecco…`» né con le virgolette aperte e mai
+   chiuse. È il punto dove tre meccanismi diversi si incontrano.
+2. **I 63 `buffdesc`**, nei tre siti: scheda del personaggio
+   (`command.hsp:10800`), schermata di analisi (`:2005`), lista abilità
+   (`:5389`, che taglia a 34 — e va guardata per ultima).
+3. **Le 24 toppe sui blocchi `if ( en )`**: i versi, le risate, le battute di
+   chi ti porta in groppa, gli ordini agli alleati.
+4. Le liste arretrate 27ª-30ª e le 169 battute degli dèi.
+
 ⭐ **`buff.hsp` è chiuso.** La 33ª ha fatto i **63 `buffdesc`** in un lotto solo,
 `fase2-buffdesc-001`: il file passa da 63 non tradotte a **0**, ed è il primo
 file di Fase 4 chiuso per intero. Catena verde, compilatore muto, `cgx-test.exe`
@@ -211,10 +231,24 @@ difetto. Adesso `estrazione_da_fare()` salta anche sul file **vuoto**, oltre che
 sul file assente. 💡 Provato che il guardiano non li ha spenti: con
 un'estrazione piena (`estrai` senza `--da-tradurre`) tornano a girare e passano.
 
-💡 **E la nona, che nessuno strumento fa**, il referto dei participi che
-concordano col giocatore (la riga di comando sta in `decisioni.md`): atteso
-**0** su tutto il dizionario. Non è una guardia — è un referto da leggere — ma
-adesso che è a zero un valore diverso da zero significa qualcosa.
+💡 **E i referti, che non sono guardie e vanno letti**, adesso tutti in
+`scratchpad/` (vedi `scratchpad/LEGGIMI.md`):
+
+```powershell
+$env:PYTHONPATH = $repo
+python scratchpad/referti.py      # participi col giocatore: 0 | elisioni: 0
+python scratchpad/blocchi_en.py   # struttura 99 | ancora da fare 68
+```
+
+`referti.py` fa la nona e la decima verifica — i participi che concordano col
+giocatore e le elisioni davanti a consonante. Attese **0** tutt'e due: adesso che
+sono a zero, un valore diverso significa qualcosa.
+
+⚠️ `blocchi_en.py` è **un referto, non una guardia**, e per due motivi: circa
+metà delle righe dei file piccoli non è testo (entità HTML, operandi di
+confronto, chiavi di dati), e il numero **cala solo quando si fa una toppa**, non
+quando si traduce. Non deve tornare a 92: se lo fa, qualcuno ha ricreato
+l'albero di build senza applicare le toppe.
 
 Se `--divergenti` sale, qualcuno ha reso due volte in modo diverso la stessa
 frase giapponese. Le due nuove della 27ª sono volute: 「きゅう…」 («*sbuffo*»
@@ -242,7 +276,10 @@ Get-Content "C:\Games\Elona\_traduzione\manifesto-sorgente.txt" | ForEach-Object
   $p=$_ -split '\s+',2
   if ((Get-FileHash "$base\$($p[1].Trim())" -Algorithm SHA256).Hash -ne $p[0]) { $p[1] } }
 ```
-Nessun output = 72/72. ✅ Ricontrollato l'11/08 a fine 27ª.
+Nessun output = 72/72. ✅ Ricontrollato a fine 33ª: nessuna differenza. Il
+sorgente pinnato non è mai stato scritto, nemmeno dalle 24 toppe — le toppe sono
+**dati applicati all'albero di build**, e `compila.py` rifiuta per costruzione di
+scrivere dentro `SORGENTE`.
 
 ## Dove siamo
 

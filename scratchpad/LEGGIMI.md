@@ -32,10 +32,21 @@ si committa.
 Si lanciano dalla radice del repo, con l'interprete giusto:
 
 ```powershell
+$repo = "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
 $py = "$env:LOCALAPPDATA\Programs\Python\Python312\python.exe"
+Set-Location $repo
+$env:PYTHONPATH = $repo      # ⚠️ serve a chi importa `strumenti`
 & $py scratchpad/simili.py
 & $py scratchpad/guardie.py lavoro/<lotto>.jsonl
 ```
+
+⚠️ **`PYTHONPATH` non è un dettaglio.** Lanciando `python scratchpad/x.py` il
+primo elemento di `sys.path` è `scratchpad/`, non la radice, quindi
+`from strumenti.accenti import degrada` muore con `ModuleNotFoundError`. Gli
+script che ne hanno bisogno sono `genera-toppe-en.py`, `correggi-teste.py`,
+`toppa-action-15221.py`. 💡 Nella 33ª è successo, e il sintomo era ingannevole:
+il generatore falliva, ma lo script che ne stampava il risultato leggeva il file
+**vecchio** e mostrava tutto a posto.
 
 💡 `simili.py` e `gia_rese.py` leggono `lavoro/_buff.jsonl`: per un file diverso
 si cambia quella riga. Non è un difetto da sistemare — sono scratch, e il costo
