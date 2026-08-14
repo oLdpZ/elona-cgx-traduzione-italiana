@@ -1,6 +1,116 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-14, fine della **trentacinquesima** sessione.
+Aggiornato: 2026-08-14, fine della **trentaseiesima** sessione.
+
+⭐ **La 36ª ha fatto la cosa che la ripresa chiedeva da quattro sessioni — il
+collaudo — e il collaudo ha pagato subito: due difetti veri, tutti e due
+strutturali, tutti e due toppati e ricompilati nella stessa ora.** Poi tre lotti
+su `proc.hsp`, che **supera la metà per la prima volta: 563 su 1.098, dal 40% al
+51%**, 121 rese in tutto. Cinque spinte.
+
+### Quello che il collaudo ha trovato, ed è la parte che conta
+
+1. ✅ **Le dieci teste «… e» del log funzionano**, viste due volte a schermo
+   («`<Sinaha> colpisce da lontano l'artista di strada e (3899) ne fa brandelli
+   di carne.`»). Era il rischio più temuto della 35ª e non c'era: lo spazio lo
+   mette `msgtemp += " "` a `init.hsp:1666`, che gira su **ogni** `txt`.
+2. ⚠️⚠️ **La maiuscola d'ufficio non gira, e la ripresa diceva il contrario.**
+   A schermo ogni riga che comincia con `name(cc)` era minuscola: «`[19:07] il
+   viandante finisce di mangiare una razione.`». Il prefisso dell'orologio
+   (`cfg_msgaddtime`) si attacca a `msgtemp` alla riga **1578**, cioè 81 righe
+   **prima** del controllo di `:1659`, e a quel punto `peek(msgtemp, 0)` legge
+   `[`. Con il timestamp acceso la maiuscola **non scatta mai, su nessuna riga,
+   in nessuna lingua** — nemmeno per l'inglese di monte, che scrive «`you finish
+   eating.`». ✅ Toppato maiuscolando subito dopo `tnew = 0` (`init.hsp:1568`),
+   prima che i prefissi si attacchino, con le stesse due guardie dell'originale.
+   **Riguardato a schermo: «`Il viandante finisce di mangiare una razione.`»**
+3. ⚠️ **`valn` da soggetto vuole il determinativo, e `itemname()` non lo dà.**
+   A schermo: «`Un pozzo disseta <Sinaha>.`» `itemname()` mette il determinativo
+   **solo agli artefatti identificati** (`item_func.hsp:1944`) e
+   l'indeterminativo a tutto il resto: è il calco di `a well` / `the Painful
+   Master`. Da complemento andava bene, da soggetto no. ✅ Toppato usando
+   `ioriginalnamearticolodet` — **1.309 articoli determinativi già in
+   `db_item.hsp`, mai usati così** — più `itemname(ci, 1, 1)`, che è l'idioma con
+   cui upstream chiede il nome nudo.
+
+> 💡 **Il filo delle ultime tre sessioni, in tre forme.** La 34ª: la catena
+> verde non dice niente sulla lingua che il giocatore legge. La 35ª: non dice
+> niente sulla coerenza fra due file. La 36ª: **non dice niente su un'opzione
+> del giocatore.** Nessuna verifica accende `cfg_msgaddtime`, e il difetto viveva
+> o moriva su una casella delle impostazioni.
+
+### ⚠️ Il pozzo NON è stato riguardato a schermo
+
+La toppa è compilata e installata dalle 11:34, ma al collaudo il personaggio era
+troppo pieno per bere e il messaggio non è mai partito. **È la prima cosa da
+fare aprendo il gioco**: cammina finché non ti viene sete, poi `h` su un pozzo.
+
+| cosa | atteso |
+|---|---|
+| bevi al pozzo | `Il pozzo disseta il viandante.` |
+| bevi alla fontana | `La fontana disseta il viandante.` (prova che il genere segue) |
+| pozzo prosciugato | `Il pozzo non ha più acqua.` |
+| benedici l'equipaggiamento | `<nome> ha l'equipaggiamento avvolto in una luce bianca.` (toppa `his2`) |
+
+💡 `You see un pozzo placed here.` **è giusto così**: è `command.hsp:30`, un sito
+diverso dove il pozzo è complemento oggetto. La toppa tocca solo `*drinkWell`.
+
+### Le tre reti nuove, e una che era sbagliata
+
+⭐ **Rete 11 — le funzioni di contenuto devono coincidere, e non se ne può
+AGGIUNGERE nessuna.** `verifica.py:367` confronta `funzioni_di_contenuto` di
+inglese e resa: stesse funzioni, stesso ordine. Il caso che l'ha imposta è
+`:10312`, dove l'inglese ha solo `his(tc)` (morfologia, zero contenuto) e il
+giapponese invece **nomina il soggetto**: la resa italiana non può nominarlo.
+⚠️ **Ed è nata sbagliata**: girava anche sulle statiche dentro `cnvtalk()`, dove
+l'`en_grezzo` porta l'involucro ma la resa è testo nudo — avrebbe bocciato
+**undici rese giuste**. Ora gira solo sulle dinamiche, che è dove `verifica.py`
+la mette.
+⭐ **E si è guadagnata il posto un lotto dopo**, bocciando `:11481` con
+«mancanti `['his2']`»: vedi la rinviata qui sotto.
+
+💡 **Rete 10** — `his(x, 1)` è contenuto e resta, ma in italiano varrà «il suo» /
+«il tuo» per **tutti** i siti, perché la funzione sceglie sul genere del
+**possessore** mentre l'italiano accorda col **posseduto**. Quindi ogni sito che
+la usa deve metterle accanto un **nome maschile singolare**. La 35ª l'aveva già
+rispettato senza dirlo (`:8849`, «sangue»); la rete adesso stampa il nome retto.
+
+💡 **Rete 4 rifatta**: confrontava le rese di uno stesso giapponese come
+**espressioni** e avrebbe bocciato `:9605`/`:9612`, che dicono le stesse identiche
+parole su due variabili diverse. Adesso confronta i **letterali di testo**.
+
+### ⚠️ La rinviata: `his2()` non è traducibile, e non per il motivo che sembrava
+
+`init.hsp:1881`:
+
+```hsp
+#defcfunc his2 int EntityID
+    if ( EntityID == CHARA_PLAYER ) { return "your" }
+    return name(EntityID)
+```
+
+**Porta il nome** — per questo è contenuto e `verifica` pretende che resti — ma
+nel ramo del giocatore restituisce il letterale nudo `"your"` **fuori da
+`lang()`**. Quel «your» resta inglese per sempre: non lo raggiunge il dizionario
+oggi e non lo raggiungerà la traduzione di `init.hsp` domani, perché non c'è
+niente da tradurre. Stessa classe di `bufftxt(1)` della 28ª. ⚠️ **E nessuna resa
+regge tutt'e due gli esiti**, perché `his2()` dà un **possessivo** in un caso e un
+**nome con l'articolo** nell'altro. Quindi `proc.hsp:11481` è **rinviata a
+toppa**, e la toppa è fatta.
+
+💡 **Da qui una domanda aperta e misurabile**: `blocchi_en.py` conta i letterali
+inglesi nudi **nel sorgente**, ma non quelli che escono da una **funzione** come
+`his2()`. Nessuno ha mai contato le `#defcfunc` di `init.hsp` che restituiscono
+inglese senza `lang()`. `his2` e `your2` sono due; quante sono in tutto?
+
+### Nuovo strumento: `scratchpad/dossier.py`
+
+Mette insieme le tre letture che ogni lotto rifaceva a mano — il sorgente
+intorno alla riga, le rese gemelle per **giapponese**, quelle per **inglese**.
+Sui tre lotti ha pescato **undici copie** da non ridecidere: `Tyris del Nord`,
+`Tyris del Sud`, `Irva Perduta`, `filtro d'amore`, `benzina`, `olio essenziale`,
+`coppia`, `non morti`, `spazzatura`, `Grazie!`, più due rese di `proc.hsp`
+stesso. È la regola «cercare prima di scrivere» resa meccanica.
 
 ⭐ **La 35ª è stata la sessione più produttiva del progetto su un file solo:
 `proc.hsp` passa da 207 rese a 442, cioè da 19% a 40%,** in sei lotti
@@ -75,9 +185,11 @@ git), in una forma nuova: dentro git, ma su una macchina sola.
 aprendo una sessione su una macchina qualsiasi è `git fetch && git status -sb`.
 Chi apre a Firenze senza guardare riparte da prima di ferragosto.
 
-✅ **Spinto di nuovo a fine 30ª, 31ª, 32ª, 33ª, 34ª e 35ª**, sempre dal portatile.
-Tutt'e sei hanno aperto con `git fetch && git status -sb` e tutt'e sei hanno
-trovato le copie allineate: la regola ha tenuto sei volte di fila.
+✅ **Spinto di nuovo a fine 30ª, 31ª, 32ª, 33ª, 34ª, 35ª e 36ª**, sempre dal
+portatile. Tutt'e sette hanno aperto con `git fetch && git status -sb` e tutt'e
+sette hanno trovato le copie allineate: la regola ha tenuto sette volte di fila.
+💡 **La 36ª ha spinto cinque volte** — due toppe, tre lotti — una per risultato
+chiuso.
 💡 **La 34ª ha spinto quattro volte e la 35ª sette**, una per risultato chiuso
 invece che tutto in fondo: se la sessione si fosse interrotta a metà, il lavoro
 fatto era già al sicuro. Con sei lotti in una sessione non è più una comodità, è
@@ -100,21 +212,25 @@ giapponese** e lo stampa come `?`, il che rende illeggibili le colonne `jp`.
 
 ## La prima cosa da fare
 
-⚠️⚠️ **Il debito di collaudo resta la cosa più grossa aperta, e la 35ª l'ha
-raddoppiato di nuovo**: 235 rese nuove, nessuna vista a schermo. La tabella qui
-sopra dice quali guardare per prime e perché. Se una sessione può fare una cosa
-sola, faccia il collaudo — vale dalla 32ª e non è mai stato smentito.
+⚠️ **Il pozzo e la fontana**, che sono l'unica cosa **toppata e non riguardata**:
+vedi la tabella in cima. Costa due minuti e chiude il ciclo della 36ª.
 
-💡 **La buona notizia è che stavolta è facile.** Le 235 rese stanno tutte nelle
-cose che si fanno nei primi dieci minuti di partita: dormire, mangiare, pescare,
-scavare, viaggiare sulla mappa, tirare una magia. Non serve andare da nessuna
-parte né imparare niente, a differenza delle 16 toppe qui sotto.
+⚠️⚠️ **Poi il debito di collaudo, che la 36ª ha aggredito e insieme aumentato.**
+Delle 235 rese della 35ª ne è stata guardata **una parte** — le teste del log, la
+sazietà, la maiuscola — e sono arrivate le **121 rese nuove** dei tre lotti, mai
+viste. Se una sessione può fare una cosa sola, faccia il collaudo: vale dalla 32ª
+e la 36ª è la prova più forte che sia vero, perché in un'ora di prove ha trovato
+due difetti strutturali che otto sessioni di catena verde non avevano visto.
+
+💡 **La roba nuova è facile da vedere**, sta tutta in quel che si fa giocando:
+bere alcolici (le due liste di ubriacatura, `:10274` e `:10280`), le pozioni
+maledette (le tre sventure in scala — tormento, sventura, flagello), pescare,
+salire e scendere da una cavalcatura, benedire l'equipaggiamento.
 
 Da guardare, in ordine di rischio:
 
-0. ⚠️ **Le 235 rese della 35ª** (`proc.hsp` 3401-9200). Vedi la tabella in cima:
-   il pozzo che è diventato soggetto, le dieci teste «… e» del log, il portello,
-   i sei gradini della sazietà, e `his(tc, 1)` che stamperà ancora inglese.
+0. ⚠️ **Le due toppe della 36ª** — il pozzo (**mai visto**) e la maiuscola
+   d'ufficio (✅ vista). Poi le **121 rese** dei lotti `011`-`013`.
 
 1. ✅ **La scena ricucita: guardata il 2026-08-14, e aveva un difetto.** I tre
    pezzi si agganciavano e le virgolette chiudevano, ma a schermo usciva
@@ -293,12 +409,13 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
    ⚠️ Cautela sul numero: lo strumento stima a due cifre le variabili
    interpolate, quindi c'è un margine di ±1 carattere per voce. Il metodo è lo
    stesso sulle due lingue, quindi il **confronto** regge; i valori assoluti no.
-2. **`proc.hsp`**, a **442 su 1.098 (40%)**, per zona di riga **dalla riga 9201**
-   in avanti. Restano **652** non tradotte più 4 rinviate.
+2. **`proc.hsp`**, a **563 su 1.098 (51%)**, per zona di riga **dalla riga 11500**
+   in avanti. Restano **535** non tradotte più 5 rinviate.
 
    La 33ª ha fatto i lotti `fase4-proc-001` … `-004` (1716-3400: le reazioni
-   degli dèi, le tattiche, bugia/minaccia/canto/pasto). ⭐ **La 35ª ha fatto i sei
-   lotti `-005` … `-010`, cioè tutto il 3401-9200:**
+   degli dèi, le tattiche, bugia/minaccia/canto/pasto). **La 35ª ha fatto i sei
+   lotti `-005` … `-010`, cioè tutto il 3401-9200**, e ⭐ **la 36ª i tre lotti
+   `-011` … `-013`, cioè 9201-11499:**
 
    | lotto | zona | che cosa |
    |---|---|---|
@@ -308,16 +425,22 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
    | `-008` | 5901-6800 | la sazietà, la lettura, l'abisso, i lanci falliti |
    | `-009` | 6801-7700 | bere, i pozzi, le pergamene, le bacchette |
    | `-010` | 7701-9200 | il log di combattimento: proiettili, cure, morsi |
+   | `-011` | 9201-10100 | azioni speciali, borseggio, soffio, mappe del tesoro |
+   | `-012` | 10101-10600 | pozioni, latte, ubriacature, oli, acido |
+   | `-013` | 10601-11499 | bibite, sale, equitazione, pesca, mutazioni |
 
-   💡 **Dove si addensa quel che resta** (`scratchpad/istogramma.py`, passo 2000):
-   `10000-11999` **124**, `22000-23999` **101**, `14000-15999` **88**,
-   `20000-21999` **75**, `16000-17999` **67**. La zona `10000-12000` è il doppio
-   della media: è lì che conviene andare, e `9201-10000` è quasi vuota.
+   💡 **Dove si addensa quel che resta** (`scratchpad/istogramma.py`, passo 500,
+   rifatto a fine 36ª sulle 535 rimaste): `11500-11999` **28**, `14500-14999`
+   **30**, `12000-12499` **23**, `15500-15999` **24**. Non c'è più un picco come
+   il `10000-12000` di prima: da qui in avanti è terreno piatto, e la zona
+   successiva — `11500-12500` — vale una cinquantina di voci.
 
-   ⚠️ **Prima di riprendere, rileggere le nove reti** dello script di lotto: il
-   modello più completo è `scratchpad/lotto-fase4-proc-010.py`, che le ha tutte.
-   Le cinque nuove della 35ª (5-9) sono nate ognuna da un caso reale, non da
-   un'idea, e sono elencate in `scratchpad/LEGGIMI.md`;
+   ⚠️ **Prima di riprendere, rileggere le undici reti** dello script di lotto: il
+   modello più completo è **`scratchpad/lotto-fase4-proc-013.py`**, che le ha
+   tutte. Le cinque della 35ª (5-9) e le due della 36ª (10 e 11) sono nate ognuna
+   da un caso reale, non da un'idea. ⚠️ **La rete 11 è quella che vale di più e
+   anche quella che è nata sbagliata due volte** — troppo severa sulle statiche,
+   poi giusta e decisiva su `his2` — quindi si copia, non si riscrive;
    ✅ **La toppa sui blocchi `if ( en )` è fatta**: 23 righe di questo file
    avevano letterali inglesi **nudi** fuori da `lang()`, invisibili
    all'estrattore. `toppe.jsonl` passa da 273 a **296** ed erano zero su
@@ -488,7 +611,7 @@ scrivere dentro `SORGENTE`.
 | `adv.hsp` | 12 | 12 | **100%** ⭐ chiuso il 2026-08-11 |
 | `action.hsp` | 1.286 | 1.288 | **100%** (le 2 mancanti sono rinviate a toppa). ⚠️ Aveva **una riga inglese** che nessun conteggio vedeva, `:15221`, fuori da `lang()`: toppata il 2026-08-13 |
 | `text.hsp` | 1.718 | 1.720 | **100%** (le 2 mancanti aspettano `talk.txt`) |
-| `proc.hsp` | **442** | 1.098 | **40%** ⭐ +235 nella 35ª (era 207) — più 23 righe fuori da `lang()`, ✅ toppate, e **4 rinviate** (una riga commentata, «Party Room», i due nomi di nave) |
+| `proc.hsp` | **563** | 1.098 | **51%** ⭐ +121 nella 36ª (era 442) — più 23 righe fuori da `lang()`, ✅ toppate, e **5 rinviate**: una riga commentata, «Party Room», i due nomi di nave, e `:11481` (`his2()`, ✅ toppata nella 36ª) |
 | `buff.hsp` | 199 | 199 | **100%** ⭐ chiuso il 2026-08-13 — `buffname`, `bufftxt` e `buffdesc` |
 | `command.hsp`, `trait.hsp` | 0 | ~1.680 | 0% |
 
@@ -519,10 +642,13 @@ Fase 4, che `SPEC.md` §6 definisce collettivamente («i restanti 63 file `.hsp`
 minori»). Il numero serve a tenere le proporzioni: quello che resta è più grande
 di quello che è stato fatto.
 
-**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **13.444
-sostituzioni** applicate alla build — erano **13.146** all'apertura della 35ª,
-più le **298** dei sei lotti. Il compilatore non dice nulla, manifesto del
-sorgente **72/72** (ricontrollato il 13/08 a inizio 31ª).
+**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **13.600
+sostituzioni** applicate alla build — erano **13.444** all'apertura della 36ª,
+più le **156** dei tre lotti. **`toppe.jsonl` è a 302** (erano 297: tre per il
+pozzo, una per la maiuscola, una per `his2`), e `proc.hsp` ne porta **27**. Il
+compilatore non dice nulla, manifesto del sorgente **72/72** (ricontrollato il
+14/08 a inizio 36ª: il sorgente pinnato è intatto anche dopo cinque toppe nuove,
+perché le toppe sono **dati applicati all'albero di build**).
 
 💡 **Le sostituzioni crescono più delle rese, ed è il motivo per cui vale la pena
 contarle**: 235 rese hanno prodotto 298 siti, perché una firma può uscire in più

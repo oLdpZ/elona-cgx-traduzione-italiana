@@ -6,6 +6,63 @@ ancora aperte.
 
 ---
 
+## `his2()` porta il nome ma non passa da `lang()`: una funzione che non si traduce — 2026-08-14, trentaseiesima sessione
+
+Il lotto `013` ha scritto una resa per `proc.hsp:11481` leggendo l'inglese
+
+```hsp
+his2(tc) + your2(tc) + " equipment is surrounded by a white aura."
+```
+
+come il gemello di `:10312` del lotto precedente: pronomi morfologici che
+cancellano il nome, quindi frase italiana senza soggetto. **La rete 11 l'ha
+bocciata** — «mancanti `['his2']`» — e la funzione mancante era la prova che la
+lettura era sbagliata. `init.hsp:1881`:
+
+```hsp
+#defcfunc his2 int EntityID
+    if ( EntityID == CHARA_PLAYER ) { return "your" }
+    return name(EntityID)
+```
+
+⚠️ **`his2()` non è morfologia: porta il nome.** Per questo `funzioni.py` la
+tiene fuori da `MORFOLOGIA_INGLESE` e `verifica` pretende che resti nella resa —
+ed è giusto, perché toglierla perderebbe il soggetto. Ma nel ramo del giocatore
+restituisce il letterale nudo `"your"`, **fuori da qualunque `lang()`**.
+
+> Quel `your` resta inglese **per sempre**: non lo raggiunge il dizionario oggi
+> e non lo raggiungerà la traduzione di `init.hsp` domani, perché non c'è
+> niente da tradurre.
+
+È la stessa classe di `bufftxt(1)` della 28ª e delle 23 righe `if ( en )` della
+35ª — un letterale inglese fuori da `lang()` — **in una forma nuova: dentro una
+funzione.** E questa forma nessuno strumento la vede: `blocchi_en.py` misura la
+struttura del **sorgente**, non quello che una `#defcfunc` restituisce.
+
+⚠️ **E non esiste una resa italiana che regga tutt'e due gli esiti**, perché
+`his2()` dà un **possessivo** in un caso («your») e un **nome proprio con
+l'articolo** nell'altro («il putit»): non c'è slot di frase dove ci stiano
+entrambi. In inglese funziona perché `"your equipment"` e `"the putit's
+equipment"` hanno la stessa forma — il possessivo prenominale — che l'italiano
+non ha.
+
+💡 **La strada è la toppa**, che riporta la riga alla forma del ramo giapponese
+(「name(tc)の装備品は…」, un nome solo) e la rende una frase normale. Fatta nella
+36ª insieme al rinvio: `rinviate.jsonl` 12 → 13, `toppe.jsonl` 301 → 302.
+
+⚠️ **La domanda che resta aperta, e che è misurabile:** `his2` e `your2` sono
+due `#defcfunc` di `init.hsp` che restituiscono inglese senza `lang()`. **Quante
+sono in tutto?** Nessuno le ha mai contate, e ognuna è una famiglia di siti che
+sembrano tradotti e non lo sono. È il gemello di `blocchi_en.py` un livello più
+in basso.
+
+💡 **E il valore della rete 11 sta qui.** Era nata nel lotto `012` per dire «non
+aggiungere funzioni di contenuto»; un lotto dopo ha detto «ne manca una», e
+quella era la prova di un difetto strutturale che nessuna lettura a occhio
+avrebbe trovato — perché la riga, letta, sembra solo inglese da tradurre.
+
+---
+
 ## La maiuscola d'ufficio non gira, e non girava da sempre — 2026-08-14, trentaseiesima sessione
 
 Il collaudo delle 235 rese della 35ª ha mostrato, a ogni riga del log:
