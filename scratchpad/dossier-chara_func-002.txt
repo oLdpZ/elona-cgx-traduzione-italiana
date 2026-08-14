@@ -1,0 +1,725 @@
+==============================================================================
+=== riga 2021.0  [dinamica]
+jp: name(hostileaction_target) + "は嫌な顔をした。"
+en: name(hostileaction_target) + " glares at you."
+--- sorgente
+  2018: 	if ( cdata(CDATA_RELATION, hostileaction_target) == 10 ) {
+  2019: 		txtmore
+  2020: 		txtef COLOR_PURPLE
+>>2021: 		txt lang(name(hostileaction_target) + "は嫌な顔をした。", name(hostileaction_target) + " glares at you.")
+  2022: 	}
+  2023: 	else {
+  2024: 		if ( hostileaction_source <= MAX_CHARA_FOLLOWER ) {
+==============================================================================
+=== riga 2047.0  [dinamica]
+jp: name(hostileaction_target) + "は激怒した。"
+en: name(hostileaction_target) + " gets furious!"
+--- sorgente
+  2044: 			if ( cdata(CDATA_RELATION, hostileaction_target) != (-3) ) {
+  2045: 				txtef COLOR_PURPLE
+  2046: 				txtmore
+>>2047: 				txt lang(name(hostileaction_target) + "は激怒した。", name(hostileaction_target) + " gets furious!")
+  2048: 			}
+  2049: 			if ( cdata(CDATA_AI_AGGRO, hostileaction_target) <= 0 | cdata(CDATA_RELATION, hostileaction_target) == (-2) ) {
+  2050: 				cdata(CDATA_RELATION, hostileaction_target) = -3
+==============================================================================
+=== riga 2067.0  [statica]
+jp: "家畜は興奮した！"
+en: "The livestock got excited!"
+--- sorgente
+  2064: 	if ( cbit(CHARA_BIT_LIVESTOCK, hostileaction_target) == 1 & gdata(GDATA_AREA) != AREA_DOJO ) {
+  2065: 		if ( rnd(50) == 0 ) {
+  2066: 			txtef COLOR_RED
+>>2067: 			txt lang("家畜は興奮した！", "The livestock got excited!")
+  2068: 			repeat MAX_CHARA_TOTAL
+  2069: 				if ( cbit(CHARA_BIT_LIVESTOCK, cnt) == 1 ) {
+  2070: 					cdata(CDATA_TARGET, cnt) = 0
+==============================================================================
+=== riga 2101.0  [dinamica]
+jp: name(cnt) + "は行動を中断した。"
+en: name(cnt) + " cancel" + _s(cnt) + " " + his(cnt) + " action."
+--- sorgente
+  2098: 		if ( cdata(CDATA_ROW_ACT, cnt) == ACTION_EAT | cdata(CDATA_ROW_ACT, cnt) == ACTION_READ ) {
+  2099: 			if ( cdata(CDATA_ITEM_USING, cnt) == rowact_item_arg1 ) {
+  2100: 				rowactend cnt
+>>2101: 				txt lang(name(cnt) + "は行動を中断した。", name(cnt) + " cancel" + _s(cnt) + " " + his(cnt) + " action.")
+  2102: 			}
+  2103: 		}
+  2104: 	loop
+--- STESSO GIAPPONESE, gia' reso:
+    adv.hsp.jsonl:18  name(rc) + " interrompe l'azione."
+--- stesso inglese, gia' reso:
+    adv.hsp.jsonl:18  name(rc) + " interrompe l'azione."
+==============================================================================
+=== riga 2122.0  [statica]
+jp: "決闘中は変装が効かない。"
+en: "Incognito does not work for the duel opponent."
+--- sorgente
+  2119: #deffunc incognitobegin
+  2120: 	if ( gdata(GDATA_FLAG_DUEL_TARGET) > 0 ) {
+  2121: 		snd SOUNDLIST_FAIL1
+>>2122: 		txt lang("決闘中は変装が効かない。", "Incognito does not work for the duel opponent.")
+  2123: 		return
+  2124: 	}
+  2125: 	repeat MAX_CHARA_TOTAL - MAX_CHARA_FOLLOWER, MAX_CHARA_FOLLOWER
+==============================================================================
+=== riga 2248.0  [statica]
+jp: "しかし、効果はなかった。"
+en: "But it produces no effect."
+--- sorgente
+  2245: 	if ( locvar_addbuff_p == (-2) ) {
+  2246: 		if ( synccheck(addbuff_charid, -1) ) {
+  2247: 			txtmore
+>>2248: 			txt lang("しかし、効果はなかった。", "But it produces no effect.")
+  2249: 			return 0
+  2250: 		}
+  2251: 	}
+==============================================================================
+=== riga 2260.0  [dinamica]
+jp: "パワー" + locvar_addbuff_bpower + "。"
+en: "Buff Power:" + locvar_addbuff_bpower + "."
+--- sorgente
+  2257: 			locvar_addbuff_bpower = addbuff_arg3 / 4
+  2258: 		}
+  2259: 		if ( debug ) {
+>>2260: 			txt lang("パワー" + locvar_addbuff_bpower + "。", "Buff Power:" + locvar_addbuff_bpower + ".")
+  2261: 		}
+  2262: 		if ( sdata(SKILL_NORMAL_FAITH, addbuff_charid) * 2 + 100 > rnd(locvar_addbuff_bpower * 2 + 100) ) {
+  2263: 			if ( addbuff_buffid != BUFF_PUNISHMENT ) {
+==============================================================================
+=== riga 2280.0  [statica]
+jp: "ホーリーヴェイルが呪いを防いだ。"
+en: "The holy veil repels the hex."
+--- sorgente
+  2277: 		if ( findbuff(addbuff_charid, BUFF_HOLY_VEIL) != (-1) ) {
+  2278: 			if ( addbuff_buffid != BUFF_PUNISHMENT ) {
+  2279: 				if ( cdata(STARTING_CDATA_BUFF + findbuff(addbuff_charid, BUFF_HOLY_VEIL) * ARRAY_CDATA_BUFF + 1, addbuff_charid) + 50 > locvar_addbuff_bpower * 5 / 2 | rnd(cdata(STARTING_CDATA_BUFF + findbuff(addbuff_charid, BUFF_HOLY_VEIL) * ARRAY_CDATA_BUFF + 1, addbuff_charid) + 50) > rnd(locvar_addbuff_bpower + 1) ) {
+>>2280: 					txt lang("ホーリーヴェイルが呪いを防いだ。", "The holy veil repels the hex.")
+  2281: 					return
+  2282: 				}
+  2283: 			}
+==============================================================================
+=== riga 2288.0  [dinamica]
+jp: cnven(name(addbuff_charid)) + "は抵抗した。"
+en: name(addbuff_charid) + " resist" + _s(addbuff_charid) + " the hex."
+--- sorgente
+  2285: 		if ( locvar_addbuff_f == 1 ) {
+  2286: 			if ( synccheck(addbuff_charid, -1) ) {
+  2287: 				txtmore
+>>2288: 				txt lang(cnven(name(addbuff_charid)) + "は抵抗した。", name(addbuff_charid) + " resist" + _s(addbuff_charid) + " the hex.")
+  2289: 			}
+  2290: 			return
+  2291: 		}
+--- STESSO GIAPPONESE, gia' reso:
+    action.hsp.jsonl:8844  name(tc) + " resiste."
+    action.hsp.jsonl:12920  itemname(ci) + " resiste."
+    proc.hsp.jsonl:9322  name(tc) + " resiste."
+    proc.hsp.jsonl:15649  itemname(ci) + " resiste."
+==============================================================================
+=== riga 2298.0  [statica]
+jp: "ホーリーヴェイルが呪いを弱めた。"
+en: "The holy veil repels the hex."
+--- sorgente
+  2295: 				if ( addbuff_buffid != BUFF_DEATH_WORD ) {
+  2296: 					locvar_addbuff_fixeddur = limit(addbuff_arg4 - locvar_addbuff_vpower, addbuff_arg4 / 1000 + 1, locvar_addbuff_fixeddur)
+  2297: 				}
+>>2298: 				txt lang("ホーリーヴェイルが呪いを弱めた。", "The holy veil repels the hex.")
+  2299: 			}
+  2300: 		}
+  2301: 		if ( cc == CHARA_PLAYER ) {
+==============================================================================
+=== riga 2310.0  [dinamica]
+jp: name(addbuff_charid) + bufftxt(0, addbuff_buffid)
+en: name(addbuff_charid) + " " + bufftxt(0, addbuff_buffid) + _s(addbuff_charid) + bufftxt(1, addbuff_buffid)
+--- sorgente
+  2307: 
+  2308: 		/********** ORIGINAL - BEGINNING **********
+  2309: 
+>>2310: 		txt lang(name(addbuff_charid) + bufftxt(0, addbuff_buffid), name(addbuff_charid) + " " + bufftxt(0, addbuff_buffid) + _s(addbuff_charid) + bufftxt(1, addbuff_buffid))
+  2311: 
+  2312: 		 ********** ORIGINAL - ENDING **********/
+  2313: 
+--- stesso inglese, gia' reso:
+    text.hsp.jsonl:198   
+==============================================================================
+=== riga 2404.0  [dinamica]
+jp: "" + buffname(delbuff_buffid) + "の効果が切れた。"
+en: "The effect of " + buffname(delbuff_buffid) + " ends."
+--- sorgente
+  2401: 	delbuff_buffid = cdata(STARTING_CDATA_BUFF + delbuff_buffindex * ARRAY_CDATA_BUFF, delbuff_charid)
+  2402: 	if ( delbuff_charid == CHARA_PLAYER ) {
+  2403: 		txtef COLOR_PURPLE
+>>2404: 		txt lang("" + buffname(delbuff_buffid) + "の効果が切れた。", "The effect of " + buffname(delbuff_buffid) + " ends.")
+  2405: 	}
+  2406: 	if ( cdata(STARTING_CDATA_BUFF + delbuff_buffindex * ARRAY_CDATA_BUFF, delbuff_charid) == BUFF_INCOGNITO ) {
+  2407: 		if ( delbuff_charid == CHARA_PLAYER ) {
+==============================================================================
+=== riga 2675.0  [dinamica]
+jp: name(resistmod_charid) + "の身体は急に火照りだした。"
+en: "Suddenly, " + name(resistmod_charid) + " feel" + _s(resistmod_charid) + " very hot."
+--- sorgente
+  2672: 		if ( resistmod_arg3 >= 50 ) {
+  2673: 			txtef COLOR_GREEN
+  2674: 			if ( resistmod_ele == SKILL_RES_FIRE ) {
+>>2675: 				txt lang(name(resistmod_charid) + "の身体は急に火照りだした。", "Suddenly, " + name(resistmod_charid) + " feel" + _s(resistmod_charid) + " very hot.")
+  2676: 			}
+  2677: 			if ( resistmod_ele == SKILL_RES_COLD ) {
+  2678: 				txt lang(name(resistmod_charid) + "の身体は急に冷たくなった。", "Suddenly, " + name(resistmod_charid) + " feel" + _s(resistmod_charid) + " cool.")
+==============================================================================
+=== riga 2678.0  [dinamica]
+jp: name(resistmod_charid) + "の身体は急に冷たくなった。"
+en: "Suddenly, " + name(resistmod_charid) + " feel" + _s(resistmod_charid) + " cool."
+--- sorgente
+  2675: 				txt lang(name(resistmod_charid) + "の身体は急に火照りだした。", "Suddenly, " + name(resistmod_charid) + " feel" + _s(resistmod_charid) + " very hot.")
+  2676: 			}
+  2677: 			if ( resistmod_ele == SKILL_RES_COLD ) {
+>>2678: 				txt lang(name(resistmod_charid) + "の身体は急に冷たくなった。", "Suddenly, " + name(resistmod_charid) + " feel" + _s(resistmod_charid) + " cool.")
+  2679: 			}
+  2680: 			if ( resistmod_ele == SKILL_RES_LIGHTNING ) {
+  2681: 				txt lang(name(resistmod_charid) + "の身体に電気が走った。", name(resistmod_charid) + " " + is(resistmod_charid) + " struck by an electric shock.")
+==============================================================================
+=== riga 2681.0  [dinamica]
+jp: name(resistmod_charid) + "の身体に電気が走った。"
+en: name(resistmod_charid) + " " + is(resistmod_charid) + " struck by an electric shock."
+--- sorgente
+  2678: 				txt lang(name(resistmod_charid) + "の身体は急に冷たくなった。", "Suddenly, " + name(resistmod_charid) + " feel" + _s(resistmod_charid) + " cool.")
+  2679: 			}
+  2680: 			if ( resistmod_ele == SKILL_RES_LIGHTNING ) {
+>>2681: 				txt lang(name(resistmod_charid) + "の身体に電気が走った。", name(resistmod_charid) + " " + is(resistmod_charid) + " struck by an electric shock.")
+  2682: 			}
+  2683: 			if ( resistmod_ele == SKILL_RES_MIND ) {
+  2684: 				txt lang(name(resistmod_charid) + "は急に明晰になった。", "Suddenly, " + name(resistmod_charid) + your(resistmod_charid) + " mind becomes very clear.")
+==============================================================================
+=== riga 2684.0  [dinamica]
+jp: name(resistmod_charid) + "は急に明晰になった。"
+en: "Suddenly, " + name(resistmod_charid) + your(resistmod_charid) + " mind becomes very clear."
+--- sorgente
+  2681: 				txt lang(name(resistmod_charid) + "の身体に電気が走った。", name(resistmod_charid) + " " + is(resistmod_charid) + " struck by an electric shock.")
+  2682: 			}
+  2683: 			if ( resistmod_ele == SKILL_RES_MIND ) {
+>>2684: 				txt lang(name(resistmod_charid) + "は急に明晰になった。", "Suddenly, " + name(resistmod_charid) + your(resistmod_charid) + " mind becomes very clear.")
+  2685: 			}
+  2686: 			if ( resistmod_ele == SKILL_RES_NERVE ) {
+  2687: 				txt lang(name(resistmod_charid) + "は急に神経が図太くなった。", name(resistmod_charid) + your(resistmod_charid) + " nerve is sharpened.")
+==============================================================================
+=== riga 2687.0  [dinamica]
+jp: name(resistmod_charid) + "は急に神経が図太くなった。"
+en: name(resistmod_charid) + your(resistmod_charid) + " nerve is sharpened."
+--- sorgente
+  2684: 				txt lang(name(resistmod_charid) + "は急に明晰になった。", "Suddenly, " + name(resistmod_charid) + your(resistmod_charid) + " mind becomes very clear.")
+  2685: 			}
+  2686: 			if ( resistmod_ele == SKILL_RES_NERVE ) {
+>>2687: 				txt lang(name(resistmod_charid) + "は急に神経が図太くなった。", name(resistmod_charid) + your(resistmod_charid) + " nerve is sharpened.")
+  2688: 			}
+  2689: 			if ( resistmod_ele == SKILL_RES_DARKNESS ) {
+  2690: 				txt lang(name(resistmod_charid) + "は急に暗闇が怖くなくなった。", name(resistmod_charid) + " no longer fear" + _s(resistmod_charid) + " darkness.")
+==============================================================================
+=== riga 2690.0  [dinamica]
+jp: name(resistmod_charid) + "は急に暗闇が怖くなくなった。"
+en: name(resistmod_charid) + " no longer fear" + _s(resistmod_charid) + " darkness."
+--- sorgente
+  2687: 				txt lang(name(resistmod_charid) + "は急に神経が図太くなった。", name(resistmod_charid) + your(resistmod_charid) + " nerve is sharpened.")
+  2688: 			}
+  2689: 			if ( resistmod_ele == SKILL_RES_DARKNESS ) {
+>>2690: 				txt lang(name(resistmod_charid) + "は急に暗闇が怖くなくなった。", name(resistmod_charid) + " no longer fear" + _s(resistmod_charid) + " darkness.")
+  2691: 			}
+  2692: 			if ( resistmod_ele == SKILL_RES_SOUND ) {
+  2693: 				txt lang(name(resistmod_charid) + "は騒音を気にしなくなった。", name(resistmod_charid) + your(resistmod_charid) + " eardrums get thick.")
+==============================================================================
+=== riga 2693.0  [dinamica]
+jp: name(resistmod_charid) + "は騒音を気にしなくなった。"
+en: name(resistmod_charid) + your(resistmod_charid) + " eardrums get thick."
+--- sorgente
+  2690: 				txt lang(name(resistmod_charid) + "は急に暗闇が怖くなくなった。", name(resistmod_charid) + " no longer fear" + _s(resistmod_charid) + " darkness.")
+  2691: 			}
+  2692: 			if ( resistmod_ele == SKILL_RES_SOUND ) {
+>>2693: 				txt lang(name(resistmod_charid) + "は騒音を気にしなくなった。", name(resistmod_charid) + your(resistmod_charid) + " eardrums get thick.")
+  2694: 			}
+  2695: 			if ( resistmod_ele == SKILL_RES_CHAOS ) {
+  2696: 				txt lang(name(resistmod_charid) + "は急にカオスを理解した。", "Suddenly, " + name(resistmod_charid) + " understand" + _s(resistmod_charid) + " chaos.")
+==============================================================================
+=== riga 2696.0  [dinamica]
+jp: name(resistmod_charid) + "は急にカオスを理解した。"
+en: "Suddenly, " + name(resistmod_charid) + " understand" + _s(resistmod_charid) + " chaos."
+--- sorgente
+  2693: 				txt lang(name(resistmod_charid) + "は騒音を気にしなくなった。", name(resistmod_charid) + your(resistmod_charid) + " eardrums get thick.")
+  2694: 			}
+  2695: 			if ( resistmod_ele == SKILL_RES_CHAOS ) {
+>>2696: 				txt lang(name(resistmod_charid) + "は急にカオスを理解した。", "Suddenly, " + name(resistmod_charid) + " understand" + _s(resistmod_charid) + " chaos.")
+  2697: 			}
+  2698: 			if ( resistmod_ele == SKILL_RES_POISON ) {
+  2699: 				txt lang(name(resistmod_charid) + "の毒への耐性は強くなった。", name(resistmod_charid) + " now " + have(resistmod_charid) + " antibodies to poisons.")
+==============================================================================
+=== riga 2699.0  [dinamica]
+jp: name(resistmod_charid) + "の毒への耐性は強くなった。"
+en: name(resistmod_charid) + " now " + have(resistmod_charid) + " antibodies to poisons."
+--- sorgente
+  2696: 				txt lang(name(resistmod_charid) + "は急にカオスを理解した。", "Suddenly, " + name(resistmod_charid) + " understand" + _s(resistmod_charid) + " chaos.")
+  2697: 			}
+  2698: 			if ( resistmod_ele == SKILL_RES_POISON ) {
+>>2699: 				txt lang(name(resistmod_charid) + "の毒への耐性は強くなった。", name(resistmod_charid) + " now " + have(resistmod_charid) + " antibodies to poisons.")
+  2700: 			}
+  2701: 			if ( resistmod_ele == SKILL_RES_NETHER ) {
+  2702: 				txt lang(name(resistmod_charid) + "の魂は地獄に近づいた。", name(resistmod_charid) + " " + is(resistmod_charid) + " no longer afraid of hell.")
+==============================================================================
+=== riga 2702.0  [dinamica]
+jp: name(resistmod_charid) + "の魂は地獄に近づいた。"
+en: name(resistmod_charid) + " " + is(resistmod_charid) + " no longer afraid of hell."
+--- sorgente
+  2699: 				txt lang(name(resistmod_charid) + "の毒への耐性は強くなった。", name(resistmod_charid) + " now " + have(resistmod_charid) + " antibodies to poisons.")
+  2700: 			}
+  2701: 			if ( resistmod_ele == SKILL_RES_NETHER ) {
+>>2702: 				txt lang(name(resistmod_charid) + "の魂は地獄に近づいた。", name(resistmod_charid) + " " + is(resistmod_charid) + " no longer afraid of hell.")
+  2703: 			}
+  2704: 			if ( resistmod_ele == SKILL_RES_MAGIC ) {
+  2705: 				txt lang(name(resistmod_charid) + "の皮膚は魔力のオーラに包まれた。", name(resistmod_charid) + your(resistmod_charid) + " body is covered by a magical aura.")
+==============================================================================
+=== riga 2705.0  [dinamica]
+jp: name(resistmod_charid) + "の皮膚は魔力のオーラに包まれた。"
+en: name(resistmod_charid) + your(resistmod_charid) + " body is covered by a magical aura."
+--- sorgente
+  2702: 				txt lang(name(resistmod_charid) + "の魂は地獄に近づいた。", name(resistmod_charid) + " " + is(resistmod_charid) + " no longer afraid of hell.")
+  2703: 			}
+  2704: 			if ( resistmod_ele == SKILL_RES_MAGIC ) {
+>>2705: 				txt lang(name(resistmod_charid) + "の皮膚は魔力のオーラに包まれた。", name(resistmod_charid) + your(resistmod_charid) + " body is covered by a magical aura.")
+  2706: 			}
+  2707: 		}
+  2708: 		if ( resistmod_arg3 <= -50 ) {
+==============================================================================
+=== riga 2711.0  [dinamica]
+jp: name(resistmod_charid) + "は急に汗をかきだした。"
+en: name(resistmod_charid) + " sweat" + _s(resistmod_charid) + "."
+--- sorgente
+  2708: 		if ( resistmod_arg3 <= -50 ) {
+  2709: 			txtef COLOR_PURPLE
+  2710: 			if ( resistmod_ele == SKILL_RES_FIRE ) {
+>>2711: 				txt lang(name(resistmod_charid) + "は急に汗をかきだした。", name(resistmod_charid) + " sweat" + _s(resistmod_charid) + ".")
+  2712: 			}
+  2713: 			if ( resistmod_ele == SKILL_RES_COLD ) {
+  2714: 				txt lang(name(resistmod_charid) + "は急に寒気を感じた。", name(resistmod_charid) + " shiver" + _s(resistmod_charid) + ".")
+==============================================================================
+=== riga 2714.0  [dinamica]
+jp: name(resistmod_charid) + "は急に寒気を感じた。"
+en: name(resistmod_charid) + " shiver" + _s(resistmod_charid) + "."
+--- sorgente
+  2711: 				txt lang(name(resistmod_charid) + "は急に汗をかきだした。", name(resistmod_charid) + " sweat" + _s(resistmod_charid) + ".")
+  2712: 			}
+  2713: 			if ( resistmod_ele == SKILL_RES_COLD ) {
+>>2714: 				txt lang(name(resistmod_charid) + "は急に寒気を感じた。", name(resistmod_charid) + " shiver" + _s(resistmod_charid) + ".")
+  2715: 			}
+  2716: 			if ( resistmod_ele == SKILL_RES_LIGHTNING ) {
+  2717: 				txt lang(name(resistmod_charid) + "は急に電気に敏感になった。", name(resistmod_charid) + " " + is(resistmod_charid) + " shocked.")
+==============================================================================
+=== riga 2717.0  [dinamica]
+jp: name(resistmod_charid) + "は急に電気に敏感になった。"
+en: name(resistmod_charid) + " " + is(resistmod_charid) + " shocked."
+--- sorgente
+  2714: 				txt lang(name(resistmod_charid) + "は急に寒気を感じた。", name(resistmod_charid) + " shiver" + _s(resistmod_charid) + ".")
+  2715: 			}
+  2716: 			if ( resistmod_ele == SKILL_RES_LIGHTNING ) {
+>>2717: 				txt lang(name(resistmod_charid) + "は急に電気に敏感になった。", name(resistmod_charid) + " " + is(resistmod_charid) + " shocked.")
+  2718: 			}
+  2719: 			if ( resistmod_ele == SKILL_RES_MIND ) {
+  2720: 				txt lang(name(resistmod_charid) + "は以前ほど明晰ではなくなった。", name(resistmod_charid) + your(resistmod_charid) + " mind becomes slippery.")
+--- stesso inglese, gia' reso:
+    chara_func.hsp.jsonl:4642  name(txteledmg_arg3) + " riceve una scarica."
+==============================================================================
+=== riga 2720.0  [dinamica]
+jp: name(resistmod_charid) + "は以前ほど明晰ではなくなった。"
+en: name(resistmod_charid) + your(resistmod_charid) + " mind becomes slippery."
+--- sorgente
+  2717: 				txt lang(name(resistmod_charid) + "は急に電気に敏感になった。", name(resistmod_charid) + " " + is(resistmod_charid) + " shocked.")
+  2718: 			}
+  2719: 			if ( resistmod_ele == SKILL_RES_MIND ) {
+>>2720: 				txt lang(name(resistmod_charid) + "は以前ほど明晰ではなくなった。", name(resistmod_charid) + your(resistmod_charid) + " mind becomes slippery.")
+  2721: 			}
+  2722: 			if ( resistmod_ele == SKILL_RES_NERVE ) {
+  2723: 				txt lang(name(resistmod_charid) + "の神経は急に萎縮した。", name(resistmod_charid) + " become" + _s(resistmod_charid) + " dull.")
+==============================================================================
+=== riga 2723.0  [dinamica]
+jp: name(resistmod_charid) + "の神経は急に萎縮した。"
+en: name(resistmod_charid) + " become" + _s(resistmod_charid) + " dull."
+--- sorgente
+  2720: 				txt lang(name(resistmod_charid) + "は以前ほど明晰ではなくなった。", name(resistmod_charid) + your(resistmod_charid) + " mind becomes slippery.")
+  2721: 			}
+  2722: 			if ( resistmod_ele == SKILL_RES_NERVE ) {
+>>2723: 				txt lang(name(resistmod_charid) + "の神経は急に萎縮した。", name(resistmod_charid) + " become" + _s(resistmod_charid) + " dull.")
+  2724: 			}
+  2725: 			if ( resistmod_ele == SKILL_RES_DARKNESS ) {
+  2726: 				txt lang(name(resistmod_charid) + "は急に暗闇が怖くなった。", "Suddenly, " + name(resistmod_charid) + " fear" + _s(resistmod_charid) + " darkness.")
+==============================================================================
+=== riga 2726.0  [dinamica]
+jp: name(resistmod_charid) + "は急に暗闇が怖くなった。"
+en: "Suddenly, " + name(resistmod_charid) + " fear" + _s(resistmod_charid) + " darkness."
+--- sorgente
+  2723: 				txt lang(name(resistmod_charid) + "の神経は急に萎縮した。", name(resistmod_charid) + " become" + _s(resistmod_charid) + " dull.")
+  2724: 			}
+  2725: 			if ( resistmod_ele == SKILL_RES_DARKNESS ) {
+>>2726: 				txt lang(name(resistmod_charid) + "は急に暗闇が怖くなった。", "Suddenly, " + name(resistmod_charid) + " fear" + _s(resistmod_charid) + " darkness.")
+  2727: 			}
+  2728: 			if ( resistmod_ele == SKILL_RES_SOUND ) {
+  2729: 				txt lang(name(resistmod_charid) + "は急に辺りをうるさく感じた。", name(resistmod_charid) + " become" + _s(resistmod_charid) + " very sensitive to noises.")
+==============================================================================
+=== riga 2729.0  [dinamica]
+jp: name(resistmod_charid) + "は急に辺りをうるさく感じた。"
+en: name(resistmod_charid) + " become" + _s(resistmod_charid) + " very sensitive to noises."
+--- sorgente
+  2726: 				txt lang(name(resistmod_charid) + "は急に暗闇が怖くなった。", "Suddenly, " + name(resistmod_charid) + " fear" + _s(resistmod_charid) + " darkness.")
+  2727: 			}
+  2728: 			if ( resistmod_ele == SKILL_RES_SOUND ) {
+>>2729: 				txt lang(name(resistmod_charid) + "は急に辺りをうるさく感じた。", name(resistmod_charid) + " become" + _s(resistmod_charid) + " very sensitive to noises.")
+  2730: 			}
+  2731: 			if ( resistmod_ele == SKILL_RES_CHAOS ) {
+  2732: 				txt lang(name(resistmod_charid) + "はカオスへの理解を失った。", name(resistmod_charid) + " no longer understand" + _s(resistmod_charid) + " chaos.")
+==============================================================================
+=== riga 2732.0  [dinamica]
+jp: name(resistmod_charid) + "はカオスへの理解を失った。"
+en: name(resistmod_charid) + " no longer understand" + _s(resistmod_charid) + " chaos."
+--- sorgente
+  2729: 				txt lang(name(resistmod_charid) + "は急に辺りをうるさく感じた。", name(resistmod_charid) + " become" + _s(resistmod_charid) + " very sensitive to noises.")
+  2730: 			}
+  2731: 			if ( resistmod_ele == SKILL_RES_CHAOS ) {
+>>2732: 				txt lang(name(resistmod_charid) + "はカオスへの理解を失った。", name(resistmod_charid) + " no longer understand" + _s(resistmod_charid) + " chaos.")
+  2733: 			}
+  2734: 			if ( resistmod_ele == SKILL_RES_POISON ) {
+  2735: 				txt lang(name(resistmod_charid) + "の毒への耐性は薄れた。", name(resistmod_charid) + " lose" + _s(resistmod_charid, 1) + " antibodies to poisons.")
+==============================================================================
+=== riga 2735.0  [dinamica]
+jp: name(resistmod_charid) + "の毒への耐性は薄れた。"
+en: name(resistmod_charid) + " lose" + _s(resistmod_charid, 1) + " antibodies to poisons."
+--- sorgente
+  2732: 				txt lang(name(resistmod_charid) + "はカオスへの理解を失った。", name(resistmod_charid) + " no longer understand" + _s(resistmod_charid) + " chaos.")
+  2733: 			}
+  2734: 			if ( resistmod_ele == SKILL_RES_POISON ) {
+>>2735: 				txt lang(name(resistmod_charid) + "の毒への耐性は薄れた。", name(resistmod_charid) + " lose" + _s(resistmod_charid, 1) + " antibodies to poisons.")
+  2736: 			}
+  2737: 			if ( resistmod_ele == SKILL_RES_NETHER ) {
+  2738: 				txt lang(name(resistmod_charid) + "の魂は地獄から遠ざかった。", name(resistmod_charid) + " " + is(resistmod_charid) + " afraid of hell.")
+==============================================================================
+=== riga 2738.0  [dinamica]
+jp: name(resistmod_charid) + "の魂は地獄から遠ざかった。"
+en: name(resistmod_charid) + " " + is(resistmod_charid) + " afraid of hell."
+--- sorgente
+  2735: 				txt lang(name(resistmod_charid) + "の毒への耐性は薄れた。", name(resistmod_charid) + " lose" + _s(resistmod_charid, 1) + " antibodies to poisons.")
+  2736: 			}
+  2737: 			if ( resistmod_ele == SKILL_RES_NETHER ) {
+>>2738: 				txt lang(name(resistmod_charid) + "の魂は地獄から遠ざかった。", name(resistmod_charid) + " " + is(resistmod_charid) + " afraid of hell.")
+  2739: 			}
+  2740: 			if ( resistmod_ele == SKILL_RES_MAGIC ) {
+  2741: 				txt lang(name(resistmod_charid) + "の皮膚から魔力のオーラが消えた。", "The magical aura disappears from " + name(resistmod_charid) + your(resistmod_charid) + " body.")
+==============================================================================
+=== riga 2741.0  [dinamica]
+jp: name(resistmod_charid) + "の皮膚から魔力のオーラが消えた。"
+en: "The magical aura disappears from " + name(resistmod_charid) + your(resistmod_charid) + " body."
+--- sorgente
+  2738: 				txt lang(name(resistmod_charid) + "の魂は地獄から遠ざかった。", name(resistmod_charid) + " " + is(resistmod_charid) + " afraid of hell.")
+  2739: 			}
+  2740: 			if ( resistmod_ele == SKILL_RES_MAGIC ) {
+>>2741: 				txt lang(name(resistmod_charid) + "の皮膚から魔力のオーラが消えた。", "The magical aura disappears from " + name(resistmod_charid) + your(resistmod_charid) + " body.")
+  2742: 			}
+  2743: 		}
+  2744: 		sdata(resistmod_ele + STARTING_SKILL_SPACT, resistmod_charid) = limit(locvar_resistmod_lv, 0, 2000) * 1000000 + sexp(resistmod_ele, resistmod_charid) * 1000 + sgrowth(resistmod_ele, resistmod_charid)
+==============================================================================
+=== riga 2769.0  [dinamica]
+jp: name(resistmodh_charid) + "の身体は急に火照りだした。"
+en: "Suddenly, " + name(resistmodh_charid) + " feel" + _s(resistmodh_charid) + " very hot."
+--- sorgente
+  2766: 		if ( resistmodh_arg3 >= 25 ) {
+  2767: 			txtef COLOR_GREEN
+  2768: 			if ( resistmodh_ele == SKILL_RES_FIRE ) {
+>>2769: 				txt lang(name(resistmodh_charid) + "の身体は急に火照りだした。", "Suddenly, " + name(resistmodh_charid) + " feel" + _s(resistmodh_charid) + " very hot.")
+  2770: 			}
+  2771: 			if ( resistmodh_ele == SKILL_RES_COLD ) {
+  2772: 				txt lang(name(resistmodh_charid) + "の身体は急に冷たくなった。", "Suddenly, " + name(resistmodh_charid) + " feel" + _s(resistmodh_charid) + " cool.")
+==============================================================================
+=== riga 2772.0  [dinamica]
+jp: name(resistmodh_charid) + "の身体は急に冷たくなった。"
+en: "Suddenly, " + name(resistmodh_charid) + " feel" + _s(resistmodh_charid) + " cool."
+--- sorgente
+  2769: 				txt lang(name(resistmodh_charid) + "の身体は急に火照りだした。", "Suddenly, " + name(resistmodh_charid) + " feel" + _s(resistmodh_charid) + " very hot.")
+  2770: 			}
+  2771: 			if ( resistmodh_ele == SKILL_RES_COLD ) {
+>>2772: 				txt lang(name(resistmodh_charid) + "の身体は急に冷たくなった。", "Suddenly, " + name(resistmodh_charid) + " feel" + _s(resistmodh_charid) + " cool.")
+  2773: 			}
+  2774: 			if ( resistmodh_ele == SKILL_RES_LIGHTNING ) {
+  2775: 				txt lang(name(resistmodh_charid) + "の身体に電気が走った。", name(resistmodh_charid) + " " + is(resistmodh_charid) + " struck by an electric shock.")
+==============================================================================
+=== riga 2775.0  [dinamica]
+jp: name(resistmodh_charid) + "の身体に電気が走った。"
+en: name(resistmodh_charid) + " " + is(resistmodh_charid) + " struck by an electric shock."
+--- sorgente
+  2772: 				txt lang(name(resistmodh_charid) + "の身体は急に冷たくなった。", "Suddenly, " + name(resistmodh_charid) + " feel" + _s(resistmodh_charid) + " cool.")
+  2773: 			}
+  2774: 			if ( resistmodh_ele == SKILL_RES_LIGHTNING ) {
+>>2775: 				txt lang(name(resistmodh_charid) + "の身体に電気が走った。", name(resistmodh_charid) + " " + is(resistmodh_charid) + " struck by an electric shock.")
+  2776: 			}
+  2777: 			if ( resistmodh_ele == SKILL_RES_MIND ) {
+  2778: 				txt lang(name(resistmodh_charid) + "は急に明晰になった。", "Suddenly, " + name(resistmodh_charid) + your(resistmodh_charid) + " mind becomes very clear.")
+==============================================================================
+=== riga 2778.0  [dinamica]
+jp: name(resistmodh_charid) + "は急に明晰になった。"
+en: "Suddenly, " + name(resistmodh_charid) + your(resistmodh_charid) + " mind becomes very clear."
+--- sorgente
+  2775: 				txt lang(name(resistmodh_charid) + "の身体に電気が走った。", name(resistmodh_charid) + " " + is(resistmodh_charid) + " struck by an electric shock.")
+  2776: 			}
+  2777: 			if ( resistmodh_ele == SKILL_RES_MIND ) {
+>>2778: 				txt lang(name(resistmodh_charid) + "は急に明晰になった。", "Suddenly, " + name(resistmodh_charid) + your(resistmodh_charid) + " mind becomes very clear.")
+  2779: 			}
+  2780: 			if ( resistmodh_ele == SKILL_RES_NERVE ) {
+  2781: 				txt lang(name(resistmodh_charid) + "は急に神経が図太くなった。", name(resistmodh_charid) + your(resistmodh_charid) + " nerve is sharpened.")
+==============================================================================
+=== riga 2781.0  [dinamica]
+jp: name(resistmodh_charid) + "は急に神経が図太くなった。"
+en: name(resistmodh_charid) + your(resistmodh_charid) + " nerve is sharpened."
+--- sorgente
+  2778: 				txt lang(name(resistmodh_charid) + "は急に明晰になった。", "Suddenly, " + name(resistmodh_charid) + your(resistmodh_charid) + " mind becomes very clear.")
+  2779: 			}
+  2780: 			if ( resistmodh_ele == SKILL_RES_NERVE ) {
+>>2781: 				txt lang(name(resistmodh_charid) + "は急に神経が図太くなった。", name(resistmodh_charid) + your(resistmodh_charid) + " nerve is sharpened.")
+  2782: 			}
+  2783: 			if ( resistmodh_ele == SKILL_RES_DARKNESS ) {
+  2784: 				txt lang(name(resistmodh_charid) + "は急に暗闇が怖くなくなった。", name(resistmodh_charid) + " no longer fear" + _s(resistmodh_charid) + " darkness.")
+==============================================================================
+=== riga 2784.0  [dinamica]
+jp: name(resistmodh_charid) + "は急に暗闇が怖くなくなった。"
+en: name(resistmodh_charid) + " no longer fear" + _s(resistmodh_charid) + " darkness."
+--- sorgente
+  2781: 				txt lang(name(resistmodh_charid) + "は急に神経が図太くなった。", name(resistmodh_charid) + your(resistmodh_charid) + " nerve is sharpened.")
+  2782: 			}
+  2783: 			if ( resistmodh_ele == SKILL_RES_DARKNESS ) {
+>>2784: 				txt lang(name(resistmodh_charid) + "は急に暗闇が怖くなくなった。", name(resistmodh_charid) + " no longer fear" + _s(resistmodh_charid) + " darkness.")
+  2785: 			}
+  2786: 			if ( resistmodh_ele == SKILL_RES_SOUND ) {
+  2787: 				txt lang(name(resistmodh_charid) + "は騒音を気にしなくなった。", name(resistmodh_charid) + your(resistmodh_charid) + " eardrums get thick.")
+==============================================================================
+=== riga 2787.0  [dinamica]
+jp: name(resistmodh_charid) + "は騒音を気にしなくなった。"
+en: name(resistmodh_charid) + your(resistmodh_charid) + " eardrums get thick."
+--- sorgente
+  2784: 				txt lang(name(resistmodh_charid) + "は急に暗闇が怖くなくなった。", name(resistmodh_charid) + " no longer fear" + _s(resistmodh_charid) + " darkness.")
+  2785: 			}
+  2786: 			if ( resistmodh_ele == SKILL_RES_SOUND ) {
+>>2787: 				txt lang(name(resistmodh_charid) + "は騒音を気にしなくなった。", name(resistmodh_charid) + your(resistmodh_charid) + " eardrums get thick.")
+  2788: 			}
+  2789: 			if ( resistmodh_ele == SKILL_RES_CHAOS ) {
+  2790: 				txt lang(name(resistmodh_charid) + "は急にカオスを理解した。", "Suddenly, " + name(resistmodh_charid) + " understand" + _s(resistmodh_charid) + " chaos.")
+==============================================================================
+=== riga 2790.0  [dinamica]
+jp: name(resistmodh_charid) + "は急にカオスを理解した。"
+en: "Suddenly, " + name(resistmodh_charid) + " understand" + _s(resistmodh_charid) + " chaos."
+--- sorgente
+  2787: 				txt lang(name(resistmodh_charid) + "は騒音を気にしなくなった。", name(resistmodh_charid) + your(resistmodh_charid) + " eardrums get thick.")
+  2788: 			}
+  2789: 			if ( resistmodh_ele == SKILL_RES_CHAOS ) {
+>>2790: 				txt lang(name(resistmodh_charid) + "は急にカオスを理解した。", "Suddenly, " + name(resistmodh_charid) + " understand" + _s(resistmodh_charid) + " chaos.")
+  2791: 			}
+  2792: 			if ( resistmodh_ele == SKILL_RES_POISON ) {
+  2793: 				txt lang(name(resistmodh_charid) + "の毒への耐性は強くなった。", name(resistmodh_charid) + " now " + have(resistmodh_charid) + " antibodies to poisons.")
+==============================================================================
+=== riga 2793.0  [dinamica]
+jp: name(resistmodh_charid) + "の毒への耐性は強くなった。"
+en: name(resistmodh_charid) + " now " + have(resistmodh_charid) + " antibodies to poisons."
+--- sorgente
+  2790: 				txt lang(name(resistmodh_charid) + "は急にカオスを理解した。", "Suddenly, " + name(resistmodh_charid) + " understand" + _s(resistmodh_charid) + " chaos.")
+  2791: 			}
+  2792: 			if ( resistmodh_ele == SKILL_RES_POISON ) {
+>>2793: 				txt lang(name(resistmodh_charid) + "の毒への耐性は強くなった。", name(resistmodh_charid) + " now " + have(resistmodh_charid) + " antibodies to poisons.")
+  2794: 			}
+  2795: 			if ( resistmodh_ele == SKILL_RES_NETHER ) {
+  2796: 				txt lang(name(resistmodh_charid) + "の魂は地獄に近づいた。", name(resistmodh_charid) + " " + is(resistmodh_charid) + " no longer afraid of hell.")
+==============================================================================
+=== riga 2796.0  [dinamica]
+jp: name(resistmodh_charid) + "の魂は地獄に近づいた。"
+en: name(resistmodh_charid) + " " + is(resistmodh_charid) + " no longer afraid of hell."
+--- sorgente
+  2793: 				txt lang(name(resistmodh_charid) + "の毒への耐性は強くなった。", name(resistmodh_charid) + " now " + have(resistmodh_charid) + " antibodies to poisons.")
+  2794: 			}
+  2795: 			if ( resistmodh_ele == SKILL_RES_NETHER ) {
+>>2796: 				txt lang(name(resistmodh_charid) + "の魂は地獄に近づいた。", name(resistmodh_charid) + " " + is(resistmodh_charid) + " no longer afraid of hell.")
+  2797: 			}
+  2798: 			if ( resistmodh_ele == SKILL_RES_MAGIC ) {
+  2799: 				txt lang(name(resistmodh_charid) + "の皮膚は魔力のオーラに包まれた。", name(resistmodh_charid) + your(resistmodh_charid) + " body is covered by a magical aura.")
+==============================================================================
+=== riga 2799.0  [dinamica]
+jp: name(resistmodh_charid) + "の皮膚は魔力のオーラに包まれた。"
+en: name(resistmodh_charid) + your(resistmodh_charid) + " body is covered by a magical aura."
+--- sorgente
+  2796: 				txt lang(name(resistmodh_charid) + "の魂は地獄に近づいた。", name(resistmodh_charid) + " " + is(resistmodh_charid) + " no longer afraid of hell.")
+  2797: 			}
+  2798: 			if ( resistmodh_ele == SKILL_RES_MAGIC ) {
+>>2799: 				txt lang(name(resistmodh_charid) + "の皮膚は魔力のオーラに包まれた。", name(resistmodh_charid) + your(resistmodh_charid) + " body is covered by a magical aura.")
+  2800: 			}
+  2801: 		}
+  2802: 		if ( resistmodh_arg3 <= -50 ) {
+==============================================================================
+=== riga 2805.0  [dinamica]
+jp: name(resistmodh_charid) + "は急に汗をかきだした。"
+en: name(resistmodh_charid) + " sweat" + _s(resistmodh_charid) + "."
+--- sorgente
+  2802: 		if ( resistmodh_arg3 <= -50 ) {
+  2803: 			txtef COLOR_PURPLE
+  2804: 			if ( resistmodh_ele == SKILL_RES_FIRE ) {
+>>2805: 				txt lang(name(resistmodh_charid) + "は急に汗をかきだした。", name(resistmodh_charid) + " sweat" + _s(resistmodh_charid) + ".")
+  2806: 			}
+  2807: 			if ( resistmodh_ele == SKILL_RES_COLD ) {
+  2808: 				txt lang(name(resistmodh_charid) + "は急に寒気を感じた。", name(resistmodh_charid) + " shiver" + _s(resistmodh_charid) + ".")
+==============================================================================
+=== riga 2808.0  [dinamica]
+jp: name(resistmodh_charid) + "は急に寒気を感じた。"
+en: name(resistmodh_charid) + " shiver" + _s(resistmodh_charid) + "."
+--- sorgente
+  2805: 				txt lang(name(resistmodh_charid) + "は急に汗をかきだした。", name(resistmodh_charid) + " sweat" + _s(resistmodh_charid) + ".")
+  2806: 			}
+  2807: 			if ( resistmodh_ele == SKILL_RES_COLD ) {
+>>2808: 				txt lang(name(resistmodh_charid) + "は急に寒気を感じた。", name(resistmodh_charid) + " shiver" + _s(resistmodh_charid) + ".")
+  2809: 			}
+  2810: 			if ( resistmodh_ele == SKILL_RES_LIGHTNING ) {
+  2811: 				txt lang(name(resistmodh_charid) + "は急に電気に敏感になった。", name(resistmodh_charid) + " " + is(resistmodh_charid) + " shocked.")
+==============================================================================
+=== riga 2811.0  [dinamica]
+jp: name(resistmodh_charid) + "は急に電気に敏感になった。"
+en: name(resistmodh_charid) + " " + is(resistmodh_charid) + " shocked."
+--- sorgente
+  2808: 				txt lang(name(resistmodh_charid) + "は急に寒気を感じた。", name(resistmodh_charid) + " shiver" + _s(resistmodh_charid) + ".")
+  2809: 			}
+  2810: 			if ( resistmodh_ele == SKILL_RES_LIGHTNING ) {
+>>2811: 				txt lang(name(resistmodh_charid) + "は急に電気に敏感になった。", name(resistmodh_charid) + " " + is(resistmodh_charid) + " shocked.")
+  2812: 			}
+  2813: 			if ( resistmodh_ele == SKILL_RES_MIND ) {
+  2814: 				txt lang(name(resistmodh_charid) + "は以前ほど明晰ではなくなった。", name(resistmodh_charid) + your(resistmodh_charid) + " mind becomes slippery.")
+--- stesso inglese, gia' reso:
+    chara_func.hsp.jsonl:4642  name(txteledmg_arg3) + " riceve una scarica."
+==============================================================================
+=== riga 2814.0  [dinamica]
+jp: name(resistmodh_charid) + "は以前ほど明晰ではなくなった。"
+en: name(resistmodh_charid) + your(resistmodh_charid) + " mind becomes slippery."
+--- sorgente
+  2811: 				txt lang(name(resistmodh_charid) + "は急に電気に敏感になった。", name(resistmodh_charid) + " " + is(resistmodh_charid) + " shocked.")
+  2812: 			}
+  2813: 			if ( resistmodh_ele == SKILL_RES_MIND ) {
+>>2814: 				txt lang(name(resistmodh_charid) + "は以前ほど明晰ではなくなった。", name(resistmodh_charid) + your(resistmodh_charid) + " mind becomes slippery.")
+  2815: 			}
+  2816: 			if ( resistmodh_ele == SKILL_RES_NERVE ) {
+  2817: 				txt lang(name(resistmodh_charid) + "の神経は急に萎縮した。", name(resistmodh_charid) + " become" + _s(resistmodh_charid) + " dull.")
+==============================================================================
+=== riga 2817.0  [dinamica]
+jp: name(resistmodh_charid) + "の神経は急に萎縮した。"
+en: name(resistmodh_charid) + " become" + _s(resistmodh_charid) + " dull."
+--- sorgente
+  2814: 				txt lang(name(resistmodh_charid) + "は以前ほど明晰ではなくなった。", name(resistmodh_charid) + your(resistmodh_charid) + " mind becomes slippery.")
+  2815: 			}
+  2816: 			if ( resistmodh_ele == SKILL_RES_NERVE ) {
+>>2817: 				txt lang(name(resistmodh_charid) + "の神経は急に萎縮した。", name(resistmodh_charid) + " become" + _s(resistmodh_charid) + " dull.")
+  2818: 			}
+  2819: 			if ( resistmodh_ele == SKILL_RES_DARKNESS ) {
+  2820: 				txt lang(name(resistmodh_charid) + "は急に暗闇が怖くなった。", "Suddenly, " + name(resistmodh_charid) + " fear" + _s(resistmodh_charid) + " darkness.")
+==============================================================================
+=== riga 2820.0  [dinamica]
+jp: name(resistmodh_charid) + "は急に暗闇が怖くなった。"
+en: "Suddenly, " + name(resistmodh_charid) + " fear" + _s(resistmodh_charid) + " darkness."
+--- sorgente
+  2817: 				txt lang(name(resistmodh_charid) + "の神経は急に萎縮した。", name(resistmodh_charid) + " become" + _s(resistmodh_charid) + " dull.")
+  2818: 			}
+  2819: 			if ( resistmodh_ele == SKILL_RES_DARKNESS ) {
+>>2820: 				txt lang(name(resistmodh_charid) + "は急に暗闇が怖くなった。", "Suddenly, " + name(resistmodh_charid) + " fear" + _s(resistmodh_charid) + " darkness.")
+  2821: 			}
+  2822: 			if ( resistmodh_ele == SKILL_RES_SOUND ) {
+  2823: 				txt lang(name(resistmodh_charid) + "は急に辺りをうるさく感じた。", name(resistmodh_charid) + " become" + _s(resistmodh_charid) + " very sensitive to noises.")
+==============================================================================
+=== riga 2823.0  [dinamica]
+jp: name(resistmodh_charid) + "は急に辺りをうるさく感じた。"
+en: name(resistmodh_charid) + " become" + _s(resistmodh_charid) + " very sensitive to noises."
+--- sorgente
+  2820: 				txt lang(name(resistmodh_charid) + "は急に暗闇が怖くなった。", "Suddenly, " + name(resistmodh_charid) + " fear" + _s(resistmodh_charid) + " darkness.")
+  2821: 			}
+  2822: 			if ( resistmodh_ele == SKILL_RES_SOUND ) {
+>>2823: 				txt lang(name(resistmodh_charid) + "は急に辺りをうるさく感じた。", name(resistmodh_charid) + " become" + _s(resistmodh_charid) + " very sensitive to noises.")
+  2824: 			}
+  2825: 			if ( resistmodh_ele == SKILL_RES_CHAOS ) {
+  2826: 				txt lang(name(resistmodh_charid) + "はカオスへの理解を失った。", name(resistmodh_charid) + " no longer understand" + _s(resistmodh_charid) + " chaos.")
+==============================================================================
+=== riga 2826.0  [dinamica]
+jp: name(resistmodh_charid) + "はカオスへの理解を失った。"
+en: name(resistmodh_charid) + " no longer understand" + _s(resistmodh_charid) + " chaos."
+--- sorgente
+  2823: 				txt lang(name(resistmodh_charid) + "は急に辺りをうるさく感じた。", name(resistmodh_charid) + " become" + _s(resistmodh_charid) + " very sensitive to noises.")
+  2824: 			}
+  2825: 			if ( resistmodh_ele == SKILL_RES_CHAOS ) {
+>>2826: 				txt lang(name(resistmodh_charid) + "はカオスへの理解を失った。", name(resistmodh_charid) + " no longer understand" + _s(resistmodh_charid) + " chaos.")
+  2827: 			}
+  2828: 			if ( resistmodh_ele == SKILL_RES_POISON ) {
+  2829: 				txt lang(name(resistmodh_charid) + "の毒への耐性は薄れた。", name(resistmodh_charid) + " lose" + _s(resistmodh_charid, 1) + " antibodies to poisons.")
+==============================================================================
+=== riga 2829.0  [dinamica]
+jp: name(resistmodh_charid) + "の毒への耐性は薄れた。"
+en: name(resistmodh_charid) + " lose" + _s(resistmodh_charid, 1) + " antibodies to poisons."
+--- sorgente
+  2826: 				txt lang(name(resistmodh_charid) + "はカオスへの理解を失った。", name(resistmodh_charid) + " no longer understand" + _s(resistmodh_charid) + " chaos.")
+  2827: 			}
+  2828: 			if ( resistmodh_ele == SKILL_RES_POISON ) {
+>>2829: 				txt lang(name(resistmodh_charid) + "の毒への耐性は薄れた。", name(resistmodh_charid) + " lose" + _s(resistmodh_charid, 1) + " antibodies to poisons.")
+  2830: 			}
+  2831: 			if ( resistmodh_ele == SKILL_RES_NETHER ) {
+  2832: 				txt lang(name(resistmodh_charid) + "の魂は地獄から遠ざかった。", name(resistmodh_charid) + " " + is(resistmodh_charid) + " afraid of hell.")
+==============================================================================
+=== riga 2832.0  [dinamica]
+jp: name(resistmodh_charid) + "の魂は地獄から遠ざかった。"
+en: name(resistmodh_charid) + " " + is(resistmodh_charid) + " afraid of hell."
+--- sorgente
+  2829: 				txt lang(name(resistmodh_charid) + "の毒への耐性は薄れた。", name(resistmodh_charid) + " lose" + _s(resistmodh_charid, 1) + " antibodies to poisons.")
+  2830: 			}
+  2831: 			if ( resistmodh_ele == SKILL_RES_NETHER ) {
+>>2832: 				txt lang(name(resistmodh_charid) + "の魂は地獄から遠ざかった。", name(resistmodh_charid) + " " + is(resistmodh_charid) + " afraid of hell.")
+  2833: 			}
+  2834: 			if ( resistmodh_ele == SKILL_RES_MAGIC ) {
+  2835: 				txt lang(name(resistmodh_charid) + "の皮膚から魔力のオーラが消えた。", "The magical aura disappears from " + name(resistmodh_charid) + your(resistmodh_charid) + " body.")
+==============================================================================
+=== riga 2835.0  [dinamica]
+jp: name(resistmodh_charid) + "の皮膚から魔力のオーラが消えた。"
+en: "The magical aura disappears from " + name(resistmodh_charid) + your(resistmodh_charid) + " body."
+--- sorgente
+  2832: 				txt lang(name(resistmodh_charid) + "の魂は地獄から遠ざかった。", name(resistmodh_charid) + " " + is(resistmodh_charid) + " afraid of hell.")
+  2833: 			}
+  2834: 			if ( resistmodh_ele == SKILL_RES_MAGIC ) {
+>>2835: 				txt lang(name(resistmodh_charid) + "の皮膚から魔力のオーラが消えた。", "The magical aura disappears from " + name(resistmodh_charid) + your(resistmodh_charid) + " body.")
+  2836: 			}
+  2837: 		}
+  2838: 		sdata(resistmodh_ele + STARTING_SKILL_SPACT, resistmodh_charid) = limit(locvar_resistmod_lv, 0, 2000) * 1000000 + sexp(resistmodh_ele, resistmodh_charid) * 1000 + sgrowth(resistmodh_ele, resistmodh_charid)
+==============================================================================
+=== riga 2864.0  [statica]
+jp: "エーテルの病が発症した。"
+en: "You show signs of Ether Disease."
+--- sorgente
+  2861: 	if ( locvar_modcorrupt_mod > 0 ) {
+  2862: 		if ( locvar_modcorrupt_org == 0 ) {
+  2863: 			txtef COLOR_PURPLE
+>>2864: 			txt lang("エーテルの病が発症した。", "You show signs of Ether Disease.")
+  2865: 			if ( cfg_extrahelp ) {
+  2866: 				if ( gdata(STARTING_GDATA_HELP + 15) == 0 ) {
+  2867: 					if ( mode == MODELIST_MAIN ) {
+==============================================================================
+=== riga 2903.0  [statica]
+jp: "あなたはエーテルに侵食された。"
+en: "Your disease is getting worse."
+--- sorgente
+  2900: 				locvar_modcorrupt_i = 700 + locvar_modcorrupt_org + locvar_modcorrupt_cnt2
+  2901: 				gdata(locvar_modcorrupt_i) = tid
+  2902: 				txtef COLOR_PURPLE
+>>2903: 				txt lang("あなたはエーテルに侵食された。", "Your disease is getting worse.")
+  2904: 				txtmore
+  2905: 				txtef COLOR_RED
+  2906: 				txt traitrefn(1)
+--- STESSO GIAPPONESE, gia' reso:
+    proc.hsp.jsonl:25789  L'etere ti corrode il corpo.
+==============================================================================
+=== riga 2991.0  [statica]
+jp: "あなたのエーテルの侵食はやわらいだ。"
+en: "The symptoms of the Ether Disease seem to calm down."
+--- sorgente
+  2988: 				}
+  2989: 				trait(tid)++
+  2990: 				txtef COLOR_GREEN
+>>2991: 				txt lang("あなたのエーテルの侵食はやわらいだ。", "The symptoms of the Ether Disease seem to calm down.")
+  2992: 				txtmore
+  2993: 				txtef COLOR_GREEN
+  2994: 				txt traitrefn(0)
