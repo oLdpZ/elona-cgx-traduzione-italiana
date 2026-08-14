@@ -341,6 +341,7 @@ come «il Bearga» già deciso col nucleo:
 | older sister / younger sister | sorella maggiore / sorella minore | **solo quando è parentela in prosa**: `How...! You suddenly get a younger sister!` → «Ottieni all'improvviso una sorella minore!» |
 | `<Big Sister>` / `<Little Sister>` | invariati | la citazione di BioShock (`Little Sister` + `Big Daddy`), che in italiano non è mai stata tradotta. Restano inglesi anche dentro le frasi che li contengono |
 | H Sister | invariato | nome proprio di missione e di creatura (`[Lv. 80] H Sister`) |
+| Big Sister Energy / sisterly energy / Sistergy Wave | Onda Sororale | ⭐ 姉波動, deciso nella 39ª col lotto `fase4-proc-025`. **L'inglese lo chiama in tre modi** — «Big Sister Energy» (`proc.hsp:25798`-`:25823`), «sisterly energy» (`chat.hsp:6575`), «Sistergy Wave» (`:6604`) — mentre il giapponese dice sempre 姉波動: si segue il giapponese, con **una** resa sola. «Onda» tiene il 波動 e il registro pseudoscientifico che la battuta vuole; «sororale» è un aggettivo italiano vero. ⚠️ Il grosso della materia sta in `chat.hsp:6575`-`:6676`, che **non ha ancora dizionario**: quando lo si traduce, questa riga è l'ancora. Non è `<Big Sister>` qui sopra, che è la citazione di BioShock |
 
 ⚠️ Attenzione: in `action.hsp` le stringhe `Wolf Sister`, `Yandere Sister`,
 `Small Older Sister`, `older sister`, `younger sister` **non sono prosa**: sono
