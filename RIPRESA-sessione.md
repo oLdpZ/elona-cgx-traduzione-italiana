@@ -232,17 +232,29 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
 3. `command.hsp` e `trait.hsp`, che sono ~1.680 firme mai toccate. ⚠️
    `command.hsp` è anche il file che **disegna** i `buffdesc` appena fatti.
 
-⭐ **E una vinta a costo quasi zero, trovata a schermo il 14/08: `chips.hsp`.**
-Ha **tre** `lang()` in tutto — `a dryrock`, `a field`, `a compost`
-(`chips.hsp:833-835`) — e sono i nomi delle caselle di terreno. Escono da
-`action.hsp:2681` in una frase **già tradotta**, quindi a schermo si legge
-«`a field si trova ai tuoi piedi.`»: metà inglese e metà italiana, e la si legge
-a ogni passo mentre si coltiva. Tre stringhe per togliere una frase mista ad alta
-frequenza — è la lezione di `adv.hsp` della 26ª (**la frequenza, non l'elenco**),
-stavolta su un file che l'elenco copre ma che nessuno aveva ragione di aprire.
-⚠️ `sdim tname, 16` dà 16 byte a voce: «terreno coltivato» ne occupa 17. Per la
-scoperta 2 della 28ª `sdim` non è un tetto in scrittura, ma il **riquadro** dove
-la frase esce va guardato.
+⭐ **`chips.hsp` è chiuso**, trovato e fatto a schermo il 14/08. Ha **tre**
+`lang()` in tutto — i nomi delle caselle di terreno — e uscivano da
+`action.hsp:2681` dentro una frase **già tradotta**, quindi a schermo si leggeva
+«`a field si trova ai tuoi piedi.`»: metà inglese e metà italiana, a ogni passo
+mentre si coltiva. È la lezione di `adv.hsp` della 26ª (**la frequenza, non
+l'elenco**), stavolta su un file che l'elenco copre ma che nessuno aveva ragione
+di aprire.
+
+| riga | giapponese | resa | perché |
+|---|---|---|---|
+| 833 | 日干し岩 | `una pietra da essiccazione` | al ranch, col bel tempo, quel che ci lasci sopra si secca e un cadavere diventa carne secca (`item.hsp:1819-1835`); «essiccazione» tiene la famiglia di `pesce essiccato` |
+| 834 | 畑の土 | `un campo coltivato` | **copiata** da `action.hsp`, «Si concima solo il campo coltivato.» |
+| 835 | コンポスト | `del compost` | **copiata** da `action.hsp`, «Il compost funziona solo nei campi di tua proprietà.» Partitivo: è un mucchio, non un oggetto numerabile |
+
+💡 **Due rese su tre sono copie**: la regola «cercare prima di scrivere» ha reso
+due volte su tre in un lotto da tre voci. ⚠️ E ogni resa porta **il proprio
+articolo**, perché lo porta l'inglese (`a field`) e la frase che le ospita non ne
+mette.
+⚠️ `sdim tname, 16` dà 16 byte a voce e la più lunga ne occupa **26**. Per la
+scoperta 2 della 28ª `sdim` non è un tetto in scrittura su un array a una
+dimensione — la controprova è `sdim buffname, 20` col giapponese da 22 — ma **va
+guardato a schermo**: è la prima resa del progetto che sfonda un `sdim` di più
+del 50%.
 
 💡 **Il debito di collaudo è stato aggredito nella 32ª, non estinto, e la 33ª
 l'ha aumentato.** Provati nella 32ª: i messaggi dei potenziamenti (la toppa
@@ -396,10 +408,11 @@ battute rese» e sommandoci i lotti veniva 2.515, quattro in meno del vero.
 Altri fuori Fase 1: `custom_enemyevolution.hsp` **chiuso**; `ai.hsp` 6 su 100;
 `event.hsp` 5 su 654; `chara_func.hsp` 45 su 331; `init.hsp` 6 su 133.
 
-**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **13.143
-sostituzioni** applicate alla build (⚠️ la ripresa portava **13.135**: era un
-numero vecchio, non lo ha mosso la correzione della 34ª — rimisurato mettendo da
-parte la modifica, `applica` dava 13.143 anche prima), il compilatore non dice nulla, manifesto del
+**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **13.146
+sostituzioni** applicate alla build — **13.143** all'apertura della 34ª più le
+**3** di `chips.hsp`. (⚠️ La ripresa portava **13.135**, ed era un numero
+vecchio: non lo aveva mosso la correzione dello spazio, rimisurata mettendo da
+parte la modifica.) Il compilatore non dice nulla, manifesto del
 sorgente **72/72** (ricontrollato il 13/08 a inizio 31ª). ✅ Tutta la batteria
 rilanciata a fine 33ª dopo le **165 rese nuove**: **identica in ogni valore**,
 niente si è mosso, e `verifica --dizionario` dà `buff.hsp: 0 da ritradurre, 0 non
@@ -1314,11 +1327,11 @@ basta.
 
 ⚠️ **Controllare la data dell'exe prima di fidarsi di uno screenshot.**
 
-**L'eseguibile in `cgx-test.exe` è della 34ª (14/08/2026 01:42, 17.588.574
+**L'eseguibile in `cgx-test.exe` è della 34ª (14/08/2026 02:45, 17.588.604
 byte)** e contiene tutto quello di prima — le battute di `db_creature.hsp`, i
 `buffname`, le due toppe di `buff.hsp`, i 71 messaggi dei potenziamenti, i 63
 `buffdesc` e le 24 toppe della 33ª — più la correzione dello spazio nella scena
-ricucita. Compilato senza errori, **13.143 sostituzioni**.
+ricucita. Compilato senza errori, **13.146 sostituzioni**, e con le tre rese di `chips.hsp`.
 
 ✅ **I messaggi dei potenziamenti sono stati visti a schermo il 13/08, e la
 toppa regge.** Con `add_ally 249` e una bacchetta di velocità (`spawn_item 377`,
