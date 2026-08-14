@@ -33,9 +33,14 @@ si committa.
 | `commenti-blocco.py` | ⚠️ **le righe dentro un commento di blocco `/* ... */`**, cioè il codice di monte che il mod ha spento. Nato nella 37ª su `proc.hsp:11796`, dove la rete 6 — che guardava solo il `;` — avrebbe fatto tradurre testo morto. `proc.hsp` ne ha **99**, `action.hsp` 132, `custom_tweaks.hsp` 100. ⚠️ Legge il **`SORGENTE`** pinnato, non la build | dalla rete 6 di ogni lotto, e all'apertura di un file |
 | `misura-blocchi-spenti.py` | quante voci **già tradotte** stanno dentro un blocco spento: lavoro speso su testo che il giocatore non legge. Atteso al 14/08: **7** — 6 in `action.hsp`, 1 in `proc.hsp` (`:1000`, l'incasso delle esibizioni sostituito dal blocco `ANNA CUSTOM`). ⚠️ Misurato sulla **build** ne accusava 9, e le due di `text.hsp` erano giuste: quella build ha **una riga in più** del sorgente perché una toppa ce l'ha aggiunta, e i numeri di riga del dizionario vengono dal sorgente | quando si tocca `commenti-blocco.py` |
 | `lotto-fase2-buffdesc-001.py`, `lotto-fase4-proc-001.py` … `-003.py` | i lotti della 33ª, tenuti come **modelli** storici: dizionario `{(riga, en): resa}` più le prime cinque reti | superati dai modelli qui sotto |
-| ⭐ `lotto-fase4-proc-005.py` … `-015.py` | i lotti della 35ª, della 36ª e della 37ª. **`-016` è il modello da copiare**: ha tutte e quattordici le reti | per ogni lotto nuovo |
+| ⭐⭐ `lotto-fase4-proc-026.py` | **il modello da copiare**, ultimo lotto di `proc.hsp` (39ª): ha tutte e quattordici le reti. I `-005` … `-025` sono la storia, non il modello | per ogni lotto nuovo — ma **non a mano**, vedi `assembla-lotto.py` |
+| ⭐⭐ `assembla-lotto.py` | **copia le reti VERBATIM dal modello** e cambia solo le cinque costanti che devono cambiare — `USCITA`, `DA, A`, `RINVIATE`, `SORGENTE` e il percorso dell'estrazione — poi **rilegge quel che ha scritto** e lo confronta col modello carattere per carattere. Rende meccanica la regola «si copia il file, non si riscrive a memoria», che la ripresa ripeteva da cinque sessioni senza poterla imporre. Vuole due file scritti a mano (`testaNNN.py` col docstring, `reseNNN.py` col dizionario) più un `rinviateNNN.py` facoltativo. ⚠️ Il **sesto argomento è il file `.hsp`**, e senza si intende `proc.hsp` | per **ogni** lotto |
+| ⭐ `dossier.py` | le tre letture che ogni lotto rifaceva a mano: il sorgente intorno alla riga, le rese gemelle per **giapponese** e quelle per **inglese**. È la regola «cercare prima di scrivere» resa meccanica — nella 39ª ha pescato **dodici copie su trentaquattro** in un lotto solo, e ha trovato il caso `:20200` (stesso inglese di `action.hsp:11649`, giapponese diverso). ⚠️ Legge il **`SORGENTE`**, non la build | **prima** di scrivere le rese, su ogni zona |
+| `perimetro.py` | il conto vero di quanto manca, descrizioni degli oggetti e file di `data/` compresi. ⚠️ **Non si deduce sommando `verifica --dizionario`**, che misura solo il perimetro `lang()`. Atteso a fine 39ª: perimetro **49%**, totale vero **36%** | all'apertura, e quando serve rispondere «a che punto siamo» |
+| `variabili_en.py` | ⚠️ **il terzo punto cieco**, dopo `blocchi_en.py` e `else_jp.py`: le variabili che si portano dentro un letterale inglese e finiscono interpolate in una `lang()`, dove nessuno dei due referti le vede perché l'assegnamento è **incondizionato**. Atteso: **66 variabili, 3 trappole** — se sale a 4 qualcuno ne ha creata una, se scende a 2 `economy.hsp:319` è stato risolto | all'apertura |
 | `rinvia-proc-4958.py`, `rinvia-proc-navi.py`, `rinvia-proc-11796.py` | come si scrive un rinvio in `rinviate.jsonl` col motivo per esteso | quando una rete 6 o 7 scatta |
-| `correzione-bolt.py`, `correzione-014.py`, `correzione-rete8.py`, `correzione-mana.py` | come si corregge una resa **già entrata nel dizionario** senza passare da un lotto, con le reti che impediscono di correggerne una di troppo o una di meno. ⚠️ **`correzione-rete8.py` porta la rete che mancava**: le rese nuove vanno passate a `controlla_lotto`, perché `verifica --dizionario` **non le guarda** — confronta il dizionario col sorgente e conta orfane e non tradotte | quando due file dicono la stessa cosa in due modi |
+| ⭐ `toppa-action-15221.py`, `toppa-proc-24107.py`, `toppa-chara_func-3037.py` | **rinvio + toppa insieme**, per la riga che il dizionario non può aggiustare: la toppa riporta il ramo inglese alla forma del giapponese e il rinvio dice perché. ⚠️ Le toppe **non passano da `degrada()`**: la sostituzione non deve portare accenti, e va scritta per non averne bisogno. 💡 **E si compone, si codifica in memoria e solo allora si apre il file**: vedi il riquadro qui sotto | quando la rete 11 boccia la resa giusta |
+| `correzione-bolt.py`, `correzione-014.py`, `correzione-rete8.py`, `correzione-mana.py`, `correzione-schivata.py` | come si corregge una resa **già entrata nel dizionario** senza passare da un lotto, con le reti che impediscono di correggerne una di troppo o una di meno. ⚠️ **`correzione-rete8.py` porta la rete che mancava**: le rese nuove vanno passate a `controlla_lotto`, perché `verifica --dizionario` **non le guarda** — confronta il dizionario col sorgente e conta orfane e non tradotte. 💡 **`correzione-schivata.py` è il modello più recente** ed è nato da un **collaudo**, non da una misura: «Il viandante schiva Kefry» compariva cinque volte in uno schermo | quando due file dicono la stessa cosa in due modi, o quando lo schermo mostra una frase storta |
 | `rete8_dizionario.py` | la **rete 8 all'indietro**, su tutto quello che è già entrato: le rese che stampano «di il», «a il», «in il», «su il». Nella 37ª ne ha trovate sei, di cinque lotti diversi, tutte scritte prima che la rete esistesse. Atteso adesso: **3**, tutti dichiarati falsi positivi | quando si tocca la rete 8, o all'apertura di una sessione lunga |
 | `ricerca-014.py`, `ricerca-015.py`, `ricerca-016.py` | il modello di come si interroga il dizionario **prima** di scrivere un lotto: una lista di domande `(titolo, filtro)` su `jp`/`en`/`it` di tutti i file insieme. Nella 37ª ha pescato «bacchetta», «mana di ricarica», «medaglietta», «barra», «Tornado magnetico», «la sorella cane maggiore» | insieme a `dossier.py`, prima di tradurre |
 
@@ -57,7 +62,7 @@ della 31ª, le altre della 35ª, della 36ª e della 37ª.
 | 8 | una **preposizione che si fonde** (`di`/`da`/`in`/`su`/`a`) davanti a `name`/`itemname`/`valn`/`cdatan` | `valn` è un `itemname()` sotto falso nome, e l'inglese ci mette «from» e «in» |
 | 9 | che una **testa di frase** (l'inglese finisce in « and») non si chiuda col connettivo | le dieci teste del log di combattimento, che si saldano alla coda di danno di `chara_func.hsp` |
 | 10 | che `his(x, 1)` regga un nome che non sia **maschile singolare** | `:8849`, «il suo sangue»: la funzione sceglie sul possessore, l'italiano accorda col posseduto |
-| 11 | che le **funzioni di contenuto** della resa non coincidano con quelle dell'inglese | `:10312` e `:11481`, dove nominare il soggetto come fa il giapponese aggiungeva una funzione che l'inglese non ha |
+| 11 | che le **funzioni di contenuto** della resa non coincidano con quelle dell'inglese | `:10312` e `:11481`, dove nominare il soggetto come fa il giapponese aggiungeva una funzione che l'inglese non ha. ⚠️ **È anche l'unica rete che a volte non lascia scampo**, e allora la strada è rinvio + toppa: `proc.hsp:11481` (36ª), `proc.hsp:24107` (39ª, l'inglese nomina **due** personaggi dove il giapponese ne nomina uno perché `tc == cc`), `chara_func.hsp:3037` (39ª, `gdata` conta come contenuto). Quando la rete 11 boccia, la prima domanda è **se la resa giusta è scrivibile**; se non lo è, non si piega la resa |
 | 12 | che la resa di una **dinamica** sia testo nudo invece di un'espressione HSP | ⚠️ `:11534` nella 37ª: l'inglese porta `his(tc)`, in italiano la morfologia sparisce e resta una frase sola. Senza virgolette `applica.py` l'ha scritta come **codice**, e il compilatore ha letto «qualche» come nome di variabile |
 | 13 | che passi inosservato un **inglese solo per due giapponesi diversi** — è un referto, non un errore | `:14521` e `:14573` nella 37ª: «The air around you gradually loses power» sta per 「脱出を中止した」 e per 「帰還を中止した」, cioè per due incantesimi diversi con due pergamene diverse |
 
@@ -115,3 +120,38 @@ il generatore falliva, ma lo script che ne stampava il risultato leggeva il file
 💡 `simili.py` e `gia_rese.py` leggono `lavoro/_buff.jsonl`: per un file diverso
 si cambia quella riga. Non è un difetto da sistemare — sono scratch, e il costo
 di parametrizzarli è più alto di quello di cambiarli.
+
+💡 **La convenzione dei nomi, dalla 39ª**: il file `nome.hsp` vuole l'estrazione
+in `lavoro/_nome.jsonl` e produce i lotti `lavoro/fase4-nome-NNN.jsonl`.
+`assembla-lotto.py` la dà per buona, quindi rispettarla costa niente e romperla
+costa un'ora.
+
+### ⚠️⚠️ Uno script che riscrive un file di dati lo compone PRIMA di aprirlo
+
+Nella 39ª uno script scritto in fretta ha aperto `toppe.jsonl` in scrittura e ha
+composto il testo dentro `write()`. Nel motivo c'era una **coppia di surrogati
+scritta a mano** al posto del carattere 💡, e `UnicodeEncodeError` è esploso
+**dopo** che l'apertura aveva già troncato il file: **231.878 byte di toppe, a
+zero**. A salvarlo è stato `git checkout`, cioè il fatto che il lavoro fosse
+già spinto.
+
+✅ La forma giusta è quella di `riscrivi()` in `toppa-proc-24107.py`:
+
+```python
+def riscrivi(percorso, righe_nuove) -> int:
+    righe = [r for r in io.open(percorso, encoding='utf-8').read().splitlines() if r.strip()]
+    righe.extend(righe_nuove)
+    dati = ('\n'.join(righe) + '\n').encode('utf-8')   # ⚠️ prima si valida
+    with io.open(percorso, 'wb') as f:                 # e solo allora si apre
+        f.write(dati)
+    return len(righe)
+```
+
+💡 **E ha funzionato subito dopo**: la stessa cosa è ricapitata mezz'ora più
+tardi in `toppa-chara_func-3037.py`, con lo stesso surrogato, e il file non è
+stato toccato. Lo stesso vale per `correzione-schivata.py`, che compone tutti i
+dizionari in memoria e li scrive solo dopo che `controlla_lotto` ha detto sì.
+
+⚠️ **E la lezione minore**: `cerca.py` esisteva già in questa cartella, e nella
+39ª ne è stato riscritto un gemello nello scratch di sessione senza guardare.
+Questa tabella si legge **prima** di scrivere uno script nuovo.

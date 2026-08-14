@@ -17,6 +17,29 @@ funzionano, una resa da correggere che compariva **cinque volte in uno schermo**
 e la scoperta che il log è ancora mezzo inglese **e non per colpa di
 `proc.hsp`**. Da lì è partito `chara_func.hsp`, che è il file nuovo.
 
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** e l'albero di lavoro è pulito: non c'è niente da recuperare,
+si riparte da `git fetch && git status -sb` e dalle otto verifiche d'apertura.
+
+1. **`chara_func.hsp`, lotto 2.** Il primo (`3000-3999`, gli stati) è fatto.
+   L'estrazione è già in `lavoro/_chara_func.jsonl` — **è aggiornata a prima**
+   del lotto 1, quindi la prima cosa è rifarla:
+   `python -m strumenti.estrai chara_func.hsp --da-tradurre --uscita lavoro/_chara_func.jsonl`
+   (attese **247** voci). Poi `dossier.py` sulla zona scelta e
+   `assembla-lotto.py NNN scratchpad/lotto-fase4-proc-026.py <da> <a> <cartella> chara_func.hsp`.
+   💡 La zona più densa è `6000-6999` (**68**: cure, urla e tutte le cause di
+   morte); la più letta dopo gli stati è `2000-2999` (**59**, e dentro ci sono
+   `glares at you` e `gets furious!`, che partono a **ogni** azione ostile).
+2. **Oppure `calculation.hsp`, che sono 44 voci e chiude un file intero** —
+   `lavoro/_calculation.jsonl` è già estratto. Ci stanno `stands up` e
+   `released from bind`, viste a schermo.
+3. **Oppure il collaudo**, che resta il debito più grosso: vedi «La prima cosa
+   da fare». `cgx-test.exe` è aggiornato (14/08, 18:25) e contiene tutto,
+   correzione della schivata compresa. Il salvataggio è salvato in
+   `save-backup\pre-collaudo-20260814-39a` **prima** che `gain_spact` lo
+   modificasse.
+
 ### ⚠️⚠️ Le cinque cose che la prossima sessione deve sapere
 
 1. ⭐⭐ **Il file da fare adesso è `chara_func.hsp`, e a dirlo è stato lo
