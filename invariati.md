@@ -356,6 +356,7 @@ scrivere, probabilmente la stringa va tradotta.
 | Kijin Shibari | mossa speciale (`skill.hsp`), giapponese 鬼神縛り: romanizzazione, come `Houzanha` |
 | Jyusou Goushin | mossa speciale (`skill.hsp`), giapponese 呪装豪身: romanizzazione, come `Houzanha` |
 | Kamikakushi | mossa speciale (`skill.hsp`), giapponese 紙隠し — **gioco di parole** su 神隠し, «rapimento divino», con 紙 «carta». L'inglese romanizza; l'italiano non ha una parola per la cosa, e il gioco di parole non si trasporta |
+| `*Kamikakushi* ` | il **verso** della stessa mossa (`proc.hsp:23236`), giapponese 「*紙隠し*　」. ⚠️ Come `Ensemble!`, è una stringa diversa da `Kamikakushi` qui sopra — il confronto di `verifica.py` è sulla stringa intera, e gli asterischi e lo spazio in coda la cambiano — ma la decisione è la stessa. Gli apici inversi prendono verbatim lo spazio finale, che l'inglese mette e il giapponese scrive a doppio byte |
 | Kamui | mossa speciale (`skill.hsp`), giapponese 神威: romanizzazione di un nome del pantheon ainu, opaco anche in inglese |
 | Elementia | mossa speciale (`skill.hsp`), giapponese エレメンティア, traslitterato: **coniazione**, non una descrizione |
 | Venotrate | mossa speciale (`skill.hsp`), giapponese ヴェノトレイト, traslitterato: coniazione opaca, come `Elementia` |
