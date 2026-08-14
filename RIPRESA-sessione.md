@@ -1,6 +1,30 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-13, fine della **trentatreesima** sessione.
+Aggiornato: 2026-08-14, fine della **trentaquattresima** sessione.
+
+⭐ **La 34ª è stata una sessione di collaudo, la seconda della storia del
+progetto, e ha reso più di quanto costasse** — come la 32ª. Il debito di collaudo
+scende per la prima volta invece di salire: la **scena ricucita** e i **63
+`buffdesc`** sono chiusi, e con loro **7 delle 23 toppe** di `proc.hsp`. Quello
+che ha trovato, in ordine di peso:
+
+1. ⚠️ **Un difetto nostro**, invisibile a ogni guardia: `init.hsp:1666` accoda
+   uno spazio a ogni `txt` **nel solo ramo inglese**, e la scena usciva
+   «`"Che bello ! Questo e'…`». Corretto e riguardato lo stesso giorno.
+2. ⚠️ **Una misura sbagliata della 33ª**: i siti che tagliano un `buffdesc` sono
+   **quattro** con **tre** tetti (34, 40, 46), non uno. La conclusione regge —
+   l'italiano sfonda meno dell'inglese a tutti e tre — ma poggiava su un numero
+   che valeva per un sito solo.
+3. ⚠️ **Un punto cieco del referto**: `blocchi_en.py` cerca `if ( en )` e non
+   vede `if ( jp ) { … } else { … }`. Sono **144 righe vive**.
+4. ⚠️ **Una cosa falsa scritta da me e corretta un'ora dopo**: che
+   `calculation.hsp` fosse fuori da ogni elenco di fase. Vedi più sotto.
+5. ⭐ **`chips.hsp` chiuso**: tre stringhe che toglievano una frase mista ad alta
+   frequenza.
+
+💡 **Il filo che le tiene insieme**: cinque cose su cinque erano invisibili alla
+catena delle verifiche, e tutte e cinque le ha fatte cadere lo **schermo**. La
+catena verde continua a non dire niente sulla lingua che il giocatore legge.
 
 ## ⚠️ Prima di tutto: il progetto vive su due macchine
 
@@ -26,11 +50,13 @@ git), in una forma nuova: dentro git, ma su una macchina sola.
 aprendo una sessione su una macchina qualsiasi è `git fetch && git status -sb`.
 Chi apre a Firenze senza guardare riparte da prima di ferragosto.
 
-✅ **Spinto di nuovo a fine 30ª, 31ª, 32ª e 33ª**, sempre dal portatile. Tutt'e
-quattro hanno aperto con `git fetch && git status -sb` e tutt'e quattro hanno
-trovato le copie allineate: la regola ha tenuto quattro volte di fila. Al 13/08
-**il lavoro prosegue dal portatile**: la macchina di Firenze riprende a fine
-vacanze, e lì la prima cosa è `git pull`, non `git push`.
+✅ **Spinto di nuovo a fine 30ª, 31ª, 32ª, 33ª e 34ª**, sempre dal portatile.
+Tutt'e cinque hanno aperto con `git fetch && git status -sb` e tutt'e cinque
+hanno trovato le copie allineate: la regola ha tenuto cinque volte di fila.
+💡 **La 34ª ha spinto quattro volte, non una**, una per risultato chiuso invece
+che tutto in fondo: se la sessione si fosse interrotta a metà, il lavoro fatto
+era già al sicuro. Al 14/08 **il lavoro prosegue dal portatile**: la macchina di
+Firenze riprende a fine vacanze, e lì la prima cosa è `git pull`, non `git push`.
 
 Sul portatile ogni comando degli strumenti va aperto così, perché `python`
 nudo è il segnaposto del Microsoft Store e non esegue niente:
@@ -80,8 +106,24 @@ Da guardare, in ordine di rischio:
    (`:2005`, che apre l'azione speciale **«Specchio»**), menu abilità (`:5389`,
    taglia a 34) e menu di lancio (`:8851`, taglia a **40**). Chiuso: la
    troncatura è di monte, l'italiano ne sfonda meno dell'inglese.
-3. **Le 24 toppe sui blocchi `if ( en )`**: i versi, le risate, le battute di
-   chi ti porta in groppa, gli ordini agli alleati.
+3. **Le 23 toppe sui blocchi `if ( en )`**: ✅ **7 viste nella 34ª** — le sei
+   della scena (`3319`, `3372`, `3487`, `3533`, `3574`, `3617`) e la prima
+   dell'equitazione (`10847`, «`Vacci piano, mi raccomando♪`», la cavalcatura che
+   parla mentre le sali sopra). **Ne restano 16**, e i triggeri sono tutti noti:
+
+   | come | toppe | nome italiano dell'azione |
+   |---|---|---|
+   | `a` → azione speciale su un alleato adiacente | 3 | **Equitazione** (20 Sp) — ⚠️ si impara **solo** a Yowyn, Palmia, Eirel, Melkawn (`command.hsp:9040`); il maestro di Yowyn è a **(20, 14)** e si chiama «*… della gilda*»; `spawn_item 1093` è il biglietto abilità che evita il platino |
+   | `a` → su un nemico | 3 | **Inferno del solletico** |
+   | `a` → su un PNG | 2 | **Ammaliamento** |
+   | `a` → su un nemico | 1 | **Sguardo di follia** |
+   | `a` → su un alleato con la barra di rottura guardia > 0 | 1 | **Istruzione individuale** |
+   | `D` su un muro · raccolta in un campo | 2 | — |
+   | viaggio su neve o sabbia · sotto pioggia forte | 3 | — |
+   | ⚠️ **Ordini tattici** rifiutato, su un alleato **che ha partorito**, 1 volta su 2 | 1 | condizione troppo stretta: **non cercarla apposta** |
+
+   💡 **Sei di queste si fanno da fermo**, con un alleato e un nemico a portata:
+   solletico, ammaliamento, sguardo di follia. Non serve andare da nessuna parte.
 4. Le liste arretrate 27ª-30ª e le 169 battute degli dèi.
 
 ⭐ **`buff.hsp` è chiuso.** La 33ª ha fatto i **63 `buffdesc`** in un lotto solo,
@@ -250,11 +292,13 @@ di aprire.
 due volte su tre in un lotto da tre voci. ⚠️ E ogni resa porta **il proprio
 articolo**, perché lo porta l'inglese (`a field`) e la frase che le ospita non ne
 mette.
-⚠️ `sdim tname, 16` dà 16 byte a voce e la più lunga ne occupa **26**. Per la
-scoperta 2 della 28ª `sdim` non è un tetto in scrittura su un array a una
-dimensione — la controprova è `sdim buffname, 20` col giapponese da 22 — ma **va
-guardato a schermo**: è la prima resa del progetto che sfonda un `sdim` di più
-del 50%.
+✅ **E ha dato la prova più forte finora sulla scoperta 2 della 28ª.**
+`sdim tname, 16` dà 16 byte a voce; «una pietra da essiccazione» ne occupa **26**
+e «un campo coltivato» **18**. Guardato a schermo il 14/08: la frase esce
+**intera**. Fin qui la controprova migliore era `sdim buffname, 20` col
+giapponese di monte da 22 byte, cioè un +10% scritto **da upstream**; questa è un
+**+62% scritto da noi**, su una stringa che il giocatore legge a ogni passo.
+`sdim` non è un tetto in scrittura, e adesso lo si sa con un margine largo.
 
 💡 **Il debito di collaudo è stato aggredito nella 32ª, non estinto, e la 33ª
 l'ha aumentato.** Provati nella 32ª: i messaggi dei potenziamenti (la toppa
@@ -405,8 +449,16 @@ rese e `lavoro/_c.jsonl` per quelle da fare. Rifatti il 13/08 a fine 31ª:
 delle firme del file. 💡 **Dedurli sbagliava**: la ripresa portava «2.199
 battute rese» e sommandoci i lotti veniva 2.515, quattro in meno del vero.
 
-Altri fuori Fase 1: `custom_enemyevolution.hsp` **chiuso**; `ai.hsp` 6 su 100;
-`event.hsp` 5 su 654; `chara_func.hsp` 45 su 331; `init.hsp` 6 su 133.
+Altri fuori Fase 1: `custom_enemyevolution.hsp` **chiuso**; `chips.hsp`
+**chiuso** ⭐ 2026-08-14 (3 su 3); `ai.hsp` 6 su 100; `event.hsp` 5 su 654;
+`chara_func.hsp` 45 su 331; `init.hsp` 6 su 133.
+
+⚠️ **E il quadro d'insieme, misurato il 14/08 con `scratchpad/fuori_elenco.py`**:
+dei **54** file con `lang()` ne hanno un dizionario **14**; i **40** restanti
+valgono **12.620 stringhe mai estratte**. Non sono file dimenticati — sono la
+Fase 4, che `SPEC.md` §6 definisce collettivamente («i restanti 63 file `.hsp`
+minori»). Il numero serve a tenere le proporzioni: quello che resta è più grande
+di quello che è stato fatto.
 
 **412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **13.146
 sostituzioni** applicate alla build — **13.143** all'apertura della 34ª più le
