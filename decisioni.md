@@ -6,6 +6,117 @@ ancora aperte.
 
 ---
 
+## Il perimetro dichiarato non è il gioco: 47% e 35% sono due risposte diverse — 2026-08-14, trentottesima sessione
+
+Alla domanda «a che punto siamo» il progetto ha sempre risposto con
+`verifica --dizionario` e `avanzamento.md`, cioè contando quel che passa da
+`lang()`. Misurato per intero con **`scratchpad/perimetro.py`**, quel numero è
+**47%**: 10.940 firme rese su ~23.089.
+
+⚠️ **Ma due blocchi di testo che il giocatore legge non sono mai stati contati
+da nessuna parte**, e non per una dimenticanza: per come sono scritti.
+
+1. **Le descrizioni degli oggetti — 5.284, zero tradotte.** `db_item.hsp` le
+   scrive `description(0..3) = "..."` dentro un `if ( jp ) { ... } else { ... }`,
+   **non** dentro `lang()`. `estrai.py` cerca `lang()`, quindi non le vede: non
+   sono tradotte **e non risultano fra quelle da fare**. Sono 10.568 righe in
+   tutto, 5.284 per lingua, ed è il testo lungo del rapporto d'identificazione.
+   💡 È la stessa struttura che `else_jp.py` conta come «6.840 righe di
+   `db_item.hsp` già dichiarate fuori perimetro»: quel referto le vedeva, ma le
+   dichiarava fuori senza mai dire **quante voci** fossero.
+2. **I quattro file di `data/` — ~2.900 righe inglesi, 118.000 caratteri, zero
+   tradotte.** `book.txt` (i 33 libri, 67.184 caratteri d'inglese), `talk.txt`
+   (i dialoghi legati alle aree), `exhelp.txt`, `board.txt`. Non stanno nel
+   sorgente: il gioco li carica con `noteload` a runtime (`item.hsp:112`,
+   `command.hsp:8371`, `text.hsp:9360`, `help.hsp:227`). `SPEC.md` §6 li chiama
+   «aggiuntivi» e non li ha mai aperti; `text.hsp` ha **2 firme che aspettano
+   `talk.txt`** ed è per questo che risulta «100% meno due».
+
+**Contando tutto, il totale è ~31.306 e la traduzione è al 35%.**
+
+> 💡 **Le due risposte sono tutt'e due vere e vanno tenute distinte.** *«Quanto
+> manca del lavoro impostato»* → 47%. *«Quanto manca perché il gioco sia in
+> italiano»* → 35%. Dare la prima quando è stata chiesta la seconda fa sembrare
+> il progetto a metà quando è a un terzo.
+
+⚠️ **E in caratteri il divario è peggiore di così.** Le 5.284 descrizioni e i
+118.000 caratteri esterni sono **prosa continua**, non righe di log: sommati
+valgono probabilmente più di tutto quello che è stato tradotto finora. Il conto
+per firme li fa sembrare un quarto del lavoro e sono molto di più.
+
+💡 **La contropartita, ed è grossa**: sono il lavoro **meno insidioso** del
+progetto. Niente `name()` da accordare, niente participi che concordano col
+giocatore, niente `itemname()` che si porta l'articolo, niente reti da far
+scattare. Il costo è tutto in volume, non in analisi — l'opposto esatto di
+`proc.hsp`, dove ogni riga costa una lettura del sorgente. ⚠️ Ma vogliono una
+**catena di strumenti diversa**: le descrizioni non hanno firma `lang()` e i
+file di `data/` non passano né da `estrai.py` né da `applica.py` né dalla prova
+d'identità.
+
+⚠️ **Il numero di firme è una stima e sbaglia per difetto del 2-4%**, perché
+conta gli argomenti inglesi distinti di ogni `lang()` con un analizzatore di
+parentesi mentre `estrai.py` ne trova qualcuno in più. Tarato sui file chiusi:
+`item_data.hsp` 318 su 318 esatto, `db_creature.hsp` 3.507 contro 3.651,
+`text.hsp` 1.706 contro 1.738, `action.hsp` 1.266 contro 1.286.
+
+---
+
+## Una variabile può portarsi dentro l'inglese, e non la vede nessun referto — 2026-08-14, trentottesima sessione
+
+Il lotto 017 stava per rendere `proc.hsp:16991` interpolando `studybuddy`, come
+fa l'inglese. Venti righe sopra:
+
+```hsp
+16976: if ( studybuddy == "" ) { studybuddy = name(tc) }
+16980: else                     { studybuddy = "your friends" }
+16991: txt lang("あなたと仲間たちは読書会を始めた。",
+                "You started a reading party with " + studybuddy + ".")
+```
+
+Il ramo `else` — cioè **ogni volta che i compagni sono più di uno** — mette un
+letterale inglese **fuori da `lang()`**. A schermo sarebbe uscito «Cominci un
+circolo di lettura con **your friends**.»
+
+È la classe di `his2()` della 36ª e di `bufftxt(1)` della 28ª — inglese che
+nessun dizionario raggiunge — ma in una forma nuova: **non una funzione che
+restituisce inglese, una variabile che se lo porta dentro.**
+
+⚠️ **E qui sta il punto che vale oltre il caso**: non la vede nessuno dei due
+referti esistenti. `blocchi_en.py` cerca i letterali dentro `if ( en )`,
+`else_jp.py` quelli dentro `if ( jp ) ... else`, e `:16980` **non sta in
+nessuna delle due forme** — è un assegnamento incondizionato, codice che gira in
+tutte e due le lingue. Era un terzo punto cieco, e nessuno l'aveva cercato.
+
+✅ Misurato con **`scratchpad/variabili_en.py`**: **66 variabili** si portano
+dentro un inglese nudo, **3 arrivano dentro una `lang()`**, tutt'e tre lette a
+mano e vere:
+
+| dove | variabile | che cosa esce a schermo |
+|---|---|---|
+| `proc.hsp:16991` | `studybuddy` | ✅ evitato nel lotto 017, reso sul giapponese |
+| `proc.hsp:19178` | `performerpal` | il **gemello identico** sull'ensemble, stesso `"your friends"`. ⚠️ Zona `19000-19999`, **ancora da tradurre** |
+| `economy.hsp:319` | `s1` | «Neutral»/«Law»/«Chaos», in **tutt'e due** i rami di `lang()`: inglese anche nella build giapponese |
+
+⚠️ **Il referto è nato sbagliato due volte, e tutt'e due gli sbagli insegnano
+qualcosa.**
+
+1. **Accoppiava le variabili per file** e contava 8 trappole. Ma `s` è la
+   variabile di comodo di tutto il sorgente: accoppiava un `s = "Have"` di
+   `chara_func.hsp:11043` con una `lang()` di `:7724` che sta in un'altra
+   routine e parla d'altro. ✅ Stretto **all'assegnamento più vicino dentro la
+   stessa routine** — la stessa lezione che la rete 8 aveva imparato nella 37ª
+   per `valn`, e che vale ogni volta che si incrocia una variabile con un sito.
+2. **In HSP si scrive in una variabile anche senza `=`.** A `main.hsp:4468` il
+   `s` viene da `noteget s, p + 2` due righe sopra, non dal `s = "no entry"` di
+   `:4449`: il referto denunciava una trappola che non c'è. ✅ Adesso un comando
+   con la variabile come **primo argomento** ferma la ricerca all'indietro.
+
+💡 **Due limiti dichiarati nel modulo**, perché il numero non è una garanzia:
+conta solo l'assegnamento più vicino (se il ramo inglese non è l'ultimo, la
+trappola non si vede) e solo la forma `nome = "testo"` su una riga sola.
+
+---
+
 ## Una riga spenta non è solo una riga che comincia per `;` — 2026-08-14, trentasettesima sessione
 
 La rete 6 nasce nel lotto 006 su `proc.hsp:4958`, il blocco `MANUSCRIPT HINT`
