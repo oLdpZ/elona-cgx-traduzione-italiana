@@ -17,14 +17,17 @@ import io
 import json
 import sys
 
-BUILD = r'C:\Games\Elona\_traduzione\build\2.05-custom-gx'
+# ⚠️ Il SORGENTE, non la build: le toppe possono aggiungere righe (`text.hsp` ne
+# ha una in piu'), e da li' in giu' i numeri di riga del dizionario non tornano.
+# Vedi la 37a, «Chi incrocia numeri di riga e dizionario deve leggere il SORGENTE».
+SORGENTE = r'C:\Games\Elona\_traduzione\sorgente\2.05-custom-gx'
 
 sorgente_jsonl, nome_hsp, da, a, uscita = sys.argv[1], sys.argv[2], int(sys.argv[3]), int(sys.argv[4]), sys.argv[5]
 
 voci = [json.loads(l) for l in io.open(sorgente_jsonl, encoding='utf-8') if l.strip()]
 zona = sorted((v for v in voci if da <= v['riga'] <= a), key=lambda v: (v['riga'], v['occorrenza']))
 
-righe = io.open(f'{BUILD}\\{nome_hsp}', encoding='cp932').read().split('\n')
+righe = io.open(f'{SORGENTE}\\{nome_hsp}', encoding='cp932').read().split('\n')
 
 per_jp = collections.defaultdict(list)
 per_en = collections.defaultdict(list)
