@@ -1,6 +1,224 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-14, fine della **trentanovesima** sessione.
+Aggiornato: 2026-08-14, fine della **quarantesima** sessione.
+
+⭐⭐ **`chara_func.hsp` è CHIUSO, in una sessione sola.** Sei lotti — `002`…`007`
+— **243 rese**, da 84 su 331 a **327 su 331**: le quattro che restano sono tutte
+rinviate apposta. È il **tredicesimo file al 100%**, e il **quarto in due
+giorni** dopo `proc.hsp`, `chips.hsp` e `custom_enemyevolution.hsp`. Cinque
+spinte, catena verde, `cgx-test.exe` rifatto.
+
+⭐⭐ **Ed è la prima volta che un file si apre e si chiude nella stessa
+settimana perché l'ha chiesto lo SCHERMO.** `chara_func.hsp` non era in nessun
+elenco di priorità: ci è finito perché lo screenshot del collaudo della 39ª
+mostrava il log ancora mezzo inglese con `proc.hsp` al 100%, e ogni riga inglese
+veniva di qua. Le righe di quello screenshot — `:2021`, `:2047`, `:6441`,
+`:8317` — sono tutte rese, e `:8317` si è chiusa **copiando** una resa che il
+lotto 001 aveva già scritto.
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** e l'albero di lavoro è pulito: si riparte da
+`git fetch && git status -sb` e dalle otto verifiche d'apertura.
+
+1. ⭐ **`calculation.hsp`, che sono 44 voci e chiude un file intero.**
+   `lavoro/_calculation.jsonl` è già estratto. Ci stanno `stands up` e
+   `released from bind`, **viste a schermo nel collaudo della 39ª**: è l'ultimo
+   pezzo del log di combattimento che resta inglese, dopo `proc.hsp` e
+   `chara_func.hsp`. ⚠️ **Il file non ha ancora un dizionario**: sarà il
+   quindicesimo dei 54 con `lang()` ad averne uno.
+2. **Oppure il collaudo, che è il debito più grosso del progetto.** Vedi «Quello
+   che il collaudo deve guardare» qui sotto: **243 rese nuove mai viste a
+   schermo**, ed è il debito più alto mai accumulato in una sessione — più delle
+   235 della 35ª. `cgx-test.exe` è aggiornato (14/08) e contiene tutto, le sei
+   toppe di `chara_func` comprese.
+3. **Oppure `command.hsp`/`trait.hsp`** (~1.680 firme), che però si leggono nei
+   **menu** e non nel log: la lezione della 26ª dice di lasciarli dopo.
+
+### ⚠️⚠️ Le cinque cose che la prossima sessione deve sapere
+
+1. ⭐⭐ **Le preposizioni che non si fondono sono la scorciatoia che il progetto
+   non aveva mai dichiarato, e in questa sessione è servita quattro volte.**
+   `name()` e `cdatan()` portano l'articolo dentro («il putit»), quindi «di », «a
+   », «da », «in », «su » davanti a loro sono vietate — è la rete 8, che esiste
+   dal lotto 009. ✅ Ma **«con», «contro», «per», «tra», «sotto», «sopra» NON si
+   fondono**, e davanti a `name()` sono utilizzabili così come sono: «perse la
+   vita **contro** X» (`:6850`), «si accasciò **sotto** il carico» (`:7039`), «il
+   rapporto **con** X» (`:1080`), «la cera **sopra** X» (`:1169`).
+   ⚠️ **E l'ha imposto la rete 8 sul campo**: `:1169` era scritta con «su», la
+   rete l'ha fermata, e la correzione è stata cambiare **una parola** invece di
+   riscrivere la frase. In nove lotti è il caso più economico che quella rete
+   abbia mai prodotto. 💡 Fino a ieri la risposta al genitivo era sempre *girare
+   la frase* — participio, `-ne` enclitico, sostanza soggetto. Adesso ce n'è una
+   più a buon mercato, e va provata **per prima**.
+2. ⭐⭐ **Un frammento che segue un nome vuole il PASSATO REMOTO, ed è la
+   scoperta del lotto 003.** Le ventitré cause di morte si scrivono due volte:
+   una riga di log che nomina chi muore, e un **frammento d'epigrafe** assegnato
+   a `ndeathcause` che non nomina nessuno. `main.hsp:4409` lo incolla dentro
+   «`cdatan(AKA) + cdatan(NAME) + <frammento> + " in " + mdatan(NAME)`», cioè
+   subito **dopo il nome del morto**: in italiano «è morto di fame» concorderebbe
+   col personaggio, e metà dei personaggi di Elona sono femmine. ✅ Il passato
+   remoto italiano **non ha genere**: «morì di fame», «cadde dalle scale e morì»,
+   «si tolse la vita», «bruciò fino a sparire». È la strada del participio della
+   37ª spostata su un **tempo verbale**, e serve una frase intera per usarla.
+   ⚠️⚠️ **E la cornice è in `main.hsp`, che non ha dizionario**: finché resta
+   inglese l'epigrafe si leggerà «`<Il viandante> Sinaha morì di fame in
+   Vernis`», metà e metà, con la preposizione sbagliata. È la dipendenza nota di
+   `godname()` della 37ª in forma nuova. ⚠️ E quando si tradurrà la cornice:
+   **il giapponese mette il luogo PRIMA del frammento e l'inglese dopo**, e
+   l'italiano vuole «… morì di fame **a** Vernis».
+3. ⚠️⚠️ **Il QUARTO punto cieco, e la battuta che era già morta da mesi.**
+   `cnv_str` è la sostituzione di sottostringa di HSP, e il mod la usa per
+   riscrivere una stringa **già composta**: `chara_func.hsp:6852` fa `cnv_str
+   ndeathcause, "was killed by motuhegui", "was mauled to death by a bear"`. La
+   chiave è scritta nell'**inglese di monte**, quindi appena la resa entra — o
+   appena cambia una delle funzioni che compongono la stringa — non aggancia più.
+   ⚠️ **Nessuno dei tre referti la vede**: `blocchi_en.py` guarda dentro
+   `if ( en )`, `else_jp.py` dentro `if ( jp ) ... else`, `variabili_en.py` gli
+   assegnamenti; qui non c'è nessun letterale da tradurre, c'è una **chiave che
+   deve continuare a combaciare**. ✅ Misurato con **`scratchpad/cnv_str_en.py`**:
+   **41 chiamate, 17 con la chiave in inglese**. ⚠️⚠️ **E quella dell'orso era
+   già rotta**: `db_creature.hsp:37656` rende モツヘグイ «lo sbudellatore», quindi
+   `cdatan(CDATAN_NAME, cc)` restituisce «lo sbudellatore» e la chiave non
+   aggancia **da mesi**. La battuta è morta quando si è tradotto il bestiario e
+   nessuna verifica l'ha detto. 💡 Le altre 15 stanno in `module.hsp` (il parser
+   dei desideri) e `help.hsp`: sono **input**, non uscita, e vanno guardate
+   quando si aprirà `module.hsp`.
+4. ⚠️⚠️ **`:4520` è la QUARTA riga che il dizionario non può aggiustare, e la
+   causa è una `lang()` che `estrai.py` NON VEDE.** `:4491` fa
+   `locvar_item_cold_s = name(item_cold_arg1) + lang("の", your(item_cold_arg1))`,
+   e `:4520` usa quella variabile come **prefisso**. Il ramo inglese di quella
+   `lang()` è **una sola chiamata di funzione, senza letterale**: non produce
+   firma — le firme di `chara_func.hsp` sono 342 e `:4491` non è fra loro —
+   quindi il dizionario non la raggiunge né oggi né domani. `your()` restituisce
+   `"'s"` o `"r"` (`init.hsp:2045`) fuori da `lang()`, e la riga leggerebbe «il
+   putit**'s** …». ⚠️ **E la resa non può rimediare nemmeno nominando il
+   proprietario**, perché il `name()` sta **dentro la variabile** e
+   `funzioni_di_contenuto` non lo vede: l'inglese dichiara `['itemname']` e la
+   rete 11 boccerebbe una resa che aggiunge `name()`. ✅ Toppata in due punti: il
+   possessivo passa da **prefisso a suffisso** («, che X porta addosso»), che è
+   la forma che l'italiano vuole comunque. 💡 **È una classe nuova da cercare
+   altrove**: una `lang()` il cui ramo inglese è **solo funzioni** non compare in
+   nessun conteggio, e nessuno ha mai contato quante siano.
+5. ⚠️ **`dossier.py` non pesca i TERMINI, solo le frasi intere — e nel lotto 005
+   sono state otto rese su trentacinque.** I sette premi di trama dicono
+   「[愚者の魔石]を手に入れた！」 e `text.hsp:11576`-`:11630` aveva già reso
+   **`[愚者の魔石]`**, la stessa parentesi quadra: il dossier non le aggancia
+   perché confronta la **stringa intera**, e lì il termine è annegato dentro una
+   frase più lunga. ✅ Trovate a mano cercando il termine. 💡 Otto su trentacinque
+   è troppo per lasciarlo al caso: **è il candidato naturale al prossimo
+   strumento** — un `termini.py` che cerchi le sottostringhe giapponesi del
+   dizionario dentro le voci da fare.
+
+### ⭐⭐ Quello che il collaudo deve guardare
+
+**243 rese mai viste a schermo, ed è il debito più alto di sempre.** Le cose
+dove ho cambiato la struttura e non solo le parole:
+
+| cosa | come arrivarci | perché guardarla |
+|---|---|---|
+| i ventidue di resistenza | bevi una pozione di mutazione, o fatti colpire da un elemento a cui resisti | «X **si sente il corpo** in fiamme», «X **si sente la pelle** avvolta in un'aura magica»: il **dativo riflessivo** è la forma nuova della sessione, e se suona male si vede subito |
+| l'epigrafe della morte | muori (⚠️ **con un salvataggio di scorta**) | è l'unica riga con il **passato remoto**, e la cornice intorno sarà ancora inglese: serve a vedere quanto stona |
+| il log di combattimento | un combattimento qualsiasi | ⚠️ **la prova vera della sessione**: dopo `proc.hsp` e `chara_func.hsp` il log dovrebbe essere quasi tutto italiano. Quel che resta inglese viene da `calculation.hsp` |
+| «X storce il naso» | attacca un cittadino amichevole | parte a **ogni** azione ostile: è la riga più frequente di tutto il lotto 002 |
+| la sella | cavalca un alleato | la parentesi si apre in una `lang()` e si chiude **undici righe dopo**, fuori da ogni traduzione: se la velocità non compare, la testa è rotta |
+| il gelo sull'equipaggiamento | fatti colpire dal gelo con oggetti fragili addosso | è la **toppa** di `:4520`: deve dire «Il gelo manda in frantumi la spada, che il putit porta addosso», senza nessun «'s» |
+
+### I sei lotti
+
+| lotto | zona | che cosa | rese |
+|---|---|---|---|
+| `-002` | 2000-2999 | lo sguardo storto, l'ira, il velo sacro, i ventidue di resistenza | 58 **+1 rinviata** |
+| `-003` | 6000-6999 | il danno, le tre urla, le ventitré morti e le loro epigrafi | **68** |
+| `-004` | 4000-4999 | l'equipaggiamento aggredito dagli elementi, i sei modi buffi di morire | 33 **+2 rinviate** |
+| `-005` | 7000-7999 | le ultime morti, i sette premi di trama, il cadavere da cui si scende | 35 |
+| `-006` | 8000-8999 | i versi del dolore, peso e statura, il vomito, chi si sdoppia | 27 |
+| `-007` | il resto | i rapporti, la tag-team, la sella, la coda sparsa | 22 |
+
+⭐ **Il `-003` è il lotto più grosso mai fatto**, e batte le 59 del `proc-021`.
+
+### 💡 Quello che i sei lotti hanno insegnato sul metodo
+
+⭐⭐ **La duplicazione più alta mai vista in un lotto: 44 voci su 59.**
+`resistmod` (`:2675`-`:2741`) e `resistmodh` (`:2769`-`:2835`) sono i due punti
+da cui il gioco annuncia che una resistenza è salita o scesa — undici elementi
+per due segni — e upstream li ha **ricopiati parola per parola**, cambiando solo
+il nome della variabile. **Ventidue rese coprono quarantaquattro siti.** Batte il
+menu delle tattiche del `proc-026` (dodici su trentaquattro) e l'X-Frame del
+`-018` (nove su quarantadue). 💡 E succede di nuovo in piccolo nel `-006`:
+`eatstatus` ed `eatstatusfood` sono la stessa coppia di frasi due volte.
+
+⭐ **Il dativo riflessivo è la risposta italiana al possessivo inglese.** I
+ventidue di resistenza dicono tutti 「name **の**身体は…」, 「name **の**魂は…」,
+e l'inglese ci mette sopra il participio («is struck by», «is covered by»): due
+trappole in una riga. ✅ «X **si sente** il corpo in fiamme», «X **si sente** la
+pelle avvolta in un'aura magica» — il possesso resta implicito e la concordanza
+cade su un nome di **genere fisso** («pelle» femminile, «corpo» maschile), non
+sul personaggio. 💡 È la scoperta dei sedici recuperi del lotto 001 in forma
+nuova: lì bastava il nome soggetto, qui serviva un costrutto che l'italiano ha e
+l'inglese no.
+
+⚠️ **La rete 13 ha gridato QUATTRO volte in un lotto solo (`-003`), ed è il
+record.** «`<Medium damaged>`» per 中破 **e** 大破 (danno medio e danno grave
+dello scafo, e il ramo lo conferma: `HP > MAX/4` contro `HP <= MAX/4`); «`melt
+down`» per il cioccolato bollente **e** per l'acido; «`melted down`» per gli
+stessi due nei frammenti; «`is healed`» per 再生した **e** 回復した. Tutt'e
+quattro le distinzioni le fa il giapponese e le conferma il codice.
+
+⚠️ **`itemname()` può essere plurale, e allora l'elemento diventa soggetto.**
+`:4274`-`:4520` dicono tutte 「name の itemname は…」, e una resa come «X si vede
+ridurre in cenere Y» dovrebbe accordare il verbo col **numero**, che non si
+conosce. ✅ Il fuoco, il gelo e l'acido diventano **soggetti** — «Il fuoco riduce
+in cenere Y», «Il gelo manda in frantumi Y» — così il verbo resta singolare
+qualunque cosa arrivi, e il possesso si attacca in coda con «che X porta
+addosso».
+
+⚠️ **Un aggettivo invariabile vale quanto una frase girata.** `proc.hsp:10612`
+rende 「は太った。」 «X diventa **più pesante**», e «pesante» sta bene con tutt'e
+due i generi: si copia. Ma il gemello 「は痩せた。」 non può fare «più leggero»,
+che **concorda**. ✅ Girato col verbo, «X perde peso», e la coppia esce
+asimmetrica apposta.
+
+⚠️ **Il gradino 1 di `txteledmg` è una CODA, e il possesso resta implicito.**
+`txteledmg_arg1` vale 0, 1 o 2 — ferito, ucciso da chi attacca, morto — e il
+gradino 1 il giapponese lo scrive **senza soggetto** («殺した。», «千切りにし
+た。»), perché si attacca alla riga di sopra. ✅ La forma era già nel dizionario:
+`:6843` dice «uccide sul colpo.» ⚠️ **E una coda italiana non può portare il
+clitico** che l'inglese si concede (`him(...)`): «lo fa a listarelle»
+concorderebbe.
+⚠️ **Ma non è sempre una coda, e a deciderlo è l'INGLESE**: a `:4786` e `:4823`
+il giapponese non ha soggetto e l'inglese ci ha rimesso un `name()`, che la rete
+11 pretende. Le due forme convivono nello stesso blocco, ed è l'incoerenza di
+monte che la rete propaga.
+
+### ⚠️ La serie degli errori di monte passa da trentatré a trentasei
+
+- ⭐ **`chara_func.hsp:8629` stampa una lettera sola.** Il giapponese è
+  「name(A)の生命核はname(B)の遺伝子を獲得した。」, due personaggi; l'inglese
+  scrive `name(A) + " get genes of " + _s(B) + "."`, cioè mette **`_s()` dove
+  andava `name()`**. `_s()` restituisce «s» o niente, quindi la build inglese
+  stampa «`X get genes of s.`» È la forma più povera della famiglia «personaggio
+  sbagliato»: non ne nomina uno sbagliato, ne stampa la **desinenza**;
+- `:2021` dice «`glares at you`» dove il giapponese dice solo 「嫌な顔をした」, e
+  il ramo (`RELATION == 10` e basta) non sa chi sia la sorgente: l'inglese
+  **nomina il giocatore** in una riga che non può saperlo;
+- `:6196` scrive «`<Medium damaged>`» anche per 大破, il danno **grave**.
+
+💡 **E tre righe dicono due cose opposte nelle due lingue**, tutte risolte sul
+giapponese: `:1668` («questa creatura è perfetta da cavalcare» contro «`You feel
+comfortable`» — il ramo guarda una proprietà **della bestia**), `:8007`
+(「くっ！」, un mugolio, contro «`Kill me already!`») e `:7002` (闇のゲーム, il
+**Gioco delle Ombre** di Yu-Gi-Oh, contro «`a card game`» con una gabbia
+inventata).
+
+💡 **Il perimetro dichiarato passa dal 49% al 50% e il totale vero dal 36% al
+37%.** Le 243 rese valgono **un punto** sul conto vero: il quadro della 38ª non
+cambia di una virgola — quel che resta è più grande di quel che è stato fatto, e
+la parte più grossa **non ha firma `lang()`**.
+
+---
+
+## La trentanovesima sessione
 
 ⭐⭐ **`proc.hsp` è CHIUSO.** Quattro lotti — `023`, `024`, `025`, `026` — **97
 rese e una rinviata a toppa**, dal 91% al **100%**: 1.091 firme su 1.098, e le
@@ -709,10 +927,12 @@ git), in una forma nuova: dentro git, ma su una macchina sola.
 aprendo una sessione su una macchina qualsiasi è `git fetch && git status -sb`.
 Chi apre a Firenze senza guardare riparte da prima di ferragosto.
 
-✅ **Spinto di nuovo a fine 30ª, 31ª, 32ª, 33ª, 34ª, 35ª, 36ª, 37ª, 38ª e 39ª**,
-sempre dal portatile. Tutt'e dieci hanno aperto con `git fetch && git status -sb`
-e tutt'e dieci hanno trovato le copie allineate: la regola ha tenuto **dieci
-volte di fila**.
+✅ **Spinto di nuovo a fine 30ª, 31ª, 32ª, 33ª, 34ª, 35ª, 36ª, 37ª, 38ª, 39ª e
+40ª**, sempre dal portatile. Tutt'e undici hanno aperto con
+`git fetch && git status -sb` e tutt'e undici hanno trovato le copie allineate:
+la regola ha tenuto **undici volte di fila**.
+💡 La 40ª ha spinto **cinque volte** — quattro lotti e la chiusura dei tre
+finali — una per risultato chiuso.
 ⚠️⚠️ **E nella 39ª la spinta ha fatto da rete di sicurezza per la prima volta,
 non da comodità.** Uno script della sessione ha troncato `toppe.jsonl` a **zero
 byte** — 231.878 byte di dati — e a salvarlo è stato `git checkout`, cioè il
@@ -1192,8 +1412,17 @@ python scratchpad/else_jp.py              # else-di-jp: 6.984 righe in 13 file
 python scratchpad/rete8_dizionario.py     # 3, tutti dichiarati falsi positivi
 python scratchpad/misura-blocchi-spenti.py  # 7 voci dentro un blocco spento
 python scratchpad/variabili_en.py         # 66 variabili | 3 trappole in 3 siti
-python scratchpad/perimetro.py            # perimetro 49% | col fuori perimetro 36%
+python scratchpad/perimetro.py            # perimetro 50% | col fuori perimetro 37%
+python scratchpad/cnv_str_en.py           # 41 chiamate | 17 con la chiave inglese
 ```
+
+⚠️ **L'ultimo è della 40ª, ed è il QUARTO punto cieco.** `cnv_str` riscrive una
+stringa **già composta** usando come chiave l'**inglese di monte**: la resa
+italiana la spegne, e in un caso l'aveva già spenta il bestiario mesi fa (vedi
+il punto 3 delle cinque cose). **Se le 17 salgono, qualcuno ne ha scritta una
+nuova; se scendono, una è stata toppata.** ⚠️ E delle 17, **2 sono uscita**
+(`chara_func.hsp`) e **15 sono input** (`module.hsp`, `help.hsp`): solo le prime
+due riguardano quel che il giocatore legge.
 
 ⚠️ **I due ultimi sono della 38ª.** `variabili_en.py` è il **terzo punto cieco**
 dopo `blocchi_en.py` e `else_jp.py`: le variabili che si portano dentro un
@@ -1306,8 +1535,12 @@ battute rese» e sommandoci i lotti veniva 2.515, quattro in meno del vero.
 
 Altri fuori Fase 1: `custom_enemyevolution.hsp` **chiuso**; `chips.hsp`
 **chiuso** ⭐ 2026-08-14 (3 su 3); `ai.hsp` 6 su 100; `event.hsp` 5 su 654;
-**`chara_func.hsp` 84 su 331** (+39 nella 39ª, ne restano **247**);
-`calculation.hsp` **0 su 44**; `init.hsp` 6 su 133.
+`calculation.hsp` **0 su 44** ⬅ **il prossimo**; `init.hsp` 6 su 133.
+
+⭐⭐ **`chara_func.hsp`: 327 su 331, chiuso il 2026-08-14** — +243 nella 40ª (era
+84), sei lotti in una sessione sola. Le **4 rinviate** sono `:2310` (dentro un
+blocco `/* ... */` spento), `:3037` e `:4520` (✅ toppate), `:4369` (riga
+commentata). Il file porta **6 toppe**.
 
 ⚠️ **E il quadro d'insieme, misurato il 14/08 con `scratchpad/fuori_elenco.py`**:
 dei **54** file con `lang()` ne hanno un dizionario **14**; i **40** restanti
@@ -1316,15 +1549,19 @@ Fase 4, che `SPEC.md` §6 definisce collettivamente («i restanti 63 file `.hsp`
 minori»). Il numero serve a tenere le proporzioni: quello che resta è più grande
 di quello che è stato fatto.
 
-**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **14.239
-sostituzioni** applicate alla build — erano **14.086** all'apertura della 39ª,
-più le **111** dei quattro lotti di `proc.hsp` e le **42** del primo di
-`chara_func`. **`toppe.jsonl` è a 304** (+2 nella 39ª: `proc.hsp:24107` e
-`chara_func.hsp:3037`), e `proc.hsp` ne porta **28**. **`rinviate.jsonl` è a 16**
-(`proc.hsp` 7, `db_creature.hsp` 4, `action.hsp` 2, `text.hsp` 2,
-`chara_func.hsp` 1). Il compilatore non dice nulla, manifesto del sorgente
-**72/72** (ricontrollato il 14/08 a inizio 39ª). Perimetro `lang()` **49%**,
-totale vero **36%**.
+**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **14.490
+sostituzioni** applicate alla build — erano **14.239** alla chiusura della 39ª,
+più le **251** dei sei lotti di `chara_func.hsp`. **`toppe.jsonl` è a 306** (+2
+nella 40ª, tutt'e due per `:4520`: `chara_func.hsp:4491` e `:4520`), e
+`chara_func.hsp` ne porta **6**, `proc.hsp` **28**. **`rinviate.jsonl` è a 19**
+(`proc.hsp` 7, `db_creature.hsp` 4, `chara_func.hsp` 4, `action.hsp` 2,
+`text.hsp` 2). Il compilatore non dice nulla, manifesto del sorgente **72/72**.
+Perimetro `lang()` **50%**, totale vero **37%**.
+
+💡 **Le sostituzioni crescono più delle rese anche stavolta**: 243 rese hanno
+prodotto **251 siti**. Il caso più netto della 40ª è `chara_func.hsp:8317`, che
+ha la stessa firma di `:3377` — la stessa riga, in due punti dello stesso file —
+e `:6859`, che copre anche `:6865`, e `:6877`, che copre `:6883`.
 
 💡 **Le sostituzioni crescono più delle rese anche stavolta**: 97 rese hanno
 prodotto **111 siti**. Una firma esce in più punti, e il caso più netto della
