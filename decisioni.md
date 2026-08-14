@@ -6,6 +6,61 @@ ancora aperte.
 
 ---
 
+## Un tetto misurato in un sito solo non è il tetto — 2026-08-14, trentaquattresima sessione
+
+La 33ª aveva accettato due `buffdesc` lunghi con questo argomento: il tetto della
+lista abilità è **34**, **46 inglesi su 63 lo sfondano già**, quindi la
+troncatura è una cosa che upstream accetta e non introduciamo un difetto nuovo.
+
+L'argomento è giusto. La misura no: **i siti sono quattro e i tetti tre.**
+
+| sito | routine | taglio |
+|---|---|---|
+| menu `a` (usa abilità) | `*com_applySkill_loop` | `command.hsp:5389` — **34** |
+| menu `W` (abilità ad area) | `*com_applyWideSkill_loop` | `:5599` — **34** |
+| menu di lancio | `*com_spell_loop` | `:8851` — **40** |
+| scheda, pagina incantesimi | `*com_charainfo_loop_WHILE1` | `:10996` — **46** |
+
+⚠️ **E il sito da 34 è quello che conta di meno.** Delle 21 abilità che mostrano
+un `buffdesc` invece del proprio `skilldesc` — sono quelle il cui
+`sdataref(SKILL_DATAREF_TYPE)` sta fra 1000 e 1999, e `*skill_desc`
+(`command.hsp:9004`) le riconosce e compone `dur + "t " + buffdesc` — **solo
+quattro sono azioni speciali**. Le altre diciassette sono incantesimi, e gli
+incantesimi in quel menu non ci passano: passano dal menu di lancio, tetto 40, e
+dalla scheda, tetto 46.
+
+Rimisurato per tetto, con `scratchpad/tetti_buffdesc.py`:
+
+| tetto | italiano sfonda | inglese sfonda |
+|---|---|---|
+| 34 | 43 su 62 | **46** su 62 |
+| 40 | 32 su 62 | **38** su 62 |
+| 46 | 23 su 62 | **31** su 62 |
+
+✅ **La conclusione della 33ª regge, e adesso regge su tutti e tre**: l'italiano
+sfonda **meno** dell'inglese ovunque. Non c'è niente da accorciare, e accorciare
+peggiorerebbe i siti dove la riga ci sta comoda.
+
+💡 **A schermo la troncatura si legge come un refuso, e non lo è.** Nel menu di
+lancio escono `Res+ gra`, `Res+ sonno,confu`, `oltretomb`, `Res+ paralisi,ce`:
+sono `gravita'`, `confusione`, `oltretomba`, `cecita'` tagliate dentro la parola.
+Le stesse righe in inglese si tagliano allo stesso modo, perché il contenuto è un
+elenco di dieci resistenze in tutte e due le lingue.
+
+⚠️ Cautela sullo strumento: stima a due cifre le variabili interpolate, quindi i
+valori assoluti hanno un margine di ±1 carattere per voce. Il metodo è identico
+sulle due lingue, quindi il **confronto** è solido; il conteggio secco no.
+
+> Un tetto non è una proprietà del testo, è una proprietà del **sito che lo
+> disegna**. Cercarne uno e smettere di cercare dà un numero vero e una
+> conclusione che vale per un sito solo. La domanda giusta non è «qual è il
+> tetto», è «**quanti** posti disegnano questa stringa».
+
+È la stessa forma di [[una-guardia-vale-solo-dove-guarda]], applicata a una
+misura invece che a una guardia: [[un-tetto-per-sito-non-per-campo]].
+
+---
+
 ## Il ramo inglese accoda uno spazio a ogni `txt`, il giapponese no — 2026-08-14, trentaquattresima sessione
 
 La scena ricucita di `proc.hsp` è uscita a schermo così:

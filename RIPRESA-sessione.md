@@ -75,9 +75,11 @@ Da guardare, in ordine di rischio:
    comincia per minuscola verrà maiuscolata d'ufficio (`init.hsp:1659-1661`).
    **La misura su tutto il dizionario non è stata fatta**: è materiale da
    guardia.
-2. **I 63 `buffdesc`**, nei tre siti: scheda del personaggio
-   (`command.hsp:10800`), schermata di analisi (`:2005`), lista abilità
-   (`:5389`, che taglia a 34 — e va guardata per ultima).
+2. ✅ **I 63 `buffdesc`**: guardati il 14/08 in tutti e **quattro** i siti —
+   scheda del personaggio (`command.hsp:10800`), schermata di analisi
+   (`:2005`, che apre l'azione speciale **«Specchio»**), menu abilità (`:5389`,
+   taglia a 34) e menu di lancio (`:8851`, taglia a **40**). Chiuso: la
+   troncatura è di monte, l'italiano ne sfonda meno dell'inglese.
 3. **Le 24 toppe sui blocchi `if ( en )`**: i versi, le risate, le battute di
    chi ti porta in groppa, gli ordini agli alleati.
 4. Le liste arretrate 27ª-30ª e le 169 battute degli dèi.
@@ -174,11 +176,40 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
 **Il lavoro che riparte, in ordine:**
 
 0. ✅ **La guardia sui due tetti nuovi**: fatta nella 32ª, `strumenti/riquadri.py`.
-1. ✅ **I 63 `buffdesc`**: fatti nella 33ª, `buff.hsp` è chiuso. Il tetto è stato
-   riverificato e regge — 29 byte al `buffdesc` alla lista abilità, **46 inglesi
-   su 63 lo sfondano già**, mediana 38, il più lungo 76 — quindi la troncatura è
-   una cosa che upstream accetta e le due rese lunghe del lotto non introducono
-   un difetto nuovo. **Resta da guardare a schermo.**
+1. ✅ **I 63 `buffdesc`**: fatti nella 33ª, `buff.hsp` è chiuso.
+   ✅ **Guardati a schermo il 2026-08-14 e la questione è chiusa**, in tutti e
+   quattro i siti: scheda del personaggio (`Accelerazione: 7(13) Velocita' +60`,
+   intero), schermata di analisi (intero), menu abilità e menu di lancio.
+   ⚠️ **E i siti erano quattro, non tre, con tre tetti diversi** — la ripresa ne
+   registrava uno solo:
+
+   | sito | routine | taglio |
+   |---|---|---|
+   | menu `a` | `*com_applySkill_loop` | 34 |
+   | menu `W` | `*com_applyWideSkill_loop` | 34 |
+   | menu di lancio | `*com_spell_loop` | **40** |
+   | scheda, pagina incantesimi | `*com_charainfo_loop_WHILE1` | **46** |
+
+   💡 **Il conto della 33ª — «46 inglesi su 63 sfondano già» — valeva solo per il
+   34**, e delle 21 abilità che mostrano un `buffdesc` **solo 4 sono azioni
+   speciali**: le altre 17 sono incantesimi e cadono nei tetti da 40 e 46.
+   Rimisurato per tetto con `scratchpad/tetti_buffdesc.py`:
+
+   | tetto | italiano sfonda | inglese sfonda |
+   |---|---|---|
+   | 34 | 43 su 62 | **46** su 62 |
+   | 40 | 32 su 62 | **38** su 62 |
+   | 46 | 23 su 62 | **31** su 62 |
+
+   ✅ **L'italiano sfonda meno dell'inglese a tutti e tre**, quindi la troncatura
+   è comportamento di monte e **non c'è niente da accorciare**. A schermo si
+   vedono `Res+ gra`, `Res+ sonno,confu`, `oltretomb` — sembrano refusi e non lo
+   sono: le stesse righe inglesi si tagliano nello stesso modo, perché elencano
+   dieci resistenze in tutte e due le lingue. ⚠️ Accorciarle peggiorerebbe i siti
+   dove la riga ci sta comoda.
+   ⚠️ Cautela sul numero: lo strumento stima a due cifre le variabili
+   interpolate, quindi c'è un margine di ±1 carattere per voce. Il metodo è lo
+   stesso sulle due lingue, quindi il **confronto** regge; i valori assoluti no.
 2. **`proc.hsp`**, a **207 su 1.098**, per zona di riga **dalla riga 3401** in
    avanti. La 33ª ha fatto quattro lotti: `fase4-proc-001` (1716-1800, le
    reazioni degli otto dèi alla predica), `-002` (1801-2600, le mosse delle
@@ -1523,7 +1554,10 @@ frase.
 | slot d'equipaggiamento | 6 | sinistra, taglia | osservato a schermo |
 | gradi di resistenza | 9 | **destra, invade** | `command.hsp:11002` |
 | nome nella lista abilità | **24** | sinistra, invade il costo | `command.hsp:5382` |
-| descrizione nella lista | 34 | taglia (`strmid`) | `command.hsp:5389` |
+| descrizione, menu `a` | 34 | taglia (`strmid`) | `command.hsp:5389` |
+| descrizione, menu `W` | 34 | idem | `command.hsp:5599` |
+| **descrizione, menu di lancio** | **40** | idem | `command.hsp:8851` |
+| **descrizione, scheda incantesimi** | **46** | idem | `command.hsp:10996` |
 | **voce di menu** | **(px − 46) / 7,7** | sinistra, taglia | `strumenti/larghezze.py` |
 | **riga di diario** | **36** | **manda a capo, ultima parola scappa** | `strumenti/diario.py` |
 | **riga di notizia** | **33** | idem | `addnews2`, `text.hsp:12106` |
