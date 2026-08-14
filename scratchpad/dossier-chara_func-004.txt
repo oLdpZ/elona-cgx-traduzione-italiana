@@ -1,0 +1,434 @@
+==============================================================================
+=== riga 4200.0  [dinamica]
+jp: name(item_acid_arg1) + "の" + itemname(locvar_item_acid_ci) + "は酸で傷ついた。"
+en: name(item_acid_arg1) + your(item_acid_arg1) + " " + itemname(locvar_item_acid_ci, , 1) + " is damaged by acid."
+--- sorgente
+  4197: 	txtmore
+  4198: 	if ( ibit(ITEM_BIT_ACIDPROOF, locvar_item_acid_ci) == 0 ) {
+  4199: 		txtef COLOR_PURPLE
+>>4200: 		txt lang(name(item_acid_arg1) + "の" + itemname(locvar_item_acid_ci) + "は酸で傷ついた。", name(item_acid_arg1) + your(item_acid_arg1) + " " + itemname(locvar_item_acid_ci, , 1) + " is damaged by acid.")
+  4201: 		inv(INV_ITEM_LEVEL, locvar_item_acid_ci)--
+  4202: 		snd SOUNDLIST_CRACK
+  4203: 		if ( gdata(GDATA_FLAG_GAME_MODE) == GAMEMODE_ABNORMAL ) {
+==============================================================================
+=== riga 4213.0  [dinamica]
+jp: name(item_acid_arg1) + "の" + itemname(locvar_item_acid_ci) + "は酸でドロドロに溶けてしまった。"
+en: name(item_acid_arg1) + your(item_acid_arg1) + " " + itemname(locvar_item_acid_ci, , 1) + " is melted by acid."
+--- sorgente
+  4210: 			if ( inv(INV_ITEM_LEVEL, locvar_item_acid_ci) < (-10) ) {
+  4211: 				snd SOUNDLIST_ATK_POISON
+  4212: 				txtef COLOR_RED
+>>4213: 				txt lang(name(item_acid_arg1) + "の" + itemname(locvar_item_acid_ci) + "は酸でドロドロに溶けてしまった。", name(item_acid_arg1) + your(item_acid_arg1) + " " + itemname(locvar_item_acid_ci, , 1) + " is melted by acid.")
+  4214: 				inv(INV_ITEM_NUM, locvar_item_acid_ci)--
+  4215: 				cdata(inv(INV_ITEM_EQUIP, locvar_item_acid_ci), item_acid_arg1) = cdata(inv(INV_ITEM_EQUIP, locvar_item_acid_ci), item_acid_arg1) / 10000 * 10000
+  4216: 				inv(INV_ITEM_EQUIP, locvar_item_acid_ci) = 0
+--- stesso inglese, gia' reso:
+    chara_func.hsp.jsonl:6411  name(dmghp_charid) + " si vede sbriciolare " + itemname(locvar_dmghp_ci, , 1) + "."
+==============================================================================
+=== riga 4223.0  [dinamica]
+jp: name(item_acid_arg1) + "の" + itemname(locvar_item_acid_ci) + "は酸では傷つかない。"
+en: name(item_acid_arg1) + your(item_acid_arg1) + " " + itemname(locvar_item_acid_ci, , 1) + " is immune to acid."
+--- sorgente
+  4220: 		}
+  4221: 	}
+  4222: 	else {
+>>4223: 		txt lang(name(item_acid_arg1) + "の" + itemname(locvar_item_acid_ci) + "は酸では傷つかない。", name(item_acid_arg1) + your(item_acid_arg1) + " " + itemname(locvar_item_acid_ci, , 1) + " is immune to acid.")
+  4224: 	}
+  4225: 	return
+  4226: 
+==============================================================================
+=== riga 4274.0  [dinamica]
+jp: "地面の" + itemname(locvar_item_acid_ci, inv(INV_ITEM_NUM, locvar_item_acid_ci)) + "はこんがりと焼き上がった。"
+en: itemname(locvar_item_acid_ci, inv(INV_ITEM_NUM, locvar_item_acid_ci)) + " on the ground get" + _s2(inv(INV_ITEM_NUM, locvar_item_acid_ci)) + " perfectly broiled."
+--- sorgente
+  4271: 						if ( item_fire_arg1 == (-1) ) {
+  4272: 							if ( synccheck(inv(INV_ITEM_X, locvar_item_acid_ci), inv(INV_ITEM_Y, locvar_item_acid_ci)) ) {
+  4273: 								txtef COLOR_ORANGE
+>>4274: 								txt lang("地面の" + itemname(locvar_item_acid_ci, inv(INV_ITEM_NUM, locvar_item_acid_ci)) + "はこんがりと焼き上がった。", itemname(locvar_item_acid_ci, inv(INV_ITEM_NUM, locvar_item_acid_ci)) + " on the ground get" + _s2(inv(INV_ITEM_NUM, locvar_item_acid_ci)) + " perfectly broiled.")
+  4275: 							}
+  4276: 						}
+  4277: 						if ( item_fire_arg1 != (-1) ) {
+==============================================================================
+=== riga 4280.0  [dinamica]
+jp: name(item_fire_arg1) + "の" + itemname(locvar_item_acid_ci, inv(INV_ITEM_NUM, locvar_item_acid_ci)) + "はこんがりと焼き上がった。"
+en: name(item_fire_arg1) + your(item_fire_arg1) + " " + itemname(locvar_item_acid_ci, inv(INV_ITEM_NUM, locvar_item_acid_ci), 1) + " get" + _s2(inv(INV_ITEM_NUM, locvar_item_acid_ci)) + " perfectly broiled."
+--- sorgente
+  4277: 						if ( item_fire_arg1 != (-1) ) {
+  4278: 							if ( synccheck(item_fire_arg1, -1) ) {
+  4279: 								txtef COLOR_ORANGE
+>>4280: 								txt lang(name(item_fire_arg1) + "の" + itemname(locvar_item_acid_ci, inv(INV_ITEM_NUM, locvar_item_acid_ci)) + "はこんがりと焼き上がった。", name(item_fire_arg1) + your(item_fire_arg1) + " " + itemname(locvar_item_acid_ci, inv(INV_ITEM_NUM, locvar_item_acid_ci), 1) + " get" + _s2(inv(INV_ITEM_NUM, locvar_item_acid_ci)) + " perfectly broiled.")
+  4281: 							}
+  4282: 						}
+  4283: 						make_dish locvar_item_acid_ci, rnd(5) + 1
+==============================================================================
+=== riga 4316.0  [dinamica]
+jp: itemname(locvar_item_fire_ti, 1) + "が" + name(item_fire_arg1) + "の持ち物を炎から守った。"
+en: itemname(locvar_item_fire_ti, 1) + " protects " + name(item_fire_arg1) + your(item_fire_arg1) + " stuff from fire."
+--- sorgente
+  4313: 				if ( locvar_item_fire_ti != (-1) ) {
+  4314: 					if ( inv(INV_ITEM_NUM, locvar_item_fire_ti) > 0 ) {
+  4315: 						if ( synccheck(item_fire_arg1, -1) ) {
+>>4316: 							txt lang(itemname(locvar_item_fire_ti, 1) + "が" + name(item_fire_arg1) + "の持ち物を炎から守った。", itemname(locvar_item_fire_ti, 1) + " protects " + name(item_fire_arg1) + your(item_fire_arg1) + " stuff from fire.")
+  4317: 						}
+  4318: 						if ( inv(INV_ITEM_CHARGE, locvar_item_fire_ti) > 0 ) {
+  4319: 							inv(INV_ITEM_CHARGE, locvar_item_fire_ti)--
+==============================================================================
+=== riga 4324.0  [dinamica]
+jp: itemname(locvar_item_fire_ti, 1) + "は灰と化した。"
+en: itemname(locvar_item_fire_ti, 1) + " turns to dust."
+--- sorgente
+  4321: 						else {
+  4322: 							inv(INV_ITEM_NUM, locvar_item_fire_ti)--
+  4323: 							if ( synccheck(item_fire_arg1, -1) ) {
+>>4324: 								txt lang(itemname(locvar_item_fire_ti, 1) + "は灰と化した。", itemname(locvar_item_fire_ti, 1) + " turns to dust.")
+  4325: 								break
+  4326: 							}
+  4327: 						}
+==============================================================================
+=== riga 4337.0  [dinamica]
+jp: "引火した" + itemname(locvar_item_acid_ci, locvar_item_acid_p) + "が爆発した。"
+en: itemname(locvar_item_acid_ci, locvar_item_acid_p) + " exploded."
+--- sorgente
+  4334: 						locvar_item_acid_p = 1
+  4335: 						cbitmod CHARA_BIT_FLAG_BOMB_BARREL, CHARA_PLAYER, TRUE
+  4336: 						txtef COLOR_RED
+>>4337: 						txt lang("引火した" + itemname(locvar_item_acid_ci, locvar_item_acid_p) + "が爆発した。", itemname(locvar_item_acid_ci, locvar_item_acid_p) + " exploded.")
+  4338: 						locvar_item_fire_range = 3
+  4339: 						aniref = locvar_item_fire_range
+  4340: 						animeid = ANIMATION_BALL_NUKE
+==============================================================================
+=== riga 4369.0  [dinamica]
+jp: name(locvar_item_fire_tcb) + "は" + name(cdata(CDATA_TAGTEAM_PARTNER, locvar_item_fire_tcb)) + "をかばった！"
+en: name(locvar_item_fire_tcb) + " guarded " + name(cdata(CDATA_TAGTEAM_PARTNER, locvar_item_fire_tcb)) + "."
+--- sorgente
+  4366: 								; 			if ( rnd(cdata(CDATA_HP, locvar_item_fire_tcb) + 1) < rnd(cdata(CDATA_HP, cdata(CDATA_TAGTEAM_PARTNER, locvar_item_fire_tcb)) + 1) ) {
+  4367: 								; 				locvar_item_fire_tcb = cdata(CDATA_TAGTEAM_PARTNER, locvar_item_fire_tcb)
+  4368: 								; 			}
+>>4369: 								; 			txt lang(name(locvar_item_fire_tcb) + "は" + name(cdata(CDATA_TAGTEAM_PARTNER, locvar_item_fire_tcb)) + "をかばった！", name(locvar_item_fire_tcb) + " guarded " + name(cdata(CDATA_TAGTEAM_PARTNER, locvar_item_fire_tcb)) + ".")
+  4370: 								; 		}
+  4371: 								; 	}
+  4372: 								; 	if ( cdata(CDATA_CONDITION_SLEEP, locvar_item_fire_tcb) > 0 ) {
+--- STESSO GIAPPONESE, gia' reso:
+    proc.hsp.jsonl:6481  name(tc) + " protegge " + name(cdata(CDATA_TAGTEAM_PARTNER, tc)) + "."
+    text.hsp.jsonl:13  name(tc) + " protegge " + name(cdata(CDATA_TAGTEAM_PARTNER, tc)) + "."
+--- stesso inglese, gia' reso:
+    proc.hsp.jsonl:6481  name(tc) + " protegge " + name(cdata(CDATA_TAGTEAM_PARTNER, tc)) + "."
+    text.hsp.jsonl:13  name(tc) + " protegge " + name(cdata(CDATA_TAGTEAM_PARTNER, tc)) + "."
+==============================================================================
+=== riga 4387.0  [dinamica]
+jp: name(item_fire_arg1) + "の装備している" + itemname(locvar_item_acid_ci, locvar_item_acid_p) + "は灰と化した。"
+en: itemname(locvar_item_acid_ci, locvar_item_acid_p) + " " + name(item_fire_arg1) + " equip" + _s(item_fire_arg1) + " turn" + _s2(locvar_item_acid_p) + " to dust."
+--- sorgente
+  4384: 					if ( inv(INV_ITEM_EQUIP, locvar_item_acid_ci) != 0 ) {
+  4385: 						if ( synccheck(item_fire_arg1, -1) ) {
+  4386: 							txtef COLOR_PURPLE
+>>4387: 							txt lang(name(item_fire_arg1) + "の装備している" + itemname(locvar_item_acid_ci, locvar_item_acid_p) + "は灰と化した。", itemname(locvar_item_acid_ci, locvar_item_acid_p) + " " + name(item_fire_arg1) + " equip" + _s(item_fire_arg1) + " turn" + _s2(locvar_item_acid_p) + " to dust.")
+  4388: 						}
+  4389: 						cdata(inv(INV_ITEM_EQUIP, locvar_item_acid_ci), item_fire_arg1) = cdata(inv(INV_ITEM_EQUIP, locvar_item_acid_ci), item_fire_arg1) / 10000 * 10000
+  4390: 						inv(INV_ITEM_EQUIP, locvar_item_acid_ci) = 0
+==============================================================================
+=== riga 4397.0  [dinamica]
+jp: name(item_fire_arg1) + "の" + itemname(locvar_item_acid_ci, locvar_item_acid_p) + "は灰と化した。"
+en: name(item_fire_arg1) + your(item_fire_arg1) + " " + itemname(locvar_item_acid_ci, locvar_item_acid_p, 1) + " turn" + _s2(locvar_item_acid_p) + " to dust."
+--- sorgente
+  4394: 					else {
+  4395: 						if ( synccheck(item_fire_arg1, -1) ) {
+  4396: 							txtef COLOR_PURPLE
+>>4397: 							txt lang(name(item_fire_arg1) + "の" + itemname(locvar_item_acid_ci, locvar_item_acid_p) + "は灰と化した。", name(item_fire_arg1) + your(item_fire_arg1) + " " + itemname(locvar_item_acid_ci, locvar_item_acid_p, 1) + " turn" + _s2(locvar_item_acid_p) + " to dust.")
+  4398: 						}
+  4399: 					}
+  4400: 				}
+==============================================================================
+=== riga 4404.0  [dinamica]
+jp: "地面の" + itemname(locvar_item_acid_ci, locvar_item_acid_p) + "は灰と化した。"
+en: itemname(locvar_item_acid_ci, locvar_item_acid_p) + " on the ground turn" + _s(locvar_item_acid_p) + " to dust."
+--- sorgente
+  4401: 				else {
+  4402: 					if ( synccheck(inv(INV_ITEM_X, locvar_item_acid_ci), inv(INV_ITEM_Y, locvar_item_acid_ci)) ) {
+  4403: 						txtef COLOR_PURPLE
+>>4404: 						txt lang("地面の" + itemname(locvar_item_acid_ci, locvar_item_acid_p) + "は灰と化した。", itemname(locvar_item_acid_ci, locvar_item_acid_p) + " on the ground turn" + _s(locvar_item_acid_p) + " to dust.")
+  4405: 					}
+  4406: 				}
+  4407: 				inv(INV_ITEM_NUM, locvar_item_acid_ci) -= locvar_item_acid_p
+==============================================================================
+=== riga 4506.0  [dinamica]
+jp: itemname(locvar_item_fire_ti, 1) + "が" + name(item_cold_arg1) + "の持ち物を冷気から守った。"
+en: itemname(locvar_item_fire_ti, 1) + " protects " + name(item_cold_arg1) + your(item_cold_arg1) + " stuff from cold."
+--- sorgente
+  4503: 				}
+  4504: 				if ( locvar_item_fire_ti != (-1) ) {
+  4505: 					if ( inv(INV_ITEM_NUM, locvar_item_fire_ti) > 0 ) {
+>>4506: 						txt lang(itemname(locvar_item_fire_ti, 1) + "が" + name(item_cold_arg1) + "の持ち物を冷気から守った。", itemname(locvar_item_fire_ti, 1) + " protects " + name(item_cold_arg1) + your(item_cold_arg1) + " stuff from cold.")
+  4507: 						if ( inv(INV_ITEM_CHARGE, locvar_item_fire_ti) > 0 ) {
+  4508: 							inv(INV_ITEM_CHARGE, locvar_item_fire_ti)--
+  4509: 						}
+==============================================================================
+=== riga 4511.0  [dinamica]
+jp: itemname(locvar_item_fire_ti, 1) + "は粉々に砕けた。"
+en: itemname(locvar_item_fire_ti, 1) + " is broken to pieces."
+--- sorgente
+  4508: 							inv(INV_ITEM_CHARGE, locvar_item_fire_ti)--
+  4509: 						}
+  4510: 						else {
+>>4511: 							txt lang(itemname(locvar_item_fire_ti, 1) + "は粉々に砕けた。", itemname(locvar_item_fire_ti, 1) + " is broken to pieces.")
+  4512: 							inv(INV_ITEM_NUM, locvar_item_fire_ti)--
+  4513: 							break
+  4514: 						}
+==============================================================================
+=== riga 4520.0  [dinamica]
+jp: locvar_item_cold_s + itemname(locvar_item_acid_ci, locvar_item_acid_p) + "は粉々に砕けた。"
+en: locvar_item_cold_s + itemname(locvar_item_acid_ci, locvar_item_acid_p) + " break" + _s2(locvar_item_acid_p) + " to pieces."
+--- sorgente
+  4517: 				}
+  4518: 				locvar_item_acid_p = rnd(inv(INV_ITEM_NUM, locvar_item_acid_ci)) / 2 + 1
+  4519: 				txtef COLOR_PURPLE
+>>4520: 				txt lang(locvar_item_cold_s + itemname(locvar_item_acid_ci, locvar_item_acid_p) + "は粉々に砕けた。", locvar_item_cold_s + itemname(locvar_item_acid_ci, locvar_item_acid_p) + " break" + _s2(locvar_item_acid_p) + " to pieces.")
+  4521: 				inv(INV_ITEM_NUM, locvar_item_acid_ci) -= locvar_item_acid_p
+  4522: 				locvar_item_fire_f = 1
+  4523: 			}
+==============================================================================
+=== riga 4761.0  [dinamica]
+jp: name(txteledmg_arg3) + "は酸に焼かれ溶けた。"
+en: name(txteledmg_arg3) + " melt" + _s(txteledmg_arg3) + "."
+--- sorgente
+  4758: 			txt lang("ドロドロに溶かした。", "melt" + _s(txteledmg_arg2) + " " + him(txteledmg_arg3) + " away.")
+  4759: 		}
+  4760: 		if ( txteledmg_arg1 == 2 ) {
+>>4761: 			txt lang(name(txteledmg_arg3) + "は酸に焼かれ溶けた。", name(txteledmg_arg3) + " melt" + _s(txteledmg_arg3) + ".")
+  4762: 		}
+  4763: 		return
+  4764: 	}
+==============================================================================
+=== riga 4768.0  [dinamica]
+jp: name(txteledmg_arg3) + "は切り傷を負った。"
+en: name(txteledmg_arg3) + " get" + _s(txteledmg_arg3) + " a cut."
+--- sorgente
+  4765: 	if ( txteledmg_ele == SKILL_RESDMG_CUT ) {
+  4766: 		if ( txteledmg_arg1 == 0 ) {
+  4767: 			if ( synccheck(txteledmg_arg3, -1) ) {
+>>4768: 				txt lang(name(txteledmg_arg3) + "は切り傷を負った。", name(txteledmg_arg3) + " get" + _s(txteledmg_arg3) + " a cut.")
+  4769: 			}
+  4770: 		}
+  4771: 		if ( txteledmg_arg1 == 1 ) {
+==============================================================================
+=== riga 4772.0  [dinamica]
+jp: "千切りにした。"
+en: "cut" + _s(txteledmg_arg2) + " " + him(txteledmg_arg3) + " into thin strips."
+--- sorgente
+  4769: 			}
+  4770: 		}
+  4771: 		if ( txteledmg_arg1 == 1 ) {
+>>4772: 			txt lang("千切りにした。", "cut" + _s(txteledmg_arg2) + " " + him(txteledmg_arg3) + " into thin strips.")
+  4773: 		}
+  4774: 		if ( txteledmg_arg1 == 2 ) {
+  4775: 			txt lang(name(txteledmg_arg3) + "は千切りになった。", name(txteledmg_arg3) + " " + is(txteledmg_arg3) + " cut into thin strips.")
+==============================================================================
+=== riga 4775.0  [dinamica]
+jp: name(txteledmg_arg3) + "は千切りになった。"
+en: name(txteledmg_arg3) + " " + is(txteledmg_arg3) + " cut into thin strips."
+--- sorgente
+  4772: 			txt lang("千切りにした。", "cut" + _s(txteledmg_arg2) + " " + him(txteledmg_arg3) + " into thin strips.")
+  4773: 		}
+  4774: 		if ( txteledmg_arg1 == 2 ) {
+>>4775: 			txt lang(name(txteledmg_arg3) + "は千切りになった。", name(txteledmg_arg3) + " " + is(txteledmg_arg3) + " cut into thin strips.")
+  4776: 		}
+  4777: 		return
+  4778: 	}
+==============================================================================
+=== riga 4782.0  [dinamica]
+jp: name(txteledmg_arg3) + "は栗で抉られた。"
+en: name(txteledmg_arg3) + " was beaten with chestnuts."
+--- sorgente
+  4779: 	if ( txteledmg_ele == SKILL_RESDMG_CHESTNUT ) {
+  4780: 		if ( txteledmg_arg1 == 0 ) {
+  4781: 			if ( synccheck(txteledmg_arg3, -1) ) {
+>>4782: 				txt lang(name(txteledmg_arg3) + "は栗で抉られた。", name(txteledmg_arg3) + " was beaten with chestnuts.")
+  4783: 			}
+  4784: 		}
+  4785: 		if ( txteledmg_arg1 == 1 ) {
+==============================================================================
+=== riga 4786.0  [dinamica]
+jp: "栗で抉り殺した。"
+en: name(txteledmg_arg3) + " " + is(txteledmg_arg3) + " gouged to death with chestnuts."
+--- sorgente
+  4783: 			}
+  4784: 		}
+  4785: 		if ( txteledmg_arg1 == 1 ) {
+>>4786: 			txt lang("栗で抉り殺した。", name(txteledmg_arg3) + " " + is(txteledmg_arg3) + " gouged to death with chestnuts.")
+  4787: 		}
+  4788: 		if ( txteledmg_arg1 == 2 ) {
+  4789: 			txt lang(name(txteledmg_arg3) + "は栗に体を抉られて死んだ。", name(txteledmg_arg3) + " " + was(txteledmg_arg3) + " gouged by chestnuts and died.")
+==============================================================================
+=== riga 4789.0  [dinamica]
+jp: name(txteledmg_arg3) + "は栗に体を抉られて死んだ。"
+en: name(txteledmg_arg3) + " " + was(txteledmg_arg3) + " gouged by chestnuts and died."
+--- sorgente
+  4786: 			txt lang("栗で抉り殺した。", name(txteledmg_arg3) + " " + is(txteledmg_arg3) + " gouged to death with chestnuts.")
+  4787: 		}
+  4788: 		if ( txteledmg_arg1 == 2 ) {
+>>4789: 			txt lang(name(txteledmg_arg3) + "は栗に体を抉られて死んだ。", name(txteledmg_arg3) + " " + was(txteledmg_arg3) + " gouged by chestnuts and died.")
+  4790: 		}
+  4791: 		return
+  4792: 	}
+==============================================================================
+=== riga 4796.0  [dinamica]
+jp: name(txteledmg_arg3) + "は脳を揺さぶられた。"
+en: name(txteledmg_arg3) + " received a shock to the brain."
+--- sorgente
+  4793: 	if ( txteledmg_ele == SKILL_RESDMG_BRAIN ) {
+  4794: 		if ( txteledmg_arg1 == 0 ) {
+  4795: 			if ( synccheck(txteledmg_arg3, -1) ) {
+>>4796: 				txt lang(name(txteledmg_arg3) + "は脳を揺さぶられた。", name(txteledmg_arg3) + " received a shock to the brain.")
+  4797: 			}
+  4798: 		}
+  4799: 		if ( txteledmg_arg1 == 1 ) {
+==============================================================================
+=== riga 4800.0  [dinamica]
+jp: "脳破裂させた。"
+en: name(txteledmg_arg2) + " burst " + his(txteledmg_arg3) + " brain."
+--- sorgente
+  4797: 			}
+  4798: 		}
+  4799: 		if ( txteledmg_arg1 == 1 ) {
+>>4800: 			txt lang("脳破裂させた。", name(txteledmg_arg2) + " burst " + his(txteledmg_arg3) + " brain.")
+  4801: 		}
+  4802: 		if ( txteledmg_arg1 == 2 ) {
+  4803: 			txt lang(name(txteledmg_arg3) + "は脳が破裂して死んだ。", name(txteledmg_arg3) + " die" + _s(txteledmg_arg3) + " from brain rupture.")
+==============================================================================
+=== riga 4803.0  [dinamica]
+jp: name(txteledmg_arg3) + "は脳が破裂して死んだ。"
+en: name(txteledmg_arg3) + " die" + _s(txteledmg_arg3) + " from brain rupture."
+--- sorgente
+  4800: 			txt lang("脳破裂させた。", name(txteledmg_arg2) + " burst " + his(txteledmg_arg3) + " brain.")
+  4801: 		}
+  4802: 		if ( txteledmg_arg1 == 2 ) {
+>>4803: 			txt lang(name(txteledmg_arg3) + "は脳が破裂して死んだ。", name(txteledmg_arg3) + " die" + _s(txteledmg_arg3) + " from brain rupture.")
+  4804: 		}
+  4805: 		return
+  4806: 	}
+==============================================================================
+=== riga 4810.0  [dinamica]
+jp: name(txteledmg_arg3) + "の頭に豆腐のかどがぶつかった。"
+en: name(txteledmg_arg3) + your(txteledmg_arg3) + " head was hit with tofu."
+--- sorgente
+  4807: 	if ( txteledmg_ele == SKILL_RESDMG_TOFU ) {
+  4808: 		if ( txteledmg_arg1 == 0 ) {
+  4809: 			if ( synccheck(txteledmg_arg3, -1) ) {
+>>4810: 				txt lang(name(txteledmg_arg3) + "の頭に豆腐のかどがぶつかった。", name(txteledmg_arg3) + your(txteledmg_arg3) + " head was hit with tofu.")
+  4811: 			}
+  4812: 		}
+  4813: 		if ( txteledmg_arg1 == 1 ) {
+==============================================================================
+=== riga 4814.0  [dinamica]
+jp: "豆腐のかどで粉砕した。"
+en: name(txteledmg_arg2) + " crush" + _s(txteledmg_arg2, 1) + " " + name(txteledmg_arg3) + your(txteledmg_arg3) + " head with tofu."
+--- sorgente
+  4811: 			}
+  4812: 		}
+  4813: 		if ( txteledmg_arg1 == 1 ) {
+>>4814: 			txt lang("豆腐のかどで粉砕した。", name(txteledmg_arg2) + " crush" + _s(txteledmg_arg2, 1) + " " + name(txteledmg_arg3) + your(txteledmg_arg3) + " head with tofu.")
+  4815: 		}
+  4816: 		if ( txteledmg_arg1 == 2 ) {
+  4817: 			txt lang(name(txteledmg_arg3) + "は豆腐のかどが頭にぶつかって死んだ。", name(txteledmg_arg3) + " die" + _s(txteledmg_arg3) + " from being hit in the head with tofu.")
+==============================================================================
+=== riga 4817.0  [dinamica]
+jp: name(txteledmg_arg3) + "は豆腐のかどが頭にぶつかって死んだ。"
+en: name(txteledmg_arg3) + " die" + _s(txteledmg_arg3) + " from being hit in the head with tofu."
+--- sorgente
+  4814: 			txt lang("豆腐のかどで粉砕した。", name(txteledmg_arg2) + " crush" + _s(txteledmg_arg2, 1) + " " + name(txteledmg_arg3) + your(txteledmg_arg3) + " head with tofu.")
+  4815: 		}
+  4816: 		if ( txteledmg_arg1 == 2 ) {
+>>4817: 			txt lang(name(txteledmg_arg3) + "は豆腐のかどが頭にぶつかって死んだ。", name(txteledmg_arg3) + " die" + _s(txteledmg_arg3) + " from being hit in the head with tofu.")
+  4818: 		}
+  4819: 		return
+  4820: 	}
+==============================================================================
+=== riga 4823.0  [dinamica]
+jp: "人形に変えて事実上殺した。"
+en: "change" + _s(txteledmg_arg2) + " " + name(txteledmg_arg3) + " into a doll."
+--- sorgente
+  4820: 	}
+  4821: 	if ( gdata(GDATA_FLAG_FLESH_DOLL_LOOT_SPAWN) == 100 ) {
+  4822: 		if ( txteledmg_arg1 == 1 ) {
+>>4823: 			txt lang("人形に変えて事実上殺した。", "change" + _s(txteledmg_arg2) + " " + name(txteledmg_arg3) + " into a doll.")
+  4824: 		}
+  4825: 		if ( txteledmg_arg1 == 2 ) {
+  4826: 			txt lang(name(txteledmg_arg3) + "は自由を奪われ人形になった。", name(txteledmg_arg3) + " change" + _s(txteledmg_arg3) + " into a doll.")
+==============================================================================
+=== riga 4826.0  [dinamica]
+jp: name(txteledmg_arg3) + "は自由を奪われ人形になった。"
+en: name(txteledmg_arg3) + " change" + _s(txteledmg_arg3) + " into a doll."
+--- sorgente
+  4823: 			txt lang("人形に変えて事実上殺した。", "change" + _s(txteledmg_arg2) + " " + name(txteledmg_arg3) + " into a doll.")
+  4824: 		}
+  4825: 		if ( txteledmg_arg1 == 2 ) {
+>>4826: 			txt lang(name(txteledmg_arg3) + "は自由を奪われ人形になった。", name(txteledmg_arg3) + " change" + _s(txteledmg_arg3) + " into a doll.")
+  4827: 		}
+  4828: 		return
+  4829: 	}
+==============================================================================
+=== riga 4832.0  [dinamica]
+jp: "内部から崩壊させて殺した。"
+en: "burst" + _s(txteledmg_arg2) + " the body of " + him(txteledmg_arg3) + "."
+--- sorgente
+  4829: 	}
+  4830: 	if ( gdata(GDATA_FLAG_FLESH_DOLL_LOOT_SPAWN) == (-1) ) {
+  4831: 		if ( txteledmg_arg1 == 1 ) {
+>>4832: 			txt lang("内部から崩壊させて殺した。", "burst" + _s(txteledmg_arg2) + " the body of " + him(txteledmg_arg3) + ".")
+  4833: 		}
+  4834: 		if ( txteledmg_arg1 == 2 ) {
+  4835: 			txt lang(name(txteledmg_arg3) + "は身体が耐え切れずに崩壊した。", name(txteledmg_arg3) + " burst" + _s(txteledmg_arg3) + " and die" + _s(txteledmg_arg3) + ".")
+==============================================================================
+=== riga 4835.0  [dinamica]
+jp: name(txteledmg_arg3) + "は身体が耐え切れずに崩壊した。"
+en: name(txteledmg_arg3) + " burst" + _s(txteledmg_arg3) + " and die" + _s(txteledmg_arg3) + "."
+--- sorgente
+  4832: 			txt lang("内部から崩壊させて殺した。", "burst" + _s(txteledmg_arg2) + " the body of " + him(txteledmg_arg3) + ".")
+  4833: 		}
+  4834: 		if ( txteledmg_arg1 == 2 ) {
+>>4835: 			txt lang(name(txteledmg_arg3) + "は身体が耐え切れずに崩壊した。", name(txteledmg_arg3) + " burst" + _s(txteledmg_arg3) + " and die" + _s(txteledmg_arg3) + ".")
+  4836: 		}
+  4837: 		return
+  4838: 	}
+==============================================================================
+=== riga 4841.0  [dinamica]
+jp: name(txteledmg_arg3) + "は傷ついた。"
+en: name(txteledmg_arg3) + " " + is(txteledmg_arg3) + " wounded."
+--- sorgente
+  4838: 	}
+  4839: 	if ( txteledmg_arg1 == 0 ) {
+  4840: 		if ( synccheck(txteledmg_arg3, -1) ) {
+>>4841: 			txt lang(name(txteledmg_arg3) + "は傷ついた。", name(txteledmg_arg3) + " " + is(txteledmg_arg3) + " wounded.")
+  4842: 		}
+  4843: 	}
+  4844: 	if ( txteledmg_arg1 == 1 ) {
+==============================================================================
+=== riga 4845.0  [dinamica]
+jp: "殺した。"
+en: "kill" + _s(txteledmg_arg2) + " " + him(txteledmg_arg3) + "."
+--- sorgente
+  4842: 		}
+  4843: 	}
+  4844: 	if ( txteledmg_arg1 == 1 ) {
+>>4845: 		txt lang("殺した。", "kill" + _s(txteledmg_arg2) + " " + him(txteledmg_arg3) + ".")
+  4846: 	}
+  4847: 	if ( txteledmg_arg1 == 2 ) {
+  4848: 		txt lang(name(txteledmg_arg3) + "は死んだ。", name(txteledmg_arg3) + " " + is(txteledmg_arg3) + " killed.")
+--- STESSO GIAPPONESE, gia' reso:
+    chara_func.hsp.jsonl:6843  "uccide sul colpo."
+--- stesso inglese, gia' reso:
+    chara_func.hsp.jsonl:6843  "uccide sul colpo."
+==============================================================================
+=== riga 4848.0  [dinamica]
+jp: name(txteledmg_arg3) + "は死んだ。"
+en: name(txteledmg_arg3) + " " + is(txteledmg_arg3) + " killed."
+--- sorgente
+  4845: 		txt lang("殺した。", "kill" + _s(txteledmg_arg2) + " " + him(txteledmg_arg3) + ".")
+  4846: 	}
+  4847: 	if ( txteledmg_arg1 == 2 ) {
+>>4848: 		txt lang(name(txteledmg_arg3) + "は死んだ。", name(txteledmg_arg3) + " " + is(txteledmg_arg3) + " killed.")
+  4849: 	}
+  4850: 	return
+  4851: 
+--- stesso inglese, gia' reso:
+    chara_func.hsp.jsonl:6828  name(dmghp_charid) + " cade a pezzi."
