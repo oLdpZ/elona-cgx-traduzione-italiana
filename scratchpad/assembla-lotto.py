@@ -2,6 +2,16 @@
 """Assembla uno script di lotto copiando le reti VERBATIM dal modello.
 
     python scratchpad/assembla-lotto.py 023 scratchpad/lotto-fase4-proc-022.py 24000 24999 <cartella>
+    python scratchpad/assembla-lotto.py 001 scratchpad/lotto-fase4-proc-026.py 3000 3999 <cartella> chara_func.hsp
+
+⚠️ **Il sesto argomento e' il file `.hsp`**, e senza si intende `proc.hsp`. Serve
+dalla 39ª, quando `proc.hsp` si e' chiuso e il lavoro e' passato a
+`chara_func.hsp`: il blocco copiato dal modello porta **quattro** costanti che
+parlano del file di partenza — `USCITA`, `SORGENTE`, il percorso
+dell'estrazione e `DA, A` — e riscriverne a mano tre su quattro era il modo piu'
+comodo di sbagliarne una. La convenzione dei nomi e' meccanica: il file
+`nome.hsp` vuole l'estrazione in `lavoro/_nome.jsonl` e produce i lotti
+`lavoro/fase4-nome-NNN.jsonl`.
 
 `<cartella>` contiene due file scritti a mano, piu' uno facoltativo:
 
@@ -41,10 +51,12 @@ import os
 import re
 import sys
 
-if len(sys.argv) != 6:
+if len(sys.argv) not in (6, 7):
     sys.exit(__doc__)
 
 numero, modello, da, a, cartella = sys.argv[1:6]
+hsp = sys.argv[6] if len(sys.argv) == 7 else 'proc.hsp'
+stem = hsp[:-len('.hsp')] if hsp.endswith('.hsp') else hsp
 
 testa = io.open(os.path.join(cartella, f'testa{numero}.py'), encoding='utf-8').read()
 rese = io.open(os.path.join(cartella, f'rese{numero}.py'), encoding='utf-8').read()
@@ -55,11 +67,19 @@ if ANCORA not in sorgente:
     sys.exit(f'{modello} non contiene {ANCORA!r}: non e\' un modello di lotto')
 reti = sorgente[sorgente.index(ANCORA):]
 
-reti, quante_uscita = re.subn(r"USCITA = 'lavoro/fase4-proc-\d+\.jsonl'",
-                              f"USCITA = 'lavoro/fase4-proc-{numero}.jsonl'", reti)
-reti, quante_zona = re.subn(r'DA, A = \d+, \d+', f'DA, A = {da}, {a}', reti)
-if quante_uscita != 1 or quante_zona != 1:
-    sys.exit(f'ancore non trovate una volta sola: USCITA {quante_uscita}, DA/A {quante_zona}')
+ANCORE = [
+    (r"USCITA = 'lavoro/fase4-[a-z_]+-\d+\.jsonl'",
+     f"USCITA = 'lavoro/fase4-{stem}-{numero}.jsonl'"),
+    (r'DA, A = \d+, \d+', f'DA, A = {da}, {a}'),
+    (r"SORGENTE = r'[^']*\\[a-z_]+\.hsp'",
+     f"SORGENTE = r'C:\\\\Games\\\\Elona\\\\_traduzione\\\\sorgente\\\\2.05-custom-gx\\\\{hsp}'"),
+    (r"io\.open\('lavoro/_[a-z_]+\.jsonl'",
+     f"io.open('lavoro/_{stem}.jsonl'"),
+]
+for cerca, metti in ANCORE:
+    reti, quante = re.subn(cerca, lambda _, m=metti: m, reti)
+    if quante != 1:
+        sys.exit(f'ancora {cerca!r} trovata {quante} volte, non una')
 
 percorso_rinviate = os.path.join(cartella, f'rinviate{numero}.py')
 if os.path.exists(percorso_rinviate):
@@ -70,13 +90,14 @@ if os.path.exists(percorso_rinviate):
     if quante_rinviate != 1:
         sys.exit(f'ancora RINVIATE trovata {quante_rinviate} volte, non una')
 
-uscita = f'scratchpad/lotto-fase4-proc-{numero}.py'
+uscita = f'scratchpad/lotto-fase4-{stem}-{numero}.py'
 io.open(uscita, 'w', encoding='utf-8', newline='\n').write(testa + rese + reti)
 
 
 def spoglia(testo: str) -> str:
-    """Il blocco delle reti senza le tre righe che possono cambiare."""
-    senza = re.sub(r'(USCITA = .*|DA, A = .*)', '', testo[testo.index(ANCORA):])
+    """Il blocco delle reti senza le righe che possono cambiare."""
+    senza = re.sub(r'(USCITA = .*|DA, A = .*|SORGENTE = .*|.*lavoro/_[a-z_]+\.jsonl.*)',
+                   '', testo[testo.index(ANCORA):])
     return re.sub(r'RINVIATE = (set\(\)|\{.*?\n?\})', '', senza, flags=re.S)
 
 
