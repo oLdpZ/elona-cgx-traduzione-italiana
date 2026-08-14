@@ -1,0 +1,557 @@
+==============================================================================
+=== riga 1505.0  [statica]
+jp: "「危ない！」魔力の渦の発生に気がついた仲間が、読書を中断させた。"
+en: "\"Look out!\" An ally notices a magical vortex and interrupts your reading."
+--- sorgente
+  1502: 		return 1
+  1503: 	}
+  1504: 	if ( ens2 != 0 ) {
+>>1505: 		txt lang("「危ない！」魔力の渦の発生に気がついた仲間が、読書を中断させた。", "\"Look out!\" An ally notices a magical vortex and interrupts your reading.")
+  1506: 		ens2 = 0
+  1507: 		return 0
+  1508: 	}
+==============================================================================
+=== riga 1511.0  [dinamica]
+jp: name(cc) + "はマナを吸い取られた！"
+en: name(cc) + your(cc) + " mana is absorbed."
+--- sorgente
+  1508: 	}
+  1509: 	if ( rnd(4) == 0 ) {
+  1510: 		if ( synccheck(cc, -1) ) {
+>>1511: 			txt lang(name(cc) + "はマナを吸い取られた！", name(cc) + your(cc) + " mana is absorbed.")
+  1512: 		}
+  1513: 		if ( cc == CHARA_PLAYER ) {
+  1514: 			dmgmp cc, cdata(CDATA_MAX_MP, cc)
+==============================================================================
+=== riga 1524.0  [dinamica]
+jp: name(cc) + "は余計に混乱した。"
+en: name(cc) + " " + is(cc) + " even more confused now."
+--- sorgente
+  1521: 	if ( rnd(4) == 0 ) {
+  1522: 		if ( synccheck(cc, -1) ) {
+  1523: 			if ( cdata(CDATA_CONDITION_CONFUSE, cc) != 0 ) {
+>>1524: 				txt lang(name(cc) + "は余計に混乱した。", name(cc) + " " + is(cc) + " even more confused now.")
+  1525: 			}
+  1526: 			else {
+  1527: 				txt lang("難解だ！", "It's too difficult!")
+==============================================================================
+=== riga 1527.0  [statica]
+jp: "難解だ！"
+en: "It's too difficult!"
+--- sorgente
+  1524: 				txt lang(name(cc) + "は余計に混乱した。", name(cc) + " " + is(cc) + " even more confused now.")
+  1525: 			}
+  1526: 			else {
+>>1527: 				txt lang("難解だ！", "It's too difficult!")
+  1528: 			}
+  1529: 		}
+  1530: 		dmgcon cc, CONDITION_CONFUSE, 100
+==============================================================================
+=== riga 1536.0  [statica]
+jp: "魔力の渦が何かを召喚した！"
+en: "Several creatures are summoned from a magical vortex."
+--- sorgente
+  1533: 	if ( rnd(4) == 0 ) {
+  1534: 		if ( cc == CHARA_PLAYER ) {
+  1535: 			if ( synccheck(cc, -1) ) {
+>>1536: 				txt lang("魔力の渦が何かを召喚した！", "Several creatures are summoned from a magical vortex.")
+  1537: 			}
+  1538: 			repeat 2 + rnd(3)
+  1539: 				flt calcobjlv(cdata(CDATA_LEVEL, CHARA_PLAYER) * 3 / 2 + 3), calcfixlv(FIX_QUALITY_GOOD)
+==============================================================================
+=== riga 1556.0  [statica]
+jp: name(cc) + "は奇妙な力に捻じ曲げられた！"
+en: "A dimensional door opens in front of you."
+--- sorgente
+  1553: 		return 0
+  1554: 	}
+  1555: 	if ( synccheck(cc, -1) ) {
+>>1556: 		txt lang(name(cc) + "は奇妙な力に捻じ曲げられた！", "A dimensional door opens in front of you.")
+  1557: 	}
+  1558: 	tc = cc
+  1559: 	efid = SKILL_SPELL_TELEPORT
+==============================================================================
+=== riga 1689.0  [statica]
+jp: "このままだと脱水症状で倒れてしまう！"
+en: "You are dehydrated!"
+--- sorgente
+  1686: 				if ( cdata(CDATA_THIRST, r1) / 1000 != p ) {
+  1687: 					if ( p == 1000 / 1000 ) {
+  1688: 						msgalert = 1
+>>1689: 						txt lang("このままだと脱水症状で倒れてしまう！", "You are dehydrated!"), lang("水分不足で干物になりそうだ。", "You are almost a mummy.")
+  1690: 					}
+  1691: 					if ( p == 2000 / 1000 ) {
+  1692: 						msgalert = 1
+==============================================================================
+=== riga 1689.0  [statica]
+jp: "水分不足で干物になりそうだ。"
+en: "You are almost a mummy."
+--- sorgente
+  1686: 				if ( cdata(CDATA_THIRST, r1) / 1000 != p ) {
+  1687: 					if ( p == 1000 / 1000 ) {
+  1688: 						msgalert = 1
+>>1689: 						txt lang("このままだと脱水症状で倒れてしまう！", "You are dehydrated!"), lang("水分不足で干物になりそうだ。", "You are almost a mummy.")
+  1690: 					}
+  1691: 					if ( p == 2000 / 1000 ) {
+  1692: 						msgalert = 1
+==============================================================================
+=== riga 1693.0  [statica]
+jp: "水分不足で目が回りだした…"
+en: "Your thirst makes you dizzy."
+--- sorgente
+  1690: 					}
+  1691: 					if ( p == 2000 / 1000 ) {
+  1692: 						msgalert = 1
+>>1693: 						txt lang("水分不足で目が回りだした…", "Your thirst makes you dizzy."), lang("すぐに何かを飲まなくては…", "You have to drink something NOW.")
+  1694: 					}
+  1695: 					if ( p == 5000 / 1000 ) {
+  1696: 						msgalert = 1
+==============================================================================
+=== riga 1693.0  [statica]
+jp: "すぐに何かを飲まなくては…"
+en: "You have to drink something NOW."
+--- sorgente
+  1690: 					}
+  1691: 					if ( p == 2000 / 1000 ) {
+  1692: 						msgalert = 1
+>>1693: 						txt lang("水分不足で目が回りだした…", "Your thirst makes you dizzy."), lang("すぐに何かを飲まなくては…", "You have to drink something NOW.")
+  1694: 					}
+  1695: 					if ( p == 5000 / 1000 ) {
+  1696: 						msgalert = 1
+==============================================================================
+=== riga 1697.0  [statica]
+jp: "喉がカラカラだ。"
+en: "You are getting thirsty."
+--- sorgente
+  1694: 					}
+  1695: 					if ( p == 5000 / 1000 ) {
+  1696: 						msgalert = 1
+>>1697: 						txt lang("喉がカラカラだ。", "You are getting thirsty."), lang("喉が渇いた。", "You feel thirsty."), lang("さて何を飲もうか。", "Now what shall I drink?")
+  1698: 					}
+  1699: 					refreshspeed r1
+  1700: 				}
+==============================================================================
+=== riga 1697.0  [statica]
+jp: "喉が渇いた。"
+en: "You feel thirsty."
+--- sorgente
+  1694: 					}
+  1695: 					if ( p == 5000 / 1000 ) {
+  1696: 						msgalert = 1
+>>1697: 						txt lang("喉がカラカラだ。", "You are getting thirsty."), lang("喉が渇いた。", "You feel thirsty."), lang("さて何を飲もうか。", "Now what shall I drink?")
+  1698: 					}
+  1699: 					refreshspeed r1
+  1700: 				}
+==============================================================================
+=== riga 1697.0  [statica]
+jp: "さて何を飲もうか。"
+en: "Now what shall I drink?"
+--- sorgente
+  1694: 					}
+  1695: 					if ( p == 5000 / 1000 ) {
+  1696: 						msgalert = 1
+>>1697: 						txt lang("喉がカラカラだ。", "You are getting thirsty."), lang("喉が渇いた。", "You feel thirsty."), lang("さて何を飲もうか。", "Now what shall I drink?")
+  1698: 					}
+  1699: 					refreshspeed r1
+  1700: 				}
+==============================================================================
+=== riga 1732.0  [statica]
+jp: "このままだと餓死してしまう！"
+en: "You are starving!"
+--- sorgente
+  1729: 			if ( cdata(CDATA_HUNGER, r1) / 1000 != p ) {
+  1730: 				if ( p == 1000 / 1000 ) {
+  1731: 					msgalert = 1
+>>1732: 					txt lang("このままだと餓死してしまう！", "You are starving!"), lang("腹が減ってほとんど死にかけている。", "You are almost dead from hunger.")
+  1733: 				}
+  1734: 				if ( p == 2000 / 1000 ) {
+  1735: 					msgalert = 1
+==============================================================================
+=== riga 1732.0  [statica]
+jp: "腹が減ってほとんど死にかけている。"
+en: "You are almost dead from hunger."
+--- sorgente
+  1729: 			if ( cdata(CDATA_HUNGER, r1) / 1000 != p ) {
+  1730: 				if ( p == 1000 / 1000 ) {
+  1731: 					msgalert = 1
+>>1732: 					txt lang("このままだと餓死してしまう！", "You are starving!"), lang("腹が減ってほとんど死にかけている。", "You are almost dead from hunger.")
+  1733: 				}
+  1734: 				if ( p == 2000 / 1000 ) {
+  1735: 					msgalert = 1
+==============================================================================
+=== riga 1736.0  [statica]
+jp: "空腹で目が回りだした…"
+en: "Your hunger makes you dizzy."
+--- sorgente
+  1733: 				}
+  1734: 				if ( p == 2000 / 1000 ) {
+  1735: 					msgalert = 1
+>>1736: 					txt lang("空腹で目が回りだした…", "Your hunger makes you dizzy."), lang("すぐに何かを食べなくては…", "You have to eat something NOW.")
+  1737: 				}
+  1738: 				if ( p == 5000 / 1000 ) {
+  1739: 					msgalert = 1
+==============================================================================
+=== riga 1736.0  [statica]
+jp: "すぐに何かを食べなくては…"
+en: "You have to eat something NOW."
+--- sorgente
+  1733: 				}
+  1734: 				if ( p == 2000 / 1000 ) {
+  1735: 					msgalert = 1
+>>1736: 					txt lang("空腹で目が回りだした…", "Your hunger makes you dizzy."), lang("すぐに何かを食べなくては…", "You have to eat something NOW.")
+  1737: 				}
+  1738: 				if ( p == 5000 / 1000 ) {
+  1739: 					msgalert = 1
+==============================================================================
+=== riga 1740.0  [statica]
+jp: "腹がすいてきた。"
+en: "You are getting hungry."
+--- sorgente
+  1737: 				}
+  1738: 				if ( p == 5000 / 1000 ) {
+  1739: 					msgalert = 1
+>>1740: 					txt lang("腹がすいてきた。", "You are getting hungry."), lang("空腹になった。", "You feel hungry."), lang("さて何を食べようか。", "Now what shall I eat?")
+  1741: 				}
+  1742: 				refreshspeed r1
+  1743: 			}
+==============================================================================
+=== riga 1740.0  [statica]
+jp: "空腹になった。"
+en: "You feel hungry."
+--- sorgente
+  1737: 				}
+  1738: 				if ( p == 5000 / 1000 ) {
+  1739: 					msgalert = 1
+>>1740: 					txt lang("腹がすいてきた。", "You are getting hungry."), lang("空腹になった。", "You feel hungry."), lang("さて何を食べようか。", "Now what shall I eat?")
+  1741: 				}
+  1742: 				refreshspeed r1
+  1743: 			}
+==============================================================================
+=== riga 1740.0  [statica]
+jp: "さて何を食べようか。"
+en: "Now what shall I eat?"
+--- sorgente
+  1737: 				}
+  1738: 				if ( p == 5000 / 1000 ) {
+  1739: 					msgalert = 1
+>>1740: 					txt lang("腹がすいてきた。", "You are getting hungry."), lang("空腹になった。", "You feel hungry."), lang("さて何を食べようか。", "Now what shall I eat?")
+  1741: 				}
+  1742: 				refreshspeed r1
+  1743: 			}
+==============================================================================
+=== riga 1764.0  [dinamica]
+jp: name(cnt) + "は爆風に巻き込まれた。"
+en: name(cnt) + " " + was(cnt) + " hurt by the blast."
+--- sorgente
+  1761: 			if ( cdata(CDATA_CONDITION_SLEEP, cnt) >= 0 ) {
+  1762: 				continue
+  1763: 			}
+>>1764: 			txt lang(name(cnt) + "は爆風に巻き込まれた。", name(cnt) + " " + was(cnt) + " hurt by the blast.")
+  1765: 			dmghp cnt, -cdata(CDATA_CONDITION_SLEEP, cnt), DAMAGE_FROM_TRAP, SKILL_RESDMG_CRUSH, 1000
+  1766: 			cdata(CDATA_CONDITION_SLEEP, cnt) = 0
+  1767: 		loop
+==============================================================================
+=== riga 1821.0  [dinamica]
+jp: name(r1) + "は瘴気の毒で弱くなった。"
+en: name(r1) + " " + is(r1) + " weakened."
+--- sorgente
+  1818: 				if ( synccheck(r1, -1) ) {
+  1819: 					txtmore
+  1820: 					txtef COLOR_LIGHT_GREEN
+>>1821: 					txt lang(name(r1) + "は瘴気の毒で弱くなった。", name(r1) + " " + is(r1) + " weakened.")
+  1822: 				}
+  1823: 				r1 = r1
+  1824: 				gosub *charaRefresh
+--- stesso inglese, gia' reso:
+    proc.hsp.jsonl:8887  name(tc) + " si indebolisce."
+==============================================================================
+=== riga 1854.0  [dinamica]
+jp: name(r1) + "は瘴気に蝕まれて弱くなった。"
+en: name(r1) + " " + is(r1) + " weakened."
+--- sorgente
+  1851: 				if ( synccheck(r1, -1) ) {
+  1852: 					txtmore
+  1853: 					txtef COLOR_BLUE
+>>1854: 					txt lang(name(r1) + "は瘴気に蝕まれて弱くなった。", name(r1) + " " + is(r1) + " weakened.")
+  1855: 				}
+  1856: 				r1 = r1
+  1857: 				gosub *charaRefresh
+--- stesso inglese, gia' reso:
+    proc.hsp.jsonl:8887  name(tc) + " si indebolisce."
+==============================================================================
+=== riga 1873.0  [statica]
+jp: "「うぐぐ…！」"
+en: cnvtalk("Ughh...!")
+--- sorgente
+  1870: 		if ( cdata(CDATA_CONDITION_SUFFOCATION, r1) \ 3 == 0 ) {
+  1871: 			if ( synccheck(r1, -1) ) {
+  1872: 				chatc@DP = r1
+>>1873: 				txt lang("「うぐぐ…！」", cnvtalk("Ughh...!"))
+  1874: 			}
+  1875: 		}
+  1876: 		cdata(CDATA_CONDITION_SUFFOCATION, r1) -= rnd(3)
+==============================================================================
+=== riga 1879.0  [dinamica]
+jp: name(r1) + "は気道を確保した。「げほっげほっ！」"
+en: name(r1) + " stopped choking."
+--- sorgente
+  1876: 		cdata(CDATA_CONDITION_SUFFOCATION, r1) -= rnd(3)
+  1877: 		if ( cdata(CDATA_CONDITION_SUFFOCATION, r1) <= 0 ) {
+  1878: 			if ( synccheck(r1, -1) ) {
+>>1879: 				txt lang(name(r1) + "は気道を確保した。「げほっげほっ！」", name(r1) + " stopped choking.")
+  1880: 			}
+  1881: 			cdata(CDATA_CONDITION_SUFFOCATION, r1) = 0
+  1882: 		}
+==============================================================================
+=== riga 1895.0  [dinamica]
+jp: name(r1) + "は重力から抜け出した。"
+en: name(r1) + " break" + _s(r1) + " away from gravity."
+--- sorgente
+  1892: 		cdata(CDATA_CONDITION_GRAVITY, r1)--
+  1893: 		if ( cdata(CDATA_CONDITION_GRAVITY, r1) == 0 ) {
+  1894: 			if ( synccheck(r1, -1) ) {
+>>1895: 				txt lang(name(r1) + "は重力から抜け出した。", name(r1) + " break" + _s(r1) + " away from gravity.")
+  1896: 			}
+  1897: 		}
+  1898: 	}
+==============================================================================
+=== riga 1906.0  [dinamica]
+jp: name(r1) + "はやや落ち着いた。"
+en: name(r1) + " calm" + _s(r1) + " down."
+--- sorgente
+  1903: 		cdata(CDATA_CONDITION_ANGRY, r1)--
+  1904: 		if ( cdata(CDATA_CONDITION_ANGRY, r1) == 0 ) {
+  1905: 			if ( synccheck(r1, -1) ) {
+>>1906: 				txt lang(name(r1) + "はやや落ち着いた。", name(r1) + " calm" + _s(r1) + " down.")
+  1907: 			}
+  1908: 		}
+  1909: 	}
+--- stesso inglese, gia' reso:
+    proc.hsp.jsonl:23900  name(cc) + " si sente meglio."
+==============================================================================
+=== riga 1917.0  [dinamica]
+jp: name(r1) + "は体勢を立て直した。"
+en: name(r1) + " stand" + _s(r1) + " up."
+--- sorgente
+  1914: 		cdata(CDATA_CONDITION_INVERT, r1)--
+  1915: 		if ( cdata(CDATA_CONDITION_INVERT, r1) == 0 ) {
+  1916: 			if ( synccheck(r1, -1) ) {
+>>1917: 				txt lang(name(r1) + "は体勢を立て直した。", name(r1) + " stand" + _s(r1) + " up.")
+  1918: 			}
+  1919: 		}
+  1920: 	}
+==============================================================================
+=== riga 1929.0  [dinamica]
+jp: name(r1) + "は束縛から解放された。"
+en: name(r1) + " released from bind."
+--- sorgente
+  1926: 		dmgsp r1, 1
+  1927: 		if ( cdata(CDATA_CONDITION_BIND, r1) == 0 ) {
+  1928: 			if ( synccheck(r1, -1) ) {
+>>1929: 				txt lang(name(r1) + "は束縛から解放された。", name(r1) + " released from bind.")
+  1930: 			}
+  1931: 		}
+  1932: 	}
+--- STESSO GIAPPONESE, gia' reso:
+    action.hsp.jsonl:9515  name(tc) + " si libera dalla costrizione."
+==============================================================================
+=== riga 1948.0  [dinamica]
+jp: name(r1) + "は正気に戻った。"
+en: name(r1) + " recovered from brainwash."
+--- sorgente
+  1945: 		cdata(CDATA_CONDITION_BRAINWASH, r1)--
+  1946: 		if ( cdata(CDATA_CONDITION_BRAINWASH, r1) == 0 ) {
+  1947: 			if ( synccheck(r1, -1) ) {
+>>1948: 				txt lang(name(r1) + "は正気に戻った。", name(r1) + " recovered from brainwash.")
+  1949: 			}
+  1950: 			cdata(CDATA_TARGET, r1) = 0
+  1951: 			cdata(CDATA_AI_AGGRO, r1) = 0
+--- STESSO GIAPPONESE, gia' reso:
+    chara_func.hsp.jsonl:3884  name(healcon_charid) + " torna in sé."
+==============================================================================
+=== riga 1964.0  [dinamica]
+jp: name(r1) + "は戦意を取り戻した。"
+en: name(r1) + " recovered from atrophy."
+--- sorgente
+  1961: 		cdata(CDATA_CONDITION_ATROPHY, r1)--
+  1962: 		if ( cdata(CDATA_CONDITION_ATROPHY, r1) == 0 ) {
+  1963: 			if ( synccheck(r1, -1) ) {
+>>1964: 				txt lang(name(r1) + "は戦意を取り戻した。", name(r1) + " recovered from atrophy.")
+  1965: 			}
+  1966: 		}
+  1967: 	}
+==============================================================================
+=== riga 1972.0  [dinamica]
+jp: name(r1) + "の防御は緩んだ。"
+en: name(r1) + "'s protection vanishes."
+--- sorgente
+  1969: 		cdata(CDATA_CONDITION_METAL, r1)--
+  1970: 		if ( cdata(CDATA_CONDITION_METAL, r1) == 0 ) {
+  1971: 			if ( synccheck(r1, -1) ) {
+>>1972: 				txt lang(name(r1) + "の防御は緩んだ。", name(r1) + "'s protection vanishes.")
+  1973: 			}
+  1974: 		}
+  1975: 	}
+==============================================================================
+=== riga 2077.0  [statica]
+jp: "身体が少しずつ崩れていく…。"
+en: "Your body is gradually falling apart..."
+--- sorgente
+  2074: 			else {
+  2075: 				dmghp CHARA_PLAYER, 1, DAMAGE_FROM_JALDABAOTH
+  2076: 			}
+>>2077: 			txt lang("身体が少しずつ崩れていく…。", "Your body is gradually falling apart...")
+  2078: 			regen = 0
+  2079: 		}
+  2080: 	}
+==============================================================================
+=== riga 2095.0  [dinamica]
+jp: name(r1) + "は行動不能から回復した。"
+en: name(r1) + " recovered from incapacity."
+--- sorgente
+  2092: 		cdata(CDATA_INCAPACITATED, r1)++
+  2093: 		if ( cdata(CDATA_INCAPACITATED, r1) == 0 ) {
+  2094: 			if ( synccheck(r1, -1) ) {
+>>2095: 				txt lang(name(r1) + "は行動不能から回復した。", name(r1) + " recovered from incapacity.")
+  2096: 			}
+  2097: 		}
+  2098: 	}
+==============================================================================
+=== riga 2107.0  [dinamica]
+jp: name(r1) + "は行動不能になった。"
+en: name(r1) + " became incapacitated."
+--- sorgente
+  2104: 				cdata(CDATA_INCAPACITATED, r1) = -3
+  2105: 			}
+  2106: 			if ( synccheck(r1, -1) ) {
+>>2107: 				txt lang(name(r1) + "は行動不能になった。", name(r1) + " became incapacitated.")
+  2108: 			}
+  2109: 		}
+  2110: 	}
+==============================================================================
+=== riga 2257.0  [dinamica]
+jp: name(r1) + "は元の姿に戻った。"
+en: name(r1) + " returned to their original form."
+--- sorgente
+  2254: 	if ( cdata(CDATA_SHIFT_FORM, r1) > SHIFT_FORM_NONE ) {
+  2255: 		if ( findbuff(r1, BUFF_FORM_SHIFT_ALPHA) == (-1) & findbuff(r1, BUFF_FORM_SHIFT_BETA) == (-1) & findbuff(r1, BUFF_FORM_SHIFT_GAMMA) == (-1) & findbuff(r1, BUFF_FORM_SHIFT_DELTA) == (-1) & findbuff(r1, BUFF_FORM_SHIFT_OMEGA) == (-1) ) {
+  2256: 			txtef COLOR_SKY_BLUE
+>>2257: 			txt lang(name(r1) + "は元の姿に戻った。", name(r1) + " returned to their original form.")
+  2258: 
+  2259: 			hikae = cdatan(CDATAN_NAME, r1)
+  2260: 			cdatan(CDATAN_NAME, r1) = cdatan(CDATAN_FORM_SHIFT_NAME, r1)
+==============================================================================
+=== riga 2390.0  [dinamica]
+jp: name(r1) + "は猛烈にそわそわしている…。"
+en: name(r1) + " is extremely restless and fidgety..."
+--- sorgente
+  2387: 				kaiwa = rnd(4)
+  2388: 				txtef COLOR_RED
+  2389: 				if ( kaiwa == 0 ) {
+>>2390: 					txt lang(name(r1) + "は猛烈にそわそわしている…。", name(r1) + " is extremely restless and fidgety...")
+  2391: 				}
+  2392: 				if ( kaiwa == 1 ) {
+  2393: 					txt lang(name(r1) + "は身をよじって悶えている…。", name(r1) + " is squirming and writhing in discomfort...")
+--- STESSO GIAPPONESE, gia' reso:
+    proc.hsp.jsonl:6926  name(tc) + " si agita senza sosta..."
+--- stesso inglese, gia' reso:
+    proc.hsp.jsonl:6926  name(tc) + " si agita senza sosta..."
+==============================================================================
+=== riga 2393.0  [dinamica]
+jp: name(r1) + "は身をよじって悶えている…。"
+en: name(r1) + " is squirming and writhing in discomfort..."
+--- sorgente
+  2390: 					txt lang(name(r1) + "は猛烈にそわそわしている…。", name(r1) + " is extremely restless and fidgety...")
+  2391: 				}
+  2392: 				if ( kaiwa == 1 ) {
+>>2393: 					txt lang(name(r1) + "は身をよじって悶えている…。", name(r1) + " is squirming and writhing in discomfort...")
+  2394: 				}
+  2395: 				if ( kaiwa == 2 ) {
+  2396: 					txt lang(name(r1) + "は必死におしっこを我慢している…。", name(r1) + " is desperately holding back urine, trying not to go...")
+--- STESSO GIAPPONESE, gia' reso:
+    proc.hsp.jsonl:6929  name(tc) + " si contorce dal disagio..."
+--- stesso inglese, gia' reso:
+    proc.hsp.jsonl:6929  name(tc) + " si contorce dal disagio..."
+==============================================================================
+=== riga 2396.0  [dinamica]
+jp: name(r1) + "は必死におしっこを我慢している…。"
+en: name(r1) + " is desperately holding back urine, trying not to go..."
+--- sorgente
+  2393: 					txt lang(name(r1) + "は身をよじって悶えている…。", name(r1) + " is squirming and writhing in discomfort...")
+  2394: 				}
+  2395: 				if ( kaiwa == 2 ) {
+>>2396: 					txt lang(name(r1) + "は必死におしっこを我慢している…。", name(r1) + " is desperately holding back urine, trying not to go...")
+  2397: 				}
+  2398: 				if ( kaiwa == 3 ) {
+  2399: 					txt lang(name(r1) + "は微かに震えながら尿意に耐えている…。", name(r1) + " is trembling slightly, barely managing to endure the urge to urinate...")
+--- STESSO GIAPPONESE, gia' reso:
+    proc.hsp.jsonl:6932  name(tc) + " si trattiene a fatica dal fare pipì..."
+--- stesso inglese, gia' reso:
+    proc.hsp.jsonl:6932  name(tc) + " si trattiene a fatica dal fare pipì..."
+==============================================================================
+=== riga 2399.0  [dinamica]
+jp: name(r1) + "は微かに震えながら尿意に耐えている…。"
+en: name(r1) + " is trembling slightly, barely managing to endure the urge to urinate..."
+--- sorgente
+  2396: 					txt lang(name(r1) + "は必死におしっこを我慢している…。", name(r1) + " is desperately holding back urine, trying not to go...")
+  2397: 				}
+  2398: 				if ( kaiwa == 3 ) {
+>>2399: 					txt lang(name(r1) + "は微かに震えながら尿意に耐えている…。", name(r1) + " is trembling slightly, barely managing to endure the urge to urinate...")
+  2400: 				}
+  2401: 			}
+  2402: 		}
+--- STESSO GIAPPONESE, gia' reso:
+    proc.hsp.jsonl:6935  name(tc) + " trema appena e resiste allo stimolo..."
+--- stesso inglese, gia' reso:
+    proc.hsp.jsonl:6935  name(tc) + " trema appena e resiste allo stimolo..."
+==============================================================================
+=== riga 2408.0  [dinamica]
+jp: name(r1) + "は漏らした。"
+en: name(r1) + " wet" + _s(r1) + " " + yourself(r1) + "."
+--- sorgente
+  2405: 				if ( TweakData(TWEAK_GAMEPLAY_DISABLE_URINATION_FROM_FEAR, TWEAK_CATEGORY_GAMEPLAY) == FALSE ) {
+  2406: 					if ( synccheck(r1, -1) ) {
+  2407: 						snd SOUNDLIST_WATERM
+>>2408: 						txt lang(name(r1) + "は漏らした。", name(r1) + " wet" + _s(r1) + " " + yourself(r1) + ".")
+  2409: 					}
+  2410: 					if ( mdata(MDATA_TYPE) != MAP_TYPE_WORLD ) {
+  2411: 						if ( cfg_dust_select == 0 ) {
+--- STESSO GIAPPONESE, gia' reso:
+    chara_func.hsp.jsonl:3377  name(dmgcon_charid) + " se la fa addosso."
+    chara_func.hsp.jsonl:8317  name(chara_morasi_arg1) + " se la fa addosso."
+==============================================================================
+=== riga 2473.0  [statica]
+jp: "あなたは眠りを必要としている。"
+en: "You need to sleep."
+--- sorgente
+  2470: 
+  2471: 		if ( gdata(GDATA_SLEEP) >= 30 ) {
+  2472: 			if ( gdata(GDATA_TURN) \ 100 == 0 ) {
+>>2473: 				txt lang("あなたは眠りを必要としている。", "You need to sleep.")
+  2474: 			}
+  2475: 			if ( rnd(2) ) {
+  2476: 				regen = 0
+==============================================================================
+=== riga 2654.0  [dinamica]
+jp: cdatan(CDATAN_NAME, cnt) + "は満足した。"
+en: cdatan(CDATAN_NAME, cnt) + " " + is(cnt) + " satisfied."
+--- sorgente
+  2651: 		if ( cdata(CDATA_IMPRESSION, cnt) >= 53 ) {
+  2652: 			if ( cdata(CDATA_QUALITY, cnt) >= FIX_QUALITY_MIRACLE ) {
+  2653: 				ptp += 20 + cdata(CDATA_LEVEL, cnt) / 3
+>>2654: 				txt lang(cdatan(CDATAN_NAME, cnt) + "は満足した。", cdatan(CDATAN_NAME, cnt) + " " + is(cnt) + " satisfied.")
+  2655: 			}
+  2656: 		}
+  2657: 	loop
+==============================================================================
+=== riga 2659.0  [dinamica]
+jp: "(合計ボーナス:" + ptp + "%) "
+en: "(Total Bonus:" + ptp + "%)"
+--- sorgente
+  2656: 		}
+  2657: 	loop
+  2658: 	if ( ptp != 0 ) {
+>>2659: 		txt lang("(合計ボーナス:" + ptp + "%) ", "(Total Bonus:" + ptp + "%)")
+  2660: 	}
+  2661: 	qdata(QDATA_PARAM2, gdata(GDATA_QUEST_REF)) = qdata(QDATA_PARAM2, gdata(GDATA_QUEST_REF)) * (100 + ptp) / 100
+  2662: 	return
