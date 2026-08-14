@@ -174,9 +174,23 @@ toppata trenta volte, a mano, un caso per volta, senza che il fatto di essere
 *una famiglia* fosse mai stato scritto. Un referto che guarda una sintassi sola
 non dice «non ce n'è», dice «non ne ho viste **di quella forma**».
 
-⚠️ `calculation.hsp` non era in nessun elenco di fase: è la stessa scoperta di
-`adv.hsp` nella 26ª, in forma nuova. Il file non ha *firme* da tradurre — per
-questo nessun conteggio lo nomina — ma ha testo che il giocatore legge.
+⚠️ **Correzione, stessa sessione, un'ora dopo.** Avevo scritto qui che
+`calculation.hsp` «non era in nessun elenco di fase» e «non ha firme da
+tradurre»: è falso su tutti e due i punti. `SPEC.md` §6 definisce la Fase 4 come
+«i restanti **63 file** `.hsp` minori» — una designazione **collettiva**, che
+copre per costruzione ogni file non nominato prima; e `calculation.hsp` ha
+**44 `lang()`**. Non è `adv.hsp` della 26ª: è Fase 4 non ancora cominciata.
+
+💡 **La misura che chiude la questione sta in `scratchpad/fuori_elenco.py`**: dei
+54 file con `lang()`, **40 non hanno un file di dizionario**, per **12.620**
+stringhe mai estratte. Non sono file nascosti — sono la coda, e il numero è
+grande perché la coda è grande. La domanda «esiste un file che nessun elenco
+nomina?» ha risposta **no**, e adesso è una misura invece che una lettura di
+`SPEC.md`.
+
+⚠️ **Quello che resta vero è la parte sui letterali nudi**: quelli non sono in
+nessun conteggio nemmeno quando il file verrà tradotto, perché `estrai.py` non li
+vede. È su quelli che il referto serve, non sull'appartenenza a una fase.
 
 Concetto per il vault: [[una-guardia-vale-solo-dove-guarda]] (già esiste: questa
 ne è la seconda istanza, e stavolta il punto cieco era **sintattico**).

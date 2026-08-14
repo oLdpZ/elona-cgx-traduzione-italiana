@@ -232,6 +232,18 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
 3. `command.hsp` e `trait.hsp`, che sono ~1.680 firme mai toccate. ⚠️
    `command.hsp` è anche il file che **disegna** i `buffdesc` appena fatti.
 
+⭐ **E una vinta a costo quasi zero, trovata a schermo il 14/08: `chips.hsp`.**
+Ha **tre** `lang()` in tutto — `a dryrock`, `a field`, `a compost`
+(`chips.hsp:833-835`) — e sono i nomi delle caselle di terreno. Escono da
+`action.hsp:2681` in una frase **già tradotta**, quindi a schermo si legge
+«`a field si trova ai tuoi piedi.`»: metà inglese e metà italiana, e la si legge
+a ogni passo mentre si coltiva. Tre stringhe per togliere una frase mista ad alta
+frequenza — è la lezione di `adv.hsp` della 26ª (**la frequenza, non l'elenco**),
+stavolta su un file che l'elenco copre ma che nessuno aveva ragione di aprire.
+⚠️ `sdim tname, 16` dà 16 byte a voce: «terreno coltivato» ne occupa 17. Per la
+scoperta 2 della 28ª `sdim` non è un tetto in scrittura, ma il **riquadro** dove
+la frase esce va guardato.
+
 💡 **Il debito di collaudo è stato aggredito nella 32ª, non estinto, e la 33ª
 l'ha aumentato.** Provati nella 32ª: i messaggi dei potenziamenti (la toppa
 strutturale, mai vista prima), il menu tattiche, le etichette di stato
@@ -297,8 +309,17 @@ durante il collaudo. Delle 6.984 righe, **6.840 sono le descrizioni di
 interessanti sono `proc.hsp` 13, `ai.hsp` 3, `calculation.hsp` 2, `chat.hsp` 2.
 💡 `item_func.hsp` ne ha 30 con **0 intatte**: quella famiglia era già stata
 toppata a mano, un caso per volta, senza che nessuno sapesse che era una
-famiglia. ⚠️ E `calculation.hsp` non sta in **nessun elenco di fase**, perché non
-ha firme da tradurre: è `adv.hsp` della 26ª in forma nuova.
+famiglia.
+
+⚠️ **E qui la 34ª ha scritto una cosa falsa e l'ha corretta un'ora dopo**: che
+`calculation.hsp` «non stesse in nessun elenco di fase» e «non avesse firme». Ha
+**44 `lang()`**, e `SPEC.md` §6 mette in Fase 4 «i restanti **63 file** `.hsp`
+minori», che è una designazione **collettiva**: copre ogni file non nominato
+prima. Non è `adv.hsp` della 26ª — è coda non ancora cominciata.
+✅ **La domanda della 26ª è chiusa con una misura**, non con una lettura:
+`scratchpad/fuori_elenco.py` dice che dei **54** file con `lang()` ne hanno un
+dizionario **14**, e i **40** restanti valgono **12.620** stringhe mai estratte.
+Nessun file è fuori elenco; l'elenco è solo collettivo.
 
 `referti.py` fa la nona e la decima verifica — i participi che concordano col
 giocatore e le elisioni davanti a consonante. Attese **0** tutt'e due: adesso che
