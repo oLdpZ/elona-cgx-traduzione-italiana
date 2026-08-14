@@ -7,18 +7,38 @@ rese e una rinviata a toppa**, dal 91% al **100%**: 1.091 firme su 1.098, e le
 sette che restano sono tutte rinviate apposta. Si aggiunge a `db_item`,
 `item_data`, `skill`, `custom_tweaks`, `adv`, `action`, `text`, `buff`,
 `db_creature`, `chips` e `custom_enemyevolution` — ed è **il più letto di
-tutti**, perché è il log che scorre a ogni singolo combattimento. Cinque
-spinte, catena verde, `cgx-test.exe` rifatto, **zero collaudo**.
+tutti**, perché è il log che scorre a ogni singolo combattimento. Otto spinte,
+catena verde, `cgx-test.exe` rifatto.
+
+⭐⭐ **E poi la sessione ha fatto il collaudo, dopo tre che non lo facevano, e il
+collaudo ha cambiato la coda del progetto.** Vedi «Quello che ha trovato il
+collaudo» qui sotto: in un solo screenshot c'era la prova che le rese nuove
+funzionano, una resa da correggere che compariva **cinque volte in uno schermo**,
+e la scoperta che il log è ancora mezzo inglese **e non per colpa di
+`proc.hsp`**. Da lì è partito `chara_func.hsp`, che è il file nuovo.
 
 ### ⚠️⚠️ Le cinque cose che la prossima sessione deve sapere
 
-1. ⚠️⚠️⚠️ **Il debito di collaudo è a 649 rese mai viste a schermo, e sono TRE
-   sessioni di fila senza aprire il gioco.** Le 121 della 36ª, le 146 della
-   37ª, le 285 della 38ª e le 97 di questa. Non era mai successo, e ogni
-   sessione che passa lo rende più caro: `cgx-test.exe` è aggiornato al
-   14/08 17:37 e contiene tutto. **Se la 40ª può fare una cosa sola, faccia il
-   collaudo** — vedi «La prima cosa da fare» più sotto, che ha le liste pronte
-   con gli attesi.
+1. ⭐⭐ **Il file da fare adesso è `chara_func.hsp`, e a dirlo è stato lo
+   schermo, non una misura.** La 39ª aveva scritto in questa stessa pagina che
+   dopo `proc.hsp` venivano `command.hsp`/`trait.hsp` oppure il testo fuori
+   perimetro. **Lo screenshot del collaudo ha ribaltato la risposta**: con
+   `proc.hsp` al 100% il log di combattimento è ancora mezzo inglese, e ogni
+   riga inglese viene da `chara_func.hsp` (`glares at you`, `gets furious!`,
+   `is frozen in fear`, `is incontinent`) o da `calculation.hsp` (`stands up`,
+   `released from bind`). Sono le righe che si infilano **fra** una riga
+   italiana e l'altra.
+   💡 **`chara_func` + `calculation` = 330 firme, cinque o sei lotti**, contro
+   le 1.560 di `command.hsp`, che si legge nei **menu** e non nel log. È la
+   lezione della 26ª — *la frequenza, non l'elenco* — trovata guardando lo
+   schermo invece che contando le firme. ✅ Il primo lotto è fatto
+   (`fase4-chara_func-001`, 39 rese); ne restano **247** più le 44 di
+   `calculation.hsp`.
+   ⚠️ **Attenzione ai numeri di riga**: `chara_func.hsp` nella build ha
+   **62 righe in meno** del sorgente (8.923 contro 8.985) per via delle toppe,
+   quindi chi incrocia dizionario e build guarda la riga sbagliata di sessanta
+   posizioni. È il caso di `text.hsp` della 37ª moltiplicato per sessanta: **si
+   legge il `SORGENTE`**, sempre.
 2. ⭐⭐ **`:24107` è la seconda riga del progetto che il dizionario non può
    aggiustare**, dopo `:11481` della 36ª, e la ragione è nuova.
    `SKILL_SPACT_JYUSOU_GOUSHIN` è dichiarata **`TARGET_TYPE_SELF_ONLY`**
@@ -60,7 +80,42 @@ spinte, catena verde, `cgx-test.exe` rifatto, **zero collaudo**.
    gemello `action.hsp:15268` ha — lì l'inglese era dinamico. Stessa riga, due
    tipi, due rese diverse, e la rete 3 grida per una ragione giusta.
 
-### ⚠️ La serie degli errori di monte passa da ventotto a trentadue
+### ⭐⭐ Quello che ha trovato il collaudo, ed è la parte che conta
+
+**Un solo screenshot del log, e ha reso tre cose diverse.** La console di debug
+lo rende possibile in dieci minuti: **F12 → `wizard`, `gain_spact`,
+`gain_spell`** dà tutte le azioni speciali e tutti gli incantesimi, e senza
+`gain_spact` metà delle rese della 39ª non è raggiungibile.
+
+1. ✅ **Le rese nuove funzionano, e la toppa di `:24107` è entrata.** A schermo:
+   «`Il viandante si scaglia addosso una maledizione tremenda!`» — **un nome
+   solo**, che era il rischio. Più «`Il viandante porta addosso un elmo di
+   bronzo [0,1], che brilla di luce nera.`», i **tre sguardi tutt'e tre
+   diversi**, «`copre d'insulti`», «`ricuce il punk in un lampo!`», e le teste
+   «… e» con il `-ne` enclitico in combattimento vero.
+   💡 E «`Lui rispetta la legge di questa pacifica citta'.`» **non è un
+   difetto**: è `he(tc, 1)`, che `init.hsp:1822` traduce già in «lui»/«lei».
+2. ⚠️⚠️ **Una resa sbagliata che compariva CINQUE volte in uno schermo**, e che
+   otto mesi di catena verde non avevano visto: «`Il viandante schiva Kefry.`»
+   (`action.hsp:5616`). Il giapponese dice 「name(cc) **の攻撃を** 避けた」,
+   cioè «l'attacco **di** cc», e l'inglese butta via 攻撃 lasciando il nome
+   nudo: in inglese «X evades Y» regge, in italiano «schiva Kefry» dice
+   un'altra cosa. ⚠️ E il genitivo era chiuso in partenza (rete 8: «l'attacco
+   di il putit»). ✅ Corretta con la forma della 37ª — «**X attacca, ma Y
+   schiva**» — **e con lei la parata due righe sopra** (`:5598`), che aveva lo
+   stesso difetto e che nessuno aveva mai guardato. `:5601` e `:5619` restano:
+   lì l'inglese aveva scelto il soggetto giusto.
+   💡 **È la lezione della 32ª e della 36ª una terza volta**: la catena verde
+   non dice niente su come suona una frase a schermo.
+3. ⭐⭐ **Il log è ancora mezzo inglese, e non per colpa di `proc.hsp`** — vedi
+   il punto 1 delle cinque cose. Ogni riga inglese dello screenshot è stata
+   rintracciata: `chara_func.hsp:2021`/`:2033`/`:2040` (`glares at you`, e parte
+   a **ogni** azione ostile), `:2047` (`gets furious!`), `:6441`, `:8317`;
+   `calculation.hsp:1917` (`stands up`) e `:1929`; `command.hsp:16987`
+   (`Really attack X?`) e `:17278`; `event.hsp` (venti siti identici per
+   `travel experience`).
+
+### ⚠️ La serie degli errori di monte passa da ventotto a trentatré
 
 Tre sono della famiglia «personaggio sbagliato» e uno è di forma nuova:
 
@@ -72,7 +127,17 @@ Tre sono della famiglia «personaggio sbagliato» e uno è di forma nuova:
   giapponese e lo conferma il codice, che fa partire l'animazione su `tc`. È il
   gemello di `:24107` — lì l'inglese aggiunge un personaggio che non c'è, qui
   ne sbaglia uno che c'è;
-- `:24107`, la riga toppata del punto 2.
+- `:24107`, la riga toppata del punto 2;
+- ⭐ **`chara_func.hsp:3037`, ed è la TERZA riga del progetto che il dizionario
+  non può aggiustare** dopo `proc.hsp:11481` (36ª) e `:24107`. La coppia
+  「濡れた」/「姿があらわになった」 compare **tre volte** nello stesso blocco —
+  chi subisce, il compagno di tag-team, chi ti cavalca — e nel ramo inglese
+  dell'ultima upstream ha ricopiato quella del tag-team cambiando **due**
+  riferimenti su tre: `is(gdata(GDATA_RIDER))` e `his(gdata(GDATA_RIDER))` sono
+  giusti, il `name()` è rimasto `name(ttc@con)`. 💡 La rete 11 non lascia
+  scampo perché `funzioni_di_contenuto` conta **`gdata` come contenuto**:
+  l'inglese dichiara `['name']`, la resa giusta dichiarerebbe
+  `['name', 'gdata']`. ✅ Toppata e rinviata.
 
 💡 **E `:26948` è un difetto di un'altra classe: upstream butta via
 l'informazione.** Il giapponese dice 「name は <tipo> に切り替えた。」, l'inglese
@@ -147,6 +212,26 @@ esattamente la cosa che quello script esiste per impedire. Adesso basta un
 | `-024` | 24000-24999 | l'automaledizione, lo Scambio da squalo, la posa, la marcatura del territorio, le scosse elettriche | 13 **+1 rinviata** |
 | `-025` | 25000-25999 | le onde, il filo e l'ago, l'esplosivo, la gravità, l'etere, l'Onda Sororale | 30 |
 | `-026` | 26000-26999 | i tre sguardi, la voce, le pozioni, lo zaino, il menu delle tattiche | 34 |
+
+E poi, dopo il collaudo, il primo lotto del file nuovo:
+
+| lotto | zona | che cosa | rese |
+|---|---|---|---|
+| `chara_func-001` | 3000-3999 | i dodici stati, i sedici recuperi, il bagnato | 39 **+1 rinviata** |
+
+⭐ **È il blocco più partecipiale del progetto: l'inglese scrive DODICI stati su
+dodici col participio** — «`is blinded`», «`was knocked down`», «`is
+paralyzed`», «`is poisoned`»… — e in italiano concorderebbero tutti col
+personaggio. Il giapponese non ha il problema perché usa 「は…た」, che è
+neutro. ✅ Le due strade si dividono il lavoro a metà: il **verbo riflessivo o
+intransitivo** («si addormenta», «si ubriaca», «si ammala», «cade a terra») e la
+**sostanza come soggetto** («La cecità coglie X», «La paralisi coglie X», «Il
+veleno invade X»). 💡 La forma «La \<cosa\> coglie X» non è nuova: era già di
+`proc.hsp:13389`, ed era l'unica delle cinque già decisa.
+⚠️ **E i sedici recuperi hanno il problema gemello, di genitivo**: l'inglese
+dice «`X` `your(X)` `bleeding stops`», «`recover from` `his(X)` `illness`», e in
+italiano diventerebbe «il sangue **di** X». Tutti girati col nome soggetto e il
+possesso implicito — «X non sanguina più», «X si rimette dalla malattia».
 
 💡 **Il perimetro dichiarato passa dal 47% al 49%**, e il totale vero resta al
 **36%**: le 97 rese valgono due punti dentro `lang()` e nemmeno uno sul conto
@@ -610,7 +695,12 @@ non da comodità.** Uno script della sessione ha troncato `toppe.jsonl` a **zero
 byte** — 231.878 byte di dati — e a salvarlo è stato `git checkout`, cioè il
 fatto che il lavoro fosse **già spinto**. Se fosse successo prima della prima
 spinta, non ci sarebbe stato niente da cui tornare indietro.
-💡 La 39ª ha spinto **cinque volte** — quattro lotti e la chiusura.
+💡 La 39ª ha spinto **otto volte** — quattro lotti di `proc.hsp`, la chiusura,
+la correzione trovata a schermo, il primo lotto di `chara_func` e la seconda
+chiusura. È la seconda sessione dopo la 38ª a chiudersi **due volte**, ed è
+giusto così: fra la prima e la seconda ci sono stati il collaudo e un cambio di
+rotta sul file successivo, cioè le due cose che la prossima sessione deve sapere
+più di ogni altra.
 💡 La 38ª ha spinto **otto volte** — sei lotti e due referti — una per
 risultato chiuso, ed è il numero più alto del progetto dopo le sette della 35ª.
 💡 **La 36ª ha spinto cinque volte** — due toppe, tre lotti — e **la 37ª cinque**
@@ -637,20 +727,32 @@ giapponese** e lo stampa come `?`, il che rende illeggibili le colonne `jp`.
 
 ## La prima cosa da fare
 
-⚠️⚠️⚠️ **Il collaudo, e adesso il debito è a 649 rese mai viste a schermo.** Sono
-le 121 della 36ª, le 146 della 37ª, le **285 della 38ª** e le **97 della 39ª**, e
-né la 37ª né la 38ª né la 39ª hanno aperto il gioco una sola volta. **Tre
-sessioni di fila senza collaudo: non era mai successo**, e il debito è quasi il
-triplo del record precedente. `cgx-test.exe` è stato rifatto a fine 39ª
-(14/08, 17:37) e contiene tutto.
+⚠️⚠️ **Il collaudo, e il debito è sceso per la prima volta dalla 36ª.** La 39ª
+ha aperto il gioco dopo tre sessioni che non lo facevano, e in un solo
+screenshot ha confermato una dozzina di rese nuove e trovato **una resa
+sbagliata che compariva cinque volte in uno schermo** (vedi «Quello che ha
+trovato il collaudo» in cima). ⚠️ **Ma il grosso resta**: le 121 della 36ª, le
+146 della 37ª e le **285 della 38ª** non sono ancora state guardate, e delle 97
+della 39ª ne è stata vista **una dozzina**. `cgx-test.exe` è stato rifatto a
+fine 39ª e contiene tutto.
+
+⭐ **E adesso si sa come farlo in dieci minuti**: **F12 → `wizard`,
+`gain_spact`, `gain_spell`**. `gain_spact` dà **tutte** le azioni speciali in un
+colpo, ed è la chiave: senza, metà delle liste qui sotto non è raggiungibile.
+⚠️ Modifica il salvataggio per sempre, quindi prima si copia
+`elonaplus2.31\save\sav_oldpz` in `save-backup\pre-collaudo-<data>`.
 
 💡 **Le 97 della 39ª chiudono `proc.hsp` e stanno tutte in azioni speciali
-identificabili**, quindi si collaudano una per una. Da guardare per prime:
+identificabili**, quindi si collaudano una per una. ✅ Già viste: la toppa
+dell'**automaledizione** (un nome solo), i **tre sguardi** (tre frasi diverse),
+l'**Insulto**, la **Sutura istantanea** sul ramo alleato. ⚠️ Da guardare, in
+ordine:
 
 | cosa | come | perché |
 |---|---|---|
-| ⚠️⚠️ **l'automaledizione** | azione speciale **Jyusou Goushin** (`skill.hsp:1412`) | è la **toppa** della sessione: dev'uscire «X si scaglia addosso una maledizione tremenda!» con **un nome solo**. Se ne escono due, la toppa non è entrata |
-| i tre sguardi | azioni speciali **Sguardo di mana**, **Sguardo illusorio**, **Sguardo irrigidente** | l'inglese le diceva tutt'e tre «X gazes Y»: devono uscire **tre frasi diverse** |
+| ✅ **l'automaledizione** | azione speciale **Jyusou Goushin** (`skill.hsp:1412`) | **guardata il 14/08 e la toppa è entrata**: «`Il viandante si scaglia addosso una maledizione tremenda!`», un nome solo |
+| ✅ i tre sguardi | **Sguardo di mana**, **Sguardo illusorio**, **Sguardo irrigidente** | **guardati**: tre frasi diverse dove l'inglese ne diceva una sola |
+| ⚠️ la **Sutura istantanea** su un **nemico** | ↑ il ramo alleato è già stato visto («ricuce X in un lampo!») | manca il ramo ostile: deve dire «**cuce** X **sul posto** in un lampo!» |
 | il menu della necromanzia | azione speciale **Forza necromantica**, tutte e quattro le voci | i quattro versi (`*Potenziamento magico*`, `*Conversione vitale*`, `*Ordigno spietato*`, `*Richiamo dei non-morti*`) e la voce di menu **Evoca non-morti**, che è l'unica riga della sessione che passa da `*prompt_key` |
 | il poker | azione speciale **Forza del poker**, con la barra sotto il 100% | «La barra non basta.», «Non hai formato nessuna combinazione.», e «**Le carte** colpiscono X» al plurale — non «La carta», che è lo ShikiOrigami |
 | il jolly variabile | azione speciale **Cambio jolly** su un alleato | il nome della creatura diventa `{Jolly Variabile}`: si legge nella lista alleati, non solo nel log |
@@ -949,13 +1051,27 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
    fretta. ⚠️ **Ma circa metà delle righe dei file piccoli non è testo** —
    entità HTML, operandi di confronto, chiavi di dati — quindi il numero è un
    punto di partenza, non un elenco di lavoro;
-3. ⭐ **Adesso che `proc.hsp` è chiuso, la coda ha due imbocchi diversi, e
-   scegliere è la prima decisione della 40ª (dopo il collaudo).**
+3. ⭐⭐ **`chara_func.hsp`, e la scelta l'ha fatta il collaudo.** Questo punto
+   diceva «`command.hsp`/`trait.hsp` oppure il fuori perimetro», ed era
+   **sbagliato**: lo screenshot ha mostrato che il log resta mezzo inglese
+   anche con `proc.hsp` al 100%, e le righe che lo sporcano stanno qui.
 
-   - **`command.hsp` e `trait.hsp`**, ~1.680 firme mai toccate. È la strada
-     nota: stessa catena, stessi strumenti, stesso tipo di lotto. ⚠️
-     `command.hsp` è anche il file che **disegna** i `buffdesc`, e quello che
-     porta 10 delle 68 righe inglesi fuori da `lang()` ancora intatte.
+   - ✅ **`chara_func.hsp`, 247 firme, e `calculation.hsp`, 44.** Primo lotto
+     fatto (3000-3999, gli stati e i recuperi). Le zone restanti, tutte
+     tematicamente pulite: `6000-6999` **68** (cure, urla e **tutte le cause di
+     morte**, log e giornale), `2000-2999` **59** (azioni ostili, i due blocchi
+     gemelli di 22 messaggi di resistenza, la malattia dell'etere),
+     `4000-4999` **35** (danni elementali agli oggetti, le morti scherzose),
+     `7000-7999` **35** (premi, pietre magiche, cadaveri), `8000-8999` **27**
+     (peso, altezza, anoressia, geni), `1000-1999` **18** (relazioni,
+     cavalcature, tag-team). ⚠️ `calculation.hsp` **non ha ancora un
+     dizionario**: è un file intero da aprire, e ci stanno `stands up` e
+     `released from bind`, che si leggono a ogni combattimento.
+   - **`command.hsp` e `trait.hsp`**, ~1.966 firme mai toccate. È la strada
+     nota, ma si legge nei **menu**, non nel log. ⚠️ `command.hsp` è anche il
+     file che **disegna** i `buffdesc`, quello di «`Really attack X?`» e
+     «`Do you want to save the game and exit?`», e quello che porta 10 delle 68
+     righe inglesi fuori da `lang()` ancora intatte.
    - ⚠️ **Il testo fuori perimetro**, cioè le **5.284 descrizioni degli
      oggetti** di `db_item.hsp` e i **quattro file di `data/`** (~2.900 righe,
      117.977 caratteri di prosa inglese). È la scoperta della 38ª, ed è il
@@ -965,11 +1081,11 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
      `lang()` e non passa da `applica.py`. Nessuno l'ha ancora scritta, e
      scriverla è mezza giornata prima di tradurre la prima riga.
 
-   💡 In caratteri la seconda vale molto più della prima; in numero di firme, il
-   contrario. La domanda vera è **quale delle due il giocatore legge di più**, e
-   su questo il progetto ha già una risposta di metodo dalla 26ª: **la
-   frequenza, non l'elenco**. Le descrizioni degli oggetti si leggono a ogni
-   `i`; `command.hsp` a ogni tasto premuto.
+   💡 **La domanda giusta è quale il giocatore legge di più, e la risposta si
+   guarda, non si calcola.** Il progetto ce l'aveva già dalla 26ª — *la
+   frequenza, non l'elenco* — ma per tre file di fila l'aveva applicata
+   contando le firme. La 39ª l'ha applicata **aprendo il gioco**, e la risposta
+   è cambiata al primo screenshot.
 
 ⭐ **`chips.hsp` è chiuso**, trovato e fatto a schermo il 14/08. Ha **tre**
 `lang()` in tutto — i nomi delle caselle di terreno — e uscivano da
@@ -1167,7 +1283,8 @@ battute rese» e sommandoci i lotti veniva 2.515, quattro in meno del vero.
 
 Altri fuori Fase 1: `custom_enemyevolution.hsp` **chiuso**; `chips.hsp`
 **chiuso** ⭐ 2026-08-14 (3 su 3); `ai.hsp` 6 su 100; `event.hsp` 5 su 654;
-`chara_func.hsp` 45 su 331; `init.hsp` 6 su 133.
+**`chara_func.hsp` 84 su 331** (+39 nella 39ª, ne restano **247**);
+`calculation.hsp` **0 su 44**; `init.hsp` 6 su 133.
 
 ⚠️ **E il quadro d'insieme, misurato il 14/08 con `scratchpad/fuori_elenco.py`**:
 dei **54** file con `lang()` ne hanno un dizionario **14**; i **40** restanti
@@ -1176,13 +1293,15 @@ Fase 4, che `SPEC.md` §6 definisce collettivamente («i restanti 63 file `.hsp`
 minori»). Il numero serve a tenere le proporzioni: quello che resta è più grande
 di quello che è stato fatto.
 
-**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **14.197
+**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **14.239
 sostituzioni** applicate alla build — erano **14.086** all'apertura della 39ª,
-più le **111** dei quattro lotti. **`toppe.jsonl` è a 303** (+1 nella 39ª:
-`proc.hsp:24107`), e `proc.hsp` ne porta **28**. **`rinviate.jsonl` è a 15**
-(`proc.hsp` 7, `db_creature.hsp` 4, `action.hsp` 2, `text.hsp` 2). Il
-compilatore non dice nulla, manifesto del sorgente **72/72** (ricontrollato il
-14/08 a inizio 39ª). Perimetro `lang()` **49%**, totale vero **36%**.
+più le **111** dei quattro lotti di `proc.hsp` e le **42** del primo di
+`chara_func`. **`toppe.jsonl` è a 304** (+2 nella 39ª: `proc.hsp:24107` e
+`chara_func.hsp:3037`), e `proc.hsp` ne porta **28**. **`rinviate.jsonl` è a 16**
+(`proc.hsp` 7, `db_creature.hsp` 4, `action.hsp` 2, `text.hsp` 2,
+`chara_func.hsp` 1). Il compilatore non dice nulla, manifesto del sorgente
+**72/72** (ricontrollato il 14/08 a inizio 39ª). Perimetro `lang()` **49%**,
+totale vero **36%**.
 
 💡 **Le sostituzioni crescono più delle rese anche stavolta**: 97 rese hanno
 prodotto **111 siti**. Una firma esce in più punti, e il caso più netto della
