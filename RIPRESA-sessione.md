@@ -4,36 +4,50 @@ Aggiornato: 2026-08-14, fine della **quarantesima** sessione.
 
 ⭐⭐ **`chara_func.hsp` è CHIUSO, in una sessione sola.** Sei lotti — `002`…`007`
 — **243 rese**, da 84 su 331 a **327 su 331**: le quattro che restano sono tutte
-rinviate apposta. È il **tredicesimo file al 100%**, e il **quarto in due
-giorni** dopo `proc.hsp`, `chips.hsp` e `custom_enemyevolution.hsp`. Cinque
-spinte, catena verde, `cgx-test.exe` rifatto.
+rinviate apposta. È il **tredicesimo file al 100%**. Catena verde,
+`cgx-test.exe` rifatto.
 
-⭐⭐ **Ed è la prima volta che un file si apre e si chiude nella stessa
-settimana perché l'ha chiesto lo SCHERMO.** `chara_func.hsp` non era in nessun
-elenco di priorità: ci è finito perché lo screenshot del collaudo della 39ª
-mostrava il log ancora mezzo inglese con `proc.hsp` al 100%, e ogni riga inglese
-veniva di qua. Le righe di quello screenshot — `:2021`, `:2047`, `:6441`,
-`:8317` — sono tutte rese, e `:8317` si è chiusa **copiando** una resa che il
-lotto 001 aveva già scritto.
+⭐⭐ **E anche `calculation.hsp` è CHIUSO, in un lotto solo: 44 su 44, zero
+rinviate.** Sono **due file chiusi in una sessione**, il tredicesimo e il
+quattordicesimo del progetto, e `calculation.hsp` è il **sedicesimo dei 54 con
+`lang()` ad avere un dizionario** (erano 15). Sette spinte in tutto.
+
+⭐⭐ **Ed è la prima volta che i file si aprono e si chiudono perché l'ha chiesto
+lo SCHERMO.** Né `chara_func.hsp` né `calculation.hsp` erano in un elenco di
+priorità — il secondo `SPEC.md` §6 lo copre solo con la designazione collettiva
+«i restanti 63 file `.hsp` minori». Ci sono finiti perché lo screenshot del
+collaudo della 39ª mostrava il log ancora mezzo inglese **con `proc.hsp` al
+100%**, e ogni riga inglese veniva da uno dei due.
+✅ **Le tre fonti inglesi di quello screenshot sono adesso tutte chiuse**:
+`proc.hsp` (39ª), `chara_func.hsp` e `calculation.hsp` (40ª). Le righe nominate
+una per una — `:2021`, `:2047`, `:6441`, `:8317`, `calculation:1917`
+(`stands up`), `calculation:1929` (`released from bind`) — sono tutte rese, e
+**due di loro si sono chiuse copiando** una resa già scritta altrove.
+💡 È la lezione della 26ª — *la frequenza, non l'elenco* — portata fino in
+fondo: dieci minuti di gioco hanno deciso due file interi meglio di qualunque
+conteggio di firme.
 
 ### ▶ Il punto esatto in cui si riprende
 
 Tutto è **spinto** e l'albero di lavoro è pulito: si riparte da
 `git fetch && git status -sb` e dalle otto verifiche d'apertura.
 
-1. ⭐ **`calculation.hsp`, che sono 44 voci e chiude un file intero.**
-   `lavoro/_calculation.jsonl` è già estratto. Ci stanno `stands up` e
-   `released from bind`, **viste a schermo nel collaudo della 39ª**: è l'ultimo
-   pezzo del log di combattimento che resta inglese, dopo `proc.hsp` e
-   `chara_func.hsp`. ⚠️ **Il file non ha ancora un dizionario**: sarà il
-   quindicesimo dei 54 con `lang()` ad averne uno.
-2. **Oppure il collaudo, che è il debito più grosso del progetto.** Vedi «Quello
-   che il collaudo deve guardare» qui sotto: **243 rese nuove mai viste a
-   schermo**, ed è il debito più alto mai accumulato in una sessione — più delle
-   235 della 35ª. `cgx-test.exe` è aggiornato (14/08) e contiene tutto, le sei
-   toppe di `chara_func` comprese.
-3. **Oppure `command.hsp`/`trait.hsp`** (~1.680 firme), che però si leggono nei
-   **menu** e non nel log: la lezione della 26ª dice di lasciarli dopo.
+1. ⭐⭐ **Il COLLAUDO, ed è la prima volta che questa pagina lo mette al primo
+   posto.** **287 rese nuove mai viste a schermo**, ed è il debito più alto mai
+   accumulato in una sessione — più delle 235 della 35ª. Ma non è solo il
+   numero: le tre fonti inglesi del log sono chiuse tutte e tre, quindi
+   **stavolta il collaudo risponde a una domanda vera** — «il log di
+   combattimento è italiano, adesso?» — e nessuna misura può rispondere al posto
+   suo. Vedi «Quello che il collaudo deve guardare» qui sotto. `cgx-test.exe` è
+   aggiornato (14/08) e contiene tutto, le sei toppe di `chara_func` comprese.
+2. **Oppure `command.hsp`/`trait.hsp`**, che sono ~1.680 firme e i due file
+   nominati più grossi che restano. ⚠️ Si leggono nei **menu** e non nel log: la
+   lezione della 26ª dice di lasciarli dopo il collaudo, non prima. `trait.hsp`
+   da solo vale **406** firme.
+3. **Oppure `ai.hsp` (94) o `init.hsp` (133)**, che sono piccoli e già estratti.
+   💡 `init.hsp` ha un interesse suo: è il file delle `#defcfunc` — `his2()`,
+   `your()`, `godname()` — cioè le funzioni che **restituiscono inglese fuori da
+   `lang()`** e su cui il progetto ha già tre dipendenze dichiarate.
 
 ### ⚠️⚠️ Le cinque cose che la prossima sessione deve sapere
 
@@ -109,11 +123,24 @@ Tutto è **spinto** e l'albero di lavoro è pulito: si riparte da
    è troppo per lasciarlo al caso: **è il candidato naturale al prossimo
    strumento** — un `termini.py` che cerchi le sottostringhe giapponesi del
    dizionario dentro le voci da fare.
+   ⭐ **E il lotto di `calculation.hsp`, lo stesso giorno, mostra il rovescio
+   esatto**: lì **sette rese su quarantaquattro** erano già decise e `dossier.py`
+   le ha pescate **tutte e sette**, perché la frase giapponese coincideva per
+   intero. Lo stesso strumento, i due estremi, in due lotti: **quando la frase è
+   la stessa non sbaglia mai, quando il termine è annegato non vede niente.**
+   Il confine è netto e si sa dov'è, ed è quello che rende lo strumento nuovo
+   facile da scrivere.
 
 ### ⭐⭐ Quello che il collaudo deve guardare
 
-**243 rese mai viste a schermo, ed è il debito più alto di sempre.** Le cose
-dove ho cambiato la struttura e non solo le parole:
+**287 rese mai viste a schermo, ed è il debito più alto di sempre.**
+⭐ **La prova che conta è una sola**: apri un combattimento e guarda se il log è
+italiano. `proc.hsp`, `chara_func.hsp` e `calculation.hsp` sono le tre fonti
+delle righe inglesi dello screenshot della 39ª e adesso sono chiuse tutte e tre
+— se resta ancora inglese, viene da un file che **nessuno ha ancora sospettato**,
+e trovarlo vale più di un altro lotto.
+
+Poi le cose dove ho cambiato la struttura e non solo le parole:
 
 | cosa | come arrivarci | perché guardarla |
 |---|---|---|
@@ -123,8 +150,10 @@ dove ho cambiato la struttura e non solo le parole:
 | «X storce il naso» | attacca un cittadino amichevole | parte a **ogni** azione ostile: è la riga più frequente di tutto il lotto 002 |
 | la sella | cavalca un alleato | la parentesi si apre in una `lang()` e si chiude **undici righe dopo**, fuori da ogni traduzione: se la velocità non compare, la testa è rotta |
 | il gelo sull'equipaggiamento | fatti colpire dal gelo con oggetti fragili addosso | è la **toppa** di `:4520`: deve dire «Il gelo manda in frantumi la spada, che il putit porta addosso», senza nessun «'s» |
+| la sete e la fame | cammina finché non ti viene fame, e non mangiare | **quattordici** gradini nuovi, tre soglie per due bisogni: la scala deve sentirsi salire, da «Hai fame.» a «Di questo passo muori di fame!» |
+| «si rimette in piedi» | fatti ribaltare, poi aspetta | è `calculation.hsp:1917`, una delle due righe che hanno fatto aprire il file: era inglese nello screenshot della 39ª |
 
-### I sei lotti
+### I sette lotti
 
 | lotto | zona | che cosa | rese |
 |---|---|---|---|
@@ -134,6 +163,12 @@ dove ho cambiato la struttura e non solo le parole:
 | `-005` | 7000-7999 | le ultime morti, i sette premi di trama, il cadavere da cui si scende | 35 |
 | `-006` | 8000-8999 | i versi del dolore, peso e statura, il vomito, chi si sdoppia | 27 |
 | `-007` | il resto | i rapporti, la tag-team, la sella, la coda sparsa | 22 |
+
+E poi il file nuovo, chiuso in un colpo:
+
+| lotto | zona | che cosa | rese |
+|---|---|---|---|
+| `calculation-001` | tutto il file | il vortice di mana, la sete e la fame, i recuperi di stato | 44 |
 
 ⭐ **Il `-003` è il lotto più grosso mai fatto**, e batte le 59 del `proc-021`.
 
@@ -212,9 +247,13 @@ comfortable`» — il ramo guarda una proprietà **della bestia**), `:8007`
 inventata).
 
 💡 **Il perimetro dichiarato passa dal 49% al 50% e il totale vero dal 36% al
-37%.** Le 243 rese valgono **un punto** sul conto vero: il quadro della 38ª non
+37%.** Le 287 rese valgono **un punto** sul conto vero: il quadro della 38ª non
 cambia di una virgola — quel che resta è più grande di quel che è stato fatto, e
 la parte più grossa **non ha firma `lang()`**.
+💡 E i file con `lang()` che hanno un dizionario passano da **15 a 16 su 54**:
+le stringhe **mai estratte** scendono da 12.620 a **12.573**. Quarantasette in
+meno su dodicimila — è la proporzione vera del lavoro che resta, e serve a non
+farsi ingannare da due file chiusi in un giorno.
 
 ---
 
@@ -931,8 +970,9 @@ Chi apre a Firenze senza guardare riparte da prima di ferragosto.
 40ª**, sempre dal portatile. Tutt'e undici hanno aperto con
 `git fetch && git status -sb` e tutt'e undici hanno trovato le copie allineate:
 la regola ha tenuto **undici volte di fila**.
-💡 La 40ª ha spinto **cinque volte** — quattro lotti e la chiusura dei tre
-finali — una per risultato chiuso.
+💡 La 40ª ha spinto **sette volte** — quattro lotti, la chiusura dei tre finali,
+la ripresa e `calculation.hsp` — una per risultato chiuso, ed è il numero più
+alto del progetto.
 ⚠️⚠️ **E nella 39ª la spinta ha fatto da rete di sicurezza per la prima volta,
 non da comodità.** Uno script della sessione ha troncato `toppe.jsonl` a **zero
 byte** — 231.878 byte di dati — e a salvarlo è stato `git checkout`, cioè il
@@ -1535,12 +1575,20 @@ battute rese» e sommandoci i lotti veniva 2.515, quattro in meno del vero.
 
 Altri fuori Fase 1: `custom_enemyevolution.hsp` **chiuso**; `chips.hsp`
 **chiuso** ⭐ 2026-08-14 (3 su 3); `ai.hsp` 6 su 100; `event.hsp` 5 su 654;
-`calculation.hsp` **0 su 44** ⬅ **il prossimo**; `init.hsp` 6 su 133.
+`init.hsp` 6 su 133.
 
 ⭐⭐ **`chara_func.hsp`: 327 su 331, chiuso il 2026-08-14** — +243 nella 40ª (era
 84), sei lotti in una sessione sola. Le **4 rinviate** sono `:2310` (dentro un
 blocco `/* ... */` spento), `:3037` e `:4520` (✅ toppate), `:4369` (riga
 commentata). Il file porta **6 toppe**.
+
+⭐⭐ **`calculation.hsp`: 44 su 44, chiuso il 2026-08-14** — un lotto solo, **zero
+rinviate**, ed è l'unico file del progetto chiuso senza lasciare niente indietro
+al primo passaggio. ⚠️ **Ma «100%» qui vuol dire «tutte le firme `lang()`»**:
+`:2352` porta 「Forgive me! Forgive me!」, 「P-P-Pika!」, 「You snail!」 dentro un
+`if ( jp ) … else` **fuori da `lang()`** — la scoperta di `else_jp.py` della 34ª,
+uscita in inglese a schermo durante quel collaudo. Non hanno firma, non entrano
+in nessun conteggio, e vanno **per toppa**.
 
 ⚠️ **E il quadro d'insieme, misurato il 14/08 con `scratchpad/fuori_elenco.py`**:
 dei **54** file con `lang()` ne hanno un dizionario **14**; i **40** restanti
@@ -1549,9 +1597,10 @@ Fase 4, che `SPEC.md` §6 definisce collettivamente («i restanti 63 file `.hsp`
 minori»). Il numero serve a tenere le proporzioni: quello che resta è più grande
 di quello che è stato fatto.
 
-**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **14.490
+**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **14.534
 sostituzioni** applicate alla build — erano **14.239** alla chiusura della 39ª,
-più le **251** dei sei lotti di `chara_func.hsp`. **`toppe.jsonl` è a 306** (+2
+più le **251** dei sei lotti di `chara_func.hsp` e le **44** di
+`calculation.hsp`. **`toppe.jsonl` è a 306** (+2
 nella 40ª, tutt'e due per `:4520`: `chara_func.hsp:4491` e `:4520`), e
 `chara_func.hsp` ne porta **6**, `proc.hsp` **28**. **`rinviate.jsonl` è a 19**
 (`proc.hsp` 7, `db_creature.hsp` 4, `chara_func.hsp` 4, `action.hsp` 2,
