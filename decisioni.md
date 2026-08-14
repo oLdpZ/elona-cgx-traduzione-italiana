@@ -6,6 +6,182 @@ ancora aperte.
 
 ---
 
+## Una riga spenta non è solo una riga che comincia per `;` — 2026-08-14, trentasettesima sessione
+
+La rete 6 nasce nel lotto 006 su `proc.hsp:4958`, il blocco `MANUSCRIPT HINT`
+commentato riga per riga, e da allora controlla una cosa sola: che la riga della
+voce non cominci per `;`. Nel lotto `014` `proc.hsp:11796` l'ha passata, ed era
+testo morto:
+
+```hsp
+/********** ORIGINAL - BEGINNING ********** // Remove skill bonus limit.
+...
+        txt lang("注意！スペルボーナスは100以上あると新たに獲得できない。", "Caution! ...")
+...
+ ********** ORIGINAL - ENDING **********/
+```
+
+È il modo con cui **il mod spegne il codice di monte**: non commenta le righe una
+per una, le avvolge in un `/* ... */`. Le uniche righe vive di quel tratto sono
+`:11773`, il messaggio che i 5 punti li dà, e `:11787`, il `+= 5` che li assegna:
+il tetto di 100 il mod l'ha tolto, e con lui l'avviso.
+
+✅ `scratchpad/commenti-blocco.py` trova le righe coperte da un blocco, e la rete
+6 adesso le rifiuta. `proc.hsp` ne ha **99**, `action.hsp` 132,
+`custom_tweaks.hsp` 100.
+
+💡 **E la domanda «era già successo?» ha una risposta: sette volte.** Sei voci in
+`action.hsp` e `proc.hsp:1000` — la versione originale dell'incasso delle
+esibizioni, sostituita dal blocco `ANNA CUSTOM` — sono tradotte dentro un blocco
+spento. Non è un difetto a schermo: è lavoro speso su testo che il giocatore non
+legge.
+
+### ⚠️ E la misura ha ingannato prima di dare il numero giusto
+
+Fatta sulla **build** ne accusava **nove**, e le due di `text.hsp` erano giuste.
+La build di `text.hsp` ha **una riga in più** del sorgente — 12.528 contro
+12.527 — perché una toppa ce l'ha aggiunta, e da lì in giù i numeri di riga del
+dizionario, che vengono dal **sorgente pinnato**, non tornano più.
+
+> Chi incrocia numeri di riga e dizionario deve leggere il `SORGENTE`, non la
+> build. `proc.hsp` e `action.hsp` hanno lo stesso numero di righe nelle due
+> copie e il problema non si vede; `text.hsp` no, e non c'è nessuna guardia che
+> lo dica.
+
+⚠️ **Vale anche per `dossier.py`**, che oggi legge la build per mostrare il
+contesto: su `text.hsp` mostrerebbe la riga sbagliata.
+
+---
+
+## Il genitivo davanti a `name()` non esiste, e sei rese lo scrivevano — 2026-08-14, trentasettesima sessione
+
+`init.hsp:1717` diceva `return "the " + cdatan(CDATAN_NAME, name_arg1)`, e una
+toppa della Fase 1 toglie il `"the "`: in italiano l'articolo dipende da genere
+ed elisione, quindi lo porta **il nome della creatura** (`db_creature.hsp`: «il
+cultista del fuoco», «la medusa purificata»). Da quel momento `name(x)` e
+`cdatan(CDATAN_NAME, x)` restituiscono la **stessa identica stringa**, articolo
+compreso — ed è per questo che la rete 8 le tratta uguali.
+
+La conseguenza è che **nessuna preposizione semplice può stare davanti a un
+nome**: «di » + `name(tc)` stampa «di il putit», e «del » stamperebbe «del
+Sinaha». Il genitivo, in questa lingua, non è disponibile.
+
+La rete 8 lo impedisce dal lotto 009. ⚠️ **Ma nessuno l'aveva mai passata su
+quello che c'era prima**, e `scratchpad/rete8_dizionario.py` trova **sei
+preposizioni in cinque rese**, tutte visibili a schermo:
+
+| dove | stampava |
+|---|---|
+| `action.hsp:11810` | «Hai dato istruzioni **a il** putit» |
+| `action.hsp:12706` | «i movimenti **di il** putit» |
+| `action.hsp:18997` | «i geni **di il** … **in il** …» |
+| `action.hsp:19004` | «i geni **di il** putit» |
+| `proc.hsp:1966` | «piomba giù **su il** putit» |
+
+✅ Corrette girando la frase: il nome diventa **soggetto** o **complemento
+oggetto**. La strada era già stata aperta senza dichiararla da `proc.hsp:8759` e
+`:8786`, che usano il **`-ne` enclitico** — «morde X succhiando**ne** il sangue».
+
+⚠️ **Otto segnalazioni su quattordici erano falsi positivi**, e vanno sapute
+perché la misura si rifarà: «**con**» non si fonde in italiano moderno («con il
+putit» è corretto, «col» è facoltativo); «Hai tirato **su** » + `itemname` è un
+**verbo sintagmatico**; e `valn = skillname(i)` non porta articolo, quindi «il
+potenziale **di Forza**» è giusto.
+
+### ⚠️ E la guardia che mancava sotto tutto questo
+
+`verifica --dizionario` **non valida le rese**: confronta il dizionario col
+sorgente e conta orfane e non tradotte. Una correzione scritta a mano nel
+dizionario — cioè tutte quelle di `correzione-*.py` — **non incontrava nessuna
+guardia**. Adesso gli script di correzione passano le rese nuove a
+`controlla_lotto`, che è quello che il lotto fa da sempre.
+
+---
+
+## Il compilatore ha visto quello che undici reti non vedevano — 2026-08-14, trentasettesima sessione
+
+`proc.hsp:11534` è classificata **dinamica** perché l'inglese porta `his(tc)`:
+
+```hsp
+txt lang("幾つかのアイテムが浄化された。", "The aura uncurses some " + his(tc) + " stuff.")
+```
+
+Ma `his(tc)` a un argomento è **morfologia**, e in italiano sparisce: quello che
+resta è una frase sola, senza nessuna funzione. Scritta come testo nudo —
+`Qualche oggetto è stato purificato.` — ha passato le undici reti, `verifica` e
+le tre guardie, perché **nessuna di loro guarda la forma HSP della resa**.
+`applica.py`, che per le dinamiche non avvolge niente fra virgolette, l'ha
+infilata come **codice**:
+
+```
+proc.hsp(11534) : error 4 : パラメーター式の記述が無効です
+#未初期化の変数があります(qualche)
+```
+
+Il compilatore ha letto «qualche» come nome di variabile.
+
+✅ **Rete 12**: la resa di una dinamica deve contenere almeno una `"`.
+
+> È il primo difetto della serie che **solo il compilatore poteva vedere**, e
+> arriva dopo la lezione della 34ª (la catena verde non dice niente sulla lingua
+> che il giocatore legge) e della 35ª (non dice niente sulla coerenza fra due
+> file). Adesso: **non dice niente su come la resa entra nel sorgente**.
+
+---
+
+## Quando due reti si contraddicono, a decidere è il sorgente — 2026-08-14, trentasettesima sessione
+
+`proc.hsp:12837` e `:13298` hanno lo **stesso giapponese**:
+
+```
+name(tc) + "は咄嗟に" + name(cc) + "の攻撃を防いだ！"
+```
+
+ma due inglesi diversi: `:13298` nomina tutt'e due i personaggi
+(`name(tc) + " fend" + _s(tc) + " off " + name(cc) + your(cc) + " attack!"`),
+`:12837` ne nomina **uno solo**, e per giunta **quello sbagliato**
+(`name(cc) + " bluntly prevented the attack!"`: dice che a parare è chi attacca).
+
+- La **rete 11** pretende che la resa porti esattamente le funzioni di contenuto
+  dell'inglese: a `:12837`, un nome solo.
+- La **rete 4** pretende che due siti con lo stesso giapponese dicano le stesse
+  parole: con un nome in meno, impossibile.
+
+Le due non possono avere ragione insieme, e **la differenza non la sceglie la
+traduzione: la impone il sorgente**. ✅ La rete 4 adesso raggruppa per
+`(giapponese, funzioni di contenuto)` e stampa un 💡 quando lo stesso giapponese
+ha due firme diverse.
+
+💡 **E a `:12837` la resa segue il giapponese**, perché può: `verifica.py:384`
+accetta ogni chiamata che compaia in **una delle due** forme di monte, e
+`name(tc)` sta nel giapponese. La regola vale ogni volta che l'inglese nomina il
+personaggio sbagliato — è successo cinque volte in questa sessione sola.
+
+---
+
+## «Pieno» non lo dicono né il giapponese né il codice — 2026-08-14, trentasettesima sessione
+
+`action.hsp:1096` rendeva 「name(CHARA_PLAYER)のマナが回復した。」 con «ha di
+nuovo il mana **pieno**». L'inglese («mana is restored») non basta a smentirlo, e
+per due sessioni nessuno l'ha guardato. Il lotto `016` ha trovato lo **stesso
+giapponese** a `proc.hsp:14597`, e a quel punto la domanda è diventata: pieno
+rispetto a che cosa?
+
+Il codice risponde in una riga, tutte e due le volte:
+
+- `action.hsp:1095` — `healmp 0, inv(INV_ITEM_CHARGE, ci) * 5 * inv(INV_ITEM_NUM, ci)`
+- `proc.hsp:14594` — `healmp tc, cdata(CDATA_MAX_MP, tc) / 10 + rnd(sdata(SKILL_ATTR_MAG, tc)) + 5`
+
+Nessuno dei due riempie la barra, e 回復した significa «si è ripreso», non «è
+pieno». ✅ Tutt'e due dicono «recupera mana».
+
+> È la regola della 33ª applicata a una resa già entrata: **per una riga che
+> descrive un effetto l'arbitro non è una lingua, è il codice.** Lì aveva
+> corretto tre `buffdesc` su 63; qui corregge una resa che nessuna guardia
+> poteva mettere in dubbio, perché era coerente con l'inglese.
+
+---
+
 ## `his2()` porta il nome ma non passa da `lang()`: una funzione che non si traduce — 2026-08-14, trentaseiesima sessione
 
 Il lotto `013` ha scritto una resa per `proc.hsp:11481` leggendo l'inglese
