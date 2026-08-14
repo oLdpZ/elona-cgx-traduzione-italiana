@@ -9,8 +9,9 @@ beve, contratta col mercante, si medica — e per questo e' entrato prima di
 `init.hsp`, che ha piu' firme (133 contro 94) ma si legge quasi tutto nella
 scheda del personaggio.
 
-⚠️⚠️ **L'inglese di monte ha rimescolato le battute in DUE punti, e la serie
-degli errori di monte passa da trentasei a trentotto.** Non e' la famiglia del
+⚠️⚠️ **L'inglese di monte ha rimescolato le battute in DUE punti, ed e' una
+famiglia nuova.** Con `:406` qui sotto la serie degli errori di monte passa da
+trentasei a **trentanove**. Non e' la famiglia del
 «personaggio sbagliato» ne' quella della «riga ricopiata»: qui l'ordine dei
 `lang()` sulla stessa riga e' giusto, ma le coppie giapponese-inglese **non si
 corrispondono**.

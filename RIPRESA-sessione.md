@@ -1,6 +1,206 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-14, fine della **quarantesima** sessione.
+Aggiornato: 2026-08-14, fine della **quarantunesima** sessione.
+
+⭐⭐ **`ai.hsp` è CHIUSO, ed è il file più pulito che il progetto abbia mai
+chiuso: 94 su 94, zero rinviate, zero toppe.** Tre lotti — `001`, `002`, `003` —
+e nessuna delle 94 voci ha avuto bisogno di essere rimandata. È il
+**quindicesimo file al 100%** e il **diciassettesimo dei 54 con `lang()` ad
+avere un dizionario** (erano 16). Catena verde, `cgx-test.exe` rifatto (14/08,
+22:01).
+
+⭐ **È il file dell'intelligenza artificiale**, cioè quel che gli alleati e i
+nemici fanno da soli senza che il giocatore lo chieda: chi ti segue mangia, beve,
+fruga nello zaino, contratta col negoziante, si medica, si allena, sfonda le
+porte. È testo di **log ad alta frequenza**, ed è entrato prima di `init.hsp`
+(133 firme contro 94) proprio per questo — la regola della 26ª, *la frequenza,
+non l'elenco*.
+
+⭐⭐ **E la sessione ha smentito due sue stesse previsioni, che è la parte che
+vale di più.** Il lotto `001` annunciava «`battute --divergenti` passa da 13 a
+15» e il referto è rimasto **13**; il lotto `002` dava per scontato di poter
+prendere tutta la coda del file in un colpo, e la **rete 0** l'ha fermato. Tutt'e
+due le smentite hanno insegnato qualcosa che nessuna misura diceva prima — vedi i
+punti 1 e 2 qui sotto.
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** e l'albero di lavoro è pulito: si riparte da
+`git fetch && git status -sb` e dalle otto verifiche d'apertura.
+
+1. ⭐⭐ **Il COLLAUDO, e adesso il debito è di 381 rese mai viste a schermo** —
+   le 287 della 40ª più le 94 di oggi. Era già il più alto di sempre prima di
+   questa sessione. ⚠️ **E `ai.hsp` lo rende più urgente, non meno**: le sue
+   righe partono da sole, senza che il giocatore faccia niente, quindi bastano
+   dieci minuti con un alleato al seguito per vederne una dozzina. La domanda
+   vera resta quella della 40ª — «il log di combattimento è italiano, adesso?» —
+   e adesso se ne aggiunge una seconda: «e il log di quello che fanno i compagni
+   quando non combattono?». Vedi «Quello che il collaudo deve guardare».
+2. **Oppure `init.hsp` (133 firme)**, che era l'altro candidato di oggi e non è
+   stato scelto apposta: è il più delicato del progetto, e il punto 3 qui sotto
+   dice perché. Chi lo apre deve leggere quel punto **prima** di estrarre.
+3. **Oppure `command.hsp`/`trait.hsp`**, che sono ~1.680 firme e i due file
+   nominati più grossi che restano. ⚠️ Si leggono nei **menu** e non nel log:
+   la lezione della 26ª dice di lasciarli dopo il collaudo, non prima.
+   `trait.hsp` da solo vale **406** firme.
+4. **Oppure `termini.py`**, lo strumento che la 40ª aveva già indicato, adesso
+   con un fratello: vedi il punto 2.
+
+### ⚠️⚠️ Le cinque cose che la prossima sessione deve sapere
+
+1. ⭐⭐ **La chiave `(riga, en)` su cui è costruito ogni lotto non è univoca, e
+   la rete 0 l'ha dimostrato per la prima volta in ventitré lotti.** A
+   `ai.hsp:4576` due `lang()` diverse hanno lo **stesso inglese** — 「変身！」 e
+   「トランスフォーム！」 sono tutt'e due `cnvtalk("Transform!")` — quindi quella
+   chiave identifica **due voci**, e `assembla-lotto.py` si ferma prima di
+   scrivere qualunque cosa. ✅ Le quattro grida sono andate in un lotto `003`
+   scritto a mano e indicizzato per **`firma`**, che è l'unica chiave davvero
+   univoca (`scratchpad/lotto-fase4-ai-003.py`). 💡 Il dizionario la collisione
+   la regge già: `action.hsp:11442` porta «Trasformazione!» e «Metamorfosi!»
+   sulla stessa riga con lo stesso inglese. È **solo lo script di lotto** a non
+   poterla esprimere. ⚠️ **E ricapiterà**, perché `cnvtalk` ripete gli stessi
+   inglesi dappertutto: quando capiterà una seconda volta, la strada giusta è
+   insegnare al modello la chiave `firma` invece di `(riga, en)`.
+2. ⭐⭐ **`battute --divergenti` legge SOLO `db_creature.hsp.jsonl`, e nessuno
+   se n'era accorto.** `battute.py:143` fa `percorsi.DIZIONARIO / f"{FILE}.jsonl"`
+   con `FILE = "db_creature.hsp"`: uno stesso giapponese reso in due modi in
+   **due file diversi** non lo vede nessuno strumento. Questa sessione ne ha
+   scritte due apposta — 「痛っ！」 («Ahi!» qui, «si contorce dal dolore» ad
+   `action.hsp:8778`) e 「いいぞ！」 («Così si fa!» nell'arena, «Bel pezzo!» al
+   concerto di `proc.hsp:850`) — e il referto è rimasto **13**. ✅ A vederle è
+   stata solo la **rete 3 dentro il lotto**, che però gira mentre si scrive un
+   lotto nuovo e **non è mai stata passata all'indietro** su tutto il dizionario.
+   💡 È esattamente la situazione della rete 8 prima della 37ª, quando
+   `rete8_dizionario.py` trovò sei rese già entrate che stampavano «di il»:
+   **`rete3_dizionario.py` è il candidato al prossimo referto**, alla pari col
+   `termini.py` della 40ª.
+3. ⚠️⚠️ **`init.hsp` ha una trappola che nessuna delle quattordici reti copre, e
+   si vede solo leggendo il file: le etichette di genere sono CHIAVI e testo
+   insieme.** `init.hsp:1821` è
+   `if ( cdatan(CDATAN_NEWSEX, he_charid) == lang("男性", "male") )` — la stessa
+   `lang()` che **stampa** l'etichetta nella scheda del personaggio è quella che
+   il codice **confronta** per decidere se dire «lui» o «lei». Tradurne una e non
+   l'altra rompe il confronto in silenzio. ✅ La rete 7 (voce dentro un confronto)
+   la prende, e la rinvierebbe — ma allora l'etichetta resta inglese **a
+   schermo**, dove il giocatore la legge. 💡 È il quarto punto cieco della 40ª
+   (`cnv_str`, la chiave scritta nell'inglese di monte) in forma nuova, e in una
+   forma peggiore: lì la chiave e il testo erano due stringhe, qui sono **la
+   stessa `lang()`**. ⚠️ Chi apre `init.hsp` decide questo prima di tutto il
+   resto. E `invariati.md` ha già una sezione che lo copre in parte — «Valori di
+   dato, non testo — tradurli rompe i salvataggi», dove stanno le otto stringhe
+   di `CDATAN_NEWSEX`.
+4. ⭐ **«Verso» si aggiunge alle preposizioni che non si fondono, e stavolta ha
+   salvato una resa già decisa invece di una frase.** 「睨み付けた」 è «lanciare
+   un'occhiataccia» da `action.hsp:1854`-`:2011`, ma lì il bersaglio è sempre
+   «ti», un clitico; a `ai.hsp:2074` e `:2113` sono **due nomi**, e
+   «un'occhiataccia **a** name(cc)» è chiusa in partenza dalla rete 8. ✅ «lancia
+   un'occhiataccia **verso** X»: la resa già decisa si tiene **tale e quale**
+   invece di essere girata. L'elenco della 40ª — «con», «contro», «per», «tra»,
+   «sotto», «sopra» — prende «verso», e la lezione si affina: la preposizione che
+   non si fonde non serve solo a scrivere una frase nuova, serve a **non dover
+   riscrivere una frase vecchia**.
+5. ⚠️ **Una famiglia nuova di errori di monte: le battute rimescolate. La serie
+   passa da trentasei a trentanove.** Non è il «personaggio sbagliato» né la
+   «riga ricopiata»: l'ordine dei `lang()` sulla riga è giusto, ma le coppie
+   giapponese-inglese **non si corrispondono**.
+   - `ai.hsp:472` è il blocco del **sacco da pugni** (`CHARA_BIT_SANDBAG`), e
+     「もっとぶって」 è «picchiami ancora», la battuta del masochista. L'inglese ci
+     mette «`Release me now.`», che è la battuta del **prigioniero** di `:482`
+     dieci righe sotto, e sposta «`Hit me!`» sulla terza, dove il giapponese dice
+     「何をする」, «ma che fai?». Due su tre sulla riga sbagliata;
+   - `ai.hsp:658` è il **pubblico dell'arena**, e le ultime due sono scambiate:
+     「頑張って！」 («forza!») porta «`Use your brain!`» e 「頭を使えよ」 («usa la
+     testa») porta «`Good fighting.`»;
+   - `ai.hsp:406` è invece un «personaggio sbagliato» in piena regola: il
+     giapponese dice `name(cc)` e l'inglese `name(tc)`, e il codice sta col
+     giapponese (`animeload 8, cc`, e le quattro sorelle `:381`-`:399`).
+   ✅ Tutte rese sul giapponese. 💡 E `verifica` lo permette perché pretende che
+   gli argomenti vengano da **uno dei due rami di monte**, non per forza
+   dall'inglese: è la clausola scritta a `verifica.py:377`-`:383`, e questa è la
+   prima volta che serve fuori da `action.hsp`.
+
+### ⭐⭐ Quello che il collaudo deve guardare
+
+**381 rese mai viste a schermo.** Resta valida tutta la tabella della 40ª qui
+sotto — il log di combattimento è la prova che conta — e ci si aggiungono le
+righe di `ai.hsp`, che hanno il pregio di **partire da sole**:
+
+| cosa | come arrivarci | perché guardarla |
+|---|---|---|
+| i compagni che mangiano e bevono | cammina con un alleato al seguito e aspetta | otto righe (`:1009`-`:1252`) che partono da sole a `rnd(5)`: «fruga nello zaino e non trova niente da mangiare», «fissa il cibo con occhi struggenti...». È la parte più frequente del file |
+| la tag-team a tavola | metti due alleati in coppia e lascia mangiare uno dei due | cinque reazioni a scala d'affetto (`:2087`-`:2132`), **tutte copiate da `action.hsp`**: se qui suonano bene, suonano bene anche là |
+| il pubblico dell'arena | porta una bestia all'arena delle bestie | otto grida (`:658`), e due sono rese **contro l'inglese** perché il giapponese le dice al contrario |
+| la canzone rumena | tieni un alleato che canta e aspetta | ⚠️ **la scelta più discutibile della sessione**: «Numa numa iei!!» al primo gradino, «Numera♪ numera♪ ehi!♪» al secondo, «Una mano♪ una mano♪ ehi!♪» al terzo. Se non fa ridere, va rifatta |
+| il sacco da pugni | metti qualcuno come sacco da pugni e picchialo | «Colpiscimi ancora!» dove l'inglese diceva «Release me now.» |
+| chi cavalca e travolge | cavalca un alleato e vai addosso a qualcuno | «X travolge Y», poi «Y esita» — la seconda è copiata da quattro siti |
+| i figli che crescono | fai nascere un figlio e aspetta che cresca | cinque versi (`:2317`-`:2341`) con l'accordo appeso ad «aria»: «guarda altrove con aria curiosa!» |
+
+### I tre lotti
+
+| lotto | zona | che cosa | rese |
+|---|---|---|---|
+| `-001` | 79-1468 | il sacco da pugni, il prigioniero, il pubblico dell'arena, i compagni a tavola, *Dragostea din tei* | 48 |
+| `-002` | 1525-4525 | chi tira i sassi, il gioielliere che contratta, la tag-team, i figli che crescono | 42 |
+| `-003` | 4576 | le quattro grida della trasformazione | 4 |
+
+⭐ **Il `-002` ha la percentuale di copie più alta mai vista in un lotto: dodici
+su quarantadue**, tutte pescate da `dossier.py` per **giapponese intero**. Batte
+le dodici su trentaquattro del `proc-026` e le nove su quarantadue del
+`proc-018`, e stavolta non è un menu ristampato da due punti: è il **blocco della
+tag-team a tavola** (`:2087`-`:2132`), che `action.hsp:1860`-`:2023` ha già
+parola per parola in tre varianti — chi ti cavalca, il bersaglio, il compagno — e
+che `ai.hsp` ripete in due. 💡 Col `-003`, che è **quattro copie su quattro**, la
+coda del file è quasi tutta lavoro già fatto altrove.
+
+### 💡 Quello che i tre lotti hanno insegnato sul metodo
+
+⭐ **Un giapponese solo per TRE inglesi, e la resa è una sola: cambia solo lo
+spazio.**  *クスクス*  è `*chuckle*` ad `action.hsp:250`, ` *Snicker* ` a
+`db_creature.hsp:95622` e ` *grin* ` ad `ai.hsp:1570`: l'italiano dice
+«*risatina*» in tutt'e tre, e gli spazi attorno li mette **il sito**, copiando il
+suo inglese. La rete 3 grida perché confronta i letterali e lo spazio conta, ma
+non è una divergenza. È il rovescio della rete 13: lì un inglese per due
+giapponesi, qui tre inglesi per un giapponese.
+
+⚠️ **`he(x, 1)` è contenuto, dice «lui»/«lei», e va conservato dentro la frase
+italiana.** `ai.hsp:381` è l'unica voce del lotto che lo porta, e la rete 11 lo
+pretende: «X non ricorda più perché **lui** combatte». `init.hsp:1819`-`:1838` lo
+traduce già. ⚠️ E per chi si dichiara maschio o femmina senza esserlo restituisce
+«lui?» / «lei?», **col punto interrogativo dentro la frase**: è l'upstream, non
+la resa.
+
+⚠️ **Tre aggettivi appesi a un nome di genere fisso.** I cinque versi dei figli
+(`:2317`-`:2341`) sono tutti participi o aggettivi in inglese — «`is looking away
+with interest`», «`is thinking with a serious face`» — e in italiano
+concorderebbero col figlio, che può essere maschio o femmina. ✅ «con **aria**
+curiosa», «con **aria** seria»: l'accordo cade su «aria», femminile per sempre.
+È la strada dei ventidue di resistenza della 40ª («si sente la **pelle**...»)
+spostata su un complemento di modo.
+
+💡 **Due invariati nuovi**, tutt'e due dichiarati in `invariati.md`:
+` *BAN* ` (`ai.hsp:2308`, `lang(" *BAN* ", " *BAN* ")` — il ghepardo che bara si
+prende il ban e muore sul colpo; il giapponese è inglese anche lui, come
+`HAPPY END!!`) e `Vrei sa pleci dar♪` (`:1452` — un verso in rumeno, e il rumeno
+resta rumeno come l'olandese di `Tuin der Lusten`).
+
+💡 **E una firma copre due siti, di nuovo.** 「くらえー！」/`cnvtalk("Eat this!")`
+sta a `:1525` **e** a `:1570`, e l'estrazione la conta una volta sola: la rete 2
+ha fermato la resa di troppo. È la lezione del `proc-017` — *non cercare la voce
+mancante, non manca*.
+
+### 💡 I numeri, che non si muovono
+
+**Il perimetro dichiarato resta al 50% e il totale vero al 37%**: le 94 rese non
+valgono un punto né dentro `lang()` né fuori. I dizionari passano da 16 a
+**17 su 54**. Tutti i referti sono fermi dove li aveva lasciati la 40ª —
+`blocchi_en` 68, `rete8_dizionario` 3, blocchi spenti 7, `variabili_en` 3
+trappole, `cnv_str` 17 chiavi inglesi su 41. ⚠️ **Il quadro della 38ª non cambia
+di una virgola**: quel che resta è più grande di quel che è stato fatto, e la
+parte più grossa **non ha firma `lang()`**.
+
+---
+
+## La quarantesima sessione
 
 ⭐⭐ **`chara_func.hsp` è CHIUSO, in una sessione sola.** Sei lotti — `002`…`007`
 — **243 rese**, da 84 su 331 a **327 su 331**: le quattro che restano sono tutte
