@@ -1,6 +1,162 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-14, fine della **trentottesima** sessione.
+Aggiornato: 2026-08-14, fine della **trentanovesima** sessione.
+
+⭐⭐ **`proc.hsp` è CHIUSO.** Quattro lotti — `023`, `024`, `025`, `026` — **97
+rese e una rinviata a toppa**, dal 91% al **100%**: 1.091 firme su 1.098, e le
+sette che restano sono tutte rinviate apposta. Si aggiunge a `db_item`,
+`item_data`, `skill`, `custom_tweaks`, `adv`, `action`, `text`, `buff`,
+`db_creature`, `chips` e `custom_enemyevolution` — ed è **il più letto di
+tutti**, perché è il log che scorre a ogni singolo combattimento. Cinque
+spinte, catena verde, `cgx-test.exe` rifatto, **zero collaudo**.
+
+### ⚠️⚠️ Le cinque cose che la prossima sessione deve sapere
+
+1. ⚠️⚠️⚠️ **Il debito di collaudo è a 649 rese mai viste a schermo, e sono TRE
+   sessioni di fila senza aprire il gioco.** Le 121 della 36ª, le 146 della
+   37ª, le 285 della 38ª e le 97 di questa. Non era mai successo, e ogni
+   sessione che passa lo rende più caro: `cgx-test.exe` è aggiornato al
+   14/08 17:37 e contiene tutto. **Se la 40ª può fare una cosa sola, faccia il
+   collaudo** — vedi «La prima cosa da fare» più sotto, che ha le liste pronte
+   con gli attesi.
+2. ⭐⭐ **`:24107` è la seconda riga del progetto che il dizionario non può
+   aggiustare**, dopo `:11481` della 36ª, e la ragione è nuova.
+   `SKILL_SPACT_JYUSOU_GOUSHIN` è dichiarata **`TARGET_TYPE_SELF_ONLY`**
+   (`skill.hsp:1411`) e `proc.hsp:7565` fa **`tc = cc`**: chi lancia e chi
+   subisce sono lo stesso personaggio. Il giapponese lo dice
+   (「自分自身に強烈な呪いをかけた！」) e `skill.hsp:1413` lo conferma («Si
+   maledice e si rafforza»). ⚠️ **L'inglese di monte invece nomina due
+   personaggi**, perché è `proc.hsp:14703` — l'incantesimo Maledizione, dove i
+   due sono davvero due — **ricopiata parola per parola**: a schermo stampa lo
+   stesso nome due volte. 💡 **È il rovescio esatto di `:18280` della 38ª**: lì
+   l'inglese aveva **un** `name()` e il giapponese due, e bastava nominare il
+   soggetto; qui l'inglese ne ha **due** e il giapponese uno, e nessuna frase
+   italiana nomina due volte lo stesso personaggio senza sembrare rotta.
+   ✅ Toppata e rinviata. `toppe.jsonl` passa da 302 a **303**, `rinviate.jsonl`
+   da 14 a **15**.
+3. ⚠️⚠️ **Un inglese solo per TRE giapponesi diversi, ed è il record del
+   progetto.** `:26080`, `:26120` e `:26158` hanno tutt'e tre
+   «`name(cc) + " gaze" + _s(cc) + " " + name(tc) + "."`» e sono **tre azioni
+   speciali diverse**: `EYE_OF_MANA` (「魔力を込めて睨み付けた」, `dmgcon
+   CONDITION_MPOISON`), `EYE_OF_ILLUSION` (「幻影を見せた」, danno
+   `SKILL_RES_MIND`) e `EYE_OF_STIFFEN` (「妖しい眼光を放った」, danno
+   `SKILL_RES_NERVE` più `CONDITION_BIND`). L'inglese ha appiattito tre effetti
+   in una riga; il giapponese e il codice li distinguono. La rete 13 è nata
+   nella 37ª su una coppia: qui trova una **terna**.
+4. ⭐ **Nasce un termine che servirà a un altro file: 姉波動 è l'«Onda
+   Sororale».** `proc.hsp:25798`-`:25823` sono le **prime** righe del progetto
+   a nominarlo, ma il grosso della materia — una catechesi intera sul culto
+   delle sorelle maggiori — sta in `chat.hsp:6575`-`:6676`, che è uno dei 40
+   file **senza dizionario**. ⚠️ **E l'inglese lo chiama in tre modi**: «Big
+   Sister Energy», «sisterly energy», «Sistergy Wave»; il giapponese sempre
+   姉波動. ✅ Messo in `glossario.md` **subito**, perché è esattamente la
+   situazione del `Bolt` della 35ª — una scelta presa una volta e da applicare
+   in un altro file mesi dopo.
+5. ⚠️ **Il tipo della voce decide la resa, non il senso.** `:26940` è
+   `lang(cdatan(CDATAN_NAME, tc) + "は矢弾を装備していない。", "You need to
+   equip ammo.")`: il ramo giapponese **nomina** il personaggio, quello inglese
+   no, e `estrai.py` classifica sul ramo che la resa sostituisce. Quindi è una
+   **statica**, la resa è testo nudo, e **non può portare il nome** che il
+   gemello `action.hsp:15268` ha — lì l'inglese era dinamico. Stessa riga, due
+   tipi, due rese diverse, e la rete 3 grida per una ragione giusta.
+
+### ⚠️ La serie degli errori di monte passa da ventotto a trentadue
+
+Tre sono della famiglia «personaggio sbagliato» e uno è di forma nuova:
+
+- `:25071` e `:25119` dicono `name(tc)` dove ad agire è `cc` — è il
+  purificatore che emette l'onda, non chi la riceve — e stanno **nella stessa
+  azione, a cinquanta righe di distanza**;
+- ⭐ `:25178` scrive **`name(tc)` due volte**: `name(tc) + " slashed " +
+  name(tc) + " with holy power."` Il primo dei due è `cc`, lo dice il
+  giapponese e lo conferma il codice, che fa partire l'animazione su `tc`. È il
+  gemello di `:24107` — lì l'inglese aggiunge un personaggio che non c'è, qui
+  ne sbaglia uno che c'è;
+- `:24107`, la riga toppata del punto 2.
+
+💡 **E `:26948` è un difetto di un'altra classe: upstream butta via
+l'informazione.** Il giapponese dice 「name は <tipo> に切り替えた。」, l'inglese
+dice **«Current Ammo Type»** e basta: il tipo di munizione che `:26945` prepara
+in `s` — «Normali» / «Illimitate» — nel ramo inglese **non compare da nessuna
+parte**, e la resa italiana non può rimetterlo. Non è un errore, è una perdita.
+
+### 💡 Quello che i quattro lotti hanno insegnato sul metodo
+
+⭐ **Il lotto 026 ha la percentuale di copie più alta di tutto il file: dodici
+su trentaquattro**, e otto vengono da un posto solo — `action.hsp:15232`-`:15313`,
+il **menu delle tattiche**, che `proc.hsp:26858`-`:26986` ristampa parola per
+parola. È l'X-Frame del lotto 018 in grande, e `dossier.py` le ha pescate tutte
+e dodici senza che servisse cercarle.
+
+⚠️ **Lo stesso giapponese può avere DUE inglesi diversi**, ed è il rovescio
+della rete 13. 「パワーゲージが足りない。」 sta a `:20054` e a `:20150`, e
+l'inglese lo scrive in due modi per **due soglie diverse** (5 e 50 punti di
+barra). La resa è una sola, e la impone la rete 4. La differenza non la impone
+il sorgente: la impone lo stile di chi ha tradotto in inglese.
+
+⭐ **I quattro versi della necromanzia non stanno in `skill.hsp`: esistono solo
+in `proc.hsp`.** 「魔力増強」, 「生命の転換」, 「外道式炸裂弾」,
+「コールアンデッド」 sono le intestazioni che il gioco stampa quando scegli una
+voce del menu `SKILL_SPACT_NECRO_FORCE`, e cercarle nel dizionario non dà
+niente. ✅ L'ancora sono le **etichette del menu**, che `text.hsp:2089`-`:2101`
+ha già rese: «Potenzia / Cura / Fai esplodere / Raduna i non-morti». 💡 E
+「コールアンデッド」 si traduce lo stesso, benché sia katakana: `invariati.md`
+dichiara invariato **il nome che nemmeno l'originale legge come descrizione**,
+non il katakana in sé, e le altre tre della serie sono kanji che si rendono.
+
+⚠️ **`:25206` e `:25216` sono i due rami dello stesso `if` con lo stesso
+inglese.** «`name(cc) + " sewed " + name(tc) + " up quickly!"`» sta per
+「縫い**つけた**」 sul nemico — e il codice mette `CONDITION_BIND` — e per
+「**縫合**した」 sull'alleato, dove **dimezza** `CONDITION_BLEED`. Inchiodare e
+ricucire. La rete 13 le ha viste, il codice ha deciso.
+
+💡 **La strada del participio e quella del genitivo reggono da sette lotti**, e
+in questa sessione hanno lavorato più delle reti: **diciassette rese** girate
+in partenza per non far concordare un aggettivo o non far fondere una
+preposizione con `name()`. La rete 8 non ha gridato **nemmeno una volta** in
+quattro lotti — non perché sia stata indulgente, ma perché dopo quattro
+sessioni il genitivo davanti a `name()` non si scrive più. Il caso più stretto
+è `:26347`, che ne aveva **due nella stessa frase** («la voce **di** X risuona
+nel cuore **di** Y»): risolto coi due nomi soggetti, «X fa risuonare la voce, e
+Y la sente nel cuore!».
+
+### ⚠️ Lo strumento che ha rischiato di mangiarsi `toppe.jsonl`
+
+⚠️⚠️ **Uno script di questa sessione ha troncato `toppe.jsonl` a ZERO byte, e a
+salvarlo è stato solo `git checkout`.** Apriva il file in scrittura e componeva
+il testo dentro `write()`: un surrogato nel motivo ha fatto esplodere
+`UnicodeEncodeError` **dopo** che l'apertura aveva già troncato il file. 231.878
+byte di toppe, spariti per un `\ud83d` scritto a mano invece di un 💡.
+✅ **La forma giusta è: comporre, codificare in memoria, e solo allora aprire.**
+`riscrivi()` nello script della toppa lo fa. 💡 Ed è un'altra faccia della
+regola delle due macchine: il lavoro era spinto, quindi c'era da dove tornare
+indietro. Se fosse successo a fine sessione, prima della spinta, sarebbe stato
+irrecuperabile.
+
+✅ **`assembla-lotto.py` ha imparato la terza ancora, `RINVIATE`.** Il blocco
+copiato dal modello porta `RINVIATE = set()`, e senza l'ancora l'unico modo di
+dichiarare una rinviata era **modificare a mano il file generato** — cioè
+esattamente la cosa che quello script esiste per impedire. Adesso basta un
+`rinviate<numero>.py` facoltativo nella cartella.
+
+### I quattro lotti
+
+| lotto | zona | che cosa | rese |
+|---|---|---|---|
+| `-023` | 20000-20999 | il poker, il jolly variabile, i soldi per farsi risparmiare, il finto dogeza, il menu della necromanzia | 20 |
+| `-024` | 24000-24999 | l'automaledizione, lo Scambio da squalo, la posa, la marcatura del territorio, le scosse elettriche | 13 **+1 rinviata** |
+| `-025` | 25000-25999 | le onde, il filo e l'ago, l'esplosivo, la gravità, l'etere, l'Onda Sororale | 30 |
+| `-026` | 26000-26999 | i tre sguardi, la voce, le pozioni, lo zaino, il menu delle tattiche | 34 |
+
+💡 **Il perimetro dichiarato passa dal 47% al 49%**, e il totale vero resta al
+**36%**: le 97 rese valgono due punti dentro `lang()` e nemmeno uno sul conto
+che comprende le 5.284 descrizioni degli oggetti e i quattro file di `data/`.
+Il quadro della 38ª non cambia — quello che resta è più grande di quello che è
+stato fatto, e la parte più grossa **non ha firma `lang()`**.
+
+---
+
+## La trentottesima sessione
 
 ⭐ **La 38ª è la sessione più produttiva del progetto su un file solo, e quella
 che ha scoperto quanto manca davvero.** Sei lotti su `proc.hsp` — `017`…`022` —
@@ -445,10 +601,17 @@ git), in una forma nuova: dentro git, ma su una macchina sola.
 aprendo una sessione su una macchina qualsiasi è `git fetch && git status -sb`.
 Chi apre a Firenze senza guardare riparte da prima di ferragosto.
 
-✅ **Spinto di nuovo a fine 30ª, 31ª, 32ª, 33ª, 34ª, 35ª, 36ª, 37ª e 38ª**, sempre
-dal portatile. Tutt'e nove hanno aperto con `git fetch && git status -sb` e
-tutt'e nove hanno trovato le copie allineate: la regola ha tenuto **nove volte di
-fila**. 💡 La 38ª ha spinto **otto volte** — sei lotti e due referti — una per
+✅ **Spinto di nuovo a fine 30ª, 31ª, 32ª, 33ª, 34ª, 35ª, 36ª, 37ª, 38ª e 39ª**,
+sempre dal portatile. Tutt'e dieci hanno aperto con `git fetch && git status -sb`
+e tutt'e dieci hanno trovato le copie allineate: la regola ha tenuto **dieci
+volte di fila**.
+⚠️⚠️ **E nella 39ª la spinta ha fatto da rete di sicurezza per la prima volta,
+non da comodità.** Uno script della sessione ha troncato `toppe.jsonl` a **zero
+byte** — 231.878 byte di dati — e a salvarlo è stato `git checkout`, cioè il
+fatto che il lavoro fosse **già spinto**. Se fosse successo prima della prima
+spinta, non ci sarebbe stato niente da cui tornare indietro.
+💡 La 39ª ha spinto **cinque volte** — quattro lotti e la chiusura.
+💡 La 38ª ha spinto **otto volte** — sei lotti e due referti — una per
 risultato chiuso, ed è il numero più alto del progetto dopo le sette della 35ª.
 💡 **La 36ª ha spinto cinque volte** — due toppe, tre lotti — e **la 37ª cinque**
 — tre lotti, le sei preposizioni, la chiusura — una per risultato chiuso.
@@ -474,11 +637,27 @@ giapponese** e lo stampa come `?`, il che rende illeggibili le colonne `jp`.
 
 ## La prima cosa da fare
 
-⚠️⚠️⚠️ **Il collaudo, e adesso il debito è a 552 rese mai viste a schermo.** Sono
-le 121 della 36ª, le 146 della 37ª e le **285 della 38ª**, e né la 37ª né la 38ª
-hanno aperto il gioco una sola volta. **Due sessioni di fila senza collaudo: non
-era mai successo**, e il debito è più che raddoppiato rispetto al record
-precedente. `cgx-test.exe` è stato rifatto a fine 38ª e contiene tutto.
+⚠️⚠️⚠️ **Il collaudo, e adesso il debito è a 649 rese mai viste a schermo.** Sono
+le 121 della 36ª, le 146 della 37ª, le **285 della 38ª** e le **97 della 39ª**, e
+né la 37ª né la 38ª né la 39ª hanno aperto il gioco una sola volta. **Tre
+sessioni di fila senza collaudo: non era mai successo**, e il debito è quasi il
+triplo del record precedente. `cgx-test.exe` è stato rifatto a fine 39ª
+(14/08, 17:37) e contiene tutto.
+
+💡 **Le 97 della 39ª chiudono `proc.hsp` e stanno tutte in azioni speciali
+identificabili**, quindi si collaudano una per una. Da guardare per prime:
+
+| cosa | come | perché |
+|---|---|---|
+| ⚠️⚠️ **l'automaledizione** | azione speciale **Jyusou Goushin** (`skill.hsp:1412`) | è la **toppa** della sessione: dev'uscire «X si scaglia addosso una maledizione tremenda!» con **un nome solo**. Se ne escono due, la toppa non è entrata |
+| i tre sguardi | azioni speciali **Sguardo di mana**, **Sguardo illusorio**, **Sguardo irrigidente** | l'inglese le diceva tutt'e tre «X gazes Y»: devono uscire **tre frasi diverse** |
+| il menu della necromanzia | azione speciale **Forza necromantica**, tutte e quattro le voci | i quattro versi (`*Potenziamento magico*`, `*Conversione vitale*`, `*Ordigno spietato*`, `*Richiamo dei non-morti*`) e la voce di menu **Evoca non-morti**, che è l'unica riga della sessione che passa da `*prompt_key` |
+| il poker | azione speciale **Forza del poker**, con la barra sotto il 100% | «La barra non basta.», «Non hai formato nessuna combinazione.», e «**Le carte** colpiscono X» al plurale — non «La carta», che è lo ShikiOrigami |
+| il jolly variabile | azione speciale **Cambio jolly** su un alleato | il nome della creatura diventa `{Jolly Variabile}`: si legge nella lista alleati, non solo nel log |
+| il menu delle tattiche | il menu degli ordini agli alleati, tutte le voci | otto rese **copiate da `action.hsp`**: devono uscire identiche a quelle di là. È la prova che le dodici copie del lotto 026 sono giuste |
+| l'Onda Sororale | usa lo **Sguardo soggiogante** su una sorella maggiore, che lo para | quattro rese col termine nuovo. ⚠️ `chat.hsp` dirà ancora «Big Sister Energy» in inglese: **non è un difetto della resa**, è la dipendenza nota dai 40 file senza dizionario |
+| la marcatura del territorio | fatti marcare da un animale | «X freme di **umiliazione**», non «di rabbia»: è la riga dove l'inglese aveva riciclato la frase dell'ira |
+| il filo e l'ago | azione speciale **Sutura istantanea** su un **nemico** e poi su un **alleato** | stesso inglese, due rese opposte: «cuce X sul posto» contro «**ricuce** X» |
 
 💡 **Le 285 della 38ª sono log di combattimento e azioni speciali**, quindi si
 vedono con un combattimento qualsiasi e la barra piena. Da guardare per primi,
@@ -706,28 +885,31 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
    ⚠️ Cautela sul numero: lo strumento stima a due cifre le variabili
    interpolate, quindi c'è un margine di ±1 carattere per voce. Il metodo è lo
    stesso sulle due lingue, quindi il **confronto** regge; i valori assoluti no.
-2. ⭐ **`proc.hsp`, a 994 su 1.098 (91%): mancano 98 voci e il file è chiuso.**
-   Restano **104** non tradotte, di cui 6 rinviate.
+2. ✅ **`proc.hsp` è CHIUSO nella 39ª**, a **1.091 su 1.098 (100%)**: le 7 che
+   restano sono tutte rinviate apposta (una riga commentata, «Party Room», i due
+   nomi di nave, `:11481`, `:11796` e `:24107`, tutt'e tre risolte da toppa o
+   dentro un blocco spento). I quattro lotti della 39ª sono `-023`
+   (20000-20999), `-024` (24000-24999), `-025` (25000-25999) e `-026`
+   (26000-26999).
 
-   💡 **Dove stanno le ultime 98** (`scratchpad/istogramma.py`, passo 1000,
-   rifatto a fine 38ª): `26000-26999` **34**, `25000-25999` **30**,
-   `20000-20999` **20**, `24000-24999` **14**. **Non c'è più niente altrove.**
-   Sono **due lotti**, o tre comodi, e `proc.hsp` diventa il quinto file chiuso
-   del progetto dopo `db_item`, `skill`, `action`, `text`, `db_creature` e
-   `buff`.
-
-   ⚠️ **Prima di riprendere, copiare le quattordici reti** da
-   **`scratchpad/lotto-fase4-proc-022.py`**, che è il modello più recente. ⚠️ Le
+   ⚠️ **Prima di aprire il file dopo, copiare le quattordici reti** da
+   **`scratchpad/lotto-fase4-proc-026.py`**, che è il modello più recente. ⚠️ Le
    reti 3, 4 e 8 sono state **corrette perché sbagliavano loro**, e la 12 e la 13
    sono nuove: si copia il file, non si riscrive a memoria.
    ✅ **E adesso la regola è meccanica**: `scratchpad/assembla-lotto.py` copia il
-   blocco dal modello, cambia solo `USCITA` e `DA, A`, e **rilegge quel che ha
-   scritto** confrontandolo col modello carattere per carattere. Bastano due file
-   scritti a mano — la testa col docstring e le rese — e il resto è copiato:
+   blocco dal modello, cambia `USCITA`, `DA, A` e — dalla 39ª — `RINVIATE`, e
+   **rilegge quel che ha scritto** confrontandolo col modello carattere per
+   carattere. Bastano due file scritti a mano — la testa col docstring e le rese
+   — più un `rinviate<numero>.py` facoltativo, e il resto è copiato:
 
    ```powershell
-   & $py scratchpad/assembla-lotto.py 023 scratchpad/lotto-fase4-proc-022.py 24000 24999 <cartella>
+   & $py scratchpad/assembla-lotto.py 027 scratchpad/lotto-fase4-proc-026.py 0 99999 <cartella>
    ```
+
+   ⚠️ **Le reti hanno un difetto noto e ancora aperto**: se manca una resa, il
+   messaggio della rete 1 **non si vede mai**, perché la rete 8 dereferenzia
+   `RESE` prima del controllo di `errori` e quel che esce è un `KeyError` nudo.
+   Vale la pena spostare il blocco `if errori:` subito dopo la rete 2.
 
    La 33ª ha fatto i lotti `fase4-proc-001` … `-004` (1716-3400: le reazioni
    degli dèi, le tattiche, bugia/minaccia/canto/pasto). **La 35ª ha fatto i sei
@@ -749,12 +931,6 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
    | `-015` | 12501-14499 | il log delle azioni speciali, arma per arma |
    | `-016` | 14500-15499 | fuga e ritorno, veleni, maledizioni, terreni, artefatti |
 
-   💡 **Dove si addensa quel che resta** (`scratchpad/istogramma.py`, passo 500,
-   rifatto a fine 36ª sulle 535 rimaste): `11500-11999` **28**, `14500-14999`
-   **30**, `12000-12499` **23**, `15500-15999` **24**. Non c'è più un picco come
-   il `10000-12000` di prima: da qui in avanti è terreno piatto, e la zona
-   successiva — `11500-12500` — vale una cinquantina di voci.
-
    ⚠️ **Prima di riprendere, rileggere le undici reti** dello script di lotto: il
    modello più completo è **`scratchpad/lotto-fase4-proc-013.py`**, che le ha
    tutte. Le cinque della 35ª (5-9) e le due della 36ª (10 e 11) sono nate ognuna
@@ -773,8 +949,27 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
    fretta. ⚠️ **Ma circa metà delle righe dei file piccoli non è testo** —
    entità HTML, operandi di confronto, chiavi di dati — quindi il numero è un
    punto di partenza, non un elenco di lavoro;
-3. `command.hsp` e `trait.hsp`, che sono ~1.680 firme mai toccate. ⚠️
-   `command.hsp` è anche il file che **disegna** i `buffdesc` appena fatti.
+3. ⭐ **Adesso che `proc.hsp` è chiuso, la coda ha due imbocchi diversi, e
+   scegliere è la prima decisione della 40ª (dopo il collaudo).**
+
+   - **`command.hsp` e `trait.hsp`**, ~1.680 firme mai toccate. È la strada
+     nota: stessa catena, stessi strumenti, stesso tipo di lotto. ⚠️
+     `command.hsp` è anche il file che **disegna** i `buffdesc`, e quello che
+     porta 10 delle 68 righe inglesi fuori da `lang()` ancora intatte.
+   - ⚠️ **Il testo fuori perimetro**, cioè le **5.284 descrizioni degli
+     oggetti** di `db_item.hsp` e i **quattro file di `data/`** (~2.900 righe,
+     117.977 caratteri di prosa inglese). È la scoperta della 38ª, ed è il
+     motivo per cui il progetto sta al 36% e non al 49%. 💡 È il lavoro **meno
+     insidioso** — niente `name()` da accordare, niente participi, niente reti
+     — ma vuole una **catena di strumenti diversa**, perché non ha firma
+     `lang()` e non passa da `applica.py`. Nessuno l'ha ancora scritta, e
+     scriverla è mezza giornata prima di tradurre la prima riga.
+
+   💡 In caratteri la seconda vale molto più della prima; in numero di firme, il
+   contrario. La domanda vera è **quale delle due il giocatore legge di più**, e
+   su questo il progetto ha già una risposta di metodo dalla 26ª: **la
+   frequenza, non l'elenco**. Le descrizioni degli oggetti si leggono a ogni
+   `i`; `command.hsp` a ogni tasto premuto.
 
 ⭐ **`chips.hsp` è chiuso**, trovato e fatto a schermo il 14/08. Ha **tre**
 `lang()` in tutto — i nomi delle caselle di terreno — e uscivano da
@@ -858,7 +1053,7 @@ python scratchpad/else_jp.py              # else-di-jp: 6.984 righe in 13 file
 python scratchpad/rete8_dizionario.py     # 3, tutti dichiarati falsi positivi
 python scratchpad/misura-blocchi-spenti.py  # 7 voci dentro un blocco spento
 python scratchpad/variabili_en.py         # 66 variabili | 3 trappole in 3 siti
-python scratchpad/perimetro.py            # perimetro 47% | col fuori perimetro 35%
+python scratchpad/perimetro.py            # perimetro 49% | col fuori perimetro 36%
 ```
 
 ⚠️ **I due ultimi sono della 38ª.** `variabili_en.py` è il **terzo punto cieco**
@@ -950,7 +1145,7 @@ scrivere dentro `SORGENTE`.
 | `adv.hsp` | 12 | 12 | **100%** ⭐ chiuso il 2026-08-11 |
 | `action.hsp` | 1.286 | 1.288 | **100%** (le 2 mancanti sono rinviate a toppa). ⚠️ Aveva **una riga inglese** che nessun conteggio vedeva, `:15221`, fuori da `lang()`: toppata il 2026-08-13 |
 | `text.hsp` | 1.718 | 1.720 | **100%** (le 2 mancanti aspettano `talk.txt`) |
-| `proc.hsp` | **994** | 1.098 | **91%** ⭐ +285 nella 38ª (era 709) — più 23 righe fuori da `lang()`, ✅ toppate, e **6 rinviate**: una riga commentata, «Party Room», i due nomi di nave, `:11481` (`his2()`, ✅ toppata nella 36ª) e `:11796` (dentro un blocco `/* ... */` spento) |
+| `proc.hsp` | **1.091** | 1.098 | **100%** ⭐⭐ **chiuso il 2026-08-14** — +97 nella 39ª (era 994), più 23 righe fuori da `lang()` ✅ toppate, e **7 rinviate**: una riga commentata, «Party Room», i due nomi di nave, `:11481` (`his2()`, ✅ toppata nella 36ª), `:11796` (dentro un blocco `/* ... */` spento) e `:24107` (`tc == cc` e l'inglese nomina due personaggi, ✅ toppata nella 39ª) |
 | `buff.hsp` | 199 | 199 | **100%** ⭐ chiuso il 2026-08-13 — `buffname`, `bufftxt` e `buffdesc` |
 | `command.hsp`, `trait.hsp` | 0 | ~1.680 | 0% |
 
@@ -981,17 +1176,23 @@ Fase 4, che `SPEC.md` §6 definisce collettivamente («i restanti 63 file `.hsp`
 minori»). Il numero serve a tenere le proporzioni: quello che resta è più grande
 di quello che è stato fatto.
 
-**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **14.086
-sostituzioni** applicate alla build — erano **13.786** all'apertura della 38ª,
-più le **300** dei sei lotti. **`toppe.jsonl` è fermo a 302** (né la 37ª né la
-38ª ne hanno fatte: i loro difetti erano nel dizionario, non nel sorgente), e
-`proc.hsp` ne porta **27**. **`rinviate.jsonl` è a 14** (`proc.hsp` 6,
-`db_creature.hsp` 4, `action.hsp` 2, `text.hsp` 2). Il compilatore non dice
-nulla, manifesto del sorgente **72/72** (ricontrollato il 14/08 a inizio 38ª).
+**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **14.197
+sostituzioni** applicate alla build — erano **14.086** all'apertura della 39ª,
+più le **111** dei quattro lotti. **`toppe.jsonl` è a 303** (+1 nella 39ª:
+`proc.hsp:24107`), e `proc.hsp` ne porta **28**. **`rinviate.jsonl` è a 15**
+(`proc.hsp` 7, `db_creature.hsp` 4, `action.hsp` 2, `text.hsp` 2). Il
+compilatore non dice nulla, manifesto del sorgente **72/72** (ricontrollato il
+14/08 a inizio 39ª). Perimetro `lang()` **49%**, totale vero **36%**.
 
-💡 **Le sostituzioni crescono più delle rese anche stavolta**: 285 rese hanno
-prodotto **300 siti**. Una firma esce in più punti, e il caso più netto della 38ª
-è `:16087`, che ne copre **due** senza che il secondo compaia nell'estrazione.
+💡 **Le sostituzioni crescono più delle rese anche stavolta**: 97 rese hanno
+prodotto **111 siti**. Una firma esce in più punti, e il caso più netto della
+39ª è `:20200`, che copre anche `:20886` — la stessa domanda «non c'è nessun
+bersaglio in vista» posta da due rami diversi della necromanzia — e `:24783`,
+che copre `:24798`. Nessuno dei due secondi siti compare nell'estrazione.
+
+💡 **E le sostituzioni crescevano più delle rese anche nella 38ª**: 285 rese
+hanno prodotto **300 siti**, e il caso più netto era `:16087`, che ne copre
+**due** senza che il secondo compaia nell'estrazione.
 
 💡 **Le sostituzioni crescono più delle rese, ed è il motivo per cui vale la pena
 contarle**: 235 rese hanno prodotto 298 siti, perché una firma può uscire in più
