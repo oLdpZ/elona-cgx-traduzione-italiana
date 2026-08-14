@@ -1,0 +1,275 @@
+==============================================================================
+=== riga 172.0  [statica]
+jp: "不明"
+en: "Unknown"
+--- sorgente
+  169: 
+  170: #defcfunc calcage int calcage_arg1
+  171: 	if ( gdata(GDATA_YEAR) - cdata(CDATA_AGE, calcage_arg1) < 0 ) {
+>>172: 		return lang("不明", "Unknown")
+  173: 	}
+  174: 	if ( cdata(CDATA_ID, calcage_arg1) == CREATURE_ID_SSIL_THE_UNDEAD_WITCH ) {
+  175: 		return lang("不明", "Unknown")
+--- STESSO GIAPPONESE, gia' reso:
+    action.hsp.jsonl:2608  classe ignota
+    text.hsp.jsonl:2969  Ignoto
+--- stesso inglese, gia' reso:
+    text.hsp.jsonl:2969  Ignoto
+==============================================================================
+=== riga 748.0  [statica]
+jp: "JP"
+en: "EN"
+--- sorgente
+  745: 		if ( customtalk_dbmode == 10108 ) { locvar_customtalk_s = "%txtSysDropItem" }
+  746: 		if ( customtalk_dbmode == 10109 ) { locvar_customtalk_s = "%txtSysDropItemFail" }
+  747: 		/********** OOMSESTEPNC - EXTRA CNPC CONFIG - CUSTOM TALK - ENDING **********/
+>>748: 		locvar_customtalk_p = instr(locvar_customtalk_buff, 0, locvar_customtalk_s + "," + lang("JP", "EN"))
+  749: 		// Incase someone deleted every talk dialog: Prevent npc stats being shown.
+  750: 		if ( locvar_customtalk_p == (-1) ) {
+  751: 			gdata(GDATA_CUSTOM_TALK) = 0
+--- STESSO GIAPPONESE, gia' reso:
+    action.hsp.jsonl:4816  EN
+    text.hsp.jsonl:9361  EN
+--- stesso inglese, gia' reso:
+    action.hsp.jsonl:4816  EN
+    text.hsp.jsonl:9361  EN
+==============================================================================
+=== riga 1080.0  [dinamica]
+jp: cdatan(CDATAN_NAME, modimp_charid) + "との関係が<" + locvar_modimp_pp + ">になった…"
+en: "Your relation with " + cdatan(CDATAN_NAME, modimp_charid) + " becomes <" + locvar_modimp_pp + ">..."
+--- sorgente
+  1077: 	}
+  1078: 	if ( locvar_modimp_p > locvar_modimp_p(1) ) {
+  1079: 		txtef COLOR_PURPLE
+>>1080: 		txt lang(cdatan(CDATAN_NAME, modimp_charid) + "との関係が<" + locvar_modimp_pp + ">になった…", "Your relation with " + cdatan(CDATAN_NAME, modimp_charid) + " becomes <" + locvar_modimp_pp + ">...")
+  1081: 		return
+  1082: 	}
+  1083: 	if ( locvar_modimp_p(1) > locvar_modimp_p ) {
+==============================================================================
+=== riga 1086.0  [dinamica]
+jp: cdatan(CDATAN_NAME, modimp_charid) + "との関係が<" + locvar_modimp_pp + ">になった！"
+en: "Your relation with " + cdatan(CDATAN_NAME, modimp_charid) + " becomes <" + locvar_modimp_pp + ">!"
+--- sorgente
+  1083: 	if ( locvar_modimp_p(1) > locvar_modimp_p ) {
+  1084: 		if ( cdata(CDATA_RELATION, modimp_charid) != RELATION_ENEMY ) {
+  1085: 			txtef COLOR_GREEN
+>>1086: 			txt lang(cdatan(CDATAN_NAME, modimp_charid) + "との関係が<" + locvar_modimp_pp + ">になった！", "Your relation with " + cdatan(CDATAN_NAME, modimp_charid) + " becomes <" + locvar_modimp_pp + ">!")
+  1087: 		}
+  1088: 		return
+  1089: 	}
+==============================================================================
+=== riga 1169.0  [dinamica]
+jp: cdatan(CDATAN_NAME, modimp2_charid) + "に媚赤蝋燭を垂らした。「あちち♪」"
+en: "You drip wax on " + cdatan(CDATAN_NAME, modimp2_charid) + " from the Candle of Lulwy. \"Hot hot hot~\""
+--- sorgente
+  1166: 			if ( inv(INV_ITEM_NUM, stat) >= 1 ) {
+  1167: 				snd SOUNDLIST_WATER2
+  1168: 				txtef COLOR_RED
+>>1169: 				txt lang(cdatan(CDATAN_NAME, modimp2_charid) + "に媚赤蝋燭を垂らした。「あちち♪」", "You drip wax on " + cdatan(CDATAN_NAME, modimp2_charid) + " from the Candle of Lulwy. \"Hot hot hot~\"")
+  1170: 				if ( cdata(CDATA_IMPRESSION, modimp2_charid) < 150 ) {
+  1171: 					modimp modimp2_charid, 4
+  1172: 				}
+==============================================================================
+=== riga 1183.0  [dinamica]
+jp: cdatan(CDATAN_NAME, modimp2_charid) + "との主従関係が<" + locvar_modimp2_pp + ">になった。"
+en: "Your master/servant relation with " + cdatan(CDATAN_NAME, modimp2_charid) + " becomes <" + locvar_modimp2_pp + ">."
+--- sorgente
+  1180: 	}
+  1181: 	if ( locvar_modimp2_p > locvar_modimp2_p(1) ) {
+  1182: 		txtef COLOR_YELLOW
+>>1183: 		txt lang(cdatan(CDATAN_NAME, modimp2_charid) + "との主従関係が<" + locvar_modimp2_pp + ">になった。", "Your master/servant relation with " + cdatan(CDATAN_NAME, modimp2_charid) + " becomes <" + locvar_modimp2_pp + ">.")
+  1184: 		return
+  1185: 	}
+  1186: 	if ( locvar_modimp2_p(1) > locvar_modimp2_p ) {
+==============================================================================
+=== riga 1189.0  [dinamica]
+jp: cdatan(CDATAN_NAME, modimp2_charid) + "との主従関係が<" + locvar_modimp2_pp + ">になった。！"
+en: "Your master/servant relationship with " + cdatan(CDATAN_NAME, modimp2_charid) + " becomes <" + locvar_modimp2_pp + ">."
+--- sorgente
+  1186: 	if ( locvar_modimp2_p(1) > locvar_modimp2_p ) {
+  1187: 		if ( cdata(CDATA_RELATION, modimp2_charid) != (-3) ) {
+  1188: 			txtef COLOR_YELLOW
+>>1189: 			txt lang(cdatan(CDATAN_NAME, modimp2_charid) + "との主従関係が<" + locvar_modimp2_pp + ">になった。！", "Your master/servant relationship with " + cdatan(CDATAN_NAME, modimp2_charid) + " becomes <" + locvar_modimp2_pp + ">.")
+  1190: 		}
+  1191: 		return
+  1192: 	}
+==============================================================================
+=== riga 1294.0  [statica]
+jp: "マーチは壊滅した。"
+en: "March was destroyed."
+--- sorgente
+  1291: 				if ( gdata(GDATA_FLAG_SUB_THE_RESULT_OF_REVENGE) < 1002 ) {
+  1292: 					gdata(GDATA_FLAG_SUB_THE_RESULT_OF_REVENGE) = 1002
+  1293: 					snd SOUNDLIST_WRITE1
+>>1294: 					txt lang("マーチは壊滅した。", "March was destroyed.")
+  1295: 				}
+  1296: 			}
+  1297: 		}
+==============================================================================
+=== riga 1323.0  [statica]
+jp: "？？？「あいつ…ここまで本気とはな。多少荒っぽい手を使わざるを得ないか」"
+en: "??? says: \"You.. you really made it this far, huh. We're going to have to get serious.\""
+--- sorgente
+  1320: 				if ( gdata(GDATA_FLAG_SUB_LAW_OF_NINJAS) < 3 ) {
+  1321: 					gdata(GDATA_FLAG_SUB_LAW_OF_NINJAS) = 3
+  1322: 					txt_questupdate
+>>1323: 					txt lang("？？？「あいつ…ここまで本気とはな。多少荒っぽい手を使わざるを得ないか」", "??? says: \"You.. you really made it this far, huh. We're going to have to get serious.\"")
+  1324: 				}
+  1325: 			}
+  1326: 		}
+==============================================================================
+=== riga 1380.0  [statica]
+jp: "時は再び動き出した。"
+en: "Time starts to run again."
+--- sorgente
+  1377: 				if ( gdata(GDATA_TIME_STOP_TIME) > 0 ) {
+  1378: 					gdata(GDATA_TIME_STOP_TIME) = 0
+  1379: 					txtef COLOR_SKY_BLUE
+>>1380: 					txt lang("時は再び動き出した。", "Time starts to run again.")
+  1381: 				}
+  1382: 				if ( gdata(GDATA_FLAG_STOP_TIME_OTHER) > 0 ) {
+  1383: 					gdata(GDATA_FLAG_STOP_TIME_OTHER) = 0
+==============================================================================
+=== riga 1392.0  [dinamica]
+jp: "[殲滅依頼]残り" + locvar_check_quest_p + "体" + "] "
+en: "" + locvar_check_quest_p + " more to go."
+--- sorgente
+  1389: 				if ( locvar_check_quest_p != locvar_check_quest_pbk ) {
+  1390: 					txtmore
+  1391: 					txtef COLOR_BLUE
+>>1392: 					txt lang("[殲滅依頼]残り" + locvar_check_quest_p + "体" + "] ", "" + locvar_check_quest_p + " more to go.")
+  1393: 				}
+  1394: 			}
+  1395: 		}
+==============================================================================
+=== riga 1627.0  [dinamica]
+jp: cdatan(CDATAN_NAME, tag_begin_arg1) + "は" + cdatan(CDATAN_NAME, tag_begin_arg2) + "とタッグを組んだ。"
+en: cdatan(CDATAN_NAME, tag_begin_arg1) + " and " + cdatan(CDATAN_NAME, tag_begin_arg2) + " form a tag-team."
+--- sorgente
+  1624: 
+  1625: #deffunc tag_begin int tag_begin_arg1, int tag_begin_arg2
+  1626: 	txtef COLOR_YELLOW
+>>1627: 	txt lang(cdatan(CDATAN_NAME, tag_begin_arg1) + "は" + cdatan(CDATAN_NAME, tag_begin_arg2) + "とタッグを組んだ。", cdatan(CDATAN_NAME, tag_begin_arg1) + " and " + cdatan(CDATAN_NAME, tag_begin_arg2) + " form a tag-team.")
+  1628: 	map(cdata(CDATA_X, tag_begin_arg2), cdata(CDATA_Y, tag_begin_arg2), 1) = 0
+  1629: 	cdata(CDATA_TAGTEAM_PARTNER, tag_begin_arg2) = tag_begin_arg1
+  1630: 	cdata(CDATA_IN_TAGTEAM, tag_begin_arg2) = 1
+==============================================================================
+=== riga 1641.0  [dinamica]
+jp: cdatan(CDATAN_NAME, tag_end_arg1) + "と" + cdatan(CDATAN_NAME, locvar_tag_end_ttc) + "は解散した。"
+en: "You were disbanded " + cdatan(CDATAN_NAME, tag_end_arg1) + " with " + cdatan(CDATAN_NAME, locvar_tag_end_ttc) + "."
+--- sorgente
+  1638: 
+  1639: #deffunc tag_end int tag_end_arg1
+  1640: 	locvar_tag_end_ttc = cdata(CDATA_TAGTEAM_PARTNER, tag_end_arg1)
+>>1641: 	txt lang(cdatan(CDATAN_NAME, tag_end_arg1) + "と" + cdatan(CDATAN_NAME, locvar_tag_end_ttc) + "は解散した。", "You were disbanded " + cdatan(CDATAN_NAME, tag_end_arg1) + " with " + cdatan(CDATAN_NAME, locvar_tag_end_ttc) + ".")
+  1642: 	cdata(CDATA_TAGTEAM_PARTNER, locvar_tag_end_ttc) = -1
+  1643: 	cdata(CDATA_IN_TAGTEAM, locvar_tag_end_ttc) = 0
+  1644: 	cdata(CDATA_TAGTEAM_PARTNER, tag_end_arg1) = -1
+==============================================================================
+=== riga 1654.0  [dinamica]
+jp: name(ride_begin_arg1) + "に騎乗した(" + name(ride_begin_arg1) + "の速度: " + cdata(CDATA_SPEED, ride_begin_arg1) + "→"
+en: "You ride " + name(ride_begin_arg1) + ". (" + name(ride_begin_arg1) + "'s speed: " + cdata(CDATA_SPEED, ride_begin_arg1) + "->"
+--- sorgente
+  1651: 
+  1652: #deffunc ride_begin int ride_begin_arg1
+  1653: 	if ( cdata(CDATA_RIDING, ride_begin_arg1) == 0 ) {
+>>1654: 		txt lang(name(ride_begin_arg1) + "に騎乗した(" + name(ride_begin_arg1) + "の速度: " + cdata(CDATA_SPEED, ride_begin_arg1) + "→", "You ride " + name(ride_begin_arg1) + ". (" + name(ride_begin_arg1) + "'s speed: " + cdata(CDATA_SPEED, ride_begin_arg1) + "->")
+  1655: 	}
+  1656: 	if ( cdata(CDATA_RIDING, ride_begin_arg1) == 1 ) {
+  1657: 		txt lang(name(ride_begin_arg1) + "を乗せた(" + name(ride_begin_arg1) + "の速度: " + cdata(CDATA_SPEED, ride_begin_arg1) + "→", name(ride_begin_arg1) + " rides you. (" + name(ride_begin_arg1) + "'s speed: " + cdata(CDATA_SPEED, ride_begin_arg1) + "->")
+==============================================================================
+=== riga 1657.0  [dinamica]
+jp: name(ride_begin_arg1) + "を乗せた(" + name(ride_begin_arg1) + "の速度: " + cdata(CDATA_SPEED, ride_begin_arg1) + "→"
+en: name(ride_begin_arg1) + " rides you. (" + name(ride_begin_arg1) + "'s speed: " + cdata(CDATA_SPEED, ride_begin_arg1) + "->"
+--- sorgente
+  1654: 		txt lang(name(ride_begin_arg1) + "に騎乗した(" + name(ride_begin_arg1) + "の速度: " + cdata(CDATA_SPEED, ride_begin_arg1) + "→", "You ride " + name(ride_begin_arg1) + ". (" + name(ride_begin_arg1) + "'s speed: " + cdata(CDATA_SPEED, ride_begin_arg1) + "->")
+  1655: 	}
+  1656: 	if ( cdata(CDATA_RIDING, ride_begin_arg1) == 1 ) {
+>>1657: 		txt lang(name(ride_begin_arg1) + "を乗せた(" + name(ride_begin_arg1) + "の速度: " + cdata(CDATA_SPEED, ride_begin_arg1) + "→", name(ride_begin_arg1) + " rides you. (" + name(ride_begin_arg1) + "'s speed: " + cdata(CDATA_SPEED, ride_begin_arg1) + "->")
+  1658: 	}
+  1659: 	cbitmod CHARA_BIT_RIDE, ride_begin_arg1, 1
+  1660: 	map(cdata(CDATA_X, ride_begin_arg1), cdata(CDATA_Y, ride_begin_arg1), 1) = 0
+==============================================================================
+=== riga 1668.0  [statica]
+jp: "この生物は乗馬用にちょうどいい！"
+en: "You feel comfortable."
+--- sorgente
+  1665: 	txt "" + cdata(CDATA_SPEED, ride_begin_arg1) + ") "
+  1666: 	if ( cdata(CDATA_RIDING, gdata(GDATA_RIDER)) == 0 ) {
+  1667: 		if ( cbit(CHARA_BIT_SUPERIOR_RIDING, gdata(GDATA_RIDER)) ) {
+>>1668: 			txt lang("この生物は乗馬用にちょうどいい！", "You feel comfortable.")
+  1669: 		}
+  1670: 	}
+  1671: 	if ( cdata(CDATA_RIDING, gdata(GDATA_RIDER)) == 0 ) {
+==============================================================================
+=== riga 1673.0  [statica]
+jp: "この生物はあなたを乗せるには非力すぎる。"
+en: "This creature is too weak to carry you."
+--- sorgente
+  1670: 	}
+  1671: 	if ( cdata(CDATA_RIDING, gdata(GDATA_RIDER)) == 0 ) {
+  1672: 		if ( cbit(CHARA_BIT_INFERIOR_RIDING, gdata(GDATA_RIDER)) ) {
+>>1673: 			txt lang("この生物はあなたを乗せるには非力すぎる。", "This creature is too weak to carry you.")
+  1674: 		}
+  1675: 	}
+  1676: 	return
+==============================================================================
+=== riga 1736.0  [dinamica]
+jp: name(cnt) + "は物音に気付き目を覚ました。"
+en: name(cnt) + " notice" + _s(cnt) + " the sound and wake" + _s(cnt) + " up."
+--- sorgente
+  1733: 				if ( cdata(CDATA_CONDITION_SLEEP, cnt) != 0 ) {
+  1734: 					cdata(CDATA_CONDITION_SLEEP, cnt) = 0
+  1735: 					if ( synccheck(cnt, -1) ) {
+>>1736: 						txt lang(name(cnt) + "は物音に気付き目を覚ました。", name(cnt) + " notice" + _s(cnt) + " the sound and wake" + _s(cnt) + " up.")
+  1737: 					}
+  1738: 					cdata(CDATA_EMO_ICON, cnt) = 21 + 100 * 2
+  1739: 					if ( make_sound_arg5 ) {
+==============================================================================
+=== riga 1744.0  [dinamica]
+jp: name(cnt) + "はキレた。"
+en: name(cnt) + " can no longer put up with it."
+--- sorgente
+  1741: 							if ( rnd(500) == 0 ) {
+  1742: 								if ( synccheck(cnt, -1) ) {
+  1743: 									txtef COLOR_SKY_BLUE
+>>1744: 									txt lang(name(cnt) + "はキレた。", name(cnt) + " can no longer put up with it.")
+  1745: 									chatc@DP = cnt
+  1746: 									txt lang("「もう我慢できない」", cnvtalk("That's it."))
+  1747: 								}
+==============================================================================
+=== riga 1746.0  [statica]
+jp: "「もう我慢できない」"
+en: cnvtalk("That's it.")
+--- sorgente
+  1743: 									txtef COLOR_SKY_BLUE
+  1744: 									txt lang(name(cnt) + "はキレた。", name(cnt) + " can no longer put up with it.")
+  1745: 									chatc@DP = cnt
+>>1746: 									txt lang("「もう我慢できない」", cnvtalk("That's it."))
+  1747: 								}
+  1748: 								turn_aggro cnt, make_sound_arg6, 80
+  1749: 							}
+==============================================================================
+=== riga 5479.0  [dinamica]
+jp: name(dmghp_charid) + "の契約が切れた。"
+en: name(dmghp_charid) + " lost the effect of contingency."
+--- sorgente
+  5476: 					continue cnt
+  5477: 				loop
+  5478: 				txtef COLOR_PURPLE
+>>5479: 				txt lang(name(dmghp_charid) + "の契約が切れた。", name(dmghp_charid) + " lost the effect of contingency.")
+  5480: 			}
+  5481: 		}
+  5482: 	}
+==============================================================================
+=== riga 5864.0  [statica]
+jp: "＊絶対防衛＊"
+en: "*Absolute protect*"
+--- sorgente
+  5861: 				locvar_dmghp_dmg = 0
+  5862: 				snd SOUNDLIST_AMMO
+  5863: 				chatc@DP = cnt
+>>5864: 				txt lang("＊絶対防衛＊", "*Absolute protect*")
+  5865: 				cdata(CDATA_HP, cnt) -= locvar_dmghp_dmgpro
+  5866: 				/********** JAMES CUSTOM - DAMAGE METER - BEGINNING **********/
+  5867: 				txtmore

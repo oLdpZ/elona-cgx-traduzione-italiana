@@ -1,0 +1,437 @@
+==============================================================================
+=== riga 7002.0  [dinamica]
+jp: cdatan(CDATAN_NAME, dmghp_charid) + "は闇のゲームで負けた。"
+en: cdatan(CDATAN_NAME, dmghp_charid) + " was sent to Amur-cage by " + cdatan(CDATAN_NAME, (DAMAGE_FROM_CARD_GAME - dmghp_source)) + "."
+--- sorgente
+  6999: 			}
+  7000: 			/********** JAMES CUSTOM - TCG - BEGINNING **********/
+  7001: 			if ( dmghp_source >= DAMAGE_FROM_CARD_GAME - MAX_CHARA_TOTAL & dmghp_source <= DAMAGE_FROM_CARD_GAME & DAMAGE_FROM_CARD_GAME <= -10000 ) {
+>>7002: 				txt lang(cdatan(CDATAN_NAME, dmghp_charid) + "は闇のゲームで負けた。", cdatan(CDATAN_NAME, dmghp_charid) + " was sent to Amur-cage by " + cdatan(CDATAN_NAME, (DAMAGE_FROM_CARD_GAME - dmghp_source)) + ".")
+  7003: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  7004: 					ndeathcause = lang("闇のゲームで負けた。", "lost a card game against " + cdatan(CDATAN_NAME, (DAMAGE_FROM_CARD_GAME - dmghp_source)) + " and was sent to Amur-cage")
+  7005: 				}
+==============================================================================
+=== riga 7004.0  [dinamica]
+jp: "闇のゲームで負けた。"
+en: "lost a card game against " + cdatan(CDATAN_NAME, (DAMAGE_FROM_CARD_GAME - dmghp_source)) + " and was sent to Amur-cage"
+--- sorgente
+  7001: 			if ( dmghp_source >= DAMAGE_FROM_CARD_GAME - MAX_CHARA_TOTAL & dmghp_source <= DAMAGE_FROM_CARD_GAME & DAMAGE_FROM_CARD_GAME <= -10000 ) {
+  7002: 				txt lang(cdatan(CDATAN_NAME, dmghp_charid) + "は闇のゲームで負けた。", cdatan(CDATAN_NAME, dmghp_charid) + " was sent to Amur-cage by " + cdatan(CDATAN_NAME, (DAMAGE_FROM_CARD_GAME - dmghp_source)) + ".")
+  7003: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>7004: 					ndeathcause = lang("闇のゲームで負けた。", "lost a card game against " + cdatan(CDATAN_NAME, (DAMAGE_FROM_CARD_GAME - dmghp_source)) + " and was sent to Amur-cage")
+  7005: 				}
+  7006: 			}
+  7007: 			/********** JAMES CUSTOM - TCG - ENDING **********/
+==============================================================================
+=== riga 7009.0  [dinamica]
+jp: name(dmghp_charid) + "は首を吊った。"
+en: name(dmghp_charid) + " hang" + _s(dmghp_charid) + " " + his(dmghp_charid) + "self."
+--- sorgente
+  7006: 			}
+  7007: 			/********** JAMES CUSTOM - TCG - ENDING **********/
+  7008: 			if ( dmghp_source == DAMAGE_FROM_HANGING ) {
+>>7009: 				txt lang(name(dmghp_charid) + "は首を吊った。", name(dmghp_charid) + " hang" + _s(dmghp_charid) + " " + his(dmghp_charid) + "self.")
+  7010: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  7011: 					ndeathcause = lang("首を吊った。", "committed suicide by hanging")
+  7012: 				}
+==============================================================================
+=== riga 7011.0  [statica]
+jp: "首を吊った。"
+en: "committed suicide by hanging"
+--- sorgente
+  7008: 			if ( dmghp_source == DAMAGE_FROM_HANGING ) {
+  7009: 				txt lang(name(dmghp_charid) + "は首を吊った。", name(dmghp_charid) + " hang" + _s(dmghp_charid) + " " + his(dmghp_charid) + "self.")
+  7010: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>7011: 					ndeathcause = lang("首を吊った。", "committed suicide by hanging")
+  7012: 				}
+  7013: 			}
+  7014: 			if ( dmghp_source == DAMAGE_FROM_SUFFOCATION ) {
+==============================================================================
+=== riga 7015.0  [dinamica]
+jp: name(dmghp_charid) + "は窒息して死んだ"
+en: name(dmghp_charid) + " choke" + _s(dmghp_charid) + " to death."
+--- sorgente
+  7012: 				}
+  7013: 			}
+  7014: 			if ( dmghp_source == DAMAGE_FROM_SUFFOCATION ) {
+>>7015: 				txt lang(name(dmghp_charid) + "は窒息して死んだ", name(dmghp_charid) + " choke" + _s(dmghp_charid) + " to death.")
+  7016: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  7017: 					ndeathcause = lang("窒息して死んだ", "choked to death")
+  7018: 				}
+==============================================================================
+=== riga 7017.0  [statica]
+jp: "窒息して死んだ"
+en: "choked to death"
+--- sorgente
+  7014: 			if ( dmghp_source == DAMAGE_FROM_SUFFOCATION ) {
+  7015: 				txt lang(name(dmghp_charid) + "は窒息して死んだ", name(dmghp_charid) + " choke" + _s(dmghp_charid) + " to death.")
+  7016: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>7017: 					ndeathcause = lang("窒息して死んだ", "choked to death")
+  7018: 				}
+  7019: 			}
+  7020: 			if ( dmghp_source == DAMAGE_FROM_BURDEN ) {
+==============================================================================
+=== riga 7032.0  [statica]
+jp: "荷物"
+en: "backpack"
+--- sorgente
+  7029: 					}
+  7030: 				loop
+  7031: 				if ( locvar_dmghp_p == (-1) ) {
+>>7032: 					rtvaln = lang("荷物", "backpack")
+  7033: 				}
+  7034: 				else {
+  7035: 					rtvaln = itemname(locvar_dmghp_p)
+==============================================================================
+=== riga 7037.0  [dinamica]
+jp: name(dmghp_charid) + "は" + rtvaln + "の重さに耐え切れず死んだ。"
+en: name(dmghp_charid) + " " + is(dmghp_charid) + " squashed by " + rtvaln + "."
+--- sorgente
+  7034: 				else {
+  7035: 					rtvaln = itemname(locvar_dmghp_p)
+  7036: 				}
+>>7037: 				txt lang(name(dmghp_charid) + "は" + rtvaln + "の重さに耐え切れず死んだ。", name(dmghp_charid) + " " + is(dmghp_charid) + " squashed by " + rtvaln + ".")
+  7038: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  7039: 					ndeathcause = lang(rtvaln + "の重さに耐え切れず潰れた。", "was squashed by " + rtvaln)
+  7040: 				}
+==============================================================================
+=== riga 7039.0  [dinamica]
+jp: rtvaln + "の重さに耐え切れず潰れた。"
+en: "was squashed by " + rtvaln
+--- sorgente
+  7036: 				}
+  7037: 				txt lang(name(dmghp_charid) + "は" + rtvaln + "の重さに耐え切れず死んだ。", name(dmghp_charid) + " " + is(dmghp_charid) + " squashed by " + rtvaln + ".")
+  7038: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>7039: 					ndeathcause = lang(rtvaln + "の重さに耐え切れず潰れた。", "was squashed by " + rtvaln)
+  7040: 				}
+  7041: 			}
+  7042: 		}
+==============================================================================
+=== riga 7139.0  [dinamica]
+jp: "ネヘルタード「もう駄目…残念…」"
+en: "Amurdad: " + cnvtalk("Alas... It was in vain...")
+--- sorgente
+  7136: 				}
+  7137: 				gdata(GDATA_FLAG_SUB_AMURDAD) += 9
+  7138: 				chatc@DP = (-1)
+>>7139: 				txt lang("ネヘルタード「もう駄目…残念…」", "Amurdad: " + cnvtalk("Alas... It was in vain..."))
+  7140: 				msg_halt
+  7141: 				evadd EVENT_AMURDEAD_SUB_CREATE_STAIRS, 0
+  7142: 			}
+==============================================================================
+=== riga 7247.0  [statica]
+jp: "現在ポイント"
+en: "Removal Point "
+--- sorgente
+  7244: 								if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_ANTITANK_LANDMINE_GIRL | cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_JUMP_LANDMINE_GIRL | cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_SCATTER_LANDMINE_GIRL | cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_LANDMINE_GIRL ) {
+  7245: 									qdata(QDATA_PARAM2, gdata(GDATA_QUEST_REF))++
+  7246: 									txtef COLOR_GREEN
+>>7247: 									txt lang("現在ポイント", "Removal Point ") + "(" + qdata(QDATA_PARAM2, gdata(GDATA_QUEST_REF)) + ") " + lang("撤去ノルマ", "Quota ") + "(" + qdata(QDATA_PARAM1, gdata(GDATA_QUEST_REF)) + ")"
+  7248: 								}
+  7249: 							}
+  7250: 							if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_LULWY ) {
+--- STESSO GIAPPONESE, gia' reso:
+    proc.hsp.jsonl:241  Punti 
+    proc.hsp.jsonl:558  Punti 
+--- stesso inglese, gia' reso:
+    proc.hsp.jsonl:241  Punti 
+==============================================================================
+=== riga 7247.0  [statica]
+jp: "撤去ノルマ"
+en: "Quota "
+--- sorgente
+  7244: 								if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_ANTITANK_LANDMINE_GIRL | cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_JUMP_LANDMINE_GIRL | cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_SCATTER_LANDMINE_GIRL | cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_LANDMINE_GIRL ) {
+  7245: 									qdata(QDATA_PARAM2, gdata(GDATA_QUEST_REF))++
+  7246: 									txtef COLOR_GREEN
+>>7247: 									txt lang("現在ポイント", "Removal Point ") + "(" + qdata(QDATA_PARAM2, gdata(GDATA_QUEST_REF)) + ") " + lang("撤去ノルマ", "Quota ") + "(" + qdata(QDATA_PARAM1, gdata(GDATA_QUEST_REF)) + ")"
+  7248: 								}
+  7249: 							}
+  7250: 							if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_LULWY ) {
+--- STESSO GIAPPONESE, gia' reso:
+    proc.hsp.jsonl:241  Obiettivo 
+--- stesso inglese, gia' reso:
+    proc.hsp.jsonl:241  Obiettivo 
+==============================================================================
+=== riga 7279.0  [statica]
+jp: "これで熊の出没も少しは減るだろう。"
+en: "This will likely reduce bear visits a little."
+--- sorgente
+  7276: 							}
+  7277: 							if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_MOTUHEGUI ) {
+  7278: 								mdata(MDATA_BEAR_EXTERMINATION)++
+>>7279: 								txt lang("これで熊の出没も少しは減るだろう。", "This will likely reduce bear visits a little.")
+  7280: 							}
+  7281: 							if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_GAKI_MOTUHEGUI ) {
+  7282: 								mdata(MDATA_BEAR_EXTERMINATION) += 2
+==============================================================================
+=== riga 7283.0  [statica]
+jp: "これで将来的に熊の出没が減るだろう。"
+en: "This will likely reduce bear visits in the future."
+--- sorgente
+  7280: 							}
+  7281: 							if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_GAKI_MOTUHEGUI ) {
+  7282: 								mdata(MDATA_BEAR_EXTERMINATION) += 2
+>>7283: 								txt lang("これで将来的に熊の出没が減るだろう。", "This will likely reduce bear visits in the future.")
+  7284: 							}
+  7285: 							if ( mdata(MDATA_BEAR_EXTERMINATION) > 10 ) {
+  7286: 								mdata(MDATA_BEAR_EXTERMINATION) = 10
+==============================================================================
+=== riga 7319.0  [statica]
+jp: "あなたは今や神殺しだ。"
+en: "You are the godslayer!"
+--- sorgente
+  7316: 							}
+  7317: 							if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_THE_ELEMENT | cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_HYPER_YACATECT | cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_BLESSED_JURE | cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_DEVASTATE_LULWY | cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_BUILDUP_OPATOS | cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_INSANE_KUMIROMI | cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_DEUS_EX_MANINA | cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_GOD_INSIDE_EHEKATL ) {
+  7318: 								txtef COLOR_GREEN
+>>7319: 								txt lang("あなたは今や神殺しだ。", "You are the godslayer!")
+  7320: 							}
+  7321: 						}
+  7322: 					}
+==============================================================================
+=== riga 7330.0  [statica]
+jp: "＊決闘終了＊"
+en: "*Duel-Over!*"
+--- sorgente
+  7327: 			if ( dmghp_charid == gdata(GDATA_FLAG_DUEL_TARGET) | dmghp_charid == CHARA_PLAYER ) {
+  7328: 				txtef COLOR_GREEN
+  7329: 				chatc@DP = (-1)
+>>7330: 				txt lang("＊決闘終了＊", "*Duel-Over!*")
+  7331: 				snd SOUNDLIST_GONG
+  7332: 				gdata(GDATA_FLAG_DUEL_TARGET) = -3
+  7333: 			}
+--- STESSO GIAPPONESE, gia' reso:
+    action.hsp.jsonl:18728  *Duello finito!*
+--- stesso inglese, gia' reso:
+    action.hsp.jsonl:18728  *Duello finito!*
+==============================================================================
+=== riga 7347.0  [statica]
+jp: "[愚者の魔石]を手に入れた！"
+en: "You obtain the [Fool's Magic Stone]!"
+--- sorgente
+  7344: 						}
+  7345: 						if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_ISSIZZLE_THE_DARK_ABOMINATION ) {
+  7346: 							txtef COLOR_GREEN
+>>7347: 							txt lang("[愚者の魔石]を手に入れた！", "You obtain the [Fool's Magic Stone]!")
+  7348: 							snd SOUNDLIST_COMPLETE1
+  7349: 							gdata(GDATA_FLAG_MAIN_FOOL) = 1
+  7350: 						}
+==============================================================================
+=== riga 7353.0  [statica]
+jp: "[覇者の魔石]を手に入れた！"
+en: "You obtain the [King's Magic Stone]!"
+--- sorgente
+  7350: 						}
+  7351: 						if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_WYNAN_THE_LORD_OF_THE_ANCIENT_CASTLE ) {
+  7352: 							txtef COLOR_GREEN
+>>7353: 							txt lang("[覇者の魔石]を手に入れた！", "You obtain the [King's Magic Stone]!")
+  7354: 							snd SOUNDLIST_COMPLETE1
+  7355: 							gdata(GDATA_FLAG_MAIN_KING) = 1
+  7356: 						}
+==============================================================================
+=== riga 7359.0  [statica]
+jp: "[賢者の魔石]を手に入れた！"
+en: "You obtain the [Sage's Magic Stone]!"
+--- sorgente
+  7356: 						}
+  7357: 						if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_QURUIZA_THE_RED_EYED_DECEIVER ) {
+  7358: 							txtef COLOR_GREEN
+>>7359: 							txt lang("[賢者の魔石]を手に入れた！", "You obtain the [Sage's Magic Stone]!")
+  7360: 							snd SOUNDLIST_COMPLETE1
+  7361: 							gdata(GDATA_FLAG_MAIN_SAGE) = 1
+  7362: 						}
+==============================================================================
+=== riga 7423.0  [statica]
+jp: "ビッグダディは既にリトルシスターを何処かへ逃がしていた。"
+en: "The Big Daddy had already evacuated the Little Sister somewhere."
+--- sorgente
+  7420: 								evadd EVENT_LITTLE_SISTER, cdata(CDATA_X, dmghp_charid), cdata(CDATA_Y, dmghp_charid)
+  7421: 							}
+  7422: 							else {
+>>7423: 								txt lang("ビッグダディは既にリトルシスターを何処かへ逃がしていた。", "The Big Daddy had already evacuated the Little Sister somewhere.")
+  7424: 							}
+  7425: 						}
+  7426: 						if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_LITTLE_SISTER ) {
+==============================================================================
+=== riga 7430.0  [dinamica]
+jp: "リトルシスター殺害" + gdata(GDATA_SISTER_KILLED) + "回、救出" + gdata(GDATA_SISTER_SAVED) + "回。"
+en: "You have saved Little Sisters " + gdata(GDATA_SISTER_SAVED) + " times and killed them " + gdata(GDATA_SISTER_KILLED) + " times."
+--- sorgente
+  7427: 							if ( dmghp_charid > MAX_CHARA_FOLLOWER ) {
+  7428: 								gdata(GDATA_SISTER_KILLED)++
+  7429: 								txtef COLOR_RED
+>>7430: 								txt lang("リトルシスター殺害" + gdata(GDATA_SISTER_KILLED) + "回、救出" + gdata(GDATA_SISTER_SAVED) + "回。", "You have saved Little Sisters " + gdata(GDATA_SISTER_SAVED) + " times and killed them " + gdata(GDATA_SISTER_KILLED) + " times.")
+  7431: 							}
+  7432: 						}
+  7433: 						if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_H_SISTER ) {
+==============================================================================
+=== riga 7448.0  [statica]
+jp: "[太陽のアンク]を手に入れた！"
+en: "You obtain the [Ankh of The Sun]!"
+--- sorgente
+  7445: 						}
+  7446: 						if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_ANUBIS_THE_MASTER_OF_DEATH ) {
+  7447: 							txtef COLOR_GREEN
+>>7448: 							txt lang("[太陽のアンク]を手に入れた！", "You obtain the [Ankh of The Sun]!")
+  7449: 							snd SOUNDLIST_COMPLETE1
+  7450: 							gdata(GDATA_FLAG_MAIN_ANKH) = 1
+  7451: 						}
+==============================================================================
+=== riga 7454.0  [statica]
+jp: "[データチップ]を手に入れた！"
+en: "You obtain the [Data Chip]!"
+--- sorgente
+  7451: 						}
+  7452: 						if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_METAL_VESDA_THE_FIRE_MACHINE ) {
+  7453: 							txtef COLOR_GREEN
+>>7454: 							txt lang("[データチップ]を手に入れた！", "You obtain the [Data Chip]!")
+  7455: 							snd SOUNDLIST_COMPLETE1
+  7456: 							gdata(GDATA_FLAG_MAIN_DATA_CHIP) = 1
+  7457: 						}
+==============================================================================
+=== riga 7460.0  [statica]
+jp: "[混沌の翼]を手に入れた！"
+en: "You obtain the [Chaos Wings]!"
+--- sorgente
+  7457: 						}
+  7458: 						if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_EXOSSIL_THE_CHAOS_WING ) {
+  7459: 							txtef COLOR_GREEN
+>>7460: 							txt lang("[混沌の翼]を手に入れた！", "You obtain the [Chaos Wings]!")
+  7461: 							snd SOUNDLIST_COMPLETE1
+  7462: 							gdata(GDATA_FLAG_MAIN_CHAOS_WINGS) = 1
+  7463: 						}
+==============================================================================
+=== riga 7473.0  [statica]
+jp: "[データレジスタ]を手に入れた！"
+en: "You obtain the [Data Register]!"
+--- sorgente
+  7470: 						if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_MOBILE_COMMUNICATION_EQUIPMENT ) {
+  7471: 							if ( gdata(GDATA_FLAG_MAIN) < 266 ) {
+  7472: 								txtef COLOR_GREEN
+>>7473: 								txt lang("[データレジスタ]を手に入れた！", "You obtain the [Data Register]!")
+  7474: 								snd SOUNDLIST_COMPLETE1
+  7475: 								gdata(GDATA_FLAG_MAIN) = 266
+  7476: 								txt_questupdate
+==============================================================================
+=== riga 7496.0  [statica]
+jp: "回収用カプセルに高純度のエーテル塊を入れた。"
+en: "You place the lump of purified ether into the recovery capsule."
+--- sorgente
+  7493: 						if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_ETHER_GENERATOR ) {
+  7494: 							if ( gdata(GDATA_FLAG_MAIN) >= 300 & gdata(GDATA_FLAG_MAIN) < 310 ) {
+  7495: 								txtef COLOR_GREEN
+>>7496: 								txt lang("回収用カプセルに高純度のエーテル塊を入れた。", "You place the lump of purified ether into the recovery capsule.")
+  7497: 								snd SOUNDLIST_COMPLETE1
+  7498: 								gdata(GDATA_FLAG_MAIN) = 310
+  7499: 							}
+==============================================================================
+=== riga 7512.0  [statica]
+jp: "清掃完了！"
+en: "Cleaning completed!"
+--- sorgente
+  7509: 							if ( gdata(GDATA_FLAG_SUB_MANSION_FOR_SALE) == 1002 ) {
+  7510: 								gdata(GDATA_FLAG_SUB_MANSION_FOR_SALE) = 1003
+  7511: 								txtef COLOR_GREEN
+>>7512: 								txt lang("清掃完了！", "Cleaning completed!")
+  7513: 								snd SOUNDLIST_COMPLETE1
+  7514: 							}
+  7515: 						}
+--- stesso inglese, gia' reso:
+    db_creature.hsp.jsonl:95327  Pulizie completate!
+==============================================================================
+=== riga 7605.0  [statica]
+jp: "[錆びついた鈴]を手に入れた！"
+en: "You obtain the [Rusted Bell]!"
+--- sorgente
+  7602: 							if ( gdata(GDATA_AREA) == AREA_CHAOS_CRADLE ) {
+  7603: 								if ( gdata(GDATA_LEVEL) == 164 ) {
+  7604: 									txtef COLOR_GREEN
+>>7605: 									txt lang("[錆びついた鈴]を手に入れた！", "You obtain the [Rusted Bell]!")
+  7606: 									snd SOUNDLIST_COMPLETE1
+  7607: 									gdata(GDATA_FLAG_MAIN_CHAOS_CRADLE_25) = 1000
+  7608: 									snd SOUNDLIST_COMPLETE1
+==============================================================================
+=== riga 7644.0  [statica]
+jp: "けたたましい警報が鳴り響いた！"
+en: "*beeeeeep!* An alarm sounds loudly!"
+--- sorgente
+  7641: 						}
+  7642: 						if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_BELL_OF_EMERGENCY ) {
+  7643: 							txtef COLOR_RED
+>>7644: 							txt lang("けたたましい警報が鳴り響いた！", "*beeeeeep!* An alarm sounds loudly!")
+  7645: 							repeat MAX_CHARA_TOTAL
+  7646: 								if ( cdata(CDATA_EXIST, cnt) != CHAR_STATE_ALIVE ) {
+  7647: 									continue
+==============================================================================
+=== riga 7765.0  [statica]
+jp: "あなたは悲しくなった。"
+en: "You feel sad for a moment."
+--- sorgente
+  7762: 				gosub *convert_word
+  7763: 			}
+  7764: 			if ( dmghp_charid < MAX_CHARA_FOLLOWER ) {
+>>7765: 				txt lang("あなたは悲しくなった。", "You feel sad for a moment.")
+  7766: 			}
+  7767: 			else {
+  7768: 				AllyID = dmghp_charid
+==============================================================================
+=== riga 7787.0  [dinamica]
+jp: name(CHARA_PLAYER) + "は" + name(dmghp_charid) + "の死体から降りた。"
+en: name(CHARA_PLAYER) + " get off the corpse of " + name(dmghp_charid) + "."
+--- sorgente
+  7784: 			if ( dmghp_charid == gdata(GDATA_RIDER) ) {
+  7785: 				if ( cdata(CDATA_RIDING, dmghp_charid) == 0 ) {
+  7786: 					txtmore
+>>7787: 					txt lang(name(CHARA_PLAYER) + "は" + name(dmghp_charid) + "の死体から降りた。", name(CHARA_PLAYER) + " get off the corpse of " + name(dmghp_charid) + ".")
+  7788: 					ride_end
+  7789: 				}
+  7790: 			}
+==============================================================================
+=== riga 7796.0  [dinamica]
+jp: name(CHARA_PLAYER) + "は" + name(dmghp_charid) + "の死体をそっと降ろした。"
+en: name(CHARA_PLAYER) + " took down the corpse of " + name(dmghp_charid) + "."
+--- sorgente
+  7793: 			if ( dmghp_charid == gdata(GDATA_RIDER) ) {
+  7794: 				if ( cdata(CDATA_RIDING, dmghp_charid) == 1 ) {
+  7795: 					txtmore
+>>7796: 					txt lang(name(CHARA_PLAYER) + "は" + name(dmghp_charid) + "の死体をそっと降ろした。", name(CHARA_PLAYER) + " took down the corpse of " + name(dmghp_charid) + ".")
+  7797: 					cdata(CDATA_RIDING, dmghp_charid) = 0
+  7798: 					ride_end
+  7799: 				}
+==============================================================================
+=== riga 7878.0  [statica]
+jp: "死の宣告は無効になった。"
+en: "The death word breaks."
+--- sorgente
+  7875: 		}
+  7876: 		if ( cbit(CHARA_BIT_DEATH_MASTER, dmghp_charid) == 1 ) {
+  7877: 			txtmore
+>>7878: 			txt lang("死の宣告は無効になった。", "The death word breaks.")
+  7879: 			repeat MAX_CHARA_TOTAL
+  7880: 				if ( cdata(CDATA_EXIST, cnt) != CHAR_STATE_ALIVE ) {
+  7881: 					continue
+==============================================================================
+=== riga 7915.0  [dinamica]
+jp: "なんと　" + cdatan(0, dmghp_charid) + "が　おきあがり　なかまに　なりたそうに　こちらをみている！　なかまにしてあげますか？"
+en: "" + cdatan(0, dmghp_charid) + " stood up and offered to join you! Would you like to join " + cdatan(0, dmghp_charid) + "?"
+--- sorgente
+  7912: 							customtalk dmghp_charid, 1158
+  7913: 							gosub *convert_word
+  7914: 							if ( stat == 0 ) {
+>>7915: 								txt lang("なんと　" + cdatan(0, dmghp_charid) + "が　おきあがり　なかまに　なりたそうに　こちらをみている！　なかまにしてあげますか？", "" + cdatan(0, dmghp_charid) + " stood up and offered to join you! Would you like to join " + cdatan(0, dmghp_charid) + "?")
+  7916: 							}
+  7917: 							promptYesNo
+  7918: 							snd 20
+==============================================================================
+=== riga 7934.0  [dinamica]
+jp: "" + cdatan(0, dmghp_charid) + "は　さびしそうに　さっていった"
+en: "" + cdatan(0, dmghp_charid) + " vanish" + _s(dmghp_charid, 1) + "."
+--- sorgente
+  7931: 								customtalk dmghp_charid, 1160
+  7932: 								gosub *convert_word
+  7933: 								if ( stat == 0 ) {
+>>7934: 									txt lang("" + cdatan(0, dmghp_charid) + "は　さびしそうに　さっていった", "" + cdatan(0, dmghp_charid) + " vanish" + _s(dmghp_charid, 1) + ".")
+  7935: 								}
+  7936: 							}
+  7937: 						}
+--- stesso inglese, gia' reso:
+    proc.hsp.jsonl:11927  name(tc) + " svanisce."

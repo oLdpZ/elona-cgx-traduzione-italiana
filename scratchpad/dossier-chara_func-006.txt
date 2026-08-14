@@ -1,0 +1,335 @@
+==============================================================================
+=== riga 8007.0  [statica]
+jp: "「くっ！」"
+en: cnvtalk("Kill me already!")
+--- sorgente
+  8004: 		if ( synccheck(dmghp_charid, -1) ) {
+  8005: 			if ( rnd(20) == 0 ) {
+  8006: 				chatc@DP = dmghp_charid
+>>8007: 				txt lang("「くっ！」", cnvtalk("Kill me already!")), lang("「まだまだ！」", cnvtalk("No... not yet...!")), lang("「もう限界…」", cnvtalk("I can't take it anymore...")), lang("「うぐぐ」", cnvtalk("Argh!")), lang("「あう」", cnvtalk("Uhhh")), lang("「ああんっ」", cnvtalk("Ugggg"))
+  8008: 			}
+  8009: 		}
+  8010: 	}
+==============================================================================
+=== riga 8007.0  [statica]
+jp: "「まだまだ！」"
+en: cnvtalk("No... not yet...!")
+--- sorgente
+  8004: 		if ( synccheck(dmghp_charid, -1) ) {
+  8005: 			if ( rnd(20) == 0 ) {
+  8006: 				chatc@DP = dmghp_charid
+>>8007: 				txt lang("「くっ！」", cnvtalk("Kill me already!")), lang("「まだまだ！」", cnvtalk("No... not yet...!")), lang("「もう限界…」", cnvtalk("I can't take it anymore...")), lang("「うぐぐ」", cnvtalk("Argh!")), lang("「あう」", cnvtalk("Uhhh")), lang("「ああんっ」", cnvtalk("Ugggg"))
+  8008: 			}
+  8009: 		}
+  8010: 	}
+==============================================================================
+=== riga 8007.0  [statica]
+jp: "「もう限界…」"
+en: cnvtalk("I can't take it anymore...")
+--- sorgente
+  8004: 		if ( synccheck(dmghp_charid, -1) ) {
+  8005: 			if ( rnd(20) == 0 ) {
+  8006: 				chatc@DP = dmghp_charid
+>>8007: 				txt lang("「くっ！」", cnvtalk("Kill me already!")), lang("「まだまだ！」", cnvtalk("No... not yet...!")), lang("「もう限界…」", cnvtalk("I can't take it anymore...")), lang("「うぐぐ」", cnvtalk("Argh!")), lang("「あう」", cnvtalk("Uhhh")), lang("「ああんっ」", cnvtalk("Ugggg"))
+  8008: 			}
+  8009: 		}
+  8010: 	}
+==============================================================================
+=== riga 8007.0  [statica]
+jp: "「うぐぐ」"
+en: cnvtalk("Argh!")
+--- sorgente
+  8004: 		if ( synccheck(dmghp_charid, -1) ) {
+  8005: 			if ( rnd(20) == 0 ) {
+  8006: 				chatc@DP = dmghp_charid
+>>8007: 				txt lang("「くっ！」", cnvtalk("Kill me already!")), lang("「まだまだ！」", cnvtalk("No... not yet...!")), lang("「もう限界…」", cnvtalk("I can't take it anymore...")), lang("「うぐぐ」", cnvtalk("Argh!")), lang("「あう」", cnvtalk("Uhhh")), lang("「ああんっ」", cnvtalk("Ugggg"))
+  8008: 			}
+  8009: 		}
+  8010: 	}
+==============================================================================
+=== riga 8007.0  [statica]
+jp: "「あう」"
+en: cnvtalk("Uhhh")
+--- sorgente
+  8004: 		if ( synccheck(dmghp_charid, -1) ) {
+  8005: 			if ( rnd(20) == 0 ) {
+  8006: 				chatc@DP = dmghp_charid
+>>8007: 				txt lang("「くっ！」", cnvtalk("Kill me already!")), lang("「まだまだ！」", cnvtalk("No... not yet...!")), lang("「もう限界…」", cnvtalk("I can't take it anymore...")), lang("「うぐぐ」", cnvtalk("Argh!")), lang("「あう」", cnvtalk("Uhhh")), lang("「ああんっ」", cnvtalk("Ugggg"))
+  8008: 			}
+  8009: 		}
+  8010: 	}
+==============================================================================
+=== riga 8007.0  [statica]
+jp: "「ああんっ」"
+en: cnvtalk("Ugggg")
+--- sorgente
+  8004: 		if ( synccheck(dmghp_charid, -1) ) {
+  8005: 			if ( rnd(20) == 0 ) {
+  8006: 				chatc@DP = dmghp_charid
+>>8007: 				txt lang("「くっ！」", cnvtalk("Kill me already!")), lang("「まだまだ！」", cnvtalk("No... not yet...!")), lang("「もう限界…」", cnvtalk("I can't take it anymore...")), lang("「うぐぐ」", cnvtalk("Argh!")), lang("「あう」", cnvtalk("Uhhh")), lang("「ああんっ」", cnvtalk("Ugggg"))
+  8008: 			}
+  8009: 		}
+  8010: 	}
+==============================================================================
+=== riga 8039.0  [dinamica]
+jp: "マナの反動が" + name(dmgmp_charid) + "の精神を蝕んだ！"
+en: "Magic reaction hurts " + name(dmgmp_charid) + "!"
+--- sorgente
+  8036: 				return 1
+  8037: 			}
+  8038: 		}
+>>8039: 		txt lang("マナの反動が" + name(dmgmp_charid) + "の精神を蝕んだ！", "Magic reaction hurts " + name(dmgmp_charid) + "!")
+  8040: 		dmghp dmgmp_charid, locvar_dmgmp_d, DAMAGE_FROM_OVERCAST
+  8041: 	}
+  8042: 	return 1
+==============================================================================
+=== riga 8178.0  [dinamica]
+jp: name(modweight_charid) + "は太った。"
+en: name(modweight_charid) + " gain" + _s(modweight_charid) + " weight."
+--- sorgente
+  8175: 	}
+  8176: 	if ( synccheck(modweight_charid, -1) ) {
+  8177: 		if ( modweight_arg2 > 2 ) {
+>>8178: 			txt lang(name(modweight_charid) + "は太った。", name(modweight_charid) + " gain" + _s(modweight_charid) + " weight.")
+  8179: 		}
+  8180: 		if ( modweight_arg2 < (-2) ) {
+  8181: 			txt lang(name(modweight_charid) + "は痩せた。", name(modweight_charid) + " lose" + _s(modweight_charid) + " weight.")
+--- STESSO GIAPPONESE, gia' reso:
+    proc.hsp.jsonl:10612  name(tc) + " diventa più pesante."
+--- stesso inglese, gia' reso:
+    proc.hsp.jsonl:7705  name(tc) + " diventa più pesante."
+    proc.hsp.jsonl:10612  name(tc) + " diventa più pesante."
+==============================================================================
+=== riga 8181.0  [dinamica]
+jp: name(modweight_charid) + "は痩せた。"
+en: name(modweight_charid) + " lose" + _s(modweight_charid) + " weight."
+--- sorgente
+  8178: 			txt lang(name(modweight_charid) + "は太った。", name(modweight_charid) + " gain" + _s(modweight_charid) + " weight.")
+  8179: 		}
+  8180: 		if ( modweight_arg2 < (-2) ) {
+>>8181: 			txt lang(name(modweight_charid) + "は痩せた。", name(modweight_charid) + " lose" + _s(modweight_charid) + " weight.")
+  8182: 		}
+  8183: 	}
+  8184: 	return
+==============================================================================
+=== riga 8197.0  [dinamica]
+jp: name(modheight_charid) + "の身長は少し伸びた。"
+en: name(modheight_charid) + " grow" + _s(modheight_charid) + " taller."
+--- sorgente
+  8194: 	}
+  8195: 	if ( synccheck(modheight_charid, -1) ) {
+  8196: 		if ( modheight_arg2 > 0 ) {
+>>8197: 			txt lang(name(modheight_charid) + "の身長は少し伸びた。", name(modheight_charid) + " grow" + _s(modheight_charid) + " taller.")
+  8198: 		}
+  8199: 		if ( modheight_arg2 < 0 ) {
+  8200: 			txt lang(name(modheight_charid) + "の身長は少し縮んだ。", name(modheight_charid) + " grow" + _s(modheight_charid) + " smaller.")
+==============================================================================
+=== riga 8200.0  [dinamica]
+jp: name(modheight_charid) + "の身長は少し縮んだ。"
+en: name(modheight_charid) + " grow" + _s(modheight_charid) + " smaller."
+--- sorgente
+  8197: 			txt lang(name(modheight_charid) + "の身長は少し伸びた。", name(modheight_charid) + " grow" + _s(modheight_charid) + " taller.")
+  8198: 		}
+  8199: 		if ( modheight_arg2 < 0 ) {
+>>8200: 			txt lang(name(modheight_charid) + "の身長は少し縮んだ。", name(modheight_charid) + " grow" + _s(modheight_charid) + " smaller.")
+  8201: 		}
+  8202: 	}
+  8203: 	return
+==============================================================================
+=== riga 8211.0  [dinamica]
+jp: name(cure_anorexia_charid) + "の拒食症は治った。"
+en: name(cure_anorexia_charid) + " manage" + _s(cure_anorexia_charid) + " to recover from anorexia."
+--- sorgente
+  8208: 	}
+  8209: 	cbitmod CHARA_BIT_ANOREXIA, cure_anorexia_charid, 0
+  8210: 	if ( synccheck(cure_anorexia_charid, -1) | cure_anorexia_charid < MAX_CHARA_FOLLOWER ) {
+>>8211: 		txt lang(name(cure_anorexia_charid) + "の拒食症は治った。", name(cure_anorexia_charid) + " manage" + _s(cure_anorexia_charid) + " to recover from anorexia.")
+  8212: 		snd SOUNDLIST_OFFER1
+  8213: 	}
+  8214: 	return
+==============================================================================
+=== riga 8220.0  [dinamica]
+jp: name(chara_vomit_charid) + "は吐いた。"
+en: name(chara_vomit_charid) + " vomit" + _s(chara_vomit_charid) + "."
+--- sorgente
+  8217: 	cdata(CDATA_VOMIT, chara_vomit_charid)++
+  8218: 	if ( synccheck(chara_vomit_charid, -1) ) {
+  8219: 		snd SOUNDLIST_VOMIT
+>>8220: 		txt lang(name(chara_vomit_charid) + "は吐いた。", name(chara_vomit_charid) + " vomit" + _s(chara_vomit_charid) + ".")
+  8221: 	}
+  8222: 	if ( cbit(CHARA_BIT_PREGNANT, chara_vomit_charid) ) {
+  8223: 		cbitmod CHARA_BIT_PREGNANT, chara_vomit_charid, 0
+==============================================================================
+=== riga 8225.0  [dinamica]
+jp: name(chara_vomit_charid) + "は体内の異物を吐き出した！"
+en: name(chara_vomit_charid) + " spit" + _s(chara_vomit_charid) + " children from " + his(chara_vomit_charid) + " body!"
+--- sorgente
+  8222: 	if ( cbit(CHARA_BIT_PREGNANT, chara_vomit_charid) ) {
+  8223: 		cbitmod CHARA_BIT_PREGNANT, chara_vomit_charid, 0
+  8224: 		if ( synccheck(chara_vomit_charid, -1) ) {
+>>8225: 			txt lang(name(chara_vomit_charid) + "は体内の異物を吐き出した！", name(chara_vomit_charid) + " spit" + _s(chara_vomit_charid) + " children from " + his(chara_vomit_charid) + " body!")
+  8226: 		}
+  8227: 		cdata(CDATA_INFANT, chara_vomit_charid) = 0
+  8228: 		if ( chara_vomit_charid == CHARA_PLAYER ) {
+==============================================================================
+=== riga 8270.0  [dinamica]
+jp: name(chara_vomit_charid) + "は拒食症になった。"
+en: name(chara_vomit_charid) + " develop" + _s(chara_vomit_charid) + " anorexia."
+--- sorgente
+  8267: 			if ( rnd(5) == 0 ) {
+  8268: 				cbitmod CHARA_BIT_ANOREXIA, chara_vomit_charid, 1
+  8269: 				if ( synccheck(chara_vomit_charid, -1) ) {
+>>8270: 					txt lang(name(chara_vomit_charid) + "は拒食症になった。", name(chara_vomit_charid) + " develop" + _s(chara_vomit_charid) + " anorexia.")
+  8271: 					snd SOUNDLIST_OFFER1
+  8272: 				}
+  8273: 				if ( chara_vomit_charid == CHARA_PLAYER ) {
+==============================================================================
+=== riga 8280.0  [statica]
+jp: "しかし健康のお守りが輝き、瞬く間に拒食症が治った。"
+en: "But the Amulet of Jure shines brightly for a moment, instantly curing the anorexia."
+--- sorgente
+  8277: 							if ( rnd(64) >= 1 ) {
+  8278: 								snd SOUNDLIST_PRAY2
+  8279: 								txtef COLOR_GREEN
+>>8280: 								txt lang("しかし健康のお守りが輝き、瞬く間に拒食症が治った。", "But the Amulet of Jure shines brightly for a moment, instantly curing the anorexia.")
+  8281: 								cbitmod CHARA_BIT_ANOREXIA, chara_vomit_charid, 0
+  8282: 							}
+  8283: 						}
+==============================================================================
+=== riga 8317.0  [dinamica]
+jp: name(chara_morasi_arg1) + "は漏らした。"
+en: name(chara_morasi_arg1) + " is incontinent."
+--- sorgente
+  8314: #deffunc chara_morasi int chara_morasi_arg1
+  8315: 	if ( synccheck(chara_morasi_arg1, -1) ) {
+  8316: 		snd SOUNDLIST_WATERM
+>>8317: 		txt lang(name(chara_morasi_arg1) + "は漏らした。", name(chara_morasi_arg1) + " is incontinent.")
+  8318: 		if ( chara_morasi_arg1 != 0 ) {
+  8319: 			chatc@DP = chara_morasi_arg1
+  8320: 			txt lang("「…スッキリ！」", cnvtalk("Don't look at me!"))
+--- STESSO GIAPPONESE, gia' reso:
+    chara_func.hsp.jsonl:3377  name(dmgcon_charid) + " se la fa addosso."
+==============================================================================
+=== riga 8629.0  [dinamica]
+jp: name(gain_iden_charaid2) + "の生命核は" + name(gain_iden_charaid1) + "の遺伝子を獲得した。"
+en: name(gain_iden_charaid2) + " get genes of " + _s(gain_iden_charaid1) + "."
+--- sorgente
+  8626: 			cdata(CDATA_INFANT, gain_iden_charaid2) = cdata(CDATA_ID, gain_iden_charaid1)
+  8627: 		}
+  8628: 		txtef COLOR_YELLOW
+>>8629: 		txt lang(name(gain_iden_charaid2) + "の生命核は" + name(gain_iden_charaid1) + "の遺伝子を獲得した。", name(gain_iden_charaid2) + " get genes of " + _s(gain_iden_charaid1) + ".")
+  8630: 		locvar_gain_iden_sintyoku = (cdata(CDATA_PREGNANCY_PROGRESS, gain_iden_charaid2) + 1000000) * (-1) / 10000
+  8631: 		locvar_gain_iden_sintyoku += 50
+  8632: 		if ( cdata(CDATA_PREGNANCY_PROGRESS, gain_iden_charaid2) > (-1500000) ) {
+==============================================================================
+=== riga 8634.0  [dinamica]
+jp: "[フェイズ1進捗率：" + locvar_gain_iden_sintyoku + "％]"
+en: "[Phase 1 progress " + locvar_gain_iden_sintyoku + " %]"
+--- sorgente
+  8631: 		locvar_gain_iden_sintyoku += 50
+  8632: 		if ( cdata(CDATA_PREGNANCY_PROGRESS, gain_iden_charaid2) > (-1500000) ) {
+  8633: 			txtef COLOR_YELLOW
+>>8634: 			txt lang("[フェイズ1進捗率：" + locvar_gain_iden_sintyoku + "％]", "[Phase 1 progress " + locvar_gain_iden_sintyoku + " %]")
+  8635: 		}
+  8636: 		if ( cdata(CDATA_PREGNANCY_PROGRESS, gain_iden_charaid2) <= (-1500000) ) {
+  8637: 			cdata(CDATA_PREGNANCY_PROGRESS, gain_iden_charaid2) -= 500000
+==============================================================================
+=== riga 8640.0  [statica]
+jp: "[SURVIVABILITY EXTENSION！]　フェイズ1が完了した。これからは、食事の栄養で成長させる必要がある。"
+en: "[SURVIVABILITY EXTENSION !] Phase 1 completed. From now on, it need to grow with the nutrition of foods."
+--- sorgente
+  8637: 			cdata(CDATA_PREGNANCY_PROGRESS, gain_iden_charaid2) -= 500000
+  8638: 			snd SOUNDLIST_DING1
+  8639: 			txtef COLOR_GREEN
+>>8640: 			txt lang("[SURVIVABILITY EXTENSION！]　フェイズ1が完了した。これからは、食事の栄養で成長させる必要がある。", "[SURVIVABILITY EXTENSION !] Phase 1 completed. From now on, it need to grow with the nutrition of foods.")
+  8641: 		}
+  8642: 		locvar_gain_iden_generes = 0
+  8643: 		locvar_gain_iden_bvar = 0
+==============================================================================
+=== riga 8655.0  [dinamica]
+jp: name(eatstatus_arg2) + "は嫌な感じがした。"
+en: name(eatstatus_arg2) + " feel" + _s(eatstatus_arg2) + " bad."
+--- sorgente
+  8652: 	if ( eatstatus_arg1 <= (-1) ) {
+  8653: 		cdata(CDATA_HUNGER, eatstatus_arg2) -= 1500
+  8654: 		if ( synccheck(eatstatus_arg2, -1) ) {
+>>8655: 			txt lang(name(eatstatus_arg2) + "は嫌な感じがした。", name(eatstatus_arg2) + " feel" + _s(eatstatus_arg2) + " bad.")
+  8656: 		}
+  8657: 		chara_vomit eatstatus_arg2
+  8658: 	}
+==============================================================================
+=== riga 8661.0  [dinamica]
+jp: name(eatstatus_arg2) + "は良い予感がした。"
+en: name(eatstatus_arg2) + " feel" + _s(eatstatus_arg2) + " good."
+--- sorgente
+  8658: 	}
+  8659: 	if ( eatstatus_arg1 >= 1 ) {
+  8660: 		if ( synccheck(eatstatus_arg2, -1) ) {
+>>8661: 			txt lang(name(eatstatus_arg2) + "は良い予感がした。", name(eatstatus_arg2) + " feel" + _s(eatstatus_arg2) + " good.")
+  8662: 		}
+  8663: 		if ( rnd(5) == 0 ) {
+  8664: 			addbuff eatstatus_arg2, BUFF_LUCK, 100, 500 + rnd(500)
+==============================================================================
+=== riga 8677.0  [dinamica]
+jp: name(eatstatusfood_charaidx) + "は嫌な感じがした。"
+en: name(eatstatusfood_charaidx) + " feel" + _s(eatstatusfood_charaidx) + " bad."
+--- sorgente
+  8674: 	if ( eatstatusfood_itemidx <= (-1) ) {
+  8675: 		cdata(CDATA_HUNGER, eatstatusfood_charaidx) -= 1500
+  8676: 		if ( synccheck(eatstatusfood_charaidx, -1) ) {
+>>8677: 			txt lang(name(eatstatusfood_charaidx) + "は嫌な感じがした。", name(eatstatusfood_charaidx) + " feel" + _s(eatstatusfood_charaidx) + " bad.")
+  8678: 		}
+  8679: 		chara_vomit eatstatusfood_charaidx
+  8680: 	}
+==============================================================================
+=== riga 8683.0  [dinamica]
+jp: name(eatstatusfood_charaidx) + "は良い予感がした。"
+en: name(eatstatusfood_charaidx) + " feel" + _s(eatstatusfood_charaidx) + " good."
+--- sorgente
+  8680: 	}
+  8681: 	if ( eatstatusfood_itemidx >= 1 ) {
+  8682: 		if ( synccheck(eatstatusfood_charaidx, -1) ) {
+>>8683: 			txt lang(name(eatstatusfood_charaidx) + "は良い予感がした。", name(eatstatusfood_charaidx) + " feel" + _s(eatstatusfood_charaidx) + " good.")
+  8684: 		}
+  8685: 		if ( rnd(5) == 0 ) {
+  8686: 			addbuff eatstatusfood_charaidx, BUFF_LUCK, 200, 700 + rnd(300)
+==============================================================================
+=== riga 8703.0  [dinamica]
+jp: name(sickifcursed_arg2) + "は気分が悪くなった。"
+en: name(sickifcursed_arg2) + " feel" + _s(sickifcursed_arg2) + " grumpy."
+--- sorgente
+  8700: 	if ( sickifcursed_arg1 <= (-1) ) {
+  8701: 		if ( rnd(sickifcursed_arg3 + (sickifcursed_arg3 == 0)) == 0 ) {
+  8702: 			if ( synccheck(sickifcursed_arg2, -1) ) {
+>>8703: 				txt lang(name(sickifcursed_arg2) + "は気分が悪くなった。", name(sickifcursed_arg2) + " feel" + _s(sickifcursed_arg2) + " grumpy.")
+  8704: 			}
+  8705: 			dmgcon sickifcursed_arg2, CONDITION_SICK, 200
+  8706: 		}
+==============================================================================
+=== riga 8751.0  [dinamica]
+jp: name(charaCanSplit_charidx) + "は分身した！"
+en: name(charaCanSplit_charidx) + " split" + _s(charaCanSplit_charidx) + "!"
+--- sorgente
+  8748: 		}
+  8749: 		locvar_dmghp_s = refchara(cdata(CDATA_ID, charaCanSplit_charidx), DBSPEC_CHARA_FILTER, 1)
+  8750: 		if ( instr(locvar_dmghp_s, 0, "/man/") != (-1) | cdata(CDATA_ID, charaCanSplit_charidx) == CREATURE_ID_DRAGONS_PET_HARPY | cdata(CDATA_ID, charaCanSplit_charidx) == CREATURE_ID_RED_NINJA ) {
+>>8751: 			txt lang(name(charaCanSplit_charidx) + "は分身した！", name(charaCanSplit_charidx) + " split" + _s(charaCanSplit_charidx) + "!")
+  8752: 		}
+  8753: 		else {
+  8754: 			txt lang(name(charaCanSplit_charidx) + "は分裂した！", name(charaCanSplit_charidx) + " split" + _s(charaCanSplit_charidx) + "!")
+--- stesso inglese, gia' reso:
+    action.hsp.jsonl:12361  name(tc) + " si sdoppia!"
+==============================================================================
+=== riga 8754.0  [dinamica]
+jp: name(charaCanSplit_charidx) + "は分裂した！"
+en: name(charaCanSplit_charidx) + " split" + _s(charaCanSplit_charidx) + "!"
+--- sorgente
+  8751: 			txt lang(name(charaCanSplit_charidx) + "は分身した！", name(charaCanSplit_charidx) + " split" + _s(charaCanSplit_charidx) + "!")
+  8752: 		}
+  8753: 		else {
+>>8754: 			txt lang(name(charaCanSplit_charidx) + "は分裂した！", name(charaCanSplit_charidx) + " split" + _s(charaCanSplit_charidx) + "!")
+  8755: 		}
+  8756: 	}
+  8757: 	return
+--- stesso inglese, gia' reso:
+    action.hsp.jsonl:12361  name(tc) + " si sdoppia!"
