@@ -33,12 +33,13 @@ si committa.
 | `commenti-blocco.py` | ⚠️ **le righe dentro un commento di blocco `/* ... */`**, cioè il codice di monte che il mod ha spento. Nato nella 37ª su `proc.hsp:11796`, dove la rete 6 — che guardava solo il `;` — avrebbe fatto tradurre testo morto. `proc.hsp` ne ha **99**, `action.hsp` 132, `custom_tweaks.hsp` 100. ⚠️ Legge il **`SORGENTE`** pinnato, non la build | dalla rete 6 di ogni lotto, e all'apertura di un file |
 | `misura-blocchi-spenti.py` | quante voci **già tradotte** stanno dentro un blocco spento: lavoro speso su testo che il giocatore non legge. Atteso al 14/08: **7** — 6 in `action.hsp`, 1 in `proc.hsp` (`:1000`, l'incasso delle esibizioni sostituito dal blocco `ANNA CUSTOM`). ⚠️ Misurato sulla **build** ne accusava 9, e le due di `text.hsp` erano giuste: quella build ha **una riga in più** del sorgente perché una toppa ce l'ha aggiunta, e i numeri di riga del dizionario vengono dal sorgente | quando si tocca `commenti-blocco.py` |
 | `lotto-fase2-buffdesc-001.py`, `lotto-fase4-proc-001.py` … `-003.py` | i lotti della 33ª, tenuti come **modelli** storici: dizionario `{(riga, en): resa}` più le prime cinque reti | superati dai modelli qui sotto |
-| ⭐ `lotto-fase4-proc-005.py` … `-013.py` | i lotti della 35ª e della 36ª. **`-014` è il modello da copiare**: ha tutte e tredici le reti | per ogni lotto nuovo |
+| ⭐ `lotto-fase4-proc-005.py` … `-015.py` | i lotti della 35ª, della 36ª e della 37ª. **`-016` è il modello da copiare**: ha tutte e quattordici le reti | per ogni lotto nuovo |
 | `rinvia-proc-4958.py`, `rinvia-proc-navi.py`, `rinvia-proc-11796.py` | come si scrive un rinvio in `rinviate.jsonl` col motivo per esteso | quando una rete 6 o 7 scatta |
-| `correzione-bolt.py`, `correzione-014.py` | come si corregge una resa **già entrata nel dizionario** senza passare da un lotto, con le reti che impediscono di correggerne una di troppo o una di meno | quando due file dicono la stessa cosa in due modi |
-| `ricerca-014.py` | il modello di come si interroga il dizionario **prima** di scrivere un lotto: una lista di domande `(titolo, filtro)` su `jp`/`en`/`it` di tutti i file insieme. Nella 37ª ha pescato «bacchetta», «mana di ricarica», «medaglietta», «Rivela il terreno intorno» | insieme a `dossier.py`, prima di tradurre |
+| `correzione-bolt.py`, `correzione-014.py`, `correzione-rete8.py`, `correzione-mana.py` | come si corregge una resa **già entrata nel dizionario** senza passare da un lotto, con le reti che impediscono di correggerne una di troppo o una di meno. ⚠️ **`correzione-rete8.py` porta la rete che mancava**: le rese nuove vanno passate a `controlla_lotto`, perché `verifica --dizionario` **non le guarda** — confronta il dizionario col sorgente e conta orfane e non tradotte | quando due file dicono la stessa cosa in due modi |
+| `rete8_dizionario.py` | la **rete 8 all'indietro**, su tutto quello che è già entrato: le rese che stampano «di il», «a il», «in il», «su il». Nella 37ª ne ha trovate sei, di cinque lotti diversi, tutte scritte prima che la rete esistesse. Atteso adesso: **3**, tutti dichiarati falsi positivi | quando si tocca la rete 8, o all'apertura di una sessione lunga |
+| `ricerca-014.py`, `ricerca-015.py`, `ricerca-016.py` | il modello di come si interroga il dizionario **prima** di scrivere un lotto: una lista di domande `(titolo, filtro)` su `jp`/`en`/`it` di tutti i file insieme. Nella 37ª ha pescato «bacchetta», «mana di ricarica», «medaglietta», «barra», «Tornado magnetico», «la sorella cane maggiore» | insieme a `dossier.py`, prima di tradurre |
 
-### Le tredici reti dello script di lotto
+### Le quattordici reti dello script di lotto
 
 Ognuna nasce da un caso vero, non da un'idea. Le prime cinque sono della 33ª e
 della 31ª, le altre della 35ª, della 36ª e della 37ª.
@@ -58,6 +59,14 @@ della 31ª, le altre della 35ª, della 36ª e della 37ª.
 | 10 | che `his(x, 1)` regga un nome che non sia **maschile singolare** | `:8849`, «il suo sangue»: la funzione sceglie sul possessore, l'italiano accorda col posseduto |
 | 11 | che le **funzioni di contenuto** della resa non coincidano con quelle dell'inglese | `:10312` e `:11481`, dove nominare il soggetto come fa il giapponese aggiungeva una funzione che l'inglese non ha |
 | 12 | che la resa di una **dinamica** sia testo nudo invece di un'espressione HSP | ⚠️ `:11534` nella 37ª: l'inglese porta `his(tc)`, in italiano la morfologia sparisce e resta una frase sola. Senza virgolette `applica.py` l'ha scritta come **codice**, e il compilatore ha letto «qualche» come nome di variabile |
+| 13 | che passi inosservato un **inglese solo per due giapponesi diversi** — è un referto, non un errore | `:14521` e `:14573` nella 37ª: «The air around you gradually loses power» sta per 「脱出を中止した」 e per 「帰還を中止した」, cioè per due incantesimi diversi con due pergamene diverse |
+
+⚠️ **La rete 4 raggruppa per `(giapponese, funzioni di contenuto)`, non per il
+solo giapponese**, e il motivo è che nella 37ª ha litigato con la rete 11:
+`:12837` e `:13298` hanno lo stesso giapponese e un inglese che nomina un numero
+diverso di personaggi. La rete 11 pretende le funzioni dell'inglese, la rete 4
+pretendeva le stesse parole — e con un nome in meno non si può. La differenza la
+impone il sorgente, non la traduzione.
 
 ⚠️ **La rete 8 nella 37ª ha bocciato due rese giuste**, e la colpa era sua:
 `valn` non è sempre un `itemname()`. A `proc.hsp:11893` il sorgente scrive
