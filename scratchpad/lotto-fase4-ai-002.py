@@ -216,22 +216,58 @@ SORGENTE = r'C:\\Games\\Elona\\_traduzione\\sorgente\\2.05-custom-gx\\ai.hsp'
 
 tutte = [json.loads(l) for l in io.open('lavoro/_ai.jsonl', encoding='utf-8') if l.strip()]
 zona = [v for v in tutte if DA <= v['riga'] <= A]
-voci = [v for v in zona if (v['riga'], v['en']) not in RINVIATE]
+
+# rete 0: la chiave di un lotto e' `(riga, en)`, e **non e' univoca**.
+#
+# Due `lang()` diverse sulla stessa riga possono avere lo stesso inglese: se il
+# giapponese distingue e l'inglese no, la chiave corta identifica due voci. Fino
+# alla 41a la rete si limitava a fermare la zona, che era giusto — meglio fermarsi
+# che scrivere la resa sulla voce sbagliata — ma lasciava il lotto senza strada:
+# `ai.hsp:4576` fu scritto a mano, indicizzato per `firma`, perche' 「変身！」 e
+# 「トランスフォーム！」 sono tutt'e due `cnvtalk("Transform!")`.
+#
+# Poi `init.hsp` ne ha portate tre in un file solo — `:358` («Great museum» per
+# 大人気の博物館 e per 来客の絶えない博物館), `:2225` (lo spazio per 年 e per 日),
+# `:2235` (i due punti per 時間 e per 分) — e la strada a mano non regge piu'.
+#
+# ✅ Adesso la voce ambigua si dichiara con la **chiave lunga** `(riga, en, jp)`,
+# che e' univoca perche' e' il giapponese a distinguere. La `firma` lo sarebbe
+# altrettanto, ma e' un sha1: illeggibile in un file che si rilegge a mano.
+# Le voci non ambigue tengono la chiave corta, quindi i lotti gia' scritti
+# valgono tal quale.
+AMBIGUE = {k for k, n in collections.Counter((v['riga'], v['en']) for v in zona).items() if n > 1}
+
+
+def chiave(v) -> tuple:
+    corta = (v['riga'], v['en'])
+    return (v['riga'], v['en'], v['jp']) if corta in AMBIGUE else corta
+
+
+voci = [v for v in zona if chiave(v) not in RINVIATE]
 
 errori = []
-for k, n in collections.Counter((v['riga'], v['en']) for v in zona).items():
-    if n > 1:
-        errori.append(f'rete 0: la chiave {k} identifica {n} voci, non una')
-indice = {(v['riga'], v['en']): v for v in voci}
+for k in sorted(AMBIGUE):
+    print(f'💡 rete 0: la chiave {k} identifica piu\' di una voce: '
+          f'vanno date con la chiave lunga (riga, en, jp)')
+indice = {chiave(v): v for v in voci}
 for v in voci:
-    if (v['riga'], v['en']) not in RESE:
-        errori.append(f"rete 1: voce senza resa -> riga {v['riga']}  en={v['en']!r}")
+    if chiave(v) not in RESE:
+        errori.append(f"rete 1: voce senza resa -> chiave {chiave(v)!r}")
 for k in RESE:
     if k not in indice:
         errori.append(f'rete 2: resa che non aggancia nessuna voce -> {k}')
 for k in RINVIATE:
-    if k not in {(v['riga'], v['en']) for v in zona}:
+    if k not in {chiave(v) for v in zona}:
         errori.append(f'rete 2-bis: rinviata che non aggancia nessuna voce -> {k}')
+
+# ⚠️ E il controllo di rete 1 va PRIMA delle altre reti, non dopo: la rete 8
+# dereferenzia `RESE` e, se una resa manca, quel che esce e' un `KeyError` nudo
+# invece del messaggio della rete 1. Difetto noto dalla 38a (`proc.hsp:23654`),
+# corretto qui.
+if errori:
+    for e in errori:
+        print(e)
+    raise SystemExit('lotto fermato dalle reti')
 
 sorgente = io.open(SORGENTE, encoding='cp932').read().split('\n')
 
@@ -267,7 +303,7 @@ def valn_viene_da(riga: int) -> str:
 
 
 for v in voci:
-    resa = RESE[(v['riga'], v['en'])]
+    resa = RESE[chiave(v)]
     for _, nome in FONDONO.findall(resa):
         if nome == 'valn' and valn_viene_da(v['riga']) == 'skillname':
             continue
@@ -279,7 +315,7 @@ for v in voci:
 TESTA = re.compile(r'\se"$')
 for v in voci:
     if v['en'].rstrip().endswith(' and'):
-        resa = RESE[(v['riga'], v['en'])].rstrip()
+        resa = RESE[chiave(v)].rstrip()
         if not TESTA.search(resa):
             errori.append(f"rete 9: riga {v['riga']} e' una testa di frase ma non "
                           f"finisce con ' e' -> {resa}")
@@ -288,13 +324,13 @@ for v in voci:
 POSSESSIVO = re.compile(r'\b(his|he|him)\s*\([^)]*,[^)]*\)\s*\+\s*"\s*([A-Za-zÀ-ÿ\']+)')
 accanto = []
 for v in voci:
-    for _, nome in POSSESSIVO.findall(RESE[(v['riga'], v['en'])]):
+    for _, nome in POSSESSIVO.findall(RESE[chiave(v)]):
         accanto.append((v['riga'], nome))
 
 # rete 12: la resa di una DINAMICA e' un'espressione HSP, non testo nudo
 # (lotto 014: l'ha trovata il compilatore).
 for v in voci:
-    if v['tipo'] == 'dinamica' and '"' not in RESE[(v['riga'], v['en'])]:
+    if v['tipo'] == 'dinamica' and '"' not in RESE[chiave(v)]:
         errori.append(f"rete 12: riga {v['riga']} e' una dinamica ma la resa e' testo "
                       f"nudo: va scritta come espressione, fra virgolette")
 
@@ -308,7 +344,7 @@ if funzioni_di_contenuto is not None:
         if v['tipo'] != 'dinamica':
             continue
         attese = funzioni_di_contenuto(v['en_grezzo'])
-        trovate = funzioni_di_contenuto(RESE[(v['riga'], v['en'])])
+        trovate = funzioni_di_contenuto(RESE[chiave(v)])
         if attese != trovate:
             di_troppo = [f for f in trovate if f not in attese]
             mancanti = [f for f in attese if f not in trovate]
@@ -347,7 +383,7 @@ for p in glob.glob('dizionario/*.jsonl'):
         if d.get('it') and d.get('jp'):
             gia.setdefault(d['jp'], set()).add((nome, d['riga'], d['it']))
 for v in voci:
-    resa = RESE[(v['riga'], v['en'])]
+    resa = RESE[chiave(v)]
     for nome, riga, it in gia.get(v['jp'], ()):
         if it == resa:
             continue
@@ -371,7 +407,7 @@ def firma_di(v) -> tuple:
 per_jp = collections.defaultdict(set)
 firme_per_jp = collections.defaultdict(set)
 for v in voci:
-    per_jp[(v['jp'], firma_di(v))].add(parole(RESE[(v['riga'], v['en'])]))
+    per_jp[(v['jp'], firma_di(v))].add(parole(RESE[chiave(v)]))
     firme_per_jp[v['jp']].add(firma_di(v))
 for (jp, firma), rese in per_jp.items():
     if len(rese) > 1:
@@ -394,7 +430,7 @@ for en, giapponesi in sorted(per_en.items()):
 
 with io.open(USCITA, 'w', encoding='utf-8', newline='\n') as f:
     for v in voci:
-        v['it'] = RESE[(v['riga'], v['en'])]
+        v['it'] = RESE[chiave(v)]
         f.write(json.dumps(v, ensure_ascii=False) + '\n')
 print(f'{len(voci)} voci scritte in {USCITA} ({len(RINVIATE)} rinviate)')
 for riga, nome in accanto:
