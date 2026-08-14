@@ -3,13 +3,21 @@
 
     python scratchpad/assembla-lotto.py 023 scratchpad/lotto-fase4-proc-022.py 24000 24999 <cartella>
 
-`<cartella>` contiene due file scritti a mano:
+`<cartella>` contiene due file scritti a mano, piu' uno facoltativo:
 
   - `testa023.py`  — la riga `# -*- coding: utf-8 -*-` e il docstring del lotto;
-  - `rese023.py`   — gli `import`, il dizionario `RESE` e nient'altro.
+  - `rese023.py`   — gli `import`, il dizionario `RESE` e nient'altro;
+  - `rinviate023.py` — **facoltativo**: la sola riga `RINVIATE = {...}`. Se
+    manca, il lotto non rinvia niente, che e' il caso normale.
 
 Il resto — le quattordici reti, la scrittura del JSONL — viene **copiato dal
-modello**, e cambiano solo `USCITA` e `DA, A`.
+modello**, e cambiano solo `USCITA`, `DA, A` e, quando serve, `RINVIATE`.
+
+⚠️ **`RINVIATE` e' nato come terza ancora nella 39ª**, quando `proc.hsp:24107`
+ha chiesto una toppa: il blocco copiato dal modello porta `RINVIATE = set()`, e
+senza questa ancora l'unico modo di dichiarare una rinviata era **modificare a
+mano il file generato**, cioe' esattamente la cosa che questo script esiste per
+impedire.
 
 ⚠️ **Perche' esiste.** `RIPRESA-sessione.md` ripete da cinque sessioni «si copia
 il file, non si riscrive a memoria», perche' le reti 3, 4 e 8 sono state
@@ -53,13 +61,23 @@ reti, quante_zona = re.subn(r'DA, A = \d+, \d+', f'DA, A = {da}, {a}', reti)
 if quante_uscita != 1 or quante_zona != 1:
     sys.exit(f'ancore non trovate una volta sola: USCITA {quante_uscita}, DA/A {quante_zona}')
 
+percorso_rinviate = os.path.join(cartella, f'rinviate{numero}.py')
+if os.path.exists(percorso_rinviate):
+    dichiarate = io.open(percorso_rinviate, encoding='utf-8').read().strip()
+    if not dichiarate.startswith('RINVIATE = '):
+        sys.exit(f'{percorso_rinviate} deve cominciare con "RINVIATE = "')
+    reti, quante_rinviate = re.subn(r'RINVIATE = set\(\)', lambda _: dichiarate, reti)
+    if quante_rinviate != 1:
+        sys.exit(f'ancora RINVIATE trovata {quante_rinviate} volte, non una')
+
 uscita = f'scratchpad/lotto-fase4-proc-{numero}.py'
 io.open(uscita, 'w', encoding='utf-8', newline='\n').write(testa + rese + reti)
 
 
 def spoglia(testo: str) -> str:
-    """Il blocco delle reti senza le due righe che possono cambiare."""
-    return re.sub(r'(USCITA = .*|DA, A = .*)', '', testo[testo.index(ANCORA):])
+    """Il blocco delle reti senza le tre righe che possono cambiare."""
+    senza = re.sub(r'(USCITA = .*|DA, A = .*)', '', testo[testo.index(ANCORA):])
+    return re.sub(r'RINVIATE = (set\(\)|\{.*?\n?\})', '', senza, flags=re.S)
 
 
 if spoglia(io.open(uscita, encoding='utf-8').read()) != spoglia(sorgente):
