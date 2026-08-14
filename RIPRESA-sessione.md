@@ -719,10 +719,15 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
    ⚠️ **Prima di riprendere, copiare le quattordici reti** da
    **`scratchpad/lotto-fase4-proc-022.py`**, che è il modello più recente. ⚠️ Le
    reti 3, 4 e 8 sono state **corrette perché sbagliavano loro**, e la 12 e la 13
-   sono nuove: si copia il file, non si riscrive a memoria. 💡 Il modo che ha
-   funzionato tre volte di fila nella 38ª: si estrae il blocco che comincia con
-   `# rete 5: l'accento` e lo si incolla dopo le rese, poi si **verifica** con un
-   `diff` che sia identico al modello meno `USCITA` e `DA, A`.
+   sono nuove: si copia il file, non si riscrive a memoria.
+   ✅ **E adesso la regola è meccanica**: `scratchpad/assembla-lotto.py` copia il
+   blocco dal modello, cambia solo `USCITA` e `DA, A`, e **rilegge quel che ha
+   scritto** confrontandolo col modello carattere per carattere. Bastano due file
+   scritti a mano — la testa col docstring e le rese — e il resto è copiato:
+
+   ```powershell
+   & $py scratchpad/assembla-lotto.py 023 scratchpad/lotto-fase4-proc-022.py 24000 24999 <cartella>
+   ```
 
    La 33ª ha fatto i lotti `fase4-proc-001` … `-004` (1716-3400: le reazioni
    degli dèi, le tattiche, bugia/minaccia/canto/pasto). **La 35ª ha fatto i sei
