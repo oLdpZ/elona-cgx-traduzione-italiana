@@ -1,30 +1,55 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-14, fine della **trentaquattresima** sessione.
+Aggiornato: 2026-08-14, fine della **trentacinquesima** sessione.
 
-⭐ **La 34ª è stata una sessione di collaudo, la seconda della storia del
-progetto, e ha reso più di quanto costasse** — come la 32ª. Il debito di collaudo
-scende per la prima volta invece di salire: la **scena ricucita** e i **63
-`buffdesc`** sono chiusi, e con loro **7 delle 23 toppe** di `proc.hsp`. Quello
-che ha trovato, in ordine di peso:
+⭐ **La 35ª è stata la sessione più produttiva del progetto su un file solo:
+`proc.hsp` passa da 207 rese a 442, cioè da 19% a 40%,** in sei lotti
+(`fase4-proc-005` … `-010`) più una correzione. **235 rese, 298 siti**, sette
+spinte, zero regressioni. Quello che ha trovato conta più dei numeri:
 
-1. ⚠️ **Un difetto nostro**, invisibile a ogni guardia: `init.hsp:1666` accoda
-   uno spazio a ogni `txt` **nel solo ramo inglese**, e la scena usciva
-   «`"Che bello ! Questo e'…`». Corretto e riguardato lo stesso giorno.
-2. ⚠️ **Una misura sbagliata della 33ª**: i siti che tagliano un `buffdesc` sono
-   **quattro** con **tre** tetti (34, 40, 46), non uno. La conclusione regge —
-   l'italiano sfonda meno dell'inglese a tutti e tre — ma poggiava su un numero
-   che valeva per un sito solo.
-3. ⚠️ **Un punto cieco del referto**: `blocchi_en.py` cerca `if ( en )` e non
-   vede `if ( jp ) { … } else { … }`. Sono **144 righe vive**.
-4. ⚠️ **Una cosa falsa scritta da me e corretta un'ora dopo**: che
-   `calculation.hsp` fosse fuori da ogni elenco di fase. Vedi più sotto.
-5. ⭐ **`chips.hsp` chiuso**: tre stringhe che toglievano una frase mista ad alta
-   frequenza.
+1. ⭐ **`valn` è un `itemname()`** (`proc.hsp:6950`, `:6965`, `:6970`), quindi
+   porta l'articolo italiano e non regge `di`/`da`/`in`/`su` davanti. L'inglese
+   ce ne mette quattro in una zona sola. È la scoperta di `itemname()` del lotto
+   005 **travestita da variabile**: guardando la riga non c'è modo di saperlo.
+2. ⭐ **Una regola scritta e non sorvegliata**: `glossario.md` dice `Bolt` →
+   «Saetta» dal 2026-08-09, e `db_item.hsp` diceva «dardo» in **15 nomi**. Si
+   comprava il libro del *dardo* e si imparava la *saetta*. Non è una decisione
+   presa due volte: è una decisione presa una volta e **mai applicata**, perché
+   **nessuno strumento confronta il glossario col dizionario**.
+3. ⚠️ **Sei errori dell'inglese di monte**, tutti raddrizzati sul giapponese:
+   due code scambiate a `:4872`, un «robs **me**» a `:4906`, `name(tc)` per
+   `name(cc)` a `:6200`, «cliche» per 王道 a `:6148`, «regretted being born» per
+   una frase che parla d'allucinazioni a `:6876`, e «The ball hits» copiato su un
+   fulmine a `:8334`.
+4. ⚠️ **Due voci che non erano testo**: `:5584` «Merchant ship» e «Pirate ship»
+   sono **operandi di confronto** con `map.hsp`. È la seconda «Party Room» dello
+   stesso file.
+5. 💡 **Cinque reti nuove** negli script dei lotti (5-9), e **ognuna nasce da un
+   caso reale di questa sessione**, non da un'idea.
 
-💡 **Il filo che le tiene insieme**: cinque cose su cinque erano invisibili alla
-catena delle verifiche, e tutte e cinque le ha fatte cadere lo **schermo**. La
-catena verde continua a non dire niente sulla lingua che il giocatore legge.
+💡 **Il filo che le tiene insieme**: la 34ª aveva mostrato che la catena verde
+non dice niente sulla lingua che il giocatore legge. La 35ª mostra il gemello —
+**la catena verde non dice niente sulla coerenza fra due file**. Il `Bolt` stava
+lì da otto mesi con tutte le verifiche a posto.
+
+### ⚠️ Il debito di collaudo è tornato a salire, ed è la cosa da sapere
+
+**235 rese nuove e nessuna vista a schermo.** La 34ª aveva fatto scendere il
+debito per la prima volta; questa lo raddoppia. `cgx-test.exe` è rifatto e
+aggiornato (14/08, 10:30), quindi il collaudo si può fare subito, e la roba nuova
+è **facile da vedere**: dormire, mangiare, pescare, scavare, viaggiare sulla
+mappa e un combattimento qualsiasi coprono quasi tutta la zona 3401-9200.
+
+💡 **Da guardare per primi, perché sono quelli dove ho cambiato la struttura e
+non solo le parole:**
+
+| cosa | dove esce | perché guardarla |
+|---|---|---|
+| il pozzo e la fontana | bevi a un pozzo, cadici dentro | `valn` è diventato **soggetto**: «Il pozzo disseta il viandante» invece di «beve dal pozzo». Se l'articolo sbaglia si vede subito |
+| le teste «… e» del log | un combattimento qualsiasi | dieci rese si saldano alla coda di danno di `chara_func.hsp`. Basta uno spazio storto e si legge «colpisce il putit einfligge una ferita» |
+| il portello del rifugio | usa un rifugio portatile | l'unica resa dove ho girato la frase per togliere un «di » + `itemname` |
+| i sei gradini della sazietà | mangia sei volte con fame diversa | venti rese pescate a caso; è dove l'accordo di genere rischiava di più |
+| `his(tc, 1)` a `:8849` | fatti succhiare il sangue da un alleato | ⚠️ **stamperà ancora `his`/`her`/`your`** finché `init.hsp` non è tradotto. Non è un difetto della resa, è la dipendenza nota |
 
 ## ⚠️ Prima di tutto: il progetto vive su due macchine
 
@@ -50,13 +75,15 @@ git), in una forma nuova: dentro git, ma su una macchina sola.
 aprendo una sessione su una macchina qualsiasi è `git fetch && git status -sb`.
 Chi apre a Firenze senza guardare riparte da prima di ferragosto.
 
-✅ **Spinto di nuovo a fine 30ª, 31ª, 32ª, 33ª e 34ª**, sempre dal portatile.
-Tutt'e cinque hanno aperto con `git fetch && git status -sb` e tutt'e cinque
-hanno trovato le copie allineate: la regola ha tenuto cinque volte di fila.
-💡 **La 34ª ha spinto quattro volte, non una**, una per risultato chiuso invece
-che tutto in fondo: se la sessione si fosse interrotta a metà, il lavoro fatto
-era già al sicuro. Al 14/08 **il lavoro prosegue dal portatile**: la macchina di
-Firenze riprende a fine vacanze, e lì la prima cosa è `git pull`, non `git push`.
+✅ **Spinto di nuovo a fine 30ª, 31ª, 32ª, 33ª, 34ª e 35ª**, sempre dal portatile.
+Tutt'e sei hanno aperto con `git fetch && git status -sb` e tutt'e sei hanno
+trovato le copie allineate: la regola ha tenuto sei volte di fila.
+💡 **La 34ª ha spinto quattro volte e la 35ª sette**, una per risultato chiuso
+invece che tutto in fondo: se la sessione si fosse interrotta a metà, il lavoro
+fatto era già al sicuro. Con sei lotti in una sessione non è più una comodità, è
+il modo normale di lavorare. Al 14/08 **il lavoro prosegue dal portatile**: la
+macchina di Firenze riprende a fine vacanze, e lì la prima cosa è `git pull`, non
+`git push`.
 
 Sul portatile ogni comando degli strumenti va aperto così, perché `python`
 nudo è il segnaposto del Microsoft Store e non esegue niente:
@@ -73,15 +100,21 @@ giapponese** e lo stampa come `?`, il che rende illeggibili le colonne `jp`.
 
 ## La prima cosa da fare
 
-⚠️⚠️ **Il debito di collaudo è la cosa più grossa aperta, e la 33ª l'ha
-raddoppiato.** In una sessione sola sono entrate **168 rese** e **24 toppe**, e
-**niente di tutto questo è mai stato visto a schermo**. In particolare la scena
-del sesso di `proc.hsp` (3372-3389, 3533-3537, 3617-3635) è stata **ricucita da
-tre pezzi diversi** — la testa da una toppa, la coda dal dizionario, la chiusura
-delle virgolette da `invariati.md` — e nessuno l'ha mai vista girare. Se una
-sessione può fare una cosa sola, faccia il collaudo.
+⚠️⚠️ **Il debito di collaudo resta la cosa più grossa aperta, e la 35ª l'ha
+raddoppiato di nuovo**: 235 rese nuove, nessuna vista a schermo. La tabella qui
+sopra dice quali guardare per prime e perché. Se una sessione può fare una cosa
+sola, faccia il collaudo — vale dalla 32ª e non è mai stato smentito.
+
+💡 **La buona notizia è che stavolta è facile.** Le 235 rese stanno tutte nelle
+cose che si fanno nei primi dieci minuti di partita: dormire, mangiare, pescare,
+scavare, viaggiare sulla mappa, tirare una magia. Non serve andare da nessuna
+parte né imparare niente, a differenza delle 16 toppe qui sotto.
 
 Da guardare, in ordine di rischio:
+
+0. ⚠️ **Le 235 rese della 35ª** (`proc.hsp` 3401-9200). Vedi la tabella in cima:
+   il pozzo che è diventato soggetto, le dieci teste «… e» del log, il portello,
+   i sei gradini della sazietà, e `his(tc, 1)` che stamperà ancora inglese.
 
 1. ✅ **La scena ricucita: guardata il 2026-08-14, e aveva un difetto.** I tre
    pezzi si agganciavano e le virgolette chiudevano, ma a schermo usciva
@@ -252,13 +285,31 @@ strutturale su `chara_func.hsp` più le 65 rese che coprono i 71 messaggi. Vedi
    ⚠️ Cautela sul numero: lo strumento stima a due cifre le variabili
    interpolate, quindi c'è un margine di ±1 carattere per voce. Il metodo è lo
    stesso sulle due lingue, quindi il **confronto** regge; i valori assoluti no.
-2. **`proc.hsp`**, a **207 su 1.098**, per zona di riga **dalla riga 3401** in
-   avanti. La 33ª ha fatto quattro lotti: `fase4-proc-001` (1716-1800, le
-   reazioni degli otto dèi alla predica), `-002` (1801-2600, le mosse delle
-   tattiche), `-003` (2601-3400, bugia, minaccia, canto, pasto) e `-004` (le tre
-   code sbloccate dalla toppa). Restano **891** non tradotte. 💡 È il file del log
-   di combattimento — «is drawn», «was knocked down», «stands up» — quello che il
-   giocatore legge a **ogni singolo combattimento**;
+2. **`proc.hsp`**, a **442 su 1.098 (40%)**, per zona di riga **dalla riga 9201**
+   in avanti. Restano **652** non tradotte più 4 rinviate.
+
+   La 33ª ha fatto i lotti `fase4-proc-001` … `-004` (1716-3400: le reazioni
+   degli dèi, le tattiche, bugia/minaccia/canto/pasto). ⭐ **La 35ª ha fatto i sei
+   lotti `-005` … `-010`, cioè tutto il 3401-9200:**
+
+   | lotto | zona | che cosa |
+   |---|---|---|
+   | `-005` | 3401-4200 | le attività continuate, le due trappole, il furto |
+   | `-006` | 4201-5000 | il sonno, il risveglio, il riposo, il viaggio |
+   | `-007` | 5001-5900 | pesca, scavo, miniera, i pasti |
+   | `-008` | 5901-6800 | la sazietà, la lettura, l'abisso, i lanci falliti |
+   | `-009` | 6801-7700 | bere, i pozzi, le pergamene, le bacchette |
+   | `-010` | 7701-9200 | il log di combattimento: proiettili, cure, morsi |
+
+   💡 **Dove si addensa quel che resta** (`scratchpad/istogramma.py`, passo 2000):
+   `10000-11999` **124**, `22000-23999` **101**, `14000-15999` **88**,
+   `20000-21999` **75**, `16000-17999` **67**. La zona `10000-12000` è il doppio
+   della media: è lì che conviene andare, e `9201-10000` è quasi vuota.
+
+   ⚠️ **Prima di riprendere, rileggere le nove reti** dello script di lotto: il
+   modello più completo è `scratchpad/lotto-fase4-proc-010.py`, che le ha tutte.
+   Le cinque nuove della 35ª (5-9) sono nate ognuna da un caso reale, non da
+   un'idea, e sono elencate in `scratchpad/LEGGIMI.md`;
    ✅ **La toppa sui blocchi `if ( en )` è fatta**: 23 righe di questo file
    avevano letterali inglesi **nudi** fuori da `lang()`, invisibili
    all'estrattore. `toppe.jsonl` passa da 273 a **296** ed erano zero su
@@ -429,7 +480,7 @@ scrivere dentro `SORGENTE`.
 | `adv.hsp` | 12 | 12 | **100%** ⭐ chiuso il 2026-08-11 |
 | `action.hsp` | 1.286 | 1.288 | **100%** (le 2 mancanti sono rinviate a toppa). ⚠️ Aveva **una riga inglese** che nessun conteggio vedeva, `:15221`, fuori da `lang()`: toppata il 2026-08-13 |
 | `text.hsp` | 1.718 | 1.720 | **100%** (le 2 mancanti aspettano `talk.txt`) |
-| `proc.hsp` | **207** | 1.098 | 19% — più 23 righe fuori da `lang()`, ✅ toppate |
+| `proc.hsp` | **442** | 1.098 | **40%** ⭐ +235 nella 35ª (era 207) — più 23 righe fuori da `lang()`, ✅ toppate, e **4 rinviate** (una riga commentata, «Party Room», i due nomi di nave) |
 | `buff.hsp` | 199 | 199 | **100%** ⭐ chiuso il 2026-08-13 — `buffname`, `bufftxt` e `buffdesc` |
 | `command.hsp`, `trait.hsp` | 0 | ~1.680 | 0% |
 
@@ -460,12 +511,20 @@ Fase 4, che `SPEC.md` §6 definisce collettivamente («i restanti 63 file `.hsp`
 minori»). Il numero serve a tenere le proporzioni: quello che resta è più grande
 di quello che è stato fatto.
 
-**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **13.146
-sostituzioni** applicate alla build — **13.143** all'apertura della 34ª più le
-**3** di `chips.hsp`. (⚠️ La ripresa portava **13.135**, ed era un numero
-vecchio: non lo aveva mosso la correzione dello spazio, rimisurata mettendo da
-parte la modifica.) Il compilatore non dice nulla, manifesto del
-sorgente **72/72** (ricontrollato il 13/08 a inizio 31ª). ✅ Tutta la batteria
+**412 test più 6 saltati**, prova d'identità **72/72 e 27.813**, **13.444
+sostituzioni** applicate alla build — erano **13.146** all'apertura della 35ª,
+più le **298** dei sei lotti. Il compilatore non dice nulla, manifesto del
+sorgente **72/72** (ricontrollato il 13/08 a inizio 31ª).
+
+💡 **Le sostituzioni crescono più delle rese, ed è il motivo per cui vale la pena
+contarle**: 235 rese hanno prodotto 298 siti, perché una firma può uscire in più
+punti. Nella 35ª il record è «`name(tc)` si indebolisce», **otto siti** con una
+resa sola, e «Il tuo diario è stato aggiornato.» ne copre **sei**. Il conto per
+lotto si rifà così, e non si deduce:
+
+```powershell
+& $py -c "import io,json,collections; ..."   # vedi i commit dei lotti 005-010
+``` ✅ Tutta la batteria
 rilanciata a fine 33ª dopo le **165 rese nuove**: **identica in ogni valore**,
 niente si è mosso, e `verifica --dizionario` dà `buff.hsp: 0 da ritradurre, 0 non
 ancora tradotte`. ✅ E stavolta l'eseguibile è **davvero** quello nuovo: vedi i

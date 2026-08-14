@@ -30,7 +30,41 @@ si committa.
 | `fuori_elenco.py` | i file del sorgente con `lang()` e **senza file di dizionario**: chiude con una misura la domanda della 26ª («esiste un file che nessun elenco nomina?»). Atteso al 14/08: **54 file con `lang()`, 14 col dizionario, 40 senza, per 12.620 stringhe**. ⚠️ «Senza dizionario» vuol dire **non ancora cominciato**, non «fuori perimetro»: `SPEC.md` §6 mette in Fase 4 «i restanti 63 file minori», che li copre tutti | quando viene il sospetto che un file sia sfuggito |
 | `tetti_buffdesc.py` | i `buffdesc` contro i **tre** tetti che li tagliano (34 nei menu `a` e `W`, 40 nel menu di lancio, 46 nella scheda), italiano **contro l'inglese di monte**. Nato nella 34ª, quando a schermo è uscito `Res+ gra`. Atteso: l'italiano sfonda **meno** dell'inglese a tutti e tre (43/32/23 contro 46/38/31) — se un giorno lo supera, allora sì che c'è da accorciare. ⚠️ Stima le variabili interpolate a due cifre: il confronto regge, i valori assoluti hanno ±1 per voce | quando si tocca un `buffdesc` |
 | `else_jp.py` | ⚠️ **il punto cieco di `blocchi_en.py`**: gli stessi letterali inglesi nudi, ma nella forma `if ( jp ) { … } else { … }`, che il fratello non vede perché cerca `if ( en )`. Nato nella 34ª, quando la follia di `calculation.hsp:2352` è uscita in inglese a schermo. Atteso: **6.984 righe in 13 file**, di cui 6.840 sono le descrizioni di `db_item.hsp` già fuori perimetro — le vive sono **144** | insieme a `blocchi_en.py`, all'apertura di ogni file |
-| `lotto-fase2-buffdesc-001.py`, `lotto-fase4-proc-001.py`, `lotto-fase4-proc-002.py`, `lotto-fase4-proc-003.py` | i lotti della 33ª, tenuti come **modelli**: dizionario `{(riga, en): resa}` più le cinque reti del metodo | da copiare per il prossimo lotto |
+| `lotto-fase2-buffdesc-001.py`, `lotto-fase4-proc-001.py` … `-003.py` | i lotti della 33ª, tenuti come **modelli** storici: dizionario `{(riga, en): resa}` più le prime cinque reti | superati dai modelli qui sotto |
+| ⭐ `lotto-fase4-proc-005.py` … `-010.py` | i sei lotti della 35ª. **`-010` è il modello da copiare**: ha tutte e nove le reti | per ogni lotto nuovo |
+| `rinvia-proc-4958.py`, `rinvia-proc-navi.py` | come si scrive un rinvio in `rinviate.jsonl` col motivo per esteso | quando una rete 6 o 7 scatta |
+| `correzione-bolt.py` | come si corregge una resa **già entrata nel dizionario** senza passare da un lotto, con le reti che impediscono di correggerne una di troppo o una di meno | quando due file dicono la stessa cosa in due modi |
+
+### Le nove reti dello script di lotto
+
+Ognuna nasce da un caso vero, non da un'idea. Le prime cinque sono della 33ª e
+della 31ª, le altre della 35ª.
+
+| # | che cosa impedisce | il caso che l'ha fatta nascere |
+|---|---|---|
+| 0 | che la chiave `(riga, en)` identifichi più di una voce | il riciclo inglese, 84 stringhe su 231 giapponesi |
+| 1 | che una voce della zona resti senza resa | — |
+| 2 | che una resa non agganci nessuna voce | due lotti scritti sulla voce sbagliata (27ª) |
+| 3 | che si renda in un modo nuovo un giapponese **già reso altrove** | ⭐ nella 35ª ha parlato **quattro volte**, e aveva sempre ragione: `:6481` (7 siti), `:6492` (5 siti), `:6951`, `:4310` |
+| 4 | che lo stesso giapponese abbia due rese **dentro lo stesso lotto** | i due Yerleswood, lotto `039` |
+| 5 | che l'accento sia **decomposto** (`a` + U+0300) invece che precomposto | cinque rese su 43 nel lotto `-005`: a occhio identiche, e CP932 non ha il combinante |
+| 6 | che si traduca una voce su una **riga commentata** | `proc.hsp:4958`, il blocco `MANUSCRIPT HINT` spento per intero |
+| 7 | che si traduca un **operando di confronto** | `:5584`, i due nomi di nave che `map.hsp` assegna e `proc.hsp` confronta |
+| 8 | una **preposizione che si fonde** (`di`/`da`/`in`/`su`/`a`) davanti a `name`/`itemname`/`valn`/`cdatan` | `valn` è un `itemname()` sotto falso nome, e l'inglese ci mette «from» e «in» |
+| 9 | che una **testa di frase** (l'inglese finisce in « and») non si chiuda col connettivo | le dieci teste del log di combattimento, che si saldano alla coda di danno di `chara_func.hsp` |
+
+⚠️ **La rete 9 ha bocciato tre rese giuste alla prima scrittura**, perché cercava
+`+ " e"` come pezzo a sé e non vedeva il connettivo in coda a un letterale più
+lungo (`" strappandone la carne e"`). Si guarda il **testo prodotto**, non la
+forma dell'espressione. Quando una rete accusa una resa che sembra giusta, la
+prima domanda è se sbaglia la rete.
+
+💡 **E `verifica` sa cose che le reti non sanno.** Nella 35ª ha fermato due volte
+quello che le nove reti avevano lasciato passare: `proc.hsp:6016`, dove avevo
+**aggiunto** un `itemname` che l'inglese non ha («attese `['name']`, trovate
+`['itemname', 'name']`»), e `:8849`, dove avevo **tolto** un `his(tc, 1)` che con
+due argomenti è contenuto. Le interpolazioni sono il contratto con la riga, non
+una scelta di stile: si lancia sempre anche `verifica`, non solo lo script.
 
 Si lanciano dalla radice del repo, con l'interprete giusto:
 
