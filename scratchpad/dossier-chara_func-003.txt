@@ -1,0 +1,837 @@
+==============================================================================
+=== riga 6168.0  [dinamica]
+jp: name(dmghp_charid) + "の身体が急速に復元した！"
+en: name(dmghp_charid) + " " + is(dmghp_charid) + " quickly restored!"
+--- sorgente
+  6165: 		if ( cbit(CHARA_BIT_QUICK_RESTORE, dmghp_charid) ) {
+  6166: 			if ( dmghp_charid != CHARA_PLAYER ) {
+  6167: 				if ( cbit(CHARA_BIT_EXCLUSIVE_SKILL_CHARGE, dmghp_charid) ) {
+>>6168: 					txt lang(name(dmghp_charid) + "の身体が急速に復元した！", name(dmghp_charid) + " " + is(dmghp_charid) + " quickly restored!")
+  6169: 					snd SOUNDLIST_PRAY2
+  6170: 					animeload 42, dmghp_charid
+  6171: 					cdata(CDATA_HP, dmghp_charid) = cdata(CDATA_MAX_HP, dmghp_charid)
+==============================================================================
+=== riga 6182.0  [dinamica]
+jp: "" + name(dmghp_charid) + "の姿が元に戻った。"
+en: name(dmghp_charid) + " returned to the original form."
+--- sorgente
+  6179: 	}
+  6180: 	if ( cdata(CDATA_HP, dmghp_charid) < 0 ) {
+  6181: 		if ( cdata(CDATA_PIC_MIMIRROCRY, dmghp_charid) != 0 ) {
+>>6182: 			txt lang("" + name(dmghp_charid) + "の姿が元に戻った。", name(dmghp_charid) + " returned to the original form.")
+  6183: 			cdata(CDATA_PIC, dmghp_charid) = cdata(CDATA_PIC_MIMIRROCRY, dmghp_charid)
+  6184: 			cdata(CDATA_CHARA_PIC, dmghp_charid) = cdata(CDATA_CHARA_PIC_ORG, dmghp_charid)
+  6185: 			cdata(CDATA_PIC_MIMIRROCRY, dmghp_charid) = 0
+--- STESSO GIAPPONESE, gia' reso:
+    action.hsp.jsonl:9265  name(tc) + " ha ripreso l'aspetto di prima."
+--- stesso inglese, gia' reso:
+    action.hsp.jsonl:9265  name(tc) + " ha ripreso l'aspetto di prima."
+==============================================================================
+=== riga 6196.0  [statica]
+jp: "＜中破＞"
+en: "<Medium damaged>"
+--- sorgente
+  6193: 				cdata(CDATA_PIC, dmghp_charid) = xy2pic(25, 36)
+  6194: 				if ( cdata(CDATA_HP, dmghp_charid) > cdata(CDATA_MAX_HP, dmghp_charid) / 4 ) {
+  6195: 					txtef COLOR_YELLOW
+>>6196: 					txt lang("＜中破＞", "<Medium damaged>")
+  6197: 				}
+  6198: 				if ( cdata(CDATA_HP, dmghp_charid) <= cdata(CDATA_MAX_HP, dmghp_charid) / 4 ) {
+  6199: 					txtef COLOR_RED
+==============================================================================
+=== riga 6200.0  [statica]
+jp: "＜大破＞"
+en: "<Medium damaged>"
+--- sorgente
+  6197: 				}
+  6198: 				if ( cdata(CDATA_HP, dmghp_charid) <= cdata(CDATA_MAX_HP, dmghp_charid) / 4 ) {
+  6199: 					txtef COLOR_RED
+>>6200: 					txt lang("＜大破＞", "<Medium damaged>")
+  6201: 				}
+  6202: 				txt lang("「わらわの船体がまた引き裂かれた…！」", cnvtalk("My ship's hull has been torn apart again...!"))
+  6203: 			}
+==============================================================================
+=== riga 6202.0  [statica]
+jp: "「わらわの船体がまた引き裂かれた…！」"
+en: cnvtalk("My ship's hull has been torn apart again...!")
+--- sorgente
+  6199: 					txtef COLOR_RED
+  6200: 					txt lang("＜大破＞", "<Medium damaged>")
+  6201: 				}
+>>6202: 				txt lang("「わらわの船体がまた引き裂かれた…！」", cnvtalk("My ship's hull has been torn apart again...!"))
+  6203: 			}
+  6204: 		}
+  6205: 	}
+==============================================================================
+=== riga 6212.0  [dinamica]
+jp: name(dmghp_charid) + "は再生した。"
+en: name(dmghp_charid) + " " + is(dmghp_charid) + " healed."
+--- sorgente
+  6209: 	if ( cdata(CDATA_HP, dmghp_charid) < 0 ) {
+  6210: 		if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_THE_CHAOS_CHILD ) {
+  6211: 			if ( cdata(CDATA_ALLIED, dmghp_charid) == 0 & gdata(GDATA_AREA) == AREA_CHAOS_CRADLE ) {
+>>6212: 				txt lang(name(dmghp_charid) + "は再生した。", name(dmghp_charid) + " " + is(dmghp_charid) + " healed.")
+  6213: 				cdata(CDATA_HP, dmghp_charid) = cdata(CDATA_MAX_HP, dmghp_charid) / 4
+  6214: 			}
+  6215: 		}
+--- stesso inglese, gia' reso:
+    proc.hsp.jsonl:8199  name(tc) + " si riprende."
+==============================================================================
+=== riga 6218.0  [dinamica]
+jp: name(dmghp_charid) + "は再生した。"
+en: name(dmghp_charid) + " " + have(dmghp_charid) + " regenerated."
+--- sorgente
+  6215: 		}
+  6216: 		if ( cdata(CDATA_ID, dmghp_charid) == CREATURE_ID_JALDABAOTH_THE_CHAOS_CHILD ) {
+  6217: 			if ( cdata(CDATA_ALLIED, dmghp_charid) == 0 & gdata(GDATA_AREA) == AREA_CHAOS_CRADLE & gdata(GDATA_FLAG_MAIN) < 900 ) {
+>>6218: 				txt lang(name(dmghp_charid) + "は再生した。", name(dmghp_charid) + " " + have(dmghp_charid) + " regenerated.")
+  6219: 				cdata(CDATA_HP, dmghp_charid) = cdata(CDATA_MAX_HP, dmghp_charid) / 4
+  6220: 			}
+  6221: 		}
+==============================================================================
+=== riga 6258.0  [dinamica]
+jp: name(cnt) + "は叫んだ。「この者にジュアの加護を。レイハンド！」"
+en: name(cnt) + " shout" + _s(cnt) + ", " + cnvtalk("Lay on Hands!")
+--- sorgente
+  6255: 			cbitmod CHARA_BIT_EXCLUSIVE_SKILL_CHARGE, cnt, 0
+  6256: 			txtef COLOR_SKY_BLUE
+  6257: 			chatc@DP = cnt
+>>6258: 			txt lang(name(cnt) + "は叫んだ。「この者にジュアの加護を。レイハンド！」", name(cnt) + " shout" + _s(cnt) + ", " + cnvtalk("Lay on Hands!"))
+  6259: 			txtmore
+  6260: 			txt lang(name(dmghp_charid) + "は回復した。", name(dmghp_charid) + " " + is(dmghp_charid) + " healed.")
+  6261: 			cdata(CDATA_HP, dmghp_charid) = cdata(CDATA_MAX_HP, dmghp_charid) / 2
+==============================================================================
+=== riga 6260.0  [dinamica]
+jp: name(dmghp_charid) + "は回復した。"
+en: name(dmghp_charid) + " " + is(dmghp_charid) + " healed."
+--- sorgente
+  6257: 			chatc@DP = cnt
+  6258: 			txt lang(name(cnt) + "は叫んだ。「この者にジュアの加護を。レイハンド！」", name(cnt) + " shout" + _s(cnt) + ", " + cnvtalk("Lay on Hands!"))
+  6259: 			txtmore
+>>6260: 			txt lang(name(dmghp_charid) + "は回復した。", name(dmghp_charid) + " " + is(dmghp_charid) + " healed.")
+  6261: 			cdata(CDATA_HP, dmghp_charid) = cdata(CDATA_MAX_HP, dmghp_charid) / 2
+  6262: 			animeid = ANIMATION_HOLY
+  6263: 			animode = 100 + dmghp_charid
+--- STESSO GIAPPONESE, gia' reso:
+    proc.hsp.jsonl:8199  name(tc) + " si riprende."
+--- stesso inglese, gia' reso:
+    proc.hsp.jsonl:8199  name(tc) + " si riprende."
+==============================================================================
+=== riga 6271.0  [statica]
+jp: "<コンティニュー> "
+en: "<Continue> "
+--- sorgente
+  6268: 		if ( dmghp_charid == CHARA_PLAYER ) {
+  6269: 			if ( gdata(GDATA_FLAG_GAME_MODE) == GAMEMODE_PURGE & gdata(GDATA_FLAG_REMAINING_LIVES) > 0 ) {
+  6270: 				txtef COLOR_PURPLE
+>>6271: 				txt lang("<コンティニュー> ", "<Continue> ")
+  6272: 				snd SOUNDLIST_PRAY2
+  6273: 				cdata(CDATA_CONDITION_MPOISON, dmghp_charid) = 0
+  6274: 				cdata(CDATA_CONDITION_POISON, dmghp_charid) = 0
+==============================================================================
+=== riga 6351.0  [dinamica]
+jp: name(dmghp_charid) + "は痛手を負った。"
+en: name(dmghp_charid) + " scream" + _s(dmghp_charid) + "."
+--- sorgente
+  6348: 			if ( synccheck(dmghp_charid, -1) ) {
+  6349: 				txtmore
+  6350: 				txtef COLOR_ORANGE
+>>6351: 				txt lang(name(dmghp_charid) + "は痛手を負った。", name(dmghp_charid) + " scream" + _s(dmghp_charid) + ".")
+  6352: 			}
+  6353: 		}
+  6354: 		if ( locvar_dmghp_dmglevel == 2 ) {
+==============================================================================
+=== riga 6358.0  [dinamica]
+jp: name(dmghp_charid) + "は苦痛にもだえた。"
+en: name(dmghp_charid) + " writhe" + _s(dmghp_charid) + " in pain."
+--- sorgente
+  6355: 			if ( synccheck(dmghp_charid, -1) ) {
+  6356: 				txtmore
+  6357: 				txtef COLOR_PINK
+>>6358: 				txt lang(name(dmghp_charid) + "は苦痛にもだえた。", name(dmghp_charid) + " writhe" + _s(dmghp_charid) + " in pain.")
+  6359: 			}
+  6360: 		}
+  6361: 		if ( locvar_dmghp_dmglevel >= 3 ) {
+--- stesso inglese, gia' reso:
+    action.hsp.jsonl:8778  name(tc) + " si contorce dal dolore."
+==============================================================================
+=== riga 6365.0  [dinamica]
+jp: name(dmghp_charid) + "は悲痛な叫び声をあげた。"
+en: name(dmghp_charid) + " " + is(dmghp_charid) + " severely hurt!"
+--- sorgente
+  6362: 			if ( synccheck(dmghp_charid, -1) ) {
+  6363: 				txtmore
+  6364: 				txtef COLOR_RED
+>>6365: 				txt lang(name(dmghp_charid) + "は悲痛な叫び声をあげた。", name(dmghp_charid) + " " + is(dmghp_charid) + " severely hurt!")
+  6366: 			}
+  6367: 		}
+  6368: 		if ( locvar_dmghp_dmg < 0 ) {
+==============================================================================
+=== riga 6399.0  [dinamica]
+jp: name(dmghp_charid) + "の" + itemname(locvar_dmghp_ci) + "はダメージで傷ついた。"
+en: name(dmghp_charid) + your(dmghp_charid) + " " + itemname(locvar_dmghp_ci, , 1) + " is damaged."
+--- sorgente
+  6396: 					if ( locvar_dmghp_ci != (-1) ) {
+  6397: 						txtmore
+  6398: 						txtef COLOR_PURPLE
+>>6399: 						txt lang(name(dmghp_charid) + "の" + itemname(locvar_dmghp_ci) + "はダメージで傷ついた。", name(dmghp_charid) + your(dmghp_charid) + " " + itemname(locvar_dmghp_ci, , 1) + " is damaged.")
+  6400: 						inv(INV_ITEM_LEVEL, locvar_dmghp_ci)--
+  6401: 						snd SOUNDLIST_CRACK
+  6402: 						if ( gdata(GDATA_FLAG_GAME_MODE) == GAMEMODE_ABNORMAL ) {
+==============================================================================
+=== riga 6411.0  [dinamica]
+jp: name(dmghp_charid) + "の" + itemname(locvar_dmghp_ci) + "はボロボロに崩れ散った。"
+en: name(dmghp_charid) + your(dmghp_charid) + " " + itemname(locvar_dmghp_ci, , 1) + " is melted by acid."
+--- sorgente
+  6408: 						if ( inv(INV_ITEM_LEVEL, locvar_dmghp_ci) < (-10) ) {
+  6409: 							snd SOUNDLIST_PUNISH1
+  6410: 							txtef COLOR_RED
+>>6411: 							txt lang(name(dmghp_charid) + "の" + itemname(locvar_dmghp_ci) + "はボロボロに崩れ散った。", name(dmghp_charid) + your(dmghp_charid) + " " + itemname(locvar_dmghp_ci, , 1) + " is melted by acid.")
+  6412: 							inv(INV_ITEM_NUM, locvar_dmghp_ci)--
+  6413: 							cdata(inv(INV_ITEM_EQUIP, locvar_dmghp_ci), dmghp_charid) = cdata(inv(INV_ITEM_EQUIP, locvar_dmghp_ci), dmghp_charid) / 10000 * 10000
+  6414: 							inv(INV_ITEM_EQUIP, locvar_dmghp_ci) = 0
+==============================================================================
+=== riga 6441.0  [dinamica]
+jp: name(dmghp_charid) + "は恐怖で立ちすくんだ。"
+en: name(dmghp_charid) + " is frozen in fear."
+--- sorgente
+  6438: 							if ( synccheck(dmghp_charid, -1) ) {
+  6439: 								txtmore
+  6440: 								txtef COLOR_BLUE
+>>6441: 								txt lang(name(dmghp_charid) + "は恐怖で立ちすくんだ。", name(dmghp_charid) + " is frozen in fear.")
+  6442: 								if ( TweakData(TWEAK_GAMEPLAY_CG_DISABLE_THIRST, TWEAK_CATEGORY_GAMEPLAY) == FALSE & TweakData(TWEAK_GAMEPLAY_DISABLE_URINATION_FROM_FEAR, TWEAK_CATEGORY_GAMEPLAY) == FALSE ) {
+  6443: 									if ( cdata(CDATA_THIRST, dmghp_charid) > 12000 ) {
+  6444: 										chara_morasi dmghp_charid
+==============================================================================
+=== riga 6544.0  [dinamica]
+jp: name(dmghp_charid) + "は眠りを妨げられた。"
+en: name(dmghp_charid) + your(dmghp_charid) + " sleep " + is(dmghp_charid) + " disturbed."
+--- sorgente
+  6541: 				if ( locvar_dmghp_ele != 54 & locvar_dmghp_ele != 58 & locvar_dmghp_ele != 59 ) {
+  6542: 					cdata(CDATA_CONDITION_SLEEP, dmghp_charid) = 0
+  6543: 					txtmore
+>>6544: 					txt lang(name(dmghp_charid) + "は眠りを妨げられた。", name(dmghp_charid) + your(dmghp_charid) + " sleep " + is(dmghp_charid) + " disturbed.")
+  6545: 				}
+  6546: 			}
+  6547: 			// ENDING - Pre-2.08 behavior, do not apply changes here.
+==============================================================================
+=== riga 6634.0  [dinamica]
+jp: name(dmghp_charid) + "の脳髄にダメージが伝わり、脳髄寄生虫が死んだ。"
+en: name(dmghp_charid) + "'s brain parasite died from the damage."
+--- sorgente
+  6631: 				cbitmod CHARA_BIT_BRAIN_PARASITE, dmghp_charid, FALSE
+  6632: 				if ( synccheck(dmghp_charid, -1) ) {
+  6633: 					txtef COLOR_SKY_BLUE
+>>6634: 					txt lang(name(dmghp_charid) + "の脳髄にダメージが伝わり、脳髄寄生虫が死んだ。", name(dmghp_charid) + "'s brain parasite died from the damage.")
+  6635: 				}
+  6636: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6637: 					spact(SKILL_SPACT_BRAIN_PARASITIZE - STARTING_SKILL_SPACT) = 0
+==============================================================================
+=== riga 6665.0  [statica]
+jp: " *カチッ* "
+en: "*click*"
+--- sorgente
+  6662: 						cbitmod CHARA_BIT_SUICIDE_SWITCH, dmghp_charid, TRUE
+  6663: 						txtef COLOR_SKY_BLUE
+  6664: 						txtmore
+>>6665: 						txt lang(" *カチッ* ", "*click*")
+  6666: 					}
+  6667: 				}
+  6668: 			}
+==============================================================================
+=== riga 6682.0  [dinamica]
+jp: name(dmghp_charid) + "は怒りに体を奮わせた！"
+en: name(dmghp_charid) + " " + is(dmghp_charid) + " engulfed in fury!"
+--- sorgente
+  6679: 					if ( rnd(20) == 0 ) {
+  6680: 						if ( synccheck(dmghp_charid, -1) ) {
+  6681: 							txtef COLOR_BLUE
+>>6682: 							txt lang(name(dmghp_charid) + "は怒りに体を奮わせた！", name(dmghp_charid) + " " + is(dmghp_charid) + " engulfed in fury!")
+  6683: 						}
+  6684: 						cdata(CDATA_CONDITION_ANGRY, dmghp_charid) += rnd(30) + 15
+  6685: 					}
+--- STESSO GIAPPONESE, gia' reso:
+    action.hsp.jsonl:263  name(tc) + " freme di rabbia!"
+    proc.hsp.jsonl:20851  name(tc) + " freme di rabbia!"
+--- stesso inglese, gia' reso:
+    action.hsp.jsonl:263  name(tc) + " freme di rabbia!"
+    proc.hsp.jsonl:20851  name(tc) + " freme di rabbia!"
+    proc.hsp.jsonl:24801  name(tc) + " freme di umiliazione!"
+==============================================================================
+=== riga 6750.0  [statica]
+jp: "＊ノックアウト＊"
+en: "*Knockout*"
+--- sorgente
+  6747: 				cdata(CDATA_CONDITION_DIM, dmghp_charid) = 100
+  6748: 				txtef COLOR_YELLOW
+  6749: 				chatc@DP = dmghp_source
+>>6750: 				txt lang("＊ノックアウト＊", "*Knockout*")
+  6751: 				snd SOUNDLIST_GONG
+  6752: 			}
+  6753: 		}
+==============================================================================
+=== riga 6850.0  [dinamica]
+jp: cdatan(CDATAN_NAME, cc) + "に殺された。"
+en: "was killed by " + cdatan(CDATAN_NAME, cc)
+--- sorgente
+  6847: 					}
+  6848: 				}
+  6849: 			}
+>>6850: 			ndeathcause = lang(cdatan(CDATAN_NAME, cc) + "に殺された。", "was killed by " + cdatan(CDATAN_NAME, cc))
+  6851: 			// James - funny bear message
+  6852: 			cnv_str ndeathcause, "was killed by motuhegui", "was mauled to death by a bear"
+  6853: 			cnv_str ndeathcause, "was killed by gaki-motuhegui", "was mauled to death by a bear cub"
+==============================================================================
+=== riga 6857.0  [dinamica]
+jp: name(dmghp_charid) + "は神化した！"
+en: name(dmghp_charid) + " revealed the true appearance!!"
+--- sorgente
+  6854: 		}
+  6855: 		else {
+  6856: 			if ( dmghp_source == DAMAGE_FROM_WEREWOLF ) {
+>>6857: 				txt lang(name(dmghp_charid) + "は神化した！", name(dmghp_charid) + " revealed the true appearance!!")
+  6858: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6859: 					ndeathcause = lang("見えざる手に葬られた。", "got assassinated by the unseen hand")
+  6860: 				}
+==============================================================================
+=== riga 6859.0  [statica]
+jp: "見えざる手に葬られた。"
+en: "got assassinated by the unseen hand"
+--- sorgente
+  6856: 			if ( dmghp_source == DAMAGE_FROM_WEREWOLF ) {
+  6857: 				txt lang(name(dmghp_charid) + "は神化した！", name(dmghp_charid) + " revealed the true appearance!!")
+  6858: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6859: 					ndeathcause = lang("見えざる手に葬られた。", "got assassinated by the unseen hand")
+  6860: 				}
+  6861: 			}
+  6862: 			if ( dmghp_source == DAMAGE_FROM_UNSEEN ) {
+==============================================================================
+=== riga 6863.0  [dinamica]
+jp: name(dmghp_charid) + "は見えざる手に葬られた。"
+en: name(dmghp_charid) + " " + is(dmghp_charid) + " assassinated by the unseen hand."
+--- sorgente
+  6860: 				}
+  6861: 			}
+  6862: 			if ( dmghp_source == DAMAGE_FROM_UNSEEN ) {
+>>6863: 				txt lang(name(dmghp_charid) + "は見えざる手に葬られた。", name(dmghp_charid) + " " + is(dmghp_charid) + " assassinated by the unseen hand.")
+  6864: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6865: 					ndeathcause = lang("見えざる手に葬られた。", "got assassinated by the unseen hand")
+  6866: 				}
+==============================================================================
+=== riga 6869.0  [dinamica]
+jp: name(dmghp_charid) + "は罠にかかって死んだ。"
+en: name(dmghp_charid) + " " + is(dmghp_charid) + " caught in a trap and die" + _s(dmghp_charid) + "."
+--- sorgente
+  6866: 				}
+  6867: 			}
+  6868: 			if ( dmghp_source == DAMAGE_FROM_TRAP ) {
+>>6869: 				txt lang(name(dmghp_charid) + "は罠にかかって死んだ。", name(dmghp_charid) + " " + is(dmghp_charid) + " caught in a trap and die" + _s(dmghp_charid) + ".")
+  6870: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6871: 					ndeathcause = lang("罠にかかって死んだ。", "got caught in a trap and died")
+  6872: 				}
+==============================================================================
+=== riga 6871.0  [statica]
+jp: "罠にかかって死んだ。"
+en: "got caught in a trap and died"
+--- sorgente
+  6868: 			if ( dmghp_source == DAMAGE_FROM_TRAP ) {
+  6869: 				txt lang(name(dmghp_charid) + "は罠にかかって死んだ。", name(dmghp_charid) + " " + is(dmghp_charid) + " caught in a trap and die" + _s(dmghp_charid) + ".")
+  6870: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6871: 					ndeathcause = lang("罠にかかって死んだ。", "got caught in a trap and died")
+  6872: 				}
+  6873: 			}
+  6874: 			if ( dmghp_source == DAMAGE_FROM_JALDABAOTH_SHIELDED ) {
+==============================================================================
+=== riga 6875.0  [dinamica]
+jp: cdatan(CDATAN_NAME, dmghp_charid) + "はあなたを庇って灰になった。"
+en: cdatan(CDATAN_NAME, dmghp_charid) + " shielded you and turned to ashes."
+--- sorgente
+  6872: 				}
+  6873: 			}
+  6874: 			if ( dmghp_source == DAMAGE_FROM_JALDABAOTH_SHIELDED ) {
+>>6875: 				txt lang(cdatan(CDATAN_NAME, dmghp_charid) + "はあなたを庇って灰になった。", cdatan(CDATAN_NAME, dmghp_charid) + " shielded you and turned to ashes.")
+  6876: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6877: 					ndeathcause = lang("灰になって崩れ落ちた。", "crumbled to ashes")
+  6878: 				}
+==============================================================================
+=== riga 6877.0  [statica]
+jp: "灰になって崩れ落ちた。"
+en: "crumbled to ashes"
+--- sorgente
+  6874: 			if ( dmghp_source == DAMAGE_FROM_JALDABAOTH_SHIELDED ) {
+  6875: 				txt lang(cdatan(CDATAN_NAME, dmghp_charid) + "はあなたを庇って灰になった。", cdatan(CDATAN_NAME, dmghp_charid) + " shielded you and turned to ashes.")
+  6876: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6877: 					ndeathcause = lang("灰になって崩れ落ちた。", "crumbled to ashes")
+  6878: 				}
+  6879: 			}
+  6880: 			if ( dmghp_source == DAMAGE_FROM_JALDABAOTH ) {
+==============================================================================
+=== riga 6881.0  [dinamica]
+jp: name(dmghp_charid) + "は灰になって崩れ落ちた。"
+en: name(dmghp_charid) + " turned to ashes and collapsed."
+--- sorgente
+  6878: 				}
+  6879: 			}
+  6880: 			if ( dmghp_source == DAMAGE_FROM_JALDABAOTH ) {
+>>6881: 				txt lang(name(dmghp_charid) + "は灰になって崩れ落ちた。", name(dmghp_charid) + " turned to ashes and collapsed.")
+  6882: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6883: 					ndeathcause = lang("灰になって崩れ落ちた。", "crumbled to ashes")
+  6884: 				}
+==============================================================================
+=== riga 6887.0  [dinamica]
+jp: name(dmghp_charid) + "はマナの反動で死んだ。"
+en: name(dmghp_charid) + " die" + _s(dmghp_charid) + " from over-casting."
+--- sorgente
+  6884: 				}
+  6885: 			}
+  6886: 			if ( dmghp_source == DAMAGE_FROM_OVERCAST ) {
+>>6887: 				txt lang(name(dmghp_charid) + "はマナの反動で死んだ。", name(dmghp_charid) + " die" + _s(dmghp_charid) + " from over-casting.")
+  6888: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6889: 					ndeathcause = lang("マナの反動で消滅した。", "was completely wiped by magic reaction")
+  6890: 				}
+==============================================================================
+=== riga 6889.0  [statica]
+jp: "マナの反動で消滅した。"
+en: "was completely wiped by magic reaction"
+--- sorgente
+  6886: 			if ( dmghp_source == DAMAGE_FROM_OVERCAST ) {
+  6887: 				txt lang(name(dmghp_charid) + "はマナの反動で死んだ。", name(dmghp_charid) + " die" + _s(dmghp_charid) + " from over-casting.")
+  6888: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6889: 					ndeathcause = lang("マナの反動で消滅した。", "was completely wiped by magic reaction")
+  6890: 				}
+  6891: 			}
+  6892: 			if ( dmghp_source == DAMAGE_FROM_HUNGER ) {
+==============================================================================
+=== riga 6893.0  [dinamica]
+jp: name(dmghp_charid) + "は餓死した。"
+en: name(dmghp_charid) + " " + is(dmghp_charid) + " starved to death."
+--- sorgente
+  6890: 				}
+  6891: 			}
+  6892: 			if ( dmghp_source == DAMAGE_FROM_HUNGER ) {
+>>6893: 				txt lang(name(dmghp_charid) + "は餓死した。", name(dmghp_charid) + " " + is(dmghp_charid) + " starved to death.")
+  6894: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6895: 					ndeathcause = lang("飢え死にした。", "was starved to death")
+  6896: 				}
+==============================================================================
+=== riga 6895.0  [statica]
+jp: "飢え死にした。"
+en: "was starved to death"
+--- sorgente
+  6892: 			if ( dmghp_source == DAMAGE_FROM_HUNGER ) {
+  6893: 				txt lang(name(dmghp_charid) + "は餓死した。", name(dmghp_charid) + " " + is(dmghp_charid) + " starved to death.")
+  6894: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6895: 					ndeathcause = lang("飢え死にした。", "was starved to death")
+  6896: 				}
+  6897: 			}
+  6898: 			if ( dmghp_source == DAMAGE_FROM_POISON ) {
+==============================================================================
+=== riga 6899.0  [dinamica]
+jp: name(dmghp_charid) + "は毒に蝕まれ死んだ。"
+en: name(dmghp_charid) + " " + is(dmghp_charid) + " killed with poison."
+--- sorgente
+  6896: 				}
+  6897: 			}
+  6898: 			if ( dmghp_source == DAMAGE_FROM_POISON ) {
+>>6899: 				txt lang(name(dmghp_charid) + "は毒に蝕まれ死んだ。", name(dmghp_charid) + " " + is(dmghp_charid) + " killed with poison.")
+  6900: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6901: 					ndeathcause = lang("毒にもがき苦しみながら死んだ。", "miserably died from poison")
+  6902: 				}
+==============================================================================
+=== riga 6901.0  [statica]
+jp: "毒にもがき苦しみながら死んだ。"
+en: "miserably died from poison"
+--- sorgente
+  6898: 			if ( dmghp_source == DAMAGE_FROM_POISON ) {
+  6899: 				txt lang(name(dmghp_charid) + "は毒に蝕まれ死んだ。", name(dmghp_charid) + " " + is(dmghp_charid) + " killed with poison.")
+  6900: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6901: 					ndeathcause = lang("毒にもがき苦しみながら死んだ。", "miserably died from poison")
+  6902: 				}
+  6903: 			}
+  6904: 			if ( dmghp_source == DAMAGE_FROM_BLEED ) {
+==============================================================================
+=== riga 6905.0  [dinamica]
+jp: name(dmghp_charid) + "は出血多量で死んだ。"
+en: name(dmghp_charid) + " die" + _s(dmghp_charid) + " from loss of blood."
+--- sorgente
+  6902: 				}
+  6903: 			}
+  6904: 			if ( dmghp_source == DAMAGE_FROM_BLEED ) {
+>>6905: 				txt lang(name(dmghp_charid) + "は出血多量で死んだ。", name(dmghp_charid) + " die" + _s(dmghp_charid) + " from loss of blood.")
+  6906: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6907: 					ndeathcause = lang("血を流しすぎて死んだ。", "died from loss of blood")
+  6908: 				}
+==============================================================================
+=== riga 6907.0  [statica]
+jp: "血を流しすぎて死んだ。"
+en: "died from loss of blood"
+--- sorgente
+  6904: 			if ( dmghp_source == DAMAGE_FROM_BLEED ) {
+  6905: 				txt lang(name(dmghp_charid) + "は出血多量で死んだ。", name(dmghp_charid) + " die" + _s(dmghp_charid) + " from loss of blood.")
+  6906: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6907: 					ndeathcause = lang("血を流しすぎて死んだ。", "died from loss of blood")
+  6908: 				}
+  6909: 			}
+  6910: 			if ( dmghp_source == DAMAGE_FROM_DESERT ) {
+==============================================================================
+=== riga 6911.0  [dinamica]
+jp: name(dmghp_charid) + "は干からびて死んだ。"
+en: name(dmghp_charid) + " dried up in the desert and die" + _s(dmghp_charid) + "."
+--- sorgente
+  6908: 				}
+  6909: 			}
+  6910: 			if ( dmghp_source == DAMAGE_FROM_DESERT ) {
+>>6911: 				txt lang(name(dmghp_charid) + "は干からびて死んだ。", name(dmghp_charid) + " dried up in the desert and die" + _s(dmghp_charid) + ".")
+  6912: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6913: 					ndeathcause = lang("干からびて死んだ。", "dried up in the desert")
+  6914: 				}
+==============================================================================
+=== riga 6913.0  [statica]
+jp: "干からびて死んだ。"
+en: "dried up in the desert"
+--- sorgente
+  6910: 			if ( dmghp_source == DAMAGE_FROM_DESERT ) {
+  6911: 				txt lang(name(dmghp_charid) + "は干からびて死んだ。", name(dmghp_charid) + " dried up in the desert and die" + _s(dmghp_charid) + ".")
+  6912: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6913: 					ndeathcause = lang("干からびて死んだ。", "dried up in the desert")
+  6914: 				}
+  6915: 			}
+  6916: 			if ( dmghp_source == DAMAGE_FROM_CHOCO ) {
+==============================================================================
+=== riga 6917.0  [dinamica]
+jp: name(dmghp_charid) + "は熱したチョコレートで火傷して死んだ。"
+en: name(dmghp_charid) + " melt" + _s(dmghp_charid) + " down."
+--- sorgente
+  6914: 				}
+  6915: 			}
+  6916: 			if ( dmghp_source == DAMAGE_FROM_CHOCO ) {
+>>6917: 				txt lang(name(dmghp_charid) + "は熱したチョコレートで火傷して死んだ。", name(dmghp_charid) + " melt" + _s(dmghp_charid) + " down.")
+  6918: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6919: 					ndeathcause = lang("熱したチョコレートで火傷して死んだ。", "melted down")
+  6920: 				}
+==============================================================================
+=== riga 6919.0  [statica]
+jp: "熱したチョコレートで火傷して死んだ。"
+en: "melted down"
+--- sorgente
+  6916: 			if ( dmghp_source == DAMAGE_FROM_CHOCO ) {
+  6917: 				txt lang(name(dmghp_charid) + "は熱したチョコレートで火傷して死んだ。", name(dmghp_charid) + " melt" + _s(dmghp_charid) + " down.")
+  6918: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6919: 					ndeathcause = lang("熱したチョコレートで火傷して死んだ。", "melted down")
+  6920: 				}
+  6921: 			}
+  6922: 			if ( dmghp_source == DAMAGE_FROM_CURSE ) {
+==============================================================================
+=== riga 6923.0  [dinamica]
+jp: name(dmghp_charid) + "は呪いの力で死んだ。"
+en: name(dmghp_charid) + " die" + _s(dmghp_charid) + " from a curse."
+--- sorgente
+  6920: 				}
+  6921: 			}
+  6922: 			if ( dmghp_source == DAMAGE_FROM_CURSE ) {
+>>6923: 				txt lang(name(dmghp_charid) + "は呪いの力で死んだ。", name(dmghp_charid) + " die" + _s(dmghp_charid) + " from a curse.")
+  6924: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6925: 					ndeathcause = lang("呪い殺された。", "died from a curse")
+  6926: 				}
+==============================================================================
+=== riga 6925.0  [statica]
+jp: "呪い殺された。"
+en: "died from a curse"
+--- sorgente
+  6922: 			if ( dmghp_source == DAMAGE_FROM_CURSE ) {
+  6923: 				txt lang(name(dmghp_charid) + "は呪いの力で死んだ。", name(dmghp_charid) + " die" + _s(dmghp_charid) + " from a curse.")
+  6924: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6925: 					ndeathcause = lang("呪い殺された。", "died from a curse")
+  6926: 				}
+  6927: 			}
+  6928: 			if ( dmghp_source == DAMAGE_FROM_TUMBLE ) {
+==============================================================================
+=== riga 6929.0  [dinamica]
+jp: name(dmghp_charid) + "は階段から転げ落ちて死んだ。"
+en: name(dmghp_charid) + " tumble" + _s(dmghp_charid) + " down the stairs and die" + _s(dmghp_charid) + "."
+--- sorgente
+  6926: 				}
+  6927: 			}
+  6928: 			if ( dmghp_source == DAMAGE_FROM_TUMBLE ) {
+>>6929: 				txt lang(name(dmghp_charid) + "は階段から転げ落ちて死んだ。", name(dmghp_charid) + " tumble" + _s(dmghp_charid) + " down the stairs and die" + _s(dmghp_charid) + ".")
+  6930: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6931: 					ndeathcause = lang("階段から転げ落ちて亡くなった。", "tumbled down the stairs and died")
+  6932: 				}
+==============================================================================
+=== riga 6931.0  [statica]
+jp: "階段から転げ落ちて亡くなった。"
+en: "tumbled down the stairs and died"
+--- sorgente
+  6928: 			if ( dmghp_source == DAMAGE_FROM_TUMBLE ) {
+  6929: 				txt lang(name(dmghp_charid) + "は階段から転げ落ちて死んだ。", name(dmghp_charid) + " tumble" + _s(dmghp_charid) + " down the stairs and die" + _s(dmghp_charid) + ".")
+  6930: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6931: 					ndeathcause = lang("階段から転げ落ちて亡くなった。", "tumbled down the stairs and died")
+  6932: 				}
+  6933: 			}
+  6934: 			if ( dmghp_source == DAMAGE_FROM_PERFORM ) {
+==============================================================================
+=== riga 6935.0  [dinamica]
+jp: name(dmghp_charid) + "は聴衆に殺された。"
+en: name(dmghp_charid) + " " + is(dmghp_charid) + " killed by an audience."
+--- sorgente
+  6932: 				}
+  6933: 			}
+  6934: 			if ( dmghp_source == DAMAGE_FROM_PERFORM ) {
+>>6935: 				txt lang(name(dmghp_charid) + "は聴衆に殺された。", name(dmghp_charid) + " " + is(dmghp_charid) + " killed by an audience.")
+  6936: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6937: 					ndeathcause = lang("演奏中に激怒した聴衆に殺された。", "was killed by an audience")
+  6938: 				}
+==============================================================================
+=== riga 6937.0  [statica]
+jp: "演奏中に激怒した聴衆に殺された。"
+en: "was killed by an audience"
+--- sorgente
+  6934: 			if ( dmghp_source == DAMAGE_FROM_PERFORM ) {
+  6935: 				txt lang(name(dmghp_charid) + "は聴衆に殺された。", name(dmghp_charid) + " " + is(dmghp_charid) + " killed by an audience.")
+  6936: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6937: 					ndeathcause = lang("演奏中に激怒した聴衆に殺された。", "was killed by an audience")
+  6938: 				}
+  6939: 			}
+  6940: 			if ( dmghp_source == DAMAGE_FROM_FIRE ) {
+==============================================================================
+=== riga 6941.0  [dinamica]
+jp: name(dmghp_charid) + "は焼け死んだ。"
+en: name(dmghp_charid) + " " + is(dmghp_charid) + " burnt and turned into ash."
+--- sorgente
+  6938: 				}
+  6939: 			}
+  6940: 			if ( dmghp_source == DAMAGE_FROM_FIRE ) {
+>>6941: 				txt lang(name(dmghp_charid) + "は焼け死んだ。", name(dmghp_charid) + " " + is(dmghp_charid) + " burnt and turned into ash.")
+  6942: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6943: 					ndeathcause = lang("焼けて消滅した。", "was burnt and turned into ash")
+  6944: 				}
+==============================================================================
+=== riga 6943.0  [statica]
+jp: "焼けて消滅した。"
+en: "was burnt and turned into ash"
+--- sorgente
+  6940: 			if ( dmghp_source == DAMAGE_FROM_FIRE ) {
+  6941: 				txt lang(name(dmghp_charid) + "は焼け死んだ。", name(dmghp_charid) + " " + is(dmghp_charid) + " burnt and turned into ash.")
+  6942: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6943: 					ndeathcause = lang("焼けて消滅した。", "was burnt and turned into ash")
+  6944: 				}
+  6945: 			}
+  6946: 			if ( dmghp_source == DAMAGE_FROM_BAD_FOOD ) {
+==============================================================================
+=== riga 6947.0  [dinamica]
+jp: name(dmghp_charid) + "は食中毒で死んだ。"
+en: name(dmghp_charid) + " " + is(dmghp_charid) + " killed by food poisoning."
+--- sorgente
+  6944: 				}
+  6945: 			}
+  6946: 			if ( dmghp_source == DAMAGE_FROM_BAD_FOOD ) {
+>>6947: 				txt lang(name(dmghp_charid) + "は食中毒で死んだ。", name(dmghp_charid) + " " + is(dmghp_charid) + " killed by food poisoning.")
+  6948: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6949: 					ndeathcause = lang("食中毒で倒れた。", "got killed by food poisoning")
+  6950: 				}
+==============================================================================
+=== riga 6949.0  [statica]
+jp: "食中毒で倒れた。"
+en: "got killed by food poisoning"
+--- sorgente
+  6946: 			if ( dmghp_source == DAMAGE_FROM_BAD_FOOD ) {
+  6947: 				txt lang(name(dmghp_charid) + "は食中毒で死んだ。", name(dmghp_charid) + " " + is(dmghp_charid) + " killed by food poisoning.")
+  6948: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6949: 					ndeathcause = lang("食中毒で倒れた。", "got killed by food poisoning")
+  6950: 				}
+  6951: 			}
+  6952: 			if ( dmghp_source == DAMAGE_FROM_CORRUPT ) {
+==============================================================================
+=== riga 6953.0  [dinamica]
+jp: name(dmghp_charid) + "はエーテルに侵食され死んだ。"
+en: name(dmghp_charid) + " die" + _s(dmghp_charid) + " of Ether Disease."
+--- sorgente
+  6950: 				}
+  6951: 			}
+  6952: 			if ( dmghp_source == DAMAGE_FROM_CORRUPT ) {
+>>6953: 				txt lang(name(dmghp_charid) + "はエーテルに侵食され死んだ。", name(dmghp_charid) + " die" + _s(dmghp_charid) + " of Ether Disease.")
+  6954: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6955: 					ndeathcause = lang("エーテルの病に倒れた。", "died of Ether Disease")
+  6956: 				}
+==============================================================================
+=== riga 6955.0  [statica]
+jp: "エーテルの病に倒れた。"
+en: "died of Ether Disease"
+--- sorgente
+  6952: 			if ( dmghp_source == DAMAGE_FROM_CORRUPT ) {
+  6953: 				txt lang(name(dmghp_charid) + "はエーテルに侵食され死んだ。", name(dmghp_charid) + " die" + _s(dmghp_charid) + " of Ether Disease.")
+  6954: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6955: 					ndeathcause = lang("エーテルの病に倒れた。", "died of Ether Disease")
+  6956: 				}
+  6957: 			}
+  6958: 			if ( dmghp_source == DAMAGE_FROM_ACID ) {
+==============================================================================
+=== riga 6959.0  [dinamica]
+jp: name(dmghp_charid) + "は溶けて液体になった。"
+en: name(dmghp_charid) + " melt" + _s(dmghp_charid) + " down."
+--- sorgente
+  6956: 				}
+  6957: 			}
+  6958: 			if ( dmghp_source == DAMAGE_FROM_ACID ) {
+>>6959: 				txt lang(name(dmghp_charid) + "は溶けて液体になった。", name(dmghp_charid) + " melt" + _s(dmghp_charid) + " down.")
+  6960: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6961: 					ndeathcause = lang("溶けて液体になった。", "melted down")
+  6962: 				}
+==============================================================================
+=== riga 6961.0  [statica]
+jp: "溶けて液体になった。"
+en: "melted down"
+--- sorgente
+  6958: 			if ( dmghp_source == DAMAGE_FROM_ACID ) {
+  6959: 				txt lang(name(dmghp_charid) + "は溶けて液体になった。", name(dmghp_charid) + " melt" + _s(dmghp_charid) + " down.")
+  6960: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6961: 					ndeathcause = lang("溶けて液体になった。", "melted down")
+  6962: 				}
+  6963: 			}
+  6964: 			if ( dmghp_source == DAMAGE_FROM_REMNANT ) {
+==============================================================================
+=== riga 6965.0  [dinamica]
+jp: name(dmghp_charid) + "は属性の残滓に呑まれて死んだ。"
+en: name(dmghp_charid) + " was consumed by the remnants of the elements and died.."
+--- sorgente
+  6962: 				}
+  6963: 			}
+  6964: 			if ( dmghp_source == DAMAGE_FROM_REMNANT ) {
+>>6965: 				txt lang(name(dmghp_charid) + "は属性の残滓に呑まれて死んだ。", name(dmghp_charid) + " was consumed by the remnants of the elements and died..")
+  6966: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6967: 					ndeathcause = lang("属性の残滓に呑まれて死んだ。", "consumed by the remnants of the elements")
+  6968: 				}
+==============================================================================
+=== riga 6967.0  [statica]
+jp: "属性の残滓に呑まれて死んだ。"
+en: "consumed by the remnants of the elements"
+--- sorgente
+  6964: 			if ( dmghp_source == DAMAGE_FROM_REMNANT ) {
+  6965: 				txt lang(name(dmghp_charid) + "は属性の残滓に呑まれて死んだ。", name(dmghp_charid) + " was consumed by the remnants of the elements and died..")
+  6966: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6967: 					ndeathcause = lang("属性の残滓に呑まれて死んだ。", "consumed by the remnants of the elements")
+  6968: 				}
+  6969: 			}
+  6970: 			if ( dmghp_source == DAMAGE_FROM_SUICIDE ) {
+==============================================================================
+=== riga 6971.0  [dinamica]
+jp: name(dmghp_charid) + "はバラバラになった。"
+en: name(dmghp_charid) + " shatter" + _s(dmghp_charid) + "."
+--- sorgente
+  6968: 				}
+  6969: 			}
+  6970: 			if ( dmghp_source == DAMAGE_FROM_SUICIDE ) {
+>>6971: 				txt lang(name(dmghp_charid) + "はバラバラになった。", name(dmghp_charid) + " shatter" + _s(dmghp_charid) + ".")
+  6972: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6973: 					ndeathcause = lang("自殺した。", "committed suicide")
+  6974: 				}
+--- stesso inglese, gia' reso:
+    action.hsp.jsonl:3102  name(tc) + " va in pezzi."
+==============================================================================
+=== riga 6973.0  [statica]
+jp: "自殺した。"
+en: "committed suicide"
+--- sorgente
+  6970: 			if ( dmghp_source == DAMAGE_FROM_SUICIDE ) {
+  6971: 				txt lang(name(dmghp_charid) + "はバラバラになった。", name(dmghp_charid) + " shatter" + _s(dmghp_charid) + ".")
+  6972: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6973: 					ndeathcause = lang("自殺した。", "committed suicide")
+  6974: 				}
+  6975: 			}
+  6976: 			if ( dmghp_source == DAMAGE_FROM_NUKE ) {
+==============================================================================
+=== riga 6977.0  [dinamica]
+jp: name(dmghp_charid) + "は核爆発に巻き込まれて塵となった。"
+en: name(dmghp_charid) + " " + is(dmghp_charid) + " turned into atoms."
+--- sorgente
+  6974: 				}
+  6975: 			}
+  6976: 			if ( dmghp_source == DAMAGE_FROM_NUKE ) {
+>>6977: 				txt lang(name(dmghp_charid) + "は核爆発に巻き込まれて塵となった。", name(dmghp_charid) + " " + is(dmghp_charid) + " turned into atoms.")
+  6978: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6979: 					ndeathcause = lang("核爆発に巻き込まれて死んだ。", "was killed by an atomic bomb")
+  6980: 				}
+==============================================================================
+=== riga 6979.0  [statica]
+jp: "核爆発に巻き込まれて死んだ。"
+en: "was killed by an atomic bomb"
+--- sorgente
+  6976: 			if ( dmghp_source == DAMAGE_FROM_NUKE ) {
+  6977: 				txt lang(name(dmghp_charid) + "は核爆発に巻き込まれて塵となった。", name(dmghp_charid) + " " + is(dmghp_charid) + " turned into atoms.")
+  6978: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6979: 					ndeathcause = lang("核爆発に巻き込まれて死んだ。", "was killed by an atomic bomb")
+  6980: 				}
+  6981: 			}
+  6982: 			if ( dmghp_source == DAMAGE_FROM_MAIDEN ) {
+==============================================================================
+=== riga 6983.0  [dinamica]
+jp: name(dmghp_charid) + "はアイアンメイデンの中で串刺しになって果てた。"
+en: name(dmghp_charid) + " step" + _s(dmghp_charid) + " in an iron maiden and die" + _s(dmghp_charid) + "."
+--- sorgente
+  6980: 				}
+  6981: 			}
+  6982: 			if ( dmghp_source == DAMAGE_FROM_MAIDEN ) {
+>>6983: 				txt lang(name(dmghp_charid) + "はアイアンメイデンの中で串刺しになって果てた。", name(dmghp_charid) + " step" + _s(dmghp_charid) + " in an iron maiden and die" + _s(dmghp_charid) + ".")
+  6984: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6985: 					ndeathcause = lang("アイアンメイデンにはさまれて死んだ。", "stepped in an iron maiden and died")
+  6986: 				}
+==============================================================================
+=== riga 6985.0  [statica]
+jp: "アイアンメイデンにはさまれて死んだ。"
+en: "stepped in an iron maiden and died"
+--- sorgente
+  6982: 			if ( dmghp_source == DAMAGE_FROM_MAIDEN ) {
+  6983: 				txt lang(name(dmghp_charid) + "はアイアンメイデンの中で串刺しになって果てた。", name(dmghp_charid) + " step" + _s(dmghp_charid) + " in an iron maiden and die" + _s(dmghp_charid) + ".")
+  6984: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6985: 					ndeathcause = lang("アイアンメイデンにはさまれて死んだ。", "stepped in an iron maiden and died")
+  6986: 				}
+  6987: 			}
+  6988: 			if ( dmghp_source == DAMAGE_FROM_GUILLOTINE ) {
+==============================================================================
+=== riga 6989.0  [dinamica]
+jp: name(dmghp_charid) + "はギロチンで首をちょんぎられて死んだ。"
+en: name(dmghp_charid) + " " + is(dmghp_charid) + " guillotined and die" + _s(dmghp_charid) + "."
+--- sorgente
+  6986: 				}
+  6987: 			}
+  6988: 			if ( dmghp_source == DAMAGE_FROM_GUILLOTINE ) {
+>>6989: 				txt lang(name(dmghp_charid) + "はギロチンで首をちょんぎられて死んだ。", name(dmghp_charid) + " " + is(dmghp_charid) + " guillotined and die" + _s(dmghp_charid) + ".")
+  6990: 				if ( dmghp_charid == CHARA_PLAYER ) {
+  6991: 					ndeathcause = lang("ギロチンで首を落とされて死んだ。", "was guillotined")
+  6992: 				}
+==============================================================================
+=== riga 6991.0  [statica]
+jp: "ギロチンで首を落とされて死んだ。"
+en: "was guillotined"
+--- sorgente
+  6988: 			if ( dmghp_source == DAMAGE_FROM_GUILLOTINE ) {
+  6989: 				txt lang(name(dmghp_charid) + "はギロチンで首をちょんぎられて死んだ。", name(dmghp_charid) + " " + is(dmghp_charid) + " guillotined and die" + _s(dmghp_charid) + ".")
+  6990: 				if ( dmghp_charid == CHARA_PLAYER ) {
+>>6991: 					ndeathcause = lang("ギロチンで首を落とされて死んだ。", "was guillotined")
+  6992: 				}
+  6993: 			}
+  6994: 			if ( dmghp_source == DAMAGE_FROM_EXECUTION ) {
+==============================================================================
+=== riga 6995.0  [dinamica]
+jp: cdatan(CDATAN_NAME, dmghp_charid) + "は公正な投票の結果処刑された。"
+en: cdatan(CDATAN_NAME, dmghp_charid) + " was executed by result of fair vote."
+--- sorgente
+  6992: 				}
+  6993: 			}
+  6994: 			if ( dmghp_source == DAMAGE_FROM_EXECUTION ) {
+>>6995: 				txt lang(cdatan(CDATAN_NAME, dmghp_charid) + "は公正な投票の結果処刑された。", cdatan(CDATAN_NAME, dmghp_charid) + " was executed by result of fair vote.")
+  6996: 			}
+  6997: 			if ( dmghp_source == DAMAGE_FROM_SCALP ) {
+  6998: 				txt lang(cdatan(CDATAN_NAME, dmghp_charid) + "は衰弱して死んだ。", cdatan(CDATAN_NAME, dmghp_charid) + " weakened and died.")
+==============================================================================
+=== riga 6998.0  [dinamica]
+jp: cdatan(CDATAN_NAME, dmghp_charid) + "は衰弱して死んだ。"
+en: cdatan(CDATAN_NAME, dmghp_charid) + " weakened and died."
+--- sorgente
+  6995: 				txt lang(cdatan(CDATAN_NAME, dmghp_charid) + "は公正な投票の結果処刑された。", cdatan(CDATAN_NAME, dmghp_charid) + " was executed by result of fair vote.")
+  6996: 			}
+  6997: 			if ( dmghp_source == DAMAGE_FROM_SCALP ) {
+>>6998: 				txt lang(cdatan(CDATAN_NAME, dmghp_charid) + "は衰弱して死んだ。", cdatan(CDATAN_NAME, dmghp_charid) + " weakened and died.")
+  6999: 			}
+  7000: 			/********** JAMES CUSTOM - TCG - BEGINNING **********/
+  7001: 			if ( dmghp_source >= DAMAGE_FROM_CARD_GAME - MAX_CHARA_TOTAL & dmghp_source <= DAMAGE_FROM_CARD_GAME & DAMAGE_FROM_CARD_GAME <= -10000 ) {
