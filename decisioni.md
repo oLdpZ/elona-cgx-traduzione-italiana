@@ -6,6 +6,84 @@ ancora aperte.
 
 ---
 
+## Una regola scritta e non sorvegliata: `Bolt` era «Saetta» e «dardo» insieme — 2026-08-14, trentacinquesima sessione
+
+Traducendo il log di combattimento (`fase4-proc-010`) serviva la resa di 「ボルト」
+per «The bolt hits X». Cercandola in dizionario ne sono uscite **due, dodici e
+dodici**:
+
+| | `skill.hsp` (l'incantesimo) | `db_item.hsp` (il libro) |
+|---|---|---|
+| アイスボルト | Saetta di **gelo** | dardo di **ghiaccio** |
+| ダークネスボルト | Saetta **d'oscurità** | dardo **oscuro** |
+| ポイズンボルト | Saetta **velenosa** | dardo **di veleno** |
+| ナーブボルト | Saetta **dei nervi** | dardo **neurale** |
+| マジックボルト | Saetta **magica** | dardo **arcano** |
+| (le altre sette) | Saetta di fuoco, … | dardo di fuoco, … |
+
+Il giocatore compra il libro del **dardo** e impara la **saetta**, ed è la stessa
+magia. E in cinque casi su dodici non cambiava solo la testa: cambiava anche il
+qualificatore. Non erano dodici parole sbagliate, erano **due famiglie
+parallele**.
+
+⭐ **La cosa che rende questo caso interessante è che la regola c'era già.**
+`glossario.md` §«I nomi degli incantesimi» dice `Bolt` → `Saetta` dal 2026-08-09,
+e spiega pure quando l'elemento va aggettivo e quando complemento. `db_item.hsp`
+non l'ha mai seguita. Non è stata una decisione presa due volte in due modi: è
+una decisione presa **una volta e poi non applicata**, per otto mesi di sessioni,
+senza che niente protestasse.
+
+> Il difetto non è nel dizionario e non è nel glossario. È che **nessuno
+> strumento li confronta.**
+
+⚠️ E `battute --divergenti`, che sarebbe la guardia naturale, non poteva vederla:
+misurato nella 29ª, `rese_gia_decise()` apre `db_creature.hsp` e basta. Il numero
+13 non copre il dizionario intero, e questa è la prova su un caso vero.
+
+**Deciso: vince `skill.hsp`**, per due motivi. È la lista che il giocatore apre a
+ogni lancio, mentre il libro lo legge una volta sola; e i suoi dodici nomi sono
+già coerenti fra loro. Corretti con `scratchpad/correzione-bolt.py`, che cambia
+tre campi per voce — `it`, `plurale` e **`genere`**, perché «saetta» è femminile
+dove «dardo» era maschile.
+
+💡 **Il genere non muove l'articolo, e valeva la pena verificarlo invece di
+sperarlo.** `applica.ARTICOLO_DI` mette l'articolo **solo sulla testa** del nome
+composto, che qui è `ioriginalnameref2` — «grimorio», «bacchetta». Controllato
+nell'albero di build dopo la correzione: `ioriginalnamearticolo(...
+SPELLBOOK_OF_NETHER_BOLT) = "un "` e `... ROD_ICE_BOLT) = "una "`, cioè l'articolo
+segue ancora la testa e non la saetta. Il `plurale` invece viaggia su tutti i
+siti ed è stato rifatto al femminile («saette velenose», «saette caotiche»).
+
+### ⚠️ E la prima passata ne ha corrette 12 su 15, perché cercava nella lingua sbagliata
+
+Cercando 「ボルト」 nel **giapponese** si trovano i dodici libri. Non si trovano le
+tre **bacchette**, perché il loro nome giapponese è poetico e il katakana non c'è
+dentro affatto:
+
+| oggetto | giapponese | inglese | diceva |
+|---|---|---|---|
+| `ITEM_ID_ROD_LIGHTNING_BOLT` | 稲妻の軌跡の魔杖, «la scia della folgore» | `lightning bolt` | dardo di fulmine |
+| `ITEM_ID_ROD_FIRE_BOLT` | 炎の衝撃の魔杖, «l'urto della fiamma» | `fire bolt` | dardo di fuoco |
+| `ITEM_ID_ROD_ICE_BOLT` | 氷の視線の魔杖, «lo sguardo del gelo» | `ice bolt` | dardo di ghiaccio |
+
+> Quando la famiglia è definita dall'**effetto** e non dal nome, si cerca nella
+> lingua che nomina l'effetto. Qui è l'inglese, ed è l'eccezione alla regola
+> «arbitra il giapponese»: il giapponese qui non nomina la magia, nomina
+> l'oggetto.
+
+La rete 2 dello script adesso lo impedisce: elenca ogni voce di `db_item.hsp` il
+cui **inglese** contiene `bolt` e muore se una non sta né fra le correzioni né
+fra le due dichiarate estranee — `146183` (`bolt` = i dardi da balestra) e
+`151150` (`magic missile`, che è 魔法の矢 / `Magic Dart`, e «Dardo magico» è
+giusto: è l'altra metà della distinzione che il glossario chiede di tenere).
+
+💡 **I nomi giapponesi delle bacchette erano già andati persi prima di questa
+correzione** e non li recupera: 泡沫の波動 («l'onda di spuma») è reso «sfera di
+bolle», che viene da `bubble ball`. Chi vorrà rimetterli ha qui l'elenco di dove
+guardare.
+
+---
+
 ## Un tetto misurato in un sito solo non è il tetto — 2026-08-14, trentaquattresima sessione
 
 La 33ª aveva accettato due `buffdesc` lunghi con questo argomento: il tetto della

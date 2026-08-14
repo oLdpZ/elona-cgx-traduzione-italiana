@@ -95,6 +95,26 @@ L'elemento è **aggettivo** dove esiste («Saetta mentale», «Saetta caotica»,
 «Saetta velenosa», come `Mind damage` → «Danno mentale») e **complemento** dove
 no («Saetta di gelo», «Saetta d'oltretomba»).
 
+⚠️⚠️ **E per otto mesi `db_item.hsp` non ha seguito questa riga.** Fino al
+2026-08-14 i **15** nomi di libro e di bacchetta della famiglia dicevano
+«**dardo**» — «dardo d'oltretomba», «dardo di ghiaccio» — mentre `skill.hsp`
+diceva «Saetta». Il giocatore comprava il libro del *dardo* e imparava la
+*saetta*, ed erano la stessa magia. Peggio: **cinque nomi su dodici avevano anche
+il qualificatore diverso** (`冷気` gelo/ghiaccio, `暗黒` d'oscurità/oscuro, `毒`
+velenosa/di veleno, `神経` dei nervi/neurale, `魔法` magica/arcano), quindi non
+era una parola sbagliata ma due famiglie parallele. Allineate a `skill.hsp` con
+`scratchpad/correzione-bolt.py`. Vedi `decisioni.md`.
+
+💡 **La lezione non è «rileggere il glossario»**: la riga qui sopra c'era già ed
+era giusta. È che **nessuno strumento confronta il glossario col dizionario**, e
+`battute --divergenti` guarda solo `db_creature.hsp` (misurato nella 29ª). Una
+regola scritta e non sorvegliata vale finché qualcuno se la ricorda.
+
+⚠️ E la ricerca va fatta sull'**inglese**, non sul giapponese: le tre *bacchette*
+hanno un nome giapponese poetico che non contiene `ボルト` — 稲妻の軌跡 «la scia
+della folgore», 炎の衝撃, 氷の視線 — e cercando il katakana si perdono. La prima
+passata della correzione ne ha corrette 12 su 15 proprio per questo.
+
 ⚠️ `Hero` → **«Eroismo»**, non «Eroe»: è un'etichetta di stato, e vale la
 regola dei sostantivi astratti di `guida-stile.md`. `Incognito` resta identico
 e sta in `invariati.md`: è la stessa parola latina, non una svista.
