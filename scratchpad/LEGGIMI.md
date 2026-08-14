@@ -30,15 +30,18 @@ si committa.
 | `fuori_elenco.py` | i file del sorgente con `lang()` e **senza file di dizionario**: chiude con una misura la domanda della 26ª («esiste un file che nessun elenco nomina?»). Atteso al 14/08: **54 file con `lang()`, 14 col dizionario, 40 senza, per 12.620 stringhe**. ⚠️ «Senza dizionario» vuol dire **non ancora cominciato**, non «fuori perimetro»: `SPEC.md` §6 mette in Fase 4 «i restanti 63 file minori», che li copre tutti | quando viene il sospetto che un file sia sfuggito |
 | `tetti_buffdesc.py` | i `buffdesc` contro i **tre** tetti che li tagliano (34 nei menu `a` e `W`, 40 nel menu di lancio, 46 nella scheda), italiano **contro l'inglese di monte**. Nato nella 34ª, quando a schermo è uscito `Res+ gra`. Atteso: l'italiano sfonda **meno** dell'inglese a tutti e tre (43/32/23 contro 46/38/31) — se un giorno lo supera, allora sì che c'è da accorciare. ⚠️ Stima le variabili interpolate a due cifre: il confronto regge, i valori assoluti hanno ±1 per voce | quando si tocca un `buffdesc` |
 | `else_jp.py` | ⚠️ **il punto cieco di `blocchi_en.py`**: gli stessi letterali inglesi nudi, ma nella forma `if ( jp ) { … } else { … }`, che il fratello non vede perché cerca `if ( en )`. Nato nella 34ª, quando la follia di `calculation.hsp:2352` è uscita in inglese a schermo. Atteso: **6.984 righe in 13 file**, di cui 6.840 sono le descrizioni di `db_item.hsp` già fuori perimetro — le vive sono **144** | insieme a `blocchi_en.py`, all'apertura di ogni file |
+| `commenti-blocco.py` | ⚠️ **le righe dentro un commento di blocco `/* ... */`**, cioè il codice di monte che il mod ha spento. Nato nella 37ª su `proc.hsp:11796`, dove la rete 6 — che guardava solo il `;` — avrebbe fatto tradurre testo morto. `proc.hsp` ne ha **99**, `action.hsp` 132, `custom_tweaks.hsp` 100. ⚠️ Legge il **`SORGENTE`** pinnato, non la build | dalla rete 6 di ogni lotto, e all'apertura di un file |
+| `misura-blocchi-spenti.py` | quante voci **già tradotte** stanno dentro un blocco spento: lavoro speso su testo che il giocatore non legge. Atteso al 14/08: **7** — 6 in `action.hsp`, 1 in `proc.hsp` (`:1000`, l'incasso delle esibizioni sostituito dal blocco `ANNA CUSTOM`). ⚠️ Misurato sulla **build** ne accusava 9, e le due di `text.hsp` erano giuste: quella build ha **una riga in più** del sorgente perché una toppa ce l'ha aggiunta, e i numeri di riga del dizionario vengono dal sorgente | quando si tocca `commenti-blocco.py` |
 | `lotto-fase2-buffdesc-001.py`, `lotto-fase4-proc-001.py` … `-003.py` | i lotti della 33ª, tenuti come **modelli** storici: dizionario `{(riga, en): resa}` più le prime cinque reti | superati dai modelli qui sotto |
-| ⭐ `lotto-fase4-proc-005.py` … `-010.py` | i sei lotti della 35ª. **`-010` è il modello da copiare**: ha tutte e nove le reti | per ogni lotto nuovo |
-| `rinvia-proc-4958.py`, `rinvia-proc-navi.py` | come si scrive un rinvio in `rinviate.jsonl` col motivo per esteso | quando una rete 6 o 7 scatta |
-| `correzione-bolt.py` | come si corregge una resa **già entrata nel dizionario** senza passare da un lotto, con le reti che impediscono di correggerne una di troppo o una di meno | quando due file dicono la stessa cosa in due modi |
+| ⭐ `lotto-fase4-proc-005.py` … `-013.py` | i lotti della 35ª e della 36ª. **`-014` è il modello da copiare**: ha tutte e tredici le reti | per ogni lotto nuovo |
+| `rinvia-proc-4958.py`, `rinvia-proc-navi.py`, `rinvia-proc-11796.py` | come si scrive un rinvio in `rinviate.jsonl` col motivo per esteso | quando una rete 6 o 7 scatta |
+| `correzione-bolt.py`, `correzione-014.py` | come si corregge una resa **già entrata nel dizionario** senza passare da un lotto, con le reti che impediscono di correggerne una di troppo o una di meno | quando due file dicono la stessa cosa in due modi |
+| `ricerca-014.py` | il modello di come si interroga il dizionario **prima** di scrivere un lotto: una lista di domande `(titolo, filtro)` su `jp`/`en`/`it` di tutti i file insieme. Nella 37ª ha pescato «bacchetta», «mana di ricarica», «medaglietta», «Rivela il terreno intorno» | insieme a `dossier.py`, prima di tradurre |
 
-### Le nove reti dello script di lotto
+### Le tredici reti dello script di lotto
 
 Ognuna nasce da un caso vero, non da un'idea. Le prime cinque sono della 33ª e
-della 31ª, le altre della 35ª.
+della 31ª, le altre della 35ª, della 36ª e della 37ª.
 
 | # | che cosa impedisce | il caso che l'ha fatta nascere |
 |---|---|---|
@@ -48,10 +51,25 @@ della 31ª, le altre della 35ª.
 | 3 | che si renda in un modo nuovo un giapponese **già reso altrove** | ⭐ nella 35ª ha parlato **quattro volte**, e aveva sempre ragione: `:6481` (7 siti), `:6492` (5 siti), `:6951`, `:4310` |
 | 4 | che lo stesso giapponese abbia due rese **dentro lo stesso lotto** | i due Yerleswood, lotto `039` |
 | 5 | che l'accento sia **decomposto** (`a` + U+0300) invece che precomposto | cinque rese su 43 nel lotto `-005`: a occhio identiche, e CP932 non ha il combinante |
-| 6 | che si traduca una voce su una **riga commentata** | `proc.hsp:4958`, il blocco `MANUSCRIPT HINT` spento per intero |
+| 6 | che si traduca una voce su una **riga spenta** — commentata col `;` **o dentro un blocco `/* ... */`** | `proc.hsp:4958`, il blocco `MANUSCRIPT HINT`; e nella 37ª `:11796`, dentro l'`/* ORIGINAL */` che il mod ha spento per togliere il tetto ai punti bonus |
 | 7 | che si traduca un **operando di confronto** | `:5584`, i due nomi di nave che `map.hsp` assegna e `proc.hsp` confronta |
 | 8 | una **preposizione che si fonde** (`di`/`da`/`in`/`su`/`a`) davanti a `name`/`itemname`/`valn`/`cdatan` | `valn` è un `itemname()` sotto falso nome, e l'inglese ci mette «from» e «in» |
 | 9 | che una **testa di frase** (l'inglese finisce in « and») non si chiuda col connettivo | le dieci teste del log di combattimento, che si saldano alla coda di danno di `chara_func.hsp` |
+| 10 | che `his(x, 1)` regga un nome che non sia **maschile singolare** | `:8849`, «il suo sangue»: la funzione sceglie sul possessore, l'italiano accorda col posseduto |
+| 11 | che le **funzioni di contenuto** della resa non coincidano con quelle dell'inglese | `:10312` e `:11481`, dove nominare il soggetto come fa il giapponese aggiungeva una funzione che l'inglese non ha |
+| 12 | che la resa di una **dinamica** sia testo nudo invece di un'espressione HSP | ⚠️ `:11534` nella 37ª: l'inglese porta `his(tc)`, in italiano la morfologia sparisce e resta una frase sola. Senza virgolette `applica.py` l'ha scritta come **codice**, e il compilatore ha letto «qualche» come nome di variabile |
+
+⚠️ **La rete 8 nella 37ª ha bocciato due rese giuste**, e la colpa era sua:
+`valn` non è sempre un `itemname()`. A `proc.hsp:11893` il sorgente scrive
+`valn = skillname(i)` due righe sopra, e i nomi di abilità non portano articolo
+(«Forza»), quindi «di » ci sta. Adesso la rete **legge l'assegnamento più
+vicino** e si arrabbia solo se `valn` viene da un `itemname()`.
+
+⚠️ **E la rete 3 gridava su rese identiche**, perché confrontava le
+**espressioni**: `proc.hsp:12287` e `action.hsp:18755` dicono le stesse parole su
+variabili diverse (`name(cc)` di qua, `name(cnt)` di là). Adesso confronta i
+**letterali**, come la rete 4 dal lotto 011, e quando le parole coincidono lo
+dice con un 💡 invece che con un ⚠️.
 
 ⚠️ **La rete 9 ha bocciato tre rese giuste alla prima scrittura**, perché cercava
 `+ " e"` come pezzo a sé e non vedeva il connettivo in coda a un letterale più

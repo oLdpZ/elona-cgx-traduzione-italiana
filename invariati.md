@@ -453,12 +453,22 @@ inventare qualcosa.
 due byte in CP932, e la build inglese ne disegna uno per byte. Si usa la forma
 ASCII, che è quella che l'inglese ha già scelto.
 
+⚠️ **E lo stesso motivo copre un caso che verso non è.** `proc.hsp:12101` scrive
+`"*" + skillname(efid) + "* "`: è l'intestazione che il gioco stampa quando parte
+un'azione speciale, e **tutto il testo che il giocatore legge viene da
+`skillname()`**, che il dizionario traduce altrove. Attorno restano due asterischi
+e uno spazio. Il giapponese mette lo spazio a larghezza intera (`　`) e l'inglese
+quello normale: l'italiano segue l'inglese, e la resa coincide con l'inglese
+**per costruzione**, non per dimenticanza. Sta qui perché il criterio della
+sezione è il suo titolo — non c'è niente da rendere — e non la forma della voce.
+
 | valore | motivo |
 |---|---|
 | Qy@ | verso della creatura `@`, senza contenuto linguistico in nessuna lingua |
 | Qy@! | il verso quando uccide |
 | Qy@!! | il verso quando è furiosa |
 | Q...Qy@... | il verso in punto di morte |
+| `"*" + skillname(efid) + "* "` | `proc.hsp:12101`: l'intestazione dell'azione speciale. Il testo è tutto dentro `skillname()`, che è tradotto in `skill.hsp`; fuori restano due asterischi e uno spazio. Gli apici inversi la prendono verbatim, perché lo spazio finale conta |
 
 ## Nomi di creatura riscritti nel salvataggio — non decidibili qui
 
