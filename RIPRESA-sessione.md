@@ -130,8 +130,16 @@ Da guardare, in ordine di rischio:
    dove la coda è il solo `txt lang("」", "\"")`: ce l'ha anche l'inglese di
    monte, non è nostro.
    ⚠️ **E la regola vale oltre questa scena**: ogni resa che continua un `txt`
-   precedente e comincia per punteggiatura mostrerà lo spazio; ogni resa che
-   comincia per minuscola verrà maiuscolata d'ufficio (`init.hsp:1659-1661`).
+   precedente e comincia per punteggiatura mostrerà lo spazio.
+   ⚠️⚠️ **La seconda metà di questa frase era falsa, e la 36ª l'ha corretta a
+   schermo.** Diceva che «ogni resa che comincia per minuscola verrà maiuscolata
+   d'ufficio (`init.hsp:1659-1661`)». **Con l'orologio del log acceso non
+   succede mai**: il prefisso `"[H:MM] "` si attacca a `msgtemp` alla riga
+   **1578**, cioè 81 righe prima del controllo, e `peek(msgtemp, 0)` legge `[`
+   (91), fuori da 97-122. A schermo si leggeva «`[19:07] il viandante finisce di
+   mangiare una razione.`». ✅ **Toppato nella 36ª** maiuscolando subito dopo
+   `tnew = 0` (`init.hsp:1568`), prima che i prefissi si attacchino. Vedi
+   `decisioni.md`, «La maiuscola d'ufficio non gira».
    **La misura su tutto il dizionario non è stata fatta**: è materiale da
    guardia.
 2. ✅ **I 63 `buffdesc`**: guardati il 14/08 in tutti e **quattro** i siti —

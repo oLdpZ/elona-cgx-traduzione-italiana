@@ -6,6 +6,130 @@ ancora aperte.
 
 ---
 
+## La maiuscola d'ufficio non gira, e non girava da sempre — 2026-08-14, trentaseiesima sessione
+
+Il collaudo delle 235 rese della 35ª ha mostrato, a ogni riga del log:
+
+> `[19:07] il viandante finisce di mangiare una razione.`
+> `[17:19] il viandante get wet.`
+
+Minuscolo a inizio riga. E non è una resa sbagliata: **tutte** le rese che
+cominciano con `name(cc)`, `itemname()` o `valn` escono così, e tutte le maiuscole
+che si vedono nel log erano già maiuscole nel dizionario.
+
+La ripresa registrava il contrario — «ogni resa che comincia per minuscola verrà
+maiuscolata d'ufficio (`init.hsp:1659-1661`)» — ed è vero solo con **l'orologio
+del log spento**:
+
+| riga | cosa fa |
+|---|---|
+| `init.hsp:1569` | `if ( cfg_msgaddtime ) {` |
+| `init.hsp:1578` | `msgtemp = "[" + ora + ":" + minuti + "] " + msgtemp` |
+| `init.hsp:1659` | `b = peek(msgtemp, 0)` … `if ( b >= 97 & b <= 122 )` |
+
+Il prefisso si attacca **81 righe prima** del controllo, e a quel punto
+`peek(msgtemp, 0)` legge `[`, cioè 91, che non cade in 97-122. Con
+`cfg_msgaddtime` acceso la maiuscola automatica **non scatta mai, su nessuna
+riga, in nessuna lingua**.
+
+⚠️ **Non è un difetto nostro.** Upstream ha `name(CHARA_PLAYER) = lang("あなた",
+"you")` — minuscolo — e conta esattamente su quella maiuscola: con l'orologio
+acceso anche l'inglese di monte scrive «`[19:07] you finish eating.`». Il difetto
+è di upstream e nessuno l'ha mai notato perché `you` minuscolo a inizio riga si
+legge come una svista tipografica. In italiano no: `name()` rende **«il
+viandante»**, un sintagma articolo + nome che a inizio riga si legge come un
+errore di grammatica, e compare a ogni riga del log.
+
+💡 **La toppa maiuscola prima che i prefissi si attacchino**, subito dopo
+`tnew = 0` (`init.hsp:1568`), che è il punto in cui il codice ha appena deciso
+che sta cominciando **una riga nuova**:
+
+```hsp
+tnew = 0
+if ( en ) {
+	if ( tcontinue@txtfunc == 0 ) {
+		b@txtfunc = peek(msgtemp, 0)
+		if ( b@txtfunc >= 97 & b@txtfunc <= 122 ) {
+			poke msgtemp, 0, b@txtfunc - 32
+		}
+	}
+}
+if ( cfg_msgaddtime ) {
+```
+
+Le due guardie sono copiate dall'originale e non inventate: `if ( en )` perché il
+ramo giapponese non vuole maiuscole latine, `tcontinue == 0` perché una
+continuazione non è un inizio di frase — è la stessa condizione di `:1659`. Il
+controllo originale resta dov'è e **diventa muto**: vede `[` e non tocca niente.
+Con l'orologio spento continua a funzionare lui, e la toppa ha già fatto il
+lavoro. E la posizione sceglie da sola anche il prefisso `"(N min left) "` delle
+missioni a tempo (`:1573`), che si attacca dopo.
+
+> La lezione è la stessa della 34ª e della 35ª in una terza forma. La 34ª: la
+> catena verde non dice niente sulla lingua che il giocatore legge. La 35ª: non
+> dice niente sulla coerenza fra due file. Qui: **non dice niente su un'opzione
+> del giocatore**. Nessuna verifica accende `cfg_msgaddtime`, e il difetto vive
+> o muore su una casella delle impostazioni.
+
+⚠️ **Materiale da guardia, non chiuso:** nessuno strumento misura le rese che
+cominciano con una variabile. Finché la toppa regge non serve, ma se qualcuno la
+togliesse non protesterebbe niente.
+
+---
+
+## `valn` da soggetto vuole l'articolo determinativo, e `itemname()` non lo dà — 2026-08-14, trentaseiesima sessione
+
+A schermo, bevendo a un pozzo:
+
+> `Un pozzo disseta <Sinaha>.`
+
+La 35ª aveva scoperto che `valn` è un `itemname()` (`proc.hsp:6950`, `:6965`,
+`:6970`) e aveva girato le tre frasi promuovendolo da **complemento** a
+**soggetto** — «Il pozzo disseta il viandante» invece di «beve dal pozzo» — per
+non dover mettere `di`/`da` davanti a un nome che si porta l'articolo. La resa
+era giusta; **l'articolo che arriva a runtime no**.
+
+`itemname()` sceglie così (`item_func.hsp:1944-1958`):
+
+| condizione | articolo |
+|---|---|
+| `KNOWN_FULL` **e** qualità ≥ `MIRACLE` | determinativo (`ioriginalnamearticolodet`) |
+| tutto il resto, con quantità 1 | **indeterminativo** (`ioriginalnamearticolo`) |
+
+È il calco esatto dell'inglese — `a well` contro `the Painful Master` — e nello
+stesso log del collaudo si legge infatti `l'amuleto ingioiellato <Painful
+Master>` col determinativo giusto. Finché il pozzo era **complemento** (`draw
+water from a well`) l'indeterminativo andava bene. Da **soggetto** no: «Un pozzo
+disseta X» non è italiano.
+
+⚠️ **E non si aggiusta dal dizionario**, perché l'articolo non sta in nessuna
+resa: nasce a runtime, fuori da `lang()`. È la stessa classe di `bufftxt` della
+28ª — un difetto che sembra una traduzione e invece è struttura.
+
+💡 **Il dato per farlo c'era già, scritto da noi e mai usato in questo modo:**
+`ioriginalnamearticolodet` esiste accanto a `ioriginalnamearticolo` per **1.309
+voci** di `db_item.hsp` (`"il "` per pozzo e pozzo sacro, `"la "` per la fontana,
+e l'elisione `"l'"` dove serve). E `itemname(ci, 1, 1)` restituisce il nome
+**nudo**: il terzo argomento salta tutto il blocco degli articoli, ed è l'idioma
+che upstream usa già per «your X is damaged» (`chara_func.hsp`). Tre toppe di due
+righe:
+
+```hsp
+valn = ioriginalnamearticolodet(inv(INV_ITEM_ID, ci)) + itemname(ci, 1, 1)
+```
+
+⚠️ **Le tre assegnazioni sono identiche riga per riga**, quindi ognuna ha avuto
+la sua toppa con la riga di `if` sopra come aggancio: `applica.py` rifiuta per
+costruzione un `cerca` che compare più di una volta, ed è la rete che ha imposto
+la forma giusta invece di lasciar toppare a caso.
+
+💡 **La domanda che resta aperta**, e vale per ogni resa futura che usi un
+`itemname()` come soggetto: *quante altre ce ne sono?* Nessuno strumento distingue
+un `itemname()` in posizione di soggetto da uno in posizione di complemento, e la
+differenza non si vede leggendo la riga.
+
+---
+
 ## Una regola scritta e non sorvegliata: `Bolt` era «Saetta» e «dardo» insieme — 2026-08-14, trentacinquesima sessione
 
 Traducendo il log di combattimento (`fase4-proc-010`) serviva la resa di 「ボルト」
