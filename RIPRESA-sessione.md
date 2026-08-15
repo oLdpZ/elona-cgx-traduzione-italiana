@@ -37,9 +37,11 @@ zone di menu erano coperte dalla guardia. Non è vero: `larghezze.py:68` dichiar
 
 ### ▶ Il punto esatto in cui si riprende
 
-Tutto è **spinto** (tredici spinte, una per lotto, più la correzione e questa
-chiusura) e l'albero di lavoro è pulito: si riparte da
-`git fetch && git status -sb` e dalle otto verifiche d'apertura.
+Tutto è **spinto** — **sedici spinte**: una per ciascuno dei tredici lotti, una
+per la correzione a `text.hsp:49`, e due chiusure, perché la sessione si è
+chiusa una prima volta a metà e poi di nuovo (come la 38ª). L'albero di lavoro è
+pulito: si riparte da `git fetch && git status -sb` e dalle otto verifiche
+d'apertura.
 ⚠️ **Due valori attesi sono cambiati**, e per lo stesso motivo di sempre:
 `verifica --dizionario` dice «command.hsp: 0 da ritradurre, **687** non ancora
 tradotte» (681 da fare più 6 rinviate), e `perimetro.py` dice **55%** e **40%**
