@@ -375,6 +375,62 @@ dice «*ha scoperto di avere* Allegria», che regge per tutti e trentasei.
 «**ha una parte nuova:** Mano!», dove i due punti prendono il posto
 dell'articolo. Vale per le diciannove righe fra `action.hsp:12530` e `:19012`.
 
+## I materiali, decisi il 2026-08-15 dal lotto `command-014`
+
+⚠️ **Questi nomi sono di `material_data.hsp`, non di `command.hsp`.** I 59
+canonici stanno lì — `matname(MATERIAL_PEBBLE) = lang("石ころ", "Pebble")`,
+`:249` e seguenti — e quel file **non ha ancora un dizionario**. In
+`command.hsp:6289`-`:6557` gli stessi nomi compaiono **annegati dentro una
+frase** (「マテリアル:石ころを…個受け取った。」), che *contiene* 石ころ senza
+essergli uguale: né `dossier.py` né la rete 3 li legano. È il caso della 42ª —
+un termine deciso in un file che torna a chiedere il conto in un altro — e
+questa tabella è la risposta. **Chi aprirà `material_data.hsp` li trova già
+decisi.**
+
+I ventisette qui sotto sono quelli che un compagno può consegnare; gli altri
+trentadue `matname()` restano da decidere quando quel file si apre.
+
+| EN | IT | riga di `material_data.hsp` |
+|---|---|---|
+| Pebble | pietruzza | `:249` |
+| Fine stone | pietra pregiata | `:269` |
+| Ether fragment | scheggia di etere | `:49` |
+| Element fragment | **scheggia elementale** | `:119` ⚠️ il giapponese dice 風切石, «pietra che taglia il vento». Qui **la coerenza batte il giapponese** (la formula della 42ª): la costante è `MATERIAL_ELEMENT_FRAGMENT` e nel gioco ci sono altre quattro schegge — etere, mithril, ferro, memoria, magia. È l'unico dei ventisette in cui le due lingue non dicono la stessa cosa |
+| Chaos stone | pietra del caos | `:264` |
+| Waterdrop | goccia d'acqua | `:34` |
+| Hot water | acqua calda | `:134` |
+| Snow | neve | `:109` |
+| Witch's tear | lacrima di strega | `:64` |
+| Angel's tear | lacrima d'angelo | `:59` |
+| Stick | bastone | `:39` |
+| Branch | ramo | `:239` |
+| Holy weed | erba sacra | `:94` |
+| Shining weed | erba lucente | `:154` |
+| Sap of Yaggdrasil | linfa di Yaggdrasil | `:179` — nome proprio del canone Elona **con la sua storpiatura**: non «Yggdrasil» |
+| Human gene | gene umano | `:164` |
+| Troll gene | gene di troll | `:104` |
+| Rabbit's tail | coda di coniglio | `:99` |
+| Witch's eye | occhio di strega | `:169` |
+| Fairy dust | polvere di fata | `:114` |
+| Cloth | pezza di stoffa | `:234` |
+| Paper | carta | `:224` |
+| Yelling madman | pazzo urlante | `:199` — è il nome di un **materiale**, non di una persona |
+| Magic ink | inchiostro magico | `:189` — ⭐ già deciso da `action.hsp:12351`-`:12355` |
+| Magic mass | massa magica | `:159` |
+| Generator | macchina generatrice | `:229` |
+| Electricity | elettricità | `:124` |
+
+⭐ **E la forma della riga non fa concordare niente col numero.** L'inglese
+scrive «You get 3 Pebble.», sgrammaticato anche in inglese; l'italiano non può
+scrivere «Ricevi 3 pietruzza» né indovinare il plurale di una variabile. Il
+giapponese ha già la soluzione — 「石ころを3個受け取った」, col contatore 個 che
+lascia il nome invariato — e in italiano il contatore è la **parentesi**:
+
+> Materiale ricevuto: pietruzza (3).
+
+Il participio cade su «materiale», che un genere ce l'ha suo. Vale per tutte e
+ventisette le righe.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,
