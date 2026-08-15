@@ -6,6 +6,118 @@ ancora aperte.
 
 ---
 
+## Una testa di frase finisce in « and» SENZA spazio, e la rete 9 guardava male — 2026-08-15, quarantatreesima sessione
+
+La rete 9 esiste dal lotto 010 e dice una cosa giusta: se il ramo inglese finisce
+in « and», quella voce è la **testa** di una frase che si salda a una coda scritta
+altrove, e la resa italiana deve chiudersi col connettivo. Le dieci teste del log
+di combattimento si scrivono così — `action.hsp:4866`, «name(cc) + " calcia via "
++ name(tc) + " e"» — e senza la rete si perde la « e» finale e le due metà si
+attaccano.
+
+Il controllo però era scritto `v['en'].rstrip().endswith(' and')`, e quel
+`.rstrip()` **cancella esattamente la differenza che conta**:
+
+- una **testa** finisce in `" and"`, senza spazio in coda, perché la coda che
+  segue porta il suo;
+- una **congiunzione infissa** è `" and "`, con lo spazio da tutt'e due le parti,
+  e il connettivo lo è già: non deve chiudersi con niente.
+
+`command.hsp:13` è del secondo tipo — `rtvaln += lang("と", " and ")` dentro il
+ciclo che elenca gli oggetti su una casella — e la rete ha bocciato « e »
+pretendendo che finisse col connettivo, che è l'unica cosa che quella resa
+contiene.
+
+**Misurato prima di toccarla**, che è la parte che conta: su tutto il dizionario
+ci sono **29 teste vere**, e finiscono tutte in `" and"` esatto; l'unica voce che
+finisce in `" and "` con lo spazio è `text.hsp:11685`, che è infissa. La
+distinzione non me la sono inventata per far passare una resa: la impone il
+sorgente, e la rete non la vedeva.
+
+⚠️ **È la terza volta che una rete sbaglia lei.** La rete 8 nella 37ª bocciava
+due rese giuste perché non guardava da dove veniva `valn`; la rete 4 nella 37ª
+pretendeva le stesse parole dove il sorgente ne imponeva di diverse. La regola
+che ne esce è sempre la stessa: quando una rete boccia, la prima domanda è **se
+la resa giusta è scrivibile**, e la seconda è **che cosa dice il sorgente su
+tutti gli altri siti della stessa specie**. Un solo caso non basta a cambiare una
+guardia; ventinove contro uno sì.
+
+✅ Il modello corretto è `scratchpad/modello-rete9.py`, nella stessa forma di
+`modello-chiave-lunga.py` della 41ª: un file suo, con `RINVIATE = set()`, da cui
+`assembla-lotto.py` copia le reti. Il modello **non può essere un lotto che
+rinvia qualcosa** — l'ancora `RINVIATE = set()` non ci sarebbe più — e questa è
+la ragione per cui il file esiste separato invece di essere il lotto stesso.
+
+---
+
+## La scheda del personaggio si misura dal sorgente, perché nessuna guardia la vede — 2026-08-15, quarantatreesima sessione
+
+`larghezze.py` misura i menu, e lo dice: «solo le assegnazioni a `s(cnt)`» dentro
+i `#deffunc` che passano da `*prompt_key`. `riquadri.py` copre le piastrelle
+dell'HUD e la colonna delle tattiche. La **scheda del personaggio** non la guarda
+nessuno dei due, perché le sue etichette si disegnano con `mes` a `pos` fisse.
+
+Il metro però c'è, ed è nel sorgente: la posizione dell'etichetta e quella del
+valore sono scritte a poche righe di distanza, e la **differenza è il budget**.
+
+| gruppo | etichetta | valore | budget | inglese più lungo |
+|---|---|---|---|---|
+| `:10495` | `wx+355` | `wx+410+5` | 60 px | `Next Lv` (7) |
+| `:10504` col. 1 | `wx+30` | `wx+68` | 38 px | `Class` (5) |
+| `:10504` col. 2 | `wx+220` | `wx+270` | 50 px | `Height` (6) |
+| `:10517` | `wx+255` | `wx+310` | 55 px | `Rating` (6) |
+| `:10526` | `wx+29` | `wx+86` | 57 px | `Cargo Lmt` (9) |
+| `:10730` | `wx+422` | `wx+468` | 46 px | `Prot` (4) |
+| `:10732` | `wx+574` | `wx+617` | 43 px | `Evade` (5) |
+| `:10734` | `wx+554` | `wx+617` | 63 px | `SpellPow` (8) |
+| `:10837` | `wx+30` | `wx+63` | 33 px | `Desc:` (5) |
+
+Il carattere è `12 + sizefix - en * 2`, cioè **10 px in grassetto** nella build
+inglese, 9 per `:10837`. Da `Cargo Lmt` — nove caratteri dentro 57 pixel — viene
+il metro: **~6,3 px per carattere**.
+
+💡 **La conseguenza pratica è che upstream abbrevia perché è stretto, e
+l'italiano deve abbreviare uguale.** `Prot`, `Evade`, `SpellPow`, `InSAN`,
+`Cargo Wt` sono già sigle. Dove il progetto ha una resa distesa che non ci sta —
+「回避」 è «Schivata» da `skill.hsp:307`, e vuole 46 px dove ce ne sono 43 — si
+abbrevia **la resa**, «Schiv.», e non si cambia parola: non è una traduzione
+nuova, è la stessa tagliata dove il riquadro taglia. La rete 3 lo segnala, ed è
+giusto che lo segnali.
+
+⚠️ **E il budget vale per il sito, non per la riga dove la firma è estratta.**
+`Level` e `Name` non compaiono nella zona della scheda perché `estrai
+--da-tradurre` dà una voce per firma e le loro prime occorrenze stanno a `:3556`
+e `:7623`. Chi tradurrà quelle due righe sta scrivendo le etichette in cima alla
+scheda, con 60 px e 38 px di spazio, e da `:3556` non si vede.
+
+---
+
+## «Vedi X» e non «Si vede X»: a decidere è il NUMERO — 2026-08-15, quarantatreesima sessione
+
+`text.hsp:3095` rende 「がある。」 «Si vede " + s + ".», e la regola del progetto
+è copiare la resa già decisa per lo stesso giapponese. A `command.hsp:23`-`:30`
+— le tre righe che partono a ogni passo su un oggetto — copiarla sarebbe stato un
+errore, e la ragione non è di stile.
+
+In `text.hsp` quel `s` è il nome di un **edificio**: sempre singolare. Qui
+`rtvaln` è `itemname()` di una **pila**, e porta il conteggio dentro: «3 pozioni».
+L'impersonale italiano concorda col soggetto — «si vedono 3 pozioni» — quindi
+«Si vede » sbaglia in tutti i casi in cui gli oggetti sono più d'uno, che sul
+pavimento di Elona è il caso normale. Il plurale non è raro: `:13` compone
+`rtvaln` unendo fino a tre nomi con « e ».
+
+✅ **«Vedi X» è di seconda persona e regge un oggetto diretto**: non concorda né
+in genere né in numero, e copre tutt'e tre le righe. Ed è la stessa famiglia di
+soluzioni del dativo riflessivo della 40ª e dell'impersonale «ci si dorme» dei
+sei giudizi sul letto (`:34`-`:49`), dove l'accordo cade sul «si» invece che sul
+letto: **si sposta l'accordo su qualcosa che la resa controlla**.
+
+⚠️ Il rovescio vale per i participi: 「が設置されている」 («X è installato qui»)
+concorderebbe col genere dell'oggetto. Lì la strada è il **nome di genere fisso**
+della 40ª più i due punti della 42ª — «Vedi qui una costruzione: X».
+
+---
+
 ## Un valore scritto nel salvataggio si migra dove viene CARICATO, non dove viene assegnato — 2026-08-15, quarantaduesima sessione
 
 Il collaudo ha mostrato due righe consecutive che chiamavano casa tua in due

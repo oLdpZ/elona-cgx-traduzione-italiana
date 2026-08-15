@@ -1,6 +1,180 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-15, fine della **quarantaduesima** sessione.
+Aggiornato: 2026-08-15, fine della **quarantatreesima** sessione.
+
+⭐⭐ **`command.hsp` è APERTO, ed è il file che aveva indicato lo schermo.** Tre
+lotti, **132 rese** e 4 rinviate: è il **diciannovesimo dizionario su 54**, e il
+perimetro dichiarato passa dal 52% al **53%** mentre il totale vero passa dal 38%
+al **39%** — tutt'e due, come nella 41ª. Catena verde fino in fondo:
+`applica` + `compila` girati, `cgx-test.exe` rifatto (15/08, **03:56**).
+
+⭐⭐ **E il pezzo più letto è dentro: `:13924` è UNA RIGA SOLA con ventotto
+`lang()`**, cioè la domanda che il gioco fa a **ogni singola azione
+sull'inventario** — «Quale oggetto vuoi posare? », «Che cosa vuoi mangiare? »,
+«Che cosa vuoi agitare? ». Con `:23` («Vedi X per terra.», che parte a ogni passo
+su un oggetto) e la **scheda del personaggio** al completo, questa sessione ha
+tradotto tre delle schermate che si guardano più spesso in tutto il gioco.
+
+⚠️⚠️ **La RETE 9 sbagliava lei, ed è la terza rete che si corregge.** Vedi il
+punto 1 delle cinque cose. Il modello nuovo è `scratchpad/modello-rete9.py`.
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** (quattro spinte, una per lotto più la chiusura) e l'albero di
+lavoro è pulito: si riparte da `git fetch && git status -sb` e dalle otto
+verifiche d'apertura.
+⚠️ **Due valori attesi sono cambiati**, e tutt'e due perché `command.hsp` adesso
+ha un dizionario: `verifica --dizionario` ha **una riga in più**, «command.hsp: 0
+da ritradurre, **1172** non ancora tradotte», e `perimetro.py` dice **53%** e
+**39%** dove diceva 52 e 38.
+⚠️ **Il modello da passare ad `assembla-lotto.py` non è più l'ultimo lotto**: è
+`scratchpad/modello-rete9.py`. Il lotto `command-003` rinvia una riga, quindi non
+ha più l'ancora `RINVIATE = set()` e non può fare da modello.
+
+1. ⭐⭐ **Ancora `command.hsp`: restano 1.172 firme.** Le zone più dense sono
+   **9000-9999 (179 voci)** e **10000-10999** (117, di cui 76 fuori dalla scheda),
+   e per frequenza restano nominati dalla 42ª `:14280` « (Ground)» e `:16054`
+   «You estimate this item would sell for…».
+2. ⭐ **Oppure `:3556` e `:7623`, che sono due righe e chiudono la scheda.** Sono
+   le prime firme di 「レベル」/`Level` e 「名前」/`Name`, e finché restano inglesi
+   la scheda del personaggio ha **due etichette inglesi in cima** con tutto il
+   resto italiano. ⚠️ I budget da rispettare sono quelli della scheda — 60 px e
+   38 px — e da quelle due righe **non si vedono**: stanno in `decisioni.md`.
+3. **Oppure il COLLAUDO**, che adesso ha 132 rese nuove e tre schermate ad alta
+   frequenza da guardare. Vedi la tabella più sotto. ⚠️ E gli **88 ranghi** della
+   41ª restano il debito più vecchio: non li ha ancora visti nessuno.
+4. **Oppure `item_func.hsp` (263), il « of » di ogni cadavere**, col nodo
+   grammaticale che la 42ª ha lasciato aperto (punto 3 delle sue cinque cose).
+
+### ⚠️⚠️ Le cinque cose che la prossima sessione deve sapere
+
+1. ⭐⭐ **Una TESTA di frase finisce in « and» SENZA spazio, e la rete 9
+   cancellava proprio quella differenza.** Faceva
+   `v['en'].rstrip().endswith(' and')`: lo `.rstrip()` rende identiche una testa
+   (`" and"`, che deve chiudersi col connettivo perché una coda le si salda
+   dietro) e una **congiunzione infissa** (`" and "`, che il connettivo lo è già).
+   Ha bocciato « e » di `command.hsp:13`, il ciclo che elenca gli oggetti su una
+   casella.
+   ✅ **Misurato prima di toccarla**, ed è la parte che conta: sul dizionario
+   intero ci sono **29 teste vere**, tutte in `" and"` esatto, e **una sola** voce
+   in `" and "` con lo spazio — `text.hsp:11685`, infissa. Ventinove contro uno.
+   💡 **È la terza rete che sbaglia lei** dopo la 8 e la 4 della 37ª, e la regola
+   che ne esce è stabile: quando una rete boccia, prima si chiede *se la resa
+   giusta è scrivibile*, poi *che cosa dice il sorgente su tutti gli altri siti
+   della stessa specie*. Un caso non cambia una guardia; ventinove sì.
+2. ⚠️⚠️ **Nessuna guardia misura la scheda del personaggio, e il metro sta nel
+   sorgente.** `larghezze.py` conosce solo i menu di `*prompt_key`, `riquadri.py`
+   l'HUD e le tattiche: le etichette della scheda si disegnano con `mes` a `pos`
+   fisse e non le guarda nessuno. ✅ Il budget è la **differenza fra la `pos`
+   dell'etichetta e quella del valore**, che il sorgente scrive a poche righe di
+   distanza — nove budget misurati, dai **33 px** di `Desc:` ai **63** di
+   `SpellPow`, con **~6,3 px per carattere** ricavati da `Cargo Lmt` (nove
+   caratteri in 57 px). La tabella completa è in `decisioni.md`.
+   💡 **Upstream abbrevia perché è stretto, e l'italiano abbrevia uguale**:
+   `Prot`, `Evade`, `SpellPow`, `InSAN`, `Cargo Wt` sono già sigle. «Schivata» di
+   `skill.hsp:307` vuole 46 px dove ce ne sono 43, e diventa «Schiv.» — non una
+   resa nuova, la stessa tagliata dove taglia il riquadro.
+3. ⚠️⚠️ **Una rinviata della rete 6 può togliere di mezzo un vincolo della rete
+   4, e non era mai successo.** `:10825` e `:10837` hanno lo **stesso** giapponese
+   「説明:」 e due inglesi diversi (`Hint:` e `Desc:`); la prima sta dentro
+   l'`ORIGINAL` che il mod ha spento. Senza il rinvio la rete 4 avrebbe preteso
+   una resa sola per tutt'e due — cioè un vincolo sulla riga **viva** imposto da
+   **testo morto**. 💡 Fin qui la rete 6 serviva a non sprecare lavoro; questa
+   volta ha protetto una resa.
+4. ⚠️ **`estrai --da-tradurre` dà una voce per FIRMA, e per una schermata questo
+   vuol dire che le sue etichette possono stare altrove.** La scheda del
+   personaggio è a `:10495`-`:10526`, ma `Level` e `Name` non ci sono: le loro
+   prime occorrenze sono a `:3556` e `:7623`. **Una zona non è una schermata**, e
+   chi apre un lotto per zona deve chiedersi che cosa della schermata è già stato
+   estratto altrove. 💡 Vale al contrario per il lavoro: quelle due righe, quando
+   si faranno, chiuderanno la scheda senza che il lotto sappia di farlo.
+5. ⚠️ **`applica.py` applica ogni dizionario al suo file soltanto** (la scoperta 4
+   della 42ª) e questo si è visto **in positivo**: le tre gilde di `:10621`-`:10627`
+   hanno la stessa firma di `init.hsp:373`-`:379`, già resa, e **non erano
+   applicate** — comparivano nell'estrazione da fare. Si copiano parola per
+   parola, e `dossier.py` le pesca da solo. 💡 Delle 132 rese, **una su dieci era
+   già decisa altrove**: sei etichette della scheda, le tre gilde, «Non c'è nessun
+   bersaglio in vista.». Cercare prima di scrivere continua a rendere.
+
+### ⭐ Quello che il collaudo deve guardare
+
+`cgx-test.exe` è aggiornato (15/08, **03:56**) e contiene le 132 rese. Il
+salvataggio di scorta della 42ª è in `save-backup\pre-collaudo-20260815-42a`.
+
+| cosa | come arrivarci | perché guardarla |
+|---|---|---|
+| **la scheda del personaggio** | aprila e basta | ⭐⭐ 41 etichette nuove in nove riquadri a larghezza stretta: **è la prova della sessione**. Se una tocca il suo valore, il budget è in `decisioni.md` e si abbrevia lì |
+| ⚠️ «Level» e «Name» | la stessa schermata | **devono ancora uscire in inglese**: non è un difetto, è il punto 2 della ripresa |
+| i ventotto prompt | apri l'inventario e fai qualunque cosa | posa, raccogli, mangia, bevi, leggi, compra, vendi, cucina, lancia, ruba: uno per azione |
+| «Vedi X per terra.» | cammina su un oggetto | parte a ogni passo. ⚠️ Guardarla con **una pila** («3 pozioni») e con **due oggetti** sulla stessa casella, che è il caso di « e » |
+| i sei giudizi sul letto | passa su un letto | «Ci si dorme benissimo!». Deve saldarsi alla riga di sopra senza attaccarsi al punto |
+| i cinque barili | fai un alchimista e passa su un barile | «Baaarile...», «Bariiile~» |
+| «Rank.5» | la pagina dei ranghi | ⚠️ **resta inglese ed è giusto**: è il letterale nudo di `:2901`, il quinto punto cieco della 41ª |
+| gli 88 ranghi | F12 → wizard, poi iscriviti a arena/gilda/museo | ⚠️ il debito più vecchio, dalla 41ª |
+
+### I tre lotti
+
+| lotto | zona | che cosa | rese |
+|---|---|---|---|
+| `command-001` | 13-993 | quel che c'è per terra, i letti, i barili, il bersaglio | 37 **+3 rinviate** |
+| `command-002` | 13013-14193 | **i ventotto prompt**, l'inventario, il furto | **54** |
+| `command-003` | 10495-10948 | **la scheda del personaggio** | 41 **+1 rinviata** |
+
+### 💡 Quello che i tre lotti hanno insegnato sul metodo
+
+⭐⭐ **«Vedi X» e non «Si vede X»: a decidere è il numero.** `text.hsp:3095` rende
+「がある。」 «Si vede " + s + ".», ma lì `s` è un **edificio**, sempre singolare;
+qui `rtvaln` è una **pila** e porta il conteggio dentro. «Si vede 3 pozioni» è
+sgrammaticato. ✅ La seconda persona con oggetto diretto non concorda con niente,
+e i sei giudizi sul letto fanno lo stesso al contrario — «**ci si** dorme
+comodi», dove l'accordo cade sul «si» e non sul letto. 💡 È la famiglia del
+dativo riflessivo della 40ª: **si sposta l'accordo su qualcosa che la resa
+controlla**.
+
+⭐ **Due prompt di scambio, e a distinguerli è la PARTICELLA giapponese.**
+「何を交換する？」 e 「何と交換する？」 differiscono per を contro と — che cosa
+dai, contro che cosa ricevi — e l'inglese li appiattisce tutt'e due su *trade*,
+distinguendoli solo per caso con due giri di frase. ✅ «Quale oggetto vuoi
+scambiare? » e «Con che cosa vuoi fare il cambio? ».
+
+⭐ **Il nome che non può stare nella frase esce e va fra parentesi.** Il prompt
+del miscuglio vuole «l'effetto **di** valn», e `valn` è `itemname()`: è la rete 8.
+✅ «Su quale oggetto applicare l'effetto? (X) », che è anche la forma del
+giapponese — il quale la spiegazione la mette in parentesi tale e quale. È la
+strada dei due punti del `map-005` con le parentesi al posto loro.
+
+⚠️ **Lo stesso giapponese in due siti impone lo spazio a tutt'e due.** 「ターン」
+è l'etichetta di colonna `Turns` a `:10526` e il suffisso ` Turns` dopo un numero
+a `:10754`: la rete 4 pretende una resa sola. ✅ « Turni» con lo spazio — il
+valore ne ha bisogno, l'etichetta lo assorbe come un rientro di tre pixel. È la
+lezione del brusio del `map-005`, applicata a un'etichetta invece che a una
+battuta.
+
+💡 **Tre invariati nuovi**, tutti dichiarati in `invariati.md`: ` + ` (il segno
+che unisce i due membri di una coppia, giapponese ＋ a larghezza intera), `HP/MP`
+(il giapponese scrive la stessa sigla) e `AP` (giapponese 「ＡＰ」, e la colonna
+ha 50 px). ⚠️ **`Karma` e `Mana` sembravano nuovi e c'erano già** — si guarda
+prima di aggiungere, come diceva la 41ª.
+
+💡 **Due strumenti parametrizzati invece che riscritti**: `scratchpad/simili.py` e
+`scratchpad/gia_rese.py` erano cablati su `lavoro/_buff.jsonl` e adesso prendono
+l'estrazione dal primo argomento, col vecchio percorso come default.
+
+### 💡 I numeri
+
+**Il perimetro dichiarato passa dal 52% al 53% e il totale vero dal 38% al 39%**:
+è la seconda volta dopo la 41ª che si muovono tutt'e due. Le firme rese passano da
+12.033 a **12.165** (+132). I dizionari da 18 a **19 su 54**. Le rinviate da 19 a
+**23**. Le toppe restano **308** — questa sessione non ne ha scritta nessuna.
+Tutti gli altri referti sono fermi: `blocchi_en` 68, `rete8_dizionario` 3,
+blocchi spenti 7, `cnv_str` 17 chiavi inglesi su 41.
+⚠️ **Il quadro della 38ª non cambia**: quel che resta è più grande di quel che è
+stato fatto, e la parte più grossa **non ha firma `lang()`** — 5.284 descrizioni
+di oggetto e 117.977 caratteri nei file di `data/`.
+
+---
+
+## La quarantaduesima sessione
 
 ⭐⭐ **Il COLLAUDO è stato fatto, dopo tre sessioni che lo rimandavano, e ha
 risposto alla domanda della 40ª: il log di combattimento è italiano.** Poi ha

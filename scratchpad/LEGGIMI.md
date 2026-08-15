@@ -33,7 +33,8 @@ si committa.
 | `commenti-blocco.py` | ⚠️ **le righe dentro un commento di blocco `/* ... */`**, cioè il codice di monte che il mod ha spento. Nato nella 37ª su `proc.hsp:11796`, dove la rete 6 — che guardava solo il `;` — avrebbe fatto tradurre testo morto. `proc.hsp` ne ha **99**, `action.hsp` 132, `custom_tweaks.hsp` 100. ⚠️ Legge il **`SORGENTE`** pinnato, non la build | dalla rete 6 di ogni lotto, e all'apertura di un file |
 | `misura-blocchi-spenti.py` | quante voci **già tradotte** stanno dentro un blocco spento: lavoro speso su testo che il giocatore non legge. Atteso al 14/08: **7** — 6 in `action.hsp`, 1 in `proc.hsp` (`:1000`, l'incasso delle esibizioni sostituito dal blocco `ANNA CUSTOM`). ⚠️ Misurato sulla **build** ne accusava 9, e le due di `text.hsp` erano giuste: quella build ha **una riga in più** del sorgente perché una toppa ce l'ha aggiunta, e i numeri di riga del dizionario vengono dal sorgente | quando si tocca `commenti-blocco.py` |
 | `lotto-fase2-buffdesc-001.py`, `lotto-fase4-proc-001.py` … `-003.py` | i lotti della 33ª, tenuti come **modelli** storici: dizionario `{(riga, en): resa}` più le prime cinque reti | superati dai modelli qui sotto |
-| ⭐⭐ `lotto-fase4-proc-026.py` | **il modello da copiare**, ultimo lotto di `proc.hsp` (39ª): ha tutte e quattordici le reti. I `-005` … `-025` sono la storia, non il modello | per ogni lotto nuovo — ma **non a mano**, vedi `assembla-lotto.py` |
+| ⭐⭐ `modello-rete9.py` | **il modello da copiare** (43ª): ha tutte e quattordici le reti con la **rete 9 corretta** — faceva `.rstrip()` sull'inglese e cancellava la differenza fra una testa di frase (« and» in coda) e una congiunzione infissa (« and »), bocciando una resa giusta. ⚠️ **Un modello non può essere un lotto che rinvia qualcosa**: `assembla-lotto.py` vuole l'ancora `RINVIATE = set()`, e per questo il file vive separato invece di essere l'ultimo lotto. Stessa forma di `modello-chiave-lunga.py` della 41ª | per ogni lotto nuovo — ma **non a mano**, vedi `assembla-lotto.py` |
+| `lotto-fase4-proc-026.py` | il modello **fino alla 42ª**, ultimo lotto di `proc.hsp` (39ª). Tenuto come storia: i lotti dal `proc-005` in poi si leggono da lì | mai più come modello: vedi la riga sopra |
 | ⭐⭐ `assembla-lotto.py` | **copia le reti VERBATIM dal modello** e cambia solo le cinque costanti che devono cambiare — `USCITA`, `DA, A`, `RINVIATE`, `SORGENTE` e il percorso dell'estrazione — poi **rilegge quel che ha scritto** e lo confronta col modello carattere per carattere. Rende meccanica la regola «si copia il file, non si riscrive a memoria», che la ripresa ripeteva da cinque sessioni senza poterla imporre. Vuole due file scritti a mano (`testaNNN.py` col docstring, `reseNNN.py` col dizionario) più un `rinviateNNN.py` facoltativo. ⚠️ Il **sesto argomento è il file `.hsp`**, e senza si intende `proc.hsp` | per **ogni** lotto |
 | ⭐ `dossier.py` | le tre letture che ogni lotto rifaceva a mano: il sorgente intorno alla riga, le rese gemelle per **giapponese** e quelle per **inglese**. È la regola «cercare prima di scrivere» resa meccanica — nella 39ª ha pescato **dodici copie su trentaquattro** in un lotto solo, e ha trovato il caso `:20200` (stesso inglese di `action.hsp:11649`, giapponese diverso). ⚠️ Legge il **`SORGENTE`**, non la build | **prima** di scrivere le rese, su ogni zona |
 | `perimetro.py` | il conto vero di quanto manca, descrizioni degli oggetti e file di `data/` compresi. ⚠️ **Non si deduce sommando `verifica --dizionario`**, che misura solo il perimetro `lang()`. Atteso a fine 39ª: perimetro **49%**, totale vero **36%** | all'apertura, e quando serve rispondere «a che punto siamo» |
@@ -117,9 +118,12 @@ script che ne hanno bisogno sono `genera-toppe-en.py`, `correggi-teste.py`,
 il generatore falliva, ma lo script che ne stampava il risultato leggeva il file
 **vecchio** e mostrava tutto a posto.
 
-💡 `simili.py` e `gia_rese.py` leggono `lavoro/_buff.jsonl`: per un file diverso
-si cambia quella riga. Non è un difetto da sistemare — sono scratch, e il costo
-di parametrizzarli è più alto di quello di cambiarli.
+💡 `simili.py` e `gia_rese.py` **prendono l'estrazione dal primo argomento**
+(`python scratchpad/simili.py lavoro/_command.jsonl`), col vecchio
+`lavoro/_buff.jsonl` come default. ⚠️ Fino alla 43ª era cablata dentro, e questa
+riga diceva che parametrizzarli costava più che cambiarli: alla quinta volta che
+si riscriveva la stessa riga non era più vero. `simili.py` ricava anche il nome
+dell'uscita dall'estrazione — `lavoro/_command_simili.txt`.
 
 💡 **La convenzione dei nomi, dalla 39ª**: il file `nome.hsp` vuole l'estrazione
 in `lavoro/_nome.jsonl` e produce i lotti `lavoro/fase4-nome-NNN.jsonl`.
