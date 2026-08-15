@@ -1,6 +1,242 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-15, fine della **quarantaquattresima** sessione.
+Aggiornato: 2026-08-15, fine della **quarantacinquesima** sessione.
+
+⭐⭐ **La scheda dei talenti è chiusa: 96 rese e 11 rinvii in tre lotti, e la
+zona 2000-2999 sparisce dall'istogramma.** È la schermata che si apre con `F`, e
+dentro c'era la lista di tutto quello che un personaggio *è*: le immunità, le
+tredici abilità del risveglio, i tratti da negoziante, i due caratteri. Il
+perimetro dichiarato resta al 55%, ma **il totale vero passa dal 40% al 41%**.
+Catena verde fino in fondo, `cgx-test.exe` rifatto (15/08, **15:09**).
+
+⭐⭐ **E il registro non l'ho scelto io: l'ha imposto il sorgente, e per una
+ragione che nessuna sessione aveva ancora incontrato.** `*com_trait` si apre
+**anche su un alleato** (`z,x [Ally]`, `:2589`), e quando `tc != CHARA_PLAYER`
+il gioco **non ricompone** le frasi: fa `cnv_str` sulla stringa già costruita
+(`:2561`-`:2564`) e scambia `"You"` con `him2(tc)`, `"Your"` con `his(tc, 1)`.
+Le novanta righe «You are…» sono in seconda persona **apposta**, per farsi
+convertire. Una resa italiana non contiene più `You`, quindi la conversione
+muore. ✅ La strada è disinnescarla, non subirla: **registro nominale**, e la
+riga vale identica per te e per il compagno. Vedi il punto 1 delle cinque cose.
+
+⭐⭐ **Due strumenti hanno cambiato numero, e uno è nato.** `cnv_str_en.py` non
+vedeva le chiamate su un elemento di array e contava 41 chiamate invece di
+**49**, 17 chiavi inglesi invece di **24** — e le sette che gli sfuggivano sono
+proprio quelle che convertono questa schermata. `lang-nel-ramo-jp.py` è il
+**quinto punto cieco**, misurato per la prima volta stanotte: **21 righe, zero
+già tradotte**.
+
+---
+
+## La quarantacinquesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** — sei spinte: una per la correzione a `cnv_str_en.py`, una
+per ciascuno dei tre lotti, una per il referto nuovo e questa chiusura. L'albero
+di lavoro è pulito: si riparte da `git fetch && git status -sb` e dalle otto
+verifiche d'apertura.
+⚠️ **Quattro valori attesi sono cambiati**, e tre di essi sono referti, non
+guardie: `verifica --dizionario` dice «command.hsp: 0 da ritradurre, **591** non
+ancora tradotte» (578 da fare più 13 rinviate); `perimetro.py` dice 55% e
+**41%**; `cnv_str_en.py` dice **49 chiamate e 24 chiavi inglesi**; e c'è un
+referto in più da lanciare, `lang-nel-ramo-jp.py`, atteso a **21 righe e 0 già
+tradotte**.
+💡 **Il modello per `assembla-lotto.py` resta `scratchpad/modello-rete9.py`**, e
+i lotti `017` e `018` possono fare da modello anche loro: sono a zero rinviate e
+tengono l'ancora `RINVIATE = set()`. Il `019` no, ne rinvia sette.
+
+1. ⭐⭐ **Ancora `command.hsp`, e adesso le tre zone dense sono quasi pari:
+   17000-17999 (83), 15000-15999 (79), 4000-4999 (76).** Le 17000 sono i rifiuti
+   dell'equipaggiamento e del salvataggio — «You need to equip a firing
+   weapon.», «You can't save the game here. Exit anyway?» — cioè le frasi che il
+   gioco dice quando dici di no. ⚠️ **Prima di aprire una zona nuova di questo
+   file, lanciare `lang-nel-ramo-jp.py`**: le quattro voci di `:3003`-`:3016`
+   erano morte e le ho rinviate senza aprire la zona 3000-3999, ma quel file ha
+   ancora `if ( jp )` che nessuno ha guardato.
+2. ⭐ **Oppure `:3556` e `:7623`, che sono ancora lì** — `Level` e `Name`, le due
+   etichette inglesi in cima alla scheda del personaggio. Due righe, budget 60 px
+   e 38 px in `decisioni.md`. Sono il punto 2 da tre riprese di fila: costano
+   mezz'ora e chiudono una schermata intera.
+3. **Oppure il COLLAUDO**, che adesso ha **713 rese** mai viste a schermo — 617
+   dalla 43ª e dalla 44ª, più le 96 di stanotte — e una schermata nuova che si
+   apre **con un tasto solo**. Vedi la tabella più sotto. ⚠️ E gli **88 ranghi**
+   della 41ª restano il debito più vecchio.
+4. ⭐ **Oppure `material_data.hsp`**, 117 voci di cui 27 nomi già decisi in
+   `glossario.md`: resta il candidato più economico al ventesimo dizionario su 54.
+5. **Oppure `item_func.hsp` (263), il « of » di ogni cadavere**, col nodo
+   grammaticale che la 42ª ha lasciato aperto.
+
+### ⚠️⚠️ Le cinque cose che la prossima sessione deve sapere
+
+1. ⭐⭐ **Il registro di una schermata può essere deciso da una `cnv_str`, e
+   allora non è una preferenza: è l'unica forma che funziona.** `command.hsp`
+   `:2546`-`:2569` è il caso puro. Quando la scheda dei talenti si apre su un
+   alleato, il gioco **non rigenera** le novanta righe: le riscrive con quattro
+   `cnv_str` che cercano `"You"` e `"Your"` dentro il testo già composto. È
+   perché quel trucco funzioni che l'inglese di monte parla in seconda persona.
+   ⚠️ **L'italiano non può ereditarlo**: nessuna resa contiene `You`, e la
+   sostituzione non aggancia più niente. Non è un difetto da toppare — sarebbe
+   una toppa su ogni riga — ✅ è una resa da scrivere **senza persona**, così che
+   la conversione non serva. Le tre manovre sono quelle di sempre e qui rendono
+   tutte: l'aggettivo in **-bile** («Cavalcabile», «Non cavalcabile»), che al
+   singolare non ha genere; il **nome astratto** («Autodistruzione», «Corazza
+   speciale», «Neutralizzazione degli attacchi elementali»); l'accordo **spostato
+   su una cosa** («Furia al primo attacco *subito*», «Le mine non scattano»).
+   💡 **La lezione generale**, che è il gemello del punto 2 della 44ª: là si
+   cercava *chi altro legge le variabili di una schermata*, qui *chi riscrive le
+   sue stringhe dopo che sono state composte*. Due domande diverse sullo stesso
+   sospetto — che il testo non finisca dove sembra.
+2. ⭐⭐ **La forma grammaticale di una resa può essere già stata decisa in un
+   altro file, e allora si riscuote.** `:2492` è `"You are " + _seikaku(...) +
+   ". [...]"`, e `_seikaku` è il vettore dei caratteri di `text.hsp:52`, che chi
+   ha chiuso quel file ha reso **al nome astratto** — «Allegria», «Prudenza»,
+   «Devozione», «Codardia» — proprio per non far accordare un aggettivo con la
+   persona. Quindi «Sei Allegria» non è scrivibile, e l'unica forma che regge è
+   l'etichetta: «**Carattere: Allegria**».
+   💡 La 42ª aveva scoperto che un **termine** deciso altrove torna a chiedere il
+   conto (`termini.py`). Questa è la stessa cosa un piano più su: a tornare non è
+   una parola, è una **scelta di forma**. ⚠️ E non la vede nessuno strumento:
+   `dossier.py` cerca rese gemelle per giapponese e per inglese, non «che forma
+   ha preso la funzione che questa riga interpola».
+3. ⚠️⚠️ **Una `lang()` può essere morta perché sta nel ramo sbagliato dell'`if`,
+   ed è la terza famiglia di riga morta.** `command.hsp:2954` apre un
+   `if ( jp ) { … }` lungo settanta righe — le statistiche del diario — con
+   dentro sette `lang()` vere; il ramo `else` (`:3022`) stampa le stesse cifre in
+   **inglese nudo**, dentro un blocco `ANNA CUSTOM`. In italiano quelle sette non
+   si vedono mai.
+   ⚠️ Le prime due famiglie si **vedono** — c'è un `;` o un `/* */` che le
+   spegne — questa no: la riga è viva, il file è vivo, la `lang()` è vera, e a
+   spegnerla è il **ramo della lingua**. La rete 6 non la prende,
+   `commenti-blocco.py` nemmeno, e nessun conteggio di «non tradotte» la
+   distingue dal lavoro utile.
+   ✅ Adesso c'è `scratchpad/lang-nel-ramo-jp.py`, ed è il **rovescio di
+   `else_jp.py`**: quello cerca l'inglese nudo dentro l'`else`, questo la
+   `lang()` sprecata dall'altra parte dello stesso `if`. Fin qui se ne guardava
+   un lato solo.
+   ⭐ **E la misura è la parte che conta: 21 righe, zero già tradotte.** Nessun
+   lotto in quarantaquattro sessioni ci era mai caduto, quindi il referto nasce
+   come guardia per il futuro e non come bonifica. **Se «già tradotte» sale sopra
+   0, qualcuno ha speso lavoro su testo morto.**
+4. ⚠️⚠️ **Un referto può avere un punto cieco suo, e questo lo aveva da quattro
+   sessioni.** `cnv_str_en.py:32` pretendeva un identificatore semplice come
+   primo argomento (`([A-Za-z_@][\w@]*)\s*,`) e non vedeva
+   `cnv_str listn(0, cnt), …`, cioè le chiamate su un **elemento di array**.
+   Allargata la regex: 41 chiamate → **49**, chiavi inglesi 17 → **24**.
+   ⚠️ **E le sette che gli sfuggivano non erano periferiche**: quattro sono la
+   conversione della schermata che stavo per tradurre. Il referto che doveva
+   avvisarmi del problema era cieco proprio lì.
+   💡 La regola che ne esce somiglia a quella delle reti che sbagliano loro: **un
+   referto che non ha mai trovato niente in una famiglia di file non è una prova
+   che quella famiglia sia pulita** — può essere che non la guardi. Trovato
+   leggendo il sorgente, non rilanciando lo strumento.
+5. ⭐ **Cercare prima di scrivere ha reso più di sempre: su 96 rese, quattordici
+   nomi non li ho decisi io.** Sette stanno in `skill.hsp`, che è chiuso al
+   100%, e si copiano — «Insulto», «Salto dimensionale», «Provocazione», «Soffio
+   variabile», «Tiro zero», «Carica», «Ammaliamento»; «Imposizione delle mani» è
+   in `chara_func.hsp:6258`, la battuta di Jure; «Sentenza di morte» in
+   `skill.hsp:1044`; «malattia dell'etere», «la barra», «Follia», «Fama», «monete
+   d'oro» in cinque file diversi.
+   ⚠️ **Nessuno di questi l'avrebbe pescato la rete 3**, che confronta il
+   giapponese **intero**: qui il termine è annegato dentro una frase più lunga.
+   È il caso dei materiali della 44ª, e la risposta è la stessa — `glossario.md`.
+   ✅ Le sette abilità del **risveglio** invece nascono in `chat.hsp:17854`-`:17865`,
+   file **senza dizionario**, e stanno adesso in glossario col numero di riga:
+   «Accumulo di mana», «Cura tattica», «Attacco tattico», «Arti marziali
+   tattiche», «Maledizione tattica», «Lancio tattico», «Tempesta variabile».
+
+### ⭐ Quello che il collaudo deve guardare
+
+`cgx-test.exe` è aggiornato (15/08, **15:09**) e contiene **713 rese** mai viste
+a schermo. Resta valida tutta la tabella della 44ª più in basso, e ci si
+aggiunge una schermata che ha il pregio di aprirsi **con un tasto solo**.
+
+| cosa | come arrivarci | perché guardarla |
+|---|---|---|
+| **la scheda dei talenti** | premi `F` | ⭐⭐ **è la prova della sessione**: 96 rese, e sotto `[bit]` c'è una riga per ogni cosa che il personaggio è |
+| ⚠️ **la stessa scheda su un COMPAGNO** | dalla scheda, premi `z` o `x` | ⭐⭐ **è il punto 1, ed è la sola prova che conta**: lì l'inglese cambiava persona con `cnv_str` e l'italiano no. Ogni riga deve funzionare **senza soggetto** — e va guardata su una compagna, non su un compagno |
+| le sei immunità | un personaggio che ne abbia una | «Immunità alla confusione», «al terrore», «al veleno»: sono le più frequenti |
+| ⚠️ le tredici abilità del risveglio | spendi 600 AP con un compagno risvegliato | «Cura tattica appresa», «Accumulo di mana appreso». ⚠️ Il **menu degli AP** (`chat.hsp`) è ancora inglese: i due nomi non combaceranno finché quel file non si apre. **Non è un difetto, è il punto 5** |
+| i cinque tratti da negoziante | un personaggio con un negozio | «Eleganza [clientela migliore]». Sono le righe più lunghe della schermata: se una tocca il bordo, è lì che si vede |
+| ⚠️ i due caratteri | la stessa scheda, in fondo | «Carattere: Allegria», «Anche un lato di Prudenza». ⚠️ Vengono da `text.hsp` e sono **nomi**: se leggessi un aggettivo, la resa di quel file è cambiata |
+| il diario dei ranghi | apri il diario (`j`) | «Fama: », «Paga: circa N monete d'oro», «Scadenza: N giorni» |
+| ⚠️ le statistiche dell'avventura | lo stesso diario, più in basso | **devono uscire in inglese, ed è giusto**: è il punto 3, il ramo `if ( jp )`. Se un giorno si vogliono in italiano, è lavoro da **toppa** sul ramo `else`, non da dizionario |
+| «Level» e «Name» sulla scheda | apri la scheda (`c`) | **devono ancora uscire in inglese**: è il punto 2 della ripresa |
+| gli 88 ranghi | F12 → wizard, poi iscriviti a arena/gilda/museo | ⚠️ il debito più vecchio, dalla 41ª |
+
+### I tre lotti
+
+| lotto | zona | che cosa | rese |
+|---|---|---|---|
+| `command-017` | 2005-2330 | le intestazioni e le **quarantasei righe di stato** sotto `[bit]` | 46 |
+| `command-018` | 2336-2507 | il **risveglio**, le tredici abilità, il negoziante, i caratteri | 38 |
+| `command-019` | 2543-2999 | la coda della scheda e il **diario dei ranghi** | 12 **+7 rinviate** |
+
+⭐ Sono **96 rese** e **11 rinvii** — le sette del lotto `019` più le quattro
+gemelle di `:3003`-`:3016`, che stanno nella zona dopo e le ha trovate il referto
+nuovo. Rinviarle subito è costato niente e toglie a chi aprirà la 3000-3999 il
+lavoro di ritrovarle da capo.
+💡 **Un invariato nuovo**, `[bit]`: il giapponese scrive la stessa sigla, stesso
+criterio di `HP/MP` e `AP` della 43ª. Toppe nuove: **zero**.
+
+### 💡 Quello che i tre lotti hanno insegnato sul metodo
+
+⭐⭐ **L'aggettivo in `-bile` è la manovra nuova, ed è la più economica di
+tutte.** «Cavalcabile» e «Non cavalcabile» non hanno genere al singolare, quindi
+reggono su chiunque senza girare la frase, senza nome astratto e senza spostare
+l'accordo. ⚠️ Vale **solo al singolare** — «cavalcabili» resta invariato ma
+«adatti/adatte» no — e in una lista di stati il singolare è garantito.
+
+⭐ **La parentesi del giapponese è informazione, non decorazione.** Le righe del
+risveglio hanno la forma 「frase[effetto]」 e l'inglese tiene solo la frase:
+`:2362` perde «[meno HP, più schivata e critici]», `:2372` perde «[consuma MP
+pari al danno]», `:2357` perde perfino il **fascino** che è il motivo per cui i
+nemici si stordiscono. ✅ La resa tiene la parentesi, ed è ciò che rende la riga
+**utile**: dice che cosa fa, non come suona. 💡 È lo stesso movimento della 44ª
+sui materiali — la parentesi come contatore — applicato all'informazione.
+
+⭐ **Il genitivo sassone si scioglie coi due punti.** `:2640` è
+`cnven(cdatan(CDATAN_NAME, tc)) + lang("の特性", "'s Trait")`: il nome arriva
+**prima** e la resa può solo seguirlo, quindi «Tratti di X» non è scrivibile.
+✅ «X: i tratti» — la strada del `map-005`, e la stessa cosa che fa il giapponese
+col の.
+
+💡 **E una riga della schermata PUÒ dare del tu**, che è il contrappunto al punto
+1: `:2637` sta dentro `if ( tc == CHARA_PLAYER )` e nel ramo `else` il sorgente
+scrive un'altra frase. Dove la persona la garantisce il sorgente, il registro
+nominale non serve — anche se lì l'ho tenuto lo stesso, perché accorcia.
+
+### ⚠️ La serie degli errori di monte passa da cinquantasette a sessanta
+
+- ⚠️ **una coppia rotta in due modi**: `:2275` 「乗馬に適さない」 è «non adatto
+  alla cavalcatura», il semplice contrario di `:2260`, e l'inglese scrive **«You
+  are too weak to carry you.»** — sgrammaticato, e per giunta dice un'altra cosa,
+  che sei tu troppo debole per portare te stesso;
+- ⚠️ **una condizione spostata di riga**: `:2265` 「あなたは分裂できる」 è «puoi
+  dividerti», secco, e `:2285` 「元気な場合分裂する」 è «ti dividi **se sei in
+  forze**». L'inglese mette «when attacked easily» sulla prima e «when attacked»
+  sulla seconda: sposta la condizione **e** la cambia;
+- `:2347` 「生もの製のアイテム」 sono gli oggetti **fatti di roba fresca** — il
+  cuoio crudo, la carne — e l'inglese scrive «You eat raw items», che in un gioco
+  dove si mangia di tutto non distingue niente.
+
+### 💡 I numeri
+
+Le firme rese passano da 12.650 a **12.746** (+96). **Il perimetro dichiarato
+resta al 55% e il totale vero passa dal 40% al 41%**: si muove solo il secondo, e
+non era mai successo — le tre volte precedenti si muovevano insieme o restava
+fermo il totale. I dizionari restano **19 su 54**, le toppe **308**. Le rinviate
+passano da 25 a **36**, ed è il salto più grosso del progetto: undici in una
+sessione, tutte della stessa famiglia.
+⚠️ **Due referti hanno un valore atteso nuovo** e non perché sia cambiato il
+sorgente: `cnv_str_en` dice 49 e 24 dove diceva 41 e 17, perché prima guardava
+male. Gli altri sono fermi: `blocchi_en` 68, `rete8_dizionario` 3, blocchi spenti
+7, `larghezze` 0 su 75, `diario` 0 su 214, `riquadri` 0 su 38 e 0 su 71,
+`battute --divergenti` 13.
+
+---
+
+## La quarantaquattresima sessione
 
 ⭐⭐ **Quattro schermate intere chiuse, 485 rese in tredici lotti**, ed è il
 totale più alto del progetto — il primato era delle 243 della 40ª. Sono le

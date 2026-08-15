@@ -15,7 +15,7 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | file | tradotte | firme | % | occorrenze |
 |---|---|---|---|---|
 | `text.hsp` | **1.718** | 1.720 | **100%** | 2.127 |
-| `command.hsp` | **617** | 1.304 | 47% | 1.481 |
+| `command.hsp` | **713** | 1.304 | 55% | 1.481 |
 | `action.hsp` | **1.286** | 1.288 | **100%** | 1.502 |
 | `proc.hsp` | **127** | 1.098 | 12% | 1.327 |
 | `skill.hsp` | **885** | 885 | **100%** | 894 |
@@ -26,7 +26,7 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | **totale** | **5.952** | **8.604** | **69%** | **9.690** |
 
 ⚠️ **Questa tabella è ferma, e la riga di `command.hsp` è l'unica riaggiornata
-(2026-08-15, 44ª).** `proc.hsp` dice 12% ed è chiuso dalla 39ª; il totale in
+(2026-08-15, 45ª: 713 su 1.304, più 13 rinviate).** `proc.hsp` dice 12% ed è chiuso dalla 39ª; il totale in
 fondo somma valori di sessioni diverse. Il conto vivo lo danno
 `python -m strumenti.verifica --dizionario` per il perimetro `lang()` e
 `python scratchpad/perimetro.py` per il totale vero, descrizioni degli oggetti e
