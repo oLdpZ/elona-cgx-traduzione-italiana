@@ -6,6 +6,179 @@ ancora aperte.
 
 ---
 
+## Un valore scritto nel salvataggio si migra dove viene CARICATO, non dove viene assegnato — 2026-08-15, quarantaduesima sessione
+
+Il collaudo ha mostrato due righe consecutive che chiamavano casa tua in due
+modi:
+
+```
+[18:20] Vuoi lasciare Your Home?
+        You left Casa tua.
+```
+
+La prima legge `mdatan(MDATAN_NAME)`, la seconda `mapname()`. `mapname()` è la
+tabella di `text.hsp`, calcolata a ogni chiamata e già tradotta; `mdatan` è
+**serializzato nel salvataggio** (`module.hsp:4598` fa `noteadd mdatan(cnt)`,
+`:4601` fa `noteget`).
+
+### Il caso è uno solo, e non era ovvio
+
+`map.hsp:1400`-`:1402` dice che per **ogni area tranne `AREA_HOME`** il nome
+viene riletto da `mapname()` a ogni `*map_init_main`. Quindi «Grassland»,
+«Forest», «Plain Field» non erano un difetto separato: si sistemano da sole
+appena il file passa da `applica.py`. Casa tua è l'unica mappa che il giocatore
+può **rinominare**, e per questo ha una guardia che non sovrascrive il nome
+scelto:
+
+```hsp
+if ( mdatan(MDATAN_NAME) == "" | mdatan(MDATAN_NAME) == lang("ノースティリス", "North Tyris") ) {
+    mdatan(MDATAN_NAME) = lang("わが家", "Your Home")
+}
+```
+
+`:1396` è un **confronto contro un valore serializzato**, quindi va rinviata —
+è la regola che la rete 7 impose ai nove `CDATAN_NEWSEX` nella 41ª. `:1397` è un
+**assegnamento**, cioè testo che si stampa, e si rende. La rete 7 guarda il
+sito, non la stringa.
+
+### ⚠️ E allargare la guardia NON basta: quella riga non viene mai eseguita
+
+La prima toppa allargava la condizione di `:1396` con
+`| mdatan(MDATAN_NAME) == "Your Home"`, e sembrava risolvere. Non risolveva.
+`map.hsp:1325`-`:1344` è il bivio fra caricare e generare:
+
+```hsp
+existwrapper exedir + "tmp\\mdata_" + mid + ".s2"
+if ( strsize != (-1) ) {        ; la mappa esiste su disco
+    gosub *game_ctrlFile        ; la carica, mdatan compreso
+    ...
+    goto *map_preBegin          ; <-- SALTA *map_init_main
+}
+*map_init_main                  ; <-- la guardia sta qui
+```
+
+Casa tua è **persistente**: dalla seconda visita in poi il file `mdata_*.s2`
+c'è, si passa sempre dal ramo di sinistra, e `:1396` resta lettera morta. Serve
+alla sola **generazione** e al giro di `mapupdate` (`:1332`, cambio di versione
+della mappa) — per questo la prima toppa resta e non si toglie.
+
+✅ La migrazione vera sta a `:1328`, **subito dopo `gosub *game_ctrlFile`**:
+
+```hsp
+if ( gdata(GDATA_AREA) == AREA_HOME ) {
+    if ( mdatan(MDATAN_NAME) == "Your Home" ) {
+        mdatan(MDATAN_NAME) = mapname(gdata(GDATA_AREA))
+    }
+}
+```
+
+⭐ **E non aggiunge nessuna `lang()`**: il valore giusto lo sa già `mapname()`,
+che `:1401` usa per tutte le altre aree. Copiarlo da lì evita di scrivere
+l'italiano nel sorgente, evita una firma nuova che il dizionario non avrebbe, e
+tiene la migrazione allineata a `text.hsp` qualunque cosa succeda a quella resa.
+
+### Cosa resta
+
+⭐⭐ Sono le **prime due toppe di migrazione** del progetto: le altre 306
+correggono un errore di monte, queste convertono un **dato vecchio**.
+
+💡 **A dirmi che la prima non bastava è stato lo schermo**, non il codice: dopo
+averla applicata il log diceva «Entri qui: **Casa tua**.» (`:1048`, ramo
+`mapname()`) e due righe sotto ancora «Vuoi lasciare **Your Home**?»
+(`action.hsp:2183`, che legge `mdatan`). Nessuna misura poteva vederlo.
+
+⚠️ **La domanda aperta**: quanti altri valori serializzati portano testo inglese
+scritto dentro un salvataggio vecchio? `mdatan` è uno; `cdatan(CDATAN_NAME)` è
+un altro, e per quello il progetto ha già accettato che i personaggi **già
+generati** tengano il nome vecchio (tutto il bestiario funziona così). Nessuno
+ha mai fatto l'elenco.
+
+---
+
+## Il mestiere del negoziante non si traduce: si traduce la bottega — 2026-08-15, quarantaduesima sessione
+
+L'inglese compone il nome dei negozianti come «Gilbert the baker», con
+`sncnv()`, che prende la **prima parola** del nome (`text.hsp:417`:
+`strmid(arg, 0, instr(arg, 0, " ")) + " "`).
+
+Il primo giro del lotto `map-002` traduceva il mestiere: «il tintore», «lo
+stalliere», «il ricettatore», «lo scriba di grimori».
+
+⚠️ **Sarebbe stato un errore, perché metà dei negozianti di Elona sono
+femmine**, e il gioco assegna il sesso a caso.
+
+✅ **La soluzione era già scritta, e segue il giapponese.** `text.hsp:420`-`:460`
+rende **undici** mestieri della famiglia `sn*` nominando il **negozio**, che è
+quel che dice il giapponese (「パン屋の」 = «della panetteria»):
+
+| inglese | giapponese | resa |
+|---|---|---|
+| `the baker` | パン屋の | della panetteria |
+| `the Innkeeper` | 宿屋の | della locanda |
+| `the trader` | 交易店の | dell'emporio |
+| `the blacksmith` | 武具店の | dell'armeria |
+| `the general vendor` | 雑貨屋の | della merceria |
+
+Il nome del negozio ha un **genere fisso suo**, e chi ci lavora resta senza
+genere. Le nove nuove della 42ª seguono: «della tintoria», «della stalla»,
+«della bottega dei ladri», «della bottega dei grimori», «del banco ambulante»,
+«del negozio di souvenir», «del caffè», «dell'arena», «della bancarella».
+
+💡 È la strada del **nome di genere fisso** della 40ª — «pelle», «corpo»,
+«aria», «Balia delle bestie» — trovata però **già percorsa**: bastava guardare
+la famiglia `sn*` invece di inventare. Vedi [[termini-non-frasi]].
+
+⚠️ **Il confine**: vale per il suffisso appiccicato a un nome di persona. Quando
+è il **nome intero della creatura** (`cdatan(CDATAN_NAME, rc) = lang(...)`), il
+progetto usa da sempre nomi di ruolo con l'articolo — «il guerriero di Elea»,
+«la cavia» — e quelli un genere ce l'hanno. Sono due siti diversi.
+
+---
+
+## Il giapponese è l'arbitro sul contenuto, ma la coerenza lo batte — e un enigma si ri-storpia — 2026-08-15, quarantaduesima sessione
+
+`map.hsp` ha **sette appiattimenti** dell'inglese in un file solo: «Hall» per
+cinque piani diversi, «The Eternal Seal» per tre stati dello stesso posto,
+«basement» per una cantina **e per un covo di demoni**, «The Mine» per una
+miniera **e per un presidio militare**, «tester» per **quattordici Meshera con
+nome proprio**. Il giapponese distingue, l'inglese fonde.
+
+La regola del progetto — decidere sul giapponese quando le due lingue divergono
+— vale, ed è servita in tutti e sette i casi. ⚠️ **Ma non è «tradurre dal
+giapponese», e in una notte si è rotta quattro volte.**
+
+### Le quattro volte in cui il giapponese ha perso
+
+| riga | il giapponese diceva | ha vinto | perché |
+|---|---|---|---|
+| `map.hsp:5839` | 「仮」, «provvisorio» | l'inglese | è un **segnaposto di sviluppo**: il giapponese non è una fonte, è un `TODO` |
+| 神の間 | «la stanza del dio» | «il Sigillo Eterno» | `text.hsp` l'aveva già scelto, seguendo l'inglese, in due righe di trama |
+| ネヘルタード | «Nehertard» | «Amurdad» | il nome inglese è già in **sei righe** del progetto |
+| `map.hsp:9914` | «è rotolato fino ai tuoi piedi» | «viene posato per terra» | `text.hsp:3` ha la **stessa firma** già resa, e la rete 3 l'ha fermato |
+
+💡 Le ultime due non le ho decise io: le ha imposte la **rete 3**. Senza quella
+guardia avrei scritto due rese migliori prese da sole e **peggiori per il
+gioco**.
+
+### Il controesempio che tiene onesta la regola
+
+I tredici sussurri di `map.hsp:10511`-`:10547` sono indizi di un enigma, e sono
+**volutamente mangiati in tutt'e due le lingue**: 「みぎの…どに……」 è
+「右の**かど**に」 con due sillabe sparite, e l'inglese fa «...ig...t co....r...».
+
+✅ La resa italiana li **ri-storpia** — «...ang...o de..ro...» — tenendo in piedi
+solo quel che il giocatore deve poter riconoscere.
+
+⚠️ **Tradurre la frase intera sarebbe stato l'unico modo di sbagliare**: il
+gioco regalerebbe in italiano una risposta che in giapponese e in inglese si
+paga.
+
+💡 **Quindi il criterio non è «rendere il testo più ricco».** È rendere quel che
+il gioco intende dire, **compreso quando intende non dirlo**. Chi legge questa
+pagina cercando il permesso di abbellire non lo trova.
+
+---
+
 ## Il perimetro dichiarato non è il gioco: 47% e 35% sono due risposte diverse — 2026-08-14, trentottesima sessione
 
 Alla domanda «a che punto siamo» il progetto ha sempre risposto con

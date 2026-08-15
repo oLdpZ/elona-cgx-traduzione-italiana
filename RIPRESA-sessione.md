@@ -1,6 +1,266 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-14, fine della **quarantunesima** sessione (seconda chiusura).
+Aggiornato: 2026-08-15, fine della **quarantaduesima** sessione.
+
+⭐⭐ **Il COLLAUDO è stato fatto, dopo tre sessioni che lo rimandavano, e ha
+risposto alla domanda della 40ª: il log di combattimento è italiano.** Poi ha
+cambiato la coda del progetto, come nella 39ª — l'inglese che resta non è più
+nel log, è **la cornice del mondo**, e sta quasi tutto in `command.hsp`.
+
+⭐⭐ **E `map.hsp` è CHIUSO: 259 su 260, cinque lotti in una notte.** È il
+**diciassettesimo file al 100%** e **il primo che il progetto apre e chiude
+nella stessa sessione**. Il perimetro dichiarato passa dal 51% al **52%**, le
+firme rese da 11.774 a **12.033**, i dizionari da 17 a **18 su 54**.
+⚠️ Il totale vero resta **38%**: 259 firme non muovono quel numero.
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** e l'albero di lavoro è pulito: si riparte da
+`git fetch && git status -sb` e dalle otto verifiche d'apertura.
+⚠️ **Un valore atteso è cambiato**: `verifica --dizionario` adesso dice
+«map.hsp: 0 da ritradurre, **1** non ancora tradotta», ed è `:1396`, rinviata
+apposta (punto 2).
+
+1. ⭐⭐ **`command.hsp`, e stavolta a dirlo è lo SCHERMO.** È la stessa cosa che
+   nella 39ª fece aprire `chara_func.hsp`. La 40ª e la 41ª lo mettevano al
+   secondo posto dicendo «si legge nei menu, non nel log, quindi dopo il
+   collaudo»: il collaudo è arrivato e dice il contrario. Sono **1.304 firme**,
+   otto o dieci lotti, e dentro ci sono:
+   - `:23` **«You see X here.»**, che parte **ogni volta che cammini su un
+     oggetto**;
+   - `:13924`, **una riga sola con ventinove prompt** — «Which item do you want
+     to pick up?», «Examine what?», «Drop what?», «Eat what?», «What do you want
+     to buy?»… — cioè la domanda che il gioco fa a **ogni singola azione su un
+     oggetto**;
+   - `:10504` le etichette della scheda del personaggio (`Name`, `Aka`, `Race`,
+     `Sex`, `Class`), `:2900` la pagina dei ranghi, `:14280` « (Ground)»,
+     `:16054` «You estimate this item would sell for…».
+   💡 **La scheda del personaggio non è un menu che apri una volta**: è la
+   schermata che guardi più di ogni altra dopo il log, e i valori dentro sono
+   **già italiani** (`Maschio`, `Nessuna`, `FOR COS DES PER APP VOL MAG CAR`).
+   Manca solo la cornice.
+2. **Oppure `item_func.hsp` (263), che è il « of » di ogni cadavere.** Vedi il
+   punto 3 delle cinque cose: è la stringa più letta che il progetto non abbia
+   mai guardato, ma ha un **nodo grammaticale da sciogliere prima** di poter
+   scrivere un lotto.
+3. **Oppure `termini.py`**, che dopo stanotte non è più un'idea: vedi il punto 1.
+4. **Oppure gli 88 ranghi, che restano NON collaudati** — vedi «Quello che il
+   collaudo deve ancora guardare».
+
+### ⚠️⚠️ Le cinque cose che la prossima sessione deve sapere
+
+1. ⭐⭐ **`termini.py` non è più un desiderio: stanotte è servito due volte in un
+   lotto solo, e senza di lui undici rese sarebbero uscite incoerenti.**
+   Nel lotto `map-003` avevo scritto 「神の間」 «Sala del Dio» e 「冥宮」
+   «Palazzo dei Morti», tutti e due guardando il giapponese. ⚠️ Ma `text.hsp`
+   rendeva già 神の間 **«il Sigillo Eterno»** in due righe di trama, e
+   `db_creature.hsp` rendeva 冥宮の悪鬼 «il demone del **palazzo infero**».
+   ✅ A trovarli è stata una ricerca per **sottostringa giapponese** dentro tutti
+   i dizionari, fatta a mano in tre righe di Python.
+   💡 **È il `Bolt` della 35ª in forma nuova** — una scelta presa in un file che
+   torna a chiedere il conto in un altro — ma con una differenza che pesa: i due
+   termini **non erano in `glossario.md`**. Stavano solo in dizionario, dove
+   nessuno li cerca. La 40ª aveva già scritto che `dossier.py` non pesca i
+   termini annegati dentro una frase (punto 5): questo ne è la prova sul campo.
+2. ⚠️⚠️ **Un valore scritto nel salvataggio si migra dove viene CARICATO, non
+   dove viene assegnato — e questa è la lezione che mi è costata due toppe.**
+   `map.hsp:1396` ha la guardia che chiama la casa «Casa tua», e allargarla
+   sembrava bastare. Non bastava: `:1325`-`:1344` è il bivio fra caricare e
+   generare, e per una mappa **già salvata** fa `goto *map_preBegin`, saltando
+   `*map_init_main` — dove la guardia sta. Casa tua è persistente: dalla seconda
+   visita in poi si passa **sempre** dal ramo che salta.
+   ✅ La migrazione vera sta a `:1328`, **subito dopo `gosub *game_ctrlFile`**, e
+   copia il nome da `mapname()` invece di scrivere l'italiano nel sorgente.
+   ⚠️ **Sono le PRIME DUE TOPPE DI MIGRAZIONE del progetto**: le altre 306
+   correggono un errore di monte, queste convertono un dato vecchio.
+   💡 **E a dirmi che sbagliavo è stato lo schermo**: dopo la prima toppa il log
+   diceva «Entri qui: **Casa tua**.» e due righe sotto ancora «Vuoi lasciare
+   **Your Home**?». Nessuna misura poteva vederlo.
+3. ⚠️⚠️ **Il « of » di `item_func.hsp` è la stringa più letta che nessuno ha mai
+   guardato, e il dizionario da solo non la aggiusta.**
+   `item_func.hsp:1007`, `:1024` e `:1092` fanno
+   `lang("", " of ") + refchara(inv(INV_ITEM_SUB_NAME, ...), DBSPEC_CHARA_NAME_ORG, 1)`,
+   e coprono **ogni oggetto che porta il nome di una creatura**: cadaveri, carte,
+   figurine, latte, escrementi, atti di proprietà, il fuso delle anime, il
+   vomito. A schermo si legge «un cadavere **of** la mandragora zappatrice»,
+   «un'urina **of** lo yeek».
+   ⚠️ **E tradurre in «di» non basta**: `refchara(..., 1)` restituisce il nome
+   **con l'articolo**, quindi verrebbe «un cadavere **di la** mandragora». Serve
+   «della», e l'articolo sta **dentro la funzione**, dove il dizionario non
+   arriva. È la rete 8 in una forma nuova: il genitivo non è una scelta da
+   girare, è **incollato dalla struttura**. Il giapponese non ha il problema
+   perché mette il possessore prima, con の.
+   💡 `item_func.hsp` ha già **29 toppe**, tutte in forma a lista di righe: è il
+   file che il progetto toppa più di ogni altro, e la strada probabile è quella.
+4. ⚠️⚠️ **Una firma duplicata fra un file col dizionario e uno senza DIVERGE IN
+   SILENZIO, e nessuna verifica lo dice.**
+   `text.hsp:2764` e `map.hsp:1397` avevano la **stessa identica**
+   `lang("わが家", "Your Home")`. Il primo era reso «Casa tua», il secondo no, e
+   il giocatore leggeva i due nomi **a due righe di distanza**. La causa è
+   `applica.py:618`, che applica ogni dizionario **al suo file soltanto**: la
+   firma è globale, il dizionario no. La 41ª aveva incontrato lo stesso
+   meccanismo in forma innocua (「性別不明」 riscritto due volte); qui produceva
+   un difetto visibile.
+   ⚠️ **Finché 36 file restano senza dizionario, ogni loro firma duplicata
+   altrove è un difetto latente**, e nessun referto lo conta. È il candidato
+   naturale al prossimo strumento dopo `termini.py`.
+5. ⭐⭐ **La rete 4 ha corretto una formula della 41ª: gli spazi fanno parte
+   della resa.** La 41ª aveva scritto, su クスクス, che «gli spazi attorno li
+   mette **il sito**, copiando il suo inglese». Nel lotto `map-005` ho seguito
+   quella frase alla lettera — «\*brusio\*» dove l'inglese diceva «\*noise\*» e
+   « \*brusio\* » dove diceva « \*murmur\* », stesso giapponese 「 \*ざわざわ\* 」 —
+   e **la rete 4 ha fermato il lotto**.
+   ✅ Ha ragione lei: lo stesso giapponese non può avere due rese, e la
+   spaziatura ne fa parte. Vince « \*brusio\* » di `db_creature.hsp:99492`.
+   💡 **Perché la 41ª non se n'era accorta**: le tre rese di クスクス stavano in
+   **tre file diversi**, e la rete 4 non le ha mai messe a confronto. Qui
+   stavano nello stesso lotto. La formula giusta è che gli spazi li porta il
+   **giapponese**, non il sito inglese.
+
+### ⭐⭐ Quello che ha trovato il collaudo, ed è la parte che conta
+
+**Cinque screenshot, e hanno ridisegnato le priorità.**
+
+1. ✅ **Il log di combattimento è italiano, ed è la risposta alla domanda della
+   40ª.** Rintracciate a schermo: «Il pipistrello **si rimette in piedi**»
+   (`calculation.hsp:1917`, una delle due righe che avevano fatto aprire quel
+   file, inglese nello screenshot della 39ª); «Il pipistrello attacca, ma
+   \<Sinaha\> **schiva con maestria**» (la correzione della 39ª ad
+   `action.hsp:5616` — il «Il viandante schiva Kefry» che compariva cinque volte
+   in uno schermo **non c'è più**); i **sette cali del Death-Crest** tutti di
+   fila (il lotto `chara_func-002` al completo); «ne fa polpette», «uccide sul
+   colpo», «infligge una ferita mortale», «perde la ragione e si spegne».
+2. ⚠️⚠️ **L'inglese che resta ha cambiato natura: è la cornice del mondo.**
+   `command.hsp` (vedi il punto 1 della ripresa), `map.hsp` — adesso chiuso —,
+   e `main.hsp:4409`, che stampa **«Purple Witch Runa was killed by butterspy in
+   Plain Field»**: è la dipendenza dell'epigrafe che la 40ª aveva dichiarato
+   senza poterla vedere. Adesso è vista.
+3. ⚠️ **Gli 88 ranghi NON sono collaudati e non è colpa del salvataggio.**
+   `command.hsp:2900` stampa un rango solo `if ( gdata(STARTING_GDATA_RANK + cnt)
+   < 10000 )`, cioè **solo per le scale in cui sei iscritto**. Il personaggio di
+   prova è `*Debug*`, Level 1, Fame 0, Guild Nessuna: la pagina esce **vuota**.
+   ✅ Serve un personaggio con delle iscrizioni, o wizard mode (F12).
+4. ⚠️ **«Rank.5» resta inglese, ed è il quinto punto cieco della 41ª visto a
+   schermo.** `command.hsp:2901` fa `noteadd "" + ranktitle(cnt) + " Rank." +
+   …`: letterale nudo fuori da ogni `lang()`. **Non è un difetto della resa.**
+
+### ⭐ Quello che il collaudo deve ancora guardare
+
+`cgx-test.exe` è aggiornato (15/08, 03:10) e contiene tutto. Il salvataggio è
+in `save-backup\pre-collaudo-20260815-42a`.
+
+| cosa | come arrivarci | perché guardarla |
+|---|---|---|
+| gli 88 ranghi | F12 → wizard, poi iscriviti a arena/gilda/museo | ⚠️ **il debito più vecchio**: sono della 41ª e non li ha ancora visti nessuno |
+| «Vuoi lasciare Casa tua?» | ✅ **già provato e funziona** | era il difetto che ha aperto la sessione |
+| i nomi delle mappe | entra e esci da una mappa qualsiasi | «Entri qui: …», «Lasci …», «Scendi le scale» |
+| i quattordici Meshera | il laboratorio di armi biologiche | ⚠️ `cdatan` è nel salvataggio: quelli **già generati** restano «tester» |
+| i sussurri di Amurdad | il Labirinto, con un salvataggio di scorta | ⚠️ **la cosa più discutibile della notte**: se l'enigma non si risolve più in italiano, le storpiature vanno rifatte |
+| le folle del museo | dona qualcosa al museo e guarda i visitatori | sedici battute su tre righe |
+
+### I cinque lotti
+
+| lotto | zona | che cosa | rese |
+|---|---|---|---|
+| `map-001` | 500-1500 | i viaggi, le porte sbarrate, **il nome di casa tua** | 43 **+1 rinviata** |
+| `map-002` | 1858-4210 | le mappe, i negozianti, **i quattordici Meshera** | 64 |
+| `map-003` | 4210-9000 | i sotterranei, il Sigillo Eterno, i famigli | 52 |
+| `map-004` | 9000-13000 | **i sussurri di Amurdad**, gli incarichi, il tempo | 51 |
+| `map-005` | 13000-16000 | la fine del mondo, la prigione, le folle del museo | 49 |
+
+⭐ Il `map-002` è il **secondo lotto più grosso del progetto** dopo le 68 del
+`chara_func-003`.
+
+### 💡 Quello che i cinque lotti hanno insegnato sul metodo
+
+⭐⭐ **Il mestiere del negoziante non si traduce: si traduce la BOTTEGA.**
+L'inglese fa «Gilbert the baker» con `sncnv()`, che prende la prima parola del
+nome (`text.hsp:417`). Il primo giro del `map-002` scriveva «il tintore», «lo
+stalliere», «il ricettatore» — e sarebbe stato un errore, perché **metà dei
+negozianti di Elona sono femmine**. ✅ `text.hsp:420`-`:460` aveva già risolto
+per **undici** mestieri seguendo il giapponese: «della panetteria», «della
+locanda», «dell'armeria». Il negozio ha un genere fisso suo, chi ci lavora resta
+senza. 💡 È la strada del «nome di genere fisso» della 40ª trovata **già fatta**:
+bastava guardare la famiglia `sn*` invece di inventare.
+
+⭐⭐ **Il giapponese è l'arbitro sul contenuto, ma la coerenza lo batte.**
+Quattro volte ho seguito il giapponese e mi sono sbagliato: 神の間 («Sigillo
+Eterno» vince), 冥宮 («palazzo infero» vince), ネヘルタード («Amurdad», il nome
+inglese, vince perché è in sei righe del progetto), e `:9914`, dove la mia resa
+più letterale ha perso contro «Qualcosa viene posato per terra» di `text.hsp:3`.
+⚠️ **E una volta il giapponese era la fonte peggiore**: `map.hsp:5839` dice
+「仮」, «provvisorio», che è un **segnaposto di sviluppo**. Lì ha vinto l'inglese.
+
+⭐ **Un enigma storpiato va RI-storpiato, non tradotto.** I tredici sussurri di
+`:10511`-`:10547` dicono quale scala prendere, e le lettere cadono in tutt'e due
+le lingue: 「みぎの…どに……」 è 「右の**かど**に」 con due sillabe sparite, e
+l'inglese fa «...ig...t co....r...». ✅ Tradurre la frase intera avrebbe
+**regalato in italiano una risposta che altrove si paga**. Le tre righe che il
+giapponese scrive intere restano intere: sono le conferme finali.
+💡 È il controesempio che tiene onesto tutto il resto: il criterio non è rendere
+il testo più ricco, è rendere quel che il gioco intende dire — **compreso quando
+intende non dirlo**.
+
+⭐ **Il genitivo davanti a `mapname()` si risolve mettendo il nome FUORI dalla
+frase.** I nomi di area portano l'articolo dentro («la Torre Rovente», «il
+Vuoto»), quindi «la superficie **di** X» e «entri **in** X» sono chiuse dalla
+rete 8, e le preposizioni che non si fondono qui non servono perché il rapporto
+è locativo. ✅ Tre forme nuove: «Entri qui: X.» (dopo i due punti), «X: torni in
+superficie.» (in testa, che è anche l'ordine del giapponese), e soprattutto
+**«Lasci X.»** — «lasciare» regge l'**oggetto diretto**, quindi la preposizione
+non c'è proprio. ⚠️ Quest'ultima è la più economica e va **provata per prima**:
+ha risolto anche `:11988` («da quando **hai lasciato** X») senza girare niente.
+💡 E nel `map-002` il problema **non si è posto**: i nomi propri di città non
+prendono l'articolo, quindi «di Derphy», «di Yowyn», «di Vernis» passano lisci.
+
+⚠️ **`cerca`/`sostituisci` di una toppa vogliono una LISTA DI RIGHE.** Le ho
+scritte due volte come stringa unica coi fine-riga dentro — prima `\n`, poi
+`\r\n` — e non hanno agganciato niente: `applica_toppe` spezza il testo in righe
+**da sé** (`applica.py:536`) e confronta liste. ✅ La forma a lista c'era già da
+`item_func.hsp` (`applica.py:507`-`:516`). 💡 **Tutte e due le volte il guardiano
+di `applica.py` ha detto «non esiste più» invece di sostituire a caso**: nessun
+sorgente rotto, solo un errore in faccia.
+
+### ⚠️ La serie degli errori di monte passa da quarantasette a quarantotto
+
+Uno solo di famiglia nuova, ma `map.hsp` ne aggiunge una intera di **un'altra
+specie**, che non è un errore ma un modo di tradurre:
+
+- ⭐ **`map.hsp:10873` ha la riga di sopra ricopiata sopra.** Il giapponese è
+  「進化プログラムの再構成を完了…。」, «riconfigurazione del programma di
+  evoluzione completata», e l'inglese ci mette «Detect the abnormal material.
+  ... Erase operation is complete.», che è **la riga di `:10847`**. Due cose che
+  non c'entrano niente.
+
+⚠️⚠️ **E poi c'è il quadro di `map.hsp`, che non è una serie di errori: sono
+SETTE appiattimenti in un file solo.** «Hall» sta per **cinque piani diversi**;
+«The Eternal Seal» per **tre stati** dello stesso posto; «moor» per la grande
+palude di Merca e per una palude qualsiasi; «basement» per una cantina **e per
+un covo di demoni**; «The Mine» per la miniera degli slime **e per il presidio
+di Eulderna**; «It's hot!» per un'esclamazione e per una folata rovente;
+**«tester» per quattordici Meshera con nome proprio**.
+💡 E tre volte l'inglese non appiattisce, **butta via**: «Deep-Sea Castle» per il
+castello del **drago a nove teste**, «Eulderna city» per «nei pressi del palazzo
+reale», e i quattordici nomi di cui sopra.
+⚠️ **Non è sciatteria isolata: è il modo in cui quel file è stato tradotto in
+inglese.** Chi aprirà un file nuovo faccia girare la rete 13 aspettandosi il
+peggio.
+
+### 💡 I numeri
+
+**Il perimetro dichiarato passa dal 51% al 52%; il totale vero resta 38%.**
+Le firme rese passano da 11.774 a **12.033** (+259). I dizionari passano da 17 a
+**18 su 54**. Le toppe da 306 a **308**, e le due nuove sono di **specie nuova**.
+Tutti i referti restano dove li aveva lasciati la 40ª: `blocchi_en` 68,
+`rete8_dizionario` 3, blocchi spenti 7, `variabili_en` 3 trappole, `cnv_str` 17
+chiavi inglesi su 41.
+⚠️ **Il quadro della 38ª non cambia**: quel che resta è più grande di quel che è
+stato fatto, e la parte più grossa **non ha firma `lang()`** — 5.284 descrizioni
+di oggetto e 117.977 caratteri nei file di `data/`.
+
+---
+
+## La quarantunesima sessione
 
 ⭐⭐ **Due file chiusi, `ai.hsp` e `init.hsp`, e sono il quindicesimo e il
 sedicesimo al 100%.** Sei lotti — tre per file — **217 rese**, e il perimetro
