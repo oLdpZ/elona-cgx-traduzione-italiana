@@ -1,13 +1,16 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-15, fine della **quarantasettesima** sessione (tre lotti).
+Aggiornato: 2026-08-15, fine della **quarantasettesima** sessione (seconda
+chiusura, dopo sei lotti).
 
-⭐⭐ **Una zona chiusa e 60 rese in tre lotti** — la 12000-12999, che era la più
-densa rimasta: i tre menu dell'aspetto, la scheda dell'equipaggiamento, togliere
-un pezzo di armatura e i gesti sulla mappa. `command.hsp` passa da 357 firme da
-fare a **297**, cioè dal 73% al **77%** del file; le voci rese sono **1.007 su
-1.304**, e il totale vero del progetto sale dal 41% al **42%**. Catena verde fino
-in fondo, `cgx-test.exe` rifatto (15/08, **22:51**).
+⭐⭐ **Due zone chiuse e 114 rese in sei lotti** — la 12000-12999 e la 7000-7999,
+cioè le due più dense che restavano. I tre menu dell'aspetto, la scheda
+dell'equipaggiamento, i gesti sulla mappa; poi il congedo degli otto dèi, la
+raccolta dei pezzi da un alleato e l'evocazione dei PNG personalizzati.
+`command.hsp` passa da 357 firme da fare a **243**, cioè dal 73% all'**81%** del
+file; le voci rese sono **1.061 su 1.304**, il perimetro dichiarato sale dal 56%
+al **57%** e il totale vero dal 41% al **42%**. Catena verde fino in fondo,
+`cgx-test.exe` rifatto (15/08, **23:53**).
 
 ⭐⭐⭐ **E la scoperta della sessione è che il carattere del ramo inglese è
 MONOSPAZIATO, il che rende misurabile una famiglia di vincoli che finora si
@@ -29,32 +32,44 @@ l'unico separatore.** `:12333` fa `s += "On"` **senza spazio davanti**, quindi
 almeno uno spazio**, e la separazione smette di dipendere da chi concatena.
 Vedi il punto 2.
 
+⭐⭐ **E la seconda metà della sessione ha corretto un referto e ci ha trovato
+dentro una trappola nuova.** `variabili_en.py` prendeva solo `nome = "testo"` e
+non vedeva **`nome += "testo"`**, cioè proprio la forma con cui si compone una
+frase inglese a pezzi: `command.hsp:7716`-`:7721` carica in `s` sei aggettivi di
+rango e `:7724` li stampa dentro una `lang()`. Il conto passa da **66 variabili e
+3 trappole** a **60 e 4**. È il gemello di `cnv_str_en.py` nella 45ª, parola per
+parola. Vedi il punto 9.
+
 ---
 
 ## La quarantasettesima sessione
 
 ### ▶ Il punto esatto in cui si riprende
 
-Tutto è **spinto** — quattro spinte: una per ciascuno dei tre lotti più questa
-nota — e l'albero di lavoro è pulito. Si riparte da `git fetch && git status -sb`
-e dalle otto verifiche d'apertura. La sessione si è aperta su `DESKTOP-1O339MR`
-con `origin/fase-0` allineato: il cambio di terminale annunciato dalla 46ª non ha
-fatto danni, ed è la **quarta prova** di fila della stessa cosa.
-⚠️ **Tre valori attesi sono cambiati**: `verifica --dizionario` dice «command.hsp:
-0 da ritradurre, **297** non ancora tradotte» (273 da fare più **24** rinviate);
-`rinviate.jsonl` ha **43** righe; `perimetro.py` dice 56% e **42%**. Tutto il
-resto è fermo dov'era: `toppe.jsonl` **312** toppe, `cnv_str_en.py` 49 e 24,
-`misura-blocchi-spenti.py` 4 e 5, `lang-nel-ramo-jp.py` 21 righe e 0 già
-tradotte, `blocchi_en.py` 99 e 68, `variabili_en.py` 66 e 3,
-`rete8_dizionario.py` 3.
+Tutto è **spinto** — sette spinte: una per ciascuno dei tre lotti della prima
+metà, una per la prima chiusura, una per la correzione di `variabili_en.py`, una
+per i tre lotti della zona 7000-7999 e questa nota — e l'albero di lavoro è
+pulito. Si riparte da `git fetch && git status -sb` e dalle otto verifiche
+d'apertura. La sessione si è aperta su `DESKTOP-1O339MR` con `origin/fase-0`
+allineato: il cambio di terminale annunciato dalla 46ª non ha fatto danni, ed è
+la **quarta prova** di fila della stessa cosa.
+⚠️ **Cinque valori attesi sono cambiati**: `verifica --dizionario` dice
+«command.hsp: 0 da ritradurre, **243** non ancora tradotte» (219 da fare più
+**24** rinviate); `rinviate.jsonl` ha **43** righe; `perimetro.py` dice **57%** e
+**42%**; `variabili_en.py` dice **60 variabili e 4 trappole in 4 siti** (diceva
+66 e 3, e guardava male). Tutto il resto è fermo dov'era: `toppe.jsonl` **312**
+toppe, `cnv_str_en.py` 49 e 24, `misura-blocchi-spenti.py` 4 e 5,
+`lang-nel-ramo-jp.py` 21 righe e 0 già tradotte, `blocchi_en.py` 99 e 68,
+`else_jp.py` 6.984 righe in 13 file, `rete8_dizionario.py` 3.
 ⚠️ Il modello per `assembla-lotto.py` resta **`scratchpad/modello-rete6.py`**. I
-lotti `031` e `033` sono a zero rinviate e tengono l'ancora `RINVIATE = set()`,
-quindi possono fare da modello; il `032` no.
+lotti `031`, `033`, `034`, `035` e `036` sono a zero rinviate e tengono l'ancora
+`RINVIATE = set()`, quindi possono fare da modello; il `032` no.
 
-1. ⭐⭐ **Ancora `command.hsp`, e adesso la zona più densa è 7000-7999 (54)**,
-   poi 14000-14999 (50), 5000-5999 (35) e 3000-3999 (34). ⚠️ Prima di aprire una
-   zona nuova, `lang-nel-ramo-jp.py` come sempre — le 11 righe morte di
-   `command.hsp` stanno tutte in 2954-3016 e sono già rinviate.
+1. ⭐⭐ **Ancora `command.hsp`, e adesso la zona più densa è 14000-14999 (50)**,
+   poi 5000-5999 (35), 3000-3999 (34), 10000-10999 (30), 8000-8999 (29),
+   16000-16999 (26) e 11000-11999 (13). ⚠️ Prima di aprire una zona nuova,
+   `lang-nel-ramo-jp.py` come sempre — le 11 righe morte di `command.hsp` stanno
+   tutte in 2954-3016 e sono già rinviate.
    ⚠️⚠️ **E prima di aprirla, guardare se la zona TAGLIA una famiglia.** Questa
    sessione ci è inciampata: il lotto 031 non segue la zona ma la famiglia,
    perché «Done    », «Category» e la riga di aiuto dei tre menu dell'aspetto
@@ -63,11 +78,22 @@ quindi possono fare da modello; il `032` no.
    lasciandone fuori la prima, e la larghezza si decide su tutte insieme.
    💡 Il modo di accorgersene costa niente: se una voce della zona è un'etichetta
    di menu, si cerca la firma della prima voce dello stesso `s = ...`.
+   ⚠️ **E la 14000-14999 comincia proprio con una di quelle**: `:14127` e
+   `:14136` sono le due occorrenze dell'intestazione delle resistenze già
+   rinviata in questa sessione, e `:14120` è un `display_topic` accanto a un
+   `display_topic s`. Vale la pena guardare `:14115`-`:14165` prima di scegliere
+   i confini.
    ⭐ **E 3000-3999 (34) ha ancora il lavoro che aspetta**: `:3639` e `:3651` sono
    i due confronti su `CDATAN_NEWSEX` di cui parlava la 46ª.
-2. **Oppure il COLLAUDO**, che adesso ha **1.007 rese** mai viste a schermo — 947
-   dalle sessioni prima più le 60 di stanotte. ⚠️ Gli **88 ranghi** della 41ª
+2. **Oppure il COLLAUDO**, che adesso ha **1.061 rese** mai viste a schermo — 947
+   dalle sessioni prima più le 114 di stanotte. ⚠️ Gli **88 ranghi** della 41ª
    restano il debito più vecchio.
+   ⭐ **Della seconda metà valgono soprattutto tre scene**, tutte facili da
+   raggiungere: il **congedo di un dio** (evocalo con un desiderio e poi
+   rimandalo a casa — otto battute diverse, una per divinità); la **raccolta dei
+   pezzi** da un alleato, dove si vede se la distinzione «a forza» arriva a
+   schermo; e il **menu del tono di voce**, che è l'unico posto dove si legge la
+   riga di aiuto da 54 caratteri su 55 di tetto.
    ⭐⭐ **E stanotte il collaudo è diventato più urgente di prima, perché sei
    delle rese nuove sono LARGHEZZE calcolate e mai viste.** Tutte e sei si aprono
    con un tasto solo e vanno guardate insieme:
@@ -110,7 +136,7 @@ quindi possono fare da modello; il `032` no.
    l'oggetto «borraccia filtrante», `action.hsp:8267` scrive «Hai riempito
    d'acqua la **bottiglia** filtrante». È materiale da `correzione-*.py`.
 
-### ⚠️⚠️ Le otto cose che la prossima sessione deve sapere
+### ⚠️⚠️ Le tredici cose che la prossima sessione deve sapere
 
 1. ⭐⭐⭐ **Il carattere del ramo inglese è monospaziato, e questo trasforma ogni
    «ci starà?» in una sottrazione.** `config.txt` dice `font2. "Courier New"`;
@@ -220,6 +246,71 @@ quindi possono fare da modello; il `032` no.
    è la rete 11, e qui non lascia scampo. La resa resta in seconda persona come
    l'inglese. ⚠️ Chi lo trovasse a schermo non deve «aggiustarlo» nel dizionario:
    se mai, è materiale da toppa, e allora la voce va rinviata.
+9. ⭐⭐⭐ **`variabili_en.py` non vedeva la forma che ACCUMULA, ed è la forma che
+   conta di più.** Fino a stanotte il referto prendeva solo `nome = "testo"`.
+   Ma `nome += "testo"` non azzera: **aggiunge**, ed è così che si compone una
+   frase inglese a pezzi. `command.hsp:7716`-`:7721` carica in `s` sei aggettivi
+   di rango — `"Bad "`, `"Common "`, `"Skilled "`, `"Professional "`,
+   `"Legendary "`, `"Well-Known "` — ognuno dentro un `if ( … ) { … }` su una riga
+   sola, e `:7724` li stampa dentro la `lang()` dell'evocazione.
+   ✅ Corretto: il conto passa da **66 variabili e 3 trappole** a **60 e 4**. Col
+   `+=` sono arrivati anche i nomi di file che `system.hsp` compone a pezzi
+   (`"spells.s1"`), che passavano perché `.s1` non era nell'elenco delle
+   estensioni scritto a mano: adesso c'è `_ESTENSIONE`, che li prende per
+   **forma** invece che per nome. Provato: scarta 56 letterali, **tutti** nomi di
+   file o indirizzi web, nessuna prosa.
+   💡 **La lezione è la stessa della 45ª su `cnv_str_en.py`, e adesso è successa
+   due volte**: un referto che non ha mai trovato niente in una famiglia non è
+   una prova che la famiglia sia pulita. E in tutt'e due i casi il caso è saltato
+   fuori **leggendo il sorgente**, non rilanciando lo strumento.
+   ⭐ **Che farne resta aperto.** La resa di `:7724` segue il giapponese, che non
+   nomina niente — è il precedente della 38ª per `studybuddy`. Il rango si
+   recupererebbe con **sei toppe** su `:7716`-`:7721`, e la regola della 46ª non
+   lo vieta (righe diverse dalla resa). ⚠️ Ma prima va sciolto un nodo: quegli
+   aggettivi stanno **davanti a un nome che scrive il giocatore**, di genere
+   ignoto, e «Leggendario Anna» è sbagliato quanto l'inglese.
+10. ⚠️⚠️ **In `*wish` il `txt` PRECEDE il suo `characreate`, e chi legge al
+    contrario attribuisce ogni battuta al dio sbagliato.** A `:4490` c'è
+    «Miaomiaomiaaa!» e a `:4493` `characreate CREATURE_ID_EHEKATL`; a `:4497` la
+    battuta arrogante e a `:4500` `LULWY`. L'errore sarebbe invisibile: otto
+    battute plausibili, tutte in bocca a qualcun altro.
+    ✅ **La prova è `:4547`**, 「きゅー♪」: letta all'indietro sarebbe di **Jure**,
+    mentre `:4550` crea la `QUANTUM_CREATURE` — ed è la forma di vita quantistica
+    a fare «Quu», come la 46ª aveva già scritto fra le divergenze volute.
+    💡 Serve ogni volta che si riscuote un registro dal lotto 028, cioè ogni
+    volta che parla un dio.
+11. ⭐⭐ **`name()` non sta MAI dopo una preposizione, ed è la ragione per cui
+    certe frasi italiane suonano storte finché non si capisce.** `init.hsp:1704`
+    rende `name(CHARA_PLAYER)` **«il viandante»**, cioè un sintagma **con
+    l'articolo**: «da il viandante» e «a il viandante» sono sgrammaticati, e la
+    preposizione non si può fondere a scrittura perché l'articolo non si conosce
+    (per un alleato `name()` può essere «Anna», «un cane», «il gattino»).
+    ✅ Quindi `name()` o è **soggetto** («X perde un osso») o segue un **verbo**
+    («uccidere X», «Hai rimandato a casa X»). È la rete 8, ed è il motivo per cui
+    le undici frasi della raccolta non dicono «estrai un osso **da** X», che
+    sarebbe l'italiano ovvio.
+    💡 E il corollario che fa risparmiare tempo: **gli accordi si spostano sulla
+    cosa**, mai su `name()`. «strappato» va con «osso», «strappata» con «pelle»,
+    e il genere di chi subisce non entra mai in gioco.
+12. ⭐⭐ **Il secondo membro della famiglia `coda_en` è comparso, e stavolta è
+    lui a far sforare la riga.** `:7615` è
+    `lang("決定 [召喚]  ", "Enter [Details] ") + strhint2 + strhint3 + "* [Eq-Lvl] "`:
+    quell'ultimo pezzo è un letterale inglese **fuori da ogni `lang()`**, come i
+    «Guild Point» di `:15489` nella 46ª. ⚠️ E la riga di aiuto di quella finestra
+    (500 px, tetto 55) arriva a **59 caratteri già in inglese**: senza quei
+    dodici starebbe dentro.
+    ⭐ Il referto che la 46ª chiedeva adesso ha due casi noti e una ragione in
+    più: non è solo inglese che resta inglese, è inglese che **rompe una
+    misura**.
+13. ⚠️ **La rete 4 può avere ragione anche quando l'inglese distingue.**
+    `:7818`, `:7823` e `:7828` hanno lo **stesso** giapponese
+    (「name(rc)は興奮して襲い掛かってきた。」) e due inglesi diversi — il terzo dice «is
+    confused and attacks you» invece di «is excited!». I tre rami cambiano
+    `CDATA_RELATION` (0, −1, −3), non il testo: è l'autore giapponese ad aver
+    scelto una frase per tutti e tre.
+    💡 È il rovescio del lotto 035, dove a distinguere era il giapponese e ad
+    appiattire l'inglese, e la rete 11 autorizzava a riprendersi la distinzione.
+    **Qui non c'è nessuna rete che autorizzi**: la resa è una sola.
 
 ---
 
@@ -3327,8 +3418,8 @@ python scratchpad/blocchi_en.py           # struttura 99 | ancora da fare 68
 python scratchpad/else_jp.py              # else-di-jp: 6.984 righe in 13 file
 python scratchpad/rete8_dizionario.py     # 3, tutti dichiarati falsi positivi
 python scratchpad/misura-blocchi-spenti.py  # 4 sprecate | 5 vive altrove
-python scratchpad/variabili_en.py         # 66 variabili | 3 trappole in 3 siti
-python scratchpad/perimetro.py            # perimetro 56% | col fuori perimetro 42%
+python scratchpad/variabili_en.py         # 60 variabili | 4 trappole in 4 siti
+python scratchpad/perimetro.py            # perimetro 57% | col fuori perimetro 42%
 python scratchpad/cnv_str_en.py           # 49 chiamate | 24 con la chiave inglese
 python scratchpad/lang-nel-ramo-jp.py     # 21 righe | 0 gia' tradotte
 ```
@@ -3343,8 +3434,14 @@ due riguardano quel che il giocatore legge.
 
 ⚠️ **I due ultimi sono della 38ª.** `variabili_en.py` è il **terzo punto cieco**
 dopo `blocchi_en.py` e `else_jp.py`: le variabili che si portano dentro un
-letterale inglese e finiscono dentro una `lang()`. **Se sale a 4, qualcuno ne ha
-creata una nuova; se scende a 2, `economy.hsp:319` è stato risolto.**
+letterale inglese e finiscono dentro una `lang()`. **Se sale a 5, qualcuno ne ha
+creata una nuova; se scende a 3, una è stata risolta.**
+⚠️⚠️ **Corretto nella 47ª, e per nove sessioni ha guardato male**: prendeva solo
+`nome = "testo"` e non vedeva `nome += "testo"`, cioè la forma con cui si compone
+una frase inglese **a pezzi**. Il quarto sito è `command.hsp:7724`, dove `s` si
+carica sei aggettivi di rango a `:7716`-`:7721`. Col `+=` sono arrivati anche i
+nomi di file di `system.hsp`, che adesso `_ESTENSIONE` scarta per forma invece
+che per nome. Da 66 e 3 a **60 e 4**. Vedi il punto 9 delle tredici cose.
 `perimetro.py` è il conto vero di quanto manca, descrizioni degli oggetti e file
 di `data/` compresi: **non si deduce sommando `verifica --dizionario`**, che
 misura solo il perimetro `lang()`.
