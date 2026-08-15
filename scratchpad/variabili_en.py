@@ -25,22 +25,43 @@ Il referto stampa, per ogni file:
     interpolate dentro una `lang()`. Sono quelle su cui una resa sbaglierebbe.
   - il conteggio delle sole assegnazioni, per tenere le proporzioni.
 
-**Il conto al 2026-08-14 (38ª): 66 variabili si portano dentro un inglese nudo,
-e 3 arrivano dentro una `lang()`.** Tutt'e tre lette a mano e vere:
+**Il conto al 2026-08-15 (47ª): 60 variabili si portano dentro un inglese nudo,
+e 4 arrivano dentro una `lang()`.** Tutte e quattro lette a mano e vere:
 
 | dove | variabile | che cosa esce a schermo |
 |---|---|---|
 | `proc.hsp:16991` | `studybuddy` | «Cominci un circolo di lettura con **your friends**» — ✅ evitato nella 38ª rendendo sul giapponese |
 | `proc.hsp:19178` | `performerpal` | il **gemello identico**, sull'ensemble: stessa struttura, stessa frase, stesso `"your friends"`. ⚠️ Sta nella zona `19000-19999`, ancora da tradurre: **chi ci arriva renda sul giapponese** |
 | `economy.hsp:319` | `s1` | l'allineamento della città — «Neutral», «Law», «Chaos» — che compare in **tutt'e due** i rami di `lang()`: e' inglese anche nella build giapponese |
+| ⭐ `command.hsp:7724` | `s` | il **rango** del custom NPC evocato — «Bad », «Common », «Skilled », «Professional », «Legendary », «Well-Known » — composto a pezzi da `:7716`-`:7721`. Trovato nella 47ª, **e solo perche' il referto e' stato corretto**: vedi qui sotto |
+
+⚠️⚠️ **E il referto aveva un punto cieco suo, per nove sessioni.** Fino alla 47ª
+`_ASSEGNA` prendeva solo `nome = "testo"`, e **non vedeva `nome += "testo"`**.
+Non e' un dettaglio: la forma che accumula e' quella con cui si **compone una
+frase inglese a pezzi**, cioe' il caso piu' grosso, non il piu' piccolo — sei
+aggettivi in `command.hsp`, ognuno dentro un `if ( ... ) { ... }` su una riga
+sola, che il referto non poteva agganciare nemmeno volendo.
+💡 E' la stessa lezione di `cnv_str_en.py` nella 45ª, parola per parola: **un
+referto che non ha mai trovato niente in una famiglia di file non e' una prova
+che quella famiglia sia pulita** — puo' essere che non la guardi. Anche stavolta
+il caso e' saltato fuori **leggendo il sorgente**, non rilanciando lo strumento.
+✅ Il `+=` ha portato con se' un secondo lavoro: i **nomi di file** che
+`system.hsp` compone a pezzi (`"krecipe.s1"`, `"spells.s1"`, `"customval.s1"`)
+passavano perche' `.s1` non era nell'elenco delle estensioni scritto a mano.
+Adesso c'e' `_ESTENSIONE`, che li prende tutti per forma invece che per nome.
+Provato: scarta **56** letterali e sono tutti nomi di file (`.s1`, `.s2`,
+`.ept`, `.eum`, `.pet`, `.pum`) o indirizzi web. Nessuna prosa.
 
 ⚠️ **Due limiti dichiarati, perche' il numero non e' una garanzia.**
 
 1. Conta solo l'assegnamento **piu' vicino**. Se in un `if` il ramo inglese sta
    piu' lontano di un altro assegnamento, la trappola non si vede. Per
    `studybuddy` e `performerpal` funziona perche' il ramo col letterale e'
-   l'`else`, cioe' l'ultimo.
-2. Prende solo la forma `nome = "testo"` su una riga sola. Le liste
+   l'`else`, cioe' l'ultimo. ⚠️ Un `+=` non azzera, quindi **non chiude la
+   ricerca**: se aggiunge un letterale inglese la trappola c'e', se aggiunge
+   altro si continua a guardare piu' su. Solo un `=` chiude la domanda.
+2. Prende le forme `nome = "testo"` e `nome += "testo"` su una riga sola, la
+   seconda anche dentro un `if ( ... ) { ... }`. Le liste
    (`s = "a", "b", "c"`) sono un'altra famiglia, gia' contata da
    `blocchi_en.py`.
 
@@ -63,9 +84,23 @@ SORGENTE = r'C:\Games\Elona\_traduzione\sorgente\2.05-custom-gx'
 # contata da blocchi_en.py.
 _ASSEGNA = re.compile(r'^([A-Za-z_][A-Za-z0-9_]*)\s*=\s*"([^"]*)"\s*$')
 
+# ⚠️⚠️ **E la forma che ACCUMULA, che questo referto non vedeva fino alla 47ª.**
+# `nome += "testo"` non azzera la variabile: ci aggiunge un pezzo. E' la forma
+# con cui si compone una frase inglese a pezzi, cioe' il caso piu' grosso, non
+# il piu' piccolo: `command.hsp:7716`-`:7721` accumula **sei** aggettivi
+# (`"Bad "`, `"Common "`, `"Skilled "`, `"Professional "`, `"Legendary "`,
+# `"Well-Known "`) e li porta dentro la `lang()` di `:7724`.
+# ⚠️ E ci arriva scritta **dentro un `if ( ... ) { ... }` su una riga sola**,
+# quindi il prefisso va ammesso: senza, la riga non si aggancia comunque.
+_ACCUMULA = re.compile(
+    r'^(?:.*\{\s*)?([A-Za-z_][A-Za-z0-9_]*)\s*\+=\s*"([^"]*)"\s*\}?\s*$')
+
 # Almeno due lettere ASCII e uno spazio o tre lettere di fila: esclude i
 # separatori (`" "`, `","`), le sigle e le chiavi di dati di una lettera.
 _PAROLA = re.compile(r'[A-Za-z]{3}')
+
+# un nome di file: punto piu' da una a quattro lettere o cifre, in coda
+_ESTENSIONE = re.compile(r'\.[A-Za-z0-9]{1,4}$')
 
 
 def e_inglese(testo: str) -> bool:
@@ -74,6 +109,14 @@ def e_inglese(testo: str) -> bool:
         return False
     # i nomi di file, le chiavi e i percorsi non sono testo
     if any(x in testo for x in ('.bmp', '.wav', '.txt', '.ax', '\\', '/', '%')):
+        return False
+    # ⚠️ **E l'elenco delle estensioni scritto a mano non bastava.** Con la forma
+    # `+=` vista dalla 47ª sono comparsi i pezzi di nome di file che `system.hsp`
+    # compone a `:2194`-`:2229` — `"krecipe.s1"`, `"spells.s1"`,
+    # `"customval.s1"` — che passavano perche' `.s1` non era in elenco. Un
+    # letterale che finisce con un punto e da una a quattro lettere o cifre e' un
+    # **nome di file**, non una frase: nessuna prosa inglese finisce cosi'.
+    if _ESTENSIONE.search(testo):
         return False
     return True
 
@@ -109,6 +152,18 @@ def _assegnamento_piu_vicino(righe: list[str], var: str, riga: int):
             return None, None
         if 'lang(' in s:
             continue
+        # ⚠️ Un `+=` NON azzera: se aggiunge un letterale inglese la trappola c'e'
+        # comunque, e se aggiunge altro la ricerca deve **proseguire** — un `+=`
+        # piu' su puo' averci gia' messo l'inglese. Solo un `=` chiude la
+        # domanda, ed e' per questo che i due casi non si possono trattare
+        # uguale.
+        accumula = _ACCUMULA.match(s)
+        if accumula and accumula.group(1) == var:
+            if e_inglese(accumula.group(2)):
+                return i, accumula.group(2)
+            continue
+        if re.match(rf'^(?:.*\{{\s*)?{re.escape(var)}\s*\+=', s):
+            continue
         scrive = _COMANDO_SCRIVE.match(s)
         if scrive and scrive.group(1) == var:
             return i, None
@@ -130,7 +185,7 @@ def analizza(righe: list[str]) -> tuple[dict, dict]:
         s = riga.strip()
         if 'lang(' in s:
             continue
-        trovato = _ASSEGNA.match(s)
+        trovato = _ASSEGNA.match(s) or _ACCUMULA.match(s)
         if trovato and e_inglese(trovato.group(2)):
             assegnamenti.setdefault(trovato.group(1), []).append(i + 1)
 
