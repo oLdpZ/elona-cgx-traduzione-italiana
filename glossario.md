@@ -431,6 +431,32 @@ lascia il nome invariato — e in italiano il contatore è la **parentesi**:
 Il participio cade su «materiale», che un genere ce l'ha suo. Vale per tutte e
 ventisette le righe.
 
+## Le sette abilità del risveglio, decise il 2026-08-15 dal lotto `command-018`
+
+⚠️ **Stesso caso dei materiali qui sopra, con un file diverso.** I nomi canonici
+li dichiara `chat.hsp:17854`-`:17865` — il menu in cui si spendono gli AP,
+`chatList 1, lang("魔力の集積(消費AP600)", "Crystal Spear (600AP)")` — e
+`chat.hsp` **non ha ancora un dizionario**. In `command.hsp:2382`-`:2437` gli
+stessi nomi compaiono dentro «You got X.», cioè la riga che la scheda dei
+talenti stampa quando l'abilità è stata acquisita. Chi aprirà `chat.hsp` li
+trova già decisi, col numero di riga accanto.
+
+✅ **Le altre sette della stessa schermata non erano da decidere**: stanno in
+`skill.hsp`, che è chiuso al 100%, e si copiano — 罵倒 «Insulto» (`:1052`),
+空間歪曲 «Salto dimensionale» (`:968`), 挑発 «Provocazione» (`:1188`), 可変放射
+«Soffio variabile» (`:1268`), 零の間撃 «Tiro zero» (`:1276`), チャージ «Carica»
+(`:1212`), 悩殺攻撃 «Ammaliamento» (`:1468`).
+
+| giapponese | inglese | italiano | perché |
+|---|---|---|---|
+| 魔力の集積 | `Crystal Spear` | **Accumulo di mana** | `chat.hsp:17854`. ⚠️ Le due lingue di monte dicono cose diverse: il giapponese è «concentrazione del potere magico», l'inglese nomina una lancia di cristallo che il giapponese non nomina. Qui non c'è nessuna famiglia da tenere insieme — la formula della 42ª vale al contrario — quindi decide il giapponese. `Mana` è già invariato in `invariati.md:50` |
+| タクティカルヒール | `Tactical Heal` | **Cura tattica** | `chat.hsp:17860`. Il giapponese è il katakana dell'inglese: le due lingue coincidono e resta solo da tradurre |
+| タクティカルアタック | `Tactical Attack` | **Attacco tattico** | `chat.hsp:17859` |
+| タクティカルアーツ | `Tactical Martial Arts` | **Arti marziali tattiche** | `chat.hsp:17858`. ⚠️ Il giapponese abbrevia in «arts», l'inglese esplicita: l'italiano segue l'inglese, che dice quale arte |
+| タクティカルカース | `Tactical Curse` | **Maledizione tattica** | `chat.hsp:17861`. `curse` è «maledizione», non «malocchio»: vedi `hex` più sopra |
+| タクティカルスロー | `Tactical Throw` | **Lancio tattico** | `chat.hsp:17863` |
+| 範囲魔法可変術式 | `Variable Storm` | **Tempesta variabile** | `chat.hsp:17865`. ⭐ Qui decide la **famiglia**, non la lettera: il giapponese è «formula variabile per magia ad area», ma la gemella 可変放射 è già «Soffio variabile» (`skill.hsp:1268`) e ogni `Storm` del progetto è una «Tempesta» (`skill.hsp:584`, `:759`, `:824`, `:849`, `:1688`). Le due parole che il nome deve portare sono quelle |
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,
