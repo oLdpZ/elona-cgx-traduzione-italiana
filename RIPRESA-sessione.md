@@ -2,58 +2,75 @@
 
 Aggiornato: 2026-08-15, fine della **quarantaquattresima** sessione.
 
-⭐⭐ **La schermata del «Background» è CHIUSA per intero: 222 rese in cinque
-lotti, tutte e cinque le righe di `*setHistory`.** È la schermata che ogni
-personaggio nuovo vede alla creazione — origine, perché sei partito, un pregio,
-un difetto, un vizio privato — e la stessa che `chat.hsp:8588` fa raccontare a
-Mizuki su un **alleato**. Il perimetro dichiarato passa dal 53% al **54%** e il
-totale vero dal 39% al **40%**: è la terza volta di fila che si muovono tutt'e
-due. Catena verde fino in fondo, `cgx-test.exe` rifatto (15/08, **10:48**).
+⭐⭐ **Tre schermate intere chiuse, 378 rese in nove lotti**, e sono le tre che
+un giocatore incontra per prime e poi per sempre:
 
-⭐⭐ **E il registro nominale non è una preferenza qui: è l'unica forma che
-regge.** Le righe 3 e 4 sono mezza frase ciascuna e si tirano a sorte
-**separatamente** — 45 pregi per 43 difetti, **1.935 frasi possibili** — quindi
-la testa non può concordare con la coda in niente. Vedi il punto 1 delle cinque
-cose e le tre voci nuove di `decisioni.md`.
+- il **«Background»** della creazione del personaggio — cinque righe di
+  `*setHistory`, 222 rese — che `chat.hsp:8588` rilegge anche sugli **alleati**
+  per il racconto di Mizuki;
+- la **lista degli alleati** (`*com_ally`, 58 rese), la finestra che si apre
+  ogni volta che il gioco chiede *quale compagno*, in undici usi diversi;
+- la **telepatia** (`*com_knowOther`, 98 rese fra pensieri e vulnerabilità), che
+  è chiusa per intero: la finestra non ha più una riga inglese.
 
-⚠️ **`command.hsp` resta il file grosso: da 1.172 firme a 950.** La zona
-9000-9999 passa da 179 voci a **2**.
+Il perimetro dichiarato passa dal 53% al **54%** e il totale vero dal 39% al
+**40%**. Catena verde fino in fondo, `cgx-test.exe` rifatto (15/08, **11:16**).
+
+⭐⭐ **E il registro nominale non è una preferenza: in due di quelle schermate è
+l'unica forma che regge.** Le righe 3 e 4 del «Background» sono mezza frase
+ciascuna e si tirano a sorte **separatamente** — 45 pregi per 43 difetti,
+**1.935 frasi possibili** — quindi la testa non può concordare con la coda in
+niente. Vedi il punto 1 delle cinque cose e le voci nuove di `decisioni.md`.
+
+⚠️⚠️ **E una correzione a questo stesso file, scritta a metà sessione: `larghezze.py`
+NON misura `command.hsp`.** La prima versione di questa ripresa diceva che le
+zone di menu erano coperte dalla guardia. Non è vero: `larghezze.py:68` dichiara
+`FILE = "text.hsp"`, e i suoi 75 menu sono tutti di lì. **Nessun menu di
+`command.hsp` è mai stato misurato da nessuno.** Vedi il punto 4.
+
+⚠️ **`command.hsp` resta il file grosso: da 1.172 firme a 794.** Le zone
+9000-9999 e 1000-1999 sono sparite tutt'e due.
 
 ### ▶ Il punto esatto in cui si riprende
 
-Tutto è **spinto** (cinque spinte, una per lotto, più questa chiusura) e
-l'albero di lavoro è pulito: si riparte da `git fetch && git status -sb` e dalle
-otto verifiche d'apertura.
+Tutto è **spinto** (nove spinte, una per lotto, più la correzione e questa
+chiusura) e l'albero di lavoro è pulito: si riparte da
+`git fetch && git status -sb` e dalle otto verifiche d'apertura.
 ⚠️ **Due valori attesi sono cambiati**, e per lo stesso motivo di sempre:
-`verifica --dizionario` dice «command.hsp: 0 da ritradurre, **950** non ancora
+`verifica --dizionario` dice «command.hsp: 0 da ritradurre, **794** non ancora
 tradotte», e `perimetro.py` dice **54%** e **40%** dove diceva 53 e 39.
 💡 **Il modello per `assembla-lotto.py` resta `scratchpad/modello-rete9.py`**:
-nessuno dei cinque lotti di stanotte rinvia niente, quindi il modello non è
-cambiato e non c'era motivo di sostituirlo.
+nessuno dei nove lotti rinvia niente, quindi il modello non è cambiato e non
+c'era motivo di sostituirlo.
 
-1. ⭐⭐ **Ancora `command.hsp`, e adesso le zone dense sono i MENU.** Le tre più
-   grosse sono **1000-1999 (156 voci)**, **6000-6999 (109)** e **2000-2999
-   (103)**, e le prime due si leggono a colpo d'occhio:
-   - `1000-1999` sono gli **elenchi degli alleati e dei prigionieri** —
-     «Imprison who?», «Prisoner List», «Who to recall?», «Who to sell off?»,
-     «Whose power will you awaken?» — con le loro intestazioni di colonna
-     (`Name`, `Status`, `Value`);
-   - `6000-6999` è il **banco del necromante**: «Return to the coffin», «Take
-     out bone», «Take out heart», «Take out eye», «Take out blood», «Take out
-     skin», più «Teach Words» e «Change Tone».
-   ⭐ Sono **menu**, quindi `larghezze.py` li misura da solo: è l'opposto della
-   schermata di stanotte, dove la guardia non c'era e il tetto se l'è dovuto
-   costruire il lotto.
+1. ⭐⭐ **Ancora `command.hsp`, e la zona più densa adesso è 6000-6999 (109
+   voci): il banco del necromante.** «Return to the coffin», «Bring Out», «Take
+   out bone», «Take out heart», «Take out eye», «Take out blood», «Take out
+   skin», più «Teach Words» e «Change Tone». ⚠️ E «Change Tone» ha un debito
+   dietro: i **sette toni** decidono quale pensiero esce nel lotto `command-010`
+   (`:1678`-`:1696`), quindi chi apre quella zona deve rileggere quelle sette
+   rese prima di dare un nome ai toni.
+   Subito dopo vengono **2000-2999 (103)**, che è la scheda dei talenti
+   («[Available feats]», «[Feats and traits]», «(requirement)»), e
+   **17000-17999 (83)**, che sono i rifiuti dell'equipaggiamento e del
+   salvataggio — «You need to equip a firing weapon.», «You can't save the game
+   here. Exit anyway?».
 2. ⭐ **Oppure `:3556` e `:7623`, che sono ancora lì.** Due righe sole —
    `Level` e `Name` — e chiudono la scheda del personaggio, che dalla 43ª ha
    **due etichette inglesi in cima** con tutto il resto italiano. ⚠️ I budget
    sono 60 px e 38 px e stanno in `decisioni.md`: da quelle due righe non si
    vedono.
-3. **Oppure il COLLAUDO**, che adesso ha **354 rese** mai viste a schermo — 132
-   dalla 43ª e 222 da questa — e una schermata nuova da guardare per intera.
+3. **Oppure il COLLAUDO**, che adesso ha **510 rese** mai viste a schermo — 132
+   dalla 43ª e 378 da questa — e **tre schermate nuove** da guardare per intere.
    Vedi la tabella più sotto. ⚠️ E gli **88 ranghi** della 41ª restano il debito
    più vecchio: non li ha ancora visti nessuno.
-4. **Oppure `item_func.hsp` (263), il « of » di ogni cadavere**, col nodo
+4. **Oppure una guardia per i menu che non sono di `text.hsp`**, che stanotte è
+   passata da sospetto a misura: `larghezze.py` ne copre 75, tutti di un file
+   solo, e gli altri 53 file non li guarda nessuno. `scratchpad/tetto-en.py` è
+   il ripiego — l'italiano contro l'inglese di monte — ma il metro vero lo
+   dichiara il sorgente, e `command.hsp:1281`-`:1283` lo dimostra: finestra 620
+   px, voci a `wx + 84`, seconda colonna a `wx + 350`.
+5. **Oppure `item_func.hsp` (263), il « of » di ogni cadavere**, col nodo
    grammaticale che la 42ª ha lasciato aperto (punto 3 delle sue cinque cose).
 
 ### ⚠️⚠️ Le cinque cose che la prossima sessione deve sapere
@@ -95,30 +112,71 @@ cambiato e non c'era motivo di sostituirlo.
    **famiglia nuova** negli errori di monte: fin qui erano traduzioni sbagliate,
    questa è la tabella del gioco a essere scritta male. 💡 Chi apre un elenco a
    `rnd(N)` conti le voci distinte prima di fidarsi di N.
-4. ⚠️ **Il tetto di una schermata senza guardia si può ricavare dall'INGLESE, e
-   costa tre righe di Python.** Le cinque righe del «Background» si disegnano
-   con `mes` dentro una finestra da 360 px, e nessuna guardia le guarda — come
-   la scheda del personaggio della 43ª. Ma lì il budget era la differenza fra
-   due `pos` scritte vicine; qui il valore non c'è, la riga arriva al bordo.
-   ✅ Il metro è quello di `tetti_buffdesc.py`: **l'italiano contro l'inglese di
-   monte**, col tetto fissato alla voce inglese più lunga dello **stesso
-   gruppo** — quella la finestra la contiene già, per il fatto che upstream ci
-   gira. Lo misura `scratchpad/misura-background.py`, che è un **referto**, non
-   una guardia: si rilancia a mano quando si tocca uno dei cinque gruppi.
-5. ⚠️ **Il giapponese ha vinto sette volte sull'inglese in una sessione sola**,
-   ed è il record. Quattro sono errori di monte veri (vedi più sotto), tre sono
-   appiattimenti: `:9615` 「ロマン」 è la **meraviglia** e l'inglese scrive
-   «romance»; `:9672` non nomina nessuna nave e l'inglese ci mette **«the Queen
-   Sedona»**; e le tre code giapponesi 「旅に出る」/「冒険に出る」/「冒険者になる」
-   diventano tutt'e tre «left on adventure». 💡 Le tre code sono state rese
-   diverse — «In viaggio per…», «All'avventura…», «Avventura, …» — e restituire
-   una distinzione che l'inglese aveva perso è costato **zero**: bastava
-   guardare la colonna giapponese prima di scrivere.
+4. ⚠️⚠️ **`larghezze.py` misura UN FILE SOLO, e per quattordici sessioni
+   nessuno l'aveva detto.** `larghezze.py:68` è `FILE = "text.hsp"`: i «75 menu
+   misurati» che la verifica d'apertura stampa da sempre sono tutti di lì, e i
+   menu degli altri 53 file con `lang()` **non li guarda nessuno**. Non è un
+   guasto — il file lo dichiara e il docstring lo dice — ma la ripresa di questa
+   stessa sessione ci si era appoggiata sopra per scegliere il lavoro, e
+   sbagliava.
+   ✅ **Due ripieghi, in quest'ordine.** Primo, il sorgente: dove dichiara due
+   `pos` a poca distanza il budget è vero, e `command.hsp:1281`-`:1283` dà 620
+   px di finestra, voci a `wx + 84` e seconda colonna a `wx + 350`. Secondo,
+   **l'italiano contro l'inglese di monte**, col tetto alla voce inglese più
+   lunga della zona — quella la finestra la contiene già, per il fatto che
+   upstream ci gira. Lo misura `scratchpad/tetto-en.py`, che è la versione
+   riusabile di `misura-background.py`.
+   ⚠️ **È un referto, non una guardia**, e stima in caratteri quel che lo schermo
+   disegna in pixel. ⭐ Ma sa una cosa che il conto a mano non sa: per le
+   **dinamiche** misura il testo prodotto e non l'espressione, perché chiama
+   `larghezze.reso()`. Senza, `" Carica:" + cdata(…) + "%"` risultava di 46
+   caratteri invece dei 12 che stampa.
+5. ⭐⭐ **La rete 3 ha trovato una resa MANCANTE in un file chiuso al 100%.**
+   Traducendo 「なし」 di `command.hsp:1445` ha detto che lo stesso giapponese era
+   già reso «Nessuna» a `init.hsp:371` e **«none»** a `text.hsp:49` — e il
+   secondo non era una resa, era l'inglese rimasto lì. Si legge in
+   `command.hsp:4247`, la lista degli avventurieri, accanto a cinque parole
+   italiane: `none(Cordiale)`.
+   ⚠️ **E `invariati.md:437` lo copriva, ma per un altro sito**: «none» è
+   dichiarato invariato perché è uno dei valori di `CDATAN_NEWSEX`, scritti nel
+   salvataggio. **La dichiarazione vale per il sito, non per la stringa**, ed è
+   la prima volta che la differenza produce un difetto invece di una
+   discussione.
+   💡 Fin qui la rete 3 serviva a non ridecidere una resa già presa; girata
+   all'indietro trova il lavoro vecchio, come `rete8_dizionario.py` nella 37ª.
+   ⚠️ **E nessun conteggio poteva vederla**: la voce nel dizionario c'era, con
+   un `it` non vuoto. Corretta con `scratchpad/correzione-none.py`, che è anche
+   il primo modello di correzione con chiave `(riga, jp)`.
 
-### ⚠️ La serie degli errori di monte passa da quarantotto a cinquantadue
+### 💡 Il giapponese ha vinto dodici volte sull'inglese, ed è il record
 
-Quattro nuovi, e una **famiglia nuova** che non è un errore di traduzione (vedi
-il punto 3):
+Sei sono errori di monte veri (vedi più sotto), sei sono appiattimenti disfatti:
+`:9615` 「ロマン」 è la **meraviglia** e l'inglese scrive «romance»; `:9672` non
+nomina nessuna nave e l'inglese ci mette **«the Queen Sedona»**; le tre code
+「旅に出る」/「冒険に出る」/「冒険者になる」 diventano tutt'e tre «left on
+adventure»; **dieci** titoli di finestra diversi diventano tutt'e dieci «Ally
+List»; `:1750` è in **katakana**, la lingua di chi non decide più, e l'inglese
+scrive «Trying to execute the order»; `:1732` ha una **croma** che l'inglese
+butta via.
+💡 Restituire una distinzione che l'inglese aveva perso è costato **zero** tutte
+e sei le volte: bastava guardare la colonna giapponese prima di scrivere.
+
+### ⚠️ La serie degli errori di monte passa da quarantotto a cinquantaquattro
+
+Sei nuovi, e una **famiglia nuova** che non è un errore di traduzione (vedi il
+punto 3). I due che vengono dai menu:
+
+- ⚠️ **sette parentesi che non si chiudono**: `(Riding`, `(OutRange`,
+  `(offensive`, `(defensive`, `(intercept`, `(talking`, `(Dead` — mentre
+  `(Waiting)`, `(Alive)`, `(Ash)`, `(Stray)` si chiudono. Il giapponese le
+  chiude tutte, e per i quattro ordini di combattimento usa le **barre**,
+  「/突撃/」 「/防御/」 「/迎撃/」 「/交渉/」, che a schermo distinguono l'ordine
+  dallo stato;
+- `:1703` 「なんかどうでもよくなってきた」 è l'**apatia** («comincia a non
+  importarmi più niente») e l'inglese scrive «It keeps getting more
+  difficult...», che parla di fatica.
+
+E i quattro del «Background»:
 
 - ⭐ **il soggetto girato**: `:9873` 「熱中すると周りが見えなくなる。」 è «quando ci
   si appassiona non si vede più niente intorno», e l'inglese scrive «you drain
@@ -141,10 +199,10 @@ il punto 3):
 
 ### ⭐ Quello che il collaudo deve guardare
 
-`cgx-test.exe` è aggiornato (15/08, **10:48**) e contiene **354 rese** mai viste
+`cgx-test.exe` è aggiornato (15/08, **11:16**) e contiene **510 rese** mai viste
 a schermo. Resta valida tutta la tabella della 43ª più in basso, e ci si
-aggiunge questa schermata — che ha il pregio di essere **immediata**: si vede
-facendo un personaggio nuovo, senza dover provocare niente.
+aggiungono **tre schermate intere** — che hanno il pregio di essere
+**immediate**: si aprono con un comando, senza dover provocare niente.
 
 | cosa | come arrivarci | perché guardarla |
 |---|---|---|
@@ -152,10 +210,14 @@ facendo un personaggio nuovo, senza dover provocare niente.
 | ⚠️ la terza e la quarta riga insieme | la stessa schermata, e premi «Reroll» qualche volta | **è il punto 1**: la terza finisce in «, ma» e la quarta ci si deve saldare. Dieci tiri diversi e si vede se la frase regge sempre |
 | la larghezza delle cinque righe | la stessa schermata | ⚠️ nessuna guardia la misura: se una riga tocca il bordo della finestra, il tetto è in `decisioni.md` e si accorcia lì |
 | il passato di un alleato | Mizuki, e chiedigli di farsi raccontare il passato di un compagno | ⚠️ **è l'altro lettore delle stesse righe**, ed è quello che ha deciso il registro. Se lì suona bene, suona bene ovunque |
+| **la lista degli alleati** | qualunque comando che chieda un compagno | 58 rese. ⚠️ Guardare i **suffissi accanto al nome**: «(in vita)», «(in attesa)», «(in sella)», «/assalto/». Il nome del compagno è lungo e la colonna finisce a `wx + 350` |
+| ⚠️ un compagno morto in squadra all'arena | prova a metterlo in squadra | «Non è più in vita.» — è una delle tre righe dove `he()`/`is()` sono spariti e non c'è più soggetto |
+| **la telepatia** | il comando che legge il cuore di un compagno | ⭐ 98 rese, e la finestra è **tutta italiana**: pensiero, vulnerabilità, titolo. Rileggerla su un compagno **affamato**, uno **ferito** e uno **ubriaco**: sono blocchi diversi |
+| ⚠️ la telepatia su te stesso | lo stesso comando, su di te | deve uscire **una riga sola**, «Guardarsi dentro fa un effetto strano»: `:1783` sovrascrive tutte le altre |
 | «Level» e «Name» sulla scheda | apri la scheda del personaggio | **devono ancora uscire in inglese**: non è un difetto, è il punto 2 della ripresa |
 | gli 88 ranghi | F12 → wizard, poi iscriviti a arena/gilda/museo | ⚠️ il debito più vecchio, dalla 41ª |
 
-### I cinque lotti
+### I nove lotti, più una correzione
 
 | lotto | zona | che cosa | rese |
 |---|---|---|---|
@@ -164,11 +226,23 @@ facendo un personaggio nuovo, senza dover provocare niente.
 | `command-006` | 9733-9870 | **i pregi**, teste di frase in «, ma» | 45 |
 | `command-007` | 9871-10008 | **i difetti**, code di frase minuscole | 43 |
 | `command-008` | 10009-10146 | **i vizi privati**, otto dei quali «Passatempo: …» | 43 |
+| `command-009` | 1196-1536 | **la lista degli alleati**, undici usi e gli stati | 58 |
+| `command-010` | 1575-1698 | **la telepatia**: fame, sete, affetto, i sette caratteri | 39 |
+| `command-011` | 1699-1784 | **la telepatia**: stamina, ferite, tredici condizioni | 28 |
+| `command-012` | 1796-1999 | **le vulnerabilità**, e le intestazioni di `*com_knowSelf` | 31 |
+| `correzione-none` | `text.hsp:49` | l'inglese rimasto nella lista degli avventurieri | 1 |
 
-⭐ Sono **222 rese in una sessione**, il totale più alto dopo le 243 della 40ª,
-e tutte e cinque le zone hanno dato **zero copie** a `dossier.py`: la schermata
-del passato non parla la lingua di nessun'altra parte del gioco. È la prima
-volta che succede per cinque zone di fila.
+⭐ Sono **378 rese in una sessione**, il totale più alto del progetto — il
+primato era delle 243 della 40ª. ⚠️ E **zero rinviate, zero toppe, zero
+invariati nuovi**: nove lotti di fila senza che servisse nessuno dei tre
+meccanismi di scampo.
+
+💡 **Le cinque zone del «Background» hanno dato zero copie a `dossier.py`** — la
+schermata del passato non parla la lingua di nessun'altra parte del gioco, ed è
+la prima volta per cinque zone di fila. ⚠️ **Le quattro dei menu, l'opposto**:
+undici copie fra giapponese e inglese, e undici elementi su dodici già decisi in
+`action.hsp:6918`-`:7044`. Chi apre una zona di menu cerchi **prima** di
+scrivere; chi apre una zona di narrativa non ci perda tempo.
 
 ### 💡 Quello che i cinque lotti hanno insegnato sul metodo
 
@@ -196,19 +270,35 @@ esce più corta e più uniforme. 💡 È la stessa lezione delle etichette di st
 `guida-stile.md`: **la scelta neutra non è un ripiego italiano, è la forma
 dell'originale**.
 
-💡 **Zero invariati nuovi e zero toppe**: nessuna delle 222 righe ha avuto
-bisogno né dell'uno né dell'altra. Sono statiche pure, senza funzioni
-interpolate, e le reti 8, 10, 11 e 12 non hanno avuto niente da dire.
+⭐ **`essere` più locuzione è la forma verbale della stessa manovra.** Nei tre
+rifiuti di `*com_ally` (`:1519`, `:1524`, `:1529`) l'inglese è `he(p) + " " +
+is(p) + " dead."`: `he` e `is` sono **morfologia**, quindi spariscono, e la resa
+resta senza soggetto e senza funzioni. «È morto» concorderebbe col compagno. ✅
+«Non è più in vita», «È in attesa», «È al lavoro»: il participio non c'è
+proprio, e il verbo non accorda niente. È il nome astratto del «Background»
+portato dentro una frase.
+
+⭐ **Il monologo interiore non ha genere finché resta al presente.** I 67
+pensieri della telepatia sono in prima persona — «Voglio più emozioni», «Sto
+ripensando ai vecchi tempi» — e due sono stati girati apposta: «vorrei che mi
+capissi di più» e non «vorrei essere capito», «ho bisogno di sentire l'amore» e
+non «vorrei sentirmi amato». ⚠️ L'inglese lì cambia persona a metà elenco
+(«Want to eat anything», poi «Wants to eat a lot») e il giapponese no.
+
+💡 **Zero invariati nuovi e zero toppe**: nessuna delle 378 righe ha avuto
+bisogno né dell'uno né dell'altra. Sono quasi tutte statiche, e le reti 8, 10,
+11 e 12 non hanno avuto niente da dire.
 
 ### 💡 I numeri
 
 **Il perimetro dichiarato passa dal 53% al 54% e il totale vero dal 39% al 40%**:
 terza volta di fila che si muovono tutt'e due, e non era mai successo. Le firme
-rese passano da 12.165 a **12.387** (+222). I dizionari restano **19 su 54** —
-`command.hsp` il suo ce l'aveva già dalla 43ª. Le rinviate restano **23** e le
-toppe **308**: questa sessione non ne ha scritta nessuna né dell'una né
-dell'altra specie. Tutti gli altri referti sono fermi: `blocchi_en` 68,
-`rete8_dizionario` 3, blocchi spenti 7, `cnv_str` 17 chiavi inglesi su 41.
+rese passano da 12.165 a **12.543** (+378, il totale più alto del progetto in
+una sessione). I dizionari restano **19 su 54** — `command.hsp` il suo ce
+l'aveva già dalla 43ª. Le rinviate restano **23** e le toppe **308**: questa
+sessione non ne ha scritta nessuna né dell'una né dell'altra specie. Tutti gli
+altri referti sono fermi: `blocchi_en` 68, `rete8_dizionario` 3, blocchi spenti
+7, `cnv_str` 17 chiavi inglesi su 41.
 ⚠️ **Il quadro della 38ª non cambia**: quel che resta è più grande di quel che è
 stato fatto, e la parte più grossa **non ha firma `lang()`** — 5.284 descrizioni
 di oggetto e 117.977 caratteri nei file di `data/`.
