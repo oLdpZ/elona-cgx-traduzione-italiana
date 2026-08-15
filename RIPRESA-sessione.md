@@ -1,30 +1,33 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-15, **quarantaseiesima** sessione (chiusura a metà, dopo tre
-lotti).
+Aggiornato: 2026-08-15, fine della **quarantaseiesima** sessione (seconda
+chiusura, dopo sette lotti).
 
-⭐⭐ **La zona più densa di `command.hsp` è chiusa: 78 rese in tre lotti, e
-15000-15999 sparisce dall'istogramma.** Dare un oggetto a un alleato,
-l'identificazione, le consegne alla gilda, le tasse, le medagliette, le cose da
-non posare. Il file passa da 509 firme da fare a **431**, cioè dal 61% al **67%**;
-le voci rese sono **873 su 1.304**. Catena verde fino in fondo, `cgx-test.exe`
-rifatto (15/08, **17:43**).
+⭐⭐ **Due zone chiuse e 152 rese in sette lotti** — 15000-15999, la più densa del
+file, e 4000-4999, la seconda. Dare un oggetto a un alleato, l'identificazione, le
+tasse, le medagliette, la bacheca degli avventurieri, la dea dei desideri e gli
+otto dèi che rispondono al proprio nome. `command.hsp` passa da 509 firme da fare
+a **357**, cioè dal 61% al **73%** del file; le voci rese sono **947 su 1.304**.
+Catena verde fino in fondo, `cgx-test.exe` rifatto (15/08, **19:30**).
 
-⭐⭐ **E l'inglese di monte ha sbagliato due volte in tre lotti, in due modi
-opposti.** A `:15188` dice **troppo**, e la cosa sbagliata: l'array delle quattro
-risposte è quello del *rifiuto* copiato addosso ai quattro esiti della borraccia
-filtrante, e l'alleato che beve ti risponde «Never!» dove il giapponese dice
-「ありがとう！」. A `:15636`/`:15645` dice **troppo poco**: lo stesso identico
-inglese per due scenette che il giapponese distingue. ✅ Nel primo caso ha deciso
-la **rete 3** (il giapponese era già reso altrove), nel secondo ha deciso la
-**rete 11** (le funzioni di contenuto bastavano per tutt'e due). Nessuna delle
-due volte ho scelto io.
+⭐⭐⭐ **E la scoperta della sessione è che l'inglese di monte sbaglia in CINQUE
+modi diversi, e che a decidere non sono io ma la rete che parla.** In sette lotti
+sullo stesso file: l'inglese che **dice la cosa sbagliata** (`:15188`, l'array del
+rifiuto copiato addosso alla borraccia filtrante), quello che **appiattisce**
+(`:15636`/`:15645`, un inglese solo per due scene), quello che **capovolge**
+(`:4454` e `:4482`, due negazioni perse), quello che **butta via** (`:4764`, la
+presa in giro sul Natale ridotta a «Merry Christmas!»), e quello che **scrive un
+valore con una grafia e lo confronta con altre due** (「両性具有」: `hermaphrodite`,
+`bisexual`, `hermaphorodite`). ✅ Ogni volta la strada l'ha indicata una rete —
+la 3 obbliga, la 11 autorizza — o il fatto che la voce fosse una statica senza
+contratto. Vedi il punto 1 delle cinque cose.
 
 ⚠️⚠️ **E la sessione ha scritto una toppa sbagliata che funzionava.** Le toppe
 girano dopo il dizionario, quindi agganciarne una alla riga già tradotta compila
 e produce l'italiano giusto — ma `test_toppe.py:104` pretende il sorgente
-pinnato, ed è quella prova a fare rumore quando upstream riscrive la riga. Vedi
-il punto 2 delle cinque cose.
+pinnato, ed è quella prova a fare rumore quando upstream riscrive la riga. Ne è
+uscita la regola che mancava in quarantasei sessioni: **una toppa e una resa non
+stanno sulla stessa riga**. Vedi il punto 2.
 
 ---
 
@@ -32,28 +35,39 @@ il punto 2 delle cinque cose.
 
 ### ▶ Il punto esatto in cui si riprende
 
-Tutto è **spinto** — tre spinte, una per lotto — e l'albero di lavoro è pulito.
-Si riparte da `git fetch && git status -sb` e dalle otto verifiche d'apertura.
+Tutto è **spinto** — nove spinte: una per ciascuno dei sette lotti, più le due
+chiusure — e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle otto verifiche d'apertura.
 ⚠️ **Tre valori attesi sono cambiati**: `verifica --dizionario` dice «command.hsp:
-0 da ritradurre, **431** non ancora tradotte» (410 da fare più **21** rinviate);
-`toppe.jsonl` ha **310** toppe e `rinviate.jsonl` **40** righe. Tutto il resto è
+0 da ritradurre, **357** non ancora tradotte» (334 da fare più **23** rinviate);
+`toppe.jsonl` ha **312** toppe e `rinviate.jsonl` **42** righe. Tutto il resto è
 fermo dov'era: `perimetro.py` **56%** e **41%**, `cnv_str_en.py` 49 e 24,
 `misura-blocchi-spenti.py` 4 e 5, `lang-nel-ramo-jp.py` 21 righe e **0 già
-tradotte**.
+tradotte**, `blocchi_en.py` 99 e 68, `variabili_en.py` 66 e 3.
 ⚠️ Il modello per `assembla-lotto.py` resta **`scratchpad/modello-rete6.py`**. I
-lotti `024` e `026` sono a zero rinviate e tengono l'ancora `RINVIATE = set()`,
-quindi possono fare da modello; il `025` no.
+lotti `024`, `026`, `028` e `030` sono a zero rinviate e tengono l'ancora
+`RINVIATE = set()`, quindi possono fare da modello; il `025`, il `027` e il `029`
+no.
 
-1. ⭐⭐ **Ancora `command.hsp`, e adesso la zona più densa è 4000-4999 (76)**,
-   poi 12000-12999 (55), 7000-7999 (54) e 14000-14999 (50). ⚠️ Prima di aprire
-   una zona nuova, `lang-nel-ramo-jp.py` come sempre — le 11 righe morte di
+1. ⭐⭐ **Ancora `command.hsp`, e adesso la zona più densa è 12000-12999 (55)**,
+   poi 7000-7999 (54), 14000-14999 (50) e 5000-5999 (35). ⚠️ Prima di aprire una
+   zona nuova, `lang-nel-ramo-jp.py` come sempre — le 11 righe morte di
    `command.hsp` stanno tutte in 2954-3016 e sono già rinviate.
-2. **Oppure il COLLAUDO**, che adesso ha **873 rese** mai viste a schermo — 795
-   dalle sessioni prima più le 78 di stanotte — e schermate nuove che si aprono
+   ⭐ **E 3000-3999 (34) ha un lavoro che aspetta**: `:3639` e `:3651` sono i due
+   confronti su `CDATAN_NEWSEX` di cui parla il punto 3, cioè il posto giusto per
+   decidere che farne.
+2. **Oppure il COLLAUDO**, che adesso ha **947 rese** mai viste a schermo — 795
+   dalle sessioni prima più le 152 di stanotte — e schermate nuove che si aprono
    con un tasto solo. ⚠️ Gli **88 ranghi** della 41ª restano il debito più
-   vecchio. ⭐ E ci sono **due toppe** da guardare: `cnvrank` (i piani dei
-   sotterranei come numeri nudi) e i **«punti gilda»** di `:15489`, che si vede
-   consegnando libri antichi alla Gilda dei Maghi.
+   vecchio. ⭐ E ci sono **quattro toppe** da guardare: `cnvrank` (i piani dei
+   sotterranei come numeri nudi), i **«punti gilda»** di `:15489` (si vede
+   consegnando libri antichi alla Gilda dei Maghi), il **menu del sesso** di
+   `:4653` (desiderio «sex»: deve leggersi «maschio?», «femmina?»,
+   «ermafrodito») e le tre righe di `*wish_fix`.
+   ⭐⭐ **E il desiderio va provato per davvero**, perché è l'unica cosa di questa
+   sessione che dipende da quel che il giocatore **digita**: si scrive «oggetto
+   spada», «abilita pesca», «carta», «statuetta» e si guarda se arriva la roba.
+   Vedi il punto 4.
 3. ⭐ **Oppure `material_data.hsp`**, 117 voci di cui 27 nomi già decisi in
    `glossario.md`: resta il candidato più economico al ventesimo dizionario su 54.
 4. **Oppure `item_func.hsp` (263), il « of » di ogni cadavere**, col nodo
@@ -67,8 +81,12 @@ quindi possono fare da modello; il `025` no.
    non misurando: `db_item.hsp:135432` chiama l'oggetto «borraccia filtrante»,
    `action.hsp:8267` scrive «Hai riempito d'acqua la **bottiglia** filtrante».
    Stesso oggetto, due nomi. È materiale da `correzione-*.py`, non da lotto.
+7. ⭐ **Oppure il referto che questa sessione ha chiesto e non ha scritto**: un
+   `coda_en.py` che cerchi i **letterali inglesi concatenati fuori dalla parentesi
+   di una `lang()`**. Di quella famiglia se ne conosce **una sola** (`:15489`), e
+   nessuno ha mai misurato quante siano. Vedi il punto 3.
 
-### ⚠️⚠️ Le cinque cose che la prossima sessione deve sapere
+### ⚠️⚠️ Le otto cose che la prossima sessione deve sapere
 
 1. ⭐⭐ **Quando l'inglese e il giapponese non dicono la stessa cosa, a decidere
    non è il gusto: è quale rete parla.** Due casi opposti nella stessa zona.
@@ -148,6 +166,72 @@ quindi possono fare da modello; il `025` no.
    💡 **La lezione minore, e costa poco**: la rete 3 le ha nominate tutte e otto
    da sola, senza che le cercassi. Un lotto che la fa parlare molto non è un lotto
    con un problema: è un lotto in un'area che il gioco ha già raccontato altrove.
+6. ⭐⭐⭐ **Una `lang()` può non essere testo da leggere: può essere una parola che
+   il giocatore DIGITA — e allora la regola dell'accento si capovolge, ma non
+   sempre nello stesso verso.** Il sistema dei desideri di `command.hsp` ne ha
+   otto, in due famiglie che vogliono decisioni opposte.
+   ⚠️ **`*wish_fix` (`:4334`-`:4336`)** toglie il prefisso da quel che è stato
+   battuto: «skill fishing» → «fishing». La resa è «oggetto» e **«abilita» senza
+   accento**, perché quella parola il giocatore la tira fuori dalla propria testa,
+   e in CP932 la `à` non esiste: un `del_str` su «abilita'» non aggancerebbe mai
+   niente.
+   ⚠️ **Le parole chiave di `:4832`-`:4855`** (`instr(inputlog, 0, lang(…))`)
+   fanno l'opposto: la resa è **il nome dell'oggetto come sta in `db_item.hsp`**,
+   accento compreso — «biglietto d'abilità», «carta», «statuetta», «bambola
+   dorata», «bambola di carne» — perché lì il giocatore il nome **lo legge sullo
+   schermo** e lo ricopia, e sullo schermo c'è già la forma degradata
+   «biglietto d'abilita'».
+   💡 **La regola in una riga**: per una stringa che si digita, l'accento si
+   scrive se la parola **viene dallo schermo**, e non si scrive se viene dalla
+   testa di chi gioca. La differenza non è una preferenza: è da dove arriva la
+   stringa.
+   ⚠️ **E le due decisioni devono combaciare**: chi scrive «abilita pesca» viene
+   instradato da `:4840` — la stessa firma di `:4336` — verso `*wish_skill`, che a
+   `:4860` chiama `*wish_fix`. Se una delle due parole cambia senza l'altra, il
+   desiderio smette di funzionare **in silenzio**.
+   ⚠️⚠️ **E c'è un limite che non si può togliere e che al collaudo sembrerà un
+   guasto**: da `:4481` a `:4780` il desiderio si risolve con una cinquantina di
+   `if ( inputlog == "lulwy" )`, cioè **letterali nudi fuori da `lang()`**. Dèi,
+   classi, razze, «money», «youth», «merry christmas»: quelli si scrivono **in
+   inglese** anche giocando in italiano. Oggetti e abilità no, perché `:4883`
+   confronta con `cnvitemname()`, che è tradotto. È come è fatto il gioco.
+7. ⭐⭐ **Una `lang()` può servire due volte con due mestieri diversi — etichetta e
+   dato — e allora il dizionario segue il mestiere più severo.** `:4655` è la
+   quinta voce del menu del sesso; trentun righe più sotto, `:4686`, la **stessa**
+   `lang()` scrive `cdatan(CDATAN_NEWSEX, …)`, cioè un campo del salvataggio.
+   `invariati.md` tiene `hermaphrodite` fra i «valori di dato, non testo»: una resa
+   scriverebbe «ermafrodito» dentro il personaggio salvato.
+   ✅ La voce si **rinvia**, e a schermo ci arriva per **toppa** sul solo sito che
+   visualizza — che è quel che `text.hsp` fa già con sei toppe della stessa specie.
+   ⚠️ **E senza quella toppa il menu era metà in italiano**, con «male?» e
+   «female?» irraggiungibili **per costruzione**: la loro firma è ancorata in
+   `text.hsp`, e `applica.py:618` applica ogni dizionario **al suo file soltanto**.
+   Nessuna resa di `command.hsp` poteva toccarle.
+   ⭐⭐ **E sotto c'era un difetto di monte più grosso di come lo raccontava
+   `invariati.md`: non due grafie, TRE.** Lo stesso 「両性具有」 si **scrive**
+   `hermaphrodite` (`:4686`) e si **confronta** con `bisexual` (`:3639`) e
+   `hermaphorodite` (`text.hsp:359`). In giapponese sono tutte e tre la stessa
+   stringa e tutto funziona; in inglese **nessuno dei due confronti scatta mai**.
+   ⚠️ Non l'ho toccato: una toppa **renderebbe vivo un ramo che oggi non gira**, ed
+   è un cambio di comportamento che vuole un collaudo. I due confronti stanno in
+   **3000-3999**, cioè in una zona ancora da fare: è lì che si decide.
+   💡 **La lezione**: il valore che un programma **salva** e il valore con cui lo
+   **confronta** sono due stringhe diverse finché qualcuno non prova che
+   coincidono. Qui non coincidono da anni, in due punti su tre.
+8. ⭐⭐ **`repertorio.py` serve anche quando le parole sono nuove: a tornare non è
+   una battuta, è un REGISTRO.** Il lotto 028 ha reso le otto divinità che
+   rispondono al proprio nome, e nessuna di quelle frasi esisteva già; ma
+   `action.hsp:14051`-`:14228` aveva deciso **come parla ciascuna**, e quello si
+   riscuote: Opatos ride «Muahahah», Jure balbetta «N-non è mica…», Kumiromi parla
+   a puntini, Yacatect fa la commerciante in tono familiare, Lulwy apre con un
+   sostantivo di disprezzo, Itzpalt invoca al vocativo.
+   ⭐ **E il registro decide anche una parola sola**: a Jure la Benedetta
+   (`:4806`) l'insulto è **«idiota»**, che in italiano non ha genere ed è già
+   quello che `action.hsp:14058` le mette in bocca. «Scemo» o «cretino»
+   sceglierebbero il sesso del giocatore al posto suo.
+   💡 È il gemello del punto 2 della 45ª un piano più su: là a tornare era una
+   **scelta di forma** decisa in un altro file, qui una **voce**. In tutt'e due i
+   casi non lo vede nessuno strumento — bisogna andare a cercarlo.
 
 ---
 

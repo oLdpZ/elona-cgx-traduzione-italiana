@@ -43,6 +43,7 @@ si committa.
 | `variabili_en.py` | ⚠️ **il terzo punto cieco**, dopo `blocchi_en.py` e `else_jp.py`: le variabili che si portano dentro un letterale inglese e finiscono interpolate in una `lang()`, dove nessuno dei due referti le vede perché l'assegnamento è **incondizionato**. Atteso: **66 variabili, 3 trappole** — se sale a 4 qualcuno ne ha creata una, se scende a 2 `economy.hsp:319` è stato risolto | all'apertura |
 | `rinvia-proc-4958.py`, `rinvia-proc-navi.py`, `rinvia-proc-11796.py` | come si scrive un rinvio in `rinviate.jsonl` col motivo per esteso | quando una rete 6 o 7 scatta |
 | ⭐ `toppa-action-15221.py`, `toppa-proc-24107.py`, `toppa-chara_func-3037.py` | **rinvio + toppa insieme**, per la riga che il dizionario non può aggiustare: la toppa riporta il ramo inglese alla forma del giapponese e il rinvio dice perché. ⚠️ Le toppe **non passano da `degrada()`**: la sostituzione non deve portare accenti, e va scritta per non averne bisogno. 💡 **E si compone, si codifica in memoria e solo allora si apre il file**: vedi il riquadro qui sotto | quando la rete 11 boccia la resa giusta |
+| ⭐ `toppa-command-4335.py`, `toppa-command-4653.py` | le altre due toppe della 46ª, tutte e due **rinvio + toppa** e tutte e due nate da una rete che aveva ragione in generale e torto lì. `4335`: due `lang()` col **giapponese identico** e due inglesi che differiscono per uno **spazio** (`"skill "` e `"skill"`), che serve perché `:4887` fa il punteggio sui prefissi di `inputlog`; la rete 4 pretende una resa sola. `4653`: la stessa `lang()` è **etichetta di menu e valore di `CDATAN_NEWSEX`**, e il dizionario deve seguire il mestiere più severo — a schermo ci arriva per toppa, come `text.hsp` fa già sei volte | quando una rete blocca la resa giusta, o quando una `lang()` ha due mestieri |
 | ⭐⭐ `toppa-command-15489.py` | **la famiglia nuova della 46ª: un letterale inglese concatenato in coda a una `lang()`**, `txt lang(...) + "(" + punti + " Guild Point)"`. Non è un ramo, non è una variabile, non è una `cnv_str`: nessuno dei **cinque punti ciechi** lo guarda, e il dizionario non lo raggiunge perché sostituisce solo il secondo argomento di `lang()`. ⚠️⚠️ **E qui è nata la regola che mancava — vedi il riquadro «una toppa e una resa» qui sotto.** ⭐ Da copiare anche per come sceglie il testo: il termine («Punti gilda») era già deciso quaranta righe più su, a `:14115`, dentro una `lang()` vera | quando un letterale inglese sta **fuori** dalla `lang()` sulla riga di una voce |
 | `correzione-bolt.py`, `correzione-014.py`, `correzione-rete8.py`, `correzione-mana.py`, `correzione-schivata.py` | come si corregge una resa **già entrata nel dizionario** senza passare da un lotto, con le reti che impediscono di correggerne una di troppo o una di meno. ⚠️ **`correzione-rete8.py` porta la rete che mancava**: le rese nuove vanno passate a `controlla_lotto`, perché `verifica --dizionario` **non le guarda** — confronta il dizionario col sorgente e conta orfane e non tradotte. 💡 **`correzione-schivata.py` è il modello più recente** ed è nato da un **collaudo**, non da una misura: «Il viandante schiva Kefry» compariva cinque volte in uno schermo | quando due file dicono la stessa cosa in due modi, o quando lo schermo mostra una frase storta |
 | `rete8_dizionario.py` | la **rete 8 all'indietro**, su tutto quello che è già entrato: le rese che stampano «di il», «a il», «in il», «su il». Nella 37ª ne ha trovate sei, di cinque lotti diversi, tutte scritte prima che la rete esistesse. Atteso adesso: **3**, tutti dichiarati falsi positivi | quando si tocca la rete 8, o all'apertura di una sessione lunga |
@@ -155,6 +156,29 @@ toppa la riscrive tutta intera partendo dal sorgente.
 💡 In una riga sola: **o la riga la sistema il dizionario, o la sistema la
 toppa.** Chi sceglie la toppa deve rinviare la voce, e chi trova una riga con
 tutt'e due ha già un difetto sotto gli occhi.
+
+### ⚠️⚠️ Una stringa che si DIGITA non segue la regola degli accenti
+
+Nata nella 46ª sul sistema dei desideri di `command.hsp`. Certe `lang()` non sono
+testo da leggere: sono parole che il giocatore **batte sulla tastiera**, e il
+codice le cerca dentro quel che ha scritto (`del_str`, `instr`). Lì l'accento non
+è una questione di ortografia, è una questione di **coincidenza esatta**, e la
+regola si decide da dove arriva la parola.
+
+- **Viene dalla testa di chi gioca** → l'accento **non si scrive**. `*wish_fix`
+  toglie il prefisso «skill»/«item», e la resa è «abilita» senza accento: in
+  CP932 la `à` non esiste, nessuno può digitarla, e un `del_str` su «abilita'»
+  non aggancerebbe mai niente.
+- **Viene dallo schermo** → l'accento **si scrive normale**. Le parole chiave di
+  `:4832`-`:4855` sono nomi di oggetti, e la resa è quella di `db_item.hsp`
+  accento compreso: in build «biglietto d'abilità» diventa «biglietto
+  d'abilita'», che è **esattamente** quel che il giocatore legge sull'oggetto e
+  poi ricopia.
+
+⚠️ **E le parole di famiglie diverse devono combaciare fra loro**: chi scrive
+«abilita pesca» viene instradato da `:4840` (stessa firma di `:4336`) e poi
+ripulito da `*wish_fix`. Cambiarne una senza l'altra rompe il desiderio **in
+silenzio** — nessuna rete, nessuna guardia, nessun referto se ne accorge.
 
 ### ⚠️⚠️ Uno script che riscrive un file di dati lo compone PRIMA di aprirlo
 
