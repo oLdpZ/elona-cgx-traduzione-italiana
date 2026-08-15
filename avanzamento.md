@@ -15,7 +15,7 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | file | tradotte | firme | % | occorrenze |
 |---|---|---|---|---|
 | `text.hsp` | **1.718** | 1.720 | **100%** | 2.127 |
-| `command.hsp` | **510** | 1.304 | 39% | 1.481 |
+| `command.hsp` | **617** | 1.304 | 47% | 1.481 |
 | `action.hsp` | **1.286** | 1.288 | **100%** | 1.502 |
 | `proc.hsp` | **127** | 1.098 | 12% | 1.327 |
 | `skill.hsp` | **885** | 885 | **100%** | 894 |
