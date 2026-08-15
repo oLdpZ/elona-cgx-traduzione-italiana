@@ -1,0 +1,651 @@
+==============================================================================
+=== riga 13013.0  [statica]
+jp: "それは持ち運べない。"
+en: "You can't carry it."
+--- sorgente
+  13010: 		snd SOUNDLIST_FAIL1
+  13011: 		msgdup++
+  13012: 		if ( inv(INV_ITEM_PROPERTY, ci) == PROP_SHOP ) {
+>>13013: 			txt lang("それは持ち運べない。", "You can't carry it.")
+  13014: 		}
+  13015: 		if ( inv(INV_ITEM_PROPERTY, ci) == PROP_NPC | inv(INV_ITEM_PROPERTY, ci) == PROP_SPECIAL ) {
+  13016: 			txt_notyours
+==============================================================================
+=== riga 13028.0  [dinamica]
+jp: "それを盗もうとしていますか？"
+en: "You see a " + s + " weight " + s(1) + ". Do you want to attempt to steal it?"
+--- sorgente
+  13025: 			if ( sdata(SKILL_ACTIVE_PICKPOCKET, CHARA_PLAYER) != 0 & adata(ADATA_ID, gdata(GDATA_AREA)) != AREA_SHOW_HOUSE & gdata(GDATA_QUEST) != QUEST_TYPE_HUNTEX & gdata(GDATA_QUEST) != QUEST_TYPE_CONQUER & TweakData(TWEAK_UI_DISPLAY_PICKPOCKET_SHORTCUT, TWEAK_CATEGORY_UI) == 1 ) {
+  13026: 				s = itemname(ci, inv(INV_ITEM_NUM, ci)), cnvweight(inv(INV_ITEM_WEIGHT, ci) * inv(INV_ITEM_NUM, ci))
+  13027: 				s(1) = cnvweight(inv(INV_ITEM_WEIGHT, ci))
+>>13028: 				txt lang("それを盗もうとしていますか？", "You see a " + s + " weight " + s(1) + ". Do you want to attempt to steal it?")
+  13029: 				promptYesNo
+  13030: 				if ( rtval == 0 ) {
+  13031: 					if ( cc == CHARA_PLAYER ) {
+==============================================================================
+=== riga 13066.0  [dinamica]
+jp: name(tc) + "は忙しい。"
+en: name(tc) + " " + is(tc) + " busy now."
+--- sorgente
+  13063: 
+  13064: *com_allyInventory
+  13065: 	if ( cdata(CDATA_ACTION_PERIOD, tc) != 0 ) {
+>>13066: 		txt lang(name(tc) + "は忙しい。", name(tc) + " " + is(tc) + " busy now.")
+  13067: 		gosub *screen_draw
+  13068: 		goto *pc_turn
+  13069: 	}
+==============================================================================
+=== riga 13849.0  [dinamica]
+jp: itemname(citrade) + "に見合う物を所持していない。"
+en: "You don't have anything that matches " + itemname(citrade) + "."
+--- sorgente
+  13846: 	f = 0
+  13847: 	if ( listmax == 0 ) {
+  13848: 		if ( invctrl == 21 ) {
+>>13849: 			txt lang(itemname(citrade) + "に見合う物を所持していない。", "You don't have anything that matches " + itemname(citrade) + ".")
+  13850: 			f = 1
+  13851: 		}
+  13852: 		if ( invctrl == 27 ) {
+==============================================================================
+=== riga 13854.0  [dinamica]
+jp: name(tc) + "は盗めるものを所持していない。"
+en: name(tc) + " has nothing to steal."
+--- sorgente
+  13851: 		}
+  13852: 		if ( invctrl == 27 ) {
+  13853: 			if ( tc != CHARA_PLAYER ) {
+>>13854: 				txt lang(name(tc) + "は盗めるものを所持していない。", name(tc) + " has nothing to steal.")
+  13855: 				f = 1
+  13856: 			}
+  13857: 			else {
+==============================================================================
+=== riga 13858.0  [statica]
+jp: "そこに盗めるものはない。"
+en: "There's nothing to steal."
+--- sorgente
+  13855: 				f = 1
+  13856: 			}
+  13857: 			else {
+>>13858: 				txt lang("そこに盗めるものはない。", "There's nothing to steal.")
+  13859: 				f = 1
+  13860: 			}
+  13861: 		}
+==============================================================================
+=== riga 13867.0  [statica]
+jp: "バックパックに種子がありません。"
+en: "You have no seeds in your backpack."
+--- sorgente
+  13864: 
+  13865: 		if ( invctrl == 34 ) {
+  13866: 			if ( invctrl(1) == 0 ) {
+>>13867: 				txt lang("バックパックに種子がありません。", "You have no seeds in your backpack.")
+  13868: 				f = 1
+  13869: 			}
+  13870: 		}
+==============================================================================
+=== riga 13879.0  [statica]
+jp: "ここには祭壇がない。"
+en: "There's no altar here."
+--- sorgente
+  13876: 		item_find FILTER_FURNITURE_ALTAR, 2
+  13877: 		if ( stat == (-1) ) {
+  13878: 			msgdup++
+>>13879: 			txt lang("ここには祭壇がない。", "There's no altar here.")
+  13880: 			f = 1
+  13881: 		}
+  13882: 	}
+==============================================================================
+=== riga 13886.0  [statica]
+jp: "仲間からは盗みたくない。"
+en: "You don't want to rob your ally."
+--- sorgente
+  13883: 	if ( invctrl == 27 ) {
+  13884: 		if ( tc > CHARA_PLAYER ) {
+  13885: 			if ( cdata(CDATA_RELATION, tc) == 10 ) {
+>>13886: 				txt lang("仲間からは盗みたくない。", "You don't want to rob your ally.")
+  13887: 				f = 1
+  13888: 			}
+  13889: 		}
+==============================================================================
+=== riga 13895.0  [statica]
+jp: "現在魔術士ギルドのノルマはない。"
+en: "You have no quota for Mages Guild."
+--- sorgente
+  13892: 		if ( invctrl(1) == 0 ) {
+  13893: 			if ( gdata(GDATA_AREA) == AREA_LUMIEST | gdata(GDATA_AREA) == AREA_ARCBELC ) {
+  13894: 				if ( gdata(GDATA_FLAG_GUILD_MAGE_NORMA) <= 0 ) {
+>>13895: 					txt lang("現在魔術士ギルドのノルマはない。", "You have no quota for Mages Guild.")
+  13896: 					f = 1
+  13897: 				}
+  13898: 			}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "どのアイテムを調べる？ "
+en: "Examine what? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "どのアイテムを置く？ "
+en: "Drop what? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "どのアイテムを拾う？ "
+en: "Which item do you want to pick up? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "何を装備する？"
+en: "Equip what?"
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "何を食べよう？ "
+en: "Eat what? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "どれを読む？ "
+en: "Read what? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "どれを飲む？ "
+en: "Drink what? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "どれを振る？ "
+en: "Zap what? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "どれを渡す？ "
+en: "Which item do you want to give? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "どれを購入する？ "
+en: "What do you want to buy? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "どれを売却する？ "
+en: "What do you want to sell? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "どのアイテムを鑑定する？ "
+en: "Which item do you want to identify? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "どのアイテムを使用する？ "
+en: "Use what? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "どれを開ける？ "
+en: "Open what? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "何を料理する？ "
+en: "Cook what? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "何を混ぜる？ "
+en: "Blend what? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [dinamica]
+jp: "何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) "
+en: "Which item do you want to apply the effect of " + valn + "? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "何を神に捧げる？ "
+en: "What do you want to offer to your god? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "何を交換する？ "
+en: "Which item do you want to trade? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [dinamica]
+jp: valn + "の代わりに何を提示する？ "
+en: "What do you offer for " + valn + "? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "何を取る？ "
+en: "Take what? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "何を対象にする？ "
+en: "Target what? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "何を入れる？ "
+en: "Put what? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "何をもらう？ "
+en: "Which item do you want to take? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "何を投げる？ "
+en: "Throw what? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "何を盗む？ "
+en: "Steal what? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "何と交換する？ "
+en: "Trade what? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13924.0  [statica]
+jp: "何を予約する？"
+en: "Which item do you want to reserve? "
+--- sorgente
+  13921: 				valn = itemname(citrade)
+  13922: 			}
+  13923: 		}
+>>13924: 		s = "", lang("どのアイテムを調べる？ ", "Examine what? "), lang("どのアイテムを置く？ ", "Drop what? "), lang("どのアイテムを拾う？ ", "Which item do you want to pick up? "), lang("何を装備する？", "Equip what?"), lang("何を食べよう？ ", "Eat what? "), "", lang("どれを読む？ ", "Read what? "), lang("どれを飲む？ ", "Drink what? "), lang("どれを振る？ ", "Zap what? "), lang("どれを渡す？ ", "Which item do you want to give? "), lang("どれを購入する？ ", "What do you want to buy? "), lang("どれを売却する？ ", "What do you want to sell? "), lang("どのアイテムを鑑定する？ ", "Which item do you want to identify? "), lang("どのアイテムを使用する？ ", "Use what? "), lang("どれを開ける？ ", "Open what? "), lang("何を料理する？ ", "Cook what? "), lang("何を混ぜる？ ", "Blend what? "), lang("何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) ", "Which item do you want to apply the effect of " + valn + "? "), lang("何を神に捧げる？ ", "What do you want to offer to your god? "), lang("何を交換する？ ", "Which item do you want to trade? "), lang(valn + "の代わりに何を提示する？ ", "What do you offer for " + valn + "? "), lang("何を取る？ ", "Take what? "), lang("何を対象にする？ ", "Target what? "), lang("何を入れる？ ", "Put what? "), lang("何をもらう？ ", "Which item do you want to take? "), lang("何を投げる？ ", "Throw what? "), lang("何を盗む？ ", "Steal what? "), lang("何と交換する？ ", "Trade what? "), lang("何を予約する？", "Which item do you want to reserve? ")
+  13925: 		if ( s(invctrl) != "" ) {
+  13926: 			txtnew
+  13927: 		}
+==============================================================================
+=== riga 13941.0  [dinamica]
+jp: "(持っているメダル: " + p + "枚)"
+en: "(Coins: " + p + ")"
+--- sorgente
+  13938: 					p = 0
+  13939: 				}
+  13940: 				txtmore
+>>13941: 				txt lang("(持っているメダル: " + p + "枚)", "(Coins: " + p + ")")
+  13942: 			}
+  13943: 			if ( invctrl(1) == 1 ) {
+  13944: 				item_find ITEM_ID_MUSIC_TICKET, 3, 1
+==============================================================================
+=== riga 13952.0  [dinamica]
+jp: "(持っているチケット: " + p + "枚)"
+en: "(tickets: " + p + ")"
+--- sorgente
+  13949: 					p = 0
+  13950: 				}
+  13951: 				txtmore
+>>13952: 				txt lang("(持っているチケット: " + p + "枚)", "(tickets: " + p + ")")
+  13953: 			}
+  13954: 		}
+  13955: 		if ( invctrl == 24 ) {
+==============================================================================
+=== riga 13958.0  [dinamica]
+jp: "ノルマ残り: " + gdata(GDATA_FLAG_GUILD_MAGE_NORMA) + "GP"
+en: "" + gdata(GDATA_FLAG_GUILD_MAGE_NORMA) + " guild points are needed to gain a rank."
+--- sorgente
+  13955: 		if ( invctrl == 24 ) {
+  13956: 			if ( invctrl(1) == 0 ) {
+  13957: 				if ( gdata(GDATA_AREA) == AREA_LUMIEST | gdata(GDATA_AREA) == AREA_ARCBELC ) {
+>>13958: 					txt lang("ノルマ残り: " + gdata(GDATA_FLAG_GUILD_MAGE_NORMA) + "GP", "" + gdata(GDATA_FLAG_GUILD_MAGE_NORMA) + " guild points are needed to gain a rank.")
+  13959: 				}
+  13960: 			}
+  13961: 		}
+==============================================================================
+=== riga 13991.0  [statica]
+jp: "そのアイテムは存在しない。"
+en: "The item doesn't exist."
+--- sorgente
+  13988: 		if ( f == 0 ) {
+  13989: 			inv_find invsc, CHARA_PLAYER
+  13990: 			if ( stat == (-1) ) {
+>>13991: 				txt lang("そのアイテムは存在しない。", "The item doesn't exist.")
+  13992: 			}
+  13993: 			else {
+  13994: 				if ( inv(INV_ITEM_PARAM1, stat) == 0 & refitem(inv(INV_ITEM_ID, stat), DBSPEC_TYPE) == FILTER_CONTAINER ) {
+==============================================================================
+=== riga 13995.0  [statica]
+jp: "そのアイテムはもう空っぽだ。"
+en: "The item is empty!"
+--- sorgente
+  13992: 			}
+  13993: 			else {
+  13994: 				if ( inv(INV_ITEM_PARAM1, stat) == 0 & refitem(inv(INV_ITEM_ID, stat), DBSPEC_TYPE) == FILTER_CONTAINER ) {
+>>13995: 					txt lang("そのアイテムはもう空っぽだ。", "The item is empty!")
+  13996: 				}
+  13997: 				else {
+  13998: 					txtnew
+==============================================================================
+=== riga 14077.0  [statica]
+jp: "[メニュー切替]"
+en: "[Change]"
+--- sorgente
+  14074: 		font lang(cfg_font1, cfg_font2), 14 + sizefix - en * 2, 0
+  14075: 		color 180, 30, 0
+  14076: 		pos x + 145, y + 30
+>>14077: 		bmes "" + key_prev + "," + key_next + ",Tab " + lang("[メニュー切替]", "[Change]"), 255, 255, 255
+  14078: 	}
+  14079: *com_inventory_loop_WHILE1
+  14080: 	redraw 0
+==============================================================================
+=== riga 14087.0  [statica]
+jp: "[保持指定]"
+en: "[Tag No-Drop]"
+--- sorgente
+  14084: 		s(1) += strhint7
+  14085: 	}
+  14086: 	if ( invctrl == 1 ) {
+>>14087: 		s(1) += "" + key_mode2 + " " + lang("[保持指定]", "[Tag No-Drop]")
+  14088: 	}
+  14089: 	if ( invctrl == 2 ) {
+  14090: 		if ( dropcontinue == 0 ) {
+==============================================================================
+=== riga 14091.0  [statica]
+jp: "[連続で置く]"
+en: "[Multi Drop]"
+--- sorgente
+  14088: 	}
+  14089: 	if ( invctrl == 2 ) {
+  14090: 		if ( dropcontinue == 0 ) {
+>>14091: 			s(1) += "" + key_mode2 + " " + lang("[連続で置く]", "[Multi Drop]")
+  14092: 		}
+  14093: 	}
+  14094: 	display_window (windoww - 640) / 2 + inf_screenx, winposy(432), 640, 432
+==============================================================================
+=== riga 14101.0  [statica]
+jp: "値段"
+en: "Price"
+--- sorgente
+  14098: 	}
+  14099: 	s = lang("重さ", "Weight")
+  14100: 	if ( invctrl == 11 | invctrl == 12 ) {
+>>14101: 		s = lang("値段", "Price")
+  14102: 	}
+  14103: 	if ( invctrl == 28 ) {
+  14104: 		if ( invctrl(1) == 0 ) {
+==============================================================================
+=== riga 14105.0  [statica]
+jp: "メダル"
+en: "Medal"
+--- sorgente
+  14102: 	}
+  14103: 	if ( invctrl == 28 ) {
+  14104: 		if ( invctrl(1) == 0 ) {
+>>14105: 			s = lang("メダル", "Medal")
+  14106: 		}
+  14107: 		if ( invctrl(1) == 1 ) {
+  14108: 			s = lang("チケット", "ticket")
+==============================================================================
+=== riga 14108.0  [statica]
+jp: "チケット"
+en: "ticket"
+--- sorgente
+  14105: 			s = lang("メダル", "Medal")
+  14106: 		}
+  14107: 		if ( invctrl(1) == 1 ) {
+>>14108: 			s = lang("チケット", "ticket")
+  14109: 		}
+  14110: 	}
+  14111: 
+==============================================================================
+=== riga 14115.0  [statica]
+jp: "ギルドポイント"
+en: "Guild Point"
+--- sorgente
+  14112: 	/********** BLOODYSHADE CUSTOM - BEGINNING **********/ // Show guild points rather than weight when turning in ancient books
+  14113: 
+  14114: 	if ( invctrl == 24 & invctrl(1) == 0 & gdata(GDATA_AREA) != AREA_QUEST ) {
+>>14115: 		s = lang("ギルドポイント", "Guild Point")
+  14116: 	}
+  14117: 
+  14118: 	/********** BLOODYSHADE CUSTOM - ENDING **********/
+==============================================================================
+=== riga 14120.0  [statica]
+jp: "アイテムの名称"
+en: "Name"
+--- sorgente
+  14117: 
+  14118: 	/********** BLOODYSHADE CUSTOM - ENDING **********/
+  14119: 
+>>14120: 	display_topic lang("アイテムの名称", "Name"), wx + 28, wy + 30
+  14121: 	display_topic s, wx + 526, wy + 30
+  14122: 
+  14123: 	/********** ORIGINAL - BEGINNING **********
+--- stesso inglese, gia' reso:
+    command.hsp.jsonl:453  Nome
+    command.hsp.jsonl:456  Nome
+==============================================================================
+=== riga 14176.0  [statica]
+jp: "  (重さ合計 "
+en: "  (Weight "
+--- sorgente
+  14173: 	pos wx - 6, wy - 6
+  14174: 	gcopy 3, 960, 216, 48, 72
+  14175: 	s = "" + listmax + " items"
+>>14176: 	s += lang("  (重さ合計 ", "  (Weight ") + cnvweight(cdata(CDATA_INV_WEIGHT, CHARA_PLAYER)) + "/" + cnvweight(cdata(CDATA_CARRY_LIMIT, CHARA_PLAYER)) + lang("  荷車 ", " Cargo ") + cnvweight(gdata(GDATA_CARGO_WEIGHT)) + "/" + cnvweight(gdata(GDATA_CARGO_LIMIT)) + ")"
+  14177: 	if ( invctrl == 25 ) {
+  14178: 		s = ""
+  14179: 	}
+==============================================================================
+=== riga 14176.0  [statica]
+jp: "  荷車 "
+en: " Cargo "
+--- sorgente
+  14173: 	pos wx - 6, wy - 6
+  14174: 	gcopy 3, 960, 216, 48, 72
+  14175: 	s = "" + listmax + " items"
+>>14176: 	s += lang("  (重さ合計 ", "  (Weight ") + cnvweight(cdata(CDATA_INV_WEIGHT, CHARA_PLAYER)) + "/" + cnvweight(cdata(CDATA_CARRY_LIMIT, CHARA_PLAYER)) + lang("  荷車 ", " Cargo ") + cnvweight(gdata(GDATA_CARGO_WEIGHT)) + "/" + cnvweight(gdata(GDATA_CARGO_LIMIT)) + ")"
+  14177: 	if ( invctrl == 25 ) {
+  14178: 		s = ""
+  14179: 	}
+==============================================================================
+=== riga 14193.0  [statica]
+jp: "装備重量:"
+en: "EquipWt:"
+--- sorgente
+  14190: 		pos x + 16, y + 17
+  14191: 		mes "Dv:" + dvr1 + " Pv:" + pvr1
+  14192: 		pos x + 16, y + 35
+>>14193: 		mes lang("装備重量:", "EquipWt:") + cnvweight(cdata(CDATA_EQUIP_WEIGHT, tc)) + "" + cnveqweight(tc)
+  14194: 	}
+  14195: 	if ( invctrl == 25 ) {
+  14196: 		x = (windoww - 640) / 2 + inf_screenx + 455
