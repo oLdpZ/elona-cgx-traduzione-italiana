@@ -61,6 +61,10 @@ scrivere, probabilmente la stringa va tradotta.
 | . | punteggiatura: `text.hsp:108` sceglie il segno di fine frase. Identica in italiano |
 | ? | punteggiatura, idem |
 | ! | punteggiatura, idem |
+| `$` | **simbolo, non testo**: `command.hsp:3392` stampa il valore della ricompensa di un incarico in bacheca, e il giapponese è 「★」. L'inglese ha scelto il segno del denaro al posto della stella; l'italiano non ha un terzo segno da mettere, e cambiarlo direbbe che la scelta è nostra. ⚠️ Il glifo deve stare in **13 pixel**, che è il passo con cui `:3391` incolonna i simboli. Stesso criterio di `O` e di `****` |
+| `$ x ` | l'altra metà del simbolo qui sopra (`command.hsp:3397`, giapponese 「★×」): quando i simboli sono più di sei, il gioco smette di disegnarli e scrive «$ x 12». Gli apici inversi prendono lo spazio finale verbatim, perché il numero si concatena subito dopo |
+| `(` | **punteggiatura**: `command.hsp:3634` è `lang(" ", "(")`, cioè il giapponese apre l'età con uno spazio e l'inglese con una parentesi. In italiano l'età fra parentesi si scrive con la parentesi. ⚠️ E non c'è margine per fare altro: la riga vive in **19 caratteri** fra `wx + 372` e la colonna dei valori a `wx + 512`, e «Lv.100 female?(999)» ne fa già 19 |
+| `)` | l'altra metà (`command.hsp:3634`, `lang("歳", ")")`): il giapponese chiude con il contatore 歳 «anni», l'inglese con la parentesi. « anni)» costerebbe cinque dei diciannove caratteri della riga, e non ci sono |
 | bonus | prestito acquisito, già in glossario. `strfix` (`text.hsp:190`) etichetta il `+3` di un oggetto |
 | ` Lv` | la sigla di livello, che l'italiano scrive uguale. ⚠️ Non è solo un'etichetta: `action.hsp:12383` compone `evold = lang(" Lv", " Lv") + livello` e poi **cerca quella stringa in coda al nome** della creatura per togliere il suffisso (`:12384`). Tradurla qui, e non anche nel punto che il suffisso lo scrive, spezzerebbe il taglio: è la trappola del letterale confrontato contro un valore tradotto. Il resto del progetto scrive già `Lv` (`action.hsp:6545`, `text.hsp:65` e `:68`) |
 | http://homepage3.nifty.com/rfish/index_e.html | indirizzo web (`text.hsp:181`), non testo |
@@ -443,6 +447,7 @@ salvataggio finirebbe italiano.
 | none | valore di `CDATAN_NEWSEX`, scritto e riletto. Resta inglese anche a schermo |
 | hermaphrodite | valore di `CDATAN_NEWSEX` |
 | hermaphorodite | **refuso di upstream**, non nostro: `chara.hsp:2790` scrive `hermaphrodite`, ma `text.hsp:359` confronta con `hermaphorodite`. In inglese quel ramo è **morto** — nessuno scrive mai quella grafia — mentre in giapponese la stringa è la stessa e funziona. È un operando, e i difetti di upstream non si correggono da qui |
+| bisexual | **secondo esemplare della stessa specie di `hermaphorodite`**, trovato nella 48ª: `command.hsp:3639` confronta `CDATAN_NEWSEX` con `bisexual`, ma il valore lo scrivono `chara.hsp:2790` e `command.hsp:4686`, e tutt'e due scrivono `hermaphrodite`. In inglese il ramo è **morto** e la riga di stampa che ne dipende (`:3640`) non si raggiunge mai; in giapponese la stringa è 「両性具有」 da tutt'e due le parti e funziona. È un operando, e i difetti di upstream non si correggono da qui |
 | male? | valore di `CDATAN_NEWSEX`; a schermo ci arriva per toppa |
 | female? | valore di `CDATAN_NEWSEX`; a schermo ci arriva per toppa |
 | trans-male | valore di `CDATAN_NEWSEX` |
