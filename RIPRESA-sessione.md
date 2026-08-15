@@ -1,7 +1,7 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-15, fine della **quarantasettesima** sessione (seconda
-chiusura, dopo sei lotti).
+Aggiornato: 2026-08-16, fine della **quarantasettesima** sessione (terza
+chiusura, dopo sei lotti e il primo collaudo da sei sessioni).
 
 ⭐⭐ **Due zone chiuse e 114 rese in sei lotti** — la 12000-12999 e la 7000-7999,
 cioè le due più dense che restavano. I tre menu dell'aspetto, la scheda
@@ -40,30 +40,82 @@ rango e `:7724` li stampa dentro una `lang()`. Il conto passa da **66 variabili 
 3 trappole** a **60 e 4**. È il gemello di `cnv_str_en.py` nella 45ª, parola per
 parola. Vedi il punto 9.
 
+⭐⭐⭐ **E poi si è fatto il COLLAUDO — il primo da sei sessioni — e ha trovato al
+primo colpo quel che nessuna misura poteva trovare: due etichette saldate al loro
+valore.** A schermo si leggeva «Mira64%» e «Pot. magia100%», senza spazio.
+✅ La correzione è **la prima toppa del progetto che non cambia una parola: sposta
+una coordinata**, e la strada l'aveva già indicata upstream tre righe più su.
+Vedi il punto 14, e soprattutto il riquadro «▶ Che cosa il collaudo ha già detto»
+qui sotto, che è la cosa più utile di questa ripresa.
+
 ---
 
 ## La quarantasettesima sessione
 
 ### ▶ Il punto esatto in cui si riprende
 
-Tutto è **spinto** — sette spinte: una per ciascuno dei tre lotti della prima
+Tutto è **spinto** — nove spinte: una per ciascuno dei tre lotti della prima
 metà, una per la prima chiusura, una per la correzione di `variabili_en.py`, una
-per i tre lotti della zona 7000-7999 e questa nota — e l'albero di lavoro è
-pulito. Si riparte da `git fetch && git status -sb` e dalle otto verifiche
-d'apertura. La sessione si è aperta su `DESKTOP-1O339MR` con `origin/fase-0`
-allineato: il cambio di terminale annunciato dalla 46ª non ha fatto danni, ed è
-la **quarta prova** di fila della stessa cosa.
-⚠️ **Cinque valori attesi sono cambiati**: `verifica --dizionario` dice
+per i tre lotti della zona 7000-7999, una per la seconda chiusura, una per la
+toppa nata dal collaudo e questa nota — e l'albero di lavoro è pulito. Si
+riparte da `git fetch && git status -sb` e dalle otto verifiche d'apertura. La
+sessione si è aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: il
+cambio di terminale annunciato dalla 46ª non ha fatto danni, ed è la **quarta
+prova** di fila della stessa cosa.
+⚠️ **E anche questa si chiude annunciandone uno** (16/08/2026, sempre da
+`DESKTOP-1O339MR`): è la quarta volta di fila che una sessione lo dichiara, e
+finora è stato sempre e solo un cambio di finestra. `hostname` accanto al
+`git fetch` lo dice in un secondo.
+⚠️ **Sei valori attesi sono cambiati**: `verifica --dizionario` dice
 «command.hsp: 0 da ritradurre, **243** non ancora tradotte» (219 da fare più
-**24** rinviate); `rinviate.jsonl` ha **43** righe; `perimetro.py` dice **57%** e
+**24** rinviate); `rinviate.jsonl` ha **43** righe; `toppe.jsonl` ne ha **314**
+(erano 312: le due del collaudo); `perimetro.py` dice **57%** e
 **42%**; `variabili_en.py` dice **60 variabili e 4 trappole in 4 siti** (diceva
-66 e 3, e guardava male). Tutto il resto è fermo dov'era: `toppe.jsonl` **312**
-toppe, `cnv_str_en.py` 49 e 24, `misura-blocchi-spenti.py` 4 e 5,
+66 e 3, e guardava male). Tutto il resto è fermo dov'era:
+`cnv_str_en.py` 49 e 24, `misura-blocchi-spenti.py` 4 e 5,
 `lang-nel-ramo-jp.py` 21 righe e 0 già tradotte, `blocchi_en.py` 99 e 68,
 `else_jp.py` 6.984 righe in 13 file, `rete8_dizionario.py` 3.
 ⚠️ Il modello per `assembla-lotto.py` resta **`scratchpad/modello-rete6.py`**. I
 lotti `031`, `033`, `034`, `035` e `036` sono a zero rinviate e tengono l'ancora
 `RINVIATE = set()`, quindi possono fare da modello; il `032` no.
+
+### ▶ Che cosa il collaudo ha già detto
+
+⭐⭐ **Il collaudo si è fatto**, il primo da sei sessioni, e va letto prima di
+rifarlo da capo. Il salvataggio è al sicuro in
+`save-backup\pre-collaudo-20260815-47a` (186 file), `config.txt` ha
+`language. "1"` — se fosse `0` girerebbe il ramo giapponese e non si vedrebbe una
+riga di italiano — e l'eseguibile buono è quello delle **00:29 del 16/08**, cioè
+**dopo** la toppa.
+
+✅ **Verificato e a posto** — la **scheda dell'equipaggiamento** (`w`): la colonna
+delle parti (`bodyn` più `Mano*`), le intestazioni «Parte/Nome» e «Peso», il
+titolo, e soprattutto la riga del peso, che misura **53 caratteri sui 75 di
+tetto**. Era il campo che avevo dato per più stretto di tutti, e ha ventidue
+caratteri di margine.
+💡 `(Medium)` resta in inglese ed **è atteso**: viene da `cnveqweight` in
+`screen.hsp`, uno dei quaranta file senza dizionario. Non è un difetto della 47ª.
+
+⚠️⚠️ **Trovato e corretto** — nel riquadro «Combat Rolls» della scheda del
+personaggio (`c`) due etichette si saldavano al valore: «Mira64%» e «Pot.
+magia100%». Vedi il punto 14. **Da rifare** con l'eseguibile nuovo: deve
+leggersi «Mira 64%» e «Pot. magia 100%», con lo spazio.
+
+⚠️ **E il collaudo ha corretto anche un mio conto**: avevo scritto che
+l'etichetta di 「命中」 girava a corpo 12, e invece `com_skill_calcAttack:12424`
+la mette a **corpo 10** (`12 + sizefix - en * 2`, con `sizefix` assente da
+`config.txt` e quindi 0). Sei pixel per carattere, non 7,2. Le altre misure della
+sessione restano buone perché usano il corpo 12 giusto, ma **il corpo va letto
+sulla riga, non dato per scontato**.
+
+⚠️ **Restano da guardare** le cinque schermate che nessuno ha ancora aperto: il
+menu del **ritratto/PCC** (`c` poi `p`), quello dello **specchio** (uno specchio
+su un alleato), il **cambio di immagine**, il **tono di voce** e l'**evocazione
+dei PNG**. Sono quelle dei punti 1 e 2 dell'elenco qui sotto.
+💡 **E le righe d'attacco non compaiono aprendo la scheda**: le disegna
+`*show_weaponStat`, che gira solo quando si equipaggia o si toglie qualcosa in
+uno slot **mano** (`:12806` e `:14781`). Riequipaggiare l'arma prova in un gesto
+solo le righe d'attacco, il messaggio «Ti togli …» e gli avvisi sul peso.
 
 1. ⭐⭐ **Ancora `command.hsp`, e adesso la zona più densa è 14000-14999 (50)**,
    poi 5000-5999 (35), 3000-3999 (34), 10000-10999 (30), 8000-8999 (29),
@@ -85,9 +137,12 @@ lotti `031`, `033`, `034`, `035` e `036` sono a zero rinviate e tengono l'ancora
    i confini.
    ⭐ **E 3000-3999 (34) ha ancora il lavoro che aspetta**: `:3639` e `:3651` sono
    i due confronti su `CDATAN_NEWSEX` di cui parlava la 46ª.
-2. **Oppure il COLLAUDO**, che adesso ha **1.061 rese** mai viste a schermo — 947
-   dalle sessioni prima più le 114 di stanotte. ⚠️ Gli **88 ranghi** della 41ª
-   restano il debito più vecchio.
+2. **Oppure PROSEGUIRE il collaudo**, che stanotte è cominciato e si è fermato
+   dopo due schermate — ma quelle due hanno già prodotto una toppa. Restano
+   **1.061 rese** mai viste a schermo, 947 dalle sessioni prima più le 114 di
+   stanotte. ⚠️ Gli **88 ranghi** della 41ª restano il debito più vecchio.
+   💡 Quel che è già stato verificato sta nel riquadro «▶ Che cosa il collaudo ha
+   già detto» qui sopra: si riparte da lì, non da capo.
    ⭐ **Della seconda metà valgono soprattutto tre scene**, tutte facili da
    raggiungere: il **congedo di un dio** (evocalo con un desiderio e poi
    rimandalo a casa — otto battute diverse, una per divinità); la **raccolta dei
@@ -136,7 +191,7 @@ lotti `031`, `033`, `034`, `035` e `036` sono a zero rinviate e tengono l'ancora
    l'oggetto «borraccia filtrante», `action.hsp:8267` scrive «Hai riempito
    d'acqua la **bottiglia** filtrante». È materiale da `correzione-*.py`.
 
-### ⚠️⚠️ Le tredici cose che la prossima sessione deve sapere
+### ⚠️⚠️ Le quattordici cose che la prossima sessione deve sapere
 
 1. ⭐⭐⭐ **Il carattere del ramo inglese è monospaziato, e questo trasforma ogni
    «ci starà?» in una sottrazione.** `config.txt` dice `font2. "Courier New"`;
@@ -311,6 +366,31 @@ lotti `031`, `033`, `034`, `035` e `036` sono a zero rinviate e tengono l'ancora
     💡 È il rovescio del lotto 035, dove a distinguere era il giapponese e ad
     appiattire l'inglese, e la rete 11 autorizzava a riprendersi la distinzione.
     **Qui non c'è nessuna rete che autorizzi**: la resa è una sola.
+14. ⭐⭐⭐ **Una toppa può spostare una COORDINATA, e a volte è la strada giusta.**
+    Nel riquadro «Combat Rolls» l'etichetta e il valore escono a **due posizioni
+    fisse** — `pos wx + 590` per 「命中」, `pos wx + 625 - en * 8` per il valore — e
+    il gioco conta sul fatto che l'etichetta ci stia in mezzo. «Hit» è di tre
+    caratteri e lascia 9 px; «Mira» è di quattro e ne lascia 3, cioè si salda: a
+    schermo «Mira64%». Lo stesso per 「魔法威力」, dove «Pot. magia» (10) sta al posto
+    di «SpellPow» (8).
+    ⭐ **La strada l'ha indicata upstream tre righe più su**: `:10731` scrive
+    `pos wx + 590 - en * 16` per «Evade» e `:10733` `pos wx + 564 - en * 10` per
+    «SpellPow». Il **`- en * N` è un idioma di casa**, e serve esattamente a
+    compensare quando l'inglese è più largo del giapponese. Alla riga di 「命中」 non
+    c'era, perché «Hit» è più **stretto**. La toppa ce lo mette, con valori scelti
+    per **pareggiare** lo spazio dell'inglese, non per esagerare.
+    ✅ **E non tocca nessuna parola**, che è il punto: l'alternativa era scendere a
+    tre caratteri e buttare via «Mira», cioè il termine che `buff.hsp:679` aveva
+    già deciso. ⚠️ E non viola la regola della 46ª: le rese stanno sulle righe del
+    `mes lang(...)` (`:12428`, `:10734`), le toppe su quelle del `pos`. Righe
+    diverse, nessun rinvio.
+    💡 **La lezione più larga**: quando una resa non ci sta, prima di accorciarla
+    conviene guardare **se il sorgente ha già un modo di fare spazio**. Qui ce
+    l'aveva, e a tre righe di distanza.
+    ⚠️ **E il corollario amaro**: questo difetto nessuna misura poteva trovarlo,
+    perché io il corpo del carattere l'avevo letto sbagliato — 12 invece di 10. A
+    trovarlo è stato **guardare lo schermo**. Il collaudo non è la verifica di
+    quel che si sa: è l'unico posto dove si scopre quel che non si sapeva.
 
 ---
 
