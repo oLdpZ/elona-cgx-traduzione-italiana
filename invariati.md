@@ -487,6 +487,7 @@ sezione è il suo titolo — non c'è niente da rendere — e non la forma della
 | Qy@!! | il verso quando è furiosa |
 | Q...Qy@... | il verso in punto di morte |
 | `"*" + skillname(efid) + "* "` | `proc.hsp:12101`: l'intestazione dell'azione speciale. Il testo è tutto dentro `skillname()`, che è tradotto in `skill.hsp`; fuori restano due asterischi e uno spazio. Gli apici inversi la prendono verbatim, perché lo spazio finale conta |
+| `cnvtalk(inputlog + "!!")` | `command.hsp:4465`: il gioco rimanda a schermo, gridata, **la frase che il giocatore ha appena digitato** nella finestra del desiderio. Fuori da `inputlog` non c'è nessuna parola — due punti esclamativi, e le virgolette le mette `cnvtalk`. ⚠️ Il testo è quello che ha scritto il giocatore, quindi è già nella sua lingua per definizione: non c'è niente da rendere, e una «traduzione» qui vorrebbe dire aggiungere parole che nessuna delle due lingue di monte dice. Stesso criterio della riga qui sopra, con in più il fatto che la voce è una **dinamica** e il confronto di `verifica.py` cade sull'espressione intera |
 
 ## Nomi di creatura riscritti nel salvataggio — non decidibili qui
 
