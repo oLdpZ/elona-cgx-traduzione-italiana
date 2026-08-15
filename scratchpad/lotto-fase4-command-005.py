@@ -1,0 +1,400 @@
+# -*- coding: utf-8 -*-
+"""Lotto `command-005`: le 45 partenze di `*setHistory2`, la seconda riga del
+«Background».
+
+Segue il `command-004` e sta nella stessa schermata: dove la prima riga dice da
+dove vieni, questa dice **perche' sei partito**. Stesso vincolo — il soggetto e'
+il giocatore o un alleato (`chat.hsp:8588`) — e stesso registro nominale.
+
+⭐ **Qui il giapponese e' al PRESENTE, e l'inglese lo mette al passato.**
+Quarantadue voci su quarantacinque finiscono in 「〜旅に出る。」/「〜冒険に出る。」/
+「〜冒険者になる。」, cioe' *si parte*, non *sei partito*; l'inglese scrive «You
+left on adventure to…» per tutt'e quarantadue. Il nominale tiene il presente del
+giapponese senza doverlo coniugare: «In viaggio per…», «All'avventura per…».
+
+💡 **E le tre code giapponesi sono tre, non una**, quindi la resa le distingue
+come le distingue il sorgente:
+  - 「旅に出る」  -> «In viaggio per…»   (ventidue voci)
+  - 「冒険に出る」 -> «All'avventura…»    (nove)
+  - 「冒険者になる」 -> «Avventura, …»     (sei)
+L'inglese le appiattisce tutt'e tre su «left on adventure»: e' un
+appiattimento della specie che la 42a ha censito in `map.hsp`, e qui si
+disfa gratis.
+
+⚠️ **Due volte l'inglese dice piu' del giapponese, e vince il giapponese**
+(la regola della 42a, «il giapponese e' l'arbitro sul contenuto»):
+  - `:9672` 「寝ている間に船に積み込まれる。」 non nomina nessuna nave, e l'inglese
+    ci mette **«the Queen Sedona»**;
+  - `:9615` 「ロマンを求めて」 e' la **meraviglia**, il sogno d'avventura, e
+    l'inglese lo legge come «romance», cioe' l'amore. Le due parole si scrivono
+    uguali e vogliono dire cose diverse.
+
+⚠️ `:9672` e `:9684` finiscono tutt'e due su una nave — uno addormentato, l'altro
+morto — e stanno sulla **stessa riga** della schermata, quindi non si vedono mai
+insieme; le rese restano comunque distinte («il risveglio in una stiva» contro
+«il ritorno in se' su una nave») perche' due voci uguali su una lista tirata a
+sorte si notano.
+
+Tetto 61 caratteri (`:9627`), misurato con `scratchpad/misura-background.py`.
+Zero copie da `dossier.py`, come nel lotto prima.
+"""
+import collections
+import glob
+import importlib.util
+import io
+import json
+import re
+import unicodedata
+
+RESE = {
+    # --- 「旅に出る」: si parte per un viaggio. Ventidue voci.
+    (9597, 'You left on adventure to find yourself.'):
+        'In viaggio per ritrovare se stessi.',
+    (9600, 'You left on adventure lightheartedly.'):
+        'In viaggio così, senza un vero perché.',
+    (9612, 'You left on adventure to find a missing person.'):
+        'In viaggio sulle tracce di uno scomparso.',
+    (9627, 'You left on adventure to distract yourself from broken heart.'):
+        'In viaggio per dimenticare un amore finito.',
+    (9630, 'You left on adventure to work towards world peace.'):
+        'In viaggio per la pace nel mondo.',
+    (9633, 'You left on adventure to work towards global domination.'):
+        'In viaggio per conquistare il mondo.',
+    (9642, 'You left on adventure due to a revelation from god.'):
+        'In viaggio dopo una rivelazione divina.',
+    (9660, 'You left on adventure to flee from your past.'):
+        'In viaggio per fuggire dal passato.',
+    (9669, 'You left on adventure in search of atonement.'):
+        'In viaggio per espiare una colpa.',
+    (9678, 'You left on adventure to pursue the mysteries of old era.'):
+        'In viaggio dietro ai misteri degli antichi.',
+    (9690, 'You set out on a journey to find a way to lift a curse.'):
+        'In viaggio per sciogliere una maledizione.',
+    (9693, 'You set out on a journey to seek avenging on some person .'):
+        'In viaggio sulle tracce di una vendetta.',
+    (9708, 'You set out on a journey to change a terrible future.'):
+        'In viaggio per cambiare un futuro pessimo.',
+    (9711, 'You set out on a journey in search of someone to marry.'):
+        'In viaggio in cerca di chi sposare.',
+    (9723, 'You set out on a journey to restore your clan.'):
+        'In viaggio per far risorgere il casato.',
+    (9729, 'You went on a journey to show yourself off.'):
+        'In viaggio per farsi ammirare.',
+    # ⚠️ 「修行の旅」 e' l'allenamento, non il vagabondaggio. «forti» al plurale
+    #    perche' l'impersonale «farsi» non ha genere.
+    (9621, 'You left on adventure to become stronger.'):
+        'In viaggio per allenarsi e diventare più forti.',
+    # ⚠️ 「出稼ぎ」 e' andare a guadagnare fuori, non l'avventura
+    (9618, 'You left on adventure to find better work.'):
+        'Fuori a guadagnarsi il pane.',
+    # ⚠️ 「命令されて」: l'ordine viene da altri. «ricevuto» concorda con `ordine`.
+    (9624, 'You left on adventure to travel the world.'):
+        'Per ordine altrui, un giro fra i vari paesi.',
+    # ⚠️ 「逃亡する」 e' la fuga, non la partenza. «morto» concorderebbe.
+    (9639, 'You left on adventure because you feared for your life.'):
+        'In fuga da chi ti vuole uccidere.',
+    (9714, 'You are traveling around, wanting to see a wider world.'):
+        'In giro per il mondo, per vederlo tutto.',
+    (9696, 'You are investigating the world to gather intelligence.'):
+        'Indagini in giro per il mondo, a caccia di notizie.',
+
+    # --- 「冒険に出る」: si parte per l'avventura. Nove voci.
+    (9603, 'You left on adventure to fulfill an important promise.'):
+        "All'avventura per tenere fede a una promessa.",
+    (9609, 'You left on adventure for the excitement.'):
+        "All'avventura in cerca di emozioni.",
+    # ⚠️ 「ロマン」 e' la meraviglia, il sogno d'avventura: l'inglese legge «romance»
+    (9615, 'You left on adventure to find romance.'):
+        "All'avventura in cerca di meraviglie.",
+    # ⚠️ «guidati dal destino» concorderebbe: il destino agisce, non chi lo segue
+    (9636, 'You left on adventure because it was your destiny.'):
+        "All'avventura, per mano del destino.",
+    (9663, 'You left on adventure to protect something precious.'):
+        "All'avventura per difendere ciò che conta.",
+    (9675, 'You left on adventure to seek undiscovered treasures.'):
+        "All'avventura in cerca di tesori mai visti.",
+    (9720, 'You set out on an adventure, dreaming of passive income.'):
+        "All'avventura, col sogno di una rendita.",
+    (9699, 'You have failed in life and can only became a adventurer.'):
+        "Una vita fallita, e nessun'altra strada.",
+
+    # --- 「冒険者になる」: si diventa avventurieri. Sei voci, e il nome del mestiere
+    #     un genere ce l'ha: si dice il MESTIERE, non chi lo fa.
+    (9606, 'You left on adventure to better your situation.'):
+        'Avventura, per cambiare aria.',
+    (9648, 'You left on adventure because you admired adventurers.'):
+        'Il sogno di fare come gli avventurieri.',
+    (9654, 'You left on adventure to become rich.'):
+        'Avventura, perché si dice che renda.',
+    (9666, 'You left on adventure to seek fame.'):
+        'Avventura in cerca di gloria.',
+    (9687, 'You become an adventurer at the recommendation of friends.'):
+        'Avventura, su consiglio di un conoscente.',
+    (9726, 'You became an adventurer, dreaming of a sudden turnaround.'):
+        'Avventura, col sogno del colpo di fortuna.',
+
+    # --- le otto che non partono per scelta: qualcosa e' successo.
+    (9645, 'You left on adventure after becoming a criminal.'):
+        'Un delitto, e la cacciata dal paese natale.',
+    (9651, 'One day you were summoned to this world.'):
+        'Un giorno, la chiamata in questo mondo.',
+    (9657, 'You left on adventure for getting involved in a conspiracy.'):
+        "Un complotto, e poi l'esilio.",
+    # ⚠️ 「役立たずと判断されて」: «giudicato» concorderebbe, il giudizio no
+    (9717, 'You were deemed useless and banished.'):
+        'Il giudizio di inutilità, e poi il bando.',
+    # ⚠️ il giapponese non nomina nessuna nave: la Queen Sedona la mette l'inglese
+    (9672, 'You were loaded onto the Queen Sedona while you slept.'):
+        'Un sonno profondo, e il risveglio in una stiva.',
+    (9684, 'You suddenly find yourself on a ship before you die.'):
+        'La fine della vita, e il ritorno in sé su una nave.',
+    (9702, 'You have walked through a mysterious gate.'):
+        'Il passaggio attraverso un portale misterioso.',
+    # ⚠️ «inghiottito» concorderebbe: la piega agisce, chi ci cade si smarrisce
+    (9705, 'You got swallowed into a distortion in time-space.'):
+        'Una piega dello spaziotempo, e lo smarrimento.',
+    (9681, 'You can not remember the reason of your travel.'):
+        'Nemmeno il motivo del viaggio è chiaro.',
+}
+# rete 5: l'accento deve essere PRECOMPOSTO. Vedi il lotto 005.
+RESE = {chiave: unicodedata.normalize('NFC', resa) for chiave, resa in RESE.items()}
+
+RINVIATE = set()
+
+USCITA = 'lavoro/fase4-command-005.jsonl'
+DA, A = 9595, 9732
+SORGENTE = r'C:\\Games\\Elona\\_traduzione\\sorgente\\2.05-custom-gx\\command.hsp'
+
+tutte = [json.loads(l) for l in io.open('lavoro/_command.jsonl', encoding='utf-8') if l.strip()]
+zona = [v for v in tutte if DA <= v['riga'] <= A]
+
+# rete 0: la chiave di un lotto e' `(riga, en)`, e **non e' univoca**.
+#
+# Due `lang()` diverse sulla stessa riga possono avere lo stesso inglese: se il
+# giapponese distingue e l'inglese no, la chiave corta identifica due voci. Fino
+# alla 41a la rete si limitava a fermare la zona, che era giusto — meglio fermarsi
+# che scrivere la resa sulla voce sbagliata — ma lasciava il lotto senza strada:
+# `ai.hsp:4576` fu scritto a mano, indicizzato per `firma`, perche' 「変身！」 e
+# 「トランスフォーム！」 sono tutt'e due `cnvtalk("Transform!")`.
+#
+# Poi `init.hsp` ne ha portate tre in un file solo — `:358` («Great museum» per
+# 大人気の博物館 e per 来客の絶えない博物館), `:2225` (lo spazio per 年 e per 日),
+# `:2235` (i due punti per 時間 e per 分) — e la strada a mano non regge piu'.
+#
+# ✅ Adesso la voce ambigua si dichiara con la **chiave lunga** `(riga, en, jp)`,
+# che e' univoca perche' e' il giapponese a distinguere. La `firma` lo sarebbe
+# altrettanto, ma e' un sha1: illeggibile in un file che si rilegge a mano.
+# Le voci non ambigue tengono la chiave corta, quindi i lotti gia' scritti
+# valgono tal quale.
+AMBIGUE = {k for k, n in collections.Counter((v['riga'], v['en']) for v in zona).items() if n > 1}
+
+
+def chiave(v) -> tuple:
+    corta = (v['riga'], v['en'])
+    return (v['riga'], v['en'], v['jp']) if corta in AMBIGUE else corta
+
+
+voci = [v for v in zona if chiave(v) not in RINVIATE]
+
+errori = []
+for k in sorted(AMBIGUE):
+    print(f'💡 rete 0: la chiave {k} identifica piu\' di una voce: '
+          f'vanno date con la chiave lunga (riga, en, jp)')
+indice = {chiave(v): v for v in voci}
+for v in voci:
+    if chiave(v) not in RESE:
+        errori.append(f"rete 1: voce senza resa -> chiave {chiave(v)!r}")
+for k in RESE:
+    if k not in indice:
+        errori.append(f'rete 2: resa che non aggancia nessuna voce -> {k}')
+for k in RINVIATE:
+    if k not in {chiave(v) for v in zona}:
+        errori.append(f'rete 2-bis: rinviata che non aggancia nessuna voce -> {k}')
+
+# ⚠️ E il controllo di rete 1 va PRIMA delle altre reti, non dopo: la rete 8
+# dereferenzia `RESE` e, se una resa manca, quel che esce e' un `KeyError` nudo
+# invece del messaggio della rete 1. Difetto noto dalla 38a (`proc.hsp:23654`),
+# corretto qui.
+if errori:
+    for e in errori:
+        print(e)
+    raise SystemExit('lotto fermato dalle reti')
+
+sorgente = io.open(SORGENTE, encoding='cp932').read().split('\n')
+
+# rete 6: righe spente, col `;` (lotto 006) o dentro un blocco (lotto 014).
+_spec = importlib.util.spec_from_file_location('cb', 'scratchpad/commenti-blocco.py')
+_cb = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_cb)
+SPENTE = _cb.righe_in_commento(SORGENTE)
+for v in voci:
+    if sorgente[v['riga'] - 1].lstrip().startswith(';'):
+        errori.append(f"rete 6: riga {v['riga']} e' commentata nel sorgente, va rinviata")
+    elif v['riga'] in SPENTE:
+        errori.append(f"rete 6: riga {v['riga']} sta dentro un commento di BLOCCO, va rinviata")
+
+# rete 7: una voce dentro un CONFRONTO non e' testo (lotto 007).
+for v in voci:
+    testa = sorgente[v['riga'] - 1].split('lang(')[0]
+    if '==' in testa or '!=' in testa:
+        errori.append(f"rete 7: riga {v['riga']} e' un confronto, non un testo: va rinviata")
+
+# rete 8: niente preposizione che si fonde davanti a un nome (lotto 009).
+# `valn` solo se NON viene da uno `skillname` (lotto 014).
+FONDONO = re.compile(r'\b(a|di|da|in|su)\s*"\s*\+\s*(name|itemname|valn|cdatan)\b')
+ASSEGNA_VALN = re.compile(r'^\s*valn\s*=\s*([A-Za-z_][A-Za-z0-9_]*)\s*\(')
+
+
+def valn_viene_da(riga: int) -> str:
+    for i in range(riga - 1, max(0, riga - 60), -1):
+        trovato = ASSEGNA_VALN.match(sorgente[i - 1])
+        if trovato:
+            return trovato.group(1)
+    return '?'
+
+
+for v in voci:
+    resa = RESE[chiave(v)]
+    for _, nome in FONDONO.findall(resa):
+        if nome == 'valn' and valn_viene_da(v['riga']) == 'skillname':
+            continue
+        errori.append(f"rete 8: riga {v['riga']} ha una preposizione che si fonde "
+                      f"davanti a {nome} -> {resa}")
+
+# rete 9: una TESTA di frase (l'inglese finisce in « and») deve chiudersi col
+# connettivo (lotto 010).
+#
+# ⚠️ E la testa finisce in « and» SENZA spazio in coda: lo `.rstrip()` che stava
+# qui cancellava proprio la differenza fra una testa e una congiunzione infissa,
+# ed e' la stessa specie di errore della rete 8 nella 37a — la rete boccia una
+# resa giusta perche' guarda male, non perche' la resa sbagli.
+# `command.hsp:13` compone la lista degli oggetti sulla casella con
+# `lang("と", " and ")`, spazio davanti e dietro, e la rete pretendeva che « e »
+# finisse col connettivo, che e' l'unica cosa che quella resa contiene.
+# ✅ Misurato sul dizionario intero: le teste vere sono **29** e finiscono tutte
+# in « and» esatto (`action.hsp:4866`, «name(cc) + " calcia via " + name(tc) + " e"»);
+# l'unica voce che finisce in « and » con lo spazio e' `text.hsp:11685`, che e'
+# una congiunzione infissa come questa. La distinzione la impone il sorgente.
+TESTA = re.compile(r'\se"$')
+for v in voci:
+    if v['en'].endswith(' and'):
+        resa = RESE[chiave(v)].rstrip()
+        if not TESTA.search(resa):
+            errori.append(f"rete 9: riga {v['riga']} e' una testa di frase ma non "
+                          f"finisce con ' e' -> {resa}")
+
+# rete 10: `his(x, 1)` regge un nome maschile singolare (lotto 011).
+POSSESSIVO = re.compile(r'\b(his|he|him)\s*\([^)]*,[^)]*\)\s*\+\s*"\s*([A-Za-zÀ-ÿ\']+)')
+accanto = []
+for v in voci:
+    for _, nome in POSSESSIVO.findall(RESE[chiave(v)]):
+        accanto.append((v['riga'], nome))
+
+# rete 12: la resa di una DINAMICA e' un'espressione HSP, non testo nudo
+# (lotto 014: l'ha trovata il compilatore).
+for v in voci:
+    if v['tipo'] == 'dinamica' and '"' not in RESE[chiave(v)]:
+        errori.append(f"rete 12: riga {v['riga']} e' una dinamica ma la resa e' testo "
+                      f"nudo: va scritta come espressione, fra virgolette")
+
+# rete 11: le funzioni di CONTENUTO devono coincidere (verifica.py:367).
+try:
+    from strumenti.funzioni import funzioni_di_contenuto
+except ImportError:
+    funzioni_di_contenuto = None
+if funzioni_di_contenuto is not None:
+    for v in voci:
+        if v['tipo'] != 'dinamica':
+            continue
+        attese = funzioni_di_contenuto(v['en_grezzo'])
+        trovate = funzioni_di_contenuto(RESE[chiave(v)])
+        if attese != trovate:
+            di_troppo = [f for f in trovate if f not in attese]
+            mancanti = [f for f in attese if f not in trovate]
+            dettaglio = []
+            if di_troppo:
+                dettaglio.append(f'di troppo {di_troppo}')
+            if mancanti:
+                dettaglio.append(f'mancanti {mancanti}')
+            if not dettaglio:
+                dettaglio.append(f'ordine diverso: attese {attese}, trovate {trovate}')
+            errori.append(f"rete 11: riga {v['riga']} — {'; '.join(dettaglio)}")
+
+if errori:
+    for e in errori:
+        print(e)
+    raise SystemExit('lotto fermato dalle reti')
+
+# Il confronto fra due rese e' sui LETTERALI, non sull'espressione (lotto 011
+# per la rete 4, lotto 014 per la rete 3).
+LETTERALI = re.compile(r'"((?:[^"\\]|\\.)*)"')
+
+
+def parole(resa: str) -> tuple:
+    if '"' not in resa:
+        return (resa,)
+    return tuple(LETTERALI.findall(resa))
+
+
+gia = {}
+for p in glob.glob('dizionario/*.jsonl'):
+    nome = p.replace('\\', '/').split('/')[-1]
+    for l in io.open(p, encoding='utf-8'):
+        if not l.strip():
+            continue
+        d = json.loads(l)
+        if d.get('it') and d.get('jp'):
+            gia.setdefault(d['jp'], set()).add((nome, d['riga'], d['it']))
+for v in voci:
+    resa = RESE[chiave(v)]
+    for nome, riga, it in gia.get(v['jp'], ()):
+        if it == resa:
+            continue
+        if parole(it) == parole(resa):
+            print(f"💡 rete 3: riga {v['riga']} dice le stesse parole di {nome}:{riga} "
+                  f'su variabili diverse: e\' la stessa resa')
+            continue
+        print(f"⚠️ rete 3: riga {v['riga']} jp={v['jp']!r}\n"
+              f"      qui      {resa!r}\n"
+              f"      {nome}:{riga}  {it!r}")
+
+
+# rete 4: lo stesso giapponese non puo' avere due rese diverse DENTRO il lotto.
+# Raggruppata per (giapponese, funzioni di contenuto): vedi il lotto 015.
+def firma_di(v) -> tuple:
+    if funzioni_di_contenuto is None or v['tipo'] != 'dinamica':
+        return ()
+    return tuple(funzioni_di_contenuto(v['en_grezzo']))
+
+
+per_jp = collections.defaultdict(set)
+firme_per_jp = collections.defaultdict(set)
+for v in voci:
+    per_jp[(v['jp'], firma_di(v))].add(parole(RESE[chiave(v)]))
+    firme_per_jp[v['jp']].add(firma_di(v))
+for (jp, firma), rese in per_jp.items():
+    if len(rese) > 1:
+        raise SystemExit(f'rete 4: {jp!r} con firma {firma} reso in {len(rese)} modi: {rese}')
+for jp, firme in firme_per_jp.items():
+    if len(firme) > 1:
+        print(f'💡 rete 4: {jp!r} ha {len(firme)} firme diverse di monte {sorted(firme)}: '
+              f'le rese non possono coincidere, e non e\' una scelta')
+
+# rete 13: due voci con lo STESSO INGLESE e un giapponese diverso sono un errore
+# di monte finche' non si guarda: l'inglese ha appiattito una distinzione che il
+# giapponese fa. ⚠️ Nata nella 37a da `:14521`/`:14573`. Referto da leggere.
+per_en = collections.defaultdict(set)
+for v in voci:
+    per_en[v['en']].add(v['jp'])
+for en, giapponesi in sorted(per_en.items()):
+    if len(giapponesi) > 1:
+        print(f'💡 rete 13: l\'inglese {en!r} sta per {len(giapponesi)} giapponesi diversi '
+              f'{sorted(giapponesi)}: guarda se la distinzione va tenuta')
+
+with io.open(USCITA, 'w', encoding='utf-8', newline='\n') as f:
+    for v in voci:
+        v['it'] = RESE[chiave(v)]
+        f.write(json.dumps(v, ensure_ascii=False) + '\n')
+print(f'{len(voci)} voci scritte in {USCITA} ({len(RINVIATE)} rinviate)')
+for riga, nome in accanto:
+    print(f'rete 10: riga {riga} — his(x, 1) regge «{nome}»: dev\'essere maschile singolare')
