@@ -1,0 +1,496 @@
+==============================================================================
+=== riga 13.0  [statica]
+jp: "と"
+en: " and "
+--- sorgente
+  10: 					continue
+  11: 				}
+  12: 				if ( locvar_txtitemoncell_p(1) != 0 ) {
+>>13: 					rtvaln += lang("と", " and ")
+  14: 				}
+  15: 				rtvaln += itemname(locvar_txtitemoncell_i(cnt))
+  16: 				locvar_txtitemoncell_p(1)++
+--- STESSO GIAPPONESE, gia' reso:
+    text.hsp.jsonl:11685  , più 
+--- stesso inglese, gia' reso:
+    text.hsp.jsonl:11685  , più 
+==============================================================================
+=== riga 23.0  [dinamica]
+jp: rtvaln + "が落ちている。"
+en: "You see " + rtvaln + " here."
+--- sorgente
+  20: 			rtvaln = itemname(rtval(1))
+  21: 		}
+  22: 		if ( inv(INV_ITEM_PROPERTY, rtval(1)) <= PROP_NONE ) {
+>>23: 			bedtxt = lang(rtvaln + "が落ちている。", "You see " + rtvaln + " here.")
+  24: 		}
+  25: 		else {
+  26: 			if ( inv(INV_ITEM_PROPERTY, rtval(1)) == PROP_CONSTRUCT ) {
+==============================================================================
+=== riga 27.0  [dinamica]
+jp: rtvaln + "が設置されている。"
+en: "" + rtvaln + " is constructed here."
+--- sorgente
+  24: 		}
+  25: 		else {
+  26: 			if ( inv(INV_ITEM_PROPERTY, rtval(1)) == PROP_CONSTRUCT ) {
+>>27: 				bedtxt = lang(rtvaln + "が設置されている。", "" + rtvaln + " is constructed here.")
+  28: 			}
+  29: 			else {
+  30: 				bedtxt = lang(rtvaln + "がある。", "You see " + rtvaln + " placed here.(" + cnvweight(inv(INV_ITEM_WEIGHT, rtval(1))) + ")")
+==============================================================================
+=== riga 30.0  [dinamica]
+jp: rtvaln + "がある。"
+en: "You see " + rtvaln + " placed here.(" + cnvweight(inv(INV_ITEM_WEIGHT, rtval(1))) + ")"
+--- sorgente
+  27: 				bedtxt = lang(rtvaln + "が設置されている。", "" + rtvaln + " is constructed here.")
+  28: 			}
+  29: 			else {
+>>30: 				bedtxt = lang(rtvaln + "がある。", "You see " + rtvaln + " placed here.(" + cnvweight(inv(INV_ITEM_WEIGHT, rtval(1))) + ")")
+  31: 			}
+  32: 		}
+  33: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_JURES_BODY_PILLOW ) {
+--- STESSO GIAPPONESE, gia' reso:
+    text.hsp.jsonl:3095  "Si vede " + s + "."
+    text.hsp.jsonl:3101  "Si vede " + bdrefn(locvar_txtbuilding_p)
+==============================================================================
+=== riga 34.0  [statica]
+jp: "寝心地は悪そうだが、いい夢を見れそうだ。"
+en: " It looks uncomfortable to sleep on, but I'm sure I'll have good dreams."
+--- sorgente
+  31: 			}
+  32: 		}
+  33: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_JURES_BODY_PILLOW ) {
+>>34: 			bedtxt += lang("寝心地は悪そうだが、いい夢を見れそうだ。", " It looks uncomfortable to sleep on, but I'm sure I'll have good dreams.")
+  35: 		}
+  36: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_SLEEPING_BAG | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_CHEAP_BED2 ) {
+  37: 			bedtxt += lang("地べたで寝るのと大差ないだろう。", " It wouldn't be much different from sleeping on the ground.")
+==============================================================================
+=== riga 37.0  [statica]
+jp: "地べたで寝るのと大差ないだろう。"
+en: " It wouldn't be much different from sleeping on the ground."
+--- sorgente
+  34: 			bedtxt += lang("寝心地は悪そうだが、いい夢を見れそうだ。", " It looks uncomfortable to sleep on, but I'm sure I'll have good dreams.")
+  35: 		}
+  36: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_SLEEPING_BAG | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_CHEAP_BED2 ) {
+>>37: 			bedtxt += lang("地べたで寝るのと大差ないだろう。", " It wouldn't be much different from sleeping on the ground.")
+  38: 		}
+  39: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_PLAIN_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_CHEAP_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_BUNK_BED ) {
+  40: 			bedtxt += lang("地べたで寝るよりはマシだが…。", " It's better than sleeping on the ground.")
+==============================================================================
+=== riga 40.0  [statica]
+jp: "地べたで寝るよりはマシだが…。"
+en: " It's better than sleeping on the ground."
+--- sorgente
+  37: 			bedtxt += lang("地べたで寝るのと大差ないだろう。", " It wouldn't be much different from sleeping on the ground.")
+  38: 		}
+  39: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_PLAIN_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_CHEAP_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_BUNK_BED ) {
+>>40: 			bedtxt += lang("地べたで寝るよりはマシだが…。", " It's better than sleeping on the ground.")
+  41: 		}
+  42: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_GIANT_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_COMFORTABLE_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_EASTERN_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_CLEAN_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_SOFT_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_COFFIN ) {
+  43: 			bedtxt += lang("まぁまぁ休めそうだ。", " I think I can rest to some extent.")
+==============================================================================
+=== riga 43.0  [statica]
+jp: "まぁまぁ休めそうだ。"
+en: " I think I can rest to some extent."
+--- sorgente
+  40: 			bedtxt += lang("地べたで寝るよりはマシだが…。", " It's better than sleeping on the ground.")
+  41: 		}
+  42: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_GIANT_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_COMFORTABLE_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_EASTERN_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_CLEAN_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_SOFT_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_COFFIN ) {
+>>43: 			bedtxt += lang("まぁまぁ休めそうだ。", " I think I can rest to some extent.")
+  44: 		}
+  45: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_SLEEP_SHEEP | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_LUXURY_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_DOUBLE_BED ) {
+  46: 			bedtxt += lang("寝心地が良さそうだ。", " I think I'll be able to sleep comfortably.")
+==============================================================================
+=== riga 46.0  [statica]
+jp: "寝心地が良さそうだ。"
+en: " I think I'll be able to sleep comfortably."
+--- sorgente
+  43: 			bedtxt += lang("まぁまぁ休めそうだ。", " I think I can rest to some extent.")
+  44: 		}
+  45: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_SLEEP_SHEEP | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_LUXURY_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_DOUBLE_BED ) {
+>>46: 			bedtxt += lang("寝心地が良さそうだ。", " I think I'll be able to sleep comfortably.")
+  47: 		}
+  48: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_KINGS_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_HAPPY_BED ) {
+  49: 			bedtxt += lang("とっても寝心地が良さそうだ！", " I think I'll be able to sleep very comfortably!")
+==============================================================================
+=== riga 49.0  [statica]
+jp: "とっても寝心地が良さそうだ！"
+en: " I think I'll be able to sleep very comfortably!"
+--- sorgente
+  46: 			bedtxt += lang("寝心地が良さそうだ。", " I think I'll be able to sleep comfortably.")
+  47: 		}
+  48: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_KINGS_BED | inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_HAPPY_BED ) {
+>>49: 			bedtxt += lang("とっても寝心地が良さそうだ！", " I think I'll be able to sleep very comfortably!")
+  50: 		}
+  51: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_BOMB_BARREL ) {
+  52: 			if ( cdatan(CDATAN_FAKE_CLASS, CHARA_PLAYER) == "錬金術士" | instr(cdatan(CDATAN_FAKE_CLASS, CHARA_PLAYER), 0, "lchemist") != (-1) ) {
+==============================================================================
+=== riga 53.0  [statica]
+jp: "「たる…」"
+en: " \"Baaarrel...\""
+--- sorgente
+  50: 		}
+  51: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_BOMB_BARREL ) {
+  52: 			if ( cdatan(CDATAN_FAKE_CLASS, CHARA_PLAYER) == "錬金術士" | instr(cdatan(CDATAN_FAKE_CLASS, CHARA_PLAYER), 0, "lchemist") != (-1) ) {
+>>53: 				bedtxt += lang("「たる…」", " \"Baaarrel...\"")
+  54: 			}
+  55: 		}
+  56: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_POTION_NEKTAR ) {
+==============================================================================
+=== riga 58.0  [statica]
+jp: "「たる～」"
+en: " \"It's a Barrel~\""
+--- sorgente
+  55: 		}
+  56: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_POTION_NEKTAR ) {
+  57: 			if ( cdatan(CDATAN_FAKE_CLASS, CHARA_PLAYER) == "錬金術士" | instr(cdatan(CDATAN_FAKE_CLASS, CHARA_PLAYER), 0, "lchemist") != (-1) ) {
+>>58: 				bedtxt += lang("「たる～」", " \"It's a Barrel~\"")
+  59: 			}
+  60: 		}
+  61: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_SNOW_BARREL ) {
+==============================================================================
+=== riga 63.0  [statica]
+jp: "「たるっ」"
+en: " \"A barrel.\""
+--- sorgente
+  60: 		}
+  61: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_SNOW_BARREL ) {
+  62: 			if ( cdatan(CDATAN_FAKE_CLASS, CHARA_PLAYER) == "錬金術士" | instr(cdatan(CDATAN_FAKE_CLASS, CHARA_PLAYER), 0, "lchemist") != (-1) ) {
+>>63: 				bedtxt += lang("「たるっ」", " \"A barrel.\"")
+  64: 			}
+  65: 		}
+  66: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_CARGO_BARREL ) {
+==============================================================================
+=== riga 68.0  [statica]
+jp: "「たる！」"
+en: " \"Barrel!\""
+--- sorgente
+  65: 		}
+  66: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_CARGO_BARREL ) {
+  67: 			if ( cdatan(CDATAN_FAKE_CLASS, CHARA_PLAYER) == "錬金術士" | instr(cdatan(CDATAN_FAKE_CLASS, CHARA_PLAYER), 0, "lchemist") != (-1) ) {
+>>68: 				bedtxt += lang("「たる！」", " \"Barrel!\"")
+  69: 			}
+  70: 	}
+  71: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_BARREL ) {
+==============================================================================
+=== riga 73.0  [statica]
+jp: "「たーる」"
+en: " \"Barrel.\""
+--- sorgente
+  70: 	}
+  71: 		if ( inv(INV_ITEM_ID, rtval(1)) == ITEM_ID_BARREL ) {
+  72: 			if ( cdatan(CDATAN_FAKE_CLASS, CHARA_PLAYER) == "錬金術士" | instr(cdatan(CDATAN_FAKE_CLASS, CHARA_PLAYER), 0, "lchemist") != (-1) ) {
+>>73: 				bedtxt += lang("「たーる」", " \"Barrel.\"")
+  74: 			}
+  75: 		}
+  76: 		return bedtxt
+==============================================================================
+=== riga 78.0  [dinamica]
+jp: "ここには" + rtval + "種類のアイテムがある。"
+en: "There are " + rtval + " items lying here."
+--- sorgente
+  75: 		}
+  76: 		return bedtxt
+  77: 	}
+>>78: 	return lang("ここには" + rtval + "種類のアイテムがある。", "There are " + rtval + " items lying here.")
+  79: 
+  80: #deffunc txttargetnpcextrainfo int txttargetnpc_arg_tc, int txttargetnpc_arg_istag
+  81: 	if ( txttargetnpc_arg_tc < 0 | txttargetnpc_arg_tc >= MAX_CHARA_TOTAL ) { return }
+==============================================================================
+=== riga 115.0  [statica]
+jp: "ﾀｰﾝ"
+en: "turns "
+--- sorgente
+  112: 	; 		continue
+  113: 	; 	}
+  114: 	; 	calcbuff -2, cdata(STARTING_CDATA_BUFF + cnt * ARRAY_CDATA_BUFF, txttargetnpc_arg_tc), cdata(STARTING_CDATA_BUFF + cnt * ARRAY_CDATA_BUFF + 1, txttargetnpc_arg_tc)
+>>115: 	; 	s = "" + buffname(cdata(STARTING_CDATA_BUFF + cnt * ARRAY_CDATA_BUFF, txttargetnpc_arg_tc)) + ": " + cdata(STARTING_CDATA_BUFF + cnt * ARRAY_CDATA_BUFF + 2, txttargetnpc_arg_tc) + lang("ﾀｰﾝ", "turns ")
+  116: 	; 	color 0, 0, 0
+  117: 	; 	pos 100, windowh - inf_verh - 45 - locvar_txttargetnpc_dy * 20
+  118: 	; 	locvar_txttargetnpc_dy++
+==============================================================================
+=== riga 127.0  [statica]
+jp: "ﾀｰﾝ"
+en: " stacks "
+--- sorgente
+  124: 		displaytexts  = _congravity, _coninvert, _conoil, _conwet, _conangry, _conbind, _coninsane, _conmochi, _conmpoison, _conbleed, _consleep, _conbrowbeat, _conwash, _confear, _condim, _conpoison, _conconfuse, _conblind, _conparalyze, _conreiki, _conkaen
+  125: 		repeat length(displaystates)
+  126: 			if ( cdata(displaystates(cnt), txttargetnpc_arg_tc) > 0 ) {
+>>127: 				s = "" + displaytexts(cnt) + ": " + cdata(displaystates(cnt), txttargetnpc_arg_tc) + lang("ﾀｰﾝ", " stacks ")
+  128: 				color 0, 0, 0
+  129: 				pos 100, windowh - inf_verh - 45 - locvar_txttargetnpc_dy * 20
+  130: 				locvar_txttargetnpc_dy++
+==============================================================================
+=== riga 160.0  [dinamica]
+jp: "ｷｬﾗﾁｯﾌﾟ番号：" + locvar_txttargetnpc_pic + " / 色番号：" + refchara(cdata(CDATA_ID, txttargetnpc_arg_tc), DBSPEC_CHARA_COL) * 1000 + " "
+en: "SpriteID: " + cdata(CDATA_PIC, txttargetnpc_arg_tc) + " / ColorID: " + refchara(cdata(CDATA_ID, txttargetnpc_arg_tc), DBSPEC_CHARA_COL) * 1000 + " "
+--- sorgente
+  157: 	color 0, 0, 0
+  158: 	pos 100, windowh - inf_verh - 45 - locvar_txttargetnpc_dy * 20
+  159: 	locvar_txttargetnpc_dy++
+>>160: 	bmes lang("ｷｬﾗﾁｯﾌﾟ番号：" + locvar_txttargetnpc_pic + " / 色番号：" + refchara(cdata(CDATA_ID, txttargetnpc_arg_tc), DBSPEC_CHARA_COL) * 1000 + " ", "SpriteID: " + cdata(CDATA_PIC, txttargetnpc_arg_tc) + " / ColorID: " + refchara(cdata(CDATA_ID, txttargetnpc_arg_tc), DBSPEC_CHARA_COL) * 1000 + " "), 255, 2552, 255
+  161: 	if ( trait(TRAIT_NORMAL_DISCERNMENT) != 0 ) {
+  162: 		tcbkinfo = tc
+  163: 		tc = txttargetnpc_arg_tc
+==============================================================================
+=== riga 169.0  [dinamica]
+jp: "性別：" + s + "　年齢：" + calcage(txttargetnpc_arg_tc) + "歳　信仰：" + godname(cdata(CDATA_GOD, txttargetnpc_arg_tc)) + " "
+en: "Gender: " + s + " / Age: " + calcage(txttargetnpc_arg_tc) + " / Religion: " + godname(cdata(CDATA_GOD, txttargetnpc_arg_tc)) + ""
+--- sorgente
+  166: 		color 0, 0, 0
+  167: 		pos 100, windowh - inf_verh - 45 - locvar_txttargetnpc_dy * 20
+  168: 		locvar_txttargetnpc_dy++
+>>169: 		bmes lang("性別：" + s + "　年齢：" + calcage(txttargetnpc_arg_tc) + "歳　信仰：" + godname(cdata(CDATA_GOD, txttargetnpc_arg_tc)) + " ", "Gender: " + s + " / Age: " + calcage(txttargetnpc_arg_tc) + " / Religion: " + godname(cdata(CDATA_GOD, txttargetnpc_arg_tc)) + ""), 255, 2552, 255
+  170: 	}
+  171: 	if ( mdata(MDATA_TYPE) != MAP_TYPE_TOWN & mdata(MDATA_TYPE) != MAP_TYPE_VILLAGE & trait(TRAIT_NORMAL_DISCERNMENT) != 0 ) {
+  172: 		// Resistance from MMAH
+==============================================================================
+=== riga 231.0  [statica]
+jp: "視界範囲外"
+en: "This location is out of sight."
+--- sorgente
+  228: 			pos 100, windowh - inf_verh - 45 - locvar_txttargetnpc_dy * 20
+  229: 			locvar_txttargetnpc_dy++
+  230: 			color 0, 0, 0
+>>231: 			bmes lang("視界範囲外", "This location is out of sight."), 255, 2552, 255
+  232: 			cansee = 0
+  233: 			return
+  234: 		}
+==============================================================================
+=== riga 265.0  [dinamica]
+jp: "ｷｬﾗﾁｯﾌﾟ番号：" + cdata(CDATA_PIC, locvar_txttargetnpc_i) + " / 色番号：" + refchara(cdata(CDATA_ID, locvar_txttargetnpc_i), DBSPEC_CHARA_COL) * 1000 + " "
+en: "SpriteID：" + cdata(CDATA_PIC, locvar_txttargetnpc_i) + " / ColorID：" + refchara(cdata(CDATA_ID, locvar_txttargetnpc_i), DBSPEC_CHARA_COL) * 1000 + " "
+--- sorgente
+  262: 			color 0, 0, 0
+  263: 			pos 100, windowh - inf_verh - 45 - locvar_txttargetnpc_dy * 20
+  264: 			locvar_txttargetnpc_dy++
+>>265: 			bmes lang("ｷｬﾗﾁｯﾌﾟ番号：" + cdata(CDATA_PIC, locvar_txttargetnpc_i) + " / 色番号：" + refchara(cdata(CDATA_ID, locvar_txttargetnpc_i), DBSPEC_CHARA_COL) * 1000 + " ", "SpriteID：" + cdata(CDATA_PIC, locvar_txttargetnpc_i) + " / ColorID：" + refchara(cdata(CDATA_ID, locvar_txttargetnpc_i), DBSPEC_CHARA_COL) * 1000 + " "), 255, 2552, 255
+  266: 			if ( trait(TRAIT_NORMAL_DISCERNMENT) != 0 ) {
+  267: 				txttargetsex
+  268: 				color 0, 0, 0
+==============================================================================
+=== riga 271.0  [dinamica]
+jp: "性別：" + s + "　年齢：" + calcage(locvar_txttargetnpc_i) + "歳　信仰：" + godname(cdata(CDATA_GOD, locvar_txttargetnpc_i)) + " "
+en: "Sex:" + s + " / Age:" + calcage(locvar_txttargetnpc_i) + " / Religion:" + godname(cdata(CDATA_GOD, locvar_txttargetnpc_i)) + ""
+--- sorgente
+  268: 				color 0, 0, 0
+  269: 				pos 100, windowh - inf_verh - 45 - locvar_txttargetnpc_dy * 20
+  270: 				locvar_txttargetnpc_dy++
+>>271: 				bmes lang("性別：" + s + "　年齢：" + calcage(locvar_txttargetnpc_i) + "歳　信仰：" + godname(cdata(CDATA_GOD, locvar_txttargetnpc_i)) + " ", "Sex:" + s + " / Age:" + calcage(locvar_txttargetnpc_i) + " / Religion:" + godname(cdata(CDATA_GOD, locvar_txttargetnpc_i)) + ""), 255, 2552, 255
+  272: 			}
+  273: 	 		********** ORIGINAL - ENDING **********/
+  274: 			if ( cdata(CDATA_TAGTEAM_PARTNER, locvar_txttargetnpc_i) > 0 ) {
+==============================================================================
+=== riga 282.0  [statica]
+jp: "現在のターゲットは"
+en: "You are targeting "
+--- sorgente
+  279: 				color 0, 0, 0
+  280: 				pos 100, windowh - inf_verh - 45 - locvar_txttargetnpc_dy * 20
+  281: 				locvar_txttargetnpc_dy++
+>>282: 				bmes lang("現在のターゲットは", "You are targeting ") + cdatan(CDATAN_NAME, locvar_txttargetnpc_i) + lang(" ＋ ", " + ") + cdatan(CDATAN_NAME, cdata(CDATA_TAGTEAM_PARTNER, locvar_txttargetnpc_i)) + lang(" (距離 ", ".(Distance ") + dist(cdata(CDATA_X, CHARA_PLAYER), cdata(CDATA_Y, CHARA_PLAYER), cdata(CDATA_X, locvar_txttargetnpc_i), cdata(CDATA_Y, locvar_txttargetnpc_i)) + ")", 255, 2552, 255
+  283: 			}
+  284: 			else {
+  285: 				/********** JAMES CUSTOM - BEGINNING **********/ // Display extra info
+==============================================================================
+=== riga 282.0  [statica]
+jp: " ＋ "
+en: " + "
+--- sorgente
+  279: 				color 0, 0, 0
+  280: 				pos 100, windowh - inf_verh - 45 - locvar_txttargetnpc_dy * 20
+  281: 				locvar_txttargetnpc_dy++
+>>282: 				bmes lang("現在のターゲットは", "You are targeting ") + cdatan(CDATAN_NAME, locvar_txttargetnpc_i) + lang(" ＋ ", " + ") + cdatan(CDATAN_NAME, cdata(CDATA_TAGTEAM_PARTNER, locvar_txttargetnpc_i)) + lang(" (距離 ", ".(Distance ") + dist(cdata(CDATA_X, CHARA_PLAYER), cdata(CDATA_Y, CHARA_PLAYER), cdata(CDATA_X, locvar_txttargetnpc_i), cdata(CDATA_Y, locvar_txttargetnpc_i)) + ")", 255, 2552, 255
+  283: 			}
+  284: 			else {
+  285: 				/********** JAMES CUSTOM - BEGINNING **********/ // Display extra info
+==============================================================================
+=== riga 282.0  [statica]
+jp: " (距離 "
+en: ".(Distance "
+--- sorgente
+  279: 				color 0, 0, 0
+  280: 				pos 100, windowh - inf_verh - 45 - locvar_txttargetnpc_dy * 20
+  281: 				locvar_txttargetnpc_dy++
+>>282: 				bmes lang("現在のターゲットは", "You are targeting ") + cdatan(CDATAN_NAME, locvar_txttargetnpc_i) + lang(" ＋ ", " + ") + cdatan(CDATAN_NAME, cdata(CDATA_TAGTEAM_PARTNER, locvar_txttargetnpc_i)) + lang(" (距離 ", ".(Distance ") + dist(cdata(CDATA_X, CHARA_PLAYER), cdata(CDATA_Y, CHARA_PLAYER), cdata(CDATA_X, locvar_txttargetnpc_i), cdata(CDATA_Y, locvar_txttargetnpc_i)) + ")", 255, 2552, 255
+  283: 			}
+  284: 			else {
+  285: 				/********** JAMES CUSTOM - BEGINNING **********/ // Display extra info
+==============================================================================
+=== riga 433.0  [statica]
+jp: "どのルームを訪問する？ "
+en: "Which room do you want to visit? "
+--- sorgente
+  430: 		}
+  431: 	}
+  432: 	if ( comctrl == 0 | comctrl == 2 ) {
+>>433: 		txt lang("どのルームを訪問する？ ", "Which room do you want to visit? ")
+  434: 	}
+  435: 	if ( comctrl == 1 ) {
+  436: 		txt lang("どのチームと対戦する？", "Which team do you want to play a match? ")
+==============================================================================
+=== riga 436.0  [statica]
+jp: "どのチームと対戦する？"
+en: "Which team do you want to play a match? "
+--- sorgente
+  433: 		txt lang("どのルームを訪問する？ ", "Which room do you want to visit? ")
+  434: 	}
+  435: 	if ( comctrl == 1 ) {
+>>436: 		txt lang("どのチームと対戦する？", "Which team do you want to play a match? ")
+  437: 	}
+  438: 	windowshadow = 1
+  439: *com_import_loop_pgchk
+==============================================================================
+=== riga 445.0  [statica]
+jp: "ルーム一覧"
+en: "Room List"
+--- sorgente
+  442: *com_import_loop
+  443: 	redraw 0
+  444: 	if ( comctrl == 0 | comctrl == 2 ) {
+>>445: 		s = lang("ルーム一覧", "Room List")
+  446: 	}
+  447: 	if ( comctrl == 1 ) {
+  448: 		s = lang("ペットチーム一覧", "Team List")
+==============================================================================
+=== riga 448.0  [statica]
+jp: "ペットチーム一覧"
+en: "Team List"
+--- sorgente
+  445: 		s = lang("ルーム一覧", "Room List")
+  446: 	}
+  447: 	if ( comctrl == 1 ) {
+>>448: 		s = lang("ペットチーム一覧", "Team List")
+  449: 	}
+  450: 	s(1) = lang("BackSpace [削除]  ", "BackSpace [Delete]  ") + strhint2 + strhint3
+  451: 	display_window (windoww - 640) / 2 + inf_screenx, winposy(448), 640, 448
+==============================================================================
+=== riga 450.0  [statica]
+jp: "BackSpace [削除]  "
+en: "BackSpace [Delete]  "
+--- sorgente
+  447: 	if ( comctrl == 1 ) {
+  448: 		s = lang("ペットチーム一覧", "Team List")
+  449: 	}
+>>450: 	s(1) = lang("BackSpace [削除]  ", "BackSpace [Delete]  ") + strhint2 + strhint3
+  451: 	display_window (windoww - 640) / 2 + inf_screenx, winposy(448), 640, 448
+  452: 	if ( comctrl == 0 | comctrl == 2 ) {
+  453: 		s = lang("ルームの名称", "Name")
+==============================================================================
+=== riga 453.0  [statica]
+jp: "ルームの名称"
+en: "Name"
+--- sorgente
+  450: 	s(1) = lang("BackSpace [削除]  ", "BackSpace [Delete]  ") + strhint2 + strhint3
+  451: 	display_window (windoww - 640) / 2 + inf_screenx, winposy(448), 640, 448
+  452: 	if ( comctrl == 0 | comctrl == 2 ) {
+>>453: 		s = lang("ルームの名称", "Name")
+  454: 	}
+  455: 	if ( comctrl == 1 ) {
+  456: 		s = lang("チームの名称", "Name")
+==============================================================================
+=== riga 456.0  [statica]
+jp: "チームの名称"
+en: "Name"
+--- sorgente
+  453: 		s = lang("ルームの名称", "Name")
+  454: 	}
+  455: 	if ( comctrl == 1 ) {
+>>456: 		s = lang("チームの名称", "Name")
+  457: 	}
+  458: 	display_topic s, wx + 28, wy + 36
+  459: 	display_topic "Ver", wx + 534, wy + 36
+==============================================================================
+=== riga 510.0  [statica]
+jp: "互換性のないバージョンのファイルです。"
+en: "Selected item is incompatible."
+--- sorgente
+  507: 	if ( p != (-1) ) {
+  508: 		if ( p == (-999) ) {
+  509: 			snd SOUNDLIST_FAIL1
+>>510: 			txt lang("互換性のないバージョンのファイルです。", "Selected item is incompatible.")
+  511: 			goto *com_import_loop_pgchk
+  512: 		}
+  513: 		folder = exedir + "user\\"
+==============================================================================
+=== riga 524.0  [statica]
+jp: "ファイルの取得に失敗した。"
+en: "Failed to retrieve designated files."
+--- sorgente
+  521: 			net_dl "" + list(1, p) + s, "temp" + s
+  522: 			usermapid = list(1, p)
+  523: 			if ( stat == 0 ) {
+>>524: 				txt lang("ファイルの取得に失敗した。", "Failed to retrieve designated files.")
+  525: 				goto *com_import_loop_pgchk
+  526: 			}
+  527: 			if ( list(2, p) == NET_VERSION ) {
+==============================================================================
+=== riga 566.0  [dinamica]
+jp: "本当に" + userfile + "を削除する？ "
+en: "Do you really want to delete " + userfile + "? "
+--- sorgente
+  563: 				if ( strsize == (-1) ) {
+  564: 					goto *com_import_loop_pgchk
+  565: 				}
+>>566: 				txt lang("本当に" + userfile + "を削除する？ ", "Do you really want to delete " + userfile + "? ")
+  567: 				promptYesNo
+  568: 				if ( rtval == 0 ) {
+  569: 					delete exedir + "user\\" + userfile
+==============================================================================
+=== riga 602.0  [statica]
+jp: "視界内にターゲットは存在しない。"
+en: "You look around and find nothing."
+--- sorgente
+  599: 		}
+  600: 		gosub *com_findTarget
+  601: 		if ( listmax == 0 ) {
+>>602: 			txt lang("視界内にターゲットは存在しない。", "You look around and find nothing.")
+  603: 		}
+  604: 		repeat listmax
+  605: 			if ( list(0, cnt) == 0 ) {
+--- STESSO GIAPPONESE, gia' reso:
+    proc.hsp.jsonl:20200  Non c'è nessun bersaglio in vista.
+--- stesso inglese, gia' reso:
+    action.hsp.jsonl:11649  Non c'è materiale in vista.
+    proc.hsp.jsonl:20200  Non c'è nessun bersaglio in vista.
+==============================================================================
+=== riga 858.0  [dinamica]
+jp: name(rc) + "をターゲットにした。"
+en: "You target " + name(rc) + "."
+--- sorgente
+  855: 					}
+  856: 				}
+  857: 				cdata(CDATA_TARGET, CHARA_PLAYER) = rc
+>>858: 				txt lang(name(rc) + "をターゲットにした。", "You target " + name(rc) + ".")
+  859: 			}
+  860: 			else {
+  861: 				tgloc = 1
+--- stesso inglese, gia' reso:
+    proc.hsp.jsonl:3681  "Prendi di mira " + itemname(ci, 1) + "."
+==============================================================================
+=== riga 864.0  [statica]
+jp: "地面をターゲットにした。"
+en: "You target the ground."
+--- sorgente
+  861: 				tgloc = 1
+  862: 				tglocx = tlocx
+  863: 				tglocy = tlocy
+>>864: 				txt lang("地面をターゲットにした。", "You target the ground.")
+  865: 			}
+  866: 		}
+  867: 		else {
+==============================================================================
+=== riga 993.0  [dinamica]
+jp: name(p) + "をターゲットにした。"
+en: "You target " + name(p) + "."
+--- sorgente
+  990: 	if ( p != (-1) ) {
+  991: 		cdata(CDATA_TARGET, CHARA_PLAYER) = p
+  992: 		snd SOUNDLIST_OK1
+>>993: 		txt lang(name(p) + "をターゲットにした。", "You target " + name(p) + ".")
+  994: 		gosub *screen_draw
+  995: 		goto *com_target_loop_BREAK1
+  996: 	}
+--- stesso inglese, gia' reso:
+    proc.hsp.jsonl:3681  "Prendi di mira " + itemname(ci, 1) + "."

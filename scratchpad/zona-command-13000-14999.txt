@@ -1,0 +1,312 @@
+--- riga 13013.0  [statica]
+jp: "それは持ち運べない。"
+en: "You can't carry it."
+--- riga 13028.0  [dinamica]
+jp: "それを盗もうとしていますか？"
+en: "You see a " + s + " weight " + s(1) + ". Do you want to attempt to steal it?"
+--- riga 13066.0  [dinamica]
+jp: name(tc) + "は忙しい。"
+en: name(tc) + " " + is(tc) + " busy now."
+--- riga 13849.0  [dinamica]
+jp: itemname(citrade) + "に見合う物を所持していない。"
+en: "You don't have anything that matches " + itemname(citrade) + "."
+--- riga 13854.0  [dinamica]
+jp: name(tc) + "は盗めるものを所持していない。"
+en: name(tc) + " has nothing to steal."
+--- riga 13858.0  [statica]
+jp: "そこに盗めるものはない。"
+en: "There's nothing to steal."
+--- riga 13867.0  [statica]
+jp: "バックパックに種子がありません。"
+en: "You have no seeds in your backpack."
+--- riga 13879.0  [statica]
+jp: "ここには祭壇がない。"
+en: "There's no altar here."
+--- riga 13886.0  [statica]
+jp: "仲間からは盗みたくない。"
+en: "You don't want to rob your ally."
+--- riga 13895.0  [statica]
+jp: "現在魔術士ギルドのノルマはない。"
+en: "You have no quota for Mages Guild."
+--- riga 13924.0  [statica]
+jp: "どのアイテムを調べる？ "
+en: "Examine what? "
+--- riga 13924.0  [statica]
+jp: "どのアイテムを置く？ "
+en: "Drop what? "
+--- riga 13924.0  [statica]
+jp: "どのアイテムを拾う？ "
+en: "Which item do you want to pick up? "
+--- riga 13924.0  [statica]
+jp: "何を装備する？"
+en: "Equip what?"
+--- riga 13924.0  [statica]
+jp: "何を食べよう？ "
+en: "Eat what? "
+--- riga 13924.0  [statica]
+jp: "どれを読む？ "
+en: "Read what? "
+--- riga 13924.0  [statica]
+jp: "どれを飲む？ "
+en: "Drink what? "
+--- riga 13924.0  [statica]
+jp: "どれを振る？ "
+en: "Zap what? "
+--- riga 13924.0  [statica]
+jp: "どれを渡す？ "
+en: "Which item do you want to give? "
+--- riga 13924.0  [statica]
+jp: "どれを購入する？ "
+en: "What do you want to buy? "
+--- riga 13924.0  [statica]
+jp: "どれを売却する？ "
+en: "What do you want to sell? "
+--- riga 13924.0  [statica]
+jp: "どのアイテムを鑑定する？ "
+en: "Which item do you want to identify? "
+--- riga 13924.0  [statica]
+jp: "どのアイテムを使用する？ "
+en: "Use what? "
+--- riga 13924.0  [statica]
+jp: "どれを開ける？ "
+en: "Open what? "
+--- riga 13924.0  [statica]
+jp: "何を料理する？ "
+en: "Cook what? "
+--- riga 13924.0  [statica]
+jp: "何を混ぜる？ "
+en: "Blend what? "
+--- riga 13924.0  [dinamica]
+jp: "何に混ぜる？(" + valn + "の効果を適用するアイテムを選択) "
+en: "Which item do you want to apply the effect of " + valn + "? "
+--- riga 13924.0  [statica]
+jp: "何を神に捧げる？ "
+en: "What do you want to offer to your god? "
+--- riga 13924.0  [statica]
+jp: "何を交換する？ "
+en: "Which item do you want to trade? "
+--- riga 13924.0  [dinamica]
+jp: valn + "の代わりに何を提示する？ "
+en: "What do you offer for " + valn + "? "
+--- riga 13924.0  [statica]
+jp: "何を取る？ "
+en: "Take what? "
+--- riga 13924.0  [statica]
+jp: "何を対象にする？ "
+en: "Target what? "
+--- riga 13924.0  [statica]
+jp: "何を入れる？ "
+en: "Put what? "
+--- riga 13924.0  [statica]
+jp: "何をもらう？ "
+en: "Which item do you want to take? "
+--- riga 13924.0  [statica]
+jp: "何を投げる？ "
+en: "Throw what? "
+--- riga 13924.0  [statica]
+jp: "何を盗む？ "
+en: "Steal what? "
+--- riga 13924.0  [statica]
+jp: "何と交換する？ "
+en: "Trade what? "
+--- riga 13924.0  [statica]
+jp: "何を予約する？"
+en: "Which item do you want to reserve? "
+--- riga 13941.0  [dinamica]
+jp: "(持っているメダル: " + p + "枚)"
+en: "(Coins: " + p + ")"
+--- riga 13952.0  [dinamica]
+jp: "(持っているチケット: " + p + "枚)"
+en: "(tickets: " + p + ")"
+--- riga 13958.0  [dinamica]
+jp: "ノルマ残り: " + gdata(GDATA_FLAG_GUILD_MAGE_NORMA) + "GP"
+en: "" + gdata(GDATA_FLAG_GUILD_MAGE_NORMA) + " guild points are needed to gain a rank."
+--- riga 13991.0  [statica]
+jp: "そのアイテムは存在しない。"
+en: "The item doesn't exist."
+--- riga 13995.0  [statica]
+jp: "そのアイテムはもう空っぽだ。"
+en: "The item is empty!"
+--- riga 14077.0  [statica]
+jp: "[メニュー切替]"
+en: "[Change]"
+--- riga 14087.0  [statica]
+jp: "[保持指定]"
+en: "[Tag No-Drop]"
+--- riga 14091.0  [statica]
+jp: "[連続で置く]"
+en: "[Multi Drop]"
+--- riga 14101.0  [statica]
+jp: "値段"
+en: "Price"
+--- riga 14105.0  [statica]
+jp: "メダル"
+en: "Medal"
+--- riga 14108.0  [statica]
+jp: "チケット"
+en: "ticket"
+--- riga 14115.0  [statica]
+jp: "ギルドポイント"
+en: "Guild Point"
+--- riga 14120.0  [statica]
+jp: "アイテムの名称"
+en: "Name"
+--- riga 14176.0  [statica]
+jp: "  (重さ合計 "
+en: "  (Weight "
+--- riga 14176.0  [statica]
+jp: "  荷車 "
+en: " Cargo "
+--- riga 14193.0  [statica]
+jp: "装備重量:"
+en: "EquipWt:"
+--- riga 14211.0  [statica]
+jp: "装備箇所:"
+en: "Equip:"
+--- riga 14272.0  [statica]
+jp: " 枚"
+en: " Coins"
+--- riga 14275.0  [statica]
+jp: " 枚"
+en: " Tickets"
+--- riga 14280.0  [statica]
+jp: "(足元)"
+en: " (Ground)"
+--- riga 14325.0  [statica]
+jp: "(遠隔)"
+en: " (Range)"
+--- riga 14487.0  [dinamica]
+jp: name_of_seed_planted + "は" + number_of_seeds_planted + "粒を埋めた。"
+en: "You've planted " + number_of_seeds_planted + " " + name_of_seed_planted + "."
+--- riga 14517.0  [statica]
+jp: "これ以上は置けない。"
+en: "You can't drop items any more."
+--- riga 14531.0  [dinamica]
+jp: itemname(ci, 1) + "をいくつ落とす？ (1～" + inv(INV_ITEM_NUM, ci) + ") "
+en: "How many? (1 to " + inv(INV_ITEM_NUM, ci) + ")"
+--- riga 14569.0  [statica]
+jp: "これ以上入らない。"
+en: "The container is full."
+--- riga 14576.0  [statica]
+jp: "これ以上送れない。"
+en: "The cemetery is full."
+--- riga 14583.0  [statica]
+jp: "これ以上置けない。"
+en: "The container is full."
+--- riga 14590.0  [dinamica]
+jp: "重さが" + cnvweight(efp * 100) + "以上の物は入らない。"
+en: "The container can only hold items weighing less than " + cnvweight(efp * 100) + "."
+--- riga 14595.0  [statica]
+jp: "荷物は入らない。"
+en: "The container cannot hold cargos"
+--- riga 14616.0  [statica]
+jp: "遺産の相続権を持っていない。"
+en: "You don't have a claim."
+--- riga 14643.0  [dinamica]
+jp: itemname(ci, 1) + "をいくつ買う？ (1～" + inv(INV_ITEM_NUM, ci) + ") "
+en: "How many? (1 to " + inv(INV_ITEM_NUM, ci) + ")"
+--- riga 14646.0  [dinamica]
+jp: itemname(ci, 1) + "をいくつ売る？ (1～" + inv(INV_ITEM_NUM, ci) + ") "
+en: "How many? (1 to " + inv(INV_ITEM_NUM, ci) + ")"
+--- riga 14668.0  [dinamica]
+jp: itemname(ci, in) + "を " + in * calcitemvalue(ci, 0) + " gp で買う？"
+en: "Do you really want to buy " + itemname(ci, in) + " for " + in * calcitemvalue(ci, 0) + "gp?"
+--- riga 14671.0  [dinamica]
+jp: itemname(ci, in) + "を " + in * calcitemvalue(ci, 1) + " gp で売る？"
+en: "Do you really want to sell " + itemname(ci, in) + " for " + in * calcitemvalue(ci, 1) + "gp?"
+--- riga 14683.0  [statica]
+jp: "あなたは財布を開いてがっかりした…"
+en: "You check your wallet and shake your head."
+--- riga 14683.0  [statica]
+jp: "もっと稼がないと買えない！"
+en: "You need to earn more money!"
+--- riga 14692.0  [dinamica]
+jp: name(tc) + "は財布を開いてがっかりした…"
+en: name(tc) + " checks " + his(tc) + " wallet and shakes " + his(tc) + " head."
+--- riga 14717.0  [dinamica]
+jp: "残り" + gdata(GDATA_HEIR_DEED) + "個分のアイテムの相続権を持っている。"
+en: "You can claim " + gdata(GDATA_HEIR_DEED) + " more heirloom" + _s3(gdata(GDATA_HEIR_DEED)) + "."
+--- riga 14741.0  [statica]
+jp: "今はとても食べられない。"
+en: "You are too full to eat."
+--- riga 14741.0  [statica]
+jp: "腹がさける…"
+en: "You are too bloated to eat any more."
+--- riga 14741.0  [statica]
+jp: "まだ腹は減っていない。"
+en: "Your stomach can't digest any more."
+--- riga 14752.0  [statica]
+jp: "それは重すぎて装備できない。"
+en: "It's too heavy to equip."
+--- riga 14758.0  [dinamica]
+jp: name(cc) + "は頭がぼんやりして装備を変更できない…。"
+en: name(cc) + " " + is(cc) + " confused and can't change their equipment."
+--- riga 14769.0  [dinamica]
+jp: itemname(ci) + "を装備した。"
+en: "You equip " + itemname(ci) + "."
+--- riga 14772.0  [statica]
+jp: name(cc) + "は急に寒気がしてふるえた。"
+en: "You suddenly feel a chill and shudder."
+--- riga 14775.0  [statica]
+jp: name(cc) + "は破滅への道を歩み始めた。"
+en: "You are now one step closer to doom."
+--- riga 14778.0  [statica]
+jp: name(cc) + "は何かに見守られている感じがした。"
+en: "You feel as someone is watching you intently."
+--- riga 14799.0  [statica]
+jp: "これ以上飲めない…。"
+en: "Your are too full to drink."
+--- riga 14799.0  [statica]
+jp: "膀胱がやぶける…"
+en: "You are too bloated to drink any more."
+--- riga 14799.0  [statica]
+jp: "まだ喉は渇いていない。"
+en: "Your stomach can't digest any more."
+--- riga 14828.0  [dinamica]
+jp: name(tc) + "にアイテム画像を付与した。"
+en: "You attached an item mark to " + name(tc) + "."
+--- riga 14842.0  [dinamica]
+jp: name(tc) + "は眠っている。"
+en: name(tc) + " " + is(tc) + " sleeping."
+--- riga 14847.0  [dinamica]
+jp: name(tc) + "は気絶している。"
+en: name(tc) + " " + is(tc) + " stunned."
+--- riga 14852.0  [dinamica]
+jp: name(tc) + "はこれ以上持てない。"
+en: his(tc) + " inventory is full."
+--- riga 14860.0  [dinamica]
+jp: "あなたは" + name(tc) + "に" + itemname(ci, 1) + "をプレゼントした。"
+en: "You give " + name(tc) + " " + itemname(ci, 1) + "."
+--- riga 14863.0  [statica]
+jp: "「え、これを" + _ore(3) + "にくれるの" + _ka(1) + "" + _thanks(2) + "」"
+en: cnvtalk("Thank you!")
+--- riga 14865.0  [dinamica]
+jp: "今日はあなたと" + name(tc) + "の記念日だ！"
+en: "Today is your anniversary with " + name(tc) + "!"
+--- riga 14874.0  [dinamica]
+jp: "あなたは" + name(tc) + "に" + itemname(ci, 1) + "を渡した。"
+en: "You give " + name(tc) + " " + itemname(ci, 1) + "."
+--- riga 14878.0  [statica]
+jp: "「こ、これが" + _ore(3) + "たちの友情の証！」"
+en: cnvtalk("Thank you!")
+--- riga 14887.0  [statica]
+jp: "「友情、ねぇ…」"
+en: cnvtalk("Hmm...")
+--- riga 14897.0  [statica]
+jp: "「なんと立派な！」"
+en: cnvtalk("How splendid!")
+--- riga 14903.0  [statica]
+jp: "「趣味が悪い…」"
+en: cnvtalk("Poor taste...")
+--- riga 14911.0  [statica]
+jp: "「綺麗" + _dana(3) + "…」"
+en: cnvtalk("Beautiful...")
+--- riga 14980.0  [dinamica]
+jp: "あなたは" + name(tc) + "に" + itemname(ci, 1) + "を渡した。"
+en: "You give the " + itemname(ci, 1) + " to " + name(tc) + "."
+--- riga 14984.0  [statica]
+jp: "「素敵" + _dana(3) + "！」"
+en: cnvtalk("Thank you!")
+--- riga 14993.0  [statica]
+jp: "「う、うん…」"
+en: cnvtalk("Hmm...")

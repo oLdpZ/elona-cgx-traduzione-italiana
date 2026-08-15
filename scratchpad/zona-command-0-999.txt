@@ -1,0 +1,120 @@
+--- riga 13.0  [statica]
+jp: "と"
+en: " and "
+--- riga 23.0  [dinamica]
+jp: rtvaln + "が落ちている。"
+en: "You see " + rtvaln + " here."
+--- riga 27.0  [dinamica]
+jp: rtvaln + "が設置されている。"
+en: "" + rtvaln + " is constructed here."
+--- riga 30.0  [dinamica]
+jp: rtvaln + "がある。"
+en: "You see " + rtvaln + " placed here.(" + cnvweight(inv(INV_ITEM_WEIGHT, rtval(1))) + ")"
+--- riga 34.0  [statica]
+jp: "寝心地は悪そうだが、いい夢を見れそうだ。"
+en: " It looks uncomfortable to sleep on, but I'm sure I'll have good dreams."
+--- riga 37.0  [statica]
+jp: "地べたで寝るのと大差ないだろう。"
+en: " It wouldn't be much different from sleeping on the ground."
+--- riga 40.0  [statica]
+jp: "地べたで寝るよりはマシだが…。"
+en: " It's better than sleeping on the ground."
+--- riga 43.0  [statica]
+jp: "まぁまぁ休めそうだ。"
+en: " I think I can rest to some extent."
+--- riga 46.0  [statica]
+jp: "寝心地が良さそうだ。"
+en: " I think I'll be able to sleep comfortably."
+--- riga 49.0  [statica]
+jp: "とっても寝心地が良さそうだ！"
+en: " I think I'll be able to sleep very comfortably!"
+--- riga 53.0  [statica]
+jp: "「たる…」"
+en: " \"Baaarrel...\""
+--- riga 58.0  [statica]
+jp: "「たる～」"
+en: " \"It's a Barrel~\""
+--- riga 63.0  [statica]
+jp: "「たるっ」"
+en: " \"A barrel.\""
+--- riga 68.0  [statica]
+jp: "「たる！」"
+en: " \"Barrel!\""
+--- riga 73.0  [statica]
+jp: "「たーる」"
+en: " \"Barrel.\""
+--- riga 78.0  [dinamica]
+jp: "ここには" + rtval + "種類のアイテムがある。"
+en: "There are " + rtval + " items lying here."
+--- riga 115.0  [statica]
+jp: "ﾀｰﾝ"
+en: "turns "
+--- riga 127.0  [statica]
+jp: "ﾀｰﾝ"
+en: " stacks "
+--- riga 160.0  [dinamica]
+jp: "ｷｬﾗﾁｯﾌﾟ番号：" + locvar_txttargetnpc_pic + " / 色番号：" + refchara(cdata(CDATA_ID, txttargetnpc_arg_tc), DBSPEC_CHARA_COL) * 1000 + " "
+en: "SpriteID: " + cdata(CDATA_PIC, txttargetnpc_arg_tc) + " / ColorID: " + refchara(cdata(CDATA_ID, txttargetnpc_arg_tc), DBSPEC_CHARA_COL) * 1000 + " "
+--- riga 169.0  [dinamica]
+jp: "性別：" + s + "　年齢：" + calcage(txttargetnpc_arg_tc) + "歳　信仰：" + godname(cdata(CDATA_GOD, txttargetnpc_arg_tc)) + " "
+en: "Gender: " + s + " / Age: " + calcage(txttargetnpc_arg_tc) + " / Religion: " + godname(cdata(CDATA_GOD, txttargetnpc_arg_tc)) + ""
+--- riga 231.0  [statica]
+jp: "視界範囲外"
+en: "This location is out of sight."
+--- riga 265.0  [dinamica]
+jp: "ｷｬﾗﾁｯﾌﾟ番号：" + cdata(CDATA_PIC, locvar_txttargetnpc_i) + " / 色番号：" + refchara(cdata(CDATA_ID, locvar_txttargetnpc_i), DBSPEC_CHARA_COL) * 1000 + " "
+en: "SpriteID：" + cdata(CDATA_PIC, locvar_txttargetnpc_i) + " / ColorID：" + refchara(cdata(CDATA_ID, locvar_txttargetnpc_i), DBSPEC_CHARA_COL) * 1000 + " "
+--- riga 271.0  [dinamica]
+jp: "性別：" + s + "　年齢：" + calcage(locvar_txttargetnpc_i) + "歳　信仰：" + godname(cdata(CDATA_GOD, locvar_txttargetnpc_i)) + " "
+en: "Sex:" + s + " / Age:" + calcage(locvar_txttargetnpc_i) + " / Religion:" + godname(cdata(CDATA_GOD, locvar_txttargetnpc_i)) + ""
+--- riga 282.0  [statica]
+jp: "現在のターゲットは"
+en: "You are targeting "
+--- riga 282.0  [statica]
+jp: " ＋ "
+en: " + "
+--- riga 282.0  [statica]
+jp: " (距離 "
+en: ".(Distance "
+--- riga 433.0  [statica]
+jp: "どのルームを訪問する？ "
+en: "Which room do you want to visit? "
+--- riga 436.0  [statica]
+jp: "どのチームと対戦する？"
+en: "Which team do you want to play a match? "
+--- riga 445.0  [statica]
+jp: "ルーム一覧"
+en: "Room List"
+--- riga 448.0  [statica]
+jp: "ペットチーム一覧"
+en: "Team List"
+--- riga 450.0  [statica]
+jp: "BackSpace [削除]  "
+en: "BackSpace [Delete]  "
+--- riga 453.0  [statica]
+jp: "ルームの名称"
+en: "Name"
+--- riga 456.0  [statica]
+jp: "チームの名称"
+en: "Name"
+--- riga 510.0  [statica]
+jp: "互換性のないバージョンのファイルです。"
+en: "Selected item is incompatible."
+--- riga 524.0  [statica]
+jp: "ファイルの取得に失敗した。"
+en: "Failed to retrieve designated files."
+--- riga 566.0  [dinamica]
+jp: "本当に" + userfile + "を削除する？ "
+en: "Do you really want to delete " + userfile + "? "
+--- riga 602.0  [statica]
+jp: "視界内にターゲットは存在しない。"
+en: "You look around and find nothing."
+--- riga 858.0  [dinamica]
+jp: name(rc) + "をターゲットにした。"
+en: "You target " + name(rc) + "."
+--- riga 864.0  [statica]
+jp: "地面をターゲットにした。"
+en: "You target the ground."
+--- riga 993.0  [dinamica]
+jp: name(p) + "をターゲットにした。"
+en: "You target " + name(p) + "."

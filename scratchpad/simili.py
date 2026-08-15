@@ -1,6 +1,10 @@
-import glob, io, json, difflib
+import glob, io, json, difflib, sys
 
-voci = [json.loads(l) for l in io.open('lavoro/_buff.jsonl', encoding='utf-8') if l.strip()]
+# argv[1]: l'estrazione da guardare, es. lavoro/_command.jsonl
+ESTRAZIONE = sys.argv[1] if len(sys.argv) > 1 else 'lavoro/_buff.jsonl'
+USCITA = ESTRAZIONE.replace('.jsonl', '_simili.txt')
+
+voci = [json.loads(l) for l in io.open(ESTRAZIONE, encoding='utf-8') if l.strip()]
 
 diz = []
 for p in glob.glob('dizionario/*.jsonl'):
@@ -12,7 +16,7 @@ for p in glob.glob('dizionario/*.jsonl'):
         if d.get('it') and d.get('jp'):
             diz.append((nome, d['riga'], d['jp'], d['it']))
 
-out = io.open('lavoro/_buff_simili.txt', 'w', encoding='utf-8')
+out = io.open(USCITA, 'w', encoding='utf-8')
 for v in voci:
     jp = v['jp']
     if not jp:
@@ -29,4 +33,4 @@ for v in voci:
     for r, nome, riga, djp, dit in cand[:3]:
         out.write(f"    {r:.2f} {nome}:{riga}  {djp}  ==  {dit}\n")
 out.close()
-print('scritto lavoro/_buff_simili.txt')
+print(f'scritto {USCITA}')
