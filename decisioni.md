@@ -6,6 +6,61 @@ ancora aperte.
 
 ---
 
+## Una stringa dichiarata invariata per un sito fa sembrare voluta la dimenticanza in un altro — 2026-08-15, quarantaquattresima sessione
+
+Traducendo 「なし」 di `command.hsp:1445` la **rete 3** ha detto che lo stesso
+giapponese era già reso in due modi: «Nessuna» a `init.hsp:371` e **«none»** a
+`text.hsp:49`. Il secondo non era una resa: era l'inglese rimasto lì.
+
+⚠️ **E `invariati.md` lo copriva, ma per un'altra cosa.** La riga 437 dichiara
+«none» invariato perché è uno dei nove valori di `CDATAN_NEWSEX`, scritti nel
+salvataggio e riletti come operandi di confronto (la 41ª, punto 3). A
+`text.hsp:49` la stringa è la stessa e il sito è un altro — `_dengon`, il
+messaggio che un avventuriero ti ha lasciato — e lì non c'è niente da
+preservare. **La dichiarazione vale per il sito, non per la stringa**, e questa
+è la prima volta che la differenza produce un difetto invece di una
+discussione.
+
+⚠️ **Si legge, e ha cinque parole italiane accanto.** `command.hsp:4247` stampa
+`_dengon(dengon) + "(" + _impression(…) + ")"` nella lista degli avventurieri, e
+gli altri cinque valori sono resi: «Collaborazione», «Invito», «Dichiarazione»,
+«Incoraggiamento», «Disprezzo». Il primo diceva `none(Cordiale)`.
+
+✅ Corretto in «Nessuna» con `scratchpad/correzione-none.py`, che è anche il
+primo modello di correzione con chiave `(riga, jp)`: le sei voci di
+`text.hsp:49` stanno tutte sulla stessa riga, e `correzione-schivata.py` andava
+bene solo perché in `action.hsp` ogni riga ha una voce sola.
+
+💡 **La lezione sul metodo**: la rete 3 fin qui serviva a non ridecidere una
+resa già presa. Qui ha fatto un'altra cosa — ha trovato una resa **mancante**,
+in un file chiuso al 100%, che nessun conteggio di «non tradotte» poteva
+includere perché la voce nel dizionario c'era. È lo stesso meccanismo di
+`rete8_dizionario.py` nella 37ª: una rete nata per il lavoro nuovo che, girata
+all'indietro, trova il lavoro vecchio.
+
+---
+
+## Lo stesso giapponese può cambiare numero se cambia il sito: «Alleato» contro «Alleati» — 2026-08-15, quarantaquattresima sessione
+
+`text.hsp:32` rende 「仲間」 «Alleato», ed è giusto: è un elemento di
+`_impression`, cioè il **grado di rapporto di un personaggio solo** — si legge
+accanto al nome di quello.
+
+`command.hsp:1270` ha lo stesso 「仲間」 in `s(10)`, che è il **titolo della
+finestra** che elenca tutti i compagni. Lì «Alleato» sarebbe sbagliato: la
+finestra ne mostra sedici per pagina.
+
+✅ **La differenza la impone il sorgente, non la traduzione**, che è la formula
+con cui la 37ª aveva già risolto il litigio fra la rete 4 e la rete 11. Il
+numero grammaticale è imposto dal sito esattamente come lo era la spaziatura di
+« Turni» nella 43ª: la rete 3 segnala, e la risposta è che ha visto una
+differenza vera invece di un'incoerenza.
+
+⚠️ **Quindi la rete 3 su `command.hsp:1270` resta accesa e va lasciata accesa.**
+Chi rilancia il lotto `command-009` la rivedrà: non è un difetto da chiudere.
+
+---
+
 ## Il registro nominale, e perché una schermata intera lo pretende invece di preferirlo — 2026-08-15, quarantaquattresima sessione
 
 La schermata «Background» (`chara.hsp:3265`-`:3336`, `command.hsp:*setHistory1`
