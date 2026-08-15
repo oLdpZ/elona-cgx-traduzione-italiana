@@ -28,6 +28,7 @@ MOTIVO = (
 )
 
 NUOVE = [
+    # il primo blocco, `cfg_record >= 1` (la zona 2000-2999)
     (2956, ' level'),
     (2962, ' Miles'),
     (2970, ' Hours'),
@@ -35,10 +36,25 @@ NUOVE = [
     (2976, ' Guest'),
     (2982, ' Plat'),
     (2986, ' points'),
+    # ⭐ le quattro gemelle del blocco `cfg_record == 2` (`:2991`-`:3019`), che
+    #    stanno nella zona dopo e le ha trovate `lang-nel-ramo-jp.py`: sono
+    #    dentro lo stesso `if ( jp )`, annidate un livello piu' giu'. Rinviate
+    #    subito invece di aspettare che qualcuno apra la zona 3000-3999 e le
+    #    ritrovi da capo.
+    (3003, ' Sisters'),
+    (3014, ' trees'),
+    (3015, ' Peoples'),
+    (3016, ' bottles'),
 ]
 
+# ⚠️ **l'estrazione INTERA, non quella `--da-tradurre`**: appena la prima
+# tornata di rinvii entra in `rinviate.jsonl`, quelle voci spariscono dal lavoro
+# che resta, e rilanciare questo script contro `lavoro/_command.jsonl` muore con
+# «chiave che non aggancia nessuna voce» su una riga che aveva appena rinviato
+# lui. Si rigenera con:
+#     python -m strumenti.estrai command.hsp --uscita lavoro/_command_tutto.jsonl
 voci = {(v['riga'], v['en']): v
-        for v in (json.loads(l) for l in io.open('lavoro/_command.jsonl', encoding='utf-8')
+        for v in (json.loads(l) for l in io.open('lavoro/_command_tutto.jsonl', encoding='utf-8')
                   if l.strip())}
 
 righe = []
