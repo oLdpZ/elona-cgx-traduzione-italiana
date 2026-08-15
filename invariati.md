@@ -443,6 +443,7 @@ salvataggio finirebbe italiano.
 | `<` | parentesi del nome proprio, non testo: `action.hsp:4612` compone `lang("『", "<") + s(1) + lang("』", ">")` attorno al nome di un'arma unica. Il giapponese usa le sue virgolette 『』, l'inglese le parentesi angolari, e l'italiano segue l'inglese perche' e' la forma che il progetto usa gia' per i nomi propri (`<Gwen>`, `<Vansesda>`). Non c'e' nessuna parola da rendere |
 | `>` | l'altra meta' della parentesi qui sopra |
 | `EN` | ⚠️ **non e' testo: e' una chiave di formato.** `action.hsp:4816` fa `instr(buff, 0, t + "," + lang("JP", "EN"))` per cercare la riga `%txtName,EN` dentro i file `user\item\plan*.txt` degli oggetti personalizzati. Tradotta, la ricerca non trova piu' niente e il nome dell'oggetto sparisce. Il giapponese e' `JP`: sono i due codici di lingua, non due parole |
+| `????` | ⚠️ **non e' una parola: e' un nome nascosto.** `map.hsp:6552` fa `cdatan(CDATAN_NAME, rc) = lang("？？？？", "????")` — il gioco copre l'identita' di un personaggio con quattro punti interrogativi, e quattro punti interrogativi si scrivono uguali in ogni lingua. 💡 Il giapponese li usa a **larghezza intera** (`？`), l'inglese in ASCII: la resa segue l'inglese, perche' e' il ramo che sostituisce. Dichiarato nella 42a, lotto `fase4-map-003` |
 ## Versi senza contenuto linguistico — non c'è niente da rendere
 
 La creatura `@` (`CREATURE_ID_AT_SIGN`, `db_creature.hsp:80862`) emette
