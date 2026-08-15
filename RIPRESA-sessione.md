@@ -53,12 +53,16 @@ ogni sessione; un invariato dichiarato chiude.
 
 ### ▶ Il punto esatto in cui si riprende
 
-Tutto è **spinto** — sei spinte, una per lotto più quella della correzione — e
-l'albero di lavoro è pulito. Si riparte da `git fetch && git status -sb` e dalle
-otto verifiche d'apertura. La sessione si è aperta su `DESKTOP-1O339MR` con
-`origin/fase-0` allineato: è la **quinta prova** di fila che il «cambio di
-terminale» annunciato in chiusura è sempre e solo un cambio di finestra, mai un
-cambio di macchina.
+Tutto è **spinto** — sette spinte, una per lotto, una per la chiusura e una per
+questa nota — e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle otto verifiche d'apertura. La sessione si è
+aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la **quinta prova**
+di fila che il «cambio di terminale» annunciato in chiusura è sempre e solo un
+cambio di finestra, mai un cambio di macchina.
+⚠️ **E anche questa si chiude annunciandone uno** (16/08/2026, sempre da
+`DESKTOP-1O339MR`): è la **quinta volta di fila** che una sessione lo dichiara.
+`hostname` accanto al `git fetch` lo dice in un secondo, e finora ha sempre detto
+la stessa cosa.
 ⚠️ **Quattro valori attesi sono cambiati**: `verifica --dizionario` dice
 «command.hsp: 0 da ritradurre, **124** non ancora tradotte» (100 da fare più le
 24 rinviate, che non cambiano); il dizionario di `command.hsp` ha **1.180** voci;
