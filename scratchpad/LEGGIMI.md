@@ -180,6 +180,72 @@ regola si decide da dove arriva la parola.
 ripulito da `*wish_fix`. Cambiarne una senza l'altra rompe il desiderio **in
 silenzio** — nessuna rete, nessuna guardia, nessun referto se ne accorge.
 
+### ⭐⭐⭐ Il carattere del ramo inglese è MONOSPAZIATO: i tetti si calcolano
+
+Nata nella 47ª sui tre menu dell'aspetto di `command.hsp`. `config.txt` dice
+`font2. "Courier New"`, cioè il carattere che il ramo inglese — e quindi
+l'italiano — usa a schermo. Da lì la larghezza di un campo **non è più
+un'opinione**: si prendono i due `pos` che lo delimitano nel sorgente e si
+divide.
+
+```
+corpo 12 (`12 + sizefix - en * 2`)  ->  7,2 px per carattere
+corpo 14 (`14 - en * 2`, `15 + en - en * 2`)  ->  8,4 px
+```
+
+Le misure già fatte, da riusare invece di rifarle:
+
+| campo | dove | tetto |
+|---|---|---|
+| voce di `cs_list` | testo a `wx + 64` (`module.hsp:129`), freccia a `wx + 175` | **111 px = 15,4 caratteri**, etichetta più valore |
+| riga di aiuto di `display_window` (`s(1)`) | `module.hsp:4344`, `wx + 58`; la riga «Page.» accanto tiene 40 px di margine | **(larghezza − 58 − 40) / 7,2** — su 380 fa **39 caratteri** |
+| `display_note` | `module.hsp:4360`, `wx + ww - strlen * 7 - 140` | **(ww − 140 − 20) / 7 caratteri** — su 690 fa **75** |
+| titolo di finestra (`s`) | `module.hsp:4339`, piatto da `45 * ww / 100` che cresce oltre i 15 caratteri | largo: su 380 stanno **20 caratteri** |
+| colonna delle righe d'attacco | `command.hsp:12429` (`wx + 422`) contro `:12452` (`wx + 468`) | **46 px = 6 caratteri** |
+
+⚠️ **E l'inglese non è il budget**, per la stessa ragione che `larghezze.py`
+scrive da sempre: dei cinque campi qui sopra, **tre sono già al limite o oltre**
+di monte — «Unarmed» sfora la sua colonna, la riga di aiuto usa 38 caratteri su
+39, `display_note` arriva esatta a 75.
+
+⭐ **E il tetto ha un'eccezione che è una regola**: nel menu del ritratto le righe
+**senza valore** non hanno tetto stretto, perché `:12136` appende il numero solo
+`if ( rtval >= 0 )`. È per questo che upstream ha potuto scrivere «Set Detail»,
+dieci caratteri, dove le altre ne hanno otto. **L'imbottitura serve alle righe
+che portano un numero, e solo a quelle.**
+
+### ⚠️⚠️ Un'etichetta di menu finisce SEMPRE con almeno uno spazio
+
+Il fratello della regola qui sopra, e a insegnarla è stata `verifica.py:440`, che
+rifiuta una statica il cui inglese finisce con uno spazio e la cui resa no.
+
+La ragione è più forte di come la guardia la racconta. Nel menu del ritratto lo
+spazio in mezzo lo mette il codice (`command.hsp:12138`, `s += " " + rtval(2)`),
+ma nel menu dello specchio **no**: `:12333` è `s += "On"` e `:12336` è
+`s += "Off"`, nudi. Lì l'imbottitura dell'etichetta è **l'unico separatore**, e
+«Mantello» da sola darebbe «MantelloOff».
+
+✅ Quindi, in questa famiglia, l'etichetta finisce con uno spazio **sempre**, e la
+separazione smette di dipendere da chi concatena. Il testo utile è una colonna in
+meno di quelle disponibili: è per questo che 「髪の色」 è «Col.cap.» e non
+«Col.capel.», che riempirebbe tutte e dieci le colonne.
+
+### ⭐⭐ Quando la rete 3 accusa, si guarda il MESTIERE del sito che cita
+
+Nata nella 47ª sulle righe d'attacco di `*show_weaponStat`. La rete 3 dava tre
+etichette su quattro come già rese altrove — 「武器」 «armi» (`text.hsp:59`), 「格闘」
+«Arti marziali» (`skill.hsp:161`), 「射撃」 «Mira» (`skill.hsp:387`) — e tutt'e tre
+le rese erano giuste **nel loro sito**: la prima è una categoria d'inventario, le
+altre due sono nomi di abilità. Qui sono etichette di riga larghe sei caratteri.
+
+✅ **La strada non è scegliere fra me e la rete: è cercare il sito dove i due
+termini stanno INSIEME**, perché quello ha già dovuto distinguerli.
+`buff.hsp:679` rende 「射撃力上昇/命中率上昇」 «Tiro e **mira**»: da lì 射撃 è «Tiro» e
+命中 è «Mira», e `skill.hsp:1277` («+mira») conferma.
+
+💡 In una riga: **la rete 3 non dice «sbagli», dice «guarda là»** — e quel che si
+guarda è in che mestiere stava la resa che cita.
+
 ### ⚠️⚠️ Uno script che riscrive un file di dati lo compone PRIMA di aprirlo
 
 Nella 39ª uno script scritto in fretta ha aperto `toppe.jsonl` in scrittura e ha
