@@ -35,9 +35,13 @@ stanno sulla stessa riga**. Vedi il punto 2.
 
 ### ▶ Il punto esatto in cui si riprende
 
-Tutto è **spinto** — nove spinte: una per ciascuno dei sette lotti, più le due
-chiusure — e l'albero di lavoro è pulito. Si riparte da
+Tutto è **spinto** — dieci spinte: una per ciascuno dei sette lotti, più le due
+chiusure e questa nota — e l'albero di lavoro è pulito. Si riparte da
 `git fetch && git status -sb` e dalle otto verifiche d'apertura.
+⚠️ **La sessione si è chiusa annunciando un cambio di terminale** (15/08/2026, da
+`DESKTOP-1O339MR`), come la 42ª e la 45ª. Le prime due volte non ha fatto danni —
+la macchina era la stessa e Python era già a posto — e questa è la **terza prova**
+della stessa cosa. `hostname` accanto al `git fetch` costa niente e lo dice.
 ⚠️ **Tre valori attesi sono cambiati**: `verifica --dizionario` dice «command.hsp:
 0 da ritradurre, **357** non ancora tradotte» (334 da fare più **23** rinviate);
 `toppe.jsonl` ha **312** toppe e `rinviate.jsonl` **42** righe. Tutto il resto è
