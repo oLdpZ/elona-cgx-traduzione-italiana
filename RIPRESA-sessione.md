@@ -2,12 +2,19 @@
 
 Aggiornato: 2026-08-15, fine della **quarantacinquesima** sessione.
 
-⭐⭐ **La scheda dei talenti è chiusa: 96 rese e 11 rinvii in tre lotti, e la
-zona 2000-2999 sparisce dall'istogramma.** È la schermata che si apre con `F`, e
-dentro c'era la lista di tutto quello che un personaggio *è*: le immunità, le
-tredici abilità del risveglio, i tratti da negoziante, i due caratteri. Il
-perimetro dichiarato resta al 55%, ma **il totale vero passa dal 40% al 41%**.
-Catena verde fino in fondo, `cgx-test.exe` rifatto (15/08, **15:09**).
+⭐⭐ **Due zone chiuse e 178 rese in sette lotti** — 2000-2999, la scheda dei
+talenti, e 17000-17999, i rifiuti e il rapporto del personaggio. Più le due righe
+che chiudono la **scheda del personaggio**, ferme da tre riprese. `command.hsp`
+passa da 687 firme da fare a **509**, cioè dal 55% al **61%** del file; il
+perimetro dichiarato dal 55% al **56%** e il totale vero dal 40% al **41%**.
+Catena verde fino in fondo, `cgx-test.exe` rifatto (15/08, **15:58**).
+
+⚠️⚠️ **E la sessione ha corretto due guardie e un referto, tutti per lo stesso
+motivo: guardavano la RIGA dove `estrai` ancora la firma, invece della firma.**
+La rete 6 bocciava una voce viva perché la sua prima occorrenza sta in un blocco
+spento (`command.hsp:17285`, il menu che si apre a ogni uscita dal gioco);
+`misura-blocchi-spenti.py` contava sprecate tre rese che sprecate non erano.
+Vedi il punto 1 delle cinque cose.
 
 ⭐⭐ **E il registro non l'ho scelto io: l'ha imposto il sorgente, e per una
 ragione che nessuna sessione aveva ancora incontrato.** `*com_trait` si apre
@@ -32,40 +39,46 @@ già tradotte**.
 
 ### ▶ Il punto esatto in cui si riprende
 
-Tutto è **spinto** — sei spinte: una per la correzione a `cnv_str_en.py`, una
-per ciascuno dei tre lotti, una per il referto nuovo e questa chiusura. L'albero
-di lavoro è pulito: si riparte da `git fetch && git status -sb` e dalle otto
-verifiche d'apertura.
-⚠️ **Quattro valori attesi sono cambiati**, e tre di essi sono referti, non
-guardie: `verifica --dizionario` dice «command.hsp: 0 da ritradurre, **591** non
-ancora tradotte» (578 da fare più 13 rinviate); `perimetro.py` dice 55% e
-**41%**; `cnv_str_en.py` dice **49 chiamate e 24 chiavi inglesi**; e c'è un
-referto in più da lanciare, `lang-nel-ramo-jp.py`, atteso a **21 righe e 0 già
-tradotte**.
-💡 **Il modello per `assembla-lotto.py` resta `scratchpad/modello-rete9.py`**, e
-i lotti `017` e `018` possono fare da modello anche loro: sono a zero rinviate e
-tengono l'ancora `RINVIATE = set()`. Il `019` no, ne rinvia sette.
+Tutto è **spinto** — undici spinte: una per la correzione a `cnv_str_en.py`, una
+per ciascuno dei sette lotti (i `020` e `021` insieme, che sono una riga
+ciascuno), una per il referto nuovo, una per la toppa a `cnvrank`, più le due
+chiusure — perché la sessione si è chiusa una prima volta dopo i tre lotti della
+scheda dei talenti e poi di nuovo, come la 38ª e la 44ª. L'albero di lavoro è
+pulito: si riparte da `git fetch && git status -sb` e dalle otto verifiche
+d'apertura.
+⚠️ **Sei valori attesi sono cambiati**, e quattro sono referti, non guardie:
+`verifica --dizionario` dice «command.hsp: 0 da ritradurre, **509** non ancora
+tradotte» (489 da fare più 20 rinviate); `perimetro.py` dice **56%** e **41%**;
+`cnv_str_en.py` dice **49 chiamate e 24 chiavi inglesi** (diceva 41 e 17, e
+guardava male); `misura-blocchi-spenti.py` dice **4 sprecate e 5 vive altrove**
+dove diceva 7 sprecate; e c'è un referto in più da lanciare,
+`lang-nel-ramo-jp.py`, atteso a **21 righe e 0 già tradotte**.
+⚠️⚠️ **Il modello per `assembla-lotto.py` NON è più `modello-rete9.py`: è
+`scratchpad/modello-rete6.py`**, che ha la rete 6 corretta. I lotti `017`, `018`,
+`020`, `021` e `023` sono a zero rinviate e tengono l'ancora `RINVIATE = set()`,
+quindi possono fare da modello; il `019` e il `022` no.
 
-1. ⭐⭐ **Ancora `command.hsp`, e adesso le tre zone dense sono quasi pari:
-   17000-17999 (83), 15000-15999 (79), 4000-4999 (76).** Le 17000 sono i rifiuti
-   dell'equipaggiamento e del salvataggio — «You need to equip a firing
-   weapon.», «You can't save the game here. Exit anyway?» — cioè le frasi che il
-   gioco dice quando dici di no. ⚠️ **Prima di aprire una zona nuova di questo
-   file, lanciare `lang-nel-ramo-jp.py`**: le quattro voci di `:3003`-`:3016`
-   erano morte e le ho rinviate senza aprire la zona 3000-3999, ma quel file ha
-   ancora `if ( jp )` che nessuno ha guardato.
-2. ⭐ **Oppure `:3556` e `:7623`, che sono ancora lì** — `Level` e `Name`, le due
-   etichette inglesi in cima alla scheda del personaggio. Due righe, budget 60 px
-   e 38 px in `decisioni.md`. Sono il punto 2 da tre riprese di fila: costano
-   mezz'ora e chiudono una schermata intera.
-3. **Oppure il COLLAUDO**, che adesso ha **713 rese** mai viste a schermo — 617
-   dalla 43ª e dalla 44ª, più le 96 di stanotte — e una schermata nuova che si
-   apre **con un tasto solo**. Vedi la tabella più sotto. ⚠️ E gli **88 ranghi**
-   della 41ª restano il debito più vecchio.
-4. ⭐ **Oppure `material_data.hsp`**, 117 voci di cui 27 nomi già decisi in
+1. ⭐⭐ **Ancora `command.hsp`, e adesso la zona più densa è 15000-15999 (79),
+   poi 4000-4999 (76), 12000-12999 (55) e 7000-7999 (54).** ⚠️ **Prima di aprire
+   una zona nuova di questo file, lanciare `lang-nel-ramo-jp.py`**: le quattro
+   voci di `:3003`-`:3016` erano morte e le ho rinviate senza aprire la zona
+   3000-3999.
+2. **Oppure il COLLAUDO**, che adesso ha **795 rese** mai viste a schermo — 617
+   dalla 43ª e dalla 44ª, più le 178 di stanotte — e **tre** schermate nuove che
+   si aprono con un tasto solo (`F`, `c`, `Esc`). Vedi la tabella più sotto.
+   ⚠️ E gli **88 ranghi** della 41ª restano il debito più vecchio.
+   ⭐ **C'è anche una toppa da guardare a schermo**, ed è la prima volta che
+   `cnvrank` viene toccato: i piani dei sotterranei e i livelli dell'arena EX
+   devono uscire come **numeri nudi** («Palmia 5 liv.»), non come «5th».
+3. ⭐ **Oppure `material_data.hsp`**, 117 voci di cui 27 nomi già decisi in
    `glossario.md`: resta il candidato più economico al ventesimo dizionario su 54.
-5. **Oppure `item_func.hsp` (263), il « of » di ogni cadavere**, col nodo
+4. **Oppure `item_func.hsp` (263), il « of » di ogni cadavere**, col nodo
    grammaticale che la 42ª ha lasciato aperto.
+5. ⭐ **Oppure la seconda toppa a `command.hsp:17658`**, che è già misurata e
+   costa poco: il rapporto del personaggio dichiara **«Elona Version 3.03»** come
+   letterale, dove il giapponese della stessa riga usa `VERSION_STRING`. La resa
+   non lo può correggere (sarebbe una funzione in più, ed è la rete 11), una
+   toppa sì.
 
 ### ⚠️⚠️ Le cinque cose che la prossima sessione deve sapere
 
@@ -145,11 +158,84 @@ tengono l'ancora `RINVIATE = set()`. Il `019` no, ne rinvia sette.
    «Accumulo di mana», «Cura tattica», «Attacco tattico», «Arti marziali
    tattiche», «Maledizione tattica», «Lancio tattico», «Tempesta variabile».
 
+### ⚠️⚠️ Le tre cose in più che la seconda metà della sessione ha insegnato
+
+1. ⭐⭐ **Due guardie e un referto guardavano la RIGA dove `estrai` ancora la
+   firma, e la firma può vivere altrove.** È la scoperta 4 della 43ª — «una zona
+   non è una schermata» — che tre strumenti diversi non avevano recepito.
+   ⚠️ **La rete 6** ha bocciato cinque voci del menu d'uscita perché la loro
+   prima occorrenza sta nell'`ORIGINAL` che il mod ha spento; ma **due di quelle
+   rivivono** nel blocco che il mod ha messo al suo posto — 「ゲーム設定」 a
+   `:17285` e a `:17316`, 「無事に記録された。」 a `:17296` e a `:17330`.
+   Rinviarle avrebbe lasciato inglese un menu che si apre **a ogni uscita dal
+   gioco**.
+   ⭐ **Misurato prima di toccarla**, com'è d'obbligo: su tutto il sorgente **36
+   firme** toccano un blocco spento, **28 sono spente del tutto** — e lì la rete
+   aveva ragione — e **8 sono miste**, sette con l'ancora nella riga morta.
+   Ventotto contro otto: la rete resta, cambia solo che ora guarda **tutte** le
+   occorrenze e boccia se sono spente tutte. Il modello nuovo è
+   `scratchpad/modello-rete6.py`, ed è la **quarta rete che si corregge** dopo la
+   8, la 4 e la 9.
+   ⚠️ **E la stessa correzione rifà `misura-blocchi-spenti.py`**, che per otto
+   sessioni ha contato gonfio: **4 sprecate e 5 vive altrove**, dove diceva 7
+   sprecate. Fra le riabilitate c'è `proc.hsp:1000`, che questa stessa pagina
+   citava da sessioni come esempio di lavoro perso: la sua firma vive a `:1039` e
+   `:1298`.
+   💡 La regola generale: **quando una guardia parla di una firma, deve guardare
+   tutti i suoi siti.** Un numero di riga in un dizionario indicizzato per
+   contenuto è un indirizzo di comodo, non il posto dove la stringa vive.
+2. ⭐⭐ **Un ordinale può essere inglese senza che nessuna `lang()` lo dica.**
+   `init.hsp:149`-`:168` è `cnvrank`, e dopo il `return` del ramo giapponese
+   attacca `"st"`, `"nd"`, `"rd"`, `"th"` secondo la regola inglese: **sedici
+   siti** in sei file stampavano «5th», «21st», «3rd» in italiano.
+   ⚠️ **Nemmeno `blocchi_en.py` lo vede**, perché i letterali non stanno dentro
+   un `if ( en )` ma **dopo** un `if ( jp ) { return }`, cioè in un ramo inglese
+   implicito. È il secondo punto cieco in una forma che il suo stesso referto non
+   copre.
+   ✅ La toppa fa fare al ramo italiano quel che fa già il giapponese —
+   restituire il numero nudo — e lascia l'ordinale alla **resa del singolo
+   sito**, che sa in che frase finisce.
+   ⚠️ **E l'italiano non poteva scriverlo comunque**: «5°» vorrebbe il grado, che
+   in CP932 è a **doppia larghezza** e `guardie.py` li vieta tutti tranne `♪`.
+   La strada del numero nudo non è un ripiego, è l'unica. A `:17435` la resa è
+   diventata « liv.», invariabile, perché «5 piani» sbaglierebbe a 1.
+   💡 **Due cose imparate scrivendo la toppa**: `applica.py` cerca **per righe**,
+   non nel testo intero, quindi una toppa che ne tocca due si scrive come **lista
+   di righe**; e la sostituzione va tenuta **1:1 sulle righe**, perché
+   aggiungerne una sfaserebbe i numeri fra build e sorgente.
+3. ⭐ **Un file di testo esportato ha un tetto ESATTO, non un massimo.** Il
+   rapporto del personaggio (`:17658`-`:17855`) allinea i due punti scrivendo gli
+   spazi dentro la stringa: «`Life      : `», «`Sanity    : `», dodici caratteri
+   ciascuna. Una resa di undici o tredici storce la colonna di tutte le righe
+   sotto. ⚠️ È l'**opposto** del lavoro sui menu, dove il tetto è un massimo da
+   non superare: qui anche più corto è sbagliato.
+   💡 E per una volta l'italiano lungo non dà fastidio: «Schivata» e «Protezione»
+   ci stanno per intero, mentre nella scheda del personaggio della 43ª gli stessi
+   due termini erano dovuti diventare «Schiv.» e «Prot.» per stare in 43 e 46 px.
+   La stessa parola, tagliata dove taglia il sito e distesa dove il sito la
+   lascia stare.
+   ⚠️ **Quattro etichette restano identiche all'inglese** e vanno in
+   `invariati.md` **fra apici inversi**, perché gli spazi di allineamento fanno
+   parte della stringa: `_valore_di_riga` legge verbatim solo quel che sta fra i
+   backtick, una previdenza scritta per `text.hsp:62` che qui serve per la prima
+   volta a quattro voci in un colpo.
+
 ### ⭐ Quello che il collaudo deve guardare
 
-`cgx-test.exe` è aggiornato (15/08, **15:09**) e contiene **713 rese** mai viste
+`cgx-test.exe` è aggiornato (15/08, **15:58**) e contiene **795 rese** mai viste
 a schermo. Resta valida tutta la tabella della 44ª più in basso, e ci si
-aggiunge una schermata che ha il pregio di aprirsi **con un tasto solo**.
+aggiungono tre schermate che hanno il pregio di aprirsi **con un tasto solo**.
+
+| cosa | come arrivarci | perché guardarla |
+|---|---|---|
+| **la scheda del personaggio** | premi `c` | ⭐ «Livello» e «Nome» **adesso sono italiani**: era il punto 2 della ripresa da tre sessioni. Se una delle due tocca il suo valore, i budget sono 60 px e 38 px in `decisioni.md` |
+| **il menu dell'uscita** | premi `Esc` | ⭐⭐ «Esci dal gioco», «Impostazioni», «Regolazioni», «Annulla». ⚠️ **È la prova della rete 6 corretta**: due di quelle voci hanno l'ancora in un blocco spento e sarebbero rimaste inglesi |
+| ⚠️ il salvataggio | dal menu, esci davvero | «L'avventura è stata registrata.», poi «Gli occhi si chiudono, e tutto svanisce in pace.» |
+| **i piani dei sotterranei** | lancia Ritorno e guarda la lista | ⭐⭐ **è la prova della toppa a `cnvrank`**: deve uscire «Palmia 5 liv.», non «Palmia 5th». Se leggi ancora «th», la toppa non è entrata |
+| il rapporto del personaggio | esportalo dal menu personalizzato | ⭐ 37 rese, e sono **colonne**: se i due punti non cadono tutti incolonnati, una resa non è di dodici caratteri |
+| ⚠️ «Elona Version 3.03» nel rapporto | la prima riga del file | **deve uscire così ed è un difetto di monte**: il giapponese usa `VERSION_STRING`, l'inglese scrive la versione a mano. È il punto 5 della ripresa |
+| i tre rifiuti del tiro | prova a sparare senza arco o senza frecce | «Devi equipaggiare un'arma da tiro.», «Le munizioni equipaggiate non sono adatte.» |
+| le munizioni | cambia tipo di munizione | «Munizioni caricate:», «Normali», «Illimitate» |
 
 | cosa | come arrivarci | perché guardarla |
 |---|---|---|
@@ -164,20 +250,28 @@ aggiunge una schermata che ha il pregio di aprirsi **con un tasto solo**.
 | «Level» e «Name» sulla scheda | apri la scheda (`c`) | **devono ancora uscire in inglese**: è il punto 2 della ripresa |
 | gli 88 ranghi | F12 → wizard, poi iscriviti a arena/gilda/museo | ⚠️ il debito più vecchio, dalla 41ª |
 
-### I tre lotti
+### I sette lotti, più una toppa e una correzione
 
 | lotto | zona | che cosa | rese |
 |---|---|---|---|
 | `command-017` | 2005-2330 | le intestazioni e le **quarantasei righe di stato** sotto `[bit]` | 46 |
 | `command-018` | 2336-2507 | il **risveglio**, le tredici abilità, il negoziante, i caratteri | 38 |
 | `command-019` | 2543-2999 | la coda della scheda e il **diario dei ranghi** | 12 **+7 rinviate** |
+| `command-020` | 3556 | 「レベル」/`Level`, e chiude la prima colonna della scheda | 1 |
+| `command-021` | 7623 | 「名前」/`Name`, e **la scheda del personaggio è finita** | 1 |
+| `command-022` | 17014-17635 | i rifiuti, **l'uscita dal gioco**, il menu personalizzato | 43 **+3 rinviate** |
+| `command-023` | 17658-17920 | il **rapporto del personaggio** e le munizioni | 37 |
+| `toppa-init-cnvrank` | `init.hsp:149` | l'ordinale inglese di sedici siti in sei file | — |
+| `correzione-piano` | `:17435` | « piano» → « liv.», che il numero non rende ordinale | 1 |
 
-⭐ Sono **96 rese** e **11 rinvii** — le sette del lotto `019` più le quattro
-gemelle di `:3003`-`:3016`, che stanno nella zona dopo e le ha trovate il referto
-nuovo. Rinviarle subito è costato niente e toglie a chi aprirà la 3000-3999 il
-lavoro di ritrovarle da capo.
-💡 **Un invariato nuovo**, `[bit]`: il giapponese scrive la stessa sigla, stesso
-criterio di `HP/MP` e `AP` della 43ª. Toppe nuove: **zero**.
+⭐ Sono **178 rese** e **14 rinvii**: le sette del `019`, le quattro gemelle di
+`:3003`-`:3016` trovate dal referto nuovo, e le tre del menu d'uscita che sono
+morte davvero. Rinviare subito le gemelle è costato niente e toglie a chi aprirà
+la 3000-3999 il lavoro di ritrovarle da capo.
+💡 **Cinque invariati nuovi**: `[bit]`, e le quattro etichette del rapporto che
+in italiano restano tali e quali — `Mana      : `, `Karma     : `, `DV        : `,
+`PV        : ` — dichiarate **con gli spazi**, fra apici inversi. **Una toppa
+nuova**, la prima da tre sessioni.
 
 ### 💡 Quello che i tre lotti hanno insegnato sul metodo
 
@@ -206,7 +300,25 @@ col の.
 scrive un'altra frase. Dove la persona la garantisce il sorgente, il registro
 nominale non serve — anche se lì l'ho tenuto lo stesso, perché accorcia.
 
-### ⚠️ La serie degli errori di monte passa da cinquantasette a sessanta
+### ⚠️ La serie degli errori di monte passa da cinquantasette a sessantadue
+
+I due della seconda metà:
+
+- ⭐ **un appiattimento che un gemello ha reso visibile**: `:17367` e
+  `proc.hsp:14527` hanno l'inglese **identico** — «Returning while taking a quest
+  is forbidden» — ma il giapponese distingue 「脱出」 (la **fuga**, l'incantesimo
+  Escape) da 「帰還」 (il **ritorno**, l'incantesimo Return). Sono due comandi
+  diversi con due tasti diversi. La resa li separa, e la rete 13 lo segnalerà come
+  referto: ha ragione a farlo. 💡 `dossier.py` serve a copiare, e qui è servito a
+  **distinguere**: senza il gemello non avrei guardato il giapponese di una frase
+  che l'inglese dava per identica;
+- `:17658` scrive **«Elona Version 3.03»** come letterale, dove il giapponese
+  della stessa riga usa `VERSION_STRING`: il rapporto dichiara una versione fissa
+  e sbagliata a ogni esportazione. ⚠️ La resa non lo può correggere — sarebbe una
+  funzione in più, ed è la rete 11 — quindi aspetta una toppa (punto 5 della
+  ripresa).
+
+E i tre della prima metà:
 
 - ⚠️ **una coppia rotta in due modi**: `:2275` 「乗馬に適さない」 è «non adatto
   alla cavalcatura», il semplice contrario di `:2260`, e l'inglese scrive **«You
@@ -222,17 +334,20 @@ nominale non serve — anche se lì l'ho tenuto lo stesso, perché accorcia.
 
 ### 💡 I numeri
 
-Le firme rese passano da 12.650 a **12.746** (+96). **Il perimetro dichiarato
-resta al 55% e il totale vero passa dal 40% al 41%**: si muove solo il secondo, e
-non era mai successo — le tre volte precedenti si muovevano insieme o restava
-fermo il totale. I dizionari restano **19 su 54**, le toppe **308**. Le rinviate
-passano da 25 a **36**, ed è il salto più grosso del progetto: undici in una
-sessione, tutte della stessa famiglia.
-⚠️ **Due referti hanno un valore atteso nuovo** e non perché sia cambiato il
-sorgente: `cnv_str_en` dice 49 e 24 dove diceva 41 e 17, perché prima guardava
-male. Gli altri sono fermi: `blocchi_en` 68, `rete8_dizionario` 3, blocchi spenti
-7, `larghezze` 0 su 75, `diario` 0 su 214, `riquadri` 0 su 38 e 0 su 71,
-`battute --divergenti` 13.
+Le firme rese passano da 12.650 a **12.828** (+178). **Il perimetro dichiarato
+passa dal 55% al 56% e il totale vero dal 40% al 41%.** `command.hsp` da 687
+firme da fare a **509**: dal 55% al **61%** del file, ed è il quarto file per
+grandezza del progetto. I dizionari restano **19 su 54**, le toppe passano da 308
+a **309** — la prima da tre sessioni. Le rinviate da 25 a **39**, ed è il salto
+più grosso del progetto: quattordici in una sessione, undici delle quali della
+stessa famiglia.
+⚠️⚠️ **Tre referti hanno un valore atteso nuovo, e nessuno perché sia cambiato
+il sorgente**: `cnv_str_en` dice 49 e 24 dove diceva 41 e 17;
+`misura-blocchi-spenti` dice 4 sprecate e 5 vive altrove dove diceva 7 sprecate;
+e `lang-nel-ramo-jp` è nuovo, atteso a 21 e 0. **Tutti e tre guardavano male, non
+guardano cose diverse.** Gli altri sono fermi: `blocchi_en` 68,
+`rete8_dizionario` 3, `larghezze` 0 su 75, `diario` 0 su 214, `riquadri` 0 su 38
+e 0 su 71, `battute --divergenti` 13.
 
 ---
 
