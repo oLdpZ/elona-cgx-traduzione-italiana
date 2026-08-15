@@ -1,6 +1,221 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-15, fine della **quarantatreesima** sessione.
+Aggiornato: 2026-08-15, fine della **quarantaquattresima** sessione.
+
+⭐⭐ **La schermata del «Background» è CHIUSA per intero: 222 rese in cinque
+lotti, tutte e cinque le righe di `*setHistory`.** È la schermata che ogni
+personaggio nuovo vede alla creazione — origine, perché sei partito, un pregio,
+un difetto, un vizio privato — e la stessa che `chat.hsp:8588` fa raccontare a
+Mizuki su un **alleato**. Il perimetro dichiarato passa dal 53% al **54%** e il
+totale vero dal 39% al **40%**: è la terza volta di fila che si muovono tutt'e
+due. Catena verde fino in fondo, `cgx-test.exe` rifatto (15/08, **10:48**).
+
+⭐⭐ **E il registro nominale non è una preferenza qui: è l'unica forma che
+regge.** Le righe 3 e 4 sono mezza frase ciascuna e si tirano a sorte
+**separatamente** — 45 pregi per 43 difetti, **1.935 frasi possibili** — quindi
+la testa non può concordare con la coda in niente. Vedi il punto 1 delle cinque
+cose e le tre voci nuove di `decisioni.md`.
+
+⚠️ **`command.hsp` resta il file grosso: da 1.172 firme a 950.** La zona
+9000-9999 passa da 179 voci a **2**.
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** (cinque spinte, una per lotto, più questa chiusura) e
+l'albero di lavoro è pulito: si riparte da `git fetch && git status -sb` e dalle
+otto verifiche d'apertura.
+⚠️ **Due valori attesi sono cambiati**, e per lo stesso motivo di sempre:
+`verifica --dizionario` dice «command.hsp: 0 da ritradurre, **950** non ancora
+tradotte», e `perimetro.py` dice **54%** e **40%** dove diceva 53 e 39.
+💡 **Il modello per `assembla-lotto.py` resta `scratchpad/modello-rete9.py`**:
+nessuno dei cinque lotti di stanotte rinvia niente, quindi il modello non è
+cambiato e non c'era motivo di sostituirlo.
+
+1. ⭐⭐ **Ancora `command.hsp`, e adesso le zone dense sono i MENU.** Le tre più
+   grosse sono **1000-1999 (156 voci)**, **6000-6999 (109)** e **2000-2999
+   (103)**, e le prime due si leggono a colpo d'occhio:
+   - `1000-1999` sono gli **elenchi degli alleati e dei prigionieri** —
+     «Imprison who?», «Prisoner List», «Who to recall?», «Who to sell off?»,
+     «Whose power will you awaken?» — con le loro intestazioni di colonna
+     (`Name`, `Status`, `Value`);
+   - `6000-6999` è il **banco del necromante**: «Return to the coffin», «Take
+     out bone», «Take out heart», «Take out eye», «Take out blood», «Take out
+     skin», più «Teach Words» e «Change Tone».
+   ⭐ Sono **menu**, quindi `larghezze.py` li misura da solo: è l'opposto della
+   schermata di stanotte, dove la guardia non c'era e il tetto se l'è dovuto
+   costruire il lotto.
+2. ⭐ **Oppure `:3556` e `:7623`, che sono ancora lì.** Due righe sole —
+   `Level` e `Name` — e chiudono la scheda del personaggio, che dalla 43ª ha
+   **due etichette inglesi in cima** con tutto il resto italiano. ⚠️ I budget
+   sono 60 px e 38 px e stanno in `decisioni.md`: da quelle due righe non si
+   vedono.
+3. **Oppure il COLLAUDO**, che adesso ha **354 rese** mai viste a schermo — 132
+   dalla 43ª e 222 da questa — e una schermata nuova da guardare per intera.
+   Vedi la tabella più sotto. ⚠️ E gli **88 ranghi** della 41ª restano il debito
+   più vecchio: non li ha ancora visti nessuno.
+4. **Oppure `item_func.hsp` (263), il « of » di ogni cadavere**, col nodo
+   grammaticale che la 42ª ha lasciato aperto (punto 3 delle sue cinque cose).
+
+### ⚠️⚠️ Le cinque cose che la prossima sessione deve sapere
+
+1. ⭐⭐ **Una schermata può PRETENDERE il registro nominale invece di
+   preferirlo, e il motivo sta nel `rnd()`.** Le righe 3 e 4 del «Background»
+   sono `ohanasi3` e `ohanasi4`, due `rnd(45) + 1` **indipendenti**
+   (`chara.hsp:3261`-`:3262`), disegnate una sotto l'altra e lette come una
+   frase sola: 45 teste per 43 code, 1.935 combinazioni. Una resa che
+   concordasse la testa con la coda sbaglierebbe quasi sempre.
+   ✅ **Le tre manovre che tolgono il participio dal soggetto**, e adesso hanno
+   un nome perché in 222 rese tornano continuamente: il **nome astratto** («Un
+   passato di schiavitù»), il **participio appeso a una cosa** («Genitori
+   perduti troppo presto» — l'accordo cade su `genitori`), il **nome di genere
+   fisso** («Cavia», «una creatura maledetta», «Un'arma», «Il clone»).
+   ⭐ La seconda non era mai stata scritta ed è la più utile: **il participio non
+   si evita, si sposta**. È la famiglia del dativo riflessivo della 40ª e del
+   «ci si dorme» della 43ª, applicata al participio invece che al verbo.
+   💡 E la congiunzione va **in coda**: tutte e 45 le teste finiscono in «, ma»,
+   dove il giapponese mette 「〜が、」. L'inglese mette «Though» in testa, che in
+   italiano vorrebbe due aggettivi accordati col soggetto.
+2. ⚠️⚠️ **Il soggetto di una schermata può non essere quello che sembra, e a
+   dirlo è un ALTRO file.** «You were a slave.» sembra parlare al giocatore, e
+   invece `chat.hsp:8588`-`:8593` rilegge gli stessi cinque valori da
+   `cdata(CDATA_BACKGROUND_PART_*, c)` e li fa raccontare a Mizuki, dove `c` è
+   un **alleato** scelto con `*com_ally`. Non c'è una `lang()` gemella che
+   distingua i due casi: è la stessa riga, e va bene per tutt'e due.
+   💡 **La lezione generale**: prima di decidere il registro di una schermata si
+   cerca chi altro legge le sue **variabili**, non chi altro chiama le sue
+   `lang()`. Qui bastava un `grep ohanasi *.hsp`, e ha cambiato la resa di 222
+   righe.
+3. ⚠️ **Una tabella a `rnd(N)` può avere meno di N voci distinte, e nessuna
+   verifica lo dice.** `*setHistory4` e `*setHistory5` dichiarano 45 valori e ne
+   hanno **43**: `:9933` ripete `:9924`, `:9972` ripete `:9966`, `:10059` ripete
+   `:10047`, `:10089` ripete `:10068`. Quei quattro tratti escono col **doppio**
+   della probabilità degli altri.
+   ✅ Per la traduzione non cambia niente — `estrai --da-tradurre` le fonde per
+   firma e `applica.py` scrive la resa in tutt'e due i siti — ma è una
+   **famiglia nuova** negli errori di monte: fin qui erano traduzioni sbagliate,
+   questa è la tabella del gioco a essere scritta male. 💡 Chi apre un elenco a
+   `rnd(N)` conti le voci distinte prima di fidarsi di N.
+4. ⚠️ **Il tetto di una schermata senza guardia si può ricavare dall'INGLESE, e
+   costa tre righe di Python.** Le cinque righe del «Background» si disegnano
+   con `mes` dentro una finestra da 360 px, e nessuna guardia le guarda — come
+   la scheda del personaggio della 43ª. Ma lì il budget era la differenza fra
+   due `pos` scritte vicine; qui il valore non c'è, la riga arriva al bordo.
+   ✅ Il metro è quello di `tetti_buffdesc.py`: **l'italiano contro l'inglese di
+   monte**, col tetto fissato alla voce inglese più lunga dello **stesso
+   gruppo** — quella la finestra la contiene già, per il fatto che upstream ci
+   gira. Lo misura `scratchpad/misura-background.py`, che è un **referto**, non
+   una guardia: si rilancia a mano quando si tocca uno dei cinque gruppi.
+5. ⚠️ **Il giapponese ha vinto sette volte sull'inglese in una sessione sola**,
+   ed è il record. Quattro sono errori di monte veri (vedi più sotto), tre sono
+   appiattimenti: `:9615` 「ロマン」 è la **meraviglia** e l'inglese scrive
+   «romance»; `:9672` non nomina nessuna nave e l'inglese ci mette **«the Queen
+   Sedona»**; e le tre code giapponesi 「旅に出る」/「冒険に出る」/「冒険者になる」
+   diventano tutt'e tre «left on adventure». 💡 Le tre code sono state rese
+   diverse — «In viaggio per…», «All'avventura…», «Avventura, …» — e restituire
+   una distinzione che l'inglese aveva perso è costato **zero**: bastava
+   guardare la colonna giapponese prima di scrivere.
+
+### ⚠️ La serie degli errori di monte passa da quarantotto a cinquantadue
+
+Quattro nuovi, e una **famiglia nuova** che non è un errore di traduzione (vedi
+il punto 3):
+
+- ⭐ **il soggetto girato**: `:9873` 「熱中すると周りが見えなくなる。」 è «quando ci
+  si appassiona non si vede più niente intorno», e l'inglese scrive «you drain
+  the enthusiasm from those around you», cioè che l'entusiasmo lo **togli agli
+  altri**. Non è una sfumatura, è il contrario;
+- ⭐ **il passivo girato in attivo, che appiattisce due voci in una**: `:9978`
+  「周囲からよく誤解される。」 è «gli altri ti fraintendono spesso», e l'inglese fa
+  «you often misunderstand situations» — che è **quasi identico** a `:9966`
+  「勘違いが激しい。」, il quale invece dice proprio «capisci fischi per fiaschi».
+  Due voci diverse dell'elenco diventano la stessa;
+- `:10065` 「他人を否定することが快感。」 è il piacere di **dare torto** agli altri,
+  e l'inglese legge 否定 come «privare» e scrive «You enjoy denying pleasure to
+  others»;
+- `:9930` 「肝心なところで失敗する。」 è «sbagli nel momento decisivo», non «you
+  fail at basic things»;
+- 💡 minore, ma è un difetto di forma vero: **quattro code su quarantatre
+  cominciano con la maiuscola** — `:9996`, `:9999`, `:10002`, `:10005` — dentro
+  un elenco di code di frase dove le altre trentanove sono minuscole. In
+  italiano sono minuscole tutte e quarantatre.
+
+### ⭐ Quello che il collaudo deve guardare
+
+`cgx-test.exe` è aggiornato (15/08, **10:48**) e contiene **354 rese** mai viste
+a schermo. Resta valida tutta la tabella della 43ª più in basso, e ci si
+aggiunge questa schermata — che ha il pregio di essere **immediata**: si vede
+facendo un personaggio nuovo, senza dover provocare niente.
+
+| cosa | come arrivarci | perché guardarla |
+|---|---|---|
+| **le cinque righe del Background** | fai un personaggio nuovo e arriva alla schermata del passato | ⭐⭐ **è la prova della sessione**. Cinque righe, 222 rese dietro |
+| ⚠️ la terza e la quarta riga insieme | la stessa schermata, e premi «Reroll» qualche volta | **è il punto 1**: la terza finisce in «, ma» e la quarta ci si deve saldare. Dieci tiri diversi e si vede se la frase regge sempre |
+| la larghezza delle cinque righe | la stessa schermata | ⚠️ nessuna guardia la misura: se una riga tocca il bordo della finestra, il tetto è in `decisioni.md` e si accorcia lì |
+| il passato di un alleato | Mizuki, e chiedigli di farsi raccontare il passato di un compagno | ⚠️ **è l'altro lettore delle stesse righe**, ed è quello che ha deciso il registro. Se lì suona bene, suona bene ovunque |
+| «Level» e «Name» sulla scheda | apri la scheda del personaggio | **devono ancora uscire in inglese**: non è un difetto, è il punto 2 della ripresa |
+| gli 88 ranghi | F12 → wizard, poi iscriviti a arena/gilda/museo | ⚠️ il debito più vecchio, dalla 41ª |
+
+### I cinque lotti
+
+| lotto | zona | che cosa | rese |
+|---|---|---|---|
+| `command-004` | 9454-9594 | **le origini**: la famiglia, la schiavitù, il laboratorio | 46 |
+| `command-005` | 9595-9732 | **le partenze**: perché sei per strada | 45 |
+| `command-006` | 9733-9870 | **i pregi**, teste di frase in «, ma» | 45 |
+| `command-007` | 9871-10008 | **i difetti**, code di frase minuscole | 43 |
+| `command-008` | 10009-10146 | **i vizi privati**, otto dei quali «Passatempo: …» | 43 |
+
+⭐ Sono **222 rese in una sessione**, il totale più alto dopo le 243 della 40ª,
+e tutte e cinque le zone hanno dato **zero copie** a `dossier.py`: la schermata
+del passato non parla la lingua di nessun'altra parte del gioco. È la prima
+volta che succede per cinque zone di fila.
+
+### 💡 Quello che i cinque lotti hanno insegnato sul metodo
+
+⭐⭐ **Il participio non si evita, si sposta.** «You lost your parents early» non
+diventa «Hai perso i genitori» per aggirare il participio: diventa «**Genitori
+perduti** troppo presto», dove il participio c'è e concorda con `genitori`. Lo
+stesso per «Il paese natale, **distrutto** dai mostri» e «Origini **tenute**
+nascoste». ⚠️ La regola vecchia — «mai un participio riferito al giocatore» —
+resta intatta: quel che cambia è che non obbliga a rinunciare al participio, ma
+solo a dargli un altro referente.
+
+⭐ **Il nome di genere fisso è la strada anche quando la persona va nominata per
+forza.** Sette rese lo usano: «Cavia» (feminile), «una creatura maledetta»,
+«Un'arma nata da una tecnologia proibita», «Il clone», «Un frutto nascosto»,
+«Una guida forte per gli altri», «Un ex militare». 💡 E tre nomi sono
+**invariabili in genere** e si possono usare tali e quali — «criminale»,
+«erede», «militare» — che è la scoperta minore ma pratica: prima di girare la
+frase, si guarda se il nome un genere ce l'ha davvero.
+
+⭐ **Il registro giusto era già nel giapponese, e l'inglese lo aveva perso.**
+Otto voci su 43 di `*setHistory5` sono 「趣味は…」/「…が趣味」, cioè letteralmente
+«passatempo: …», e l'inglese le gira tutte in «You like to…». La resa copia il
+giapponese — «Passatempo: il pisolino», «Passatempo: la caccia» — e la colonna
+esce più corta e più uniforme. 💡 È la stessa lezione delle etichette di stato di
+`guida-stile.md`: **la scelta neutra non è un ripiego italiano, è la forma
+dell'originale**.
+
+💡 **Zero invariati nuovi e zero toppe**: nessuna delle 222 righe ha avuto
+bisogno né dell'uno né dell'altra. Sono statiche pure, senza funzioni
+interpolate, e le reti 8, 10, 11 e 12 non hanno avuto niente da dire.
+
+### 💡 I numeri
+
+**Il perimetro dichiarato passa dal 53% al 54% e il totale vero dal 39% al 40%**:
+terza volta di fila che si muovono tutt'e due, e non era mai successo. Le firme
+rese passano da 12.165 a **12.387** (+222). I dizionari restano **19 su 54** —
+`command.hsp` il suo ce l'aveva già dalla 43ª. Le rinviate restano **23** e le
+toppe **308**: questa sessione non ne ha scritta nessuna né dell'una né
+dell'altra specie. Tutti gli altri referti sono fermi: `blocchi_en` 68,
+`rete8_dizionario` 3, blocchi spenti 7, `cnv_str` 17 chiavi inglesi su 41.
+⚠️ **Il quadro della 38ª non cambia**: quel che resta è più grande di quel che è
+stato fatto, e la parte più grossa **non ha firma `lang()`** — 5.284 descrizioni
+di oggetto e 117.977 caratteri nei file di `data/`.
+
+---
+
+## La quarantatreesima sessione
 
 ⭐⭐ **`command.hsp` è APERTO, ed è il file che aveva indicato lo schermo.** Tre
 lotti, **132 rese** e 4 rinviate: è il **diciannovesimo dizionario su 54**, e il

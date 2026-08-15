@@ -6,6 +6,99 @@ ancora aperte.
 
 ---
 
+## Il registro nominale, e perché una schermata intera lo pretende invece di preferirlo — 2026-08-15, quarantaquattresima sessione
+
+La schermata «Background» (`chara.hsp:3265`-`:3336`, `command.hsp:*setHistory1`
+… `5`) è cinque righe tirate a sorte che raccontano il passato di un
+personaggio. La regola «il giocatore non ha genere noto» la copriva già, ma qui
+si somma un secondo vincolo che nessuna schermata precedente aveva:
+
+1. **il soggetto non è solo il giocatore.** `chat.hsp:8588`-`:8593` rilegge gli
+   stessi cinque valori da `cdata(CDATA_BACKGROUND_PART_*, c)` e li fa
+   raccontare a Mizuki, dove `c` è un **alleato** scelto con `*com_ally`. Non
+   c'è una `lang()` gemella che distingua i due casi: è la stessa riga;
+2. **le righe 3 e 4 sono mezza frase ciascuna, e si tirano a sorte
+   separatamente.** `ohanasi3` e `ohanasi4` sono due `rnd(45) + 1` indipendenti
+   (`chara.hsp:3261`-`:3262`): ognuno dei 45 pregi si salda a ognuno dei 43
+   difetti, **1.935 frasi possibili**. Una resa che concordasse la testa con la
+   coda — in genere, numero o soggetto — sbaglierebbe nella quasi totalità delle
+   combinazioni.
+
+✅ **La forma nominale è l'unica che regge tutt'e due**, ed è quella del
+giapponese, che il soggetto non ce l'ha mai: 「奴隷だった過去を持つ。」,
+「自意識過剰。」, 「趣味は読書。」. L'inglese è la lingua che se ne discosta,
+esattamente come per le etichette di stato di `guida-stile.md` («Starving» →
+«Inedia»).
+
+💡 **Le tre manovre, e adesso sono tre e hanno un nome**, perché in 222 rese
+tornano continuamente:
+
+| manovra | esempio | dove cade l'accordo |
+|---|---|---|
+| il **nome astratto** al posto dell'aggettivo | 「奴隷だった」 → «Un passato di schiavitù» | in nessun posto |
+| il **participio appeso a una cosa** | «Genitori perduti troppo presto», «Il paese natale, distrutto dai mostri» | su `genitori`, su `paese` |
+| il **nome di genere fisso** | «Cavia», «una creatura maledetta», «Un'arma», «Il clone», «Una guida forte» | sul nome, che un genere ce l'ha suo |
+
+⭐ La seconda è la più utile e non era mai stata scritta: **il participio non si
+evita, si sposta**. È la stessa famiglia del dativo riflessivo della 40ª e
+dell'impersonale «ci si dorme» della 43ª — si sposta l'accordo su qualcosa che
+la resa controlla — ma applicata al participio invece che al verbo.
+
+⚠️ **E la congiunzione va in coda, non in testa.** Il giapponese chiude la riga
+3 con 「〜が、」; l'inglese mette «Though» all'inizio, che in italiano vorrebbe
+«Per quanto mite e generoso,», cioè due aggettivi accordati col soggetto. Tutte
+e 45 le teste finiscono in «, ma». È la manovra della rete 9 — il connettivo
+che chiude la testa — applicata a un'avversativa invece che a una copulativa.
+
+---
+
+## Il budget di una schermata che nessuna guardia misura: l'inglese di monte — 2026-08-15, quarantaquattresima sessione
+
+Le cinque righe del «Background» si disegnano con `mes` a `pos wx + 75, wy + 200
++ n * 15` dentro una finestra larga 360 px. È la stessa situazione della scheda
+del personaggio della 43ª — `larghezze.py` conosce solo i menu di `*prompt_key`,
+`riquadri.py` l'HUD e le tattiche — ma **senza il metro che la 43ª aveva**: lì il
+budget era la differenza fra la `pos` dell'etichetta e quella del valore, scritte
+a poche righe di distanza. Qui il valore non c'è: la riga arriva fino al bordo.
+
+✅ **Il metro possibile è quello di `tetti_buffdesc.py`, cioè l'italiano contro
+l'inglese di monte**, e il tetto è la **voce inglese più lunga dello stesso
+gruppo**: quella la finestra la contiene già, per il fatto che upstream ci gira.
+Una resa che non la supera non può stare peggio.
+
+| gruppo | voci | tetto EN | resa IT più lunga |
+|---|---|---|---|
+| `setHistory1` origine | 46 | 54 | 54 |
+| `setHistory2` la partenza | 45 | 61 | 51 |
+| `setHistory3` il pregio | 45 | 57 | 48 |
+| `setHistory4` il difetto | 43 | 48 | 47 |
+| `setHistory5` il vizio | 43 | 50 | 48 |
+
+Lo misura `scratchpad/misura-background.py`. ⚠️ **Non è una guardia**: è un
+referto da rilanciare a mano quando si tocca uno dei cinque gruppi, come
+`tetti_buffdesc.py`. E come quello, stima in caratteri quel che lo schermo
+disegna in pixel.
+
+---
+
+## Una voce duplicata dentro la stessa tabella: quattro casi in due elenchi — 2026-08-15, quarantaquattresima sessione
+
+`*setHistory4` e `*setHistory5` dichiarano 45 valori l'uno e ne contengono 43
+distinti: `:9933` ripete `:9924` (「私生活はだらしない。」), `:9972` ripete `:9966`
+(「勘違いが激しい。」), `:10059` ripete `:10047` (「慕っている師匠がいる。」),
+`:10089` ripete `:10068` (「趣味は昼寝。」). Stessa firma, stesso elenco, due
+slot del `rnd(45)`: quei quattro tratti escono col **doppio** della probabilità
+degli altri.
+
+💡 **Non c'è niente da fare, ed è il punto**: `estrai --da-tradurre` le fonde per
+firma e `applica.py` scrive la resa in tutt'e due i siti, quindi la traduzione è
+corretta comunque. Ma è una **famiglia nuova** nella serie degli errori di monte,
+che fin qui contava traduzioni sbagliate: qui la traduzione non c'entra, è la
+tabella del gioco a essere scritta male. ⚠️ Chi apre un elenco a `rnd(N)` conti
+le voci distinte prima di fidarsi di N.
+
+---
+
 ## Una testa di frase finisce in « and» SENZA spazio, e la rete 9 guardava male — 2026-08-15, quarantatreesima sessione
 
 La rete 9 esiste dal lotto 010 e dice una cosa giusta: se il ramo inglese finisce
