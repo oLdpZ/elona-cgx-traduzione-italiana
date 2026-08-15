@@ -43,6 +43,7 @@ si committa.
 | `variabili_en.py` | ⚠️ **il terzo punto cieco**, dopo `blocchi_en.py` e `else_jp.py`: le variabili che si portano dentro un letterale inglese e finiscono interpolate in una `lang()`, dove nessuno dei due referti le vede perché l'assegnamento è **incondizionato**. Atteso: **66 variabili, 3 trappole** — se sale a 4 qualcuno ne ha creata una, se scende a 2 `economy.hsp:319` è stato risolto | all'apertura |
 | `rinvia-proc-4958.py`, `rinvia-proc-navi.py`, `rinvia-proc-11796.py` | come si scrive un rinvio in `rinviate.jsonl` col motivo per esteso | quando una rete 6 o 7 scatta |
 | ⭐ `toppa-action-15221.py`, `toppa-proc-24107.py`, `toppa-chara_func-3037.py` | **rinvio + toppa insieme**, per la riga che il dizionario non può aggiustare: la toppa riporta il ramo inglese alla forma del giapponese e il rinvio dice perché. ⚠️ Le toppe **non passano da `degrada()`**: la sostituzione non deve portare accenti, e va scritta per non averne bisogno. 💡 **E si compone, si codifica in memoria e solo allora si apre il file**: vedi il riquadro qui sotto | quando la rete 11 boccia la resa giusta |
+| ⭐⭐ `toppa-command-15489.py` | **la famiglia nuova della 46ª: un letterale inglese concatenato in coda a una `lang()`**, `txt lang(...) + "(" + punti + " Guild Point)"`. Non è un ramo, non è una variabile, non è una `cnv_str`: nessuno dei **cinque punti ciechi** lo guarda, e il dizionario non lo raggiunge perché sostituisce solo il secondo argomento di `lang()`. ⚠️⚠️ **E qui è nata la regola che mancava — vedi il riquadro «una toppa e una resa» qui sotto.** ⭐ Da copiare anche per come sceglie il testo: il termine («Punti gilda») era già deciso quaranta righe più su, a `:14115`, dentro una `lang()` vera | quando un letterale inglese sta **fuori** dalla `lang()` sulla riga di una voce |
 | `correzione-bolt.py`, `correzione-014.py`, `correzione-rete8.py`, `correzione-mana.py`, `correzione-schivata.py` | come si corregge una resa **già entrata nel dizionario** senza passare da un lotto, con le reti che impediscono di correggerne una di troppo o una di meno. ⚠️ **`correzione-rete8.py` porta la rete che mancava**: le rese nuove vanno passate a `controlla_lotto`, perché `verifica --dizionario` **non le guarda** — confronta il dizionario col sorgente e conta orfane e non tradotte. 💡 **`correzione-schivata.py` è il modello più recente** ed è nato da un **collaudo**, non da una misura: «Il viandante schiva Kefry» compariva cinque volte in uno schermo | quando due file dicono la stessa cosa in due modi, o quando lo schermo mostra una frase storta |
 | `rete8_dizionario.py` | la **rete 8 all'indietro**, su tutto quello che è già entrato: le rese che stampano «di il», «a il», «in il», «su il». Nella 37ª ne ha trovate sei, di cinque lotti diversi, tutte scritte prima che la rete esistesse. Atteso adesso: **3**, tutti dichiarati falsi positivi | quando si tocca la rete 8, o all'apertura di una sessione lunga |
 | `ricerca-014.py`, `ricerca-015.py`, `ricerca-016.py` | il modello di come si interroga il dizionario **prima** di scrivere un lotto: una lista di domande `(titolo, filtro)` su `jp`/`en`/`it` di tutti i file insieme. Nella 37ª ha pescato «bacchetta», «mana di ricarica», «medaglietta», «barra», «Tornado magnetico», «la sorella cane maggiore» | insieme a `dossier.py`, prima di tradurre |
@@ -131,6 +132,29 @@ dell'uscita dall'estrazione — `lavoro/_command_simili.txt`.
 in `lavoro/_nome.jsonl` e produce i lotti `lavoro/fase4-nome-NNN.jsonl`.
 `assembla-lotto.py` la dà per buona, quindi rispettarla costa niente e romperla
 costa un'ora.
+
+### ⚠️⚠️ Una toppa e una resa non possono stare sulla stessa riga
+
+Nata nella 46ª su `command.hsp:15489`, e la trappola è che **la strada sbagliata
+funziona**. `applica.py` fa girare le toppe **dopo** il dizionario
+(`applica.py:530`), quindi si può agganciare `cerca` alla riga **già tradotta**,
+leggendola dall'albero di build: la toppa si applica, l'italiano esce giusto, il
+gioco compila.
+
+A fermarla è `strumenti/tests/test_toppe.py:104`, che pretende che **ogni toppa
+si applichi al SORGENTE pinnato**. Non è un capriccio: è quella prova a diventare
+rossa il giorno in cui upstream riscrive la riga, prima che la build produca
+qualcosa di sbagliato. Una toppa agganciata al testo italiano non ha più nessun
+rapporto col sorgente, e quella prova non varrebbe più niente — resterebbe verde
+per sempre, su una riga che nessuno controlla più.
+
+✅ La forma giusta è quella già in tabella qui sopra: **rinvio + toppa insieme**.
+Il rinvio toglie la voce dal dizionario, così `applica` non tocca la riga, e la
+toppa la riscrive tutta intera partendo dal sorgente.
+
+💡 In una riga sola: **o la riga la sistema il dizionario, o la sistema la
+toppa.** Chi sceglie la toppa deve rinviare la voce, e chi trova una riga con
+tutt'e due ha già un difetto sotto gli occhi.
 
 ### ⚠️⚠️ Uno script che riscrive un file di dati lo compone PRIMA di aprirlo
 

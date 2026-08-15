@@ -1,6 +1,157 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-15, fine della **quarantacinquesima** sessione.
+Aggiornato: 2026-08-15, **quarantaseiesima** sessione (chiusura a metà, dopo tre
+lotti).
+
+⭐⭐ **La zona più densa di `command.hsp` è chiusa: 78 rese in tre lotti, e
+15000-15999 sparisce dall'istogramma.** Dare un oggetto a un alleato,
+l'identificazione, le consegne alla gilda, le tasse, le medagliette, le cose da
+non posare. Il file passa da 509 firme da fare a **431**, cioè dal 61% al **67%**;
+le voci rese sono **873 su 1.304**. Catena verde fino in fondo, `cgx-test.exe`
+rifatto (15/08, **17:43**).
+
+⭐⭐ **E l'inglese di monte ha sbagliato due volte in tre lotti, in due modi
+opposti.** A `:15188` dice **troppo**, e la cosa sbagliata: l'array delle quattro
+risposte è quello del *rifiuto* copiato addosso ai quattro esiti della borraccia
+filtrante, e l'alleato che beve ti risponde «Never!» dove il giapponese dice
+「ありがとう！」. A `:15636`/`:15645` dice **troppo poco**: lo stesso identico
+inglese per due scenette che il giapponese distingue. ✅ Nel primo caso ha deciso
+la **rete 3** (il giapponese era già reso altrove), nel secondo ha deciso la
+**rete 11** (le funzioni di contenuto bastavano per tutt'e due). Nessuna delle
+due volte ho scelto io.
+
+⚠️⚠️ **E la sessione ha scritto una toppa sbagliata che funzionava.** Le toppe
+girano dopo il dizionario, quindi agganciarne una alla riga già tradotta compila
+e produce l'italiano giusto — ma `test_toppe.py:104` pretende il sorgente
+pinnato, ed è quella prova a fare rumore quando upstream riscrive la riga. Vedi
+il punto 2 delle cinque cose.
+
+---
+
+## La quarantaseiesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** — tre spinte, una per lotto — e l'albero di lavoro è pulito.
+Si riparte da `git fetch && git status -sb` e dalle otto verifiche d'apertura.
+⚠️ **Tre valori attesi sono cambiati**: `verifica --dizionario` dice «command.hsp:
+0 da ritradurre, **431** non ancora tradotte» (410 da fare più **21** rinviate);
+`toppe.jsonl` ha **310** toppe e `rinviate.jsonl` **40** righe. Tutto il resto è
+fermo dov'era: `perimetro.py` **56%** e **41%**, `cnv_str_en.py` 49 e 24,
+`misura-blocchi-spenti.py` 4 e 5, `lang-nel-ramo-jp.py` 21 righe e **0 già
+tradotte**.
+⚠️ Il modello per `assembla-lotto.py` resta **`scratchpad/modello-rete6.py`**. I
+lotti `024` e `026` sono a zero rinviate e tengono l'ancora `RINVIATE = set()`,
+quindi possono fare da modello; il `025` no.
+
+1. ⭐⭐ **Ancora `command.hsp`, e adesso la zona più densa è 4000-4999 (76)**,
+   poi 12000-12999 (55), 7000-7999 (54) e 14000-14999 (50). ⚠️ Prima di aprire
+   una zona nuova, `lang-nel-ramo-jp.py` come sempre — le 11 righe morte di
+   `command.hsp` stanno tutte in 2954-3016 e sono già rinviate.
+2. **Oppure il COLLAUDO**, che adesso ha **873 rese** mai viste a schermo — 795
+   dalle sessioni prima più le 78 di stanotte — e schermate nuove che si aprono
+   con un tasto solo. ⚠️ Gli **88 ranghi** della 41ª restano il debito più
+   vecchio. ⭐ E ci sono **due toppe** da guardare: `cnvrank` (i piani dei
+   sotterranei come numeri nudi) e i **«punti gilda»** di `:15489`, che si vede
+   consegnando libri antichi alla Gilda dei Maghi.
+3. ⭐ **Oppure `material_data.hsp`**, 117 voci di cui 27 nomi già decisi in
+   `glossario.md`: resta il candidato più economico al ventesimo dizionario su 54.
+4. **Oppure `item_func.hsp` (263), il « of » di ogni cadavere**, col nodo
+   grammaticale che la 42ª ha lasciato aperto.
+5. ⭐ **Oppure la toppa a `command.hsp:17658`**, già misurata e a buon mercato: il
+   rapporto del personaggio dichiara **«Elona Version 3.03»** come letterale dove
+   il giapponese usa `VERSION_STRING`. ⚠️ **Adesso si sa come si scrive**: la voce
+   va **rinviata** insieme alla toppa, perché una toppa e una resa non stanno
+   sulla stessa riga. Vedi il punto 2.
+6. ⚠️ **E c'è un'incoerenza vecchia da correggere**, trovata cercando un termine e
+   non misurando: `db_item.hsp:135432` chiama l'oggetto «borraccia filtrante»,
+   `action.hsp:8267` scrive «Hai riempito d'acqua la **bottiglia** filtrante».
+   Stesso oggetto, due nomi. È materiale da `correzione-*.py`, non da lotto.
+
+### ⚠️⚠️ Le cinque cose che la prossima sessione deve sapere
+
+1. ⭐⭐ **Quando l'inglese e il giapponese non dicono la stessa cosa, a decidere
+   non è il gusto: è quale rete parla.** Due casi opposti nella stessa zona.
+   ⚠️ A `:15188` l'inglese dice la cosa **sbagliata**: i quattro slot sono i
+   quattro esiti della borraccia filtrante (`:15169`-`:15186`) — slot 2 la
+   borraccia vuota, slot 4 l'alleato che **beve** (`PARAM2 > 0`,
+   `SOUNDLIST_DRINK1`, `THIRST += 2000`) — e il giapponese li dice tutti, mentre
+   l'inglese ci mette «No way.» e «Never!», cioè gli slot 2 e 4 dell'array del
+   **rifiuto** otto righe più sotto. In inglese l'alleato beve e risponde «mai».
+   ✅ Ha deciso la **rete 3**: 「ありがとう！」 era già «Grazie!» in `text.hsp:1994`.
+   ⚠️ A `:15636`/`:15645` l'inglese dice **meno**: «name swallows itemname
+   angrily» per due scene diversissime — l'anello di fidanzamento ingoiato per
+   rabbia, e il cioccolatino ficcato in bocca in fretta mentre si risponde che
+   «non ho nessun oggetto del genere». ✅ Qui ha deciso la **rete 11**: confronta
+   l'**insieme** delle funzioni di contenuto, e tutt'e due le righe hanno `name`
+   più `itemname` in tutt'e due le lingue. Quindi l'italiano può rimettere la
+   scenetta che l'inglese aveva buttato.
+   💡 **La regola che ne esce**: quando l'inglese sbaglia, si guarda **cosa
+   permette la rete**, non cosa suona meglio. La rete 3 obbliga, la rete 11
+   autorizza, e in mezzo non c'è spazio per una preferenza.
+2. ⚠️⚠️ **Una toppa e una resa non possono stare sulla stessa riga, e la strada
+   sbagliata FUNZIONA.** `applica.py` fa girare le toppe **dopo** il dizionario
+   (`applica.py:530`), quindi si può agganciare `cerca` alla riga già tradotta
+   leggendola dall'albero di build: la toppa si applica, l'italiano esce giusto,
+   il gioco compila. Io l'ho fatto, e non me ne sarei accorto.
+   ✅ **A fermarmi è stato `strumenti/tests/test_toppe.py:104`**, che pretende che
+   ogni toppa si applichi al **sorgente pinnato**. Non è un capriccio: è quella
+   prova a diventare rossa il giorno in cui upstream riscrive la riga, prima che
+   la build produca qualcosa di sbagliato. Una toppa agganciata al testo italiano
+   resterebbe verde per sempre, su una riga che nessuno controlla più.
+   ✅ La forma giusta era già in tabella in `LEGGIMI.md`: **rinvio + toppa
+   insieme** (`toppa-action-15221.py`, `toppa-proc-24107.py`). Il rinvio toglie la
+   voce dal dizionario, così `applica` non tocca la riga, e la toppa la riscrive
+   intera partendo dal sorgente.
+   💡 In una riga: **o la riga la sistema il dizionario, o la sistema la toppa.**
+   Scritto adesso in `LEGGIMI.md`, perché in quarantasei sessioni non c'era.
+3. ⭐⭐ **Un letterale inglese può stare in coda a una `lang()`, ed è la famiglia
+   che nessuno dei cinque punti ciechi guarda.** `:15489` è
+   `txt lang(...) + "(" + punti + " Guild Point)"`: la `lang()` si chiude e il
+   letterale sta **dopo**, quindi vale per tutt'e due le lingue — anche il
+   giocatore giapponese legge «Guild Point». ⚠️ E non lo vede nessuno, ognuno per
+   un motivo suo: `blocchi_en.py` cerca `if ( en )`, `else_jp.py` il ramo `else`,
+   `lang-nel-ramo-jp.py` la `lang()` nel ramo giapponese, `variabili_en.py`
+   l'**assegnamento** di una variabile, `cnv_str_en.py` le chiavi di `cnv_str`.
+   Qui non c'è un ramo, non c'è una variabile, non c'è una conversione: c'è una
+   **concatenazione**.
+   💡 **E il termine era già deciso quaranta righe più su**: `:14115` è
+   `lang("ギルドポイント", "Guild Point")`, reso «Punti gilda». Lo stesso testo, dentro
+   una `lang()` vera. La differenza non è il testo: è **dove sta scritto**.
+   ⚠️ **Trovato leggendo il sorgente riga per riga**, come il punto cieco di
+   `cnv_str_en.py` nella 45ª — non rilanciando uno strumento. ⭐ **Varrebbe la
+   pena scriverne il referto**: un `coda_en.py` che cerchi i letterali inglesi
+   concatenati **fuori** dalla parentesi di una `lang()`. Questa è una sola, ma
+   nessuno ha ancora misurato quante siano.
+4. ⚠️⚠️ **Una `lang()` può essere spenta dall'ARITMETICA di un indice, ed è la
+   quarta famiglia di riga morta.** `:15615` è
+   `s = "", 「やだ」, 「あげないよ」, 「だめ」, 「イヤ！」`, e l'indice `f` due righe sopra
+   vale **0 oppure 2**: `f = 0` a `:15610`, `f = 2` a `:15612` se l'oggetto è un
+   minerale, e `:15614` entra solo `if ( f != 0 )`. Il gioco stampa **sempre e
+   solo lo slot 2**; gli altri tre sono irraggiungibili.
+   ⚠️ **Ma non sono testo morto nel senso della rete 6**: la riga è viva, la
+   `lang()` gira, il valore finisce dentro `s`. Le prime tre famiglie sono fatti
+   del **testo** — un `;`, un `/* */`, un ramo della lingua — questa è un fatto
+   del **flusso**, e non la guarda nessuno strumento del progetto.
+   ✅ **Si traducono lo stesso**, e per un motivo pratico: basta che upstream
+   aggiunga un `f = 3` da qualche parte perché tornino vive, e allora sarebbero
+   inglese in mezzo all'italiano. ⚠️ La differenza con le altre tre famiglie è
+   proprio questa: là rinviare è giusto, qui sarebbe una scommessa.
+5. ⭐ **Cercare prima di scrivere ha battuto il suo record: otto rese su trenta
+   in un lotto solo non le ho decise io.** Sei sono il coro dei traguardi —
+   «Finalmente!», «Era il risultato naturale.», «Uooooooh!», «Hmpf.», «Stanotte
+   non chiudo occhio.», «Stai scherzando.» — che `text.hsp:477`-`:492` ha già
+   reso perché la stessa lista serve a **ogni** traguardo del gioco, e `:15564`-
+   `:15569` la riscrive tale e quale per la sfida delle tasse doppie. Le altre due
+   sono «Non hai abbastanza denaro...» (`proc.hsp:15584`) e «Mai!», che avevo
+   scritto io **due lotti prima**.
+   💡 **La lezione minore, e costa poco**: la rete 3 le ha nominate tutte e otto
+   da sola, senza che le cercassi. Un lotto che la fa parlare molto non è un lotto
+   con un problema: è un lotto in un'area che il gioco ha già raccontato altrove.
+
+---
+
+## La quarantacinquesima sessione (per storia)
 
 ⭐⭐ **Due zone chiuse e 178 rese in sette lotti** — 2000-2999, la scheda dei
 talenti, e 17000-17999, i rifiuti e il rapporto del personaggio. Più le due righe
@@ -33,11 +184,7 @@ proprio quelle che convertono questa schermata. `lang-nel-ramo-jp.py` è il
 **quinto punto cieco**, misurato per la prima volta stanotte: **21 righe, zero
 già tradotte**.
 
----
-
-## La quarantacinquesima sessione
-
-### ▶ Il punto esatto in cui si riprende
+### ▶ Il punto in cui si riprendeva allora (45ª)
 
 Tutto è **spinto** — undici spinte: una per la correzione a `cnv_str_en.py`, una
 per ciascuno dei sette lotti (i `020` e `021` insieme, che sono una riga
@@ -2872,10 +3019,11 @@ python scratchpad/referti.py              # participi col giocatore: 0 | elision
 python scratchpad/blocchi_en.py           # struttura 99 | ancora da fare 68
 python scratchpad/else_jp.py              # else-di-jp: 6.984 righe in 13 file
 python scratchpad/rete8_dizionario.py     # 3, tutti dichiarati falsi positivi
-python scratchpad/misura-blocchi-spenti.py  # 7 voci dentro un blocco spento
+python scratchpad/misura-blocchi-spenti.py  # 4 sprecate | 5 vive altrove
 python scratchpad/variabili_en.py         # 66 variabili | 3 trappole in 3 siti
-python scratchpad/perimetro.py            # perimetro 50% | col fuori perimetro 37%
-python scratchpad/cnv_str_en.py           # 41 chiamate | 17 con la chiave inglese
+python scratchpad/perimetro.py            # perimetro 56% | col fuori perimetro 41%
+python scratchpad/cnv_str_en.py           # 49 chiamate | 24 con la chiave inglese
+python scratchpad/lang-nel-ramo-jp.py     # 21 righe | 0 gia' tradotte
 ```
 
 ⚠️ **L'ultimo è della 40ª, ed è il QUARTO punto cieco.** `cnv_str` riscrive una
