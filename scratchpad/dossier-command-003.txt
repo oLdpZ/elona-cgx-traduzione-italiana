@@ -1,0 +1,549 @@
+==============================================================================
+=== riga 10495.0  [statica]
+jp: "必要値"
+en: "Next Lv"
+--- sorgente
+  10492: 		font lang(cfg_font1, cfg_font2), 12 + sizefix - en * 2, 1
+  10493: 		color 20, 10, 0
+  10494: 		if ( cdata(CDATA_ROLE, cc) == ROLE_ADVENTURER | cc < MAX_CHARA_FOLLOWER ) {
+>>10495: 			s = lang("レベル", "Level"), lang("必要値", "Next Lv"), lang("信仰", "God"), lang("所属", "Guild"), lang("成長力", "Growth"), ""
+  10496: 		}
+  10497: 		else {
+  10498: 			s = lang("レベル", "Level"), lang("必要値", "Next Lv"), lang("信仰", "God"), "", "", ""
+==============================================================================
+=== riga 10495.0  [statica]
+jp: "信仰"
+en: "God"
+--- sorgente
+  10492: 		font lang(cfg_font1, cfg_font2), 12 + sizefix - en * 2, 1
+  10493: 		color 20, 10, 0
+  10494: 		if ( cdata(CDATA_ROLE, cc) == ROLE_ADVENTURER | cc < MAX_CHARA_FOLLOWER ) {
+>>10495: 			s = lang("レベル", "Level"), lang("必要値", "Next Lv"), lang("信仰", "God"), lang("所属", "Guild"), lang("成長力", "Growth"), ""
+  10496: 		}
+  10497: 		else {
+  10498: 			s = lang("レベル", "Level"), lang("必要値", "Next Lv"), lang("信仰", "God"), "", "", ""
+--- STESSO GIAPPONESE, gia' reso:
+    skill.hsp.jsonl:347  Fede
+==============================================================================
+=== riga 10495.0  [statica]
+jp: "所属"
+en: "Guild"
+--- sorgente
+  10492: 		font lang(cfg_font1, cfg_font2), 12 + sizefix - en * 2, 1
+  10493: 		color 20, 10, 0
+  10494: 		if ( cdata(CDATA_ROLE, cc) == ROLE_ADVENTURER | cc < MAX_CHARA_FOLLOWER ) {
+>>10495: 			s = lang("レベル", "Level"), lang("必要値", "Next Lv"), lang("信仰", "God"), lang("所属", "Guild"), lang("成長力", "Growth"), ""
+  10496: 		}
+  10497: 		else {
+  10498: 			s = lang("レベル", "Level"), lang("必要値", "Next Lv"), lang("信仰", "God"), "", "", ""
+==============================================================================
+=== riga 10495.0  [statica]
+jp: "成長力"
+en: "Growth"
+--- sorgente
+  10492: 		font lang(cfg_font1, cfg_font2), 12 + sizefix - en * 2, 1
+  10493: 		color 20, 10, 0
+  10494: 		if ( cdata(CDATA_ROLE, cc) == ROLE_ADVENTURER | cc < MAX_CHARA_FOLLOWER ) {
+>>10495: 			s = lang("レベル", "Level"), lang("必要値", "Next Lv"), lang("信仰", "God"), lang("所属", "Guild"), lang("成長力", "Growth"), ""
+  10496: 		}
+  10497: 		else {
+  10498: 			s = lang("レベル", "Level"), lang("必要値", "Next Lv"), lang("信仰", "God"), "", "", ""
+--- stesso inglese, gia' reso:
+    text.hsp.jsonl:12125  Nuova forza
+==============================================================================
+=== riga 10504.0  [statica]
+jp: "異名"
+en: "Aka"
+--- sorgente
+  10501: 			pos wx + 355, wy + 46 + cnt * 15
+  10502: 			mes s(cnt)
+  10503: 		loop
+>>10504: 		s = lang("名前", "Name"), lang("異名", "Aka"), lang("種族", "Race"), lang("性別", "Sex"), lang("職業", "Class"), lang("年齢", "Age"), lang("身長", "Height"), lang("体重", "Weight"), lang("INIT", "INI"), lang("ＡＰ", "AP")
+  10505: 		repeat 10
+  10506: 			pos wx + 30 + cnt / 5 * 190, wy + 47 + cnt \ 5 * 15
+  10507: 			mes s(cnt)
+==============================================================================
+=== riga 10504.0  [statica]
+jp: "種族"
+en: "Race"
+--- sorgente
+  10501: 			pos wx + 355, wy + 46 + cnt * 15
+  10502: 			mes s(cnt)
+  10503: 		loop
+>>10504: 		s = lang("名前", "Name"), lang("異名", "Aka"), lang("種族", "Race"), lang("性別", "Sex"), lang("職業", "Class"), lang("年齢", "Age"), lang("身長", "Height"), lang("体重", "Weight"), lang("INIT", "INI"), lang("ＡＰ", "AP")
+  10505: 		repeat 10
+  10506: 			pos wx + 30 + cnt / 5 * 190, wy + 47 + cnt \ 5 * 15
+  10507: 			mes s(cnt)
+==============================================================================
+=== riga 10504.0  [statica]
+jp: "性別"
+en: "Sex"
+--- sorgente
+  10501: 			pos wx + 355, wy + 46 + cnt * 15
+  10502: 			mes s(cnt)
+  10503: 		loop
+>>10504: 		s = lang("名前", "Name"), lang("異名", "Aka"), lang("種族", "Race"), lang("性別", "Sex"), lang("職業", "Class"), lang("年齢", "Age"), lang("身長", "Height"), lang("体重", "Weight"), lang("INIT", "INI"), lang("ＡＰ", "AP")
+  10505: 		repeat 10
+  10506: 			pos wx + 30 + cnt / 5 * 190, wy + 47 + cnt \ 5 * 15
+  10507: 			mes s(cnt)
+--- STESSO GIAPPONESE, gia' reso:
+    text.hsp.jsonl:191  sesso
+==============================================================================
+=== riga 10504.0  [statica]
+jp: "職業"
+en: "Class"
+--- sorgente
+  10501: 			pos wx + 355, wy + 46 + cnt * 15
+  10502: 			mes s(cnt)
+  10503: 		loop
+>>10504: 		s = lang("名前", "Name"), lang("異名", "Aka"), lang("種族", "Race"), lang("性別", "Sex"), lang("職業", "Class"), lang("年齢", "Age"), lang("身長", "Height"), lang("体重", "Weight"), lang("INIT", "INI"), lang("ＡＰ", "AP")
+  10505: 		repeat 10
+  10506: 			pos wx + 30 + cnt / 5 * 190, wy + 47 + cnt \ 5 * 15
+  10507: 			mes s(cnt)
+==============================================================================
+=== riga 10504.0  [statica]
+jp: "年齢"
+en: "Age"
+--- sorgente
+  10501: 			pos wx + 355, wy + 46 + cnt * 15
+  10502: 			mes s(cnt)
+  10503: 		loop
+>>10504: 		s = lang("名前", "Name"), lang("異名", "Aka"), lang("種族", "Race"), lang("性別", "Sex"), lang("職業", "Class"), lang("年齢", "Age"), lang("身長", "Height"), lang("体重", "Weight"), lang("INIT", "INI"), lang("ＡＰ", "AP")
+  10505: 		repeat 10
+  10506: 			pos wx + 30 + cnt / 5 * 190, wy + 47 + cnt \ 5 * 15
+  10507: 			mes s(cnt)
+==============================================================================
+=== riga 10504.0  [statica]
+jp: "身長"
+en: "Height"
+--- sorgente
+  10501: 			pos wx + 355, wy + 46 + cnt * 15
+  10502: 			mes s(cnt)
+  10503: 		loop
+>>10504: 		s = lang("名前", "Name"), lang("異名", "Aka"), lang("種族", "Race"), lang("性別", "Sex"), lang("職業", "Class"), lang("年齢", "Age"), lang("身長", "Height"), lang("体重", "Weight"), lang("INIT", "INI"), lang("ＡＰ", "AP")
+  10505: 		repeat 10
+  10506: 			pos wx + 30 + cnt / 5 * 190, wy + 47 + cnt \ 5 * 15
+  10507: 			mes s(cnt)
+==============================================================================
+=== riga 10504.0  [statica]
+jp: "体重"
+en: "Weight"
+--- sorgente
+  10501: 			pos wx + 355, wy + 46 + cnt * 15
+  10502: 			mes s(cnt)
+  10503: 		loop
+>>10504: 		s = lang("名前", "Name"), lang("異名", "Aka"), lang("種族", "Race"), lang("性別", "Sex"), lang("職業", "Class"), lang("年齢", "Age"), lang("身長", "Height"), lang("体重", "Weight"), lang("INIT", "INI"), lang("ＡＰ", "AP")
+  10505: 		repeat 10
+  10506: 			pos wx + 30 + cnt / 5 * 190, wy + 47 + cnt \ 5 * 15
+  10507: 			mes s(cnt)
+==============================================================================
+=== riga 10504.0  [statica]
+jp: "INIT"
+en: "INI"
+--- sorgente
+  10501: 			pos wx + 355, wy + 46 + cnt * 15
+  10502: 			mes s(cnt)
+  10503: 		loop
+>>10504: 		s = lang("名前", "Name"), lang("異名", "Aka"), lang("種族", "Race"), lang("性別", "Sex"), lang("職業", "Class"), lang("年齢", "Age"), lang("身長", "Height"), lang("体重", "Weight"), lang("INIT", "INI"), lang("ＡＰ", "AP")
+  10505: 		repeat 10
+  10506: 			pos wx + 30 + cnt / 5 * 190, wy + 47 + cnt \ 5 * 15
+  10507: 			mes s(cnt)
+==============================================================================
+=== riga 10504.0  [statica]
+jp: "ＡＰ"
+en: "AP"
+--- sorgente
+  10501: 			pos wx + 355, wy + 46 + cnt * 15
+  10502: 			mes s(cnt)
+  10503: 		loop
+>>10504: 		s = lang("名前", "Name"), lang("異名", "Aka"), lang("種族", "Race"), lang("性別", "Sex"), lang("職業", "Class"), lang("年齢", "Age"), lang("身長", "Height"), lang("体重", "Weight"), lang("INIT", "INI"), lang("ＡＰ", "AP")
+  10505: 		repeat 10
+  10506: 			pos wx + 30 + cnt / 5 * 190, wy + 47 + cnt \ 5 * 15
+  10507: 			mes s(cnt)
+==============================================================================
+=== riga 10517.0  [statica]
+jp: "HP/MP"
+en: "HP/MP"
+--- sorgente
+  10514: 			mes _stats2(cnt)
+  10515: 		loop
+  10516: 		if ( cc < MAX_CHARA_FOLLOWER ) {
+>>10517: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), lang("カルマ", "Karma"), lang("戦力評価", "Rating"), lang("打撃修正", "Melee"), lang("射撃修正", "Shoot"), "", "", "", "", "", ""
+  10518: 		}
+  10519: 		else {
+  10520: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), "", "", "", "", "", "", ""
+==============================================================================
+=== riga 10517.0  [statica]
+jp: "生命力"
+en: "Life"
+--- sorgente
+  10514: 			mes _stats2(cnt)
+  10515: 		loop
+  10516: 		if ( cc < MAX_CHARA_FOLLOWER ) {
+>>10517: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), lang("カルマ", "Karma"), lang("戦力評価", "Rating"), lang("打撃修正", "Melee"), lang("射撃修正", "Shoot"), "", "", "", "", "", ""
+  10518: 		}
+  10519: 		else {
+  10520: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), "", "", "", "", "", "", ""
+--- STESSO GIAPPONESE, gia' reso:
+    skill.hsp.jsonl:9  Vita
+--- stesso inglese, gia' reso:
+    skill.hsp.jsonl:9  Vita
+==============================================================================
+=== riga 10517.0  [statica]
+jp: "マナ"
+en: "Mana"
+--- sorgente
+  10514: 			mes _stats2(cnt)
+  10515: 		loop
+  10516: 		if ( cc < MAX_CHARA_FOLLOWER ) {
+>>10517: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), lang("カルマ", "Karma"), lang("戦力評価", "Rating"), lang("打撃修正", "Melee"), lang("射撃修正", "Shoot"), "", "", "", "", "", ""
+  10518: 		}
+  10519: 		else {
+  10520: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), "", "", "", "", "", "", ""
+--- STESSO GIAPPONESE, gia' reso:
+    skill.hsp.jsonl:14  Mana
+--- stesso inglese, gia' reso:
+    skill.hsp.jsonl:14  Mana
+==============================================================================
+=== riga 10517.0  [statica]
+jp: "狂気度"
+en: "InSAN"
+--- sorgente
+  10514: 			mes _stats2(cnt)
+  10515: 		loop
+  10516: 		if ( cc < MAX_CHARA_FOLLOWER ) {
+>>10517: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), lang("カルマ", "Karma"), lang("戦力評価", "Rating"), lang("打撃修正", "Melee"), lang("射撃修正", "Shoot"), "", "", "", "", "", ""
+  10518: 		}
+  10519: 		else {
+  10520: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), "", "", "", "", "", "", ""
+==============================================================================
+=== riga 10517.0  [statica]
+jp: "速度"
+en: "Speed"
+--- sorgente
+  10514: 			mes _stats2(cnt)
+  10515: 		loop
+  10516: 		if ( cc < MAX_CHARA_FOLLOWER ) {
+>>10517: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), lang("カルマ", "Karma"), lang("戦力評価", "Rating"), lang("打撃修正", "Melee"), lang("射撃修正", "Shoot"), "", "", "", "", "", ""
+  10518: 		}
+  10519: 		else {
+  10520: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), "", "", "", "", "", "", ""
+--- STESSO GIAPPONESE, gia' reso:
+    skill.hsp.jsonl:59  Velocità
+--- stesso inglese, gia' reso:
+    buff.hsp.jsonl:27  Accelerazione
+    skill.hsp.jsonl:59  Velocità
+    skill.hsp.jsonl:654  Accelerazione
+==============================================================================
+=== riga 10517.0  [statica]
+jp: "名声"
+en: "Fame"
+--- sorgente
+  10514: 			mes _stats2(cnt)
+  10515: 		loop
+  10516: 		if ( cc < MAX_CHARA_FOLLOWER ) {
+>>10517: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), lang("カルマ", "Karma"), lang("戦力評価", "Rating"), lang("打撃修正", "Melee"), lang("射撃修正", "Shoot"), "", "", "", "", "", ""
+  10518: 		}
+  10519: 		else {
+  10520: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), "", "", "", "", "", "", ""
+==============================================================================
+=== riga 10517.0  [statica]
+jp: "カルマ"
+en: "Karma"
+--- sorgente
+  10514: 			mes _stats2(cnt)
+  10515: 		loop
+  10516: 		if ( cc < MAX_CHARA_FOLLOWER ) {
+>>10517: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), lang("カルマ", "Karma"), lang("戦力評価", "Rating"), lang("打撃修正", "Melee"), lang("射撃修正", "Shoot"), "", "", "", "", "", ""
+  10518: 		}
+  10519: 		else {
+  10520: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), "", "", "", "", "", "", ""
+==============================================================================
+=== riga 10517.0  [statica]
+jp: "戦力評価"
+en: "Rating"
+--- sorgente
+  10514: 			mes _stats2(cnt)
+  10515: 		loop
+  10516: 		if ( cc < MAX_CHARA_FOLLOWER ) {
+>>10517: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), lang("カルマ", "Karma"), lang("戦力評価", "Rating"), lang("打撃修正", "Melee"), lang("射撃修正", "Shoot"), "", "", "", "", "", ""
+  10518: 		}
+  10519: 		else {
+  10520: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), "", "", "", "", "", "", ""
+==============================================================================
+=== riga 10517.0  [statica]
+jp: "打撃修正"
+en: "Melee"
+--- sorgente
+  10514: 			mes _stats2(cnt)
+  10515: 		loop
+  10516: 		if ( cc < MAX_CHARA_FOLLOWER ) {
+>>10517: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), lang("カルマ", "Karma"), lang("戦力評価", "Rating"), lang("打撃修正", "Melee"), lang("射撃修正", "Shoot"), "", "", "", "", "", ""
+  10518: 		}
+  10519: 		else {
+  10520: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), "", "", "", "", "", "", ""
+==============================================================================
+=== riga 10517.0  [statica]
+jp: "射撃修正"
+en: "Shoot"
+--- sorgente
+  10514: 			mes _stats2(cnt)
+  10515: 		loop
+  10516: 		if ( cc < MAX_CHARA_FOLLOWER ) {
+>>10517: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), lang("カルマ", "Karma"), lang("戦力評価", "Rating"), lang("打撃修正", "Melee"), lang("射撃修正", "Shoot"), "", "", "", "", "", ""
+  10518: 		}
+  10519: 		else {
+  10520: 			s = lang("HP/MP", "HP/MP"), lang("生命力", "Life"), lang("マナ", "Mana"), lang("狂気度", "InSAN"), lang("速度", "Speed"), lang("名声", "Fame"), "", "", "", "", "", "", ""
+--- stesso inglese, gia' reso:
+    text.hsp.jsonl:136  Tiro
+==============================================================================
+=== riga 10526.0  [statica]
+jp: "荷車重量"
+en: "Cargo Wt"
+--- sorgente
+  10523: 			pos wx + 255, wy + 151 + cnt * 15
+  10524: 			mes s(cnt)
+  10525: 		loop
+>>10526: 		s = lang("荷車重量", "Cargo Wt"), lang("荷車限界", "Cargo Lmt"), lang("装備重量", "Equip Wt"), lang("ターン", "Turns"), lang("総時間", "Time"), "", ""
+  10527: 		repeat 5
+  10528: 			pos wx + 29, wy + 290 + cnt * 15
+  10529: 			mes s(cnt)
+==============================================================================
+=== riga 10526.0  [statica]
+jp: "荷車限界"
+en: "Cargo Lmt"
+--- sorgente
+  10523: 			pos wx + 255, wy + 151 + cnt * 15
+  10524: 			mes s(cnt)
+  10525: 		loop
+>>10526: 		s = lang("荷車重量", "Cargo Wt"), lang("荷車限界", "Cargo Lmt"), lang("装備重量", "Equip Wt"), lang("ターン", "Turns"), lang("総時間", "Time"), "", ""
+  10527: 		repeat 5
+  10528: 			pos wx + 29, wy + 290 + cnt * 15
+  10529: 			mes s(cnt)
+==============================================================================
+=== riga 10526.0  [statica]
+jp: "装備重量"
+en: "Equip Wt"
+--- sorgente
+  10523: 			pos wx + 255, wy + 151 + cnt * 15
+  10524: 			mes s(cnt)
+  10525: 		loop
+>>10526: 		s = lang("荷車重量", "Cargo Wt"), lang("荷車限界", "Cargo Lmt"), lang("装備重量", "Equip Wt"), lang("ターン", "Turns"), lang("総時間", "Time"), "", ""
+  10527: 		repeat 5
+  10528: 			pos wx + 29, wy + 290 + cnt * 15
+  10529: 			mes s(cnt)
+==============================================================================
+=== riga 10526.0  [statica]
+jp: "ターン"
+en: "Turns"
+--- sorgente
+  10523: 			pos wx + 255, wy + 151 + cnt * 15
+  10524: 			mes s(cnt)
+  10525: 		loop
+>>10526: 		s = lang("荷車重量", "Cargo Wt"), lang("荷車限界", "Cargo Lmt"), lang("装備重量", "Equip Wt"), lang("ターン", "Turns"), lang("総時間", "Time"), "", ""
+  10527: 		repeat 5
+  10528: 			pos wx + 29, wy + 290 + cnt * 15
+  10529: 			mes s(cnt)
+==============================================================================
+=== riga 10526.0  [statica]
+jp: "総時間"
+en: "Time"
+--- sorgente
+  10523: 			pos wx + 255, wy + 151 + cnt * 15
+  10524: 			mes s(cnt)
+  10525: 		loop
+>>10526: 		s = lang("荷車重量", "Cargo Wt"), lang("荷車限界", "Cargo Lmt"), lang("装備重量", "Equip Wt"), lang("ターン", "Turns"), lang("総時間", "Time"), "", ""
+  10527: 		repeat 5
+  10528: 			pos wx + 29, wy + 290 + cnt * 15
+  10529: 			mes s(cnt)
+==============================================================================
+=== riga 10609.0  [statica]
+jp: "%"
+en: " %"
+--- sorgente
+  10606: 			}
+  10607: 			/********** JAMES CUSTOM - ENDING **********/
+  10608: 			if ( cc < MAX_CHARA_FOLLOWER ) {
+>>10609: 				s = "" + cdata(CDATA_LEVEL, cc), "" + cdata(CDATA_EXP_TO_NEXT_LVL, cc), godname(cdata(CDATA_GOD, cc)), guildname(), "" + growrate + "" + lang("%", " %")
+  10610: 			}
+  10611: 			if ( cc >= MAX_CHARA_FOLLOWER ) {
+  10612: 				s = "" + cdata(CDATA_LEVEL, cc), "" + cdata(CDATA_EXP_TO_NEXT_LVL, cc), godname(cdata(CDATA_GOD, cc)), "", ""
+==============================================================================
+=== riga 10621.0  [statica]
+jp: "魔術士ギルド"
+en: "Mages Guild"
+--- sorgente
+  10618: 			}
+  10619: 			guildadv = lang("なし", "None")
+  10620: 			if ( cdatan(CDATAN_CLASS, cc) == "wizard" ) {
+>>10621: 				guildadv = lang("魔術士ギルド", "Mages Guild")
+  10622: 			}
+  10623: 			if ( cdatan(CDATAN_CLASS, cc) == "warrior" ) {
+  10624: 				guildadv = lang("戦士ギルド", "Fighters Guild")
+--- STESSO GIAPPONESE, gia' reso:
+    db_creature.hsp.jsonl:103737  il membro della Gilda dei Maghi
+    init.hsp.jsonl:373  Gilda dei Maghi
+    map.hsp.jsonl:2773  Gilda dei Maghi
+--- stesso inglese, gia' reso:
+    init.hsp.jsonl:373  Gilda dei Maghi
+    map.hsp.jsonl:2773  Gilda dei Maghi
+==============================================================================
+=== riga 10624.0  [statica]
+jp: "戦士ギルド"
+en: "Fighters Guild"
+--- sorgente
+  10621: 				guildadv = lang("魔術士ギルド", "Mages Guild")
+  10622: 			}
+  10623: 			if ( cdatan(CDATAN_CLASS, cc) == "warrior" ) {
+>>10624: 				guildadv = lang("戦士ギルド", "Fighters Guild")
+  10625: 			}
+  10626: 			if ( cdatan(CDATAN_CLASS, cc) == "archer" ) {
+  10627: 				guildadv = lang("盗賊ギルド", "Thieves Guild")
+--- STESSO GIAPPONESE, gia' reso:
+    db_creature.hsp.jsonl:103915  il membro della Gilda dei Guerrieri
+    init.hsp.jsonl:376  Gilda dei Guerrieri
+    map.hsp.jsonl:3320  Gilda dei Guerrieri
+--- stesso inglese, gia' reso:
+    init.hsp.jsonl:376  Gilda dei Guerrieri
+    map.hsp.jsonl:3320  Gilda dei Guerrieri
+==============================================================================
+=== riga 10627.0  [statica]
+jp: "盗賊ギルド"
+en: "Thieves Guild"
+--- sorgente
+  10624: 				guildadv = lang("戦士ギルド", "Fighters Guild")
+  10625: 			}
+  10626: 			if ( cdatan(CDATAN_CLASS, cc) == "archer" ) {
+>>10627: 				guildadv = lang("盗賊ギルド", "Thieves Guild")
+  10628: 			}
+  10629: 			growrate = cdata(CDATA_LEVEL, cc) / 3 + gdata(GDATA_FLAG_MAIN) / 3 + 100
+  10630: 			s = "" + cdata(CDATA_LEVEL, cc), "" + cdata(CDATA_EXP_TO_NEXT_LVL, cc), godname(cdata(CDATA_GOD, cc)), guildadv, "" + growrate + "" + lang("%", " %"), ""
+--- STESSO GIAPPONESE, gia' reso:
+    db_creature.hsp.jsonl:103826  il membro della Gilda dei Ladri
+    init.hsp.jsonl:379  Gilda dei Ladri
+    map.hsp.jsonl:2481  Gilda dei Ladri
+--- stesso inglese, gia' reso:
+    init.hsp.jsonl:379  Gilda dei Ladri
+    map.hsp.jsonl:2481  Gilda dei Ladri
+==============================================================================
+=== riga 10730.0  [statica]
+jp: "軽減"
+en: "Prot"
+--- sorgente
+  10727: 		font lang(cfg_font1, cfg_font2), 12 + sizefix - en * 2, 1
+  10728: 		color 20, 10, 0
+  10729: 		pos wx + 422, wy + 281 + p(2) * 16
+>>10730: 		mes lang("軽減", "Prot")
+  10731: 		pos wx + 590 - en * 16, wy + 281 + p(2) * 16
+  10732: 		mes lang("回避", "Evade")
+  10733: 		pos wx + 564 - en * 10, wy + 263
+==============================================================================
+=== riga 10732.0  [statica]
+jp: "回避"
+en: "Evade"
+--- sorgente
+  10729: 		pos wx + 422, wy + 281 + p(2) * 16
+  10730: 		mes lang("軽減", "Prot")
+  10731: 		pos wx + 590 - en * 16, wy + 281 + p(2) * 16
+>>10732: 		mes lang("回避", "Evade")
+  10733: 		pos wx + 564 - en * 10, wy + 263
+  10734: 		mes lang("魔法威力", "SpellPow")
+  10735: 		hoseis = limit(cdata(CDATA_ENHANCE_SPELL, cc) * 2 / 3, 0, 1000) / 10 + limit(sdata(SKILL_ATTR_MAG, cc) / 10, 0, 150) + 100
+--- STESSO GIAPPONESE, gia' reso:
+    skill.hsp.jsonl:307  Schivata
+==============================================================================
+=== riga 10734.0  [statica]
+jp: "魔法威力"
+en: "SpellPow"
+--- sorgente
+  10731: 		pos wx + 590 - en * 16, wy + 281 + p(2) * 16
+  10732: 		mes lang("回避", "Evade")
+  10733: 		pos wx + 564 - en * 10, wy + 263
+>>10734: 		mes lang("魔法威力", "SpellPow")
+  10735: 		hoseis = limit(cdata(CDATA_ENHANCE_SPELL, cc) * 2 / 3, 0, 1000) / 10 + limit(sdata(SKILL_ATTR_MAG, cc) / 10, 0, 150) + 100
+  10736: 		if ( cdata(CDATA_EQUIP_WEIGHT, cc) < 35000 & cdata(CDATA_EQUIP_WEIGHT, cc) >= 15000 & findbuff(cc, BUFF_MAGIC_EQUIP) != (-1) ) {
+  10737: 			hoseis = hoseis * 6 / 5
+==============================================================================
+=== riga 10754.0  [statica]
+jp: "ターン"
+en: " Turns"
+--- sorgente
+  10751: 		pos wx + 625 - en * 8, wy + 279 + p(2) * 16
+  10752: 		mes "" + evade + "%"
+  10753: 		p(2)++
+>>10754: 		s = "" + cnvweight(gdata(GDATA_CARGO_WEIGHT)), cnvweight(gdata(GDATA_CARGO_LIMIT)), cnvweight(cdata(CDATA_EQUIP_WEIGHT, cc)) + " " + cnveqweight(cc), "" + gdata(GDATA_TURN) + "" + lang("ターン", " Turns"), "" + cnvplaytime(gdata(GDATA_PLAY_TIME) + timeGetTime() / 1000 - time_begin), "", ""
+  10755: 		repeat 5
+  10756: 
+  10757: 			/********** ORIGINAL - BEGINNING **********
+==============================================================================
+=== riga 10814.0  [statica]
+jp: "今は持続効果を受けていない"
+en: "This character isn't currently blessed or hexed."
+--- sorgente
+  10811: 
+  10812: 		}
+  10813: 		else {
+>>10814: 			s = lang("今は持続効果を受けていない", "This character isn't currently blessed or hexed.")
+  10815: 		}
+  10816: 
+  10817: 		/********** ORIGINAL - BEGINNING **********
+==============================================================================
+=== riga 10825.0  [statica]
+jp: "説明:"
+en: "Hint:"
+--- sorgente
+  10822: 		font lang(cfg_font1, cfg_font2), 11 + sizefix * 2 - en * 2, 1
+  10823: 		color 20, 10, 0
+  10824: 		pos wx + 30, wy + 372 - en * 3
+>>10825: 		mes lang("説明:", "Hint:")
+  10826: 
+  10827: 		 ********** ORIGINAL - ENDING **********/
+  10828: 
+==============================================================================
+=== riga 10837.0  [statica]
+jp: "説明:"
+en: "Desc:"
+--- sorgente
+  10834: 		font lang(cfg_font1, cfg_font2), 11 + sizefix * 2 - en * 2, 1
+  10835: 		color 20, 10, 0
+  10836: 		pos wx + 30, wy + 369 - en * 3
+>>10837: 		mes lang("説明:", "Desc:")
+  10838: 
+  10839: 		/********** ANNA CUSTOM - ENDING **********/
+  10840: 
+==============================================================================
+=== riga 10845.0  [statica]
+jp: "Lv(潜在)"
+en: "Lv(Potential)"
+--- sorgente
+  10842: 	else {
+  10843: 		display_topic lang("能力の名称", "Name"), wx + 28, wy + 36
+  10844: 		if ( csctrl != 300 ) {
+>>10845: 			display_topic lang("Lv(潜在)", "Lv(Potential)"), wx + 200, wy + 36
+  10846: 		}
+  10847: 		display_topic lang("効果", "Detail"), wx + 350, wy + 36
+  10848: 		keyrange = 0
+==============================================================================
+=== riga 10847.0  [statica]
+jp: "効果"
+en: "Detail"
+--- sorgente
+  10844: 		if ( csctrl != 300 ) {
+  10845: 			display_topic lang("Lv(潜在)", "Lv(Potential)"), wx + 200, wy + 36
+  10846: 		}
+>>10847: 		display_topic lang("効果", "Detail"), wx + 350, wy + 36
+  10848: 		keyrange = 0
+  10849: 		p(1) = 0
+  10850: 		repeat pagesize
+==============================================================================
+=== riga 10948.0  [statica]
+jp: ""
+en: "Resist "
+--- sorgente
+  10945: 				}
+  10946: 				s = skillname(i)
+  10947: 				if ( i >= STARTING_SKILL_RESIST & i < STARTING_SKILL_WEAPON ) {
+>>10948: 					s = lang("", "Resist ") + cnven(s) + lang("耐性", "")
+  10949: 				}
+  10950: 				repeat 15
+  10951: 					if ( gdata(STARTING_GDATA_DISPLAY_SKILL + cnt) == cc * 10000 + i ) {
