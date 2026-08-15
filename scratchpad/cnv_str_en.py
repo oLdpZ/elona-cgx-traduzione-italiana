@@ -20,6 +20,16 @@ mesi**. La battuta dell'orso e' morta quando si e' tradotto il bestiario, e
 nessuna verifica l'ha detto.
 
 Referto, non guardia: stampa ogni sito e dice se la chiave e' inglese.
+
+⚠️⚠️ E il referto del quarto punto cieco AVEVA UN PUNTO CIECO SUO (45a): la
+regex pretendeva un identificatore semplice come primo argomento, quindi non
+vedeva le chiamate su un **elemento di array** — `cnv_str listn(0, cnt), ...`.
+Allargata, le chiamate passano da 41 a **49** e le chiavi inglesi da 17 a **24**.
+Le sette perse sono tutte di `command.hsp:2549`-`:2564` piu' `main.hsp:3117`, e
+sono la conversione della **scheda dei tratti** quando si apre su un alleato:
+`"You"` -> `him2(tc)`, `"Your"` -> `his(tc, 1)`. ⚠️ Due (`:2554`, `:2555`) stanno
+dentro l'`/* ORIGINAL */` che il mod ha spento e sono morte; le vive sono
+`:2561`-`:2564`. Trovate aprendo la zona 2000-2999, non da una misura.
 """
 import glob
 import io
@@ -29,7 +39,9 @@ import re
 SORGENTE = r'C:\Games\Elona\_traduzione\sorgente\2.05-custom-gx'
 
 # cnv_str <variabile>, <cerca>, <metti>
-CHIAMATA = re.compile(r'^\s*cnv_str\s+([A-Za-z_@][\w@]*)\s*,\s*(.+)$')
+# ⚠️ La variabile puo' essere un elemento di array — `listn(0, cnt)`, `s(1)` —
+# e senza il gruppo facoltativo sfuggivano sette chiavi inglesi su ventiquattro.
+CHIAMATA = re.compile(r'^\s*cnv_str\s+([A-Za-z_@][\w@]*(?:\s*\([^()]*\))?)\s*,\s*(.+)$')
 LETTERALE = re.compile(r'"((?:[^"\\]|\\.)*)"')
 LATINO = re.compile(r'[A-Za-z]')
 GIAPPONESE = re.compile(r'[\u3040-\u30ff\u4e00-\u9fff]')
