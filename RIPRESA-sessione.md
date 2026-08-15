@@ -1,58 +1,229 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-16, fine della **quarantasettesima** sessione (terza
-chiusura, dopo sei lotti e il primo collaudo da sei sessioni).
+Aggiornato: 2026-08-16, fine della **quarantottesima** sessione (sei lotti, tre
+zone chiuse, nessun collaudo).
 
-⭐⭐ **Due zone chiuse e 114 rese in sei lotti** — la 12000-12999 e la 7000-7999,
-cioè le due più dense che restavano. I tre menu dell'aspetto, la scheda
-dell'equipaggiamento, i gesti sulla mappa; poi il congedo degli otto dèi, la
-raccolta dei pezzi da un alleato e l'evocazione dei PNG personalizzati.
-`command.hsp` passa da 357 firme da fare a **243**, cioè dal 73% all'**81%** del
-file; le voci rese sono **1.061 su 1.304**, il perimetro dichiarato sale dal 56%
-al **57%** e il totale vero dal 41% al **42%**. Catena verde fino in fondo,
-`cgx-test.exe` rifatto (15/08, **23:53**).
+⭐⭐⭐ **Tre zone chiuse e 119 voci in sei lotti** — la 14000-14999, la 5000-5999 e
+la 3000-3999, cioè le tre più dense che restavano. L'inventario e il banco del
+negozio, i regali a un alleato, il menu delle capacità, il menu che si apre con
+`i` su un personaggio, la bacheca degli incarichi. `command.hsp` passa da 243
+firme da fare a **124**, cioè dall'81% al **90%** del file; le voci rese sono
+**1.180 su 1.304**. Catena verde fino in fondo, `cgx-test.exe` rifatto (16/08,
+**01:40**). ⚠️ **Restano cinque zone e cento firme**: 10000-10999 (30),
+8000-8999 (29), 16000-16999 (26), 11000-11999 (13) e 9000-9999 (2).
 
-⭐⭐⭐ **E la scoperta della sessione è che il carattere del ramo inglese è
-MONOSPAZIATO, il che rende misurabile una famiglia di vincoli che finora si
-tirava a indovinare.** `config.txt` dice `font2. "Courier New"`. Da lì in avanti
-la larghezza di un'etichetta non è più un'opinione: a corpo 12 un carattere fa
-esattamente 7,2 px, e ogni tetto di questa sessione è uscito da una sottrazione
-fra due `pos` del sorgente — 111 px per le etichette dei menu dell'aspetto, 46 px
-per la colonna delle righe d'attacco, 27 px per l'etichetta di 「命中」, 39
-caratteri per la riga di aiuto di `display_window`, 75 per la riga del peso.
-⚠️ **E in tre casi su cinque upstream è già al tetto o oltre**: «Unarmed» sfora
-la sua colonna, la riga di aiuto inglese usa 38 caratteri su 39, la riga del peso
-ci arriva esatta. Chi prendesse l'inglese come budget non avrebbe margine.
-Vedi il punto 1 delle otto cose.
+⭐⭐⭐ **La scoperta della sessione corregge un numero che la 47ª aveva scritto
+come corretto: `sizefix` NON è zero.** Il collaudo della 47ª aveva stabilito che
+`12 + sizefix - en * 2` valesse **10** «con `sizefix` assente da `config.txt` e
+quindi 0». Ma in `config.txt` c'è, **dieci righe sotto** il `font2. "Courier New"`
+che quella stessa sessione aveva letto:
 
-⚠️⚠️ **E la spaziatura in coda a un'etichetta non è decorativa: in un menu è
-l'unico separatore.** `:12333` fa `s += "On"` **senza spazio davanti**, quindi
-«Mantello» da sola darebbe «MantelloOff». A insegnare la regola giusta è stata
-`verifica.py:440`, che è più stretta della mia: **ogni etichetta finisce con
-almeno uno spazio**, e la separazione smette di dipendere da chi concatena.
-Vedi il punto 2.
+    config.txt:84   fontSfix1.  "1"     fixes font size
+    config.hsp:180  cfgRead "fontSfix1.", sizefix = int(rtvaln)
+    config.hsp:436  sizefix = 0     <- solo nel ramo GIAPPONESE
 
-⭐⭐ **E la seconda metà della sessione ha corretto un referto e ci ha trovato
-dentro una trappola nuova.** `variabili_en.py` prendeva solo `nome = "testo"` e
-non vedeva **`nome += "testo"`**, cioè proprio la forma con cui si compone una
-frase inglese a pezzi: `command.hsp:7716`-`:7721` carica in `s` sei aggettivi di
-rango e `:7724` li stampa dentro una `lang()`. Il conto passa da **66 variabili e
-3 trappole** a **60 e 4**. È il gemello di `cnv_str_en.py` nella 45ª, parola per
-parola. Vedi il punto 9.
+Il ramo inglese (`config.hsp:439`) non lo azzera: `sizefix` resta **1**, il corpo
+è **11** e fa **6,6 px** a carattere. Né 10 né 6.
+✅ **Nessuna resa già spedita ne esce sbagliata** — l'unico tetto che la 47ª aveva
+ricavato dal corpo 10 è quello di 「命中」, 27 px, che fa 4 caratteri tanto a 6 px
+quanto a 6,6, e «Mira» ne fa 4.
+⚠️ **Ma cambia il tetto di tre funzioni di `module.hsp`** che usano quella stessa
+riga di `font`: la riga di aiuto di `display_window` (`:4342`), `display_topic`
+(`:4365`) e `display_note` (`:4359`). La formula giusta è
+**`(larghezza − 58 − 40) / 6,6`**: per una finestra da 380 fa **42** caratteri e
+non 39, per una da 600 ne fa **76** e non 69.
+💡 E la decisione della 47ª su `:11849` **resta giusta lo stesso**, perché la resa
+ovvia faceva 44 caratteri e sfora anche i 42 veri.
 
-⭐⭐⭐ **E poi si è fatto il COLLAUDO — il primo da sei sessioni — e ha trovato al
-primo colpo quel che nessuna misura poteva trovare: due etichette saldate al loro
-valore.** A schermo si leggeva «Mira64%» e «Pot. magia100%», senza spazio.
-✅ La correzione è **la prima toppa del progetto che non cambia una parola: sposta
-una coordinata**, e la strada l'aveva già indicata upstream tre righe più su.
-Vedi il punto 14, e soprattutto il riquadro «▶ Che cosa il collaudo ha già detto»
-qui sotto, che è la cosa più utile di questa ripresa.
+⭐⭐⭐ **E la seconda scoperta è un errore mio, che vale più della prima.** Le sei
+stringhe di `CDATAN_NEWSEX` (`command.hsp:3639`-`:3654`) le ho analizzate da capo,
+ho ricostruito con cura perché non si possono tradurre, e ho scritto un **rinvio**
+con tanto di motivo. Il motivo era giusto e la mossa sbagliata: `invariati.md` ha
+dal **2026-08-07** una sezione intitolata «Valori di dato, non testo — tradurli
+rompe i salvataggi» che nomina **per riga** proprio `command.hsp:3639-3654`, e
+`text.hsp:123` ha già in dizionario `en='male'` con `it='male'`. Quelle sei erano
+**chiuse da nove mesi**: mancava la riga in dizionario, non una decisione.
+✅ **La regola che ne esce: prima di scrivere il motivo di un rinvio, si cerca il
+valore in `invariati.md`.** Un rinvio resta aperto per sempre e ritorna a galla a
+ogni sessione; un invariato dichiarato chiude.
 
 ---
 
-## La quarantasettesima sessione
+## La quarantottesima sessione
 
 ### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** — sei spinte, una per lotto più quella della correzione — e
+l'albero di lavoro è pulito. Si riparte da `git fetch && git status -sb` e dalle
+otto verifiche d'apertura. La sessione si è aperta su `DESKTOP-1O339MR` con
+`origin/fase-0` allineato: è la **quinta prova** di fila che il «cambio di
+terminale» annunciato in chiusura è sempre e solo un cambio di finestra, mai un
+cambio di macchina.
+⚠️ **Quattro valori attesi sono cambiati**: `verifica --dizionario` dice
+«command.hsp: 0 da ritradurre, **124** non ancora tradotte» (100 da fare più le
+24 rinviate, che non cambiano); il dizionario di `command.hsp` ha **1.180** voci;
+`toppe.jsonl` resta a **314** e `rinviate.jsonl` a **43** — questa sessione non ne
+ha aggiunta nessuna delle due. Tutto il resto è fermo dov'era: `perimetro.py`
+**57%** e **42%**, `variabili_en.py` 60 e 4, `cnv_str_en.py` 49 e 24,
+`misura-blocchi-spenti.py` 4 e 5, `lang-nel-ramo-jp.py` 21 righe e 0 già tradotte,
+`blocchi_en.py` 99 e 68, `else_jp.py` 6.984 righe in 13 file,
+`rete8_dizionario.py` 3.
+⚠️ Il modello per `assembla-lotto.py` resta **`scratchpad/modello-rete6.py`**. Dei
+lotti nuovi, `037`, `038`, `039`, `040` e `041` sono a zero rinviate e tengono
+l'ancora `RINVIATE = set()`, quindi possono fare da modello; il `042` no.
+
+### ▶ Che cosa il collaudo ha già detto
+
+⚠️ **Questa sessione non ha collaudato niente.** Vale ancora, parola per parola,
+il riquadro omonimo della 47ª qui sotto: il salvataggio è al sicuro in
+`save-backup\pre-collaudo-20260815-47a`, `config.txt` ha `language. "1"`, la
+scheda dell'equipaggiamento è verificata, e **restano da rifare** le due etichette
+di «Combat Rolls» con l'eseguibile nuovo.
+⚠️⚠️ **E adesso le rese mai viste a schermo sono 1.180**, cioè tutte. Le 119 di
+stanotte sono le più esposte, perché **quattordici sono etichette di menu o di
+colonna con un tetto calcolato e mai guardato**.
+
+1. ⭐⭐⭐ **La cosa da fare è il COLLAUDO, e stavolta con una lista precisa.**
+   Sei schermate coprono quasi tutte le rese nuove a rischio, e si aprono con un
+   tasto sola:
+   - **`i` su un alleato** — il menu di interazione, undici voci nuove in cima a
+     trentacinque già spedite: «Parla», «Attacca», «Di' quello che provi»,
+     «Dai/Ricevi qualcosa», «Dai da mangiare». ⚠️ Il tetto è **29 caratteri**
+     (`:6172`, riquadro da 275 px) e la voce più lunga già spedita ne fa 28: se
+     una riga esce tagliata, il posto dove guardare è quella.
+   - **`i` su una creatura-carta** (guerriero di picche, piuma di fiori, occhi di
+     quadri, strega di cuori, o un Jolly Variabile) — «<Cambia valore>» e le
+     quattro «[Cambia in …]». ⚠️ E premendo la prima deve uscire «Quale valore?»,
+     non «Quale rango?»: è la correzione di stanotte.
+   - **l'inventario** (`i` da terra, o un contenitore) — «Parti:» nel riquadro
+     dell'equipaggiamento, « (per terra)» e « (tiro)» in coda al nome, e al banco
+     delle medagliette la colonna « pz.».
+   - **il menu delle capacità** (il tasto delle abilità speciali) — «Capacità»,
+     «Nome / Costo / Effetto», e soprattutto la **riga di aiuto in fondo**, che è
+     la misura più a rischio della sessione: **73 caratteri su 76**.
+   - **l'elenco dei PNG** (dalla scheda degli alleati, e col tasto che cambia
+     colonna) — «Informazioni», «Paga», «Assunzione (paga)», «Rottura guardia»,
+     «Sanguinamento», e la riga «Lv.10 male(25)», che vive in **19 caratteri**.
+     ⚠️ Il sesso resta in inglese ed **è atteso**: vedi il punto 4.
+   - **la bacheca degli incarichi** e **il jukebox** — «Incarichi in bacheca», i
+     simboli `$`, «Elenco dei brani», «Titolo».
+   ⭐ E poi restano i **debiti vecchi**: gli 88 ranghi della 41ª, e le cinque
+   schermate che la 47ª aveva lasciato da guardare (ritratto/PCC, specchio,
+   cambio di immagine, tono di voce, evocazione dei PNG).
+2. ⭐ **Oppure le cinque zone che restano in `command.hsp`**, cento firme in
+   tutto: 10000-10999 (30), 8000-8999 (29), 16000-16999 (26), 11000-11999 (13),
+   9000-9999 (2). ⚠️ Prima di aprirne una, le due verifiche che stanotte hanno
+   pagato tutt'e due: `lang-nel-ramo-jp.py` (le 11 righe morte di `command.hsp`
+   stanno tutte in 2954-3016, quindi ormai fuori strada) e **guardare se la zona
+   taglia una famiglia** — nella 5000-5999 la tagliava, e al rovescio.
+3. ⭐⭐ **Oppure il referto che manca, e adesso è più facile di ieri.** La 47ª ne
+   chiedeva uno sulle sottotitolature di `display_window`, e stanotte la formula
+   del tetto è diventata giusta: `(larghezza − 58 − 40) / 6,6`. Un referto che
+   scorra le chiamate a `display_window` e misuri `s(1)` contro quel tetto
+   troverebbe subito i casi come quello del menu delle capacità, che sta dentro
+   per **tre caratteri**. ⭐ L'altro, di cui la 46ª aveva chiesto, resta un
+   `coda_en.py` per i letterali inglesi concatenati **fuori** dalla parentesi di
+   una `lang()`.
+4. ⚠️⚠️ **E c'è una famiglia che il collaudo vedrà in inglese e NON va
+   «aggiustata»: il sesso dei personaggi.** «male», «female», «male?», «female?»,
+   «none», «hermaphrodite» restano inglesi nel menu del desiderio, nell'elenco
+   dei PNG e nella scheda. È una decisione della Fase 0 scritta in `invariati.md`:
+   quel valore è **salvato nel personaggio** e riletto come operando in
+   `init.hsp:1813`-`:2008`, cioè dentro `he()`, `his()` e `him()`. Per portarlo a
+   schermo in italiano servono delle **toppe** che separino la chiave salvata
+   dall'etichetta mostrata, in **tutti** i siti di stampa insieme
+   (`command.hsp:3640`-`:3655`, `:4653`-`:4656`, `:17834`, `init.hsp:2085`) — ed è
+   lavoro suo, non di un lotto. `text.hsp` ne ha già sei di quelle toppe.
+5. ⭐ **Oppure `material_data.hsp`**, 117 voci di cui 27 nomi già decisi in
+   `glossario.md`: resta il candidato più economico al ventesimo dizionario su 54.
+6. **Oppure `item_func.hsp` (263), il « of » di ogni cadavere**, col nodo
+   grammaticale che la 42ª ha lasciato aperto.
+7. ⭐ **Oppure la toppa a `command.hsp:17658`**, già misurata e a buon mercato: il
+   rapporto del personaggio dichiara **«Elona Version 3.03»** come letterale dove
+   il giapponese usa `VERSION_STRING`. ⚠️ La voce va **rinviata** insieme alla
+   toppa, perché una toppa e una resa non stanno sulla stessa riga.
+8. ⚠️ **E resta l'incoerenza vecchia da correggere**: `db_item.hsp:135432` chiama
+   l'oggetto «borraccia filtrante», `action.hsp:8267` scrive «Hai riempito
+   d'acqua la **bottiglia** filtrante». È materiale da `correzione-*.py`.
+
+### ⚠️⚠️ Le nove cose che la prossima sessione deve sapere
+
+1. ⭐⭐⭐ **`sizefix` vale 1, e il corpo di quella famiglia è 11.** Vedi il riquadro
+   in cima. La formula `12 + sizefix - en * 2` compare in **decine** di righe
+   (`blend.hsp`, `chara.hsp`, `chat.hsp`, `command.hsp`, `module.hsp`…): ovunque
+   fa 11, cioè **6,6 px** a carattere. ⚠️ E il posizionamento di monte usa `* 7`
+   (`module.hsp:4349`, `:4360`, `:4372`, `command.hsp:14352`): upstream calcola le
+   coordinate con **sette** pixel e ne disegna **6,6**, quindi il testo posato a
+   destra deriva sempre un po' verso sinistra e quello allineato a destra sfora di
+   un pixel ogni cinque caratteri. È un margine, non un errore.
+   💡 **La lezione vera è la stessa del collaudo della 47ª, ed è successa due
+   volte di fila: il corpo va letto sulla riga.** Stavolta anche `config.txt` va
+   letto per intero, non fino alla riga che serviva.
+2. ⭐⭐⭐ **Prima di scrivere il motivo di un rinvio, si cerca il valore in
+   `invariati.md`.** Vedi il riquadro in cima. `invariati.md` è lungo 539 righe e
+   ha **cinque sezioni**, e quella che conta qui — «Valori di dato, non testo» —
+   sta a riga 405, cioè fuori dalla prima schermata. ⚠️ Il segnale che avrebbe
+   dovuto fermarmi c'era ed era in `verifica.py:57`: il commento che spiega perché
+   le sezioni si classificano nomina **«le otto stringhe di `CDATAN_NEWSEX`, che
+   devono restare inglesi per non rompere i salvataggi»**. L'avevo letto e non
+   l'avevo visto.
+3. ⭐⭐ **La rete 4 sa una cosa che l'inglese nasconde: quando due rami hanno lo
+   stesso giapponese, a distinguerli è il CODICE, non il testo.** `:14272` e
+   `:14275` sono 「 枚」 tutt'e due, e l'inglese ci mette «Coins» e «Tickets» perché
+   il ramo `invctrl(1)` è diverso. Ma la distinzione la porta già **l'intestazione
+   della colonna** (`:14105` «Medagliette», `:14108` «Biglietti»), disegnata a
+   `wx + 526` sopra quegli stessi numeri. ✅ Resa unica, « pz.», che è anche
+   l'unica forma che regge il valore **1**. È la stessa lezione di `:7818`/`:7828`
+   nel lotto 036.
+4. ⭐⭐ **Una zona può tagliare una famiglia AL ROVESCIO: la coda già spedita e la
+   testa ancora da fare.** Il menu che si apre con `i` va da `:5952` a `:6068`;
+   trentacinque voci da `:6002` in giù erano rese da una sessione precedente, e le
+   undici in cima erano rimaste indietro perché stanno sotto il confine della
+   zona. ⚠️ Il danno di non accorgersene sarebbe stato **decidere una larghezza
+   già decisa**. Il segnale costa niente: se una voce è un `promptAdd`, si cerca
+   dove finisce la sequenza e dove sta il suo `val = promptx, prompty, …`.
+5. ⭐⭐ **`larghezze.py` misura SOLO `text.hsp`, e solo le voci scritte
+   `s(cnt) = lang(…)`** (`larghezze.py:68` e `:78`). Un menu costruito con
+   `promptAdd` in un altro file non lo vede nessuno. ✅ Ma il metro è lo stesso e
+   sta nel sorgente: `command.hsp:6172` chiude la sequenza con
+   `val = promptx, prompty, 275, 1`, e `(275 − 46) / 7,7` fa **29 caratteri**.
+   💡 **E il tetto aveva tenuto senza che nessuno lo misurasse**: delle
+   trentacinque voci già spedite la più lunga ne fa 28. Adesso sono 46 e nessuna
+   sfora.
+6. ⭐⭐ **La rete 11 nella forma stretta è comparsa DUE volte in una sera, e va
+   riconosciuta a vista.** `command.hsp:14852` è `his(tc) + " inventory is full."`
+   e `:5892` è `"… to " + him(tc) + "? "`: in tutt'e due il giapponese ha
+   `name(tc)` e l'inglese **non ha nessuna funzione di contenuto**, perché
+   `his`/`him` a **un** argomento sono morfologia (`funzioni.py:78`). La resa non
+   può nominare nessuno. ✅ E siccome la voce è tipata **dinamica**, va scritta
+   come espressione — un letterale fra virgolette — o la rete 12 la ferma.
+7. ⭐⭐ **La rete 8 non è una regola di stile: è la forma di ogni frase con
+   `name()`.** Misurato su tutto il dizionario: le rese che mettono una
+   preposizione davanti a `name()` sono **zero**, perché `name()` per il giocatore
+   è «il viandante», cioè un sintagma **con l'articolo**. ✅ Quando serve dire «a
+   X», la frase gira sul ricevente: `:15250` lo faceva già — «name(tc) + " riceve "
+   + itemname(ci, 1) + "."» — e `:14874` e `:14980` l'hanno ricopiato.
+8. ⭐ **Quando due sessioni divergono su una parola, vince quella che INSEGNA la
+   cosa.** 「ランク」 è il numero di una carta: `proc.hsp:20184` è la frase che
+   spiega il Jolly Variabile e dice già «puoi cambiarne **seme e valore**», mentre
+   `command.hsp:6770` diceva «Quale **rango**?» — e «rango» in quello stesso file è
+   già il grado dell'avventuriero (`:4192`, `:4194`). ✅ Corretto con
+   `scratchpad/correzione-rango-carta.py`: adesso le tre stringhe che si rimandano
+   l'una all'altra dicono la stessa parola.
+9. ⭐ **Tre coppie di frasi sono state scritte «sulla forma» di frasi già spedite,
+   e non è la stessa cosa che riusarle.** Le tre battute della sete (`:14799`)
+   avevano lo stesso giapponese di `action.hsp:8274` e si sono **ricopiate**; le
+   tre della fame (`:14741`) non avevano precedente e sono state scritte una per
+   una accanto alle prime — «Non riesci a mangiare altro.» / «Non riesci a bere
+   altro.», «La pancia sta per scoppiarti...» / «La vescica sta per scoppiarti...»,
+   «Non hai ancora fame.» / «Non hai ancora sete.». 💡 «Cercare prima di scrivere»
+   serve anche quando non c'è niente da riusare: serve a riusare il **registro**.
+
+---
+
+## La quarantasettesima sessione (per storia)
+
+### ▶ Il punto in cui si riprendeva allora (47ª)
 
 Tutto è **spinto** — nove spinte: una per ciascuno dei tre lotti della prima
 metà, una per la prima chiusura, una per la correzione di `variabili_en.py`, una
