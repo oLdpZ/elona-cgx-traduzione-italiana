@@ -38,21 +38,33 @@ BUILD = r'C:\Games\Elona\_traduzione\build\2.05-custom-gx'
 
 # Le righe che portano testo sullo schermo: o lo disegnano, o compongono la
 # variabile che verra' disegnata.
+# ⚠️ `\b` e' a larghezza zero e non si puo' quantificare: il confine va messo
+#    solo sui verbi nudi, e `listn(0,` sta come alternativa a se'.
 _DISEGNA = re.compile(
-    r'^(mes|bmes|txt|txtef|txtmore|noteadd|display_topic|display_note|'
-    r'display_window|chatList|chatMore|promptAdd|cs_list|listn)\b'
+    r'^((mes|bmes|txt|txtef|txtmore|noteadd|display_topic|display_note|'
+    r'display_window|chatList|chatMore|promptAdd|cs_list)\b|listn\(\s*0\s*,)'
 )
 _COMPONE = re.compile(
-    r'^(s|s\(\d+\)|s\d|buff|buff\(\d+\)|listn\([^)]*\)|valn|strhint\w*|'
+    r'^(s|s\(\d+\)|s\d|buff|buff\(\d+\)|listn\(\s*0\s*,[^)]*\)|valn|strhint\w*|'
     r'locvar_\w*_s\d*|refstr|cardrefskill)\s*(\+?=)\s'
 )
+# ⚠️ **`listn(0, …)` e `listn(1, …)` non sono la stessa cosa.** La prima e' la
+#    colonna che il giocatore legge, la seconda e' la CHIAVE del dato:
+#    `db_race.hsp:315` fa `listn(1, listmax) = "kobolt"`, che e' un
+#    identificativo di razza e non si traduce. Il censimento del 2026-08-10
+#    (`decisioni.md`) le escludeva gia' a mano insieme a `filter_item`,
+#    `rffilter_item` e `filter_creature`; qui la distinzione e' nella forma,
+#    cosi' non dipende da chi si ricorda di quella pagina.
 
 _LETTERALE = re.compile(r'"([^"]*)"')
 # Due lettere di fila almeno una volta: scarta "%", " ", "/", "1", "s" ...
 _PAROLA = re.compile(r'[A-Za-z]{2,}')
 
 # Quello che ha lettere latine ma non e' testo per il giocatore.
-_ESTENSIONE = re.compile(r'^\.?[a-z]{2,4}$|\.(bmp|png|jpg|wav|mid|ogg|txt|hsp|csv|ini|dll|as|ept|eum|pet|pum)\b', re.I)
+# ⚠️ Il punto e' OBBLIGATORIO. Scritta `^\.?[a-z]{2,4}$` questa regola si mangia
+#    ogni parola corta e minuscola, e la prima a sparire e' stata `" gp"`
+#    (`command.hsp:14366`, l'oro dell'alleato), che si legge a schermo.
+_ESTENSIONE = re.compile(r'^\.[a-z]{2,4}$|\.(bmp|png|jpg|wav|mid|ogg|txt|hsp|csv|ini|dll|as|ept|eum|pet|pum)\b', re.I)
 _PERCORSO = re.compile(r'[\\/]')
 # I nomi passati come stringa e non letti da nessuno: le chiavi di `config.txt`
 # (`"netWish."`, `"exAnime."`) e quelle dei file dei PNG (`"meleeElem."`).
