@@ -1,9 +1,229 @@
 # Ripresa sessione
 
+Aggiornato: 2026-08-16, fine della **cinquantatreesima** sessione (una foto del
+collaudo ha aperto il perimetro su `tcg.hsp`, e dietro c'erano il **settimo** e
+l'**ottavo** punto cieco, la **quinta rete corretta** e un limite
+dell'architettura che nessuno aveva mai incontrato).
+
+⭐⭐⭐ **Una schermata sola ha smontato la parola «finito».** La 52ª aveva chiuso
+`tcg.hsp` e `tcg_custom.hsp` e la ripresa li chiamava finiti. Alla **prima**
+schermata del collaudo — la finestra «a Proper Deck», quella che vede chiunque
+provi il gioco col mazzo vuoto — usciva un paragrafo **inglese** con incollata in
+coda una frase **italiana**:
+
+    :2560  buff  = lang("…", "I should make sure my deck has at least 30…")
+    :2563  buff += "A Miches di Vernis piacciono tutti i giochi da tavolo…"
+
+«Finito» voleva dire *finite le righe nude*. Le `lang()` di quei file non erano
+nel perimetro — i file del dizionario erano diciannove e nessun `tcg` fra loro —
+e restavano inglesi. ⭐ **E' una classe nuova: un letterale nudo che si SOMMA a
+una `lang()`.** Le «due letterali per riga» della 51ª stavano sulla stessa riga e
+si vedevano; qui stanno a tre righe di distanza, in due reti diverse, e finiscono
+nello **stesso paragrafo**. Tradurre solo la meta' che il referto vede da' un
+risultato **peggiore** di lasciare tutto inglese.
+
+⭐⭐⭐ **`tcg.hsp`, `tcg_mod.hsp` e `tcg_ai.hsp` sono chiusi davvero**: 62 rese in
+tre lotti, 2 rinviate, zero da fare. Resta `tcg_custom.hsp` — il negozio delle
+carte, **70 firme** di cui 28 descrizioni lunghe.
+
+⭐⭐⭐ **Il SETTIMO punto cieco e' misurato** (`scratchpad/nudi_dopo_if.py`): 266
+righe, tutte da fare, con **tre** cause indipendenti che stanno tutte in
+`nudi_en.py:43`-`:50` —
+
+    dopo-graffa  221   `_DISEGNA` e `_COMPONE` sono ancorate a `^`: non vedono
+                       l'assegnazione scritta dopo un `if ( … ) {`
+    verbo         37   `efllistaddchat` disegna un FUMETTO sopra la carta e
+                       `cardhelp` la riga d'aiuto: non sono nell'elenco dei verbi
+    modulo         8   `s@tcg` non e' `s`, e l'indice puo' essere `cnt`
+
+Il grosso: `tcg.hsp` 133, **`command.hsp` 70** (il pannello dei PNG
+personalizzati — «Bad/Common/Skilled», «Walk Around.», «Immune to Confuse.»,
+«VERY ANGRY»), `tcg_skill.hsp` 41, `item_func.hsp` 15.
+
+⭐⭐⭐ **E l'OTTAVO e' il piu' grande di tutti** (`scratchpad/nomi_che_compongono.py`).
+`nudi_en` decide se una riga compone testo guardando **come si chiama la
+variabile**, e l'elenco e' di sette nomi. Nel sorgente i nomi che assegnano un
+letterale sono **83**. Quasi tutti sono chiavi ed e' giusto — ma
+`tcg_mod.hsp` ha **835 righe** `effdesc@tcg(…) = "Battlecry: Draw 1 Card."`,
+cioe' le descrizioni degli effetti che si leggono **su ogni carta**
+(`tcg.hsp:1473` scrive `"Effect: " + effdesc@tcg(…)`). Piu' testo di quanto ne
+abbia mai portato qualunque altro punto cieco.
+⚠️⚠️ **E almeno una e' anche un confronto**: `tcg_skill.hsp:618` fa
+`instr(effdesc@tcg(dbid@tcg), 0, "Battlecry")`. Tradurre «Battlecry» vuol dire
+toppare anche quel letterale, o `cancopyeffect` smette di funzionare.
+
+⭐⭐ **La RETE 4 era sbagliata, ed e' la quinta rete che si corregge**
+(`scratchpad/modello-rete4.py`, **da qui in poi si copia questo**). Raggruppava
+per **giapponese** e pretendeva una resa sola, dando per scontato che uno stesso
+primo argomento di `lang()` volesse dire uno stesso messaggio. Nei file del gioco
+di carte non e' vero:
+
+    「これ以上は場に出せない。」  «Your field is full.» / «Your opponent's field is full.»
+    「また今度ね」               «Maybe next time.» / «Noooooooooooooo!» /
+                                 «To the Amur-cage you go!»
+    「降参する」                 «Surrender» / «Escape?» / «No»
+
+La rete pretendeva la stessa resa per il campo tuo e per quello dell'avversario,
+cioe' pretendeva **un errore a schermo**. ✅ Misurato prima di toccarla: **9
+giapponesi su 123**, il 7%. Adesso raggruppa per `(giapponese, inglese, firma)`
+ed e' **simmetrica alla rete 13**, che e' la stessa domanda dall'altro lato ed e'
+sempre stata un referto. ✅ Provata nei due versi: rigenera il lotto `ai-002`
+**byte per byte**, e boccia ancora una divergenza vera.
+
+⭐⭐ **Una riga che il dizionario riscrive NON e' toppabile, e adesso si sa.**
+`applica.py:701` fa prima tutto il dizionario e poi le toppe; `test_toppe.py`
+pretende che ogni toppa agganci il **sorgente pinnato**. Le due pretese insieme
+chiudono la porta alle righe che portano **insieme** una `lang()` e dei letterali
+nudi — come le quattro `cfname@tcg` dell'editor del mazzo. Ancorate al sorgente
+non agganciano la build; ancorate alla build fanno diventare rosso il test.
+Provate tutt'e due, in quest'ordine: le quattro toppe sono state scritte,
+applicate e poi **tolte**. ✅ L'eccezione che lo conferma e' `tcg.hsp:2470`, che
+una `lang()` ce l'ha ma **rinviata**: il dizionario non la tocca, sorgente e
+build coincidono, e la toppa funziona.
+
+⭐ **Una quarta famiglia di riga morta** (`scratchpad/barre_spente.py`): le
+`lang()` dentro un `//`, che in HSP spegne la riga come il `;`. La rete 6 guarda
+il `;` e i blocchi `/* … */` e non guarda il `//`. Nove in tutto il sorgente, e
+**una gia' tradotta** — `command.hsp:17515` — cioe' lavoro speso su testo che
+nessuno legge.
+
+---
+
+## La cinquantatreesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle otto verifiche d'apertura. La sessione si è
+aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la **decima prova**
+di fila che il «cambio di terminale» annunciato in chiusura è solo un cambio di
+finestra.
+
+⚠️⚠️ **I valori cambiati, e due strumenti nuovi:**
+
+    python scratchpad/nudi_dopo_if.py   NUOVO: struttura 266 | da fare 263
+                                        (dopo-graffa 221, verbo 37, modulo 8)
+    python scratchpad/barre_spente.py   NUOVO: 9 morte | 0 vive altrove
+                                        | 1 GIA' TRADOTTA (command.hsp:17515)
+    python scratchpad/nomi_che_compongono.py  NUOVO: 13.548 righe, 83 nomi.
+                                        ⚠️ E' un METRO, non una guardia: quasi
+                                        tutti i nomi sono chiavi. Si legge
+                                        l'elenco dei nomi, non il totale.
+
+`toppe.jsonl` sale a **820**, `rinviate.jsonl` a **45**. `verifica --dizionario`
+adesso nomina anche i tre file nuovi: `tcg.hsp` **2 non tradotte** (sono le due
+rinviate), `tcg_mod.hsp` **0**, `tcg_ai.hsp` **0**; `command.hsp` resta a 124.
+Tutto il resto è **fermo dov'era**: `pytest` 420 passed 6 skipped,
+`prova_identita` 72/72 e 27.813, `creature` 1131/2466/0/0, `larghezze` 0 su 75,
+`diario` 0 su 214, `riquadri` 0 su 38 e 0 su 71, `battute --divergenti` 13;
+`nudi_en` 1044 e **473**, `triage_nudi` 271/87/93/22, `tabelle_en` 6 fatte 1
+decisa 0 da fare, `return_en.py` 0 da fare, `referti.py` 0 e 0.
+
+✅ **`cgx-test.exe` rifatto quattro volte** e già in `elonaplus2.31\`.
+
+### ▶ Il collaudo: una foto, e non è arrivato oltre
+
+Il giocatore ha aperto il gioco di carte e ha mandato **una** schermata — la
+finestra del mazzo troppo piccolo. È bastata: da lì è uscito tutto il resto della
+sessione. ⚠️ **Del gioco di carte non è stato visto altro**, e l'arretrato di
+collaudo è più grande di ieri, non più piccolo:
+
+- il **tavolo del duello**, le carte (tetto 72 px, la misura più stretta del
+  progetto), l'**editor del mazzo** — che adesso è italiano e non l'ha mai visto
+  nessuno — e i **premi**;
+- il **pannello dell'IA** (`c` su un alleato) e le **nove scene dei figli**,
+  arretrati dalla 52ª;
+- le cinque schermate della 47ª e gli **88 ranghi** della 41ª, il debito più
+  antico.
+
+⚠️ **Per arrivare al tavolo servono 30 carte** (`tcg.hsp:2538`): `F12` per il
+wizard, poi desiderare dei «pacchetti di carte» e un «mazzo di carte». La porta
+del duello è il tasto `i` (`key_interact` in `config.txt`) verso un PNG
+adiacente, che deve avere **interesse ≥ 80** e non dormire.
+
+### ▶ I lotti, e che cosa ha insegnato ciascuno
+
+    fase4-tcg-001      28 voci   il primo dizionario di un file `tcg`
+    fase4-tcg-002      64 voci   e chiude tcg.hsp — non scrivibile senza la rete 4 nuova
+    fase4-tcg_mod-001   8 voci   gli otto domini; prima ho cercato chi li confronta
+    fase4-tcg_ai-001    2 voci   5.347 righe di file e due sole lang()
+    toppa-tcg-mazzi     4 toppe  il menu dei mazzi: tre righe nel settimo punto cieco
+    toppa-tcg-schede    1 toppa  le fasi del turno; le altre quattro tolte dal test
+
+⚠️⚠️ **NOVE linguette su diciassette non si traducono, ed è una misura.** Quelle
+di razza e classe portano le **chiavi interne** — `seamonster`, `kobolt`,
+`eulderna`, `warmage`, `classless` — e ci sono **89 righe** che le confrontano
+(`cardn@tcg(TCG_CARDN_REF_RACE, cnt) != "frog"`). E `tcg.hsp:1508` mostra la
+chiave **cruda** sulla carta: tradurre la linguetta darebbe «rana» in cima e
+«frog» sulla carta. Terza volta che si applica la lezione della 52ª.
+
+⭐ **«F8 [Spec]» è sbagliato anche in inglese, e la resa lo corregge.** F8 è il
+tasto virtuale 119 (`tcg.hsp:3942`) e apre il menu di esportazione: la riga
+d'aiuto dice **«F8 [File]»**. Si guarda il sito, non la parola.
+
+⚠️ **Due refusi di monte non ricalcati**: «2 copy» al singolare con un numero
+davanti (tutte e quattro le regole sulle copie), e il «2» stesso, che il
+giapponese scrive 1枚.
+
+### ▶ Il vocabolario fissato oggi, e da dove viene
+
+    Mazzo bianco/blu/argento/rosso/nero   i cinque mazzi — il nome PRIMA del colore
+    BLU VERDE BIANCO NERO NEUTRO          gli otto domini (tcg_mod.hsp)
+    LEGGENDARIO GRIGIO ROSSO
+    Costruisci il mazzo / Imposta come principale   il menu del mazzo scelto
+    Elenco / Mazzo                        le due schede della colonna (tetto: il `sdim`)
+    Inizio / Pesca / Principale / Fine    le quattro fasi del turno
+    Salva ed esci / Esci senza salvare    l'uscita dall'editor
+    Chiudi il turno / Arrenditi / Scappi? i menu di conferma
+    Un mazzo come si deve                 «a Proper Deck», il titolo della finestra
+    Sarà per la prossima volta.           db_creature.hsp:46267, non inventata
+    Con che nome salvare?                 command.hsp:17552, stesso giapponese
+    Dritto nella gabbia di Amur!          il bottone di quando VINCI
+    (KO 12/30)                            «NG» è l'abbreviazione giapponese di *no good*
+    Att                                   «Atk» non è una sigla del gioco come HP o DV
+
+⚠️ **Due righe nuove in `invariati.md`**: «Noooooooooooooo!» è il **terzo**
+esemplare della famiglia dopo quelli a dieci e a cinque «o»; «No» è la parola
+identica nelle due lingue — e non è il caso di «Yes», che si traduce
+(`text.hsp:196` rende già 「ああ」 con «Sì»).
+
+### ▶ Che cosa fare
+
+1. ⭐⭐⭐ **Il collaudo, che è tutto arretrato e cresciuto** — vedi la lista qui
+   sopra. La 51ª ha già dimostrato che cosa succede quando si accumula tutto
+   dalla stessa parte, e la 49ª che cosa trova una sessione di solo collaudo.
+2. ⭐⭐ **`tcg_custom.hsp`, le 70 firme del negozio delle carte.** 28 sono
+   descrizioni lunghe con dentro un blocco `[Contains]` che elenca **130 nomi di
+   carta**: ⭐ ne ho già cercate le rese, e **110 su 130 esistono già** nel
+   dizionario (`db_creature.hsp`, `action.hsp`). Le venti che mancavano le ho
+   sciolte tutte tranne «Clouddragon» (→ `cloudragon`, «il nuvoldrago»),
+   «Grandmaster» (→ `<Gran Maestro>`), «High Magician» (→ «l'alto incantatore»),
+   «SP Champion» (→ «lo SP Champion», resta inglese) e «Panda».
+   ⚠️ **La porta del negozio è ancora inglese** (`chat.hsp:9206`, «I want to
+   redeem Cards.»): `chat.hsp` è **intatto al 100%**, 4.717 `lang()`.
+3. ⭐⭐ **Le 835 di `effdesc@tcg`**, se si decide di aprirle. ⚠️ Prima va sciolto
+   `tcg_skill.hsp:618`, che cerca «Battlecry» **dentro** la descrizione: o si
+   toppa anche quel letterale, o `cancopyeffect` smette di riconoscere gli
+   effetti copiabili.
+4. ⭐ **Le 70 righe di `command.hsp` del settimo punto cieco**: il pannello dei
+   PNG personalizzati si legge molto più spesso del gioco di carte.
+5. 💡 **E una domanda aperta che vale più di un lotto**: `applica` mette prima il
+   dizionario e poi le toppe, e questo rende **intoccabili** le righe miste. Si
+   può invertire l'ordine? Tutte le 820 toppe agganciano già il sorgente pinnato
+   — il test lo prova — quindi girerebbero identiche; il rischio è il verso
+   opposto, cioè una toppa che cambia l'inglese **dentro** una `lang()` e sposta
+   la firma. Oggi ce n'è **una sola** (`tcg.hsp:2470`), ed è rinviata.
+
+---
+
+## La cinquantaduesima sessione (per storia)
+
 Aggiornato: 2026-08-16, fine della **cinquantaduesima** sessione (il collaudo
 arretrato fatto e tre difetti trovati, il **sesto punto cieco** nato e chiuso
 nello stesso giorno, e **tre file finiti**: `custom_ai.hsp`, `tcg.hsp`,
 `tcg_custom.hsp`).
+
+⚠️ **E «finiti» era vero solo per le righe nude**: vedi la 53ª qui sopra.
 
 ⭐⭐⭐ **Il collaudo ha trovato tre difetti, e nessuno dei tre era in lista.** Il
 pannello dei ritocchi della 51ª non l'aveva mai visto nessuno; aperto, ha detto:
@@ -4523,6 +4743,9 @@ python scratchpad/nudi_en.py              # struttura 1044 | ancora da fare 473
 python scratchpad/triage_nudi.py          # testo 271, sigla 87, dbg 93, spenta 22
 python scratchpad/return_en.py            # 0 da fare, 2 decise, 35 toccate, 49 morf., 35 chiavi
 python scratchpad/tabelle_en.py           # testo 7 tabelle / 73 voci: 6 fatte, 1 decisa, 0 da fare
+python scratchpad/nudi_dopo_if.py         # struttura 266 | da fare 263 (7° punto cieco)
+python scratchpad/barre_spente.py         # 9 morte | 0 vive altrove | 1 GIA' TRADOTTA
+python scratchpad/nomi_che_compongono.py  # 13.548 righe, 83 nomi (8° punto cieco) — METRO, non guardia
 python scratchpad/blocchi_en.py           # struttura 99 | ancora da fare 54
 python scratchpad/else_jp.py              # else-di-jp: 6.984 righe in 13 file
 python scratchpad/rete8_dizionario.py     # 3, tutti dichiarati falsi positivi
