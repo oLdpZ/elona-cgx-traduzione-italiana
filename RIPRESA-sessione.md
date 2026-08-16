@@ -1,8 +1,102 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-16, fine della **cinquantunesima** sessione (il pannello dei
-ritocchi chiuso — 193 toppe in sette lotti — e il debito dichiarato dalla 50ª
-sciolto scoprendo che la regola che chiedeva **non poteva esistere**).
+Aggiornato: 2026-08-16, fine della **cinquantaduesima** sessione (il collaudo
+arretrato fatto e tre difetti trovati, il **sesto punto cieco** nato e chiuso
+nello stesso giorno, e **tre file finiti**: `custom_ai.hsp`, `tcg.hsp`,
+`tcg_custom.hsp`).
+
+⭐⭐⭐ **Il collaudo ha trovato tre difetti, e nessuno dei tre era in lista.** Il
+pannello dei ritocchi della 51ª non l'aveva mai visto nessuno; aperto, ha detto:
+
+    (Ora: ERRORE)          non era un errore, era «sfida fallita»
+    (Ora: spento)% in piu' il suffisso in MEZZO alla frase, che regge solo acceso
+    la quinta riga         la finestra ne regge QUATTRO, non sei come diceva il conto
+
+💡 **E il primo l'ha trovato la porta, non la schermata.** Cercando *come si
+arriva* al pannello è saltato fuori che la voce del menu di Esc diceva
+«Regolazioni» mentre tutto il pannello dice «Ritocchi» dalla 50ª: era l'unica
+voce del dizionario con «tweak» nell'inglese, e nessun conteggio interno al
+pannello poteva vederla. **Chi cercava i ritocchi non trovava la porta.**
+
+⭐⭐⭐ **«(Ora: ERRORE)» era la resa sbagliata di uno stato normale, e la vedeva
+chiunque.** `GetTStatusProgress` cade sul ramo finale quando il valore è
+**negativo**, e `-1` non è un valore che nessun ramo riconosce: è «la sfida non è
+più in corso», e gliela assegnano `action.hsp:2159` (esci dalla grotta degli
+accattoni salutando gli Elea), `map.hsp:776` (rientri a Vernis), `chat.hsp:3933`
+(superi i 7000 di fama). L'inglese scrive `FAILED` nel senso di **fallita**, e la
+resa l'aveva letto come **malfunzionamento**. ✅ Il ramo di guasto vero è
+l'altro — `GetTStatus:500`, « FAILED» nudo senza «Currently» — e resta «ERRORE»:
+zero chiamate a `GetTStatus` con `TWEAK_CATEGORY_CHALLENGE`, misurato.
+💡 **La lezione è quella di «Bandits Killed» e del prefisso `dbg_`, per la terza
+volta: si guarda il sito, non la parola.**
+
+⭐⭐⭐ **Il SESTO punto cieco è nato e morto oggi: `scratchpad/tabelle_en.py`.**
+
+    AITextData(0, 1) = "Not Set", "Self", "Target", "Ally", "Player", "Enemy"
+
+Una riga sola, sette parole che il giocatore legge in una colonna. `nudi_en`
+cerca le righe che **disegnano** e quelle che **compongono**: questa non è né
+l'una né l'altra — è un'assegnazione di array, e il testo arriva a schermo molto
+più tardi, **per indice**, da una riga che di letterali non ne ha nessuno
+(`s = AITextData(CAIComparator(cnt, tc), 2)`). Sono **7 in tutto il sorgente**,
+tutte in `custom_ai.hsp`: 6 fatte, 1 decisa, **0 da fare**.
+⚠️ **E il referto ha dovuto togliersi due famiglie di falsi positivi in ordine**:
+`traitrefn(0) = lang(…), lang(…)` ha la stessa forma ma sta nel dizionario (159
+tabelle → 89, e un regex non basta perché dentro quelle `lang()` ci sono
+parentesi annidate: si contano a mano), e le righe che **compongono** — un `+`
+fuori dalle stringhe — le vede già `nudi_en` (89 → 51).
+
+⭐⭐⭐ **Le dodici classi non si traducono, e non è una rinuncia: è una misura.**
+`custom_ai.hsp:493` e `:508` non le **leggono**, le **confrontano** con
+`cdatan(CDATAN_CLASS, …)`, che porta la chiave inglese: la scrivono
+`action.hsp:13670`-`:13703` e `command.hsp:4591`-`:4626`, la rileggono
+`chara.hsp:2875`-`:2962`, `ai.hsp:2546`, `calculation.hsp:888`, `:953`, `:992`,
+`action.hsp:5704`, `:5723`, `chara_func.hsp:5010`. Tradurle lascerebbe l'IA
+**senza nessuna classe da riconoscere**. È la lezione della 46ª sulle stringhe
+che il giocatore DIGITA in forma nuova: **quel che serve a un confronto non è
+testo.**
+⚠️ Non poteva finire in `rinviate.jsonl`, che indicizza per **firma** e una
+tabella non ne ha: sta in `DECISE` dentro il referto, che confronta sorgente e
+build e sa dire «fatta / decisa / da fare».
+
+⭐⭐ **Il gioco di carte si chiama «Gioco delle Ombre», e a deciderlo è stato il
+codice.** Era una delle tre incoerenze aperte — «Tenebre» in `command.hsp:6166`,
+«Ombre» in `chara_func.hsp:7002` e `:7004` — e non si è scelto a maggioranza: è
+il termine italiano ufficiale di Yu-Gi-Oh! per «Shadow Game», e il mod cita
+quella serie **apertamente**, perché `tcg_custom.hsp:1587` sigilla l'avversario
+**dentro una carta** e `:1556` gli lascia **l'anima danneggiata**. Il riferimento
+è il contenuto della scena, non un'eco lontana.
+⭐ E **«amur-cage» è stato reso per la prima volta**: `chara_func.hsp` l'aveva
+sempre **aggirato** riscrivendo la frase, ma a `:1608` la gabbia è il soggetto e
+non si può aggirare → «Finisci nella gabbia di Amur!».
+
+⭐⭐ **Il figlio può essere maschio o femmina, e l'inglese non se ne accorge.**
+Le 54 battute di `event.hsp:random_eventProc` in inglese non mostrano mai il
+sesso di chi parla; in italiano quasi tutte lo mostrerebbero. Ogni resa è scritta
+per **non accordarsi col parlante**, e dove la via corta avrebbe accordato la
+frase gira intorno all'ostacolo:
+
+    I'm going to be an adventurer   →  «Tanto andrò all'avventura»
+    too different from everyone     →  «non mi va di stonare in mezzo agli altri»
+    recognize me as an adult        →  «mi consideri una persona adulta»
+
+💡 È la disciplina degli helper `_s(rc)`/`his(rc)` **al contrario**: lì si toglie
+una funzione che l'inglese ha, qui si evita un accordo che l'italiano
+aggiungerebbe da solo.
+
+⭐ **«Identica» vuol dire identica coi tab davanti.** Due parole chiave delle
+carte sono sfuggite a una toppa `tutte` perché `:887` sta dentro tre `if`
+annidati e `:1010` dentro quattro: il conteggio delle occorrenze si legge sulla
+**riga intera**, non sul letterale.
+
+⚠️ **Due parole restano inglesi apposta, e i conteggi le accuseranno per sempre**:
+«Immune» (`tcg.hsp:969`) e «Mana» (`:3480`) in italiano si scrivono uguali, e una
+toppa che sostituisce una parola con sé stessa è rumore che ogni sessione futura
+dovrebbe rileggere per capire che non fa niente. Stessa scelta di «Abnormal».
+
+---
+
+## I punti della cinquantunesima, che restano validi
 
 ⭐⭐⭐ **Il pannello dei ritocchi è finito, e `custom_tweaks.hsp` con lui.** Le
 190 righe che la 50ª aveva lasciato in sei menu, più le **3 che non stavano nei
@@ -65,7 +159,141 @@ accorge**, perché le due stringhe stanno sulla stessa riga. Stessa forma a
 
 ---
 
-## La cinquantunesima sessione
+## La cinquantaduesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** — nove spinte — e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle otto verifiche d'apertura. La sessione si è
+aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la **nona prova** di
+fila che il «cambio di terminale» annunciato in chiusura è solo un cambio di
+finestra.
+
+⚠️⚠️ **I valori cambiati, e uno strumento nuovo:**
+
+    python scratchpad/nudi_en.py      atteso: struttura 1044 | da fare 473   (era 656)
+    python scratchpad/triage_nudi.py  atteso: testo 271, sigla 87, dbg 93, spenta 22
+    python scratchpad/tabelle_en.py   NUOVO: testo 7 tabelle e 73 voci, tutte in
+                                      custom_ai.hsp — 6 fatte, 1 decisa, 0 da fare;
+                                      sigla 2/6, numerica 2/22, jp 58/143
+
+`toppe.jsonl` sale a **815** (di cui 10 `tutte` della 50ª più quelle nuove),
+`rinviate.jsonl` resta a **43**. Tutto il resto è **fermo dov'era**: `pytest` 420
+passed 6 skipped, `prova_identita` 72/72 e 27.813, `verifica --dizionario` 0 da
+ritradurre ovunque e **124** non tradotte in `command.hsp`, `creature`
+1131/2466/0/0, `larghezze` 0 su 75, `diario` 0 su 214, `riquadri` 0 su 38 e 0 su
+71, `battute --divergenti` 13; `referti.py` 0 e 0, `return_en.py` 0 da fare.
+
+✅ **`cgx-test.exe` rifatto nove volte** e già in `elonaplus2.31\`.
+
+### ▶ Che cosa il collaudo ha detto, e che cosa resta da guardare
+
+Il giocatore ha collaudato **il pannello dei ritocchi** e ha detto «tutto ok» tre
+volte, dopo le correzioni. Verificato a schermo:
+
+✅ Il pannello si apre col nome giusto («Ritocchi» anche dalla porta).
+✅ Le 16 voci dei ritocchi di comodità stanno in una pagina senza sfondare.
+✅ «Le magie attivano l'incantamento dell'arma» — era la riga più stretta (74
+caratteri contro i 75 dell'inglese) e regge.
+✅ Il tetto d'altezza delle descrizioni: **quattro righe**, misurato e non più
+contato. `custom_tweaks.hsp:654` ne aveva cinque e la quinta finiva sotto la
+barra dei comandi.
+✅ I quattro menu che restavano (interfaccia, IA, gioco, vari), comprese le tre
+descrizioni più larghe del pannello — 77, 76 e 75 colonne.
+
+⚠️ **Il collaudo arretrato NON è stato fatto**, e la scaletta era pronta: le
+cinque schermate della 47ª (ritratto/PCC con «Su misura» che compare solo su un
+alleato, specchio, cambio di immagine, tono di voce, la riga d'aiuto «Dx,Sx
+[Cambia]  Shift,Esc [Chiudi]»), la scheda dell'equipaggiamento riequipaggiando
+l'arma, gli **88 ranghi** della 41ª (`F12` → wizard, poi iscriviti a arena, gilda
+e museo) e il platino a quattro cifre nella barra di stato.
+
+⚠️⚠️ **E adesso c'è un arretrato nuovo, tutto di oggi**: il pannello dell'IA
+(`c` su un alleato), il **gioco di carte** — tavolo, carte, editor del mazzo,
+premi — e le **nove scene dei figli**, che sono 271 righe di testo nuovo mai
+viste a schermo. Le carte sono le più a rischio: il tetto è la **carta** (72 px),
+non la finestra, ed è la misura più stretta di tutto il progetto.
+
+### ▶ I lotti, e che cosa ha insegnato ciascuno
+
+    la porta del pannello    1 voce    «Regolazioni» ≠ «Ritocchi»: il nome era fuori dal pannello
+    (Ora: sfida fallita)     1 toppa   FAILED era «fallita», non «errore»
+    le tre % in mezzo        3 toppe   l'unità di misura passa nella testa
+    il cimitero DD           1 toppa   la finestra regge QUATTRO righe, non sei
+    tabelle_en.py            —         il sesto punto cieco: 7 tabelle, 73 voci
+    ai-tabelle              19 toppe   39 righe: le `tutte` coprono più schermate
+    ai-menu                 28 toppe   e una correzione a una toppa di due ore prima
+    ai-coda                  3 toppe   il menu d'importazione
+    ai-sparse                6 toppe   la coda che il conteggio per routine non mostra
+    tcg-carte               33 toppe   il tetto è la carta: 72 px, corpo 9, 15 caratteri
+    tcg-tavolo              24 toppe   «identica» vuol dire identica coi tab davanti
+    tcg-premi               15 toppe   il nome del gioco, e «amur-cage» reso per la prima volta
+    event-figli             27 toppe   54 battute che non possono accordarsi col parlante
+
+⭐ **Una toppa corretta due ore dopo averla scritta, ed è la regola giusta.**
+L'intestazione della prima colonna del pannello IA diceva «Chi», che regge da
+sola ma **non regge la voce di menu che ci si appoggia**: `:1692` dice «Cambia il
+soggetto.», e «Cambia chi.» non è italiano. È la regola delle «due letterali per
+riga» della 51ª vista da un altro lato: **due righe che parlano della stessa cosa
+vanno decise insieme, anche quando stanno in routine diverse.**
+
+💡 **Chiudere un file vuol dire guardarlo con TUTT'E DUE i referti.** Le dodici
+righe sparse di `custom_ai.hsp` — otto «Back», un «Blank», un «Not Set», due
+frasi — non le mostrava il riassunto per **routine**, perché stanno una per
+routine e l'elenco è ordinato per numero decrescente. A trovarle è stato
+`nudi_en`, che elenca per **file**: «82 righe, 12 ancora intatte».
+
+### ▶ Il vocabolario fissato oggi, e da dove viene
+
+    Gioco delle Ombre    il TCG          Yu-Gi-Oh! italiano, e il mod lo cita
+    gabbia di Amur       amur-cage       mai reso prima in tutto il progetto
+    Barra                Gauge           action.hsp:11476, buff.hsp:530, :845
+    Potenziamento        Buff            la resa già data a «Boost»
+    nucleo di transizione Shift Core     db_item.hsp:138463
+    Soggetto/Condizione/Confronto/Valore/Azione   le cinque colonne dell'IA
+    Vigilanza, Travolgere, Portata, Volo, Legame vitale   i nomi affermati delle carte
+    Anticipo             First Strike    «Attacco improvviso» (18) sfonda di 20 px
+    Raffica              Windfury        «Furia del vento» (15) arriva esatto al bordo
+    Tocco letale         Deathtouch      tre caratteri di margine su «Tocco micidiale»
+    Condanna             Deathword       «Parola di morte» (15) non ci stava
+    Comune / Speciale    Good / Unique   i gradini che il gioco chiama common e special
+    Allontanati/Avvicinati  Move (Away)/(Forward)  un verbo dove l'inglese ha la parentesi
+    di adesso            Current         «corrente» è un calco
+    Mazzo / Cimitero / Dominio / Pag.    il tavolo del gioco di carte
+
+⚠️ **Due refusi di monte non ricalcati**: «severedly» per «severely»
+(`tcg_custom.hsp:1556`), e «consecutive lethal game victory» al **singolare** con
+un contatore davanti (`:1568`), che in italiano diventa «vittorie di fila in
+partite mortali».
+
+### ▶ Che cosa fare
+
+1. ⭐⭐⭐ **Il collaudo di quel che è stato fatto oggi**, che è tutto arretrato:
+   il pannello dell'IA, il gioco di carte (e lì il tetto è la **carta**), le nove
+   scene dei figli. Più il collaudo vecchio che non è sparito — le cinque
+   schermate della 47ª e gli **88 ranghi** della 41ª, il debito più antico.
+2. ⭐⭐ **Le schermate grosse che restano.** `triage_nudi` le ordina: adesso le
+   prime sono `item_func.hsp` **24** (`skipName` 13 + `itemname` 11),
+   `proc.hsp:jump_changeCreature` **13**, `txtadv.hsp:adv_casinoSlots` **12**,
+   `system.hsp:game_title` **10**, `custom_pet.hsp:PetOptionMenu` **9**,
+   `command.hsp:com_charainfo_loop` **9**, `map_rand.hsp` **9**.
+3. ⭐ **Le due incoerenze che restano**, che sono lavoro da dizionario:
+   **fattura/bolletta** (la più urgente, il giocatore le incontra tutt'e due
+   nella stessa mezza giornata) e **negromanzia/necromantica** (`skill.hsp:1492`
+   contro tre siti). La terza — il nome del gioco di carte — è sciolta.
+   Più quella vecchia: `db_item.hsp:135432` dice «borraccia filtrante»,
+   `action.hsp:8267` dice «**bottiglia** filtrante».
+4. ⭐ **Il referto che manca dalla 49ª**: uno che scorra le chiamate a
+   `display_window` e misuri `s(1)` contro `(larghezza − 58 − 40) / 6,6`.
+5. 💡 **E un sospetto da verificare, nato oggi e non misurato**: in
+   `tcg.hsp:2804`-`:2810` ci sono sette righe della forma
+   `if ( … ) { buff = "…" }`, cioè **assegnazione e condizione sulla stessa
+   riga**, e `nudi_en` non le elenca. Se la forma è cieca davvero, è un settimo
+   punto cieco che costa un pomeriggio misurare.
+
+---
+
+## La cinquantunesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
@@ -4291,9 +4519,10 @@ un'estrazione piena (`estrai` senza `--da-tradurre`) tornano a girare e passano.
 ```powershell
 $env:PYTHONPATH = $repo
 python scratchpad/referti.py              # participi col giocatore: 0 | elisioni: 0
-python scratchpad/nudi_en.py              # struttura 1044 | ancora da fare 656
-python scratchpad/triage_nudi.py          # testo 454, sigla 87, dbg 93, spenta 22
+python scratchpad/nudi_en.py              # struttura 1044 | ancora da fare 473
+python scratchpad/triage_nudi.py          # testo 271, sigla 87, dbg 93, spenta 22
 python scratchpad/return_en.py            # 0 da fare, 2 decise, 35 toccate, 49 morf., 35 chiavi
+python scratchpad/tabelle_en.py           # testo 7 tabelle / 73 voci: 6 fatte, 1 decisa, 0 da fare
 python scratchpad/blocchi_en.py           # struttura 99 | ancora da fare 54
 python scratchpad/else_jp.py              # else-di-jp: 6.984 righe in 13 file
 python scratchpad/rete8_dizionario.py     # 3, tutti dichiarati falsi positivi
@@ -4304,7 +4533,18 @@ python scratchpad/cnv_str_en.py           # 49 chiamate | 24 con la chiave ingle
 python scratchpad/lang-nel-ramo-jp.py     # 21 righe | 0 gia' tradotte
 ```
 
-⚠️ **L'ultimo è della 40ª, ed è il QUARTO punto cieco.** `cnv_str` riscrive una
+⭐ **`tabelle_en.py` è della 52ª, ed è il SESTO punto cieco.** Le tabelle di
+stringhe inglesi nude — `AITextData(0, 1) = "Not Set", "Self", "Target", …` —
+che `nudi_en` non vede perché non disegnano e non compongono: sono
+un'assegnazione di **array**, e il testo arriva a schermo per **indice**, da una
+riga che di letterali non ne ha nessuno. ⚠️ Il referto **classifica invece di
+scartare** (testo / sigla / numerica / jp) e confronta sorgente e build per dire
+quali sono già fatte, perché una tabella non ha firma né voce di dizionario e
+non c'è nient'altro da guardare — per lo stesso motivo la tabella che **non si
+tocca** (le dodici classi) non poteva finire in `rinviate.jsonl`, che indicizza
+per firma: sta in `DECISE` dentro il referto.
+
+⚠️ **Il quart'ultimo è della 40ª, ed è il QUARTO punto cieco.** `cnv_str` riscrive una
 stringa **già composta** usando come chiave l'**inglese di monte**: la resa
 italiana la spegne, e in un caso l'aveva già spenta il bestiario mesi fa (vedi
 il punto 3 delle cinque cose). **Se le 17 salgono, qualcuno ne ha scritta una
