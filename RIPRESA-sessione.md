@@ -1,71 +1,229 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-16, fine della **quarantanovesima** sessione (il collaudo che
-la 48ª chiedeva, tre correzioni, un referto nuovo, zero lotti).
+Aggiornato: 2026-08-16, fine della **cinquantesima** sessione (il quinto punto
+cieco attaccato sul serio: undici risultati spinti, 153 toppe nuove, quattro
+schermate chiuse, un meccanismo nuovo e tre difetti di misura trovati).
 
-⭐⭐⭐ **Il collaudo si è fatto, ed è la sessione che ha prodotto di più senza
-tradurre una riga.** Otto schermate verificate a schermo, tre correzioni, uno
-strumento nuovo, un debito documentale chiuso. ✅ **La misura più a rischio della
-48ª tiene**: la riga di aiuto del menu delle capacità si legge intera —
-`+,- [Pagina]  Shift,Esc [Chiudi]  0~9 [Scorciatoia]  * [NASC.] / [MOSTRA]`, cioè
-**73 caratteri su 76**, con `[MOSTRA]` lontano dal bordo. E con lei tengono il
-menu `i` (venti voci, la più lunga 28 su 29), «Combat Rolls» con la toppa della
-47ª, `Parti:` coi nomi degli slot, ` (per terra)` e ` (tiro)`.
+⭐⭐⭐ **Le toppe hanno imparato a dire «tutte le occorrenze», e ne erano
+bloccate 125.** Su 717 righe di testo inglese nudo, **125 non erano raggiungibili
+da nessuna toppa** — e non perché mancasse la resa: perché la schermata ripete sé
+stessa e `applica_toppe`, giustamente, si ferma sull'ambiguità. Gli otto menu di
+`custom_tweaks.hsp` hanno lo stesso titolo, le dodici schermate di creazione del
+personaggio ripetono «Press F1 to show help.», `command.hsp:2901` (« Rank.») sta
+identica nel diario e nella scheda. E il blocco non salvava: **le uniche righe
+che distinguono i siti portano rese che il dizionario riscrive**, quindi un
+blocco che le raggiunge aggancia il sorgente pinnato — come `test_toppe.py:104`
+pretende — ma non aggancia più la build, dove le toppe girano davvero.
+✅ `"tutte": true`, otto test nuovi (412 → **420**). ⚠️ **Non è un allentamento**:
+l'ambiguità resta un errore per difetto (c'è un test che lo verifica sia senza il
+campo sia con `false`), un `tutte` non booleano è un errore di caricamento, le
+occorrenze sovrapposte non si contano due volte e la sostituzione va dall'ultima
+alla prima, perché `sostituisci` può avere un numero di righe diverso da `cerca`.
 
-⭐⭐⭐ **Il quinto punto cieco: i letterali inglesi che non passano da NESSUNA
-`lang()`.** Il piede di ogni inventario dice `17 items` e `Page.1/2`, la bacheca
-dice `Page 1/3`, il riquadro di un alleato dice `30 gp`:
+⭐⭐⭐ **Tre difetti di misura di `nudi_en.py` in un giorno solo, e il terzo l'ho
+lasciato aperto apposta.**
+1. ✅ **`_PERCORSO` scartava ogni letterale con una barra rovesciata** — e le
+   sequenze di a-capo e tabulazione ne portano una. Erano invisibili **tutte le
+   descrizioni su più righe**: solo in `custom_tweaks.hsp` sono 75, cioè il
+   pannello delle opzioni descritto voce per voce. Struttura 913 → 1038.
+2. ✅ **`_ESTENSIONE` scartava ogni letterale con un nome di file dentro** —
+   «Re-parse ItemList.txt.» è una voce di menu, non un percorso. Stessa cura: un
+   nome di file è un **token**, non ha spazi dentro. 1038 → **1044**.
+3. ⚠️ **`return "…"` dentro un `#defcfunc` non lo vede nessuno**, e sono **120
+   righe** (`init.hsp` 56, `text.hsp` 35, `custom_tweaks.hsp` 29). **Non
+   corretto**, e il motivo è che non sono tutte testo: i 35 di `text.hsp` sono
+   chiavi di mappa (`"vernis"`, `"kapul"`, `"fighterguild"`), ma
+   `init.hsp:155`-`:168` restituiscono i suffissi ordinali inglesi del `cnvrank`
+   (`"st"`, `"nd"`, `"rd"`, `"th"`), che il giocatore legge. Serve una regola di
+   forma che distingua, e improvvisarla a fine sessione sarebbe stato ripetere
+   pari pari l'errore del punto 1.
+💡 **La lezione è la stessa scritta per la quarta volta: un filtro si prova su
+una riga che si è vista a schermo, non sul totale.** Tutt'e tre sono venuti fuori
+traducendo, non misurando: la 49ª li aveva già incontrati con ` gp` e `Page.`.
 
-    command.hsp:14175   s = "" + listmax + " items"
-    command.hsp:14366   mes "" + cdata(CDATA_GOLD, tc) + " gp"
-    command.hsp:3328    bmes "Page " + (page + 1) + "/" + (pagemax + 1)
-    module.hsp:4141, :4315, :4347   s = "Page." + (page + 1) + "/" + ...
+⭐⭐ **Due volte l'inglese sbagliava e il giapponese aveva ragione, e a dirimere
+è stato il sito d'assegnazione.**
+- «Bandits Killed» conta le **bande**, non i banditi: `GDATA_FLAG_BANDITS_KILLED`
+  cresce di uno per scontro (`action.hsp:2514`, i predoni travolti con la nave;
+  `quest.hsp:718`, l'incarico contro i ladri respinto), come dice
+  「潰した盗賊団**の数**」. → «Bande di banditi sgominate».
+- «Max Arena Streak» non è una serie: `quest.hsp:675` incrementa a **ogni**
+  vittoria e non azzera mai, come dice 「アリーナ**総勝数**」. ⚠️ Il nome della
+  costante (`HIGHEST_ARENA_STREAK`) è d'accordo con l'inglese ed è sbagliato
+  quanto lui — la lezione n. 2 della 49ª che si ripresenta identica.
+💡 **Quando inglese e giapponese non dicono la stessa cosa, il giudice è chi
+assegna il campo.** Costa una ricerca e non sbaglia.
 
-Non c'è nessun ramo di lingua: la riga è la stessa per giapponese e inglese, ed è
-inglese per tutti. `estrai` non le vede, `verifica --dizionario` non le conta,
-**nessun lotto può raggiungerle**. Nato **`scratchpad/nudi_en.py`**: struttura
-**913**, ancora da fare **872**.
-⭐⭐ **E non è una scoperta nuova, è una richiesta vecchia finalmente evasa.** La
-decisione del **2026-08-10** («391 stringhe che il giocatore legge e che nessun
-conteggio vedeva») si chiudeva chiedendo *come primo passo* «**prima lo strumento
-che misura**, non la traduzione: un conteggio dei letterali scoperti con l'elenco
-esplicito di ciò che è dato, così il buco resta visibile invece di dipendere da
-chi si ricorda di questa pagina». Non era mai stato scritto. `nudi_en.py` è
-quello, e l'«elenco di ciò che è dato» sta nella **forma** invece che a mano:
-`listn(0, …)` è la colonna che si legge, `listn(1, …)` è la chiave
-(`db_race.hsp:315` = `"kobolt"`).
-
-⭐⭐⭐ **Una toppa aveva scritto da sola quando sarebbe scaduta, e nessuno è
-tornato a leggerla.** Il motivo delle due toppe della battuta dell'orso finiva
-con: «*quando si tradurrà il necrologio (`chara_func.hsp:6850` e `main.hsp:4409`)
-andrà rifatta*». Il necrologio è stato tradotto — da `"was killed by "` a
-`"perse la vita contro "` — e le chiavi cercavano ancora `was killed by lo
-sbudellatore` dentro una stringa che non lo dice più. La battuta era morta la
-**seconda** volta per la stessa ragione della prima.
-✅ Rifatta, e stavolta la chiave si **ricava** dal dizionario invece di essere
-ricopiata (prefisso da `chara_func.hsp:6850`, nomi da `db_creature.hsp:37656` e
-`:37748`), con dieci reti che fermano lo script se una delle tre cambia.
-💡 **La regola che ne esce: una toppa che tiene una copia congelata di una resa
-che sta altrove è già scaduta, si aspetta solo di scoprirlo.**
-
-⚠️⚠️ **Due indicazioni della 48ª erano sbagliate, e tutt'e due costavano una
-schermata.**
-1. «*col tasto che cambia colonna*» nell'elenco PNG **non esiste**: `*com_ally_loop`
-   (`command.hsp:1495`-`:1557`) non ha nessun ramo che tocchi `allyctrl`. Lo
-   imposta chi apre la finestra, quindi **ogni colonna è una schermata diversa** —
-   «Rottura guardia» si raggiunge **solo** con la capacità «Istruzione
-   individuale» (`proc.hsp:26781`), «Sanguinamento» con «Trasfusione diretta»
-   (`proc.hsp:19085`), «Paga» e «Assunzione» dalla bacheca di casa.
-2. «`Parti:`» **non** sta nella scheda dell'equipaggiamento: il blocco che lo
-   disegna è sotto `invctrl == 25`, cioè `INVCTRL_ALLYGET`
-   (`defines/mod.hsp:1908`) — la finestra con cui si **prende** roba da un
-   alleato, `i` → «Dai/Ricevi qualcosa» → ricevi.
-💡 Il modo di non ricascarci costa niente: **prima di scrivere in una lista di
-collaudo «premi X», si cerca chi assegna la variabile che accende quella vista.**
+⭐⭐ **Un rinvio aveva scritto da sé quando sarebbe scaduto, ed è scaduto oggi.**
+`command.hsp:3067` («Total Platinum») portava un letterale nudo *e* una `lang()`
+sulla stessa riga, che la regola della 46ª vieta. La firma era già in
+`rinviate.jsonl` da una sessione passata, col motivo che finiva: «*si sblocca il
+giorno in cui qualcuno traduce il ramo `else`, che è lavoro da toppa e non da
+dizionario*». Quel giorno era oggi, e non è servito toccare niente.
+💡 **È l'opposto esatto della toppa dell'orso della 49ª**: là una toppa teneva
+una **copia congelata** di una resa che stava altrove ed è scaduta in silenzio;
+qui un rinvio dipendeva da un **fatto verificabile** e ha aspettato in ordine.
+La regola che ne esce vale in tutt'e due i versi: **quel che dipende da un valore
+copiato marcisce, quel che dipende da un fatto no.**
 
 ---
 
-## La quarantanovesima sessione
+## La cinquantesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** — undici spinte — e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle otto verifiche d'apertura. La sessione si è
+aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la **settima prova**
+di fila che il «cambio di terminale» annunciato in chiusura è sempre e solo un
+cambio di finestra.
+
+⚠️⚠️ **Tre valori attesi sono cambiati e uno strumento è nuovo:**
+
+    python -m pytest strumenti/tests      atteso: 420 passed, 6 skipped   (era 412)
+    python scratchpad/nudi_en.py          atteso: struttura 1044 | da fare 849
+    python scratchpad/blocchi_en.py       atteso: struttura 99 | da fare 54  (era 68)
+    python scratchpad/triage_nudi.py      NUOVO: testo 647, sigla 87, dbg 93, spenta 22
+
+`toppe.jsonl` sale a **467** (di cui **10 `tutte`**), `rinviate.jsonl` resta a
+**43**. Tutto il resto è **fermo dov'era**: `prova_identita` 72/72 e 27.813,
+`verifica --dizionario` 0 da ritradurre ovunque e **124** non tradotte in
+`command.hsp`, `creature` 1131/2466/0/0, `larghezze` 0 su 75, `diario` 0 su 214,
+`riquadri` 0 su 38 e 0 su 71, `battute --divergenti` 13; `referti.py` 0 e 0,
+`else_jp.py` 6.984 righe in 13 file, `rete8_dizionario.py` 3,
+`misura-blocchi-spenti.py` 4 e 5, `variabili_en.py` 60 e 4, `perimetro.py` 57% e
+42%, `cnv_str_en.py` 49 e 24, `lang-nel-ramo-jp.py` 21 righe e 0 già rese.
+
+✅ **`cgx-test.exe` rifatto sette volte** e già in `elonaplus2.31\`.
+
+### ▶ Che cosa è stato chiuso, e che cosa il collaudo ha detto
+
+Il giocatore ha collaudato **tre volte in corsa** e ha detto «tutto ok» tre volte:
+il piede dell'inventario, la barra di stato, il diario.
+
+✅ **Il piede dell'inventario** — `17 oggetti`, `30 oro`, `Pag. 1/3` e `Pag.1/2`
+in tutte e tre le finestre a scorrimento (`showscroll`, `display_window2`,
+`display_window`).
+✅ **La barra di stato** — `12345 oro`, `30 pt.`, gli otto effetti di campo, la
+battaglia navale, il sacco da allenamento, la resa in arena, la Chiamata alla
+ribalta. **18 righe su 23**: `Sp` e `Lv` restano per misura, `"PF"` perché è una
+sigla di cui il sorgente non dice il significato, e le due spie di *wizard mode*
+perché non sono testo di gioco.
+✅ **Il diario (`j`)** — 54 righe: il conto delle bollette (con le cinque voci
+incolonnate a nove caratteri: Totale, Personale, Immobili, Tasse, Totale) e le
+quaranta voci della «Cronaca delle avventure». Più `command.hsp:3067` col rinvio
+già pronto, e ` Rank.` chiuso dopo con la prima toppa `tutte`.
+✅ **Il pannello dei ritocchi** — il menu principale, le intestazioni di **tutti e
+otto** i menu (otto toppe `tutte`) e il primo menu di dettaglio, più il suffisso
+di stato che sta accanto a **ogni** voce del pannello.
+
+### ▶ Il vocabolario fissato oggi, che vale per le 647 righe che restano
+
+    tweak            ritocco          «Impostazioni» era già del menu di
+                                      configurazione (command.hsp:17285, :17538)
+    AI               IA               mai reso prima in TUTTO il progetto
+    toggle           accende e spegne l'italiano non ha il verbo in una parola
+    (Currently: X)   (Ora: X)         più corto, e «ora» è quel che dice
+    Off / On         spento / acceso  la coppia di «accende e spegne»
+    Disabled         disattivato      l'inglese distingue Off da Disabled
+    tracker          «osservate»      participio: mai reso prima, e inventare un
+                                      sostantivo tecnico sarebbe stato peggio
+    stamina          SP               buff.hsp:735, item_data.hsp:613
+    gp / gold        oro              command.hsp:3677, text.hsp:193 (strgold)
+    pp (barra)       pt.              solo lì: « platino» non ci sta in 62 px
+    Page / Page.     Pag. / Pag.      text.hsp:114 rende già «[Page]» «[Pagina]»
+
+⭐ **E sei nomi di effetto di campo erano già decisi altrove**: la barra deve dire
+quel che dice il libro degli incantesimi — «Gabbia elettromagnetica»
+(`skill.hsp:1812`), «Mondo di fili» (`:1820`), «Giardino violento» (`:1704`),
+«Frantumaroccia» (`:1824`), «Teatro impazzito» (`text.hsp:2372`), «Chiamata alla
+ribalta» (`proc.hsp:4650`). ⚠️ L'unico senza gemello era `[Reprimand Room]`:
+懲罰**結界** è una barriera magica, non una stanza → «[Barriera punitiva]», che
+segue il giapponese e non l'inglese, che si era inventato la «Room».
+
+### ▶ Che cosa fare
+
+1. ⭐⭐⭐ **Finire il pannello dei ritocchi**, che adesso è la strada in discesa:
+   il vocabolario è fissato, le intestazioni sono chiuse e il suffisso di stato
+   pure. Restano **190 righe in sei menu**: `GameplayTweakMenu_loop` **69**,
+   `ConvenienceTweakMenu_loop` 36, `MiscTweakMenu_loop` 30,
+   `GameplayExtraTweakMenu_loop` 28, `AITweakMenu_loop` 14,
+   `ChallengeTweakMenu_loop` 14. Il modello è `scratchpad/toppa-tweaks-ui.py`.
+2. ⭐⭐ **La regola di forma per i `return`**, cioè il debito dichiarato del punto
+   3 in cima. Prima lo strumento che misura, poi la traduzione: è la stessa
+   richiesta che la decisione del 2026-08-10 faceva per i letterali nudi, e che
+   `nudi_en.py` ha evaso nella 49ª. ⚠️ Il caso su cui provarla è
+   `init.hsp:155`-`:168`: i suffissi ordinali `"st"`/`"nd"`/`"rd"`/`"th"`, che
+   sono testo vero e in italiano non hanno un equivalente scrivibile in CP932
+   (niente `º`) — quindi lì la domanda non è solo «si vede?», è «che cosa ci si
+   mette?».
+3. ⭐⭐ **Le altre schermate grosse del punto cieco**: `tcg.hsp` 46 (le parole
+   chiave delle carte, `tcgdrawcard` 33 + `tcg_drawInterface` 13),
+   `event.hsp:random_eventProc` 27 (le battute dei figli), `custom_ai.hsp` ~60
+   («Tactical Instructions», dove «IA» è già deciso), `chara.hsp` 26 (le
+   schermate di creazione del personaggio: «Press F1 to show help.» ×12 e «Gene
+   from » ×12, **tutt'e due sbloccate da `tutte`**).
+4. ⭐ **Il referto che manca ancora dalla 49ª**: uno che scorra le chiamate a
+   `display_window` e misuri `s(1)` contro `(larghezza − 58 − 40) / 6,6`.
+5. **L'incoerenza vecchia**: `db_item.hsp:135432` dice «borraccia filtrante»,
+   `action.hsp:8267` dice «**bottiglia** filtrante».
+6. ⚠️ **E il collaudo arretrato non è sparito**: restano gli **88 ranghi** della
+   41ª (il debito più vecchio) e le cinque schermate della 47ª (ritratto/PCC,
+   specchio, cambio di immagine, tono di voce, evocazione dei PNG). ⚠️ Da
+   guardare col resto: il **platino a quattro cifre** nella barra di stato —
+   `9999 pt.` sono 8 caratteri, cioè 53 px col metro stretto e **62** con quello
+   largo, e 62 è esattamente lo spazio fino al bordo dello schermo.
+
+### ⚠️⚠️ Le sette cose che la prossima sessione deve sapere
+
+1. ⭐⭐⭐ **`tutte` si dichiara dove serve, non per comodità.** In
+   `custom_tweaks.hsp` `"Go back."` ha **tre forme** — `listn(0, 15)`,
+   `listn(0, 31)`, `listn(0, listmax - 1)` — e solo l'ultima è ripetuta: le
+   prime due sono toppe normali. E in ogni copione di toppa `tutte` va messo un
+   controllo che **conti le occorrenze e pretenda il numero atteso**
+   (`toppa-command-rank.py` è il modello): `tutte` non è una scusa per non
+   guardare, è una decisione presa dopo aver guardato.
+2. ⭐⭐⭐ **Una toppa può disambiguare solo con righe che il dizionario non
+   tocca.** È il motivo per cui `tutte` è dovuta nascere, ed è una regola
+   generale: il `cerca` deve agganciare **il sorgente pinnato e la build
+   insieme**, e ogni riga tradotta che entra nel blocco rompe la seconda metà.
+   Nei copioni di questa sessione il controllo è scritto:
+   `if build[riga - 1] != originale: raise`.
+3. ⭐⭐ **La larghezza di una schermata si misura sulla `config.txt` vera e poi
+   si ricontrolla alla minima.** Per la barra di stato i numeri veri sono
+   `clockW. 120` e `windowW. 1920`; il conto è stato rifatto a **800**, che è il
+   minimo che il gioco accetta, e lì «[Gabbia elettromagnetica]» finisce a 319 px
+   e la «Chiamata alla ribalta» a 693. ⚠️ E si è scoperto che
+   `screen.hsp:1811` **in inglese sfonda già da solo** a 800: l'italiano, più
+   corto, lo rimette dentro. Non tutto quel che sfora è colpa della traduzione.
+4. ⭐⭐ **Quando il giapponese e l'inglese non concordano, si guarda chi assegna
+   il campo** — vedi il riquadro in cima. E ⚠️ **il nome della costante non è una
+   prova**: `HIGHEST_ARENA_STREAK` è d'accordo con l'inglese ed è sbagliato
+   quanto lui. Stessa regola per cui la classe `dbg` di `triage_nudi.py` guarda
+   il **prefisso** `dbg_` e non «il nome sa di sviluppatore»: `*dump_chara`
+   contiene «superb», «great», «good», «bad», «hopeless», cioè testo vero.
+5. ⚠️ **E la regola `dbg_` ha il suo punto cieco, misurato:** `screen.hsp:1125` e
+   `:1128` (`"*debug*"`, `"loop…sub…"`) escono solo con `GDATA_WIZARD == 1` ma
+   stanno dentro `screen_drawStatus`, che di suo è la barra vera. Il triage le
+   chiama `testo` e sbaglia a favore del lavoro. **Il debug guardato da una
+   variabile invece che da una routine non si vede.**
+6. ⚠️ **Le toppe non passano da `accenti.py`.** È l'unica strada per cui un testo
+   italiano arriva al sorgente senza degradazione automatica: nei copioni
+   l'apostrofo si scrive **a mano** (`piu'`, `abilita'`, `comodita'`) e ogni
+   copione di questa sessione controlla `nuova.encode('cp932')` prima di
+   scrivere. ⚠️ E niente `º`: «il 1º del mese» non si può scrivere, si scrive
+   «il 1 del mese».
+7. 💡 **Una riga che si legge sempre vale più di dieci che si leggono una volta.**
+   Le sei toppe del piede dell'inventario e le due della barra di stato sono
+   otto righe in tutto, e sono la cosa che il giocatore ha visto per prima. Il
+   diario sono 54 righe in una schermata che si apre col tasto `j`. Il criterio
+   che ha guidato la sessione è questo, e `triage_nudi.py --routine` serve
+   proprio a trovarlo: **il testo non è sparso, sta in blocchi, e un blocco è una
+   schermata sola.**
+
+---
+
+## La quarantanovesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
