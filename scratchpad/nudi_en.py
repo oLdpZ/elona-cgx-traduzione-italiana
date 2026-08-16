@@ -103,9 +103,14 @@ def _e_testo(letterale: str) -> bool:
     nudo = _MARCATORE.sub('', letterale).strip()
     if not _PAROLA.search(nudo):
         return False
-    if _ESTENSIONE.search(nudo):
-        return False
-    if _PERCORSO.search(nudo) and _SENZA_SPAZI.match(nudo):
+    # ⚠️⚠️ Le due regole del nome di file vogliono la STESSA cautela, e la seconda
+    #    e' stata scoperta sbagliata mezz'ora dopo la prima: `_ESTENSIONE`
+    #    scartava «Re-parse ItemList.txt.» e «Reload the ItemList.txt file, used
+    #    to enable highlighting and filtering for items.»
+    #    (`custom_tweaks.hsp:258` e `:305`), che sono voci di menu e si leggono a
+    #    schermo. Un nome di file NOMINATO DENTRO una frase non fa della frase un
+    #    nome di file. ✅ Un nome di file e' un token: niente spazi.
+    if _SENZA_SPAZI.match(nudo) and (_ESTENSIONE.search(nudo) or _PERCORSO.search(nudo)):
         return False
     if _CHIAVE.match(nudo) or _TAG.match(nudo):
         return False
