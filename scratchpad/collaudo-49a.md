@@ -1,5 +1,37 @@
 # Collaudo 49ª — 2026-08-16
 
+## ESITO (scritto a fine sessione)
+
+✅ **Verificato a schermo e a posto** — menu delle capacità (titolo, colonne, e la
+riga di aiuto da **73 su 76**, che era la misura più a rischio della 48ª); menu
+`i` su un alleato (venti voci, la più lunga «Metti fra gli indispensabili» = **28
+su 29**, nessuna tagliata); «Combat Rolls» con `c` (la toppa della 47ª tiene:
+`Mira 64%` con lo spazio); `Unisce le forze sulla serratura`; `Parti:` coi nomi
+degli slot (`Mano Mano Tiro Dardi`); ` (per terra)`; ` (tiro)` e il menu
+«Mano o Tiro?»; la bacheca degli incarichi.
+
+❓ **Non raggiunte, ognuna col suo motivo** — la colonna «Rottura guardia» (serve
+la capacità «Istruzione individuale», che il personaggio non ha); la
+creatura-carta (il `<Cambia valore>` vuole il ritratto `xy2pic(18, 35)`, che
+assegna solo `proc.hsp:20179` — «Forza del poker» a 50 di barra: **non è una
+schermata da un tasto**); il jukebox (è un oggetto, non un arredo di città); il
+` pz.` dei due banchi.
+
+⚠️ **Il sospetto della colonna informazioni (`:3627`, 35 caratteri in 21) resta
+APERTO**, perché quella schermata non si è potuta aprire.
+
+💡 **Quel che si vede in inglese e NON è un difetto**: `(Light)` (`cnveqweight` in
+`screen.hsp`, file senza dizionario), `You change your equipment.`
+(`main.hsp:3089`, dentro una `lang()` regolare — `main.hsp` non ha dizionario),
+`Autopickup` (`screen.hsp:1004`, idem), `un black claws` (già censito il
+2026-08-10: 261 `iknownnameref`), gli incarichi (`event.hsp`, 649 voci), e la
+**voce vuota in cima al menu delle capacità** (fuori-di-uno di monte: il ciclo
+parte da `cnt = 0`, cioè dallo slot 600, che non ha costante né nome; le 276
+`SKILL_SPACT_*` vanno da 601 a 876).
+
+---
+
+
 Eseguibile: `elonaplus2.31\cgx-test.exe` (16/08 01:40, dopo tutti i lotti della 48ª).
 Salvataggio al sicuro in `save-backup\pre-collaudo-20260816-49a` (202 file).
 `config.txt`: `language. "1"`, `fontSfix1. "1"` → **sizefix = 1**, corpo 11, **6,6 px** a carattere.

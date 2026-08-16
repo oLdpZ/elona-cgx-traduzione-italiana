@@ -1,7 +1,221 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-16, fine della **quarantottesima** sessione (sei lotti, tre
-zone chiuse, nessun collaudo).
+Aggiornato: 2026-08-16, fine della **quarantanovesima** sessione (il collaudo che
+la 48ª chiedeva, tre correzioni, un referto nuovo, zero lotti).
+
+⭐⭐⭐ **Il collaudo si è fatto, ed è la sessione che ha prodotto di più senza
+tradurre una riga.** Otto schermate verificate a schermo, tre correzioni, uno
+strumento nuovo, un debito documentale chiuso. ✅ **La misura più a rischio della
+48ª tiene**: la riga di aiuto del menu delle capacità si legge intera —
+`+,- [Pagina]  Shift,Esc [Chiudi]  0~9 [Scorciatoia]  * [NASC.] / [MOSTRA]`, cioè
+**73 caratteri su 76**, con `[MOSTRA]` lontano dal bordo. E con lei tengono il
+menu `i` (venti voci, la più lunga 28 su 29), «Combat Rolls» con la toppa della
+47ª, `Parti:` coi nomi degli slot, ` (per terra)` e ` (tiro)`.
+
+⭐⭐⭐ **Il quinto punto cieco: i letterali inglesi che non passano da NESSUNA
+`lang()`.** Il piede di ogni inventario dice `17 items` e `Page.1/2`, la bacheca
+dice `Page 1/3`, il riquadro di un alleato dice `30 gp`:
+
+    command.hsp:14175   s = "" + listmax + " items"
+    command.hsp:14366   mes "" + cdata(CDATA_GOLD, tc) + " gp"
+    command.hsp:3328    bmes "Page " + (page + 1) + "/" + (pagemax + 1)
+    module.hsp:4141, :4315, :4347   s = "Page." + (page + 1) + "/" + ...
+
+Non c'è nessun ramo di lingua: la riga è la stessa per giapponese e inglese, ed è
+inglese per tutti. `estrai` non le vede, `verifica --dizionario` non le conta,
+**nessun lotto può raggiungerle**. Nato **`scratchpad/nudi_en.py`**: struttura
+**913**, ancora da fare **872**.
+⭐⭐ **E non è una scoperta nuova, è una richiesta vecchia finalmente evasa.** La
+decisione del **2026-08-10** («391 stringhe che il giocatore legge e che nessun
+conteggio vedeva») si chiudeva chiedendo *come primo passo* «**prima lo strumento
+che misura**, non la traduzione: un conteggio dei letterali scoperti con l'elenco
+esplicito di ciò che è dato, così il buco resta visibile invece di dipendere da
+chi si ricorda di questa pagina». Non era mai stato scritto. `nudi_en.py` è
+quello, e l'«elenco di ciò che è dato» sta nella **forma** invece che a mano:
+`listn(0, …)` è la colonna che si legge, `listn(1, …)` è la chiave
+(`db_race.hsp:315` = `"kobolt"`).
+
+⭐⭐⭐ **Una toppa aveva scritto da sola quando sarebbe scaduta, e nessuno è
+tornato a leggerla.** Il motivo delle due toppe della battuta dell'orso finiva
+con: «*quando si tradurrà il necrologio (`chara_func.hsp:6850` e `main.hsp:4409`)
+andrà rifatta*». Il necrologio è stato tradotto — da `"was killed by "` a
+`"perse la vita contro "` — e le chiavi cercavano ancora `was killed by lo
+sbudellatore` dentro una stringa che non lo dice più. La battuta era morta la
+**seconda** volta per la stessa ragione della prima.
+✅ Rifatta, e stavolta la chiave si **ricava** dal dizionario invece di essere
+ricopiata (prefisso da `chara_func.hsp:6850`, nomi da `db_creature.hsp:37656` e
+`:37748`), con dieci reti che fermano lo script se una delle tre cambia.
+💡 **La regola che ne esce: una toppa che tiene una copia congelata di una resa
+che sta altrove è già scaduta, si aspetta solo di scoprirlo.**
+
+⚠️⚠️ **Due indicazioni della 48ª erano sbagliate, e tutt'e due costavano una
+schermata.**
+1. «*col tasto che cambia colonna*» nell'elenco PNG **non esiste**: `*com_ally_loop`
+   (`command.hsp:1495`-`:1557`) non ha nessun ramo che tocchi `allyctrl`. Lo
+   imposta chi apre la finestra, quindi **ogni colonna è una schermata diversa** —
+   «Rottura guardia» si raggiunge **solo** con la capacità «Istruzione
+   individuale» (`proc.hsp:26781`), «Sanguinamento» con «Trasfusione diretta»
+   (`proc.hsp:19085`), «Paga» e «Assunzione» dalla bacheca di casa.
+2. «`Parti:`» **non** sta nella scheda dell'equipaggiamento: il blocco che lo
+   disegna è sotto `invctrl == 25`, cioè `INVCTRL_ALLYGET`
+   (`defines/mod.hsp:1908`) — la finestra con cui si **prende** roba da un
+   alleato, `i` → «Dai/Ricevi qualcosa» → ricevi.
+💡 Il modo di non ricascarci costa niente: **prima di scrivere in una lista di
+collaudo «premi X», si cerca chi assegna la variabile che accende quella vista.**
+
+---
+
+## La quarantanovesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** — sei spinte: la lista di collaudo, la sua correzione,
+`nudi_en.py`, le due correzioni del collaudo, il referto stretto, `il tiro`, più
+questa chiusura — e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle otto verifiche d'apertura. La sessione si è
+aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la **sesta prova**
+di fila che il «cambio di terminale» annunciato in chiusura è sempre e solo un
+cambio di finestra, mai un cambio di macchina.
+⚠️ **Un valore atteso è cambiato e uno è nuovo**: `dizionario/skill.hsp.jsonl` e
+`dizionario/text.hsp.jsonl` hanno una resa corretta ciascuno, e **`nudi_en.py`
+entra nei referti con 913 e 872**. Tutto il resto è **fermo dov'era**:
+`verifica --dizionario` dice «command.hsp: 0 da ritradurre, **124** non ancora
+tradotte», `toppe.jsonl` resta a **314** (le due dell'orso sono state
+**riscritte**, non aggiunte) e `rinviate.jsonl` a **43**; `perimetro.py` 57% e
+42%, `variabili_en.py` 60 e 4, `cnv_str_en.py` 49 e 24,
+`misura-blocchi-spenti.py` 4 e 5, `lang-nel-ramo-jp.py` 21 righe e 0 già
+tradotte, `blocchi_en.py` 99 e 68, `else_jp.py` 6.984 righe in 13 file,
+`rete8_dizionario.py` 3.
+⚠️ Il modello per `assembla-lotto.py` resta **`scratchpad/modello-rete6.py`**; i
+lotti `037`-`041` restano quelli a zero rinviate da cui copiare.
+✅ **`cgx-test.exe` rifatto tre volte** (l'ultimo 16/08, **03:17**) e già in
+`elonaplus2.31\`.
+
+### ▶ Che cosa il collaudo ha detto
+
+Il salvataggio è in `save-backup\pre-collaudo-20260816-49a` (202 file). La lista
+completa, con i numeri di riga e i tetti accanto a ogni voce, sta in
+**`scratchpad/collaudo-49a.md`**: si riparte da lì, non da capo.
+
+✅ **Verificato e a posto** — il **menu delle capacità** (`a`): titolo, colonne
+`Nome`/`Costo`/`Effetto`, e la riga di aiuto da **73 su 76**. Il **menu `i` su un
+alleato**: venti voci, la più lunga «Metti fra gli indispensabili» = **28 su 29**,
+nessuna tagliata. Il riquadro **«Combat Rolls»** (`c`): la toppa della 47ª tiene,
+si legge `Mira 64%` con lo spazio. **`Parti:`** coi nomi degli slot — `Mano Mano
+Tiro Dardi`. **` (per terra)`** e **` (tiro)`**. La **bacheca degli incarichi**.
+
+⚠️ **Non raggiunte, e ognuna col suo motivo** — la colonna **«Rottura guardia»**
+(serve la capacità «Istruzione individuale», che il personaggio non ha); la
+**creatura-carta** (il `<Cambia valore>` vuole il ritratto `xy2pic(18, 35)`, che
+assegna solo `proc.hsp:20179`, cioè «Forza del poker» a 50 di barra: **non è una
+schermata da un tasto**); il **jukebox** (è un oggetto, non un arredo di città);
+il **` pz.`** dei due banchi (Miral, Stoke).
+
+💡 **Quel che si vede in inglese e NON è un difetto**, misurato riga per riga:
+- `(Light)` viene da `cnveqweight` in `screen.hsp` — **file senza dizionario**;
+- `You change your equipment.` è `main.hsp:3089`, **dentro una `lang()` regolare**:
+  `main.hsp` non ha dizionario;
+- `Autopickup` è `screen.hsp:1004`, stessa storia;
+- `un black claws` è **già censito** dalla decisione del 2026-08-10: 261
+  `iknownnameref` di `db_item.hsp`, i nomi degli oggetti non identificati. È
+  l'articolo italiano (`un `) che si incolla a un nome inglese;
+- gli incarichi della bacheca sono `event.hsp`, 649 voci;
+- `Informazioni` manca dal menu `i` perché `command.hsp:6146` lo riserva a
+  `develop | GDATA_WIZARD` **e ai non-alleati**;
+- la **voce vuota in cima al menu delle capacità** è un fuori-di-uno di monte, non
+  nostro: il ciclo è `repeat MAX_SKILL - STARTING_SKILL_SPACT` con `cnt` da **0**,
+  quindi tocca lo slot **600**, che non ha costante, né nome, né costo (le 276
+  `SKILL_SPACT_*` vanno da 601 a 876, senza buchi, tutte con `skillname`). Su un
+  personaggio normale `spact(0)` è 0; su questo, che è `*debug*`, è 1. Costruzione
+  e disegno del menu sono **identici byte per byte** fra build e sorgente.
+
+### ▶ Che cosa fare
+
+1. ⭐⭐⭐ **Il triage di `nudi_en.py`.** 913 righe di struttura sono un numero
+   grezzo: va spaccato in *testo che il giocatore legge* e *dato*. I grossi sono
+   `command.hsp` 213, `custom_tweaks.hsp` 183, `custom_ai.hsp` 64, `tcg.hsp` 50,
+   `system.hsp` 72. ⚠️ Le più visibili sono le sei di stanotte (` items`, ` gp`,
+   `Page`/`Page.`): si leggono a **ogni** apertura d'inventario e vogliono una
+   **toppa**, perché nessun dizionario le raggiunge.
+2. ⭐⭐ **Le cinque zone che restano in `command.hsp`**, cento firme: 10000-10999
+   (30), 8000-8999 (29), 16000-16999 (26), 11000-11999 (13), 9000-9999 (2).
+   ⚠️ Prima di aprirne una, le due verifiche di sempre: `lang-nel-ramo-jp.py` e
+   **guardare se la zona taglia una famiglia**.
+3. ⭐⭐ **Oppure un file nuovo, e adesso si sa quali pesano.** Misurato stanotte,
+   fuori dai 19 dizionari attuali (su 72 file) restano **10.465 siti `lang()` in
+   34 file**: `chat.hsp` **4.762** (il 45% del residuo), `db_card.hsp` 2.308,
+   `trait.hsp` 406, **`main.hsp` 381**, `item_func.hsp` 274, `chara.hsp` 274,
+   `item.hsp` 243, `config.hsp` 219, `map_user.hsp` 204, `blend.hsp` 181,
+   `txtadv.hsp` 170, `material_data.hsp` 118, `god.hsp` 114, `screen.hsp` 104.
+   💡 `material_data.hsp` resta il ventesimo dizionario più economico, ma
+   **`main.hsp` (381) e `screen.hsp` (104) sono quelli che il collaudo ha visto
+   in faccia**: il messaggio d'equipaggiamento e la colonna di stato.
+4. ⭐ **Il referto che manca ancora**: uno che scorra le chiamate a
+   `display_window` e misuri `s(1)` contro `(larghezza − 58 − 40) / 6,6`.
+5. ⭐ **La toppa a `command.hsp:17658`**, già misurata: «Elona Version 3.03» come
+   letterale dove il giapponese usa `VERSION_STRING`. ⚠️ Rinvio **insieme** alla
+   toppa.
+6. **L'incoerenza vecchia**: `db_item.hsp:135432` dice «borraccia filtrante»,
+   `action.hsp:8267` dice «**bottiglia** filtrante».
+7. ⚠️ **E il collaudo non è finito**: restano gli **88 ranghi** della 41ª (il
+   debito più vecchio) e le cinque schermate della 47ª (ritratto/PCC, specchio,
+   cambio di immagine, tono di voce, evocazione dei PNG).
+
+### ⚠️⚠️ Le sette cose che la prossima sessione deve sapere
+
+1. ⭐⭐⭐ **Una toppa che ricopia una resa che sta altrove è già scaduta.** Vedi il
+   riquadro in cima. La forma giusta è **ricavare** il valore dalla voce di
+   dizionario da cui dipende e mettere una rete che fermi lo script se cambia:
+   `scratchpad/toppa-chara_func-orso.py` è il modello.
+2. ⭐⭐⭐ **`INV_ITEM_IDENTIFY_LEVEL` non è un livello di identificazione**, e in
+   generale **i nomi del decompilatore non sono un'autorità**. `command.hsp:15321`
+   lo mette a `100` quando scegli di portare nel **Tiro** un'arma che potrebbe
+   stare in Mano: è un flag di slot. Ci ho creduto una volta e ho dato
+   un'istruzione di collaudo sbagliata. 💡 Il modo di controllare costa una
+   ricerca: **si guarda chi assegna il campo**, non come si chiama.
+3. ⭐⭐ **Quando due voci di un menu non si accordano, si guarda quale delle due è
+   LIBERA prima di decidere in che direzione accordarle.** `txtsetequipw`
+   (`text.hsp:2498`-`:2505`) offriva «la mano» e «tiro». L'ovvio era `Mano`/`Tiro`,
+   come `bodyn` e come la domanda appena sopra — ma `:2500` condivide la firma
+   (`jp=手`, `en=hand`) con `_melee(0, 0)` e `_melee(0, 6)`, dove «la mano» è la
+   parte del corpo delle frasi d'attacco. ⚠️ E **non si poteva nemmeno toppare**:
+   una toppa aggancia il sorgente pinnato (`test_toppe.py:104`), il dizionario
+   riscrive quella riga prima, e il rinvio che la libererebbe è **per firma** e si
+   porterebbe dietro i due `_melee` — che hanno tre `lang()` per riga. ✅ Accordata
+   l'altra, che ha firma unica: `tiro` → **«il tiro»**.
+4. ⭐⭐ **Una descrizione va scritta nel registro della sua colonna, non
+   dell'inglese.** `skill.hsp:1561` era l'unica delle venticinque alla terza
+   **plurale** («Uniscono le forze sulla serratura»). L'inglese («Join forces to
+   break the lock») non ha persona e non poteva far da guida; la colonna aveva già
+   scelto ventiquattro volte, e `:1549` («Legge insieme agli alleati») era il caso
+   gemello. ✅ «**Unisce** le forze sulla serratura».
+5. ⭐⭐ **Il registro delle cause di morte è senza genere, e non per caso.** Tutte
+   e venticinque («morì in una trappola», «cadde in cenere», «si tolse la vita»)
+   evitano il participio perché il morto può essere di qualunque sesso. La resa
+   nuova dell'orso lo rispetta: «morì fra le zanne di un orso».
+   ⚠️ E l'**ordine** delle due `cnv_str` è incrociato apposta: «lo sbudellatore» è
+   prefisso di «lo sbudellatore marmocchio» e `cnv_str` aggancia il primo
+   riscontro, quindi la riga del sorgente con l'orso adulto prende la chiave del
+   cucciolo. Stesso criterio di `fix_wish` (`module.hsp:4805`): forme lunghe prima.
+6. ⚠️ **Tre errori miei dentro `nudi_en.py`, tutti trovati misurando.** Il
+   marcatore di colore `@BL` va tolto **prima** di cercare la parola, o «`@BL` più
+   giapponese» passa per inglese. Le chiavi di config sono in camelCase, quindi il
+   corpo dev'essere `[A-Za-z]` — ma **l'iniziale dev'essere minuscola**, o il
+   filtro si mangia `"Page."`, che è testo vero. E la regola delle estensioni
+   scritta `^\.?[a-z]{2,4}$` si mangia **ogni** parola corta e minuscola: la prima
+   a sparire è stata `" gp"`. 💡 Un filtro si prova su una riga che si è **vista a
+   schermo**, non solo sul totale.
+7. ⚠️ **`cerca` di una toppa può essere una LISTA** (le toppe su più righe): non è
+   hashabile, e un `in` su un insieme di chiavi esplode. Va scartata con
+   `isinstance(..., str)` prima del confronto.
+   💡 **E la disciplina «componi, codifica, poi apri» ha pagato di nuovo**: lo
+   script è morto proprio lì, e `toppe.jsonl` non è stato toccato.
+
+---
+
+## La quarantottesima sessione (per storia)
+
+### I riquadri della 48ª
 
 ⭐⭐⭐ **Tre zone chiuse e 119 voci in sei lotti** — la 14000-14999, la 5000-5999 e
 la 3000-3999, cioè le tre più dense che restavano. L'inventario e il banco del
@@ -47,11 +261,7 @@ rompe i salvataggi» che nomina **per riga** proprio `command.hsp:3639-3654`, e
 valore in `invariati.md`.** Un rinvio resta aperto per sempre e ritorna a galla a
 ogni sessione; un invariato dichiarato chiude.
 
----
-
-## La quarantottesima sessione
-
-### ▶ Il punto esatto in cui si riprende
+### ▶ Il punto in cui si riprendeva allora (48ª)
 
 Tutto è **spinto** — sette spinte, una per lotto, una per la chiusura e una per
 questa nota — e l'albero di lavoro è pulito. Si riparte da
@@ -152,8 +362,8 @@ colonna con un tetto calcolato e mai guardato**.
 
 ### ⚠️⚠️ Le nove cose che la prossima sessione deve sapere
 
-1. ⭐⭐⭐ **`sizefix` vale 1, e il corpo di quella famiglia è 11.** Vedi il riquadro
-   in cima. La formula `12 + sizefix - en * 2` compare in **decine** di righe
+1. ⭐⭐⭐ **`sizefix` vale 1, e il corpo di quella famiglia è 11.** Vedi «I riquadri
+   della 48ª» qui sopra. La formula `12 + sizefix - en * 2` compare in **decine** di righe
    (`blend.hsp`, `chara.hsp`, `chat.hsp`, `command.hsp`, `module.hsp`…): ovunque
    fa 11, cioè **6,6 px** a carattere. ⚠️ E il posizionamento di monte usa `* 7`
    (`module.hsp:4349`, `:4360`, `:4372`, `command.hsp:14352`): upstream calcola le
@@ -164,7 +374,7 @@ colonna con un tetto calcolato e mai guardato**.
    volte di fila: il corpo va letto sulla riga.** Stavolta anche `config.txt` va
    letto per intero, non fino alla riga che serviva.
 2. ⭐⭐⭐ **Prima di scrivere il motivo di un rinvio, si cerca il valore in
-   `invariati.md`.** Vedi il riquadro in cima. `invariati.md` è lungo 539 righe e
+   `invariati.md`.** Vedi «I riquadri della 48ª» qui sopra. `invariati.md` è lungo 539 righe e
    ha **cinque sezioni**, e quella che conta qui — «Valori di dato, non testo» —
    sta a riga 405, cioè fuori dalla prima schermata. ⚠️ Il segnale che avrebbe
    dovuto fermarmi c'era ed era in `verifica.py:57`: il commento che spiega perché
