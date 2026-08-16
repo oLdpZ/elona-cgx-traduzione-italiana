@@ -54,11 +54,22 @@ _COMPONE_MODULO = re.compile(
 )
 
 
+# La TERZA causa: un verbo che disegna e che l'elenco di `nudi_en` non nomina.
+# ⚠️ `efllistaddchat` mette un FUMETTO sopra una carta (`tcg.hsp:1362`-`:1368`:
+#    compone `sprint@tcg`, ne misura la lunghezza e la posiziona), e `cardhelp`
+#    scrive la riga d'aiuto in fondo al tavolo (`:651`, disegnata a `:3497`).
+#    Sono trenta battute di duello che nessun referto elencava.
+# ⚠️⚠️ `proctcg` NON entra: e' il registro di servizio del gioco di carte, la
+#    stessa famiglia del prefisso `dbg_` che `triage_nudi` mette da parte.
+_DISEGNA_IN_PIU = re.compile(r'^(efllistaddchat|efllistaddchatplayer|cardhelp)\b')
+
+
 def _e_riga_di_uscita(frammento: str) -> bool:
-    """Le due regole di `nudi_en`, piu' quella del suffisso di modulo."""
+    """Le due regole di `nudi_en`, piu' il suffisso di modulo e i verbi in piu'."""
     return bool(_DISEGNA.match(frammento)
                 or _COMPONE.match(frammento)
-                or _COMPONE_MODULO.match(frammento))
+                or _COMPONE_MODULO.match(frammento)
+                or _DISEGNA_IN_PIU.match(frammento))
 
 
 def righe_cieche(righe: list[str]) -> dict[int, str]:
@@ -78,6 +89,10 @@ def righe_cieche(righe: list[str]) -> dict[int, str]:
             continue
         if not any(_e_testo(m) for m in _LETTERALE.findall(s)):
             continue
+        # Causa 3: un verbo che disegna e che `nudi_en` non nomina.
+        if _DISEGNA_IN_PIU.match(s):
+            trovate[i] = 'verbo'
+            continue
         # Causa 2: la riga comincia gia' con una composizione, ma di modulo.
         if _COMPONE_MODULO.match(s):
             trovate[i] = 'modulo'
@@ -92,7 +107,7 @@ def righe_cieche(righe: list[str]) -> dict[int, str]:
 def main(argv: list[str]) -> None:
     nomi = argv or sorted(os.path.basename(p) for p in glob.glob(SORGENTE + r'\*.hsp'))
     tot_struttura = tot_da_fare = 0
-    per_causa = {'dopo-graffa': 0, 'modulo': 0}
+    per_causa = {'dopo-graffa': 0, 'modulo': 0, 'verbo': 0}
     for nome in nomi:
         sorg = io.open(os.path.join(SORGENTE, nome), encoding='cp932').read().split('\n')
         percorso_build = os.path.join(BUILD, nome)
@@ -118,7 +133,8 @@ def main(argv: list[str]) -> None:
         for i in intatte:
             print(f'  {i+1:6d} | [{trovate[i]}] {sorg[i].strip()[:110]}')
     print(f'--- per causa: dopo-graffa {per_causa["dopo-graffa"]}, '
-          f'suffisso di modulo {per_causa["modulo"]}')
+          f'suffisso di modulo {per_causa["modulo"]}, '
+          f'verbo non elencato {per_causa["verbo"]}')
     print(f'--- struttura: {tot_struttura} righe | ancora da fare: {tot_da_fare}')
 
 
