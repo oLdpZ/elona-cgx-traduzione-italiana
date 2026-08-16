@@ -25,11 +25,17 @@ vista a schermo e' l'errore di `_PERCORSO`, gia' ripetuto cinque volte.
     testo      tutto il resto: da guardare
 
 ⭐ **Atteso al 2026-08-16 (52a): testo 7 tabelle e 73 voci, tutte in
-`custom_ai.hsp`** — piu' sigla 2/6, numerica 2/22, jp 58/143. Il punto cieco e'
-circoscritto a un file solo, e sono le cinque colonne della schermata delle
-istruzioni tattiche piu' i 21 nomi di stato di `AIStatusNames`.
+`custom_ai.hsp`, e delle sette 6 FATTE, 1 DECISA, 0 da fare** — piu' sigla 2/6,
+numerica 2/22, jp 58/143. Il punto cieco e' circoscritto a un file solo — le
+cinque colonne della schermata delle istruzioni tattiche piu' i 21 nomi di stato
+di `AIStatusNames` — ed e' stato chiuso nella sessione stessa in cui e' nato.
 ⚠️ Se «testo» sale, un file nuovo ha una tabella; se scende senza che nessuno
-abbia tradotto, il filtro si e' rotto.
+abbia tradotto, il filtro si e' rotto. Se «DA FARE» sale sopra 0, o e' arrivata
+una tabella nuova o `applica` non ha girato.
+💡 «fatta» si misura confrontando la riga del SORGENTE con quella della BUILD:
+una tabella non ha firma ne' voce di dizionario, quindi non c'e' nient'altro da
+guardare — e per lo stesso motivo la tabella che non si tocca non poteva finire
+in `rinviate.jsonl`, che indicizza per firma. Sta in `DECISE`, qui sotto.
 💡 Le 58 «jp» sono quasi tutte i messaggi d'errore del runtime HSP (41 in
 `init.hsp`, il resto altrove): il giocatore le legge solo se il gioco va in
 errore, e sono di monte.
@@ -131,11 +137,26 @@ def tabelle(testo: str) -> list[tuple[int, str, list[str], str]]:
     return fuori
 
 
+# ⚠️ Le tabelle che NON si traducono, con il perche' misurato. Non sono lavoro
+# che resta: sono lavoro che non si fa, e un referto che continuasse a contarle
+# fra le «da fare» mentirebbe a ogni apertura.
+DECISE = {
+    ("custom_ai.hsp", 30): (
+        "le dodici classi: `custom_ai.hsp:493` e `:508` le CONFRONTANO con "
+        "`cdatan(CDATAN_CLASS, …)`, che porta la chiave inglese — la scrivono "
+        "`action.hsp:13670`-`:13703` e `command.hsp:4591`-`:4626`, la rileggono "
+        "`chara.hsp:2875`-`:2962`, `ai.hsp:2546`, `calculation.hsp:888`. "
+        "Tradurla lascerebbe l'IA senza nessuna classe da riconoscere (52a)"
+    ),
+}
+
+
 def main(argv: list[str]) -> None:
     solo = argv[0].replace(".hsp", "") if argv else None
     radice = percorsi.SORGENTE_HSP
     conta = {"testo": 0, "sigla": 0, "numerica": 0, "jp": 0}
     voci = {"testo": 0, "sigla": 0, "numerica": 0, "jp": 0}
+    fatte = decise = da_fare = 0
 
     for percorso in sorted(radice.glob("*.hsp")):
         if solo and percorso.stem != solo:
@@ -144,16 +165,34 @@ def main(argv: list[str]) -> None:
         trovate = tabelle(testo)
         if not trovate:
             continue
+        # la stessa riga nella BUILD: se e' cambiata, la tabella e' gia' resa
+        costruito = percorsi.BUILD_HSP / percorso.name
+        righe_build = (costruito.read_bytes().decode("cp932", errors="replace").splitlines()
+                       if costruito.exists() else [])
+        righe_src = testo.splitlines()
+
         da_dire = [t for t in trovate if t[3] == "testo"]
         print(f"=== {percorso.name}: {len(trovate)} tabelle, {len(da_dire)} di testo")
         for n, nome, valori, classe in trovate:
             conta[classe] += 1
             voci[classe] += len([v for v in valori if v != "NULL"])
-            if classe == "testo":
-                mostra = ", ".join(valori[:14]) + (" …" if len(valori) > 14 else "")
-                print(f"  {n:>6} | {nome:<16} {len(valori):>3} voci | {mostra[:150]}")
+            if classe != "testo":
+                continue
+            stato = "da fare"
+            if (percorso.name, n) in DECISE:
+                stato, decise = "decisa", decise + 1
+            elif n <= len(righe_build) and righe_build[n - 1] != righe_src[n - 1]:
+                stato, fatte = "fatta", fatte + 1
+            else:
+                da_fare += 1
+            mostra = ", ".join(valori[:14]) + (" …" if len(valori) > 14 else "")
+            print(f"  {n:>6} | {nome:<16} {len(valori):>3} voci | {stato:<7} | {mostra[:120]}")
+            if stato == "decisa":
+                print(f"         ↳ {DECISE[(percorso.name, n)]}")
         print()
 
+    print(f"--- di testo: {fatte} fatte, {decise} decise (non si toccano), "
+          f"{da_fare} DA FARE")
     print(f"--- tabelle: testo {conta['testo']}, sigla {conta['sigla']}, "
           f"numerica {conta['numerica']}, jp {conta['jp']}")
     print(f"--- voci   : testo {voci['testo']}, sigla {voci['sigla']}, "
