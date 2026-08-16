@@ -1,8 +1,264 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-16, fine della **cinquantesima** sessione (il quinto punto
-cieco attaccato sul serio: undici risultati spinti, 153 toppe nuove, quattro
-schermate chiuse, un meccanismo nuovo e tre difetti di misura trovati).
+Aggiornato: 2026-08-16, fine della **cinquantunesima** sessione (il pannello dei
+ritocchi chiuso — 193 toppe in sette lotti — e il debito dichiarato dalla 50ª
+sciolto scoprendo che la regola che chiedeva **non poteva esistere**).
+
+⭐⭐⭐ **Il pannello dei ritocchi è finito, e `custom_tweaks.hsp` con lui.** Le
+190 righe che la 50ª aveva lasciato in sei menu, più le **3 che non stavano nei
+menu** e che nessun conteggio per schermata vedeva: 193 toppe, **264 applicate**
+in tutto il file, e zero righe inglesi rimaste a parte una lasciata apposta.
+`nudi_en` scende da 849 a **656**, `triage_nudi` da 647 a **454** righe di testo.
+💡 **La coda che il conteggio per schermata non vede è reale e si misura**: il
+criterio della 50ª — «il testo sta in blocchi, e un blocco è una schermata sola»
+— ha trovato le 190 dei menu e non le tre fuori, che però sono **due domande a
+cui il giocatore deve rispondere** (le conferme delle sfide) e **una battuta in
+mezzo a uno scontro** (Zeome). Chiudere un file vuol dire guardare anche fuori
+dai blocchi.
+
+⭐⭐⭐ **La regola di forma che la 50ª chiedeva non esiste, e provarlo era il
+lavoro.** Il debito diceva: «serve una regola di forma che distingua» i `return`
+di testo da quelli di chiave. Messa alla prova:
+
+    text.hsp   return "vernis"   chiave di mappa      NON è testo
+    init.hsp   return "st"       suffisso ordinale    È testo
+
+Tutt'e due un token minuscolo, senza spazi, senza punteggiatura: **nessuna
+regola che guardi il letterale può separarli**, e inventarne una avrebbe
+ripetuto per la quinta volta l'errore di `_PERCORSO`.
+✅ La regola vera guarda **dove va a finire il valore**: un `#defcfunc` non è un
+letterale, è una funzione, e conta chi la chiama. Se anche una sola chiamata sta
+su una riga che disegna o compone, quel che restituisce arriva a schermo. È la
+stessa lezione di «Bandits Killed» e del prefisso `dbg_`: **si guarda il sito,
+non la parola**. `scratchpad/return_en.py`, **121 `return` → 0 da fare**.
+
+⭐⭐ **E il banco di prova che la 50ª indicava era già chiuso da una sessione
+passata.** «Il caso su cui provarla è `init.hsp:155`-`:168`, i suffissi
+ordinali»: li aveva risolti `toppa-init-cnvrank.py` facendo diventare `if ( jp )`
+un `if ( jp | en )`, e quel ramo non lo raggiunge più nessuno. Le quattro righe
+stanno ancora lì **identiche al sorgente**, e un conteggio ingenuo le chiamerebbe
+«da fare» per sempre. 💡 **È il rovescio del rinvio della 50ª**: là un debito
+dipendeva da un fatto e ha aspettato in ordine; qui dipendeva da un ricordo, e il
+ricordo era vecchio di una sessione. **Prima di contare, si guarda la build.**
+
+⭐⭐ **Tre incoerenze vecchie, tutte trovate traducendo e nessuna cercata.**
+
+    l'oggetto delle tasse  fattura (db_item:144367)   bollette (toppe del diario, 50ª)
+    il gioco di carte      Gioco delle Tenebre (command:6166)  Gioco delle Ombre (chara_func:7004)
+    la radice di necromancy  negromanzia (db_item:139896)  necromantica (skill:1492)
+
+In tutt'e tre ho nominato la cosa **col nome che porta a schermo nel punto in cui
+la riga ne parla** — è la stessa regola in tutti e tre — ma ⚠️ **la scelta vera
+resta da fare**, e nessuna si scioglie con una toppa perché stanno nel dizionario
+con plurale e articolo attaccati. ⚠️ E sulla terza **ho spostato io il
+conteggio**: i lotti di oggi hanno scritto «negromanzia» altre due volte, quindi
+adesso è 3 a 1.
+
+⭐ **Una voce di menu può portare due letterali inglesi sulla stessa riga.** Le
+voci del menu di difficoltà chiamano `GetTStatusProgress` e le passano
+l'etichetta del contatore (`"Days Survived"`), che esce a schermo dentro il
+suffisso: « (Ora: 12 giorni di sopravvivenza)». Tradotta la voce e lasciata
+l'etichetta, la riga resta mezza inglese — e **nessun conteggio per riga se ne
+accorge**, perché le due stringhe stanno sulla stessa riga. Stessa forma a
+`:1283`, `:1284` e `:829`, dove il secondo letterale sta in **coda** al suffisso
+(`+ "% increase."`).
+
+---
+
+## La cinquantunesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** — nove spinte — e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle otto verifiche d'apertura. La sessione si è
+aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è l'**ottava prova**
+di fila che il «cambio di terminale» annunciato in chiusura è solo un cambio di
+finestra. ⚠️ Stavolta la chiusura lo dice davvero — *«riprendo in un altro
+terminale»* — e vale come le altre sette: si vedrà all'apertura.
+
+⚠️⚠️ **Quattro valori attesi sono cambiati e uno strumento è nuovo:**
+
+    python scratchpad/nudi_en.py      atteso: struttura 1044 | da fare 656   (era 849)
+    python scratchpad/triage_nudi.py  atteso: testo 454, sigla 87, dbg 93, spenta 22
+    python scratchpad/return_en.py    NUOVO: 0 da fare, 2 decise, 35 toccate (4 residui),
+                                             49 morfologia, 35 chiavi, 121 in tutto
+
+`toppe.jsonl` sale a **660** (di cui **10 `tutte`**), `rinviate.jsonl` resta a
+**43**. Tutto il resto è **fermo dov'era**: `pytest` 420 passed 6 skipped,
+`prova_identita` 72/72 e 27.813, `verifica --dizionario` 0 da ritradurre ovunque
+e **124** non tradotte in `command.hsp`, `creature` 1131/2466/0/0, `larghezze` 0
+su 75, `diario` 0 su 214, `riquadri` 0 su 38 e 0 su 71, `battute --divergenti`
+13; `blocchi_en.py` 99 e **54**, `referti.py` 0 e 0, `else_jp.py` 6.984 righe in
+13 file, `rete8_dizionario.py` 3, `misura-blocchi-spenti.py` 4 e 5,
+`variabili_en.py` 60 e 4, `perimetro.py` 57% e 42%, `cnv_str_en.py` 49 e 24,
+`lang-nel-ramo-jp.py` 21 righe e 0 già rese.
+
+✅ **`cgx-test.exe` rifatto sei volte** e già in `elonaplus2.31\` (l'ultimo dopo
+le quattro righe fuori dai menu).
+
+### ⚠️ Che cosa NON è stato fatto: il collaudo
+
+⚠️⚠️ **Zero collaudo.** La 50ª si era chiusa dicendo che il giocatore aveva
+provato tre volte in corsa; questa non ha aperto il gioco nemmeno una volta. Il
+pannello intero — sette menu, 193 righe — è dentro `cgx-test.exe` e **non l'ha
+mai visto nessuno**. 💡 La 49ª ha dimostrato che una sessione di solo collaudo
+trova quel che nessuna lettura del sorgente trova: questa è l'opposto esatto, e
+il debito è tutto da una parte.
+
+I tre punti che meritano di essere guardati per primi, perché sono i soli dove il
+conto potrebbe non tenere:
+
+1. **Il suffisso col contatore** nel menu di difficoltà — « (Ora: 12 giorni di
+   sopravvivenza)» — è l'unico posto dove la voce cresce a runtime.
+2. **`custom_tweaks.hsp:654`** (il cimitero DD) è l'**unica descrizione su cinque
+   righe** di tutto il pannello. Il conto dice che la finestra ne regge sei
+   (`mes` parte da `wy + 343` su 448, cioè 105 px, a corpo 13), ma è un conto,
+   **non una misura a schermo**.
+3. **`:1293`** («Le magie attivano l'incantamento dell'arma») è la riga più
+   stretta: 74 caratteri col suffisso, contro i **75 dell'inglese**.
+
+### ▶ I sette lotti, e che cosa ha insegnato ciascuno
+
+    menu dell'IA            14 righe   negromanzia, non «necromanzia»
+    menu di difficoltà      14 righe   due letterali per riga (GetTStatusProgress)
+    menu dei ritocchi vari  29 su 30   una riga lasciata in inglese apposta
+    ritocchi extra          28 righe   il tetto non è «74», è «non peggiorare l'inglese»
+    ritocchi di comodità    36 righe   sette righe nominano comandi che il gioco ha già
+    ritocchi al gioco       69 righe   quasi solo rimandi da andare a prendere
+    fuori dai menu           3 righe   la coda che il conteggio per schermata non vede
+
+⚠️ **`:1679` «Nani?!» si lascia in inglese, ed è voluto.** È la descrizione della
+«Modalità Ken il guerriero», e il motivo è lo stesso per cui la 50ª ha lasciato
+«Sp 12/23»: **l'inglese non l'ha tradotta neanche lui**. Chi ha scritto il mod
+aveva «What?!» e ha scelto il giapponese, perché la battuta *è* la citazione — e
+in italiano la voce di menu il riferimento lo dà già. `triage_nudi` continuerà a
+contarla fra le «da fare»: non è una dimenticanza.
+
+### ▶ Il vocabolario fissato oggi, e da dove viene
+
+Quasi niente è stato inventato: il lavoro è stato **andare a prendere** i nomi
+che il gioco già usa, con `scratchpad/rende.py` (nuovo: cerca un frammento
+inglese in tutto il dizionario e mostra come è stato reso).
+
+    AI                  IA                        già dalla 50ª
+    necromancy          negromanzia               db_item.hsp:139896
+    Shadow Step         Passo d'ombra             skill.hsp:932
+    Healing Rain        Pioggia curativa          skill.hsp:429
+    Undead call/return  Raduna / Ritira i non-morti  text.hsp:2101, :2089
+    Necro Fusion        Fusione dei morti         action.hsp:11702
+    Necro Force         Forza necromantica        skill.hsp:1492 ⚠️ vedi l'incoerenza
+    Party time!         Si balla!                 text.hsp:131
+    Etherwind           Vento d'etere             text.hsp:46
+    Elea (plurale)      gli Elea                  map.hsp:770
+    Curtain Call        Chiamata alla ribalta     proc.hsp:4650
+    Gauge Release       Forza liberata            custom_tweaks.hsp:1255
+    Deep-Sea Castle     Castello del Drago a Nove Teste   map.hsp:8408
+    sandbag             sacco da botte            action.hsp:10916
+    Wetting / Dim       Idratazione / Stordimento text.hsp:64, :71
+    burst / rapid ammo  munizioni a raffica / rapide  text.hsp:2472, :2484
+    Impress             amicizia                  command.hsp:4196
+    tag-team            coppia                    action.hsp:10861
+    Feed / Give         Dai da mangiare / Dai qualcosa   command.hsp:5976, :5970
+    Pickpocket/Mining   Borseggio / Scavo         action.hsp:7302, :7224
+    Show House          Cupola delle Case         text.hsp:2848
+    Devil Cape          Capo del Diavolo          text.hsp:2845
+    HP / DV / Dojo      HP / DV / Dojo            non si traducono
+    Abnormal            Abnormal                  command.hsp:10415 (anche il jp lo lascia)
+    <Little Sister>     <Little Sister>           db_creature.hsp:124417
+
+⭐ **Quattro parole nuove, tutte con un perché:**
+- **«casella»** per il quadretto di mappa: nessuna resa del progetto aveva mai
+  avuto bisogno di nominarlo, e serviva due volte.
+- **«Ken il guerriero»** per «Fist of the North Star»: è il titolo italiano della
+  serie, e tradurre alla lettera avrebbe perso proprio quel che la riga dice.
+- **«Tutto deve sparire!»** per «Everything must go!»: la formula italiana dei
+  saldi di liquidazione.
+- **«sfondare i muri come un ariete»** per il **Kool-Aid Man**, che in Italia non
+  conosce nessuno: si tiene l'immagine e si lascia cadere il nome.
+
+⭐ **E due parole che sembravano da tradurre e non lo erano:**
+- **«red book» è semplicemente «libro»**: `ITEM_ID_RED_BOOK` ha
+  `ioriginalnameref = "book"` (`db_item.hsp:152478`). Il «red» è il colore dello
+  sprite nel nome interno, non una parola che il giocatore legga.
+- **«Split Monsters» non è il nome di una creatura**: sono le creature col bit
+  `CHARA_BIT_SPLIT_*`, e il gioco annuncia quel che fanno con «si sdoppia!»
+  (`chara_func.hsp:8751`).
+
+### ▶ Che cosa fare
+
+1. ⭐⭐⭐ **Il collaudo del pannello**, che è tutto arretrato: vedi i tre punti in
+   cima. E con esso il collaudo vecchio, che non è sparito — gli **88 ranghi**
+   della 41ª (il debito più antico) e le cinque schermate della 47ª
+   (ritratto/PCC, specchio, cambio di immagine, tono di voce, evocazione dei PNG),
+   più il **platino a quattro cifre** nella barra di stato.
+2. ⭐⭐ **Le altre schermate grosse del punto cieco.** `triage_nudi --routine` le
+   ordina, e adesso che `custom_tweaks.hsp` è chiuso le prime sono:
+   `tcg.hsp` **46** (`tcgdrawcard` 33 + `tcg_drawInterface` 13, le parole chiave
+   delle carte), `event.hsp:random_eventProc` **27** (le battute dei figli),
+   `custom_ai.hsp` **~54** sparse in cinque routine (`AIMainMenu` 13,
+   `AIConfigMenu` 11, `AITacticConfigMenu` 10, `PrintAIInfo` 7,
+   `AITeachConfigMenu` 6) — ⭐ e lì «IA» e «IA personalizzata» sono **già
+   decise**, la seconda proprio da questa sessione. Poi `item_func.hsp` 24
+   (`skipName` 13 + `itemname` 11), `proc.hsp:jump_changeCreature` 13,
+   `custom_pet.hsp` 17.
+3. ⭐⭐ **Le tre incoerenze in cima**, che sono lavoro da dizionario e non da
+   toppa. Quella di **fattura/bolletta** è la più urgente perché il giocatore le
+   incontra tutt'e due nella stessa mezza giornata di gioco (il diario e
+   l'inventario); quella di **negromanzia** è la più facile, perché è un'unica
+   voce (`skill.hsp:1492`) contro tre.
+4. ⭐ **Il referto che manca dalla 49ª**: uno che scorra le chiamate a
+   `display_window` e misuri `s(1)` contro `(larghezza − 58 − 40) / 6,6`.
+5. **L'incoerenza vecchia rimasta**: `db_item.hsp:135432` dice «borraccia
+   filtrante», `action.hsp:8267` dice «**bottiglia** filtrante».
+
+### ⚠️⚠️ Le sette cose che la prossima sessione deve sapere
+
+1. ⭐⭐⭐ **Il tetto di larghezza non è «74 caratteri», è «non peggiorare
+   l'inglese».** `custom_tweaks.hsp:1293` in inglese fa **già 75** caratteri sui
+   74 del metro prudente, perché il suo suffisso di stato è « (Ora: tutte le armi
+   indossate)». Bocciare la resa italiana lì avrebbe voluto dire chiedere
+   all'italiano di stare dove l'inglese non sta. ✅ La regola scritta in
+   `toppa-tweaks-extra.py` e `toppa-tweaks-gioco.py`: il tetto effettivo è
+   `max(74, larghezza_inglese)`, e quando scatta lo **dice**. È la stessa cosa
+   che la 50ª aveva scoperto a mano su `screen.hsp:1811`, messa nella forma.
+2. ⭐⭐⭐ **Il suffisso di stato NON è uguale per tutte le voci.** `GetTStatus`
+   (`custom_tweaks.hsp:417`-`:500`) ha rami dedicati per certi ritocchi e per
+   tutti gli altri cade sul generico « (Ora: acceso)». Misurare ogni voce col
+   suffisso peggiore in assoluto (32 caratteri) bocciava voci larghe la metà: il
+   controllo va fatto **col ramo più lungo che quella voce può davvero
+   prendere**.
+3. ⭐⭐ **`he`, `his` e `him` hanno due rami, e solo uno è contenuto.** Dentro
+   `if ( arg2 )` ogni `return` passa da `lang()` ed è già reso — «lui», «lei»,
+   «il tuo», «il suo»; sotto, il ramo a un argomento solo restituisce l'inglese
+   nudo — «it», «you», «he», «she». È esattamente la distinzione che
+   `strumenti/funzioni.py` descrive a parole, ed è la ragione per cui i loro 15
+   `return` nudi **non sono lavoro**: la resa italiana li toglie dal sito.
+4. ⚠️⚠️ **Le toppe non saltano solo `accenti.py`: saltano anche la rete 11.**
+   `proc.hsp:11481` è stato chiuso con una toppa che sostituisce
+   `his2(tc) + your2(tc)` con `name(tc)`. Come **voce di dizionario** la rete 11
+   l'avrebbe bocciata — `funzioni_di_contenuto` dà `['his2']` contro `['name']` —
+   e come toppa è passata senza che nessuno la guardasse. La resa è giusta, ma
+   nessuna guardia lo ha verificato.
+5. ⚠️ **Una descrizione può stare su cinque righe, ma è la prima volta.**
+   `custom_tweaks.hsp:654` ha dovuto prenderne una in più perché i tre nomi presi
+   dal gioco («Ritira i non-morti», «Fusione dei morti», «Forza necromantica»)
+   sono più lunghi delle abbreviazioni inglesi. Il conto dice che ce ne stanno
+   sei; **il conto non è una misura**.
+6. ⚠️ **CP932 non ha `«»`.** Misurato: le uniche virgolette alte che ci stanno
+   (`“”`, `0x81 0x67`) sono a **doppia larghezza**, che `scratchpad/guardie.py`
+   vieta. Dove l'inglese cita fra apici, l'italiano usa l'apostrofo semplice; per
+   il parlato restano le virgolette dritte di `cnvtalk`, che sono l'unica forma
+   scrivibile e sono italiano corretto.
+7. 💡 **Quando l'inglese e il giapponese non concordano, e quando l'inglese
+   sbaglia da solo.** «Wind God» è **una dea** — è Lulwy, che il progetto tratta
+   al femminile dappertutto — e ricalcare l'inglese avrebbe cambiato sesso a un
+   personaggio che il giocatore conosce. Stessa famiglia: `:835` diceva il
+   contrario se tradotta di slancio, perché «revert the 4x exp bonus» vuol dire
+   **togliere** il bonus, non rimetterlo.
+
+---
+
+## La cinquantesima sessione (per storia)
 
 ⭐⭐⭐ **Le toppe hanno imparato a dire «tutte le occorrenze», e ne erano
 bloccate 125.** Su 717 righe di testo inglese nudo, **125 non erano raggiungibili
@@ -67,8 +323,6 @@ La regola che ne esce vale in tutt'e due i versi: **quel che dipende da un valor
 copiato marcisce, quel che dipende da un fatto no.**
 
 ---
-
-## La cinquantesima sessione
 
 ### ▶ Il punto esatto in cui si riprende
 
@@ -4007,7 +4261,7 @@ fare era su una riga commentata. Vedi «Le righe commentate» più sotto.
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-python -m pytest strumenti/tests -q        # atteso: 412 passed, 6 skipped
+python -m pytest strumenti/tests -q        # atteso: 420 passed, 6 skipped
 python -m strumenti.prova_identita         # atteso: 72/72, 27.813, ambigue 0
 python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre ovunque
 python -m strumenti.creature               # atteso: nome 1131, voce 2466, doppie 0, senza razza 0
@@ -4037,7 +4291,10 @@ un'estrazione piena (`estrai` senza `--da-tradurre`) tornano a girare e passano.
 ```powershell
 $env:PYTHONPATH = $repo
 python scratchpad/referti.py              # participi col giocatore: 0 | elisioni: 0
-python scratchpad/blocchi_en.py           # struttura 99 | ancora da fare 68
+python scratchpad/nudi_en.py              # struttura 1044 | ancora da fare 656
+python scratchpad/triage_nudi.py          # testo 454, sigla 87, dbg 93, spenta 22
+python scratchpad/return_en.py            # 0 da fare, 2 decise, 35 toccate, 49 morf., 35 chiavi
+python scratchpad/blocchi_en.py           # struttura 99 | ancora da fare 54
 python scratchpad/else_jp.py              # else-di-jp: 6.984 righe in 13 file
 python scratchpad/rete8_dizionario.py     # 3, tutti dichiarati falsi positivi
 python scratchpad/misura-blocchi-spenti.py  # 4 sprecate | 5 vive altrove
