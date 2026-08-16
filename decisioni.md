@@ -5321,3 +5321,67 @@ dove era scritta.
 (258 firme, 143 testi distinti, 87 dei quali la stessa frase), e `sdim` **non è
 un tetto** — `skilldesc` è dimensionato a 40 e porta già una resa da 59
 caratteri, vista a schermo.
+
+## 2026-08-17 — L'articolo dentro il nome vale anche sulla carta, e a dirlo è stata una rete
+
+Aprendo `db_card.hsp` (il nono punto cieco: 1.162 nomi di carta fuori dal
+perimetro) serviva decidere se il nome della carta porta l'articolo come vuole
+`contratto-nomi.md` §4.
+
+**Il primo disegno lo toglieva**, e l'argomento sembrava buono: sulla carta il
+nome non entra in una frase, è un'**etichetta** in testa a una riga di dati
+(`tcg.hsp:1492`-`:1509`), e «la zanzara gigante  No.1142  Rare:Common» ha un
+articolo che non regge niente. È la regola della `guida-stile.md`, «l'etichetta
+si legge dove esce».
+
+**Poi `reimporta` ha rifiutato il lotto: 52 voci, traduzione identica
+all'inglese.** Senza articolo «lo yeek» diventa «yeek», «il troll» «troll», «la
+medusa» «medusa». Cioè: **l'articolo era quel che rendeva italiana la resa.**
+Passare il lotto avrebbe voluto dire scrivere 52 righe motivate in
+`invariati.md` per nomi che non sono invariati per niente — e `invariati.md`
+dice che una riga lì è una decisione da motivare. Cinquantadue motivazioni che
+non esistono sono la prova che la decisione era sbagliata.
+
+Con l'articolo, le identità che restano sono **26 e sono tutte già dichiarate**:
+zero righe nuove.
+
+⚠️ **E l'argomento che aveva convinto a toglierlo non reggeva al controllo.** Il
+numerale del negozio delle carte — « 1 zanzara gigante» — sta dentro un elenco
+`[Contains]` che è **prosa scritta a mano** in `tcg_custom.hsp` e non interpola
+`cardrefn`: là il nome si scrive nudo perché lo scriviamo noi, e non c'entra con
+quello che la carta porta. L'unico sito che il nome lo interpola davvero è la
+voce di menu di `tcg_custom.hsp:1917`, e là l'articolo sta **meglio**: «Carta:
+la zanzara gigante».
+
+**Deciso:** il nome della carta porta l'articolo, come ogni altro nome di
+creatura. **Deroga dichiarata** per le otto **terre** (`cardreftype = 30`) e le
+due **magie** (`cardreftype = 20`): non sono creature, non entrano in nessuna
+frase, e compaiono solo con « <Terreno>» o « <Magia>» appiccicato dietro.
+
+💡 La lezione generale è sul metodo, non sull'articolo: **una convenzione che
+obbliga a scrivere cinquantadue eccezioni è la convenzione sbagliata.** Il conto
+delle eccezioni è un modo di scegliere fra due regole, e costa una prova.
+
+## 2026-08-17 — `sdim` non è un tetto, e questa è la terza volta che serve dirlo
+
+Misurando se il nome italiano della carta ci sta nella riga d'aiuto del tavolo
+(`tcg.hsp:3506`, 680 px) serviva il nome di mossa più lungo, perché
+`cardrefrace` porta dentro `skillname(cardrefattack)`. `skill.hsp:3` dichiara
+`sdim skillname, 16, MAX_SKILL`, e sembra dire **quindici caratteri**.
+
+Non li dice. HSP riespande la stringa in assegnazione, e questo documento lo
+aveva **già misurato** in fondo alla decisione del 2026-08-12: «`skilldesc` è
+dimensionato a 40 e porta già una resa da 59 caratteri, vista a schermo».
+
+Contato adesso sulle assegnazioni vere: **47 nomi di mossa inglesi e 172
+italiani superano i 15 caratteri**, e il massimo è 24 in tutt'e due le lingue.
+
+⚠️ **E la deduzione sbagliata è stata fatta tre volte in due giorni**: dal lotto
+`tcg_mod-001` della 53ª sul `sdim` di `cfname@tcg` («il tetto sta nel `sdim`, in
+due punti, e vince il più stretto: **quindici**»), e due volte dalla 54ª. Regge
+per caso quando la resa è corta.
+
+**Deciso:** un tetto dedotto da un `sdim` è un'**ipotesi**, non un dato, e va
+misurato contando le assegnazioni o guardando la geometria del disegno (i pixel
+della finestra, il passo delle righe). ⚠️ Da riguardare con questo metro il
+tetto delle schede dell'editor del mazzo, che la 53ª ha dedotto così.

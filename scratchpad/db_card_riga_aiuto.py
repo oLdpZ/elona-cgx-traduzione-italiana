@@ -47,16 +47,42 @@ PX_PER_CAR = 5
 TETTO_PX = 680
 
 
+SKILL_BUILD = Path(r'C:\Games\Elona\_traduzione\build\2.05-custom-gx\skill.hsp')
+ASSEGNA_MOSSA = re.compile(r'^\s*skillname\([^)]*\)\s*=\s*lang\(\s*"(?:[^"\\]|\\.)*"\s*,'
+                           r'\s*"((?:[^"\\]|\\.)*)"\s*\)')
+
+
 def piu_lunga_mossa() -> int:
-    """⚠️ **Il tetto di una mossa e' quindici caratteri, e sta nel `sdim`**:
-    `skill.hsp:3` dichiara `sdim skillname, 16, MAX_SKILL`, cioe' 16 byte per
-    elemento. E' la stessa lezione del lotto `tcg_mod-001`, dove il tetto delle
-    schede veniva da `sdim cfname@tcg, 16, 10`. Il primo conto di questo referto
-    aveva preso il piu' lungo `it` di `dizionario/skill.hsp.jsonl` — **59
-    caratteri** — che non e' un nome di mossa ma una descrizione: il file tiene
-    tutt'e due, e il campo non dice quale sia quale. Un tetto letto dal `sdim`
-    e' un dato del sorgente; un massimo letto da un file misto e' un caso."""
-    return 15
+    """Il nome di mossa piu' lungo, **letto dalle assegnazioni** di `skill.hsp`.
+
+    ⚠️⚠️ **Questa funzione ha sbagliato due volte, in due modi opposti, e
+    tutt'e due gli errori valgono piu' del numero che restituisce.**
+
+    1. Il primo conto prendeva il piu' lungo `it` di
+       `dizionario/skill.hsp.jsonl`: **59 caratteri**. Ma quel file tiene i nomi
+       di mossa *e* le descrizioni, e il campo non dice quale sia quale — 59 e'
+       una descrizione. Con quel numero la riga d'aiuto risultava **fuori
+       misura**, e la conclusione sarebbe stata sbagliata.
+    2. Il secondo conto tornava `15`, letto da `skill.hsp:3`
+       (`sdim skillname, 16, MAX_SKILL`). ⚠️ **E `sdim` NON e' un tetto**:
+       `decisioni.md` lo aveva gia' misurato — «`skilldesc` e' dimensionato a 40
+       e porta gia' una resa da 59 caratteri, vista a schermo» — perche' HSP
+       riespande la stringa in assegnazione. Misurato qui: **47 nomi inglesi e
+       172 italiani superano i 15**. Il lotto `tcg_mod-001` della 53ª aveva fatto
+       la stessa inferenza sul `sdim` di `cfname@tcg`, quindi e' un errore che il
+       progetto ha gia' corretto una volta e rifatto.
+
+    ✅ Adesso si contano le assegnazioni vere, nella **build**, che e' dove sta
+    l'italiano: il massimo e' 24, lo stesso dell'inglese.
+    """
+    percorso = SKILL_BUILD if SKILL_BUILD.exists() else (
+        Path(r'C:\Games\Elona\_traduzione\sorgente\2.05-custom-gx\skill.hsp'))
+    massimo = 0
+    for riga in io.open(percorso, encoding='cp932').read().split('\n'):
+        m = ASSEGNA_MOSSA.match(riga)
+        if m:
+            massimo = max(massimo, len(m.group(1)))
+    return massimo or 24
 
 
 def main() -> None:

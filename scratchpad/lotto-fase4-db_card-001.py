@@ -47,13 +47,21 @@ una sola e' plurale — «gli occhi di quadri», che e' giusta.
 
 ⭐ **La larghezza non e' un vincolo, ed e' stato misurato prima**
 (`scratchpad/db_card_riga_aiuto.py`): la riga d'aiuto sta su 680 px a font 10,
-cioe' 136 caratteri, e la piu' lunga di oggi ne fa **93**. Il nome italiano piu'
-lungo supera il piu' lungo inglese di 12 caratteri: ci sta con 43 di margine.
-⚠️ Il primo conto diceva il contrario — 137 caratteri, fuori misura — perche'
-prendeva come `skillname()` il piu' lungo `it` di `dizionario/skill.hsp.jsonl`,
-59 caratteri, che e' una **descrizione** e non un nome di mossa. Il tetto vero
-sta nel `sdim` di `skill.hsp:3` (`sdim skillname, 16, MAX_SKILL`): **quindici**.
-E' la stessa lezione del lotto `tcg_mod-001`.
+cioe' 136 caratteri, e la piu' lunga di oggi ne fa **102**. Il nome italiano piu'
+lungo supera il piu' lungo inglese di 12 caratteri: ci sta con 34 di margine.
+⚠️⚠️ **E quel numero e' stato sbagliato due volte, in due modi opposti.** Il
+primo conto diceva 137 caratteri — fuori misura — perche' prendeva come
+`skillname()` il piu' lungo `it` di `dizionario/skill.hsp.jsonl`, 59 caratteri,
+che e' una **descrizione** e non un nome di mossa. Il secondo diceva 93, perche'
+leggeva il tetto dal `sdim` di `skill.hsp:3` — e **`sdim` non e' un tetto**:
+`decisioni.md` lo aveva gia' misurato («`skilldesc` e' dimensionato a 40 e porta
+gia' una resa da 59 caratteri, vista a schermo»), perche' HSP riespande la
+stringa in assegnazione. 47 nomi di mossa inglesi e **172 italiani** superano i
+15 caratteri del `sdim`. ✅ Il valore vero, contato sulle assegnazioni della
+build, e' **24**.
+💡 Il lotto `tcg_mod-001` della 53ª aveva fatto la stessa inferenza sul `sdim` di
+`cfname@tcg`: e' un errore che il progetto aveva gia' corretto una volta e ha
+rifatto. **Un `sdim` dice quanta memoria si prenota, non quanto ci sta.**
 
 ⚠️ **Due nomi si risolvono solo col giapponese, perche' l'inglese di monte non
 coincide**, e vanno detti a chiare lettere invece di lasciarli risolvere in
