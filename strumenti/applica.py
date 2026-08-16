@@ -501,6 +501,13 @@ def carica_toppe(percorso: Path | None = None) -> list[dict]:
                 f"{', '.join(mancanti)}. Una toppa senza motivo e' una modifica al "
                 "sorgente di cui fra sei mesi nessuno sa piu' il perche'."
             )
+        # `tutte` e' una deroga all'ambiguita', e una deroga si dichiara: un
+        # `"si"` o un `1` letti come veri sarebbero una decisione presa per caso.
+        if "tutte" in toppa and not isinstance(toppa["tutte"], bool):
+            raise SorgenteCorrotto(
+                f"{percorso.name}, toppa {indice}: `tutte` dev'essere true o false, "
+                f"non {toppa['tutte']!r}."
+            )
     return toppe
 
 
@@ -528,6 +535,22 @@ def applica_toppe(nome_file: str, testo: str, toppe: list[dict]) -> tuple[str, i
     consecutive**, e le due liste possono avere lunghezze diverse. Lo
     scivolamento dei numeri di riga che ne deriva non fa danni: le toppe girano
     dopo il dizionario, e nessuno legge piu' quei numeri dopo.
+
+    Con `"tutte": true` la toppa si applica a **ogni** occorrenza invece che
+    fermarsi sull'ambiguita'. Non e' un allentamento della regola: e' una deroga
+    che si dichiara una toppa alla volta, e vale dove chi la scrive ha guardato
+    tutte le occorrenze e ha deciso che vogliono la stessa resa. Senza il campo
+    l'ambiguita' resta un errore, perche' il caso pericoloso — stessa riga, rese
+    diverse a seconda del posto — deve continuare a fermare la catena.
+
+    ⚠️ Nata nella 50a: **125 righe su 717** di testo inglese nudo non erano
+    raggiungibili da nessuna toppa, non perche' mancasse la resa ma perche' la
+    schermata ripete se' stessa. Gli otto menu di `custom_tweaks.hsp` hanno lo
+    stesso titolo, le dodici schermate di creazione del personaggio ripetono
+    «Press F1 to show help.», e `command.hsp:2901` (« Rank.») compare nel diario
+    e nella scheda. Nessuna riga di contorno le distingue: le uniche righe
+    diverse portano rese che il dizionario riscrive, quindi un blocco che le
+    raggiunge aggancia il sorgente pinnato ma non la build.
     """
     mie = [t for t in toppe if t["file"] == nome_file]
     if not mie:
@@ -553,13 +576,33 @@ def applica_toppe(nome_file: str, testo: str, toppe: list[dict]) -> tuple[str, i
                 f"esiste piu': {toppa['cerca']!r}. Se upstream l'ha riscritta, la "
                 "toppa va rifatta sulla nuova versione, non applicata alla cieca."
             )
-        if len(indici) > 1:
+        if len(indici) > 1 and not toppa.get("tutte"):
             raise SorgenteCorrotto(
                 f"{nome_file}: {quante_righe} della toppa {toppa['motivo']!r} compare "
                 f"{len(indici)} volte (righe {[i + 1 for i in indici]}): e' ambigua, "
-                "e indovinare significa toppare quella sbagliata una volta su due."
+                "e indovinare significa toppare quella sbagliata una volta su due. "
+                "Se tutte le occorrenze vogliono la stessa resa, dichiaralo con "
+                '`"tutte": true`.'
             )
-        righe[indici[0]:indici[0] + len(cerca)] = sostituisci
+        if not toppa.get("tutte"):
+            righe[indici[0]:indici[0] + len(cerca)] = sostituisci
+            continue
+        # ⚠️ Le occorrenze sovrapposte non si contano due volte: con `cerca` di
+        #    due righe uguali fra loro e tre righe uguali nel file gli inizi
+        #    possibili sono due, ma i blocchi veri sono uno solo, e sostituire
+        #    dentro un pezzo gia' sostituito e' un modo di rompere in silenzio.
+        #    Si prende il primo e si riparte DOPO di lui.
+        scelti = []
+        prossimo = 0
+        for i in indici:
+            if i >= prossimo:
+                scelti.append(i)
+                prossimo = i + len(cerca)
+        # ⚠️ Si sostituisce dall'ultimo al primo: `sostituisci` puo' avere un
+        #    numero di righe diverso da `cerca`, e partendo dall'inizio ogni
+        #    sostituzione sposterebbe gli indici di quelle dopo.
+        for i in reversed(scelti):
+            righe[i:i + len(cerca)] = sostituisci
 
     risultato = fine_riga.join(righe)
     if termina_con_a_capo:

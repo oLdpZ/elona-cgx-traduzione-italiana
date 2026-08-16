@@ -238,3 +238,93 @@ def test_carica_toppe_conserva_i_blocchi(tmp_path):
                         encoding="utf-8")
     caricate = carica_toppe(percorso)
     assert caricate[0]["cerca"] == BLOCCO_CERCA
+
+
+# ---------------------------------------------------------------------------
+# Toppe `tutte`: la stessa riga ripetuta, tradotta ovunque.
+#
+# Nate il 2026-08-16 (50a) misurando il quinto punto cieco: **125 righe su 717**
+# di testo inglese nudo non erano raggiungibili da nessuna toppa, non perche'
+# mancasse la resa ma perche' la riga compare piu' volte identica e
+# `applica_toppe` — giustamente — si ferma sull'ambiguita'.
+#
+# Sono schermate che ripetono se' stesse: gli otto menu di `custom_tweaks.hsp`
+# hanno lo stesso titolo («Tweak Setup» x6, «Configure Tweaks» x8, «Return to
+# the previous menu.» x9), le dodici schermate di creazione del personaggio
+# ripetono «Press F1 to show help.» (`chara.hsp`), e `command.hsp:2901` (« Rank.»)
+# compare due volte, nel diario e nella scheda.
+#
+# ⚠️ L'ambiguita' resta un ERRORE per difetto: `tutte` va scritto a mano, una
+# toppa alla volta, e vale solo dove chi la scrive ha guardato tutte le
+# occorrenze e ha deciso che vogliono la stessa resa. Il caso pericoloso —
+# stessa riga, rese diverse a seconda del posto — deve continuare a fermarsi.
+# ---------------------------------------------------------------------------
+
+def test_una_toppa_tutte_sostituisce_ogni_occorrenza():
+    testo = sorgente(RIGA_NAME, "\tx = 1", RIGA_NAME, "\ty = 2", RIGA_NAME)
+    nuovo, quante = applica_toppe("init.hsp", testo, [toppa(tutte=True)])
+    assert quante == 1                      # una toppa, non tre
+    assert '"the "' not in nuovo            # nessuna occorrenza sopravvissuta
+    assert nuovo.count("return cdatan(CDATAN_NAME, name_arg1)") == 3
+    assert "\tx = 1" in nuovo and "\ty = 2" in nuovo
+
+
+def test_una_toppa_tutte_va_bene_anche_con_una_sola_occorrenza():
+    testo = sorgente(RIGA_NAME)
+    nuovo, _ = applica_toppe("init.hsp", testo, [toppa(tutte=True)])
+    assert '"the "' not in nuovo
+
+
+def test_una_toppa_tutte_vuole_almeno_un_occorrenza():
+    """`tutte` allarga l'ambiguita', non il non-esiste: se sparisce, ci si ferma."""
+    testo = sorgente("#defcfunc name int name_arg1", "\treturn 0")
+    with pytest.raises(SorgenteCorrotto, match="non esiste"):
+        applica_toppe("init.hsp", testo, [toppa(tutte=True)])
+
+
+def test_senza_tutte_l_ambiguita_resta_un_errore():
+    """La rete che conta: `tutte` e' una scelta esplicita, non il nuovo difetto."""
+    testo = sorgente(RIGA_NAME, RIGA_NAME)
+    with pytest.raises(SorgenteCorrotto, match="ambigu"):
+        applica_toppe("init.hsp", testo, [toppa()])
+    with pytest.raises(SorgenteCorrotto, match="ambigu"):
+        applica_toppe("init.hsp", testo, [toppa(tutte=False)])
+
+
+def test_una_toppa_tutte_a_blocco_sostituisce_ogni_blocco():
+    testo = sorgente("*itemname", *BLOCCO_CERCA, "*altro", *BLOCCO_CERCA)
+    nuovo, _ = applica_toppe("item_func.hsp", testo, [toppa_blocco(tutte=True)])
+    assert '"s of "' not in nuovo
+    assert nuovo.count('s = "" + n + " pergamene di "') == 2
+    assert "*altro" in nuovo
+
+
+def test_una_toppa_tutte_non_si_mangia_le_occorrenze_sovrapposte():
+    """Blocchi che si accavallano: si prende il primo e si riparte DOPO di lui.
+
+    Con `cerca` di due righe uguali fra loro e tre righe uguali nel file, gli
+    inizi possibili sono due (0 e 1) ma i blocchi veri sono uno solo: contarli
+    tutt'e due vorrebbe dire sostituire dentro un pezzo gia' sostituito.
+    """
+    doppia = ["\tmes a", "\tmes a"]
+    testo = sorgente("*x", "\tmes a", "\tmes a", "\tmes a")
+    t = toppa_blocco(cerca=doppia, sostituisci=["\tmes b"], tutte=True)
+    nuovo, _ = applica_toppe("item_func.hsp", testo, [t])
+    assert nuovo == sorgente("*x", "\tmes b", "\tmes a")
+
+
+def test_carica_toppe_conserva_tutte(tmp_path):
+    percorso = tmp_path / "toppe.jsonl"
+    percorso.write_text(json.dumps(toppa(tutte=True), ensure_ascii=False) + "\n",
+                        encoding="utf-8")
+    caricate = carica_toppe(percorso)
+    assert caricate[0]["tutte"] is True
+
+
+def test_tutte_deve_essere_un_booleano(tmp_path):
+    """Un `"si"` o un `1` letti come veri sarebbero una decisione presa per caso."""
+    percorso = tmp_path / "toppe.jsonl"
+    percorso.write_text(json.dumps(toppa(tutte="si"), ensure_ascii=False) + "\n",
+                        encoding="utf-8")
+    with pytest.raises(SorgenteCorrotto, match="tutte"):
+        carica_toppe(percorso)
