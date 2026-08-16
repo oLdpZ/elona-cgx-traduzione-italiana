@@ -66,6 +66,15 @@ _PAROLA = re.compile(r'[A-Za-z]{2,}')
 #    (`command.hsp:14366`, l'oro dell'alleato), che si legge a schermo.
 _ESTENSIONE = re.compile(r'^\.[a-z]{2,4}$|\.(bmp|png|jpg|wav|mid|ogg|txt|hsp|csv|ini|dll|as|ept|eum|pet|pum)\b', re.I)
 _PERCORSO = re.compile(r'[\\/]')
+# ⚠️⚠️ Ma la barra da sola non fa un percorso, e per una sessione questa regola
+#    si e' mangiata una frase: `command.hsp:3095` e' `"@RE   Cats/Dogs Killed: "`,
+#    dove la barra sta come congiunzione fra due parole. Trovata solo perche' la
+#    50ª stava traducendo il diario riga per riga e quella mancava dall'elenco.
+#    ✅ Un percorso e' un TOKEN — non ha spazi dentro: `graphic\book.bmp`,
+#    `./user`. Una frase ce li ha. E' la stessa lezione di ` gp` e `Page.` scritta
+#    per la terza volta: **un filtro si prova su una riga che si e' vista a
+#    schermo**, non solo sul totale.
+_SENZA_SPAZI = re.compile(r'^\S+$')
 # I nomi passati come stringa e non letti da nessuno: le chiavi di `config.txt`
 # (`"netWish."`, `"exAnime."`) e quelle dei file dei PNG (`"meleeElem."`).
 # ⚠️ Sono in camelCase, quindi il corpo dev'essere `[A-Za-z]`: con `[a-z]`
@@ -94,7 +103,9 @@ def _e_testo(letterale: str) -> bool:
     nudo = _MARCATORE.sub('', letterale).strip()
     if not _PAROLA.search(nudo):
         return False
-    if _ESTENSIONE.search(nudo) or _PERCORSO.search(nudo):
+    if _ESTENSIONE.search(nudo):
+        return False
+    if _PERCORSO.search(nudo) and _SENZA_SPAZI.match(nudo):
         return False
     if _CHIAVE.match(nudo) or _TAG.match(nudo):
         return False
