@@ -1,79 +1,161 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-17, fine della **cinquantacinquesima** sessione (il collaudo
-che la 54ª chiedeva, fatto — e in **quattro schermate** ha prodotto la **rete
-15**, il **decimo punto cieco** e una conferma).
+Aggiornato: 2026-08-17, fine della **cinquantaseiesima** sessione (i file
+«mezzi fatti» della 55ª chiusi quasi tutti, la **rete 16**, e un tetto che il
+gioco stesso sbaglia a calcolare).
 
-⭐⭐⭐ **Il collaudo ha ripagato alla seconda schermata, ed è la lezione della
-49ª e della 52ª per la terza volta.** La 54ª aveva chiuso con zero collaudo e
-1.212 rese mai viste. Ne sono bastate quattro immagini: la prima ha **confermato
-la rete 14** (le `<Nove Code Dorate>` occupano dodici righe su dodici, il
-bottone ci sta sotto), la seconda ha mostrato una voce **tagliata**, e da lì è
-uscito tutto il resto.
+⭐⭐⭐ **La lezione della sessione: il gioco stima il proprio carattere più
+stretto di quel che è, e da lì nasce un tetto che nessuno aveva mai visto.**
+`module.hsp:5184` centra le linguette della scheda del personaggio con
+`46 - strlen * 3`, cioè supponendo **6** px per carattere; il carattere vero ne
+misura **7**. Il testo esce spostato a destra e cresce più di quanto il
+centraggio compensi, e il vincolo che ne segue non è sulla voce ma sulla
+**coppia** di linguette vicine:
 
-⭐⭐⭐ **RETE 15: la finestra del dialogo aveva DUE tetti e ne era misurato uno.**
-La rete 14 della 54ª guarda l'**altezza**; la **larghezza delle voci** era
-scoperta, e sopra ci vivono **1.626 righe di menu**. Il tetto è misurato, non
-dedotto:
+    4 * L(i) + 3 * L(i+1) <= 50        L(ultima) <= 10
 
-    chat.hsp:25232  ww = 600        chat.hsp:25160  x = wx + 136
-    chat.hsp:25177  + 30            module.hsp:129  + 4   -> testo a wx+170
-    bordo interno della pergamena a wx+577 (schermata a finestra intera)
-    -> 407 px, e sei voci danno da 7,60 a 7,88 px/carattere
-    -> 407 / 7,7 = 52 caratteri
+⭐ **La formula la prova l'inglese da solo**: `Skill`(5) + `Wide Skill`(10) fa
+esattamente 50 e `Wide Skill` è lungo esattamente 10 — la fila più stretta del
+gioco tocca tutti e due i limiti insieme e non ne supera nessuno. Sarebbe una
+coincidenza notevole se il conto fosse sbagliato.
+💡 E il tetto è **asimmetrico**: 4 a sinistra, 3 a destra. Scambiare due rese fra
+vicine può far passare una coppia che sforava.
 
-Quattro voci fuori, tutte nel negozio delle carte; **due erano regressioni
-nostre** — l'inglese ci stava e la resa italiana no. Fuori dal negozio il corpus
-era pulito: le uniche altre due stanno in `event.hsp` e sono identiche in
-inglese. 💡 **Il metodo è la sorella di «finito per quale referto» (53ª)**: lì
-la domanda era *quale rete ha guardato questo file*, qui *quale rete ha guardato
-questa geometria*. Una finestra non è un'unità di misura: lo sono i suoi
-riquadri, e ce n'è più d'uno per finestra.
+⭐⭐⭐ **Cinque punti ciechi per file chiusi in un giorno, e la formula che li
+lega è sempre la stessa**: un file senza `dizionario/*.jsonl` non lo nomina
+nessun referto. `custom_ai.hsp`, `module.hsp` e `item_func.hsp` hanno ora il
+loro (era il verso operativo che la 54ª aveva scritto e che nessuno aveva ancora
+applicato in serie), `custom_pet.hsp` non ne ha bisogno — zero `lang()`, tutto
+toppe — e `custom_dmgpop.hsp` **era già finito**.
 
-⚠️⚠️ **`sdim` non è un tetto, e questa è la QUARTA volta in quattro giorni.**
-`chatList` scrive in `listn(0, listmax)`, dichiarato `sdim listn, 40, 2, 500`
-(`init.hsp:2428`), e a schermo se ne leggono una sessantina. Le altre tre:
-`skilldesc` il 12/08, `cfname@tcg` nella 53ª, `skillname` nella 54ª.
+⭐⭐ **E «mezzo fatto» non voleva dire quel che sembrava.** La 55ª ne aveva
+contati cinque. Guardando **tutti** i 37 letterali di `custom_dmgpop.hsp` senza
+filtri, non ce n'è uno che sia testo: punteggiatura per spezzare le battute,
+`"<"` e `">"` per isolare il nome proprio, e tre `" the "` che in italiano non
+agganciano mai — perché l'epiteto è «l'investigatrice della gilda dei guerrieri»
+e non «the guild investigator». ⚠️ **Un filtro «furbo» non prova che un file è
+vuoto: prova solo che il filtro ha scartato qualcosa.** Per dire «qui non c'è
+niente» bisogna guardare tutto.
 
-⚠️ **E `cs_list` non taglia**: fa `mes` (`module.hsp:130`) *dopo* che la cornice
-è già disegnata. Lo sforo non è un troncamento pulito, è testo stampato **sopra**
-il bordo decorato.
+⚠️⚠️ **Quattordici sigle che nessuno vedrà mai, scritte identiche a quelle che
+si vedono.** `item_func.hsp:2465` e `:2474` sono due file gemelle di lettere;
+la prima si stampa con `mes` (`:2470`), la seconda ha il suo `mes` **commentato**
+(`:2485`-`:2491`) perché il ciclo disegna le icone. Si distinguono **solo
+leggendo che cosa disegna il ciclo**, non da come sono scritte. 💡 È la famiglia
+di `misura-blocchi-spenti.py` in una forma che quel referto non guarda: lì il
+commento è `/* */`, qui è `//`.
 
-⚠️⚠️ **Un taglio duro che nessuno sapeva, e resta da collaudare**
-(`chat.hsp:25166`): sopra le **dieci** voci il menu passa a due colonne e fa
-`strmid(listn(0, cnt), 0, 24)`. *Quello* sì è un `strmid`, e ventiquattro
-caratteri in italiano sono pochissimi. Ma `keyrange` è il numero di voci **a
-tempo di esecuzione**, dal sorgente non si legge, e la rete 15 non prova a
-indovinarlo. **Serve un menu di conversazione con più di dieci opzioni,
-guardato a schermo.**
-
-⭐⭐⭐ **DECIMO punto cieco: `screen.hsp`, ed è il peggiore della famiglia.** 112
-`lang()` e **nessun file di dizionario**, quindi `verifica --dizionario` non lo
-nominava — come taceva su `db_card.hsp` e `chat.hsp` prima della 54ª. Ma quelli
-sono finestre che si aprono; questo è l'**HUD**, testo *sempre* a schermo:
-
-    Autopickup     <- screen.hsp:1004   INGLESE
-    Fardello!      <- text.hsp:66
-    Sonnolenza     <- text.hsp:67
-    Umidita'       <- text.hsp
-    Segno letale   <- text.hsp:81
-
-Una colonna sola, riempita da **due file**, e uno solo era mai stato aperto.
-⚠️ **E spiega perché `riquadri.py` non se n'era accorto**: quella rete legge la
-**geometria** da `screen.hsp` (`FILE_HUD`) e le **etichette** da `text.hsp`
-(`FILE_STATI`). Un'etichetta che vive nel file della geometria non la vede
-nessuno. Non è un difetto della rete: è il suo perimetro.
-
-⭐ **E la riga più letta corretta oggi non è nel negozio delle carte.**
-`chat.hsp:25601` — «Restocks in: 48 hours» — è un **letterale nudo**, e
-`nudi_en` lo conosceva già: era una delle sue 473. Quel che il referto non
-diceva e il collaudo sì è **dove si legge**: la riga sta sotto `ROLE_SHOP_MIN`,
-cioè in cima alla finestra di **ogni negozio del gioco**. Un referto dice che
-una riga esiste; solo lo schermo dice quanto pesa.
+⚠️ **Un invariato dinamico si dichiara con l'espressione intera, non con
+l'inglese estratto.** `verifica.py:280` confronta `en_grezzo` per le dinamiche:
+scritto `Karma()` il lotto veniva rifiutato lo stesso, e passa solo con
+`"Karma(" + locvar_modkarma_a + ")"`. Costava mezz'ora a chi non lo sapesse.
 
 ---
 
-## La cinquantacinquesima sessione
+## La cinquantaseiesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** (sei spinte) e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle **dieci** verifiche d'apertura. La sessione
+si è aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la
+**tredicesima prova** di fila, e la settima volta che un «cambio di terminale»
+annunciato in chiusura ha voluto dire soltanto cambio di finestra.
+
+⚠️⚠️ **I valori cambiati:**
+
+    pytest                  445 passed, 6 skipped   (erano 431: +14 della rete 16)
+    linguette               0 su 13                 ← RETE NUOVA, tetto sulla coppia
+    verifica --dizionario   custom_ai.hsp   0 / 1   ← FILE NUOVO (1 = la rinviata)
+                            module.hsp      0 / 0   ← FILE NUOVO, e FINITO
+                            item_func.hsp   0 / 240 ← FILE NUOVO
+    nudi_en                 1044 | ancora da fare 455   (era 473: -18)
+    toppe.jsonl             837                     (erano 821: +16)
+    rinviate.jsonl          60                      (erano 45: +15)
+
+Tutto il resto è **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
+1131/2466/0/0, `larghezze` 0 su 75, `diario` 0 su 214, `riquadri` 0 su 38 e 0 su
+71, `menu_dialogo` 0 su 50, `battute --divergenti` 13; `perimetro` 63% e 46%.
+
+✅ **`cgx-test.exe` rifatto quattro volte** e già in `elonaplus2.31\`.
+
+### ▶ Il collaudo: fatto, tre volte, e sempre passato
+
+Tre giri a schermo, tutti confermati dal giocatore: il menu dell'alleato con le
+sue sei voci lunghe, il pannello delle tattiche, e le quattro linguette della
+scheda del personaggio.
+⚠️ **Ma il collaudo che è valso di più non è stato una conferma: è stata una
+schermata mandata per farci una misura.** Le quattro etichette inglesi
+`Chara / Wear / Feat / Material` misurate in pixel hanno prodotto la rete 16, e
+senza di loro le rese sarebbero state scelte a stima — con `Talenti`+`Materiali`
+a 55 su 50, cioè rotte.
+⚠️ **Resta da guardare** quel che la sessione ha chiuso per ultimo: le undici
+sigle degli elementi in cima alla finestra dell'equipaggiamento (`w`, poi il
+tasto `[Mode]`), e i messaggi della bara della negromanzia.
+
+### ▶ I lotti, le toppe e le rinviate
+
+    custom_pet.hsp          15 toppe   il file intero, zero lang()
+    fase4-custom_ai-001      6 voci    + 1 rinviata + 1 toppa (riga mista)
+    fase4-module-001         9 voci    + 2 invariati nuovi
+    fase4-module-002        13 voci    le linguette, dopo la misura
+    fase4-item_func-001      5 voci    i messaggi
+    fase4-item_func-002     18 voci    + 14 rinviate (testo morto) + 1 invariato
+
+### ▶ Il vocabolario fissato oggi, e da dove viene
+
+    zaino               `ai.hsp:1100`, che è l'altra metà della stessa opzione
+                        di `custom_pet.hsp` («fruga nello zaino e non trova
+                        niente da mangiare!»). Non è una scelta nuova: è quella
+                        che rende una tasca sola invece di due
+    bolla               `custom_pet.hsp`, «Emote». Non è un'emozione:
+                        `ai.hsp:1134` accende CDATA_EMO_ICON, la bolla sopra la
+                        testa. «Emote» non era mai stato reso nel progetto
+    grado               `module.hsp:263`. `gdata(...)/100` è lo **stesso valore**
+                        che la toppa di `command.hsp` rende già con «, grado N»
+    Scheda | Equip. | Talenti | Materie      le linguette, tetto misurato
+    Magie | Abilità | Area
+    Registro | Diario | Dialoghi
+    Grafico | Città | Leggi
+    Fu Ge Fl Os Me Ve Ol Su Ne Ca Ma         le undici sigle degli elementi:
+                        le prime due lettere dei nomi già fissati, che
+                        `buff.hsp:393` elenca tutti in fila. `Fu`/`Fl` scioglie
+                        «fuoco»/«fulmine» come l'inglese scioglie `Nt`/`Nr`
+
+### ▶ Che cosa fare
+
+1. ⭐⭐⭐ **Collaudare le sigle degli elementi e la bara** — è l'unico pezzo di
+   oggi che nessuno ha visto. Equipaggiamento (`w`), poi il tasto `[Mode]`.
+2. ⭐⭐⭐ **Le ~55 etichette d'incantamento di `item_func.hsp`**
+   (`:2667`-`:2750`: «RandTeleport», «Bloodsucking», «Fire/Cold-Combine»…).
+   ⚠️ **Il tetto è un budget di RIGA, non un limite per voce**: `:2753` fa
+   `locvar_equipinfo_x += strlen(s) * 8`, cioè le stampa una dopo l'altra sulla
+   stessa riga. Va misurato a schermo su un oggetto molto incantato, o non si sa
+   quanto spazio c'è. Si vedono nella finestra dell'equipaggiamento, vista 4.
+3. ⭐⭐ **`*itemNameSub` (120 voci) e `*skipName` (53) di `item_func.hsp`**: sono
+   la composizione del **nome dell'oggetto**, e vogliono `contratto-nomi.md`
+   sotto gli occhi. ⚠️ Non sono materia da lotto a vista: le voci sono frammenti
+   (`" <"`, `"s>"`, `" (Charges: )"`) che si incastrano fra loro.
+4. ⭐⭐ **`main.hsp`**, l'ultimo dei «mezzi fatti»: 384 `lang()` e 1 toppa, e
+   nessun dizionario.
+5. ⭐⭐ **Il resto di `screen.hsp`**, 101 voci (decimo punto cieco, dalla 55ª).
+6. ⭐ **I 1.146 testi di ambientazione di `db_card.hsp`** — 257.399 caratteri,
+   il blocco di prosa più grande rimasto.
+7. ⭐ **Le 835 di `effdesc@tcg`** (ottavo punto cieco). ⚠️ Prima va sciolto
+   `tcg_skill.hsp:618`, e le due citazioni di `tcg_custom.hsp:1956` e `:1966`
+   vanno riscritte nello stesso momento.
+8. 💡 **Un punto cieco nuovo, piccolo e misurato**: `[カスタムAI]何をする？` esce
+   con **due rese diverse** (`custom_ai.hsp:3446` e `:3472`), ed è legittimo —
+   l'inglese di monte distingue i due menu. Ma **nessun referto lo vedrebbe**:
+   `battute --divergenti` guarda solo `db_creature.hsp`. Una rete che confronti
+   le divergenze su **tutto** il dizionario non esiste.
+9. 💡 **La domanda aperta della 53ª resta aperta**: `applica` mette prima il
+   dizionario e poi le toppe, e questo rende intoccabili le righe miste. Oggi la
+   si è aggirata per la seconda volta rinviando la `lang()` (`custom_ai.hsp:1530`).
+
+---
+
+## La cinquantacinquesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
@@ -5143,11 +5225,11 @@ lì che si vede quanto la troncatura di upstream costa in italiano).
 ⚠️ **I nomi di creatura sono chiusi**: l'ultimo che i conteggi mostravano da
 fare era su una riga commentata. Vedi «Le righe commentate» più sotto.
 
-### Le nove verifiche d'apertura
+### Le dieci verifiche d'apertura
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-python -m pytest strumenti/tests -q        # atteso: 431 passed, 6 skipped
+python -m pytest strumenti/tests -q        # atteso: 445 passed, 6 skipped
 python -m strumenti.prova_identita         # atteso: 72/72, 27.813, ambigue 0
 python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre ovunque
 python -m strumenti.creature               # atteso: nome 1131, voce 2466, doppie 0, senza razza 0
@@ -5155,8 +5237,24 @@ python -m strumenti.larghezze              # atteso: 0 fuori misura su 75 menu
 python -m strumenti.diario                 # atteso: 0 fuori misura su 214 siti
 python -m strumenti.riquadri               # atteso: 0 su 38 piastrelle, 0 su 71 buffname
 python -m strumenti.menu_dialogo           # atteso: 0 su 50 voci, tetto 52 caratteri
+python -m strumenti.linguette              # atteso: 0 coppie fuori misura su 13
 python -m strumenti.battute --divergenti   # atteso: 13, tutte legittime
 ```
+
+⭐⭐ **`linguette.py` è della 56ª, ed è la RETE 16**: le quattro file di schede in
+cima alle finestre grandi (`Chara / Wear / Feat / Material` e le altre tre), che
+non passavano da nessuna delle quattro reti di geometria — `larghezze` guarda i
+menu di `*prompt_key`, `riquadri` le piastrelle dell'HUD, `menu_dialogo` le voci
+di `chatList`, `diario` il diario.
+⚠️ **Il suo tetto è l'unico del progetto che vincola una COPPIA e non una voce**:
+`4 * L(i) + 3 * L(i+1) <= 50`, perché `module.hsp:5184` centra il testo
+supponendo 6 px per carattere mentre il carattere ne misura 7. Ed è
+**asimmetrico** — 4 a sinistra, 3 a destra — quindi scambiare due rese fra
+vicine può far passare una coppia che sforava.
+⭐ La formula la prova l'inglese: `Skill`(5) + `Wide Skill`(10) tocca il limite
+esatto, e `Wide Skill` è lungo esattamente quanto il tetto dell'ultima della
+fila. Legge le file dal corpo di `#deffunc drawmenu`, non da un elenco a mano:
+una quinta fila aggiunta da un aggiornamento CGX entra nel referto da sola.
 
 ⭐ **`menu_dialogo.py` è della 55ª, ed è la RETE 15**: la larghezza delle voci di
 `chatList`, cioè il secondo tetto della finestra del dialogo — quello che la
