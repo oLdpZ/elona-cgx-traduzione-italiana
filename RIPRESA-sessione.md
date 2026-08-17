@@ -77,10 +77,17 @@ una riga esiste; solo lo schermo dice quanto pesa.
 
 ### ▶ Il punto esatto in cui si riprende
 
-Tutto è **spinto** e l'albero di lavoro è pulito. Si riparte da
-`git fetch && git status -sb` e dalle **nove** verifiche d'apertura. La sessione
-si è aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la
-**dodicesima prova** di fila.
+Tutto è **spinto** (cinque spinte) e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle **nove** verifiche d'apertura, tutte
+riverificate in chiusura e tutte ai valori scritti qui sopra. La sessione si è
+aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la **dodicesima
+prova** di fila.
+
+⚠️ **E si è chiusa annunciando un «altro terminale», per la settima volta dalla
+42ª.** Le sei precedenti si sono tutte riaperte sulla stessa macchina, allineate
+e pulite. Vale lo stesso il motivo per cui `git push` in chiusura non è
+facoltativo: la volta che vorrà dire davvero cambio di macchina, non si saprà in
+anticipo. ✅ Stavolta il lavoro è tutto spinto **prima** dell'annuncio.
 
 ⚠️⚠️ **I valori cambiati:**
 
