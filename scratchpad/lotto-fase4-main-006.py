@@ -1,20 +1,80 @@
 # -*- coding: utf-8 -*-
-"""Il modello di lotto con la RETE 9 corretta (43a sessione).
+"""Lotto fase4-main-006: gli altri due finali e la morte del giocatore
+(main.hsp, righe 4128-4409).
 
-E' `scratchpad/lotto-fase4-command-001.py` con `RINVIATE` riportato a
-`set()`, perche' `assembla-lotto.py` pretende quell'ancora e un lotto che
-rinvia qualcosa non puo' fare da modello a quello dopo.
+Ventun rese: la vittoria su Tyris del Sud (le Rovine di Remido) e quella sul
+Sigillo Eterno, poi tutto il rito della morte — le ultime parole, la lapide, il
+menu che decide se si ricomincia.
 
-⚠️ **La correzione**: la rete 9 faceva `v['en'].rstrip().endswith(' and')`, e
-quello `.rstrip()` cancellava la differenza fra una **testa** di frase (« and»
-in coda, che deve chiudersi col connettivo) e una **congiunzione infissa**
-(« and », che il connettivo lo e' gia'). Bocciava ` e ` di `command.hsp:13`.
-✅ Misurato sul dizionario intero prima di toccarla: 29 teste vere, tutte in
-« and» esatto, e una sola voce in « and » con lo spazio — `text.hsp:11685`,
-infissa. E' la stessa specie della correzione alla rete 8 della 37a.
+⚠️⚠️⚠️ **Questo lotto ha corretto la RETE 4, ed e' la QUINTA rete che si
+corregge** dopo la 8, la 4 (una prima volta), la 9 e la 6. `:4151` e `:4232`
+hanno **lo stesso giapponese** — 「あなたは「」とコメントした。」, «hai commentato
+"X"» — e lo stesso `cnvtalk`, ma l'inglese di monte ci mette il nome del boss:
+«Upon killing Meshera Alpha» e «Upon killing Enthumesis». Sono i due finali, e
+le rese devono differire. La rete raggruppava per `(giapponese, funzioni)` e
+bocciava il lotto.
 
-💡 Stessa forma di `modello-chiave-lunga.py` della 41a: il modello nuovo vive
-in un file suo, e i lotti dopo ci si appoggiano.
+La chiave le mancava per una ragione storica: la 37ª le aveva insegnato che la
+**rete 11** pretende le funzioni dell'inglese, quindi due giapponesi uguali con
+un numero diverso di `name()` non possono coincidere. Ma upstream distingue
+anche con le **parole**, e quelle non erano nella chiave.
+✅ Adesso la chiave e' `(giapponese, funzioni, inglese)`, in
+`scratchpad/modello-rete4.py`.
+
+⭐⭐ **E la correzione e' stata misurata prima di usarla**, con
+`scratchpad/misura-rete4.py`, che passa la rete 4 all'indietro su tutto il
+dizionario — come `rete8_dizionario.py` fa con la rete 8. Su **11.982 gruppi**,
+467 sono resi in piu' di un modo:
+
+    con inglese diverso   458   <- la rete vecchia li bocciava a torto
+    con lo stesso inglese   9   <- la famiglia per cui la rete e' nata
+
+La rete nuova prende ancora tutti e nove, e i due Yerleswood del lotto 039 —
+stesso giapponese **e** stesso inglese — restano bocciati. Non perde niente.
+⚠️ E i nove sono un referto da leggere: uno e' un difetto vero, «Tiro oltre il
+limite» (`buff.hsp:263`) contro «Lancio oltre il limite» (`skill.hsp:1240`), che
+sono la **stessa mossa** vista dal potenziamento e dall'elenco.
+
+⚠️ **`:4282` e' la prima chiave lunga di `main.hsp`.** Le due `lang()` sulla riga
+sono `lang("「", "\\"")` e `lang("」", "\\"")` — le virgolette che aprono e chiudono
+le ultime parole — e hanno **lo stesso inglese**, quindi la chiave corta
+`(riga, en)` ne identifica due. Si danno con `(riga, en, jp)`, come la 41ª ha
+insegnato su `init.hsp:2225`. Tutt'e due restano `\\"`: e' punteggiatura, ed e'
+gia' dichiarata in `invariati.md` per `proc.hsp:3376`.
+
+⭐ **`:4296` non usa nessuna preposizione, e non e' pignoleria.** L'inglese e'
+`cnven(ndeathcause) + " in " + mdatan(MDATAN_NAME) + "."`, ma i nomi di mappa
+italiani non stanno tutti dietro la stessa preposizione: «a Vernis» ma «nelle
+Rovine di Remido», «al Sigillo Eterno» ma «in Prigione». La riga e' la **seconda
+del referto della lapide** (`noteadd s, 2`), cioe' una voce di registro, e si
+scrive come tale: «Prigione - Morì di fame.» ⚠️ `ndeathcause` arriva gia' reso da
+`chara_func.hsp:6850`-`:7039` come un verbo alla **terza persona del passato
+remoto senza soggetto** («morì di fame», «si impiccò», «perse la vita contro il
+putit»), e `cnven` gli alza la prima lettera: la resa deve incastrarcisi, non
+riscriverlo.
+
+⚠️ **Le quattro voci del menu della morte sono `promptAdd` con
+`val = promptx, 100, 400, 1`**, cioe' **400 px = (400 − 46) / 7,7 = 45
+caratteri**. La piu' lunga, «Ricarica l'ultimo salvataggio», ne fa 28.
+⚠️⚠️ **Ma nessuna rete lo misura**: `larghezze.py` guarda i menu di `*prompt_key`
+**solo in `text.hsp`** (`FILE = "text.hsp"` a `larghezze.py`). I `promptAdd` di
+`main.hsp`, `command.hsp` e degli altri file sono fuori da ogni referto — e' un
+punto cieco di geometria, misurato qui a mano.
+💡 Le quattro rese sono tutte all'imperativo — «Rialzati», «Lasciati
+seppellire» — anche perche' e' l'unica forma che non porta genere: «Resta
+disteso» sarebbe stato un aggettivo riferito al giocatore.
+
+⭐ **I nomi propri erano gia' decisi:** 「災厄」 e' **«la calamità»**
+(`text.hsp:9692` «Parte seconda - L'ombra della calamità», `db_card.hsp:9227`
+«il semenzaio della calamità»), 「混沌の神」 e' **«il dio del caos»**
+(`text.hsp:9852`), il Sigillo Eterno e le Rovine di Remido vengono dal lotto 005.
+
+💡 **`:4293` tiene l'ordine anno/mese/giorno dell'inglese**, che non e' quello
+italiano, perche' e' l'ordine con cui `init.hsp:2225` compone **tutte** le date
+del gioco — e li' il dizionario non puo' cambiarlo, perche' l'ordine sta nel
+codice e non nelle `lang()`. Due formati di data nello stesso gioco sarebbero
+peggio di uno straniero. La voce va quindi in `invariati.md` con l'espressione
+intera, come la 56ª ha imparato su `Karma()`.
 """
 import collections
 import glob
@@ -25,123 +85,94 @@ import re
 import unicodedata
 
 RESE = {
-    # --- :13 la congiunzione della lista di oggetti sulla casella.
-    # ⚠️ rete 3: text.hsp:11685 rende 「と」 «, più », ma li' e' la ricompensa di
-    #    una missione, qui e' una lista. Vedi il docstring.
-    (13, ' and '):
-        ' e ',
+    # --- :4128-:4151 il finale di Tyris del Sud. 「災厄」 e' «la calamità»
+    # (text.hsp:9692, db_card.hsp:9227).
+    (4128, "Blessing to , ! You've finally destroyed the source of disaster!"):
+        '"Benedizione a te, " + cdatan(CDATAN_NAME, CHARA_PLAYER) + ", " '
+        '+ cdatan(CDATAN_AKA, CHARA_PLAYER) '
+        '+ "! Hai finalmente distrutto la radice della calamità!"',
+    (4150, 'In the year , /, you conquered Remido.'):
+        '"Anno " + gdata(GDATA_YEAR) + ", " + gdata(GDATA_DAY) + "/" '
+        '+ gdata(GDATA_MONTH) + ": conquista delle Rovine di Remido."',
+    # ⚠️ Stesso giapponese di :4232 e di :4071: a distinguerli e' il nome del
+    # boss, che ce l'ha solo l'inglese. Vedi la correzione della rete 4.
+    (4151, 'Upon killing Meshera Alpha, you said, '):
+        '"Uccidendo Meshera Alpha hai detto: " + cnvtalk("" + wincomment)',
 
-    # --- :23-:30 le tre righe che partono a ogni passo su un oggetto.
-    # ⚠️ «Vedi» e non «Si vede»: rtvaln puo' essere una pila («3 pozioni»).
-    (23, 'You see  here.'):
-        '"Vedi " + rtvaln + " per terra."',
-    # ⚠️ «installato» concorderebbe col genere dell'oggetto: nome di genere fisso
-    (27, ' is constructed here.'):
-        '"Vedi qui una costruzione: " + rtvaln + "."',
-    (30, 'You see  placed here.()'):
-        '"Vedi " + rtvaln + " qui.(" + cnvweight(inv(INV_ITEM_WEIGHT, rtval(1))) + ")"',
+    # --- :4186-:4232 il finale del Sigillo Eterno. 「混沌の神」 e' «il dio del
+    # caos» (text.hsp:9852).
+    (4186, 'Unbelievable! You conquered the Eternal Seal!'):
+        'Incredibile! Hai conquistato il Sigillo Eterno!',
+    (4209, "Blessing to , ! You've finally beat the god of chaos!"):
+        '"Benedizione a te, " + cdatan(CDATAN_NAME, CHARA_PLAYER) + ", " '
+        '+ cdatan(CDATAN_AKA, CHARA_PLAYER) '
+        '+ "! Hai finalmente abbattuto il dio del caos!"',
+    (4231, 'In the year , /, you conquered the Eternal Seal.'):
+        '"Anno " + gdata(GDATA_YEAR) + ", " + gdata(GDATA_DAY) + "/" '
+        '+ gdata(GDATA_MONTH) + ": conquista del Sigillo Eterno."',
+    (4232, 'Upon killing Enthumesis, you said, '):
+        '"Uccidendo Enthumesis hai detto: " + cnvtalk("" + wincomment)',
 
-    # --- :34-:49 i sei giudizi sul letto, che si saldano alla riga di sopra.
-    # ⚠️ l'impersonale «ci si dorme»: l'accordo cade sul «si», non sul letto
-    (34, " It looks uncomfortable to sleep on, but I'm sure I'll have good dreams."):
-        ' Non ci si dorme comodi, ma i sogni saranno belli.',
-    (37, " It wouldn't be much different from sleeping on the ground."):
-        ' Non è molto diverso dal dormire per terra.',
-    (40, " It's better than sleeping on the ground."):
-        ' Meglio che dormire per terra, ma...',
-    (43, ' I think I can rest to some extent.'):
-        ' Ci si riposa discretamente.',
-    (46, " I think I'll be able to sleep comfortably."):
-        ' Ci si dorme bene.',
-    (49, " I think I'll be able to sleep very comfortably!"):
-        ' Ci si dorme benissimo!',
+    # --- :4272-:4274 le ultime parole. Lo spazio finale di :4272 c'e' anche
+    # nell'inglese e serve a chi concatena.
+    (4272, 'Good bye... '):
+        'Addio... ',
+    (4274, 'You leave a dying message.'):
+        'Lasci un ultimo messaggio.',
 
-    # --- :53-:73 i cinque barili dell'alchimista. db_item.hsp:136634 fissa
-    #     «barile», e il giapponese e' sempre la stessa parola allungata.
-    (53, ' \\"Baaarrel...\\"'):
-        ' \\"Baaarile...\\"',
-    (58, ' \\"It\'s a Barrel~\\"'):
-        ' \\"Bariiile~\\"',
-    (63, ' \\"A barrel.\\"'):
-        ' \\"Un barile.\\"',
-    (68, ' \\"Barrel!\\"'):
-        ' \\"Barile!\\"',
-    (73, ' \\"Barrel.\\"'):
-        ' \\"Baarile.\\"',
+    # --- :4282 ⚠️ CHIAVE LUNGA: due `lang()` sulla riga con lo stesso inglese.
+    # Sono le virgolette che aprono e chiudono, non testo: gia' in invariati.md.
+    (4282, '\\"', '「'):
+        '\\"',
+    (4282, '\\"', '」'):
+        '\\"',
 
-    # --- :78 ⚠️ il giapponese conta i TIPI, l'inglese i pezzi.
-    (78, 'There are  items lying here.'):
-        '"Qui ci sono " + rtval + " tipi di oggetti."',
+    # --- :4291-:4296 la lapide, tre righe di `noteadd`.
+    (4291, ' '):
+        ' ',
+    # ⚠️ Ordine anno/mese/giorno come l'inglese: e' quello con cui init.hsp:2225
+    # compone tutte le date del gioco, e li' il dizionario non puo' cambiarlo.
+    (4293, '//'):
+        '"" + gdata(GDATA_YEAR) + "/" + gdata(GDATA_MONTH) + "/" + gdata(GDATA_DAY)',
+    # ⚠️ Nessuna preposizione davanti a mdatan: «a Vernis» ma «in Prigione».
+    # `ndeathcause` arriva gia' reso come verbo al passato remoto senza soggetto.
+    (4296, ' in .'):
+        'mdatan(MDATAN_NAME) + " - " + cnven(ndeathcause) + "."',
 
-    # --- :127 ⚠️ « stacks » in inglese, ﾀｰﾝ in giapponese, e il cdata conta turni.
-    (127, ' stacks '):
-        ' turni ',
+    # --- :4349-:4353 la sepoltura.
+    (4349, 'You are about to be buried...'):
+        'Stanno per seppellirti...',
+    (4353, 'You have been buried. Bye...(Hit any key to exit)'):
+        'Sei sottoterra. Addio... (premi un tasto per uscire)',
 
-    # --- :160-:169 la scheda del bersaglio (il gemello :265/:271 e' rinviato).
-    (160, 'SpriteID:  / ColorID:  '):
-        '"ID sprite: " + cdata(CDATA_PIC, txttargetnpc_arg_tc) + " / ID colore: " + '
-        'refchara(cdata(CDATA_ID, txttargetnpc_arg_tc), DBSPEC_CHARA_COL) * 1000 + " "',
-    (169, 'Gender:  / Age:  / Religion: '):
-        '"Sesso: " + s + " / Età: " + calcage(txttargetnpc_arg_tc) + " anni / Fede: " + '
-        'godname(cdata(CDATA_GOD, txttargetnpc_arg_tc)) + ""',
+    # --- :4361-:4371 il menu della morte. `val = promptx, 100, 400, 1`, cioe'
+    # 400 px = 45 caratteri; la piu' lunga ne fa 28. Tutte all'imperativo, che
+    # e' anche l'unica forma senza genere.
+    (4361, 'Reload last save'):
+        "Ricarica l'ultimo salvataggio",
+    (4365, 'Crawl up'):
+        'Rialzati',
+    (4368, 'Crawl up from hell'):
+        "Rialzati dall'inferno",
+    (4371, 'Lie on your back'):
+        'Lasciati seppellire',
 
-    (231, 'This location is out of sight.'):
-        'Fuori dal campo visivo.',
-
-    # --- :282 il bersaglio e il suo compagno di coppia.
-    # 💡 « + » e' un invariato nuovo: il giapponese ha il ＋ a larghezza intera
-    (282, 'You are targeting '):
-        'Il bersaglio è ',
-    (282, ' + '):
-        ' + ',
-    (282, '.(Distance '):
-        ' (distanza ',
-
-    # --- :433-:456 la finestra delle stanze e delle squadre scaricate.
-    (433, 'Which room do you want to visit? '):
-        'Quale stanza vuoi visitare? ',
-    (436, 'Which team do you want to play a match? '):
-        'Contro quale squadra vuoi giocare? ',
-    (445, 'Room List'):
-        'Elenco delle stanze',
-    (448, 'Team List'):
-        'Elenco delle squadre',
-    (450, 'BackSpace [Delete]  '):
-        'BackSpace [Cancella]  ',
-    # ⚠️ rete 13: lo stesso «Name» per 「ルームの名称」 e 「チームの名称」
-    (453, 'Name'):
-        'Nome',
-    (456, 'Name'):
-        'Nome',
-
-    (510, 'Selected item is incompatible.'):
-        'Il file è di una versione incompatibile.',
-    (524, 'Failed to retrieve designated files.'):
-        'Recupero del file non riuscito.',
-    (566, 'Do you really want to delete ? '):
-        '"Vuoi davvero cancellare " + userfile + "? "',
-
-    # --- :602-:993 il bersaglio. ⭐ :602 e' parola per parola proc.hsp:20200,
-    #     :858 e :993 prendono la forma di proc.hsp:3681.
-    (602, 'You look around and find nothing.'):
-        "Non c'è nessun bersaglio in vista.",
-    (858, 'You target .'):
-        '"Prendi di mira " + name(rc) + "."',
-    (864, 'You target the ground.'):
-        'Prendi di mira il terreno.',
-    (993, 'You target .'):
-        '"Prendi di mira " + name(p) + "."',
+    # --- :4409 la riga che va al tabellone in rete. Stessa forma della lapide.
+    (4409, '   in  '):
+        'cdatan(CDATAN_AKA, CHARA_PLAYER) + " " '
+        '+ cdatan(CDATAN_NAME, CHARA_PLAYER) + " " + ndeathcause + " - " '
+        '+ mdatan(MDATAN_NAME) + " " + lastword',
 }
 # rete 5: l'accento deve essere PRECOMPOSTO. Vedi il lotto 005.
 RESE = {chiave: unicodedata.normalize('NFC', resa) for chiave, resa in RESE.items()}
 
 RINVIATE = set()
 
-USCITA = 'lavoro/fase4-command-001.jsonl'
-DA, A = 0, 999
-SORGENTE = r'C:\\Games\\Elona\\_traduzione\\sorgente\\2.05-custom-gx\\command.hsp'
+USCITA = 'lavoro/fase4-main-006.jsonl'
+DA, A = 4111, 4420
+SORGENTE = r'C:\\Games\\Elona\\_traduzione\\sorgente\\2.05-custom-gx\\main.hsp'
 
-tutte = [json.loads(l) for l in io.open('lavoro/_command.jsonl', encoding='utf-8') if l.strip()]
+tutte = [json.loads(l) for l in io.open('lavoro/_main.jsonl', encoding='utf-8') if l.strip()]
 zona = [v for v in tutte if DA <= v['riga'] <= A]
 
 # rete 0: la chiave di un lotto e' `(riga, en)`, e **non e' univoca**.
