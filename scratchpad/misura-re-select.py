@@ -55,8 +55,18 @@ def tetto_di(bmp: str) -> tuple[int, int] | None:
 # --- per ogni riga con chatList, si guarda in avanti fino al primo gosub: e'
 #     quello che dice in quale finestra il menu viene disegnato. All'indietro si
 #     cerca l'ultima assegnazione di `file`, cioe' lo sfondo.
+#
+# ⚠️ **Senza limite di righe, e ci si ferma su un'etichetta o su un `return`.**
+# La prima versione guardava avanti sessanta righe e ne lasciava 208 senza
+# risposta: il negozio delle carte impagina **253** righe di menu prima del suo
+# `gosub *chat_select` (`tcg_custom.hsp:1968` -> `:2221`), e sessanta non
+# bastavano nemmeno per `chat.hsp`. Col limite tolto restano tre casi soli, e
+# non sono ignoti: sono menu che si ridisegnano **in loco** dentro il proprio
+# ciclo (`*cm_stats_WHILE1`, `*com_tone_loop_pgchk`, `*com_config_loop`), e li'
+# l'etichetta che li ferma E' il contenitore.
 _CHATLIST = re.compile(r'\bchatList\b')
 _GOSUB = re.compile(r'\bgosub\s+\*(\w+)')
+_ETICHETTA = re.compile(r'^\*(\w+)')
 _FILE = re.compile(r'^\s*file\s*=\s*"([^"]+)"')
 
 contenitore: dict[tuple[str, int], tuple[str, str]] = {}
@@ -66,10 +76,16 @@ for percorso in sorted(SORGENTE.glob('*.hsp')):
         if not _CHATLIST.search(riga):
             continue
         dove = '?'
-        for j in range(i, min(len(righe), i + 60)):
+        for j in range(i, len(righe)):
             trovato = _GOSUB.search(righe[j])
             if trovato:
                 dove = trovato.group(1)
+                break
+            etichetta = _ETICHETTA.match(righe[j])
+            if etichetta:
+                dove = etichetta.group(1)
+                break
+            if righe[j].strip() == 'return':
                 break
         sfondo = '?'
         for j in range(i - 2, max(0, i - 40), -1):

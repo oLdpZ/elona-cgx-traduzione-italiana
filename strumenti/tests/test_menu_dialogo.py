@@ -11,9 +11,11 @@ import json
 import pytest
 
 from strumenti.menu_dialogo import (
-    INIZIO_TESTO, PIXEL_PER_CARATTERE, PIXEL_UTILI, TETTO,
-    fuori_misura, fuori_misura_inglese, menu_non_ancora_tradotti, reso,
-    righe_di_menu, voci_di_menu,
+    CORNICE_RE_SELECT, FINESTRA_EVENTO, INIZIO_TESTO, INIZIO_VOCE_RE_SELECT,
+    MARGINE_RE_SELECT, PERGAMENA, PIXEL_PER_CARATTERE, PIXEL_UTILI, TETTO,
+    contenitore_di_menu, fuori_misura, fuori_misura_inglese,
+    menu_non_ancora_tradotti, non_misurate, reso, righe_di_menu, tetto_di,
+    voci_di_menu,
 )
 
 # una voce di menu statica, una dinamica, e un `chatMore` che NON e' una voce
@@ -22,6 +24,19 @@ SORGENTE = """\
 \tchatList 1, lang("引き受ける", "Sure thing.")
 \tchatList currentthing@tcg, lang("[チケット"+prezzo+"枚]カード", "["+prezzo+" Tickets] A card.")
 \tchatMore lang("ながいはなし", "A long body of text that chatMore draws as the message"), strbye
+\tgosub *chat_select
+\treturn
+"""
+
+# lo stesso menu, ma disegnato dalla finestra dell'evento invece che dalla
+# pergamena: e' la distinzione che questa rete non faceva
+SORGENTE_EVENTO = """\
+*finto_evento
+\ts = lang("さいかい", "Reunion")
+\tfile = "bg_finto"
+\tbuff = lang("ほんぶん", "The body of the event text")
+\tchatList 1, lang("いぬだ！", "a dog!")
+\tgosub *re_select
 \treturn
 """
 
@@ -164,3 +179,100 @@ def test_le_due_voci_rotte_a_monte_restano_note():
     """
     monte = {(f, r) for f, r, _, _ in fuori_misura_inglese()}
     assert monte == {("tcg_custom.hsp", 1968), ("tcg_custom.hsp", 2108)}
+
+
+# --- un chatList non e` sempre nella pergamena (corretto il 2026-08-18) ------
+
+@pytest.fixture
+def finto_evento(tmp_path):
+    """Un menu dentro `*re_select`, con uno sfondo largo 200 px."""
+    import struct
+
+    sorgente = tmp_path / "sorgente"
+    sorgente.mkdir()
+    (sorgente / "evento.hsp").write_bytes(SORGENTE_EVENTO.encode("cp932"))
+
+    grafica = tmp_path / "graphic"
+    grafica.mkdir()
+    # basta una testa di BMP: la rete legge solo i quattro byte a offset 18
+    testa = bytearray(b"BM" + bytes(52))
+    struct.pack_into("<ii", testa, 18, 200, 150)
+    (grafica / "bg_finto.bmp").write_bytes(bytes(testa))
+
+    dizionario = tmp_path / "dizionario"
+    dizionario.mkdir()
+    voci = [
+        _voce(5, '"Un cane!"', '"a dog!"'),
+        _voce(5, '"Una voce lunga quarantacinque caratteri!!!!"', '"a dog!"'),
+    ]
+    voci[1]["riga"] = 5
+    (dizionario / "evento.hsp.jsonl").write_text(
+        "\n".join(json.dumps(v, ensure_ascii=False) for v in voci) + "\n",
+        encoding="utf-8")
+    return dizionario, sorgente, grafica
+
+
+def test_il_contenitore_dice_chi_disegna_il_menu(finto_evento):
+    """`chatList` riempie la lista; a disegnarla e' il `gosub` che segue."""
+    _, sorgente, _ = finto_evento
+    assert contenitore_di_menu(sorgente) == {"evento.hsp": {5: ("re_select", "bg_finto")}}
+
+
+def test_il_contenitore_si_cerca_SENZA_limite_di_righe():
+    """La regressione per cui la misura andava rifatta.
+
+    Il negozio delle carte impagina **253** righe di menu prima del suo
+    `gosub *chat_select` (`tcg_custom.hsp:1968` -> `:2221`). Con una finestra di
+    sessanta righe restavano 208 voci senza contenitore, e una voce senza
+    contenitore e' una voce che non si sa misurare.
+    """
+    assert contenitore_di_menu()["tcg_custom.hsp"][1968][0] == PERGAMENA
+
+
+def test_il_tetto_di_re_select_viene_dal_bmp_di_sfondo(finto_evento):
+    """`(tx + 36 - 12 - 64) / 7,7`, con tx letto dalla testa del bitmap.
+
+    Con uno sfondo da 200 px: `(200 + 36 - 12 - 64) / 7,7 = 20` caratteri, cioe'
+    meno della meta' del tetto della pergamena. Se qualcuno tocca una delle tre
+    costanti senza rileggere `event.hsp`, si vede qui.
+    """
+    _, _, grafica = finto_evento
+    assert CORNICE_RE_SELECT == 36        # dx = tx + 36        (event.hsp:4153)
+    assert INIZIO_VOCE_RE_SELECT == 64    # wx+60 (:4195) + 4   (module.hsp:129)
+    assert MARGINE_RE_SELECT == 12        # il bordo, simmetrico al gcopy di :4165
+    assert tetto_di(FINESTRA_EVENTO, "bg_finto", grafica) == 20
+
+
+def test_una_voce_larga_per_la_pergamena_sfora_nella_finestra_evento(finto_evento):
+    """Il permesso che questa correzione toglie.
+
+    Quarantatre caratteri: **dentro** il tetto della pergamena (52) e fuori da
+    quello di questo evento (20). Prima della correzione passava e a schermo
+    sfondava; adesso la rete la vede.
+    """
+    dizionario, sorgente, grafica = finto_evento
+    sfori = fuori_misura(dizionario, sorgente, grafica)
+    assert [s[2] for s in sfori] == [43]
+    assert 43 < TETTO, "il punto del test e' che nella pergamena ci sarebbe stata"
+
+
+def test_un_contenitore_di_cui_non_si_e_letta_la_geometria_non_si_misura():
+    """⚠️ None vuol dire «non guardato», non «va bene».
+
+    Le 148 voci di `*talk_quest` e le 46 di `*com_txtadv_loop` non hanno una
+    geometria letta. Dar loro 52 «tanto per avere un numero» e' il filtro furbo
+    di `custom_dmgpop.hsp`: non prova niente e fa credere di aver guardato.
+    """
+    assert tetto_di("talk_quest", "?") is None
+    assert tetto_di(PERGAMENA, "?") == TETTO
+
+
+def test_le_voci_tradotte_stanno_tutte_in_un_contenitore_misurabile():
+    """Oggi le 68 voci sono tutte nella pergamena o nella finestra dell'evento.
+
+    Se un domani questo elenco non e' piu' vuoto, e' arrivata una resa dentro un
+    menu di cui nessuno ha misurato il riquadro: va misurato prima, non dopo.
+    """
+    scoperte = non_misurate()
+    assert scoperte == [], "\n".join(
+        "%s:%d in *%s" % (v["file"], v["riga"], v["_contenitore"]) for v in scoperte)
