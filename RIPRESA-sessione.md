@@ -1,5 +1,192 @@
 # Ripresa sessione
 
+Aggiornato: 2026-08-17, fine della **cinquantacinquesima** sessione (il collaudo
+che la 54ª chiedeva, fatto — e in **quattro schermate** ha prodotto la **rete
+15**, il **decimo punto cieco** e una conferma).
+
+⭐⭐⭐ **Il collaudo ha ripagato alla seconda schermata, ed è la lezione della
+49ª e della 52ª per la terza volta.** La 54ª aveva chiuso con zero collaudo e
+1.212 rese mai viste. Ne sono bastate quattro immagini: la prima ha **confermato
+la rete 14** (le `<Nove Code Dorate>` occupano dodici righe su dodici, il
+bottone ci sta sotto), la seconda ha mostrato una voce **tagliata**, e da lì è
+uscito tutto il resto.
+
+⭐⭐⭐ **RETE 15: la finestra del dialogo aveva DUE tetti e ne era misurato uno.**
+La rete 14 della 54ª guarda l'**altezza**; la **larghezza delle voci** era
+scoperta, e sopra ci vivono **1.626 righe di menu**. Il tetto è misurato, non
+dedotto:
+
+    chat.hsp:25232  ww = 600        chat.hsp:25160  x = wx + 136
+    chat.hsp:25177  + 30            module.hsp:129  + 4   -> testo a wx+170
+    bordo interno della pergamena a wx+577 (schermata a finestra intera)
+    -> 407 px, e sei voci danno da 7,60 a 7,88 px/carattere
+    -> 407 / 7,7 = 52 caratteri
+
+Quattro voci fuori, tutte nel negozio delle carte; **due erano regressioni
+nostre** — l'inglese ci stava e la resa italiana no. Fuori dal negozio il corpus
+era pulito: le uniche altre due stanno in `event.hsp` e sono identiche in
+inglese. 💡 **Il metodo è la sorella di «finito per quale referto» (53ª)**: lì
+la domanda era *quale rete ha guardato questo file*, qui *quale rete ha guardato
+questa geometria*. Una finestra non è un'unità di misura: lo sono i suoi
+riquadri, e ce n'è più d'uno per finestra.
+
+⚠️⚠️ **`sdim` non è un tetto, e questa è la QUARTA volta in quattro giorni.**
+`chatList` scrive in `listn(0, listmax)`, dichiarato `sdim listn, 40, 2, 500`
+(`init.hsp:2428`), e a schermo se ne leggono una sessantina. Le altre tre:
+`skilldesc` il 12/08, `cfname@tcg` nella 53ª, `skillname` nella 54ª.
+
+⚠️ **E `cs_list` non taglia**: fa `mes` (`module.hsp:130`) *dopo* che la cornice
+è già disegnata. Lo sforo non è un troncamento pulito, è testo stampato **sopra**
+il bordo decorato.
+
+⚠️⚠️ **Un taglio duro che nessuno sapeva, e resta da collaudare**
+(`chat.hsp:25166`): sopra le **dieci** voci il menu passa a due colonne e fa
+`strmid(listn(0, cnt), 0, 24)`. *Quello* sì è un `strmid`, e ventiquattro
+caratteri in italiano sono pochissimi. Ma `keyrange` è il numero di voci **a
+tempo di esecuzione**, dal sorgente non si legge, e la rete 15 non prova a
+indovinarlo. **Serve un menu di conversazione con più di dieci opzioni,
+guardato a schermo.**
+
+⭐⭐⭐ **DECIMO punto cieco: `screen.hsp`, ed è il peggiore della famiglia.** 112
+`lang()` e **nessun file di dizionario**, quindi `verifica --dizionario` non lo
+nominava — come taceva su `db_card.hsp` e `chat.hsp` prima della 54ª. Ma quelli
+sono finestre che si aprono; questo è l'**HUD**, testo *sempre* a schermo:
+
+    Autopickup     <- screen.hsp:1004   INGLESE
+    Fardello!      <- text.hsp:66
+    Sonnolenza     <- text.hsp:67
+    Umidita'       <- text.hsp
+    Segno letale   <- text.hsp:81
+
+Una colonna sola, riempita da **due file**, e uno solo era mai stato aperto.
+⚠️ **E spiega perché `riquadri.py` non se n'era accorto**: quella rete legge la
+**geometria** da `screen.hsp` (`FILE_HUD`) e le **etichette** da `text.hsp`
+(`FILE_STATI`). Un'etichetta che vive nel file della geometria non la vede
+nessuno. Non è un difetto della rete: è il suo perimetro.
+
+⭐ **E la riga più letta corretta oggi non è nel negozio delle carte.**
+`chat.hsp:25601` — «Restocks in: 48 hours» — è un **letterale nudo**, e
+`nudi_en` lo conosceva già: era una delle sue 473. Quel che il referto non
+diceva e il collaudo sì è **dove si legge**: la riga sta sotto `ROLE_SHOP_MIN`,
+cioè in cima alla finestra di **ogni negozio del gioco**. Un referto dice che
+una riga esiste; solo lo schermo dice quanto pesa.
+
+---
+
+## La cinquantacinquesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle **nove** verifiche d'apertura. La sessione
+si è aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la
+**dodicesima prova** di fila.
+
+⚠️⚠️ **I valori cambiati:**
+
+    pytest                  431 passed, 6 skipped   (erano 420: +11 della rete 15)
+    verifica --dizionario   screen.hsp  0 / 101     ← FILE NUOVO
+    menu_dialogo            0 su 50 voci            ← RETE NUOVA, tetto 52
+    nudi_en                 1044 | ancora da fare 472   (era 473: -1, la toppa)
+    toppe.jsonl             821                     (erano 820)
+
+✅ **Il punto 5 della 54ª è sciolto: `blocchi_en` è davvero 27.** Il calo da 54
+si riproduce identico e le 27 righe di `event.hsp` risultano tutte fatte.
+L'ipotesi della 54ª era giusta — il «54» della 53ª era stato annotato prima
+dell'ultima `applica`. Il residuo sta in otto file: `command.hsp` 10,
+`system.hsp` 4, `material.hsp`/`item_func.hsp`/`main.hsp` 3 ciascuno.
+
+Tutto il resto è **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
+1131/2466/0/0, `larghezze` 0 su 75, `diario` 0 su 214, `riquadri` 0 su 38 e 0 su
+71, `battute --divergenti` 13; `triage_nudi` 271/87/93/22, `tabelle_en` 6 fatte
+1 decisa 0 da fare, `perimetro` 63% e 46%, `rinviate.jsonl` 45.
+
+✅ **`cgx-test.exe` rifatto una volta** e già in `elonaplus2.31\`.
+Salvataggi in `save-backup\pre-collaudo-20260817-55a`.
+
+### ▶ Il collaudo: fatto, e ha prodotto tutto
+
+Quattro schermate del **negozio delle carte**, e ognuna ha detto una cosa:
+
+1. l'elenco dei set — la **porta** funziona («Vorrei riscattare delle carte.»),
+   i nomi con l'articolo si leggono bene («Carta: il gatto.»), e la chiave
+   `(jp, en)` della 54ª ha tenuto: «il segugio dell'oscurita'» è identico in
+   `db_card.hsp:12063` e `db_creature.hsp:108610`;
+2. la pagina 2 — **una voce tagliata**, da cui la rete 15;
+3. la descrizione delle `<Nove Code Dorate>` — **rete 14 confermata**, dodici
+   righe su dodici. E l'inglese lì dentro («Kyu-Bi: Battlecry/OnKill…») è il
+   **debito accoppiato dichiarato**, copia a mano di `effdesc@tcg`;
+4. la finestra intera — «Restocks in: 48 hours», e la misura dei pixel.
+
+⚠️ **Ma quel che è stato CORRETTO oggi non l'ha ancora visto nessuno.** Le
+quattro rese accorciate, «Rifornimento fra:», «Raccolta» e «Pioggia rossa» sono
+nell'eseguibile nuovo e **non sono mai arrivate a schermo**. È il primo collaudo
+da fare.
+
+💡 **Come si entra**, che è costato mezz'ora trovarlo: il negozio pretende un
+**mazzo di carte** (`ITEM_ID_DECK`, id 701) e l'unica fonte in tutto il gioco è
+`<Miches>` l'apprendista, a **Vernis 24,5** (`map.hsp:3386`), solo a missione dei
+putit finita (`GDATA_FLAG_SUB_SLIME == 1000`, `chat.hsp:1462`). La via breve è
+`F12` → `wizard` → `spawn_item 701` (`system.hsp:4847`; `spawn_item` sta dentro
+`if ( gdata(GDATA_WIZARD) )`, quindi `wizard` **prima**). ⭐ **E i biglietti non
+servono**: `tcg_custom.hsp:2232` assegna la descrizione a `buff` *prima* di
+`chat_select`, e il controllo dei biglietti decide solo se compare la voce
+d'acquisto. Col solo mazzo si leggono tutte e 29 le descrizioni.
+
+### ▶ I lotti e le toppe
+
+    fase4-tcg_custom-002    4 voci   le quattro accorciate sotto il tetto
+    fase4-screen-001        2 voci   apre screen.hsp, il decimo punto cieco
+    toppa chat.hsp:25601    1 toppa  «Rifornimento fra: N ore»
+
+### ▶ Il vocabolario fissato oggi, e da dove viene
+
+    Rifornimento fra: N ore       chat.hsp:25601. «ore» sempre al plurale, come
+                                  « giorni» in command.hsp:2905 e :17855
+    Raccolta                      screen.hsp:1004, «Autopickup». Piastrella da
+                                  80 px, tetto 11 caratteri, ne usa 8
+    Pioggia rossa                 screen.hsp:1116, «Blood» (赤い雨 = pioggia
+                                  rossa). Lo slot dell'orologio, dove oggi si
+                                  legge «Mattino Pioggia»
+    Carta della nuova guida <Yonorne>.        56 -> 51
+    Carta dell'origami <Kamikakushi>.         75 -> 50
+    [Set grigio] Nebbia nel labirinto.        60 -> 50
+    [Set rosso] Teatro spettacameriere.       65 -> 51
+
+### ▶ Che cosa fare
+
+1. ⭐⭐⭐ **Collaudare quel che si è corretto stanotte** — è tutto
+   nell'eseguibile e nessuno l'ha visto: le quattro voci del negozio (pagina 1 e
+   2), «Rifornimento fra: 48 ore» in cima a **qualunque** negozio, e «Raccolta»
+   nell'HUD (si accende con l'autopickup attivo, fuori casa).
+2. ⭐⭐⭐ **Un menu di conversazione con PIÙ DI DIECI voci**, guardato a schermo:
+   `chat.hsp:25166` tronca a 24 caratteri netti e non l'ha mai visto nessuno.
+   Un negoziante generico ne ha parecchie.
+3. ⭐⭐ **Il resto di `screen.hsp`**, 101 voci, ora visibili nel referto. In
+   ordine di quanto si leggono: le classi di peso `(Heavy)/(Medium)/(Light)`
+   (`:6631`-`:6638`), il messaggio di **passaggio di livello** (`:6759`) e
+   «grown up» (`:6762`), i colpi in combattimento (`:8032`, `:8066`), i bonus
+   della scheda (`:8192`-`:8203`), le 77 battute della scena finale.
+   ⚠️ **Tre trappole già viste:** `:6759` non può accordarsi col genere («sale
+   di livello», non «è salito»); `:6669`-`:6739` e `:8066` portano `_s()`,
+   `have()` e `his()` a un argomento, che sono **morfologia** e si tolgono;
+   `:542` «Gauge Ready» ha lo **stesso giapponese** (力の解放) di
+   `custom_tweaks.hsp:1255` «`<Forza liberata>`», che sulla piastrella da 95 px
+   (tetto 13) non ci sta per un carattere — accorciarla apre una divergenza in
+   `battute --divergenti`, quindi è una **decisione**, non una traduzione.
+4. ⭐⭐ **I 1.146 testi di ambientazione di `db_card.hsp`** — 257.399 caratteri,
+   il blocco di prosa più grande rimasto. Era il punto 2 della 54ª.
+5. ⭐ **Le 835 di `effdesc@tcg`** (ottavo punto cieco). ⚠️ Prima va sciolto
+   `tcg_skill.hsp:618`, e **le due citazioni di `tcg_custom.hsp:1956` e `:1966`
+   vanno riscritte nello stesso momento**, o negozio e carta divergono.
+6. ⭐ **Le 70 righe di `command.hsp`** del settimo punto cieco.
+7. 💡 **La domanda aperta della 53ª resta aperta**: `applica` mette prima il
+   dizionario e poi le toppe, e questo rende intoccabili le righe miste.
+
+---
+
+## La cinquantaquattresima sessione (per storia)
+
 Aggiornato: 2026-08-17, fine della **cinquantaquattresima** sessione (il **nono
 punto cieco** aperto e chiuso in un giorno — `db_card.hsp`, 1.162 nomi di carta
 che nessun conteggio guardava — il negozio delle carte finito, la sua porta, e
@@ -114,9 +301,7 @@ un segno: `'poker'`, `'…vecchietto.'`, `'…rosa?'`.
 
 ---
 
-## La cinquantaquattresima sessione
-
-### ▶ Il punto esatto in cui si riprende
+### ▶ Il punto esatto in cui si riprendeva allora
 
 Tutto è **spinto** e l'albero di lavoro è pulito. Si riparte da
 `git fetch && git status -sb` e dalle otto verifiche d'apertura. La sessione si è
@@ -4892,19 +5077,27 @@ lì che si vede quanto la troncatura di upstream costa in italiano).
 ⚠️ **I nomi di creatura sono chiusi**: l'ultimo che i conteggi mostravano da
 fare era su una riga commentata. Vedi «Le righe commentate» più sotto.
 
-### Le otto verifiche d'apertura
+### Le nove verifiche d'apertura
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-python -m pytest strumenti/tests -q        # atteso: 420 passed, 6 skipped
+python -m pytest strumenti/tests -q        # atteso: 431 passed, 6 skipped
 python -m strumenti.prova_identita         # atteso: 72/72, 27.813, ambigue 0
 python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre ovunque
 python -m strumenti.creature               # atteso: nome 1131, voce 2466, doppie 0, senza razza 0
 python -m strumenti.larghezze              # atteso: 0 fuori misura su 75 menu
 python -m strumenti.diario                 # atteso: 0 fuori misura su 214 siti
 python -m strumenti.riquadri               # atteso: 0 su 38 piastrelle, 0 su 71 buffname
+python -m strumenti.menu_dialogo           # atteso: 0 su 50 voci, tetto 52 caratteri
 python -m strumenti.battute --divergenti   # atteso: 13, tutte legittime
 ```
+
+⭐ **`menu_dialogo.py` è della 55ª, ed è la RETE 15**: la larghezza delle voci di
+`chatList`, cioè il secondo tetto della finestra del dialogo — quello che la
+rete 14 non guardava. Il collaudo l'ha trovata rotta in quattro voci del negozio
+delle carte, due delle quali erano regressioni nostre. Il denominatore è nel
+referto apposta: **50 voci tradotte su 1.626 righe di menu** nel sorgente, cioè
+«zero fuori misura» non vuol dire «tutto controllato».
 
 💡 **`riquadri.py` è nato nella 32ª**, il giorno stesso in cui i due tetti che
 misura sono stati scoperti sfondati. Copre le piastrelle degli stati nell'HUD e

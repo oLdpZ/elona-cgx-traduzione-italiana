@@ -6,6 +6,99 @@ ancora aperte.
 
 ---
 
+## Una finestra può avere due tetti, e misurarne uno fa credere di averla misurata — 2026-08-17, cinquantacinquesima sessione
+
+La **rete 14** della 54ª misura l'**altezza** della finestra del dialogo: dodici
+righe, a capo a 53 caratteri. Era nuova di ieri, scritta apposta perché quel
+pezzo di schermo non lo guardava nessuno, ed è stata confermata a schermo — le
+`<Nove Code Dorate>` occupano dodici righe su dodici e il bottone ci sta sotto.
+
+⚠️ **E la seconda schermata del collaudo ha mostrato una voce tagliata.** La
+stessa finestra, l'altra geometria:
+
+    [5500 biglietti] Carta del dio-di-carta-piegata-segretissimo <Kamikakushi>.
+
+a schermo si fermava su «segretissimo». **La larghezza delle voci era scoperta**,
+e sopra ci vivono **1.626 righe di menu** del sorgente.
+
+💡 **La lezione sul metodo è la sorella di «finito per quale referto» (53ª).**
+Lì la domanda era *quale rete ha guardato questo file*; qui è *quale rete ha
+guardato questa geometria*. Una finestra non è un'unità di misura: lo sono i
+suoi riquadri, e ce n'è più d'uno per finestra.
+
+### Il tetto, e da dove viene
+
+    chat.hsp:25232   ww = 600                      la finestra
+    chat.hsp:25160   x = wx + 136                  dove comincia la voce
+    chat.hsp:25177   cs_list listn(0,cnt), x + 30
+    module.hsp:129   pos arg2 + 4 ... : mes        e altri 4
+
+Il testo parte a `wx + 170`; il bordo interno della pergamena sta a `wx + 577`,
+misurato sulla schermata a finestra intera. **407 px.** Sei voci dello stesso
+menu danno da **7,60 a 7,88 px per carattere** — lo stesso 7,7 che
+`larghezze.py` aveva misurato il 2026-08-10 su un menu diverso, perché è lo
+stesso carattere. **407 / 7,7 = 52 caratteri**, ed è `strumenti/menu_dialogo.py`.
+
+⚠️⚠️ **`sdim` non è un tetto: quarta volta in quattro giorni.** `chatList` scrive
+in `listn(0, listmax)`, dichiarato `sdim listn, 40, 2, 500` (`init.hsp:2428`), e
+a schermo se ne leggono una sessantina. Le altre tre: `skilldesc` (12/08),
+`cfname@tcg` nella 53ª, `skillname` nella 54ª. **Un tetto dedotto da un `sdim` è
+un'ipotesi da misurare, sempre.**
+
+⚠️ **E `cs_list` non taglia.** Fa `mes` (`module.hsp:130`) *dopo* che la cornice
+è stata disegnata (`chat.hsp:25256` prima di `:25177`): lo sforo non è un
+troncamento pulito, è testo stampato **sopra** il bordo decorato.
+
+⚠️⚠️ **Un taglio duro che nessuno sapeva** (`chat.hsp:25166`): sopra le **dieci**
+voci il menu passa a due colonne e fa `strmid(listn(0, cnt), 0, 24)`. *Quello* sì
+è un `strmid`, e 24 caratteri in italiano sono pochissimi. Ma `keyrange` è il
+numero di voci **a tempo di esecuzione** e dal sorgente non si legge: la rete 15
+non prova a indovinarlo, e resta da collaudare.
+
+### Le quattro rese accorciate, e il criterio
+
+Il criterio è quello del 2026-08-13: **il tetto è un vincolo, non un criterio.**
+Il primo accorciamento cerca i caratteri che avanzano; quello giusto cerca la
+resa più corta che conserva **le due metà del senso**.
+
+| riga | era | ora | che cosa cade |
+|---|---|---|---|
+| 1938 | Carta di `<Yonorne>`, la guida novellina. (56) | Carta della nuova guida `<Yonorne>`. (51) | niente: fa la guida ed è alle prime armi |
+| 1968 | Carta del dio-di-carta-piegata-segretissimo `<Kamikakushi>`. (75) | Carta dell'origami `<Kamikakushi>`. (50) | «dio» e il superlativo; resta la carta piegata, che è l'identità |
+| 2088 | `[Set grigio]` Giorni di nebbia nel labirinto. (60) | `[Set grigio]` Nebbia nel labirinto. (50) | «Giorni», la metà che non dice niente |
+| 2108 | `[Set rosso]` Il gran teatro delle spettacameriere. (65) | `[Set rosso]` Teatro spettacameriere. (51) | «gran»; la parola inventata è il nome e si tiene |
+
+⚠️ **Due erano regressioni nostre** (1938 e 2088: l'inglese ci stava, la resa
+no), due erano **già rotte a monte** (1968 a 77 caratteri, 2108 a 54). La rete
+le distingue apposta, con `fuori_misura_inglese()`: il riquadro è il tetto anche
+dove upstream lo sfonda, ma sapere quali erano già rotte dice da dove viene il
+danno.
+
+💡 **E fuori dal negozio delle carte il corpus era pulito**: le uniche altre due
+voci sopra il tetto stanno in `event.hsp` e sono **identiche in inglese**.
+
+### Una guardia vale solo dove guarda, terza volta
+
+⚠️ **La prima versione della rete 15 riconosceva le voci dal campo `contesto`** e
+ne vedeva **31 su 150**: `estrai.py` lo riempie **solo per le dinamiche**, e le
+opzioni di conversazione sono quasi tutte statiche. Riscritta per leggere il
+sorgente pinnato, come fa `larghezze.py` con `menu_per_riga`. È lo stesso
+inciampo di `txtplusbody`, che non seguiva la convenzione di nome.
+
+### E lo stesso meccanismo spiega il decimo punto cieco
+
+`riquadri.py` legge la **geometria** delle piastrelle da `screen.hsp`
+(`FILE_HUD`) e le **etichette** da `text.hsp` (`FILE_STATI`). Un'etichetta che
+vive nel file della geometria non la vede nessuno — ed è il caso di
+`screen.hsp:1004`, «Autopickup», che sta nell'HUD in mezzo a quattro etichette
+italiane. **Non è un difetto della rete: è il suo perimetro.**
+
+`screen.hsp` ha **112 `lang()`** e non aveva **nessun file di dizionario**, come
+`db_card.hsp` e `chat.hsp` prima della 54ª. Ed è il caso peggiore della
+famiglia, perché non è una finestra che si apre: è testo **sempre** a schermo.
+
+---
+
 ## Una stringa dichiarata invariata per un sito fa sembrare voluta la dimenticanza in un altro — 2026-08-15, quarantaquattresima sessione
 
 Traducendo 「なし」 di `command.hsp:1445` la **rete 3** ha detto che lo stesso
