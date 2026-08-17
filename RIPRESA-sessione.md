@@ -1,10 +1,212 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-17, fine della **cinquantaseiesima** sessione (i file
-«mezzi fatti» della 55ª chiusi quasi tutti, la **rete 16**, e un tetto che il
-gioco stesso sbaglia a calcolare).
+Aggiornato: 2026-08-18 (sessione aperta il 17 e chiusa dopo la mezzanotte), fine
+della **cinquantasettesima** sessione (`main.hsp` aperto e portato a 149 rese, la
+**rete 4 corretta**, e un referto nuovo che ha trovato un difetto al primo giro).
 
-⭐⭐⭐ **La lezione della sessione: il gioco stima il proprio carattere più
+⭐⭐⭐ **La lezione della sessione: una rete che boccia una resa giusta non si
+aggira, si misura.** La rete 4 ha fermato il lotto 006 su `main.hsp:4151` e
+`:4232` — stesso giapponese 「あなたは「」とコメントした。」, stesso `cnvtalk`, ma
+l'inglese ci mette il nome del boss («Upon killing Meshera Alpha» e «Upon killing
+Enthumesis»), e sono i due finali di Tyris del Sud. Alla rete mancava **l'inglese
+nella chiave**: raggruppava per `(giapponese, funzioni)` perche' la 37ª le aveva
+insegnato che la rete 11 pretende le funzioni, ma upstream distingue anche con le
+**parole**.
+
+⭐⭐ **E la correzione e' stata misurata PRIMA di usarla**, con
+`scratchpad/misura-rete4.py`, che passa la rete 4 all'indietro su tutto il
+dizionario come `rete8_dizionario.py` fa con la rete 8:
+
+    gruppi (giapponese, funzioni)      12.014
+    resi in piu' di un modo               467
+      con inglese diverso                 459   <- la rete vecchia li bocciava a torto
+      con lo stesso inglese                 8   <- la famiglia per cui la rete e' nata
+
+La rete nuova prende ancora tutti e otto. **Non perde niente, e smette di
+bocciare 459 casi che non sono nostri.**
+
+⭐⭐⭐ **E il referto nuovo ha trovato un difetto al primo giro, che era il suo
+scopo.** Fra i nove col medesimo inglese c'era 「一投入魂」 `OverLimit-Throw`, reso
+«Tiro oltre il limite» in `buff.hsp:263` e «Lancio oltre il limite» in
+`skill.hsp:1240`: **e' la stessa mossa** — l'azione speciale e il potenziamento
+che ne esce — e chi la usava la sceglieva da un elenco con un nome e se la
+ritrovava nella barra con un altro. ⚠️ E «Tiro» non era solo diverso: e' la
+parola di **un'altra cosa**, perche' il progetto ha gia' fissato «Lancio» per
+投擲 *Throwing* (`skill.hsp:186`) e «Tiro» per 遠隔 *Shoot* (`text.hsp:136`, lo
+slot dell'equipaggiamento).
+⚠️ Nessuna delle due rese era scrivibile: «Lancio oltre il limite» fa 22
+caratteri e il tetto di `buffname` e' **20**. ✅ La resa giusta gliela ha data il
+suo stesso messaggio — `buff.hsp:264` dice gia' «mette l'**anima** nel
+**lancio**» — ed e' **«Lancio dell'anima»**, diciassette caratteri.
+💡 E' `correzione-il-tiro.py` della 49ª con un passo in piu': li' si guardava
+«quale delle due voci e' LIBERA», qui non lo era nessuna delle due e la **terza
+voce del gruppo** ha fatto da arbitro.
+
+⭐⭐ **`main.hsp` e' l'undicesimo punto cieco per file chiuso**, e la formula e'
+sempre la stessa: un file senza `dizionario/*.jsonl` non lo nomina nessun
+referto. Erano 384 `lang()` che `verifica --dizionario` non contava; adesso il
+referto dice «main.hsp: 0 da ritradurre, 181 non ancora tradotte».
+
+⚠️⚠️ **E un punto cieco di GEOMETRIA, nuovo e non chiuso**: `larghezze.py` misura
+i menu di `*prompt_key` **solo in `text.hsp`** (`FILE = "text.hsp"`). I
+`promptAdd` di `main.hsp`, `command.hsp` e di tutti gli altri file sono fuori da
+ogni rete. Le quattro voci del menu della morte (`main.hsp:4361`-`:4371`) hanno
+`val = promptx, 100, 400, 1`, cioe' **400 px = 45 caratteri**, e sono state
+misurate a mano. Nessuno sa quante altre ce ne siano.
+
+---
+
+## La cinquantasettesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** (nove spinte) e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle **dieci** verifiche d'apertura. La sessione
+si è aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la
+**quattordicesima prova** di fila, e l'ottava volta che un «cambio di terminale»
+annunciato in chiusura ha voluto dire soltanto cambio di finestra.
+
+⚠️ **Una cosa nuova sull'ambiente:** `git fetch` e `git push` falliscono dentro
+la sandbox con «Could not resolve host» o «Empty reply from server», e passano
+solo disattivandola. Non è un guasto di rete e non è la macchina: è la sandbox
+che blocca il DNS. Due volte su nove la spinta ha anche chiesto un secondo
+tentativo.
+
+⚠️⚠️ **I valori cambiati:**
+
+    verifica --dizionario   main.hsp        0 / 181   ← FILE NUOVO (erano 384 lang() invisibili)
+                            item_func.hsp   0 / 241   (era 240: +1, la rinviata)
+    menu_dialogo            0 su 56 voci              (era 0 su 50: +6 chatList)
+    lang-nel-ramo-jp        21 | 0 già tradotte       (era 21 | 1)
+    rinviate.jsonl          61                        (erano 60)
+    perimetro               64% | 47%                 (era 63% | 46%)
+    misura-rete4            8 | 459                   ← REFERTO NUOVO
+
+Tutto il resto è **fermo dov'era**: `pytest` 445 passed / 6 skipped,
+`prova_identita` 72/72 e 27.813, `creature` 1131/2466/0/0, `larghezze` 0 su 75,
+`diario` 0 su 214, `riquadri` 0 su 38 e 0 su 71, `linguette` 0 su 13,
+`battute --divergenti` 13, `nudi_en` 1044 | 455, `rete8_dizionario` 3,
+`toppe.jsonl` 837.
+
+✅ **`cgx-test.exe` rifatto sette volte** e già in `elonaplus2.31\`.
+
+### ▶ Il collaudo: ZERO, ed è la terza sessione così dopo la 51ª e la 54ª
+
+⚠️⚠️ **Il gioco non è stato aperto nemmeno una volta.** Sono 149 rese, nove
+spinte e una rete corretta, e **niente di tutto questo è stato visto a schermo**.
+La ripresa lo deve dire a chiare lettere invece di lasciarlo dedurre dal numero
+di lotti, come la 54ª ha imparato.
+
+⚠️ **E l'arretrato che la 56ª aveva lasciato è ancora lì, intatto**: le undici
+sigle degli elementi in cima alla finestra dell'equipaggiamento (`w`) e i
+messaggi della bara della negromanzia (`[Mode]`) non li ha guardati nessuno,
+adesso da due sessioni.
+
+⭐ **Ma stavolta l'arretrato ha una lista precisa**, perché quel che si è fatto
+oggi si vede tutto e si vede presto:
+
+1. **Il registro del mondo** — basta far passare qualche ora in gioco: «Comincia
+   a piovere», «Spunta l'alba», «Il tuo diario è stato aggiornato», «Oggi è una
+   giornata perfetta per l'allenamento».
+2. **Il Ritorno e l'imbarco** — un viaggio qualunque: «Una forza misteriosa
+   impedisce il rientro», «Hai aperto una porta dimensionale», «La tua nave è
+   arrivata».
+3. **Il menu della morte** — le quattro voci di `promptAdd`, misurate a mano
+   contro un tetto di 45 caratteri che **nessuna rete guarda**. È il pezzo dove
+   una misura sbagliata si vedrebbe subito.
+4. **Il quadro del cammino** di fine Lesimas, se c'è una partita che ci arriva.
+
+### ▶ I lotti, e che cosa hanno chiuso
+
+    fase4-main-001      34 voci   il registro del mondo: meteo, vento d'etere, giorno
+    fase4-main-002      14 voci   il rientro, la navigazione, il carretto
+    fase4-main-003      27 voci   il campo, i cuccioli, la rivista, l'ubriaco
+    fase4-main-004      15 voci   il turno del giocatore, e la fine di Lesimas
+    fase4-main-005      22 voci   il finale di Lesimas e il quadro del cammino
+    fase4-main-006      21 voci   gli altri due finali e la morte del giocatore
+    fase4-main-007      16 voci   gli esiti degli incarichi e le battute degli dèi
+    ---------------------------
+                       149 voci   più 1 rinvio e 2 correzioni
+
+### ▶ Le tre volte che il giapponese e l'inglese non dicevano la stessa cosa
+
+Sono la sostanza della sessione, e sono **tre casi diversi della stessa
+domanda: quale delle due lingue di monte sa la cosa che serve.**
+
+1. ⚠️ **L'inglese sbaglia** — `main.hsp:1307` ha giapponese 「雪は止んだ。」 (*la
+   neve è cessata*) dentro un ramo `p == WEATHER_SNOW`, e inglese
+   `"It stops raining."`, copiato da `:1274`. La resa segue il codice.
+2. ⚠️ **L'inglese scambia** — le quattro battute dell'ubriaco di `:2274`
+   accoppiano 「飲んでないよ」 (*non ho bevuto*) a «What are you looking at?» e
+   viceversa. Al giocatore non cambia niente, ma la colonna che si legge accanto
+   alla resa nel dizionario è il **giapponese**: scritte secondo l'inglese,
+   quattro righe direbbero una cosa e ne mostrerebbero un'altra per sempre.
+3. ⭐ **L'inglese sa di più, e allora si segue lui** — `:4549` e `:4562` sono lo
+   stesso `"You complete the task!"` per due incarichi diversi (consegna e campo
+   minato), e il giapponese li distingue; `:4050` è il contrario, `*Win*` contro
+   il `<Win>` di `skill.hsp:1780` per lo **stesso** giapponese 「*勝利*」, perché
+   uno è un cartello e l'altro è il nome di una mossa.
+
+💡 **In tutt'e tre i casi la risposta è venuta dal codice intorno**, non dalla
+lingua: il ramo `WEATHER_SNOW`, il `txt` con quattro alternative, il
+`gdata(GDATA_QUEST)`, il `skillname(...)`. La regola in una riga: **quando le due
+lingue di monte non concordano, decide il sito.**
+
+### ▶ Il vocabolario fissato oggi, e da dove viene
+
+    Vento d'etere perenne   il nome della sfida, dalla toppa di `custom_tweaks.hsp:1846`.
+                            ⚠️ Quella riga NON è una `lang()`: è un letterale nudo,
+                            e senza `nudi_en` il titolo di `:1626` sarebbe stato
+                            scelto a orecchio
+    Le Nefie                il plurale, dalle toppe del pannello dei ritocchi
+                            («Nefie casuali risvegliate»). Il singolare stava già
+                            in `text.hsp:9935`
+    Pioggia | Temporale     i due messaggi di passaggio nominano lo stato in cui
+                            l'HUD sta entrando, con la parola dell'HUD (`text.hsp:46`)
+    Spunta l'alba           `:1399` scatta a `gdata(GDATA_HOUR) == 6`, cioè
+                            nell'ora che `text.hsp:60` chiama «Alba»
+    tesoro segreto          `db_item.hsp:143525` per 「秘宝」. L'inglese dice «the
+                            codex», che in italiano non dice niente di preciso
+    la calamità             `text.hsp:9692` per 「災厄」
+    carretto | Sovraccarico `command.hsp:14176` e `text.hsp:66`
+    Lancio dell'anima       la correzione: vedi la lezione in cima
+    consegna | bonifica     i due incarichi che l'inglese appiattisce
+    Rialzati | Lasciati seppellire   il menu della morte, tutto all'imperativo:
+                            è l'unica forma che non porta genere
+
+### ▶ Che cosa fare
+
+1. ⭐⭐⭐ **Collaudare.** Due sessioni di seguito senza schermo, e adesso c'è
+   anche la lista qui sopra. Il pezzo più a rischio è il **menu della morte**,
+   perché il suo tetto non lo guarda nessuna rete.
+2. ⭐⭐⭐ **`larghezze.py` guarda solo `text.hsp`, ed è un punto cieco di
+   geometria.** Estenderlo agli altri file — o almeno contare quanti `promptAdd`
+   ci sono fuori da `text.hsp` — è il lavoro di strumento più utile che resta.
+   Il numero non lo sa nessuno.
+3. ⭐⭐ **Il resto di `main.hsp`**, 181 voci. Le zone dense che restano sono
+   5000-5999 (49), 6000-6999 (70) e 8000-8999 (22).
+4. ⭐⭐ **Le ~55 etichette d'incantamento di `item_func.hsp`** (`:2667`-`:2750`),
+   che la 56ª chiedeva: ⚠️ il tetto è un **budget di riga**
+   (`locvar_equipinfo_x += strlen(s) * 8`) e va misurato a schermo su un oggetto
+   molto incantato.
+5. ⭐⭐ **Il resto di `screen.hsp`**, 101 voci (decimo punto cieco).
+6. ⭐ **I 1.146 testi di ambientazione di `db_card.hsp`**, il blocco di prosa più
+   grande rimasto.
+7. ⭐ **Le 835 di `effdesc@tcg`** (ottavo punto cieco). ⚠️ Prima va sciolto
+   `tcg_skill.hsp:618`.
+8. 💡 **I sette gruppi rimasti in `misura-rete4.py`** (8 meno quello corretto)
+   vanno guardati uno per uno: `[Change]` reso «[Cambia menu]» e «[Cambia]»,
+   「どのファイル名で保存する？」 in tre siti con due rese, «il bug» contro «baco».
+   Alcuni sono legittimi — l'articolo cambia col mestiere, «di frutta» è un
+   complemento di materia — ma nessuno li ha mai dichiarati.
+9. 💡 **La domanda aperta della 53ª resta aperta**: `applica` mette prima il
+   dizionario e poi le toppe, e questo rende intoccabili le righe miste.
+
+---
+
+## La cinquantaseiesima sessione — le lezioni (per storia)
+
+⭐⭐⭐ **La lezione della 56ª: il gioco stima il proprio carattere più
 stretto di quel che è, e da lì nasce un tetto che nessuno aveva mai visto.**
 `module.hsp:5184` centra le linguette della scheda del personaggio con
 `46 - strlen * 3`, cioè supponendo **6** px per carattere; il carattere vero ne
@@ -52,7 +254,7 @@ scritto `Karma()` il lotto veniva rifiutato lo stesso, e passa solo con
 
 ---
 
-## La cinquantaseiesima sessione
+## La cinquantaseiesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
@@ -5293,6 +5495,7 @@ python scratchpad/nomi_che_compongono.py  # 13.548 righe, 83 nomi (8° punto cie
 python scratchpad/blocchi_en.py           # struttura 99 | ancora da fare 54
 python scratchpad/else_jp.py              # else-di-jp: 6.984 righe in 13 file
 python scratchpad/rete8_dizionario.py     # 3, tutti dichiarati falsi positivi
+python scratchpad/misura-rete4.py         # 8 con lo stesso inglese | 459 con inglese diverso
 python scratchpad/misura-blocchi-spenti.py  # 4 sprecate | 5 vive altrove
 python scratchpad/variabili_en.py         # 60 variabili | 4 trappole in 4 siti
 python scratchpad/perimetro.py            # perimetro 57% | col fuori perimetro 42%
@@ -5332,6 +5535,16 @@ che per nome. Da 66 e 3 a **60 e 4**. Vedi il punto 9 delle tredici cose.
 `perimetro.py` è il conto vero di quanto manca, descrizioni degli oggetti e file
 di `data/` compresi: **non si deduce sommando `verifica --dizionario`**, che
 misura solo il perimetro `lang()`.
+
+⭐⭐ **`misura-rete4.py` è della 57ª, ed è la rete 4 passata all'indietro su tutto
+il dizionario**, come `rete8_dizionario.py` fa con la rete 8. È nato per
+**misurare una correzione prima di applicarla** — alla rete 4 mancava l'inglese
+nella chiave — e il conto ha detto 459 contro 9: la rete vecchia bocciava a torto
+cinquanta volte per ogni volta che aveva ragione. ⚠️ **I casi col medesimo
+inglese sono un referto da leggere, non un errore**: al primo giro ne ha trovato
+uno vero, «Tiro oltre il limite» contro «Lancio oltre il limite» per la stessa
+mossa. **Se scendono, uno è stato dichiarato o corretto; se salgono, un lotto ha
+reso due volte in modo diverso una cosa che upstream scrive uguale.**
 
 ⚠️ **I due ultimi sono della 37ª.** `rete8_dizionario.py` è la rete 8 passata
 all'indietro su tutto il dizionario: **se sale a 4, qualcuno ha scritto un
