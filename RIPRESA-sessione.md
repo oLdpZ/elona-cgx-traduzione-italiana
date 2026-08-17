@@ -90,6 +90,11 @@ si è aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la
     nudi_en                 1044 | ancora da fare 472   (era 473: -1, la toppa)
     toppe.jsonl             821                     (erano 820)
 
+    scratchpad/file_senza_dizionario.py  NUOVO: 54 file con lang(), 29 SENZA
+                                         dizionario, 3.312 lang() che nessun
+                                         referto per file nomina; 5 MEZZI FATTI
+    scratchpad/nudi_misti.py             NUOVO: struttura 18 | da fare 10
+
 ✅ **Il punto 5 della 54ª è sciolto: `blocchi_en` è davvero 27.** Il calo da 54
 si riproduce identico e le 27 righe di `event.hsp` risultano tutte fatte.
 L'ipotesi della 54ª era giusta — il «54» della 53ª era stato annotato prima
@@ -118,10 +123,48 @@ Quattro schermate del **negozio delle carte**, e ognuna ha detto una cosa:
    **debito accoppiato dichiarato**, copia a mano di `effdesc@tcg`;
 4. la finestra intera — «Restocks in: 48 hours», e la misura dei pixel.
 
-⚠️ **Ma quel che è stato CORRETTO oggi non l'ha ancora visto nessuno.** Le
-quattro rese accorciate, «Rifornimento fra:», «Raccolta» e «Pioggia rossa» sono
-nell'eseguibile nuovo e **non sono mai arrivate a schermo**. È il primo collaudo
-da fare.
+✅ **E la mattina dopo il collaudo è continuato, con due conferme a schermo**:
+«Rifornimento fra: 48 ore» in cima alla finestra del negoziante, e **«Raccolta»**
+nell'HUD sopra «Fardello!», dentro la piastrella. ⚠️ Restano da vedere le
+**quattro voci accorciate** del negozio delle carte, che richiedono il mazzo.
+
+⭐⭐⭐ **E cercando un menu con più di dieci voci è saltato fuori il vero
+tesoro della sessione.** Il menu di un alleato ne mostrava cinque, ma aveva
+«Other» — che apre `custom_pet.hsp`, **17 letterali nudi tutti inglesi**
+(«Pet Configuration», «Customize AI», «(Current: Do Not Eat) Eat items from your
+bag…»). Da lì la domanda giusta: **quanti file hanno `lang()` e nessun
+dizionario?**
+
+    54 file con lang(), 29 SENZA dizionario -> 3.312 lang() che nessun
+    referto PER FILE nomina
+
+⚠️⚠️ **E cinque sono MEZZI FATTI, che è il caso peggiore**: letterali nudi
+italiani (toppe) e `lang()` inglesi **nella stessa finestra** — `main.hsp`,
+`item_func.hsp`, `module.hsp`, `custom_ai.hsp`, `custom_dmgpop.hsp`. È il
+paragrafo bilingue della 53ª in un posto dove nessuno l'aveva cercato: il
+pannello dell'IA è stato «chiuso» nella 51ª con 193 toppe e collaudato nella
+52ª, e le sue **7 `lang()` di testo** sono ancora inglesi.
+💡 `perimetro.py` contava già quel volume nel suo denominatore: quel che non
+misurava nessuno è la **mescolanza**, ed è per questo che la colonna «toppe» del
+referto nuovo è la colonna che conta.
+
+⚠️ **E `nudi_en` ha un buco, misurato**: `nudi_en.py:127` fa
+`if 'lang(' in s: continue`, ma una riga può avere **tutt'e due le cose** e
+allora il pezzo fuori dalla `lang()` non lo guarda nessuno — né `estrai` né
+`nudi_en`. Il caso che l'ha fatto vedere:
+
+    custom_ai.hsp:1530
+      s = "Tactical Instructions", lang("Shift,Esc [戻る]…", "Shift,Esc [Back]…")
+
+**Il titolo in cima al pannello delle tattiche**, inglese, in una finestra
+collaudata due volte. `scratchpad/nudi_misti.py` lo conta: **18 righe miste, 10
+da fare** — poche, e ognuna si legge (`" cm"`/`" kg"` della scheda a
+`command.hsp:10659`, `" GP)"`, `",Tab "`, `"Page."`).
+⚠️ **Due volte il conto è stato sbagliato prima di essere giusto**: la prima
+regex mascherava le `lang()` con un solo livello di parentesi e diceva **540**;
+tolto quello restavano **130**, quasi tutte il `"null"` di
+`promptAdd testo, "null", n`. I casi veri sono 18. **Un referto nuovo si prova
+sulle righe che stampa, non sul totale.**
 
 💡 **Come si entra**, che è costato mezz'ora trovarlo: il negozio pretende un
 **mazzo di carte** (`ITEM_ID_DECK`, id 701) e l'unica fonte in tutto il gioco è
@@ -162,7 +205,14 @@ d'acquisto. Col solo mazzo si leggono tutte e 29 le descrizioni.
 2. ⭐⭐⭐ **Un menu di conversazione con PIÙ DI DIECI voci**, guardato a schermo:
    `chat.hsp:25166` tronca a 24 caratteri netti e non l'ha mai visto nessuno.
    Un negoziante generico ne ha parecchie.
-3. ⭐⭐ **Il resto di `screen.hsp`**, 101 voci, ora visibili nel referto. In
+3. ⭐⭐⭐ **I cinque file MEZZI FATTI**, che sono finestre bilingui adesso, non
+   lavoro futuro. Il più piccolo e più letto è `custom_ai.hsp`: **7 `lang()` di
+   testo** più il titolo «Tactical Instructions» di `:1530`, e il pannello si
+   apre con `c` su un alleato. Poi `custom_pet.hsp` (17 letterali nudi, il
+   sottomenu «Other»), e `item_func.hsp` con le sue 278 `lang()`.
+   💡 Il vocabolario è già fissato dalla metà tradotta: `(Ora: …)` per
+   `(Current: …)`, dal pannello dell'IA.
+4. ⭐⭐ **Il resto di `screen.hsp`**, 101 voci, ora visibili nel referto. In
    ordine di quanto si leggono: le classi di peso `(Heavy)/(Medium)/(Light)`
    (`:6631`-`:6638`), il messaggio di **passaggio di livello** (`:6759`) e
    «grown up» (`:6762`), i colpi in combattimento (`:8032`, `:8066`), i bonus
