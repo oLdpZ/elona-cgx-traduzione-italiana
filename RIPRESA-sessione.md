@@ -90,9 +90,9 @@ si è aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la
     nudi_en                 1044 | ancora da fare 472   (era 473: -1, la toppa)
     toppe.jsonl             821                     (erano 820)
 
-    scratchpad/file_senza_dizionario.py  NUOVO: 54 file con lang(), 29 SENZA
-                                         dizionario, 3.312 lang() che nessun
-                                         referto per file nomina; 5 MEZZI FATTI
+    scratchpad/file_senza_dizionario.py  NUOVO: 52 file con lang(), 27 SENZA
+                                         dizionario, 3.138 lang() che nessun
+                                         referto per file nomina; 4 MEZZI FATTI
     scratchpad/nudi_misti.py             NUOVO: struttura 18 | da fare 10
 
 ✅ **Il punto 5 della 54ª è sciolto: `blocchi_en` è davvero 27.** Il calo da 54
@@ -135,15 +135,24 @@ tesoro della sessione.** Il menu di un alleato ne mostrava cinque, ma aveva
 bag…»). Da lì la domanda giusta: **quanti file hanno `lang()` e nessun
 dizionario?**
 
-    54 file con lang(), 29 SENZA dizionario -> 3.312 lang() che nessun
+    52 file con lang(), 27 SENZA dizionario -> 3.138 lang() che nessun
     referto PER FILE nomina
 
-⚠️⚠️ **E cinque sono MEZZI FATTI, che è il caso peggiore**: letterali nudi
-italiani (toppe) e `lang()` inglesi **nella stessa finestra** — `main.hsp`,
-`item_func.hsp`, `module.hsp`, `custom_ai.hsp`, `custom_dmgpop.hsp`. È il
-paragrafo bilingue della 53ª in un posto dove nessuno l'aveva cercato: il
-pannello dell'IA è stato «chiuso» nella 51ª con 193 toppe e collaudato nella
-52ª, e le sue **7 `lang()` di testo** sono ancora inglesi.
+⚠️ **Il primo conto diceva 54 / 29 / 3.312 ed era gonfio**:
+`font lang(cfg_font1, cfg_font2), 14 - en * 2, 0` non è testo, è la scelta del
+carattere fra giapponese e inglese, e ce n'è una a ogni cambio di corpo.
+Contandola, `custom_ai.hsp` risultava 32 dove le stringhe vere sono **7**.
+💡 E scartandola si scopre che `custom_pet.hsp` e `custom_dmgpop.hsp` hanno
+**zero** `lang()`: sono interamente letterali nudi, cioè materia di `nudi_en` e
+non del dizionario.
+
+⚠️⚠️ **E quattro sono MEZZI FATTI, che è il caso peggiore**: letterali nudi
+italiani (toppe) e `lang()` inglesi **nella stessa finestra** — `main.hsp` (384
+`lang()`, 1 toppa), `item_func.hsp` (278 e 29), `module.hsp` (24 e 3),
+`custom_ai.hsp` (7 e 56). È il paragrafo bilingue della 53ª in un posto dove
+nessuno l'aveva cercato: il pannello dell'IA è stato «chiuso» nella 51ª con 193
+toppe e collaudato nella 52ª, e le sue **7 `lang()` di testo** sono ancora
+inglesi.
 💡 `perimetro.py` contava già quel volume nel suo denominatore: quel che non
 misurava nessuno è la **mescolanza**, ed è per questo che la colonna «toppe» del
 referto nuovo è la colonna che conta.

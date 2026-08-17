@@ -31,6 +31,12 @@ from collections import Counter
 from strumenti import percorsi
 
 _LANG = re.compile(r"\blang\s*\(")
+# ⚠️ `font lang(cfg_font1, cfg_font2), 14 - en * 2, 0` NON e' testo: e' la scelta
+#    del carattere fra giapponese e inglese, e ce n'e' una a ogni cambio di
+#    corpo. Contandola, `custom_ai.hsp` risultava 32 dove le stringhe vere sono
+#    **7**, e il totale usciva gonfio. Si scarta per il nome della variabile,
+#    non per il verbo `font`: la stessa forma compare anche fuori da `font`.
+_FONT = re.compile(r"\blang\s*\(\s*cfg_font")
 
 
 def conta_toppe() -> Counter:
@@ -50,7 +56,7 @@ def censimento() -> list[tuple[str, int, int, bool]]:
     fuori = []
     for percorso in sorted(percorsi.SORGENTE_HSP.glob("*.hsp")):
         testo = percorso.read_bytes().decode("cp932", "replace")
-        quante = len(_LANG.findall(testo))
+        quante = len(_LANG.findall(testo)) - len(_FONT.findall(testo))
         if not quante:
             continue
         ha = (percorsi.DIZIONARIO / f"{percorso.name}.jsonl").exists()
