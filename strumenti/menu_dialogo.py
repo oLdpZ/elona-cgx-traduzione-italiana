@@ -26,17 +26,55 @@ Il testo parte a `wx + 170`. L'interno della pergamena finisce a `wx + 577`,
 misurato sulla schermata del 2026-08-17 (finestra intera, 1920x1080, `wx = 660`,
 ultimo pixel di pergamena a 1237). Restano **407 px**.
 
-Sei voci dello stesso menu, misurate a schermo lo stesso giorno:
+### ⚠️⚠️ Il passo del carattere e' 7, non 7,7 (corretto il 2026-08-18)
+
+Per un giorno qui c'e' stato scritto **7,7**, e il tetto era 52 invece di 58.
+Il numero veniva da sei voci misurate a schermo il 2026-08-17:
 
     47 caratteri -> 357 px    7,60      43 -> 331    7,70
     46           -> 350       7,61      42 -> 331    7,88
     47           -> 357       7,60      40 -> 308    7,70
 
-cioe' **7,7 px per carattere** — lo stesso valore che `larghezze.py` aveva
-misurato il 2026-08-10 su un menu diverso, che e' lo stesso carattere. La
-settima voce, quella lunga, si e' fermata esattamente sul bordo.
+⚠️ **Quelle sei misure sono giuste; sbagliato e' il conto che ci si e' fatto
+sopra.** Non e' il rapporto che va preso, e' la PENDENZA. Fra la prima e
+l'ultima ci sono 7 caratteri e 49 pixel: **7,00 esatti**. Il rapporto esce 7,7
+perche' ogni misura porta dentro anche un **pezzo fisso** che non dipende dalla
+lunghezza, e dividendolo per il numero di caratteri lo si spalma sui caratteri:
+32 px spalmati su 47 fanno proprio 0,68.
 
-    407 / 7,7 = 52 caratteri
+💡 Il pezzo fisso ha un nome nel sorgente. `module.hsp:70`, dentro `cs_list`:
+
+    locvar_cs_list_tx = limit(strlen(cs_list_arg1) * 7 + 32 + cs_list_arg5, 10, 480)
+
+cioe' **il gioco stesso conta 7 px per carattere**, piu' 32 di contorno. Le sei
+misure del 2026-08-17 non misuravano il testo: misuravano la **barra
+evidenziata**, che e' il testo piu' quei 32.
+
+✅ Confermato tre volte sulla schermata del lupo mannaro del 2026-08-18
+(`event.hsp:521`, sfondo `bg_re9`, la voce inglese da 48 caratteri):
+
+    l'avanzamento fra l'inizio di una parola e l'inizio della successiva vale
+    7,00 px per carattere su tutti e 37 i caratteri misurabili
+    (murdered a 965 = 847 + 17x7, someone a 1029 = 847 + 26x7, cold a 1106
+    = 847 + 37x7)
+
+    la barra evidenziata comincia a wx+60 = 843 e il sorgente la vuole larga
+    48x7 + 32 = 368: prevista fino a 1210, misurata fino a 1210
+
+    il bordo interno della pergamena cade a wx + dx - 12 = 1127, e la beige
+    finisce a 1124-1126
+
+⚠️ **E il 7,7 di `larghezze.py` resta giusto: e' un altro carattere.**
+`*prompt_key` disegna con `font ..., 15 - en * 2` (`system.hsp:4259`), cioe' 13;
+questa finestra e la pergamena con `font ..., 14 - en * 2`
+(`chat.hsp:25149`, `event.hsp:4173`), cioe' **12**. Il rapporto torna: 13/12 =
+1,083 contro 7,7/7 = 1,10. E il 7,7 di la' non e' un rapporto ma un **taglio
+osservato** — 300 px che tagliavano a 33 caratteri.
+💡 La lezione non e' sul numero: e' che questa rete aveva preso una costante da
+un'altra dicendo «e' lo stesso carattere» senza verificarlo, e nessun test
+poteva accorgersene perche' i test fissavano il numero, non la sua provenienza.
+
+    407 / 7 = 58 caratteri
 
 ⚠️ **`cs_list` non taglia.** Fa `mes` (`module.hsp:130`), e la cornice e' gia'
 stata disegnata (`chat.hsp:25256` prima di `:25177`): quel che sfora finisce
@@ -67,8 +105,8 @@ Per un giorno questa rete ha applicato **52 a tutte** le voci di menu del gioco,
 e non era vero: `chatList` riempie una lista, ma **chi la disegna** e' il `gosub`
 che viene dopo, e i posti sono piu' d'uno. Contate sul sorgente:
 
-    chat_select        1240 righe   la pergamena del dialogo, tetto 52
-    re_select           177         la finestra dell'evento, tetto 36-50
+    chat_select        1240 righe   la pergamena del dialogo, tetto 58
+    re_select           177         la finestra dell'evento, tetto 40-56
     talk_quest          148         non misurato
     com_txtadv_loop      46         non misurato
     altri                 9         non misurato
@@ -81,8 +119,8 @@ e' nemmeno una costante: dipende dal **BMP di sfondo** dell'evento.
     module.hsp:129   pos arg2 + 4 ... : mes        e altri 4
 
 Il bordo interno destro sta a `dx - 12`, simmetrico ai `wx + 12` del `gcopy` di
-`:4165`. Quindi `(tx + 36 - 12 - 64) / 7,7`, che sui bitmap veri va da **36**
-(`bg_re15`, 280 px) a **50** (`bg_re20`, 392 px). Una voce da 45 caratteri col
+`:4165`. Quindi `(tx + 36 - 12 - 64) / 7`, che sui bitmap veri va da **40**
+(`bg_re15`, 280 px) a **56** (`bg_re20`, 392 px). Una voce da 45 caratteri col
 tetto sbagliato passava e a schermo sfondava di nove.
 ✅ Misurato prima di correggere (`scratchpad/misura-re-select.py`): delle 32
 voci gia' tradotte dentro `*re_select` non ne sforava nessuna. La correzione non
@@ -91,7 +129,7 @@ ripara un danno — **toglie un permesso** che nessuno aveva ancora usato.
 ⚠️ **E quel che non si sa misurare si CONTA, non si misura a occhio.** Per
 `talk_quest` e `com_txtadv_loop` la geometria non e' stata letta: quelle voci
 escono dal conto degli sfori ed entrano in un conto loro, che il referto stampa.
-Applicare 52 «tanto per avere un numero» e' come il filtro furbo di
+Applicare 58 «tanto per avere un numero» e' come il filtro furbo di
 `custom_dmgpop.hsp` — non prova niente, e fa credere di aver guardato.
 
 💡 **Il contenitore si trova guardando avanti fino al primo `gosub`, senza
@@ -115,13 +153,13 @@ INIZIO_TESTO = 170       # wx+136 (chat.hsp:25160) + 30 (:25177) + 4 (module.hsp
 FINE_PERGAMENA = 577     # misurato a schermo il 2026-08-17
 PIXEL_UTILI = FINE_PERGAMENA - INIZIO_TESTO
 
-# misurato su sei voci il 2026-08-17; lo stesso di larghezze.py, che e' lo
-# stesso carattere misurato il 2026-08-10 su un altro menu
-PIXEL_PER_CARATTERE = 7.7
+# ⚠️ corretto il 2026-08-18 da 7,7 a 7: vedi il docstring. Il 7,7 di
+# larghezze.py e' il carattere da 13 di *prompt_key, non questo, che e' da 12.
+PIXEL_PER_CARATTERE = 7
 
 # cifre supposte per un prezzo interpolato. ⚠️ `larghezze.py` ne suppone tre; qui
 # sono **quattro** perche' il set piu' caro del negozio costa 5500 biglietti, e
-# su un tetto da 52 un carattere e' la differenza fra dentro e fuori.
+# su un tetto stretto un carattere e' la differenza fra dentro e fuori.
 LARGHEZZA_NUMERO = 4
 
 TETTO = int(PIXEL_UTILI / PIXEL_PER_CARATTERE)
