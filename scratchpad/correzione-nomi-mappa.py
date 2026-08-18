@@ -38,7 +38,7 @@ NUOVI = {
     'Grotta Eremitica di Lustor': 'Grotta di Lustor',
     'Nave del Raccolto Stellare': 'Nave Messe',          # tetto 12
     'Bacino della Nave Divina': 'Bacino navale',
-    'Allevamento abbandonato': 'Ranch in rovina',
+    'Allevamento abbandonato': 'Ex allevamento',   # come il rogito, che dice "allevamento abbandonato"
     'il cimitero di Lumiest': 'Cimitero Lumiest',
     "l'Ambasciata di Palmia": 'Ambasciata',
     'Villa delle Domestiche': 'Villa Domestiche',
