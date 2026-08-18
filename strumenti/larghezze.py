@@ -109,7 +109,9 @@ _VOCE = re.compile(r"^\s*s\(\s*cnt\s*\)\s*=\s*lang\(")
 _CHIAMATA = re.compile(r"^\s*(\w+)\s+\w")
 _INTERPOLAZIONE = re.compile(r'"\s*\+\s*[^+"]+?\s*\+\s*"')
 _SOLO_ARITMETICA = re.compile(r"^[\d\s+\-*/()]+$")
-_ADD = re.compile(r"\bpromptAdd\s+\S")
+# ⚠️ `promptAdd` e' una macro (`init.hsp:26`), e 37 righe in sette file
+# scrivono a mano quel che espande: `promptl(0, promptmax) = ...`.
+_ADD = re.compile(r"\bpromptAdd\s+\S|\bpromptl\s*\(\s*0\s*,[^)]*\)\s*=")
 _PROMPT_KEY = re.compile(r"gosub\s+\*prompt_key\b")
 _VAL = re.compile(r"^\s*val\s*=\s*(.+?)\s*$")
 

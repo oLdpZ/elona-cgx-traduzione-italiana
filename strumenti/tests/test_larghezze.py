@@ -326,7 +326,7 @@ def test_le_tre_forme_del_riquadro_nel_sorgente_vero():
 def test_ogni_sito_di_prompt_key_ha_il_suo_riquadro():
     """Il fratello di `test_ogni_menu_ha_un_chiamante`, per la seconda strada.
 
-    Sono 91 siti e 258 voci: se un domani ne restasse fuori uno, va capito
+    Sono 91 siti e 304 voci: se un domani ne restasse fuori uno, va capito
     perche' prima di scriverlo qui come eccezione.
 
     Il novantaduesimo sito e' `command.hsp:17287`, che sta **dentro un commento
@@ -336,7 +336,7 @@ def test_ogni_sito_di_prompt_key_ha_il_suo_riquadro():
     rete.
     """
     assert siti_senza_larghezza() == []
-    assert len(menu_diretti()) == 258
+    assert len(menu_diretti()) == 304
 
 
 MORTO = """\
@@ -390,3 +390,18 @@ def test_quando_un_menu_ha_piu_riquadri_vale_il_piu_stretto(tmp_path):
     (cartella / FILE).write_bytes(b"")
 
     assert menu_diretti(cartella)[("rami.hsp", 2)] == 280
+
+
+def test_la_forma_espansa_della_macro_e_una_voce_di_menu():
+    """`promptAdd` e` una macro, e c'e` chi scrive a mano quel che espande.
+
+        #define global promptAdd(%1,%2="null",%3=promptmax) \
+            promptl(0,promptmax)=%1,%2,""+%3:promptmax++
+
+    `map_user.hsp:507` («Collecting function») e` scritta cosi`, e sta nello
+    stesso riquadro delle trentadue che le stanno intorno. Sono **37 righe in
+    sette file**: guardare solo `promptAdd` le lascia tutte fuori, e nel menu di
+    casa la trentatreesima voce sarebbe l'unica non misurata.
+    """
+    misurati = menu_diretti()
+    assert misurati[("map_user.hsp", 507)] == 280
