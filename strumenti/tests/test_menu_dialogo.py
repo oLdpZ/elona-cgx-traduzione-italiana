@@ -205,8 +205,8 @@ def test_nessuna_voce_di_menu_sfora_il_riquadro():
         "%s:%d  %d caratteri: %s" % s for s in sfori)
 
 
-def test_la_voce_rotta_a_monte_resta_nota():
-    """Una voce del negozio sfora **anche in inglese**: `:1968`, 77 caratteri.
+def test_le_voci_rotte_a_monte_restano_note():
+    """Due voci sforano **anche in inglese**, e una l'ha vista lo schermo.
 
     Non e' un permesso: la resa italiana l'ha comunque accorciata dentro il
     tetto. Serve a ricordare che il riquadro e' il tetto anche dove upstream lo
@@ -217,9 +217,16 @@ def test_la_voce_rotta_a_monte_resta_nota():
     caratteri in inglese: era rotta solo per il tetto sbagliato da 52, e col
     tetto vero da 58 non lo e' mai stata. Un tetto troppo stretto non produce
     solo rese accorciate: produce anche **difetti di monte che non esistono**.
+
+    ⭐ **E `event.hsp:521` non e' una deduzione: e' una fotografia.** La voce
+    inglese dell'attacco del lupo mannaro ha 48 caratteri in un riquadro da 40
+    (`bg_re9`, 280 px utili), e il 2026-08-18 il collaudo l'ha vista uscire
+    dalla pergamena e finire stampata sopra la mappa. La resa italiana ne usa
+    34. E' la prima voce di questo elenco che qualcuno ha guardato invece di
+    calcolarla.
     """
     monte = {(f, r) for f, r, _, _ in fuori_misura_inglese()}
-    assert monte == {("tcg_custom.hsp", 1968)}
+    assert monte == {("tcg_custom.hsp", 1968), ("event.hsp", 521)}
 
 
 # --- un chatList non e` sempre nella pergamena (corretto il 2026-08-18) ------
