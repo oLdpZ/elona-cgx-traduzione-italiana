@@ -326,8 +326,67 @@ def test_le_tre_forme_del_riquadro_nel_sorgente_vero():
 def test_ogni_sito_di_prompt_key_ha_il_suo_riquadro():
     """Il fratello di `test_ogni_menu_ha_un_chiamante`, per la seconda strada.
 
-    Sono 92 siti e 261 voci: se un domani ne restasse fuori uno, va capito
+    Sono 91 siti e 258 voci: se un domani ne restasse fuori uno, va capito
     perche' prima di scriverlo qui come eccezione.
+
+    Il novantaduesimo sito e' `command.hsp:17287`, che sta **dentro un commento
+    di blocco** insieme alle sue tre voci: e' il menu di uscita di upstream,
+    spento dal mod. Una delle tre e' persino gia' resa (`:17285`,
+    «Impostazioni»), ed e' materia di `misura-blocchi-spenti.py`, non di questa
+    rete.
     """
     assert siti_senza_larghezza() == []
-    assert len(menu_diretti()) == 261
+    assert len(menu_diretti()) == 258
+
+
+MORTO = """\
+*un_menu_con_un_val_spento
+	promptAdd lang("はい", "Yes"), "null", 0
+	val = promptx, prompty, 280, 1
+	/********** ORIGINAL - BEGINNING **********
+	val = promptx, prompty, 100, 1
+	 ********** ORIGINAL - ENDING **********/
+	gosub *prompt_key
+"""
+
+DUE_RAMI = """\
+*un_menu_con_due_riquadri
+	promptAdd lang("はい", "Yes"), "null", 0
+	if ( negozio ) {
+		val = promptx, prompty, 280, 1
+	}
+	else {
+		val = promptx, prompty, 330, 1
+	}
+	gosub *prompt_key
+"""
+
+
+def test_un_val_dentro_un_commento_di_blocco_non_dichiara_niente(tmp_path):
+    """`map_user.hsp:522` e` la riga di upstream tenuta in commento dal mod.
+
+    Sta piu` vicina al `gosub` di quella viva, e una ricerca all'indietro che
+    non guardi i commenti misura il menu con un numero che il gioco non usa.
+    """
+    cartella = tmp_path / "sorgente"
+    cartella.mkdir()
+    (cartella / "morto.hsp").write_bytes(MORTO.encode("cp932"))
+    (cartella / FILE).write_bytes(b"")
+
+    assert menu_diretti(cartella)[("morto.hsp", 2)] == 280
+
+
+def test_quando_un_menu_ha_piu_riquadri_vale_il_piu_stretto(tmp_path):
+    """`map_user.hsp:529` allarga la finestra a 330 **solo dentro un negozio**.
+
+    E` la stessa regola della prima strada — «se piu` chiamanti costruiscono lo
+    stesso menu si tiene il piu` stretto» — perche' una voce deve stare in tutti
+    i posti in cui il menu compare. ⚠️ Il piu` stretto non e` il piu` vicino: qui
+    il ramo largo e` l'ultimo prima del `gosub`.
+    """
+    cartella = tmp_path / "sorgente"
+    cartella.mkdir()
+    (cartella / "rami.hsp").write_bytes(DUE_RAMI.encode("cp932"))
+    (cartella / FILE).write_bytes(b"")
+
+    assert menu_diretti(cartella)[("rami.hsp", 2)] == 280

@@ -93,6 +93,7 @@ from pathlib import Path
 
 from strumenti import percorsi
 from strumenti.accenti import degrada
+from strumenti.commenti import righe_in_commento
 
 FILE = "text.hsp"
 
@@ -250,6 +251,7 @@ def _siti(cartella: Path):
     """
     for percorso in sorted(cartella.glob("*.hsp")):
         righe = _righe(percorso)
+        spente = righe_in_commento(percorso)
         confine = 0
         dentro_define = False
         for i, riga in enumerate(righe):
@@ -262,17 +264,34 @@ def _siti(cartella: Path):
                 continue
             if not _PROMPT_KEY.search(riga):
                 continue
+            if i + 1 in spente:
+                # ⚠️ Il sito stesso puo' essere codice morto: `command.hsp:17281`
+                # -`:17288` e' il menu di uscita di upstream, promptAdd e gosub
+                # dentro lo stesso `/* ... */`. Contarlo misura tre voci che
+                # nessuno disegna.
+                confine = i + 1
+                continue
             inizio = max(confine, i - FINESTRA)
-            px = None
+            trovate: list[int] = []
             for j in range(i - 1, inizio - 1, -1):
+                if _ADD.search(righe[j]) and trovate:
+                    break  # sopra le voci comincia un altro discorso
+                if j + 1 in spente:
+                    continue
                 m = _VAL.match(righe[j])
-                if m:
-                    pezzi = campi(m.group(1))
-                    px = larghezza_inglese(pezzi[2]) if len(pezzi) >= 3 else None
-                    break
+                if not m:
+                    continue
+                pezzi = campi(m.group(1))
+                larga = larghezza_inglese(pezzi[2]) if len(pezzi) >= 3 else None
+                if larga is not None:
+                    trovate.append(larga)
+                elif not trovate:
+                    break  # un `val =` che non e' un riquadro chiude la ricerca
             voci = [j + 1 for j in range(inizio, i)
-                    if _ADD.search(righe[j]) and not righe[j].lstrip().startswith(";")]
-            yield percorso.name, i + 1, px, voci
+                    if _ADD.search(righe[j])
+                    and not righe[j].lstrip().startswith(";")
+                    and j + 1 not in spente]
+            yield percorso.name, i + 1, min(trovate) if trovate else None, voci
             confine = i + 1
 
 
