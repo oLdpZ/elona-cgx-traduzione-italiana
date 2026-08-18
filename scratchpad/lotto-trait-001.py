@@ -194,15 +194,15 @@ RESE = {
     (397, 'Being an ascetic increases your HP.'):
         'La vita da asceta ti alza i PV.',
     (397, 'You are an apprentice ascetic. [HP+5%]'):
-        'Sei asceta apprendista. [PV+5%]',
+        'Sei asceta apprendista. [HP+5%]',
     (397, 'You are a journeyman ascetic. [HP+10%]'):
-        'Sei asceta provetto. [PV+10%]',
+        'Sei asceta provetto. [HP+10%]',
     (397, 'You are an expert ascetic. [HP+15%]'):
-        'Sei asceta esperto. [PV+15%]',
+        'Sei asceta esperto. [HP+15%]',
     (397, 'You are a master ascetic. [HP+20%]'):
-        'Sei asceta maestro. [PV+20%]',
+        'Sei asceta maestro. [HP+20%]',
     (397, 'You are a legendary ascetic. [HP+25%]'):
-        'Sei asceta leggendario. [PV+25%]',
+        'Sei asceta leggendario. [HP+25%]',
 }
 
 

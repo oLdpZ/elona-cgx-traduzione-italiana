@@ -23,8 +23,15 @@ for v in voci:
         print(f"PROIBITO riga {v['riga']}: {vietati} in {it!r}")
         p2 += 1
     # 3. nessuna parola inglese residua nelle statiche
+    #
+    # ⚠️ `FOR` **maiuscolo** e' la sigla italiana di Forza (`text.hsp:61`, la
+    #    fila FOR COS DES PER APP VOL MAG CAR), non la preposizione inglese: si
+    #    legge in ogni marcatore di statistica, tipo `[FOR+3]`. Senza questa
+    #    esclusione la guardia gridava sei volte su un lotto solo di `trait.hsp`,
+    #    e una guardia che grida sempre non la guarda piu' nessuno. L'inglese
+    #    vero scrive `for` minuscolo, che resta agganciato.
     if v['tipo'] != 'dinamica':
-        m = INGLESI.findall(it)
+        m = INGLESI.findall(re.sub(r'\bFOR\b', '', it))
         if m:
             print(f"INGLESE riga {v['riga']}: {m} in {it!r}")
             p3 += 1
