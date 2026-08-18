@@ -72,6 +72,60 @@ def leggi(percorso):
         return f.read().split('\n')
 
 
+# ---- il tetto vero: 16, oppure 12 se la mappa mostra il numero di piano ----
+#
+# `maplevel()` (`text.hsp:2595`) non e' vuoto quando la mappa non e' una citta'
+# **e** e' Lesimas, un nefia generato, una missione, o ha un `MDATA_TYPE` fra
+# MAP_TYPE_DUNGEON_MIN e MAP_TYPE_DUNGEON_MAX. Il tipo lo dichiara la tavola
+# delle aree in `map.hsp` (`adata(ADATA_TYPE, p) = MAP_TYPE_...`).
+#
+# ⚠️ **`MAP_TYPE_QUEST` non ci sta.** La condizione di `maplevel()` guarda
+# l'*identificativo* `AREA_QUEST`, non il tipo, e il tipo QUEST vale 7: fuori
+# dall'intervallo 20-27 dei sotterranei. Metterlo qui dava il piano all'Arena
+# delle Bestie e alla Cupola delle Case, che non ce l'hanno.
+#
+# ⚠️ E il tipo vero e' `mdata(MDATA_TYPE)`, non `adata(ADATA_TYPE)`: `map.hsp:1387`
+# copia il secondo nel primo, ma una manciata di mappe lo riscrive subito dopo
+# (`:1407`, `:1443`, `:1854`, ...). Per quelle il tetto qui e' quello sbagliato.
+_TIPI_COL_PIANO = {
+    'MAP_TYPE_DUNGEON', 'MAP_TYPE_TOWER', 'MAP_TYPE_FOREST', 'MAP_TYPE_FORT',
+    'MAP_TYPE_NEST', 'MAP_TYPE_CEMETERY', 'MAP_TYPE_MINE', 'MAP_TYPE_LAKE',
+}
+_SENZA_PIANO = {'AREA_NT_SOUTH_BORDER', 'AREA_ST_NORTH_BORDER', 'AREA_VALM'}
+_AREA_P = re.compile(r'^\s*p\s*=\s*(AREA_\w+|areatestworld)\s*$')
+_TIPO_P = re.compile(r'^\s*adata\(\s*ADATA_TYPE\s*,\s*p\s*\)\s*=\s*(\w+)')
+_SE_AREA = re.compile(
+    r'adata\(\s*ADATA_ID\s*,\s*mapname_mapid\s*\)\s*==\s*(AREA_\w+|areatestworld)')
+
+
+def tipi_delle_aree(radice):
+    """{ AREA_X: MAP_TYPE_Y } dalla tavola delle aree di map.hsp."""
+    fuori, corrente = {}, None
+    for riga in leggi(os.path.join(radice, 'map.hsp')):
+        m = _AREA_P.match(riga)
+        if m:
+            corrente = m.group(1)
+            continue
+        if corrente:
+            m = _TIPO_P.match(riga)
+            if m:
+                fuori[corrente] = m.group(1)
+                corrente = None
+    return fuori
+
+
+def tetto_di(area, tipi):
+    """16, oppure 12 se quella mappa mostra il numero di piano."""
+    if not area or area in _SENZA_PIANO:
+        return TETTO
+    if area in ('AREA_LESIMAS', 'AREA_RANDOM_DUNGEON', 'AREA_QUEST'):
+        return TETTO_CON_PIANO
+    tipo = tipi.get(area)
+    if tipo in _TIPI_COL_PIANO:
+        return TETTO_CON_PIANO
+    return TETTO
+
+
 def blocco_mapname(righe):
     """Le righe di `#defcfunc mapname`, con il loro numero (1-based)."""
     dentro = False
@@ -104,10 +158,16 @@ def nome_di(coda):
 
 
 def raccogli(radice):
-    """{ (file, giapponese): (riga, nome) } per ogni posto che scrive il nome."""
+    """{ (file, giapponese): (riga, nome, area) } per ogni nome di mappa.
+
+    `area` e' l'`AREA_...` che lo governa, e serve a sapere se quella mappa
+    mostra il numero di piano: si conosce solo per i nomi di `mapname`, dove
+    l'`if` che li racchiude la nomina. Per gli altri resta None, e il tetto
+    va preso come «16, forse 12».
+    """
     fuori = {}
 
-    def aggiungi(nomefile, n, coda):
+    def aggiungi(nomefile, n, coda, area):
         esito = nome_di(coda)
         if not esito:
             return
@@ -117,13 +177,16 @@ def raccogli(radice):
         k = (nomefile, chiave)
         while k in fuori:               # stesso giapponese due volte nel file
             k = (k[0], k[1] + '\x00')
-        fuori[k] = (n, nome)
+        fuori[k] = (n, nome, area)
 
-    righe = leggi(os.path.join(radice, 'text.hsp'))
-    for n, riga in blocco_mapname(righe):
+    area = None
+    for n, riga in blocco_mapname(leggi(os.path.join(radice, 'text.hsp'))):
+        m = _SE_AREA.search(riga)
+        if m:
+            area = m.group(1)
         m = _ASSEGNA_S.match(riga)
         if m:
-            aggiungi('text.hsp', n, m.group(1))
+            aggiungi('text.hsp', n, m.group(1), area)
 
     for nomefile in sorted(os.listdir(radice)):
         if not nomefile.endswith('.hsp'):
@@ -131,23 +194,21 @@ def raccogli(radice):
         for n, riga in enumerate(leggi(os.path.join(radice, nomefile)), 1):
             m = _ASSEGNA_MDATAN.match(riga)
             if m:
-                aggiungi(nomefile, n, m.group(1))
+                aggiungi(nomefile, n, m.group(1), None)
 
     return fuori
 
 
-def referto(etichetta, nomi):
-    troppo = {k: v for k, v in nomi.items() if len(v[1]) > TETTO}
-    stretti = {k: v for k, v in nomi.items()
-               if TETTO_CON_PIANO < len(v[1]) <= TETTO}
+def referto(etichetta, nomi, tipi):
+    troppo = {k: v for k, v in nomi.items()
+              if len(v[1]) > tetto_di(v[2], tipi)}
     print(f'--- {etichetta}: {len(nomi)} nomi di mappa')
-    print(f'    oltre {TETTO} (tagliati sempre)        : {len(troppo)}')
-    print(f'    fra {TETTO_CON_PIANO + 1} e {TETTO} '
-          f'(tagliati se la mappa ha il piano): {len(stretti)}')
-    return troppo, stretti
+    print(f'    oltre il proprio tetto (tagliati): {len(troppo)}')
+    return troppo
 
 
 def main(argv):
+    tipi = tipi_delle_aree(SORGENTE)
     sorgente = raccogli(SORGENTE)
     build = raccogli(BUILD)
 
@@ -158,29 +219,25 @@ def main(argv):
         print(f'⚠️ {len(orfani)} nomi della build senza gemello nel sorgente: '
               f'{orfani[:3]}')
     print()
-    troppo_en, stretti_en = referto("l'inglese di monte", sorgente)
+    referto("l'inglese di monte", sorgente, tipi)
+    troppo_it = referto('la build italiana', build, tipi)
     print()
-    troppo_it, stretti_it = referto("la build italiana", build)
+
+    # Il numero che conta: dove l'inglese di monte ci sta e noi no.
+    nostre = []
+    for k, (n, it, area) in build.items():
+        t = tetto_di(area, tipi)
+        en = sorgente.get(k, (0, '', None))[1]
+        if en and len(en) <= t < len(it):
+            nostre.append((len(it), t, k[0], n, it, en, area))
+    print(f'=== DOVE L\'INGLESE CI STA E NOI NO: {len(nostre)} ===')
+    print('   (il tetto e\' 16 tranne dove segnato; "?" = area non riconosciuta,')
+    print('    cioe\' un nome assegnato fuori da mapname: potrebbe essere 12)')
     print()
-
-    if '--tutti' in argv:
-        print("=== l'inglese di monte, oltre il tetto ===")
-        for k, (n, v) in sorted(troppo_en.items(), key=lambda kv: -len(kv[1][1])):
-            print(f'  {len(v):3d}  {k[0]}:{n:<6d} {v}')
-        print()
-
-    print('=== la build italiana, oltre il tetto ===')
-    for k, (n, v) in sorted(troppo_it.items(), key=lambda kv: -len(kv[1][1])):
-        en = sorgente.get(k, (0, ''))[1]
-        stato = '' if len(en) > TETTO else '   <- l\'inglese ci stava'
-        print(f'  {len(v):3d}  {k[0]}:{n:<6d} {v}')
-        print(f'       a schermo: "{v[:TETTO]}"   (en {len(en):3d}: {en}){stato}')
-
-    if '--stretti' in argv:
-        print()
-        print('=== la build italiana, fra 13 e 16 (solo se la mappa ha il piano) ===')
-        for k, (n, v) in sorted(stretti_it.items(), key=lambda kv: -len(kv[1][1])):
-            print(f'  {len(v):3d}  {k[0]}:{n:<6d} {v}')
+    for lit, t, f, n, it, en, area in sorted(nostre, reverse=True):
+        segno = f'{t}' if area else f'{t}?'
+        print(f'  [{segno:>3}] {lit:3d}  {f}:{n:<6d} {it}')
+        print(f'             a schermo "{it[:t]}"   en ({len(en)}): {en}')
 
 
 if __name__ == '__main__':

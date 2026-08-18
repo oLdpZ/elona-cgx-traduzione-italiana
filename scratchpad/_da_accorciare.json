@@ -1,0 +1,542 @@
+[
+ {
+  "file": "text.hsp",
+  "riga": 2947,
+  "jp": "神々の旧戦地",
+  "en": "Old War Ground",
+  "it": "Antico Campo di Battaglia degli Dei",
+  "tetto": 16,
+  "area": "AREA_WAR_GROUND"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 7308,
+  "jp": "眠れる神艦・上層",
+  "en": "Albedrion",
+  "it": "Nave divina dormiente - ponte alto",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 8413,
+  "jp": "九頭竜の城",
+  "en": "Deep-Sea Castle",
+  "it": "Castello del Drago a Nove Teste",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 8022,
+  "jp": "すぎのこ廃村近辺",
+  "en": "Near the ruins",
+  "it": "Presso le rovine di Suginoko",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 1863,
+  "jp": "新生体兵器実験場",
+  "en": "New Test Site",
+  "it": "Nuovo laboratorio biologico",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 4501,
+  "jp": "神の間<復元>",
+  "en": "The Eternal Seal",
+  "it": "Sigillo Eterno <ricomposto>",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 2938,
+  "jp": "ルストール仙窟",
+  "en": "Rust Plaza",
+  "it": "Grotta Eremitica di Lustor",
+  "tetto": 16,
+  "area": "AREA_RUST_PLAZA"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 2953,
+  "jp": "星渡の収穫船",
+  "en": "Harvest Ship",
+  "it": "Nave del Raccolto Stellare",
+  "tetto": 12,
+  "area": "AREA_HARVEST_SHIP"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 4515,
+  "jp": "神の間<崩壊>",
+  "en": "The Eternal Seal",
+  "it": "Sigillo Eterno <in rovina>",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 6626,
+  "jp": "冥宮　2層",
+  "en": "LabyrinDeath 2F",
+  "it": "Palazzo Infero - livello 2",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 6640,
+  "jp": "冥宮　2層",
+  "en": "LabyrinDeath 2F",
+  "it": "Palazzo Infero - livello 2",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 6666,
+  "jp": "冥宮　2層",
+  "en": "LabyrinDeath 2F",
+  "it": "Palazzo Infero - livello 2",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 6723,
+  "jp": "冥宮　3層",
+  "en": "LabyrinDeath 3F",
+  "it": "Palazzo Infero - livello 3",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 6737,
+  "jp": "冥宮　3層",
+  "en": "LabyrinDeath 3F",
+  "it": "Palazzo Infero - livello 3",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 6764,
+  "jp": "冥宮　3層",
+  "en": "LabyrinDeath 3F",
+  "it": "Palazzo Infero - livello 3",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 6822,
+  "jp": "冥宮　4層",
+  "en": "LabyrinDeath 4F",
+  "it": "Palazzo Infero - livello 4",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 6836,
+  "jp": "冥宮　4層",
+  "en": "LabyrinDeath 4F",
+  "it": "Palazzo Infero - livello 4",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 6862,
+  "jp": "冥宮　4層",
+  "en": "LabyrinDeath 4F",
+  "it": "Palazzo Infero - livello 4",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 6919,
+  "jp": "冥宮　5層",
+  "en": "LabyrinDeath 5F",
+  "it": "Palazzo Infero - livello 5",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 6933,
+  "jp": "冥宮　5層",
+  "en": "LabyrinDeath 5F",
+  "it": "Palazzo Infero - livello 5",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 6959,
+  "jp": "冥宮　5層",
+  "en": "LabyrinDeath 5F",
+  "it": "Palazzo Infero - livello 5",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 7016,
+  "jp": "冥宮　6層",
+  "en": "LabyrinDeath 6F",
+  "it": "Palazzo Infero - livello 6",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 6529,
+  "jp": "冥宮入口",
+  "en": "LabyrinDeath 1F",
+  "it": "Palazzo Infero - ingresso",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 6543,
+  "jp": "冥宮入口",
+  "en": "LabyrinDeath 1F",
+  "it": "Palazzo Infero - ingresso",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 6569,
+  "jp": "冥宮入口",
+  "en": "LabyrinDeath 1F",
+  "it": "Palazzo Infero - ingresso",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 2935,
+  "jp": "眠れる神艦・船渠",
+  "en": "Dock",
+  "it": "Bacino della Nave Divina",
+  "tetto": 16,
+  "area": "AREA_DOCK"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 2824,
+  "jp": "廃モンスター牧場",
+  "en": "Discarded Ranch",
+  "it": "Allevamento abbandonato",
+  "tetto": 16,
+  "area": "AREA_DISCARDED_RANCH"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 5977,
+  "jp": "王宮近隣",
+  "en": "Eulderna city",
+  "it": "Presso il palazzo reale",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 2779,
+  "jp": "ルミエスト墓所",
+  "en": "the graveyard",
+  "it": "il cimitero di Lumiest",
+  "tetto": 16,
+  "area": "AREA_GRAVEYARD"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 2830,
+  "jp": "パルミア大使館",
+  "en": "the Embassy",
+  "it": "l'Ambasciata di Palmia",
+  "tetto": 16,
+  "area": "AREA_EMBASSY"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 3033,
+  "jp": "メイド屋敷",
+  "en": "Maid Mansion",
+  "it": "Villa delle Domestiche",
+  "tetto": 16,
+  "area": "AREA_MAID_MANSION"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 3024,
+  "jp": "タムの猫屋敷",
+  "en": "Cat Mansion",
+  "it": "Villa dei gatti di Tam",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 3624,
+  "jp": "メルカ大湿原",
+  "en": "moor",
+  "it": "Grande palude di Merca",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 2788,
+  "jp": "神々の休戦地",
+  "en": "the Truce Ground",
+  "it": "la Terra della Tregua",
+  "tetto": 16,
+  "area": "AREA_TRUCE_GROUND"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 2929,
+  "jp": "アムルの闇檻",
+  "en": "Amur-Cage",
+  "it": "Gabbia Oscura di Amur",
+  "tetto": 16,
+  "area": "AREA_AMUR_CAGE"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 3506,
+  "jp": "生体兵器実験場",
+  "en": "Test Site",
+  "it": "Laboratorio biologico",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 4080,
+  "jp": "悪魔岬近海",
+  "en": "Devil coastal",
+  "it": "Acque di Capo Diavolo",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 2926,
+  "jp": "エウダーナ魔導船",
+  "en": "Eulderna blimp",
+  "it": "Nave Magica Eulderna",
+  "tetto": 16,
+  "area": "AREA_BLIMP"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 3186,
+  "jp": "氷の城",
+  "en": "Castle of Ice",
+  "it": "Castello di Ghiaccio",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 7906,
+  "jp": "エウダーナ駐屯地",
+  "en": "The Mine",
+  "it": "Presidio di Eulderna",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 2842,
+  "jp": "魔女の住処",
+  "en": "Abode of witch",
+  "it": "Dimora della Strega",
+  "tetto": 16,
+  "area": "AREA_ABODE_OF_WITCH"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 3325,
+  "jp": "戦士ギルド",
+  "en": "Fighters Guild",
+  "it": "Gilda dei Guerrieri",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 3482,
+  "jp": "スライムの坑道",
+  "en": "The Mine",
+  "it": "Miniera degli slime",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 4163,
+  "jp": "15階大広間",
+  "en": "Hall",
+  "it": "Salone del piano 15",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 4357,
+  "jp": "15階大広間",
+  "en": "Hall",
+  "it": "Salone del piano 15",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 4378,
+  "jp": "20階大広間",
+  "en": "Hall",
+  "it": "Salone del piano 20",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 4394,
+  "jp": "25階大広間",
+  "en": "Hall",
+  "it": "Salone del piano 25",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 4416,
+  "jp": "30階大広間",
+  "en": "Hall",
+  "it": "Salone del piano 30",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 2767,
+  "jp": "ダンジョン",
+  "en": "Your Dungeon",
+  "it": "Il tuo sotterraneo",
+  "tetto": 16,
+  "area": "AREA_DUNGEON"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 2791,
+  "jp": "アクリ・テオラ",
+  "en": "Cyber Dome",
+  "it": "Cupola Cibernetica",
+  "tetto": 16,
+  "area": "AREA_CYBER_DOME"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 2803,
+  "jp": "コロシアム",
+  "en": "Pet Arena",
+  "it": "Arena delle Bestie",
+  "tetto": 16,
+  "area": "AREA_PET_ARENA"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 2809,
+  "jp": "収容所",
+  "en": "Camp",
+  "it": "Campo di prigionia",
+  "tetto": 16,
+  "area": "AREA_CAMP"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 2932,
+  "jp": "陽牢の塔",
+  "en": "Mirage Tower",
+  "it": "Torre del Miraggio",
+  "tetto": 16,
+  "area": "AREA_MIRAGE_TOWER"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 3012,
+  "jp": "異形の神殿",
+  "en": "Chaos Shrine",
+  "it": "Santuario del Caos",
+  "tetto": 12,
+  "area": "AREA_CHAOS_SHRINE"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 3358,
+  "jp": "戦場",
+  "en": "Doom Ground",
+  "it": "Campo di battaglia",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 8009,
+  "jp": "きのこ達の山",
+  "en": "Hill of mushroom",
+  "it": "Collina dei funghi",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 2848,
+  "jp": "ハウスドーム",
+  "en": "Show House",
+  "it": "Cupola delle Case",
+  "tetto": 16,
+  "area": "AREA_SHOW_HOUSE"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 5855,
+  "jp": "コンサート会場",
+  "en": "Concert hall",
+  "it": "Sala dei concerti",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "map.hsp",
+  "riga": 8138,
+  "jp": "地下賭博場",
+  "en": "Gambling hall",
+  "it": "Bisca clandestina",
+  "tetto": 16,
+  "area": "?"
+ },
+ {
+  "file": "text.hsp",
+  "riga": 2979,
+  "jp": "レミード遺跡",
+  "en": "Remido",
+  "it": "Rovine di Remido",
+  "tetto": 12,
+  "area": "AREA_REMIDO"
+ }
+]

@@ -1,0 +1,132 @@
+IL NOME DELLA MAPPA NELLA BARRA IN BASSO (screen.hsp:153)
+tetto: 16 caratteri, 12 se la mappa ha il piano
+
+--- l'inglese di monte: 197 nomi di mappa
+    oltre il proprio tetto (tagliati): 46
+--- la build italiana: 197 nomi di mappa
+    oltre il proprio tetto (tagliati): 104
+
+=== DOVE L'INGLESE CI STA E NOI NO: 60 ===
+   (il tetto e' 16 tranne dove segnato; "?" = area non riconosciuta,
+    cioe' un nome assegnato fuori da mapname: potrebbe essere 12)
+
+  [ 16]  35  text.hsp:2947   Antico Campo di Battaglia degli Dei
+             a schermo "Antico Campo di "   en (14): Old War Ground
+  [16?]  34  map.hsp:7308   Nave divina dormiente - ponte alto
+             a schermo "Nave divina dorm"   en (9): Albedrion
+  [16?]  31  map.hsp:8413   Castello del Drago a Nove Teste
+             a schermo "Castello del Dra"   en (15): Deep-Sea Castle
+  [16?]  28  map.hsp:8022   Presso le rovine di Suginoko
+             a schermo "Presso le rovine"   en (14): Near the ruins
+  [16?]  27  map.hsp:4501   Sigillo Eterno <ricomposto>
+             a schermo "Sigillo Eterno <"   en (16): The Eternal Seal
+  [16?]  27  map.hsp:1863   Nuovo laboratorio biologico
+             a schermo "Nuovo laboratori"   en (13): New Test Site
+  [ 16]  26  text.hsp:2938   Grotta Eremitica di Lustor
+             a schermo "Grotta Eremitica"   en (10): Rust Plaza
+  [16?]  26  map.hsp:7016   Palazzo Infero - livello 6
+             a schermo "Palazzo Infero -"   en (15): LabyrinDeath 6F
+  [16?]  26  map.hsp:6959   Palazzo Infero - livello 5
+             a schermo "Palazzo Infero -"   en (15): LabyrinDeath 5F
+  [16?]  26  map.hsp:6933   Palazzo Infero - livello 5
+             a schermo "Palazzo Infero -"   en (15): LabyrinDeath 5F
+  [16?]  26  map.hsp:6919   Palazzo Infero - livello 5
+             a schermo "Palazzo Infero -"   en (15): LabyrinDeath 5F
+  [16?]  26  map.hsp:6862   Palazzo Infero - livello 4
+             a schermo "Palazzo Infero -"   en (15): LabyrinDeath 4F
+  [16?]  26  map.hsp:6836   Palazzo Infero - livello 4
+             a schermo "Palazzo Infero -"   en (15): LabyrinDeath 4F
+  [16?]  26  map.hsp:6822   Palazzo Infero - livello 4
+             a schermo "Palazzo Infero -"   en (15): LabyrinDeath 4F
+  [16?]  26  map.hsp:6764   Palazzo Infero - livello 3
+             a schermo "Palazzo Infero -"   en (15): LabyrinDeath 3F
+  [16?]  26  map.hsp:6737   Palazzo Infero - livello 3
+             a schermo "Palazzo Infero -"   en (15): LabyrinDeath 3F
+  [16?]  26  map.hsp:6723   Palazzo Infero - livello 3
+             a schermo "Palazzo Infero -"   en (15): LabyrinDeath 3F
+  [16?]  26  map.hsp:6666   Palazzo Infero - livello 2
+             a schermo "Palazzo Infero -"   en (15): LabyrinDeath 2F
+  [16?]  26  map.hsp:6640   Palazzo Infero - livello 2
+             a schermo "Palazzo Infero -"   en (15): LabyrinDeath 2F
+  [16?]  26  map.hsp:6626   Palazzo Infero - livello 2
+             a schermo "Palazzo Infero -"   en (15): LabyrinDeath 2F
+  [16?]  26  map.hsp:4515   Sigillo Eterno <in rovina>
+             a schermo "Sigillo Eterno <"   en (16): The Eternal Seal
+  [ 12]  26  text.hsp:2953   Nave del Raccolto Stellare
+             a schermo "Nave del Rac"   en (12): Harvest Ship
+  [16?]  25  map.hsp:6569   Palazzo Infero - ingresso
+             a schermo "Palazzo Infero -"   en (15): LabyrinDeath 1F
+  [16?]  25  map.hsp:6543   Palazzo Infero - ingresso
+             a schermo "Palazzo Infero -"   en (15): LabyrinDeath 1F
+  [16?]  25  map.hsp:6529   Palazzo Infero - ingresso
+             a schermo "Palazzo Infero -"   en (15): LabyrinDeath 1F
+  [ 16]  24  text.hsp:2935   Bacino della Nave Divina
+             a schermo "Bacino della Nav"   en (4): Dock
+  [ 16]  23  text.hsp:2824   Allevamento abbandonato
+             a schermo "Allevamento abba"   en (15): Discarded Ranch
+  [16?]  23  map.hsp:5977   Presso il palazzo reale
+             a schermo "Presso il palazz"   en (13): Eulderna city
+  [ 16]  22  text.hsp:3033   Villa delle Domestiche
+             a schermo "Villa delle Dome"   en (12): Maid Mansion
+  [ 16]  22  text.hsp:2830   l'Ambasciata di Palmia
+             a schermo "l'Ambasciata di "   en (11): the Embassy
+  [ 16]  22  text.hsp:2779   il cimitero di Lumiest
+             a schermo "il cimitero di L"   en (13): the graveyard
+  [16?]  22  map.hsp:3624   Grande palude di Merca
+             a schermo "Grande palude di"   en (4): moor
+  [16?]  22  map.hsp:3024   Villa dei gatti di Tam
+             a schermo "Villa dei gatti "   en (11): Cat Mansion
+  [ 16]  21  text.hsp:2929   Gabbia Oscura di Amur
+             a schermo "Gabbia Oscura di"   en (9): Amur-Cage
+  [ 16]  21  text.hsp:2788   la Terra della Tregua
+             a schermo "la Terra della T"   en (16): the Truce Ground
+  [16?]  21  map.hsp:4080   Acque di Capo Diavolo
+             a schermo "Acque di Capo Di"   en (13): Devil coastal
+  [16?]  21  map.hsp:3506   Laboratorio biologico
+             a schermo "Laboratorio biol"   en (9): Test Site
+  [ 16]  20  text.hsp:2926   Nave Magica Eulderna
+             a schermo "Nave Magica Euld"   en (14): Eulderna blimp
+  [16?]  20  map.hsp:7906   Presidio di Eulderna
+             a schermo "Presidio di Euld"   en (8): The Mine
+  [16?]  20  map.hsp:3186   Castello di Ghiaccio
+             a schermo "Castello di Ghia"   en (13): Castle of Ice
+  [ 16]  19  text.hsp:2842   Dimora della Strega
+             a schermo "Dimora della Str"   en (14): Abode of witch
+  [16?]  19  map.hsp:4416   Salone del piano 30
+             a schermo "Salone del piano"   en (4): Hall
+  [16?]  19  map.hsp:4394   Salone del piano 25
+             a schermo "Salone del piano"   en (4): Hall
+  [16?]  19  map.hsp:4378   Salone del piano 20
+             a schermo "Salone del piano"   en (4): Hall
+  [16?]  19  map.hsp:4357   Salone del piano 15
+             a schermo "Salone del piano"   en (4): Hall
+  [16?]  19  map.hsp:4163   Salone del piano 15
+             a schermo "Salone del piano"   en (4): Hall
+  [16?]  19  map.hsp:3482   Miniera degli slime
+             a schermo "Miniera degli sl"   en (8): The Mine
+  [16?]  19  map.hsp:3325   Gilda dei Guerrieri
+             a schermo "Gilda dei Guerri"   en (14): Fighters Guild
+  [ 16]  18  text.hsp:2932   Torre del Miraggio
+             a schermo "Torre del Miragg"   en (12): Mirage Tower
+  [ 16]  18  text.hsp:2809   Campo di prigionia
+             a schermo "Campo di prigion"   en (4): Camp
+  [ 16]  18  text.hsp:2803   Arena delle Bestie
+             a schermo "Arena delle Best"   en (9): Pet Arena
+  [ 16]  18  text.hsp:2791   Cupola Cibernetica
+             a schermo "Cupola Ciberneti"   en (10): Cyber Dome
+  [ 16]  18  text.hsp:2767   Il tuo sotterraneo
+             a schermo "Il tuo sotterran"   en (12): Your Dungeon
+  [16?]  18  map.hsp:8009   Collina dei funghi
+             a schermo "Collina dei fung"   en (16): Hill of mushroom
+  [16?]  18  map.hsp:3358   Campo di battaglia
+             a schermo "Campo di battagl"   en (11): Doom Ground
+  [ 12]  18  text.hsp:3012   Santuario del Caos
+             a schermo "Santuario de"   en (12): Chaos Shrine
+  [ 16]  17  text.hsp:2848   Cupola delle Case
+             a schermo "Cupola delle Cas"   en (10): Show House
+  [16?]  17  map.hsp:8138   Bisca clandestina
+             a schermo "Bisca clandestin"   en (13): Gambling hall
+  [16?]  17  map.hsp:5855   Sala dei concerti
+             a schermo "Sala dei concert"   en (12): Concert hall
+  [ 12]  16  text.hsp:2979   Rovine di Remido
+             a schermo "Rovine di Re"   en (6): Remido
