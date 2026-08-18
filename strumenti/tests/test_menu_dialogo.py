@@ -13,9 +13,10 @@ import pytest
 from strumenti import percorsi
 
 from strumenti.menu_dialogo import (
-    CORNICE_RE_SELECT, FINESTRA_EVENTO, INIZIO_TESTO, INIZIO_VOCE_RE_SELECT,
-    MARGINE_RE_SELECT, PERGAMENA, PIXEL_PER_CARATTERE, PIXEL_UTILI, TETTO,
-    contenitore_di_menu, fuori_misura, fuori_misura_inglese,
+    CORNICE_RE_SELECT, FINESTRA_EVENTO, INIZIO_TESTO, INIZIO_VOCE_GOD,
+    INIZIO_VOCE_RE_SELECT, LARGHEZZA_GOD, MARGINE_GOD, MARGINE_RE_SELECT,
+    NON_DISEGNANO, PANNELLO_DEI, PERGAMENA, PIXEL_PER_CARATTERE, PIXEL_UTILI,
+    TETTO, contenitore_di_menu, fuori_misura, fuori_misura_inglese,
     menu_non_ancora_tradotti, non_misurate, reso, righe_di_menu, tetto_di,
     voci_di_menu,
 )
@@ -324,3 +325,57 @@ def test_le_voci_tradotte_stanno_tutte_in_un_contenitore_misurabile():
     scoperte = non_misurate()
     assert scoperte == [], "\n".join(
         "%s:%d in *%s" % (v["file"], v["riga"], v["_contenitore"]) for v in scoperte)
+
+
+# --- il terzo contenitore: il pannello degli dei ------------------------------
+#
+# Nato nella 61a, quando `god.hsp` e' entrato nel dizionario: le sue tre voci
+# (`:345`-`:350`) risultavano dentro `*screen_drawStatus`, cioe' dentro un
+# contenitore che non esiste. La regola «a disegnarla e' il gosub che segue» e'
+# giusta e resta; quel che mancava e' che fra la voce e il ciclo che disegna
+# davvero puo' esserci un gosub che ridisegna l'HUD.
+
+SORGENTE_DEI = """\
+*god_select
+\tchatList 0, lang("信仰する", "Believe in a god")
+\tchatList 2, lang("やめる", "Cancel")
+\tgosub *screen_drawStatus
+*god_select_WHILE1
+\tdx = 650
+\treturn
+"""
+
+
+@pytest.fixture
+def finto_pannello_dei(tmp_path):
+    (tmp_path / "god.hsp").write_bytes(SORGENTE_DEI.encode("cp932"))
+    return tmp_path
+
+
+def test_un_gosub_che_ridisegna_l_hud_non_e_il_contenitore(finto_pannello_dei):
+    """`*screen_drawStatus` non apre nessuna finestra: si tira dritto."""
+    trovate = contenitore_di_menu(finto_pannello_dei)["god.hsp"]
+    assert trovate[2][0] == PANNELLO_DEI
+    assert trovate[3][0] == PANNELLO_DEI
+
+
+def test_screen_drawStatus_e_dichiarato_fra_quelli_che_non_disegnano():
+    # se un domani qualcuno lo toglie da qui, il test sopra diventa rosso e si
+    # capisce subito perche'
+    assert "screen_drawStatus" in NON_DISEGNANO
+
+
+def test_il_tetto_del_pannello_dei_viene_dal_dx_scritto_a_mano():
+    """`god.hsp:382` scrive `dx = 650`, e non c'e' nessun bitmap di mezzo."""
+    atteso = (LARGHEZZA_GOD - INIZIO_VOCE_GOD - MARGINE_GOD) // PIXEL_PER_CARATTERE
+    assert tetto_di(PANNELLO_DEI, "?") == atteso
+    assert atteso == 79
+
+
+def test_le_voci_del_pannello_dei_ci_stanno_tutte():
+    """La piu' lunga e' «Convertiti a Kumiromi della Messe»: 33 su 79."""
+    voci = [v for v in voci_di_menu() if v["file"] == "god.hsp"]
+    assert voci, "god.hsp non ha piu' voci di menu: e' cambiato il sorgente?"
+    for v in voci:
+        assert v["_contenitore"] == PANNELLO_DEI
+    assert [v for v in fuori_misura() if v["file"] == "god.hsp"] == []

@@ -17,6 +17,8 @@ scrivere, probabilmente la stringa va tradotta.
 
 | valore | motivo |
 |---|---|
+| `< ` | la parentesi che apre il nome del dio in cima al pannello di scelta (`god.hsp:392`-`:416`, nove volte lo stesso `lang("《 ", "< ")`). Il giapponese usa le parentesi angolari piene 《 》, l'inglese le ha portate in ASCII, e l'italiano tiene quelle ASCII: le francesi «» CP932 non le codifica affatto, e le graffe piene sono a due byte, che la build inglese disegna come due glifi latini a caso. Non c'è niente da tradurre: è una cornice |
+| ` >` | la parentesi che chiude, per la stessa ragione di `< ` |
 | `Direct sound` | nome del driver audio (`config.hsp:805`), non una parola: e' il valore che si scrive in `config.txt` alla chiave `sound.`, e accanto a lui il pannello mostra `MCI`, che nel sorgente non passa nemmeno da una `lang()`. Tradurlo scollegherebbe l'etichetta dal file di configurazione |
 | `Direct music` | nome del driver audio (`config.hsp:809`), per la stessa ragione di `Direct sound`. Il terzo e il quarto valore della stessa riga sono `MCI` e `GuruGuruSMF4`, letterali nudi che nessun dizionario raggiunge |
 | `Spongebob` | nome di un modo di scrivere i nomi degli oggetti (`config.hsp:944`), accanto a `Capitalize`, `Uppercase`, `Lowercase` e `Schizophrenic`. E' la citazione del meme del testo aLtErNaTo, che in italiano circola con lo stesso nome inglese; e il giapponese qui non aiuta, perche' dice 「表示」 per tutt'e cinque i modi |

@@ -169,10 +169,28 @@ CORNICE_RE_SELECT = 36   # dx = tx + 36            (event.hsp:4153)
 INIZIO_VOCE_RE_SELECT = 64   # cs_list a wx+60 (:4195) + 4 (module.hsp:129)
 MARGINE_RE_SELECT = 12   # il bordo interno, simmetrico al gcopy di :4165
 
-# i due contenitori di cui la geometria e' stata letta. Tutto il resto si conta
+# --- la geometria del pannello degli dei, letta da god.hsp:382-:462
+LARGHEZZA_GOD = 650          # dx = 650                     (god.hsp:382)
+INIZIO_VOCE_GOD = 84         # cs_list a wx+80 (:462) + 4   (module.hsp:129)
+MARGINE_GOD = 12             # lo stesso bordo interno di *re_select
+
+# i tre contenitori di cui la geometria e' stata letta. Tutto il resto si conta
 # e non si misura: vedi il docstring.
 PERGAMENA = "chat_select"
 FINESTRA_EVENTO = "re_select"
+PANNELLO_DEI = "god_select_WHILE1"
+
+# ⚠️ **I `gosub` che non disegnano un menu.** La regola «a disegnarla e' il
+# `gosub` che segue» vale finche' il primo `gosub` dopo la voce e' quello che
+# apre la finestra. In `*god_select` non lo e': fra i `chatList` (`god.hsp:345`-
+# `:350`) e il ciclo che disegna davvero c'e' un `gosub *screen_drawStatus`
+# (`:366`), che ridisegna l'HUD e non ha niente a che vedere col menu. Senza
+# questa lista le tre voci del pannello degli dei risultavano dentro
+# `*screen_drawStatus`, cioe' dentro un contenitore che non esiste — e la
+# guardia le contava fra le «non misurate» per sempre.
+# 💡 Si scarta per NOME e non per forma, perche' la forma non distingue: e' un
+# `gosub *etichetta` come tutti gli altri.
+NON_DISEGNANO = frozenset({"screen_drawStatus", "screen_draw", "screen_refreshFull"})
 
 _VOCE = re.compile(r"\bchatList\b")
 _GOSUB = re.compile(r"\bgosub\s+\*(\w+)")
@@ -249,6 +267,8 @@ def contenitore_di_menu(sorgente: Path | None = None) -> dict[str, dict[int, tup
             for j in range(i, len(righe)):
                 gosub = _GOSUB.search(righe[j])
                 if gosub:
+                    if gosub.group(1) in NON_DISEGNANO:
+                        continue
                     dove = gosub.group(1)
                     break
                 etichetta = _ETICHETTA.match(righe[j])
@@ -296,6 +316,11 @@ def tetto_di(contenitore: str, sfondo: str, grafica: Path | None = None) -> int 
         if larghezza is None:
             return None
         utili = larghezza + CORNICE_RE_SELECT - MARGINE_RE_SELECT - INIZIO_VOCE_RE_SELECT
+        return int(utili / PIXEL_PER_CARATTERE)
+    if contenitore == PANNELLO_DEI:
+        # ⚠️ Qui il riquadro non dipende da un bitmap: `god.hsp:382` lo scrive
+        #    a mano, `dx = 650`, ed e' lo stesso per tutti e nove gli dei.
+        utili = LARGHEZZA_GOD - INIZIO_VOCE_GOD - MARGINE_GOD
         return int(utili / PIXEL_PER_CARATTERE)
     return None
 
