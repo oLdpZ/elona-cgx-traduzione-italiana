@@ -154,10 +154,28 @@ def divario(sinistra: str, destra: str) -> int:
     ⚠️ **Non e' un di piu' del `costo`: e' la cosa che si vede.** Il costo dice
     se le due si sovrappongono, e a quella domanda la risposta e' sempre stata
     «no»; il collaudo della 63a ha mostrato `TalentiMaterie` attaccate, e il
-    conto spiega perche' — la coppia costa 49 su 50, cioe' lascia **un pixel**,
-    e il contorno di `bmes` se lo mangia. Un sì/no nascondeva il margine.
+    conto spiega perche' — la coppia costa 49 su 50, cioe' lascia **un pixel**.
+    Un sì/no nascondeva il margine.
     """
     return TETTO_COPPIA - costo(sinistra, destra)
+
+
+# ⭐ Misurato sulle tre schermate della 63a, sempre nella banda del testo:
+#
+#     nominale 1  ->  buco vero 3 px   `Talenti|Materie`, e si legge attaccato
+#     nominale 4  ->  buco vero 5 px   `Storico|Diario`
+#     nominale 5  ->  buco vero 7 px   `Tratti|Materie`
+#     nominale 5  ->  buco vero 8 px   `Diario|Dialogo`
+#
+# ⚠️ **Il metro non e' «piu' di zero»: e' «piu' del buco fra due lettere».**
+# Dentro una parola il carattere lascia **2-3 px**, quindi a nominale 1 il
+# confine fra due linguette e' largo quanto un confine fra due lettere e
+# l'occhio non lo trova. Il buco vero vale circa il nominale piu' due, perche'
+# l'inchiostro dell'ultima lettera finisce prima della sua cella.
+#
+# 💡 Sotto questa soglia la coppia non si sovrappone — resta dentro il tetto —
+# ma si legge come una parola sola: e' un avviso, non un guasto.
+DIVARIO_LEGGIBILE = 4
 
 
 def fuori_misura(dizionario: Path | None = None,
@@ -183,6 +201,8 @@ def main(argv: list[str] | None = None) -> int:
     quante = sum(len(f) for f in tutte.values())
     guasti = fuori_misura()
 
+    strette: list[tuple[int, str, str, int]] = []
+
     print("linguette: %d in %d file di `drawmenu`" % (quante, len(tutte)))
     print("tetto: 4*L(i) + 3*L(i+1) <= %d fra vicine; L <= %d per l'ultima"
           % (TETTO_COPPIA, TETTO_ULTIMA))
@@ -200,13 +220,21 @@ def main(argv: list[str] | None = None) -> int:
         print("  %-49s  divario px: %s   (inglese: %s)"
               % ("", " ".join("%d" % d for d in nostri),
                  " ".join("%d" % d for d in loro)))
+        for (a, b), quanto in zip(zip(testi, testi[1:]), nostri):
+            if quanto < DIVARIO_LEGGIBILE:
+                strette.append((numero, a, b, quanto))
     for numero, sinistra, destra, quanto in guasti:
         if destra:
             print("  FUORI %s:%d  %r + %r = %d" % (FILE, numero, sinistra, destra, quanto))
         else:
             print("  FUORI %s:%d  %r e' l'ultima e fa %d caratteri"
                   % (FILE, numero, sinistra, quanto))
-    print("\ncoppie fuori misura: %d" % len(guasti))
+    for numero, sinistra, destra, quanto in strette:
+        print("  STRETTA %s:%d  %r + %r lasciano %d px: non si sovrappongono, "
+              "ma si leggono come una parola sola"
+              % (FILE, numero, sinistra, destra, quanto))
+    print("\ncoppie fuori misura: %d   (strette ma dentro: %d)"
+          % (len(guasti), len(strette)))
     return 1 if guasti else 0
 
 
