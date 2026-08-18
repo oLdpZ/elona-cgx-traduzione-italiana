@@ -508,7 +508,75 @@ def carica_toppe(percorso: Path | None = None) -> list[dict]:
                 f"{percorso.name}, toppa {indice}: `tutte` dev'essere true o false, "
                 f"non {toppa['tutte']!r}."
             )
+        if "prima" in toppa and not isinstance(toppa["prima"], bool):
+            raise SorgenteCorrotto(
+                f"{percorso.name}, toppa {indice}: `prima` dev'essere true o false, "
+                f"non {toppa['prima']!r}."
+            )
+        if toppa.get("prima"):
+            _controlla_toppa_prima(percorso.name, indice, toppa)
     return toppe
+
+
+def letterali_di_lang(righe: list[str]) -> list[str]:
+    """I letterali che stanno DENTRO una `lang(...)`, in ordine.
+
+    Serve alla sola guardia di `prima`: una toppa che gira prima del dizionario
+    non puo' toccare quel che il dizionario deve ancora agganciare.
+    """
+    dentro: list[str] = []
+    for riga in righe:
+        i = 0
+        while True:
+            i = riga.find("lang(", i)
+            if i < 0:
+                break
+            profondita = 0
+            j = i + 4
+            in_stringa = False
+            inizio = None
+            while j < len(riga):
+                c = riga[j]
+                if in_stringa:
+                    if c == "\\":
+                        j += 2
+                        continue
+                    if c == '"':
+                        in_stringa = False
+                        dentro.append(riga[inizio:j + 1])
+                elif c == '"':
+                    in_stringa = True
+                    inizio = j
+                elif c == "(":
+                    profondita += 1
+                elif c == ")":
+                    profondita -= 1
+                    if profondita == 0:
+                        j += 1
+                        break
+                j += 1
+            i = j
+    return dentro
+
+
+def _controlla_toppa_prima(nome_file: str, indice: int, toppa: dict) -> None:
+    """Una toppa `prima` non puo' cambiare il contenuto di una `lang()`.
+
+    Se lo facesse, il dizionario — che gira dopo e cerca i siti per firma, cioe'
+    per contenuto — non troverebbe piu' quel sito e lo dichiarerebbe orfano: una
+    riga tornerebbe in inglese senza che nessuna guardia se ne accorga. Il caso
+    per cui `prima` esiste e' l'opposto: un letterale **fuori** da ogni `lang()`
+    su una riga che ne porta anche una (`config.hsp:618`).
+    """
+    prima = letterali_di_lang(righe_di_toppa(toppa["cerca"]))
+    dopo = letterali_di_lang(righe_di_toppa(toppa["sostituisci"]))
+    if prima != dopo:
+        raise SorgenteCorrotto(
+            f"{nome_file}, toppa {indice}: e' dichiarata `prima` ma cambia il "
+            f"contenuto di una lang(): {prima} -> {dopo}. Il dizionario gira dopo e "
+            "cerca i siti per contenuto: quel sito diventerebbe orfano. Una toppa "
+            "che deve toccare una lang() non va dichiarata `prima`."
+        )
 
 
 def righe_di_toppa(valore: str | list[str]) -> list[str]:
@@ -655,6 +723,31 @@ def main() -> None:
     if not argomenti.salta_copia:
         prepara_albero()
 
+    # ⚠️ Le toppe dichiarate `prima` girano qui, sull'albero appena copiato e
+    # ancora in inglese: il loro `cerca` e' la riga del sorgente pinnato, come
+    # per tutte le altre, e cosi' resta vera la guardia contro la deriva di
+    # upstream (test_le_toppe_del_progetto_si_applicano_al_sorgente_pinnato).
+    # Servono quando un letterale FUORI da ogni lang() vive sulla stessa riga di
+    # una lang(): dopo il dizionario quella riga non e' piu' quella del sorgente,
+    # e una toppa scritta sul sorgente non la troverebbe. Vedi config.hsp:618.
+    toppe_tutte = carica_toppe()
+    toppe_prima = [t for t in toppe_tutte if t.get("prima")]
+    toppe_dopo = [t for t in toppe_tutte if not t.get("prima")]
+    for nome_file in sorted({t["file"] for t in toppe_prima}):
+        bersaglio = percorsi.BUILD_HSP / nome_file
+        if not bersaglio.exists():
+            raise SystemExit(
+                f"{nome_file}: una toppa `prima` nomina un file assente dall'albero di "
+                f"build ({bersaglio}). Rigenera l'albero senza --salta-copia."
+            )
+        testo = bersaglio.read_bytes().decode("cp932")
+        try:
+            nuovo, quante = applica_toppe(nome_file, testo, toppe_prima)
+        except ValueError as errore:
+            raise SystemExit(str(errore))
+        bersaglio.write_bytes(nuovo.encode("cp932"))
+        print(f"{nome_file}: {quante} toppe prima del dizionario")
+
     totale = 0
     totale_orfane = 0
     totale_plurali = 0  # righe di plurale e articolo
@@ -702,7 +795,7 @@ def main() -> None:
     # le toppe hanno un giro proprio: riguardano siti fuori da lang(), quindi
     # file che possono non avere nessuna voce di dizionario (init.hsp oggi non
     # ne ha) e che il ciclo qui sopra non visiterebbe mai
-    toppe = carica_toppe()
+    toppe = toppe_dopo
     for nome_file in sorted({t["file"] for t in toppe}):
         bersaglio = percorsi.BUILD_HSP / nome_file
         if not bersaglio.exists():

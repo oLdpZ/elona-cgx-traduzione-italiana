@@ -6,7 +6,7 @@ import pytest
 
 from strumenti import percorsi
 from strumenti.applica import (SorgenteCorrotto, applica_toppe, carica_toppe,
-                               righe_di_toppa)
+                               letterali_di_lang, righe_di_toppa)
 
 RIGA_NAME = '\t\treturn "the " + cdatan(CDATAN_NAME, name_arg1)'
 
@@ -328,3 +328,77 @@ def test_tutte_deve_essere_un_booleano(tmp_path):
                         encoding="utf-8")
     with pytest.raises(SorgenteCorrotto, match="tutte"):
         carica_toppe(percorso)
+
+
+# --- `prima`: la toppa che gira PRIMA del dizionario -------------------------
+#
+# Nata nella 61a per `config.hsp:618`, dove due voci di menu sono letterali
+# inglesi nudi sulla stessa riga di quattro che invece stanno dentro una
+# `lang()`. Il dizionario riscrive le quattro, quindi dopo di lui quella riga
+# non e' piu' quella del sorgente pinnato e una toppa scritta sul sorgente non
+# la trova. Girando prima, il `cerca` resta la riga del sorgente — e cosi' resta
+# vera anche la guardia contro la deriva di upstream.
+
+RIGA_MISTA = '\t\ts = lang("ログ", "Log"), "  Display log instead*", ""'
+RIGA_MISTA_IT = '\t\ts = lang("ログ", "Log"), "  Registro invece*", ""'
+
+
+def toppa_prima(**sovrascritture):
+    base = {
+        "file": "config.hsp",
+        "cerca": RIGA_MISTA,
+        "sostituisci": RIGA_MISTA_IT,
+        "motivo": "prova",
+        "prima": True,
+    }
+    base.update(sovrascritture)
+    return base
+
+
+def test_carica_toppe_conserva_prima(tmp_path):
+    percorso = tmp_path / "toppe.jsonl"
+    percorso.write_text(json.dumps(toppa_prima(), ensure_ascii=False) + "\n",
+                        encoding="utf-8")
+    caricate = carica_toppe(percorso)
+    assert caricate[0]["prima"] is True
+
+
+def test_prima_deve_essere_un_booleano(tmp_path):
+    percorso = tmp_path / "toppe.jsonl"
+    percorso.write_text(json.dumps(toppa_prima(prima="si"), ensure_ascii=False) + "\n",
+                        encoding="utf-8")
+    with pytest.raises(SorgenteCorrotto, match="prima"):
+        carica_toppe(percorso)
+
+
+def test_una_toppa_prima_non_puo_cambiare_il_contenuto_di_una_lang(tmp_path):
+    """E' la ragione per cui `prima` non e' il modo normale di toppare.
+
+    Il dizionario gira dopo e cerca i siti per contenuto: se la toppa gli
+    cambia l'inglese sotto i piedi, quel sito diventa orfano e la riga torna in
+    inglese senza che nessuna guardia se ne accorga.
+    """
+    percorso = tmp_path / "toppe.jsonl"
+    rotta = toppa_prima(sostituisci='\t\ts = lang("ログ", "Registro"), "  Registro invece*", ""')
+    percorso.write_text(json.dumps(rotta, ensure_ascii=False) + "\n", encoding="utf-8")
+    with pytest.raises(SorgenteCorrotto, match="lang"):
+        carica_toppe(percorso)
+
+
+def test_una_toppa_prima_che_tocca_solo_il_nudo_passa(tmp_path):
+    percorso = tmp_path / "toppe.jsonl"
+    percorso.write_text(json.dumps(toppa_prima(), ensure_ascii=False) + "\n",
+                        encoding="utf-8")
+    assert len(carica_toppe(percorso)) == 1
+
+
+def test_letterali_di_lang_prende_solo_quel_che_sta_dentro():
+    dentro = letterali_di_lang([RIGA_MISTA])
+    assert dentro == ['"ログ"', '"Log"']
+    # il nudo di fuori non c'e', ed e' tutto il punto
+    assert '"  Display log instead*"' not in dentro
+
+
+def test_letterali_di_lang_regge_le_virgolette_protette():
+    riga = '\ttxt lang("a", "dice \\"si\\" e basta"), "fuori"'
+    assert letterali_di_lang([riga]) == ['"a"', '"dice \\"si\\" e basta"']
