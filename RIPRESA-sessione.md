@@ -69,7 +69,7 @@ regge, quello dedotto no.
 
 ### ▶ Il punto esatto in cui si riprende
 
-Tutto e' **spinto** (cinque spinte) e l'albero di lavoro e' pulito. Si riparte
+Tutto e' **spinto** (otto spinte) e l'albero di lavoro e' pulito. Si riparte
 da `git fetch && git status -sb` e dalle **dieci** verifiche d'apertura. La
 sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
 **diciottesima prova** di fila, e le dieci verifiche hanno dato **dieci volte i
@@ -261,6 +261,26 @@ nome vecchio, lo fara' anche altrove.
    il resto di `screen.hsp` (101 voci), le ~55 etichette di `item_func.hsp`.
 7. ⭐ Le altre 622 di `event.hsp` e le 121 di `command.hsp`.
 8. ⭐ I 1.146 testi di `db_card.hsp` e le 835 di `effdesc@tcg`.
+
+### ▶ Come si e' chiusa
+
+La sessione si e' chiusa su richiesta, con l'albero pulito e `origin/fase-0`
+allineato. Le dieci verifiche d'apertura sono state rilanciate **anche in
+chiusura** e danno i valori nuovi scritti qui sopra: chi riapre deve trovarli
+identici, e se non li trova la prima cosa da guardare e' se `applica` e'
+girato dopo l'ultima modifica al dizionario.
+
+⚠️ **La ripresa e' stata riscritta due volte** — la prima dopo `god.hsp`, la
+seconda dopo `economy.hsp` — e vale la regola della 38a: meglio riscriverla due
+volte che lasciare fuori dal racconto quel che e' successo dopo la prima.
+
+⚠️⚠️ **E resta il debito, che e' tutto dalla stessa parte**: tre pannelli interi
+misurati **a calcolo** e non visti da nessuno, sommati all'arretrato della 60a.
+Il conto delle spinte non misura se il lavoro e' arrivato a schermo. La prima
+schermata che vale la pena chiedere e' quella del **pannello degli dei**, non
+perche' sia la piu' probabile a essere rotta, ma perche' e' l'unica che puo'
+**smentire un modello**: se a schermo l'inglese di Ehekatl e Opatos non sfora,
+`misura-god.py` sbaglia di una riga e tutte le nove rese vanno riguardate.
 
 ---
 
