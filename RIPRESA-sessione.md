@@ -1,9 +1,266 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-18, fine della **sessantesima** sessione (la **rete 5 e'
-uscita da `text.hsp`** dopo tre sessioni che lo segnalavano, e `map_user.hsp`
-si e' aperto e **chiuso** nello stesso giorno: 204 `lang()`, 203 rese, 1
-rinviata, piu' 3 letterali nudi).
+Aggiornato: 2026-08-18, fine della **sessantunesima** sessione (**due file
+aperti e chiusi nello stesso giorno** — `config.hsp` e `god.hsp`, 255 rese piu' una correzione — un
+**punto cieco nuovo trovato e chiuso**, e **due strumenti di misura nati** per
+due pannelli che nessuna rete guardava).
+
+⭐⭐⭐ **La lezione della sessione: un referto nuovo sbaglia la propria misura
+esattamente dove ha sbagliato la rete che cita.** `nudi_accanto_a_lang.py` e'
+nato per contare i letterali inglesi nudi che stanno accanto a una `lang()`, e
+per dire quali fossero gia' fatti confrontava la **riga** fra sorgente e build.
+Ma su una riga mista la riga cambia **sempre**, perche' il dizionario ci ha
+riscritto la `lang()`: appena `config.hsp` ha avuto un dizionario, `:805` e
+`:809` sono risultate fatte, e `MCI` non l'aveva toccato nessuno. Contava **7 da
+fare dove ce n'erano 15**. 💡 E' la lezione della 60a — una misura presa su un
+insieme piu' largo di quello che si vuole misurare — ripetuta **dentro il
+referto che la citava nel docstring**. Il metro giusto sono i nudi.
+
+⭐⭐⭐ **E lo stesso e' successo al simulatore del pannello degli dei, un'ora
+dopo.** `misura-god.py` riportava l'ultima posizione del **cursore**, ma ogni
+scheda finisce con un `<p>` che lascia una riga vuota sotto: dava a Kumiromi
+wy+206 invece di wy+182, cioe' **24 px di sfondamento inventati**. Due strumenti
+nuovi, due misure sbagliate al primo giro, tutt'e due per aver misurato una cosa
+vicina invece della cosa. 💡 Uno strumento di misura va **provato sull'inglese di
+monte prima di usarlo sull'italiano**: e' l'unico caso in cui si sa gia' che
+cosa deve venire fuori.
+
+⭐⭐⭐ **Il dodicesimo punto cieco: un nudo inglese ACCANTO a una `lang()`.**
+`nudi_en.py` scarta la riga intera appena ci legge un `lang(` — `if 'lang(' in
+s: continue` — quindi una riga mista non la guarda nessuno: il dizionario prende
+le `lang()` e il letterale accanto resta inglese a schermo. L'ha fatto vedere
+`config.hsp:618`, dove quattro voci di menu passano dal dizionario e **due no**.
+✅ **19 di struttura, 0 da fare, 6 decise**: chiuso il giorno stesso in cui e'
+nato. Fra le nove toppate, due si leggono a ogni apertura della **scheda del
+personaggio** (`" cm"` e `" kg"`, `command.hsp:10659`).
+
+⭐⭐ **E per toppare quelle righe e' nata una forma nuova di toppa, `prima`.**
+Le toppe girano **dopo** il dizionario (`applica.py:702`), quindi una riga mista
+a quel punto non e' piu' quella del sorgente e una toppa scritta sul sorgente
+non la trova. Scriverla sulla riga gia' tradotta funziona, ma fa diventare rosso
+`test_le_toppe_del_progetto_si_applicano_al_sorgente_pinnato`, che e' la guardia
+contro la deriva di upstream. Con `"prima": true` la toppa gira sull'albero
+appena copiato: il `cerca` torna a essere la riga del sorgente e la guardia
+resta vera. ⚠️ La deroga si paga con un controllo — una toppa `prima` **non puo'
+cambiare il contenuto di una `lang()`**, o il dizionario, che gira dopo e cerca
+i siti per contenuto, dichiarerebbe quel sito orfano e la riga tornerebbe in
+inglese **in silenzio**.
+
+⭐⭐ **Tradurre `godname()` non ripara nove siti: ne ripara trentatre'.**
+`god.hsp:81`-`:89` riempie l'array dei nomi degli dei, e trentatre' righe in
+nove file lo interpolano. Fino a ieri `proc.hsp:11749` diceva a schermo «Senti
+su di te lo sguardo benevolo di **Lulwy of Wind**»: italiano intorno a un nome
+inglese, in una riga gia' tradotta e gia' collaudata. La 37a lo aveva scritto e
+nessuno c'era tornato.
+
+⚠️⚠️ **E il tetto di quei nomi non e' il `sdim`.** La 37a diceva «`sdim godname,
+20, 9` da' 20 byte»: e' una coincidenza — `sdim` non e' un tetto in scrittura,
+lo dice la 28a e lo riconferma la 33a. Il taglio vero e' `command.hsp:17662`,
+che fa `fixtxt("Fede      : " + godname(...), 32)`, e `fixtxt`
+(`module.hsp:5052`) taglia con `strmid`. L'etichetta italiana ne occupa 12 e non
+si accorcia — nella stessa colonna «Uccisioni : » ne vuole 12 — quindi al nome
+ne restano **20**. 💡 Due numeri uguali per due ragioni diverse: quello vero
+regge, quello dedotto no.
+
+---
+
+## La sessantunesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** (cinque spinte) e l'albero di lavoro e' pulito. Si riparte
+da `git fetch && git status -sb` e dalle **dieci** verifiche d'apertura. La
+sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
+**diciottesima prova** di fila, e le dieci verifiche hanno dato **dieci volte i
+valori attesi** della 60a.
+
+⚠️ **Il backslash mangiato dall'heredoc ha colpito di nuovo**, e stavolta su un
+`\'` dentro una stringa Python passata a `python - <<'PYEOF'`: il file e' finito
+su disco con `dell'altare` non protetto e un `SyntaxError`. La regola della 58a
+vale alla lettera anche qui: **i file con backslash si scrivono con lo strumento
+di scrittura**. E la forma che non ha il problema e' usare le virgolette doppie
+fuori e proteggere quelle dentro.
+
+⚠️⚠️ **I valori cambiati:**
+
+    pytest                  479 passed, 6 skipped     (erano 469: +6 toppa
+                                                       `prima`, +4 rete 15)
+    verifica --dizionario   config.hsp  0 / 0         <- FILE NUOVO, e CHIUSO
+                            god.hsp     0 / 0         <- FILE NUOVO, e CHIUSO
+                            map_user.hsp 0 / 1 -> 0/1 (fermo)
+    menu_dialogo            0 su 92 misurate          (erano 90: +2 del
+                                                       pannello degli dei)
+    toppe.jsonl             973                       (erano 963: +1 config,
+                                                       +9 nudi accanto a lang)
+    misura-rete4            8 | 485                   (era 8 | 473)
+    perimetro               66% | 49%                 (era 65% | 48%)
+    dizionario              +2 file: config.hsp.jsonl (160 voci),
+                            god.hsp.jsonl (95 voci)
+    invariati.md            +5 righe: Direct sound, Direct music, Spongebob,
+                            `< `, ` >`
+
+Tutto il resto e' **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
+1131/2466/0/0, `larghezze` 0 fuori misura su 75+91 siti, `diario` 0 su 214,
+`riquadri` 0 su 38 e 0 su 71, `linguette` 0 su 13, `battute --divergenti` 13,
+`nudi_en` 1044 | 445, `buff_en` 124 | 0 da fare, `rete8_dizionario` 3,
+`variabili_en` 60 | 4, `rinviate.jsonl` 72, `referti` 0 | 0.
+
+✅ **`cgx-test.exe` rifatto tre volte** e gia' in `elonaplus2.31\`.
+
+### ▶ Il collaudo: ZERO, e va detto a chiare lettere
+
+⚠️⚠️ **Il gioco non e' stato aperto nemmeno una volta.** L'arretrato che questa
+sessione lascia si somma a quello della 60a, che era gia' il piu' grosso mai
+lasciato da una sessione sola. Quel che va guardato, in ordine di peso:
+
+1. ⭐⭐⭐ **Il pannello degli dei** (`god.hsp:376`-`:462`). Nove schede, e la
+   geometria e' stata **calcolata e mai vista**: `misura-god.py` simula `gmes`,
+   e una simulazione e' un'ipotesi finche' non la si guarda. Si apre parlando a
+   un altare o da una statua. ⚠️ Il simulatore dice che **l'inglese di monte
+   sfora su due schede su nove** (Ehekatl e Opatos, ultima riga a wy+198 con il
+   menu a wy+212): se a schermo l'inglese NON sfora, il modello e' sbagliato di
+   una riga e va corretto prima di fidarsi delle rese italiane.
+2. ⭐⭐⭐ **Il pannello delle opzioni** (`config.hsp`, tasto Escape → Opzioni).
+   160 rese nuove in nove sottosezioni, con due tetti calcolati e mai visti: 22
+   caratteri per l'etichetta e 15 per il valore. Le voci al limite esatto sono
+   «Passi prima di correre» (22), «Raccolta e distruzione» (22) e «Tutti in
+   citta'» (15): se il conto e' giusto ci stanno tutte, se e' sbagliato si
+   vedono subito. ⚠️ E la sezione «Impostazioni extra 2 (schermo)» ha un titolo
+   da 30 caratteri in una linguetta che dovrebbe allargarsi da sola
+   (`module.hsp:4328`): e' l'unica geometria che non ho verificato nemmeno a
+   calcolo.
+3. ⭐⭐ **Il nome del dio dove si legge**: la scheda del personaggio (`Fede :`),
+   la scheda esportata (dove `fixtxt` taglia a 20), e le frasi che lo
+   interpolano — «Preghi Kumiromi della Messe.», «Ora sei un fedele di …».
+4. ⭐ **Le nove toppe `prima`**: i due nomi di voce di `config.hsp:618`, il « cm»
+   e il « kg» della scheda, il «Pag.» della finestra delle ricette, il prezzo
+   dell'ampliamento del negozio («Ingrandisci (12000 oro)»).
+5. ⭐ Tutto l'arretrato della 60a, che resta intatto: il menu di casa, la
+   finestra del valore della casa, il pannello della struttura.
+
+### ▶ I lotti, e che cosa hanno chiuso
+
+    fase4-config-001      86 rese    le etichette del pannello delle opzioni
+    fase4-config-002      74 rese    i valori e le due note in fondo
+    fase4-god-001         95 rese    i nomi degli dei, le nove schede, l'altare
+    correzione-leccato     1 resa    un participio della 59a
+    toppe                 10         config:618 piu' le nove di nudi_accanto
+    -------------------------------------------------------------
+                         256 rese e 10 toppe — e DUE file sono chiusi
+
+### ▶ I due pannelli che nessuna rete guardava, e come si misurano
+
+    scratchpad/misura-config.py   le due colonne del pannello delle opzioni
+    scratchpad/misura-god.py      le nove schede degli dei, simulando gmes
+
+⭐ **Il metro sta sempre nel disegnatore.** `module.hsp:72` scrive
+`strlen(s) * 7 + 32`, e il 7 regge perche' il carattere inglese e' **Courier
+New** (`config.txt`, `font2.`), monospaziato, chiesto a corpo 12
+(`config.hsp:716`): 0,6 em di passo fanno 7,2 px. I confini sono le due frecce
+di `config.hsp:741` e `:743`.
+
+⚠️ **`gmes` non e' `mes`**, e questa e' la scoperta che serve anche altrove:
+`module.hsp:4918`-`:5018` e' un compositore che va a capo da solo, interpreta
+`<br>` e `<p>`, e **ignora il `font` che il chiamante ha appena impostato** —
+`god.hsp:419` chiede corpo 13 e `gmes` lo riscrive a 14 alla prima riga. Il
+passo e' 7, non 6. ⚠️ E va a capo **a meta' parola**: i `<br>` di upstream
+stanno li' apposta.
+
+### ▶ Le volte che l'inglese di monte non regge
+
+**In `god.hsp`, sei:**
+
+1. `:35` **dice tutt'altro.** La condizione e' `faith * 100 < piety`, cioe' la
+   pieta' ha superato quel che l'abilita' Fede regge. Il giapponese lo dice,
+   l'inglese scrive «Your god becomes indifferent to your gift» e parla del
+   dono.
+2. `:270` e `:300` **perdono il numero**: `+40%` e `-10%` diventano «Increase
+   all damage» e «Reduce any damage». Chi sceglie un dio sta confrontando
+   numeri.
+3. `:315` **e' un mozzicone**: «Yacatect is a god of wealth.» e basta, mezzo
+   pannello vuoto, mentre il giapponese la descrive per intero.
+4. `:309` e `:285` tengono **meta'** di quel che il giapponese dice.
+5. `:316` **generalizza**: 首飾り / 指輪 sono collane e anelli, «Accessories» e'
+   la categoria.
+6. `:616` e `:903` **perdono la battuta**: il senza-dio «ci prova lo stesso» a
+   pregare e a offrire.
+
+**In `config.hsp`, quattro:**
+
+1. `:799` **確認なし** e' «nessuna conferma»; «Don't Use» dice un'altra cosa —
+   non si smette di usare i punti di viaggio, si smette di essere interrotti.
+2. `:894` **省略** e' «si salta»; «Highest» continua la scala di velocita'
+   invece di dire che il turno automatico non si vede piu'.
+3. `:851` il giapponese mette la ragione fra parentesi, 「なし（高速）」, e la
+   resa la tiene: «No (veloce)».
+4. `:1046` il giapponese ha **tre** righe e l'inglese due: quella che manca dice
+   che le voci con (L) e (R) servono a cambiare linguetta nei menu, che e'
+   l'unica ragione per cui quelle due voci hanno un suffisso.
+
+### ▶ ⚠️⚠️ E tre abilita' sono nominate con un nome che il gioco non usa piu'
+
+`god.hsp:317` scrive 自然鑑定 / «Sense Quality», ma quell'abilita' nel gioco si
+chiama 分析 / «Analysis» (`skill.hsp:252`). Stessa cosa a `:275`: 銃 e 大工,
+mentre `skill.hsp:181` e `:322` dicono 銃器 e 工作. **Sbagliano tutt'e due le
+lingue di monte**, ed e' un nome vecchio rimasto in un file che nessuno rilegge.
+Le rese usano i nomi che il giocatore trova nell'elenco delle abilita' —
+«Analisi», «Arma da fuoco», «Falegnameria» — perche' una lista di bonus serve a
+**cercare** quelle voci, e un nome che li' non esiste non serve a niente.
+💡 Vale la pena cercarne altri: se un file di contorno nomina un'abilita' con un
+nome vecchio, lo fara' anche altrove.
+
+### ▶ Il vocabolario fissato oggi, e da dove viene
+
+    Eyth del Nulla / Mani della Macchina / Lulwy del Vento /
+    Itzpalt Elementale / Ehekatl della Sorte / Opatos della Terra /
+    Jure della Cura / Kumiromi della Messe / Yacatect del Tesoro
+                        i nove nomi degli dei, tetto 20 caratteri
+    Analisi             分析, da skill.hsp:252 — vedi sopra
+    sterco              shit, da db_item.hsp:144913 — 汚物 era intoccato
+    Guida di Norne      ノルンの冒険ガイド: il giapponese nomina la guida,
+                        l'inglese scrive «Extra Help»
+    Animazione barra    ゲージ技, «mossa di barra» da proc.hsp:12899
+    Solo al gancio      吊るし, da command.hsp:6608 — l'inglese scrive
+                        «Sandbag», che e' il sacco da boxe e non il gancio
+    Analisi/Fortuna/Velocita'  i nomi canonici delle abilita', da skill.hsp
+    Direct sound / Direct music / Spongebob / `< ` / ` >`   invariati.md
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **Tutto il collaudo di questa sessione e di quella prima.** Vedi la
+   sezione del collaudo qui sopra. Due pannelli interi misurati **a calcolo**.
+2. ⭐⭐⭐ **`larghezze.py` misura la `lang()`, non la riga** — il debito della
+   60a, ancora aperto. `map_user.hsp:445` e' stato toppato («Ingrandisci (12000
+   oro)»), ma quante altre righe sforino non l'ha misurato nessuno.
+3. ⭐⭐ **Venti file con `lang()` e senza dizionario**, per **1.907** `lang()`
+   fuori da ogni conteggio (erano 22 file e 2.240). In ordine:
+   `trait.hsp` 406, `chara.hsp` 274, `item.hsp` 244, `blend.hsp` 183,
+   `txtadv.hsp` 170, `material_data.hsp` 118, `custom_autopick.hsp` 90,
+   `db_race.hsp` 87, `system.hsp` 56, `help.hsp` 52, `db_class.hsp` 48.
+   ⚠️ `chara.hsp` e `blend.hsp` hanno anche voci di menu misurate dalla rete 5.
+   ⚠️⚠️ **E due di loro adesso sono MEZZI tradotti**: `blend.hsp` ed
+   `economy.hsp` hanno una toppa e nessun dizionario, perche' le nove toppe
+   `prima` di oggi sono arrivate prima del lotto. `file_senza_dizionario.py` lo
+   dice da se' («file mezzo tradotti: 2»), ed e' la forma dei «mezzi fatti»
+   della 55a: una riga italiana in un file che per il referto del dizionario non
+   esiste. Vanno aperti, anche per una voce sola.
+4. ⭐⭐ **Il passo del carattere da 10 px** (`map_user.hsp:766`), che nessuna
+   rete conosce: e' il debito della 60a al punto 3.
+5. ⭐⭐ Le 148 voci di `talk_quest` e le 46 di `com_txtadv_loop`.
+6. ⭐⭐ I debiti della 58a: la colonna delle abilita' che tronca a 4 caratteri,
+   il resto di `screen.hsp` (101 voci), le ~55 etichette di `item_func.hsp`.
+7. ⭐ Le altre 622 di `event.hsp` e le 121 di `command.hsp`.
+8. ⭐ I 1.146 testi di `db_card.hsp` e le 835 di `effdesc@tcg`.
+
+---
+
+## La sessantesima sessione (per storia)
+
+La rete 5 e' **uscita da `text.hsp`** dopo tre sessioni che lo segnalavano, e
+`map_user.hsp` si e' aperto e **chiuso** nello stesso giorno: 204 `lang()`, 203
+rese, 1 rinviata, piu' 3 letterali nudi.
+
+### Le lezioni con cui la 60a si era chiusa
 
 ⭐⭐⭐ **La lezione della sessione: una rete nuova trova il proprio punto cieco
 quando le si fa misurare un INSIEME, non una riga.** La rete 5 allargata
@@ -71,10 +328,6 @@ concordano con «potenziale» e vanno al maschile. Le altre quattro sono nuove.
     Supreme -> Supremo    Great -> Notevole    Hopeless -> Nullo
     Amazing -> Enorme     Good  -> Buono
     Superb  -> Ottimo     Bad   -> Scarso
-
----
-
-## La sessantesima sessione
 
 ### ▶ Il punto esatto in cui si riprende
 
@@ -5922,14 +6175,14 @@ fare era su una riga commentata. Vedi «Le righe commentate» più sotto.
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-python -m pytest strumenti/tests -q        # atteso: 469 passed, 6 skipped
+python -m pytest strumenti/tests -q        # atteso: 479 passed, 6 skipped
 python -m strumenti.prova_identita         # atteso: 72/72, 27.813, ambigue 0
 python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre ovunque
 python -m strumenti.creature               # atteso: nome 1131, voce 2466, doppie 0, senza razza 0
 python -m strumenti.larghezze              # atteso: 0 fuori misura; 75 menu di text.hsp piu' 91 siti, 412 + 304 voci
 python -m strumenti.diario                 # atteso: 0 fuori misura su 214 siti
 python -m strumenti.riquadri               # atteso: 0 su 38 piastrelle, 0 su 71 buffname
-python -m strumenti.menu_dialogo           # atteso: 0 su 90 misurate, 0 non misurate
+python -m strumenti.menu_dialogo           # atteso: 0 su 92 misurate, 0 non misurate
 python -m strumenti.linguette              # atteso: 0 coppie fuori misura su 13
 python -m strumenti.battute --divergenti   # atteso: 13, tutte legittime
 ```
@@ -5976,7 +6229,10 @@ un'estrazione piena (`estrai` senza `--da-tradurre`) tornano a girare e passano.
 ```powershell
 $env:PYTHONPATH = $repo
 python scratchpad/referti.py              # participi col giocatore: 0 | elisioni: 0
-python scratchpad/nudi_en.py              # struttura 1044 | ancora da fare 473
+python scratchpad/nudi_en.py              # struttura 1044 | ancora da fare 445
+python scratchpad/nudi_accanto_a_lang.py  # 19 struttura | 0 da fare | 6 decise (12° punto cieco)
+python scratchpad/misura-config.py        # 147 voci, 0 fuori misura (tetti 22 e 15)
+python scratchpad/misura-god.py build     # 9 schede, 0 sotto il menu
 python scratchpad/triage_nudi.py          # testo 271, sigla 87, dbg 93, spenta 22
 python scratchpad/return_en.py            # 0 da fare, 2 decise, 35 toccate, 49 morf., 35 chiavi
 python scratchpad/tabelle_en.py           # testo 7 tabelle / 73 voci: 6 fatte, 1 decisa, 0 da fare
@@ -5986,7 +6242,7 @@ python scratchpad/nomi_che_compongono.py  # 13.548 righe, 83 nomi (8° punto cie
 python scratchpad/blocchi_en.py           # struttura 99 | ancora da fare 54
 python scratchpad/else_jp.py              # else-di-jp: 6.984 righe in 13 file
 python scratchpad/rete8_dizionario.py     # 3, tutti dichiarati falsi positivi
-python scratchpad/misura-rete4.py         # 8 con lo stesso inglese | 459 con inglese diverso
+python scratchpad/misura-rete4.py         # 8 con lo stesso inglese | 485 con inglese diverso
 python scratchpad/misura-blocchi-spenti.py  # 4 sprecate | 5 vive altrove
 python scratchpad/variabili_en.py         # 60 variabili | 4 trappole in 4 siti
 python scratchpad/perimetro.py            # perimetro 57% | col fuori perimetro 42%
