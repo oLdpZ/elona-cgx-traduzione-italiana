@@ -22,10 +22,18 @@ Il margine destro e' `wx + ww - 56` (`:2607`), dove comincia la decorazione.
 
 ⚠️ **Il nome porta anche un suffisso che non e' nel dizionario**: `(MAX)` quando
 il talento e' al massimo e `(requirement)` quando manca il requisito
-(`command.hsp:2128`-`:2135`). Il secondo costa 13 caratteri e in inglese sfonda
-gia' da solo: il nome vero ha 26 - 13 = **13 caratteri** se lo si vuole leggere
-insieme al requisito. Qui il tetto e' misurato **senza** suffisso, com'e' il
-caso normale, e i suffissi sono contati a parte.
+(`command.hsp:2131`-`:2135`). Il tetto qui sotto e' misurato **senza** suffisso,
+com'e' il caso normale, e i suffissi si contano a parte con `--suffissi`.
+
+⚠️⚠️ **E il suffisso non e' lo stesso nelle due lingue**: `(MAX)` e' un letterale
+nudo e vale 5 in tutt'e due, ma il secondo e' una `lang()` — `(requirement)` 13
+in inglese, `(requisiti)` **11** in italiano. Fino alla 63a questo referto
+applicava il costo inglese anche alla build e non confrontava con l'inglese:
+gridava 45 nomi sfondati, contandoli 2 caratteri piu' lunghi del vero e senza
+dire che l'inglese sfonda negli stessi posti. E' di nuovo la lezione della 61a —
+misurare una cosa *vicina* invece della cosa. Adesso i suffissi si leggono da
+`command.hsp` **dell'albero che si sta misurando**, e il metro e' quello di
+sempre: **sforare dove l'inglese ci stava**.
 
 ## Come si sa in che colonna finisce una stringa
 
@@ -57,9 +65,11 @@ TETTO_EFFETTO = (730 - 270) // PASSO      # 65
 #    «non sforare dove l'inglese ci stava».
 TETTO_RIGA = (674 - 70) // PASSO          # 86
 
-SUFFISSI = {'(MAX)': 5, '(requirement)': 13}
-
 _LANG = re.compile(r'lang\(\s*"((?:[^"\\]|\\.)*)"\s*,\s*"((?:[^"\\]|\\.)*)"\s*\)')
+# ⚠️ `.*` avido e non `[^)]*`: l'argomento e' `traitref(2) - 1`, che una
+#    parentesi ce l'ha dentro, e la classe negata si fermava li'.
+_MAX = re.compile(r'traitrefn2\(.*\)\s*\+\s*"([^"]*)"')
+_RQ = re.compile(r'^\s*s\s*\+=\s*(lang\(.*\))\s*$')
 _NOMI = re.compile(r'^\s*traitrefn2\s*=')
 _DESCR = re.compile(r'^\s*traitrefn\(\s*2\s*\)\s*=')
 
@@ -121,6 +131,31 @@ def raccogli(radice):
     return fuori
 
 
+def suffissi(radice):
+    """I due suffissi del nome, letti da `command.hsp` di QUESTO albero.
+
+    ⚠️ Non si scrivono a mano: `(MAX)` e' un letterale nudo e resta uguale, ma
+    l'altro e' una `lang()` e la build lo traduce. Si parte dalla riga del
+    `(MAX)` e si guarda poco sotto, perche' `s += lang(..)` da solo non e'
+    abbastanza raro da agganciarlo in tutto il file.
+    """
+    righe = leggi(os.path.join(radice, 'command.hsp'))
+    fuori = {}
+    for n, riga in enumerate(righe):
+        m = _MAX.search(riga)
+        if not m:
+            continue
+        fuori[m.group(1)] = len(m.group(1))
+        for seguito in righe[n + 1:n + 8]:
+            r = _RQ.match(seguito)
+            if r:
+                for _, testo in _LANG.findall(r.group(1)):
+                    fuori[testo] = len(testo)
+                break
+        break
+    return fuori
+
+
 TETTI = {'nome': TETTO_NOME, 'effetto': TETTO_EFFETTO, 'riga': TETTO_RIGA}
 
 
@@ -163,12 +198,39 @@ def main(argv):
         print(f'      en  {en[3]}')
 
     if '--suffissi' in argv:
+        s_en, s_it = suffissi(SORGENTE), suffissi(BUILD)
         print()
-        print('=== i nomi che col suffisso sfondano ===')
-        for v in [x for x in build if x[1] == 'nome']:
-            for suff, costo in SUFFISSI.items():
-                if len(v[3]) + costo > TETTO_NOME:
-                    print(f'  {len(v[3]) + costo:3d}  {v[3]}{suff}')
+        print('=== IL NOME COL SUFFISSO ===')
+        for etichetta, s in (("l'inglese di monte", s_en), ('la build', s_it)):
+            print(f'    {etichetta}: ' + ', '.join(
+                f'{k} = {v}' for k, v in s.items()))
+        for etichetta, voci, s in (("l'inglese di monte", sorgente, s_en),
+                                   ('la build italiana', build, s_it)):
+            print(f'--- {etichetta}')
+            for suff, costo in s.items():
+                nomi = [x for x in voci if x[1] == 'nome']
+                fuori = [x for x in nomi if len(x[3]) + costo > TETTO_NOME]
+                print(f'    {suff:<14} costo {costo:>2}   '
+                      f'sfondano {len(fuori):>3} nomi su {len(nomi)}')
+        print()
+
+        # ⚠️ Il metro resta quello di sempre: non «sforare», ma «sforare dove
+        #    l'inglese ci stava». Le chiavi sono (riga, giapponese) come sopra.
+        nostre = []
+        for chiave, v in m_it.items():
+            en = m_en.get(chiave)
+            if not en or v[1] != 'nome':
+                continue
+            for (suff_it, c_it), (suff_en, c_en) in zip(s_it.items(),
+                                                        s_en.items()):
+                if len(en[3]) + c_en <= TETTO_NOME < len(v[3]) + c_it:
+                    nostre.append((len(v[3]) + c_it, v, suff_it, en, suff_en))
+        print(f"=== COL SUFFISSO, DOVE L'INGLESE CI STA E NOI NO: "
+              f'{len(nostre)} ===')
+        for lungo, v, suff_it, en, suff_en in sorted(nostre, reverse=True):
+            print(f'  {lungo:3d}/{TETTO_NOME}  trait.hsp:{v[0]}')
+            print(f'      it  {v[3]}{suff_it}')
+            print(f'      en  {en[3]}{suff_en}')
 
 
 if __name__ == '__main__':
