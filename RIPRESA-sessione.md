@@ -1,8 +1,9 @@
 # Ripresa sessione
 
 Aggiornato: 2026-08-18, fine della **cinquantottesima** sessione (`main.hsp`
-**chiuso** con 171 rese e 10 rinvii, la **rete 15 corretta**, e un punto cieco
-nuovo misurato e trovato piccolo).
+**chiuso** con 171 rese e 10 rinvii, la **rete 15 corretta**, due punti ciechi
+nuovi misurati, e un collaudo in chiusura che ha trovato un **tetto mai visto**
+nella finestra dell'equipaggiamento).
 
 ⭐⭐⭐ **La lezione della sessione: l'inglese di monte può avere la riga giusta
 dell'evento sbagliato, e nessuna rete lo vede.** È capitato **tre volte**, e la
@@ -81,7 +82,10 @@ messaggio in un file e passarlo con `git commit -F`.
                                                        è più uno solo)
     rinviate.jsonl          71                        (erano 61: +9 del ramo jp,
                                                        più 1 dell'`if ( 0 )`)
+    toppe.jsonl             838                       (erano 837: +1, il taglio
+                                                       del nome nell'equipaggiamento)
     if-zero                 11 righe | 2 con lang()   ← REFERTO NUOVO
+    tetto-equip             13% | 91% fuori misura    ← REFERTO NUOVO
     misura-re-select        177 righe | tetti 36-50   ← REFERTO NUOVO
 
 Tutto il resto è **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
@@ -89,32 +93,76 @@ Tutto il resto è **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
 71, `linguette` 0 su 13, `battute --divergenti` 13, `nudi_en` 1044 | 455,
 `rete8_dizionario` 3, `perimetro` 64% | 47%, `lang-nel-ramo-jp` 21 | 0.
 
-✅ **`cgx-test.exe` rifatto due volte** e già in `elonaplus2.31\`.
+✅ **`cgx-test.exe` rifatto tre volte** e già in `elonaplus2.31\`. ⚠️ L'ultima
+porta la toppa del taglio del nome, che **non è ancora stata vista a schermo**.
 
-### ▶ Il collaudo: ZERO, ed è la QUARTA sessione così dopo la 51ª, la 54ª e la 57ª
+### ▶ Il collaudo: FATTO in chiusura, e ha trovato un tetto che nessuna rete guardava
 
-⚠️⚠️⚠️ **Il gioco non è stato aperto nemmeno una volta, e stavolta è stato
-deciso a voce**: a metà sessione la scelta era fra collaudare e andare avanti, ed
-è stato scelto di andare avanti. Non è una svista, è un debito preso di
-proposito — ma il debito è **quattro sessioni su otto**, ed è il più grande che
-il progetto abbia mai avuto.
+⚠️ **Questa sezione è stata riscritta a sessione già chiusa una volta**: a metà
+giornata la scelta era fra collaudare e andare avanti, era stato scelto di
+andare avanti, e la ripresa diceva «ZERO, ed è la quarta volta». Poi il collaudo
+è arrivato lo stesso. È la 38ª che si ripete — meglio riscrivere la ripresa due
+volte che lasciare fuori dal racconto quel che è successo.
 
-⚠️⚠️ **E c'è un pezzo che il collaudo servirebbe a PROVARE, non solo a
-verificare**: il tetto di `*re_select` è stato calcolato **dalla geometria del
-sorgente e non è mai stato visto a schermo**. Se sbaglia, sbaglia su 177 righe di
-menu. Il modo di provarlo è una schermata sola:
+⭐⭐⭐ **Tre schermate hanno fatto tre lavori diversi, e nessuna era una
+conferma.** È la prova più netta della lezione della 56ª:
 
-1. ⭐⭐⭐ **Il minigioco delle orecchie** — si chiede a un compagno. Il suo menu
-   ha **dieci voci** dentro `*re_select` con sfondo `bg40`, tetto calcolato **41
-   caratteri**, e la più lunga ne fa 25 («Far scoppiare il condotto»). Serve la
-   schermata per misurare dove finisce davvero il riquadro.
-2. ⭐⭐ **La lotteria** (evento casuale) e **la nascita** — le altre due finestre
-   `*re_select` toccate oggi, sfondi `bg38`/`bg39`, tetto calcolato 62.
-3. ⭐⭐ **Il menu della morte** — l'arretrato della 57ª, tetto 45 caratteri che
-   **nessuna rete guarda**.
-4. ⭐ **Le undici sigle degli elementi** e **la bara della negromanzia** —
-   l'arretrato della 56ª, adesso da **tre** sessioni.
-5. ⭐ Il registro del mondo, il Ritorno e l'imbarco (57ª).
+1. La **prima** (`w`, resistenze accese) ha mostrato che i nomi degli oggetti
+   escono **tagliati**, tutti a 26 caratteri: «una corazza di bronzo [0,3» —
+   dentro il numero.
+2. La **seconda** (tasto `z`, resistenze spente) ha **provato la diagnosi**
+   invece di segnalare un difetto: senza la colonna i nomi si vedono **interi**,
+   «un elmo di bronzo [0,1] con maledizione», 39 caratteri. Da sola quella
+   schermata non conteneva nessun guasto, e senza di lei la causa restava
+   un'ipotesi.
+3. La **terza** (`z` ancora, pagine delle abilità) ha misurato il caso peggiore:
+   **12 caratteri**, «un elmo di b», «un paio di s», «uno scudo pi».
+
+Il codice ha confermato tutto: `command.hsp:12741`, del mod MMAH, è
+`s = strmid(s, 0, 12 + (showresist == 1) * 14)`.
+
+⚠️ **Non è un `sdim` frainteso** — la trappola in cui il progetto è caduto
+quattro volte in due giorni — ma uno `strmid`, cioè un taglio vero.
+⚠️ **E non è una regressione nostra**: degli stessi sette oggetti ne sforavano
+tre anche in inglese. Ma l'italiano lo sfonda quasi sempre, e la ragione è
+strutturale: **le qualifiche vanno in coda**. «a cursed bronze helmet [0,1]» sta
+in 28 caratteri, «un elmo di bronzo [0,1] con maledizione» in 39.
+
+✅ **La toppa recupera lo spazio che il taglio buttava via**, e i pixel vengono
+dalle schermate: il nome comincia a `x=762`, a 26 caratteri finisce a `x=952` e
+la prima sigla `Fu` comincia a `x=980` — **28 px liberi, 3,8 caratteri a 7,3 px
+l'uno**; nella vista delle abilità restano 17 px. Si alza del minimo dei due,
+**+2**, cambiando il primo addendo: 26→28 e 12→14.
+⚠️ **Due caratteri su nomi che ne vogliono trentadue: non risolve**, e
+`scratchpad/tetto-equip.py` serve a non dimenticarlo. Col solo articolo e i
+numeri in coda, la vista delle sigle lascia fuori il **13%** dei nomi (l'inglese
+il 3%), quella delle abilità il **91%** (l'inglese l'**84%**): la seconda è rotta
+per costruzione e per tutti, e il rimedio resta il tasto `z`.
+
+✅ **E l'arretrato della 56ª è chiuso e passa**: le undici sigle degli elementi
+(`Fu Ge Fl Os Me Ve Ol Su Ne Ca Ma`) stanno in fila senza toccarsi, `[Modo]` si
+legge, e «Segno letale» — reso oggi — sta bene nella colonna di stato. Due
+sessioni di attesa per un esito buono, che nessuno avrebbe saputo senza guardare.
+
+### ▶ Quel che il collaudo ha lasciato aperto
+
+1. ⭐⭐⭐ **La toppa non è stata verificata a schermo**: è entrata in
+   `cgx-test.exe` dopo l'ultima schermata. Basta riaprire il gioco e premere `w`
+   con le resistenze accese — le righe che si fermavano a `[0,3` devono arrivare
+   a `[0,3]`.
+2. ⭐⭐⭐ **La finestra `*re_select` non è mai stata vista.** È la misura più
+   importante rimasta di tutta la sessione: il suo tetto è calcolato dal
+   sorgente e da quel numero dipendono 177 righe di menu.
+3. ⭐⭐ **Un quarto tetto, visto e non misurato**: la colonna delle abilità
+   tronca i loro nomi a **4 caratteri** (`Tatt:6`, `Asci:8`, `Mine:6`, `Volo:7`).
+   In italiano quattro lettere non bastano a distinguere «Volontà» da «Volo».
+   Il taglio è `strmid(skillname(r), 0, 4 - (jp == 0))`.
+4. ⭐⭐ **Le linguette si toccano**: in alto si legge `TalentiMaterie` attaccate.
+   La rete 16 le dà dentro il limite, ma per un pelo — `4×7 + 3×7 = 49` su 50. Il
+   vincolo è giusto e il margine è zero: conviene accorciarne una.
+5. ⭐ Restano da guardare il registro del mondo, il rientro a casa con i saluti
+   dei compagni (le sette rese girate per non dire «bentornato»), e il menu della
+   morte.
 
 ### ▶ I lotti, e che cosa hanno chiuso
 
@@ -186,9 +234,11 @@ al femminile, perché lì il sesso **si sa** — è Marka.
 
 ### ▶ Che cosa fare
 
-1. ⭐⭐⭐ **Collaudare, e la schermata che vale di più è il minigioco delle
-   orecchie**: è l'unico modo di sapere se il tetto di `*re_select` calcolato
-   oggi è giusto, e da quel numero dipendono 177 righe di menu.
+1. ⭐⭐⭐ **Finire il collaudo, e le due cose che valgono di più sono la toppa
+   del nome** (riaprire il gioco e premere `w`: le righe che si fermavano a
+   `[0,3` devono arrivare a `[0,3]`) **e una finestra `*re_select`**, che nessuno
+   ha ancora visto e da cui dipendono 177 righe di menu. Vedi la sezione del
+   collaudo qui sopra per la lista intera di quel che è rimasto aperto.
 2. ⭐⭐⭐ **`larghezze.py` guarda solo `text.hsp`**, ed è il punto cieco di
    geometria che la 57ª aveva già segnalato e che nessuno ha ancora chiuso. I
    `promptAdd` fuori da `text.hsp` non li conta nessuno. ⚠️ È lo **stesso
