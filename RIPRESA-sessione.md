@@ -1,95 +1,222 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-18, fine della **cinquantanovesima** sessione (una schermata
-di collaudo ha corretto la formula che doveva confermare, l'**undicesimo punto
-cieco** è nato ed è stato **chiuso** nella stessa giornata — 124 su 124 — e
-`event.hsp` si è aperto con 27 rese).
+Aggiornato: 2026-08-18, fine della **sessantesima** sessione (la **rete 5 e'
+uscita da `text.hsp`** dopo tre sessioni che lo segnalavano, e `map_user.hsp`
+si e' aperto e **chiuso** nello stesso giorno: 204 `lang()`, 203 rese, 1
+rinviata, piu' 3 letterali nudi).
 
-⭐⭐⭐ **La lezione della sessione: una rete può prendere una costante da
-un'altra dicendo «è lo stesso carattere», e nessun test se ne accorge — perché
-i test fissano il numero, non la sua provenienza.** `menu_dialogo.py` (rete 15)
-aveva copiato il `7,7` px per carattere da `larghezze.py` (rete 5). Non è lo
-stesso carattere: `*prompt_key` disegna con `font ..., 15 - en * 2`
-(`system.hsp:4259`), cioè **13**, la pergamena del dialogo e `*re_select` con
-`font ..., 14 - en * 2`, cioè **12**.
-✅ Il numero giusto non è una stima: sta nel sorgente, **quattro volte**.
+⭐⭐⭐ **La lezione della sessione: una rete nuova trova il proprio punto cieco
+quando le si fa misurare un INSIEME, non una riga.** La rete 5 allargata
+sembrava finita — 92 siti, 261 voci, tre sfori corretti — e lo e' rimasta finche'
+il lotto di `map_user.hsp` non le ha chiesto **tutte le voci di un menu solo**.
+Li' la rete 1 del lotto ha detto «voce senza resa: `(507, 'Collecting
+function')`», e sotto c'era una forma che la rete non conosceva: `promptAdd` e'
+una **macro** (`init.hsp:26`), e 37 righe in sette file scrivono a mano quel che
+espande, `promptl(0, promptmax) = lang(...)`. 💡 Le trentadue voci sorelle sono
+state la prova: da sola, quella riga non avrebbe detto niente a nessuno.
+✅ Da 258 a **304** voci misurate, e i siti con voci proprie da 52 a **91**.
 
-    module.hsp:70     limit(strlen(arg1) * 7 + 32 + arg5, 10, 480)   la barra di cs_list
-    module.hsp:5014   gmesx += size / 2                             l'avanzamento di gmes
-    la schermata      7,00 px su 37 caratteri, barra prevista a 1210 e misurata a 1210
-    le sei misure     pendenza 49 px su 7 caratteri = 7,00 esatti
+⭐⭐⭐ **E il metro di un riquadro sta nel disegnatore, non nel nome dei
+parametri.** `system.hsp` legge `val` cosi': `sx = val - val(2) / 2` (`:4272`),
+`gfini val(2) - 17` (`:4275`). La larghezza e' il **terzo campo**, comunque
+siano scritti i primi due — `promptx, prompty, 300`, ma anche `promptx, 240,
+160` (chara.hsp) e `basex@tcg + 400, basey@tcg + 230, 300` (tcg.hsp). Cercare
+`promptx, prompty, N` ne trova venti su novantadue.
 
-⭐⭐⭐ **E le sei misure del 2026-08-17 erano giuste: sbagliato era il conto
-fatto sopra.** Non andava preso il **rapporto**, andava presa la **pendenza**.
-Il rapporto esce 7,7 perché ogni misura porta dentro i 32 px fissi del contorno,
-e dividerli per il numero di caratteri li **spalma sui caratteri** — 32 su 47 fa
-proprio 0,68. 💡 È un errore che nessuna rete può vedere, perché i dati erano
-buoni: si vede solo rimettendo le misure in fila e guardando **come crescono**.
+⚠️⚠️ **E la lingua allarga il riquadro in TUTT'E DUE i versi.** La rete
+conosceva solo `450 - 50 * en`; esistono anche `180 + ( en * 50 )` e
+`280 + (en * 140)`. Il primo modello scritto quel giorno dava «Vota per
+l'esecuzione» fuori misura in un tetto da 17: falso positivo, il tetto vero e'
+23. 💡 Un tetto sbagliato non boccia soltanto: **detta**.
 
-    pergamena di chat.hsp   407 px   52 -> 58 caratteri
-    *re_select              per bmp  36-50 -> 40-56
+⭐⭐ **Aprire un menu intero ha corretto la rete tre volte in un'ora**, e tutte
+e tre le volte per la stessa ragione — il sorgente ha piu' righe che dicono la
+stessa cosa e solo una conta:
 
-✅ **Nessuna resa era stata bocciata dal tetto falso — ma le dieci più lunghe
-stanno tutte fra 49 e 52.** Il tetto non bocciava: **dettava**. E
-`tcg_custom.hsp:2108`, con i suoi 54 caratteri inglesi, risultava «rotta anche
-in inglese»: non lo è mai stata. 💡 **Un tetto troppo stretto non produce solo
-rese accorciate: produce anche difetti di monte che non esistono.**
-⚠️ `larghezze.py` **resta com'è**: il suo 7,7 è il carattere da 13, e non viene
-da una divisione ma da un **taglio osservato** (300 px che tagliavano a 33
-caratteri). Il rapporto delle dimensioni conferma tutt'e due: 13/12 = 1,083
-contro 7,7/7 = 1,10.
+    1. un `val =` dentro un commento di blocco (`map_user.hsp:522`, la riga di
+       upstream spenta dal mod) stava **piu' vicina al `gosub`** di quella viva
+    2. degli altri due uno vale 330 (dentro un negozio) e l'altro 280: vale il
+       **piu' stretto**, e il piu' stretto non e' il piu' vicino
+    3. il **sito stesso** puo' essere morto (`command.hsp:17281`-`:17288`, il
+       menu di uscita di upstream): la rete ne misurava tre voci che nessuno
+       disegna, e una era pure gia' resa
 
-⭐⭐⭐ **E un referto nuovo sbaglia dove il progetto ha già sbagliato: tre
-correzioni in un giorno a `buff_en.py`, e nessuna era un'idea nuova.**
+⚠️ `righe_in_commento` viveva dalla 37a in `scratchpad/commenti-blocco.py`,
+fuori dalla catena delle verifiche e senza test. Ora la usa una rete, ed e'
+passata in **`strumenti/commenti.py`** con tre test suoi: una rete non puo'
+dipendere da uno scratch.
 
-    1. il `+=`     lo aveva già imparato `variabili_en.py` nella 47ª
-    2. lo escape   lo dice il docstring di `estrai.py` da sempre
-    3. il ramo jp  è tutto `else_jp.py`
+⭐⭐ **E la rete 3 ha trovato il difetto della 52a senza bisogno di una
+schermata.** La voce di menu `map_user.hsp:489` diceva «Informazioni sulla casa»
+e la finestra che apre «Valore della casa», con lo **stesso** giapponese
+(家の情報). A dividerle era l'inglese di monte, che scrive «Home rank» dalla
+porta e «Home Value» dentro. 💡 Nella 52a lo stesso difetto era stato trovato
+**cercando come si entra** in un pannello; qui l'ha trovato una rete, perche' li'
+i due giapponesi erano diversi e qui no.
 
-Il conto è passato da **44 a 124**, e sotto la prima correzione c'era una
-finestra intera: `command.hsp:8049`-`:8175`, la **scheda dell'avventuriero
-conosciuto**, 80 righe in inglese che nessun conteggio nominava. Sotto la
-seconda c'era una riga sola, `:8073`, che spariva perché ha una virgoletta
-protetta e il filtro «almeno due lettere» la buttava via **senza dire niente**.
-💡 **Conviene rileggere gli altri referti prima di scriverne uno.**
+⚠️⚠️ **«Finito per quale referto» fatto AL MOMENTO GIUSTO costa un decimo.**
+Chiuso il dizionario di `map_user.hsp`, `nudi_en.py` ha detto subito che
+restavano **tre letterali inglesi nudi**, e due erano messaggi veri del mod ANNA
+che portano dentro `StatPotential` — una variabile che il codice riscrive con
+una **parola inglese** della scala dei potenziali, la stessa resa mezz'ora prima
+per `:365`-`:405`. 💡 `variabili_en.py` non poteva vederli: guarda le variabili
+interpolate **dentro una `lang()`**, e li' di `lang()` non ce n'e' nessuna.
 
-⭐⭐ **L'undicesimo punto cieco: il CORPO della finestra, composto fuori da
-`lang()`.** `*re_select` disegna tre cose — titolo `s`, corpo `buff`, lista di
-`chatList` — e il progetto ha una rete per la terza e il dizionario per le
-`lang()` delle altre due. Ma `buff` si può scrivere **senza** `lang()`, e allora
-cade **fra le due reti**: `nudi_en` guarda i letterali che *disegnano* e questi
-stanno in un'assegnazione; `variabili_en` guarda le variabili *interpolate in
-una `lang()`* e `buff` non ci finisce mai.
-✅ **Nato e chiuso nella stessa giornata: 124 su 124.**
+⭐ **La scala dei potenziali non esisteva nel progetto** — `Supreme`, `Amazing`,
+`Superb`, `Great`, `Good`, `Bad`, `Hopeless` non comparivano in nessun
+dizionario, e il giapponese le tiene in inglese. Le prime tre le detta
+`text.hsp:107`, la scala delle **resistenze** («Suprema / Enorme / Ottima»): qui
+concordano con «potenziale» e vanno al maschile. Le altre quattro sono nuove.
 
-⭐⭐ **E il collaudo è stato UNA schermata sola, che ha fatto quattro lavori.**
-Il giocatore ha mandato la finestra dell'evento del lupo mannaro. Da lì: la
-conferma della toppa del nome (debito della 58ª, chiuso); la **prima finestra
-`*re_select` mai vista**, con la formula dei bordi verificata al pixel; il passo
-del carattere; e una riga bilingue nel registro.
-💡 **La misura si è potuta fare perché l'immagine era su disco**: le posizioni
-sono state lette con Pillow, non stimate a occhio. **Chi legge un collaudo può
-misurare la schermata invece di guardarla** — è un metodo nuovo per questo
-progetto e vale per ogni tetto.
-
-⭐⭐ **E l'inglese che sbaglia evento si è ripresentato subito, in un file
-nuovo.** `event.hsp:442` sta dentro `if ( wolf == 0 )`, azzera il contatore,
-suona `COMPLETE1`, e la riga sotto dice che il rito è **fallito**. Il giapponese
-scrive 失敗; l'inglese scrive «in progress», che è la riga di `:525`. 💡 La copia
-si vede dalla punteggiatura: `:525` chiude con `/200 > `, `:442` con `/200> `.
-**Chi copia una riga si porta dietro tutto tranne uno spazio.**
-
-⚠️⚠️ **Il genere di chi legge ha morso su tre lotti diversi**, ed è il filo che
-attraversa tutta la sessione: le otto righe del rientro a casa nella 58ª, i due
-esiti del gioco di carte («Hai ribaltato il tavolo e **lasciato la partita**»,
-«**SEI FUORI DAL GIOCO!**»), e i sei ranghi e sei tratti della scheda
-dell'avventuriero. 💡 La regola operativa che ne esce: **col passato prossimo di
-`avere` il participio non concorda, gli aggettivi in `-e` valgono per tutti, e
-un sintagma nominale non concorda mai.**
+    Supreme -> Supremo    Great -> Notevole    Hopeless -> Nullo
+    Amazing -> Enorme     Good  -> Buono
+    Superb  -> Ottimo     Bad   -> Scarso
 
 ---
 
-## La cinquantanovesima sessione
+## La sessantesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** (sei spinte) e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **dieci** verifiche d'apertura. La sessione
+si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
+**diciassettesima prova** di fila, e le dieci verifiche hanno dato **dieci volte
+i valori attesi** della 59a.
+
+⚠️ **Il backslash mangiato dall'heredoc di bash ha colpito TRE volte in un'ora**,
+e ogni volta in modo diverso: `\\b` diventato un carattere di backspace dentro
+una regex (che non aggancia piu' niente e non si vede a stampa), e `\\` di fine
+riga diventato `\` dentro una tripla virgoletta Python, che e' una
+**continuazione di riga** e ha fuso due righe di un fixture spostando tutti i
+numeri di riga di uno. 💡 La regola della 58a vale alla lettera: **i file con
+backslash si scrivono con lo strumento di scrittura**, mai con `cat <<'EOF'`.
+
+⚠️⚠️ **I valori cambiati:**
+
+    pytest                  469 passed, 6 skipped     (erano 453: +10 rete 5,
+                                                       +3 commenti, +3 rete 5)
+    larghezze               0 fuori misura            (era 0 su 75 menu; ora
+                            75 menu di text.hsp        128 menu e 716 voci)
+                            + 91 siti di *prompt_key
+                            412 + 304 voci
+    verifica --dizionario   map_user.hsp  0 / 1       <- il file ENTRA nel
+                                                          referto, e l'1 e' il
+                                                          rinvio
+    nudi_en                 1044 | 445                (era 1044 | 448)
+    perimetro               65% | 48%                 (era 64% | 48%)
+    toppe.jsonl             963                       (erano 959: +1 rinvio,
+                                                       +3 letterali nudi)
+    rinviate.jsonl          72                        (erano 71)
+    dizionario              +1 file: map_user.hsp.jsonl, 204 voci
+
+Tutto il resto e' **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
+1131/2466/0/0, `diario` 0 su 214, `riquadri` 0 su 38 e 0 su 71, `menu_dialogo`
+0 su 90, `linguette` 0 su 13, `battute --divergenti` 13, `misura-rete4` 8 | 473,
+`buff_en` 124 | 0 da fare, `rete8_dizionario` 3, `variabili_en` 60 | 4.
+
+✅ **`cgx-test.exe` rifatto tre volte** e gia' in `elonaplus2.31\`.
+
+### ▶ Il collaudo: ZERO, e va detto a chiare lettere
+
+⚠️⚠️ **Il gioco non e' stato aperto nemmeno una volta.** E' la quinta sessione
+senza collaudo dopo la 51a, la 54a e le altre, e stavolta l'arretrato e' grosso:
+**237 rese nuove** e **quattro toppe**, di cui trentatre' in un menu solo.
+Il ritmo della 50a — «tre volte tutto ok a schermo aperto, subito dopo la spinta
+del pezzo appena fatto» — si reggeva sul fatto che chi collauda stava li'.
+
+Quel che va guardato, in ordine di peso:
+
+1. ⭐⭐⭐ **Il menu di casa** (`map_user.hsp:537`): 33 voci nuove in un riquadro
+   solo, tetto 30 caratteri. Si apre entrando in una proprieta'. E' il gruppo
+   piu' grosso del gioco in una finestra sola, e un tetto sbagliato si vedrebbe
+   subito. ⚠️ **Le sette voci del negozio vivono in un riquadro da 330** (tetto
+   36) e non da 280: la rete tiene il piu' stretto, e nessuna resa ha avuto
+   bisogno del margine, ma a schermo si vede se il conto regge.
+2. ⭐⭐⭐ **La finestra del valore della casa** (`:749`): ha una geometria mai
+   misurata — **43 px** fra l'etichetta e la prima stella, con un carattere da
+   **10** px (`:766`, `:773`). «Base», «Arredi», «Cimeli», «Totale» ci stanno
+   per **stima**, non per misura: il passo di quel carattere non lo conosce
+   nessuna rete. ⚠️ E' l'unica geometria di questa sessione non provata.
+3. ⭐⭐ **Il pannello della struttura**, cioe' quel che il gioco stampa prima del
+   menu: tipo di negozio, chi ci lavora, i due potenziali, il conto dei
+   prigionieri (`:286`-`:431`).
+4. ⭐ **I tre menu corretti della prima parte**: lo scrittoio (`action.hsp:7814`
+   e `:7816`) e il menu personalizzazione (`command.hsp:17535`).
+
+### ▶ I lotti, e che cosa hanno chiuso
+
+    fase4-map_user-001    33 rese    il menu di casa (32 promptAdd + 1 promptl)
+    fase4-map_user-002    55 rese    gli atti, il pannello, la scala dei potenziali
+    fase4-map_user-003    33 rese    il raccolto, il valore della casa, gli ospiti
+                                     (+1 rinviata, :730)
+    fase4-map_user-004    52 rese    l'allevamento, il negozio, i ranghi
+    correzioni             4 rese    3 sfori del riquadro + la porta del pannello
+    toppe                  4         :730 e i 3 letterali nudi
+    ----------------------------------------------------------------
+                         177 rese e 4 toppe — e `map_user.hsp` e' CHIUSO
+
+### ▶ Le quattro volte che l'inglese di monte non regge
+
+1. `map_user.hsp:730` — la conferma del nome dato alla **proprieta'** porta la
+   riga che nomina un **personaggio** (`cdatan(CDATAN_NAME, tc)`, che li' non e'
+   nemmeno impostato). La prova sta nelle due righe intorno: `:718` chiede il
+   nome della proprieta', `:729` lo scrive in `mdatan`. ⚠️ Non e' rendibile dal
+   dizionario — la rete 11 pretende le funzioni dell'inglese — quindi **rinvio
+   piu' toppa**, come `action.hsp:4584` e `:9631`.
+2. `map_user.hsp:1510` — `shopval == 0` vuol dire che il giocatore ha
+   **annullato** il menu. Il giapponese fa fare al negoziante una ずっこけ, la
+   caduta comica della delusione; l'inglese scrive «smiled».
+3. `map_user.hsp:1164` — ha il giapponese di `:937` (護衛対象は放せない), che
+   pero' sta all'allevamento e parla di lasciar libero; qui si rinchiude nel
+   campo. L'inglese distingue: e' l'inglese che **sa di piu'**.
+4. `map_user.hsp:321` — il giapponese conta i prigionieri, l'inglese no. Le
+   venti righe sopra esistono **solo** per calcolare `pet`: si segue il codice.
+
+💡 E una volta l'inglese e' piu' **oscuro** senza sbagliare: `:1611`, dove
+片開き e' la porta a un battente solo e l'inglese scrive «EW type».
+
+### ▶ Il vocabolario fissato oggi, e da dove viene
+
+    grimorio            spellbook, gia' 167 volte in db_item.hsp —
+                        `action.hsp:7816` era l'unico posto che diceva
+                        «libri magici», e l'ha trovato la rete della LARGHEZZA
+    Supremo/Enorme/Ottimo/Notevole/Buono/Scarso/Nullo   la scala dei potenziali
+    bazar, drogheria, bottega magica, armeria, locanda  i tipi di negozio,
+                        dagli epiteti di text.hsp:424-:460
+    negozio di arredi / rigattiere   gli unici due tipi che nessun epiteto nomina
+    Valore della casa   家の情報, la porta e il pannello adesso si chiamano uguale
+    Base/Arredi/Cimeli/Totale   基本/家具/家宝/総合 — «Base» e' in `invariati.md`
+                        perche' la parola italiana giusta e' identica all'inglese
+    YacaPoint           invariato, da action.hsp:1277
+    Energia da Lavoro   労働エナジー, da map.hsp:12281
+    prigioniero / rinchiudere   収容者 / 収容する, da command.hsp:1196-:1197
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **Tutto il collaudo di questa sessione**, che e' l'arretrato piu'
+   grosso lasciato da una sessione sola. Vedi la sezione del collaudo qui sopra.
+2. ⭐⭐⭐ **`larghezze.py` misura la `lang()`, non la riga.** `map_user.hsp:445`
+   e' `lang("店を拡張", "Extend") + " (" + calcshopreform() + " GP)"`: il
+   riquadro taglia la **riga intera**, e la rete guarda solo il primo pezzo. Una
+   resa lunga li' sfora senza che nessuno lo dica. Quante siano non e' stato
+   misurato.
+3. ⭐⭐ **Il passo del carattere da 10 px** non lo conosce nessuna rete, e da
+   quello dipende la finestra del valore della casa (punto 2 del collaudo).
+4. ⭐⭐ **`chara.hsp` e `blend.hsp` hanno voci di menu e nessun dizionario**: 9 e
+   3 voci, misurate dalla rete 5 ma invisibili a `verifica --dizionario`.
+   Aprirle **anche per una voce sola** le fa entrare nel referto.
+5. ⭐⭐ Le 148 voci di `talk_quest` e le 46 di `com_txtadv_loop`, che il referto
+   della rete 15 conta come non misurate.
+6. ⭐⭐ I debiti della 58a: la colonna delle abilita' che tronca a **4
+   caratteri**, il resto di `screen.hsp` (101 voci), le ~55 etichette
+   d'incantamento di `item_func.hsp`.
+7. ⭐ Le altre 622 di `event.hsp` e le 121 di `command.hsp`.
+8. ⭐ I 1.146 testi di `db_card.hsp` e le 835 di `effdesc@tcg`.
+
+---
+
+## La cinquantanovesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
@@ -5795,14 +5922,14 @@ fare era su una riga commentata. Vedi «Le righe commentate» più sotto.
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-python -m pytest strumenti/tests -q        # atteso: 451 passed, 6 skipped
+python -m pytest strumenti/tests -q        # atteso: 469 passed, 6 skipped
 python -m strumenti.prova_identita         # atteso: 72/72, 27.813, ambigue 0
 python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre ovunque
 python -m strumenti.creature               # atteso: nome 1131, voce 2466, doppie 0, senza razza 0
-python -m strumenti.larghezze              # atteso: 0 fuori misura su 75 menu
+python -m strumenti.larghezze              # atteso: 0 fuori misura; 75 menu di text.hsp piu' 91 siti, 412 + 304 voci
 python -m strumenti.diario                 # atteso: 0 fuori misura su 214 siti
 python -m strumenti.riquadri               # atteso: 0 su 38 piastrelle, 0 su 71 buffname
-python -m strumenti.menu_dialogo           # atteso: 0 su 85 misurate, 0 non misurate
+python -m strumenti.menu_dialogo           # atteso: 0 su 90 misurate, 0 non misurate
 python -m strumenti.linguette              # atteso: 0 coppie fuori misura su 13
 python -m strumenti.battute --divergenti   # atteso: 13, tutte legittime
 ```
