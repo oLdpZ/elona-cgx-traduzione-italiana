@@ -1,7 +1,8 @@
 # Ripresa sessione
 
 Aggiornato: 2026-08-18, fine della **sessantunesima** sessione (**due file
-aperti e chiusi nello stesso giorno** — `config.hsp` e `god.hsp`, 255 rese piu' una correzione — un
+aperti e chiusi nello stesso giorno** — `config.hsp`, `god.hsp` ed `economy.hsp`,
+294 rese piu' una correzione — un
 **punto cieco nuovo trovato e chiuso**, e **due strumenti di misura nati** per
 due pannelli che nessuna rete guardava).
 
@@ -83,19 +84,23 @@ fuori e proteggere quelle dentro.
 
 ⚠️⚠️ **I valori cambiati:**
 
-    pytest                  479 passed, 6 skipped     (erano 469: +6 toppa
-                                                       `prima`, +4 rete 15)
+    pytest                  506 passed, 6 skipped     (erano 469: +6 toppa
+                                                       `prima`, +6 rete 15,
+                                                       +25 colonne economy,
+                                                       -2 riscritti)
     verifica --dizionario   config.hsp  0 / 0         <- FILE NUOVO, e CHIUSO
                             god.hsp     0 / 0         <- FILE NUOVO, e CHIUSO
+                            economy.hsp 0 / 0         <- FILE NUOVO, e CHIUSO
                             map_user.hsp 0 / 1 -> 0/1 (fermo)
-    menu_dialogo            0 su 92 misurate          (erano 90: +2 del
-                                                       pannello degli dei)
+    menu_dialogo            0 su 94 misurate          (erano 90: +2 del
+                                                       pannello degli dei,
+                                                       +2 delle leggi)
     toppe.jsonl             973                       (erano 963: +1 config,
                                                        +9 nudi accanto a lang)
     misura-rete4            8 | 485                   (era 8 | 473)
     perimetro               66% | 49%                 (era 65% | 48%)
-    dizionario              +2 file: config.hsp.jsonl (160 voci),
-                            god.hsp.jsonl (95 voci)
+    dizionario              +3 file: config.hsp.jsonl (160 voci),
+                            god.hsp.jsonl (95), economy.hsp.jsonl (39)
     invariati.md            +5 righe: Direct sound, Direct music, Spongebob,
                             `< `, ` >`
 
@@ -132,10 +137,14 @@ lasciato da una sessione sola. Quel che va guardato, in ordine di peso:
 3. ⭐⭐ **Il nome del dio dove si legge**: la scheda del personaggio (`Fede :`),
    la scheda esportata (dove `fixtxt` taglia a 20), e le frasi che lo
    interpolano — «Preghi Kumiromi della Messe.», «Ora sei un fedele di …».
-4. ⭐ **Le nove toppe `prima`**: i due nomi di voce di `config.hsp:618`, il « cm»
+4. ⭐⭐ **Il prospetto della citta'** (`economy.hsp:319`-`:365`), se qualcuno
+   governa una citta': dodici righe allineate a mano, e l'allineamento e' la
+   cosa che si vede rotta prima del contenuto. `test_colonne_economy.py` lo
+   prova contro l'inglese, ma contro un'ipotesi su dove sta la colonna.
+5. ⭐ **Le nove toppe `prima`**: i due nomi di voce di `config.hsp:618`, il « cm»
    e il « kg» della scheda, il «Pag.» della finestra delle ricette, il prezzo
    dell'ampliamento del negozio («Ingrandisci (12000 oro)»).
-5. ⭐ Tutto l'arretrato della 60a, che resta intatto: il menu di casa, la
+6. ⭐ Tutto l'arretrato della 60a, che resta intatto: il menu di casa, la
    finestra del valore della casa, il pannello della struttura.
 
 ### ▶ I lotti, e che cosa hanno chiuso
@@ -144,9 +153,10 @@ lasciato da una sessione sola. Quel che va guardato, in ordine di peso:
     fase4-config-002      74 rese    i valori e le due note in fondo
     fase4-god-001         95 rese    i nomi degli dei, le nove schede, l'altare
     correzione-leccato     1 resa    un participio della 59a
+    fase4-economy-001     39 rese    il governo della citta', le leggi
     toppe                 10         config:618 piu' le nove di nudi_accanto
     -------------------------------------------------------------
-                         256 rese e 10 toppe — e DUE file sono chiusi
+                         295 rese e 10 toppe — e TRE file sono chiusi
 
 ### ▶ I due pannelli che nessuna rete guardava, e come si misurano
 
@@ -232,14 +242,14 @@ nome vecchio, lo fara' anche altrove.
 2. ⭐⭐⭐ **`larghezze.py` misura la `lang()`, non la riga** — il debito della
    60a, ancora aperto. `map_user.hsp:445` e' stato toppato («Ingrandisci (12000
    oro)»), ma quante altre righe sforino non l'ha misurato nessuno.
-3. ⭐⭐ **Venti file con `lang()` e senza dizionario**, per **1.907** `lang()`
-   fuori da ogni conteggio (erano 22 file e 2.240). In ordine:
+3. ⭐⭐ **Diciannove file con `lang()` e senza dizionario**, per **1.865**
+   `lang()` fuori da ogni conteggio (erano 22 file e 2.240). In ordine:
    `trait.hsp` 406, `chara.hsp` 274, `item.hsp` 244, `blend.hsp` 183,
    `txtadv.hsp` 170, `material_data.hsp` 118, `custom_autopick.hsp` 90,
    `db_race.hsp` 87, `system.hsp` 56, `help.hsp` 52, `db_class.hsp` 48.
    ⚠️ `chara.hsp` e `blend.hsp` hanno anche voci di menu misurate dalla rete 5.
-   ⚠️⚠️ **E due di loro adesso sono MEZZI tradotti**: `blend.hsp` ed
-   `economy.hsp` hanno una toppa e nessun dizionario, perche' le nove toppe
+   ⚠️⚠️ **E uno di loro e' MEZZO tradotto**: `blend.hsp` ha
+   una toppa e nessun dizionario, perche' le nove toppe
    `prima` di oggi sono arrivate prima del lotto. `file_senza_dizionario.py` lo
    dice da se' («file mezzo tradotti: 2»), ed e' la forma dei «mezzi fatti»
    della 55a: una riga italiana in un file che per il referto del dizionario non
@@ -6175,14 +6185,14 @@ fare era su una riga commentata. Vedi «Le righe commentate» più sotto.
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-python -m pytest strumenti/tests -q        # atteso: 479 passed, 6 skipped
+python -m pytest strumenti/tests -q        # atteso: 506 passed, 6 skipped
 python -m strumenti.prova_identita         # atteso: 72/72, 27.813, ambigue 0
 python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre ovunque
 python -m strumenti.creature               # atteso: nome 1131, voce 2466, doppie 0, senza razza 0
 python -m strumenti.larghezze              # atteso: 0 fuori misura; 75 menu di text.hsp piu' 91 siti, 412 + 304 voci
 python -m strumenti.diario                 # atteso: 0 fuori misura su 214 siti
 python -m strumenti.riquadri               # atteso: 0 su 38 piastrelle, 0 su 71 buffname
-python -m strumenti.menu_dialogo           # atteso: 0 su 92 misurate, 0 non misurate
+python -m strumenti.menu_dialogo           # atteso: 0 su 94 misurate, 0 non misurate
 python -m strumenti.linguette              # atteso: 0 coppie fuori misura su 13
 python -m strumenti.battute --divergenti   # atteso: 13, tutte legittime
 ```
