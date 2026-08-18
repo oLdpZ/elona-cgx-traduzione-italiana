@@ -1,71 +1,242 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-18, fine della **sessantunesima** sessione (**due file
-aperti e chiusi nello stesso giorno** — `config.hsp`, `god.hsp` ed `economy.hsp`,
-294 rese piu' una correzione — un
-**punto cieco nuovo trovato e chiuso**, e **due strumenti di misura nati** per
-due pannelli che nessuna rete guardava).
+Aggiornato: 2026-08-18, fine della **sessantaduesima** sessione (**due file
+aperti e chiusi**, `blend.hsp` e `trait.hsp`, 548 rese — il **tredicesimo punto
+cieco** trovato dal collaudo e chiuso lo stesso giorno, 60 nomi di mappa
+accorciati, e **nove spinte**).
 
-⭐⭐⭐ **La lezione della sessione: un referto nuovo sbaglia la propria misura
-esattamente dove ha sbagliato la rete che cita.** `nudi_accanto_a_lang.py` e'
-nato per contare i letterali inglesi nudi che stanno accanto a una `lang()`, e
-per dire quali fossero gia' fatti confrontava la **riga** fra sorgente e build.
-Ma su una riga mista la riga cambia **sempre**, perche' il dizionario ci ha
-riscritto la `lang()`: appena `config.hsp` ha avuto un dizionario, `:805` e
-`:809` sono risultate fatte, e `MCI` non l'aveva toccato nessuno. Contava **7 da
-fare dove ce n'erano 15**. 💡 E' la lezione della 60a — una misura presa su un
-insieme piu' largo di quello che si vuole misurare — ripetuta **dentro il
-referto che la citava nel docstring**. Il metro giusto sono i nudi.
+⭐⭐⭐ **La lezione della sessione: una schermata di collaudo promuove il pezzo
+che stava verificando e ne rompe un altro che nessuno guardava.** La 61a
+chiedeva il pannello degli dei perche' era l'unica schermata capace di
+**smentire un modello**. Il modello ha retto — misurato al pixel: passo 7 px su
+cinque righe, `gmesx` a wx+23 esatto, e il punto in cui `gmes` va a capo da solo
+azzeccato **al carattere** — ma in fondo alla stessa immagine la barra diceva
+«**La Terra della T**». 💡 Il collaudo non verifica quel che gli si chiede di
+verificare: verifica **tutta la schermata**, e la parte che nessuno aveva
+nominato e' quella che paga.
 
-⭐⭐⭐ **E lo stesso e' successo al simulatore del pannello degli dei, un'ora
-dopo.** `misura-god.py` riportava l'ultima posizione del **cursore**, ma ogni
-scheda finisce con un `<p>` che lascia una riga vuota sotto: dava a Kumiromi
-wy+206 invece di wy+182, cioe' **24 px di sfondamento inventati**. Due strumenti
-nuovi, due misure sbagliate al primo giro, tutt'e due per aver misurato una cosa
-vicina invece della cosa. 💡 Uno strumento di misura va **provato sull'inglese di
-monte prima di usarlo sull'italiano**: e' l'unico caso in cui si sa gia' che
-cosa deve venire fuori.
+⭐⭐⭐ **Il tredicesimo punto cieco: il nome della mappa nella barra in basso.**
+`screen.hsp:153` lo taglia con `strmid` a **16 caratteri**, **12** se la mappa
+mostra il numero di piano. Il taglio e' netto, a meta' parola, e si legge in
+**ogni schermata del gioco**. Non lo guardava nessuna rete: `larghezze` misura i
+menu di `*prompt_key`, `riquadri` le piastrelle di stato **lì accanto**,
+`linguette` le schede — `mdatan` non lo tocca nessuno.
 
-⭐⭐⭐ **Il dodicesimo punto cieco: un nudo inglese ACCANTO a una `lang()`.**
-`nudi_en.py` scarta la riga intera appena ci legge un `lang(` — `if 'lang(' in
-s: continue` — quindi una riga mista non la guarda nessuno: il dizionario prende
-le `lang()` e il letterale accanto resta inglese a schermo. L'ha fatto vedere
-`config.hsp:618`, dove quattro voci di menu passano dal dizionario e **due no**.
-✅ **19 di struttura, 0 da fare, 6 decise**: chiuso il giorno stesso in cui e'
-nato. Fra le nove toppate, due si leggono a ogni apertura della **scheda del
-personaggio** (`" cm"` e `" kg"`, `command.hsp:10659`).
+⚠️ **E il tetto non si alza.** Misurato sulla schermata: il nome va da x 161 a
+x 270 (7 px per carattere) e la prima piastrella di stato sta a x 284. Sono
+124 px = **17 caratteri**: il `strmid` a 16 e' gia' il massimo fisico.
 
-⭐⭐ **E per toppare quelle righe e' nata una forma nuova di toppa, `prima`.**
-Le toppe girano **dopo** il dizionario (`applica.py:702`), quindi una riga mista
-a quel punto non e' piu' quella del sorgente e una toppa scritta sul sorgente
-non la trova. Scriverla sulla riga gia' tradotta funziona, ma fa diventare rosso
-`test_le_toppe_del_progetto_si_applicano_al_sorgente_pinnato`, che e' la guardia
-contro la deriva di upstream. Con `"prima": true` la toppa gira sull'albero
-appena copiato: il `cerca` torna a essere la riga del sorgente e la guardia
-resta vera. ⚠️ La deroga si paga con un controllo — una toppa `prima` **non puo'
-cambiare il contenuto di una `lang()`**, o il dizionario, che gira dopo e cerca
-i siti per contenuto, dichiarerebbe quel sito orfano e la riga tornerebbe in
-inglese **in silenzio**.
+⭐⭐ **Il metro giusto non e' «sforare»: e' «sforare dove l'inglese ci stava».**
+Su 197 nomi di mappa l'inglese di monte ne taglia **46**, e sulle nefia
+generate — le mappe piu' visitate del gioco — ne taglia **51 su 80**
+(«Beginner's Cave» diventa «Beginner's C»). Il taglio e' una condizione di
+questo gioco, non un difetto della traduzione. Il lavoro nostro erano i **60**
+dove upstream ci stava e noi no, e adesso sono zero: l'italiano ne taglia 44,
+**due meno dell'inglese**.
 
-⭐⭐ **Tradurre `godname()` non ripara nove siti: ne ripara trentatre'.**
-`god.hsp:81`-`:89` riempie l'array dei nomi degli dei, e trentatre' righe in
-nove file lo interpolano. Fino a ieri `proc.hsp:11749` diceva a schermo «Senti
-su di te lo sguardo benevolo di **Lulwy of Wind**»: italiano intorno a un nome
-inglese, in una riga gia' tradotta e gia' collaudata. La 37a lo aveva scritto e
-nessuno c'era tornato.
+⭐⭐⭐ **E il nome della mappa vive nel SALVATAGGIO, non nell'eseguibile.**
+`map.hsp:1406` chiama `mapname()` solo quando la mappa viene **generata**; da li'
+in poi `mdatan` viaggia coi dati della mappa (`system.hsp:2727`,
+`mdatan_<area>_<100+livello>.s2`) e non lo ricalcola piu' nessuno. Il
+salvataggio di collaudo tiene ancora `North Tyris` e `Port Kapul` — visitate
+prima della traduzione — accanto a `la Terra della Tregua`, che e' una resa
+italiana di una build precedente: **e' un museo di tutte le build che ha
+attraversato**. 💡 Ne esce una regola di collaudo nuova: **un nome di mappa si
+puo' collaudare solo dove il salvataggio non e' ancora passato.** Guardare una
+mappa gia' vista non prova niente, ne' in un senso ne' nell'altro.
 
-⚠️⚠️ **E il tetto di quei nomi non e' il `sdim`.** La 37a diceva «`sdim godname,
-20, 9` da' 20 byte»: e' una coincidenza — `sdim` non e' un tetto in scrittura,
-lo dice la 28a e lo riconferma la 33a. Il taglio vero e' `command.hsp:17662`,
-che fa `fixtxt("Fede      : " + godname(...), 32)`, e `fixtxt`
-(`module.hsp:5052`) taglia con `strmid`. L'etichetta italiana ne occupa 12 e non
-si accorcia — nella stessa colonna «Uccisioni : » ne vuole 12 — quindi al nome
-ne restano **20**. 💡 Due numeri uguali per due ragioni diverse: quello vero
-regge, quello dedotto no.
+⚠️ **Deciso di non toppare**, e il perche' sta in `decisioni.md`: ricalcolare
+`mdatan` dall'area cancellerebbe i nomi per piano — il «Palazzo Infero» sta
+dentro `AREA_AMUR_CAGE` e il laboratorio biologico dentro `AREA_VERNIS` —, e la
+variante prudente («solo mondo, citta' e villaggi») misurerebbe il tipo
+dell'**area** mentre i nomi propri stanno su sotto-mappe che riscrivono il
+proprio `mdata(MDATA_TYPE)`.
+
+⭐⭐ **Tre referti nuovi, e due hanno sbagliato la propria misura al primo
+giro** — la lezione della 61a, di nuovo, e per la stessa ragione: misurare una
+cosa *vicina* invece della cosa.
+
+1. `nomi_mappa.py` giungeva sorgente e build **per numero di riga**, ma
+   `applica` non conserva il conto delle righe (`map.hsp` ne ha 5 in piu' nella
+   build, `text.hsp` 1): accoppiava posti diversi e dava «Fort of Chaos
+   \<Weapons\>» come inglese di una riga che non era la sua. La chiave giusta e'
+   il **giapponese**, che non lo tocca nessuno.
+2. `misura-trait.py` contava l'indice dell'elemento dalla posizione della
+   `lang()`, ma per mutazioni ed etere l'assegnazione comincia con una stringa
+   vuota (`traitrefn(2) = "", lang(..)`): la prima `lang()` sta all'indice **3**
+   e va sulla riga **larga**, non nella colonna stretta. Diceva 17 effetti
+   inglesi fuori misura dove non ce n'era **nessuno**.
+3. `misura-god.py`, della 61a, e' stato **confermato** dalla schermata.
+
+⚠️⚠️ **E `HP` non e' `PV`.** Nel primo lotto di `trait.hsp` `[HP+5%]` era
+diventato `[PV+5%]`: `glossario.md:138` mette `HP` fra gli **invariati**, e in
+Elona `PV` e' il **valore di protezione** — lo usa quello stesso file per la
+pelle di ferro, `[PV+3]`. Le cinque rese dell'asceta dicevano al giocatore che
+gli saliva l'armatura invece dei punti vita. 💡 Una sigla che esiste in tutt'e
+due le lingue e' piu' pericolosa di una parola: sembra gia' tradotta.
 
 ---
 
-## La sessantunesima sessione
+## La sessantaduesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** (nove spinte) e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **dieci** verifiche d'apertura. La
+sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
+**diciannovesima prova** di fila, e le dieci verifiche hanno dato **dieci volte
+i valori attesi** della 61a.
+
+⚠️⚠️ **I valori cambiati:**
+
+    verifica --dizionario   blend.hsp   0 / 0        <- FILE NUOVO, e CHIUSO
+                            trait.hsp   0 / 0        <- FILE NUOVO, e CHIUSO
+    file_senza_dizionario   17 file | 1276 lang()    (erano 19 | 1865)
+                            file mezzo tradotti: 0   (era 1, blend.hsp)
+    perimetro               69% | 51%                (era 66% | 49%)
+    dizionario              +2 file: blend.hsp.jsonl (175 voci),
+                                     trait.hsp.jsonl (373)
+    invariati.md            +1 riga: Anemia
+    nomi_mappa              0 dove l'inglese ci sta e noi no   (erano 60)
+
+Tutto il resto e' **fermo dov'era**: `pytest` 506 passed 6 skipped,
+`prova_identita` 72/72 e 27.813, `creature` 1131/2466/0/0, `larghezze` 0 fuori
+misura su 75+91 siti, `diario` 0 su 214, `riquadri` 0 su 38 e 0 su 71,
+`menu_dialogo` 0 su 94, `linguette` 0 su 13, `battute --divergenti` 13,
+`nudi_en` 1044 | 445, `buff_en` 0 da fare, `rete8_dizionario` **3**,
+`variabili_en` 60 | 4, `toppe.jsonl` 973, `rinviate.jsonl` 72, `referti` 0 | 0.
+
+✅ **`cgx-test.exe` rifatto cinque volte** e gia' in `elonaplus2.31\`.
+
+### ▶ Il collaudo: UNA schermata, e ha fruttato tutta la sessione
+
+Il giocatore ha mandato **una sola immagine** — il pannello di Opatos alla Terra
+della Tregua — e da li' e' uscito tutto: la promozione di `misura-god.py`, il
+tredicesimo punto cieco, i 60 nomi accorciati, la scoperta del congelamento nel
+salvataggio. E' la lezione della 53a ripetuta: *una foto e basta*.
+
+⚠️ **Quel che resta da guardare, in ordine di peso:**
+
+1. ⭐⭐⭐ **La finestra dei talenti** (Escape → Talenti, o a ogni salita di
+   livello). 373 rese nuove in tre colonne calcolate e mai viste: nome 26
+   caratteri, effetto 65, riga larga 86. Le rese stanno a 25, 61 e 74, quindi
+   **piu' strette dell'inglese**, che invece sfora tre effetti e due righe.
+   ⚠️ Il nome porta a schermo anche `(MAX)` o `(requirement)`, altri 5 o 13
+   caratteri che il dizionario non vede: quello e' il punto dove guardare.
+2. ⭐⭐⭐ **La finestra delle ricette** (comando **Mescola**, a un banco o a un
+   calderone). 175 rese, e due geometrie: la lista, dove il nome sta accanto
+   alle icone di difficolta' (32 caratteri col prefisso «Ricetta: »), e il
+   riquadro dei materiali, che ha un `strmid` vero a 44.
+3. ⭐⭐ **I nomi di mappa**, ma **solo dove il salvataggio non e' passato**: nel
+   salvataggio di collaudo sono vergini tutte le 60 tranne la Terra della Tregua
+   e la Cupola Cibernetica. I piu' comodi da raggiungere sono l'**Ambasciata**
+   (era «l'Ambasciata di Palmia») e il **Colosseo** (era «Arena delle Bestie»).
+4. ⭐ Tutto l'arretrato della 60a e della 61a, che resta intatto: il pannello
+   delle opzioni, il prospetto della citta', il menu di casa.
+
+### ▶ I lotti, e che cosa hanno chiuso
+
+    nomi di mappa          60 rese    i posti dove l'inglese ci stava e noi no
+    fase4-blend-001       175 rese    il sistema delle ricette - FILE CHIUSO
+    fase4-trait-001       116 rese    i talenti che si comprano
+    fase4-trait-002       114 rese    le mutazioni e le resistenze
+    fase4-trait-003       143 rese    il male dell'etere - FILE CHIUSO
+    -------------------------------------------------------------
+                          608 rese, e DUE file sono chiusi
+
+### ▶ I referti nati oggi
+
+    scratchpad/nomi_mappa.py     il tetto della barra in basso, per nome
+    scratchpad/misura-trait.py   le tre colonne della finestra dei talenti
+
+E `scratchpad/guardie.py` ha imparato una cosa: **`FOR` maiuscolo e' la sigla
+italiana di Forza** (`text.hsp:61`), non la preposizione inglese. Gridava sei
+volte su un lotto solo, e una guardia che grida sempre non la guarda piu'
+nessuno.
+
+⚠️⚠️⚠️ **E la toppa a quella guardia e' stata scritta due volte**: la prima con
+un heredoc, e il doppio backslash e' arrivato su disco come un **carattere di
+backspace** (`cat -A`: `^HFOR^H`). E' la trappola della 60a, **terza volta in
+tre sessioni**, e ancora una volta a stampa non si vedeva niente — la regex non
+agganciava piu' nulla e il referto continuava a dire gli stessi sei. La forma
+che tiene resta scrivere il file **con lo strumento di scrittura**, oppure
+costruire il backslash con `chr(92)` invece di scriverlo.
+
+### ▶ Le due regole di forma fissate oggi
+
+⭐ **I nomi dei talenti sono SOSTANTIVI**, non aggettivi: `Lucky` → «Fortuna»,
+`Ambidextrous` → «Ambidestria», `Saint` → «Santita'», `Independent` →
+«Indipendenza». Non e' una scelta nuova — `glossario.md` lo diceva gia' per
+`Luck`/`Unlucky`: *«Sfortunato» vorrebbe il genere di chi lo subisce*, e il
+genere del giocatore non si conosce. Serviva solo applicarlo a un file intero.
+
+⭐ **Le sigle non si inventano**: `text.hsp:61` ha gia' fissato FOR COS DES PER
+APP VOL MAG CAR, e per il resto vale il nome che il gioco da' all'abilita' —
+Memoria, Rigenerazione, Velocita', Fuoco/Gelo/Suono/Magia. `HP`, `MP`, `SP`,
+`PV`, `DV`, `Karma` restano invariati.
+
+### ▶ ⚠️ Le tre volte che una guardia ha visto quel che non avevo visto io
+
+1. **`verifica`**, sulle **dieci** rese dell'etere che portano dentro un numero
+   calcolato dal livello (`[CHR-9]`, `[PV+27 SPD-32]`): scritte a mano come
+   testo piatto, buttavano via il numero. 💡 La forma che non sbaglia e'
+   **ricucire l'espressione inglese sostituendo solo i pezzi fra virgolette**:
+   il tessuto di `limit()` e `+` resta identico per costruzione.
+2. **`verifica`**, sulle **quattro** rese di `blend.hsp` riprese in automatico
+   da `action.hsp`: citavano `cidip` e `SKILL_SPACT_BLAME_PAIN`, variabili che
+   in `blend.hsp` non esistono. 💡 Riprendere una resa gia' fatta e' giusto per
+   le statiche e **pericoloso per le dinamiche**, dove il nome della variabile
+   e' parte della resa.
+3. **`rete8_dizionario`**, su **tre** rese nuove di `blend.hsp` con un genitivo
+   davanti a `itemname()`, che porta gia' l'articolo: «di la spada corta». Il
+   referto lo aveva scritto nel proprio docstring — *«un quarto vuol dire che
+   qualcuno ha scritto un genitivo davanti a un nome»* — e il quarto ero io.
+   Riscritte mettendo il nome in testa, cosi' la preposizione sparisce.
+
+### ▶ Un nome di mappa non e' solo un nome di mappa
+
+«Ranch in rovina», scritto oggi per 廃モンスター牧場, contraddiceva il **rogito
+che compra quel posto** (`db_item.hsp:139803`, «allevamento abbandonato»).
+Corretto in «Ex allevamento». ⚠️ **Resta aperta la stessa frattura sul 収容所**:
+il rogito dice «accampamento» mentre la mappa e i messaggi dicono «campo di
+prigionia», e `adv.hsp:197` parla di prigionieri da condurre li' — cioe'
+«accampamento» e' la parola sbagliata, non solo una diversa. E' una toppa da una
+riga.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **Tutto il collaudo di questa sessione, della 61a e della 60a.** Vedi
+   la sezione del collaudo qui sopra.
+2. ⭐⭐ **`larghezze.py` misura la `lang()`, non la riga** — il debito della 60a,
+   ancora aperto.
+3. ⭐⭐ **Diciassette file con `lang()` e senza dizionario**, per **1.276**
+   `lang()` fuori da ogni conteggio (erano 19 e 1.865). In ordine:
+   `chara.hsp` 274, `item.hsp` 244, `txtadv.hsp` 170, `material_data.hsp` 118,
+   `custom_autopick.hsp` 90, `db_race.hsp` 87, `system.hsp` 56, `help.hsp` 52,
+   `db_class.hsp` 48, `net.hsp` 37.
+   ⚠️ `chara.hsp` ha anche voci di menu misurate dalla rete 5.
+   ✅ **I file mezzo tradotti sono zero.**
+4. ⭐⭐ **Il passo del carattere da 10 px** (`map_user.hsp:766`), che nessuna
+   rete conosce: il debito della 60a al punto 3.
+5. ⭐⭐ Le 148 voci di `talk_quest` e le 46 di `com_txtadv_loop`.
+6. ⭐ Il rogito del 収容所, qui sopra.
+7. ⭐ Le altre 622 di `event.hsp`, le 241 di `item_func.hsp`, le 121 di
+   `command.hsp`, le 101 di `screen.hsp`.
+8. ⭐ I 1.146 testi di `db_card.hsp` e le 835 di `effdesc@tcg`.
+
+### ▶ Come si e' chiusa
+
+La sessione si e' chiusa su richiesta, con l'albero pulito e `origin/fase-0`
+allineato. Le verifiche d'apertura sono state rilanciate **anche in chiusura** e
+danno i valori nuovi scritti qui sopra: chi riapre deve trovarli identici, e se
+non li trova la prima cosa da guardare e' se `applica` e' girato dopo l'ultima
+modifica al dizionario.
+
+💡 **Il ritmo di oggi e' stato una spinta per risultato chiuso**: nove, e ognuna
+lascia il dizionario, i referti e l'eseguibile allineati fra loro.
+
+
+## La sessantunesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
