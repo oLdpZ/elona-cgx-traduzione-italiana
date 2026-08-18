@@ -153,6 +153,32 @@ celestiale, speciale — così reggono qualunque nome le preceda. Vale in genera
 prima di scegliere il genere di un'etichetta, guarda **tutti** i posti in cui
 esce, non il primo che trovi nel codice.
 
+### Un nome di mappa sta in sedici caratteri, dodici se la mappa ha il piano
+
+La barra in basso scrive il nome della mappa in ogni schermata del gioco, e
+`screen.hsp:153` lo taglia con `strmid` a **16 caratteri** — **12** se quella
+mappa mostra il numero di piano (Lesimas, i nefia generati, le missioni, e ogni
+mappa il cui `mdata(MDATA_TYPE)` sta fra `MAP_TYPE_DUNGEON_MIN` e
+`MAP_TYPE_DUNGEON_MAX`). Il taglio e' netto e a meta' parola: «la Terra della
+Tregua» usciva `La Terra della T`.
+
+Il tetto **non si alza**: lo spazio fisico e' 124 px a 7 px per carattere, cioe'
+17 caratteri. Il referto e' `scratchpad/nomi_mappa.py`.
+
+⚠️ **Ma il metro e' l'inglese di monte, non il tetto.** Upstream stesso ne
+taglia 46 su 197, e 51 nomi di nefia generata su 80: li' il taglio e' una
+condizione del gioco. Da correggere sono solo i nomi **dove l'inglese ci sta e
+noi no**.
+
+⚠️ **E il nome si collauda solo dove il salvataggio non e' ancora passato.**
+`mdatan(MDATAN_NAME)` viene scritto nei dati della mappa alla prima visita
+(`system.hsp:2727`) e non lo ricalcola piu' nessuno: una mappa gia' vista
+conserva il nome della build con cui ci sei entrato. Vedi `decisioni.md`,
+2026-08-18.
+
+⚠️ **E un nome di mappa non e' solo un nome di mappa**: molte mappe hanno un
+**rogito** che le compra (`db_item.hsp`), e i due devono dire la stessa parola.
+
 ## L'articolo di un nome di persona, quando il sesso non è deciso
 
 Scoperto col lotto `norland` (2026-08-09), e vale per ogni razza di persone che

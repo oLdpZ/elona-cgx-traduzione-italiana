@@ -5478,3 +5478,79 @@ per caso quando la resa è corta.
 misurato contando le assegnazioni o guardando la geometria del disegno (i pixel
 della finestra, il passo delle righe). ⚠️ Da riguardare con questo metro il
 tetto delle schede dell'editor del mazzo, che la 53ª ha dedotto così.
+
+## 2026-08-18 — Il nome della mappa: un tetto di 16 caratteri, e un salvataggio che lo congela
+
+Il collaudo del pannello degli dei ha mostrato, in fondo alla schermata, la
+barra che diceva «**La Terra della T**». Il nome della mappa non è una resa
+sbagliata: è `screen.hsp:153`, che taglia.
+
+    if ( strlen(mdatan(MDATAN_NAME)) > 16 - (maplevel() != "") * 4 ) {
+        mes cnven(strmid(mdatan(MDATAN_NAME), 0, 16 - (maplevel() != "") * 4))
+    }
+
+**16 caratteri**, **12** se la mappa mostra il numero di piano — cioè Lesimas, i
+nefia generati, le missioni e ogni mappa il cui `mdata(MDATA_TYPE)` sta fra
+`MAP_TYPE_DUNGEON_MIN` e `MAP_TYPE_DUNGEON_MAX`. Il taglio è netto, senza
+puntini, e si legge in **ogni schermata del gioco**.
+
+⚠️ **Il tetto non si alza con una toppa.** Misurato sulla schermata: il passo è
+7 px (Courier New a corpo 12, `12 + sizefix - en * 2`), il nome comincia a
+`inf_raderw + 24` = x 161 e la prima piastrella di stato sta a
+`inf_raderw + 148` = x 284. Sono 124 px, cioè **17 caratteri**: `strmid` a 16 è
+già il massimo fisico, e alzarlo guadagnerebbe una lettera.
+
+**Deciso:** un nome di mappa nuovo si scrive **entro 16 caratteri**, entro 12 se
+quella mappa ha il piano. Il referto è `scratchpad/nomi_mappa.py`.
+
+⚠️ **Ma il metro non è «sforare»: è «sforare dove l'inglese ci stava».** Su 197
+nomi, l'inglese di monte ne taglia **46**. Sulle nefia generate — le mappe più
+visitate del gioco — ne taglia **51 su 80**: «Beginner's Cave» diventa
+«Beginner's C». Il taglio è una condizione di questo gioco, non un difetto della
+traduzione. Il lavoro nostro erano i **60** dove upstream ci stava e noi no, e
+sono stati accorciati tutti; l'italiano adesso ne taglia 44, due meno
+dell'inglese.
+
+### Il nome vive nel salvataggio, non nell'eseguibile
+
+`map.hsp:1406` chiama `mapname()` solo quando la mappa viene **generata**. Da lì
+in poi `mdatan(MDATAN_NAME)` viaggia con i dati della mappa: `system.hsp:2727`
+lo scrive e lo rilegge come `mdatan_<area>_<100+livello>.s2`. Una mappa già
+visitata **conserva per sempre il nome che aveva il giorno della prima visita**.
+
+Misurato sul salvataggio di collaudo (21 mappe): `mdatan_4_101.s2` contiene
+ancora `North Tyris` e `mdatan_11_101.s2` `Port Kapul` — visitate prima della
+traduzione — mentre `mdatan_20_101.s2` contiene `la Terra della Tregua`, cioè
+una resa italiana di una build precedente. **Il salvataggio è un museo di tutte
+le build che ha attraversato.**
+
+**Deciso: non si toppa.** La toppa ovvia — ricalcolare `mdatan` dal `mapname()`
+dell'area quando la mappa si ricarica — **cancella i nomi buoni**: i sei piani
+del «Palazzo Infero» stanno dentro `AREA_AMUR_CAGE` e il laboratorio biologico
+dentro `AREA_VERNIS`, quindi diventerebbero «Gabbia di Amur» e «Vernis». E la
+variante prudente («rinfresca solo mondo, città e villaggi») userebbe il tipo
+dell'**area** mentre i nomi propri stanno su sotto-mappe che riscrivono il
+proprio `mdata(MDATA_TYPE)`: è la trappola di misurare una cosa vicina.
+
+Il conto dice che non vale il rischio: nel salvataggio di collaudo i nomi fermi
+all'inglese sono **due**, perché le città sono nomi propri che non cambiano
+(Vernis, Palmia, Yowyn, Derphy, Noyel, Lumiest, Eirel). Il congelamento morde
+sui posti **descrittivi**, che sono esattamente quelli che la toppa non può
+toccare.
+
+💡 **La regola di collaudo che ne esce: un nome di mappa si può collaudare solo
+dove il salvataggio non è ancora passato.** Chi verifica una resa nuova deve
+andare in un posto mai visitato, o aprire una partita nuova. Guardare una mappa
+già vista non prova niente — né in un senso né nell'altro.
+
+### E un nome di mappa non è solo un nome di mappa
+
+«Ranch in rovina», scritto oggi per 廃モンスター牧場, contraddiceva il **rogito
+che compra quel posto**: `db_item.hsp:139803` dice «allevamento abbandonato», e
+l'allevamento normale è «allevamento». Corretto in «Ex allevamento», che sta
+sotto il tetto e resta nella stessa famiglia di parole.
+
+⚠️ **Resta aperta la stessa frattura sul 収容所**: il rogito
+(`db_item.hsp:134276`) dice «accampamento» mentre la mappa e i messaggi dicono
+«campo di prigionia» — e `adv.hsp:197` parla di prigionieri da condurre lì, cioè
+«accampamento» è la parola sbagliata, non solo una parola diversa.
