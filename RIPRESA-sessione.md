@@ -1,62 +1,218 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-18 (sessione aperta il 17 e chiusa dopo la mezzanotte), fine
-della **cinquantasettesima** sessione (`main.hsp` aperto e portato a 149 rese, la
-**rete 4 corretta**, e un referto nuovo che ha trovato un difetto al primo giro).
+Aggiornato: 2026-08-18, fine della **cinquantottesima** sessione (`main.hsp`
+**chiuso** con 171 rese e 10 rinvii, la **rete 15 corretta**, e un punto cieco
+nuovo misurato e trovato piccolo).
 
-⭐⭐⭐ **La lezione della sessione: una rete che boccia una resa giusta non si
-aggira, si misura.** La rete 4 ha fermato il lotto 006 su `main.hsp:4151` e
-`:4232` — stesso giapponese 「あなたは「」とコメントした。」, stesso `cnvtalk`, ma
-l'inglese ci mette il nome del boss («Upon killing Meshera Alpha» e «Upon killing
-Enthumesis»), e sono i due finali di Tyris del Sud. Alla rete mancava **l'inglese
-nella chiave**: raggruppava per `(giapponese, funzioni)` perche' la 37ª le aveva
-insegnato che la rete 11 pretende le funzioni, ma upstream distingue anche con le
-**parole**.
+⭐⭐⭐ **La lezione della sessione: l'inglese di monte può avere la riga giusta
+dell'evento sbagliato, e nessuna rete lo vede.** È capitato **tre volte**, e la
+più grossa sono **otto righe in fila**: le battute degli dèi che entrano in casa
+(`main.hsp:7201`-`:7229`) hanno un inglese **riciclato** dalle lodi di
+`text.hsp:12370`-`:12391`, mentre il giapponese ne ha otto sue e originali.
+Seguendo l'inglese, un dio entrato in casa avrebbe detto «Non c'è male, ti ho
+rivalutato» invece di «Ecco dunque la dimora di un mortale, ne prendo nota».
+⚠️ **E la copia era invisibile a tutte le reti**: la rete 3 confronta il
+**giapponese**, la 13 confronta dentro il **lotto**, e qui la copia va verso un
+**altro file**. A trovarla è stata la colonna «stesso inglese, già reso» di
+`scratchpad/dossier.py`, che non è una guardia e non ferma niente: **stampa e
+basta**. Le altre due volte: `:5684`/`:5686`, che portano le righe dell'evento
+del pet dentro l'evento del personaggio nascosto (e la prova sta nel menu sotto
+— sorella, signorina, maggiordomo contro cane, gatto, orso), e `:4867`, dove il
+progetto aveva **già** tolto la stessa testa inglese in `action.hsp:565`.
 
-⭐⭐ **E la correzione e' stata misurata PRIMA di usarla**, con
-`scratchpad/misura-rete4.py`, che passa la rete 4 all'indietro su tutto il
-dizionario come `rete8_dizionario.py` fa con la rete 8:
+⭐⭐ **E la rete 15 misurava 177 righe di menu col tetto di un'altra finestra.**
+`chatList` riempie la lista, ma a disegnarla è il `gosub` che viene dopo, e i
+posti sono più d'uno: 1240 righe vanno nella pergamena di `chat.hsp` (tetto 52),
+**177 in `*re_select`** (`event.hsp:4119`), 148 in `talk_quest`, 46 in
+`com_txtadv_loop`. Il tetto di `*re_select` non è nemmeno una costante: dipende
+dal **BMP di sfondo** dell'evento — `(tx + 36 - 12 - 64) / 7,7`, cioè da **36**
+(`bg_re15`) a **50** (`bg_re20`).
+✅ **Misurato prima di correggere** (`scratchpad/misura-re-select.py`): delle 32
+voci già tradotte dentro `*re_select` non ne sforava nessuna. La correzione non
+ripara un danno — **toglie un permesso** che nessuno aveva ancora usato. È la
+stessa forma della rete 4 nella 57ª: prima si misura quanto la rete sbaglia, poi
+la si tocca.
+⚠️ **E quel che non si sa misurare adesso si CONTA**: le 194 righe di
+`talk_quest` e `com_txtadv_loop` escono dal conto degli sfori ed entrano in un
+conto loro, che il referto stampa. Dar loro 52 «tanto per avere un numero» è il
+filtro furbo di `custom_dmgpop.hsp` — non prova niente e fa credere di aver
+guardato.
 
-    gruppi (giapponese, funzioni)      12.014
-    resi in piu' di un modo               467
-      con inglese diverso                 459   <- la rete vecchia li bocciava a torto
-      con lo stesso inglese                 8   <- la famiglia per cui la rete e' nata
+⭐ **Il punto cieco nuovo è stato misurato e si è rivelato piccolo, che è un
+esito buono quanto l'altro.** `main.hsp:8490` sta dentro un `if ( 0 )`: la
+**quarta** famiglia di riga morta dopo il `;`, il `/* … */` e il ramo
+`if ( jp )` — e la prima che non è un commento, ma un ramo che il compilatore
+compila e che non è mai vero. `scratchpad/if-zero.py` ha contato **tutto il
+sorgente**: 11 righe dentro `if ( 0 )`, di cui **2** con una `lang()`. Una è
+quella rinviata, l'altra sta in `map_user.hsp`, file mai aperto. Il punto cieco
+c'era davvero e non è grande: adesso lo si sa, invece di sospettarlo.
 
-La rete nuova prende ancora tutti e otto. **Non perde niente, e smette di
-bocciare 459 casi che non sono nostri.**
-
-⭐⭐⭐ **E il referto nuovo ha trovato un difetto al primo giro, che era il suo
-scopo.** Fra i nove col medesimo inglese c'era 「一投入魂」 `OverLimit-Throw`, reso
-«Tiro oltre il limite» in `buff.hsp:263` e «Lancio oltre il limite» in
-`skill.hsp:1240`: **e' la stessa mossa** — l'azione speciale e il potenziamento
-che ne esce — e chi la usava la sceglieva da un elenco con un nome e se la
-ritrovava nella barra con un altro. ⚠️ E «Tiro» non era solo diverso: e' la
-parola di **un'altra cosa**, perche' il progetto ha gia' fissato «Lancio» per
-投擲 *Throwing* (`skill.hsp:186`) e «Tiro» per 遠隔 *Shoot* (`text.hsp:136`, lo
-slot dell'equipaggiamento).
-⚠️ Nessuna delle due rese era scrivibile: «Lancio oltre il limite» fa 22
-caratteri e il tetto di `buffname` e' **20**. ✅ La resa giusta gliela ha data il
-suo stesso messaggio — `buff.hsp:264` dice gia' «mette l'**anima** nel
-**lancio**» — ed e' **«Lancio dell'anima»**, diciassette caratteri.
-💡 E' `correzione-il-tiro.py` della 49ª con un passo in piu': li' si guardava
-«quale delle due voci e' LIBERA», qui non lo era nessuna delle due e la **terza
-voce del gruppo** ha fatto da arbitro.
-
-⭐⭐ **`main.hsp` e' l'undicesimo punto cieco per file chiuso**, e la formula e'
-sempre la stessa: un file senza `dizionario/*.jsonl` non lo nomina nessun
-referto. Erano 384 `lang()` che `verifica --dizionario` non contava; adesso il
-referto dice «main.hsp: 0 da ritradurre, 181 non ancora tradotte».
-
-⚠️⚠️ **E un punto cieco di GEOMETRIA, nuovo e non chiuso**: `larghezze.py` misura
-i menu di `*prompt_key` **solo in `text.hsp`** (`FILE = "text.hsp"`). I
-`promptAdd` di `main.hsp`, `command.hsp` e di tutti gli altri file sono fuori da
-ogni rete. Le quattro voci del menu della morte (`main.hsp:4361`-`:4371`) hanno
-`val = promptx, 100, 400, 1`, cioe' **400 px = 45 caratteri**, e sono state
-misurate a mano. Nessuno sa quante altre ce ne siano.
+⭐⭐⭐ **E nove voci su trenta non andavano tradotte, a dirlo è stata una verifica
+d'apertura.** `main.hsp:874`-`:898` stanno nel ramo `if ( jp )` di `:871`, la
+finestra di aiuto ai comandi che si apre **solo in giapponese**; l'inglese di
+tutte e nove è lo stesso segnaposto, «Essential is normal mode.». A fermare il
+lavoro non è stato l'occhio ma `lang-nel-ramo-jp.py`, che contava «21 righe, 0
+già tradotte»: tradurle avrebbe fatto salire la spia da 0 a 9, cioè avrebbe
+rotto la misura che serve a non fare quell'errore. 💡 **Una spia ferma a zero
+non è una spia inutile: è una spia che sta funzionando.**
 
 ---
 
-## La cinquantasettesima sessione
+## La cinquantottesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** (otto spinte) e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle **dieci** verifiche d'apertura. La sessione
+si è aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la
+**quindicesima prova** di fila.
+
+⚠️ Confermato che `git fetch` e `git push` vogliono `dangerouslyDisableSandbox`
+(57ª). ⚠️ **E una cosa nuova**: un messaggio di commit passato per *heredoc* può
+essere bloccato da un hook con un errore che non c'entra niente («Remove-Item on
+system path barra is blocked»). La forma che funziona sempre è scrivere il
+messaggio in un file e passarlo con `git commit -F`.
+
+⚠️⚠️ **I valori cambiati:**
+
+    verifica --dizionario   main.hsp        0 / 10    ← CHIUSO: le 10 sono i RINVII
+    pytest                  451 passed, 6 skipped     (erano 445: +6 della rete 15)
+    menu_dialogo            0 su 85 misurate          (era 0 su 56; e il tetto non
+                                                       è più uno solo)
+    rinviate.jsonl          71                        (erano 61: +9 del ramo jp,
+                                                       più 1 dell'`if ( 0 )`)
+    if-zero                 11 righe | 2 con lang()   ← REFERTO NUOVO
+    misura-re-select        177 righe | tetti 36-50   ← REFERTO NUOVO
+
+Tutto il resto è **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
+1131/2466/0/0, `larghezze` 0 su 75, `diario` 0 su 214, `riquadri` 0 su 38 e 0 su
+71, `linguette` 0 su 13, `battute --divergenti` 13, `nudi_en` 1044 | 455,
+`rete8_dizionario` 3, `perimetro` 64% | 47%, `lang-nel-ramo-jp` 21 | 0.
+
+✅ **`cgx-test.exe` rifatto due volte** e già in `elonaplus2.31\`.
+
+### ▶ Il collaudo: ZERO, ed è la QUARTA sessione così dopo la 51ª, la 54ª e la 57ª
+
+⚠️⚠️⚠️ **Il gioco non è stato aperto nemmeno una volta, e stavolta è stato
+deciso a voce**: a metà sessione la scelta era fra collaudare e andare avanti, ed
+è stato scelto di andare avanti. Non è una svista, è un debito preso di
+proposito — ma il debito è **quattro sessioni su otto**, ed è il più grande che
+il progetto abbia mai avuto.
+
+⚠️⚠️ **E c'è un pezzo che il collaudo servirebbe a PROVARE, non solo a
+verificare**: il tetto di `*re_select` è stato calcolato **dalla geometria del
+sorgente e non è mai stato visto a schermo**. Se sbaglia, sbaglia su 177 righe di
+menu. Il modo di provarlo è una schermata sola:
+
+1. ⭐⭐⭐ **Il minigioco delle orecchie** — si chiede a un compagno. Il suo menu
+   ha **dieci voci** dentro `*re_select` con sfondo `bg40`, tetto calcolato **41
+   caratteri**, e la più lunga ne fa 25 («Far scoppiare il condotto»). Serve la
+   schermata per misurare dove finisce davvero il riquadro.
+2. ⭐⭐ **La lotteria** (evento casuale) e **la nascita** — le altre due finestre
+   `*re_select` toccate oggi, sfondi `bg38`/`bg39`, tetto calcolato 62.
+3. ⭐⭐ **Il menu della morte** — l'arretrato della 57ª, tetto 45 caratteri che
+   **nessuna rete guarda**.
+4. ⭐ **Le undici sigle degli elementi** e **la bara della negromanzia** —
+   l'arretrato della 56ª, adesso da **tre** sessioni.
+5. ⭐ Il registro del mondo, il Ritorno e l'imbarco (57ª).
+
+### ▶ I lotti, e che cosa hanno chiuso
+
+    fase4-main-008      11 voci   il Sigillo Eterno e i guardiani di Lesimas
+    fase4-main-009      38 voci   le riunioni, i nove compagni, il matrimonio
+    fase4-main-010      44 voci   il minigioco delle orecchie
+    fase4-main-011      16 voci   la nascita e la lotteria
+    fase4-main-012      20 voci   gli dèi in casa e il Fattore Decisivo
+    fase4-main-013      21 voci   il rientro a casa (+1 rinvio, l'`if ( 0 )`)
+    fase4-main-014      21 voci   il resto (+9 rinvii, il ramo `if ( jp )`)
+    ---------------------------
+                       171 voci   più 10 rinvii — e `main.hsp` è CHIUSO
+
+### ▶ Le tre volte che una resa non si è scritta, si è copiata
+
+Sono il contrappeso della lezione in cima, e valgono quanto lei.
+
+1. **Dieci voci su quarantaquattro** nel lotto 010: le cinque frasi dell'esito
+   del minigioco hanno il giapponese **identico** a `action.hsp:14622`-`:14650`
+   e ci stanno due volte a testa. Quasi un quarto del lotto era già deciso, e
+   nessuno lo sapeva perché `main.hsp` non aveva un dizionario fino alla 57ª.
+2. **Tre righe della fine del mondo** nel lotto 013 (`:8712`, `:8724`, `:8797`):
+   stesso giapponese **e** stesso inglese di `proc.hsp` e `chara_func.hsp`. Due
+   rese diverse per la stessa schermata sarebbero un difetto che nessuna rete
+   vede — la rete 3 tace proprio perché coincidono.
+3. **Una divergenza corretta dalla rete 3**, nel lotto 014: 「かわいそう」 era già
+   «Che pena...» in `db_creature.hsp:51769`, e la resa nuova diceva «Che pena.».
+   La rete ha fatto esattamente il suo mestiere.
+
+### ▶ Il genere di chi gioca, che oggi ha morso più che mai
+
+⚠️⚠️ **Sette rese su otto del rientro a casa sono girate per non dire
+«bentornato»** (`:8381`, `:8465`). Sono righe rivolte **a** chi gioca, e in
+italiano ogni forma naturale di benvenuto — «bentornato», «sano e salvo», «ben
+trovato» — porta il genere di chi la riceve. Le rese dicono la stessa cosa da un
+lato che non lo chiede: «Eccoti a casa!», «Ah, sei di ritorno.», «Meno male,
+nessun guaio.». Non è una riga: è un **saluto intero**.
+💡 Il prezzo si paga su 「おかか♪」, che è 「おかえり」 storpiato da un bambino: in
+italiano ogni storpiatura di «bentornato» finisce sulla vocale che porta il
+genere. Si tiene l'affetto («Rieccoti!♪») e si lascia andare il gioco di parole.
+**È una perdita dichiarata, non una svista.**
+⚠️ E la regola vale anche per il **destinatario** di una minaccia: `:5194` toglie
+«avventuriero» perché il sicario si rivolge a chi gioca; `:5393` invece accorda
+al femminile, perché lì il sesso **si sa** — è Marka.
+
+### ▶ Il vocabolario fissato oggi, e da dove viene
+
+    Fattore Decisivo    決戦因子, e vale per **venti** righe del sorgente.
+                        Diciannove stanno in `chat.hsp`, che è quasi tutto da
+                        fare; l'inglese scrive «Decisive Factor» lì e «Deciding
+                        Factor» solo in `main.hsp:7083`
+    Libro della Verità  真実の書, tre righe nel sorgente e nessuna resa.
+                        ⚠️ L'inglese di `:5181` nomina il **posto** invece
+                        dell'oggetto, e il giapponese nomina l'oggetto
+    Pulizia delle orecchie   耳掃除 è l'**attività**; l'inglese scrive
+                        «Mimikaki», che è l'attrezzo — e l'attrezzo in italiano
+                        si chiama già mimikaki (`action.hsp:14584`)
+    «X: figlio»         il nome del neonato. ⚠️ «figlio di X» **non si può
+                        scrivere**: `contratto-nomi.md` §4 dice che l'articolo
+                        lo porta il nome, e la madre può chiamarsi «la tigre
+                        bianca». Nome davanti, due punti, specificazione dietro
+    zanna della luce nascente / occhio delle tenebre eterne   da `text.hsp`
+                        `:11633` e `:11585`, senza le quadre in mezzo a una frase
+    colpo di grazia     トドメを刺す, già tre volte in `db_creature.hsp`.
+                        L'inglese «stabbed the monster in the coffin» è un
+                        idiotismo storto
+    Segno letale        死紋, da `text.hsp:81`
+    blaster d'etere     da `text.hsp:11606`
+
+### ▶ Che cosa fare
+
+1. ⭐⭐⭐ **Collaudare, e la schermata che vale di più è il minigioco delle
+   orecchie**: è l'unico modo di sapere se il tetto di `*re_select` calcolato
+   oggi è giusto, e da quel numero dipendono 177 righe di menu.
+2. ⭐⭐⭐ **`larghezze.py` guarda solo `text.hsp`**, ed è il punto cieco di
+   geometria che la 57ª aveva già segnalato e che nessuno ha ancora chiuso. I
+   `promptAdd` fuori da `text.hsp` non li conta nessuno. ⚠️ È lo **stesso
+   difetto** che oggi è saltato fuori sulla rete 15, in un altro file: una rete
+   che guarda un file solo, o un tetto solo, non sta misurando.
+3. ⭐⭐ **Le 148 voci di `talk_quest` e le 46 di `com_txtadv_loop`**: adesso il
+   referto della rete 15 le **conta** come non misurate, ed è il primo passo. Il
+   secondo è leggere la loro geometria.
+4. ⭐⭐ **Il resto di `screen.hsp`**, 101 voci (decimo punto cieco).
+5. ⭐⭐ **Le ~55 etichette d'incantamento di `item_func.hsp`** (`:2667`-`:2750`),
+   che la 56ª e la 57ª chiedevano: ⚠️ il tetto è un **budget di riga** e va
+   misurato a schermo su un oggetto molto incantato.
+6. ⭐ **I 1.146 testi di ambientazione di `db_card.hsp`**, il blocco di prosa più
+   grande rimasto; e le **835** di `effdesc@tcg` (⚠️ prima va sciolto
+   `tcg_skill.hsp:618`).
+7. 💡 **`map_user.hsp` non ha dizionario**, e `if-zero.py` ci ha trovato dentro
+   l'altra `lang()` morta. Vale la regola della 54ª: aprirlo anche per una voce
+   sola lo fa entrare nei referti.
+8. 💡 **I sette gruppi rimasti in `misura-rete4.py`** restano da guardare uno per
+   uno (`[Change]`, 「どのファイル名で保存する？」, «il bug» contro «baco»).
+
+---
+
+## La cinquantasettesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
@@ -5431,14 +5587,14 @@ fare era su una riga commentata. Vedi «Le righe commentate» più sotto.
 
 ```powershell
 cd "C:\Users\old_p\Documents\progetto second brain\Elona+ CGX - Traduzione Italiana"
-python -m pytest strumenti/tests -q        # atteso: 445 passed, 6 skipped
+python -m pytest strumenti/tests -q        # atteso: 451 passed, 6 skipped
 python -m strumenti.prova_identita         # atteso: 72/72, 27.813, ambigue 0
 python -m strumenti.verifica --dizionario  # atteso: 0 da ritradurre ovunque
 python -m strumenti.creature               # atteso: nome 1131, voce 2466, doppie 0, senza razza 0
 python -m strumenti.larghezze              # atteso: 0 fuori misura su 75 menu
 python -m strumenti.diario                 # atteso: 0 fuori misura su 214 siti
 python -m strumenti.riquadri               # atteso: 0 su 38 piastrelle, 0 su 71 buffname
-python -m strumenti.menu_dialogo           # atteso: 0 su 50 voci, tetto 52 caratteri
+python -m strumenti.menu_dialogo           # atteso: 0 su 85 misurate, 0 non misurate
 python -m strumenti.linguette              # atteso: 0 coppie fuori misura su 13
 python -m strumenti.battute --divergenti   # atteso: 13, tutte legittime
 ```
