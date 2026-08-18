@@ -33,6 +33,35 @@ tocca il carattere. Se un giorno una voce dentro il tetto uscisse tagliata, il
 posto dove correggere e' qui, e i due test che fissano i punti misurati devono
 fallire prima del resto.
 
+## Le due strade per arrivare allo stesso riquadro
+
+Fino al 2026-08-18 la rete guardava **solo `text.hsp`**, ed era un punto cieco
+che la 57a, la 58a e la 59a avevano segnalato senza chiuderlo. Le strade sono
+due, e la seconda e' la piu' grossa:
+
+    text.hsp   #deffunc txtset* riempie s(cnt), il chiamante fa promptAdd s(cnt)
+               e dichiara il riquadro poco sotto -> 75 menu, 412 voci
+    altrove    una corsa di `promptAdd lang(...)` chiusa dallo stesso
+               `gosub *prompt_key` -> 92 siti, 261 voci
+
+⚠️ **Il metro sta in `*prompt_key`, non nel nome dei parametri.** `system.hsp`
+legge `val` cosi': `sx = val - val(2) / 2` (`:4272`), `sy = val(1) - ...`
+(`:4273`), `gfini val(2) - 17` (`:4275`). La larghezza e' il **terzo campo**,
+comunque siano scritti i primi due — `promptx, prompty, 300` ma anche
+`promptx, 240, 160` (chara.hsp) e `basex@tcg + 400, basey@tcg + 230, 300`
+(tcg.hsp). Cercare `promptx, prompty, N` ne trova venti su novantadue.
+
+⚠️ E la lingua allarga il riquadro **in tutt'e due i versi**: `450 - 50 * en`
+lo stringe a 400, `180 + ( en * 50 )` lo allarga a 230. Chi legge il primo
+numero e basta grida al difetto sul menu del voto, che invece ha margine.
+
+⚠️ Per questo la ricerca parte dal `gosub *prompt_key` e cammina **all'indietro**:
+ci sono `val =` a cinque campi che non dichiarano nessun riquadro
+(`winposy(90), 12, 1, 0` e' un campo d'immissione, e il 12 sono cifre), e
+partire da loro inventa menu che non esistono. I `#define` di `init.hsp:19`-`:33`
+si saltano per lo stesso motivo: il `gosub` che portano dentro e' il corpo di
+una macro, non un sito.
+
 ## Che cosa e' una voce di menu, e che cosa no
 
 Solo le assegnazioni a `s(cnt)`. Dentro gli stessi `#deffunc` ci sono anche dei
@@ -77,15 +106,63 @@ LARGHEZZA_NUMERO = 3
 _DEFFUNC = re.compile(r"^#deffunc\s+(\w+)")
 _VOCE = re.compile(r"^\s*s\(\s*cnt\s*\)\s*=\s*lang\(")
 _CHIAMATA = re.compile(r"^\s*(\w+)\s+\w")
-_PROMPT = re.compile(
-    r"val\s*=\s*promptx\s*,\s*prompty\s*,\s*(\d+)(?:\s*-\s*(\d+)\s*\*\s*en)?"
-)
 _INTERPOLAZIONE = re.compile(r'"\s*\+\s*[^+"]+?\s*\+\s*"')
+_SOLO_ARITMETICA = re.compile(r"^[\d\s+\-*/()]+$")
+_ADD = re.compile(r"\bpromptAdd\s+\S")
+_PROMPT_KEY = re.compile(r"gosub\s+\*prompt_key\b")
+_VAL = re.compile(r"^\s*val\s*=\s*(.+?)\s*$")
+
+# quanto indietro si cerca il `val =` che dichiara il riquadro: i menu piu`
+# lunghi (command.hsp:5952-:6172) ne occupano duecento
+FINESTRA = 400
 
 
 def budget(pixel: int) -> int:
     """Quanti caratteri entrano in un riquadro largo `pixel`."""
     return int((pixel - MARGINE) / PIXEL_PER_CARATTERE)
+
+
+def campi(espressione: str) -> list[str]:
+    """Spezza gli argomenti di un `val =` sulle virgole di primo livello.
+
+    Serve perche' la larghezza e' il **terzo campo** e i primi due possono
+    portarsi dentro delle virgole loro: `basex@tcg + 420, basey@tcg + 230, 200`
+    ma anche `winposy(90)`.
+    """
+    fuori, corrente, profondita = [], "", 0
+    for c in espressione:
+        if c in "([":
+            profondita += 1
+        elif c in ")]":
+            profondita -= 1
+        if c == "," and profondita == 0:
+            fuori.append(corrente)
+            corrente = ""
+        else:
+            corrente += c
+    fuori.append(corrente)
+    return fuori
+
+
+def larghezza_inglese(campo: str) -> int | None:
+    """Il campo della larghezza valutato nella build inglese, cioe' `en = 1`.
+
+    ⚠️ La lingua allarga il riquadro **in tutt'e due i versi**: `450 - 50 * en`
+    lo stringe a 400, `180 + ( en * 50 )` lo allarga a 230. Chi leggesse il
+    primo numero e basta griderebbe al difetto sul menu del voto, che invece
+    ha margine.
+
+    `None` quando il campo non e' un numero: sono i `val =` che non dichiarano
+    un riquadro di menu — `winposy(90), 12, 1, 0` e' un campo d'immissione, e
+    il 12 sono cifre, non pixel.
+    """
+    testo = re.sub(r"\ben\b", "1", campo).strip()
+    if not _SOLO_ARITMETICA.match(testo):
+        return None
+    try:
+        return int(eval(testo, {"__builtins__": {}}, {}))
+    except Exception:
+        return None
 
 
 def _righe(percorso: Path) -> list[str]:
@@ -145,13 +222,91 @@ def larghezze(cartella: Path | None = None, nomi: set[str] | None = None) -> dic
             for j in range(i + 1, len(righe)):
                 if righe[j].startswith(("#deffunc", "*")) or righe[j].lstrip().startswith("*"):
                     break
-                p = _PROMPT.search(righe[j])
-                if p:
-                    px = int(p.group(1)) - (int(p.group(2)) if p.group(2) else 0)
+                v = _VAL.match(righe[j])
+                if v:
+                    pezzi = campi(v.group(1))
+                    px = larghezza_inglese(pezzi[2]) if len(pezzi) >= 3 else None
+                    if px is None:
+                        continue
                     nome = m.group(1)
                     fuori[nome] = min(fuori.get(nome, px), px)
                     break
     return fuori
+
+
+def _siti(cartella: Path):
+    """(file, riga del `gosub *prompt_key`, pixel|None, righe delle voci).
+
+    Un menu e' una corsa di `promptAdd` chiusa da `gosub *prompt_key`, e la
+    larghezza sta nell'ultimo `val =` prima della chiusura. Si cammina
+    all'indietro **dalla chiusura**, non in avanti dal `val =`: ci sono `val =`
+    a cinque campi che non dichiarano nessun riquadro (`winposy(90), 12, 1, 0`
+    e' un campo d'immissione), e partire da loro inventa menu che non esistono.
+
+    ⚠️ I `#define` di `init.hsp:19`-`:33` portano dentro un `gosub *prompt_key`
+    che non e' un sito: e' il corpo delle macro `promptYesNo`, `promptOk`,
+    `promptTagTeam`, e il `%1=200` non e' una larghezza ma il valore di default
+    di un parametro. Si saltano, continuazioni comprese.
+    """
+    for percorso in sorted(cartella.glob("*.hsp")):
+        righe = _righe(percorso)
+        confine = 0
+        dentro_define = False
+        for i, riga in enumerate(righe):
+            if riga.startswith("#define"):
+                dentro_define = True
+            if dentro_define:
+                if not riga.rstrip().endswith("\\"):
+                    dentro_define = False
+                confine = i + 1
+                continue
+            if not _PROMPT_KEY.search(riga):
+                continue
+            inizio = max(confine, i - FINESTRA)
+            px = None
+            for j in range(i - 1, inizio - 1, -1):
+                m = _VAL.match(righe[j])
+                if m:
+                    pezzi = campi(m.group(1))
+                    px = larghezza_inglese(pezzi[2]) if len(pezzi) >= 3 else None
+                    break
+            voci = [j + 1 for j in range(inizio, i)
+                    if _ADD.search(righe[j]) and not righe[j].lstrip().startswith(";")]
+            yield percorso.name, i + 1, px, voci
+            confine = i + 1
+
+
+def _diretti_con_sito(cartella: Path) -> dict[tuple[str, int], tuple[int, str]]:
+    fuori: dict[tuple[str, int], tuple[int, str]] = {}
+    for nome, riga_pk, px, voci in _siti(cartella):
+        if px is None:
+            continue
+        for riga in voci:
+            fuori[(nome, riga)] = (px, "%s:%d" % (nome, riga_pk))
+    return fuori
+
+
+def menu_diretti(cartella: Path | None = None) -> dict[tuple[str, int], int]:
+    """(file, riga di una voce) -> larghezza in pixel del riquadro che la taglia.
+
+    E' la seconda strada della rete, quella che non passa da `text.hsp`: 95
+    siti contro 20, e 151 voci con `lang()` dentro. Le voci dei siti di cui non
+    si e' trovata la larghezza **non entrano**: meglio non misurate che misurate
+    col numero di qualcun altro — un sito che resta fuori lo dice il referto,
+    un sito misurato male tace.
+    """
+    cartella = cartella or percorsi.SORGENTE_HSP
+    return {chiave: px for chiave, (px, _) in _diretti_con_sito(cartella).items()}
+
+
+def siti_senza_larghezza(cartella: Path | None = None) -> list[tuple[str, int]]:
+    """I `gosub *prompt_key` di cui non si e' trovato il riquadro.
+
+    Oggi e' vuoto, ed e' bene saperlo dal test: e' il fratello di
+    `menu_senza_larghezza` per la seconda strada.
+    """
+    cartella = cartella or percorsi.SORGENTE_HSP
+    return [(nome, riga) for nome, riga, px, _ in _siti(cartella) if px is None]
 
 
 def reso(italiano: str) -> str:
@@ -171,23 +326,40 @@ def fuori_misura(
     dizionario: Path | None = None,
     sorgente: Path | None = None,
 ) -> list[tuple[str, int, int, int, int, str]]:
-    """(menu, pixel, tetto, riga, lunghezza, testo) per ogni voce che sfora."""
-    dizionario = dizionario or (percorsi.DIZIONARIO / (FILE + ".jsonl"))
+    """(sito, pixel, tetto, riga, lunghezza, testo) per ogni voce che sfora.
+
+    Il **sito** e' il nome del `#deffunc` per i menu di `text.hsp` e
+    `file.hsp:riga` del `gosub *prompt_key` per gli altri: sono due strade
+    diverse per arrivare allo stesso riquadro, e vale la pena vedere da quale
+    arriva una voce.
+
+    ⚠️ `dizionario` e' la **cartella**, non piu' il solo `text.hsp.jsonl`: la
+    rete leggeva un file solo, e una voce resa in un menu di `command.hsp` non
+    aveva nessuno che la guardasse.
+    """
+    dizionario = dizionario or percorsi.DIZIONARIO
     sorgente = sorgente or percorsi.SORGENTE_HSP
     per_riga = menu_per_riga(sorgente / FILE)
     px_per_menu = larghezze(sorgente)
+    diretti = _diretti_con_sito(sorgente)
 
     fuori = []
-    for linea in dizionario.read_text(encoding="utf-8").splitlines():
-        voce = json.loads(linea)
-        nome = per_riga.get(voce["riga"])
-        px = px_per_menu.get(nome)
-        if px is None:
-            continue
-        testo = reso(voce.get("it") or "")
-        tetto = budget(px)
-        if len(testo) > tetto:
-            fuori.append((nome, px, tetto, voce["riga"], len(testo), testo))
+    for percorso in sorted(dizionario.glob("*.jsonl")):
+        nome_file = percorso.name[: -len(".jsonl")]
+        for linea in percorso.read_text(encoding="utf-8").splitlines():
+            voce = json.loads(linea)
+            riga = voce["riga"]
+            if nome_file == FILE and riga in per_riga:
+                sito = per_riga[riga]
+                px = px_per_menu.get(sito)
+            else:
+                px, sito = diretti.get((nome_file, riga), (None, None))
+            if px is None:
+                continue
+            testo = reso(voce.get("it") or "")
+            tetto = budget(px)
+            if len(testo) > tetto:
+                fuori.append((sito, px, tetto, riga, len(testo), testo))
     return sorted(fuori)
 
 
@@ -209,31 +381,50 @@ def main(argv: list[str] | None = None) -> int:
     args = p.parse_args(argv)
 
     px_per_menu = larghezze()
+    diretti = _diretti_con_sito(percorsi.SORGENTE_HSP)
     if args.tutti:
         per_riga = menu_per_riga()
         quante: dict[str, int] = {}
         for nome in per_riga.values():
             quante[nome] = quante.get(nome, 0) + 1
-        print("%-22s %6s %5s %6s" % ("menu", "pixel", "tetto", "voci"))
-        for nome in sorted(px_per_menu):
-            print("%-22s %6d %5d %6d"
-                  % (nome, px_per_menu[nome], budget(px_per_menu[nome]), quante.get(nome, 0)))
+        for _, sito in diretti.values():
+            quante[sito] = quante.get(sito, 0) + 1
+        larghezza_di = dict(px_per_menu)
+        for px, sito in diretti.values():
+            larghezza_di[sito] = px
+        print("%-24s %6s %5s %6s" % ("menu", "pixel", "tetto", "voci"))
+        for sito in sorted(larghezza_di):
+            print("%-24s %6d %5d %6d"
+                  % (sito, larghezza_di[sito], budget(larghezza_di[sito]),
+                     quante.get(sito, 0)))
 
     sfori = fuori_misura()
     if sfori:
         print()
         ultimo = None
-        for nome, px, tetto, riga, n, testo in sfori:
-            if nome != ultimo:
-                print("\n%s  %dpx, tetto %d caratteri" % (nome, px, tetto))
-                ultimo = nome
+        for sito, px, tetto, riga, n, testo in sfori:
+            if sito != ultimo:
+                print("\n%s  %dpx, tetto %d caratteri" % (sito, px, tetto))
+                ultimo = sito
             print("   %6d  %3d  %s" % (riga, n, testo))
-    print("\nvoci fuori misura: %d su %d menu misurati"
-          % (len(sfori), len(px_per_menu)))
+
+    # ⚠️ Il denominatore sta nel referto apposta: «0 fuori misura» dice che
+    # nessuna resa sfora, non che tutte le voci siano state controllate. Le
+    # voci senza una resa non sono misurabili -- e sono la maggioranza.
+    con_voci = {sito for _, sito in diretti.values()}
+    print("\nvoci fuori misura: %d" % len(sfori))
+    print("menu misurati: %d di text.hsp piu' %d siti di *prompt_key con voci proprie"
+          % (len(px_per_menu), len(con_voci)))
+    print("voci nel riquadro: %d di text.hsp piu' %d altrove"
+          % (len(menu_per_riga()), len(diretti)))
 
     senza = menu_senza_larghezza()
     if senza:
         print("menu non misurati (chiamante non trovato): %s" % ", ".join(sorted(senza)))
+    orfani = siti_senza_larghezza()
+    if orfani:
+        print("siti *prompt_key senza riquadro: %s"
+              % ", ".join("%s:%d" % o for o in orfani))
     return 1 if sfori else 0
 
 
