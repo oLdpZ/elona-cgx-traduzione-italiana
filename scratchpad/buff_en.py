@@ -38,6 +38,22 @@ progetto la nominava.
 ramo `if ( jp ) … else …` e' gia' materia di `else_jp.py` e contarlo qui
 sarebbe contarlo due volte. La colonna «ramo» dice quante sono.
 
+## ⚠️ E lo ESCAPE, che e' il terzo inciampo dello stesso referto
+
+`command.hsp:8073` scrive una riga che contiene una **virgoletta protetta**. Una
+regex che si ferma alla prima virgoletta la legge come fine della stringa,
+cattura un backslash solo, e il filtro «almeno due lettere» butta via la riga:
+sparisce dal conto senza dire niente. Nello HSP il backslash e' un escape dentro
+i letterali — sta scritto nel docstring di `estrai.py` da sempre, e questo
+referto lo aveva ignorato. La forma giusta legge la stringa intera saltando le
+coppie protette, ed e' la stessa che il progetto usa gia' altrove.
+
+💡 **Tre correzioni in un giorno allo stesso referto**, e nessuna delle tre era
+un'idea nuova: il `+=` lo aveva gia' imparato `variabili_en.py` nella 47a, lo
+escape lo dice `estrai.py`, e la distinzione dal ramo di lingua e' `else_jp.py`.
+**Un referto nuovo sbaglia dove il progetto ha gia' sbagliato**, e conviene
+rileggere gli altri prima di scriverne uno.
+
 ⚠️ Non e' una guardia: e' un metro. Se il numero sale, qualcuno ne ha scritta
 una nuova; se scende, una e' stata resa.
 
@@ -51,8 +67,12 @@ from pathlib import Path
 SORGENTE = Path(r'C:\Games\Elona\_traduzione\sorgente\2.05-custom-gx')
 BUILD = Path(r'C:\Games\Elona\_traduzione\build\2.05-custom-gx')
 
-_ASSEGNA = re.compile(r'\bbuff\s*=\s*"([^"]*)"')
-_AGGIUNGE = re.compile(r'\bbuff\s*\+=\s*"([^"]*)"')
+# ⚠️ Nel sorgente HSP il backslash e' un escape dentro i letterali: una
+#    virgoletta protetta NON chiude la stringa (vedi il docstring di
+#    `estrai.py`). Una regex che si ferma alla prima virgoletta legge un solo
+#    backslash e la riga sparisce dal conto: e' successo a `command.hsp:8073`.
+_ASSEGNA = re.compile(r'\bbuff\s*=\s*"((?:[^"\\]|\\.)*)"')
+_AGGIUNGE = re.compile(r'\bbuff\s*\+=\s*"((?:[^"\\]|\\.)*)"')
 _LETTERE = re.compile(r'[A-Za-z]{2,}')
 # un ramo di lingua: la' il letterale inglese e' gia' contato da `else_jp.py`
 _RAMO = re.compile(r'\bif\s*\(\s*jp\s*\)|\bif\s*\(\s*en\s*\)|\belse\b')
