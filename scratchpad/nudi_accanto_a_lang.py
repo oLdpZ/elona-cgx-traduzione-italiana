@@ -27,8 +27,24 @@ referto cambia con loro.
 Come gli altri, struttura e lingua sono due misure diverse:
 
 - **struttura**: quante righe cosi' fatte ci sono nel sorgente pinnato;
-- **da fare**: quelle che nella build sono ancora identiche al sorgente, cioe'
-  che nessuna toppa ha ancora toccato.
+- **da fare**: quelle i cui **nudi** nella build sono ancora quelli del
+  sorgente, cioe' che nessuna toppa ha toccato;
+- **decise**: quelle guardate e lasciate in inglese col motivo scritto (vedi
+  `DECISE`).
+
+⚠️⚠️ **Il «da fare» si misura sui nudi, non sulla riga**, e la prima versione di
+questo referto sbagliava proprio li'. Su una riga mista la riga cambia
+**sempre** fra sorgente e build, perche' il dizionario ci ha riscritto le
+`lang()`: misurando la riga, `config.hsp:805` e `:809` risultavano fatte appena
+il file ha avuto un dizionario, e `MCI` non l'aveva toccato nessuno. Contava 7
+da fare dove ce n'erano 15. E' la lezione della 60a — una misura presa su un
+insieme piu' largo di quello che si vuole misurare — ripetuta dentro il referto
+che la citava.
+
+Atteso al 2026-08-18: **19 di struttura, 0 da fare, 6 decise**. Le nove che
+mancavano sono state toppate lo stesso giorno, e tutte e nove hanno chiesto la
+forma `prima` (`applica.py`), perche' una toppa scritta sul sorgente non ritrova
+la riga dopo che il dizionario l'ha riscritta.
 """
 import glob
 import io
@@ -47,6 +63,21 @@ BUILD = nudi_en.BUILD
 #    non lo sa perche' non arriva mai a guardare una riga con `lang(` dentro, e
 #    li' il letterale della lettera di scelta sta sempre accanto a una.
 NON_TESTO = {'null'}
+
+# I siti guardati e **decisi**: restano in inglese per scelta, col motivo scritto.
+# Come le tabelle di `tabelle_en.py`, non stanno in `rinviate.jsonl`, perche' quel
+# file indicizza per firma `lang()` e qui di firma non ce n'e' nessuna: il
+# letterale e' nudo. Un referto che li contasse come lavoro direbbe per sempre
+# «sei da fare» su una classe che invece e' chiusa.
+DECISE = {
+    ('command.hsp', 10659): "« cm» e « kg» sono unita' SI: in italiano si scrivono uguale",
+    ('command.hsp', 14077): "«Tab» e' il nome di un tasto, non una parola",
+    ('module.hsp', 5195): "«Tab» e' il nome di un tasto, non una parola",
+    ('config.hsp', 805): "«MCI» e' il nome del driver audio, come «Direct sound» in invariati.md",
+    ('config.hsp', 809): "«MCI» e «GuruGuruSMF4» sono nomi di driver",
+    ('main.hsp', 4409): "«dead» e' il prefisso del messaggio che net_send manda al "
+                        "server (main.hsp:4411), non testo che qualcuno legga",
+}
 
 
 def _e_testo(letterale: str) -> bool:
@@ -130,9 +161,32 @@ def righe_miste(righe: list[str]) -> list[int]:
     return trovati
 
 
+def nudi_di(riga: str) -> list[str]:
+    """I letterali di testo che stanno FUORI da ogni `lang()` su questa riga."""
+    return [m for m in nudi_en._LETTERALE.findall(senza_lang(riga.strip()))
+            if _e_testo(m)]
+
+
+def ancora_intatta(riga_sorgente: str, riga_build: str) -> bool:
+    """Vero se i nudi di quella riga non li ha toccati nessuna toppa.
+
+    ⚠️⚠️ **Non si confronta la riga intera**, ed e' la correzione piu'
+    importante di questo referto. Su una riga mista la riga cambia **sempre**
+    fra sorgente e build, perche' il dizionario ci ha riscritto le `lang()`:
+    misurare la riga faceva risultare fatte tutte e tre le righe di
+    `config.hsp` appena il dizionario del file e' entrato, comprese `:805` e
+    `:809`, dove `MCI` e `GuruGuruSMF4` non li aveva toccati nessuno. Il metro
+    giusto sono i **nudi**, che sono la cosa che il referto conta.
+
+    E' la stessa forma di difetto della rete 5 nella 60a: una misura presa su
+    un insieme piu' largo di quello che si voleva misurare.
+    """
+    return nudi_di(riga_sorgente) == nudi_di(riga_build)
+
+
 def main(argv: list[str]) -> None:
     nomi = argv or sorted(os.path.basename(p) for p in glob.glob(SORGENTE + r'\*.hsp'))
-    tot_struttura = tot_da_fare = 0
+    tot_struttura = tot_da_fare = tot_decise = 0
     for nome in nomi:
         sorg = io.open(os.path.join(SORGENTE, nome), encoding='cp932').read().split('\n')
         percorso_build = os.path.join(BUILD, nome)
@@ -142,16 +196,22 @@ def main(argv: list[str]) -> None:
         if not indici:
             continue
         intatte = [i for i in indici
-                   if i < len(build) and build[i] == sorg[i]]
+                   if i >= len(build) or ancora_intatta(sorg[i], build[i])]
+        decise = [i for i in indici if (nome, i + 1) in DECISE]
+        da_fare = [i for i in intatte if i not in decise]
         tot_struttura += len(indici)
-        tot_da_fare += len(intatte)
-        print(f'=== {nome}: {len(indici)} righe, {len(intatte)} ancora intatte')
+        tot_da_fare += len(da_fare)
+        tot_decise += len(decise)
+        print(f'=== {nome}: {len(indici)} righe, {len(da_fare)} da fare, '
+              f'{len(decise)} decise')
         for i in indici:
-            marca = ' ' if i in intatte else '.'
-            nudi = [m for m in nudi_en._LETTERALE.findall(senza_lang(sorg[i].strip()))
-                    if _e_testo(m)]
+            marca = '=' if i in decise else (' ' if i in intatte else '.')
+            nudi = nudi_di(sorg[i])
             print(f'  {marca}{i + 1:6d} | {" | ".join(repr(x) for x in nudi)}')
-    print(f'\n--- struttura: {tot_struttura} righe | ancora da fare: {tot_da_fare}')
+            if i in decise:
+                print(f'           DECISA: {DECISE[(nome, i + 1)]}')
+    print(f'\n--- struttura: {tot_struttura} righe | da fare: {tot_da_fare} '
+          f'| decise: {tot_decise}')
 
 
 if __name__ == '__main__':
