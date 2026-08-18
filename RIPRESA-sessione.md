@@ -1,9 +1,9 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-18, **cinquantanovesima** sessione (una schermata di
-collaudo ha reso **quattro volte**: la toppa confermata, la prima finestra
-`*re_select` mai vista, il **passo del carattere corretto** da 7,7 a 7, e
-`event.hsp` aperto con 27 rese).
+Aggiornato: 2026-08-18, fine della **cinquantanovesima** sessione (una schermata
+di collaudo ha corretto la formula che doveva confermare, l'**undicesimo punto
+cieco** è nato ed è stato **chiuso** nella stessa giornata — 124 su 124 — e
+`event.hsp` si è aperto con 27 rese).
 
 ⭐⭐⭐ **La lezione della sessione: una rete può prendere una costante da
 un'altra dicendo «è lo stesso carattere», e nessun test se ne accorge — perché
@@ -11,19 +11,20 @@ i test fissano il numero, non la sua provenienza.** `menu_dialogo.py` (rete 15)
 aveva copiato il `7,7` px per carattere da `larghezze.py` (rete 5). Non è lo
 stesso carattere: `*prompt_key` disegna con `font ..., 15 - en * 2`
 (`system.hsp:4259`), cioè **13**, la pergamena del dialogo e `*re_select` con
-`font ..., 14 - en * 2` (`chat.hsp:25149`, `event.hsp:4173`), cioè **12**.
-✅ Il numero giusto non è una stima: sta nel sorgente. `module.hsp:70`, dentro
-`cs_list`, dimensiona la barra evidenziata con
-`limit(strlen(arg1) * 7 + 32 + arg5, 10, 480)` — **il gioco stesso conta 7 px
-per carattere**, più 32 di contorno.
+`font ..., 14 - en * 2`, cioè **12**.
+✅ Il numero giusto non è una stima: sta nel sorgente, **quattro volte**.
+
+    module.hsp:70     limit(strlen(arg1) * 7 + 32 + arg5, 10, 480)   la barra di cs_list
+    module.hsp:5014   gmesx += size / 2                             l'avanzamento di gmes
+    la schermata      7,00 px su 37 caratteri, barra prevista a 1210 e misurata a 1210
+    le sei misure     pendenza 49 px su 7 caratteri = 7,00 esatti
 
 ⭐⭐⭐ **E le sei misure del 2026-08-17 erano giuste: sbagliato era il conto
 fatto sopra.** Non andava preso il **rapporto**, andava presa la **pendenza**.
-Fra la prima e l'ultima ci sono 7 caratteri e 49 pixel: **7,00 esatti**. Il
-rapporto esce 7,7 perché ogni misura porta dentro i 32 px fissi del contorno, e
-dividerli per il numero di caratteri li **spalma sui caratteri** — 32 su 47 fa
+Il rapporto esce 7,7 perché ogni misura porta dentro i 32 px fissi del contorno,
+e dividerli per il numero di caratteri li **spalma sui caratteri** — 32 su 47 fa
 proprio 0,68. 💡 È un errore che nessuna rete può vedere, perché i dati erano
-buoni: si vede solo rimettendo le misure in fila e guardando come crescono.
+buoni: si vede solo rimettendo le misure in fila e guardando **come crescono**.
 
     pergamena di chat.hsp   407 px   52 -> 58 caratteri
     *re_select              per bmp  36-50 -> 40-56
@@ -38,28 +39,38 @@ da una divisione ma da un **taglio osservato** (300 px che tagliavano a 33
 caratteri). Il rapporto delle dimensioni conferma tutt'e due: 13/12 = 1,083
 contro 7,7/7 = 1,10.
 
-⭐⭐⭐ **E il collaudo è stato UNA schermata sola, che ha fatto quattro lavori.**
-Il giocatore ha mandato la finestra dell'evento del lupo mannaro. Da lì:
-la conferma della toppa del nome (debito della 58ª, chiuso); la **prima
-finestra `*re_select` mai vista**, con la formula dei bordi verificata al pixel
-(`wx + dx - 12 = 1127`, pergamena a 1124-1126); il passo del carattere,
-misurato tre volte sulla stessa immagine; e una riga bilingue nel registro,
-`Qualcosa screams, "Ahhhhhh!"` (`event.hsp:402`, `:491`, `:641`).
-💡 È la lezione della 56ª portata ancora avanti: **la schermata che serviva a
-confermare una formula ha finito per correggerla.**
+⭐⭐⭐ **E un referto nuovo sbaglia dove il progetto ha già sbagliato: tre
+correzioni in un giorno a `buff_en.py`, e nessuna era un'idea nuova.**
 
-⭐⭐ **L'undicesimo punto cieco: il CORPO della finestra dell'evento.**
-`*re_select` disegna tre cose — titolo `s`, corpo `buff`, lista di `chatList` —
-e il progetto ha una rete per la terza e il dizionario per le `lang()` delle
-altre due. Ma `buff` si può assegnare **senza** `lang()`, con un letterale
-inglese nudo, e allora cade **fra le due reti**: `nudi_en` guarda i letterali
-che *disegnano* e questo sta in un'assegnazione; `variabili_en` guarda le
-variabili *interpolate in una `lang()`* e `buff` non ci finisce mai.
-**44 siti, 2 già resi, 42 da fare**, quarantatré in `tcg.hsp` — 18 sono gli
-esiti del gioco di carte, che si leggono alla fine di **ogni partita**.
-💡 E `tcg.hsp:2803` era **già reso** mentre i diciotto fratelli intorno no: la
-forma di `item_func.hsp` nella 34ª, un caso toppato per volta senza sapere che
-era una famiglia. Referto in `scratchpad/buff_en.py`.
+    1. il `+=`     lo aveva già imparato `variabili_en.py` nella 47ª
+    2. lo escape   lo dice il docstring di `estrai.py` da sempre
+    3. il ramo jp  è tutto `else_jp.py`
+
+Il conto è passato da **44 a 124**, e sotto la prima correzione c'era una
+finestra intera: `command.hsp:8049`-`:8175`, la **scheda dell'avventuriero
+conosciuto**, 80 righe in inglese che nessun conteggio nominava. Sotto la
+seconda c'era una riga sola, `:8073`, che spariva perché ha una virgoletta
+protetta e il filtro «almeno due lettere» la buttava via **senza dire niente**.
+💡 **Conviene rileggere gli altri referti prima di scriverne uno.**
+
+⭐⭐ **L'undicesimo punto cieco: il CORPO della finestra, composto fuori da
+`lang()`.** `*re_select` disegna tre cose — titolo `s`, corpo `buff`, lista di
+`chatList` — e il progetto ha una rete per la terza e il dizionario per le
+`lang()` delle altre due. Ma `buff` si può scrivere **senza** `lang()`, e allora
+cade **fra le due reti**: `nudi_en` guarda i letterali che *disegnano* e questi
+stanno in un'assegnazione; `variabili_en` guarda le variabili *interpolate in
+una `lang()`* e `buff` non ci finisce mai.
+✅ **Nato e chiuso nella stessa giornata: 124 su 124.**
+
+⭐⭐ **E il collaudo è stato UNA schermata sola, che ha fatto quattro lavori.**
+Il giocatore ha mandato la finestra dell'evento del lupo mannaro. Da lì: la
+conferma della toppa del nome (debito della 58ª, chiuso); la **prima finestra
+`*re_select` mai vista**, con la formula dei bordi verificata al pixel; il passo
+del carattere; e una riga bilingue nel registro.
+💡 **La misura si è potuta fare perché l'immagine era su disco**: le posizioni
+sono state lette con Pillow, non stimate a occhio. **Chi legge un collaudo può
+misurare la schermata invece di guardarla** — è un metodo nuovo per questo
+progetto e vale per ogni tetto.
 
 ⭐⭐ **E l'inglese che sbaglia evento si è ripresentato subito, in un file
 nuovo.** `event.hsp:442` sta dentro `if ( wolf == 0 )`, azzera il contatore,
@@ -68,39 +79,58 @@ scrive 失敗; l'inglese scrive «in progress», che è la riga di `:525`. 💡 
 si vede dalla punteggiatura: `:525` chiude con `/200 > `, `:442` con `/200> `.
 **Chi copia una riga si porta dietro tutto tranne uno spazio.**
 
+⚠️⚠️ **Il genere di chi legge ha morso su tre lotti diversi**, ed è il filo che
+attraversa tutta la sessione: le otto righe del rientro a casa nella 58ª, i due
+esiti del gioco di carte («Hai ribaltato il tavolo e **lasciato la partita**»,
+«**SEI FUORI DAL GIOCO!**»), e i sei ranghi e sei tratti della scheda
+dell'avventuriero. 💡 La regola operativa che ne esce: **col passato prossimo di
+`avere` il participio non concorda, gli aggettivi in `-e` valgono per tutti, e
+un sintagma nominale non concorda mai.**
+
 ---
 
 ## La cinquantanovesima sessione
 
 ### ▶ Il punto esatto in cui si riprende
 
-Tutto è **spinto** (tre spinte) e l'albero di lavoro è pulito. Si riparte da
+Tutto è **spinto** (otto spinte) e l'albero di lavoro è pulito. Si riparte da
 `git fetch && git status -sb` e dalle **dieci** verifiche d'apertura. La sessione
 si è aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la
 **sedicesima prova** di fila.
 
+⚠️ **La sessione si è chiusa annunciando un cambio di terminale.** È l'ottava
+volta dalla 42ª, e tutte le volte verificate finora la sessione dopo si è
+riaperta sullo stesso `DESKTOP-1O339MR`. `hostname` accanto al `git fetch`
+chiude la questione in un secondo.
+
 ⚠️ Confermato che `git fetch` e `git push` vogliono `dangerouslyDisableSandbox`,
 e che il messaggio di commit va passato con `git commit -F <file>`.
-⚠️ **Una cosa nuova, piccola**: `battute --divergenti` muore con
-`UnicodeEncodeError` se lo si lancia da bash senza `PYTHONIOENCODING=utf-8`
-(stampa giapponese su cp1252). Da PowerShell non succede.
+⚠️ **Due cose nuove, piccole ma che costano tempo se non le si sa**:
+`battute --divergenti` muore con `UnicodeEncodeError` se lo si lancia da bash
+senza `PYTHONIOENCODING=utf-8` (stampa giapponese su cp1252); e **una regex con
+`\\` dentro un heredoc di bash perde un backslash** — gli script che ne hanno
+bisogno vanno scritti con lo strumento di scrittura, non con `cat <<'EOF'`.
 
 ⚠️⚠️ **I valori cambiati:**
 
     pytest                  453 passed, 6 skipped     (erano 451: +2 del passo)
-    menu_dialogo            0 su 90 misurate          (erano 85: +5 del lotto;
-                                                       tetto 58, non piu' 52)
-    verifica --dizionario   event.hsp   0 / 622       (erano 649: -27)
+    menu_dialogo            0 su 90 misurate          (erano 85; tetto 58, non 52)
+    verifica --dizionario   event.hsp     0 / 622     (erano 649: -27)
+                            command.hsp   0 / 121     (erano 124: -3)
     rotte anche in inglese  2                         (era 1: +event.hsp:521,
                                                        -tcg_custom.hsp:2108)
-    buff_en                 44 | 2 rese | 42 da fare  <- REFERTO NUOVO
+    toppe.jsonl             959                       (erano 838: +41 e +80)
+    nudi_en                 1044 | 448                (era 1044 | 455)
+    perimetro               64% | 48%                 (era 64% | 47%)
+    misura-rete4            8 | 464                   (era 8 | 459)
+    buff_en                 124 | 124 rese | 0        <- REFERTO NUOVO, e CHIUSO
 
 Tutto il resto è **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
 1131/2466/0/0, `larghezze` 0 su 75, `diario` 0 su 214, `riquadri` 0 su 38 e 0 su
 71, `linguette` 0 su 13, `battute --divergenti` 13, `if-zero` 11 | 2,
-`lang-nel-ramo-jp` 21 | 0, `rinviate.jsonl` 71, `toppe.jsonl` 838.
+`lang-nel-ramo-jp` 21 | 0, `rete8_dizionario` 3, `rinviate.jsonl` 71.
 
-✅ **`cgx-test.exe` rifatto una volta** e già in `elonaplus2.31\`. Salvataggi in
+✅ **`cgx-test.exe` rifatto tre volte** e già in `elonaplus2.31\`. Salvataggi in
 `save-backup\pre-collaudo-20260818-59a`.
 
 ### ▶ Il collaudo: una schermata, quattro risultati
@@ -111,32 +141,29 @@ Tutto il resto è **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
    mannaro (`event.hsp:521`, sfondo `bg_re9`). La formula dei bordi regge:
    previsto `wx + dx - 12 = 1127`, misurato 1124-1126.
 3. ⭐⭐⭐ **Il passo del carattere era sbagliato.** Vedi la lezione in cima.
-   Tre conferme sulla stessa immagine: l'avanzamento fra l'inizio di una parola
-   e la successiva vale 7,00 px su tutti e 37 i caratteri misurabili; la barra
-   evidenziata, prevista da `48×7+32` fino a `x=1210`, finisce a **1210**; i
-   bordi tornano.
 4. 💡 **Una riga bilingue nel registro**: `Qualcosa screams, "Ahhhhhh!"` —
    soggetto italiano, verbo inglese. Resa nel lotto.
 
-⚠️ **La misura si è potuta fare perché l'immagine era su disco.** Le posizioni
-sono state lette con Pillow (installato oggi), non stimate a occhio. Chi legge
-un collaudo può **misurare** la schermata invece di guardarla: è un metodo
-nuovo per questo progetto e vale per ogni tetto.
+### ▶ I tre lotti, e che cosa hanno chiuso
 
-### ▶ Il lotto, e che cosa ha chiuso
+    fase4-event-001            27 rese     il rito del lupo mannaro, l'esecuzione,
+                                           l'assassino, il banchetto misterioso
+    toppa-tcg-buff             41 toppe    gli esiti del duello e i rifiuti del mazzo
+    toppa-knowcnpc             80 toppe    la scheda dell'avventuriero conosciuto
+    fase4-command-knowcnpc      3 rese     le tre lang() della stessa finestra
+    ------------------------------------
+                               30 rese e 121 toppe
 
-    fase4-event-001     27 voci   il rito del lupo mannaro, l'esecuzione,
-                                  l'assassino, il banchetto misterioso
-
-È la **prima apertura di `event.hsp`** (649 → 622): i quattro eventi casuali di
-città che stanno in fila nello `switch`, `:366`-`:673`.
-⭐ Il lotto **nasce da una schermata**, non da un elenco: la finestra arrivata
+⭐ **Il primo nasce da una schermata, non da un elenco**: la finestra arrivata
 per misurare un tetto era l'evento in corso nella partita di chi collauda.
+⭐ **E l'ultimo chiude una finestra per intero, da due strade diverse**: 80
+righe con `buff +=` (toppe) e 3 con `lang()` (dizionario). Chiudere solo le
+prime avrebbe lasciato il titolo inglese sopra un pannello italiano — è la
+lezione dei «mezzi fatti» della 55ª, applicata invece che subita.
 
-**Le tre volte che l'inglese di monte sbaglia, tutte dimostrabili dal codice:**
+### ▶ Le tre volte che l'inglese di monte sbaglia, in `event.hsp`
 
-1. `:442` — «in progress» dove il giapponese dice **失敗**, «fallito». Vedi la
-   lezione in cima.
+1. `:442` — «in progress» dove il giapponese dice **失敗**, «fallito».
 2. `:518` — rende 狼の襲撃 (l'**evento**, «l'attacco del lupo») con «Werewolf»
    (la **creatura**, `ai.hsp:117`). È l'appiattimento di `decisioni.md`.
 3. `:520` e `:654` — due eventi con due giapponesi diversi (l'ululato del lupo,
@@ -147,34 +174,46 @@ per misurare un tetto era l'evento in corso nella partita di chi collauda.
 `:521` ha 48 caratteri in un tetto da 40, ed è la riga che il collaudo ha visto
 uscire dalla pergamena. La resa ne usa 34.
 
-💡 **Due inciampi di codifica, tutti e due già decisi altrove**: le virgolette
-caporali `«»` non esistono in CP932 e `reimporta` le boccia — dentro una statica
-la citazione si scrive con lo escape dello HSP, `\"`, come `action.hsp:3094`.
-E 食べる era già «Mangia» in `text.hsp:135`: lì è il titolo del comando
-d'inventario, qui è una voce di menu, e lo stile del menu è l'**infinito**,
-fissato dal lotto della 58ª sul minigioco delle orecchie.
+💡 **E in `command.hsp:7615` l'inglese sbaglia il tasto**: il giapponese dice
+「決定 [召喚]」, «Invio [evoca]», e l'inglese scrive «Enter [Details]». La resa
+seguiva già il giapponese, ed è giusta.
+
+### ▶ La geometria della scheda dell'avventuriero
+
+    command.hsp:8016   ww = 380                  la finestra
+    command.hsp:8186   gmesx = wx + 40           dove comincia la riga
+    module.hsp:5014    gmesx += size / 2         quanto avanza per carattere
+
+328 px utili, **tetto 46 caratteri** (54 dentro `<title1>`, dove il corpo scende
+a 12). ⚠️⚠️ **E `gmes` non manda a capo dentro la finestra**: `gmesw` vale 600
+(`:8188`) contro 328 utili. Quel che sfora non va a capo e non viene tagliato —
+finisce **stampato sopra la mappa**. L'unica riga che può sforare è `:8175`,
+dove il nome della classe è interpolato: 29 caratteri più il nome, e serve una
+classe da più di 17 per uscire.
 
 ### ▶ Quel che resta aperto
 
-1. ⭐⭐⭐ **Il lotto non è stato visto a schermo.** L'evento è in corso nella
-   partita di chi collauda: basta aspettare che il rito si chiuda. Le tre cose
-   da guardare sono il registro («[Un lupo mannaro ha fatto una vittima…]»), il
-   titolo della finestra («L'attacco del lupo») con la voce di menu **dentro**
-   la pergamena, e la riga verde di chiusura («< Rito del lupo mannaro
-   fallito: 0/200 >»).
-2. ⭐⭐⭐ **Le 42 righe di `buff_en`**, di cui 18 si leggono alla fine di ogni
-   partita a carte. ⚠️ Sono fuori da `lang()`: vanno rese come **toppe**, non
-   dal dizionario.
-3. ⭐⭐⭐ **`larghezze.py` guarda solo `text.hsp`**, ed è il punto cieco che la
-   57ª e la 58ª avevano già segnalato. ⚠️ Oggi ha una ragione in più per essere
-   guardato: è l'altra rete che usa un passo di carattere, e il suo l'ha
-   verificato solo una misura del 2026-08-10.
-4. ⭐⭐ **Le 148 voci di `talk_quest` e le 46 di `com_txtadv_loop`**, che il
+1. ⭐⭐⭐ **Tre finestre nuove, nessuna vista a schermo.** È l'arretrato di
+   collaudo di questa sessione, ed è tutto da guardare:
+   - **l'evento del lupo mannaro** — è in corso nella partita di chi collauda.
+     Il registro deve dire «[Un lupo mannaro ha fatto una vittima…]», la
+     finestra intitolarsi «L'attacco del lupo» con la voce di menu **dentro** la
+     pergamena, e la chiusura «< Rito del lupo mannaro fallito: 0/200 >».
+   - **la fine di una partita a carte** — 18 righe nuove, e ne esce una a ogni
+     duello.
+   - **la sfera di cristallo** (`*com_knowCNPC`) — 83 righe nuove in una
+     schermata sola. ⚠️ È quella con il tetto da 46 che `gmes` non fa rispettare.
+2. ⭐⭐⭐ **`larghezze.py` guarda solo `text.hsp`**, ed è il punto cieco che la
+   57ª e la 58ª avevano già segnalato. ⚠️ Oggi ha una ragione in più: è l'altra
+   rete che usa un passo di carattere, e il suo l'ha verificato una misura sola.
+3. ⭐⭐ **Le 148 voci di `talk_quest` e le 46 di `com_txtadv_loop`**, che il
    referto della rete 15 conta come non misurate.
-5. ⭐⭐ Restano i debiti della 58ª: la colonna delle abilità che tronca a **4
-   caratteri**, le linguette `Talenti|Materie` a **49 su 50**, il resto di
-   `screen.hsp` (101 voci), le ~55 etichette d'incantamento di `item_func.hsp`.
-6. ⭐ **Le altre 622 di `event.hsp`**, adesso che il file è aperto.
+4. ⭐⭐ I debiti della 58ª: la colonna delle abilità che tronca a **4 caratteri**,
+   le linguette `Talenti|Materie` a **49 su 50**, il resto di `screen.hsp` (101
+   voci), le ~55 etichette d'incantamento di `item_func.hsp`.
+5. ⭐ **Le altre 622 di `event.hsp`** e le 121 di `command.hsp`, adesso che tutti
+   e due i file sono aperti.
+6. ⭐ **I 1.146 testi di `db_card.hsp`** e le 835 di `effdesc@tcg`.
 
 ---
 
