@@ -148,6 +148,18 @@ def costo(sinistra: str, destra: str) -> int:
     return (PIXEL_PER_CARATTERE - CENTRAGGIO) * len(sinistra) + CENTRAGGIO * len(destra)
 
 
+def divario(sinistra: str, destra: str) -> int:
+    """I pixel vuoti fra la fine di una linguetta e l'inizio della vicina.
+
+    ⚠️ **Non e' un di piu' del `costo`: e' la cosa che si vede.** Il costo dice
+    se le due si sovrappongono, e a quella domanda la risposta e' sempre stata
+    «no»; il collaudo della 63a ha mostrato `TalentiMaterie` attaccate, e il
+    conto spiega perche' — la coppia costa 49 su 50, cioe' lascia **un pixel**,
+    e il contorno di `bmes` se lo mangia. Un sì/no nascondeva il margine.
+    """
+    return TETTO_COPPIA - costo(sinistra, destra)
+
+
 def fuori_misura(dizionario: Path | None = None,
                  sorgente: Path | None = None) -> list[tuple[int, str, str, int]]:
     """(riga, sinistra, destra, costo) per ogni coppia che si sovrappone.
@@ -176,10 +188,18 @@ def main(argv: list[str] | None = None) -> int:
           % (TETTO_COPPIA, TETTO_ULTIMA))
     for numero, fila in sorted(tutte.items()):
         testi = [t for _, t in fila]
+        inglesi = [e for e, _ in fila]
         coppie = " ".join(
             "%d" % costo(a, b) for a, b in zip(testi, testi[1:]))
         print("  %s:%-6d %-42s  coppie: %s"
               % (FILE, numero, " | ".join(testi), coppie))
+        # Il divario in px accanto a quello dell'inglese di monte: il costo dice
+        # se si toccano, questo dice se si leggono.
+        nostri = [divario(a, b) for a, b in zip(testi, testi[1:])]
+        loro = [divario(a, b) for a, b in zip(inglesi, inglesi[1:])]
+        print("  %-49s  divario px: %s   (inglese: %s)"
+              % ("", " ".join("%d" % d for d in nostri),
+                 " ".join("%d" % d for d in loro)))
     for numero, sinistra, destra, quanto in guasti:
         if destra:
             print("  FUORI %s:%d  %r + %r = %d" % (FILE, numero, sinistra, destra, quanto))
