@@ -5554,3 +5554,59 @@ sotto il tetto e resta nella stessa famiglia di parole.
 (`db_item.hsp:134276`) dice «accampamento» mentre la mappa e i messaggi dicono
 «campo di prigionia» — e `adv.hsp:197` parla di prigionieri da condurre lì, cioè
 «accampamento» è la parola sbagliata, non solo una parola diversa.
+
+
+## 63ª — Il sesso dichiarato vive nel salvataggio, e per ora non si tocca
+
+`chara.hsp` è stato aperto e chiuso quasi tutto (258 firme, 254 rese). Le
+**quattro** che restano sono una famiglia sola, e non sono state lasciate per
+stanchezza: sono una decisione da prendere con gli occhi aperti.
+
+    chara.hsp:2790   lang("両性具有", "hermaphrodite")   -> CDATAN_NEWSEX
+    chara.hsp:3631   lang("自称男性", "male?")           -> menu, poi zisyousex
+    chara.hsp:3632   lang("自称女性", "female?")         -> menu, poi zisyousex
+    chara.hsp:4390   lang("なし", "none")                -> CDATAN_NEWSEX
+
+### Perché non basta tradurle
+
+`cdatan(CDATAN_NEWSEX, …)` **finisce nel salvataggio**, ed è la stessa forma
+del congelamento di `mdatan` scoperto nella 62ª: quel che è scritto lì dentro
+resta com'era al momento della creazione, per sempre. E non è solo un dato da
+mostrare — lo **confrontano** due posti in altri file:
+
+- `init.hsp:2089` (`gendername`): se il valore è `lang("なし", "none")` mostra
+  «sconosciuto», altrimenti **restituisce la stringa così com'è**;
+- `command.hsp:3639`-`:3656`: sei rami che confrontano il valore con sei
+  letterali e, quando ne trovano uno, appendono lo **stesso** letterale alla
+  riga dell'elenco alleati in modo `Rank.`.
+
+Da qui i tre casi, che sono diversi fra loro:
+
+1. **`none` non si traduce mai.** È una chiave pura: nessuno la mostra —
+   `gendername` la intercetta e stampa «sconosciuto» al suo posto. Tradurla
+   spegnerebbe l'intercettazione e a schermo comparirebbe la chiave.
+2. **`hermaphrodite` si potrebbe tradurre subito.** `gendername` lo mostra
+   verbatim, e l'unico confronto (`command.hsp:3639`) cerca `"bisexual"`, che
+   **non è la stessa parola**: in inglese quel ramo non scatta già oggi. ⚠️ In
+   giapponese sì — sono tutt'e due 両性具有 — quindi è un guasto della sola
+   build inglese, di monte, non nostro.
+3. **`male?` e `female?` sono il caso vero.** Vanno in `zisyousex` e da lì in
+   `CDATAN_NEWSEX`. `gendername` li mostra verbatim, quindi tradurli fa bene
+   alla schermata principale; ma `command.hsp:3651`/`:3654` cercano `"male?"` e
+   `"female?"`, e se non li trovano quella riga resta **senza il sesso**.
+   Tradurre da tutt'e due le parti rimette a posto le partite nuove e lascia
+   indietro quelle vecchie, che nel salvataggio hanno la parola inglese.
+
+### Che cosa serve per chiudere
+
+Una schermata: l'elenco degli alleati in modo `Rank.` (`allyctrl == 6`), con un
+personaggio che abbia un sesso dichiarato. Serve a misurare **quanto pesa**
+quella riga prima di scegliere se accettare la rottura sulle partite vecchie —
+la lezione della 55ª: un referto dice che una riga esiste, solo lo schermo dice
+quanto pesa.
+
+💡 E c'è un dato che il conto già dà: 性別不明 è **già** reso «sconosciuto» in
+`command.hsp:3643` e in `init.hsp:2090`, e la voce di `chara.hsp:3634` è stata
+resa così nella 63ª proprio per non aprire una terza variante. La famiglia è
+quindi già mezza decisa: quel che manca è solo il pezzo che attraversa il
+salvataggio.
