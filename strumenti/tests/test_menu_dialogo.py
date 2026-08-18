@@ -13,8 +13,9 @@ import pytest
 from strumenti import percorsi
 
 from strumenti.menu_dialogo import (
-    CORNICE_RE_SELECT, FINESTRA_EVENTO, INIZIO_TESTO, INIZIO_VOCE_GOD,
-    INIZIO_VOCE_RE_SELECT, LARGHEZZA_GOD, MARGINE_GOD, MARGINE_RE_SELECT,
+    CORNICE_RE_SELECT, FINE_VOCE_LEGGI, FINESTRA_EVENTO, INIZIO_TESTO,
+    INIZIO_VOCE_GOD, INIZIO_VOCE_LEGGI, INIZIO_VOCE_RE_SELECT, LARGHEZZA_GOD,
+    LEGGI_CITTA, MARGINE_GOD, MARGINE_RE_SELECT,
     NON_DISEGNANO, PANNELLO_DEI, PERGAMENA, PIXEL_PER_CARATTERE, PIXEL_UTILI,
     TETTO, contenitore_di_menu, fuori_misura, fuori_misura_inglese,
     menu_non_ancora_tradotti, non_misurate, reso, righe_di_menu, tetto_di,
@@ -379,3 +380,28 @@ def test_le_voci_del_pannello_dei_ci_stanno_tutte():
     for v in voci:
         assert v["_contenitore"] == PANNELLO_DEI
     assert [v for v in fuori_misura() if v["file"] == "god.hsp"] == []
+
+
+# --- il quarto contenitore: l'elenco delle leggi della citta' -----------------
+#
+# `economy.hsp:440`-`:441`. Il confine non e' il bordo della finestra
+# (`ww = 480`, :458) ma la **striscia** che il gioco disegna sotto le righe pari:
+# `gfini 365, 18` a partire da wx+74 (:494-:495). Sono 41 px in meno, cioe' sei
+# caratteri, e su una frase intera sei caratteri si vedono.
+
+
+def test_il_tetto_delle_leggi_viene_dalla_striscia_non_dalla_finestra():
+    atteso = (FINE_VOCE_LEGGI - INIZIO_VOCE_LEGGI) // PIXEL_PER_CARATTERE
+    assert tetto_di(LEGGI_CITTA, "?") == atteso
+    assert atteso == 47
+    # il bordo della finestra darebbe sei caratteri in piu': e' la differenza
+    # che questo contenitore esiste per non regalare
+    assert (480 - INIZIO_VOCE_LEGGI) // PIXEL_PER_CARATTERE > atteso
+
+
+def test_le_due_leggi_della_citta_ci_stanno():
+    voci = [v for v in voci_di_menu() if v["file"] == "economy.hsp"]
+    assert voci, "economy.hsp non ha piu' voci di menu: e' cambiato il sorgente?"
+    for v in voci:
+        assert v["_contenitore"] == LEGGI_CITTA
+    assert [v for v in fuori_misura() if v["file"] == "economy.hsp"] == []

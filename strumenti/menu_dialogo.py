@@ -174,11 +174,16 @@ LARGHEZZA_GOD = 650          # dx = 650                     (god.hsp:382)
 INIZIO_VOCE_GOD = 84         # cs_list a wx+80 (:462) + 4   (module.hsp:129)
 MARGINE_GOD = 12             # lo stesso bordo interno di *re_select
 
-# i tre contenitori di cui la geometria e' stata letta. Tutto il resto si conta
-# e non si misura: vedi il docstring.
+# --- la geometria dell'elenco delle leggi, letta da economy.hsp:494-:509
+INIZIO_VOCE_LEGGI = 104      # cs_list a wx+100 (:509) + 4  (module.hsp:129)
+FINE_VOCE_LEGGI = 439        # la striscia della riga: wx+74 + gfini 365 (:494)
+
+# i quattro contenitori di cui la geometria e' stata letta. Tutto il resto si
+# conta e non si misura: vedi il docstring.
 PERGAMENA = "chat_select"
 FINESTRA_EVENTO = "re_select"
 PANNELLO_DEI = "god_select_WHILE1"
+LEGGI_CITTA = "skip_rule"
 
 # ⚠️ **I `gosub` che non disegnano un menu.** La regola «a disegnarla e' il
 # `gosub` che segue» vale finche' il primo `gosub` dopo la voce e' quello che
@@ -317,6 +322,12 @@ def tetto_di(contenitore: str, sfondo: str, grafica: Path | None = None) -> int 
             return None
         utili = larghezza + CORNICE_RE_SELECT - MARGINE_RE_SELECT - INIZIO_VOCE_RE_SELECT
         return int(utili / PIXEL_PER_CARATTERE)
+    if contenitore == LEGGI_CITTA:
+        # ⚠️ Qui il confine non e' il bordo della finestra (`ww = 480`) ma la
+        #    **striscia** che il gioco disegna sotto le righe pari,
+        #    `gfini 365, 18` a partire da wx+74 (`economy.hsp:494`-`:495`): e'
+        #    quella a dire dove finisce la riga, e finisce 41 px prima del bordo.
+        return (FINE_VOCE_LEGGI - INIZIO_VOCE_LEGGI) // PIXEL_PER_CARATTERE
     if contenitore == PANNELLO_DEI:
         # ⚠️ Qui il riquadro non dipende da un bitmap: `god.hsp:382` lo scrive
         #    a mano, `dx = 650`, ed e' lo stesso per tutti e nove gli dei.
