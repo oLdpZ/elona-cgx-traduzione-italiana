@@ -53,6 +53,14 @@ LARGHEZZA_NUMERO = 3
 
 _TALK_CONV = re.compile(r"^\s*talk_conv\s+(\w+)\s*,\s*(.+?)\s*$")
 _CONFINE = re.compile(r"^(#deffunc|#defcfunc|\*\w)")
+# ⚠️ Un `gosub` puo' riscrivere la variabile, e quel che sta prima di lui non
+# arriva mai a `talk_conv`. `command.hsp:10539` fa `gosub *setHistory1` e subito
+# dopo `talk_conv s, 32`: senza questa riga il tetto dei trascorsi cadeva su nove
+# `lang()` dello stesso blocco che `s` non ce lo portano mai -- la barra dei bonus
+# e le etichette della scheda, scritte da `display_window2` e da `mes`, che hanno
+# tutt'altra larghezza. Trovato nella 66a, quando la prima resa italiana che ne
+# toccava una fu bocciata per un vincolo inesistente.
+_GOSUB = re.compile(r"^\s*gosub\s")
 _DEFFUNC = re.compile(r"^#deffunc\s+(\w+)\s*(.*)$")
 _PARAMETRO = re.compile(r"\b(?:str|int|var|double|array)\s+(\w+)")
 _COPIA = re.compile(r"^\s*(\w+)\s*=\s*(\w+)\s*$")
@@ -152,9 +160,10 @@ def siti(cartella: Path | None = None) -> dict[str, dict[int, int]]:
     Due modi di finire dentro `talk_conv`, e servono entrambi:
 
     1. **assegnazione locale.** Per ogni `talk_conv VAR, ...` si risale fino al
-       confine del blocco (`#deffunc` o etichetta) raccogliendo le assegnazioni
-       di `VAR` che portano un `lang(`. E' la struttura del diario: un `if` per
-       stato, ognuno con la sua riga, e un solo `talk_conv` in fondo.
+       confine del blocco (`#deffunc`, etichetta, oppure un `gosub`, che la
+       variabile puo' riscriverla) raccogliendo le assegnazioni di `VAR` che
+       portano un `lang(`. E' la struttura del diario: un `if` per stato,
+       ognuno con la sua riga, e un solo `talk_conv` in fondo.
     2. **argomento di chiamata.** Le righe che chiamano un `#deffunc` di
        `deffunc_che_mandano_a_capo` passandogli un `lang(` — vedi il perche' li'.
     """
@@ -183,7 +192,7 @@ def siti(cartella: Path | None = None) -> dict[str, dict[int, int]]:
                 continue
             assegna = re.compile(r"^\s*" + re.escape(m.group(1)) + r"\s*\+?=\s*.*\blang\(")
             for j in range(i - 1, -1, -1):
-                if _CONFINE.match(righe[j]):
+                if _CONFINE.match(righe[j]) or _GOSUB.match(righe[j]):
                     break
                 if assegna.match(righe[j]):
                     segna(j + 1, largo)

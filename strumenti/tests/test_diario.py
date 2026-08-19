@@ -84,6 +84,31 @@ def test_le_notizie_passate_come_argomento_sono_misurate():
     assert siti()["text.hsp"].get(12122) == 33
 
 
+def test_un_gosub_interrompe_il_cammino_all_indietro():
+    """Un `gosub` puo' riscrivere la variabile, e quel che sta prima non arriva.
+
+    `command.hsp:10540` fa `gosub *setHistory1` e poi `talk_conv s, 32`: dentro
+    quel gosub `s` viene riassegnato, quindi le `lang()` che assegnavano `s`
+    piu' su nello stesso blocco -- la barra dei bonus a `:10402`, le etichette
+    della scheda a `:10520` e `:10526` -- non passano mai da `talk_conv`. Sono
+    scritte da `display_window2` e da `mes`, che hanno tutt'altra larghezza.
+
+    Senza questa regola il tetto 32 dei trascorsi cadeva su nove righe che non
+    lo hanno, e la prima resa italiana che ne toccava una veniva bocciata per
+    un vincolo inesistente (66a).
+    """
+    trovati = siti().get("command.hsp", {})
+    for riga in (10394, 10402, 10434, 10495, 10498, 10504, 10517, 10520, 10526):
+        assert riga not in trovati, f"{riga} sta dopo un gosub che riscrive `s`"
+    # ⚠️ erano le uniche nove di `command.hsp`: adesso il file non compare piu'.
+    # I trascorsi veri -- quelli che `talk_conv s, 32` manda a capo davvero --
+    # stanno in *setHistory1..5 e li misura scratchpad/trascorsi.py, la rete 17,
+    # che risale dal punto d'USO invece che dal blocco.
+    assert trovati == {}
+    # e il diario vero, che e' il motivo per cui questo modulo esiste, resta
+    assert len(siti()["text.hsp"]) > 100
+
+
 def test_nessuna_riga_di_diario_sfora_il_suo_tetto():
     """La regressione che questo file esiste per impedire.
 
