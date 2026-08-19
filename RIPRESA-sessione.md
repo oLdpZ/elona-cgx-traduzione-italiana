@@ -2,7 +2,13 @@
 
 Aggiornato: 2026-08-19, fine della **sessantaquattresima** sessione (**otto
 schermate di collaudo, sette difetti, due file interi chiusi**, il
-**quindicesimo punto cieco** e **tre reti nuove**).
+**quindicesimo punto cieco trovato E CHIUSO**, tre reti nuove e **dieci
+spinte**).
+
+⚠️ **Questa ripresa e' stata riscritta due volte**, come la 38a e la 58a: la
+prima stesura si fermava ai due file chiusi, e il lavoro sugli epiteti e'
+arrivato dopo. Meglio riscriverla che lasciare fuori dal racconto meta'
+sessione.
 
 ⭐⭐⭐ **La lezione della sessione: un punto cieco puo' essere un ALTRO FILE.** I
 primi quattordici erano tutti forme di riga che gli strumenti non guardavano —
@@ -36,7 +42,7 @@ Sedici caratteri di differenza, per venti sessioni.
 
 ### ▶ Il punto esatto in cui si riprende
 
-Tutto e' **spinto** (sette spinte) e l'albero di lavoro e' pulito. Si riparte da
+Tutto e' **spinto** (dieci spinte) e l'albero di lavoro e' pulito. Si riparte da
 `git fetch && git status -sb` e dalle **dieci** verifiche d'apertura. La
 sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
 **ventunesima prova** di fila, e le dieci verifiche hanno dato **dieci volte i
@@ -52,8 +58,11 @@ valori attesi** della 63a.
     dizionario              +2 file: db_race.hsp.jsonl (87 voci),
                                      db_class.hsp.jsonl (25)
     invariati.md            +1 riga: Claymore
-    toppe.jsonl             979                     (erano 975)
+    toppe.jsonl             984                     (erano 975)
     nudi_en                 441 da fare             (erano 443)
+    file mezzo tradotti     1 - etc.hsp             (era 0)
+                            <- ha cinque toppe e nessun dizionario: le sue
+                               17 lang() sono da aprire
 
 Tutto il resto e' **fermo dov'era**: `pytest` 506 passed 6 skipped,
 `prova_identita` 72/72 e 27.813, `creature` 1131/2466/0/0, `larghezze` 0 fuori
@@ -101,8 +110,11 @@ I difetti stavano altrove:
     fase4-db_class-001     24 rese    nomi e descrizioni di classe — FILE CHIUSO
     toppe-command-scheda    2 toppe   la scheda mostrava la CHIAVE, non l'etichetta
     invariati-db_class      1         Claymore
+    toppe-etc-epiteti       5 toppe   la composizione italiana degli epiteti
+    ndata-i.csv + i2.csv  594 parole  il vocabolario degli epiteti, 348/365 righe
     -------------------------------------------------------------
-                          144 rese e 4 toppe, e DUE file sono chiusi
+                          144 rese, 9 toppe, 594 parole di vocabolario,
+                          e DUE file chiusi piu' il quindicesimo punto cieco
 
 ### ▶ Le reti nate oggi
 
@@ -110,6 +122,9 @@ I difetti stavano altrove:
     scratchpad/effetti_abilita.py  RETE 18  la colonna «Effetto», tetto 51
     scratchpad/descrizioni_cm.py   RETE 19  le descrizioni di razza e classe, 7 righe
     scratchpad/epiteti.py                   il referto del 15° punto cieco
+    scratchpad/epiteti_toppe.py             le 5 toppe della composizione
+    scratchpad/epiteti_vocabolario.py       il vocabolario, e i due CSV
+    scratchpad/epiteti_voc_persone.py       persone, astratti, qualita'
 
 E **uno superato**: `misura-background.py` porta in testa il rimando a
 `trascorsi.py`. Resta perche' due note lo citano e perche' il suo metro relativo
@@ -196,6 +211,103 @@ componga all'italiana. Il piano e' in tre pezzi:
 prova rigenerando gli epiteti inglesi e verificando che escano identici a
 quelli di oggi. Se non sa riprodurre l'inglese, non e' pronta per l'italiano.
 
+### ▶ Gli epiteti, dalla decisione alla catena, in una sessione sola
+
+La decisione del mattino diceva «si traducono» e metteva un piano in tre pezzi.
+Alla fine della giornata i pezzi 1 e 2 sono **fatti e provati**, il 3 no.
+
+⭐⭐⭐ **La mossa che toglie di mezzo l'accordo di genere.** L'inglese mette il
+modificatore prima della testa, l'italiano dopo e **accordato** — ed e' li' che
+nascono i «Fata corrotto», che si vedrebbero a ogni schermata. Rendendo ogni
+modificatore come **sintagma preposizionale invariabile** il problema sparisce:
+
+    Corrupted Wolf        ->  Lupo della corruzione
+    Elegance Fairy        ->  Fata dell'eleganza
+    Axe wielding Serpent  ->  Serpente dell'ascia
+
+E le **tre** forme inglesi — «A B», «A of B», «the A» — collassano in **una
+sola**, che la toppa monta sempre uguale: testa nuda + modificatore
+preposizionale. 💡 Il problema piu' difficile del pezzo non si e' risolto:
+**si e' fatto sparire scegliendo un'altra forma della lingua d'arrivo.**
+
+### ▶ Come sta in piedi
+
+Due tabelle parallele invece di un campo composto, perche' HSP non ha un modo
+comodo di spezzare una stringa su un separatore — e cosi' non serve **nessun**
+parsing:
+
+    data\ndata-i.csv    le forme nude          «lupo», «rame», «eleganza»
+    data\ndata-i2.csv   le preposizionali      «del lupo», «di rame», «dell'eleganza»
+
+⚠️ E si **aggiungono** all'installazione: `ndata-e.csv` resta intatto, come
+`cgx-test.exe` non sovrascrive `elonapluscgx.exe`.
+
+Cinque toppe a `etc.hsp`, tutte agganciate al primo colpo: i due file,
+`rnd(14)` → `rnd(14 - en * 4)`, il salvataggio della colonna prima che il
+`repeat 100` la sovrascriva, il blocco che non compone piu' niente, e la
+composizione finale col tetto alzato da 28 a **36** (la finestra ne regge 45:
+e' larga 400 col testo a `wx + 64`).
+
+### ▶ Le regole di forma del vocabolario
+
+⭐ **Materiali ed elementi prendono «di» senza articolo** — «Spada di rame»,
+«Lupo di fuoco» — perche' in italiano il materiale non si determina. Tutto il
+resto prende la preposizione articolata: «del re», «della notte», «dell'alba».
+
+⚠️ **I colori non funzionano come preposizionali diretti**: «Lupo del rosso» non
+si legge. Diventano sostantivi di materia o di qualita' — `red` → «scarlatto»,
+`gold` → «oro», `white` → «candore». E' l'unico punto in cui la resa si allontana
+dalla parola inglese, e lo fa per restare leggibile.
+
+⚠️ **Il registro, e le celle lasciate vuote apposta.** Gli epiteti di Elona sono
+volutamente sboccati: fra le 950 parole ci sono `bitch`, `whore`, `retard`,
+`gay`, `homo`, `pimp`. Il tono volgare si tiene dove l'insulto e' generico —
+`bastard` → «bastardo», `airhead` → «testa vuota», `pimp` → «magnaccia» — ma le
+celle che sono **slur identitari** restano **vuote**: la riga 346 per intero, e
+la seconda meta' della 344 e della 161. 💡 Una cella vuota non e' una
+dimenticanza: `random_title` la salta, quindi quelle parole non escono mai. La
+scelta e' dichiarata nel docstring invece di essere lasciata dedurre, e si
+rovescia in due minuti se il progetto la vuole diversa.
+
+⚠️ **I doppioni si evitano a mano.** Il generatore accoppia due righe di
+categoria diversa ma **non guarda le parole**: se «traditore» sta a 136 e a 160,
+prima o poi esce «Traditore del traditore». Dove l'inglese ripete un concetto in
+due righe l'italiano prende un sinonimo — `betrayer` → «rinnegato», `killer` →
+«omicida» perche' `assassin` gli sta accanto, `knight` → «armigero» perche'
+«cavaliere» e' gia' a 92.
+
+### ▶ Che cosa e' stato provato davvero
+
+⭐ **Il vocabolario parziale non da' epiteti misti**: `random_title` salta le
+celle vuote, quindi le 17 righe non ancora tradotte semplicemente non escono. Il
+gioco parlava italiano gia' col primo pilota da 127 righe.
+
+✅ **L'eseguibile si avvia**, e qui la prova conta: `random_titleInit` sta dentro
+`*system_init`, che gira **prima del titolo**, quindi un `noteload` sbagliato
+avrebbe ucciso il gioco all'istante. Provato due volte, col pilota e col
+vocabolario intero.
+
+✅ Quaranta epiteti simulati **prima** di compilare, quaranta distinti, il piu'
+lungo 29 su un tetto di 36: *Guardiano dell'odio, Eremita della profezia,
+Redentore del regno, Bruma del disastro, Fulmine dell'artiglieria, Anima del
+druido, Occhi del mago, Voce della mezzanotte.*
+
+### ▶ Quel che manca agli epiteti
+
+1. **Le 17 righe** di vocabolario rimaste.
+2. **I nomi di squadra**, letterali nudi in `etc.hsp:517`-`:521`: `The army of `,
+   `The party of `, `The house of `, `Clan `, e poi `Clan`, `Party`, `Band`,
+   `Gangs`, `Gathering`, `House`, `Army`. Sono il ramo `random_title_arg1 == 2`.
+3. **Il pezzo 3**, cioe' `installa.py`: oggi i due CSV li scrive direttamente
+   `epiteti_vocabolario.py` dentro l'installazione. ⚠️ **I due file non stanno
+   nel repo** — sono derivati, come la build — quindi su una macchina nuova
+   vanno **rigenerati** prima di aprire il gioco, o `noteload` non trova niente
+   e il gioco muore all'avvio.
+4. ⚠️ **`etc.hsp` e' adesso un «file mezzo tradotto»**: ha cinque toppe e nessun
+   dizionario, e `file_senza_dizionario.py` lo dice. Le sue **17 `lang()`** sono
+   da aprire, anche solo per una voce, cosi' entra nei conteggi (la lezione della
+   54a).
+
 ### ▶ Quel che resta da guardare, in ordine di peso
 
 1. ⭐⭐⭐ **Le sei schede delle modalita'** (Essential / Loss / Overdose /
@@ -208,12 +320,16 @@ quelli di oggi. Se non sa riprodurre l'inglese, non e' pronta per l'italiano.
    ne crea un altro.
 3. ⭐⭐⭐ **La scheda del personaggio**, per verificare le due toppe di oggi:
    deve dire «Razza: Fata» e «Classe: Mago guerriero», non «Fairy» e «Warmage».
-4. ⭐⭐ **Le finestre di razza e classe rifatte**, 112 rese mai viste: le
+4. ⭐⭐⭐ **La finestra degli epiteti**, che nessuno ha ancora visto in
+   italiano: e' la prima della creazione, e ci passa tutto il lavoro del
+   pomeriggio. ⚠️ Vale anche come collaudo del **nome degli avventurieri**
+   PNG e di quello della **squadra**, che escono dallo stesso generatore.
+5. ⭐⭐ **Le finestre di razza e classe rifatte**, 112 rese mai viste: le
    descrizioni stanno in 7 righe **contro le 8 dell'inglese**, quindi la
    sovrapposizione con «Bonus attributi» dovrebbe essere sparita.
-5. ⭐⭐ L'elenco alleati in modo `Rank.` (`allyctrl == 6`), che serve a chiudere
+6. ⭐⭐ L'elenco alleati in modo `Rank.` (`allyctrl == 6`), che serve a chiudere
    le quattro voci del sesso: vedi sotto.
-6. ⭐⭐ Le ricette (comando Mescola) e l'arretrato della 61a e della 60a.
+7. ⭐⭐ Le ricette (comando Mescola) e l'arretrato della 61a e della 60a.
 
 ### ▶ ⚠️ Il menu del sesso, e perche' la decisione della 63a va ripesata
 
@@ -234,7 +350,9 @@ sono, ma adesso la bilancia ha un peso in piu' da questa parte.
 
 ### ▶ Quel che resta aperto
 
-1. ⭐⭐⭐ Tutto il collaudo qui sopra, e i tre pezzi degli epiteti.
+1. ⭐⭐⭐ Tutto il collaudo qui sopra. **Degli epiteti restano solo le 17
+   righe di vocabolario, i nomi di squadra e `installa.py`**: i pezzi 1 e 2
+   sono fatti e provati.
 2. ⭐⭐ **`larghezze.py` misura la `lang()`, non la riga** — il debito della 60a.
 3. ⭐⭐ **Quattordici file con `lang()` e senza dizionario**, per **867** `lang()`
    fuori da ogni conteggio (erano 16 e 1.002). In ordine: `item.hsp` 244,
@@ -264,7 +382,10 @@ danno i valori nuovi scritti qui sopra: chi riapre deve trovarli identici, e se
 non li trova la prima cosa da guardare e' se `applica` e' girato dopo l'ultima
 modifica al dizionario.
 
-💡 **Il ritmo di oggi e' stato una spinta per risultato chiuso**: sette.
+La sessione si e' chiusa **su richiesta, per cambio di terminale**, con
+l'albero pulito e `origin/fase-0` allineato.
+
+💡 **Il ritmo di oggi e' stato una spinta per risultato chiuso**: dieci.
 
 
 
