@@ -61,16 +61,37 @@ def righe(albero):
 
 def referto():
     print(f"tetto: ({LARGHEZZA} - {SINISTRA} - {CORNICE}) / {PASSO} = {TETTO} caratteri")
-    for etichetta, albero in (("inglese di monte", SORGENTE), ("build italiana", BUILD)):
-        voci = righe(albero)
-        fuori = [(b, n, t) for b, n, t in voci if len(t) > TETTO]
-        print(f"\n--- {etichetta}: {len(voci)} righe, {len(fuori)} fuori misura")
-        for b, n, t in sorted(fuori, key=lambda v: -len(v[2]))[:12]:
-            print(f"   {len(t):3d}  ({len(t) - TETTO:+3d})  {b}:{n}  {t}")
-        if len(fuori) > 12:
-            print(f"   ... e altre {len(fuori) - 12}")
-        if voci:
-            print(f"   la piu' lunga: {max(len(t) for _, _, t in voci)} caratteri")
+    sorgente = {(b, n): t for b, n, t in righe(SORGENTE)}
+    build = {(b, n): t for b, n, t in righe(BUILD)}
+
+    for etichetta, voci in (("inglese di monte", sorgente), ("build italiana", build)):
+        fuori = [k for k, t in voci.items() if len(t) > TETTO]
+        media = sum(len(t) for t in voci.values()) / len(voci)
+        print(
+            f"\n--- {etichetta}: {len(voci)} righe, {len(fuori)} fuori misura, "
+            f"lunghezza media {media:.1f}"
+        )
+
+    # ⚠️ Il numero da guardare NON e' «quante sforano»: upstream ne sfora 97 su
+    #    226, perche' la finestra e' dimensionata sul giapponese. Il perimetro
+    #    del progetto e' la coda che non ha scuse di monte -- le righe dove
+    #    l'inglese sta dentro e noi no, e quelle dove sforiamo piu' di lui.
+    nostre, peggio = [], []
+    for k, it in build.items():
+        en = sorgente.get(k, "")
+        if len(it) <= TETTO:
+            continue
+        if len(en) <= TETTO:
+            nostre.append((k, en, it))
+        elif len(it) > len(en):
+            peggio.append((k, en, it))
+
+    print(f"\n=== il perimetro: {len(nostre) + len(peggio)} righe")
+    print(f"    l'inglese sta dentro e noi no : {len(nostre)}")
+    print(f"    sforiamo piu' dell'inglese    : {len(peggio)}")
+    for etichetta, gruppo in (("nostre", nostre), ("peggio", peggio)):
+        for (b, n), en, it in sorted(gruppo, key=lambda v: -len(v[2])):
+            print(f"   [{etichetta}] {len(it):3d} (en {len(en):2d})  {b}:{n}  {it}")
 
 
 if __name__ == "__main__":
