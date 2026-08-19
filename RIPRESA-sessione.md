@@ -1,8 +1,8 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-19, fine della **sessantasettesima** sessione (**154 rese in
-chat.hsp, cinque spinte, e il perimetro di sei termini chiuso invece che
-aperto**).
+Aggiornato: 2026-08-19, fine della **sessantasettesima** sessione (**308 rese in
+chat.hsp, otto spinte, il perimetro di sei termini chiuso e un PNG intero
+finito**).
 
 ⭐⭐⭐ **La lezione della sessione: la regola della 64a vale anche per i
 TERMINI, non solo per le etichette.** «Prima di tradurre una cosa, cerca dove
@@ -48,7 +48,7 @@ personaggio. E' la mossa delle etichette di stato applicata a un pronome.
 
 ### ▶ Il punto esatto in cui si riprende
 
-Tutto e' **spinto** (cinque spinte) e l'albero di lavoro e' pulito. Si riparte da
+Tutto e' **spinto** (otto spinte) e l'albero di lavoro e' pulito. Si riparte da
 `git fetch && git status -sb` e dalle **dieci** verifiche d'apertura. La sessione
 si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
 **ventiquattresima prova** di fila, e le dieci verifiche hanno dato dieci volte i
@@ -56,9 +56,9 @@ valori attesi della 66a.
 
 ⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
 
-    menu_dialogo            0 su 125 misurate      (erano 94: +31 chatList nuove)
-    verifica --dizionario   chat.hsp  0 / 4200     (era 0 / 4354)
-    dizionario              +154 voci in chat.hsp.jsonl (erano 19, adesso 173)
+    menu_dialogo            0 su 151 misurate      (erano 94: +57 chatList nuove)
+    verifica --dizionario   chat.hsp  0 / 4046     (era 0 / 4354)
+    dizionario              +308 voci in chat.hsp.jsonl (erano 19, adesso 327)
     perimetro               53%                    (era 52%)
 
 Tutto il resto e' **fermo dov'era**: `pytest` 507 passed 6 skipped,
@@ -68,12 +68,12 @@ misura e 0 strette, `battute --divergenti` **13**, `nudi_en` **421** da fare,
 `toppe.jsonl` 1000, `rinviate.jsonl` 72, `file_senza_dizionario` 14 file | 867
 `lang()` | 1 file mezzo tradotto (`etc.hsp`).
 
-✅ **`cgx-test.exe` rifatto cinque volte**, l'ultimo dopo il lotto `chat-008`,
+✅ **`cgx-test.exe` rifatto sette volte**, l'ultimo dopo il lotto `chat-016`,
 gia' in `elonaplus2.31\`. ⚠️ I tre CSV degli epiteti sono a posto (365 righe
 ciascuno): su una macchina nuova vanno rigenerati con
 `python scratchpad/epiteti_vocabolario.py`.
 
-### ▶ Che cosa e' stato fatto: sette lotti, tutti in chat.hsp
+### ▶ Che cosa e' stato fatto: quindici lotti, tutti in chat.hsp
 
     chat-002  :18560-:18785  Orphe, e la scena dell'anniversario       33 rese
     chat-003  :18474-:18560  Jaldabaoth si rivela                      22 rese
@@ -82,11 +82,20 @@ ciascuno): su una macchina nuova vanno rigenerati con
     chat-006  :18094-:18111  il concilio di Mikraanesis                16 rese
     chat-007  :10339 + :15927 il mago di Eulderna, e il colpo di grazia 19 rese
     chat-008  :15438 + :24411 Raskilis, la profezia, il consiglio       21 rese
+    chat-009  :24236-:24321  l'informatore sui boss: il menu           28 rese
+    chat-010  :24328-:24353  Torre Rovente, Castello Antico, la grotta 17 rese
+    chat-011  :24357-:24380  i tre gradi di pericoli di Lesimas        18 rese
+    chat-012  :24384-:24407  Tempio Caos, Fortezza Meccanica, Inferi   15 rese
+    chat-013  :24421-:24439  Passo di Montagna, il boss di Remido      16 rese
+    chat-014  :24443-:24469  Aikage, il nove teste, Zanan, Lazasye     18 rese
+    chat-015  :24473-:24512  i quattro demoni e i quattro unimorti     28 rese
+    chat-016  :24516-:24537  Tezcatlipoca e il rito del lupo mannaro   14 rese
     ------------------------------------------------------------------------
-                             154 rese, 0 toppe, 12 termini in glossario
+                             308 rese, 0 toppe, 12 termini in glossario
 
-`chat.hsp` scende da **4.373 a 4.200** da fare. E' il primo giorno in cui il file
-piu' grande del progetto si muove di piu' di venti righe.
+`chat.hsp` scende da **4.373 a 4.046** da fare, e il suo dizionario passa da 19
+voci a **327**. E' il primo giorno in cui il file piu' grande del progetto si
+muove di piu' di venti righe.
 
 ### ▶ ⭐⭐⭐ Il pezzo che vale piu' di tutti: le due scene finali
 
@@ -119,6 +128,42 @@ scelte sono la stessa non risposta detta tre volte. Con tre battute diverse, la
 reazione unica non ha piu' un perche'. L'italiano ha i tre dimostrativi e la gag
 ci sta intera: «Quella li'!», «Questa qui!», «Quella la'!».
 
+### ▶ ⭐⭐⭐ Il PNG intero: l'informatore sui boss
+
+`chat.hsp:24236`-`:24537` — **trecento righe di sorgente, 91 rese in cinque
+lotti** — e' il PNG che vende consigli sui boss a 300 monete l'uno: il menu (26
+voci di `chatList`) e **sedici schede**, dalla Torre Rovente fino a Tezcatlipoca
+e al rito del lupo mannaro. E' testo che il giocatore **paga** per leggere.
+
+⭐ **Prima di scrivere una riga del menu e' stata sciolta una domanda aperta
+dalla 55a.** `chat.hsp:25167` taglia le voci di `chatList` a **24 caratteri**,
+con uno `strmid` duro, ma solo quando `keyrange > 10` — e questo e' il menu piu'
+grande del gioco. Ventisei voci **dichiarate** pero' non vuol dire ventisei a
+schermo: ognuna e' guardata da un intervallo di `GDATA_FLAG_MAIN`.
+`scratchpad/menu_informatore.py` prende gli intervalli dal sorgente e cerca il
+valore che ne accende di piu': sono **sei**, a `FLAG_MAIN` 135. Il taglio non
+scatta mai li', e vale il tetto ordinario della rete 15 — la resa piu' lunga e'
+38 caratteri su 58. ⚠️ **La domanda resta aperta per gli altri menu**: nessuno
+ha ancora trovato un `chatList` che superi le dieci voci a schermo.
+
+⚠️ **E tre punti in cui il monte non concorda con se stesso**, tutti risolti
+col giapponese:
+
+    :24330   l'inglese SCAMBIA i due nomi (Corgon e Quruiza)
+    :24484   il giapponese dice livello 154, l'inglese 153
+    :24439   l'inglese INVENTA un soprannome: 情報魔 -> «the All Seeing Eye»
+
+Il primo e' il piu' istruttivo: l'inglese dice di concentrare gli attacchi su
+Corgon tenendo Quruiza a bada col teletrasporto, ma la riga **precedente** ha
+appena spiegato che Corgon e' il piu' duro e il piu' lento. 💡 Il consiglio
+inglese non e' ambiguo, e' **sbagliato**, e a dirlo non e' il giapponese: e' la
+riga di sopra.
+
+⚠️ **E due righe portano un `\n` LETTERALE** (`:24534`, `:24535`, il rito del
+lupo mannaro): due caratteri dentro la stringa, non un a capo. Il lotto conta i
+`\n` dell'inglese e quelli della resa e li stampa affiancati — 1 contro 1, 2
+contro 2 — perche' perderne uno non lo vedrebbe nessuna rete.
+
 ### ▶ I dodici termini fissati in glossario
 
     Irregolare              イレギュラー   5 siti, tutti in chat.hsp, ora tutti resi
@@ -142,10 +187,11 @@ fuoco che si spegne e la fine di cio' che esisteva.
 
 ### ▶ Quel che resta da guardare, in ordine
 
-⚠️⚠️⚠️ **Il debito di collaudo e' il piu' grosso mai lasciato: 154 rese e 16
-toppe della 66a, e il gioco non e' stato aperto da due sessioni.** In piu' fra le
-toppe della 66a ce n'e' una che sposta una **geometria** (il campo del nome di
-mappa nella barra di stato, che si legge in ogni schermata).
+⚠️⚠️⚠️ **Il debito di collaudo e' il piu' grosso mai lasciato: 308 rese
+di oggi piu' le 53 rese e le 16 toppe della 66a, e il gioco non e' stato aperto
+da due sessioni.** In piu' fra le toppe della 66a ce n'e' una che sposta una
+**geometria** (il campo del nome di mappa nella barra di stato, che si legge in
+ogni schermata).
 
 1. ⭐⭐⭐ **La barra di stato con un nome di mappa GENERATO** — debito della 66a.
    ⚠️ Vale la regola della 62a: un nome di mappa si collauda solo dove il
@@ -156,7 +202,12 @@ mappa nella barra di stato, che si legge in ogni schermata).
    passo del carattere a corpo 10, che sblocca la toppa di `talk_conv s, 32`.
 3. ⭐⭐⭐ **La scena d'apertura** (66a) e le **due scene finali** (oggi): sono i
    due capi del gioco, e nessuno dei due e' mai stato visto in italiano.
-4. ⭐⭐ La finestra di scelta della classe e della razza, la barra del bersaglio
+4. ⭐⭐ **L'informatore sui boss**, che oggi e' passato da zero a tutto: la
+   sua finestra e' un `chatList` a sei voci con le schede che scorrono sotto, ed
+   e' l'unico posto della sessione dove si puo' vedere se un **menu** italiano
+   sta nel riquadro. Si trova nelle taverne; il menu cambia col punto della
+   trama, quindi con un personaggio avanzato se ne vedono di piu'.
+5. ⭐⭐ La finestra di scelta della classe e della razza, la barra del bersaglio
    (`command.hsp:186`), le finestre della creazione mai toccate.
 
 ### ▶ Quel che resta aperto
@@ -165,12 +216,12 @@ mappa nella barra di stato, che si legge in ogni schermata).
    contro 82 di monte.** La riparazione giusta e' **una toppa** che alza
    `talk_conv s, 32`, non 35 rese. ⚠️ Ma il passo a corpo 10 non e' misurato:
    serve la schermata del punto 2 qui sopra.
-2. ⭐⭐ `chat.hsp` e' **aperto sul serio** ma resta grande: 4.200 da fare. Le
+2. ⭐⭐ `chat.hsp` e' **aperto sul serio** ma resta grande: 4.046 da fare. Le
    zone gia' chiuse sono `:9423`-`:9519`, `:10339`-`:10369`, `:15438`-`:15470`,
-   `:15927`-`:15937`, `:18094`-`:18111`, `:18474`-`:18785`, `:24411`-`:24417`.
-   ⚠️ **`:24397`-`:24407` e' rimasto a meta'**: sono i consigli sugli altri due
-   nemici (Anubi del Bacino dei Morti, il comunicatore di Yerles), stesso PNG e
-   stessa finestra di quelli tradotti oggi.
+   `:15927`-`:15937`, `:18094`-`:18111`, `:18474`-`:18785` e tutto
+   `:24236`-`:24537` (l'informatore sui boss, chiuso per intero). ✅ Il debito
+   che la prima stesura di questa ripresa segnalava — «`:24397`-`:24407` e'
+   rimasto a meta'» — e' rientrato nella stessa sessione.
 3. ⭐⭐ Le 148 voci di `talk_quest` e le 46 di `com_txtadv_loop`.
 4. ⭐⭐ **Quattordici file con `lang()` e senza dizionario**, per **867**
    `lang()`: `item.hsp` 244, `txtadv.hsp` 170, `material_data.hsp` 118,
@@ -184,23 +235,37 @@ mappa nella barra di stato, che si legge in ogni schermata).
    `item_func.hsp`, le 99 di `command.hsp`, le 101 di `screen.hsp`.
 9. ⭐ I 1.146 testi di `db_card.hsp` e le 835 di `effdesc@tcg`.
 
-### ▶ Come si e' chiusa
+### ▶ Come si e' chiusa (due volte)
+
+⚠️ **Questa ripresa e' stata scritta due volte**, come la 38a e la 58a: la prima
+alla fine dei sette lotti dei finali (154 rese, cinque spinte), la seconda dopo
+altri otto lotti chiesti a ripresa gia' scritta (154 rese in piu', tre spinte in
+piu'). Vale la regola della 38a: meglio riscriverla che lasciare meta' della
+sessione fuori dal racconto.
 
 Le dieci verifiche d'apertura sono state rilanciate **anche in chiusura**: solo
-`menu_dialogo` e' cambiato (94 → 125, per costruzione: 31 `chatList` nuove), le
+`menu_dialogo` e' cambiato (94 → 151, per costruzione: 57 `chatList` nuove), le
 altre nove danno gli stessi valori dell'apertura.
 
 ⚠️ **Un carattere sbagliato preso al volo prima dell'importazione**: un trattino
 lungo in `:24411`. CP932 lo codifica su **due byte** e la build inglese disegna
-un glifo per byte, quindi a schermo sarebbe uscito sbagliato. Tutte e 154 le rese
+un glifo per byte, quindi a schermo sarebbe uscito sbagliato. Tutte e 308 le rese
 sono state ripassate: zero caratteri a due byte. 💡 Il controllo costa un `set()`
 e va rifatto a ogni lotto di prosa, perche' i trattini lunghi e le virgolette
-tipografiche vengono da soli quando si scrive italiano corrente.
+tipografiche vengono da soli quando si scrive italiano corrente — e infatti nella
+seconda meta' della sessione il controllo e' stato messo **dentro ogni lotto**,
+che lo stampa da solo insieme al conto delle voci.
 
-⚠️ **Il rovescio, da dire chiaro**: e' la seconda sessione di fila con **zero
-collaudo**, ed e' la piu' grossa delle due. 154 rese e nessuna vista a schermo.
-Non e' lavoro accumulato dalla parte sbagliata come nella 51a — e' l'intero
-finale del gioco, la scena che il giocatore legge una volta sola.
+⚠️ **E una spinta e' fallita con «the remote end hung up unexpectedly» ed e'
+passata al secondo tentativo**, esattamente come dice la memoria del progetto.
+Chi legge il primo errore come «sono offline» perde la spinta.
+
+⚠️⚠️ **Il rovescio, da dire chiaro**: e' la seconda sessione di fila con **zero
+collaudo**, ed e' di gran lunga la piu' grossa. **308 rese e nessuna vista a
+schermo.** Non e' lavoro accumulato dalla parte sbagliata come nella 51a: e'
+l'intero finale del gioco — la scena che il giocatore legge una volta sola — piu'
+un PNG che il giocatore **paga** per leggere. E in coda c'e' ancora la toppa di
+geometria della 66a, che aspetta uno schermo da due sessioni.
 
 ---
 
