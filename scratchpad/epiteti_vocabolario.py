@@ -231,9 +231,23 @@ def costruisci():
 
 
 def scrivi(righe, nome):
-    testo = "".join(",".join(r) + "\n" for r in righe)
+    """Scrive un CSV che HSP sappia leggere.
+
+    ⚠️⚠️⚠️ **Le righe finiscono in CRLF, e non e' un dettaglio di stile.**
+    `noteinfo(0)` conta le righe sui **CRLF**: un file a LF soltanto per HSP e'
+    **una riga sola**. Con `rnlist` a una riga `random_title` non finisce mai —
+    `p2` vale sempre 0, nel `repeat 100` la testa ricade sempre sulla riga del
+    modificatore, `continue` cento volte, e si torna a `*random_title_loop` per
+    sempre. Il gioco si pianta alla prima finestra della creazione.
+    Costato la 65a. Tutti i file di `data\\` di monte sono CRLF: name.csv 265,
+    ndata.csv 389, ndata-e.csv 365, e zero LF soli.
+    """
+    testo = "".join(",".join(r) + "\r\n" for r in righe)
     percorso = USCITA / nome
     io.open(percorso, "w", encoding="cp932", errors="strict", newline="").write(testo)
+    crlf = percorso.read_bytes().count(b"\r\n")
+    if crlf != len(righe):
+        raise SystemExit(f"{nome}: {crlf} CRLF su {len(righe)} righe - HSP non lo leggerebbe")
     return percorso
 
 
