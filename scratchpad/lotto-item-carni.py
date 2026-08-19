@@ -109,15 +109,15 @@ RESE = {
     (4590, "But it was immediately turned into flower nutrients."):  # しかしすぐに花の養分に変えられた。
         "Ma viene subito trasformato in nutrimento per i fiori.",
     (4597, "But  eject it out quickly."):            # しかしすぐに弾き出した。
-        "Ma viene subito respinto fuori.",
+        '"Ma viene subito respinto fuori."',
     (4603, " get parasitized in the brain."):        # …は脳髄に寄生された。
         'name(tc) + " ha un parassita nel cervello."',
     (4616, "Something gets into  body."):            # 何かが…の体内に入り込んだ。
         'name(cc) + " si sente entrare qualcosa nel corpo."',
     (4633, "But  rapidly break it down into nutrients for  flowers."):  # しかしすぐに花の養分に変えられた。
-        "Ma viene subito trasformato in nutrimento per i fiori.",
+        '"Ma viene subito trasformato in nutrimento per i fiori."',
     (4641, "But  puke it out quickly."):             # しかしすぐに吐き出した。
-        "Ma viene subito risputato fuori.",
+        '"Ma viene subito risputato fuori."',
     (4648, " get parasitized in the abdomen."):      # …は寄生された。
         'name(tc) + " ha un parassita nel ventre."',
 }

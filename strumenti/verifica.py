@@ -16,10 +16,15 @@ from strumenti.accenti import (
 from strumenti.articolo import GENERI
 from strumenti.estrai import estrai_da_testo
 from strumenti.funzioni import (
+    _maschera_letterali,
     chiamate_di_contenuto,
     funzioni_di_contenuto,
     morfologia_residua,
 )
+
+# Due parole separate da spazio FUORI da una stringa: in un'espressione HSP non
+# esiste (`name(cc) + " x"` mascherato non ne ha, `Ma viene subito` si').
+_PROSA_NUDA = re.compile(r"\w\s+\w")
 
 _RICHIESTI = ("tipo", "en", "en_grezzo")
 
@@ -357,6 +362,30 @@ def controlla_voce(voce: dict, invariati: set[str] | None = None) -> list[str]:
             )
 
     if tipo == "dinamica":
+        # ⚠️⚠️ **Per una dinamica la resa e' un'ESPRESSIONE HSP, non del testo**,
+        # e prosa nuda al posto di un'espressione produce sorgente che non
+        # compila: `lang("...", Ma viene subito respinto fuori.)` muore con
+        # «パラメーター式の記述が無効です». Nessun'altra guardia lo vedeva.
+        #
+        # Il buco si apre solo quando l'inglese della dinamica non ha NESSUNA
+        # funzione di contenuto — perche' le sue chiamate sono tutte morfologia
+        # (`"But " + he(tc) + " eject" + _s(tc) + " it out quickly."`,
+        # `item.hsp:4597`). Li' il confronto delle interpolazioni trova due
+        # elenchi vuoti e tace, e chi scrive la resa la tratta naturalmente come
+        # una statica: e' proprio la voce in cui l'italiano non ha piu' niente
+        # da interpolare. Trovato nella 69a, con l'errore del compilatore.
+        #
+        # La misura e' sulla forma, non sul contenuto: mascherati i letterali,
+        # un'espressione HSP non ha mai due parole separate da uno spazio.
+        if _PROSA_NUDA.search(_maschera_letterali(italiano)):
+            problemi.append(
+                "la resa di una dinamica dev'essere un'ESPRESSIONE HSP, non "
+                "testo nudo: applica.py la scrive dentro lang(...) cosi' com'e', "
+                "e il compilatore rifiuta la riga. Avvolgi il testo fra "
+                'virgolette — \'"Ma viene subito respinto fuori."\' — anche '
+                "quando non c'e' niente da concatenare."
+            )
+
         # la morfologia inglese (_s, is, was, your, ... e he/his/him quando
         # chiamate con un solo argomento) non e' contenuto: non passa mai da
         # lang(), quindi non si localizzera' mai, e pretendere che l'italiano

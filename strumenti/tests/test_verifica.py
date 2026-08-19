@@ -833,3 +833,69 @@ def test_il_verso_della_creatura_chiocciola_e_un_invariante_dichiarato():
     assert controlla_voce(v, invariati) == []
     # ...e senza la dichiarazione resterebbe un problema, come per ogni altra voce
     assert any("identica" in p for p in controlla_voce(v, set()))
+
+
+def test_una_dinamica_senza_virgolette_non_e_un_espressione():
+    """⚠️ La resa di una dinamica e' un'ESPRESSIONE HSP, non del testo.
+
+    Trovato nella 69a **dal compilatore**, non da una guardia: `item.hsp:4597`
+    e' `lang("しかしすぐに弾き出した。", "But " + he(tc) + " eject" + _s(tc) +
+    " it out quickly.")`, e tutte le sue chiamate sono morfologia — quindi
+    l'elenco delle funzioni di contenuto e' vuoto **da tutt'e due le parti**, il
+    confronto delle interpolazioni tace, e chi scrive la resa la tratta
+    naturalmente come una statica. `applica.py` la scrive dentro `lang(...)`
+    cosi' com'e' e `hspcmp` muore con «パラメーター式の記述が無効です».
+
+    Il buco si apre solo li': in una dinamica con almeno una funzione di
+    contenuto la resa deve nominarla, e nominarla obbliga gia' a scrivere
+    un'espressione.
+    """
+    rotta = voce(
+        tipo="dinamica",
+        en=" eject it out quickly.",
+        en_grezzo='"But " + he(tc) + " eject" + _s(tc) + " it out quickly."',
+        jp_grezzo='"しかしすぐに弾き出した。"',
+        it="Ma viene subito respinto fuori.",
+    )
+    problemi = controlla_voce(rotta)
+    assert any("ESPRESSIONE HSP" in p for p in problemi), problemi
+
+    # la stessa resa, avvolta fra virgolette, e' un'espressione valida
+    buona = dict(rotta, it='"Ma viene subito respinto fuori."')
+    assert controlla_voce(buona) == []
+
+
+def test_una_dinamica_con_concatenazioni_resta_valida():
+    """La guardia guarda la FORMA, non il contenuto: i letterali si mascherano.
+
+    Senza il mascheramento ogni resa con due parole dentro una stringa —
+    cioe' quasi tutte — sarebbe bocciata.
+    """
+    v = voce(
+        tipo="dinamica",
+        en="Wow,  speed up!",
+        en_grezzo='"Wow, " + name(cc) + " speed" + _s(cc) + " up!"',
+        jp_grezzo='"ワアーォ、" + name(cc) + "は速くなった気がする！"',
+        it='"Uaaah, " + name(cc) + " si sente più veloce!"',
+    )
+    assert controlla_voce(v) == []
+
+
+def test_nessuna_resa_dinamica_del_dizionario_e_prosa_nuda():
+    """La guardia girata su tutto il dizionario: e' il perimetro che conta.
+
+    Un test che prova solo il caso costruito dice che la funzione funziona; non
+    dice che il dizionario e' pulito. Questo lo dice, ed e' il modo di
+    accorgersi se qualcuno reimporta a mano una voce rotta.
+    """
+    rotte = []
+    for percorso in sorted(percorsi.DIZIONARIO.glob("*.jsonl")):
+        for riga in percorso.read_text(encoding="utf-8").splitlines():
+            if not riga.strip():
+                continue
+            d = json.loads(riga)
+            if d.get("tipo") != "dinamica" or not d.get("it"):
+                continue
+            if any("ESPRESSIONE HSP" in p for p in controlla_voce(d, carica_invariati())):
+                rotte.append(f"{percorso.stem}:{d['riga']} {d['it'][:60]!r}")
+    assert rotte == [], rotte
