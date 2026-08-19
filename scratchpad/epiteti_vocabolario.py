@@ -200,6 +200,13 @@ VOC = {
 }
 
 
+from epiteti_voc_persone import EXTRA
+
+# le altre 238 righe -- persone, astratti, qualita' -- stanno in un file loro
+# perche' chiedono scelte di registro che le categorie concrete non chiedevano
+VOC.update(EXTRA)
+
+
 def griglia_di_monte():
     with io.open(MONTE, encoding="cp932", errors="replace", newline="") as f:
         return [r for r in csv.reader(f)]
