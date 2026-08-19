@@ -1,54 +1,274 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-19, fine della **sessantatreesima** sessione (**tre
-schermate di collaudo e un file intero**, `chara.hsp` da 274 `lang()` invisibili
-a 4, 254 rese, **tre tetti nuovi tutti provati dall'inglese al carattere**, e
-**dieci spinte**).
+Aggiornato: 2026-08-19, fine della **sessantaquattresima** sessione (**otto
+schermate di collaudo, sette difetti, due file interi chiusi**, il
+**quindicesimo punto cieco** e **tre reti nuove**).
 
-⭐⭐⭐ **La lezione della sessione: tre tetti calcolati oggi, e l'inglese di
-monte li tocca tutt'e tre ESATTI.** 89 caratteri per la targa di
-`screen_drawMsg2`, 73 per le schede delle modalita', 50 per la coppia di
-linguette (che era gia' noto). Non e' una coincidenza tre volte: e' il modo in
-cui si riconosce che un tetto dedotto dalla geometria e' quello vero. 💡 Chi
-calcola un tetto e non trova nessuna riga inglese che lo sfiora, probabilmente
-ha misurato una cosa vicina invece della cosa.
+⭐⭐⭐ **La lezione della sessione: un punto cieco puo' essere un ALTRO FILE.** I
+primi quattordici erano tutti forme di riga che gli strumenti non guardavano —
+un `if ( en )`, un ramo `jp`, una tabella, un commento di blocco, un `if ( 0 )`.
+Il quindicesimo non e' una riga: gli epiteti del gioco vivono in
+`elonaplus2.31\data\ndata-e.csv`, **fuori dai sorgenti HSP**, e tutti gli
+strumenti del progetto leggono `.hsp`. 365 righe e 950 parole di inglese vivo
+che nessun referto poteva vedere, perche' `etc.hsp:335` non ha letterali: fa
+`noteload`.
 
-⭐⭐⭐ **Il quattordicesimo punto cieco: la targa di `screen_drawMsg2`.**
-`screen.hsp:2262` disegna la targa dei messaggi larga `strlen(s) * 8 + 45` e la
-**tappa a 760**; poi ci scrive sopra con un `mes` che non taglia e non va a
-capo. Passata la tappa la targa smette di crescere e il testo le esce da destra,
-su fondo nudo. Sono **54 siti in sei file**, e ci passa tutta la creazione del
-personaggio. Non la guardava nessuna rete.
-⚠️ **E il carattere li' e' 14, non 12**: il codice conta **8** px per carattere,
-non 7. Le schede delle modalita', che stanno nella finestra accanto, usano 11 e
-7. Due finestre vicine, due metri diversi.
+⭐⭐⭐ **E la grammatica di un generatore si prova come una misura: sui dati
+veri.** `random_title` compone gli epiteti con una regola che si legge nel
+codice, ma leggerla non basta — `scratchpad/epiteti.py` la prova sui **sedici
+epiteti della schermata di collaudo** e li scompone **16 su 16**. Stessa cosa per
+il compositore `talk_conv`: `scratchpad/descrizioni_cm.py` lo rifa' in Python e
+deve dire **6 righe per la razza Juere e 8 per la classe Warrior**, che sono i
+numeri contati a schermo. E li dice. E' la regola della 61a — gli strumenti si
+provano dove si sa gia' che cosa deve venire fuori — portata dalle misure alle
+**grammatiche**.
 
-⭐⭐⭐ **E il collaudo ha fatto di nuovo il suo mestiere: tre difetti, nessuno
-dei quali era quello che gli avevo chiesto di verificare.** La schermata era
-stata chiesta per misurare i suffissi `(MAX)` e `(requisiti)` dei talenti — e
-quelli non si sono visti nemmeno, perche' senza punti talento la sezione non
-compare. Sono usciti invece: `Name` e `Detail` in inglese sopra una lista tutta
-italiana, «Il tuo equipaggiamento Annulla l'effetto della paura.» con la
-maiuscola in mezzo alla frase, e `TalentiMaterie` attaccate in un angolo che
-nessuno aveva nominato.
-
-⚠️⚠️ **E il metro delle linguette era sbagliato in un modo che il si'/no
-nascondeva.** La rete 16 chiede «si sovrappongono?» e la risposta era no —
-49 su 50. Misurato prima e dopo con Pillow: il divario vero era **3 px**, cioe'
-**quanto il buco fra due lettere della stessa parola**, e per questo si leggeva
-attaccato. Non era zero: era indistinguibile, che e' peggio, perche' un
-sovrapposto si vede. Adesso il referto stampa il divario in px accanto a quello
-dell'inglese, e sotto i 4 nominali dice `STRETTA`.
-
-⚠️⚠️ **Un valore che vive nel salvataggio ha fermato le ultime quattro voci di
-`chara.hsp`, ed e' giusto cosi'.** `CDATAN_NEWSEX` — il sesso dichiarato alla
-creazione — e' la stessa forma del congelamento di `mdatan` della 62a, e lo
-confrontano `init.hsp:2089` e `command.hsp:3639`-`:3656`. Le quattro voci stanno
-in `decisioni.md` con i tre casi distinti, non nell'arretrato.
+⚠️⚠️ **E un referto che dichiara la propria approssimazione resta approssimato
+finche' qualcuno non guarda lo schermo.** Sui trascorsi esisteva gia'
+`misura-background.py`, e diceva la cosa giusta: «stima in caratteri quel che lo
+schermo disegna in pixel». Col suo metro relativo `setHistory1` risultava a
+posto fino a **54** caratteri. Il tetto vero, misurato sulla schermata, e' **38**.
+Sedici caratteri di differenza, per venti sessioni.
 
 ---
 
-## La sessantatreesima sessione
+## La sessantaquattresima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** (sette spinte) e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **dieci** verifiche d'apertura. La
+sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
+**ventunesima prova** di fila, e le dieci verifiche hanno dato **dieci volte i
+valori attesi** della 63a.
+
+⚠️⚠️ **I valori cambiati:**
+
+    verifica --dizionario   db_race.hsp   0 / 0     <- FILE NUOVO, e CHIUSO
+                            db_class.hsp  0 / 0     <- FILE NUOVO, e CHIUSO
+                            command.hsp   0 / 119   (erano 0 / 121)
+    file_senza_dizionario   14 file | 867 lang()    (erano 16 | 1002)
+    perimetro               70% | 52%               (era 70% | 52%)
+    dizionario              +2 file: db_race.hsp.jsonl (87 voci),
+                                     db_class.hsp.jsonl (25)
+    invariati.md            +1 riga: Claymore
+    toppe.jsonl             979                     (erano 975)
+    nudi_en                 441 da fare             (erano 443)
+
+Tutto il resto e' **fermo dov'era**: `pytest` 506 passed 6 skipped,
+`prova_identita` 72/72 e 27.813, `creature` 1131/2466/0/0, `larghezze` 0 fuori
+misura, `diario` 0 su 214, `riquadri` 0 su 38 e 0 su 71, `menu_dialogo` 0 su 94,
+`linguette` 0 fuori misura e 0 strette, `battute --divergenti` 13,
+`rete8_dizionario` 3, `variabili_en` 60 | 4, `rinviate.jsonl` 72, `referti` 0 | 0.
+
+✅ **`cgx-test.exe` rifatto quattro volte**, l'ultimo dopo `db_class`, gia' in
+`elonaplus2.31\`.
+
+### ▶ Il collaudo: otto schermate, SETTE difetti, e nessuno era quello chiesto
+
+Il giocatore ha creato un personaggio nuovo e mandato le otto finestre della
+creazione. Quel che era stato chiesto di verificare ha **retto**: la targa di
+`screen_drawMsg2` (tetto 89) sta in tutte e otto le schermate, e nella finestra
+dei talenti non compare **ne' `(MAX)` ne' `(requisiti)`** — la previsione del
+codice della 63a e' confermata, i sei sfondamenti previsti sono **quattro**.
+
+I difetti stavano altrove:
+
+1. ⭐⭐⭐ **Gli epiteti, tutti inglesi** — il quindicesimo punto cieco, sopra.
+2. ⭐⭐⭐ **Una descrizione di abilita' fuori dalla finestra**, e regressione
+   nostra: «Memorizza incantesimi. Migliora pergamene. Analizza nemici.» (59)
+   contro un tetto di 51, **35 px sul marmo nudo**. Unica fuori su 415.
+3. ⭐⭐ **I trascorsi che sforano**, due righe su cinque a schermo.
+4. ⭐⭐ **«Attributes» e «Skills»** (`command.hsp:10177`, `:10188`), due `lang()`
+   mai tradotte in cima alla lista delle abilita'.
+5. ⭐⭐ **«Have»** ×2 (`command.hsp:11043`, `:11069`), letterale **nudo** dentro
+   un blocco JAMES CUSTOM che ha sostituito il segno `lang("*", "#")` di monte.
+   La targa in alto diceva gia' «quelle col **segno** le hai gia'»: reso «Hai».
+6. ⭐⭐ **Razza e classe con la descrizione in inglese** — le prime due finestre
+   che un giocatore nuovo legge.
+7. ⭐ **Il menu del sesso meta' e meta'** — «Maschio / Femmina / Male? / Female?
+   / Hermaphrodite / Sconosciuto». Non e' un difetto nuovo: e' la decisione
+   della 63a, ma **vista a schermo cambia di peso** (vedi sotto).
+
+### ▶ I lotti, e che cosa hanno chiuso
+
+    fase4-command-043       2 rese    «Attributi» e «Abilita' e capacita' speciali»
+    toppe-command-have      2 toppe   «Have» -> «Hai»
+    correzione-effetto-memoria  1     la descrizione che usciva dalla finestra
+    correzione-trascorsi   28 rese    la coda dei trascorsi senza scuse di monte
+    fase4-db_race-001      76 rese    i nomi di razza
+    fase4-db_race-002      11 rese    le descrizioni di razza — FILE CHIUSO
+    fase4-db_class-001     24 rese    nomi e descrizioni di classe — FILE CHIUSO
+    toppe-command-scheda    2 toppe   la scheda mostrava la CHIAVE, non l'etichetta
+    invariati-db_class      1         Claymore
+    -------------------------------------------------------------
+                          144 rese e 4 toppe, e DUE file sono chiusi
+
+### ▶ Le reti nate oggi
+
+    scratchpad/trascorsi.py        RETE 17  le 5 righe dei trascorsi, tetto 38
+    scratchpad/effetti_abilita.py  RETE 18  la colonna «Effetto», tetto 51
+    scratchpad/descrizioni_cm.py   RETE 19  le descrizioni di razza e classe, 7 righe
+    scratchpad/epiteti.py                   il referto del 15° punto cieco
+
+E **uno superato**: `misura-background.py` porta in testa il rimando a
+`trascorsi.py`. Resta perche' due note lo citano e perche' il suo metro relativo
+serve ancora per le **46 righe** che sforano anche in inglese, dove il tetto
+assoluto non e' raggiungibile.
+
+### ▶ ⚠️ Le tre volte che una guardia ha visto quel che non avevo visto io
+
+1. **`reimporta`, su «Claymore»**: identica all'inglese. Ha fatto bene — il
+   giapponese usa lo **stesso prestito** (クレイモア) e la classe prende il nome
+   dall'arma, che la sua stessa descrizione cita. Dichiarata in `invariati.md`,
+   una sola eccezione su tredici classi.
+2. **La regola degli accenti**, due volte: avevo scritto «Abilita'» e poi
+   «civilta'» **nel dizionario**, dove va l'accento vero. E la seconda volta la
+   correzione automatica ha prodotto «perchè» al posto di «perché», cioe' un
+   danno nuovo mentre riparavo il primo. ⚠️ **Il tetto pero' si misura sulla
+   forma DEGRADATA**: «perché» diventa «perche'» ed e' un carattere in piu'.
+   Le due regole tirano in direzioni opposte e vanno tenute tutt'e due.
+3. **`misura-rete4`**, a conferma: 17 | 492 identici prima e dopo le 28 rese dei
+   trascorsi. Nessun doppione creato.
+
+### ▶ ⚠️ La trappola evitata: tradurre senza toppare PEGGIORA lo stato
+
+`db_race.hsp` e `db_class.hsp` tengono affiancate due cose che si somigliano e
+non sono la stessa:
+
+    cdatan(CDATAN_RACE, rc) = "metal"                       <- la CHIAVE, nuda
+    racename = lang("メタル", cnven("metal"))                <- l'ETICHETTA
+
+La chiave e' confrontata in **535 siti** (`== "spider"`, `== "snail"`,
+`== "doggod"`, `== "golem"`) e non sta dentro una `lang()`: il dizionario non la
+raggiunge, e va bene cosi'. Ma **la scheda del personaggio mostra la chiave**:
+`command.hsp:10640` e `:10647` scrivono `racename`/`classname` nel ramo
+giapponese e `cdatan(CDATAN_RACE/CLASS)` in quello inglese. In inglese le due
+cose coincidono e il difetto non si vede.
+
+💡 **Tradurre l'etichetta senza toppare avrebbe peggiorato lo stato**: oggi il
+gioco e' inglese e coerente, sarebbe diventato italiano con una sola finestra
+che dice ancora «Fairy». La variabile giusta era gia' pronta — la riempie il
+`gosub *db_race` delle righe subito sopra.
+
+⭐ Ed e' un difetto che **il collaudo non ha mostrato**: la scheda del
+personaggio non era fra le otto schermate. L'ha trovato il codice, cercando dove
+finisce la cosa che si stava per tradurre.
+
+### ▶ Le regole di forma fissate oggi
+
+⭐ **I nomi delle razze si prendono dal bestiario, in forma nuda.**
+`db_creature.hsp` ha gia' reso queste creature con l'articolo — «la fata», «il
+coboldo», «l'uomo lucertola», «il draco», «il fuoco fatuo» — e la razza e'
+un'etichetta («Razza: Fata»), non un nome dentro una frase: si prende la radice
+e si lascia l'articolo.
+
+⭐ **E dal giapponese dove e' piu' preciso dell'inglese**: 巨獣 «bestia gigante»
+per `largeanimal`, 昆虫 «insetto» per `beetle`, 鉱物 «minerale» per `rock`, 幻獣
+«bestia fantastica» per `beast`, 甲殻 «crostaceo» per `shell`, 海魔 «mostro
+marino» per `seamonster`, 駒 «pedina» per `piece`, 魔法戦士 «mago guerriero»
+dove l'inglese conia `Warmage`.
+
+⚠️ **E lo stesso inglese puo' essere due cose.** `Onslaught` e' 猛攻 nel tratto
+del guerriero e 突撃 nella direttiva degli alleati, gia' resa «assalto» in
+`command.hsp:1350`. Traducendo dall'inglese si sarebbe scritto lo stesso nome
+per due cose che non si somigliano — la 57a alla lettera.
+
+### ▶ La decisione grossa: gli epiteti si traducono
+
+Sta per esteso in `decisioni.md`. In breve: un epiteto generato **non e' un nome
+proprio**, e' un nome comune composto, della stessa classe di «a cursed bronze
+helmet» che il progetto traduce gia' con l'accordo di genere. Lasciarlo inglese
+sarebbe incoerente con la scelta piu' vecchia del progetto.
+
+⚠️ Ma non basta tradurre le parole: l'inglese mette il modificatore **prima**
+della testa e l'italiano **dopo**, accordato; e nella forma «A of B» la testa e'
+**A** mentre in «A B» e' **B**. Servono un vocabolario con piu' forme per parola
+(genere, due desinenze, forma preposizionale) e una **toppa a `etc.hsp`** che
+componga all'italiana. Il piano e' in tre pezzi:
+
+1. il vocabolario, 950 parole in `dati/ndata-i.csv`;
+2. la toppa a `etc.hsp`, che legge il file nostro e compone;
+3. il passo di catena che copia il file dati nell'installazione — cioe'
+   `installa.py`, che non e' mai stato scritto.
+
+⚠️ **Il pezzo 2 va provato per primo e sull'inglese**: una toppa che compone si
+prova rigenerando gli epiteti inglesi e verificando che escano identici a
+quelli di oggi. Se non sa riprodurre l'inglese, non e' pronta per l'italiano.
+
+### ▶ Quel che resta da guardare, in ordine di peso
+
+1. ⭐⭐⭐ **Le sei schede delle modalita'** (Essential / Loss / Overdose /
+   Natural / Abnormal / Purge), che il collaudo di oggi **non ha raggiunto**. E'
+   il punto piu' a rischio che si conosca: tetto 73 e la riga piu' lunga a
+   **72**, un carattere di margine.
+2. ⭐⭐⭐ **La barra di stato coi nomi di mappa**, e vale **solo su un
+   salvataggio nuovo**: il nome vive nel salvataggio (62a), e il personaggio
+   creato oggi ha tutti i 60 nomi vergini. L'occasione non torna finche' non se
+   ne crea un altro.
+3. ⭐⭐⭐ **La scheda del personaggio**, per verificare le due toppe di oggi:
+   deve dire «Razza: Fata» e «Classe: Mago guerriero», non «Fairy» e «Warmage».
+4. ⭐⭐ **Le finestre di razza e classe rifatte**, 112 rese mai viste: le
+   descrizioni stanno in 7 righe **contro le 8 dell'inglese**, quindi la
+   sovrapposizione con «Bonus attributi» dovrebbe essere sparita.
+5. ⭐⭐ L'elenco alleati in modo `Rank.` (`allyctrl == 6`), che serve a chiudere
+   le quattro voci del sesso: vedi sotto.
+6. ⭐⭐ Le ricette (comando Mescola) e l'arretrato della 61a e della 60a.
+
+### ▶ ⚠️ Il menu del sesso, e perche' la decisione della 63a va ripesata
+
+La 63a aveva rinviato quattro voci perche' `CDATAN_NEWSEX` vive nel salvataggio,
+e aveva chiesto una schermata dell'elenco alleati per misurare quanto pesa la
+rottura. Quella schermata non e' arrivata, ma ne e' arrivata un'altra che la 63a
+non aveva previsto: **il menu di scelta del sesso alla creazione**, dove le sei
+voci si vedono tutte insieme —
+
+    Maschio | Femmina | Male? | Female? | Hermaphrodite | Sconosciuto
+
+💡 **Il costo di NON tradurre si paga in una schermata obbligatoria**, che ogni
+giocatore attraversa una volta per partita; il costo di tradurre si paga in
+**una riga dell'elenco alleati delle sole partite vecchie**. Il caso 2 di
+`decisioni.md` (`hermaphrodite`) era gia' dichiarato sicuro e si puo' fare
+subito. I casi 1 (`none`, chiave pura) e 3 (`male?`/`female?`) restano come
+sono, ma adesso la bilancia ha un peso in piu' da questa parte.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ Tutto il collaudo qui sopra, e i tre pezzi degli epiteti.
+2. ⭐⭐ **`larghezze.py` misura la `lang()`, non la riga** — il debito della 60a.
+3. ⭐⭐ **Quattordici file con `lang()` e senza dizionario**, per **867** `lang()`
+   fuori da ogni conteggio (erano 16 e 1.002). In ordine: `item.hsp` 244,
+   `txtadv.hsp` 170, `material_data.hsp` 118, `custom_autopick.hsp` 90,
+   `system.hsp` 56, `help.hsp` 52, `net.hsp` 37,
+   `custom_itemenchantment.hsp` 31.
+   💡 `help.hsp` aspetta dalla 63a: il titolo della finestra dello Storico dice
+   ancora «Log» / «Hit any key to close».
+4. ⭐⭐ Il passo del carattere da 10 px (`map_user.hsp:766`), debito della 60a.
+5. ⭐⭐ Le 148 voci di `talk_quest` e le 46 di `com_txtadv_loop`.
+6. ⭐ Il rogito del 収容所.
+7. ⭐ Le altre 622 di `event.hsp`, le 241 di `item_func.hsp`, le 119 di
+   `command.hsp`, le 101 di `screen.hsp`.
+8. ⭐ I 1.146 testi di `db_card.hsp` e le 835 di `effdesc@tcg`.
+
+💡 **Una pulizia possibile**: `invariati.md` mette i nomi propri (`ninja`,
+`Essential`, `Claymore`) nella sezione «Versi senza contenuto linguistico»,
+perche' e' una delle due sezioni che `verifica.py` riconosce come invarianti.
+Il titolo non descrive piu' quel che c'e' dentro. Cambiarlo vuol dire toccare
+`_SEZIONI_INVARIANTI` in `verifica.py`, che e' scritto apposta per rompersi
+invece di tacere: si fa in due minuti, ma con i test davanti.
+
+### ▶ Come si e' chiusa
+
+Le dieci verifiche d'apertura sono state rilanciate **anche in chiusura** e
+danno i valori nuovi scritti qui sopra: chi riapre deve trovarli identici, e se
+non li trova la prima cosa da guardare e' se `applica` e' girato dopo l'ultima
+modifica al dizionario.
+
+💡 **Il ritmo di oggi e' stato una spinta per risultato chiuso**: sette.
+
+
+
+## La sessantatreesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
