@@ -298,6 +298,35 @@ senza controllo. Va a capo se e solo se la **coda** — tutto tranne l'ultima
 parola — supera 32, e la lunghezza totale non c'entra. Tre delle sette hanno
 l'inglese **piu' lungo del nostro** e stanno lo stesso in una riga sola.
 
+### ▶ ⚠️ La sessione si chiude annunciando un CAMBIO DI TERMINALE
+
+Chiusa su `DESKTOP-1O339MR`, albero pulito, `fase-0` allineato con `origin`.
+**E' la decima volta** che una sessione si chiude cosi' (42a, 45a, 46a, 47a,
+48a, 51a, 55a, 59a, 60a, e oggi): finora tutte le volte verificate la sessione
+dopo si e' riaperta **sulla stessa macchina**, allineata e con Python 3.12 gia'
+a posto. Se vale ancora, all'apertura non serve fare niente di diverso dal
+solito.
+
+⚠️⚠️ **Ma se questa volta e' davvero un'altra macchina, tre cose NON stanno nel
+repo e vanno rifatte prima di poter collaudare:**
+
+1. **I tre CSV degli epiteti** (`elonaplus2.31\data\ndata-i.csv`,
+   `ndata-i2.csv`, e il `ndata-e.csv` di monte). Si rigenerano con
+   `python scratchpad/epiteti_vocabolario.py`. ⚠️ Senza, il gioco **si pianta**
+   alla prima finestra della creazione del personaggio (guasto della 65a), e i
+   file vogliono i **CRLF**: a LF soltanto, per HSP la tabella e' una riga sola.
+2. **`cgx-test.exe`**, che vive in `C:\Games\Elona\elonaplus2.31\` e non in git.
+   Si rifa' con `python -m strumenti.applica`, poi
+   `python -m strumenti.compila --eseguibile` (⚠️ non incatenare i due comandi:
+   il compilatore a 32 bit tiene la cartella e `applica` puo' morire di
+   `PermissionError` lasciandola vuota), poi la copia a mano.
+3. **L'albero di build e il clone di monte** in `C:\Games\Elona\_traduzione\`,
+   che sono interamente derivati ma pesanti.
+
+E vale [[elona-ambiente-python]]: su una macchina nuova gli strumenti non
+partono finche' non c'e' un Python **3.10+**.
+
+
 ---
 
 ## La sessantaseiesima sessione (per storia)
