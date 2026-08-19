@@ -1,44 +1,292 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-19, fine della **sessantaquattresima** sessione (**otto
-schermate di collaudo, sette difetti, due file interi chiusi**, il
-**quindicesimo punto cieco trovato E CHIUSO**, tre reti nuove e **dieci
-spinte**).
+Aggiornato: 2026-08-19, fine della **sessantacinquesima** sessione (**il gioco
+non partiva, sei schermate di collaudo, un banco nuovo che fa girare l'HSP fuori
+dal gioco, e una spinta**).
 
-⚠️ **Questa ripresa e' stata riscritta due volte**, come la 38a e la 58a: la
-prima stesura si fermava ai due file chiusi, e il lavoro sugli epiteti e'
-arrivato dopo. Meglio riscriverla che lasciare fuori dal racconto meta'
-sessione.
+⭐⭐⭐ **La lezione della sessione: si puo' far girare l'HSP FUORI DAL GIOCO, e
+cambia tutto.** L'SDK ha `hsp3cl.exe`, il runtime **console**: si copiano le
+funzioni dalla build in un file con `#runtime "hsp3cl"`, si compila con
+`strumenti.compila` e si esegue. Un giro costa **secondi** e non serve nessuno
+davanti allo schermo, dove prima ci volevano `applica` + `compila --eseguibile`
++ aprire il gioco + cliccare. Sta in `scratchpad/banco_hsp.py`, che si prova da
+solo (`python scratchpad/banco_hsp.py` deve dare 22 righe e `piantato: False`).
 
-⭐⭐⭐ **La lezione della sessione: un punto cieco puo' essere un ALTRO FILE.** I
-primi quattordici erano tutti forme di riga che gli strumenti non guardavano —
-un `if ( en )`, un ramo `jp`, una tabella, un commento di blocco, un `if ( 0 )`.
-Il quindicesimo non e' una riga: gli epiteti del gioco vivono in
-`elonaplus2.31\data\ndata-e.csv`, **fuori dai sorgenti HSP**, e tutti gli
-strumenti del progetto leggono `.hsp`. 365 righe e 950 parole di inglese vivo
-che nessun referto poteva vedere, perche' `etc.hsp:335` non ha letterali: fa
-`noteload`.
+⭐⭐⭐ **E un simulatore in Python puo' dire il contrario del motore, con
+ragione.** Il generatore di epiteti bloccava il gioco; `epiteti_motore.py`, che
+rifa' il ciclo in Python, convergeva **200 volte su 200**. Non sbagliava: leggeva
+i CSV **lui**, e il difetto stava in come li legge **HSP**. 💡 Un simulatore
+prova la **grammatica**, non l'ambiente. Quando i due non concordano, la
+risposta e' far girare il codice vero, non rileggere il simulatore.
 
-⭐⭐⭐ **E la grammatica di un generatore si prova come una misura: sui dati
-veri.** `random_title` compone gli epiteti con una regola che si legge nel
-codice, ma leggerla non basta — `scratchpad/epiteti.py` la prova sui **sedici
-epiteti della schermata di collaudo** e li scompone **16 su 16**. Stessa cosa per
-il compositore `talk_conv`: `scratchpad/descrizioni_cm.py` lo rifa' in Python e
-deve dire **6 righe per la razza Juere e 8 per la classe Warrior**, che sono i
-numeri contati a schermo. E li dice. E' la regola della 61a — gli strumenti si
-provano dove si sa gia' che cosa deve venire fuori — portata dalle misure alle
-**grammatiche**.
+⚠️⚠️⚠️ **E i CSV per HSP vogliono i CRLF.** `noteinfo(0)` conta le righe sui
+CRLF: un file a LF soltanto per HSP e' **una riga sola**. Tutti i file di
+`data\` di monte sono CRLF — name.csv 265, ndata.csv 389, ndata-e.csv 365, e
+zero LF soli. I nostri due erano a LF, ed e' bastato quello a piantare il gioco
+alla prima finestra della creazione.
 
-⚠️⚠️ **E un referto che dichiara la propria approssimazione resta approssimato
-finche' qualcuno non guarda lo schermo.** Sui trascorsi esisteva gia'
-`misura-background.py`, e diceva la cosa giusta: «stima in caratteri quel che lo
-schermo disegna in pixel». Col suo metro relativo `setHistory1` risultava a
-posto fino a **54** caratteri. Il tetto vero, misurato sulla schermata, e' **38**.
-Sedici caratteri di differenza, per venti sessioni.
+⚠️⚠️ **E il banco rotto ha accusato l'innocente.** Il primo montaggio dava
+errore di file **sia in italiano sia in inglese**, e per un quarto d'ora e'
+sembrato un guasto di monte: era `exedir = "C:\Games\..."` coi backslash
+mangiati da `printf`. **La lezione della 60a alla quarta ripetizione**, e la
+prima volta che ha fatto sospettare il codice sbagliato invece di se stessa.
 
 ---
 
-## La sessantaquattresima sessione
+## La sessantacinquesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** (una spinta) e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **dieci** verifiche d'apertura. La
+sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
+**ventiduesima prova** di fila, e le dieci verifiche hanno dato **dieci volte i
+valori attesi** della 64a — rilanciate in chiusura, danno gli stessi.
+
+⚠️ **Niente e' cambiato nei conteggi**, perche' la sessione non ha tradotto
+nulla: `pytest` 506 passed 6 skipped, `prova_identita` 72/72 e 27.813,
+`verifica --dizionario` 0 da ritradurre su 39 file, `creature` 1131/2466/0/0,
+`larghezze` 0 fuori misura, `diario` 0 su 214, `riquadri` 0 su 38 e 0 su 71,
+`menu_dialogo` 0 su 94, `linguette` 0 fuori misura, `battute --divergenti` 13.
+
+✅ **`cgx-test.exe` NON e' stato rifatto**: e' ancora quello delle 13:04 della
+64a, e va bene — la correzione della sessione sta nei **dati**, non nel codice.
+⚠️ E i due CSV **non stanno nel repo**: su una macchina nuova vanno rigenerati
+con `python scratchpad/epiteti_vocabolario.py` prima di aprire il gioco.
+
+### ▶ Il guasto: il gioco si piantava su «Generate an Adventurer»
+
+Il collaudo e' cominciato con il gioco che non partiva. «Generate an Adventurer»
+(`system.hsp:3543` → `goto *cm_init`) e' la **creazione del personaggio**, e si
+bloccava sulla prima finestra, quella degli epiteti, che chiama `random_title()`
+diciassette volte.
+
+⭐ **La catena, dal sintomo alla causa:**
+
+1. Il simulatore Python convergeva 200/200 → **non e' la grammatica**.
+2. Sospetto sulla precedenza degli operatori (`rnd(14 - en * 4)`): **misurato**
+   con hsp3cl, HSP 3.4 la precedenza ce l'ha (`2 + 3 * 4 = 14`). Pista morta.
+3. Il banco montato sul codice vero si piantava **anche sull'inglese di monte**:
+   era rotto il banco (i backslash di `exedir`).
+4. Banco riparato, diario su file: **`ndata-i.csv caricato: 1 righe`** accanto a
+   **`name.csv caricato: 265 righe`**.
+
+Con `rnlist` a una riga `random_title` non finisce mai: `p2` vale sempre 0, nel
+`repeat 100` la riga della testa ricade sempre su quella del modificatore,
+`continue` cento volte, `rtval` resta -1 e si torna a `*random_title_loop`.
+
+💡 L'`#Error 12` che il giocatore ha mandato («file non trovato o nome non
+valido» nella tabella dell'SDK) **era una conseguenza**, non un secondo guasto:
+corretti i CRLF e' sparito.
+
+Riparato in `epiteti_vocabolario.py::scrivi()`, che adesso scrive CRLF **e si
+rompe** se non li conta tutti. Il gioco legge i dati dal disco (il packfile
+impacchetta solo `scene1.hsp`, `scene2.hsp` e `start.ax`): **non serve
+ricompilare**.
+
+### ▶ Il collaudo: sei schermate, e tre aree su sei sono rotte
+
+    epiteti             ✅  5000 campioni dal motore, 0 fuori tetto, 0 doppioni
+    razza               ✅  sovrapposizione sparita, rete 19 provata sull'italiano
+    classe              ❌  la lista mostra la CHIAVE inglese
+    modalita'           ✅  reggono tutte e sei, ma il margine e' ZERO
+    scheda personaggio  ❌  6 intestazioni, 7 nudi, trascorsi sovrapposti
+    nomi di mappa       ⚠️  i fissi stanno, i GENERATI tagliati all'87%
+
+⭐ **Quel che ha retto, misurato al pixel:**
+
+- **Gli epiteti.** Passo 6,92 px (i 7 px della 59a), testo da x=828, bordo carta
+  a 1152: **46,5 caratteri** di spazio contro un tetto di 36. Su **5000**
+  campioni generati dal motore vero: lunghezza massima **32**, 0 sopra il tetto,
+  0 col modificatore vuoto, 0 con la stessa radice due volte, 4954 distinti.
+  ⭐ La mossa dei sintagmi preposizionali ha fatto quel che prometteva: nessun
+  accordo di genere sbagliato, perche' non c'e' nessun accordo da fare.
+- **La scheda del personaggio dice «Classe: Guerriero».** La toppa che la 64a
+  aveva scritto **senza poterla vedere** funziona.
+- **`descrizioni_cm.py` riproduce lo schermo riga per riga**, parola per parola,
+  sulle 5 righe italiane della razza Juere. La rete 19 e' provata su tutt'e due
+  le lingue, non solo sull'inglese.
+
+### ▶ ⚠️ I difetti trovati, in ordine di peso
+
+1. ⭐⭐⭐ **La lista delle classi mostra la chiave** (`chara.hsp:3805`):
+
+        if ( jp ) { s = listn(0, cnt) }          <- l'ETICHETTA, «Guerriero»
+        else      { s = cnven(listn(1, cnt)) }   <- la CHIAVE, "warrior"
+
+   E' il gemello esatto di `command.hsp:10640` che la 64a ha toppato per la
+   scheda. Le righe `3777`-`3782` calcolano `listn(0, cnt) = classname` e poi
+   **non la usano mai**: in inglese e' codice morto, perche' chiave ed etichetta
+   coincidono. 💡 **Dei 24 rese di `db_class` della 64a, a schermo si vedono
+   solo le descrizioni**: i dodici nomi di classe erano tradotti e invisibili.
+   ⚠️ Un solo sito con quella forma in tutto il codice (cercato).
+
+2. ⭐⭐⭐ **I trascorsi si sovrappongono, e il tetto vero e' 32, non 38.**
+   `command.hsp:10539` manda a capo a **32** (`talk_conv s, 32`) e disegna
+   l'avanzo a **+7 px** dove il passo fra le voci e' **15**: l'avanzo finisce
+   *sopra* la voce successiva.
+
+        righe di trascorsi            226
+        oltre 32 caratteri   monte 141   build 121
+        oltre 38 caratteri   monte  97   build  46
+        dove monte sta dentro 32 e noi no:  24
+
+   ⚠️ **La sovrapposizione e' di monte** (141 su 226), quindi non e' una nostra
+   regressione — ma **24 righe sono nostre da riparare**: «Nessuna famiglia, fin
+   dalla nascita» (36) contro `You had no family` (18). 💡 `trascorsi.py`
+   (RETE 17, nata ieri) misura la finestra della **creazione** (360 px → 38) e
+   non la scheda, che e' piu' stretta. **Il vincolo e' il sito piu' stretto dei
+   due**, ed e' la 63a alla lettera: *una stringa in due siti, e la decisione
+   presa guardandone uno*.
+
+3. ⭐⭐ **La scheda del personaggio, tutta la colonna delle intestazioni.**
+   Sei `lang()` mai tradotte (`command.hsp:10410`, `:10412`, `:10429`-`:10432`):
+   `Attributes(Org) - Potential`, `Essential Mode`, `Blessing and Hex`,
+   `Extra Info`, `Profile`, `Combat Rolls`. Piu' `Cursor [Blessings & Curses]`
+   (`:10344`, `:10371`). Sono fra le 119 non tradotte di `command.hsp`, ma
+   stanno sulla finestra che si apre piu' spesso di tutte.
+
+4. ⭐⭐ **Sette letterali NUDI, la scala del potenziale** (`command.hsp:10676`-
+   `:10700`): `Supreme, Amazing, Superb, Great, Good, Bad, Hopeless`. La scheda
+   ne mostra **nove alla volta**. ⚠️ La colonna e' `240 - 176 = 64 px`, cioe'
+   **9 caratteri**: «Eccellente» (10) non ci sta.
+
+5. ⭐⭐ **«Press F1 to show help.» ×13**, un letterale nudo per **ciascuna**
+   finestra della creazione (`chara.hsp:3175, 3280, 3430, 3584, 3612, 3738,
+   3767, 3898, 3926, 3967, 4102, 4128, 4160`). ⚠️ `nudi_en` le conosceva gia' —
+   sono fra le sue 441. **La 55a alla lettera: un referto dice che una riga
+   esiste, solo lo schermo dice quanto pesa.**
+
+6. ⭐ **«Arto» dove il giapponese dice 腕**, cioe' braccio (`text.hsp:136`,
+   `:2435`). ⚠️ «Braccio» e' 3 caratteri piu' lungo e quella riga finisce a 58 px
+   dal bordo: **va misurata prima la creatura con piu' parti del corpo.**
+
+7. ⭐ **«Manox2», «Anellox2»** — il moltiplicatore incollato (`chara.hsp:4766`
+   fa `+= "x" + conteggio`). E' la forma di monte (`Handx2`), non una nostra
+   regressione. E **«Arti marziali,Lancio»**, virgola senza spazio, idem.
+
+8. ⭐ **`chat.hsp:18646`**, `You regain consciousness.`: `lang()` non tradotta,
+   e si legge nel primo messaggio di gioco.
+
+### ▶ ⚠️ Le modalita' reggono, e il tetto vero e' 72 non 73
+
+Le sei schede (Essential / Loss / Overdose / Natural / Abnormal / Purge) sono
+state guardate **tutte e sei**, pilotando il gioco con `collaudo/schermo.ps1
+-Tasti "DOWN"`. Nessuna fuori misura. Ma:
+
+    scheda   margine
+    Purge      4 px   <- la piu' stretta
+    Overdose  32 px
+    Abnormal  37 px
+    Essential 44 px
+    Loss      67 px
+    Natural   72 px
+
+La riga piu' lunga e' `- Ricarica con F2 per rigiocare la sorte. Salvataggio
+automatico spento.`, **72 caratteri, 500 px**, contro **503 px** disponibili.
+⚠️ Misurando la **cella** invece dell'inchiostro (l'ultimo carattere e' un punto,
+due pixel di inchiostro e sette di cella) la riga finisce **esattamente sul
+bordo**: il tetto vero e' **72**, e `modalita.py` ne dichiara 73. Da abbassare.
+⚠️ E l'inglese di monte ha una riga da **73**, che sarebbe la prima a sfondare —
+mai vista a schermo da nessuno.
+
+### ▶ ⭐⭐⭐ Il conto che nessuno aveva fatto: gli epiteti finiscono nella barra di stato
+
+`chat.hsp:22497` fa `mdatan(MDATAN_NAME) = random_title()` — **i nomi delle
+nefie escono dal generatore di epiteti**. E `screen.hsp:154` li taglia:
+
+    mes cnven(strmid(mdatan(MDATAN_NAME), 0, 16 - (maplevel() != "") * 4))
+
+**16 caratteri**, o **12** se la mappa ha un livello. Taglio secco, in mezzo alla
+parola: e' il «La Terra della T» della 62a. Il campo va da `inf_raderw + 24` a
+`+ 114`, cioe' **90 px**.
+
+Su 5000 campioni dal motore vero, per ciascun albero:
+
+                            monte (en)   nostro (it)
+    lunghezza media             13,7        20,1
+    lunghezza massima             26          32
+    tagliati a 16 caratteri     19,1%       86,9%
+    tagliati a 12 caratteri     61,8%       99,6%
+
+💡 **Non e' una regressione — anche l'inglese taglia — ma da 19% a 87% e'
+un'amplificazione che nessuno aveva previsto quando si e' scelto il sintagma
+preposizionale.** La scelta resta giusta dov'e' nata (la finestra degli epiteti
+ha 46 caratteri); si paga nella barra da 16. ⚠️ **La riparazione naturale e'
+allargare il campo in `screen.hsp:154`, non accorciare gli epiteti.**
+
+⭐ E lo stesso conto spiega una scelta che sembrava stilistica: «Terra di Tregua»
+(15) contro «Terra della Tregua» (18). La forma corta e' **portante** — la lunga
+diventerebbe «Terra della Treg».
+
+### ▶ Il lotto che aspetta
+
+    chara.hsp:3805          la lista classi mostra la chiave       1 toppa
+    command.hsp:10676-700   la scala del potenziale, 7 nudi        7 toppe, max 9 car
+    command.hsp:10410-432   le sei intestazioni della scheda       6 rese
+    command.hsp:10344,371   Cursor [Blessings & Curses]            2 rese
+    chara.hsp x13           Press F1 to show help.                13 toppe
+    trascorsi               24 righe oltre 32                     24 rese
+    trascorsi.py            RETE 17: aggiungere il tetto 32 della scheda
+    modalita.py             tetto da 73 a 72
+    screen.hsp:154          allargare il campo del nome di mappa   da decidere
+    text.hsp:136,2435       Arto -> Braccio                        da misurare prima
+    chara.hsp:4766          Manox2 -> Mano x2                      1 toppa
+    chat.hsp:18646          You regain consciousness.              1 resa
+
+⚠️ **Nessuno di questi e' stato fatto**: la sessione si e' chiusa su richiesta,
+per cambio di terminale, subito dopo il collaudo. Il lotto e' intero.
+
+### ▶ Quel che resta da guardare
+
+1. ⭐⭐ **Le finestre della creazione che il collaudo non ha toccato**: i
+   trascorsi (`cm_past`), il sesso, le abilita', i talenti col suffisso `(MAX)`,
+   il ritratto.
+2. ⭐⭐ **La barra del bersaglio** (`command.hsp:186`): compone le **chiavi** di
+   razza e classe piu' `Lv: / DV: / PV: / Gauge: / Guard: / GUARD BREAK`, tutta
+   inglese, e si legge ogni volta che punti un PNG. Pezzo custom CGX.
+3. ⭐⭐ **I nomi di squadra**, letterali nudi in `etc.hsp:517`-`:521`, il ramo
+   `random_title_arg1 == 2` che il collaudo non ha raggiunto.
+4. ⭐ Le ricette (comando Mescola) e l'arretrato della 61a e della 60a.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ Tutto il lotto qui sopra.
+2. ⭐⭐ **Degli epiteti restano le 17 righe di vocabolario, i nomi di squadra e
+   `installa.py`.** ⚠️ Il pezzo 3 e' salito di peso: i due CSV li scrive ancora
+   `epiteti_vocabolario.py` dentro l'installazione, e **non stanno nel repo**.
+3. ⭐⭐ **`etc.hsp` e' un «file mezzo tradotto»**: cinque toppe e nessun
+   dizionario, 17 `lang()` fuori da ogni conteggio.
+4. ⭐⭐ `larghezze.py` misura la `lang()`, non la riga — il debito della 60a.
+5. ⭐⭐ **Quattordici file con `lang()` e senza dizionario**, per **867**
+   `lang()`: `item.hsp` 244, `txtadv.hsp` 170, `material_data.hsp` 118,
+   `custom_autopick.hsp` 90, `system.hsp` 56, `help.hsp` 52, `net.hsp` 37,
+   `custom_itemenchantment.hsp` 31.
+6. ⭐⭐ Il passo del carattere da 10 px (`map_user.hsp:766`), debito della 60a.
+7. ⭐⭐ Le 148 voci di `talk_quest` e le 46 di `com_txtadv_loop`.
+8. ⭐ Il rogito del 収容所.
+9. ⭐ Le altre 622 di `event.hsp`, le 241 di `item_func.hsp`, le 119 di
+   `command.hsp`, le 101 di `screen.hsp`.
+10. ⭐ I 1.146 testi di `db_card.hsp` e le 835 di `effdesc@tcg`.
+
+### ▶ Come si e' chiusa
+
+Le dieci verifiche d'apertura sono state rilanciate **anche in chiusura** e
+danno i valori della 64a, immutati: la sessione non ha tradotto niente.
+
+💡 **Ed e' una sessione che vale il doppio di quanto sembra dal conteggio**:
+zero rese, una spinta, ma il gioco e' tornato a partire, sei schermate sono
+state guardate per la prima volta, e adesso c'e' un modo di provare l'HSP che
+costa secondi invece di minuti e non chiede a nessuno di stare davanti allo
+schermo. ⚠️ Il rovescio, da dire chiaro: **il lotto e' intero e non ne e' stato
+fatto niente.**
+
+La sessione si e' chiusa **su richiesta, per cambio di terminale**, con l'albero
+pulito e `origin/fase-0` allineato.
+
+---
+
+## La sessantaquattresima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
