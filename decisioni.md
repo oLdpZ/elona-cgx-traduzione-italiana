@@ -5610,3 +5610,103 @@ quanto pesa.
 resa così nella 63ª proprio per non aprire una terza variante. La famiglia è
 quindi già mezza decisa: quel che manca è solo il pezzo che attraversa il
 salvataggio.
+
+
+## 64ª — Gli epiteti si traducono, e vivono fuori dai sorgenti
+
+Il collaudo della creazione del personaggio ha aperto la finestra «Scelta
+dell'epiteto» e l'elenco era **tutto inglese**: `Retard Tank`, `Corrupted Wolf`,
+`Dusk of Copper`, `Axe wielding Serpent`. L'unica riga italiana era
+«Risorteggia», che è una `lang()` come le altre.
+
+### Perché nessun referto l'aveva visto
+
+`etc.hsp:335` non ha letterali: **carica il vocabolario da un file dati**.
+
+    noteload exedir + lang("data\\ndata.csv", "data\\ndata-e.csv")
+
+Il file è `C:\Games\Elona\elonaplus2.31\data\ndata-e.csv`, 365 righe e **950
+parole distinte**, e non sta nei sorgenti HSP. È il **quindicesimo punto cieco**
+e il primo di una famiglia nuova: fino a oggi ogni punto cieco era una forma di
+riga che gli strumenti non guardavano — un `if ( en )`, un ramo `jp`, una
+tabella, un commento di blocco. Questo non è una riga: è **un altro file**, e
+tutti gli strumenti del progetto leggono `.hsp`.
+
+⚠️ **E non è solo l'epiteto del giocatore.** `random_title()` genera anche il
+nome di **ogni avventuriero PNG** (`adv.hsp:225`), il nome della squadra
+(`command.hsp:17527`), il nome di certe mappe (`chat.hsp:22497`), i PNG delle
+nefia speciali (`custom_nefiatypes.hsp:505`) e altri due siti in `action.hsp`.
+È inglese che si legge di continuo, non una schermata sola.
+
+### La decisione: si traduce
+
+Un epiteto generato non è un nome proprio: è un **nome comune composto**, della
+stessa identica classe di «a cursed bronze helmet» — che il progetto traduce già,
+con l'accordo di genere e le qualifiche in coda. Lasciarlo in inglese sarebbe
+incoerente con la scelta più vecchia del progetto. Yerles e Larnneire restano
+inglesi perché sono nomi propri; «Lupo corrotto» non lo è.
+
+### La grammatica, provata e non dedotta
+
+`etc.hsp:399-505`, ramo non giapponese:
+
+    1. parola1 = una colonna a caso (rnd(14)) di una riga a caso
+    2. se parola1 sta nelle colonne 0-1, cioè è un sostantivo:
+         1 su 6         ->  parola1 + " of"          «Dusk of Copper»
+         se no, 1 su 6  ->  "the " + parola1, FINE   «The infinity»
+    3. parola2 = colonna 0 o 1 (sempre sostantivo) di un'altra riga, di
+       categoria diversa (colonna 14; l'eccezione è 万能, il jolly)
+    4. risultato = parola1 + " " + parola2           «Corrupted Wolf»
+    5. da 28 caratteri in su si ributta tutto e si rifà
+
+⭐ **La prova non è un ragionamento: sono i sedici epiteti veri** della schermata
+di collaudo, che `scratchpad/epiteti.py` scompone nella griglia **16 su 16**. È
+la regola della 61ª — gli strumenti si provano dove si sa già che cosa deve
+venire fuori — applicata a una grammatica invece che a una misura.
+
+### Perché non basta tradurre le parole
+
+L'inglese mette il **modificatore prima della testa**; l'italiano lo mette dopo,
+e lo accorda:
+
+    Corrupted Wolf        ->  Lupo corrotto        aggettivo accordato
+    Elegance Fairy        ->  Fata dell'eleganza   nome + preposizione articolata
+    Dagger Ring           ->  Anello del pugnale
+    Dusk of Copper        ->  Crepuscolo di rame   qui l'ordine è già giusto
+    Coolness of Curse     ->  Freddezza della maledizione
+    The infinity          ->  L'infinito           articolo, non «the»
+
+⚠️ Nella forma «A B» la testa è **B**; nella forma «A of B» la testa è **A**.
+Sono due ordini diversi, e una toppa che ne applicasse uno solo produrrebbe
+mostri a ogni schermata.
+
+Quindi il vocabolario italiano deve portare **più di una forma per parola**:
+
+    sostantivo    forma nuda | genere | forma preposizionale
+                  lupo|m|del lupo      eleganza|f|dell'eleganza      rame|m|di rame
+    modificatore  maschile | femminile
+                  corrotto|corrotta    abominevole|abominevole
+
+e `etc.hsp` va **toppato** perché componga all'italiana: scegliere la testa
+secondo la forma, accordare il modificatore al genere della testa, e mettere
+l'articolo nella forma «the».
+
+### Il piano, in tre pezzi
+
+1. **Il vocabolario**: 950 parole in `dati/ndata-i.csv` dentro il repo, nella
+   griglia 365×15 di monte, con i campi separati da `|`. È un lotto lungo ma
+   ordinario — 581 sostantivi col genere, 401 modificatori con due desinenze.
+2. **La toppa a `etc.hsp`**: legge `data\\ndata-i.csv` invece di `ndata-e.csv`
+   (così il file originale del gioco resta intatto, come `cgx-test.exe` non
+   sovrascrive `elonapluscgx.exe`), spezza sui `|` e compone nell'ordine
+   italiano. ⚠️ E alza il limite dei 28 caratteri, che in italiano taglierebbe
+   troppo: la finestra degli epiteti è larga 400 col testo a `wx + 64`, cioè
+   **45 caratteri**, e 34 sta comodo.
+3. **La catena**: il file dati va copiato nell'installazione insieme
+   all'eseguibile. Oggi quel passo non esiste — `installa.py` non è mai stato
+   scritto e l'eseguibile si copia a mano — quindi è il momento di scriverlo.
+
+⚠️ **Il pezzo 2 è quello che va provato per primo e sull'inglese**, come vuole la
+61ª: una toppa che compone si prova rigenerando gli epiteti inglesi e
+verificando che escano identici a quelli di oggi. Se la toppa non sa riprodurre
+l'inglese, non è pronta per l'italiano.
