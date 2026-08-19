@@ -1,5 +1,209 @@
 # Ripresa sessione
 
+Aggiornato: 2026-08-19, fine della **sessantasettesima** sessione (**154 rese in
+chat.hsp, cinque spinte, e il perimetro di sei termini chiuso invece che
+aperto**).
+
+⭐⭐⭐ **La lezione della sessione: la regola della 64a vale anche per i
+TERMINI, non solo per le etichette.** «Prima di tradurre una cosa, cerca dove
+finisce» era nata su `db_race.hsp`, dove una chiave e un'etichetta stavano
+affiancate. Oggi e' stata applicata a sei parole nuove di glossario — Irregolare,
+dea dell'oblio, incarnazione dell'oblio, belva dell'oblio, Arkasha, Elun — e ha
+reso **tre volte in tre modi diversi**:
+
+1. `:18095` ha **confermato** una resa scelta tre ore prima. La riga dice
+   «あれは正確には忘却を司る女神ではない», cioe' «quella, a rigore, non e' la dea
+   che governa l'oblio». Con una maiuscola da nome proprio, la battuta si
+   contraddirebbe da sola: la minuscola era giusta, e a dirlo non e' stato un
+   ragionamento ma il sito successivo del termine.
+2. `:10353` ha mostrato che **due parole vicine sono due creature**: 廃忘獣
+   «bestia dell'oblio» e 廃忘凶獣 «belva dell'oblio». `<Nagarew>` e' una belva; i
+   branchi che invadono i mondi sono bestie. Chi ne traduce una sola le fonde.
+3. `:15457` ha mostrato che **l'inglese di monte non traduce**: dice «The Apostle
+   of Chaos» dove il giapponese dice 亡国の王子, «il principe del regno perduto»,
+   e di caos non c'e' traccia.
+
+⭐⭐⭐ **E una regola nuova sulle parentesi angolari, che vale per ogni lotto di
+battute che verra': dentro una battuta il nome va NUDO.** Le `<>` sono del motore
+— dicono a `init.hsp:1713` che quello e' un individuo e non una specie — e il
+monte e' gia' coerente: `db_creature.hsp` scrive `<Jaldabaoth>`, le battute
+scrivono `Jaldabaoth`. La forma nuda **risolve da se' il guaio dell'articolo**:
+«il potere divino di `<Il Figlio del Caos>`» e' «di il Figlio», ed e' il motivo
+per cui le due rese che esistevano prima lo usano tutt'e due come complemento
+oggetto. Nudo, diventa «del Figlio del Caos» e la frase si scrive come viene.
+
+⭐⭐ **E un onorifico senza genere, che l'inglese sessua due volte in modo
+opposto.** あのお方, con cui Loyter chiama la divinita' trascendente, in
+giapponese non dice ne' uomo ne' donna. L'inglese sceglie: «that girl» e «She
+must be» a `:9458` e `:9461`, «\"he\" appeared» a `:9501`. **Non e' un dubbio di
+gusto: e' monte che si contraddice a novanta righe di distanza.** La resa e'
+«quella persona» in tutt'e tre i siti — il sintagma e' grammaticalmente
+femminile, quindi «andiamo a cercar**la**» sta in piedi **senza dire niente sul
+genere della divinita'**: l'accordo cade sul sostantivo italiano, non sul
+personaggio. E' la mossa delle etichette di stato applicata a un pronome.
+
+---
+
+## La sessantasettesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** (cinque spinte) e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **dieci** verifiche d'apertura. La sessione
+si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
+**ventiquattresima prova** di fila, e le dieci verifiche hanno dato dieci volte i
+valori attesi della 66a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    menu_dialogo            0 su 125 misurate      (erano 94: +31 chatList nuove)
+    verifica --dizionario   chat.hsp  0 / 4200     (era 0 / 4354)
+    dizionario              +154 voci in chat.hsp.jsonl (erano 19, adesso 173)
+    perimetro               53%                    (era 52%)
+
+Tutto il resto e' **fermo dov'era**: `pytest` 507 passed 6 skipped,
+`prova_identita` 72/72 e 27.813, `creature` 1131/2466/0/0, `larghezze` 0 fuori
+misura, `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `linguette` 0 fuori
+misura e 0 strette, `battute --divergenti` **13**, `nudi_en` **421** da fare,
+`toppe.jsonl` 1000, `rinviate.jsonl` 72, `file_senza_dizionario` 14 file | 867
+`lang()` | 1 file mezzo tradotto (`etc.hsp`).
+
+✅ **`cgx-test.exe` rifatto cinque volte**, l'ultimo dopo il lotto `chat-008`,
+gia' in `elonaplus2.31\`. ⚠️ I tre CSV degli epiteti sono a posto (365 righe
+ciascuno): su una macchina nuova vanno rigenerati con
+`python scratchpad/epiteti_vocabolario.py`.
+
+### ▶ Che cosa e' stato fatto: sette lotti, tutti in chat.hsp
+
+    chat-002  :18560-:18785  Orphe, e la scena dell'anniversario       33 rese
+    chat-003  :18474-:18560  Jaldabaoth si rivela                      22 rese
+    chat-004  :9423-:9474    Gaius Vis, i doni di Loyter               23 rese
+    chat-005  :9481-:9519    Gaius Vis, il racconto del mondo perduto  20 rese
+    chat-006  :18094-:18111  il concilio di Mikraanesis                16 rese
+    chat-007  :10339 + :15927 il mago di Eulderna, e il colpo di grazia 19 rese
+    chat-008  :15438 + :24411 Raskilis, la profezia, il consiglio       21 rese
+    ------------------------------------------------------------------------
+                             154 rese, 0 toppe, 12 termini in glossario
+
+`chat.hsp` scende da **4.373 a 4.200** da fare. E' il primo giorno in cui il file
+piu' grande del progetto si muove di piu' di venti righe.
+
+### ▶ ⭐⭐⭐ Il pezzo che vale piu' di tutti: le due scene finali
+
+`*chat_unique_yayauhqui` (`:18474`-`:18560`) e `*chat_unique_orphe`
+(`:18562`-`:18600`) sono **l'ultima scena del gioco**, ed erano interamente
+inglesi: Tezcatlipoca che schernisce il nemico sbagliato, Jaldabaoth che si
+rivela e lascia cadere il proprio involucro, la tirata sul potere divino che
+nasce dal desiderio dei mortali, e poi Orphe che distrugge il Sigillo Eterno.
+
+⚠️ **E li' dentro l'inglese sbaglia un contatore.** `:18590` dice «you've
+concentrated the power of all the gods into one pillar», ma 一柱 e' il
+**contatore delle divinita'** — come 一人 e' «una persona» — e quel che e' appena
+successo e' che gli dei hanno concentrato la forza in **un dio solo**, che sta in
+mezzo allo schermo. 💡 Il campanello: **due righe sopra, a `:18567`, l'inglese lo
+legge giusto** («One by one, I'll snuff them out»). La lettura buona e quella
+cattiva convivono nello stesso blocco, quindi non basta fidarsi del fatto che
+l'inglese altrove ci abbia preso.
+
+### ▶ ⭐⭐ La scena dell'anniversario: l'inglese ha buttato via la gag
+
+`:18720`-`:18785` parte se `kinenflag == 1`: il compagno o la compagna chiede
+«…今日は何の日？» e le risposte sono cinque `chatList`. La terza apre un secondo
+menu che in giapponese e' tutto un gioco di dimostrativi — アレ！コレ！ソレ！ —
+e l'inglese l'ha **sostituito** con tre battute diverse.
+
+💡 **Il segnale che dice quale delle due lingue ha ragione non e' il gusto: e' la
+reazione.** Il PNG risponde alle tre scelte con **una battuta sola**
+(「もういい。」 piu' `(呆れている)`), e una reazione unica regge solo se le tre
+scelte sono la stessa non risposta detta tre volte. Con tre battute diverse, la
+reazione unica non ha piu' un perche'. L'italiano ha i tre dimostrativi e la gag
+ci sta intera: «Quella li'!», «Questa qui!», «Quella la'!».
+
+### ▶ I dodici termini fissati in glossario
+
+    Irregolare              イレギュラー   5 siti, tutti in chat.hsp, ora tutti resi
+    Grande Guerra           大戦
+    la dea dell'oblio       忘却の女神     minuscolo: :18095 spiega che dea non e'
+    l'incarnazione dell'oblio 忘却の化身   distinta dalla dea
+    la belva dell'oblio     廃忘凶獣       distinta dalla bestia (廃忘獣)
+    Arkasha                 アーカーシャ
+    Elun                    エルン         invariato: la battuta gioca sul nome
+    involucro               器
+    Creatore                造物主
+    <Propator dell'Abisso>  《深淵のプロパトル》
+    <ESTINZIONE>            *滅火*
+    il principe del regno perduto  亡国の王子
+
+⭐ Due scelte che val la pena non rifare da capo: **`<Propator dell'Abisso>`**
+copia la mossa del giapponese, che di *Bythos Propator* ha tradotto meta' (深淵)
+e tenuto meta'; **`<ESTINZIONE>`** traduce dove l'inglese traslittera
+(`<HOROBI>`), e la parola italiana porta **tutt'e due** i sensi di 滅火 — il
+fuoco che si spegne e la fine di cio' che esisteva.
+
+### ▶ Quel che resta da guardare, in ordine
+
+⚠️⚠️⚠️ **Il debito di collaudo e' il piu' grosso mai lasciato: 154 rese e 16
+toppe della 66a, e il gioco non e' stato aperto da due sessioni.** In piu' fra le
+toppe della 66a ce n'e' una che sposta una **geometria** (il campo del nome di
+mappa nella barra di stato, che si legge in ogni schermata).
+
+1. ⭐⭐⭐ **La barra di stato con un nome di mappa GENERATO** — debito della 66a.
+   ⚠️ Vale la regola della 62a: un nome di mappa si collauda solo dove il
+   salvataggio non e' ancora passato, quindi ci vuole un personaggio nuovo o una
+   nefia mai visitata.
+2. ⭐⭐⭐ **La scheda del personaggio**, riscritta quasi per intero dalla 66a, e
+   in una partita in **modalita' speciale**. ⚠️ Serve **anche** a fissare il
+   passo del carattere a corpo 10, che sblocca la toppa di `talk_conv s, 32`.
+3. ⭐⭐⭐ **La scena d'apertura** (66a) e le **due scene finali** (oggi): sono i
+   due capi del gioco, e nessuno dei due e' mai stato visto in italiano.
+4. ⭐⭐ La finestra di scelta della classe e della razza, la barra del bersaglio
+   (`command.hsp:186`), le finestre della creazione mai toccate.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **I trascorsi che vanno a capo nella scheda anche in inglese: 35 nostri
+   contro 82 di monte.** La riparazione giusta e' **una toppa** che alza
+   `talk_conv s, 32`, non 35 rese. ⚠️ Ma il passo a corpo 10 non e' misurato:
+   serve la schermata del punto 2 qui sopra.
+2. ⭐⭐ `chat.hsp` e' **aperto sul serio** ma resta grande: 4.200 da fare. Le
+   zone gia' chiuse sono `:9423`-`:9519`, `:10339`-`:10369`, `:15438`-`:15470`,
+   `:15927`-`:15937`, `:18094`-`:18111`, `:18474`-`:18785`, `:24411`-`:24417`.
+   ⚠️ **`:24397`-`:24407` e' rimasto a meta'**: sono i consigli sugli altri due
+   nemici (Anubi del Bacino dei Morti, il comunicatore di Yerles), stesso PNG e
+   stessa finestra di quelli tradotti oggi.
+3. ⭐⭐ Le 148 voci di `talk_quest` e le 46 di `com_txtadv_loop`.
+4. ⭐⭐ **Quattordici file con `lang()` e senza dizionario**, per **867**
+   `lang()`: `item.hsp` 244, `txtadv.hsp` 170, `material_data.hsp` 118,
+   `custom_autopick.hsp` 90, `system.hsp` 56, `help.hsp` 52, `net.hsp` 37.
+5. ⭐⭐ **`etc.hsp` e' un «file mezzo tradotto»**: cinque toppe e nessun
+   dizionario, 17 `lang()` fuori da ogni conteggio. Degli epiteti restano le 17
+   righe di vocabolario e `installa.py`.
+6. ⭐⭐ `larghezze.py` misura la `lang()`, non la riga — il debito della 60a.
+7. ⭐⭐ Il passo del carattere da 10 px (`map_user.hsp:766`), debito della 60a.
+8. ⭐ Il rogito del 収容所; le altre 622 di `event.hsp`, le 241 di
+   `item_func.hsp`, le 99 di `command.hsp`, le 101 di `screen.hsp`.
+9. ⭐ I 1.146 testi di `db_card.hsp` e le 835 di `effdesc@tcg`.
+
+### ▶ Come si e' chiusa
+
+Le dieci verifiche d'apertura sono state rilanciate **anche in chiusura**: solo
+`menu_dialogo` e' cambiato (94 → 125, per costruzione: 31 `chatList` nuove), le
+altre nove danno gli stessi valori dell'apertura.
+
+⚠️ **Un carattere sbagliato preso al volo prima dell'importazione**: un trattino
+lungo in `:24411`. CP932 lo codifica su **due byte** e la build inglese disegna
+un glifo per byte, quindi a schermo sarebbe uscito sbagliato. Tutte e 154 le rese
+sono state ripassate: zero caratteri a due byte. 💡 Il controllo costa un `set()`
+e va rifatto a ogni lotto di prosa, perche' i trattini lunghi e le virgolette
+tipografiche vengono da soli quando si scrive italiano corrente.
+
+⚠️ **Il rovescio, da dire chiaro**: e' la seconda sessione di fila con **zero
+collaudo**, ed e' la piu' grossa delle due. 154 rese e nessuna vista a schermo.
+Non e' lavoro accumulato dalla parte sbagliata come nella 51a — e' l'intero
+finale del gioco, la scena che il giocatore legge una volta sola.
+
+---
+
 Aggiornato: 2026-08-19, fine della **sessantaseiesima** sessione (**il lotto
 della 65a chiuso, nove spinte, e due reti che misuravano la cosa sbagliata**).
 
@@ -31,7 +235,7 @@ l'inglese **piu' lungo del nostro** e stanno lo stesso in una riga sola.
 
 ---
 
-## La sessantaseiesima sessione
+## La sessantaseiesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
