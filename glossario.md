@@ -532,6 +532,15 @@ genere della divinità** — l'accordo cade sul sostantivo italiano, non sul
 personaggio. È la stessa mossa delle etichette di stato: si sposta il peso su un
 nome e il genere smette di essere una domanda.
 
+### I termini raccolti chiudendo il perimetro (lotti `chat-007` e `chat-008`)
+
+| giapponese | inglese | italiano | perché |
+|---|---|---|---|
+| 廃忘凶獸 | `oblivion rude beast` | **la belva dell'oblio** | già deciso (`db_creature.hsp:47738`). ⚠️ **Non è** 廃忘獸 «bestia dell'oblio»: sono due creature diverse e in italiano restano due parole diverse. `<Nagarew>` è una belva, i branchi che invadono i mondi sono bestie |
+| 滅火 | `<HOROBI>` | **`<ESTINZIONE>`** | `chat.hsp:15937`, il colpo che chiude lo scontro, scritto in rosso. L'inglese traslittera; l'italiano traduce, come ha già fatto il progetto col fratello 滅火の神槍 → «`<Lancia divina che spegne il fuoco>`» (`proc.hsp:23846`). ⭐ «Estinzione» porta **tutt'e due** i sensi di 滅火: il fuoco che si spegne e la fine di ciò che esisteva |
+| 亡国の王子 | `The Apostle of Chaos` | **il principe del regno perduto** | `chat.hsp:15457`, dentro la profezia. ⚠️ Qui l'inglese **non traduce**: 亡国の王子 è «il principe di un regno caduto» e non nomina nessun caos. Decide il giapponese |
+| さいはてのうみ | `The Farthest Sea` | **il mare in capo al mondo** | `chat.hsp:15457`. Tutto in hiragana anche in giapponese: è un titolo evocato, non un toponimo, e l'italiano tiene il giro di parole invece del nome |
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,
