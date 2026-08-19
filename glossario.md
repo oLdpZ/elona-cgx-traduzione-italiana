@@ -499,6 +499,39 @@ scrive «the Chaos Child» nudo e a bracchettarlo è stata una nostra scelta, ma
 motivata per iscritto. Resta com'è finché qualcuno non guarda quella riga a
 schermo: è il diario delle missioni, e non si sa se le `<>` lì aiutino o disturbino.
 
+## I termini di Gaius Vis, decisi il 2026-08-19 dai lotti `chat-004` e `chat-005`
+
+Il filo di Loyter (`chat.hsp:9423`-`:9519`) racconta il mondo gemello distrutto,
+e porta cinque nomi che il resto del progetto non aveva mai incontrato.
+
+| giapponese | inglese | italiano | perché |
+|---|---|---|---|
+| 忘却の化身 | `avatar of Oblivion` | **l'incarnazione dell'oblio** | `chat.hsp:9500`, `:9503` (due volte), `:10353`. Sta accanto alla **dea** dell'oblio e le due vanno tenute distinte: la dea è una, le incarnazioni sono quelle che invadono i mondi |
+| エルン | `Elun` | **Elun** | `chat.hsp:9499`, la stirpe di fate da cui viene Loyter. Invariato, perché la battuta stessa dice che «di là» il nome si storpiava in «elfi»: se si traduce il primo, la storpiatura non si vede più |
+| 《深淵のプロパトル》 | `<Bythos Propater>` | **`<Propator dell'Abisso>`** | `chat.hsp:9423`, sito unico in tutto il sorgente. ⭐ Il giapponese ha già tradotto metà del nome gnostico — *Bythos* è «abisso», e in kanji diventa 深淵 — e ha tenuto *Propator*: l'italiano fa la stessa mossa, con `Abyss` → «Abisso» che era già deciso |
+| 因子 | `Decisive Factor` | **Fattore Decisivo** | già deciso in `main.hsp:7083`. In `:9503` il composto 運命変革因子 diventa «fattori di mutamento del destino», che tiene la parola |
+| 宇宙人 | `space man` | **extraterrestre** | `chat.hsp:9498`, `:9510`, `:9511`. ⚠️ **Non** «alieno»: エイリアン è un'altra parola e un'altra creatura (`db_creature.hsp:125009`), già resa «l'alieno» |
+
+### ⚠️⚠️ あのお方: l'inglese di monte le dà due generi diversi, e noi nessuno
+
+La divinità trascendente che Loyter nomina di continuo, あのお方, in giapponese è
+**senza genere**: お方 è un onorifico, non dice né uomo né donna. L'inglese di
+monte sceglie, e sceglie **due volte in modo opposto**:
+
+    :9458  `I wonder if that girl is okay`      femminile
+    :9461  `That fine lady ... She must be`     femminile
+    :9501  `It was then that "he" appeared`     maschile
+
+Non è un caso limite da decidere a gusto: è monte che si contraddice a novanta
+righe di distanza, e chi copia l'inglese eredita la contraddizione.
+
+⭐ La resa è **«quella persona»**, in tutt'e tre i siti. Non è un ripiego: il
+sintagma è grammaticalmente femminile, quindi «andiamo a cercar**la**» e «quella
+persona è un dio trascendente» stanno in piedi da soli **senza dire niente sul
+genere della divinità** — l'accordo cade sul sostantivo italiano, non sul
+personaggio. È la stessa mossa delle etichette di stato: si sposta il peso su un
+nome e il genere smette di essere una domanda.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,
