@@ -1,39 +1,237 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-19, fine della **sessantacinquesima** sessione (**il gioco
-non partiva, sei schermate di collaudo, un banco nuovo che fa girare l'HSP fuori
-dal gioco, e una spinta**).
+Aggiornato: 2026-08-19, fine della **sessantaseiesima** sessione (**il lotto
+della 65a chiuso, nove spinte, e due reti che misuravano la cosa sbagliata**).
 
-⭐⭐⭐ **La lezione della sessione: si puo' far girare l'HSP FUORI DAL GIOCO, e
-cambia tutto.** L'SDK ha `hsp3cl.exe`, il runtime **console**: si copiano le
-funzioni dalla build in un file con `#runtime "hsp3cl"`, si compila con
-`strumenti.compila` e si esegue. Un giro costa **secondi** e non serve nessuno
-davanti allo schermo, dove prima ci volevano `applica` + `compila --eseguibile`
-+ aprire il gioco + cliccare. Sta in `scratchpad/banco_hsp.py`, che si prova da
-solo (`python scratchpad/banco_hsp.py` deve dare 22 righe e `piantato: False`).
+⭐⭐⭐ **La lezione della sessione: la prova della 63a e' un CONTROLLO, non un
+modo di ricavare una costante.** «Il tetto vero lo tocca l'inglese di monte» vale
+se il numero lo si e' trovato altrove e poi lo si verifica. Oggi ho scritto una
+rete nuova (la 20, le intestazioni di colonna) scegliendo il passo del carattere
+**fra tre candidati, guardando quale faceva tornare la prova**: e' circolare, e
+il controllo non puo' piu' fallire. Il numero vero era gia' misurato a schermo
+nella 65a — 7 px per cella a corpo 11 — e con quello l'inglese di monte sfora in
+due colonne. La rete adesso lo **dichiara** invece di nasconderlo, e la resa che
+il tetto finto aveva lasciato passare e' stata accorciata.
 
-⭐⭐⭐ **E un simulatore in Python puo' dire il contrario del motore, con
-ragione.** Il generatore di epiteti bloccava il gioco; `epiteti_motore.py`, che
-rifa' il ciclo in Python, convergeva **200 volte su 200**. Non sbagliava: leggeva
-i CSV **lui**, e il difetto stava in come li legge **HSP**. 💡 Un simulatore
-prova la **grammatica**, non l'ambiente. Quando i due non concordano, la
-risposta e' far girare il codice vero, non rileggere il simulatore.
+⭐⭐⭐ **E una rete che misura la cosa sbagliata puo' restare verde per sempre,
+se il perimetro non la raggiunge.** `diario.py` applicava il tetto 32 dei
+trascorsi a nove righe di `command.hsp` che a `talk_conv` non ci passano — un
+`gosub *setHistory1` riscrive `s` prima della chiamata. Verde da venti sessioni
+perche' nessuna delle nove era tradotta. La prima resa italiana che ne ha toccata
+una e' stata **bocciata per un vincolo inesistente**, ed e' il verso pericoloso
+del difetto: non «lascia passare un errore» ma «spinge ad accorciare l'italiano
+per un motivo che non esiste». Sarebbe stato piu' rapido cambiare la resa.
 
-⚠️⚠️⚠️ **E i CSV per HSP vogliono i CRLF.** `noteinfo(0)` conta le righe sui
-CRLF: un file a LF soltanto per HSP e' **una riga sola**. Tutti i file di
-`data\` di monte sono CRLF — name.csv 265, ndata.csv 389, ndata-e.csv 365, e
-zero LF soli. I nostri due erano a LF, ed e' bastato quello a piantare il gioco
-alla prima finestra della creazione.
-
-⚠️⚠️ **E il banco rotto ha accusato l'innocente.** Il primo montaggio dava
-errore di file **sia in italiano sia in inglese**, e per un quarto d'ora e'
-sembrato un guasto di monte: era `exedir = "C:\Games\..."` coi backslash
-mangiati da `printf`. **La lezione della 60a alla quarta ripetizione**, e la
-prima volta che ha fatto sospettare il codice sbagliato invece di se stessa.
+⚠️⚠️ **E un conto della 65a era sbagliato di tre volte e mezzo.** «24 righe di
+trascorsi da riparare» erano **7**: il conto era `len() > 32`, ma `talk_conv`
+manda a capo **sulle parole** e l'ultimo pezzo dopo l'ultimo spazio viene appeso
+senza controllo. Va a capo se e solo se la **coda** — tutto tranne l'ultima
+parola — supera 32, e la lunghezza totale non c'entra. Tre delle sette hanno
+l'inglese **piu' lungo del nostro** e stanno lo stesso in una riga sola.
 
 ---
 
-## La sessantacinquesima sessione
+## La sessantaseiesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** (nove spinte) e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **dieci** verifiche d'apertura. La sessione
+si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
+**ventitreesima prova** di fila, e le dieci verifiche hanno dato dieci volte i
+valori attesi della 65a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    pytest                  507 passed 6 skipped   (erano 506, test nuovo)
+    diario                  0 su 205 siti          (erano 0 su 214, vedi sotto)
+    verifica --dizionario   command.hsp   0 / 99   (erano 0 / 119)
+                            chat.hsp      0 / 4354 (erano 0 / 4372)
+    toppe.jsonl             1000                   (erano 985 in apertura)
+    nudi_en                 421 da fare            (erano 441)
+    dizionario              +18 voci in chat.hsp.jsonl (erano 1, adesso 19)
+                            +20 voci in command.hsp.jsonl
+    invariati.md            +1 riga: la «X» delle vite del modo Purge
+
+Tutto il resto e' **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
+1131/2466/0/0, `larghezze` 0 fuori misura, `riquadri` 0 su 38 e 0 su 71,
+`menu_dialogo` 0 su 94, `linguette` 0 fuori misura e 0 strette, `battute
+--divergenti` **13**, `rinviate.jsonl` 72, `file_senza_dizionario` 14 file | 867
+`lang()` | 1 file mezzo tradotto (`etc.hsp`), `perimetro` 52%.
+
+✅ **`cgx-test.exe` rifatto tre volte**, l'ultimo alle **16:55**, gia' in
+`elonaplus2.31\`. ⚠️ I due CSV degli epiteti sono a posto (365 righe CRLF
+ciascuno): su una macchina nuova vanno rigenerati con
+`python scratchpad/epiteti_vocabolario.py`.
+
+### ▶ Che cosa e' stato fatto: il lotto della 65a, intero
+
+    chara.hsp:3805          la lista classi mostrava la CHIAVE      1 toppa
+    trascorsi nella scheda  7 rese (non 24), rete 17 rifatta        7 rese
+    command.hsp:10344-434   la cornice della scheda, lotto 044     20 rese
+    command.hsp:10677-700   la scala del potenziale                 7 toppe
+    chara.hsp x13           «Press F1 to show help.»                1 toppa
+    RETE 20 + modalita.py   due tetti corretti                      1 resa
+    chara.hsp:4766, :4710   «Manox2», «Arti marziali,Lancio»        2 toppe
+    diario.py               nove misure false tolte, +1 test
+    screen.hsp x5           il campo del nome di mappa              5 toppe
+    chat.hsp:18610-683      la scena d'apertura, lotto chat-001    18 rese
+    ------------------------------------------------------------------------
+                            53 rese, 16 toppe, 2 reti corrette, 1 rete nuova
+
+### ▶ ⭐⭐⭐ Il pezzo che vale piu' di tutti: il nome di mappa
+
+`screen.hsp:154` tagliava il nome di mappa a **16 caratteri** (12 con il livello)
+nella barra che si legge in **ogni** schermata del gioco: su 5000 nomi generati
+dal motore l'italiano ne perdeva l'**88%**, l'inglese il 20%.
+
+⚠️ **E 16 e 12 erano i numeri GIUSTI.** Misurato prima di toccare niente: il nome
+parte a `inf_raderw + 24`, il livello sta a `+ 114` e le dieci icone a `+ 148`;
+il carattere avanza 7 px. Sono 17 caratteri senza livello e 12 con, e upstream
+sta dentro **al carattere**. 💡 Quindi «allargare il campo» non poteva voler dire
+alzare un numero: voleva dire **spostare a destra tutto quel che gli sta
+accanto**.
+
+Cinque toppe, e una variabile nuova: `inf_nomew = limit(windoww - 800, 0, 96)`,
+definita accanto a `inf_raderw` in `*screen_init`. **E' sicura per costruzione**:
+il bordo destro del blocco finisce a `774 + inf_nomew <= windoww - 26` per
+qualunque larghezza di finestra, e a 800 px — il minimo che `screen.hsp:2` impone
+— vale zero e non cambia niente. A 1920, che e' la finestra di questa macchina,
+vale i 96 px pieni, cioe' tredici caratteri.
+
+                          taglio   tagliati prima   tagliati dopo
+    nostro, senza livello  16->29       88,0%           0,4%
+    nostro, col livello    12->25       99,7%           6,0%
+    monte,  senza livello  16->29       19,7%           0,0%
+    monte,  col livello    12->25       62,6%           0,1%
+
+⭐ **Ne guadagna anche l'inglese di monte**: e' una toppa che *ripara* un difetto
+di casa invece di rimediare a una nostra scelta.
+
+⭐ E il simulatore e' provato contro il motore, come vuole la 61a: la 65a aveva
+generato 5000 epiteti con l'HSP vero leggendo media **20,1**, massimo **32**,
+tagliati **86,9%**; `epiteti_motore.py` su 5000 nuovi dice **20,2**, **33**,
+**88,0%**. Sull'inglese: 13,7 / 26 / 19,1% contro 13,8 / 27 / 19,7%.
+
+### ▶ ⭐⭐ La scena d'apertura, e il genere del giocatore
+
+`chat.hsp:18610`-`:18683` e' `*chat_evOpening`: la grotta sotto la pioggia, il
+mendicante ucciso al buio, i putit, il risveglio, la tirata di Lomias sugli
+Elea. **Il primo testo che legge chi comincia una partita nuova**, e fino a oggi
+era tutto inglese. Il lotto della 65a ne chiedeva **una** riga.
+
+⚠️⚠️ E' la scena dove la regola di `guida-stile.md` — niente participi o
+aggettivi riferiti al giocatore — morde piu' che in qualunque altro posto: Lomias
+e Larnneire parlano **del** ferito per tutta la sequenza. Cinque volte in dodici
+righe si e' cambiata la costruzione invece di scegliere un genere.
+
+💡 **E una volta la costruzione inglese e' stata lasciata cadere**: «nursing a
+lowly adventurer» diventa «l'attesa di una guarigione qualunque». ⚠️ Ed e' quel
+che dice il giapponese, che di «lowly adventurer» non ha traccia — 「君の回復を待つ
+ために」, «per aspettare la tua guarigione». **L'inglese ci ha messo del suo, e il
+suo era proprio il pezzo che in italiano non si puo' scrivere.**
+
+⭐ La rete 3 ha lavorato due volte: 「ぐわぁ」 e' gia' reso **«Gwaah!»** in
+`db_creature.hsp:102524` (dove l'inglese scrive «Ahhhh!» e qui «Uggghhh!»), e
+`:18683` e' uscito identico alle rese gemelle di `adv.hsp:283` e `map.hsp:9557`.
+Con «Aaargh!», la prima stesura, `battute --divergenti` sarebbe salito a 14.
+
+💡 Parola nuova in dizionario: **«Heretical Forest» -> «Foresta Eretica»**. Il
+sorgente la nomina in altri cinque posti (`chat.hsp:1600`, `:2378`, `:7273`,
+`:9500`, `scene2.hsp`), tutti ancora da aprire.
+
+### ▶ La rete nuova, e le due corrette
+
+    scratchpad/intestazioni_larghezze.py   RETE 20  il tetto di display_topic
+    scratchpad/trascorsi.py                RETE 17  rifatta su DUE siti
+    strumenti/diario.py                             il cammino si ferma a un gosub
+    scratchpad/modalita.py                          tetto 73 -> 72, misurato
+
+**RETE 20.** `display_topic` scrive il testo 26 px dopo l'icona con un `mes` che
+non taglia: due intestazioni sulla stessa riga non si toccano se
+`x + 26 + strlen * 7 <= x_dopo`. ⚠️ Il passo **non** e' il 7 della riga `line`
+(quello e' il modello della *sottolineatura*, che per disegno sporge) e **non**
+e' il corpo 10: `sizefix` vale **1** in inglese, non 0, perche' `config.txt` ha
+`fontSfix1. "1"` e `config.hsp:436` lo azzera solo nel ramo giapponese. Corpo 11,
+`Courier New`, e il rapporto sei decimi di `riquadri.py` si **arrotonda**:
+`round(0,6 * 11) = 7`, `round(0,6 * 12) = 7`, `round(0,6 * 14) = 8`. Troncando,
+l'11 dava 6 e il 12 dava 7 — due corpi vicini con due passi diversi erano gia' il
+campanello.
+⚠️ `toppa-command-combat-rolls.py` (47a) scrive «`sizefix` assente da
+`config.txt` e quindi 0»: e' sbagliato, `config.txt` ce l'ha. La toppa regge lo
+stesso, la ragione scritta no.
+
+**RETE 17.** Adesso porta i due siti dei trascorsi: la creazione (`chara.hsp:3305`,
+tetto 38 caratteri) e la **scheda** (`command.hsp:10539`, `talk_conv s, 32`, deve
+venirne una riga sola). Il compositore non e' rifatto: importa quello di
+`descrizioni_cm.py`, provato a schermo nella 64a. Perimetro dei due siti: **0 e
+0**.
+
+### ▶ Quel che resta da guardare, in ordine
+
+1. ⭐⭐⭐ **La barra di stato con un nome di mappa GENERATO.** E' l'unica toppa
+   della sessione che sposta una geometria invece di cambiare parole, e la barra
+   si vede sempre. ⚠️ Vale la regola della 62a: **un nome di mappa si collauda
+   solo dove il salvataggio non e' ancora passato**, quindi ci vuole un
+   personaggio nuovo o una nefia mai visitata.
+2. ⭐⭐⭐ **La scheda del personaggio**, che questa sessione ha riscritto quasi
+   per intero: le sei intestazioni, la scala del potenziale, i trascorsi.
+   ⚠️ E in una partita in **modalita' speciale**, per vedere la casella
+   «Modalita' <nome>» accanto a «Attributi base - Potenziale»: sono le due
+   colonne piu' strette del gioco e sforano tutt'e due gia' in inglese.
+3. ⭐⭐⭐ **La scena d'apertura**, che si vede solo creando un personaggio nuovo.
+4. ⭐⭐ **La finestra di scelta della classe**, che adesso deve dire «Guerriero»
+   e non «warrior», e quella della razza con «Mano x2» e «Arti marziali, Lancio».
+5. ⭐⭐ Le finestre della creazione che nessun collaudo ha ancora toccato: il
+   sesso, le abilita', i talenti col suffisso `(MAX)`, il ritratto.
+6. ⭐⭐ **La barra del bersaglio** (`command.hsp:186`), tutta inglese, che si
+   legge ogni volta che punti un PNG.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **I trascorsi che vanno a capo nella scheda ANCHE in inglese: 35 nostri
+   contro 82 di monte.** Non sono perimetro, e la riparazione giusta **non** e'
+   35 rese: e' **una toppa** che alza `talk_conv s, 32`. Lo spazio c'e' — il
+   testo parte a `wx + 205` e la prima cosa a destra e' «Prot» a `wx + 422`,
+   cioe' 217 px, e a 32 caratteri se ne usano 192. ⚠️ **Ma il passo a corpo 10
+   non e' misurato**: `round(0,6 * 10) = 6` e' dedotto, e i due corpi misurati
+   sono l'11 e il 12. A 36 caratteri il margine e' **1 px**. Serve una schermata
+   della scheda per fissare il passo; poi la toppa vale, e porta i nostri da 35 a
+   17 e quelli di monte da 82 a 68.
+2. ⭐⭐ **Degli epiteti restano le 17 righe di vocabolario e `installa.py`.**
+   ⚠️ I due CSV non stanno nel repo.
+3. ⭐⭐ **`etc.hsp` e' un «file mezzo tradotto»**: cinque toppe e nessun
+   dizionario, 17 `lang()` fuori da ogni conteggio.
+4. ⭐⭐ `larghezze.py` misura la `lang()`, non la riga — il debito della 60a.
+5. ⭐⭐ **Quattordici file con `lang()` e senza dizionario**, per **867**
+   `lang()`: `item.hsp` 244, `txtadv.hsp` 170, `material_data.hsp` 118,
+   `custom_autopick.hsp` 90, `system.hsp` 56, `help.hsp` 52, `net.hsp` 37.
+6. ⭐⭐ Il passo del carattere da 10 px (`map_user.hsp:766`), debito della 60a.
+7. ⭐⭐ **`chat.hsp` e' aperto ma appena**: 19 voci su 4373. Nella zona
+   `18560`-`18720` restano le otto battute dello scontro finale con Orphe
+   (`:18565`-`:18592`) e `:18720`.
+8. ⭐⭐ Le 148 voci di `talk_quest` e le 46 di `com_txtadv_loop`.
+9. ⭐ Il rogito del 収容所; le altre 622 di `event.hsp`, le 241 di
+   `item_func.hsp`, le 99 di `command.hsp`, le 101 di `screen.hsp`.
+10. ⭐ I 1.146 testi di `db_card.hsp` e le 835 di `effdesc@tcg`.
+
+### ▶ Come si e' chiusa
+
+Le dieci verifiche d'apertura sono state rilanciate **anche in chiusura**: due
+sono cambiate per costruzione (`pytest` 507 per il test nuovo, `diario` 205 per
+le nove misure false tolte), le altre otto danno i valori della 65a.
+
+💡 **Ed e' una sessione che ha corretto se stessa due volte**: la RETE 20 e'
+stata spinta col passo sbagliato e riparata due commit dopo, e la resa che quel
+passo aveva lasciato passare e' stata accorciata. ⚠️ Il rovescio, da dire chiaro:
+**il gioco non e' stato aperto nemmeno una volta**. Cinquantatre rese e sedici
+toppe, di cui una sposta la geometria della barra di stato, e nessuno le ha
+viste. E' il debito della 51a in forma nuova — non lavoro accumulato dalla parte
+sbagliata, ma **una toppa di geometria che aspetta uno schermo**.
+
+---
+
+## La sessantacinquesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
