@@ -9,14 +9,24 @@ Essential, Loss, Overdose, Natural, Abnormal, Purge — una riga per volta:
     mes s
 
 Il `mes` non taglia e non va a capo. La finestra e' larga **680**
-(`chara.hsp:4170`), quindi da `wx + 165` restano **515 px**, e il carattere
-qui e' `13 - en * 2` = **11**, cioe' 7 px.
+(`chara.hsp:4170`), quindi da `wx + 165` restano **515 px** di carta, e il
+carattere qui e' `13 - en * 2` = **11**, cioe' **7 px** per cella.
 
     515 / 7 = 73 caratteri
 
-⭐ Come per la rete 16 e per le targhe, la formula la prova l'inglese: la riga
-di monte piu' lunga ne ha 73 esatti (o giu' di li' — il referto lo stampa), e
-nessuna la passa.
+⚠️⚠️ **Ma il tetto vero e' 72, e lo dice lo schermo.** La 65a ha guardato
+tutte e sei le schede e ha misurato la riga piu' lunga della build — «- Ricarica
+con F2 per rigiocare la sorte. Salvataggio automatico spento.», **72 caratteri**
+— che arriva a **500 px** di inchiostro su **503** disponibili. I 515 del conto
+geometrico non tolgono il **bordo interno** della pergamena: contando la *cella*
+invece dell'inchiostro (l'ultimo carattere e' un punto, due pixel di inchiostro
+e sette di cella) la riga finisce **esattamente sul bordo**. Il 73esimo carattere
+esce.
+
+⚠️ **E l'inglese di monte ha una riga da 73**, che sarebbe la prima a sfondare:
+non l'ha mai vista nessuno a schermo, e non e' un permesso ma un avviso. Qui la
+regola della 63a — *l'inglese tocca il tetto* — non aiuta a ricavare il numero,
+perche' upstream lo passa di uno.
 
 ⚠️ Non e' il tetto delle targhe: li' il carattere e' 14 e il passo 8. Due
 finestre vicine, due metri diversi.
@@ -31,8 +41,11 @@ BUILD = r'C:\Games\Elona\_traduzione\build\2.05-custom-gx'
 
 LARGHEZZA = 680         # chara.hsp:4170
 INIZIO = 165            # chara.hsp:4193, `pos wx + 165`
-PASSO = 7               # font 13 - en*2 = 11
-TETTO = (LARGHEZZA - INIZIO) // PASSO       # 73
+PASSO = 7               # font 13 - en*2 = 11; 7 px per cella, misurati nella 65a
+SPAZIO = 503            # px di carta veri, MISURATI a schermo nella 65a (non 515:
+                        # il conto geometrico non toglie il bordo interno)
+TETTO = 72              # 72 celle da 7 fanno 504 px e l'ultima e' un punto, due
+                        # px di inchiostro: la riga finisce esattamente sul bordo
 
 _LANG = re.compile(r'lang\(\s*"((?:[^"\\]|\\.)*)"\s*,\s*"((?:[^"\\]|\\.)*)"\s*\)')
 _RIGA = re.compile(r'^\s*s\s*=\s*lang\(')
@@ -66,7 +79,7 @@ def main(argv):
     en = dict(raccogli(SORGENTE))
     it = dict(raccogli(BUILD))
     print('LE SCHEDE DELLE MODALITA` (chara.hsp:4191)')
-    print(f'tetto: ({LARGHEZZA} - {INIZIO}) / {PASSO} = {TETTO} caratteri')
+    print(f'tetto: {TETTO} caratteri ({SPAZIO} px misurati / {PASSO} per cella; il conto geometrico ne darebbe 73)')
     print()
     for etichetta, quale in (("l'inglese di monte", en), ('la build', it)):
         fuori = [r for r, t in quale.items() if len(t) > TETTO]

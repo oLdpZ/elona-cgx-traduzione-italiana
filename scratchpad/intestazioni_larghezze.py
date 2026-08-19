@@ -2,7 +2,7 @@
 """Quanto puo' essere lunga un'intestazione di colonna prima di toccare la dopo.
 
 RETE 20. `display_topic` (`module.hsp:4364`) disegna un'icona da 24 px, poi il
-testo **26 px** piu' in la', poi una riga di sottolineatura:
+testo **26 px** piu' in la' con un `mes` che non taglia e non va a capo:
 
     #deffunc display_topic str testo, int x, int y, int
         font lang(cfg_font1, cfg_font2), 12 + sizefix - en * 2, 1
@@ -10,48 +10,54 @@ testo **26 px** piu' in la', poi una riga di sottolineatura:
         pos x + 26, y + 8 : mes testo                      <- il testo
         line x + 22, y + 21, x + strlen(testo) * 7 + 36, y + 21
 
-Il `mes` non taglia e non va a capo. Due intestazioni sulla stessa riga non si
-toccano se
+Due intestazioni sulla stessa riga non si toccano se
 
-    x + 26 + strlen * PASSO  <=  x della intestazione successiva
+    x + 26 + strlen * 7  <=  x della intestazione successiva
 
-cioe' il tetto della colonna e' `(x_dopo - x - 26) / PASSO` caratteri.
+cioe' il tetto della colonna e' `(x_dopo - x - 26) / 7` caratteri.
 
-## ⚠️⚠️ Il passo e' 6, e i due modi di sbagliarlo
+## Il corpo e' 11, non 10
 
-**Non e' il 7 della riga `line`.** Quel `strlen * 7 + 36` e' il modello che il
-gioco ha della **sottolineatura**, che per disegno sporge oltre il testo: preso
-per larghezza del testo fa un tetto troppo stretto, e infatti l'inglese di monte
-lo sfonda in tre posti.
-
-**E non e' il corpo 10.** `sizefix` viene da `config.txt` (`fontSfix1. "1"`,
-`config.hsp:180`) e vale **1** in inglese — `config.hsp:436` lo azzera solo nel
-ramo giapponese. Quindi il corpo qui e' `12 + 1 - 2 = 11`, non 10.
+`sizefix` viene da `config.txt` (`fontSfix1. "1"`, `config.hsp:180`) e vale **1**
+in inglese; `config.hsp:436` lo azzera solo nel ramo giapponese. Il corpo qui e'
+`12 + 1 - 2 = 11`.
 ⚠️ `toppa-command-combat-rolls.py` (47a) scrive «`sizefix` assente da
-`config.txt` e quindi 0»: e' sbagliato: `config.txt` ce l'ha. Arriva allo stesso
-6 px per un'altra strada, quindi la toppa regge, ma la ragione scritta no.
+`config.txt` e quindi 0»: `config.txt` ce l'ha. La toppa regge lo stesso (sposta
+un'etichetta a sinistra, e col passo giusto ne servirebbe di piu', non di meno),
+ma la ragione scritta no.
 
-Il passo giusto lo da' la regola di `riquadri.py`: **`Courier New` e'
-monospaziato e avanza sei decimi del corpo**, troncati. Lo confermano i due passi
-che il gioco stesso si scrive nel sorgente, agli altri due corpi che usa:
+## ⚠️⚠️⚠️ E il passo a corpo 11 e' 7, MISURATO — non si deduce
 
-    corpo 14  ->  int(0,6 * 14) = 8    screen.hsp:2255, `strlen(s) * 8 + 45`
-    corpo 12  ->  int(0,6 * 12) = 7    module.hsp:70,   `strlen(...) * 7 + 32`
-    corpo 11  ->  int(0,6 * 11) = 6    <- display_topic
+La prima stesura di questa rete usava **6**, da `int(0,6 * 11)`, e si dichiarava
+provata perche' con 6 l'inglese di monte non sforava da nessuna parte. **Era un
+ragionamento circolare**: il passo era stato scelto proprio perche' faceva
+tornare la prova. La regola della 63a — *il tetto vero lo tocca l'inglese* — e'
+un **controllo**, non un modo di ricavare una costante: se il candidato si sceglie
+guardando l'esito, il controllo non puo' piu' fallire.
 
-e il 7 del corpo 12 e' anche **misurato a schermo** tre volte nella 64a
-(`menu_dialogo.py`).
+Il numero vero e' a schermo. La 65a ha misurato la scheda delle modalita'
+(`chara.hsp:4193`, stesso `Courier New` a corpo 11): la riga piu' lunga fa **72
+caratteri in 503 px**, e l'ultimo carattere occupa una **cella da 7 px** di cui
+due soli di inchiostro. Sette, non sei. Il rapporto sei decimi di `riquadri.py`
+si **arrotonda**, non si tronca: `round(0,6 * 11) = 7`, `round(0,6 * 12) = 7`
+(`module.hsp:70`, e misurato tre volte nella 64a), `round(0,6 * 14) = 8`
+(`screen.hsp:2255`). Troncando, l'11 dava 6 e il 12 dava 7: due corpi vicini con
+due passi diversi erano gia' il campanello.
 
-## ⭐ Provato sull'inglese di monte, come vuole la 61a
+## ⚠️ E con il passo giusto l'inglese di monte SFORA in due posti
 
-Con il passo 6 l'inglese **sta dentro dappertutto**: 0 coppie fuori misura su 34.
-E ci sta *per un pelo* dove ci si aspetta che lo faccia — la coppia piu' stretta
-del gioco e' `command.hsp:4199`, «Message(Impress)», 16 caratteri in una colonna
-da 17: e' la prova della 63a, upstream scrive dentro la finestra che ha disegnato
-e il suo massimo tocca il tetto.
+Non e' un difetto della rete: e' un difetto del gioco, piccolo e mai notato.
+L'icona della colonna dopo viene disegnata **dopo** il testo di quella prima, e
+gli copre la coda.
 
-Col passo 7 le coppie fuori sarebbero **tre**, e sono le tre piu' strette del
-gioco: il segno che il metro misurava una cosa vicina invece della cosa.
+    command.hsp:4199   Message(Impress)             16 su 15   elenco avventurieri
+    command.hsp:10410  Attributes(Org) - Potential  27 su 26   scheda personaggio
+
+Il secondo si vede **solo** nelle partite in modalita' speciale, perche' la
+casella a `wx + 240` che gli sta accanto negli altri casi e' vuota. Sono le due
+colonne piu' strette del gioco, ed e' il motivo per cui la resa italiana di
+`:10410` sta a 27 e non a 29: **non piu' lunga di monte**, che e' il metro del
+progetto dove monte gia' sfora.
 
 ## ⚠️ Che cosa NON misura
 
@@ -76,10 +82,14 @@ SORGENTE = r"C:\Games\Elona\_traduzione\sorgente\2.05-custom-gx"
 BUILD = r"C:\Games\Elona\_traduzione\build\2.05-custom-gx"
 
 CORPO = 11       # module.hsp:4365, `12 + sizefix - en * 2` con sizefix = 1
-PASSO = int(0.6 * CORPO)
+PASSO = 7        # misurato a schermo nella 65a: round(0,6 * 11). Vedi il docstring.
 ICONA = 26       # module.hsp:4370, `pos x + 26` -- il testo parte dopo l'icona
 GAP_MINIMO = 40  # sotto questo, le due chiamate sono rami alternativi, non colonne
 VICINE = 80      # due chiamate a piu' di 80 righe di distanza sono due finestre
+
+# I due siti dove l'inglese di monte sfora gia' di suo: il perimetro del progetto
+# li' non e' il tetto, e' «non piu' lungo di monte».
+DI_MONTE = {("command.hsp", 4199), ("command.hsp", 10410)}
 
 CHIAMA = re.compile(r"^\s*display_topic\s+(.+?),\s*wx \+ (\d+),\s*wy \+ (\d+)")
 LANG = re.compile(r'lang\(\s*"((?:[^"\\]|\\.)*)"\s*,\s*"((?:[^"\\]|\\.)*)"\s*\)')
@@ -147,6 +157,10 @@ def tetto(x, x2):
     return (x2 - x - ICONA) // PASSO
 
 
+def indice(albero):
+    return {(c[0], c[1]): c for c in coppie(chiamate(albero)[0])}
+
+
 def referto(albero, etichetta):
     trovate, saltate = chiamate(albero)
     misurabili = coppie(trovate)
@@ -154,16 +168,35 @@ def referto(albero, etichetta):
     print(f"--- {etichetta}: {len(trovate)} display_topic con x e testo leggibili "
           f"({saltate} no), {len(misurabili)} in coppia, {len(sfora)} fuori misura")
     for nome, n, y, x, x2, t in sorted(sfora, key=lambda c: (c[0], c[1])):
+        scusa = "  (sfora anche l'inglese)" if (nome, n) in DI_MONTE else ""
         print(f"   {nome}:{n}  wy+{y}  x {x} -> {x2}, tetto {tetto(x, x2)}, "
-              f"lunghezza {len(t)}   {t!r}")
+              f"lunghezza {len(t)}   {t!r}{scusa}")
     return sfora
+
+
+def perimetro():
+    """Le colonne senza scuse di monte: l'inglese ci sta e noi no, o siamo piu' lunghi."""
+    monte, nostro = indice(SORGENTE), indice(BUILD)
+    fuori = []
+    for k, c in nostro.items():
+        nome, n, y, x, x2, it = c
+        en = monte.get(k, (None,) * 6)[5] or ""
+        if len(it) <= tetto(x, x2):
+            continue
+        if len(en) <= tetto(x, x2) or len(it) > len(en):
+            fuori.append((nome, n, x, x2, en, it))
+    print(f"\n=== il perimetro: {len(fuori)} colonne")
+    for nome, n, x, x2, en, it in fuori:
+        print(f"   {nome}:{n}  tetto {tetto(x, x2)}   en {len(en):2d} {en!r}")
+        print(f"{'':>{len(nome) + len(str(n)) + 4}}              it {len(it):2d} {it!r}")
+    return fuori
 
 
 def piu_strette(albero, quante=5):
     """Le colonne con meno margine, cioe' dove una resa lunga fa danno per prima."""
     trovate, _ = chiamate(albero)
     righe = [(tetto(x, x2) - len(t), tetto(x, x2), nome, n, x, x2, t)
-             for nome, n, y, x, x2, t in coppie(albero and trovate)]
+             for nome, n, y, x, x2, t in coppie(trovate)]
     righe.sort()
     print(f"\n--- le {quante} colonne con meno margine")
     for margine, tt, nome, n, x, x2, t in righe[:quante]:
@@ -172,10 +205,16 @@ def piu_strette(albero, quante=5):
 
 
 def prova():
-    """⭐ Il banco: con il passo giusto l'inglese di monte non sfora da nessuna parte."""
+    """⭐ Il banco: l'inglese di monte sfora nei DUE siti noti e in nessun altro.
+
+    Non e' «zero fuori misura»: con il passo misurato l'inglese sfora davvero in
+    due colonne, e la rete deve dirlo. Se ne comparisse una terza, o ne sparisse
+    una, e' cambiato il sorgente o e' sbagliata la rete.
+    """
     sfora = referto(SORGENTE, "inglese di monte")
-    ok = not sfora
-    print(f"   prova: atteso 0 fuori misura, trovati {len(sfora)} -> "
+    trovato = {(c[0], c[1]) for c in sfora}
+    ok = trovato == DI_MONTE
+    print(f"   prova: attesi {sorted(DI_MONTE)}, trovati {sorted(trovato)} -> "
           f"{'ok' if ok else 'IL METRO NON REGGE'}")
     return ok
 
@@ -185,4 +224,5 @@ if __name__ == "__main__":
     piu_strette(SORGENTE)
     print()
     referto(BUILD, "build italiana")
+    perimetro()
     sys.exit(0 if buono else 1)
