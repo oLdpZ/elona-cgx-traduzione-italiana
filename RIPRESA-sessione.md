@@ -1,5 +1,312 @@
 # Ripresa sessione
 
+Aggiornato: 2026-08-20, fine della **sessantottesima** sessione (**il collaudo
+che mancava da due sessioni: tre spinte, due difetti riparati e visti a schermo,
+una rete accesa e un rinvio sbagliato**).
+
+⭐⭐⭐ **La lezione della sessione: il collaudo non trova quel che nessuno sa —
+trova quel che era gia' scritto e che nessuno pesava.** I tre difetti della
+giornata avevano tutti la causa gia' messa nero su bianco, da sessioni:
+
+1. la **RETE 20** dichiarava il proprio punto cieco nel docstring — «l'ultima
+   intestazione di ogni riga, il cui limite e' il bordo della finestra» — e li'
+   stavano tutt'e due i difetti della scheda del personaggio;
+2. **`system.hsp`** era nella lista dei quattordici punti ciechi da quattro
+   sessioni, e dentro c'erano **le prime due schermate del gioco**;
+3. **`" level"`** stava in `rinviate.jsonl` con una motivazione scritta a mano.
+
+💡 Nessuno dei tre era nascosto. Mancava solo qualcuno che aprisse il gioco, e
+per due sessioni non l'aveva aperto nessuno. **Il valore di una schermata non e'
+che mostra una cosa nuova: e' che assegna un peso a una cosa gia' elencata.**
+
+⭐⭐⭐ **E la scoperta piu' riusabile: un rinvio si registra per FIRMA, ma il
+motivo vale per un SITO.** `lang("階相当", " level")` compare due volte in
+`command.hsp` con la stessa firma: `:2956`, dentro un ramo `if ( jp )` che in
+italiano non gira mai, e `:10710`, la scheda del personaggio, sul percorso
+comune. Il rinvio — «questa `lang()` non viene valutata mai» — fu scritto
+guardando il primo, e indicizzato per firma ha tenuto ferma anche la seconda.
+⚠️ **Non poteva trovarlo nessun referto**: per tutti gli strumenti quella firma
+era *decisa*, e una firma decisa non compare in nessun elenco di lavoro. La
+verifica che manca si scrive in una riga: *una firma rinviata per il ramo della
+lingua ha davvero tutte le sue occorrenze in quel ramo?*
+
+⭐⭐ **E un controllo che SOMIGLIA a quello buono e' peggio di nessun controllo.**
+Il lotto della scheda si portava dentro il controllo anti-due-byte della 67a,
+ma riscritto come `ord(c) > 0x2000` — una soglia inventata pensando ai trattini
+lunghi e alle virgolette tipografiche. La resa «° piano» c'e' passata sotto,
+perche' il grado sta a **U+00B0**. L'ha bocciata `verifica`, che chiama la
+funzione vera. 💡 E' la regola della 61a — *misura la cosa, non una cosa vicina*
+— applicata a un **controllo** invece che a una misura: la copia somigliante da'
+la stessa quiete e non la stessa garanzia.
+
+---
+
+## La sessantottesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** (tre spinte) e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle verifiche d'apertura, che adesso sono
+**undici**. La sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0`
+allineato: e' la **venticinquesima prova** di fila, e le dieci verifiche hanno
+dato dieci volte i valori attesi della 67a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    pytest                  525 passed 6 skipped   (erano 507: +18 test della rete 20)
+    verifica --dizionario   command.hsp   0 / 93   (erano 99)
+                            screen.hsp    0 / 98   (erano 101)
+                            system.hsp    0 / 41   NUOVO: prima non era nel referto
+    toppe.jsonl             1001                   (erano 1000)
+    rinviate.jsonl          71                     (erano 72)
+    file_senza_dizionario   13 file | 811 lang()   (erano 14 | 867)
+    dizionario              +11 voci in system.hsp.jsonl (file NUOVO)
+                            +6 nuove e 2 corrette in command.hsp.jsonl
+                            +3 voci in screen.hsp.jsonl
+
+⭐ **E una verifica d'apertura in piu', l'undicesima:**
+
+    python -m strumenti.intestazioni_larghezze   # atteso: banco ok, perimetro 0 colonne
+
+Tutto il resto e' **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
+1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205, `riquadri` 0 su 38
+e 0 su 71, `menu_dialogo` 0 su 151, `linguette` 0 e 0, `battute --divergenti`
+**13**, `chat.hsp` 0 / 4046. Il `perimetro` (53% alla 67a) non e' stato
+rimisurato.
+
+⚠️⚠️ **`cgx-test.exe` in `elonaplus2.31\` e' VECCHIO di un lotto.** L'ultimo
+eseguibile — quello con le nove rese di `scheda-inglesi` — e' compilato e sta in
+`_traduzione\build\2.05-custom-gx\elonapluscgx.exe`, ma non e' stato copiato
+perche' il gioco era ancora aperto. **Prima cosa da fare alla ripresa:**
+
+    Copy-Item "C:\Games\Elona\_traduzione\build\2.05-custom-gx\elonapluscgx.exe" `
+              "C:\Games\Elona\elonaplus2.31\cgx-test.exe" -Force
+
+### ▶ Che cosa e' stato fatto: un collaudo e tre pezzi
+
+    il collaudo             undici schermate, gioco aperto due volte
+    RETE 20                 da scratchpad/ a strumenti/, +18 test
+    command.hsp x2          le due intestazioni rotte                2 rese
+    system.hsp              il percorso d'avvio, dizionario NUOVO   11 rese + 1 toppa
+    command.hsp, screen.hsp gli inglesi della scheda                 9 rese
+    rinviate.jsonl          una firma sbloccata                     -1
+    ------------------------------------------------------------------------
+                            22 rese, 1 toppa, 1 rete accesa, 3 spinte
+
+### ▶ ⭐⭐⭐ Il pezzo che vale piu' di tutti: la rete che era spenta, non verde
+
+`intestazioni_larghezze.py` viveva in **`scratchpad/`**, fuori dalle dieci
+verifiche d'apertura. Non era verde: non la lanciava nessuno dalla 66a. E il
+punto cieco che dichiarava — l'ultima intestazione di ogni riga — teneva due
+difetti nella scheda del personaggio, che il giocatore apre di continuo:
+
+    command.hsp:10431  «Benedizioni e malocchi»  22   tetto 18   TAGLIATA dal ritratto
+    command.hsp:10429  «Tiri di combattimento»   21   tetto 16   SOPRA «Pot. magia»
+
+⚠️ **E il limite non era il bordo della finestra in nessuno dei due casi.** Era
+il **ritratto** (`window2 wx + 557, wy + 23, 87, 120`, disegnato quaranta righe
+dopo e senza condizioni: ci passa sopra) e una **`mes`** (`pos wx + 564 - en *
+22, wy + 263`, trecento righe dopo). 💡 Una cosa disegnata dopo copre quel che
+c'era prima, e il bordo della finestra non la nomina.
+
+La rete adesso cerca gli **ostacoli**, e per farlo ha imparato tre cose:
+
+1. il confine giusto e' l'**etichetta HSP**, non una finestra di righe scelta a
+   occhio: fra `:10429` e la `mes` che la limita corrono trecento righe, e
+   nessun numero scelto a mano le tiene insieme senza tenere insieme mezzo file;
+2. l'ascissa puo' essere un'**espressione** con `en` (`wx + 564 - en * 22`);
+   senza leggerla, il secondo difetto restava invisibile;
+3. la fascia verticale dell'intestazione e' alta **12 px, misurata**, non 15:
+   con 15 sfiorava di tre pixel la riga di valori sotto (`chat.hsp:25513`) e
+   **inventava tre colonne dal tetto zero**, facendo fallire il banco di monte.
+
+⭐ Il banco regge: l'inglese di monte sfora nei due siti dichiarati e in nessun
+altro. Perimetro: **0 colonne**.
+
+⚠️ **55 intestazioni restano «senza ostacolo a destra»**, cioe' **non misurate**.
+La rete le conta a parte invece di chiamarle a posto: e' il seguito naturale del
+lavoro, e per quelle il limite e' il bordo della finestra vero.
+
+### ▶ ⭐⭐ Le due rese, e una che migliora tornando al giapponese
+
+    :10429  Tiri di combattimento (21) -> Modificatori (12)      monte: 12
+    :10431  Benedizioni e malocchi (22) -> Doni e malocchi (15)  monte: 16
+
+⭐ `:10429` **migliora tornando al giapponese**: 各種修正 e' «modificatori vari»,
+ed e' esattamente quel che il blocco mostra (`Arma1 3d5-1 x2.6`, `Mira 65%`,
+`Prot. 13% + 1d5`, `Pot. magia 100%`). «Tiri di combattimento» rendeva «Combat
+Rolls», che era gia' una resa libera dell'inglese.
+
+⚠️ `:10431` sacrifica **«Benedizioni» e non «malocchi»**: dei due sostantivi solo
+il secondo porta una distinzione contesa — il glossario tiene `hex` → malocchio
+apposta separato da `curse` → maledizione, perche' il gioco distingue i due 呪い
+(`skill.hsp:440` scrive `呪い(hex)`). E la frase intera **resta a schermo lo
+stesso**, nel suggerimento del cursore due righe piu' su (`:10344`).
+
+✅ **Visto e misurato**: «Doni e malocchi» finisce a 1140 con la cornice a 1168
+(28 px di franco); «Modificatori» finisce a 1118 e `Pot. magia` comincia a 1153
+(35 px).
+
+### ▶ ⭐⭐⭐ Il quattordicesimo punto cieco aperto: `system.hsp`
+
+**65 `lang()` e nessun file di dizionario.** Dentro c'erano il riquadro delle
+condizioni d'uso, il **menu del titolo** e la **scelta del salvataggio** — cioe'
+tutto quel che si vede prima di giocare, e tutto inglese. E' la lezione della
+54a nella sua forma piu' cara: *un file senza file di dizionario non e' un file
+finito, e' un file che nessun conteggio guarda*.
+
+Lotto `system-avvio`, 11 rese piu' la toppa **1001a**:
+
+    :3469  il riquadro delle condizioni d'uso
+    :3526  Starting Menu       -> Il segnavia dell'avventura
+    :3540  le sei voci         -> TOPPA (nude, dentro un ramo `if ( en )`)
+    :3655  Which save game...  -> Quale avventura vuoi riprendere?
+    :3683  Game Selection      -> Scelta dell'avventuriero
+    :3683  BackSpace [Delete]  -> BackSpace [Elimina]
+    :3769  :3794  i geni       -> Quali geni vuoi ereditare? / Scelta dei geni
+    :3409  :5118  due messaggi
+
+⭐ **La linguetta del titolo CRESCE col testo** (`module.hsp:4328`,
+`45 * larghezza / 100 + limit(strlen(s) * 8 - 120, 0, 200)`), quindi il titolo
+non e' vincolato alla lunghezza di monte. Il tetto si calcola imponendo che la
+linguetta stia dentro la finestra:
+
+    finestra 320  ->  limit <= 142  ->  32 caratteri
+    finestra 440  ->  il `limit` taglia a 200  ->  40 caratteri, sempre
+
+Percio' `:3526` puo' permettersi di **rimettere quel che l'inglese aveva buttato
+via**: 冒険の道標 e' «il segnavia dell'avventura», non «Starting Menu». Idem
+`:3655`, che chiede quale **avventura** e non quale file — e ci sta in 32
+caratteri contro 39.
+
+⚠️ **Una divergenza dichiarata invece che subita**: il riquadro delle condizioni
+d'uso e' **piu' corto in inglese che in giapponese** (mancano due punti: non
+spingere il gioco a chi non lo cerca, segnalare i difetti con la scheda
+apposita). E' stato tradotto **l'inglese**, che e' quel che questa build mostra:
+rimettere i due punti farebbe dire all'autore, in italiano, condizioni che in
+inglese non ha mai posto.
+
+⚠️ **«Impostazioni» e non «Opzioni»**, per accordarsi al menu dell'ESC in partita
+che dice gia' cosi': e' la lezione della 52a sulla porta e la stanza.
+
+✅ **Visto e misurato**: la voce piu' lunga (26 caratteri) finisce a 344 col bordo
+a 390; il titolo finisce a 332 con la linguetta a 342. Passo **7,04 px** per le
+voci e **7,96** per il titolo — cioe' i due numeri che il codice stesso suppone.
+
+### ▶ ⭐⭐ Le misure che sbloccano la toppa dei trascorsi
+
+⭐⭐⭐ **Il passo a corpo 10 e' 6 px, misurato** su tre righe di trascorsi
+indipendenti (6,04 / 6,06 / 6,09). Era la domanda aperta n. 1 della 67a, e il
+motivo per cui la toppa `talk_conv s, 32` era ferma. Il campo dei trascorsi va da
+`wx + 205` (816) a `wx + 422` (1033, dove comincia `Arma1`): **217 px, cioe' 36
+caratteri**. Oggi `talk_conv` spezza a **32**.
+
+⭐ E il simulatore del compositore e' **provato contro lo schermo**, come vuole la
+61a: prevede che «Un gran talento nell'aiutare, ma malintesi a ripetizione.» si
+spezzi dopo «ma» (la coda fino all'ultimo spazio fa 33 > 32), e a schermo si
+spezza esattamente li'. Un'altra riga sfora di un carattere solo (37 su 36) e
+infatti il suo punto tocca «Tiro».
+
+⚠️ **Il corpo di `display_topic` e' 11, non 10** (`12 + sizefix - en * 2` con
+`fontSfix1. "1"` in `config.txt`), e quello dei trascorsi e' 10
+(`12 - en * 2`, senza `sizefix`). Due finestre a un centimetro di distanza, due
+corpi diversi: e' la stessa trappola della 63a vista dentro una finestra sola.
+
+Il passo a corpo 11 e' **7,038** — 183 px su 26 intervalli di glifo, misurato su
+«Attributi base - Potenziale». **Terza conferma** del 7 della 65a, su una
+finestra mai misurata prima.
+
+### ▶ ✅ La toppa di geometria della 66a: verificata due volte
+
+`inf_nomew` vale i **96 px pieni** a 1920, e le dieci icone della barra di stato
+partono a **380** = `136 + 148 + 96`, esatte al pixel.
+
+⭐ E la prova end-to-end: il salvataggio `sav_oldpz` sta in una mappa che si
+chiama **«La Terra della Tregua», 21 caratteri** — oltre il vecchio taglio a 16,
+dentro il nuovo a 29. A schermo si legge **intera** (159 → 305 px, cioe' 21 x 7),
+con 75 px di franco prima delle icone. ⚠️ E' lo stesso nome che nella 62a usciva
+«La Terra della T».
+
+⚠️ Resta da vedere un nome **generato** (una nefia mai visitata), che e' il caso
+per cui il taglio a 29 esiste. La geometria pero' non e' piu' un'ipotesi.
+
+### ▶ Un allarme escluso, che vale quanto un difetto trovato
+
+«517/10/21 Giornata da studio / **D**» in alto a sinistra sembrava un taglio.
+Non lo e': `screen.hsp:1141` compone `_biyori + " / " + _destiny`, e la «D» e' la
+**prima lettera del destino**. Le due righe sono due campi distinti, non un a
+capo. 💡 Guardato prima di segnalarlo.
+
+### ▶ Quel che resta da guardare, in ordine
+
+1. ⭐⭐⭐ **Le nove rese di `scheda-inglesi` non sono state viste a schermo**, ed
+   e' il debito di collaudo di questa sessione. Serve installare l'eseguibile
+   (vedi sopra) e aprire la scheda alle pagine 3 e 4.
+2. ⭐⭐⭐ **Le colonne della scheda che si sovrappongono**, trovate oggi e non
+   riparate: «Classe» e «Guerriero» sono stampate una sopra l'altra, e
+   «Altezza157 cm», «Velocita70(70)», «Sollevamento pes**i**» (pagina 2) toccano
+   il valore senza spazio. E' una famiglia di difetti che **nessuna rete guarda**:
+   sono etichette a `pos` fisso con il valore a `pos` fisso, e il tetto e' la
+   distanza fra i due.
+3. ⭐⭐ **La toppa dei trascorsi**, `talk_conv s, 32` → **36**, adesso che il
+   passo e' misurato. Ripara anche le 82 righe che vanno a capo nell'inglese di
+   monte.
+4. ⭐⭐ **Il registro dei messaggi e' inglese**: le notizie di morte degli altri
+   giocatori («Iron Falcon Shaolin miserably died from poison in Exciting Nest»)
+   scorrono in fondo a ogni schermata.
+5. ⭐ Le 55 intestazioni «senza ostacolo a destra» della rete 20.
+6. ⭐ L'informatore sui boss nelle taverne (91 rese della 67a, mai viste), le
+   due scene finali, la scena d'apertura.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ `chat.hsp`: **4.046** da fare. Zone chiuse: `:9423`-`:9519`,
+   `:10339`-`:10369`, `:15438`-`:15470`, `:15927`-`:15937`, `:18094`-`:18111`,
+   `:18474`-`:18785`, `:24236`-`:24537`.
+2. ⭐⭐ **Tredici file con `lang()` e senza dizionario**, per **811** `lang()`:
+   `item.hsp` 244, `txtadv.hsp` 176, `material_data.hsp` 118,
+   `custom_autopick.hsp` 90, `help.hsp` 76, `net.hsp` 39.
+3. ⭐⭐ `etc.hsp` resta il «file mezzo tradotto»: cinque toppe e nessun dizionario.
+4. ⭐⭐ Le 148 voci di `talk_quest` e le 46 di `com_txtadv_loop`.
+5. ⭐⭐ `larghezze.py` misura la `lang()`, non la riga — il debito della 60a.
+6. ⭐ Le altre 41 di `system.hsp`, le 93 di `command.hsp`, le 98 di `screen.hsp`,
+   le 622 di `event.hsp`, le 241 di `item_func.hsp`.
+7. ⭐ I 1.146 testi di `db_card.hsp` e le 835 di `effdesc@tcg`.
+
+### ▶ Come si e' chiusa
+
+⚠️ **La sessione si chiude annunciando un CAMBIO DI TERMINALE.** E' l'undicesima
+volta (42a, 45a, 46a, 47a, 48a, 51a, 55a, 59a, 60a, 67a, e oggi); tutte le volte
+verificate finora la sessione dopo si e' riaperta sulla **stessa** macchina.
+
+⚠️⚠️ Se questa volta e' davvero un'altra macchina, valgono le tre cose che non
+stanno nel repo: i **tre CSV degli epiteti** (`python scratchpad/epiteti_vocabolario.py`,
+e vogliono i CRLF), **`cgx-test.exe`**, e l'albero di build. E vale
+[[elona-ambiente-python]]: serve un Python 3.10+.
+
+⚠️ **E questa volta `cgx-test.exe` va rifatto comunque**, anche sulla stessa
+macchina: vedi sopra.
+
+💡 **Il gioco e' stato pilotato dagli script invece che giocato**, con
+`collaudo/schermo.ps1`. Due cose imparate che non sono nel suo docstring:
+
+1. ⚠️ **`SetForegroundWindow` fallisce se chi lavora sta usando la macchina**, e
+   quando fallisce i tasti vanno **nella finestra che ha il fuoco davvero** — nel
+   caso di oggi, il browser. Prima di mandare tasti conviene leggere
+   `GetForegroundWindow` e fermarsi se non e' il gioco.
+2. ⚠️ **`PrintWindow` su Elona restituisce nero**: la finestra non si cattura se
+   non e' davanti, quindi non c'e' modo di collaudare in sottofondo.
+
+⚠️ E il filtro del titolo va stretto: `-Titolo "Elona"` pesca **anche il
+terminale**, se la finestra si chiama «Elona traduzione». Usare `"Custom-GX"`.
+
+⚠️⚠️ **Il rovescio, da dire chiaro**: il debito di collaudo della 66a e della 67a
+e' rientrato solo **in parte**. Le 308 rese di `chat.hsp` della 67a — l'informatore
+sui boss, le due scene finali, la scena d'apertura — restano **tutte non viste**:
+oggi il collaudo e' andato dove i difetti erano, non dove il debito era.
+
+---
+
 Aggiornato: 2026-08-19, fine della **sessantasettesima** sessione (**308 rese in
 chat.hsp, otto spinte, il perimetro di sei termini chiuso e un PNG intero
 finito**).
@@ -44,7 +351,7 @@ personaggio. E' la mossa delle etichette di stato applicata a un pronome.
 
 ---
 
-## La sessantasettesima sessione
+## La sessantasettesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
