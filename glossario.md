@@ -457,11 +457,12 @@ trova già decisi, col numero di riga accanto.
 | タクティカルスロー | `Tactical Throw` | **Lancio tattico** | `chat.hsp:17863` |
 | 範囲魔法可変術式 | `Variable Storm` | **Tempesta variabile** | `chat.hsp:17865`. ⭐ Qui decide la **famiglia**, non la lettera: il giapponese è «formula variabile per magia ad area», ma la gemella 可変放射 è già «Soffio variabile» (`skill.hsp:1268`) e ogni `Storm` del progetto è una «Tempesta» (`skill.hsp:584`, `:759`, `:824`, `:849`, `:1688`). Le due parole che il nome deve portare sono quelle |
 
-## I termini della trama finale, decisi il 2026-08-19 dal lotto `chat-002`
+## I termini della trama finale, decisi il 2026-08-19 dai lotti `chat-002` e `chat-003`
 
-Lo scontro con Orphe (`chat.hsp:18565`-`:18592`) è l'ultima scena del gioco, e
-tira dentro quattro nomi della trama. Due erano già fissati altrove e si
-copiano; due erano nuovi.
+Le due scene finali del gioco — `*chat_unique_yayauhqui` (`:18474`-`:18560`),
+dove Jaldabaoth si rivela, e `*chat_unique_orphe` (`:18562`-`:18600`) — tirano
+dentro otto nomi della trama. Tre erano già fissati altrove e si copiano; cinque
+erano nuovi.
 
 | giapponese | inglese | italiano | perché |
 |---|---|---|---|
@@ -469,6 +470,34 @@ copiano; due erano nuovi.
 | 来光の牙 | `Origin of Light` | **zanna della luce nascente** | già deciso: `main.hsp:5080`, `text.hsp:11633`. Minuscolo, come nei due siti di monte |
 | イレギュラー | `Irregular` | **Irregolare** | il nome che i nemici danno al giocatore. Cinque siti, tutti in `chat.hsp` (`:9501`, `:15934`, `:18525`, `:18591`, `:24411`), nessuno tradotto prima d'ora. ⭐ La forma in `-e` non ha genere, e il giocatore non ce l'ha: è l'unico appellativo del gioco che non chiede un adattamento |
 | 大戦 | `Great War` | **Grande Guerra** | `chat.hsp:18568`, la guerra che Leold vuole espiare. Nome proprio di un evento, maiuscolo |
+| 混沌の超児 | `the Chaos Child` | **il Figlio del Caos** | già deciso: `db_creature.hsp:52175`, `text.hsp:9855`. ⚠️ Dentro una battuta va **nudo**, senza `<>`: vedi la regola qui sotto |
+| 忘却の女神 | `Goddess of Oblivion` | **la dea dell'oblio** | `chat.hsp:18535` e altri sei siti (`:9461`, `:9488`, `:9503`, `:10353`, `:15457`, `:18095`), tutti ancora da tradurre. Minuscolo: il giapponese non la nomina, la descrive |
+| アーカーシャ | `Arkasha` | **Arkasha** | `chat.hsp:18540`, i corridoi da cui affiora la luce astrale. Nome proprio senza `<>`, e regge la preposizione senza articolo. Anche `:10712` e `:10719`, da tradurre |
+| 器 | `vessel` | **involucro** | `chat.hsp:18516` e `:18519`, il corpo di cui Jaldabaoth si serve. La parola torna nella domanda che Tezcatlipoca fa subito dopo, quindi deve essere la stessa nelle due righe |
+| 造物主 | `creator` | **Creatore** | `chat.hsp:18536`. ⚠️ Il termine gnostico esatto per Jaldabaoth sarebbe «demiurgo», e il giapponese lo chiama 偽りの造物主, «il falso demiurgo», già nel nome della carta (`db_card.hsp:1648`). Ma nella battuta è lui che si proclama tale, e «Creatore» lo capisce chiunque: la parola dotta perderebbe la minaccia |
+
+### Dentro una battuta il nome va nudo: le `<>` sono del motore, non della lingua
+
+Deciso il 2026-08-19 col lotto `chat-003`, che nomina otto personaggi in
+ventidue righe.
+
+La regola è **seguire il monte riga per riga**, e il monte è già coerente:
+`db_creature.hsp` scrive `<Jaldabaoth> il Figlio del Caos` perché lì le `<>`
+dicono al motore che è un individuo e non una specie (`init.hsp:1713`), mentre
+dentro le battute il giapponese scrive ヤルダバオート e l'inglese `Jaldabaoth`,
+tutt'e due nudi. Un personaggio che parla non chiama gli altri per etichetta.
+
+⭐ **E la forma nuda risolve da sé il guaio dell'articolo.** `<Il Figlio del
+Caos>` non regge una preposizione — «il potere divino di `<Il Figlio del Caos>`»
+è «di il Figlio» — ed è il motivo per cui le due rese che esistevano prima
+(`text.hsp:9855`, `action.hsp:3008`) lo usano tutt'e due come **complemento
+oggetto**. Nudo, diventa «del Figlio del Caos» e la frase si scrive come viene.
+⚠️ Quelle due righe restano con le `<>` perché non sono battute: sono il diario
+delle missioni e un avviso di sistema. Ma **una delle due non segue il monte**:
+`action.hsp:3008` le `<>` ce le ha già in inglese, `text.hsp:9855` no — lì
+scrive «the Chaos Child» nudo e a bracchettarlo è stata una nostra scelta, mai
+motivata per iscritto. Resta com'è finché qualcuno non guarda quella riga a
+schermo: è il diario delle missioni, e non si sa se le `<>` lì aiutino o disturbino.
 
 ## Da decidere
 
