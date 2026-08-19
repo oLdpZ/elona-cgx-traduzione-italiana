@@ -457,6 +457,19 @@ trova già decisi, col numero di riga accanto.
 | タクティカルスロー | `Tactical Throw` | **Lancio tattico** | `chat.hsp:17863` |
 | 範囲魔法可変術式 | `Variable Storm` | **Tempesta variabile** | `chat.hsp:17865`. ⭐ Qui decide la **famiglia**, non la lettera: il giapponese è «formula variabile per magia ad area», ma la gemella 可変放射 è già «Soffio variabile» (`skill.hsp:1268`) e ogni `Storm` del progetto è una «Tempesta» (`skill.hsp:584`, `:759`, `:824`, `:849`, `:1688`). Le due parole che il nome deve portare sono quelle |
 
+## I termini della trama finale, decisi il 2026-08-19 dal lotto `chat-002`
+
+Lo scontro con Orphe (`chat.hsp:18565`-`:18592`) è l'ultima scena del gioco, e
+tira dentro quattro nomi della trama. Due erano già fissati altrove e si
+copiano; due erano nuovi.
+
+| giapponese | inglese | italiano | perché |
+|---|---|---|---|
+| 神の間 | `Eternal Seal` | **Sigillo Eterno** | già deciso: `map.hsp:4496`, `main.hsp:4186`, `action.hsp:3008`. Si copia |
+| 来光の牙 | `Origin of Light` | **zanna della luce nascente** | già deciso: `main.hsp:5080`, `text.hsp:11633`. Minuscolo, come nei due siti di monte |
+| イレギュラー | `Irregular` | **Irregolare** | il nome che i nemici danno al giocatore. Cinque siti, tutti in `chat.hsp` (`:9501`, `:15934`, `:18525`, `:18591`, `:24411`), nessuno tradotto prima d'ora. ⭐ La forma in `-e` non ha genere, e il giocatore non ce l'ha: è l'unico appellativo del gioco che non chiede un adattamento |
+| 大戦 | `Great War` | **Grande Guerra** | `chat.hsp:18568`, la guerra che Leold vuole espiare. Nome proprio di un evento, maiuscolo |
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

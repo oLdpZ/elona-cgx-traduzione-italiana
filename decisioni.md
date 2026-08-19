@@ -5725,3 +5725,76 @@ l'articolo nella forma «the».
 61ª: una toppa che compone si prova rigenerando gli epiteti inglesi e
 verificando che escano identici a quelli di oggi. Se la toppa non sa riprodurre
 l'inglese, non è pronta per l'italiano.
+
+## 67ª — Una scena dove l'inglese ha riscritto la battuta, e un contatore letto male
+
+Il lotto `chat-002` chiude il perimetro `18560`-`18720` di `chat.hsp`: le otto
+battute dello scontro finale con Orphe e la scena dell'anniversario. Trentatré
+rese, e in tre punti le due lingue di monte non dicono la stessa cosa.
+
+### ⭐⭐⭐ La scena dell'anniversario: l'inglese ha buttato via il gioco di parole
+
+`chat.hsp:18720`-`:18785` è la scena che parte se `kinenflag == 1`: il compagno o
+la compagna chiede «…今日は何の日？», e le risposte del giocatore sono cinque voci
+di `chatList`. La terza — 「えーとアレだよアレアレ」, «ecco, è quella cosa, quella cosa lì,
+quella lì» — apre un **secondo** menu, che in giapponese è tutto lì:
+
+    chatList 0   「アレ！」    quello!
+    chatList 1   「コレ！」    questo!
+    chatList 2   「ソレ！」    codesto!
+    buff         「…どれ？」   …quale?
+
+È una gag di dimostrativi: il giocatore non si ricorda niente e continua a
+indicare. **L'inglese l'ha sostituita con tre battute diverse** — «I do not
+remember...», «Please give me a hint.», «By the way, the weather is nice today.»
+— e con «So what?» al posto di «…どれ？», che scollega la domanda dalle risposte.
+
+L'italiano ha i tre dimostrativi e la gag ci sta intera: «Quella lì!», «Questa
+qui!», «Quella là!», con «…E quale?» a chiudere. Si è seguito il **giapponese**,
+e non è una preferenza di gusto: la risposta del PNG a tutte e tre è la stessa
+(「もういい。」 + `(呆れている)`), e regge solo se le tre voci sono la stessa non
+risposta detta tre volte. Con le tre battute inglesi, che sono tre cose diverse,
+la reazione unica non ha più un perché.
+
+💡 È lo stesso verso della 66ª — «nursing a lowly adventurer» dove il giapponese
+non ha nessun «lowly» — ma un passo più in là: lì l'inglese aveva **aggiunto**,
+qui ha **sostituito**. Il segnale è sempre lo stesso: quando la reazione del
+gioco a più scelte è una sola, le scelte sono variazioni di una cosa sola, e una
+lingua che le rende tutte diverse ha perso la struttura.
+
+### ⚠️ 一柱 non è «one pillar»
+
+`chat.hsp:18590`, Orphe che vede arrivare Tezcatlipoca:
+
+    jp  全ての神々の力を一柱に集中してきたか
+    en  So you've concentrated the power of all the gods into one pillar
+
+一柱 è il **contatore** delle divinità — «una divinità», come 一人 è «una
+persona». L'inglese ha tradotto il carattere invece del contatore, e ne è uscito
+un pilastro che nella scena non c'è: quel che è appena successo è che gli dèi
+hanno concentrato la loro forza in **un dio solo**, che sta in mezzo allo
+schermo. L'italiano dice «in una divinità sola».
+
+⚠️ Il contatore compare anche due righe sopra, a `:18567`: 「一柱ずつ、目の前でくび
+り殺してやろう」, e lì l'inglese lo rende giusto («One by one, I'll snuff them
+out»). Stessa parola, due righe di distanza, due letture diverse: **la lettura
+buona e quella cattiva convivono nello stesso blocco**, quindi non basta fidarsi
+del fatto che l'inglese altrove ci abbia preso.
+
+### La regola del genere, di nuovo, e stavolta su una risposta del giocatore
+
+Quattro righe su trentatré hanno dovuto cambiare costruzione per non scegliere un
+genere:
+
+    :18591  «trascinato in una partita»  →  «che tocchi anche a te una partita»
+    :18591  «non saresti mai dovuto arrivare» → «non era previsto che arrivassi»
+    :18771  「ごめん寝ぼけてた」  →  «Scusa, ho ancora il sonno addosso»
+    :18765  「悲しくなった」      →  «ci rimane male»
+
+⭐ Le prime due stanno nella **stessa battuta**: `Irregular, what a pity...` ne
+porta due participi di fila, ed è la battuta che il nemico rivolge al giocatore
+nell'ultima scena del gioco. ⚠️ E `:18771` è la prima volta che il vincolo morde
+su una voce di `chatList`, cioè su una frase che il giocatore **dice**, non che
+riceve: «ero mezzo addormentato» è la resa ovvia di 寝ぼけてた e non si può
+scrivere. La forma che regge è quella che sposta il predicato su un sostantivo —
+«ho ancora il sonno addosso» — ed è la stessa mossa delle etichette di stato.
