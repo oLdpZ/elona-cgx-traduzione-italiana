@@ -1,6 +1,18 @@
 # -*- coding: utf-8 -*-
 """Il budget di larghezza della schermata «Background» (`*setHistory1`..`5`).
 
+⚠️⚠️ **SUPERATO da [[trascorsi.py]], la rete 17 (64a).** Questo referto misurava
+l'italiano contro l'inglese di monte, e lo dichiarava: «stima in caratteri quel
+che lo schermo disegna in pixel». Nella 64a lo schermo i pixel li ha dati, e il
+metro relativo non bastava: il tetto vero e' **38 caratteri** (finestra 360,
+testo a `wx + 75`, passo 7 px), mentre qui `setHistory1` risultava a posto con
+un tetto di 54 -- e a schermo quella riga usciva di 45 px sul marmo.
+
+Resta perche' due note lo citano, e perche' il suo metro serve ancora per le 46
+righe che sforano **anche in inglese**, dove il tetto assoluto non e'
+raggiungibile e l'unica regola e' non peggiorare upstream.
+
+
 Le cinque righe si disegnano con `mes` a `pos wx + 75, wy + 200 + n * 15` dentro
 una finestra larga 360 (`chara.hsp:3305`-`:3335`): nessuna guardia le misura,
 come per la scheda del personaggio della 43a. Il metro possibile e' quello di

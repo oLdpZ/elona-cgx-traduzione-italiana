@@ -227,6 +227,21 @@ referto da rilanciare a mano quando si tocca uno dei cinque gruppi, come
 `tetti_buffdesc.py`. E come quello, stima in caratteri quel che lo schermo
 disegna in pixel.
 
+⭐⭐⭐ **E nella 64ª lo schermo i pixel li ha dati, e la stima non bastava.** Il
+collaudo della creazione ha fotografato quella finestra: due righe su cinque
+uscivano dal bordo destro della pergamena, +45 px e +31 px. Il tetto vero è
+**38 caratteri** — `chara.hsp:3305` apre la finestra larga 360, il testo parte
+da `wx + 75` e il passo è 7 px, misurato sulla riga da 47 caratteri che va da
+x=858 a x=1176. Col metro relativo `setHistory1` risultava a posto fino a **54**
+caratteri, cioè sedici oltre il bordo. 💡 **Un referto che dichiara la propria
+approssimazione ha ragione a dichiararla, e resta approssimato finché qualcuno
+non guarda lo schermo**: la nota qui sopra lo diceva da venti sessioni.
+
+Il successore è `scratchpad/trascorsi.py`, che porta il tetto assoluto e separa
+il perimetro nostro (le righe dove l'inglese sta dentro e noi no, più quelle
+dove sforiamo più di lui: erano **28**, corrette nella 64ª) dal difetto di monte
+(**97 righe inglesi su 226** fuori misura, che non si toccano).
+
 ---
 
 ## Una voce duplicata dentro la stessa tabella: quattro casi in due elenchi — 2026-08-15, quarantaquattresima sessione
