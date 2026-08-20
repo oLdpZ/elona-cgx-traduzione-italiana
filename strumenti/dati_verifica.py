@@ -61,22 +61,47 @@ _GIAPPONESI = frozenset({
 
 
 class Espansore:
-    def __init__(self, nome, contenuto, controlli=()):
+    def __init__(self, nome, contenuto, controlli=(), da_togliere=()):
         self.nome = nome
         self.contenuto = frozenset(contenuto)
         self.controlli = frozenset(controlli)
+        self.da_togliere = frozenset(da_togliere)
         self.giapponesi = _GIAPPONESI
         self.noti = self.contenuto | self.controlli | self.giapponesi
 
     def ammessi(self) -> frozenset:
-        """Quel che una resa italiana puo' portare: contenuto e controlli."""
-        return self.contenuto | self.controlli
+        """Quel che una resa italiana puo' portare: contenuto e controlli.
 
+        Meno `da_togliere`: quei nomi l'espansore li conosce, ma li espande in
+        giapponese anche nella build inglese.
+        """
+        return (self.contenuto | self.controlli) - self.da_togliere
+
+
+# ⚠️⚠️⚠️ `{you}` E `{me}` ESCONO IN GIAPPONESE ANCHE NELLA BUILD INGLESE.
+#
+# Tutt'e due gli espansori li mandano alle stesse due funzioni — `you` a
+# `_kimi(3)` (`text.hsp:5329`, board a `:11942`, talk a `:6928`) e `me` a
+# `_ore(3)` (`:5851`) — e quelle due funzioni **non hanno nessun `lang()`**:
+# misurato nella 71a contando i `lang()` fra la #defcfunc e il return, zero su
+# ottantasei righe e zero su ottantacinque. Rendono 貴方 / お前 / 君 / 私 / 俺 /
+# 僕 secondo `CDATA_TONE` del parlante, in ogni lingua.
+#
+# Non e' un difetto nostro: e' di monte, e si vede **nella sua build inglese**.
+# L'inglese di `board.txt` non li usa mai; quello di `talk.txt` usa `{you}` una
+# volta sola, in `AAREA,30|4` — una riga d'aprile, che si vede un mese l'anno.
+#
+# Percio' non stanno ne' nel contenuto ne' fra le conversioni giapponesi: sono
+# una terza famiglia, `da_togliere`. Il confronto sui segnaposto li sottrae
+# all'inglese invece di pretenderli nella resa, perche' la resa italiana giusta
+# e' quella che non li porta.
+_DA_TOGLIERE = ("you", "me")
 
 TALKTXT_CONV = Espansore(
     "talktxt_conv",
     ("client", "map", "ref", "you", "me", "reward", "objective",
      "deadline", "n", "player", "aka", "npc"),
+    da_togliere=_DA_TOGLIERE,
 )
 
 CONVERT_WORD = Espansore(
@@ -85,6 +110,7 @@ CONVERT_WORD = Espansore(
     ("Basic", "Embarrassment", "Fun", "Happy", "Angry", "Question",
      "seChangePage", "seMelee1", "seMelee2", "seMiss", "seCursor1", "seFire",
      "seKill", "seKill2", "seMore", "seGetGold", "sePayGold", "seEquip", "seGet"),
+    da_togliere=_DA_TOGLIERE,
 )
 
 # Il profilo di un file: chi lo legge, se la riga e' `titolo:corpo`, e a che
@@ -257,9 +283,12 @@ def controlla(voci: list[dict], invariati: set[str] | None = None,
         # ------------------------------------------------------- segnaposto
         nell_inglese = segnaposto(voce["en"])
         nella_resa = segnaposto(resa)
-        if nella_resa != nell_inglese:
-            persi = nell_inglese - nella_resa
-            aggiunti = nella_resa - nell_inglese
+        # i `da_togliere` si sottraggono all'inglese: la resa giusta non li ha
+        attesi = Counter({n: c for n, c in nell_inglese.items()
+                          if n not in espansore.da_togliere})
+        if nella_resa != attesi:
+            persi = attesi - nella_resa
+            aggiunti = nella_resa - attesi
             pezzi = []
             if persi:
                 pezzi.append("persi " + " ".join(f"{{{n}}}x{c}" for n, c in sorted(persi.items())))

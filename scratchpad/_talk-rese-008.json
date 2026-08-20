@@ -1,0 +1,106 @@
+{
+  "_nota": "chiave: blocco|riga. Lotto talk-008: le varianti d'APRILE dei luoghi. 81 righe.",
+  "_aprile": "I blocchi con la A davanti escono solo con gdata(GDATA_MONTH) == 4 (text.hsp:9609 e segg.): sono il pesce d'aprile di Elona, e dicono il rovescio o la caricatura della riga normale. Il registro e' quello: si tiene la bugia seria in faccia.",
+  "_you": "⚠️⚠️ AAREA,30|4 e' l'unica riga inglese di talk.txt che porta {you}, e {you} esce in GIAPPONESE anche nella build inglese (_kimi, text.hsp:5329, zero lang()). La resa italiana lo TOGLIE, e adesso la rete lo sa: vedi Espansore.da_togliere.",
+  "_nomi": "⚠️ カイン e' <Caim> «il riccone folle» (db_creature.hsp:95543), non «Cain» come scrive l'inglese qui - ed e' proprio la sua follia a rendere lo scherzo di AAREA,52|1. E カルラ e' Carla, come nel lotto 004.",
+  "_sfalsati": "AAREA,12 (5 EN contro 6 JP, la prima giapponese buttata) e AAREA,54 (5 EN contro 4 JP, la terza inglese aggiunta).",
+
+  "AAREA,5|1": "Un tempo il carbone ci faceva ricchi, poi un movimento della crosta ci ha sfondato tutte le miniere.",
+  "AAREA,5|2": "Pare che Yerles e Juere si siano finalmente riconciliati.",
+  "AAREA,5|3": "Quel tizio vicino alle tombe sta ad ascoltare chiunque suoni, anche i più stonati.",
+  "AAREA,5|4": "I peluche in casa di Miches sono fatti con pelliccia scuoiata da orsi veri.",
+  "AAREA,5|5": "Per la capitale Palmia c'è una carrozza diretta, parte dal lato est della taverna.",
+  "AAREA,5|6": "Il sedere di Shena polverizza un masso con un colpo solo.",
+  "AAREA,5|7": "Rilian va matta per la carne di cane.",
+
+  "AAREA,11|1": "A dirla tutta, quello che senti non è profumo di mare: è il sudore degli scaricatori.",
+  "AAREA,11|2": "Lo sai com'è fatto sotto quel mantellone chi organizza l'Arena delle bestie? Dentro non c'è nessuno.",
+  "AAREA,11|3": "Il sedere di Raphael è il massimo.",
+  "AAREA,11|4": "Arnord non si è ancora accorto di essere già morto in battaglia...",
+  "AAREA,11|5": "La taverna di qui è stata costruita sopra un cimitero.",
+  "AAREA,11|6": "Nella Piramide non si entra, finché non risolvi l'enigma inciso sulla lapide.",
+
+  "AAREA,12|1": "Quest'anno gli alberi della pasta sono cresciuti male, e i coltivatori di pasta sono nei guai.",
+  "AAREA,12|2": "A settembre facciamo la grande festa del raccolto.",
+  "AAREA,12|3": "Quel castello nero che vedi uscendo dal paese è la capitale.",
+  "AAREA,12|4": "Ainc è il nipote di un cavaliere leggendario.",
+  "AAREA,12|5": "La carne umana è il prodotto di cui questo paese va più fiero.",
+
+  "AAREA,14|1": "Questa è Derphy, la città delle persone oneste.",
+  "AAREA,14|2": "Sappi che la faccia vera di Marks è la maschera, non il contrario.",
+  "AAREA,14|3": "Quelle cose che sui putit sembrano occhi in realtà sono le narici.",
+  "AAREA,14|4": "Secondo me la schiavitù, che è una cosa orribile, andrebbe abolita.",
+  "AAREA,14|5": "Mi si stringe il cuore a pensare alle battaglie sanguinose che si fanno all'arena.",
+  "AAREA,14|6": "Ormai alle esplosioni nucleari ci ho fatto l'abitudine.",
+
+  "AAREA,15|1": "Questa è la capitale del regno di Barmia.",
+  "AAREA,15|2": "Miao! Il modo di parlare di Mia adesso a Palmia va di gran moda, miao!",
+  "AAREA,15|3": "La signora Stersha nasconde qualcosa di importante sotto il trono.",
+  "AAREA,15|4": "L'acqua che esce dalla scultura sul muro in realtà è lo scarico delle fogne.",
+
+  "AAREA,30|1": "Domani pioggia con meteore sparse.",
+  "AAREA,30|2": "Finché stai in un rifugio non muori, nemmeno se i punti vita vanno a zero.",
+  "AAREA,30|3": "Pare che, quando si porta via un rifugio, chi è rimasto dentro venga scomposto in atomi e muoia.",
+  "AAREA,30|4": "Siamo quasi senza provviste. Dividi un po' delle tue con noi.",
+
+  "AAREA,33|1": "A Noyel c'è una festa tutti gli anni a gennaio.",
+  "AAREA,33|2": "Se lasci cadere un'ascia nel pozzo sacro, compare una dea.",
+  "AAREA,33|3": "Pare che quel gigante sia l'amante di Moyer.",
+  "AAREA,33|4": "Pare che la madre di Pael faccia finta di stare male.",
+  "AAREA,33|5": "Se vai molto più a nord, trovi un'officina.",
+
+  "AAREA,36|1": "Questa è la città dell'acqua buona: fai come se fossi a casa tua.",
+  "AAREA,36|2": "Prova ad accucciarti e a bere quell'acqua lì. È buonissima.",
+  "AAREA,36|3": "Se ti metti a pescare qui le guardie ti richiamano: tutela del paesaggio, sai com'è.",
+  "AAREA,36|4": "Se ti teletrasporti su una di quelle isolette, indietro non si torna.",
+  "AAREA,36|5": "Balzak non sembra, ma fa l'assassino su commissione per la malavita.",
+
+  "AAREA,50|1": "Il militare a nord-ovest della città aveva così fame che si è sbafato qualche putit militare.",
+  "AAREA,50|2": "Dalla Tyris del Nord alla Tyris del Sud ci vieni, ma al contrario è impossibile.",
+  "AAREA,50|3": "Se togli il cappello a un putit militare, la sua intelligenza crolla di brutto.",
+  "AAREA,50|4": "La neve che cade da queste parti, a mangiarla, ha un vago sapore dolce.",
+  "AAREA,50|5": "Naplus è una maniaca che palpa la gente fingendo che serva ai suoi esperimenti di alchimia. Per questo alle sue spalle la chiamano \"Eronaplus\".",
+
+  "AAREA,51|1": "A Ruoza c'è la regola che a chi ti incrocia con lo sguardo tocca dare qualche provvista.",
+  "AAREA,51|2": "I germogli di bambù non sono per niente buoni.",
+  "AAREA,51|3": "Se accenni a Carla di un'Elea dai capelli verdi, comincia a tremare.",
+
+  "AAREA,52|1": "Caim è quello con più buon senso di tutta la città.",
+  "AAREA,52|2": "Sottoterra c'è un parco giochi per bambini.",
+  "AAREA,52|3": "In questa città, con tutto il commercio che c'è, i prezzi sono circa la metà che altrove.",
+  "AAREA,52|4": "Se fai il bagno nei canali a nord-ovest della città, pare che qualcuno ti tiri sotto.",
+
+  "AAREA,53|1": "Sulla testa dei pirati che compaiono in queste acque c'è una taglia enorme.",
+  "AAREA,53|2": "Un bagno nell'acqua benedetta rende gli oggetti più difficili da maledire e le persone più resistenti alle maledizioni.",
+  "AAREA,53|3": "Ogni tanto sul molo passeggiano i gabbiani.",
+  "AAREA,53|4": "Appena sale su un mezzo, a Zernard cambia il carattere e diventa violento.",
+
+  "AAREA,54|1": "Se raccogli la sabbia sulla spiaggia, ci puoi fare un castello di sabbia.",
+  "AAREA,54|2": "Se fai il bagno in mare d'inverno, prendi danni da freddo per quanto è gelata.",
+  "AAREA,54|3": "Quella che raccoglie i rifiuti è una donna di bellezza fuori dal comune.",
+  "AAREA,54|4": "L'evento più grosso dell'anno a Valm è la Festa del Sacrificio, quando offriamo i forestieri al dio del mare.",
+  "AAREA,54|5": "Pare che quella tartaruga sulla spiaggia voli in cielo facendo girare il guscio.",
+
+  "AAREA,55|1": "Pare che Gavela vada matto per i costumi da bagno.",
+  "AAREA,55|2": "Sottoterra stiamo costruendo in segreto l'arma definitiva.",
+  "AAREA,55|3": "Questa base si trasforma in un robot da combattimento gigante.",
+  "AAREA,55|4": "Del generale, il corpo vero è quel braccio meccanico.",
+  "AAREA,55|5": "Quelle ai quattro angoli della base sono missili enormi camuffati da torri.",
+
+  "AAREA,56|1": "Ammazzare i turisti che vengono in questa città non è peccato.",
+  "AAREA,56|2": "Quella guida turistica là è debolissima.",
+  "AAREA,56|3": "Una volta all'anno dal lago spunta il mostro marimo.",
+  "AAREA,56|4": "A stare a mollo nelle terme la Follia cala, ma in cambio scende il potenziale di Costituzione.",
+
+  "AAREA,57|1": "Alla fine noi di campagna in campagna ci stiamo meglio...",
+  "AAREA,57|2": "Se ti metti a leggere un libro davanti a Siraha, lei si mangia le pagine.",
+  "AAREA,57|3": "Ho un amico che vive a Melkawn, ma non è che lo invidi...",
+  "AAREA,57|4": "Ogni tanto anche in questo villaggio piove e torna il verde.",
+
+  "AAREA,72|1": "Quando si aggiunge un libro allo scaffale o si cambia l'ordine dei libri, si apre un varco verso un altro posto.",
+  "AAREA,72|2": "Pare che qui, ogni anno, più di mille visitatori muoiano di fame perché troppo presi a leggere.",
+  "AAREA,72|3": "Il direttore risponde volentieri a qualunque domanda.",
+  "AAREA,72|4": "Pare che il direttore vada di nascosto a raccogliere dalla discarica i libri buttati via dai mortali.",
+
+  "AAILE|1": "Se la quota di volo scende sotto i mille piedi, la bomba installata a bordo esploderà. Vi auguriamo un piacevole rientro a terra: non sarà lungo."
+}

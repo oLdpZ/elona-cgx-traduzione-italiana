@@ -278,3 +278,41 @@ def test_la_rete_di_monte_girata_su_talk_non_trova_niente():
     sbagliato = dati_verifica.segnaposto_ignoti_di_monte(
         [voce_talk], espansore=dati_verifica.TALKTXT_CONV)
     assert len(sbagliato) == 1
+
+
+# ⚠️⚠️ `{you}` e `{me}` escono in giapponese anche nella build inglese: `_kimi`
+# e `_ore` (text.hsp:5329 e :5851) non hanno nessun `lang()`. La resa italiana
+# giusta e' quella che NON li porta, quindi il confronto li sottrae all'inglese.
+
+def _voce_talk(en, it):
+    return {"firma": "x", "file": "talk.txt", "blocco": "AAREA,30", "riga": 4,
+            "en": en, "jp_contesto": [], "it": it}
+
+
+def test_you_va_tolto_dalla_resa():
+    voce = _voce_talk("We're almost out of food. {you}, share some.",
+                      "Siamo quasi senza provviste: dividi le tue con noi.")
+    assert dati_verifica.controlla([voce]) == []
+
+
+def test_you_tenuto_nella_resa_e_un_problema():
+    voce = _voce_talk("We're almost out of food. {you}, share some.",
+                      "Siamo senza provviste. {you}, dividi le tue con noi.")
+    problemi = dati_verifica.controlla([voce])
+    assert len(problemi) == 1
+    assert problemi[0].genere == "segnaposto"
+    assert "you" in problemi[0].dettaglio
+
+
+def test_gli_altri_segnaposto_restano_obbligatori():
+    voce = _voce_talk("({nptc} looks at you.)", "(ti guarda.)")
+    problemi = dati_verifica.controlla([voce])
+    assert len(problemi) == 1
+    assert "nptc" in problemi[0].dettaglio
+
+
+def test_da_togliere_non_e_fra_gli_ammessi():
+    assert "you" not in dati_verifica.CONVERT_WORD.ammessi()
+    assert "me" not in dati_verifica.TALKTXT_CONV.ammessi()
+    # ma restano NOTI: non devono essere segnalati come nomi sconosciuti
+    assert "you" in dati_verifica.CONVERT_WORD.noti
