@@ -17,6 +17,8 @@ Ogni rete nasce da un sito, non da una prudenza generica:
                   prima: qui l'errore si legge col blocco accanto.
     cp932         doppi byte **e** caratteri non codificabili, sulla forma
                   degradata.
+    accento interno  un accento che non sta sull'ultima lettera: la
+                  degradazione ad apostrofo lo rende illeggibile.
     identica      una resa uguale all'inglese e' quasi sempre una dimenticanza.
     altezza       nessuna resa prende piu' righe a capo della piu' lunga fra le
                   inglesi dello stesso lotto.
@@ -312,6 +314,15 @@ def controlla(voci: list[dict], invariati: set[str] | None = None,
         fuori_cp932 = accenti.non_ascii_residuo(a_schermo)
         if fuori_cp932:
             segnala(voce, "fuori cp932", "".join(fuori_cp932))
+        # ⚠️ L'accento in mezzo alla parola passa i due controlli di sopra senza
+        # rumore — CP932 la forma degradata la scrive benissimo — e a schermo
+        # diventa illeggibile: «dei» -> «de'i». La degradazione regge solo
+        # sull'ultima lettera. Lezione della 41a, rete dalla 71a.
+        interni = accenti.accenti_interni(resa)
+        if interni:
+            segnala(voce, "accento interno",
+                    f"{interni}: la degradazione mette l'apostrofo dentro la "
+                    "parola e a schermo non si legge. Si cambia parola")
 
         # --------------------------------------------------------- identica
         if resa == voce["en"] and resa not in invariati:

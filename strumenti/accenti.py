@@ -58,6 +58,32 @@ def degrada(testo: str) -> str:
     return testo
 
 
+# ⚠️⚠️ L'ACCENTO SI DEGRADA ANCHE QUANDO STA IN MEZZO ALLA PAROLA, E LI' NON
+# SI PUO' LEGGERE. La degradazione ad apostrofo funziona perche' in italiano
+# l'accento cade quasi sempre sull'ULTIMA lettera, e li' l'apostrofo e' quel che
+# la lingua scrive comunque: «piu'», «citta'», «perche'». Ma «élite» e «dèi»
+# portano l'accento DENTRO, e a schermo diventano «e'lite» e «de'i»: illeggibili.
+#
+# La lezione e' della 41a (2026-08-14), che concludeva «si evita la parola, non
+# si toglie l'accento» — e per settantuno sessioni non e' stata una rete, ma una
+# cosa da ricordarsi. Nella 71a la misura sul dizionario intero ha trovato
+# **quindici** «dèi», tutti scritti dopo quella lezione.
+_ACCENTATE = "àèéìòùÀÈÉÌÒÙ"
+# `[^\W\d_]` e' "una lettera": esclude cifre e trattini, quindi «cosi'-cosi'» e
+# «Perché?» non entrano — l'accento e' l'ultimo carattere della loro parola.
+_ACCENTO_INTERNO = re.compile(r"[^\W\d_]*[" + _ACCENTATE + r"][^\W\d_]+")
+
+
+def accenti_interni(testo: str) -> list[str]:
+    """Le parole con una vocale accentata seguita da altre lettere.
+
+    Sono quelle che `degrada` rende illeggibili: l'apostrofo finisce in mezzo
+    alla parola. Le parole con l'accento sull'ultima lettera - la stragrande
+    maggioranza dell'italiano - non entrano.
+    """
+    return sorted(set(_ACCENTO_INTERNO.findall(testo)))
+
+
 def ha_apostrofo_scritto_a_mano(testo: str) -> bool:
     """Vero se il testo contiene una forma con apostrofo che doveva essere un accento.
 

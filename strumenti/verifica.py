@@ -8,6 +8,7 @@ from pathlib import Path
 from strumenti import percorsi
 from strumenti.accenti import (
     degrada,
+    accenti_interni,
     doppi_byte_cp932,
     ha_apostrofo_scritto_a_mano,
     non_ascii_residuo,
@@ -322,6 +323,20 @@ def controlla_voce(voce: dict, invariati: set[str] | None = None) -> list[str]:
     residui = non_ascii_residuo(degrada(italiano))
     if residui:
         problemi.append(f"caratteri che CP932 cancellerebbe: {residui}")
+
+    # ⚠️ L'accento in mezzo alla parola passa `degrada` senza rumore e diventa
+    # illeggibile a schermo: «elite» -> «e'lite», «dei» -> «de'i». Non e' un
+    # carattere che CP932 non sa scrivere — e' la degradazione stessa che
+    # funziona solo sull'ultima lettera. Lezione della 41a, rete dalla 71a, che
+    # l'ha trovata violata quindici volte nel dizionario.
+    interni = accenti_interni(italiano)
+    if interni:
+        problemi.append(
+            f"accento in mezzo alla parola: {interni} — la degradazione mette "
+            "l'apostrofo dentro la parola («elite» diventa «e'lite», «dei» "
+            "diventa «de'i») e a schermo non si legge. Si cambia parola, non "
+            "si toglie l'accento"
+        )
 
     # CP932 li codifica — e' proprio questo che li rendeva invisibili al
     # controllo di sopra — ma su due byte, e la build inglese disegna un glifo

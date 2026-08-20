@@ -1,5 +1,11 @@
+import json
 import pytest
-from strumenti.accenti import degrada, ha_apostrofo_scritto_a_mano, non_ascii_residuo
+from strumenti.accenti import (
+    accenti_interni,
+    degrada,
+    ha_apostrofo_scritto_a_mano,
+    non_ascii_residuo,
+)
 
 
 @pytest.mark.parametrize("dentro,fuori", [
@@ -104,3 +110,45 @@ def test_non_ascii_residuo_elenca_cio_che_cp932_cancellerebbe():
     assert non_ascii_residuo("perché") == ["é"]
     # il giapponese preesistente non e' un residuo: CP932 lo rappresenta
     assert non_ascii_residuo("バックパック") == []
+
+
+# ⚠️ La degradazione ad apostrofo regge SOLO se l'accento sta sull'ultima
+# lettera. «dei» e «elite» lo portano dentro e a schermo diventano «de'i» e
+# «e'lite»: la lezione della 41a, che fino alla 71a non era una rete.
+
+@pytest.mark.parametrize("testo,attese", [
+    ("gli dèi del caos", ["dèi"]),
+    ("un gladiatore d'élite", ["élite"]),
+    ("perché più città però così", []),
+    ("Sé stesso è qui", []),
+    ("È vero", []),
+    ("", []),
+    ("バックパック", []),
+])
+def test_accenti_interni(testo, attese):
+    assert accenti_interni(testo) == attese
+
+
+def test_accento_interno_solo_se_seguito_da_LETTERE():
+    # un accento finale seguito da punteggiatura o da un trattino non e' interno:
+    # l'apostrofo resta in fondo alla parola, dove l'italiano lo scrive comunque
+    assert accenti_interni("Perché?") == []
+    assert accenti_interni("così-così") == []
+    assert accenti_interni("città, e poi") == []
+    # ma dentro una parola composta si', perche' li' l'apostrofo spezza
+    assert accenti_interni("dèi-guerrieri") == ["dèi"]
+
+
+def test_nessun_accento_interno_in_tutto_il_dizionario():
+    """La rete gira sul corpus vero, non su un caso costruito (regola della 56a)."""
+    from pathlib import Path
+    from strumenti import percorsi
+    colpite = []
+    for percorso in sorted(Path(percorsi.DIZIONARIO).rglob("*.jsonl")):
+        for riga in percorso.read_text(encoding="utf-8").splitlines():
+            if not riga.strip():
+                continue
+            voce = json.loads(riga)
+            for parola in accenti_interni(voce.get("it") or ""):
+                colpite.append(f"{percorso.name}:{voce.get('riga') or voce.get('blocco')} {parola}")
+    assert colpite == [], f"{len(colpite)} rese con l'accento dentro la parola: {colpite[:10]}"
