@@ -1,0 +1,81 @@
+{
+  "_nota": "chiave: blocco|riga. Lotto talk-002: chi parla addosso al giocatore - compagni, mestieri e figure. 58 righe.",
+  "_genere": "Il parlante e' quasi sempre un PNG a caso: nessun predicato nominale o participio in prima persona che porti il genere. Nemmeno il destinatario e' marcato: niente 'benvenuto', 'capitato', 'fortunato'.",
+  "_moyer": "⚠️ MOYER e' APPAIATO MA SCAMBIATO: EN|1 rende JP2 (l'imbonimento lungo) e EN|2 rende JP1 (il gigante non si muove). Le rese seguono l'inglese, che e' la riga che viene sostituita.",
+  "_ref": "MAID|1 chiude il rinvio di text.hsp:6924: {ref} diventa il NUMERO NUDO e il sostantivo passa nella frase, con l'apposizione a due punti che regge anche 1.",
+
+  "ALLY_DEFAULT|1": "({nptc} ti guarda fisso.)",
+  "ALLY_DEFAULT|2": "Mmh...?",
+  "ALLY_DEFAULT|3": "Ti serve qualcosa?",
+  "ALLY_DEFAULT|4": "Che cosa vuoi?",
+  "ALLY_DEFAULT|5": "Che c'è?",
+  "ALLY_DEFAULT|6": "Qualcosa non va?",
+  "ALLY_DEFAULT|7": "Dimmi.",
+
+  "BORED|1": "({nptc} ti guarda con aria annoiata.)",
+  "BORED|2": "({nptc} ti degna di un'occhiata, poi guarda dall'altra parte.)",
+
+  "MAID|1": "Eccoti a casa, {player}! Ospiti in attesa: {ref}. Li ricevi subito?",
+
+  "INOTIGOI|1": "({nptc} ti guarda tremando.)",
+  "INOTIGOI|2": "({nptc} ti lancia un'occhiata e sbianca.)",
+
+  "SHOPKEEPER|1": "Avanti, entra pure nel mio negozio!",
+  "SHOPKEEPER|2": "Da me trovi la scelta migliore!",
+  "SHOPKEEPER|3": "Non sopporto i ladri. Tu non lo sei, vero?",
+  "SHOPKEEPER|4": "Mandare avanti un negozio non è mica facile.",
+  "SHOPKEEPER|5": "Se non sei capace di cacciare via i teppisti, un negozio non lo tieni aperto.",
+  "SHOPKEEPER|6": "Tenere aperto è un mestiere duro!",
+  "SHOPKEEPER|7": "Vieni, vieni. Guarda la merce con comodo.",
+  "SHOPKEEPER|8": "Il mio assortimento non teme confronti.",
+  "SHOPKEEPER|9": "Su, dai un'occhiata alla merce migliore che ho.",
+  "SHOPKEEPER|10": "Di questi tempi in giro c'è troppa gente losca.",
+  "SHOPKEEPER|11": "Armi e armature non identificate non te le pago bene.",
+
+  "SKILLTRAINER|1": "L'addestramento lo trovi ovunque, ma le abilità che si possono imparare cambiano da città a città e da gilda a gilda.",
+  "SKILLTRAINER|2": "Allenarti fa salire di molto il potenziale di un'abilità. E se il potenziale è troppo basso, dalla pratica non ricavi nessuna esperienza.",
+  "SKILLTRAINER|3": "Più alto è il potenziale, più esperienza guadagni. Conviene tirarlo su prima di andare a farsi le ossa sul campo.",
+  "SKILLTRAINER|4": "A che percentuale tenere il potenziale, decidilo in base a quante monete di platino riesci a mettere da parte.",
+  "SKILLTRAINER|5": "Vuoi allenare un compagno? Dagli monete d'oro, gemme e biglietti d'addestramento, e lascia che faccia da sé.",
+  "SKILLTRAINER|6": "Ogni abilità che alleni è una cosa in più che sai fare. E certe capacità si aprono solo quando l'abilità supera un certo livello.",
+  "SKILLTRAINER|7": "Abilità inutili non ne esistono... ma è bene pensare a quali vengono prima per te.",
+
+  "SLAVEKEEPER|1": "Eh eh eh... ho giusto quello che fa per te.",
+  "SLAVEKEEPER|2": "Non guardarmi così.",
+  "SLAVEKEEPER|3": "Che ti prende?",
+
+  "BITCH|1": "Ehi, tu. Che ne dici di rilassarti un po' con me?",
+
+  "SISTER|1": "Ti vendo un cestino che ho preparato con tutto il mio amore!",
+  "SISTER|2": "Magari dentro non c'è solo amore! Ah ah, scherzo.",
+
+  "MOYER|1": "Ed ecco il leggendario gigante di fuoco che regnò sul labirinto di Belon, in Nefia! Oggi sei qui nel giorno giusto, che fortuna! Su, guarda bene questo mostro tremendo e magnifico: e chi compra qualcosa lo può anche toccare!",
+  "MOYER|2": "Niente paura: non può muovere un dito, è la magia a tenerlo fermo.",
+
+  "AILE|1": "A bordo trovi in vendita ogni sorta di articoli. Approfittane pure.",
+
+  "CROW|1": "Cra! Cra! Avanti, avanti!",
+  "CROW|2": "Ehi, tu! Sì, dico a te, che hai l'aria di chi sa il fatto suo! Dai un'occhiata alla merce! Cra!",
+  "CROW|3": "Prezzi stracciati! Stracciati! Cra!",
+
+  "INMATE|1": "Ah... uccidimi e falla finita!",
+  "INMATE|2": "Voglio tornare a casa...",
+  "INMATE|3": "Prima o poi da questo buco ci scappo.",
+
+  "DETECTIVE|1": "Il ragionamento per esclusione si usa solo quando si è certi che fra le possibilità ci sia la risposta giusta. Adoperarlo alla cieca, dove le cose sono ambigue, è pericoloso.",
+  "DETECTIVE|2": "I fatti sono i segnavia che portano alla verità. Ma se ne trascuri uno decisivo, o se fra i fatti se ne infila uno falso, la conclusione a cui arrivi non è la verità. Un fatto solo non basta mai per arrivarci.",
+  "DETECTIVE|3": "Noi investigatori, indagando, sappiamo riconoscere i mostri che si nascondono in mezzo alla gente. Occhio però ai lupi mannari travestiti da investigatore, e a quelli di noi che hanno perso la testa.",
+
+  "OBLIVION|1": "La sacerdotessa non cancella soltanto i ricordi di una persona: cancella anche quelli di chiunque l'abbia conosciuta. Meraviglioso. Meraviglioso...",
+  "OBLIVION|2": "Se durante la cancellazione ti passa per la testa qualcosa di troppo, rischi che se ne vadano anche ricordi che non c'entravano... e insieme la ragione.",
+  "OBLIVION|3": "Basta un attimo di distrazione, e ti ritrovi fra quelli che vagano qui intorno.",
+  "OBLIVION|4": "Molto tempo fa la sacerdotessa fu ferita a morte e perse gran parte del suo potere. Un tempo, dicono, la volontà di chi le stava davanti non contava nulla.",
+  "OBLIVION|5": "Una come la sacerdotessa non dovrebbe stare rinchiusa in un posto simile.",
+  "OBLIVION|6": "Si vive perché si dimentica. Ricordare ogni pena e ogni dolore renderebbe la vita insopportabile.",
+
+  "YOUKO|1": "Ha aperto l'Okitsune Konkon Land! Evviva!",
+  "YOUKO|2": "Il consiglio è di far fuori i lupi mannari rimasti finché sei in tempo, konkon.",
+  "YOUKO|3": "Che stress nascondere orecchie e coda, mentre stavo in incognito fra la gente!",
+
+  "ZAILE|1": "Ti do il benvenuto a Zaile..."
+}
