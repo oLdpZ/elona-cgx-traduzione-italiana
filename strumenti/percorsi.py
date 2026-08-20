@@ -17,6 +17,15 @@ GIOCO = Path(os.environ.get("ELONA_IT_GIOCO", r"C:\Games\Elona\elonaplus2.31"))
 DIZIONARIO = Path(os.environ.get("ELONA_IT_DIZIONARIO", PROGETTO / "dizionario"))
 LAVORO_LOTTI = PROGETTO / "lavoro"
 
+# I file dati di `data\` (board.txt, book.txt, exhelp.txt, talk.txt, manual_*)
+# non stanno nel clone di monte: `sorgente/` li ha cancellati dal working tree,
+# e per talk.txt e autopick.txt il gioco installato e' piu' recente del commit
+# pinnato. Il riferimento e' una copia presa **una volta** dal gioco: e' il file
+# che l'eseguibile legge davvero. Il manifesto in `dati/manifesto.json` dice
+# quali byte ci si aspetta di trovarci.
+DATI_SORGENTE = RADICE_LAVORO / "dati-sorgente"
+BUILD_DATI = BUILD / "dati"
+
 # sottocartella del sorgente che contiene gli .hsp
 SORGENTE_HSP = SORGENTE / "2.05-custom-gx"
 BUILD_HSP = BUILD / "2.05-custom-gx"
