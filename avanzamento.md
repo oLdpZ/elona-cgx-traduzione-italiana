@@ -125,6 +125,106 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## Due file chiusi e il menu del dialogo — 2026-08-20, settantaduesima sessione
+
+Nata da un collaudo di quattro schermate. 289 rese, due file chiusi, tre reti
+toccate (due nuove), otto toppe.
+
+| pezzo | rese | esito |
+|---|---|---|
+| i quattro inglesi del collaudo | 4 | `displace`, i due `gp`, «Premi un tasto per chiudere» |
+| il menu del dialogo di `chat.hsp` | 125 | 100 voci di `*talk_main` più 19 del pannello |
+| le dieci tagliate a due colonne | 10 | correzioni, **nove di sessioni precedenti** |
+| `help.hsp` | 46 | ⭐ **CHIUSO**, 0 / 0 |
+| `screen.hsp` | 98 | ⭐ **CHIUSO**, 0 / 0 (20 di combattimento + 78 cori) |
+
+`chat.hsp` scende da 4.046 a **3.920**. I file con `lang()` e senza dizionario
+passano da dodici a **dieci**.
+
+### ⭐ Il menu del dialogo: 125 voci, raggruppate per SCHERMATA e non per file
+
+Il perimetro non si sceglie per riga ma per **quello che si apre insieme**: le
+100 voci di `*talk_main` (`chat.hsp:19340`-`19876`) e le 19 del pannello che
+sta a sinistra (`:25480`-`:25610`) sono la stessa schermata, e il registro si
+decide una volta sola.
+
+⚠️ **E l'elenco per riga ne perdeva sei.** `estrai` raccoglie per **firma** e
+riporta il **primo sito**: «Let's talk.» risultava a `chat.hsp:1326`, non a
+`:19348`, e un filtro sul numero di riga non la vedeva. Il perimetro si prende
+per firma, calcolando i siti.
+
+### ⭐ `help.hsp` chiuso — 46 rese
+
+Il più piccolo dei dodici file senza dizionario, e dentro ci sono due schermate
+che si aprono il primo giorno: la ruota dei comandi e l'elenco dei tasti.
+
+⚠️ Il tetto è **10 caratteri**, e non viene da un `sdim`: il testo è **centrato**
+su piastrelle da 48 px (`help.hsp:105`, `x(cnt) + tx + 25 - strlen(s) * 3`) e
+gli slot 0, 4 e 8 — i nomi delle quattro pagine — hanno passo 75 px.
+
+Tre valori restano inglesi e sono in `invariati.md`, sezione nuova **«Chiavi e
+nomi di file — non sono testo, sono indirizzi»**: `EN` è la chiave del blocco che
+`:228` cerca dentro `manual_ENG.txt` con `instr`; `manual_ENG.txt` e
+`scene2.hsp` sono argomenti di `noteload`. ⚠️ Il giorno che il manuale si
+traduce, quella riga non diventa una resa ma una **toppa** con `manual_IT.txt` e
+il ramo `exist` di ripiego — la disciplina di `board_it.txt` e `talk_it.txt`.
+
+### ⭐ `screen.hsp` chiuso — il decimo punto cieco della 55ª
+
+⚠️ **Non è l'HUD, come diceva l'elenco: sono due cose sotto un nome solo.**
+
+    20 righe   combattimento e livello: « have gained a level.» era ancora
+               inglese, ed è una delle righe più lette del gioco
+    78 righe   i cori della battaglia finale, una voce per personaggio — gli
+               otto dei, i compagni, i negozianti, la sorella, il cane poliziotto
+
+La forma dei cori è `"<Nome> <verbo>, " + cnvtalk("<battuta>")`, e il
+**giapponese non ha nessun verbo**: scrive 名前「battuta」 e basta. I verbi sono
+un'aggiunta inglese ma sono caratterizzanti e si tengono, con i **due punti** al
+posto della virgola — la punteggiatura italiana del discorso diretto, e lo stile
+che il progetto usa già in `action.hsp:14051`.
+
+I nomi restano quelli di monte, che il dizionario ha già da altri file. Si
+traducono i quattro parlanti senza nome (la scienziata misteriosa, il cane
+poliziotto, il guerriero leopardo, la sorella) e i due che un nome reso ce
+l'hanno: «la principessa dell'abisso» (`db_creature.hsp:86765`) e il «vento
+d'etere» (`chat.hsp:9500`).
+
+### ⭐ Tre volte l'inglese aveva buttato via quel che il giapponese ha
+
+    screen.hsp:6759   「はレベルNになった！」 dice a QUALE livello si sale
+    screen.hsp:8076   シャキーン e ズバシュッ sono due onomatopee diverse — il lampo
+    e :8099           della lama e il taglio — appiattite su un « *vorpal* »
+    screen.hsp:1442   il giapponese saluta il giocatore per nome nella battuta
+    help.hsp:866      il giapponese ha una seconda riga che l'inglese non ha
+
+Tutte e quattro sono tornate. È lo stesso fenomeno dei 38 blocchi giapponesi che
+`board.txt` ha perso e delle 13 righe di `ZAILE` in `talk.txt`: **l'inglese di
+monte non è una copia del giapponese, è una riduzione.**
+
+### Le otto toppe: 1009 → **1016**
+
+    1010a-1012a   la gronda della scheda: wx+68 -> 79, wx+310 -> 325,
+                  wx+410 -> 418. Curano ClasseGuerriero, Altezza157 cm,
+                  Velocita70(70), AliasGiustizia del sole e Prossimo 3024
+    1013a-1016a   i quattro cnven() appesi: chat.hsp:25573 («il cittadino
+                  Femmina»), item_func.hsp (il suffisso di qualità di OGNI
+                  oggetto identificato) e le due dell'elenco dei compagni
+
+### Le reti
+
+    menu_dialogo   +*talk_quest fra i gosub che NON disegnano: da 156 a 257
+                   voci misurate, e dentro c'erano due difetti DI MONTE
+                   +tagliate_a_due_colonne(): il secondo tetto, 24 caratteri
+    gronde.py      NUOVA: lo spazio fra etichetta e valore. Legge la BUILD
+    maiuscole.py   NUOVA: cnven() e la maiuscola in mezzo alla frase
+    verifica.py    il metro delle interpolazioni è inglese PIÙ giapponese
+    funzioni.py    cnvtalk è trasparente, non è una chiamata di contenuto
+
+`pytest` da 653 a **684**.
+
+---
+
 ## `item.hsp` chiuso — 2026-08-20, sessantanovesima sessione
 
 **244 `lang()`, 242 rese, 2 rinviate.** Il file era il **quindicesimo punto

@@ -6,6 +6,177 @@ ancora aperte.
 
 ---
 
+## Il danno che non sta nella stringa ma in come il codice la monta — 2026-08-20, settantaduesima
+
+Il collaudo ha mandato quattro schermate e ne sono uscite due reti nuove. Le due
+hanno in comune una cosa che vale più delle due: **il difetto non era in nessuna
+stringa.** Ogni rete del progetto — e sono otto — guarda una stringa e le chiede
+qualcosa: sei se ci sta nel riquadro, `battute` se il giapponese è reso in più
+modi, `accenti` se ha l'accento in mezzo a una parola. Tutte partono dalla
+stringa, e nessuna vede quel che succede **fra due stringhe**.
+
+Le due famiglie trovate:
+
+    la GRONDA        «Classe» a wx+30 e «Guerriero» a wx+79: fra i due c'è
+                     uno spazio, e se l'etichetta italiana è più larga il
+                     valore le finisce sopra. A schermo «ClasseGuerriero»
+    cnven()          init.hsp:191 alza la prima lettera. Giusto in testa a una
+                     frase, sbagliato appeso in mezzo: «il cittadino Femmina»
+
+⚠️⚠️ **E tutt'e due esistono SOLO nelle build tradotte.** «Class» ha 5 caratteri
+e «Classe» 6; `cnven` fa `if ( jp ) return` e in giapponese non tocca niente.
+Sono difetti che upstream non può vedere nemmeno volendo, perché nella sua
+lingua non ci sono: è la categoria di danno che un progetto di traduzione deve
+guardarsi da solo, e per quattro sessioni li ha guardati soltanto il giocatore.
+
+### ⚠️ Una rete che misura la geometria legge la BUILD, non il sorgente
+
+`gronde.py` è la prima rete del progetto che legge `build/` invece di
+`sorgente/`. Non è una scorciatoia: le altre misurano il **testo**, che il
+dizionario deve ancora scrivere; questa misura la **geometria**, e la geometria
+la cambiano le toppe. Letta sul sorgente pinnato, direbbe per sempre che
+«Classe» sfora, perché sul sorgente la gronda è ancora quella inglese.
+
+⭐ E leggendo la build si guadagnano due cose che il sorgente non dà. La prima:
+l'italiano è già dentro la fessura inglese della `lang()`, quindi la rete non ha
+bisogno del dizionario — quel che legge è quel che il giocatore vede. La
+seconda, più utile: **solo la build dice quale riga è viva.** Nella colonna del
+carico i valori hanno due `pos`, `wx + 86` e `wx + 102`, e il primo è dentro un
+blocco `ORIGINAL - BEGINNING` commentato da monte. Chi prendesse quello
+misurerebbe una gronda di 57 px che non esiste.
+
+### ⚠️ Il prezzo: le ancore della rete inseguono le toppe
+
+`gronde.py` cerca le righe `pos` per **testo esatto** e pretende di trovarne una
+sola. Aggiunta la terza toppa, la rete è morta di `LookupError` invece di
+misurare la gronda vecchia — che è il comportamento voluto, e va detto perché
+sembra un difetto: chi tocca una di quelle tre toppe deve aggiornare anche
+l'àncora. Il patto è quello di sempre, **rumore invece di silenzio**, e qui
+costa una riga.
+
+---
+
+## Il conto delle voci non è il verdetto: è l'elenco da leggere — 2026-08-20, settantaduesima
+
+`maiuscole.py` trova 148 siti di `cnven()` e **134 sono giusti**. Una guardia che
+chiedesse zero sarebbe una guardia che nessuno può soddisfare, e finirebbe
+spenta o aggirata.
+
+La forma che regge è la stessa di `fuori_misura_inglese` in `menu_dialogo` e di
+`invariati.md`: si classifica per **posizione nell'espressione** — in testa a
+quel che si disegna, appeso dopo altro testo, accumulato con `+=` — e i dieci
+casi limite si giudicano uno per uno **con un motivo scritto**. La guardia non
+chiede zero appesi: chiede che quell'elenco non si allunghi da solo. Un sito
+nuovo è una riga da leggere, non per forza un difetto.
+
+💡 Vale anche per la seconda geometria del menu del dialogo. Il gioco taglia a
+24 caratteri quando le voci passano le dieci (`chat.hsp:25166`), ma **quante
+voci abbia il menu dipende dal PNG** — ruolo, trama, compagni — e non è
+decidibile dal sorgente. Chiedere 24 a tutte vorrebbe dire mutilare anche le
+voci che upstream stesso lascia tagliare. La regola che si può scrivere è:
+**se l'inglese ci sta in 24, l'italiano ci deve stare.** Alla nascita ha trovato
+dieci rese, e nove erano di sessioni precedenti.
+
+⭐ E per i quattro «Il boss di …» la cura non è stata accorciare il nome del
+luogo — canonico, usato anche in `map.hsp` e `text.hsp` — ma l'apposizione che
+gli sta davanti: «Boss: Torre Rovente». *Quando una resa non ci sta, si guarda
+prima quale pezzo NON è vincolato altrove.*
+
+---
+
+## Due misure della stessa cosa nella stessa funzione, e la più stretta vince sempre — 2026-08-20, settantaduesima
+
+`screen.hsp:6759` è « have gained a level.» in inglese e 「はレベル**N**になった！」 in
+giapponese: il giapponese dice **a quale** livello si sale, l'inglese aveva perso
+il numero. Rimetterlo in italiano ha fatto scattare `verifica.py`.
+
+E lì è saltato fuori che le **due guardie della stessa riga non erano
+d'accordo**. Quella sugli argomenti sottraeva già l'unione dell'inglese e del
+giapponese, con dieci righe di commento che spiegano perché; quella sui nomi,
+dieci righe sopra, pretendeva l'uguaglianza col **solo inglese**. Convivevano da
+sessioni, e la più stretta vinceva sempre: il commento della più larga
+descriveva una libertà che non c'era.
+
+💡 **Un commento che descrive un comportamento non lo produce.** È la stessa
+lezione della 71ª — una regola che il progetto conosce e non ha messo in una
+guardia è un ricordo — vista dall'altro lato: qui la guardia c'era, ed era la
+seconda di due, e la prima la copriva.
+
+⭐ La regola giusta non è simmetrica: **quel che l'inglese ha è DOVUTO** —
+toglierlo è perdere un dato che il giocatore vede — **quel che ha solo il
+giapponese è PERMESSO.** Una resa non è tenuta a recuperare tutto quello che
+l'inglese ha perso, ma se lo recupera non è un difetto.
+
+### ⚠️ E una funzione che non porta dati non è una chiamata di contenuto
+
+Subito dopo, `screen.hsp:1442`: il giapponese saluta il giocatore per nome
+**dentro** la battuta, e rimetterlo in italiano vuol dire metterlo dentro
+`cnvtalk`. La guardia degli argomenti leggeva l'intera `cnvtalk(...)` come una
+chiamata «che non viene da monte».
+
+Ma `cnvtalk` mette le virgolette al discorso diretto, e basta. Non è contenuto,
+è punteggiatura — e contarla come contenuto **rende invisibile il contenuto che
+ha dentro**. Adesso è *trasparente*: attraversata, non registrata, che è diverso
+dalla morfologia inglese, la quale invece nasconde anche il proprio contenuto.
+
+💡 Il difetto non era nella regola, era nella **classificazione**. È la 71ª di
+nuovo — i cinque segnaposto classificati sui nomi invece che sui siti — su un
+oggetto diverso: lì una tassonomia, qui una funzione.
+
+---
+
+## Il dizionario è per file, e una firma resa in un file non arriva all'altro — 2026-08-20, settantaduesima
+
+Nel registro il collaudo ha mostrato `You displace Tomdecker il cittadino.`
+cinque righe sotto «Ti scambi di posto con Chur il cane». Stesso evento, due
+righe, una resa e una no — e la firma è **la stessa**, `70e253be`:
+`action.hsp:1929` è tradotta, `chat.hsp:22587` no.
+
+Il dizionario vive in `dizionario/<file>.jsonl` e `applica` cerca la firma nel
+file che sta costruendo. Una stringa identica in due file va tradotta **due
+volte**, e niente lo dice: `verifica --dizionario` conta 3.920 righe da fare in
+`chat.hsp` senza accorgersi che di alcune la resa esiste già.
+
+Misurato su tutto il progetto: **417 rese gemelle** su 6.718 da fare, il 6%.
+
+    chat.hsp 197 · event.hsp 148 · custom_autopick.hsp 21 · help.hsp 17
+    init.hsp 6 · item_func.hsp 5 · chara.hsp 4 · material.hsp 4 · txtadv.hsp 4
+    net.hsp 3 · system.hsp 3 · command.hsp 2 · e altri tre file con una
+
+⚠️⚠️ **Ma non si travasano alla cieca, e il campione lo dimostra in due modi.**
+`custom_autopick.hsp` confronta 78 delle sue 90 `lang()` dentro `instr` **contro
+il file che scrive il giocatore**: tradurne una cambia una chiave, non
+un'etichetta. E `'armor'` prenderebbe «Armatura» da `db_race.hsp`, cioè una
+maiuscola e un registro che vengono da un'altra schermata.
+
+💡 Sono un **elenco da leggere**, come i `cnven` appesi: la resa gemella è già
+approvata per quel giapponese e quell'inglese, quindi è corretta per
+costruzione — quel che resta da decidere è il **registro**, e quello dipende dal
+sito. Vale la pena farne una rete che le elenchi per file, così un lotto sa da
+dove partire.
+
+---
+
+## Il registro di un menu è quello del giapponese, non quello dell'inglese — 2026-08-20, settantaduesima
+
+Le 125 voci del menu del dialogo lo dicono in fila:
+
+    投資したい          «Vorrei investire»         Need someone to invest in your shop?
+    鑑定したい          «Identificare un oggetto»  I need you to identify an item.
+    そこをどいて        «Spostati»                 Move aside.
+    装填              «Carica»                   Ammo
+    射撃              «Tiro»                     Fire
+    使う              «Usa»                      Tool
+
+L'inglese di Elona parla in frasi intere e in prima persona; il giapponese
+scrive **il verbo e basta**. Un menu vuole la seconda cosa — e non è una
+questione di gusto, è la sola forma che sta nei 24 caratteri della seconda
+colonna. ⚠️ E nelle ultime tre righe l'inglese ha anche cambiato **parte del
+discorso**: dove il giapponese ha un verbo, lui ha messo un sostantivo. La ruota
+dei comandi di `help.hsp` è fatta di verbi, e in inglese non si vede.
+
+---
+
 ## Una finestra può avere due tetti, e misurarne uno fa credere di averla misurata — 2026-08-17, cinquantacinquesima sessione
 
 La **rete 14** della 54ª misura l'**altezza** della finestra del dialogo: dodici

@@ -1,37 +1,227 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-20, fine della **settantunesima** sessione (**`talk.txt`
-chiuso, 569 righe su 569 — e due reti nuove nate da due righe che stavo per
-scrivere**).
+Aggiornato: 2026-08-20, fine della **settantaduesima** sessione (**un collaudo
+di quattro schermate, due file chiusi e due reti nuove su una famiglia di
+difetti che nessuna delle otto reti poteva vedere**).
 
-⭐⭐⭐ **La lezione che vale per tutto il lavoro che viene: UNA REGOLA CHE IL
-PROGETTO CONOSCE E NON HA MESSO IN UNA GUARDIA NON E' UNA REGOLA, E' UN
-RICORDO.** La 41a aveva concluso «l'accento si evita, non si toglie», perche'
-`degrada` mette l'apostrofo dentro la parola: «dei» diventa «de'i». Per trenta
-sessioni e' rimasta una cosa da ricordarsi. Misurata sul dizionario intero:
-**quindici** violazioni, tutte scritte **dopo** quella lezione, fra cui sei nomi
-di mossa che il giocatore legge a ogni uso. 💡 Il ricordo di una regola decade
-con la stessa velocita' con cui il corpus cresce; la guardia no.
+⭐⭐⭐ **La lezione che vale per tutto il lavoro che viene: LE OTTO RETI DEL
+PROGETTO GUARDANO TUTTE UNA STRINGA, E I DIFETTI DI QUESTA SESSIONE NON STAVANO
+IN NESSUNA STRINGA.** Stavano fra due: «Classe» disegnata a `wx+30` e
+«Guerriero» a `wx+79`, con 38 px di gronda per 42 di etichetta; `cnven()` che
+alza la maiuscola a una parola giusta perché il codice la incolla dopo un'altra.
+💡 *Quando ogni rete parte dalla stringa, quel che succede fra due stringhe è
+invisibile per costruzione* — e nessuna quantità di reti dello stesso tipo lo
+scopre.
 
-⚠️⚠️ **E le due reti sono nate allo stesso modo: mi sono fermato prima di
-scrivere una riga.** Non da un sospetto generico ne' da un giro di controllo:
-stavo per scrivere «gli dei» e mi sono chiesto che cosa ne facesse `degrada`;
-stavo per tradurre `AAREA,30|4` e sono andato a vedere in che cosa si espande
-`{you}`. 💡 *Il momento in cui si impara qualcosa sul motore e' quello in cui si
-sta per usarlo, non quello in cui lo si verifica.*
+⚠️⚠️ **E tutt'e due esistono SOLO nelle build tradotte.** «Class» sta in 5
+caratteri e «Classe» in 6; `cnven` fa `if ( jp ) return` e in giapponese non
+tocca niente. Upstream non li può vedere nemmeno volendo, perché nella sua
+lingua non ci sono. 💡 *Questa è la categoria di danno che un progetto di
+traduzione deve guardarsi da solo*, e per quattro sessioni l'ha guardata
+soltanto il giocatore.
 
-⚠️⚠️⚠️ **E la classificazione dei segnaposto era stata scritta sui NOMI invece
-che sui SITI: cinque su cinque nella casella sbagliata, tre esattamente al
-contrario.** `you` e `me` stavano fra il contenuto ed escono in **giapponese**
-in ogni lingua (`_kimi`/`_ore`, zero `lang()` in 86 righe). `onii` e `syujin`
-stavano fra le conversioni giapponesi ed escono in **inglese nudo**
-(`"brother"`, `"master"`, fuori da `lang()`). `sex` stava fra le conversioni
-giapponesi ed e' contenuto vero, gia' tradotto. E' la 61a — *misura la cosa, non
-una cosa vicina* — applicata a una tassonomia.
+⚠️⚠️ **E due volte il difetto non era nella regola ma nella CLASSIFICAZIONE.**
+Le due guardie della stessa riga di `verifica.py` non erano d'accordo — una
+usava inglese ∪ giapponese, l'altra il solo inglese, e la più stretta vinceva
+sempre; e `cnvtalk`, che mette solo le virgolette, era contata fra le chiamate
+di **contenuto**, il che rendeva invisibile il contenuto che ha dentro. È la
+71ª — i cinque segnaposto classificati sui nomi invece che sui siti — su oggetti
+diversi. 💡 *Prima di cambiare una regola, guarda in che casella hai messo la
+cosa che sta misurando.*
 
 ---
 
-## La settantunesima sessione
+## La settantaduesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quattordici** verifiche d'apertura (due
+nuove). La sessione si è aperta su `DESKTOP-1O339MR` con `origin/fase-0`
+allineato: è la **ventinovesima prova** di fila, e le dodici verifiche di allora
+hanno dato dodici volte i valori attesi della 71ª.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    pytest                  684 passed 6 skipped   (erano 653: +31 test)
+    toppe.jsonl             1016                   (erano 1009: +8)
+    menu_dialogo            0 su 257 misurate      (erano 0 su 151, e 101 NON misurate)
+                            e «a due colonne: 0 rese peggiorate»
+    verifica --dizionario   help.hsp    0 / 0   ⭐ CHIUSO
+                            screen.hsp  0 / 0   ⭐ CHIUSO
+                            chat.hsp    0 / 3920  (erano 4046)
+    dizionario              +2 file nuovi: help.hsp.jsonl (46), screen.hsp.jsonl (98)
+    file senza dizionario   DIECI (erano dodici)
+
+⭐ **E due verifiche d'apertura in più, la tredicesima e la quattordicesima:**
+
+    python -m strumenti.gronde      # atteso: 0 su 5 gronde misurate
+    python -m strumenti.maiuscole   # atteso: 144 siti, 10 giudicati, 0 da guardare
+
+Tutto il resto è **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
+1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205, `riquadri` 0 su 38
+e 0 su 71, `linguette` 0 e 0, `battute --divergenti` **13**,
+`intestazioni_larghezze` banco ok e perimetro 0, `dati_applica --identita` 4
+file e **2.987** righe, `dati_sorgente` 7/7 e gioco difforme su 0.
+`rinviate.jsonl` **73** non è stato toccato.
+
+✅ **`cgx-test.exe` è FRESCO** (20/08, 18:48) e con lui i due file dati:
+`talk_it.txt` 88.743 byte, 1.800 CRLF, **zero LF soli**.
+
+### ▶ Che cosa è stato fatto
+
+    il collaudo             quattro schermate, e hanno pagato tutte e quattro
+    chat.hsp                il menu del dialogo, 100 voci + 19 del pannello   125 rese
+    help.hsp                la ruota dei comandi e la guida — CHIUSO           46 rese
+    screen.hsp              20 di combattimento + 78 cori — CHIUSO             98 rese
+    le gemelle              displace, i due gp, il tasto per chiudere           4 rese
+    due colonne             dieci rese tagliate, NOVE di prima                 10 corr.
+    gronde.py               RETE NUOVA: lo spazio fra etichetta e valore       +8 test
+    maiuscole.py            RETE NUOVA: cnven() in mezzo alla frase           +14 test
+    menu_dialogo            +*talk_quest, +il tetto delle due colonne          +4 test
+    verifica / funzioni     due classificazioni corrette                       +6 test
+    ------------------------------------------------------------------------
+                            289 rese, 8 toppe, 2 reti nuove, 31 test, 6 spinte
+
+### ▶ ⭐⭐⭐ Il collaudo, e perché ha pagato quattro volte su quattro
+
+Quattro schermate: un cittadino di Yowyn, un negoziante, la scheda del
+personaggio, il registro dei messaggi. Le 505 rese di `talk.txt` della 71ª sono
+arrivate a schermo e stanno dentro il riquadro — ma il valore vero è quel che
+c'era **intorno**:
+
+1. **Il menu del dialogo era tutto inglese**, e si apre parlando a chiunque.
+2. **`You displace X` accanto a cinque «Ti scambi di posto con X»** nello stesso
+   registro, con la **stessa firma** di una riga già resa.
+3. **`(Eccellente)`, `Femmina`, `ClasseGuerriero`**: tre facce della stessa
+   famiglia nuova.
+4. **`gp` in «per 195 gp?»**, in due rese scritte da noi, mentre il progetto
+   dice «monete d'oro» 19 volte e l'HUD dice «1632 oro».
+
+💡 **La lezione della 62ª confermata di nuovo, e più forte**: il collaudo non
+verifica quel che gli si chiede di verificare, verifica **tutta la schermata**.
+Le rese che avevo chiesto di guardare erano a posto; tutto quel che ha pagato
+non era nella lista.
+
+### ▶ ⭐⭐⭐ Le due reti nuove
+
+Vedi il ragionamento lungo in `decisioni.md`. Il punto operativo:
+
+1. **`gronde.py` legge la BUILD, non il sorgente pinnato** — prima rete del
+   progetto a farlo, perché misura **geometria** e la geometria la cambiano le
+   toppe. ⚠️ Il prezzo: le sue àncore sono il testo esatto delle righe `pos`, e
+   chi tocca una delle tre toppe della scheda deve aggiornarle. Se non lo fa la
+   rete muore di `LookupError` — che è il comportamento voluto.
+2. **`maiuscole.py` classifica per POSIZIONE nell'espressione**, non per nome:
+   in testa a quel che si disegna (134 siti, giusti), appeso dopo altro testo
+   (10), accumulato con `+=` (4, e il sorgente da solo non sa dire). ⚠️ La
+   guardia **non chiede zero appesi**: chiede che l'elenco dei giudicati non si
+   allunghi da solo, e ogni riga porta il suo motivo come in `invariati.md`.
+3. **Il secondo tetto del menu del dialogo è 24 caratteri** e vale quando le
+   voci passano le dieci (`chat.hsp:25166`). ⚠️ Ma quante voci abbia il menu
+   dipende dal PNG e non è decidibile dal sorgente: la regola scrivibile è **se
+   l'inglese ci sta in 24, l'italiano ci deve stare**.
+
+### ▶ ⭐⭐ Le 417 gemelle: misurate, non ancora usate
+
+Il dizionario vive in `dizionario/<file>.jsonl` e `applica` cerca la firma nel
+file che sta costruendo: **una stringa identica in due file va tradotta due
+volte, e niente lo dice.** Misurato su tutto il progetto: **417 rese gemelle**
+su 6.718 da fare — `chat.hsp` 197, `event.hsp` 148, `custom_autopick.hsp` 21,
+`help.hsp` 17, e altri undici file.
+
+⚠️⚠️ **Non si travasano alla cieca.** `custom_autopick.hsp` confronta 78 delle
+sue 90 `lang()` dentro `instr` contro il file che **scrive il giocatore**, e
+`'armor'` prenderebbe «Armatura» da `db_race.hsp`, cioè registro e maiuscola di
+un'altra schermata. Sono un **elenco da leggere**: la resa è corretta per
+costruzione, il registro no. 💡 Vale la pena farne una rete.
+
+### ▶ Quel che resta da guardare, in ordine
+
+1. ⭐⭐⭐ **Le 289 rese della 72ª non sono state viste a schermo.** Le quattro
+   più veloci: la **scheda** (`c`) per le cinque gronde; **parlare a un
+   compagno** — più di dieci voci, quindi due colonne, ed è lì che si vede se i
+   24 caratteri tengono; lo **zaino** con un oggetto identificato, «(eccellente)»
+   minuscolo; il **pannello del dialogo**, «il cittadino femmina» minuscolo.
+   E la **ruota dei comandi** col tasto rapido.
+2. ⭐⭐⭐ Il debito che viene da prima: le **243 rese della 69ª**, le nove di
+   `scheda-inglesi` della 68ª. ✅ La toppa degli stati del nome è stata
+   **provata e va bene** (passo 5 del collaudo della 72ª).
+3. ⭐⭐ Il **registro dei messaggi**: era pieno di italiano nostro e regge.
+   Restava una sola riga inglese, `You displace`, ora chiusa.
+4. ⭐⭐ La toppa dei trascorsi, `talk_conv s, 32` → **36**, da provare al banco.
+5. ⭐ Le 55 intestazioni «senza ostacolo a destra» della rete 20.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ La **rete delle gemelle**: 417 rese già esistenti che nessun referto
+   nomina. Vedi sopra e in `decisioni.md`. È il lavoro col rapporto
+   costo/resa migliore che ci sia adesso.
+2. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208
+   righe), `manual_ENG.txt` (591), `exhelp.txt` (185). ⚠️ `help.hsp:273` disegna
+   con `gmes` a larghezza 330 px e conta **dieci righe di FILE per pagina**: una
+   resa più lunga sposta le pagine. La misura della colonna va presa dalla
+   **geometria**, non dal numero di caratteri dell'inglese. ⚠️ E adesso c'è un
+   pezzo in più che la 72ª ha chiarito: il nome del file (`manual_ENG.txt`) è in
+   `invariati.md`, e quando il manuale si traduce diventa una **toppa** con
+   `manual_IT.txt` e il ramo `exist`.
+3. ⭐⭐ `board.txt` **secondo lotto**: le 38 varianti giapponesi che monte ha
+   buttato via — e `talk.txt` ha lo stesso problema, `ZAILE` da solo ha 13
+   righe giapponesi contro **una** inglese. Serve estendere `dati_applica` ad
+   **aggiungere** righe.
+4. ⭐⭐ `autopick.txt` e `custom_autopick.hsp`: **78 delle 90 `lang()` sono
+   confronti** dentro `instr`, contro il file che il giocatore scrive. La via
+   d'uscita è misurata (`custom_autopick.hsp:358` cerca il residuo dentro
+   `cnvitemname()`, quindi l'ordine delle parole è libero). ⚠️ E `autopick.txt`
+   è in **UTF-8**, non in CP932.
+5. ⭐⭐⭐ `chat.hsp`: **3.920** da fare (erano 4.046).
+6. ⭐⭐ **Dieci file con `lang()` e senza dizionario** (erano dodici):
+   `txtadv.hsp` 170, `material_data.hsp` 118, `custom_autopick.hsp` 90,
+   `net.hsp` 37, `custom_itemenchantment.hsp` 31, `quest.hsp` 26,
+   `material.hsp` 19.
+7. ⭐⭐ Il **muro del materiale**: `mithril sword` in italiano è «spada **di**
+   mithril», postposta. 118 righe più i tre siti di `item_func.hsp`. ⚠️ E la
+   72ª ci ha aggiunto un pezzo: `item_func.hsp:2321` mette `cnven` sul tassello
+   `[Mithril]`, ed è uno dei dieci `cnven` giudicati — si scioglie con quel giro,
+   non prima.
+8. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `event.hsp` 622, `item_func.hsp` 240;
+   i **1.146** di `db_card.hsp`.
+
+### ▶ Il collaudo
+
+**Fatto, e ha pagato quattro volte su quattro** — vedi sopra. ⚠️ Ma è stato
+fatto all'**inizio**: tutto quel che è venuto dopo, cioè le 289 rese e le otto
+toppe, non è stato visto a schermo. È il debito del punto 1.
+
+### ▶ Come si è chiusa
+
+⚠️⚠️ **La sessione si chiude annunciando un CAMBIO DI TERMINALE.** È la
+quindicesima volta; tutte le volte verificate finora la sessione dopo si è
+riaperta sulla **stessa** macchina, `DESKTOP-1O339MR`.
+
+⚠️⚠️ Se questa volta è davvero un'altra macchina, le cose che **non stanno nel
+repo** sono cinque:
+
+    i tre CSV degli epiteti    python scratchpad/epiteti_vocabolario.py   (vogliono i CRLF)
+    dati-sorgente\             python -m strumenti.dati_sorgente --pinna
+    l'albero di build          python -m strumenti.applica
+    cgx-test.exe               python -m strumenti.compila --eseguibile
+    data\board_it.txt e talk_it.txt   li scrive `applica` in build\dati\, poi si copiano
+
+⚠️ L'ordine conta: prima `dati_sorgente --pinna` (senza la copia pinnata
+`applica` si ferma), poi `applica`, poi — **non incatenato** —
+`compila --eseguibile`. E vale [[elona-ambiente-python]]: serve un Python 3.10+.
+💡 Da questa shell `strumenti.battute` vuole `PYTHONIOENCODING=utf-8` davanti, o
+muore di `UnicodeEncodeError`.
+
+⚠️⚠️ **E dalla 72ª c'è una ragione in più per ricostruire nell'ordine giusto:**
+`strumenti.gronde` legge la **build**, non il sorgente. Su una macchina senza
+albero di build costruito, quella verifica d'apertura non fallisce dicendo «la
+gronda è stretta» — muore di file non trovato.
+
+---
+
+## La settantunesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
