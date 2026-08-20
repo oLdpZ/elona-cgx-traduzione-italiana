@@ -71,7 +71,8 @@ _CAMPI_NOME = ("plurale", "genere", "array", "oggetto")
 # Spostare il confine avrebbe corretto il sintomo: il prossimo che aggiunge una
 # sezione avrebbe rifatto il buco. Quello che non deve piu' essere possibile e'
 # il silenzio.
-_SEZIONI_INVARIANTI = ("Valori di dato", "Versi senza contenuto linguistico")
+_SEZIONI_INVARIANTI = ("Valori di dato", "Versi senza contenuto linguistico",
+                       "Chiavi e nomi di file")
 _SEZIONI_NON_INVARIANTI = ("Da decidere", "Nomi di creatura")
 
 

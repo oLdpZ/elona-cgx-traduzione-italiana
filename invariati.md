@@ -22,6 +22,7 @@ scrivere, probabilmente la stringa va tradotta.
 | `Direct sound` | nome del driver audio (`config.hsp:805`), non una parola: e' il valore che si scrive in `config.txt` alla chiave `sound.`, e accanto a lui il pannello mostra `MCI`, che nel sorgente non passa nemmeno da una `lang()`. Tradurlo scollegherebbe l'etichetta dal file di configurazione |
 | `Direct music` | nome del driver audio (`config.hsp:809`), per la stessa ragione di `Direct sound`. Il terzo e il quarto valore della stessa riga sono `MCI` e `GuruGuruSMF4`, letterali nudi che nessun dizionario raggiunge |
 | `Spongebob` | nome di un modo di scrivere i nomi degli oggetti (`config.hsp:944`), accanto a `Capitalize`, `Uppercase`, `Lowercase` e `Schizophrenic`. E' la citazione del meme del testo aLtErNaTo, che in italiano circola con lo stesso nome inglese; e il giapponese qui non aiuta, perche' dice 「表示」 per tutt'e cinque i modi |
+| `Info` | il nome della prima pagina della ruota dei comandi (`help.hsp:58`), giapponese 情報. ⚠️ **Non e' inglese lasciato li': e' italiano che coincide.** «Info» e' l'abbreviazione corrente in italiano, e la forma piena — «Informazioni», dodici caratteri — non ci sta: gli slot 0, 4 e 8 della ruota hanno passo 75 px a 7 px per carattere (`help.hsp:105`), cioe' **dieci**. Le altre tre pagine si traducono e infatti si sono tradotte: «Azioni», «Speciali», «Zaino» |
 | `<evochat>` | nome del sistema di dialogo evoluto di Custom-GX (`chat.hsp:19431`), giapponese 【evochat】: il giapponese stesso lo tiene in caratteri **latini** dentro le parentesi piene, che e' il modo in cui quella lingua marca un nome importato. Non e' una parola comune, e' il nome di un sistema, e compare anche dentro 【タッグごとevochat】 e 【暗黒evochat】 — che infatti si traducono, perche' li' la parte italiana c'e' («in coppia», «oscuro») e il nome resta |
 | `<Big Sister>` | nome di creatura (`action.hsp`, `db_creature.hsp`), giapponese 『ビッグシスター』: la citazione di BioShock, che in italiano non è mai stata tradotta. Già deciso in `glossario.md` insieme a `<Little Sister>`, ma non era mai arrivato qui: la coppia si è presentata nel primo lotto della Fase 2, dove non porta l'articolo perché sta fra `<>` |
 | `<Little Sister>` | nome di creatura (`action.hsp`, `db_creature.hsp`), giapponese 『リトルシスター』: vedi la riga sopra, è l'altra metà della coppia |
@@ -572,3 +573,15 @@ sono saliti nella tabella degli invariati; `Port Kapul` → «Porto Kapul» e
 
 La sezione resta perché il meccanismo serve: un candidato messo qui è segnalato
 da `verifica.py`, così la decisione non passa inosservata.
+
+## Chiavi e nomi di file — non sono testo, sono indirizzi
+
+Aggiunta nella 72a col lotto di `help.hsp`. Tre valori che il gioco usa per
+**trovare qualcosa**, non per dire qualcosa: tradurli non fa parlare italiano
+nessuna schermata, fa fallire una ricerca.
+
+| valore | motivo |
+|---|---|
+| `EN` | `help.hsp:228` compone `"%" + ghelp + "," + lang("JP", "EN")` e lo cerca dentro `manual_ENG.txt` con `instr`. E' **la chiave del blocco**, cioe' lo stesso marcatore `%…,EN` che regge tutti e cinque i file di `data\` (vedi la Fase 3): la sigla non si legge da nessuna parte, si confronta. Tradotta, la guida in gioco non trova piu' un argomento |
+| `manual_ENG.txt` | `help.hsp:331`, argomento di un `noteload`: e' il **nome del file** del manuale, non il suo titolo. ⚠️ E il giorno in cui il manuale si traduce, questa riga non diventa una resa ma una **toppa** con `manual_IT.txt` e il ramo `exist` di ripiego — la stessa disciplina di `board_it.txt` e `talk_it.txt`, e per la stessa ragione: `noteload` su un file assente e' un errore di esecuzione, cioe' il gioco che muore |
+| `scene2.hsp` | `help.hsp:819`, stesso `noteload`, stesso motivo: e' il file delle scene sbloccabili. ⚠️ Qui l'inglese e' anche fuorviante — `lang("scene1.hsp", "scene2.hsp")` sembra una versione e sono **due file diversi**, uno per lingua |
