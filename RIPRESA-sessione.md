@@ -1,8 +1,8 @@
 # Ripresa sessione
 
 Aggiornato: 2026-08-20, fine della **settantatreesima** sessione (**la rete
-delle gemelle, 505 rese, quattordici menu di `chat.hsp` chiusi interi, il
-generatore degli eventi di viaggio e due collaudi**).
+delle gemelle, 724 rese, quattordici menu di `chat.hsp` chiusi interi, il
+generatore degli eventi di viaggio, i sogni, e due collaudi**).
 
 ⭐⭐⭐ **La lezione che vale per tutto il lavoro che viene: OGNI RETE DEL
 PROGETTO PARTE DA UNA STRINGA, MA IL GIOCATORE NON LEGGE UNA STRINGA — LEGGE UNA
@@ -40,9 +40,13 @@ volte i valori attesi della 72ª.
 
     pytest                  706 passed 6 skipped   (erano 684: +22 test della rete nuova)
     verifica --dizionario   chat.hsp   0 / 3648    (erano 3920)
-                            event.hsp  0 / 394     (erano 622)
-    menu_dialogo            0 su 417 misurate      (erano 257: piu' rese = piu' misurabili)
+                            event.hsp  0 / 175     (erano 622)
+    menu_dialogo            0 su 487 misurate      (erano 257: piu' rese = piu' misurabili)
                             e «a due colonne: 0 rese peggiorate»
+                            ⚠️ e SETTE non misurate, in *re_select e *convert_word:
+                            due bottoni il cui sfondo sta 120 righe sopra dentro un
+                            if, e le cinque parti del corpo, che sono PEZZI e non
+                            voci disegnate. Misurate a mano: tutte dentro
     dizionario              chat.hsp +272 voci, event.hsp +217
 
 Tutto il resto è **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
@@ -56,11 +60,11 @@ file e 2.987 righe, `dati_sorgente` 7/7, `gronde` 0 su 5, `maiuscole` 144 siti e
 è un **elenco di lavoro**, non una guardia: i suoi numeri scendono man mano che
 si traduce, quindi non ha un valore atteso. Oggi dice:
 
-    gemelle       59   (erano 392)   di cui 21 custom_autopick.hsp, delicato
+    gemelle       60   (erano 392)   di cui 21 custom_autopick.hsp, delicato
     divergenti     2   (erano  13)
-    quasi        162   (erano 201)
+    quasi        154   (erano 201)
 
-✅ **`cgx-test.exe` è FRESCO** (20/08, 23:07) e con lui i due file dati:
+✅ **`cgx-test.exe` è FRESCO** (20/08, 23:46) e con lui i due file dati:
 `talk_it.txt` 88.743 byte, 1.800 CRLF, **zero LF soli**.
 
 ### ▶ Che cosa è stato fatto
@@ -71,8 +75,11 @@ si traduce, quindi non ha un valore atteso. Oggi dice:
     event.hsp               le 24 fuori dal generatore, +1 sorella          24 rese
     il generatore           158 pezzi e 35 cornici, grammatica nuova       193 rese
     intorno al generatore   dal collaudo: titoli, bottoni, la paga          16 rese
+    i sogni del figlio      talento, capricci, mestieri, tesori            102 rese
+    i sogni del giocatore   la scala in cinque scene, le pecore            65 rese
+    il sonno condiviso      il menu, gli esiti, le parti del corpo         52 rese
     ------------------------------------------------------------------------
-                            505 rese, 1 rete nuova, 22 test, 10 spinte
+                            724 rese, 1 rete nuova, 22 test, 13 spinte
 
 ### ▶ ⭐⭐⭐ La rete: tre classi, e la terza è quella che salva
 
@@ -126,9 +133,33 @@ ripetizione e un'ambiguità — cose che nessuna regola di accordo avrebbe ferma
 di 15 px a riga** (`noteinfo(0) * 15`), quindi non c'è tetto duro. Caso peggiore
 col simulatore del progetto: **una riga** più dell'inglese, cinque in tutto.
 
+### ▶ ⭐⭐ I sogni: 219 rese, e le tre regole che li governano
+
+Gli eventi che escono **dormendo** — le scenette del figlio, i sogni del
+giocatore, il sonno condiviso — sono 219 rese in tre lotti. Il metodo che serve
+al prossimo che ci mette mano:
+
+1. ⚠️ **`is(tc)` e `yourself(tc)` si TOLGONO** (morfologia inglese: il verbo se
+   le porta dentro, `action.hsp:263`), **ma `his(tc, 1)` NO**: col secondo
+   argomento passa da `lang()`, quindi è **contenuto** — rende «il suo», e
+   «your» quando il bersaglio è il giocatore. Va tenuta, e vuole un **singolare
+   maschile** davanti, come in `item.hsp:3377`.
+2. ⚠️ **Una statica porta il testo nudo**, non un'espressione fra virgolette: il
+   nome lo mette il codice **fuori** dalla `lang()`. Dodici voci sbagliate così
+   in un lotto solo, e `verifica` le ha prese tutte. Stessa cosa per `cnvtalk`,
+   che sta fuori e mette solo le virgolette.
+3. ⚠️ **Niente accordo di genere**, e qui due volte: il **figlio** può essere
+   maschio o femmina, e il **giocatore** pure. `guida-stile.md` lo vieta già; la
+   forma che regge, quando il testo dà del «tu», è il **presente** — «sei in
+   piedi», «resti immobile» — mai il passato prossimo con essere.
+
+💡 E il senso viene dal giapponese: 腰 è la **vita**, non il petto, e l'inglese
+di monte che dice «chest» sbaglia.
+
 ### ▶ Quel che resta da guardare, in ordine
 
-1. ⭐⭐⭐ **Le 296 rese di oggi non sono state viste a schermo**, e i menu sono la
+1. ⭐⭐⭐ **Delle 724 rese di oggi ne sono state viste a schermo 296**: mancano i
+   sogni, il generatore e il contorno. I menu sono la
    cosa più visibile che il progetto abbia toccato finora. Le quattro più diritte:
    **parlare a un compagno** e aprire le regole (12 voci, due colonne) e le
    impressioni (30 voci, due colonne); il **fabbro** che cambia materiale (40
@@ -154,6 +185,9 @@ col simulatore del progetto: **una riga** più dell'inglese, cinque in tutto.
    `cnvitemname()`, quindi l'ordine delle parole è libero).
 5. ⭐⭐⭐ `chat.hsp`: **3.648** da fare (erano 3.920), e senza più gemelle.
    Restano **95 quasi gemelle**, che sono un elenco da leggere.
+6. ⭐⭐ **`event.hsp` è a 175** (era 622): restano gli eventi di MARE (nave,
+   naufragio, pesca) e una coda di eventi minori. La famiglia dei **sogni è
+   chiusa**, quella del **generatore** anche.
 6. ⭐⭐ **Dieci file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
    `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
    `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
@@ -204,6 +238,26 @@ a mano col metro della rete e lo sfondo **più stretto** (`bg_re25`, tetto 33):
 possibile ma rischioso — un tetto scelto col minimo su tutta la routine
 produrrebbe difetti che non esistono, che è la trappola già scritta nel test di
 `menu_dialogo`.
+
+### ▶ Come si è chiusa
+
+⚠️⚠️ **La sessione si chiude annunciando un CAMBIO DI TERMINALE.** È la
+sedicesima volta; tutte le volte verificate finora la sessione dopo si è
+riaperta sulla **stessa** macchina, `DESKTOP-1O339MR`. Tutto è **spinto** e
+l'albero è pulito.
+
+⚠️⚠️ Se questa volta è davvero un'altra macchina, le cose che **non stanno nel
+repo** sono cinque, e l'ordine conta:
+
+    i tre CSV degli epiteti    python scratchpad/epiteti_vocabolario.py   (vogliono i CRLF)
+    dati-sorgente\             python -m strumenti.dati_sorgente --pinna
+    l'albero di build          python -m strumenti.applica
+    cgx-test.exe               python -m strumenti.compila --eseguibile   (NON incatenato)
+    dataoard_it.txt e talk_it.txt   li scrive `applica` in build\dati\, poi si copiano
+
+⚠️ `strumenti.gronde` legge la **build**: su una macchina senza albero
+costruito non fallisce dicendo «la gronda è stretta», muore di file non trovato.
+💡 E `strumenti.battute` vuole `PYTHONIOENCODING=utf-8` davanti, dal Bash tool.
 
 ---
 
