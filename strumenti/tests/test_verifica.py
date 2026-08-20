@@ -1,3 +1,4 @@
+from pathlib import Path
 # strumenti/tests/test_verifica.py
 import json
 
@@ -899,3 +900,55 @@ def test_nessuna_resa_dinamica_del_dizionario_e_prosa_nuda():
             if any("ESPRESSIONE HSP" in p for p in controlla_voce(d, carica_invariati())):
                 rotte.append(f"{percorso.stem}:{d['riga']} {d['it'][:60]!r}")
     assert rotte == [], rotte
+
+
+# --- il metro delle interpolazioni: inglese piu' giapponese (nato nella 72a)
+
+def _voce_livello(it):
+    return voce(
+        tipo="dinamica",
+        jp="はレベルになった！",
+        jp_grezzo='name(r1) + "はレベル" + cdata(CDATA_LEVEL, r1) + "になった！"',
+        en=" have gained a level.",
+        en_grezzo='name(r1) + " have gained a level."',
+        it=it,
+    )
+
+
+def test_si_puo_rimettere_un_dato_che_l_inglese_aveva_buttato_via():
+    """`screen.hsp:6759`: il giapponese dice a QUALE livello si sale, l'inglese
+    no. Quella chiamata sta gia' sulla stessa riga e nello stesso ambito: e'
+    valida per costruzione, e rifiutarla obbligherebbe la traduzione a
+    ereditare ogni perdita di monte."""
+    assert controlla_voce(_voce_livello(
+        'name(r1) + " sale al livello " + cdata(CDATA_LEVEL, r1) + "!"')) == []
+
+
+def test_ma_non_si_puo_togliere_un_dato_che_l_inglese_ha():
+    """Non e' una simmetria: quel che l'inglese ha resta dovuto."""
+    problemi = controlla_voce(_voce_livello('"Sale al livello " + cdata(CDATA_LEVEL, r1) + "!"'))
+    assert any("mancanti" in p for p in problemi), problemi
+
+
+def test_e_una_chiamata_che_non_sta_ne_in_uno_ne_nell_altro_resta_fermata():
+    """Una chiamata fuori ambito non passa: non compila, o nomina la variabile
+    sbagliata.
+
+    ⚠️ La ferma la guardia sugli ARGOMENTI, non quella sui nomi, e va bene
+    cosi': `cdata` compare in entrambe le lingue, e' `CDATA_FAME, tc` a non
+    venire da nessuna delle due. E' la ragione per cui le due guardie esistono
+    tutte e due — e da questo lotto misurano la stessa cosa.
+    """
+    problemi = controlla_voce(_voce_livello(
+        'name(r1) + " sale al livello " + cdata(CDATA_FAME, tc) + "!"'))
+    assert any("non vengono da monte" in p for p in problemi), problemi
+
+
+def test_le_due_guardie_della_riga_usano_lo_STESSO_metro():
+    """Fino alla 72a no: quella sugli argomenti sottraeva inglese piu'
+    giapponese, quella sui nomi pretendeva il solo inglese. La piu' stretta
+    vinceva sempre, e il commento della piu' larga descriveva una liberta' che
+    non c'era."""
+    sorgente = (Path(__file__).parent.parent / "verifica.py").read_text(encoding="utf-8")
+    assert 'permesse = funzioni_di_contenuto(voce.get("jp_grezzo") or "")' in sorgente
+    assert 'set(chiamate_di_contenuto(voce.get("jp_grezzo", "")))' in sorgente

@@ -409,10 +409,42 @@ def controlla_voce(voce: dict, invariati: set[str] | None = None) -> list[str]:
         # Il confronto vero e' sulle sole chiamate di contenuto (nomi,
         # oggetti, dati... e he/his/him quando chiamate con due argomenti);
         # i pronomi non entrano nel confronto in nessuno dei due sensi.
+        # ⭐ **E il metro non e' solo l'inglese: e' l'inglese PIU' il
+        # giapponese.** Aggiunto nella 72a, su `screen.hsp:6759`:
+        #
+        #     JP  name(r1) + "はレベル" + cdata(CDATA_LEVEL, r1) + "になった！"
+        #     EN  name(r1) + " have gained a level."
+        #
+        # cioe' il giapponese dice **a quale** livello si sale e l'inglese ha
+        # buttato via il numero. Rimetterlo in italiano non e' inventare
+        # un'interpolazione: quella chiamata sta gia' sulla stessa riga, nello
+        # stesso ambito, ed e' valida per costruzione. La regola vecchia la
+        # rifiutava, e cosi' obbligava la traduzione a ereditare ogni perdita
+        # di monte.
+        #
+        # ⚠️ Le due liste restano diverse: quel che l'inglese ha e' **dovuto**
+        # — toglierlo e' perdere un dato che il giocatore vede — mentre quel
+        # che ha solo il giapponese e' **permesso**. Non e' una simmetria: una
+        # resa non e' tenuta a recuperare tutto quello che l'inglese ha perso,
+        # ma se lo recupera non e' un difetto.
+        #
+        # 💡 **E le due guardie di questa riga non erano d'accordo fra loro.**
+        # Quella sugli argomenti, dieci righe piu' sotto, sottraeva gia'
+        # l'unione dell'inglese e del giapponese — con un commento che spiega
+        # perche' — mentre questa pretendeva l'uguaglianza col solo inglese.
+        # Due misure della stessa cosa nella stessa funzione, una piu' larga
+        # dell'altra: la piu' stretta vinceva sempre, e il commento della
+        # piu' larga descriveva un comportamento che non c'era.
         attese = funzioni_di_contenuto(voce["en_grezzo"])
+        permesse = funzioni_di_contenuto(voce.get("jp_grezzo") or "")
         trovate = funzioni_di_contenuto(italiano)
-        if attese != trovate:
-            problemi.append(f"interpolazioni non conservate: attese {attese}, trovate {trovate}")
+        mancanti = [f for f in attese if f not in trovate]
+        inventate = [f for f in trovate if f not in attese and f not in permesse]
+        if mancanti or inventate:
+            problemi.append(
+                f"interpolazioni non conservate: attese {attese}, trovate {trovate}"
+                + (f", mancanti {mancanti}" if mancanti else "")
+                + (f", inventate {inventate}" if inventate else ""))
 
         # ⚠️ i NOMI delle chiamate non bastano: `name(cc)` e `name(tc)` hanno lo
         # stesso nome e nominano due personaggi diversi. Ogni chiamata
