@@ -125,6 +125,35 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## `item.hsp` chiuso — 2026-08-20, sessantanovesima sessione
+
+**244 `lang()`, 242 rese, 2 rinviate.** Il file era il **quindicesimo punto
+cieco**: aveva `lang()` e nessun file di dizionario, quindi non compariva in
+`verifica --dizionario` e nessun conteggio lo guardava — la lezione della 54ª,
+*un file senza file di dizionario non è un file finito, è un file che nessun
+conteggio guarda*.
+
+Otto lotti, in ordine di quel che il giocatore legge più spesso:
+
+| lotto | righe | rese | che cos'è |
+|---|---|---|---|
+| `fase4-item-001` | `:3304`-`:3397` | 31 | che sapore ha quel che mangi |
+| `fase4-item-002` | `:3471`-`:3888` | 22 | le erbe, la carne umana, i cibi speciali |
+| `fase4-item-003` | `:3925`-`:4046` | 17 | il cioccolato, la mesugaki, la fortuna |
+| `fase4-item-004` | `:4066`-`:4217` | 17 | i cibi che cambiano il corpo (6 invariati) |
+| `fase4-item-005` | `:4258`-`:4324` | 7 | le abilità e la «Fase 2» (+ 2 toppe) |
+| `fase4-item-006` | `:4335`-`:4648` | 36 | le carni e gli effetti |
+| `fase4-item-007` | `:107`-`:127` | 42 | le cinque tabelle in testa al file |
+| `fase4-item-008` | sparse | 32 | il parassita, la stima, la cronaca, la cucina |
+
+Le due che il conto porterà per sempre sono `:4291` e `:4294`, terzo esemplare
+della famiglia di `his2()` dopo `proc.hsp:11481` (36ª) e `proc.hsp:24107` (39ª):
+risolte da toppa, come le altre due.
+
+⚠️ **I file senza dizionario scendono da 13 a 12, e le `lang()` fuori da ogni
+conteggio da 811 a 567.** Restano `txtadv.hsp` 170, `material_data.hsp` 118,
+`custom_autopick.hsp` 90, `help.hsp` 52, `net.hsp` 37.
+
 ## I 71 `bufftxt` di `buff.hsp` — 2026-08-13, trentunesima sessione
 
 **65 firme distinte coprono i 71 siti**: i tre 「装備の力を引き出した」 e i

@@ -1,47 +1,206 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-20, fine della **sessantottesima** sessione (**il collaudo
-che mancava da due sessioni: tre spinte, due difetti riparati e visti a schermo,
-una rete accesa e un rinvio sbagliato**).
+Aggiornato: 2026-08-20, fine della **sessantanovesima** sessione (**il
+quindicesimo punto cieco aperto e chiuso in una sessione sola: `item.hsp`, da
+244 `lang()` senza dizionario a zero da fare**).
 
-⭐⭐⭐ **La lezione della sessione: il collaudo non trova quel che nessuno sa —
-trova quel che era gia' scritto e che nessuno pesava.** I tre difetti della
-giornata avevano tutti la causa gia' messa nero su bianco, da sessioni:
+⭐⭐⭐ **La lezione della sessione: cercare prima di scrivere ha reso una riga
+su cinque.** Prima di tradurre `item.hsp` si e' passato tutto il file contro il
+dizionario intero, per giapponese: **49 righe su 206 avevano gia' una resa
+altrove**, e undici sono state copiate parola per parola invece che riscritte —
+le cinque battute del mangime da `command.hsp:15103`, la cura dell'etere da
+`proc.hsp:25779`, il diario da `action.hsp:8282`, il vortice da
+`calculation.hsp:1536`, il tempo fermo da `action.hsp:6012`. 💡 E' la regola
+della 58a, e stavolta il conto e' grosso abbastanza da smettere di essere un
+aneddoto: **due rese diverse per la stessa riga sono un difetto che nessuna
+rete vede**, perche' la rete 3 tace proprio quando coincidono.
 
-1. la **RETE 20** dichiarava il proprio punto cieco nel docstring — «l'ultima
-   intestazione di ogni riga, il cui limite e' il bordo della finestra» — e li'
-   stavano tutt'e due i difetti della scheda del personaggio;
-2. **`system.hsp`** era nella lista dei quattordici punti ciechi da quattro
-   sessioni, e dentro c'erano **le prime due schermate del gioco**;
-3. **`" level"`** stava in `rinviate.jsonl` con una motivazione scritta a mano.
+⭐⭐⭐ **E la scoperta piu' riusabile: il compilatore ha trovato un buco che
+nessuna guardia guardava.** Una `lang()` **dinamica** le cui chiamate sono
+**tutte morfologia** (`"But " + he(tc) + " eject" + _s(tc) + " it out
+quickly."`, `item.hsp:4597`) ha l'elenco delle funzioni di contenuto **vuoto da
+tutt'e due le parti**: il confronto delle interpolazioni tace, e chi scrive la
+resa la tratta naturalmente come una **statica** — e' proprio la voce in cui
+l'italiano non ha piu' niente da interpolare. `applica` la scrive dentro
+`lang(...)` cosi' com'e' e `hspcmp` muore. ⚠️ **La guardia adesso c'e', sta in
+`strumenti/verifica.py` e ha tre test**, uno dei quali gira su tutto il
+dizionario: un test che prova solo il caso costruito dice che la funzione
+funziona, non che il dizionario e' pulito. Girata all'indietro trova le tre
+voci di oggi **e nessun'altra**.
 
-💡 Nessuno dei tre era nascosto. Mancava solo qualcuno che aprisse il gioco, e
-per due sessioni non l'aveva aperto nessuno. **Il valore di una schermata non e'
-che mostra una cosa nuova: e' che assegna un peso a una cosa gia' elencata.**
-
-⭐⭐⭐ **E la scoperta piu' riusabile: un rinvio si registra per FIRMA, ma il
-motivo vale per un SITO.** `lang("階相当", " level")` compare due volte in
-`command.hsp` con la stessa firma: `:2956`, dentro un ramo `if ( jp )` che in
-italiano non gira mai, e `:10710`, la scheda del personaggio, sul percorso
-comune. Il rinvio — «questa `lang()` non viene valutata mai» — fu scritto
-guardando il primo, e indicizzato per firma ha tenuto ferma anche la seconda.
-⚠️ **Non poteva trovarlo nessun referto**: per tutti gli strumenti quella firma
-era *decisa*, e una firma decisa non compare in nessun elenco di lavoro. La
-verifica che manca si scrive in una riga: *una firma rinviata per il ramo della
-lingua ha davvero tutte le sue occorrenze in quel ramo?*
-
-⭐⭐ **E un controllo che SOMIGLIA a quello buono e' peggio di nessun controllo.**
-Il lotto della scheda si portava dentro il controllo anti-due-byte della 67a,
-ma riscritto come `ord(c) > 0x2000` — una soglia inventata pensando ai trattini
-lunghi e alle virgolette tipografiche. La resa «° piano» c'e' passata sotto,
-perche' il grado sta a **U+00B0**. L'ha bocciata `verifica`, che chiama la
-funzione vera. 💡 E' la regola della 61a — *misura la cosa, non una cosa vicina*
-— applicata a un **controllo** invece che a una misura: la copia somigliante da'
-la stessa quiete e non la stessa garanzia.
+⭐⭐ **E una stringa puo' essere insieme una chiave e del testo a schermo.**
+`item.hsp:1995` fa `instr(cdatan(CDATAN_NAME, cc), 0, lang("の子供", "child"))`,
+cioe' cerca quella stringa **dentro il nome** di una creatura; e il nome che la
+contiene lo scrive `:2002` due righe sotto. Le due rese **devono combaciare**, o
+il gioco smette di riconoscere i figli che ha appena battezzato. La regola delle
+convenzioni — *quel che serve a un confronto non e' testo, e si guarda il sito*
+— qui non basta: **il sito e' due siti**, e la resa e' il suffisso esatto che
+l'altro appende.
 
 ---
 
-## La sessantottesima sessione
+## La sessantanovesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** (dieci spinte) e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **undici** verifiche d'apertura. La
+sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
+**ventiseiesima prova** di fila, e le undici verifiche hanno dato undici volte i
+valori attesi della 68a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    pytest                  528 passed 6 skipped   (erano 525: +3 test della guardia nuova)
+    verifica --dizionario   item.hsp   0 / 2       NUOVO: prima non era nel referto
+    toppe.jsonl             1003                   (erano 1001)
+    rinviate.jsonl          73                     (erano 71)
+    invariati.md            434 valori             (+2: Necronomicon, Liber Damnatus)
+    file_senza_dizionario   12 file | 567 lang()   (erano 13 | 811)
+    dizionario              +242 voci in item.hsp.jsonl (file NUOVO)
+                            1 voce corretta in init.hsp.jsonl
+
+Tutto il resto e' **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
+1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205, `riquadri` 0 su 38
+e 0 su 71, `menu_dialogo` 0 su 151, `linguette` 0 e 0, `battute --divergenti`
+**13**, `intestazioni_larghezze` banco ok e perimetro 0, `chat.hsp` 0 / 4046.
+Il `perimetro` (53% alla 67a) non e' stato rimisurato.
+
+✅ **`cgx-test.exe` e' FRESCO**: compilato e installato a fine sessione, con
+dentro tutte le 242 rese di `item.hsp` piu' il possessivo corretto. Il debito
+d'apertura della 68a (l'eseguibile vecchio di un lotto) e' rientrato come prima
+cosa.
+
+### ▶ Che cosa e' stato fatto: un file intero, e due reti
+
+    item.hsp, otto lotti  il quindicesimo punto cieco, aperto e chiuso  242 rese
+    init.hsp:1959         il possessivo del giocatore                     1 resa
+    item.hsp:4291 :4294   la terza famiglia di his2()          2 toppe + 2 rinvii
+    invariati.md          Necronomicon, Liber Damnatus                  +2 valori
+    verifica.py           la guardia della prosa nuda           +1 rete, +3 test
+    ------------------------------------------------------------------------
+                          243 rese, 2 toppe, 1 rete nuova, 10 spinte
+
+### ▶ ⭐⭐⭐ Il pezzo che vale piu' di tutti: `item.hsp` da punto cieco a chiuso
+
+**244 `lang()` e nessun file di dizionario.** Dentro c'erano i messaggi che il
+giocatore legge **a ogni pasto** — le ventiquattro esclamazioni sul sapore, le
+sei reazioni al cibo avvelenato, le erbe, le carni — piu' cinque tabelle che
+`item_func.hsp` incolla dentro i **nomi degli oggetti**.
+
+Gli otto lotti stanno in `avanzamento.md`. Le cose che valgono per il prossimo
+file:
+
+1. ⭐⭐ **Prima di tradurre una tabella, guarda dove finisce** (regola della 64a).
+   `giftn` sembrava un suffisso come gli altri quattro; `item_func.hsp:1499`
+   appende il nome dell'oggetto **dopo** l'accumulatore, quindi e' un
+   **prefisso**, e le sei voci sono diventate aggettivi che in italiano stanno
+   prima del nome. Sbagliando, si sarebbe letto «regalo misero» a rovescio.
+2. ⭐⭐ **`evitemn` segue il giapponese e non l'inglese**, che ha inventato una
+   famiglia di «... heart» dove il giapponese ha sette nomi diversi. A decidere
+   non e' stato il gusto: `blend.hsp:764` aveva **gia' reso** 進化の側枝 con
+   «ramo evolutivo», ed e' la ricetta che fabbrica proprio quell'oggetto.
+3. ⚠️ **Due errori dell'inglese nelle esche**: セミ e' la **cicala** (monte
+   scrive «locust») e ヘラクレス e' lo **scarabeo ercole** (monte scrive
+   «beetle»).
+4. ⚠️ **Sei voci restano inglesi per decisione**: `male`, `female`, `male?`,
+   `female?`, `hermaphrodite`, `none` sono i **valori** di
+   `cdatan(CDATAN_NEWSEX)`, scritti e riletti da `item.hsp` stesso e confrontati
+   da `command.hsp` e `text.hsp`. Erano gia' tutti in `invariati.md` dalla 48a.
+5. ⚠️ **Cinque volte lo stesso inglese per giapponesi diversi**: «Sheer
+   madness!» tre volte (`:4013`, `:4022`, `:4404`), «heart is warmed» due
+   (`:4041`, `:4046`), «Awful taste!!» due (`:3343`, `:3346`), «Delicious!» due
+   (`:3304`, `:3359`), «develops» due (`:4269`, `:4291`). In tutti decide il
+   giapponese, e le rese sono distinte.
+
+### ▶ ⭐⭐⭐ La rete nuova: una dinamica che non e' un'espressione
+
+Vedi la lezione in cima. Il punto operativo, per chi scrive il prossimo lotto:
+**se la voce e' `dinamica`, la resa va fra virgolette anche quando non c'e'
+niente da concatenare.** `'"Ma viene subito respinto fuori."'`, non
+`"Ma viene subito respinto fuori."`.
+
+⚠️ E il modo in cui e' stata trovata vale quanto la rete: **`compila` e' un
+controllo, e in questa sessione e' l'unico che ha parlato.** Otto lotti erano
+passati da `verifica` e da 525 test.
+
+### ▶ ⭐⭐ Il possessivo del giocatore, che diceva «tu» dentro una frase in terza
+
+`init.hsp:1959` rende `lang("あなたの", "your")`, cioe' quel che `his(x, 1)`
+restituisce quando il possessore e' il giocatore. Il dizionario ci aveva scritto
+**«il tuo»**, ma `name(CHARA_PLAYER)` rende **«il viandante»** (terza persona,
+decisione della 4a). Le frasi che portano tutt'e due — e sono la maggioranza dei
+diciassette siti — dicevano:
+
+    il viandante si sorprende e interrompe il tuo daffare.
+
+Adesso «il suo», che e' anche quel che il ramo dei PNG gia' diceva. Ne guadagnano
+`proc.hsp:8849`, `:9605`, `:9631` e le quattro righe nuove di `item.hsp`.
+
+⚠️ **Il sito che paga il prezzo e' `command.hsp:2543`**, l'intestazione della
+pagina dei talenti: `cnven(his(tc, 1)) + " equipment "` adesso dice «Il suo
+equipaggiamento:» anche quando la pagina e' la tua. **Non e' stato visto a
+schermo.** Se stona, si ripara li' con una toppa, non rimettendo «il tuo» a
+tutti.
+
+### ▶ Quel che resta da guardare, in ordine
+
+1. ⭐⭐⭐ **Niente di quel che e' stato fatto oggi e' stato visto a schermo**, ed
+   e' il debito di questa sessione. L'eseguibile e' pronto. Le due schermate che
+   rendono di piu': **mangiare qualcosa** (`item.hsp:3304`-`:4648`, che sono
+   ventiquattro esclamazioni sul sapore piu' gli effetti) e **la pagina dei
+   talenti** (`command.hsp:2543`, per l'«Il suo equipaggiamento» qui sopra).
+2. ⭐⭐⭐ Il debito che viene da prima: le **nove rese di `scheda-inglesi`** della
+   68a e le **308 rese di `chat.hsp`** della 67a — l'informatore sui boss, le
+   due scene finali, la scena d'apertura — restano **tutte non viste**.
+3. ⭐⭐⭐ **Le colonne della scheda che si sovrappongono** (68a, trovate e non
+   riparate): «Classe» e «Guerriero» stampate una sopra l'altra, «Altezza157 cm»,
+   «Velocita70(70)», «Sollevamento pes**i**». Nessuna rete guarda questa
+   famiglia: etichetta a `pos` fisso, valore a `pos` fisso, e il tetto e' la
+   distanza fra i due.
+4. ⭐⭐ **La toppa dei trascorsi**, `talk_conv s, 32` → **36**, col passo ormai
+   misurato.
+5. ⭐⭐ **Il registro dei messaggi e' inglese** (le notizie di morte degli altri
+   giocatori).
+6. ⭐ Le 55 intestazioni «senza ostacolo a destra» della rete 20.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ `chat.hsp`: **4.046** da fare. Zone chiuse: `:9423`-`:9519`,
+   `:10339`-`:10369`, `:15438`-`:15470`, `:15927`-`:15937`, `:18094`-`:18111`,
+   `:18474`-`:18785`, `:24236`-`:24537`.
+2. ⭐⭐ **Dodici file con `lang()` e senza dizionario**, per **567** `lang()`:
+   `txtadv.hsp` 170, `material_data.hsp` 118, `custom_autopick.hsp` 90,
+   `help.hsp` 52, `net.hsp` 37, `custom_itemenchantment.hsp` 31, `quest.hsp` 26,
+   `material.hsp` 19. ⚠️ **`custom_autopick.hsp` e `help.hsp` sono i due che il
+   giocatore apre**: il primo e' il menu del raccatta-automatico, il secondo
+   l'aiuto in gioco.
+3. ⭐⭐ `etc.hsp` resta il «file mezzo tradotto»: cinque toppe e nessun dizionario.
+4. ⭐⭐ Le 148 voci di `talk_quest` e le 46 di `com_txtadv_loop`.
+5. ⭐⭐ `larghezze.py` misura la `lang()`, non la riga — il debito della 60a.
+6. ⭐ Le 93 di `command.hsp`, le 98 di `screen.hsp`, le 41 di `system.hsp`, le
+   622 di `event.hsp`, le 241 di `item_func.hsp`.
+7. ⭐ I 1.146 testi di `db_card.hsp` e le 835 di `effdesc@tcg`.
+
+### ▶ Come si e' chiusa
+
+Dieci spinte, una per risultato chiuso. Le undici verifiche d'apertura sono state
+rilanciate **anche in chiusura** e danno tutte i valori dichiarati qui sopra;
+`pytest` sale a **528** per i tre test della guardia nuova.
+
+⚠️ **Zero collaudo**: il gioco non e' stato aperto nemmeno una volta, e la
+sessione lo dice a chiare lettere invece di lasciarlo dedurre dal numero di
+spinte (regola della 51a e della 54a). In cambio l'eseguibile e' **compilato e
+installato**, quindi il collaudo della 70a non ha niente da preparare: si apre
+`cgx-test.exe` e si mangia qualcosa.
+
+⭐ **Il ritmo della sessione**: un lotto, `verifica`, `reimporta`, spinta.
+Nessun lotto e' rimasto in sospeso, e il difetto della compilazione ha toccato
+un lotto solo perche' l'errore e' arrivato prima che ne partisse un altro.
+
+---
+
+## La sessantottesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
