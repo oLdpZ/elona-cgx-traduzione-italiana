@@ -761,3 +761,32 @@ scegliere un genere al posto di quella decisione, in 35 punti, in silenzio.
 
 È lo stesso nodo dell'articolo di `name()`, risolto nella quarta sessione
 rimandando la scelta a chi conosce il nome. Qui si rimanda allo stesso posto.
+
+
+## Fase 3 — i file dati di `data\` (dalla 70a)
+
+L'unita' e' la **riga inglese** dentro un blocco `%…,EN`. Il conto vivo:
+
+```powershell
+python -m strumenti.dati_verifica lavoro/<file>-001.jsonl
+```
+
+| file | tradotte | righe EN | % | famiglia |
+|---|---|---|---|---|
+| `board.txt` | **25** | 25 | **100%** | senso |
+| `talk.txt` | **64** | 569 | 11% | senso |
+| `exhelp.txt` | 0 | 185 | 0% | impaginazione |
+| `manual_ENG.txt` | 0 | 591 | 0% | impaginazione |
+| `book.txt` | 0 | 2.208 | 0% | impaginazione |
+| **totale** | **89** | **3.578** | **2%** | |
+
+⚠️ **La famiglia decide l'unita' di traduzione.** Dove la riga e' un'unita' di
+**senso** il gioco ne pesca una a caso (`rnd`) e si traduce riga per riga; dove
+e' un'unita' di **disegno** l'inglese e' spezzato a mano a larghezza fissa
+(`book.txt`: 33 righe giapponesi contro 224 inglesi) e l'unita' e' il blocco.
+
+⚠️ **E ogni file ha il suo espansore di segnaposto**: `board.txt` passa da
+`*talktxt_conv` (33 nomi), `talk.txt` da `*convert_word` (46). Stanno in
+`PROFILI`, dentro `strumenti/dati_verifica.py`.
+
+Blocchi di `talk.txt` chiusi: `DEFAULT`, `PERSONALITY,0`-`,3`.
