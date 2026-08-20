@@ -164,6 +164,32 @@ LARGHEZZA_NUMERO = 4
 
 TETTO = int(PIXEL_UTILI / PIXEL_PER_CARATTERE)
 
+# --- il SECONDO tetto della pergamena: le due colonne (chat.hsp:25166)
+#
+# ⚠️⚠️ **La pergamena ha due tetti, non uno.** Sopra le dieci voci il menu passa
+# a due colonne (`x = wx + 136 + cnt / 10 * 216`, `chat.hsp:25164`) e il gioco
+# **taglia con `strmid` a 24 caratteri**:
+#
+#     if ( keyrange > 10 & (cnt >= 10 | cnt < keyrange - 10) ) {
+#         listn(0, cnt) = strmid(listn(0, cnt), 0, 24)
+#
+# Il conto torna con la geometria: la colonna e' larga 216 px, il testo comincia
+# 34 px dentro (30 di `cs_list` piu' 4 di `module.hsp:129`), restano 182 px che
+# a 7 px per carattere fanno 26 — e upstream taglia due caratteri prima.
+#
+# ⚠️ **Non e' un tetto che vale sempre**: dipende da QUANTE voci ha il menu di
+# quel PNG, che dipende dal ruolo, dalla trama e dai compagni. Un negoziante ne
+# mostra sette e sta in una colonna; un compagno ne supera dieci. Non e'
+# decidibile dal sorgente, e per questo la regola qui non e' «≤ 24» ma:
+#
+#     ⭐ **se l'inglese di monte ci sta in 24, l'italiano ci deve stare.**
+#
+# Cosi' la rete non chiede di mutilare le voci che upstream stesso lascia
+# tagliare, e ferma soltanto le nostre regressioni. 💡 E' la stessa forma di
+# `fuori_misura_inglese`: il metro non e' l'inglese, ma l'inglese dice da dove
+# viene il danno.
+TETTO_DUE_COLONNE = 24
+
 # --- la geometria di *re_select, letta da event.hsp:4145-4195
 CORNICE_RE_SELECT = 36   # dx = tx + 36            (event.hsp:4153)
 INIZIO_VOCE_RE_SELECT = 64   # cs_list a wx+60 (:4195) + 4 (module.hsp:129)
@@ -195,7 +221,16 @@ LEGGI_CITTA = "skip_rule"
 # guardia le contava fra le «non misurate» per sempre.
 # 💡 Si scarta per NOME e non per forma, perche' la forma non distingue: e' un
 # `gosub *etichetta` come tutti gli altri.
-NON_DISEGNANO = frozenset({"screen_drawStatus", "screen_draw", "screen_refreshFull"})
+# ⚠️ E `*talk_quest` (`text.hsp:11686`) e' il terzo caso, trovato nella 72a
+# quando le 101 voci del menu comune sono entrate nel dizionario tutte insieme:
+# non disegna, **costruisce le stringhe** della descrizione dell'incarico
+# (`s(5)`, `s(6)`, la ricompensa in monete d'oro). Sta in mezzo alla catena di
+# `chatList` di `*talk_main` (`chat.hsp:19799`), quindi la regola «a disegnarla
+# e' il primo gosub che segue» ci finiva sopra per **tutte** le voci prima di
+# quella riga. 💡 La forma non lo distingue: e' `gosub *etichetta` come gli
+# altri, e la prova che non disegna e' che il suo corpo non ha nessun `cs_list`.
+NON_DISEGNANO = frozenset({"screen_drawStatus", "screen_draw", "screen_refreshFull",
+                           "talk_quest", "quest_success"})
 
 _VOCE = re.compile(r"\bchatList\b")
 _GOSUB = re.compile(r"\bgosub\s+\*(\w+)")
@@ -432,6 +467,30 @@ def fuori_misura_inglese(
     return _sfori(voci_di_menu(dizionario, sorgente), "en_grezzo", grafica)
 
 
+def tagliate_a_due_colonne(
+    dizionario: Path | None = None,
+    sorgente: Path | None = None,
+) -> list[tuple[str, int, int, int, str]]:
+    """(file, riga, len_en, len_it, testo) per le voci che PEGGIORANO a due colonne.
+
+    Solo la pergamena: gli altri tre contenitori non hanno la seconda colonna.
+    Una voce ci finisce se l'inglese di monte sta nei 24 caratteri e l'italiano
+    no — cioe' se a due colonne il giocatore leggerebbe tagliata una voce che in
+    inglese leggeva intera. Vedi `TETTO_DUE_COLONNE`.
+    """
+    peggiorate = []
+    for voce in voci_di_menu(dizionario, sorgente):
+        if voce.get("_contenitore") != PERGAMENA:
+            continue
+        it = reso(voce.get("it") or "")
+        en = reso(voce.get("en_grezzo") or "")
+        if not it or not en:
+            continue
+        if len(en) <= TETTO_DUE_COLONNE < len(it):
+            peggiorate.append((voce["file"], voce["riga"], len(en), len(it), it))
+    return sorted(peggiorate)
+
+
 def main(argv: list[str] | None = None) -> int:
     voci = voci_di_menu()
     sfori = fuori_misura()
@@ -481,7 +540,18 @@ def main(argv: list[str] | None = None) -> int:
         dove = sorted({v["_contenitore"] for v in scoperte})
         print("voci NON misurate (geometria non letta): %d, in %s"
               % (len(scoperte), ", ".join("*" + d for d in dove)))
-    return 1 if sfori else 0
+
+    # il secondo tetto della pergamena, quello che dipende da quante voci ha il
+    # menu di quel PNG: vedi TETTO_DUE_COLONNE
+    peggiorate = tagliate_a_due_colonne()
+    if peggiorate:
+        print()
+        for file, riga, len_en, len_it, testo in peggiorate:
+            print("  %-18s %6d  en %2d -> it %2d  %s"
+                  % (file, riga, len_en, len_it, testo[:70]))
+    print("a due colonne (tetto %d): %d rese peggiorate rispetto all'inglese"
+          % (TETTO_DUE_COLONNE, len(peggiorate)))
+    return 1 if sfori or peggiorate else 0
 
 
 if __name__ == "__main__":

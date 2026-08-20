@@ -13,6 +13,8 @@ import pytest
 from strumenti import percorsi
 
 from strumenti.menu_dialogo import (
+    TETTO_DUE_COLONNE,
+    tagliate_a_due_colonne,
     CORNICE_RE_SELECT, FINE_VOCE_LEGGI, FINESTRA_EVENTO, INIZIO_TESTO,
     INIZIO_VOCE_GOD, INIZIO_VOCE_LEGGI, INIZIO_VOCE_RE_SELECT, LARGHEZZA_GOD,
     LEGGI_CITTA, MARGINE_GOD, MARGINE_RE_SELECT,
@@ -220,6 +222,14 @@ def test_le_voci_rotte_a_monte_restano_note():
     tetto vero da 58 non lo e' mai stata. Un tetto troppo stretto non produce
     solo rese accorciate: produce anche **difetti di monte che non esistono**.
 
+    ⚠️⚠️ **E dalla 72a sono quattro.** Le due nuove non sono difetti nuovi: sono
+    due voci del menu comune del dialogo (`chat.hsp:19527` da 59 caratteri e
+    `:19563` da 60) che stavano in questo elenco da sempre e che nessuno vedeva,
+    perche' fino alla 72a l'intero menu di `*talk_main` finiva fra le «non
+    misurate» — attribuito a `*talk_quest`, che non disegna. 💡 Una rete che non
+    misura un contenitore non tace solo sulle NOSTRE rese: tace anche sui
+    difetti di monte che ci vivono dentro.
+
     ⭐ **E `event.hsp:521` non e' una deduzione: e' una fotografia.** La voce
     inglese dell'attacco del lupo mannaro ha 48 caratteri in un riquadro da 40
     (`bg_re9`, 280 px utili), e il 2026-08-18 il collaudo l'ha vista uscire
@@ -228,7 +238,8 @@ def test_le_voci_rotte_a_monte_restano_note():
     calcolarla.
     """
     monte = {(f, r) for f, r, _, _ in fuori_misura_inglese()}
-    assert monte == {("tcg_custom.hsp", 1968), ("event.hsp", 521)}
+    assert monte == {("tcg_custom.hsp", 1968), ("event.hsp", 521),
+                    ("chat.hsp", 19527), ("chat.hsp", 19563)}
 
 
 # --- un chatList non e` sempre nella pergamena (corretto il 2026-08-18) ------
@@ -405,3 +416,40 @@ def test_le_due_leggi_della_citta_ci_stanno():
     for v in voci:
         assert v["_contenitore"] == LEGGI_CITTA
     assert [v for v in fuori_misura() if v["file"] == "economy.hsp"] == []
+
+
+# --- il secondo tetto della pergamena: le due colonne (nato nella 72a)
+
+def test_il_tetto_delle_due_colonne_viene_dal_sorgente():
+    """24 non e' una stima: e' l'argomento di `strmid` a `chat.hsp:25166`."""
+    righe = (percorsi.SORGENTE_HSP / "chat.hsp").read_bytes().decode("cp932").splitlines()
+    taglio = [r for r in righe if "strmid(listn(0, cnt), 0," in r]
+    assert taglio, "la riga che taglia le voci a due colonne non c'e' piu'"
+    assert str(TETTO_DUE_COLONNE) in taglio[0]
+
+
+def test_nessuna_resa_peggiora_a_due_colonne():
+    """Se l'inglese ci sta in 24, l'italiano ci deve stare.
+
+    ⚠️ **Non e' «≤ 24 per tutti».** Quante voci abbia il menu dipende dal PNG —
+    ruolo, trama, compagni — e non e' decidibile dal sorgente: un negoziante ne
+    mostra sette e resta a una colonna, un compagno passa le dieci. Chiedere 24
+    a tutte vorrebbe dire mutilare anche le voci che upstream stesso lascia
+    tagliare. Il metro e' il confronto con l'inglese, come in
+    `fuori_misura_inglese`.
+
+    ⭐ Alla nascita ne ha trovate **dieci**, e nove erano di sessioni
+    precedenti: fra queste i quattro «Il boss di ...», dove la cura non e' stata
+    accorciare il nome del luogo — canonico e usato in `map.hsp` e `text.hsp` —
+    ma l'apposizione che gli sta davanti: «Boss: Torre Rovente».
+    """
+    peggiorate = tagliate_a_due_colonne()
+    assert peggiorate == [], "\n".join(
+        "%s:%d  en %d -> it %d  %s" % (f, r, e, i, s) for f, r, e, i, s in peggiorate)
+
+
+def test_le_due_colonne_valgono_solo_nella_pergamena():
+    """Gli altri tre contenitori non hanno la seconda colonna: `chat.hsp:25164`
+    e' dentro `if ( evochat == 0 )`, cioe' solo il menu del dialogo normale."""
+    fuori = {f for f, _, _, _, _ in tagliate_a_due_colonne()}
+    assert fuori <= {"chat.hsp", "tcg_custom.hsp"}
