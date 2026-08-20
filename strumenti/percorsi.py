@@ -25,6 +25,7 @@ LAVORO_LOTTI = PROGETTO / "lavoro"
 # quali byte ci si aspetta di trovarci.
 DATI_SORGENTE = RADICE_LAVORO / "dati-sorgente"
 BUILD_DATI = BUILD / "dati"
+MANIFESTO_DATI = PROGETTO / "dati" / "manifesto.json"
 
 # sottocartella del sorgente che contiene gli .hsp
 SORGENTE_HSP = SORGENTE / "2.05-custom-gx"

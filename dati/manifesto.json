@@ -1,0 +1,47 @@
+{
+  "origine": "C:\\Games\\Elona\\elonaplus2.31\\data",
+  "file": {
+    "board.txt": {
+      "byte": 15769,
+      "md5": "331d2ae976a83841cde5814c72e7aac6",
+      "righe_crlf": 283,
+      "lf_soli": 0
+    },
+    "book.txt": {
+      "byte": 118296,
+      "md5": "1e7045ff208c2334454e2359e27cec44",
+      "righe_crlf": 4629,
+      "lf_soli": 0
+    },
+    "exhelp.txt": {
+      "byte": 17546,
+      "md5": "df4a52405d93dbd52955a3658e0e184f",
+      "righe_crlf": 494,
+      "lf_soli": 0
+    },
+    "talk.txt": {
+      "byte": 88075,
+      "md5": "cdc882603cff116a1abce5aadd8afd44",
+      "righe_crlf": 1800,
+      "lf_soli": 0
+    },
+    "manual_ENG.txt": {
+      "byte": 34711,
+      "md5": "7b8f979e116e97123e579c190a4e9f4e",
+      "righe_crlf": 828,
+      "lf_soli": 0
+    },
+    "manual_JP.txt": {
+      "byte": 29974,
+      "md5": "8e7cac05ec6a88ef5787f30b89695589",
+      "righe_crlf": 565,
+      "lf_soli": 0
+    },
+    "autopick.txt": {
+      "byte": 4516,
+      "md5": "64915887a3c90830a7eed44f17ff8c2f",
+      "righe_crlf": 172,
+      "lf_soli": 0
+    }
+  }
+}
