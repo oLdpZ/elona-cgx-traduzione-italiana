@@ -230,6 +230,16 @@ def test_le_voci_rotte_a_monte_restano_note():
     misura un contenitore non tace solo sulle NOSTRE rese: tace anche sui
     difetti di monte che ci vivono dentro.
 
+    ⚠️⚠️ **E dalla 73a sono SEI.** Le due nuove — `chat.hsp:17710` (60 caratteri)
+    e `:17713` (76) — sono le azioni AP del compagno, rotte di loro da sempre:
+    sono comparse qui il giorno in cui le abbiamo **tradotte**, perche'
+    `voci_di_menu()` legge il DIZIONARIO e una voce non ancora resa non entra in
+    nessuna misura. 💡 E' la lezione della 72a nella sua forma di tutti i giorni:
+    *una rete tace sui difetti di monte che vivono dove noi non siamo ancora
+    arrivati*, quindi questo elenco cresce mentre il progetto avanza, e la
+    guardia serve a farlo crescere **con un motivo scritto** invece che da solo.
+    Le due rese italiane stanno dentro il tetto (47 e 50 caratteri).
+
     ⭐ **E `event.hsp:521` non e' una deduzione: e' una fotografia.** La voce
     inglese dell'attacco del lupo mannaro ha 48 caratteri in un riquadro da 40
     (`bg_re9`, 280 px utili), e il 2026-08-18 il collaudo l'ha vista uscire
@@ -239,7 +249,8 @@ def test_le_voci_rotte_a_monte_restano_note():
     """
     monte = {(f, r) for f, r, _, _ in fuori_misura_inglese()}
     assert monte == {("tcg_custom.hsp", 1968), ("event.hsp", 521),
-                    ("chat.hsp", 19527), ("chat.hsp", 19563)}
+                    ("chat.hsp", 19527), ("chat.hsp", 19563),
+                    ("chat.hsp", 17710), ("chat.hsp", 17713)}
 
 
 # --- un chatList non e` sempre nella pergamena (corretto il 2026-08-18) ------
