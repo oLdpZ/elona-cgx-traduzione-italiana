@@ -1,45 +1,208 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-20, fine della **settantesima** sessione (**il sedicesimo
-punto cieco non era un file: era una CATEGORIA — i file dati di `data\`, 155.140
-caratteri di testo inglese che nessuna rete del progetto aveva mai guardato**).
+Aggiornato: 2026-08-20, fine della **settantunesima** sessione (**`talk.txt`
+chiuso, 569 righe su 569 — e due reti nuove nate da due righe che stavo per
+scrivere**).
 
-⭐⭐⭐ **La lezione che vale per tutto il lavoro che viene: UNA RETE PUNTATA SUL
-FILE SBAGLIATO NON TACE, MENTE.** La rete dei segnaposto e' stata girata su
-`talk.txt` col profilo di `board.txt` e ha «trovato» sei `{nptc}`, riportati a
-voce come refuso di monte. Non lo erano: `board.txt` passa da `*talktxt_conv`
-(`text.hsp:11922`, 33 nomi) e `talk.txt` da **`*convert_word`**
-(`text.hsp:6900`, **46** nomi), che conosce benissimo `nptc`, `npcc` e
-diciannove codici di espressione e di suono. E' la domanda della 53a — *finito
-per quale referto?* — nella sua forma piu' insidiosa: **misurato con quale
-rete?** Un referto sbagliato non si distingue da un reperto: va guardato da
-dove viene il metro, non solo che numero da'. Adesso c'e' `PROFILI` in
-`dati_verifica.py`, e il profilo porta l'espansore, se la riga e' `titolo:corpo`
-e la larghezza dell'a capo.
+⭐⭐⭐ **La lezione che vale per tutto il lavoro che viene: UNA REGOLA CHE IL
+PROGETTO CONOSCE E NON HA MESSO IN UNA GUARDIA NON E' UNA REGOLA, E' UN
+RICORDO.** La 41a aveva concluso «l'accento si evita, non si toglie», perche'
+`degrada` mette l'apostrofo dentro la parola: «dei» diventa «de'i». Per trenta
+sessioni e' rimasta una cosa da ricordarsi. Misurata sul dizionario intero:
+**quindici** violazioni, tutte scritte **dopo** quella lezione, fra cui sei nomi
+di mossa che il giocatore legge a ogni uso. 💡 Il ricordo di una regola decade
+con la stessa velocita' con cui il corpus cresce; la guardia no.
 
-⚠️⚠️ **E la lezione della 68a e' stata presa in pieno una seconda volta:
-l'ostacolo non e' il `pos` che viene dopo leggendo il sorgente.** Il tetto del
-titolo di un incarico era stato messo a 34 prendendo la scadenza a `wx + 344`,
-che e' il primo `pos` successivo nel testo. Ma `command.hsp:3391` disegna le
-**stellette del livello** a `wx + 270` — piu' a sinistra, e **dopo** il titolo.
-Tetto vero: **24**. A trovarlo e' stato il collaudo, misurando i pixel della
-bacheca di Yowyn: testo a 781 (`wx = 681`), stellette a 951, scadenza a 1027,
-cliente a 1073; e «Si fa festa!», dodici caratteri, finiva a 865 = 781 + 12x7.
-💡 *Una cosa disegnata dopo copre quel che c'era prima, e l'ordine di lettura
-del sorgente non dice qual e' la piu' a sinistra.*
+⚠️⚠️ **E le due reti sono nate allo stesso modo: mi sono fermato prima di
+scrivere una riga.** Non da un sospetto generico ne' da un giro di controllo:
+stavo per scrivere «gli dei» e mi sono chiesto che cosa ne facesse `degrada`;
+stavo per tradurre `AAREA,30|4` e sono andato a vedere in che cosa si espande
+`{you}`. 💡 *Il momento in cui si impara qualcosa sul motore e' quello in cui si
+sta per usarlo, non quello in cui lo si verifica.*
 
-⭐⭐ **E il collaudo ha mostrato una cosa che nessun ragionamento aveva
-convinto: due richieste identiche, affiancate.** La bacheca di Yowyn mostrava
-«Si fa festa!» due volte, stesso testo, due clienti diversi. Non e' un difetto
-della traduzione: `board.txt` ha **una** riga inglese per blocco dove il
-giapponese ne ha due o tre — monte ne ha buttate via 38. Finche' la bacheca
-mostra un avviso per volta non si nota; con tre dello stesso tipo affiancati, il
-taglio di monte diventa visibile. Il secondo lotto di `board.txt` adesso ha una
-ragione **misurata**.
+⚠️⚠️⚠️ **E la classificazione dei segnaposto era stata scritta sui NOMI invece
+che sui SITI: cinque su cinque nella casella sbagliata, tre esattamente al
+contrario.** `you` e `me` stavano fra il contenuto ed escono in **giapponese**
+in ogni lingua (`_kimi`/`_ore`, zero `lang()` in 86 righe). `onii` e `syujin`
+stavano fra le conversioni giapponesi ed escono in **inglese nudo**
+(`"brother"`, `"master"`, fuori da `lang()`). `sex` stava fra le conversioni
+giapponesi ed e' contenuto vero, gia' tradotto. E' la 61a — *misura la cosa, non
+una cosa vicina* — applicata a una tassonomia.
 
 ---
 
-## La settantesima sessione
+## La settantunesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **dodici** verifiche d'apertura. La
+sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
+**ventottesima prova** di fila, e le dodici verifiche hanno dato dodici volte i
+valori attesi della 70a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    pytest                  653 passed 6 skipped   (erano 636: +17 test delle due reti nuove)
+    rinviate.jsonl          73                     (erano 75: chiuse le due di " guest")
+    verifica --dizionario   text.hsp  0 / 0        (era 0 / 2: non ha piu' lang() scoperte)
+    dizionario/dati/        talk.txt.jsonl 569/569 TRADOTTE, il file e' chiuso
+    dizionario              +2 voci in text.hsp.jsonl; 15 rese corrette da «dei»
+                            accentato in chara_func / chat / proc
+
+Tutto il resto e' **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
+1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205, `riquadri` 0 su 38
+e 0 su 71, `menu_dialogo` 0 su 151, `linguette` 0 e 0, `battute --divergenti`
+**13**, `intestazioni_larghezze` banco ok e perimetro 0, `dati_applica
+--identita` 4 file e **2.987** righe, `toppe.jsonl` **1009**. `invariati.md` non
+e' stato toccato. Le dodici verifiche sono state rilanciate **anche in
+chiusura**: dodici su dodici.
+
+✅ **`cgx-test.exe` e' FRESCO** (20/08, 14:46) e con lui `talk_it.txt` intero:
+88.743 byte, 1.800 CRLF, **zero LF soli**.
+
+### ▶ Che cosa e' stato fatto
+
+    talk.txt, otto lotti    il parlato dei PNG, da 64/569 a 569/569      505 rese
+    text.hsp " guest"       il rinvio della 69a, chiuso              2 rinvii tolti
+    accenti_interni()       rete nuova: l'accento in mezzo alla parola  +9 test
+                            15 rese illeggibili trovate e corrette
+    Espansore.da_togliere   rete nuova: {you} e {me} escono giapponesi  +5 test
+    _INGLESI_NUDI           {onii} e {syujin} riclassificati            +3 test
+    ------------------------------------------------------------------------
+                            505 rese, 2 reti nuove, 17 test, 8 spinte
+
+### ▶ ⭐⭐⭐ Il pezzo che vale piu' di tutti: `talk.txt` chiuso
+
+**569 righe su 569.** Con `board.txt`, la **famiglia del senso della Fase 3 e'
+finita**: quel che resta di `data\` e' solo la famiglia dell'impaginazione.
+
+Gli otto lotti stanno in `avanzamento.md`, raggruppati per **chi parla** e non
+per posizione nel file — e questo e' il pezzo di metodo che vale per il prossimo
+file dati: un blocco di `talk.txt` non e' un capitolo, e' un **parlante**
+(`ALLY_DEFAULT` sono i compagni, `SHOPKEEPER` i negozianti, `AREA,15` i
+cittadini di Palmia). Raggruppando cosi', il registro e le decisioni di genere si
+prendono una volta per lotto invece che una volta per riga.
+
+⚠️⚠️ **E il conto pari delle righe NON prova l'allineamento fra le due lingue.**
+Quattro blocchi lo hanno smentito, in tre modi diversi (la tabella e' in
+`avanzamento.md`): `MOYER` **scambiato**, `AREA,12` e `AAREA,12` **sfalsati**,
+`BSHIP7` con due righe scambiate in mezzo. 💡 *Uno sfalsamento e' piu' insidioso
+di uno scambio, perche' le prime righe combaciano e sembrano confermare
+l'allineamento.* Nessuna rete lo vede: si guarda a mano, blocco per blocco,
+prima di cominciare.
+
+⚠️ **I blocchi con la `A` davanti sono le varianti di APRILE**
+(`gdata(GDATA_MONTH) == 4`, `text.hsp:9609` e segg.), non un'altra famiglia di
+parlanti. Sono 142 righe su 569, cioe' **un quarto del file**, e il giocatore le
+vede un mese l'anno. Due sono morte: `%ABITCH` e `%AKASHIC` non sono
+referenziate da nessuna parte.
+
+### ▶ ⭐⭐ Le due reti nuove
+
+Vedi le lezioni in cima e il ragionamento lungo in `decisioni.md`. Il punto
+operativo, per chi scrive il prossimo lotto:
+
+1. **Non si scrive una parola con l'accento in mezzo.** «dei» senza accento,
+   «scelto» invece di «d'elite». Adesso lo ferma `accenti.accenti_interni()`, ma
+   la resa giusta si sceglie prima.
+2. **`{you}` e `{me}` non si usano mai in italiano**, e vanno **tolti** anche
+   quando l'inglese di monte ce li ha.
+3. **`{sex}` porta il dimostrativo dentro** — «quel ragazzo» / «quella ragazza»
+   — perche' la firma e' condivisa con `_sex2`, che `proc.hsp:3290` usa cosi'.
+   In italiano va in terza persona, mai come vocativo.
+
+### ▶ ⭐ Il rinvio che si e' chiuso da solo
+
+Le due voci di `" guest"` erano rinviate dalla 69a con un motivo che diceva
+**quando** riaprirle: «va tradotta INSIEME a `talk.txt`». Il lotto 002 ha reso
+`MAID|1`, cioe' la frase che le incornicia, e la condizione era soddisfatta.
+`{ref}` diventa il numero nudo e il sostantivo passa nella frase italiana, con
+l'apposizione a due punti che regge anche 1: «Ospiti in attesa: {ref}».
+
+💡 **Un rinvio scritto bene si richiude da solo.** Quello diceva la condizione,
+non solo il rammarico — ed e' bastato leggerlo al momento giusto. Vale la pena
+scriverli tutti cosi'.
+
+### ▶ Quel che resta da guardare, in ordine
+
+1. ⭐⭐⭐ **Le 505 rese di `talk.txt` non sono state viste a schermo.** E' il
+   debito piu' grosso della sessione, e le righe piu' facili da raggiungere sono
+   le piu' comuni: `ALLY_DEFAULT` basta parlare a un compagno, `SHOPKEEPER`
+   entrare in un negozio, `AREA,5` girare per Vernis.
+2. ⭐⭐⭐ Il debito che viene da prima e non e' rientrato: le **243 rese della
+   69a**, la toppa degli stati del nome (` (marcio)`, ` (campione)`) **mai
+   riprovata**, le nove rese di `scheda-inglesi` della 68a e le **308 di
+   `chat.hsp`** della 67a.
+3. ⭐⭐⭐ **Le colonne della scheda che si sovrappongono** (68a): «Classe» e
+   «Guerriero» una sopra l'altra, «Altezza157 cm», «Velocita70(70)». Nessuna
+   rete guarda questa famiglia.
+4. ⭐⭐ Il **registro dei messaggi**: `You displace Azilarg la guardia.` visto in
+   gioco accanto a «Ti scambi di posto con \<Gwen\> l'innocente».
+5. ⭐⭐ La toppa dei trascorsi, `talk_conv s, 32` → **36**, da provare al banco.
+6. ⭐ Le 55 intestazioni «senza ostacolo a destra» della rete 20.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ La **famiglia dell'impaginazione**: `book.txt` (2.208 righe),
+   `manual_ENG.txt` (591), `exhelp.txt` (185). ⚠️ `help.hsp:273` disegna con
+   `gmes` a larghezza 330 px e conta **dieci righe di FILE per pagina**: una resa
+   piu' lunga sposta le pagine. Vuole il suo giro di progetto, e la misura della
+   colonna va presa dalla **geometria del disegno** (regola della 55a), non dal
+   numero di caratteri che l'inglese usa.
+2. ⭐⭐ `board.txt` **secondo lotto**: le 38 varianti giapponesi che monte ha
+   buttato via. Serve estendere `dati_applica` ad **aggiungere** righe, non solo
+   a sostituirle — e la prova d'identita' deve continuare a valere. ⚠️ E adesso
+   c'e' una ragione in piu': `talk.txt` ha lo stesso problema, e in grande.
+   `ZAILE` da solo ha 13 righe giapponesi contro **una** inglese, e sono le piu'
+   belle del file: la citta' che si spegne, la gente che non resta, «mi
+   farebbe piacere che ti ricordassi che sono stato qui».
+3. ⭐⭐ `autopick.txt` e `custom_autopick.hsp`: **78 delle 90 `lang()` sono
+   confronti** dentro `instr`, contro il file che il **giocatore scrive**. La via
+   d'uscita e' misurata: `custom_autopick.hsp:358` cerca il residuo dentro
+   `cnvitemname()`, quindi **l'ordine delle parole e' libero** e la chiave puo'
+   essere un'etichetta invariabile. ⚠️ E `autopick.txt` e' in **UTF-8**, non in
+   CP932 come gli altri sei.
+4. ⭐⭐⭐ `chat.hsp`: **4.046** da fare.
+5. ⭐⭐ **Dodici file con `lang()` e senza dizionario**, per **567** `lang()`:
+   `txtadv.hsp` 170, `material_data.hsp` 118, `custom_autopick.hsp` 90,
+   `help.hsp` 52, `net.hsp` 37, `custom_itemenchantment.hsp` 31, `quest.hsp` 26,
+   `material.hsp` 19.
+6. ⭐⭐ Il **muro del materiale**: `mithril sword` in italiano e' «spada **di**
+   mithril», postposta. 118 righe piu' i tre siti di `item_func.hsp`.
+7. ⭐ Le 93 di `command.hsp`, le 98 di `screen.hsp`, le 41 di `system.hsp`, le
+   622 di `event.hsp`, le 241 di `item_func.hsp`; i 1.146 di `db_card.hsp`.
+
+### ▶ Il collaudo
+
+**Non fatto**, ed e' il debito dichiarato in cima al punto 1. La sessione e'
+stata tutta di traduzione e di reti; `cgx-test.exe` e i due file dati sono
+freschi e pronti, i salvataggi non sono stati toccati.
+
+### ▶ Come si e' chiusa
+
+⚠️⚠️ **La sessione si chiude annunciando un CAMBIO DI TERMINALE.** E' la
+quattordicesima volta; tutte le volte verificate finora la sessione dopo si e'
+riaperta sulla **stessa** macchina, `DESKTOP-1O339MR`.
+
+⚠️⚠️ Se questa volta e' davvero un'altra macchina, le cose che **non stanno nel
+repo** sono cinque:
+
+    i tre CSV degli epiteti    python scratchpad/epiteti_vocabolario.py   (vogliono i CRLF)
+    dati-sorgente\             python -m strumenti.dati_sorgente --pinna
+    l'albero di build          python -m strumenti.applica
+    cgx-test.exe               python -m strumenti.compila --eseguibile
+    data\board_it.txt e talk_it.txt   li scrive `applica` in build\dati\, poi si copiano
+
+⚠️ L'ordine conta: prima `dati_sorgente --pinna` (senza la copia pinnata
+`applica` si ferma), poi `applica`, poi — **non incatenato** —
+`compila --eseguibile`. E vale [[elona-ambiente-python]]: serve un Python 3.10+.
+💡 Da questa shell `strumenti.battute` vuole `PYTHONIOENCODING=utf-8` davanti, o
+muore di `UnicodeEncodeError`.
+
+---
+
+## La settantesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

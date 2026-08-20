@@ -774,11 +774,16 @@ python -m strumenti.dati_verifica lavoro/<file>-001.jsonl
 | file | tradotte | righe EN | % | famiglia |
 |---|---|---|---|---|
 | `board.txt` | **25** | 25 | **100%** | senso |
-| `talk.txt` | **64** | 569 | 11% | senso |
+| `talk.txt` | **569** | 569 | **100%** | senso |
 | `exhelp.txt` | 0 | 185 | 0% | impaginazione |
 | `manual_ENG.txt` | 0 | 591 | 0% | impaginazione |
 | `book.txt` | 0 | 2.208 | 0% | impaginazione |
-| **totale** | **89** | **3.578** | **2%** | |
+| **totale** | **594** | **3.578** | **17%** | |
+
+⭐ **La famiglia del senso e' CHIUSA** (71a): `board.txt` e `talk.txt` sono
+tutt'e due al 100%. Quel che resta e' la famiglia dell'impaginazione, dove la
+riga e' un'unita' di **disegno** e vuole prima una misura della colonna presa
+dalla geometria (regola della 55a).
 
 ⚠️ **La famiglia decide l'unita' di traduzione.** Dove la riga e' un'unita' di
 **senso** il gioco ne pesca una a caso (`rnd`) e si traduce riga per riga; dove
@@ -789,4 +794,35 @@ e' un'unita' di **disegno** l'inglese e' spezzato a mano a larghezza fissa
 `*talktxt_conv` (33 nomi), `talk.txt` da `*convert_word` (46). Stanno in
 `PROFILI`, dentro `strumenti/dati_verifica.py`.
 
-Blocchi di `talk.txt` chiusi: `DEFAULT`, `PERSONALITY,0`-`,3`.
+`talk.txt` e' stato chiuso in **otto lotti** (71a), raggruppati per *chi
+parla* e non per posizione nel file:
+
+| lotto | che cosa | righe |
+|---|---|---|
+| 001 (70a) | `DEFAULT` e le quattro `PERSONALITY` | 64 |
+| 002 | chi ti parla addosso: compagni, mestieri, figure | 58 |
+| 003 | le citta' della Tyris del Nord | 61 |
+| 004 | il rifugio e le citta' della Tyris del Sud | 58 |
+| 005 | voci sul bottino, feste, dei, campo di battaglia | 56 |
+| 006 | Irva Perduta e i suoi presidi | 62 |
+| 007 | la nave divina e i biscotti della fortuna | 68 |
+| 008 | le varianti d'aprile dei luoghi | 81 |
+| 009 | le varianti d'aprile di chi parla | 61 |
+
+⚠️⚠️ **Il conto pari delle righe NON prova l'allineamento fra le due lingue.**
+Quattro blocchi lo hanno smentito in modi diversi, e nessuna rete lo vede:
+
+| blocco | forma | che cosa succede |
+|---|---|---|
+| `MOYER` | 2 contro 2 | **scambiato**: EN|1 rende JP2, EN|2 rende JP1 |
+| `AREA,12` | 8 contro 8 | **sfalsato**: da EN|4 in poi scala di uno, JP4 buttata, EN|8 inventata |
+| `BSHIP7` | 17 contro 30 | EN|13 e EN|14 scambiate fra loro |
+| `AAREA,12` | 5 contro 6 | sfalsato, JP1 buttata |
+
+💡 Uno **sfalsamento** e' piu' insidioso di uno scambio: le prime righe
+combaciano e sembrano confermare l'allineamento.
+
+⚠️ **I blocchi con la `A` davanti sono le varianti di APRILE**, non un'altra
+famiglia di parlanti: `text.hsp:9609` e seguenti li scelgono con
+`gdata(GDATA_MONTH) == 4`. E due sono **morti**: `%ABITCH` e `%AKASHIC` non
+sono referenziati da nessuna parte.

@@ -5798,3 +5798,118 @@ su una voce di `chatList`, cioè su una frase che il giocatore **dice**, non che
 riceve: «ero mezzo addormentato» è la resa ovvia di 寝ぼけてた e non si può
 scrivere. La forma che regge è quella che sposta il predicato su un sostantivo —
 «ho ancora il sonno addosso» — ed è la stessa mossa delle etichette di stato.
+
+---
+
+## 71ª — L'accento in mezzo alla parola, e tre segnaposto classificati male
+
+Due reti nuove, nate tutt'e due da una riga che stavo per scrivere e non da un
+sospetto generico. Le racconto insieme perché hanno la stessa forma: **una
+regola vera che il progetto conosceva e non aveva mai messo in una guardia**.
+
+### 1. La degradazione regge solo sull'ultima lettera
+
+`accenti.degrada()` sostituisce ogni vocale accentata con vocale + apostrofo,
+perché CP932 non codifica `à è é ì ò ù`. Funziona perché in italiano l'accento
+cade quasi sempre sull'**ultima** lettera, e lì l'apostrofo è quel che la lingua
+scrive comunque: `piu'`, `citta'`, `perche'`.
+
+⚠️ **Ma «dèi» diventa «de'i» e «élite» diventa «e'lite».** È la lezione della
+41ª (2026-08-14), che si chiudeva con *«si evita la parola, non si toglie
+l'accento»* — e per trenta sessioni è rimasta una cosa da ricordarsi.
+
+Stavo per scrivere «gli dèi» in una resa di `talk.txt` e mi sono fermato a
+chiedermi che cosa ne facesse `degrada`. Poi ho misurato il dizionario intero:
+**quindici occorrenze**, tutte scritte *dopo* la 41ª, fra cui **sei nomi di
+mossa** in `proc.hsp` che il giocatore legge a ogni uso — `<Soffio degli dèi
+creatori>`, `<Ruggito degli dèi guerrieri>`.
+
+💡 **Nessuno dei tre controlli esistenti poteva vederle**, e il motivo è
+istruttivo: la forma degradata «de'i» CP932 la scrive benissimo, quindi
+`doppi_byte_cp932` e `non_ascii_residuo` tacciono; e
+`ha_apostrofo_scritto_a_mano` guarda il **lotto**, dove l'accento è scritto
+giusto. Il difetto non è un carattere: è **dove cade**. Una guardia che chiede
+«questo carattere si può scrivere?» non risponde alla domanda «questa parola si
+legge?».
+
+La correzione è `dei`: l'accento grave serve solo a distinguerlo dalla
+preposizione, quindi si toglie senza cambiare parola. Adesso c'è
+`accenti.accenti_interni()`, agganciata a `verifica.py` e a `dati_verifica.py`,
+e un test che gira su tutto il dizionario.
+
+### 2. `{you}` e `{me}` escono in giapponese anche nella build inglese
+
+`AAREA,30|4` è l'unica riga inglese di `talk.txt` che porta `{you}`. Prima di
+tradurla sono andato a vedere che cosa ci mette l'espansore: `_kimi(3)`,
+`text.hsp:5329`. E quella funzione — come `_ore(3)` per `{me}`, `:5851` — **non
+ha nessun `lang()`**: ottantasei righe di `if ( cdata(CDATA_TONE, tc) == n )`
+che scelgono fra 貴方, お前, 君, 私, 俺, 僕 secondo il tono del parlante, in
+qualunque lingua.
+
+⚠️ **Non è un difetto nostro: è di monte, e si vede nella sua build inglese.**
+Un mese l'anno, nel rifugio, un cittadino dice «We're almost out of food. お前,
+share some of yours with us.»
+
+Erano classificati come **contenuto** in tutt'e due gli espansori. Non lo sono,
+ma non sono nemmeno conversioni giapponesi da rifiutare: sono una terza
+famiglia, `Espansore.da_togliere`, e il confronto sui segnaposto li **sottrae
+all'inglese** invece di pretenderli nella resa.
+
+### 3. E allora ho guardato gli altri tre nomi latini
+
+`_GIAPPONESI` conteneva `onii`, `syujin`, `sex`. Nessuno dei tre era al posto
+giusto, e in due modi diversi:
+
+| nome | sito | che cosa fa davvero |
+|---|---|---|
+| `{sex}` | `text.hsp:7057` | `lang("男", "boy")` — è **contenuto**, ed è già tradotto |
+| `{onii}` | `text.hsp:7030` | ramo `else`: `"brother"` / `"sister"`, letterali **fuori** da `lang()` |
+| `{syujin}` | `text.hsp:7050` | ramo `else`: `"master"`, idem |
+
+`onii` e `syujin` non escono in giapponese: escono in **inglese**, anche in
+build italiana, perché il dizionario non arriva a un letterale nudo. Sono
+`_INGLESI_NUDI`, con un messaggio che dice questo — e sarebbero toppabili, se
+mai un inglese di monte li usasse (oggi nessuno lo fa, né in `talk.txt` né in
+`board.txt`).
+
+Le diciotto conversioni kana sono state ricontrollate una per una: zero `lang()`
+e zero rami `if ( jp )` nel corpo. Quelle stavano bene dov'erano.
+
+💡 **La lezione di metodo:** la classificazione era stata scritta guardando i
+**nomi** — `onii` e `syujin` *suonano* giapponesi, `you` e `me` *suonano*
+inglesi — invece dei **siti**. È la regola della 61ª (*misura la cosa, non una
+cosa vicina*) applicata a una tassonomia: cinque nomi su cinque erano nella
+casella sbagliata, e tre di loro erano esattamente al contrario.
+
+### 4. `{sex}` porta il dimostrativo, e la colpa è di un altro file
+
+`{sex}` rende `lang("男", "boy")`, che ha la **stessa firma** di `_sex2`
+(`text.hsp:110`). E `_sex2` lo usa `proc.hsp:3290` dentro «C-con quel ragazzo
+era solo una cosa di letto», dove il dimostrativo dev'essere dentro la parola
+perché *quel* e *quella* non si possono scrivere fuori.
+
+Quindi in italiano `{sex}` vale **«quel ragazzo» / «quella ragazza»**, e una
+resa che lo usasse come vocativo direbbe «che bel quel ragazzo che sei».
+
+È la 63ª — *una stringa in due siti, e una decisione presa guardandone uno rompe
+l'altro* — ma senza la via d'uscita di allora: lì bastava un due punti nella
+giuntura, qui la giuntura è dentro una funzione che sceglie fra due generi. La
+resa gira intorno all'ostacolo mettendo `{sex}` in **terza persona** («quel
+ragazzo mi piace proprio»), che in italiano è anche un modo di corteggiare.
+È la 64ª: *esiste una costruzione che non chiede quello che non posso dare?*
+
+### 5. Il rinvio che si è chiuso da solo
+
+Le due voci di `" guest"` in `text.hsp` erano rinviate dalla 69ª con un motivo
+che diceva **quando** riaprirle: «va tradotta INSIEME a `talk.txt`». Il lotto
+002 ha reso `MAID|1` — proprio la frase che le incornicia — e la condizione era
+soddisfatta.
+
+La resa non traduce «guest»: lo **toglie**. `{ref}` diventa il numero nudo, cioè
+lo stesso che già rende il ramo giapponese, e il sostantivo passa nella frase:
+
+    Eccoti a casa, {player}! Ospiti in attesa: {ref}. Li ricevi subito?
+
+💡 Così il plurale **sparisce** invece di essere risolto: «Ospiti in attesa: 1»
+regge come «: 3», mentre ogni resa che porti il sostantivo dentro `{ref}` sbaglia
+su uno dei due casi. `text.hsp` non ha più nessuna `lang()` scoperta.
