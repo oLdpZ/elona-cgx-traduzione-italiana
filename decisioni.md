@@ -90,9 +90,49 @@ Le rese gemelle arrivano da `db_card.hsp` **con l'articolo dentro** («il
 marinaio», «l'anziano»), le cornici sono ancora inglesi, e in italiano una
 cornice deve accordarsi in genere col pezzo che ci finisce. Si traducono
 **insieme alle cornici**, come gli epiteti della 64ª: è un giro di progetto, non
-un travaso. 💡 E la prova che varrà per quel giro è già scritta nella 64ª: *la
-grammatica di un generatore si prova sui dati veri*, cioè componendo tutte le
-combinazioni e leggendole.
+un travaso.
+
+### La grammatica scelta per il generatore, e come si è provata
+
+Fatto nella stessa sessione: 158 pezzi e 35 cornici (3523-3629: il mare, la
+strada e Lost Ylva). L'accordo di genere si scioglie in quattro mosse:
+
+1. **ogni pezzo porta il proprio articolo indeterminativo** — «un marinaio»,
+   «una medusa kraken», «un'arpia» — così la cornice non deve indovinare il
+   genere di quel che ci finisce dentro;
+2. **`donna` diventa una locuzione invariabile POSTPOSTA.** In giapponese è un
+   aggettivo prenominale (`変な髪形の` + `hito`); in italiano diventa «dal taglio
+   di capelli assurdo», «in fin di vita», «pelle e ossa», «ormai cadavere» —
+   nessuna di queste si accorda. ⭐ E l'ordine possiamo cambiarlo **perché
+   l'espressione la scriviamo intera**: `applica` mette quel che diciamo noi,
+   quindi il pezzo può passare da prima a dopo il nome;
+3. `nagara` era già avverbiale e non si accordava con niente;
+4. **nessuna cornice porta participi o aggettivi che si accordino col pezzo**:
+   «an enraged `mon`» → «`mon` **fuori di sé**», «a flying `tori`» → «`tori` **in
+   volo**», «completely naked» → «**senza un filo addosso**».
+
+⭐⭐ **La prova è la regola della 64ª, e ha pagato.** Composte tutte e 35 le
+cornici **due volte** — un giro con i pezzi tutti femminili, uno con tutti
+maschili — e lette. Tre sono state riscritte, e nessuna delle tre per un accordo:
+
+    3562   «implorare pietà A una mandragora»       → «in ginocchio davanti a…»
+    3616   «una guardia … che le GUARDIE portavano via» → «in mano alle guardie»
+    3626   il participio si attaccava al soggetto sbagliato
+
+💡 *Quel che la lettura trova non è quel che il metodo prevedeva.* La grammatica
+ha retto su tutte e 70 le frasi; a cadere sono state una reggenza, una ripetizione
+e un'ambiguità — cose che nessuna regola di accordo avrebbe fermato.
+
+### E la geometria si misura, non si stima
+
+`event.hsp:4154` manda a capo con `talk_conv buff, (dx - 80) / (7 - en) - en * 4`,
+dove `dx` è la larghezza del `bg_re*.bmp` più 36: **34 caratteri** per gli eventi
+di mare (`bg_re25`, 275 px) e **48** per quelli di viaggio (`bg_re13`, 360). ⭐ Ma
+l'altezza della finestra **cresce con le righe** (`dy = ty + noteinfo(0) * 15 +
+80 + listmax * 20`), quindi non c'è un tetto duro: il costo di una riga in più è
+15 px. Misurato col simulatore del progetto (`diario.manda_a_capo`) sul caso
+peggiore — il pezzo più lungo di ogni famiglia in ogni cornice — l'italiano sta
+al massimo **una riga** sopra l'inglese, con cinque righe in tutto.
 
 ### Quel che è rimasto fuori apposta
 

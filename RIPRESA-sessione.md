@@ -1,7 +1,8 @@
 # Ripresa sessione
 
 Aggiornato: 2026-08-20, fine della **settantatreesima** sessione (**la rete
-delle gemelle, 296 rese, e quattordici menu di `chat.hsp` chiusi interi**).
+delle gemelle, 489 rese, quattordici menu di `chat.hsp` chiusi interi e il
+generatore degli eventi di viaggio**).
 
 ⭐⭐⭐ **La lezione che vale per tutto il lavoro che viene: OGNI RETE DEL
 PROGETTO PARTE DA UNA STRINGA, MA IL GIOCATORE NON LEGGE UNA STRINGA — LEGGE UNA
@@ -39,10 +40,10 @@ volte i valori attesi della 72ª.
 
     pytest                  706 passed 6 skipped   (erano 684: +22 test della rete nuova)
     verifica --dizionario   chat.hsp   0 / 3648    (erano 3920)
-                            event.hsp  0 / 598     (erano 622)
+                            event.hsp  0 / 410     (erano 622)
     menu_dialogo            0 su 417 misurate      (erano 257: piu' rese = piu' misurabili)
                             e «a due colonne: 0 rese peggiorate»
-    dizionario              chat.hsp +272 voci, event.hsp +24
+    dizionario              chat.hsp +272 voci, event.hsp +217
 
 Tutto il resto è **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
 1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205, `riquadri` 0 su 38
@@ -55,11 +56,11 @@ file e 2.987 righe, `dati_sorgente` 7/7, `gronde` 0 su 5, `maiuscole` 144 siti e
 è un **elenco di lavoro**, non una guardia: i suoi numeri scendono man mano che
 si traduce, quindi non ha un valore atteso. Oggi dice:
 
-    gemelle      175   (erano 392)   di cui 116 il generatore di event.hsp
-    divergenti    11   (erano  13)   e 21 custom_autopick.hsp, delicato
-    quasi        167   (erano 201)
+    gemelle       59   (erano 392)   di cui 21 custom_autopick.hsp, delicato
+    divergenti     2   (erano  13)
+    quasi        162   (erano 201)
 
-✅ **`cgx-test.exe` è FRESCO** (20/08, 22:18) e con lui i due file dati:
+✅ **`cgx-test.exe` è FRESCO** (20/08, 22:45) e con lui i due file dati:
 `talk_it.txt` 88.743 byte, 1.800 CRLF, **zero LF soli**.
 
 ### ▶ Che cosa è stato fatto
@@ -68,8 +69,9 @@ si traduce, quindi non ha un valore atteso. Oggi dice:
     chat.hsp fuori dai menu la finestra delle modalità, i materiali        120 rese
     chat.hsp, 14 menu       76 gemelle + 78 sorelle + 2 di misura          152 rese
     event.hsp               le 24 fuori dal generatore, +1 sorella          24 rese
+    il generatore           158 pezzi e 35 cornici, grammatica nuova       193 rese
     ------------------------------------------------------------------------
-                            296 rese, 1 rete nuova, 22 test, 5 spinte
+                            489 rese, 1 rete nuova, 22 test, 7 spinte
 
 ### ▶ ⭐⭐⭐ La rete: tre classi, e la terza è quella che salva
 
@@ -90,18 +92,38 @@ non ha letterali giapponesi e il vuoto combacia con tutti (34 falsi tolti).
 scritto a mano** — 44 mancanti contro 91: contava fra le «coperte» anche le
 quasi gemelle, che nel lotto non ci vanno. Adesso c'è un test.
 
-### ▶ ⚠️⚠️ `event.hsp` non si travasa: le sue gemelle sono un GENERATORE
+### ▶ ⭐⭐⭐ Il generatore degli eventi di viaggio, e la grammatica che lo scioglie
 
-**125 delle 148** sono pezzi (`hito`, `mon`, `tori`, `item`, `drink`, `tree`,
-righe 3018-3473) che una trentina di cornici montano a caso:
+**125 delle 148 gemelle di `event.hsp`** non erano messaggi: erano i pezzi di un
+generatore — `hito`, `mon`, `tori`, `item`, `drink`, `tree` più i modificatori
+`donna` e `nagara` — che 35 cornici montano a caso (`3523-3629`).
 
     "You saw an enraged " + mon + " with a " + hito + " latched onto it's teeth..."
 
-Le rese gemelle arrivano da `db_card.hsp` **con l'articolo dentro**, le cornici
-sono ancora inglesi, e in italiano la cornice deve accordarsi in genere col
-pezzo. È un **giro di progetto**, come gli epiteti della 64ª — e la prova
-gratuita è già scritta lì: *la grammatica di un generatore si prova sui dati
-veri*, componendo tutte le combinazioni e leggendole.
+Le rese gemelle arrivavano da `db_card.hsp` **con l'articolo determinativo
+dentro** e in italiano la cornice deve accordarsi col pezzo. Le quattro mosse
+(il ragionamento lungo è in `decisioni.md`):
+
+1. **ogni pezzo porta il proprio articolo indeterminativo** — «un marinaio»,
+   «un'arpia» — così la cornice non deve indovinare il genere;
+2. **`donna` diventa invariabile e POSTPOSTO** — «in fin di vita», «pelle e
+   ossa». ⭐ L'ordine si può cambiare **perché l'espressione la scriviamo
+   intera**: `applica` mette quel che diciamo noi;
+3. `nagara` era già avverbiale;
+4. **nessuna cornice porta participi che si accordino col pezzo**: «an enraged
+   mon» → «`mon` fuori di sé», «completely naked» → «senza un filo addosso».
+
+⭐⭐ **La prova, e quel che ha trovato.** Composte tutte e 35 le cornici **due
+volte** — pezzi tutti femminili, pezzi tutti maschili — e lette: tre riscritte, e
+**nessuna delle tre per un accordo** («implorare pietà *a*», «una guardia… che le
+*guardie* portavano via», un participio attaccato al soggetto sbagliato). 💡 *La
+grammatica ha retto su settanta frasi; a cadere sono state una reggenza, una
+ripetizione e un'ambiguità — cose che nessuna regola di accordo avrebbe fermato.*
+
+⭐ **La geometria misurata**: `talk_conv` va a capo a **34** caratteri in mare
+(`bg_re25`, 275 px) e **48** in viaggio (`bg_re13`, 360), e la finestra **cresce
+di 15 px a riga** (`noteinfo(0) * 15`), quindi non c'è tetto duro. Caso peggiore
+col simulatore del progetto: **una riga** più dell'inglese, cinque in tutto.
 
 ### ▶ Quel che resta da guardare, in ordine
 
@@ -117,10 +139,7 @@ veri*, componendo tutte le combinazioni e leggendole.
 
 ### ▶ Quel che resta aperto
 
-1. ⭐⭐⭐ Il **generatore di `event.hsp`**: 116 pezzi più una trentina di cornici.
-   Vuole il suo giro di progetto (vedi sopra), e chiude un'intera famiglia di
-   eventi di viaggio che il giocatore incontra di continuo.
-2. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208 righe),
+1. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208 righe),
    `manual_ENG.txt` (591), `exhelp.txt` (185). ⚠️ `help.hsp:273` conta **dieci
    righe di FILE per pagina**: la misura della colonna va presa dalla geometria.
    Il nome `manual_ENG.txt` è in `invariati.md`: tradotto diventa una **toppa**
@@ -144,10 +163,16 @@ veri*, componendo tutte le combinazioni e leggendole.
 
 ### ▶ Il collaudo
 
-**Chiesto a chi sta alla macchina alla fine della sessione**, con la build
-fresca già installata. Quel che ne esce va scritto qui: se la ripresa dice
-«nessun collaudo», vale la 51ª e la 54ª — il lavoro si accumula tutto dalla
-stessa parte.
+**Fatto da chi sta alla macchina, a metà sessione: «mi pare tutto ok».** I
+quattordici menu e le 296 rese di allora sono arrivati a schermo e reggono. ⚠️
+Ma vale la 56ª: *da un collaudo che conferma non esce lavoro*, e il valore sta
+nell'averlo fatto, non in quel che ha trovato.
+
+⚠️ **Le 193 rese del generatore, invece, non sono state viste**, e sono le più
+difficili da far comparire: gli eventi di viaggio escono a caso viaggiando sulla
+mappa del mondo (`rnd(12)` in mare, e le varianti di strada e Lost Ylva). Chi
+collauda ne vedrà una ogni tanto camminando: quel che conta è che la frase
+**stia in piedi da sola**, perché i pezzi cambiano ogni volta.
 
 ---
 

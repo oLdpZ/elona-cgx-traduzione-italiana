@@ -137,18 +137,35 @@ dizionario e che nessun referto nominava. **296 rese, una rete nuova, 22 test.**
 | `chat.hsp`, i quattordici menu | 152 | 76 gemelle + 78 sorelle + 2 correzioni di misura |
 | `event.hsp` fuori dal generatore | 24 | e il menu `4504-4509` chiuso intero |
 | `event.hsp:1070` | 1 | la sorella mancante di un menu da due voci |
+| il generatore di `event.hsp` | 193 | 158 pezzi e 35 cornici, con la grammatica nuova |
 
-`chat.hsp` scende da 3.920 a **3.648** e **non ha più nessuna gemella**;
-`event.hsp` da 622 a **598**.
+`chat.hsp` scende da 3.920 a **3.648** e `event.hsp` da 622 a **410**: nessuno
+dei due ha più gemelle. **489 rese in tutto.**
 
 ### Le tre classi, misurate su tutto il progetto
 
-    gemelle      392 -> 175    la firma combacia: valida per costruzione
-    divergenti    13 ->  11    già resa in due modi: sceglie chi legge
-    quasi        201 -> 167    solo il giapponese: da leggere, mai da travasare
+    gemelle      392 -> 59     la firma combacia: valida per costruzione
+    divergenti    13 ->  2     già resa in due modi: sceglie chi legge
+    quasi        201 -> 162    solo il giapponese: da leggere, mai da travasare
 
-Di quel che resta, **116 sono il generatore di `event.hsp`** e **21 sono
-`custom_autopick.hsp`**, che è delicato: il resto è pulviscolo su quindici file.
+Delle 59 che restano, **21 sono `custom_autopick.hsp`**, che è delicato: il
+resto è pulviscolo su quindici file. La famiglia è, in pratica, chiusa.
+
+### ⭐⭐ Il generatore degli eventi di viaggio
+
+Le 116 gemelle ferme in `event.hsp` erano i **pezzi di un generatore**: `hito`,
+`mon`, `tori`, `item`, `drink`, `tree` più i due modificatori `donna` e
+`nagara`, montati a caso in 35 cornici (`3523-3629`). La grammatica — articolo
+dentro il pezzo, `donna` invariabile e postposto, cornici senza participi che si
+accordino — sta in `decisioni.md`.
+
+⭐ **Provata componendo tutte e 35 le cornici due volte**, una con i pezzi tutti
+femminili e una con tutti maschili, e **leggendole**: tre riscritte, e nessuna
+delle tre per un accordo (una reggenza, una ripetizione, un'ambiguità).
+
+⭐ **La geometria misurata, non stimata**: `talk_conv` va a capo a 34 caratteri
+in mare (`bg_re25`) e 48 in viaggio (`bg_re13`), e la finestra **cresce di 15 px
+a riga**. Caso peggiore: una riga più dell'inglese, cinque in tutto.
 
 ### ⭐⭐⭐ 82 gemelle su 194 stavano dentro un menu, e nessun menu si chiudeva
 
