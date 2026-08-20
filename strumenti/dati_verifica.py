@@ -112,10 +112,37 @@ def _titolo(testo: str) -> str | None:
     return None if posizione == -1 else testo[:posizione]
 
 
-def controlla(voci: list[dict], invariati: set[str] | None = None) -> list[Problema]:
-    """I problemi delle rese italiane di un lotto. Le voci non tradotte si saltano."""
+def righe_del_corpo(testo: str, tetto: int) -> int:
+    """Quante righe prende il corpo (quel che sta dopo il primo due punti).
+
+    I segnaposto si lasciano com'e' invece di espanderli: l'inglese e la resa ne
+    hanno lo **stesso insieme** — e' una delle reti — quindi a tempo
+    d'esecuzione crescono tutt'e due della stessa quantita', e il confronto
+    resta onesto senza dover indovinare che oggetto uscira'.
+    """
+    posizione = testo.find(":")
+    corpo = testo if posizione == -1 else testo[posizione + 1:]
+    return len(righe_a_capo(corpo, tetto))
+
+
+def controlla(voci: list[dict], invariati: set[str] | None = None,
+              tetto_a_capo: int | None = None) -> list[Problema]:
+    """I problemi delle rese italiane di un lotto. Le voci non tradotte si saltano.
+
+    Con `tetto_a_capo` accende anche la rete dell'**altezza**: nessuna resa puo'
+    prendere piu' righe della piu' lunga fra quelle inglesi dello stesso lotto.
+
+    ⚠️ Il tetto non viene da una misura dello schermo — l'altezza della riga di
+    `mes` a corpo 11 non e' mai stata misurata — ma dal **corpo**: quel che
+    upstream ci fa stare, ci sta. E' un tetto piu' debole di quello vero e piu'
+    forte di nessun tetto, e va dichiarato per quel che e'.
+    """
     invariati = invariati or set()
     problemi: list[Problema] = []
+
+    massimo_monte = None
+    if tetto_a_capo is not None and voci:
+        massimo_monte = max(righe_del_corpo(v["en"], tetto_a_capo) for v in voci)
 
     def segnala(voce, genere, dettaglio):
         problemi.append(Problema(genere, voce["blocco"], voce["riga"], dettaglio))
@@ -172,21 +199,38 @@ def controlla(voci: list[dict], invariati: set[str] | None = None) -> list[Probl
                         f"{largo} caratteri, tetto {TETTO_TITOLO}: {titolo!r}")
 
         # ------------------------------------------------------- doppi byte
-        # ⚠️ Servono TUTT'E DUE i controlli, e la differenza si e' vista
-        # scrivendo il test: «—» (U+2014) CP932 non lo codifica affatto, quindi
-        # lo prende `non_ascii_residuo`; quello a due byte e' «―» (U+2015). Un
-        # controllo solo lasciava passare proprio il trattino lungo che si
-        # infila da se' scrivendo prosa italiana (67a).
-        residui = accenti.doppi_byte_cp932(resa)
+        # ⚠️ Si guarda la forma DEGRADATA, come fa `verifica.py` per gli .hsp:
+        # nel lotto va l'accento vero («perché»), e la degradazione ad apostrofo
+        # la fa l'applicazione. Controllare la resa grezza segnalerebbe ogni «è».
+        # Quel che resta dopo la degradazione e' un problema vero.
+        #
+        # ⚠️ E servono TUTT'E DUE i controlli: la differenza si e' vista
+        # scrivendo il test, perche' «—» (U+2014) CP932 non lo codifica affatto
+        # — lo prende `non_ascii_residuo` — mentre quello a due byte e' «―»
+        # (U+2015). Con un controllo solo passava proprio il trattino lungo che
+        # si infila da se' scrivendo prosa italiana (67a).
+        a_schermo = accenti.degrada(resa)
+        if accenti.ha_apostrofo_scritto_a_mano(resa):
+            segnala(voce, "apostrofo",
+                    "apostrofo scritto a mano: nel lotto va l'accento vero, "
+                    "la degradazione la fa l'applicazione")
+        residui = accenti.doppi_byte_cp932(a_schermo)
         if residui:
             segnala(voce, "doppi byte", "".join(residui))
-        fuori_cp932 = accenti.non_ascii_residuo(resa)
+        fuori_cp932 = accenti.non_ascii_residuo(a_schermo)
         if fuori_cp932:
             segnala(voce, "fuori cp932", "".join(fuori_cp932))
 
         # --------------------------------------------------------- identica
         if resa == voce["en"] and resa not in invariati:
             segnala(voce, "identica", "la resa e' l'inglese")
+
+        # ---------------------------------------------------------- altezza
+        if massimo_monte is not None:
+            quante = righe_del_corpo(accenti.degrada(resa), tetto_a_capo)
+            if quante > massimo_monte:
+                segnala(voce, "altezza",
+                        f"{quante} righe a capo, il piu' lungo di monte ne prende {massimo_monte}")
 
     return problemi
 
@@ -210,6 +254,9 @@ def segnaposto_ignoti_di_monte(voci: list[dict]) -> list[Problema]:
 def main() -> None:
     analizzatore = argparse.ArgumentParser(description="Controlla un lotto di file dati.")
     analizzatore.add_argument("lotto", help="percorso del lotto JSONL")
+    analizzatore.add_argument("--tetto", type=int, default=70,
+                              help="larghezza a cui il gioco manda a capo il corpo "
+                                   "(board.txt: talk_conv buff, 70 in command.hsp:3367)")
     argomenti = analizzatore.parse_args()
 
     voci = [json.loads(r) for r in Path(argomenti.lotto).read_text(encoding="utf-8").splitlines() if r.strip()]
@@ -218,7 +265,7 @@ def main() -> None:
     for problema in segnaposto_ignoti_di_monte(voci):
         print(problema)
 
-    problemi = controlla(voci)
+    problemi = controlla(voci, tetto_a_capo=argomenti.tetto)
     for problema in problemi:
         print(problema)
 

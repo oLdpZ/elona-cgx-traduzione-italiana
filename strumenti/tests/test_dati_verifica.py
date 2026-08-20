@@ -182,3 +182,46 @@ def test_una_parola_piu_lunga_del_tetto_manda_a_capo_mille_volte():
     assert len(righe) == 1001
     assert righe[:3] == ["", "", ""]
     assert righe[-1] == "incomprensibilmente si"
+
+
+# ------------------------------------------------ l'accento e la degradazione
+
+def test_un_accento_vero_non_e_un_problema():
+    # nel lotto va «perché», non «perche'»: la degradazione la fa
+    # l'applicazione, e la rete guarda quel che resta DOPO
+    assert problemi(voce(it="Perché no:il corpo con {reward}.")) == []
+
+
+def test_un_apostrofo_scritto_a_mano_e_un_problema():
+    assert "apostrofo" in problemi(voce(it="Perche' no:il corpo con {reward}."))
+
+
+def test_l_elisione_non_e_un_apostrofo_scritto_a_mano():
+    assert problemi(voce(it="L'affare:un po' di {reward} per l'incarico.")) == []
+
+
+# -------------------------------------------------------------- l'altezza
+
+def test_senza_tetto_la_rete_dell_altezza_e_spenta():
+    lunghissima = "T:" + "parola " * 60
+    assert "altezza" not in problemi(voce(en="T:corto {reward}", it=lunghissima))
+
+
+def test_una_resa_piu_alta_del_piu_lungo_di_monte_e_un_problema():
+    lotto = [voce(en="A:" + "x " * 5, it="A:{reward}", blocco="A"),
+             voce(en="B:" + "y " * 5, it="B:" + "parola " * 30, blocco="B")]
+    generi = [p.genere for p in dati_verifica.controlla(lotto, tetto_a_capo=20)]
+    assert "altezza" in generi
+
+
+def test_il_tetto_dell_altezza_lo_fissa_la_riga_inglese_piu_lunga():
+    # una resa alta quanto la piu' alta di monte passa: il tetto e' il corpus
+    lungo = "parola " * 12
+    lotto = [voce(en="A:" + lungo, it="A:" + lungo.replace("parola", "vocabo"), blocco="A")]
+    assert dati_verifica.controlla(lotto, tetto_a_capo=20) == []
+
+
+def test_i_segnaposto_non_si_espandono_per_contare_le_righe():
+    # en e it hanno lo stesso insieme di segnaposto, quindi crescono uguale:
+    # contare sul testo grezzo e' onesto e non chiede di indovinare l'oggetto
+    assert dati_verifica.righe_del_corpo("T:{objective} e {reward}", 70) == 1
