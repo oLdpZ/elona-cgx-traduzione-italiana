@@ -14,6 +14,8 @@ from strumenti.gemelle import (
     FILE_DELICATI,
     GEMELLA,
     QUASI,
+    annota_menu,
+    blocchi_menu,
     confronta,
     indice,
     lotto,
@@ -201,3 +203,107 @@ def test_custom_autopick_confronta_davvero_contro_il_file_del_giocatore():
     testo = (percorsi.SORGENTE_HSP / "custom_autopick.hsp").read_bytes().decode("cp932")
     dentro_instr = [r for r in testo.splitlines() if "instr(" in r and "lang(" in r]
     assert len(dentro_instr) > 50
+
+
+# ------------------------------------------------------------------ i menu
+#
+# ⚠️⚠️ Una gemella dentro un menu non e' gratis. Le voci di `chatList` che
+# stanno una sotto l'altra sono UNA schermata, e il giocatore le legge insieme:
+# tradurne tre su dodici porta il menu da inglese e coerente a meta' italiano e
+# incoerente, che e' la trappola della 64a (`db_race.hsp`) in un'altra forma.
+# Misurato in `chat.hsp`: 82 delle 194 gemelle stanno dentro un menu, e nessuno
+# dei 18 menu toccati sarebbe completo.
+
+MENU = (
+    '\t\t\tchatList 0, lang("殴打", "punch")\n'
+    '\t\t\tchatList 1, lang("引っ掻き", "claw")\n'
+    '\t\t\tchatList 2, lang("蹴り", "kick")\n'
+)
+
+
+def test_le_chatList_vicine_sono_un_menu_solo():
+    assert blocchi_menu(MENU) == [[1, 2, 3]]
+
+
+def test_un_if_in_mezzo_non_spezza_il_menu():
+    """Il menu dei materiali di `chat.hsp:2637` ha tre righe di `if` fra una voce e l'altra."""
+    testo = (
+        '\t\t\tchatList 1, lang("革", "leather")\n'
+        '\t\t\t}\n'
+        '\t\t\tif ( x == 1 ) {\n'
+        '\t\t\tchatList 2, lang("鱗", "scale")\n'
+    )
+    assert blocchi_menu(testo) == [[1, 4]]
+
+
+def test_due_menu_lontani_sono_due_menu():
+    testo = MENU + "\n" * 30 + '\t\t\tchatList 0, lang("いい", "Yes.")\n'
+    assert [len(b) for b in blocchi_menu(testo)] == [3, 1]
+
+
+def test_una_gemella_dentro_un_menu_dice_quanto_del_menu_copre():
+    """Il numero che serve a decidere: tre voci su tre, o tre su dodici?"""
+    altrove = voci("text.hsp", '\ttxt lang("引っ掻き", "claw")\n')
+    qui = voci("chat.hsp", MENU)
+    righe = confronta("chat.hsp", qui, set(), indice([resa(altrove[0], "graffia")]))
+
+    annota_menu(righe, MENU, tradotte=set())
+
+    assert righe[0]["menu"] == {"da": 1, "a": 3, "voci": 3, "coperte": 1, "mancanti": 2}
+
+
+def test_una_gemella_fuori_da_un_menu_non_ha_menu():
+    altrove = voci("action.hsp", '\ttxt lang("こんにちは", "Hello.")\n')
+    testo = '\ttxt lang("こんにちは", "Hello.")\n'
+    righe = confronta("chat.hsp", voci("chat.hsp", testo), set(),
+                      indice([resa(altrove[0], "Salve.")]))
+
+    annota_menu(righe, testo, tradotte=set())
+
+    assert righe[0]["menu"] is None
+
+
+def test_una_voce_del_menu_gia_tradotta_non_manca():
+    """Quel che il dizionario copre gia' non e' un buco nel menu."""
+    altrove = voci("text.hsp", '\ttxt lang("引っ掻き", "claw")\n')
+    qui = voci("chat.hsp", MENU)
+    righe = confronta("chat.hsp", qui, set(), indice([resa(altrove[0], "graffia")]))
+
+    gia = {v["firma"] for v in qui if v["jp"] in ("殴打", "蹴り")}
+    annota_menu(righe, MENU, tradotte=gia)
+
+    assert righe[0]["menu"]["mancanti"] == 0
+
+
+def test_il_lotto_porta_l_annotazione_del_menu():
+    altrove = voci("text.hsp", '\ttxt lang("引っ掻き", "claw")\n')
+    qui = voci("chat.hsp", MENU)
+    righe = confronta("chat.hsp", qui, set(), indice([resa(altrove[0], "graffia")]))
+    annota_menu(righe, MENU, tradotte=set())
+
+    assert lotto(righe)[0]["_menu"] == "1-3: 1 di 3, ne mancano 2"
+
+
+def test_una_quasi_gemella_nel_menu_conta_fra_le_mancanti():
+    """⚠️ La quasi gemella non finisce nel lotto: nel menu resta un buco.
+
+    Trovato confrontando il conto della rete con quello di un sondaggio scritto
+    a mano — 44 mancanti contro 91 — ed e' la differenza fra «il menu si
+    chiude» e «il menu resta meta' inglese». Contare fra le coperte una voce
+    che nessuno scrivera' e' esattamente il difetto che la rete deve impedire.
+    """
+    menu = (
+        '\t\t\tchatList 0, lang("引っ掻き", "claw")\n'
+        '\t\t\tchatList 1, lang("蹴り", "kick")\n'
+    )
+    gemella = voci("text.hsp", '\ttxt lang("引っ掻き", "claw")\n')
+    quasi = voci("text.hsp", '\ttxt lang("蹴り", "kicking")\n')
+    qui = voci("chat.hsp", menu)
+
+    righe = confronta("chat.hsp", qui, set(),
+                      indice([resa(gemella[0], "graffio"), resa(quasi[0], "calcio")]))
+    annota_menu(righe, menu, tradotte=set())
+
+    assert [r["classe"] for r in righe] == [GEMELLA, QUASI]
+    assert righe[0]["menu"]["coperte"] == 1
+    assert righe[0]["menu"]["mancanti"] == 1

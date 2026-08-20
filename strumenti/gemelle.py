@@ -123,6 +123,81 @@ def confronta(nome_file: str, voci: list[dict], tradotte: set[str],
     return righe
 
 
+# Quante righe di distanza possono avere due voci dello stesso menu. Il menu dei
+# materiali di `chat.hsp:2637` mette tre righe di `if` fra una voce e l'altra;
+# oltre questa distanza sono due menu diversi.
+_DISTANZA_MENU = 6
+
+
+def blocchi_menu(testo: str) -> list[list[int]]:
+    """I numeri di riga delle `chatList`, raggruppati per menu.
+
+    Un menu e' quel che il giocatore vede **in una schermata sola**: le voci
+    stanno una sotto l'altra e si leggono insieme.
+    """
+    blocchi: list[list[int]] = []
+    corrente: list[int] = []
+    ultima = -_DISTANZA_MENU * 2
+    for numero, riga in enumerate(testo.splitlines(), start=1):
+        if "chatList" in riga and "lang(" in riga:
+            if corrente and numero - ultima > _DISTANZA_MENU:
+                blocchi.append(corrente)
+                corrente = []
+            corrente.append(numero)
+            ultima = numero
+    if corrente:
+        blocchi.append(corrente)
+    return blocchi
+
+
+def annota_menu(righe: list[dict], testo: str, tradotte: set[str]) -> list[dict]:
+    """Aggiunge a ogni riga il menu in cui sta, e quanto di quel menu copre.
+
+    ⚠️⚠️ **Una gemella dentro un menu non e' gratis.** Le voci di `chatList` che
+    stanno una sotto l'altra sono una schermata sola: tradurne tre su dodici
+    porta il menu da inglese e coerente a meta' italiano e incoerente. E' la
+    trappola della 64a (`db_race.hsp`, la chiave e l'etichetta) in un'altra
+    forma. Misurato in `chat.hsp`: **82 delle 194 gemelle stanno dentro un menu,
+    e nessuno dei 18 menu toccati sarebbe completo.**
+
+    ⚠️ E il registro non e' salvo nemmeno per la gemella: `claw` resa in
+    `text.hsp` e' «graffia», che e' il verbo del messaggio di combattimento. In
+    un menu che chiede *quale stile impari* ci vuole un sostantivo.
+    """
+    voci_per_riga: dict[int, list[dict]] = defaultdict(list)
+    for riga in righe:
+        voci_per_riga[riga["riga"]].append(riga)
+
+    tutte = estrai_da_testo(righe[0]["file"], testo) if righe else []
+    per_riga: dict[int, list[dict]] = defaultdict(list)
+    for voce in tutte:
+        per_riga[voce["riga"]].append(voce)
+
+    dentro: dict[int, dict] = {}
+    for blocco in blocchi_menu(testo):
+        voci_blocco = [v for n in blocco for v in per_riga.get(n, [])]
+        # solo le righe che finiranno nel lotto: una quasi gemella non si
+        # travasa, quindi nel menu resta un buco come tutte le altre
+        firme_qui = {r["firma"] for n in blocco for r in voci_per_riga.get(n, [])
+                     if r["classe"] != QUASI}
+        if not firme_qui:
+            continue
+        mancanti = [
+            v for v in voci_blocco
+            if v["firma"] not in firme_qui and v["firma"] not in tradotte
+        ]
+        scheda = {
+            "da": blocco[0], "a": blocco[-1], "voci": len(voci_blocco),
+            "coperte": len(firme_qui), "mancanti": len(mancanti),
+        }
+        for numero in blocco:
+            dentro[numero] = scheda
+
+    for riga in righe:
+        riga["menu"] = dentro.get(riga["riga"])
+    return righe
+
+
 def lotto(righe: list[dict], forza: bool = False) -> list[dict]:
     """Il lotto pre-riempito: gemelle e divergenti, mai le quasi gemelle.
 
@@ -148,6 +223,10 @@ def lotto(righe: list[dict], forza: bool = False) -> list[dict]:
         else:
             voce["it"] = ""
             voce["_gemelle"] = [f"{r['file']}:{r['riga']} {r['it']}" for r in riga["rese"]]
+        menu = riga.get("menu")
+        if menu:
+            voce["_menu"] = (f"{menu['da']}-{menu['a']}: {menu['coperte']} di {menu['voci']},"
+                             f" ne mancano {menu['mancanti']}")
         voci.append(voce)
     return voci
 
@@ -181,10 +260,12 @@ def scandaglia(ind: dict, solo: str | None = None) -> dict[str, list[dict]]:
     for sorgente in sorted(percorsi.SORGENTE_HSP.glob("*.hsp")):
         if solo and sorgente.name != solo:
             continue
-        voci = estrai_da_testo(sorgente.name, sorgente.read_bytes().decode("cp932"))
-        righe = confronta(sorgente.name, voci, tradotte_di(sorgente.name), ind)
+        testo = sorgente.read_bytes().decode("cp932")
+        voci = estrai_da_testo(sorgente.name, testo)
+        tradotte = tradotte_di(sorgente.name)
+        righe = confronta(sorgente.name, voci, tradotte, ind)
         if righe:
-            esito[sorgente.name] = righe
+            esito[sorgente.name] = annota_menu(righe, testo, tradotte)
     return esito
 
 
@@ -235,6 +316,18 @@ def main() -> None:
             in_piu = f"  ({gratis} identiche all'inglese)" if gratis else ""
             print(f"  {nome:26} {conto:5}{in_piu}{avviso}")
         print(f"  TOTALE {totale}")
+
+    # ⚠️ Il numero che decide che cosa si puo' travasare davvero: una gemella
+    # dentro un menu non si scrive da sola, si scrive col menu.
+    dentro = [r for righe in per_file.values() for r in righe
+              if r["classe"] != QUASI and r.get("menu")]
+    if dentro:
+        menu = {(r["file"], r["menu"]["da"]): r["menu"] for r in dentro}
+        interi = sum(1 for m in menu.values() if not m["mancanti"])
+        print(f"\n=== ⚠️ dentro un menu: {len(dentro)} gemelle in {len(menu)} menu,"
+              f" di cui {interi} si chiuderebbero interi")
+        print(f"    voci sorelle da scrivere per chiudere gli altri:"
+              f" {sum(m['mancanti'] for m in menu.values())}")
 
 
 if __name__ == "__main__":
