@@ -289,11 +289,21 @@ def test_le_voci_rotte_a_monte_restano_note():
     dalla pergamena e finire stampata sopra la mappa. La resa italiana ne usa
     34. E' la prima voce di questo elenco che qualcuno ha guardato invece di
     calcolarla.
+
+    ⚠️ **E dalla 75a sono SETTE.** `chat.hsp:22937` — «Not even the God of
+    Machine would allow this workplace to exist!», 64 caratteri in un riquadro da
+    58 — e' una delle due voci con cui il giocatore risponde al capo del Dock, ed
+    e' comparsa qui il giorno in cui l'abbiamo tradotta, esattamente come le due
+    della 73a: `voci_di_menu()` legge il DIZIONARIO, e una voce non ancora resa
+    non entra in nessuna misura. 💡 Terza volta di fila che questo elenco cresce
+    non perche' sia arrivato un difetto nuovo, ma perche' il progetto e' arrivato
+    dov'era. La resa italiana ne usa 53.
     """
     monte = {(f, r) for f, r, _, _ in fuori_misura_inglese()}
     assert monte == {("tcg_custom.hsp", 1968), ("event.hsp", 521),
                     ("chat.hsp", 19527), ("chat.hsp", 19563),
-                    ("chat.hsp", 17710), ("chat.hsp", 17713)}
+                    ("chat.hsp", 17710), ("chat.hsp", 17713),
+                    ("chat.hsp", 22937)}
 
 
 # --- un chatList non e` sempre nella pergamena (corretto il 2026-08-18) ------

@@ -167,7 +167,7 @@ RESE = {
 
     # --- chatval 107: licenziarsi
     22936: 'Vorrei licenziarmi',
-    22937: 'Nemmeno il dio delle macchine tollererebbe un posto così!',
+    22937: 'Neanche il dio delle macchine vorrebbe un posto così!',
     22938: 'Sai benissimo che cosa ti aspetta, no? Dal momento in cui ti hanno assegnato qui, sei una bestia da soma dell\'azienda! La tua esistenza si regge sulla devozione assoluta alla ditta! È la volontà divina!',
     22942: 'E non guardarmi con quella faccia. Credi di poter dire tutto quello che ti pare! Fai la parte di chi se la passa male, ma nemmeno a me fa piacere stare qui a parlarti!',
     22948: 'Ti rendi conto che il mondo funziona così, vero? Dovunque tu vada a lavorare dopo, non sarà più facile. Se basta questo per farti frignare, non hai nessuna speranza di cavartela là fuori!',
