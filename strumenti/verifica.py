@@ -29,6 +29,14 @@ _PROSA_NUDA = re.compile(r"\w\s+\w")
 
 _RICHIESTI = ("tipo", "en", "en_grezzo")
 
+# Il letterale che sta dentro una `cnvtalk(...)`. Serve due volte, per i due
+# modi in cui una resa puo' finirci: da sola (statica, e allora la resa E'
+# l'argomento) o dentro un'espressione (dinamica, e allora la chiamata si vede).
+# La classe tiene conto degli escape di HSP, dove `\"` non chiude la stringa.
+_LETTERALE = r'"((?:[^"\\]|\\.)*)"'
+_CNVTALK_DENTRO = re.compile(r"cnvtalk\(\s*" + _LETTERALE + r"\s*\)")
+_CNVTALK_INTERO = re.compile(r"^\s*cnvtalk\(\s*" + _LETTERALE + r"\s*\)\s*$", re.S)
+
 # Un articolo (o un possessivo, che concorda uguale) subito prima di una
 # funzione che cambia col sesso del GIOCATORE. Si guarda la forma grezza, dove
 # la funzione compare per nome: `" + _onii(...`, con lo spazio della
@@ -514,6 +522,31 @@ def controlla_voce(voce: dict, invariati: set[str] | None = None) -> list[str]:
     # Li' lo spazio sta in MEZZO all'espressione, non in coda alla frase, e
     # pretenderlo alla fine della resa italiana rifiuterebbe ogni battuta con
     # una chiamata in fondo.
+    # ⚠️⚠️ **Le virgolette del discorso diretto le mette `cnvtalk`, non la resa.**
+    # `init.hsp:171` e' `return "\"" + s + "\" "`: quel che gli si passa esce
+    # gia' fra virgolette. Una resa che se le porta dentro le **raddoppia** a
+    # schermo, e nessuna guardia lo vedeva perche' le due stringhe — la nostra e
+    # quella del codice — sono valide tutt'e due. E' la famiglia di difetti della
+    # 72a, quelli che non stanno in una stringa ma **fra due**: qui il pezzo che
+    # manca non lo mette una `pos`, lo mette una funzione.
+    # ⭐ Trovata nella 74a con nove rese gia' spinte, otto della banca di
+    # `action.hsp` e una di `db_creature.hsp` — e quest'ultima raccontava anche
+    # una **narrazione** dentro le virgolette del parlato, cioe' un secondo modo
+    # di sbagliare lo stesso sito: quel che entra in `cnvtalk` e' solo la battuta.
+    for dentro in _CNVTALK_DENTRO.findall(voce.get("it") or ""):
+        if '\\"' in dentro:
+            problemi.append(
+                "virgolette protette dentro cnvtalk: le mette gia' lui "
+                '(init.hsp:171, `return "\\"" + s + "\\" "`), e a schermo '
+                "verrebbero doppie. Dentro cnvtalk va la battuta nuda."
+            )
+    if _CNVTALK_INTERO.match(voce.get("en_grezzo") or "") and '\\"' in italiano:
+        problemi.append(
+            "virgolette protette in una resa che E' l'argomento di cnvtalk: "
+            "le mette gia' lui (init.hsp:171), e a schermo verrebbero doppie. "
+            "Qui va la battuta nuda, senza virgolette."
+        )
+
     if tipo != "dinamica" and voce["en"].endswith(" ") and not italiano.endswith(" "):
         problemi.append(
             "l'inglese finisce con uno spazio e la traduzione no: quello "

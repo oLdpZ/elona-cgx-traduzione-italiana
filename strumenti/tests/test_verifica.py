@@ -84,6 +84,51 @@ def test_la_virgoletta_protetta_passa_nelle_statiche():
     assert controlla_voce(voce(it='Ha detto \\"ciao\\".')) == []
 
 
+# --- le virgolette che mette cnvtalk (nate nella 74a) -------------------------
+#
+# `init.hsp:171` e' `return "\"" + s + "\" "`: la battuta esce gia' fra
+# virgolette. Nove rese gia' spinte se le portavano dentro e a schermo erano
+# doppie — otto della banca di `action.hsp`, una di `db_creature.hsp`. Nessuna
+# guardia lo vedeva: le due stringhe, la nostra e quella del codice, sono valide
+# tutt'e due, e il difetto sta **fra** loro.
+
+def test_blocca_le_virgolette_dentro_una_statica_che_e_argomento_di_cnvtalk():
+    problemi = controlla_voce(voce(
+        en_grezzo='cnvtalk("This is the goose that gives birth to go...ld!")',
+        it='\\"Ecco l\'oca dalle uova d\'oro!\\"'))
+    assert any("cnvtalk" in p for p in problemi)
+
+
+def test_la_battuta_nuda_dentro_cnvtalk_passa():
+    assert controlla_voce(voce(
+        en_grezzo='cnvtalk("This is the goose that gives birth to go...ld!")',
+        it="Ecco l'oca dalle uova d'oro!")) == []
+
+
+def test_blocca_le_virgolette_dentro_la_cnvtalk_di_una_dinamica():
+    """Lo stesso difetto quando la chiamata si vede nell'espressione."""
+    problemi = controlla_voce(voce(
+        tipo="dinamica",
+        en_grezzo='name(tc) + " screams, " + cnvtalk("Ahhhhhhh!")',
+        en=" screams, ",
+        it='name(tc) + " urla, " + cnvtalk("\\"Aaargh!\\"")'))
+    assert any("cnvtalk" in p for p in problemi)
+
+
+def test_le_virgolette_fuori_da_cnvtalk_restano_ammesse():
+    """⚠️ La regola vale DENTRO cnvtalk, non dovunque.
+
+    `text.hsp:9879` scrive `\\"Project LF\\"` a mano, e li' le virgolette sono
+    parte del testo: una regola piu' larga le avrebbe rifiutate.
+    """
+    assert controlla_voce(voce(it='Ha detto \\"ciao\\".')) == []
+    assert controlla_voce(voce(
+        tipo="dinamica",
+        en_grezzo='"He said " + name(tc) + " \\"hi\\""',
+        en="He said ",
+        it='"Ha detto " + name(tc) + " \\"ciao\\""')) == []
+
+
 def test_le_virgolette_tipografiche_ora_sono_bloccate():
     # ROVESCIA una decisione precedente, e la rovescia una misura: “” CP932 le
     # codifica (quindi `non_ascii_residuo` le lasciava passare) ma su DUE byte,
