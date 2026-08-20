@@ -811,6 +811,15 @@ def main() -> None:
         bersaglio.write_bytes(nuovo.encode("cp932"))
         print(f"{nome_file}: {quante} toppe")
 
+    # ⚠️ I file dati si costruiscono QUI e non con un comando a parte, e non e'
+    # comodita': `prepara_albero()` fa `rmtree(BUILD)`, quindi un
+    # `dati_applica` lanciato prima verrebbe cancellato senza un rumore. E poi
+    # la toppa che fa leggere `board_it.txt` la applica questo giro: il file e
+    # l'eseguibile che lo cerca devono nascere insieme.
+    if (percorsi.DIZIONARIO / "dati").is_dir():
+        from strumenti import dati_applica
+        dati_applica.costruisci()
+
     print(f"totale: {totale} sostituzioni in {percorsi.BUILD_HSP}")
     if totale_orfane:
         print(
