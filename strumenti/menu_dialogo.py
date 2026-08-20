@@ -275,7 +275,20 @@ SFONDO_A_MANO: dict[tuple[str, int], str] = {
     ("event.hsp", 3637): "bg_re13",
 }
 
-_VOCE = re.compile(r"\bchatList\b")
+# ⚠️⚠️ **HSP non distingue maiuscole e minuscole, e monte scrive in due modi.**
+# Nel sorgente pinnato ci sono 1.626 `chatList` e **31 `chatlist`** (16 in
+# `chat.hsp`, 15 in `event.hsp`), che il gioco disegna esattamente uguali. Fino
+# alla 74a questa rete cercava la sola forma con la L grande: quelle 31 righe non
+# erano «dentro il tetto», erano **fuori dal perimetro** — e tredici delle
+# quindici di `event.hsp` sono i menu degli eventi di mare, cioe' il lotto che si
+# stava per aprire quando e' saltato fuori.
+# 💡 E' la lezione della 66a in una forma nuova: una rete puo' misurare la cosa
+# giusta e non arrivarci. Qui non l'ha trovata un referto — nessun referto poteva
+# — l'ha trovata la lettura del codice prima di tradurre.
+# ⚠️ `chatMore` resta escluso: il suo primo argomento e' il corpo del messaggio,
+# non una voce di lista (vedi `righe_di_menu`). Nel sorgente si scrive in un modo
+# solo, ma il riconoscimento e' comunque per parola intera.
+_VOCE = re.compile(r"(?i)\bchatlist\b")
 _GOSUB = re.compile(r"\bgosub\s+\*(\w+)")
 _ETICHETTA = re.compile(r"^\*(\w+)")
 _SFONDO = re.compile(r'^\s*file\s*=\s*"([^"]+)"')

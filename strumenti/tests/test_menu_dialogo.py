@@ -7,6 +7,7 @@ I test che la fissano vanno letti come una **prova con data**: se un domani una
 voce dentro il tetto uscisse tagliata, sono loro a dover fallire per primi.
 """
 import json
+import re
 
 import pytest
 
@@ -155,6 +156,47 @@ def test_solo_chatlist_e_una_voce_di_menu(finto):
     """
     _, sorgente = finto
     assert righe_di_menu(sorgente) == {"finto.hsp": {2, 3}}
+
+
+SORGENTE_MINUSCOLO = """\
+*finto_minuscolo
+\tfile = "bg_finto"
+\tchatlist 1, lang("いぬだ！", "a dog!")
+\tchatList 2, lang("ねこだ！", "a cat!")
+\tgosub *re_select
+\treturn
+"""
+
+
+def test_chatlist_minuscolo_e_la_stessa_cosa(tmp_path):
+    """⚠️⚠️ HSP non distingue maiuscole e minuscole, e monte scrive in due modi.
+
+    Nel sorgente pinnato ci sono 1.626 `chatList` e 31 `chatlist`, e il gioco li
+    disegna uguali. Fino alla 74a questa rete cercava la sola forma con la L
+    grande: quelle 31 righe non erano «dentro il tetto», erano **fuori dal
+    perimetro**. 💡 Nessun referto poteva dirlo — un buco nel perimetro non
+    produce un numero sbagliato, produce un numero che non c'e'.
+    """
+    (tmp_path / "finto.hsp").write_bytes(SORGENTE_MINUSCOLO.encode("cp932"))
+    assert righe_di_menu(tmp_path) == {"finto.hsp": {3, 4}}
+
+
+def test_le_due_scritture_di_chatlist_stanno_tutte_nel_perimetro():
+    """Il censimento sul sorgente pinnato, che e' quel che la rete deve coprire.
+
+    ⚠️ Il numero e' fissato apposta: se un aggiornamento CGX porta una terza
+    scrittura (`CHATLIST`, `ChatList`) questo test resta verde ma il totale
+    cambia, e il confronto col censimento lo fa vedere.
+    """
+    trovate = righe_di_menu()
+    censimento = 0
+    for percorso in sorted(percorsi.SORGENTE_HSP.glob("*.hsp")):
+        for riga in percorso.read_bytes().decode("cp932", "replace").split("\n"):
+            censimento += len(re.findall(r"(?i)\bchatlist\b", riga))
+    assert censimento == 1626 + 31, "le scritture nel sorgente sono cambiate"
+    assert sum(len(r) for r in trovate.values()) == censimento
+    # le quindici minuscole di event.hsp: tredici sono i menu degli eventi di mare
+    assert {3655, 3658, 3881, 3883, 3886} <= trovate["event.hsp"]
 
 
 def test_anche_le_voci_STATICHE_entrano_nel_conto(finto):
