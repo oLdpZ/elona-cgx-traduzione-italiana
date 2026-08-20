@@ -125,6 +125,73 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## Le gemelle, e i quattordici menu di `chat.hsp` — 2026-08-20, settantatreesima sessione
+
+Nata dalla misura della 72ª: 417 rese che esistevano già in un altro file di
+dizionario e che nessun referto nominava. **296 rese, una rete nuova, 22 test.**
+
+| pezzo | rese | esito |
+|---|---|---|
+| `strumenti/gemelle.py` | — | rete nuova, tre classi, 22 test |
+| `chat.hsp` fuori dai menu | 120 | la finestra delle modalità, i materiali del compagno |
+| `chat.hsp`, i quattordici menu | 152 | 76 gemelle + 78 sorelle + 2 correzioni di misura |
+| `event.hsp` fuori dal generatore | 24 | e il menu `4504-4509` chiuso intero |
+| `event.hsp:1070` | 1 | la sorella mancante di un menu da due voci |
+
+`chat.hsp` scende da 3.920 a **3.648** e **non ha più nessuna gemella**;
+`event.hsp` da 622 a **598**.
+
+### Le tre classi, misurate su tutto il progetto
+
+    gemelle      392 -> 175    la firma combacia: valida per costruzione
+    divergenti    13 ->  11    già resa in due modi: sceglie chi legge
+    quasi        201 -> 167    solo il giapponese: da leggere, mai da travasare
+
+Di quel che resta, **116 sono il generatore di `event.hsp`** e **21 sono
+`custom_autopick.hsp`**, che è delicato: il resto è pulviscolo su quindici file.
+
+### ⭐⭐⭐ 82 gemelle su 194 stavano dentro un menu, e nessun menu si chiudeva
+
+È il pezzo che vale più della rete, e non era nel piano. Il menu dello stile di
+combattimento (`8991-9004`) aveva **tre** gemelle su quattordici voci:
+importarle sole avrebbe portato la schermata da inglese e coerente a metà
+italiano e incoerente. I quattordici menu sono stati chiusi **interi**, con 78
+sorelle scritte a mano:
+
+    2630-2745   i materiali del fabbro            40 voci
+    20318-20351 che cosa pensi del compagno       30 voci   (due colonne)
+    8991-9004   lo stile a mani nude              14 voci
+    20296-20307 le regole del compagno            12 voci   (due colonne)
+    11253-11263 l'elemento da imparare            11 voci
+    16737-16746 la parte del corpo da far crescere 10 voci
+    13650-13658 quale dio                          9 voci
+    7012-7021   il sindaco                         7 voci
+    17702-17716 le azioni AP del compagno          6 voci
+    9195-9209   i biglietti del casinò             4 voci
+    13772-13775 il mercante di scorte              4 voci
+    + 1376, 7370, 10997, 22111                     4 menu da due voci
+
+⚠️ **Sei gemelle scartate**: `claw`, `spore` e `branch` perché in `text.hsp`
+sono il **verbo** del colpo e qui serve il nome dello stile; tre perché
+`text.hsp:1523-1556` è lo stesso elenco visto da un pannello con la colonna più
+larga, e qui il tetto delle due colonne è 24.
+
+`menu_dialogo`: 0 fuori misura su **417** misurate (erano 257) e 0 peggiorate a
+due colonne — e la rete ha preso due righe nostre troppo lunghe prima che
+arrivassero a schermo.
+
+### Altre decisioni prese leggendo il sito, non la stringa
+
+- 腰 nella lista delle parti del corpo diventa **«Fianchi»**, non «Vita»: la voce
+  dice già «(Vita -3)», e due «Vita» nella stessa riga sono illeggibili.
+- le azioni AP prendono il nome che `skill.hsp` ha già («Sincronia delle anime»,
+  «Guardia metallica»): un'azione non può chiamarsi in due modi fra il menu che
+  la compra e la barra che la usa.
+- `準備中` è **«In preparazione»**, non «Cancel»: nessun ramo raccoglie quella
+  scelta, e l'inglese di monte lo nasconde.
+
+---
+
 ## Due file chiusi e il menu del dialogo — 2026-08-20, settantaduesima sessione
 
 Nata da un collaudo di quattro schermate. 289 rese, due file chiusi, tre reti

@@ -6,6 +6,102 @@ ancora aperte.
 
 ---
 
+## Una resa gemella è valida per costruzione, ma non è gratis — 2026-08-20, settantatreesima
+
+Il dizionario vive in `dizionario/<file>.jsonl` e `applica` cerca la firma **nel
+file che sta costruendo**: una stringa identica in due file va tradotta due
+volte, e niente lo diceva. La 72ª l'aveva visto a schermo (`You displace X`
+cinque righe sotto «Ti scambi di posto con X», stessa firma) e misurato: 417
+rese esistenti che nessun referto nominava.
+
+`strumenti/gemelle.py` le elenca. Rimisurate dal sorgente: **405**, che con la
+regola nuova sul giapponese vuoto diventano 392 gemelle più 13 divergenti.
+
+### Le tre classi non hanno lo stesso rischio, e la differenza è la firma
+
+- **gemella** — la firma combacia. La firma include giapponese, inglese **e
+  l'espressione** (vedi il docstring di `estrai.firma`), quindi la resa è la
+  chiave che `applica` andrà a cercare, con le stesse variabili: è corretta per
+  costruzione.
+- **divergente** — la stessa firma è già resa in due modi: «il cane» e «Cane»,
+  «un sotterraneo» e «sotterraneo». Quasi sempre legittimo — l'articolo dipende
+  da come la frase incornicia la stringa — e **la rete non sceglie**: mette i
+  candidati nel lotto e lascia `it` vuoto.
+- **quasi gemella** — combacia solo il giapponese. `chara_func.hsp:4369` e
+  `map.hsp:14821` dicono la stessa cosa in giapponese e la resa dell'altro porta
+  `name(cdata(CDATA_TAGTEAM_PARTNER, tc))`, cioè **le variabili dell'altro
+  sito**. È l'errore che il docstring di `firma()` descrive per esteso: una
+  chiave troppo debole scrive codice sbagliato in silenzio.
+
+⚠️ **Il giapponese vuoto non fa quasi gemella.** Una dinamica di sola morfologia
+(`lang(name(cc), "The " + name(cc))`) non ha letterali giapponesi, e il vuoto
+combacia con qualunque altro vuoto: 34 falsi accoppiamenti, fra cui `The ` di
+`action.hsp` con `Selected ` di `blend.hsp`.
+
+### ⭐⭐⭐ Il fatto nuovo: una gemella dentro un menu non è gratis
+
+Aprendo il lotto di `chat.hsp` è saltato fuori il pezzo che vale più della rete.
+**82 delle 194 gemelle stavano dentro un menu `chatList`, e nessuno dei menu
+toccati si sarebbe chiuso intero.** Il caso limpido:
+
+    8991  punch      da fare        8997  touch      da fare
+    8992  claw       GEMELLA        8998  spore      GEMELLA
+    8993  kick       da fare        8999  branch     GEMELLA
+    8994  bite       da fare        9000  strike     da fare
+
+Tre voci su quattordici. Importarle avrebbe portato il menu **da inglese e
+coerente a metà italiano e incoerente** — che è la trappola della 64ª
+(`db_race.hsp`, la chiave mostrata accanto all'etichetta) su un oggetto diverso.
+
+💡 La forma generale: *ogni rete del progetto parte da una stringa, ma il
+giocatore non legge una stringa — legge una schermata.* Una resa può essere
+giusta e fare danno perché arriva **da sola** dove le sue vicine non arrivano.
+`annota_menu()` mette in ogni riga il menu in cui sta e quante voci ne mancano;
+il lotto lo porta in `_menu`, il referto lo somma in fondo.
+
+### ⚠️ E dentro il menu anche la gemella va rigiudicata
+
+`claw` è reso «graffia» in `text.hsp`, dove è il **verbo** del messaggio di
+combattimento («X ti graffia»). Nel menu che chiede quale stile si impara ci
+vuole il sostantivo, «Graffio». Sei gemelle scartate così, tre per il mestiere e
+tre per la misura:
+
+    claw / spore / branch          il verbo del colpo -> il nome dello stile
+    Propagate greatness of god.    «Talvolta predica la fede.» (25) -> «Predica la fede»
+    Do not train in town           «Vieta di allenarsi in città» (27) -> «Non allenarsi in città»
+    I want to get along with you   «Vorrei andare d'accordo con te.» (30) -> «Vorrei essere amici»
+
+Le ultime tre non sono un errore di chi le scrisse: `text.hsp:1523-1556` è **lo
+stesso elenco** di regole del compagno, visto dal pannello che lo descrive
+invece che dal menu che lo imposta, e lì la colonna è più larga. Stesse parole
+chiave, misura diversa. 💡 *Due schermate che mostrano la stessa scelta devono
+dire le stesse parole, ma non sono tenute a dirle con la stessa lunghezza.*
+
+### ⚠️⚠️ E `event.hsp` non si travasa affatto: le sue gemelle sono un generatore
+
+**125 delle 148 gemelle di `event.hsp`** non sono messaggi: sono i pezzi di un
+generatore. `hito`, `mon`, `tori`, `item`, `drink`, `tree` (righe 3018-3473)
+vengono infilati in una trentina di cornici montate a caso:
+
+    buff = lang("暴れる" + mon + "に" + hito + "がかぶりついている…",
+                "You saw an enraged " + mon + " with a " + hito + " ...")
+
+Le rese gemelle arrivano da `db_card.hsp` **con l'articolo dentro** («il
+marinaio», «l'anziano»), le cornici sono ancora inglesi, e in italiano una
+cornice deve accordarsi in genere col pezzo che ci finisce. Si traducono
+**insieme alle cornici**, come gli epiteti della 64ª: è un giro di progetto, non
+un travaso. 💡 E la prova che varrà per quel giro è già scritta nella 64ª: *la
+grammatica di un generatore si prova sui dati veri*, cioè componendo tutte le
+combinazioni e leggendole.
+
+### Quel che è rimasto fuori apposta
+
+`custom_autopick.hsp` sta in `FILE_DELICATI` e `--lotto` si rifiuta senza
+`--forza`: 78 delle sue 90 `lang()` sono confronti dentro `instr` contro
+`autopick.txt`, che scrive **il giocatore**. Lì una `lang()` non è un'etichetta,
+è una chiave.
+
+---
 ## Il danno che non sta nella stringa ma in come il codice la monta — 2026-08-20, settantaduesima
 
 Il collaudo ha mandato quattro schermate e ne sono uscite due reti nuove. Le due

@@ -1,37 +1,157 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-20, fine della **settantaduesima** sessione (**un collaudo
-di quattro schermate, due file chiusi e due reti nuove su una famiglia di
-difetti che nessuna delle otto reti poteva vedere**).
+Aggiornato: 2026-08-20, fine della **settantatreesima** sessione (**la rete
+delle gemelle, 296 rese, e quattordici menu di `chat.hsp` chiusi interi**).
 
-⭐⭐⭐ **La lezione che vale per tutto il lavoro che viene: LE OTTO RETI DEL
-PROGETTO GUARDANO TUTTE UNA STRINGA, E I DIFETTI DI QUESTA SESSIONE NON STAVANO
-IN NESSUNA STRINGA.** Stavano fra due: «Classe» disegnata a `wx+30` e
-«Guerriero» a `wx+79`, con 38 px di gronda per 42 di etichetta; `cnven()` che
-alza la maiuscola a una parola giusta perché il codice la incolla dopo un'altra.
-💡 *Quando ogni rete parte dalla stringa, quel che succede fra due stringhe è
-invisibile per costruzione* — e nessuna quantità di reti dello stesso tipo lo
-scopre.
+⭐⭐⭐ **La lezione che vale per tutto il lavoro che viene: OGNI RETE DEL
+PROGETTO PARTE DA UNA STRINGA, MA IL GIOCATORE NON LEGGE UNA STRINGA — LEGGE UNA
+SCHERMATA.** Le gemelle sono rese *corrette per costruzione*: stessa firma,
+stesse variabili, già approvate altrove. Eppure **82 delle 194 di `chat.hsp`
+stavano dentro un menu `chatList` dove le vicine erano ancora inglesi**, e
+importarle da sole avrebbe portato quelle schermate da inglesi e coerenti a metà
+italiane e incoerenti. 💡 *Una resa può essere giusta e fare danno perché arriva
+dove le sue vicine non arrivano.* È la 64ª (`db_race.hsp`, la chiave accanto
+all'etichetta) su un oggetto nuovo, ed è il verso opposto della lezione della
+72ª: lì il difetto stava **fra due stringhe del codice**, qui sta **fra due
+stringhe della schermata**.
 
-⚠️⚠️ **E tutt'e due esistono SOLO nelle build tradotte.** «Class» sta in 5
-caratteri e «Classe» in 6; `cnven` fa `if ( jp ) return` e in giapponese non
-tocca niente. Upstream non li può vedere nemmeno volendo, perché nella sua
-lingua non ci sono. 💡 *Questa è la categoria di danno che un progetto di
-traduzione deve guardarsi da solo*, e per quattro sessioni l'ha guardata
-soltanto il giocatore.
-
-⚠️⚠️ **E due volte il difetto non era nella regola ma nella CLASSIFICAZIONE.**
-Le due guardie della stessa riga di `verifica.py` non erano d'accordo — una
-usava inglese ∪ giapponese, l'altra il solo inglese, e la più stretta vinceva
-sempre; e `cnvtalk`, che mette solo le virgolette, era contata fra le chiamate
-di **contenuto**, il che rendeva invisibile il contenuto che ha dentro. È la
-71ª — i cinque segnaposto classificati sui nomi invece che sui siti — su oggetti
-diversi. 💡 *Prima di cambiare una regola, guarda in che casella hai messo la
-cosa che sta misurando.*
+⚠️⚠️ **E dentro il menu anche la gemella va rigiudicata.** `claw` è «graffia» in
+`text.hsp`, dove è il verbo del messaggio di combattimento; nel menu che chiede
+quale stile impari ci vuole «Graffio». Sei gemelle scartate: tre per il
+mestiere, tre perché `text.hsp:1523-1556` è lo **stesso elenco** visto da un
+pannello con la colonna più larga. 💡 *Due schermate che mostrano la stessa
+scelta devono dire le stesse parole, ma non sono tenute a dirle con la stessa
+lunghezza.*
 
 ---
 
-## La settantaduesima sessione
+## La settantatreesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quattordici** verifiche d'apertura. La
+sessione si è aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la
+**trentesima prova** di fila, e le quattordici verifiche hanno dato quattordici
+volte i valori attesi della 72ª.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    pytest                  706 passed 6 skipped   (erano 684: +22 test della rete nuova)
+    verifica --dizionario   chat.hsp   0 / 3648    (erano 3920)
+                            event.hsp  0 / 598     (erano 622)
+    menu_dialogo            0 su 417 misurate      (erano 257: piu' rese = piu' misurabili)
+                            e «a due colonne: 0 rese peggiorate»
+    dizionario              chat.hsp +272 voci, event.hsp +24
+
+Tutto il resto è **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
+1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205, `riquadri` 0 su 38
+e 0 su 71, `linguette` 0 e 0, `battute --divergenti` **13**,
+`intestazioni_larghezze` banco ok e perimetro 0, `dati_applica --identita` 4
+file e 2.987 righe, `dati_sorgente` 7/7, `gronde` 0 su 5, `maiuscole` 144 siti e
+0 da guardare, `toppe.jsonl` **1016**, `rinviate.jsonl` **73**.
+
+⭐ **La quindicesima verifica NON esiste apposta.** `python -m strumenti.gemelle`
+è un **elenco di lavoro**, non una guardia: i suoi numeri scendono man mano che
+si traduce, quindi non ha un valore atteso. Oggi dice:
+
+    gemelle      175   (erano 392)   di cui 116 il generatore di event.hsp
+    divergenti    11   (erano  13)   e 21 custom_autopick.hsp, delicato
+    quasi        167   (erano 201)
+
+✅ **`cgx-test.exe` è FRESCO** (20/08, 22:18) e con lui i due file dati:
+`talk_it.txt` 88.743 byte, 1.800 CRLF, **zero LF soli**.
+
+### ▶ Che cosa è stato fatto
+
+    gemelle.py              RETE NUOVA: tre classi, il lotto pre-riempito   +22 test
+    chat.hsp fuori dai menu la finestra delle modalità, i materiali        120 rese
+    chat.hsp, 14 menu       76 gemelle + 78 sorelle + 2 di misura          152 rese
+    event.hsp               le 24 fuori dal generatore, +1 sorella          24 rese
+    ------------------------------------------------------------------------
+                            296 rese, 1 rete nuova, 22 test, 5 spinte
+
+### ▶ ⭐⭐⭐ La rete: tre classi, e la terza è quella che salva
+
+Vedi il ragionamento lungo in `decisioni.md`. Il punto operativo:
+
+1. **gemella** — la firma combacia (giapponese + inglese + espressione), quindi
+   la resa è la chiave che `applica` cercherà: corretta per costruzione. Resta
+   da decidere il **registro**, e quello dipende dal sito.
+2. **divergente** — la stessa firma è già resa in due modi («il cane» / «Cane»).
+   La rete **non sceglie**: `it` vuoto e i candidati in `_gemelle`.
+3. **quasi gemella** — combacia solo il giapponese. ⚠️ La resa dell'altro sito
+   può portarsi **le variabili dell'altro sito**. Da leggere, mai da travasare.
+
+⚠️ Il giapponese **vuoto** non fa quasi gemella: una dinamica di sola morfologia
+non ha letterali giapponesi e il vuoto combacia con tutti (34 falsi tolti).
+
+💡 E un difetto della rete è stato trovato **confrontandola con un sondaggio
+scritto a mano** — 44 mancanti contro 91: contava fra le «coperte» anche le
+quasi gemelle, che nel lotto non ci vanno. Adesso c'è un test.
+
+### ▶ ⚠️⚠️ `event.hsp` non si travasa: le sue gemelle sono un GENERATORE
+
+**125 delle 148** sono pezzi (`hito`, `mon`, `tori`, `item`, `drink`, `tree`,
+righe 3018-3473) che una trentina di cornici montano a caso:
+
+    "You saw an enraged " + mon + " with a " + hito + " latched onto it's teeth..."
+
+Le rese gemelle arrivano da `db_card.hsp` **con l'articolo dentro**, le cornici
+sono ancora inglesi, e in italiano la cornice deve accordarsi in genere col
+pezzo. È un **giro di progetto**, come gli epiteti della 64ª — e la prova
+gratuita è già scritta lì: *la grammatica di un generatore si prova sui dati
+veri*, componendo tutte le combinazioni e leggendole.
+
+### ▶ Quel che resta da guardare, in ordine
+
+1. ⭐⭐⭐ **Le 296 rese di oggi non sono state viste a schermo**, e i menu sono la
+   cosa più visibile che il progetto abbia toccato finora. Le quattro più diritte:
+   **parlare a un compagno** e aprire le regole (12 voci, due colonne) e le
+   impressioni (30 voci, due colonne); il **fabbro** che cambia materiale (40
+   voci); l'**addestratore** dello stile a mani nude (14 voci); il **sindaco**.
+2. ⭐⭐⭐ Il debito che viene da prima: le **289 rese della 72ª**, le 243 della
+   69ª, le nove di `scheda-inglesi` della 68ª.
+3. ⭐⭐ La toppa dei trascorsi, `talk_conv s, 32` → **36**, da provare al banco.
+4. ⭐ Le 55 intestazioni «senza ostacolo a destra» della rete 20.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ Il **generatore di `event.hsp`**: 116 pezzi più una trentina di cornici.
+   Vuole il suo giro di progetto (vedi sopra), e chiude un'intera famiglia di
+   eventi di viaggio che il giocatore incontra di continuo.
+2. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208 righe),
+   `manual_ENG.txt` (591), `exhelp.txt` (185). ⚠️ `help.hsp:273` conta **dieci
+   righe di FILE per pagina**: la misura della colonna va presa dalla geometria.
+   Il nome `manual_ENG.txt` è in `invariati.md`: tradotto diventa una **toppa**
+   con `manual_IT.txt` e il ramo `exist`.
+3. ⭐⭐ `board.txt` **secondo lotto**: le 38 varianti giapponesi che monte ha
+   buttato via — e `talk.txt` ha lo stesso problema. Serve estendere
+   `dati_applica` ad **aggiungere** righe.
+4. ⭐⭐ `custom_autopick.hsp`: 21 gemelle **delicate**. 78 delle 90 `lang()` sono
+   confronti dentro `instr` contro il file che scrive il giocatore. La via
+   d'uscita è misurata (`custom_autopick.hsp:358` cerca il residuo dentro
+   `cnvitemname()`, quindi l'ordine delle parole è libero).
+5. ⭐⭐⭐ `chat.hsp`: **3.648** da fare (erano 3.920), e senza più gemelle.
+   Restano **95 quasi gemelle**, che sono un elenco da leggere.
+6. ⭐⭐ **Dieci file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+   `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+   `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+7. ⭐⭐ Il **muro del materiale**: `mithril sword` è «spada **di** mithril»,
+   postposta. 118 righe più i tre siti di `item_func.hsp`.
+8. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `event.hsp` 598, `item_func.hsp` 240;
+   i **1.146** di `db_card.hsp`.
+
+### ▶ Il collaudo
+
+**Chiesto a chi sta alla macchina alla fine della sessione**, con la build
+fresca già installata. Quel che ne esce va scritto qui: se la ripresa dice
+«nessun collaudo», vale la 51ª e la 54ª — il lavoro si accumula tutto dalla
+stessa parte.
+
+---
+
+## La settantaduesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
