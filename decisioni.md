@@ -134,6 +134,33 @@ l'altezza della finestra **cresce con le righe** (`dy = ty + noteinfo(0) * 15 +
 peggiore — il pezzo più lungo di ogni famiglia in ogni cornice — l'italiano sta
 al massimo **una riga** sopra l'inglese, con cinque righe in tutto.
 
+### ⭐⭐⭐ E il collaudo ha mostrato il rovescio: la cornice che non è arrivata
+
+Una schermata sola, mandata dopo il generatore. La frase c'era ed era in piedi —
+«Hai visto uno spazzino con una corda robusta fra le chiappe, le dita della
+destra nelle narici e la sinistra a tirare pugni…», tre righe dentro la
+pergamena. Ma **intorno** c'erano quattro cose inglesi, e una era nostra:
+
+    < Adventure Days >                              il titolo di OGNI evento
+    I don't want to get involved.                   l'unico bottone
+    You gained a good amount of travel experience.  a ogni evento
+    As a salary, 215 monete d'oro e 2 oggetti have been sent to your house.
+
+⚠️⚠️ **L'ultima l'abbiamo fatta noi, la mattina stessa.** I due pezzi
+(`" monete d'oro"` e `" e N oggetti"`) erano fra le 24 gemelle importate;
+la cornice che li incornicia, `event.hsp:4467`, no. 💡 *È la lezione dei menu un
+livello più su: una resa può essere giusta e fare danno perché la **cornice** che
+la incornicia non è arrivata.* Nei menu il danno stava fra due voci vicine, qui
+sta fra il pezzo e la frase che lo contiene — e in tutt'e due i casi la resa,
+presa da sola, è corretta.
+
+⚠️ **E le due righe del registro erano quasi gemelle per uno SPAZIO.** «` You
+gained a good amount of travel experience.`» è resa in sedici siti; le due che il
+giocatore ha visto (`3011`, `3014`) hanno lo stesso inglese **senza lo spazio
+davanti**, quindi firma diversa e nessun referto le nominava. 💡 La classe
+«quasi gemella» non è solo la trappola delle variabili: è anche l'elenco dove si
+va a cercare quando una riga è inglese e sembra che dovrebbe essere tradotta.
+
 ### Quel che è rimasto fuori apposta
 
 `custom_autopick.hsp` sta in `FILE_DELICATI` e `--lotto` si rifiuta senza

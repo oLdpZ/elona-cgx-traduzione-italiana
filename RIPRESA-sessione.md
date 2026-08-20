@@ -1,8 +1,8 @@
 # Ripresa sessione
 
 Aggiornato: 2026-08-20, fine della **settantatreesima** sessione (**la rete
-delle gemelle, 489 rese, quattordici menu di `chat.hsp` chiusi interi e il
-generatore degli eventi di viaggio**).
+delle gemelle, 505 rese, quattordici menu di `chat.hsp` chiusi interi, il
+generatore degli eventi di viaggio e due collaudi**).
 
 ⭐⭐⭐ **La lezione che vale per tutto il lavoro che viene: OGNI RETE DEL
 PROGETTO PARTE DA UNA STRINGA, MA IL GIOCATORE NON LEGGE UNA STRINGA — LEGGE UNA
@@ -40,7 +40,7 @@ volte i valori attesi della 72ª.
 
     pytest                  706 passed 6 skipped   (erano 684: +22 test della rete nuova)
     verifica --dizionario   chat.hsp   0 / 3648    (erano 3920)
-                            event.hsp  0 / 410     (erano 622)
+                            event.hsp  0 / 394     (erano 622)
     menu_dialogo            0 su 417 misurate      (erano 257: piu' rese = piu' misurabili)
                             e «a due colonne: 0 rese peggiorate»
     dizionario              chat.hsp +272 voci, event.hsp +217
@@ -60,7 +60,7 @@ si traduce, quindi non ha un valore atteso. Oggi dice:
     divergenti     2   (erano  13)
     quasi        162   (erano 201)
 
-✅ **`cgx-test.exe` è FRESCO** (20/08, 22:45) e con lui i due file dati:
+✅ **`cgx-test.exe` è FRESCO** (20/08, 23:07) e con lui i due file dati:
 `talk_it.txt` 88.743 byte, 1.800 CRLF, **zero LF soli**.
 
 ### ▶ Che cosa è stato fatto
@@ -70,8 +70,9 @@ si traduce, quindi non ha un valore atteso. Oggi dice:
     chat.hsp, 14 menu       76 gemelle + 78 sorelle + 2 di misura          152 rese
     event.hsp               le 24 fuori dal generatore, +1 sorella          24 rese
     il generatore           158 pezzi e 35 cornici, grammatica nuova       193 rese
+    intorno al generatore   dal collaudo: titoli, bottoni, la paga          16 rese
     ------------------------------------------------------------------------
-                            489 rese, 1 rete nuova, 22 test, 7 spinte
+                            505 rese, 1 rete nuova, 22 test, 10 spinte
 
 ### ▶ ⭐⭐⭐ La rete: tre classi, e la terza è quella che salva
 
@@ -161,18 +162,48 @@ col simulatore del progetto: **una riga** più dell'inglese, cinque in tutto.
 8. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `event.hsp` 598, `item_func.hsp` 240;
    i **1.146** di `db_card.hsp`.
 
-### ▶ Il collaudo
+### ▶ ⭐⭐⭐ I due collaudi, e il secondo ha pagato
 
-**Fatto da chi sta alla macchina, a metà sessione: «mi pare tutto ok».** I
-quattordici menu e le 296 rese di allora sono arrivati a schermo e reggono. ⚠️
-Ma vale la 56ª: *da un collaudo che conferma non esce lavoro*, e il valore sta
-nell'averlo fatto, non in quel che ha trovato.
+**Il primo**, a metà sessione: «mi pare tutto ok». I quattordici menu e le 296
+rese di allora sono arrivati a schermo e reggono. Vale la 56ª: da un collaudo
+che conferma non esce lavoro.
 
-⚠️ **Le 193 rese del generatore, invece, non sono state viste**, e sono le più
-difficili da far comparire: gli eventi di viaggio escono a caso viaggiando sulla
-mappa del mondo (`rnd(12)` in mare, e le varianti di strada e Lost Ylva). Chi
-collauda ne vedrà una ogni tanto camminando: quel che conta è che la frase
-**stia in piedi da sola**, perché i pezzi cambiano ogni volta.
+**Il secondo è una schermata sola, ed è la 62ª di nuovo.** La frase del
+generatore era arrivata e stava in piedi — «Hai visto uno spazzino con una corda
+robusta fra le chiappe…», tre righe dentro la pergamena — ma **tutto quel che ha
+pagato stava intorno**:
+
+    < Adventure Days >                              il titolo di OGNI evento
+    I don't want to get involved.                   l'unico bottone da premere
+    You gained a good amount of travel experience.  a ogni evento, nel registro
+    As a salary, 215 monete d'oro e 2 oggetti have been sent to your house.
+
+⚠️⚠️ **L'ultima l'avevamo fatta noi la mattina stessa**: i due pezzi erano fra
+le 24 gemelle importate, la cornice di `event.hsp:4467` no. 💡 *È la lezione dei
+menu un livello più su — una resa può essere giusta e fare danno perché la
+**cornice** che la incornicia non è arrivata* — e stavolta il danno l'ha creato
+il nostro lotto, non l'ha solo lasciato lì.
+
+⚠️ E le due righe del registro erano **quasi gemelle per uno spazio**: le sedici
+sorelle sono rese da sempre, ma il loro inglese comincia con uno spazio e queste
+no. 💡 L'elenco delle quasi gemelle è dove si va a cercare quando una riga è
+inglese e sembra che dovrebbe essere tradotta.
+
+Chiusa tutta la schermata, 16 rese: 4 titoli, 5 bottoni, 3 testi lunghi, le 2
+righe di registro e le 2 cornici della paga.
+
+⚠️ **Restano da vedere le 193 rese del generatore**, che escono a caso viaggiando
+sulla mappa: quel che conta è che la frase **stia in piedi da sola**, perché i
+pezzi cambiano ogni volta. Quella vista regge.
+
+⚠️ **Due voci nuove sono NON MISURATE, e la rete lo dichiara**: `event.hsp:3634`
+e `:3637`. Lo sfondo si cerca 40 righe indietro e lì l'assegnazione sta 120
+righe sopra, dentro un `if` che sceglie fra due bitmap (mare o strada). Misurate
+a mano col metro della rete e lo sfondo **più stretto** (`bg_re25`, tetto 33):
+21 e 24 caratteri, dentro. 💡 Insegnare alla rete a seguire quel ramo è
+possibile ma rischioso — un tetto scelto col minimo su tutta la routine
+produrrebbe difetti che non esistono, che è la trappola già scritta nel test di
+`menu_dialogo`.
 
 ---
 

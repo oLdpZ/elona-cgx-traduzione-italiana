@@ -138,9 +138,20 @@ dizionario e che nessun referto nominava. **296 rese, una rete nuova, 22 test.**
 | `event.hsp` fuori dal generatore | 24 | e il menu `4504-4509` chiuso intero |
 | `event.hsp:1070` | 1 | la sorella mancante di un menu da due voci |
 | il generatore di `event.hsp` | 193 | 158 pezzi e 35 cornici, con la grammatica nuova |
+| intorno al generatore | 16 | dal collaudo: titoli, bottoni, registro, la paga |
 
-`chat.hsp` scende da 3.920 a **3.648** e `event.hsp` da 622 a **410**: nessuno
-dei due ha più gemelle. **489 rese in tutto.**
+`chat.hsp` scende da 3.920 a **3.648** e `event.hsp` da 622 a **394**: nessuno
+dei due ha più gemelle. **505 rese in tutto, in dieci spinte.**
+
+### ⭐⭐⭐ La schermata di collaudo che ha trovato una cornice mancante
+
+La frase del generatore era arrivata e stava in piedi; **intorno** c'erano il
+titolo inglese di ogni evento, l'unico bottone della finestra, le due righe di
+registro che escono sempre — e una riga **mezza italiana** fatta da noi la
+mattina stessa: «As a salary, 215 monete d'oro e 2 oggetti have been sent to
+your house.» I pezzi erano fra le 24 gemelle importate, la cornice di
+`event.hsp:4467` no. 💡 *Una resa può essere giusta e fare danno perché la
+cornice che la incornicia non è arrivata.*
 
 ### Le tre classi, misurate su tutto il progetto
 
