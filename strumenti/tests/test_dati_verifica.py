@@ -89,17 +89,26 @@ def test_un_secondo_due_punti_nel_corpo_va_bene():
 # ----------------------------------------------------------- il titolo largo
 
 def test_un_titolo_lungo_ma_dentro_il_tetto_passa():
-    assert problemi(voce(it="x" * 34 + ":corpo {reward}")) == []
+    assert problemi(voce(it="x" * 24 + ":corpo {reward}")) == []
 
 
 def test_un_titolo_oltre_il_tetto_e_un_problema():
-    assert "titolo largo" in problemi(voce(it="x" * 35 + ":corpo {reward}"))
+    assert "titolo largo" in problemi(voce(it="x" * 25 + ":corpo {reward}"))
+
+
+def test_il_tetto_e_le_stellette_non_la_scadenza():
+    # ⚠️ misurato a schermo nella 70a: le stellette del livello stanno a
+    # wx+270 (command.hsp:3391) e si disegnano DOPO il titolo, mentre la
+    # scadenza - il primo pos successivo leggendo il sorgente - sta a wx+344.
+    # Col tetto sbagliato (34) un titolo da 25 passava e finiva sotto le stelle.
+    assert dati_verifica.TETTO_TITOLO == 24
+    assert "titolo largo" in problemi(voce(it="Un rinfresco coi fiocchi!:corpo {reward}"))
 
 
 def test_il_titolo_si_misura_degradato():
     # «perche'» a schermo e' 7 caratteri, non 6: l'apostrofo e' un carattere
-    trentaquattro = "perché" + "x" * 28          # 34 nel dizionario, 35 a schermo
-    assert "titolo largo" in problemi(voce(it=trentaquattro + ":corpo {reward}"))
+    ventiquattro = "perché" + "x" * 18          # 24 nel dizionario, 25 a schermo
+    assert "titolo largo" in problemi(voce(it=ventiquattro + ":corpo {reward}"))
 
 
 # ------------------------------------------------------------- la struttura
@@ -225,3 +234,47 @@ def test_i_segnaposto_non_si_espandono_per_contare_le_righe():
     # en e it hanno lo stesso insieme di segnaposto, quindi crescono uguale:
     # contare sul testo grezzo e' onesto e non chiede di indovinare l'oggetto
     assert dati_verifica.righe_del_corpo("T:{objective} e {reward}", 70) == 1
+
+
+# ------------------------------------------------- il profilo per file
+
+def test_ogni_file_ha_il_suo_espansore():
+    # ⚠️ board.txt passa da talktxt_conv, talk.txt da convert_word, e NON
+    # conoscono gli stessi nomi: {nptc} e {npcc} sono validi solo nel secondo
+    assert dati_verifica.profilo("board.txt")["espansore"].nome == "talktxt_conv"
+    assert dati_verifica.profilo("talk.txt")["espansore"].nome == "convert_word"
+    assert "nptc" not in dati_verifica.TALKTXT_CONV.noti
+    assert "nptc" in dati_verifica.CONVERT_WORD.contenuto
+
+
+def test_in_talk_un_nptc_e_legittimo_e_in_board_no():
+    di_talk = {"firma": "f", "file": "talk.txt", "blocco": "A", "riga": 1,
+               "en": "Hello {nptc}.", "jp_contesto": [], "it": "Ciao {nptc}."}
+    assert dati_verifica.controlla([di_talk]) == []
+    di_board = dict(di_talk, file="board.txt", it="T:Ciao {nptc}.", en="T:Hello {nptc}.")
+    generi = [p.genere for p in dati_verifica.controlla([di_board])]
+    assert "segnaposto" in generi
+
+
+def test_in_talk_non_si_chiede_il_due_punti():
+    di_talk = {"firma": "f", "file": "talk.txt", "blocco": "A", "riga": 1,
+               "en": "Nice weather today.", "jp_contesto": [], "it": "Che bel tempo oggi."}
+    assert dati_verifica.controlla([di_talk]) == []
+
+
+def test_i_codici_di_faccia_e_di_suono_si_conservano():
+    di_talk = {"firma": "f", "file": "talk.txt", "blocco": "A", "riga": 1,
+               "en": "{Happy}Hi!{seGet}", "jp_contesto": [], "it": "{Happy}Ciao!{seGet}"}
+    assert dati_verifica.controlla([di_talk]) == []
+    perso = dict(di_talk, it="{Happy}Ciao!")
+    assert "segnaposto" in [p.genere for p in dati_verifica.controlla([perso])]
+
+
+def test_la_rete_di_monte_girata_su_talk_non_trova_niente():
+    # e col profilo sbagliato ne troverebbe uno: e' la prova che il profilo conta
+    voce_talk = {"firma": "f", "file": "talk.txt", "blocco": "A", "riga": 1,
+                 "en": "Hello {nptc}.", "jp_contesto": [], "it": ""}
+    assert dati_verifica.segnaposto_ignoti_di_monte([voce_talk]) == []
+    sbagliato = dati_verifica.segnaposto_ignoti_di_monte(
+        [voce_talk], espansore=dati_verifica.TALKTXT_CONV)
+    assert len(sbagliato) == 1

@@ -2,7 +2,7 @@
   "COOK,GENERAL": "Una ricetta nuova!:Di mestiere sto ai fornelli, e non smetto mai di cercare ricette nuove. Portami {objective} e ti pago {reward}.",
   "COOK,1": "Un ricevimento.:Stasera do un ricevimento importante, e gli ospiti devono restare a bocca aperta. Preparami {objective} e {reward} sono tuoi.",
   "COOK,2": "A dieta:Che la verdura faccia bene lo sanno tutti. Cucinami {objective}. Il compenso è {reward}.",
-  "COOK,3": "Un rinfresco coi fiocchi!:Una commissione da poco e ti porti a casa {reward}. Al nostro rinfresco serve qualcosa di sfizioso: direi che {objective} ci sta benissimo.",
+  "COOK,3": "Un rinfresco coi fiocchi:Una commissione da poco e ti porti a casa {reward}. Al nostro rinfresco serve qualcosa di sfizioso: direi che {objective} ci sta benissimo.",
   "COOK,4": "Che dolcezza.:Ai liquori preferisco torte e caramelle. Vuoi {reward}? E allora dammi {objective}!",
   "COOK,5": "Che passione, la pasta!:Adoro la pasta! C'è qualcuno al mondo che non la ama? Adesso voglio mangiare {objective}! Il compenso? Ma certo: ti vanno bene {reward}?",
   "COOK,6": "Bocche difficili.:I miei figli il pesce non lo toccano, ed è una disperazione. Do {reward} a chi mi prepara {objective} e riesce a fargli cambiare idea.",
