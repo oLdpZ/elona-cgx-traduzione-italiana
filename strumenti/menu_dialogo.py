@@ -229,8 +229,51 @@ LEGGI_CITTA = "skip_rule"
 # e' il primo gosub che segue» ci finiva sopra per **tutte** le voci prima di
 # quella riga. 💡 La forma non lo distingue: e' `gosub *etichetta` come gli
 # altri, e la prova che non disegna e' che il suo corpo non ha nessun `cs_list`.
+# ⚠️ E `*convert_word` (`text.hsp:6899`) e' il quarto caso, trovato nella 74a
+# quando il menu del **sonno condiviso** (`event.hsp:2586`-`:2590`) e' entrato nel
+# dizionario: non disegna, **scioglie i segnaposto** `{...}` dentro `buff` (1.266
+# righe, e la prova e' sempre la stessa: nel suo corpo non c'e' nessun `cs_list`).
+# In `event.hsp` lo chiamano dieci volte, sempre poco prima della finestra che
+# disegna davvero — qui `gosub *re_select` a `:2605`.
 NON_DISEGNANO = frozenset({"screen_drawStatus", "screen_draw", "screen_refreshFull",
-                           "talk_quest", "quest_success"})
+                           "talk_quest", "quest_success", "convert_word"})
+
+# --- lo sfondo letto a mano, quando la ricerca all'indietro non lo trova
+#
+# ⚠️⚠️ **Il registro esiste per NON allargare la finestra all'indietro**, che
+# sarebbe la correzione ovvia e darebbe la risposta sbagliata in silenzio.
+# `event.hsp:3633`-`:3638` mette le due voci in due rami dello stesso `if`, e
+# `:3512`-`:3519` sceglie il bitmap con **la stessa guardia**, 116 righe piu' su:
+#
+#     3512  if ( gdata(GDATA_AREA) == AREA_OCEAN ) { file = "bg_re25" }   tetto 33
+#     3516  else                                   { file = "bg_re13" }   tetto 45
+#     3633  if ( gdata(GDATA_AREA) == AREA_OCEAN ) { chatList ...mare... }
+#     3636  else                                   { chatList ...strada... }
+#
+# Tornando indietro dalla voce del **mare** il primo `file =` che si incontra e'
+# quello dell'altro ramo: la rete misurerebbe la voce stretta col riquadro largo
+# e direbbe «dentro» per costruzione. 💡 E' la trappola gia' scritta nel test di
+# questa rete — un tetto scelto senza seguire il ramo produce permessi, non
+# difetti — quindi il ramo lo si legge **a mano**, una volta, e lo si scrive qui.
+#
+# ⚠️ Quel che si registra e' il BITMAP, non il tetto: il numero continua a
+# ricavarlo la rete con la sua formula. L'unica cosa che una persona aggiunge e'
+# il fatto che dal sorgente non si deduce, cioe' **quale ramo**.
+# ⚠️ E si indicizza per SITO, non per firma: e' la lezione della 68a, dove un
+# rinvio scritto guardando una riga ha tenuto ferma anche la sua gemella altrove.
+SFONDO_A_MANO: dict[tuple[str, int], str] = {
+    # il sonno condiviso: `s = "Force Sleep Sharing"` e `file = "bg_re16"` stanno
+    # a `event.hsp:2543`-`:2544`, senza rami di mezzo — 42 righe sopra la prima
+    # voce, cioe' due righe oltre la finestra della ricerca automatica.
+    ("event.hsp", 2586): "bg_re16",
+    ("event.hsp", 2587): "bg_re16",
+    ("event.hsp", 2588): "bg_re16",
+    ("event.hsp", 2589): "bg_re16",
+    ("event.hsp", 2590): "bg_re16",
+    # gli eventi di viaggio: il ramo del mare e quello della strada, vedi sopra
+    ("event.hsp", 3634): "bg_re25",
+    ("event.hsp", 3637): "bg_re13",
+}
 
 _VOCE = re.compile(r"\bchatList\b")
 _GOSUB = re.compile(r"\bgosub\s+\*(\w+)")
@@ -283,7 +326,10 @@ def righe_di_menu(sorgente: Path | None = None) -> dict[str, set[int]]:
     return fuori
 
 
-def contenitore_di_menu(sorgente: Path | None = None) -> dict[str, dict[int, tuple[str, str]]]:
+def contenitore_di_menu(
+    sorgente: Path | None = None,
+    a_mano: dict[tuple[str, int], str] | None = None,
+) -> dict[str, dict[int, tuple[str, str]]]:
     """file .hsp -> riga -> (chi disegna il menu, bmp di sfondo).
 
     ⚠️ **Il `chatList` riempie la lista; a disegnarla e' il `gosub` che segue.**
@@ -294,8 +340,14 @@ def contenitore_di_menu(sorgente: Path | None = None) -> dict[str, dict[int, tup
 
     Lo sfondo si cerca all'indietro: e' l'ultimo `file = "bg_reNN"` prima della
     voce, e serve solo dentro `*re_select`, dove il tetto dipende dal bitmap.
+    ⚠️ La ricerca guarda **40 righe** e non di piu': vedi `SFONDO_A_MANO` per il
+    motivo, che e' un ramo di `if` e non un limite di pazienza. Dove non trova
+    niente vale il registro a mano, e **solo li'**: se un domani la ricerca
+    automatica trovasse da sola una di quelle righe, il registro non la
+    sovrascrive e `sfondi_a_mano_da_togliere()` lo dice.
     """
     sorgente = sorgente or percorsi.SORGENTE_HSP
+    a_mano = SFONDO_A_MANO if a_mano is None else a_mano
     fuori: dict[str, dict[int, tuple[str, str]]] = {}
     for percorso in sorted(sorgente.glob("*.hsp")):
         righe = percorso.read_bytes().decode("cp932", "replace").split("\n")
@@ -323,6 +375,8 @@ def contenitore_di_menu(sorgente: Path | None = None) -> dict[str, dict[int, tup
                 if trovato:
                     sfondo = trovato.group(1)
                     break
+            if sfondo == "?":
+                sfondo = a_mano.get((percorso.name, i), "?")
             trovate[i] = (dove, sfondo)
         if trovate:
             fuori[percorso.name] = trovate
@@ -442,6 +496,50 @@ def non_misurate(
             if tetto_di(v.get("_contenitore", "?"), v.get("_sfondo", "?"), grafica) is None]
 
 
+def sfondi_a_mano_da_togliere(
+    sorgente: Path | None = None,
+    grafica: Path | None = None,
+    a_mano: dict[tuple[str, int], str] | None = None,
+) -> list[tuple[str, int, str]]:
+    """(file, riga, motivo) per ogni voce del registro a mano che non regge piu'.
+
+    ⚠️ **Un registro a mano che nessuno ricontrolla e' un permesso nascosto**, ed
+    e' esattamente la forma del difetto della 68a: un rinvio scritto guardando una
+    riga che tiene ferma anche un'altra. Qui ogni voce deve continuare a valere
+    per tutt'e quattro le ragioni per cui e' stata scritta, e il referto stampa
+    quante ne sono in uso invece di lasciarle in silenzio nel codice.
+
+    Le quattro:
+
+    1. la riga e' ancora un `chatList` del sorgente pinnato;
+    2. la ricerca automatica non la trova da sola — se la trovasse, il registro
+       sarebbe di troppo e la riga andrebbe tolta (non tenuta «per sicurezza»:
+       due risposte per lo stesso sito sono un modo di litigare in silenzio);
+    3. il contenitore e' `*re_select`, l'unico dove il tetto dipende dal bitmap:
+       altrove lo sfondo non lo guarda nessuno e scriverlo fa credere di aver
+       misurato;
+    4. il bitmap esiste davvero fra i `graphic/*.bmp` del gioco.
+    """
+    a_mano = SFONDO_A_MANO if a_mano is None else a_mano
+    grezzo = contenitore_di_menu(sorgente, a_mano={})
+    da_togliere = []
+    for (nome, riga), bmp in sorted(a_mano.items()):
+        trovate = grezzo.get(nome, {})
+        if riga not in trovate:
+            da_togliere.append((nome, riga, "non e' (piu') una riga di chatList"))
+            continue
+        dove, sfondo = trovate[riga]
+        if sfondo != "?":
+            da_togliere.append((nome, riga,
+                                "la ricerca automatica trova gia' %s" % sfondo))
+        elif dove != FINESTRA_EVENTO:
+            da_togliere.append((nome, riga,
+                                "il contenitore e' *%s, dove lo sfondo non si usa" % dove))
+        elif larghezza_sfondo(bmp, grafica) is None:
+            da_togliere.append((nome, riga, "il bitmap %s non esiste" % bmp))
+    return da_togliere
+
+
 def fuori_misura(
     dizionario: Path | None = None,
     sorgente: Path | None = None,
@@ -527,6 +625,15 @@ def main(argv: list[str] | None = None) -> int:
             tetto = tetto_di(FINESTRA_EVENTO, sfondo)
             print("    %-12s %4d voci   tetto %s"
                   % (sfondo, quante, tetto if tetto is not None else "SFONDO NON TROVATO"))
+
+    # il registro a mano si dichiara: e' l'unico punto della rete dove il numero
+    # non viene dal sorgente, e un elenco che non si stampa non lo ricontrolla
+    # nessuno. Vedi SFONDO_A_MANO.
+    stantii = sfondi_a_mano_da_togliere()
+    print("\nsfondi letti a mano (il ramo non si deduce): %d siti, %d da togliere"
+          % (len(SFONDO_A_MANO), len(stantii)))
+    for nome, riga, motivo in stantii:
+        print("  ⚠️ %-18s %6d  %s" % (nome, riga, motivo))
 
     if sfori:
         print()

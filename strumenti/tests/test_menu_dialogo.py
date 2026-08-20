@@ -19,9 +19,10 @@ from strumenti.menu_dialogo import (
     INIZIO_VOCE_GOD, INIZIO_VOCE_LEGGI, INIZIO_VOCE_RE_SELECT, LARGHEZZA_GOD,
     LEGGI_CITTA, MARGINE_GOD, MARGINE_RE_SELECT,
     NON_DISEGNANO, PANNELLO_DEI, PERGAMENA, PIXEL_PER_CARATTERE, PIXEL_UTILI,
+    SFONDO_A_MANO,
     TETTO, contenitore_di_menu, fuori_misura, fuori_misura_inglese,
-    menu_non_ancora_tradotti, non_misurate, reso, righe_di_menu, tetto_di,
-    voci_di_menu,
+    menu_non_ancora_tradotti, non_misurate, reso, righe_di_menu,
+    sfondi_a_mano_da_togliere, tetto_di, voci_di_menu,
 )
 
 # una voce di menu statica, una dinamica, e un `chatMore` che NON e' una voce
@@ -464,3 +465,134 @@ def test_le_due_colonne_valgono_solo_nella_pergamena():
     e' dentro `if ( evochat == 0 )`, cioe' solo il menu del dialogo normale."""
     fuori = {f for f, _, _, _, _ in tagliate_a_due_colonne()}
     assert fuori <= {"chat.hsp", "tcg_custom.hsp"}
+
+
+# --- il quarto gosub che non disegna, e lo sfondo letto a mano (nati nella 74a)
+#
+# Le sette voci che la guardia dei contenitori dichiarava «non misurate» a fine
+# 73a erano due difetti diversi, e nessuno dei due era una resa sbagliata:
+# `*convert_word` scambiato per una finestra, e uno sfondo scritto in un ramo di
+# `if` che la ricerca all'indietro non raggiunge.
+
+SORGENTE_SONNO = """\
+*finto_sonno
+\ts = lang("そいね", "Force Sleep Sharing")
+\tfile = "bg_finto"
+\tbuff = lang("ほんぶん", "What do you try...")
+\tchatList 1, lang("ほうち", "(Leave them alone)")
+\tgosub *convert_word
+\tgosub *re_select
+\treturn
+"""
+
+
+@pytest.fixture
+def finto_sonno(tmp_path):
+    (tmp_path / "event.hsp").write_bytes(SORGENTE_SONNO.encode("cp932"))
+    return tmp_path
+
+
+def test_un_gosub_che_scioglie_i_segnaposto_non_e_il_contenitore(finto_sonno):
+    """A disegnare e' `*re_select`, che viene dopo: `*convert_word` sta in mezzo.
+
+    E' la stessa forma di `*screen_drawStatus` e `*talk_quest`: un
+    `gosub *etichetta` come tutti gli altri, che pero' non apre nessuna finestra.
+    """
+    trovate = contenitore_di_menu(finto_sonno)["event.hsp"]
+    assert trovate[5] == (FINESTRA_EVENTO, "bg_finto")
+
+
+def test_convert_word_e_dichiarato_fra_quelli_che_non_disegnano():
+    # se un domani qualcuno lo toglie da qui, il test sopra diventa rosso e si
+    # capisce subito perche'
+    assert "convert_word" in NON_DISEGNANO
+
+
+def test_convert_word_non_disegna_nessuna_voce_di_menu():
+    """La prova che non e' una finestra: nel suo corpo non c'e' nessun `cs_list`.
+
+    E' la stessa prova usata per `*talk_quest` nella 72a, e va rifatta sul
+    sorgente invece che ricordata: `*convert_word` (`text.hsp:6899`) e' lungo
+    1.266 righe e non fa altro che sciogliere i segnaposto `{...}` dentro `buff`.
+    """
+    righe = (percorsi.SORGENTE_HSP / "text.hsp").read_bytes().decode("cp932").split("\n")
+    inizio = [i for i, r in enumerate(righe) if r.startswith("*convert_word")]
+    assert len(inizio) == 1, "l'etichetta non c'e' piu' o e' raddoppiata"
+    corpo = []
+    for riga in righe[inizio[0] + 1:]:
+        if riga.startswith("*"):
+            break
+        corpo.append(riga)
+        if riga.strip() == "return":
+            break
+    assert corpo, "il corpo e' vuoto"
+    assert [r for r in corpo if "cs_list" in r] == []
+    assert [r for r in corpo if "chatList" in r] == []
+
+
+def test_lo_sfondo_a_mano_vale_solo_dove_la_ricerca_non_trova_niente(finto_sonno):
+    """⚠️ Il registro non SOVRASCRIVE: riempie un buco.
+
+    Due risposte per lo stesso sito sarebbero un modo di litigare in silenzio, e
+    quella scritta a mano invecchierebbe senza che nessuno se ne accorga. Qui la
+    ricerca automatica trova `bg_finto` due righe sopra: il registro non conta, e
+    `sfondi_a_mano_da_togliere` dice di levarlo.
+    """
+    bugia = {("event.hsp", 5): "bg_altro"}
+    trovate = contenitore_di_menu(finto_sonno, a_mano=bugia)["event.hsp"]
+    assert trovate[5][1] == "bg_finto"
+    stantii = sfondi_a_mano_da_togliere(finto_sonno, a_mano=bugia)
+    assert [(f, r) for f, r, _ in stantii] == [("event.hsp", 5)]
+
+
+def test_il_registro_a_mano_e_ancora_tutto_valido():
+    """Ogni voce del registro deve continuare a valere per le quattro ragioni
+    per cui e' stata scritta: vedi `sfondi_a_mano_da_togliere`. ⚠️ Un elenco a
+    mano che nessuno ricontrolla e' un permesso nascosto — la 68a."""
+    stantii = sfondi_a_mano_da_togliere()
+    assert stantii == [], "\n".join(
+        "%s:%d  %s" % (f, r, motivo) for f, r, motivo in stantii)
+
+
+def test_allargare_la_finestra_all_indietro_prenderebbe_il_ramo_sbagliato():
+    """⭐⭐ Perche' il registro e' a mano e la ricerca resta corta.
+
+    `event.hsp:3633`-`:3638` mette le due voci in due rami dello stesso `if`, e
+    `:3512`-`:3519` sceglie il bitmap con la **stessa guardia**, 116 righe piu'
+    su. Tornando indietro dalla voce del mare il primo `file =` che si incontra
+    e' quello dell'**altro** ramo: la rete misurerebbe la voce stretta (tetto 33)
+    col riquadro largo (45) e direbbe «dentro» per costruzione.
+
+    💡 Il difetto che ne verrebbe fuori non e' un falso allarme — e' un permesso,
+    cioe' la categoria che non si vede finche' qualcuno non guarda lo schermo.
+    """
+    righe = (percorsi.SORGENTE_HSP / "event.hsp").read_bytes().decode("cp932").split("\n")
+    guardia = "if ( gdata(GDATA_AREA) == AREA_OCEAN ) {"
+    assert righe[3512 - 1].strip() == guardia
+    assert righe[3633 - 1].strip() == guardia
+
+    prima = [r.strip() for r in righe[:3634 - 1] if r.strip().startswith("file = ")]
+    assert prima[-1] == 'file = "bg_re13"', "il ramo della strada, non quello del mare"
+    assert SFONDO_A_MANO[("event.hsp", 3634)] == "bg_re25"
+
+    stretto = tetto_di(FINESTRA_EVENTO, "bg_re25")
+    largo = tetto_di(FINESTRA_EVENTO, "bg_re13")
+    assert (stretto, largo) == (33, 45)
+
+
+def test_le_voci_del_sonno_condiviso_ci_stanno_tutte():
+    """Le cinque voci di `event.hsp:2586`-`:2590`, sfondo `bg_re16`, tetto 45.
+
+    Sono le voci per cui la guardia era rossa: la piu' lunga e' «(Lasciare stare
+    e dormire)», 26 caratteri. Erano dentro anche prima — quel che mancava era
+    che qualcuno le misurasse invece di dichiararle non misurabili.
+    """
+    voci = {v["riga"]: v for v in voci_di_menu()
+            if v["file"] == "event.hsp" and 2586 <= v["riga"] <= 2590}
+    assert sorted(voci) == [2586, 2587, 2588, 2589, 2590]
+    tetto = tetto_di(FINESTRA_EVENTO, "bg_re16")
+    assert tetto == 45
+    for riga, voce in sorted(voci.items()):
+        assert voce["_contenitore"] == FINESTRA_EVENTO
+        assert voce["_sfondo"] == "bg_re16"
+        assert len(reso(voce["it"])) <= tetto, (riga, voce["it"])
