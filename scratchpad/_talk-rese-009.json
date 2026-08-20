@@ -1,0 +1,80 @@
+{
+  "_nota": "chiave: blocco|riga. Lotto talk-009: le varianti d'aprile di chi parla. 61 righe - le ultime del file.",
+  "_sex": "⚠️ ABITCH|2 porta {sex}, che l'espansore rende con lang(\"男\",\"boy\") / lang(\"女\",\"girl\") (text.hsp:7057). Quella coppia ha la STESSA FIRMA di _sex2 (text.hsp:110), che proc.hsp:3290 usa dentro «C-con quel ragazzo era solo una cosa di letto», quindi in italiano vale «quel ragazzo» / «quella ragazza», col dimostrativo dentro. La resa gira intorno all'ostacolo mettendo {sex} in TERZA persona invece che come vocativo (regola della 64a). ⓘ E il blocco e' comunque morto: %ABITCH non e' referenziato da nessuna parte, come %AKASHIC.",
+  "_terre": "ウソツイ・テール e ダマサレ・テール sono parodie di エイス・テール (Eyth Terre): «era della Bugia» e «era dell'Inganno». Le rese tengono la forma del nome vero - Bugiard Terre, Gabbat Terre - come fa l'inglese con Justkidding/Pullingyourleg.",
+  "_jp": "Seguono il giapponese: ADEFAULT|4 (l'inglese aggiunge una «blade meat» che non esiste nel dizionario), APERSONALITY,1|6 (il bucato NON serve a trovare lavoro: stendere il bucato in giro E' il lavoro che ti danno).",
+  "_sfalsati": "APERSONALITY,0 (7 EN contro 8 JP: buttata JP6) e APERSONALITY,3 (9 contro 10: buttata JP9).",
+
+  "ABITCH|1": "Oggi c'è l'offerta col sangue... ti faccio un servizio da far uscire il sangue dal naso. Che ne dici, tesoro?",
+  "ABITCH|2": "Mmmh, ma guarda un po'... {sex} mi piace proprio. Sì, mi piace parecchio...",
+
+  "ADEFAULT|1": "{aka}? Ah, sei quella persona famosa che ha scoperto il modo migliore di cucinare la carne umana.",
+  "ADEFAULT|2": "Ti pagano uno stipendio solo per startene in piedi in città a far niente.",
+  "ADEFAULT|3": "Certe volte, se parli alla gente senza motivo, quelli ti attaccano.",
+  "ADEFAULT|4": "A cuocere la carne insieme alle noci di Api, anche la più dura viene tenera.",
+  "ADEFAULT|5": "Pare che gli dei, a vedersi davanti una motosega, scappino via di corsa.",
+
+  "AMOYER|1": "I clienti cattivi che guardano e non comprano se li mangia il gigante, in un boccone!",
+  "AMOYER|2": "Ebon aveva un fratello minore... e si chiamava Obon! I due giganti finirono per darsele di santa ragione per il dominio del labirinto...",
+
+  "APERSONALITY,0|1": "A bere tanta birra crim in poco tempo si diventa dipendenti dalla crimberry.",
+  "APERSONALITY,0|2": "Le civiltà passate sono cadute perché la gente litigava se fossero meglio i cani o i gatti.",
+  "APERSONALITY,0|3": "Nel nuovo regno ci sono robot travestiti da esseri umani.",
+  "APERSONALITY,0|4": "Gli Eulderna hanno fermato le ricerche sulle Nefia per mancanza di fondi.",
+  "APERSONALITY,0|5": "L'unico modo di battere un negoziante è distruggergli il nucleo.",
+  "APERSONALITY,0|6": "Lo sai, {player}, che i leoni marini ingordi mangiano soltanto pesce?",
+  "APERSONALITY,0|7": "A furia di bere pozioni di cura benedette comincia a uscirti latte benedetto. E quando comincia a colare non la smette più.",
+
+  "APERSONALITY,1|1": "Quando muori un certo numero di volte, una dea ti prende in pietà.",
+  "APERSONALITY,1|2": "Nei campi, ogni tanto, si trovano schegge di stelle cadenti.",
+  "APERSONALITY,1|3": "È solo questione di tempo prima che l'economia crolli: con tutto l'oro che si tira fuori dai sotterranei, le monete non valgono più niente.",
+  "APERSONALITY,1|4": "La miniera da cui escono le monete di platino è in mano a pochi funzionari.",
+  "APERSONALITY,1|5": "Gli Eulderna non diventano maghi prima dei trent'anni.",
+  "APERSONALITY,1|6": "Se resti disoccupato troppo a lungo, ti mettono a stendere il bucato in giro per la città.",
+  "APERSONALITY,1|7": "Zanan dopo la guerra è una monarchia sulla carta, ma in realtà il paese è tutto in mano ai gatti. Un regno di gatti, miao.",
+
+  "APERSONALITY,2|1": "\"Nefia\", il nome con cui chiamiamo le rovine, viene da una cartiera di una civiltà passata.",
+  "APERSONALITY,2|2": "La quarta era è Bugiard Terre: la gente di allora prosperava a forza di battute finissime.",
+  "APERSONALITY,2|3": "Ognuno ha il suo modo di lanciare la magia. La mia, per dire, mi esce dal sedere.",
+  "APERSONALITY,2|4": "Yowyn è famosa in tutto il mondo per la produzione di carne umana.",
+  "APERSONALITY,2|5": "Pare che le statue della dea a Lumiest, di notte, si mettano a camminare.",
+
+  "APERSONALITY,3|1": "Non hai soldi per mangiare? Fatti accattone e vivi alle spalle della gente. Una passeggiata.",
+  "APERSONALITY,3|2": "All'arena ho perso, ma c'era una guaritrice da urlo che mi ha rimesso a posto in quattro e quattr'otto.",
+  "APERSONALITY,3|3": "Ogni tanto, nei sotterranei, si trovano stanze piene zeppe di cuccioli di cane. Talmente piene che appena apri la porta cominciano a rovesciarsi fuori.",
+  "APERSONALITY,3|4": "Il Patto Eterno? Certo che ne ho sentito parlare, di quella maledetta cosa. Solo a ricordarlo mi ribolle il sangue!",
+  "APERSONALITY,3|5": "La quinta era si chiama Gabbat Terre.",
+  "APERSONALITY,3|6": "(Pss. Ehi, tu. Vuoi una dritta segreta? Viaggio è un'abilità perfettamente inutile. Non prenderla!)",
+  "APERSONALITY,3|7": "Se ti pare di aver sbattuto contro un muro e di non crescere più, va' a offrire dei cadaveri a un Forte del Caos, uno qualsiasi.",
+  "APERSONALITY,3|8": "Il nome \"Jure\" della dea della guarigione è in realtà uno pseudonimo preso dalla sua terra d'origine, Juere.",
+  "APERSONALITY,3|9": "Se ti metti a tirare castagne in mezzo alla campagna, ti capitano incontri niente male.",
+
+  "ARUMOR,LOOT|1": "Pare che, se riesci a portare un grifone esattamente a metà vita, si separi in un'aquila e un leone.",
+  "ARUMOR,LOOT|2": "Se abbatti un mammut con un colpo pulito, ti porti via un pezzo di carne con l'osso enorme.",
+  "ARUMOR,LOOT|3": "Il latte, marcendo, ogni tanto diventa formaggio. E dal latte di un eroe esce un formaggio speciale.",
+  "ARUMOR,LOOT|4": "C'è un albero che, a prenderlo a spallate, fa cadere scarabei.",
+  "ARUMOR,LOOT|5": "Pare che i ninja nascondano una pergamena con una tecnica potentissima!",
+  "ARUMOR,LOOT|6": "A dare abbastanza spallate a un budino gigante, lo si ribalta a testa in giù.",
+  "ARUMOR,LOOT|7": "Dal cuore di un drago si ricava una pozione di cura potentissima.",
+  "ARUMOR,LOOT|8": "Ho visto un mercenario che si portava dietro una montagna di riviste pornografiche.",
+  "ARUMOR,LOOT|9": "Fra gli spazzini ce n'è qualcuno particolarmente fissato con la pulizia, che si porta sempre dietro un detersivo speciale.",
+  "ARUMOR,LOOT|10": "Ogni tanto gli yeek, invece della lancia, hanno addosso una lama di pregio.",
+  "ARUMOR,LOOT|11": "Le chele di un granchio gigante si possono usare come martello.",
+  "ARUMOR,LOOT|12": "Il campanello che ogni tanto lasciano cadere le campane porta fortuna a chi lo suona.",
+
+  "ASHOPKEEPER|1": "Io? Il negozio non è mio. Sono l'animale da compagnia del padrone.",
+  "ASHOPKEEPER|2": "L'equipaggiamento fa effetto anche se non lo indossi.",
+  "ASHOPKEEPER|3": "Le munizioni sono di tre tipi: dardi per la balestra, frecce per l'arco lungo e frecce per l'arco corto. Occhio a non confonderle.",
+  "ASHOPKEEPER|4": "Se lanci una saetta di gelo su un pesce posato a terra, ottieni un pesce congelato.",
+  "ASHOPKEEPER|5": "Da me lo stesso articolo costa meno che negli altri negozi!",
+
+  "ASISTER|1": "Ti odio, {player}!",
+  "ASISTER|2": "Non mi piaci per niente, {player}!",
+
+  "ASKILLTRAINER|1": "Alla fine in questo mondo conta solo il talento! Per una persona nella media allenarsi non serve a niente.",
+  "ASKILLTRAINER|2": "Se non avessi da allenare gli altri, il potenziale me lo coltiverei anch'io.",
+  "ASKILLTRAINER|3": "Di monete di platino per l'addestramento ne prendo tante, ma di sole quelle non si campa...",
+
+  "ASLAVEKEEPER|1": "Compra uno schiavo! Ti prego, non puoi comprarne uno?! Devo... devo arrivare alla quota di questo mese. Se non ci arrivo, m-mia madre non si salva!",
+  "ASLAVEKEEPER|2": "Saldi! Saldi! Saldi! Tutti gli schiavi a metà prezzo! Fino a esaurimento scorte!"
+}

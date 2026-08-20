@@ -53,11 +53,26 @@ from strumenti import accenti
 # **controlli** sono direttive di faccia e di suono, che si conservano com'e'
 # (lo impone gia' il confronto sull'insieme dei segnaposto).
 
+# Le conversioni grammaticali: `_da`, `_yo`, `_nda`, `_kure`, `_ka`, `_aru`...
+# Misurate nella 71a una per una — nessuna ha un `lang()` ne' un ramo `if ( jp )`
+# nel corpo: rendono desinenze giapponesi in qualunque lingua.
 _GIAPPONESI = frozenset({
     "ある", "う", "か", "が", "かな", "だ", "よ", "た", "だな", "だろ",
     "たのむ", "る", "のだ", "な", "くれ", "しろ", "見るな", "ごめん",
-    "onii", "syujin", "sex",
 })
+
+# ⚠️⚠️ `{onii}` E `{syujin}` NON SONO CONVERSIONI GIAPPONESI: SONO INGLESE NUDO.
+#
+# Fino alla 71a stavano in `_GIAPPONESI` insieme a `sex`, e tutt'e tre erano
+# classificati male. Il ramo `else` di `*convert_word` (`text.hsp:7030` e
+# `:7050`, e i gemelli di `*talktxt_conv` a `:12050` e `:12070`) assegna dei
+# **letterali inglesi fuori da `lang()`**: "brother" / "sister" e "master".
+# Il dizionario non ci arriva, quindi in build italiana escono in inglese, e
+# servirebbe una toppa.
+#
+# ⓘ Nessun inglese di monte li usa - ne' in `talk.txt` ne' in `board.txt` -
+# quindi oggi la rete e' una guardia, non un referto.
+_INGLESI_NUDI = frozenset({"onii", "syujin"})
 
 
 class Espansore:
@@ -67,7 +82,9 @@ class Espansore:
         self.controlli = frozenset(controlli)
         self.da_togliere = frozenset(da_togliere)
         self.giapponesi = _GIAPPONESI
-        self.noti = self.contenuto | self.controlli | self.giapponesi
+        self.inglesi_nudi = _INGLESI_NUDI
+        self.noti = (self.contenuto | self.controlli | self.giapponesi
+                     | self.inglesi_nudi)
 
     def ammessi(self) -> frozenset:
         """Quel che una resa italiana puo' portare: contenuto e controlli.
@@ -75,7 +92,8 @@ class Espansore:
         Meno `da_togliere`: quei nomi l'espansore li conosce, ma li espande in
         giapponese anche nella build inglese.
         """
-        return (self.contenuto | self.controlli) - self.da_togliere
+        return ((self.contenuto | self.controlli)
+                - self.da_togliere - self.inglesi_nudi)
 
 
 # ⚠️⚠️⚠️ `{you}` E `{me}` ESCONO IN GIAPPONESE ANCHE NELLA BUILD INGLESE.
@@ -100,13 +118,13 @@ _DA_TOGLIERE = ("you", "me")
 TALKTXT_CONV = Espansore(
     "talktxt_conv",
     ("client", "map", "ref", "you", "me", "reward", "objective",
-     "deadline", "n", "player", "aka", "npc"),
+     "deadline", "n", "player", "aka", "npc", "sex"),
     da_togliere=_DA_TOGLIERE,
 )
 
 CONVERT_WORD = Espansore(
     "convert_word",
-    ("ref", "you", "player", "aka", "npc", "nptc", "npcc", "me"),
+    ("ref", "you", "player", "aka", "npc", "nptc", "npcc", "me", "sex"),
     ("Basic", "Embarrassment", "Fun", "Happy", "Angry", "Question",
      "seChangePage", "seMelee1", "seMelee2", "seMiss", "seCursor1", "seFire",
      "seKill", "seKill2", "seMore", "seGetGold", "sePayGold", "seEquip", "seGet"),
@@ -295,19 +313,29 @@ def controlla(voci: list[dict], invariati: set[str] | None = None,
             if aggiunti:
                 pezzi.append("aggiunti " + " ".join(f"{{{n}}}x{c}" for n, c in sorted(aggiunti.items())))
             segnala(voce, "segnaposto", "; ".join(pezzi))
-        else:
-            ignoti = [n for n in nella_resa if n not in espansore.ammessi()]
-            if ignoti:
-                giapponesi = [n for n in ignoti if n in espansore.giapponesi]
-                fuori = [n for n in ignoti if n not in espansore.noti]
-                if giapponesi:
-                    segnala(voce, "segnaposto",
-                            "conversioni giapponesi nella resa: "
-                            + " ".join(f"{{{n}}}" for n in giapponesi))
-                if fuori:
-                    segnala(voce, "segnaposto",
-                            f"{espansore.nome} non li conosce, resterebbero fra graffe: "
-                            + " ".join(f"{{{n}}}" for n in fuori))
+        # ⚠️ I nomi ignoti si guardano SEMPRE, non solo quando gli insiemi
+        # combaciano: un segnaposto aggiunto per sbaglio va spiegato, non solo
+        # contato. Fino alla 71a stava nell'`else` e chi aggiungeva un {onii}
+        # leggeva «aggiunti {onii}x1» senza sapere perche' fosse un problema.
+        ignoti = [n for n in nella_resa if n not in espansore.ammessi()]
+        if ignoti:
+            giapponesi = [n for n in ignoti if n in espansore.giapponesi]
+            inglesi = [n for n in ignoti if n in espansore.inglesi_nudi]
+            fuori = [n for n in ignoti if n not in espansore.noti]
+            if giapponesi:
+                segnala(voce, "segnaposto",
+                        "conversioni giapponesi nella resa: "
+                        + " ".join(f"{{{n}}}" for n in giapponesi))
+            if inglesi:
+                segnala(voce, "segnaposto",
+                        "escono in inglese anche in build italiana "
+                        "(letterali fuori da lang(), text.hsp:7032 e "
+                        ":7051): "
+                        + " ".join(f"{{{n}}}" for n in inglesi))
+            if fuori:
+                segnala(voce, "segnaposto",
+                        f"{espansore.nome} non li conosce, resterebbero fra graffe: "
+                        + " ".join(f"{{{n}}}" for n in fuori))
 
         # -------------------------------------------------------- due punti
         if titolo:

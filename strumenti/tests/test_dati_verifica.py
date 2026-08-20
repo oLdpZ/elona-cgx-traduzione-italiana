@@ -316,3 +316,40 @@ def test_da_togliere_non_e_fra_gli_ammessi():
     assert "me" not in dati_verifica.TALKTXT_CONV.ammessi()
     # ma restano NOTI: non devono essere segnalati come nomi sconosciuti
     assert "you" in dati_verifica.CONVERT_WORD.noti
+
+
+# ⚠️ Tre nomi latini erano classificati male fino alla 71a. Il sito li separa:
+#   {sex}     text.hsp:7057   lang("男", "boy")            -> contenuto
+#   {onii}    text.hsp:7030   ramo else: "brother"/"sister" -> inglese nudo
+#   {syujin}  text.hsp:7050   ramo else: "master"           -> inglese nudo
+
+def test_sex_e_contenuto_non_una_conversione_giapponese():
+    voce = _voce_talk("what a nice {sex} you are", "{sex} mi piace proprio")
+    assert dati_verifica.controlla([voce]) == []
+    assert "sex" in dati_verifica.CONVERT_WORD.ammessi()
+    assert "sex" in dati_verifica.TALKTXT_CONV.ammessi()
+    assert "sex" not in dati_verifica.CONVERT_WORD.giapponesi
+
+
+def test_onii_e_syujin_sono_inglese_nudo_non_giapponese():
+    for nome in ("onii", "syujin"):
+        assert nome in dati_verifica.CONVERT_WORD.inglesi_nudi
+        assert nome not in dati_verifica.CONVERT_WORD.giapponesi
+        assert nome not in dati_verifica.CONVERT_WORD.ammessi()
+        # restano NOTI: il messaggio giusto e' «esce in inglese», non
+        # «l'espansore non lo conosce»
+        assert nome in dati_verifica.CONVERT_WORD.noti
+
+
+def test_onii_nella_resa_segnalato_come_inglese():
+    voce = _voce_talk("Hey {player}!", "Ehi {player}, {onii}!")
+    problemi = dati_verifica.controlla([voce])
+    generi = [p.genere for p in problemi]
+    assert generi.count("segnaposto") >= 1
+    assert any("inglese" in p.dettaglio for p in problemi)
+
+
+def test_le_conversioni_giapponesi_restano_segnalate():
+    voce = _voce_talk("Hey {player}!", "Ehi {player}{だ}!")
+    problemi = dati_verifica.controlla([voce])
+    assert any("giapponesi" in p.dettaglio for p in problemi)
