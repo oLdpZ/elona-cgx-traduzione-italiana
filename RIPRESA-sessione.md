@@ -2,7 +2,35 @@
 
 Aggiornato: 2026-08-20, fine della **sessantanovesima** sessione (**il
 quindicesimo punto cieco aperto e chiuso in una sessione sola: `item.hsp`, da
-244 `lang()` senza dizionario a zero da fare**).
+244 `lang()` senza dizionario a zero da fare — e un collaudo in chiusura che ha
+trovato il difetto piu' istruttivo della giornata**).
+
+⭐⭐⭐ **La lezione che vale per tutto il lavoro che viene: UN AGGETTIVO
+PREFISSO NON SI PUO' TRADURRE IN ITALIANO SE SERVE PIU' DI UN NOME.** Il
+collaudo ha letto «un piatto di **rotten** pasta fresca». `rotten` e'
+`item_func.hsp:1304`, una delle 241 righe non ancora tradotte di quel file — ma
+non era una dimenticanza, era un muro: l'inglese incolla l'aggettivo **davanti**
+al nome, e l'aggettivo italiano prima del nome **concorda** («pasta fresca»
+vuole marcia, «pane» vuole marcio, «uova» vuole marce). Quel prefisso serve
+**ogni cibo del gioco**, quindi non c'e' nessun genere sicuro da scegliere. E'
+il muro di `giftn` della stessa sessione **senza la scappatoia**: li' il
+prefisso serviva un oggetto solo.
+
+💡 **E la via d'uscita era gia' scritta nel file.** Lo stesso compositore emette
+una quarantina di stati **fra parentesi, in coda** — `(Scary)`, `(Empty)`,
+`(Herb)`, `(Antiseptic)`, `(Poisoned)` — e nessuno di quelli concorda con
+niente. `rotten` e `sample` erano gli unici due scritti a rovescio rispetto agli
+altri quaranta. ⭐ **E `[Growable] ` non e' stato toppato, ed e' il confronto
+che si legge da solo**: stesso genere di prefisso, ma «coltivabile» e' un
+aggettivo in **-e**, invariabile al singolare, e le quadre ne fanno gia'
+un'etichetta — voce di dizionario normale. *La differenza fra i tre prefissi non
+e' il posto in cui stanno: e' se l'italiano ha o no una forma che non concorda.*
+
+⚠️⚠️ **Lo stesso muro aspetta il prefisso del MATERIALE**, che sono altre 118
+righe (`material_data.hsp`) piu' i tre siti di `item_func.hsp` che compongono
+`mtname(...) + lang("製の", " ")`: `mithril sword` in italiano e' «spada **di
+mithril**», postposta. Chi apre quel file trovi prima dove finisce il pezzo, poi
+traduca.
 
 ⭐⭐⭐ **La lezione della sessione: cercare prima di scrivere ha reso una riga
 su cinque.** Prima di tradurre `item.hsp` si e' passato tutto il file contro il
@@ -43,7 +71,7 @@ l'altro appende.
 
 ### ▶ Il punto esatto in cui si riprende
 
-Tutto e' **spinto** (dieci spinte) e l'albero di lavoro e' pulito. Si riparte da
+Tutto e' **spinto** (dodici spinte) e l'albero di lavoro e' pulito. Si riparte da
 `git fetch && git status -sb` e dalle **undici** verifiche d'apertura. La
 sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
 **ventiseiesima prova** di fila, e le undici verifiche hanno dato undici volte i
@@ -53,12 +81,14 @@ valori attesi della 68a.
 
     pytest                  528 passed 6 skipped   (erano 525: +3 test della guardia nuova)
     verifica --dizionario   item.hsp   0 / 2       NUOVO: prima non era nel referto
-    toppe.jsonl             1003                   (erano 1001)
-    rinviate.jsonl          73                     (erano 71)
+    verifica --dizionario   item_func.hsp  0 / 240  (era 0 / 241)
+    toppe.jsonl             1006                   (erano 1001)
+    rinviate.jsonl          75                     (erano 71)
     invariati.md            434 valori             (+2: Necronomicon, Liber Damnatus)
     file_senza_dizionario   12 file | 567 lang()   (erano 13 | 811)
     dizionario              +242 voci in item.hsp.jsonl (file NUOVO)
                             1 voce corretta in init.hsp.jsonl
+                            +1 voce in item_func.hsp.jsonl ([Coltivabile])
 
 Tutto il resto e' **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
 1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205, `riquadri` 0 su 38
@@ -66,18 +96,21 @@ e 0 su 71, `menu_dialogo` 0 su 151, `linguette` 0 e 0, `battute --divergenti`
 **13**, `intestazioni_larghezze` banco ok e perimetro 0, `chat.hsp` 0 / 4046.
 Il `perimetro` (53% alla 67a) non e' stato rimisurato.
 
-✅ **`cgx-test.exe` e' FRESCO**: compilato e installato a fine sessione, con
-dentro tutte le 242 rese di `item.hsp` piu' il possessivo corretto. Il debito
-d'apertura della 68a (l'eseguibile vecchio di un lotto) e' rientrato come prima
-cosa.
+✅ **`cgx-test.exe` e' FRESCO**: compilato e installato **due volte**, la
+seconda dopo la toppa degli stati del nome. Dentro c'e' tutto quel che la
+sessione ha fatto. Il debito d'apertura della 68a (l'eseguibile vecchio di un
+lotto) e' rientrato come prima cosa.
 
-### ▶ Che cosa e' stato fatto: un file intero, e due reti
+### ▶ Che cosa e' stato fatto: un file intero, due reti e un collaudo
 
     item.hsp, otto lotti  il quindicesimo punto cieco, aperto e chiuso  242 rese
     init.hsp:1959         il possessivo del giocatore                     1 resa
     item.hsp:4291 :4294   la terza famiglia di his2()          2 toppe + 2 rinvii
     invariati.md          Necronomicon, Liber Damnatus                  +2 valori
     verifica.py           la guardia della prosa nuda           +1 rete, +3 test
+    IL COLLAUDO           una schermata, un difetto trovato
+    item_func.hsp         gli stati del nome, da prefisso a coda  3 toppe + 2 rinvii
+                          [Growable] -> [Coltivabile]                     1 resa
     ------------------------------------------------------------------------
                           243 rese, 2 toppe, 1 rete nuova, 10 spinte
 
@@ -145,11 +178,17 @@ tutti.
 
 ### ▶ Quel che resta da guardare, in ordine
 
-1. ⭐⭐⭐ **Niente di quel che e' stato fatto oggi e' stato visto a schermo**, ed
-   e' il debito di questa sessione. L'eseguibile e' pronto. Le due schermate che
-   rendono di piu': **mangiare qualcosa** (`item.hsp:3304`-`:4648`, che sono
-   ventiquattro esclamazioni sul sapore piu' gli effetti) e **la pagina dei
-   talenti** (`command.hsp:2543`, per l'«Il suo equipaggiamento» qui sopra).
+1. ⭐⭐⭐ **Delle 243 rese di oggi si e' visto UN NOME DI OGGETTO**, e bastava
+   quello per trovare un difetto: il resto e' debito. In piu' **la toppa degli
+   stati del nome non e' stata riprovata a schermo** — l'eseguibile con dentro
+   ` (marcio)` e ` (campione)` e' installato ma nessuno l'ha aperto. Le tre
+   schermate che rendono di piu', in ordine:
+   a) **un cibo marcio**, per verificare la toppa appena fatta e per confermare
+      che nella riga ci fosse davvero «piatto di» (vedi l'allarme escluso);
+   b) **mangiare qualcosa** (`item.hsp:3304`-`:4648`: ventiquattro esclamazioni
+      sul sapore piu' gli effetti, cioe' il grosso del lavoro della giornata);
+   c) **la pagina dei talenti** (`command.hsp:2543`, per «Il suo
+      equipaggiamento» qui sopra).
 2. ⭐⭐⭐ Il debito che viene da prima: le **nove rese di `scheda-inglesi`** della
    68a e le **308 rese di `chat.hsp`** della 67a — l'informatore sui boss, le
    due scene finali, la scena d'apertura — restano **tutte non viste**.
@@ -182,21 +221,70 @@ tutti.
    622 di `event.hsp`, le 241 di `item_func.hsp`.
 7. ⭐ I 1.146 testi di `db_card.hsp` e le 835 di `effdesc@tcg`.
 
-### ▶ Come si e' chiusa
+### ▶ ⭐⭐⭐ Il collaudo, arrivato IN CHIUSURA — e ha fruttato
 
-Dieci spinte, una per risultato chiuso. Le undici verifiche d'apertura sono state
-rilanciate **anche in chiusura** e danno tutte i valori dichiarati qui sopra;
-`pytest` sale a **528** per i tre test della guardia nuova.
+La sessione si era gia' dichiarata «zero collaudo». Poi il gioco e' stato
+aperto, e **la prima riga letta era rotta**: «un piatto di **rotten** pasta
+fresca». E' successo esattamente come nella 58a — *un debito dichiarato puo'
+rientrare nella stessa sessione, e il momento in cui rientra non si sa in
+anticipo* — e la ripresa e' stata **riscritta una seconda volta** (regola della
+38a).
 
-⚠️ **Zero collaudo**: il gioco non e' stato aperto nemmeno una volta, e la
-sessione lo dice a chiare lettere invece di lasciarlo dedurre dal numero di
-spinte (regola della 51a e della 54a). In cambio l'eseguibile e' **compilato e
-installato**, quindi il collaudo della 70a non ha niente da preparare: si apre
-`cgx-test.exe` e si mangia qualcosa.
+Il ragionamento sta nella lezione in cima. Le tre toppe (**1004a**, **1005a**,
+**1006a**):
+
+    :1299  il prefisso `sample ` si svuota nel ramo inglese
+    :1302  il prefisso `rotten ` si svuota nel ramo inglese
+    :2216  dopo `(Antiseptic)` si appendono ` (marcio)` e ` (campione)`
+
+⭐ Il posto dove rimettere i due tag non e' stato scelto a occhio: `(Antiseptic)`
+e' **il vicino giusto**, perche' l'antisettico e' precisamente quel che al
+marciume manca, e perche' li' `itemname_itemid` e' ancora in scope — fra `:1291`
+e `:2230` non c'e' nessun confine di funzione ne' nessun `return` di primo
+livello, e i due `goto *skipName` atterrano a `:1873`, cioe' **prima** del sito
+nuovo. Verificato leggendo, non supposto.
+
+⚠️ Le due righe toppate sono anche **rinviate**: `applica` fa prima il
+dizionario e poi le toppe, e ogni `cerca` deve agganciare il **sorgente
+pinnato** (53a). Una riga che il dizionario riscrive non e' toppabile.
+
+⚠️ **Un allarme escluso**: nella stessa riga l'articolo diceva «**un** … pasta
+fresca», che sembrava un genere sbagliato. Non lo e': nel build `pasta fresca`
+porta `ioriginalnamearticolo = "una "`, ma quello era un piatto **cucinato**, e
+li' il nome diventa «*piatto* di …», maschile (`item_func.hsp:1259` mette
+`locvar_itemname_s2 = "piatto"`, e lo switch di `:1897` gli da' «un »).
+💡 Guardato prima di segnalarlo — ma **resta da confermare a schermo** che nella
+riga ci fosse «piatto di»: se non c'era, il difetto e' un altro e va inseguito.
+
+### ▶ Come si e' chiusa (due volte)
+
+Dodici spinte, una per risultato chiuso. Le undici verifiche d'apertura sono
+state rilanciate **anche in chiusura**, tutte e undici sui valori dichiarati qui
+sopra: `pytest` **528**, `prova_identita` 72/72 e 27.813, `creature`
+1131/2466/0/0, `larghezze` 0, `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71,
+`menu_dialogo` 0 su 151, `linguette` 0 e 0, `battute --divergenti` 13,
+`intestazioni_larghezze` banco ok e perimetro 0, `verifica --dizionario` 0 da
+ritradurre ovunque.
+
+⚠️ **La ripresa e' stata scritta due volte**, e la prima diceva «zero collaudo».
+E' la regola della 38a: meglio riscriverla che lasciare fuori dal racconto quel
+che e' successo dopo.
 
 ⭐ **Il ritmo della sessione**: un lotto, `verifica`, `reimporta`, spinta.
 Nessun lotto e' rimasto in sospeso, e il difetto della compilazione ha toccato
 un lotto solo perche' l'errore e' arrivato prima che ne partisse un altro.
+
+⚠️⚠️ **La sessione si chiude annunciando un CAMBIO DI TERMINALE.** E' la
+dodicesima volta (42a, 45a, 46a, 47a, 48a, 51a, 55a, 59a, 60a, 67a, 68a, e
+oggi); tutte le volte verificate finora la sessione dopo si e' riaperta sulla
+**stessa** macchina, `DESKTOP-1O339MR`.
+
+⚠️⚠️ Se questa volta e' davvero un'altra macchina, valgono le tre cose che non
+stanno nel repo: i **tre CSV degli epiteti** (`python scratchpad/epiteti_vocabolario.py`,
+e vogliono i CRLF), **`cgx-test.exe`**, e l'albero di build — che si rifa' con
+`python -m strumenti.applica` e poi, **non incatenato**,
+`python -m strumenti.compila --eseguibile`. E vale
+[[elona-ambiente-python]]: serve un Python 3.10+.
 
 ---
 

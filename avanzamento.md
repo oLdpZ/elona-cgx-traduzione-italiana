@@ -154,6 +154,32 @@ risolte da toppa, come le altre due.
 conteggio da 811 a 567.** Restano `txtadv.hsp` 170, `material_data.hsp` 118,
 `custom_autopick.hsp` 90, `help.hsp` 52, `net.hsp` 37.
 
+## `item_func.hsp` — gli stati del nome, 2026-08-20, sessantanovesima sessione
+
+Non un lotto: **tre toppe e una resa**, nate da un collaudo che ha letto «un
+piatto di **rotten** pasta fresca».
+
+`item_func.hsp` è il compositore dei nomi degli oggetti: incolla una sessantina
+di pezzi attorno al nome vero, quasi tutti **suffissi fra parentesi**
+(`(Scary)`, `(Empty)`, `(Herb)`, `(Antiseptic)`, `(Poisoned)`…) e pochi
+**prefissi**. I prefissi sono il problema: l'aggettivo italiano prima del nome
+concorda col genere, e `rotten ` serve *ogni cibo del gioco*.
+
+| pezzo | esito | perché |
+|---|---|---|
+| `rotten ` | **toppa** → ` (marcio)` in coda | nessun genere sicuro: serve ogni cibo |
+| `sample ` | **toppa** → ` (campione)` in coda | idem |
+| `[Growable] ` | **resa normale** → `[Coltivabile] ` | «coltivabile» è in **-e**, invariabile al singolare |
+
+💡 La differenza fra i tre non è il posto in cui stanno: è **se l'italiano ha o
+no una forma che non concorda**.
+
+⚠️ **Lo stesso muro aspetta il prefisso del materiale** — `mtname(…) + lang("製の", " ")`
+in tre siti, più le 118 righe di `material_data.hsp`: `mithril sword` in
+italiano è «spada **di** mithril», postposta.
+
+Restano **240** righe di `item_func.hsp`.
+
 ## I 71 `bufftxt` di `buff.hsp` — 2026-08-13, trentunesima sessione
 
 **65 firme distinte coprono i 71 siti**: i tre 「装備の力を引き出した」 e i
