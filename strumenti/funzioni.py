@@ -77,6 +77,24 @@ MORFOLOGIA_INGLESE = frozenset({
 # inglese nudo (morfologia). Vedi la spiegazione estesa sopra.
 PRONOMI_PER_SITO = frozenset({"he", "his", "him"})
 
+# ⚠️ Chiamate che non portano NESSUN dato: aggiungono solo punteggiatura
+# intorno a quello che ricevono. `cnvtalk` (`module.hsp`) fa esattamente
+# `return "\"" + s + "\" "`, cioe' mette le virgolette al discorso diretto.
+#
+# Vanno attraversate invece che registrate. Registrarle e' un difetto vero,
+# trovato nella 72a su `screen.hsp:1442`: il giapponese saluta il giocatore per
+# nome — 「共に戦うぞ、" + cdatan(CDATAN_NAME, CHARA_PLAYER) + "！」 — e l'inglese
+# quel nome l'aveva perso. Rimettendolo in italiano, che vuol dire metterlo
+# **dentro** le virgolette, cambiava il testo dell'argomento di `cnvtalk`, e la
+# guardia degli argomenti leggeva l'intera `cnvtalk(...)` come una chiamata che
+# «non viene da monte» — mentre l'unica chiamata di contenuto, `cdatan`, da
+# monte ci veniva eccome, dal ramo giapponese.
+#
+# 💡 Il difetto non era nella regola ma nella **classificazione**: una funzione
+# che non porta dati non e' una chiamata di contenuto, e trattarla come tale
+# rende invisibile il contenuto che ha dentro.
+TRASPARENTI = frozenset({"cnvtalk"})
+
 CHIAMATA = re.compile(r"\b([A-Za-z_][A-Za-z0-9_]*)\s*\(")
 
 
@@ -211,6 +229,11 @@ def chiamate_di_contenuto(espressione: str) -> list[str]:
         fine = _fine_chiamata(mascherata, apertura)
         if nome in MORFOLOGIA_INGLESE:
             salta_fino_a = fine
+            continue
+        # ⚠️ Trasparente: NON si registra e NON si salta il suo interno. La
+        # differenza con la morfologia qui sopra e' tutta li' — quella nasconde
+        # anche quel che contiene, questa lascia vedere dentro.
+        if nome in TRASPARENTI:
             continue
         if nome in PRONOMI_PER_SITO:
             argomenti = argomenti_di(mascherata, apertura)

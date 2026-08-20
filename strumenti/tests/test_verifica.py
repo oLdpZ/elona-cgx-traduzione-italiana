@@ -952,3 +952,39 @@ def test_le_due_guardie_della_riga_usano_lo_STESSO_metro():
     sorgente = (Path(__file__).parent.parent / "verifica.py").read_text(encoding="utf-8")
     assert 'permesse = funzioni_di_contenuto(voce.get("jp_grezzo") or "")' in sorgente
     assert 'set(chiamate_di_contenuto(voce.get("jp_grezzo", "")))' in sorgente
+
+
+def test_cnvtalk_e_trasparente_non_e_una_chiamata_di_contenuto():
+    """`cnvtalk` (module.hsp) fa solo `return "\\"" + s + "\\" "`: mette le
+    virgolette. Contarla fra le chiamate di contenuto rende invisibile il
+    contenuto che ha DENTRO.
+
+    ⭐ Trovato nella 72a su `screen.hsp:1442`: il giapponese saluta il giocatore
+    per nome dentro la battuta, l'inglese quel nome l'aveva perso, e rimetterlo
+    in italiano — cioe' dentro le virgolette — faceva dire alla guardia che
+    l'intera `cnvtalk(...)` «non viene da monte».
+    """
+    problemi = controlla_voce(voce(
+        tipo="dinamica",
+        jp="共に戦うぞ、！",
+        jp_grezzo='"共に戦うぞ、" + cdatan(CDATAN_NAME, CHARA_PLAYER) + "！"',
+        en="I will fight together!",
+        en_grezzo='"Tezcatlipoca cheers, " + cnvtalk("I will fight together!")',
+        it='"Tezcatlipoca incoraggia: " + cnvtalk("Combattiamo insieme, " + cdatan(CDATAN_NAME, CHARA_PLAYER) + "!")',
+    ))
+    assert problemi == [], problemi
+
+
+def test_ma_dentro_cnvtalk_una_chiamata_estranea_si_vede_lo_stesso():
+    """Trasparente vuol dire attraversata, non ignorata: la guardia continua a
+    guardarci dentro. E' la differenza con la morfologia inglese, che invece
+    nasconde anche il proprio contenuto."""
+    problemi = controlla_voce(voce(
+        tipo="dinamica",
+        jp="共に戦うぞ、！",
+        jp_grezzo='"共に戦うぞ、" + cdatan(CDATAN_NAME, CHARA_PLAYER) + "！"',
+        en="I will fight together!",
+        en_grezzo='"Tezcatlipoca cheers, " + cnvtalk("I will fight together!")',
+        it='"Tezcatlipoca incoraggia: " + cnvtalk("Combattiamo insieme, " + name(tc) + "!")',
+    ))
+    assert any("non vengono da monte" in p for p in problemi), problemi
