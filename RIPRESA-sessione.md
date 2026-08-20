@@ -1,32 +1,236 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-20, fine della **settantatreesima** sessione (**la rete
-delle gemelle, 724 rese, quattordici menu di `chat.hsp` chiusi interi, il
-generatore degli eventi di viaggio, i sogni, e due collaudi**).
+Aggiornato: 2026-08-21, fine della **settantaquattresima** sessione (**due buchi
+nel perimetro, le virgolette che mette il codice, 175 rese e `event.hsp`
+CHIUSO**).
 
-⭐⭐⭐ **La lezione che vale per tutto il lavoro che viene: OGNI RETE DEL
-PROGETTO PARTE DA UNA STRINGA, MA IL GIOCATORE NON LEGGE UNA STRINGA — LEGGE UNA
-SCHERMATA.** Le gemelle sono rese *corrette per costruzione*: stessa firma,
-stesse variabili, già approvate altrove. Eppure **82 delle 194 di `chat.hsp`
-stavano dentro un menu `chatList` dove le vicine erano ancora inglesi**, e
-importarle da sole avrebbe portato quelle schermate da inglesi e coerenti a metà
-italiane e incoerenti. 💡 *Una resa può essere giusta e fare danno perché arriva
-dove le sue vicine non arrivano.* È la 64ª (`db_race.hsp`, la chiave accanto
-all'etichetta) su un oggetto nuovo, ed è il verso opposto della lezione della
-72ª: lì il difetto stava **fra due stringhe del codice**, qui sta **fra due
-stringhe della schermata**.
+⭐⭐⭐ **La lezione della giornata: tre difetti su quattro non stavano in una
+resa sbagliata, stavano in una rete che non arrivava.** E tutt'e tre sono usciti
+**leggendo il codice prima di tradurre**, non da un referto — perché un referto
+dice quel che misura, e un buco nel perimetro non produce un numero sbagliato:
+produce un numero che non c'è.
 
-⚠️⚠️ **E dentro il menu anche la gemella va rigiudicata.** `claw` è «graffia» in
-`text.hsp`, dove è il verbo del messaggio di combattimento; nel menu che chiede
-quale stile impari ci vuole «Graffio». Sei gemelle scartate: tre per il
-mestiere, tre perché `text.hsp:1523-1556` è lo **stesso elenco** visto da un
-pannello con la colonna più larga. 💡 *Due schermate che mostrano la stessa
-scelta devono dire le stesse parole, ma non sono tenute a dirle con la stessa
-lunghezza.*
+1. **`chatlist` minuscolo.** HSP non distingue maiuscole e minuscole e monte
+   scrive in due modi: 1.626 `chatList` e **31 `chatlist`**. `menu_dialogo`
+   cercava la sola forma con la L grande. Tredici delle quindici minuscole di
+   `event.hsp` sono i menu degli eventi di mare, cioè il lotto che stavo per
+   aprire: le avrei scritte senza nessun tetto sopra la testa.
+2. **Le virgolette di `cnvtalk`.** `init.hsp:171` è
+   `return "\"" + s + "\" "` — le mette lui. Nove rese già spinte se le
+   portavano dentro e a schermo erano **doppie**.
+3. **128 righe di menu scritte a mano in `listn()`**, di cui **101 già tradotte
+   e mai misurate**. Questo NON è stato chiuso: vedi «Quel che resta aperto».
 
 ---
 
-## La settantatreesima sessione
+## La settantaquattresima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quattordici** verifiche d'apertura. La
+sessione si è aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la
+**trentunesima prova** di fila.
+
+⚠️⚠️ **All'apertura una verifica era ROSSA, e non era una regressione:**
+`pytest` dava 705 passed **1 failed**, non i 706 dichiarati. Il guardiano dei
+contenitori di `menu_dialogo` elencava le sette voci che la ripresa della 73ª
+dichiarava «non misurate»: **l'ultimo lotto della 73ª le aveva fatte entrare e
+pytest non era stato rilanciato dopo.** 💡 *Un numero scritto nella ripresa è
+vero al momento in cui lo si scrive, non a fine sessione* — e l'unico modo di
+accorgersene è rilanciare le verifiche **in chiusura**, come facevano la 44ª e
+la 47ª.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    pytest                  719 passed 6 skipped   (erano 706, e uno era rosso)
+    verifica --dizionario   event.hsp   0 / 0   ⭐ CHIUSO (era 175)
+    menu_dialogo            0 su 523 misurate      (erano 487)
+                            e «sfondi letti a mano: 7 siti, 0 da togliere»
+                            ⚠️ la riga «voci NON misurate» NON deve più comparire
+    dizionario              event.hsp +175 voci
+    invariati.md            +2 righe (event.hsp:2371 e :4171)
+
+Tutto il resto è **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
+1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205, `riquadri` 0 su 38
+e 0 su 71, `linguette` 0 e 0, `battute --divergenti` **13**,
+`intestazioni_larghezze` banco ok e perimetro 0, `dati_applica --identita` 4
+file e 2.987 righe, `dati_sorgente` 7/7, `gronde` 0 su 5, `maiuscole` 144 siti e
+0 da guardare, `toppe.jsonl` **1016**, `rinviate.jsonl` **73**.
+
+⭐ **`gemelle` resta un elenco di lavoro, non una verifica** (nessun valore
+atteso). ✅ **`cgx-test.exe` è FRESCO** (21/08, 00:56) e i due file dati di
+`elonaplus2.31\data\` sono stati confrontati con quelli che `applica` produce:
+stesso md5.
+
+### ▶ Che cosa è stato fatto
+
+    menu_dialogo        il guardiano verde: convert_word + SFONDO_A_MANO    +7 test
+    menu_dialogo        chatlist minuscolo: 31 righe nel perimetro          +2 test
+    verifica            le virgolette di cnvtalk, e 9 rese corrette         +4 test
+    event.hsp mare      pesca, abbordaggio, naufraghi, le due minacce      53 rese
+    event.hsp casa      colazione, regali, odore di cibo, sfortuna         49 rese
+    event.hsp letto     gli esiti del sonno condiviso e 13 eventi          58 rese
+    event.hsp tasse     la bolletta, l'arretrato, e 2 invarianti           15 rese
+    ------------------------------------------------------------------------
+                        175 rese, 13 test, event.hsp CHIUSO, 7 spinte
+
+### ▶ ⭐⭐⭐ Il guardiano rosso: due difetti, non sette rese
+
+Le sette voci «non misurate» erano due cose diverse, e nessuna era una resa.
+
+**`*convert_word` non disegna niente.** `event.hsp:2586`-`:2590` (il menu del
+sonno condiviso) ci finivano dentro perché è il primo `gosub` che segue, ma il
+suo corpo (`text.hsp:6899`, 1.266 righe) non ha **nessun `cs_list`**: scioglie i
+segnaposto `{…}` dentro `buff`. A disegnare è `*re_select` a `:2605`. Quarto
+caso dopo `screen_drawStatus`, `talk_quest`, `quest_success`.
+
+**Lo sfondo sta in un ramo, e la correzione ovvia era un permesso.**
+`event.hsp:3633`-`:3638` mette due voci nei due rami di un `if`, e `:3512`-`:3519`
+sceglie il bitmap con **la stessa guardia**, 116 righe più su. Tornando indietro
+dalla voce del **mare** il primo `file =` che si incontra è quello dell'altro
+ramo: allargando la finestra di ricerca la rete misurerebbe una voce da 33 col
+riquadro da 45 e direbbe «dentro» **per costruzione**. 💡 *Un difetto che non
+esiste si vede subito; un permesso non lo vede nessuno finché non si guarda lo
+schermo.*
+
+Quindi il ramo si legge a mano una volta e si scrive in `SFONDO_A_MANO`, con due
+scelte che tengono onesto il registro: si registra il **bitmap**, non il tetto —
+il numero continua a ricavarlo la rete con la sua formula — e l'indice è il
+**sito**, non la firma (la 68ª). `sfondi_a_mano_da_togliere()` ricontrolla ogni
+voce per le quattro ragioni per cui è stata scritta, il referto stampa quante
+sono in uso, e un test lo tiene vuoto.
+
+### ▶ ⭐⭐⭐ Le virgolette che mette il codice, e come si è trovato
+
+Aprendo il lotto del mare — che ha dodici `cnvtalk` — la domanda era come si
+scrive la battuta, e **il dizionario le trattava in due modi opposti**: nude in
+`event.hsp:2342`, fra virgolette protette in `action.hsp:13832`. A dire quale
+fosse giusto è stata **la build, non il ragionamento**: `init.hsp:171` è
+`return "\"" + s + "\" "`.
+
+Nove rese già spinte le raddoppiavano a schermo — otto della banca di
+`action.hsp`, una di `db_creature.hsp`, che per giunta metteva una **narrazione**
+dentro le virgolette del parlato. Corrette, e la regola è in `verifica` nei due
+modi in cui una resa può finire dentro `cnvtalk` (da sola, o dentro
+un'espressione). Fuori da `cnvtalk` le virgolette protette restano ammesse:
+`text.hsp:9879` le scrive a mano.
+
+💡 È la famiglia della 72ª — i difetti che non stanno in una stringa ma **fra
+due** — con un pezzo nuovo: qui quel che si aggiunge non lo mette una `pos`, lo
+mette una **funzione**.
+
+### ▶ ⭐⭐ `event.hsp` chiuso: 175 rese in quattro famiglie
+
+**Il mare** (53): pesca, l'ombra di una nave con l'abbordaggio, i tre naufragi,
+le minacce dal cielo e dagli abissi. ⭐ **Il salvagente è uno solo**: `:3886` e
+`:3984` hanno lo stesso giapponese e consumano lo stesso oggetto
+(`ITEM_ID_CARGO_INNER_TUBE`), ma l'inglese lo chiama «life buoy» in un posto e
+«inner tube» nell'altro. In italiano è «salvagente» in tutt'e due, che è il nome
+con cui il giocatore ce l'ha nello zaino. 💡 *Una voce di menu che nomina un
+oggetto deve dire il nome dell'oggetto, non la parola della frase.*
+
+**La casa** (49): la colazione che ti cucina un compagno, i regali, l'odore di
+cibo. ⚠️ **Quattro frammenti senza genere**: `:982`, `:988`, `:1120`, `:1126` il
+gioco li incolla dopo il nome del compagno, cominciano con uno **spazio** e non
+possono accordarsi. Le forme che reggono: « ha un'aria felice.», « è di buon
+umore.» — «aria» e «umore» sono nomi, e col passato prossimo si può solo con
+**avere**, che non accorda.
+
+**Il letto** (58): gli esiti del sonno condiviso, che la 73ª aveva lasciato a
+metà (il menu tradotto, quel che succede dopo no), e tredici eventi del sonno.
+⚠️⚠️ **Qui il genere è vietato due volte** — il compagno può essere maschio o
+femmina, e il giocatore pure: diciannove rese su cinquantotto ne nominano uno.
+Col «tu» la forma che regge è il **presente** («lasci perdere», mai «ti sei
+rimesso»). Dove serviva un pronome oggetto, che il genere se lo porta dentro
+(«lo tieni fermo»), la via d'uscita è **ripetere il nome** — come fa l'inglese a
+`:2692` — o girare la frase in impersonale: «e si torna nel letto».
+
+**Le tasse** (15). ⚠️ Due sono pezzi che il codice incolla e che **in inglese si
+saldano**: `:4568` mette `s(0)` e `s(1)`, `:4573` compone
+`txt s + lang(…) + s(1)`, e a schermo esce «…for 2 months.You have to go to the
+Embassy…». Il prefisso lo spazio in coda ce l'ha; il suffisso non ha quello
+davanti, e l'italiano glielo mette.
+
+⚠️ **Tre deroghe dichiarate a «si traduce dall'inglese», e ognuna ha il suo
+motivo scritto:**
+
+1. `:2891`, il mago: il giapponese dice 赤い髪 «capelli rossi», l'inglese «red
+   mustache». Stessa svista di 腰 → «chest» della 73ª, e stessa causa probabile —
+   髪 (capelli) letto come 髭 (baffi).
+2. I **gradini del sapore** della colazione: l'inglese dà le **stesse due frasi**
+   al secondo e al terzo gradino (copiaincollate) e il terzo era già reso dal suo
+   giapponese. Tradurre il secondo dall'inglese avrebbe fatto dire la stessa cosa
+   a due livelli diversi di cucina.
+3. `:731`, «(Leave)»: altrove è «(Andarsene)», ma lì il giapponese è 食べない
+   «non mangiare» e la voce di sopra è già «(Mangiare)». **Le due voci di una
+   finestra sono una coppia e si leggono come coppia.**
+
+⚠️ E il giapponese di `:3880`, `:3929`, `:3978` ha una battuta in più che
+l'inglese ha buttato via: **non** è stata rimessa. `decisioni.md` dice che si
+deroga quando l'inglese *perde* informazione e la resa letterale non avrebbe
+senso; lì l'inglese sta in piedi da solo, e «il criterio non è rendere il testo
+più ricco».
+
+### ▶ Quel che resta aperto
+
+1. ⚠️⚠️⚠️ **IL PUNTO CIECO NUOVO: 128 righe di menu scritte a mano in
+   `listn(…) = lang(…)`**, che `menu_dialogo` non vede perché cerca `chatlist`.
+   **101 sono già tradotte e mai misurate.** Stanno in `command.hsp` (100:
+   l'elenco dei tratti della scheda, le righe di informazione sugli oggetti),
+   `chara.hsp` (18: creazione del personaggio, i sei modi, i quattro sessi),
+   `chat.hsp` (7), più `event.hsp:825`, `help.hsp:333`, `net.hsp:604`. ⚠️
+   **Chiuderlo non è allargare una regex**: quelle righe le disegnano finestre di
+   cui la geometria non è mai stata letta, e dar loro un tetto a caso è il filtro
+   furbo di `custom_dmgpop.hsp`. Va letta la geometria dei tre pannelli, uno per
+   uno. Nel frattempo `event.hsp:825` è misurata **a mano**: `bg_re4`, tetto 45,
+   la resa ne occupa 11.
+2. ⭐⭐⭐ **Il collaudo: delle 175 rese di oggi non se n'è vista a schermo
+   nessuna, e il debito di prima è intatto** (le 428 della 73ª, le 289 della 72ª,
+   le 243 della 69ª). ⚠️ Gli eventi di `event.hsp` escono **a caso**, quindi il
+   collaudo mirato è difficile: la via praticabile è dormire in una casa con
+   compagni (colazione, regali) e viaggiare per mare con una nave.
+3. ⭐⭐ **I titoli degli eventi non li misura nessuna rete.** Il tetto si calcola
+   — `(tx - 28) / 7 - 6`, con `q = "《 " + s + " 》"` disegnato a `wx + 40` e il
+   bordo del bitmap a `wx + 12 + tx` — ma **nessun titolo inglese lo sfiora**: il
+   più vicino resta a 7 caratteri, la maggioranza a venti o più. Per la regola
+   della 63ª un tetto che l'inglese non tocca è probabilmente la misura di una
+   cosa vicina invece che della cosa, quindi **non ci si è costruita una rete
+   sopra**. ⚠️ E c'è un dettaglio che frega chi ci riprova: in questi eventi il
+   `file =` sta **dopo** la riga `s =`, non prima.
+4. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208 righe),
+   `manual_ENG.txt` (591), `exhelp.txt` (185). ⚠️ `help.hsp:273` conta **dieci
+   righe di FILE per pagina**: la misura della colonna va presa dalla geometria.
+5. ⭐⭐ `board.txt` **secondo lotto**: le 38 varianti giapponesi che monte ha
+   buttato via — e `talk.txt` ha lo stesso problema. Serve estendere
+   `dati_applica` ad **aggiungere** righe.
+6. ⭐⭐ `custom_autopick.hsp`: 21 gemelle **delicate**, 78 delle 90 `lang()` sono
+   confronti dentro `instr` contro il file che scrive il giocatore.
+7. ⭐⭐⭐ `chat.hsp`: **3.648** da fare, senza più gemelle, e 95 quasi gemelle da
+   leggere.
+8. ⭐⭐ **Nove file con `lang()` e senza dizionario** (era dieci: `event.hsp` non
+   c'entra più): `txtadv.hsp` 170, `material_data.hsp` 118,
+   `custom_autopick.hsp` 90, `net.hsp` 37, `custom_itemenchantment.hsp` 31,
+   `quest.hsp` 26, `material.hsp` 19.
+9. ⭐⭐ Il **muro del materiale**: `mithril sword` è «spada **di** mithril»,
+   postposta. 118 righe più i tre siti di `item_func.hsp`.
+10. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `item_func.hsp` 240; i **1.146** di
+    `db_card.hsp`.
+
+### ▶ Come si è chiusa
+
+⚠️⚠️ **Zero collaudo**, ed è la quarta volta che capita (51ª, 54ª, 73ª a metà,
+oggi). Il ritmo della 50ª — «tre volte tutto ok a schermo aperto, subito dopo la
+spinta del pezzo appena fatto» — si reggeva sul fatto che chi collauda stava lì.
+Quando non c'è, il lavoro non rallenta: **si accumula tutto dalla stessa parte**,
+e la ripresa deve dirlo a chiare lettere invece di lasciarlo dedurre dal numero
+di toppe. Oggi il numero è 175 rese viste da zero occhi.
+
+Tutto è **spinto** (sette spinte, una per risultato chiuso) e l'albero è pulito.
+
+---
+
+## La settantatreesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
