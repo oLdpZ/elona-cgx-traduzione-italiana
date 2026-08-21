@@ -6,6 +6,137 @@ ancora aperte.
 
 ---
 
+## Il perimetro di un blocco non si legge in `--da-tradurre` — 2026-08-21, settantottesima
+
+`python -m strumenti.estrai <file> --da-tradurre` ancora una voce per **firma**
+alla **prima** occorrenza. E' il comportamento giusto per la domanda a cui
+serve — *quante rese restano nel file* — ma diventa una trappola appena si
+usa per una domanda diversa: *che cosa manca in questa zona*.
+
+In `*chat_default` (`chat.hsp:19870`-fine) l'elenco mostrava **77** voci. Le
+firme non tradotte che hanno almeno un'occorrenza li' dentro erano **89**: le
+dodici mancanti hanno la prima occorrenza altrove nel file, quindi il loro
+rappresentante sta in un'altra zona e l'elenco della zona non le nomina.
+
+⚠️⚠️ **Due delle dodici erano voci di menu**, e per questo il difetto non e'
+accademico: 「ごめんなさい」/«Sorry.» vive nel menu della consegna (`:20811`) **e**
+in quello della gatta Sinaha (`:10880`), 「ちょっと待って」/«Hold on.» in quello
+della nave (`:23845`) **e** in quello della barca di Regulus (`:13590`).
+Tradurre le 77 dell'elenco avrebbe chiuso la zona e aperto **due schermate a
+meta'** in punti che nessuno stava guardando.
+
+✅ **Il conto giusto**: firme non tradotte con **almeno un'occorrenza** nella
+zona, ricavato incrociando l'estrazione completa (senza `--da-tradurre`) col
+dizionario. In codice sono cinque righe, e vanno scritte **prima** di scegliere
+il lotto, non dopo.
+
+💡 E' la stessa specie di errore della 60a — una misura presa su un insieme
+diverso da quello che si vuole misurare — e la stessa forma della 74a: *un buco
+nel perimetro non produce un numero sbagliato, produce un numero che non c'e'.*
+Qui pero' il numero sbagliato c'era, ed era plausibile: 77 invece di 89.
+
+⭐ Nel lotto del tutorial la stessa cosa in grande: 「わかった」 sta in **sette**
+menu lontani, cinque come «Alright.» e due come «Will do.», ognuno con la
+sorella ancora inglese. Otto sorelle aggiunte al lotto, e `bilingui` ha dato
+zero al **primo** giro — cosa che nella 77a non era mai riuscita.
+
+---
+
+## Una risposta italiana sotto un menu inglese e' il difetto girato — 2026-08-21, settantottesima
+
+La 73a ha corretto in massa il difetto «il giocatore clicca italiano e riceve
+inglese»: menu tradotto, risposta no. Nella 78a e' comparso il **rovescio**, e
+va trattato allo stesso modo.
+
+`*chat_default` conteneva tredici rese della famiglia **evochat**: le dieci
+「…ルートに突入した！」 («You've entered the Comrade route!» e sorelle), i due esiti
+del cuore a `:21732` e `:21750`, e il potere di scasso a `:21964`. Sono `txt`,
+non voci di menu, quindi nessuna rete le lega a niente. Ma il menu che le
+accende — `chat.hsp:19250`-`:19278`, dentro il blocco evochat — e' **ancora
+tutto inglese**.
+
+✅ **Restano fuori dal lotto**, e si faranno insieme al blocco evochat, quando
+il menu e la sua risposta si potranno tradurre nello stesso giro.
+
+⚠️ **Nessuna rete lo dice.** `bilingui` misura i gruppi di `chatList`: un menu
+tutto inglese non e' bilingue, e una `txt` italiana non entra in nessun gruppo.
+Il difetto si vede solo leggendo *da dove arriva* la riga che si sta per
+tradurre — cioe' guardando il `chatval` che la seleziona e chiedendosi se la
+voce di menu che lo produce e' resa.
+
+💡 La stessa domanda ha invece **aperto** tre rese vicine: `:21386`, `:21417` e
+`:21447` («You and X entered a world only for the two of you») stanno dietro
+`<evochat>`, `<evochat in coppia>` e `<evochat oscuro>`, che la 73a ha gia'
+tradotto. Li' il menu e' italiano e la risposta puo' seguirlo.
+
+---
+
+## In `*chat_unique` il lotto e' un sistema, non un parlante — 2026-08-21, settantottesima
+
+`*chat_unique` e' uno smistamento `if ( _switch_val == CREATURE_ID_x )`, e la
+memoria del progetto dice da tempo che *i lotti si raggruppano per chi parla*.
+Vale, ma qui c'e' un taglio migliore: **il sistema**.
+
+Le tre gilde sono **sei blocchi quasi identici** — Revlus/Fray/Sin maestri,
+Lexus/Abyss/Doria guardiani — piu' i tre investigatori di Tyris del Sud
+(Lenas/Naga/Ratin) che rifanno la stessa catena dall'altra parte del mare.
+Nove parlanti, un lessico solo: gilda, maestro, guardiano, punti gilda,
+obiettivo, addestramento del mese, consiglio. Presi insieme, il glossario si
+decide **una volta** e le sei schermate parallele dicono le stesse parole.
+
+⭐⭐ **E il glossario non si e' deciso: si e' ripreso.** Era gia' tutto scritto
+altrove e nessuno lo aveva raccolto:
+
+| termine | dove stava gia' |
+|---|---|
+| Gilda dei Maghi / dei Guerrieri / dei Ladri | `command.hsp:10621`-`:10627` |
+| il maestro della Gilda dei Guerrieri | `text.hsp:11019` (e' Fray, ed e' donna) |
+| il guardiano della gilda | `text.hsp:1094`, una domanda del quiz |
+| l'investigatrice della gilda | `text.hsp:1358`, un'altra domanda del quiz |
+| punti gilda | `text.hsp:10475`, la voce di diario |
+| «Nefia casuali di tipo X di livello Y o piu'» | `text.hsp:10511` |
+| «vendere refurtiva per N monete d'oro» | `text.hsp:10565` |
+| «baule delle consegne», «libri antichi decifrati» | `text.hsp:10475` |
+
+💡 Le tre prove d'ingresso adesso dicono **le parole del diario che le annota**:
+il giocatore legge la prova dal guardiano e la ritrova identica premendo `j`.
+
+⚠️ **Fray si accorda, la carica no.** `chat.hsp:5595` dice «call out to **her**»:
+Fray e' donna e dice «sono davvero **contenta**». Ma resta «il **maestro** della
+gilda», perche' e' la carica e `text.hsp:11019` l'aveva gia' fissata cosi'
+parlando proprio di lei.
+
+---
+
+## Il tutorial nomina i menu con le parole di `text.hsp` — 2026-08-21, settantottesima
+
+Il blocco di `chat.hsp:1701`-`:1879` non e' dialogo: e' il **tutorial**, la
+prima cosa che un giocatore nuovo legge, e dice al giocatore quali tasti
+premere e quali voci di menu scegliere.
+
+✅ **I nomi non si traducono: si copiano** da `text.hsp:135`-`:136`, che il
+progetto ha gia' reso — `<Mangia>`, `<Leggi>`, `<Scava>`, `<Equipaggia>`,
+`Tiro`, `Raccogli`, `Posa` — e con loro `diario`, `zaino`, `pergamena di
+identificazione`, `pergamena di purificazione`, `lingotto d'oro`,
+`grimaldello`, `Scasso`, `bacheca della casa`, `baule degli stipendi`.
+
+⚠️ Un tutorial che nomina i menu con parole proprie e' **peggio** che un
+tutorial inglese: manda il giocatore a cercare a schermo una voce che non
+esiste. E' l'unico posto del gioco dove la coerenza col lessico
+dell'interfaccia non e' eleganza, e' funzionamento.
+
+⚠️ **I tasti restano quelli**: `[g]et` e `[d]rop` in inglese portano la lettera
+dentro la parola, in italiano no — «li raccogli col tasto **g**», «li posi col
+tasto **d**». La lettera si nomina, non si traduce.
+
+⚠️ **Il divieto di genere per settanta righe di seconda persona.** Il tutorial
+da' del tu senza pausa, quindi: «Non serve, grazie» invece di «so cavarmela da
+solo», «Attenzione:» invece di «Attento:», «All'inizio pensavo che non ci fosse
+piu' niente da fare» invece di «quando ti ho vista», «Verme che non sei altro!»
+invece di «brutto verme».
+
+---
+
 ## Quando la grammatica non si risolve in una resa: si toppa l'ORDINE — 2026-08-21, settantasettesima
 
 `chat.hsp:22500` compone il nome della casa del giocatore: prende l'epiteto di

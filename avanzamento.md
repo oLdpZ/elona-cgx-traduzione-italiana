@@ -125,6 +125,82 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## `*chat_default` chiuso, le gilde e il tutorial — 2026-08-21, settantottesima sessione
+
+Tre lotti grossi invece di nove piccoli, e ognuno chiude una cosa intera.
+**270 rese**, nessuna toppa, nessuna rete nuova.
+
+| lotto | rese | esito |
+|---|---|---|
+| `*chat_default` | 81 | **CHIUSO** salvo la famiglia evochat, dichiarata fuori |
+| il sistema delle gilde | 97 | tre maestri, tre guardiani, tre investigatori |
+| l'inizio della storia e il tutorial | 92 | Larnneire, Rianna, Lomias, il tutorial intero |
+
+`chat.hsp` scende da 3.147 a **2.877**. `menu_dialogo` misura **731** voci
+(erano 675), `bilingui` resta a **0** — e in tutt'e tre i lotti ha dato zero al
+**primo** giro, che non era mai successo.
+
+### ⚠️⚠️⚠️ Il conteggio `--da-tradurre` mente sul perimetro di un blocco
+
+`estrai --da-tradurre` ancora una voce per **firma** alla **prima**
+occorrenza. Chi legge quell'elenco per sapere «che cosa manca in questo
+blocco» prende un numero sbagliato per difetto, e non se ne accorge: in
+`*chat_default` le firme erano **89**, non le 77 che l'elenco mostrava. Le
+dodici mancanti avevano la prima occorrenza altrove.
+
+E due delle dodici erano **voci di menu**: «Sorry.» vive anche nel menu della
+gatta Sinaha (`:10880`), «Hold on.» in quello della barca di Regulus
+(`:13590`). Tradurre le 77 dell'elenco avrebbe lasciato **due menu a meta'** in
+posti che nessuno stava guardando.
+
+💡 La regola: *per sapere che cosa manca in una zona si guardano tutte le
+occorrenze di tutte le firme, non l'elenco del lavoro che resta.* Il conto
+giusto e' «firme non tradotte con **almeno un'occorrenza** nella zona».
+
+⭐ Nel lotto del tutorial la stessa cosa e' successa in grande: 「わかった」 vive
+in **sette** menu lontani (`:9575`, `:9588`, `:10671`, `:11830`, `:15186` per
+«Alright.», `:2210` e `:2215` per «Will do.»), ognuno con la sorella ancora
+inglese. Otto sorelle aggiunte al lotto, e `bilingui` a zero al primo giro.
+
+### ⭐⭐ In `*chat_unique` si prende un SISTEMA, non un parlante
+
+`*chat_unique` e' uno smistamento `_switch_val == CREATURE_ID_x`, quindi la
+tentazione e' il lotto per personaggio. Ma le tre gilde sono **sei blocchi
+quasi identici fra loro** piu' tre investigatori a Tyris del Sud: prese
+insieme, il glossario si decide una volta e le sei schermate parallele dicono
+le stesse parole.
+
+⭐ **E il glossario non si e' deciso: si e' ripreso.** Gilda dei Maghi /
+Guerrieri / Ladri e «il maestro della gilda» stavano gia' in `command.hsp` e
+`text.hsp`; «il guardiano» e «l'investigatrice» nelle domande del quiz; «punti
+gilda», «obiettivo» (per la ノルマ), «grimorio», «refurtiva», «Nefia casuali di
+tipo X di livello Y o piu'» nelle voci di diario che annotano le stesse prove.
+Le tre prove d'ingresso adesso dicono **le parole del diario che le annota**.
+
+Lo stesso nel tutorial: `<Mangia>`, `<Leggi>`, `<Scava>`, `<Equipaggia>`,
+`Tiro` e i tasti `g` e `d` si copiano da `text.hsp`, che il progetto ha gia'
+tradotto. Un tutorial che nomina i menu con parole sue sarebbe peggio che
+inglese.
+
+### ⚠️⚠️ Il perimetro si taglia dove il menu di monte e' ancora inglese
+
+Le tredici rese della famiglia **evochat** — le dieci «route», i due esiti del
+cuore, il potere di scasso — sono rimaste fuori da `*chat_default` apposta: il
+menu che le accende (`:19250`-`:19278`) e' ancora tutto inglese, e tradurne il
+solo esito produce la meta' **peggiore**, menu inglese e risposta italiana.
+
+💡 *La direzione conta.* Menu italiano e risposta inglese e' il difetto che la
+73a ha corretto in massa; il rovescio — risposta italiana sotto un menu inglese
+— e' lo stesso difetto girato, e nessuna rete lo misura perche' `bilingui`
+guarda i gruppi di `chatList`, non i percorsi.
+
+### ⭐ Un referto che nessuno leggeva aveva ragione
+
+`scratchpad/referti.py` segnalava da sessioni tre participi. Due sono falsi
+positivi legittimi («te lo sei preso» concorda con l'extraterrestre, «te la sei
+cavata» e' l'idioma), il terzo no: `chat.hsp:18483` diceva **«non sei
+riuscito»** al giocatore. Corretto; il referto scende da 3 a 2.
+
 ## `*chat_default` svuotato a meta', e la firma condivisa come regola — 2026-08-21, settantasettesima sessione
 
 Nove lotti dentro `*chat_default` e nei blocchi che le firme si sono tirati

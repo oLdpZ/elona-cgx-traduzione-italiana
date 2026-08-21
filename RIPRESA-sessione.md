@@ -1,18 +1,200 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-21, fine della **settantasettesima** sessione (**152 rese in
-`chat.hsp` e una toppa, senza nessuna rete nuova**).
+Aggiornato: 2026-08-21, fine della **settantottesima** sessione (**270 rese in
+`chat.hsp` in tre lotti grossi, nessuna toppa e nessuna rete nuova**).
 
-⭐⭐⭐ **La lezione della giornata: la firma condivisa non e' un caso limite, e'
-la forma normale di `chat.hsp`.** Tre volte su nove lotti una resa ha acceso
-menu che non stavo guardando — 「やめる」, 「断る」, 「いいよ」 — e ogni volta l'ha
-detto `bilingui` **dopo** la reimportazione, mai una lettura del codice: finche'
-un menu e' tutto inglese non c'e' niente da vedere. E chiuderne uno ne apre un
-altro, quindi *la rete si rilancia dopo ogni giro, non una volta sola*.
+⭐⭐⭐ **La lezione della giornata: `--da-tradurre` mente sul perimetro di una
+ZONA.** Ancora una voce per firma alla **prima** occorrenza, quindi chi legge
+quell'elenco per sapere «che cosa manca in questo blocco» prende un numero
+plausibile e sbagliato: `*chat_default` mostrava **77** voci e le firme vere
+erano **89**. Due delle dodici mancanti erano voci di menu che vivono anche
+altrove, e tradurre le 77 avrebbe aperto **due schermate a meta'** in punti che
+nessuno stava guardando. Il conto giusto e' *firme non tradotte con almeno
+un'occorrenza nella zona*, e si fa **prima** di scegliere il lotto.
 
 ---
 
-## La settantasettesima sessione
+## La settantottesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La
+sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
+**trentacinquesima prova** di fila, e le quindici hanno dato quindici volte i
+valori attesi della 77a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    verifica --dizionario   chat.hsp   0 / 2877   (era 3147)
+    menu_dialogo            0 su 731 misurate      (erano 675)
+    dizionario              chat.hsp +270 voci
+    invariati.md            due righe nuove: `......` e `Bethel...`
+    referti.py              2 participi             (erano 3)
+
+Tutto il resto e' **fermo dov'era**: `pytest` **730 passed 6 skipped**,
+`prova_identita` 72/72 e 27.813, `creature` 1131/2466/0/0, `larghezze` 0 fuori
+misura, `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `linguette` 0 e 0,
+`battute --divergenti` **13**, `intestazioni_larghezze` banco ok e perimetro 0,
+`dati_applica --identita` 4 file e 2.987 righe, `dati_sorgente` 7/7 e gioco
+difforme su 0, `gronde` 0 su 5, `maiuscole` 144 siti / 7 appesi / 8 giudicati /
+0 da guardare, `bilingui` **0**, `toppe.jsonl` **1017**, `rinviate.jsonl` **75**
+non toccato. `menu_dialogo` dice ancora «rotte anche in inglese: 7».
+
+⭐ **Le quindici verifiche sono state rilanciate ANCHE IN CHIUSURA** e sono
+verdi. ✅ **`cgx-test.exe` e' FRESCO** (21/08, 13:27) e i due file dati di
+`elonaplus2.31\data\` hanno lo stesso md5 di quelli che `applica` produce.
+
+### ▶ Che cosa e' stato fatto
+
+Tre lotti grossi invece di nove piccoli, e ognuno chiude una cosa intera.
+
+    chat.hsp  *chat_default          l'ultimo giro: 89 firme, 13 rinviate  81 rese
+    chat.hsp  il sistema delle gilde tre maestri, tre guardiani, tre inv.  97 rese
+    chat.hsp  l'inizio e il TUTORIAL Larnneire, Rianna, Lomias             92 rese
+    correzione chat.hsp:18483        «non sei riuscito» al giocatore        1 corr.
+    invariati.md                     `......` e `Bethel...`                 2 righe
+    ---------------------------------------------------------------------------
+                                     270 rese, 0 toppe, 0 reti nuove, 3 spinte
+
+### ▶ ⭐⭐⭐ `*chat_default` e' CHIUSO
+
+Delle 3.147 voci che restavano in `chat.hsp` a inizio giornata, solo **77**
+stavano nel blocco vero e proprio secondo l'elenco — e **89** secondo il conto
+giusto. Sono le famiglie che la 77a aveva lasciato in coda: la consegna
+(`chatval` 25, 26), i banditi e la nave speronata (31, 116, 117), il matrimonio
+e il gene (38, 39), i pasti condivisi (142, 84), la notte (56, 59, 60) col menu
+dell'ospite, la carovana (61), la nave con la lettera (65), gli incarichi e
+l'allenatore, l'investimento nel negozio, e il fabbro che cambia l'aspetto di un
+oggetto (blocco ANNA CUSTOM).
+
+⚠️ **Restano fuori tredici rese della famiglia evochat** — le dieci «route», i
+due esiti del cuore, il potere di scasso — perche' il menu che le accende
+(`:19250`-`:19278`) e' ancora tutto inglese. Vedi la voce nuova in
+`decisioni.md`: *una risposta italiana sotto un menu inglese e' il difetto
+girato*, e nessuna rete lo misura.
+
+### ▶ ⭐⭐ Il sistema delle gilde, in un lotto solo
+
+`*chat_unique` smista per personaggio, ma il taglio giusto e' il **sistema**:
+sei blocchi quasi identici (Revlus/Fray/Sin maestri, Lexus/Abyss/Doria
+guardiani) piu' i tre investigatori di Tyris del Sud, che rifanno la stessa
+catena dall'altra parte del mare. Un lessico solo, deciso una volta.
+
+⭐⭐ **E il lessico non si e' deciso: si e' ripreso.** Gilda dei Maghi /
+Guerrieri / Ladri e «il maestro della gilda» stavano in `command.hsp` e
+`text.hsp`; «il guardiano» e «l'investigatrice» nelle domande del quiz; «punti
+gilda», «obiettivo», «Nefia casuali di tipo X di livello Y o piu'», «vendere
+refurtiva per N monete d'oro», «baule delle consegne» nelle voci di diario che
+annotano le stesse prove. **Le tre prove d'ingresso dicono adesso le parole del
+diario che le annota**: il giocatore le sente dal guardiano e le ritrova
+identiche premendo `j`.
+
+⚠️ **Fray si accorda, la carica no**: `:5595` dice «call out to **her**», quindi
+Fray dice «sono davvero **contenta**» — ma resta «il **maestro** della gilda»,
+che e' la carica, e che `text.hsp:11019` aveva gia' fissato cosi' parlando
+proprio di lei.
+
+### ▶ ⭐⭐⭐ Il tutorial, e perche' non poteva inventarsi le parole
+
+`chat.hsp:1701`-`:1879` non e' dialogo: e' il **tutorial**, la prima cosa che un
+giocatore nuovo legge, e dice quali tasti premere e quali voci di menu
+scegliere. I nomi si **copiano** da `text.hsp` — `<Mangia>`, `<Leggi>`,
+`<Scava>`, `<Equipaggia>`, `Tiro` — e con loro diario, zaino, pergamena di
+identificazione e di purificazione, lingotto d'oro, grimaldello, Scasso,
+bacheca della casa, baule degli stipendi.
+
+⚠️ Un tutorial che nomina i menu con parole proprie e' **peggio** che un
+tutorial inglese: manda il giocatore a cercare a schermo una voce che non
+esiste.
+
+⚠️ **I tasti si nominano, non si traducono**: `[g]et` e `[d]rop` in inglese
+portano la lettera dentro la parola, in italiano no — «li raccogli col tasto
+**g**», «li posi col tasto **d**».
+
+⚠️ **Due deroghe dichiarate**, tutt'e due dove l'inglese ha perso la battuta:
+«Kill it.» a `:1744` (il giapponese dice che il putit e' ancora in piedi) e
+`:1866`, dove l'inglese chiama il putit «a tiny, cute creature». Si segue il
+giapponese, che nomina la creatura che compare davvero.
+
+### ▶ ⚠️ Un referto che nessuno leggeva aveva ragione
+
+`scratchpad/referti.py` segnalava da sessioni **tre** participi. Due sono falsi
+positivi legittimi — «te lo sei preso» concorda con l'extraterrestre, «te la sei
+cavata» e' l'idioma — il terzo no: `chat.hsp:18483` diceva **«non sei
+riuscito»** al giocatore. Corretto, e il referto scende a 2. 💡 *Un referto che
+si legge e non si agisce e' un referto che non esiste.*
+
+### ▶ Le misure che hanno bocciato qualcosa
+
+`chat-lotto-misura.py` ha respinto **sedici** rese in tre lotti: quindici
+facevano una riga in piu' dell'inglese nella finestra del dialogo, e la crisi
+isterica di Rianna (`:1636`, la battuta piu' lunga del file) faceva **14 righe
+contro un tetto di 13** — l'unica vera fuori misura della giornata.
+
+E `menu_dialogo` ha bocciato `<Addestramento collettivo del mese>`: **35
+caratteri** dove il tetto delle due colonne e' **24** (l'inglese ne usa 21).
+Adesso e' `<Addestramento del mese>`, 24 esatti, e tiene la parola che i
+messaggi usano per la stessa scelta.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **Il collaudo: delle 270 rese di oggi non se n'e' vista a schermo
+   nessuna, ed e' l'OTTAVA volta di fila.** Il debito e' **1.906 rese**. ⭐ Ma
+   oggi c'e' la cosa piu' facile da provare che esista: **il tutorial**. Basta
+   un personaggio nuovo e i primi cinque minuti di gioco per vedere una
+   settantina di rese di fila, e il glossario dell'interfaccia si verifica da
+   solo — se il tutorial dice `<Mangia>` e il menu dice altro, si vede subito.
+   Poi il banco delle gilde (Lumiest, Derphy, Porto Kapul) e il consegnatore.
+2. ⚠️⚠️⚠️ **IL PUNTO CIECO DELLA 74a E' ANCORA APERTO: 128 righe di menu scritte
+   a mano in `listn(...) = lang(...)`**, di cui 101 gia' tradotte e mai misurate
+   (100 in `command.hsp`, 18 in `chara.hsp`, 7 in `chat.hsp`, piu'
+   `event.hsp:825`, `help.hsp:333`, `net.hsp:604`). Va letta la geometria dei
+   tre pannelli, uno per uno.
+3. ⭐⭐ **La rete che manca ancora: i `buff` della finestra del dialogo.** Il
+   simulatore c'e' (`scratchpad/chat_righe.py`) e `chat-lotto-misura.py` lo usa
+   **per lotto** — oggi ha bocciato sedici rese. Il perimetro su **tutti** i
+   `buff = lang(...)` resta da fare.
+4. ⭐⭐⭐ **`chat.hsp` a 2.877.** Restano: `*chat_unique_mizuki` **1.348**,
+   `*chat_unique` **1.037** (i pezzi grossi sono il dr. Gavela 117, Erystia 109,
+   Lune la capo-cameriera 39, Mizuki 35, Sist 30, Silvia 29), `*label_6452`
+   236, `*chat_event` 105, e gli **evochat** 119 — un centinaio di rese in un
+   registro tutto suo, **col loro menu**, da decidere prima di aprirli.
+5. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208 righe),
+   `manual_ENG.txt` (591), `exhelp.txt` (185). ⚠️ `help.hsp:273` conta **dieci
+   righe di FILE per pagina**: la misura della colonna va presa dalla geometria.
+6. ⭐⭐ `board.txt` **secondo lotto**: le 38 varianti giapponesi che monte ha
+   buttato via — e `talk.txt` ha lo stesso problema. Serve estendere
+   `dati_applica` ad **aggiungere** righe.
+7. ⭐⭐ `custom_autopick.hsp`: 21 gemelle **delicate**, 78 delle 90 `lang()` sono
+   confronti dentro `instr` contro il file che scrive il giocatore.
+8. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+   `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+   `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+9. ⭐⭐ Il **muro del materiale**: `mithril sword` e' «spada **di** mithril»,
+   postposta. 118 righe piu' i tre siti di `item_func.hsp`. 💡 La toppa del nome
+   della casa (77a) e' la prova che una toppa d'ordine si scrive e si prova in
+   mezz'ora: e' lo stesso genere di problema.
+10. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `item_func.hsp` 240; i **1.146** di
+    `db_card.hsp`. E la statistica 発言力 con **due nomi sullo schermo**
+    («Influenza» in `economy.hsp:357`, «autorita'» nel menu del sindaco): la
+    correzione ovvia e' vietata da `test_colonne_economy.py`, serve un sinonimo
+    **senza accento**. Decisione ancora da prendere.
+
+### ▶ Come si e' chiusa
+
+Tre spinte, una per lotto, piu' la quarta coi documenti. `applica` e
+`compila --eseguibile` sono girati prima di chiudere — `cgx-test.exe` del 21/08
+alle 13:27 — i due file dati sono stati confrontati per md5 con quelli che
+`applica` produce, e le quindici verifiche sono state rilanciate in chiusura:
+tutte verdi.
+
+⚠️⚠️ **Zero collaudo, ottava volta di fila** — ma stavolta il lotto da provare
+e' il tutorial, e si prova in cinque minuti con un personaggio nuovo.
+
+---
+
+## La settantasettesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
