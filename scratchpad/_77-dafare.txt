@@ -1,0 +1,346 @@
+=== tag > 0   [18789-18862]  8 rese
+    18805 dinamica  (Slightly embarrassed,  lends an ear to her partner.)
+    18808 statica   From now on...
+    18813 dinamica  ( nodded shyly.)
+    18816 statica   Of course...
+    18829 dinamica  ( got stuck in the conversation and started telling bad jokes...)
+    18832 statica   I've got your back.
+    18837 dinamica  ( seems a little taken aback...)
+    18840 statica   I'm counting on you.
+=== evochat == (-1)   [18866-18907]  10 rese
+    18869 dinamica  ( seems to open up to you...)
+    18872 statica   What are you gonna do to me?
+    18877 dinamica  ( envisions a future relationship...)
+    18880 statica   Once again, I look forward to adventuring with you!
+    18885 dinamica  ( seems to be embarrassed.)
+    18888 statica   Don't step into my heart so easily!
+    18893 dinamica  ( get rids of the worries and eases...)
+    18896 statica   It's strange, why would I worry about that.
+    18901 dinamica  (  staring at you in a dangerous smile.)
+    18904 statica   Ahh...You will take responsibility, right?
+=== evochat == 1   [18908-18969]  8 rese
+    18919 dinamica  ( seems to be a bit nervous.)
+    18922 statica   It's just the two of us...
+    18933 dinamica  ( seems to be embarrassed.)
+    18936 statica   P...Please quit the joke in a place like this!
+    18947 dinamica  (  pleased.)
+    18950 statica   This kind of thing is really nice...
+    18962 dinamica  (  staring at you with a happy expression.)
+    18965 dinamica  ... I am very happy now.
+=== evochat == 11   [18970-19032]  14 rese
+    18975 statica   Stop...you're trying to be rough with me, aren't you?
+    18978 statica   Yes...I won't defy you...
+    18983 dinamica  ( looks grimaced with pain.)
+    18986 statica   It...It doesn't hurt at all...
+    18989 statica   Ugh...!
+    18996 dinamica  ( is surprised and confused.)
+    18999 statica   Mugh...!? Mmmmhhm!!
+    19002 statica   It, it's delicious...?
+    19009 statica   What...do you mean all of a sudden?
+    19012 statica   ...It's kind of creepy.
+    19015 statica   ...I wouldn't mind doing more of the same.
+    19022 statica   Hyahahahaaa!! Ahyaaaaa!?
+    19025 statica   Whe! hiii! Haaa...!
+    19028 statica   Ahahahaaa! Ooh..! A..Ahyaaaa!!
+=== evochat == 2   [19033-19170]  15 rese
+    19049 dinamica   seems to be a little pounding.
+    19053 dinamica    staring at you with a happy expression.
+    19056 dinamica   seems to be a little pounding.
+    19076 dinamica   seems to be a little relaxed.
+    19080 dinamica    staring at you with a happy expression.
+    19083 dinamica   gently strokes you.
+    19103 dinamica    staring at you with a happy expression.
+    19107 dinamica    staring at you with a happy expression.
+    19110 dinamica    staring at you with a happy expression.
+    19130 dinamica    taken aback.
+    19135 statica   ???
+    19138 statica   What!?
+    19158 dinamica    staring at you with a happy expression.
+    19162 dinamica    staring at you with a happy expression.
+    19165 dinamica    staring at you with a happy expression.
+=== evochat == 3   [19171-19226]  13 rese
+    19181 dinamica   begin to take  clothes off.
+    19184 statica   You calmed yourself.
+    19189 dinamica   begin to take your clothes off.
+    19208 statica   You are awesome!
+    19208 statica   Oh my god....
+    19208 statica   Okay, okay, you win!
+    19208 statica   Holy...!
+    19208 statica   Holy...!
+    19223 statica   Yes!
+    19223 statica   Ohhh
+    19223 statica   *gasp*
+    19223 statica   *rumble*
+    19223 statica   Come on!
+=== cdata(CDATA_ROLE, tc) == ROLE_MAID   [19236-19241]  2 rese
+    19238 statica   Yes, I'll meet the guest now.
+    19239 statica   I don't want to meet anyone.
+=== evochat == (-1)   [19242-19268]  13 rese
+    19250 dinamica  [% Unlock] Let's fight together as allies.
+    19251 dinamica  [% Unlock] Let's just be friends.
+    19252 dinamica  [% Unlock] I want to compete with you.
+    19253 dinamica  [% Unlock] I'm in love with you.
+    19254 dinamica  [% Unlock] I want you to teach me various things.
+    19255 dinamica  [% Unlock] I want to teach you various things.
+    19256 dinamica  [% Unlock] I think of you as an important family member.
+    19257 dinamica  [% Unlock] I want to form a contract with you.
+    19258 dinamica  [% Unlock] You are my pet!
+    19259 dinamica  [% Unlock] I want you to pledge allegiance to me.
+    19261 dinamica  [% Unlock] <I want to be your help...>
+    19264 dinamica  [% Unlock] <Show me your real self...>
+    19267 statica   <Return>
+=== evochat == 1   [19269-19288]  8 rese
+    19271 statica   <Be kind>
+    19272 statica   <To embarrass>
+    19274 statica   <Pass 100,000gold>
+    19276 statica   <<Interest in a little tail t'night>>
+    19278 statica   <Heart unlock>
+    19281 statica   <Let them Evochat>
+    19284 statica   <<Get excited>>
+    19287 statica   <End evochat>
+=== evochat == 11   [19289-19301]  6 rese
+    19291 statica   <Whipping>
+    19292 statica   <Stick a candy in>
+    19293 statica   <Give lots of love>
+    19294 statica   <<Violence>>(Unimplemented)
+    19295 statica   <Dark tickling recording>
+    19297 statica   <<Torture anyway>>(Unimplemented)
+=== evochat == 2   [19302-19314]  6 rese
+    19306 statica   (Various things)
+    19308 statica   <<Hug>>
+    19309 statica   <<Pat>>
+    19310 statica   <<Kiss>>
+    19311 dinamica  <<>>
+    19313 statica   <Return>
+=== evochat == 3   [19315-19319]  3 rese
+    19316 statica   <Gently>
+    19317 statica   <Violently>
+    19318 statica   <Small break>
+=== chatval == 10 | chatval == 11   [19881-19894]  1 rese
+    19887 statica   I don't have business with criminals.
+=== chatval == 100   [20316-20399]  6 rese
+    20356 dinamica   cares what you tried to tell.
+    20373 dinamica   felt you creepy.
+    20379 dinamica   felt it wasn't too bad.
+    20388 dinamica   can't believe the ear...
+    20391 dinamica   looked at you with merciful eyes.
+    20394 dinamica   shrugged.
+=== chatval == 85   [20400-20434]  6 rese
+    20402 statica   Who do you drive out?
+    20409 dinamica    moved to the location.
+    20419 dinamica   Go back!
+    20423 dinamica   Go home!
+    20427 dinamica   Get out of here!
+    20431 dinamica   See you again!
+=== chatval >= 14 & chatval < 17   [20457-20520]  4 rese
+    20473 statica   Your items have already been identified.
+    20494 dinamica   out of  unknown items are fully identified.
+    20495 statica   Here, I have finished identifying your stuff.
+    20514 statica   You need to investigate it to gain more knowledge.
+=== chatval == 18   [20525-20535]  1 rese
+    20531 statica   If you select an adventurer, you can see the details.
+=== chatval == 19   [20536-20561]  1 rese
+    20559 statica   Treatment done. Take care!
+=== chatval == 20   [20562-20578]  1 rese
+    20576 statica   Thanks!
+=== chatval == 21 | chatval == 22   [20579-20698]  9 rese
+    20593 statica   There's not enough space to dissolve the tag-team.
+    20604 statica   The game is over today. Come again tomorrow.
+    20654 statica   Welcome! A challenger has come to fight with you!
+    20656 dinamica  You got someone around level  today. What'ya say?
+    20668 statica   Welcome! Challengers have come to fight with you!
+    20670 dinamica  Your play is a group of monster around level . Sounds easy huh?
+    20672 statica   Alright.
+    20673 statica   I'll pass.
+    20677 statica   Alright. Call me if you changed your mind.
+=== chatval == 40 | chatval == 41 | chatval == 49   [20699-20794]  6 rese
+    20721 statica   The game is over today. Come again tommorow.
+    20729 statica   Welcome! A challenger has come to fight with your pet!
+    20731 dinamica  The opponent is around level . Want to give it a try? You have  attempts left today.
+    20751 dinamica  It's a  vs  match. The opponent's group is formed by the pets less than  levels. What do you say? You have  attempts left today.
+    20758 dinamica  That team was put together by an adventurer by the name of . This will be a v match. The opponent's group is formed by pets with an average level of .
+    20760 statica   I'll send my pet.
+=== chatval == 42   [20795-20798]  1 rese
+    20796 dinamica  Your winning record has reached  matchs now. Keep the audience excited. You get nice bonus at every 3th,5th,10th,20th,30th,50th,100th wins in a row.
+=== chatval == 23   [20799-20802]  1 rese
+    20800 dinamica  Your winning record has reached  matchs now. Keep the audience excited. You get nice bonus at every 3th,5th,10th,20th,30th,50th,100th wins in a row.
+=== chatval == 25   [20806-20843]  4 rese
+    20810 statica   Here's YOUR delivery!
+    20812 dinamica  Is this some sort of joke? That  you are holding isn't the custom made one I requested...
+    20817 statica   Ah, whatever.
+    20837 dinamica  You hand over .
+=== chatval == 26   [20844-20860]  1 rese
+    20854 dinamica  You hand over .
+=== chatval == 31   [20865-20878]  3 rese
+    20867 statica   Oh crap. Another bandit trying to spoil my business! Form up, mercenaries.
+    20868 statica   Pray to your god.
+    20869 statica   W-Wait! I was just kidding.
+=== chatval == 116   [20879-20885]  1 rese
+    20881 statica   This adventurer is a plunderer! Form up, mercenaries!
+=== chatval == 117   [20886-20906]  3 rese
+    20889 statica   Hey what are you doing!?
+    20892 statica   You sunk a merchant ship.
+    20894 statica   You just blast people's ship out of the blue? You aren't even trying to loot us?? You are batshit insane!
+=== chatval == 32   [20907-20940]  7 rese
+    20915 statica   Hmm! It's empty!
+    20916 statica   Oops...!
+    20922 statica   How nice of you to take the trouble to bring it. You're a model citizen indeed!
+    20923 statica   It's nothing.
+    20929 statica   Oh, it's you again? How come you find the wallets so often?
+    20930 statica   (...suspicious)
+    20931 statica   I really found it on the street!
+=== chatval == 34   [21004-21030]  1 rese
+    21005 dinamica  (You order  to wait in town.)
+=== chatval == 109   [21383-21413]  1 rese
+    21386 dinamica  You and  and  entered a world only for the three of you.
+=== chatval == 77   [21414-21443]  1 rese
+    21417 dinamica  You and  entered a world only for the two of you.
+=== chatval == 132   [21444-21475]  1 rese
+    21447 dinamica  You and  entered into the world of only two people.
+=== chatval == 119   [21554-21570]  1 rese
+    21562 statica   You've entered the Comrade route!
+=== chatval == 120   [21571-21587]  1 rese
+    21579 statica   You've entered the Friend route!
+=== chatval == 121   [21588-21604]  1 rese
+    21596 statica   You've entered the Rival route!
+=== chatval == 122   [21605-21621]  1 rese
+    21613 statica   You've entered the Affection route!
+=== chatval == 123   [21622-21638]  1 rese
+    21630 statica   You've entered the Student route!
+=== chatval == 124   [21639-21655]  1 rese
+    21647 statica   You've entered the Master route!
+=== chatval == 125   [21656-21672]  1 rese
+    21664 statica   You've entered the Family route!
+=== chatval == 126   [21673-21689]  1 rese
+    21681 statica   You've entered the Contract route!
+=== chatval == 127   [21690-21706]  1 rese
+    21698 statica   You've entered the Owner route!
+=== chatval == 128   [21707-21723]  1 rese
+    21715 statica   You've entered the Loyalty route!
+=== chatval == 129   [21724-21741]  1 rese
+    21732 dinamica   got rid of troubles and felt lighter.
+=== chatval == 130   [21742-21762]  1 rese
+    21750 dinamica   has awakened to a dangerous hobby...
+=== chatval == 118   [21962-21970]  1 rese
+    21964 dinamica  Your unlock power is .
+=== chatval == 96   [22145-22170]  2 rese
+    22158 statica   I see...
+    22159 dinamica  ( learned a new trick with the )
+=== chatval == 97   [22171-22211]  8 rese
+    22173 dinamica  ( Really offer  to your god? )
+    22174 statica   Yes.
+    22175 statica   No.
+    22179 dinamica  You offer  to .
+    22181 statica   See you!
+    22184 statica   I'm going!
+    22187 statica   See you again!
+    22194 dinamica   glowed brightly and disappeared.
+=== chatval == 37   [22355-22395]  4 rese
+    22361 dinamica  Let me see... Hmm, this one's got a nice figure. I'll give you  gold pieces.
+    22362 statica   Deal.
+    22363 statica   No way.
+    22375 dinamica  You sell off .
+=== chatval == 38   [22396-22427]  3 rese
+    22405 dinamica   says: I won't allow it!
+    22412 dinamica  ( gently refuses your proposal.)
+    22416 statica   With pleasure.
+=== chatval == 39   [22428-22458]  4 rese
+    22431 statica   You can not create a gene in this game mode.
+    22435 statica   Not here!
+    22438 statica   *blush*
+    22447 dinamica   says: Stop this at once! Can't you see that Lady Jure doesn't want this?!
+=== chatval == 43   [22459-22479]  1 rese
+    22466 statica   The shelter is free to use for anyone. Here, come in.
+=== chatval == 45   [22496-22506]  12 rese
+    22498 statica   Home
+    22498 statica   Mansion
+    22498 statica   Shack
+    22498 statica   Nest
+    22498 statica   Base
+    22498 statica   Hideout
+    22498 statica   Dome
+    22498 statica   Hut
+    22498 statica   Cabin
+    22498 statica   Hovel
+    22498 statica   Shed
+    22504 dinamica  Hey, I've come up with a good idea! \"\", doesn't it sound charming?
+=== chatval == 46   [22507-22530]  4 rese
+    22509 statica   You karma isn't that low. Come back after you have committed more crimes!
+    22513 dinamica  In the authority of all the saints, I will grant you an indulgence, for money of course. The price is  gold pieces.
+    22515 statica   Deal.
+    22517 statica   The price is too high.
+=== chatval == 47   [22531-22568]  2 rese
+    22538 statica   It will cost you 100 gold pieces.
+    22540 statica   Investigate.
+=== chatval == 106   [22569-22592]  1 rese
+    22572 dinamica   gently refuses your request.
+=== chatval == 105   [22961-22971]  1 rese
+    22966 statica   Which adventurer should I tell?
+=== chatval == 82   [22972-23035]  10 rese
+    22974 statica   It can't be changed later. OK?
+    22975 statica   Wait...
+    22976 statica   OK!
+    22981 statica   Which month?
+    22995 statica   And which day?
+    23010 dinamica  Your birthday is  / .
+    23011 statica   I made a mistake.
+    23012 statica   Yes.
+    23017 statica   I see! I'll also tell everyone!
+    23032 dinamica  I already know it. Your birthday is  / .
+=== chatval == 142   [23036-23127]  6 rese
+    23050 statica   They shared the food together.
+    23052 statica   (*munch* *munch*)
+    23068 statica   Gee what a good taste!
+    23071 statica   It tasted pretty good!
+    23079 statica   Yummy! Absolutely yummy!
+    23082 statica   It tasted like seventh heaven!
+=== chatval == 84   [23128-23187]  2 rese
+    23142 statica   (You shared some homemade food with your good friend...)
+    23160 statica   Gee, that hit the spot!
+=== chatval == 50   [23200-23243]  6 rese
+    23201 statica   If you pay me in advance, I will take the job.
+    23205 dinamica  Request 3 days. (gp)
+    23208 dinamica  Request 7 days. (gp)
+    23211 dinamica  Request 30 days. (gp)
+    23213 statica   Some other time.
+    23236 dinamica  You hired .
+=== chatval == 51   [23244-23273]  5 rese
+    23246 statica   Huh? You are no match for me.
+    23250 statica   Sure, I guess you and I can make a good team.
+    23253 statica   It seems your party is already full. Come see me again when you're ready.
+    23266 statica   Huh? What made you think I'd want to join you? I have no complaints about your capabilities.. but I don't know you well enough. Maybe hire me for some
+    23270 statica   I-I don't feel like I want to... sorry.
+=== chatval == 52   [23274-23299]  4 rese
+    23276 statica   Look what we have! A woman who got a monster's face. It'll be a good show. Wanna sell me for 50000 gold coins?
+    23277 statica   Sure, take her.
+    23278 statica   You cold bastard.
+    23282 statica   You sell Pael's mom...
+=== chatval == 53   [23300-23305]  1 rese
+    23301 statica   I'm practicing a spell of return. Would you like to take my service?
+=== chatval == 56   [23357-23369]  3 rese
+    23358 statica   Let's do it.
+    23359 statica   W-Wait...
+    23360 statica   You are... quite attractive. I'll buy you.
+=== chatval == 59   [23377-23382]  1 rese
+    23379 statica   Alright.
+=== chatval == 60   [23383-23404]  1 rese
+    23389 dinamica  Okay sweetie, I need  gold pieces upfront.
+=== chatval == 61   [23405-23453]  5 rese
+    23415 statica   Stop it.
+    23420 statica   (The Captain of the caravan appears to be busy and hasn't noticed you. If you slip in with the cargo now, you can probably make it across the border. 
+    23449 statica   (The bored caravan master notices your glance.)
+    23450 statica   Oh? You want to get out of this country? Unfortunately that's impossible because of the border blockade. Only important people can pass. I've been wai
+    23451 statica   Adventurers cannot pass even if the blockade is temporarily lifted. If you are a trader, I can bring you to South Tyris, but if you're an adventurer I
+=== chatval == 65   [23843-23867]  2 rese
+    23844 statica   (Board the ship)
+    23846 statica   This letter of introduction... I see. Alright, hop aboard. We'll set sail immediately.
+=== chatval == 75   [24093-24195]  3 rese
+    24147 statica   Cancel.
+    24148 dinamica  This practice will cost you  platinum pieces.
+    24189 statica   The practice is now complete.
+=== chatval == 99   [24196-24229]  5 rese
+    24198 statica   You do not have a world-vehicle.
+    24202 statica   I'll stop it.
+    24203 statica   I don't need the vehicle.
+    24204 statica   Do you return to walk discard your world-vehicle?
+    24222 statica   understood. I will handle.
