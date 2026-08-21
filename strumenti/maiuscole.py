@@ -59,8 +59,12 @@ ACCUMULATO = "accumulato"
 GIUDICATI = {
     ("blend.hsp", 1299): "il nome della ricetta dopo «Ricetta: »: dopo i due "
                          "punti la maiuscola regge, ed e' un nome",
-    ("chat.hsp", 18813): "chat.hsp non e' ancora tradotto: si giudica quando "
-                         "ci arriva il lotto",
+    # ⚠️ :18813 NON e' piu' qui, ed e' la terza volta che succede per la stessa
+    # ragione. Il permesso diceva «chat.hsp non e' ancora tradotto: si giudica
+    # quando ci arriva il lotto». Il lotto e' arrivato nella 82a, la resa e'
+    # «(Annuisce, con aria imbarazzata)» — la maiuscola sta nel letterale, e
+    # `cnven(he(tc))` e' sparita del tutto insieme al pronome inglese che
+    # avvolgeva. Il sito non e' piu' appeso perche' **non esiste piu'**.
     # ⚠️ :22375 e :24739 NON sono piu' qui, e il motivo vale piu' della riga:
     # questa rete legge la BUILD, non il sorgente pinnato. Le due rese della 77a
     # («La gattina passa di mano.», «La gattina entra al tuo servizio.») mettono

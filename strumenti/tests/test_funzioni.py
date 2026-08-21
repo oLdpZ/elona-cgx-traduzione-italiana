@@ -178,3 +178,45 @@ def test_le_virgole_dentro_una_stringa_non_separano_argomenti():
     assert funzioni_di_contenuto('his(cc) + " uno, due e tre."') == []
     # con due argomenti veri e' contenuto e resta
     assert funzioni_di_contenuto('his(cc, 1) + " uno, due."') == ["his"]
+
+
+def test_cnven_e_trasparente_perche_non_porta_dati():
+    """`cnven` alza la prima lettera e basta: non e' una chiamata di contenuto.
+
+    `chat.hsp:18813` e' `"(" + cnven(he(tc)) + " nodded shyly.)"`. `he(tc)` a un
+    argomento e' morfologia inglese e va tolta; la maiuscola che le sta sopra se
+    ne va con lei, perche' in italiano la frase comincia con un verbo scritto
+    per esteso. Prima della 82a `cnven` finiva fra le attese e la voce era
+    **intraducibile**: nessuna resa poteva soddisfarla.
+    """
+    from strumenti.funzioni import chiamate_di_contenuto, funzioni_di_contenuto
+
+    inglese = '"(" + cnven(he(tc)) + " nodded shyly.)"'
+    italiano = '"(Annuisce, con aria imbarazzata)"'
+    assert funzioni_di_contenuto(inglese) == []
+    assert funzioni_di_contenuto(italiano) == funzioni_di_contenuto(inglese)
+    assert chiamate_di_contenuto(inglese) == []
+
+
+def test_cnven_attraversata_lascia_vedere_il_dato_che_contiene():
+    """Trasparente non vuol dire cieca: quel che `cnven` avvolge resta dovuto.
+
+    `action.hsp:8590` e' `cnven(cdatan(...))`: la maiuscola si puo' lasciare
+    cadere, il **nome** no.
+    """
+    from strumenti.funzioni import chiamate_di_contenuto, funzioni_di_contenuto
+
+    inglese = 'cnven(cdatan(CDATAN_NAME, rc)) + " comes back to life!"'
+    assert funzioni_di_contenuto(inglese) == ["cdatan"]
+    assert chiamate_di_contenuto(inglese) == ["cdatan(CDATAN_NAME,rc)"]
+
+
+def test_le_due_funzioni_classificano_le_trasparenti_allo_stesso_modo():
+    """⚠️ Fino alla 82a `_classifica` non conosceva `TRASPARENTI` affatto, e
+    `funzioni_di_contenuto` registrava `cnvtalk` mentre `chiamate_di_contenuto`
+    la saltava: due misure della stessa cosa nello stesso modulo, in disaccordo.
+    """
+    from strumenti.funzioni import TRASPARENTI, funzioni_di_contenuto
+
+    for nome in TRASPARENTI:
+        assert funzioni_di_contenuto('%s(name(tc))' % nome) == ["name"]

@@ -108,8 +108,10 @@ def test_i_giudicati_esistono_ancora():
 
 
 def test_la_grande_maggioranza_dei_siti_sta_in_testa():
-    """134 su 144: `cnven` fa il suo mestiere quasi sempre, ed e' il motivo per
-    cui non si toglie in blocco ma sito per sito."""
+    """136 su 143 (erano 134 su 144 prima della 82a): `cnven` fa il suo mestiere
+    quasi sempre, ed e' il motivo per cui non si toglie in blocco ma sito per
+    sito. Il conto totale **cala** quando una resa fa sparire un `cnven` che in
+    italiano non serviva: la rete legge la build, non il sorgente pinnato."""
     tutti = siti()
     in_testa = [s for s in tutti if s["dove"] == IN_TESTA]
     assert len(in_testa) > len(tutti) * 0.9

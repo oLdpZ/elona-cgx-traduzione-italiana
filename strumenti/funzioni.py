@@ -93,7 +93,28 @@ PRONOMI_PER_SITO = frozenset({"he", "his", "him"})
 # 💡 Il difetto non era nella regola ma nella **classificazione**: una funzione
 # che non porta dati non e' una chiamata di contenuto, e trattarla come tale
 # rende invisibile il contenuto che ha dentro.
-TRASPARENTI = frozenset({"cnvtalk"})
+#
+# ⭐ **`cnven` e' della stessa famiglia, ed e' entrata nella 82a.** `init.hsp:191`:
+# in build giapponese restituisce l'argomento tale e quale, altrimenti ne alza
+# la prima lettera. Non porta nessun dato — porta una maiuscola.
+#
+# Il difetto che ha corretto sta in `chat.hsp:18813`, `"(" + cnven(he(tc)) +
+# " nodded shyly.)"`. Li' dentro **non c'e' niente da conservare**: `he(tc)` a
+# un argomento e' morfologia inglese e va tolta, e con lei se ne va la
+# maiuscola che le stava sopra, perche' in italiano la frase comincia con un
+# verbo scritto per esteso. Ma `funzioni_di_contenuto` registrava `cnven` fra
+# le attese, e nessuna resa italiana poteva soddisfarla: la voce era
+# intraducibile, come «Manuscript production» prima della maschera dei
+# letterali. Sul sorgente pinnato `cnven(he(...))` compare **16 volte**: non e'
+# un caso limite.
+#
+# ⚠️ E lasciar cadere `cnven` non allenta nessuna guardia, perche' la maiuscola
+# ha una rete tutta sua: `strumenti/maiuscole.py` legge la **build** e giudica
+# ogni sito per posizione (in testa / appeso / accumulato). Le due misure non
+# si sovrappongono — una guarda che il DATO sopravviva alla traduzione, l'altra
+# che la MAIUSCOLA cada nel posto giusto — e pretenderle tutt'e due dalla stessa
+# lista rendeva impossibile la resa giusta.
+TRASPARENTI = frozenset({"cnvtalk", "cnven"})
 
 CHIAMATA = re.compile(r"\b([A-Za-z_][A-Za-z0-9_]*)\s*\(")
 
@@ -183,6 +204,13 @@ def _classifica(espressione: str) -> tuple[list[str], list[str]]:
         if nome in MORFOLOGIA_INGLESE:
             morfologia.append(nome)
             salta_fino_a = _fine_chiamata(espressione, apertura)
+        elif nome in TRASPARENTI:
+            # ⚠️ Attraversata, non registrata, e **non** si salta il suo interno:
+            # e' la differenza con la morfologia qui sopra. Vedi TRASPARENTI.
+            # Fino alla 82a questa classe la conosceva solo
+            # `chiamate_di_contenuto`, e le due funzioni dello stesso modulo
+            # davano risposte diverse sulla stessa espressione.
+            continue
         elif nome in PRONOMI_PER_SITO:
             argomenti = argomenti_di(espressione, apertura)
             if argomenti is not None and len(argomenti) >= 2:
