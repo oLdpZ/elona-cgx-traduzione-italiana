@@ -1,31 +1,203 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-21, fine della **ottantesima** sessione (**124 rese in
-`chat.hsp` in due lotti; nessuna toppa, nessuna rete nuova, una guardia
-aggiornata**).
+Aggiornato: 2026-08-21, fine della **ottantunesima** sessione (**97 rese in
+`chat.hsp` in due lotti, una toppa, una resa vecchia corretta, e il primo
+collaudo a schermo dopo dieci sessioni**).
 
-⭐⭐⭐ **La lezione della giornata: un sistema tecnico non chiede di inventare
-il lessico, chiede di andarlo a prendere — e la strada passa dal DATO.** Le
-novanta rese di Leold vendono `CHARA_BIT_AWAKE_*` e `SKILL_SPACT_*`, e un `grep`
-sul nome della **variabile** ha portato in venti righe al pannello dei talenti di
-`command.hsp:2355`-`:2452`, dove ognuno di quei bit ha gia' la sua frase
-italiana. Su 90 rese, i venti nomi propri del sistema erano **tutti gia'
-scritti**, e nessuna rete avrebbe protestato se li avessi scelti diversi:
-sarebbe stato italiano corretto, dentro il tetto, non bilingue. E' la 79a
-confermata, e adesso ha due prove invece di una.
+⭐⭐⭐ **La lezione della giornata: una `lang()` tradotta può avere un PARTNER
+fuori da `lang()` che la deve riconoscere — e allora tradurla la rompe.** Le
+quattro parole con cui si desidera una creatura stanno in `lang()`
+(`command.hsp:4846`) e sono tradotte: carta, statuetta, bambola dorata, bambola
+di carne. Le righe che le **tolgono** dalla stringa prima di cercare il nome
+stanno in `fix_wish` (`module.hsp:4815`), **non** sono in `lang()`, e sono
+rimaste inglesi. Risultato: in italiano ogni desiderio di creatura dava la
+statuetta di **`@`**, perché il nome non combaciava mai e `wish_monster`
+ripiegava su `dbid = 0`. Il progetto sapeva già che certe `lang()` sono
+**chiavi** (`custom_autopick.hsp`); questo è il caso **girato**, e per trovarlo
+non basta leggere il sito: bisogna cercare **chi confronta quella stringa**.
+⚠️ *Rete ancora da fare, e il perimetro è tutto il sorgente.*
 
-⚠️⚠️ **La seconda lezione: un PREZZO scritto in un'etichetta e' un numero che
-il codice ripete altrove — si confronta, non si copia.** `:17864` etichetta
-可変放射 «Variable Breath (**300**AP)», il giapponese dice 消費AP**400** e `:17925`
-fa `leoap = 400`. Chi gioca in inglese mette da parte 300 AP e si sente
-rispondere che non bastano. ⭐ **E il modo di saperlo e' stato contarli tutti**:
-verificati uno per uno i ventisei prezzi dei due menu contro il `leoap` che ogni
-ramo assegna. E' l'unico che diverge — e senza il conto completo sarebbe stato
-indistinguibile da un refuso qualunque.
+⭐⭐⭐ **La seconda lezione, e vale il debito di dieci sessioni: il collaudo non
+dipende più da dove è arrivato il salvataggio.** **F12** apre la console di
+debug (`main.hsp:3322`), `wizard` accende la modalità mago (`system.hsp:4718`),
+`spawn_chara <ID>` fa comparire qualunque creatura sulla casella del giocatore
+(`system.hsp:4831`). Gli ID stanno in `defines/mod.hsp`. ⚠️ **Non si usa
+`add_ally`**: `chat.hsp:281` manda al dialogo unico solo se
+`tc >= MAX_CHARA_FOLLOWER`, quindi arruolare il PNG nasconde proprio la
+schermata da collaudare.
+
+⚠️⚠️ **La terza: il perimetro di una ZONA è un'etichetta HSP, non un parlante.**
+`:15509` taglia in due il blocco di Telhureza, e tradurre le 47 firme che lo
+strumento dava avrebbe messo un sottodialogo italiano sotto un menu inglese.
 
 ---
 
-## L'ottantesima sessione
+## L'ottantunesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La
+sessione si è aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la
+**trentottesima prova** di fila, e le quindici hanno dato quindici volte i
+valori attesi della 80ª.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    verifica --dizionario   chat.hsp   0 / 2444   (era 2541)
+    menu_dialogo            0 su 881 misurate      (erano 841)
+    toppe.jsonl             1018                   (era 1017)
+    dizionario              chat.hsp +97 voci, db_creature.hsp 1 corretta
+    decisioni.md            +161 righe (la voce della 81ª, otto punti)
+
+Tutto il resto è **fermo dov'era**: `pytest` **730 passed 6 skipped**,
+`prova_identita` 72/72 e 27.813, `creature` 1131/2466/0/0, `larghezze` 0 fuori
+misura, `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `linguette` 0 e 0,
+`battute --divergenti` **13**, `intestazioni_larghezze` banco ok e perimetro 0,
+`dati_applica --identita` 4 file e 2.987 righe, `dati_sorgente` 7/7 e gioco
+difforme su 0, `gronde` 0 su 5, `maiuscole` 144 siti / 7 appesi / 8 giudicati /
+0 da guardare, `bilingui` **0**, `rinviate.jsonl` **75** non toccato,
+`referti.py` **2 participi**, `menu_dialogo` rotte anche in inglese **9**.
+
+⭐ **Le quindici verifiche sono state rilanciate ANCHE IN CHIUSURA** e sono
+verdi. ✅ **`cgx-test.exe` è FRESCO** (21/08, 17:53) e i due file dati di
+`elonaplus2.31\data\` hanno lo stesso md5 di quelli che `applica` produce.
+
+### ▶ Che cosa è stato fatto
+
+    chat.hsp  gli INQUILINI della casa   + la volpe e la cicogna     54 rese
+    chat.hsp  AIME e JALDABAOTH          racconti, la lancia, i desideri  43 rese
+    db_creature.hsp:43882                il vocativo di Oxode         1 corr.
+    toppe.jsonl 1018                     fix_wish non sa l'italiano   1 toppa
+    scratchpad/_81-banco-desiderio.py    la prova del difetto         1 banco
+    scratchpad/_81-lotto.py              il lotto dalla ZONA          1 script
+    decisioni.md                         otto punti                 161 righe
+    COLLAUDO                             sette schermate a schermo
+    ---------------------------------------------------------------------------
+                                 97 rese, 1 toppa, 0 reti nuove, 4 spinte
+
+### ▶ ⚠️⚠️⚠️ Il confine di una zona taglia i blocchi: il caso di Telhureza
+
+`perimetro-zona.py` dava 47 firme per `:15509`-`:15764`. Ma `:15509` è
+l'etichetta `*label_6450`, e il blocco di Telhureza comincia a `:15491`: le sue
+tre voci di menu e le tre risposte stanno **prima** del confine, nella zona di
+`*chat_unique_mizuki`; il sottodialogo che quelle voci accendono sta **dopo**.
+
+✅ Il lotto si è preso sul **parlante**, `:15491`-`:15764`: **54** firme, zero
+sparse, e `bilingui` zero al primo giro. 💡 *Un'etichetta HSP è un indirizzo di
+salto, non un confine di senso.*
+
+### ▶ ⭐ Il lessico ripreso, non deciso — terza prova della regola della 79ª
+
+| dove | che cosa dava |
+|---|---|
+| `db_race.hsp:5553` | 神の化身 → **«Incarnazione»**: è la razza che il giocatore legge sulla scheda della creatura che il dio gli concede, quindi «servant» è «incarnazione» e non «servitore» |
+| `command.hsp:7626` | Piety → «devozione» |
+| `skill.hsp:347` | faith skill → «abilità Fede» |
+| `chat.hsp:766` | rent → «affitto», già usato nel menu degli inquilini |
+| `db_creature.hsp` (repertorio di Telhureza) | 害虫 → «insetti cattivi», 家守 → «geco di guardia» |
+| `chat.hsp:15934`, `text.hsp:11633`, `chat.hsp:18102`, `db_item.hsp:137561` | Irregolare, zanna della luce nascente, rete akashica, polvere di stelle |
+
+⭐ E il **registro** di Jaldabaoth non si è deciso: la 80ª aveva già tradotto la
+scena parallela dell'altro ramo (`:15927`-`:15934`), quindi «E con questo?» e il
+«tu» sprezzante erano già fissati.
+
+### ▶ ⭐ Il sesso si legge nel codice, non nell'epiteto
+
+`text.hsp:378`: `CDATA_SEX == 0` è **maschio**. Quindi **Scard è un uomo**, anche
+se l'epiteto è «<Scard> **la** rondine felice» — lì il femminile è di «rondine».
+La sua battuta finale usa la forma **invariabile**: «Io sono così
+feliceeeeee!!!!». 💡 *Un epiteto non è una dichiarazione di genere.*
+
+### ▶ ⚠️⚠️ «landlord» cade, e con lui una resa vecchia
+
+Tre inquilini chiamano il giocatore 大家さん. «Padrone di casa» porta il genere:
+è il **vocativo**, il primo dei quattro bersagli. Il titolo si lascia cadere. E
+lo stesso difetto stava già in `db_creature.hsp:43882` — corretto.
+
+### ▶ ⚠️ Una funzione che sembra morfologia e invece si CONSERVA
+
+`_onii(cdata(CDATA_SEX, CHARA_PLAYER))` compare nel ramo inglese di
+`chat.hsp:15768`. Non è morfologia da togliere: `text.hsp:111` la definisce
+**dentro `lang()`** ed è già resa «Fratellone»/«Sorellona». È contenuto che
+accorda col genere di chi gioca, e il codice quel genere lo conosce.
+
+### ▶ ⚠️ Deroga dichiarata, e un menu a due colonne
+
+`chat.hsp:15783` etichetta «The Muddy Hands (**Lv250**)», ma il giapponese dice
+**Lv300** e la serie sale 200-250-300-400-500. È la famiglia del prezzo di Leold
+(80ª), con la differenza che qui il confronto non è col codice ma con la
+**serie**: `:15793` dice che i racconti sono tutti da implementare, non c'è
+nessun `leoap` da leggere. ✅ Si segue il giapponese.
+
+⚠️ Quel menu ha **tredici** voci, quindi passa a due colonne e taglia a 24
+caratteri: sette titoli inglesi sforano già a monte, i sei che ci stanno sono
+stati tenuti dentro anche in italiano.
+
+### ▶ ⚠️ Una trappola del collaudo
+
+All'apertura il riquadro dei messaggi mostrava inglese pieno. Non è un difetto:
+Elona **ripristina il registro dal salvataggio**, e quelle righe le aveva
+scritte una build vecchia. 💡 *Vale solo quel che si stampa dopo aver caricato.*
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **La rete che non c'è: i PARTNER fuori da `lang()`.** La toppa 1018 ha
+   sistemato quattro parole; nessuno sa quante altre `lang()` tradotte siano
+   confrontate da codice non tradotto. Si cerca **chi confronta la stringa**, non
+   il sito. `custom_autopick.hsp` è il caso già noto e sta in `FILE_DELICATI`.
+2. 🔶 **DECISIONE APERTA dalla 80ª: il menu degli arti non dice le parole di
+   `bodyn()`.** ⚠️ Adesso si sa perché non si è potuta chiudere: il menu vuole
+   `gdata(GDATA_FLAG_MAIN) >= 220` (`chat.hsp:8181`) e la console **non ha un
+   comando per muovere quel flag** — la console Lua è compilata via
+   (`main.hsp:9`). Serve un salvataggio avanti nella trama.
+3. ⭐⭐⭐ **`chat.hsp` a 2.444**, e il perimetro di quel che resta:
+
+       *chat_unique_mizuki   :8630-:15490    ~1.320  (da rimisurare col confine giusto)
+       *chat_unique          :947-:8629         953   5 sparse
+       Leold nella Culla     :16047-:16640      148   ZONA CHIUSA  <- il posto giusto
+       la testa del file     :1-:946             16   zona chiusa
+       il resto              :18602-:26773       11   zona chiusa
+
+   ⚠️ I confini di `mizuki` e `label_6452` vanno **rimisurati sul parlante**: la
+   81ª ha mostrato che l'etichetta taglia i blocchi.
+4. ⭐⭐ **Il collaudo, adesso che costa due comandi**: restano da guardare il
+   tutorial (78ª), gli evochat e `*chat_event` (79ª), il sistema di Leold (80ª).
+5. ⚠️⚠️⚠️ **IL PUNTO CIECO DELLA 74ª**: restano **100 righe
+   `listn(...) = lang(...)` in `command.hsp`** — fra cui il pannello dei talenti
+   — **18 in `chara.hsp`**, più `event.hsp:825`, `help.hsp:333`, `net.hsp:604`.
+   ⚠️ **Otto sessioni che aspetta.**
+6. ⭐⭐ **La rete che manca: i `buff` della finestra del dialogo.**
+   `chat-lotto-misura.py` misura per lotto ma **suppone** il contenitore invece
+   di leggerlo.
+7. ⭐ **`menu_dialogo.reso()` non legge il `limit(..., 0, N)`** della variabile
+   che interpola (79ª). Ancora da fare.
+8. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208 righe),
+   `manual_ENG.txt` (591), `exhelp.txt` (185). ⚠️ `help.hsp:273` conta **dieci
+   righe di FILE per pagina**.
+9. ⭐⭐ `board.txt` **secondo lotto**; `custom_autopick.hsp` 21 gemelle delicate.
+10. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+    `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+    `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+11. ⭐⭐ Il **muro del materiale**: `mithril sword` è «spada **di** mithril».
+12. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `item_func.hsp` 240; i **1.146** di
+    `db_card.hsp`. E la statistica 発言力 con **due nomi sullo schermo**.
+
+### ▶ Come si è chiusa
+
+Quattro spinte: una per lotto, una per la toppa, una per la correzione di
+`db_creature.hsp`. `applica` e `compila --eseguibile` sono girati dopo ogni
+lotto — `cgx-test.exe` del 21/08 alle 17:53 — i due file dati sono stati
+confrontati per md5, e le quindici verifiche sono state rilanciate in chiusura:
+tutte verdi.
+
+✅ **Collaudo fatto**, e per la prima volta dalla 70ª: sette schermate del lotto
+degli inquilini guardate una per una, tutte a posto. Salvataggi copiati in
+`save-backup\pre-collaudo-20260821-81a`.
+
+---
+
+## L'ottantesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

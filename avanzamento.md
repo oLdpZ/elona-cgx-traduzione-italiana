@@ -125,6 +125,43 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## Gli inquilini, Aime e Jaldabaoth — e una toppa che nessuna rete vedeva — 2026-08-21, ottantunesima sessione
+
+Due lotti, **97 rese**, e `chat.hsp` scende da 2.541 a **2.444**.
+`menu_dialogo` misura **881** voci (erano 841), `bilingui` resta a **0** —
+zero al primo giro in tutt'e due i lotti — `chat-lotto-misura` 0 fuori misura e
+0 peggiorate, `pytest` 730.
+
+Il primo lotto (**54 rese**) è la casa: **Telhureza** il geco di guardia,
+**Imarituka** lo sberleffo, **Oxode** l'ape stregina, **Scard** la rondine
+felice, **Talka** al tempio (devozione, offerte, incarnazioni, il libro nero),
+**Kyu-bi** col tofu fritto e la **Signora Cicogna**. Il secondo (**43 rese**) è
+**Aime** la narratrice coi suoi tredici racconti e **Jaldabaoth** il Figlio del
+Caos — la lancia divina, la luce dei desideri, la sconfitta.
+
+⚠️⚠️⚠️ **Il perimetro della zona era sbagliato, e non per colpa dello
+strumento**: `:15509` è un'etichetta HSP e taglia in due il blocco di
+Telhureza. Le 47 firme che `perimetro-zona.py` dava avrebbero prodotto un
+sottodialogo italiano sotto un menu inglese. Il lotto si è preso sul
+**parlante** — `:15491`-`:15764` — e sono 54. *Un'etichetta è un indirizzo di
+salto, non un confine di senso.*
+
+⭐⭐⭐ **La toppa 1018 sistema un difetto che nessuna rete poteva vedere**: in
+italiano ogni desiderio di una creatura dava la statuetta di **`@`**. Le quattro
+parole d'innesco stanno in `lang()` e sono tradotte; le righe di `fix_wish`
+(`module.hsp`) che le tolgono dalla stringa **non** stanno in `lang()` e sono
+rimaste inglesi, quindi il nome non combaciava mai. Provata sul banco HSP.
+È una **classe di difetto nuova**: la `lang()` tradotta il cui *partner* sta
+fuori da `lang()`.
+
+⭐⭐⭐ **E il collaudo è tornato**, per la prima volta dalla 70ª: sette schermate
+guardate una per una, tutte a posto. La strada nuova è **F12 → `wizard` →
+`spawn_chara <ID>`**, e non dipende più da dove è arrivato il salvataggio.
+
+Una resa vecchia corretta: `db_creature.hsp:43882` faceva dire a Oxode «Ah,
+**padrone di casa**, sei di ritorno.» al giocatore, accordandosi con un genere
+che non si conosce.
+
 ## La zona di Leold chiusa intera — 2026-08-21, ottantesima sessione
 
 Due lotti, **124 rese**, e la zona `chat.hsp:16641`-`:18601` passa a **247 firme
