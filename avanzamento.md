@@ -125,6 +125,65 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## `*chat_event` chiuso intero — 2026-08-21, settantanovesima sessione
+
+Secondo lotto della giornata, **103 rese**: il blocco degli eventi
+(`chat.hsp:302`-`:944`), cioè chi bussa alla porta, chi passa a trovarti, chi ti
+assalta per strada e le feste. Perimetro misurato prima di cominciare: 103
+firme, 109 occorrenze, **zero** con occorrenze fuori dalla zona — la seconda
+zona chiusa di fila.
+
+`chat.hsp` scende da 2.768 a **2.665**. `menu_dialogo` misura **797** voci (erano
+766), `bilingui` resta a **0**, `chat-lotto-misura` 0 fuori misura e 0
+peggiorate.
+
+Le famiglie: capodanno, il rancoroso con la molotov, il bambino, il compagno che
+allena, la visita col regalo, il brindisi, il maestro di gilda e l'allenatore,
+il mendicante, Halloween, la guardia, i **cinque aspiranti inquilini**, il
+caposquadra del Dock.
+
+### ⭐⭐ I cinque inquilini: il registro stava in `db_creature.hsp`
+
+Cinque creature bussano alla porta di casa e chiedono di restare, e ognuna ha
+una voce sua. Nessuna di quelle voci andava inventata: `db_creature.hsp` è
+chiuso dalla 31ª, e `scratchpad/repertorio.py` esiste apposta per ritrovarla.
+
+| chi | nome reso | le parole che aveva già |
+|---|---|---|
+| `SCARD_THE_HAPPY_SWALLOW` | «<Scard> la rondine felice» | «Felice! FELICE!», «Che daffare! Che FELICITÀ!» |
+| `OXODE_THE_QUEEN_BEE` | «<Oxode> l'ape stregina» | «Ara ara, tesoro~», «dolce miele», «padrone di casa» |
+| `IMARITUKA_THE_ZASIKI_WARAI` | «<Imarituka> lo sberleffo di casa» | «lmao», «a scrocco», «Che imbarazzo!» |
+| `TELHUREZA_THE_HOUSE_GUARD` | «<Telhureza> il geco di guardia» | «Fuehehe~», «gli insetti cattivi», «la casa che proteggo» |
+| `MOMALARIA_THE_BLOODSUCKER` | «<Momalaria> la gravida succhiasangue» | il giapponese le spezza le parole in katakana |
+
+💡 E le figlie di Oxode, le **api magiche** che entrano in casa con lei, dicono
+già «mamma» e «Paaapa!»: la resa della madre si legge accanto alla loro.
+
+### ⚠️⚠️ A Halloween l'inglese ha scambiato le due voci
+
+`chatList 2` è 「イタズラされる」 — *farsi* fare lo scherzetto — e infatti porta alla
+pioggia di molotov di `:699`; `chatList 1` è 「イタズラする」, ed è il giocatore che
+fa lo scherzetto (karma −2, «Guardie! Guardie!»). Monte le ha etichettate
+«Trick.» e «Treat.», che vogliono dire il contrario. Si segue il **codice**, non
+l'etichetta: «Farsi fare lo scherzetto» e «Fare lo scherzetto», sotto «Dolcetto
+o scherzetto?».
+
+### ⚠️ E appiattisce cinque risposte in una
+
+«Welcome!» sta su cinque righe diverse e «Get out!» pure, ma il giapponese ne ha
+cinque forme distinte, tarate sul personaggio: 「いいよ」, 「いいね」, 「そんなぁ」,
+「これからよろしく」, 「【ちょっとだけよ】」. Stessa cosa per «Okay, no turning back
+now!» a `:754`, che a `:740` era già reso — la firma è diversa perché il
+giapponese è diverso. Si segue il giapponese, come nel lotto degli evochat.
+
+### ⚠️ Dieci rese respinte dalla misura, e il motivo è sempre lo stesso
+
+`chat-lotto-misura` ne ha bocciate **dieci** al primo giro, tutte per «una riga
+in più dell'inglese» — e tutte e dieci erano righe dove il **giapponese è molto
+più lungo dell'inglese**, perché monte aveva riassunto. Seguire il giapponese
+costa righe, e la finestra del dialogo non le ha. Accorciate tutte: nessuna
+perde il pezzo che conta.
+
 ## Gli EVOCHAT, il sistema intero — 2026-08-21, settantanovesima sessione
 
 Un lotto solo, **109 rese**, piu' una correzione, due invariati e una guardia

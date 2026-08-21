@@ -6,6 +6,42 @@ ancora aperte.
 
 ---
 
+## Quando l'etichetta e il codice non dicono la stessa cosa, vince il codice — 2026-08-21, settantanovesima
+
+A Halloween un PNG bussa alla porta e il menu offre tre strade: dare un dolce,
+oppure una delle due voci che monte ha chiamato **«Trick.»** e **«Treat.»**.
+Tradotte come suonano — «Scherzetto» e «Dolcetto» — sarebbero state tutt'e due
+sbagliate, perché in quel menu significano il contrario di quel che dicono.
+
+Il codice non lascia margini (`chat.hsp:656`-`:728`):
+
+- `chatList 2` è «Trick.», giapponese 「イタズラされる」, *farsi* fare lo scherzetto:
+  chi la sceglie riceve **ventotto molotov** in faccia (`:699`-`:723`);
+- `chatList 1` è «Treat.», giapponese 「イタズラする」, *fare* lo scherzetto: il PNG
+  urla «Guardie! Guardie!» e il giocatore perde **due punti di karma**
+  (`:726`-`:727`).
+
+Quindi «Treat.» è la voce che fa perdere karma, e «Trick.» quella che si prende
+la molotov. Il giapponese è coerente con gli effetti; l'inglese no.
+
+✅ **Si segue il codice.** Le due voci diventano «Fare lo scherzetto» e «Farsi
+fare lo scherzetto», sotto il `buff` «Dolcetto o scherzetto?». Il giocatore
+italiano legge la scelta che sta per fare davvero.
+
+⭐ **La regola generale, che questa e le altre due volte di oggi hanno la stessa
+forma:** *quando i due rami di `lang()` non dicono la stessa cosa, il giudice
+non è nessuno dei due — è quel che il codice fa dopo.* Era già successo nella
+77ª (la riga giusta dell'evento sbagliato, `:8850`) e succede tre volte in
+questa sessione: qui, con `name(cc)` che nomina il giocatore per un'azione del
+compagno (`:21732`, `:21750`, `:21867`), e con le dodici battute che l'inglese
+ha perso e sostituito con un segnaposto ripetuto.
+
+⚠️ **E non è una rete: nessuna delle quindici confronta il testo con l'effetto.**
+Si trova leggendo il codice del blocco *prima* di tradurre — che è la stessa
+disciplina che la 74ª chiedeva per il perimetro.
+
+---
+
 ## Il lessico di un sistema non si decide: si cerca dove il gioco lo stampa gia' — 2026-08-21, settantanovesima
 
 Aprendo gli **evochat** c'erano dieci parole da scegliere: le dieci «route» in
