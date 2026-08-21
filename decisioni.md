@@ -6857,3 +6857,164 @@ non le aveva mai misurate nessuno.** Misurate adesso: la più lunga è
 `:17082` («- Ricarica con F2 per rigiocare la sorte. Salvataggio automatico
 spento.») con **72**. Dentro per un carattere. 💡 Il punto non è che erano
 giuste: è che *nessuno lo sapeva*, e restavano giuste per fortuna.
+
+---
+
+## 81ª — Il confine di una zona non è un parlante, un partner fuori da `lang()`, e il primo collaudo dopo dieci sessioni
+
+### 1. ⚠️⚠️⚠️ Il perimetro di una ZONA è un'etichetta HSP, e taglia i blocchi a metà
+
+La 79ª aveva fatto del conto del perimetro uno strumento
+(`scratchpad/perimetro-zona.py`) e la 80ª ci aveva costruito sopra la nozione di
+**zona chiusa**. Ma la zona `*label_6452` è delimitata da `:15509`, che è
+l'etichetta `*label_6450` — e il blocco di **Telhureza** comincia a `:15491`.
+
+    :15491   if ( _switch_val == CREATURE_ID_TELHUREZA_THE_HOUSE_GUARD ...
+    :15493   chatList 0..2                  <- zona di *chat_unique_mizuki
+    :15496   buff
+    :15508   chatMore
+    :15509  *label_6450                     <- il confine
+    :15514   txt "Chi vuoi che attacchi?"   <- zona di *label_6452
+    :15531   il grido
+
+Tradurre il perimetro come lo dava lo strumento — 47 firme — avrebbe messo un
+**sottodialogo italiano sotto un menu inglese**: il difetto della 79ª, quello
+che `bilingui` non vede *ed è giusto che non veda*, perché un menu tutto inglese
+non è bilingue.
+
+✅ **Il lotto si prende sul PARLANTE, non sull'etichetta**: `:15491`-`:15764`,
+54 firme invece di 47. `bilingui` ha dato zero al primo giro.
+
+💡 La regola generale: *un'etichetta HSP è un indirizzo di salto, non un confine
+di senso.* Prima di aprire un lotto su una zona si guarda la riga del confine e
+si risale al `if ( _switch_val == ... )` che la contiene.
+
+### 2. ⚠️⚠️ «landlord» cade, e con lui un vocativo vecchio
+
+Tre inquilini chiamano il giocatore 大家さん / 家主さん. In italiano ogni resa
+porta il genere — «padrone di casa» / «padrona di casa» — ed è il primo dei
+quattro bersagli del divieto (75ª): il **vocativo**. Il titolo si lascia cadere,
+come i benvenuti della 58ª.
+
+⚠️ E lo stesso difetto stava già in `db_creature.hsp:43882`, dove Oxode diceva
+**«Ah, padrone di casa, sei di ritorno.»** — resa vecchia, mai rivista.
+Corretta in «Ah, eccoti a casa.». 💡 *Un elenco di eccezioni è un debito: si
+rilegge ogni volta che si tocca uno dei siti che nomina* (77ª), e qui il sito
+non era in nessun elenco — l'ha portato a galla il lotto.
+
+### 3. ⭐ Il DATO decide di nuovo: `servant` è «incarnazione»
+
+Talka spiega i 下僕 / «servants» che ogni dio concede. La parola non si è
+scelta: `db_race.hsp:5553` rende 神の化身 con «Incarnazione», ed è la **razza che
+il giocatore legge sulla scheda** della creatura che riceve. Chiamarli
+«servitori» sarebbe stato italiano corretto e dentro il tetto, e avrebbe
+lasciato il giocatore senza il collegamento. Terza prova della regola della 79ª.
+
+Nello stesso lotto: Piety → «devozione» (`command.hsp:7626`), faith skill →
+«abilità Fede» (`skill.hsp:347`), «insetti cattivi» e «geco di guardia» dal
+repertorio di Telhureza in `db_creature.hsp`, «affitto» da `chat.hsp:766`.
+
+### 4. ⭐ Il sesso si legge nel codice, non nell'epiteto
+
+`text.hsp:378` dice che `CDATA_SEX == 0` è **maschio**. Quindi **Scard è un
+uomo**, anche se l'epiteto italiano è «<Scard> **la** rondine felice» — lì il
+femminile è del sostantivo «rondine», non del personaggio. La sua battuta finale
+«I'm so happppppppy!!!» è resa con la forma **invariabile**: «Io sono così
+feliceeeeee!!!!». 💡 *Un epiteto non è una dichiarazione di genere.*
+
+Gli altri sei del lotto, letti nei loro blocchi `DBMODE_SET`: Oxode, Imarituka,
+Talka, Telhureza e Kyu-bi donne; Boyciana senza sesso fisso, ma dà del **lei**
+(lo dice la sua riga di `db_creature.hsp`).
+
+### 5. ⚠️⚠️⚠️ La toppa 1018 e una classe di difetto nuova: la `lang()` tradotta il cui PARTNER non sta in `lang()`
+
+Cercando la strada per il collaudo è saltato fuori che **in italiano ogni
+desiderio di una creatura dava la statuetta di `@`**.
+
+* le quattro parole d'innesco stanno in `lang()` (`command.hsp:4846`-`:4856`) e
+  sono tradotte: carta, statuetta, bambola dorata, bambola di carne;
+* le righe che le **tolgono** dalla stringa prima di cercare il nome stanno in
+  `fix_wish` (`module.hsp:4815`-`:4826`), **non** sono in `lang()`, e il
+  dizionario non le ha mai viste: sono rimaste `card`, `figure`, `golden doll`,
+  `flesh doll`.
+
+Quindi «statuetta di Telhureza» arrivava intera a `*wish_monster`, non
+combaciava con nessun nome, e `wish_monster` ripiegava su `dbid = 0` =
+`CREATURE_ID_AT_SIGN`.
+
+Provato sul banco HSP (`scratchpad/_81-banco-desiderio.py`), prima sull'inglese
+di monte come vuole la regola della 61ª:
+
+    MONTE inglese      «figure of Telhureza»     -> [telhureza]                COMBACIA
+    BUILD senza toppa  «statuetta di Telhureza»  -> [statuetta di telhureza]   nessuno
+    BUILD con toppa    «statuetta di Telhureza»  -> [telhureza]                COMBACIA
+    BUILD con toppa    «carta di Oxode»          -> [oxode]                    COMBACIA
+    BUILD con toppa    «figure of Telhureza»     -> [telhureza]                COMBACIA
+
+⭐⭐⭐ **La lezione vale più della toppa.** Il progetto sapeva già che certe
+`lang()` sono **chiavi** e non testo (`custom_autopick.hsp`, che sta in
+`FILE_DELICATI`). Questo è il caso girato: la `lang()` è testo vero, ma **da
+qualche altra parte, fuori da `lang()`, c'è del codice che la deve
+riconoscere**. Nessuna rete lo guarda, e non basta leggere il sito: bisogna
+cercare **chi confronta quella stringa**. ⚠️ *Rete ancora da fare, e il
+perimetro è tutto il sorgente.*
+
+⚠️ Difetto di MONTE trovato per strada e **non** toccato: `cnv_str ..., "card",
+""` morde dentro i nomi, quindi «figure of Scard» diventa «s» e combacia con la
+prima creatura che contiene una «s».
+
+### 6. ⚠️ DEROGA DICHIARATA — `chat.hsp:15783`, il livello di un racconto
+
+La lista dei tredici racconti di Aime sale 200, 250, **300**, 400, 500... nel
+giapponese. L'inglese scrive «The Muddy Hands (**Lv250**)», ripetendo il livello
+del racconto precedente. È la famiglia del prezzo di Leold (80ª) — *un numero
+scritto in un'etichetta si confronta, non si copia* — con la differenza che qui
+il confronto non è col codice ma con la **serie**: nessun `leoap` da leggere,
+perché `:15793` dice che i racconti sono tutti ancora da implementare. ✅ Si
+segue il giapponese: «Le mani di fango (Lv300)».
+
+⚠️ E quel menu ha **tredici voci**, quindi passa a due colonne e taglia a 24
+caratteri (76ª): sette titoli inglesi sforano già a monte, i sei che ci stanno
+sono stati tenuti dentro anche in italiano.
+
+### 7. ⭐⭐⭐ Il collaudo non dipende più da dove è arrivato il salvataggio
+
+Il debito era di **2.242 rese mai viste a schermo in dieci sessioni**, e la
+ragione vera non era la pigrizia: per collaudare il dialogo di un PNG bisognava
+che il salvataggio ci fosse arrivato. Gli inquilini della casa, per dire, sono
+**ospiti casuali** (`main.hsp:8215`: `rnd(10) == 0`, poi
+`(giorno + homeu) \ 5`).
+
+La strada c'era ed era scritta nel sorgente:
+
+1. **F12** apre la console di debug (`main.hsp:3322`, `getkey a, 123`);
+2. `wizard` accende la modalità mago (`system.hsp:4718`) — ⚠️ riscrive
+   l'appellativo del personaggio in `*Debug*`, quindi si fa su un salvataggio di
+   collaudo;
+3. `spawn_chara <ID>` fa comparire la creatura sulla casella del giocatore
+   (`system.hsp:4831`, dietro `if ( gdata(GDATA_WIZARD) )` a `:4815`);
+4. le si cammina addosso per parlarle.
+
+⚠️ **Non si usa `add_ally`**: `chat.hsp:281` manda al dialogo unico solo se
+`tc >= MAX_CHARA_FOLLOWER`. Arruolare il PNG fa apparire il menu del compagno e
+il dialogo da collaudare non si vede più.
+
+Gli ID stanno in `defines/mod.hsp`. Quelli di oggi: Telhureza 1042, Imarituka
+1043, Oxode 1044, Scard 1045, Talka 1056, Kyu-bi 1125, Boyciana 690, Momalaria
+1143, Aime 1024, Jaldabaoth 1017, Leold 526. Tutti e sette gli inquilini hanno
+`RELATION_NEUTRAL`: non attaccano.
+
+✅ **Le sette schermate del lotto sono state guardate a schermo e sono a
+posto.** ⚠️ Il limite resta dove il dialogo dipende da una bandiera di trama: il
+menu degli arti di Leold vuole `gdata(GDATA_FLAG_MAIN) >= 220`
+(`chat.hsp:8181`), e la console **non ha un comando per muovere quel flag** — la
+console Lua che potrebbe farlo è compilata via (`main.hsp:9`).
+
+### 8. ⚠️ Una trappola del collaudo: il registro dei messaggi all'apertura è VECCHIO
+
+Aperto il gioco, la riga in fondo diceva «Informer of God Hildegard **goes wild
+with joy**, "shop!!" A deed of shop appears.» — inglese pieno. Non è un difetto:
+Elona **ripristina il registro dal salvataggio**, e quelle righe erano state
+scritte da una build precedente. Nel build di adesso `command.hsp:4436` dice
+«esulta di gioia». 💡 *Del riquadro dei messaggi vale solo quel che si stampa
+dopo aver caricato.*
