@@ -166,7 +166,8 @@ def test_una_traduzione_che_rompe_la_riga_si_ferma():
 
 
 def test_i_conteggi_sul_sorgente_vero():
-    """1.321 blocchi, meno 12 nomi vuoti, piu' 298 secondi riferimenti.
+    """1.321 blocchi, meno 12 nomi vuoti, piu' 298 secondi riferimenti, piu' 260
+    nomi non identificati.
 
     I numeri sono misurati sul sorgente pinnato al tag 2.31.2.0. Se calano
     senza che nessuno abbia cambiato il contratto, la scansione sta vedendo
@@ -178,10 +179,18 @@ def test_i_conteggi_sul_sorgente_vero():
     testo = percorso.read_bytes().decode("cp932")
 
     voci = estrai_da_testo("db_item.hsp", testo)
-    assert len(voci) == 1309 + 298
+    assert len(voci) == 1309 + 298 + 260
     righe, _, _ = spezza_righe(testo)
     for voce in voci:
-        assert righe[voce["riga"] - 1].lstrip().startswith("ioriginalnameref")
+        assert (righe[voce["riga"] - 1].lstrip()
+                .startswith(("ioriginalnameref", "iknownnameref")))
+    noti = [v for v in voci if v["array"] == "iknownnameref"]
+    assert len(noti) == 260
+    # 216 stringhe distinte su 260 righe: «god jewel» e «clear liquid» stanno su
+    # otto oggetti ciascuna. La firma le unisce, ed e' giusto — e' lo stesso
+    # sostantivo, quindi lo stesso genere e lo stesso plurale — ma le righe di
+    # plurale e articolo restano una per oggetto, perche' l'indice e' l'ITEM_ID.
+    assert len({v["en"] for v in noti}) == 216
 
 
 # ---------------------------------------------------------------------------
@@ -356,13 +365,40 @@ def test_gli_array_del_plurale_sono_dimensionati():
                      if any("sdim ioriginalnamerefplur" in r
                             for r in t["sostituisci"])]
     assert len(dichiarazioni) == 1, "la dichiarazione degli array del plurale e' una sola"
-    righe = [r for r in dichiarazioni[0]["sostituisci"] if "plur" in r]
-    assert len(righe) == 2, righe
-    for riga in righe:
+    nuovi = [r for r in dichiarazioni[0]["sostituisci"] if "sdim" in r and "MAX_DB" in r]
+    # tre del plurale (`ioriginalnamerefplur`, `ioriginalnameref2plur`,
+    # `iknownnamerefplur`) e quattro dell'articolo. Il nome non identificato non
+    # si compone, quindi di plurali ne vuole uno solo.
+    assert len(nuovi) == 7, nuovi
+    plurali = [r for r in nuovi if "plur" in r]
+    assert len(plurali) == 3, plurali
+    for riga in nuovi:
         assert "MAX_DB" in riga, (
-            f"{riga!r}: l'array del plurale e' sparso (solo i nomi tradotti ne"
-            " hanno uno) e va dimensionato a MAX_DB, o leggere l'ID di un"
-            " oggetto non tradotto e' un Array overflow — crash in negozio")
+            f"{riga!r}: l'array e' sparso (solo i nomi tradotti ne hanno uno) e"
+            " va dimensionato a MAX_DB, o leggere l'ID di un oggetto non"
+            " tradotto e' un Array overflow — crash in negozio")
+
+
+def test_gli_array_del_nome_non_identificato_sono_dichiarati():
+    """Sono TRE e non quattro, ed e' il punto del blocco a sei righe.
+
+    `iknownnameref` non si compone: non c'e' un secondo riferimento a cui dare
+    un plurale suo. Ma articolo e plurale li vuole **propri**, perche' quelli
+    che gia' esistono sono del nome identificato e quello e' un altro
+    sostantivo — «una gemma divina» prima, «un anello di velocita'» dopo.
+    """
+    from strumenti.applica import carica_toppe
+
+    dichiarazioni = [t for t in carica_toppe()
+                     if any("sdim iknownnamerefplur" in r for r in t["sostituisci"])]
+    assert len(dichiarazioni) == 1
+    noti = [r for r in dichiarazioni[0]["sostituisci"] if "iknownname" in r and "sdim" in r]
+    assert [r.strip() for r in noti] == [
+        "sdim iknownnameref",  # quello di monte, che la toppa non tocca
+        "sdim iknownnamerefplur, 128, MAX_DB",
+        "sdim iknownnamearticolo, 128, MAX_DB",
+        "sdim iknownnamearticolodet, 128, MAX_DB",
+    ], noti
 
 
 # ---------------------------------------------------------------------------
@@ -903,3 +939,138 @@ def test_il_pesce_e_un_sito_solo():
     voci = estrai_da_testo("item_data.hsp", RIGA_PESCE)
     assert len(voci) == 1, [v["occorrenza"] for v in voci]
     assert voci[0]["occorrenza"] == 0
+
+
+# ---------------------------------------------------------------------------
+# Il terzo blocco: il nome NON IDENTIFICATO (`contratto-nomi.md` §1-ter).
+#
+# E' il nome che l'oggetto porta prima di essere identificato — «god jewel»,
+# «clear liquid», «some kind of ticket» — e il giocatore lo legge su ogni
+# pozione e ogni pergamena appena raccolta. Sei righe, non sette: `iknownnameref`
+# non si compone e non ha un secondo riferimento.
+#
+# La parte che non si vede: articolo e plurale sono indicizzati per `ITEM_ID` e
+# quelli che gia' esistono appartengono al nome **identificato**. Un nome non
+# identificato tradotto e' **un altro sostantivo, con un altro genere** — «una
+# gemma divina» prima, «un anello di velocita'» dopo — quindi vuole i propri.
+# ---------------------------------------------------------------------------
+
+BLOCCO_NOTO = (
+    "\tif ( jp ) {\n"
+    '\t\tiknownnameref(ITEM_ID_TURAHAGI) = "大熊の剛爪"\n'
+    "\t}\n"
+    "\telse {\n"
+    '\t\tiknownnameref(ITEM_ID_TURAHAGI) = "strong claws"\n'
+    "\t}\n"
+)
+
+
+def test_il_nome_non_identificato_e_un_sito():
+    assert _nomi(BLOCCO_NOTO) == [("大熊の剛爪", "strong claws")]
+
+
+def test_il_ramo_giapponese_del_nome_non_identificato_non_e_un_sito():
+    assert len(list(siti(BLOCCO_NOTO))) == 1
+
+
+def test_il_nome_non_identificato_dichiara_il_suo_array():
+    voce = estrai_da_testo("db_item.hsp", BLOCCO_NOTO)[0]
+    assert voce["array"] == "iknownnameref"
+    assert voce["oggetto"] == "ITEM_ID_TURAHAGI"
+    assert voce["tipo"] == "statica"
+
+
+def test_il_rimando_al_nome_identificato_non_e_un_sito():
+    """847 righe su 1.581 dicono `= ioriginalnameref(...)`.
+
+    La', articolo e plurale del nome identificato vanno bene anche qui, perche'
+    la stringa e' la stessa: non c'e' niente da tradurre e niente da affiancare.
+    """
+    rimando = ("\tiknownnameref(ITEM_ID_BLANK_CARD)"
+               " = ioriginalnameref(ITEM_ID_BLANK_CARD)\n")
+    assert _nomi(rimando) == []
+
+
+def test_la_riga_nuda_fuori_dal_blocco_non_e_un_sito():
+    """`ITEM_ID_DRAGONS_RED` sta fuori da ogni `if ( jp )`: e' UNA riga sola.
+
+    Tradurla cancellerebbe il gioco in giapponese, che quella riga la legge
+    anche lui — malamente, perche' upstream ci ha lasciato l'inglese. La prende
+    una toppa, che il blocco lo costruisce.
+    """
+    nuda = '\tiknownnameref(ITEM_ID_DRAGONS_RED) = "red color"\n'
+    assert _nomi(nuda) == []
+
+
+def test_i_due_blocchi_non_si_confondono():
+    """Sei righe e sette righe: nessuno dei due riconoscitori deve pescare
+    nell'altro, o un nome finirebbe nell'array sbagliato in silenzio."""
+    voci = estrai_da_testo("db_item.hsp", BLOCCO + BLOCCO_NOTO)
+    assert [(v["array"], v["en"]) for v in voci] == [
+        ("ioriginalnameref", "banana"),
+        ("iknownnameref", "strong claws"),
+    ]
+
+
+def test_un_blocco_a_sei_righe_con_oggetti_diversi_non_si_aggancia():
+    disallineato = BLOCCO_NOTO.replace(
+        '\t\tiknownnameref(ITEM_ID_TURAHAGI) = "strong claws"',
+        '\t\tiknownnameref(ITEM_ID_ALTRO) = "strong claws"')
+    assert _nomi(disallineato) == []
+
+
+def test_il_nome_non_identificato_porta_plurale_e_articolo_suoi():
+    """E' il punto: gli array esistenti sono del nome IDENTIFICATO."""
+    voci = estrai_da_testo("db_item.hsp", BLOCCO_NOTO)
+    dizionario = {v["firma"]: {**v, "it": "artigli robusti",
+                               "plurale": "artigli robusti", "genere": "mp"}
+                  for v in voci}
+    nuovo, quanti = applica_dati_nome("db_item.hsp", BLOCCO_NOTO, dizionario)
+    assert quanti == 3
+    assert 'iknownnamerefplur(ITEM_ID_TURAHAGI) = "artigli robusti"' in nuovo
+    assert 'iknownnamearticolo(ITEM_ID_TURAHAGI) = "degli "' in nuovo
+    assert 'iknownnamearticolodet(ITEM_ID_TURAHAGI) = "gli "' in nuovo
+    assert "ioriginalnamearticolo" not in nuovo
+    assert "ioriginalnamerefplur" not in nuovo
+
+
+def test_il_nome_non_identificato_e_sempre_una_testa():
+    """Non si compone: non c'e' un `iknownnameref2` che possa reggere l'articolo."""
+    voci = estrai_da_testo("db_item.hsp", BLOCCO_NOTO)
+    dizionario = {v["firma"]: {**v, "it": "gemma divina", "plurale": "gemme divine",
+                               "genere": "f"} for v in voci}
+    nuovo, _ = applica_dati_nome("db_item.hsp", BLOCCO_NOTO, dizionario)
+    assert 'iknownnamearticolo(ITEM_ID_TURAHAGI) = "una "' in nuovo
+
+
+def test_i_due_generi_dello_stesso_oggetto_convivono():
+    """Il caso che ha fatto nascere il blocco: stesso ITEM_ID, due sostantivi.
+
+    Prima dell'identificazione il giocatore legge «una gemma divina», dopo «un
+    anello di velocita'». Gli array sono quattro e non due proprio per questo.
+    """
+    testo = (
+        "\tif ( jp ) {\n"
+        '\t\tioriginalnameref(ITEM_ID_X) = "バナナ"\n'
+        "\t}\n"
+        "\telse {\n"
+        '\t\tioriginalnameref(ITEM_ID_X) = "ring of speed"\n'
+        '\t\tioriginalnameref2(ITEM_ID_X) = ""\n'
+        "\t}\n"
+        "\tif ( jp ) {\n"
+        '\t\tiknownnameref(ITEM_ID_X) = "神の宝玉"\n'
+        "\t}\n"
+        "\telse {\n"
+        '\t\tiknownnameref(ITEM_ID_X) = "god jewel"\n'
+        "\t}\n"
+    )
+    reso = {"ring of speed": ("anello di velocita'", "anelli di velocita'", "m"),
+            "god jewel": ("gemma divina", "gemme divine", "f")}
+    dizionario = {}
+    for voce in estrai_da_testo("db_item.hsp", testo):
+        italiano, plurale, genere = reso[voce["en"]]
+        dizionario[voce["firma"]] = {**voce, "it": italiano,
+                                     "plurale": plurale, "genere": genere}
+    nuovo, _ = applica_dati_nome("db_item.hsp", testo, dizionario)
+    assert 'ioriginalnamearticolo(ITEM_ID_X) = "un "' in nuovo
+    assert 'iknownnamearticolo(ITEM_ID_X) = "una "' in nuovo

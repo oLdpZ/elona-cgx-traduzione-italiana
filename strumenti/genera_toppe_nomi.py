@@ -45,17 +45,23 @@ def ind(riga):
 
 toppe = []
 
-# 1. i quattro array italiani, dichiarati accanto a quelli che affiancano
+# 1. i sette array italiani, dichiarati accanto a quelli che affiancano.
+#    Quattro sono del nome IDENTIFICATO, tre del nome NON IDENTIFICATO — e sono
+#    tre e non quattro perche' `iknownnameref` non si compone: non c'e' un
+#    secondo riferimento a cui dare un plurale suo.
 toppe.append({
     "file": "init.hsp",
-    "cerca": fetta(INIT, 2569, 2570),
-    "sostituisci": fetta(INIT, 2569, 2570) + [
+    "cerca": fetta(INIT, 2569, 2571),
+    "sostituisci": fetta(INIT, 2569, 2571) + [
         "\tsdim ioriginalnamerefplur, 128, MAX_DB",
         "\tsdim ioriginalnameref2plur, 128, MAX_DB",
         "\tsdim ioriginalnamearticolo, 128, MAX_DB",
         "\tsdim ioriginalnamearticolodet, 128, MAX_DB",
+        "\tsdim iknownnamerefplur, 128, MAX_DB",
+        "\tsdim iknownnamearticolo, 128, MAX_DB",
+        "\tsdim iknownnamearticolodet, 128, MAX_DB",
     ],
-    "motivo": "i quattro array italiani dei nomi degli oggetti: due per il plurale (uno per array del nome) e due per l'articolo, indeterminativo e determinativo, che ne bastano due perche' l'articolo lo regge la sola TESTA del nome. Dimensionati a MAX_DB, non lasciati autoespandere come i due che affiancano: quelli li assegna db_item.hsp per OGNI oggetto, questi ce l'hanno solo i nomi tradotti. Un array sparso letto oltre l'ultimo indice assegnato e' un Array overflow (crash in negozio, 2026-08-08), perche' l'autoespansione vale in scrittura e non in lettura. Li popola applica_dati_nome dai campi `plurale` e `genere` del dizionario",
+    "motivo": "i sette array italiani dei nomi degli oggetti. Quattro sono del nome IDENTIFICATO: due per il plurale (uno per array del nome) e due per l'articolo, indeterminativo e determinativo, che ne bastano due perche' l'articolo lo regge la sola TESTA del nome. Tre sono del nome NON IDENTIFICATO, e sono tre perche' `iknownnameref` non si compone. ⚠️ Non bastavano i primi quattro: sono indicizzati per ITEM_ID e appartengono al nome identificato, mentre il nome non identificato e' UN ALTRO SOSTANTIVO, con un altro genere — «una gemma divina» prima, «un anello di velocita'» dopo. Dimensionati a MAX_DB, non lasciati autoespandere come quelli che affiancano: quelli li assegna db_item.hsp per OGNI oggetto, questi ce l'hanno solo i nomi tradotti. Un array sparso letto oltre l'ultimo indice assegnato e' un Array overflow (crash in negozio, 2026-08-08), perche' l'autoespansione vale in scrittura e non in lettura. Li popola applica_dati_nome dai campi `plurale` e `genere` del dizionario",
 })
 
 # 2. il giunto dei nomi composti: in italiano e' sempre "di"
@@ -221,6 +227,14 @@ toppe.append({
 #      uguali sono dentro blocchi /* ORIGINAL */, cioe' commentati, oppure nel
 #      ramo `jp` che non si tocca.
 APPENDE = 'locvar_itemowner_s += ioriginalnameref(inv(INV_ITEM_ID, itemname_itemid))'
+# lo stesso, ma col nome che l'oggetto porta PRIMA di essere identificato
+APPENDE_NOTO = 'locvar_itemowner_s += iknownnameref(inv(INV_ITEM_ID, itemname_itemid))'
+# la spia: vale "" finche' il nome scritto e' quello identificato. La legge
+# l'articolo (toppa 18) per sapere da quale dei due gruppi di array pescare.
+# Non e' una comodita': la condizione che porta ai due rami del nome non
+# identificato e' annidata quattro volte e replicarla nell'articolo vorrebbe
+# dire tenerne due copie in due punti del file.
+IGNOTO = 'locvar_itemname_ignoto'
 
 def scelta_plurale(indentazione):
     """Il nome al plurale, ma solo dove l'inglese lo faceva.
@@ -274,6 +288,59 @@ for primo, ultimo, quale in ((1728, 1734, "non identificato"),
         "cerca": blocco,
         "sostituisci": nuovo,
         "motivo": f"{MOTIVO_SITO} — ramo «{quale}»",
+    })
+
+# 7-bis, 7-ter. i due punti vivi dove si concatena il nome NON IDENTIFICATO.
+#
+# Stessa forma degli altri tre, e due differenze:
+#
+# - il plurale viene da `iknownnamerefplur`, non da `ioriginalnamerefplur`:
+#   quello e' del nome identificato, e le due stringhe sono due sostantivi
+#   diversi. Senza il proprio, «2 gemme divine» uscirebbe «2 anelli di
+#   velocita'», cioe' il nome vero dell'oggetto — non un errore di grammatica,
+#   uno SPOILER: il plurale rivelerebbe cio' che l'identificazione nasconde;
+# - si accende la spia, perche' l'articolo (toppa 18) sta 70 righe piu' sotto,
+#   dopo che tutti i rami sono confluiti, e da li' non si vede piu' quale nome
+#   sia stato scritto.
+#
+# Il terzo `iknownnameref` di item_func (:926) non e' qui apposta: e' il gusto
+# del succo di frutta, un modificatore in mezzo al nome, non la testa.
+def scelta_plurale_noto(indentazione):
+    return [
+        f'{indentazione}{IGNOTO} = "1"',
+        f'{indentazione}locvar_itemname_s5 = ""',
+        f'{indentazione}if ( locvar_itemname_s2 == "" ) {{',
+        f'{indentazione}\tif ( locvar_itemowner_num2 > 1 ) {{',
+        f'{indentazione}\t\tlocvar_itemname_s5 = iknownnamerefplur(inv(INV_ITEM_ID, itemname_itemid))',
+        f'{indentazione}\t}}',
+        f'{indentazione}}}',
+        f'{indentazione}if ( locvar_itemname_s5 != "" ) {{',
+        f'{indentazione}\tlocvar_itemowner_s += locvar_itemname_s5',
+        f'{indentazione}}}',
+        f'{indentazione}else {{',
+        f'{indentazione}\t{APPENDE_NOTO}',
+        f'{indentazione}}}',
+    ]
+
+MOTIVO_NOTO = ("il nome non identificato si flette e si dichiara dove si "
+               "concatena: il plurale viene dai suoi array, perche' quelli del "
+               "nome identificato porterebbero a schermo il nome vero "
+               "dell'oggetto, e la spia serve all'articolo, che sta piu' sotto "
+               "dove i rami sono gia' confluiti")
+
+for primo, ultimo, quale in ((1498, 1500, "mai visto"),
+                             (1737, 1739, "intravisto, ma prodigioso")):
+    blocco = fetta(ITEM, primo, ultimo)
+    riga_append = [r for r in blocco if r.strip() == APPENDE_NOTO]
+    assert len(riga_append) == 1, (primo, blocco)
+    nuovo = []
+    for r in blocco:
+        nuovo.extend(scelta_plurale_noto(ind(r)) if r.strip() == APPENDE_NOTO else [r])
+    toppe.append({
+        "file": "item_func.hsp",
+        "cerca": blocco,
+        "sostituisci": nuovo,
+        "motivo": f"{MOTIVO_NOTO} — ramo «{quale}»",
     })
 
 # 8. il pluralizzatore inglese del nome, reso irraggiungibile invece che
@@ -445,8 +512,9 @@ toppe.append({
     "cerca": blocco,
     "sostituisci": [f'{ind(blocco[0])}locvar_itemname_s6 = ""',
                     f'{ind(blocco[0])}locvar_itemname_s10 = ""',
-                    f'{ind(blocco[0])}locvar_itemname_s7 = ""'] + blocco,
-    "motivo": "azzera le tre code (materiale, ego, stato) a ogni chiamata di itemname(): senza, la coda dell'oggetto precedente resterebbe attaccata al successivo",
+                    f'{ind(blocco[0])}locvar_itemname_s7 = ""',
+                    f'{ind(blocco[0])}{IGNOTO} = ""'] + blocco,
+    "motivo": "azzera le tre code (materiale, ego, stato) e la spia del nome non identificato a ogni chiamata di itemname(): senza, la coda dell'oggetto precedente resterebbe attaccata al successivo, e la spia farebbe prendere all'oggetto dopo l'articolo del nome che non porta",
 })
 
 # il riversamento, nell'ordine italiano: materiale, ego, stato.
@@ -611,6 +679,26 @@ toppe.append({
 #     «un paio di stivali pesanti», non «uno stivali pesanti». Il plurale non ha
 #     lo stesso problema perche' li' l'array e la parola cablata non sono mai
 #     pieni tutti e due.
+#
+#     ⚠️⚠️ E gli array sono DUE gruppi, non uno. Qui i rami del nome sono gia'
+#     confluiti e la stringa composta non dice piu' quale nome porti dentro:
+#     lo dice la spia accesa dalle toppe 7-bis e 7-ter. Senza, il nome non
+#     identificato prenderebbe l'articolo del nome identificato, che e' un
+#     altro sostantivo con un altro genere — «un gemma divina», e a volte
+#     peggio: l'articolo giusto per «anello» davanti a una parola che non e'
+#     «anello». La parola-contatore vince su tutti e due, e resta giusta:
+#     quando c'e', la testa del sintagma e' lei.
+#
+#     ⚠️⚠️⚠️ Ma la spia da sola non basta, e la seconda guardia e'
+#     `locvar_itemname_s2 == ""` — la stessa del plurale. Su un oggetto
+#     COMPOSTO la parola-contatore viene da `ioriginalnameref2` e il gioco la
+#     scrive **anche quando l'oggetto non e' identificato**: «una statua di
+#     divinita' di Irva», «una pozione superiore di sofferenza inflitta». Li' la
+#     testa del sintagma resta quella del nome identificato, e l'articolo pure.
+#     Sono 21 firme su 222, e nel sorgente pinnato si riconoscono da sole: sono
+#     esattamente quelle i cui oggetti hanno TUTTI un `ioriginalnameref2` pieno.
+#     Percio' l'array del nome identificato e' il DEFAULT e quello del nome non
+#     identificato lo scavalca solo dove la testa e' davvero lui.
 from strumenti.articolo import articoli
 
 
@@ -678,6 +766,12 @@ toppe.append({
         f'{i1}if ( locvar_itemname_s8 == "" ) {{',
         f'{i1}\tlocvar_itemname_s8 = ioriginalnamearticolo(inv(INV_ITEM_ID, itemname_itemid))',
         f'{i1}\tlocvar_itemname_s9 = ioriginalnamearticolodet(inv(INV_ITEM_ID, itemname_itemid))',
+        f'{i1}\tif ( {IGNOTO} != "" ) {{',
+        f'{i1}\t\tif ( locvar_itemname_s2 == "" ) {{',
+        f'{i1}\t\t\tlocvar_itemname_s8 = iknownnamearticolo(inv(INV_ITEM_ID, itemname_itemid))',
+        f'{i1}\t\t\tlocvar_itemname_s9 = iknownnamearticolodet(inv(INV_ITEM_ID, itemname_itemid))',
+        f'{i1}\t\t}}',
+        f'{i1}\t}}',
         f'{i1}}}',
     ] + articolo_del_pesce(i1) + [
         condizione_the,

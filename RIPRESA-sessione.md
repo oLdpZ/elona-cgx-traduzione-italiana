@@ -1,50 +1,188 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-21, fine della **ottantaduesima** sessione (**312 rese in
-`chat.hsp` in sette lotti, sette zone chiuse, due rese vecchie corrette, una
-guardia corretta negli strumenti e un buco nel perimetro dei nomi degli
-oggetti**).
+Aggiornato: 2026-08-22, fine della **ottantatreesima** sessione (**il buco dei
+nomi non identificati chiuso da capo a fondo: 222 rese, il perimetro di `estrai`
+allargato di 260 siti, tre array nuovi nel motore, 11 test, 3 toppe a mano — due
+delle quali dimenticate dalla 74a**).
 
-⭐⭐⭐ **La lezione della giornata: il nome che l'oggetto porta PRIMA di essere
-identificato non lo vede nessuna rete, e non basta allargare una regex per
-prenderlo.** `db_item.hsp` ha **261 righe `iknownnameref` col ramo inglese**,
-**217 stringhe distinte** — «god jewel», «clear liquid», «book», «some kind of
-ticket» — che il giocatore legge su ogni pozione e ogni pergamena appena
-raccolta (`item_func.hsp:1533`). `estrai.py` conosce solo il blocco a **sette**
-righe di `ioriginalnameref`; questo ne ha **cinque**. ⚠️ E la parte non ovvia:
-articolo e plurale sono per `ITEM_ID` e appartengono al nome **identificato** —
-un nome non identificato tradotto è **un altro sostantivo, con un altro genere**
-— e gli array `iknownnamerefplur` / `iknownnamearticolo` **nel motore non
-esistono**. Serve una toppa, non solo una regola in più.
+⭐⭐⭐ **La lezione della giornata: prima di decidere che l'inglese ha PERSO
+qualcosa, si guarda in che RUOLO la stringa finisce.** Delle 216 stringhe dei
+nomi non identificati, una ventina sembravano inglese sciatto — «godly powers»,
+«unknown content», «a fishy figure», «blue color», «inflicting suffering» — e il
+giapponese accanto aveva sempre la testa nominale che mancava. La prima stesura
+le ha rese come nomi pieni, con una deroga di famiglia dichiarata bene. Era
+sbagliata: `item_func.hsp:1217` prende la parola-contatore da
+`ioriginalnameref2` **senza guardare `INV_ITEM_KNOWN`**, quindi su un oggetto
+composto il giocatore legge «a **statue of** deity of Irva». Quelle stringhe non
+sono nomi, sono **complementi dopo «of»**, e in quel ruolo l'inglese e' perfetto.
+Con le rese-nome il gioco avrebbe scritto «una statua di statua di divinita'»:
+otto ripetizioni su 260, tutte italiano corretto, tutte dentro i tetti, nessuna
+visibile a una rete.
 
-⭐⭐⭐ **La seconda: cercare il lessico è anche un collaudo delle rese vecchie.**
-Il metodo del DATO — si cerca la costante, non la stringa — ha trovato due
-difetti che nessuna rete guarda. `screen.hsp:1388` faceva dire a **Orphe** «non
-sono **stata** all'altezza», ma `db_creature.hsp:46159` mette `CDATA_SEX` a 0 =
-maschio. E `chat.hsp:6505` chiamava una creatura **«H Sister»** mentre
-`db_creature.hsp:97006` la chiama «la sorella minore sicaria»: tre nomi per la
-stessa creatura in due file.
+⭐⭐⭐ **La seconda: a trovarle e' stato un BANCO, non un ragionamento.**
+`scratchpad/_83-banco-nome.py` legge la **build** e stampa tutti e 261 i nomi
+**come usciranno a schermo** — articolo, parola-contatore e plurale compresi.
+Ottanta righe di Python che rifanno a mano i tre passaggi di `itemname()`. Ha
+preso le otto ripetizioni e poi, al secondo giro, l'ultima rimasta («una pietra
+misteriosa di pietra rossa»). 💡 *Quando il difetto sta nella COMPOSIZIONE e non
+nella stringa, l'unico modo di vederlo e' comporre.*
 
-⭐⭐ **La terza sta negli strumenti: due funzioni dello stesso modulo davano
-risposte diverse sulla stessa espressione.** `cnven()` alza la prima lettera e
-non porta nessun dato, esattamente come `cnvtalk` — ma stava fuori da
-`TRASPARENTI`, e `_classifica` la classe non la conosceva affatto. Risultato:
-`chat.hsp:18813` (`"(" + cnven(he(tc)) + " nodded shyly.)"`) era
-**intraducibile**, perché `he(tc)` a un argomento è morfologia da togliere e con
-lei se ne va la maiuscola, ma `verifica` pretendeva `cnven` fra le attese.
-`cnven(he(...))` compare **16 volte** nel sorgente. 💡 *Lasciar cadere `cnven`
-non allenta niente: la maiuscola ha una rete tutta sua, `maiuscole.py`, che
-legge la build e giudica per posizione.*
+⭐⭐ **La terza: il plurale sbagliato, qui, e' uno SPOILER.**
+`ITEM_ID_WAKE_UP_OF_NEFIA` da non identificato e' «una gemma nera di poteri
+divini», e il suo `ioriginalnamerefplur` dice «Risvegli di Nefia». Se il ramo non
+identificato avesse pescato negli array del nome identificato — come avrebbe
+fatto, perche' altri non ce n'erano — **due** di quelle gemme si sarebbero
+chiamate col nome vero dell'oggetto. Non un errore di accordo: un difetto di
+gioco.
 
-⭐ **La quarta: quando l'epiteto non regge l'articolo, si gira l'apposizione.**
-`chat.hsp:16472` è l'unica riga che concatena `CDATAN_AKA` e il nome. «fragore
-della dipendenza Pippo» è sgrammaticato e «il» si romperebbe sul primo epiteto
-femminile; l'apposizione italiana — «Pippo, fragore della dipendenza» —
-l'articolo non lo chiede. È la toppa 1017 senza toppa.
+⭐ **La quarta: le reti si muovono anche quando nessuno le tocca.** Il permesso
+di `maiuscole.GIUDICATI` su `item_func.hsp:2321` e' morto perche' le toppe di
+oggi infilano 31 righe piu' su nello stesso file — il sito e' **intatto** e si e'
+mosso il pavimento. `GIUDICATI` e' una coordinata nella BUILD, e la build la
+muoviamo noi.
 
 ---
 
-## L'ottantaduesima sessione
+## L'ottantatreesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La
+sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
+**quarantesima prova** di fila, e le quindici hanno dato quindici volte i valori
+attesi della 82a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    pytest                  744 passed 6 skipped   (erano 733)
+    prova_identita          72/72 e 28.073         (erano 27.813: +260 siti nuovi)
+    verifica --dizionario   db_item.hsp 0 / 0      ⭐ CHIUSO DI NUOVO, su un
+                                                   perimetro piu' largo di 222 firme
+    toppe.jsonl             1023                   (erano 1018)
+    maiuscole               143 siti, 6 appesi, 7 giudicati, 0 da guardare
+                            ⚠️ ma item_func.hsp 2321 -> 2352 in GIUDICATI
+    dizionario              db_item.hsp +222 voci (1.606 -> 1.828 firme)
+    invariati.md            +1 riga: `tonfa`
+    avanzamento.md          la riga di db_item.hsp rifatta
+    decisioni.md            la voce della 83a
+    contratto-nomi.md       la sezione 1-ter
+
+Tutto il resto e' **fermo dov'era**: `chat.hsp` 0 / **2.132** non toccato,
+`creature` 1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205,
+`riquadri` 0 su 38 e 0 su 71, `menu_dialogo` 0 su 945 (rotte anche in inglese
+9), `linguette` 0 e 0, `battute --divergenti` **13**, `intestazioni_larghezze`
+banco ok e perimetro 0, `dati_applica --identita` 4 file e 2.987 righe,
+`dati_sorgente` 7/7 e gioco difforme su 0, `gronde` 0 su 5, `bilingui` **0**,
+`rinviate.jsonl` **75** non toccato.
+
+### ▶ Che cosa e' stato fatto
+
+    estrai.py / applica.py   il blocco a SEI righe: +260 siti            12 test
+    genera_toppe_nomi.py     3 array nuovi, 2 siti del plurale,
+                             la spia e la doppia guardia dell'articolo
+    db_item.hsp              i nomi non identificati                    222 rese
+    toppe.jsonl 1021-1022    action.hsp:5201 e :5210, le due gemelle
+                             che la toppa della 74a aveva mancato        2 toppe
+    toppe.jsonl 1023         ITEM_ID_DRAGONS_RED, la riga nuda           1 toppa
+    invariati.md             `tonfa`                                     1 riga
+    maiuscole.py             GIUDICATI: 2321 -> 2352                  1 guardia
+    collaudo/schermo.ps1     i tasti F1-F12 e `-Testo`                 1 pilota
+    scratchpad/_83-banco-nome.py   i 261 nomi come escono a schermo     1 banco
+    -------------------------------------------------------------------------
+                     222 rese, 3 toppe, 11 test nuovi, 1 banco, 1 collaudo
+
+### ▶ ⭐ Il perimetro, misurato
+
+`db_item.hsp` ha **1.581 righe `iknownnameref`**, e solo un sesto era lavoro:
+
+    = ioriginalnameref(...)      847   rimandano al nome vero: niente da fare
+    = _namepotion(p) + ...       213   nomi casuali, gia' girati da una toppa
+    blocco a sei righe           260   IL BUCO (216 stringhe, 222 firme)
+    riga nuda, fuori da if(jp)     1   ITEM_ID_DRAGONS_RED: toppa
+
+⭐ Le 222 firme si dividono da sole sul sorgente, e la divisione decide la
+**forma** della resa: **201 solo su oggetti semplici** (resa = sostantivo con
+genere suo), **21 solo su oggetti composti** (resa = complemento dopo «di»),
+**2 miste** (la resa deve reggere tutt'e due i telai: «carta sbrindellata» sta
+bene sia da sola sia dopo «gettone di»).
+
+### ▶ ⚠️ Le deroghe dichiarate
+
+1. **`tonfa` in `invariati.md`**: cinque artefatti, cinque giapponesi diversi
+   (音速/斬撃/連撃/守護/生贄の旋棍), un inglese solo. Qui **l'inglese ha ragione**:
+   e' un nome non identificato, e il suo mestiere e' *non* dire quale dei cinque
+   hai in mano. Seguire il giapponese sarebbe stato uno spoiler.
+2. **`ITEM_ID_GRIFFON`** (有翼の幻銃, «pistola fantasma alata») porta l'inglese
+   «Twin pistol», che e' il nome di `ITEM_ID_GEMINI` (双生の銃, davvero gemella).
+   E' la 58a — *la riga giusta dell'evento sbagliato* — e si segue il giapponese:
+   «pistola alata».
+3. **`ITEM_ID_PHOTON_FAIRY`**: l'inglese dice «photon program» e **svela**, il
+   giapponese dice 謎のプログラム. Si segue il giapponese: «programma misterioso».
+4. **I refusi si correggono e basta**: «golg coin» (金色のメダル), «shakle»
+   (足枷), «crytal ball», «unknown functionailties», «golden leave».
+
+### ▶ ⭐⭐ La toppa che mancava dalla 74a
+
+`action.hsp:5201` e `:5210` sono le **gemelle** di `:4584` e `:4593`: stessa
+riga, `cw2` invece di `cw`. La toppa che svuota il «The » inglese davanti al nome
+di un'arma unica le aveva mancate perche' il suo `cerca` e' la **riga intera**, e
+li' la variabile e' un'altra. Restavano due «The » in inglese dentro le
+parentesi angolari, e finche' i nomi non identificati erano inglesi la riga era
+tutta inglese e non si notava. 💡 *Una toppa scritta su una riga intera copre
+quella riga: le sue gemelle vanno cercate a mano.*
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **La rete che non c'e': i PARTNER fuori da `lang()`** (81a). Il buco
+   chiuso oggi era della stessa famiglia — *non tutto quel che il giocatore legge
+   passa da `lang()`* — e questa e' la faccia che resta.
+2. ⭐⭐⭐ **`chat.hsp` a 2.132**, e il perimetro di quel che resta:
+
+       *chat_unique_mizuki   :8630-:15490    1.322  5 sparse
+       *chat_unique          :947-:8629        800  (Gavela 120, Erystia 107,
+                                                     Icolle 22, fabbri 32,
+                                                     cani e gatti 17...)
+       tutto il resto                            0  ZONE CHIUSE
+
+   ⚠️ Il confine di `mizuki` va **rimisurato sul parlante**.
+3. 🔶 **La sorella H** (82a) e la 🔶 **decisione aperta dalla 80a** sul menu
+   degli arti, che vuole `gdata(GDATA_FLAG_MAIN) >= 220`.
+4. ⚠️⚠️⚠️ **IL PUNTO CIECO DELLA 74a**: restano **100 righe
+   `listn(...) = lang(...)` in `command.hsp`** — fra cui il pannello dei
+   talenti — **18 in `chara.hsp`**, piu' `event.hsp:825`, `help.hsp:333`,
+   `net.hsp:604`. ⚠️ **Dieci sessioni che aspetta.**
+5. ⭐⭐ **La rete che manca: i `buff` della finestra del dialogo.**
+   `chat-lotto-misura.py` misura per lotto ma **suppone** il contenitore invece
+   di leggerlo.
+6. ⭐ **`menu_dialogo.reso()` non legge il `limit(..., 0, N)`** della variabile
+   che interpola (79a). Ancora da fare.
+7. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208 righe),
+   `manual_ENG.txt` (591), `exhelp.txt` (185). ⚠️ `help.hsp:273` conta **dieci
+   righe di FILE per pagina**.
+8. ⭐⭐ `board.txt` **secondo lotto**; `custom_autopick.hsp` 21 gemelle delicate.
+9. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+   `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+   `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+10. ⭐⭐ Il **muro del materiale**: `mithril sword` e' «spada **di** mithril».
+11. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `item_func.hsp` 240; i **1.146** di
+    `db_card.hsp`. E la statistica 発言力 con **due nomi sullo schermo**.
+12. ⚠️ **Il collaudo si fa a mano, e adesso si sa perche'.**
+    `collaudo/schermo.ps1` scrive sulla tastiera di **tutto il computer**: se il
+    fuoco cambia a meta' di una parola le lettere vanno in un'altra finestra e
+    nessuno se ne accorge. Vedi la testata dello script.
+
+### ▶ Come si e' chiusa
+
+`applica` e `compila --eseguibile` sono girati a ogni giro, `cgx-test.exe` e'
+stato ricopiato, i due file dati sono stati confrontati per md5, le quindici
+verifiche sono state rilanciate in chiusura — tutte verdi — e il **collaudo a
+schermo l'ha fatto una persona**: sei `spawn_item` dalla console (1314, 1037,
+686, 1290, 253, 681), tutt'e sei coi nomi attesi.
+
+---
+
+## L'ottantaduesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

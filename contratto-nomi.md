@@ -47,6 +47,89 @@ Gli altri 1.581 `if ( jp )` del file non riguardano i nomi.
 > **Aperti il 2026-08-09:** dentro ci sono le **descrizioni degli oggetti**,
 > 2.555 uniche e ~64.000 parole, fuori da ogni conteggio. Vedi `SPEC.md` §2.1.
 
+## 1-ter. Il nome che l'oggetto porta PRIMA di essere identificato
+
+Aggiunto il 2026-08-22, ottantatreesima. È il **terzo blocco**, e per quindici
+sessioni nessuna rete l'ha visto: `estrai` conosceva il blocco a **sette** righe
+di `ioriginalnameref`, questo ne ha **sei**.
+
+```
+if ( jp ) {
+    iknownnameref(ITEM_ID_TURAHAGI) = "大熊の剛爪"
+}
+else {
+    iknownnameref(ITEM_ID_TURAHAGI) = "strong claws"
+}
+```
+
+Non è un angolo del gioco: è quel che il giocatore legge su **ogni** pozione e
+**ogni** pergamena appena raccolta, e sul nome di ogni artefatto finché non l'ha
+identificato del tutto (`item_func.hsp:1499` e `:1738`). Misurato sul sorgente
+pinnato: **1.581 righe `iknownnameref`**, di cui
+
+| | quante | che cosa sono |
+|---|---|---|
+| `= ioriginalnameref(...)` | 847 | rimandano al nome identificato: niente da tradurre, e articolo e plurale di quello vanno bene anche qui |
+| `= _namepotion(p) + …` | 213 | i nomi **casuali** (pozioni, pergamene, bastoni, anelli, grimori): li ha già girati una toppa, e la loro parola-contatore è la stessa del nome vero, quindi l'articolo regge da sé |
+| blocco a sei righe | **260** | il buco: **216 stringhe distinte**, 222 firme |
+| riga nuda fuori da ogni `if ( jp )` | **1** | `ITEM_ID_DRAGONS_RED`, che dice «red color» **anche in giapponese**. Il dizionario non la può raggiungere — tradurla cancellerebbe il gioco in giapponese — e la prende una toppa che il blocco lo costruisce |
+
+### Articolo e plurale sono di un ALTRO sostantivo
+
+⚠️ **Questa è la parte che non si vede, e senza la quale allargare una regex
+non basta.** `ioriginalnamerefplur` e `ioriginalnamearticolo` sono indicizzati
+per `ITEM_ID` e appartengono al nome **identificato**. Un nome non identificato
+tradotto è **un altro sostantivo, con un altro genere**: «una gemma divina»
+prima, «un anello di velocità» dopo. Servono quindi array propri, e sono
+**tre** e non quattro — `iknownnameref` non si compone, quindi non c'è un
+secondo riferimento a cui dare un plurale suo:
+
+```
+iknownnamerefplur      iknownnamearticolo      iknownnamearticolodet
+```
+
+Li dichiara la stessa toppa degli altri quattro (`init.hsp:2571`), dimensionati
+a `MAX_DB` per la ragione della §4-bis: sono sparsi per costruzione.
+
+⚠️ **E il plurale non è solo grammatica: senza il suo, «2 gemme divine»
+uscirebbe «2 anelli di velocità», cioè il nome vero dell'oggetto.** Il plurale
+sarebbe uno **spoiler**.
+
+### Chi regge l'articolo: si misura, non si sceglie
+
+⭐⭐⭐ **La resa è di due tipi, e a dire quale è il sorgente.** Su un oggetto
+**composto** (`ioriginalnameref2` pieno) il gioco scrive la parola-contatore
+**anche quando l'oggetto non è identificato** — `item_func.hsp:1217` la prende
+da `ioriginalnameref2` senza guardare `INV_ITEM_KNOWN`, e `:1259` la stampa. Il
+giocatore legge «una **statua di** divinità di Irva», «una **pozione superiore
+di** sofferenza inflitta», «una **bottiglia di** liquido trasparente».
+
+Quindi:
+
+- su un oggetto **semplice** la resa è un sostantivo pieno, e porta il proprio
+  genere: «artigli robusti», «liquido trasparente»;
+- su un oggetto **composto** la resa è un **complemento dopo «di»**, e l'articolo
+  resta quello del nome identificato: «divinità di Irva», «poteri divini»,
+  «sofferenza inflitta».
+
+Sul sorgente pinnato le firme si dividono da sole: **201 solo semplici, 21 solo
+composte, 2 miste** (e le due miste vogliono una resa che regga tutt'e due i
+telai). ⚠️ Le 21 sono esattamente gli inglesi che a prima lettura sembrano
+astrazioni sciatte — «godly powers», «unknown content», «a fishy figure»,
+«blue color». **Non lo sono: è il ruolo grammaticale che non era stato
+misurato.** «a statue of deity of Irva» è inglese giusto.
+
+Nel codice questo diventa **due guardie e non una**. La spia
+`locvar_itemname_ignoto` dice che il nome scritto è quello non identificato;
+`locvar_itemname_s2 == ""` dice che quel nome è anche la **testa** del sintagma.
+L'articolo del nome non identificato si usa solo quando valgono tutt'e due, e
+l'array del nome identificato resta il ripiego.
+
+💡 Il banco che legge la build e stampa tutti e 261 i nomi come usciranno a
+schermo è `scratchpad/_83-banco-nome.py`. Non è una guardia: serve a **leggere**
+261 nomi in una volta invece di ragionarci sopra uno per uno. Ha trovato da solo
+l'ultimo difetto rimasto — «una pietra misteriosa di pietra rossa».
+
 **298 si compongono** come `ioriginalnameref2 + " of " + ioriginalnameref`
 (`init.hsp:186-189`): `deed of camp`, `scroll of harvest`, `high potion of agony`.
 Il `" of "` è cablato **fuori da `lang()`**.

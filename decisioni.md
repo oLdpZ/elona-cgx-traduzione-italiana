@@ -6,6 +6,109 @@ ancora aperte.
 
 ---
 
+## Il buco dei nomi non identificati, e la lezione che non era quella che sembrava — 2026-08-22, ottantatreesima
+
+`db_item.hsp` ha **260 blocchi a sei righe** che nessuna rete vedeva: il nome che
+l'oggetto porta **prima di essere identificato**. La 82ª l'aveva trovato e
+l'aveva descritto bene — «articolo e plurale sono per `ITEM_ID` e appartengono al
+nome identificato, serve una toppa e non solo una regola in più» — e su quello
+aveva ragione. Ma la lezione vera della chiusura è **un'altra**, e sta qui.
+
+### ⭐⭐⭐ L'astrazione inglese non era una perdita: era un ruolo grammaticale
+
+Delle 216 stringhe, una ventina sembravano inglese sciatto. «godly powers»,
+«unknown content», «a fishy figure», «blue color», «inflicting suffering»,
+«a barrel-size»: nessuna di queste è un nome di oggetto, e il giapponese accanto
+ce l'ha sempre — 神々しい宝石 *gemma dall'aria divina*, 謎の箱 *scatola
+misteriosa*, 苦しみを呼ぶ薬 *medicina che chiama la sofferenza*.
+
+La prima stesura le ha rese come nomi pieni, dichiarando una deroga di famiglia:
+*l'italiano ha bisogno di una testa nominale, perché il nome sta dietro un
+articolo che il codice antepone, e «un infliggere sofferenza» non è una frase*.
+Il ragionamento era buono. **Era anche sbagliato**, e a dirlo è stato il
+sorgente.
+
+`item_func.hsp:1217` prende la parola-contatore da `ioriginalnameref2`
+**senza guardare `INV_ITEM_KNOWN`**, e `:1259` la stampa. Cioè: su un oggetto
+composto il giocatore legge la parola-contatore **anche quando l'oggetto non è
+identificato**. «a **statue of** deity of Irva», «a **high potion of**
+inflicting suffering», «a **bottle of** clear liquid». Quelle stringhe non sono
+nomi: sono **complementi dopo «of»**, e in quel ruolo l'inglese è perfetto.
+
+⚠️ **E le 21 firme che stanno in quel ruolo sono esattamente quelle che
+sembravano astratte.** Non è una coincidenza da leggere a posteriori: si misura
+in tre righe di Python — sono le firme i cui oggetti hanno **tutti** un
+`ioriginalnameref2` pieno. 201 firme stanno solo su oggetti semplici, 21 solo su
+composti, 2 su tutt'e due (e quelle vogliono una resa che regga i due telai:
+«carta sbrindellata» sta bene sia da sola sia dopo «gettone di»).
+
+Con le rese-nome il gioco avrebbe scritto **«una statua di statua di divinità»**,
+**«un libro orribile di libro orribile»**, **«una scatola di scatola
+misteriosa»** — otto ripetizioni su 260. Nessuna rete le avrebbe viste: sono
+italiano corretto, stanno nei tetti, non sono bilingui. Le ha viste un **banco**
+(`scratchpad/_83-banco-nome.py`) che legge la build e stampa tutti e 261 i nomi
+**come usciranno a schermo**, articolo e parola-contatore compresi.
+
+💡 **La regola**: *prima di decidere che l'inglese ha perso qualcosa, si guarda
+in che RUOLO la stringa finisce.* È la sorella della 57ª — *quando i due rami
+non dicono la stessa cosa decide il sito* — spostata dal contenuto alla
+sintassi: qui i due rami dicevano la stessa cosa, e a non dirla ero io.
+
+⚠️ Ed è anche la 61ª (*misura la cosa, non una cosa vicina*) applicata a una
+**lettura**: «questa stringa sembra un nome» è una cosa vicina; «questa stringa
+finisce dietro `s2 + " di "`» è la cosa.
+
+### La stessa distinzione, nel codice: due guardie e non una
+
+L'articolo non basta accenderlo con una spia. `locvar_itemname_ignoto` dice che
+il nome scritto è quello non identificato, ma su un oggetto composto la **testa**
+del sintagma resta la parola-contatore, e l'articolo lo regge lei. La seconda
+guardia è `locvar_itemname_s2 == ""` — **la stessa del plurale**, che ce l'aveva
+già dalla 8ª sessione e a cui non avevo pensato di chiedere.
+
+Percio' l'array del nome identificato è il **default** e quello del nome non
+identificato lo scavalca solo dove la testa è davvero lui.
+
+### ⭐⭐ Il plurale sbagliato qui non è grammatica: è uno SPOILER
+
+Il caso che ha reso ovvio che gli array dovevano essere propri e non condivisi:
+`ITEM_ID_WAKE_UP_OF_NEFIA` da non identificato è «una gemma nera di poteri
+divini»; il suo `ioriginalnamerefplur` dice «Risvegli di Nefia». Se il ramo non
+identificato avesse pescato lì, **due** di quelle gemme si sarebbero chiamate
+col nome vero dell'oggetto. Il plurale avrebbe svelato quel che
+l'identificazione nasconde — non un errore di accordo, un difetto di gioco.
+
+### Il caso che il dizionario non può raggiungere
+
+⚠️ Una riga su 261 sta **fuori** da ogni `if ( jp )`:
+`iknownnameref(ITEM_ID_DRAGONS_RED) = "red color"`, letta da tutt'e due le
+lingue. È un difetto di monte — quella riga dice «red color» anche al giocatore
+giapponese, mentre gli altri 260 un giapponese ce l'hanno — e tradurla
+cancellerebbe il gioco in giapponese. `estrai` la **scarta apposta**, con un
+test che lo dice; la prende una toppa che il blocco lo costruisce, lascia intatto
+il ramo giapponese col suo difetto e dà all'italiano il suo. 💡 *Una scansione
+che scarta un sito deve dichiararlo, o il sito diventa invisibile due volte.*
+
+### ⚠️ Due lezioni di contorno, tutt'e due su reti che si sono mosse da sole
+
+1. **`GIUDICATI` di `maiuscole.py` è una coordinata nella BUILD, e la build la
+   muoviamo noi.** Il permesso di `item_func.hsp:2321` è morto perché le toppe
+   di oggi infilano 31 righe più su nello stesso file: il sito è **intatto** e si
+   è mosso il pavimento. È una causa nuova — le tre volte precedenti era il sito
+   a essere cambiato — e `test_i_giudicati_esistono_ancora` l'ha presa lo stesso.
+   *Un test che scatta per la ragione giusta con la causa sbagliata è comunque
+   un test che funziona.*
+2. **`collaudo/schermo.ps1` scrive sulla tastiera di tutto il computer.**
+   `keybd_event` imposta lo stato **globale**: battendo `wizard` nella console
+   del gioco, le sei lettere sono finite nel prompt di un'altra sessione di
+   Claude Code aperta sulla stessa scrivania, che ci si è ritrovata scritto
+   «fallwliziard». `SetForegroundWindow` chiamato da un processo che non ha il
+   fuoco Windows lo **ignora**, e il pilota non se ne accorge: l'unico segnale è
+   il gioco che risponde «Unknown command». Il collaudo l'ha fatto una persona,
+   ed è la scelta giusta finché il computer è di qualcuno.
+
+---
+
 ## Due funzioni dello stesso modulo, in disaccordo sulla stessa espressione — 2026-08-21, ottantaduesima
 
 `chat.hsp:18813` è `"(" + cnven(he(tc)) + " nodded shyly.)"`, e **nessuna resa

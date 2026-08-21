@@ -57,13 +57,34 @@ _INIZIO = re.compile(r"\blang\(")
 # e quattro le assegnazioni. Gli `if ( jp )` di `db_item.hsp` sono 2.902 e solo
 # 1.321 riguardano i nomi: agganciare gli altri per analogia e' il modo di
 # corrompere il sorgente in silenzio.
+#
+# ⚠️ Il blocco del NOME NON IDENTIFICATO ha la stessa storia e una forma
+# diversa: SEI righe, non sette, perche' `iknownnameref` non si compone e non
+# ha un secondo riferimento. E' il nome che l'oggetto porta PRIMA di essere
+# identificato — «god jewel», «clear liquid», «some kind of ticket» — e il
+# giocatore lo legge su ogni pozione e ogni pergamena appena raccolta
+# (`item_func.hsp:1499` e `:1738`). Sul sorgente pinnato sono 260 blocchi.
+#
+#     if ( jp ) {
+#         iknownnameref(ITEM_ID_TURAHAGI) = "大熊の剛爪"
+#     }
+#     else {
+#         iknownnameref(ITEM_ID_TURAHAGI) = "strong claws"
+#     }
+#
+# Le altre 1.321 righe `iknownnameref` non sono blocchi e non entrano qui: 847
+# rimandano al nome identificato (`= ioriginalnameref(...)`, e allora articolo e
+# plurale di quello vanno bene anche qui), 213 compongono i nomi casuali
+# (`strpotion + strblank + _namepotion(p)`), e **una** — `ITEM_ID_DRAGONS_RED` —
+# sta nuda fuori da ogni `if ( jp )`, cioe' e' in inglese anche in giapponese.
+# Quella la prende una toppa, non questa scansione. Vedi `contratto-nomi.md` §1-ter.
 _IF_JP = re.compile(r"^\s*if\s*\(\s*jp\s*\)\s*\{\s*$")
 _ELSE = re.compile(r"^\s*else\s*\{\s*$")
 _CHIUSA = re.compile(r"^\s*\}\s*$")
 # il letterale si cammina con la regola del backslash, come ogni scansione di
 # questo modulo: `\"` non chiude la stringa
 _ASSEGNA_NOME = re.compile(
-    r'^\s*(ioriginalnameref2?)\((\w+)\)\s*=\s*("(?:[^"\\]|\\.)*")\s*$')
+    r'^\s*(ioriginalnameref2?|iknownnameref)\((\w+)\)\s*=\s*("(?:[^"\\]|\\.)*")\s*$')
 
 # Gli array di nomi che stanno su UNA riga, dentro `lang()`, invece che nel
 # blocco a sette righe qui sopra. Oggi ce n'e' uno: `fishdatan` di
@@ -336,6 +357,9 @@ def nomi_per_riga(righe: list[str]) -> dict[int, tuple[str, str, int, int, str, 
     perche' il nome giapponese non si compone (`deed of camp` e' un pezzo solo
     in giapponese). Vedi `contratto-nomi.md` §1.
 
+    Il blocco del nome **non identificato** e' a sei righe e ne emette una sola
+    (`iknownnameref` non si compone). Vedi `contratto-nomi.md` §1-ter.
+
     `array` e `oggetto` (`ioriginalnameref`, `ITEM_ID_BANANA`) servono al
     plurale: `applica.py` scrive `ioriginalnamerefplur(ITEM_ID_BANANA)` accanto
     al singolare, e per farlo deve sapere quale array e quale oggetto.
@@ -366,6 +390,31 @@ def nomi_per_riga(righe: list[str]) -> dict[int, tuple[str, str, int, int, str, 
                 grezzo_jp, trovato.group(3), trovato.start(3), trovato.end(3),
                 trovato.group(1), trovato.group(2),
             )
+    # il blocco a SEI righe del nome non identificato. Non puo' essere confuso
+    # col precedente in nessuna delle due direzioni: quello pretende
+    # `ioriginalnameref2` alla sesta riga dove qui c'e' la graffa, e questo
+    # pretende `iknownnameref` alla quinta dove li' c'e' `ioriginalnameref`.
+    for indice in range(len(righe) - 5):
+        if not _IF_JP.match(righe[indice]):
+            continue
+        giapponese = _ASSEGNA_NOME.match(righe[indice + 1])
+        if giapponese is None or giapponese.group(1) != "iknownnameref":
+            continue
+        if not _CHIUSA.match(righe[indice + 2]) or not _ELSE.match(righe[indice + 3]):
+            continue
+        inglese = _ASSEGNA_NOME.match(righe[indice + 4])
+        if inglese is None or inglese.group(1) != "iknownnameref":
+            continue
+        # lo stesso oggetto nei due rami, o non e' un blocco
+        if giapponese.group(2) != inglese.group(2):
+            continue
+        if not _CHIUSA.match(righe[indice + 5]):
+            continue
+        trovati[indice + 4] = (
+            giapponese.group(3), inglese.group(3),
+            inglese.start(3), inglese.end(3),
+            inglese.group(1), inglese.group(2),
+        )
     # i nomi che stanno su una riga sola dentro `lang()`: vedi ARRAY_IN_LANG
     for indice, riga in enumerate(righe):
         trovato = _NOME_IN_LANG.match(riga)

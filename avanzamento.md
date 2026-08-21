@@ -20,10 +20,18 @@ occorrenze. Le due colonne stanno qui entrambe perché servono a cose diverse.
 | `proc.hsp` | **127** | 1.098 | 12% | 1.327 |
 | `skill.hsp` | **885** | 885 | **100%** | 894 |
 | `trait.hsp` | 0 | 373 | 0% | 406 |
-| `db_item.hsp` | **1.606** | 1.606 | **100%** | 1.607 |
+| `db_item.hsp` | **1.828** | 1.828 | **100%** | 1.867 |
 | `item_data.hsp` | **318** | 318 | **100%** | 318 |
 | `custom_tweaks.hsp` | **12** | 12 | **100%** | 28 |
 | **totale** | **5.952** | **8.604** | **69%** | **9.690** |
+
+⚠️ **La riga di `db_item.hsp` è stata rifatta il 2026-08-22 (83ª)**: da 1.606 a
+**1.828** firme, e da 1.607 a **1.867** occorrenze. Non sono traduzioni nuove su
+un perimetro vecchio: è il **perimetro** che si è allargato di 222 firme e 260
+occorrenze, perché `estrai` ha imparato il blocco a sei righe dei **nomi non
+identificati** (`contratto-nomi.md` §1-ter). ⚠️ Fino a ieri quel 100% era vero
+per la rete che guardava e falso a schermo — la lezione della 53ª, «finito per
+quale referto?», su un file che tutti davano per chiuso da quindici sessioni.
 
 ⚠️ **Questa tabella è ferma, e la riga di `command.hsp` è l'unica riaggiornata
 (2026-08-15, 45ª: 795 su 1.304, più 20 rinviate).** `proc.hsp` dice 12% ed è chiuso dalla 39ª; il totale in

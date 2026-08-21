@@ -77,7 +77,17 @@ GIUDICATI = {
                            "gridata: apre una frase sua",
     ("command.hsp", 10948): "«Res. » piu' il nome dell'elemento: dopo il punto "
                             "abbreviativo la maiuscola regge",
-    ("item_func.hsp", 2321): "il tassello del materiale, «[Mithril]». Fa parte "
+    # ⚠️ Era :2321 fino alla 82a, ed e' la stessa identica riga: a spostarla di
+    # 31 righe sono state le TOPPE della 83a, che infilano il plurale e la spia
+    # del nome non identificato piu' su nello stesso file. E' una causa nuova —
+    # le tre volte precedenti un permesso era morto perche' il sito era
+    # cambiato, qui il sito e' intatto e si e' mosso il pavimento. 💡 La chiave
+    # di questa tabella e' una coordinata nella BUILD, e la build la muoviamo
+    # noi: ogni toppa che aggiunge righe sopra un sito appeso fa scattare
+    # `test_i_giudicati_esistono_ancora`. Il test ha ragione a scattare — un
+    # permesso appeso al vuoto e' peggio di nessun permesso — e il rimedio e'
+    # rileggere la riga, non allentare il test.
+    ("item_func.hsp", 2352): "il tassello del materiale, «[Mithril]». Fa parte "
                              "del muro del materiale, che vuole il suo giro: "
                              "la postposizione italiana («spada DI mithril») "
                              "sposta il sito, non solo la maiuscola",

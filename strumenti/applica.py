@@ -332,6 +332,10 @@ ARTICOLO_DI = {
     "ioriginalnameref": "ioriginalname",
     "ioriginalnameref2": "ioriginalname",
     "fishdatan": "fishdatan",
+    # il nome non identificato ha i propri: articolo e plurale appartengono al
+    # sostantivo che il giocatore LEGGE, e quello e' un altro sostantivo, con un
+    # altro genere. «un artefatto misterioso» prima, «una pozione di cura» dopo.
+    "iknownnameref": "iknownname",
 }
 
 
@@ -356,6 +360,11 @@ def _teste(nomi: dict) -> set[int]:
         array, oggetto = dati[4], dati[5]
         # i nomi su una riga sola non si compongono: la testa e' la riga stessa
         if array in ARRAY_IN_LANG:
+            teste.add(riga)
+            continue
+        # nemmeno il nome non identificato si compone: `iknownnameref` non ha un
+        # secondo riferimento, quindi la testa e' sempre lui
+        if array == "iknownnameref":
             teste.add(riga)
             continue
         if array != "ioriginalnameref":
