@@ -6,6 +6,131 @@ ancora aperte.
 
 ---
 
+## Il nome che l'oggetto porta PRIMA di essere identificato non lo vede nessuna rete — 2026-08-21, ottantaduesima
+
+Cercando come rendere 「光玉」 di `chat.hsp:16430` («I don't have any god
+jewels») ho guardato, come vuole la regola del DATO, il nome dell'oggetto in
+`db_item.hsp` invece della stringa. E il nome non c'era: `iknownnameref` non è
+nel dizionario, e nella **build** dice ancora `"god jewel"`.
+
+Non è un caso isolato. `db_item.hsp` ha **261 righe `iknownnameref` col ramo
+inglese**, per **217 stringhe distinte**: «god jewel», «clear liquid»,
+«godly powers», «book», «tonfa», «some kind of ticket», «crumbling paper»,
+«strange jewel». Sono i nomi che l'oggetto mostra finché
+`inv(INV_ITEM_KNOWN, …) == ITEM_KNOWN_NONE` (`item_func.hsp:1533`) — cioè
+**ogni pozione, ogni pergamena e ogni bacchetta appena raccolta**.
+
+⚠️⚠️ **Il buco è nel perimetro dell'estrazione, non nella traduzione.**
+`estrai.py` conosce due tipi di sito: `lang(jp, en)`, e il blocco a **sette**
+righe di `contratto-nomi.md` §1, che pretende `ioriginalnameref` in tutte e
+quattro le assegnazioni. `iknownnameref` sta in un blocco a **cinque** righe e
+non lo aggancia nessuna delle due regole. Quindi `estrai db_item.hsp` dà 1.607
+voci e nessuna di quelle 217: *il numero non è sbagliato, il numero non c'è*.
+È la forma della 74ª, sul secondo tipo di sito invece che sul primo.
+
+⚠️⚠️⚠️ **E allargare la regex non basta**, ed è la parte non ovvia. Il nome
+non identificato entra nella pipeline in **alternativa** a quello vero
+(`item_func.hsp:1533`-`:1535`), ma articolo e plurale sono per **ITEM_ID** e
+li ha scritti `applica.py` per il nome **identificato**: la `l'` di
+`ioriginalnamearticolodet(ITEM_ID_MAGIC_CANCELER)` è l'articolo del nome vero,
+non di «gioiello divino». Un nome non identificato tradotto è **un altro
+sostantivo, con un altro genere e un altro plurale**, e gli array
+`iknownnamerefplur` / `iknownnamearticolo` **nel motore non esistono**
+(`grep`: zero occorrenze). Quindi la strada è: estendere `estrai`/`applica` al
+blocco a cinque righe **più** una toppa che dia al ramo non identificato i
+propri array. 💡 *Un nome che si legge in due stati è due nomi, e la grammatica
+italiana lo sa anche quando il motore inglese non lo sa.*
+
+🔶 **Aperto**: 217 stringhe, e la decisione se pagare il costo del motore.
+
+---
+
+## Il lessico di Leold si riprende dal codice, quarta prova della regola della 79ª — 2026-08-21, ottantaduesima
+
+I due lotti della Culla del Caos (148 rese) non hanno **deciso** quasi niente:
+il lessico del finale era già scritto altrove, e si trova cercando il **dato**.
+
+| dove | che cosa dava |
+|---|---|
+| `action.hsp:3008`, `chat.hsp:18111` | 神の間 → **«Sigillo Eterno»** |
+| `main.hsp:7083` | 決戦因子 → **«Fattore Decisivo»** |
+| `chat.hsp:16006`, `main.hsp:5080` | 来光の牙 → **«zanna della luce nascente»** |
+| `db_card.hsp:2727`, `db_creature.hsp:52175` | 混沌の超児 → **«Il Figlio del Caos»** |
+| `db_race.hsp:5553`, `chat.hsp:9503` | 化身 → **«incarnazione»** |
+| `action.hsp:18565` | 獣爪兵 → **«il soldato artiglio»** |
+| `db_item.hsp:140704` | 覚醒の宝玉 → **«Risveglio di Nefia»**, e il tipo è **«gemma nera»**, femminile |
+| `db_item.hsp:140056` | ネフィアの核 → **«nucleo di Nefia»** |
+| `skill.hsp:1056`, `chat.hsp:24416` | 衝撃波動 → «Onda d'urto», 混沌の渦 → «vortice caotico» |
+| `chat.hsp:18590` | 一柱 → «una divinità» (quindi 八柱神 → «le otto divinità») |
+| `command.hsp:17275`, `action.hsp:9515` | 記録 → «registrare», 束縛 → «costrizione» |
+
+⭐ **E il dato ha deciso anche una concordanza:** `chat.hsp:16516` dice «This
+gem», e in italiano bisogna sapere di che genere è. Non lo dice la stringa: lo
+dice `ioriginalnameref2(ITEM_ID_WAKE_UP_OF_NEFIA) = "gemma nera"` con
+`ioriginalnamearticolo = "una "`. Quindi «Questa gemma». 💡 *Il genere di un
+oggetto è un dato del gioco, non una scelta del traduttore.*
+
+---
+
+## Orphe è uomo, e una resa vecchia lo faceva parlare al femminile — 2026-08-21, ottantaduesima
+
+`screen.hsp:1388` diceva «È solo perché io non sono **stata** all'altezza». Ma
+`db_creature.hsp:46159` mette `cdata(CDATA_SEX, rc) = 0`, e `text.hsp:378` dice
+che **0 è maschio**; e i quattro epiteti di Orphe già resi sono tutti maschili
+(«il principe del regno perduto», «l'apostolo del caos», «il servo del caos»,
+«il prediletto del caos»). Corretta in «non sono stato all'altezza».
+
+💡 È la 81ª (Scard, il vocativo di Oxode) una terza volta: **il sesso si legge
+in `CDATA_SEX`**, e quando il codice nomina il personaggio l'accordo si fa — ma
+si fa **giusto**. ⚠️ E il difetto non l'ha trovato una rete: è saltato fuori
+cercando 決戦因子 nel dizionario. *Il lessico ripreso è anche un collaudo delle
+rese vecchie.*
+
+---
+
+## Tre deroghe dichiarate, e due sono l'inglese che sbaglia la persona — 2026-08-21, ottantaduesima
+
+1. ⚠️ **`chat.hsp:16126`** — l'inglese dice «I was originally meant to work
+   **among the gods**», il giapponese dice 神の間, che in tutto il progetto è il
+   **Sigillo Eterno** (il posto, non la compagnia). Chi ha tradotto in inglese
+   ha letto 神の間 come «fra gli dèi». ✅ Si segue il giapponese e il lessico già
+   fissato.
+2. ⚠️ **`chat.hsp:16127`** — l'inglese dice «Now that **you've** regained your
+   strength», ma il soggetto giapponese di 力を取り戻した è **Leold**: è lui che
+   ha riavuto i poteri (lo dice la frase prima, `:16126`), e per questo adesso
+   gli AP comprano più velocità e vigore. ✅ Si segue il giapponese. È la
+   famiglia delle convenzioni: *l'inglese sbaglia la persona*.
+3. ⚠️ **`chat.hsp:16585`** — l'inglese dice «party halls», il giapponese dice
+   演奏会場, e la mappa si chiama «Sala concerti» (`map.hsp:5850`). ✅ Si usa il
+   nome che il giocatore legge sulla mappa.
+
+⚠️ **Una quarta, minore**: 「冒険者ギルド」/«Adventurer's guild» (`:16594`) non
+aveva una resa. Coniata **«Gilda degli Avventurieri»**, sulla forma delle tre
+che esistono già (Gilda dei Maghi / dei Guerrieri / dei Ladri).
+
+---
+
+## L'epiteto del giocatore non regge l'articolo, e allora si gira l'ordine — 2026-08-21, ottantaduesima
+
+`chat.hsp:16472` è l'unica riga del progetto che concatena
+`cdatan(CDATAN_AKA, …)` **e** il nome: «Good to see you here, `<aka>` `<nome>`».
+L'epiteto italiano è un sintagma intero e senza articolo — la 77ª lo aveva già
+misurato sul nome della casa — quindi «fragore della dipendenza Pippo» è
+sgrammaticato, e mettere «il» davanti si romperebbe sul primo epiteto
+femminile.
+
+✅ Si gira nell'apposizione italiana, che l'articolo non lo chiede:
+`"Bella impresa. " + nome + ", " + aka + ": qui prima di te non era arrivato
+nessuno."` → «Bella impresa. Pippo, fragore della dipendenza: qui prima di te
+non era arrivato nessuno.» 💡 *È la toppa 1017 senza toppa: l'ordine si può
+cambiare perché l'espressione la scriviamo intera.*
+
+⚠️ E la coda è cambiata per un secondo motivo: 一番乗り è «sei il primo», che
+porta il genere. «Prima di te non era arrivato nessuno» dice la stessa cosa e
+non lo porta.
+
+---
+
 ## Quando l'etichetta e il codice non dicono la stessa cosa, vince il codice — 2026-08-21, settantanovesima
 
 A Halloween un PNG bussa alla porta e il menu offre tre strade: dare un dolce,

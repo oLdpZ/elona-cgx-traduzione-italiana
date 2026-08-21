@@ -125,6 +125,46 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## Leold, dai consigli d'avventura al finale — e un buco nel perimetro dei nomi — 2026-08-21, ottantaduesima sessione
+
+Due lotti, **148 rese**, e `chat.hsp` scende da 2.444 a **2.296**.
+`menu_dialogo` misura **923** voci (erano 881), `bilingui` resta a **0** — zero
+al primo giro in tutt'e due i lotti — `chat-lotto-misura` 0 fuori misura e 0
+peggiorate, `pytest` 730.
+
+Le due zone sono le due metà del blocco di Leold, e tutt'e due sono **chiuse**
+(`perimetro-zona.py`: zero firme con occorrenze fuori). Il confine è stato preso
+sul **parlante** — `:16047` è `if ( _switch_val == CREATURE_ID_BLACK_GAUNTLET_LEOLD … )`
+e `:16640` ne chiude la graffa — non su un'etichetta, come insegna la 81ª.
+
+Il primo lotto (**45 rese**, `:16511`-`:16640`) è il Leold di tutti i giorni:
+il primo incontro, il dono della gemma, i cinque **Consigli d'avventura** (cibo,
+compagni, oggetti, la vita quotidiana, il resto), gli **obiettivi** a livelli
+crescenti e l'ingresso al **risveglio del potere**, che è il sistema chiuso
+nella 80ª. Il secondo (**103 rese**, `:16047`-`:16510`) è il **finale**: la
+caduta di Enthumesis, il parassita che ne assorbe il potere divino, Orphe, la
+discesa nel **Sigillo Eterno**, la rivelazione che Leold è **Tezcatlipoca**, e
+le **incarnazioni** date in ricompensa (soldati artiglio e coccodrilli).
+
+⭐ **Il lessico non si è deciso, si è ripreso**: Sigillo Eterno, Fattore
+Decisivo, zanna della luce nascente, Figlio del Caos, incarnazione, soldato
+artiglio, nucleo di Nefia, Risveglio di Nefia — tutti già scritti altrove, e
+trovati cercando il **dato** (l'`ITEM_ID`, la costante) invece della stringa.
+
+⚠️ **Una correzione**: `screen.hsp:1388` faceva dire a Orphe «non sono
+**stata** all'altezza». `db_creature.hsp:46159` mette `CDATA_SEX` a 0, che
+`text.hsp:378` dice essere **maschio**, e i quattro epiteti di Orphe sono tutti
+maschili. Corretta.
+
+⚠️⚠️⚠️ **E cercando il lessico è uscito un buco nel perimetro**: `db_item.hsp`
+ha **261 righe `iknownnameref` col ramo inglese**, **217 stringhe distinte** —
+i nomi che l'oggetto porta prima di essere identificato («god jewel», «clear
+liquid», «book») — e `estrai.py` non le vede, perché conosce solo il blocco a
+sette righe di `ioriginalnameref`. ⚠️ Chiuderlo non è allargare una regex:
+articolo e plurale sono per `ITEM_ID` e appartengono al nome **identificato**,
+e gli array `iknownnamerefplur` / `iknownnamearticolo` nel motore non esistono.
+Vedi `decisioni.md`.
+
 ## Gli inquilini, Aime e Jaldabaoth — e una toppa che nessuna rete vedeva — 2026-08-21, ottantunesima sessione
 
 Due lotti, **97 rese**, e `chat.hsp` scende da 2.541 a **2.444**.

@@ -1,38 +1,180 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-21, fine della **ottantunesima** sessione (**97 rese in
-`chat.hsp` in due lotti, una toppa, una resa vecchia corretta, e il primo
-collaudo a schermo dopo dieci sessioni**).
+Aggiornato: 2026-08-21, fine della **ottantaduesima** sessione (**148 rese in
+`chat.hsp` in due lotti, due zone chiuse, una resa vecchia corretta, e un buco
+nel perimetro dei nomi degli oggetti**).
 
-⭐⭐⭐ **La lezione della giornata: una `lang()` tradotta può avere un PARTNER
-fuori da `lang()` che la deve riconoscere — e allora tradurla la rompe.** Le
-quattro parole con cui si desidera una creatura stanno in `lang()`
-(`command.hsp:4846`) e sono tradotte: carta, statuetta, bambola dorata, bambola
-di carne. Le righe che le **tolgono** dalla stringa prima di cercare il nome
-stanno in `fix_wish` (`module.hsp:4815`), **non** sono in `lang()`, e sono
-rimaste inglesi. Risultato: in italiano ogni desiderio di creatura dava la
-statuetta di **`@`**, perché il nome non combaciava mai e `wish_monster`
-ripiegava su `dbid = 0`. Il progetto sapeva già che certe `lang()` sono
-**chiavi** (`custom_autopick.hsp`); questo è il caso **girato**, e per trovarlo
-non basta leggere il sito: bisogna cercare **chi confronta quella stringa**.
-⚠️ *Rete ancora da fare, e il perimetro è tutto il sorgente.*
+⭐⭐⭐ **La lezione della giornata: il nome che l'oggetto porta PRIMA di essere
+identificato non lo vede nessuna rete, e non basta allargare una regex per
+prenderlo.** `db_item.hsp` ha **261 righe `iknownnameref` col ramo inglese**,
+**217 stringhe distinte** — «god jewel», «clear liquid», «book», «some kind of
+ticket» — che il giocatore legge su ogni pozione e ogni pergamena appena
+raccolta (`item_func.hsp:1533`). `estrai.py` conosce solo il blocco a **sette**
+righe di `ioriginalnameref`; questo ne ha **cinque**. ⚠️ E la parte non ovvia:
+articolo e plurale sono per `ITEM_ID` e appartengono al nome **identificato** —
+un nome non identificato tradotto è **un altro sostantivo, con un altro genere**
+— e gli array `iknownnamerefplur` / `iknownnamearticolo` **nel motore non
+esistono**. Serve una toppa, non solo una regola in più.
 
-⭐⭐⭐ **La seconda lezione, e vale il debito di dieci sessioni: il collaudo non
-dipende più da dove è arrivato il salvataggio.** **F12** apre la console di
-debug (`main.hsp:3322`), `wizard` accende la modalità mago (`system.hsp:4718`),
-`spawn_chara <ID>` fa comparire qualunque creatura sulla casella del giocatore
-(`system.hsp:4831`). Gli ID stanno in `defines/mod.hsp`. ⚠️ **Non si usa
-`add_ally`**: `chat.hsp:281` manda al dialogo unico solo se
-`tc >= MAX_CHARA_FOLLOWER`, quindi arruolare il PNG nasconde proprio la
-schermata da collaudare.
+⭐⭐ **La seconda: cercare il lessico è anche un collaudo delle rese vecchie.**
+Cercando 決戦因子 nel dizionario è saltata fuori `screen.hsp:1388`, dove Orphe
+diceva «non sono **stata** all'altezza». `db_creature.hsp:46159` mette
+`CDATA_SEX` a 0 = maschio, e i quattro epiteti di Orphe sono maschili.
+Corretta. *Nessuna rete guarda il genere di una resa.*
 
-⚠️⚠️ **La terza: il perimetro di una ZONA è un'etichetta HSP, non un parlante.**
-`:15509` taglia in due il blocco di Telhureza, e tradurre le 47 firme che lo
-strumento dava avrebbe messo un sottodialogo italiano sotto un menu inglese.
+⭐ **La terza: quando l'epiteto non regge l'articolo, si gira l'apposizione.**
+`chat.hsp:16472` è l'unica riga che concatena `CDATAN_AKA` e il nome. «fragore
+della dipendenza Pippo» è sgrammaticato e «il» si romperebbe sul primo epiteto
+femminile; l'apposizione italiana — «Pippo, fragore della dipendenza» —
+l'articolo non lo chiede. È la toppa 1017 senza toppa.
 
 ---
 
-## L'ottantunesima sessione
+## L'ottantaduesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La
+sessione si è aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la
+**trentanovesima prova** di fila, e le quindici hanno dato quindici volte i
+valori attesi della 81ª.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    verifica --dizionario   chat.hsp   0 / 2296   (era 2444)
+    menu_dialogo            0 su 923 misurate      (erano 881)
+    dizionario              chat.hsp +148 voci, screen.hsp 1 corretta
+    decisioni.md            +125 righe (la voce della 82ª, cinque punti)
+
+Tutto il resto è **fermo dov'era**: `pytest` **730 passed 6 skipped**,
+`prova_identita` 72/72 e 27.813, `creature` 1131/2466/0/0, `larghezze` 0 fuori
+misura, `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `linguette` 0 e 0,
+`battute --divergenti` **13**, `intestazioni_larghezze` banco ok e perimetro 0,
+`dati_applica --identita` 4 file e 2.987 righe, `dati_sorgente` 7/7 e gioco
+difforme su 0, `gronde` 0 su 5, `maiuscole` 144 siti / 7 appesi / 8 giudicati /
+0 da guardare, `bilingui` **0**, `toppe.jsonl` **1018** non toccato,
+`rinviate.jsonl` **75** non toccato, `menu_dialogo` rotte anche in inglese **9**.
+
+⭐ **Le quindici verifiche sono state rilanciate ANCHE IN CHIUSURA** e sono
+verdi. ✅ **`cgx-test.exe` è FRESCO** e i due file dati di
+`elonaplus2.31\data\` hanno lo stesso md5 di quelli che `applica` produce.
+
+### ▶ Che cosa è stato fatto
+
+    chat.hsp  LEOLD ORDINARIO  :16511-:16640  consigli, obiettivi, risveglio  45 rese
+    chat.hsp  la CULLA DEL CAOS :16047-:16510 il finale, Tezcatlipoca          103 rese
+    screen.hsp:1388                  il genere di Orphe                        1 corr.
+    decisioni.md                     cinque punti                            125 righe
+    ---------------------------------------------------------------------------
+                                 148 rese, 0 toppe, 0 reti nuove, 2 spinte
+
+### ▶ ⭐ Le due zone sono chiuse, e il confine è quello del PARLANTE
+
+`:16047` è `if ( _switch_val == CREATURE_ID_BLACK_GAUNTLET_LEOLD | _switch_sw )`
+e `:16640` ne chiude la graffa (`:16641` è già `*chat_unique_SWEND1`). Il taglio
+interno a `:16510`/`:16511` separa il ramo `AREA_CHAOS_CRADLE` da tutto il
+resto, quindi le due metà sono due sistemi e non due pezzi di uno.
+`perimetro-zona.py` dà **103 + 45 = 148 firme, zero con occorrenze fuori**, e
+`bilingui` ha dato **zero al primo giro** in tutt'e due i lotti.
+
+### ▶ ⭐⭐ Il lessico ripreso dal DATO — quarta prova della regola della 79ª
+
+| dove | che cosa dava |
+|---|---|
+| `action.hsp:3008` | 神の間 → **«Sigillo Eterno»** |
+| `main.hsp:7083` | 決戦因子 → **«Fattore Decisivo»** |
+| `chat.hsp:16006` | 来光の牙 → **«zanna della luce nascente»** |
+| `db_card.hsp:2727` | 混沌の超児 → **«Il Figlio del Caos»** |
+| `db_race.hsp:5553` | 化身 → **«incarnazione»** |
+| `action.hsp:18565` | 獣爪兵 → **«il soldato artiglio»** |
+| `db_item.hsp:140704` | 覚醒の宝玉 → **«Risveglio di Nefia»**, tipo «gemma nera», **femminile** |
+| `db_item.hsp:140056` | ネフィアの核 → **«nucleo di Nefia»** |
+| `skill.hsp:1056` | 衝撃波動 → «Onda d'urto» |
+| `chat.hsp:18590` | 一柱 → «una divinità», quindi 八柱神 → «le otto divinità» |
+| `command.hsp:17275`, `action.hsp:9515` | 記録 → «registrare», 束縛 → «costrizione» |
+| `db_creature.hsp:73827` | 銀熊 → «l'orsa d'argento» (ed è **donna**: Marka) |
+| `map.hsp:5850`, `db_item.hsp:138785` | 演奏会場 → «Sala concerti», ブロンズ硬貨 → «moneta di bronzo» |
+
+⭐ **E il dato ha deciso anche una concordanza**: `:16516` dice «This gem», e il
+genere non sta nella stringa — sta in
+`ioriginalnameref2(ITEM_ID_WAKE_UP_OF_NEFIA) = "gemma nera"` con articolo
+«una ». Quindi «Questa gemma».
+
+### ▶ ⚠️ Tre deroghe dichiarate, e due sono l'inglese che sbaglia la persona
+
+1. `:16126` — l'inglese dice «among the gods», il giapponese dice 神の間, che è
+   il **Sigillo Eterno**. Si segue il giapponese.
+2. `:16127` — l'inglese dice «now that **you've** regained your strength», ma il
+   soggetto giapponese è **Leold** (lo dice la frase prima). Si segue il
+   giapponese.
+3. `:16585` — «party halls» contro 演奏会場: si usa «Sala concerti», il nome che
+   il giocatore legge sulla mappa.
+
+Più una coniatura: **«Gilda degli Avventurieri»** (`:16594`), sulla forma delle
+tre gilde che esistono già.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **IL BUCO DEI NOMI NON IDENTIFICATI (nuovo).** 261 righe, 217 stringhe,
+   fuori dal perimetro di `estrai`. Chiuderlo vuol dire: (a) il blocco a cinque
+   righe in `estrai.py`/`applica.py` e in `contratto-nomi.md`; (b) una **toppa**
+   che dia al ramo non identificato i propri `plur`/`articolo`, perché quelli
+   che ci sono appartengono al nome identificato e hanno un altro genere.
+2. ⭐⭐⭐ **La rete che non c'è: i PARTNER fuori da `lang()`** (81ª). La toppa
+   1018 ha sistemato quattro parole; nessuno sa quante altre `lang()` tradotte
+   siano confrontate da codice non tradotto. 💡 Il buco del punto 1 è della
+   stessa famiglia vista da un'altra faccia: *non tutto quel che il giocatore
+   legge passa da `lang()`.*
+3. 🔶 **DECISIONE APERTA dalla 80ª: il menu degli arti non dice le parole di
+   `bodyn()`.** Vuole `gdata(GDATA_FLAG_MAIN) >= 220` e la console non ha un
+   comando per muovere quel flag: serve un salvataggio avanti nella trama.
+4. ⭐⭐⭐ **`chat.hsp` a 2.296**, e il perimetro di quel che resta:
+
+       *chat_unique_mizuki   :8630-:15490    ~1.320  (da rimisurare sul PARLANTE)
+       *chat_unique          :947-:8629         953   5 sparse
+       *label_6452           :15509-:16046      238   zona chiusa
+       la testa del file     :1-:946             16   zona chiusa
+       il resto              :18602-:26773       11   zona chiusa
+
+   ⚠️ I confini di `mizuki` e `label_6452` vanno **rimisurati sul parlante**: la
+   81ª ha mostrato che l'etichetta taglia i blocchi (Telhureza).
+5. ⭐⭐ **Il collaudo**: delle 148 rese di oggi non se n'è vista a schermo
+   nessuna. ⭐ Il Leold ordinario è **il più facile che ci sia**: F12, `wizard`,
+   `spawn_chara` con l'ID di `CREATURE_ID_BLACK_GAUNTLET_LEOLD` (in
+   `defines/mod.hsp`), e i Consigli d'avventura si aprono subito. Restano da
+   guardare il tutorial (78ª), gli evochat e `*chat_event` (79ª), il sistema di
+   Leold (80ª).
+6. ⚠️⚠️⚠️ **IL PUNTO CIECO DELLA 74ª**: restano **100 righe
+   `listn(...) = lang(...)` in `command.hsp`** — fra cui il pannello dei
+   talenti — **18 in `chara.hsp`**, più `event.hsp:825`, `help.hsp:333`,
+   `net.hsp:604`. ⚠️ **Nove sessioni che aspetta.**
+7. ⭐⭐ **La rete che manca: i `buff` della finestra del dialogo.**
+   `chat-lotto-misura.py` misura per lotto ma **suppone** il contenitore invece
+   di leggerlo.
+8. ⭐ **`menu_dialogo.reso()` non legge il `limit(..., 0, N)`** della variabile
+   che interpola (79ª). Ancora da fare.
+9. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208 righe),
+   `manual_ENG.txt` (591), `exhelp.txt` (185). ⚠️ `help.hsp:273` conta **dieci
+   righe di FILE per pagina**.
+10. ⭐⭐ `board.txt` **secondo lotto**; `custom_autopick.hsp` 21 gemelle delicate.
+11. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+    `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+    `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+12. ⭐⭐ Il **muro del materiale**: `mithril sword` è «spada **di** mithril».
+13. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `item_func.hsp` 240; i **1.146** di
+    `db_card.hsp`. E la statistica 発言力 con **due nomi sullo schermo**.
+
+### ▶ Come si è chiusa
+
+Due spinte, una per lotto (la correzione di `screen.hsp` viaggia col secondo).
+`applica` e `compila --eseguibile` sono girati dopo ogni lotto, `cgx-test.exe` è
+stato ricopiato, i due file dati sono stati confrontati per md5, e le quindici
+verifiche sono state rilanciate in chiusura: tutte verdi.
+
+---
+
+## L'ottantunesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
