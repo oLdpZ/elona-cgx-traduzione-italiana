@@ -6329,3 +6329,109 @@ dentro il menu che porta davvero a quei blocchi (`chat.hsp:19320`-`:19880`).
 💡 È la famiglia della 74ª — *un buco nel perimetro non produce un numero
 sbagliato, produce un numero che non c'è* — con una variante: qui il perimetro
 era giusto e a essere sbagliata era la **chiave**.
+
+
+## 76ª — Un menu si buca da solo: la rete `bilingui`, e due difetti nella rete che misura i menu
+
+### 1. La firma è condivisa, quindi la schermata non è l'unità che si controlla
+
+La 73ª aveva stabilito che **un menu si traduce intero o non si traduce**: le
+voci di `chatList` che stanno una sotto l'altra sono una schermata sola, e
+tradurne tre su quattordici la porta da inglese e coerente a metà italiana e
+incoerente. La guardia però viveva dentro `gemelle.annota_menu()`, che misura
+quanto di un menu copre **un lotto**, mentre il lotto si prepara.
+
+Non basta, e la ragione è che il dizionario è indicizzato per **firma**
+(giapponese + inglese + espressione), non per sito: la stessa firma vive in più
+punti del file. Tradurre una voce in un menu ne traduce **un'altra altrove**.
+Nella 76ª è successo tre volte in un giorno:
+
+1. il «No.» di `chat.hsp:24653` — l'offerta di accompagnarti a cercare qualcuno
+   — ha la firma del «No.» di `:6277`, che sta nel menu di conferma del
+   **venditore di Jure a Noyel**, tutto inglese: tradurre l'uno traduceva
+   l'altro, e la scena di Jure è dovuta entrare nel lotto **intera**;
+2. «Use Light of Memory.» a `:1327` (menu a metà) non si poteva chiudere senza
+   **aprirne un altro**: la stessa firma sta a `:1268`, nel menu dell'altro
+   Loyter, che era tutto inglese. Qui il verso è opposto — una rete verde
+   sarebbe diventata rossa per una riga che non avevo toccato;
+3. 「習得する」 e 「訓練する」 di `:24954` stanno anche a `:390` e `:396`, dentro
+   la schermata dell'allenatore «a prezzo d'amico».
+
+Quindi la domanda giusta non è «questo lotto copre il suo menu?» ma **«dopo
+questo lotto esiste un menu a metà?»**, e si può fare solo al file intero.
+`strumenti/bilingui.py` la fa: elenca i gruppi di `chatList` con almeno una voce
+resa e almeno una no. Alla nascita, **quindici** in `chat.hsp`; chiusi tutti
+nella stessa sessione. È la quindicesima verifica d'apertura, attesa **0**.
+
+⚠️ **Il limite è dichiarato nella docstring**: i menu si raggruppano per
+**distanza** (`gemelle.blocchi_menu`, sei righe). `chat.hsp:24945` — il bottone
+«Allenare» dell'addestratore — sta sedici righe sopra i suoi fratelli e finisce
+in un gruppo suo. La rete sbaglia **per difetto**: può tacere su una schermata
+rotta, non può inventarne una.
+
+### 2. Tradurre codice morto non è gratis
+
+`chat.hsp:19327` e `:19334` sono righe **commentate** a monte
+(`// chatList 84, ...`): la variante lunga di due voci vive, con la coda
+`[Total EXP 200%, Satiety increase halved]`. Le avevo tradotte con l'argomento
+«tanto non costa niente», ed è costato: **una voce tradotta entra in
+`menu_dialogo.voci_di_menu()`**, perché quella rete legge il dizionario. Così la
+coda inglese da 74 caratteri è finita nel registro delle voci **rotte a monte** e
+la resa italiana da 61 fra le voci **fuori misura** — due numeri veri su una riga
+che non disegna niente.
+
+Sono andate in `rinviate.jsonl` (73 → 75) con la condizione scritta («il giorno
+in cui monte togliesse il commento»), come le tre voci del blocco `ORIGINAL`
+spento di `command.hsp`. E `bilingui` conta le **rinviate come fatte**:
+altrimenti l'unico modo di chiudere quel menu sarebbe tradurre codice morto, che
+è esattamente quel che il rinvio esiste per non fare.
+
+### 3. Due difetti in `menu_dialogo.reso()`, e uno era travestito da difetto di monte
+
+`reso()` riduce un'espressione HSP alla forma che arriva a schermo: tiene i pezzi
+letterali e conta ogni valore interpolato come quattro cifre.
+
+- **`_INTERPOLAZIONE` non ammetteva un `+` dentro il valore.**
+  `chat.hsp:24715` interpola `limit(cdata(CDATA_LEVEL, CHARA_PLAYER) / 2 + 5, 6,
+  130)`: il pezzo non veniva riconosciuto, `reso()` restituiva l'espressione
+  **intera** — virgolette, nome della funzione, argomenti — e la voce del
+  catalogo degli schiavi risultava lunga **84** caratteri invece di 24.
+  ⚠️ **Da fuori non si vedeva un difetto della rete**: si vedeva una voce «fuori
+  misura» che si salvava per «già rotta in inglese», perché l'inglese ha la
+  stessa forma e sbagliava allo stesso modo. 💡 È la 70ª — *una rete puntata sul
+  file sbagliato non tace, mente* — nella forma in cui il metro sbaglia **su
+  tutt'e due i lati del confronto**, e quindi il confronto lo assolve.
+- **Un valore interpolato può stare in testa o in coda.** `_INTERPOLAZIONE`
+  cerca un valore **fra due letterali**, quindi non vedeva né
+  `cdatan(CDATAN_NAME, tc) + " lascia..."` né `"Catalogo A: max Lv. " +
+  limit(...)`. Due regex nuove chiedono un `+` prima o dopo la virgoletta, che è
+  quel che distingue un'espressione da una **statica**: `\"Miao?\"` e `città`
+  non hanno nessun `+` e restano intatte.
+
+### 4. Un test che filtra un referto vuoto non prova niente
+
+`test_le_voci_del_pannello_dei_ci_stanno_tutte` e
+`test_le_due_leggi_della_citta_ci_stanno` scrivevano
+`[v for v in fuori_misura() if v["file"] == "god.hsp"]`, ma `fuori_misura()`
+restituisce **tuple**. Passavano da sempre perché un ciclo su zero elementi non
+indicizza niente: sono morti di `TypeError` il giorno in cui la rete ha trovato
+una voce fuori misura **in un altro file**.
+
+💡 La regola: un test che filtra un referto per tenersi solo la sua parte è verde
+finché il referto è vuoto, cioè finché non serve. Va provato almeno una volta con
+il referto pieno — o scritto in modo che il filtro non possa essere l'unica cosa
+che lo tiene in piedi.
+
+### 5. Un menu che nomina la stessa scelta di un messaggio dice le parole del messaggio
+
+I dieci medium con cui si lancia una magia (`chat.hsp:8934`-`:8943`) sono le
+stesse dieci cose che `text.hsp:139`-`:148` racconta a ogni lancio: «lancia un
+incantesimo», «sputa ragnatele», «spruzza fluidi corporei», «dispiega un cerchio
+magico», «scaglia un pensiero maligno». Il menu che chiede *quale medium* usa
+quelle parole. È la regola della 73ª — due schermate che mostrano la stessa
+scelta dicono le stesse parole — applicata a un menu e a un **messaggio**
+invece che a due menu.
+
+💡 E l'inglese qui non era la guida: 音声 (*voce*) l'inglese lo chiama «spell»
+perché il messaggio dice «casts a spell». Le due strade portano allo stesso
+posto, «Incantesimo», ma solo perché il messaggio era già tradotto.

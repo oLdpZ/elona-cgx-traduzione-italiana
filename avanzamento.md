@@ -125,6 +125,28 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## I menu bilingui, e la rete che li conta — 2026-08-21, settantaseiesima sessione
+
+Nata da un difetto trovato traducendo: il dizionario è per **firma**, quindi una
+voce di menu resa in un punto del file ne rende un'altra in una schermata
+lontana, che resta metà italiana. **121 rese, una rete nuova, 11 test.**
+
+| pezzo | rese | esito |
+|---|---|---|
+| `chat.hsp`, l'oste | 18 | i cinque `chatval` della taverna e il kiseru |
+| `chat.hsp`, il figlio | 11 | il menu dell'istruzione, sette voci |
+| `chat.hsp`, il lupo mannaro | 13 | i sette toni dell'accusa e l'indagine |
+| `chat.hsp`, le indicazioni | 21 | le direzioni, la guida, e la scena di Jure per forza |
+| `chat.hsp`, i menu bilingui | 58 | quindici schermate chiuse, in tre lotti |
+| `strumenti/bilingui.py` | — | rete nuova, quindicesima verifica, 6 test |
+| `strumenti/menu_dialogo.py` | — | due difetti nella misura delle dinamiche, 5 test |
+
+`chat.hsp` scende da 3.420 a **3.299**. `menu_dialogo` misura **629** voci (erano
+572) e `bilingui` ne trova **0** a metà, su tutti i file con dizionario.
+
+⚠️ `rinviate.jsonl` sale a **75**: le due righe **commentate** di `chat.hsp:19327`
+e `:19334`, che erano state tradotte e per questo erano entrate nelle misure.
+
 ## Le gemelle, e i quattordici menu di `chat.hsp` — 2026-08-20, settantatreesima sessione
 
 Nata dalla misura della 72ª: 417 rese che esistevano già in un altro file di

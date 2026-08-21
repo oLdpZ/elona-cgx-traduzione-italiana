@@ -1,22 +1,221 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-21, fine della **settantacinquesima** sessione (**228 rese in
-`chat.hsp`, cinque famiglie di `*chat_default`, e una toppa ritirata perche' il
-guardiano c'era gia'**).
+Aggiornato: 2026-08-21, fine della **settantaseiesima** sessione (**121 rese in
+`chat.hsp`, una rete nuova, e i quindici menu bilingui chiusi tutti**).
 
-⭐⭐⭐ **La lezione della giornata: le verifiche in chiusura non servono solo a
-scoprire che un numero e' invecchiato — servono a scoprire che hai rotto una
-regola che non sapevi ci fosse.** `pytest` era verde all'apertura e **rosso in
-chiusura**, e uno dei due rossi era mio: avevo cambiato `economy.hsp:357` da
-«Influenza» a «Autorita'» convinto che violasse `glossario.md:356`, e invece
-`strumenti/tests/test_colonne_economy.py` esisteva **da prima** e il suo
-docstring dice testualmente «e' la stessa ragione per cui la resa di `:357` e'
-"Influenza" e non "Autorita'"». 💡 *Prima di correggere un sito, si cerca chi lo
-sorveglia*: la scelta era deliberata, scritta e sotto test, e il difetto ero io.
+⭐⭐⭐ **La lezione della giornata: una schermata si buca da sola, per una riga
+che non hai toccato.** Il dizionario e' indicizzato per **firma** — giapponese
+piu' inglese — e la stessa firma vive in piu' punti del file: tradurre il «No.»
+di un menu ne traduce un altro **diciottomila righe piu' in la'**, dentro una
+finestra che nessuno stava guardando, e la lascia meta' italiana. E' successo
+tre volte in un giorno solo. Da oggi c'e' una rete che lo misura,
+`strumenti/bilingui.py`, ed e' la **quindicesima** verifica d'apertura.
 
 ---
 
-## La settantacinquesima sessione
+## La settantaseiesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La
+sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
+**trentatreesima prova** di fila, e le quattordici di allora hanno dato
+quattordici volte i valori attesi della 75a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    pytest                  730 passed 6 skipped   (erano 719: +11 test)
+    verifica --dizionario   chat.hsp   0 / 3299   (era 3420)
+    menu_dialogo            0 su 629 misurate      (erano 572)
+    bilingui                VERIFICA NUOVA, la quindicesima: 0 menu bilingui
+    dizionario              chat.hsp +121 voci
+    rinviate.jsonl          75                     (erano 73)
+
+Tutto il resto e' **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
+1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205, `riquadri` 0 su 38
+e 0 su 71, `linguette` 0 e 0, `battute --divergenti` **13**,
+`intestazioni_larghezze` banco ok e perimetro 0, `dati_applica --identita` 4
+file e 2.987 righe, `dati_sorgente` 7/7, `gronde` 0 su 5, `maiuscole` 144 siti e
+0 da guardare, `toppe.jsonl` **1016**. `menu_dialogo` dice ancora «rotte anche
+in inglese: 7».
+
+⭐ **Le quindici verifiche sono state rilanciate ANCHE IN CHIUSURA** e sono
+verdi. ✅ **`cgx-test.exe` e' FRESCO** (21/08, 03:49) e i due file dati di
+`elonaplus2.31\data\` hanno lo stesso md5 di quelli che `applica` produce.
+
+### ▶ Che cosa e' stato fatto
+
+    chat.hsp  l'oste            pasto, bevanda, i due speciali, il kiseru   18 rese
+    chat.hsp  il figlio         il menu dell'istruzione e la crescita       11 rese
+    chat.hsp  il lupo mannaro   l'accusa, i sette toni, l'indagine          13 rese
+    chat.hsp  le indicazioni    le direzioni, la guida, e Jure per forza    21 rese
+    chat.hsp  i menu bilingui   quindici schermate chiuse, in tre lotti     58 rese
+    strumenti/bilingui.py       RETE NUOVA, la quindicesima verifica        +6 test
+    strumenti/menu_dialogo.py   due difetti nella misura, +5 test           +5 test
+    ------------------------------------------------------------------------------
+                                121 rese, 1 rete nuova, 11 test, 9 spinte
+
+### ▶ ⭐⭐⭐ La rete nuova: `bilingui`
+
+`python -m strumenti.bilingui` elenca i gruppi di `chatList` con **almeno una
+voce resa e almeno una no**: le schermate che il giocatore leggerebbe meta' in
+italiano e meta' in inglese. Atteso **0**, su tutti i file con dizionario. Alla
+nascita ne ha trovati **quindici** in `chat.hsp`, chiusi tutti oggi.
+
+⚠️ **Perche' le quattordici non potevano vederla.** `gemelle.annota_menu()`
+misura quanto di un menu copre **un lotto**, mentre lo si prepara;
+`menu_dialogo` misura la **larghezza** delle voci gia' rese; `verifica
+--dizionario` conta le righe che restano. Nessuna guarda lo **stato di una
+schermata**. E la domanda giusta non e' «questo lotto copre il suo menu?» ma
+«dopo questo lotto esiste un menu a meta'?», che si puo' fare solo al file
+intero.
+
+💡 **Limite noto, scritto nella docstring**: i menu si raggruppano per
+**distanza** (`gemelle.blocchi_menu`, sei righe). `chat.hsp:24945` — il bottone
+«Allenare» — sta sedici righe sopra i suoi fratelli e finisce in un gruppo suo.
+La rete sbaglia **per difetto**: puo' tacere su una schermata rotta, non puo'
+inventarne una.
+
+### ▶ ⭐⭐⭐ Le tre volte in cui una firma ha aperto un menu lontano
+
+1. Il **«No.»** di `:24653` (l'offerta di accompagnarti) ha la firma del «No.»
+   di `:6277`, che sta nel menu del **venditore di Jure a Noyel**: tutto
+   inglese. Tradurre l'uno traduceva l'altro, quindi la scena di Jure e' entrata
+   nel lotto intera, nove rese.
+2. **«Use Light of Memory.»** a `:1327` non si poteva chiudere senza aprire il
+   menu dell'**altro Loyter** a `:1268`. Qui il verso e' l'opposto: una rete
+   verde sarebbe diventata rossa per una riga che non avevo toccato.
+3. 「習得する」 e 「訓練する」 di `:24954` stanno anche a `:390` e `:396`, dentro
+   la schermata dell'**allenatore amico**.
+
+### ▶ ⭐⭐ Due difetti nella rete che misura i menu, trovati perche' il lotto ci e' finito dentro
+
+1. **`_INTERPOLAZIONE` non ammetteva un `+` dentro il valore interpolato.**
+   `chat.hsp:24715` interpola `limit(cdata(...) / 2 + 5, 6, 130)`: `reso()`
+   restituiva l'espressione **intera** e la voce risultava lunga **84**
+   caratteri invece di 24. Da fuori si vedeva solo una voce «fuori misura» che
+   si salvava per «gia' rotta in inglese» — perche' l'inglese ha la stessa forma
+   e sbagliava allo stesso modo. 💡 *Un difetto della rete travestito da difetto
+   di monte.*
+2. **Un valore interpolato puo' stare in TESTA o in CODA**, non solo fra due
+   letterali: `cdatan(CDATAN_NAME, tc) + " lascia..."` non veniva visto affatto.
+   Due regex nuove, che chiedono un `+` prima o dopo la virgoletta — cosi' una
+   **statica** come `\"Miao?\"` resta intatta.
+
+⚠️⚠️ **E due test che potevano passare solo a rete vuota.** `fuori_misura()`
+restituisce **tuple**, non dizionari, e due test scrivevano `v["file"]`:
+passavano perche' un ciclo su zero elementi non indicizza niente, e sono morti di
+`TypeError` appena la rete ha trovato una voce fuori misura in un file che non
+era il loro. 💡 *Un test che filtra un referto vuoto non prova niente, e lo si
+scopre solo il giorno in cui il referto non e' vuoto.*
+
+### ▶ ⚠️⚠️ Tradurre codice morto non e' gratis
+
+`chat.hsp:19327` e `:19334` sono righe **commentate** (`// chatList 84, ...`),
+la variante lunga di due voci vive. Le avevo rese «tanto non costa niente», ed
+**e' costato**: una voce tradotta entra in `menu_dialogo.voci_di_menu()`, quindi
+la coda inglese da 74 caratteri e' finita nel **registro delle voci rotte a
+monte** e la mia resa da 61 fra le **voci fuori misura** — due numeri veri su una
+riga che non disegna niente. Sono andate in `rinviate.jsonl` (73 -> 75), come le
+tre del blocco `ORIGINAL` spento di `command.hsp`, e `bilingui` conta le rinviate
+come fatte: altrimenti l'unico modo di chiudere quel menu sarebbe tradurre codice
+morto.
+
+### ▶ ⭐⭐ La grammatica della giornata
+
+- **Il divieto di genere, ogni lotto.** Il parlante e' quasi sempre un PNG
+  estratto a caso: «se hai le prove che vada **giustiziato**» e' diventato «per
+  mandarmi al patibolo», «sono **rimasto** solo io» e' «non e' rimasto nessun
+  altro», «non mi ero **accorto**» e' «ho scoperto solo adesso» (passato
+  prossimo con **avere**, che non accorda). E `:7079` non dice «Avventuriero,
+  arrivi giusto in tempo!»: e' un vocativo al giocatore, come a `:5194` nella
+  58a.
+- **La preposizione davanti al nome**, cinque volte: «sospettare **di** X»
+  stamperebbe «di il cittadino». Le vie d'uscita sono sempre le stesse — il nome
+  a complemento oggetto («Tutti guardano X con sospetto», «Far studiare X»,
+  «Vuoi che ti accompagni a cercare X?») o a soggetto («X e' un essere umano in
+  tutto e per tutto»).
+- **«canaglia» e «viandante» non accordano**, e sono la via d'uscita quando il
+  PNG insulta o interpella il giocatore.
+- **`skillname()` non prende l'articolo**: «la tua " + skillname()» si
+  accorderebbe, e diventa «allenarti **in** " + skillname()».
+
+### ▶ ⭐⭐ Due deroghe dichiarate e i nomi cercati nel gioco
+
+- `:19984` — le tre esclamazioni del **piatto speciale** sono superlative in
+  giapponese (すごく / 凄く / とても), ma l'inglese ci ha rimesso le tre frasi del
+  cibo **normale**, gia' rese in `event.hsp:779` e `item.hsp:3359`. Renderle
+  uguali farebbe dire la stessa cosa al pasto da poche monete e al piatto pagato
+  con un bronzo, che nella stessa taverna e' la scelta accanto.
+- `:22238` — «Invest in entrusting skills(EXP up).» non vuol dire niente; il
+  giapponese dice *fargli fare le cose che gli interessano*.
+- **I nomi vengono dal gioco**: «kitsune» e' «la volpe ammaliatrice»
+  (`db_creature.hsp`), il premio di Jure e' il «cuscino di Jure»
+  (`db_item.hsp:142043`), «H Sister» resta invariato (`text.hsp:10851`), i
+  「たけのこ」 sono «germogli di bambu'».
+- ⭐⭐ **I dieci medium della magia dicono le parole dei MESSAGGI**:
+  `text.hsp:139`-`:148` ha gia' «lancia un incantesimo», «sputa ragnatele»,
+  «spruzza fluidi corporei», e il menu che chiede *quale medium* usa quelle. E'
+  la regola della 73a applicata a un menu e a un **messaggio** invece che a due
+  menu.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **Il collaudo: delle 121 rese di oggi non se n'e' vista a schermo
+   nessuna, ed e' la SESTA volta di fila** (51a, 54a, 73a a meta', 74a, 75a,
+   oggi). Il debito e' **1.484 rese** da meta' agosto. ⭐ E come nella 75a, il
+   lotto e' facile da collaudare: l'oste di qualunque taverna (mangiare, bere, i
+   due speciali col bronzo, il kiseru), il menu dell'istruzione del figlio, il
+   rito del lupo mannaro a Noyel, «Dove si trova X?» da un informatore, il
+   catalogo del mercante di schiavi, l'addestratore di capacita'.
+2. ⚠️⚠️⚠️ **IL PUNTO CIECO DELLA 74a E' ANCORA APERTO: 128 righe di menu scritte
+   a mano in `listn(...) = lang(...)`**, di cui 101 gia' tradotte e mai misurate
+   (100 in `command.hsp`, 18 in `chara.hsp`, 7 in `chat.hsp`, piu'
+   `event.hsp:825`, `help.hsp:333`, `net.hsp:604`). Va letta la geometria dei
+   tre pannelli, uno per uno.
+3. ⭐⭐ **La rete che manca ancora: i `buff` della finestra del dialogo.** Il
+   simulatore c'e' (`scratchpad/chat_righe.py`) e `scratchpad/chat-lotto-misura.py`
+   lo usa **per lotto** — oggi ha bocciato due rese, `:23892` e `:7394`, che
+   facevano una riga in piu' dell'inglese. Il perimetro su **tutti** i `buff =
+   lang(...)` resta da fare.
+4. ⭐⭐⭐ **`chat.hsp` a 3.299.** In `*chat_default` restano le famiglie gia'
+   mappate da `scratchpad/chatval-mappa.py`: il nome della casa (45), il
+   compleanno (82), la lezione di magia (75), il bestiame e il dio (96, 97),
+   l'indulgenza (46), il rifugio (43), il matrimonio e il gene (38, 39). Fuori:
+   `*chat_unique_mizuki` **1.395**, `*chat_unique` **1.183**, `*label_6452` 236,
+   `*chat_event` 112.
+5. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208 righe),
+   `manual_ENG.txt` (591), `exhelp.txt` (185). ⚠️ `help.hsp:273` conta **dieci
+   righe di FILE per pagina**: la misura della colonna va presa dalla geometria.
+6. ⭐⭐ `board.txt` **secondo lotto**: le 38 varianti giapponesi che monte ha
+   buttato via — e `talk.txt` ha lo stesso problema. Serve estendere
+   `dati_applica` ad **aggiungere** righe.
+7. ⭐⭐ `custom_autopick.hsp`: 21 gemelle **delicate**, 78 delle 90 `lang()` sono
+   confronti dentro `instr` contro il file che scrive il giocatore.
+8. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+   `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+   `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+9. ⭐⭐ Il **muro del materiale**: `mithril sword` e' «spada **di** mithril»,
+   postposta. 118 righe piu' i tre siti di `item_func.hsp`.
+10. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `item_func.hsp` 240; i **1.146** di
+    `db_card.hsp`. E la statistica 発言力 con **due nomi sullo schermo**
+    («Influenza» in `economy.hsp:357`, «autorita'» nel menu del sindaco): la
+    correzione ovvia e' vietata da `test_colonne_economy.py`, serve un sinonimo
+    **senza accento**. Decisione ancora da prendere.
+
+### ▶ Come si e' chiusa
+
+Nove spinte, una per risultato. Le quindici verifiche sono state rilanciate in
+chiusura e sono tutte verdi; `applica` e `compila --eseguibile` sono girati
+prima di chiudere — l'eseguibile e' `cgx-test.exe` del 21/08 alle 03:49 — e i
+due file dati sono stati confrontati per md5 con quelli che `applica` produce.
+
+⚠️⚠️ **Zero collaudo, sesta volta di fila.**
+
+---
+
+## La settantacinquesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
