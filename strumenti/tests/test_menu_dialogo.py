@@ -348,12 +348,35 @@ def test_le_voci_rotte_a_monte_restano_note():
     non entra in nessuna misura. 💡 Terza volta di fila che questo elenco cresce
     non perche' sia arrivato un difetto nuovo, ma perche' il progetto e' arrivato
     dov'era. La resa italiana ne usa 53.
+
+    ⚠️⚠️ **E dalla 79a sono OTTO — ma l'ottava NON e' un difetto di monte: e' un
+    artefatto della rete, ed e' il primo di questo elenco.** `chat.hsp:19256` e'
+    la settima voce del menu dello **scasso del cuore** degli evochat,
+    `"[" + ulp3 + "% Unlock] I think of you as an important family member."`.
+    La rete la misura 60 in un riquadro da 58 perche' `reso()` suppone
+    `LARGHEZZA_NUMERO = 4` cifre per ogni valore interpolato — quattro perche'
+    il set piu' caro del negozio costa 5500 biglietti. Ma `ulp3` non arriva a
+    quattro cifre: `chat.hsp:19246` e' `limit(..., 0, 80)`, quindi il massimo
+    che quella voce puo' disegnare e' `[80% Unlock] I think of you as an
+    important family member.`, che fa **58 esatti**, cioe' il tetto. A schermo
+    non sfora mai.
+
+    ⭐ **E' la lezione della 72a girata:** li' *un tetto troppo stretto produce
+    difetti di monte che non esistono*; qui lo produce un **segnaposto troppo
+    largo**. La differenza e' che il tetto sbagliato si correggeva e basta,
+    mentre le quattro cifre servono davvero altrove: la correzione vera e'
+    leggere il `limit(..., 0, N)` della variabile, e non e' stata fatta. Finche'
+    non lo e', la riga sta qui **col motivo scritto**, che e' esattamente il
+    lavoro di questa guardia.
+
+    💡 La resa italiana — «[Scasso 80%] Per me sei famiglia.» — ne usa 34, e sta
+    dentro con qualunque tiro.
     """
     monte = {(f, r) for f, r, _, _ in fuori_misura_inglese()}
     assert monte == {("tcg_custom.hsp", 1968), ("event.hsp", 521),
                     ("chat.hsp", 19527), ("chat.hsp", 19563),
                     ("chat.hsp", 17710), ("chat.hsp", 17713),
-                    ("chat.hsp", 22937)}
+                    ("chat.hsp", 22937), ("chat.hsp", 19256)}
 
 
 # --- un chatList non e` sempre nella pergamena (corretto il 2026-08-18) ------

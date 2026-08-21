@@ -125,6 +125,84 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## Gli EVOCHAT, il sistema intero — 2026-08-21, settantanovesima sessione
+
+Un lotto solo, **109 rese**, piu' una correzione, due invariati e una guardia
+aggiornata. Nessuna toppa, nessuna rete nuova.
+
+| pezzo | righe | contenuto |
+|---|---|---|
+| le reazioni del compagno | 18866-19235 | i cinque stati (`hyouzyou`) dei quattro modi di evochat |
+| i cinque menu | 19242-19319 | scasso del cuore, evochat, evochat oscuro, gesti, scena |
+| i venticinque `chatval` | 21362-21979 | le dieci vie, i due esiti dello scasso, il potere di scasso |
+
+`chat.hsp` scende da 2.877 a **2.768**. `menu_dialogo` misura **766** voci
+(erano 731), `bilingui` resta a **0** — e qui ha dato zero al primo giro per
+una ragione misurata prima di cominciare: delle 109 firme, **zero** hanno
+un'occorrenza fuori dalla zona.
+
+### ⭐⭐⭐ E' il difetto della 78a girato: risposta italiana sotto un menu inglese
+
+I tre ingressi — «<evochat>», «<evochat in coppia>», «<evochat oscuro>» — erano
+**gia' italiani dalla 73a**, e sotto c'era un sottosistema interamente inglese.
+Nessuna delle quindici reti lo vedeva: `bilingui` guarda i gruppi di
+`chatList`, e **un menu tutto inglese non e' bilingue**. Si trova solo
+chiedendo *dove porta* una voce gia' resa, che e' l'unica domanda che nessuna
+rete pone.
+
+### ⭐⭐⭐ Il lessico non si e' deciso: si e' ripreso, e stava in `text.hsp`
+
+Le dieci «route» non sono dieci parole nuove: ogni `chatval` scrive
+`CDATA_HEART_LOCK_RELATION` e quel valore **sceglie una delle dieci scale di
+rapporto** di `text.hsp:33`-`43` (`_impressiona1`-`7`, `_impressionb1`-`3`),
+tradotte da tempo e stampate sotto il ritratto (`chat.hsp:25620`) e nel
+messaggio di `chara_func.hsp:1080`, «Il rapporto con X diventa <Y>...».
+
+| voce | scala | la parola |
+|---|---|---|
+| Comrade | `_impressiona1` | **Compagno** |
+| Friend | `_impressiona2` | **Amico** |
+| Rival | `_impressiona3` | **Rivale** |
+| Affection | `_impressiona4` | **Innamoramento** |
+| Student | `_impressiona5` | **Tutela** |
+| Master | `_impressiona6` | **Insegnamento** |
+| Family | `_impressiona7` | **Famiglia** |
+| Contract | `_impressionb1` | **Contratto** |
+| Owner | `_impressionb2` | **Appartenenza** |
+| Loyalty | `_impressionb3` | **Lealta'** |
+
+Stessa cosa per i due esiti dello scasso: `command.hsp:2502` e `:2507`
+chiamano i due tratti «Nessun **cruccio**» e «**Passatempo pericoloso**», e le
+due righe di `:21732` e `:21750` dicono adesso quelle parole.
+
+### ⚠️⚠️ `name(cc)` in `*chat_default` e' il GIOCATORE, e monte lo usa per il compagno
+
+`cc = CHARA_PLAYER` (lo conferma `:22124`, dove `name(cc)` decapita il
+prigioniero). Tre righe che parlano del **compagno** lo nominano lo stesso:
+`:21732`, `:21750` e `:21867`. Il giapponese dice `name(tc)` tutt'e tre le
+volte e il codice gli da' ragione (`cbitmod ..., tc`; `cdata(CDATA_GOLD, tc)`).
+Le prime due sono rese di oggi; la terza era una resa vecchia che diceva «Tu hai
+diviso le monete con il compagno» — **corretta**. 💡 Nessuna delle quindici reti
+guarda *quale* personaggio nomina una resa.
+
+### ⚠️⚠️ L'inglese di monte ha perso dodici battute, e le ha sostituite con due segnaposto
+
+Otto righe portano lo stesso inglese («name is staring at you with a happy
+expression») e due un altro («name seems to be a little pounding»); il
+giapponese ne ha otto diverse. Deroga dichiarata, come `:1744` e `:1866` nella
+78a: si segue il giapponese. Il nome resta in testa perche' `verifica` pretende
+le funzioni di contenuto dell'inglese — e perche' attribuisce la battuta.
+
+### ⚠️⚠️ Un segnaposto troppo largo produce un difetto di monte che non esiste
+
+`chat.hsp:19256` e' entrata fra le «rotte anche in inglese», ottava della lista,
+e **non lo e'**: `reso()` suppone quattro cifre per ogni valore interpolato, ma
+`ulp3` e' `limit(..., 0, 80)`, quindi il massimo vero della voce inglese fa
+**58 esatti**, cioe' il tetto. E' la lezione della 72a girata — li' era un
+tetto troppo stretto — con una differenza: le quattro cifre servono davvero
+altrove, e la correzione vera e' leggere il `limit(..., 0, N)`. Non e' stata
+fatta: la riga sta nella guardia **col motivo scritto**.
+
 ## `*chat_default` chiuso, le gilde e il tutorial — 2026-08-21, settantottesima sessione
 
 Tre lotti grossi invece di nove piccoli, e ognuno chiude una cosa intera.

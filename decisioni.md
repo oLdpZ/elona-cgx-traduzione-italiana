@@ -6,6 +6,47 @@ ancora aperte.
 
 ---
 
+## Il lessico di un sistema non si decide: si cerca dove il gioco lo stampa gia' — 2026-08-21, settantanovesima
+
+Aprendo gli **evochat** c'erano dieci parole da scegliere: le dieci «route» in
+cui il giocatore puo' portare il rapporto con un compagno («You've entered the
+Comrade route!»). Sembrava una decisione di gusto — «via», «percorso»,
+«legame», e poi dieci nomi. Non lo era.
+
+Ogni `chatval` che stampa quel messaggio scrive anche
+`cdata(CDATA_HEART_LOCK_RELATION, tc)`, e **quel valore sceglie una delle dieci
+scale di rapporto** di `text.hsp:33`-`43` — `_impressiona1`-`7` e
+`_impressionb1`-`3` — che sono gia' tradotte da sessioni e che il gioco stampa
+in due punti che il giocatore vede subito dopo: sotto il ritratto nella
+finestra del dialogo (`chat.hsp:25620`) e nel messaggio di
+`chara_func.hsp:1080`, «Il rapporto con X diventa <Y>...».
+
+Quindi la parola non era da scegliere: era da **trovare**. «Comrade route» e'
+la via del **Compagno** perche' `_impressiona1` dice «Compagno»; «Owner route»
+e' la via dell'**Appartenenza** perche' `_impressionb2` dice «Appartenenza» —
+e li' la scala aveva gia' applicato, sessioni fa, la regola della guida di
+stile sui rapporti («si rende il **legame**, non la persona»). Stessa cosa per
+i due esiti dello scasso del cuore: i tratti che ne nascono si chiamano
+«Nessun **cruccio**» e «**Passatempo pericoloso**» in `command.hsp:2502` e
+`:2507`, e le due righe che li annunciano dicono adesso quelle parole.
+
+⭐ **Come si trova la parola.** Non si cerca il testo: si cerca la **variabile**
+che il codice scrive insieme al testo, e poi tutti i punti che la leggono. Qui
+bastava `grep HEART_LOCK_RELATION` per avere in dieci righe l'elenco dei siti
+che stampano il nome del rapporto. E' la stessa mossa della 78a con le voci di
+diario delle prove di gilda, generalizzata: *se una resa nomina uno stato del
+gioco, quello stato ha quasi sempre un nome gia' scritto da qualche parte, e la
+via per arrivarci passa dal dato, non dalla stringa.*
+
+⚠️ **E vale la pena farlo anche quando la resa sembra libera.** Nessuna delle
+quindici reti avrebbe segnalato «Sei entrato nel percorso Cameratismo!»: e'
+italiano corretto, sta nel tetto, non e' bilingue. Sarebbe stata solo una
+schermata che chiama una cosa con un nome e la schermata accanto con un altro —
+il difetto della statistica 発言力, «Influenza» in un posto e «autorita'»
+nell'altro, che aspetta una decisione dalla 70a.
+
+---
+
 ## Il perimetro di un blocco non si legge in `--da-tradurre` — 2026-08-21, settantottesima
 
 `python -m strumenti.estrai <file> --da-tradurre` ancora una voce per **firma**

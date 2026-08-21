@@ -19,3 +19,9 @@ lavoro/_*.jsonl
 # referti derivati dagli script di scratchpad/: si rigenerano, non si versionano.
 # ⚠️ Gli script che li producono SI', invece: vedi scratchpad/LEGGIMI.md.
 lavoro/_*.txt
+
+# 79a: l'estrazione completa di un file e i dossier che se ne ricavano sono
+# derivati puri - `python -m strumenti.estrai <file> --uscita ...` li rifa' in
+# un comando. Gli SCRIPT che li leggono restano versionati.
+scratchpad/*-tutte.jsonl
+scratchpad/*-dossier.txt
