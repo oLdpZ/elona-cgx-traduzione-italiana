@@ -292,8 +292,29 @@ _VOCE = re.compile(r"(?i)\bchatlist\b")
 _GOSUB = re.compile(r"\bgosub\s+\*(\w+)")
 _ETICHETTA = re.compile(r"^\*(\w+)")
 _SFONDO = re.compile(r'^\s*file\s*=\s*"([^"]+)"')
-_INTERPOLAZIONE = re.compile(r'"\s*\+\s*[^+"]+?\s*\+\s*"')
+# ⚠️⚠️ **Un valore interpolato puo' contenere a sua volta un `+`, e la prima
+# stesura non lo prevedeva** (76a). `chat.hsp:24715` interpola
+# `limit(cdata(CDATA_LEVEL, CHARA_PLAYER) / 2 + 5, 6, 130)`: con `[^+"]` il
+# pezzo non veniva riconosciuto come interpolazione, `reso()` restituiva
+# l'espressione **intera** — virgolette, nome della funzione e argomenti — e la
+# voce risultava lunga 84 caratteri invece di 24. Da fuori si vedeva solo una
+# voce «fuori misura» che si salvava per «gia' rotta in inglese», perche'
+# l'inglese ha la stessa forma e sbagliava allo stesso modo: un difetto della
+# rete travestito da difetto di monte. Il `"` resta escluso — un'interpolazione
+# che contiene una stringa non si sa dove finisca — ma il `+` no.
+_INTERPOLAZIONE = re.compile(r'"\s*\+\s*[^"]+?\s*\+\s*"')
 _GIUNTURA = re.compile(r'"\s*\+\s*"')
+
+# ⚠️⚠️ **E un valore interpolato puo' stare in TESTA o in CODA, non solo in
+# mezzo** (76a). `_INTERPOLAZIONE` cerca un valore **fra due letterali**, quindi
+# non vedeva ne' `cdatan(CDATAN_NAME, tc) + " lascia..."` ne'
+# `"Catalogo A: Lv. " + limit(...)`: in quei due casi `reso()` restituiva il
+# codice insieme al testo e la voce risultava lunga il triplo del vero. Le due
+# regex chiedono un `+` prima della virgoletta (in testa) o dopo (in coda), che
+# e' quel che distingue un'espressione da una **statica**: `\\"Miao?\\"` e
+# `citta'` non hanno nessun `+` e restano intatte.
+_TESTA = re.compile(r'^[^"]+?\s*\+\s*"')
+_CODA = re.compile(r'"\s*\+\s*[^"]+$')
 
 
 def reso(espressione: str) -> str:
@@ -306,7 +327,10 @@ def reso(espressione: str) -> str:
     (`\\"Miao?\\"`): la barra rovesciata non si vede a schermo e non si conta,
     o ogni battuta fra virgolette risulterebbe due caratteri piu' lunga del vero.
     """
-    testo = _INTERPOLAZIONE.sub("9" * LARGHEZZA_NUMERO, espressione)
+    cifre = "9" * LARGHEZZA_NUMERO
+    testo = _TESTA.sub('"' + cifre, espressione)
+    testo = _CODA.sub(cifre + '"', testo)
+    testo = _INTERPOLAZIONE.sub(cifre, testo)
     testo = _GIUNTURA.sub("", testo).strip()
     if testo.startswith('"') and testo.endswith('"'):
         testo = testo[1:-1]

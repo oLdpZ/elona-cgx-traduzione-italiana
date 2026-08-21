@@ -238,6 +238,56 @@ def test_un_accento_degradato_vale_due_caratteri():
     assert len(reso("città")) == 6
 
 
+def test_un_valore_interpolato_puo_contenere_un_piu():
+    """⚠️ `chat.hsp:24715` interpola un conto, non una variabile.
+
+    La prima stesura di `_INTERPOLAZIONE` escludeva il `+` dal pezzo
+    interpolato, quindi `limit(... / 2 + 5, 6, 130)` non veniva riconosciuto e
+    `reso()` restituiva l'espressione intera: la voce del catalogo degli schiavi
+    risultava lunga 84 caratteri invece di 24, cioe' «fuori misura» per un
+    difetto della **rete**. Si vedeva solo come «gia' rotta in inglese», perche'
+    l'inglese ha la stessa forma e sbagliava allo stesso modo.
+    """
+    espressione = ('"Catalogo A (max Lv. "'
+                   ' + limit(cdata(CDATA_LEVEL, CHARA_PLAYER) / 2 + 5, 6, 130) + ")"')
+    assert reso(espressione) == "Catalogo A (max Lv. 9999)"
+
+
+def test_un_valore_interpolato_in_coda_si_conta():
+    """⚠️ `_INTERPOLAZIONE` cerca un valore FRA due letterali: in coda non c'era.
+
+    La resa del catalogo degli schiavi finisce con il livello e non con una
+    parola: senza questa regola `reso()` restituiva `limit(...)` per intero e la
+    voce risultava lunga 80 caratteri invece di 24.
+    """
+    assert reso('"Catalogo A: max Lv. "'
+                ' + limit(cdata(CDATA_LEVEL, CHARA_PLAYER) / 2 + 5, 6, 130)') == (
+        "Catalogo A: max Lv. 9999")
+
+
+def test_un_valore_interpolato_in_testa_si_conta():
+    """Lo stesso dall'altra parte: la frase che comincia col nome."""
+    assert reso('cdatan(CDATAN_NAME, tc) + " lascia le monete e scappa."') == (
+        "9999 lascia le monete e scappa.")
+
+
+def test_una_statica_non_e_un_espressione():
+    """⚠️ La guardia delle due regole di sopra: un `+` deve esserci davvero.
+
+    Una statica arriva qui **senza** virgolette esterne e senza `+`: se le due
+    regex si accontentassero della sola virgoletta, ogni battuta che ne contiene
+    una diventerebbe quattro cifre.
+    """
+    assert reso('\\"Miao?\\"') == '"Miao?"'
+    assert reso("Annulla") == "Annulla"
+
+
+def test_due_valori_interpolati_restano_due():
+    """Il `+` ammesso dentro l'interpolazione non fa saldare due pezzi in uno."""
+    assert reso('"Ecco " + name(tc) + " e " + name(rc) + " insieme"') == (
+        "Ecco 9999 e 9999 insieme")
+
+
 # --- la rete vera ------------------------------------------------------------
 
 def test_nessuna_voce_di_menu_sfora_il_riquadro():
@@ -454,7 +504,12 @@ def test_le_voci_del_pannello_dei_ci_stanno_tutte():
     assert voci, "god.hsp non ha piu' voci di menu: e' cambiato il sorgente?"
     for v in voci:
         assert v["_contenitore"] == PANNELLO_DEI
-    assert [v for v in fuori_misura() if v["file"] == "god.hsp"] == []
+    # ⚠️ `fuori_misura()` restituisce TUPLE `(file, riga, quanti, testo)`, non
+    # dizionari: la prima stesura scriveva `v["file"]` e passava solo finche' la
+    # lista era **vuota**, perche' un ciclo su zero elementi non indicizza
+    # niente. Nella 76a la rete ha trovato una voce fuori misura in `chat.hsp` e
+    # questo test e' morto di TypeError, senza avere niente a che vedere con lei.
+    assert [v for v in fuori_misura() if v[0] == "god.hsp"] == []
 
 
 # --- il quarto contenitore: l'elenco delle leggi della citta' -----------------
@@ -479,7 +534,9 @@ def test_le_due_leggi_della_citta_ci_stanno():
     assert voci, "economy.hsp non ha piu' voci di menu: e' cambiato il sorgente?"
     for v in voci:
         assert v["_contenitore"] == LEGGI_CITTA
-    assert [v for v in fuori_misura() if v["file"] == "economy.hsp"] == []
+    # ⚠️ tuple, non dizionari: vedi la nota in
+    # `test_le_voci_del_pannello_dei_ci_stanno_tutte`
+    assert [v for v in fuori_misura() if v[0] == "economy.hsp"] == []
 
 
 # --- il secondo tetto della pergamena: le due colonne (nato nella 72a)

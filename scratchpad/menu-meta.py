@@ -26,8 +26,16 @@ from strumenti import estrai, gemelle, percorsi
 
 
 def meta_e_meta(nome: str) -> list[dict]:
+    """I menu a meta' di un file.
+
+    ⚠️ **Le rinviate contano come fatte.** `chat.hsp:19327` e `:19334` sono due
+    righe **commentate** a monte (`// chatList 84, ...`): non le disegna nessuno,
+    e sono in `rinviate.jsonl` per questo. Senza toglierle, la rete lascerebbe un
+    menu «a meta'» per sempre, e l'unico modo di chiuderlo sarebbe tradurre codice
+    morto — che e' proprio quel che il rinvio esiste per non fare.
+    """
     testo = (percorsi.SORGENTE_HSP / nome).read_bytes().decode('cp932', errors='replace')
-    tradotte = estrai.firme_tradotte(nome)
+    tradotte = estrai.firme_tradotte(nome) | estrai.carica_rinviate(None, nome)
     per_riga: dict[int, list[dict]] = {}
     for voce in estrai.estrai_da_testo(nome, testo):
         per_riga.setdefault(voce['riga'], []).append(voce)
