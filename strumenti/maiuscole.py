@@ -61,15 +61,14 @@ GIUDICATI = {
                          "punti la maiuscola regge, ed e' un nome",
     ("chat.hsp", 18813): "chat.hsp non e' ancora tradotto: si giudica quando "
                          "ci arriva il lotto",
-    ("chat.hsp", 22375): "il compagno venduto: la resa mette il nome IN TESTA "
-                         "(«La gattina passa di mano.»), dove la maiuscola e' "
-                         "giusta perche' name() porta l'articolo. L'appeso e' "
-                         "di monte, non della resa (77a)",
+    # ⚠️ :22375 e :24739 NON sono piu' qui, e il motivo vale piu' della riga:
+    # questa rete legge la BUILD, non il sorgente pinnato. Le due rese della 77a
+    # («La gattina passa di mano.», «La gattina entra al tuo servizio.») mettono
+    # il nome IN TESTA, quindi i due siti sono usciti dagli appesi da soli e il
+    # loro permesso sarebbe rimasto appeso al vuoto. L'ha detto
+    # `test_i_giudicati_esistono_ancora`, che esiste apposta.
     ("chat.hsp", 24713): "il prezzo dello schiavo, dopo «vediamo nella "
                          "stalla...»: dopo i puntini la maiuscola regge (77a)",
-    ("chat.hsp", 24739): "lo schiavo comprato: come :22375, il nome sta in "
-                         "testa alla resa («La gattina entra al tuo "
-                         "servizio.») (77a)",
     ("command.hsp", 4436): "cnven(txtcopy), la nota che segue la frase "
                            "gridata: apre una frase sua",
     ("command.hsp", 10948): "«Res. » piu' il nome dell'elemento: dopo il punto "
