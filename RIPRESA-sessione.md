@@ -1,29 +1,238 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-21, fine della **settantaquattresima** sessione (**due buchi
-nel perimetro, le virgolette che mette il codice, 175 rese e `event.hsp`
-CHIUSO**).
+Aggiornato: 2026-08-21, fine della **settantacinquesima** sessione (**228 rese in
+`chat.hsp`, cinque famiglie di `*chat_default`, e una toppa ritirata perche' il
+guardiano c'era gia'**).
 
-⭐⭐⭐ **La lezione della giornata: tre difetti su quattro non stavano in una
-resa sbagliata, stavano in una rete che non arrivava.** E tutt'e tre sono usciti
-**leggendo il codice prima di tradurre**, non da un referto — perché un referto
-dice quel che misura, e un buco nel perimetro non produce un numero sbagliato:
-produce un numero che non c'è.
-
-1. **`chatlist` minuscolo.** HSP non distingue maiuscole e minuscole e monte
-   scrive in due modi: 1.626 `chatList` e **31 `chatlist`**. `menu_dialogo`
-   cercava la sola forma con la L grande. Tredici delle quindici minuscole di
-   `event.hsp` sono i menu degli eventi di mare, cioè il lotto che stavo per
-   aprire: le avrei scritte senza nessun tetto sopra la testa.
-2. **Le virgolette di `cnvtalk`.** `init.hsp:171` è
-   `return "\"" + s + "\" "` — le mette lui. Nove rese già spinte se le
-   portavano dentro e a schermo erano **doppie**.
-3. **128 righe di menu scritte a mano in `listn()`**, di cui **101 già tradotte
-   e mai misurate**. Questo NON è stato chiuso: vedi «Quel che resta aperto».
+⭐⭐⭐ **La lezione della giornata: le verifiche in chiusura non servono solo a
+scoprire che un numero e' invecchiato — servono a scoprire che hai rotto una
+regola che non sapevi ci fosse.** `pytest` era verde all'apertura e **rosso in
+chiusura**, e uno dei due rossi era mio: avevo cambiato `economy.hsp:357` da
+«Influenza» a «Autorita'» convinto che violasse `glossario.md:356`, e invece
+`strumenti/tests/test_colonne_economy.py` esisteva **da prima** e il suo
+docstring dice testualmente «e' la stessa ragione per cui la resa di `:357` e'
+"Influenza" e non "Autorita'"». 💡 *Prima di correggere un sito, si cerca chi lo
+sorveglia*: la scelta era deliberata, scritta e sotto test, e il difetto ero io.
 
 ---
 
-## La settantaquattresima sessione
+## La settantacinquesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quattordici** verifiche d'apertura. La
+sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
+**trentaduesima prova** di fila, e le quattordici hanno dato quattordici volte i
+valori attesi della 74a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    verifica --dizionario   chat.hsp   0 / 3420   (era 3648)
+    menu_dialogo            0 su 572 misurate      (erano 523)
+                            e «rotte anche in inglese: 7» (erano 6)
+    dizionario              chat.hsp +228 voci
+    test_menu_dialogo       il registro delle rotte a monte ha una voce in piu':
+                            chat.hsp:22937
+
+Tutto il resto e' **fermo dov'era**: `pytest` **719 passed 6 skipped**,
+`prova_identita` 72/72 e 27.813, `creature` 1131/2466/0/0, `larghezze` 0 fuori
+misura, `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `linguette` 0 e 0,
+`battute --divergenti` **13**, `intestazioni_larghezze` banco ok e perimetro 0,
+`dati_applica --identita` 4 file e 2.987 righe, `dati_sorgente` 7/7, `gronde` 0
+su 5, `maiuscole` 144 siti e 0 da guardare, `toppe.jsonl` **1016**,
+`rinviate.jsonl` **73**.
+
+⭐ **Le quattordici verifiche sono state rilanciate ANCHE IN CHIUSURA**, e hanno
+pagato: vedi la lezione qui sopra. ✅ **`cgx-test.exe` e' FRESCO** (21/08, 01:57)
+e i due file dati di `elonaplus2.31\data\` hanno lo stesso md5 di quelli che
+`applica` produce: `talk_it.txt` 88.743 byte, 1.800 CRLF, **zero LF soli**.
+
+### ▶ Che cosa e' stato fatto
+
+    chat.hsp  il capo del Dock        chatval 107 e 108, la scena del mobbing   95 rese
+    chat.hsp  la gestione della citta' Orville, il sindaco, le due leggi        49 rese
+    chat.hsp  il prigioniero          le minacce, il rilascio, l'esecuzione     33 rese
+    chat.hsp  l'artigiano             munizioni, maledizioni, rinforzo, peso    25 rese
+    chat.hsp  i comandi ai compagni   prezioso, oggetti, congedo, richiamo      26 rese
+    ------------------------------------------------------------------------------
+                                      228 rese, 1 toppa ritirata, 6 spinte
+
+### ▶ ⭐⭐⭐ `*chat_default` e' mezzo fatto, ed e' il posto giusto da cui ripartire
+
+`chat.hsp` ha **3.420** righe da fare e la piu' grossa e' `*chat_unique_mizuki`
+(1.395), ma il lotto che paga di piu' e' `*chat_default`: e' quel che dice
+**chiunque** quando ci parli. La sua forma e' uno smistamento
+`if ( chatval == N )`, e **ogni `chatval` e' la voce di menu che il giocatore ha
+appena scelto**. Quel menu la 73a l'ha tradotto tutto. Quindi fino a oggi il
+giocatore cliccava una voce italiana e riceveva una risposta inglese: la
+famiglia di difetti della 73a («una schermata si legge intera») nella sua forma
+piu' visibile.
+
+Erano 550. Oggi sono **322**.
+
+⚠️⚠️ **E i numeri di `chatval` sono PER MENU, non globali.** `32` e' «chain» nel
+menu dei materiali del fabbro e il **portafoglio smarrito** dentro
+`*chat_default`. La prima stesura di `scratchpad/chatval-mappa.py` prendeva la
+prima `chatList` del file con quel numero e rispondeva con la voce sbagliata —
+ho quasi aperto un lotto «i materiali» che non esisteva. Adesso lo strumento
+cerca solo dentro il menu di `*chat_default` (`:19320`-`:19880`).
+
+### ▶ ⭐⭐⭐ La geometria della finestra del dialogo, e il buco nel suo perimetro
+
+La battuta del PNG (`buff`) non la misura **nessuna delle quattordici reti**. Il
+tetto si legge nel sorgente:
+
+    chat.hsp:25226   talk_conv buff, 56 - en * 3      va a capo a 53 caratteri
+    chat.hsp:25728   y = wy + 43 + cnt * 19           prima riga a 43, passo 19
+    chat.hsp:25161   y = wy + wh - 56 - keyrange*19   i bottoni risalgono dal basso
+
+Con `wh = 380` le righe che ci stanno sono **`(324 - bottoni*19 - 43) // 19`**:
+13 con un bottone solo (`chatMore`), 12 con due, 11 con tre, 8 con sei. **Non
+c'e' troncatura: c'e' sovrapposizione**, cioe' un difetto che una rete di tetti
+non troverebbe comunque.
+
+⚠️ **Il simulatore esiste gia' e nessuno lo aveva collegato qui.**
+`scratchpad/chat_righe.py` (54a) replica `talk_conv` esattamente — e non e' un
+`textwrap`: taglia sugli spazi, quindi una parola piu' lunga della riga
+**sfonda** invece di spezzarsi. Ma il suo perimetro sono le **29 descrizioni di
+`cardsetdesc@tcg`** e basta. Oggi `scratchpad/chat-lotto-misura.py` ne riusa il
+simulatore per misurare un lotto; **farne una rete vera, col perimetro su tutti
+i `buff = lang(...)`, e' lavoro ancora da fare**.
+
+### ▶ ⭐⭐ Il genere vietato, tre volte in un giorno e per tre ragioni diverse
+
+`guida-stile.md` dice «mai un aggettivo o un participio riferito al giocatore».
+Oggi la stessa regola e' scattata su **tre soggetti diversi**, e le vie d'uscita
+sono diverse:
+
+1. **Il giocatore** (il capo del Dock lo insulta per ottanta righe). La via
+   d'uscita e' il **nome predicativo**, che non accorda: «sei una mezza
+   calzetta», «un pezzo di merda come te», «Che schiappa!», «la fortuna qui e'
+   TUA» invece di «il fortunato sei tu», «Ma non ci vedi?» invece di «Ma sei
+   cieco?».
+2. ⚠️ **Il PARLANTE.** `chatval == 107` non ha nessun ramo su `CDATA_SEX`,
+   quindi il capo puo' essere l'uno o l'altra: «quando sono arrivato io» sarebbe
+   sbagliato meta' delle volte, e si dice «ai miei tempi». (In `chatval == 108`
+   il ramo c'e', a `:22618`, e li' il parlante si accorda.)
+3. ⚠️ **L'OGGETTO.** `itemname(ci)` puo' essere «la pozione» o «il mantello»,
+   quindi «diventa piu' leggero» e' accordato: le rese sono «**perde peso**» e
+   «**prende peso**» — verbo e nome, che non accordano niente.
+
+💡 E le espressioni del volto girano sul **nome**: «ha l'aria abbattuta», «fa una
+faccia sorpresa» — l'accordo cade su «aria» e «faccia», che sono parole nostre.
+
+### ▶ ⭐⭐ Le trappole che il progetto aveva gia' documentato, e che ho ripescato
+
+- **La preposizione davanti a `name()`** (`guida-stile.md:275`): «mozza la testa
+  **a** `name(tc)`» stampa «a il putit». Le due decapitazioni diventano «`name`
+  **decapita** `name`», col personaggio a complemento oggetto. E per «Hai dato
+  istruzioni **a** X» la via d'uscita c'era gia' a `action.hsp:11810`: «Hai
+  **istruito** X».
+- **`his(x)`, `him(x)`, `your(x)`, `he(x)` SENZA secondo argomento sono
+  morfologia inglese e si tolgono**: `init.hsp:1811`, `:1956`, `:2045` mettono
+  la `lang()` **solo** nel ramo col secondo argomento. Solo `his(x, 1)` e
+  `he(x, 1)` sono contenuto. La memoria diceva `his(x, 1)`; adesso si sa che
+  vale per tutta la famiglia.
+- **Dove l'inglese usa un pronome oggetto, l'italiano RIPETE IL NOME** (la
+  regola dei sogni della 74a): «Really abandon `him(tc)`?» diventa «Vuoi davvero
+  abbandonare `name(tc)`?».
+- **`cnvtalk()` mette le virgolette da se'** (la 74a): le venti reazioni dei
+  cittadini alle leggi sui lupi mannari vanno **nude**.
+
+### ▶ ⭐⭐ I gemelli che il dizionario non unisce, e vanno cercati a mano
+
+Il dizionario e' **per file** e la firma comprende il giapponese **e** l'inglese.
+Oggi la stessa frase e' capitata in due posti tre volte, e ogni volta con una
+forma diversa del problema:
+
+1. **Stesso giapponese, inglese diverso -> due firme.** `chat.hsp:7014` e'
+   «Law development», `:23933` e' «Policy development», tutt'e due 法律整備. Sono
+   **quasi gemelle**: si leggono, non si travasano, ma devono dire le stesse
+   parole. `:23933` e' «Emanare leggi» come il suo gemello.
+2. **Stesso testo, altro file.** `command.hsp:6703` e `:6707` sono gli stessi due
+   messaggi degli ordini sugli oggetti di `chat.hsp:22013` e `:22018`, gia' resi.
+   Senza andarli a cercare, la stessa frase sarebbe uscita in due modi.
+3. **Stesso inglese, tre giapponesi diversi.** «Sorry, this is undeveloped.» sta
+   a `:7067` (未実装らしいな), `:7070` (開発中だってさ！) e `:24089` (開発中！).
+   Deroga dichiarata: l'inglese perde informazione, l'italiano li distingue.
+
+### ▶ ⭐⭐ Il difetto ancora aperto che la toppa ritirata ha lasciato sul tavolo
+
+La statistica 発言力 (`MDATA_CITY_AUTHORITY`) ha **due nomi sullo schermo**:
+«Influenza» nel pannello della citta' (`economy.hsp:357`) e «autorita'» nel menu
+del sindaco (`chat.hsp:19563`) e nei messaggi (`action.hsp:8506`). Il giocatore
+apre le due schermate nella stessa sessione.
+
+⚠️ **Nessuna rete lo vede**: `gemelle` confronta le firme e 発言力 sta dentro tre
+frasi diverse; `verifica --dizionario` guarda che non ci sia da ritradurre, non
+che il glossario sia rispettato.
+
+⚠️⚠️ **E la correzione ovvia e' vietata da un test.** `economy.hsp:319`-`:365`
+allinea le colonne con gli **spazi**, e
+`strumenti/tests/test_colonne_economy.py` vieta gli accenti nelle etichette
+perche' `applica` degrada «a» accentata in «a'», che e' **due caratteri**:
+l'imbottitura andrebbe contata su una forma che il file del dizionario non
+mostra. Chiuderlo vuol dire trovare un **sinonimo senza accento** per la colonna
+(«Autorevolezza»? «Credito», che e' la parola con cui `glossario.md:356`
+descrive la statistica?), non rimettere l'accento. **Decisione da prendere.**
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **Il collaudo: delle 228 rese di oggi non se n'e' vista a schermo
+   nessuna, ed e' la QUINTA volta di fila** (51a, 54a, 73a a meta', 74a, oggi).
+   Il debito di prima e' intatto: le 175 della 74a, le 428 della 73a, le 289
+   della 72a, le 243 della 69a. ⭐ **Ma questo lotto e' il piu' facile da
+   collaudare che il progetto abbia prodotto da mesi**, perche' sta tutto dietro
+   a voci di menu che si scelgono a mano: parlare a un compagno (prezioso,
+   oggetti, congedo), parlare a Orville a Vernis (la gestione della citta'),
+   appendere un nemico al sacco da botte, chiedere a un fabbro di rinforzare.
+   Niente `rnd`, niente eventi a caso.
+2. ⚠️⚠️⚠️ **IL PUNTO CIECO DELLA 74a E' ANCORA APERTO: 128 righe di menu scritte
+   a mano in `listn(...) = lang(...)`**, di cui **101 gia' tradotte e mai
+   misurate** (100 in `command.hsp`, 18 in `chara.hsp`, 7 in `chat.hsp`, piu'
+   `event.hsp:825`, `help.hsp:333`, `net.hsp:604`). Chiuderlo non e' allargare
+   una regex: va letta la geometria dei tre pannelli, uno per uno.
+3. ⭐⭐ **La rete che manca: i `buff` della finestra del dialogo.** Vedi sopra —
+   il simulatore c'e' (`chat_righe.py`), il perimetro no.
+4. ⭐⭐⭐ **`chat.hsp` a 3.420.** In `*chat_default` restano **322** rese, in
+   famiglie gia' mappate da `scratchpad/chatval-mappa.py`: il figlio (113, 114),
+   il lupo mannaro (69, 70), il nome della casa (45), il compleanno (82), la
+   lezione di magia (75), il bestiame e il dio (96, 97), l'oste (13, 83, 93,
+   112, 86). Fuori da `*chat_default`: `*chat_unique_mizuki` **1.395**,
+   `*chat_unique` **1.183**, `*label_6452` 236, `*chat_event` 112.
+5. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208 righe),
+   `manual_ENG.txt` (591), `exhelp.txt` (185). ⚠️ `help.hsp:273` conta **dieci
+   righe di FILE per pagina**: la misura della colonna va presa dalla geometria.
+6. ⭐⭐ `board.txt` **secondo lotto**: le 38 varianti giapponesi che monte ha
+   buttato via — e `talk.txt` ha lo stesso problema. Serve estendere
+   `dati_applica` ad **aggiungere** righe.
+7. ⭐⭐ `custom_autopick.hsp`: 21 gemelle **delicate**, 78 delle 90 `lang()` sono
+   confronti dentro `instr` contro il file che scrive il giocatore.
+8. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+   `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+   `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+9. ⭐⭐ Il **muro del materiale**: `mithril sword` e' «spada **di** mithril»,
+   postposta. 118 righe piu' i tre siti di `item_func.hsp`.
+10. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `item_func.hsp` 240; i **1.146** di
+    `db_card.hsp`. E i **titoli degli eventi** (`event.hsp:4171`) che non misura
+    nessuno, con il `file =` che sta **dopo** la riga `s =`.
+
+### ▶ Come si e' chiusa
+
+Sei spinte, una per risultato chiuso, e l'albero e' pulito. Le quattordici
+verifiche sono state rilanciate **in chiusura** e hanno trovato due test rossi:
+uno era manutenzione dovuta (il registro delle voci rotte a monte, che deve
+crescere con un motivo scritto), l'altro era una mia correzione sbagliata, che e'
+stata **ritirata**. `cgx-test.exe` e' stato ricostruito **due volte**, la seconda
+dopo il ritiro, e i due file dati sono stati reinstallati e confrontati per md5.
+
+⚠️⚠️ **Zero collaudo, quinta volta di fila.** Non si accumula piano: sono 1.363
+rese viste da zero occhi da meta' agosto in poi.
+
+---
+
+## La settantaquattresima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

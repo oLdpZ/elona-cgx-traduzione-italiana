@@ -6247,3 +6247,85 @@ lo stesso che già rende il ramo giapponese, e il sostantivo passa nella frase:
 💡 Così il plurale **sparisce** invece di essere risolto: «Ospiti in attesa: 1»
 regge come «: 3», mentre ogni resa che porti il sostantivo dentro `{ref}` sbaglia
 su uno dei due casi. `text.hsp` non ha più nessuna `lang()` scoperta.
+
+## 75ª — `*chat_default`: cinque famiglie, tre generi vietati, e una toppa ritirata
+
+### 1. Perché la correzione di `economy.hsp:357` è stata ritirata
+
+Aprendo il lotto della gestione della città ho notato che la statistica 発言力
+(`MDATA_CITY_AUTHORITY`) aveva **tre nomi** nel dizionario: «punti autorità»
+(`action.hsp:8506`), «autorità» (`chat.hsp:19563`) e «Influenza» nel pannello
+della città (`economy.hsp:357`). `glossario.md:356` fissa «autorità» e **nomina
+`economy.hsp` per nome**, quindi sembrava una violazione: l'ho corretta.
+
+Non lo era. `strumenti/tests/test_colonne_economy.py` esisteva da prima, e il
+suo docstring dice testualmente:
+
+> è la stessa ragione per cui la resa di `:357` è «Influenza» e non
+> «Autorita'»: un'etichetta accentata costringe a contare l'imbottitura su una
+> cosa che il file non mostra.
+
+Il prospetto allinea le colonne con gli **spazi**, e `applica` degrada «à» in
+«a'», che è **due caratteri**: l'imbottitura giusta si conta su una forma che il
+dizionario non mostra. La scelta era deliberata, scritta e sotto test.
+
+💡 **La regola che ne esce: prima di correggere un sito si cerca chi lo
+sorveglia.** Il glossario dice *quale parola*, un test può dire *perché lì non
+si può*. Cercare il primo senza cercare il secondo produce una correzione che
+sembra ovvia ed è sbagliata.
+
+⚠️ **E il difetto di partenza resta aperto**: due nomi sullo schermo per la
+stessa statistica, e il giocatore apre le due schermate nella stessa sessione.
+Nessuna rete lo vede — `gemelle` confronta le firme e 発言力 sta dentro tre frasi
+diverse. Chiuderlo vuol dire trovare un **sinonimo senza accento** per la
+colonna, non rimettere l'accento.
+
+### 2. Il genere non si conosce, e non è sempre lo stesso soggetto
+
+`guida-stile.md` vieta l'aggettivo e il participio riferiti al giocatore. Oggi la
+regola è scattata su **tre soggetti diversi**, con tre vie d'uscita diverse:
+
+1. **Il giocatore** — la via d'uscita è il **nome predicativo**, che non
+   accorda: «sei una mezza calzetta», «un pezzo di merda come te», «Che
+   schiappa!», «la fortuna qui è TUA» invece di «il fortunato sei tu».
+2. **Il parlante.** `chat.hsp:22654` (`chatval == 107`) non ha nessun ramo su
+   `CDATA_SEX`, quindi il capo del Dock può essere uomo o donna: «quando sono
+   arrivato io» sarebbe sbagliato metà delle volte, e si dice «ai miei tempi».
+   Nel blocco accanto (`:22618`) il ramo c'è, e lì il parlante si accorda.
+3. **L'oggetto.** `itemname(ci)` può essere «la pozione» o «il mantello»: «becomes
+   lighter» non è «diventa più leggero» ma «**perde peso**», e «becomes heavier»
+   è «**prende peso**» — verbo e nome, che non accordano.
+
+💡 E le espressioni del volto girano sul **nome**: «ha l'aria abbattuta», «fa una
+faccia sorpresa». L'accordo cade su «aria» e «faccia», che sono parole nostre.
+
+### 3. La finestra del dialogo ha un tetto, e non è una troncatura
+
+`chat.hsp:25226` manda a capo `buff` a **53** caratteri; `:25728` disegna la
+prima riga a `wy+43` col passo di 19 px; `:25161` fa risalire i bottoni dal
+basso, da `wy + wh - 56`. Con `wh = 380` le righe che ci stanno sono
+
+    (324 - bottoni * 19 - 43) // 19
+
+cioè 13 con un bottone solo, 12 con due, 11 con tre, 8 con sei. ⚠️ **Chi sfora
+non viene tagliato: si sovrappone al menu**, e una rete di soli tetti non lo
+troverebbe comunque.
+
+Il simulatore esatto di `talk_conv` esiste dalla 54ª in
+`scratchpad/chat_righe.py` — e non è un `textwrap`: taglia sugli spazi, quindi
+una parola più lunga della riga **sfonda** invece di spezzarsi. Ma il suo
+perimetro sono le 29 descrizioni di `cardsetdesc@tcg`. Farne una rete vera, con
+il perimetro su tutti i `buff = lang(...)`, è lavoro ancora da fare.
+
+### 4. I `chatval` sono numeri locali, non identificatori
+
+`32` è «chain» nel menu dei materiali del fabbro e il **portafoglio smarrito**
+dentro `*chat_default`. Uno strumento che mappa `chatval` → voce di menu
+cercando la prima `chatList` del file con quel numero risponde con la voce
+sbagliata, e per un quarto d'ora ho creduto di avere davanti un lotto «i
+materiali» che non esisteva. `scratchpad/chatval-mappa.py` adesso cerca solo
+dentro il menu che porta davvero a quei blocchi (`chat.hsp:19320`-`:19880`).
+
+💡 È la famiglia della 74ª — *un buco nel perimetro non produce un numero
+sbagliato, produce un numero che non c'è* — con una variante: qui il perimetro
+era giusto e a essere sbagliata era la **chiave**.
