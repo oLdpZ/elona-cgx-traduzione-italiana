@@ -125,6 +125,50 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## La zona di Leold chiusa intera — 2026-08-21, ottantesima sessione
+
+Due lotti, **124 rese**, e la zona `chat.hsp:16641`-`:18601` passa a **247 firme
+su 247**. Perimetro misurato prima di cominciare con `perimetro-zona.py`: 124
+firme da fare, e `bilingui` ha dato **zero al primo giro** in tutt'e due i lotti
+— terza e quarta zona chiusa di fila dopo gli evochat e `*chat_event`.
+
+`chat.hsp` scende da 2.665 a **2.541**. `menu_dialogo` misura **841** voci (erano
+797), `bilingui` resta a **0**, `chat-lotto-misura` 0 fuori misura e 0
+peggiorate, `pytest` 730.
+
+Il primo lotto (**90 rese**) è il sistema di **Leold**: gli slot
+d'equipaggiamento pagati in Vita, il cambio di modalità di bilanciamento, i tre
+rifiuti, i risvegli del giocatore e i tredici poteri del compagno. Il secondo
+(**34 rese**) è quel che restava: il selettore delle pose, la madre malata, e le
+tre scene di trama — Enthumesis, Lankata, Jaldabaoth.
+
+⭐⭐⭐ **Il lessico non è stato deciso: è stato ripreso dal DATO.** Ogni voce di
+questi menu vende un `CHARA_BIT_AWAKE_*` o uno `SKILL_SPACT_*`, e un `grep` sul
+nome della **variabile** porta in venti righe al pannello dei talenti di
+`command.hsp:2355`-`:2452`, dove ognuno di quei bit ha già la sua frase
+italiana. Su 90 rese, i venti nomi propri del sistema erano tutti già scritti
+altrove, e nessuna rete avrebbe protestato se li avessimo scelti diversi.
+
+⚠️⚠️ **Due difetti di monte, tutt'e due trovati leggendo il codice.** (1) Il
+**prezzo** di `:17864`: l'inglese etichetta «Variable Breath (300AP)», il
+giapponese dice 消費AP400 e `:17925` fa `leoap = 400` — verificati tutti e
+ventisei i prezzi dei due menu, è l'unico che diverge. (2) I **nomi delle parti
+del corpo** di `:16741` e `:16743`: l'inglese offre «Chest» e «Finger» ma gli
+slot sono `EQUIP_SLOT_BODY` e `EQUIP_SLOT_RING`, che `bodyn()` chiama «Body» e
+«Ring». Il secondo apre una **decisione ancora da prendere** (vedi
+`decisioni.md`, 80ª, punto 4).
+
+⭐ **Misurato il pannello delle modalità**, che è il pezzo di `chat.hsp` del
+punto cieco della 74ª (le sette righe `listn(...) = lang(...)`): colonna dei
+nomi **14 caratteri**, colonna delle descrizioni **73** — e la riga inglese più
+lunga ne fa 73 esatti, la firma della 63ª. Le trentasette descrizioni erano già
+tradotte da una sessione vecchia e mai misurate: la più lunga ne usa **72**.
+
+💡 **E chiudendo la zona se n'è chiusa un'altra**: `*label_6452` era «239 firme,
+1 sparsa», e quella sparsa era la battuta di Jaldabaoth duplicata a `:15967`.
+Adesso è **238 e zona chiusa** — l'unico blocco grosso che resta con quella
+proprietà.
+
 ## `*chat_event` chiuso intero — 2026-08-21, settantanovesima sessione
 
 Secondo lotto della giornata, **103 rese**: il blocco degli eventi

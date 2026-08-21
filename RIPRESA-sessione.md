@@ -1,33 +1,218 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-21, fine della **settantanovesima** sessione (**212 rese in
-`chat.hsp` in due lotti, piu' una correzione; nessuna toppa, nessuna rete
-nuova**).
+Aggiornato: 2026-08-21, fine della **ottantesima** sessione (**124 rese in
+`chat.hsp` in due lotti; nessuna toppa, nessuna rete nuova, una guardia
+aggiornata**).
 
-⭐⭐⭐ **La lezione della giornata: il lessico di un sistema non si decide, si
-cerca dove il gioco lo stampa gia' — e la strada passa dal DATO, non dalla
-stringa.** Le dieci «route» degli evochat sembravano dieci parole da scegliere.
-Non lo erano: ogni `chatval` scrive `CDATA_HEART_LOCK_RELATION`, e quel valore
-sceglie una delle dieci **scale di rapporto** di `text.hsp:33`-`43`, tradotte da
-sessioni e stampate sotto il ritratto del compagno. Un `grep` sul nome della
-variabile — non sul testo — ha dato in dieci righe tutti i siti che nominano
-quella cosa. 💡 *Se una resa nomina uno stato del gioco, quello stato ha quasi
-sempre gia' un nome scritto da qualche parte.* E nessuna rete l'avrebbe
-segnalato: «Sei entrato nel percorso Cameratismo!» e' italiano corretto, sta nel
-tetto, non e' bilingue — e' solo una schermata che chiama una cosa col nome che
-la schermata accanto non usa.
+⭐⭐⭐ **La lezione della giornata: un sistema tecnico non chiede di inventare
+il lessico, chiede di andarlo a prendere — e la strada passa dal DATO.** Le
+novanta rese di Leold vendono `CHARA_BIT_AWAKE_*` e `SKILL_SPACT_*`, e un `grep`
+sul nome della **variabile** ha portato in venti righe al pannello dei talenti di
+`command.hsp:2355`-`:2452`, dove ognuno di quei bit ha gia' la sua frase
+italiana. Su 90 rese, i venti nomi propri del sistema erano **tutti gia'
+scritti**, e nessuna rete avrebbe protestato se li avessi scelti diversi:
+sarebbe stato italiano corretto, dentro il tetto, non bilingue. E' la 79a
+confermata, e adesso ha due prove invece di una.
 
-⚠️⚠️ **La seconda lezione, tre volte in un giorno: quando i due rami di `lang()`
-non dicono la stessa cosa, il giudice non e' nessuno dei due — e' quel che il
-codice FA dopo.** (1) A Halloween «Trick.» e «Treat.» sono **scambiate**: chi
-sceglie «Trick.» prende ventotto molotov, chi sceglie «Treat.» perde due punti
-di karma facendo lo scherzetto. (2) `name(cc)` in `*chat_default` e' il
-**giocatore**, e monte lo usa per tre righe che parlano del compagno. (3) Dodici
-battute che l'inglese ha perso e sostituito con due segnaposto ripetuti.
+⚠️⚠️ **La seconda lezione: un PREZZO scritto in un'etichetta e' un numero che
+il codice ripete altrove — si confronta, non si copia.** `:17864` etichetta
+可変放射 «Variable Breath (**300**AP)», il giapponese dice 消費AP**400** e `:17925`
+fa `leoap = 400`. Chi gioca in inglese mette da parte 300 AP e si sente
+rispondere che non bastano. ⭐ **E il modo di saperlo e' stato contarli tutti**:
+verificati uno per uno i ventisei prezzi dei due menu contro il `leoap` che ogni
+ramo assegna. E' l'unico che diverge — e senza il conto completo sarebbe stato
+indistinguibile da un refuso qualunque.
 
 ---
 
-## La settantanovesima sessione
+## L'ottantesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La
+sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
+**trentasettesima prova** di fila, e le quindici hanno dato quindici volte i
+valori attesi della 79a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    verifica --dizionario   chat.hsp   0 / 2541   (era 2665)
+    menu_dialogo            0 su 841 misurate      (erano 797)
+    menu_dialogo            rotte anche in inglese: 9   (erano 8)
+    dizionario              chat.hsp +124 voci
+    decisioni.md            +125 righe (la voce della 80a, sette punti)
+
+Tutto il resto e' **fermo dov'era**: `pytest` **730 passed 6 skipped**,
+`prova_identita` 72/72 e 27.813, `creature` 1131/2466/0/0, `larghezze` 0 fuori
+misura, `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `linguette` 0 e 0,
+`battute --divergenti` **13**, `intestazioni_larghezze` banco ok e perimetro 0,
+`dati_applica --identita` 4 file e 2.987 righe, `dati_sorgente` 7/7 e gioco
+difforme su 0, `gronde` 0 su 5, `maiuscole` 144 siti / 7 appesi / 8 giudicati /
+0 da guardare, `bilingui` **0**, `toppe.jsonl` **1017**, `rinviate.jsonl` **75**
+non toccato, `referti.py` **2 participi**.
+
+⭐ **Le quindici verifiche sono state rilanciate ANCHE IN CHIUSURA** e sono
+verdi. ✅ **`cgx-test.exe` e' FRESCO** (21/08, 15:24) e i due file dati di
+`elonaplus2.31\data\` hanno lo stesso md5 di quelli che `applica` produce.
+
+### ▶ Che cosa e' stato fatto
+
+Due lotti, e insieme chiudono una **zona** intera.
+
+    chat.hsp  il sistema di LEOLD      arti, modalita', risvegli        90 rese
+    chat.hsp  i PNG unici              pose, la madre, tre scene        34 rese
+    test_menu_dialogo                  la nona rotta a monte, col motivo 1 guardia
+    decisioni.md                       sette punti, una scelta APERTA   125 righe
+    ---------------------------------------------------------------------------
+                                       124 rese, 0 toppe, 0 reti nuove, 3 spinte
+
+### ▶ ⭐ La zona `:16641`-`:18601` e' CHIUSA: 247 firme su 247
+
+Misurata prima di cominciare con `perimetro-zona.py`: 124 firme da fare, e
+**bilingui ha dato zero al primo giro** in tutt'e due i lotti, come gli evochat
+della 79a. ⚠️ **L'unica firma «sparsa» non lo era davvero**: `:18236` risultava
+avere un'occorrenza anche a `:15967`, fuori zona — ma le due sono lo **stesso
+codice duplicato** (stesso `map(...) = xy2pic(3, 8)`, stesso
+`DAMAGE_FROM_JALDABAOTH_SHIELDED`), la scena del fuoco di Jaldabaoth scritta due
+volte. 💡 *Il referto dice che una firma vive in due posti; solo il codice dice
+se i due posti sono la stessa cosa.*
+
+⭐ **E chiudendola si e' chiusa anche un'altra**: `*label_6452` era «239 firme, 1
+sparsa» e quella sparsa era proprio `:15967`. Adesso e' **238 e zona chiusa** —
+il posto piu' facile da cui ripartire.
+
+### ▶ ⭐⭐ Il lessico dei risvegli, e dove stava
+
+| dove | che cosa dava |
+|---|---|
+| `command.hsp:2355`-`:2452` | venti `CHARA_BIT_AWAKE_*` con la frase italiana: «Il fascino stordisce chi attacca in mischia», «L'orgoglio cresce col pericolo», «La forza nascosta cresce col pericolo», «La barriera annulla i danni», «Cura tattica appresa», «Preferenza per la mischia / per il tiro / per le magie a freccia» |
+| `skill.hsp` | le cinque tecniche: «Attacchi continui», «Provocazione», «Guardia metallica», «Sincronia delle anime», «Carica» |
+| `command.hsp:2113`, `:2589` | «talento» per フィート, non «fiata» |
+| `action.hsp:9321` | «bonus di abilita'» per スキルボーナス |
+| `command.hsp:10504` | «Iniz.» per INIT sulla scheda |
+| `chara.hsp:16`, `map.hsp:9853` | la cornice «Hai imparato una nuova capacita': X.», gia' resa per altre costanti |
+
+### ▶ ⭐ La geometria del pannello delle modalita': un pezzo del punto cieco della 74a
+
+Le **sette** righe `listn(...) = lang(...)` di `chat.hsp` che la 74a aveva
+trovato e mai misurato sono quelle di `*com_change_gamemode_loop`. Misurate:
+
+* **colonna dei nomi**: testo a `wx + 64`, ostacolo a `wx + 165` -> 101 px, a 7
+  px per carattere **14 caratteri**. Sei voci su sette sono nomi propri che
+  upstream non puo' allungare; la settima e' `*Cancel*` -> «*Annulla*», 9.
+* **colonna delle descrizioni**: testo a `wx + 165`, finestra larga 680 ->
+  **73 caratteri**. ⭐ E la riga inglese piu' lunga (`:17004`) ne fa **73
+  esatti**: e' la firma della 63a, il tetto e' quello vero.
+
+⚠️⚠️ **Le trentasette descrizioni erano gia' tradotte da una sessione vecchia e
+non le aveva mai misurate nessuno.** La piu' lunga (`:17082`) ne usa **72**:
+dentro per un carattere. 💡 *Il punto non e' che erano giuste: e' che nessuno lo
+sapeva.* Restano da leggere le geometrie di `command.hsp` (100 righe) e
+`chara.hsp` (18).
+
+### ▶ ⚠️ Le misure che hanno bocciato qualcosa, e le tre che mentivano
+
+`chat-lotto-misura` ha respinto **una** voce vera: `:17641` a 61 caratteri in un
+riquadro da 58, riscritta con le parole del pannello dei talenti («[consuma MP
+pari al danno]», 44). E ha segnalato **tre** rese che non erano fuori posto:
+`:16932` va a `*screen_drawMsg2` (tetto 89, la resa ne usa 82), `:17110` e' una
+riga del pannello delle modalita' (tetto 73, ne usa 71), e `:18140` era un
+`chatMore` con tredici righe a disposizione. Lo strumento misura col metro della
+**finestra del dialogo**, 53 caratteri, perche' tratta come battuta tutto quel
+che non e' `chatList`. 💡 *Prima di accorciare una resa per un referto, si
+guarda da dove viene il metro* (70a).
+
+`menu_dialogo` ha respinto il menu dei **tredici** poteri del compagno, che
+sopra le dieci voci passa a due colonne e taglia a 24: lo stile del progetto per
+i costi e' «(100 AP)» ma li' «Accumulo di mana (600 AP)» fa 25. Nel solo menu a
+tredici il costo si stringe a «AP600» e i **nomi** restano identici — la regola
+della 73a: *stesse parole, non stessa lunghezza*.
+
+### ▶ ⚠️⚠️ Il genere: dove si vieta e dove invece si USA
+
+Nel lotto di Leold il divieto ha morso cinque volte (il vocativo «benvenuto», il
+participio «sei caduto», «si e' risvegliato» del compagno, «te stesso» del
+giocatore, «Attento!»); nel lotto dei PNG unici quattro (due vocativi
+«Adventurer», «Liar!», «Look out!»). ⭐ **Ma nelle scene di trama il genere si
+SA, e allora si usa** (63a): Lankata e' donna e dice gia' «Padre, vi chiedo
+perdono...» in `db_creature.hsp`, quindi col padre e' il **voi** e «mi avete
+salvata» si accorda; Alfred e' uomo e «sono salvo» pure.
+
+⚠️ **DEROGA DICHIARATA a `:18157`**: l'inglese scrive «The medic came here on
+their own?» in terza persona, ma il giapponese da' del 貴方 a Lankata ed e' un
+dialogo padre-figlia. Si segue il giapponese.
+
+⭐ **E una volta l'inglese aveva ragione dove il giapponese taceva**: `:18083` in
+giapponese non nomina nessuno, l'inglese ci mette «Father...» — ed Enthumesis
+dice «Pa... dre...» nella sua riga di `db_creature.hsp`, gia' resa. Il
+personaggio conferma la scelta di monte.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **Il collaudo: delle 124 rese di oggi non se n'e' vista a schermo
+   nessuna, ed e' la DECIMA volta di fila.** Il debito e' **2.242 rese**. ⭐ Il
+   sistema di Leold e' fra i piu' facili da provare: si arriva da lui e si apre
+   il menu del risveglio, che mostra in due schermate quasi tutti i nomi decisi
+   oggi. Restano facili anche il tutorial della 78a e `*chat_event`.
+2. 🔶 **DECISIONE APERTA (nuova): il menu degli arti non dice le parole di
+   `bodyn()`.** `:16738`-`:16746` dice Dito / Braccio / Schiena / Fianchi dove
+   `bodyn()` dice Anello / Arto / Dorso / Vita, e chi sceglie «Dito» si sente
+   rispondere «ha una parte nuova: Anello». La correzione ovvia (76a) inciampa
+   su «Vita», che nella stessa riga e' gia' il nome della statistica che si
+   paga. Le tre strade sono in `decisioni.md`; nessuna si sceglie senza
+   **guardare le due schermate**.
+3. ⚠️⚠️⚠️ **IL PUNTO CIECO DELLA 74a E' PIU' PICCOLO MA ANCORA APERTO.** Delle
+   128 righe `listn(...) = lang(...)`, le **7 di `chat.hsp`** sono state
+   misurate oggi (pannello delle modalita': 14 e 73 caratteri). Restano **100 in
+   `command.hsp`** — fra cui proprio il pannello dei talenti da cui e' venuto
+   tutto il lessico di oggi — **18 in `chara.hsp`**, piu' `event.hsp:825`,
+   `help.hsp:333`, `net.hsp:604`. ⚠️ **Sette sessioni che aspetta.**
+4. ⭐⭐ **La rete che manca ancora: i `buff` della finestra del dialogo.** Il
+   simulatore c'e' (`scratchpad/chat_righe.py`) e `chat-lotto-misura.py` lo usa
+   **per lotto**. ⚠️ E oggi si e' visto il suo limite: classifica come battuta
+   tutto quel che non e' `chatList`, quindi misura col metro sbagliato le righe
+   di `screen_drawMsg2` e dei pannelli. La rete vera deve **leggere il
+   contenitore**, non supporlo.
+5. ⭐ **`menu_dialogo.reso()` non legge il `limit(..., 0, N)`** della variabile
+   che interpola, e per questo inventa un difetto di monte su `chat.hsp:19256`
+   (79a). Ancora da fare.
+6. ⭐⭐⭐ **`chat.hsp` a 2.541**, e il perimetro vero di quel che resta:
+
+       *chat_unique_mizuki   :8630-:15508    1.329   5 sparse
+       *chat_unique          :947-:8629        953   5 sparse
+       *label_6452           :15509-:16640     238   ZONA CHIUSA  <- il posto giusto
+       la testa del file     :1-:946            16   zona chiusa
+       il resto              :18602-:26773      11   zona chiusa
+
+   ⭐ **`*label_6452` e' diventata una zona chiusa oggi**, perche' l'unica firma
+   che viveva anche fuori era quella di Jaldabaoth. E' l'unico blocco grosso che
+   resta con quella proprieta'.
+7. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208 righe),
+   `manual_ENG.txt` (591), `exhelp.txt` (185). ⚠️ `help.hsp:273` conta **dieci
+   righe di FILE per pagina**.
+8. ⭐⭐ `board.txt` **secondo lotto**: le 38 varianti giapponesi che monte ha
+   buttato via. Serve estendere `dati_applica` ad **aggiungere** righe.
+9. ⭐⭐ `custom_autopick.hsp`: 21 gemelle **delicate**.
+10. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+    `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+    `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+11. ⭐⭐ Il **muro del materiale**: `mithril sword` e' «spada **di** mithril».
+12. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `item_func.hsp` 240; i **1.146** di
+    `db_card.hsp`. E la statistica 発言力 con **due nomi sullo schermo**.
+
+### ▶ Come si e' chiusa
+
+Tre spinte: una per lotto piu' quella dei documenti. `applica` e
+`compila --eseguibile` sono girati dopo ogni lotto — `cgx-test.exe` del 21/08
+alle 15:24 — i due file dati sono stati confrontati per md5, e le quindici
+verifiche sono state rilanciate in chiusura: tutte verdi.
+
+⚠️⚠️ **Zero collaudo, decima volta di fila.**
+
+---
+
+## La settantanovesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
