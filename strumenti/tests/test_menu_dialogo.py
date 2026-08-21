@@ -371,12 +371,24 @@ def test_le_voci_rotte_a_monte_restano_note():
 
     💡 La resa italiana — «[Scasso 80%] Per me sei famiglia.» — ne usa 34, e sta
     dentro con qualunque tiro.
+
+    ⚠️ **E dalla 80a sono NOVE, per la quarta volta nello stesso modo.**
+    `chat.hsp:17640` — «Obstinate (1800AP) [Increase evasion, damage mitigation
+    as HP decreases]», **72** caratteri in un riquadro da 58 — e' la terza delle
+    quattro voci con cui Leold vende i talenti al giocatore, e le sue due sorelle
+    `:17710` e `:17713` stanno in questo elenco dalla 73a. E' comparsa qui il
+    giorno in cui l'abbiamo tradotta, per la ragione di sempre: `voci_di_menu()`
+    legge il DIZIONARIO. 💡 Notevole che il difetto sia **contiguo**: dei quattro
+    talenti in vendita, quello con la descrizione piu' lunga sfora di quattordici
+    caratteri e nessuno se n'era accorto in inglese. La resa italiana — «Orgoglio
+    (1800 AP) [piu' schivata e riduzione a HP bassi]» — ne usa 56.
     """
     monte = {(f, r) for f, r, _, _ in fuori_misura_inglese()}
     assert monte == {("tcg_custom.hsp", 1968), ("event.hsp", 521),
                     ("chat.hsp", 19527), ("chat.hsp", 19563),
                     ("chat.hsp", 17710), ("chat.hsp", 17713),
-                    ("chat.hsp", 22937), ("chat.hsp", 19256)}
+                    ("chat.hsp", 22937), ("chat.hsp", 19256),
+                    ("chat.hsp", 17640)}
 
 
 # --- un chatList non e` sempre nella pergamena (corretto il 2026-08-18) ------
