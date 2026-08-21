@@ -125,6 +125,69 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## `*chat_default` svuotato a meta', e la firma condivisa come regola — 2026-08-21, settantasettesima sessione
+
+Nove lotti dentro `*chat_default` e nei blocchi che le firme si sono tirati
+dietro. **152 rese e una toppa**, senza reti nuove: le quindici c'erano gia' e
+hanno lavorato tutte.
+
+| pezzo | rese | esito |
+|---|---|---|
+| le due arene | 17 | duello, rissa, animali, squadre, EX, punteggio |
+| l'informatore | 12 | la lista, il messaggio, la sequenza del compleanno |
+| il dojo di Nazuna | 37 | il blocco `:8812`-`:9186` chiuso intero, piu' cinque menu lontani |
+| l'ingaggio e il reclutamento | 11 | `chatval` 50 e 51 |
+| il mercante di schiavi | 9 | vendere, comprare, la madre di Pael |
+| quel che i PNG rispondono | 21 | confessione, sfratto, portafogli, spostati |
+| il nome della casa | 12 + toppa | l'ordine girato, provato sul banco HSP |
+| il dio e l'indulgenza | 14 | il numero nuovo, l'offerta, il prete |
+| i servizi che si pagano | 19 | identificare, curare, il rifugio, il veicolo |
+
+`chat.hsp` scende da 3.299 a **3.147**. `menu_dialogo` misura **675** voci (erano
+629), `bilingui` resta a **0** e `maiuscole` passa da 9 appesi a **7**.
+
+### ⚠️⚠️⚠️ La firma condivisa non e' un caso limite: e' la forma normale del file
+
+Tre volte su nove lotti una resa ha acceso menu che non stavo guardando, e ogni
+volta l'ha detto `bilingui` **dopo** la reimportazione, mai una lettura del
+codice — perche' finche' un menu e' tutto inglese non c'e' niente da vedere.
+
+| firma | rappresentante | menu accesi |
+|---|---|---|
+| 「やめる」/«No way!» | `:9051` | il blocco 47 dell'informatore |
+| 「断る」/«I refuse.» | `:2351` | Erystia, le monete di bronzo, la droga in capsula, la tartaruga |
+| 「いいよ」/«Sure.» | `:8197` | la lettera di Siraha, la tartaruga della principessa |
+
+💡 E chiuderne uno ne apre un altro: la resa delle **monete di bronzo**, scritta
+per chiudere il menu di `:2996`, ha acceso il menu del potioman a `:3029`. Tre
+giri di rete per arrivare a zero. *La rete va rilanciata dopo ogni giro, non una
+volta sola.*
+
+⭐ **E l'altra faccia paga**: `:20576` e' la firma di **tutti** i «Thanks!» del
+file (`_thanks(2)`), quindi una resa sola ne ha resi una decina.
+
+### ⭐⭐⭐ Il nome della casa: la soluzione non era una resa, era l'ordine
+
+`chat.hsp:22500` **appende** all'epiteto uno degli undici suffissi di `:22498`
+(«Silver Spectre Hovel»). In italiano l'epiteto e' gia' un sintagma intero —
+«fragore della dipendenza» (64a) — e il suffisso in coda non e' italiano. Il
+giapponese ha la struttura **nostra**, 「<epiteto>の家」 = «casa DI <epiteto>»:
+la toppa 1017 gira la concatenazione nel solo ramo inglese e i suffissi
+diventano prefissi che finiscono in «di».
+
+⚠️ «di» e' la sola preposizione che regge: qualunque articolo si accorderebbe
+col primo nome dell'epiteto, che cambia a ogni tiro. ✅ Provato sul **banco HSP**
+fuori dal gioco: «Castello di Quiete del figlio», «Tana di Dea dell'uccello»,
+dodici tiri, nessuno storto.
+
+### ⚠️⚠️ E un test ha corretto una cosa che avevo scritto in un commit
+
+`strumenti/maiuscole.py` legge la **build**, non il sorgente pinnato. Le due
+rese di `:22375` e `:24739` mettono il nome in testa, quindi quei due siti sono
+usciti dagli «appesi» da soli e i loro permessi in `GIUDICATI` restavano
+attaccati al vuoto: l'ha detto `test_i_giudicati_esistono_ancora`, che esiste
+apposta.
+
 ## I menu bilingui, e la rete che li conta — 2026-08-21, settantaseiesima sessione
 
 Nata da un difetto trovato traducendo: il dizionario è per **firma**, quindi una

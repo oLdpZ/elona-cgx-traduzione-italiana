@@ -6,6 +6,95 @@ ancora aperte.
 
 ---
 
+## Quando la grammatica non si risolve in una resa: si toppa l'ORDINE — 2026-08-21, settantasettesima
+
+`chat.hsp:22500` compone il nome della casa del giocatore: prende l'epiteto di
+`random_title()` e gli **appende** uno degli undici suffissi di `:22498`, come
+fa l'inglese di monte («Silver Spectre Hovel»).
+
+In italiano non funziona, e non per come sono resi i suffissi: l'epiteto della
+64ª è già un **sintagma intero** — «fragore della dipendenza», «luce della
+maga» — e qualunque parola gli si metta dietro esce sgrammaticata. Le rese
+possibili erano tutte cattive.
+
+⭐ **La struttura giusta ce l'aveva il giapponese**: 「<epiteto>の家」 è
+*«casa DI <epiteto>»*, cioè esattamente l'ordine italiano. Quindi la toppa
+(la 1017) gira la concatenazione **nel solo ramo inglese**
+
+    mdatan(MDATAN_NAME) = lang(mdatan(MDATAN_NAME) + s(rnd(10)),
+                               s(rnd(10)) + " " + mdatan(MDATAN_NAME))
+
+e gli undici suffissi diventano **prefissi che finiscono in «di»**: «Casa di»,
+«Residenza di», «Castello di», «Tana di».
+
+⚠️ **«di» è la sola preposizione che regge.** Qualunque articolo — «Casa DEL
+fragore», «Casa DELLA luce» — si accorderebbe col primo nome dell'epiteto, che
+cambia a ogni tiro. È la 64ª applicata alla preposizione invece che
+all'aggettivo: *esiste una costruzione italiana che non chiede accordo?*
+
+⚠️ **La riga è toppabile per un motivo che va controllato ogni volta**: la sua
+unica `lang("", " ")` non viene estratta (giapponese vuoto), quindi il
+dizionario non la riscrive e sorgente pinnato e build coincidono — che è quel
+che `test_toppe` pretende (53ª). Una riga con una `lang()` viva **non** si
+sarebbe potuta toppare.
+
+✅ **Provata sul banco HSP** (`scratchpad/banco_hsp.py`), fuori dal gioco e in
+pochi secondi: dodici tiri, «Castello di Quiete del figlio», «Tana di Dea
+dell'uccello». È la seconda volta che il banco evita un giro di
+`applica` + `compila` + gioco.
+
+💡 **Il precedente serve al muro del materiale** (`mithril sword` → «spada **di**
+mithril»): è lo stesso problema — l'ordine di monte, non la resa — e adesso si
+sa che costa mezz'ora.
+
+---
+
+## Le firme condivise di `chat.hsp` sono la regola, e la rete va rilanciata a ogni giro — 2026-08-21, settantasettesima
+
+La 76ª aveva scoperto che una firma vive in più punti del file e che tradurne
+una lascia un menu a metà. La 77ª ha misurato **quanto** è comune: tre volte su
+nove lotti, e una di quelle firme stava in **cinque** menu.
+
+| firma | rappresentante | menu accesi |
+|---|---|---|
+| 「やめる」/«No way!» | `:9051` | il blocco 47 dell'informatore |
+| 「断る」/«I refuse.» | `:2351` | Erystia, le monete di bronzo, la capsula, la tartaruga |
+| 「いいよ」/«Sure.» | `:8197` | la lettera di Siraha, la tartaruga della principessa |
+
+⚠️⚠️ **E nessuna di queste si poteva vedere leggendo il codice prima**: finché
+un menu è tutto inglese, `bilingui` tace ed è giusto che taccia — non c'è niente
+di rotto. Il difetto **nasce** con la resa. Quindi l'ordine di lavoro è:
+tradurre, reimportare, **poi** misurare.
+
+💡 **E chiudere un menu ne può aprire un altro**: la resa delle monete di bronzo
+(scritta per chiudere il menu di `:2996`) ha acceso quello del potioman a
+`:3029`, dove mancava 「やめておく」. Tre giri per arrivare a zero. *`bilingui` non
+si lancia una volta a fine lotto: si rilancia finché non dà zero.*
+
+⭐ **L'altra faccia paga**: `:20576` è la firma di **tutti** i «Thanks!» del file
+(`_thanks(2)`), e una resa sola ne ha resi una decina. La stessa proprietà che
+rompe i menu è quella che moltiplica il lavoro fatto.
+
+---
+
+## Un permesso scritto in una rete scade quando la resa lo risolve — 2026-08-21, settantasettesima
+
+`strumenti/maiuscole.py` tiene in `GIUDICATI` i siti `cnven()` «appesi» che
+qualcuno ha già guardato e approvato. Due di essi (`chat.hsp:22375` e `:24739`)
+portavano il motivo «chat.hsp non è ancora tradotto».
+
+Tradotti nella 77ª con il nome **in testa** — «La gattina passa di mano.» —
+quei due siti sono usciti dagli appesi **da soli**, perché la rete legge la
+**build** e non il sorgente pinnato. Ho scritto il contrario in un messaggio di
+commit, e a correggermi è stato `test_i_giudicati_esistono_ancora`, che esiste
+apposta per non lasciare un permesso attaccato al vuoto.
+
+💡 La regola generale: **un elenco di eccezioni è un debito, e va riletto ogni
+volta che si tocca uno dei siti che nomina.** Se la resa risolve il difetto,
+l'eccezione non va aggiornata: va tolta.
+
+---
+
 ## Una resa gemella è valida per costruzione, ma non è gratis — 2026-08-20, settantatreesima
 
 Il dizionario vive in `dizionario/<file>.jsonl` e `applica` cerca la firma **nel

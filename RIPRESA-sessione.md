@@ -1,19 +1,206 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-21, fine della **settantaseiesima** sessione (**121 rese in
-`chat.hsp`, una rete nuova, e i quindici menu bilingui chiusi tutti**).
+Aggiornato: 2026-08-21, fine della **settantasettesima** sessione (**152 rese in
+`chat.hsp` e una toppa, senza nessuna rete nuova**).
 
-⭐⭐⭐ **La lezione della giornata: una schermata si buca da sola, per una riga
-che non hai toccato.** Il dizionario e' indicizzato per **firma** — giapponese
-piu' inglese — e la stessa firma vive in piu' punti del file: tradurre il «No.»
-di un menu ne traduce un altro **diciottomila righe piu' in la'**, dentro una
-finestra che nessuno stava guardando, e la lascia meta' italiana. E' successo
-tre volte in un giorno solo. Da oggi c'e' una rete che lo misura,
-`strumenti/bilingui.py`, ed e' la **quindicesima** verifica d'apertura.
+⭐⭐⭐ **La lezione della giornata: la firma condivisa non e' un caso limite, e'
+la forma normale di `chat.hsp`.** Tre volte su nove lotti una resa ha acceso
+menu che non stavo guardando — 「やめる」, 「断る」, 「いいよ」 — e ogni volta l'ha
+detto `bilingui` **dopo** la reimportazione, mai una lettura del codice: finche'
+un menu e' tutto inglese non c'e' niente da vedere. E chiuderne uno ne apre un
+altro, quindi *la rete si rilancia dopo ogni giro, non una volta sola*.
 
 ---
 
-## La settantaseiesima sessione
+## La settantasettesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La
+sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
+**trentaquattresima prova** di fila, e le quindici hanno dato quindici volte i
+valori attesi della 76a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    verifica --dizionario   chat.hsp   0 / 3147   (era 3299)
+    menu_dialogo            0 su 675 misurate      (erano 629)
+    maiuscole               144 siti, 7 appesi, 8 giudicati, 0 da guardare
+                            (erano 9 appesi e 10 giudicati)
+    toppe.jsonl             1017                   (erano 1016)
+    dizionario              chat.hsp +152 voci
+
+Tutto il resto e' **fermo dov'era**: `pytest` **730 passed 6 skipped**,
+`prova_identita` 72/72 e 27.813, `creature` 1131/2466/0/0, `larghezze` 0 fuori
+misura, `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `linguette` 0 e 0,
+`battute --divergenti` **13**, `intestazioni_larghezze` banco ok e perimetro 0,
+`dati_applica --identita` 4 file e 2.987 righe, `dati_sorgente` 7/7 e gioco
+difforme su 0, `gronde` 0 su 5, `bilingui` **0**, `rinviate.jsonl` **75** non
+toccato. `menu_dialogo` dice ancora «rotte anche in inglese: 7».
+
+⭐ **Le quindici verifiche sono state rilanciate ANCHE IN CHIUSURA** e sono
+verdi. ✅ **`cgx-test.exe` e' FRESCO** (21/08, 12:00) e i due file dati di
+`elonaplus2.31\data\` hanno lo stesso md5 di quelli che `applica` produce.
+
+### ▶ Che cosa e' stato fatto
+
+Nove lotti, tutti dentro `*chat_default` o nei blocchi che le firme condivise si
+sono tirati dietro. Nessuna rete nuova: le quindici c'erano gia' e hanno
+lavorato tutte.
+
+    chat.hsp  le due arene         duello, rissa, animali, squadre, EX     17 rese
+    chat.hsp  l'informatore        lista, messaggio, compleanno            12 rese
+    chat.hsp  il dojo di Nazuna    il blocco intero + cinque menu lontani  37 rese
+    chat.hsp  ingaggio e reclute   chatval 50 e 51                         11 rese
+    chat.hsp  il mercante schiavi  vendere, comprare, la madre di Pael      9 rese
+    chat.hsp  le risposte dei PNG  confessione, sfratto, portafogli        21 rese
+    chat.hsp  il nome della casa   l'ordine girato, piu' la TOPPA 1017     12 rese
+    chat.hsp  il dio, l'indulgenza il numero, l'offerta, il prete          14 rese
+    chat.hsp  i servizi            identificare, curare, rifugio, veicolo  19 rese
+    ----------------------------------------------------------------------------
+                                   152 rese, 1 toppa, 9 spinte
+
+### ▶ ⭐⭐⭐ Le tre firme che hanno acceso menu lontani
+
+| firma | rappresentante | menu accesi |
+|---|---|---|
+| 「やめる」/«No way!» | `:9051` | il blocco 47 dell'informatore |
+| 「断る」/«I refuse.» | `:2351` | Erystia, le monete di bronzo, la capsula, la tartaruga |
+| 「いいよ」/«Sure.» | `:8197` | la lettera di Siraha, la tartaruga della principessa |
+
+💡 **E la chiusura si propaga**: la resa delle monete di bronzo, scritta per
+chiudere il menu di `:2996`, ha acceso quello del **potioman** a `:3029`. Tre
+giri di `bilingui` per arrivare a zero.
+
+⭐ **L'altra faccia della stessa moneta paga**: `:20576` e' la firma di *tutti* i
+«Thanks!» del file (`_thanks(2)`), e una resa sola ne ha resi una decina.
+
+### ▶ ⭐⭐⭐ Il nome della casa: la soluzione non era una resa, era l'ORDINE
+
+`:22500` appende all'epiteto uno degli undici suffissi di `:22498`. L'epiteto
+italiano e' gia' un sintagma intero — «fragore della dipendenza» (64a) — e il
+suffisso in coda non e' italiano. Il giapponese ha la struttura **nostra**,
+「<epiteto>の家」 = «casa DI <epiteto>»: la **toppa 1017** gira la concatenazione
+nel solo ramo inglese e i suffissi diventano prefissi che finiscono in «di».
+
+⚠️ «di» e' la sola preposizione che regge: qualunque articolo («Casa DEL
+fragore», «Casa DELLA luce») si accorderebbe col primo nome dell'epiteto, che
+cambia a ogni tiro. E' la 64a applicata alla preposizione.
+
+⚠️ La riga e' toppabile perche' la sua unica `lang("", " ")` **non viene
+estratta** (giapponese vuoto): sorgente pinnato e build coincidono, che e' quel
+che `test_toppe` pretende (53a).
+
+✅ **Provata sul BANCO HSP** (`scratchpad/banco_hsp.py`), fuori dal gioco:
+dodici tiri, «Castello di Quiete del figlio», «Tana di Dea dell'uccello»,
+nessuno storto.
+
+💡 E l'undicesimo suffisso non esce mai: `s` ha undici elementi e il tiro e'
+`rnd(10)`.
+
+### ▶ ⚠️⚠️ Un test ha corretto una cosa scritta in un commit
+
+`maiuscole` legge la **BUILD**, non il sorgente pinnato — l'avevo scritto al
+contrario. Le due rese di `:22375` e `:24739` mettono il nome in testa, quindi
+quei siti sono usciti dagli «appesi» da soli e i loro permessi in `GIUDICATI`
+restavano attaccati al vuoto. L'ha detto `test_i_giudicati_esistono_ancora`, che
+esiste apposta per questo.
+
+### ▶ ⭐⭐ La grammatica della giornata
+
+- **Il divieto di genere, tutt'e tre i soggetti in un giorno.** Il
+  **giocatore**: 「ようこそアリーナのチャンピオン！」 e' un vocativo e
+  «benvenuto», «campione», «re» si accordano tutti — la via d'uscita e' la
+  **relativa senza nome**, «Ecco chi regna nell'arena!». Il **parlante**:
+  l'avventuriero di `chatval` 51 non puo' dire «diventare tuo compagno». Un
+  **terzo**: chi monta la squadra EX (`:20758`) e' estratto a caso col nome
+  stampato accanto, e «un avventuriero di nome Marka» sbaglia meta' delle volte
+  — «un'altra persona in cerca d'avventura».
+- **L'oggetto, due volte.** `:20915` non puo' dire «e' vuoto» perche' quel che
+  torna e' il **portafogli o la valigia**; `:20514` non puo' dire «studiarlo».
+- ⚠️ **`him(tc)` a un argomento e' morfologia e si toglie**, ma `:22173` senza
+  pronome direbbe «offrirlo», che si accorda: la resa **nomina** il compagno con
+  `name(tc)`, come la 75a per «Really abandon him(tc)?».
+- **La preposizione davanti al nome**, tre volte: `name()` porta l'articolo,
+  quindi «ordinare A X» ✗ e «Mandi X ad aspettare» ✓. Anche
+  `ioriginalnameref()` e' nudo: «impara un numero nuovo: moneta di bronzo», col
+  **due punti** come giuntura.
+- **Nazuna e' donna** (`db_creature.hsp:84393`, «la maestra d'armi»): li' il
+  parlante si accorda, e si sa perche' e' scritto nel gioco.
+
+### ▶ ⚠️⚠️ Tre volte l'inglese non diceva quel che dice il giapponese
+
+1. **La riga giusta dell'evento sbagliato** (58a): `:8850` e `:9128` portano in
+   inglese la battuta di `:9115`, mentre il giapponese parla di chi e' **sotto
+   scorta** — e il ramo `CHARA_BIT_BODYGUARD` gli da' ragione. Si segue il
+   codice.
+2. **L'inglese scambia dentro un insieme casuale** (57a, caso 2): i quattro
+   saluti dello sfratto (`:20419`-`:20431`) escono da un `rnd(4)` e monte ha
+   accoppiato 「また会う日まで！」 a «Get out of here!». Si segue il giapponese,
+   perche' la colonna che si legge accanto alla resa e' quella.
+3. **L'inglese ha perso la battuta** (`:8970`): 「足が無かろうと気合次第で蹴りが可能」
+   — *anche senza gambe, con la grinta, tiri calci* — e' diventato «Your feet
+   will be able to annihilate», che non vuol dire niente. Deroga dichiarata.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **Il collaudo: delle 152 rese di oggi non se n'e' vista a schermo
+   nessuna, ed e' la SETTIMA volta di fila.** Il debito e' **1.636 rese**. ⭐ Ma
+   il lotto e' facilissimo da provare, ed e' tutta roba che si incontra
+   camminando: l'arena di qualunque citta', l'informatore (compleanno compreso),
+   il dojo di Nazuna, il mercante di schiavi, la guardia a cui riporti il
+   portafogli, il prete dell'indulgenza. ⚠️ E il **nome della casa** va guardato
+   in gioco almeno una volta: la toppa e' provata sul banco, non a schermo.
+2. ⚠️⚠️⚠️ **IL PUNTO CIECO DELLA 74a E' ANCORA APERTO: 128 righe di menu scritte
+   a mano in `listn(...) = lang(...)`**, di cui 101 gia' tradotte e mai misurate
+   (100 in `command.hsp`, 18 in `chara.hsp`, 7 in `chat.hsp`, piu'
+   `event.hsp:825`, `help.hsp:333`, `net.hsp:604`). Va letta la geometria dei
+   tre pannelli, uno per uno.
+3. ⭐⭐ **La rete che manca ancora: i `buff` della finestra del dialogo.** Il
+   simulatore c'e' (`scratchpad/chat_righe.py`) e `chat-lotto-misura.py` lo usa
+   **per lotto** — oggi ha bocciato sette rese che facevano una riga in piu'
+   dell'inglese, e tutt'e sette sono state accorciate. Il perimetro su **tutti**
+   i `buff = lang(...)` resta da fare.
+4. ⭐⭐⭐ **`chat.hsp` a 3.147.** In `*chat_default` restano poche famiglie: la
+   carovana (`chatval` 61), la consegna (25 e 26), il matrimonio e il gene (38 e
+   39), i banditi e la nave speronata (31, 116, 117), la notte (56, 60). Fuori:
+   `*chat_unique_mizuki` **1.395**, `*chat_unique` **1.183**, `*label_6452` 236,
+   `*chat_event` 112. ⚠️ E gli **evochat** (`:18789`-`:19319`) sono un centinaio
+   di rese in un registro tutto suo, da decidere prima di aprirli.
+5. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208 righe),
+   `manual_ENG.txt` (591), `exhelp.txt` (185). ⚠️ `help.hsp:273` conta **dieci
+   righe di FILE per pagina**: la misura della colonna va presa dalla geometria.
+6. ⭐⭐ `board.txt` **secondo lotto**: le 38 varianti giapponesi che monte ha
+   buttato via — e `talk.txt` ha lo stesso problema. Serve estendere
+   `dati_applica` ad **aggiungere** righe.
+7. ⭐⭐ `custom_autopick.hsp`: 21 gemelle **delicate**, 78 delle 90 `lang()` sono
+   confronti dentro `instr` contro il file che scrive il giocatore.
+8. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+   `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+   `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+9. ⭐⭐ Il **muro del materiale**: `mithril sword` e' «spada **di** mithril»,
+   postposta. 118 righe piu' i tre siti di `item_func.hsp`. 💡 La toppa del nome
+   della casa e' la prova che una toppa d'ordine si scrive e si prova in
+   mezz'ora: e' lo stesso genere di problema.
+10. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `item_func.hsp` 240; i **1.146** di
+    `db_card.hsp`. E la statistica 発言力 con **due nomi sullo schermo**
+    («Influenza» in `economy.hsp:357`, «autorita'» nel menu del sindaco): la
+    correzione ovvia e' vietata da `test_colonne_economy.py`, serve un sinonimo
+    **senza accento**. Decisione ancora da prendere.
+
+### ▶ Come si e' chiusa
+
+Nove spinte, una per lotto. `applica` e `compila --eseguibile` sono girati prima
+di chiudere — `cgx-test.exe` del 21/08 alle 12:00 — i due file dati sono stati
+confrontati per md5 con quelli che `applica` produce, e le quindici verifiche
+sono state rilanciate in chiusura: tutte verdi.
+
+⚠️⚠️ **Zero collaudo, settima volta di fila.**
+
+---
+
+## La settantaseiesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
