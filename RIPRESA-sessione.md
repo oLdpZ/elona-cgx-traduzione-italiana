@@ -1,20 +1,214 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-21, fine della **settantottesima** sessione (**270 rese in
-`chat.hsp` in tre lotti grossi, nessuna toppa e nessuna rete nuova**).
+Aggiornato: 2026-08-21, fine della **settantanovesima** sessione (**212 rese in
+`chat.hsp` in due lotti, piu' una correzione; nessuna toppa, nessuna rete
+nuova**).
 
-⭐⭐⭐ **La lezione della giornata: `--da-tradurre` mente sul perimetro di una
-ZONA.** Ancora una voce per firma alla **prima** occorrenza, quindi chi legge
-quell'elenco per sapere «che cosa manca in questo blocco» prende un numero
-plausibile e sbagliato: `*chat_default` mostrava **77** voci e le firme vere
-erano **89**. Due delle dodici mancanti erano voci di menu che vivono anche
-altrove, e tradurre le 77 avrebbe aperto **due schermate a meta'** in punti che
-nessuno stava guardando. Il conto giusto e' *firme non tradotte con almeno
-un'occorrenza nella zona*, e si fa **prima** di scegliere il lotto.
+⭐⭐⭐ **La lezione della giornata: il lessico di un sistema non si decide, si
+cerca dove il gioco lo stampa gia' — e la strada passa dal DATO, non dalla
+stringa.** Le dieci «route» degli evochat sembravano dieci parole da scegliere.
+Non lo erano: ogni `chatval` scrive `CDATA_HEART_LOCK_RELATION`, e quel valore
+sceglie una delle dieci **scale di rapporto** di `text.hsp:33`-`43`, tradotte da
+sessioni e stampate sotto il ritratto del compagno. Un `grep` sul nome della
+variabile — non sul testo — ha dato in dieci righe tutti i siti che nominano
+quella cosa. 💡 *Se una resa nomina uno stato del gioco, quello stato ha quasi
+sempre gia' un nome scritto da qualche parte.* E nessuna rete l'avrebbe
+segnalato: «Sei entrato nel percorso Cameratismo!» e' italiano corretto, sta nel
+tetto, non e' bilingue — e' solo una schermata che chiama una cosa col nome che
+la schermata accanto non usa.
+
+⚠️⚠️ **La seconda lezione, tre volte in un giorno: quando i due rami di `lang()`
+non dicono la stessa cosa, il giudice non e' nessuno dei due — e' quel che il
+codice FA dopo.** (1) A Halloween «Trick.» e «Treat.» sono **scambiate**: chi
+sceglie «Trick.» prende ventotto molotov, chi sceglie «Treat.» perde due punti
+di karma facendo lo scherzetto. (2) `name(cc)` in `*chat_default` e' il
+**giocatore**, e monte lo usa per tre righe che parlano del compagno. (3) Dodici
+battute che l'inglese ha perso e sostituito con due segnaposto ripetuti.
 
 ---
 
-## La settantottesima sessione
+## La settantanovesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La
+sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
+**trentaseiesima prova** di fila, e le quindici hanno dato quindici volte i
+valori attesi della 78a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    verifica --dizionario   chat.hsp   0 / 2665   (era 2877)
+    menu_dialogo            0 su 797 misurate      (erano 731)
+    menu_dialogo            rotte anche in inglese: 8   (erano 7)
+    dizionario              chat.hsp +212 voci, 1 corretta
+    invariati.md            due righe nuove: `???` e `"<<" + iroiro + ">>"`
+
+Tutto il resto e' **fermo dov'era**: `pytest` **730 passed 6 skipped**,
+`prova_identita` 72/72 e 27.813, `creature` 1131/2466/0/0, `larghezze` 0 fuori
+misura, `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `linguette` 0 e 0,
+`battute --divergenti` **13**, `intestazioni_larghezze` banco ok e perimetro 0,
+`dati_applica --identita` 4 file e 2.987 righe, `dati_sorgente` 7/7 e gioco
+difforme su 0, `gronde` 0 su 5, `maiuscole` 144 siti / 7 appesi / 8 giudicati /
+0 da guardare, `bilingui` **0**, `toppe.jsonl` **1017**, `rinviate.jsonl` **75**
+non toccato, `referti.py` **2 participi**.
+
+⭐ **Le quindici verifiche sono state rilanciate ANCHE IN CHIUSURA** e sono
+verdi. ✅ **`cgx-test.exe` e' FRESCO** (21/08, 14:27) e i due file dati di
+`elonaplus2.31\data\` hanno lo stesso md5 di quelli che `applica` produce.
+
+### ▶ Che cosa e' stato fatto
+
+Due lotti, e ognuno chiude un **sistema** intero.
+
+    chat.hsp  gli EVOCHAT            menu, reazioni, dieci vie, esiti      109 rese
+    chat.hsp  *chat_event            eventi, feste, i cinque inquilini     103 rese
+    correzione chat.hsp:21867        name(cc) -> name(tc), le monete        1 corr.
+    invariati.md                     `???` e la cornice di `iroiro`         2 righe
+    test_menu_dialogo                l'ottava rotta a monte, col motivo     1 guardia
+    scratchpad/perimetro-zona.py     il conto della 78a, fatto strumento    1 script
+    ---------------------------------------------------------------------------
+                                     212 rese, 0 toppe, 0 reti nuove, 2 spinte
+
+### ▶ ⭐⭐⭐ Gli evochat: il difetto della 78a GIRATO
+
+I tre ingressi — «<evochat>», «<evochat in coppia>», «<evochat oscuro>» — erano
+**gia' italiani dalla 73a**, e sotto c'era un sottosistema di 109 rese
+interamente inglese. Nessuna delle quindici reti lo vedeva, e non e' un difetto
+delle reti: `bilingui` guarda i gruppi di `chatList`, e **un menu tutto inglese
+non e' bilingue**. La domanda che lo trova e' *dove porta questa voce che ho
+gia' reso*, e non la pone nessuno strumento.
+
+Il sistema sta in cinque pezzi lontani (le reazioni `:18866`-`:19235`, i cinque
+menu `:19242`-`:19319`, i tre ingressi, i venticinque `chatval`
+`:21362`-`:21979`) e si prende tutto insieme, perche' il menu e la risposta si
+leggono di seguito. ⭐ **E il perimetro, misurato prima di cominciare, diceva che
+si poteva**: 109 firme, 110 occorrenze, **zero** con occorrenze fuori dalla
+zona. Infatti `bilingui` ha dato zero al primo giro.
+
+### ▶ ⭐⭐⭐ Il lessico non si e' deciso: si e' ripreso, due volte
+
+**Le dieci vie** vengono da `text.hsp:33`-`43`: Compagno, Amico, Rivale,
+Innamoramento, Tutela, Insegnamento, Famiglia, Contratto, Appartenenza,
+Lealta'. Sono le stesse parole che il gioco stampa sotto il ritratto
+(`chat.hsp:25620`) e in «Il rapporto con X diventa <Y>...»
+(`chara_func.hsp:1080`). I due esiti dello scasso del cuore dicono le parole dei
+due tratti che ne nascono, «Nessun **cruccio**» e «**Passatempo pericoloso**»
+(`command.hsp:2502` e `:2507`).
+
+**I cinque inquilini** vengono da `db_creature.hsp`, chiuso dalla 31a, con
+`scratchpad/repertorio.py`: «<Scard> la rondine felice» e la sua ossessione per
+la felicita', «<Oxode> l'ape stregina» col suo «Ara ara, tesoro~», «<Imarituka>
+lo sberleffo di casa» che dice «lmao» e «a scrocco», «<Telhureza> il geco di
+guardia» col «Fuehehe~» e gli «insetti cattivi», «<Momalaria> la gravida
+succhiasangue». 💡 Le figlie di Oxode, le api magiche che entrano in casa con
+lei, dicevano gia' «mamma» e «Paaapa!».
+
+### ▶ ⚠️⚠️ `name(cc)` in `*chat_default` e' il GIOCATORE
+
+`cc = CHARA_PLAYER`, e lo conferma `:22124`, dove `name(cc)` decapita il
+prigioniero. Monte lo usa per **tre** righe che parlano del compagno: `:21732`,
+`:21750` e `:21867`. Il giapponese dice `name(tc)` tutt'e tre le volte e il
+codice gli da' ragione (`cbitmod ..., tc`; `cdata(CDATA_GOLD, tc) += 50000`). Le
+prime due sono rese di oggi; la terza era una resa vecchia che faceva dire al
+giocatore «Tu hai diviso le monete con il compagno» — corretta.
+
+⚠️ **`verifica` lo permette** perche' la guardia sulle chiamate sottrae l'unione
+dei due rami, non il solo inglese. Ma **nessuna rete guarda quale personaggio
+nomina una resa**: si trova leggendo il codice.
+
+### ▶ ⚠️⚠️ Un segnaposto troppo largo produce un difetto di monte che non esiste
+
+`menu_dialogo` dice adesso «rotte anche in inglese: 8», e l'ottava —
+`chat.hsp:19256` — **non lo e'**. `reso()` suppone `LARGHEZZA_NUMERO = 4` cifre
+per ogni valore interpolato, ma quella voce interpola `ulp3`, che
+`chat.hsp:19246` limita a `limit(..., 0, 80)`: il massimo vero fa **58 esatti**,
+cioe' il tetto. ⭐ E' la lezione della 72a girata — li' era un **tetto troppo
+stretto** a inventare difetti di monte — con una differenza: le quattro cifre
+servono davvero altrove (il set piu' caro del negozio costa 5500 biglietti), e
+la correzione vera e' **leggere il `limit(..., 0, N)` della variabile**. Non e'
+stata fatta: la riga sta nella guardia col motivo scritto, ed e' un lavoro
+aperto.
+
+### ▶ Le misure che hanno bocciato qualcosa
+
+`menu_dialogo` ha respinto due voci degli evochat sul tetto da **24** a due
+colonne: «<Dare 100.000 monete d'oro>» (27) e «<Far succhiare una caramella>»
+(29). Adesso sono «<Dare 100.000 oro>», 18 come l'inglese, e «<Caramella in
+bocca>», 20.
+
+`chat-lotto-misura` ne ha respinte **dieci** nel lotto degli eventi, tutte per
+«una riga in piu' dell'inglese» — e tutte e dieci erano righe dove il
+**giapponese e' molto piu' lungo dell'inglese**, perche' monte aveva riassunto.
+💡 *Seguire il giapponese costa righe, e la finestra del dialogo non le ha.*
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **Il collaudo: delle 212 rese di oggi non se n'e' vista a schermo
+   nessuna, ed e' la NONA volta di fila.** Il debito e' **2.118 rese**. ⭐ Il
+   lotto piu' facile da provare resta quello della 78a — **il tutorial**, cinque
+   minuti con un personaggio nuovo — e adesso c'e' anche `*chat_event`, che si
+   vede da solo aspettando che qualcuno bussi alla porta di casa.
+2. ⚠️⚠️⚠️ **IL PUNTO CIECO DELLA 74a E' ANCORA APERTO: 128 righe di menu scritte
+   a mano in `listn(...) = lang(...)`**, di cui 101 gia' tradotte e mai misurate
+   (100 in `command.hsp`, 18 in `chara.hsp`, 7 in `chat.hsp`, piu'
+   `event.hsp:825`, `help.hsp:333`, `net.hsp:604`). Va letta la geometria dei
+   tre pannelli, uno per uno. ⚠️ **Sei sessioni che aspetta.**
+3. ⭐⭐ **La rete che manca ancora: i `buff` della finestra del dialogo.** Il
+   simulatore c'e' (`scratchpad/chat_righe.py`) e `chat-lotto-misura.py` lo usa
+   **per lotto** — oggi ha bocciato dieci rese. Il perimetro su **tutti** i
+   `buff = lang(...)` resta da fare.
+4. ⭐ **Nuovo: `menu_dialogo.reso()` non legge il `limit(..., 0, N)` della
+   variabile che interpola**, e per questo inventa un difetto di monte su
+   `chat.hsp:19256`. La correzione e' piccola e ben delimitata; il rischio e'
+   che cambi altre misure, quindi va fatta con le quindici a portata di mano.
+5. ⭐⭐⭐ **`chat.hsp` a 2.665**, e il perimetro vero dei blocchi che restano,
+   misurato con `perimetro-zona.py` (firme da fare / di cui con occorrenze
+   anche FUORI dalla zona):
+
+       *chat_unique_mizuki   :8630-:15508    1.329   5 sparse
+       *chat_unique          :947-:8629        953   5 sparse
+       *label_6452           :15509-:16640     239   1 sparsa
+       *chat_unique_SWEND1+  :16641-:18601     124   1 sparsa
+
+   ⚠️ **Nessuno dei quattro e' una zona chiusa** come le due di oggi: ognuno ha
+   firme che vivono anche altrove, quindi li' il conto della zona **non basta**
+   e la rete `bilingui` va rilanciata finche' non da' zero (77a).
+6. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208 righe),
+   `manual_ENG.txt` (591), `exhelp.txt` (185). ⚠️ `help.hsp:273` conta **dieci
+   righe di FILE per pagina**: la misura della colonna va presa dalla geometria.
+7. ⭐⭐ `board.txt` **secondo lotto**: le 38 varianti giapponesi che monte ha
+   buttato via — e `talk.txt` ha lo stesso problema. Serve estendere
+   `dati_applica` ad **aggiungere** righe.
+8. ⭐⭐ `custom_autopick.hsp`: 21 gemelle **delicate**, 78 delle 90 `lang()` sono
+   confronti dentro `instr` contro il file che scrive il giocatore.
+9. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+   `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+   `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+10. ⭐⭐ Il **muro del materiale**: `mithril sword` e' «spada **di** mithril»,
+    postposta. 118 righe piu' i tre siti di `item_func.hsp`. 💡 La toppa del
+    nome della casa (77a) e' la prova che una toppa d'ordine si scrive e si
+    prova in mezz'ora.
+11. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `item_func.hsp` 240; i **1.146** di
+    `db_card.hsp`. E la statistica 発言力 con **due nomi sullo schermo**
+    («Influenza» in `economy.hsp:357`, «autorita'» nel menu del sindaco): la
+    correzione ovvia e' vietata da `test_colonne_economy.py`, serve un sinonimo
+    **senza accento**. Decisione ancora da prendere.
+
+### ▶ Come si e' chiusa
+
+Due spinte, una per lotto, piu' la terza coi documenti. `applica` e
+`compila --eseguibile` sono girati prima di chiudere — `cgx-test.exe` del 21/08
+alle 14:27 — i due file dati sono stati confrontati per md5 con quelli che
+`applica` produce, e le quindici verifiche sono state rilanciate in chiusura:
+tutte verdi.
+
+⚠️⚠️ **Zero collaudo, nona volta di fila.**
+
+---
+
+## La settantottesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
