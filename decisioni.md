@@ -6732,3 +6732,128 @@ invece che a due menu.
 💡 E l'inglese qui non era la guida: 音声 (*voce*) l'inglese lo chiama «spell»
 perché il messaggio dice «casts a spell». Le due strade portano allo stesso
 posto, «Incantesimo», ma solo perché il messaggio era già tradotto.
+
+## 80ª — Leold: due volte l'inglese contro se stesso, e una decisione rimasta aperta
+
+Il sistema di Leold (`chat.hsp:16645`-`:18001`) vende AP: slot d'equipaggiamento,
+velocità, Vita, talenti, tecniche, risvegli del compagno. Novanta rese, zona
+chiusa (zero firme con occorrenze fuori), `bilingui` zero al primo giro.
+
+### 1. Il lessico non si è deciso: stava in un pannello già tradotto
+
+Ogni voce di questi menu vende un `CHARA_BIT_AWAKE_*` o uno `SKILL_SPACT_*`. Un
+`grep` sul nome della **variabile** — non sulla stringa (79ª) — porta in venti
+righe al pannello dei talenti di `command.hsp:2355`-`:2452`, dove ognuno di quei
+bit ha già la sua frase italiana: «Il fascino stordisce chi attacca in mischia»,
+«L'orgoglio cresce col pericolo», «La forza nascosta cresce col pericolo», «La
+barriera annulla i danni», «Cura tattica appresa», «Maledizione tattica
+appresa», «Preferenza per la mischia / per il tiro / per le magie a freccia».
+I nomi dei menu sono i sostantivi di quelle frasi. Le cinque tecniche del
+giocatore vengono da `skill.hsp` (`skillname()`), e la cornice «Hai imparato una
+nuova capacità: X.» era già resa in tre file per altre costanti.
+
+💡 **Notevole quanto poco restasse da inventare**: su novanta rese, i venti nomi
+propri del sistema erano tutti già scritti da qualche parte, e nessuno di essi
+sarebbe stato segnalato da una rete se l'avessimo scelto diverso — sarebbe stato
+italiano corretto, dentro il tetto, non bilingue.
+
+### 2. ⚠️⚠️ L'inglese di monte sbaglia un PREZZO, e il giudice è il codice
+
+`chat.hsp:17864` etichetta 可変放射 «Variable Breath (**300**AP)». Il giapponese
+dice 消費AP**400**, e `:17925` fa `leoap = 400`. Chi gioca in inglese mette da
+parte 300 AP e si sente rispondere che non bastano. La resa italiana dice 400.
+
+⭐ **E il modo di saperlo è stato contarli tutti**: verificati uno per uno i
+ventisei prezzi dei due menu contro il `leoap` che ciascun ramo assegna. È
+l'unico che diverge — e senza il conto completo sarebbe stato indistinguibile da
+un refuso qualunque. *Un prezzo scritto in un'etichetta è un numero che il codice
+ripete altrove: si confronta, non si copia.*
+
+### 3. ⚠️⚠️ E sbaglia DUE nomi di parte del corpo, sempre contro se stesso
+
+`:16741` offre «Chest» e `:16743` «Finger», ma gli slot che concedono sono
+`EQUIP_SLOT_BODY` e `EQUIP_SLOT_RING`, che `bodyn()` (`text.hsp:136`) chiama
+«Body» e «Ring». Il menu inglese nomina una cosa che il messaggio di conferma —
+`name(r1) + " grows a new " + bodyn(...)` — chiama in un altro modo. Il
+giapponese è coerente in tutt'e due i punti (胴体/胴体, 指/指).
+
+### 4. 🔶 DECISIONE APERTA: il menu degli arti non dice le parole di `bodyn()`
+
+Le nove voci di `:16738`-`:16746` sono tradotte da una sessione vecchia e dicono
+**Testa, Collo, Schiena, Torso, Mano, Dito, Braccio, Fianchi, Gamba**. `bodyn()`
+in italiano dice **Testa, Collo, Dorso, Torso, Mano, Anello, Arto, Vita, Gamba**.
+Quattro su nove non combaciano: chi sceglie «Dito» si sente rispondere «ha una
+parte nuova: Anello».
+
+Per la regola della 76ª il menu dovrebbe dire le parole del messaggio. Ma la
+correzione ovvia inciampa: `bodyn(EQUIP_SLOT_WAIST)` è «**Vita**», e nella stessa
+riga «Vita» è già il nome della statistica che si paga — «Vita (Vita -12)» non si
+può scrivere. È lo stesso inciampo del 発言力 con due nomi sullo schermo: la
+parola giusta è occupata.
+
+Le tre strade, nessuna scelta:
+
+1. cambiare l'etichetta del costo — «Fianchi (-12 vitalità)» — e allora il menu
+   può dire tutte e nove le parole di `bodyn()`;
+2. cambiare `bodyn(EQUIP_SLOT_WAIST)` da «Vita» a «Fianchi», che però è
+   un'etichetta di casella letta in ogni finestra dell'equipaggiamento e la
+   `gronde`/`riquadri` la misurano;
+3. lasciare com'è e dichiarare che il menu degli arti parla di anatomia mentre
+   `bodyn()` parla di caselle d'equipaggiamento — che è vero, ed è forse il
+   motivo per cui la sessione vecchia ha scelto così.
+
+⚠️ Nessuna delle tre si può decidere senza **guardare le due schermate**: quanto
+sono vicine nel tempo, e se il giocatore le legge davvero di fila.
+
+### 5. Due schermate, le stesse parole, due lunghezze diverse
+
+Il menu dei tredici poteri del compagno (`:17853`-`:17865`) ha più di dieci voci,
+quindi due colonne e `strmid(..., 0, 24)`. Lo stile del progetto per i costi è
+«(100 AP)» — è quello che `:17704`-`:17716` ha già in build — ma lì non ci sta:
+«Accumulo di mana (600 AP)» fa 25. Nel solo menu a tredici il costo si stringe a
+«AP600», e i **nomi** restano identici. È la regola della 73ª: *due schermate che
+mostrano la stessa scelta devono dire le stesse parole, non sono tenute a dirle
+con la stessa lunghezza.*
+
+⚠️ Una sola voce non entrava lo stesso, «Maledizione tattica AP500» (25). Si è
+accorciato il **qualificatore condiviso** e non il nome (72ª): «Maledizione tatt.
+AP500».
+
+### 6. La misura di un lotto va letta sapendo quale finestra misura
+
+`chat-lotto-misura` ha segnalato due rese «una riga in più dell'inglese», e
+tutt'e due erano false: `:16932` va a `*screen_drawMsg2` (targa, tetto 89, la
+resa ne usa 82) e `:17110` è una riga del pannello delle modalità
+(`pos wx + 165`, tetto 73, la resa ne usa 71). Lo strumento le misura col metro
+della **finestra del dialogo**, 53 caratteri, perché tratta come battuta tutto
+quel che non è `chatList`. 💡 È la 70ª in piccolo: prima di accorciare una resa
+per un referto, si guarda **da dove viene il metro**.
+
+### 7. ⭐ Il pannello delle modalità: la prima geometria letta del punto cieco della 74ª
+
+Le **sette** righe `listn(...) = lang(...)` di `chat.hsp` che la 74ª aveva
+trovato e mai misurato sono quelle di `*com_change_gamemode_loop`
+(`:16934`-`:16940`). La geometria, letta ora:
+
+    display_window  (windoww-680)/2, ..., 680, 400      -> wx, ww = 680
+    cs_list listn(0, cnt), wx + 64, ...                 font 14 - en*2 = 12
+    pos wx + 165 ; mes s                                font 13 - en*2 = 11
+
+* **colonna di sinistra** (i nomi delle modalità): testo a `wx + 64`, ostacolo a
+  `wx + 165` -> 101 px, a 7 px per carattere **14 caratteri**. Sei delle sette
+  voci sono nomi propri identici in tutt'e tre le lingue (Essential, Loss,
+  Overdose, Natural, Abnormal, Purge); la settima è `*Cancel*`, resa
+  «*Annulla*», 9. ⚠️ Nessuna riga inglese sfiora il tetto, e per la regola della
+  63ª questo di solito vuol dire che si è misurata una cosa vicina — qui no: le
+  sei voci sono nomi che upstream non può allungare.
+* **colonna di destra** (le descrizioni): testo a `wx + 165`, la finestra
+  finisce a `wx + 680` -> 515 px, **73 caratteri**. ⭐ E la riga inglese più
+  lunga (`:17004`, «it's easy mode. This mode is best for those who just want to
+  take it easy») ne fa **73 esatti**: è la firma della 63ª, *upstream scrive
+  dentro la finestra che ha disegnato*, e il tetto è quello vero.
+
+⚠️⚠️ **Le trentasette descrizioni erano già tradotte da una sessione vecchia e
+non le aveva mai misurate nessuno.** Misurate adesso: la più lunga è
+`:17082` («- Ricarica con F2 per rigiocare la sorte. Salvataggio automatico
+spento.») con **72**. Dentro per un carattere. 💡 Il punto non è che erano
+giuste: è che *nessuno lo sapeva*, e restavano giuste per fortuna.
