@@ -1,0 +1,476 @@
+--- 11aa0cd0  righe 15514
+    [statica] EN "Who do you want her to fight?"
+--- 2e016704  righe 15523
+    [dinamica] EN " " + cnvtalk("Hey, now... How can I be the pest if I'm the one who's protecting this house?")
+--- 693e21f9  righe 15531
+    [dinamica] EN " " + cnvtalk("Kiiiiiill!!!")
+--- 2dad3f07  righe 15543
+    [statica] EN "I will do my best..."
+--- a8e8a232  righe 15544
+    [statica] EN "I will make you understand my awesomeness!"
+--- 6db75ae5  righe 15545
+    [statica] EN "It's not *that* terrible!"
+--- 50b5dbdd  righe 15546
+    [statica] EN "lololol. where's your sense of aesthetic? ＡＥＳＴＨＥＴＩＣ. use that brain of yours, and you'll think of something that isn't so obviously shitty next time... probabl
+--- 6d8baad7  righe 15549
+    [dinamica] EN "just chill. lol. i can dust the tiny cracks and crevices for ya, but get off your ass and do the heavy lifting yourself, " + cdatan(CDATAN_NAME, CHARA_PLAYER) 
+--- b71dfb21  righe 15553
+    [statica] EN "haha based. you sure you're not gonna eat those words? prove it, son. i highly doubt you will though. lol"
+--- fdb3eb83  righe 15557
+    [dinamica] EN "oh so you're a self-aware type huh. hahaha. you're the kind of person that takes ratings and stuff at face value, aren't ya? my bad. a person of refined taste 
+--- b3d6d04c  righe 15566
+    [statica] EN "It's been nice having you."
+--- 0ad6c4c9  righe 15567
+    [statica] EN "Guhehe..."
+--- daab95c6  righe 15568
+    [statica] EN "When are going to pay the rent?"
+--- 36e56078  righe 15569
+    [statica] EN "Oh, landlord. Thanks for your hard work out there."
+--- f4b52e9f  righe 15572
+    [statica] EN "Yes, yes. My daughters seem to have taken a liking to this house and its keeper. We've been happily talking about them both, and quite often. Ufufu."
+--- e34b0a8f  righe 15576
+    [statica] EN "Y-You look really tired... are you okay? Why don't you take a break for a while?"
+--- d7476db8  righe 15582,15615
+    [dinamica] EN "The next time is " + cnvdate(cdata(CDATA_RENT_REFRESH, tc), 1) + "."
+--- 07b90b26  righe 15585
+    [statica] EN "Oh, that's right. Sorry for falling behind. Please take these - I made them together with my daughters."
+--- bcdea3e0  righe 15599
+    [statica] EN "I'm happy."
+--- dda15625  righe 15600
+    [statica] EN "I'm unhappy."
+--- ba071c5e  righe 15601
+    [statica] EN "Just pay the rent already."
+--- f6967e85  righe 15602
+    [statica] EN "Are you happy?"
+--- 81c8f454  righe 15605
+    [statica] EN "Being happy is our duty, isn't it!! No matter how much your body hurts, no matter how much your mind suffers, there's no doubt in my mind that if you're alive,
+--- cec4c7c7  righe 15609
+    [statica] EN "Those who are alive must be happy for the sake of those who have died. Ah ah ah ah! Look! Loooook!! I'm so happppppppy!!!"
+--- 084c7b28  righe 15618
+    [statica] EN "Ah, right."
+--- 042d47e4  righe 15687
+    [statica] EN "I want to know about Piety."
+--- 86c27107  righe 15688
+    [statica] EN "I want to know about Offerings."
+--- 99311f73  righe 15689
+    [statica] EN "I want to know about Servants."
+--- f0d9c517  righe 15690
+    [statica] EN "I want to know about the black book in the corner."
+--- f0635333  righe 15691
+    [statica] EN "Why are you staring at me like that... Is there something on my face?"
+--- 6aebb5d1  righe 15694
+    [statica] EN "The maximum Piety you can have in each god is determined by your faith skill. Simply increasing your skill won't deepen your faith, so be sure to make offering
+--- 6a25d045  righe 15695
+    [statica] EN "The Piety gradually diminishes during the process of migration, so it's a good idea to make offerings regularly. And, of course, the Piety will be reset if you
+--- b89ed08b  righe 15699
+    [statica] EN "Each deity has different preferences for offerings. Before you start faith, make sure you can provide a large quantity of offerings."
+--- 9556cc32  righe 15700
+    [statica] EN "Heavy corpses are generally preferred, so if you're offering one, it's best not to cook it. However, be careful, as corpses become practically worthless once t
+--- 625a5908  righe 15704
+    [statica] EN "As your faith deepens, you will receive unique servants from each god. It seems that the servant is modeled after relatives, etc."
+--- 99d7e770  righe 15705
+    [statica] EN "They say that by deepening your faith even further, you can receive more than just a servant... Some believers even change their faith and then change it again
+--- 255a4305  righe 15709
+    [statica] EN "That book… I confirmed with everyone, but it seems no one knows about it. It suddenly appeared one day."
+--- d206210f  righe 15710
+    [statica] EN "Though its nature is unclear, it appears to be some mysterious magical artifact of some kind… A top-tier adventurer could likely wield even such an object with
+--- f79d940b  righe 15719
+    [statica] EN "Wouldn't it be better for this town to be ruled by foxes than to become a feeding ground for werewolves?"
+--- dc998dcc  righe 15724
+    [statica] EN "Here, have some fried tofu."
+--- f8d509b8  righe 15727
+    [statica] EN "I'll bring it next time."
+--- 5afc6d72  righe 15728
+    [statica] EN "This city is under my control. Come on, worship me. Gimme some fried tofu."
+--- 999bec9d  righe 15733
+    [statica] EN "Yay!...Oops. Offer it to me as many times as you like. I'll give you a reward, so make good use of it. Return to me when you've got more tofu in your pockets."
+--- 67d6ed70  righe 15742
+    [statica] EN "Ah, what a pity. It's common sense to have tofus in your pockets you know?"
+--- 55cb050a  righe 15753
+    [statica] EN "No...I'm not thinking of stealing the baby while looking for a chance..."
+--- d28baec0  righe 15756
+    [statica] EN "Ah...I want to deliver a baby to a couple who can't have children..."
+--- 589fbf1a  righe 15759
+    [statica] EN "Parenting is so hard that it makes me have a nervous breakdown. Shall I take care of the baby?"
+--- f154d704  righe 15768
+    [dinamica] EN "Hahaha! " + _onii(cdata(CDATA_SEX, CHARA_PLAYER)) + ", if you can finish your story, Aime will let you listen to hers."
+--- bcdc1bb7  righe 15771
+    [statica] EN "Maybe sometime soon."
+--- 0076dce7  righe 15772
+    [statica] EN "I'd like you to tell me."
+--- aa7d1005  righe 15773
+    [statica] EN "Aime knows lots of stories. If you give Aime five pieces of stardust, she'll tell you a story!"
+--- 24c80a9b  righe 15780
+    [statica] EN "《Aime's Diary》 (Lv???)"
+--- 917c0bde  righe 15781
+    [statica] EN "Smile Under The Mask (Lv200)"
+--- 5ca82966  righe 15782
+    [statica] EN "The Boy Who Forgot His Dream (Lv250)"
+--- d5a1ccdc  righe 15783
+    [statica] EN "The Muddy Hands (Lv250)"
+--- 1fec108e  righe 15784
+    [statica] EN "Silver Tears (Lv400)"
+--- 6eefa380  righe 15785
+    [statica] EN "The Giant God Labyrinth Expedition (Lv500)"
+--- 3413c36d  righe 15786
+    [statica] EN "Chaos End (Lv600)"
+--- 8750e1a5  righe 15787
+    [statica] EN "Seven Mysteries of Irva High (Lv700)"
+--- ca8debce  righe 15788
+    [statica] EN "Big Brawl of the Furious Tonfa (Lv800)"
+--- 12c05a90  righe 15789
+    [statica] EN "Abomination, Heavenly Corpse Demon Tong (Lv900)"
+--- 90fa46a3  righe 15790
+    [statica] EN "Yerleswood vs. Zeirennou (Lv1000)"
+--- 4df68fc7  righe 15791
+    [statica] EN "Myth of Destruction (Lv1100)"
+--- 2aaafb67  righe 15792
+    [statica] EN "The Eternal Hero (Lv1200)"
+--- df4d7e7c  righe 15793
+    [statica] EN "All of them are still unimplemented, though."
+--- cae10a76  righe 15798
+    [statica] EN "You kidding? Bring Aime five pieces of stardust."
+--- 569cdfef  righe 15807
+    [statica] EN "It can't be... My powers were superior to yours... They had to have been..."
+--- b0bd1eb6  righe 15808
+    [statica] EN "However... A miracle carries a high price... In mere seconds, the magical reaction bequeathed by my destruction will obliterate your body, and your ego will be
+--- 0c57a419  righe 15809
+    [statica] EN "Gh... I have grown tired of seeing your spiteful face. I shall return to the void..."
+--- 5dab6cd4  righe 15810
+    [statica] EN "Never did I think... it would end like this..."
+--- f422859b  righe 15826
+    [statica] EN "So you are still able to move about... Isn't that enough? You have needlessly persisted for this long. I shall at least recognize your tenacity."
+--- 7b801614  righe 15827
+    [statica] EN "And what of it?!"
+--- d7076cb5  righe 15828
+    [statica] EN "I just can't give up, you see."
+--- 73bbc907  righe 15829
+    [statica] EN "But I'm still going to end you."
+--- a114b071  righe 15830
+    [statica] EN "Let yourself disperse into nothingness. No matter how much you suffer, and no matter how hard you try, you have no hope of winning."
+--- da5acd4e  righe 15833
+    [statica] EN "So you still have enough impudence in you to talk back. Very well. At your insistence, I shall take my time in burning you to a crisp, before your ashes are sc
+--- 58fa95f4  righe 15835
+    [statica] EN "The flames are converging to a single point!"
+--- a99f8e7a  righe 15908
+    [dinamica] EN "Get back up! Channel the power of everyone's " + gdata(GDATA_FLAG_COLLECTED_WISHES) + " wishes!"
+--- cb0d39fb  righe 15909
+    [statica] EN "What is happening?"
+--- e2ec7168  righe 15910
+    [statica] EN "That piercing flame should have been able to completely obliterate a deity-class being. Why is a single trifling fate being protected by a miracle of this much
+--- 7cefd714  righe 15911
+    [statica] EN "I'm just a humble adventurer."
+--- ff7ff94e  righe 15912
+    [statica] EN "This is a wish! It's the light born from connection!"
+--- e498444d  righe 15913
+    [statica] EN "I'll show you just how awesome an adventurer can be..."
+--- c1ad810a  righe 15914
+    [statica] EN "I don't even know but I'm taking you down!"
+--- f7fae789  righe 15915
+    [statica] EN "How can this be... What is that light? Just what are you...?"
+--- c234a8ec  righe 15918
+    [statica] EN "Ku... Hahahahahaha!"
+--- ef60f5c8  righe 15919
+    [statica] EN "You have truly made a mess of my plans! Truly, indeed! And yet, you are still nothing more than a mere mortal who's grasped a short-lived miracle! I shall smas
+--- 383cb7d8  righe 15920
+    [statica] EN "Here I come... IRREGULAAAAAARRR!!!"
+--- 41efbf2f  righe 16006
+    [statica] EN "The Origin of Light left behind by Tezcatlipoca evaporates, and melts into the Akashic Network..."
+--- d331609f  righe 16037
+    [statica] EN "You hear a voice..."
+--- 1856f399  righe 16052
+    [statica] EN "That was too easy. Way too easy. I thought it would be close to what we expected at the beginning, but this is just... not what we thought it would be."
+--- db3c1abd  righe 16053
+    [statica] EN "There's also very little divine power left in the bod- what's going on?! Everyone get away!"
+--- 7a01e4a8  righe 16057
+    [statica] EN "It can't be... One of the divine pillars that Enthumesis had absorbed separated itself and came back to life!?"
+--- 4dce1ad3  righe 16058
+    [statica] EN "...No, that's not it. It's a parasite. It's absorbing all the divine power that was stored in Enthumesis!"
+--- 942c0bce  righe 16059
+    [dinamica] EN "We'll need to weaken it somehow, by using the Origin of Light or sealing its movements. It's still limping about because it's just been born, but the power com
+--- 55bf8e58  righe 16064
+    [statica] EN "Damn, this thing is out of our league."
+--- 8e0d862d  righe 16068
+    [statica] EN "What was that attack just now?!"
+--- e5471243  righe 16072
+    [statica] EN "This is no good! Our attacks aren't doing enough!"
+--- dfea4ad7  righe 16076
+    [statica] EN "Did... did we stop it?"
+--- 82419cbf  righe 16080
+    [statica] EN "We might've been able to use the Origin of Light if we'd just gotten rid of its regeneration, but it looks like that old man's reached his limit. That beast is
+--- 94748ae9  righe 16081
+    [statica] EN "Norne should be on his way to report to the gods, but I'm wanting to do the same. We need to find out just *what* that thing was even if it's not moving anymor
+--- 1cad7a17  righe 16102
+    [statica] EN "You're finally awake, huh? You really... really, kept us waiting..."
+--- 95487594  righe 16103
+    [statica] EN "I've been training and keeping watch down here. I didn't want anyone to get in the way of your recovery, you know."
+--- 3b70f98c  righe 16105
+    [statica] EN "What should I do next?"
+--- 238a419b  righe 16106
+    [statica] EN "Where is Orphe?"
+--- 96639ebb  righe 16107
+    [statica] EN "Will you go back to being Tezcatlipoca again?"
+--- 6594e128  righe 16109
+    [statica] EN "There's a reward I haven't received yet."
+--- 6fcc0e13  righe 16111
+    [statica] EN "You've become stronger and braver than we'd ever expected. I'm proud of you, as well..."
+--- 8a5ae222  righe 16117
+    [statica] EN "Norne told me that you've fulfilled all of your duties. You're no longer bound by destiny... and that's a good thing. Go on ahead and explore this vast, limitl
+--- 71ac92fd  righe 16121
+    [statica] EN "Orphe was taken into custody and sent off for a thorough examination. Once it was confirmed that his mind and body were intact, he was dropped off in North Tyr
+--- 8119bc57  righe 16122
+    [statica] EN "I suggested that we work together in Lost Irva, but he refused, saying that he was embarassed to show his face in front of me. By the way, he told me that he w
+--- 3b871a1a  righe 16126
+    [statica] EN "I got my powers back, but I don't feel like fighting with those eight godly pillars for supremacy now. Even though I was originally meant to work among the god
+--- 02ccaa4c  righe 16127
+    [statica] EN "That reminds me. Now that you've regained your strength, you can use AP to further increase your speed and vitality once again. If you have time, stop by Ulm-L
+--- d941dfa7  righe 16131,16260
+    [statica] EN "A reward? Sure, I guess."
+--- 88f0aa89  righe 16137,16266,16415
+    [statica] EN "You can have this gem. It awakens nearby Nefia and brings out the potential of the monsters within them. It also enables you to find the core of Nefia - though
+--- b673fe4b  righe 16139,16268
+    [statica] EN "Don't want it."
+--- eff97548  righe 16140,16269,16418
+    [statica] EN "Taloned male."
+--- 307ec45c  righe 16141,16270,16419
+    [statica] EN "Taloned female."
+--- 59a9b498  righe 16142,16271,16420
+    [statica] EN "Fanged male."
+--- c3c15103  righe 16143,16272,16421
+    [statica] EN "Fanged female."
+--- 9457a995  righe 16144,16273
+    [statica] EN "I can give you up to two servants. How 'bout it? There are ones with sharp talons and some with really impressive teeth."
+--- 452c27b1  righe 16147,16276,16426
+    [statica] EN "Hmm. It looks like your party is already full and you can't invite someone anymore."
+--- 9e8a069c  righe 16151,16280
+    [statica] EN "I see."
+--- 6bd78e4f  righe 16172,16301,16454
+    [statica] EN "This soldier is very aggressive and seems to be able to see its targets perfectly clearly through smoke."
+--- daf7e54b  righe 16175,16304,16457
+    [statica] EN "This crocodile seems to be very good at swimming."
+--- fbd9a84a  righe 16189
+    [statica] EN "You've done it now, Orphe. But this will be the time we finally stop you..."
+--- 2fab8b93  righe 16190
+    [dinamica] EN "Ah. I've been waiting for you, " + cdatan(CDATAN_NAME, CHARA_PLAYER) + ". I'll be taking the [Origin of Light], since I'll be needing it for the final confront
+--- 53a7f875  righe 16192
+    [statica] EN "You have lost the [Origin of Light]..."
+--- d9412eff  righe 16197
+    [statica] EN "Let me fight by your side."
+--- 646785af  righe 16198
+    [statica] EN "A fitting end to an adventure."
+--- 835c797d  righe 16199
+    [statica] EN "I want to know about what we're up against."
+--- a9fd2b5f  righe 16200
+    [statica] EN "<Descend into the Eternal Seal>"
+--- 8e871ca2  righe 16202
+    [statica] EN "I'll be able to figure something out... no, I'll *have* to figure something out. After all, once I descend into the Eternal Seal, I won't be able to come back 
+--- c9e5c7d4  righe 16205
+    [statica] EN "Even if you're prepared to fight this fight with me, why not at least pay a visit to the all the people that have been there for you all this time? Understand 
+--- c36c9a61  righe 16210
+    [statica] EN "...Why do I feel so reassured? I know I shouldn't rely on you, but I can't seem to help it."
+--- 1494f31a  righe 16214
+    [statica] EN "I really didn't want you to come to this place. I wanted you to go on a normal adventure in this vast, limitless world..."
+--- c4760ec4  righe 16218
+    [statica] EN "The last time I fought Orphe on this floor, he was about level 350. He used Chaos Ball and Shining Wave, so having little resistance to chaos and a low PV or D
+--- b8274875  righe 16219
+    [statica] EN "If Orphe has absorbed all of the divine power from the motionless Chaos Child... he would have become unimaginably more powerful by now. His level could be wel
+--- b9949f46  righe 16220
+    [statica] EN "The only weakness he would have left would be to enchantments that deal increased damage to gods. Even then, physical attacks are unlikely to hit him unless hi
+--- 18a73f60  righe 16221
+    [statica] EN "In my current condition, I would have been able to defeat Orphe in his original form with ease. But with all of the power he's obtained... I honestly don't thi
+--- 81dfcf93  righe 16225
+    [statica] EN "Looks like I have no hope of stopping you. I'll come along."
+--- ca29613e  righe 16226
+    [dinamica] EN "Hey, " + cdatan(CDATAN_NAME, CHARA_PLAYER) + ". Before we go into the final battle, there's something I really need to tell you."
+--- ec590ab4  righe 16227
+    [statica] EN "So... here goes."
+--- 2e3790dd  righe 16228
+    [statica] EN "I always thought of Orphe as a comrade in arms, actually. Even after he became entranced by Chaos, I desperately wanted to save him somehow. ...But this is no 
+--- 4c565143  righe 16229
+    [statica] EN "If I show any hesitation during this fight, do me a favor and smack me across the face. ...That's all. Let's roll!"
+--- fec06c6d  righe 16249
+    [statica] EN "Keep a close eye on that thing, will you?"
+--- deccaccc  righe 16251
+    [statica] EN "Where's my reward?"
+--- 3909a042  righe 16253
+    [statica] EN "It didn't go without a hitch, but what matters is that Enthumesis has been defeated. You can leave the rest to me."
+--- f4e5d947  righe 16256
+    [statica] EN "You don't have to worry about that. It can't even move its body properly - there's no chance that it'll get out from here. Even if someone from the outside tri
+--- 8eed9ced  righe 16257
+    [statica] EN "I'll take care of guarding this place. You can go back to your normal life now."
+--- 2c601be5  righe 16316
+    [statica] EN "Yes."
+--- 5c1a8d41  righe 16317
+    [statica] EN "No..."
+--- 8bf27b6f  righe 16319
+    [statica] EN "You're back. Let's get on with the rest of the event. This was supposed to happen immediately after defeating Enthumesis."
+--- 5c4d3de2  righe 16322
+    [statica] EN "Head down to the Eternal Seal?"
+--- 59c2cd92  righe 16345
+    [statica] EN "What do I have to do next?"
+--- 3830e492  righe 16348
+    [statica] EN "I knew that already."
+--- a364bd11  righe 16351
+    [statica] EN "Isn't Tezcatlipoca the God of Chaos?"
+--- d74e5d94  righe 16354
+    [statica] EN "What do I get if we win?"
+--- 25e66c3f  righe 16357
+    [statica] EN "Hang on a sec."
+--- 87d09bbb  righe 16360
+    [statica] EN "<Head down to the Eternal Seal>"
+--- f8254431  righe 16363
+    [statica] EN "You didn't think I was Tezcatlipoca, did you? Gotcha."
+--- f52d55ea  righe 16366
+    [statica] EN "What you see here - the person you call Leold - is a physical form that I had created and trained up without any use of divine power. All so that I could fight
+--- 51505171  righe 16373
+    [statica] EN "Sophia and the others are preparing for the final confrontation. You're probably going to have to fight in the Eternal Seal when the time comes. You can go che
+--- 25573106  righe 16376
+    [statica] EN "You... you're kidding..."
+--- b7f11b85  righe 16377
+    [statica] EN "Who let the cat out of the bag?! Was it Sinaha?!"
+--- d1321c11  righe 16379
+    [statica] EN "Sinaha: \"Mew!?\""
+--- 55d77940  righe 16382
+    [statica] EN "Who told you that? The God of Chaos and Tezcatlipoca are completely different beings. You shouldn't believe every rumour that you hear."
+--- e5601048  righe 16383
+    [statica] EN "When danger drew close, I did warn all the people who were candidates for the Decisive Factor and tell them to head to the Eternal Seal. I did not say anything
+--- 7175d84b  righe 16384
+    [statica] EN "You should always be careful about separating facts from assumptions, or else you'll get things wrong again."
+--- 2a4a4230  righe 16387
+    [statica] EN "It looks like you're not going to be able to save while you're inside there. Do you have all your healing and buffing items? What about your equipment? ...No, 
+--- 4fdda41a  righe 16388
+    [dinamica] EN "The time to defeat Enthumesis has finally come. Alright. I think I'm ready too. Let's go, " + cdatan(CDATAN_NAME, CHARA_PLAYER) + "!"
+--- a4eea879  righe 16406
+    [statica] EN "A reward? You can have this artifact that it dropped."
+--- ce87c0d6  righe 16408
+    [statica] EN "I gave you a gem, right? The gemstone of awakening."
+--- cd28bf5c  righe 16417
+    [statica] EN "Maybe later."
+--- 2facc709  righe 16422
+    [statica] EN "I want all of them!"
+--- a9a41adf  righe 16423
+    [statica] EN "You can have one more servant. How 'bout it? There are ones with sharp talons and some with really impressive teeth."
+--- 40503808  righe 16430
+    [statica] EN "Okay then. And just so that you know, I don't have any god jewels."
+--- 00904e3a  righe 16433
+    [statica] EN "Greedy, aren't you? I'll give you just one more after we defeat the God of Chaos, okay?"
+--- c9f54f92  righe 16470
+    [statica] EN "What are you doing here?"
+--- f6108900  righe 16471
+    [statica] EN "First? I'm not the second?"
+--- 6c5ec5e5  righe 16472
+    [dinamica] EN "Good to see you here, " + cdatan(CDATAN_AKA, CHARA_PLAYER) + " " + cdatan(CDATAN_NAME, CHARA_PLAYER) + ". You're the first one to arrive."
+--- ea3ee882  righe 16475
+    [statica] EN "I'm the one who selects the Decisive Factor. I've kept this a secret for a long time, but this is the mission given to me by the Eight Pillars. That is the rea
+--- 5f599584  righe 16478
+    [statica] EN "But to think that an adventurer that I've never met before would be here... Impressive. You've put my efforts to shame."
+--- 5873326e  righe 16480
+    [statica] EN "The Eternal Seal is right ahead. I've heard that you won't be able to save in there. Make sure that you have all your healing and buffing items, and give your 
+--- d94b3df8  righe 16488
+    [statica] EN "Still making preparations."
+--- ad5db919  righe 16489
+    [statica] EN "Awaken powers."
+--- 94226b5c  righe 16490
+    [statica] EN "<Fight Tezcatlipoca>"
+--- 67629664  righe 16491
+    [statica] EN "Yeah?"
+--- 1e03d091  righe 16497
+    [statica] EN "That's going to be too much trouble here. If you want that, you'll have to come see me in Ulm-Leson."
+--- 7506f846  righe 16500
+    [statica] EN "Hmm? Well, alright. But first, I should tell you about Tezcatlipoca."
+--- 67f16109  righe 16501
+    [statica] EN "Tezcatlipoca is the conflict-loving God of War. It's said that he was born in the same domain as Ehekatl and Itzpalt. Forever the rival of Ehekatl, they would 
+--- 24679fd5  righe 16502
+    [statica] EN "It's said that the first generation of Tezcatlipoca was extremely cunning. He tricked the first Ehekatl into drinking a special cursed wine and made him have a
+--- 1d186ff4  righe 16503
+    [statica] EN "Anyway, you just have to be careful of him. Tezcatlipoca isn't just about combat prowess - you also have to be careful not to get tricked. Now, let's go."
+--- c7694ffb  righe 16512
+    [dinamica] EN "You're strong, " + cdatan(CDATAN_NAME, CHARA_PLAYER) + ". The time may come when monsters are no longer any match for you and you lust to fight something stron
+--- bfaafe0a  righe 16516
+    [statica] EN "This gem awakens nearby Nefia and brings out the potential of the monsters within them. It also enables you to find the core of Nefia - though I don't know if 
+--- ff9a6a13  righe 16517
+    [statica] EN "Don't think you're the only one I've given this to, though. Because you're not."
+--- 0e0268d1  righe 16522
+    [statica] EN "You! You've got the look of someone strong. Just my luck that it would take me this long to meet someone as strong as you."
+--- 73081171  righe 16523,16536
+    [dinamica] EN "Your name is...? " + cdatan(CDATAN_NAME, CHARA_PLAYER) + "? I see. Well then, " + cdatan(CDATAN_NAME, CHARA_PLAYER) + ", I can lend you a hand if you want so t
+--- b9d637ff  righe 16524
+    [statica] EN "Speaking of strong, I saw a particularly promising adventurer called the Silver Bear. But she completely ignored me and headed straight into the Cradle of Chao
+--- ce3462f8  righe 16528
+    [statica] EN "I've been waiting for you ever since I got here. There are a few other promising adventurers, but well..."
+--- 0d2f19a7  righe 16529
+    [statica] EN "There was one called the Silver Bear, but she completely ignored me and headed straight into the Cradle of Chaos at the centre of the continent. Strength isn't
+--- 383ffe44  righe 16535
+    [statica] EN "You! You've got the look of someone strong. And if I'm not wrong about you, you're going to get really strong."
+--- 1e474b34  righe 16540
+    [dinamica] EN "Ah, " + cdatan(CDATAN_NAME, CHARA_PLAYER) + ", I see you're here too. If you want to train yourself, you should try the Nefia in the center of the continent. B
+--- 52122500  righe 16544
+    [statica] EN "I'm okay for now."
+--- d30ddabc  righe 16545
+    [statica] EN "Adventuring Advice"
+--- f44255f9  righe 16547
+    [statica] EN "Awaken latent powers."
+--- 8b656dc9  righe 16550
+    [statica] EN "I want an objective."
+--- 7a687308  righe 16553
+    [statica] EN "I have completed the objective."
+--- 3dc1f1fe  righe 16555
+    [statica] EN "Never grow complacent - always strive to train your body and mind to reach new heights. Anything I can do to help?"
+--- 9a334edf  righe 16558
+    [statica] EN "Food."
+--- 813f3ee8  righe 16559
+    [statica] EN "Companions."
+--- 2e3763bf  righe 16560
+    [statica] EN "Items."
+--- e60c5d8b  righe 16561
+    [statica] EN "Life."
+--- bd25c010  righe 16562
+    [statica] EN "Other things."
+--- bf8bbc35  righe 16563
+    [statica] EN "What would you like to know about?"
+--- 61470307  righe 16566
+    [statica] EN "Herbs and well-cooked dishes are great for attribute growth. If you're having trouble finding food though, try entering an empty area from the world map and lo
+--- 3696377f  righe 16567
+    [statica] EN "Most food will eventually rot, though there are some exceptions such as api nuts, bread, rations, and potatoes."
+--- 245ebb33  righe 16568
+    [statica] EN "After vomiting multiple times, you might become anorexic. You'll vomit up anything you eat during that time, so try to get by on liquids. You can cure it natur
+--- a1969950  righe 16572
+    [statica] EN "Although companions might start out pretty weak, with enough training, they can become quit formidable. With a higher Charisma value, you can bring along more 
+--- 1ff88874  righe 16573
+    [statica] EN "If you intend for them to join you in battle, it's essential that you feed your companions good food and give them good equipment. However, if you give them th
+--- 9a676150  righe 16574
+    [statica] EN "Also, a companion who can't float may fall to their death when attempting to drink water from a well, so be careful. Keep in mind that you can revive dead pets
+--- c2ea084f  righe 16578
+    [statica] EN "It's important that you get items appraised. Otherwise, you may end up using items that are cursed without even realizing it. Wearing equipment that is cursed 
+--- 29a2b641  righe 16579
+    [statica] EN "When you take fire or ice damage, some of your items may be destroyed. The integrity of equipment that isn't acid resistant may be damaged when you take acid d
+--- 93708bfc  righe 16580
+    [statica] EN "When you Mix(B key) blessed water it turns an item into a blessed one even if it's cursed. Most of the time blessed items are stronger, but some things don't c
+--- 6bac67ed  righe 16584
+    [statica] EN "Press the * key on the outer world map. You can get a feel for your surroundings. Towns that have government boards are cleaned and repaired at intervals. You'
+--- 201cc33b  righe 16585
+    [statica] EN "There are Casino related items in towns and party halls. If you use this you can play some blackjack. You can win prizes like potions of cure corruption but th
+--- 056fb22b  righe 16586
+    [statica] EN "You can take up quests in towns, but I recommend you to pass on the extermination quests until you have better gear and just do the simple quests. Delivery que
+--- 9a188134  righe 16590
+    [statica] EN "Basically, status effects can be restored by either waiting for time to pass or using restorative magic and items to recover bit by bit. Except being impregnat
+--- dbc1f207  righe 16591
+    [statica] EN "Also, unlike me, other Adventurers are vicious. If you somehow make them angry, they'll still come after you even after defeating them or changing maps. If tha
+--- a0d34fec  righe 16592
+    [statica] EN "Resting is important to growth. After you complete an adventure you should sleep in the best you can find. But it's meaningless unless you use it! If your equi
+--- 4a90934a  righe 16594
+    [statica] EN "Well, if you're a member of the Adventurer's guild then you probably already have a manual. There's a bunch of other stuff to check out written there, so hold 
+--- 63c29f40  righe 16601
+    [dinamica] EN "All right. Try to beat the enemy monsters of level " + gdata(GDATA_FLAG_LEOLD_JOB_TIER) + " and above. Nothing besides enemies count."
+--- 4e94d815  righe 16608
+    [statica] EN "Alright... Well done! Let's celebrate with these."
+--- 4a0df311  righe 16616
+    [statica] EN "You no longer fit into the levels we can provide. You'll have to search for higher level objectives yourself."
+--- 2e979e6a  righe 16621
+    [dinamica] EN "For the next objective, try beating enemy monsters of level " + gdata(GDATA_FLAG_LEOLD_JOB_TIER) + " and above. There's no rush, so take your time."
+--- 3a06657f  righe 16627
+    [statica] EN "I want to awaken my own powers."
+--- accf44b1  righe 16628
+    [statica] EN "I want to awaken an ally's power."
+--- 90264be1  righe 16629
+    [statica] EN "There is a powerful form of experience gained from engaging powerful enemies in a life-or-death struggle. However, it typically does not take form and is burie
