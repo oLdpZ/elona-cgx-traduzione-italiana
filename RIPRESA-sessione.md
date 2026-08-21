@@ -1,8 +1,9 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-21, fine della **ottantaduesima** sessione (**148 rese in
-`chat.hsp` in due lotti, due zone chiuse, una resa vecchia corretta, e un buco
-nel perimetro dei nomi degli oggetti**).
+Aggiornato: 2026-08-21, fine della **ottantaduesima** sessione (**312 rese in
+`chat.hsp` in sette lotti, sette zone chiuse, due rese vecchie corrette, una
+guardia corretta negli strumenti e un buco nel perimetro dei nomi degli
+oggetti**).
 
 ⭐⭐⭐ **La lezione della giornata: il nome che l'oggetto porta PRIMA di essere
 identificato non lo vede nessuna rete, e non basta allargare una regex per
@@ -16,13 +17,26 @@ un nome non identificato tradotto è **un altro sostantivo, con un altro genere*
 — e gli array `iknownnamerefplur` / `iknownnamearticolo` **nel motore non
 esistono**. Serve una toppa, non solo una regola in più.
 
-⭐⭐ **La seconda: cercare il lessico è anche un collaudo delle rese vecchie.**
-Cercando 決戦因子 nel dizionario è saltata fuori `screen.hsp:1388`, dove Orphe
-diceva «non sono **stata** all'altezza». `db_creature.hsp:46159` mette
-`CDATA_SEX` a 0 = maschio, e i quattro epiteti di Orphe sono maschili.
-Corretta. *Nessuna rete guarda il genere di una resa.*
+⭐⭐⭐ **La seconda: cercare il lessico è anche un collaudo delle rese vecchie.**
+Il metodo del DATO — si cerca la costante, non la stringa — ha trovato due
+difetti che nessuna rete guarda. `screen.hsp:1388` faceva dire a **Orphe** «non
+sono **stata** all'altezza», ma `db_creature.hsp:46159` mette `CDATA_SEX` a 0 =
+maschio. E `chat.hsp:6505` chiamava una creatura **«H Sister»** mentre
+`db_creature.hsp:97006` la chiama «la sorella minore sicaria»: tre nomi per la
+stessa creatura in due file.
 
-⭐ **La terza: quando l'epiteto non regge l'articolo, si gira l'apposizione.**
+⭐⭐ **La terza sta negli strumenti: due funzioni dello stesso modulo davano
+risposte diverse sulla stessa espressione.** `cnven()` alza la prima lettera e
+non porta nessun dato, esattamente come `cnvtalk` — ma stava fuori da
+`TRASPARENTI`, e `_classifica` la classe non la conosceva affatto. Risultato:
+`chat.hsp:18813` (`"(" + cnven(he(tc)) + " nodded shyly.)"`) era
+**intraducibile**, perché `he(tc)` a un argomento è morfologia da togliere e con
+lei se ne va la maiuscola, ma `verifica` pretendeva `cnven` fra le attese.
+`cnven(he(...))` compare **16 volte** nel sorgente. 💡 *Lasciar cadere `cnven`
+non allenta niente: la maiuscola ha una rete tutta sua, `maiuscole.py`, che
+legge la build e giudica per posizione.*
+
+⭐ **La quarta: quando l'epiteto non regge l'articolo, si gira l'apposizione.**
 `chat.hsp:16472` è l'unica riga che concatena `CDATAN_AKA` e il nome. «fragore
 della dipendenza Pippo» è sgrammaticato e «il» si romperebbe sul primo epiteto
 femminile; l'apposizione italiana — «Pippo, fragore della dipendenza» —
@@ -42,43 +56,54 @@ valori attesi della 81ª.
 
 ⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
 
-    verifica --dizionario   chat.hsp   0 / 2296   (era 2444)
-    menu_dialogo            0 su 923 misurate      (erano 881)
-    dizionario              chat.hsp +148 voci, screen.hsp 1 corretta
-    decisioni.md            +125 righe (la voce della 82ª, cinque punti)
+    verifica --dizionario   chat.hsp   0 / 2132   (era 2444)
+    menu_dialogo            0 su 945 misurate      (erano 881)
+    pytest                  733 passed 6 skipped   (erano 730)
+    maiuscole               143 siti, 6 appesi, 7 giudicati, 0 da guardare
+                                                   (erano 144 / 7 / 8 / 0)
+    dizionario              chat.hsp +311 voci e 1 corretta, screen.hsp 1 corretta
+    decisioni.md            la voce della 82ª
 
-Tutto il resto è **fermo dov'era**: `pytest` **730 passed 6 skipped**,
-`prova_identita` 72/72 e 27.813, `creature` 1131/2466/0/0, `larghezze` 0 fuori
-misura, `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `linguette` 0 e 0,
-`battute --divergenti` **13**, `intestazioni_larghezze` banco ok e perimetro 0,
-`dati_applica --identita` 4 file e 2.987 righe, `dati_sorgente` 7/7 e gioco
-difforme su 0, `gronde` 0 su 5, `maiuscole` 144 siti / 7 appesi / 8 giudicati /
-0 da guardare, `bilingui` **0**, `toppe.jsonl` **1018** non toccato,
-`rinviate.jsonl` **75** non toccato, `menu_dialogo` rotte anche in inglese **9**.
+⚠️ **`maiuscole` cala perché una resa ha fatto sparire un `cnven`**: è la rete
+che legge la **build**, non il sorgente pinnato, e `chat.hsp:18813` è uscita
+dagli appesi **e da `GIUDICATI`** — il permesso diceva «si giudica quando ci
+arriva il lotto», il lotto è arrivato. L'ha detto
+`test_i_giudicati_esistono_ancora`, terza volta.
 
-⭐ **Le quindici verifiche sono state rilanciate ANCHE IN CHIUSURA** e sono
-verdi. ✅ **`cgx-test.exe` è FRESCO** e i due file dati di
-`elonaplus2.31\data\` hanno lo stesso md5 di quelli che `applica` produce.
+Tutto il resto è **fermo dov'era**: `prova_identita` 72/72 e 27.813, `creature`
+1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205, `riquadri` 0 su 38
+e 0 su 71, `linguette` 0 e 0, `battute --divergenti` **13**,
+`intestazioni_larghezze` banco ok e perimetro 0, `dati_applica --identita` 4
+file e 2.987 righe, `dati_sorgente` 7/7 e gioco difforme su 0, `gronde` 0 su 5,
+`bilingui` **0**, `toppe.jsonl` **1018** non toccato, `rinviate.jsonl` **75**
+non toccato, `menu_dialogo` rotte anche in inglese **9**.
 
 ### ▶ Che cosa è stato fatto
 
-    chat.hsp  LEOLD ORDINARIO  :16511-:16640  consigli, obiettivi, risveglio  45 rese
-    chat.hsp  la CULLA DEL CAOS :16047-:16510 il finale, Tezcatlipoca          103 rese
-    screen.hsp:1388                  il genere di Orphe                        1 corr.
-    decisioni.md                     cinque punti                            125 righe
+    chat.hsp  :16511-:16640  LEOLD ORDINARIO  consigli, obiettivi, risveglio   45
+    chat.hsp  :16047-:16510  la CULLA DEL CAOS  il finale, Tezcatlipoca       103
+    chat.hsp  :1-:946 + :18805-:18840  le due CODE  guardie, Alfred, la coppia 24
+    chat.hsp  otto pezzi     il PANTHEON  gli dei che si invitano a casa        27
+    chat.hsp  :6475-:6719    le SORELLE  la Chiesa dell'Onda Sororale           61
+    chat.hsp  :3125-:3315    PAEL e LILY  la malattia dell'etere                39
+    chat.hsp  :1587-:1961    la CORTE DI PALMIA  Stersha, Xabi, l'esploratore   13
+    screen.hsp:1388          il genere di Orphe                             1 corr.
+    chat.hsp:6505            il nome della sorella H                        1 corr.
+    strumenti/funzioni.py    cnven diventa TRASPARENTE                    1 guardia
     ---------------------------------------------------------------------------
-                                 148 rese, 0 toppe, 0 reti nuove, 2 spinte
+                        312 rese, 0 toppe, 3 test nuovi, 5 spinte
 
-### ▶ ⭐ Le due zone sono chiuse, e il confine è quello del PARLANTE
+### ▶ ⭐ Sette zone, sette volte chiuse
 
-`:16047` è `if ( _switch_val == CREATURE_ID_BLACK_GAUNTLET_LEOLD | _switch_sw )`
-e `:16640` ne chiude la graffa (`:16641` è già `*chat_unique_SWEND1`). Il taglio
-interno a `:16510`/`:16511` separa il ramo `AREA_CHAOS_CRADLE` da tutto il
-resto, quindi le due metà sono due sistemi e non due pezzi di uno.
-`perimetro-zona.py` dà **103 + 45 = 148 firme, zero con occorrenze fuori**, e
-`bilingui` ha dato **zero al primo giro** in tutt'e due i lotti.
+`perimetro-zona.py` ha dato **zero firme con occorrenze fuori** in tutt'e sette,
+e `bilingui` ha dato **zero al primo giro** ogni volta. ⭐ Il confine si prende
+sul **parlante**: `:16047` è
+`if ( _switch_val == CREATURE_ID_BLACK_GAUNTLET_LEOLD | _switch_sw )` e `:16640`
+ne chiude la graffa. Il pantheon è una zona chiusa **a otto pezzi** — gli otto
+dei stanno sparsi in quattro punti del file, e le due voci di menu che
+condividono (`(Andarsene)`, `Invitare a casa mia`) sono una firma sola.
 
-### ▶ ⭐⭐ Il lessico ripreso dal DATO — quarta prova della regola della 79ª
+### ▶ ⭐⭐ Il lessico ripreso dal DATO — la regola della 79ª, cinque prove in un giorno
 
 | dove | che cosa dava |
 |---|---|
@@ -87,64 +112,79 @@ resto, quindi le due metà sono due sistemi e non due pezzi di uno.
 | `chat.hsp:16006` | 来光の牙 → **«zanna della luce nascente»** |
 | `db_card.hsp:2727` | 混沌の超児 → **«Il Figlio del Caos»** |
 | `db_race.hsp:5553` | 化身 → **«incarnazione»** |
-| `action.hsp:18565` | 獣爪兵 → **«il soldato artiglio»** |
 | `db_item.hsp:140704` | 覚醒の宝玉 → **«Risveglio di Nefia»**, tipo «gemma nera», **femminile** |
-| `db_item.hsp:140056` | ネフィアの核 → **«nucleo di Nefia»** |
-| `skill.hsp:1056` | 衝撃波動 → «Onda d'urto» |
-| `chat.hsp:18590` | 一柱 → «una divinità», quindi 八柱神 → «le otto divinità» |
-| `command.hsp:17275`, `action.hsp:9515` | 記録 → «registrare», 束縛 → «costrizione» |
-| `db_creature.hsp:73827` | 銀熊 → «l'orsa d'argento» (ed è **donna**: Marka) |
-| `map.hsp:5850`, `db_item.hsp:138785` | 演奏会場 → «Sala concerti», ブロンズ硬貨 → «moneta di bronzo» |
+| `proc.hsp:25798` | 姉波動 → **«Onda Sororale»** |
+| `skill.hsp:1640` | `SKILL_SPACT_EYE_OF_ANE` → «Sguardo della sorella» |
+| `text.hsp:9705` | la **voce di diario** di quell'incarico: 斥候 «esploratore», 書簡 «lettera» |
+| `chat.hsp:24424` | エーテル病 → «malattia dell'etere» |
+| `main.hsp:7201`-`:7229` | **il registro di tutti e otto gli dei**, gia' fissato |
 
-⭐ **E il dato ha deciso anche una concordanza**: `:16516` dice «This gem», e il
-genere non sta nella stringa — sta in
-`ioriginalnameref2(ITEM_ID_WAKE_UP_OF_NEFIA) = "gemma nera"` con articolo
-«una ». Quindi «Questa gemma».
+⭐⭐ **`main.hsp:7201`-`:7229` è il caso più forte**: è la scena in cui il dio
+invitato **arriva** a casa, tutt'e otto già rese, e rese seguendo il
+**giapponese** dove l'inglese si era perso. Il lotto del pantheon è l'**invito**
+che accende quella scena — cioè una schermata inglese che portava a una
+destinazione italiana, il difetto della 79ª girato ancora una volta. Il registro
+di ogni dio non si è deciso: si è letto.
 
-### ▶ ⚠️ Tre deroghe dichiarate, e due sono l'inglese che sbaglia la persona
+### ▶ ⚠️ Le deroghe dichiarate, e quasi tutte sono l'inglese che si perde
 
-1. `:16126` — l'inglese dice «among the gods», il giapponese dice 神の間, che è
-   il **Sigillo Eterno**. Si segue il giapponese.
-2. `:16127` — l'inglese dice «now that **you've** regained your strength», ma il
-   soggetto giapponese è **Leold** (lo dice la frase prima). Si segue il
-   giapponese.
+1. `:16126` — «among the gods» contro 神の間, che è il **Sigillo Eterno**.
+2. `:16127` — «now that **you've** regained your strength», ma il soggetto
+   giapponese è **Leold**.
 3. `:16585` — «party halls» contro 演奏会場: si usa «Sala concerti», il nome che
-   il giocatore legge sulla mappa.
+   il giocatore legge sulla mappa (`map.hsp:5850`).
+4. **Il pantheon, deroga di FAMIGLIA**: qui si segue il giapponese, perché è
+   quel che ha già fatto `main.hsp` per tutti e otto. `:6120` butta via
+   «l'Ehekatl di **prima**» (e le generazioni degli dei sono lore vera,
+   `chat.hsp:16502`), `:6123` fa di Ehekatl l'**ospite** invece dell'invitata.
+5. **Pael e Lily, due copia-incolla di monte**: l'inglese di `:3148` ripete la
+   battuta di `:3152` e quello di `:3216` ripete quella di `:3285`. Il
+   giapponese dice altro tutt'e due le volte.
+6. `:18840` — 「はいはい」 («sì, sì») reso dall'inglese come «I'm counting on
+   you», che è già quel che dice `:18832`.
 
 Più una coniatura: **«Gilda degli Avventurieri»** (`:16594`), sulla forma delle
 tre gilde che esistono già.
 
+### ▶ ⚠️⚠️ La creatura con tre nomi
+
+`chat.hsp:6505` diceva «una **H Sister**», `db_creature.hsp:97006` e
+`db_card.hsp:10137` dicono «la **sorella minore sicaria**», e monte le chiama
+tutt'e due `<H sister>`. Il dialogo adesso dice **«sorella H»** dappertutto.
+⚠️ Ma resta una **decisione aperta**: «sicaria» nel nome **anticipa la battuta
+finale** — `:6717` è «la H sta per hentai, ma io preferisco **hitman**!» — e
+l'italiano la spara prima che il gioco la faccia. C'è anche una seconda
+creatura, えっちな妹, resa «la sorella minore maliziosa»: l'italiano
+**distingue** due creature che monte chiama con lo stesso nome, ed è un
+miglioramento, ma il prezzo è quella battuta.
+
 ### ▶ Quel che resta aperto
 
-1. ⭐⭐⭐ **IL BUCO DEI NOMI NON IDENTIFICATI (nuovo).** 261 righe, 217 stringhe,
-   fuori dal perimetro di `estrai`. Chiuderlo vuol dire: (a) il blocco a cinque
-   righe in `estrai.py`/`applica.py` e in `contratto-nomi.md`; (b) una **toppa**
-   che dia al ramo non identificato i propri `plur`/`articolo`, perché quelli
-   che ci sono appartengono al nome identificato e hanno un altro genere.
-2. ⭐⭐⭐ **La rete che non c'è: i PARTNER fuori da `lang()`** (81ª). La toppa
-   1018 ha sistemato quattro parole; nessuno sa quante altre `lang()` tradotte
-   siano confrontate da codice non tradotto. 💡 Il buco del punto 1 è della
-   stessa famiglia vista da un'altra faccia: *non tutto quel che il giocatore
-   legge passa da `lang()`.*
-3. 🔶 **DECISIONE APERTA dalla 80ª: il menu degli arti non dice le parole di
-   `bodyn()`.** Vuole `gdata(GDATA_FLAG_MAIN) >= 220` e la console non ha un
-   comando per muovere quel flag: serve un salvataggio avanti nella trama.
-4. ⭐⭐⭐ **`chat.hsp` a 2.296**, e il perimetro di quel che resta:
+1. ⭐⭐⭐ **IL BUCO DEI NOMI NON IDENTIFICATI.** 261 righe, 217 stringhe, fuori
+   dal perimetro di `estrai`. Chiuderlo vuol dire: (a) il blocco a cinque righe
+   in `estrai.py`/`applica.py` e in `contratto-nomi.md`; (b) una **toppa** che
+   dia al ramo non identificato i propri `plur`/`articolo`, perché quelli che
+   ci sono appartengono al nome identificato e hanno un altro genere.
+2. ⭐⭐⭐ **La rete che non c'è: i PARTNER fuori da `lang()`** (81ª). 💡 Il buco
+   del punto 1 è della stessa famiglia vista da un'altra faccia: *non tutto quel
+   che il giocatore legge passa da `lang()`.*
+3. 🔶 **La sorella H**: vedi sopra. E la 🔶 **decisione aperta dalla 80ª** sul
+   menu degli arti, che vuole `gdata(GDATA_FLAG_MAIN) >= 220` e quindi un
+   salvataggio avanti nella trama.
+4. ⭐⭐⭐ **`chat.hsp` a 2.132**, e il perimetro di quel che resta:
 
-       *chat_unique_mizuki   :8630-:15490    ~1.320  (da rimisurare sul PARLANTE)
-       *chat_unique          :947-:8629         953   5 sparse
-       *label_6452           :15509-:16046      238   zona chiusa
-       la testa del file     :1-:946             16   zona chiusa
-       il resto              :18602-:26773       11   zona chiusa
+       *chat_unique_mizuki   :8630-:15490    1.322  5 sparse
+       *chat_unique          :947-:8629        800  (Gavela 120, Erystia 107,
+                                                     Icolle 22, fabbri 32,
+                                                     cani e gatti 17...)
+       tutto il resto                            0  ZONE CHIUSE
 
-   ⚠️ I confini di `mizuki` e `label_6452` vanno **rimisurati sul parlante**: la
-   81ª ha mostrato che l'etichetta taglia i blocchi (Telhureza).
-5. ⭐⭐ **Il collaudo**: delle 148 rese di oggi non se n'è vista a schermo
-   nessuna. ⭐ Il Leold ordinario è **il più facile che ci sia**: F12, `wizard`,
+   ⚠️ Il confine di `mizuki` va **rimisurato sul parlante**.
+5. ⭐⭐ **Il collaudo**: delle 312 rese di oggi non se n'è vista a schermo
+   nessuna. ⭐ Il Leold ordinario è il più facile che ci sia: F12, `wizard`,
    `spawn_chara` con l'ID di `CREATURE_ID_BLACK_GAUNTLET_LEOLD` (in
-   `defines/mod.hsp`), e i Consigli d'avventura si aprono subito. Restano da
-   guardare il tutorial (78ª), gli evochat e `*chat_event` (79ª), il sistema di
-   Leold (80ª).
+   `defines/mod.hsp`), e i Consigli d'avventura si aprono subito. Facili anche
+   il pantheon (basta invitare un dio a casa) e le sorelle.
 6. ⚠️⚠️⚠️ **IL PUNTO CIECO DELLA 74ª**: restano **100 righe
    `listn(...) = lang(...)` in `command.hsp`** — fra cui il pannello dei
    talenti — **18 in `chara.hsp`**, più `event.hsp:825`, `help.hsp:333`,
@@ -167,10 +207,10 @@ tre gilde che esistono già.
 
 ### ▶ Come si è chiusa
 
-Due spinte, una per lotto (la correzione di `screen.hsp` viaggia col secondo).
-`applica` e `compila --eseguibile` sono girati dopo ogni lotto, `cgx-test.exe` è
-stato ricopiato, i due file dati sono stati confrontati per md5, e le quindici
-verifiche sono state rilanciate in chiusura: tutte verdi.
+Cinque spinte. `applica` e `compila --eseguibile` sono girati dopo ogni lotto,
+`cgx-test.exe` è stato ricopiato ogni volta, i due file dati sono stati
+confrontati per md5, e le quindici verifiche sono state rilanciate in chiusura:
+tutte verdi.
 
 ---
 

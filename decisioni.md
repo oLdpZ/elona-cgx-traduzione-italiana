@@ -6,6 +6,112 @@ ancora aperte.
 
 ---
 
+## Due funzioni dello stesso modulo, in disaccordo sulla stessa espressione — 2026-08-21, ottantaduesima
+
+`chat.hsp:18813` è `"(" + cnven(he(tc)) + " nodded shyly.)"`, e **nessuna resa
+italiana poteva passare `verifica`**.
+
+Il perché sta in `strumenti/funzioni.py`. `he(tc)` a **un** argomento è
+morfologia inglese: va tolta, e il progetto lo sa dalla Fase 1. Ma sopra ci sta
+`cnven`, che `funzioni_di_contenuto` registrava fra le **attese**. In italiano
+la frase comincia con un verbo scritto per esteso — «(Annuisce, con aria
+imbarazzata)» — quindi non c'è né il pronome né niente da capitalizzare: la
+lista delle attese conteneva un nome che nessuna resa corretta poteva
+contenere. È la stessa forma del difetto di «Manuscript production» prima della
+maschera dei letterali: *una guardia che rende una voce intraducibile non sta
+misurando, sta sbagliando*.
+
+⭐ **E il modulo la risposta ce l'aveva già scritta.** `TRASPARENTI` esiste dalla
+72ª, con questa definizione: «chiamate che non portano NESSUN dato: aggiungono
+solo punteggiatura intorno a quello che ricevono. Vanno **attraversate** invece
+che registrate». `cnven` (`init.hsp:191`) fa esattamente questo — in build
+giapponese restituisce l'argomento tale e quale, altrimenti ne alza la prima
+lettera — ma stava fuori dall'insieme. ⚠️ **E c'era di peggio**: `_classifica`
+la classe `TRASPARENTI` **non la conosceva affatto**, quindi
+`funzioni_di_contenuto` registrava `cnvtalk` mentre `chiamate_di_contenuto` la
+saltava. Due misure della stessa cosa nello stesso modulo, in disaccordo, e
+nessun test le confrontava.
+
+✅ `cnven` entra in `TRASPARENTI` e `_classifica` impara la classe. Tre test
+nuovi, fra cui uno che verifica che le due funzioni **siano d'accordo** su ogni
+trasparente.
+
+⚠️ **Lasciar cadere `cnven` non allenta nessuna guardia**, ed è la ragione per
+cui la correzione è sicura: la maiuscola ha una rete tutta sua,
+`strumenti/maiuscole.py`, che legge la **build** e giudica ogni sito per
+posizione (in testa / appeso / accumulato). Le due misure non si sovrappongono
+— una guarda che il **dato** sopravviva alla traduzione, l'altra che la
+**maiuscola** cada nel posto giusto — e pretenderle tutt'e due dalla stessa
+lista rendeva impossibile la resa giusta.
+
+💡 Sul sorgente pinnato `cnven(he(...))` compare **16 volte**. Non era un caso
+limite: era la prima volta che un lotto ci passava sopra.
+
+⚠️ **E la correzione ha fatto scadere un permesso.** `chat.hsp:18813` stava in
+`GIUDICATI` di `maiuscole.py` con la motivazione «chat.hsp non è ancora
+tradotto: si giudica quando ci arriva il lotto». Il lotto è arrivato, la resa ha
+fatto sparire il `cnven`, e il sito appeso **non esiste più**: l'eccezione si
+toglie, non si aggiorna. L'ha detto `test_i_giudicati_esistono_ancora`, ed è la
+**terza** volta (le prime due nella 77ª). *Un elenco di eccezioni è un debito.*
+
+---
+
+## Il registro di un personaggio si legge, non si decide — 2026-08-21, ottantaduesima
+
+Il lotto degli otto dei che si possono invitare a casa (27 rese) non ha deciso
+**nessun** registro, e la ragione vale come metodo.
+
+`main.hsp:7201`-`:7229` è la scena in cui il dio invitato **arriva** a casa:
+otto righe, una per dio, tutt'e otto già rese in una sessione vecchia. Lì c'è
+scritto che Ehekatl fa «Miaaao! Granchio reale! Dov'è il granchio reale?», che
+Opatos fa «Muahahaha! Uahahaha! Permesso, entro!», che Kumiromi chiede «Posso...
+guardare in ogni angolo...?», che Mani dice «Ecco dunque la dimora di un
+mortale. Ne prendo nota.». Il lotto di oggi è l'**invito** che accende quella
+scena.
+
+⭐⭐ **Cioè: era una schermata inglese che portava a una destinazione italiana** —
+il difetto della 79ª (una schermata italiana che porta a un sottosistema
+inglese) **girato**. E si trova con la domanda gemella: non «dove porta questa
+voce che ho già reso» ma «**da dove arriva** questa voce che sto rendendo».
+
+⚠️⚠️ **E quelle otto righe erano state rese seguendo il GIAPPONESE**, perché lì
+l'inglese di monte è rotto: `main.hsp:7213` dice «Wheeee! I'm so happy. I like
+you!» dove il giapponese dice 「たらばがに！」. Quindi la deroga non è una scelta
+di oggi: è **di famiglia**, già presa, e si eredita. Nel lotto morde due volte —
+`chat.hsp:6120`, dove l'inglese butta via 「**前の**エヘカトル」 (e le generazioni
+degli dèi sono lore vera, `chat.hsp:16502` racconta il primo Tezcatlipoca), e
+`:6123`, dove l'inglese fa di Ehekatl l'**ospite** invece dell'invitata.
+
+💡 *Prima di decidere come parla un personaggio, si cerca dove parla già.*
+
+---
+
+## La stessa creatura con tre nomi, e una battuta bruciata — 2026-08-21, ottantaduesima
+
+Monte chiama えっちな妹 e 『Ｈな妹』 **tutt'e due** `<H sister>`: due creature
+diverse, un nome solo. L'italiano le distingue — «la sorella minore maliziosa»
+e «la sorella minore sicaria» (`db_creature.hsp:91326` e `:97006`,
+`db_card.hsp:9214` e `:10137`) — ed è un miglioramento su monte.
+
+⚠️ Ma `chat.hsp:6505`, l'incarico che manda a stanarla, diceva «una **H
+Sister**»: **tre** nomi per la stessa creatura in due file, e il giocatore che
+va a cercare una «H Sister» incontra «la sorella minore sicaria». ✅ Il dialogo
+adesso dice **«sorella H»** dappertutto, e `:6505` è stata corretta.
+
+🔶 **Ma resta una decisione aperta, e non è di lessico: è di tempo comico.** La
+battuta finale di quella creatura è `:6717`, «la H sta per hentai, ma io
+preferisco **hitman**!». Il nome italiano dice «sicaria» **dall'inizio**: la
+rivelazione arriva quando il giocatore l'ha già letta sulla scheda. Le strade
+sono tre — tenere «sicaria» e perdere la battuta, rinominare la creatura
+«sorella H» e perdere la distinzione da えっちな妹, o rinominarla con un epiteto
+che non sveli il mestiere. ⚠️ Nessuna si sceglie senza guardare le due schede a
+schermo.
+
+💡 *Una resa può essere giusta parola per parola e sbagliata nel momento in cui
+arriva.*
+
+---
+
 ## Il nome che l'oggetto porta PRIMA di essere identificato non lo vede nessuna rete — 2026-08-21, ottantaduesima
 
 Cercando come rendere 「光玉」 di `chat.hsp:16430` («I don't have any god
