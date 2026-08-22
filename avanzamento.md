@@ -133,6 +133,34 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## Nove lotti in chat.hsp, tutti presi sul parlante — 2026-08-22, ottantaquattresima sessione
+
+Nove lotti, **301 rese**, e `chat.hsp` scende da 2.132 a **1.831**.
+`menu_dialogo` misura **1.017** voci (erano 945) — oltre il migliaio — e
+`bilingui` resta a **0**, zero al primo giro in tutti e nove i lotti.
+`chat-lotto-misura` 0 fuori misura e 0 peggiorate. `pytest` **744**, invariato:
+nessuno strumento e' stato toccato.
+
+    :2399-:3124  i due FABBRI leggendari: Garok e Miral                     32
+    :7431-:7596  LUNE la capo cameriera: la villa in vendita                39
+    :6308-:6445  SILVIA la principessa: i tre gradini di carisma            29
+    :8309-:8400  i tre NINJA di Tyris, piu' le cinque «Fama richiesta»      25
+    :3971-:4812  ICOLLE il biochimico: le cinque cavie, le parti tolte      22
+    :3464-:3793 + :7191-:7269  i CANI E I GATTI, piu' Naive Kyle            39
+    :3581-:3709 + :5629-:5671  l'ESERCITO: Gilbert, Arnord, Conery          34
+    :7645-:7794  IRVA PERDUTA: Milos, Carla, Stoke, Arma, Aile              36
+    :6720-:7113  YERLES: Heinrich, Zernard, il Cane poliziotto, Milis, Orville  45
+
+⭐ Il perimetro di ogni lotto e' stato preso sul **parlante**, non
+sull'etichetta: `scratchpad/_84-parlanti.py` mappa i blocchi
+`if ( _switch_val == CREATURE_ID_... )` di `*chat_unique` col confine vero
+(la graffa che li chiude) e, per ognuno, le firme non tradotte e quante di
+quelle vivono anche fuori. Sono 86 blocchi; a fine sessione ne restano 33 con
+lavoro dentro.
+
+⚠️ E ha corretto un confine che la ripresa dava sbagliato di 171 righe: il
+blocco di **Mizuki** comincia a `:8459`, non a `:8630`.
+
 ## Sette zone chiuse in chat.hsp, e un buco nel perimetro dei nomi — 2026-08-21, ottantaduesima sessione
 
 Sette lotti, **312 rese**, e `chat.hsp` scende da 2.444 a **2.132**.

@@ -6,6 +6,163 @@ ancora aperte.
 
 ---
 
+## Nove lotti di dialogo, e tre modi in cui monte tratta la stessa riga — 2026-08-22, ottantaquattresima
+
+Nove lotti su `chat.hsp`, 301 rese, dalle 2.132 alle 1.831. Nessuno strumento
+toccato: la sessione è stata tutta lessico, perimetri e grammatica. Quel che
+resta, però, vale più delle rese.
+
+### ⭐⭐⭐ Il perimetro di un lotto si prende sul PARLANTE, ed è uno strumento
+
+La 81ª l'aveva scoperto sul caso di Telhureza: un'etichetta HSP è un indirizzo
+di salto, non un confine di senso. Questa sessione l'ha reso meccanico.
+`scratchpad/_84-parlanti.py` legge `*chat_unique` e per ogni blocco
+`if ( _switch_val == CREATURE_ID_... )` trova la **graffa che lo chiude**,
+conta le firme non tradotte dentro e quante di quelle vivono anche fuori.
+
+⚠️ E il conto delle graffe deve togliere anche i commenti `//` e `/* */`, non
+solo i `;`: `chat.hsp:1466` ha un `{` dentro una riga commentata, e con quello
+dentro tutti i blocchi dopo `:1460` collassano in uno solo che arriva a fine
+file. Il primo referto diceva «7 blocchi»; i blocchi sono **86**.
+
+⚠️ La prima cosa che ha trovato è che il confine di **Mizuki** che la ripresa
+portava dalla 79ª era sbagliato di 171 righe: il blocco comincia a `:8459`, non
+a `:8630`. Quarantacinque firme che si credevano di `*chat_unique` sono sue.
+
+### ⭐⭐⭐ La stessa riga, tre rapporti diversi fra giapponese e inglese
+
+Tre volte in una sessione, e ogni volta la firma decide da sola che cosa fare.
+
+**Un giapponese, tre inglesi** (Silvia, `:6341` `:6382` `:6423`). La stessa
+identica esclamazione 「えっ。」 sta in tre punti, e monte la rende «Hmph.»,
+«Forget it...?», «Huh?». Sono tre firme distinte — la firma è la coppia — e
+vanno rese diverse: lì l'inglese non traduce un suono, interpreta un contesto.
+
+**Due giapponesi, un inglese** (Icolle, `:4360` e `:4741`). Due frasi diverse
+sul progresso della scienza diventano tutt'e due «Sacrifice is inherent to the
+advancement of science~». Due firme, due rese, e la differenza la detta il
+giapponese.
+
+**Un inglese che non c'entra niente** (`:2747` di Garok, `:7648` della pianta
+Meshera). L'inglese è un copia-incolla di un'altra riga, o di un altro posto.
+Si segue il giapponese — ma ⚠️ `:2747` ha insegnato che quel che si butta via
+è il TESTO sbagliato, non il DATO che la riga porta: `verifica` ha respinto la
+prima stesura perché aveva lasciato cadere `itemname(ci)`, e aveva ragione.
+
+### ⭐⭐ L'ECO: due righe che si scrivono insieme o non funzionano
+
+Tre volte, in tre lotti diversi:
+
+    :7463 / :7484        Lune    la voce di menu che lei CITA fra virgolette
+    :6378 / :6382        Silvia  la voce di menu che lei RIPETE come domanda
+    :8346 :8347 / :8351  Eila    le due voci in finto parlare da samurai, e lei
+                                 che ci va dietro con lo stesso でござる
+
+Nessuna rete le vede. Se si traducono separate, la citazione non cita più
+niente. ⚠️ E la terza è anche una deroga: l'inglese ha buttato via il でござる
+tutt'e tre le volte, e senza quello la battuta di Eila non ha più un
+riferimento.
+
+### ⭐⭐⭐ Una firma condivisa non si accorcia: si ALLARGA il lotto
+
+`:3499` (Rilian) e `:7217` (Naive Kyle) sono la stessa voce di menu,
+「まかせて」/«Leave it to me.». Renderla per Rilian avrebbe messo un menu
+**tutto italiano** dentro una schermata inglese — e `bilingui` non l'avrebbe
+visto, *ed è giusto che non lo veda*: quel menu ha due voci sole e l'altra è
+`strbye`, già resa, quindi il gruppo non è bilingue. È il difetto della 79ª in
+una forma che nessuna rete misura. La risposta è stata prendersi anche Kyle.
+
+Stessa logica, in piccolo, per le cinque righe rosse «Required Fame: N»
+(`:1366`, `:3590`, `:3876`, `:3936`, `:8341`): cinque firme diverse perché
+cambia il numero, ma **una sola etichetta di sistema**. Renderne una avrebbe
+fatto leggere allo stesso giocatore la stessa riga una volta in italiano e una
+in inglese.
+
+### ⭐⭐⭐ La `lang()` che è una CHIAVE, vista dalla faccia buona
+
+`chat.hsp:7662` e `:7693` sembrano nomi da tradurre e invece sono chiavi: il
+codice fa `strmid(cdatan(CDATAN_NAME, tc), 0, strlen(evold)) == evold` e, se
+combacia, riscrive il nome della creatura dopo il finale. `evold` deve essere
+**esattamente** il nome che `db_creature.hsp` dà a quella creatura.
+
+In italiano combacia — tutt'e due dicono «<Milos> del Mondo Dimenticato» —
+perché una sessione vecchia le aveva rese uguali senza sapere di scrivere una
+chiave. ⚠️⚠️ **In inglese non combaciano affatto**: `db_creature.hsp:91226`
+dice «<Milos> Of The Forgotten World», `chat.hsp:7662` dice «<Miros> hail flom
+Erusia» — altro nome e due refusi. Nella build inglese quel rinomino è codice
+morto. In italiano funziona, come in giapponese.
+
+È la 81ª girata: lì una resa aveva rotto il gioco (`fix_wish`), qui una resa lo
+ripara.
+
+### ⭐⭐ Il registro e la deroga si EREDITANO, e tre volte hanno deciso loro
+
+- **Mia la finta ingenua.** L'inglese le ha rifatto la voce da capo (finto
+  inglese pieno di «nyah», una parodia di *Nobody knows the trouble I've
+  seen*), ma `db_creature.hsp:121290` ha già le sue battute rese dal
+  **giapponese** e `db_card.hsp:14286` rende 猫かぶり «la finta ingenua», cioè
+  l'idioma e non il gatto letterale che l'inglese ha visto nel nome. Il
+  personaggio italiano esisteva già.
+- **Il Cane poliziotto.** In giapponese parla con であります e ワン attaccato ai
+  verbi; `db_creature.hsp:96598` gli fa già dire «Alt! Un altro passo e sparo,
+  bau!». Il tic è quel «bau!».
+- **Arnord, `:3684`.** L'inglese dice «I'll tell the Palmian army to begin a
+  steady retreat», il giapponese «appena la ritirata sarà completa ti farò
+  avvisare» — e `text.hsp:10325`, già reso, dice «A ritirata compiuta arriverà
+  l'avviso». Qui la deroga non è stata scelta: è stata **imposta** da una resa
+  vecchia. Una riga di dialogo non può contraddire il diario che la annota.
+
+### ⚠️ Il genere, e quante forme diverse vuole
+
+Nel lotto dell'esercito si è presentato **cinque volte** e ogni volta ha voluto
+una parola diversa: «the bravest of the brave» → «il coraggio in persona»,
+«coward» → «ti manca il fegato», «once you've prepared» → «quando sei in
+ordine», «your heroic figure» → «il tuo valore», «you made it back alive» → «da
+quel massacro si potesse tornare».
+
+⭐ E in un lotto solo (Silvia) i **bersagli** erano tre e la risposta diversa
+per ognuno: `:6347` parla del giocatore (niente accordo), `:6352` del compagno
+portato — di cui il codice guarda solo `sdata(SKILL_ATTR_CHA, rc)`, quindi può
+essere chiunque — e `:6393` di Eurypides, che è un uomo, e **lì l'accordo si
+fa**.
+
+⚠️ «adventurer» rivolto al giocatore non è «avventuriero»: il progetto ha già
+la forma senza genere, «tu che vai all'avventura» (`chat.hsp:1469`, `:1595`).
+E l'epiteto `cdatan(CDATAN_AKA, CHARA_PLAYER)` non regge articoli: la forma che
+tiene è l'apposizione, «ma tu sei X **in persona**!».
+
+⭐ **Due sessi controllati prima di scrivere, e tutt'e due servivano**: Milis è
+donna (`cdata(CDATA_SEX) = 1`, e il diario già reso dice «devo tornare a
+parlarLE»), Gavela è uomo (`= 0`, come dice il giapponese 「白衣を着た男」 e come
+il nome di carta «l'ingegnere capo» non diceva). È la regola della 82ª.
+
+### ⚠️⚠️ Due reti danno lo stesso falso positivo: contano le voci di un menu senza leggere le guardie
+
+Successo in un giorno solo, su due strumenti diversi:
+
+- `chat-lotto-misura` ha visto **13 bottoni** dove ce ne stanno **9** (i
+  materiali di Garok: 37 `chatList` dietro a guardie sul giorno che si
+  escludono a vicenda, otto per classe al massimo);
+- `menu_dialogo` ha applicato il tetto delle **due colonne** (24 caratteri, che
+  vale solo sopra le dieci voci) a menu che di voci ne mostrano al massimo
+  quattro, perché le `chatList` in testa stanno dietro a guardie mutuamente
+  esclusive.
+
+Nessuno dei due è un guasto: sono **tetti prudenti applicati a un conteggio che
+non legge le condizioni**. Le rese sono state accorciate lo stesso — costa poco
+e tiene le reti a zero — ma la correzione vera è leggere le guardie, e non è
+stata fatta.
+
+### ⚠️ Una nota di igiene che è costata un giro
+
+Le rese accorciate di un lotto erano finite in uno script tampone a parte:
+rilanciare il file del lotto le avrebbe disfatte **in silenzio**. Sono state
+riportate dentro il file del lotto e il tampone è stato tolto. *Il file del
+lotto è l'unica fonte: se una correzione sta altrove, la prossima sessione che
+lo rilancia riapre un difetto già chiuso.*
+
+---
+
 ## Il buco dei nomi non identificati, e la lezione che non era quella che sembrava — 2026-08-22, ottantatreesima
 
 `db_item.hsp` ha **260 blocchi a sei righe** che nessuna rete vedeva: il nome che

@@ -1,49 +1,191 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-22, fine della **ottantatreesima** sessione (**il buco dei
-nomi non identificati chiuso da capo a fondo: 222 rese, il perimetro di `estrai`
-allargato di 260 siti, tre array nuovi nel motore, 11 test, 3 toppe a mano — due
-delle quali dimenticate dalla 74a**).
+Aggiornato: 2026-08-22, fine della **ottantaquattresima** sessione (**nove lotti
+di dialogo, 301 rese, `chat.hsp` da 2.132 a 1.831 — e il perimetro di un lotto
+che diventa uno strumento**).
 
-⭐⭐⭐ **La lezione della giornata: prima di decidere che l'inglese ha PERSO
-qualcosa, si guarda in che RUOLO la stringa finisce.** Delle 216 stringhe dei
-nomi non identificati, una ventina sembravano inglese sciatto — «godly powers»,
-«unknown content», «a fishy figure», «blue color», «inflicting suffering» — e il
-giapponese accanto aveva sempre la testa nominale che mancava. La prima stesura
-le ha rese come nomi pieni, con una deroga di famiglia dichiarata bene. Era
-sbagliata: `item_func.hsp:1217` prende la parola-contatore da
-`ioriginalnameref2` **senza guardare `INV_ITEM_KNOWN`**, quindi su un oggetto
-composto il giocatore legge «a **statue of** deity of Irva». Quelle stringhe non
-sono nomi, sono **complementi dopo «of»**, e in quel ruolo l'inglese e' perfetto.
-Con le rese-nome il gioco avrebbe scritto «una statua di statua di divinita'»:
-otto ripetizioni su 260, tutte italiano corretto, tutte dentro i tetti, nessuna
-visibile a una rete.
+⭐⭐⭐ **La lezione della giornata: il perimetro di un lotto si prende sul
+PARLANTE, e adesso lo fa uno strumento.** `scratchpad/_84-parlanti.py` legge
+`*chat_unique`, e per ogni blocco `if ( _switch_val == CREATURE_ID_... )` trova
+la **graffa che lo chiude**, conta le firme non tradotte dentro e quante di
+quelle vivono anche fuori. La 81ª aveva scoperto la regola su Telhureza (*un'
+etichetta HSP è un indirizzo di salto, non un confine di senso*); adesso è
+meccanica. ⚠️ E il conto delle graffe deve togliere anche i commenti `//` e
+`/* */`: `chat.hsp:1466` ha un `{` dentro una riga commentata, e con quello
+dentro tutti i blocchi dopo `:1460` collassano in uno che arriva a fine file —
+il primo referto diceva «7 blocchi», i blocchi sono **86**.
 
-⭐⭐⭐ **La seconda: a trovarle e' stato un BANCO, non un ragionamento.**
-`scratchpad/_83-banco-nome.py` legge la **build** e stampa tutti e 261 i nomi
-**come usciranno a schermo** — articolo, parola-contatore e plurale compresi.
-Ottanta righe di Python che rifanno a mano i tre passaggi di `itemname()`. Ha
-preso le otto ripetizioni e poi, al secondo giro, l'ultima rimasta («una pietra
-misteriosa di pietra rossa»). 💡 *Quando il difetto sta nella COMPOSIZIONE e non
-nella stringa, l'unico modo di vederlo e' comporre.*
+⚠️⚠️ **La prima cosa che ha trovato è un confine sbagliato di 171 righe**: il
+blocco di **Mizuki** comincia a `:8459`, non a `:8630`. Quarantacinque firme che
+la ripresa dava a `*chat_unique` sono sue.
 
-⭐⭐ **La terza: il plurale sbagliato, qui, e' uno SPOILER.**
-`ITEM_ID_WAKE_UP_OF_NEFIA` da non identificato e' «una gemma nera di poteri
-divini», e il suo `ioriginalnamerefplur` dice «Risvegli di Nefia». Se il ramo non
-identificato avesse pescato negli array del nome identificato — come avrebbe
-fatto, perche' altri non ce n'erano — **due** di quelle gemme si sarebbero
-chiamate col nome vero dell'oggetto. Non un errore di accordo: un difetto di
-gioco.
+⭐⭐⭐ **La seconda: la stessa riga, tre rapporti diversi fra giapponese e
+inglese, tutti e tre in un giorno.** *Un* giapponese che diventa **tre** inglesi
+(「えっ。」 di Silvia: «Hmph.», «Forget it...?», «Huh?»); *due* giapponesi che
+diventano **un** inglese (le due frasi di Icolle sulla scienza); e un inglese
+che **non c'entra niente** con la riga dove sta (`:2747`, `:7648`). Sono tre
+firme, due firme e una deroga — e ogni volta è la firma a dire che cosa fare.
 
-⭐ **La quarta: le reti si muovono anche quando nessuno le tocca.** Il permesso
-di `maiuscole.GIUDICATI` su `item_func.hsp:2321` e' morto perche' le toppe di
-oggi infilano 31 righe piu' su nello stesso file — il sito e' **intatto** e si e'
-mosso il pavimento. `GIUDICATI` e' una coordinata nella BUILD, e la build la
-muoviamo noi.
+⭐⭐ **La terza: l'ECO.** Tre volte, in tre lotti, due righe che vanno scritte
+insieme o non funzionano: la voce di menu che il PNG **cita fra virgolette**
+subito dopo (Lune), quella che **ripete come domanda** (Silvia), quelle in finto
+parlare da samurai a cui **va dietro con lo stesso でござる** (Eila). Nessuna
+rete le vede.
+
+⭐⭐⭐ **La quarta: una firma condivisa non si accorcia, si ALLARGA il lotto.**
+`:3499` (Rilian) e `:7217` (Kyle) sono la stessa voce di menu: renderla per
+Rilian avrebbe messo un menu **tutto italiano** dentro una schermata inglese, e
+`bilingui` non l'avrebbe visto *ed è giusto che non lo veda* — quel menu ha due
+voci e l'altra è `strbye`, già resa, quindi il gruppo non è bilingue. Ci si è
+presi anche Kyle.
 
 ---
 
-## L'ottantatreesima sessione
+## L'ottantaquattresima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La
+sessione si è aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la
+**quarantunesima prova** di fila, e le quindici hanno dato quindici volte i
+valori attesi della 83ª.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    verifica --dizionario   chat.hsp   0 / 1831   (era 2132)
+    menu_dialogo            0 su 1017 misurate    (erano 945) — oltre il migliaio
+    dizionario              chat.hsp +301 voci
+
+Tutto il resto è **fermo dov'era**, e in chiusura è stato riverificato:
+`pytest` **744 passed 6 skipped**, `prova_identita` 72/72 e **28.073**,
+`creature` 1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205,
+`riquadri` 0 su 38 e 0 su 71, `linguette` 0 e 0, `battute --divergenti` **13**,
+`intestazioni_larghezze` banco ok e perimetro 0, `dati_applica --identita` 4
+file e 2.987 righe, `dati_sorgente` 7/7 e gioco difforme su 0, `gronde` 0 su 5,
+`maiuscole` 143 siti / 6 appesi / 1 accumulati / 7 giudicati / 0 da guardare,
+`bilingui` **0**, `toppe.jsonl` **1023** non toccato, `rinviate.jsonl` **75**
+non toccato.
+
+⚠️ **Nessuno strumento è stato toccato**: la sessione è stata tutta lessico,
+perimetri e grammatica. Per questo `pytest` non si muove.
+
+⚠️ **Una nota d'ambiente, non un guasto**: dal Bash tool `battute` muore con
+`UnicodeEncodeError` (stdout cp1252). Con `PYTHONIOENCODING=utf-8` gira. Vale
+per ogni strumento che stampa giapponese.
+
+### ▶ Che cosa è stato fatto
+
+    chat.hsp :2399-:3124  i due FABBRI leggendari: Garok e Miral            32
+    chat.hsp :7431-:7596  LUNE la capo cameriera: la villa in vendita       39
+    chat.hsp :6308-:6445  SILVIA la principessa: i tre gradini di carisma   29
+    chat.hsp :8309-:8400  i tre NINJA di Tyris + le 5 «Fama richiesta»      25
+    chat.hsp :3971-:4812  ICOLLE il biochimico: le cavie, le parti tolte    22
+    chat.hsp :3464-:3793  i CANI E I GATTI + Naive Kyle :7191-:7269         39
+    chat.hsp :3581-:3709  l'ESERCITO: Gilbert, Arnord + Conery :5629        34
+    chat.hsp :7645-:7794  IRVA PERDUTA: Milos, Carla, Stoke, Arma, Aile     36
+    chat.hsp :6720-:7113  YERLES: Heinrich, Zernard, Cane poliziotto,
+                          Milis, Orville                                    45
+    scratchpad/_84-parlanti.py   la mappa dei parlanti, col confine vero  1 strumento
+    scratchpad/_84-dossier.py    JP+EN+occorrenze di un lotto             1 strumento
+    scratchpad/_84-gia-rese.py   il registro di una zona, già reso        1 strumento
+    scratchpad/_84-dump.py       stampa righe del sorgente pinnato        1 strumento
+    -------------------------------------------------------------------------
+                301 rese, 0 toppe, 0 test nuovi, 4 strumenti di scratchpad
+
+`bilingui` ha dato **zero al primo giro in tutti e nove i lotti**.
+
+### ▶ ⭐ Il perimetro, misurato
+
+`*chat_unique` ha **86 blocchi** di primo livello. A inizio sessione ne avevano
+lavoro **61** (813 firme); a fine sessione ne restano **33** (512 firme). I
+grossi:
+
+    7795-8193  DR_GAVELA (capo sviluppo)          120   3 fuori
+    1962-2369  ERYSTIA (studiosa di storia)       107   2 fuori
+    8459-8694  MIZUKI  ⚠️ confine vero             45   1 fuori
+    3316-3422  RAPHAEL il donnaiolo                15   ZONA CHIUSA
+    5831-5891  l'istigatore di Elea                15   1 fuori
+    7340-7430  il germoglio di bambù               16   ZONA CHIUSA
+    1323-1459  LOYTER di Zanan                     18   ZONA CHIUSA
+    3905-3970  NOEL la bombarola                   14   ZONA CHIUSA
+    5672-5830  il capo dei banditi                 13   1 fuori
+    3794-3866  RENTON il mago tormentato           13   1 fuori
+    5921-6101  lo scienziato strano                12   ZONA CHIUSA
+
+Più la testa del file (`:951`-`:1586`, otto blocchi, 52 firme, tutte zone
+chiuse) e una ventina di blocchi piccoli.
+
+### ▶ ⚠️ Le deroghe dichiarate
+
+1. **`:2747`** (Garok) — l'inglese è un copia-incolla di `:2632` con «small
+   medal» al posto di «bronze coin», e non c'entra col posto dove sta: quella
+   riga è il cartello sopra il menu dei materiali. ⚠️ Ma `itemname(ci)` RESTA:
+   `verifica` ha respinto la prima stesura che l'aveva lasciato cadere, e aveva
+   ragione — quel che si butta è il testo sbagliato, non il dato.
+2. **`:7592`** (Lune) — l'inglese ha perso il 東 del giapponese: la direzione
+   serve al giocatore per trovare Ludus.
+3. **Il でござる di Eila** (`:8346`, `:8347`, `:8351`) — l'inglese ha buttato
+   via lo scherzo tutt'e tre le volte. Reso con un italiano apposta arcaico.
+4. **`:8322`** — くぅ～！ è un verso di entusiasmo, l'inglese dice «Oh, no!».
+5. **`:8348`** — l'inglese dice «I stopped telling him», il giapponese «per
+   quante volte glielo dica».
+6. **`:3978`** (Icolle) — l'inglese nasconde la CONSEGUENZA di una scelta: quel
+   menu toglie parti del corpo, e il giapponese dice quali. Ripresa la sola
+   parola che serve, «le parti ACQUISITE», in 51 caratteri.
+7. **Mia** — deroga di FAMIGLIA, ereditata: `db_creature.hsp:121290` e
+   `db_card.hsp:14286` l'hanno già resa dal giapponese.
+8. **`:3770`** — l'inglese butta via che cosa fa il cuore di mostro.
+9. **`:3684`** (Arnord) — deroga **imposta** dal diario già reso
+   (`text.hsp:10325`).
+10. **`:7648`** e **`:7706`** (Irva Perduta) — vedi `decisioni.md`.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **`chat.hsp` a 1.831**, e il perimetro di quel che resta è la mappa qui
+   sopra. I due blocchi grossi sono **Gavela 120** ed **Erystia 107**: insieme
+   sono il 44% di quel che resta.
+2. ⭐⭐ **Le due reti che non leggono le guardie di un menu**
+   (`chat-lotto-misura` conta i bottoni, `menu_dialogo` il tetto delle due
+   colonne): stesso falso positivo, due strumenti, un giorno solo. La
+   correzione è leggere le condizioni delle `chatList`.
+3. ⭐⭐⭐ **La rete che non c'è: i PARTNER fuori da `lang()`** (81ª). Questa
+   sessione ne ha visto la faccia buona (`:7662`, la chiave che in italiano
+   combacia e in inglese no), ma la rete non esiste.
+4. ⚠️⚠️⚠️ **IL PUNTO CIECO DELLA 74ª**: restano **100 righe
+   `listn(...) = lang(...)` in `command.hsp`** — fra cui il pannello dei
+   talenti — **18 in `chara.hsp`**, più `event.hsp:825`, `help.hsp:333`,
+   `net.hsp:604`. ⚠️ **Undici sessioni che aspetta.**
+5. ⭐⭐ **La rete che manca: i `buff` della finestra del dialogo.**
+   `chat-lotto-misura` misura per lotto ma **suppone** il contenitore.
+6. ⭐ **`menu_dialogo.reso()` non legge il `limit(..., 0, N)`** (79ª).
+7. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208
+   righe), `manual_ENG.txt` (591), `exhelp.txt` (185). ⚠️ `help.hsp:273` conta
+   **dieci righe di FILE per pagina**.
+8. ⭐⭐ `board.txt` **secondo lotto**; `custom_autopick.hsp` 21 gemelle delicate.
+9. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+   `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+   `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+10. ⭐⭐ Il **muro del materiale**: `mithril sword` è «spada **di** mithril».
+11. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `item_func.hsp` 240; i **1.146** di
+    `db_card.hsp`. E la statistica 発言力 con **due nomi sullo schermo**.
+12. 🔶 **La sorella H** (82ª) e la 🔶 **decisione aperta dalla 80ª** sul menu
+    degli arti, che vuole `gdata(GDATA_FLAG_MAIN) >= 220`.
+13. ⚠️ **Il collaudo delle 301 rese di oggi non è stato fatto.** ⚠️⚠️
+    `collaudo/schermo.ps1` scrive sulla tastiera di **tutto il computer** (83ª):
+    il collaudo lo fa una persona. I più facili da vedere: i due fabbri
+    (`spawn_chara` e ci si cammina addosso), il Cane poliziotto, Silvia alla
+    Locanda del Fumo e della Pipa.
+
+### ▶ Come si è chiusa
+
+Nove spinte, una per lotto. `applica` e `compila --eseguibile` sono girati dopo
+ogni lotto, `cgx-test.exe` è stato ricopiato ogni volta, e le quindici verifiche
+sono state rilanciate in chiusura: tutte verdi.
+
+---
+
+## L'ottantatreesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
