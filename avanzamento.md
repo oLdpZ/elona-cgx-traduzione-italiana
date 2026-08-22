@@ -133,6 +133,39 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## Tre blocchi legati da due firme, e una morfologia mai dichiarata — 2026-08-22, ottantacinquesima sessione
+
+Tre lotti, **336 rese**, e `chat.hsp` scende da 1.831 a **1.495**.
+`menu_dialogo` misura **1.076** voci (erano 1.017), 0 fuori misura e 0
+peggiorate a due colonne; `bilingui` chiude a **0**. `pytest` resta **744**:
+l'unico strumento toccato e' `funzioni.py`, e il test che lo copre esisteva
+gia'.
+
+    :1962-:2369   ERYSTIA la studiosa di storia: il filo principale di Palmia     107
+    :7795-:8193   il Dr. GAVELA: la navigazione dimensionale, i quattro incarichi 118
+    :10022-:10334 SOPHIA la Saggia: la cosmogonia in venticinque punti            111
+
+⚠️ **Non sono tre lotti scelti, sono un lotto solo diviso in tre.** Due firme
+condivise legavano Erystia a Gavela e a Sophia, e tutt'e due erano **voci di
+menu** dentro menu che Erystia doveva avere interi: renderle apriva tre menu
+bilingui in zone ancora inglesi. Il perimetro allargato si e' **misurato prima**
+(`scratchpad/_85-blocco.py`, il confine sulla graffa per un blocco qualsiasi del
+file, anche fuori da `*chat_unique`) e la misura ha deciso di prenderli tutti e
+tre. Nel mezzo, pero', `bilingui` e' stato **3**: fra il primo commit e il terzo
+l'albero portava tre menu a meta'.
+
+⭐⭐⭐ **E la sessione ha trovato una morfologia inglese mai dichiarata.**
+`cnvrank` (`init.hsp:149`) e' la desinenza ordinale — `2` in giapponese, `2nd`
+in inglese — e non stava in `MORFOLOGIA_INGLESE`: **quattro rese italiane gia'
+in dizionario scrivevano a schermo «Rango del museo: 2nd» e «Livello di
+sotterraneo piu' profondo: 25th»**. La sonda del test cercava funzioni i cui
+`return` fossero letterali nudi, e `cnvrank` invece **concatena** l'argomento
+col suffisso: e' la seconda famiglia, e ora la sonda la riconosce. Le quattro
+rese sono state rifatte.
+
+⚠️ `*chat_unique` scende da 512 a **287** firme in 28 blocchi; il resto di
+`chat.hsp` (1.208) sta oltre `:8694`.
+
 ## Nove lotti in chat.hsp, tutti presi sul parlante — 2026-08-22, ottantaquattresima sessione
 
 Nove lotti, **301 rese**, e `chat.hsp` scende da 2.132 a **1.831**.

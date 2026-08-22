@@ -1,47 +1,210 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-22, fine della **ottantaquattresima** sessione (**nove lotti
-di dialogo, 301 rese, `chat.hsp` da 2.132 a 1.831 — e il perimetro di un lotto
-che diventa uno strumento**).
+Aggiornato: 2026-08-22, fine della **ottantacinquesima** sessione (**tre lotti
+di dialogo legati da due firme, 336 rese, `chat.hsp` da 1.831 a 1.495 — e una
+morfologia inglese che nessuna sonda vedeva**).
 
-⭐⭐⭐ **La lezione della giornata: il perimetro di un lotto si prende sul
-PARLANTE, e adesso lo fa uno strumento.** `scratchpad/_84-parlanti.py` legge
-`*chat_unique`, e per ogni blocco `if ( _switch_val == CREATURE_ID_... )` trova
-la **graffa che lo chiude**, conta le firme non tradotte dentro e quante di
-quelle vivono anche fuori. La 81ª aveva scoperto la regola su Telhureza (*un'
-etichetta HSP è un indirizzo di salto, non un confine di senso*); adesso è
-meccanica. ⚠️ E il conto delle graffe deve togliere anche i commenti `//` e
-`/* */`: `chat.hsp:1466` ha un `{` dentro una riga commentata, e con quello
-dentro tutti i blocchi dopo `:1460` collassano in uno che arriva a fine file —
-il primo referto diceva «7 blocchi», i blocchi sono **86**.
+⭐⭐⭐ **La lezione della giornata: il contraccolpo di una firma condivisa si
+MISURA prima, non si scopre dopo.** Il blocco di Erystia aveva due firme che
+vivevano anche fuori, e tutt'e due erano **voci di menu** dentro menu che
+Erystia doveva avere interi: renderle apriva tre menu bilingui in zone ancora
+inglesi. Invece di scegliere fra «sporcare» e «rompere», si è misurato quanto
+costasse chiudere quei tre menu davvero — `scratchpad/_85-blocco.py`, il
+confine sulla graffa per un blocco **qualsiasi** del file, anche fuori da
+`*chat_unique` — e la misura ha detto: Gavela 120, Sophia 112. Si sono presi
+tutti e tre. `bilingui` chiude a **0**. ⚠️ Ma nel mezzo è stato **3**: fra il
+primo commit e il terzo l'albero portava tre menu a metà, ed è il prezzo di
+lavorare per lotti.
 
-⚠️⚠️ **La prima cosa che ha trovato è un confine sbagliato di 171 righe**: il
-blocco di **Mizuki** comincia a `:8459`, non a `:8630`. Quarantacinque firme che
-la ripresa dava a `*chat_unique` sono sue.
+⭐⭐⭐ **La seconda: `cnvrank` è morfologia inglese, e la sonda del test non
+poteva vederla.** `init.hsp:149` è la desinenza ordinale — `if ( jp ) return ""
++ rank`, altrimenti `st`/`nd`/`rd`/`th` — cioè lo stesso mestiere di `_s`. Non
+stava in `MORFOLOGIA_INGLESE`, e il prezzo era **già a schermo in quattro rese
+italiane**: «Rango del museo: 2nd», «Livello di sotterraneo più profondo: 25th»,
+«Rango della casa: 3rd», «livello massimo 12th». La sonda del test cercava
+funzioni i cui `return` fossero **letterali nudi**; `cnvrank` invece
+**concatena** l'argomento col suffisso, e le passava accanto. Ora la sonda
+riconosce anche la seconda famiglia (ramo `jp` + letterale inglese nei
+`return`), e in tutto `init.hsp` `cnvrank` è l'unica.
 
-⭐⭐⭐ **La seconda: la stessa riga, tre rapporti diversi fra giapponese e
-inglese, tutti e tre in un giorno.** *Un* giapponese che diventa **tre** inglesi
-(「えっ。」 di Silvia: «Hmph.», «Forget it...?», «Huh?»); *due* giapponesi che
-diventano **un** inglese (le due frasi di Icolle sulla scienza); e un inglese
-che **non c'entra niente** con la riga dove sta (`:2747`, `:7648`). Sono tre
-firme, due firme e una deroga — e ogni volta è la firma a dire che cosa fare.
+⚠️⚠️⚠️ **La terza, ed è la più grande: `verifica --dizionario` NON rilegge le
+regole di contenuto.** Confronta le firme col sorgente (orfane, non ancora
+tradotte) e non rilancia mai `controlla_voce` sulle rese già dentro. Quindi
+**una regola nuova non si applica retroattivamente a nessuno**: vale solo per i
+lotti che passeranno da lì in poi. Quelle quattro righe con `cnvrank` erano nel
+dizionario da sessioni e si sono trovate solo perché serviva scrivere una resa
+che la usava. **Manca la rete che rilegge tutto il dizionario con le regole di
+oggi.**
 
-⭐⭐ **La terza: l'ECO.** Tre volte, in tre lotti, due righe che vanno scritte
-insieme o non funzionano: la voce di menu che il PNG **cita fra virgolette**
-subito dopo (Lune), quella che **ripete come domanda** (Silvia), quelle in finto
-parlare da samurai a cui **va dietro con lo stesso でござる** (Eila). Nessuna
-rete le vede.
+⭐⭐ **La quarta: il divieto di genere sul giocatore è la regola che nessuna
+rete vede.** Ventiquattro rese già scritte e già verdi sono state riscritte
+perché un participio si sarebbe accordato col giocatore. Le due scappatoie che
+funzionano quasi sempre: il **nome comune femminile** («sei la persona
+giusta», «sei quel genere di persona») e l'**imperativo** («Vergognati»,
+«Fa' attenzione»), che di genere non ne ha.
 
-⭐⭐⭐ **La quarta: una firma condivisa non si accorcia, si ALLARGA il lotto.**
-`:3499` (Rilian) e `:7217` (Kyle) sono la stessa voce di menu: renderla per
-Rilian avrebbe messo un menu **tutto italiano** dentro una schermata inglese, e
-`bilingui` non l'avrebbe visto *ed è giusto che non lo veda* — quel menu ha due
-voci e l'altra è `strbye`, già resa, quindi il gruppo non è bilingue. Ci si è
-presi anche Kyle.
+⭐ **La quinta: il tetto dei menu a due colonne si misura sulla forma
+DEGRADATA.** Sei voci passavano `verifica` e sforavano `menu_dialogo`: nel
+dizionario si scrive `è`, a schermo esce `e'`, e ogni accento costa **due**
+caratteri. «Non c'è da preoccuparsi.» sono 24 nel dizionario e **25** a schermo.
 
 ---
 
-## L'ottantaquattresima sessione
+## L'ottantacinquesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La
+sessione si è aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: è la
+**quarantaduesima prova** di fila, e le quindici hanno dato quindici volte i
+valori attesi della 84ª.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    verifica --dizionario   chat.hsp   0 / 1495   (era 1831)
+    menu_dialogo            0 su 1076 misurate    (erano 1017)
+                            rotte anche in inglese: 10   (erano 9)
+    dizionario              chat.hsp +336 voci
+    invariati.md            +1 riga: `...?`
+    funzioni.py             MORFOLOGIA_INGLESE +1: `cnvrank`
+
+Tutto il resto è **fermo dov'era**, e in chiusura è stato riverificato:
+`pytest` **744 passed 6 skipped**, `prova_identita` 72/72 e **28.073**,
+`creature` 1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205,
+`riquadri` 0 su 38 e 0 su 71, `linguette` 0 e 0, `battute --divergenti` **13**,
+`intestazioni_larghezze` banco ok e perimetro 0, `dati_applica --identita` 4
+file e 2.987 righe, `dati_sorgente` 7/7 e gioco difforme su 0, `gronde` 0 su 5,
+`maiuscole` 143 siti / 6 appesi / 1 accumulati / 7 giudicati / 0 da guardare,
+`bilingui` **0**, `toppe.jsonl` **1023** non toccato, `rinviate.jsonl` **75**
+non toccato.
+
+⚠️ `pytest` resta 744 perché l'unico strumento toccato è `funzioni.py`, e il
+test che lo copre esisteva già: è stato **allargato**, non aggiunto.
+
+### ▶ Che cosa è stato fatto
+
+    chat.hsp :1962-:2369    ERYSTIA la studiosa di storia                  107
+    chat.hsp :7795-:8193    il Dr. GAVELA, capo sviluppo                   118
+    chat.hsp :10022-:10334  SOPHIA la Saggia                               111
+    funzioni.py             `cnvrank` fra la morfologia inglese          1 regola
+    test_funzioni.py        la sonda allargata alla seconda famiglia      1 sonda
+    dizionario              i 4 siti che scrivevano «2nd»/«25th»          4 rese
+    invariati.md            `...?`, il silenzio col punto interrogativo    1 riga
+    scratchpad/_85-blocco.py       il confine di un blocco qualsiasi   1 strumento
+    scratchpad/_85-cerca.py        cerca nel dizionario per EN/JP/IT   1 strumento
+    scratchpad/_85-applica-rese.py le rese da un modulo al lotto       1 strumento
+    scratchpad/_85-banco-cnvrank.py la precedenza degli operatori HSP     1 banco
+    -------------------------------------------------------------------------
+              336 rese + 4 rifatte, 0 toppe, 0 test nuovi, 3 strumenti, 1 banco
+
+### ▶ ⭐ Il perimetro, misurato
+
+`*chat_unique` ha 86 blocchi di primo livello. A inizio sessione ne avevano
+lavoro 33 (512 firme); a fine sessione ne restano **28** (**287** firme).
+Erystia e Gavela sono usciti dall'elenco. I più grossi rimasti:
+
+    8459-8694   MIZUKI  ⚠️ (confine vero della 84ª)   45   1 fuori
+    1323-1459   LOYTER di Zanan                       18   ZONA CHIUSA
+    7340-7430   il germoglio di bambù                 16   ZONA CHIUSA
+    3316-3422   RAPHAEL il donnaiolo                  15   ZONA CHIUSA
+    5831-5891   l'istigatore di Elea                  15   1 fuori
+    3905-3970   NOEL la bombarola                     14   ZONA CHIUSA
+    5672-5830   il capo dei banditi                   13   1 fuori
+    3794-3866   RENTON il mago tormentato             12   ZONA CHIUSA (era 13, 1 fuori)
+    5921-6101   lo scienziato strano                  12   ZONA CHIUSA
+
+Più la testa del file (`:951`-`:1586`, otto blocchi, 52 firme, tutte chiuse) e
+una ventina di blocchi piccoli. ⚠️ **Il resto di `chat.hsp` — 1.208 firme — sta
+oltre `:8694`**, nella regione dell'etichetta `*chat_unique_mizuki`, e lì il
+perimetro sul parlante non è mai stato preso: Sophia (`:10022`-`:10334`) era
+il primo blocco di quella regione lavorato, e `_85-blocco.py` ora sa prenderlo.
+
+### ▶ ⚠️ Le deroghe dichiarate
+
+1. **`:2184`, `:2190`, `:2199`** (Erystia) — hanno **tutt'e tre lo stesso
+   inglese**, che è la riga di `:2205` e non c'entra con nessuna delle tre. Si
+   segue il giapponese, e per quelle tre il confronto delle righe di finestra
+   con l'inglese non vale niente.
+2. **`:2125`** — l'inglese perde *perché* bisogna sbrigarsi: Marka non dà retta
+   a nessuno e potrebbe partire da sola.
+3. **`:2328`** — l'inglese perde **dove sta** il Castello Antico (bosco a sud
+   di Vernis) e che è diventato un covo di fuorilegge.
+4. **`:2330`** — l'inglese inventa («he'll devour you like a dog») e perde che
+   Wynan è 生粋の戦士; il giapponese dice che serve resistenza all'oltretomba
+   **o** un modo di tenerlo a distanza.
+5. **`:2340`** — l'inglese non dice che lì dorme la `<pietra magica del folle>`,
+   che è la ragione per cui il giocatore ha aperto quel menu.
+6. **`:8146`** (Gavela) — l'inglese taglia la seconda metà della battuta.
+7. **`:8163`** — l'inglese perde che l'esercito ha **deciso di abbandonare** la
+   fortezza.
+8. **`:8169`** — ⚠️ il più grave: l'inglese taglia **l'istruzione della
+   missione** («vammele a strappare, tutte e sei»).
+9. **Deroghe EREDITATE dal diario** (`text.hsp:9700`-`:9840`, già tutto reso):
+   «tesoro segreto di Lesimas» dove l'inglese dice `<codex>`, «orsa d'argento»
+   al femminile, «lettera di presentazione», «Nave Divina», «Torre Rovente»,
+   «Castello Antico», «grotta dei morti», «il valico».
+10. **`Chaos Shrine`** — il glossario aveva deciso «Santuario del Caos» il
+    2026-08-07, ma il nome sulla mappa (`text.hsp:3012`) è **«Tempio Caos»**, e
+    in una voce di menu «Parlami di...» dev'esserci quello.
+
+### ▶ Quel che resta aperto
+
+1. ⚠️⚠️⚠️ **La rete che manca: rileggere TUTTO il dizionario con le regole di
+   oggi.** `verifica --dizionario` confronta solo le firme; `controlla_voce`
+   gira solo sui lotti. Ogni regola nuova (`cnvrank` oggi, `is2` nella 69ª) è
+   retroattiva **solo se qualcuno va a cercare a mano**. È il difetto che ha
+   lasciato quattro «2nd» a schermo per sessioni.
+2. ⭐⭐⭐ **`chat.hsp` a 1.495**, e il perimetro è la mappa qui sopra. **Mizuki
+   45** è il blocco grosso di `*chat_unique`; il grosso vero sono le **1.208**
+   firme oltre `:8694`, di cui non esiste ancora una mappa per parlante.
+   `_85-blocco.py` la sa fare: gli si dà la riga di partenza di un blocco.
+3. ⭐⭐ **Le due reti che non leggono le guardie di un menu**
+   (`chat-lotto-misura` conta i bottoni, `menu_dialogo` il tetto delle due
+   colonne): stesso falso positivo, due strumenti. La correzione è leggere le
+   condizioni delle `chatList`.
+4. ⭐⭐⭐ **La rete che non c'è: i PARTNER fuori da `lang()`** (81ª).
+5. ⚠️⚠️⚠️ **IL PUNTO CIECO DELLA 74ª**: restano **100 righe
+   `listn(...) = lang(...)` in `command.hsp`** — fra cui il pannello dei
+   talenti — **18 in `chara.hsp`**, più `event.hsp:825`, `help.hsp:333`,
+   `net.hsp:604`. ⚠️ **Dodici sessioni che aspetta.**
+6. ⭐⭐ **La rete che manca: i `buff` della finestra del dialogo.**
+   `chat-lotto-misura` misura per lotto ma **suppone** il contenitore.
+7. ⭐ **`menu_dialogo.reso()` non legge il `limit(..., 0, N)`** (79ª).
+8. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208
+   righe), `manual_ENG.txt` (591), `exhelp.txt` (185). ⚠️ `help.hsp:273` conta
+   **dieci righe di FILE per pagina**.
+9. ⭐⭐ `board.txt` **secondo lotto**; `custom_autopick.hsp` 21 gemelle delicate.
+10. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+    `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+    `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+11. ⭐⭐ Il **muro del materiale**: `mithril sword` è «spada **di** mithril».
+12. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `item_func.hsp` 240; i **1.146** di
+    `db_card.hsp`. E la statistica 発言力 con **due nomi sullo schermo**.
+13. 🔶 **La sorella H** (82ª) e la 🔶 **decisione aperta dalla 80ª** sul menu
+    degli arti, che vuole `gdata(GDATA_FLAG_MAIN) >= 220`.
+14. ⚠️⚠️ **Il collaudo a schermo non è stato fatto, e adesso l'arretrato è di
+    DUE sessioni: le 301 rese della 84ª e le 336 di oggi.**
+    ⚠️ `collaudo/schermo.ps1` scrive sulla tastiera di **tutto il computer**
+    (83ª): il collaudo lo fa una persona. I punti più facili da vedere per la
+    85ª: **Erystia** nella biblioteca del castello di Palmia (il menu «Parlami
+    di Lesimas / della missione / del Castello Antico / della Torre Rovente /
+    della grotta dei morti» è tutto italiano e ci si arriva subito), **Gavela**
+    nel laboratorio accanto alla taverna di Melugas, e i due schermi di
+    `map_user.hsp` col rango del museo e della casa, che sono le rese rifatte
+    per `cnvrank` e vanno **guardate**: devono dire «Rango del museo: 2 -> 3» e
+    non «2nd -> 3rd».
+
+### ▶ Come si è chiusa
+
+Tre spinte, una per lotto, più una per la correzione di `cnvrank`. `applica` e
+`compila --eseguibile` sono girati dopo ogni lotto, `cgx-test.exe` è stato
+ricopiato ogni volta, e le quindici verifiche sono state rilanciate in chiusura:
+tutte verdi.
+
+---
+
+## L'ottantaquattresima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

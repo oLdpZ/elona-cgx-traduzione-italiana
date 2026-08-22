@@ -541,6 +541,34 @@ nome e il genere smette di essere una domanda.
 | 亡国の王子 | `The Apostle of Chaos` | **il principe del regno perduto** | `chat.hsp:15457`, dentro la profezia. ⚠️ Qui l'inglese **non traduce**: 亡国の王子 è «il principe di un regno caduto» e non nomina nessun caos. Decide il giapponese |
 | さいはてのうみ | `The Farthest Sea` | **il mare in capo al mondo** | `chat.hsp:15457`. Tutto in hiragana anche in giapponese: è un titolo evocato, non un toponimo, e l'italiano tiene il giro di parole invece del nome |
 
+## I termini della tecnica di Yerles, coniati il 2026-08-22 dal lotto di Gavela
+
+`chat.hsp:7869`-`:7896` è la spiegazione che il Dr. Gavela fa al giocatore della
+tecnologia con cui il Melugast si sposta: otto battute fitte, il pezzo più
+tecnico di tutto `chat.hsp`. Il termine si conia **una volta** e poi torna
+identico in tutte le altre battute, perché la spiegazione si regge su di lui.
+
+| giapponese | inglese | italiano | perché |
+|---|---|---|---|
+| 次元歪曲航法 | `dimensional navigation` (`Dimensional Navigation` a `:7883`) | **navigazione dimensionale** | il nome che Gavela dà al sistema, e a `:7883` racconta di averlo battezzato lui: là va scritto come un nome, non come una descrizione. Torna a `:7869`, `:7871`, `:7876`, `:7879`, `:7882`, `:7913`, `:7915` |
+| 空間歪曲方式 | `spatial distortion system` | **metodo a distorsione spaziale** | uno dei due metodi che la navigazione dimensionale tiene insieme. «Metodo» e non «sistema» perché `:7883` li chiama insieme *航法*, e il sistema è quello |
+| 次元扉形成方式 | `dimensional door system` | **metodo a porta dimensionale** | l'altro dei due. La coppia va tenuta parallela: se il primo è «metodo a X», il secondo è «metodo a Y» |
+| 転移拠点 | `specific point` / `portable system` | **punto di trasferimento** | l'inglese lo dice in due modi diversi nella stessa battuta (`:7882`); l'italiano ne usa uno solo, perché il giocatore deve capire che è la stessa cosa |
+| エーテル波 | `ether waves` | **onde d'etere** | distinto dal **vento d'etere** (`Etherwind`, già deciso a `chat.hsp:7682`): il vento è il fenomeno del mondo, le onde sono quel che rompe l'equilibrio spaziale |
+| 量産型 | `mass-produced` | **modello di serie** | già in `action.hsp:17242`, «il Melugast di serie»: si copia |
+| 試作型 | `test model` / `prototype` | **prototipo** | l'inglese oscilla, l'italiano no |
+| 空間固定 | `spatial binding` | **fissaggio spaziale** | l'attacco che immobilizza i Melugast (`:7869`, `:7913`) |
+| 空間干渉 | `spatial intervention` | **interferenza spaziale** | già in `map.hsp:14918`, «L'interferenza spaziale del demonio è cominciata»: si copia |
+
+⚠️ **E i luoghi di Gavela non si coniano: si copiano da `text.hsp`**, che porta
+i nomi come escono sulla mappa — `Machinery Fort` → **Fortezza Meccanica**
+(`:3009`), `Chaos Shrine` → **Tempio Caos** (`:3012`), `Valley of Hades` →
+**Valle degli Inferi** (`:3006`). ⚠️ Il glossario aveva deciso «Santuario del
+Caos» per `Chaos Shrine` il 2026-08-07, ma il nome che il giocatore legge sulla
+mappa è «Tempio Caos», e in una voce di menu che dice «Parlami di...» deve
+esserci quello: **mandare il giocatore a cercare a schermo un nome che non
+esiste è il difetto del tutorial**, alla seconda ripetizione.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

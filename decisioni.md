@@ -6,6 +6,187 @@ ancora aperte.
 
 ---
 
+## Tre blocchi che si tengono per mano, e una morfologia che nessuna sonda vedeva — 2026-08-22, ottantacinquesima
+
+Tre lotti su `chat.hsp`, **336 rese**, dalle 1.831 alle 1.495. Erystia (107),
+Gavela (118) e Sophia (111): non tre lotti scelti, **un lotto solo diviso in
+tre**, perché due firme condivise li legavano.
+
+### ⭐⭐⭐ Il contraccolpo di una firma condivisa si MISURA prima, non si scopre dopo
+
+`perimetro-zona.py` sul blocco di Erystia (`:1962`-`:2369`) dice 107 firme e
+**due** che vivono anche fuori:
+
+    5030f2ed  「この戦いが終わったら結婚しよう」   :1989 Erystia · :7834 Gavela · :10102 Sophia
+    2854feb5  「任務について」                     :2297 Erystia · :8130 Gavela
+
+Tutte e due sono **voci di menu**, e tutte e due stanno in menu che Erystia
+deve avere interi: saltarne una avrebbe reso bilingue il menu di Erystia, che
+è esattamente ciò che `bilingui` esiste per impedire. Quindi il contraccolpo
+era **certo**, non probabile: renderle accendeva una voce dentro tre menu
+lontani, tutti in zone ancora inglesi.
+
+💡 **La misura ha cambiato la decisione.** Prima di scrivere una riga si è
+misurato quanto costasse chiudere i tre menu davvero — `_85-blocco.py`, che
+prende il confine sulla graffa come `_84-parlanti.py` ma su un blocco qualsiasi
+del file, anche fuori da `*chat_unique`:
+
+    7795-8193  Dr. Gavela        120 da fare   3 fuori
+    10022-10334 Sophia la Saggia 112 da fare   1 fuori
+
+Con quel numero in mano la scelta non era più fra «renderla e sporcare» e
+«saltarla e rompere», ma fra **tre lotti in un giorno** e una toppa
+provvisoria. Si sono presi i tre lotti, e a fine sessione `bilingui` è tornato
+a **zero**. ⚠️ Nel mezzo, però, è stato **tre**: fra il primo commit e il
+terzo l'albero portava tre menu a metà. È il prezzo di lavorare per lotti, e
+va scritto perché non sembri un difetto sfuggito.
+
+⚠️ **La terza firma, `f9ce02f7`, non era un problema e sembrava il peggiore**:
+「…」/`"..."` a `:7870` (menu di Gavela) e `:3842` (Renton). Non è una voce di
+menu là dove esce fuori dal lotto — è un `chatMore` — e la resa è `...`, che
+non cambia niente in nessuna delle due schermate. **La domanda giusta su una
+firma condivisa non è «quante volte esce» ma «in che TIPO di sito esce».**
+
+### ⭐⭐⭐ `cnvrank` è morfologia inglese, e la sonda del test non poteva vederla
+
+`init.hsp:149`:
+
+```hsp
+#defcfunc cnvrank int cnvrank_rank
+	if ( jp ) {
+		return "" + cnvrank_rank      // 2
+	}
+	...
+	return "" + cnvrank_rank + "th"   // 2nd, 3rd, 25th
+```
+
+È la desinenza ordinale inglese: lo stesso mestiere di `_s`, e per la stessa
+ragione non passa **mai** da `lang()`. Ma non stava in `MORFOLOGIA_INGLESE`, e
+il prezzo era già a schermo in **quattro rese italiane**:
+
+    command.hsp:2911   «Arena EX: 3 vittorie  livello massimo 12th»
+    main.hsp:4067      «Livello di sotterraneo piu' profondo: 25th.»
+    map_user.hsp:2594  «Rango del museo: 2nd -> 3rd»
+    map_user.hsp:2775  «Rango della casa: 2nd -> 3rd»
+
+⚠️⚠️ **La sonda del test cercava la famiglia sbagliata.**
+`test_nessuna_morfologia_inglese_sfugge_all_elenco` rilegge `init.hsp` e
+raccoglie le funzioni i cui `return` sono **letterali nudi** (`return "s"`).
+`cnvrank` non restituisce un letterale: **concatena l'argomento** col suffisso,
+quindi la sonda le passava accanto senza vederla. La sonda ora riconosce anche
+la seconda famiglia — *ramo `jp` presente, e letterale inglese nei `return`* —
+e in tutto `init.hsp` `cnvrank` è **l'unica**: non è un buco, è *il* buco.
+
+⚠️⚠️⚠️ **E c'è una seconda cosa, più grande.** Quelle quattro righe erano nel
+dizionario da sessioni, e nessuna rete le rileggeva: `verifica --dizionario`
+confronta le **firme** col sorgente (voci orfane, voci non ancora tradotte) e
+non rilancia mai `controlla_voce` sulle rese già dentro. Quindi **una regola
+nuova non si applica retroattivamente a nessuno**: vale solo per i lotti che
+passeranno da lì in poi. Le quattro righe si sono trovate solo perché la 85ª
+aveva bisogno di scrivere una resa con `cnvrank` dentro. Resta aperto.
+
+💡 **E la resa senza `cnvrank` ha chiesto il banco.** Togliendo la funzione
+l'argomento va concatenato nudo, ma due dei quattro siti passano
+un'espressione (`cnvrank(rankorg / 100)`) e **HSP non ha precedenza fra gli
+operatori**. `scratchpad/_85-banco-cnvrank.py` con `hsp3cl` in dieci secondi:
+`"x: " + (rankorg / 100)` dà `3`. Le parentesi reggono.
+
+### ⭐⭐ Il divieto di genere sul giocatore è la regola che nessuna rete vede
+
+Nei tre lotti sono state riscritte **ventiquattro** rese già scritte, tutte per
+lo stesso motivo: un participio o un aggettivo che si accorderebbe col
+giocatore, di cui non si conosce il sesso. `verifica` non ne vedeva nessuna —
+erano tutte italiano corretto.
+
+    «sei diventato cenere»        →  «di te è rimasta cenere»
+    «Ridotto in quello stato»     →  «Col corpo a pezzi»
+    «Oh, sei venuto»              →  «Oh, eccoti qui»
+    «Non rischi di restare bloccato» → «Non c'è pericolo che tu non possa più muoverti»
+    «Bravo, aspetta un attimo»    →  «Ottimo lavoro, aspetta un attimo»
+    «...Sei tornato tutto intero» →  «...Ce l'hai fatta»
+    «finirai reclutato»           →  «l'esercito verrà a reclutare anche te»
+    «Il prototipo su cui sei arrivato» → «Il prototipo che ti ha portato qui»
+    «sei stato scelto come Fattore Decisivo» → «la scelta del Fattore Decisivo è caduta su di te»
+    «sei fatto così, allora»      →  «sei quel genere di persona»
+    «Maniaco.»                    →  «Vergognati.»
+    «te ne sei accorto»           →  «l'hai già notato»
+
+💡 Le due scappatoie che funzionano quasi sempre: **il nome comune femminile**
+(«sei la **persona** giusta», «sei quel genere di **persona**») e
+**l'imperativo** («Vergognati», «Fa' attenzione»), che di genere non ne ha.
+
+⚠️ E **la stessa regola, per il motivo opposto, su Enthumesis**: il dio del
+caos è 両性具有, e l'inglese lo nomina col «they» singolare. Là non si tratta
+di *non sapere*, si tratta di *sapere che sono due*: la resa non le dà mai un
+genere e riscrive le frasi che ne chiederebbero uno.
+
+### ⚠️ L'inglese che sbaglia riga, la terza volta, e stavolta sono TRE righe uguali
+
+`chat.hsp:2184`, `:2190` e `:2199` (Erystia) portano **tutt'e tre lo stesso
+inglese**, che è la riga di `:2205`:
+
+    "Do not forget to arrive at Mayroon, please contact me through the informer."
+
+I tre giapponesi non c'entrano niente fra loro: uno dice di continuare
+l'indagine sul continente fluttuante, uno chiede che cosa sia successo durante
+la traversata, uno reagisce alla risposta. Le firme sono **tre**, perché la
+firma è giapponese *più* inglese, quindi ognuna può avere la sua resa — ma il
+metro dell'inglese, per quelle tre righe, non vale niente: anche il confronto
+delle **righe di finestra** che fa `chat-lotto-misura.py` diventa senza senso,
+perché confronta con una frase che non è la loro.
+
+Le altre deroghe della sessione, tutte per taglio dell'inglese:
+
+* **`:2125`** — l'inglese perde *perché* bisogna sbrigarsi (Marka non dà retta
+  a nessuno e potrebbe partire da sola).
+* **`:2328`** — l'inglese perde **dove sta** il Castello Antico (nel bosco a
+  sud di Vernis) e che è diventato un covo di fuorilegge.
+* **`:2330`** — l'inglese inventa («he'll devour you like a dog») e perde che
+  Wynan è 生粋の戦士; il giapponese dice che serve resistenza all'oltretomba
+  **o** un modo di tenerlo a distanza.
+* **`:2340`** — l'inglese non dice che lì dorme la `<pietra magica del folle>`,
+  che è la ragione per cui il giocatore ha aperto quel menu.
+* **`:8146`** (Gavela) — l'inglese taglia la seconda metà: «se vuoi continuare
+  ad andare all'avventura a modo tuo, sta' attento a non farti inghiottire né
+  dalle rovine né dall'esercito».
+* **`:8163`** — l'inglese perde che **l'esercito ha deciso di abbandonare** la
+  fortezza, che è il motivo per cui il lavoro tocca a un avventuriero.
+* **`:8169`** — ⚠️ il più grave: l'inglese taglia **l'istruzione della
+  missione**. Il giapponese dice «vammele a strappare, tutte e sei»; l'inglese
+  dice solo «I want to study <Exossil> The Chaos Wing».
+
+### ⚠️ Il tetto dei menu a due colonne si misura sulla forma DEGRADATA
+
+Sei voci di menu passavano `verifica` e sforavano il tetto di 24 di
+`menu_dialogo` a due colonne, e la ragione è che il tetto si conta **dopo**
+`applica`: nel dizionario si scrive `è`, a schermo esce `e'`, e ogni accento
+costa **due** caratteri invece di uno. «Non c'è da preoccuparsi.» sono 24 nel
+dizionario e **25** a schermo.
+
+### 💡 Il registro di una zona si legge, e stavolta l'ha dettato il diario
+
+`text.hsp:9700`-`:9840` è il diario delle missioni della catena principale, ed
+era **già tutto reso**. Non era una fonte di consultazione: era un vincolo.
+Ha deciso «tesoro segreto di Lesimas» (dove l'inglese di Erystia dice
+`<codex>`), «orsa d'argento» (femminile, perché Marka è una donna), «lettera di
+presentazione», «Nave Divina», «Torre Rovente», «Castello Antico», «grotta dei
+morti», «pietra magica del saggio / del folle / del conquistatore», «il
+valico», «Irva Perduta». ⭐ **Il lotto è stato scritto leggendo prima il
+diario del giocatore, non il glossario.**
+
+### ⚠️ Il decimo menu rotto in inglese, e che cosa significa che siano dieci
+
+`chat.hsp:1988` — «I want to be remembered, not just another name in a history
+book.», 65 caratteri in un riquadro da 58 — è la quinta voce che entra
+nell'elenco dei difetti di monte, e la quinta volta è entrata **il giorno in
+cui l'abbiamo tradotta**: `voci_di_menu()` legge il dizionario, e una voce che
+non abbiamo toccato non la misura nessuno. 💡 Cinque su cinque: **la rete non
+misura il gioco, misura quel che abbiamo toccato.** Finché una zona resta
+inglese, i suoi difetti di monte restano invisibili — e il numero «dieci» non
+dice quanti ce ne sono, dice quanti ne abbiamo incontrati.
+
+---
+
 ## Nove lotti di dialogo, e tre modi in cui monte tratta la stessa riga — 2026-08-22, ottantaquattresima
 
 Nove lotti su `chat.hsp`, 301 rese, dalle 2.132 alle 1.831. Nessuno strumento

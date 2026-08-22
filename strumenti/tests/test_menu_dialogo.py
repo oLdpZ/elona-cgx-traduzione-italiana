@@ -382,13 +382,25 @@ def test_le_voci_rotte_a_monte_restano_note():
     talenti in vendita, quello con la descrizione piu' lunga sfora di quattordici
     caratteri e nessuno se n'era accorto in inglese. La resa italiana — «Orgoglio
     (1800 AP) [piu' schivata e riduzione a HP bassi]» — ne usa 56.
+
+    ⚠️ **E dalla 85a sono DIECI, per la quinta volta nello stesso modo.**
+    `chat.hsp:1988` — «I want to be remembered, not just another name in a history
+    book.», **65** caratteri in un riquadro da 58 — e' la terza delle quattro
+    risposte con cui il giocatore si congeda da Erystia prima dell'ultima
+    battaglia. Stessa ragione di sempre: e' comparsa il giorno in cui l'abbiamo
+    tradotta, perche' `voci_di_menu()` legge il DIZIONARIO e prima di quel giorno
+    quella voce non c'era. 💡 Cinque volte su cinque il difetto era gia' li' e a
+    scoprirlo e' stata la traduzione: **la rete non misura il gioco, misura quel
+    che abbiamo toccato**, e finche' una zona resta inglese i suoi difetti di
+    monte non li vede nessuno. La resa italiana — «Voglio restare nella memoria,
+    non nei registri.» — ne usa 46.
     """
     monte = {(f, r) for f, r, _, _ in fuori_misura_inglese()}
     assert monte == {("tcg_custom.hsp", 1968), ("event.hsp", 521),
                     ("chat.hsp", 19527), ("chat.hsp", 19563),
                     ("chat.hsp", 17710), ("chat.hsp", 17713),
                     ("chat.hsp", 22937), ("chat.hsp", 19256),
-                    ("chat.hsp", 17640)}
+                    ("chat.hsp", 17640), ("chat.hsp", 1988)}
 
 
 # --- un chatList non e` sempre nella pergamena (corretto il 2026-08-18) ------
