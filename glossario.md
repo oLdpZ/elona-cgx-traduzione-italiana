@@ -475,6 +475,11 @@ erano nuovi.
 | アーカーシャ | `Arkasha` | **Arkasha** | `chat.hsp:18540`, i corridoi da cui affiora la luce astrale. Nome proprio senza `<>`, e regge la preposizione senza articolo. Anche `:10712` e `:10719`, da tradurre |
 | 器 | `vessel` | **involucro** | `chat.hsp:18516` e `:18519`, il corpo di cui Jaldabaoth si serve. La parola torna nella domanda che Tezcatlipoca fa subito dopo, quindi deve essere la stessa nelle due righe |
 | 造物主 | `creator` | **Creatore** | `chat.hsp:18536`. ⚠️ Il termine gnostico esatto per Jaldabaoth sarebbe «demiurgo», e il giapponese lo chiama 偽りの造物主, «il falso demiurgo», già nel nome della carta (`db_card.hsp:1648`). Ma nella battuta è lui che si proclama tale, e «Creatore» lo capisce chiunque: la parola dotta perderebbe la minaccia |
+| クロやん / ベルっち | `Kuro` / `Bel` | **Kuro** / **Bel** | i soprannomi di Kuroya e Belphat (`chat.hsp:12654`-`:12660`). Si tengono perche' sono il PERNO della scena: a `:12656` Kuroya riconosce l'amico proprio dal modo in cui lo chiama. ⚠️ `screen.hsp:1780` scrive «Kuroya» per intero e resta com'e': li' il soprannome non e' il punto |
+| シラハ | `Siraha` / `Shiraha` | **Siraha** | `chat.hsp:8237` e `:8238` scrivono «Shiraha», `db_creature.hsp:88124` e `db_card.hsp:8720` scrivono «Siraha». Vince il posto che il nome lo DEFINISCE — la creatura, non la battuta che la nomina |
+| ヒトゴロシくん / カミゴロシくん | `glorious murderer` / `glorious god-killer` | **Ammazzagente** / **Ammazzadei** | come Noel la dinamitarda chiama il giocatore (`chat.hsp:3909`, `:3912`). ⚠️ Composti in *-a*: non hanno genere, e il giocatore non ce l'ha |
+| ソックスソードマン | `Sock Swordsman` | **lo Spadaccino dei Calzini** | il nome da eroe che Kuroya si da' quando passa alle maniere forti (`chat.hsp:12731`). Sulla forma di «<Belphat> lo spadaccino cosmico» |
+| 名声値 | `fame` | **punti di fama** | il valore numerico, `chat.hsp:5783` e `:5815`. ⚠️ Diverso dall'etichetta «Fama richiesta» delle missioni (`:1366`, `:3876`), che e' una soglia |
 
 ### Dentro una battuta il nome va nudo: le `<>` sono del motore, non della lingua
 

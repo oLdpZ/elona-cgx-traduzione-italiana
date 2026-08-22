@@ -6,6 +6,135 @@ ancora aperte.
 
 ---
 
+## `*chat_unique` si chiude, e il divieto di genere si allarga — 2026-08-22, ottantaseiesima
+
+Cinque lotti su `chat.hsp`, **326 rese** piu' una rifatta, dalle 1.495 alle
+**1.169**. A fine giornata `scratchpad/_84-parlanti.py` dice **0 su 86
+blocchi**: la zona `*chat_unique` (`:947`-`:8629`) e' chiusa.
+
+### ⚠️⚠️ Il divieto di genere non vale solo sul giocatore
+
+Fino a oggi la regola si diceva cosi': *il giocatore non ha genere noto, quindi
+nessuna resa puo' accordarsi con lui*. E' incompleta. Il capo dei banditi e
+l'istigatore degli Elea sono due creature UNICHE, con un nome e un blocco tutto
+loro, e **non hanno un sesso**:
+
+    db_creature.hsp:115501   if ( cdata(CDATA_SEX, rc) == 1 ) {   <- ROGUE_BOSS
+    db_creature.hsp:40979    if ( cdata(CDATA_SEX, rc) == 1 ) {   <- INSTIGATOR_OF_ELEA
+
+Non **assegnano** `CDATA_SEX`: lo **leggono**, e cambiano solo la faccia. Il
+sesso lo ha tirato il gioco quando la creatura e' nata. Quindi «sono stanco» in
+bocca al capo dei banditi e' sbagliato una volta su due, esattamente come lo
+sarebbe in bocca al giocatore.
+
+💡 *Il dato non e' nell'epiteto e non e' nel pronome giapponese: e' nel blocco
+`DBMODE_SET` della creatura, e va guardato per ogni parlante nuovo.* La
+domanda da porsi e' due volte: **il codice assegna il sesso?** e, se lo
+assegna, **quale?**
+
+⭐ L'altra faccia paga: MEFAN, la pifferaia di Hamelin, ha `CDATA_SEX = 1`. Il
+nome della carta diceva gia' «la pifferaia» e sembrava una scelta di stile —
+era il dato, e le sue battute possono accordarsi al femminile senza dubbi.
+
+### ⭐⭐ Le firme «fuori» possono essere RECIPROCHE
+
+`_85-blocco.py` diceva «1 fuori» per quattro blocchi diversi: il capo dei
+banditi, l'istigatore degli Elea, Siraha e Kuron. Sembravano quattro debiti e
+invece erano due: il capo dei banditi e l'istigatore si dividono `:5713`
+(「を渡した。」), Siraha e Kuron si dividono `:8218` (「手紙を預かった…。」). Prese
+le coppie insieme, il perimetro si chiude da solo e non costa niente.
+
+💡 *Un «1 fuori» non e' un costo finche' non si guarda DOVE sta l'altro sito:
+se sta in un blocco che si stava per prendere comunque, e' zero.* Si vede solo
+dando a `_85-blocco.py` due righe di partenza nella stessa invocazione.
+
+### ⭐⭐ Il contraccolpo si misura sul TIPO di sito, e la catena si ferma da sola
+
+Mizuki (`:8459`-`:8694`) aveva una firma condivisa: 「あげないよ」/«No way.», che
+vive anche a `:12697`. E' una **voce di menu**, dentro il menu dei calzini di
+Kuroya — 30 firme tutte inglesi. Preso anche Kuroya. Kuroya a sua volta
+condivide 「！！」 con `:14528`, ma quella e' una **battuta**: renderla non
+apre nessun menu a meta', e la catena si ferma li'.
+
+💡 *La catena dei contraccolpi si propaga finche' incontra voci di menu, e si
+ferma sulla prima battuta.* E' la ragione per cui conta il tipo di sito e non
+il numero (85a).
+
+### ⚠️ «Siraha» batte «Shiraha»: il nome buono e' quello della creatura
+
+`chat.hsp:8237` e `:8238` scrivono «Shiraha»; `db_creature.hsp:88124` e
+`db_card.hsp:8720` scrivono «<Siraha> the white cloth». E' la stessa persona, e
+l'inglese di `chat.hsp` e' semplicemente incoerente con se stesso. Vale la
+regola del **nome sulla mappa** della 85a, in versione generale: *quando due
+punti di monte scrivono un nome in due modi, vince quello del posto che il nome
+lo DEFINISCE* — la creatura, non la battuta che la nomina.
+
+### ⭐ I soprannomi si tengono quando sono il perno della scena
+
+`chat.hsp:12654`-`:12660` e' il riconoscimento fra Kuroya e Belphat, e la
+battuta di mezzo (`:12656`) e' letteralmente *«quel modo di chiamarmi...»*: se
+il soprannome sparisce, la scena non funziona. クロやん e ベルっち diventano
+**«Kuro»** e **«Bel»**. ⚠️ `screen.hsp:1780` rende クロやん con «Kuroya» per
+intero, e resta com'e': li' il soprannome non e' il punto, e' solo il modo in
+cui Belphat lo chiama in una preghiera.
+
+### ⭐ `_sex()` cade quando l'inglese non lo chiama
+
+`chat.hsp:1249` (Orphe davanti al piedistallo) chiama
+`_sex(cdata(CDATA_SEX, CHARA_PLAYER))` nel **solo ramo giapponese**: 「この" +
+_sex(...) + "は」, cioe' «quest'uomo / questa donna». L'inglese dice «this one»
+e non chiama niente. Si segue l'inglese, quindi la funzione cade, e `verifica`
+lo permette perche' sottrae l'**unione** dei due rami. ⚠️ Non e' un caso di
+morfologia inglese come `_s`: e' contenuto che l'inglese ha scelto di non dire.
+
+### ⚠️ La divisione nuda dentro una concatenazione: rilanciato il banco
+
+`chat.hsp:5846` chiede al giocatore un ventesimo del suo oro, e monte scrive
+`" ... " + cdata(CDATA_GOLD, CHARA_PLAYER) / 20 + " ... "`, **senza
+parentesi**. Rilanciato `scratchpad/_85-banco-cnvrank.py` sul motore vero: in
+HSP la divisione nuda dentro una concatenazione da' lo stesso risultato di
+quella fra parentesi. Copiare la forma di monte tiene il comportamento
+identico, e non c'e' bisogno di «aggiustare» niente.
+
+### ⭐ Il nonsenso si traduce come nonsenso
+
+Le otto farneticazioni di CAIM il riccone folle (`:7283`-`:7306`) sono nonsenso
+**voluto** in giapponese, e l'inglese di monte e' gia' una resa di quel
+nonsenso. Si segue l'inglese riga per riga e non si «aggiusta» niente: le frasi
+devono restare sconnesse. ⚠️ Ma il tetto vale lo stesso: due sforavano le
+tredici righe della finestra, e sono state accorciate — `:7289` sfora **anche
+in inglese**, quattordici righe.
+
+### ⭐ Il participio che nessuna guardia vede, e i falsi positivi che lo circondano
+
+`scratchpad/referti.py` gira su **tutto il dizionario**, non sul lotto, e
+segnala sei participi accordati con un «sei». Cinque sono legittimi e uno era
+un difetto vero, scritto nella 84a:
+
+    :2973  Miral   «Vabbe', sei venuto fin quaggiu'»          <- DIFETTO, rifatto
+    :3152          «dove sei finita, mamma»                   <- la mamma
+    :6420          «Eurypides, dove sei finito?»              <- Eurypides
+    :9498  Norne   «finalmente libero»                        <- Norne, CDATA_SEX = 0
+    :16586         «se le fallisci la paghi cara»             <- modo di dire
+    :22872         «te la sei cavata»                         <- modo di dire
+
+💡 *Due dei cinque falsi positivi sono modi di dire, dove il femminile e' il
+pronome fisso e non un accordo.* Il referto non sa distinguerli, e va bene
+cosi': e' un referto da leggere, non una guardia. Ma il rapporto uno a cinque
+dice anche perche' nessuno lo rilegge mai, ed e' il difetto della 85a.
+
+### ⭐ Tre silenzi nuovi in `invariati.md`
+
+`!!` (`:12725` e `:14528`), `... ...` (`:3843`) e `... ... ...` (`:3844`). I
+due ultimi sono la seconda e la terza pausa della scena in cui Renton legge i
+libri di Rachel prima di stracciarli, e allungano il silenzio aggiungendo
+gruppi di tre punti ASCII, come monte. Il primo non e' un silenzio ma il suo
+contrario — la reazione che non arriva a farsi parola — e vale per la stessa
+ragione: dentro non c'e' nessuna parola.
+
+---
+
+
 ## Tre blocchi che si tengono per mano, e una morfologia che nessuna sonda vedeva — 2026-08-22, ottantacinquesima
 
 Tre lotti su `chat.hsp`, **336 rese**, dalle 1.831 alle 1.495. Erystia (107),

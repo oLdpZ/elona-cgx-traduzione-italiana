@@ -133,6 +133,42 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## `*chat_unique` e' CHIUSA: cinque lotti, 326 rese — 2026-08-22, ottantaseiesima sessione
+
+Cinque lotti, **326 rese** (piu' una rifatta), e `chat.hsp` scende da 1.495 a
+**1.169**. `menu_dialogo` misura **1.129** voci (erano 1.076), 0 fuori misura e
+0 peggiorate a due colonne; `bilingui` ha dato **zero al primo giro in tutti e
+cinque i lotti**. `pytest` resta **744**: nessuno strumento e' stato toccato.
+
+    :8459-:8694 + :12633-:12757  MIZUKI e KUROYA, legati da una voce di menu  74
+    :951-:1586    la testa del file: Zeome, Orphe, i due Loyter, Miches, Shena 52
+    :3316-:3463 + :3794-:3970    Raphael, Ainc, Renton, Marks, Noel            55
+    :7114-:7430 + :7597 + :8253  Mefan, Caim, il bambu', Guo, Naplus           61
+    gli ultimi otto blocchi       Karam, Balzak, i banditi, gli Elea, Siraha    84
+    :2973                         il participio che accordava col giocatore      1
+
+⭐⭐⭐ **`python scratchpad/_84-parlanti.py` adesso dice 0 su 86 blocchi.**
+`*chat_unique` (`:947`-`:8629`) e' una **zona chiusa**: era 287 firme in 28
+blocchi a inizio sessione. Quel che resta di `chat.hsp` — **1.169** firme —
+sta tutto oltre `:8694`, e adesso ne esiste la mappa
+(`scratchpad/_86-parlanti-oltre.py`, 25 blocchi).
+
+⚠️⚠️ **La lezione: il divieto di genere non vale solo sul giocatore.** Il capo
+dei banditi (`db_creature.hsp:115501`) e l'istigatore degli Elea (`:40979`)
+**non assegnano `CDATA_SEX`**: leggono quello che il gioco ha tirato a caso e
+cambiano solo la faccia. Vale su chiunque il codice non fissi, e si scopre solo
+leggendo il blocco della creatura — nessuna rete lo vede.
+
+⭐ E il SESSO si legge li' anche quando l'epiteto sembra bastare: MEFAN ha
+`CDATA_SEX = 1`, cioe' femmina, e «la pifferaia» del nome della carta non era
+una scelta di stile ma il dato.
+
+⭐ **Una correzione che nessuna guardia avrebbe trovato**: `:2973` (Miral,
+resa nella 84a) chiudeva con «Vabbe', **sei venuto** fin quaggiu'», un
+participio accordato col giocatore. L'ha trovato `scratchpad/referti.py`, che
+e' un REFERTO e gira su tutto il dizionario, non sul lotto.
+
+
 ## Tre blocchi legati da due firme, e una morfologia mai dichiarata — 2026-08-22, ottantacinquesima sessione
 
 Tre lotti, **336 rese**, e `chat.hsp` scende da 1.831 a **1.495**.
