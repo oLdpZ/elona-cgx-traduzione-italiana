@@ -1,0 +1,244 @@
+=== 6b09f3e4b24db41c8217d06aec1d47d92c874b90  riga 7117  [?]
+  JP  わ??った
+  EN  Leave it to me.
+
+=== e4a7356e4a502823bb3770240bd3459798dc25b3  riga 7118  [?]
+  JP  お断りします
+  EN  I refuse.
+
+=== a6482622b30a8610f9287561d6e0b47e541a3b3c  riga 7119  [?]
+  JP  おお…旅の方よ、私の愚痴に付き合ってはくれないか。この街は以前、大量発生したネズミによって大きな被害を受けていたのだ。そこでネズミの駆除依頼を受けたのが私だ。この笛による素晴らしい演奏で小汚いネズミどもを片づけたのだが…この街の連中ときたらその報酬を全く払わないのだ！ああ、話していたら腹が立ってきた。報復としてちょっとこの街の子供をさらってきてくれ。
+  EN  Oh traveler, won't you listen to my woes? This town had a massive infestation of mice, and I received a request to get rid of them. But though I got rid of the mice with this flute of mine... The people of the town refuse to give me my pay! Ahh, it makes me so angry. As revenge, I want you to kidnap this town's children and bring them to me.
+
+=== eb87bf1c61db1dee56d8bfce7c36d25a4efd2450  riga 7122  [?]
+  JP  そっかー。死ね！
+  EN  I see. Then die!
+
+=== 9b5c945eb1cc1e0fff3f3770c24e3e7ac91095fa  riga 7126  [?]
+  JP  わかってくれたか！そうそう。さっきはこの街の子供と言ったが、もうこの際どこの街の子供でもかまわんよ。よろしく頼む。
+  EN  Perfect! Oh, and I know I said to bring the children of this town, but it really doesn't matter where they're from. Good luck.
+
+=== 12e9ef8a2ee95cd3341956d4fed7efc38a1dc552  riga 7131  [?]
+  JP  聞き流す
+  EN  Yeah.
+
+=== 6f8285ac7eff3385c27651e6c97afe7dcb2391d1  riga 7134  [?]
+  JP  を引き渡す
+  EN  (Turn over .)
+
+=== 6589e57215509105a6246057d008b4b85f0e6f53  riga 7136  [?]
+  JP  どんどんさらってきてくれ。私を馬鹿にしたことを世間に後悔させてやる。
+  EN  Bring them to me as soon as you can. I'll make these people regret making a fool out of me.
+
+=== c384017e47721ee76eadf2199b9be4b7f46ed60f  riga 7169  [?]
+  JP  いい子だ…さぁこっちへおいで。これから毎日素晴らしい演奏を聴かせてあげよう。…ん？まだいたのか、これは報酬だ。受け取っておきたまえ。
+  EN  Come here... That's a good child. I'll let you listen to wonderful performances every day from now on... Hmm? You're still here? This is your reward. Take it.
+
+=== ec7747f6ecac63996fee2f5432e3325509a32556  riga 7272  [?]
+  JP  おお、ここまで辿り着いてしまったのか！ 悲しいかな、ここから先に行かせるわけにはいかないのだ。お前の冒険はレシマスから真実の書を持ち出したところで終わり、本来この地を訪れることは未来永劫なかったはず。
+  EN  Ohh, you managed to make it this far! Unfortunately, you won't be going any further. Your adventure was to end when you took the book of truth from Lesimas; you were never to come to this land.
+
+=== 1a2ec1ec8bf0ca17f9af951044697dbe1eaaeaab  riga 7273  [?]
+  JP   (青年はやれやれといった様子で首を振った) 予測を外れた行動ばかりとるお前には、我々も最初は楽しませてもらったが…。お前はどうやらイレギュラーのようだ。異形の森の魔女…あれは森とともに燃えつきて死ぬはずだったのだが、お前と接触したことにより運命が変わってしまった。このままお前を放っておけば永遠の盟約にすら干渉しかねない。
+  EN   (The young man shakes his head dejectedly) The fact that your actions deviated from our predictions brought us entertainment at first, but... You appear to be an irregularity. The Witch of the Heretical Forest... She was to perish in the same blaze that took the Forest, but coming in contact with you altered her destiny. If you are left alone, your presence may interfere with the Eternal League.
+
+=== 3aa8072f223b0da82760c44ad6b5fd739d486776  riga 7274  [?]
+  JP  我々の王も大層不機嫌でいらっしゃる。ここでお前は混沌に呑まれ消えることになるだろう。
+  EN  Our King is quite displeased as well. You shall be engulfed by chaos and disappear.
+
+=== 1ecf7f0fc1060e0a4152fb8af024fd9ddf39aa4b  riga 7280  [?]
+  JP  大丈夫、私は正気に戻りました！
+  EN  It's okay, I'm sane again!
+
+=== 662aa69a8d8964cc700765e7331eec644b1e843c  riga 7283  [?]
+  JP  なぜならばこれもひとえにポストが赤いからであり、宇宙から降り注ぐインフィニティどんどこ光線の影響によって私の体は隅々までこっぱみじんだって言ってるじゃないですか。困っちゃうなぁ、どうしてそこで鉄と鉄が違うものであるという当たり前のことに気づかないで、植木鉢のことを知っているなんて言い張れるんだ？しかし、ここで戦争について考えるのは素敵という意見もちらほら耳にしたり鼻にしたり軍隊アリ。どちらにしてもここではロマンチックだとは到底思えませんがもう終わったことです、仕方がないことなのです…。ですから今日も元気に！逆立ちパラダイスと洒落込もうじゃないかあ！
+  EN  Because this post is also solely red, it is by the effects of the infinite burning rays falling from the cosmos that every inch of my body is breaking down. It is worrying as if one does not realize the obvious that iron and iron are not the same, how can one insist to comprehend a flowerpot? However, the opinion that this war is wonderful is something I sporadically hear from the military. Either way, that romantic thoughts concerning it exist after the end is something that cannot be helped... Therefore today I am in high spirits! It is a paradise laid on its head!
+
+=== c17db7420e8074525cf845a1b1edadb9f2ce5a56  riga 7286  [?]
+  JP  それもそのはず。まぁ、さっきまでは花瓶がささっているように見えていましたが、しばらく見ていると布団がねじれているのです。あのルドルフも泣いていました。ルドルフの身に何があったのでしょうか？ルドルフって誰でしょうか？あれはまだ、ハリガネ派とシイタケ派の仲がよかった頃…ある日、頭を地面に埋葬することが決定し、そろそろトマトも芽を出すと思われた頃…その事件は起きました。爆散したサザンカが宙を舞い、赤・青・しじみがそろったことにより、カブトムシ界に破滅が巻き起こったのです。あのカブトムシ界に。ああ、もう誰にも止められない。もう髪をむしりつくすことさえできない…。全部うそでーす、めへー。
+  EN  It's only to be expected. Well, even something that appeared as a vase until now, when stared at, twists into a futon. That Rudolf cried as well. You want to know what became of Rudolf's body? Back when the wire and mushroom factions were close... One day, when the decision was made to bury their heads in the ground, about when the tomato had begun to think of sprouting... The incident occurred. The explosion scattered the sasanqua, and with the red and blue clams having been prepared, ruin came to the beetle world. That beetle world. Ahh, it's too late to stop now, even if every option is exhausted... All of that was a lie, eheh.
+
+=== 4ed77531ef489f2ff65829dc73d52a37d5da8bf0  riga 7289  [?]
+  JP  ここで言うのもなんですが…私の大切なツチノコ第二形態が危篤なんです、髪をむしらせろ。なるほど…そうですか。時計には触れない、か…その気持ちわからなくもありませんが、ちぎれた触角を天井に植えるのはどうかと思います。確かにドライヤーならあっちで日光浴してますよ！さっき私が燃やしたらしいけどさ！です・が　きが２　たでしょうかあれは　わた４　かんしして１　のです。こんなこと…ただ虚しいだけなんです。そうです、もう一度考え直すのです。ここを逃したら、もう考えをまとめるチャンスなどありません！よく考えろ、そこまでする必要はどこにもないっ！あー。話は変わるけど、駐車場って男臭いですよね。杏仁豆腐を思い出します。
+  EN  Let me say this... My important tsuchinoko's second form is on the verge of death, making me pluck my hair. I see... Yes, that's right. The clock is not touched, huh... It is not that I don't understand the feeling, but I don't think it's a good idea to plant the antenna that broke off on the ceiling. Surely a dryer bathes there in the sun! It seems that some time ago I burned! But starving 2 will probably cross 4 and watch 1. That is... something empty. Indeed, let's rethink this again. If this is missed, there will be no more chances to collect my thoughts! Think carefully, as to go that far is needed nowhere! Ah. Changing the subject, the parking lot is macho isn't it? I recall the annin tofu.
+
+=== 70298cfa2e67fd72ec0668f02691de18a599bb6f  riga 7292  [?]
+  JP  ええ、波動は全てを飲み込みます。そして現れるキャベツ、ニンジン、ナス、羊飼いといった色とりどりの魚たち…このバトルの結末はどうなってしまうのでしょうか？私の予想では一昨日の空模様は豪雨だけど最終的にはやっぱり投石器かと思われれれれ！…ここで気になるのはやはりダンゴムシ派です。では今日はダンゴムシ料理を試食してみましょう。みたらしだんごです、どうぞ。えっ…それともまさか叫ばせる気ですか？何度でも叫ぶって言ってたじゃないか、うそつき！あなたも知っているでしょう！こんなこと誰にも言えないけれどここだけの話、扉と和解しなくちゃいけません。ごめんなさい、全てはクロロホルムとの調和のためなんです…わくわくするなぁ！
+  EN  Indeed, waves swallow everything. Also appearing is the cabbage, carrot, eggplant, and multicolored fish such as the shepherd... What will be the ending of this battle? My expectation from looking at the sky the day before yesterday was a torrential downpour, but it seems it's a ballista after all! ...The worrying one after all is the pillbug group. Then today I will try tasting a pillbug dish. Mitarashi dango, please. Ah... Don't tell me you're going to cry? How many times did you say you wouldn't cry, you liar! I know you know that too! Just between you and me, but you must reconcile with the door. Sorry, everything is for harmony with chloroform... How exciting!
+
+=== 39968f502accbc9f1c4f73e582c42f2dc4a6c466  riga 7295  [?]
+  JP  前にも同じようなことがありました。…あれはまだ海が干上がっていたころの話ですが星々が永劫の彼方へ収束していくなか、二匹の黄金ミミズが灼熱の大気に身を躍らせていました。これでこの話はおしまいです。もうおしまいだぁ…やめにしませんか？こんなことはよくありません！因果律をすっとこどっこいさせるだけなんです！あ、でもそれもいいかもしれませんね。私はあなたを取り込もうとしただけですしね。さて…茹で上がる爆弾たちと「痛いじゃないですか」と連呼した後、空に向かってツバを吐く遊びはみなさんしたことがありますよね？しかしこの遊びの重大な問題が発見されたのです。本日はありがとうございました。
+  EN  Something similar happened before... This is a story from before the seas dried up and the stars had converged into the infinite beyond. Two golden worms flung themselves into the red-hot atmosphere. That's it. That's all there is to the story... It can't end there? That's no good! Causality won't be made a fool of! Ah, but it might be good after all. I was just trying to win you over. Now then... After asking boiling bombs repeatedly \"Does it hurt?\", hasn't everyone vomited into the sky? It's an important part of this play. Thank you very much for today.
+
+=== 8fa9aa2689c8e5ae5e746f880d44c157bae344cf  riga 7298  [?]
+  JP  有名な話ですが、解放点を最初に発見したコルチェーン＝トルバッソ男爵は覆面を何十枚もかぶっていたのが原因で呼吸困難に陥り死亡しました。享年57歳とされていますが…俺があのくらいで死んだと思ったのか？まぁそんなことは乾電池の眼球くらいにどうでもいいことです。今重要なのは本の144ページですからね。キーワードは宇宙イノシシの鳴き声だけど中身を気にしてはいけません。あれ、どこまで話しましたっけ？そうそう、崖から落ちていく最中、私は彼らと感動的な再会を果たしました。そして仲良く地面に叩きつけられ、私だけが生き残りました。私の勝ちです。やったぁ。
+  EN  Here's a famous story. When Koruchien first discovered the release point, Baron Troubatsu died because of difficulty breathing due to his mask. He was 57 years old... Do you think I would die of that? Well, it matters as much as a battery's eyeball. The important part now is page 144. The keyword is the roar of a space bear, but you can't pay any attention to the contents. Huh? What was I talking about? Oh, right. I had just fallen off the cliff and had a heartwarming reunion with them. I bounced around a bit, but I survived. The winner is me. Great.
+
+=== 07a86c66deae99eae0d8b124e8c927cfe9cf4ac9  riga 7301  [?]
+  JP  私がこうなったのも、全ては一枚の蛹から始まった感動物語。呼吸をしなければ人間は生きてはいけない。だがそれは本当なのだろうか。世界を取り巻く何か大きなものにそう思い込まされているだけではないだろうか。悩みの末に、入賞できたはずなのに結局回り道をしてサボテンになってしまった物語。あれは割と高価だったのに！人間はなんと愚かなのだろう…。あのルドルフも最後には「おいおい、どうしてみんな殺人ミミズの皮膚をかぶっているのかしら」と言った。そして死んだ。娘も言った。そして死んだ。お前は？言った？何を？騙されているぞ、早く反論するんだ！そうとも！ここには、なにもいないんだ…。
+  EN  The way I became like this all started from a single inspirational story. Humans can't live without breathing. But I wonder if that's true? With something big surrounding the world, maybe you get that impression. A prize should have been one, but the story took a detour and he turned into a cactus. It was quite expensive! How foolish humans are... In the end Rudolf exclaimed \"Hold on, why is everyone wearing the skin of the murdered worms?\". And then he died. The daughter said it too. And then died. How about you? Will you say it? It's a trick, you better object! That's right! There's nothing here...
+
+=== 031e408bf81e5f76f9e21638f4fc395764124831  riga 7306  [?]
+  JP  実は今まで秘密にしていたのですが、塩コショウってなんなんだよまったくもうふざけるのもいい加減にしろよ！そもそもこの場合ポイントとなるのは３箇所、まず世界のため私のため昼寝をすることはナンセンスだという気持ちでしょう？素人はそんな不毛な争いの果てに一体何が残るって言うんだと思うかもしれませんが、それとこれとは別の事象を表していますよね。何を隠そう、事象は私の大好物なんですよ！それでも不満があるのなら天上天下唯我独尊の精神のもとに解脱や世界統一に向けて、負けるな！闘え！武器を捨てて投降しろ！貴様らは完全に包囲されているが、それでもウサギってかわいいぴょんぴょん♪
+  EN  It's actually been a secret up until now, but salt and pepper need to knock it off already! It's three point anyways, but doesn't it feel meaningless to take a nap for both my sake and the sake of the world? An amateur might make a pointless argument about the end of the world, but this and that are rather different events. To tell the truth, this phenomenon is my favorite food! If you are dissatisfied, then the only solution is to turn to the combined selfishness of the entire world and lose! Fight! Throw your weapons down and surrender! You're completely surrounded, but a bunny hopping is still cute~!
+
+=== 30fc44c6601af20e6d2e285b94056919bcc55402  riga 7310  [?]
+  JP  (なぜかはわからないが、全身に大怪我をしている…)
+  EN  (You don't know why, but he has serious wounds all over his body...)
+
+=== a20aeb54fe7cc38916bdf63201a6d1683e783954  riga 7311  [?]
+  JP  何かがカインの手から落ちた。
+  EN  Something falls from Caim's hands.
+
+=== cd341aaa28ae41e708cc2ded24279a506448cac2  riga 7323  [?]
+  JP  イルヴァ中の国家がまとまったのは単に脅威からそれぞれの身を守るためだ。国々が真に和解する日まで、僕たちの戦いは続くんだ。
+  EN  The nations of Irva only gather to protect themselves against a threat. Until the day the countries truly reconcile with each other, my fight will continue.
+
+=== 1d16080be9eee888f90189fee2ba5fb4bf607fe5  riga 7326  [?]
+  JP  イェルスとジューアはそろそろ和解したほうがいいと思うんだ。
+  EN  It would be best if Juere and the Yerles reconciled soon.
+
+=== 02f5236a137e560bf4e9d75305f9e22e9b8e0b73  riga 7333  [?]
+  JP  ブースター使ったアンドロイドさんにも付いていけるよう、速度を鍛えなきゃ。足を引っ張るのは嫌だから。
+  EN  I need to train my speed so I can keep up with the new android with boost I hired. I hate holding people back.
+
+=== 790a1fcdab303abd3880282bf61c59f746947bd4  riga 7336  [?]
+  JP  愛に性別も種族も関係ないよね？
+  EN  Race and sex have nothing to do with love, right?
+
+=== ce5860d84e4dbff16781bb059955ce6451e9239e  riga 7343  [?]
+  JP  圧倒的な戦闘能力を持つコアラとの戦い…今回は厳しい生存競争だった。コアラの残党…きのこたちとの因縁…里の復興…問題はまだまだ山積みだ。だが今は、とりあえず束の間の平和を享受するとしよう…。
+  EN  Combating the koalas with overwhelming force... It was a tough fight for survival. The remnants of the koalas... the fate of the mushrooms... rebuilding the village... problems just keep piling up. But I guess we should enjoy this fleeting peace while it lasts...
+
+=== 52036f113653b2fedbf974547043814c8d6a8c46  riga 7347  [?]
+  JP  あの数のコアラを撃退するとは、さすがだ！誇りに思うべきだよ。お前はこの地に満ちる光と、難民たちを守ったんだ。そして絶望の闇に負けない強さを我々に示してくれた。これはお礼だ…どうか受け取ってほしい。
+  EN  You got rid of the koalas! I knew you could do it! You should be proud. You are the light of this land, protecting the helpless refugees. You've shown us how to stay strong and not lose ourselves in the darkness of despair. This is a gift for you... I want you to have it.
+
+=== 121c56b501bc2bf39ccb6a20d22ebc083e6ffe8e  riga 7359  [?]
+  JP  なに、遠慮はしなくていい。どうせ全部すぎのこの村の跡地から漁ってきたものだからな。
+  EN  Please, don't hold back. It's from the village I grew up in.
+
+=== 1e49691751cce2e5b3ec65d3a1d49fbef5659fcd  riga 7364  [?]
+  JP  きのこたちとは違い、コアラには言葉すらも届かない。やつらは暗黒の炎によって土地を焼き払い、暗黒焦土を作り出す。焦土に蒔かれた暗黒種子は周囲の光を塗りつぶし暗黒樹へと成長する。そうして闇に包まれた地域は通常の動植物の生育ができない暗黒の大地と化すのだ。暗黒樹がつける果実や葉は豊富な暗黒物質を含み、闇喰コアラたちの餌になる。世代を重ねるごとにコアラの個体数と体内の闇濃度は増していき、さらなる暗黒餌場を求めて別の土地へと暗黒行進を始めるのだ…！！お先真っ暗とはまさにこのことだぜ。
+  EN  Unlike mushrooms, there's no reasoning with koalas. These guys burn everything with dark flames, creating dark scorched earth. They plant their dark seeds that grow into dark trees, blotting out all sunlight. This makes the area uninhabitable by normal animals and plants. The trees flower and produce fruit, and everything becomes food for the koalas. Once the koala population rises enough, some of them march on to create a new feeding ground, repeating the whole process again!! Everything becomes covered in darkness...
+
+=== e868d5a85726d444b2262e1b3e94f04ed814ccc6  riga 7369  [?]
+  JP  まずいぞ。コアラを決死に食い止めていた、同盟のすぎのこの村からの連絡が途絶えた…。ここが襲われるのももはや時間の問題だろう。
+  EN  This is bad. A tribe of cedar's we had an alliance with tried desperately to stop the Koalas, but... I haven't heard from them since... This place is going to be attacked too if things continue as they are.
+
+=== 734fdc5068589b912e463cdfb7e28059c35e04d5  riga 7372  [?]
+  JP  コアラはきのことは比較にならないほどの強敵だが、お前の力ならやつらを止められるはずだ！頼む…！このままでは周囲一帯が暗黒焼畑農業によって暗黒物質農場にされてしまう…。
+  EN  Koala are formidable opponents, totally incomparable to mushrooms! But with your power, I'm sure you can stop them! Please, I'm begging you...! If they're not stopped, they'll turn this entire area into their feeding ground...
+
+=== 07498a7f89e52c3520bbccfe999407f6cd822523  riga 7375  [?]
+  JP  せめて難民たちは逃がした方がいいんじゃないか？受け入れ先が見つかるとは思えないが…。
+  EN  You'll at least help the refugees escape, won't you? I don't know where we'll go though...
+
+=== 0fe19aa20caac1bd2520fc5bbc8abfefc5b08fe2  riga 7378  [?]
+  JP  お馴染みの魔法の階段を出しておく…そこから乗り込んでくれ。頼むぞ、！お前が最後の希望だ！！
+  EN  The magic stairs you already know about... You can get to the koalas from there. Godspeed, ! You're our last hope!
+
+=== df2b74447ec884127b44a9bf3b4379d03e5c93e2  riga 7386  [?]
+  JP  風のうわさによるとこの地に向かってコアラの大群が行進してきているそうだ。
+  EN  The rumor going around is that hordes of koala are on the march.
+
+=== 5dbc0d651256e3ca050b305934dad269dcd55236  riga 7387  [?]
+  JP  やつらは危険だ。実力もさることながら、かわいい外見に反して腹の中は真っ黒だからな…。このままコアラに蹂躙されるのを待つしかないのか…？
+  EN  Those guys are bad news. Not only are they strong, but contrary to their cute appearance, their hearts are pure black. Are we destined to be killed by the koalas...?
+
+=== cc51aa316f81f106c6f462c6641b2305dd95743a  riga 7397  [?]
+  JP  消えろ、ぶっとばされんうちにな。
+  EN  Get out of here before I make you regret saying that.
+
+=== 01696f313ca1ad89f4ef63bd6faaeefa16e0edc4  riga 7401  [?]
+  JP  ありがとう。やっぱりたけのこ派は親切な人ばかりだ。きのこはアホだから侵攻に使った魔法の階段をまだ残してやがる。そこから乗り込んでくれ！
+  EN  Thank you. We bamboo sprouts are kind beings and can't handle this sort of thing. Those stupid mushrooms left open the magical stairs they used to invade us, so you can use those to get there.
+
+=== 61ae8fa48764dc9e7f53ea2eacba961f74c8c8d2  riga 7407  [?]
+  JP  え？きのこやたけのこのくせにどうやって移動してるのかって？歩いてるとこ見たことないの？そんなことより早く山のきのこを殲滅してきてくれよ。
+  EN  Huh? You want to know how mushrooms and bamboo sprouts are moving around? Just hurry up and get rid of the mushrooms instead of worrying about that sort of thing.
+
+=== 33f776b4e691203451d8cb60b0469869771e8994  riga 7423  [?]
+  JP  山のきのこどもを滅ぼしてきたんだな！ついに…ついに有史以前から続いていたきのことの戦いに勝利したのか。しかし…なんだこの虚しさは…？
+  EN  The mushrooms that took over our mountain have been destroyed! Finally... Finally our kind has been victorious in the conflict between bamboo sprouts and mushrooms that has raging since ancient times. But... what is this empty feeling in my heart...?
+
+=== 6498487f5a26ec6e69c4b3a034ca05717e0a946f  riga 7424  [?]
+  JP  我々は…ずっと相手方を憎み嫌い、戦うことしか考えていなかった。だがそれはきっと間違いだったのだ。滅ぼす前にちゃんと歩み寄れば、もしかしたら和解することもできたのかもしれない…。
+  EN  We... we hated them so much. All we thought about was fighting... But that was a mistake. I'm sure that if we tried to speak with each other before fighting, this might never have happened...
+
+=== 219c39b5062fe3a9bdfe8dfc7153e75e91d08955  riga 7425  [?]
+  JP  まぁでも滅ぼしちゃったものはしょうがないよねー。
+  EN  Well, there's no help for it. They're gone now.
+
+=== 1798705b9bf5a99a478e10e2a59d59291e3b9b35  riga 7601  [?]
+  JP  物件を買う
+  EN  I'll buy.
+
+=== ab058e87f546bb1d51fc64a71d98723aa483cb4d  riga 7604  [?]
+  JP  おお、オマエか。ここだけの話、いい物件があるんだが買わんか？散らかってはいるが、大量のペットを放し飼いにすることだって可能な広さだ。しかも税金がかからんぞ！これでなんと金貨30万枚だ！どうだ？もちろん買うだろう？
+  EN  Ohh, it's you. Now this is just between you and me, but I know of some good real estate. Want to buy it? It's a bit of a mess, but it's large enough that you can let out a large number of pets there. And it's not even taxed! It'll only cost you 300,000gp. How about it? You're gonna buy, right?
+
+=== b7f54c9c89a9f6fb237df5041746a000a8453417  riga 7607  [?]
+  JP  シッシッ、貧乏がうつるわ。
+  EN  Shoo then, I have no use for the poor.
+
+=== 7f09a9b2e83e534c08cca0cb657a0f1f7e91e18b  riga 7612  [?]
+  JP  ほら権利書だ、好きなところに移すとよいぞ。他にも同じような物件があるから、足りなくなったらまた買いに来るのだぞ！
+  EN  Here is the deed. You should put it wherever you like. I have more where that came from, so if you need another, come buy it!
+
+=== 5d64e0e0f0ecf3983595fc7e534509bff0d6189a  riga 7619  [?]
+  JP  ククク…貧乏人どもめ。わしを馬鹿にしたことを後悔させてくれるわ。
+  EN  Kukuku... Those poor idiots. They'll regret making a fool out of me.
+
+=== 8eac8350742d6b5781744f5c3a273c5bfe133a92  riga 7622  [?]
+  JP  くそっ、くそっ！どいつもこいつも…。没落したわしを憐れんでいるが、あれは絶対裏で馬鹿にしておるわ！今に見ておれ貧乏人ども…屋敷が売れてまとまった金さえ入ってくれば…。
+  EN  Shit. Shit! Every last one of them... They all act like they feel sorry for me, but they're all making fun of me behind my back! You just wait, you poor bastards... Once I sell my mansion and have money again...
+
+=== 2a3124ac5987cd07a7c0b8184a241414a4d91fd3  riga 7625  [?]
+  JP  屋敷を買う
+  EN  I'll buy.
+
+=== 6a65aa0585b08a313753fc68ddc5d462e4e8ee20  riga 7628  [?]
+  JP  おおおお！？金！金だ！屋敷を買ってくれるのか！？…ふむ…本来は金貨240万枚のところを200万枚にまけておいてやろう。ありがたく思えよ。
+  EN  Ohhhhhh?! Money! You have money! Do you want to buy my mansion? ...Hmm... I had originally put it up for 2,400,000gp, but I'll let you have it for 2,000,000gp. Be grateful.
+
+=== 5ca02274f40fcb6ce2b7c9b927786b78e56a7b24  riga 7631  [?]
+  JP  シッシッ、わしはオマエのような貧乏人とは本質的に違うのじゃ。
+  EN  Shoo then. People like me are just fundamentally different than paupers like yourself.
+
+=== 298d56927e2a25464e64a7ed9836ed3fdbab0dd5  riga 7636  [?]
+  JP  金は確かに受け取った。あの屋敷はもうオマエのものじゃ。好きにするがよいぞ。
+  EN  We're done here then. It's yours now. Do with it what you like.
+
+=== f51e14f4b4684c2db7ed4539e5652cd13e16c83f  riga 8259  [?]
+  JP  ひっ！？そ、それは…ふかふかパ…い、イヤぁあああああ！お、お願いだから早くしまって！！！
+  EN  Hii?! T-that's... Puff-puff... N-Nooooooo! P-Please, get it away from me!
+
+=== 787a3d9cb767314aca82e088cb8d3b119bf5e55d  riga 8265  [?]
+  JP  今度ネフィアに素材集めに行く時ボディガードとして雇わせてよ。時々、私の錬成したアイテムとかサービスするから、ね？
+  EN  You should let me hire you as my bodyguard the next time I go into a ruin of Nefia. I need to collect materials to synthesize items and provide services every once in a while, you know?
+
+=== 3b379c98bf007552e646d0723e18f829f025663c  riga 8269  [?]
+  JP  それはエストークの尻尾！これで私は師匠を超えることができる…！
+  EN  That's Estork's Tail! Finally I can surpass my master...!
+
+=== 155a4a24ca8068956583757b53c4418218d66693  riga 8279  [?]
+  JP  あ、お礼がまだだったね。これは私が前に錬成したアイテムだけど、よかったら使ってみて！
+  EN  Ah, right, your reward. These are some items I synthesized a while ago. Try them out.
+
+=== f28516154dacb1a7a5ef762a17e23c1034f8dc40  riga 8296  [?]
+  JP  無理にとは言わないけれど、錬金術の発展のためにもぜひ協力して！
+  EN  I know it might be tough, but cooperation is the foundation of alchemy!
+
+=== 7eb5eb4a451a847369423b7e867308692e453a8f  riga 8300  [?]
+  JP  ナプラスのアトリエにようこそ♪…ちょっとお願い聞いてくれる？
+  EN  Welcome to Naplus' Atelier~... Mind if I ask you a favor?
+
+=== 502d378116587b69e52d6755568b8245306a2aa0  riga 8301  [?]
+  JP  私が錬成したいアイテムにどうしても必要な素材があって…それを取ってきてほしいな。素材はエストークの尻尾、サウスティリス南西端にある犬神の森の主を倒さないといけないの。
+  EN  There's something that I really want to synthesize, but I need a certain material... And I want you to get it for me. You'll need to defeat Estork in the Forest of Doggod in the southwest of the continent.
+
+=== 97b7962eab6a8caac68b2be1396ccb725ca135fd  riga 8302  [?]
+  JP  本当は私が調達しに行くべきなんだけど…他の依頼で忙しいし、そもそもエストークは私が敵う相手じゃないんだ。とぉぉぉぉっても危険な依頼だけど、よかったら引き受けてほしいなーって。
+  EN  To be honest, I should be the one going to get the material... But I'm really busy with other requests, and I don't think I'm a match for Estork. It's a reaaallllllly dangerous request, but give it a go if you think you're up for it.
+
