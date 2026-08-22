@@ -1,49 +1,203 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-22, fine della **ottantaseiesima** sessione (**cinque lotti,
-326 rese, `chat.hsp` da 1.495 a 1.169 — e `*chat_unique` che si CHIUDE**).
+Aggiornato: 2026-08-23, fine della **ottantasettesima** sessione (**quattro
+lotti, 281 rese, `chat.hsp` da 1.169 a 888 — e il SEMINARIO che si chiude**).
 
-⭐⭐⭐ **La lezione della giornata: il divieto di genere non vale solo sul
-giocatore, vale su chiunque il codice non fissi.** Il capo dei banditi
-(`db_creature.hsp:115501`) e l'istigatore degli Elea (`:40979`) **non
-assegnano `CDATA_SEX`**: leggono quello che il gioco ha tirato a caso e
-cambiano solo la faccia. In italiano vuol dire che nessuna delle loro battute
-puo' accordarsi con chi parla — e non c'e' nessuna rete che lo dica: si scopre
-aprendo il blocco della creatura, come per il giocatore si e' sempre saputo.
-⭐ L'altra faccia della stessa regola: il sesso si legge li' **anche quando
-l'epiteto sembra bastare**. MEFAN ha `CDATA_SEX = 1`, e «la pifferaia» del
-nome della carta non era una scelta di stile: era il dato.
+⭐⭐⭐ **La lezione della giornata: un commento non e' una riga che non conta.**
+Il blocco di ARASIEL non era un mostro da 958 firme: e' `:10729`-`:10876`, 148
+righe e 9 firme. Il contatore di graffe toglieva i commenti `/* ... */` **di
+una riga sola**, e in `chat.hsp` ce ne sono tre multiriga che portano una
+graffa spaiata (`:169`, `:10752` proprio dentro ARASIEL, `:19629`). Tolti prima
+di contare, la profondita' a fine file torna a **0** e i blocchi di primo
+livello stanno a profondita' **0**, non 1: quel `+1` della mappa della 86a
+veniva da `:169`. ⚠️ Corretto anche `_85-blocco.py`; `_84-parlanti.py` no,
+perche' li' l'offset era uniforme.
 
-⭐⭐⭐ **La seconda: `*chat_unique` e' CHIUSA.** `python
-scratchpad/_84-parlanti.py` dice **0 da fare su 86 blocchi** (erano 287 firme
-in 28 blocchi). E la mappa di quel che resta adesso esiste:
-`scratchpad/_86-parlanti-oltre.py`, **25 blocchi oltre `:8694`**.
+⭐⭐⭐ **La seconda: il tutorial e' il posto dove un nome sbagliato si vede.**
+Il seminario manda il giocatore a leggere lo schermo, e due rese vecchie sono
+cadute: `economy.hsp:357` diceva «Influenza» dove il gioco dice «autorita'» in
+**otto** altri siti (il punto aperto dalla 74a, chiuso), e `text.hsp:18`
+mandava «dal menu <examine>» invece che **<Esamina>**.
 
-⭐⭐ **La terza: le firme «fuori» possono essere RECIPROCHE, e allora non
-costano niente.** Il capo dei banditi e l'istigatore si dividono `:5713`;
-Siraha e Kuron si dividono `:8218`. Ognuno dei quattro sembrava avere «1
-fuori»; presi a coppie, il perimetro si chiude da solo. ⚠️ Si vede solo
-misurando i due blocchi INSIEME — `_85-blocco.py` con due righe di partenza.
+⭐⭐⭐ **La terza: il giudice non e' la lingua piu' ricca, e' il ramo che si
+compila.** A `:14124` il giapponese elenca i segni della qualita' — ☆ e 『』,
+★ e 《》 — ma `item_func.hsp:1786`-`:1797` mostra che quelli sono i segni del
+ramo GIAPPONESE: nel ramo inglese, che e' quello su cui si costruisce
+l'italiano, sono `<>` e `{}`, esattamente come dice l'inglese. Seguire il
+giapponese avrebbe insegnato al giocatore a cercare segni che sul suo schermo
+non esistono.
 
-⭐⭐ **La quarta: un REFERTO trova quel che nessuna guardia vede.**
-`scratchpad/referti.py` gira su TUTTO il dizionario, non sul lotto, e ha
-trovato `chat.hsp:2973` — «Vabbe', **sei venuto** fin quaggiu'», scritto nella
-84a: un participio accordato col giocatore, verde per ogni rete. ⚠️ Degli
-altri cinque che segnala, tutti falsi positivi legittimi, **due sono modi di
-dire** («la paghi cara», «te la sei cavata») dove il femminile e' il pronome
-fisso, e uno e' Norne che parla di se' (`CDATA_SEX = 0`). 💡 Il referto e' il
-pezzo che manca alla rete retroattiva della 85a: non rilegge le regole, ma
-almeno rilegge tutto.
+⚠️⚠️⚠️ **La quarta: sette etichette che nessuna rete puo' vedere.**
+`command.hsp:10676`-`:10700` stampa i gradini del potenziale come **letterali
+nudi** — `mes "Supreme"`, `"Amazing"`, `"Superb"`, `"Great"`, `"Good"`,
+`"Bad"`, `"Hopeless"` — senza `lang()`. A schermo restano inglesi, e la resa di
+`:14246` li nomina in inglese apposta. ⭐ E li' il codice smentisce l'inglese:
+la battuta dice che «Superb is the best», ma Supreme sta in cima (>= 400) e
+Superb e' il terzo gradino (>= 200).
 
-⚠️ **La quinta: `chat-lotto-misura` ha un tetto che `verifica` non conosce.**
-Tre rese di questo giorno sforavano davvero — due farneticazioni di Caim
-(tetto 13 righe) e il buff a sei bottoni dell'istigatore (tetto 8) — e di
-quelle, due sforano **anche in inglese**. Il tetto si guarda per ogni lotto,
-non solo per i menu.
+⭐⭐ **La quinta: chiusa meta' del punto aperto dalla 85a.**
+`chat-lotto-misura.opzioni()` contava **sedici** bottoni dove il menu ne mostra
+quattro, perche' sommava le `chatList` di guardie che si escludono a vicenda.
+Con sedici il tetto viene NEGATIVO. Adesso si raggruppano per guardia. ⚠️
+`menu_dialogo` conta ancora allo stesso modo.
 
 ---
 
-## L'ottantaseiesima sessione
+## L'ottantasettesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La
+sessione si e' aperta su `DESKTOP-1O339MR` con `origin/fase-0` allineato: e' la
+**quarantaquattresima prova** di fila, e le quindici hanno dato quindici volte i
+valori attesi della 86a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    pytest                  732 passed 6 skipped  (erano 744)
+    verifica --dizionario   chat.hsp   0 / 888    (era 1169)
+    menu_dialogo            0 su 1193 misurate    (erano 1129)
+    dizionario              chat.hsp +281 voci, 2 rifatte (economy.hsp, text.hsp)
+    rinviate.jsonl          79                    (erano 75)
+
+⚠️ **`pytest` scende di dodici, e non e' una rottura**: sono le dodici prove di
+`test_l_etichetta_italiana_non_porta_accenti`, tolte apposta (vedi le deroghe).
+
+Tutto il resto e' **fermo dov'era**, e in chiusura e' stato riverificato:
+`prova_identita` 72/72 e **28.073**, `creature` 1131/2466/0/0, `larghezze` 0
+fuori misura, `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `linguette` 0 e
+0, `battute --divergenti` **13**, `intestazioni_larghezze` banco ok e perimetro
+0, `dati_applica --identita` 4 file e 2.987 righe, `dati_sorgente` 7/7 e gioco
+difforme su 0, `gronde` 0 su 5, `maiuscole` 143 siti / 6 appesi / 1 accumulati
+/ 7 giudicati / 0 da guardare, `bilingui` **0**, `toppe.jsonl` **1023** non
+toccato.
+
+### ▶ Che cosa e' stato fatto
+
+    chat.hsp :13950-:14098  AJETALIO, il corso di vita quotidiana            73
+    chat.hsp :14099-:14240  CRESCE, il corso sugli oggetti                   70
+    chat.hsp :14241-:14380  IDURU, il corso di crescita                      68
+    chat.hsp :14381-:14524  MITO, il corso di combattimento                  70
+    economy.hsp:357         «Influenza» -> «Autorita'»                 1 rifatta
+    text.hsp:18             «<examine>» -> «<Esamina>»                 1 rifatta
+    chat.hsp :13991, :14036-:14038   quattro righe morte              4 rinviate
+    scratchpad/_87-parlanti-oltre.py   la mappa col confine giusto  1 strumento
+    scratchpad/_87-lessico.py          il lessico cercato nel dizionario     1
+    scratchpad/_87-commenti-blocco.py  i commenti multiriga con graffe       1
+    scratchpad/_87-arasiel-*.py        le due sonde del confine              2
+    scratchpad/_85-blocco.py           corretto: i commenti multiriga
+    scratchpad/chat-lotto-misura.py    corretto: le guardie del menu
+    strumenti/tests/test_colonne_economy.py   una precauzione ritirata
+    -------------------------------------------------------------------------
+              281 rese + 2 rifatte, 0 toppe, -12 test, 5 strumenti, 2 corretti
+
+`bilingui` ha dato **zero al primo giro in tutti e quattro i lotti**.
+
+### ▶ ⭐ Il perimetro, misurato
+
+I quattro docenti erano 285 firme in quattro blocchi, tutti **zone chiuse** e
+senza una firma in comune. Sono spariti tutti dalla mappa. Quel che resta di
+`chat.hsp` — **888** firme — sta in blocchi tutti sotto `:15490`
+(`python scratchpad/_87-parlanti-oltre.py`, 85 blocchi):
+
+    11206-11770  IRMA la fabbra indomita          51   ZONA CHIUSA
+    13266-13516  MAILE la sciamana marionetta     48   ZONA CHIUSA
+    12064-12331  KARAVIKA                         41   ZONA CHIUSA
+    15200-15330  BYSYMLHA occhi d'ambra           38   ZONA CHIUSA
+    10982-11085  DAIN l'anziano della collina     38   1 fuori
+    12332-12559  URCAGUARY                        33   1 fuori
+    12907-13181  MELGET l'informatore             32   ZONA CHIUSA
+    11771-11892  MARKA l'orsa d'argento           32   ZONA CHIUSA
+     9854- 9982  MARY la maestra degli insetti    31   ZONA CHIUSA
+    11086-11205  THALIA che guarda le stelle      28   ZONA CHIUSA
+    10442-10520  NEIN la strega volante           24   ZONA CHIUSA
+    15145-15199  ALLEN il ricercatore             23   ZONA CHIUSA
+
+Piu' una cinquantina di blocchi piu' piccoli. ⚠️ **Fuori da ogni blocco restano
+tre righe sole**: `:19327` e `:19334` (codice morto, gia' in `rinviate.jsonl`) e
+`:22500` (il nome della casa, toppa 1017).
+
+### ▶ ⚠️ Le deroghe dichiarate
+
+Stanno per esteso nei quattro moduli delle rese
+(`scratchpad/_87-rese-{ajetalio,cresce,iduru,mito}.py`). Le sette che pesano:
+
+1. **`:13970`** (Ajetalio) — l'inglese non e' una frase («there was a punishment
+   to pick up the fictional god by making up the imaginary god»).
+2. **`:13972`** — l'inglese perde COME si fa l'offerta (`Enter` sull'altare) e
+   senza quella la battuta dopo non ha causa.
+3. **`:14085`** — l'inglese sfalsa la meccanica: sulla <Forza liberata> pesa la
+   **media dei +** di tutto l'equipaggiamento, non il +10 dell'arma.
+4. **`:14124`** (Cresce) — i nomi delle sei classi vengono da `_quality`
+   (`text.hsp:106`), non dall'inglese della riga.
+5. **`:14207`/`:14208`** — l'inglese ha i due contenuti **scambiati** rispetto
+   al giapponese; lette in fila dicono tutto, ma li' il conto delle righe di
+   finestra fra i due rami non vale niente.
+6. **`:14246`** (Iduru) — l'inglese sbaglia il vertice della scala del
+   potenziale; il giudice e' `command.hsp:10676`.
+7. **`:14275`, `:14293`, `:14312`, `:14373`** — la catena del soprannome, che
+   l'inglese rompe in tre modi diversi.
+
+⚠️ **E una regola di lessico nuova**: スキル e 技能 in italiano sarebbero la
+stessa parola, e il tutorial le spiega una contro l'altra. **Abilita'** per
+スキル (la linguetta di `module.hsp:5153`), **capacita'** per 技能, con
+«capacita' ad area» per 広域技能 (`command.hsp:5673`).
+
+### ▶ Quel che resta aperto
+
+1. ⚠️⚠️⚠️ **La rete che manca: rileggere TUTTO il dizionario con le regole di
+   oggi.** `verifica --dizionario` confronta solo le firme; `controlla_voce`
+   gira solo sui lotti. `referti.py` e' il precedente che funziona.
+2. ⭐⭐⭐ **`chat.hsp` a 888**, e la mappa e' qui sopra: il prossimo lotto
+   naturale e' **IRMA la fabbra indomita** (`:11206`-`:11770`, 51, zona
+   chiusa).
+3. ⚠️⚠️⚠️ **Le sette etichette del potenziale** (`command.hsp:10676`-`:10700`)
+   sono letterali nudi senza `lang()`: nessuna rete le vede, a schermo sono
+   inglesi. Toppabili; il giorno che si toppano, `chat.hsp:14246` va rifatta.
+4. ⭐⭐ **L'altra meta' del punto della 85a**: `menu_dialogo` conta le voci di
+   un menu senza leggere le guardie, come faceva `chat-lotto-misura`. La
+   correzione e' la stessa, ed e' scritta in `opzioni()`.
+5. ⭐⭐⭐ **La rete che non c'e': i PARTNER fuori da `lang()`** (81a).
+6. ⚠️⚠️⚠️ **IL PUNTO CIECO DELLA 74a**: restano **100 righe
+   `listn(...) = lang(...)` in `command.hsp`** — fra cui il pannello dei
+   talenti — **18 in `chara.hsp`**, piu' `event.hsp:825`, `help.hsp:333`,
+   `net.hsp:604`. ⚠️ **Quattordici sessioni che aspetta.**
+7. ⭐⭐ **La rete che manca: i `buff` della finestra del dialogo.**
+8. ⭐ **`menu_dialogo.reso()` non legge il `limit(..., 0, N)`** (79a).
+9. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208
+   righe), `manual_ENG.txt` (591), `exhelp.txt` (185).
+10. ⭐⭐ `board.txt` **secondo lotto**; `custom_autopick.hsp` 21 gemelle delicate.
+11. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+    `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+    `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+12. ⭐⭐ Il **muro del materiale**: `mithril sword` e' «spada **di** mithril».
+13. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `item_func.hsp` 240; i **1.146** di
+    `db_card.hsp`.
+14. 🔶 **La sorella H** (82a) e la 🔶 **decisione aperta dalla 80a** sul menu
+    degli arti.
+15. ⚠️⚠️⚠️ **Il collaudo a schermo non e' stato fatto, e adesso l'arretrato e'
+    di QUATTRO sessioni: le 301 della 84a, le 336 della 85a, le 326 della 86a e
+    le 281 di oggi.** ⚠️ `collaudo/schermo.ps1` scrive sulla tastiera di
+    **tutto il computer** (83a): il collaudo lo fa una persona. I punti piu'
+    facili della 87a: **il seminario** sta a due passi da Vernis e i quattro
+    docenti sono tutti italiani, menu compresi — e sono la schermata piu'
+    lunga mai resa in un giorno solo. Poi il **prospetto cittadino** (deve
+    dire «Autorita'» e non «Influenza») e il messaggio del **[Non posare]**
+    (deve dire «dal menu <Esamina>»).
+
+### ▶ Come si e' chiusa
+
+Quattro spinte, una per lotto. `applica` e `compila --eseguibile` sono girati
+dopo ogni lotto, `cgx-test.exe` e' stato ricopiato ogni volta, e le quindici
+verifiche sono state rilanciate in chiusura: tutte verdi. ⚠️ `pytest` in
+chiusura ha trovato la prova rotta dalla resa di `economy.hsp:357` — la
+precauzione sugli accenti — ed e' stata **ritirata**, non aggirata con
+un'eccezione: il ragionamento sta in `decisioni.md`.
+
+---
+
+## L'ottantaseiesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

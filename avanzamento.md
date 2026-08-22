@@ -133,6 +133,56 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## Il seminario e' CHIUSO: quattro lotti, 281 rese — 2026-08-23, ottantasettesima sessione
+
+Quattro lotti, **281 rese** (piu' due rifatte), e `chat.hsp` scende da 1.169 a
+**888**. `menu_dialogo` misura **1.193** voci (erano 1.129), 0 fuori misura e 0
+peggiorate a due colonne; `bilingui` ha dato **zero al primo giro in tutti e
+quattro i lotti**. `pytest` scende a **732**: dodici prove tolte, non rotte
+(vedi sotto).
+
+    :13950-:14098  AJETALIO, il corso di vita quotidiana                    73
+    :14099-:14240  CRESCE, il corso sugli oggetti                           70
+    :14241-:14380  IDURU, il corso di crescita                              68
+    :14381-:14524  MITO, il corso di combattimento                          70
+    economy.hsp:357, text.hsp:18   due nomi che il tutorial smentiva  2 rifatte
+    :13991, :14036-:14038          quattro righe morte               4 rinviate
+
+⭐⭐⭐ **Il confine di ARASIEL non era un blocco: era una graffa commentata.**
+`_86-parlanti-oltre.py` gli dava 958 firme e sedicimila righe, cioe' tutto il
+resto del file; il blocco vero e' `:10729`-`:10876`, **148 righe e 9 firme**.
+Il contatore toglieva solo i commenti `/* ... */` di **una riga sola**, e in
+`chat.hsp` ce ne sono tre multiriga che portano una graffa spaiata (`:169`,
+`:10752` proprio dentro ARASIEL, `:19629`). Tolti prima di contare, la
+profondita' a fine file torna a **0**. `_87-parlanti-oltre.py` e' la mappa
+giusta: 85 blocchi, e tutto quel che resta sta in blocchi sotto `:15490`.
+
+⭐⭐ **Il tutorial e' il posto dove un nome sbagliato si vede.** Due rese
+vecchie sono cadute per questo: `economy.hsp:357` diceva «Influenza» dove il
+gioco dice «autorita'» in **otto** altri siti — era il punto aperto della 74a,
+la statistica con due nomi sullo schermo — e `text.hsp:18` mandava il giocatore
+«dal menu <examine>», che in italiano si chiama **<Esamina>**.
+
+⭐⭐ **Chiusa meta' del punto aperto dalla 85a**: `chat-lotto-misura.opzioni()`
+contava **sedici** bottoni dove il menu ne mostra quattro, perche' sommava le
+`chatList` di guardie che si escludono a vicenda. Con sedici il tetto diventa
+NEGATIVO e qualunque battuta risulta fuori misura. Adesso si raggruppano per
+guardia e per ogni sinistra di `==` si prende il gruppo piu' numeroso.
+
+⚠️⚠️⚠️ **E le sette etichette del potenziale non passano da `lang()`**
+(`command.hsp:10676`-`:10700`, letterali nudi): nessuna rete le vede e a
+schermo restano inglesi. E' il punto cieco della 74a un gradino piu' sotto.
+
+⚠️ **Le dodici prove tolte da `pytest`** sono
+`test_l_etichetta_italiana_non_porta_accenti`: vietavano l'accento nelle
+etichette del prospetto cittadino per non dover contare l'imbottitura su una
+forma che il file non mostra. Il conto pero' lo fa gia'
+`test_l_etichetta_italiana_e_lunga_come_l_inglese`, sulla forma degradata, a
+ogni giro. 💡 *Una precauzione si ritira quando la cosa da cui proteggeva e'
+diventata una misura* — e si ritira invece di aggirarla con un'eccezione per un
+sito solo.
+
+
 ## `*chat_unique` e' CHIUSA: cinque lotti, 326 rese — 2026-08-22, ottantaseiesima sessione
 
 Cinque lotti, **326 rese** (piu' una rifatta), e `chat.hsp` scende da 1.495 a

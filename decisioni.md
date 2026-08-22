@@ -6,6 +6,158 @@ ancora aperte.
 
 ---
 
+## Il seminario si chiude, e tre reti imparano a leggere il codice — 2026-08-23, ottantasettesima
+
+Quattro lotti su `chat.hsp`, **281 rese** piu' due rifatte, dalle 1.169 alle
+**888**. I quattro conferenzieri del seminario — vita quotidiana, oggetti,
+crescita, combattimento — sono spariti tutti dalla mappa dei parlanti.
+
+### ⭐⭐⭐ Un commento non e' una riga che non conta
+
+`_86-parlanti-oltre.py` diceva che il blocco di ARASIEL cominciava a `:10729` e
+finiva a `:26774`: 958 firme, sedicimila righe, tutto il resto del file. Il
+blocco vero e' `:10729`-`:10876`, **148 righe e 9 firme**.
+
+Il contatore di graffe toglieva le stringhe, i commenti `//` e `;`, e i
+commenti `/* ... */` che cominciano e finiscono **sulla stessa riga**. In
+`chat.hsp` ce ne sono nove multiriga con graffe dentro — i blocchi `ORIGINAL` e
+`BLOODYSHADE CUSTOM`, dove monte tiene il codice che ha sostituito — e **tre
+portano una graffa spaiata**: `:169`, `:10752` (un `if (...) {` commentato
+dentro il blocco di ARASIEL) e `:19629`.
+
+    profondita' a fine file, contando i commenti:  3
+    profondita' a fine file, togliendoli:          0
+
+💡 *Un contatore che salta le righe commentate deve saltarle tutte, e i
+commenti multiriga sono l'unico caso in cui una riga e' spenta senza portarne
+il segno in testa.* ⚠️ E il numero era sbagliato anche dove sembrava giusto: i
+blocchi di primo livello stavano a profondita' **0**, non 1 — quel `+1` veniva
+da `:169`, e nella mappa della 86a e' passato per una convenzione.
+
+⚠️ Corretto anche `_85-blocco.py`, che avrebbe mentito su qualunque lotto dopo
+`:10752`. `_84-parlanti.py` invece non e' compromesso: li' l'offset era
+uniforme su tutta la zona.
+
+### ⭐⭐ Il tutorial e' il posto dove un nome sbagliato si vede
+
+Il seminario spiega le meccaniche e **manda il giocatore a leggere lo schermo**.
+Due rese vecchie non hanno retto al confronto:
+
+1. `economy.hsp:357` diceva **«Influenza»** dove il gioco chiama quella
+   statistica **«autorita'»** in otto altri siti, fra cui la voce di menu che
+   la spende («Amministrare (autorita' 500/2000)»). Era il punto aperto dalla
+   74a — *la statistica con due nomi sullo schermo* — e il tutorial lo ha reso
+   insostenibile: il giocatore impara la parola a `chat.hsp:14047` e poi deve
+   ritrovarla nel pannello.
+2. `text.hsp:18` mandava «dal menu **<examine>**», che nell'interfaccia
+   italiana si chiama **<Esamina>** (`text.hsp:135`). Un nome inglese dentro
+   una frase italiana che indica dove andare.
+
+⚠️ La colonna del prospetto e' larga **20 caratteri contati sulla forma
+DEGRADATA**: «Autorita'» piu' undici spazi. Nel dizionario, con l'accento vero,
+sono diciannove.
+
+### ⚠️ Una precauzione ritirata invece che aggirata
+
+`test_l_etichetta_italiana_non_porta_accenti` vietava l'accento in quelle
+dodici etichette, e il suo docstring nominava proprio `:357`: *un'etichetta
+accentata costringe a contare l'imbottitura su una forma che il file non
+mostra*. Il timore era giusto quando e' stato scritto. Ma quel conto adesso non
+si fa a mano: lo fa `test_l_etichetta_italiana_e_lunga_come_l_inglese`, sulla
+forma degradata, contro l'inglese di monte, a ogni giro — ed e' verde.
+
+Le strade erano tre: tenere «Influenza» e il difetto; aggiungere un'eccezione
+per `:357`; togliere la precauzione. La seconda e' quella che la 77a chiama un
+**debito** — *un elenco di eccezioni si rilegge ogni volta che si tocca uno dei
+siti che nomina*. Tolta. `pytest` scende da 744 a **732**.
+
+💡 *Una precauzione si ritira quando la cosa da cui proteggeva e' diventata una
+misura.*
+
+### ⭐⭐ Le guardie di un menu, finalmente lette
+
+`chat-lotto-misura` misura una battuta contro il numero di bottoni della sua
+finestra, `(324 - N*19 - 43) // 19`. Contava **sedici** bottoni nel menu dei
+docenti, dove il giocatore ne vede **quattro**: le sedici `chatList` stanno in
+quattro gruppi dentro `if ( gdata(STARTING_GDATA_FLAG + 329) == N )`, N da 1 a
+4, che non possono essere veri insieme. Con sedici il tetto viene **negativo** e
+qualunque resa risulta fuori misura.
+
+Adesso le `chatList` si raggruppano per la guardia che le contiene, e per ogni
+**sinistra** di `==` si prende il gruppo piu' numeroso invece della somma; i
+gruppi con sinistre diverse, e le voci fuori da ogni guardia, si sommano lo
+stesso, perche' li' l'esclusione non si sa. Nessuna regressione sui nove lotti
+della 85a e della 86a.
+
+💡 E il conto era sbagliato anche quando non lo sembrava: nel lotto di Ajetalio
+la passeggiata all'indietro si fermava su una riga **commentata**
+(`// chatList 4`), contava 12 invece di 16, e il tetto tornava positivo **per
+caso**. ⚠️ Resta aperta l'altra meta': `menu_dialogo` conta le stesse voci allo
+stesso modo.
+
+### ⭐⭐⭐ Il giudice non e' la lingua piu' ricca: e' il ramo che si compila
+
+A `chat.hsp:14124` Cresce elenca i segni che marcano la qualita' di un pezzo. Il
+giapponese dice ☆ e 『』 per l'eccezionale, ★ e 《》 per lo speciale; l'inglese
+dice `<>` e `{}`. Sembrava il solito inglese sbrigativo, e invece:
+
+    item_func.hsp:1793   if ( ... == FIX_QUALITY_MIRACLE ) {
+    item_func.hsp:1794       ... += lang("『", " <") + random_title(1) + lang("』", ">")
+    item_func.hsp:1796   else {
+    item_func.hsp:1797       ... += lang("《", " {") + random_title(1) + lang("》", "}")
+
+Quei `『』` stanno nel ramo **giapponese**. L'italiano si costruisce sul ramo
+inglese, quindi il giocatore vede `<>` e `{}`: seguire il giapponese gli
+avrebbe insegnato a cercare segni che sul suo schermo non esistono. ⭐ E Mito
+lo conferma tre volte (`:14404`, `:14471`, `:14491`), dove l'inglese scrive
+«<> or {}» di suo.
+
+### ⭐⭐⭐ Sette etichette che nessuna rete puo' vedere
+
+Iduru insegna a leggere il potenziale nella scheda del personaggio, e i nomi
+dei gradini stanno in `command.hsp:10676`-`:10700`:
+
+    if ( p >= 400 ) { mes "Supreme" ... }
+    ...
+    mes "Hopeless"
+
+**Letterali nudi, senza `lang()`.** Nessun dizionario li raggiunge: a schermo
+sono inglesi oggi e restano inglesi finche' non li tocca una toppa. E' la
+famiglia del punto cieco della 74a un gradino piu' sotto — li' erano
+`listn(...) = lang(...)`, qui manca proprio la `lang()`.
+
+Per la regola del tutorial la resa li lascia **in inglese**: sono le parole che
+il giocatore legge davvero. ⚠️ Il giorno in cui si toppano, `chat.hsp:14246` va
+rifatta, e sta scritto nel modulo delle rese.
+
+⭐ **E il codice smentisce l'inglese sulla scala.** L'inglese di `:14246` dice
+che «Superb is the best»: falso. `command.hsp:10676` mette **Supreme** in cima
+(>= 400) e Superb al terzo gradino (>= 200). Il giapponese lo dice giusto.
+Senza aprire il codice, l'errore era indistinguibile da una scelta di stile.
+
+### ⭐ Un soprannome e' una catena, e si scrive tutta insieme
+
+Iduru ha quattro battute legate: gli volevano dire «いづるん», lui ha preteso
+師範 (`:14312`), la voce di menu chiede perche' (`:14275`), uno studente lo
+chiama Idurino lo stesso (`:14293`) e lui sbotta (`:14373`). L'inglese la rompe
+in **tre modi diversi**: a `:14275` si arrende in faccia al lettore («Is there
+some untranslatable Japanese pun with your name?»), a `:14312` e' testo
+automatico che non vuol dire niente («because it is an idle gumbah»), a
+`:14293` usa il nome invece del soprannome rifiutato. In italiano la catena
+regge: **«maestro»** contro **«Idurino»**. E' l'ECO della 84a — righe che si
+scrivono insieme o non si scrivono.
+
+### ⚠️ Quattro righe morte, rinviate invece che tradotte
+
+`:13991` e' `// chatList 4, ...`, `:14036`-`:14038` sono `; chatMore ...`:
+monte ha cambiato la quarta voce del menu del secondo incontro di Ajetalio e ha
+lasciato spenta la coppia domanda/risposta vecchia. E' la famiglia di
+`chat.hsp:19327` (76a): tradurle avrebbe messo numeri veri in `menu_dialogo` e
+in `chat-lotto-misura` su righe che non disegnano niente. `rinviate.jsonl` da
+75 a **79**.
+
+---
+
 ## `*chat_unique` si chiude, e il divieto di genere si allarga — 2026-08-22, ottantaseiesima
 
 Cinque lotti su `chat.hsp`, **326 rese** piu' una rifatta, dalle 1.495 alle

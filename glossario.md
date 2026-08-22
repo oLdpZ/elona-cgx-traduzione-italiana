@@ -574,6 +574,59 @@ mappa è «Tempio Caos», e in una voce di menu che dice «Parlami di...» deve
 esserci quello: **mandare il giocatore a cercare a schermo un nome che non
 esiste è il difetto del tutorial**, alla seconda ripetizione.
 
+## I quattro corsi del seminario, decisi il 2026-08-23 dai lotti dei conferenzieri
+
+`chat.hsp:13950`-`:14524` sono quattro docenti che spiegano al giocatore le
+meccaniche del gioco, e **si nominano fra loro**: Ajetalio manda al corso di
+crescita e a quello sugli oggetti (`:14084`, `:14086`), Mito consiglia di
+sentire prima gli altri (`:14386`). I quattro nomi si decidono insieme o non
+si decidono affatto.
+
+| giapponese | inglese | italiano | chi lo tiene |
+|---|---|---|---|
+| 生活講座 | `daily life course` | **corso di vita quotidiana** | `<Ajetalio> il docente`, «Ajira» |
+| 道具講座 | `item course` / `item instructor` | **corso sugli oggetti** | `<Cresce> la docente` |
+| 育成講座 | `training lecture` | **corso di crescita** | `<Iduru> il docente`, «maestro» |
+| 戦闘講座 | `combat course` | **corso di combattimento** | `<Mito> la docente`, «Mitorin» |
+
+⚠️ **I soprannomi non li porta l'inglese, li porta il giapponese**, e servono
+perche' gli studenti li usano nelle voci di menu. Per Iduru sono la battuta:
+gli volevano dire «いづるん», lui ha preteso 師範 — **«Idurino»** contro
+**«maestro»** — e a `:14293` uno studente lo chiama Idurino lo stesso.
+
+⭐ **La parola nuova del lotto e' una sola**, perche' tutto il resto stava gia'
+in dizionario:
+
+| giapponese | inglese | italiano | perche' |
+|---|---|---|---|
+| 交易品 | `cargo` | **merci da commercio** | non erano in nessun file: il `(荷車)` che le marca non entra nel nome dell'oggetto (`db_item.hsp:148280`, «cibo da viaggio»). «Merce» e non «carico» perche' il carretto e' il contenitore e ha gia' il suo nome (`command.hsp:14176`, «Carretto») |
+
+⚠️⚠️ **E due parole che l'italiano deve tenere separate dove l'inglese lo fa e
+il dizionario no.** スキル e 技能 sono tutt'e due «Skill» in inglese e tutt'e
+due «Abilita'» in italiano (`module.hsp:5153`, `help.hsp:29`), ma il tutorial
+le spiega **una contro l'altra**: le prime si imparano dagli istruttori, le
+seconde salendo di livello. Quindi **abilita'** per スキル — che e' il nome
+della linguetta — e **capacita'** per 技能, con «capacita' ad area» per
+広域技能, la forma che sta gia' in `command.hsp:5673`.
+
+⭐⭐ **Il resto del lessico non si e' deciso: si e' copiato dallo schermo**, ed
+e' la regola del tutorial. Le sei classi dell'equipaggiamento vengono da
+`_quality` (`text.hsp:106`) e **non** dall'inglese della battuta, che dice
+«bad, normal, great, miracle, godly, unique» dove il pannello dice *scadente,
+comune, eccellente, eccezionale, celestiale, speciale*. I quattro pesi dello
+zaino vengono da `_burden` (`text.hsp:66`): *Fardello, Fardello!, Sovraccarico,
+Sovraccarico!*. La resistenza «Superb» dell'inglese di `:14458` e' **Ottima**
+(`text.hsp:107`). Le posizioni dei compagni sono **Assalto** e
+**Intercettazione** (`text.hsp:2457`, `:2463`).
+
+⚠️⚠️⚠️ **E le sette etichette del potenziale restano INGLESI, perche' a schermo
+sono inglesi.** `command.hsp:10676`-`:10700` le stampa come letterali nudi
+— `mes "Supreme"`, `"Amazing"`, `"Superb"`, `"Great"`, `"Good"`, `"Bad"`,
+`"Hopeless"` — senza `lang()`, quindi nessun dizionario le raggiunge. Il
+tutorial di Iduru le nomina, e le nomina come le legge il giocatore. 💡 *La
+regola non e' «traduci tutto»: e' «di' quel che c'e' scritto sullo schermo».*
+Il giorno in cui quelle righe si toppano, `chat.hsp:14246` va rifatta.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,
