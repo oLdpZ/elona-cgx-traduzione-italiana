@@ -9,12 +9,21 @@ SORG = r'C:\Games\Elona\_traduzione\sorgente\2.05-custom-gx\chat.hsp'
 EST = 'scratchpad/_84-chat-tutte.jsonl'
 VIA_STRINGA = re.compile('"(?:[^"' + chr(92) + chr(92) + ']|' + chr(92) + chr(92) + '.)*"')
 
-righe = io.open(SORG, encoding='cp932', errors='replace').read().split('\n')
+_testo = io.open(SORG, encoding='cp932', errors='replace').read()
+righe = _testo.split('\n')
+
+# ⚠️ 87a: i commenti /* ... */ MULTIRIGA vanno tolti PRIMA di contare le
+# graffe. In chat.hsp tre ne contengono una spaiata (`:169`, `:10752` dentro
+# il blocco di ARASIEL, `:19629`): bastano a far correre il confine fino a
+# fine file. Le righe restano al loro posto, svuotate.
+_nudo = re.sub(r'/\*.*?\*/',
+               lambda m: re.sub(r'[^\n]', ' ', m.group(0)), _testo, flags=re.S)
+righe_nude = _nudo.split('\n')
 
 
-def pulisci(l):
-    l = VIA_STRINGA.sub('""', l)
-    l = re.sub(r'/\*.*?\*/', '', l)
+def pulisci(n):
+    """La riga n (1-based) senza stringhe, commenti di blocco e di riga."""
+    l = VIA_STRINGA.sub('""', righe_nude[n - 1])
     l = re.sub(r'//.*', '', l)
     l = re.sub(r';.*', '', l)
     return l
@@ -37,7 +46,7 @@ for arg in sys.argv[1:]:
     began = False
     fine = None
     for n in range(start, len(righe) + 1):
-        c = pulisci(righe[n - 1])
+        c = pulisci(n)
         d += c.count('{') - c.count('}')
         if not began and '{' in c:
             began = True
