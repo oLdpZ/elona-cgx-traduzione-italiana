@@ -1,0 +1,339 @@
+=== e22c66ea57bc7cd0ca5a2be9f5ad89b62fd29b62  riga 2374  [?]
+  JP  …貴公は？そうか、エリステアが私を探すために…見ての通り私は傷を負い、もう動くことすらできぬ。しかし、貴公のおかげで、今まで生きながらえたことに意味を見出せるようだ。
+  EN  Who's there? So... Erystia sent you to find me... as you can see I'm badly wounded. I'm pretty much screwed aren't I? But then... now that you're here, maybe I won't have to die in vain after all.
+
+=== d55bb67831730df141bb8a320bfe4c4449f39903  riga 2375  [?]
+  JP  貴公にお願いする。エリステアに、私の言葉を伝えてもらいたい。信じがたいことだが、レシマスの奥深くに眠る秘宝を守護しているのは、今は亡きザシム王の従弟ゼームだ。秘宝の、いやレシマスの魔に操られているのだろうか。もはや生身の人間ではあるまい。
+  EN  I have something to ask of you. Relay this message to Erystia for me... Tell her that she must believe me when I say that the one guarding the codex in the depths of Lesimas is none other than former King Zashim's brother, Zeome. He's the one controlling the magic of the codex... or... no, not just the codex, but the whole of Lesimas. He's no longer human... he's something... more.
+
+=== 987630167f3e6fadf451c729afc993ed1bf4ab56  riga 2376  [?]
+  JP  それだけではない。ザナンのサイモアが秘宝を狙っていることは知っておろう。しかし、その理由は？
+  EN  But it doesn't end there... You need to know that Saimore from Zanan is also after the codex. But... why?
+
+=== a7ef4dc1587a76fb7173a55ae448f9e780e1e1ce  riga 2377  [?]
+  JP  ゼームが持つ秘宝の名は《常闇の眼》。世界の真実を映すといわれている。レム・イドの終焉とシエラ・テールの始まりを説き、自身の説に莫大な支持を得ているサイモアが、今更秘宝を求めるのは何故だ？
+  EN  The codex Zeome possesses... it's called the <Origin of Vice>. They say it describes the hidden truth of the world. But if Saimore's widely accepted story about the end of Rehm-Ido and the beginning of the era of Sierre Terre is true, then why would he be after the relic?
+
+=== 5fefce3e42bd8f5af8393c9df51e0a24bc94db6d  riga 2378  [?]
+  JP  サイモアの後押しにより、エレアとの戦が始まろうとしている。異形の森がレム・イドの災厄《メシェーラ》であるというのは、果たして確かなのだろうか。そして、もしサイモアの説が偽りであるとすれば、かの者の本当の目的は？…私には悪い予感がする。
+  EN  Saimore has been pushing for war against the Eleas. The truth is that Saimore's claim that the Heretical Forest destroyed the world of the era of Rehm-Ido is a carefully constructed lie and that the <Meshera> are real. But then, if Saimore's theory was just a deception meant to incite a war, then what is he really after? I have a bad feeling about all of this...
+
+=== 2aa71f94b4e0a987485a9082f01c6d68377396ad  riga 2379  [?]
+  JP  私の役目はこれまでだ。この傷ではどうせ地上まで辿りつけまい。この報せを早く都に…貴公に運命の神の加護のあらんことを！
+  EN  My role in this saga is at an end... I'll never make it out with these injuries... Deliver my message to the capital quickly... and may the gods of fate watch over you...
+
+=== 619c70fba9edb4d5e2921b55029127d29319a203  riga 2393  [?]
+  JP  は自ら命を絶った…
+  EN   kills himself...
+
+=== 8bea9cc5e8adfc327b481d54a162941104842231  riga 4816  [?]
+  JP  ルミエストの街道は今日も清潔だぞ！
+  EN  Clean! The roads are clean in Lumiest today!
+
+=== f860fd91971d30089b3ae61f2e71f70ece528d5a  riga 4820  [?]
+  JP  待て待て待てーい！
+  EN  Wait there! Wait!
+
+=== 2b091724139c8df5464ecb693bbcade0ec1ec932  riga 4821  [?]
+  JP  いいだろう
+  EN  Alright.
+
+=== 38fe8dc856ad698fc39d356f5140f210195f38df  riga 4822  [?]
+  JP  面倒だ
+  EN  I'm not interested.
+
+=== 496e5aad7cd4bed607310b37a8195cafb582780c  riga 4823  [?]
+  JP  俺はルミエストの清掃を生涯の使命とし、この道十年のベテラン掃除屋バルザックだ。街道に落ちているどんな小さなゴミも見逃さないプロ魂を持つが、そんなプライドも傷つけられちまった。下水道にとんでもない化け物が住みついて、もう俺の手には負えないぜ。お前なら、俺の気持ちを汲み取って、退治に出向いてくれるな？
+  EN  I'm Balzak, a well known pro garbageman who has been cleaning the roads of Lumiest for 10 years. I've never let a single speck of trash defile the beautiful town of Lumiest. But my days are over. Foul creatures now nest in the sewer and disgusting smells spread everywhere. Adventurer, you are my only hope. Kill them, kill them for my sake!
+
+=== f94dd77a491b2548c21777a519d86beb217a64fb  riga 4826  [?]
+  JP  そうか…冷たい奴だな…
+  EN  Okay... You are cruel...
+
+=== 9a17d829336e3c446aed2aa06d6c29f9a1fa94e8  riga 4830  [?]
+  JP  その言葉、待っていたぜ！下水道は宿屋の近くにある。気をつけろ、奴らは手強いぞ！
+  EN  That's the word I wanted to hear! You'll find the sewer entrance near the inn. Be aware, they are pretty tough.
+
+=== 88261f716e780dd6b699ab15b644b83c6bd2722a  riga 4836  [?]
+  JP  おう、お前か。下水道の掃除は進んでいるか？
+  EN  Oh, it's you. What about the task I asked you to help with?
+
+=== 683a687789923df65e7130883b3ec748cce4b0e5  riga 4854  [?]
+  JP  なんだってー！あの下水道をほんとに浄化したというのか？さすがに、お前を選んだ俺の目は確かだったということか…ともかく礼をいうぞ！この報酬を受け取ってくれ。
+  EN  Whaaat?! You've really done it? Amazing! Here, take it, you deserve this.
+
+=== 380b3fb40c2f11b46b0c993d98b5120c85ea53e4  riga 5675  [?]
+  JP  チッ、一文無しの乞食とっとといっちまい
+  EN  Bah, a beggar without a penny. What a waste of time! Just go away!
+
+=== ec68b62f378aae7b4a8331c114273ae5c1383f53  riga 5713  [?]
+  JP  を渡した。
+  EN  You hand over .
+  occorrenze: 5713 5857
+
+=== f30fcc4157b6cf175cf2f477b52db1f3afff5fc5  riga 5719  [?]
+  JP  なかなか賢明な判断
+  EN  A wise choice.
+
+=== e83107912f17211e39fb66eac727d17c6767243d  riga 5739  [?]
+  JP  いい度胸…しかし、賢い選択とは言えないここがおまえさんの墓場
+  EN  You've got some guts. But your decision sure ain't a wise one. This will be your grave, kid.
+
+=== 67c19baf5b20134d81ab57751c0925b231e56dfb  riga 5747  [?]
+  JP  乗り込んでくる気…いい度胸
+  EN  Try'na invade me ship!? Ye got guts!
+
+=== 6d55e4594b7f5d1ac41f8aca27ab805003befb02  riga 5757  [?]
+  JP  船のぶつけかたが悪く、飛び移るのに失敗した…。
+  EN  Your ship is rammed badly, and you failed to jump over...
+
+=== e528d83ecd0261e7c627b0776d19f876909a2761  riga 5759  [?]
+  JP  うわぁぁぁ！達の船が沈むだと！？
+  EN  Shiver me timbers! Our ship be sinkin'!!
+  occorrenze: 5759 5785
+
+=== 360799dbe958d3483bde41ea92c9a31041c4b2f0  riga 5772  [?]
+  JP  ムチャクチャ！海の藻屑になりたい！？
+  EN  Arrr! Don't do anythin' reckless?!
+
+=== 86c6d15ec61441c0ce5bc23f78b88076827174c7  riga 5779  [?]
+  JP  うおっ！？
+  EN  Blimey!?
+
+=== 79d7f545f4ecc15a4bca6deb06844ef0998bd16e  riga 5783  [?]
+  JP  あなたは海戦で勝利し、1000の名声値を手に入れた。
+  EN  You won the naval battle and gain 1000 fame.
+
+=== 1575a51bf6d8d71c55e72f7c64367ad9cf1ec3d5  riga 5801  [?]
+  JP  いい加減に！こっちも反撃
+  EN  Avast! We be retaliating!
+
+=== 74563decb970d744fb3b2c19d325af2766beb4b1  riga 5815  [?]
+  JP  どうにか逃げ切れたが、名声値を失った。
+  EN  You managed to escape, but you lost  fame.
+
+=== c381c475d231b3c601197e37cf3447f3e15d2859  riga 5816  [?]
+  JP  あいつ逃げていくぞ！野郎ども、船尾に砲弾をぶちこんでやれ！！
+  EN  That ship be runnin' away! Bastards, shoot a cannonball into the aft!!
+
+=== 83656037009cfac388ae89bc67ded65a54856497  riga 5834  [?]
+  JP  チッ、一文無しの乞食とっとといっちまい
+  EN  Bah! a begger without a penny. What a waste of time! Get out of my sight!
+
+=== a751ae19b36ed217792af07ad4763576ea2a9dc5  riga 5840  [?]
+  JP  こんな蛮行やめさせる
+  EN  This is barbarism!
+
+=== 52a30b272bb1d67872b558efaf5d9353d538cb0e  riga 5841  [?]
+  JP  こちらも力ずくで拒否する
+  EN  I refuse because I can.
+
+=== ec9345dbb1c32fa1ed7b58715d4887d737a8d1bc  riga 5842  [?]
+  JP  迫害していないので拒否する
+  EN  I refuse because I never persecuted Elea.
+
+=== 191331b122b0472a8fdf747dc09ed50c6dd685c6  riga 5843  [?]
+  JP  金が惜しいので拒否する
+  EN  I refuse because I don't want to part with my money.
+
+=== 555c651cc930f421a54cb38d0783c4d07411d70b  riga 5844  [?]
+  JP  なんだか怪しいので拒否する
+  EN  I refuse because you are kinda suspicious.
+
+=== 20b780752921c44ec4a1c8eef675a1b0266ed6b6  riga 5845  [?]
+  JP  言われた通り寄付する
+  EN  I will donate as you said...
+
+=== d31f8623ebc4599d0d5121e55a6e1558232a0fe1  riga 5846  [?]
+  JP  おい、そこのお前！お前たちのような衆愚がザナンに踊らされたせいで、エレアは濡れ衣を着せられて迫害を受けてきた！真実が明らかになった今も、故郷を奪われたエレアたちは貧困にあえいでいる！少しは申し訳ないと思わないのか？さぁ、ザナンの陰謀に加担した罪を認めて、荷車の積荷と金貨枚を我々に寄付しろ！嫌だというなら力ずくで寄付してもらうぞ！
+  EN  Hey! You there! Because people like you believed in Zanan, Elea has been falsely accused and persecuted! Even now that the truth has been revealed, Elea who have been robbed of their hometown are still suffering from poverty! Don't you feel sorry for Elea? Now, plead guilty to being part of the conspiracy and donate  gold pices and your cargos to us! If you don't like it, I'll have you donate your dirty life by force!
+
+=== 08e1d35a5231e0e11f8396228e86882774c57f71  riga 5863  [?]
+  JP  おっと、罪を認めるのか！素晴らしい！だがお前がどんなに寄付をしても、エレアが苦痛を受けた事実は未来永劫消えない！これで許された気になるなよ、人でなしのカスめ！末代まで詫び続けろ！
+  EN  You have admitted your guilt well! But no matter how much you donate, the fact that Elea suffered will never disappear! Don't feel like you've been forgiven for this, you scumbag! Keep apologizing until the end of your generations!
+
+=== 17a2fcae59378c53c2656e7dfa6be8974318b391  riga 5870  [?]
+  JP  いいか、皆！我々の活動を不都合に思うということは、コイツはザナンの工作員に違いない！ザナンの工作員の言うことには一切耳を傾ける必要がない！殺ってしまえ！
+  EN  You must be an agent of Zanan because you are displeased with our activities! There is no need to listen to any of Zanan's agents! Please die!
+
+=== b23b5d7129f8ce233621cd1deba9ca0c4edc0c9f  riga 5874  [?]
+  JP  我々は迫害され困窮しているエレアのために金品を集めているんだ！それに抵抗するのはれっきとしたエレア差別だ！お前は本当に性格が悪いな、エレアを馬鹿にするのもいい加減にしろ！お前たちが力で抵抗するのは全て暴力行為だが、我々が力で寄付を集めるのは暴力行為ではない！これはエレアに許された正義の裁きであり、世間への抗議なのだ！
+  EN  We are collecting money and goods for the persecuted Eleas in need! Resisting that is pure Elea discrimination! You really are a racist! Anything you do to resist with force is an act of violence, but what we do to collect donations by force is not violence! It's a judgment of justice allowed by Elea, and a protest against the world!
+
+=== 108b7c8ca6910b119233e166eb0665e8047a2b0d  riga 5878  [?]
+  JP  じゃあ迫害していないという証拠を出せ！出せないだろう、この嘘つき野郎め！もしもお前が実際に迫害したことがなくても関係ない！エレアは今までひどい目に遭ってきたので、直接関係ない奴を襲っても許されるんだよ！そんなことも分からないのか！
+  EN  Then show me proof that you're not persecuting Elea! You can't give evidence, don't you? It doesn't matter if you have never actually persecuted Elea! Elea has been through terrible things up until now, so even if Elea attacks someone who isn't directly involved, Elea can be forgiven! Don't you even understand that?
+
+=== 5278c3e145fb66be05e10b5192cb31887d850174  riga 5882  [?]
+  JP  お前、エレアを見下しているんじゃないか？どうせ今までエレアを迫害し、暴力や暴言を浴びせてきたんだろうな！なぜならお前はエレアを見下してしているからだ！よくも今までエレアを見下して迫害してくれたな！最低の屑め、リンチにしてやる！
+  EN  You are anti-Elea, aren't you? I'm sure you've been persecuting Elea all this time, and you've been using violence and hate language! Because you are a racist! You are the worst kind of scum of all Irva! We'll lynch you!
+
+=== e10df410289f7ffb74c9cfd27ef6c64d1022e3a6  riga 5886  [?]
+  JP  エレアだからという理由で疑うなんて酷いレッテル張りだ！お前みたいな差別主義者は何をされても文句を言う資格がない！だからなぶり殺しにしてやる！なぶり殺しにされるだけのことをしたお前に全ての非がある！
+  EN  It's a terrible prejudice to doubt us just because we're Elea! Racists like you have no right to complain no matter what is done to you! That's why we're going to torture you to death! Blame yourself for dying like a piece of shit!
+
+=== 921115797fc6f5b58de5396bd88be195e7de8c43  riga 5924  [?]
+  JP  よく聞きなさい。もしあなたがいつかリトルシスターに出会ったら、あの子達に救いの手を差し伸べてあげて。見た目こそ化け物のように映るかもしれないけど、彼女たちがまた元の可愛らしい笑顔を取り戻せるように、私は研究を続けている。だから、お願い。この道具を使ってリトルたちを私の元に運んで。あなたへのお礼は、いつか必ず。
+  EN  Please, hear me out. If you should happen to run into any Little Sisters during your travels, please help them out. They seem to be monsters at first glance, but I'm doing important research that will return these girls to their gentle smiling nature. Please I beg of you... use these balls to bring the Little Sisters to me. I'd be very grateful, perhaps I'd even reward you.
+
+=== ee842d95727f3584059c73618083575655bc470e  riga 5934  [?]
+  JP  約束のお礼は？
+  EN  What about the reward you promised me?
+
+=== 764bbf1a025eca73726640e9560e5c3e58ff44be  riga 5935  [?]
+  JP  捕獲玉を補充したい
+  EN  I need to replenish my supply of little balls.
+
+=== 8aaa51915e19a8d82f2dc2b35f74a1f304b565b0  riga 5938  [?]
+  JP  を引き渡す
+  EN  (Turn over the Little Sister.)
+
+=== ab3d0ed1f3993833b9a07db95366bf56729f5198  riga 5941  [?]
+  JP  リトルたちを、終わりのない苦痛から解放するべきだという人もいる。でも、大抵の人間はあの子達の力が欲しくて殺すのよ。そう、確かにリトルの肉は人の肉体を進化させる。それでも、私はあの子たちを救う別の道があることを信じているの。…そして覚えておいて。もしあなたがリトルの命を奪うようなことがあれば、いつかその酬いを受ける時がくるから。
+  EN  Many people feel we need to free these girls from their never-ending oppression, but there are also scumbags that would murder them for their own personal gain. That's right; they say eating the girls' flesh will evolve the human body. I know there must be a better way to help them... don't forget that. Remember that if you take their lives, you will eventually get what's coming to you.
+
+=== ac6914c81eefa2dddffeece4370ecb6ebc7288d4  riga 5949  [?]
+  JP  報酬、そうね。リトルたちが、あなたのために街で落し物を集めてきたのよ。好きなものを選んでちょうだい。あなたが貴重なものを無くした時のために、保留しておいてもいいわ。
+  EN  That's right... your reward. The Little Sisters have been picking things up for you that people have lost in town. Please, take whatever you like. If you like, you can wait until you've lost something valuable.
+
+=== 2f5be54ffd26eae026912cd3424cce7b806a01cd  riga 6030  [?]
+  JP  落し物をひとつ貰える。
+  EN  You can choose 1 item.
+
+=== 508b2c7378692e177082d3a67d7c877243607e23  riga 6036  [?]
+  JP  お目当てのものはあったかしら？
+  EN  Did you find what you were looking for?
+
+=== bd6a26a99d0ffef85b087a8f644549c7775d9bb5  riga 6040  [?]
+  JP  あなたにまだその資格はない。リトルたちを連れてきて。報酬はそのあと考えるわ。
+  EN  You haven't brought me enough Little Sisters yet. Bring me  more and then we'll discuss your reward.
+
+=== ab122095c43636e0298682f8ed382e7a732cd6a1  riga 6045  [?]
+  JP  さあ、これを持っていきなさい。重いから注意して。
+  EN  Well then, take this with you. Be careful though, it's heavy.
+
+=== 3647cd7e11057668bdd262eddd399fb614300049  riga 6082  [?]
+  JP  リトルシスターを謎の科学者に手渡した。
+  EN  You turn over the Little Sister.
+
+=== 8d237f30cf0fbdbbf42c57a1f8c925da0fb8aa32  riga 6096  [?]
+  JP  ありがとう。あなたの行いに感謝するわ。あなたへのお礼は近いうちに必ず。
+  EN  Thanks, I appreciate what you've done. It won't be long before I can reward you.
+
+=== 55454aecf4831f3e51b7d85e7153f01a9dee0276  riga 6222  [?]
+  JP  どうだい、俺に乗ってみたいかい？
+  EN  So, you wanted to ride me right?
+
+=== 8460cec7e4678e4666b8d8c938c85b659b1fb541  riga 6223  [?]
+  JP  乗りたい
+  EN  Yes!
+
+=== 3aeafcb874a42640152726c9822324dc2b1d8026  riga 6224  [?]
+  JP  別に乗りたくない
+  EN  Not really.
+
+=== 678009e70bc6058380689d0ab081eeb23f4e1bdd  riga 6230  [?]
+  JP  おっと、これ以上仲間を連れて行けないようだぜ。
+  EN  Oops, it seems your party is already full.
+
+=== c51ab07bbdc135506b71604af3dd766d7a7acc20  riga 6232  [?]
+  JP  そうこなくっちゃ！
+  EN  That's the spirit!
+
+=== 26d9ce4144773a00851f967d8f5744db7ae038cd  riga 6238  [?]
+  JP  まあ、いいさ。
+  EN  If you say so.
+
+=== f63c91ad3cf36cc10b4c425c2e96d2ff86d2bf65  riga 6243  [?]
+  JP  それはカプセル・ドラッグ！…なあ、それ譲ってくれよ。
+  EN  That-that's a capsule drag! ...hey, you want to give it to me?
+
+=== 36b30aaefe509c723e2148e7457db219ba0f17de  riga 6251  [?]
+  JP  カプセルドラッグを1錠渡した。
+  EN  You hand him a capsule drag.
+
+=== 9386a58c70878ee9026675fdcd81a998e5ead436  riga 6253  [?]
+  JP  いいねえ。
+  EN  Great, you are great.
+
+=== 49b0885817cb217b584bc67d66e06d64502f17b2  riga 6258  [?]
+  JP  気安く話しかけんな。
+  EN  Stay away from me, will ya?
+
+=== 2be3030710b272bc994bbe41bb5659c1ba84b252  riga 6297  [?]
+  JP  昔…シルヴィアは色事師に連れ去られたことがあってな。監禁されていたところを助け出しはしたものの、彼女は精神を完全に病んでしまっていた。
+  EN  In the past... Lady Silvia was kidnapped by a casanova. Even though she was eventually rescued, her mind was completely broken.
+
+=== 9e983c6416db77bfdfacbcc644833c7925383afc  riga 6298  [?]
+  JP  そして長い遠征から俺が帰ってきたときには、彼女は町で乱交を繰り返すようになっていたのだ…。
+  EN  When I returned after a long expedition, I found that she had been sleeping around with everyone in town...
+
+=== 384a0e66ed20b693d87f57fc1750e5a641754a9a  riga 6299  [?]
+  JP  俺は、それでもシルヴィアを…。
+  EN  Even so, I still...
+
+=== 8d4f56a69b8cb07082a5cc3a13a3c896a3b9e238  riga 6303  [?]
+  JP  最近、シルヴィアの錯乱ぶりがますます酷くなっている。いったい何が原因なのだ…？
+  EN  Silvia's state of mind has been deteriorating even further recently. What could be causing this...?
+
+=== 5c0ad485de73f2724b404b57c7d55713038451f3  riga 8199  [?]
+  JP  ねぇさんって冒険者だよね？この前お友達がノースティリスのパルミアってところに引っ越したんだけど、その友達に手紙を届けて欲しいんだ！
+  EN  , you're an adventurer right? My friend who used to live here moved to Palmia in North Tyris. I want you to deliver a letter to her.
+
+=== 99ebfdea660f71a23d0afe548472889320240c37  riga 8202  [?]
+  JP  えー…じゃあどうしよう。
+  EN  Ehh... What am I going to do then...
+
+=== ff0608f310fd459c0bdda94e62f4a5795b468a51  riga 8206  [?]
+  JP  わーい。ありがとうさん♪
+  EN  Yay! Thanks a lot, !
+
+=== 0b605b7f9afddceca732a609df17ce93daa1411a  riga 8207  [?]
+  JP  手紙を預かった。
+  EN  You take the letter.
+
+=== a92a898ddd14e0fb48f62be90f76a6941f375349  riga 8214  [?]
+  JP  え？ぼくに手紙？
+  EN  Huh? You have a letter for me?
+
+=== fc86cee64384150c1e44576c19eb5516edfc9d67  riga 8215  [?]
+  JP  わぁい、ちょうどおなかすいてたんだ！ムシャムシャ…。
+  EN  Yay! I was just getting hungry! Munch munch munch...
+
+=== 7bd9709ec26435921bc2115a0834bf7e6d1fabb0  riga 8216  [?]
+  JP  ハッ！？ど、どうしよう。クロンちゃんからのお手紙食べちゃった…。
+  EN  Mmgh?! O-oh no. I ate the letter that Kuron sent me...
+
+=== 2e28683fbdc239b638bd9131dd585083454d3637  riga 8217  [?]
+  JP  さっきの手紙のご用事なぁに、っと…。この手紙をクロンちゃんに渡して。もちろんタダじゃないよ。プラチナ硬貨あげるからお願い！
+  EN  Umm, let's see... Take this letter to Kuron. Not for free, of course. I'll pay you a platinum coin, so please bring it to her!
+
+=== ffdee5e3701e127bd1323d3b5dcb01b382579172  riga 8218  [?]
+  JP  手紙を預かった…。
+  EN  You take the letter...
+  occorrenze: 8218 8239
+
+=== 2da357263ef3da7d8b483bedde779c146a2c63a2  riga 8227  [?]
+  JP  ちゃんと友達にお手紙届けてね。友達はパルミアに住んでるクロンって子だよ。
+  EN  Please take the letter to my friend. Her name is Kuron, and she lives in Palmia.
+
+=== ba73bc03733210c8e5da111ddc3126574b220a6b  riga 8235  [?]
+  JP  え？あたしに手紙？
+  EN  Huh? You have a letter for me?
+
+=== 4b028445874b02ce8d62722bbc64a74d8a941f14  riga 8236  [?]
+  JP  わぁい、ちょうどおなかすいてたの！ムシャムシャ…。
+  EN  Yay! I was just getting hungry! Munch munch munch...
+
+=== 127a99c8ea94f8153c6db351b20acbb6a1a478da  riga 8237  [?]
+  JP  うメェー！ハッ！？ど、どうしよう。シラハくんからのお手紙食べちゃった…。
+  EN  Delicious! Mmgh?! O-oh no. I ate the letter from Shiraha...
+
+=== 143e114dd00bcf6c9a9c2b46eecebfadae42e0f5  riga 8238  [?]
+  JP  さっきの手紙のご用事なぁに、っと…。この手紙をシラハくんに渡して。もちろんタダじゃないよ。プラチナ硬貨あげるからお願い！
+  EN  Umm, let's see... Take this letter to Shiraha. Not for free, of course. I'll pay you a platinum coin, so please bring it to him!
+
+=== 41fd0942fd8ccd32fff2d9588120002b9658debf  riga 8248  [?]
+  JP  ちゃんと友達にお手紙届けてね。友達はルードゥスに住んでるシラハって子だよ。
+  EN  Please take the letter to my friend. His name is Shiraha, and he lives in Ludus.
+
