@@ -133,10 +133,23 @@ def test_nessuna_morfologia_inglese_sfugge_all_elenco():
     # solo-letterali-inglesi: ogni `return` e' una stringa nuda, nessun lang()
     solo_inglese = set()
     for n, corpo in blocchi:
-        ritorni = re.findall(r"return\s+(.+)", "\n".join(corpo))
+        testo = "\n".join(corpo)
+        ritorni = re.findall(r"return\s+(.+)", testo)
         if not ritorni or any("lang(" in r for r in ritorni):
             continue
         if all(re.fullmatch(r'"[A-Za-z\' ]*"', r.strip()) for r in ritorni):
+            solo_inglese.add(n)
+            continue
+        # ⚠️ **La seconda famiglia, che alla prima sonda sfuggiva** (85a):
+        # la funzione non restituisce un letterale nudo, CONCATENA il proprio
+        # argomento con un suffisso inglese — e si riconosce dal ramo `jp`,
+        # che quel suffisso non ce l'ha. `cnvrank` (init.hsp:149) e' l'unica
+        # in tutto init.hsp, ed e' la desinenza ordinale: `2` in giapponese,
+        # `2nd` in inglese. Chiedere a una resa italiana di conservarla
+        # significa chiederle di scrivere «2nd» dentro una frase italiana.
+        if not re.search(r"if\s*\(\s*jp\s*\)", testo):
+            continue
+        if any(re.search(r'"[A-Za-z][A-Za-z\' ]*"', r) for r in ritorni):
             solo_inglese.add(n)
 
     assert solo_inglese, "il riconoscimento non ha trovato nulla: e' la sonda a essere rotta"

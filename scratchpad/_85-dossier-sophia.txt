@@ -1,0 +1,445 @@
+=== 884af97df4faed59166d0100a3103aad1e31c036  riga 10026  [?]
+  JP  時間通りに来たということは…手伝ってくれるということだね。では早速始めようか。なに、ただの単純作業だよ。
+  EN  Let's see... Looks like you're right on time. Let's get to work. Don't worry, it'll be a cinch.
+
+=== 78daa993b8b50176a15cc4e759f01bab3c06aa17  riga 10036  [?]
+  JP  …こんなところだね、お疲れさま。これはお礼だよ。
+  EN  ...Thanks for the help. Here, take this as a token of my gratitude.
+
+=== 0cd519f90900044648b2136917ce4b6a57eb061f  riga 10074  [?]
+  JP  よく来たね。身体の具合はどうかな。限りなく以前と同じはずだけどね。
+  EN  I'm glad you're here, . How is your body feeling? I'm sure it's the same as it's always been.
+
+=== f3d1758850fbde12561d6f578821d7eccdd39e2d  riga 10075  [?]
+  JP  報酬については…あれから色々と考えたんだけどね。選ばせておいてなんだけど、他のが良かったとか後で言われても面倒だから、もう全部渡しておくよ。当初の想定以上に働いてくれたこともあるしね。
+  EN  As for your reward... I've thought about it a lot since then. I would have made you choose, but it would be too much trouble if you came back and said you wanted something else, so I'll just reward you with everything I've prepared instead. You've worked a lot harder than we expected you to, besides.
+
+=== 0e959b0191be1927c9a14c38371cfb39c841abd1  riga 10096  [?]
+  JP  まさか次元の狭間から帰還したうえに、ピンポイントで巨城に現れるとは…。
+  EN  To think that that man would ever return from an interdimensional crevice, and reappear right in the middle of the Cradle on top of that...
+
+=== 317479e3a0c5100c53d94c8559ee3b6c6a098af5  riga 10097  [?]
+  JP  ああ、。ノルンから報告は受けているよ。おねにい様…ミクラネシスはこのことを予知していたのかな。
+  EN  Oh, it's you, . I've heard everything from Norn. I wonder if my dearest sister... brother... Mikraanesis, foresaw this.
+
+=== dec1421af34ad31276ee4e2b488af51b2452d7ae  riga 10098  [?]
+  JP  拘束が解けても、混沌の超児は全てを忘れていて指の一本すら動かせないはずだ。それでも神の間に混沌勢力が侵入している以上、安心はできないね。たとえばオルフェが全神力を吸収しようものなら、どうなるかわからない。弱体化しているとはいえ、未だに神数十柱分の力が残っているはずだ。
+  EN  Even if freed from its bindings, the Chaos Child should be unable to remember how to so much as lift a finger by now. Even so, as long as the forces of Chaos continue to infiltrate the Eternal Seal, we can't rest assured. For example, if Orphe were to absorb all of the Child's divine power, there's no telling what would happen. Even though it's been weakened, the Child should still have the power of dozens of gods left.
+
+=== 582e649503caf1b1fc53dc497665bf77132261be  riga 10099  [?]
+  JP  倒してくるからそんなの必要ない
+  EN  I'll take him down, so there's no need for that.
+
+=== 8341b6d7a748272d53822f698369368d427abda3  riga 10100  [?]
+  JP  ちょっとした冒険だな
+  EN  Sounds like a nice little adventure.
+
+=== 45f47b74280c4c9b7b17187a16ecac5b6b3070b4  riga 10101  [?]
+  JP  オルフェと決着をつけてくる
+  EN  I'm going to settle this with Orphe.
+
+=== 5760a4bb028645a4d501c3f6118d6529e708d246  riga 10103  [?]
+  JP  念のために最終対抗手段は用意しておいた…けれど内容は捨て身同然だし、どこまで通用するかも疑問だからあまり使いたくはないね。
+  EN  I've prepared a final countermeasure just in case... but I'm wary of using it. That would be equivalent to sacrificing everything we have left, and I'm not even sure such a plan could work if worst comes to worst.
+
+=== 4c1742a4e0a4f808fcf69d067eb6cbae55232c0d  riga 10107  [?]
+  JP  君の力は評価しているよ。でも、少しうぬぼれ過ぎだね。
+  EN  I hold your abilities in high praise. But even coming from you, that sounds a little too arrogant.
+
+=== e7a7c64ca801d21fad32a24cbb5f5b22eddede79  riga 10111  [?]
+  JP  これだから冒険者は…。神の頭を悩ませるレベルの案件だと理解してほしいね。
+  EN  My, how are adventurers always like this... Just be aware that you could worry even the gods by uttering such a thing.
+
+=== 07e4803671ebb1ca5d9bec16759bd4dcb20aead0  riga 10116  [?]
+  JP  確かに君もオルフェと因縁があったね。止めはしないけれど、邪魔だけはしないでほしいね。
+  EN  It is true that you have a history with Orphe. I won't stop you, but don't let that get in your way.
+
+=== f3a786d5cb7ad04331a25583dea4443cd6d81ca0  riga 10120  [?]
+  JP  えっっ！？
+  EN  Ehhh---?!
+
+=== 74a3590717aa801ef6389587bd1e78b4d9a28f8f  riga 10121  [?]
+  JP  な、何を馬鹿なことを言っているのかな…。いいかい。私は生まれる前から双子の兄であるテレートスを伴侶としてデザインされている。確かにテレートスは合神していなくなってしまったし結婚という儀式も行ってはいない。しかし私と結婚しようとするのはいかがなものかと思うね。いや、もちろん私だって異種族婚そのものを否定するわけではないのだけれど、特に私は一度堕天した関係で他の神ほど魂が綺麗ではないから、同じ神なら別の…ああもう！
+  EN  W-What a foolish thing to say... Listen closely. Even before I was born, I was specifically designed to be paired with my twin brother, Terethos, as my partner. It is true that Terethos is no longer with us, and that we never held anything that could be considered a marriage ceremony. But still, wouldn't you consider the idea of marrying me to be a questionable one? I mean, it's not that I have anything against interracial marriage itself, but since I have fallen from grace in the past, my soul is not as pure as that of the other gods, so even if I were to pledge my life to another god I'd just... Oh, heavens!
+
+=== 0b1e2eda3da146bdabd10513be5030b78e4ea657  riga 10122  [?]
+  JP  …まぁ、そういうわけで。まずはお友達から始めるべきだと思うね。
+  EN  ...Anyway, those are my reasons. I think we should just remain friends and go from there.
+
+=== 771c47e2136ba596bd89082d64e3f5553e6c3f11  riga 10130  [?]
+  JP  君はよくやってくれたね。けれど大きすぎる力は人の恐怖を煽ることを忘れてはいけない。そして、情報が思わぬスピードで伝わることも。
+  EN  You've done well. But don't forget that too much power can make people fearful, and also that information can be transmitted with unexpected speed.
+
+=== f6c9f890bdb9d878ad6a11b3fddef182fbebf527  riga 10131  [?]
+  JP  混沌の神が君に討伐されたという情報が、一部の勢力にもう伝わってしまったようだね。特にロスリアという国の上層部は、君を人類共通の新たな脅威ということにしようと画策している。気をつけたほうがいいね。
+  EN  It seems that some of the greater powers have already caught word that you've defeated the God of Chaos. In particular, the upper echelons of the nation of Lothria are plotting to denounce you as the latest menace to all of humankind. You'd better be careful.
+
+=== dd8e30e944a86d2e6e034db28b67a517def6f59d  riga 10132  [?]
+  JP  民衆には伝わっていないようだけど、ほとぼりが冷めるまではあまり派手に動かず、一時的に身を隠したほうが得策かもしれないね。その頃には、例の報酬も用意できていると思う。
+  EN  The people don't seem to have gotten the message yet, but it might be a good idea to keep a low profile and go into hiding for a while until things cool down. By that time, I'm sure your reward will be ready.
+
+=== bac1b224e3609c63f7df99686ea756b7d24152c3  riga 10137  [?]
+  JP  決戦因子は君に決まったんだね。テスカトリポカが認めたなら大丈夫だろう。
+  EN  So you've been chosen as the Decisive Factor. Given that Tezcatlipoca has recognized your prowess, I am confident that you will succeed.
+
+=== 1c66dde7d643fe148c681ad6f4f39d627b18c9c1  riga 10138  [?]
+  JP  仕方がない
+  EN  I guess I have no choice.
+
+=== 0bfae9ccbdc1b970681217040dc882d41d5f1c74  riga 10139  [?]
+  JP  はい喜んで
+  EN  My pleasure.
+
+=== 7c65f4463c788245e4ee1298f8182be8e91ef3ec  riga 10140  [?]
+  JP  報酬は出るの？
+  EN  Will I be rewarded?
+
+=== b43cbc15f3bb61a89a56d0eacfbbabbb13581823  riga 10141  [?]
+  JP  嫌です
+  EN  I don't want to.
+
+=== 78b17fa7e1dccb0101cd4aefa29cf26de31221f0  riga 10142  [?]
+  JP  もし神の間が崩壊して混沌の神が出てきたら、神々も定命ももれなく混沌に取り込まれ、世界は蹂躙され全ての秩序は失われてしまうだろう。もちろん討伐を引き受けてくれるね？
+  EN  If the Eternal Seal collapses and the God of Chaos escapes, the gods and mortals will all be engulfed by Chaos, the world will be overrun, and all order will be lost. Of course, you'll be the one to to stop him, right?
+
+=== bb071e15bd4a5aa7fa04b8c189ce215409b5f030  riga 10146  [?]
+  JP  これは混沌から今の世界を守るためだからね。考え直してほしい。
+  EN  This is to protect the world from Chaos. I hope you'll reconsider.
+
+=== 5aff22df0d62bfb834e0d75d00c374f48d8bf660  riga 10152  [?]
+  JP  さて…報酬はどうしようか。
+  EN  Now then... About your reward.
+
+=== c9c0a3f13a08529d9ccda35b802413b2e29f7b4a  riga 10153  [?]
+  JP  富
+  EN  Wealth.
+
+=== c472de0fdbb95bc59e8f5fbbc1d86129afddcbf5  riga 10154  [?]
+  JP  名声
+  EN  Fame.
+
+=== 04b9dc1fe1b5ddd8843b2254342876cca87e8a0c  riga 10155  [?]
+  JP  強さ
+  EN  Strength.
+
+=== 1d3e8fc502243b2d2da1c3f476d2c846301f73de  riga 10156  [?]
+  JP  ハーレム
+  EN  Harem.
+
+=== 1162bf09c60e4fe78733b4d8248a7611c33a7447  riga 10157  [?]
+  JP  神の座
+  EN  The seat of god.
+
+=== 105bbc696ac377a7bd51be54286cce3b2ff57d9f  riga 10158  [?]
+  JP  おまえ
+  EN  You.
+
+=== 41d44ac3221adfe0346a1822fd9e1e32b3e37adb  riga 10159  [?]
+  JP  とりあえずアーティファクトはつけるとして…他に欲しいものがあるかな？
+  EN  For now I'll include this artifact, so... Is anything else you want?
+
+=== ce34dc212a12dd16056c0304d06d0073c9c23cd1  riga 10164  [?]
+  JP  神には神の仕事ルールがあってそれに縛られることになるよ。個神には大した権限もない。自由と引き換えてでも秩序維持のために働きたいのなら話は別だけど、それでも君の一生を全うしてからの方がいいだろうね。とにかくおすすめしないね。
+  EN  Gods have their own set of business rules, and you'd be subject to following them. Individual gods don't have much authority - that is, unless you want to continually work to maintain order in exchange for your freedom. But even then, it's probably better to wait until you've lived your whole life before deciding to sit in god's chair. Anyway, I wouldn't recommend it.
+
+=== f764cc1f0ba21f7849ee44480b8ee6fb0a757cf5  riga 10168  [?]
+  JP  そんなことを言って、相手の反応が知りたいだけだろう？そのくらいは本で読んで知っているよ。神をからかってはいけないね。
+  EN  You're just saying that to see how I'd react, right? I know that much from reading a few books. You shouldn't poke fun at a god, you know.
+
+=== 80bfa187f9a9de92c3193e6969407e12b5edf8ef  riga 10171  [?]
+  JP  なるほど…覚えておくね。
+  EN  I see... I'll keep that in mind.
+
+=== 07245ffc0edbbbf6f4c7e8cd18d0df082078d2a6  riga 10172  [?]
+  JP  話は変わるけれど、混沌の神を倒すための道具を渡しておこう。
+  EN  To change the subject, I'll give you the tools you'll need in order to defeat the God of Chaos.
+
+=== e25be24f70a42d557b5357ad032ddc6f1996b0e9  riga 10174  [?]
+  JP  [来光の牙]を手に入れた！
+  EN  You obtain the [Origin of Light]!
+
+=== e8ccf918c14333ca5765a30dc5a898cfd784ece7  riga 10178  [?]
+  JP  いくら弱っているとはいえ、相手は私達より圧倒的に高い存在級位を有している。物理的にいくら殺しても倒したことにならない。あれほどの存在をアカシックレコードから切り離すには、膨大なアストラル光が必要になるんだ。
+  EN  No matter how weak he is, our adversary still possesses a level of existence that is overwhelmingly stronger than ours. No matter how many times we kill him physically, we will never truly be able to defeat him. It would take an enormous amount of astral light to separate a being of that magnitude from the Akashic Records.
+
+=== b08099516f9bf0e4005fbc77f0ffe38f1c8594e6  riga 10179  [?]
+  JP  そこで、混沌の神を殺す瞬間…すなわち、相手の存在が最も揺らぐ瞬間に神々全員の神力をマナに逆変換して来光の牙に送る。来光の牙はマナをアストラル光に変換するための装置なんだ。発生したアストラル光によって、奴のアカシックレコードに完全干渉する。
+  EN  So, the moment we kill the God of Chaos... that is, the moment when his existence is most shaken, we will convert the divine power of all the gods back into mana and send it all to the Origin of Light. The Origin of Light is a device that converts mana into astral light. The astral light that is generated will completely interfere with his Akashic Records.
+
+=== c817bf3e5a175177e87246fa9def2602888f2c23  riga 10180  [?]
+  JP  …簡単に説明すると、トドメの際に突き刺せば、完全に消滅させるなり、無力化したうえで闇檻に放り込むなりで処理できるということだね。この突破法の準備に3000年かかったから失敗しないでほしいね。
+  EN  ...In other words, if you can strike the God of Chaos during that window of opportunity, you can incapacitate or even completely obliterate him, then lock him in the prison of darkness for good. It took me 3,000 years to prepare this breakthrough strategy, so I certainly hope you won't fail.
+
+=== b7faf81e68a299e645ef28c042af9bfb7db1b276  riga 10181  [?]
+  JP  …そうだ。あと、これも必要なら持っていくといい。
+  EN  ...Oh, and you can take this with you as well, if you'll be needing it.
+
+=== 4ec238c3da772f685efa82753bb0e81dd8be71ec  riga 10185  [?]
+  JP  神の間の物理崩壊は時間の問題だし、混沌の軍勢も勢力を増してきている。君も準備を整えてほしい。
+  EN  The physical collapse of the Eternal Seal is only a matter of time, and the forces of Chaos are growing stronger as we speak. I hope you'll be ready.
+
+=== 3e68729a996f706da34864d4734886fce578a3a4  riga 10190  [?]
+  JP  神の間とは？
+  EN  What is \"The Eternal Seal\"?
+
+=== 1f17f85e35246e5784d8be042851aa25dbaf329d  riga 10193  [?]
+  JP  神々の大戦とは？
+  EN  What is the \"War of the Gods\"?
+
+=== 5d56e0abc0acf71ea0fa49920cd2d83446497bdf  riga 10195  [?]
+  JP  何か手伝えることは？
+  EN  Is there any way I can help you out?
+
+=== 8a0cfd16dedad2c5e6a18a30d45849a3a74c7337  riga 10196  [?]
+  JP  スリーサイズは？
+  EN  What are your three sizes?
+
+=== bb028999491f78d2105ee552f326332d9226cd9a  riga 10198  [?]
+  JP  混沌の神の正体は？
+  EN  What is the true identity of the God of Chaos?
+
+=== bfde35d7450b03c225248d9355e81c5e19fe4e71  riga 10201  [?]
+  JP  これまでの経緯をまとめて知りたい
+  EN  I want to know the whole story up to this point.
+
+=== df84ebc5ebde93352882b39b83a8a67da36f3f0a  riga 10204  [?]
+  JP  混沌の神を倒したらネフィアはどうなる？
+  EN  Once we defeat the God of Chaos, what happens to Nefia?
+
+=== 3cd3a87004a22f050bb2a1a7673dfecaadb2d07c  riga 10206  [?]
+  JP  ネフィアの永遠の盟約により、全てを話すことはできないね。しかし、制限されていない情報に関しては君にも教えよう。
+  EN  To comply with the Eternal League of Nefia, I cannot tell you everything I know. However, I can provide you with some information that is not under restriction.
+
+=== c486cbbf01788e489854d63bbf21ad687fa65747  riga 10209  [?]
+  JP  …そうだね。あまり言いたくないけれど、あれと戦う君には知る権利があるね。
+  EN  ...That's right. I do not want to say too much, but since you're the one who's about to go to battle, you have a right to know.
+
+=== 6b5030d4367a728f630e38ccabd1e40199a88da1  riga 10210  [?]
+  JP  混沌の神…エンテュメイシス。その正体は…もう一人の私なんだ。
+  EN  The God of Chaos... Enthumesis. That identity... is my other self.
+
+=== 75acab2d7f7b897a3ab0a88154be4b2950910a8d  riga 10211  [?]
+  JP  わが父、《深淵のプロパトル》は至高の超越者だった。神としても次元が違うため知覚できないほどのね。末娘だった私は兄や姉に尋ねたが一切の情報が不明。「誰にも知ることができない神」と言っても過言じゃない…。
+  EN  My father, \"Prophatorl of The Abyss\", was the greatest transcendent of them all. Even as a god, he was imperceptible because he existed in a different dimension from ours. As the youngest daughter out of my siblings, I asked my older brothers and sisters, but they knew nothing about him. It's no exaggeration to say that he was the \"god that no one could ever know\"...
+
+=== 72c1cdb28c0fb8221779f01e0efc6345d8c18f8b  riga 10212  [?]
+  JP  それでも…当時の私はどうしても父のことを知りたかった。知識欲の強い娘が、行方不明の父のことを調べようと思うのは仕方がないことだったと思う。
+  EN  Even so... at the time, I really wanted to know more about my father. I think it was inevitable that a daughter with such a strong desire for knowledge would want to find out about her missing father.
+
+=== 4be195eb99c582a650a6cb626b1999bbaa0261b1  riga 10213  [?]
+  JP  知りたいのに知ることができないジレンマが頂点に達した時、暴走した想いが私の中にエンテュメイシスという穢れた人格を作り出した。魂の穢れた私は堕天して地上を彷徨っていたが、兄姉の精神浄化によってエンテュメイシスを分離して帰還することができた。今では父のことを知ろうなんて気持ちは微塵もないね。
+  EN  When my dilemma of wanting to know but not being able to finally reached its peak, my runaway thoughts created an unholy personality within me called Enthumesis. My soul was corrupted and I wandered the earth, but through the spiritual purification I received from my siblings, I was able to separate myself from Enthumesis and return to the heavens. Nowadays, I no longer have even the slightest desire to learn anything more about my father.
+
+=== e0f7b63c1fd04548a5dff30baf3cd7908be60648  riga 10214  [?]
+  JP  だがエンテュメイシスは私から分離した後も実は消えずに活動していたんだ。人間たちには不死で知りたがりの娼婦として扱われていたようだね。とりあえずは無害だと判断されていたのだけれど、神々の大戦中、エンテュメイシスは牙を剥いた。
+  EN  But actually, Enthumesis was still active after I separated from them. It seems that the humans treated them as an immortal harlot with an unending thirst for knowledge. For the time being, they were deemed harmless, but during the War of the Gods, Enthumesis revealed their true nature.
+
+=== b59f8245d88cb0fabbceb4bb0de8b10a16ff8acd  riga 10215  [?]
+  JP  あれはまるで本から知識を取り込むかのように、大戦で傷ついた神々を次々と吸収していった。父についての情報を得るため、そして力を蓄えて同じ高次元に立とうとしたんだね。熱いパトスのおもむくまま、むやみやたらと神の力を混ぜ合わせていった結果、両性具有の混沌神となってしまった。
+  EN  They absorbed the gods wounded in the Great War one after another, as if taking in knowledge from some books. They were trying to gain information about my father, and to stand on the same higher plane as him by accumulating enough power. As a result of that hot pathos, they recklessly mixed the power of the gods together, and as a result became a chaotic god of both sexes.
+
+=== a346790638293621374489251a0ad61822282d24  riga 10216  [?]
+  JP  エンテュメイシスは封印される間際でも父を求めていたよ。混沌の眷属が人間を取り込もうとするのも、根底にあるのは知識欲なのかもしれないね…。
+  EN  Enthumesis was still seeking their father when they were about to be sealed away. Perhaps it is that desire for knowledge that lies at the root of the servants of Chaos' desire to possess humans....
+
+=== bd30d9cbd54615f69d8ee328abe4ddd635e73f50  riga 10220  [?]
+  JP  じゃあ簡単に、かいつまんで。
+  EN  Okay, so I'll briefly recap.
+
+=== db49d3240c7254987ae916d78aa536c4aee16bc0  riga 10221  [?]
+  JP  1。長い歴史の中で、人類は神は徐々に必要としなくなり、神は力を失いつつあった。
+  EN  1. Over the course of history, humanity has gradually outgrown the need for God, and the gods have been losing their power.
+
+=== da95358bbea9a77efa8be13a6975e5e421b2c0c5  riga 10222  [?]
+  JP  2。そんな時、人類の大半が宇宙に旅立ってしまった。
+  EN  2. At that point in time, the majority of humankind had left for the cosmos.
+
+=== c22c1a6d20248676c261d8bfc7875d454e388262  riga 10223  [?]
+  JP  3。存在の危うくなった神々が殺気立つ中、テスカトリポカが他の神を倒して信者を奪った。
+  EN  3. As the gods were seething with anger, seeing their existence endangered, Tezcatlipoca defeats them all and claims their followers.
+
+=== 71e5f8bee7958ba270b01428ffa754f72c6a4aa6  riga 10224  [?]
+  JP  4。神々の生存競争が勃発。多くの神が消滅したり魔物に堕ちた。
+  EN  4. A war of life and death breaks out between the gods. Many of them disappear or fall to demonic powers.
+
+=== 8f1d47b81ca0d1b91ac772077b391230be2fd8e5  riga 10225  [?]
+  JP  5。大戦の裏で混沌の神が力をつけていたことが発覚。混沌対神々の構図に変化。
+  EN  5. It is found that the gods of Chaos have been gaining power in the backdrop of the Great War. The nature of the battle changes to that of Chaos versus the gods.
+
+=== c15dcb91d2229b1299771e38d656fdb3fd9909b8  riga 10226  [?]
+  JP  6。激戦の末混沌の神は封印できたがこの時混沌の精霊の種が蒔かれていた。
+  EN  6. After a fierce battle, the God of Chaos is sealed. But at that moment, the seeds of the Spirit of Chaos were already sown.
+
+=== 76582adb13b5eefa89260a5ca15ece5d60eead5d  riga 10227  [?]
+  JP  7。ひとつの大陸がイルヴァから隔離され、ロストイルヴァとなった。
+  EN  7. A single continent separates from the rest of Irva, and becomes Lost Irva.
+
+=== c56f83febda40aa449027e1944e4598ced42a9e0  riga 10228  [?]
+  JP  8。神の間が老朽化したのを狙って混沌の軍勢が巨城に侵攻。
+  EN  8. When the Eternal Seal falls into a state of decay, the armies of Chaos use that opportunity to invade the Great Castle.
+
+=== e1d71bcd12a9c4a78a774a6635ea3fa7b30e25a5  riga 10229  [?]
+  JP  9。テスカトリポカが混沌の軍勢を撃退するも右腕を失う。
+  EN  9. Tezcatlipoca repels the forces of Chaos, but loses his right arm in the process.
+
+=== 2c3aefc7867d8f330328c24f216debe525889f1e  riga 10230  [?]
+  JP  10。オルフェをはじめとする決死隊が役目を果たし、神の間の増築に成功。
+  EN  10. Orphe and the death squads that come afterwards manage to fulfill their purpose of expanding the Eternal Seal.
+
+=== 2439adbd3d88eda004383508101340a35e41d064  riga 10231  [?]
+  JP  11。唯一生還したオルフェが常闇の眼を盗んで行方不明に。
+  EN  11. Orphe, the only remaining survivor, steals the Origin of Vice and goes missing.
+
+=== 973f5ce10e65e57e211c0a5dd4ccdc09acb87f48  riga 10232  [?]
+  JP  12。混沌の神から奪った力を還元し、ネフィア誕生。
+  EN  12. The power stolen from the God of Chaos is returned to the land, and Nefia is born.
+
+=== d49e1a972acb49186975cb60919ba8e62d8d81b8  riga 10233  [?]
+  JP  13。魔法大戦によりナーク・ドマーラ滅亡。
+  EN  13. Naku Domara is defeated in the War of Magic.
+
+=== 20a6c01c62a3b2101ee0b73c4e4eeb798d067284  riga 10234  [?]
+  JP  14。神の間が再度老朽化。
+  EN  14. The Eternal Seal falls into decay once again.
+
+=== 2077dc53bc0e13e5561b496389d59a429a0a1b8a  riga 10235  [?]
+  JP  15。人工細菌メサイアによって作られた秩序の一角獣が役目を果たす。後にサーペントに取り込まれてカオス・ユニコーンへ変化したことが判明。
+  EN  15. The Unicorn of Order, created by the artificial bacterium Messia, fulfills its purpose. It is later revealed that it was possessed by the Serpent and transformed into the Chaos Unicorn.
+
+=== 6fa60bfc0ec30a9a53d943ea6458ab9cceafd43b  riga 10236  [?]
+  JP  16。エーテルが発見され、はみ出し者たちによって盛んに採取された。
+  EN  16. Ether is discovered, and it is harvested extensively by the outcast population.
+
+=== fdfb4817d6439666ce940b33a18cf61523fce1d0  riga 10237  [?]
+  JP  17。メサイアが事故で変異・流出しメシェーラと呼ばれるように。エーテル減少で弱っていた環境は激変。
+  EN  17. Messia mutates and escapes containment in an accident, and becomes known as Meshera. The environment, having already been weakened by the depletion of Ether, undergoes drastic changes.
+
+=== 261798ff3174b03482c0ce1a4cbddc6d142c7a88  riga 10238  [?]
+  JP  18。環境変化に耐え切れずレム・イド滅亡。人類はシェルターで細々と暮らす程度に。
+  EN  18. The population of Rehm-Ido, unable to adapt to the rapidly changing environment, is wiped out. Humanity is reduced to living meager lives in shelters.
+
+=== 2a583e8262fa98fab6976cb34d090b5837851a76  riga 10239  [?]
+  JP  19。メシェーラに侵食された超生物やアンデッド兵器が荒野を徘徊する、永い暗黒期の到来。
+  EN  19. A long, dark chapter in history arrives, in which Meshera-infested super-beings and undead weapons of destruction roam the wilderness.
+
+=== c93eb53b09657c59421e6ad73a503ccfaa5634db  riga 10240  [?]
+  JP  20。年月経過で回復したエーテルが風を生みヴィンデールの森が発達。
+  EN  20. The natural reserve of Ether that has been gradually recovering over the years causes a wind to blow, and the forest of Vindale develops.
+
+=== 744c652c6711dcbbaf3b028ad637b90142f52eda  riga 10241  [?]
+  JP  21。メシェーラ環境に適応できる人類が生まれ世界に拡散。シエラ・テール誕生。
+  EN  21. Humans capable of adapting to the Meshera-infested environment are born, and spread throughout the world. Sierre Terre is formed.
+
+=== c3de5a06d5d48e2c8f06df8c0ac170f8facecf34  riga 10242  [?]
+  JP  22。常闇の杖が完成しオルフェ発見。監視を開始。
+  EN  22. The Origin of Vice is completed and Orphe is discovered. He is promptly put under surveillance.
+
+=== 24d2b0bf3fbd6b47b7a526e2aa46c4e01a996e03  riga 10243  [?]
+  JP  23。さらに回復したエーテルがヴィンデールの森を拡大。カルーン滅亡。
+  EN  23. Further restoration of Ether expands the forest of Vindale. Karune is destroyed.
+
+=== ff7e2e766328805a0a66b0cbd977622f650630b2  riga 10244  [?]
+  JP  24。ヴィンデールの森が焼き払われる。
+  EN  24. The forest of Vindale is burned to the ground.
+
+=== 4d2bf29b2981603cf14e8bb45bb880b2777cf937  riga 10245  [?]
+  JP  25。神の間が再度老朽化。潜伏していた混沌の軍勢も活発に。
+  EN  25. The Eternal Seal falls into decay once more. The forces of Chaos that had once been dormant start to awaken.
+
+=== a32a57115bfde9fb635a4569beb43da37a9f2e80  riga 10246  [?]
+  JP  そして、強さと抵抗力を兼ね備えた君が決戦因子として選ばれた…というわけだね。
+  EN  And so, with your combination of strength and resilience, you have been chosen as the Decisive Factor in this imminent battle.
+
+=== e1abe023dd9479ba573a5c6005235d3ac0c70f3a  riga 10250  [?]
+  JP  いい質問だね。現在のネフィアは混沌の神から奪った力を魔力に変換後、陽牢の塔を経由して龍脈に流し込んで生成している。つまり混沌の神がいなくなったらネフィアは維持できなくなるね。
+  EN  That's a good question. Currently, Nefia are generated by converting the power taken from the God of Chaos into magical power, and then channeling it into the Dragon Vein via the Mirage Tower. In other words, if the God of Chaos were to disappear, Nefia would also cease to exist.
+
+=== 23b5f0ea5d3e9ccdc4f44b16b3a71401343bc7ab  riga 10251  [?]
+  JP  ただし、すぐにネフィアが消えるわけじゃないよ。ネフィアのベースとなる遺跡はまた8億程ストックがあるし、魔力も現在対流している分が枯渇するのに最低2000年かかる。それまでに定命も神もネフィアに依存しないシステムを構築していく必要があるね。
+  EN  But that doesn't mean that Nefia will disappear anytime soon. There are over 800 million ruins in the world that can be used as a base for Nefia, and it will take at least 2,000 years for the current amount of magical power in the atmosphere to be depleted. By that time, we'd need to build a new system that doesn't depend on destiny or gods or Nefia.
+
+=== 8d2b6231d8e9166a03f1c63b3169a721f518dd9e  riga 10255  [?]
+  JP  神の間は混沌の神が封じられている場所だね。神の間の役割は張り巡らされた結界によって混沌の神の力を奪うことだ。
+  EN  The Eternal Seal is where the God of Chaos is sealed. As part of their role, the gods were forced to extend a barrier that should consequently steal the God of Chaos' power.
+
+=== a2e7553c7fba4f46df16c472c09bc870b5719bee  riga 10256  [?]
+  JP  やがて奪った力はネフィアを生む魔力へと変換してイルヴァ全土に拡散されることになった。こうして世界に混沌と魔法の力がもたらされることになるわけだが…。それはまた別のお話だね。
+  EN  In the end this energy was spread throughout the world and converted into the magic that produces the ruins of Nefia. It was in this way that magic and Chaos was brought to the land of Irva... But that's a story for another time.
+
+=== 0fd523b84b80b026596a6da790e3505f7881cf53  riga 10260  [?]
+  JP  そもそもの始まりは、神を必要としないまでに人の技術が発達したことだった。その極限にしてエイス・テールの前身…アース・テールと呼ばれる文明。もはやこの星に納まる存在でなくなった当時の人類は、わずかばかりの民を残して星の海に旅立っていった。
+  EN  Long ago, human technology developed to the point where the gods were no longer needed. This development reached its breaking point in the era preceding Eyth Terre... Asu Terre. Human civilization grew to the point that this planet could no longer support them, and the majority left for the stars.
+
+=== c2be7ef1b117a03ac52c8009ef2944e2f3da7708  riga 10261  [?]
+  JP  それまでに信仰が絶えかけ力が衰えていた神々にとって、人類の旅立ちは存在を危うくするほどの一大事。残された定命たちに力を誇示し信仰を確保せねば、神としての存在を維持することができないと誰もが考えていたね…。
+  EN  For the gods - whose power had already greatly diminished due to a lack of believers - this development threatened their very existence. They felt that unless they made a show of power to gain the faith of those left behind, they would be unable to maintain their existence as gods...
+
+=== 4a4c59d283831b021a679343559ac3ea99c6e61f  riga 10262  [?]
+  JP  そしてテスカトリポカによる虐殺が引き金となり、神々の生存戦争が始まったんだ。あの時のイルヴァには、秩序などなかったね…。
+  EN  Tazcatlipoca started the slaughter, and so the war for the survival of the gods began. Irva fell into complete Chaos...
+
+=== 26422d22f859d8a203c3b25f4301ae15b493c53f  riga 10263  [?]
+  JP  …これから先はまだ話すわけにはいかない。すまないね。
+  EN  ...I can't say any more. I'm sorry.
+
+=== 24805887e3f258c531fb52d10730f95d3976c199  riga 10269  [?]
+  JP  セクハラとは感心しないね。いつの時代も定命はやんちゃで困る。
+  EN  Sexual harassment doesn't impress me. It's not the first time a mortal has tried it.
+
+=== bd832cd2658b89cf07fe6d5744ea6f54017baa5b  riga 10272  [?]
+  JP  そんなことはどうだっていい。重要じゃない。
+  EN  There's no need to worry about something like that. It doesn't matter.
+
+=== db2afbd63379042855d38319d61ebbb6248c54b6  riga 10275  [?]
+  JP  そうか…君はそんなやつなんだな。
+  EN  I see... So that's the type of person you are.
+
+=== 3b5f7acf6a6f67d0a8acfe1ab238d51f3edd3b24  riga 10278  [?]
+  JP  ヘンタイ。
+  EN  Pervert.
+
+=== c86d9a4f6f5254b11beb6ebcce6f1a317d07b01b  riga 10281  [?]
+  JP  上から、はちじゅうろ…な、何を言わせる気！？
+  EN  Starting from the top, eighty-fi... w-what kind of question is this?!
+
+=== c0d14a25552426d4f96fd3dfa67dafc98131fd72  riga 10301  [?]
+  JP  君には神の間を目指して欲しいのだけどね。
+  EN  I'd really like for you to aim for the Eternal Seal. Other than that...
+
+=== 55282b37dd4759840abb66b4151a6ff4f6d633c9  riga 10303  [?]
+  JP  ふむ…そうだね。この後、地下の第倉庫を整理する予定があって人手を探しているんだ。
+  EN  Ah, right. I'm going to be looking for some help soon in organizing the  underground warehouse.
+
+=== ba0dc95046d787cccf13c7cb651684828da9cd51  riga 10304  [?]
+  JP  もしも君にその気があるのなら、年月日の午後14時半から15時までの間に話しかけてもらえるかな。
+  EN  If you'd like to help, I'll be working on something from 14:30 to 15:00 on //.
+  occorrenze: 10304 10309
+
+=== ab43f5e01679011c4442c70e1becc4dc31071023  riga 10315  [?]
+  JP  返却する
+  EN  Fine.
+
+=== f93a2910f80e0c7133517c673284136f3279d45b  riga 10316  [?]
+  JP  ただではやれないな
+  EN  Not for free.
+
+=== 8fe807c90cdc5f2d8061b43741ae2fa7b5c4acfc  riga 10317  [?]
+  JP  ようやく来たね。唐突ですまないけれど、君の所有している常闇の眼を返却してほしい。
+  EN  You've finally come. Pardon the suddenness of this request, but I must ask that you hand over the Origin of Vice that is in your possession.
+
+=== 8e183a25901e84bc0909e4c54d2d3f09a97795ac  riga 10321  [?]
+  JP  君は常闇の眼を混沌の眷属から解放してくれた。その駄賃を払うのもいいだろう。けれど人界の通貨はあまり持っていなくてね。とりあえず持ち合わせを全部出すからそれで勘弁してほしい。
+  EN  You freed the Origin of Vice from the clutches of the servants of Chaos. I should like the return the favor. I have little currency of the human world, however. I ask that you be patient with me for now.
+
+=== 46440c8b5179cad8b82e5a82ac718814978e9160  riga 10326  [?]
+  JP  あなたは常闇の眼を返却した。
+  EN  You return the Origin of Vice.
+
+=== ddd73e4646a7e16a34948415e0c2c2eea9471100  riga 10328  [?]
+  JP  おかえり…。叡智の結晶であるこの書物は、大戦の末期に台座ごと人界に持ち去られ、ずっと行方がわからなくなっていた。すっかり魔力を失ってしまったようだけど…それでもこの上なく貴重な資料であることに変わりはないね。
+  EN  You've returned to us at last... At the end of the Great War, this tome of knowledge - pedestal and all - was taken into the human world, and its location has been lost to us since. It appears to have completely lost its magic, but... Even so, that does not alter its status as the most precious tome.
+
+=== 02ee4765600148271110633e4cd16a254a081264  riga 10329  [?]
+  JP  …さて。常闇の眼を解読しているなら気付いているかもしれないが…これに記されているのは人界の出来事のみ。かつてこの地で起きたこと、そして今起きていることを知りたければ始まりのネフィア…混沌の巨城地下にある、神の間を目指しなさい。
+  EN  By the way... If you have deciphered the Origin of Vice then you may already have noticed this, but... Only the affairs of the human world are scribed upon its pages. If you wish to know this land's history, and that of Nefia... Then you must travel to the depths of the Cradle of Chaos, to the Eternal Seal that lies within.
+

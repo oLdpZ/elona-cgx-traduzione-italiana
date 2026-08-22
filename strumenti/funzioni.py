@@ -65,11 +65,23 @@ from strumenti.estrai import argomenti_di
 # is2 e' la copula accordata al NUMERO invece che alla persona (are/is,
 # init.hsp:1768): mancava, e la guardia pretendeva che una frase italiana
 # conservasse un "is". L'elenco e' ora verificato da un test contro init.hsp.
+#
+# ⚠️⚠️ **cnvrank e' morfologia, e la sonda del test non poteva vederla** (85a).
+# `init.hsp:149` e' la desinenza ordinale inglese: `if ( jp ) { return "" +
+# rank }`, e fuori di li' appende `st`/`nd`/`rd`/`th` al numero. E' lo stesso
+# mestiere di `_s`, ma la sonda cercava funzioni i cui `return` fossero
+# **letterali nudi** — e qui i return CONCATENANO l'argomento col suffisso,
+# quindi le sfuggiva. Il prezzo era gia' a schermo: quattro rese italiane
+# scrivevano «Rango del museo: 2nd» e «Livello di sotterraneo piu' profondo:
+# 25th». La resa giusta concatena l'argomento nudo, e quando l'argomento e'
+# un'espressione va fra PARENTESI — HSP valuta senza precedenza (provato al
+# banco, `scratchpad/_85-banco-cnvrank.py`).
 MORFOLOGIA_INGLESE = frozenset({
     "_s", "_s2", "_s3", "_s4",
     "is", "is2", "was", "your", "your2",
     "have", "does",
     "him2", "his3", "its", "its2", "yourself",
+    "cnvrank",
 })
 
 # Pronomi il cui esito dipende dal sito di chiamata, non dal nome: con un
