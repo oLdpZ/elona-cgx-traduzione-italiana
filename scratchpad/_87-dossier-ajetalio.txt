@@ -1,0 +1,308 @@
+=== bedfc788de1e173bcaac72c788f358d85ea2dabe  riga 13954  [?]
+  JP  生活講座担当、アジタリオ・ラーンクリスです。長いのでアジラーって呼んでください。みなさん、これからよろしく。
+  EN  Daily life course director, Ajetalio Lanclis. Please, just call me Ajira. Everyone, best regards from now.
+
+=== 81be44a190fd4ca5b54ebbc608acb7b55f0b9ee6  riga 13955  [?]
+  JP  まずは冒険の基本中の基本、食料の調達方法について話しますね。
+  EN  First of all, we will talk about the basics of adventure and how to procure food.
+
+=== c612ac2390ae8014747c0e90f0500b245b3242f0  riga 13956  [?]
+  JP  最初のうちは街の外で野原にEnterして、落ちているアピの実、栗、薬草を拾いましょう。これらは腐らない上に軽いので携帯食としても保存食としても優秀です。山菜も落ちていますが、これは２日で腐るので注意してください。咲いている花も食べられますが、いい値段なので売った方がいいでしょう。
+  EN  In the beginning you can pick up the api nuts, chestnuts, and healthy leaves found in the field outside the city. They're non-perishable and light, so they're excellent as a portable meal and preserved food. Edible wild plants are also available, but please be careful as they rot in 2 days. You can eat wildflowers, but it is better to sell them because they fetch a good price.
+
+=== 011aa551d73ad0752d1626eb439f371ab8de1804  riga 13957  [?]
+  JP  あとは果物の木ですかね。これにbキー…bash（ぶつかる）することで果物が落ちてきます。種類にもよりますが、結構重いし半日前後で腐るので、早めに処理しましょう。腐らせるくらいなら、地面に置いて仲間に食べさせたほうがいいですね。
+  EN  If you find a fruit tree, use the [b] key to bash the tree and knock down fruit. Depending on the type, fruit can be quite heavy, and usually rots in about half a day, so cook them early. Perishable food should be eaten or dropped on the ground for your friends before it rots.
+
+=== 59fbe407ff0d85fdbf0c0ff4467c3df5dfd48eea  riga 13958  [?]
+  JP  おっと。外で食料を集める時は野生動物に気をつけてください。強そうな動物や、実際強いと感じた相手からは無理せずエリア外まで逃げましょう。入りなおせば他にいくらでも拾えるので、目先の食料に眼が眩まないように。
+  EN  ...Oh, right. Please pay attention to wild animals when collecting food outdoors. If you run into dangerous enemies, leave the area. You can keep reentering the area to find more food, so don't take any unnecessary risks.
+
+=== 7bdc97a5090eca9800de7e16a9e6d42d8ec5074c  riga 13959  [?]
+  JP  長時間の冒険用に、宿屋で旅糧を買いこんでもいいですね。お腹が膨れるだけで強くはなれませんが、飢え死にするよりはいいでしょう。旅糧は緊急用にして、腐らず・腹持ちもよく・能力も鍛えられる食品…パン系を常備するのもありですね。どちらも結構お金がかかるので、余裕ができてから一考を。
+  EN  You may buy cargos of traveling supplies at the inn for long-term adventure. You won't get stronger by eating them, but it's better than starving to death. A skilled adventurer can make nutritious food that doesn't rot, or you can use antiseptic to make food stop rotting... But both of those are beyond the means of a novice adventurer, so just keep them in mind for the future, alright?
+
+=== aa24b56b8d6564e2335e70e1b8bd909ba2f67bd1  riga 13960  [?]
+  JP  街中でお腹が空いた場合は…街によってはパンが置いてあったり野菜が植えてあったります。行儀の悪いことですが、どうしてもお腹がすいている時はこっそり食べてしまいましょう。何もない街でも最悪、宿屋があれば食事はとれます。有料なうえに強くもなれませんけどね。
+  EN  If you are hungry in a city... You can find bread and vegetables placed around. It's bad manners, but you can eat them in secret when you are hungry. Even in a city with no food available at all, if there's an inn, you can order meals. You'll have to pay for them, though.
+
+=== ab3bc473e60d9e19c9b8a4c89f9590f638389036  riga 13961  [?]
+  JP  ああ、仲間は主人から必要最低限の生命エネルギーを分けられているので、吐きすぎない限り餓死しませんよ。と言っても聴診器で診た時に青緑色なら、お腹が空いている証拠です。食料に結構余裕がある場合は与えたほうがいいでしょう。食べさせた方が強くなりますよ。
+  EN  Pets, by the way, will never starve to death unless they throw up too much. They get enough energy to sustain them through their connection with their master. But if you auscultate them with a stethoscope and you see that their HP bar is blue-green, that means they're hungry. If you have food to spare, feed them to make them grow stronger.
+
+=== 6bf1d48c3b5c23b6feb923d34d5720656e1b8560  riga 13964  [?]
+  JP  今日は街の依頼などについて学びましょうか。
+  EN  Shall we learn about town requests and such today?
+
+=== db175d306f406d1e719f2d7c6a4c222883b6f9ae  riga 13965  [?]
+  JP  街の掲示板に触れてみれば、色々な依頼があることに気がつくと思います。達成すれば様々なアイテムやプラチナ硬貨、金貨、名声、発言力、カルマなどが得られます。ただし、失敗すると名声が低下します。ものによってはカルマも減って危険なので、最初から手当たり次第に依頼を受けるのはやめましょう。
+  EN  Touching the bulletin board of the town, you will notice that there are various requests. If you complete them, you get various items and platinum coins, gold coins, fame, karma and so on. However, if you fail, your reputation will decline. Depending on the request, your karma might decrease, which is dangerous, so don't just take requests thoughtlessly.
+
+=== b9b77572c706b8a0483001b2ddc02cfec2d2389c  riga 13966  [?]
+  JP  給料と税金についても話しておきます。毎月１日と１５日に、家の給料箱へ給料や補給品が振り込まれます。税金を滞納していないと補給品の質がよくなるみたいですね。そして給料の額は冒険者としての各種ランキングによって決まります。ランキングについてはjキー…journal（日誌）で確認しましょう。
+  EN  I'll also talk about salary and taxes. On the 1st and 15th of each month, salaries and supplies are transferred to the house's salary box. It seems that the quality of supplies will drop if you are not paying taxes. And the amount of salary is determined by ranking as an adventurer. To see your ranking, check your journal with the [j] key.
+
+=== 3ca1d4d8f4db58c6c89bb1998e2d9db5b8be4580  riga 13967  [?]
+  JP  さて、最初の１月を迎えてからは毎月１日に給料と一緒に税金の請求書も届くようになります。これはこのゼミから東にあるパルミア大使館に持っていくと支払えます。税金は所持金と所有物件、雇用から算出されます。もし悪人として生きていきたくても、最初のうちは毎月ちゃんと払ってください。４か月税金を滞納するとあっという間に指名手配されてしまい、生活が困難になります。
+  EN  By the way, once the first January has passed you should receive a bill along with your salary on the 1st of every month. To pay your taxes, bring it to Palmia Embassy, which is east of here. Taxes are calculated from money carried and properties owned. Even if you want to live as a bad person, you should pay every month in the beginning. If you do not pay your taxes for 4 months, you will lose 60 karma.
+
+=== 2674389511d1397bb22a79d71efcdd43c1303d37  riga 13970  [?]
+  JP  今回は信仰について説明しますよ。神々の干渉がほとんどなかった時代には、いるのかもよくわからない存在に頼らないと自分を律することができない人や、架空の神をでっち上げて人々から金をむしり取る罰当たりもいたそうですが、現在のイルヴァは確実に存在する八柱の神によって統治されています。
+  EN  I will explain about faith this time. In the era when there was hardly any interference of the gods it seems that there were people who can not rule themselves unless they rely on existence which is not well understood or there was a punishment to pick up the fictional god by making up the imaginary god. Current Irva is ruled by the gods of the eight pillars which are surely present.
+
+=== 7e592f0ac685b8a22baf686d50c2b538e203dff3  riga 13971  [?]
+  JP  神を信じ捧げものをすることで、能力の強化、特殊能力、神の化身、秘宝、武器といった具体的な恩恵を確実に授かることができます。俺は神に頼らないぞ！みたいな信条が特にないのなら、とりあえず誰かを信仰しておくべきでしょう。
+  EN  Through belief and devotion to a god, you can definitely gain specific benefits such as strengthening stats and skills, special abilities, powerful allies, unique treasures, and special weapons. Unless you really don't want to rely on gods, you should probably choose one faith or another, at least for the time being.
+
+=== 459c74568217744bf61e9432a48ca52b9e0015f5  riga 13972  [?]
+  JP  神を信仰するなら、パルミアの北…つまりこのゼミから北東にある、神々の休戦地で行うといいですよ。祭壇の上でpキー…pray（祈る）すればその神の情報を見たうえで信仰するか否か選べます。信仰してその神が好むものを祭壇でEnterして捧げていけば、やがてご褒美のお告げがあるでしょう。
+  EN  If you want to choose a god, you should do it north of Palmia, the town east of this seminar, at the Truce Ground. Press the [p] key on an altar, and the basics of that faith will be revealed to you. Choose the god you like, and you'll be rewarded in due course.
+
+=== d5e20a25175f215e13c785d526e4e97d5b0a868a  riga 13973  [?]
+  JP  お告げがあったら、pray（祈る）すれば空からご褒美が降ってきます。もっとも、神の化身は信仰スキル１５、秘宝は信仰スキル２５、武器は信仰スキル４０が最低でも必要になりますけどね。
+  EN  When in danger, pray and you'll be rescued, although you can only do it every so often, so divine intervention is a last resort for emergencies. You can also receive rewards with enough piety and Faith skill: 15 Faith is needed for a divine pet, 25 Faith for a unique treasure, and 40 Faith for an artifact weapon.
+
+=== 6d135c36fa82fa5e1e738d94ed633b34cb0e0e87  riga 13976  [?]
+  JP  さて、最後となる第４回では、本格的な生計の立て方について勉強しましょう。
+  EN  Well, let's study about how to set up a full-fledged living in the 4th final, which will be the last.
+
+=== e3b41c045bb59230620b95a4af2c14f8f4de3316  riga 13977  [?]
+  JP  迷宮に潜って金貨を取ってくるだけでは生計は成り立ちません。今時そんな、迷宮一本で生計を立てられるのは、レベル数百の迷宮を難なく攻略できる化け物くらいです。その化け物だって、強くなるまでにこつこつと稼いできたんですよ。そして、そんな強さになる頃には既に金には困らなくなっている。
+  EN  You can't make a living just by running around dungeons picking up gold pieces. These days, to get by like that, you'd have to be an incredibly strong adventurer who can clear even the most dangerous Nefia easily. And by the time you're that strong, you'll already have enough money to be set for life.
+
+=== 87bab37acacb41a25203937cf4148a1ac6c465f8  riga 13978  [?]
+  JP  強くなるにしても稼ぐにしても、兼業冒険者のほうがやれることが多いぶん有利ですよ。最初は街の依頼で元手を作り、店の権利書を手に入れることを目標にしましょう。微妙な性能で売値も大したことのないような装備でも、自分の店で売るとメイン収入に化けます。
+  EN  Maybe you'll be that strong someday, but for now it's best to fulfill requests in cities and start saving up for your own shop. Equipment in your shop will sell for much more than you could get from shopkeepers in towns.
+
+=== 702d5a6c9d75734d7f1560ddc6eea889e92aed09  riga 13979  [?]
+  JP  店を構える際には、店主を任せるために交渉スキルを持つ仲間も用意しましょう。店物件は１店舗でも充分なので、早めに欲しい物件ですね。専門店を複数並べて収益を増加させる手もありますが、それは余裕ができてからでいいでしょう。
+  EN  When setting up a store, be sure to assign a shopkeeper with good Charisma and Negotiation. Even one store is enough, so it's a property you want early. Eventually, if you feel like it, you could get even higher profits with multiple specialty shops.
+
+=== 8e2c8c931e51d12b65f42780a43a194eecaa26f6  riga 13980  [?]
+  JP  それと並行して、サブ収入として生産系のスキルや採掘、釣り、演奏などから好みのものを冒険の合間に上達させていきましょう。こだわりがなければ全部やったほうが効率がいいくらいです。迷宮でアイテムを集めるほどの戦力や気力が無いような時でも、これらの手段は使えますからね。
+  EN  Along with that, work on crafting skills: Mining, Fishing, Performer, etc. Do what you enjoy doing and sell the results. Even if you aren't strong enough to gather items in a dungeon, you can still get by like this.
+
+=== adae250e772b74c1279aec1bf3da8986f96bcfad  riga 13985  [?]
+  JP  食べちゃダメなものは？
+  EN  What things shouldn't I eat?
+
+=== 85fc2d89518e5641945da516fd3e46988fd77909  riga 13986  [?]
+  JP  お腹が減るとどうなるの？
+  EN  What happens when I get hungry?
+
+=== da5f9a69773ba861899dd8c7299368d89f8fed86  riga 13987  [?]
+  JP  料理ってどうやるの？
+  EN  How do I cook?
+
+=== c14068ea77d3a3a1b8d7eab865b1eb19630ee6de  riga 13988  [?]
+  JP  アジラーの好きな食べ物は？
+  EN  What's your favorite food?
+
+=== d211c7133684408ebb6c82d471af0517329e9303  riga 13991  [?]
+  JP  どういう依頼を受ければいいの？
+  EN  Which quests should I undertake?
+
+=== a01b1b2184fdebd9d86c87c1729ee6cb414ddc5b  riga 13992  [?]
+  JP  ネフィアにはどんな種類があるの？
+  EN  Are there different types of Nefia?
+
+=== 130a3f3c4bb131434dcd50f5808f2c8b3859b133  riga 13993  [?]
+  JP  カルマが減るとどうなるの？
+  EN  What happens when my karma gets low?
+
+=== 4e0ac8c212a192c2f92879e15993190d0db1a625  riga 13994  [?]
+  JP  発言力って？
+  EN  What is authority?
+
+=== 0542edd2fc5bf303c90a2ff7026fb410b7a139b1  riga 13995  [?]
+  JP  街が大変なことになったら？
+  EN  What happens when all hell breaks loose inside towns?
+
+=== 3dd371dbcb674cab5db6a4d5b356a903bb058e63  riga 13998  [?]
+  JP  祭壇がなくなったら？
+  EN  Could you tell me about altars?
+
+=== 04aee8634b9c0b66987a18f7d3972c28d0429277  riga 13999  [?]
+  JP  信仰スキルってどうやって上げるの？
+  EN  How do I increase the faith skill?
+
+=== 07be710553698d11174a46c2d1455ca29a687198  riga 14000  [?]
+  JP  おすすめの神様は？
+  EN  Which god do you recommend?
+
+=== d49a4704bc652dd25bd432299e6767669e4c6006  riga 14001  [?]
+  JP  アジラーの前髪は腐ってるの？
+  EN  Why are your forelocks so disgusting?
+
+=== d85b13c6dc9da567ed1089ac32536c991391ca14  riga 14004  [?]
+  JP  店以外のおすすめ物件は？
+  EN  Which buildings other than shops do you recommend?
+
+=== 9c0899f89ffa02621332b07cb8f2877c68c3855b  riga 14005  [?]
+  JP  交易について教えて？
+  EN  Could you teach me about trade?
+
+=== 5338a4de2b01b9206829d29ac564d669b8af8586  riga 14006  [?]
+  JP  お金に余裕が出てきたら？
+  EN  What should I do with extra money?
+
+=== 23089d655f5769df42ef7eb42e48fd505259b809  riga 14007  [?]
+  JP  お金があり余るようになったら？
+  EN  If I become rich, what should I spend my money on?
+
+=== c053f3918e3ffeae40951434f1ad79a9efb21dde  riga 14009  [?]
+  JP  何か質問はありますか？
+  EN  Any questions?
+
+=== 208b542f1cca90875dbfcd6f925640f5e409c4e4  riga 14012  [?]
+  JP  いい質問ですね！呪われているものは食べると吐いてしまい、逆にお腹が減ったり場合によっては即餓死したりします。呪われているかは鑑定することでわかりますが、空腹の仲間の足元に置いてみて食いつくかでもわかります。どんなにお腹が空いていても、仲間は呪われている食べ物には手を出しません。
+  EN  Now that's an excellent question! If you eat cursed food you'll begin to vomit, but on the other hand if you don't eat anything at all you will starve to death. You can find out if food is cursed by identifying it or letting your allies taste test the food for you. No matter how hungry they are, allies will not eat cursed food.
+
+=== a8fc3bcb47c3d2353c62f2fcdd2a32d948c01da9  riga 14013  [?]
+  JP  あと、腐ったものを食べると能力が永続的に下がります。腐っていても消化できるようになる装備もありますが、クーラーボックスや四次元にしまって腐らないように対策しましょう。
+  EN  Also, if you eat rotten food your attributes will decrease. Even though there's equipment that helps with digesting rotten food, it's better to put your food inside a cooler box or a 4 dimensional pocket so it doesn't rot to begin with.
+
+=== a0f23b32e09a7f01e6b4726236b6ff18644a2f1c  riga 14014  [?]
+  JP  ただし、特定のアンデッドの死体は見た目上腐っていなくても腐っているので気をつけて。骨のやつなんかは大丈夫ですが、動く死体系のやつらは腐っていますよ。
+  EN  However, some body parts of undead corpses that may not look rotten can still make you sick due to the nature of the undead, so be careful. Bones are fine though, but the rest of the corpse will be rotten.
+
+=== 9e0c75e0ad744140660f0806cdea94444d8a6656  riga 14015  [?]
+  JP  他にはエイリアンなどの寄生生物の死体を食べると寄生、輝くハリねずみやウィスプなんかはエーテル病を進行させます。発狂したり毒になる死体もあります。怖いですか？でもプチ系や馬系みたいに能力に経験値が入るものや、サソリや妖精みたいに属性耐性を得られる特殊なものもあるので、対策を用意したうえで色々食べて覚えていきましょう。
+  EN  Eating alien or parasitic corpses will give you parasites and eating shining hedgehogs or wisps will give you Ether disease. There's also corpses that will make you go mad or poison you. Are you scared yet? However eating putits, horses, or similar things can increase your abilities and give experience points, and eating scorpions, fairies or similar things can increase your elemental resistances. Remember all of this and plan ahead your meals.
+
+=== 16ad369b6b0545405bbf0f230d6780734ca2657b  riga 14019  [?]
+  JP  死にますね。お腹の減っていることに気づかず歩き続けて死ぬ冒険者は多いんですよ。そんな馬鹿なことはないだろうと思うかもしれませんが、結構多いんです。餓死中になる前に、何か胃に入れておきましょう。特に戦闘中は食事するのが困難になるので、腹ごしらえを出来る時にしておいて下さい。
+  EN  You gotta eat or you'll die. There's a lot of adventurers that don't notice that they get hungry and starve to death during their travels. You'd think such foolishness wouldn't exist, but apparently it's quite common. If you're about to die from starvation, just eat something. Because it's difficult to eat during combat, try to eat whenever you're able to.
+
+=== cb9fd19357784f80b936c9b096e8f1e15db5e330  riga 14020  [?]
+  JP  ああ、仲間は主人から必要最低限の生命エネルギーを分けられているので、吐きすぎない限り餓死しませんよ。と言っても聴診器で診た時に青緑色なら、お腹が空いている証拠です。食料に結構余裕がある場合は与えたほうがいいでしょう。食べさせた方が強くなりますよ。
+  EN  Oh, and allies will share enough life energy with their master to keep them alive, and as long as they don't vomit too much they can't die from hunger. If you do a checkup with a stethoscope and the result is blueish-green, then the belly is empty. If it's possible, you should eat high quality food. Eating good food strengthens your body.
+
+=== 64ee7db960c3aa227539945c1510c130422ac3e1  riga 14024  [?]
+  JP  料理スキルがあるなら、調理器具を使うことで料理ができます。料理すると、腐るまでのタイムリミットと心身を鍛える効果が大幅に伸びるので、できるようになっておきたいですね。料理の達人になれば、ひとつの素材から複数の料理を作ることができます。腐ったものも料理の練習台にするくらいの気持ちで頑張りましょう。調理器具によって、どこまでの料理を作れるか限界があるので一度道具説明欄を見て下さい。
+  EN  If you have the Cooking skill, you can cook using cooking utensils. Cooked food decays much more slowly and strengthens you more, so it's a useful skill. Depending on the cooking utensils, there is a limit to how good of a dish you can make, so use [X] to examine them.
+
+=== 303c7f18cd1f306cb8ac519daf5bd47f2edd4bdb  riga 14025  [?]
+  JP  料理とは少し違うけれど、ミキサーを使えば野菜や果物をジュースにすることもできますよ。お腹はあまり膨れませんが、その分多く栄養を摂取できます。呪われていたり腐っている物でも無害化して有効活用できます。
+  EN  It's a little different from cooking, but you can also turn fruits and vegetables into juice with a juice mixer. Although they aren't particularly filling, they're still nutritious. Even cursed or rotten things can be made into juice without any problems.
+
+=== 791f033d5b6365a4b3fdfbadc7a538f5392a5420  riga 14029  [?]
+  JP  えぇぇ…僕の好物ですか？そ、そうですね。ハーブでしょうか。腐らないし軽いし、心身も鍛えられるんですよ。料理に合成すると最高ですね。
+  EN  My favorite kind of food? That'd be herbs. They're light, they don't rot, and they strengthen your mind and body. They're even more amazing when combined with other food.
+
+=== cf77f9f8118f0cafb4c5884e5e6de221b280e551  riga 14032  [?]
+  JP  大別して、地殻変動で出たり消えたりするランダムネフィアと、地殻変動で消えない固定ネフィアがあります。
+  EN  There are two types in general - random Nefia that appear and disappear with tectonic diastrophisms, and unique ones that stay static.
+
+=== 6b1762b1277b75516a52d6761628f6106b9a2c1c  riga 14033  [?]
+  JP  ランダムネフィアは３層で構成され、最下層のボスを倒せば攻略完了となり宝が手に入ります。ボスを倒す前に最下層から逃げると、失敗となり攻略不能になります。あと、ランダムネフィアの表層以外の階層には、金貨が集められている箇所が必ず存在します。なんだかネフィアが冒険者を誘っているみたいで不気味ですが…ありがたく拾っておきましょう。
+  EN  Random Nefia have 3 floors and a boss on the bottom floor that drops treasure when defeated. If you escaped from the last floor before defeating the boss, you'll fail to clear the Nefia and won't be able to try it again. Random Nefia also have gold pieces scattered throughout them - but never on their first floor. They're like bait to attract adventurers... creepy if you ask me, but hey it's free money.
+
+=== d9a6e9b80657d3b4e9b368b18fe60d1abeeea891  riga 14034  [?]
+  JP  固定ネフィアは位置も固定されており動きません。外見や名前が固有のものが多いので、ランダムネフィアとはそこで判別してください。２層程度の浅いものから４０層以上あるものまで様々です。独自のルールや環境を持っている固定ネフィアもあります。
+  EN  Unique Nefia will always be on the same spot. Most of them also have a unique appearance that allows you to tell them apart from random Nefia. Inside, they can range anywhere from 2 to 40 or more floors. Some of them even impose special conditions or have unique environments.
+
+=== cd0e9f1cd0d91b7db12e3f2b51a0e4d0c3491383  riga 14035  [?]
+  JP  ランダムネフィアは元となった遺跡に応じて８タイプあります。それぞれ住み着いている種族が違うので、目当ての魔物を探す時は対応したタイプのネフィアを探すといいでしょう。固定ネフィアは基本的に種族のごった煮ですが、そうでないものもあったりと一概には言えませんね。
+  EN  Random Nefia can be classified into 8 types, depending on the ruins that they are based on. Nefia type dictates the races of monsters that inhabit it, so if you're searching for certain types of monsters, you can narrow down the Nefia you need to search. In general, unique Nefia are inhabited by every monster race, but there are some exceptions.
+
+=== b5df746cdc6768ac906e423b069ef18cb8fe011a  riga 14036  [?]
+  JP  最初は調達依頼がオススメですね。必ず依頼物を確保してから受けること。街から街へ難なく移動できる食料・装備が整ったら、配達依頼もやっていきましょう。失敗するとカルマが減るので、移動日数をちゃんと計算に入れて受けましょう。
+  EN  At first, it's recommended to fulfill requests for items. Be sure to have the requested item handy. Once you have food and equipment and can travel between towns without difficulty, start doing delivery requests. If you fail, you'll lose karma, so check the deadline carefully.
+
+=== cbf33b308198ba3a6957e6b72201d8e605ec7d6d  riga 14037  [?]
+  JP  その辺の野外にいる野生動物を軽くあしらえるようになったら、収穫依頼もいいですね。作物を引き抜く際にちょっと身体も鍛えられます。ノルマの数倍のスコアを出せば報酬が増えたりブロンズ硬貨ももらえたりするんですけど、最初は難しいでしょうね。収穫依頼もこなせるようになったら、討伐依頼や短距離の護衛依頼に手を出してもいいかもしれません。
+  EN  If you can handle wild animals, you can also do harvest requests. Picking crops is a good way to get stronger. If you score several times the quota you'll get more rewards and bronze coins, but at first it'll be difficult. If you're strong enough, you might want to take requests for killing monsters or escort requests for nearby towns.
+
+=== c0863738813023b3d84292a8fc5fe05d3e31dc35  riga 14038  [?]
+  JP  芸人依頼は演奏スキルを最低でも５くらいにしてから挑みましょう。レベルの高い人に聴かせると殺されかねないので、練習でも本番でも聴かせる相手は選んで下さい。
+  EN  Start doing party requests after getting your perform skill to at least about 5. If you perform near high-level people, you may be killed, so please be careful who you perform near to, both when practicing and during a request.
+
+=== 0620df553626d16c70efabb043ba72173c8ef880  riga 14042  [?]
+  JP  カルマが－３１まで下がると、犯罪者として指名手配されます。街中のガードが一斉に殺しに来て、店の人も物を売ってくれなくなります。ガードを一蹴できる強さと、変装手段を確保するまではカルマを下げすぎないよう慎重に行動してください。
+  EN  If your karma is -31 or lower, you will be considered a criminal. Guards in towns will attack you and shopkeepers will refuse to do business with you. Be careful not to let your karma drop too low, unless you're strong enough to defeat guards and have a way to disguise yourself.
+
+=== 366af6fc1db4766d1a1f9878434b7bff87014159  riga 14043  [?]
+  JP  もし、思いがけず犯罪者になってしまったら。このゼミから南西にある、ダルフィという街を拠点にして依頼などでカルマを上げてください。ダルフィにはガードがおらず、犯罪者でも店も使えますからね。
+  EN  If you accidentally become a criminal, raise your karma by taking requests in the city of Derphy, which is southwest of this seminar. There are no guards in Derphy, and the shopkeepers will still do business with you.
+
+=== 458950efc52c84d53b4d70751ac10eec8f54fb17  riga 14047  [?]
+  JP  発言力は街への貢献度の証。そこの管理者や長に話しかけることで、発言力を使って街の管理代行を行うことができます。…と言ってもまだできたばかりの制度で、やれることは少ないんですけどね。現段階では、依頼のついでで貯まっていくものだと認識してください。
+  EN  Authority is a proof of the degree of contribution to the city. By talking to the manager or the chief there, you can use authority to manage the city. ...Although, to be honest, there's very little you can do with it at the present stage. Perhaps in the future some use will be added, but for now it's mostly just something that accumulates when completing requests.
+
+=== e266ddb45b494d83097ede9f68014bdfad3c3b60  riga 14051  [?]
+  JP  街が大火事になったり、モンスターが湧いて虐殺が始まることがよくあります。よくないことだけど、よくあることなんです。…ごほん。火の消し方とモンスターの出現を止める方法を教えておきましょう。
+  EN  Fire blazes through the city, monsters rampage, complete genocide... Terrible. Also distressingly commonplace. Let me tell you how to put out fires and stop monsters from appearing.
+
+=== e496d4238384140074ba2029bf8588b4e850bfca  riga 14052  [?]
+  JP  まず火の消し方。火が一つ二つなら、手持ちのポーション類をそこにＴキー（shift+t）…Throwすることで鎮火できます。水たまりを誰かが踏むと怒られるので、自分で踏んで消しておきましょう。ポーションを上手く投げられなかったり、火が四つ五つに増えてきたら、蜘蛛の巣や闇の霧、水系の魔法を使いましょう。杖版でもいいですけど。これらは対象範囲の火を消してくれます。そんなものは持っていなかったり、火が燃え広がりすぎている時は、雨の日までその街には近寄らないことをオススメします。
+  EN  First, how to put out fires. If there are only one or two, you can throw a potion with [T] and the puddle will put out the fire. If someone steps in a puddle you made, they'll get angry, so step on it yourself first to get rid of it. If there are five or so fires, use spells or rods of Web, Mist of Darkness, or Acid Ground. Any more than that and you should just leave the city and return when it's raining.
+
+=== 89059723d76370082fb460942bf2a299ea2b98e1  riga 14053  [?]
+  JP  続いてモンスターが湧く場合。井戸を飲んだ時に出てきたものは、倒してしまえば終わりです。しかしモンスターを無限に召喚する装備を付けた冒険者が徘徊していることがあります。これは、犯人を見つけてその装備を没収しましょう。
+  EN  If monsters appear when you drink from a well, you can just kill them. If they show up at other times, there might be a nearby adventurer wearing equipment that summons monsters. Track the adventurer down and trade for or pickpocket the equipment.
+
+=== f43058b9034641d7410791ff511daaf779e29388  riga 14054  [?]
+  JP  エイリアンなどの寄生生物が腹から出てくることもあります。腹にいる間なら毒や染料、硫酸を飲むことで完全駆除できますよ。寄生されている人には渡せば素直に飲んでくれます。むしろ飲ませないと宿主が生きている限り無限に産まれてくるんです。
+  EN  Parasites like aliens can infest people. They can be removed by drinking poison, dye, or sulfuric acid. If you give one of those to an infested person, they'll drink it. If you don't, they'll spawn monsters forever, so be sure to cure everyone who's infested.
+
+=== fd4df03c8644705736ada0124fa272e935423774  riga 14055  [?]
+  JP  寄生生物がすでに産まれすぎていたり、モンスターがモンスターを召喚したり、分裂して増殖しているケースもありますね。相手が倒せる強さなら、壁生成で囲って各個撃破しましょう。倒せない場合、街から脱出してください。５日ほどして様子を見に行くと、いなくなっているはずです。もし少し残っていたら、また日を改めましょう。
+  EN  Sometimes parasitic organisms or monsters that summon more monsters will overrun a town. If you can kill them, try using spells or rods of Wall Creation to isolate them and defeat them one by one. If not, just leave and wait about 5 days, and things should be back to normal when you return.
+
+=== 06720a8eca50edcb3a73882c9dfa12787998a054  riga 14059  [?]
+  JP  違う神の祭壇に捧げものをすることで、その祭壇を乗っ取って上書きすることができます。何も考えていないと、次に信仰したい神の祭壇が無くなることもあるでしょう。神の祭壇は特定の場所に置いてある分か、ネフィアでごく稀に生成されるものしかありません。後者が目当ての神のものである確率は単純に考えて八分の一です。代わりを確保していない状態で無計画に乗っ取るのは止めておきましょう。
+  EN  If you sacrifice to your god at the altar of a different god, your god can claim the altar. This gives extra piety, but be careful, or you might lose access to a god! You'd have to spend ages looking through Nefia to find an altar to them later. Just don't mess with the altars at the Truce Ground, alright?
+
+=== e4264a98633abee96e3b2367bcf6617a860a533f  riga 14063  [?]
+  JP  信仰スキルは、夢を通じて神の偉大さを感じることで受動的に上昇します。また、信仰スキル１０以上の時にレベルアップすれば、広域技能の説法を習得できます。説法で聴衆を満足させることができれば、信仰スキルを能動的に上昇させられますよ。
+  EN  Faith is trained passively by meeting saints in your dreams. Also, if you have a Faith of 10 or higher, you can master the art of preaching. If you can preach successfully to an audience, you can actively train your Faith skill.
+
+=== 2185416d446a9989296e6cd3ed68ae8adc2d0b26  riga 14067  [?]
+  JP  最初は、捧げものが簡単で生存能力を強化してくれるオパートスやジュア、生計を助けてくれるヤカテクトがいいでしょうね。アイテムを大人買いできる資金ができてきたらマニやルルウィ、イツパロトルも簡単です。エヘカトルは釣りができるようになってから、クミロミは農業ができるようになってからが無難です。
+  EN  At first, it'd be nice to worship Opatos or Jure, who are easy to gain piety with and enhance your survivability, and Yacatect to help make money. Mani, Lulwy, and Itzpalt are also easy when you can afford to buy items to offer to them. Ehekatl needs Fishing, and Kumiromi needs Gardening and a farm.
+
+=== f7b5d7771498f547f6e1f6f0b7a86a77b4dcc953  riga 14068  [?]
+  JP  多くの冒険者は、神々を何柱か信仰してご褒美をもらった後に最終信仰を決めていますね。全ての神を信仰コンプリートする者も少なくありません。神々は能力も性格も個性的なので、最終的には自分のスタイルに合っている神を選ぶといいでしょう。もちろん、面白さとか可愛さとかで決めてもいいんですけどね。
+  EN  Many adventurers collect rewards from all eight gods before deciding who to truly believe in. Gods have individual personalities, so you might want to stay with a god that fits your personality. Or you can just go with whatever sounds fun.
+
+=== 59da4b193fbc1f17b49f376fbe7f0ff869ae7cdf  riga 14072  [?]
+  JP  …これはファッションです。腐って変色しているわけではないのです。
+  EN  ...This is fashion. It is not rotten and discolored.
+
+=== e1e910a9cc62b6aa80ff7defc8959c7f5dfb8f1a  riga 14075  [?]
+  JP  店以外の物件では畑、牧場がいいでしょう。前者は栽培スキル、後者は解剖学スキルが必要ですが、いいお小遣いになりますよ。特に畑は、充分な栽培スキルがあればハーブも増産できますしね。
+  EN  After the shop, it'd be nice to have farms and ranches. The former requires Gardening, while the latter requires Anatomy, but both are worthwhile. Especially farms, since you can grow herbs with enough Gardening.
+
+=== 0b230dc188e8b0edb880fac4d78b3b77245121f7  riga 14079  [?]
+  JP  交易には、各地の交易店でのみ売れる交易品が必要です。交易品は旅糧以外の（荷車）アイテムのことで、荷車に積まれます。街ごとに安いもの高いものが違うので、荷車の積載限界まで積んで別の街まで運び、差額を利用して稼ぐことになります。交易品を工具で自作したり、盗賊団から強奪すれば効率が上がります。
+  EN  Trade uses cargo items, which can only be sold to traders in towns and are carried in your cart like traveler's food. Each city has a type of cargo that's cheaper there, so you can fill your cart with it and sell it for a profit in another city. You can also craft cargo yourself, or defeat bandit groups and take their cargo.
+
+=== dc2c4895b3775440bdb28a13267cd98c9a5810e1  riga 14080  [?]
+  JP  ただし、「交易だけ」で大儲けするのは大変です。生活費分くらいは余裕で稼げますが、基本は街から街へ移動するついでに併用して行うものですよ。なお、他所からの交易品を売却すると、額に応じて街の経済が活性化し、一時的に他店の品物数も増えます。そちら目当てで交易するのもいいでしょう。
+  EN  Still, it's hard to make a living solely through trade. It's generally more of a bit of extra profit for adventurers who'd be travelling between towns anyway. Selling cargo from distant places also boosts the economy of a town, so the local stores will have more things for sale.
+
+=== 03ed6234f497f58b35c576317cf5dd23c3486791  riga 14084  [?]
+  JP  所持金に余裕があるなら、地面に落ちている金貨は拾わずに仲間に拾わせるといいでしょう。勝手に訓練に行ってくれるようになります。…これは育成講座の分野ですかね？
+  EN  If you have plenty of money, when you find gold coins lying around, let your allies pick them up instead. When you're in a city, they'll spend the money on training to keep their skills sharp.
+
+=== c0024cb537a84b1cabb8839f085c348dc71ff792  riga 14085  [?]
+  JP  後は、装備を強化して性能を底上げしていきましょう。＋６までは対応する巻物で強化できますが、武具店で＋１０まで強化できます。現行でいい感じの防具などは、ケチらずに強化しておくと後で仲間のお下がりとして重宝しますよ。また、装備している物の平均＋値は力の解放…ゲージ技の威力にも影響します。平均＋１０でダメージが５倍以上まで伸びるので、憶えておきましょう。
+  EN  It's also vitally important to enhance your equipment. Even if you get new gear later, you can give your old things to an ally. Scrolls can enhance gear up to +6, but a blacksmith can enhance gear up to +10. Also, the average enhancement level of your gear determines the power of Gauge Release attacks. Remember, a +10 weapon is at least five times stronger, and each + on everything else you have equipped makes you more durable.
+
+=== c6907fdc1e67007f9829338e9192c7e134f6899e  riga 14086  [?]
+  JP  …っと。これは道具講座の分野ですね。つまり、お金は生計を立てるだけでなく、様々な戦力強化にも絡んでくる材料なんです。惜しまずにちゃんと使っていきましょう。先に安定した収入基盤さえ作っておけば、また稼げるんですから。
+  EN  Money isn't just important for survival, but also for getting stronger. The sooner you get a steady source of income, the better. Gotta spend money to make money, y'know.
+
+=== a8cf3b4f59a9339e763adb60009ced48d23a4ae1  riga 14090  [?]
+  JP  お金があり余ってきたら、よく使う店に投資しましょう。自宅に招いてる店に投資するようにすれば、特定の街に縛られずに引っ越しができますよ。投資すると扱う品物の質や数が向上します。規模１５０もあれば十分でしょう。
+  EN  When you can afford it, invest in stores you use often. You can invite merchants to your house to have a better selection than you'd get in a city. Investing improves the quality and quantity of goods available. A rank of 150 should be enough.
+
+=== de0d97e3782a760f67648b91083bf1b56a60bb27  riga 14091  [?]
+  JP  それでも余ったら？うーん…仲間を増やしてみるとか、複数の武具店やブラックマーケットにさらに投資するとか？特に何もなければ、貯金箱に入れておいたほうがいいですよ。現在の所持金に応じて税金が増えるだけですからね。
+  EN  With your remaining money... Well, you could hire more allies, invest in blacksmiths, or maybe a black market? If you don't need to spend the money, you should put it in a kitty bank. You're only taxed based on the money you're carrying.
+
+=== 0f40dec15e008305ad1837075bc78e79e4a46b55  riga 14095  [?]
+  JP  じゃあ質問のある人は直接聞きに来てください。
+  EN  Now, if anyone has further questions, please come and ask directly.
+
