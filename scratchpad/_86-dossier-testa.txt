@@ -1,0 +1,208 @@
+=== 51b2986baf31d607c92493fc3e177dc40c90b99d  riga 1215  [?]
+  JP  は消え去った。
+  EN   vanish.
+
+=== d6389b301d81d81af7360245eebd0570d449fd4c  riga 1236  [?]
+  JP  礼を言うぞ…この地と神々については常闇の眼でも知り得なかったことだ。果たしてお前達に《混沌》を止めることができるのか見物させてもらおう。それにしても…奴はなぜここにいない…？
+  EN  Thank you... I could not even know about this land and the gods with the <Origin of Vice>. Let's see if you can stop <Chaos>. Anyway... why isn't he here...?
+
+=== 0707f2360ba5cd980da3c108e91cc3a352bf795f  riga 1240  [?]
+  JP  ここまで辿り着くとはな…どうやら《混沌》は、自ら創りしネフィアの安定さえも望まぬらしい。しかし、私とてここで死ぬつもりなどないのだ。
+  EN  So, you've made it this far. Evidently, <Chaos> wants no stability even within their own creation... Nefia. Well, it seems they have left me no choice but to whip you!
+
+=== 3ce628e836d038eb9efd8d2515af2509c6716e93  riga 1249  [?]
+  JP  ああ、聡明なるレシマスの常闇の眼よ！ 新しい主は、どうやらお前の本当の価値を知らないようだぞ。…だが、心配しなくてもいい。このは、そこで死んでいる老人のように、たまに本を開いては下界の嘘に満ちた歴史を嘲笑い、自己満足にふける以外の使い方を、きっと見つけてくれるだろう。
+  EN  Oh omnipotent <Origin of Vice>! It seems your new master knows not your true worth... But don't worry. While your former master was content to gaze upon your pages and sneer at peoples' lies, this one will doubtless find a more interesting use for your powers...
+
+=== bc97a96240dff11400094bd6ceb664b75c6fbccd  riga 1250  [?]
+  JP  (青年は見下したような笑い声をあげ、あなたに向き直った) さあ、これ以上愚かな詮索の表情を続けて私を落胆させないでくれ。お前が眺めている本には、真実の歴史を刻み、過去の文明の歩みを記録する魔力が秘められていると知ったのなら。
+  EN  (The young man laughs haughtily and turns toward you.) Now, please, stop looking at me with that foolish questioning gaze. The book you see here contains the true history of this world, recorded by the magical power of an ancient civilization.
+
+=== 61535dd32a4c6041d8567481e7885637bb120d15  riga 1251  [?]
+  JP  そう。この本に書かれていることは、全て偽りなき歴史。シエラ・テールの、そして過去の偉大なる文明の栄光と衰退の軌跡が記されている。その価値を、わざわざ説明する必要もあるまい？
+  EN  Yes, this book contains this world's complete and unvarnished history. The glory and decline of Sierre Terre, Rehm-Ido, Eyth Terre, and all the great civilizations of the past are written within. I trust you understand the value of that?
+
+=== e3066c2e432e66430dcb0ad89b36be4487881a73  riga 1252  [?]
+  JP  ひとつ警告しよう。台座から離れた時、それは魔力を失い、変哲の無い一冊の本と化すのだ。新たな歴史が刻まれることはなく、正当性を証明するすべもなくなるだろう。
+  EN  One warning: if removed from its pedestal, it loses its magic and becomes an ordinary book. No new history will be recorded and there will be no proof of its legitimacy.
+
+=== bfcc791dd8a0f843e4922e837bf4277e2221ccdd  riga 1253  [?]
+  JP  本を所有する者はまた、偽りの歴史を動かす勢力から、自らの命を守る必要にも迫られるだろう。このアーティファクトには、それだけの価値があるということだ。そしてお前には…エレアの風を聴く者と出会い、言葉を交じあわせたお前には…それがどれほどの意味を持つことか、理解していなくてもだ…そうだな、少なくとも我々を楽しませてくれるような使い方を期待しているよ。
+  EN  Those who safeguard this book will be targeted by those who falsify history, since it would be their undoing. Also, you... who met and spoke with the Elea, Listener of Wind... What meaning that has, even if you don't understand... Yes, that's right, you'll at least entertain me...
+
+=== 5ccae84d0ed8f785df12db70fb8256c5b397d666  riga 1254  [?]
+  JP  もちろん、本を下界に持ち出すかどうかはお前次第だ…少なくとも、選択という行為に、私が予期できない偶然がある可能性を、お前が信じるのなら。
+  EN  Of course if you wish to bring the book to your lower world, that's your choice... That is, if you believe that you can make a choice I have not already foreseen...
+
+=== 618b806080335f9e8369cec19fcd12fdcb565c06  riga 1261  [?]
+  JP  よそへいってくれ…
+  EN  Leave me alone.
+
+=== 4fcd27000955154e3278cc115787bb8ff856d944  riga 1277  [?]
+  JP  記憶の灯から暖かい光が広がる…。
+  EN  Light of Memory emits a warm light...
+
+=== aa6a310e0ab2b2b83c60237aaaa668982591f891  riga 1305  [?]
+  JP  ユーリ…せめて貴様が首を吊らなければな。おおかた獣に喰われてアリシアを忘れるのを恐れたのだろうが…。ザレッタは今でもあの場所で、貴様のことを心配しているだろうよ…！
+  EN  Yuri... you should be hanged, or worse. I fear you have even forgotten Alicia, eaten by wild animals. Even now, back there, Zaletta still worries over you!
+
+=== 8ebce0a4251d8c0be10a9c7ce6191985fb60cbb6  riga 1308  [?]
+  JP  大丈夫だ、ドールのことをまだ全部は忘れていない…。つまり国はどうにか持ちこたえているということだ。
+  EN  It's alright, not all of Dole has been forgotten. Ultimately, the nation will endure one way or another.
+
+=== d5017b4ebfdf823a1f18b4f66ce827e0ccecf2e5  riga 1311  [?]
+  JP  こんなことになるのなら、ドールを発つ前にザレッタと話をしておくべきだった。…そうか。まだ俺はあいつに未練があったのか。我ながら女々しいことだ。
+  EN  If it's come to this, then I should have talked with Zaletta before I left Dole. ...Really, I still had some feelings left after all? How womanish of me.
+
+=== ef78488fdeb0ac69c70f984f8c369143afb97965  riga 1314  [?]
+  JP  今思えばオズム皇子はエルシアを共通の敵に仕立て上げるのが目的のようだった。青髪のルーファスと結託して何か企んでいたのかもしれん。だが今となってはもうどうでもいいことだ…。
+  EN  If memory serves, Prince Ozmu aimed to set up the Elsians as a common enemy. He conspired with Rufus of the Blue Hair to form some sort of scheme, perhaps. But as for what came of that, none of it matters now...
+
+=== 1a8d451285dd758e65a0decbf6682eaf22640e9a  riga 1317  [?]
+  JP  まさか、このような田舎の町で白い鷹が死に、紅血も死を待つだけになるとはな。おいユーリ…俺たちの歯車はどこで狂ってしまったんだろうな？
+  EN  Unbelievable, that in a backwater village like this, with the White Hawk dead, the Crimson would simply wait to die. It can't be possible. Hey Yuri... somewhere, did our gears go askew?
+
+=== 3fa08227d1de811a1a7e28d676ffbeab96db8d4b  riga 1319  [?]
+  JP  …なんだお前は？じろじろ見るな。うせろ。
+  EN  ...What's with you? Quit staring. Beat it.
+
+=== 51ba62c5cddc35c4768b8c4a9adaab78093ffed3  riga 1336  [?]
+  JP  記憶の灯から暖かい光が広がる…。
+  EN  The Light of Memory emits a warm light...
+
+=== b27e2a5aff2dc84e6ac5984c9b45db0a9ed2eb5c  riga 1364  [?]
+  JP  邪魔だ。話しかけるな。
+  EN  Don't talk to me. You're in my way.
+
+=== 62989479276398e4cc08d7a898645c62c7482cd8  riga 1370  [?]
+  JP  気安く声をかけるな。
+  EN  Don't speak to me like we're friends.
+
+=== a65e03a4d58283b1ca693b31e0fd0230ff399fbe  riga 1378  [?]
+  JP  …離れろ。しつこいぞ。
+  EN  ...Leave me alone. Damned pest.
+
+=== e63d19c3905a232c3de7a8d14fcb267cae68a4cb  riga 1383  [?]
+  JP  このノートを読めと？…読んだらすぐに消えろ。
+  EN  You want me to read this? ...Fine, but you'd better get the hell out of my face afterwards.
+
+=== d6d77ff0a8509584822bf7585b8f278a2b14aaeb  riga 1386  [?]
+  JP  これは…。
+  EN  This is...
+
+=== cf343254d36817e7981e55b9db4685a610736560  riga 1390  [?]
+  JP  この件は既に解決している。所員は施設内で全員死亡、一人逃げた所長も「処分」済みだ。被験者とこの研究員の遺族には軍から賠償金が払われ、他の研究施設もしかるべき管理体制に移行した。
+  EN  The matter has already been resolved. All of the staff members were killed in the facility. The only survivor was the president, and he's already been \"disposed\" of.
+
+=== 7e1c4e21ca3c031b4b3127060c46e18ec7627d21  riga 1391  [?]
+  JP  以上だ。貴様の介入する余地はない。わかったら消えろ。
+  EN  It's over. There's no chance to change anything. Now get out of here.
+
+=== 9de9ac759177bb22ad4adf7d23773875eef6ed08  riga 1400  [?]
+  JP  おい、ちょっと待て。貴様の面には見覚えがある……といったか？最近、このティリスの地で名を上げているそうじゃないか。
+  EN  Hey you! Hold up! I've seen your face before punk... ... Ah yes... I remember now. You've been making quite a name for yourself throughout Tyris, haven't you?
+
+=== 469af27f03157f849837b7e6004795b1081026fb  riga 1401  [?]
+  JP  話を聞こう
+  EN  Fine, let's do it.
+
+=== 83e080f5eea1b642f779e0837263aab91e320607  riga 1402  [?]
+  JP  止めておこう
+  EN  Not a chance, you worm.
+
+=== 80ed2adce57b5548956ca3e8cae7dd81715af57b  riga 1403  [?]
+  JP  貴様に金になる仕事をやろう。ザナンのある機関からの要望で、実験のデータをとるために被験者が必要なのだ。俺に言わせれば、被験者というより『生贄』だがな。生き延びて戻ってくれば、老後を遊んで暮らせるだけの報酬はくれてやる。どうするかこの場で決めろ。
+  EN  You wanna make some quick cash? I've got a request from the organization of Zanan. They need a test subject in order to get some experimental data. Or perhaps \"sacrifice\" would be a more appropriate term. *If* you survive, I'll pay you enough to party until you waste away. Make your decision quickly.
+
+=== 7049ff445a95b04fd690eaea494d77264b7f312c  riga 1406  [?]
+  JP  骨のないやつだ。うせろ。
+  EN  Fine then, piss off you spineless coward.
+
+=== a0eba1879e8316a21e757043c61571f08b8bb156  riga 1410  [?]
+  JP  いいだろう。死ぬ準備ができたら、声をかけろ。実験場まで案内してやろう。
+  EN  Excellent. Let me know when you've finished your preparations for death and I'll take you to the testing grounds.
+
+=== e34604792c87c6350e4349dbb8c1e62c33e5c9b9  riga 1417  [?]
+  JP  フッ。よく逃げ出さずに戻ってきたな。準備はいいか。
+  EN  So, are you ready?
+
+=== 40bae7bd86e4236b09e711960029d7032e5fcfa7  riga 1420  [?]
+  JP  早くしろ。
+  EN  Be quick.
+
+=== f6535936009888e9b66c1860dc8ec8e7abc3b1d4  riga 1429  [?]
+  JP  よし…付いて来い。
+  EN  Follow me.
+
+=== 03b39d9fd5a93480ba8de5d4a7a3d439fe2fecac  riga 1454  [?]
+  JP  驚いた。この実験から生きて帰って来た冒険者は、貴様がはじめてだ。これで、ザナンの上層部が、研究を見直してくれるといいが。あんな不細工な化け物を率いて戦場を駆け回るのは、御免だからな。
+  EN  You came back alive... astonishing. You're the first and I swear you'll be the last. Zanan's senior commanders should find this data most intriguing. I do not want such a clumsy beast watching my back on the battlefield.
+
+=== 99274895e94b30e75a888261cc8a029e76472fa7  riga 1475  [?]
+  JP  素晴らしい！このゲーム、やったことないでしょ？たまたま余ったカードセットを買ったんだ。30枚のデッキを組んで、デュエルしよう！
+  EN  Great! You haven't played this game before right? I happened to bought an extra set of cards, here, you can have it. Just assemble your deck of 30 cards, and let's duel!
+
+=== 2ef710043ed53849ce1c4bdd561ee7c46525acba  riga 1498  [?]
+  JP  あら、冒険者さん♪ お茶でもいかが？
+  EN  Hi there adventurer! Would you like some tea?
+
+=== 0d49e0482256fca8a63a6b9f09cca314ef6d3251  riga 1502  [?]
+  JP  あら、冒険者さん。ちょうどいいところに来てくれたわ。
+  EN  Ah, you... adventurer, you've definitely come to the right place.
+
+=== 6211d61a62bb9d93bcf2d2205956478969f5ffd1  riga 1505  [?]
+  JP  最近、朝起きると私のぬいぐるみがぼろぼろになっているの。夜中に起きてこっそり見張ってたらね、なんとプチ…プチがぬいぐるみ食べてるのよ！どうも隣の家の窓を伝って、私の家に入ってくるみたいなの。冒険者さん、お願いだから、ちょっと行って退治してきてくれない？
+  EN  Recently, when I wake in the morning my stuffed toys are always chewed up. So I stayed up last night and secretly watched. You know what I found? Putits were chewing up my stuffed animals! I'm pretty sure they're getting into my house through the window to the neighbor's place. I beg of you adventurer, won't you eradicate the Putits for me?
+
+=== 7f079dfed224e5c36e1d4ce27407e571cf473e85  riga 1508  [?]
+  JP  気が変わったら、また来てね。
+  EN  Okay... but... if you change your mind please come back.
+
+=== 5bedde91315b966c66d0baaa8236dee8fb35e372  riga 1512  [?]
+  JP  頼もしいよ。問題の家は、すぐ南に隣接しているわ。頑張ってね！
+  EN  Fabulous! The trouble is all in the house just south of here.
+
+=== d4d7be1553ab1dfe70d7f3a499344a9b6280f76b  riga 1517  [?]
+  JP  やだ！このぬいぐるみもプチに食べられてる。冒険者さん、はやく退治お願いね。
+  EN  Aggh! My stuffed toys are ruined! Hurry up and kill the Putits!
+
+=== 09cf6a4c3f7221725d9db9f87b460357b13000d4  riga 1533  [?]
+  JP  え、スライムを退治してくれたの？ありがとうございます♪あたしのぬいぐるみたちも喜んでるわ。これ、役に立つかわからないけど、とっておいてね。
+  EN  Eh? You wiped out the slimes? Thanks so much. My stuffed animals are delighted too. Here, you might find this useful.
+
+=== 5e6da68e194ef0abad09dbcdd61b6044522df302  riga 1542  [?]
+  JP  いらっしゃいませ～♪その節はどうもです。
+  EN  Oh it's you, our hero.
+
+=== de6ff52a39cc97024db5be9e3b8d28c4b3cf6073  riga 1546  [?]
+  JP  いらっしゃいませ～♪
+  EN  Welcome back♪
+
+=== b077054f688b6982bed86fa9ebf20d573e71529c  riga 1547  [?]
+  JP  引き受ける
+  EN  I'd be happy to help.
+
+=== 3d7432b48059a9cc9f0786e64da20852dc5ecb38  riga 1548  [?]
+  JP  面倒だ
+  EN  Don't bother me.
+
+=== 92b1b1f5a64e0405913bb2efaa67a7bb4bc33b71  riga 1549  [?]
+  JP  ちょっとお時間いいですか？バーの酒樽が度々盗まれて、店長困ってるんです。もし手が空いていたら、助けてくださいな。盗みを働いている輩の目星はついています。きっと、ヴェルニースを拠点に活動している、こそ泥の集団です！拠点は確か墓の方にあったはずですよ。
+  EN  Excuse me, do you have a moment? The kegs from the bar have been stolen, and the manager is really put out. If you're not busy, could you help out? It was those thugs, I'm sure of it. They've certainly set up a base inside Vernis. With all the mud they leave behind, they're most likely hanging out near the gravesite.
+
+=== 6b5e7dd91b2868c6578ab07ab9a41703bbfb1f25  riga 1552  [?]
+  JP  そうですか…残念です。
+  EN  Alright, but please... think about it.
+
+=== 49f83135bdb2500dc6dd1fba35a0b3a81cdda8d2  riga 1556  [?]
+  JP  あ…ありがとうございます！よろしくお願いしますね！
+  EN  Really? Thanks, we really appreciate it.
+
+=== 3d51394741c9e2055ae94f6337cef0c8584e6ad9  riga 1562  [?]
+  JP  いらっしゃいませ～♪盗賊団の拠点はみつかりましたか？墓の近くにあるみたいですよ。
+  EN  Welcome! Welcome! Have you found the bandits' lair yet? It should be near the graveyard.
+
+=== 56d4188d64f2aab6f9ee226268a5167f7bb33012  riga 1581  [?]
+  JP  ええ、噂はもう届いています。あのごろつき団がいなくなって、私達ほんと安心しました。ありがとうございます。少ないですが、店長がお礼にとこれを♪
+  EN  Yes, I've already gotten wind of your deeds. It's a big relief to be rid of those miscreants. I can't thank you enough. I know it isn't much, but please take this as a token of our thanks.
+
