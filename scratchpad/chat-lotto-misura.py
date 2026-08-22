@@ -16,8 +16,10 @@ regola prudente della 73a e' che l'italiano non ne faccia di piu'.
 
     python scratchpad/chat-lotto-misura.py lavoro/75-chat-lavoro.jsonl
 """
+import collections
 import io
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -31,19 +33,57 @@ SORGENTE = Path(r'C:\Games\Elona\_traduzione\sorgente\2.05-custom-gx\chat.hsp')
 TETTO_MENU = 58
 
 
+GUARDIA = re.compile(r'^if\s*\((.*?)==\s*([^)]*?)\s*\)\s*\{?$')
+
+
 def opzioni(src: list, riga: int) -> int:
-    """Quanti bottoni ha la finestra in cui esce la battuta di questa riga."""
-    n = 0
+    """Quanti bottoni ha la finestra in cui esce la battuta di questa riga.
+
+    ⚠️ 87a: **le `chatList` dentro guardie che si escludono a vicenda non si
+    sommano.** Il seminario ne e' la prova: i quattro docenti hanno sedici
+    `chatList` in fila, quattro per ognuno dei quattro incontri, e ogni gruppo
+    sta dentro un `if ( gdata(STARTING_GDATA_FLAG + 329) == N ) {` con N che
+    cambia. A schermo i bottoni sono **quattro**, non sedici, e con sedici il
+    tetto viene negativo: qualunque battuta risulta fuori misura.
+
+    La regola: si raggruppano le `chatList` per la guardia che le contiene, e
+    per ogni SINISTRA di `==` si prende il gruppo piu' numeroso invece della
+    somma — due `if` che confrontano la stessa cosa con costanti diverse non
+    possono essere veri insieme. I gruppi con sinistre diverse, e le `chatList`
+    fuori da ogni guardia, si sommano lo stesso: li' l'esclusione non si sa.
+
+    💡 Prima della correzione il numero era sbagliato anche quando non lo
+    sembrava: nel lotto di Ajetalio la passeggiata all'indietro si fermava su
+    una riga **commentata** (`// chatList 4`), contava 12 invece di 16, e il
+    tetto tornava positivo per caso.
+    """
+    libere = 0
+    gruppi = collections.defaultdict(list)   # sinistra di `==` -> conti
+    corrente = 0
+    dentro = False
     i = riga - 2
-    while i >= 0 and riga - i < 40:
+    while i >= 0 and riga - i < 60:
         s = src[i].strip()
         if s.startswith('chatList') or s.startswith('chatlist'):
-            n += 1
-        elif s.startswith('if (') or s.startswith('}') or s.startswith('else') or s == '':
+            if dentro:
+                corrente += 1
+            else:
+                libere += 1
+        elif s.startswith('}'):
+            dentro = True
+            corrente = 0
+        elif s.startswith('if ('):
+            m = GUARDIA.match(s)
+            if dentro:
+                gruppi[m.group(1).strip() if m else s].append(corrente)
+                dentro = False
+                corrente = 0
+        elif s.startswith('else') or s == '':
             pass
         else:
             break
         i -= 1
+    n = libere + sum(max(c) for c in gruppi.values())
     return max(n, 1)
 
 
