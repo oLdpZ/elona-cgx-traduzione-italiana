@@ -1,0 +1,124 @@
+=== 40b1442d6796dfc2e85d42b76640a338ba997e9f  riga 12637  [?]
+  JP  あー…腕に自信がないなら、次の階層はあんまり近寄らないほうがいいかもしれないね。
+  EN  Hey... if you're not confident enough in your skills, you might not want to head towards the next floor.
+
+=== 278887d81946f201bb5dc36af1fa30ed130bdd9a  riga 12641  [?]
+  JP  いやー。駄目元でも交渉してみるものだね。おっと、こっちの話さ。
+  EN  Yeah, well... Even if they're not going to listen, might as well try to warn them off anyway. ...Oh, uh, I was just thinking out loud.
+
+=== 506b11de973bae538ca402ec08ac5c38c7f1dde4  riga 12653  [?]
+  JP  少年の頃、僕には異星の友人がいてね。彼が母星に帰ってから数十年…別れ際に再会を誓ったけれど、僕はもうこんなおじさんになってしまった。生きている間にもう一度会いたいものだね…。
+  EN  When I was a boy, I had a friend from a different planet. By now it's been decades since he returned to his home world... When we parted, we vowed to reunite someday, but I've already grown old. I hope to meet him once again while I'm still alive...
+
+=== 097e0bf01755001f579f3fd1e4ad91830a34bd9f  riga 12654  [?]
+  JP  DNAスキャン…外見は変わっているが間違いない。クロやん！
+  EN  Scanning DNA... Your appearance has changed, but that's definitely you, Kuro!
+
+=== 37332ce63941ca57319fc3c5c47fc3cf3f71e6cc  riga 12655  [?]
+  JP  え、誰！？
+  EN  W-who are you?!
+
+=== 7b1194fc73eb1337d805e9353ca9d0bd74e7faa4  riga 12656  [?]
+  JP  …いや、待てよ。その呼び方は…わが友、ベルっちではないか？
+  EN  ...Hold on. Calling me Kuro... Are you my friend Bel?
+
+=== cb6751e2fd01f53c1884b7d9f5d59e8ba0dda445  riga 12657  [?]
+  JP  いかにも。…しかしクロやんも変わったな。体毛が白くなり皮膚が収縮している。まさか病気か？
+  EN  Indeed... But you've really changed, Kuro. Your hair is all white and your skin is wrinkled. Are you sick?
+
+=== 30f05a2fe85c4a288a8cb31ccb666a4d2ca92a9f  riga 12658  [?]
+  JP  お前がなかなか戻ってこないから老化したんだよ！そう言うベルっちも変わりすぎだ！昔はもっと丸っこくて小さくてボーッっとした感じだったろ！一皮剥けたとかそういうレベルじゃないぞ。
+  EN  I got old because you took so long to come back! But you've changed too, Bel! You used to be smaller and far more round! It's like your skin has all peeled off!
+
+=== 528523945c7befcf367b0683eb24e335e8c8f506  riga 12659  [?]
+  JP  ああ。82回脱皮した。
+  EN  It has. 82 times, actually.
+
+=== e760ef52ddb01b92e199e35eb9e9e16d4f281c87  riga 12660  [?]
+  JP  剥けすぎだろ…。
+  EN  That's too much...
+
+=== b923423572fdbc70a216d11b1efc384ecd5d6dbf  riga 12661  [?]
+  JP  いかんいかん。話が長くなってしまう。先に、ここまで案内してくれた恩人に礼をしなきゃな。お土産の一部を受け取って…おっと。この星では足元に転がすのだったな。
+  EN  It happens. Let's sit down and catch up. But first, I need to thank the person that led me here. Here, take this as a gift... Whoops, I almost forgot. It's customary to place gifts at other's feet on this planet.
+
+=== 9c10c52a6c9f42e5d288c6a98b3877772cf78490  riga 12697  [?]
+  JP  あげないよ
+  EN  No way.
+  occorrenze: 8601 12697
+  ⚠ FUORI  8601: chatList 0, lang("あげないよ", "No way.")
+
+=== 19c0a73e00d4e1993fc87182ccee8854f51c56c1  riga 12698  [?]
+  JP  を交換
+  EN  (Hand over .)
+
+=== 6e5a8a69325cede821f7b5ff17368373ff6330df  riga 12699  [?]
+  JP  おや…？君、靴下を持っているみたいだね。提案なんだけれど、その靴下と信仰の巻物３枚を交換してくれないかな？
+  EN  Oh...? It seems you have some socks with you. I have a proposal for you. Why don't you trade me those socks in exchange for three scrolls of faith?
+
+=== 3fcd623c5c9818d62255bd1b7e8b722526066741  riga 12702  [?]
+  JP  それは…残念だね。
+  EN  That's... too bad.
+
+=== 60eb9147b6a8b2d70d59f9f5185f8fefe0af16b1  riga 12713  [?]
+  JP  靴下泥棒か？
+  EN  Are you the sock thief?
+
+=== 6534d87f4544ad5acf640c52a7c28c4e47243114  riga 12716  [?]
+  JP  ほどほどに
+  EN  Everything in moderation.
+
+=== 5140e4d2bae9f643d2780ac84f91218558f62616  riga 12717  [?]
+  JP  同志よ
+  EN  You're a man after my own heart.
+
+=== 90320f68f2ce7c3dd1623f89a4f7758b4fba5868  riga 12718  [?]
+  JP  いやぁ、最近はすっかりくつしたの虜で…。クライアントに引き渡すのが惜しいくらいだね。
+  EN  My, I've been completely captivated by socks lately... It's a shame to make you turn it over.
+
+=== 526101700f2470689d728999c27aa836ab7b43e4  riga 12721  [?]
+  JP  気が遠くなるほどの快楽…いいよね。焦りも苛立ちも、くつしたを嗅いでいる間は忘れられる。
+  EN  How wonderful... The pleasure is simply overwhelming. When sniffing these socks, all my impatience and irritation just disappears.
+
+=== 45cf739c97225c833d211b2f62bde471b9a979da  riga 12725  [?]
+  JP  ！！
+  EN  !!
+  occorrenze: 12725 14528
+  ⚠ FUORI  14528: chatMore lang("！！", "!!")
+
+=== 6b44ad2da8231b1789c5077ed88e196e6ef81998  riga 12726  [?]
+  JP  それならよし
+  EN  That's okay then.
+
+=== 151fba825ee11a5de34f664e1fe6043ba7e00fd8  riga 12727  [?]
+  JP  もはや問答無用
+  EN  It's too late to discuss it now.
+
+=== eb1353a690eb1725432e963791ae00efe12e547a  riga 12728  [?]
+  JP  まさか雪原を越えて追手が来ていたとは…。ただ訂正をさせてもらうと、僕は靴下たちを盗んだわけじゃないんだ。床に無惨に脱ぎ散らかされていた可哀想な靴下たちを保護したに過ぎないんだ。
+  EN  I can't believe someone pursued me through the snow fields... But if you'd allow me to make a correction there, I didn't steal them. I simply protected the poor socks that had been strewn around so carelessly.
+
+=== 84a0d4547bb54f7921945d4ad686ce5207c14ddd  riga 12731  [?]
+  JP  …実力行使か！仕方がない。ソックスソードマン、いざ参る！
+  EN  ...Then you leave me no choice. I'll use force! Face the Sock Swordsman!
+
+=== d0f2544e635e9180bb03aae55d94eb13907f787e  riga 12738  [?]
+  JP  そう。靴下の匂いが、僕を呼んでいるのさ…。
+  EN  Yes. The smell of socks calls to me...
+
+=== 5bd4091a35d5fc85199d5df74b44f42197c530ce  riga 12748  [?]
+  JP  ベルっちの旅行話は、相変わらず内容がＢ級でゾクゾクするねぇ。本当に…また会えたんだなって実感が湧いてくるよ。子供の頃も、よくわからない固有名詞に戸惑いながら聞いていたっけ。ああ、懐かしいなぁ…。涙が出てきそうだ。
+  EN  As usual, Belcchi's travel stories sure are some B-grade, spine-chilling stuff. It really makes me feel like we're meeting for the first time all over again. Even when I was a kid, I used to listen to his stories while being confused by the unfamiliar names of places and people and alien races. Oh, how I miss those days.... I can feel some tears welling up in my eyes.
+
+=== 81629b414c1fb74434ff17494029440a2f4dc6ed  riga 12751  [?]
+  JP  この神の艦は空を飛び、イルヴァの外…宇宙をも航行できるのだとか。宇宙…行ってみたいものだね。
+  EN  This divine ship can fly far beyond the boundries of Irva...even into space. Space, huh...I'd like to go there sometime.
+
+=== 21c6f260efd85b151143f4fd29daea6a96f8f96d  riga 12752  [?]
+  JP  少年の頃、僕には異星の友人がいてね。彼が母星に帰ってから数十年…別れ際に再会を誓ったけれど、僕はもうこんなおじさんになってしまった。生きている間にもう一度会いたいものだね…。
+  EN  When I was a boy, I had a friend from another planet. It's been a few decades since he returned to his home planet, and we vowed to meet again when we parted, but now I'm an old man. I wish I could see him again while I'm still alive...
+
+=== 6b09887b5b144d9727c00390e19ccb2ef02e7869  riga 12753  [?]
+  JP  宇宙を航行できるというこの艦を見ていると切なさを感じるとともに、友人の話を聞いて宇宙に思いを馳せていた頃に戻ったような…そんな気分になれるんだ。
+  EN  Alongside the pain and sadness I feel as I gaze upon this vessel that can travel across the universe, I almost feel as if I've been transported back to the time when my friend and I shared our stories of the cosmos with each other... That is how I feel.
+

@@ -1,0 +1,182 @@
+=== 16c14708365bfa6f84a6c8576df7de1e309ce23d  riga 8462  [?]
+  JP  ご先祖様はまた石になって眠っているのう。もう数万年は目覚めることはないじゃろう。わしは…わしは平気じゃよ。じゃから、心配せんでよい。こうして地上から話に来てくれる者がおるだけで…充分じゃ。
+  EN  My ancestors are falling asleep again. They will not reawaken for tens of thousands of years. I am... I am fine. Well then, do not worry. There is only a person who will come to talk from the surface like this... enough.
+
+=== d6b598c9d4f16c559006ad4a4f042fdaf25af712  riga 8463  [?]
+  JP  おぬしには礼をしたかったんじゃが、この城には地上人が喜びそうなものがなくてのう。その…情けない話じゃが、お弁当くらいしか用意できんかったんじゃ。あれだけの大仕事をしてもらっておいて弁当はどうかと思うが、よければ受け取ってくれんか。
+  EN  I wanted to thank you for your aid, but there is nothing in this castle that a surface person would be pleased with. That... ...It's a pitiable story, but I could only prepare a lunch box. I know a lunch box isn't enough after all you've done, but please accept it anyway.
+
+=== a49223a1c62014bce283b56877fb11457acbfaa0  riga 8467  [?]
+  JP  さぁて！辛気臭い話はやめて、切り替えてゆくぞ！
+  EN  Come on! Stop smart talking and I will switch over!
+
+=== 79cf29593caeecaee816ead55c130caaf5f3f67c  riga 8472  [?]
+  JP  よくぞ止めてくれた…おぬしには本当に感謝しておる。この島の人々には本当に悪いことをしたが、わしの力では元通りにできぬ…。せめて今は少しでも早く地上を離れ、城と共に海の底に戻るとしよう。
+  EN  You stopped him... I am truly grateful. I feel so bad about the people of this island, but I can't heal them with my power... It may not be much, but at least now I can return to the bottom of the sea along with the castle.
+
+=== d0f1fb0b5d9bf13dffe2121b0e1f41a36a785bf6  riga 8473  [?]
+  JP  、城には何も面白いものはないがよかったら遊びに来とくれ。…待っておるぞ。何万年でも、のう。
+  EN  , there's nothing interesting in my castle, but please come visit if you would like... I'll be waiting. Even tens of thousands of years from now.
+
+=== d18a2bad2b2e5eb46534948458a0c13355e26bcb  riga 8488  [?]
+  JP  一度帰りたい
+  EN  I want to return.
+
+=== 1368f1aefc47ec1d1ade226a948a27acd7eaa204  riga 8489  [?]
+  JP  任せておいて
+  EN  Trust me.
+
+=== cffbdaf279efd74339ae3ff17b91611bf3ad73c2  riga 8490  [?]
+  JP  おぬしには苦労をかけるのう…。
+  EN  I am sorry for causing you so much trouble...
+
+=== 87e15386f95abda11498314cb1bfbf1d5e7ba066  riga 8498  [?]
+  JP  確かに色々と準備もいるじゃろうな。じゃが時間があまり残っておらんことは忘れんでくれ。
+  EN  I'm sure your have many preparations to make. But please, don't forget that we don't have much time.
+
+=== 306cb84b9a91f5993dee2fe76752258f181c9f0c  riga 8506  [?]
+  JP  すまぬ…すまぬ…。
+  EN  I'm sorry... I'm so sorry...
+
+=== c983d679ba8af6ff8769559c61870cdc7f770e3a  riga 8510  [?]
+  JP  助けを呼ぶ声が聞こえた
+  EN  I heard a voice calling for help.
+
+=== 3031071ea38ca1f2dd66cea22cead9efb378828b  riga 8511  [?]
+  JP  …今すぐ帰りたい
+  EN  ...I want to go back.
+
+=== 755add50a50ff2d8126941f9a41eac67aced2a1d  riga 8512  [?]
+  JP  亀に無理矢理連れてこられた
+  EN  The tortoise made me come.
+
+=== 6235784f009067aae950be7c6e15e886b9a266d1  riga 8513  [?]
+  JP  お、おぬしは！？
+  EN  Y-you are?!
+
+=== d223ac3590ae6a486ded501b3a447bd732651a51  riga 8516  [?]
+  JP  な、何をやっとるんじゃレイキは！？うちの亀が申し訳ないことをしたのう…。
+  EN  What are you doing, Leiki?! I'm so sorry he did this...
+
+=== 7fc57e2238a19dcdea093f017f1d355f81647c8e  riga 8525  [?]
+  JP  …そうじゃろうな。この状況では当然じゃの…。
+  EN  ...I understand. In this situation, anyone would want to leave...
+
+=== 3bc930b1e1561d982fd57f37709dc2d0e63cba9c  riga 8534  [?]
+  JP  わしの呼び声はなんとか届いたのじゃな…。
+  EN  So my call did somehow reach someone...
+
+=== 87dbdcdfb7a90fc3372fec8404c7e7eab625c40b  riga 8535  [?]
+  JP  のう、見とくれこの惨状を。昔浮上した時は辺りに島なんてなかったんじゃがのう。地殻変動の影響じゃろうな。…何人かは逃がせたんじゃが、ほぼ全ての島民が精神崩壊してしもうた。わしらは…地上の人々に害をなす種族だったんじゃな。そんなことも知らずにわしはずっと地上に憧れておった。本当に…馬鹿じゃな…。
+  EN  Look at the tragedy before us. When the castle surfaced in the past, there were no islands around. This must be due to movement of the planet's crust... A few escaped, but the minds of most of the islanders have been completely broken. My... race is one that causes harm to surfacers. I've longed for the surface all this time without even realizing what would happen... I'm truly... such a fool...
+
+=== 29b9de3c214182aa8791dc5f1ffdbe7801fd28ba  riga 8536  [?]
+  JP  …泣き言を言っている場合ではないのう。城は島の向こう側にある。浅瀬を渡っていけば辿り着くじゃろう。ご先祖様はその奥じゃ。どうも物理的にはそこまで強くない上に寝起きで魔術も上手く使えないようじゃ。おぬしの力ならきっと止められる。
+  EN  This isn't the time for me to whine. The castle is on the other side of this island. You'll reach it if you wade through the shallows. My ancestor is inside. His strength hasn't fully returned yet. With your power, I'm sure you can defeat him.
+
+=== 16754d2777e977b67201cc14f972bf9ec0ab4abd  riga 8537  [?]
+  JP  ただしご先祖様は断続的に精神波をテレパシーで飛ばしておる。今までは大量の海水がそれを遮っていたんじゃろうが、今は遮るものもない。もしも耐えきれず精神をある程度病んだ場合は即刻連れて帰るように、とレイキには命じておる。精神状態には常に気をつけとくれ。
+  EN  However, my ancestor will intermittently release strong psychic waves. The sea water served as a barrier up until now, but there's nothing to block it now that we're on the surface. I will order Leiki to remove you immediately if your mind gets close to reaching its breaking point. Please be mindful of your mental state.
+
+=== 21c11e1370d3998796652b03da7b9f811d72b097  riga 8544  [?]
+  JP  苦しゅうない。さぁさ、はやく地上の世界の話を聞かせるのじゃ！
+  EN  Ah you're here. So, now tell me all about how things are on the surface!
+
+=== f1bf111f391e914a8aa448b5e37ea805cd7ee7db  riga 8553  [?]
+  JP  （あなたが今までしてきた冒険の話や世界情勢について聞かせた…）
+  EN   (I was asked about the state of the world and story of adventure...) 
+
+=== 504f6cc60188699902d46c2930a0f310a383fe96  riga 8555  [?]
+  JP  うう…あちこち冒険できるお主が羨ましいぞ。わしは役目があってこの城から離れられないからのう…。最後にこの城が浮上したのは何万年も前だと聞く。
+  EN  Ooh... I'm so jealous that you can adventure out to different places. I can't even leave this castle... How many thousands of years has it been since someone last floated up here...?
+
+=== e6125ee8234d47a0f413988959493c8b16ca1909  riga 8557  [?]
+  JP  ともかく大義であったぞ。また遊びに来てくれい。これは礼じゃ！
+  EN  Anyways, let me thank you. Please come visit again. Here, this is for you!
+
+=== 9ff95c4547d23792f8838202750bf7751a0d2b3b  riga 8566  [?]
+  JP  遊びに来た
+  EN  I came to play.
+
+=== 3db3001be7f9306eae9a1b78a125cec59e4ef6ff  riga 8567  [?]
+  JP  自分の身の上話をする
+  EN  I want to talk about my background.
+
+=== 60563e0ddde97525686553fd9df475df0689c0d6  riga 8568  [?]
+  JP  仲間の身の上話をする
+  EN  I want to talk about the background of an ally.
+
+=== e7e0d3bc25b0800c75b9106f97075a966b4ca18d  riga 8569  [?]
+  JP  何か面白い話でもあるのかのう？
+  EN  Oh? You have some interesting stories to tell?
+
+=== 88c90e9d15fb5c9ada1d902303aac928961ad8ed  riga 8587  [?]
+  JP  おお、それは楽しみじゃのう！早く話すのじゃ！
+  EN  Ah, I've been waiting for this! Quickly now, I want to hear!
+
+=== 3973a8c3d1283e2dabd0db8259baf99bcde90f22  riga 8595  [?]
+  JP  それはそれでうれしいのう、何もないところじゃがゆっくりしていくとよいぞ。
+  EN  That still makes me happy. There may not be much of interest here, but feel free to take a load off.
+
+=== 9ac0b15caadfcb06b01f958c75916f035a7c9a9f  riga 8600  [?]
+  JP  メダルを渡す
+  EN  Here, take these medals.
+
+=== 9c10c52a6c9f42e5d288c6a98b3877772cf78490  riga 8601  [?]
+  JP  あげないよ
+  EN  No way.
+  occorrenze: 8601 12697
+  ⚠ FUORI  12697: chatList 0, lang("あげないよ", "No way.")
+
+=== f94675c8f8759142491968eaa1e3f151879a8a7d  riga 8602  [?]
+  JP  ところでそのきらきらしたやつ…小さなメダルというものじゃったか？それ綺麗じゃのう…たのむ、ゆずってくれんか？
+  EN  That shiny thing you've got there... It isn't a small medal is it? ...Please, can you give it to me?
+
+=== d0c91cecbf08797631ca9e0993a26b6f2a7d298d  riga 8605  [?]
+  JP  う…無理を言ってすまんかったの。
+  EN  ngh... Sorry for asking the impossible.
+
+=== ca6e26adbe21e8175b8b560c982eccc1879dbe31  riga 8610  [?]
+  JP  おお…感謝感激じゃ！ふむ、ただで貰うのも悪いしのう。こんなものしかないんじゃが受け取ってくれるかの？
+  EN  Oh... Thank you so much! Hm, wouldn't be right to take it for nothing. I only have this but will you accept it?
+
+=== 62b1edee47cd3f11fc30230ac3f62921e9b03836  riga 8633  [?]
+  JP  前半再抽選ル
+  EN  Re-roll first half.
+
+=== 4ea39c1cb94c6d847f24e102ddeabf4aa029b849  riga 8636  [?]
+  JP  後半再抽選
+  EN  Re-roll second half.
+
+=== 7bb850231ed7559ab99381b8a2787dd8753e4824  riga 8638  [?]
+  JP  全再抽選
+  EN  Re-roll all of it.
+
+=== 7a187a03cca31bd20f434d87ebdd42551079f02d  riga 8639  [?]
+  JP  上記に沿って話す
+  EN  It is as said above.
+
+=== 554d132fab67828ae29c49e981e37752d3924c64  riga 8640  [?]
+  JP  内緒にする
+  EN  Keep it secret.
+
+=== 875a0d50775370fbe60ee9ec69b59a989adefd91  riga 8641  [?]
+  JP  話すのをやめる
+  EN  Stop talking.
+
+=== 79421eee816ab52394ac6be1ebca73d13b55e88f  riga 8642  [?]
+  JP  （内容決定）
+  EN  (Content decision)
+
+=== 01ba8b8d58005b0d053b0c3bba3c3d06319f2cc8  riga 8646  [?]
+  JP  そうじゃったのか…改めて思うが、人それぞれに物語があるんじゃな…。
+  EN  Is that so... Thinking about it, each person does have their own story...
+
+=== 6fd8dfdc7971639f21ca29220e3ab277868a8bc4  riga 8649  [?]
+  JP  それにしても前に聞いた話と全く同じような…。な、なんじゃ？わしはまだボケておらんぞ！イケイケのピチピチじゃ！
+  EN  It does feel like I've heard the exact same story before... W-What? I'm not going senile!
+
+=== f38ab5db8cc51bb94dd8b480795675502d947301  riga 8691  [?]
+  JP  な…気になるじゃろうが！
+  EN  Wha... Now that is going to bother me!
+
