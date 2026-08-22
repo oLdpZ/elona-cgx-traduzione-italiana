@@ -1,0 +1,433 @@
+=== c486fc2fe9194b329aebcfbf00a785c457a37c45  riga 1965  [?]
+  JP  えっ？ＬＦ計画の説明と参加手続きですか。…すみません、次回のアップデートを待ってくださいね。
+  EN  Huh? You want to know about Project LF and how to register as a participant? ...Sorry. Please wait until the next update is released.
+
+=== ac34d3e3f5e35e222a2372963b9d7f316b7330bc  riga 1971  [?]
+  JP  生還、できたのですね。本当によかった…。どう見ても限界を超えた力を行使していたので、ずっと心配していました。
+  EN  You... really came back alive, . I'm so glad... I was worried about you for the longest time. You must have been exercising your powers well beyond the limits of what your body was capable of.
+
+=== f06a8983c836dde8ff8908a3082d09f60b3e4835  riga 1972  [?]
+  JP  …私のほうは、今はＬＦ計画関係の手続きや情報整理をしています。歴史の謎の多い部分に迫るチャンスですからね。大変だけどやりがいがあります。
+  EN  ...As for me, I've been steadily at work planning and organizing information related to Project LF. I believe this will be an excellent opportunity for us to come closer to uncovering the truth behind the most mysterious parts of our history. It's hard work, but certainly worth the effort.
+
+=== e5048dc0e705b73e8c17ac2eb149dc9abcc16e5a  riga 1973  [?]
+  JP  もし興味があったら、ぜひパルミア所属で参加してください。あなたならきっとＬＦ計画を成功に導いてくれるでしょう。
+  EN  If you're interested, feel free to join us as a fellow of Palmia. I'm confident that you'll help us lead Project LF to success.
+
+=== 49564dfff534cb7a6cb8b4b8e491d8dae440a461  riga 1979  [?]
+  JP  私は私がやるべき仕事を続けます。、あなたもあなたの冒険を続けてください。
+  EN  I will continue to work on the things I must work on. , please continue your own adventures as well.
+
+=== 3fb7e752c6172567a5faabe7046ecc86132b0209  riga 1984  [?]
+  JP  時々、脳裏に見たことのないはずの景色が浮かびます。あれが妖精の言っていたガイアス・ヴィスなのかもしれません。
+  EN  From time to time, a vision of some other land that I've never seen before will flash into my mind. Perhaps that imagery is of the so-called Gaius Vis that the fairies had mentioned before.
+
+=== 44053c98a1760500d877adbdffea9a2aaebe2f31  riga 1985  [?]
+  JP  妖精から教えられたのですが…。、混沌の神が蘇るというのは本当ですか？そしてあなたがそれと戦うというのも。
+  EN  I have only been told this was true by a fairy, but... . Is it true that the God of Chaos will rise again? And that you will be the one who will face it in battle?
+
+=== 66ed1dfff727d0bb018c45699c50ea40437f8b03  riga 1986  [?]
+  JP  信じて待っていてほしい
+  EN  Trust me and await my return.
+
+=== 98000efd9eefeb9e48b9a8775a255198def89b91  riga 1987  [?]
+  JP  神に挑むのも冒険だ
+  EN  Challenging a god is an adventure in itself.
+
+=== 0907ef03f0352070d42ad8f550103047d25d7bd7  riga 1988  [?]
+  JP  記録よりも記憶に残りたい
+  EN  I want to be remembered, not just another name in a history book.
+
+=== 5030f2ed679a34787930e75b75c22c13cbf92f3d  riga 1989  [?]
+  JP  この戦いが終わったら結婚しよう
+  EN  When this fight is over, I'll ask for your hand.
+  occorrenze: 1989 7834 10102
+  ⚠ FUORI  7834: chatList 3, lang("この戦いが終わったら結婚しよう", "When this fight is over, I'll ask for your hand.")
+  ⚠ FUORI  10102: chatList 3, lang("この戦いが終わったら結婚しよう", "When this fight is over, I'll ask for your hand.")
+
+=== d41e1d2e9655ec3245a78e0615bd307f8a19250e  riga 1990  [?]
+  JP  人類の歴史にはいくつかの神殺しの記録があります。どこまでが真実でどこからがフィクションかわかりませんが。もしも成し遂げたなら、あなたも記録に残るのでしょうか。
+  EN  There are several accounts of god-slayers in the history of mankind. Although, I'm not sure how much of them are true and how much are fiction. If you truly manage to accomplish such a feat, perhaps your name shall be the next to be recorded in this grand chronicle.
+
+=== cfcabbc55dab62065fdb8beb71cd0ec7c3afe2ef  riga 1994  [?]
+  JP  ふふっ。新たな歴史の誕生を待っていますね。
+  EN  Heheh. I suppose I will be waiting here for the beginnings of a new history.
+
+=== fefae8830f8314f2fb18e6922b0cecea926ac4b1  riga 1998  [?]
+  JP  なるほど…。これが冒険者の心理なのですね。ですが、油断はしないでください。
+  EN  I see... So this is the psyche of an adventurer. But please, don't let your guard down.
+
+=== e7f04d8adf2046238d4f90eb81ab849df3e03ddc  riga 2002  [?]
+  JP  わかりました。
+  EN  I understand.
+
+=== e4a6191a64a1389b6b07d1afd92338925b3f6bf7  riga 2003  [?]
+  JP  では。あなたのことは私が覚えておきます。たとえ、どんな結果になったとしても。
+  EN  In that case, . I will be the one to remember you - no matter what happens in the end.
+
+=== bd6b9c179a04c924eb53512155dc140dcfae7194  riga 2007  [?]
+  JP  それ、物語なら死ぬパターンですよ？縁起でもないから冗談でもやめてくださいね。
+  EN  You know, that's always what the hero says right before they're killed off in every story that's ever been told. Please keep your jokes to yourself, for your own sake.
+
+=== ef748d003e49099c9e96e6124fa4f720d68e3864  riga 2015  [?]
+  JP  生体兵器の殲滅、お疲れ様でした。こちらが報酬です。エユルにも後ほど報酬を渡しておきます。
+  EN  Thank you for destroying the biological weapons. Here is your reward. I'll give Regulus his portion the next time he's here.
+
+=== dd71f781b305e1b07daea3e8965c09348391028a  riga 2030  [?]
+  JP  メイルーンの悪魔討伐、お疲れ様でした。あら？マルカは一緒ではないのですか？
+  EN  Good work on taking out the demon in Mayroon. Huh? Marka isn't with you?
+
+=== 2fe96709d13f52e57e4f97b75c193de2cbc943ab  riga 2031  [?]
+  JP  とりあえず、こちらがあなたの分の報酬です。
+  EN  Well, here's your reward.
+
+=== ddb1882241bbbc717a3b6a997839bb0f100874a4  riga 2048  [?]
+  JP  エウダーナの悪魔討伐、お疲れ様でした。こちらが今回分の報酬ですよ。
+  EN  Thanks for taking out the demon in Eulderna. Here's your reward.
+
+=== 82474a12676a1e8729ed7a10296f3cce3adb412d  riga 2063  [?]
+  JP  キッカスの悪魔討伐、お疲れ様でした。こちらが今回分の報酬ですよ。
+  EN  Thanks for defeating the demon in Kikkasu. Here's your reward.
+
+=== ce776b1e0c3f2469efd2d2780e22f063bd4be414  riga 2083  [?]
+  JP  混沌の神が倒され、ロスリアに集まっていた混沌の精霊たちも各国の連合軍に鎮圧されました。事実上、混沌の軍勢は滅んだことになりますね。ロストイルヴァの情報も大体集まりましたし、ようやく私も落ち着けます。
+  EN  The God of Chaos has been defeated, and the spirits of chaos that had gathered in Lothria have been overthrown by the combined forces of all the allied nations as well. That means the forces of Chaos have been effectively wiped out. Having gathered as much information on Lost Irva as I could manage, I can settle down at last.
+
+=== c00e097165f46613c49c56a07f179607de02d91d  riga 2086  [?]
+  JP  ええっ？混沌の神を倒した…のですか？あなたが？
+  EN  What? You defeated the God of Chaos? *You* did that?
+
+=== 2251e3c32a266ad4c2055bad50d57ff5b66f7639  riga 2088  [?]
+  JP  …あまり、そのことは喋らない方がいいかもしれませんよ。邪神を殺した英雄がそれ以上の危険因子として迫害されることがあるのは、歴史が証明しています。
+  EN  ... It might be best if you don't speak of it too much. History has proven that a hero who kills an evil god can be persecuted as an even greater threat to humankind.
+
+=== 5993c81f1d7f3b4471d47ccd0ebde142c5bf3235  riga 2094  [?]
+  JP  私の方では、今のところ新たに依頼する討伐もありません。ロストイルヴァの調査をお願いします。何か新しい発見があれば、内容に応じて報酬を出しましょう。
+  EN  I don't have any further requests to eliminate demons at the moment. Please focus on investigating Lost Irva for now. If you discover something, we may give you a reward based on what it is.
+
+=== 91a16a2514ee20efd95c7b384e74f1935c8ddcfd  riga 2096  [?]
+  JP  ああ、そういえばイェルス軍からご指名がありましたよ。あなたの手が空いたら、メルガスへ来てほしいとのことでした。依頼の内容と指名の理由は明かしてくれませんでしたが…。
+  EN  Ah, that reminds me. The Yerles army was looking for you. They wanted you to stop by Melugas when you're free. They didn't inform me of why they were looking for you, however...
+
+=== eee5ec847a529887ee4c02d833be490f1785f6fe  riga 2102  [?]
+  JP  生体兵器の殲滅（ザナン）
+  EN  Annihilation of the biological weapon. (Zanan)
+
+=== fb3e9942bd4e5238aa7297f8bf28b5923957a8c9  riga 2105  [?]
+  JP  破壊の悪魔討伐（メイルーン）
+  EN  Putting down the demon of destruction. (Mayroon)
+
+=== 7c57547aceec10aa85c2925ddf59aeb3b9e4cf3b  riga 2108  [?]
+  JP  復讐の悪魔討伐（エウダーナ）
+  EN  Putting down the demon of vengeance. (Eulderna)
+
+=== 47567771e2b7d938d2c3c5574c20d31d1cbedf3e  riga 2111  [?]
+  JP  疫病の悪魔討伐（キッカス）
+  EN  Putting down the demon of disease. (Kikkasu)
+
+=== eb53bb41bf6788925e5253a215f18fbda18e05f2  riga 2113  [?]
+  JP  よく来てくれました。、あなた向きの国家依頼を紹介します。ひとつ達成するごとに報酬を渡しましょう。
+  EN  I'm glad you're here, . I have some official requests from Palmia for you. For each one you complete, I'll give you a reward.
+
+=== 3594e59590180c2ccdb6cb2a85b29cf00c18a65e  riga 2116  [?]
+  JP  資料によると、ザナンのある機関で研究されていた生体兵器が暴走したとされています。なんでも、メシェーラの特性で強化した生物を薬物でコントロールしようとしていたとか。イェルスでメシェーラの無害化にも携わったというあなたは適任でしょう。
+  EN  According to our data, a biological weapon being created by an institution in Zanan has gone out of control. From what I understand, these creatures that they plan to control have many of the characteristics of the Meshera, and has been strengthened further with other drugs. Since you cooperated with the Yerles in the purification of the Meshera, I think you would be suitable for taking care of this issue.
+
+=== f4a85a43fbd27ecd213eff679ab67b827e8372c8  riga 2117  [?]
+  JP  なお、研究施設の元関係者を名乗る冒険者が名乗りをあげたので彼にも同行してもらいます。彼の名前はエユル。目的地への案内人も兼ねているので、準備が出来次第接触してください。現在は関所のノースティリス側宿屋に待機してもらっています。
+  EN  You'll be accompanied by another adventurer who is involved with the research institution. His name is Regulus. He'll be the one to guide you to your destination, so contact him as soon as you're ready. He'll be waiting at the inn on the border to South Tyris.
+
+=== 71cb4621151945db246db2dd94f07fa6891dfe22  riga 2124  [?]
+  JP  永世中立を保ち他国との関わりを避けていたメイルーンですが、突如として現れた悪魔と混沌の精霊たちの襲撃に対抗できる戦力が無く、今回救援を要請してきました。あなたの前に派遣した討伐隊は、メイルーン唯一の港ごと船を破壊され壊滅しています。冒険者は驚くことに泳いで帰ってきましたが、しばらくは再起不能でしょう。
+  EN  As you may know. Mayroon is a country that has remained neutral and avoided contact with the other countries since its founding. They're the ones asking for help this time. Without a standing army, they were unable to stand against the spirits of chaos and the demons that appeared. The group that was sent before you had their boat destroyed, and Mayroon's sole port has been devastated. Surprisingly a few adventurers managed to swim back, but it's unlikely they'll recover for some time.
+
+=== 47edc8177d1224ac05575fd2566a6b11d653d3af  riga 2125  [?]
+  JP  あなたにはメイルーンを熟知した銀熊…マルカとともにノイエルから陸路で現地へ向かってもらいます。彼女はノイエルの教会に待機させているので早く合流してください。元から人の話を殆ど聞かないうえに、襲撃を受けているのは彼女の故郷…時間が経つと独断先行してしまうかもしれません。
+  EN  You already know the Silver Bear... Together with Marka, you'll leave from Noyel and take the overland route to Mayroon. She's already waiting at the church in Noyel, so please join her quickly. We've had little word from her hometown since it was attacked by a demon... Don't waste time.
+
+=== 8d0be6e47b83383674698fb8e9859f09bcdc1361  riga 2132  [?]
+  JP  ニーサ沿岸部に突如出現したとされる復讐の悪魔は、大陸を東に移動しつつエウダーナ王都に到達。王都は以前から混沌の精霊たちの襲撃を受けており、その度に魔術旅団が対応にあたっていました。しかし悪魔到達後に状況は一変。下級・中級の魔術士たちが悪魔にそそのかされ敵に回ったのです。元よりエリート主義のエウダーナにおいて才能に劣る者は辛く惨めな思いをするものだと聞きます。おそらくは悪魔はその心の隅間に付け込んだのでしょう。
+  EN  The demon of vengeance that appeared on Niesa's cost has traveled to the east to the Eulderna captial. The capital has been under attack for some time by chaos spirits, which have been repelled by the mage division of their army so far. But things have changed now that this demon has arrived. The lower and mid class mages have been seduced by this demon and have turned on their comrades. From my understanding, the elite in Eulderna look down on and are cruel to the less talented mages. I'm sure the demon took advantage of the resentment this caused.
+
+=== 59e1f45ac224cf025f42ca6f7258b99c74bf8c56  riga 2133  [?]
+  JP  ロストイルヴァ探索に出ていたエウダーナの調査部隊が敵勢力に２度挑んでいますが、老魔導士のライゼル以外に渡り合える者がおらず、撤退を繰り返しています。再攻撃を予定している魔導船に乗って最前線に赴き、王宮周辺の結界に籠城している魔術師たちと協力して敵勢力を殲滅…それが今回の国家依頼です。大混戦が予想されるので注意してください。
+  EN  The Eulderna investigation team that's on Lost Irva have attempted to challenge the demon twice. However, the only one that possesses enough power to fight the demon is the old wizard Raizel, so they've had to retreat both times. Your task is to join forces with the magicians and stage an assault again the forces of chaos at the Eulderna capital, and to eliminate the demon of vengeance there... This is an official state request. This will likely be a large fight, so be careful.
+
+=== 4e41f43cc3dd5458c00c7930346cd6d39a2aed7b  riga 2140  [?]
+  JP  キッカス辺境の街が一夜にして地獄に変わりました。疫病の悪魔を名乗る怪物が瘴気で街を包み込んだのです。人々が次々に死亡し、アンデッドに変えられて街を徘徊しているのだとか。街から逃げ出してきた旅人はこの報告直後に全身から血を噴き出して死亡、さらに介抱した周囲の人々も２４時間以内に死亡したそうです。事態を重く見たキッカス政府は周辺を封鎖し、同盟に救援を要請してきました。
+  EN  The Kikkasu border town turned in to Hell overnight. A monster calling himself the Demon of Plagues wrapped the town in some sort of miasma. The people died one after the other, and became undead that wander the streets. The traveler that fled the city and reported this to us died from blood pouring out of every orifice, and the people that attempted to nurse him died within another 24 hours. The Kikkasu government blockaded the city and requested help from our alliance.
+
+=== 896511aabd03c18ca04bf33e8748fbfbd31a76c2  riga 2141  [?]
+  JP  今回は歴戦の傭兵部隊に同行することになります。現地へはロストイルヴァ北端に存在する神艦から小型艇で移動する手筈です。詳しくは神艦で準備を進めている傭兵のリーダー、シュライダと打ち合わせをお願いします。
+  EN  You'll be cooperating with veteran mercenaries this time. Arrangements have been made for you to leave on a small boat from the God's Warship located in the northern part of Lost Irva. You should meet up with Shuraida, the head of the mercenaries, for more information.
+
+=== 858d7fc0d50e4c41f4af6964a9fddab6c9796c0c  riga 2151  [?]
+  JP  今後も何かあったら協力をお願いするかもしれませんね。、頼りにしていますよ。
+  EN  I'll ask for your help again if anything comes up in the future. We're counting on you, .
+
+=== 61564e35a8aa78caca6c67d6e3e94932e9ae21a7  riga 2156  [?]
+  JP  銀熊と遭遇した…？わかりました、一度順を追って報告をお願いします。
+  EN  You encountered the Silver Bear...? I understand. Please give me your report.
+
+=== 2235da39076182919edaa7e29e235ad5215968b2  riga 2165  [?]
+  JP  なるほど、そういうことでしたか。…メイルーンに送り込まれた化け物というのも気になりますね。この件に関してはこちらでメイルーンに連絡を取ってみます。
+  EN  I see. So that's what's happening... I'm worried about this monster that was sent to Mayroon. I'll get in touch with my contact there immediately to see if I can't find out more.
+
+=== 6c79ba0291aec2c5ac6477b245289d4ddff2bb04  riga 2166  [?]
+  JP  それと、今回の報酬を渡しておきます。今後も何かあったら協力をお願いするかもしれませんね。
+  EN  This is your reward. I hope you'll continue to cooperate with us in the future.
+
+=== 9dc41836eaad14670200a34f5a5c8cc4ecfec0d7  riga 2184  [?]
+  JP  メイルーンの銀熊の足取りと、浮遊大陸の調査を独自に進めてください。調査の報酬は再検討しましょう。
+  EN  Do not forget to arrive at Mayroon, please contact me through the informer.
+
+=== 0416a9cb660fb338ec5f262541444241e6101388  riga 2190  [?]
+  JP  ポート・カプールの船長から、航海中にあなたが突如行方不明になったとの報告を受けています。一体、何があったのか話してください。
+  EN  Do not forget to arrive at Mayroon, please contact me through the informer.
+
+=== 931d1b366a287e5d3ce9f8ac18579a01bc734946  riga 2199  [?]
+  JP  そんなことが…。今まで行方不明になった者たちはあの浮遊大陸に…？わかりました。メイルーンの銀熊の足取りと、浮遊大陸の調査を独自に進めてください。調査の報酬は再検討しましょう。
+  EN  Do not forget to arrive at Mayroon, please contact me through the informer.
+
+=== 18b6490a3e9588fcb902d4875c58f061c18c12ff  riga 2205  [?]
+  JP  メイルーンに到着したら忘れずに、情報屋を介して連絡をくださいね。
+  EN  Don't forget to contact me through one of my informers once you've arrived in Mayroon.
+
+=== 05bc388172ce6e9318c9411c5574b1ee45c3a05c  riga 2209  [?]
+  JP  私達の雇った冒険者の一人、メイルーンの銀熊は消息を絶つ寸前、故郷周辺の調査を行っていました。手始めに、あなたにはメイルーンの銀熊の足取りを追ってもらいたいのです。
+  EN  We just lost contact with one of the adventurers we hired known as the Silver Bear of Mayroon. She had been investigating around her hometown. I'd like for you to begin by following in her footsteps.
+
+=== e6095037e0f4637674f91ca1b7d89005c07697f4  riga 2212  [?]
+  JP  銀熊の故郷はノイエルの遥か東、大陸極東の城下町…雪と氷に覆われ道などはないので陸路は避け、ポート・カプールから船で東部へ回り込んでください。
+  EN  Her hometown is located far east of Noyel. The entire area is an icy wilderness, so you should avoid traveling overland and instead seek a boat leaving from Port Kapul.
+
+=== 83667f203fdb635efbc1035dd9fdc45440aee416  riga 2217  [?]
+  JP  、大丈夫ですよ。洋上でのエーテル風も最近は観測されていません。それに私達の用意する探査船ならエーテル風程度で沈むことはないでしょう。
+  EN  Don't worry, . The Etherwind hasn't been seen on the ocean recently. Regardless, the ship we've prepared for the investigation wouldn't be sunk by the Etherwind anyways.
+
+=== ee0e43b07768a5e674bcdad14ba406a42c0cd0ca  riga 2220  [?]
+  JP  そ、そんなに怯えなくても…。あ！逃げないでください！
+  EN  T-there's nothing to be afraid of... Ah! Please don't run away!
+
+=== 5db03dbe68cb1ccc4a24d886a0c355691a017fac  riga 2225  [?]
+  JP  ポート・カプールの船長にはすでに話をつけています。この紹介状を持って行ってください。
+  EN  The captain of the ship is waiting in Port Kapul. Take this letter of introduction. He knows what to do.
+
+=== c85fffbeb9876494297941cb10abe708800f940b  riga 2228  [?]
+  JP  [紹介状]を受け取った。ジャーナルが更新された。
+  EN  You receive a [Letter of Introduction]. Your journal has been updated.
+
+=== 211c1379f8718c5a6d21445d7d24b7c20b60ee0e  riga 2235  [?]
+  JP  引き受けよう
+  EN  I'll do it.
+
+=== bb3c3ca0b2f90fbe2b57a5132c43992eb22e4537  riga 2236  [?]
+  JP  どうでもいい
+  EN  Who cares.
+
+=== 1e35834b1b8701c946b0768c9062a3790c89170d  riga 2237  [?]
+  JP  いくら出す？
+  EN  How much will you pay me?
+
+=== 0dd44b474edd6f8d18f72623a509b131539c55ca  riga 2238  [?]
+  JP  …！またあなたの力が必要なのです。あなたもうわさで耳にしたことがあるかもしれませんが、今このイルヴァの各地で行方不明者が続出しています。あなたに頼みたいことは２つ。行方不明者の居所を突き止めること、そして事件の元凶を断つことです。
+  EN  ...! It's good to see you. We need your power once again. You may have already heard rumors about this, but people have been disappearing all over Irva. I have two things I want to ask you to do. Find out what has happened to the people who disappeared, and stop those responsible for it.
+
+=== 8c2a0419e2cb272737e4e04261df8e2f48095ddf  riga 2241  [?]
+  JP  あなたの協力に感謝します。早速、メイルーンへ調査に赴いて欲しいのです。準備が出来たらまた話しかけてください。
+  EN  Your cooperation is appreciated. I'd like for you to begin your investigation at once, starting in Mayroon.
+
+=== 1664e88d8baa7d119a1f647a85ac44d07d411fbb  riga 2242  [?]
+  JP  それと…そうですね、報酬は成果に応じて適宜支払いましょう。
+  EN  And... Right, I'll reward you based on the outcome.
+
+=== 97381ce4f0ec413e093a6b02ebf7cdbc9e795c10  riga 2248  [?]
+  JP  少し、考えさせてください。
+  EN  Let me think about it.
+
+=== 34651513b1e4ba16fef3ea88cff9201d2b0adfe8  riga 2251  [?]
+  JP  ごめんなさい。あなたにも選ぶ権利があるのに。私、つい舞い上がってしまって…。
+  EN  I'm sorry. Of course you have the right to choose. I just let myself get carried away...
+
+=== b022fe0b77eab6ac5218668af7b9127b1c2d5e31  riga 2255  [?]
+  JP  私達は…失敗してしまったのですね、サイモアの陰謀を止めることに。あなたが《常闇の眼》を入手するために冒した危険も、カラムの命も、今となっては何の意味があったのでしょう。
+  EN  We... have failed, haven't we, to stop Saimore's scheme. Everything, the <Origin of Vice> you obtained from your travels and Karam's death, what did they all mean?
+
+=== 75d296df9b9a9353d64596af3bde31f06e3b1100  riga 2256  [?]
+  JP  ゆっくりと死に行く世界の中で、私達は無力感と罪を抱えて生きています。森を忌み嫌い、あるいは迫害を見ぬふりをしてきた私達が、サイモアだけを責めることなどできません。いっそのこと、あの時森とともに…
+  EN  In this slowly dying world we can only carry on with our sins and weakness. Hating the forest or ignoring those who did, how can we blame Saimore? We should have just... along with the forest...
+
+=== b7a5ce7ee75067f791bdfea3875437e8b0ead4c5  riga 2257  [?]
+  JP  ごめんなさい、つまらないことを聞かせてしまって。あなたは…あなたの目には…まだ希望の光が宿っている。、あなたはその運命の先に何を見ているの？
+  EN  I'm sorry, forcing you to listen to my blathering. You... Those eyes of yours... They still have the glimmer of hope.  , what can you see beyond this fate?
+
+=== 8c5d78a0796b338b8149c9e4b64250ff59fb92a5  riga 2261  [?]
+  JP  、遂に三つの魔石を揃えたのですね。私達の調査によれば、魔石はレシマスの秘宝の間への扉を開く鍵となるはず。しかし、レシマスの奥深くには恐ろしい魔物が巣食い、その場所が何階にあるかまでは判明していません。
+  EN  It looks like you've finally managed to acquire all three of the stones, . According to the information we've learned during the excavation, these stones are the key that will unlock the deepest reaches of Lesimas. However, be aware that terrifying monsters lurk in the abyss of Lesimas, and we have no idea how deep those caverns go.
+
+=== 1a4e4777c1aa282128b1b61325b579dded6197f0  riga 2262  [?]
+  JP  あなたの任務…おそらくは最後の任務は、決して易しいものではなく、失敗も許されません。レシマスの探索を進め、秘宝の間を見つけてください。そして、《常闇の眼》を地上に持ち帰り、ザナンの陰謀を阻止するのです。
+  EN  This will be your last mission. This will be no easy task, but failure is not an option. It's up to you to complete the excavation of Lesimas and find the room where the codex is kept. If you can't retrieve the <Origin of Vice> we will never be able to uncover the conspiracy Zanan has set into motion.
+
+=== cba3d88e5a9f240945a63070e55e43ed7eb4b0ce  riga 2263  [?]
+  JP  カラムの言葉が正しければ、秘宝を守るのは今は亡きザシム王の従弟ゼーム。ゼームは名うての魔術師としても知られていました。彼が生きながらえているのも何らかの魔力によるものでしょう。心して望んでください。
+  EN  If what Karam told us is true, the codex will be guarded by the late king Zashim's cousin, Zeome. Zeome was known to have been a very powerful warlock. In his day, he was by far the most powerful sorcerer alive. I wouldn't dare confront him unless you are extremely well prepared.
+
+=== dd9af45145c3209bd581d00132f26305f9e6a6f8  riga 2264  [?]
+  JP  あなたの働きには、感謝の言葉だけでは報いきれません。この指輪は、スターシャ様からの贈り物です。あなたの冒険の成功を祈っています。
+  EN  Words alone are not enough to express our gratitude for all that you have done. This ring is a gift from Queen Stersha. We are praying for your success, .
+
+=== 5c84232704e85b423fd1e9150eb2da5686695cb5  riga 2267  [?]
+  JP  レシマス25階の鍵を受け取った。ジャーナルが更新された。
+  EN  You receive a key of Lesimas 25th level. Your journal has been updated.
+
+=== 51ac6118e51e1c2aaa7f4169fd31e148a392f6e8  riga 2275  [?]
+  JP  、あなたの帰還を待っていました。カラムは無事に…いえ、その顔を見れば想像はつきます。私達の救助は遅すぎたのですね…。
+  EN  I've been waiting for you to return, . I hope that Karam is... no, I can tell just by looking at you. Then our rescue attempt was too little too late.
+
+=== c1962b4a5c2e463ae9c7147cf7cfa779c82cbcf9  riga 2284  [?]
+  JP  …カラムの言葉、確かに受け取りました。《常闇の眼》という古宝の伝承は、私も本で読んだことがあります。それは、イルヴァの大地の上に築かれた全ての歴史の真相を網羅していると伝えられています。もしカラムが危惧していたように、ザナンのサイモアが自らの説の誤りを葬らんとするためレシマスの秘宝を狙っているとしたら、私達はそれを阻止しなければなりません。
+  EN  We'll take Karam's message to heart then... I remember reading about the <Origin of Vice> in one of these books. I believe it referred to the codex as an exhaustive account of the history of all things in Irva. If, as Karam suspected, Saimore is trying to acquire the codex in order to cover up gaps in his story, we can't allow him to succeed.
+
+=== b317087aeb5ed92abadb8a79d7faa899b9471aba  riga 2285  [?]
+  JP  …王の悲報はもう耳にしているでしょう。都の土は涙で濡れていようとも、今の私達に喪に服している時間はありません。カラムと、そして王の意思を継ぐためにも。
+  EN  I'm sure you've already heard the tragic news about the king. All of Palmia is heartbroken by the king's demise, but we can't afford to spend our time mourning right now. We have to push on, for Karam... and for the king's sake.
+
+=== 634ed292cbb3e26a2879809fea91c5ad15001d03  riga 2286  [?]
+  JP  あなたの次の任務は、三つの魔石の入手です。魔石には、レシマスの秘密を解く何らかの力が秘められていると伝えられています。魔石の所在は判明していますが、どこも危険な場所ばかり。まずは、各地を探索し、経験を積んでから臨んだほうがいいでしょう。
+  EN  Your next task is to retrieve the three magic stones. It's written in several of our historical accounts that the stones are the key to unlocking the secrets of Lesimas. We already know where the stones are located, but actually getting the stones is definitely easier said than done. First, you should scout the areas, gather info, and build your strength.
+
+=== 33544a93b3af456aee47ae104fa3e46cab790ce6  riga 2287  [?]
+  JP  探索に必要な情報がある時は、いつでも私に話しかけてくださいね。帰還したばかりなのに酷ですが、あなたに期待しています。
+  EN  Please come see me anytime you get information that would be useful to the expedition. I know you've just returned and we're asking an awful lot of you, but I don't have any other choice.
+
+=== 6d5d56265f2196308612503db2e8ad1e93dbe85b  riga 2290  [?]
+  JP  レシマス17階の鍵を受け取った。ジャーナルが更新された。
+  EN  You receive a key of Lesimas 17th level. Your journal has been updated.
+
+=== 7d683de4025f7d2e60d0b2611cf7240037b1c39d  riga 2295  [?]
+  JP  あら、。レシマスの調査は進んでいるかしら？ 何か必要な情報があれば、何でも聞いてください。
+  EN  , how's your investigation going? Ask anything you'd like to know.
+
+=== b5c6f3d0fe0d726d66acf01062b70eef0d82b0bd  riga 2296  [?]
+  JP  レシマスについて
+  EN  Tell me about Lesimas.
+
+=== 2854feb5e445e69b79aaf455f06dc4f3a7455d93  riga 2297  [?]
+  JP  任務について
+  EN  Tell me about my task.
+  occorrenze: 2297 8130
+  ⚠ FUORI  8130: chatList 5, lang("任務について", "Tell me about my task.")
+
+=== f09d6ad4f50bc879c8fb7728cd45646d67bd5220  riga 2299  [?]
+  JP  古城について
+  EN  Tell me about the ancient castle.
+
+=== da41e8ffa7cdb9aecb5b23d25a9a9fdf96381f7e  riga 2300  [?]
+  JP  灼熱の塔について
+  EN  Tell me about the tower of infernos.
+
+=== 5924316ba24c465ac3ddf421faf24be9c93376bf  riga 2301  [?]
+  JP  死者の洞窟について
+  EN  Tell me about the crypt of the damned.
+
+=== 7eafc4ae3b2d30dea9454adb73ac17848aa8242e  riga 2307  [?]
+  JP  ネフィアの迷宮群の一つレシマスは、パルミアの歴史と大きな関わりがあります。エウダーナがネフィアの秘宝の一つにより繁栄を約束されたように、第三代の王ザシムと従弟ゼームもレシマスの秘宝を求め、調査隊を繰り出していました。
+  EN  Lesimas is one of the numerous ruins of Nefia. It is a significant part of the history of Palmia. The Eulderna sought to bring themselves prosperity using one of the treasures of Nefia, so the third king, Zashim and his cousin Zeome organized an excavation of Lesimas.
+
+=== 5af203538188dc64b299d176b296a7382f891384  riga 2308  [?]
+  JP  そしてある日、ついに調査隊の朗報を受けた王と従弟は、レシマスの最下層に赴き、秘宝の眠る部屋へと足を踏み入れたのです…しかし数刻の後、部屋から出てきたのはザシム王一人だけでした。ザシム王は側近にこう言ったと伝えられています。
+  EN  Eventually the king and his cousin received word that the excavation had been completed, so they descended to the deepest reaches of Lesimas. Together they set foot into the darkened room where the codex was said to reside, yet after some number of hours, King Zashim emerged from the chamber alone. As the legend goes, King Zashim said the following words to his aides.
+
+=== 0f3a8d14e1af2a932291209491bf2662bf06f618  riga 2309  [?]
+  JP  「それは強き者の手の内では決して輝くことはない。弱き者の手の内では黄金のごとくまばゆいが、その輝きを他の者に見せることはできない。この秘宝は、常闇の中で永遠に眠っているべきものなのだ。直ちに部屋を封印するがよい。従弟はもはや帰っては来るまい」
+  EN  \"In the hands of the mighty it was dull and lifeless, devoid of magic... yet... in the hands of the meek it shone with a brilliant golden light that defies description. But no matter how I tried, I could not show that light to anyone else. The codex was meant to remain in these depths for all of eternity. We should seal this place off. My cousin will never return from these caves.\"
+
+=== f74a232a3adf8baf1fb4d492fecbbc7a9654f086  riga 2310  [?]
+  JP  秘宝が眠る部屋は魔術により封印され、封印の鍵となる三つの魔石は、それぞれ最も強大で邪悪な存在の元に送られたといいます。魔石の真の価値は知らさずに。
+  EN  And so, they sealed the cavern with powerful magic and bound that seal to three magic stones. They gave each stone to a powerful guardian and sent them to three separate strongholds to watch over the stones. I don't believe the guardians knew the true value or purpose of the stones.
+
+=== 1c5240d806c22135c6d87dde99e57e48ebfa5add  riga 2311  [?]
+  JP  以来、パルミアの代々の王家は、ザシム王の意思を引き継ぎ、洞窟にはもう何もないかのように、他の国々の目を欺いてきたのです。
+  EN  Since that day, the passing generations of Palmia's royal family have preserved King Zashim's mandate and we've always deceived the other nations into believing there was nothing of value in Lesimas.
+
+=== e7559284890391950a84bec4085f10fad8b0a493  riga 2316  [?]
+  JP  レシマスの探索を進め、秘宝の間を見つけてください。あなたの任務は、《常闇の眼》を地上に持ち帰ることです。
+  EN  Complete the excavation of Lesimas and find the room where the codex is kept. And retrieve the <Origin of Vice>.
+
+=== f92a2fa40e2b70f155d202f38144ff20891b7741  riga 2317  [?]
+  JP  カラムの言葉が正しければ、秘宝を守るのは今は亡きザシム王の従弟ゼーム。ゼームは名うての魔術士としても知られていました。彼が生きながらえているのも何らかの魔力によるものでしょう。心して臨んでください。
+  EN  If what Karam told us is true, the codex will be guarded by the late king Zashim's cousin, Zeome. Zeome was known to have been a very powerful warlock. In his day, he was by far the most powerful sorcerer alive. I wouldn't dare confront him unless you are extremely well prepared.
+
+=== 8f732bf9107756e4eadfc044842c51d2ba1f8c9a  riga 2321  [?]
+  JP  あなたの任務は、三つの魔石の入手です。魔石には、レシマスの秘密を解く何らかの力が秘められていると伝えられています。魔石の所在は判明していますが、どこも危険な場所ばかり。まずは、各地を探索し、経験を積んでから臨んだほうがいいでしょう。
+  EN  Your next task is to retrieve the three magic stones. It's said that the stones are the key to unlocking the secrets of Lesimas. We already know where the stones are located, but all three locations are extremely dangerous. First, you should scout the areas, gather info, and build your strength.
+
+=== 31454f141c39c2b537edb12ae84de2949aae03dc  riga 2324  [?]
+  JP  あなたの任務は、レシマスに赴き、冒険者カラムとの接触を試みることです。彼から最後に連絡があったのは、レシマスの16階。おそらくは、より深層に探索の手を広げているでしょう。彼の足取りをつかみ、私に報告してください。
+  EN  Your duty will be to penetrate into Lesimas and make contact with <Karam>. In the last report we received from him, he told us he was on the 16th floor. If you can find him, perhaps we can get this excavation back on track. Godspeed, , find out what happened to <Karam>.
+
+=== 70fd1290c6ea63668ee8f7ee99825a6a6d56cc5b  riga 2328  [?]
+  JP  古城の宝物庫には、数々の財宝とともに《覇者の魔石》が眠っていると伝えられています。ヴェルニースを南に下った閑静な森の中に佇むこの城は、古の王族により建てられました。しかし王都がパルミアに移り、廃墟となった城は、長らくならず者の拠点として使われるように…
+  EN  The <King's Magic Stone>, along with numerous other treasures, sleeps deep in the recesses of the vaults of the Ancient Castle, which was built by a long forgotten generation of the royal family. However, the royal family eventually relocated to Palmia and the former throne of the kingdom fell into disrepair and decay. It has been ages since anyone even set foot in the old castle...
+
+=== 827eb339794edb572a38c321c57915887f369c12  riga 2329  [?]
+  JP  一世紀前に《古城の主ワイナン》が占拠してからは、ダルフィの悪漢でさえ近づかない恐ろしい場所として知られるようになりました。危険度はレシマスの１７階相当です。
+  EN  After <Lord Wynan> took charge of the castle in the first century, even the thugs of Derphy became too scared to approach the castle. The danger level in the castle is roughly equivalent to the 17th floor of Lesimas.
+
+=== 56bbf8017233d49d8986fc84ebcc59228167ea6b  riga 2330  [?]
+  JP  噂では、《ワイナン》がまだ生きて王座に君臨しているとか…彼は生粋の戦士で、その手に持つ槍斧《ランキス》は相対するものの生命を吸い取ると怖れられています。地獄への耐性か、間合いをとる手段なくして彼と対するのは賢明とはいえませんね。
+  EN  It is rumored that <Wynan> still rules the throne along with his personally trained army. Legends tell that the deadly halberd he carries, <Rankis>, can drain the life from his enemies with the greatest of ease. It would be wise to boost your resistance to nether... oh, and bear in mind that unless you can time your actions wisely he'll devour you like a dog.
+
+=== 031dbfc38eab53bc59211f775f8407e416e8e2e1  riga 2334  [?]
+  JP  パルミアを出て北の未開の地を越えていくと、真紅に燃え盛る灼熱の塔が見えます。この塔の守護者、《赤き義眼のクルイツゥア》と呼ばれる魔女が、《賢者の魔石》を所持しているはずです。
+  EN  If you head north from Palmia, through the untamed lands, you will eventually see a tower blazing with an aura of flames. The guardian of the tower, a powerful witch named <Quruiza the Red-eyed Deceiver>, watches over the <Sage's Magic Stone>.
+
+=== f65f4819bb1a3aa5a93fff29171749f2d1f845ee  riga 2335  [?]
+  JP  《クルイツゥア》の強力な魔法だけでなく、彼女の僕であり夫である《鋼鉄竜コルゴン》の力も恐るべきものです。
+  EN  Quruiza's magic is not the only thing you have to fear, either; her husband, the <Steel Dragon Corgon> has pledged his strength to her defense. No doubt you'll have to face him as well.
+
+=== 5385f95c7e83ddc536621ba0e0a1ca3bf3b58524  riga 2336  [?]
+  JP  言うまでもないですが、この塔を探索するには、何らかの手段で火への耐性を得る必要があるでしょう。もし体力を失っていくようであれば、耐性を高めてから挑戦したほうが無難です。危険度はレシマスの１５階相当です。
+  EN  I probably don't need to tell you this, but if you plan to brave the tower, you'll need some sort of powerful resistance to heat and flames. If you find you can't hack it inside, I'd suggest you find some way to protect yourself from the heat before venturing back inside. The danger level in the tower is roughly equivalent to the 15th floor of Lesimas.
+
+=== a92b87fa669f79221e0f8231f12a3fc376ae01f1  riga 2340  [?]
+  JP  《愚者の魔石》が眠っているとされる死者の洞窟は、最も危険な場所です。多くの名のある冒険者が命を落とし、不死者となりこの洞窟の中をさ迷っています。
+  EN  The <Crypt of the Damned> is an ancient cave where the walking dead have amassed in droves. It is the most dangerous of the three strongholds. Countless famous adventurers have lost their lives in the crypt, doomed to wander its halls for all eternity as undead.
+
+=== 8efddf8b2af7cf4d779f44828272a513293fe5c7  riga 2341  [?]
+  JP  魔石はこの洞窟を支配する《闇の奇形イスシズル》が身に着けているはずです。死霊術使い達に崇められ、その名は大陸中で畏怖されていますが、《イスシズル》の姿や力は、全くの謎に包まれています…
+  EN  I believe that the <Dark Abomination Issizzle> rules the hallowed crypts. He is a powerful necromancer and his name is feared all across the continent. Issizzle is shrouded in mystery so I'm afraid I can't tell you much more.
+
+=== 6b41e03033ae32c2d81be67898a2da4d9852b3ce  riga 2342  [?]
+  JP  死者の洞窟はヴェルニースとパルミアを結ぶ街道の中ほどにあり、危険度はレシマスの２５階相当です。万全に準備を整えていく必要があるでしょう。
+  EN  The crypt of the damned is along the road that runs between Vernis and Palmia. The danger level of the crypt is roughly equivalent to the 25th floor of Lesimas. You will need to be well prepared before venturing into the crypts.
+
+=== f61141b8122a2803c028bf09022dcfb622f67861  riga 2349  [?]
+  JP  あなたがですね。使いの者から聞いています。私はエリステア、ネフィア迷宮群の歴史の研究に携わって来ました。今は王の命によりレシマス調査隊の副長を務めていますが、洞窟に眠る多くの謎と危険な魔物の存在のために、調査は思わしく進んでいません。あなたのような冒険者に力になってもらえると心強いです。
+  EN  You must be . I've already heard some of the soldiers talking about you. My name is Erystia, and I study the history of Nefia, the mysterious labyrinths common to this land. The King has placed me in charge of the expedition to investigate Lesimas. Unfortunately, due to numerous obstacles and an abundance of hostile monsters residing in the caverns, our investigation has made little, if any, progress. It would be very reassuring if we had the strength of adventurers like you backing us up.
+
+=== f09d445f95eb07f59a1483fe19c78c289ded2b40  riga 2355  [?]
+  JP  わかりました。考えが変わったら、また声をかけてください。
+  EN  Fair enough... but should you change your mind feel free to come back.
+
+=== b4b7db4d0d9b652811d252a082851d7436e14104  riga 2358  [?]
+  JP  よかった。こんなことを言っては悪いけれど、城の兵士達は機転に欠けていて、調査にはあまり役に立ってくれなかったの。
+  EN  Fantastic. I hate to admit it, but the castle's regular soldiers have been virtually useless so far...
+
+=== b7c3e1b9f83cb35273636a37bb62c328118494ed  riga 2359  [?]
+  JP  私達の目的は、レシマスを探索し、最下層にあるといわれる《秘宝》を持ち帰ることです。《秘宝》の正体とレシマスについての研究はある程度進んでいます。一度に言っても覚えられないでしょうから、必要があればその度に聞いてください。
+  EN  Our objective is to penetrate to the deepest reaches of Lesimas and retrieve the <codex> hidden there. Once we know the true nature of the <codex>, we can complete our research on the ancient dungeon. You probably won't remember all this after hearing it only once, so feel free to ask me about it again.
+
+=== bd59c25f2ae32274a01f6655a5d93d7392858e13  riga 2360  [?]
+  JP  最初の仕事として、あなたにはある人物の探索をお願いします。男の名は《カラム》。あなたと同じように、彼もレシマス探索の協力を買って出た屈指の冒険者です。調査隊の情報源として少なからぬ貢献をしていました。しかし、彼からの音沙汰がここ数週間まったくないのです。
+  EN  Now, on to the first order of business. We need you to investigate the fate of one of our agents. His name is <Karam>. Like you, he is one of the foremost adventurers in the land. He agreed to assist with the expedition into Lesimas. He had been contributing information to the expedition's limited intelligence on the caverns. However... we haven't heard anything from him in some number of weeks.
+
+=== e9341bf2f1168a343cebd0883cb55f7d16deabec  riga 2361  [?]
+  JP  あなたの任務は、レシマスに赴き、《カラム》との接触を試みることです。彼から最後に連絡があったのは、レシマスの16階。おそらくは、より深層に探索の手を広げているでしょう。彼の足取りをつかみ、私に報告してください。
+  EN  Your duty will be to penetrate into Lesimas and make contact with <Karam>. In the last report we received from him, he told us he was on the 16th floor. If you can find him, perhaps we can get this excavation back on track. Godspeed, , find out what happened to <Karam>.
+
+=== 5dd1d675961221af6b73c7c96ba7609422c2649d  riga 2364  [?]
+  JP  レシマス4階の鍵を受け取った。ジャーナルが更新された。
+  EN  You receive a key of Lesimas 4th level. Your journal has been updated.
+
