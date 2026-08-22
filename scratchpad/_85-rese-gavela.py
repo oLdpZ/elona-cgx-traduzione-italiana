@@ -34,7 +34,7 @@ RESE[7829] = ('"...Senti, " + cdatan(CDATAN_NAME, CHARA_PLAYER) + '
 RESE[7830] = ("Che combatti contro il caos me l'ha detto un tale, Norne. Ma il Sigillo Eterno è finito in mano a "
               "qualcosa che non si sa nemmeno che cosa sia. Che l'AO-I venisse ridotto a rottami prima ancora di "
               "raccogliere i dati, sinceramente, non me l'aspettavo neanch'io. Il pericolo non è misurabile.")
-RESE[7831] = "Non c'è da preoccuparsi."
+RESE[7831] = "Non ti preoccupare."
 RESE[7832] = "L'avventura è correre il rischio."
 RESE[7833] = "Vado a vendicare l'AO-I."
 RESE[7835] = "Ti prego. Non andare."
@@ -99,7 +99,7 @@ RESE[7902] = ('"Oh, eccoti qui, " + cdatan(CDATAN_NAME, CHARA_PLAYER) + '
               'non è che avessimo altri avventurieri di fiducia."')
 RESE[7903] = "Gli altri avventurieri che conoscevamo... quel giorno, in fondo alle Rovine di Remido, sono morti tutti."
 RESE[7904] = "Non ho scelta."
-RESE[7905] = "Dipende. Di che si tratta?"
+RESE[7905] = "Dipende. Che cosa?"
 RESE[7906] = "Non se ne parla."
 RESE[7907] = ("Dunque, mi faresti un favore? Ti pago di tasca mia, e in più c'è il compenso dell'esercito.")
 RESE[7910] = "Ah sì? Niente da fare..."
@@ -136,9 +136,9 @@ RESE[7938] = ("Mh? Quella è la tuta speciale di cui abbiamo fermato lo sviluppo
               "sotterraneo, come mai ce l'hai tu?")
 RESE[7939] = ("No, lascia perdere, non conta. ...Lo sai che è incompiuto, vero? "
               "L'ho progettato io: prima o poi volevo finirlo.")
-RESE[7941] = "(Dare 30 monete di platino)"
-RESE[7944] = "(Dare 20 monete di platino)"
-RESE[7947] = "(Dare 3 monete di platino)"
+RESE[7941] = "(30 monete di platino)"
+RESE[7944] = "(20 monete di platino)"
+RESE[7947] = "(3 monete di platino)"
 RESE[7949] = "Ci penso su."
 RESE[7950] = ("Per la lavorazione finale serve platino, e parecchio. Il pezzo finito lo do a te, quindi il platino lo "
               "metti tu? Diciamo che una trentina di monete di platino non sbagliano.")

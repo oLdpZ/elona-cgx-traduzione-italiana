@@ -178,7 +178,7 @@ RESE[2290] = "Ricevi la chiave del diciassettesimo piano di Lesimas. Il tuo diar
 RESE[2295] = ('"Ah, " + cdatan(CDATAN_NAME, CHARA_PLAYER) + '
               '". L\'indagine su Lesimas procede? Se ti serve qualche informazione, chiedi pure."')
 RESE[2296] = "Parlami di Lesimas."
-RESE[2297] = "Parlami della mia missione."
+RESE[2297] = "Parlami della missione."
 RESE[2299] = "Parlami del Castello Antico."
 RESE[2300] = "Parlami della Torre Rovente."
 RESE[2301] = "Parlami della grotta dei morti."
