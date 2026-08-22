@@ -14,9 +14,21 @@ interpolazioni e il glossario, le quattro reti di geometria guardano i tetti.
 ⚠️⚠️ **E la misura va fatta sulla forma DEGRADATA.** Nel dizionario si scrive
 «Autorità»; `applica.py` scrive «Autorita'», che e' un carattere piu' lungo. Un
 test che contasse i caratteri del dizionario direbbe che va bene e la colonna a
-schermo sarebbe spostata. E' la stessa ragione per cui la resa di `:357` e'
-«Influenza» e non «Autorita'»: un'etichetta accentata costringe a contare
-l'imbottitura su una cosa che il file non mostra.
+schermo sarebbe spostata.
+
+⭐ **87a: `:357` adesso porta un accento, e la precauzione che lo vietava e'
+stata ritirata.** La riga diceva «Influenza» mentre il gioco chiama quella
+statistica «autorita'» in **otto** altri siti (`chat.hsp:7026`, `:7032`,
+`:19563`, `:23940`, `:24008`, `:24011`, `:22513`, `action.hsp:8506`), e il
+tutorial del seminario (`chat.hsp:14047`) e' il posto dove il giocatore impara
+la parola: due nomi per una statistica sola erano il difetto, non l'accento.
+Il divieto nasceva da un timore ragionevole — *un'etichetta accentata
+costringe a contare l'imbottitura su una forma che il file non mostra* — ma
+quel conto non si fa piu' a mano: lo fa
+`test_l_etichetta_italiana_e_lunga_come_l_inglese` a ogni giro, sulla forma
+degradata, contro l'inglese di monte. La precauzione proteggeva da un conto
+sbagliato; il conto adesso e' automatico. 💡 *Una precauzione si ritira quando
+la cosa da cui proteggeva e' diventata una misura.*
 
 La prova e' contro l'INGLESE di monte, non contro un numero scritto qui: e'
 upstream a decidere dove sta la colonna, e se un aggiornamento CGX la sposta
@@ -75,16 +87,10 @@ def test_l_etichetta_italiana_e_lunga_come_l_inglese(voce):
     )
 
 
-@pytest.mark.parametrize("voce", voci_del_prospetto(),
-                         ids=lambda v: str(v["riga"]))
-def test_l_etichetta_italiana_non_porta_accenti(voce):
-    """Un accento si allunga in build, e contarlo a mano e' come non contarlo.
-
-    Non e' una regola di stile: e' che l'imbottitura andrebbe misurata su una
-    forma che il file del dizionario non mostra. Meglio un sinonimo.
-    """
-    italiano = _testa(voce["it"])
-    assert italiano == degrada(italiano), (
-        f"economy.hsp:{voce['riga']}: l'etichetta {italiano!r} ha un accento, "
-        "e in build diventa piu' lunga di quel che si legge qui"
-    )
+# ⚠️ 87a: qui c'era `test_l_etichetta_italiana_non_porta_accenti`, dodici prove
+# che vietavano l'accento in queste dodici etichette. E' stato tolto, non
+# aggirato con un'eccezione: il motivo sta nel docstring del modulo. In breve,
+# vietava una PAROLA per paura di un CONTO, e il conto lo fa gia'
+# `test_l_etichetta_italiana_e_lunga_come_l_inglese` sulla forma degradata, a
+# ogni giro. Un'eccezione per la sola `:357` sarebbe stata un debito da
+# rileggere ogni volta che si tocca il prospetto.
