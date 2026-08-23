@@ -14,8 +14,8 @@ import pytest
 from strumenti import percorsi
 
 from strumenti.menu_dialogo import (
-    TETTO_DUE_COLONNE,
-    tagliate_a_due_colonne,
+    SOGLIA_DUE_COLONNE, TETTO_DUE_COLONNE,
+    fine_del_gruppo, opzioni_del_menu, tagliate_a_due_colonne, voci_del_menu_di,
     CORNICE_RE_SELECT, FINE_VOCE_LEGGI, FINESTRA_EVENTO, INIZIO_TESTO,
     INIZIO_VOCE_GOD, INIZIO_VOCE_LEGGI, INIZIO_VOCE_RE_SELECT, LARGHEZZA_GOD,
     LEGGI_CITTA, MARGINE_GOD, MARGINE_RE_SELECT,
@@ -621,6 +621,80 @@ def test_le_due_colonne_valgono_solo_nella_pergamena():
     e' dentro `if ( evochat == 0 )`, cioe' solo il menu del dialogo normale."""
     fuori = {f for f, _, _, _, _ in tagliate_a_due_colonne()}
     assert fuori <= {"chat.hsp", "tcg_custom.hsp"}
+
+
+# --- 89a: quante voci ha il menu, e perche' la domanda ha una risposta
+#
+# Per quattro sessioni questa rete ha applicato il tetto delle due colonne a
+# ogni voce piu' lunga dell'inglese, dichiarando che il numero di voci «non e'
+# decidibile dal sorgente». Per il menu di un compagno e' vero; per un menu
+# scritto a mano in `chat.hsp` no, e i tre test qui sotto sono la prova.
+
+def test_chat_select_azzera_la_lista_alla_fine():
+    """La ragione per cui un menu si puo' CONTARE.
+
+    `chatList` non azzera niente: appende e incrementa (`init.hsp:47`). A
+    riportare `listmax` a zero e' l'ultima riga di `*chat_select`
+    (`chat.hsp:25217`), quindi le voci di un menu sono esattamente le
+    `chatList` fra un `gosub *chat_select` e il successivo. Se un domani quel
+    `listmax = 0` sparisse, il conto di `opzioni_del_menu` non varrebbe piu' e
+    questo test deve cadere per primo.
+    """
+    init = (percorsi.SORGENTE_HSP / "init.hsp").read_bytes().decode("cp932").splitlines()
+    macro = [r for r in init if r.startswith("#define chatList")]
+    assert macro, "la macro chatList non c'e' piu'"
+    assert "listmax++" in macro[0] and "listn(0,listmax)" in macro[0]
+
+    chat = (percorsi.SORGENTE_HSP / "chat.hsp").read_bytes().decode("cp932").splitlines()
+    inizio = next(i for i, r in enumerate(chat) if r.startswith("*chat_select"))
+    fine = next(i for i, r in enumerate(chat[inizio + 1:], start=inizio + 1)
+                if r.strip() == "return")
+    assert any(r.strip() == "listmax = 0" for r in chat[inizio:fine + 1])
+
+
+def test_la_soglia_delle_due_colonne_viene_dal_sorgente():
+    """10 non e' una stima: e' il `keyrange > 10` di `chat.hsp:25166`, la
+    guardia sotto cui sta lo `strmid` a 24. Sotto le undici voci il taglio non
+    gira mai, e chiedere 24 vorrebbe dire far accorciare una resa per un
+    vincolo che non esiste (66a)."""
+    righe = (percorsi.SORGENTE_HSP / "chat.hsp").read_bytes().decode("cp932").splitlines()
+    guardia = [r for r in righe if "keyrange >" in r and "cnt" in r]
+    assert guardia, "la guardia delle due colonne non c'e' piu'"
+    assert "keyrange > %d" % SOGLIA_DUE_COLONNE in guardia[0]
+
+
+def test_il_conto_delle_voci_legge_le_guardie():
+    """Il controllo positivo e' il menu di MAILE (88a): dieci `chatList` in
+    fila piu' una dentro `if ( adata(ADATA_DEEPEST, AREA_VOID) > ... )`, cioe'
+    **undici**, ed e' l'unico posto del progetto dove si e' visto il taglio a
+    24 mordere davvero. I controlli negativi sono i tre menu della 89a, che ne
+    hanno tre, due e due: li' `keyrange > 10` e' falso.
+
+    ⚠️ La voce si puo' passare da qualunque punto del gruppo — la prima riga o
+    quella dentro la guardia — e il conto non cambia: `fine_del_gruppo` porta
+    tutt'e due sulla stessa riga di arrivo.
+    """
+    righe = (percorsi.SORGENTE_HSP / "chat.hsp").read_bytes().decode("cp932").split("\n")
+    assert voci_del_menu_di(righe, 13268) == 11    # MAILE, la prima voce
+    assert voci_del_menu_di(righe, 13279) == 11    # MAILE, la voce sotto guardia
+    assert fine_del_gruppo(righe, 13268) == fine_del_gruppo(righe, 13279) == 13281
+    assert voci_del_menu_di(righe, 12520) == 3     # URCAGUARY, il primo menu
+    assert voci_del_menu_di(righe, 12438) == 2     # URCAGUARY, i calzini
+    assert voci_del_menu_di(righe, 10987) == 3     # DAIN, l'incarico
+    assert voci_del_menu_di(righe, 11064) == 2     # DAIN, la bottega
+    assert voci_del_menu_di(righe, 11089) == 2     # THALIA, il servizio
+
+
+def test_le_guardie_che_si_escludono_non_si_sommano():
+    """La regola della 87a, sul caso che l'ha fatta nascere: il seminario dei
+    quattro docenti ha sedici `chatList` in fila, quattro per ognuno dei
+    quattro incontri, ognuna dentro un `if ( ... == N ) {` con la stessa
+    sinistra e N diverso. A schermo i bottoni sono **quattro**."""
+    righe = (percorsi.SORGENTE_HSP / "chat.hsp").read_bytes().decode("cp932").split("\n")
+    seminario = [i for i, r in enumerate(righe[13950:14524], start=13951)
+                 if r.strip().lower().startswith("chatlist")]
+    assert len(seminario) >= 16, "il seminario non e' piu' dov'era"
+    assert max(voci_del_menu_di(righe, r) for r in seminario) <= 8
 
 
 # --- il quarto gosub che non disegna, e lo sfondo letto a mano (nati nella 74a)

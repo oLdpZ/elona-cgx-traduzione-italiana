@@ -190,6 +190,28 @@ TETTO = int(PIXEL_UTILI / PIXEL_PER_CARATTERE)
 # viene il danno.
 TETTO_DUE_COLONNE = 24
 
+# ⭐⭐ 89a: E QUANTE VOCI ABBIA IL MENU SI PUO' LEGGERE, DOPOTUTTO.
+#
+# Il commento qui sopra ha detto per quattro sessioni «non e' decidibile dal
+# sorgente», e per il menu di un compagno e' vero — le voci le aggiunge il
+# codice a seconda della trama. Ma per un menu scritto a mano in `chat.hsp`
+# non lo e', e il perche' sta in due righe:
+#
+#     init.hsp:47      #define chatList(%1,%2) ... listn(0,listmax)=%2 : listmax++
+#     chat.hsp:25217   listmax = 0        <- l'ultima riga di *chat_select
+#
+# Cioe': la lista si azzera alla fine di OGNI menu, quindi le voci di un menu
+# sono esattamente le `chatList` eseguite fra il `gosub *chat_select`
+# precedente e il suo. E il conto e' gia' scritto: `opzioni_del_menu()` qui
+# sotto e' la funzione che la 87a aveva messo in `chat-lotto-misura.opzioni()`
+# per il tetto dei `buff`, portata in `strumenti/` perche' due reti la
+# vogliono. 💡 *Se una rete conta, sta in `strumenti/` e ha un test* (68a).
+#
+# Sopra le dieci voci il taglio c'e' davvero (il menu di Maile, 88a: undici);
+# sotto, `keyrange > 10` e' falso e `strmid` non gira mai. Quindi la regola del
+# confronto con l'inglese si applica **solo dove il taglio puo' succedere**.
+SOGLIA_DUE_COLONNE = 10
+
 # --- la geometria di *re_select, letta da event.hsp:4145-4195
 CORNICE_RE_SELECT = 36   # dx = tx + 36            (event.hsp:4153)
 INIZIO_VOCE_RE_SELECT = 64   # cs_list a wx+60 (:4195) + 4 (module.hsp:129)
@@ -292,6 +314,10 @@ _VOCE = re.compile(r"(?i)\bchatlist\b")
 _GOSUB = re.compile(r"\bgosub\s+\*(\w+)")
 _ETICHETTA = re.compile(r"^\*(\w+)")
 _SFONDO = re.compile(r'^\s*file\s*=\s*"([^"]+)"')
+# la guardia che racchiude un gruppo di `chatList`: `if ( <sinistra> == <cosa> )`
+_GUARDIA = re.compile(r"^if\s*\((.*?)==\s*([^)]*?)\s*\)\s*\{?$")
+# le righe che possono stare DENTRO un gruppo di voci senza chiuderlo
+_RIEMPIMENTO = ("}", "if (", "else")
 # ⚠️⚠️ **Un valore interpolato puo' contenere a sua volta un `+`, e la prima
 # stesura non lo prevedeva** (76a). `chat.hsp:24715` interpola
 # `limit(cdata(CDATA_LEVEL, CHARA_PLAYER) / 2 + 5, 6, 130)`: con `[^+"]` il
@@ -602,6 +628,81 @@ def fuori_misura_inglese(
     return _sfori(voci_di_menu(dizionario, sorgente), "en_grezzo", grafica)
 
 
+def fine_del_gruppo(righe: list[str], riga: int) -> int:
+    """La prima riga (1-based) DOPO il gruppo di `chatList` che contiene `riga`.
+
+    E' la riga da cui `opzioni_del_menu` conta all'indietro: quasi sempre il
+    `buff = lang(...)` che porta la domanda, a volte il `gosub *chat_select`.
+    """
+    i = riga   # indice 0-based della riga successiva a `riga`
+    while i < len(righe):
+        s = righe[i].strip()
+        if (s.lower().startswith("chatlist") or s.startswith(_RIEMPIMENTO)
+                or s == "" or s.startswith(("//", ";"))):
+            i += 1
+            continue
+        break
+    return i + 1
+
+
+def opzioni_del_menu(righe: list[str], riga: int) -> int:
+    """Quante voci mostra il menu che si disegna a `riga` (1-based).
+
+    ⚠️ **Le `chatList` dentro guardie che si escludono a vicenda non si
+    sommano** (87a). Il seminario dei quattro docenti ne e' la prova: sedici
+    `chatList` in fila, quattro per ognuno dei quattro incontri, ognuna dentro
+    un `if ( gdata(STARTING_GDATA_FLAG + 329) == N ) {` con N diverso. A schermo
+    i bottoni sono **quattro**.
+
+    La regola: si raggruppano le `chatList` per la guardia che le contiene, e
+    per ogni SINISTRA di `==` si prende il gruppo piu' numeroso invece della
+    somma — due `if` che confrontano la stessa cosa con costanti diverse non
+    possono essere veri insieme. I gruppi con sinistre diverse, e le `chatList`
+    fuori da ogni guardia, si sommano lo stesso: li' l'esclusione non si sa.
+
+    💡 La passeggiata all'indietro si ferma sulla prima riga che non e' ne' una
+    voce ne' la macchina delle guardie, ed e' proprio quello a delimitare il
+    menu: `chat.hsp:25217` azzera `listmax` in coda a `*chat_select`, quindi
+    ogni menu comincia da zero e le voci di prima sono di un altro.
+
+    ⭐ 89a: era `chat-lotto-misura.opzioni()`, in `scratchpad/`. Adesso la
+    vogliono due reti, quindi sta qui e ha un test (68a).
+    """
+    libere = 0
+    gruppi: dict[str, list[int]] = {}
+    corrente = 0
+    dentro = False
+    i = riga - 2
+    while i >= 0 and riga - i < 60:
+        s = righe[i].strip()
+        if s.lower().startswith("chatlist"):
+            if dentro:
+                corrente += 1
+            else:
+                libere += 1
+        elif s.startswith("}"):
+            dentro = True
+            corrente = 0
+        elif s.startswith("if ("):
+            if dentro:
+                trovata = _GUARDIA.match(s)
+                chiave = trovata.group(1).strip() if trovata else s
+                gruppi.setdefault(chiave, []).append(corrente)
+                dentro = False
+                corrente = 0
+        elif s.startswith("else") or s == "":
+            pass
+        else:
+            break
+        i -= 1
+    return max(libere + sum(max(c) for c in gruppi.values()), 1)
+
+
+def voci_del_menu_di(righe: list[str], riga: int) -> int:
+    """Quante voci ha il menu a cui appartiene la `chatList` di `riga`."""
+    return opzioni_del_menu(righe, fine_del_gruppo(righe, riga))
+
+
 def tagliate_a_due_colonne(
     dizionario: Path | None = None,
     sorgente: Path | None = None,
@@ -612,7 +713,15 @@ def tagliate_a_due_colonne(
     Una voce ci finisce se l'inglese di monte sta nei 24 caratteri e l'italiano
     no — cioe' se a due colonne il giocatore leggerebbe tagliata una voce che in
     inglese leggeva intera. Vedi `TETTO_DUE_COLONNE`.
+
+    ⭐ 89a: **e solo se quel menu arriva davvero a due colonne.** `chat.hsp:25166`
+    taglia sotto `keyrange > 10`, e `keyrange` e' il numero di voci, che
+    `voci_del_menu_di` sa contare. Sotto le undici il taglio non gira mai e la
+    regola non ha niente da dire: chiederla lo stesso vuol dire far accorciare
+    una resa per un vincolo che non esiste (66a).
     """
+    sorgente = sorgente or percorsi.SORGENTE_HSP
+    righe_di: dict[str, list[str]] = {}
     peggiorate = []
     for voce in voci_di_menu(dizionario, sorgente):
         if voce.get("_contenitore") != PERGAMENA:
@@ -621,8 +730,15 @@ def tagliate_a_due_colonne(
         en = reso(voce.get("en_grezzo") or "")
         if not it or not en:
             continue
-        if len(en) <= TETTO_DUE_COLONNE < len(it):
-            peggiorate.append((voce["file"], voce["riga"], len(en), len(it), it))
+        if not (len(en) <= TETTO_DUE_COLONNE < len(it)):
+            continue
+        nome = voce["file"]
+        if nome not in righe_di:
+            righe_di[nome] = (sorgente / nome).read_bytes().decode(
+                "cp932", "replace").split("\n")
+        if voci_del_menu_di(righe_di[nome], voce["riga"]) <= SOGLIA_DUE_COLONNE:
+            continue
+        peggiorate.append((nome, voce["riga"], len(en), len(it), it))
     return sorted(peggiorate)
 
 
