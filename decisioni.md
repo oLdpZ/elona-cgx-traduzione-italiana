@@ -6,6 +6,138 @@ ancora aperte.
 
 ---
 
+## La collina di Dain, e il tetto che si applicava dove non tagliava — 2026-08-23, ottantanovesima
+
+Tre lotti su `chat.hsp`, **98 rese**, dalle 789 alle **691**, piu' una
+correzione di rete. DAIN l'anziano della collina (`:10982`-`:11085`, 38),
+THALIA la guardastelle (`:11086`-`:11205`, 28), URCAGUARY la gemma tenace
+(`:12332`-`:12559`, 32).
+
+### Il contraccolpo si misura PRIMA di scegliere il lotto, e stavolta ha scelto lui
+
+La ripresa dava due strade: KARAVIKA (41 firme, zona chiusa) oppure la coda
+della missione di Irma, cioe' DAIN e THALIA. Ma DAIN aveva «1 fuori», e prima
+di decidere si e' guardato **che cosa** fosse: `chat.hsp:11069`, 「残念だ」 /
+«That's too bad.», che vive anche a `:12526` — dentro il blocco di URCAGUARY —
+ed e' una **voce di menu**. Quindi il contraccolpo era certo (85a: conta il
+TIPO di sito, non il numero).
+
+⭐ **E misurarlo ha reso la scelta piu' facile, non piu' difficile.** Dando
+`_85-blocco.py` a tutt'e due i blocchi nella stessa invocazione si e' visto che
+la catena e' **reciproca e si chiude li'**: DAIN e URCAGUARY si dividono quella
+firma e solo quella, THALIA e' chiusa per conto suo. Costo vero 38 + 28 + 33 =
+99 firme, che tolta la firma condivisa contata due volte fa **98**, e zero
+fuori. La domanda non era «sporcare o rompere»: era «quanto costa non
+rompere», e la risposta era tre lotti in un giorno (85a).
+
+### L'ECO che tiene insieme due lotti a un giorno di distanza
+
+Le quattro battute con cui Dain giudica i pugnali (`:11019`, `:11022`,
+`:11025`, `:11028`) sono l'**eco** (84a) delle quattro con cui Irma li presenta
+(`:11733`, `:11737`, `:11741`, `:11745`), rese nella 88a. Il giocatore legge le
+due scene a pochi minuti di distanza: la seconda deve riconoscere la prima
+**parola per parola** — «il disegno e' rozzo», «l'impugnatura», «la lama»,
+«stravagante». 💡 *Un'eco puo' attraversare due sessioni, e allora non e' piu'
+«due righe che si scrivono insieme»: e' una riga che si scrive rileggendo il
+dizionario.* Nessuna rete la vede.
+
+### L'inglese scambia CHI va risparmiato, e a giudicare e' il blocco
+
+A `:10990` Dain manda il giocatore a distruggere il rifugio di Irma. L'inglese
+dice di catturare **Irma** illesa, «She might still be useful for pressuring
+Thalia»; il giapponese dice 「サリムにはまだ利用価値があるから傷つけずに連れて
+こい」, cioe' che e' **Thalia** a servire ancora e che va riportata indietro
+senza farle male.
+
+Il pronome inglese («her») e' ambiguo, il giapponese no. E qui non c'e' un ramo
+di codice a fare da giudice — nessun `if` distingue i due — quindi giudica il
+**blocco**: a `:10986` Dain ha appena festeggiato che Irma se ne sia andata, a
+`:11043` giura che non riconoscera' mai niente di suo, a `:11074` si strugge
+perche' la nipote non vuole raccogliere la tecnica. Si segue il giapponese
+(57a, «l'inglese scambia»). 💡 *Quando il codice non puo' giudicare, giudica il
+personaggio — e il personaggio sta scritto nelle altre trentasette righe del
+lotto.*
+
+### Un giapponese, DUE inglesi, due firme
+
+`:12394` e `:12473` di Urcaguary hanno lo stesso identico giapponese; l'inglese
+di `:12473` conserva 「アンタは立派な騎士団備品調達係さ！」 e quello di `:12394`
+lo lascia cadere. E' la 84a al contrario — li' erano *due* giapponesi in *un*
+inglese — e la differenza la detta il sito: `:12473` e' la prima volta che il
+titolo viene dato, `:12394` e' il giro successivo, dove il giocatore ce l'ha
+gia'. Due rese diverse, e le firme restano due perche' firma = giapponese
+*piu'* inglese.
+
+### ⭐⭐⭐ Un tetto che si applicava anche dove il taglio non succede
+
+`menu_dialogo` ha segnalato due rese al tetto delle due colonne, e il primo
+istinto era accorciarle: sono voci di menu, ventotto e venticinque caratteri
+contro un tetto di ventiquattro. Prima di farlo si e' guardato **da dove viene
+il metro** (70a), e il metro non c'era:
+
+    init.hsp:47      #define chatList(%1,%2) ... listn(0,listmax)=%2 : listmax++
+    chat.hsp:25217   listmax = 0        <- l'ultima riga di *chat_select
+    chat.hsp:25166   if ( keyrange > 10 & ... ) { listn(0,cnt) = strmid(..., 0, 24) }
+
+`chatList` appende e incrementa; `*chat_select` azzera `listmax` in coda.
+Quindi ogni menu comincia da zero, le sue voci sono esattamente le `chatList`
+fra un `gosub *chat_select` e il successivo, e il numero **si legge**. I due
+menu segnalati ne hanno **tre** e **due**: sotto le undici, `strmid` non gira
+mai.
+
+⚠️⚠️ **Il commento della rete diceva da quattro sessioni «non e' decidibile dal
+sorgente», ed era vero per un menu solo.** Per il menu di un compagno, dove le
+voci le aggiunge la trama, resta vero; per un menu scritto a mano in `chat.hsp`
+e' falso, ed e' stato falso per 907 voci su 1.073. 💡 *Una limitazione
+dichiarata onestamente resta una limitazione: dichiararla non la misura* — e'
+la 64a («una nota onesta su un limite non lo ripara») applicata a un commento
+invece che a un referto.
+
+⚠️ **E il danno di un tetto finto e' quello della 66a, cioe' il verso
+pericoloso**: non «lascia passare un errore» ma «spinge ad accorciare
+l'italiano per un motivo che non esiste», e cedere costa sempre meno che
+indagare. Le sessioni precedenti avevano ceduto — l'84a lo scrive: «Le rese si
+accorciano lo stesso, ma la correzione vera e' ancora da fare».
+
+✅ La correzione era gia' scritta: `chat-lotto-misura.opzioni()`, che la 87a
+aveva fatto per il tetto dei `buff`. E' stata **spostata** in
+`strumenti/menu_dialogo.py` come `opzioni_del_menu()`, con quattro prove nuove
+e col menu di MAILE (88a, undici voci, l'unico posto dove il taglio si e' visto
+mordere) come controllo positivo. `chat-lotto-misura.py` adesso la importa
+invece di tenerne una copia: 54 righe in meno. 💡 *Se una rete conta, sta in
+`strumenti/` e ha un test* (68a) — e se due reti contano la stessa cosa, la
+contano con la stessa funzione.
+
+### Il registro non si decide nemmeno per una parola sola
+
+Il repertorio di Thalia in `db_creature.hsp:74088` era gia' reso, e la sua
+prima battuta dice «Quel **vecchiaccio**...». ジジイ aveva quindi gia' la sua
+resa italiana, in bocca alla stessa persona, per lo stesso nonno: dove
+l'inglese scrive cinque volte il generico «the old man», l'italiano dice
+«vecchiaccio», mentre il nome neutro di Dain resta «l'anziano della collina»,
+che e' quello del diario. **Due parole per la stessa persona, tutt'e due gia'
+scritte prima di oggi.**
+
+Lo stesso vale per la risata di Urcaguary: フハハ e' «**Fuahaha**»
+(`db_creature.hsp:71913`), non la trascrizione che verrebbe da se'.
+
+### E il divieto di genere ha deciso quattro parole su undici
+
+«successore» non ha femminile e a dirlo e' il giocatore -> **erede**. «amico»
+si accorderebbe tre volte come vocativo -> **anima gemella**, dove l'accordo
+cade su una parola nostra. «addetto ai rifornimenti» si accorderebbe tre volte
+fra vocativo e titolo -> **responsabile**, che e' invariabile. E dove nemmeno
+quello bastava, perche' serviva l'articolo, la frase e' girata: «i rifornimenti
+dei Cavalieri Dorati **li curi tu**».
+
+⚠️ Il rovescio: `CDATA_SEX` dice maschio per Dain (`db_creature.hsp:74262`) e
+femmina per Thalia (`:74168`) e Urcaguary (`:71993`), quindi il loro parlato in
+prima persona si accorda senza dubbi — «me n'ero **accorta**», «il paese dove
+sono **nata**», «**Sola** non ci resto», «Sono **sicura** che». Il divieto e'
+sul non sapere, non sull'accordo (80a).
+
+---
+
 ## Il referto si legge sulla parola, non sulla riga — 2026-08-23, ottantottesima
 
 Due lotti su `chat.hsp`, **99 rese** piu' **cinque rifatte**, dalle 888 alle

@@ -133,6 +133,39 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## La collina di Dain: tre lotti, 98 rese, e un tetto ristretto — 2026-08-23, ottantanovesima sessione
+
+Tre lotti, **98 rese**, e `chat.hsp` scende da 789 a **691**. `menu_dialogo`
+misura **1.245** voci (erano 1.219), 0 fuori misura e 0 peggiorate a due
+colonne; `chat-lotto-misura` **0 fuori misura e 0 peggiorate in tutt'e tre i
+lotti**; `bilingui` **0** a fine giornata. `pytest` da 732 a **736**: quattro
+prove nuove per la correzione di `menu_dialogo`. `referti.py` resta **8**.
+
+    :10982-:11085  DAIN l'anziano della collina    38   1 fuori (reciproca)
+    :11086-:11205  THALIA la guardastelle          28   zona chiusa
+    :12332-:12559  URCAGUARY la gemma tenace       32   1 fuori (reciproca)
+
+⭐⭐⭐ **I tre lotti sono una catena sola, e la catena e' stata misurata in
+apertura.** `chat.hsp:11069` (「残念だ」 / «That's too bad.») e' una **voce di
+menu** che DAIN e URCAGUARY si dividono: renderla per uno solo avrebbe lasciato
+un menu a meta'. `_85-blocco.py` dato ai due blocchi nella stessa invocazione ha
+mostrato che la catena e' **reciproca e si chiude li'** — quella firma e nessuna
+altra — quindi il costo vero era 98 firme e zero fuori. THALIA e' entrata perche'
+e' la coda della stessa missione, «Oltre centinaia di ere», e il diario
+(`text.hsp:11428`-`:11508`) nomina tutt'e tre.
+
+⚠️ **`bilingui` e' stato 1 nel mezzo**, fra la prima e la terza spinta: e' il
+prezzo di lavorare per lotti, ed era previsto.
+
+⚠️⚠️ **La correzione di rete e' il punto 5 della ripresa della 88a.**
+`menu_dialogo` applicava il tetto delle due colonne (24 caratteri) a ogni voce
+piu' lunga dell'inglese, dichiarando che il numero di voci di un menu «non e'
+decidibile dal sorgente». Per un menu scritto a mano in `chat.hsp` lo e':
+`init.hsp:47` fa `listmax++` e `chat.hsp:25217` azzera `listmax` in coda a
+`*chat_select`, quindi le voci di un menu sono esattamente le `chatList` fra un
+`gosub` e il successivo. Il taglio sta sotto `keyrange > 10` (`:25166`): delle
+1.073 voci della pergamena, **166** stanno in menu sopra le dieci e 907 no.
+
 ## Due lotti e un referto: 99 rese, e la 87a riletta — 2026-08-23, ottantottesima sessione
 
 Due lotti, **99 rese** piu' **cinque rifatte**, e `chat.hsp` scende da 888 a

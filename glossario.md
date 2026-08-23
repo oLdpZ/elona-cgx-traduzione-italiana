@@ -673,6 +673,43 @@ termine messo in glossario non si applica da solo: `chat.hsp:14113`, `:14435`
 (*Cecità*, *Confusione*, `text.hsp:96` e `:99`) e `:16586` sono stati rifatti
 dal referto della 88ª.
 
+## La collina di Dain e i Cavalieri Dorati, decisi il 2026-08-23 dai lotti della 89a
+
+| EN | IT | perché |
+|---|---|---|
+| arms craftsman / arms store | armaiolo, armaiola / bottega d'armi | 武具職人. «fabbro» era già speso per 職人, i fabbri leggendari Garok e Miral (`db_creature.hsp:118328`), e il diario chiama il mestiere «forgiare le armi» (`text.hsp:11439`): «armaiolo» nomina esattamente chi fa armi e armature |
+| successor | erede | 後継者. A `chat.hsp:11070` a dirlo è **il giocatore** e a `:11079` Dain lo ripete di lui: «successore» in italiano non ha femminile, «erede» non ha genere |
+| my precious / treasured friend | anima gemella | 心の友, tre volte in bocca a Thalia (`:11130`, `:11170`, `:11171`) ed è un **vocativo al giocatore**: l'accordo cade sul nome femminile, non su chi ascolta |
+| the Golden Knights | i Cavalieri Dorati | 黄金騎士団. Non è una scelta: 黄金の騎士 è già «il cavaliere dorato» in `db_creature.hsp`, `db_card.hsp` e `action.hsp:16890` — l'ordine prende il nome della creatura di cui è fatto |
+| Procurement Officer | responsabile dei rifornimenti | 備品調達係. Vocativo al giocatore a `:12338` e `:12431`, titolo che gli viene dato a `:12473`: «addetto» si accorderebbe tutt'e tre le volte, «responsabile» è invariabile |
+| the old man (in bocca a Thalia) | il vecchiaccio | ジジイ. Non deciso: **letto** in `db_creature.hsp:74088`, dove la sua battuta era già resa «Quel vecchiaccio...». Il nome neutro di Dain resta «l'anziano della collina» |
+| smelting furnace | forno fusorio | `db_item.hsp:151275`, il nome dell'oggetto |
+| workshop | officina | `text.hsp:2962`, il **nome sulla mappa**: «Officina Nascosta di Irma e Thalia» |
+| socks | calzini | `db_item.hsp:134939` e il diario `text.hsp:11209` |
+| craft repair kit / material kit | kit di riparazione / kit di materiali | il diario `text.hsp:11239`, `db_item.hsp:144134` |
+| Fuhaha (Urcaguary) | Fuahaha | `db_creature.hsp:71913`, già scritto nel suo repertorio |
+
+⭐⭐ **Quattro voci su sei della prima metà esistono per il divieto di genere,
+non per il senso.** «erede», «anima gemella», «responsabile» e il giro di
+`:12473` sono tutte scelte fatte perché la parola naturale — successore, amico,
+addetto — si accorderebbe con **il giocatore**, che di genere non ne ha. Sono
+le tre scappatoie della 85ª e della 86ª (nome comune femminile, imperativo,
+relativo `chi`) più una quarta che qui torna utile: **l'aggettivo in `-e`**,
+che al singolare non si accorda.
+
+⭐⭐ **E le altre non sono state decise: sono state cercate.** «vecchiaccio»
+stava nel repertorio della creatura, «officina» nel nome della mappa, «forno
+fusorio» e «calzini» nei nomi degli oggetti, «kit di riparazione» e «punire» e
+«Ol-dran» nel diario del giocatore, «il ladro di calzini» e «campi di neve»
+nell'altra metà della stessa missione già resa (`chat.hsp:12713`-`:12728`),
+«Fuahaha» perfino la risata. 💡 *Di undici termini, sette erano già scritti da
+qualche parte e nessuno di quei posti era il glossario.*
+
+⚠️⚠️ **E i Cavalieri Dorati sono la regola del DATO (79ª) applicata a un nome
+proprio**: la domanda giusta non era «come si dice Golden Knights» ma «di che
+cosa è fatto quest'ordine» — di 黄金の騎士, che una `grep` sul nome della
+creatura dà già tradotto in tre file.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,
