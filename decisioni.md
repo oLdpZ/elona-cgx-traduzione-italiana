@@ -6,6 +6,127 @@ ancora aperte.
 
 ---
 
+## Il referto si legge sulla parola, non sulla riga — 2026-08-23, ottantottesima
+
+Due lotti su `chat.hsp`, **99 rese** piu' **cinque rifatte**, dalle 888 alle
+**789**. IRMA la forgiatrice straniera (`:11206`-`:11770`, 51) e MAILE la
+sacerdotessa fantoccio (`:13266`-`:13516`, 48), tutt'e due zone chiuse.
+
+### Un referto si legge sulla PAROLA che segnala, non sulla riga
+
+`chat.hsp:16586` era **gia'** nella lista di `referti.py` alla 86a, e li' fu
+archiviata fra i falsi positivi: la riga contiene «se le fallisci **la paghi
+cara**», che e' un modo di dire dove il femminile e' il pronome fisso. Ma il
+referto non segnalava quello. Segnalava «**sei ricercato**», dodici parole
+dopo, scritto nella 82a e accordato col giocatore.
+
+💡 **Il difetto stava nella riga gia' guardata, e la guardata precedente
+l'aveva mancato perche' aveva cercato una spiegazione invece della parola.**
+Un referto non dice «questa riga e' sospetta»: dice «questa PAROLA e'
+sospetta». Chi lo legge deve trovare quella, non una qualunque.
+
+### La resa che non accorda e' spesso anche la resa che nomina bene
+
+A `:14435` — «le pergamene non si leggono se sei **cieco** [...] riescono male
+se sei **confuso**» — la correzione ha due ragioni e non una. La prima e' il
+divieto di genere. La seconda e' che il giapponese scrive 「盲目の時」 e
+「混乱の時」, cioe' i **nomi degli stati**: `_conblind` e `_conconfuse`
+(`text.hsp:96` e `:99`), che in italiano sono **Cecita'** e **Confusione**. La
+resa che non accorda col giocatore e' anche quella che copia il nome
+dell'interfaccia.
+
+⭐ Lo stesso a `:16586`: la resa giusta non e' un giro di parole per scansare
+il participio, e' la frase che il gioco **grida** quando una guardia ti
+riconosce — «C'e' una taglia sulla tua testa!» (`db_creature.hsp:98449`,
+`:115178`). E a `:14113` la segnalazione non era nemmeno un participio (il
+referto l'ha pescata su «sotto»), ma «sei **sotto peso**» in italiano dice il
+contrario di «while burdened», e lo stato in interfaccia si chiama **Fardello**
+(`_burden`, `text.hsp:66`).
+
+💡 Tre correzioni su cinque, e in tutte e tre la strada per uscire dal difetto
+di grammatica passava per il **nome che il giocatore legge sullo schermo**.
+
+### L'inglese di monte puo' costare il materiale, e il giudice e' il codice
+
+A `chat.hsp:11348` Irma avverte che con quindici incantamenti pieni «ci monta
+soltanto roba dello stesso tipo». L'inglese dice un'altra cosa: «one of them
+will have to be replaced». **Non e' vero.** `encadd`
+(`item_data.hsp:959`-`:973`) cerca uno slot con lo STESSO incantamento oppure
+uno VUOTO, e se non lo trova fa `return 0`: non sostituisce mai niente. Ma il
+materiale viene consumato lo stesso (`chat.hsp:11653`) e con lui la pergamena
+di acquisizione di attributi (`:11667`).
+
+⭐ Due righe sopra, lo stesso menu ha l'errore a monte: `:11347` in inglese
+dice «Sorry.» dove il giapponese dice «cancella un incantamento», che e'
+esattamente quel che il codice fa a `:11362`. **Una voce di menu deve dire che
+cosa fa.**
+
+💡 La deroga qui non e' una preferenza di resa: e' che seguire l'inglese
+farebbe **perdere roba** al giocatore. Quando le due lingue divergono su una
+meccanica, si apre il file che la implementa.
+
+### Cercare prima di scrivere puo' fissare trentaquattro righe in un colpo
+
+La zona di MAILE e' un servizio solo — cancella i ricordi del giocatore — e
+non lo dice mai: mette in scena, in rosso, **trentaquattro finte righe di
+errore di sistema**, una per variabile azzerata. Trentaquattro delle 48 firme
+sono la stessa riga con dentro un nome diverso.
+
+Quella riga **aveva gia' una resa**: `proc.hsp:26301`, la versione troncata
+che compare quando il [記憶の灯] attutisce la cancellazione, dice «[Sistema]
+Errore di origine ignota in globalda...». Il modello nuovo e' scritto perche'
+la riga vecchia ne sia una **troncatura esatta**: stessa apertura, stesso «in»
+davanti al nome.
+
+⚠️ E i nomi delle variabili **restano in inglese**. Non sono lessico: sono
+l'oggetto della finta diagnostica, ed e' quello che li rende spaventosi.
+
+💡 Sulle stesse trentaquattro righe si e' deciso di **appiattire sull'inglese**
+i tre verbi diversi del giapponese (初期化 / 再計算 / 削除). Una finta
+diagnostica funziona **perche' e' identica a se stessa**: trentaquattro righe
+con tre formule diverse smetterebbero di sembrare una macchina. E' l'unico
+caso finora in cui la ripetizione e' un valore da difendere.
+
+### Il tetto delle due colonne morde davvero sopra le dieci voci
+
+Il menu di Maile ha **undici** voci, e sopra le dieci la pergamena passa a due
+colonne e taglia con `strmid` a **24 caratteri** (`chat.hsp:25164`-`:25166`).
+Non e' il tetto prudenziale da 58: li' il taglio succede. `menu_dialogo` fino
+a oggi lo segnalava come «peggiorata rispetto all'inglese», che e' il modo
+giusto di dirlo quando il numero di voci non e' deducibile — ma quando le voci
+sono undici e si contano a mano, e' un tetto.
+
+⭐ Per starci, le undici voci hanno perso il «Memory of» che l'inglese ripete.
+Costava poco: il giapponese ce l'ha solo in due voci su undici (「〜の記憶」
+contro 「〜のこと」), e la battuta che apre il menu dice gia' che si sta
+scegliendo un ricordo.
+
+### Il genere: due donne, due usi opposti dello stesso dato
+
+Irma ha `CDATA_SEX = 1` (`db_creature.hsp:74075`), Maile pure (`:60888`).
+
+Con **Irma** il genere si usa: «Ti hanno stroncata» (`:11700`) e' una voce di
+menu rivolta a lei, e accordarla e' giusto. Col **giocatore** no: il 〜殿 che
+Irma gli da' si butta — come fa l'inglese — perche' un vocativo di rispetto in
+italiano vorrebbe un genere che il giocatore non ha.
+
+Con **Maile** la soluzione e' arrivata dal registro. In giapponese da' del
+貴方 al giocatore in 敬語, e la resa naturale e' il **voi di cortesia**: che
+oltre a suonare come lei, e' **l'unica seconda persona italiana che non chiede
+un genere**. 💡 Il tono giusto e la regola di genere possono essere la stessa
+scelta.
+
+### E una coda di metodo: due sessioni sullo stesso albero
+
+La 87a era **ancora viva** mentre la 88a apriva. Si e' visto da `ListAgents`
+(`elona-04 · busy`) e dai quattro file di chiusura che comparivano e sparivano
+da `git status` mentre venivano scritti. Non si e' perso niente — le due
+sessioni hanno committato in fila — ma e' successo per caso, non per
+costruzione. **All'apertura si guarda `ListAgents` prima di scrivere nel
+repo.**
+
+---
+
 ## Il seminario si chiude, e tre reti imparano a leggere il codice — 2026-08-23, ottantasettesima
 
 Quattro lotti su `chat.hsp`, **281 rese** piu' due rifatte, dalle 1.169 alle

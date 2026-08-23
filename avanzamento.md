@@ -133,6 +133,34 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## Due lotti e un referto: 99 rese, e la 87a riletta — 2026-08-23, ottantottesima sessione
+
+Due lotti, **99 rese** piu' **cinque rifatte**, e `chat.hsp` scende da 888 a
+**789**. `menu_dialogo` misura **1.219** voci (erano 1.193), 0 fuori misura e 0
+peggiorate a due colonne; `bilingui` **zero al primo giro in tutt'e due i
+lotti**, e MAILE ha dato **0 peggiorate** anche a `chat-lotto-misura`.
+`pytest` resta **732**: nessuno strumento della catena e' stato toccato.
+
+    :11206-:11770  IRMA la forgiatrice straniera      51   zona chiusa
+    :13266-:13516  MAILE la sacerdotessa fantoccio    48   zona chiusa
+
+⚠️⚠️ **Le cinque rifatte non vengono da un lotto: vengono dal REFERTO.**
+`referti.py` gira su tutto il dizionario e all'apertura segnalava **14**
+participi dove la 86a ne contava 6. Letti uno per uno: otto falsi positivi
+legittimi e **cinque difetti veri** — `:14435` (due), `:14448`, `:14490`,
+`:16586` e `:14113`. Tre erano della 87a, che non aveva rilanciato il referto
+in chiusura; uno stava li' dalla 82a. Adesso il referto dice **8**, ed e' un
+valore atteso d'apertura.
+
+⭐ **`referti.py` e' l'unico numero del progetto che sale da solo** quando
+qualcuno scrive rese senza rileggerle. Per questo entra nelle verifiche di
+chiusura e non solo in quelle d'apertura.
+
+⚠️ **Il tetto delle due colonne ha morso per la prima volta sul serio**: il
+menu di MAILE ha **undici** voci, e sopra le dieci `chat.hsp:25164`-`:25166`
+taglia con `strmid` a 24 caratteri. Fino a oggi `menu_dialogo` lo segnalava
+solo come «peggiorata rispetto all'inglese».
+
 ## Il seminario e' CHIUSO: quattro lotti, 281 rese — 2026-08-23, ottantasettesima sessione
 
 Quattro lotti, **281 rese** (piu' due rifatte), e `chat.hsp` scende da 1.169 a

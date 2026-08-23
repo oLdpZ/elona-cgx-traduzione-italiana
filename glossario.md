@@ -627,6 +627,52 @@ tutorial di Iduru le nomina, e le nomina come le legge il giocatore. 💡 *La
 regola non e' «traduci tutto»: e' «di' quel che c'e' scritto sullo schermo».*
 Il giorno in cui quelle righe si toppano, `chat.hsp:14246` va rifatta.
 
+## La bottega di Irma e il servizio di Maile, decisi il 2026-08-23 dai lotti della 88a
+
+| EN | IT | perché |
+|---|---|---|
+| dagger | pugnale | `db_item.hsp:152794`, e il diario della missione lo usa già (`text.hsp:11436`) |
+| core of nefia | nucleo di Nefia | `db_item.hsp:138961` |
+| scroll of gain attribute | pergamena di acquisizione di attributi | `db_item.hsp:149507`-`:149508` |
+| evolution item / EVitem | oggetto evolutivo | `blend.hsp:1124` |
+| static artifact | artefatto unico | 固定アーティファクト, `text.hsp:2151` |
+| miracle-level / godly-level artifact | artefatto eccezionale / celestiale | la scala di `_quality`, `text.hsp:106` |
+| the Void | il Vuoto | `text.hsp:2773` (すくつ) |
+| shopkeeper feats | talenti da negoziante | `feat` era già *talento* (`command.hsp:2143`) |
+
+⭐⭐ **Nessuno di questi è stato deciso: sono stati tutti cercati**, e due
+sono arrivati da un posto che non è il dizionario dei nomi — il **diario del
+giocatore**. `text.hsp:11436` diceva già «mostrare un suo **pugnale** a
+<Dain>, l'anziano della collina» e `:11618` chiama l'oggetto «[pugnale di
+Irma]»: le battute del lotto dovevano usare quelle parole, non sceglierne di
+proprie. 💡 *Il diario è un vincolo, non una fonte* (79ª), e qui il vincolo ha
+fissato tre nomi su tre.
+
+⚠️⚠️ **La riga d'errore di sistema è un modello, non una frase.** MAILE
+cancella i ricordi con **trentaquattro finte righe di diagnostica**, e la loro
+forma sta già in build a `proc.hsp:26301`:
+
+    [Sistema]Errore di origine ignota in <NOME>: valore reinizializzato.
+
+I **nomi delle variabili non si traducono** — `GDATA_DEEPEST_LEVEL`,
+`CHARA_BIT_MARRIED`, `INV_ITEM_GROWTH` e gli altri restano in inglese. Non sono
+lessico: sono l'oggetto della finta diagnostica, ed è quello che li rende
+spaventosi.
+
+⚠️ **E il modello è identico a se stesso trentaquattro volte per scelta.** Il
+giapponese di monte usa tre verbi diversi (初期化 / 再計算 / 削除) dove
+l'inglese ne usa uno solo: si segue l'inglese, perché una macchina che si
+ripete è credibile e una che varia formula non lo è. È l'unico posto del
+progetto dove **la ripetizione è un valore da difendere**.
+
+⚠️⚠️⚠️ **E un promemoria che è costato tre correzioni**: i nomi degli stati
+stavano già in questo glossario — *Fardello*, *Sovraccarico* dal `_burden` di
+`text.hsp:66`, scritti dalla 87ª — e la 87ª stessa ha poi reso «while
+burdened» con «sei **sotto peso**», che in italiano dice il contrario. Un
+termine messo in glossario non si applica da solo: `chat.hsp:14113`, `:14435`
+(*Cecità*, *Confusione*, `text.hsp:96` e `:99`) e `:16586` sono stati rifatti
+dal referto della 88ª.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,
