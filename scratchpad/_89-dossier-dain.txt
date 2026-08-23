@@ -1,0 +1,154 @@
+=== 25eab7a91bf86a99f76f96b3a3ea0c62afe17832  riga 10985  [?]
+  JP  （はニタニタと笑っている…）
+  EN  ( is grinning and laughing...)
+
+=== 78f2848786aed0adce6c1ef26c1f78241fa7cf81  riga 10986  [?]
+  JP  ついによそ者の小娘が出ていきおった。あれだけ夢を語っておきながら諦めるとは実に情けない！所詮その程度の覚悟しかなかったのだろう。まぁおれはそのことを見抜いていたから早く本性を現すように色々と仕向けたのだがな。まったく、無駄な時間を費やせおって。おれの貴重な時間を返してもらいたいものだ。
+  EN  At last the young girl is gone. How pathetic to give up on her \"dream\" after such a short time! I suppose that's all she had to her after all. Well, I knew that all along, but I wanted to force her to reveal her true nature. What a waste. She should return all the time she took from me.
+
+=== 1dc9f69e70b55e72a758b5afe2f792a5109d3c14  riga 10987  [?]
+  JP  考えておく
+  EN  I'll think about it.
+
+=== b95695e3fa474f96abab19a2bef4ea3e61b3bae9  riga 10988  [?]
+  JP  前金をよこせ
+  EN  Pay me in advance.
+
+=== 343e9349e63dcc52334e337700c76618dc21c88c  riga 10989  [?]
+  JP  めちゃくちゃになるのはお前だ
+  EN  You're the one who should be destroyed.
+
+=== 048fdc063985cb05a6e09a9d89626da59a2a2452  riga 10990  [?]
+  JP  だが孫娘のサリムまでいなくなったのは問題だ。おそらく小娘がサリムをたぶらかして連れ出したに違いないからな、拠点を探し出してめちゃくちゃにしてこい。なに、相手は誘拐犯だからどんなことをしようが構わん、悪いのは全て奴だ。ああ、サリムにはまだ利用価値があるから傷つけずに連れてこい。わかったな？
+  EN  It's a problem that my granddaughter Thalia is also gone though. I'm sure the girl must have tricked Thalia into it. Find out where the girl went and destroy the place. Oh, and do whatever you want with the girl - she's a criminal, a kidnapper. Ah, well, perhaps you should capture her without injuring her instead. She might still be useful for pressuring Thalia. Got that?
+
+=== 3962bae320f2e228a41f2bbd0a2418ed6e65bba1  riga 10993  [?]
+  JP  はっ。信用ならないよそ者に前金なんて出せるとでも？自分の立場を少しはわきまえたらどうだ。
+  EN  Hah. I can't just pay upfront to some stranger I can't trust, now can I? How about you consider your own position here.
+
+=== e92ef3a21f563b7473b91c7f73e8d32a1a832386  riga 10999  [?]
+  JP  金を貰って仕事を引き受ける以上、お前は信用を大事にしなければならない。それなのに依頼者に対して、なんだその口のきき方は？お前には他人から依頼されるだけの資格がない。
+  EN  You must know that as an adventurer that takes on requests for money that the people's trust in you is very important. And yet, you'd dare to speak to a client like that? You aren't worthy of having people rely on you.
+
+=== c85e864fb3308fc50c87a275f34f4c63f61c819e  riga 11002  [?]
+  JP  お前の述べる謝罪なんて信用できんな。誠意を見せろ、誠意を。
+  EN  I can't trust an apology like that. Show me your sincerity by actually doing what I asked.
+
+=== ce97c55dc2fc0613917c120c5deb55594cdabaf8  riga 11005  [?]
+  JP  ふん。反論できないようだな。
+  EN  Hmph. No argument, huh?
+
+=== f9ead66f39bb009ba7852796d21bd1e05f31c64a  riga 11012  [?]
+  JP  なんだ？他にも武具を「評価」してもらいたいのか？だが断る。これ以上不快な思いをさせられるのはごめんでな！
+  EN  What? Do you have more arms for me to \"evaluate\"? I refuse. So sorry if that hurts your feelings!
+
+=== ac966e7abc908d13da0405eb2e104a55ea1b16fd  riga 11016  [?]
+  JP  おい、ちょっと待て。お前の持っているその短剣…よく見せてくれ。
+  EN  Oy, hold on a minute. That dagger you're carrying... let me take a look at it.
+
+=== 644f807381e025bdce25134e8d4a30a077e21d4a  riga 11019  [?]
+  JP  ほう、これはよくできている。握りやすく滑らず振りも軽い。見た目こそ華が無いが、刀身も丈夫で実用に特化した…
+  EN  Hoh, this dagger is finely crafted. The grip keeps your hand from slipping when swinging, and the weight is low as well. The appearance may be nothing special, but the blade is strong. It's a good dagger for practical use.
+
+=== 10c373417277a106cdb421d3e4a461c1622c672e  riga 11022  [?]
+  JP  これは美しい…。武器として使うには適さないがこの造形は美術品として通用するだろう。刀身の装飾もさることながら煌めき具合も…
+  EN  This dagger is beautiful... It may not be suited for practical use, but it's truly a work of art. Even the blade itself glimmers...
+
+=== 220090133abff63b88245ceffd4612c968e9b2f4  riga 11025  [?]
+  JP  新しい！一見、奇抜にしか見えない形状だがこの刀身が切れ味を大きく向上させている。異なる進化を遂げた斬新な…
+  EN  Innovative! The shape looks crazy at first glance, but the blade's sharpness is far higher than normal. It's an entirely new style...
+
+=== 0e5fcb69f30dc8bcb73429c240316609278ef3c1  riga 11028  [?]
+  JP  これだけ特徴の異なるものを一人で作り分けたのは見事。あえて言うならば、この武骨な短剣が特に完成度が高いと見た。実用性重視の作品を得意としているのかもしれん。しかし残りの2本もよくできて…
+  EN  It's simply remarkable that a single person could craft daggers with this range of characteristics. If I had to choose a single one, I'd say the boorish one is particularly well made. The craftsman should be proud of their practical pieces. The others were also well made, however...
+
+=== 419bcd9f02aa3e1f39b68568faa6407f0392ed70  riga 11030  [?]
+  JP  おや…？こんなところに小さく、製作者の名前が入れてあるな…。…イルマ？
+  EN  Oh...? There's a small inscription with the crafter's name here... Irma?
+
+=== 613a687f0ad436cc225c2a82bd377287eacdb772  riga 11031  [?]
+  JP  (ダインは短剣を溶解炉に放り込んだ) 
+  EN  (Dain tosses the dagger(s) into the smelting furnace.)
+
+=== 05864d52e9933c1f39008106d626418ac5ce92d8  riga 11034  [?]
+  JP  持ちやすく丈夫な短剣など、この世にいくらでもあるわ。短剣の装飾品としての面を捨て去り、新しい発想もないときた。まさに陳腐としか言いようがない。
+  EN  There are innumerable daggers that are sturdy and that have a good grip. Not only did it completely ignore all decorative aspects, but it also showed no novel ideas either. All that could be said about it was that it was ordinary.
+
+=== e2815ab55197aae9bafc6c3cb835ada8feaaf233  riga 11037  [?]
+  JP  外見だけ取り繕った中身のない代物だ。武具職人など辞めて彫刻家にでもなったらどうか。それでもこの程度の装飾では食っていくこともままならないだろうがなぁ。
+  EN  It was a blade noteworthy only for its appearance. If the girl wants to make things like that, she should give up on being an arms craftsman and be a sculptor instead. If that was the best she could do though, she wouldn't be capable of making a living as a sculptor either.
+
+=== a14adcac2cba21a2c460763997529c4bd889c655  riga 11040  [?]
+  JP  やはり奇をてらっただけの出来損ないだな。それどころかあの小娘のことだ、従来の短剣の形状を否定し喧嘩を売っているに違いない。実におこがましい。
+  EN  That failure did nothing but show her eccentricity. Does she truly think that she knows a better shape for a dagger than those who have been crafting them for millennia? How presumptuous.
+
+=== a9f77a591f5b2789d5a920c222ed3173bc273279  riga 11043  [?]
+  JP  職人たるもの自らの適正を見極め己だけの持ち味を作り出すべき。評価者に媚びて他の作風に手を出すなど言語道断よ。もっとも、あの小娘がどのような持ち味を作り出したところでわしは決して認めんのだがな。
+  EN  A true craftsman should focus on a single characteristic. Attempting to curry favor with the evaluator by dabbling in other styles is outrageous. I'll never recognize the quality of anything that lass produces.
+
+=== 3682b099af895657a8c717ab62eb0881fe5abe09  riga 11045  [?]
+  JP  言い方ってものがある
+  EN  You changed what you said completely.
+
+=== 0015fc5876fa0b9168d121f18f0a6d38f947fa8e  riga 11046  [?]
+  JP  滅相もない
+  EN  You're unreasonable.
+
+=== f05176ae473ee4d1e340e7c68d0a032895496f9e  riga 11047  [?]
+  JP  短剣を返せ
+  EN  Return the dagger.
+
+=== b609c38c5e4350ce63af46852f6ab99fa7bb5d07  riga 11048  [?]
+  JP  なんだ？まさか文句でも？
+  EN  What? Do you have a problem with what I said?
+
+=== de4230c7cd3c0f4acfa86697d4b0ad5fcd3a5363  riga 11052  [?]
+  JP  ふん。おれは思ったことを述べただけ。理屈も基準も、決めるのは評価者であるおれだ。何を言おうがおれの勝手だろう？
+  EN  Hmph. I simply spoke my mind. My reasons and standards are mine as the evaluator. What else is there to say?
+
+=== 9c55bf5f367f0b8f81d6ce687422d2d2757e0a01  riga 11055  [?]
+  JP  おう、持って帰れ。溶解炉に腕を突っ込めばまだ残骸が見つかるかもしれんぞ。いや、あんな質の作品ではとっくに溶けているか？わはは。
+  EN  Yes, take it home. If you shove your arm into the smelting furnace, you might still find some remains of it. But with that kind of quality, I bet it's melted already. Wahahaha!
+
+=== f392a3476a62a3d13ef9f08c040f47bd5c13ae31  riga 11057  [?]
+  JP  ちっ、長々と喋ったら疲れたぞ。まったく、無駄な時間だったな。さっさと帰れ。
+  EN  Tch, this has gone on long enough already. I'm tired. What a waste of my time. Hurry up and leave.
+
+=== 421f7b254c3c6133c2d5e0ff7d920bb487e13c2a  riga 11064  [?]
+  JP  武器や防具を買いたい
+  EN  I'm looking for weapons and armor.
+
+=== 47987fc7e1343999776b19104359fa02e89b5716  riga 11065  [?]
+  JP  そうしよう
+  EN  I'll take a look around.
+
+=== 1e9d9af4c431bc4ce4f2cbd305094860bd9105ff  riga 11066  [?]
+  JP  旅人か、こんなところまでよく来たもんだ。店数は少ないが、丘の民が作ったアイテムの数々を買っていくといい。
+  EN  Welcome, traveler. While we only have a small number of stores, you'll find that their stock is of the highest quality.
+
+=== 8b4d5e5dc350b272ee16758c943aff0bc18b0528  riga 11069  [?]
+  JP  残念だ
+  EN  That's too bad.
+  occorrenze: 11069 12526
+  ⚠ FUORI  12526: chatList 0, lang("残念だ", "That's too bad.")
+
+=== c2ffb7633efd1ad9a233b3306d176cf59a3ad671  riga 11070  [?]
+  JP  後継者になりたい
+  EN  I want to be the successor.
+
+=== 8d3fed6c6e2f12098693403cc1a21d4da84ad7ee  riga 11071  [?]
+  JP  それは残念だな、この村に武具店は無いぞ。後継者不足でだいぶ昔に廃業してなぁ。家具や小屋を作る者はいくらか残っとるが、武具職人はもう誰もおらん。
+  EN  What a shame. We no longer have any arms stores. Unfortunately, there's been nobody willing to succeed our forging techniques for some time now. There are still those capable of making furniture and doing construction, but we no longer have any arms craftsmen.
+
+=== cfbe0a15d5e1e9b6569340bf0808c5b0f9ee42ad  riga 11074  [?]
+  JP  ああ、うちの孫がおれの跡を継いでくれたらなぁ。しかし強要するのもイカンし…。
+  EN  Indeed. While my granddaughter has the skill required to succeed the techniques, she doesn't seem to be interested in doing so...
+
+=== 01b134a8f23a02e0e66d4a6aceb9e721a7e2108e  riga 11078  [?]
+  JP  は…？
+  EN  Huh...?
+
+=== aaf67216a63db793c1d7014342ccb72b131dae88  riga 11079  [?]
+  JP  おい、伝統職人芸を馬鹿にしてるのか！！よそ者が後継者だと？お前といい、あの赤髪の小娘といい…ふざけているのか？ああ？もういい。出ていけ。
+  EN  Oy, don't make light of our ancient forging techniques! Have a stranger as our successor? Both you and that red haired lass... Is this some sort of joke? Huh? Enough of this. Leave. Now.
+
