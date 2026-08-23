@@ -710,6 +710,54 @@ proprio**: la domanda giusta non era «come si dice Golden Knights» ma «di che
 cosa è fatto quest'ordine» — di 黄金の騎士, che una `grep` sul nome della
 creatura dà già tradotto in tre file.
 
+## I cinque parlanti di Ol-dran e del nord, decisi il 2026-08-23 dai lotti della 90ª
+
+Cinque lotti, **174 rese**, e in tutto **otto** termini nuovi. Non è poco
+lavoro con poche decisioni: è che il lessico stava già scritto altrove, e la
+sessione l'ha cercato invece di coniarlo — vedi il riquadro in fondo.
+
+| JP | EN | IT | perché |
+|---|---|---|---|
+| 限定コンサート | limited-time concert | **il concerto esclusivo** | Il diario lo chiama solo «un concerto a fine mese» (`text.hsp:11368`), quindi la parola per 限定 mancava. «A tempo limitato» è burocratico; «esclusivo» è come un'idol vende una data sola |
+| ヤカ姐 | big sis Yacatect | **sorellona Yacatect** | 姐 è la sorella maggiore di strada, non di sangue. Nome per esteso perché a `chat.hsp:12282` non c'è contesto che lo disambigui, e l'inglese fa la stessa scelta |
+| 残機 | remaining lives | **vite in più** | Non c'era in nessun dizionario. «Vite extra» è il calco da sala giochi; il progetto scrive già «Punti bonus in più» per la stessa idea (`chara.hsp:4305`) |
+| 貴重品 | valuable items | **oggetti preziosi** | Non è una categoria con un nome fisso: i cinque siti del sorgente lo dicono ogni volta a modo loro, e `chara.hsp:4271` l'aveva già reso «quel che hanno di prezioso» |
+| 努力賞 | Effort Award | **premio di consolazione** | Il giapponese è un premio d'incoraggiamento, e il 「一応、ね」 che segue lo svuota: la parola italiana che porta già quella presa in giro è «consolazione» |
+| 犬ぞり | dogsled | **slitta trainata dai cani** | |
+| クレバス | crevasse | **crepaccio** | |
+| カマクラ | snow hut | **capanne di neve** | Le tre parole di neve mancavano perché Mayroon non era ancora stata scritta |
+| 館長 | chief librarian | **il direttore della biblioteca** | Né 館長 né «librarian» comparivano da nessuna parte |
+| ゴッドロイヤルゼリー | godly royal jelly | **pappa reale divina** | |
+| 森の王様 | king of the forest | **il re della foresta** | |
+
+⭐⭐⭐ **Il resto — e il resto è la maggioranza — è stato cercato, non deciso.**
+Di BYSYMLHA **dieci termini su undici** erano già scritti, e **nove venivano
+dalla stessa pagina**: `chara.hsp:4225`-`:4314`, la descrizione delle modalità
+di gioco, che è il testo che spiega proprio quel menu — «3x», «30x»,
+«Overdose», «Purge», «esperienza», «potenziale», «attributi». La riga `:4231`
+dice «Di base è 3x, e in un certo posto si arriva fino a 30x», e quel «certo
+posto» **è lei**.
+
+Stessa forma per MELGET, le cui dodici curiosità del mese nominano una per una
+cose che hanno già un nome: «il gufo spaziale», «penna d'oca lucente»,
+«<Gigante Castagna>», «riccio» (la battuta degli alchimisti, già gridata in
+`action.hsp:125`), «calzini», «<Fron> l'organizzatrice di viaggi», «una certa
+cacciatrice di draghi» (Spipha), «Zanan», «Sigillo Eterno», «Lothria»,
+«(10000 oro)», «Arrivederci». **Sedici termini già decisi, nessuno nel
+glossario.**
+
+💡 *Prima di decidere una parola si cerca il testo che descrive la stessa cosa
+da un'altra angolazione — il nome della creatura, il nome dell'oggetto, il
+diario, la pagina d'aiuto. Il glossario è l'ultimo posto dove guardare, non il
+primo.*
+
+⚠️⚠️ **E due parole non si scrivono, per il carattere e non per il senso:**
+«dèi» (la degradazione CP932 mette l'apostrofo *dentro* la parola, «de'i») e
+l'ordinale femminile «ª». In tutt'e due i casi la riparazione è **cambiare
+parola**, non togliere l'accento: `chat.hsp:13152` chiude con «Che paura fa, un
+dio», e `chat.hsp:12275` conta in avanti («Con questa fanno N strette di mano»)
+invece di usare l'ordinale.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

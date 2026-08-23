@@ -1,57 +1,208 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-23, fine della **ottantanovesima** sessione (**tre lotti,
-98 rese, `chat.hsp` da 789 a 691 — e un TETTO che si applicava dove il taglio
-non succede**).
+Aggiornato: 2026-08-23, fine della **novantesima** sessione (**cinque lotti,
+174 rese, `chat.hsp` da 691 a 517 — il file e' sceso di un quarto in un
+giorno**).
 
-⭐⭐⭐ **La lezione della giornata: prima di accorciare una resa, si guarda se
-il tetto puo' mordere.** `menu_dialogo` ha segnalato due voci di menu al tetto
-delle due colonne, 28 e 25 caratteri contro 24. Il metro non c'era:
-`chat.hsp:25166` taglia con `strmid` **solo** sotto `keyrange > 10`, e i due
-menu segnalati hanno **tre** voci e **due**. Il commento della rete diceva da
-quattro sessioni che il numero di voci «non e' decidibile dal sorgente» — vero
-per il menu di un compagno, dove le voci le aggiunge la trama; falso per un
-menu scritto a mano, dove `chatList` fa `listmax++` (`init.hsp:47`) e
-`*chat_select` azzera `listmax` in coda (`chat.hsp:25217`), quindi le voci sono
-esattamente quelle fra un `gosub` e il successivo. 💡 *Una limitazione
-dichiarata onestamente resta una limitazione: dichiararla non la misura.*
+⭐⭐⭐ **La lezione della giornata: davanti a una riga lunga la domanda non e'
+«accorcio?» ma «di chi e' la riga in piu'?».** `chat-lotto-misura` ha segnalato
+**ventitre'** rese piu' lunghe dell'inglese. Venti erano prolissita' mia e sono
+state accorciate tutte; **tre no** — `:15214` e `:15328` di BYSYMLHA e `:13075`
+di MELGET sono **esattamente** le righe dove l'inglese aveva buttato via un
+pezzo di giapponese, quindi accorciare avrebbe ributtato via lo stesso pezzo una
+seconda volta. E il tetto non mordeva in nessuno dei ventitre' casi: un
+`chatMore` da un bottone tiene **13** righe, `(324 - 19 - 43) // 19`, e il piu'
+lungo della giornata ne faceva 7. 💡 *Una rete prudente e' prudente rispetto a
+un metro: quando il metro e' un testo di monte che ha perso qualcosa, obbedirle
+e' propagare la perdita.*
 
-⭐⭐⭐ **La seconda: il contraccolpo di una firma condivisa, misurato, sceglie
-il lotto invece di complicarlo.** DAIN aveva «1 fuori» e prima di scegliere si
-e' guardato **che cosa** fosse: una voce di menu che vive anche dentro
-URCAGUARY, quindi contraccolpo certo (85a). Dando `_85-blocco.py` ai due
-blocchi nella stessa invocazione si e' visto che la catena e' **reciproca e si
-chiude li'**: quella firma e nessuna altra. Costo vero 98 firme, zero fuori, e
-la domanda non era piu' «sporcare o rompere» ma «tre lotti in un giorno, si' o
-no».
+⭐⭐⭐ **La seconda: un gioco di parole si rifa', e il precedente e'
+dell'inglese.** `chat.hsp:9942` e' 「ありがとうねぇ、アリだけに」 — 「ありがとう」
+contiene 「アリ」, la formica — detta dalla donna che ha appena trasformato in
+mostro una formica. L'inglese lo cancella. Ma `decisioni.md` aveva gia' deciso,
+sulle **fusioni delle razze**, che «si rende il gioco, non le sillabe», e li' il
+precedente e' dell'inglese stesso, che ダゴンズイ lo ricostruisce invece di
+tradurlo. La parola l'italiano ce l'aveva in mano, perche' <Alice> **e'** «la
+formica gigante»: «Grazie mille, eh. E non e' una **formicalita'**».
 
-⭐⭐⭐ **La terza: un'ECO puo' attraversare due sessioni.** Le quattro battute
-con cui Dain giudica i pugnali sono l'eco delle quattro con cui Irma li
-presenta, rese **ieri**. Il giocatore legge le due scene a pochi minuti di
-distanza, quindi la seconda deve riconoscere la prima parola per parola — «il
-disegno e' rozzo», «l'impugnatura», «la lama», «stravagante». Non e' piu' «due
-righe che si scrivono insieme» (84a): e' una riga che si scrive **rileggendo il
-dizionario**.
+⭐⭐⭐ **La terza: il lessico che serve non sta nel glossario, sta nella pagina
+che spiega la cosa.** Di BYSYMLHA dieci termini su undici erano gia' scritti, e
+**nove venivano dalla stessa pagina**: `chara.hsp:4225`-`:4314`, la descrizione
+delle modalita' di gioco, che e' il testo che spiega proprio quel menu — «Di
+base e' 3x, e in un certo posto si arriva fino a 30x» (`:4231`), e quel «certo
+posto» **e' lei**. Stessa forma per MELGET, dove le dodici curiosita' del mese
+nominano una per una cose che hanno gia' un nome altrove: **sedici** termini
+gia' decisi, nessuno nel glossario.
 
-⚠️⚠️ **La quarta: dove il codice non puo' giudicare, giudica il blocco.** A
-`:10990` l'inglese fa dire a Dain di catturare **Irma** illesa, il giapponese
-dice che e' **Thalia** a dover tornare senza un graffio. Nessun `if` distingue
-i due; a giudicare sono le altre trentasette righe del lotto, dove Dain
-festeggia che Irma se ne sia andata e giura di non riconoscerle mai niente. Si
-segue il giapponese (57a).
+⭐⭐ **La quarta: un'ECO puo' attraversare due PERSONAGGI.** La curiosita' di
+novembre di Melget (`:13173`) accusa 「丘の民の集落長」 di spargere notizie false
+per stroncare chi non gli va a genio: quello e' **Dain**, «l'anziano della
+collina», reso **ieri** — e il giocatore che ha appena fatto la sua missione lo
+ha visto fare esattamente quello con la nipote. Le due righe stanno a tremila
+righe di distanza in bocca a due persone che non si incontrano mai, e a tenerle
+insieme non c'e' nessuna rete: c'e' solo l'aver cercato 「丘の民」 nel dizionario
+prima di scrivere.
 
-⭐⭐ **La quinta: il registro e il lessico non si decidono nemmeno per una
-parola sola.** ジジイ era gia' «vecchiaccio» nel repertorio di Thalia
-(`db_creature.hsp:74088`), la risata フハハ era gia' «Fuahaha» in quello di
-Urcaguary (`:71913`), «officina» stava nel nome della mappa, «calzini» e «forno
-fusorio» nei nomi degli oggetti, «kit di riparazione» e «Ol-dran» nel diario,
-«il ladro di calzini» e «campi di neve» nell'altra meta' della stessa missione
-gia' resa. Di undici termini del glossario, **sette erano gia' scritti** e
-nessuno di quei posti era il glossario.
+⚠️⚠️ **La quinta: il genere del parlante sta nel nome, e il giocatore non ne
+ha.** Melget, Marka e Mary hanno il genere scritto in `db_creature.hsp`
+(«l'informatrice», «l'orsa d'argento», «l'entomologa»), quindi «mi ha bloccata»
+e «l'avventuriera e' corsa su per le scale» non sono scelte: sono conseguenze.
+Il rovescio ha chiesto **nove** giri di frase per il giocatore. Il caso da
+ricordare e' `:12314`: 「変質者め」 ha gia' la sua parola («maniaco»,
+`db_creature.hsp:68205`) ma quella accorderebbe il giocatore — ✅ si tiene la
+parola e si **sposta il bersaglio**, il cavaliere la grida ai suoi e al
+giocatore da' l'ordine.
 
 ---
 
-## L'ottantanovesima sessione
+## La novantesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La
+sessione si e' aperta con `origin/fase-0` allineato: e' la **quarantasettesima
+prova** di fila, e le quindici hanno dato quindici volte i valori attesi della
+89a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    verifica --dizionario   chat.hsp   0 / 517    (era 691)
+    menu_dialogo            0 su 1292 misurate    (erano 1245)
+    dizionario              chat.hsp +174 voci, 0 rifatte
+
+Tutto il resto e' **fermo dov'era**, e in chiusura e' stato riverificato:
+`pytest` **736 passed 6 skipped**, `prova_identita` 72/72 e **28.073**,
+`creature` 1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205,
+`riquadri` 0 su 38 e 0 su 71, `linguette` 0 e 0, `battute --divergenti` **13**,
+`intestazioni_larghezze` perimetro 0, `dati_applica --identita` 4 file e 2.987
+righe, `dati_sorgente` 7/7 e gioco difforme su 0, `gronde` 0 su 5, `maiuscole`
+143 siti / 6 appesi / 1 accumulati / 7 giudicati / 0 da guardare, `bilingui`
+**0**, `referti.py` **8**, `toppe.jsonl` **1023** e `rinviate.jsonl` **79** non
+toccati.
+
+⚠️ **`strumenti.battute` muore con `UnicodeEncodeError` se la console non e'
+in UTF-8.** Non e' lo strumento: e' `stdout` in cp1252. Prima delle verifiche:
+
+    $env:PYTHONIOENCODING = "utf-8"
+
+### ▶ Che cosa e' stato fatto
+
+    chat.hsp :12064-:12331  KARAVIKA la cantante                      41
+    chat.hsp :15200-:15330  BYSYMLHA occhi d'ambra                    38
+    chat.hsp :12907-:13181  MELGET l'informatrice                     32
+    chat.hsp :11771-:11892  MARKA l'orsa d'argento                    32
+    chat.hsp :9854-:9982    MARY l'entomologa                         31
+    scratchpad/_90-rese-karavika.py   le rese e le sei deroghe
+    scratchpad/_90-rese-bysymlha.py   le rese e le sei deroghe
+    scratchpad/_90-rese-melget.py     le rese e le quattro deroghe
+    scratchpad/_90-rese-marka.py      le rese e le cinque deroghe
+    scratchpad/_90-rese-mary.py       le rese e le cinque deroghe
+    -------------------------------------------------------------------------
+              174 rese, 0 toppe, 0 rinvii, 0 reti nuove, 0 strumenti toccati
+
+⭐ **Cinque lotti, cinque zone chiuse, zero contraccolpo.** Ogni lotto e' stato
+misurato due volte prima di cominciare: `_85-blocco.py` per le occorrenze fuori
+dal blocco, e una ricerca per **firma** su tutti i `dizionario/*.jsonl` per gli
+altri file. Tutte e dieci le misure hanno dato zero.
+
+### ▶ ⚠️ Le deroghe che pesano
+
+Stanno per esteso nei cinque moduli di `scratchpad/`. Le cinque da ricordare:
+
+1. **`chat.hsp:12323`** (Karavika) — l'inglese scambia **chi ha paura**: nel
+   giapponese e' lei a guardare il giocatore trascinato via ed essere
+   terrorizzata. A dare ragione al giapponese e' il **sito**: e' un `chatMore`,
+   cioe' una riga sotto il ritratto di chi parla.
+2. **`chat.hsp:15328`** (Bysymlha) — l'inglese taglia la coda che **e'** il
+   personaggio: «anche se la testa lo capisce... il mio corpo non vuole
+   capirlo», la riga che si legge quando non si sceglie niente.
+3. **`chat.hsp:9863`** (Mary) — l'inglese ha letto 神の間 come *i rapporti fra
+   gli dei* e scrive «making the relations between the gods grave». E' il nome
+   di un **posto** e sta nel dizionario da 46 siti.
+4. **`chat.hsp:9942`** (Mary) — il bisticcio sulla formica, rifatto.
+5. **`chat.hsp:12314`** (Karavika) — «maniaco» tenuto, bersaglio spostato.
+
+### ▶ ⭐ Il perimetro, misurato
+
+`chat.hsp` ha **517** firme. La mappa aggiornata, tolti i cinque blocchi di
+oggi (`python scratchpad/_87-parlanti-oltre.py`):
+
+    10442-10520  NEIN la strega volante           24   ZONA CHIUSA
+    15145-15199  ALLEN il ricercatore             23   ZONA CHIUSA
+    11912-12063  GARZIEM                          22   ZONA CHIUSA
+    14928-15070  SSIL la strega non-morta         20   ZONA CHIUSA
+    12779-12871  REGULUS il mutato                20   1 fuori
+    10551-10626  L'ANIMA ERRANTE                  20   ZONA CHIUSA
+    10910-10981  JIN il ribelle meccanico         19   ZONA CHIUSA
+
+Piu' una cinquantina di blocchi piu' piccoli. ⭐ **NEIN e' il prossimo lotto
+naturale** (24 firme, zona chiusa); sotto, ALLEN e SSIL sono le uniche altre
+zone chiuse sopra le venti.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **`chat.hsp` a 517**, e la mappa e' qui sopra: il prossimo lotto e'
+   **NEIN** (`:10442`-`:10520`, 24, zona chiusa).
+2. ⚠️⚠️⚠️ **IL COLLAUDO A SCHERMO E' L'ARRETRATO CHE CRESCE PIU' IN FRETTA.**
+   Sono **otto** sessioni e **1.620 rese** mai viste: 301 (84a), 336 (85a), 326
+   (86a), 281 (87a), 104 (88a), 98 (89a) e **174 di oggi**. ⚠️
+   `collaudo/schermo.ps1` scrive sulla tastiera di **tutto il computer** (83a):
+   il collaudo lo fa una persona. ⭐ I punti piu' facili di oggi:
+   - **Ol-dran**: il menu di **Karavika** si apre parlandole e basta, e la
+     stretta di mano si compra con 100 YacaPoint (`text.hsp:2136`);
+   - **Bysymlha**, che e' il pannello delle difficolta': tre file di menu di
+     5-6 voci, tutte tradotte oggi, e si aprono parlandole;
+   - **Melget** l'1 o il 15 del mese: il quiz e la curiosita' del mese (500
+     oro). ⚠️ Le **domande** del quiz vengono dai `txtsetquizN` di `text.hsp`,
+     che sono un altro perimetro: se escono inglesi non e' una regressione.
+   Restano dalle sessioni prima il **menu di Maile a undici voci** — l'unico
+   posto dove si vede coi propri occhi se le due colonne tagliano — il
+   **seminario** della 87a, il **prospetto cittadino** (deve dire «Autorita'»)
+   e il messaggio del **[Non posare]** (deve dire «dal menu <Esamina>»).
+3. ⚠️⚠️ **`referti.py` va rilanciato IN CHIUSURA, non solo in apertura.** Fatto
+   oggi: **8**, invariato — le 174 rese non hanno aggiunto participi.
+4. ⚠️⚠️⚠️ **La rete che manca resta**: rileggere TUTTO il dizionario con le
+   regole di oggi. `referti.py` legge solo due regole (participi ed elisioni);
+   `verifica --dizionario` confronta solo le firme; `controlla_voce` gira solo
+   sui lotti. 💡 Oggi avrebbe avuto due regole in piu' da passare all'indietro:
+   **«dèi» e i suoi simili** (accento in mezzo alla parola, che `verifica`
+   boccia sui lotti ma nessuno ha mai passato sul dizionario intero) e i **giri
+   di frase per il genere del giocatore**.
+5. ⚠️⚠️⚠️ **Le sette etichette del potenziale** (`command.hsp:10676`-`:10700`)
+   sono letterali nudi senza `lang()`: a schermo sono inglesi. Toppabili; il
+   giorno che si toppano, `chat.hsp:14246` va rifatta.
+6. ⭐⭐⭐ **La rete che non c'e': i PARTNER fuori da `lang()`** (81a).
+7. ⚠️⚠️⚠️ **IL PUNTO CIECO DELLA 74a**: restano **100 righe
+   `listn(...) = lang(...)` in `command.hsp`** — fra cui il pannello dei
+   talenti — **18 in `chara.hsp`**, piu' `event.hsp:825`, `help.hsp:333`,
+   `net.hsp:604`. ⚠️ **Diciassette sessioni che aspetta.**
+8. ⭐⭐ **La rete che manca: i `buff` della finestra del dialogo.**
+9. ⭐ **`menu_dialogo.reso()` non legge il `limit(..., 0, N)`** (79a).
+10. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208
+    righe), `manual_ENG.txt` (591), `exhelp.txt` (185).
+11. ⭐⭐ `board.txt` **secondo lotto**; `custom_autopick.hsp` 21 gemelle delicate.
+12. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+    `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+    `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+13. ⭐⭐ Il **muro del materiale**: `mithril sword` e' «spada **di** mithril».
+14. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `item_func.hsp` 240; i **1.146** di
+    `db_card.hsp`.
+15. 🔶 **La sorella H** (82a) e la 🔶 **decisione aperta dalla 80a** sul menu
+    degli arti.
+
+### ▶ Come si e' chiusa
+
+Cinque spinte, una per lotto. `applica` e `compila --eseguibile` sono girati
+dopo ogni lotto e `cgx-test.exe` e' stato ricopiato ogni volta (l'ultimo alle
+21:5x del 23/08 — ⚠️ **controllare la data del file prima di leggere uno
+screenshot**, lezione dell'11/08). Le quindici verifiche sono state rilanciate
+in chiusura — tutte verdi, tutte sui valori attesi — e con loro `referti.py`,
+che dice **8** come in apertura.
+
+---
+
+## L'ottantanovesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

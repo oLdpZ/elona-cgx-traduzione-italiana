@@ -6,6 +6,150 @@ ancora aperte.
 
 ---
 
+## «Di chi e' la riga in piu'?», e un bisticcio rifatto — 2026-08-23, novantesima
+
+Cinque lotti su `chat.hsp`, **174 rese**, dalle 691 alle **517**: il file e'
+sceso di un quarto in un giorno. KARAVIKA la cantante (`:12064`-`:12331`, 41),
+BYSYMLHA occhi d'ambra (`:15200`-`:15330`, 38), MELGET l'informatrice
+(`:12907`-`:13181`, 32), MARKA l'orsa d'argento (`:11771`-`:11892`, 32), MARY
+l'entomologa (`:9854`-`:9982`, 31). Zero contraccolpo su tutti e cinque, zero
+reti nuove, zero toppe.
+
+### ⭐⭐⭐ Davanti a una riga lunga la domanda non e' «accorcio?» ma «di chi e' la riga in piu'?»
+
+`chat-lotto-misura` applica la regola prudente della 73a: *l'italiano non
+faccia piu' righe dell'inglese*. Oggi ha segnalato **ventitre'** rese in cinque
+lotti, e trattarle tutte allo stesso modo sarebbe stato sbagliato in tutt'e due
+i versi.
+
+Perche' quel metro misura contro **l'inglese**, e l'inglese qualche volta ha
+buttato via del testo. Quando succede, accorciare l'italiano vuol dire
+ributtarlo via una seconda volta:
+
+- `:15214` (4 righe contro 2) e `:15328` (4 contro 3) di BYSYMLHA sono
+  **esattamente** le due deroghe dove l'inglese taglia il giapponese. `:15328`
+  in particolare perde 「頭ではわかっていても…私の身体がわかってくれないのです」,
+  che e' la riga che dice chi e' quel personaggio.
+- `:13075` di MELGET e' la deroga dove l'inglese butta via il primato
+  precedente del quiz, che e' un dato che il giocatore usa.
+
+Le altre venti erano **prolissita' mia** su un inglese di pari contenuto, e
+accorciate leggono meglio. Tutte accorciate, zero rimaste.
+
+⚠️ **E il tetto va misurato prima di decidere, in tutt'e due i versi.** Un
+`chatMore` da un bottone tiene **13** righe — `(324 - 19 - 43) // 19` — e
+l'italiano piu' lungo della giornata ne faceva 7. Nessuna di quelle righe
+tagliava niente. E' la regola della 89a (*prima di accorciare si guarda se il
+tetto puo' mordere*) girata al rovescio: **dove il tetto non morde, la riga
+lunga non e' un difetto da riparare** — va guardata la sua provenienza, non la
+sua lunghezza.
+
+💡 *Una rete prudente e' prudente rispetto a un metro. Quando il metro e' un
+testo di monte che ha perso qualcosa, obbedirle e' propagare la perdita.*
+
+### ⭐⭐⭐ Un gioco di parole si rifa', e il precedente e' dell'inglese
+
+`chat.hsp:9942` in giapponese e' 「ありがとうねぇ、アリだけに。」: 「ありがとう」
+contiene 「アリ」, la formica, e Mary lo fa notare — una battuta brutta apposta,
+detta dalla donna che ha appena trasformato in mostro una formica. L'inglese la
+cancella e scrive «Thank you so much!».
+
+Cancellarla anche in italiano sarebbe stato «seguire l'inglese», ma il progetto
+aveva gia' deciso il contrario altrove, e senza accorgersi che era una regola
+generale: le **fusioni delle razze** (piu' su in questo file) dicono che «si
+rende il gioco, non le sillabe», e li' il precedente e' dell'**inglese stesso**,
+che ダゴンズイ lo ricostruisce in `daganotosus` invece di tradurlo. Cioe':
+l'inglese i giochi di parole li rifa' quando puo' e li butta quando non puo'.
+Noi possiamo.
+
+E la parola l'italiano ce l'aveva gia' in mano, perche' <Alice> **e'** «la
+formica gigante» (`db_creature.hsp:62712`):
+
+    «Grazie mille, eh. E non e' una formicalita'.»
+
+💡 *La regola dei nomi vale anche per le battute: si guarda cosa il progetto ha
+gia' scelto per i parenti.*
+
+### Il genere del parlante sta nel nome, e tre volte su cinque non si e' deciso
+
+MELGET, MARKA e MARY hanno tutt'e tre il genere **scritto nel nome della
+creatura**: «l'informatrice» (`db_creature.hsp:69199`), «l'orsa d'argento»
+(`:73827`), «l'entomologa» (`:76576`). Quindi «mi ha bloccata», «sono
+scappata», «mi hai salvata», «l'avventuriera e' corsa su per le scale» non sono
+scelte del lotto: sono conseguenze.
+
+⚠️ **Il rovescio vale per il giocatore**, che di genere non ne ha (75a), e oggi
+ha chiesto **nove** giri di frase — «stai tremando tutto», «tranquillo»,
+«impalato», «non ti sei fatto male», «per uno come te», «ci siamo gia' visti»,
+«uno stalker?», «maniaco», «goloso». Il caso piu' istruttivo e' `chat.hsp:12314`:
+「変質者め」 ha gia' la sua parola nel progetto («maniaco»,
+`db_creature.hsp:68205`), ma quella parola accorderebbe il giocatore. ✅ Si tiene
+la parola e si **sposta il bersaglio**: il cavaliere la grida ai suoi («Al
+maniaco!») e al giocatore da' l'ordine, che di genere non ne porta.
+
+### Il lessico che serve non sta nel glossario: sta nella pagina che spiega la cosa
+
+Di BYSYMLHA — il pannello delle difficolta' travestito da tentatrice — dieci
+termini su undici erano gia' scritti, e **nove venivano dalla stessa pagina**:
+`chara.hsp:4225`-`:4314`, la descrizione delle modalita' di gioco, che e' il
+testo che spiega proprio quel menu. «Di base e' 3x, e in un certo posto si
+arriva fino a 30x» (`:4231`) — e quel «certo posto» e' lei.
+
+Stessa forma per MELGET: le dodici curiosita' del mese nominano una per una
+cose che hanno gia' un nome altrove (il gufo spaziale, la penna d'oca lucente,
+il <Gigante Castagna>, i calzini, l'organizzatrice di viaggi, una certa
+cacciatrice di draghi), e **sedici** termini erano gia' decisi, nessuno nel
+glossario.
+
+💡 *Prima di decidere una parola, si cerca il testo che descrive la stessa cosa
+da un'altra angolazione. Il glossario e' l'ultimo posto dove guardare, non il
+primo.*
+
+### ⭐⭐ L'eco puo' attraversare due personaggi, non solo due scene
+
+La 89a aveva imparato che un'eco attraversa due sessioni (Dain che giudica i
+pugnali che Irma presenta). Oggi ne e' venuta fuori una piu' larga: la
+curiosita' di **novembre** di Melget (`chat.hsp:13173`) accusa
+「丘の民の集落長」 di spargere notizie false per stroncare chi non gli va a
+genio. Quello e' **Dain**, «l'anziano della collina», reso ieri — e il giocatore
+che ha appena fatto la sua missione lo ha visto fare esattamente quello con la
+nipote.
+
+Le due righe stanno a tremila righe di distanza nello stesso file, in bocca a
+due persone che non si incontrano mai. A tenerle insieme non c'e' nessuna rete:
+c'e' solo l'aver cercato 「丘の民」 nel dizionario prima di scrivere.
+
+### La firma e' la coppia (jp, en), non il posto — e il lotto se ne accorge da solo
+
+Il menu di MARKA a `:11829` ha tre voci, e tutt'e tre erano gia' rese. Ma la
+terza — 「わかった」 / «Alright.» — non veniva da un'altra riga di Marka: veniva
+da `chat.hsp:1712`, dall'altra parte del file. `_88-lotto.py` l'aveva tolta dal
+perimetro e `_85-applica-rese.py` si e' **rifiutato di scrivere** finche' non
+gliel'ho detto («perimetro diverso: mancanti [11832], in piu [11830]»).
+
+⭐ E' il caso in cui una rete noiosa paga: senza quel rifiuto avrei riscritto
+una resa gia' esistente su una riga sbagliata, e nessun'altra verifica se ne
+sarebbe accorta.
+
+### Due parole che non si scrivono, e una che non si scrive per un altro motivo
+
+- **「dèi」 non si scrive.** `verifica` l'ha bocciata a `chat.hsp:13152`: la
+  degradazione CP932 mette l'apostrofo **dentro** la parola («de'i») e a schermo
+  non si legge. La riparazione e' cambiare parola, non togliere l'accento: la
+  riga chiude con «Che paura fa, un dio».
+- **L'ordinale femminile «ª» non si scrive**, per la stessa ragione di
+  carattere. A `chat.hsp:12275` l'italiano evita l'ordinale contando in avanti
+  («Con questa fanno N strette di mano»), che dice la stessa cosa. Li' `cnvrank`
+  era gia' morfologia inglese (85a).
+- **ベイベー due volte, due rese.** A `chat.hsp:12153` Karavika lo grida dal
+  palco al pubblico, e la resa e' l'eco di `screen.hsp:1486` («Ti amo, bella!»);
+  a `:12275` lo dice **al giocatore**, e «bella» gli darebbe un genere: li' vale
+  «beibi», che e' la traslitterazione con cui il progetto rende gia' ベイベー
+  (`db_creature.hsp:89694`). Due siti, due rese, e la differenza la detta **chi
+  ascolta**.
+
+---
+
 ## La collina di Dain, e il tetto che si applicava dove non tagliava — 2026-08-23, ottantanovesima
 
 Tre lotti su `chat.hsp`, **98 rese**, dalle 789 alle **691**, piu' una

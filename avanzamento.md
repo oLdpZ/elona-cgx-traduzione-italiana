@@ -133,6 +133,36 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## Cinque lotti, 174 rese, e un quarto di `chat.hsp` in un giorno — 2026-08-23, novantesima sessione
+
+Cinque lotti, **174 rese**, e `chat.hsp` scende da 691 a **517**: il file perde
+un quarto delle firme rimaste in una sessione sola. KARAVIKA (41), BYSYMLHA
+(38), MELGET (32), MARKA (32), MARY (31). `menu_dialogo` misura **1.292** voci
+(erano 1.245), 0 fuori misura e 0 peggiorate a due colonne; `chat-lotto-misura`
+**0 fuori misura** in tutti e cinque i lotti. Zero toppe, zero rinvii, zero
+reti nuove, zero strumenti toccati.
+
+⭐ **Cinque zone chiuse su cinque, e il contraccolpo misurato dieci volte.**
+Ogni lotto è stato passato due volte prima di cominciare: `_85-blocco.py` per le
+occorrenze fuori dal blocco, e una ricerca per **firma** su tutti i
+`dizionario/*.jsonl` per gli altri file. Tutte e dieci le misure hanno dato
+zero. Non è fortuna: è che dopo la 89ª restavano in cima alla mappa i blocchi
+che il referto dei parlanti dichiarava chiusi, e sceglierli in quell'ordine
+costa zero contraccolpo per costruzione.
+
+⚠️⚠️ **Il conto delle rese non è il conto delle prove.** 174 rese costruite e
+controllate dagli strumenti; **zero viste a schermo**. Con oggi l'arretrato del
+collaudo è di **otto sessioni e 1.620 rese**. Vedi `RIPRESA-sessione.md`, punto
+2 di «Quel che resta aperto», dove stanno i tre punti più facili da guardare.
+
+⭐⭐⭐ **La misura che ha cambiato metodo: «di chi è la riga in più?».**
+`chat-lotto-misura` ha segnalato **ventitré** rese più lunghe dell'inglese.
+Venti erano prolissità nostra e sono state accorciate; **tre no**, ed erano
+esattamente le righe dove l'inglese aveva tagliato il giapponese — accorciarle
+avrebbe ributtato via lo stesso testo una seconda volta. Il tetto non mordeva in
+nessuno dei ventitré casi (13 righe contro 7 al massimo). Vedi `decisioni.md`,
+la 90ª.
+
 ## La collina di Dain: tre lotti, 98 rese, e un tetto ristretto — 2026-08-23, ottantanovesima sessione
 
 Tre lotti, **98 rese**, e `chat.hsp` scende da 789 a **691**. `menu_dialogo`
