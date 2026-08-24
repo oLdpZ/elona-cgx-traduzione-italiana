@@ -5,6 +5,15 @@ Come `_86-parlanti-oltre.py`, ma i commenti `/* ... */` MULTIRIGA vengono
 tolti PRIMA di contare le graffe: dentro ce ne sono tre spaiate (`:169`,
 `:10752` nel blocco di ARASIEL, `:19629`), e bastavano a far inghiottire ad
 ARASIEL tutto il resto del file.
+
+⚠️⚠️ **95a: toglie anche le RINVIATE, e prima non lo faceva.** Questa mappa e'
+il documento su cui si sceglie il lotto della sessione, e per otto sessioni ha
+dato **AJETALIO a 4 da fare** quando le sue quattro firme erano tutte in
+`rinviate.jsonl` — quattro righe **commentate a monte** (`:13991`, `:14036`,
+`:14038`), rinviate nell'87a con il motivo scritto. La ripresa della 94a ci ha
+costruito sopra un piano («AJETALIO chiude il Seminario»), e il seminario era
+gia' chiuso da otto sessioni. `_88-lotto.py` le toglieva da sempre: il taglio e
+la mappa contavano due cose diverse, e a farsi credere era la mappa.
 """
 import io
 import json
@@ -34,6 +43,13 @@ for l in io.open('dizionario/chat.hsp.jsonl', encoding='utf-8'):
         v = json.loads(l)
         if v.get('it', '').strip():
             rese.add(v['firma'])
+
+# Le rinviate hanno un motivo scritto e NON sono lavoro che aspetta: contarle
+# fra le «da fare» fa scegliere lotti che non esistono. Vedi il docstring.
+rinviate = {json.loads(l)['firma']
+            for l in io.open('rinviate.jsonl', encoding='utf-8') if l.strip()}
+rese |= rinviate
+print('rinviate tolte dal conto: %d (su tutto il progetto)' % len(rinviate))
 
 per_firma = collections.defaultdict(list)
 for v in voci:
