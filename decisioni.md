@@ -6,6 +6,150 @@ ancora aperte.
 
 ---
 
+## Un nome non si traduce, si riconosce — 2026-08-24, novantaduesima
+
+Nove lotti su `chat.hsp`, **143 rese**, dalle 364 alle **221**. AMURDAD
+(`:10627`-`:10728`, 12), l'aiutante del maestro Spada Rossa
+(`:14525`-`:14659`, 18), MIKRAANESIS (`:9367`-`:9430`, 18), SHURAIDA
+(`:13537`-`:13633`, 17), ALICE la formica gigante (`:9794`-`:9853`, 17),
+LANKATA (`:13834`-`:13896`, 16), MANYTIA (`:13634`-`:13833`, 15), BETHEL
+(`:13216`-`:13265`, 15), BELPHAT (`:12560`-`:12632`, 15).
+
+### ⭐⭐⭐ Due elenchi di katakana non erano da tradurre: erano da riconoscere
+
+`chat.hsp:9409`-`:9412` è Mikraanesis che elenca le **ventotto** divinità di cui
+è fatto: 交合のミクシス, 思念のエンノイア, 真理のアレーテイア, 独り子のモノゲーネス…
+Non sono nomi inventati dall'autore: sono gli **eoni valentiniani**, il pleroma
+gnostico. E la prova non sta nell'elenco — sta nella **trama intorno**, che il
+progetto ha già tradotto: Sophia, il padre inconoscibile 《深淵のプロパトル》
+(`:9423`), ed **Enthumesis**, che nel mito è letteralmente la passione di Sophia
+staccata da lei, ed è esattamente così che `:10213` la racconta.
+
+Nove righe più in là, in un altro lotto, la stessa forma: il diario di viaggio
+di Belphat (`:12576`-`:12594`) elenca ユゴス, サイクラノーシュ, バイアクヘー,
+ミ=ゴ, cioè il **Ciclo di Cthulhu**. Lì la prova sta nel dizionario: «lo
+shoggoth» (`db_creature.hsp:80712`), «la Grande Razza di Yith»
+(`db_card.hsp:14390`), «classe Yith» (`action.hsp:2604`), e `Necronomicon` e
+`Liber Damnatus` in `invariati.md`.
+
+⚠️ **L'inglese, in tutti e due i casi, traslittera a orecchio.** *Nuus* per
+Nous, *Areteia* per Aletheia, *Outpuece* per Autophyes, *Aquinatos* per
+Akinetos, *Maitrikos* per Metrikos, *Aeneus* per Aeinous, *Macalia* per Macaria;
+*Yugos* per Yuggoth, *Bayakhae* per Byakhee, *Cyclanorch* per Cykranosh. Chi
+traduce dall'inglese ricopia lo storpiamento in buona fede, perché **niente nel
+testo che ha davanti segnala l'errore**: le forme sbagliate sono pronunciabili,
+regolari, coerenti fra loro. Sembrano nomi inventati, che è quel che non sono.
+
+💡 **E su due voci l'errore non è di grafia: cambia la parola.**
+独り子のモノゲーネス è *Monogenes l'**Unigenito*** (独り子 = figlio unico) e
+l'inglese scrive «Monogenes of **Solitude**»; イス焼き è *Yith alla piastra*, in
+coppia con たこやき nella stessa frase, e l'inglese — leggendo イス come *ice* —
+scrive «**fried ice cream**». Nessuna rete può vederlo: la forma sbagliata è
+una parola italiana perfettamente regolare.
+
+⚠️ **Ma non si inventa una fonte che non c'è.** Nello stesso elenco di Belphat,
+ボッヘリト, デベロンダッタ, ジェラミス, ニャリン, スンバラリア e トゥンツァ non
+appartengono a nessun canone: restano nella forma dell'inglese. *Riconoscere
+vuol dire anche riconoscere quando non c'è niente da riconoscere.*
+
+Nel vault: [[un-nome-non-si-traduce-si-riconosce]].
+
+### ⭐⭐⭐ Un pronome possessivo inglese è un fatto di parentela, e si verifica nel codice
+
+`:13837` in inglese dice «I was able to rescue **your** father». Il giapponese
+dice 「父上は救助できましたが」, cioè *sono riuscita a salvare **il** padre* — e
+di chi sia lo dice il codice: il padre di Lankata ha un identificativo,
+`CREATURE_ID_ALFRED_THE_CANGNAN_WIND`, e la scena in cui lo trova sta venti
+righe più in là ed è già resa (`:18131` lo crea, `:18138` è lei che dice
+«Padre!», `:18143` è lei che gli estrae il reattore, `:18155` è **lui** che
+chiede «Io... sono salvo?»). Il giocatore, in Elona, un padre non ce l'ha da
+nessuna parte.
+
+💡 *Un possessivo dell'inglese si tratta come un identificativo: dice chi è
+parente di chi, e va cercato nel sorgente prima di ricopiarlo.*
+
+### ⭐⭐ Le battute doppie e le parodie hanno un vincolo di forma
+
+Tre casi in tre lotti diversi, e in tutti e tre il senso da solo non basta:
+
+- **「アリーヴェデルチ！」** (`:9797`) è insieme (a) una parola *straniera* e
+  (b) una parola che comincia per **アリ**, *formica*, come il nome della
+  creatura, アリッス. «Arrivederci!» in italiano non è né l'una né l'altra.
+  Rifatta sul canale che l'italiano ha — lo stesso gesto del «formicalità»
+  della 90ª, sullo stesso personaggio: **ARRIFORMICARCI!**
+- **「サンキューベリマッチ！！」** (`:9804`) è *thank you very much* in katakana:
+  il punto è che lo dice in una **lingua straniera**. Upstream l'ha capito e ha
+  fatto la mossa simmetrica — la versione inglese scrive «Arigatou
+  gozaimashita!» — quindi per chi legge in italiano la lingua straniera del caso
+  è l'inglese, e la riga resta **«THANK YOU VERY MUCH!!»**.
+- **`:13852`** («posate **la statuetta** e lasciate **questo mondo**») è la
+  parodia di **`:13856`** («posate **le armi** e lasciate **questo piano**»), e
+  quella di Lankata è il `buff` che sta **sopra il menu**: si leggono nello
+  stesso istante, quindi in italiano devono usare gli stessi verbi o la parodia
+  sparisce.
+- **`:13231`**, stessa famiglia: 猫の手も借りたい storpiato in 「鷹の翼も借りたい」
+  perché chi parla **è** il falco bianco. In italiano il modo di dire esiste ed
+  è sulle braccia: «qui non bastano due braccia, ci vogliono anche due ali».
+
+### ⭐⭐ Tre righe già rese riparate, e nessuna era raggiungibile dalle reti
+
+- **`:269`** diceva «Norne, hai fatto bene a guidare **la tua amica** fin qui».
+  Il giapponese non ha oggetto: l'italiano ne aveva aggiunto uno **femminile**,
+  cioè dava un genere al giocatore in una delle prime battute della storia.
+- **`:10211`** chiamava 《深淵のプロパトル》 **«<Prophatorl dell'abisso>»**
+  (ricopiando il refuso inglese) mentre `:9423`, resa dopo, dice **«<Propator
+  dell'Abisso>»**. Una entità, due nomi a schermo.
+- **`:13714`** diceva **«(99999gp)»** mentre le due voci gemelle dello stesso
+  menu (`:13773`, `:13774`) dicono **«(99999 oro)»**, che è la convenzione
+  (`chat.hsp:8825`).
+
+⚠️ **Il punto non sono i tre difetti: è che nessuna rete poteva vederli.** Sono
+frasi diverse fra loro, quindi `battute --divergenti` non le confronta;
+`verifica --dizionario` guarda solo le firme; `controlla_voce` gira solo sui
+lotti. Le ha trovate la **lettura del vicinato del blocco**, che è un lavoro
+manuale e non ha uno strumento. 💡 È la stessa rete mancante che la ripresa
+elenca da otto sessioni («rileggere tutto il dizionario con le regole nuove»),
+e oggi ha dato tre difetti veri in tre lotti su nove: il rapporto è alto
+abbastanza da giustificare una passata dedicata.
+
+### ⭐ Due dichiarazioni in `invariati.md`, tutt'e due «identica per costruzione»
+
+`...???` (`:9829`, quel che Alice «dice» quando le si tiene la medicina fuori
+portata) e `Larnneire...` (`:13219`). La seconda è lo **specchio esatto** di
+`Bethel...` (`:1591`), già dichiarata dalla 57ª: là è Larnneire che pronuncia il
+nome di lui, qui è Bethel che pronuncia il nome di lei. In tutti e due i casi
+l'identità con l'inglese nasce dalla somma di due decisioni già prese — il nome
+resta invariato, i puntini si scrivono coi tre punti ASCII — e senza la
+dichiarazione `verifica.py` boccia il lotto intero.
+
+### 💡 Quel che l'inglese ha buttato via, e che è stato rimesso
+
+Sei casi, tutti dello stesso tipo — l'inglese riassume e perde un **fatto**,
+non una sfumatura:
+
+- `:13575` (Shuraida): il terreno, il numero e la resistenza del nemico, e la
+  capacità del giocatore di tenere il campo — cioè le tre ragioni del consiglio
+  tattico, in una missione dove il giocatore decide come muoversi;
+- `:13707` (Manytia): i **calzini** aggiunti alla chiave, che agganciano la
+  riga a una catena di battute già resa per intero (`:12431`, `:12513`,
+  `:12713`-`:12738`, `:13170`);
+- `:14529` (l'aiutante): il **maestro Spada Rossa**, che è nel nome di chi parla
+  (`db_creature.hsp:54727`);
+- `:10685` (Amurdad): 行っても, *anche se ci vai non potresti riportarla
+  indietro* — l'inglese ricicla la formula generica del gruppo pieno, identica
+  in nove file;
+- `:13698` (Manytia): il complimento interessato e la risatina, che sono il suo
+  modo di parlare;
+- `:12591` (Belphat): il polpo **vivo** che si dimena, che è il motivo per cui
+  se l'è mangiato per strada.
+
+⚠️ E tre volte l'inglese non taglia ma **capovolge**: `:13888` (Lankata) fa
+diventare un fallimento un'attesa; `:13646` (Manytia) nega la leggenda due
+parole prima di confermarla; `:14548` (l'aiutante) si congratula per una scelta
+che il giocatore non ha ancora fatto.
+
+---
+
 ## Una firma condivisa non e' di un lotto solo — 2026-08-24, novantunesima
 
 Otto lotti su `chat.hsp`, **153 rese**, dalle 517 alle **364**. NEIN la strega

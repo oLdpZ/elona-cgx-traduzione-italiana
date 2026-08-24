@@ -133,6 +133,83 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## Nove lotti, 143 rese, e due elenchi che andavano riconosciuti — 2026-08-24, novantaduesima sessione
+
+Nove lotti, **143 rese**, e `chat.hsp` scende da 364 a **221**: il 39% delle
+firme rimaste in un giorno. AMURDAD (12), l'AIUTANTE DEL MAESTRO SPADA ROSSA
+(18), MIKRAANESIS (18), SHURAIDA (17), ALICE (17), LANKATA (16), MANYTIA (15),
+BETHEL (15), BELPHAT (15). `menu_dialogo` misura **1.357** voci (erano 1.323),
+0 fuori misura e 0 peggiorate a due colonne. Zero toppe, zero rinvii, zero reti
+nuove, zero strumenti toccati; **due** dichiarazioni nuove in `invariati.md` e
+una sezione nuova di glossario con 22 voci.
+
+⭐ **Nove zone chiuse su nove, contraccolpo zero.** `_85-blocco.py` non ha mai
+segnalato occorrenze fuori: la lezione della 91ª è stata applicata in apertura
+di ogni lotto, e stavolta non ha mai dovuto mordere. Tre blocchi erano **tutti
+da fare** (LANKATA, BETHEL, e MIKRAANESIS a meno di due firme).
+
+⭐⭐⭐ **Due elenchi di katakana non chiedevano una traduzione: chiedevano di
+essere riconosciuti.** I ventotto nomi di Mikraanesis (`:9409`-`:9412`) sono gli
+**eoni valentiniani** — e la prova non sta nell'elenco ma nella trama, che usa
+già Sophia, il Propator dell'Abisso (`:9423`) ed Enthumesis, che nel mito è la
+passione di Sophia staccata da lei (`:10213`). Il diario di viaggio di Belphat
+(`:12576`-`:12594`) è il **Ciclo di Cthulhu**, e lì la prova sta nel dizionario:
+«lo shoggoth» (`db_creature.hsp:80712`) e «la Grande Razza di Yith»
+(`db_card.hsp:14390`). L'inglese traslittera a orecchio in tutti e due i casi:
+
+    アウトピュエース  Outpuece    -> Autophyes     ユゴス      Yugos      -> Yuggoth
+    アキネートス     Aquinatos   -> Akinetos      バイアクヘー Bayakhae   -> Byakhee
+    ヌース           Nuus        -> Nous          サイクラノーシュ Cyclanorch -> Cykranosh
+
+💡 E su **due** voci l'errore di riconoscimento cambia la parola, non la grafia:
+独り子のモノゲーネス è l'**Unigenito** e l'inglese scrive «Monogenes of
+Solitude»; イス焼き è **Yith alla piastra** (in coppia con たこやき nella stessa
+frase) e l'inglese, leggendo イス come *ice*, scrive «fried ice cream». Nuovo
+concept nel vault: [[un-nome-non-si-traduce-si-riconosce]].
+
+⭐⭐⭐ **Un parente regalato al giocatore, e il codice che lo smentisce.**
+`:13837`, l'inglese: «I was able to rescue **your** father». Il padre di Lankata
+ha un identificativo, `CREATURE_ID_ALFRED_THE_CANGNAN_WIND`, e la scena in cui
+lo trova sta venti righe più in là ed è **già resa**: `:18131` lo crea, `:18138`
+è lei che dice «Padre!», `:18155` è **lui** che chiede «Io... sono salvo?». Il
+giocatore in Elona un padre non ce l'ha. 💡 *Un pronome possessivo inglese si
+verifica come un identificativo: dice chi è parente di chi.*
+
+⭐⭐ **Tre righe già nel dizionario riparate, e nessuna era raggiungibile dalle
+reti.** `:269` dava **un genere al giocatore** in una delle prime battute della
+storia («Norne, hai fatto bene a guidare *la tua amica* fin qui», dove il
+giapponese non ha oggetto); `:10211` chiamava lo stesso 《深淵のプロパトル》
+`<Prophatorl dell'abisso>` mentre `:9423` dice `<Propator dell'Abisso>`;
+`:13714` diceva `99999gp` dove le due voci gemelle dello stesso menu dicono
+`99999 oro`. ⚠️ Sono tutte e tre **frasi diverse fra loro**, quindi
+`battute --divergenti` non le confronta e `verifica --dizionario` guarda solo le
+firme: le ha trovate la lettura del vicinato, non uno strumento.
+
+⭐ **E una quarta correzione è arrivata dentro il lotto:** `referti.py` è salito
+a 9 e ha visto «dove *sarai finito*» (`:12602`), un participio in più che il
+giapponese non ha — 「どこにいるんだ」 è «dove sei». È il quarto lotto di fila in
+cui quella rete guadagna il suo posto **durante** il lavoro e non in chiusura.
+
+⭐⭐ **Le battute doppie e le parodie hanno un vincolo di forma, non di senso.**
+「アリーヴェデルチ！」 di Alice è insieme una parola straniera e una parola che
+comincia per アリ, *formica*, come il suo nome: rifatta come il «formicalità»
+della 90ª sullo stesso personaggio, **ARRIFORMICARCI!**. 「サンキューベリマッチ」
+resta in inglese perché lo suggerisce l'inglese stesso, che scrive «Arigatou
+gozaimashita!». E `:13852` («posate **la statuetta** e lasciate **questo
+mondo**») è la parodia di `:13856` («posate **le armi** e lasciate **questo
+piano**»), che è il `buff` sopra il menu: si leggono nello stesso istante,
+quindi devono usare gli stessi verbi.
+
+⚠️⚠️ **Il conto delle rese non è il conto delle prove.** 143 rese costruite e
+controllate dagli strumenti; **zero viste a schermo**. Con oggi l'arretrato del
+collaudo è di **dieci sessioni e 1.916 rese**.
+
+⭐ **Il perimetro di `chat.hsp` dopo oggi.** Restano **221** firme e il blocco
+più grosso è LEIKI (15); poi MELUGAST (12), SPIPHA (12), NORNE la guida (11),
+ARIBEL (10). La mappa (`python scratchpad/_87-parlanti-oltre.py`) non ha più
+niente sopra le quindici: il costo per resa continua a salire, come previsto
+dalla 91ª.
+
 ## Otto lotti, 153 rese, e la rete che ha chiesto il lotto — 2026-08-24, novantunesima sessione
 
 Otto lotti, **153 rese**, e `chat.hsp` scende da 517 a **364**: un altro quinto
