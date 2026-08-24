@@ -825,6 +825,52 @@ quindi «moccioso» sarebbe sbagliato una volta su due. Si dice **«peste»**, c
 vale per tutti e due i sessi e tiene la stessa villania. Il glossario non è
 stato cambiato: la parola resta «moccioso» dove il bersaglio ha un sesso noto.
 
+## I sei parlanti della 92ª, decisi il 2026-08-24
+
+Sei lotti, 132 rese, e la sorpresa è che **quasi tutte le parole nuove sono
+nomi che esistevano già fuori dal gioco**: due elenchi — i ventotto eoni di
+Mikraanesis e il diario di viaggio di Belphat — non chiedevano di essere
+tradotti ma **riconosciuti**, e l'inglese li aveva traslitterati a orecchio.
+
+| JP | EN | IT | dove |
+|---|---|---|---|
+| 交合のミクシス | Mixsis of Mixing | **Mixis dell'Unione** | `chat.hsp:9409`. Gli eoni **valentiniani**: il gioco ne usa già quattro nella trama (Sophia, il Propator dell'Abisso, Enthumesis), quindi l'elenco è il suo pleroma e i nomi si scrivono nella forma greca |
+| 相互混合のシュンクラーシス | Shunkraasis | **Syncrasis della Mescolanza** | `:9409` |
+| 統合のシュネシス | Shunesis | **Synesis dell'Integrazione** | `:9409` |
+| 思念のエンノイア · 理法のヌース · 真理のアレーテイア | Ennoia · **Nuus** · **Areteia** | **Ennoia del Pensiero · Nous della Ragione · Aletheia della Verità** | `:9410` |
+| 言葉のロゴス · 生命のゾーエー · 人間のアントローポス · 教会のエクレーシア | Logos · **Zoea** · Anthropos · Ecclesia | **Logos della Parola · Zoe della Vita · Anthropos dell'Uomo · Ecclesia della Chiesa** | `:9410` |
+| 深みのビュテイオス · 不壊のアゲーラトス · 配慮のヘンノーシス | **Buteios** · Ageratos · Henosis | **Bythios della Profondità · Ageratos dell'Indistruttibile · Henosis della Premura** | `:9411` |
+| 成長のアウトピュエース · 快楽のヘードネー · 不動のアキネートス | **Outpuece** · **Hedonay** · **Aquinatos** | **Autophyes della Crescita · Hedone del Piacere · Akinetos dell'Immobilità** | `:9411` |
+| 独り子のモノゲーネス · 浄福のマカリア | Monogenes **of Solitude** · **Macalia** | **Monogenes dell'Unigenito · Macaria della Beatitudine** | `:9411`. ⚠️ 独り子 è *figlio unico*: l'inglese cambia il significato, non solo la grafia |
+| 仲介のパラクレートス · 信仰のピスティス · 父性のパトリコス · 希望のエルピス | Paracleteos · Pistis · Patrikos · Elpis | **Parakletos della Mediazione · Pistis della Fede · Patrikos della Paternità · Elpis della Speranza** | `:9412` |
+| 母性のメートリコス · 愛のアガペー · 永遠のアエイヌース | **Maitrikos** · Agape · **Aeneus** | **Metrikos della Maternità · Agape dell'Amore · Aeinous dell'Eternità** | `:9412` |
+| 伝道のエクレーシアスティコス · 幸福のマカリオーテス · 意欲のテレートス | Ecclesiasticus · Macarios · Terethos | **Ecclesiasticus della Predicazione · Makariotes della Felicità · Theletos della Volontà** | `:9412` |
+| ユゴス | **Yugos** | **Yuggoth** | `chat.hsp:12576`. Il pianeta di Lovecraft. Il progetto usa già le forme italiane del Ciclo: «lo shoggoth», «la Grande Razza di Yith» |
+| バイアクヘー | **Bayakhae** | **Byakhee** | `:12579` |
+| サイクラノーシュ | **Cyclanorch** | **Cykranosh** | `:12582`. Il Saturno di Clark Ashton Smith |
+| ミ=ゴ | Mi-Go | **Mi-Go** | `:12576`. L'unico che l'inglese azzecca |
+| イス焼き | **fried ice cream** | **frittelle di Yith** | `:12591`. ⚠️ L'inglese ha letto イス come *ice*: è **Yith**, e lo dicono `db_card.hsp:14390` e `action.hsp:2604`. Sta in coppia con たこやき → «frittelle di polpo»: la battuta è la sostituzione dell'ingrediente, quindi le due voci hanno la stessa forma |
+| 宇宙剣術 | space sword techniques | **la scherma cosmica** | `:12565`, sotto «lo spadaccino cosmico» già deciso |
+| 始まりの丘・ルストール | the hill of beginnings, Lustor | **la collina delle origini, Lustor** | `chat.hsp:13645`, la leggenda degli abitanti della collina |
+| ツアーコンダクター | tour guide | **la guida turistica** | `chat.hsp:13588`. Compare **una volta sola** in tutto il sorgente e non è il titolo né di «<Arma> la guida turistica» né di «<Fron> l'organizzatrice di viaggi»: il giapponese non dice chi, e l'italiano nemmeno — mestiere, non nome, e in italiano vale per chiunque lo faccia |
+| 努力賞 | reward for your efforts | **premio per l'impegno** | `chat.hsp:14530`. ⚠️ **Non** il «premio di consolazione» di `:13082`: lì è il contentino di chi non ha vinto, qui è il premio di chi ha finito tutti e sedici i pezzi del seminario |
+| 四次元ポケット | 4-Dimensional Pocket | **tasca quadridimensionale** | `chat.hsp:13779` |
+| 廃人 | crippled | **rovinato per sempre** | `chat.hsp:13250`, e il definitivo del giapponese si tiene |
+
+⭐ **Quello che NON è stato deciso qui, perché era già scritto.** Sei lotti su
+sei hanno trovato il lessico in righe già rese, e tre volte è stata quella
+consultazione a scoprire un difetto: «<Amurdad>» e la Gabbia di Amur
+(`text.hsp:2929`, `:11274`), «l'anima smarrita» (`db_creature.hsp:44807`), i
+quattro corsi del seminario e i loro docenti (87ª), «Kikkasu» e «il demone
+della pestilenza» (`chat.hsp:2111`, `:2140`-`:2141`), «<Bethel> il falco
+bianco» e «Larnneire», «<Kuroya> lo scrutatore del cosmo» e il suo soprannome
+«Kuro» (`chat.hsp:12657`), «Irva Perduta», «gli abitanti della collina»,
+«armi non morte», «calzini», «statuetta», «mortale», «luce astrale», «Arkasha».
+
+⚠️ **E una parola che il glossario NON cambia:** 定命 resta «mortale» — l'inglese
+di `chat.hsp:10706` scrive «destined one», leggendo 定命 come *destino*, ma nel
+progetto è «mortale» in cinque punti ed è il contrario di «predestinato».
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,
