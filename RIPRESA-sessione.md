@@ -1,61 +1,242 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-23, fine della **novantesima** sessione (**cinque lotti,
-174 rese, `chat.hsp` da 691 a 517 — il file e' sceso di un quarto in un
-giorno**).
+Aggiornato: 2026-08-24, fine della **novantunesima** sessione (**otto lotti,
+153 rese, `chat.hsp` da 517 a 364 — il file e' sceso di un altro quinto**).
 
-⭐⭐⭐ **La lezione della giornata: davanti a una riga lunga la domanda non e'
-«accorcio?» ma «di chi e' la riga in piu'?».** `chat-lotto-misura` ha segnalato
-**ventitre'** rese piu' lunghe dell'inglese. Venti erano prolissita' mia e sono
-state accorciate tutte; **tre no** — `:15214` e `:15328` di BYSYMLHA e `:13075`
-di MELGET sono **esattamente** le righe dove l'inglese aveva buttato via un
-pezzo di giapponese, quindi accorciare avrebbe ributtato via lo stesso pezzo una
-seconda volta. E il tetto non mordeva in nessuno dei ventitre' casi: un
-`chatMore` da un bottone tiene **13** righe, `(324 - 19 - 43) // 19`, e il piu'
-lungo della giornata ne faceva 7. 💡 *Una rete prudente e' prudente rispetto a
-un metro: quando il metro e' un testo di monte che ha perso qualcosa, obbedirle
-e' propagare la perdita.*
+⚠️⚠️ **LA SESSIONE SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
+spinto e l'albero e' pulito; le cose che **non stanno nel repo** sono quattro,
+e l'ordine conta:
 
-⭐⭐⭐ **La seconda: un gioco di parole si rifa', e il precedente e'
-dell'inglese.** `chat.hsp:9942` e' 「ありがとうねぇ、アリだけに」 — 「ありがとう」
-contiene 「アリ」, la formica — detta dalla donna che ha appena trasformato in
-mostro una formica. L'inglese lo cancella. Ma `decisioni.md` aveva gia' deciso,
-sulle **fusioni delle razze**, che «si rende il gioco, non le sillabe», e li' il
-precedente e' dell'inglese stesso, che ダゴンズイ lo ricostruisce invece di
-tradurlo. La parola l'italiano ce l'aveva in mano, perche' <Alice> **e'** «la
-formica gigante»: «Grazie mille, eh. E non e' una **formicalita'**».
+    dati-sorgente\             python -m strumenti.dati_sorgente --pinna
+    l'albero di build          python -m strumenti.applica
+    cgx-test.exe               python -m strumenti.compila --eseguibile   (NON incatenato)
+    dataoard_it.txt e talk_it.txt   li scrive `applica` in build\dati\, poi si copiano
 
-⭐⭐⭐ **La terza: il lessico che serve non sta nel glossario, sta nella pagina
-che spiega la cosa.** Di BYSYMLHA dieci termini su undici erano gia' scritti, e
-**nove venivano dalla stessa pagina**: `chara.hsp:4225`-`:4314`, la descrizione
-delle modalita' di gioco, che e' il testo che spiega proprio quel menu — «Di
-base e' 3x, e in un certo posto si arriva fino a 30x» (`:4231`), e quel «certo
-posto» **e' lei**. Stessa forma per MELGET, dove le dodici curiosita' del mese
-nominano una per una cose che hanno gia' un nome altrove: **sedici** termini
-gia' decisi, nessuno nel glossario.
+⚠️ `strumenti.gronde` legge la **build**: su una macchina senza albero
+costruito non fallisce dicendo «la gronda e' stretta», muore di file non
+trovato. 💡 E `strumenti.battute` vuole `PYTHONIOENCODING=utf-8` davanti.
 
-⭐⭐ **La quarta: un'ECO puo' attraversare due PERSONAGGI.** La curiosita' di
-novembre di Melget (`:13173`) accusa 「丘の民の集落長」 di spargere notizie false
-per stroncare chi non gli va a genio: quello e' **Dain**, «l'anziano della
-collina», reso **ieri** — e il giocatore che ha appena fatto la sua missione lo
-ha visto fare esattamente quello con la nipote. Le due righe stanno a tremila
-righe di distanza in bocca a due persone che non si incontrano mai, e a tenerle
-insieme non c'e' nessuna rete: c'e' solo l'aver cercato 「丘の民」 nel dizionario
-prima di scrivere.
+⭐⭐⭐ **La lezione della giornata: una firma condivisa non appartiene al lotto
+che la incontra per primo.** Chiuso REGULUS, `bilingui` e' passato da **0 a 1**:
+il suo menu era meta' italiano e meta' inglese, perche' 「ちょっと待って」 ha due
+occorrenze (`:10398` e `:12832`) e `estrai --da-tradurre` assegna la firma alla
+prima. ⚠️ E renderla da sola non bastava: avrebbe **spostato** il difetto di
+quaranta righe, rendendo bilingue il menu dell'altro blocco. La riparazione e'
+stata chiudere il blocchetto di RAIZEL per intero — sei firme, l'ottavo lotto,
+non in programma. 💡 *Quando `_85-blocco.py` dice «con occorrenze FUORI: 1» su
+una voce di `chatList`, il lotto non e' finito quando finisce il blocco.* Il
+dato c'era gia' in apertura di lotto: mancava la conseguenza.
 
-⚠️⚠️ **La quinta: il genere del parlante sta nel nome, e il giocatore non ne
-ha.** Melget, Marka e Mary hanno il genere scritto in `db_creature.hsp`
-(«l'informatrice», «l'orsa d'argento», «l'entomologa»), quindi «mi ha bloccata»
-e «l'avventuriera e' corsa su per le scale» non sono scelte: sono conseguenze.
-Il rovescio ha chiesto **nove** giri di frase per il giocatore. Il caso da
-ricordare e' `:12314`: 「変質者め」 ha gia' la sua parola («maniaco»,
-`db_creature.hsp:68205`) ma quella accorderebbe il giocatore — ✅ si tiene la
-parola e si **sposta il bersaglio**, il cavaliere la grida ai suoi e al
-giocatore da' l'ordine.
+⭐⭐⭐ **La seconda: quando l'inglese aggiunge un fatto, il gioco puo'
+smentirlo.** `:10445` dice solo che la sorella di Nein «e' scomparsa»; l'inglese
+aggiunge **dove**, «within the ruins of Nefia». Ma Minea e' `<Minea> The
+Puppeteer` di `scene2.hsp:2581`, e li' racconta lei la sua storia: magia
+bocciata, «the shame of House Bellum», genitori che tagliano i ponti. Non e'
+sparita in una Nefia: e' stata **cacciata di casa**, la casa che Nein vuole far
+tornare grande. Si tace il dove.
+
+⭐⭐⭐ **La terza: l'inglese puo' buttare una variabile, e allora il conto
+sparisce per sempre.** `:15056` in giapponese e'
+「今デッキに入っているカードは" + syurui + "種類のようですのう」 — l'unico posto
+del gioco dove si legge **a che punto si e'**. L'inglese scrive «Not bad, not
+bad» e `syurui` **non c'e' piu' nell'espressione**. Nessuna rete se ne
+accorgerebbe: `verifica` controlla che le interpolazioni **presenti** siano
+conservate, non che non ne manchi una. 💡 *Per le dinamiche il confronto che
+conta e' fra le due liste di variabili, e quella rete non c'e'.*
+
+⭐⭐ **La quarta: il genere puo' essere ignoto per costruzione.** Il bambino
+dell'anima smarrita ha `CDATA_SEX` **tirato a sorte** (`db_creature.hsp:44851`
+cambia il ritratto di conseguenza): la regola del genere vale anche per
+l'**interlocutore**. 「クソガキ」 era «moccioso» (`chat.hsp:804`) ma li' il
+bersaglio ha un sesso noto: qui si dice **«peste»**.
+
+⭐⭐ **La quinta, ed e' una mossa nuova da provare per prima:** l'accordo del
+participio col clitico e' **facoltativo** con `mi/ti/ci/vi` (obbligatorio solo
+con `lo/la/li/le`). «Mi hanno **spedito** allo smaltimento» e' corretto e non
+da' un genere a nessuno — e vale anche per il giocatore, «ti hanno mandato»,
+«mi hai salvato», dove finora si giravano le frasi.
 
 ---
 
-## La novantesima sessione
+## La novantunesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La
+sessione si e' aperta con `origin/fase-0` allineato: e' la **quarantottesima
+prova** di fila, e le quindici hanno dato quindici volte i valori attesi della
+90a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    verifica --dizionario   chat.hsp   0 / 364    (era 517)
+    menu_dialogo            0 su 1323 misurate    (erano 1292)
+    dizionario              chat.hsp +153 voci, 0 rifatte
+
+Tutto il resto e' **fermo dov'era**, e in chiusura e' stato riverificato:
+`pytest` **736 passed 6 skipped**, `prova_identita` 72/72 e **28.073**,
+`creature` 1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205,
+`riquadri` 0 su 38 e 0 su 71, `linguette` 0 e 0, `battute --divergenti` **13**,
+`intestazioni_larghezze` perimetro 0, `dati_applica --identita` 4 file e 2.987
+righe, `dati_sorgente` 7/7 e gioco difforme su 0, `gronde` 0 su 5, `maiuscole`
+143 siti / 6 appesi / 1 accumulati / 7 giudicati / 0 da guardare, `bilingui`
+**0**, `referti.py` **8**, `toppe.jsonl` **1023** e `rinviate.jsonl` **79** non
+toccati.
+
+⚠️ **`strumenti.battute` muore con `UnicodeEncodeError` se la console non e'
+in UTF-8.** Non e' lo strumento: e' `stdout` in cp1252. Prima delle verifiche:
+
+    $env:PYTHONIOENCODING = "utf-8"
+
+### ▶ Che cosa e' stato fatto
+
+    chat.hsp :10442-:10520  NEIN la strega volante                    24
+    chat.hsp :15145-:15199  ALLEN il ricercatore                      23
+    chat.hsp :11912-:12063  GARZIEM                                   22
+    chat.hsp :14928-:15070  SSIL la strega del divieto infranto        20
+    chat.hsp :10551-:10626  L'ANIMA SMARRITA                          20
+    chat.hsp :10910-:10981  JIN la macchina fuggiasca                 19
+    chat.hsp :12779-:12871  REGULUS l'uomo modificato                 19
+    chat.hsp :10391-:10434  RAIZEL sulla Nave Magica  (riparazione)    6
+    scratchpad/_91-rese-nein.py      le rese e le nove deroghe
+    scratchpad/_91-rese-allen.py     le rese e le sette deroghe
+    scratchpad/_91-rese-garziem.py   le rese e le cinque deroghe
+    scratchpad/_91-rese-ssil.py      le rese e le nove deroghe
+    scratchpad/_91-rese-anima.py     le rese e le sei deroghe
+    scratchpad/_91-rese-jin.py       le rese e le sette deroghe
+    scratchpad/_91-rese-regulus.py   le rese e le sette deroghe
+    scratchpad/_91-rese-raizel.py    le rese e le tre deroghe
+    -------------------------------------------------------------------------
+              153 rese, 0 toppe, 0 rinvii, 0 reti nuove, 0 strumenti toccati
+
+### ▶ ⚠️ Le deroghe che pesano
+
+Stanno per esteso negli otto moduli di `scratchpad/`. Le sei da ricordare:
+
+1. **`chat.hsp:10445`** (Nein) — la sorella Minea: si tace il **dove** che
+   l'inglese aggiunge, perche' `scene2.hsp:2581` lo smentisce.
+2. **`chat.hsp:15056`** (Ssil) — `syurui` rimesso nell'espressione.
+3. **`chat.hsp:14954`** (Ssil) — **Blood Runner**, non «Blade Runner»: ブラッド
+   e' *blood* in otto creature, e *blade* si scrive ブレード.
+4. **`chat.hsp:12819`** (Regulus) — l'inglese taglia la frase in cui dice che
+   alla sorella, se la trovera' cosi', dara' **pace**. E' la frase che spiega
+   perche' il blocco esiste.
+5. **`chat.hsp:10941`** (Jin) — 「異星の友人よ」: «amico» darebbe un genere al
+   giocatore, e si rende **il legame** invece della persona (guida di stile,
+   i livelli di rapporto): «Addio, amicizia di un altro pianeta».
+6. **`chat.hsp:10473`** (Nein) — 「施術ゼミでやったところ」, che l'inglese
+   cancella, e' la battuta degli allievi del seminario gia' resa
+   («Questo l'abbiamo appena fatto al corso!», `db_creature.hsp:54616`): si
+   conserva **con le stesse parole**, se no l'eco non si sente.
+
+### ▶ ⭐ Il perimetro, misurato
+
+`chat.hsp` ha **364** firme, e la mappa si e' **appiattita**: dopo oggi non c'e'
+piu' nessun blocco sopra le **18** firme
+(`python scratchpad/_87-parlanti-oltre.py`, 85 blocchi):
+
+    14525-14659  PART_TIME_WORKER_THE_RED_SWORD   18   ZONA CHIUSA
+     9367-9430   MIKRAANESIS                      18   ZONA CHIUSA
+    13537-13633  SHURAIDA_THE_EXPERT_MERC         17   ZONA CHIUSA
+     9794-9853   ALICE_THE_BIG_ANT                17   ZONA CHIUSA
+    13834-13896  LANKATA_THE_LIGHTNING_OF_BLUE    16   ZONA CHIUSA
+    13634-13833  MANYTIA_THE_ADVENTURE_MERCHANT   15   ZONA CHIUSA
+    13216-13265  BETHEL_THE_WHITE_HAWK            15   ZONA CHIUSA
+    12560-12632  BELPHAT_THE_COSMIC_SWORD         15   ZONA CHIUSA
+     8695-8774   LEIKI                            15   ZONA CHIUSA
+    13182-13215  MELUGAST_AO_I                    12   ZONA CHIUSA
+    10627-10728  AMURDAD                          12   ZONA CHIUSA
+     9724-9793   SPIPHA_THE_DRAGON_HUNTER         12   ZONA CHIUSA
+
+⭐ **Il prossimo lotto naturale e' PART_TIME_WORKER_THE_RED_SWORD** (18, zona
+chiusa) o **MIKRAANESIS** (18). ⭐⭐ Ma c'e' un candidato migliore per una
+ragione di trama: **AMURDAD** (`:10627`-`:10728`, 12) e' quello che manda a
+salvare l'anima smarrita resa oggi, e le sue righe (`:10630`, `:10673`,
+`:10689`, `:10706`) sono l'altra meta' di quella missione.
+
+⚠️⚠️ **Con blocchi piccoli le firme condivise fra menu diventano PIU'
+probabili, non meno.** La lezione della giornata serve subito: prima di
+reimportare un lotto che contiene `chatList`, guardare se `_85-blocco.py`
+segnala occorrenze fuori — e se le segnala, cercare **l'altro menu**.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **`chat.hsp` a 364**, e la mappa e' qui sopra: prossimo lotto
+   **AMURDAD** (12, e chiude la missione dell'anima smarrita) oppure
+   PART_TIME_WORKER (18).
+2. ⚠️⚠️⚠️ **IL COLLAUDO A SCHERMO E' L'ARRETRATO CHE CRESCE PIU' IN FRETTA.**
+   Sono **nove** sessioni e **1.773 rese** mai viste: 301 (84a), 336 (85a), 326
+   (86a), 281 (87a), 104 (88a), 98 (89a), 174 (90a) e **153 di oggi**. ⚠️
+   `collaudo/schermo.ps1` scrive sulla tastiera di **tutto il computer** (83a):
+   il collaudo lo fa una persona. ⭐ I punti piu' facili di oggi:
+   - **NEIN**, sulla Nave Magica Eulderna: le si parla e basta, e il menu di
+     lettura (`:10450`-`:10451`) chiede **Lettura 130**, quindi con un
+     personaggio normale si vede il ramo del fallimento e la riga
+     «(Nein e' allibita come non mai.)»;
+   - **SSIL**, nella Dimora della Strega: basta avere un mazzo addosso per
+     vedere `:15056`, cioe' **la riga col conto rimesso dentro** — se il numero
+     esce, la deroga 1 e' provata a schermo;
+   - **ALLEN**, a Zaile: il ramo `>= 900` sono le tre righe che si spengono
+     (`:15158`-`:15160`), l'unico posto dove si vede se la scala scende.
+   Restano dalle sessioni prima il **menu di Maile a undici voci** — l'unico
+   posto dove si vede coi propri occhi se le due colonne tagliano — il
+   **seminario** della 87a, il **prospetto cittadino** (deve dire «Autorita'»)
+   e il messaggio del **[Non posare]** (deve dire «dal menu <Esamina>»).
+3. ⚠️⚠️ **`referti.py` va rilanciato IN CHIUSURA, non solo in apertura** — e
+   ⭐ **anche dentro il lotto**: oggi e' passato da 8 a **9** e ha trovato un
+   participio riferito al giocatore che nessun'altra rete poteva vedere. In
+   chiusura: **8**, invariato.
+4. ⚠️⚠️⚠️ **La rete che manca resta**: rileggere TUTTO il dizionario con le
+   regole di oggi. `referti.py` legge solo due regole (participi ed elisioni);
+   `verifica --dizionario` confronta solo le firme; `controlla_voce` gira solo
+   sui lotti. 💡 Oggi avrebbe **tre** regole in piu' da passare all'indietro:
+   «dèi» e simili, i giri di frase per il genere del giocatore, e il
+   **participio col clitico**, che e' una riparazione buona per molte righe
+   gia' scritte in modo contorto.
+5. ⭐⭐ **La rete che non c'e', e oggi si e' vista servire:** per le voci
+   **dinamiche**, confrontare la lista delle variabili del giapponese con
+   quella dell'inglese. `chat.hsp:15056` e' il caso di prova: l'inglese perde
+   `syurui` e nessuno se ne accorge.
+6. ⚠️⚠️⚠️ **Le sette etichette del potenziale** (`command.hsp:10676`-`:10700`)
+   sono letterali nudi senza `lang()`: a schermo sono inglesi. Toppabili; il
+   giorno che si toppano, `chat.hsp:14246` va rifatta.
+7. ⭐⭐⭐ **La rete che non c'e': i PARTNER fuori da `lang()`** (81a).
+8. ⚠️⚠️⚠️ **IL PUNTO CIECO DELLA 74a**: restano **100 righe
+   `listn(...) = lang(...)` in `command.hsp`** — fra cui il pannello dei
+   talenti — **18 in `chara.hsp`**, piu' `event.hsp:825`, `help.hsp:333`,
+   `net.hsp:604`. ⚠️ **Diciotto sessioni che aspetta.**
+9. ⭐⭐ **La rete che manca: i `buff` della finestra del dialogo.**
+10. ⭐ **`menu_dialogo.reso()` non legge il `limit(..., 0, N)`** (79a).
+11. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208
+    righe), `manual_ENG.txt` (591), `exhelp.txt` (185).
+12. ⭐⭐ `board.txt` **secondo lotto**; `custom_autopick.hsp` 21 gemelle delicate.
+13. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+    `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+    `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+14. ⭐⭐ Il **muro del materiale**: `mithril sword` e' «spada **di** mithril».
+15. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `item_func.hsp` 240; i **1.146** di
+    `db_card.hsp`.
+16. 🔶 **La sorella H** (82a) e la 🔶 **decisione aperta dalla 80a** sul menu
+    degli arti.
+17. ⚠️ **`scene2.hsp` non e' nel dizionario**, e adesso c'e' un filo che ci
+    porta: `<Minea> The Puppeteer` e' la sorella di Nein, e la sua storia
+    smentisce l'inglese di `chat.hsp:10445`. Sta scritto in
+    `_91-rese-nein.py`.
+
+### ▶ Come si e' chiusa
+
+Otto spinte, una per lotto. `applica` e `compila --eseguibile` sono girati dopo
+ogni lotto e `cgx-test.exe` e' stato ricopiato ogni volta (l'ultimo alle 02:10
+del 24/08 — ⚠️ **controllare la data del file prima di leggere uno
+screenshot**, lezione dell'11/08). Le quindici verifiche sono state rilanciate
+in chiusura — tutte verdi, tutte sui valori attesi — e con loro `referti.py`,
+che dice **8** come in apertura. ⚠️ La voce in `log.md` (vault) e' stata
+scritta **prima** dei documenti del repo, come vuole la lezione della 90a.
+
+---
+
+## La novantesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

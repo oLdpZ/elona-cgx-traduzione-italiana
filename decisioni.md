@@ -6,6 +6,167 @@ ancora aperte.
 
 ---
 
+## Una firma condivisa non e' di un lotto solo — 2026-08-24, novantunesima
+
+Otto lotti su `chat.hsp`, **153 rese**, dalle 517 alle **364**. NEIN la strega
+volante (`:10442`-`:10520`, 24), ALLEN il ricercatore (`:15145`-`:15199`, 23),
+GARZIEM (`:11912`-`:12063`, 22), SSIL la strega del divieto infranto
+(`:14928`-`:15070`, 20), L'ANIMA SMARRITA (`:10551`-`:10626`, 20), JIN la
+macchina fuggiasca (`:10910`-`:10981`, 19), REGULUS l'uomo modificato
+(`:12779`-`:12871`, 19) e **RAIZEL** (`:10391`-`:10434`, 6), che non era in
+programma. Le deroghe stanno per esteso negli otto moduli di `scratchpad/`.
+
+### ⭐⭐⭐ La rete che ha chiesto un lotto
+
+Chiuso REGULUS, `strumenti.bilingui` e' passato da **0 a 1**:
+
+    chat.hsp:12832-12833   2 voci, 1 rese, 1 no
+            :12832  'Hold on a minute.'
+
+La firma di 「ちょっと待って」 ha **due occorrenze** — `:10398`, nel blocco di
+Raizel sulla Nave Magica, e `:12832`, nel menu di Regulus — e
+`estrai --da-tradurre` la assegna alla **prima**. Quindi il lotto di Regulus
+conteneva 「出発」 ma non la sua compagna di menu, e a schermo il menu sarebbe
+uscito meta' in italiano e meta' in inglese.
+
+⚠️ **La riparazione ovvia era sbagliata.** Rendere solo `:12832` avrebbe
+spostato il difetto di quaranta righe: il menu di Raizel (`:10398`-`:10399`)
+sarebbe diventato bilingue a sua volta, perche' 「出撃！」 non era resa. La
+riparazione vera e' stata chiudere il blocchetto di Raizel per intero, sei
+firme, e allora `bilingui` e' tornato **0**.
+
+💡 *Una firma condivisa non appartiene al lotto che la incontra per primo:
+appartiene a **tutti i menu in cui compare**, e si chiude con loro. Quando
+`_85-blocco.py` dice «con occorrenze FUORI: 1» su una voce di `chatList`, il
+lotto non e' finito quando finisce il blocco.*
+
+⭐ E la misura c'era gia': `_85-blocco.py 12779` aveva scritto «con occorrenze
+FUORI: 1» **in apertura di lotto**, e il modulo di Regulus lo aveva pure
+annotato. Quello che mancava non era il dato, era la conseguenza — che si e'
+vista solo dopo la reimportazione, quando ha parlato una rete diversa. Vedi la
+76ª, dove `bilingui` era nata proprio per i menu che si bucano da soli.
+
+### ⭐⭐⭐ Quando l'inglese aggiunge un fatto, il gioco puo' smentirlo
+
+`chat.hsp:10445`, Nein: 「行方不明のミネア姉さま」, *mia sorella Minea, che e'
+scomparsa*. L'inglese aggiunge **dove**: «that went missing within the ruins of
+Nefia».
+
+Minea esiste. E' `<Minea> The Puppeteer` di `scene2.hsp:2581` e seguenti, e li'
+racconta lei la propria storia: ha inventato una magia per manovrare gli
+uomini, l'esaminatore l'ha bocciata come volgare magia di dominio, «soon people
+began to call me the shame of House Bellum», i genitori hanno tagliato i ponti
+e lei se n'e' andata a fare l'avventuriera. **Non e' sparita in una Nefia: e'
+stata cacciata di casa** — la casa che Nein, sua sorella minore, vuole far
+tornare grande diventando capo degli incantatori di corte.
+
+Si segue il giapponese e si tace il dove. E' la regola della 57ª, ma con un
+argomento in piu': qui l'aggiunta dell'inglese non e' solo non attestata, e'
+**contraddetta da un altro file dello stesso gioco**.
+
+⚠️ `scene2.hsp` non e' nel dizionario. Chi lo tradurra' deve sapere che
+`<Minea> The Puppeteer` e' la sorella di Nein: sta scritto nel modulo
+`_91-rese-nein.py`, che e' l'unico posto dove i due fili si toccano.
+
+### ⭐⭐⭐ L'inglese puo' buttare una variabile, e allora il conto sparisce
+
+`chat.hsp:15056`, Ssil:
+
+    jp  "…今デッキに入っているカードは" + syurui + "種類のようですのう。ひひ…"
+    en  "Ah, let me see your deck... Not bad, not bad. Please, show me again..."
+
+`syurui` **non c'e' piu' nell'espressione inglese**. E' l'unico posto del gioco
+dove si legge **quanti tipi di carte si hanno gia'**, cioe' la ragione per cui
+si torna a parlarle: chi traduce sull'inglese perde il conto per sempre, e
+nessuna rete se ne accorge, perche' l'espressione inglese e' coerente con se
+stessa e `verifica` controlla che le interpolazioni **presenti** siano
+conservate, non che non ne manchi una.
+
+L'italiano rimette `syurui` dentro. Non e' inventare un pezzo: e' ricucire un
+pezzo che il giapponese ha.
+
+💡 *Per le dinamiche, il confronto che conta non e' fra le due stringhe ma fra
+le due **liste di variabili**. Una rete che le confronti non c'e'; se un giorno
+si scrive, questo e' il caso di prova.*
+
+### ⭐⭐ Il genere puo' essere ignoto per costruzione
+
+Il bambino dell'anima smarrita non ha un sesso: `db_creature.hsp:44851` fa
+
+    if ( cdata(CDATA_SEX, rc) == 1 ) { cdata(CDATA_PIC, rc) = xy2pic(27, 10) }
+
+cioe' **cambia il ritratto** secondo un sesso che per quella creatura non e'
+fissato da nessuna parte. Quindi la regola del genere — che il progetto
+applicava al giocatore — vale anche per l'**interlocutore**, e nello stesso
+modo: niente participi, niente aggettivi, e i sostantivi si scelgono neutri.
+
+Conseguenza concreta: 「クソガキ」 era gia' reso «moccioso» (`chat.hsp:804`), ma
+li' il bersaglio ha un sesso noto. Qui si dice **«peste»**, che vale per un
+maschio e per una femmina. Il glossario **non** cambia: cambia il posto.
+
+### ⭐⭐ Una via d'uscita nuova: il participio col clitico
+
+In italiano l'accordo del participio con un complemento oggetto anteposto e'
+**obbligatorio** con `lo/la/li/le` e **facoltativo** con `mi/ti/ci/vi`. Quindi
+
+    「廃棄処理区画に送られてしまった」  ->  «mi hanno **spedito** allo smaltimento»
+
+e' corretto e **non da' un genere a nessuno**. Vale per il parlante (Jin, che
+di genere non ne ha) e vale per il **giocatore**: «ti hanno mandato», «mi hai
+salvato», dove finora si giravano le frasi. Da oggi e' la prima mossa da
+provare, prima del giro di frase.
+
+### ⭐⭐ Un nome si controlla nell'ortografia del gioco
+
+`chat.hsp:14954`: l'inglese scrive «a man named **Blade Runner**». Il
+giapponese e' ブラッドランナー, e il gioco ha una sua ortografia:
+
+    ブラッド -> blood   (living blood, blood golem, dead-eyes blood dragon: otto in db_creature.hsp)
+    ブレード -> blade   (ブレードボウ = blade bow, db_item.hsp:136506)
+
+Il nome resta **Blood Runner**. Stessa famiglia al rovescio: **casa Bellum** non
+si e' dedotta dalla riga che la nomina, ma da `scene2.hsp:3204` («I'm from House
+Bellum in Eulderna») e `db_item.hsp:51432` — cioe' **si e' cercato il nome
+altrove prima di romanizzarlo**, come si fa con gli identificativi.
+
+### ⭐ Tre mucchi, non due, per le righe piu' lunghe dell'inglese
+
+La 90ª aveva diviso in due: prolissita' mia (si accorcia) e pezzo buttato
+dall'inglese (si tiene). Su diciannove righe segnalate oggi ne e' servito un
+terzo:
+
+    dodici   prolissita' mia               -> accorciate
+    cinque   l'inglese ha buttato un pezzo -> tenute, con la prova nel modulo
+    due      italiano piu' lungo e basta   -> tenute, **dichiarate come tali**
+
+Le due sono `chat.hsp:10968` (Jin) e `:12809`/`:12816` (Regulus, contate come
+un caso solo). Il tetto non mordeva in nessuno dei diciannove casi.
+
+💡 *Dire «qui non ho una scusa» costa una riga di modulo e vale piu' di una
+scusa inventata: la sessione dopo, chi rilegge sa che quella riga e' stata
+guardata e non e' sfuggita.*
+
+### ⚠️ Le tre reti che hanno morso, e nessuna era quella che ci si aspettava
+
+1. **`referti.py`, da 8 a 9 participi.** `chat.hsp:10488` diceva «con che mezzi
+   ci sei **riuscito**»: un participio riferito al giocatore. Non poteva vederlo
+   ne' `verifica` (guarda le firme) ne' `chat-lotto-misura` (guarda le righe).
+   ⭐ Va rilanciato **dentro** il lotto, non solo in chiusura: la differenza fra
+   8 e 9 e' leggibile solo se il numero di prima lo si conosce.
+2. **`verifica`, due trattini lunghi.** `chat.hsp:10967` ne aveva due: CP932 li
+   codifica su due byte e la build inglese disegna un glifo per byte.
+3. **`verifica`, una virgoletta nuda** dentro una statica (`:12818`,
+   「レナイ」 fra virgolette).
+
+### ⭐ Il perimetro di `chat.hsp` si e' appiattito
+
+Dopo oggi **non c'e' piu' nessun blocco sopra le 18 firme**. La mappa comincia
+con PART_TIME_WORKER_THE_RED_SWORD (18), MIKRAANESIS (18), SHURAIDA (17) e
+ALICE_THE_BIG_ANT (17) — la formica gigante di MARY, resa ieri. Le sessioni che
+vengono non avranno piu' un lotto grosso da cui partire: molti blocchi piccoli,
+e il costo per resa che sale. ⚠️ Con blocchi piccoli le firme condivise fra
+menu diventano **piu'** probabili, non meno: la lezione di oggi serve subito.
+
 ## «Di chi e' la riga in piu'?», e un bisticcio rifatto — 2026-08-23, novantesima
 
 Cinque lotti su `chat.hsp`, **174 rese**, dalle 691 alle **517**: il file e'

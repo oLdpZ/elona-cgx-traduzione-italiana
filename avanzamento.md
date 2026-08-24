@@ -133,6 +133,61 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## Otto lotti, 153 rese, e la rete che ha chiesto il lotto — 2026-08-24, novantunesima sessione
+
+Otto lotti, **153 rese**, e `chat.hsp` scende da 517 a **364**: un altro quinto
+delle firme rimaste. NEIN (24), ALLEN (23), GARZIEM (22), SSIL (20), L'ANIMA
+SMARRITA (20), JIN (19), REGULUS (19), RAIZEL (6). `menu_dialogo` misura
+**1.323** voci (erano 1.292), 0 fuori misura e 0 peggiorate a due colonne. Zero
+toppe, zero rinvii, zero reti nuove, zero strumenti toccati.
+
+⭐⭐⭐ **L'ottavo lotto non era in programma: l'ha chiesto `bilingui`.**
+Chiuso REGULUS, `strumenti.bilingui` è passato da **0 a 1**:
+
+    chat.hsp:12832-12833   2 voci, 1 rese, 1 no
+            :12832  'Hold on a minute.'
+
+La firma di 「ちょっと待って」 ha **due occorrenze**, `:10398` e `:12832`, e
+`estrai --da-tradurre` la assegna alla prima: rendendo `:12833` senza di lei il
+menu di Regulus era rimasto metà in italiano e metà in inglese. ⚠️ E renderla
+da sola avrebbe **spostato** il difetto di quaranta righe, perché sarebbe
+diventato bilingue il menu dell'altro blocco. La riparazione è stata chiudere
+il blocchetto di RAIZEL per intero, sei firme. 💡 *Una firma condivisa non
+appartiene al lotto che la incontra per primo: appartiene a tutti i menu in cui
+compare, e si chiude con loro.* `bilingui` è tornato **0**.
+
+⭐ **Sette zone chiuse su otto, contraccolpo zero.** L'unico blocco con una
+occorrenza fuori era REGULUS, ed era proprio quella firma condivisa —
+`_85-blocco.py` l'aveva detto in apertura di lotto, e la conseguenza si è vista
+solo dopo la reimportazione, quando `bilingui` ha parlato. La misura c'era, la
+lettura no.
+
+⚠️⚠️ **Il conto delle rese non è il conto delle prove.** 153 rese costruite e
+controllate dagli strumenti; **zero viste a schermo**. Con oggi l'arretrato del
+collaudo è di **nove sessioni e 1.773 rese**.
+
+⭐ **Il perimetro di `chat.hsp` si è appiattito.** Dopo oggi non c'è più nessun
+blocco sopra le **18** firme: la mappa (`python scratchpad/_87-parlanti-oltre.py`)
+comincia con PART_TIME_WORKER_THE_RED_SWORD (18), MIKRAANESIS (18), SHURAIDA
+(17) e ALICE_THE_BIG_ANT (17) — che è la formica di MARY, resa ieri. Le
+sessioni che vengono non avranno più un lotto grosso da cui partire: saranno
+molti blocchi piccoli, e il costo per resa sale.
+
+⭐⭐ **Le reti hanno fermato tre difetti prima del dizionario**, e nessuna delle
+tre era quella che ci si aspettava: `referti.py` (da 8 a 9 participi) ha visto
+un «ci sei riuscito» riferito al giocatore che `verifica` e `chat-lotto-misura`
+non potevano vedere; `verifica` ha bocciato **due trattini lunghi** (CP932 li
+codifica su due byte) e una **virgoletta nuda** dentro una statica.
+
+⭐ **Sulle righe più lunghe dell'inglese la regola della 90ª ha retto e si è
+affinata.** Diciannove segnalate in tutto: **dodici** erano prolissità nostra e
+sono state accorciate; **cinque** erano righe dove l'inglese aveva buttato un
+pezzo (il *prezzo* dell'occhio finto di Quruiza, il 超生命, la frase in cui
+Regulus dice che alla sorella darà pace, il 旧型 del Meshera, la frase del
+titolo della missione di Jin); **due** sono state dichiarate per quel che sono,
+italiano più lungo e basta. 💡 Il terzo mucchio è nuovo: dire «qui non ho una
+scusa» costa una riga di modulo e vale più di una scusa inventata.
+
 ## Cinque lotti, 174 rese, e un quarto di `chat.hsp` in un giorno — 2026-08-23, novantesima sessione
 
 Cinque lotti, **174 rese**, e `chat.hsp` scende da 691 a **517**: il file perde

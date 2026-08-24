@@ -758,6 +758,73 @@ parola**, non togliere l'accento: `chat.hsp:13152` chiude con «Che paura fa, un
 dio», e `chat.hsp:12275` conta in avanti («Con questa fanno N strette di mano»)
 invece di usare l'ordinale.
 
+## Gli otto parlanti della 91ª, decisi il 2026-08-24
+
+Otto lotti, 153 rese, e **tredici** parole nuove: il resto del lessico era già
+scritto altrove. Come nella 90ª, la fonte non è stata il glossario ma **il
+testo che descrive la stessa cosa da un'altra angolazione** — e stavolta, per
+tre lotti su otto, quel testo è **il diario della missione**.
+
+| JP | EN | IT | dove |
+|---|---|---|---|
+| ベルム家 | Bellum family / House Bellum | **casa Bellum** | il nome NON viene dalla riga che lo dice (`chat.hsp:10477`) ma da `scene2.hsp:3204` e `db_item.hsp:51432`, dove l'inglese lo scrive per esteso |
+| 魔力電池 | mana battery | **batteria di mana** | regge il confronto con «monolito di mana», che è la stessa cosa dall'altra parte |
+| 魔術研 | (fuso col palazzo) | **l'istituto di magia** | abbreviazione di 魔術研究所; l'inglese perde il secondo ente |
+| 王宮魔導士長 | Archmage | **capo degli incantatori di corte** | costruito su «l'incantatore di corte», `db_creature.hsp:67065` |
+| 転写魔法 | copying magic | **magia di trascrizione** | |
+| 生態系 | ecosystem | **ecosistema** | la sola riga in cui Allen parla da ricercatore |
+| ネクロマンサー | Necromancer | **il negromante** | nel progetto non c'era: unica occorrenza `db_card.hsp:5035`, da tradurre |
+| 超生命 | (l'inglese lo perde) | **creature superiori** | `chat.hsp:14969` |
+| 電子ウイルス | electronic virus | **virus elettronico** | sul modello di «serratura elettronica», `map.hsp:815` |
+| 電子頭脳 | electronic brain | **cervello elettronico** | stesso modello |
+| 熱暴走 | overheating | **surriscaldarsi fuori controllo** | è la stessa 暴走 dell'«impazzimento» delle macchine, ma qui il soggetto è il calore |
+| 機械生命体 | mechanical lifeform | **forma di vita meccanica** | |
+| 独房 | cell | **cella** | le due celle numerate (14 e 16) sono il cuore del blocco di Regulus |
+| 素体 | \"ingredient\" | **materiale di partenza** | è il termine da laboratorio con cui l'istituto chiama gli uomini che usa, e la riga vive di quel gelo |
+| 廃棄処理区画 | disposal area | **settore di smaltimento** | costruito su «settore», che viene dal diario di Garziem |
+| 資源回収部隊 | Resource Recovery Division | **squadra di recupero risorse** | |
+| アクセス端末 | access terminal | **terminale di accesso** | |
+| 菌 (il Meshera visto da dentro) | bacteria | **il fungo** | l'inglese dice «bacteria», ma il Meshera nel gioco non è un batterio |
+
+⭐ **Quello che NON è stato deciso qui, perché era già scritto — e quasi tutto
+nel diario delle missioni:**
+
+- **Nein**: «il monolito di mana» (`db_creature.hsp:65463`), «la Nave Magica»
+  e ⭐ «forma di vita artificiale con circuiti magici incisi addosso»
+  (`text.hsp:11157`), «Lettura» (`skill.hsp:192`), «cerchio magico»,
+  «artefatto», «grimorio»;
+- **Allen**: ⭐ «il gruppo (di ricerca)» e «Raskilis» (`text.hsp:11554`), «le
+  bestie nere» (`chat.hsp:15440`, la donna all'imbocco della valle, **nella
+  stessa missione**), «il vento d'etere», «il bar»;
+- **Ssil**: ⭐ «un mazzo», «tipi di carte», «la Dimora della Strega»
+  (`text.hsp:11097`), «Ihihi...» (`screen.hsp:1774`), «<Quruiza>
+  l'ingannatrice dall'occhio finto», «la civiltà biochimica», «Sierre Terre»,
+  «Rehm-Ido»;
+- **Garziem**: ⭐ «la Nave Divina», «le macchine da lavoro», «il settore»,
+  «l'impazzimento», «infiltrarsi» (tutti in `text.hsp:11305`-`:11336`), e
+  «controllo approfondito» da `chat.hsp:22776`, che è **la stessa storia vista
+  dalla parte delle macchine**;
+- **Jin**: ⭐ «la Nave Messe» (`text.hsp:2953`), «le creature spaziali», «la
+  Torre del Miraggio», e **«il mare di stelle lontano»**, che è il titolo della
+  missione (`text.hsp:11165`);
+- **Regulus**: «Regulus» (mai エユル), «<Renai> la calamità repressa», ⭐ «il
+  Meshera» **maschile e invariabile**, «gas nervino», «diario del ricercatore»,
+  «il valico»;
+- **L'anima smarrita**: «l'anima smarrita» (`db_creature.hsp:44807`), «Gabbia
+  di Amur», «<Amurdad>».
+
+💡 *Tre lotti su otto avevano il lessico principale nel **diario della
+missione**, che è il testo che il giocatore ha aperto mentre parla col
+personaggio. Non è una fonte come un'altra: è l'unica che il giocatore legge
+appaiata alla battuta, quindi una parola diversa lì si vede subito.*
+
+⚠️ **E una parola già decisa è stata scartata apposta:** 「クソガキ」 era
+«moccioso» (`chat.hsp:804`), ma il bambino dell'anima smarrita ha `CDATA_SEX`
+**tirato a sorte** (`db_creature.hsp:44851` cambia il ritratto di conseguenza),
+quindi «moccioso» sarebbe sbagliato una volta su due. Si dice **«peste»**, che
+vale per tutti e due i sessi e tiene la stessa villania. Il glossario non è
+stato cambiato: la parola resta «moccioso» dove il bersaglio ha un sesso noto.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,
