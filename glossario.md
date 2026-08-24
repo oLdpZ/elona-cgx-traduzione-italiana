@@ -871,6 +871,50 @@ bianco» e «Larnneire», «<Kuroya> lo scrutatore del cosmo» e il suo sopranno
 di `chat.hsp:10706` scrive «destined one», leggendo 定命 come *destino*, ma nel
 progetto è «mortale» in cinque punti ed è il contrario di «predestinato».
 
+## Gli otto parlanti della 93a, decisi il 2026-08-24
+
+Otto lotti, 87 rese, e la sorpresa e' il rovescio di quella della 92a: qui
+**quasi nessuna parola nuova andava decisa**, perche' cinque lotti su otto
+avevano il registro e il lessico gia' scritti da un'altra parte. Le voci qui
+sotto sono le poche che non c'erano.
+
+| JP | EN | IT | dove |
+|---|---|---|---|
+| 次元アンカー | dimensional anchor | **ancora dimensionale** | `chat.hsp:13186`, `:13201`. Sotto «navigazione dimensionale» (`:7876`) e «distorsione spaziale» (`:7883`), gia' decise |
+| 次元歪曲ユニット | dimensional distortion unit | **unita' a distorsione dimensionale** | `chat.hsp:13201` |
+| 自律戦闘通信機の特殊電波システム | special radio system for autonomous combat communications | **sistema radio speciale del ricetrasmettitore autonomo** | `:13201` |
+| 生体ハードポイント理論 | — | **teoria dei punti d'aggancio biologici** | `:13201`. L'inglese lo rende ma senza nome fisso |
+| A0-I | A0-I | **AO-I** | `chat.hsp:13191`. ⚠️ **Refuso di monte**: lo zero compare in un sito solo, contro sei che scrivono AO-I con la lettera O (`:7821`, `:7830`, `:7833`, `:7861`, `db_card.hsp:2701`, `db_creature.hsp:52005`, piu' l'identificativo `MELUGAST_AO_I`). Si conta, non si ricopia |
+| 災厄クラス | Calamity class | **classe calamita'** | `chat.hsp:9781`, sotto «calamita'» gia' in uso (`db_card.hsp:9227`) |
+| 火の鳥 | phoenixes | **uccelli di fuoco** | `chat.hsp:9753`. ⚠️ Compare **una volta sola** in tutto il sorgente e **non e' un identificativo di creatura**: non si va a cercare la fenice, che l'inglese tira dentro e che nel gioco non c'e' |
+| 不幸度 | misfortune | **sfortuna** | `chat.hsp:10879` (gia' reso), `:10886`. E' 100 meno la Fortuna |
+| ニャ (particella finale) | meow | **«, miao» in coda alla frase** | `chat.hsp:10881`-`:10905`. ⚠️ **Non deciso qui**: `db_creature.hsp:44182`, `:54053`, `:56489` l'avevano gia' fissato. Dove il giapponese allunga (ニャア) si allunga anche l'italiano, «miaao», come `:56471` |
+| ごろごろ (del gatto) | laze | **le fusa** | `chat.hsp:10881`. L'inglese lo legge come «pigrizia»: e' l'onomatopea delle fusa, cioe' quel che il giocatore sta interrompendo |
+| 亀助け | a favor for this old tortoise | **aiutare il prossimo... cioe', una tartaruga** | `chat.hsp:8741`. Storpiatura di 人助け: il senso sta nella **sostituzione**, e in italiano l'espressione fissa esiste e si storpia uguale |
+| 第一陣・第二陣 | — | **il primo e il secondo squadrone** | `chat.hsp:15107`, le ondate di sicari che l'inglese cancella |
+| ボス猫女神 | empress cat god | **dea gatta capobanda** | `chat.hsp:10785`. 女神 e' **dea**: in Elona la dea gatta e' Ehekatl, e Arasiel promette di punirla |
+| ルルウィお姉さま | Miss Lulwy | **sorella Lulwy** | `chat.hsp:10776`, `:10782`. Gia' cosi' in `db_creature.hsp:75097` |
+| 逆境上等・覚悟は上々 | This is bad! Prepare yourself! | **Le avversita'? Ben vengano! La determinazione? Al massimo!** | `chat.hsp:9986`. ⚠️ Sono **due vanti**, e l'inglese li legge tutt'e due come paura |
+| 拳で語り合う | Father speaks through his fists | **parlarsi a suon di pugni** | `chat.hsp:9986`, `:10001`. E' **reciproco** |
+| 管理不行届き | incompetence at taking care of | **custodia negligente** | `chat.hsp:9996`. Lingua da verbale applicata a una formica gigante: la comicita' sta nell'attrito |
+| 畳みかける | Interrogate him! | **non dargli tregua** | `chat.hsp:13192`. E' un ordine d'attacco, non un interrogatorio |
+
+⭐ **Quello che NON e' stato deciso qui, perche' era gia' scritto.** «Irva
+Perduta» (`text.hsp:2917`), «Tyris del Nord» (`chat.hsp:9519`), «Santuario
+Centrale» (`text.hsp:2941`), «gli dei» senza accento, «<Leiki> la tartaruga
+nera», «<Alice> la formica gigante», «<Aribel> la monella», «<Alsapia> la
+maschera bianca», «<Spipha> la cacciatrice di draghi», «onde mentali»
+(`chat.hsp:8537`), «mezzo drago» (`screen.hsp:1738`), «cannone a supergravita'
+di Yerles», «il demone dei vincoli», «Lesimas», «tesoro segreto», «la coppia»,
+«l'angelo nero», «atlante degli insetti», «missione secondaria».
+
+⚠️ **E una parola che il glossario NON decide, ma segnala:** il nome di
+《不幸のシナア》 in italiano e' **«<Sinaha>» e basta**, senza l'epiteto. Il
+progetto altrove lo ricostruisce proprio quando l'inglese lo butta (<Leiki>,
+<Alice>, <Aribel>, <Alsapia>): qui l'epiteto e' «della sfortuna», ed e' la
+ragione per cui il personaggio esiste. Un nome di creatura si cambia insieme
+alla sua misura di larghezza e alle rese che lo citano: **da decidere**.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

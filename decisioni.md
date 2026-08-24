@@ -6,6 +6,158 @@ ancora aperte.
 
 ---
 
+## Il registro non si decide, si trova — 2026-08-24, novantatreesima
+
+Otto lotti su `chat.hsp`, **87 rese**, dalle 221 alle **134**. NORNE la guida
+(`:9431`-`:9600`, 11), LEIKI la tartaruga nera (`:8695`-`:8774`, 15), MELUGAST
+AO-I (`:13182`-`:13215`, 12), SPIPHA la cacciatrice di draghi (`:9724`-`:9793`,
+12), ARIBEL la monella (`:9983`-`:10013`, 10), ALSAPIA la maschera bianca
+(`:15101`-`:15122`, 9), SINAHA (`:10877`-`:10909`, 9), ARASIEL della tempesta di
+sabbia (`:10729`-`:10876`, 9).
+
+### ⭐⭐⭐ In cinque lotti su otto il tono era già stato deciso da un altro file
+
+La domanda che sembrava aprire ogni lotto — *che registro gli do?* — quasi mai
+era una domanda. Quattro posti diversi, uno per lotto:
+
+- **un'altra riga sua, in un altro file.** Leiki parla in keigo fittissimo e la
+  mossa ovvia era il «lei» da maggiordomo, che il progetto usa già per il
+  maggiordomo perché non concorda mai. Ma la sua unica riga resa fuori dal
+  blocco, `map.hsp:15070`, gli fa già dare del **tu**: è deferente verso la
+  **principessa**, non verso chi ascolta. Il «lei» avrebbe fatto parlare in due
+  modi lo stesso personaggio a due schermate di distanza;
+- **le battute di combattimento della creatura.** Aribel ha in
+  `db_creature.hsp:62712`-`:62724` le sue «sette regole» («Mai abbassare la
+  guardia», «Se si cade... si cade in avanti»): quattro righe rese sessioni fa
+  che dicono di che pasta è fatta meglio di qualunque descrizione;
+- **un lotto precedente dello stesso parlante.** Il blocco
+  `CREATURE_ID_MELUGAST_AO_I` **non è di una creatura**: è una radio. A
+  parlare è Gavela, reso nell'85ª, e lo dice la riga stessa (`:13187`, «Qui
+  Gavela»). Il registro era in `scratchpad/_85-rese-gavela.py`, per intero;
+- **una particella già risolta su un'altra creatura.** Il ニャ di Sinaha
+  chiude undici frasi su nove righe, e `db_creature.hsp:44182`, `:54053` e
+  `:56489` avevano già fissato la forma: **«miao» in coda, con la virgola**,
+  allungato in «miaao» dove il giapponese allunga.
+
+Il costo dello sbaglio qui non è una resa brutta: è un personaggio che parla
+in due modi secondo dove lo incontri, e **nessuna rete lo vede** — sono due
+frasi diverse in due file diversi, tutt'e due italiano corretto. Nel vault:
+[[il-registro-non-si-decide-si-trova]].
+
+### ⭐⭐⭐ «A0-I» contro «AO-I»: un refuso di monte si conta
+
+`chat.hsp:13191` è una voce di menu che chiede *che cos'è l'A0-I?*, con lo
+**zero**, in giapponese e in inglese. Ricopiarla sembrava l'unica cosa onesta.
+Ma la sigla compare in altri **sei** siti — `chat.hsp:7821`, `:7830`, `:7833`,
+`:7861`, `db_card.hsp:2701`, `db_creature.hsp:52005` — e in tutti, in tutt'e due
+le lingue, è **AO-I con la lettera O**; così la scrive anche l'identificativo
+`CREATURE_ID_MELUGAST_AO_I`. Un sito contro sei è un refuso, e ricopiarlo
+avrebbe dato **due nomi alla stessa macchina** a un menu di distanza — cioè il
+difetto che la 92ª ha trovato tre volte rileggendo il vicinato.
+
+⚠️ La regola che ne esce non è «si corregge l'inglese», ma: **quando una sigla
+sembra strana, la si conta**. Se il sorgente la scrive in due modi, la forma
+giusta è quella che vince nel conteggio e che porta l'identificativo — non
+quella del sito che si sta traducendo.
+
+### ⚠️⚠️ Il numero di un referto va letto, non confrontato
+
+`referti.py` è salito da **8 a 9** durante il lotto di Spipha. La 92ª aveva
+già scritto che va rilanciato dentro il lotto, e così è stato fatto; il
+riflesso, però, era guardare *se* il numero è salito. La riga nuova era
+**innocua**: «per come te la sei cavata coi draghi» — participio che concorda
+col clitico, gemello di `:22872` già dichiarato.
+
+Nello stesso lotto, intanto, c'era un participio **vero**: «Sei stato tu ad
+abbatterlo, vero?» (`:9744`), che dà un genere al giocatore. Il referto non lo
+vede, ed è saltato fuori solo rileggendo le nove rese una per una prima di
+chiudere. Corretto in «L'hai abbattuto tu, vero?», che di participi non ne ha.
+
+**Un contatore che sale per la ragione giusta può nascondere quella sbagliata.**
+Il referto dice *dove guardare*, non *se guardare*.
+
+### ⭐⭐ «Di chi è la riga in più?»: due risposte opposte nello stesso lotto
+
+La domanda della 90ª ha funzionato meglio che mai perché ha dato risposte
+diverse a due righe vicine:
+
+- `chat.hsp:8702` — la riga in più era **mia**. Il vocativo 冒険者様 non può
+  diventare «avventuriero» (porta un genere) e la formula del progetto — «tu che
+  vai all'avventura» — costa venti caratteri contro i dieci di «Adventurer».
+  Riassorbita girando la frase: «Ti prego, aiutaci tu che vai all'avventura!»;
+- `chat.hsp:8706` — la riga in più era **dell'inglese**, che butta la citazione
+  con cui i forti di Valm se ne sono andati («andiamo a convincere un paese che
+  è in guerra»). Si tiene.
+
+E `chat.hsp:13201`, lo sproloquio tecnico di Gavela, ha **sfondato il tetto**:
+15 righe contro le 13 di `chatMore`, mentre l'inglese ci sta **esatto**, 13 su
+13. Due giri di potatura per rientrare, senza togliere nessuna delle nove voci
+dell'elenco — che sono la battuta, visto che lui si interrompe da solo. 💡 La
+misura da ricordare: su un elenco di **termini composti** l'italiano paga circa
+il **15%** in più dell'inglese, e su una battuta già al tetto diventano due
+righe.
+
+### ⚠️ Il mestiere del giocatore ha portato un genere cinque volte in quattro lotti
+
+冒険者様 (Leiki, `:8702`), 立派な冒険者になった (Norne, `:9587`), 戸惑っている
+(Norne, `:9590`), ドラゴンハンターとして頑張った君 (Spipha, `:9754`),
+冒険者発見 (Alsapia, `:15107`): cinque siti in quattro lotti dove il giocatore
+viene chiamato col nome del suo mestiere o descritto con un participio.
+Nessuna è stata risolta inventando: valgono la formula già in uso — «tu che
+vai all'avventura», «ecco chi va all'avventura» — o il giro sul verbo («di
+strada ne hai fatta», «per come te la sei cavata», «un po' di smarrimento,
+eh?»). ⭐ Il fatto che la stessa trappola sia comparsa **cinque volte in un
+giorno** dice che non è un caso ma una **classe**: ogni volta che il giapponese
+nomina il giocatore per quello che fa, in italiano c'è un genere da schivare.
+
+### ⭐ Quattro cose che l'inglese aveva perso, e due che aveva capovolto
+
+- `:15107` — 第一陣と第二陣: il giocatore è arrivato da Alsapia **sfondando la
+  prima e la seconda ondata** di sicari. L'inglese: «I am surprised that you are
+  already here». Era l'unica riga che legava l'agguato ai bollettini di
+  `:24347`;
+- `:9740` — 今回は違ったけれど: **stavolta non era quello**, cioè il drago
+  abbattuto non è il drago nero che Spipha cerca da tutta la vita. Senza, la
+  riga smette di chiudere la missione appena finita;
+- `:8706` — la citazione dei forti partiti (sopra);
+- `:9990` — 何億種 sono **specie** di insetti, non «kinds of books»: la battuta
+  è che gli insetti sono infiniti e la madre legge sempre lo stesso atlante;
+- `:13192` — 畳みかける non è «Interrogate him!» ma **incalzare senza dare
+  respiro**: è un ordine d'attacco in mezzo a un combattimento, e interrogare
+  il mostro non è nemmeno possibile;
+- `:9986` — 「逆境上等！覚悟は上々！」 sono **due vanti** («le avversità? ben
+  vengano!», «la mia determinazione è ottima») e l'inglese li legge tutt'e due
+  come paura: «This is bad! Prepare yourself!». La spavalderia di una ragazzina
+  diventa l'avvertimento di chi ha paura.
+
+### ⭐⭐ Due frasi che dovevano essere identiche a due frasi che esistevano già
+
+- `:10802` (Arasiel) e `map_user.hsp:878` sono **due verbi giapponesi diversi**
+  — 解除 e 解散 — per lo stesso identico rifiuto del gioco, nello stesso identico
+  momento. Sono due firme distinte, quindi nessuna rete le lega: si è scritta
+  la **stessa frase**, «Prima devi sciogliere la coppia.», se no il giocatore
+  legge due messaggi diversi per la stessa cosa;
+- `:15116` e `:15119` (Alsapia) sono **gemelle**: cambia solo l'incipit, perché
+  la seconda risponde alla battuta del menu. La parte comune si dice con le
+  stesse parole, se no il gioco del menu non si sente. ⚠️ L'inglese le fa già
+  diverse («your graveyard» / «your grave»): non lo si è seguito.
+
+### 🔶 Da decidere: l'epiteto di Sinaha
+
+Il nome italiano di 《不幸のシナア》 è **«<Sinaha>» e basta**. L'epiteto
+«della sfortuna» è caduto seguendo l'inglese, che scrive solo «<Sinaha>» — ma
+il progetto altrove **ricostruisce** l'epiteto proprio quando l'inglese lo
+butta: «<Leiki> la tartaruga nera» (da 玄武の, inglese «<Leiki>»), «<Alice> la
+formica gigante», «<Aribel> la monella», «<Alsapia> la maschera bianca». E qui
+l'epiteto è la ragione per cui il personaggio esiste: **legge la sfortuna** al
+giocatore, ed è tutto quello che fa.
+
+Non è stato cambiato perché un nome di creatura si tocca insieme alla sua
+misura di larghezza e a tutte le rese che lo citano: è un lotto suo, non una
+riga di un lotto d'altri.
+
+---
+
 ## Un nome non si traduce, si riconosce — 2026-08-24, novantaduesima
 
 Nove lotti su `chat.hsp`, **143 rese**, dalle 364 alle **221**. AMURDAD

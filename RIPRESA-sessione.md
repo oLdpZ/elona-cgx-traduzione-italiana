@@ -1,7 +1,7 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-24, fine della **novantaduesima** sessione (**nove lotti,
-143 rese, `chat.hsp` da 364 a 221 — il 39% delle firme rimaste in un giorno**).
+Aggiornato: 2026-08-24, fine della **novantatreesima** sessione (**otto lotti,
+87 rese, `chat.hsp` da 221 a 134 — il 39% delle firme rimaste, come ieri**).
 
 ⚠️⚠️ **LA SESSIONE SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
 spinto e l'albero e' pulito; le cose che **non stanno nel repo** sono quattro,
@@ -17,45 +17,235 @@ costruito non fallisce dicendo «la gronda e' stretta», muore di file non
 trovato. 💡 E `strumenti.battute` vuole `PYTHONIOENCODING=utf-8` davanti.
 
 💡 **Se invece il terminale nuovo e' sulla stessa macchina, non si rifa'
-niente**: la 92a si e' aperta cosi' e build ed eseguibile erano al loro posto.
-Si controlla in un comando — `ls -la C:\Games\Elona\elonaplus2.31\cgx-test.exe`
-— e la data dev'essere quella dell'ultimo lotto (qui: **24/08, 20:37**).
+niente**: la 92a e la 93a si sono aperte cosi' e build ed eseguibile erano al
+loro posto. Si controlla in un comando —
+`ls -la C:\Games\Elona\elonaplus2.31\cgx-test.exe` — e la data dev'essere quella
+dell'ultimo lotto (qui: **24/08, 23:21**).
 
-⭐⭐⭐ **La lezione della giornata: un nome non si traduce, si riconosce.** Due
-elenchi di katakana in due lotti diversi non chiedevano una resa ma una
-**identificazione**: i ventotto di Mikraanesis sono gli **eoni valentiniani**
-(e lo prova la trama, che usa gia' Sophia, il Propator e Enthumesis), il diario
-di Belphat e' il **Ciclo di Cthulhu** (e lo prova il dizionario, che ha gia'
-«lo shoggoth» e «la Grande Razza di Yith»). L'inglese traslittera a orecchio e
-sbaglia quasi tutto — *Outpuece* per Autophyes, *Yugos* per Yuggoth — e le
-forme storpiate sono **regolari e plausibili**, quindi niente nel testo segnala
-l'errore. ⚠️ E su due voci l'errore cambia la parola: l'**Unigenito** diventa
-«Monogenes of Solitude», e **イス焼き** (Yith alla piastra) diventa «fried ice
-cream», perche' l'inglese ha letto イス come *ice*. Nel vault:
-[[un-nome-non-si-traduce-si-riconosce]].
+⭐⭐⭐ **La lezione della giornata: il registro di un personaggio non si decide,
+si trova.** In **cinque lotti su otto** il tono e il lessico erano gia' scritti
+da un'altra parte, e ogni volta in un posto diverso: in **un'altra riga sua in
+un altro file** (Leiki da' del tu per `map.hsp:15070`, malgrado il keigo
+fittissimo), nelle **battute di combattimento** della creatura (le «sette
+regole» di Aribel, `db_creature.hsp:62712`), in **un lotto precedente dello
+stesso parlante** (il blocco `MELUGAST_AO_I` non e' di una creatura: e' una
+**radio**, e a parlare e' Gavela, reso nell'85a — lo dice `:13187`, «Qui
+Gavela»), o in una **particella gia' risolta su un'altra creatura** (il ニャ di
+Sinaha, tre precedenti in `db_creature.hsp`). ⚠️ Il costo dello sbaglio non e'
+una resa brutta: e' un personaggio che parla in due modi secondo dove lo
+incontri, e **nessuna rete lo vede**. Nel vault:
+[[il-registro-non-si-decide-si-trova]].
 
-⭐⭐⭐ **La seconda: un possessivo inglese e' un fatto di parentela, e si
-verifica nel codice.** `:13837` dice «I was able to rescue **your** father», ma
-il padre e' di **Lankata**, ha un identificativo
-(`CREATURE_ID_ALFRED_THE_CANGNAN_WIND`) e la scena in cui lo trova sta venti
-righe piu' in la', gia' resa. Il giocatore in Elona un padre non ce l'ha.
+⭐⭐⭐ **La seconda: un refuso di monte si conta, non si ricopia.**
+`chat.hsp:13191` scrive «A0-I» **con lo zero**, in giapponese e in inglese; in
+altri **sei** siti — quattro righe di Gavela, `db_card.hsp:2701`,
+`db_creature.hsp:52005` — piu' l'identificativo `CREATURE_ID_MELUGAST_AO_I`, e'
+**AO-I con la lettera O** in tutt'e due le lingue. Ricopiarlo avrebbe dato due
+nomi alla stessa macchina a un menu di distanza.
 
-⭐⭐ **La terza: la lettura del vicinato ripara quello che le reti non vedono.**
-Tre righe gia' nel dizionario corrette leggendo attorno ai lotti — `:269` dava
-un **genere al giocatore**, `:10211` dava un **secondo nome** al Propator,
-`:13714` una **seconda unita' di misura** nello stesso menu. ⚠️ Nessuna delle
-tre e' raggiungibile da uno strumento: sono frasi diverse, quindi `--divergenti`
-non le confronta e `verifica --dizionario` guarda solo le firme.
+⭐⭐ **La terza: il numero di un referto va letto, non confrontato.**
+`referti.py` e' salito da 8 a **9** dentro il lotto di Spipha, e la riga nuova
+era **innocua** (l'idiomatico «te la sei cavata», gemello di `:22872` gia'
+dichiarato). Ma nello stesso lotto ce n'era **una vera che il referto non
+vede** — «Sei stato tu ad abbatterlo, vero?» (`:9744`), participio riferito al
+giocatore — trovata solo rileggendo le nove rese **una per una** prima di
+chiudere. Un contatore che sale per la ragione giusta puo' nascondere quella
+sbagliata.
 
-⭐ **La quarta, che e' una mossa e non una lezione:** quando l'originale scrive
-in una lingua **straniera**, si guarda cosa ha fatto l'inglese. Su
-「サンキューベリマッチ」 upstream non traduce: scrive «Arigatou gozaimashita!»,
-cioe' **scambia la lingua straniera con un'altra**. Per chi legge in italiano
-quella lingua e' l'inglese, e la riga resta in inglese.
+⭐ **La quarta, che e' una misura e non una lezione:** su un elenco di **termini
+composti** l'italiano paga circa il **15%** in piu' dell'inglese. `:13201`, lo
+sproloquio tecnico di Gavela, ha sfondato il tetto di `chatMore` (15 righe
+contro 13) mentre l'inglese ci sta **esatto**, 13 su 13.
 
 ---
 
-## La novantaduesima sessione
+## La novantatreesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La 93a
+si e' aperta con `origin/fase-0` allineato: e' la **cinquantesima prova** di
+fila, e le quindici hanno dato quindici volte i valori attesi della 92a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    verifica --dizionario   chat.hsp   0 / 134    (era 221)
+    menu_dialogo            0 su 1369 misurate    (erano 1357)
+    referti.py              9 participi           (erano 8)  <- il nono e' dichiarato
+    dizionario              chat.hsp +87 voci, 0 rifatte
+
+⚠️ Il **nono participio** di `referti.py` e' `chat.hsp:9754`, «per come te la
+sei cavata coi draghi»: concorda col clitico e non col giocatore, ed e' il
+gemello di `:22872` («sei cavata») che stava gia' nel conto. **Falso positivo
+dichiarato**, non un difetto da riparare.
+
+Tutto il resto e' **fermo dov'era**, e in chiusura e' stato riverificato:
+`pytest` **736 passed 6 skipped**, `prova_identita` 72/72 e **28.073**,
+`creature` 1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205,
+`riquadri` 0 su 38 e 0 su 71, `linguette` 0 e 0, `battute --divergenti` **13**,
+`intestazioni_larghezze` perimetro 0, `dati_applica --identita` 4 file e 2.987
+righe, `dati_sorgente` 7/7 e gioco difforme su 0, `gronde` 0 su 5, `maiuscole`
+143 siti / 6 appesi / 1 accumulati / 7 giudicati / 0 da guardare, `bilingui`
+**0**, `toppe.jsonl` **1023** e `rinviate.jsonl` **79** non toccati.
+
+⚠️ **`strumenti.battute` muore con `UnicodeEncodeError` se la console non e'
+in UTF-8.** Non e' lo strumento: e' `stdout` in cp1252. Prima delle verifiche:
+
+    $env:PYTHONIOENCODING = "utf-8"
+
+### ▶ Che cosa e' stato fatto
+
+    chat.hsp :8695-:8774    LEIKI la tartaruga nera                    15
+    chat.hsp :13182-:13215  MELUGAST AO-I  (parla GAVELA)              12
+    chat.hsp :9724-:9793    SPIPHA la cacciatrice di draghi            12
+    chat.hsp :9431-:9600    NORNE la guida                             11
+    chat.hsp :9983-:10013   ARIBEL la monella                          10
+    chat.hsp :15101-:15122  ALSAPIA la maschera bianca                  9
+    chat.hsp :10877-:10909  SINAHA                                      9
+    chat.hsp :10729-:10876  ARASIEL della tempesta di sabbia            9
+    scratchpad/_93-rese-*.py    otto moduli, uno per lotto
+    glossario.md                la sezione della 93a, 18 voci
+    wiki/concepts/il-registro-non-si-decide-si-trova.md   (vault)
+    -------------------------------------------------------------------------
+              87 rese, 0 rifatte, 0 toppe, 0 rinvii, 0 reti nuove, 0 strumenti
+
+### ▶ ⚠️ Le deroghe che pesano
+
+Stanno per esteso negli otto moduli di `scratchpad/`. Le sette da ricordare:
+
+1. **`chat.hsp:13191`** — **AO-I** con la lettera O, contro lo zero che il
+   sorgente scrive in quel solo sito. Vedi la lezione qui sopra.
+2. **`chat.hsp:8741`** — 亀助け storpia 人助け sostituendo **il prossimo con la
+   tartaruga**: in italiano l'espressione fissa esiste e si storpia uguale,
+   marcata da un «cioe'» che la rende voluta e non un lapsus.
+3. **`chat.hsp:13192`** — 畳みかける e' **incalzare senza dare respiro**, non
+   «Interrogate him!»: e' un ordine d'attacco in mezzo a un combattimento.
+4. **`chat.hsp:9986`** — 「逆境上等！覚悟は上々！」 sono **due vanti**, e
+   l'inglese li legge tutt'e due come paura.
+5. **`chat.hsp:10802`** — la **stessa frase** di `map_user.hsp:878`, gia' resa:
+   due verbi giapponesi diversi per lo stesso identico rifiuto del gioco.
+6. **`chat.hsp:15116`/`:15119`** — **gemelle**: cambia solo l'incipit, quindi la
+   parte comune si dice con le stesse parole (l'inglese le fa gia' diverse).
+7. **`chat.hsp:9753`** — 火の鳥 compare **una volta sola** in tutto il sorgente e
+   non e' un identificativo di creatura: «uccelli di fuoco», non la fenice che
+   l'inglese tira dentro.
+
+### ▶ ⭐ Il perimetro, misurato
+
+`chat.hsp` ha **134** firme, e non c'e' piu' niente sopra le **8**
+(`python scratchpad/_87-parlanti-oltre.py`, 85 blocchi):
+
+    15071-15092  AIKAGE_THE_SHINOBI_MASK           8   ZONA CHIUSA
+    14660-14927  KARATA_THE_SEMINAR_MASCOT         8   ZONA CHIUSA
+    15378-15397  MANSON_THE_CAREFUL_ADVENTURER     7   ZONA CHIUSA
+    10335-10441  RAIZEL_THE_OLD_WIZARD             7   ZONA CHIUSA
+     9693-9723   SAIMEF_THE_DOGGOD                 7   ZONA CHIUSA
+    15465-15490  BONYAC_THE_GENERAL_VENDOR         6   ZONA CHIUSA
+    13897-13923  ZISILION_THE_MINE_KING            6   ZONA CHIUSA
+     9601-9692   MELUGAST_TYPE0                    6   ZONA CHIUSA
+
+⭐ **Il prossimo lotto naturale e' AIKAGE** (8) o **KARATA il mascotte del
+seminario** (8), che sta nel blocco del **Seminario d'Avventura** gia' lavorato
+nella 87a e nella 92a — quindi con il lessico gia' pronto.
+⭐⭐ Ma valgono di piu' per **frequenza**: **RAIZEL il vecchio mago** (7) e'
+gia' stato lavorato nella 91a (`:10391`-`:10434`) e questo e' il resto del suo
+blocco; **MELUGAST type0** (6) e' la nave che porta a Irva Perduta, cioe' un
+passaggio obbligato; e **BONYAC il merciaio** (6) e' un **negozio**, che si apre
+molte volte per partita.
+💡 Da qui in avanti nessun lotto vale piu' di otto rese: il costo per resa e' al
+massimo storico, e conviene **raggruppare** tre o quattro blocchi per giro come
+si e' fatto oggi con le ultime quattro.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **`chat.hsp` a 134**, mappa qui sopra: prossimo giro **AIKAGE +
+   KARATA + MANSON + RAIZEL**, o i tre ad alta frequenza (RAIZEL, MELUGAST
+   type0, BONYAC).
+2. ⚠️⚠️⚠️ **IL COLLAUDO A SCHERMO E' L'ARRETRATO CHE CRESCE PIU' IN FRETTA.**
+   Sono **undici** sessioni e **2.003 rese** mai viste: 301 (84a), 336 (85a),
+   326 (86a), 281 (87a), 104 (88a), 98 (89a), 174 (90a), 153 (91a), 143 (92a) e
+   **87 di oggi**. ⚠️ `collaudo/schermo.ps1` scrive sulla tastiera di **tutto il
+   computer** (83a): il collaudo lo fa una persona. ⭐ **E oggi l'arretrato ha
+   preso un punto facile**: NORNE la guida e' il personaggio che **ogni partita
+   nuova** incontra per primo. La lista di passi data a fine sessione:
+   - da **Larna**, parlare a `<Norne>`: deve chiedere «Vuoi andare a **Irva
+     Perduta**?». Scegliere **Lascia stare** e leggere `:9542`; riparlare e
+     scegliere **Andiamo** per `:9556` (con la tilde in coda);
+   - da **Irva Perduta**, al Santuario Centrale, il viaggio inverso (`:9527`);
+   - con un salvataggio a trama avanzata, le due righe lunghe `:9577` e `:9590`
+     sono `buff`, cioe' il corpo grande in mezzo allo schermo: e' li' che si
+     vede un a capo brutto.
+   Restano dalle sessioni prima ALICE (**ARRIFORMICARCI!**), i ventotto nomi di
+   MIKRAANESIS, il menu a cinque voci del **seminario**, il **menu di Maile a
+   undici voci**, il **prospetto cittadino** (deve dire «Autorita'») e il
+   messaggio del **[Non posare]** (deve dire «dal menu <Esamina>»).
+3. 🔶 **L'EPITETO DI SINAHA, da decidere.** Il nome italiano di
+   《不幸のシナア》 e' «<Sinaha>» e basta, mentre il progetto altrove
+   **ricostruisce** l'epiteto proprio quando l'inglese lo butta: «<Leiki> la
+   tartaruga nera», «<Alice> la formica gigante», «<Aribel> la monella»,
+   «<Alsapia> la maschera bianca». Qui l'epiteto e' «della sfortuna», ed e' la
+   ragione per cui il personaggio esiste. ⚠️ Un nome di creatura si tocca
+   insieme alla sua misura di larghezza e alle rese che lo citano: e' un lotto
+   suo. Sta in `decisioni.md` e in `glossario.md`.
+4. ⭐⭐⭐ **LA RETE CHE MANCA HA UN RENDIMENTO MISURATO.** Rileggere tutto il
+   dizionario con le regole nuove: la 92a aveva dato **tre difetti veri in nove
+   lotti** leggendo il vicinato dei blocchi. ⭐ Oggi la stessa lettura ha dato
+   **zero difetti in otto lotti** ma ha trovato l'epiteto di Sinaha e ha
+   confermato che il quiz di `text.hsp:1022`-`:1035` (dove l'inglese cambia la
+   domanda) e' coerente in tutte e quattro le voci. Il rendimento cala, ma non
+   e' zero.
+5. ⭐⭐ **La rete che non c'e', e la 91a l'aveva gia' chiesta:** per le voci
+   **dinamiche**, confrontare la lista delle variabili del giapponese con
+   quella dell'inglese (`chat.hsp:15056`, l'inglese perde `syurui`).
+6. ⚠️⚠️ **`referti.py` va rilanciato IN CHIUSURA e DENTRO IL LOTTO** — e il suo
+   numero va **letto**, non confrontato (vedi la lezione). In chiusura: **9**,
+   col nono dichiarato qui sopra.
+7. ⚠️⚠️⚠️ **Le sette etichette del potenziale** (`command.hsp:10676`-`:10700`)
+   sono letterali nudi senza `lang()`: a schermo sono inglesi. Toppabili; il
+   giorno che si toppano, `chat.hsp:14246` va rifatta.
+8. ⭐⭐⭐ **La rete che non c'e': i PARTNER fuori da `lang()`** (81a).
+9. ⚠️⚠️⚠️ **IL PUNTO CIECO DELLA 74a**: restano **100 righe
+   `listn(...) = lang(...)` in `command.hsp`** — fra cui il pannello dei
+   talenti — **18 in `chara.hsp`**, piu' `event.hsp:825`, `help.hsp:333`,
+   `net.hsp:604`. ⚠️ **Venti sessioni che aspetta.**
+10. ⭐⭐ **La rete che manca: i `buff` della finestra del dialogo.**
+11. ⭐ **`menu_dialogo.reso()` non legge il `limit(..., 0, N)`** (79a).
+12. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208
+    righe), `manual_ENG.txt` (591), `exhelp.txt` (185).
+13. ⭐⭐ `board.txt` **secondo lotto**; `custom_autopick.hsp` 21 gemelle delicate.
+14. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+    `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+    `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+15. ⭐⭐ Il **muro del materiale**: `mithril sword` e' «spada **di** mithril».
+16. ⭐⭐ `command.hsp` 93, `system.hsp` 41, `item_func.hsp` 240; i **1.146** di
+    `db_card.hsp`.
+17. 🔶 **La sorella H** (82a) e la 🔶 **decisione aperta dalla 80a** sul menu
+    degli arti.
+18. ⚠️ **`scene2.hsp` non e' nel dizionario**, e ci sono due fili: `<Minea> The
+    Puppeteer` e' la sorella di Nein (91a), e `:9399`-`:9403` di **Mikraanesis**
+    non sono `lang()` ma il ramo `if ( jp )` coi **letterali nudi**, dove
+    l'inglese ha **due** `chatMore` e il giapponese uno (92a). Da toppare, non
+    da tradurre nel lotto.
+
+### ▶ Come si e' chiusa
+
+Quattro spinte durante il lavoro, una ogni uno o due lotti, piu' quella di
+chiusura. `applica` e `compila --eseguibile` sono girati dopo ogni gruppo e
+`cgx-test.exe` e' stato ricopiato ogni volta (l'ultimo alle **23:21** del 24/08
+— ⚠️ **controllare la data del file prima di leggere uno screenshot**, lezione
+dell'11/08), e ogni volta si sono **rilette nella build** due o tre righe del
+gruppo appena importato. `board_it.txt` e `talk_it.txt` in `build\dati\` sono
+risultati identici a quelli gia' nel gioco: non c'era niente da copiare. Le
+quindici verifiche sono state rilanciate in chiusura — tutte verdi, tutte sui
+valori attesi — e con loro `referti.py`, che dice **9** con il nono dichiarato.
+⚠️ La voce in `log.md` (vault) e' stata scritta **prima** dei documenti del
+repo, come vuole la lezione della 90a, e con lei il concept nuovo in
+`wiki/concepts/` e la riga in `index.md`.
+
+---
+
+## La novantaduesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

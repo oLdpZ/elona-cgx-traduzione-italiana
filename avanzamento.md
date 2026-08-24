@@ -133,6 +133,61 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## Otto lotti, 87 rese, e tre registri gia' decisi altrove — 2026-08-24, novantatreesima sessione
+
+Otto lotti, **87 rese**, e `chat.hsp` scende da 221 a **134**: il 39% delle
+firme rimaste, come ieri. NORNE la guida (11), LEIKI la tartaruga nera (15),
+MELUGAST AO-I (12), SPIPHA la cacciatrice di draghi (12), ARIBEL la monella
+(10), ALSAPIA la maschera bianca (9), SINAHA (9), ARASIEL della tempesta di
+sabbia (9). `menu_dialogo` misura **1.369** voci (erano 1.357), 0 fuori misura
+e 0 peggiorate a due colonne. Zero toppe, zero rinvii, zero reti nuove, zero
+strumenti toccati, zero dichiarazioni nuove in `invariati.md`; una sezione nuova
+di glossario con 18 voci e un concept nuovo nel vault.
+
+⭐⭐⭐ **In cinque lotti su otto il registro non si decideva nel lotto**, e in
+ogni caso stava in un posto diverso: in un altro file del gioco (Leiki da' del
+tu per `map.hsp:15070`, malgrado il keigo), nelle battute di combattimento della
+creatura (Aribel e le sue «sette regole», `db_creature.hsp:62712`), in un lotto
+precedente **dello stesso parlante** (il blocco del Melugast non e' di una
+creatura ma di una **radio**: parla Gavela, reso nell'85a), o in una particella
+gia' risolta su un'altra creatura (il ニャ di Sinaha, tre precedenti). Nel
+vault: [[il-registro-non-si-decide-si-trova]].
+
+⭐⭐⭐ **Un refuso di monte si conta, non si ricopia.** `chat.hsp:13191` scrive
+«A0-I» **con lo zero**, in giapponese e in inglese; sei altri siti scrivono
+AO-I con la lettera O, in tutt'e due le lingue, e cosi' fa l'identificativo.
+Ricopiarlo avrebbe dato **due nomi alla stessa macchina** a un menu di distanza.
+
+⚠️⚠️ **Il numero di un referto va letto, non confrontato.** `referti.py` e'
+salito da 8 a **9** dentro il lotto di Spipha, e la riga nuova era innocua
+(l'idiomatico «te la sei cavata», gemello di `:22872` gia' dichiarato). Ma nello
+stesso lotto ce n'era **una vera che il referto non vede** — «Sei stato tu ad
+abbatterlo, vero?», participio riferito al giocatore — trovata solo rileggendo
+le nove rese una per una. ⭐ Il conto resta **9** in chiusura, e il nono e'
+dichiarato.
+
+⭐⭐ **La domanda della 90a ha dato due risposte opposte nello stesso lotto.**
+Su `chat.hsp:8702` la riga in piu' era **mia** (il vocativo lungo che evita il
+genere al posto di «Adventurer») e si e' riassorbita girando la frase; su
+`:8706` era **dell'inglese**, che butta la citazione dei forti partiti. E
+`:13201` ha **sfondato il tetto** — 15 righe contro le 13 di `chatMore`, mentre
+l'inglese ci sta esatto — e per rientrare sono serviti due giri di potatura
+senza togliere nessuna delle nove voci dell'elenco tecnico: su un elenco di
+termini composti l'italiano paga circa il **15%** in piu'.
+
+⚠️⚠️ **Il conto delle rese non e' il conto delle prove.** 87 rese costruite e
+controllate dagli strumenti; **zero viste a schermo**. Con oggi l'arretrato del
+collaudo e' di **undici sessioni e 2.003 rese** — ma stavolta c'e' un punto
+facile, perche' NORNE e' il personaggio che ogni partita nuova incontra per
+primo.
+
+⭐ **Il perimetro di `chat.hsp` dopo oggi.** Restano **134** firme e non c'e'
+piu' niente sopra le **otto**: AIKAGE (8), KARATA il mascotte del seminario (8),
+MANSON (7), RAIZEL (7), SAIMEF il dio cane (7), BONYAC (6), ZISILION (6),
+MELUGAST type0 (6). La mappa
+(`python scratchpad/_87-parlanti-oltre.py`) e' quasi piatta: da qui in avanti i
+lotti valgono meno di dieci rese l'uno.
+
 ## Nove lotti, 143 rese, e due elenchi che andavano riconosciuti — 2026-08-24, novantaduesima sessione
 
 Nove lotti, **143 rese**, e `chat.hsp` scende da 364 a **221**: il 39% delle
