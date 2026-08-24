@@ -133,6 +133,57 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## Otto lotti, 55 rese, e una parola che l'inglese butta due volte — 2026-08-25, novantaquattresima sessione
+
+Otto lotti in due giri da quattro, **55 rese**, e `chat.hsp` scende da 134 a
+**79**: il 41% delle firme rimaste. Primo giro AIKAGE il ninja dalla maschera
+demoniaca (8), KARATA la mascotte del seminario (8), MANSON l'avventuriero
+prudente (7), RAIZEL il vecchio mago (7, il resto del suo blocco); secondo giro
+SAIMEF il dio cane (7), BONYAC il merciaio (6), MELUGAST type0 (6), ZISILION il
+re sfaccendato delle miniere (6). `menu_dialogo` misura **1.374** voci (erano
+1.369), 0 fuori misura e 0 peggiorate a due colonne. Zero toppe, zero rinvii,
+zero rese rifatte, zero dichiarazioni nuove in `invariati.md`; **una rete
+nuova**, una sezione di glossario con 14 voci e un concept nuovo nel vault.
+
+⭐⭐⭐ **La stessa parola, buttata dall'inglese due volte nello stesso giorno.**
+露払い — chi va avanti a sgombrare la strada — regge la scena di AIKAGE
+(`:15078`) e quella di SAIMEF (`:9703`), due personaggi che non si incontrano
+mai. Nella prima l'inglese la **capovolge** («personal bodyguards», cioe' chi
+sta a fianco invece di chi apre il varco); nella seconda la fa sparire dentro un
+«For the sake of my followers, I must stop my quest here», dove 後続 — quelli che
+vengono dietro — e' letto come i suoi fedeli. Il progetto l'aveva gia' resa
+nell'88a: «se non aveste **ripulito la strada**, non sarei arrivata in tempo». I
+due lotti, scritti a ore di distanza, si sono tenuti per la mano solo perche' la
+parola e' stata **cercata** e non tradotta a orecchio.
+
+⭐⭐⭐ **Una resa dinamica puo' essere vietata dal sito.** `chat.hsp:9705` in
+giapponese e' `"(突然、" + name(tc) + "は…"` e in inglese e' un letterale che
+inchioda «Saimef». La voce risulta `statica` — la classe la decide il lato che
+si **sostituisce** — e `applica.riscrivi_statica` avvolge la resa in virgolette
+e basta: un `" + name(tc) + "` scritto nel dizionario finirebbe a schermo come
+testo. Rete nuova, `scratchpad/_94-jp-dinamico-en-statico.py`: **335 siti su
+21.801**, in undici file, `chat.hsp` da solo 286, e **tutti gia' resi**.
+
+⚠️⚠️ **E la stessa rete ha trovato una cosa peggiore, non riparata.** In alcuni
+di quei 335 l'inglese non traduce, dice **un'altra frase**: `action.hsp:8694`
+(«la forza di X e' cresciuta») ha per inglese il testo di `:9375`;
+`action.hsp:15276` («X e' passato a Y») ha «Current Ammo Type»;
+`calculation.hsp:1556` ha «A dimensional door opens in front of you». Le rese
+italiane hanno seguito l'inglese e si sono portate dietro l'errore. **Da
+guardare.**
+
+⭐⭐ **Il conteggio delle firme non dice dove sta un parlante.** La ripresa dava
+BONYAC per «un negozio, che si apre molte volte per partita»; `map.hsp:5042` lo
+mette in `ras05`, la bottega abbandonata in fondo alla Valle di Raskilis. La
+priorita' era giusta per la ragione sbagliata, e lo dice **`map.hsp`**, non il
+conteggio.
+
+⭐ **Il perimetro di `chat.hsp` dopo oggi.** Restano **79** firme e il blocco
+piu' grosso ne ha **7**: SAIMEF chiuso, la testa e' ora TONI il pescatore (5),
+CARTER (5), ALFRED (5), HALION (5), RENAI (5), CHILD_WEL (5). Da qui in avanti
+il costo per resa e' al massimo storico e conviene **raggruppare quattro
+blocchi per giro**, come si e' fatto oggi due volte.
+
 ## Otto lotti, 87 rese, e tre registri gia' decisi altrove — 2026-08-24, novantatreesima sessione
 
 Otto lotti, **87 rese**, e `chat.hsp` scende da 221 a **134**: il 39% delle

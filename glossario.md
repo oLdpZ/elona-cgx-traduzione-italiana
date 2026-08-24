@@ -915,6 +915,43 @@ progetto altrove lo ricostruisce proprio quando l'inglese lo butta (<Leiki>,
 ragione per cui il personaggio esiste. Un nome di creatura si cambia insieme
 alla sua misura di larghezza e alle rese che lo citano: **da decidere**.
 
+## Gli otto parlanti della 94a, decisi il 2026-08-25
+
+Otto lotti, 55 rese, e di nuovo **poche parole da decidere**: il lessico stava
+gia' scritto nel vicinato — la valle di Raskilis nella donna resa nella 91a, il
+seminario nei conferenzieri dell'87a, la Nave Magica nella catena delle
+missioni, Gavela nell'85a. Le voci qui sotto sono quelle che mancavano, e tre
+sono **conferme di una resa gia' esistente** messe qui perche' oggi sono state
+cercate due volte.
+
+| JP | EN | IT | dove |
+|---|---|---|---|
+| 露払い | personal bodyguards / *(butta)* | **ripulire la strada** | `chat.hsp:15078` (AIKAGE), `:9703` (SAIMEF), su precedente `:18160`. ⚠️ **L'inglese la perde due volte oggi**, e nella prima la capovolge: 露払い e' chi va **avanti** a sgombrare, non chi sta a fianco a proteggere |
+| 分身の術 | shadow decoy | **tecnica dello sdoppiamento** | `chat.hsp:15087`. Distinta da 身代わりの術, gia' «tecnica della sostituzione» (`db_creature.hsp:73146`). Il bollettino su Aikage — `chat.hsp:24445`, «se lo colpisci a meta' **si sdoppia**» — decide il verbo |
+| ツクモガミ | tsukumogami | **tsukumogami** (con glossa) | `chat.hsp:14914`. Compare **una volta sola** in tutto il sorgente. La parola resta, come «tanuki» e «kunoichi», ma la riga e' una **definizione** e senza capirla il confronto col mimic non si sente: accanto le va la glossa minima |
+| 努力賞 | a little something for your effort | **premio per l'impegno** | `chat.hsp:14808`, su precedente `:14530` — lo stesso seminario, lo stesso premio |
+| バネッサコーポレーション | Vanessa Corporation | **Vanessa Corporation** | `chat.hsp:14918`, `:14924`. Nome d'azienda, non si traduce |
+| 神の心臓 / ヨロテオトル | god heart | **cuore di un dio** / **Yoloteotl** | `chat.hsp:9697`. ⚠️ ヨロテオトル **non e' un vocativo**: e' il nome dell'oggetto, `item.hsp:110` |
+| 大氷河 | the glacier | **il grande ghiacciaio** | `chat.hsp:9702`. Compare una volta sola |
+| 次元歪曲シーケンス | dimensional distortion sequence | **sequenza di distorsione dimensionale** | `chat.hsp:9637`, sotto «unita' a distorsione dimensionale» (93a) |
+| 本機 | this Melugast | **l'apparecchio** | `chat.hsp:9606`. La macchina parla di se' in terza persona: e' la sua voce, non un sinonimo |
+| 休止状態 | hibernation mode | **stato di riposo** | `chat.hsp:9686` |
+| 携帯旅糧 | supplies | **cibo da viaggio** | `chat.hsp:15391`, sotto 旅糧 gia' «cibo da viaggio» (`db_item.hsp:148280`) |
+| 有閑 | *(butta)* | **sfaccendato** | gia' in «<Zisilion> il re sfaccendato delle miniere». Rimesso qui perche' regge tutte e sei le sue righe |
+| 素晴らしい汗 | Another day, another platinum coin | **che bella sudata** | `chat.hsp:13916`. ⚠️ Gemella di 「いい汗をかいたよ」, gia' «Ho fatto una bella **sudata**» (`db_creature.hsp:55277`): stessa immagine, stesso personaggio, due file. Si scrive la stessa parola |
+| 街の依頼 | a request for the city | **incarico di citta'** | `chat.hsp:13913`, su precedente `:13964`, `:13978`. E' il nome di una meccanica, non un giro di parole |
+
+⭐ **Quello che NON e' stato deciso qui, perche' era gia' scritto.** «il Sigillo
+Eterno» (`chat.hsp:7829`), «potere divino», «dio cane» (`text.hsp:3030`),
+«Noyel», «Mayroon», «Raskilis» e «la Valle di Raskilis» (`chat.hsp:9381`),
+«continente fluttuante» (`:2184`), «navigazione dimensionale» (`:7879`), «il
+Melugast», «barriera», «la capitale», «Eulderna», «nave magica»
+(`text.hsp:9822`), «il dio del caos», «monete di platino», «posto di frontiera»
+(`map.hsp:682`), «armi non morte», «baule», «mimic», «tanuki», «gilda»,
+«Seminario d'Avventura», «<Karata> la mascotte», «<Bonyac> il merciaio»,
+«<Saimef> il bianco ghiaccio», «<Manson> l'avventuriero prudente», «<Aikage> il
+ninja dalla maschera demoniaca», e la formula «chi va all'avventura».
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

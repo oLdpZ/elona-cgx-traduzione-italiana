@@ -6,6 +6,181 @@ ancora aperte.
 
 ---
 
+## Una resa fedele puo' essere vietata dal sito — 2026-08-25, novantaquattresima
+
+Otto lotti su `chat.hsp` in due giri da quattro, **55 rese**, dalle 134 alle
+**79**. Primo giro: AIKAGE il ninja dalla maschera demoniaca (`:15071`-`:15092`,
+8), KARATA la mascotte del seminario (`:14660`-`:14927`, 8), MANSON
+l'avventuriero prudente (`:15378`-`:15397`, 7), RAIZEL il vecchio mago
+(`:10335`-`:10441`, 7). Secondo giro: SAIMEF il dio cane (`:9693`-`:9723`, 7),
+BONYAC il merciaio (`:15465`-`:15490`, 6), MELUGAST type0 (`:9601`-`:9692`, 6),
+ZISILION il re sfaccendato delle miniere (`:13897`-`:13923`, 6).
+
+### ⭐⭐⭐ La classe di una voce la decide l'INGLESE, non il giapponese
+
+`chat.hsp:9705` e' questo:
+
+    lang("(突然、" + name(tc) + "は自らの胸を抉りぬいた！)",
+         "(Suddenly, Saimef reaches into his own chest and pulls out his heart!)")
+
+Il giapponese **concatena** `name(tc)`; l'inglese **inchioda** «Saimef» in un
+letterale nudo. La tentazione, guardando il giapponese, e' scrivere nel
+dizionario `"(Di colpo " + name(tc) + " si squarcia il petto!)"`, com'e' giusto
+per una dinamica.
+
+⚠️ **Non funziona, e non fallisce nemmeno.** `estrai` classifica la voce
+guardando il lato che si sostituisce — l'inglese — quindi la voce e' `statica`;
+e `applica.riscrivi_statica` fa esattamente questo:
+
+    letterale = '"' + italiano + '"'
+
+L'espressione HSP finirebbe **a schermo come testo**, virgolette comprese, e
+nessuna delle quindici reti la vedrebbe: e' italiano valido dentro una statica
+valida. La resa fedele al giapponese e', alla lettera, **impossibile**; il nome
+si scrive per esteso come fa l'inglese, e non e' una scelta di stile.
+
+💡 La regola generale: *la lingua di partenza dice che cosa significa la riga; la
+lingua sostituita dice che cosa la riga puo' essere.* Prima di scrivere una resa
+con dentro una variabile si guarda `en_grezzo`, non `jp_grezzo`.
+
+### ⭐⭐ La misura, e la coda che non e' stata riparata
+
+Rete nuova, `scratchpad/_94-jp-dinamico-en-statico.py`: cerca i siti dove il
+grezzo giapponese ha un `+` di primo livello e quello inglese no.
+
+    voci con i due grezzi          : 21.801
+    giapponese dinamico, inglese no:    335   (tutti gia' resi)
+       chat.hsp 286 · proc.hsp 13 · action.hsp 11 · command.hsp 8 · text.hsp 6
+       item.hsp 4 · event.hsp 2 · map.hsp 2 · calculation.hsp 1 · god.hsp 1 · main.hsp 1
+
+⚠️⚠️ **E dentro quei 335 c'e' una classe peggiore del nome perduto: siti dove
+l'inglese non traduce, ma dice un'altra frase.**
+
+| sito | giapponese | inglese |
+|---|---|---|
+| `action.hsp:8694` | «la forza di X e' cresciuta» | «Skill memories have been converted to bonuses.» |
+| `action.hsp:15276` | «X e' passato a Y» | «Current Ammo Type» |
+| `action.hsp:16631` | «X ha rifiutato l'evoluzione» | «You will need to deepen the friendship.» |
+| `calculation.hsp:1556` | «X e' stato piegato da una forza strana!» | «A dimensional door opens in front of you.» |
+
+Il primo e' il testo di `:9375`, **un'altra riga dello stesso file**, copiato nel
+posto sbagliato a monte: le due voci hanno firme diverse (`fd0fab29` e
+`a767a0f1`) ma inglese identico, e quindi resa italiana identica — «Le memorie di
+abilita' sono state convertite in bonus» esce anche dove il gioco voleva dire che
+la forza di qualcuno e' cresciuta.
+
+⚠️ **Non e' stato riparato oggi, ed e' una decisione aperta e non una svista.**
+Cambiare quelle rese vuol dire far dire all'italiano una cosa che l'inglese non
+dice, cioe' scostarsi dalla lingua che si sostituisce; lasciarle vuol dire
+propagare un difetto di monte. La regola gia' scritta — *l'originale arbitra sul
+significato, l'inglese conserva il diritto di specializzare* — non copre questo
+caso, perche' qui l'inglese non specializza: **sbaglia riga**. **Da decidere.**
+Vedi nel vault [[la-classe-la-decide-il-lato-che-si-sostituisce]] e
+[[il-difetto-di-monte-lo-paghiamo-noi]].
+
+### ⭐⭐⭐ La stessa parola, buttata dall'inglese due volte in un giorno
+
+露払い e' chi va **avanti** a sgombrare la strada. Compare due volte oggi, in
+bocca a due personaggi che non si incontrano mai:
+
+- `chat.hsp:15078`, AIKAGE: i ninja erano manovrati dal caos e mandati avanti a
+  ripulire. L'inglese scrive «he was forcing us to act as his personal
+  **bodyguards**» — che e' il **contrario**: chi sta a fianco a proteggere, non
+  chi apre il varco.
+- `chat.hsp:9703`, SAIMEF: il dio cane presidia il piano per chi verra' dopo.
+  L'inglese scrive «For the sake of my **followers**, I must **stop my quest**
+  here»: 後続 (quelli che vengono dietro) diventa i suoi fedeli, e 露払い sparisce.
+
+Il progetto l'aveva gia' resa nell'88a, su un terzo personaggio ancora
+(`chat.hsp:18160`): «se non aveste **ripulito la strada**, non sarei arrivata in
+tempo». I due lotti di oggi hanno scritto la stessa cosa perche' la parola e'
+stata **cercata**, non tradotta a orecchio — e sono stati scritti a ore di
+distanza, in due giri diversi.
+
+### ⭐⭐ Un blocco solo, due bocche — e la 93a aveva visto la stessa struttura
+
+`MELUGAST type0` sembra il blocco di una creatura. Non lo e':
+
+    :9604 - :9606   GAVELA, in un messaggio registrato — lo dichiara la riga
+                    stessa, 「こちらはガベラだ」, e la formula italiana e' gia'
+                    decisa: «Qui Gavela.» (`:13187`, resa nella 93a)
+    :9637 - :9686   LA MACCHINA, che parla di se' come 本機 e risponde a comandi
+
+La 93a aveva trovato lo stesso in `MELUGAST_AO_I` — un blocco che era una radio.
+⚠️ Qui pero' le due bocche stanno **dentro lo stesso blocco**, quindi non basta
+identificare il parlante una volta: va identificato **per riga**. E l'inglese di
+`:9645` aggiunge alla macchina una battuta da hostess («Please keep limbs inside
+the vehicle at all times.») che il giapponese non ha: e' l'unica riga che la
+farebbe scherzare, e le altre due sono referto puro.
+
+### ⭐⭐ Il conteggio delle firme non dice dove sta un parlante: lo dice `map.hsp`
+
+La ripresa della 93a aveva messo BONYAC avanti perche' «e' un negozio, che si
+apre molte volte per partita». `map.hsp:5042` lo mette in `ras05`, cioe' il
+quinto piano della Valle di Raskilis, a poche caselle da un
+`OBLIVION_RUDE_BEAST`: e' la **bottega abbandonata in fondo alla valle
+condannata**, si apre una volta per partita, e tutte e sei le righe parlano di
+quello — «Che cosa vendi?» «Niente.»
+
+La priorita' era giusta lo stesso, ma per la ragione sbagliata; e la ragione
+sbagliata, scritta in un documento di ripresa, sarebbe stata creduta.
+💡 Quando si giustifica un lotto con la **frequenza**, il posto si controlla in
+`map.hsp`, che e' il file che lo decide.
+
+### ⚠️ Il voi di cortesia, applicato per la seconda e la terza volta
+
+MANSON da' del あなた al giocatore in 敬語 (お見受けします, お気をつけて,
+〜ですかな). E' esattamente il caso deciso nell'88a su Maile: la resa e' il **voi
+di cortesia**, che oltre a suonare come il registro giusto e' **l'unica seconda
+persona italiana che non chiede un genere**. Con BONYAC la strada e' anche piu'
+corta: il `buff` gia' reso, «Benvenuti a Raskilis», aveva **gia' scelto il voi**
+per lui, e le sei righe nuove ci si sono accodate.
+
+⚠️ E resta il problema del mestiere: 並の冒険家ではない, detto al giocatore, non
+puo' diventare «non siete un avventuriero qualunque». Si gira su **persona**, che
+in italiano vale per chiunque: «non siete persona comune».
+
+### ⭐ Due gemelle che decidono una parola sola
+
+- `chat.hsp:13916` dice 「素晴らしい汗だ」, e la battuta `db_creature.hsp:55277`
+  dello **stesso** Zisilion dice 「いい汗をかいたよ」, gia' resa «Ho fatto una
+  bella **sudata**». Qui si scrive «sudata», non un sinonimo: e' un tic, e un tic
+  spezzato non lo vede nessuna rete.
+- `chat.hsp:15087`, 分身の術. L'inglese dice «shadow decoy», che in italiano
+  suonerebbe illusione; ma il bollettino **su Aikage** (`:24445`, gia' reso) dice
+  «se lo colpisci a meta' **si sdoppia**», e la sua carta separa 分身 da 身代わり.
+  Quindi «tecnica dello sdoppiamento», accanto alla «tecnica della sostituzione»
+  gia' resa senza confondersi con lei.
+
+### ⚠️ Una glossa aggiunta, e perche'
+
+`chat.hsp:14914` — 「カラ太は宝箱のツクモガミなのだから！」 — e' l'**unica**
+occorrenza di ツクモガミ in tutto il sorgente, e l'inglese la tiene com'e'. Il
+progetto tiene le parole giapponesi quando il gioco le tiene («tanuki», «ninja»,
+«kunoichi», «mimic»), e la parola resta.
+
+⚠️ Ma quella riga **e' una definizione**, e il suo lavoro e' distinguersi dal
+mimic: al lettore giapponese ツクモガミ dice gia' «oggetto vecchio che ha preso
+un'anima», all'italiano non dice niente, e senza quello il confronto col mimic
+non si sente piu'. Accanto alla parola va la glossa minima. E' l'unica riga delle
+55 che aggiunge parole.
+
+💡 E il bisticcio su カラ — 「あげたくなっちゃう**カラ**…」, il から scritto in
+katakana perche' e' il nome del personaggio — **non** e' stato rifatto: era gia'
+perduto a monte in `db_creature.hsp:54536` (「カラ太は**からから**と笑った」, reso
+«Karata ha riso di gusto»), e inventarne uno qui avrebbe dato un tic a una riga
+sola. Vedi [[il-gioco-di-parole-cambia-canale]], che dice quando invece si rifa'.
+
+### ⚠️ Un errore di metodo, e la sua riparazione
+
+Un `git stash` scritto dentro un comando di controllo — per confrontare un
+conteggio prima e dopo — ha messo nello stash le 30 rese del primo giro.
+Recuperate subito con `git stash pop`, e il conteggio riverificato dopo; ma resta
+il modo: **un comando di sola lettura non deve contenere un verbo che scrive**.
+E' la terza forma della stessa lezione: *fatto* non vuol dire *salvato*.
+
+---
+
 ## Il registro non si decide, si trova — 2026-08-24, novantatreesima
 
 Otto lotti su `chat.hsp`, **87 rese**, dalle 221 alle **134**. NORNE la guida
