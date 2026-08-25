@@ -214,6 +214,17 @@ TETTO_TITOLO = (270 - 100) // 7            # 24
 _SEGNAPOSTO = re.compile(r"\{([^}]*)\}")
 
 
+def _ha_lettere(testo: str) -> bool:
+    """Vero se la riga contiene almeno una lettera, cioe' se e' testo.
+
+    Serve alla rete `identica`: una riga fatta di soli segni — la riga di
+    uguali che sottolinea un titoletto, una cornice, un separatore — resta
+    identica all'inglese perche' non c'e' niente da tradurre, non perche'
+    qualcuno se ne sia dimenticato.
+    """
+    return any(carattere.isalpha() for carattere in testo)
+
+
 @dataclass
 class Problema:
     genere: str
@@ -416,7 +427,13 @@ def controlla(voci: list[dict], invariati: set[str] | None = None,
                     "parola e a schermo non si legge. Si cambia parola")
 
         # --------------------------------------------------------- identica
-        if resa == voce["en"] and resa not in invariati:
+        # ⚠️ Una riga **senza nemmeno una lettera** non puo' essere una resa
+        # dimenticata: e' decorazione. `%26` di `book.txt` sottolinea ogni
+        # titoletto con una riga di uguali (`=====`, `=============`), e quelle
+        # righe sono nel lotto come tutte le altre. Dichiararle in
+        # `invariati.md` avrebbe messo quattro file di uguali fra le decisioni
+        # di traduzione; qui la regola dice quel che intende.
+        if resa == voce["en"] and resa not in invariati and _ha_lettere(resa):
             segnala(voce, "identica", "la resa e' l'inglese")
 
         # ---------------------------------------------------------- altezza

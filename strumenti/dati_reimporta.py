@@ -14,11 +14,21 @@ import argparse
 import json
 from pathlib import Path
 
-from strumenti import dati_verifica, percorsi
+from strumenti import dati_verifica, percorsi, verifica
 
 
-def reimporta(voci: list[dict], destinazione: Path, tetto_a_capo: int = 70) -> int:
-    problemi = dati_verifica.controlla(voci, tetto_a_capo=tetto_a_capo)
+def reimporta(voci: list[dict], destinazione: Path, tetto_a_capo: int = 70,
+              invariati: set[str] | None = None) -> int:
+    # ⚠️ Gli invariati dichiarati valgono anche qui. Fino alla 99a questa
+    # chiamata non li passava, e la catena dei file dati era l'unica del
+    # progetto a non vedere `invariati.md`: `%26` di `book.txt` — gli appunti
+    # di stregoneria — ha per titoletti `Mana` e `MP`, che in italiano si
+    # scrivono uguali e che `invariati.md` dichiara **gia'** (riga 76).
+    # Il lotto veniva rifiutato per una resa giusta.
+    if invariati is None:
+        invariati = verifica.carica_invariati()
+    problemi = dati_verifica.controlla(voci, invariati=invariati,
+                                       tetto_a_capo=tetto_a_capo)
     if problemi:
         for problema in problemi:
             print(problema)

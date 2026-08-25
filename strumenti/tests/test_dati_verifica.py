@@ -151,6 +151,24 @@ def test_una_resa_identica_dichiarata_invariata_non_e_un_problema():
     assert dati_verifica.controlla([v], invariati={v["en"]}) == []
 
 
+def test_una_riga_di_soli_segni_identica_non_e_un_problema():
+    # `book.txt` %26 sottolinea ogni titoletto con una riga di uguali: identica
+    # all'inglese perche' non c'e' niente da tradurre. Il profilo di `book.txt`
+    # non ha ne' due punti ne' segnaposto, quindi la riga passa da sola.
+    v = voce(en="=============", it="=============")
+    v["file"] = "book.txt"
+    assert dati_verifica.controlla([v]) == []
+
+
+def test_una_riga_con_una_sola_lettera_identica_resta_un_problema():
+    # La prova al contrario della rete qui sopra: basta **una** lettera e la
+    # riga torna a essere testo, quindi una resa identica torna a essere una
+    # dimenticanza.
+    v = voce(en="=== a ===", it="=== a ===")
+    v["file"] = "book.txt"
+    assert "identica" in [p.genere for p in dati_verifica.controlla([v])]
+
+
 # ------------------------------------------------------------ il referto
 
 def test_il_referto_porta_blocco_e_riga():

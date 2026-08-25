@@ -55,3 +55,25 @@ def test_le_voci_restano_in_ordine_stabile(tmp_path):
     ordine = [(v["blocco"], v["riga"]) for v in
               (json.loads(r) for r in destinazione.read_text(encoding="utf-8").splitlines())]
     assert ordine == [("A", 1), ("A", 2), ("Z", 1)]
+
+
+def test_gli_invariati_dichiarati_valgono_anche_per_i_file_dati(tmp_path):
+    # ⚠️ Fino alla 99a `reimporta` non passava gli invariati a `controlla`, e la
+    # catena dei file dati era la sola del progetto a non vedere `invariati.md`:
+    # `Mana`, che quel file dichiara da sempre, faceva rifiutare il lotto.
+    lotto = [voce("A", "Mana", en="Mana")]
+    lotto[0]["file"] = "book.txt"
+    destinazione = tmp_path / "book.txt.jsonl"
+    assert dati_reimporta.reimporta(lotto, destinazione, invariati={"Mana"}) == 1
+    assert destinazione.exists()
+
+
+def test_senza_dichiarazione_una_resa_identica_e_ancora_rifiutata(tmp_path):
+    # La prova al contrario: e' la **dichiarazione** che apre la porta, non
+    # l'identita' in se'.
+    lotto = [voce("A", "Mana", en="Mana")]
+    lotto[0]["file"] = "book.txt"
+    destinazione = tmp_path / "book.txt.jsonl"
+    with pytest.raises(SystemExit):
+        dati_reimporta.reimporta(lotto, destinazione, invariati=set())
+    assert not destinazione.exists()
