@@ -78,7 +78,8 @@ def main() -> None:
         raise SystemExit(f"{origine} non c'e': i file dati si pinnano con "
                          "`python -m strumenti.dati_sorgente --pinna`")
 
-    documento = dati.analizza(origine.read_bytes().decode("cp932"))
+    documento = dati.analizza_file(argomenti.file,
+                                   dati.leggi(origine, argomenti.file))
     elenco = voci(argomenti.file, documento)
 
     percorso = Path(argomenti.lotto) if argomenti.lotto else (

@@ -35,7 +35,7 @@ from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 
-from strumenti import accenti
+from strumenti import accenti, dati
 
 # ⚠️⚠️ OGNI FILE DATI HA IL SUO ESPANSORE, E NON CONOSCONO GLI STESSI NOMI.
 #
@@ -173,6 +173,15 @@ PROFILI = {
     # E nemmeno lui ha un espansore — `item.hsp:112` e `command.hsp:8371` fanno
     # `noteload` e via.
     "book.txt": {"espansore": NESSUN_ESPANSORE, "titolo": False, "tetto_capo": None},
+    # ⚠️⚠️ `autopick.txt` non lo disegna NESSUNO. Non e' testo che il gioco
+    # stampa: e' il modello di configurazione che `custom_autopick.hsp:41` copia
+    # nel salvataggio e che `:28` apre nell'**editor di testo del giocatore**
+    # (`exec ..., 16`). Niente espansore, niente titolo, e nessun tetto — non
+    # c'e' un riquadro che possa tagliare. ⚠️ Il vincolo di questo file e' un
+    # altro e nessuna rete di larghezza lo vedrebbe: le sue righe di regola
+    # devono agganciare le **chiavi** di `custom_autopick.hsp`, e quello lo
+    # misura `scratchpad/_100-modello-aggancia.py`.
+    "autopick.txt": {"espansore": NESSUN_ESPANSORE, "titolo": False, "tetto_capo": None},
 }
 
 PROFILO_IGNOTO = {"espansore": TALKTXT_CONV, "titolo": True, "tetto_capo": None}
@@ -405,17 +414,25 @@ def controlla(voci: list[dict], invariati: set[str] | None = None,
         # — lo prende `non_ascii_residuo` — mentre quello a due byte e' «―»
         # (U+2015). Con un controllo solo passava proprio il trattino lungo che
         # si infila da se' scrivendo prosa italiana (67a).
-        a_schermo = accenti.degrada(resa)
-        if accenti.ha_apostrofo_scritto_a_mano(resa):
-            segnala(voce, "apostrofo",
-                    "apostrofo scritto a mano: nel lotto va l'accento vero, "
-                    "la degradazione la fa l'applicazione")
-        residui = accenti.doppi_byte_cp932(a_schermo)
-        if residui:
-            segnala(voce, "doppi byte", "".join(residui))
-        fuori_cp932 = accenti.non_ascii_residuo(a_schermo)
-        if fuori_cp932:
-            segnala(voce, "fuori cp932", "".join(fuori_cp932))
+        #
+        # ⚠️⚠️ E tutto questo vale SOLO dove il file e' in CP932. `autopick.txt`
+        # e' in UTF-8 (100a) e non lo disegna nessuno: la' l'accento vero ci sta
+        # e la degradazione non si fa, quindi chiedere la forma degradata
+        # segnalerebbe come guasto proprio la resa giusta.
+        if dati.codifica(voce.get("file") or "") == "cp932":
+            a_schermo = accenti.degrada(resa)
+            if accenti.ha_apostrofo_scritto_a_mano(resa):
+                segnala(voce, "apostrofo",
+                        "apostrofo scritto a mano: nel lotto va l'accento vero, "
+                        "la degradazione la fa l'applicazione")
+            residui = accenti.doppi_byte_cp932(a_schermo)
+            if residui:
+                segnala(voce, "doppi byte", "".join(residui))
+            fuori_cp932 = accenti.non_ascii_residuo(a_schermo)
+            if fuori_cp932:
+                segnala(voce, "fuori cp932", "".join(fuori_cp932))
+        else:
+            a_schermo = resa
         # ⚠️ L'accento in mezzo alla parola passa i due controlli di sopra senza
         # rumore — CP932 la forma degradata la scrive benissimo — e a schermo
         # diventa illeggibile: «dei» -> «de'i». La degradazione regge solo

@@ -198,3 +198,51 @@ def test_si_trova_un_blocco_per_chiave_e_lingua():
     assert documento.blocco("A", "EN").righe_piene() == ["en"]
     assert documento.blocco("A", "JP").righe_piene() == ["jp"]
     assert documento.blocco("A", "IT") is None
+
+
+# ------------------------------------------- il file piatto, e la codifica
+
+def test_un_file_senza_blocchi_e_un_blocco_solo():
+    """`autopick.txt` non ha `%CHIAVE,LINGUA`: e' un file di configurazione."""
+    testo = "# commento\n\nregola\n"
+    documento = dati.analizza_piatto(testo)
+
+    assert len(documento.blocchi) == 1
+    assert documento.blocchi[0].lingua == "EN"
+    assert documento.blocchi[0].righe_piene() == ["# commento", "regola"]
+    assert dati.serializza(documento) == testo
+
+
+def test_il_lettore_piatto_si_sceglie_dal_nome_del_file():
+    """⚠️ La prova al contrario: gli altri quattro NON vanno letti piatti."""
+    testo = "%A,EN\nuno\n%END\n"
+
+    assert dati.e_piatto("autopick.txt") is True
+    assert dati.e_piatto("board.txt") is False
+    # letto a blocchi ne trova uno con dentro una riga; letto piatto, tre righe
+    assert dati.analizza_file("board.txt", testo).blocchi[0].righe_piene() == ["uno"]
+    assert dati.analizza_file("autopick.txt", testo).blocchi[0].righe_piene() \
+        == ["%A,EN", "uno", "%END"]
+
+
+def test_autopick_e_l_unico_file_dati_in_utf8():
+    assert dati.codifica("autopick.txt") == "utf-8"
+    for nome in ("board.txt", "book.txt", "exhelp.txt", "talk.txt"):
+        assert dati.codifica(nome) == "cp932"
+
+
+def test_il_file_vero_non_si_decodifica_in_cp932(tmp_path):
+    """La misura che ha fatto nascere la codifica per file, nella 100a.
+
+    Se un giorno monte lo riscrivesse in CP932, questo test cade e la tabella
+    delle codifiche va rivista invece di restare a mentire.
+    """
+    from strumenti import percorsi
+    percorso = percorsi.DATI_SORGENTE / "autopick.txt"
+    if not percorso.exists():
+        pytest.skip("autopick.txt non e' ancora stato pinnato")
+
+    grezzo = percorso.read_bytes()
+    with pytest.raises(UnicodeDecodeError):
+        grezzo.decode("cp932")
+    assert dati.leggi(percorso).startswith("### Elona+ Custom-GX Autopickup")

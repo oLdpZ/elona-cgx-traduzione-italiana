@@ -28,8 +28,46 @@ vuote: sono quelle che il gioco pesca (`text.hsp:11654` fa `rnd(noteinfo(0) - 1)
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from pathlib import Path
 
 CHIUSURA = "%END"
+
+# ⚠️⚠️ **`autopick.txt` non e' come gli altri quattro, e in due modi.**
+#
+# 1. E' scritto in **UTF-8**, l'unico di `data\` a esserlo: i suoi 4.516 byte
+#    non si decodificano in CP932 (`illegal multibyte sequence` al byte 3153) e
+#    la sezione giapponese di monte, letta col font del gioco, e' gia' mojibake
+#    per conto suo. Non e' una nostra scelta: e' il file che l'eseguibile legge.
+# 2. **Non ha blocchi.** Niente `%CHIAVE,LINGUA` … `%END`: e' un file di
+#    configurazione — commenti con `#` e regole di raccolta — che il gioco copia
+#    nel salvataggio (`custom_autopick.hsp:41`) e che poi apre nell'editor di
+#    testo del giocatore. Nessuna riga di questo file viene mai **disegnata**
+#    dal gioco, e per questo qui gli accenti veri si possono tenere.
+#
+# ⚠️ La conseguenza che conta: `degrada()` esiste **perche' CP932 cancella le
+# vocali accentate**, quindi si applica solo dove la codifica e' CP932.
+CODIFICHE = {"autopick.txt": "utf-8"}
+PIATTI = {"autopick.txt"}
+
+
+def codifica(nome_file: str) -> str:
+    return CODIFICHE.get(nome_file, "cp932")
+
+
+def e_piatto(nome_file: str) -> bool:
+    """Vero se il file non ha blocchi e va letto come un testo unico."""
+    return nome_file in PIATTI
+
+
+def leggi(percorso: Path | str, nome_file: str | None = None) -> str:
+    """Il testo di un file dati, nella codifica che quel file ha davvero."""
+    percorso = Path(percorso)
+    return percorso.read_bytes().decode(codifica(nome_file or percorso.name))
+
+
+def scrivi(percorso: Path | str, testo: str, nome_file: str | None = None) -> None:
+    percorso = Path(percorso)
+    percorso.write_bytes(testo.encode(codifica(nome_file or percorso.name)))
 
 
 @dataclass
@@ -158,6 +196,31 @@ def analizza(testo: str) -> Documento:
             aperto.indici.append(indice)
 
     return documento
+
+
+def analizza_piatto(testo: str) -> Documento:
+    """Un file senza blocchi: tutto il file e' **un** blocco inglese implicito.
+
+    Serve a `autopick.txt`, che di blocchi non ne ha. La chiave e' vuota e la
+    lingua e' `EN`, cosi' tutto il resto della catena — l'estrazione, la firma,
+    l'applicazione, la prova d'identita' — funziona senza sapere che questo file
+    e' diverso.
+
+    ⚠️ Le righe vuote restano fuori come nei file a blocchi (`righe_piene`), e
+    la numerazione e' su quelle piene: una riga vuota aggiunta da monte non
+    sposta la firma di tutte quelle che vengono dopo.
+    """
+    righe = testo.splitlines(keepends=True)
+    documento = Documento(_righe=righe, blocchi=[])
+    blocco = Blocco(chiave="", lingua="EN", intestazione=-1,
+                    indici=list(range(len(righe))), _documento=documento)
+    documento.blocchi.append(blocco)
+    return documento
+
+
+def analizza_file(nome_file: str, testo: str) -> Documento:
+    """Il documento di un file dati, col lettore che quel file vuole."""
+    return analizza_piatto(testo) if e_piatto(nome_file) else analizza(testo)
 
 
 def serializza(documento: Documento) -> str:

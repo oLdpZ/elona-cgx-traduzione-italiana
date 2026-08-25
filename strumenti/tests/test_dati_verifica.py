@@ -415,3 +415,35 @@ def test_exhelp_ha_la_rete_dell_altezza_spenta_apposta():
     # carattere e salta i marcatori, `righe_a_capo` fa l'opposto in tutt'e due
     assert dati_verifica.PROFILI["exhelp.txt"]["tetto_capo"] is None
     assert dati_verifica.PROFILI["exhelp.txt"]["titolo"] is False
+
+
+# ------------------------------------------ la codifica: CP932 o UTF-8 (100a)
+
+def _voce_di(nome_file, it):
+    return {"firma": "f" * 40, "file": nome_file, "blocco": "", "riga": 1,
+            "en": "a dash - here", "jp_contesto": [], "it": it}
+
+
+def test_il_trattino_lungo_e_un_guasto_solo_dove_il_file_e_cp932():
+    """⚠️ La prova al contrario, e la ragione della rete.
+
+    «—» (U+2014) CP932 non lo codifica affatto, e in `board.txt` e' un guasto.
+    In `autopick.txt`, che e' in UTF-8 e che nessuno disegna, e' la resa giusta:
+    chiedergli la forma degradata segnalerebbe come guasto proprio quella.
+    """
+    generi = [p.genere for p in dati_verifica.controlla([_voce_di("board.txt", "un — qui")])]
+    assert "fuori cp932" in generi
+
+    generi = [p.genere for p in dati_verifica.controlla([_voce_di("autopick.txt", "un — qui")])]
+    assert "fuori cp932" not in generi
+
+
+def test_l_accento_vero_passa_in_utf8_e_non_chiede_la_degradazione():
+    """In CP932 l'apostrofo scritto a mano e' un guasto; in UTF-8 no, perche'
+    la` non c'e' nessuna degradazione che possa metterlo al posto giusto.
+    """
+    generi = [p.genere for p in dati_verifica.controlla([_voce_di("board.txt", "perche' si")])]
+    assert "apostrofo" in generi
+
+    generi = [p.genere for p in dati_verifica.controlla([_voce_di("autopick.txt", "perché sì")])]
+    assert generi == []

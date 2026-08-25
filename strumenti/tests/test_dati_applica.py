@@ -102,18 +102,19 @@ def test_l_identita_riproduce_il_testo_costruito():
     assert quante == 2 and orfane == []
 
 
-@pytest.mark.parametrize("nome", ("board.txt", "book.txt", "exhelp.txt", "talk.txt"))
+@pytest.mark.parametrize("nome", ("autopick.txt", "board.txt", "book.txt",
+                                  "exhelp.txt", "talk.txt"))
 def test_l_identita_riproduce_i_file_veri_byte_per_byte(nome):
     percorso = percorsi.DATI_SORGENTE / nome
     if not percorso.exists():
         pytest.skip(f"{nome} non e' ancora stato pinnato")
     grezzo = percorso.read_bytes()
-    testo = grezzo.decode("cp932")
+    testo = grezzo.decode(dati.codifica(nome))
     diz = dati_applica.dizionario_identita(nome, testo)
     nuovo, quante, orfane = dati_applica.applica_a_testo(nome, testo, diz)
     assert orfane == []
     assert quante == len(diz), "l'identita' deve toccare ogni riga che dichiara"
-    assert nuovo.encode("cp932") == grezzo
+    assert nuovo.encode(dati.codifica(nome)) == grezzo
 
 
 def test_l_identita_dichiara_quante_righe_misura():

@@ -38,7 +38,10 @@ def applica_a_testo(nome_file: str, testo: str,
     monte ha riscritto quella riga, e una resa non va applicata a un testo che
     non e' piu' quello. Si contano invece di applicarle a occhio.
     """
-    documento = dati.analizza(testo)
+    documento = dati.analizza_file(nome_file, testo)
+    # ⚠️ `degrada()` esiste perche' CP932 cancella le vocali accentate: dove il
+    # file e' UTF-8 gli accenti veri ci stanno, e degradarli sarebbe un danno.
+    aggiusta = degrada if dati.codifica(nome_file) == "cp932" else (lambda s: s)
     agganciate: set[str] = set()
     quante = 0
 
@@ -54,7 +57,7 @@ def applica_a_testo(nome_file: str, testo: str,
             agganciate.add(firma)
             if not voce.get("it"):
                 continue
-            documento.sostituisci(indice, degrada(voce["it"]))
+            documento.sostituisci(indice, aggiusta(voce["it"]))
             quante += 1
 
     orfane = sorted(set(dizionario) - agganciate)
@@ -63,7 +66,7 @@ def applica_a_testo(nome_file: str, testo: str,
 
 def dizionario_identita(nome_file: str, testo: str) -> dict:
     """Ogni riga inglese tradotta in se' stessa."""
-    voci = dati_estrai.voci(nome_file, dati.analizza(testo))
+    voci = dati_estrai.voci(nome_file, dati.analizza_file(nome_file, testo))
     for voce in voci:
         voce["it"] = voce["en"]
     return {v["firma"]: v for v in voci}
@@ -85,10 +88,10 @@ def costruisci() -> int:
                              "`python -m strumenti.dati_sorgente --pinna`")
         voci = [json.loads(r) for r in percorso.read_text(encoding="utf-8").splitlines() if r.strip()]
         dizionario = {v["firma"]: v for v in voci}
-        testo = origine.read_bytes().decode("cp932")
+        testo = dati.leggi(origine, nome_file)
         nuovo, quante, orfane = applica_a_testo(nome_file, testo, dizionario)
         bersaglio = percorsi.BUILD_DATI / nome_italiano(nome_file)
-        bersaglio.write_bytes(nuovo.encode("cp932"))
+        dati.scrivi(bersaglio, nuovo, nome_file)
         tradotte = sum(1 for v in voci if v.get("it"))
         print(f"  {nome_file}: {quante} righe scritte su {tradotte} tradotte "
               f"({len(voci)} voci){', ' + str(len(orfane)) + ' ORFANE' if orfane else ''}")
@@ -103,15 +106,15 @@ def prova_identita() -> bool:
     """Ogni riga tradotta in se' stessa deve ridare il file byte per byte."""
     pulita = True
     provati = righe = 0
-    for nome_file in ("board.txt", "book.txt", "exhelp.txt", "talk.txt"):
+    for nome_file in ("autopick.txt", "board.txt", "book.txt", "exhelp.txt", "talk.txt"):
         origine = percorsi.DATI_SORGENTE / nome_file
         if not origine.exists():
             continue
         grezzo = origine.read_bytes()
-        testo = grezzo.decode("cp932")
+        testo = grezzo.decode(dati.codifica(nome_file))
         dizionario = dizionario_identita(nome_file, testo)
         nuovo, quante, orfane = applica_a_testo(nome_file, testo, dizionario)
-        identico = nuovo.encode("cp932") == grezzo
+        identico = nuovo.encode(dati.codifica(nome_file)) == grezzo
         provati += 1
         righe += quante
         if not identico or orfane:
