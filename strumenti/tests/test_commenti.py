@@ -8,7 +8,8 @@ e una rete non puo' dipendere da uno scratch: la funzione e' passata in
 `strumenti/` e questi test sono il prezzo del passaggio.
 """
 from strumenti import percorsi
-from strumenti.commenti import righe_in_commento
+from strumenti.commenti import (colonna_commento_riga, lang_spenta_da_barre,
+                                righe_in_commento)
 
 SPENTO = """\
 \tval = promptx, prompty, 999, 1
@@ -59,3 +60,36 @@ def test_il_val_di_map_user_e_davvero_dentro_un_blocco_spento():
     assert 522 in spente
     assert 529 not in spente
     assert 532 not in spente
+
+
+# --------------------------------------------------- il commento di riga `//`
+
+def test_le_due_barre_spengono_solo_quel_che_viene_dopo():
+    """Una riga viva con un commento in coda **non** e' una riga morta."""
+    assert colonna_commento_riga('\ttxt lang("a", "b")') is None
+    assert colonna_commento_riga('// txt lang("a", "b")') == 0
+    assert colonna_commento_riga('\tx = 1 // nota') == 7
+    assert lang_spenta_da_barre('\tx = 1 // nota') is False
+
+
+def test_le_barre_dentro_una_stringa_o_dopo_un_punto_e_virgola_non_contano():
+    """L'indirizzo del wiki sta in un letterale, e un `//` dopo un `;` e' gia'
+    dentro il commento di riga che il progetto guardava da sempre.
+    """
+    assert colonna_commento_riga('\ts = "https://elona.fandom.com"') is None
+    assert colonna_commento_riga('\tx = 1 ; // finto') is None
+
+
+def test_i_due_selettori_di_autopick_sono_davvero_spenti():
+    """Il caso vero che ha fatto nascere la funzione, nella 100a.
+
+    `custom_autopick.hsp:200`-`:217` tiene spenti con `//` i due selettori
+    ` zombie ` e ` dragon's `, e `estrai` li estraeva come se fossero vivi.
+    """
+    righe = (percorsi.SORGENTE_HSP / "custom_autopick.hsp").read_bytes() \
+        .decode("cp932").split("\r\n")
+
+    assert lang_spenta_da_barre(righe[199]) is True     # :200  ` zombie `
+    assert lang_spenta_da_barre(righe[216]) is True     # :217  ` dragon's `
+    # ⚠️ la prova al contrario: il selettore vivo che viene subito dopo
+    assert lang_spenta_da_barre(righe[219]) is False    # :220  ` empty `
