@@ -38,6 +38,18 @@ scrivere, probabilmente la stringa va tradotta.
 | Derphy | nome proprio di città, canone Elona |
 | Noyel | nome proprio di città, canone Elona |
 | Yowyn | nome proprio di città, canone Elona |
+| `"(" + moneyboxn(inv(INV_ITEM_PARAM2, itemowner_itemid)) + ")"` | il saldo del salvadanaio (`item_func.hsp:695`), giapponese senza parentesi. **Non e' testo, e' una cornice attorno a `moneyboxn()`**, che scrive quante monete ci sono dentro: «un salvadanaio (1200)». Le tonde sono la punteggiatura italiana per un inciso numerico esattamente come per quello inglese |
+| `" <" + biten(inv(INV_ITEM_PARAM1, itemowner_itemid)) + ">"` | il nome dell'esca innestata sulla canna da pesca (`item_func.hsp:698`), giapponese senza parentesi. Cornice attorno a `biten()`: quel che c'e' da tradurre sta nei nomi delle esche, non qui. Le angolari ASCII sono gia' la convenzione del progetto per i titoli dentro un nome (vedi `< ` e ` >` qui sopra) |
+| `"<" + evitemn(inv(INV_ITEM_PARAM1, itemowner_itemid))` | l'apertura del nome dell'oggetto d'evoluzione (`item_func.hsp:710`), cornice attorno a `evitemn()`. ⚠️ **La chiusura non e' invariante**: `:713` in inglese e' `s>`, cioe' l'angolare piu' la **s del plurale**, e in italiano il plurale non si fa col suffisso — quella si rende `>`, togliendo la morfologia inglese come vuole `guida-stile.md` |
+| `"<" + _seikaku(inv(INV_ITEM_PARAM1, itemowner_itemid)) + "> "` | la cornice attorno al carattere dello spiritium (`item_func.hsp:916`, `_seikaku()`), giapponese 《 》の. Come `:698`: quel che si legge lo scrive la funzione, e le angolari piene giapponesi in CP932 escono a due glifi |
+| `>` | l'angolare che chiude il nome di un oggetto d'evoluzione al **singolare** (`item_func.hsp:716`), giapponese vuoto. E' l'altra meta' di `:710` qui sopra, e in italiano fa anche il lavoro del plurale: `:713` si rende con lo stesso `>` invece che con `s>` |
+| `primula` | il tredicesimo fiore selvatico (`item_func.hsp:1443`), giapponese プリムラ. ⚠️ **Non e' inglese lasciato li': e' italiano che coincide**, come `Info`. «Primula» e' il nome italiano corrente del genere *Primula*, ed e' anche la parola inglese: le due lingue prendono lo stesso latino. Gli altri dodici fiori della stessa lista si traducono tutti — `margaret` e' «margherita», `cosmos` e' «cosmea», `dandelion` e' «tarassaco» |
+| `<` | l'angolare che apre il **titolo casuale** di un libro prodotto in gioco (`item_func.hsp:1786`), giapponese 『. Come `< ` in cima: il giapponese usa le parentesi piene, l'inglese le ha portate in ASCII, e l'italiano tiene quelle — le francesi «» CP932 non le codifica e le piene escono a due glifi. ⚠️ Qui non c'e' nemmeno un titolo da rendere: `random_title()` lo pesca a caso da una tabella |
+| ` <` | la stessa angolare, con lo spazio che la stacca dal nome dell'oggetto (`item_func.hsp:1794`, il titolo di un libro di qualita' «miracolo»). Lo spazio in testa conta |
+| ` {` | la graffa che apre il titolo casuale di un libro **sotto** la qualita' «miracolo» (`item_func.hsp:1797`), giapponese 《. ⚠️ **Non e' la stessa cornice di `<`**, ed e' upstream a tenerle separate: le graffe marcano il titolo comune, le angolari quello raro. Uniformarle cancellerebbe una distinzione che il gioco fa apposta — la stessa ragione della coppia `{` `}` per i nati in gioco |
+| ` (lich)` | nome di creatura dentro una parentesi (`item_func.hsp:2101`, la bara della negromanzia), giapponese リッチ. **L'italiano coincide per diritto, non per pigrizia**: `db_creature.hsp:108009` rende リッチ «il lich» — parola presa di peso dal canone del genere, come in inglese — e qui l'articolo si toglie perche' e' un'apposizione attaccata al nome di un oggetto. Gli altri sette nomi della stessa lista si traducono tutti (gatto zombi, mummia, scheletro guerriero, necrobambola, drago zombi, occhi morti) |
+| ` Lv. ` | la sigla di livello sulla sfera dei mostri (`item_func.hsp:2156`), giapponese ` Lv`. E' la stessa decisione di ` Lv` qui sotto — il progetto scrive `Lv` in `action.hsp:6545`, `text.hsp:65` e `:68` — con in piu' il punto e lo spazio che l'inglese mette perche' il numero segue subito. ⚠️ Lo spazio in testa conta: allinea la sigla al nome che la precede |
+| `"[" + cnven(mtname(0, inv(INV_ITEM_MATERIAL, itemname_itemid))) + "]"` | **non e' testo, e' una cornice attorno a una variabile** (`item_func.hsp:2175`): il materiale dell'oggetto quando se ne conosce la qualita' ma non la benedizione. Quel che c'e' da tradurre sta dentro `mtname()`, cioe' in `material_data.hsp`, che ha una coda sua. ⚠️ Il giapponese scrive `"[" + mtname(...) + "製]"` e l'inglese butta il 製 («fatto di»): **si tiene la forma inglese apposta**, perche' la forma italiana piena sarebbe «[di acciaio]» / «[d'acciaio]», e l'elisione dipende dalla parola che `mtname()` restituisce a runtime — la stessa ragione per cui l'articolo dei nomi lo porta il nome e non una regola (`contratto-nomi.md` §4). Una parentesi quadra nuda regge qualunque materiale |
 | Lumiest | nome proprio di città, canone Elona |
 | Melugas | nome proprio di luogo, canone Elona |
 | Larna | nome proprio di città, canone Elona; nome opaco, vedi «la regola dei nomi propri» in `glossario.md` |
@@ -598,3 +610,82 @@ nessuna schermata, fa fallire una ricerca.
 | `EN` | `help.hsp:228` compone `"%" + ghelp + "," + lang("JP", "EN")` e lo cerca dentro `manual_ENG.txt` con `instr`. E' **la chiave del blocco**, cioe' lo stesso marcatore `%…,EN` che regge tutti e cinque i file di `data\` (vedi la Fase 3): la sigla non si legge da nessuna parte, si confronta. Tradotta, la guida in gioco non trova piu' un argomento |
 | `manual_ENG.txt` | `help.hsp:331`, argomento di un `noteload`: e' il **nome del file** del manuale, non il suo titolo. ⚠️ E il giorno in cui il manuale si traduce, questa riga non diventa una resa ma una **toppa** con `manual_IT.txt` e il ramo `exist` di ripiego — la stessa disciplina di `board_it.txt` e `talk_it.txt`, e per la stessa ragione: `noteload` su un file assente e' un errore di esecuzione, cioe' il gioco che muore |
 | `scene2.hsp` | `help.hsp:819`, stesso `noteload`, stesso motivo: e' il file delle scene sbloccabili. ⚠️ Qui l'inglese e' anche fuorviante — `lang("scene1.hsp", "scene2.hsp")` sembra una versione e sono **due file diversi**, uno per lingua |
+
+## Nomi coniati del potioman — sono un nome proprio, non una parola
+
+Le 39 stringhe qui sotto compongono il nome di un **potioman personalizzato**
+(`item_func.hsp:722`-`:871`), la macchina spara-pozioni che il fabbro migliora a
+richiesta. Il nome si monta a pezzi — modo, sottonome, sigla della parte — ed
+esce cosi': «Rotante-Flaenix F».
+
+⚠️ `ioriginalnameref(ITEM_ID_CF_POTIOMAN)` e i suoi tre fratelli sono **vuoti**
+(`db_item.hsp:135599` e dintorni): qui non c'e' un nome di oggetto a cui questi
+pezzi si attaccano, **il nome e' questo**.
+
+**Il modo si traduce, il sottonome no**, e la riga di taglio non e' arbitraria:
+
+- i sei **modi** (`:738`-`:753`) hanno un senso, e lo dichiara la forma distesa
+  gia' resa in `item_data.hsp:702`-`:707` — «Imprime al tappo una rotazione
+  tremenda», «Ha una potenza di base elevata», «Spara due colpi insieme», «Puo'
+  sparare a raffica», «Permette il tiro di precisione», «Confonde con una
+  traiettoria mutevole». Sono `Rotante`, `Potente`, `Doppio`, `Rapido`,
+  `Preciso`, `Ingannevole`, e stanno **fuori** da questa tabella;
+- i 28 **sottonomi** (`:756`-`:837`) sono portmanteau opachi in katakana che
+  l'inglese ha portato in alfabeto latino coniando una parola nuova — フレイクス
+  (flame + phoenix) e' `-Flaenix`, non «fenice di fiamma». Non c'e' una parola
+  italiana da trovare: c'e' un nome inventato, e i nomi inventati il progetto li
+  tiene (`Vernis`, `<Pascal>`);
+- le 11 **sigle di parte** (`:840`-`:870`) sono lettere sole, `Ｆ` `Ｉ` `Ｌ` …
+  a un byte anche in giapponese, dove il file usa le larghe. Un segno, non una
+  parola.
+
+💡 Il confine e' lo stesso che il progetto usa da sempre sui nomi di creatura:
+ネクロドール diventa «la necrobambola» perche' le due meta' vogliono dire
+qualcosa in giapponese, mentre `<Pascal>` resta. Qui le due meta' sono
+**inglese** gia' in giapponese: tradurle sarebbe inventare un terzo nome, che
+non e' ne' quello dell'autore ne' quello di chi ha fatto la versione inglese.
+
+⚠️ Se questa scelta si rovescia, si rovescia **tutta insieme**: 28 righe di
+dizionario, e i sei modi vanno riletti con lei.
+
+| valore | katakana | dentro |
+|---|---|---|
+| `-Flaenix` | フレイクス (flame + phoenix) | il sottonome del potioman, `item_func.hsp:756` |
+| `-Grifeak` | グリフビーク (griffin + beak) | il sottonome del potioman, `item_func.hsp:759` |
+| `-Pegather` | ペガフェザー (pegasus + feather) | il sottonome del potioman, `item_func.hsp:762` |
+| `-Dragoul` | ドラゴウル (dragon + ghoul) | il sottonome del potioman, `item_func.hsp:765` |
+| `-Ravrain` | レイヴレイン (raven + rain) | il sottonome del potioman, `item_func.hsp:768` |
+| `-Valkspear` | バルキスピア (valkyrie + spear) | il sottonome del potioman, `item_func.hsp:771` |
+| `-Orfin` | オルフィン (orca + dolphin) | il sottonome del potioman, `item_func.hsp:774` |
+| `-Wolfang` | ウルファング (wolf + fang) | il sottonome del potioman, `item_func.hsp:777` |
+| `-Leoheart` | レオハート (leo + heart) | il sottonome del potioman, `item_func.hsp:780` |
+| `-Tigelaw` | タイガロウ (tiger + claw) | il sottonome del potioman, `item_func.hsp:783` |
+| `-Foxail` | フォクテイル (fox + tail) | il sottonome del potioman, `item_func.hsp:786` |
+| `-Bearm` | ベアーム (bear + arm) | il sottonome del potioman, `item_func.hsp:789` |
+| `-Ifheat` | イフヒート (ifrit + heat) | il sottonome del potioman, `item_func.hsp:792` |
+| `-Dinoguts` | ダイガッツ (dinosaur + guts) | il sottonome del potioman, `item_func.hsp:795` |
+| `-Cerbeads` | ケルヘッズ (cerberus + heads) | il sottonome del potioman, `item_func.hsp:798` |
+| `-Bihorn` | バイホーン (bicorn) | il sottonome del potioman, `item_func.hsp:801` |
+| `-Wyverng` | ワイバング (wyvern + fang) | il sottonome del potioman, `item_func.hsp:804` |
+| `-Leviascale` | リヴァスケイル (leviathan + scale) | il sottonome del potioman, `item_func.hsp:807` |
+| `-Bushilade` | ブシレード (bushi + blade) | il sottonome del potioman, `item_func.hsp:810` |
+| `-Ogreand` | オーガンド (ogre + hand) | il sottonome del potioman, `item_func.hsp:813` |
+| `-Stagito` | スタアギト (stag + agito) | il sottonome del potioman, `item_func.hsp:816` |
+| `-Goledy` | ゴレディ (golem + lady) | il sottonome del potioman, `item_func.hsp:819` |
+| `-Knimail` | ナイメイル (knight + mail) | il sottonome del potioman, `item_func.hsp:822` |
+| `-Soldigun` | ソルジガン (soldier + gun) | il sottonome del potioman, `item_func.hsp:825` |
+| `-Deatranium` | デスレニアム (death + -enium) | il sottonome del potioman, `item_func.hsp:828` |
+| `-Giganoot` | ギガンテット (gigant + -ett) | il sottonome del potioman, `item_func.hsp:831` |
+| `-Kobolord` | コボルード (kobold + lord) | il sottonome del potioman, `item_func.hsp:834` |
+| `-Hercurest` | ヘラクレスト (hercules + crest) | il sottonome del potioman, `item_func.hsp:837` |
+| ` F` | Ｆ | la sigla della parte montata, `item_func.hsp:840` |
+| ` I` | Ｉ | la sigla della parte montata, `item_func.hsp:843` |
+| ` L` | Ｌ | la sigla della parte montata, `item_func.hsp:846` |
+| ` D` | Ｄ | la sigla della parte montata, `item_func.hsp:849` |
+| ` M` | Ｍ | la sigla della parte montata, `item_func.hsp:852` |
+| ` P` | Ｐ | la sigla della parte montata, `item_func.hsp:855` |
+| ` H` | Ｈ | la sigla della parte montata, `item_func.hsp:858` |
+| ` S` | Ｓ | la sigla della parte montata, `item_func.hsp:861` |
+| ` N` | Ｎ | la sigla della parte montata, `item_func.hsp:864` |
+| ` C` | Ｃ | la sigla della parte montata, `item_func.hsp:867` |
+| `X` | Ｘ | la sigla della parte montata, `item_func.hsp:870` |
