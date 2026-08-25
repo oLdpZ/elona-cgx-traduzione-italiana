@@ -1977,10 +1977,15 @@ python -m strumenti.dati_verifica lavoro/<file>-001.jsonl
 | `board.txt` | **25** | 25 | **100%** | senso |
 | `talk.txt` | **569** | 569 | **100%** | senso |
 | `exhelp.txt` | **185** | 185 | **100%** | impaginazione |
-| `book.txt` | **224** | 2.208 | 10% | impaginazione |
+| `book.txt` | **2.208** | 2.208 | **100%** | impaginazione |
 | `manual_ENG.txt` | 0 | 591 | 0% | impaginazione |
 | `autopick.txt` | 0 | 156 | 0% | ⚠️ configurazione |
-| **totale** | **1.003** | **3.734** | **27%** | |
+| **totale** | **2.987** | **3.734** | **80%** | |
+
+⭐⭐⭐ **Dalla 99a i quattro file installati nel gioco sono tutti chiusi**, e quel
+che resta di `data\` sono due file che nessuno ha ancora aperto: il manuale e
+`autopick.txt`. Le 1.984 righe di `book.txt` sono state fatte in **un giorno
+solo**, in nove lotti raggruppati per voce e non per dimensione.
 
 ⚠️ **`autopick.txt` e' entrato in tabella nella 98a, e non e' lavoro nuovo: e'
 un difetto in campo.** `custom_autopick.hsp:358` confronta le regole col **nome
@@ -1995,6 +2000,38 @@ lotto: stanno nel blocco `%DEFINE` di `book.txt`, e `item.hsp:121` li legge
 dalla CSV con `booktitle = lang(s(1), s(2))`, colonna 3. `dati_estrai` estrae
 solo i blocchi `%<n>,EN`. Vogliono un'**estensione dello strumento**, non una
 resa — stessa forma del punto cieco delle descrizioni di `db_item.hsp`.
+
+### ⭐⭐⭐ Che cosa ha insegnato `book.txt`, chiuso (99a)
+
+Trentadue libri in nove lotti. Il file e' il piu' vario del progetto — un
+manuale commerciale, un articolo scientifico, un volantino da lega per la
+temperanza, un regolamento di gioco, un diario di prigionia — e le tre cose che
+si portano al file dopo sono queste.
+
+**1. Il metro si misura sulla forma DEGRADATA, e conviene misurarlo prima.**
+Nel dizionario «e' » sta in un carattere, nell'albero di build in due
+(`accenti.degrada`). Ogni lotto di `book.txt` e' passato da uno script che
+degrada e conta **prima** di scrivere il JSONL, e si ferma se una riga supera i
+43. Nessuna riga e' mai arrivata alla rete fuori misura: 2.208 su 2.208 dentro,
+la piu' larga **39** — cioe' l'italiano non passa mai la misura piu' larga che
+monte inglese usa.
+
+**2. Il conto delle righe di ogni paragrafo e' un vincolo, non un consiglio.**
+`dati_applica` **sostituisce** righe senza aggiungerne, e le righe vuote fra un
+paragrafo e l'altro non sono nel lotto: dentro un paragrafo il testo si
+ridistribuisce a piacere, da un paragrafo all'altro no. I confini si leggono
+con `scratchpad/_99-para-book.py`, che stampa i gruppi di righe piene.
+
+**3. La spaziatura in testa e' contenuto.** Nessuno di questi file ha un motore
+che impagina o centra: monte conta gli spazi a mano. In `book.txt` ci sono
+insegne centrate con sei spazi (`%8`), con dodici (`%4`), tabelle incolonnate
+alla **colonna 23** e — in un punto solo, `%4` riga 80 — **due tab**. Un
+rientro perso non fallisce nessuna rete: si vede a schermo e basta.
+
+⚠️ **E un avvertimento per chi apre il manuale (`manual_ENG.txt`):** il tetto e
+il motore di a capo di quel file **non si deducono da `book.txt`**. Vale la
+regola della 98a — ogni file di questa famiglia ha il suo motore — e il tetto va
+ricavato dal sito che lo disegna, non copiato dal vicino.
 
 ### ⭐⭐⭐ La famiglia dell'impaginazione ha TRE metri, e non si prestano (98a)
 

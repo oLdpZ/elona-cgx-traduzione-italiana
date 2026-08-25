@@ -1,8 +1,8 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-25, fine della **novantottesima** sessione (**`exhelp.txt`
-CHIUSO 185/185, `book.txt` aperto 224/2.208, e tre reti riparate perche' la
-prima toppa multiriga in `command.hsp` ha spostato il pavimento**).
+Aggiornato: 2026-08-26, fine della **novantanovesima** sessione (**`book.txt`
+CHIUSO 2.208/2.208 in un giorno solo: i quattro file dati del gioco sono
+finiti, e il perimetro onesto passa dal 74% all'80%**).
 
 ⚠️⚠️ **LA SESSIONE SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
 spinto e l'albero e' pulito; le cose che **non stanno nel repo** sono quattro, e
@@ -13,8 +13,8 @@ l'ordine conta:
     cgx-test.exe               python -m strumenti.compila --eseguibile   (NON incatenato)
     i file _it.txt             li scrive `applica` in `_traduzione\build\dati\`
 
-⚠️⚠️ **I file dati italiani adesso sono QUATTRO, non due**: `board_it.txt`,
-`talk_it.txt`, `exhelp_it.txt` e `book_it.txt`. Vanno in
+⚠️⚠️ **I file dati italiani sono QUATTRO, e dalla 99a sono tutti COMPLETI**:
+`board_it.txt`, `talk_it.txt`, `exhelp_it.txt` e `book_it.txt`. Vanno in
 `C:\Games\Elona\elonaplus2.31\data\` (non nella radice del gioco: la 94a ci ha
 perso un comando), e si copiano **solo se sono cambiati** — `cmp -s` prima di
 `cp`, cosi' la data del file nel gioco dice qualcosa.
@@ -42,7 +42,216 @@ passata da un heredoc. Si scrive il file con lo strumento di scrittura, non con
 ---
 
 
-## La novantottesima sessione
+## La novantanovesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La 99a
+si e' aperta con `origin/fase-0` allineato: **cinquantaseiesima prova** di fila,
+e le quindici hanno dato quindici volte i valori attesi della 98a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    pytest                  745 passed, 6 skipped   (erano 741)
+    dizionario/dati/        board 25, talk 569, exhelp 185, book 2208/2208
+    perimetro.py            80%                     (era 74%)
+    invariati.md            512 valori dichiarati   (erano 497)
+
+Tutto il resto e' **fermo dov'era**, riverificato in chiusura: `toppe.jsonl`
+**1026**, `prova_identita` 72/72 e **28.073**, `creature` 1131/2466/0/0,
+`larghezze` 0 fuori misura, `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71,
+`menu_dialogo` 0 su 1378, `linguette` 0 e 0, `battute --divergenti` **13**,
+`intestazioni_larghezze` perimetro **0**, `dati_applica --identita` 4 file e
+2.987 righe, `dati_sorgente` 7/7 e gioco difforme su 0, `gronde` 0 su 5,
+`maiuscole` 143/6/1/7/**0**, `bilingui` **0**, `referti` **9**,
+`lang-nel-ramo-jp` **21 | 0**, `_96-morte-nella-build` **0**,
+`_97-toppe-agganciate` **1026 su 1026**, `tabelle_en` 6 fatte / 1 decisa / 0 da
+fare, `_98-exhelp-gmes` 0/0/0, `_98-book-mes` **0 su 2208, la piu' larga 39**.
+
+### ▶ Che cosa e' stato fatto
+
+    data\book.txt   i 32 libri restanti, in nove lotti           1.984  ⭐ CHIUSO
+    -------------------------------------------------------------------------
+    strumenti toccati: dati_reimporta (invariati), dati_verifica (identica)
+    test nuovi: 4 (due per strumento, ognuno con la prova al contrario)
+    invariati.md: 15 righe nuove, tutte nate da file dati
+    -------------------------------------------------------------------------
+       1.984 rese, 0 toppe, 0 reti nuove, 2 strumenti allineati
+
+**Nessuna ricompilazione, e non e' una dimenticanza**: la sessione non ha
+toccato un solo `.hsp`. I libri stanno in `data\book.txt`, che il gioco legge a
+runtime, e le toppe che glielo fanno leggere erano gia' nell'eseguibile della
+98a (**25/08 23:31**). In gioco e' stato copiato il solo `book_it.txt`
+(26/08 00:48): gli altri tre erano identici e `cmp -s` li ha lasciati stare.
+
+### ▶ ⭐⭐⭐ UN MANUALE CITA QUEL CHE E' A SCHERMO
+
+E' il fatto che conta di piu' di questa sessione, e vale per ogni testo del
+gioco che **spieghi** il gioco.
+
+`%14` e' il regolamento del gioco di carte e nomina una quarantina di parole
+chiave: `Windfury`, `Trample`, `Battlecry`, `Deathrattle`, `Silenced`. Sono
+parole comuni dentro prosa, e tradurle sarebbe stato naturale. Ma:
+
+    tcg.hsp:953    bmes "Windfury", 235, 235, 235
+    tcg.hsp:1594   s@tcg += "[Return on Begin Phase] "
+
+sono **letterali nudi**, fuori da ogni `lang()`: a schermo sono inglesi in
+tutt'e due le lingue di monte e nessun dizionario le raggiunge. Un regolamento
+tradotto bene avrebbe mandato il lettore a cercare sulla carta una parola che
+sulla carta non c'e'.
+
+⚠️ **Il criterio non e' «suona tecnico»: e' un comando.** Si cerca la stringa
+nel sorgente e si guarda se passa da una funzione di lingua. Se passa, si
+traduce e nel manuale si scrive la resa del progetto; se e' un letterale nudo,
+resta e si **dichiara**. Vale anche per i nomi delle fasi (`Begin Phase`,
+`Draw Phase`, `End Phase`) e per `Graveyard`. Nel vault:
+[[il-manuale-cita-quel-che-e-a-schermo]].
+
+### ▶ ⭐⭐⭐ LA CATENA DEI FILE DATI NON LEGGEVA `invariati.md`
+
+`dati_reimporta` chiamava `dati_verifica.controlla(voci, tetto_a_capo=...)`
+**senza** passare gli invariati, e il parametro aveva un default vuoto: la
+catena dei file dati era l'unica del progetto a non vedere le eccezioni
+dichiarate. Per venti sessioni non se n'era accorto nessuno, perche' nessun
+file dati aveva ancora una riga che dovesse restare inglese.
+
+Poi e' arrivato `%26` — gli appunti di stregoneria — con i titoletti `Mana` e
+`MP`, che in italiano si scrivono uguali e che `invariati.md` **dichiara alla
+riga 76 da mesi**. Il lotto e' stato rifiutato per una resa giusta.
+
+⚠️ **Un rifiuto sbagliato costa meno di un'approvazione sbagliata, ma insegna a
+scavalcare la rete.** Riparato passando `verifica.carica_invariati()`, con due
+test e la prova al contrario: senza dichiarazione, una resa identica all'inglese
+e' ancora rifiutata.
+
+E accanto, una regola nuova nella rete `identica`: una riga **senza nemmeno una
+lettera** non puo' essere una resa dimenticata. `%26` sottolinea ogni titoletto
+con una riga di uguali (`=====`, `=============`), e l'alternativa era mettere
+quattro file di uguali fra le decisioni di traduzione. Anche questa provata al
+contrario: basta **una** lettera e la rete torna a mordere.
+
+### ▶ Le decisioni di resa che pesano
+
+1. **Due deroghe alla regola «si traduce dall'inglese», misurate sul
+   giapponese.** `%6` in inglese dice `Round Eyes! Round Eyes! Round Eyes!`: e'
+   目がまわる letto alla lettera, cioe' «mi gira la testa» — il libro che fa
+   girare la testa a chi lo legge. Reso «Gira tutto, gira tutto, gira tutto».
+   E `%30`, la lettera del padre, apre con `Son,` mentre il giapponese dice
+   愛するわが子へ, 「わが子」 **senza genere**: in italiano «figlio» avrebbe
+   scelto il genere del giocatore, e la lettera apre invece con «Tesoro mio».
+2. ⚠️ **La spaziatura in testa e' contenuto.** I file dati non hanno un motore
+   che impagina: monte centra le insegne contando gli spazi a mano (sei in `%8`,
+   dodici nell'errata di `%4`), incolonna le tabelle fiscali alla **colonna 23**
+   e in un punto (`%4` riga 80) usa **due tab**. Ogni rientro e' stato ricopiato
+   tale e quale.
+3. **Il registro cambia da libro a libro, e va tenuto.** L'inglese da' alla
+   contadina di `%9` una parlata rustica che il giapponese non ha (il 農民
+   giapponese e' compito): e' una scelta dell'autore inglese, non una svista, e
+   in italiano si tiene. Il barone di `%11` e il curatore di `%4` danno del
+   **voi** — sono manuali commerciali rivolti a una platea — e il plurale ha il
+   pregio di scansare il genere del lettore una decina di volte per libro.
+4. **Le ultime cinque righe di `%21` sono rotte di proposito** e in italiano si
+   rompono uguale: chi scrive sta morendo nel gas e perde lettere
+   (`Le man  si intorp discono`). Non e' un refuso da riparare, e' la scena.
+5. I nomi delle erbe (`curaria`, `morgia`, `mareilon`, `spenseweed`,
+   `alraunia`, `crimberry`) restano come in `db_item.hsp`, e i loro effetti
+   vengono dal **giapponese**: monte inglese dice `Strength and Endurance`, il
+   giapponese 筋力と耐久, cioe' **Forza** e **Costituzione**, che sono i nomi
+   della scheda.
+
+### ▶ Quel che resta aperto
+
+1. ⚠️⚠️⚠️ **`autopick.txt` e' GIA' SCADUTO contro la nostra build**, e va
+   tradotto nello **stesso lotto** di `custom_autopick.hsp`. Per esteso in
+   `decisioni.md` §98a. Non e' lavoro futuro: e' un difetto in campo. ⭐ **Adesso
+   e' il primo della fila**, perche' i quattro file dati sono chiusi e questo e'
+   il quinto file di `data\`.
+2. ⭐⭐ **I 33 titoli del `%DEFINE` di `book.txt`.** `item.hsp:121` li legge dalla
+   CSV (`booktitle = lang(s(1), s(2))`, colonna 3); `dati_estrai` estrae solo i
+   blocchi `%<n>,EN`. **Vuole un'estensione dello strumento, non una resa.**
+   ⓘ Due titoli erano gia' decisi, perche' sono anche nomi di oggetto in
+   `db_item.hsp`: «introduzione alla pesca» (`%31`) e «consigli sugli incarichi»
+   (`%30`), e il libro li ha ricopiati di li'. Gli altri 31 li ha decisi questa
+   sessione **dentro** il libro (riga 1 di ogni blocco): quando lo strumento
+   sapra' estrarre il `%DEFINE`, i titoli si prendono da li' e non si
+   reinventano.
+3. ⭐⭐ **Il manuale**, `data\manual_ENG.txt`, 591 righe. ⚠️ `help.hsp:331` e'
+   l'**unico** della famiglia in cui il nome del file sta dentro una `lang()`,
+   quindi si dirotta dal dizionario — ma una toppa serve lo stesso, per il
+   **ripiego** `exist`.
+4. ⭐⭐⭐ **`db_card.hsp`, 1.145 firme**: l'ultimo dentro il perimetro `lang()`.
+5. ⭐⭐⭐ **Le 5.284 descrizioni degli oggetti** di `db_item.hsp`: fuori da
+   `lang()`, `estrai.py` non le vede. E' il blocco piu' grosso che resta e vale
+   da solo il salto dall'80% al 94%.
+6. ⚠️⚠️⚠️ **IL COLLAUDO A SCHERMO E' L'ARRETRATO CHE CRESCE PIU' IN FRETTA.**
+   Diciotto sessioni e **4.848 rese mai viste** (2.864 piu' le 1.984 di oggi).
+   ⭐ **I punti offerti dalla 99a** — l'eseguibile non c'entra, i libri si
+   leggono dal file dati (`book_it.txt`, 26/08 00:48):
+   - **un libro rosso qualsiasi**, e adesso qualunque cosa esca e' italiano. I
+     piu' lunghi e i piu' facili da riconoscere: la guida all'allevamento
+     (`%11`, 191 righe), il manuale del negozio (`%8`, 125), i consigli sugli
+     incarichi (`%30`, 121);
+   - da guardare **due cose sole**: che nessuna riga tocchi il bordo destro
+     entrando nella colonna accanto, e che le **insegne centrate** e le
+     **tabelle incolonnate** (fine di `%8` e di `%4`) restino in colonna;
+   - ⚠️ il titolo che compare sulla **copertina** (cioe' il nome dell'oggetto)
+     e' ancora inglese per 31 libri su 33: e' il punto 2 qui sopra, non un
+     difetto nuovo.
+   Restano dalle sessioni prima i consigli di Norne (serve un personaggio
+   nuovo), il pannello «Conoscenza dell'oggetto» (`X` poi `x`), i due menu degli
+   incantesimi (`v`, poi `z`, poi `/`), la scheda (`c`), e la coda lunga di
+   NERES, RYUTYE, CRAY, MARY, BURT, KARATA, MANSON, RAIZEL, NORNE, ALICE, i
+   ventotto nomi di MIKRAANESIS, il menu del seminario, il menu di Maile a
+   undici voci, il prospetto cittadino e il **[Non posare]**.
+7. ⚠️⚠️ **LE QUATTRO DEL MURO DEI PREFISSI VOGLIONO QUATTRO TOPPE**:
+   `item_func.hsp:1308`, `:1386`, `:1390`, `:1458`. La strada e' quella di
+   `:1399`. ⚠️ Vanno **viste in gioco una per una**.
+8. ⭐⭐ **`"Have"` di `command.hsp:11069`**: letterale inglese nudo nel pannello
+   «Scelta delle abilita'». Sta gia' in `blocchi_en.py`.
+9. ⭐⭐ **Le dieci righe `listn` senza metro**: cinque pannelli a colonne, il
+   metro si legge a mano e si scrive in `METRO_A_MANO`.
+10. ⭐⭐ **Tre reti che mancano**: la larghezza della riga degli incantamenti
+    (`showresist == 4`, budget 380 px / 47 caratteri, e l'inglese lo sfonda
+    gia'); gli **inglesi divergenti**; i **partner fuori da `lang()`** (81a); i
+    **buff** della finestra del dialogo (95a).
+11. ⚠️⚠️⚠️ **I 335 SITI DOVE L'INGLESE E' STATICO E IL GIAPPONESE NO**, e dentro
+    quelli i **quattro** dove l'inglese dice un'altra frase. Decisione aperta.
+    `python scratchpad/_94-jp-dinamico-en-statico.py --tutte`.
+12. 🔶 **L'EPITETO DI SINAHA**, la 🔶 **sorella H** (82a) e la 🔶 decisione della
+    80a sul menu degli arti.
+13. ⚠️⚠️⚠️ **Le sette etichette del potenziale** (`command.hsp:10676`-`:10700`,
+    piu' 6): letterali nudi senza `lang()`, a schermo inglesi. Il giorno che si
+    toppano, `chat.hsp:14246` va rifatta.
+14. ⭐⭐⭐ **La rete che manca ha un rendimento misurato**: rileggere il dizionario
+    con le regole nuove. Il rendimento cala, non e' zero.
+15. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+    `material_data.hsp` 118, `custom_autopick.hsp` 90 (⚠️ vedi il punto 1),
+    `net.hsp` 37, `custom_itemenchantment.hsp` 31, `quest.hsp` 26,
+    `material.hsp` 19, `etc.hsp` 14 (**mezzo tradotto: finestra bilingue**).
+16. ⭐⭐ Il **muro del materiale** generale, e ⚠️ **`scene2.hsp` non e' nel
+    dizionario** (due fili: `<Minea> The Puppeteer`, e `:9399`-`:9403` di
+    Mikraanesis coi letterali nudi).
+
+### ▶ Come si e' chiusa
+
+`dati_applica` ha scritto 2.987 righe in quattro file, e il `grep` del segnale
+di guasto sul suo output ha taciuto. `_98-book-mes` sulla build: **0 fuori
+misura su 2208**, la piu' larga 39 caratteri su 43 — cioe' il `book.txt`
+italiano non passa mai la misura piu' larga usata dall'inglese di monte.
+`pytest` 745 su 745 coi quattro test nuovi. Nessuna ricompilazione, per la
+ragione scritta sopra.
+
+La voce in `log.md` (vault) e' stata scritta **prima** dei documenti del repo,
+come vuole la lezione della 90a, e con lei un concept nuovo
+(`il-manuale-cita-quel-che-e-a-schermo`), un concept esteso
+(`una-guardia-vale-solo-dove-guarda`, terza forma) e la riga in `index.md`.
+
+---
+
+
+## La novantottesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
@@ -4835,7 +5044,7 @@ repo** sono cinque, e l'ordine conta:
     dati-sorgente\             python -m strumenti.dati_sorgente --pinna
     l'albero di build          python -m strumenti.applica
     cgx-test.exe               python -m strumenti.compila --eseguibile   (NON incatenato)
-    dataoard_it.txt e talk_it.txt   li scrive `applica` in build\dati\, poi si copiano
+    data\board_it.txt e talk_it.txt   li scrive `applica` in build\dati\, poi si copiano
 
 ⚠️ `strumenti.gronde` legge la **build**: su una macchina senza albero
 costruito non fallisce dicendo «la gronda è stretta», muore di file non trovato.

@@ -9624,3 +9624,106 @@ cambia il nome, non si aggiunge il ramo `exist` + `strsize != (-1)`: un
 `manual_IT.txt` mancante sarebbe un `noteload` su un file assente, cioè un
 errore di esecuzione. Quindi la toppa qui non porta il nome — porta il
 **ripiego**.
+
+
+## 99ª — Un manuale cita quel che è a schermo, e la catena dei file dati non leggeva `invariati.md`
+
+`book.txt` chiuso, 2.208 righe su 2.208. Le decisioni che restano scritte sono
+quattro: due di strumento e due di resa.
+
+### ⭐⭐⭐ Le parole chiave delle carte restano inglesi, e il criterio è un comando
+
+`%14` di `book.txt` è il regolamento del gioco di carte e nomina una quarantina
+di parole chiave — `Windfury`, `Trample`, `Battlecry`, `Deathrattle`,
+`Silenced` — dentro prosa italiana. Tradurle sarebbe stato naturale; sono
+parole comuni.
+
+Il sorgente dice di no:
+
+    tcg.hsp:953    bmes "Windfury", 235, 235, 235
+    tcg.hsp:1594   s@tcg += "[Return on Begin Phase] "
+
+sono **letterali nudi**, fuori da ogni `lang()`. A schermo quelle parole sono
+inglesi in tutt'e due le lingue di monte, e nessun dizionario le raggiunge: un
+regolamento tradotto bene manderebbe il lettore a cercare **sulla carta** una
+parola che sulla carta non c'è.
+
+💡 **Il criterio non è «suona tecnico»: è una verifica.** Si cerca la stringa
+nel sorgente e si guarda se passa da una funzione di lingua.
+
+- se passa, si traduce, e nel manuale si scrive la resa che il progetto le ha
+  già dato — è la regola di [[il-nome-interno-non-e-quello-a-schermo]];
+- se è un letterale nudo, resta in inglese **e si dichiara** in `invariati.md`,
+  col perché e col sito. Il giorno che monte la porta dentro una `lang()`, la
+  citazione va rifatta, e la riga dichiarata è il posto dove qualcuno se ne
+  accorge.
+
+⚠️ Vale per le stesse ragioni sui nomi delle fasi (`Begin Phase`, `Draw Phase`,
+`End Phase`) e su `Graveyard`. ⭐ E c'era già un precedente non dichiarato:
+`tcg_custom.hsp:2066` scrive «le carte Trample» in italiano dalla 53ª.
+Nel vault: [[il-manuale-cita-quel-che-e-a-schermo]].
+
+### ⚠️⚠️ `dati_reimporta` non passava gli invariati, e ha rifiutato una resa giusta
+
+`dati_reimporta.reimporta` chiamava `dati_verifica.controlla(voci,
+tetto_a_capo=...)` **senza** l'argomento `invariati`, che ha un default vuoto.
+La catena dei file dati era quindi l'unica del progetto a non vedere
+`invariati.md` — il file dove stanno, motivate una per una, le stringhe che
+restano identiche all'inglese per scelta.
+
+Per venti sessioni non se n'è accorto nessuno, perché nessun file dati aveva
+ancora una riga da lasciare inglese. Poi è arrivato `%26`, gli appunti di
+stregoneria, coi titoletti `Mana` e `MP`: `Mana` è dichiarato in `invariati.md`
+**alla riga 76 da mesi**, e il lotto è stato rifiutato.
+
+Riparato con `verifica.carica_invariati()` dentro `reimporta`, che il chiamante
+può sovrascrivere. Due test, e il secondo è la prova al contrario: **senza**
+dichiarazione una resa identica all'inglese dev'essere ancora rifiutata,
+altrimenti la riparazione ha spento la rete invece di allinearla.
+
+💡 **La regola generale che ne esce:** quando nasce un secondo percorso per la
+stessa cosa, la domanda non è «ha le stesse reti?» ma «legge le stesse
+**dichiarazioni**?». Un parametro di eccezioni con default vuoto è un
+disallineamento in attesa. Vedi [[una-guardia-vale-solo-dove-guarda]], terza
+forma.
+
+### ⚠️ Una riga senza nemmeno una lettera non può essere una resa dimenticata
+
+Stesso blocco `%26`: ogni titoletto è sottolineato da una riga di uguali
+(`=====`, `======`, `===`, `=============`), identica all'inglese perché non
+c'è niente da tradurre. L'alternativa era mettere **quattro file di uguali**
+fra le decisioni di traduzione di `invariati.md`, che è il posto dove si
+scrivono i perché — e lì una riga di segni non ha un perché da scrivere.
+
+La rete `identica` di `dati_verifica` ora salta le righe prive di lettere
+(`_ha_lettere`). Provata al contrario: `=== a ===` contro se stessa **resta** un
+problema, perché una lettera basta a farne testo.
+
+### Le due deroghe alla regola «si traduce dall'inglese», misurate sul giapponese
+
+1. **`%6` — l'inglese ha letto male.** Dice `Round Eyes! Round Eyes! Round
+   Eyes!`; il giapponese è 目がまわる ripetuto tre volte, che è l'espressione
+   idiomatica «mi gira la testa» — ed è il libro che fa girare la testa a chi lo
+   legge. «Occhi rotondi» è la traduzione carattere per carattere di un idioma.
+   Reso «Gira tutto, gira tutto, gira tutto».
+2. **`%30` — l'inglese ha aggiunto un genere che il giapponese non ha.** La
+   lettera del padre apre con `Son,` e più avanti aggiunge «whatever you are»;
+   il giapponese dice 愛するわが子へ, e 「わが子」 è «la mia creatura», senza
+   genere. In italiano «figlio» sceglierebbe il genere del giocatore a ogni
+   riga: la lettera apre con «Tesoro mio,», che regge per tutt'e due.
+
+⚠️ È la deroga già dichiarata nella 30ª («si deroga quando l'inglese perde
+informazione che il giapponese ha») applicata anche **al rovescio**: qui
+l'inglese *aggiunge* un'informazione che il giapponese non dà.
+
+### ⓘ I 33 titoli dei libri: 31 sono decisi, ma stanno nel posto sbagliato
+
+`item.hsp:121` legge i titoli dal blocco `%DEFINE` della CSV, che `dati_estrai`
+non estrae: restano inglesi sulla copertina. Due erano già decisi altrove,
+perché sono anche nomi di oggetto in `db_item.hsp` — «introduzione alla pesca»
+(`%31`) e «consigli sugli incarichi» (`%30`) — e il libro li ha ricopiati di
+lì, per non far leggere al giocatore due nomi diversi della stessa cosa.
+
+Gli altri 31 titoli questa sessione li ha decisi **dentro** il libro, alla riga
+1 di ogni blocco. Quando lo strumento saprà estrarre il `%DEFINE`, i titoli si
+prendono da lì: non si reinventano.
