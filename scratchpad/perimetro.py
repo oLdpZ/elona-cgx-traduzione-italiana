@@ -159,6 +159,19 @@ def main() -> None:
         if nome not in rese:
             fuori_dizionario += quante
 
+    # ⚠️⚠️ LE RESE DEI FILE DATI STANNO IN UN'ALTRA CARTELLA, E FINO ALLA 98a
+    # ERANO SOLO AL DENOMINATORE. `dizionario/dati/*.jsonl` non lo prendeva la
+    # glob qui sopra, quindi le 779 righe gia' rese di `board.txt`, `talk.txt` ed
+    # `exhelp.txt` pesavano nel totale come lavoro DA FARE. Il referto diceva 70%
+    # con tre file su quattro finiti: uno zero uniforme e' una domanda posta al
+    # posto sbagliato, e questo era il suo gemello al numeratore.
+    rese_dati = {}
+    for percorso in sorted(glob.glob(os.path.join(DIZIONARIO, 'dati', '*.jsonl'))):
+        nome = os.path.basename(percorso).replace('.jsonl', '')
+        rese_dati[nome] = sum(1 for l in io.open(percorso, encoding='utf-8')
+                              if l.strip() and json.loads(l).get('it'))
+    fatte_dati = sum(rese_dati.values())
+
     nomi_oggetto = rese.get('db_item.hsp', 0)   # non passa da lang()
     descrizioni = descrizioni_oggetto()
     esterni = file_esterni()
@@ -177,9 +190,11 @@ def main() -> None:
     print()
     print(f'descrizioni di oggetto (ramo EN)    : {descrizioni:>7}   MAI contate')
     for nome, (righe, caratteri) in esterni.items():
-        print(f'  data/{nome:<24}{righe:>7} righe EN, {caratteri} caratteri')
+        quante = rese_dati.get(nome, 0)
+        stato = '⭐ CHIUSO' if quante >= righe else f'{quante} rese'
+        print(f'  data/{nome:<24}{righe:>7} righe EN, {caratteri:>6} caratteri   {stato}')
     print(f'--- TOTALE col testo fuori perimetro: {totale:>7}   '
-          f'fatto {100 * fatte / totale:.0f}%')
+          f'fatto {100 * (fatte + fatte_dati) / totale:.0f}%')
     print()
     print(f'⚠️ le {descrizioni} descrizioni e i {caratteri_esterni} caratteri esterni sono '
           'PROSA: in caratteri pesano molto piu\' che in firme.')

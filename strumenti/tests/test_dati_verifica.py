@@ -353,3 +353,47 @@ def test_le_conversioni_giapponesi_restano_segnalate():
     voce = _voce_talk("Hey {player}!", "Ehi {player}{だ}!")
     problemi = dati_verifica.controlla([voce])
     assert any("giapponesi" in p.dettaglio for p in problemi)
+
+
+# ------------------------------------------------------- il profilo di exhelp
+#
+# ⚠️⚠️ `exhelp.txt` non passa da nessun espansore: `help.hsp:227` lo carica con
+# `noteload` e `:273` lo disegna con `gmes`, che di graffe non sa niente. E non
+# e' `titolo:corpo`: i due punti dentro le frasi sono prosa. Senza un profilo
+# suo cadrebbe nel PROFILO_IGNOTO, che e' quello di `board.txt` — e una rete
+# giusta puntata sul file sbagliato non tace, mente.
+
+def _voce_exhelp(en, it):
+    return {"firma": "x", "file": "exhelp.txt", "blocco": "1", "riga": 1,
+            "en": en, "jp_contesto": [], "it": it}
+
+
+def test_exhelp_non_vuole_i_due_punti():
+    voce = _voce_exhelp("Here's my first tip for you.",
+                        "Ecco il mio primo consiglio.")
+    assert dati_verifica.controlla([voce]) == []
+
+
+def test_exhelp_coi_due_punti_nella_prosa_non_e_un_titolo():
+    # su `board.txt` questo scatterebbe come «titolo largo»: 30 caratteri
+    # davanti ai due punti contro un tetto di 24
+    # ⚠️ l'accento vero, non «e'»: la degradazione la fa `dati_applica`, e la
+    # rete dell'apostrofo scritto a mano scatta prima di questa
+    voce = _voce_exhelp("Use your home as a safe storage since the items",
+                        "Casa tua è un magazzino sicuro: quello che")
+    assert dati_verifica.controlla([voce]) == []
+
+
+def test_exhelp_una_graffa_qualsiasi_resterebbe_a_schermo():
+    # nemmeno le conversioni giapponesi le mangia nessuno, qui
+    for graffa in ("{reward}", "{だ}", "{you}"):
+        voce = _voce_exhelp("Just ask the innkeepers.", f"Chiedilo al banco {graffa}.")
+        problemi = dati_verifica.controlla([voce])
+        assert any("resterebbero fra graffe" in p.dettaglio for p in problemi), graffa
+
+
+def test_exhelp_ha_la_rete_dell_altezza_spenta_apposta():
+    # il tetto vero e' in scratchpad/_98-exhelp-gmes.py: `gmes` manda a capo per
+    # carattere e salta i marcatori, `righe_a_capo` fa l'opposto in tutt'e due
+    assert dati_verifica.PROFILI["exhelp.txt"]["tetto_capo"] is None
+    assert dati_verifica.PROFILI["exhelp.txt"]["titolo"] is False

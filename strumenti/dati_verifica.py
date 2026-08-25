@@ -131,14 +131,41 @@ CONVERT_WORD = Espansore(
     da_togliere=_DA_TOGLIERE,
 )
 
+# ⚠️⚠️ `exhelp.txt` NON HA UN ESPANSORE: non passa da nessuno dei due.
+#
+# `help.hsp:227` lo carica con `noteload` e `:273` lo disegna con `gmes`, che di
+# graffe non sa niente. Percio' **qualunque** `{...}` in una resa resterebbe a
+# schermo fra graffe — comprese le conversioni giapponesi, che negli altri due
+# file almeno un espansore le mangia. Gli si azzerano anche quelle due famiglie,
+# cosi' la rete non dice «conversione giapponese» (vero altrove) al posto di
+# «resterebbe fra graffe» (vero qui).
+NESSUN_ESPANSORE = Espansore("nessun espansore", ())
+NESSUN_ESPANSORE.giapponesi = frozenset()
+NESSUN_ESPANSORE.inglesi_nudi = frozenset()
+NESSUN_ESPANSORE.noti = frozenset()
+
 # Il profilo di un file: chi lo legge, se la riga e' `titolo:corpo`, e a che
 # larghezza il gioco la manda a capo.
 #
 #     board.txt   talk_conv buff, 70            command.hsp:3367
 #     talk.txt    talk_conv buff, 56 - en * 3   chat.hsp:25226, cioe' 53
+#     exhelp.txt  gmes, 330 px / 7 px           help.hsp:264, cioe' 48
+#
+# ⚠️⚠️ **`tetto_capo` di `exhelp.txt` resta None APPOSTA.** La rete dell'altezza
+# qui sotto rifa' `talk_conv`, che manda a capo **sulle spaziature**; `gmes`
+# manda a capo **per carattere**, e conta i marcatori `<emp1>` come larghezza
+# mentre `gmes` li salta. Puntata su questo file misurerebbe un motore che non
+# c'e' — e una rete giusta sul file sbagliato non tace, mente (lezione della
+# 70a, qui sopra). La misura vera sta in `scratchpad/_98-exhelp-gmes.py`, che
+# riproduce `gmes` riga per riga e guarda anche l'**altezza del gruppo**, che e'
+# il vincolo che conta e che una rete per riga non puo' vedere.
+#
+# ⚠️ E `titolo` e' False: `exhelp.txt` non e' `titolo:corpo`, e i due punti
+# dentro le frasi farebbero scattare «titolo largo» su prosa normale.
 PROFILI = {
     "board.txt": {"espansore": TALKTXT_CONV, "titolo": True, "tetto_capo": 70},
     "talk.txt": {"espansore": CONVERT_WORD, "titolo": False, "tetto_capo": 53},
+    "exhelp.txt": {"espansore": NESSUN_ESPANSORE, "titolo": False, "tetto_capo": None},
 }
 
 PROFILO_IGNOTO = {"espansore": TALKTXT_CONV, "titolo": True, "tetto_capo": None}
