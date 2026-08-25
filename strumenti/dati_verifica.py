@@ -166,6 +166,13 @@ PROFILI = {
     "board.txt": {"espansore": TALKTXT_CONV, "titolo": True, "tetto_capo": 70},
     "talk.txt": {"espansore": CONVERT_WORD, "titolo": False, "tetto_capo": 53},
     "exhelp.txt": {"espansore": NESSUN_ESPANSORE, "titolo": False, "tetto_capo": None},
+    # ⚠️ `book.txt` non manda a capo AFFATTO: `command.hsp:8412` fa `mes s` e
+    # basta, e una riga troppo lunga entra nella colonna accanto invece di
+    # spezzarsi. Anche qui il tetto sta in una rete sua,
+    # `scratchpad/_98-book-mes.py`: 306 px di colonna / 7 px = 43 caratteri.
+    # E nemmeno lui ha un espansore — `item.hsp:112` e `command.hsp:8371` fanno
+    # `noteload` e via.
+    "book.txt": {"espansore": NESSUN_ESPANSORE, "titolo": False, "tetto_capo": None},
 }
 
 PROFILO_IGNOTO = {"espansore": TALKTXT_CONV, "titolo": True, "tetto_capo": None}
