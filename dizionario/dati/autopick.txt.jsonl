@@ -1,0 +1,156 @@
+{"firma": "039ddc32771dcbd00015c865d3c36958f47b067c", "file": "autopick.txt", "blocco": "", "riga": 1, "en": "### Elona+ Custom-GX Autopickup Settings ###", "jp_contesto": [], "it": "### Elona+ Custom-GX — Impostazioni della raccolta automatica ###"}
+{"firma": "77293c9af2eed31f8864bc8b9b7912f0ea71b73c", "file": "autopick.txt", "blocco": "", "riga": 2, "en": "# To use this, enable the autopickup feature in EX Setting 1 from the settings menu.", "jp_contesto": [], "it": "# Per usarlo, accendi la raccolta automatica in Impostazioni extra 1, dal menu delle impostazioni."}
+{"firma": "38a1b6135b3f2bd598dc96518a01fcabf83b2b6e", "file": "autopick.txt", "blocco": "", "riga": 3, "en": "# This file should be saved as \"autopick.txt\" in your character's save folder.", "jp_contesto": [], "it": "# Questo file va salvato come \"autopick.txt\" nella cartella di salvataggio del personaggio."}
+{"firma": "f4ba09fa30d884a58e7cde53519d8bd4d0835894", "file": "autopick.txt", "blocco": "", "riga": 4, "en": "# Press [Shift+Backspace] while in-game to reload this file.", "jp_contesto": [], "it": "# In gioco, [Maiusc+Backspace] ricarica questo file."}
+{"firma": "fe79f4180c47e8e3e18a7079dd6b4c1f29d1df06", "file": "autopick.txt", "blocco": "", "riga": 5, "en": "# Press [Ctrl+Backspace] to open the currently loaded autopickup settings file in your text editor.", "jp_contesto": [], "it": "# [Ctrl+Backspace] apre nell'editor di testo il file di raccolta che è caricato adesso."}
+{"firma": "b7f4fea7d233ee4803b278d179fd1deac95c1b76", "file": "autopick.txt", "blocco": "", "riga": 6, "en": "# Press [Alt+Backspace] to quickly toggle autopickup on/off.", "jp_contesto": [], "it": "# [Alt+Backspace] accende e spegne al volo la raccolta automatica."}
+{"firma": "fa4a3032e2dbff19668e8cb17bef19653a0e1c66", "file": "autopick.txt", "blocco": "", "riga": 7, "en": "# Hold [Ctrl] while moving to temporarily disable autopickup.", "jp_contesto": [], "it": "# Tenendo premuto [Ctrl] mentre ti muovi, la raccolta automatica non scatta."}
+{"firma": "d33147df469df58113004756a12425965b6cf87f", "file": "autopick.txt", "blocco": "", "riga": 8, "en": "#", "jp_contesto": [], "it": "#"}
+{"firma": "6c0f5c24d213f952ae07802ab32d223fae5f4192", "file": "autopick.txt", "blocco": "", "riga": 9, "en": "# Syntax:", "jp_contesto": [], "it": "# Sintassi:"}
+{"firma": "967a370a0ffafa47b82ae89a5a5c385ea133176d", "file": "autopick.txt", "blocco": "", "riga": 10, "en": "# '#' denotes a comment.", "jp_contesto": [], "it": "# Il '#' apre un commento."}
+{"firma": "88516350830ec50f90cdb197ce5fc21b27d1ff90", "file": "autopick.txt", "blocco": "", "riga": 11, "en": "# '~' before an entry means to not pick it up and ignore any following matchers.", "jp_contesto": [], "it": "# Il '~' davanti a una voce vuol dire: non raccoglierla, e salta tutte le regole che seguono."}
+{"firma": "a7b4f38f87e31c30296301c9a8d0014b8663cab1", "file": "autopick.txt", "blocco": "", "riga": 12, "en": "# '!' before an entry means to destroy it.", "jp_contesto": [], "it": "# Il '!' davanti a una voce vuol dire: distruggila."}
+{"firma": "2cb1ce2443705e5e94a6030254acbbf96c1aa7d0", "file": "autopick.txt", "blocco": "", "riga": 13, "en": "# '!!' before an entry means to destroy it, even if it's precious.", "jp_contesto": [], "it": "# Il '!!' davanti a una voce vuol dire: distruggila anche se è preziosa."}
+{"firma": "5f55a0a1259e4dff71e6f007c916454bfca8d4d5", "file": "autopick.txt", "blocco": "", "riga": 14, "en": "# '?' after an entry means to prompt for picking/destroying it first.", "jp_contesto": [], "it": "# Il '?' dopo una voce vuol dire: chiedi prima di raccoglierla o di distruggerla."}
+{"firma": "9e7704713b21251eaafde1be24d97fe497c22f76", "file": "autopick.txt", "blocco": "", "riga": 15, "en": "# '%' after an entry means to autosave when it's picked up.", "jp_contesto": [], "it": "# Il '%' dopo una voce vuol dire: salva la partita quando la raccogli."}
+{"firma": "bf3d5505bb7a598984cdc8e604f0edc95d2ef48e", "file": "autopick.txt", "blocco": "", "riga": 16, "en": "# '=' after an entry means to set the item as no-drop when it's picked up.", "jp_contesto": [], "it": "# Il segno '=' dopo una voce vuol dire: metti il [Non posare] all'oggetto quando lo raccogli."}
+{"firma": "27c0f49fea495acd0f8e277f899fb5e407f77701", "file": "autopick.txt", "blocco": "", "riga": 17, "en": "# ':sound123' after an entry means to play the sound with ID 123 when it matches.", "jp_contesto": [], "it": "# ':sound123' dopo una voce vuol dire: suona l'effetto numero 123 quando la regola aggancia."}
+{"firma": "38fc7e1defe2496dc9dd0870143812bd1f3436d9", "file": "autopick.txt", "blocco": "", "riga": 18, "en": "#", "jp_contesto": [], "it": "#"}
+{"firma": "671ea4e45ef971e881971daaf505ae1fb785215c", "file": "autopick.txt", "blocco": "", "riga": 19, "en": "# You can store up to 10 sets of autopickup rules in each save folder,", "jp_contesto": [], "it": "# In ogni cartella di salvataggio puoi tenere fino a 10 gruppi di regole,"}
+{"firma": "0ec5522a46dd072ff166b2fc1f122efe7067a74b", "file": "autopick.txt", "blocco": "", "riga": 20, "en": "# named autopick.txt, autopick_1.txt, autopick_2.txt, and so on.", "jp_contesto": [], "it": "# chiamati autopick.txt, autopick_1.txt, autopick_2.txt, e così via."}
+{"firma": "4534b6d1accb92b000881c18c88d44b8901e9639", "file": "autopick.txt", "blocco": "", "riga": 21, "en": "#", "jp_contesto": [], "it": "#"}
+{"firma": "47c2abf9b2183e4470226d1e1e6aa737c5adea80", "file": "autopick.txt", "blocco": "", "riga": 22, "en": "# NOTE: Autopickup will not trigger inside player-owned locations (except ranches and shelters).", "jp_contesto": [], "it": "# NOTA: la raccolta automatica non scatta nei luoghi che sono tuoi (tranne fattorie e rifugi)."}
+{"firma": "d7ca91e3228beb3c1cf219d528fb6e23a4749c31", "file": "autopick.txt", "blocco": "", "riga": 23, "en": "#", "jp_contesto": [], "it": "#"}
+{"firma": "6b3a0de39d66ab3d3e9e933a5b44d99b0cb54ead", "file": "autopick.txt", "blocco": "", "riga": 24, "en": "# See the wiki for more information: https://elona.fandom.com/wiki/Autopickup", "jp_contesto": [], "it": "# Per saperne di più c'è il wiki: https://elona.fandom.com/wiki/Autopickup"}
+{"firma": "3ae9dfee360f7a728b6763f6ff9225959891c282", "file": "autopick.txt", "blocco": "", "riga": 25, "en": "# (Note however that there are some differences from omake's syntax.)", "jp_contesto": [], "it": "# (Attenzione: qualcosa è diverso dalla sintassi di omake, e il wiki è in inglese — le chiavi inglesi stanno in fondo.)"}
+{"firma": "c516bf24c7dbda0c08c4f7ad45d2f031a90735aa", "file": "autopick.txt", "blocco": "", "riga": 26, "en": "### Example usage ###", "jp_contesto": [], "it": "### Esempi ###"}
+{"firma": "fb4fc7f719f2f98a50f8019f7155d27c622fe165", "file": "autopick.txt", "blocco": "", "riga": 27, "en": "# Ignore cursed items.", "jp_contesto": [], "it": "# Lascia stare gli oggetti maledetti."}
+{"firma": "172d32491e6ab8a8512d7527263a72a25ac2e862", "file": "autopick.txt", "blocco": "", "riga": 28, "en": "# If a matcher higher up in the file matches, the rest of the matchers will be prevented from running.", "jp_contesto": [], "it": "# Se aggancia una regola più in alto nel file, quelle che vengono dopo non vengono nemmeno provate."}
+{"firma": "031c5ed5fed4b739d6188dedb19cc277860550d7", "file": "autopick.txt", "blocco": "", "riga": 29, "en": "~cursed item", "jp_contesto": [], "it": "~oggetto con maledizione"}
+{"firma": "23630be5bd9ab59c456511f62406fca19c7e8c2d", "file": "autopick.txt", "blocco": "", "riga": 30, "en": "~doomed item", "jp_contesto": [], "it": "~oggetto con dannazione"}
+{"firma": "e7f71ce59048d5f68df2c53267f39e1a7363aee7", "file": "autopick.txt", "blocco": "", "riga": 31, "en": "# Pick up precious items, then autosave and set as no-drop.", "jp_contesto": [], "it": "# Raccogli gli oggetti preziosi, poi salva la partita e mettici il [Non posare]."}
+{"firma": "7aec43c6a632c634b371c02ba810418616eaa416", "file": "autopick.txt", "blocco": "", "riga": 32, "en": "precious item%=", "jp_contesto": [], "it": "oggetto prezioso%="}
+{"firma": "da1366ac1608fd6c4dca1b6a7f986968f5e752f6", "file": "autopick.txt", "blocco": "", "riga": 33, "en": "# Pick up gold, platinum, and small medals.", "jp_contesto": [], "it": "# Raccogli oro, platino e medagliette."}
+{"firma": "8c44e7d183a44491f3e405cc9b8a9658fbe0eeef", "file": "autopick.txt", "blocco": "", "riga": 34, "en": "gold piece", "jp_contesto": [], "it": "moneta d'oro"}
+{"firma": "a26874c27d4071337efd931a9598175ecbffacb6", "file": "autopick.txt", "blocco": "", "riga": 35, "en": "platinum coin", "jp_contesto": [], "it": "moneta di platino"}
+{"firma": "a75c0ba5f2a1250cadc13c39b2ec6b022d71de3e", "file": "autopick.txt", "blocco": "", "riga": 36, "en": "small medal", "jp_contesto": [], "it": "medaglietta"}
+{"firma": "f7bf2cb4a825c13bcfa6b8b2a3282f9213d5478c", "file": "autopick.txt", "blocco": "", "riga": 37, "en": "# Pick up bottles of water, but prompt the player first.", "jp_contesto": [], "it": "# Raccogli l'acqua, ma chiedi prima."}
+{"firma": "57ccfc7b9dbd7a83c6573ede50d12b46ce0470dc", "file": "autopick.txt", "blocco": "", "riga": 38, "en": "bottle of water?", "jp_contesto": [], "it": "acqua?"}
+{"firma": "411047ae6ea909ea8eeef79394856defa49f3cef", "file": "autopick.txt", "blocco": "", "riga": 39, "en": "# Destroy worthless fake gold bars.", "jp_contesto": [], "it": "# Distruggi i lingotti d'oro falsi."}
+{"firma": "a7b683f139dc0493dbbd79302f30741b48ddb7c1", "file": "autopick.txt", "blocco": "", "riga": 40, "en": "# Item name matchers will only work if the item's name has been identified.", "jp_contesto": [], "it": "# Una regola scritta sul nome aggancia solo se il nome dell'oggetto è già noto."}
+{"firma": "560cc778564947587aa8fbc26da81f2210656c55", "file": "autopick.txt", "blocco": "", "riga": 41, "en": "!worthless fake gold bar", "jp_contesto": [], "it": "!lingotto d'oro falso"}
+{"firma": "6f412f24ea756a24b4e94d95cf247fd84c848953", "file": "autopick.txt", "blocco": "", "riga": 42, "en": "# Destroy corpses, but prompt the player first.", "jp_contesto": [], "it": "# Distruggi i cadaveri, ma chiedi prima."}
+{"firma": "d57e86758c02b1c167ebd7202bec93283f1160d2", "file": "autopick.txt", "blocco": "", "riga": 43, "en": "!corpse?", "jp_contesto": [], "it": "!cadavere?"}
+{"firma": "5c549b19f22af1ecf2bb56d4bf55cab8e99722aa", "file": "autopick.txt", "blocco": "", "riga": 44, "en": "# Multiple matchers can be chained together.", "jp_contesto": [], "it": "# Più regole si possono incatenare sulla stessa riga."}
+{"firma": "f7740786f9d115d8168b930fa2d665d3b1090455", "file": "autopick.txt", "blocco": "", "riga": 45, "en": "# Quality and curse state matchers will only work if the item's quality has been identified.", "jp_contesto": [], "it": "# Le regole sul pregio e sulla maledizione agganciano solo se il pregio dell'oggetto è già noto."}
+{"firma": "daba7bebaf5ffd4db42e68183dc6ca862f6f56ae", "file": "autopick.txt", "blocco": "", "riga": 46, "en": "blessed fully identified potion", "jp_contesto": [], "it": "pozione con benedizione e con effetti noti"}
+{"firma": "e1856e30bcc67202db4f93bb5f1642ffb4fadee7", "file": "autopick.txt", "blocco": "", "riga": 47, "en": "# Play a sound if a piece of ore is picked up.", "jp_contesto": [], "it": "# Suona un effetto quando raccogli un minerale."}
+{"firma": "890ecd5be1ec48d705b775d3a95a7953a99dd015", "file": "autopick.txt", "blocco": "", "riga": 48, "en": "all ore:sound24", "jp_contesto": [], "it": "ogni minerale:sound24"}
+{"firma": "d957d498264e21efd711ab06c819601492cb02f3", "file": "autopick.txt", "blocco": "", "riga": 49, "en": "### All supported matchers ###", "jp_contesto": [], "it": "### Tutte le chiavi ###"}
+{"firma": "52561db6f7ac80bce4aa07da50cddea829a5e284", "file": "autopick.txt", "blocco": "", "riga": 50, "en": "# all item", "jp_contesto": [], "it": "# ogni oggetto"}
+{"firma": "5508608c151e5446438d28530173f1b140a6d18e", "file": "autopick.txt", "blocco": "", "riga": 51, "en": "# unknown item", "jp_contesto": [], "it": "# oggetto senza nome"}
+{"firma": "7bcf1588cffdce27a8f53e46d65b6f01a3ca0fed", "file": "autopick.txt", "blocco": "", "riga": 52, "en": "# name identified item", "jp_contesto": [], "it": "# oggetto con nome noto"}
+{"firma": "5a78eb0103e621db013e6f8acbde706743f9c623", "file": "autopick.txt", "blocco": "", "riga": 53, "en": "# quality identified item", "jp_contesto": [], "it": "# oggetto con pregio noto"}
+{"firma": "7450a1b41a81d52de35f2115133812db54dc6c9d", "file": "autopick.txt", "blocco": "", "riga": 54, "en": "# fully identified item", "jp_contesto": [], "it": "# oggetto con effetti noti"}
+{"firma": "891f85146ceb2287e14a19441d99c44d4a500c8d", "file": "autopick.txt", "blocco": "", "riga": 55, "en": "# worthless item", "jp_contesto": [], "it": "# oggetto senza valore"}
+{"firma": "40ac727455fa6248ad39d0ac6fba41a2c3250c66", "file": "autopick.txt", "blocco": "", "riga": 56, "en": "# rotten item", "jp_contesto": [], "it": "# oggetto marcio"}
+{"firma": "f62a8b4f949e9aa158bca229adf8c3b5b08646b1", "file": "autopick.txt", "blocco": "", "riga": 57, "en": "# empty item", "jp_contesto": [], "it": "# oggetto vuoto"}
+{"firma": "0070e75763b8e0b4f00a688a7dcae7d5828cd7f8", "file": "autopick.txt", "blocco": "", "riga": 58, "en": "# bad item", "jp_contesto": [], "it": "# oggetto scadente"}
+{"firma": "c877c7ba179fb17ebe5268070660178761fdb5fe", "file": "autopick.txt", "blocco": "", "riga": 59, "en": "# good item", "jp_contesto": [], "it": "# oggetto comune"}
+{"firma": "79209762396ab7c2cc9cace8017261101e15b580", "file": "autopick.txt", "blocco": "", "riga": 60, "en": "# great item", "jp_contesto": [], "it": "# oggetto eccellente"}
+{"firma": "270b9dd22eff987c850e84d8edf585e179d2fddf", "file": "autopick.txt", "blocco": "", "riga": 61, "en": "# miracle item", "jp_contesto": [], "it": "# oggetto eccezionale"}
+{"firma": "b1e11a4002046540bf1cfd419dc0173318fafbfb", "file": "autopick.txt", "blocco": "", "riga": 62, "en": "# godly item", "jp_contesto": [], "it": "# oggetto celestiale"}
+{"firma": "8736cdf0bf3e329c7048ab2ff91f1afbd64c2389", "file": "autopick.txt", "blocco": "", "riga": 63, "en": "# special item", "jp_contesto": [], "it": "# oggetto speciale"}
+{"firma": "fea2c5a7064e1e0019001f5111e8fcd851759771", "file": "autopick.txt", "blocco": "", "riga": 64, "en": "# precious item", "jp_contesto": [], "it": "# oggetto prezioso"}
+{"firma": "473d0f170c8ce6a12159eee4e67362ab5f8c4609", "file": "autopick.txt", "blocco": "", "riga": 65, "en": "# blessed item", "jp_contesto": [], "it": "# oggetto con benedizione"}
+{"firma": "43d4f480b9d2671743294fcbc5b6b8e2cfcd6b23", "file": "autopick.txt", "blocco": "", "riga": 66, "en": "# uncursed item", "jp_contesto": [], "it": "# oggetto senza maledizione"}
+{"firma": "d175acd0001d03faefc316fc2dd948e2c2a67f06", "file": "autopick.txt", "blocco": "", "riga": 67, "en": "# cursed item", "jp_contesto": [], "it": "# oggetto con maledizione"}
+{"firma": "893c1b91095ed40327c27fe4cf476d9043288fa0", "file": "autopick.txt", "blocco": "", "riga": 68, "en": "# doomed item", "jp_contesto": [], "it": "# oggetto con dannazione"}
+{"firma": "bf651bf8f623adbc4642ab8cab8e81f2afa7718d", "file": "autopick.txt", "blocco": "", "riga": 69, "en": "# alive item", "jp_contesto": [], "it": "# oggetto in vita"}
+{"firma": "3a885c2c16d9da2a8e4a8e505b3cfc7392db154e", "file": "autopick.txt", "blocco": "", "riga": 70, "en": "# evolution item", "jp_contesto": [], "it": "# oggetto di evoluzione"}
+{"firma": "57088d5a040b4d88c315c81241405e677495a150", "file": "autopick.txt", "blocco": "", "riga": 71, "en": "# all equipment", "jp_contesto": [], "it": "# ogni equipaggiamento"}
+{"firma": "7fcfadc4aff4bc6fc112b24cb9f078f1c8c350e0", "file": "autopick.txt", "blocco": "", "riga": 72, "en": "# all melee weapon", "jp_contesto": [], "it": "# ogni arma da mischia"}
+{"firma": "9683c521e20ef6a0c2a53dfd6c4ab6bc272ec209", "file": "autopick.txt", "blocco": "", "riga": 73, "en": "# all helm", "jp_contesto": [], "it": "# ogni elmo"}
+{"firma": "9bdd72400aefb606c0c4e931343a47f98a459c74", "file": "autopick.txt", "blocco": "", "riga": 74, "en": "# all shield", "jp_contesto": [], "it": "# ogni scudo"}
+{"firma": "976e8092ab5947e4b4fb0ff5ab43db5471a22c20", "file": "autopick.txt", "blocco": "", "riga": 75, "en": "# all armor", "jp_contesto": [], "it": "# ogni armatura"}
+{"firma": "be04f7e4ade1066c85a66f2eb12aa1c385a7fa51", "file": "autopick.txt", "blocco": "", "riga": 76, "en": "# all boot", "jp_contesto": [], "it": "# ogni stivale"}
+{"firma": "6024da50e9ca77d0f20b3ff40fb4162ddedd0149", "file": "autopick.txt", "blocco": "", "riga": 77, "en": "# all belt", "jp_contesto": [], "it": "# ogni cintura"}
+{"firma": "c47e00344e5a76120afbb7aca1b72daf8761f11e", "file": "autopick.txt", "blocco": "", "riga": 78, "en": "# all cloak", "jp_contesto": [], "it": "# ogni mantello"}
+{"firma": "732010cc3af1e6395e5365595ef81d68766b8526", "file": "autopick.txt", "blocco": "", "riga": 79, "en": "# all glove", "jp_contesto": [], "it": "# ogni guanto"}
+{"firma": "2223764254a3833b533b327b495eb48509d00daa", "file": "autopick.txt", "blocco": "", "riga": 80, "en": "# all ranged weapon", "jp_contesto": [], "it": "# ogni arma da tiro"}
+{"firma": "5c3912098f9a07c0902c10da9554f5acd78b906d", "file": "autopick.txt", "blocco": "", "riga": 81, "en": "# all ammo", "jp_contesto": [], "it": "# ogni dardo"}
+{"firma": "7dc3b2a4a4ceafe6a80e8abaef8ccd74167797b0", "file": "autopick.txt", "blocco": "", "riga": 82, "en": "# all ring", "jp_contesto": [], "it": "# ogni anello"}
+{"firma": "e643ba5de1cb16f531a05297ed70e26e62ee6aa8", "file": "autopick.txt", "blocco": "", "riga": 83, "en": "# all necklace", "jp_contesto": [], "it": "# ogni collana"}
+{"firma": "4e9cd24e967e6279de748f8b267ef4daef6ac5b5", "file": "autopick.txt", "blocco": "", "riga": 84, "en": "# all potion", "jp_contesto": [], "it": "# ogni pozione"}
+{"firma": "de545567e96b231b5c0d1654270ed2ae5b5f4cad", "file": "autopick.txt", "blocco": "", "riga": 85, "en": "# all scroll", "jp_contesto": [], "it": "# ogni pergamena"}
+{"firma": "178f63f3a7ada9912f86310dcb0afe3775fa0ff5", "file": "autopick.txt", "blocco": "", "riga": 86, "en": "# all spellbook", "jp_contesto": [], "it": "# ogni grimorio"}
+{"firma": "3dd30bf5ccebcea78c2eaf3c15aacc686ce44d77", "file": "autopick.txt", "blocco": "", "riga": 87, "en": "# all book", "jp_contesto": [], "it": "# ogni libro"}
+{"firma": "2044a9d740f8aea8f175f44bb9a28bac833bd85d", "file": "autopick.txt", "blocco": "", "riga": 88, "en": "# all rod", "jp_contesto": [], "it": "# ogni bacchetta"}
+{"firma": "9155a7e22780ba95ff00fd5e8308ef68ff8b42dc", "file": "autopick.txt", "blocco": "", "riga": 89, "en": "# all food", "jp_contesto": [], "it": "# ogni commestibile"}
+{"firma": "e8f3e03111294631670f6ee322de0cf5f3595fcd", "file": "autopick.txt", "blocco": "", "riga": 90, "en": "# all tool", "jp_contesto": [], "it": "# ogni attrezzo"}
+{"firma": "fe977b99f6410b7499ea387775db139e309cc1e3", "file": "autopick.txt", "blocco": "", "riga": 91, "en": "# all furniture", "jp_contesto": [], "it": "# ogni mobilio"}
+{"firma": "bc4a5d88e243dfd3b20ed4679efc2a14ed16a35b", "file": "autopick.txt", "blocco": "", "riga": 92, "en": "# all well", "jp_contesto": [], "it": "# ogni pozzo"}
+{"firma": "b24e9c246a5c398775c8df9446518fab51dddf04", "file": "autopick.txt", "blocco": "", "riga": 93, "en": "# all altar", "jp_contesto": [], "it": "# ogni altare"}
+{"firma": "6c74ccfb42e1b533951f70bf7118f0b30c355c99", "file": "autopick.txt", "blocco": "", "riga": 94, "en": "# all remain", "jp_contesto": [], "it": "# ogni resto"}
+{"firma": "3a9332c3cc709f9ac5a6014ecfae4408e76345a4", "file": "autopick.txt", "blocco": "", "riga": 95, "en": "# all junk", "jp_contesto": [], "it": "# ogni cianfrusaglia"}
+{"firma": "3027d4b003fae4f439f119f4541847b73b6e91cb", "file": "autopick.txt", "blocco": "", "riga": 96, "en": "# all gold piece", "jp_contesto": [], "it": "# ogni moneta d'oro"}
+{"firma": "c028b697063e81e238c5c8a3e5fa8a0a55355b35", "file": "autopick.txt", "blocco": "", "riga": 97, "en": "# all platinum coin", "jp_contesto": [], "it": "# ogni moneta di platino"}
+{"firma": "adf16971d1b9d99b259d86228809bb914eb7b81c", "file": "autopick.txt", "blocco": "", "riga": 98, "en": "# all chest", "jp_contesto": [], "it": "# ogni baule"}
+{"firma": "e0cb65247891f46dad695d8ffeddf963de69c8c6", "file": "autopick.txt", "blocco": "", "riga": 99, "en": "# all ore", "jp_contesto": [], "it": "# ogni minerale"}
+{"firma": "cc01977309eb9c51e909807a5dffcd4e50a977e6", "file": "autopick.txt", "blocco": "", "riga": 100, "en": "# all tree", "jp_contesto": [], "it": "# ogni albero"}
+{"firma": "2b51699abd512436d674f02633018bc5c649a408", "file": "autopick.txt", "blocco": "", "riga": 101, "en": "# all traveler's food", "jp_contesto": [], "it": "# ogni cibo da viaggio"}
+{"firma": "7d2a93bdb7d28754dc2a653e4d60aa979686e032", "file": "autopick.txt", "blocco": "", "riga": 102, "en": "# all cargo", "jp_contesto": [], "it": "# ogni merce da commercio"}
+{"firma": "32d5d5db2ee0a55dae31af5beaf869bef5e1dbf4", "file": "autopick.txt", "blocco": "", "riga": 103, "en": "### 日本語 ###", "jp_contesto": [], "it": "### Le stesse chiavi in inglese: NON agganciano in questa versione, servono a leggere le guide in rete ###"}
+{"firma": "a82d7efe4eaee8da5cb17152686417f69250532b", "file": "autopick.txt", "blocco": "", "riga": 104, "en": "# すべてのアイテム", "jp_contesto": [], "it": "# all item"}
+{"firma": "0ed292a02d0c17efe499d99273cf8c5df6eb28da", "file": "autopick.txt", "blocco": "", "riga": 105, "en": "# 名称不明のアイテム", "jp_contesto": [], "it": "# unknown item"}
+{"firma": "a758965847724e255fdabb677c2e0186a3a228a0", "file": "autopick.txt", "blocco": "", "riga": 106, "en": "# 鑑定段階 1 のアイテム", "jp_contesto": [], "it": "# name identified item"}
+{"firma": "13c5fb3202adbbec2c6589a219451fb7ada6f8d4", "file": "autopick.txt", "blocco": "", "riga": 107, "en": "# 鑑定段階 2 のアイテム", "jp_contesto": [], "it": "# quality identified item"}
+{"firma": "403a70b8353eea5f607d483f0b7746a02e0207e4", "file": "autopick.txt", "blocco": "", "riga": 108, "en": "# 鑑定段階 3 のアイテム", "jp_contesto": [], "it": "# fully identified item"}
+{"firma": "0e2005df5f343b98e8fad97edd05078b842e4430", "file": "autopick.txt", "blocco": "", "riga": 109, "en": "# 無価値のアイテム", "jp_contesto": [], "it": "# worthless item"}
+{"firma": "4a48e8a7daa519586bc1b3e56eae4414d61010a4", "file": "autopick.txt", "blocco": "", "riga": 110, "en": "# 腐ったアイテム", "jp_contesto": [], "it": "# rotten item"}
+{"firma": "896e26d9a99fc3849a8ead82c7b87760ccfb7c51", "file": "autopick.txt", "blocco": "", "riga": 111, "en": "# 空っぽのアイテム", "jp_contesto": [], "it": "# empty item"}
+{"firma": "21a87f27a8a6ca201e5c6bf0e2fd0b65a4c90a27", "file": "autopick.txt", "blocco": "", "riga": 112, "en": "# 粗悪なアイテム", "jp_contesto": [], "it": "# bad item"}
+{"firma": "a93426a262fd7015aeb24ed2734cf43115704c3e", "file": "autopick.txt", "blocco": "", "riga": 113, "en": "# 良質なアイテム", "jp_contesto": [], "it": "# good item"}
+{"firma": "8d6ad0c00d43bfeab5ee6ab5bb650fbeb2bfcf61", "file": "autopick.txt", "blocco": "", "riga": 114, "en": "# 高品質なアイテム", "jp_contesto": [], "it": "# great item"}
+{"firma": "21184c96a192e283d43eb2d256fd4c228937c016", "file": "autopick.txt", "blocco": "", "riga": 115, "en": "# 奇跡のアイテム", "jp_contesto": [], "it": "# miracle item"}
+{"firma": "55925a3d63d42895e3929a4e424246894bdbd1be", "file": "autopick.txt", "blocco": "", "riga": 116, "en": "# 神器のアイテム", "jp_contesto": [], "it": "# godly item"}
+{"firma": "56cb4bcf30aaca37b80aa8d58a68fb523a2707d0", "file": "autopick.txt", "blocco": "", "riga": 117, "en": "# 特別なアイテム", "jp_contesto": [], "it": "# special item"}
+{"firma": "9c8140ed7b21cc09928808ed3d215a3e7abc3f8e", "file": "autopick.txt", "blocco": "", "riga": 118, "en": "# 貴重なアイテム", "jp_contesto": [], "it": "# precious item"}
+{"firma": "fc26cfa2624df26efeb095c25a42e9db83d38bd6", "file": "autopick.txt", "blocco": "", "riga": 119, "en": "# 祝福されたアイテム", "jp_contesto": [], "it": "# blessed item"}
+{"firma": "815e3db21f16474467fa96138b4ec862e1536291", "file": "autopick.txt", "blocco": "", "riga": 120, "en": "# 呪われていないアイテム", "jp_contesto": [], "it": "# uncursed item"}
+{"firma": "a5d76c1b3b3598dfb6ee42b2425371a68c11b6b9", "file": "autopick.txt", "blocco": "", "riga": 121, "en": "# 呪われたアイテム", "jp_contesto": [], "it": "# cursed item"}
+{"firma": "71b764535f4d2c417768c77f9edd0344963753cd", "file": "autopick.txt", "blocco": "", "riga": 122, "en": "# 堕落したアイテム", "jp_contesto": [], "it": "# doomed item"}
+{"firma": "2b54c120bed70e01e8d7f664adc838f9cdbbadf9", "file": "autopick.txt", "blocco": "", "riga": 123, "en": "# 生きているアイテム", "jp_contesto": [], "it": "# alive item"}
+{"firma": "ecc91d0a5717984e09c23bed295ed7d5bf9e244b", "file": "autopick.txt", "blocco": "", "riga": 124, "en": "# 進化アイテム", "jp_contesto": [], "it": "# evolution item"}
+{"firma": "e0e575d15d513388d68013a7b47e495f48891b80", "file": "autopick.txt", "blocco": "", "riga": 125, "en": "# すべての装備品", "jp_contesto": [], "it": "# all equipment"}
+{"firma": "0ac38b8173e042beab593fa3bd322f56dd80bb4f", "file": "autopick.txt", "blocco": "", "riga": 126, "en": "# すべての近接武器", "jp_contesto": [], "it": "# all melee weapon"}
+{"firma": "cac5b02305128cdfd79fbc2a518efa2d262a03dc", "file": "autopick.txt", "blocco": "", "riga": 127, "en": "# すべての兜", "jp_contesto": [], "it": "# all helm"}
+{"firma": "6780ab6ecc765128bcf721ec2357d92f41e21ba9", "file": "autopick.txt", "blocco": "", "riga": 128, "en": "# すべての盾", "jp_contesto": [], "it": "# all shield"}
+{"firma": "72f223adb9f7ad6db0455371eb458c68e2e6632d", "file": "autopick.txt", "blocco": "", "riga": 129, "en": "# すべての鎧", "jp_contesto": [], "it": "# all armor"}
+{"firma": "74cf09a385fc75d4347e6f0272bbc78279cb8762", "file": "autopick.txt", "blocco": "", "riga": 130, "en": "# すべての靴", "jp_contesto": [], "it": "# all boot"}
+{"firma": "eb7048dcea156b522d49673b030c54913d1158ae", "file": "autopick.txt", "blocco": "", "riga": 131, "en": "# すべての腰当", "jp_contesto": [], "it": "# all belt"}
+{"firma": "284e124c49d93d6516e268c9aade7558c10a9a39", "file": "autopick.txt", "blocco": "", "riga": 132, "en": "# すべてのマント", "jp_contesto": [], "it": "# all cloak"}
+{"firma": "adc45d6fd71faeb4e6e64ea0ede0d4d15ef45baa", "file": "autopick.txt", "blocco": "", "riga": 133, "en": "# すべてのグローブ", "jp_contesto": [], "it": "# all glove"}
+{"firma": "a509991c8c1bb71db3f366151ca109d36a71f7ff", "file": "autopick.txt", "blocco": "", "riga": 134, "en": "# すべての遠隔武器", "jp_contesto": [], "it": "# all ranged weapon"}
+{"firma": "9d3696bb51c406e6cadaf39475f188181ea4e8ae", "file": "autopick.txt", "blocco": "", "riga": 135, "en": "# すべての矢弾", "jp_contesto": [], "it": "# all ammo"}
+{"firma": "260b1f53bb15ed38aa4c72f64d9f052eb9c2947f", "file": "autopick.txt", "blocco": "", "riga": 136, "en": "# すべての指輪", "jp_contesto": [], "it": "# all ring"}
+{"firma": "bb1aaf3f288a47b9309ce4531990a28d11990e9a", "file": "autopick.txt", "blocco": "", "riga": 137, "en": "# すべての首輪", "jp_contesto": [], "it": "# all necklace"}
+{"firma": "e06ab44591e9b7d80671f934e02e9d653dc186cb", "file": "autopick.txt", "blocco": "", "riga": 138, "en": "# すべてのポーション", "jp_contesto": [], "it": "# all potion"}
+{"firma": "e5b8651356dc9365ef35f2f18e2631b008dfaff1", "file": "autopick.txt", "blocco": "", "riga": 139, "en": "# すべての巻物", "jp_contesto": [], "it": "# all scroll"}
+{"firma": "5adde559b43e74b2e15cc55da05dbd5a189845d8", "file": "autopick.txt", "blocco": "", "riga": 140, "en": "# すべての魔法書", "jp_contesto": [], "it": "# all spellbook"}
+{"firma": "13a08a58bd5028fcc86b2ed0d17077f86fea4765", "file": "autopick.txt", "blocco": "", "riga": 141, "en": "# すべての本", "jp_contesto": [], "it": "# all book"}
+{"firma": "dbe5124e747b5bf2f3c92aa87b59c73992066716", "file": "autopick.txt", "blocco": "", "riga": 142, "en": "# すべての魔法の杖", "jp_contesto": [], "it": "# all rod"}
+{"firma": "1fd538249d0a492928a9761f7ef89e66333a63d9", "file": "autopick.txt", "blocco": "", "riga": 143, "en": "# すべての食べ物", "jp_contesto": [], "it": "# all food"}
+{"firma": "2272486ce56e23da7e14984ab035bbff99d77c80", "file": "autopick.txt", "blocco": "", "riga": 144, "en": "# すべての道具", "jp_contesto": [], "it": "# all tool"}
+{"firma": "a993a583bb12d8f7619ffa86e1e726a99f22a970", "file": "autopick.txt", "blocco": "", "riga": 145, "en": "# すべての家具", "jp_contesto": [], "it": "# all furniture"}
+{"firma": "276cd70b0bc3a9e6cd70309ee428255ee40ca74d", "file": "autopick.txt", "blocco": "", "riga": 146, "en": "# すべての井戸", "jp_contesto": [], "it": "# all well"}
+{"firma": "559cc79f4b5b1c8b556f78df8709632731f24aad", "file": "autopick.txt", "blocco": "", "riga": 147, "en": "# すべての祭壇", "jp_contesto": [], "it": "# all altar"}
+{"firma": "d3d00f6395503403d22dc409cdbc4537aafa2369", "file": "autopick.txt", "blocco": "", "riga": 148, "en": "# すべての残骸", "jp_contesto": [], "it": "# all remains"}
+{"firma": "694aea4624155a8c5ea13a0c00f9fabf50652bfd", "file": "autopick.txt", "blocco": "", "riga": 149, "en": "# すべてのジャンク", "jp_contesto": [], "it": "# all junk"}
+{"firma": "de58dac0c2ee4213771fa53e2fd6c5115f9cc195", "file": "autopick.txt", "blocco": "", "riga": 150, "en": "# すべての金貨", "jp_contesto": [], "it": "# all gold piece"}
+{"firma": "140764f2d4e9a1ec7c31e214af5dfe537f08e980", "file": "autopick.txt", "blocco": "", "riga": 151, "en": "# すべてのプラチナ硬貨", "jp_contesto": [], "it": "# all platinum coin"}
+{"firma": "cc366dd8811d9ea56b893889f06e83ea96ccc2e0", "file": "autopick.txt", "blocco": "", "riga": 152, "en": "# すべての宝箱", "jp_contesto": [], "it": "# all chest"}
+{"firma": "d8513f14a34d3a1f0b5035b91d18c14857125147", "file": "autopick.txt", "blocco": "", "riga": 153, "en": "# すべての鉱石", "jp_contesto": [], "it": "# all ore"}
+{"firma": "a1a427b05aa4f4a78d7fa6ec1b58e823e2fb799a", "file": "autopick.txt", "blocco": "", "riga": 154, "en": "# すべての樹木", "jp_contesto": [], "it": "# all tree"}
+{"firma": "4bb76edbe5624afe5b3f6c5176c21927c3e9073d", "file": "autopick.txt", "blocco": "", "riga": 155, "en": "# すべての旅糧", "jp_contesto": [], "it": "# all traveler's food"}
+{"firma": "6fea438c39af93d38717337144184609c249f624", "file": "autopick.txt", "blocco": "", "riga": 156, "en": "# すべての交易品", "jp_contesto": [], "it": "# all cargo"}
