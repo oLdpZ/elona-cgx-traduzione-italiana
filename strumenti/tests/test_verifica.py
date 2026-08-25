@@ -1033,3 +1033,34 @@ def test_ma_dentro_cnvtalk_una_chiamata_estranea_si_vede_lo_stesso():
         it='"Tezcatlipoca incoraggia: " + cnvtalk("Combattiamo insieme, " + name(tc) + "!")',
     ))
     assert any("non vengono da monte" in p for p in problemi), problemi
+
+
+def test_il_file_vero_degli_invariati_si_carica():
+    """Il cancello delle sezioni deve suonare in `pytest`, non a lotto aperto.
+
+    ⚠️ Scritto nella 96a. Le prove qui sopra costruiscono un `invariati.md`
+    finto in `tmp_path`, quindi coprono il **meccanismo** ma non il file vero:
+    una sezione nuova e non classificata alza `ValueError` solo quando qualcuno
+    lancia `verifica`, cioe' a meta' di un lotto, e con la catena che sembrava
+    verde fino a un momento prima. E' successo nella 96a stessa, aggiungendo la
+    sezione dei nomi coniati del potioman.
+
+    La prova non guarda quanti valori ci sono -- quel numero cresce a ogni
+    sessione -- ma che il file **si legga** e che ogni sezione classificata
+    invariante ci arrivi dentro.
+
+    ⚠️ Non c'e' un'asserzione sul lato **non** invariante, e non e' una
+    dimenticanza: nel file vero le due sezioni di quel lato -- «Da decidere nel
+    glossario» e «Nomi di creatura riscritti nel salvataggio» -- sono di sola
+    prosa, quindi non danno valori. (Il primo giro di questa prova pretendeva
+    `"Larna" not in valori`: Larna era un candidato **fino al 2026-08-07**, poi
+    e' salita nella tabella iniziale. Un valore preso da un esempio invece che
+    dal file.) Il lato non invariante lo coprono le prove sintetiche qui sopra.
+    """
+    valori = carica_invariati()
+
+    assert "Vernis" in valori           # tabella iniziale
+    assert "male" in valori             # «Valori di dato»
+    assert "Qy@" in valori              # «Versi senza contenuto linguistico»
+    assert "manual_ENG.txt" in valori   # «Chiavi e nomi di file»
+    assert "-Flaenix" in valori         # «Nomi coniati del potioman»

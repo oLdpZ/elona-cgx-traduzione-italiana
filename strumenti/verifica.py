@@ -80,7 +80,7 @@ _CAMPI_NOME = ("plurale", "genere", "array", "oggetto")
 # sezione avrebbe rifatto il buco. Quello che non deve piu' essere possibile e'
 # il silenzio.
 _SEZIONI_INVARIANTI = ("Valori di dato", "Versi senza contenuto linguistico",
-                       "Chiavi e nomi di file")
+                       "Chiavi e nomi di file", "Nomi coniati del potioman")
 _SEZIONI_NON_INVARIANTI = ("Da decidere", "Nomi di creatura")
 
 
