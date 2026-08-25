@@ -34,7 +34,7 @@ rese = set()
 for l in io.open('dizionario/chat.hsp.jsonl', encoding='utf-8'):
     if l.strip():
         v = json.loads(l)
-        if v.get('it', '').strip():
+        if v.get('it'):
             rese.add(v['firma'])
 per_firma = collections.defaultdict(list)
 for v in voci:

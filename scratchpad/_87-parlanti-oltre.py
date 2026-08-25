@@ -41,7 +41,7 @@ rese = set()
 for l in io.open('dizionario/chat.hsp.jsonl', encoding='utf-8'):
     if l.strip():
         v = json.loads(l)
-        if v.get('it', '').strip():
+        if v.get('it'):
             rese.add(v['firma'])
 
 # Le rinviate hanno un motivo scritto e NON sono lavoro che aspetta: contarle

@@ -15,6 +15,20 @@ parlanti conosce: i quattro morti di AJETALIO risultano ancora «da fare»).
 
 ⚠️ La voce scelta per una firma e' quella della PRIMA occorrenza dentro la
 zona, che e' l'ancora su cui `_85-applica-rese.py` chiede le righe.
+
+⚠️⚠️ **95a: «tradotta» si decide come in `verifica.py`, cioe' `if v.get('it')`
+e NON `if v.get('it').strip()`.** La differenza e' una resa sola in tutto il
+progetto, e non e' un caso limite: `chat.hsp:22500` e' `lang("", " ")`, il
+separatore fra l'epiteto e il suffisso del nome di casa, e la sua resa e' **uno
+spazio** — messa li' apposta nella 64a perche' la riga la sistema una toppa
+(`toppe.jsonl`, che gira la concatenazione nel ramo inglese: gli undici
+suffissi di `:22498` sono diventati prefissi che finiscono in «di»). Con lo
+`.strip()` quella voce risultava **da fare per sempre**: `verifica --dizionario`
+la contava tradotta e questo taglio no, e chi chiudeva `chat.hsp` si trovava una
+riga che non si poteva ne' tradurre ne' far sparire. ⚠️ E tradurla davvero
+**romperebbe la toppa**, che cerca la riga nella sua forma di monte.
+Lo stesso allineamento e' stato fatto in `_87-parlanti-oltre.py` e in
+`_85-blocco.py`, che contavano allo stesso modo.
 """
 import collections
 import io
@@ -38,7 +52,7 @@ def main() -> int:
     for l in io.open(DIZ, encoding='utf-8'):
         if l.strip():
             v = json.loads(l)
-            if v.get('it', '').strip():
+            if v.get('it'):
                 rese.add(v['firma'])
     rinviate = {json.loads(l)['firma']
                 for l in io.open('rinviate.jsonl', encoding='utf-8') if l.strip()}
