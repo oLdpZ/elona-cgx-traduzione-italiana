@@ -165,23 +165,53 @@ def main(argv: list[str]) -> None:
         trovate = tabelle(testo)
         if not trovate:
             continue
-        # la stessa riga nella BUILD: se e' cambiata, la tabella e' gia' resa
+        # La stessa tabella nella BUILD: se e' cambiata, e' gia' resa.
+        #
+        # ⚠️⚠️ **NON «la stessa RIGA»: la build la muoviamo noi.** Fino alla 98a
+        # qui si confrontava `righe_build[n-1]` con `righe_src[n-1]`, cioe' lo
+        # stesso indice nei due alberi. Regge finche' ogni toppa sostituisce una
+        # riga con una riga — e per 1.023 toppe e' stato cosi'. Le toppe dei
+        # **file dati** no: ne mettono sette al posto di una, e quella di
+        # `book.txt` ha spostato in giu' di 6 tutto `command.hsp` sotto :8371.
+        # Da li' in giu' il confronto avrebbe letto una riga per un'altra, che
+        # quasi sempre e' diversa: ogni tabella sotto quel punto sarebbe stata
+        # dichiarata **«fatta»** senza che nessuno l'avesse tradotta.
+        # 💡 Oggi non e' successo per fortuna, non per costruzione: le sette
+        # tabelle di testo stanno tutte in `custom_ai.hsp:22-31`, un file che
+        # nessuna toppa dei file dati tocca. Un referto che dice la verita' per
+        # dove capita di guardare non e' un referto che dice la verita'.
+        #
+        # L'appaiamento giusto e' per **nome della tabella e ordinale**: una
+        # toppa sposta le righe, non ribattezza le tabelle ne' ne cambia
+        # l'ordine. `AITextData` compare cinque volte in `custom_ai.hsp` ed e'
+        # per questo che il nome da solo non basta.
         costruito = percorsi.BUILD_HSP / percorso.name
-        righe_build = (costruito.read_bytes().decode("cp932", errors="replace").splitlines()
-                       if costruito.exists() else [])
-        righe_src = testo.splitlines()
+        def _per_nome(elenco):
+            visti, uscita = {}, {}
+            for voce in elenco:
+                nome_tabella = voce[1]
+                visti[nome_tabella] = visti.get(nome_tabella, -1) + 1
+                uscita[(nome_tabella, visti[nome_tabella])] = voce
+            return uscita
+        mie = _per_nome(trovate)
+        indice = {id(v): k for k, v in mie.items()}
+        di_monte = _per_nome(tabelle(
+            costruito.read_bytes().decode("cp932", errors="replace")
+        )) if costruito.exists() else {}
 
         da_dire = [t for t in trovate if t[3] == "testo"]
         print(f"=== {percorso.name}: {len(trovate)} tabelle, {len(da_dire)} di testo")
-        for n, nome, valori, classe in trovate:
+        for tabella in trovate:
+            n, nome, valori, classe = tabella
             conta[classe] += 1
             voci[classe] += len([v for v in valori if v != "NULL"])
             if classe != "testo":
                 continue
+            costruita = di_monte.get(indice[id(tabella)])
             stato = "da fare"
             if (percorso.name, n) in DECISE:
                 stato, decise = "decisa", decise + 1
-            elif n <= len(righe_build) and righe_build[n - 1] != righe_src[n - 1]:
+            elif costruita is not None and costruita[2] != valori:
                 stato, fatte = "fatta", fatte + 1
             else:
                 da_fare += 1

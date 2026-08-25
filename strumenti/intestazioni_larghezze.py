@@ -258,23 +258,79 @@ def tetto(x, limite):
     return (limite - x - ICONA) // PASSO
 
 
+def _scuse_per_ordinale():
+    """`DI_MONTE` tradotto da coordinate del SORGENTE a ordinali.
+
+    ⚠️ `DI_MONTE` sono righe del sorgente pinnato, e la scusa va stampata accanto
+    ai siti della **build**, che non ha piu' gli stessi numeri di riga (vedi
+    `_per_ordinale`). Prima della 98a il confronto era diretto, e la toppa di
+    `book.txt` ha fatto sparire la scusa da `Attributi base - Potenziale`: il
+    sito restava fuori misura — giusto — ma senza piu' dire che **sfora anche
+    in inglese**, che e' la meta' che decide se e' un difetto nostro.
+    """
+    ordinali = _per_ordinale(misure(percorsi.SORGENTE_HSP)[0])
+    return {chiave for chiave, c in ordinali.items() if (c[0], c[1]) in DI_MONTE}
+
+
 def referto(cartella, etichetta):
     fatte, saltate, senza = misure(cartella)
+    posizione = {id(c): chiave for chiave, c in _per_ordinale(fatte).items()}
+    scuse = _scuse_per_ordinale()
     sfora = [c for c in fatte if len(c[6]) > tetto(c[3], c[4])]
     print("--- %s: %d intestazioni misurate (%d senza ostacolo a destra, "
           "%d con x o testo illeggibili), %d fuori misura"
           % (etichetta, len(fatte), len(senza), saltate, len(sfora)))
-    for nome, riga, y, x, limite, perche, t in sorted(sfora):
-        scusa = "  (sfora anche l'inglese)" if (nome, riga) in DI_MONTE else ""
+    for colonna in sorted(sfora):
+        nome, riga, y, x, limite, perche, t = colonna
+        scusa = "  (sfora anche l'inglese)" if posizione[id(colonna)] in scuse else ""
         print("   %s:%d  wy+%d  x %d -> %d (%s), tetto %d, lunghezza %d   %r%s"
               % (nome, riga, y, x, limite, perche, tetto(x, limite), len(t), t, scusa))
     return sfora
 
 
+def _per_ordinale(colonne):
+    """Le colonne indicizzate per (file, quantesima nel file), non per riga.
+
+    ⚠️⚠️ **PERCHE' NON PER RIGA: LA BUILD LA MUOVIAMO NOI.** Fino alla 98a questa
+    funzione appaiava sorgente e build con la chiave `(file, riga)`. Regge finche'
+    ogni toppa sostituisce una riga con una riga — e per 1.023 toppe e' stato
+    cosi'. Le toppe dei **file dati** no: mettono sette righe al posto di una (il
+    ramo `exist` piu' il ripiego), e quella di `book.txt` su `command.hsp:8371`
+    ha spostato in giu' di **6** tutto quel che segue.
+
+    ⚠️ Il guasto non e' stato un test rosso: e' stato un **verdetto cambiato**.
+    `monte.get(("command.hsp", 10416))` non trovava niente, l'inglese risultava
+    la stringa vuota, e il perimetro accusava `Attributi base - Potenziale` di
+    sforare dove l'inglese sta — quando quella colonna sfora da sempre in
+    tutt'e due le lingue. Una rete che tace quando dovrebbe parlare si nota; una
+    che parla di un sito innocente perche' ha guardato la coordinata sbagliata
+    si crede.
+
+    L'ordinale invece regge: una toppa sposta le righe, non aggiunge siti di
+    disegno. E se un giorno ne aggiungesse uno, il conto per file cambia e
+    `perimetro()` se ne accorge, invece di appaiare a caso.
+    """
+    per_file = collections.defaultdict(list)
+    for colonna in colonne:
+        per_file[colonna[0]].append(colonna)
+    return {(nome, i): c for nome, gruppo in per_file.items()
+            for i, c in enumerate(gruppo)}
+
+
 def perimetro():
     """Le colonne senza scuse di monte: l'inglese ci sta e noi no, o siamo piu' lunghi."""
-    monte = {(c[0], c[1]): c for c in misure(percorsi.SORGENTE_HSP)[0]}
-    nostro = {(c[0], c[1]): c for c in misure(percorsi.BUILD_HSP)[0]}
+    monte = _per_ordinale(misure(percorsi.SORGENTE_HSP)[0])
+    nostro = _per_ordinale(misure(percorsi.BUILD_HSP)[0])
+
+    # ⚠️ Se un file ha un numero di siti diverso fra sorgente e build, l'ordinale
+    # non appaia piu' niente e va detto, non nascosto: e' l'unico modo in cui
+    # questa chiave puo' rompersi.
+    conta = lambda d: collections.Counter(nome for nome, _ in d)
+    discordi = {n for n, q in conta(nostro).items() if conta(monte).get(n) != q}
+    if discordi:
+        print("\n⚠️ SITI IN NUMERO DIVERSO fra sorgente e build, il confronto "
+              "non e' appaiabile: " + ", ".join(sorted(discordi)))
+
     fuori = []
     for k, c in sorted(nostro.items()):
         nome, riga, _y, x, limite, perche, it = c

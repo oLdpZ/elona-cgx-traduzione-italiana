@@ -75,7 +75,17 @@ GIUDICATI = {
                          "stalla...»: dopo i puntini la maiuscola regge (77a)",
     ("command.hsp", 4436): "cnven(txtcopy), la nota che segue la frase "
                            "gridata: apre una frase sua",
-    ("command.hsp", 10948): "«Res. » piu' il nome dell'elemento: dopo il punto "
+    # ⚠️ Era :10948 fino alla 97a, ed e' sempre la stessa riga, riletta nella
+    # build: a spostarla di **6** e' la toppa di `book.txt` della 98a, che a
+    # `command.hsp:8371` sostituisce un `noteload` con sette righe (il ramo
+    # `exist` + il ripiego). Terza volta che questa coordinata si muove per una
+    # toppa che cresce sopra di lei — 83a, 96a, 98a — e il test ha ragione a
+    # scattare tutt'e tre. ⭐ E adesso la regolarita' e' visibile: le toppe dei
+    # **file dati** sono le uniche multiriga del progetto, quindi ognuna che
+    # tocchi un file con un permesso appeso sposta il pavimento di 6. Le prime
+    # tre (board -> init.hsp, talk -> text.hsp, exhelp -> help.hsp) non lo
+    # avevano fatto solo perche' non c'erano permessi in quei file.
+    ("command.hsp", 10954): "«Res. » piu' il nome dell'elemento: dopo il punto "
                             "abbreviativo la maiuscola regge",
     # ⚠️ Era :2321 fino alla 82a, ed e' la stessa identica riga: a spostarla di
     # 31 righe sono state le TOPPE della 83a, che infilano il plurale e la spia
