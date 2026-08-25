@@ -1,7 +1,7 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-25, fine della **novantaseiesima** sessione (**quattro lotti,
-203 rese, 23 rinvii, e `item_func.hsp` CHIUSO: 274 siti, zero aperti**).
+Aggiornato: 2026-08-25, fine della **novantasettesima** sessione (**cinque
+lotti, 121 rese, 5 rinvii, e cinque file CHIUSI: resta `db_card.hsp` e basta**).
 
 ⚠️⚠️ **LA SESSIONE SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
 spinto e l'albero e' pulito; le cose che **non stanno nel repo** sono quattro, e
@@ -10,75 +10,291 @@ l'ordine conta:
     dati-sorgente\             python -m strumenti.dati_sorgente --pinna
     l'albero di build          python -m strumenti.applica
     cgx-test.exe               python -m strumenti.compila --eseguibile   (NON incatenato)
-    dataoard_it.txt e talk_it.txt   li scrive `applica` in build\dati\, poi si copiano
+    board_it.txt e talk_it.txt  li scrive `applica` in `_traduzione\build\dati\`
 
 ⚠️ Le due copie del gioco stanno in `C:\Games\Elona\elonaplus2.31\data\` (non
 nella radice del gioco: la 94a ci ha perso un comando).
 
-⚠️ `strumenti.gronde` legge la **build**: su una macchina senza albero costruito
-non fallisce dicendo «la gronda e' stretta», muore di file non trovato.
-💡 E `strumenti.battute` vuole `PYTHONIOENCODING=utf-8` davanti.
+⚠️ **E il nome del primo e' `board_it.txt`.** Dalla 92a in poi questa riga
+diceva `dataoard_it.txt`: un `\b` di `data\board` degradato a **carattere di
+ritorno** da qualche script, e poi ricopiato di sessione in sessione come se
+fosse un nome. Le sezioni storiche qui sotto se lo portano ancora dietro.
+💡 Lo stesso guasto e' successo due volte oggi scrivendo `invariati.md` e una
+rete, ed e' sempre la stessa causa: `\b` dentro una stringa Python **non** grezza
+passata da un heredoc. Si scrive il file con lo strumento di scrittura, non con
+`python - <<'PY'`.
+
+⚠️ I due file `_it.txt` si copiano solo se sono cambiati: `cmp -s` prima di `cp`,
+cosi' la data del file nel gioco dice qualcosa.
+
+⚠️ `strumenti.gronde`, `scratchpad/_97-listn.py` e
+`scratchpad/_97-toppe-agganciate.py` leggono la **build**: su una macchina senza
+albero costruito non falliscono dicendo la loro, muoiono di file non trovato.
+💡 E `strumenti.battute` vuole `PYTHONIOENCODING=utf-8` davanti; i moduli di
+`scratchpad/` che importano `strumenti.*` vogliono anche `PYTHONPATH=.`.
 
 💡 **Se invece il terminale nuovo e' sulla stessa macchina, non si rifa'
-niente**: la 92a, la 93a, la 94a, la 95a e la 96a si sono aperte cosi'. Si
-controlla in un comando — `ls -la C:\Games\Elona\elonaplus2.31\cgx-test.exe` —
-e la data dev'essere quella dell'ultimo lotto (qui: **25/08, 09:45**).
+niente**: dalla 92a alla 97a si sono aperte tutte cosi'. Si controlla in un
+comando — `ls -la C:\Games\Elona\elonaplus2.31\cgx-test.exe` — e la data
+dev'essere quella dell'ultimo lotto (qui: **25/08, 16:32**).
 
-⚠️⚠️⚠️ **LA LEZIONE DELLA GIORNATA: UNA TOPPA ANCORATA A UNA STRINGA
-TRADUCIBILE E' UNA BOMBA A OROLOGERIA, E OGGI E' ESPLOSA.** La toppa della 69a
-— quella che toglie i prefissi `rotten `/`sample ` da davanti al nome dei cibi e
-li rimette in coda fra parentesi — si agganciava a tre righe, e quella di mezzo
-era `lang("(防腐処理)", " (Antiseptic)")`. Il **primo lotto di oggi** l'ha resa
-« (antisettico)». Il blocco cercato non e' piu' esistito, **`applica` l'ha detto
-in una riga e ha tirato dritto**, e la build piu' l'eseguibile copiato nel gioco
-sono rimasti **senza quella toppa**: difetto del 19/08 riaperto in silenzio.
+⚠️⚠️⚠️ **LA LEZIONE DELLA GIORNATA: HO ROTTO LA BUILD, E L'HA PRESA IL GREP DEL
+SEGNALE DI GUASTO.** Ho reso `map.hsp:1396` («North Tyris») per riparare un
+difetto vero — che era **gia' riparato dalla 42a**, con la prima toppa di
+migrazione del progetto, il cui motivo diceva «:1396 resta rinviata, ed e' quel
+che rende stabile la stringa cercata». `applica` e' uscito con **1**, e
+`compila --eseguibile` ha prodotto lo stesso un eseguibile dal solito albero
+incompleto: la forma esatta del guasto della 96a. La coda dell'output non diceva
+niente; il `grep -i "non esiste|errore|warning"` si'.
 
-Le toppe si applicano **dopo** la sostituzione del dizionario, quindi il loro
-`cerca` corre sul testo gia' tradotto. ⚠️ **L'ancora va dove la lingua non
-arriva**: una riga strutturale, un `if`, mai una `lang()`. Ri-ancorata a
-`if ( ibit(ITEM_BIT_PERIOD, itemname_itemid) == 1 ) {`.
+⭐ **E' la lezione della 96a dall'altro lato.** Li' l'ancora stava su una
+`lang()` traducibile e si sposta; qui l'ancora **deve** starci sopra, e la difesa
+era una **promessa** — la voce rinviata apposta — scritta nel motivo di una
+toppa, dove chi apre un lotto non passa.
 
-⭐ **E a trovarla e' stata una guardia che guardava un'altra cosa**: `maiuscole.py`
-tiene coordinate nella build e si e' accorta che il file si era accorciato di
-177 righe. Nel vault: [[l-ancora-di-una-toppa-non-va-dove-arriva-la-lingua]].
+⭐⭐⭐ **DA LI' LA GUARDIA CHE IL PUNTO 6 CHIEDEVA DA DUE SESSIONI.**
 
-⚠️⚠️ **LA SECONDA META', MEZZ'ORA DOPO: UN'ANCORA CHE ESISTE SOLO DOPO UN'ALTRA
-TOPPA.** La toppa nuova dell'articolo dei fiori si era agganciata a un `if`
-senza nessuna `lang()` dentro — sembrava perfetto — ma quel blocco lo **scrive
-un'altra toppa**: la macchina dell'articolo italiano nel sorgente pinnato non
-esiste. `test_le_toppe_del_progetto_si_applicano_al_sorgente_pinnato` l'ha
-bocciata subito, e ha ragione: un'ancora cosi' rende l'ordine di applicazione un
-vincolo **invisibile**. Il rimedio non e' spostare l'ancora, e' **entrare nella
-toppa che quel codice lo crea**. Non erano due toppe: era una toppa sola, piu'
-lunga.
+    python scratchpad/_97-toppe-agganciate.py
+    toppe: 1023   agganciate: 1023   mancanti: 0   (atteso: 0)
 
-⭐⭐⭐ **LA TERZA: IL CONTO SI MISURA SUL SORGENTE, IL TESTO SI LEGGE NELLA
-BUILD.** La 96a era partita convinta che 24 firme di `item_func.hsp` fossero
-bloccate perche' stanno **prima** del nome dell'oggetto. La rete nuova
-`scratchpad/_96-morte-nella-build.py` ha detto altro: due erano **gia' risolte da
-una toppa** che sposta il materiale in coda («una sedia di manifattura in
-mithril»). Su tutto il progetto ha trovato **quattro** voci contate come lavoro e
-sparite dalla build, tutte legittimamente risolte da toppa e nessuna registrata.
-Ora e' una guardia, valore atteso **0**.
+⚠️⚠️ **E l'ho provata al contrario**, che e' la meta' che conta: puntata sul
+sorgente pinnato, dove nessuna toppa e' applicata per definizione, dice **1019
+mancanti**. Sa dire rosso. Nel vault: [[una-rete-che-non-ha-mai-detto-rosso]].
+⭐ **Da adesso si compila solo dopo che quella guardia ha detto verde.**
 
-⚠️ La rete ha sbagliato **due volte** prima di funzionare, e i due errori sono lo
-stesso errore da due lati: guardando anche le voci gia' rese diceva «sparite:
-21.302» (tutto il lavoro del progetto, perche' su una voce tradotta l'inglese
-sparisce dalla build **per costruzione**); leggendo `dizionario/*.jsonl` diceva
-«sparite: 0» (li' dentro ci sono solo le voci **gia' fatte**). Un elenco
-sbagliato produce sia un numero enorme sia uno zero, e nessuno dei due si fa
-notare.
-
-⭐⭐ **LA QUARTA: LA RETE CHE MISURA CHI ACCENDE UNA STRINGA.**
-`scratchpad/_96-rami-jp.py` ricostruisce, per ogni riga, la pila delle condizioni
-che la racchiudono, e dice se una nomina la lingua. Su `item_func.hsp`: **nove
-firme** dentro `if ( … & jp )`, che in italiano non escono mai. `verifica`,
-`estrai` e la prova d'identita' guardano la **riga**, non chi la raggiunge.
+⚠️⚠️ **E TRE MIEI COMMENTI DICEVANO IL FALSO SULLO STESSO STRUMENTO.** Avevo
+scritto tre volte che `battute --divergenti` avrebbe visto certe gemelle:
+`strumenti/battute.py:79` e' `FILE = "db_creature.hsp"` e guarda **un file
+solo**. La 96a lo aveva gia' scoperto e scritto nella sua ripresa. A smentirmi e'
+stata una **previsione sbagliata** — avevo detto «sale a 15», la misura ha detto
+13. La rete giusta per quella famiglia e' `misura-rete4.py`.
 
 ---
 
 
-## La novantaseiesima sessione
+## La novantasettesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La 97a
+si e' aperta con `origin/fase-0` allineato: e' la **cinquantaquattresima prova**
+di fila, e le quindici hanno dato quindici volte i valori attesi della 96a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    verifica --dizionario   command.hsp  0 / 26   (era 0 / 93)   ⭐ CHIUSO
+                            system.hsp   0 / 1    (era 0 / 41)   ⭐ CHIUSO
+                            init.hsp     0 / 1    (era 0 / 10)   ⭐ CHIUSO
+                            chara.hsp    0 / 0    (era 0 / 4)    ⭐ CHIUSO
+                            map.hsp      0 / 1    (era 0 / 1)    ⭐ CHIUSO
+    rinviate.jsonl          107                   (erano 102)
+    toppe.jsonl             1023                  (invariato)
+    misura-rete4            812 | 149             (erano 806 | 149)
+    perimetro dichiarato    95%                   (invariato)
+    invariati.md            +5 righe: `t `, `[`, `]`, `iknownnameref_en.`, `author_en.`
+
+Tutto il resto e' **fermo dov'era**, riverificato in chiusura: `pytest`
+**737 passed, 6 skipped**, `prova_identita` 72/72 e **28.073**, `creature`
+1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205, `riquadri` 0 su 38
+e 0 su 71, `menu_dialogo` 0 su 1378, `linguette` 0 e 0, `battute --divergenti`
+**13**, `intestazioni_larghezze` perimetro 0, `dati_applica --identita` 4 file e
+2.987 righe, `dati_sorgente` 7/7 e gioco difforme su 0, `gronde` 0 su 5,
+`maiuscole` 143/6/1/7/**0**, `bilingui` **0**, `referti` **9**,
+`lang-nel-ramo-jp` **21 | 0**, `_96-morte-nella-build` **0**.
+
+### ▶ ⭐⭐⭐ IL CONTO NUOVO, E CAMBIA LA FORMA DELLA DOMANDA
+
+    python scratchpad/_97-quanto-resta.py
+
+    db_card.hsp     1146 non tradotte    1 rinviata    1145 DA FARE
+    tutti gli altri  105 non tradotte  105 rinviate       0  ⭐ CHIUSI
+    ------------------------------------------------------------------
+    TOTALE          1251                106             1145
+
+⚠️ `verifica --dizionario` **conta le rinviate dentro le non tradotte**, quindi
+da adesso il suo numero non risponde piu' a «quanto manca». La frase «il 37 di
+`item_func.hsp` vuol dire zero» non si scrive piu' a mano: **si misura**.
+
+⚠️ Al primo giro quel modulo dava **zero su ogni riga**, e lo zero era falso:
+cercava le voci senza `it` dentro `dizionario/*.jsonl`, dove non ce ne sono
+(`reimporta` scrive solo le rese). Uno zero uniforme e' una domanda posta al
+posto sbagliato.
+
+### ▶ Che cosa e' stato fatto
+
+    command.hsp :16054-:16987  il pannello «Conoscenza dell'oggetto»       25
+    command.hsp  :8481-:9032   i due menu degli incantesimi                24
+    command.hsp  :8263-:11702  evocazione, scheda, segno dell'oggetto      19
+    system.hsp   :106-:3317    il file per intero                          40
+    init/chara/map             la coda: gli operandi del genere            13
+    -------------------------------------------------------------------------
+    rinvii: command :2956 e :11066, system :777, init :510, map :1396       5
+    invariati.md: `t `, `[`, `]`, `iknownnameref_en.`, `author_en.`         5
+    reti nuove: _97-listn, _97-toppe-agganciate, _97-quanto-resta,
+                _97-vive, _97-conoscenza-larghezza, _97-dead-jp-command     6
+    -------------------------------------------------------------------------
+       121 rese, 0 rifatte, 5 rinvii, 0 toppe toccate, 6 reti nuove
+
+### ▶ ⭐⭐⭐ Il punto cieco della 74a e' chiuso all'89%, ed era di MISURA
+
+Ventitre' sessioni di «restano 100 righe `listn(...) = lang(...)`». Non erano da
+tradurre: erano **gia' rese e mai passate sotto un tetto**.
+
+    python scratchpad/_97-listn.py
+    128 righe, 120 rese, 115 misurate, 10 senza metro
+    fuori misura: 0    ⚠️ introdotte dall'italiano: 0   (atteso: 0)
+
+⚠️ **Ha sbagliato due volte, e la seconda e' quella che insegna**: prendeva il
+primo `pos wx + N` che capitava, e su `*com_charainfo` era quello dello
+**sfondo** — tetto 86 inventato, verde su una misura falsa. Ora l'ancora
+dev'essere dentro il ciclo (la `y` nomina `cnt`), e dove le ascisse sono piu'
+d'una il pannello e' **a colonne** e la rete dichiara di non sapere invece di
+indovinare.
+
+**Le cinque routine che restano senza metro** (10 righe, di cui 7 rese):
+
+    command.hsp  *com_tone         1 riga    2 colonne (wx+70, wx+138)
+    command.hsp  *com_charainfo    5 righe   16 colonne (!)
+    chara.hsp    *cm_stats         2 righe   4 colonne, 0 rese
+    event.hsp    *random_eventProc 1 riga    finestra non dichiarata
+    net.hsp      *com_vote         1 riga    7 colonne, 0 rese
+
+⭐ Il metro vero si legge a mano e si scrive in `METRO_A_MANO`, **una riga per
+pannello col sito da cui viene**. Ce ne sono gia' due: `*com_identify`
+(600 px, `wx + 68`, tetto 65) e `*com_trait_loop` (730 px, `wx + 70`, tetto 82).
+
+### ▶ ⚠️ Le deroghe che pesano
+
+1. **Il genere dell'oggetto non si sa**, e nel pannello della conoscenza sono
+   dieci righe su venticinque. Tre mosse: aggettivo invariabile («resistente al
+   fuoco»), un nome nostro che porta il genere («un oggetto prezioso», «un'arma
+   leggera», «merce rubata»), il verbo al posto dell'aggettivo («Ha vita
+   propria», «Finche' e' addosso»). ⚠️ Vale anche per il clitico: «identificare
+   l'oggetto», non «identificarlo».
+2. **`:16289` e' dentro un `/* ORIGINAL */` spento ma la firma e' viva a
+   `:16303`.** Rinviarla per la riga in cui e' registrata sarebbe stato un
+   errore: `estrai --da-tradurre` registra la **prima** occorrenza.
+   `scratchpad/_97-vive.py` distingue MORTA (tutte spente) da MISTA.
+3. **`Name` e `Cost(Stock)` sono una firma sola per due finestre**
+   (`:8483`/`:8789`): il tetto e' il piu' stretto dei due riquadri.
+4. **I due «Nessun limite» sono resi uguali apposta** (`:8894`/`:8895`, stesso
+   giapponese, due inglesi). Il menu si apre da `z` **o** da `x`, mai da tutt'e
+   due. ⚠️ E il senso e' quello dell'inglese: `rtval` vale 0, non e' un annulla.
+5. **`mtname()` non e' tradotto** (`material_data.hsp` non ha dizionario), e la
+   resa non deve dipenderne: «Il materiale e' mithril» non chiede preposizione.
+6. **Le due lingue si contraddicono cinque volte** (`system.hsp` `:289` `:445`
+   `:531` `:1959`, `init.hsp:1973`), e non vince sempre la stessa: il testimone
+   e' il **codice**. Per esteso in `decisioni.md` §9.
+7. **Gli undici operandi di `CDATAN_NEWSEX`** restano inglesi: sono in
+   `invariati.md` dalla 47a, e a schermo ci arrivano per toppa. ⚠️ Il loro
+   ingresso in dizionario ha alzato `misura-rete4` da 806 a 812 nella colonna
+   «inglese diverso», che e' quella legittima.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **`db_card.hsp`, 1.145 firme: E' RIMASTO LUI E BASTA** nel perimetro
+   `lang()`. Prosa omogenea, le descrizioni delle carte. Non c'e' piu' una
+   scelta da fare sul prossimo file.
+2. ⚠️⚠️⚠️ **IL COLLAUDO A SCHERMO E' L'ARRETRATO CHE CRESCE PIU' IN FRETTA.**
+   Sono **sedici** sessioni e **2.455 rese** mai viste: 301, 336, 326, 281, 104,
+   98, 174, 153, 143, 87, 55, 73, 203 e **121 di oggi**.
+   ⭐ **I punti offerti nella 97a e mai tornati** (eseguibile **25/08 16:32**,
+   e i tasti vengono dal `config.txt` dell'utente, non dalla memoria):
+   - **`X`** (zaino) poi **`x`** su un oggetto: si apre «Conoscenza
+     dell'oggetto». Le righe devono dire «E' resistente al fuoco», «E' un
+     oggetto prezioso», «Il materiale e' …» — **mai un aggettivo che sbaglia
+     genere**. E' il controllo che conta di piu';
+   - stesso pannello su un'**arma**: «Si puo' impugnare come un'arma. (2d5
+     perfora 30%)» non deve toccare il bordo (tetto 65 caratteri);
+   - **`v`** (lancia): la finestra «Incantesimi», colonne «Nome / Costo(scorta)
+     Liv/Riuscita / Effetto». Poi **`z`**: «Nessun limite», «Limite liv. 1500»
+     (tetto 20). Poi **`/`**: «[Mostro tutti gli incantesimi]»;
+   - **`c`**: «Scheda del personaggio», e nell'addestramento «Allenamento delle
+     abilita'» / «Quale abilita' vuoi allenare?».
+   💡 Non e' stato pinnato **quale oggetto** apra «Creazione dei grimori»
+   (`action.hsp:7887`, un ramo di «usa»): le tre code «grimori ricavabili /
+   Scorta insufficiente / Non convertibile» sono tagliate a 40 caratteri da
+   `strmid(s, 0, 40)` e valgono un'occhiata.
+   Restano dalle sessioni prima NERES e RYUTYE al Campo di Battaglia, CRAY e
+   MARY all'imbocco di Raskilis, BURT a Zaile, KARATA al Seminario, MANSON,
+   RAIZEL, NORNE, ALICE, i ventotto nomi di MIKRAANESIS, il menu del
+   **seminario**, il **menu di Maile a undici voci**, il **prospetto cittadino**
+   e il **[Non posare]**; e i quattro della 96a — le sigle degli incantamenti
+   (`w` poi `z`), la bacchetta «(cariche: 4)», il fiore «un'ortensia», e il
+   **cibo marcio** «(marcio)» in coda.
+3. ⚠️⚠️ **LE QUATTRO DEL MURO DEI PREFISSI VOGLIONO QUATTRO TOPPE**, forma nota:
+   `item_func.hsp:1308` (taglia in cm), `:1386` (kit di materiali), `:1390`
+   (cioccolatino), `:1458` («eternal force»). La strada e' quella di `:1399`:
+   `locvar_itemname_s6 += " …" + …`, che si appende a `:1899`. ⚠️ Vanno **viste
+   in gioco una per una**.
+4. ⭐⭐ **`"Have"` di `command.hsp:11069`**: letterale inglese nudo che il
+   giocatore legge nel pannello «Scelta delle abilita'», e che ha ucciso la
+   `lang()` di `:11066`. Vuole una toppa, e sta gia' in `blocchi_en.py`.
+5. ⭐⭐ **Le dieci righe `listn` senza metro** (punto sopra): cinque routine a
+   colonne, il metro si legge a mano e si scrive in `METRO_A_MANO`.
+6. ⭐⭐ **LA RETE CHE MANCA: LA LARGHEZZA DELLA RIGA DEGLI INCANTAMENTI.** Nessuna
+   guardia misura il sito `showresist == 4`. Budget **380 px / 47 caratteri**,
+   condiviso fra tutte le enchant di un oggetto, e **l'inglese lo sfonda gia'**
+   con quattro.
+7. ⭐⭐ **LA RETE CHE MANCA: GLI INGLESI DIVERGENTI.** Il caso simmetrico —
+   stesso **inglese**, giapponesi diversi — non lo vede nessuno. ⚠️ E adesso si
+   sa anche **chi non lo vede**: `battute --divergenti` guarda solo
+   `db_creature.hsp`; `misura-rete4.py` guarda tutto ma raggruppa per giapponese.
+8. ⚠️⚠️⚠️ **I 335 SITI DOVE L'INGLESE E' STATICO E IL GIAPPONESE NO**, e dentro
+   quelli i **quattro** dove l'inglese dice un'altra frase. Decisione aperta.
+   `python scratchpad/_94-jp-dinamico-en-statico.py --tutte`.
+9. 🔶 **L'EPITETO DI SINAHA, da decidere.** Vedi `decisioni.md` e `glossario.md`.
+10. ⭐⭐⭐ **La rete che manca ha un rendimento misurato**: rileggere il dizionario
+    con le regole nuove. 92a tre difetti veri in nove lotti, 93a zero ma con due
+    scoperte laterali, 95a una resa rifatta, 97a la resa morta della 68a. Il
+    rendimento cala, non e' zero.
+11. ⚠️⚠️⚠️ **Le sette etichette del potenziale** (`command.hsp:10676`-`:10700`)
+    sono letterali nudi senza `lang()`: a schermo sono inglesi. Toppabili; il
+    giorno che si toppano, `chat.hsp:14246` va rifatta.
+12. ⭐⭐⭐ **La rete che non c'e': i PARTNER fuori da `lang()`** (81a).
+13. ⭐⭐ **La rete che manca: i `buff` della finestra del dialogo** (95a).
+14. ⭐ **`menu_dialogo.reso()` non legge il `limit(..., 0, N)`** (79a).
+15. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208 righe),
+    `manual_ENG.txt` (591), `exhelp.txt` (185). ⚠️ La chiave `EN` che le apre e'
+    la stessa di `command.hsp:8372`, ed e' in `invariati.md`.
+16. ⭐⭐ `board.txt` **secondo lotto**; `custom_autopick.hsp` 21 gemelle delicate.
+17. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+    `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+    `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+    ⭐ `material_data.hsp` adesso ha un motivo in piu': `mtname()` esce nel
+    pannello della conoscenza dell'oggetto, e finche' e' inglese quella riga e'
+    meta' italiana.
+18. ⭐⭐ Il **muro del materiale** generale: `mithril sword` e' «spada **di**
+    mithril». Per i **mobili** e' gia' abbattuto da una toppa; il resto no.
+19. 🔶 **La sorella H** (82a) e la 🔶 **decisione aperta dalla 80a** sul menu
+    degli arti.
+20. ⚠️ **`scene2.hsp` non e' nel dizionario**, e ci sono due fili: `<Minea> The
+    Puppeteer` e' la sorella di Nein (91a), e `:9399`-`:9403` di **Mikraanesis**
+    sono il ramo `if ( jp )` coi **letterali nudi** (92a). Da toppare.
+
+### ▶ Come si e' chiusa
+
+Tre giri di `applica` + `compila --eseguibile`, e il terzo e' servito perche' il
+secondo era **rotto**: la resa di `map.hsp:1396` aveva disinnescato la toppa di
+migrazione della 42a. Disfatta e rinviata, ricostruito, e **la compilazione e'
+passata dopo che `_97-toppe-agganciate.py` ha detto 1023 su 1023**. Quella buona
+e' delle **16:32**, e le rese sono state rilette **nella build** dopo ogni giro —
+il pannello della conoscenza, i due menu degli incantesimi, le chiavi di
+`system.hsp` lasciate intatte, la toppa di `map.hsp` al suo posto («Casa tua») e
+gli operandi del genere ancora inglesi.
+
+⚠️ La voce in `log.md` (vault) e' stata scritta **prima** dei documenti del repo,
+come vuole la lezione della 90a, e con lei un concept nuovo
+(`una-rete-che-non-ha-mai-detto-rosso`), **tre concept estesi**
+(`l-ancora-di-una-toppa-non-va-dove-arriva-la-lingua`,
+`il-codice-morto-conta-come-lavoro`, `una-guardia-vale-solo-dove-guarda`) e la
+riga in `index.md`.
+
+---
+
+
+## La novantaseiesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

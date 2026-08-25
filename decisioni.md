@@ -6,6 +6,201 @@ ancora aperte.
 
 ---
 
+## Tre file si chiudono, e resta un file solo — 2026-08-25, novantasettesima
+
+Cinque lotti, **121 rese**, 5 rinvii, 4 invarianti nuovi. `command.hsp`,
+`system.hsp`, `init.hsp`, `chara.hsp` e `map.hsp` vanno a zero aperte, e il
+perimetro `lang()` si riduce a **`db_card.hsp`**, 1.145 firme.
+
+### 1. ⭐⭐⭐ Il numero che vuol dire zero adesso e' un comando
+
+`verifica --dizionario` conta le firme del sorgente che non stanno fra le rese,
+e **le rinviate ci stanno dentro**. Da quando i file si chiudono, quel numero
+non dice piu' «quanto manca»: dice «quanto manca **piu'** quanto e' gia' stato
+deciso di non fare». La 95a l'ha scritto a mano per `chat.hsp` («il 6 vuol dire
+zero»), la 96a per `item_func.hsp` («il 37 vuol dire zero»): una frase per file,
+ricopiata di sessione in sessione, che nessuno rimisurava.
+
+`python scratchpad/_97-quanto-resta.py` la misura, e il quadro e' questo:
+
+    db_card.hsp     1146 non tradotte    1 rinviata    1145 DA FARE
+    tutti gli altri  105 non tradotte  105 rinviate       0  CHIUSI
+
+⚠️ **Al primo giro dava zero su ogni riga, e lo zero era falso**: cercava le
+voci senza `it` dentro `dizionario/*.jsonl`, dove non ce ne sono, perche'
+`reimporta` scrive **solo** le rese. Le firme da fare si ricavano dal sorgente,
+ed e' quel che fa `verifica.py`. Uno zero che arriva subito e su ogni riga non e'
+una buona notizia: e' una domanda posta al posto sbagliato.
+
+### 2. ⚠️⚠️⚠️ Ho rotto la build, e l'ha presa il grep del segnale di guasto
+
+Ho reso `map.hsp:1396` («North Tyris» -> «Tyris del Nord») per riparare un
+difetto vero: `mapname()` per la mappa del mondo passa da `text.hsp:2737`, gia'
+reso, quindi il confronto contro l'inglese non riesce mai e la casa del
+giocatore non viene rinominata.
+
+Il difetto era vero **ed era gia' riparato dalla 42a**, con la prima toppa di
+migrazione del progetto — `mdatan` e' serializzato (`module.hsp:4598` `noteadd`,
+`:4601` `noteget`), quindi un salvataggio vecchio porta dentro «Your Home» in
+inglese e la toppa aggiunge un terzo operando per riconoscerlo. Il motivo della
+toppa lo diceva a chiare lettere: **«:1396 resta rinviata (e' un confronto
+contro un valore serializzato), ed e' quel che rende stabile la stringa
+cercata.»**
+
+`applica` e' uscito con **1**, e `compila --eseguibile` ha prodotto lo stesso il
+suo eseguibile dal solito albero incompleto: i due comandi non sono incatenati
+apposta, e il codice d'uscita da solo non ferma niente. E' la forma esatta del
+guasto della 96a. L'ha presa il `grep -i "non esiste|errore|warning"` fatto
+**prima** di dichiarare fatto; la coda dell'output non diceva niente.
+
+⭐ **E' la lezione della 96a vista dall'altro lato.** Li' una toppa era ancorata
+a una `lang()` traducibile e qualcuno l'ha tradotta: rimedio, spostare l'ancora.
+Qui l'ancora **deve** stare su una `lang()` — e' proprio quella riga che la
+toppa cambia — e la difesa scelta allora era **rinviare la voce**, cioe' una
+promessa. Una promessa scritta nel motivo di una toppa non sta sul percorso di
+chi apre un lotto.
+
+### 3. ⭐⭐⭐ La guardia delle toppe, che il punto 6 chiedeva da due sessioni
+
+`python scratchpad/_97-toppe-agganciate.py` legge **l'albero costruito** e per
+ogni toppa verifica che il testo che doveva mettere ci sia:
+
+    toppe: 1023   agganciate: 1023   mancanti: 0   (atteso: 0)
+
+⚠️ Le dodici toppe dichiarate `prima` girano sull'albero ancora inglese e il
+dizionario poi riscrive le `lang()` che il loro `sostituisci` si porta dentro:
+cercarlo alla lettera da' dieci falsi allarmi. Su quelle si guarda l'altra meta'
+del fatto — che la riga di partenza non ci sia piu' — ed e' una prova piu'
+debole, dichiarata nel modulo.
+
+⚠️⚠️ **E l'ho provata al contrario.** Puntata sul sorgente pinnato, dove nessuna
+toppa e' applicata per definizione, dice **1019 mancanti**: sa dire rosso. Una
+rete che non si e' mai vista dire rosso non e' una misura, e' una speranza
+formattata. Nel vault: [[una-rete-che-non-ha-mai-detto-rosso]].
+
+💡 Il primo tentativo confrontava il **testo** invece della riga e dava 39 falsi
+allarmi (una toppa che opera su un letterale nudo a `:21986` veniva accoppiata a
+una resa di `:1367` che diceva le stesse parole). E' stato buttato, non aggiustato.
+
+### 4. ⭐⭐⭐ Il punto cieco della 74a era di misura, non di traduzione
+
+Ventitre' sessioni che la ripresa scriveva «restano 100 righe
+`listn(...) = lang(...)`». Non erano da tradurre: **erano gia' rese e mai
+passate sotto un tetto**. `larghezze.py` misura i menu dichiarati
+(`s(cnt) = lang(...)`, `promptAdd`), `riquadri.py` le piastrelle,
+`menu_dialogo.py` il dialogo: una lista riempita a mano non e' nessuno dei tre.
+
+`python scratchpad/_97-listn.py` ricava per ogni pannello la finestra
+(`display_window`, o il `ww = N` scritto a mano di `*com_charainfo`) e il punto
+dove le voci si posano, e ne fa un tetto col metro di `larghezze.py`:
+
+    128 righe, 120 rese, 115 misurate, 10 senza metro
+    fuori misura: 0    introdotte dall'italiano: 0
+
+⚠️ **Ha sbagliato due volte.** Al primo giro bastava un `pos wx + N` qualunque,
+e su `*com_charainfo` prendeva quello dello **sfondo** (`wx + 4`): tetto 86
+inventato, verde su una misura falsa. Ora l'ancora dev'essere una posizione
+**dentro il ciclo** (la `y` nomina `cnt`). Al secondo, dove le ascisse sono piu'
+d'una il pannello e' a colonne e il metro **non si indovina**: quelle righe si
+contano «senza metro», e il metro vero entra a mano in `METRO_A_MANO`, una riga
+per pannello **col sito da cui e' stata letta**. Ne sono entrati due:
+`*com_identify` (600 px, `wx + 68`) e `*com_trait_loop` (730 px, `wx + 70`).
+
+💡 Sul pannello dei talenti il metro sono **due**, scelti da `list(1, p)`: sotto
+10000 la voce sta in 186 px perche' a `wx + 270` c'e' la colonna del grado,
+sopra 10000 quella colonna non si disegna. Le settanta righe di quella routine
+stanno tutte nel secondo caso — 41 con `99999` e 29 con `99998`, contate una per
+una — e infatti non sono nomi di talento ma le frasi con la targhetta davanti.
+
+### 5. ⚠️ Tre miei commenti dicevano il falso, e li ha smentiti una previsione
+
+In tre docstring della stessa giornata avevo scritto che `battute --divergenti`
+avrebbe visto certe coppie di gemelle. **E' falso**: `strumenti/battute.py:79` e'
+`FILE = "db_creature.hsp"`, e quello strumento guarda un file solo. La rete che
+vede la famiglia su tutto il dizionario e' `scratchpad/misura-rete4.py`, passata
+da **806 a 812** gruppi con inglese diverso (i sei operandi del genere,
+legittimi) e ferma a **149** con lo stesso inglese, che e' la colonna senza scuse.
+
+⚠️ **La 96a aveva gia' scoperto la stessa cosa** sui due `(Empty)` e l'aveva
+scritta nella propria ripresa. Io l'ho riscritta sbagliata tre volte. Me ne sono
+accorto perche' avevo **predetto 15 e misurato 13**: un numero predetto e poi
+confrontato e' una rete anche quando non lo sembra.
+
+### 6. La quinta famiglia di riga morta: morta per assegnazione
+
+`command.hsp:11066` e' `s += lang("*", "#")`, e tre righe dopo `:11069` fa
+`s = "Have"` prima che `:11072` stampi. Le quattro famiglie note — il `;`, il
+commento di blocco, il ramo `if ( jp )`, l'`if ( 0 )` — si riconoscono guardando
+**dove sta** la riga. Questa no: la riga e' viva, il blocco e' vivo, la `lang()`
+e' vera, e a spegnerla e' la riga dopo.
+
+⚠️ E porta un difetto in dote: quel che il giocatore legge nel pannello «Scelta
+delle abilita'» e' `"Have"`, letterale inglese nudo fuori da ogni `lang()`, che
+vuole una **toppa**. Sta gia' nell'elenco di `blocchi_en.py`.
+
+### 7. Una resa su testo morto stava li' da ventinove sessioni
+
+`lang-nel-ramo-jp.py` diceva `21 | 1` invece di `21 | 0`. `command.hsp:2956`
+(« liv.») era stata tradotta nella **68a**, ma sta dentro l'`if ( jp )` di
+`:2954` dove le sue dieci sorelle sono rinviate dalla 45a. Il referto era gia'
+tornato a zero nella 57a togliendo una resa morta, ed e' risalito a uno nella
+68a: **nessuno l'ha guardato per 29 sessioni**, perche' non e' fra le quindici
+verifiche d'apertura — si lancia solo quando si apre un file o una zona nuova.
+
+### 8. Il genere dell'oggetto non si sa, e sono dieci righe su venticinque
+
+Il pannello «Conoscenza dell'oggetto» scrive «It is precious.» e se la cava:
+`it` non ha genere. «E' prezioso» sbaglia su ogni spada, ogni pozione, ogni
+armatura. Le tre mosse usate, riga per riga:
+
+1. **aggettivo invariabile**: «E' resistente al fuoco» (non «ignifugo/a»);
+2. **un nome nostro che porta il genere**: «E' **un oggetto** prezioso», «E'
+   **un'arma** leggera», «E' **merce** rubata»;
+3. **il verbo al posto dell'aggettivo**: «**Ha** vita propria», «**Ha** la
+   benedizione di Ehekatl», «**Finche' e' addosso**, fa avanzare…».
+
+⚠️ La terza salva `:16312`: «se equipaggiato» e «indossandolo» hanno tutt'e due
+il genere dentro. E vale per il clitico: «bisogna identificar**lo**» diventa
+«bisogna identificare l'oggetto».
+
+⭐ E `:16289`/`:16303` non chiedono nessuna preposizione: «Il materiale e'
+mithril». `mtname()` sta in `material_data.hsp`, che **non ha dizionario**;
+qualunque resa che chieda «di mithril» / «d'acciaio» metterebbe un vincolo
+grammaticale su una parola oggi inglese, scegliendolo alla cieca.
+
+### 9. In `system.hsp` le due lingue si contraddicono quattro volte
+
+E non vince sempre la stessa: il testimone l'ha scelto **il codice**.
+
+- `:289` `lang("盗賊団フラグ抹消。", "Death bug is corrected.")` — il blocco fa
+  `gdata(GDATA_QUEST) = QUEST_TYPE_NONE`: **ha ragione il giapponese**;
+- `:445` — il blocco e' `if ( VERSION == 2220 ) { dialog …; goto *exit_game }`,
+  cioe' il salvataggio **e'** la 1.18fix e viene rifiutato. Il giapponese dice
+  l'opposto: **ha ragione l'inglese**. ⚠️ E i due fratelli `:436` e `:574`, con
+  lo stesso identico blocco, in giapponese lo dicono giusto;
+- `:531` — `p = DAMAGE_FROM_UNSEEN`: e' un colpo da un nemico che non si vede,
+  cioe' il giapponese («ho un assassino alle spalle»), non l'inglese («mi stanno
+  ammazzando»);
+- `:1959`/`:1976` — il giapponese fa la domanda per intero e tiene le quattro
+  righe parallele ai gemelli `:1856`/`:1873`.
+
+⭐ E un quinto in `init.hsp:1973`: `his()` confronta `NEWSEX` con
+`lang("自称男性", "female?")` e restituisce «her?». Il giapponese sbaglia —
+dovrebbe dire 自称女性, come il gemello `:1822` — e rendendo `it` = `en` la build
+italiana si comporta come quella inglese, cioe' giusta.
+
+### 10. L'intestazione dei file esportati e' testo, e l'ho verificato
+
+`system.hsp:3271` scrive `[Made by][titolo]` in cima al file di una mappa
+esportata, e la tentazione e' lasciarlo inglese per non rompere chi lo rilegge.
+Chi lo rilegge e' `command.hsp:407`-`:416`, e prende le righe **per posizione**
+(`noteget s, 0`), non cercando la targhetta: si vede e non si confronta. Si
+traduce — «[Fatto da][». Le sole parti che restano sono le parentesi `[` e `]`
+di `:3316`, cornice attorno al nome della squadra, e le due chiavi
+`iknownnameref_en.` e `author_en.` di `getnpctxt()`, che sono indirizzi.
+
+---
+
 ## `item_func.hsp` si chiude, e una toppa che si era disinnescata da sola — 2026-08-25, novantaseiesima
 
 Quattro lotti, **203 rese**, 23 rinvii, e il compositore del nome degli oggetti

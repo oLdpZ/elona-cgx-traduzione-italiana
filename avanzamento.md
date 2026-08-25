@@ -41,6 +41,50 @@ fondo somma valori di sessioni diverse. Il conto vivo lo danno
 file di `data/` compresi. Finché nessuno rifà la tabella intera, **si guardano
 quelli**.
 
+## ⭐⭐⭐ Il conto vivo, e da oggi si misura — 2026-08-25, novantasettesima
+
+    python scratchpad/_97-quanto-resta.py
+
+    file                     non tradotte  rinviate  DA FARE
+    db_card.hsp                      1146         1     1145
+    tcg.hsp                             2         2        0   ⭐ CHIUSO
+    system.hsp                          1         1        0   ⭐ CHIUSO
+    proc.hsp                            7         7        0   ⭐ CHIUSO
+    map_user.hsp                        1         1        0   ⭐ CHIUSO
+    map.hsp                             1         1        0   ⭐ CHIUSO
+    main.hsp                           10        10        0   ⭐ CHIUSO
+    item_func.hsp                      37        37        0   ⭐ CHIUSO
+    item.hsp                            2         2        0   ⭐ CHIUSO
+    init.hsp                            1         1        0   ⭐ CHIUSO
+    db_creature.hsp                     4         4        0   ⭐ CHIUSO
+    custom_ai.hsp                       1         1        0   ⭐ CHIUSO
+    command.hsp                        26        26        0   ⭐ CHIUSO
+    chat.hsp                            6         6        0   ⭐ CHIUSO
+    chara_func.hsp                      4         4        0   ⭐ CHIUSO
+    action.hsp                          2         2        0   ⭐ CHIUSO
+    -----------------------------------------------------------------
+    TOTALE                           1251       106     1145
+
+⚠️⚠️ **`verifica --dizionario` conta le rinviate dentro le «non tradotte»**, e
+da quando i file si chiudono quel numero non risponde piu' alla domanda «quanto
+manca». La 95a l'ha scritto a mano per `chat.hsp` («il 6 vuol dire zero»), la
+96a per `item_func.hsp` («il 37 vuol dire zero»), la 97a per altri cinque file:
+una frase per file, ricopiata di sessione in sessione. Adesso e' un comando, e la
+tabella qui sopra si rifa' con quello.
+
+⭐ **Nel perimetro `lang()` e' rimasto un file solo**, `db_card.hsp`: 1.145
+firme di prosa, le descrizioni delle carte.
+
+⚠️ La tabella grande qui sopra resta ferma e somma sessioni diverse: il conto
+vivo lo danno questo modulo per il perimetro `lang()` e
+`python scratchpad/perimetro.py` per il totale vero (**95%** dichiarato, **70%**
+col testo fuori perimetro).
+
+⚠️ **E i file senza dizionario non compaiono in nessuna delle due tabelle**: sono
+nove, punto 17 della ripresa, e il piu' grosso e' `txtadv.hsp` con 170 `lang()`.
+
+---
+
 ## Fuori dalla Fase 1
 
 `db_creature.hsp` non è in Fase 1, ma dal 2026-08-11 è il file su cui si lavora
