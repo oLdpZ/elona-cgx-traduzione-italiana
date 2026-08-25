@@ -1,8 +1,7 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-25, fine della **novantacinquesima** sessione (**sette lotti
-in due giri, 73 rese piu' una rifatta, e `chat.hsp` CHIUSO: da 79 firme a
-zero**).
+Aggiornato: 2026-08-25, fine della **novantaseiesima** sessione (**quattro lotti,
+203 rese, 23 rinvii, e `item_func.hsp` CHIUSO: 274 siti, zero aperti**).
 
 ⚠️⚠️ **LA SESSIONE SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
 spinto e l'albero e' pulito; le cose che **non stanno nel repo** sono quattro, e
@@ -21,59 +20,282 @@ non fallisce dicendo «la gronda e' stretta», muore di file non trovato.
 💡 E `strumenti.battute` vuole `PYTHONIOENCODING=utf-8` davanti.
 
 💡 **Se invece il terminale nuovo e' sulla stessa macchina, non si rifa'
-niente**: la 92a, la 93a, la 94a e la 95a si sono aperte cosi' e build ed
-eseguibile erano al loro posto. Si controlla in un comando —
-`ls -la C:\Games\Elona\elonaplus2.31\cgx-test.exe` — e la data dev'essere quella
-dell'ultimo lotto (qui: **25/08, 02:09**).
+niente**: la 92a, la 93a, la 94a, la 95a e la 96a si sono aperte cosi'. Si
+controlla in un comando — `ls -la C:\Games\Elona\elonaplus2.31\cgx-test.exe` —
+e la data dev'essere quella dell'ultimo lotto (qui: **25/08, 09:45**).
 
-⭐⭐⭐ **LA LEZIONE DELLA GIORNATA: IL RAGGRUPPAMENTO DEL LAVORO LO DECIDE CHI
-LEGGE, NON IL FILE.** Questa ripresa proponeva **CRAY + NANCY + MARY** come «la
-Valle di Raskilis che si chiude», sulla base del conteggio delle firme.
-`map.hsp:4971`-`:5100` dice altro: l'imbocco (`ras0`) ha JENNA, MARY, CRAY e
-MANSON — fatto nella 94a — e NANCY sta in `ras_south` con TONI e CARTER.
-Rifatto il piano, **due mappe chiuse invece di mezza**; e lo stesso criterio ha
-poi prodotto la **Gabbia di Amur**, cinque blocchi distanti settemila righe che
-nel file non hanno niente in comune. Nel vault:
-[[il-lavoro-si-raggruppa-come-lo-legge-chi-lo-usa]].
-⚠️ **E quando il criterio si esaurisce va dichiarato, non simulato**: gli ultimi
-due lotti raggruppano per comodita' e lo dicono nel loro docstring.
+⚠️⚠️⚠️ **LA LEZIONE DELLA GIORNATA: UNA TOPPA ANCORATA A UNA STRINGA
+TRADUCIBILE E' UNA BOMBA A OROLOGERIA, E OGGI E' ESPLOSA.** La toppa della 69a
+— quella che toglie i prefissi `rotten `/`sample ` da davanti al nome dei cibi e
+li rimette in coda fra parentesi — si agganciava a tre righe, e quella di mezzo
+era `lang("(防腐処理)", " (Antiseptic)")`. Il **primo lotto di oggi** l'ha resa
+« (antisettico)». Il blocco cercato non e' piu' esistito, **`applica` l'ha detto
+in una riga e ha tirato dritto**, e la build piu' l'eseguibile copiato nel gioco
+sono rimasti **senza quella toppa**: difetto del 19/08 riaperto in silenzio.
 
-⭐⭐⭐ **LA SECONDA: DUE RIGHE CHE DEVONO ESSERE UGUALI, E NESSUNA RETE LE LEGA.**
-`chat.hsp:10539` e `:10530` sono la **stessa frase due volte** — il demone del
-Palazzo Infero imita la voce della madre («Presto! Di qua!»), il bambino
-risponde «Mam... ma?» (`:10541`), poi la maschera cade e la frase torna in
-katakana con la risata. Due firme diverse, giapponese diverso, due rami diversi:
-se le parole non coincidono lo scherzo non si sente. Il **maiuscolo** per il
-katakana era gia' deciso in un altro file, per GILPHEM (`db_creature.hsp:52721`).
+Le toppe si applicano **dopo** la sostituzione del dizionario, quindi il loro
+`cerca` corre sul testo gia' tradotto. ⚠️ **L'ancora va dove la lingua non
+arriva**: una riga strutturale, un `if`, mai una `lang()`. Ri-ancorata a
+`if ( ibit(ITEM_BIT_PERIOD, itemname_itemid) == 1 ) {`.
 
-⭐⭐⭐ **LA TERZA: IL LEI DI CORTESIA, E IL CRITERIO CHE ORA DISTINGUE LEI DA
-VOI.** RYUTYE (`db_creature.hsp:70912`) e ALFRED (`:55746`) danno al giocatore
-del **lei** in battute **gia' rese**: la regola dell'88a (voi) vale quando non
-c'e' niente da trovare, e qui c'era. Solo RENAI e' stata decisa oggi. Criterio in
-`decisioni.md`: se ci sono battute gia' rese decidono quelle; se no, **voi** per
-il cortese e antico (Maile, Manson, Bonyac), **lei** per il deferente e moderno.
+⭐ **E a trovarla e' stata una guardia che guardava un'altra cosa**: `maiuscole.py`
+tiene coordinate nella build e si e' accorta che il file si era accorciato di
+177 righe. Nel vault: [[l-ancora-di-una-toppa-non-va-dove-arriva-la-lingua]].
 
-⭐⭐⭐ **LA QUARTA: 忘却 DA' UN NOME AI BUCHI DI MEMORIA, E NON ERANO UN TIC.**
-BURT, a **Zaile**, non ricorda piu' che panorama si vedesse e dice che «prima o
-poi ci inghiottira' **l'oblio**» (`:15139`): e' la parola con cui MIKRAANESIS
-nomina la dea che sta combattendo (`:18095`). Con NANCY — che viene **da Zaile**
-— CRAY, NERES, RYUTYE e MANSON della 94a, i buchi sono **cinque e sono una cosa
-sola con un nome nella trama**.
+⚠️⚠️ **LA SECONDA META', MEZZ'ORA DOPO: UN'ANCORA CHE ESISTE SOLO DOPO UN'ALTRA
+TOPPA.** La toppa nuova dell'articolo dei fiori si era agganciata a un `if`
+senza nessuna `lang()` dentro — sembrava perfetto — ma quel blocco lo **scrive
+un'altra toppa**: la macchina dell'articolo italiano nel sorgente pinnato non
+esiste. `test_le_toppe_del_progetto_si_applicano_al_sorgente_pinnato` l'ha
+bocciata subito, e ha ragione: un'ancora cosi' rende l'ordine di applicazione un
+vincolo **invisibile**. Il rimedio non e' spostare l'ancora, e' **entrare nella
+toppa che quel codice lo crea**. Non erano due toppe: era una toppa sola, piu'
+lunga.
 
-⚠️⚠️⚠️ **E DUE STRUMENTI FACEVANO MENTIRE IL PIANO, UNO DA OTTO SESSIONI.**
-`_87-parlanti-oltre.py` — la mappa su cui si sceglie il lotto — non toglieva le
-**rinviate**, e dava AJETALIO a «4 da fare» quando le sue quattro firme sono
-righe commentate a monte: **questa ripresa ci aveva costruito sopra il piano
-«AJETALIO chiude il Seminario»**, e il Seminario era chiuso dall'87a. E
-`_88-lotto.py`, `_87-parlanti-oltre.py` e `_85-blocco.py` decidevano «tradotta»
-con `.strip()` mentre `verifica.py` no: differenza di **una voce sola**
-(`chat.hsp:22500`, la cui resa e' legittimamente **uno spazio**), che rendeva il
-file **impossibile da chiudere**. Tutti e tre allineati. Nel vault:
-[[il-cruscotto-non-conta-come-chi-lavora]].
+⭐⭐⭐ **LA TERZA: IL CONTO SI MISURA SUL SORGENTE, IL TESTO SI LEGGE NELLA
+BUILD.** La 96a era partita convinta che 24 firme di `item_func.hsp` fossero
+bloccate perche' stanno **prima** del nome dell'oggetto. La rete nuova
+`scratchpad/_96-morte-nella-build.py` ha detto altro: due erano **gia' risolte da
+una toppa** che sposta il materiale in coda («una sedia di manifattura in
+mithril»). Su tutto il progetto ha trovato **quattro** voci contate come lavoro e
+sparite dalla build, tutte legittimamente risolte da toppa e nessuna registrata.
+Ora e' una guardia, valore atteso **0**.
+
+⚠️ La rete ha sbagliato **due volte** prima di funzionare, e i due errori sono lo
+stesso errore da due lati: guardando anche le voci gia' rese diceva «sparite:
+21.302» (tutto il lavoro del progetto, perche' su una voce tradotta l'inglese
+sparisce dalla build **per costruzione**); leggendo `dizionario/*.jsonl` diceva
+«sparite: 0» (li' dentro ci sono solo le voci **gia' fatte**). Un elenco
+sbagliato produce sia un numero enorme sia uno zero, e nessuno dei due si fa
+notare.
+
+⭐⭐ **LA QUARTA: LA RETE CHE MISURA CHI ACCENDE UNA STRINGA.**
+`scratchpad/_96-rami-jp.py` ricostruisce, per ogni riga, la pila delle condizioni
+che la racchiudono, e dice se una nomina la lingua. Su `item_func.hsp`: **nove
+firme** dentro `if ( … & jp )`, che in italiano non escono mai. `verifica`,
+`estrai` e la prova d'identita' guardano la **riga**, non chi la raggiunge.
 
 ---
 
-## La novantacinquesima sessione
+
+## La novantaseiesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La 96a
+si e' aperta con `origin/fase-0` allineato: e' la **cinquantatreesima prova** di
+fila, e le quindici hanno dato quindici volte i valori attesi della 95a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    verifica --dizionario   item_func.hsp   0 / 37    (era 0 / 240)
+    pytest                  737 passed, 6 skipped     (erano 736)
+    prova_identita          72/72 e 28.073            (invariato)
+    rinviate.jsonl          102                       (erano 79)
+    toppe.jsonl             1023                      (invariato: una ri-ancorata, una assorbita)
+    dizionario              item_func.hsp 226 voci    (erano 23)
+    perimetro dichiarato    95%                       (era 94%)
+
+⚠️⚠️ **`item_func.hsp` E' CHIUSO, E IL SUO 37 NON E' LAVORO.** Misurato, non
+dedotto: **274 siti = 226 resi + 37 rinviati**, zero che non siano ne' l'uno ne'
+l'altro. Le 37 hanno tutte una causa scritta in `rinviate.jsonl`:
+
+    9   spente nel ramo `& jp`        le parti del corpo, `:1036`-`:1060`
+    5   bloccate a monte              il succo (il frutto sta davanti), `_weight`
+    4   il muro dei prefissi vero     `:1308`, `:1386`, `:1390`, `:1458`
+    4   risolte da toppa              fra cui `:1399`/`:1404`, il materiale
+    1   dentro un commento di blocco  `:704`
+    14  le sigle a un kanji di `:2474`, gia' rinviate prima della 96a
+
+Da qui in avanti quel numero resta 37 e vuol dire zero. Il conto da guardare e'
+`python scratchpad/_96-morte-nella-build.py` piu' il conteggio dei rinvii.
+
+⚠️ `referti.py` resta a **9**, gli stessi nove preesistenti: **nessuno viene
+dalle 203 rese di oggi**. Il nono, `:9754`, resta il falso positivo della 93a.
+
+⚠️⚠️ **`maiuscole.py`: il permesso di `item_func.hsp` si e' spostato da `:2352` a
+`:2366`**, ed e' la seconda volta che quella coordinata si muove per una toppa
+che cresce sopra di lei. Riletta la riga, permesso confermato, coordinata
+aggiornata. Il test ha ragione a scattare: **la riga si rilegge, non si allenta
+il test**.
+
+Tutto il resto e' **fermo dov'era**, riverificato in chiusura: `creature`
+1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205, `riquadri` 0 su 38
+e 0 su 71, `menu_dialogo` 0 su 1378, `linguette` 0 e 0, `battute --divergenti`
+**13**, `intestazioni_larghezze` perimetro 0, `dati_applica --identita` 4 file e
+2.987 righe, `dati_sorgente` 7/7 e gioco difforme su 0, `gronde` 0 su 5,
+`maiuscole` 143/6/1/7/**0**, `bilingui` **0**.
+
+### ▶ Che cosa e' stato fatto
+
+    item_func.hsp :1975-:2248  le parentesi di stato dell'inventario       53
+    item_func.hsp :2667-:2750  le sigle degli incantamenti                 53
+    item_func.hsp  :695-:1124  i pezzi del nome (`itemNameSub`)            78
+    item_func.hsp :1407-:1797  i tredici fiori, la chiave `EN`, le cornici 19
+    -------------------------------------------------------------------------
+    rinvii: 6 (lotto nome) + 9 (ramo jp) + 4 (risolte da toppa) + 4 (muro)  23
+    toppe:  1 ri-ancorata (il «(marcio)»), 1 estesa (l'articolo dei fiori)
+    reti:   _96-rami-jp.py, _96-morte-nella-build.py
+    test:   test_il_file_vero_degli_invariati_si_carica                    +1
+    invariati.md: 5 cornici + 3 titoli + `primula` + 1 sezione nuova (39 valori)
+    -------------------------------------------------------------------------
+       203 rese, 0 rifatte, 23 rinvii, 2 toppe toccate, 2 reti nuove
+
+### ▶ ⚠️ Le deroghe che pesano
+
+Stanno per esteso nei quattro moduli di `scratchpad/`. Le sei da ricordare:
+
+1. **La bara della negromanzia elenca otto creature, non otto etichette.**
+   `chara_func.hsp:8862` da' gli otto `CREATURE_ID` nello stesso ordine dei
+   `PARAM1` 2..9, e stanno gia' tutti in `db_creature.hsp`. `(skeleton)` e' **lo
+   scheletro guerriero**; `(dragon)` e `(dead-eyes)` sono **due draghi diversi**.
+   L'articolo si toglie: e' un'apposizione, non un soggetto.
+2. **Tre sigle inglesi degli incantamenti sono sbagliate**, una in senso opposto:
+   `ShotReflect` e' `ENCHANT_QUICK_SHOOTING` (**TiroRapido**), `EXP-Absorb`
+   *ostacola* la crescita (**FrenaCrescita**), `Reveal Religion` e'
+   `ENCHANT_PRESERVE_PIETY` (**MantieneFede**) — e li' sbaglia **anche il
+   giapponese**, che dice 信仰を明らか. Terzo testimone: il nome della costante.
+3. **`:2156` e `:2192` sono lo stesso inglese e due rese diverse, apposta.**
+   `(Empty)` sulla sfera dei mostri e' «(vuota)» — femminile noto, un solo sito;
+   sui contenitori e' «(niente dentro)», perche' li' il genere cambia a ogni
+   oggetto. ⚠️ `--divergenti` **non** li vede: cerca un giapponese reso in due
+   modi, e questi due giapponesi sono diversi (空 / 空っぽ).
+4. **`Art of` non esiste in giapponese** (`:898`, `:913`): l'inglese l'aggiunge,
+   e non sarebbe nemmeno traducibile — «l'arte **della** pesca» / «**del**
+   commercio» vuole la preposizione della parola che arrivera'. Cade.
+5. **`:713` perde la `s`**: il plurale italiano e' un dato per nome, non un
+   suffisso. Resa `>` in tutt'e due i rami.
+6. **Il potioman si traduce a meta'**: i sei **modi** hanno un senso dichiarato
+   da `item_data.hsp:702`-`:707` e diventano italiani (`Rotante`, `Potente`,
+   `Doppio`, `Rapido`, `Preciso`, `Ingannevole`); i 28 **sottonomi** e le 11
+   **sigle** sono nomi coniati e restano. Il ragionamento sta in `invariati.md`,
+   sezione «Nomi coniati del potioman». ⚠️ Se si rovescia, si rovescia tutta
+   insieme.
+
+### ▶ ⭐ Il perimetro, misurato
+
+`item_func.hsp` non c'e' piu' in questa lista. `python scratchpad/perimetro.py`
+dice perimetro dichiarato **23.311 firme, 95% fatto**; totale col testo fuori
+perimetro **31.528, 70%**. Quel che resta, per grandezza:
+
+    db_card.hsp        1.146      il grosso, e sono descrizioni di carta
+    command.hsp           93      di cui il punto cieco della 74a
+    system.hsp            41
+    init.hsp / main.hsp   10 / 10
+    proc.hsp               7
+    altri undici file    1-6 ciascuno   (da guardare: potrebbero essere rinvii)
+    ---
+    data\book.txt      2.208 righe    la famiglia dell'impaginazione,
+    data\manual_ENG.txt  591 righe    che nessun conteggio lang() copre
+    data\exhelp.txt      185 righe
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **IL PROSSIMO FILE E' DI NUOVO UNA SCELTA.** `db_card.hsp` (1.146) e' il
+   grosso ed e' **prosa omogenea** — le descrizioni delle carte; `command.hsp`
+   (93) e `system.hsp` (41) sono interfaccia; `data\book.txt` (2.208 righe) e' il
+   testo piu' lungo del gioco e non ha nessuna rete. ⚠️ E i file col numero
+   piccolo vanno **guardati prima di sceglierli**: la 96a ha imparato che un
+   numero piccolo puo' essere fatto tutto di rinvii.
+2. ⚠️⚠️⚠️ **IL COLLAUDO A SCHERMO E' L'ARRETRATO CHE CRESCE PIU' IN FRETTA.**
+   Sono **quattordici** sessioni e **2.334 rese** mai viste: 301 (84a), 336
+   (85a), 326 (86a), 281 (87a), 104 (88a), 98 (89a), 174 (90a), 153 (91a), 143
+   (92a), 87 (93a), 55 (94a), 73 (95a) e **203 di oggi**.
+   ⭐ **I quattro punti offerti nella 96a e mai tornati** (eseguibile **25/08
+   09:45** — non quelli delle 03:15 e 09:24, che erano rotti o incompleti):
+   - `w` poi `z` **quattro volte**: l'intestazione dice «Incantamento speciale»
+     e sotto ci sono le sigle nuove in fila. **La domanda e' se la riga tocca la
+     colonna del peso a destra**: il budget e' 47 caratteri e l'inglese lo sfonda
+     gia' con quattro incantamenti;
+   - nello zaino, una **bacchetta**: «(cariche: 4)»;
+   - un **fiore**: «una rosa», «un'ortensia», «una margherita» — mai «un rosa».
+     E' la prova della toppa dell'articolo;
+   - ⭐⭐ **il cibo marcio: «(marcio)» in coda, non «rotten » davanti.** E' la
+     toppa che la 96a ha rotto e riparato, ed e' il controllo che conta di piu'.
+   Restano dalle sessioni prima NERES e RYUTYE al Campo di Battaglia, CRAY e MARY
+   all'imbocco di Raskilis, BURT a Zaile, KARATA al Seminario, MANSON, RAIZEL,
+   NORNE, ALICE, i ventotto nomi di MIKRAANESIS, il menu del **seminario**, il
+   **menu di Maile a undici voci**, il **prospetto cittadino** e il **[Non
+   posare]**.
+3. ⚠️⚠️ **LE QUATTRO DEL MURO DEI PREFISSI VOGLIONO QUATTRO TOPPE, E LA FORMA E'
+   NOTA.** `:1308` (la taglia in cm), `:1386` (il kit di materiali), `:1390` (il
+   cioccolatino della Dea dei Desideri), `:1458` («eternal force»). La strada e'
+   quella gia' usata per `:1399`: `locvar_itemname_s6 += " …" + …`, che si
+   appende a `:1899`, cioe' **in coda al nome**. ⚠️ Non sono state fatte oggi
+   apposta: quattro toppe nuove sul compositore dei nomi vogliono essere **viste
+   in gioco una per una**, e oggi una toppa di questo file si era gia'
+   disinnescata in silenzio. ⚠️ `:1386` tocca `mtname()`, quindi la preposizione
+   giusta («di mithril» / «d'acciaio») si sceglie **a valle** del lessico dei
+   materiali: `strumenti/articolo.py` ha gia' `preposizione_di()`.
+4. ⭐⭐ **LA RETE CHE MANCA: LA LARGHEZZA DELLA RIGA DEGLI INCANTAMENTI.** Nessuna
+   guardia misura il sito `showresist == 4` — ne' la larghezza della riga ne' la
+   crescita rispetto all'inglese. Le due misure le fa a mano il modulo
+   `_96-rese-incanti.py`, in coda. Il budget e' **380 px / 47 caratteri per
+   riga**, condiviso fra tutte le enchant di un oggetto, e **l'inglese lo sfonda
+   gia'** con quattro: il traboccamento non lo introduce l'italiano.
+5. ⭐⭐ **LA RETE CHE MANCA: GLI INGLESI DIVERGENTI.** `battute --divergenti` cerca
+   un **giapponese** reso in piu' modi. Il caso simmetrico — lo stesso **inglese**
+   con giapponesi diversi — non lo vede nessuno, ed e' la forma in cui si nasconde
+   una resa sbagliata per imitazione (la lezione della 90a, il riquadro che
+   taglia). Oggi ne e' passata una legittima: `(Empty)` su 空 e su 空っぽ.
+6. ⚠️⚠️ **`applica` NON SI FERMA quando una toppa non aggancia**: stampa la riga
+   e continua. In un output di decine di righe chi guarda la coda non la vede, ed
+   e' esattamente cosi' che la 96a ha spedito nel gioco un eseguibile rotto.
+   ⭐ Il rimedio serio e' farlo **fallire**, o almeno dichiarare un numero atteso
+   di toppe per file: oggi il conto (`item_func.hsp: 35 toppe`) era l'unico
+   segnale, e nessuno lo confronta con niente.
+7. ⚠️⚠️⚠️ **I 335 SITI DOVE L'INGLESE E' STATICO E IL GIAPPONESE NO**, e dentro
+   quelli i **quattro** dove l'inglese dice un'altra frase. Decisione aperta.
+   Lo strumento: `python scratchpad/_94-jp-dinamico-en-statico.py --tutte`.
+8. 🔶 **L'EPITETO DI SINAHA, da decidere.** Vedi `decisioni.md` e `glossario.md`.
+9. ⭐⭐⭐ **La rete che manca ha un rendimento misurato**: rileggere il dizionario
+   con le regole nuove. 92a tre difetti veri in nove lotti, 93a zero ma con due
+   scoperte laterali, 95a una resa rifatta. Il rendimento cala, non e' zero.
+10. ⚠️⚠️⚠️ **Le sette etichette del potenziale** (`command.hsp:10676`-`:10700`)
+    sono letterali nudi senza `lang()`: a schermo sono inglesi. Toppabili; il
+    giorno che si toppano, `chat.hsp:14246` va rifatta.
+11. ⭐⭐⭐ **La rete che non c'e': i PARTNER fuori da `lang()`** (81a).
+12. ⚠️⚠️⚠️ **IL PUNTO CIECO DELLA 74a**: restano **100 righe
+    `listn(...) = lang(...)` in `command.hsp`** — fra cui il pannello dei
+    talenti — **18 in `chara.hsp`**, piu' `event.hsp:825`, `help.hsp:333`,
+    `net.hsp:604`. ⚠️ **Ventitre' sessioni che aspetta.**
+13. ⭐⭐ **La rete che manca: i `buff` della finestra del dialogo** (95a).
+14. ⭐ **`menu_dialogo.reso()` non legge il `limit(..., 0, N)`** (79a).
+15. ⭐⭐⭐ La **famiglia dell'impaginazione** di `data\`: `book.txt` (2.208 righe),
+    `manual_ENG.txt` (591), `exhelp.txt` (185).
+16. ⭐⭐ `board.txt` **secondo lotto**; `custom_autopick.hsp` 21 gemelle delicate.
+17. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+    `material_data.hsp` 118, `custom_autopick.hsp` 90, `net.hsp` 37,
+    `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 19.
+18. ⭐⭐ Il **muro del materiale** generale: `mithril sword` e' «spada **di**
+    mithril». ⚠️ La 96a ha scoperto che per i **mobili** e' gia' abbattuto da una
+    toppa; il resto no.
+19. 🔶 **La sorella H** (82a) e la 🔶 **decisione aperta dalla 80a** sul menu
+    degli arti.
+20. ⚠️ **`scene2.hsp` non e' nel dizionario**, e ci sono due fili: `<Minea> The
+    Puppeteer` e' la sorella di Nein (91a), e `:9399`-`:9403` di **Mikraanesis**
+    sono il ramo `if ( jp )` coi **letterali nudi** (92a). Da toppare.
+
+### ▶ Come si e' chiusa
+
+Tre giri di `applica` + `compila --eseguibile`, perche' due volte c'e' stato da
+riparare: la prima build (**03:15**) e' uscita **senza la toppa del «(marcio)»**,
+la seconda (**09:24**) senza i fiori. Quella buona e' delle **09:45**, e le rese
+sono state rilette **nella build** dopo ogni giro — le otto creature della bara,
+i due `(Empty)`, `TiroRapido`, il blocco dell'articolo dei fiori e le righe
+`(marcio)`/`(campione)` che la toppa rimette in coda.
+
+⚠️ La voce in `log.md` (vault) e' stata scritta **prima** dei documenti del repo,
+come vuole la lezione della 90a, e con lei un concept nuovo
+(`l-ancora-di-una-toppa-non-va-dove-arriva-la-lingua`), **due concept estesi**
+(`il-codice-morto-conta-come-lavoro`, `chi-accende-la-stringa`) e la riga in
+`index.md`.
+
+---
+
+
+## La novantacinquesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

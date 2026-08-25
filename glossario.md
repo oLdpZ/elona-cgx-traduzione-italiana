@@ -981,6 +981,139 @@ Melugast», «barriera», «la capitale», «Eulderna», «nave magica»
 «<Saimef> il bianco ghiaccio», «<Manson> l'avventuriero prudente», «<Aikage> il
 ninja dalla maschera demoniaca», e la formula «chi va all'avventura».
 
+## `item_func.hsp`, decisi il 2026-08-25 — novantaseiesima
+
+Il compositore del nome degli oggetti. Tre famiglie, e in due l'inglese non e' il
+testimone da seguire.
+
+### Le sigle degli incantamenti (`showresist == 4`)
+
+Abbreviano la lista distesa di `item_data.hsp:613`-`:709`, **gia' tradotta**: il
+lessico viene da li'. ⚠️ Tetto del sito: **47 caratteri per riga**, condivisi fra
+tutte le enchant di un oggetto. Niente accenti — «a'» costa due caratteri.
+
+| EN | IT | nota |
+|---|---|---|
+| `Dmg` | Dann | mezza sigla: l'elemento lo scrive `skillname()` |
+| `RandTeleport` | TeleCasuale | |
+| `NoTeleport` | BloccaTele | |
+| `Bloodsucking` | SucchiaSangue | |
+| `MP-Absorb` | SucchiaMP | e' un **malus**: succhia gli MP di chi impugna |
+| `EXP-Absorb` | FrenaCrescita | ⚠️ l'inglese sbaglia: `ENCHANT_DISTURB_GROWTH`, *ostacola* |
+| `SummonMonster` | AttiraMostri | |
+| `HealMP` / `HealSP` | CuraMP / CuraSP | |
+| `Float` | Levita | «levitazione» in `command.hsp:2185` |
+| `DigestRot` | MangiaMarcio | |
+| `WorldTravel` | Viaggi+ | |
+| `SeeInvisible` | VedeInvisib | |
+| `ResCurse` | ResMalediz | |
+| `ResSteal` | ResLadri | |
+| `ResEther` | ResEtere | |
+| `ResWeather` | ResMaltempo | |
+| `ResPregnant` | ResAlieni | |
+| `ResMutation` | ResMutazioni | |
+| `SpellPow+` | Magia+ | |
+| `BreathPow+` | Soffio+ | |
+| `ThrowPow+` | Sassi+ | |
+| `ChargePow+` | Carica+ | |
+| `Fire/Cold-Combine` | Fuoco/Gelo | le sigle degli elementi sono `Fu Ge Fl Os Me Ve Ol Su Ne Ca Ma` |
+| `Mind/Sound-Combine` | Mente/Suono | |
+| `Poison/Nerver-Comine` | Veleno/Nervi | |
+| `Dark/Nether-Combine` | Oscur/Oltret | |
+| `DistantAttack` | ColpoLontano | |
+| `Pierce` | Perfora | |
+| `Critical` | Critico | |
+| `ExtraMelee` / `ExtraShot` | Mischia+ / Tiro+ | |
+| `InterlockShot` | TiroConcat | |
+| `ProximityAttack` | Appoggio | |
+| `StopTime` | FermaTempo | |
+| `CutReflect` | RendeTaglio | |
+| `MagicReflect` | RiflMagia | |
+| `ShotReflect` | **TiroRapido** | ⚠️ l'inglese sbaglia: `ENCHANT_QUICK_SHOOTING`, non riflette niente |
+| `CritiGuard` | MenoCritici | |
+| `PhysicalRes` | ResFisico | |
+| `DmgImmune` | AnnullaDanni | |
+| `Dragonkiller` | Anti-draghi | la famiglia dei cinque tiene il prefisso `Anti-` |
+| `Undeadkiller` | Anti-nonmorti | |
+| `Birdkiller` | Anti-volanti | 空敵殺し: nemici **in volo**, non uccelli |
+| `Godkiller` | Anti-dei | |
+| `MetalKiller` | Anti-metalli | |
+| `Reveal Religion` | **MantieneFede** | ⚠️ sbagliano tutt'e due: `ENCHANT_PRESERVE_PIETY` |
+| `Radiowave` | SegnaliDei | |
+| `Ragnarok` | PortaLaFine | 終結, e la distesa dice «Porta la fine» |
+| `ManaOvercharge` | ManaInAttacco | |
+| `PerformReward+` | Ricompense+ | |
+| `Clock-Up` | PortaIlTempo | 時を纏っている, «Porta con se' il tempo» |
+| `BoozeMelody` | Inebria | |
+
+### Le parentesi di stato della riga d'inventario
+
+| EN | IT | nota |
+|---|---|---|
+| `(Charges: N)` | (cariche: N) | «cariche» da `action.hsp:6742` |
+| `(Bullets: N)` | (colpi: N) | |
+| `(Remain: N/5)` | (ancora N/5) | |
+| `(Scary)` | (spavento) | il presagio, non il verdetto: **non** «con maledizione» |
+| `(Dreadful)` | (malaugurio) | idem, per `ITEM_STATUS_DOOMED` |
+| `(Temporal)` | (svanisce in viaggio) | 移動時消滅 |
+| `(Empty)` — sfera dei mostri | (vuota) | genere noto: un sito solo, femminile |
+| `(Empty)` — contenitori | (niente dentro) | ⚠️ li' il genere cambia a ogni oggetto |
+| `(Aphrodisiac)` | (afrodisiaco) | |
+| `(Poisoned)` | (veleno) | come `text.hsp:69` |
+| `(Danger!)` | (pericolo!) | |
+| `(Herb)` | (con erbe) | |
+| `(Antiseptic)` | (antisettico) | |
+| `(Need Sleep)` | (serve dormire) | |
+| `(Next: Nh.)` | (fra N ore) | il giapponese dice solo «N ore» |
+| `(Buying price: N)` | (prezzo: Ng) | la `g` che l'inglese butta |
+| `Lock-Lv. N` | serratura liv. N | |
+| `Serial No.` / `Property No.` | n. serie / immobile n. | |
+| `(Model-N)` | (modo N) | モード e' **modo**, non «model» |
+
+⚠️ **La bara della negromanzia non e' in questa tabella**: le sue otto parentesi
+sono **nomi di creatura** gia' decisi in `db_creature.hsp` — gatto zombi, zombi,
+mummia, **scheletro guerriero**, lich, necrobambola, **drago zombi**, **occhi
+morti** — e si copiano da li' togliendo l'articolo.
+
+### I pezzi del nome, e i tredici fiori
+
+| EN | IT | nota |
+|---|---|---|
+| ` of X` (altare, vomito, fuso) | di X | ⚠️ l'inglese incornicia (`<X>`), il giapponese dice の |
+| ` titled <T>` | dal titolo \<T\> | invariabile: regge qualunque genere di libro |
+| ` titled <Art of S>` | dal titolo \<S\> | «Art of» **non c'e' in giapponese** e cade |
+| ` of Rachel No.` | di Rachel n. | |
+| ` which cannot be used anymore` | ormai inservibile | |
+| ` of saint` / ` of wicked` | del giusto / del malvagio | 善人 / 悪人 |
+| `<N gp>` | \<N oro\> | «oro» da `text.hsp:193` |
+| `unknown item (incompatible version)` | oggetto sconosciuto (versione incompatibile) | |
+| `milk coffee` / `coffee` | caffelatte / caffè | |
+| `milk tea` / `black tea` | tè al latte / **tè nero** | 紅茶: il gioco ha anche il tè verde |
+| `CF potioman` | potioman CF | «potioman» tenuto, da `chat.hsp:3118` |
+| `crush` / `battle` / `super potioman` | potioman d'urto / da battaglia / super | |
+| `Spinning` `Mighty` `Dual` | Rotante / Potente / Doppio | i modi hanno un senso: `item_data.hsp:702`-`:707` |
+| `Rapid` `Snipe` `Deceive` | Rapido / Preciso / Ingannevole | |
+
+**I tredici fiori selvatici**, col genere da cui `strumenti/articolo.py` ricava
+l'articolo (la toppa lo sceglie su `PARAM2`):
+
+| EN | IT | genere |
+|---|---|---|
+| `wild flower` | fiore selvatico | m |
+| `daffodil` | narciso | m |
+| `margaret` | margherita | f — ⚠️ マーガレット e' il fiore, non un nome di persona |
+| `dandelion` | tarassaco | m — «soffione» e' la testa sfiorita, un'altra fase |
+| `tulip` | tulipano | m |
+| `rose` | rosa | f |
+| `hydrangea` | ortensia | f — **elide**: «un'ortensia» |
+| `lily` | giglio | m |
+| `sunflower` | girasole | m |
+| `marigold` | calendula | f |
+| `cosmos` | cosmea | f — ⚠️ non «cosmo» |
+| `chrysanthemum` | crisantemo | m |
+| `primula` | primula | f — identica all'inglese **per coincidenza**, vedi `invariati.md` |
+
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

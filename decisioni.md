@@ -6,6 +6,207 @@ ancora aperte.
 
 ---
 
+## `item_func.hsp` si chiude, e una toppa che si era disinnescata da sola — 2026-08-25, novantaseiesima
+
+Quattro lotti, **203 rese**, 23 rinvii, e il compositore del nome degli oggetti
+va da 240 firme a **zero aperte**. Il conto per intero, misurato e non dedotto:
+**274 siti = 226 resi + 37 rinviati**.
+
+### ⚠️⚠️⚠️ L'ancora di una toppa non va dove arriva la lingua
+
+E' il guasto della giornata, ed e' mio. La toppa della 69a toglie i prefissi
+`rotten `/`sample ` da davanti al nome dei cibi e li rimette **in coda fra
+parentesi**, perche' in italiano un aggettivo prima del nome dovrebbe concordare
+col genere di ogni cibo del gioco. Si agganciava a tre righe, e quella di mezzo
+era:
+
+    locvar_itemowner_s += lang("(防腐処理)", " (Antiseptic)")
+
+Il **primo lotto di oggi** l'ha resa « (antisettico)». Il blocco cercato non e'
+piu' esistito, `applica` **l'ha detto in una riga e ha tirato dritto**, e la
+build piu' l'eseguibile gia' copiato nel gioco sono rimasti senza la toppa: il
+difetto del 19/08 riaperto in silenzio, con la catena tutta verde.
+
+**La regola, d'ora in poi:** le toppe si applicano **dopo** la sostituzione del
+dizionario, quindi il loro `cerca` corre sul testo gia' tradotto. Un'ancora che
+contiene una `lang()` traducibile e' una bomba a orologeria: si disinnesca da
+sola il giorno in cui quella riga entra in un lotto, per mano di chi sta
+lavorando bene. **L'ancora va su una riga strutturale** — un `if`, una
+condizione, una parentesi — dove nessun dizionario arriva.
+
+⭐ E a trovarla e' stata una guardia che guardava un'altra cosa: `maiuscole.py`
+tiene coordinate nella **build**, e si e' accorta che il file si era accorciato
+di 177 righe. Senza quel test l'eseguibile rotto sarebbe rimasto nel gioco.
+
+### ⚠️⚠️ E la meta' gemella: un'ancora che esiste solo dopo un'altra toppa
+
+Mezz'ora dopo, la toppa nuova per l'articolo dei fiori si e' agganciata a un `if`
+**senza nessuna `lang()` dentro** — sembrava esattamente la lezione appena
+imparata — ma quel blocco lo **scrive un'altra toppa**: tutta la macchina
+dell'articolo italiano nel sorgente pinnato non esiste.
+`test_le_toppe_del_progetto_si_applicano_al_sorgente_pinnato` l'ha bocciata
+subito.
+
+La prova ha ragione: un'ancora cosi' rende **l'ordine di applicazione un vincolo
+invisibile**, che nessuno dichiara e che si rompe il giorno che l'altra toppa
+cambia forma. Il rimedio non e' spostare l'ancora, e' **entrare nella toppa che
+quel codice lo crea**: non erano due toppe, era una toppa sola piu' lunga.
+
+> Le due regole si scrivono in una: **l'ancora vive nell'intersezione fra cio'
+> che la traduzione non tocca e cio' che c'e' gia' a monte.**
+
+### ⭐⭐⭐ Il conto si misura sul sorgente, il testo si legge nella build
+
+La sessione era partita convinta che le 24 firme fra `:1300` e `:1458` fossero
+tutte bloccate, perche' stanno **prima** del nome dell'oggetto e in italiano il
+complemento va dopo. Non era vero: `:1399` e `:1404` sono **gia' risolte da una
+toppa** che scrive `locvar_itemname_s6 += " di manifattura in " + mtname(…)` —
+il materiale spostato in coda, che e' `contratto-nomi.md` §3 applicato. I mobili
+dicono gia' «una sedia di manifattura in mithril».
+
+Il conto delle «non ancora tradotte» si misura sul **sorgente pinnato**, dove la
+riga c'e' eccome; il testo che il giocatore legge sta nella **build**, dove non
+c'e' piu'. Quando una toppa sposta il secondo, il primo resta indietro da solo.
+
+Rete nuova: `scratchpad/_96-morte-nella-build.py`, valore atteso **0**. Su tutto
+il progetto ha trovato **quattro** voci in questa condizione — le due qui,
+`command.hsp:16405` (che svuota il «It » inglese) e `etc.hsp:335` (che punta al
+file dati italiano) — tutte legittimamente risolte da toppa e **nessuna
+registrata come tale**. Ora sono rinviate.
+
+⚠️ La rete ha sbagliato due volte prima di funzionare, e i due errori sono lo
+stesso errore da due lati: guardando anche le voci **gia' rese** diceva «sparite:
+21.302» — tutto il lavoro del progetto, perche' su una voce tradotta l'inglese
+sparisce dalla build *per costruzione*; leggendo `dizionario/*.jsonl` diceva
+«sparite: 0», perche' li' dentro ci sono solo le voci gia' fatte. **Un elenco
+sbagliato produce sia un numero enorme sia uno zero, e nessuno dei due si fa
+notare**: una rete che confronta due insiemi va provata su un caso noto, non sul
+suo stesso zero.
+
+### ⭐⭐ La rete che misura chi accende una stringa
+
+`scratchpad/_96-rami-jp.py` ricostruisce, per ogni riga, la pila delle condizioni
+che la racchiudono, e dice se una nomina la lingua. Su `item_func.hsp` ha trovato
+**nove firme** dentro `if ( … & jp )` — le parti del corpo staccate dalla
+negromanzia — che in italiano non escono mai.
+
+E' la quarta famiglia di riga morta accanto al `;`, al `/* … */` e alla toppa:
+la riga e' viva, il file e' vivo, la `lang()` e' vera, e a spegnerla e' il **ramo
+della lingua**. `verifica`, `estrai` e la prova d'identita' guardano la **riga**,
+non chi la raggiunge.
+
+⚠️ Il verdetto non e' «tradurre», e' **rinviare**: dare un ramo inglese a quel
+blocco sarebbe una toppa, cioe' codice da scrivere, non una resa da trovare.
+
+### ⭐⭐ L'inglese qui non abbrevia, sbaglia — e il terzo testimone e' la costante
+
+Le 53 sigle degli incantamenti (`showresist == 4`) sono l'abbreviazione di una
+lista **gia' tradotta**: `item_data.hsp:613`-`:709` porta le stesse enchant in
+forma distesa, e il giocatore legge le due cose sullo stesso oggetto a due tasti
+di distanza. Il lessico quindi non si sceglie qui: si abbrevia quello.
+
+Il confronto ha scoperto **tre errori di monte**, e uno e' un controsenso:
+
+| sigla EN | che cosa dice il gioco | resa |
+|---|---|---|
+| `ShotReflect` | `ENCHANT_QUICK_SHOOTING`, 早撃, «Permette il tiro rapido» | **TiroRapido** |
+| `EXP-Absorb` | `ENCHANT_DISTURB_GROWTH`, 成長を妨げる, «Ostacola la crescita» | **FrenaCrescita** |
+| `Reveal Religion` | `ENCHANT_PRESERVE_PIETY`, «Impedisce il calo naturale della Pieta'» | **MantieneFede** |
+
+⭐ Sull'ultima sbaglia **anche il giapponese** (信仰を明らか, «rende manifesta la
+fede»): la sigla di monte e' scollegata dal suo stesso effetto in tutt'e due le
+lingue. **Quando due testimoni litigano, il terzo e' il nome della costante**,
+che nessuno traduce e nessuno sbaglia.
+
+⚠️ Il tetto di quel pannello e' **380 px, cioe' 47 caratteri per riga**,
+condiviso fra tutte le enchant di un oggetto (`command.hsp:12740` e `:12749`) —
+non per etichetta. Ed e' gia' l'inglese a sfondarlo con quattro incantamenti: le
+sigle italiane si tengono corte per disciplina, non per stare sotto una soglia
+che nessuno rispetta. Nessuna rete lo misura.
+
+### ⭐⭐ Otto parentesi che sembravano etichette erano nomi propri
+
+La bara della negromanzia scrive `(cat)`, `(zombie)`, `(skeleton)`, `(dragon)`,
+`(dead-eyes)`. Sembrano etichette generiche; sono gli otto `CREATURE_ID` che
+`chara_func.hsp:8862` elenca **nello stesso ordine** dei `PARAM1` 2..9, e stanno
+gia' tutti in `db_creature.hsp`. Due sarebbero uscite sbagliate seguendo
+l'inglese: `(skeleton)` e' **lo scheletro guerriero** (骸骨戦士, non 骸骨), e
+`(dragon)` e `(dead-eyes)` sono **due draghi diversi** che l'inglese distingue
+per meta' nome ciascuno.
+
+⚠️ **L'articolo si toglie**: in `db_creature.hsp` il nome porta il proprio
+articolo perche' li' e' il soggetto di una frase; qui e' un'apposizione fra
+parentesi attaccata al nome di un oggetto. «una bara della negromanzia (lo
+zombi)» non si legge.
+
+### ⭐ L'articolo di tredici fiori era di un quattordicesimo
+
+`INV_ITEM_PARAM2` sceglie **il nome** del fiore fra tredici, ma l'articolo lo
+prende una volta sola da `ioriginalnamearticolo(ITEM_ID_WILD_FLOWER)`, cioe' dal
+genere dichiarato per «fiore selvatico»: maschile. Sei fiori su tredici sono
+femminili e uno vuole l'elisione — sarebbe uscito «un rosa», «un ortensia».
+
+E' la stessa asimmetria di `contratto-nomi.md` §1-ter («l'articolo e il plurale
+sono di un ALTRO sostantivo») arrivata da un'altra strada: li' sono due nomi
+dello stesso oggetto, qui sono tredici nomi che dividono un `ITEM_ID`.
+
+⭐ **La forma del rimedio era gia' nel file**: `item_func.hsp` fa esattamente
+questo per i **pesci** (`fishdatanarticolo()`), e la toppa infila lo stesso gesto
+per i fiori. ⚠️ E gli articoli non si scrivono a mano: li calcola
+`strumenti/articolo.py` dal **genere**, che e' il dato che il dizionario porta —
+elisione compresa («un'ortensia»). La tabella dei tredici nomi col loro genere
+sta in `scratchpad/_96-rese-coda.py` e in `scratchpad/_96-toppa-articolo-fiori.py`,
+e **si cambiano insieme**.
+
+### Due frasi mie corrette dopo averle misurate
+
+Tutt'e due erano scritte in un modulo che le sessioni future leggono, e un
+commento sbagliato ha l'autorita' del codice attorno:
+
+- «nessuna sigla italiana e' piu' larga della corrispondente inglese» — ne sono
+  **19 su 53**. Quel che e' vero e' piu' debole: nessuna supera la **piu' lunga**
+  inglese del sito;
+- «`battute --divergenti` vedra' i due `(Empty)`» — **non li vede**, e il conto
+  fermo a 13 lo dimostra. Quello strumento cerca un **giapponese** reso in piu'
+  modi, e questi due giapponesi sono diversi (空 / 空っぽ): a essere lo stesso e'
+  l'**inglese**, che ha fuso due parole che il giapponese distingue. La rete
+  simmetrica non esiste.
+
+### Il potioman si traduce a meta', e il confine lo detta `item_data.hsp`
+
+I sei **modi** (`:738`-`:753`) hanno un senso dichiarato dalla forma distesa gia'
+resa — スピニング e' `Rotante` perche' «Imprime al tappo una rotazione tremenda» —
+e diventano italiani. I 28 **sottonomi** (`-Flaenix`, `-Grifeak`, …) e le 11
+**sigle di parte** sono portmanteau opachi che l'inglese ha coniato in alfabeto
+latino, e restano: non c'e' una parola italiana da trovare, c'e' un nome
+inventato, e i nomi inventati il progetto li tiene.
+
+💡 Il confine e' lo stesso dei nomi di creatura: ネクロドール diventa «la
+necrobambola» perche' le due meta' vogliono dire qualcosa **in giapponese**,
+mentre `<Pascal>` resta. Qui le due meta' sono **inglese** gia' in giapponese.
+
+⚠️ La scelta sta in `invariati.md`, sezione «Nomi coniati del potioman», e se si
+rovescia si rovescia **tutta insieme**: 28 righe di dizionario piu' i sei modi.
+⭐ La sezione nuova ha fatto scattare il cancello del 2026-08-07 — una sezione
+con valori che nessuno ha classificato alza `ValueError` — e giustamente: la
+classificazione e' una decisione, e va presa a mano.
+
+### La prova che mancava: il file vero degli invarianti
+
+Le prove di `carica_invariati` costruivano tutte un `invariati.md` finto in
+`tmp_path`: coprivano il **meccanismo** e non il file. Cosi' una sezione nuova e
+non classificata alzava `ValueError` solo a **lotto aperto**, con la catena che
+sembrava verde fino a un momento prima. Ora c'e'
+`test_il_file_vero_degli_invariati_si_carica`.
+
+⚠️ Il primo giro di quella prova pretendeva `"Larna" not in valori`: Larna era un
+candidato **fino al 2026-08-07**, poi e' salita fra gli invarianti. Un valore
+preso da un esempio invece che dal file — lo stesso errore, in piccolo, di tutta
+la giornata.
+
+---
+
+
 ## `chat.hsp` si chiude, e il piano lo scrive `map.hsp` — 2026-08-25, novantacinquesima
 
 Sette lotti, **73 rese** piu' una rifatta, e il file piu' grande del progetto va

@@ -165,13 +165,12 @@ parlanti non toglieva le rinviate e tre script decidevano «tradotta» con
 dice «fenditura». Stesso oggetto, stessa mappa, due nomi.
 
 **Il perimetro dopo oggi** (`python scratchpad/perimetro.py`): perimetro
-dichiarato **23.311 firme, 94% fatto**; totale col testo fuori perimetro
-**31.528, 69%**. I grossi che restano:
+dichiarato **23.311 firme, 95% fatto**; totale col testo fuori perimetro
+**31.528, 70%**. I grossi che restano:
 
 | file | non ancora tradotte |
 |---|---|
 | `db_card.hsp` | **1.146** |
-| `item_func.hsp` | **240** |
 | `command.hsp` | **93** |
 | `system.hsp` | **41** |
 | `init.hsp`, `main.hsp` | 10 e 10 |
@@ -1324,7 +1323,19 @@ no una forma che non concorda**.
 in tre siti, più le 118 righe di `material_data.hsp`: `mithril sword` in
 italiano è «spada **di** mithril», postposta.
 
-Restano **240** righe di `item_func.hsp`.
+⭐⭐⭐ **`item_func.hsp` E' CHIUSO — 2026-08-25, novantaseiesima.** 203 rese in
+quattro lotti, e il conto per intero: **274 siti = 226 resi + 37 rinviati**, zero
+aperti. Le 37 non sono lavoro e hanno tutte una causa scritta — 9 spente nel ramo
+`& jp`, 5 bloccate a monte, 4 il muro dei prefissi, 4 risolte da toppa, 1 in un
+commento di blocco, 14 sigle a un kanji gia' rinviate.
+
+⚠️ **E il muro del materiale qui sopra era gia' mezzo abbattuto.** Le due righe
+`mtname(…) + lang("細工の", "work ")` dei mobili **nella build non esistono
+piu'**: una toppa le trasforma in `locvar_itemname_s6 += " di manifattura in " +
+mtname(…)`, cioe' il materiale in coda al nome. Restano da toppare le **quattro**
+del prefisso vero (`:1308` la taglia in cm, `:1386` il kit di materiali, `:1390`
+il cioccolatino, `:1458` «eternal force») e le 118 righe di
+`material_data.hsp`.
 
 ## I 71 `bufftxt` di `buff.hsp` — 2026-08-13, trentunesima sessione
 
