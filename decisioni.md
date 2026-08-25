@@ -9559,3 +9559,68 @@ Elona **ripristina il registro dal salvataggio**, e quelle righe erano state
 scritte da una build precedente. Nel build di adesso `command.hsp:4436` dice
 «esulta di gioia». 💡 *Del riquadro dei messaggi vale solo quel che si stampa
 dopo aver caricato.*
+
+---
+
+## 98ª — `autopick.txt` è già scaduto contro la nostra build, e i due file vanno tradotti insieme
+
+Trovato misurando che cosa resta dopo `exhelp.txt`, non collaudando.
+
+**Il fatto.** `custom_autopick.hsp:358` fa `s(1) = cnvitemname(inv(INV_ITEM_ID,
+cnt2))`: le regole di raccolta automatica si confrontano col **nome
+dell'oggetto**, che nella nostra build è italiano. Il modello che il gioco copia
+nella cartella del salvataggio (`custom_autopick.hsp:41-42`,
+`data\autopick.txt` → `save\<id>\autopick.txt`) porta regole d'esempio scritte
+sui nomi inglesi:
+
+    gold piece          da noi «moneta d'oro»
+    platinum coin       da noi «moneta di platino»
+    small medal         da noi «medaglietta»
+    bottle of water     da noi il nome italiano
+    !corpse?            da noi «cadavere»
+    !worthless fake gold bar
+
+⚠️ **Quelle righe oggi non agganciano niente.** Non è lavoro futuro: è un
+difetto **già in campo**, dal giorno in cui `db_item.hsp` è stato tradotto. Non
+l'ha visto nessuna rete perché `autopick.txt` non sta in nessun conto del
+progetto — né in `perimetro.py`, né nel manifesto dei file dati come cosa da
+tradurre.
+
+**La decisione: `custom_autopick.hsp` e `data\autopick.txt` si traducono nello
+STESSO lotto, e in quest'ordine non si può sbagliare.** I selettori di categoria
+del modello — `all`, `unknown`, `name identified`, `rotten`, `ring`, `potion`,
+`scroll`, `spellbook`, `rod`, `food`… — non sono testo libero: sono le **90
+`lang()`** di `custom_autopick.hsp` (`:150`-`:480`), cioè uno degli undici file
+con `lang()` e senza dizionario.
+
+    oggi          file inglese + modello inglese     i selettori agganciano,
+                                                     i nomi di oggetto no
+    a metà        file italiano + modello inglese    NON aggancia PIÙ NIENTE
+    finito        file italiano + modello italiano   aggancia tutto
+
+⭐ **Il guasto peggiore sta nel mezzo**, ed è quello in cui si finisce
+traducendo `custom_autopick.hsp` come «uno degli undici file senza dizionario»,
+cioè trattandolo come i suoi fratelli. Non lo è: è l'unico che ha un **file dati
+che ne dipende**.
+
+💡 E il modello vive nel **salvataggio**, non in `data\`: chi ha già giocato ha
+la sua copia in `save\<id>\autopick.txt`, che nessuna build riscrive
+(`custom_autopick.hsp:26` copia solo se non c'è). Tradurre il modello aggiusta i
+giocatori nuovi; per gli altri serve una riga nelle note di rilascio. ⚠️ Questa
+è la ragione per cui la cosa non si risolve «poi»: più tardi si fa, più copie
+vecchie ci sono in giro.
+
+### La coda: il manuale si dirotta dal dizionario, ma il ripiego no
+
+`help.hsp:331` è `noteload exedir + "data\\" + lang("manual_JP.txt",
+"manual_ENG.txt")`. È l'**unico** della famiglia dei file dati in cui il nome
+del file sta dentro una `lang()`: `board.txt` (`init.hsp:2574`), `talk.txt`
+(`text.hsp`) ed `exhelp.txt` (`help.hsp:227`) hanno voluto tre toppe proprio
+perché lì il nome era un letterale nudo. Oggi la resa è `manual_ENG.txt` e sta
+in `invariati.md`.
+
+⚠️ **Ma una toppa serve lo stesso, e per l'altra metà.** Dal dizionario si
+cambia il nome, non si aggiunge il ramo `exist` + `strsize != (-1)`: un
+`manual_IT.txt` mancante sarebbe un `noteload` su un file assente, cioè un
+errore di esecuzione. Quindi la toppa qui non porta il nome — porta il
+**ripiego**.
