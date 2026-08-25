@@ -1976,10 +1976,72 @@ python -m strumenti.dati_verifica lavoro/<file>-001.jsonl
 |---|---|---|---|---|
 | `board.txt` | **25** | 25 | **100%** | senso |
 | `talk.txt` | **569** | 569 | **100%** | senso |
-| `exhelp.txt` | 0 | 185 | 0% | impaginazione |
+| `exhelp.txt` | **185** | 185 | **100%** | impaginazione |
+| `book.txt` | **224** | 2.208 | 10% | impaginazione |
 | `manual_ENG.txt` | 0 | 591 | 0% | impaginazione |
-| `book.txt` | 0 | 2.208 | 0% | impaginazione |
-| **totale** | **594** | **3.578** | **17%** | |
+| `autopick.txt` | 0 | 156 | 0% | ⚠️ configurazione |
+| **totale** | **1.003** | **3.734** | **27%** | |
+
+⚠️ **`autopick.txt` e' entrato in tabella nella 98a, e non e' lavoro nuovo: e'
+un difetto in campo.** `custom_autopick.hsp:358` confronta le regole col **nome
+dell'oggetto**, che da noi e' italiano, quindi le regole d'esempio del modello
+(`gold piece`, `platinum coin`, `small medal`, `!corpse?`) **oggi non agganciano
+niente**. Va tradotto nello **stesso lotto** di `custom_autopick.hsp`, le cui
+90 `lang()` sono i selettori di categoria del modello: a meta' strada non
+aggancia piu' niente. Per esteso in `decisioni.md` §98a.
+
+⚠️ **E i 33 titoli dei libri non sono in questa tabella**, perche' non sono nel
+lotto: stanno nel blocco `%DEFINE` di `book.txt`, e `item.hsp:121` li legge
+dalla CSV con `booktitle = lang(s(1), s(2))`, colonna 3. `dati_estrai` estrae
+solo i blocchi `%<n>,EN`. Vogliono un'**estensione dello strumento**, non una
+resa — stessa forma del punto cieco delle descrizioni di `db_item.hsp`.
+
+### ⭐⭐⭐ La famiglia dell'impaginazione ha TRE metri, e non si prestano (98a)
+
+La regola della 55a — «prima la misura della colonna presa dalla geometria» —
+si e' rivelata piu' esigente del previsto: **ogni file di questa famiglia ha un
+motore di a capo diverso**, e usare quello del vicino non da' un tetto sbagliato,
+da' una **rete che mente**.
+
+| file | chi disegna | come manda a capo | tetto |
+|---|---|---|---|
+| `board.txt` | `talk_conv` | sulle **spaziature** | 70 caratteri |
+| `talk.txt` | `talk_conv` | sulle spaziature | 53 |
+| `exhelp.txt` | `gmes` (`module.hsp:4918`) | per **carattere** | 48, ma vince l'**altezza** |
+| `book.txt` | `mes` (`command.hsp:8412`) | **non manda a capo affatto** | 43 |
+
+- **`exhelp.txt`**: `help.hsp:227` carica con `noteload`, `:273` disegna con
+  `gmes`, che avanza 7 px per carattere ASCII fino a `gmesw` = 330 px. Ma il
+  vincolo vero e' verticale: finestra alta 175, testo da `wy + 55`, restano 120,
+  e ogni riga di nota costa 18 px — **sei righe**. ⭐ Il tetto geometrico e il
+  corpus di monte danno **lo stesso numero** (l'inglese sta a 108 px), e quando
+  le due misure coincidono il tetto non e' una stima. Rete:
+  `scratchpad/_98-exhelp-gmes.py`.
+- **`book.txt`**: due colonne a 306 px di distanza (`command.hsp:8399`), 20
+  righe ciascuna, e `mes s` senza alcun a capo — una riga lunga **entra nella
+  colonna accanto**, e se e' quella di destra esce dalla pagina. 306 / 7 = 43.
+  ⚠️ Qui geometria e corpus **non** coincidono: monte si ferma a 39, e la rete
+  stampa a parte le righe fra 40 e 43 («strette ma dentro») invece di tacere.
+  Rete: `scratchpad/_98-book-mes.py`.
+
+⚠️⚠️ **Per questo `exhelp.txt` e `book.txt` hanno `tetto_capo: None` in
+`PROFILI`**: la rete dell'altezza dentro `dati_verifica` rifa' `talk_conv`, e
+puntata su di loro misurerebbe un motore che non c'e'. I loro tetti stanno nelle
+due reti in `scratchpad/`, e nessuno dei due file ha un espansore di segnaposto
+— `noteload` e via — quindi **qualunque** graffa resterebbe a schermo.
+
+⚠️ **E l'inglese di questa famiglia e' a capo fisso**: una frase sola spezzata a
+mano. `dati_applica` **sostituisce** righe senza aggiungerne, quindi ogni blocco
+italiano deve avere **lo stesso numero di righe** dell'inglese — lo strumento
+delle rese se lo controlla da se' prima di scrivere. In `book.txt` in piu' la
+**struttura** (titolo, intestazioni di sezione, elenco geografico, riquadro
+dell'esempio) va tenuta **al suo indice**; dentro un paragrafo invece le righe
+sono solo un a capo tipografico e il testo si ridistribuisce a piacere.
+
+💡 **Il margine non e' uniforme, e va guardato per gruppo prima di tradurre.**
+Su `exhelp.txt` era il 37% complessivo, ma cinque gruppi stavano fra il 10 e il
+16% — il peggiore `%1` sui grimori, 219 caratteri in 240. Un margine medio non
+dice dove si dovra' comprimere.
 
 ⭐ **La famiglia del senso e' CHIUSA** (71a): `board.txt` e `talk.txt` sono
 tutt'e due al 100%. Quel che resta e' la famiglia dell'impaginazione, dove la

@@ -1,7 +1,8 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-25, fine della **novantasettesima** sessione (**cinque
-lotti, 121 rese, 5 rinvii, e cinque file CHIUSI: resta `db_card.hsp` e basta**).
+Aggiornato: 2026-08-25, fine della **novantottesima** sessione (**`exhelp.txt`
+CHIUSO 185/185, `book.txt` aperto 224/2.208, e tre reti riparate perche' la
+prima toppa multiriga in `command.hsp` ha spostato il pavimento**).
 
 ⚠️⚠️ **LA SESSIONE SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
 spinto e l'albero e' pulito; le cose che **non stanno nel repo** sono quattro, e
@@ -10,69 +11,278 @@ l'ordine conta:
     dati-sorgente\             python -m strumenti.dati_sorgente --pinna
     l'albero di build          python -m strumenti.applica
     cgx-test.exe               python -m strumenti.compila --eseguibile   (NON incatenato)
-    board_it.txt e talk_it.txt  li scrive `applica` in `_traduzione\build\dati\`
+    i file _it.txt             li scrive `applica` in `_traduzione\build\dati\`
 
-⚠️ Le due copie del gioco stanno in `C:\Games\Elona\elonaplus2.31\data\` (non
-nella radice del gioco: la 94a ci ha perso un comando).
+⚠️⚠️ **I file dati italiani adesso sono QUATTRO, non due**: `board_it.txt`,
+`talk_it.txt`, `exhelp_it.txt` e `book_it.txt`. Vanno in
+`C:\Games\Elona\elonaplus2.31\data\` (non nella radice del gioco: la 94a ci ha
+perso un comando), e si copiano **solo se sono cambiati** — `cmp -s` prima di
+`cp`, cosi' la data del file nel gioco dice qualcosa.
 
-⚠️ **E il nome del primo e' `board_it.txt`.** Dalla 92a in poi questa riga
-diceva `dataoard_it.txt`: un `\b` di `data\board` degradato a **carattere di
-ritorno** da qualche script, e poi ricopiato di sessione in sessione come se
-fosse un nome. Le sezioni storiche qui sotto se lo portano ancora dietro.
-💡 Lo stesso guasto e' successo due volte oggi scrivendo `invariati.md` e una
-rete, ed e' sempre la stessa causa: `\b` dentro una stringa Python **non** grezza
-passata da un heredoc. Si scrive il file con lo strumento di scrittura, non con
-`python - <<'PY'`.
+💡 **Se il terminale nuovo e' sulla stessa macchina, non si rifa' niente**:
+dalla 92a alla 98a si sono aperte tutte cosi'. Si controlla in un colpo con
+`ls C:\Games\Elona\_traduzione\` (devono esserci `build`, `sorgente`,
+`dati-sorgente`, `hsp34`).
 
-⚠️ I due file `_it.txt` si copiano solo se sono cambiati: `cmp -s` prima di `cp`,
-cosi' la data del file nel gioco dice qualcosa.
-
-⚠️ `strumenti.gronde`, `scratchpad/_97-listn.py` e
-`scratchpad/_97-toppe-agganciate.py` leggono la **build**: su una macchina senza
-albero costruito non falliscono dicendo la loro, muoiono di file non trovato.
+⚠️ `strumenti.gronde`, `scratchpad/_97-toppe-agganciate.py`,
+`scratchpad/_98-book-mes.py` e `scratchpad/_98-exhelp-gmes.py` leggono la
+**build**: su una macchina senza albero costruito non falliscono dicendo la
+loro, muoiono di file non trovato.
 💡 E `strumenti.battute` vuole `PYTHONIOENCODING=utf-8` davanti; i moduli di
 `scratchpad/` che importano `strumenti.*` vogliono anche `PYTHONPATH=.`.
 
-💡 **Se invece il terminale nuovo e' sulla stessa macchina, non si rifa'
-niente**: dalla 92a alla 97a si sono aperte tutte cosi'. Si controlla in un
-comando — `ls -la C:\Games\Elona\elonaplus2.31\cgx-test.exe` — e la data
-dev'essere quella dell'ultimo lotto (qui: **25/08, 16:32**).
-
-⚠️⚠️⚠️ **LA LEZIONE DELLA GIORNATA: HO ROTTO LA BUILD, E L'HA PRESA IL GREP DEL
-SEGNALE DI GUASTO.** Ho reso `map.hsp:1396` («North Tyris») per riparare un
-difetto vero — che era **gia' riparato dalla 42a**, con la prima toppa di
-migrazione del progetto, il cui motivo diceva «:1396 resta rinviata, ed e' quel
-che rende stabile la stringa cercata». `applica` e' uscito con **1**, e
-`compila --eseguibile` ha prodotto lo stesso un eseguibile dal solito albero
-incompleto: la forma esatta del guasto della 96a. La coda dell'output non diceva
-niente; il `grep -i "non esiste|errore|warning"` si'.
-
-⭐ **E' la lezione della 96a dall'altro lato.** Li' l'ancora stava su una
-`lang()` traducibile e si sposta; qui l'ancora **deve** starci sopra, e la difesa
-era una **promessa** — la voce rinviata apposta — scritta nel motivo di una
-toppa, dove chi apre un lotto non passa.
-
-⭐⭐⭐ **DA LI' LA GUARDIA CHE IL PUNTO 6 CHIEDEVA DA DUE SESSIONI.**
-
-    python scratchpad/_97-toppe-agganciate.py
-    toppe: 1023   agganciate: 1023   mancanti: 0   (atteso: 0)
-
-⚠️⚠️ **E l'ho provata al contrario**, che e' la meta' che conta: puntata sul
-sorgente pinnato, dove nessuna toppa e' applicata per definizione, dice **1019
-mancanti**. Sa dire rosso. Nel vault: [[una-rete-che-non-ha-mai-detto-rosso]].
-⭐ **Da adesso si compila solo dopo che quella guardia ha detto verde.**
-
-⚠️⚠️ **E TRE MIEI COMMENTI DICEVANO IL FALSO SULLO STESSO STRUMENTO.** Avevo
-scritto tre volte che `battute --divergenti` avrebbe visto certe gemelle:
-`strumenti/battute.py:79` e' `FILE = "db_creature.hsp"` e guarda **un file
-solo**. La 96a lo aveva gia' scoperto e scritto nella sua ripresa. A smentirmi e'
-stata una **previsione sbagliata** — avevo detto «sale a 15», la misura ha detto
-13. La rete giusta per quella famiglia e' `misura-rete4.py`.
+⚠️ **Il nome del primo file dati e' `board_it.txt`.** Dalla 92a alla 97a questa
+riga diceva `dataoard_it.txt`: un `\b` di `data\board` degradato a **carattere
+di ritorno** da qualche script, e poi ricopiato di sessione in sessione come se
+fosse un nome. Le sezioni storiche qui sotto se lo portano ancora dietro.
+💡 La causa e' sempre la stessa: `\b` dentro una stringa Python **non** grezza
+passata da un heredoc. Si scrive il file con lo strumento di scrittura, non con
+`python - <<'PY'`.
 
 ---
 
 
-## La novantasettesima sessione
+## La novantottesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La 98a
+si e' aperta con `origin/fase-0` allineato: e' la **cinquantacinquesima prova**
+di fila, e le quindici hanno dato quindici volte i valori attesi della 97a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    pytest                  741 passed, 6 skipped   (erano 737)
+    toppe.jsonl             1026                    (erano 1023)
+    maiuscole               «Res. » ora a command.hsp:10954  (era :10948)
+    intestazioni_larghezze  il sito ora a :10416     (era :10410)
+    perimetro.py            74%                      (era 70%, ed era falso)
+    dizionario/dati/        board 25, talk 569, exhelp 185, book 224/2208
+
+Tutto il resto e' **fermo dov'era**, riverificato in chiusura: `prova_identita`
+72/72 e **28.073**, `creature` 1131/2466/0/0, `larghezze` 0 fuori misura,
+`diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `menu_dialogo` 0 su 1378,
+`linguette` 0 e 0, `battute --divergenti` **13**, `intestazioni_larghezze`
+perimetro **0**, `dati_applica --identita` 4 file e 2.987 righe, `dati_sorgente`
+7/7 e gioco difforme su 0, `gronde` 0 su 5, `maiuscole` 143/6/1/7/**0**,
+`bilingui` **0**, `referti` **9**, `lang-nel-ramo-jp` **21 | 0**,
+`_96-morte-nella-build` **0**, `_97-toppe-agganciate` **1026 su 1026**,
+`tabelle_en` 6 fatte / 1 decisa / 0 da fare.
+
+⭐ **Due reti nuove, tutt'e due provate al contrario:**
+
+    python scratchpad/_98-exhelp-gmes.py    0 larghe, 0 alte, 0 spezzate; max 108 px su 120
+    python scratchpad/_98-book-mes.py       0 fuori misura su 2208; max 39 caratteri su 43
+
+### ▶ ⭐⭐⭐ LA DOMANDA CHE HA APERTO LA SESSIONE, E LA RISPOSTA MISURATA
+
+«Dopo `db_card` e' tutto finito?» No, e il conto va tenuto dove si vede:
+
+    db_card.hsp (dentro perimetro)          1.145 firme
+    descrizioni oggetto db_item.hsp         5.284 righe   MAI estratte, fuori da lang()
+    11 file con lang() e senza dizionario     515 firme
+    data\book.txt                           1.984 righe   (2.208 meno le 224 di oggi)
+    data\manual_ENG.txt                       591 righe   ⚠️ in nessun conto
+    data\autopick.txt                         156 righe   ⚠️ in nessun conto
+    i 33 titoli del %DEFINE di book.txt        33 righe   ⚠️ dati_estrai non li estrae
+
+⭐ **Il tutorial E' tradotto** (`chat.hsp` chiuso; riletto nella build,
+`chat.hsp:1704`-`:1772`, da «Voglio fare il tutorial» a «(Tutorial finito!)»).
+Chi chiede «e il tutorial?» ha gia' la risposta.
+
+⚠️ Col denominatore onesto (32.275, cioe' con manuale e autopick dentro): oggi
+**71%**, dopo `book.txt` **78%**, dopo book **piu' le descrizioni 94%**. Le
+5.284 descrizioni valgono piu' di tutto il resto messo insieme.
+
+### ▶ Che cosa e' stato fatto
+
+    data\exhelp.txt   i consigli della guida Norne, 18 blocchi     185  ⭐ CHIUSO
+    data\book.txt     %1 «Guida del principiante»                  224
+    -------------------------------------------------------------------------
+    toppe nuove: help.hsp:227, item.hsp:112, command.hsp:8371        3
+    reti nuove: _98-exhelp-gmes, _98-book-mes                        2
+    reti riparate: maiuscole, intestazioni_larghezze, tabelle_en     3
+    test nuovi: il profilo di exhelp in dati_verifica                4
+    -------------------------------------------------------------------------
+       409 rese, 3 toppe, 2 reti nuove, 3 reti riparate
+
+### ▶ ⭐⭐⭐ TRE METRI DIVERSI IN TRE FILE DATI, E NON SI PRESTANO
+
+E' il fatto che conta di piu' per chi apre il prossimo file dati.
+
+    board.txt    talk_conv, a capo SULLE SPAZIATURE     tetto 70 caratteri
+    talk.txt     talk_conv, idem                        tetto 53
+    exhelp.txt   gmes, a capo PER CARATTERE             tetto 48, ma il vincolo e' l'ALTEZZA
+    book.txt     mes, NON manda a capo AFFATTO          tetto 43, sfonda nella colonna accanto
+
+⚠️ Per questo `exhelp.txt` e `book.txt` in `dati_verifica.PROFILI` hanno
+`tetto_capo: None`: la rete dell'altezza li' dentro rifa' `talk_conv`, e puntata
+su di loro **misurerebbe un motore che non c'e'**. I loro tetti stanno nelle due
+reti in `scratchpad/`.
+
+⭐ **Su `exhelp.txt` il tetto geometrico e il corpus di monte coincidono** — sei
+righe, 108 px su 120 — e quando le due misure danno lo stesso numero il tetto
+non e' una stima. Su `book.txt` **no**: la geometria dice 43, monte si ferma a
+39, e la rete stampa a parte le righe fra 40 e 43 («strette ma dentro») invece
+di tacere.
+
+⚠️ **E l'inglese di `exhelp.txt` e' a capo fisso**: una frase sola spezzata a
+mano. `dati_applica` **sostituisce** righe senza aggiungerne, quindi ogni blocco
+italiano deve avere **lo stesso numero di righe** dell'inglese. Vale anche per
+`book.txt`, dove in piu' la struttura (titolo, intestazioni di sezione, elenco
+geografico, riquadro dell'esempio) va tenuta **al suo indice**.
+
+### ▶ ⚠️⚠️⚠️ LA LEZIONE DELLA GIORNATA: IL PAVIMENTO SI E' MOSSO
+
+La toppa di `book.txt` su `command.hsp:8371` mette **sette righe al posto di
+una**. E' la prima volta che una toppa **multiriga** cade in un file dove altri
+strumenti hanno delle coordinate: tutto quel che sta sotto si e' spostato di 6.
+
+⭐ **La regolarita' da ricordare: le toppe dei file dati sono le uniche
+multiriga del progetto.** Le prime tre (board -> `init.hsp`, talk -> `text.hsp`,
+exhelp -> `help.hsp`) non avevano fatto danno solo perche' in quei file non
+c'erano coordinate appese. Ogni prossima toppa di file dati va guardata con
+questa domanda: *chi ha una coordinata sotto quel punto?*
+
+I tre strumenti hanno reagito in tre modi, e l'ordine dice quanto vale ciascuno:
+
+1. `maiuscole.py` — **test rosso**, il permesso di «Res. » puntava al vuoto. Il
+   commento nella tabella diceva gia' che farne: «il rimedio e' rileggere la
+   riga, non allentare il test». Terza volta (83a, 96a, 98a).
+2. ⚠️⚠️ `intestazioni_larghezze.perimetro()` — **verdetto cambiato, in
+   silenzio**. Il perimetro passava da 0 a 1 colonna accusando `Attributi base
+   - Potenziale` di sforare **solo in italiano**, quando sfora da sempre in
+   tutt'e due le lingue; e spariva la nota «(sfora anche l'inglese)», cioe'
+   proprio la meta' che dice se il difetto e' nostro. Riappaiato per
+   **ordinale del sito nel file**.
+3. `scratchpad/tabelle_en.py` — **niente, per fortuna**. Stessa trappola
+   (`generato[n]` contro `originale[n]`), ma le sette tabelle di testo stanno
+   tutte in `custom_ai.hsp:22-31`, che nessuna toppa tocca. Riappaiato per nome
+   e ordinale della tabella.
+
+⚠️ Nel vault: [[una-coordinata-in-un-albero-generato]].
+
+### ▶ ⚠️ Gli altri due difetti trovati
+
+1. **La rete di `book.txt` perdeva 62 righe e chiudeva il blocco in silenzio.**
+   Aveva un parser suo, copiato da quello di `exhelp.txt`, che trattava `#`
+   come commento: in `exhelp.txt` lo e', in `book.txt` **e' testo** — il diario
+   di `%21` nomina i detenuti `#14` e `#16`. Contava 2.146 invece di 2.208.
+   ⭐ A prenderlo e' stato un **numero che non tornava** fra due conti
+   indipendenti della stessa cosa. Adesso usa `strumenti.dati`, il parser che
+   produce i lotti: **una rete non si riscrive il parser dello strumento che
+   deve misurare.**
+2. **`perimetro.py` diceva 70% con tre file su quattro finiti.** Contava le
+   righe dei file dati al denominatore ma leggeva il numeratore solo da
+   `dizionario/*.jsonl`, senza guardare `dizionario/dati/`: 779 righe gia' rese
+   pesavano come lavoro da fare. ⚠️ Forma **rovesciata** delle due lezioni
+   precedenti, e piu' insidiosa — un numero pessimista non desta sospetti in
+   nessuno, e nessun collaudo poteva smentirlo. Adesso stampa anche lo stato
+   per file.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **`book.txt`, 1.984 righe in 32 libri.** I piu' grossi: `%21` (293,
+   «Bitter Last Words»), `%11` (191, allevamento), `%8` (125, negozianti),
+   `%17` (122), `%30` (121, consigli sugli incarichi), `%14` (114, il gioco di
+   carte). L'impianto c'e' tutto: rete, toppe, profilo.
+2. ⭐⭐ **I 33 titoli del `%DEFINE` di `book.txt`.** `item.hsp:121` li legge
+   dalla CSV (`booktitle = lang(s(1), s(2))`, colonna 3); `dati_estrai` estrae
+   solo i blocchi `%<n>,EN`. **Vuole un'estensione dello strumento, non una
+   resa.** Stessa forma del punto cieco delle descrizioni di `db_item.hsp`.
+3. ⚠️⚠️⚠️ **`autopick.txt` e' GIA' SCADUTO contro la nostra build**, e va
+   tradotto nello **stesso lotto** di `custom_autopick.hsp`. Per esteso in
+   `decisioni.md` §98a. Non e' lavoro futuro: e' un difetto in campo.
+4. ⭐⭐ **Il manuale**, `data\manual_ENG.txt`, 591 righe. ⚠️ `help.hsp:331` e'
+   l'**unico** della famiglia in cui il nome del file sta dentro una `lang()`,
+   quindi si dirotta dal dizionario — ma una toppa serve lo stesso, per il
+   **ripiego** `exist`, che dal dizionario non si aggiunge.
+5. ⭐⭐⭐ **`db_card.hsp`, 1.145 firme**: l'ultimo dentro il perimetro `lang()`.
+6. ⭐⭐⭐ **Le 5.284 descrizioni degli oggetti** di `db_item.hsp`: fuori da
+   `lang()`, `estrai.py` non le vede. E' il blocco piu' grosso che resta e vale
+   da solo il salto dal 78% al 94%.
+7. ⚠️⚠️⚠️ **IL COLLAUDO A SCHERMO E' L'ARRETRATO CHE CRESCE PIU' IN FRETTA.**
+   Diciassette sessioni e **2.864 rese mai viste**. ⭐ **I punti offerti nella
+   98a** (eseguibile **25/08 23:31**):
+   - **i consigli di Norne**: scattano **una volta per salvataggio**
+     (`gdata(STARTING_GDATA_HELP + n)`), quindi sul salvataggio corrente quelli
+     gia' visti **non tornano**. Serve un personaggio nuovo: appena si e' in
+     casa parte il blocco 1 (tre pagine). Poi in fila: mappa del mondo (2),
+     citta' (3), diario sugli incarichi (4), icona di una Nefia casuale (6),
+     locandiere (7), istruttore (8). ⓘ `extraHelp` nel `config.txt` dell'utente
+     e' gia' a `"1"`;
+   - **la Guida del principiante**: un libro rosso qualsiasi con quel titolo, si
+     apre e basta. Da guardare che nessuna riga tocchi il bordo destro e che il
+     riquadro dell'esempio (`-->PRENDI L'OGGETTO AI TUOI PIEDI!<--`) resti
+     allineato;
+   - ⚠️ **il blocco 17 di `exhelp.txt` non lo vede nessuno**: nessun sito del
+     sorgente assegna `ghelp = 17`. Tradotto lo stesso, come le altre volte.
+   Restano dalle sessioni prima il pannello «Conoscenza dell'oggetto» (`X` poi
+   `x`), i due menu degli incantesimi (`v`, poi `z`, poi `/`), la scheda (`c`),
+   e la coda lunga di NERES, RYUTYE, CRAY, MARY, BURT, KARATA, MANSON, RAIZEL,
+   NORNE, ALICE, i ventotto nomi di MIKRAANESIS, il menu del seminario, il menu
+   di Maile a undici voci, il prospetto cittadino e il **[Non posare]**.
+8. ⚠️⚠️ **LE QUATTRO DEL MURO DEI PREFISSI VOGLIONO QUATTRO TOPPE**:
+   `item_func.hsp:1308`, `:1386`, `:1390`, `:1458`. La strada e' quella di
+   `:1399`. ⚠️ Vanno **viste in gioco una per una**.
+9. ⭐⭐ **`"Have"` di `command.hsp:11069`** (occhio: la riga si e' spostata di 6
+   come tutto il resto sotto :8371): letterale inglese nudo nel pannello
+   «Scelta delle abilita'». Sta gia' in `blocchi_en.py`.
+10. ⭐⭐ **Le dieci righe `listn` senza metro**: cinque pannelli a colonne, il
+    metro si legge a mano e si scrive in `METRO_A_MANO`.
+11. ⭐⭐ **Tre reti che mancano**: la larghezza della riga degli incantamenti
+    (`showresist == 4`, budget 380 px / 47 caratteri, e l'inglese lo sfonda
+    gia'); gli **inglesi divergenti** (stesso inglese, giapponesi diversi — non
+    lo vede nessuno: `battute --divergenti` guarda solo `db_creature.hsp`,
+    `misura-rete4.py` raggruppa per giapponese); i **partner fuori da `lang()`**
+    (81a); i **buff** della finestra del dialogo (95a).
+12. ⚠️⚠️⚠️ **I 335 SITI DOVE L'INGLESE E' STATICO E IL GIAPPONESE NO**, e dentro
+    quelli i **quattro** dove l'inglese dice un'altra frase. Decisione aperta.
+    `python scratchpad/_94-jp-dinamico-en-statico.py --tutte`.
+13. 🔶 **L'EPITETO DI SINAHA**, la 🔶 **sorella H** (82a) e la 🔶 decisione della
+    80a sul menu degli arti.
+14. ⚠️⚠️⚠️ **Le sette etichette del potenziale** (`command.hsp:10676`-`:10700`,
+    piu' 6): letterali nudi senza `lang()`, a schermo inglesi. Il giorno che si
+    toppano, `chat.hsp:14246` va rifatta.
+15. ⭐⭐⭐ **La rete che manca ha un rendimento misurato**: rileggere il
+    dizionario con le regole nuove. Il rendimento cala, non e' zero.
+16. ⭐⭐ **Nove file con `lang()` e senza dizionario**: `txtadv.hsp` 170,
+    `material_data.hsp` 118, `custom_autopick.hsp` 90 (⚠️ vedi il punto 3),
+    `net.hsp` 37, `custom_itemenchantment.hsp` 31, `quest.hsp` 26,
+    `material.hsp` 19, `etc.hsp` 14 (**mezzo tradotto: finestra bilingue**).
+17. ⭐⭐ Il **muro del materiale** generale, e ⚠️ **`scene2.hsp` non e' nel
+    dizionario** (due fili: `<Minea> The Puppeteer`, e `:9399`-`:9403` di
+    Mikraanesis coi letterali nudi).
+18. ⓘ **`board.txt` NON ha un secondo lotto**: ha 25 righe inglesi in tutto e
+    sono tutte rese. Il punto che lo diceva era vecchio, ed e' stato tolto.
+
+### ▶ Come si e' chiusa
+
+Due giri di `applica` + `compila --eseguibile`, tutt'e due dopo che
+`_97-toppe-agganciate.py` aveva detto verde (1024 su 1024, poi 1026 su 1026) —
+il cancello della 97a ha retto. Il `grep` del segnale di guasto e' stato fatto
+su tutt'e due gli output di `applica`, prima di dichiarare fatto: silenzio in
+tutt'e due. L'eseguibile buono e' delle **23:31**, e le rese sono state rilette
+**nella build** e poi **nel file installato nel gioco**.
+
+⚠️ La voce in `log.md` (vault) e' stata scritta **prima** dei documenti del
+repo, come vuole la lezione della 90a, e con lei un concept nuovo
+(`una-coordinata-in-un-albero-generato`), **due concept estesi**
+(`percentuale-senza-denominatore` alla terza occorrenza,
+`una-guardia-vale-solo-dove-guarda` con la variante da copia) e la riga in
+`index.md`.
+
+Quattro commit su `fase-0`, uno per unita' di lavoro. ⓘ Due file appartenevano
+a tutt'e due le unita' (`toppe.jsonl` e `strumenti/dati_verifica.py`): sono
+stati spezzati mettendo in **indice** la versione intermedia
+(`git hash-object -w` piu' `update-index`) **senza toccare l'albero di lavoro
+gia' verificato**, cosi' nessuna delle due unita' dipende dall'altra.
+
+---
+
+
+## La novantasettesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
