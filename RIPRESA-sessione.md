@@ -1,8 +1,8 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-26, fine della **novantanovesima** sessione (**`book.txt`
-CHIUSO 2.208/2.208 in un giorno solo: i quattro file dati del gioco sono
-finiti, e il perimetro onesto passa dal 74% all'80%**).
+Aggiornato: 2026-08-26, fine della **centesima** sessione (**`autopick.txt` e
+`custom_autopick.hsp` chiusi nello stesso giro: un difetto che era in campo da
+mesi, e la quinta famiglia di riga morta**).
 
 ⚠️⚠️ **LA SESSIONE SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
 spinto e l'albero e' pulito; le cose che **non stanno nel repo** sono quattro, e
@@ -11,23 +11,28 @@ l'ordine conta:
     dati-sorgente\             python -m strumenti.dati_sorgente --pinna
     l'albero di build          python -m strumenti.applica
     cgx-test.exe               python -m strumenti.compila --eseguibile   (NON incatenato)
-    i file _it.txt             li scrive `applica` in `_traduzione\build\dati\`
+    i file _it.txt             li scrive `dati_applica` in `_traduzione\build\dati\`
 
-⚠️⚠️ **I file dati italiani sono QUATTRO, e dalla 99a sono tutti COMPLETI**:
-`board_it.txt`, `talk_it.txt`, `exhelp_it.txt` e `book_it.txt`. Vanno in
+⚠️⚠️ **I file dati italiani sono CINQUE dalla 100a**: `board_it.txt`,
+`talk_it.txt`, `exhelp_it.txt`, `book_it.txt` e **`autopick_it.txt`**. Vanno in
 `C:\Games\Elona\elonaplus2.31\data\` (non nella radice del gioco: la 94a ci ha
 perso un comando), e si copiano **solo se sono cambiati** — `cmp -s` prima di
 `cp`, cosi' la data del file nel gioco dice qualcosa.
 
+⚠️ **`autopick_it.txt` e' l'unico in UTF-8**, e non ha blocchi: la sua codifica
+e il suo lettore stanno in `dati.py` (`CODIFICHE`, `PIATTI`), e `degrada()` su
+di lui **non si applica**, perche' degradare esiste solo per CP932.
+
 💡 **Se il terminale nuovo e' sulla stessa macchina, non si rifa' niente**:
-dalla 92a alla 98a si sono aperte tutte cosi'. Si controlla in un colpo con
+dalla 92a alla 99a si sono aperte tutte cosi'. Si controlla in un colpo con
 `ls C:\Games\Elona\_traduzione\` (devono esserci `build`, `sorgente`,
 `dati-sorgente`, `hsp34`).
 
 ⚠️ `strumenti.gronde`, `scratchpad/_97-toppe-agganciate.py`,
-`scratchpad/_98-book-mes.py` e `scratchpad/_98-exhelp-gmes.py` leggono la
-**build**: su una macchina senza albero costruito non falliscono dicendo la
-loro, muoiono di file non trovato.
+`scratchpad/_98-book-mes.py`, `scratchpad/_98-exhelp-gmes.py`,
+`scratchpad/_100-selettori-ombra.py` e `scratchpad/_100-modello-aggancia.py`
+leggono la **build**: su una macchina senza albero costruito non falliscono
+dicendo la loro, muoiono di file non trovato.
 💡 E `strumenti.battute` vuole `PYTHONIOENCODING=utf-8` davanti; i moduli di
 `scratchpad/` che importano `strumenti.*` vogliono anche `PYTHONPATH=.`.
 
@@ -37,12 +42,218 @@ di ritorno** da qualche script, e poi ricopiato di sessione in sessione come se
 fosse un nome. Le sezioni storiche qui sotto se lo portano ancora dietro.
 💡 La causa e' sempre la stessa: `\b` dentro una stringa Python **non** grezza
 passata da un heredoc. Si scrive il file con lo strumento di scrittura, non con
-`python - <<'PY'`.
+`python - <<'PY'`. ⚠️ **E colpisce anche fuori dal repo**: la 100a ha trovato
+`data<BS>ook.txt` **due volte** dentro la voce della 99a in `log.md`, nel vault,
+e l'ha riparata. Chi trova una parola cosi' cerchi il byte 0x08, non il refuso.
 
 ---
 
 
-## La novantanovesima sessione
+## La centesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura. La 100a
+si e' aperta con `origin/fase-0` allineato: **cinquantasettesima prova** di fila,
+e le quindici hanno dato quindici volte i valori attesi della 99a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    pytest                  755 passed, 6 skipped   (erano 745)
+    toppe.jsonl             1027                    (erano 1026)
+    _97-toppe-agganciate    1027 su 1027            (erano 1026 su 1026)
+    dati_applica --identita 5 file e 3.143 righe    (erano 4 e 2.987)
+    dizionario/dati/        + autopick 156/156
+    dizionario/             + custom_autopick 86; command.hsp 1278 -> 1277
+    rinviate.jsonl          112                     (erano 107)
+    perimetro.py            81%                     (era 80%)
+
+Tutto il resto e' **fermo dov'era**, riverificato in chiusura: `prova_identita`
+72/72 e **28.073**, `creature` 1131/2466/0/0, `larghezze` 0 fuori misura,
+`diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `menu_dialogo` 0 su 1378,
+`linguette` 0 e 0, `battute --divergenti` **13**, `intestazioni_larghezze`
+perimetro **0**, `dati_sorgente` 7/7 e gioco difforme su 0, `gronde` 0 su 5,
+`maiuscole` 143/6/1/7/**0**, `bilingui` **0**, `referti` **9**,
+`lang-nel-ramo-jp` **21 | 0**, `_96-morte-nella-build` **0**, `tabelle_en` 6
+fatte / 1 decisa / 0 da fare, `_98-exhelp-gmes` 0/0/0, `_98-book-mes` **0 su
+2208, la piu' larga 39**.
+
+⭐ **Tre reti nuove, tutt'e tre provate al contrario:**
+
+    python scratchpad/_100-commento-barre.py         9 righe, 0 gia' rese
+    python scratchpad/_100-selettori-ombra.py        0   (--en 2, --jp 0)
+    python scratchpad/_100-modello-aggancia.py       0   (--en 1, --scaduto 11)
+
+### ▶ Che cosa e' stato fatto
+
+    custom_autopick.hsp   86 voci, di cui 78 CHIAVI                86  ⭐ CHIUSO
+    data\autopick.txt     il modello delle regole, 156 righe      156  ⭐ CHIUSO
+    -------------------------------------------------------------------------
+    toppe nuove: custom_autopick.hsp:41                              1
+    reti nuove: _100-commento-barre, _100-selettori-ombra,
+                _100-modello-aggancia                                3
+    reti corrette: la rete 6 vede il `//` (modello-rete6-barre)      1
+    strumenti toccati: commenti, dati, dati_estrai, dati_applica,
+                       dati_verifica                                 5
+    test nuovi: 10 (tre per il `//`, quattro per il file piatto e la
+                codifica, due per la verifica, uno per l'identita')
+    rinvii: 4 (i selettori spenti da `//`) + 1 (command.hsp:17515)   5
+    -------------------------------------------------------------------------
+       242 rese, 1 toppa, 3 reti nuove, 1 rete corretta, 5 strumenti
+
+L'eseguibile e' stato ricompilato e ricopiato (**01:35 del 26/08** — ⚠️
+controllare la data del file prima di leggere uno screenshot, lezione
+dell'11/08). In gioco e' stato copiato il solo `autopick_it.txt` (26/08 01:31):
+gli altri quattro erano identici e `cmp -s` li ha lasciati stare.
+
+### ▶ ⭐⭐⭐ UNA STIMA FATTA LEGGENDO NON E' UNA MISURA
+
+La 98a aveva scritto «sei righe di nome che non agganciano piu'». La rete che
+rifa' a mano `*AutoPickTest` dice **undici su undici**: nella build di oggi
+**nessuna** riga d'esempio del modello aggancia niente. Non cadono solo i nomi
+di oggetto ma anche le cinque righe che cominciano con un selettore, perche' il
+selettore inglese in quella build non esiste piu'.
+
+⚠️ **La differenza non e' un dettaglio di contabilita': e' che il difetto si era
+allargato da solo**, il giorno in cui `db_item.hsp` era stato tradotto, senza
+che nessuno toccasse `autopick.txt`. Per esteso in `decisioni.md` §100a.
+
+### ▶ ⭐⭐⭐ LA QUINTA FAMIGLIA DI RIGA MORTA: IL COMMENTO `//`
+
+HSP3 ha **due** commenti di riga, `;` e `//`, e il progetto ne ha sempre
+guardato uno solo. Trovata perche' `custom_autopick.hsp:200`-`:217` tiene spenti
+cosi' due selettori interi. Misurata **prima** di correggere: 9 righe con una
+`lang()` dopo un `//`, di cui **una gia' tradotta** (`command.hsp:17515`), ora
+tolta dal dizionario e rinviata.
+
+⭐ **Il numero piccolo e' la parte che conta**: nove righe su ventottomila non
+pagano una rete col lavoro che risparmiano — la pagano perche' finche' la
+famiglia non ha un nome non si sa quanto sia grande, e la stima a occhio era
+zero. Il valore atteso e' **9 e 0**, e sale solo se un lotto ci ritraduce dentro.
+
+La regola sta in `strumenti/commenti.py` con tre test, non in uno scratch: cosi'
+la vede anche `larghezze.py`. ⓘ Il modello nuovo corregge anche una seconda
+cosa: la rete 6 leggeva `scratchpad/commenti-blocco.py`, la copia **senza test**
+della funzione che sta in `strumenti/`.
+
+### ▶ Le decisioni che pesano
+
+1. **Le 78 chiavi sono invariabili e senza accenti**, e non e' un vezzo: il
+   giocatore le scrive a mano, e in un file UTF-8 letto da un eseguibile CP932
+   una chiave accentata esisterebbe in due forme che non si agganciano mai.
+   Tutte e 54 stanno in `glossario.md` con la ragione di ognuna.
+2. ⭐ **`good` e' « comune », non « buono »**: nomina l'indice 2 di `_quality`,
+   che a schermo dice `common`. La regola della 99a dall'altro verso.
+3. **`instr` confronta per sottostringa**, e in inglese due categorie su
+   trentatre' sono rotte per questo (`book` dentro `spellbook`, `food` dentro
+   `traveler's food`). L'italiano ne ha zero, e non per fortuna: «commestibile»
+   sta al posto di «cibo» apposta.
+4. ⭐ **La sezione giapponese del modello e' diventata l'elenco delle chiavi
+   INGLESI** — 53 righe che in un file italiano non servivano a nessuno, e che
+   adesso servono a leggere il wiki, che il file stesso linka.
+5. ⚠️ **La toppa aggiusta solo i personaggi nuovi.** Il modello non si legge, si
+   **copia** nel salvataggio, e la copia nessuna build la riscrive: chi ha gia'
+   giocato deve cancellare la sua `save\<id>\autopick.txt`. ⭐ **Va nelle note di
+   rilascio**, ed e' un debito che cresce da solo.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐ **I 33 titoli del `%DEFINE` di `book.txt`.** `item.hsp:121` li legge dalla
+   CSV (`booktitle = lang(s(1), s(2))`, colonna 3); `dati_estrai` estrae solo i
+   blocchi `%<n>,EN`. **Vuole un'estensione dello strumento, non una resa.**
+   ⓘ I 31 titoli non decisi altrove li ha decisi la 99a **dentro** il libro
+   (riga 1 di ogni blocco): si prendono da li' e non si reinventano.
+2. ⭐⭐ **Il manuale**, `data\manual_ENG.txt`, 591 righe: ⭐ **e' l'ultimo file di
+   `data\`**. ⚠️ `help.hsp:331` e' l'**unico** della famiglia in cui il nome del
+   file sta dentro una `lang()`, quindi si dirotta dal dizionario — ma una toppa
+   serve lo stesso, per il **ripiego** `exist`. 💡 E come `autopick.txt` non ha
+   blocchi: `dati.PIATTI` lo aspetta gia', basta aggiungercelo (e verificare la
+   codifica: `manual_ENG.txt` si decodifica sia in CP932 sia in UTF-8, cioe' e'
+   ASCII puro, quindi il default CP932 va bene).
+3. ⭐⭐⭐ **`db_card.hsp`, 1.145 firme**: l'ultimo dentro il perimetro `lang()`.
+4. ⭐⭐⭐ **Le 5.284 descrizioni degli oggetti** di `db_item.hsp`: fuori da
+   `lang()`, `estrai.py` non le vede. E' il blocco piu' grosso che resta e vale
+   da solo il salto dall'81% al 94%.
+5. ⚠️⚠️⚠️ **IL COLLAUDO A SCHERMO E' L'ARRETRATO CHE CRESCE PIU' IN FRETTA.**
+   Diciannove sessioni e **5.090 rese mai viste** (4.848 piu' le 242 di oggi).
+   ⭐ **I punti offerti dalla 100a** — l'eseguibile serve, ed e' quello delle
+   01:35 del 26/08:
+   - ⚠️⚠️ **prima di tutto: cancellare `save\<id>\autopick.txt`** se c'e', se no
+     il gioco tiene la copia inglese e non si vede niente. Poi accendere la
+     raccolta automatica in **Impostazioni extra 1** (`config.hsp:630`, la voce
+     «Raccolta e distruzione»);
+   - `[Ctrl+Backspace]` apre il file nell'editor: deve essere **italiano**, e le
+     righe d'esempio devono leggersi in italiano;
+   - poi la prova che conta: buttare per terra una **moneta d'oro** e passarci
+     sopra. La regola `moneta d'oro` deve raccoglierla. Con l'eseguibile vecchio
+     non succedeva, ed e' il difetto che questa sessione chiude;
+   - `[Shift+Backspace]` ricarica il file: il messaggio «autopick.txt
+     ricaricato.» e' una delle sei rese di testo del lotto;
+   - ⭐ e la piu' delicata: mettere `~oggetto con maledizione` e verificare che
+     un oggetto maledetto **non** venga raccolto. Li' si prova insieme la chiave
+     invariabile e il fatto che «con maledizione» stia anche nel nome.
+   Restano dalle sessioni prima i libri rossi della 99a, i consigli di Norne
+   (serve un personaggio nuovo), il pannello «Conoscenza dell'oggetto» (`X` poi
+   `x`), i due menu degli incantesimi (`v`, poi `z`, poi `/`), la scheda (`c`),
+   e la coda lunga di NERES, RYUTYE, CRAY, MARY, BURT, KARATA, MANSON, RAIZEL,
+   NORNE, ALICE, i ventotto nomi di MIKRAANESIS, il menu del seminario, il menu
+   di Maile a undici voci, il prospetto cittadino e il **[Non posare]**.
+6. ⚠️⚠️ **LE QUATTRO DEL MURO DEI PREFISSI VOGLIONO QUATTRO TOPPE**:
+   `item_func.hsp:1308`, `:1386`, `:1390`, `:1458`. La strada e' quella di
+   `:1399`. ⚠️ Vanno **viste in gioco una per una**.
+7. ⭐⭐ **`"Have"` di `command.hsp:11069`**: letterale inglese nudo nel pannello
+   «Scelta delle abilita'». Sta gia' in `blocchi_en.py`.
+8. ⭐⭐ **Le dieci righe `listn` senza metro**: cinque pannelli a colonne, il
+   metro si legge a mano e si scrive in `METRO_A_MANO`.
+9. ⭐⭐ **Tre reti che mancano**: la larghezza della riga degli incantamenti
+   (`showresist == 4`, budget 380 px / 47 caratteri, e l'inglese lo sfonda
+   gia'); gli **inglesi divergenti**; i **partner fuori da `lang()`** (81a); i
+   **buff** della finestra del dialogo (95a).
+10. ⚠️⚠️⚠️ **I 335 SITI DOVE L'INGLESE E' STATICO E IL GIAPPONESE NO**, e dentro
+    quelli i **quattro** dove l'inglese dice un'altra frase. Decisione aperta.
+    `python scratchpad/_94-jp-dinamico-en-statico.py --tutte`.
+11. 🔶 **L'EPITETO DI SINAHA**, la 🔶 **sorella H** (82a) e la 🔶 decisione della
+    80a sul menu degli arti.
+12. ⚠️⚠️⚠️ **Le sette etichette del potenziale** (`command.hsp:10676`-`:10700`,
+    piu' 6): letterali nudi senza `lang()`, a schermo inglesi. Il giorno che si
+    toppano, `chat.hsp:14246` va rifatta.
+13. ⭐⭐⭐ **La rete che manca ha un rendimento misurato**: rileggere il dizionario
+    con le regole nuove. Il rendimento cala, non e' zero.
+14. ⭐⭐ **Dodici file con `lang()` e senza dizionario**, e ⚠️ **l'elenco che
+    questa ripresa portava avanti era sbagliato**: diceva «nove» nominandone
+    otto, con numeri che erano occorrenze, e ne mancavano quattro. Rimisurato
+    con lo strumento che c'era gia' — `python scratchpad/fuori_elenco.py` —
+    **12 file, 447 `lang()`**: `txtadv.hsp` 176, `material_data.hsp` 118,
+    `net.hsp` 39, `custom_itemenchantment.hsp` 31, `quest.hsp` 26,
+    `material.hsp` 22, `etc.hsp` 17 (**mezzo tradotto: finestra bilingue**),
+    `map_rand.hsp` 6, `custom_pet.hsp` 4, `scene.hsp` 3, `custom_dmgpop.hsp` 3,
+    `custom_nefiatypes.hsp` 2. 💡 Un elenco che si ricopia invece di rilanciarsi
+    marcisce in silenzio.
+15. ⭐⭐ Il **muro del materiale** generale, e ⚠️ **`scene2.hsp` non e' nel
+    dizionario** (due fili: `<Minea> The Puppeteer`, e `:9399`-`:9403` di
+    Mikraanesis coi letterali nudi).
+
+### ▶ Come si e' chiusa
+
+`applica` e' girato due volte e il `grep` del segnale di guasto sul suo output
+ha taciuto tutt'e due; `_97-toppe-agganciate` dice **1027 su 1027**;
+`compila --eseguibile` ha detto `#No error detected.` e l'eseguibile e' stato
+ricopiato. `dati_applica --identita` riproduce **cinque** file byte per byte,
+3.143 righe. `pytest` 755 su 755 coi dieci test nuovi.
+
+La voce in `log.md` (vault) e' stata scritta **prima** dei documenti del repo,
+come vuole la lezione della 90a. ⓘ Nessun concept nuovo: i tre che servivano
+esistevano gia' e sono stati **estesi** invece di duplicati —
+`il-codice-morto-conta-come-lavoro` (la quinta famiglia),
+`una-chiave-che-collide-non-e-una-chiave` (la collisione per sottostringa) e
+`stringhe-che-sono-dati` (quando l'altra meta' della chiave sta in un file che
+scrive l'utente). Per questo `index.md` non e' stato toccato.
+
+---
+
+
+## La novantanovesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

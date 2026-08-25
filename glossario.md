@@ -1114,6 +1114,94 @@ l'articolo (la toppa lo sceglie su `PARAM2`):
 | `primula` | primula | f — identica all'inglese **per coincidenza**, vedi `invariati.md` |
 
 
+
+## Le 54 chiavi della raccolta automatica, decise il 2026-08-26 dalla 100ª
+
+⚠️⚠️ **Queste non sono etichette da leggere: sono le parole che il giocatore
+scrive in `data\autopick.txt`**, e `custom_autopick.hsp` le confronta per
+**sottostringa** con la sua regola e col nome dell'oggetto. Cambiarne una qui
+senza cambiare il modello — o viceversa — spegne la funzione: vedi
+`decisioni.md` §98ª e §100ª.
+
+Tre vincoli che valgono per tutte e che non si vedono guardando la parola:
+
+1. **invariabili**: il giocatore le scrive a mano, e nessuno accorda il genere
+   per lui. Dove l'aggettivo si accorderebbe, la chiave diventa un complemento;
+2. **senza accenti**: il modello è in UTF-8 e l'eseguibile in CP932, e una
+   chiave accentata esisterebbe in due forme che non si agganciano;
+3. **nessuna dentro un'altra**: `instr` confronta per sottostringa, e una chiave
+   contenuta in un'altra rompe tutt'e due. Lo misura
+   `scratchpad/_100-selettori-ombra.py` — l'inglese di monte ne ha **due**, noi
+   zero.
+
+### I 21 modificatori (con gli spazi attorno)
+
+| EN | IT | perché |
+|---|---|---|
+| ` all ` | ` ogni ` | invariabile, e regge il singolare dei tipi qui sotto |
+| ` unknown ` | ` senza nome ` | `ITEM_KNOWN_NONE` |
+| ` name identified ` | ` con nome noto ` | `ITEM_KNOWN_NAME`. I tre gradini sono paralleli, e l'aggettivo concorda con un nome che sta **dentro la chiave** |
+| ` quality identified ` | ` con pregio noto ` | `ITEM_KNOWN_QUALITY` |
+| ` fully identified ` | ` con effetti noti ` | `ITEM_KNOWN_FULL`. «Effetti» perché è quello che l'identificazione piena rivela, e lo dice già il tutorial (`chat.hsp:14107`) |
+| ` worthless ` | ` senza valore ` | la coda che `db_item.hsp:149970` dà già al lingotto falso |
+| ` rotten ` | ` marcio ` | vale solo sul cibo (`:191` chiede `FILTER_ITEM_FOOD`), ed è la parola di `command.hsp:2230` |
+| ` empty ` | ` vuoto ` | vale solo sui contenitori (`:221`, `FILTER_CONTAINER`) |
+| ` bad ` | ` scadente ` | ⭐ le sei qualità vengono da `_quality` (`text.hsp:106`), la scala che il giocatore legge nel pannello — e finiscono tutte in `-e`, cioè non si accordano |
+| ` good ` | ` comune ` | ⚠️⚠️ **non «buono»**: `FIX_QUALITY_GOOD` è l'indice 2 di `_quality`, che a schermo dice `common`. Si dice quel che c'è scritto sullo schermo |
+| ` great ` | ` eccellente ` | `_quality` 3 |
+| ` miracle ` | ` eccezionale ` | `_quality` 4 |
+| ` godly ` | ` celestiale ` | `_quality` 5 |
+| ` special ` | ` speciale ` | `_quality` 6 (`FIX_QUALITY_UNIQUE`) |
+| ` precious ` | ` prezioso ` | non è un gradino della scala: è `ITEM_BIT_PRECIOUS` |
+| ` blessed ` | ` con benedizione ` | ⭐ la deroga già decisa più sopra per `strblessed`: complemento invariabile, e **le stesse parole che stanno dentro il nome dell'oggetto** contro cui `:358` confronta |
+| ` uncursed ` | ` senza maledizione ` | `ITEM_STATUS_NORMAL` |
+| ` cursed ` | ` con maledizione ` | come `strcursed` |
+| ` doomed ` | ` con dannazione ` | come `strdoomed` |
+| ` alive ` | ` in vita ` | `ITEM_BIT_ALIVE` |
+| ` evolution ` | ` di evoluzione ` | complemento, per non accordarsi col genere di quel che segue. Il nome dell'oggetto resta «oggetto evolutivo» |
+
+### I 33 tipi (chiavi nude, al singolare)
+
+| EN | IT | da dove viene |
+|---|---|---|
+| `item` | oggetto | |
+| `equipment` | equipaggiamento | `command.hsp:12618` |
+| `melee weapon` | arma da mischia | «Mischia» è il nome della casella (`command.hsp:10517`) |
+| `helm` | elmo | |
+| `shield` | scudo | |
+| `armor` | armatura | ⓘ `db_item.hsp:152729` dice «corazza» per il pezzo, «armatura» è la classe |
+| `boot` | stivale | singolare: ` ogni ` regge il singolare |
+| `belt` | cintura | |
+| `cloak` | mantello | |
+| `glove` | guanto | |
+| `ranged weapon` | arma da tiro | «Tiro» è il nome della casella (`command.hsp:15309`) |
+| `ammo` | dardo | |
+| `ring` | anello | |
+| `necklace` | collana | |
+| `potion` | pozione | |
+| `scroll` | pergamena | |
+| `spellbook` | grimorio | ⭐ e per questo non fa ombra a «libro», dove l'inglese `spellbook` contiene `book` e rompe la coppia |
+| `book` | libro | |
+| `rod` | bacchetta | |
+| `food` | commestibile | ⚠️ **non «cibo»**, per non fare ombra a «cibo da viaggio»: è la seconda coppia rotta in inglese, e la parola che si sposta è la generica |
+| `tool` | attrezzo | `chat.hsp:14172` |
+| `furniture` | mobilio | `text.hsp:9671` |
+| `well` | pozzo | |
+| `altar` | altare | |
+| `remains` | resto | ⓘ il modello inglese qui documenta `all remain`, che **non aggancia**: la chiave è `remains` |
+| `junk` | cianfrusaglia | `db_item.hsp:143816` |
+| `gold piece` | moneta d'oro | |
+| `platinum coin` | moneta di platino | |
+| `chest` | baule | |
+| `ore` | minerale | |
+| `tree` | albero | |
+| `traveler's food` | cibo da viaggio | il nome che l'oggetto ha (`chat.hsp:13959`) |
+| `cargo` | merce da commercio | «merci da commercio», `chat.hsp:14079` |
+
+ⓘ Due selettori del sorgente **non** sono qui: ` zombie ` (腐りきった) e
+` dragon's ` (ドラゴンの) stanno dietro un commento `//` a `:200`-`:217`, cioè
+sono codice che il compilatore non vede. Sono in `rinviate.jsonl`.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

@@ -2126,3 +2126,50 @@ combaciano e sembrano confermare l'allineamento.
 famiglia di parlanti: `text.hsp:9609` e seguenti li scelgono con
 `gdata(GDATA_MONTH) == 4`. E due sono **morti**: `%ABITCH` e `%AKASHIC` non
 sono referenziati da nessuna parte.
+
+## I file dati sono CINQUE, e `autopick.txt` è chiuso — 2026-08-26, centesima
+
+    file             righe   stato
+    board.txt           25   ⭐ CHIUSO (92ª)
+    talk.txt           569   ⭐ CHIUSO (97ª)
+    exhelp.txt         185   ⭐ CHIUSO (98ª)
+    book.txt         2.208   ⭐ CHIUSO (99ª)
+    autopick.txt       156   ⭐ CHIUSO (100ª)
+    ---------------------------------------------
+    manual_ENG.txt     591   ⚠️ da fare, il solo che resta in `data\`
+
+⚠️ **`autopick.txt` non era «un sesto file da tradurre»: era un difetto già in
+campo**, e la 100ª l'ha misurato invece di stimarlo — **undici regole su undici**
+del modello non agganciavano più niente nella nostra build, non sei come diceva
+la 98ª (`scratchpad/_100-modello-aggancia.py --scaduto`).
+
+E con lui si chiude anche `custom_autopick.hsp`, che non era un file di `.hsp`
+come gli altri: 78 delle sue 90 `lang()` sono **chiavi**, non etichette, e i due
+file si sono tradotti nello stesso giro perché il guasto peggiore sta a metà
+strada. Vedi `decisioni.md` §98ª e §100ª, e le 54 chiavi in `glossario.md`.
+
+    python scratchpad/_97-quanto-resta.py     custom_autopick.hsp  2 / 2  ⭐ CHIUSO
+
+⚠️⚠️ **E l'elenco dei file senza dizionario andava rimisurato, non ricopiato.**
+La ripresa lo portava avanti come «nove file» nominandone otto, e con dei numeri
+che erano **occorrenze**. Lo strumento c'era già:
+
+    python scratchpad/fuori_elenco.py     12 file senza dizionario, 447 lang()
+
+        txtadv.hsp                  176        etc.hsp                     17
+        material_data.hsp           118        map_rand.hsp                 6
+        net.hsp                      39        custom_pet.hsp               4
+        custom_itemenchantment.hsp   31        scene.hsp                    3
+        quest.hsp                    26        custom_dmgpop.hsp            3
+        material.hsp                 22        custom_nefiatypes.hsp        2
+
+⚠️ **Quattro di quei dodici non erano in nessun elenco** — `map_rand.hsp`,
+`custom_pet.hsp`, `scene.hsp` e `custom_dmgpop.hsp`, sedici `lang()` in tutto —
+e non perché qualcuno li avesse scartati: la riga si ricopiava di sessione in
+sessione senza essere rilanciata.
+
+ⓘ In **firme** (l'unità del dizionario) sono 10 file e 344 firme: due di quei
+dodici hanno solo `lang()` che `estrai` non estrae. Le due misure rispondono a
+due domande diverse e vanno tenute separate, come le colonne qui sopra.
+
+Perimetro onesto (`scratchpad/perimetro.py`): **81%**, era 80%.

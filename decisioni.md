@@ -9727,3 +9727,173 @@ lì, per non far leggere al giocatore due nomi diversi della stessa cosa.
 Gli altri 31 titoli questa sessione li ha decisi **dentro** il libro, alla riga
 1 di ogni blocco. Quando lo strumento saprà estrarre il `%DEFINE`, i titoli si
 prendono da lì: non si reinventano.
+
+
+## 100ª — `autopick.txt` chiuso, e il commento `//` è la quinta famiglia di riga morta
+
+Una sessione con un obiettivo solo — il difetto in campo della 98ª — e due
+scoperte che non erano nel piano.
+
+### ⭐⭐⭐ Il difetto era il doppio di come era stato stimato
+
+La 98ª, leggendo, aveva scritto «sei righe di nome che non agganciano più». La
+rete scritta oggi lo misura, e dice **undici su undici**:
+
+    python scratchpad/_100-modello-aggancia.py --scaduto     11 regole su 11
+
+`--scaduto` è lo stato in cui il gioco sarebbe se si traducesse il solo `.hsp`:
+chiavi italiane, modello inglese. Non cade solo la metà dei nomi di oggetto
+(`gold piece`, `small medal`, `!corpse?`…) ma anche le cinque righe che
+cominciano con un selettore, perché il selettore inglese in quella build non
+esiste più. ⚠️ **Una stima fatta leggendo il codice non è una misura**, e questa
+sbagliava del cento per cento.
+
+La rete rifà a mano `*AutoPickTest` (`:115`-`:361`): toglie i marcatori
+`~ ! !! ? % = :sound123`, fa `strtrim` e collassa gli spazi doppi, mette uno
+spazio davanti e uno dietro, passa la catena dei **modificatori** — che si
+tolgono da `s` quando agganciano — e su quel che resta chiede o un **tipo** o un
+pezzo di **nome di oggetto**. Le tre corse:
+
+    (nessun argomento)   italiano contro italiano       0
+    --en                 monte contro se stesso         1   ⓘ vedi sotto
+    --scaduto            chiavi ITA, modello inglese    11  ⚠️ prova al contrario
+
+⭐ **E la rete ha trovato un difetto di monte il giorno in cui è nata.**
+`bottle of water?` non aggancia niente **nemmeno nella build inglese**: l'oggetto
+si chiama `water`. Stessa specie il `# all remain` dell'elenco, dove la chiave è
+`remains`. L'italiano scrive `acqua?` e `ogni resto`, che agganciano — e l'uno
+atteso di `--en` è dichiarato nel codice della rete, non un residuo tollerato.
+
+### ⭐⭐⭐ La quinta famiglia di riga morta: il commento `//`
+
+HSP3 ha **due** commenti di riga, `;` e `//`, e il progetto ne ha sempre
+guardato uno solo: `commenti.py` conosceva il blocco `/* ... */` e si fermava
+sul `;`. Trovata perché `custom_autopick.hsp:200`-`:217` tiene spenti così due
+selettori interi (` zombie ` e ` dragon's `), che `estrai` estraeva come vivi.
+
+Misurata **prima** di correggere, su tutto il sorgente:
+
+    python scratchpad/_100-commento-barre.py     9 righe, 1 già resa
+
+L'unica già resa era `command.hsp:17515`, «This function is disabled in wizard
+mode.» — lavoro speso su testo che il giocatore non legge. Tolta dal dizionario
+e rinviata, ⚠️ **solo dopo aver controllato che la firma non viva altrove**: è
+la lezione della 45ª, per cui `estrai --da-tradurre` ancora una voce alla prima
+occorrenza e una firma spenta in un punto può vivere in un altro. Qui no.
+
+⭐ **Il numero piccolo è la parte che conta.** Nove righe su ventottomila non
+pagano una rete nuova col lavoro che risparmiano: la pagano perché finché la
+famiglia non ha un nome non si sa quanto sia grande, e la stima a occhio era
+zero. Adesso il valore atteso è **9 righe, 0 già rese**, e sale solo se un lotto
+nuovo ci ritraduce dentro.
+
+La regola sta in `strumenti/commenti.py` (`colonna_commento_riga`,
+`lang_spenta_da_barre`) con tre test, non in uno scratch: così la vede anche
+`larghezze.py`, che di quella funzione si serve per non prendere la larghezza di
+un riquadro da codice morto. La rete 6 la usa in
+`scratchpad/modello-rete6-barre.py`, che è **la sesta rete che si corregge**
+dopo la 8, la 4, la 9, la 6 e di nuovo la 4. ⓘ Il modello nuovo porta anche una
+seconda correzione: la rete 6 leggeva `scratchpad/commenti-blocco.py`, cioè la
+copia **senza test** della funzione che sta in `strumenti/`.
+
+### ⭐⭐ `autopick.txt` è in UTF-8, e non ha blocchi
+
+È l'unico file di `data\` scritto in UTF-8: i suoi 4.516 byte non si
+decodificano in CP932 (`illegal multibyte sequence` al byte 3153), e la sezione
+giapponese di monte è già mojibake per conto suo. E non ha `%CHIAVE,LINGUA`: è
+un file di configurazione, commenti e regole.
+
+La catena assumeva CP932 e il formato a blocchi in cinque punti. Adesso:
+
+- `dati.py` tiene **la codifica e il lettore per file** (`CODIFICHE`, `PIATTI`,
+  `analizza_piatto`): un file senza blocchi è **un** blocco inglese implicito, e
+  tutto il resto della catena — firma, estrazione, applicazione, identità — non
+  sa che quel file è diverso;
+- ⭐ `degrada()` si applica **solo dove la codifica è CP932**. Non è un caso
+  particolare: è la ragione per cui `degrada()` esiste. In un file UTF-8 che
+  nessuno disegna, l'accento vero ci sta;
+- `dati_verifica.py` fa lo stesso con i controlli `cp932`, `doppi byte` e
+  `apostrofo` — ⚠️ senza, segnalava come guasto proprio la resa giusta («—» a
+  `:1` e a `:25`);
+- la **prova d'identità copre cinque file** invece di quattro: `autopick.txt`,
+  156 righe riprodotte byte per byte.
+
+### ⚠️ Le 78 chiavi: `instr` confronta per sottostringa
+
+Se una chiave sta dentro un'altra, il controllo di quella corta scatta sulla
+regola che nomina la lunga e il suo `continue` butta via l'oggetto. Nella catena
+dei **tipi** non serve nemmeno che l'ordine sia sfortunato — nessuno si toglie da
+`s`, e ogni `if` viene provato.
+
+    python scratchpad/_100-selettori-ombra.py --en     2   ⚠️ prova al contrario
+    python scratchpad/_100-selettori-ombra.py --jp     0
+    python scratchpad/_100-selettori-ombra.py          0   la build italiana
+
+In inglese succede **davvero**: `book` dentro `spellbook`, `food` dentro
+`traveler's food`. Due categorie su trentatré rotte nella lingua di monte, e in
+giapponese mai, perché quelle parole non sono composte così. ⭐ Tradurre è il
+momento in cui si sceglie se avere il difetto: «grimorio» e «libro» non si fanno
+ombra da soli, e il generico si è spostato su «commestibile» perché «cibo da
+viaggio» tenesse il nome che l'oggetto ha a schermo.
+
+### ⚠️⚠️ Le chiavi sono invariabili, e senza accenti
+
+Due vincoli che non si deducono dal codice.
+
+1. **Invariabili**, perché il giocatore le scrive a mano e l'accordo di genere
+   non c'è chi lo faccia: una chiave `maledetto` lascerebbe fuori chi scrive
+   «pozione maledetta», che è l'italiano giusto. `blessed`/`cursed`/`doomed`
+   diventano « con benedizione », « con maledizione », « con dannazione » — la
+   deroga già decisa in `glossario.md` per `strblessed`/`strcursed`/`strdoomed`,
+   e ⭐ **le stesse parole che stanno dentro il nome dell'oggetto**, cioè proprio
+   la stringa contro cui `:358` confronta quel che resta della regola. I tre
+   gradini dell'identificazione sono paralleli e concordano con un nome che c'è
+   nella chiave stessa: « con nome noto », « con pregio noto », « con effetti
+   noti ». Le sei qualità finiscono in `-e` da sole.
+2. **Senza accenti**, perché il modello è UTF-8 e l'eseguibile CP932: una chiave
+   accentata esisterebbe in due forme — degradata nel programma, non degradata
+   nel file — e le due non si aggancerebbero mai. ⚠️ Nessuna rete di
+   sottostringa lo direbbe: è un vincolo di codifica travestito da vincolo di
+   lessico.
+
+E i **tipi sono al singolare** — «stivale», «guanto», «dardo», «resto»,
+«cianfrusaglia» — perché il modificatore ` ogni ` li precede: «ogni stivali» non
+è italiano. ⓘ Chi scrivesse lo stesso «ogni stivali» non resta a piedi: la
+riga cade sul confronto per **nome**, e i nomi degli stivali contengono
+«stivali».
+
+### ⭐⭐ `good` non è «buono»: è « comune »
+
+La chiave inglese ` good ` nomina `FIX_QUALITY_GOOD`, che è l'indice **2** di
+`_quality`, e `text.hsp:106` quell'indice a schermo lo stampa `common` — da noi
+«comune». È la regola della 99ª presa dall'altro verso: **si dice quel che c'è
+scritto sullo schermo**, non quel che dice l'inglese di un'altra riga.
+
+### ⚠️ La toppa aggiusta solo i personaggi nuovi
+
+`custom_autopick.hsp:41` è l'unico della famiglia in cui il file dati non si
+**legge**: si **copia** nel salvataggio (`AutoPickWriteDefaultSettingsFile`,
+`:39`-`:44`), e quel che il gioco legge poi è `save\<id>\autopick.txt`, che
+`:26` scrive **solo se non c'è**. Quindi:
+
+- chi comincia adesso prende il modello italiano e funziona tutto;
+- chi ha già giocato ha la sua copia inglese, e deve cancellarla. **Va nelle
+  note di rilascio**, e non si rimanda: più tardi si fa, più copie vecchie ci
+  sono in giro.
+
+Il ramo `exist` porta il ripiego e non il nome: `noteload` su un file assente è
+un errore di esecuzione, e questo gira **alla creazione del personaggio**.
+
+### Le due scelte di contenuto nel modello
+
+1. ⭐ **La sezione giapponese di monte (`:103`-`:156`) diventa l'elenco delle
+   chiavi INGLESI.** Sono 53 righe che dicono la stessa lista in una seconda
+   lingua, e in un file italiano la lista giapponese non serve a nessuno; le
+   guide in rete — che il file stesso linka a `:24` — sono in inglese, e un
+   giocatore italiano che le legge ha bisogno di **quella** corrispondenza.
+   L'intestazione dice a chiare lettere che quelle chiavi qui non agganciano.
+2. **`:sound123` resta com'è, e con lui i marcatori `# ~ ! !! ? % =`.**
+   `custom_autopick.hsp:647` cerca `:sound` con un `instr` su un **letterale
+   nudo**, fuori da ogni `lang()`: tradurlo manderebbe il lettore a scrivere una
+   parola che il codice non cerca. È il criterio della 99ª — non «suona
+   tecnico», ma «passa da una funzione di lingua?».
