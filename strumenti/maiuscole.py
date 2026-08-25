@@ -87,7 +87,14 @@ GIUDICATI = {
     # `test_i_giudicati_esistono_ancora`. Il test ha ragione a scattare — un
     # permesso appeso al vuoto e' peggio di nessun permesso — e il rimedio e'
     # rileggere la riga, non allentare il test.
-    ("item_func.hsp", 2352): "il tassello del materiale, «[Mithril]». Fa parte "
+    # ⚠️ Era :2321 fino alla 82a e :2352 fino alla 96a, ed e' sempre la stessa
+    # riga: nella 96a a spostarla di 14 sono state le righe che la toppa
+    # dell'articolo si e' presa per dare a ciascuno dei tredici **fiori
+    # selvatici** il suo («un rosa» -> «una rosa»). Seconda volta che questa
+    # coordinata si muove per una toppa che cresce sopra di lei, e il test ha
+    # ragione a scattare tutt'e due le volte: la riga si rilegge, il permesso
+    # regge, e la coordinata si aggiorna.
+    ("item_func.hsp", 2366): "il tassello del materiale, «[Mithril]». Fa parte "
                              "del muro del materiale, che vuole il suo giro: "
                              "la postposizione italiana («spada DI mithril») "
                              "sposta il sito, non solo la maiuscola",
