@@ -6,6 +6,169 @@ ancora aperte.
 
 ---
 
+## `chat.hsp` si chiude, e il piano lo scrive `map.hsp` — 2026-08-25, novantacinquesima
+
+Sette lotti, **73 rese** piu' una rifatta, e il file piu' grande del progetto va
+da **79 firme a zero**. Le sei che restano nel conto di `verifica --dizionario`
+sono tutte **rinviate dall'87a**, tutte righe commentate a monte (`:13991`,
+`:14036`-`:14038`, `:19327`, `:19334`), rilette una per una in chiusura.
+
+### ⭐⭐⭐ Il raggruppamento del lavoro lo decide chi legge, non il file
+
+La ripresa della 94a proponeva **CRAY + NANCY + MARY** come «la Valle di
+Raskilis che si chiude», sulla base del conteggio delle firme.
+`map.hsp:4971`-`:4980` dice che l'imbocco della valle (`ras0`) ha **JENNA, MARY,
+CRAY e MANSON** — fatto la sessione prima — e `:5096` mette **NANCY** in
+`ras_south`, un'altra area, con TONI e CARTER. Rifatto il raggruppamento, sono
+usciti **due lotti che chiudono due mappe intere** invece di uno che ne chiudeva
+mezza.
+
+Poi lo stesso criterio ha prodotto il lotto piu' improbabile della giornata: la
+**Gabbia di Amur**, cinque blocchi distanti fino a settemila righe l'uno
+dall'altro (`:8795`, `:10521`, `:13924`, `:15093`, `:15123`) che nel file non
+hanno niente in comune e che stanno tutti in `AREA_AMUR_CAGE`.
+
+💡 **E' la lezione della 94a su BONYAC applicata PRIMA di tradurre invece che
+dopo.** La' aveva corretto una motivazione sbagliata gia' scritta; qui ha
+cambiato il piano.
+
+⚠️ **E quando il criterio si esaurisce va dichiarato, non simulato.** Gli ultimi
+due lotti — HALION/FRON/RENAI e WEL/ROVID/BURT — raggruppano personaggi di posti
+diversi, perche' altri non ce n'erano: sta scritto nel loro docstring. Un lotto
+che si inventa un tema comune mette nel documento una relazione falsa, e le
+sessioni dopo la credono.
+
+### ⭐⭐⭐ Il posto ha fatto trovare due righe che DEVONO essere uguali
+
+`chat.hsp:10539` e `:10530` sono la **stessa frase due volte**. Il demone del
+palazzo infero imita la voce della madre per attirare l'anima del bambino —
+「早く！こっちよ！」, «Presto! Di qua!» — il bambino risponde 「おかあ…さん？」,
+«Mam... ma?» (`:10541`), e poi la maschera cade: la stessa frase torna in
+**katakana**, sfigurata e con la risata.
+
+Sono **due firme diverse, con giapponese diverso, in due rami diversi** dello
+stesso blocco: nessuna rete le lega, e se le parole non coincidono lo scherzo
+non si sente. Il bambino e' quello di `:10596`, gia' reso: «Mamma... dove sei...
+Ho paura...!»
+
+💡 E il **maiuscolo** che rende il katakana era gia' deciso in un altro file, per
+GILPHEM (`db_creature.hsp:52721`, «CHIEDO PERDONO...»): qui fa esattamente il
+lavoro che serviva.
+
+### ⚠️⚠️ Il lei di cortesia, e il criterio che ora distingue lei da voi
+
+La regola dell'88a diceva: 敬語 + あなた al giocatore = **voi di cortesia**, che
+oltre a suonare giusto e' l'unica seconda persona italiana senza genere.
+Oggi tre personaggi la mettevano in discussione, e due l'hanno **gia' risolta
+per conto loro**:
+
+- **RYUTYE** (`chat.hsp:12898`) — `db_creature.hsp:70912`, gia' reso: «Non
+  **faccia** cose terribili, **la** prego.» E' una battuta che il giocatore
+  sente **nella stessa scena**, basta attaccarlo.
+- **ALFRED** (`:13927`-`:13938`) — `db_creature.hsp:55746`, gia' reso: «**Le**
+  mostro la forza di un ex comandante dei cavalieri.», «Il vento che sollevo non
+  e' gentile, **sa**.» ⚠️ E al suo signore da' del **voi** (`:55752`, «Signor
+  Barius, **vi** chiedo perdono...»): le due cortesie convivono perche' i
+  destinatari sono due.
+- **RENAI** (`:12770`) — l'unica senza niente da trovare, e quindi l'unica
+  **decisa** qui.
+
+**Il criterio, d'ora in poi:**
+
+1. Se il personaggio ha **battute gia' rese** con una seconda persona, decidono
+   quelle. Punto. (E' [[il-registro-non-si-decide-si-trova]] applicato alla
+   cortesia invece che al tono.)
+2. Se non ce n'e', **voi** per il registro cortese e antico — Maile, Manson,
+   Bonyac: locandiera, vecchio avventuriero, merciaio di un mondo cortese — e
+   **lei** per quello deferente e moderno. RENAI viene dall'arco di Zanan
+   (istituti, farmaci, armi biologiche), e suo fratello REGULUS da' al giocatore
+   del **tu** (`:12788`, `:12817`): una seconda persona **piu' distante** di
+   quella del fratello e' esattamente il rapporto che c'e'.
+3. Il vincolo di genere regge in tutt'e due i casi: ne' il voi ne' il lei lo
+   chiedono **sul verbo**. Quel che resta vietato e' l'aggettivo o il participio
+   addosso al giocatore, e nessuna delle 73 rese ne mette.
+
+### ⭐⭐⭐ 忘却: i buchi di memoria non erano un tic, erano la trama
+
+`chat.hsp:15139` — BURT, a **Zaile** — dice 「やがて忘却に呑まれてしまうだろう」,
+e due righe prima (`:15138`) dice che **non ricorda piu'** che panorama si
+vedesse dalla sua citta'. 忘却 non e' una parola generica in questo gioco: e' la
+**dea dell'oblio** che MIKRAANESIS sta combattendo (`:18095`-`:18098`, gia'
+rese) e che a `:10353` «cancella il ricordo dalla gente».
+
+Con quella riga i buchi di memoria della giornata smettono di essere quattro tic
+e diventano **una cosa sola con un nome nella trama**:
+
+- **NANCY** (`:15355`), che viene **da Zaile**, la citta' di Burt, e non ricorda
+  **che cosa** le sia stato portato via;
+- **CRAY** (`:15407`), che non ricorda chi si sia buttato nella fenditura;
+- **NERES e RYUTYE** (`:12876`, `:12897`, `:12898`), a cui manca tutto;
+- **MANSON** (`:15385`, 94a), che ha perso il senso del tempo.
+
+⚠️ Nessuna delle nove rese lo alleggerisce, e `:15138` in particolare tiene il
+**«piu'»**: senza quello la riga direbbe che non ha mai saputo invece che ha
+dimenticato.
+
+### ⭐ Un cambio di registro a meta' frase, reso su un altro perno
+
+`chat.hsp:8777`: 「僕になにか…こほん。私に何か用でしょうか。」 Il nuovo cittadino
+— un ex ninja che finge di non esserlo (`:8778`, «Ninja? Che roba e'?») —
+comincia col **僕** confidenziale, si schiarisce la voce, e ricomincia col **私**
+formale. Tutta la battuta e' quel mezzo passo falso.
+
+In italiano i due pronomi sono lo stesso «io» e il perno non c'e'. Ma la
+**seconda persona** ce l'ha: «Che vuoi da... ehm-ehm. Desidera qualcosa da me?»
+Stesso scivolone, stesso punto, sul dispositivo che questa lingua possiede. E'
+la regola delle fusioni — *si rende il gioco, non le sillabe* — applicata a un
+registro invece che a un gioco di parole.
+
+### ⚠️⚠️ Due strumenti facevano mentire il piano, e uno mentiva da otto sessioni
+
+**La mappa dei parlanti non toglieva le rinviate.**
+`scratchpad/_87-parlanti-oltre.py` e' il documento su cui si sceglie il lotto,
+e per otto sessioni ha dato **AJETALIO a «4 da fare»** quando le sue quattro
+firme sono righe **commentate a monte**, rinviate nell'87a con il motivo scritto.
+`_88-lotto.py` — il taglio vero — le toglieva da sempre. La ripresa della 94a ci
+aveva costruito sopra il piano «AJETALIO chiude il Seminario», e il seminario
+era chiuso dall'87a.
+
+**E tre script decidevano «tradotta» diversamente dalla guardia.**
+`_88-lotto.py`, `_87-parlanti-oltre.py` e `_85-blocco.py` usavano
+`if v.get('it').strip()`, `verifica.py` usa `if v.get('it')`. La differenza e'
+**una voce sola in tutto il progetto**: `chat.hsp:22500`, il separatore fra
+l'epiteto e il suffisso del nome di casa, la cui resa e' — legittimamente —
+**uno spazio**, messa li' nella 64a perche' quella riga la sistema una toppa che
+gira la concatenazione nel ramo inglese.
+
+⚠️ L'effetto: quella voce risultava **da fare per sempre**, con `verifica` che la
+dava per fatta. Chiunque provasse a chiudere `chat.hsp` trovava una riga che non
+si poteva ne' tradurre ne' far sparire — e **tradurla davvero avrebbe rotto la
+toppa**, che cerca la riga nella sua forma di monte. Tutti e tre allineati.
+
+💡 Nel vault: [[il-cruscotto-non-conta-come-chi-lavora]] e
+[[il-lavoro-si-raggruppa-come-lo-legge-chi-lo-usa]].
+
+### ⚠️ Le deroghe che pesano
+
+Stanno per esteso nei sette moduli di `scratchpad/`. Le sei da ricordare:
+
+1. **`:13931`** — l'inglese non traduce, dice un'altra cosa: giapponese «sta
+   parlando con qualcuno che non si vede», inglese « is stunned.» Ed e' l'unica
+   riga che **spiega `:13933`** — Alfred non parla al giocatore.
+2. **`:13927`** — il giapponese non ha soggetto e parla di **se'**; l'inglese
+   apre con «**You** failed» e chiude con «**I** will be ashamed».
+3. **`:13938`** — l'inglese aggiunge «the Eternal Seal», che il giapponese non
+   nomina: e' un posto preciso con un nome in trenta rese.
+4. **`:13527`** — l'inglese **capovolge**: 考え物だな («e' una cosa su cui
+   riflettere», cioe' un problema) diventa «it's **important** to accept people
+   without thinking».
+5. **`:10017`** — 神には神の思惑があって («gli dei hanno disegni loro») diventa
+   «The gods' expectations **change**», e la frase dopo perde il perno.
+6. **`:9362`** — l'inglese butta **ノルマ**, che e' il nome della meccanica, da
+   una riga che chiude un incarico.
+
+---
+
 ## Una resa fedele puo' essere vietata dal sito — 2026-08-25, novantaquattresima
 
 Otto lotti su `chat.hsp` in due giri da quattro, **55 rese**, dalle 134 alle

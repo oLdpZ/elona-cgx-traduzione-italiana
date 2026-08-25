@@ -915,6 +915,35 @@ progetto altrove lo ricostruisce proprio quando l'inglese lo butta (<Leiki>,
 ragione per cui il personaggio esiste. Un nome di creatura si cambia insieme
 alla sua misura di larghezza e alle rese che lo citano: **da decidere**.
 
+## I diciotto parlanti della 95a, decisi il 2026-08-25 — `chat.hsp` si chiude
+
+Sette lotti, 73 rese, e la stessa cosa della 94a in forma piu' forte: **quasi
+niente da decidere**. Il lessico stava tutto nel vicinato, e stavolta il
+vicinato l'ha indicato `map.hsp` — la Valle di Raskilis nelle rese della 91a e
+della 94a, la Gabbia di Amur nelle rese della 92a, il Meshera nella catena di
+Regulus, l'oblio nelle rese di Mikraanesis. Le voci qui sotto sono le poche che
+mancavano, piu' due **correzioni di coerenza** su rese gia' esistenti.
+
+| JP | EN | IT | dove |
+|---|---|---|---|
+| 裂け目 (Raskilis) | crevice / rift | **fenditura** | `action.hsp:2854` lo dice gia' cosi' ed e' **la casella su cui si cammina** in `AREA_WEST_RASKILIS`. ⚠️ `chat.hsp:15440` (91a) diceva «fessura»: **rifatta**, era un secondo nome per lo stesso oggetto sulla stessa mappa |
+| 悪魔の獣 | devilish beasts | **bestie diaboliche** | `chat.hsp:15354`. ⚠️ NON «demoniache»: 悪魔 in questo progetto e' **il demone** della trama (Mayroon, Eulderna, Kikkasu). Nancy da' un nome suo alle stesse creature che tutti chiamano 黒い獣 «le bestie nere» |
+| ウキ | (buttato dall'inglese) | **galleggiante** | `chat.hsp:15366`, il segnale sull'acqua dove si pesca. L'inglese perde sia il galleggiante sia il fatto che sia un segnale |
+| キャンプ地 | campsite | **il campo** | `chat.hsp:15338`. ⚠️ Non «campo profughi», gia' preso da `text.hsp:2985` per la terra di Ruoza |
+| 水辺 | waterfront | **specchio d'acqua** | `chat.hsp:15365`, `:15373` |
+| 冥宮の悪鬼 | hellabyrinth ruler | **il demone del palazzo infero** | gia' in `db_card.hsp:1388`; ripreso qui per le tre rese di `:10530`-`:10541` |
+| 嬉シイ (katakana) | I'm glad | **CHE GIOIA.** | `chat.hsp:15126`. ⚠️ Non «CONTENTO», che porta un genere che Gilphem non ha. Il **maiuscolo** rende il katakana, come `db_creature.hsp:52721` |
+| ツアープランナー | tour planner | **organizzatrice di viaggi** / **chi organizza viaggi** | `chat.hsp:13176` (gia' reso) e `:12760`. Tenuto distinto da **guida turistica** (ツアーガイド, `:7774`) |
+| 本部 | council *(inglese)* | **il quartier generale** | `chat.hsp:9362`, come `db_creature.hsp:79879`. ⚠️ **Non** «il consiglio» di `:5423`, che rende 審査会, la commissione d'esame della Gilda dei Maghi: due parole diverse in giapponese |
+| 忘却 | oblivion | **l'oblio** | gia' in `chat.hsp:18095` e `:10353`; **confermato** qui da `:15139` di BURT, che e' la riga che lega i cinque buchi di memoria della giornata |
+| 未開 | unexplored | **terra selvaggia** | `chat.hsp:15342`, come `:2334` |
+| 怪電波 | electromagnetic waves | **onde strane** | `chat.hsp:8784` |
+| 駆動系 / データ格納部分 | drive system / data registers | **la parte motrice** / **la parte dove stanno i dati** | `chat.hsp:8784` |
+
+⚠️ **Tre conferme, non decisioni** — cercate oggi e trovate gia' scritte: 護衛
+«scorta» (`:6735`), 屋敷 «la villa» (`:7554`), 過保護 «apprensivo»
+(`db_creature.hsp:62008`, di RENAI stessa).
+
 ## Gli otto parlanti della 94a, decisi il 2026-08-25
 
 Otto lotti, 55 rese, e di nuovo **poche parole da decidere**: il lessico stava

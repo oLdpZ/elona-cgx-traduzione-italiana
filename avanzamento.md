@@ -133,6 +133,54 @@ nel piano della Fase 1 e hanno un conteggio proprio:
 | `chara_func.hsp` | **45** | 286 | 2026-08-11: chiude la frase di combattimento, vedi sotto |
 | `buff.hsp` | **136** | 63 | 2026-08-13: `buffname` (29ª) e `bufftxt` (31ª) chiusi; restano i `buffdesc` |
 
+## Sette lotti, 73 rese, e `chat.hsp` si chiude — 2026-08-25, novantacinquesima sessione
+
+Sette lotti in due giri, **73 rese** piu' una rifatta, e `chat.hsp` va da **79
+firme a zero**. Il file piu' grande del progetto e' **finito**.
+
+Primo giro: CRAY + MARY + JENNA, che chiude l'imbocco della Valle di Raskilis
+(8); TONI + NANCY + CARTER, che e' **Raskilis Sud per intero** (14); NERES +
+RYUTYE, i due smemorati (8). Secondo giro: la **Gabbia di Amur**, cinque
+parlanti in una mappa sola (14); HALION + FRON + RENAI (11); WEL + ROVID + BURT
+(12); e la coda del file — NEW_CITIZEN, l'apparecchio di comunicazione, RATIN e
+il Re dei Gusci di Vindale (6).
+
+**Il conto di `chat.hsp` alla chiusura:**
+
+    verifica --dizionario   chat.hsp   0 da ritradurre, 6 non ancora tradotte
+    _87-parlanti-oltre.py              0 da fare dentro i blocchi, 0 fuori
+
+⚠️ Le **6** non sono lavoro: sono tutte in `rinviate.jsonl` e sono tutte righe
+**commentate a monte** — `:13991`, `:14036`, `:14037`, `:14038` (il blocco
+vecchio di AJETALIO) e `:19327`, `:19334`. Rilette una per una in chiusura. Il
+numero va **letto**, non confrontato: da qui in avanti resta 6 e vuol dire zero.
+
+⚠️⚠️ **E per otto sessioni quel conto era diverso da quello vero.** La mappa dei
+parlanti non toglieva le rinviate e tre script decidevano «tradotta» con
+`.strip()` mentre `verifica.py` no. Tutti e tre allineati oggi; vedi
+`decisioni.md`.
+
+**La resa rifatta:** `chat.hsp:15440` (JENNA, 91a) diceva «fessura» dove
+`action.hsp:2854` — la riga che il giocatore legge **camminando sulla casella** —
+dice «fenditura». Stesso oggetto, stessa mappa, due nomi.
+
+**Il perimetro dopo oggi** (`python scratchpad/perimetro.py`): perimetro
+dichiarato **23.311 firme, 94% fatto**; totale col testo fuori perimetro
+**31.528, 69%**. I grossi che restano:
+
+| file | non ancora tradotte |
+|---|---|
+| `db_card.hsp` | **1.146** |
+| `item_func.hsp` | **240** |
+| `command.hsp` | **93** |
+| `system.hsp` | **41** |
+| `init.hsp`, `main.hsp` | 10 e 10 |
+| `proc.hsp` | 7 |
+| il resto (nove file) | 1-4 ciascuno |
+
+piu' la **famiglia dell'impaginazione** di `data\` che nessun conteggio `lang()`
+copre: `book.txt` 2.208 righe, `manual_ENG.txt` 591, `exhelp.txt` 185.
+
 ## Otto lotti, 55 rese, e una parola che l'inglese butta due volte — 2026-08-25, novantaquattresima sessione
 
 Otto lotti in due giri da quattro, **55 rese**, e `chat.hsp` scende da 134 a
