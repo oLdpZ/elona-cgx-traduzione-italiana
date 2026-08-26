@@ -1,0 +1,153 @@
+    # ---------------------------------------------------------- :3111
+    (3111, "They were weak and unfit to live without being cared for but through breeding they became healthy enough to take care of humans. They come closer fluttering their wings as hard as they can to return the favor. Originally it was human beings who made them unable to live on their own but they don't know this."):
+        "",
+
+    # ---------------------------------------------------------- :3124
+    (3124, 'A self sufficient caterpillar. He stayed prone almost motionless to avoid being targeted and waits for someone to take down the enemy. When the enemy approaches it fights back in a flurry. The other insect weapons have a poor opinion of him and he is scolded for doing his job properly.'):
+        "",
+
+    # ---------------------------------------------------------- :3137
+    (3137, 'His soul was caught up by a treasure chest that had been plucked clean of its contents and abandoned. He has a history of devouring people to fill his empty self and destroying two small villages. He was defeated by the founder of the seminar and was made a mascot forcibly but now he seems to be living a pretty fulfilling life.'):
+        "",
+
+    # ---------------------------------------------------------- :3150
+    (3150, "They heard that the adventurer life is interesting so they tried it but it's complicated and confusing. they have a distracted attention span failing to notice how unwell they are skimming descriptions missing annotations and memorizing proper nouns incorrectly."):
+        "",
+
+    # ---------------------------------------------------------- :3163
+    (3163, "A part-time job with a red sword. Apparently there's proper training and manuals. Compensation is commission-based. Many of those who were instructed by this teacher were surprised to learn later that they were part-time workers."):
+        "",
+
+    # ---------------------------------------------------------- :3176
+    (3176, "She used to work as a part-time teacher for Red Sword Sensei and that's when she became interested in becoming a seminar teacher. She advocates calling each other by nicknames with other instructors and they are quite familiar with each other. She is secretly concerned about a fellow lecturer Ajetalio."):
+        "",
+
+    # ---------------------------------------------------------- :3189
+    (3189, "Even while on active duty he was concerned about the declining quality of warriors. When his daughter became a full-fledged member of the family he let her take over his family's dojo and I became a seminar instructor to teach her from a fundamental point of view."):
+        "",
+
+    # ---------------------------------------------------------- :3202
+    (3202, "He used to work as a communications officer for the Zanan Army but decided it wasn't the right fit for him so he became a seminar instructor. He is an item enthusiast and is rumored to have a variety of collections at home. What was meant to be just a walk often turned into a collection of items."):
+        "",
+
+    # ---------------------------------------------------------- :3215
+    (3215, "He is a former graduate of the Adventure Seminar so to speak. He has a distrust of a fellow lecturer Mito and every day he is torn between fear and fear that he will be duped and stripped to the ground at any moment. He likes the nicknames he's been given."):
+        "",
+
+    # ---------------------------------------------------------- :3228
+    (3228, 'The chaos spirit that had grown up merged into a half-beast half-snake demon. Serving as a production base the spheres in each part fall to the ground as they ripen producing countless chaos seeds. What they hate are unicorns.'):
+        "",
+
+    # ---------------------------------------------------------- :3241
+    (3241, "The seeds of malice that an evil god scattered throughout the world on the verge of being sealed. It takes in humans with mana and grows into a humanoid. The gods are working hard to eradicate them but their numbers don't decrease easily because they have a high ability to multiply in addition to hiding."):
+        "",
+
+    # ---------------------------------------------------------- :3254
+    (3254, "The owner of the world's largest platinum mine. An eccentric who gets excited about the fact that something from his own mine has been processed to such an extent that it no longer resembles its original form and is now in the hands of people he doesn't know well. He keeps a large number of geese at home as a hobby."):
+        "",
+
+    # ---------------------------------------------------------- :3267
+    (3267, 'The trees that grew on the battlefields where many died absorbing the bodies mana and souls of the dead in their entirety became powerful demons. A cursed being made into a collection of grudges.'):
+        "",
+
+    # ---------------------------------------------------------- :3280
+    (3280, 'Having who longed for the good looks of a dragon it transformed its own body over the years. The green moss on its body surface stores magical power and it can also fly. When flying for long periods of time it holds on to soil by the roots and carries it along.'):
+        "",
+
+    # ---------------------------------------------------------- :3293
+    (3293, 'A goddess who was transformed into a tree after a conflict but somehow managed to return to almost humanoid form after an unbearable number of years. She is no longer powerful enough to gather religious beliefs and every day she takes it out on the world while photosynthesizing.'):
+        "",
+
+    # ---------------------------------------------------------- :3306
+    (3306, 'King of the ents. His personality is evil itself and he misleads and guides humans to their destruction. Specifically he talks to a sick child who is being carried on a horse as a demon king and gives him a terrifying vision and shocks him to death.'):
+        "",
+
+    # ---------------------------------------------------------- :3319
+    (3319, 'It has multiple trunks that are undulating. It walks with an outstretched trunk and grows by taking in the living in its path. Also known as the tree of strangulation. It is said that the reason the trunk is undulating is because the thing that has been taken in is violently struggling until the very end.'):
+        "",
+
+    # ---------------------------------------------------------- :3332
+    (3332, "A tree mimicking a human. Don't be misguided by her long hair she is not disfigured but her back is completely wooden. If there's a self-proclaimed forest girl whose back is unusually rough and branches are protruding from her back when she hugs you she' s usually this thing."):
+        "",
+
+    # ---------------------------------------------------------- :3345
+    (3345, "After losing his wife in the war he fled his hometown in search of a way to end the conflict. While wandering around the country with his daughter he met Vallius and sympathized with his ideas. I'm a little glad I'm walking with my daughter and being mistaken for a brother."):
+        "",
+
+    # ---------------------------------------------------------- :3358
+    (3358, 'A tank used in the final war of a mechanical civilization. It was so agile that it reminded me of a cat and it made fighters and humanoid weapons tremble. Its successor aimed to be even more mobile but was purposely named Mammoth in order to fool the enemy.'):
+        "",
+
+    # ---------------------------------------------------------- :3371
+    (3371, "Initially built as a pet robot it was eventually enlarged to be used as a fighter beast. Rooted in machine dogs imported from other planets and a hybrid of machine dogs from this planet. It's hard to get the best performance out of it because it moves so violently."):
+        "",
+
+    # ---------------------------------------------------------- :3384
+    (3384, 'An ancient monster machine with superior power speed and technique it acts autonomously to destroy and reproduce repeatedly. It is also recorded that it defeated the fighting vehicles of the time head-on. It has an environment-adaptive function and can be used even in poor conditions.'):
+        "",
+
+    # ---------------------------------------------------------- :3397
+    (3397, 'A mass-produced walking machine in the heights of a mechanical civilization. A person can get in the head. It was used for propaganda to spread the splendor of the machine but it also boasted the sturdiness and limb strength of a military-grade aircraft.'):
+        "",
+
+    # ---------------------------------------------------------- :3410
+    (3410, 'The main weapon used in the early days of mechanical civilization. Due to its thin armor it is lightweight and can be used for small turns and is reliable on rough roads. Apparently quite a few had been operating long after other combat weapons had been developed with updated autonomous circuits.'):
+        "",
+
+    # ---------------------------------------------------------- :3423
+    (3423, "It's a member of the cubs but it's large and capable of considerable speed. It has a shorter lifespan than a cub and is grumpy and rough. It's a relative pain in the ass but if you're used to cubs and are looking for speed it's a good idea to keep one."):
+        "",
+
+    # ---------------------------------------------------------- :3436
+    (3436, 'For better or worse this young man is a straightforward Elean. Admiring his late father who had a strong sense of justice he was a member of the forest vigilante group. In the past when armies from various countries invaded the forest they formed an impromptu interdiction squad and steadfastly resisted until the end.'):
+        "",
+
+    # ---------------------------------------------------------- :3449
+    (3449, 'A superlative undead weapon used by the biochemical civilization. It was thought to be extinct but it recently emerged from the ancient ruins of Eulderna accompanied by other weapons. It is said that one woman went to great lengths to destroy it until she managed to get it under control.'):
+        "",
+
+    # ---------------------------------------------------------- :3462
+    (3462, 'An advanced undead weapon used by the biochemical civilization. Unlike the King type which emphasized simple combat power the Queen type was built with an emphasis on logistical support. Her intelligence is quite high and she rivals the Savant Queen.'):
+        "",
+
+    # ---------------------------------------------------------- :3475
+    (3475, 'An advanced undead weapon used by the biochemical civilization. The skeleton is armed with melee weapons but it is not good at fighting because it is attached to the back of a dragon skeleton. If anything it seems to play a larger role as a control unit.'):
+        "",
+
+    # ---------------------------------------------------------- :3488
+    (3488, 'A special undead weapon that was used during the biochemical civilization. A half-spirit body is forcibly possessed by a corpse doll. A clown who scrambles around the battlefield laughing in a creepy voice.'):
+        "",
+
+    # ---------------------------------------------------------- :3501
+    (3501, 'They are considered heroes among the yeeks having strong power and admirable courage for a yeek. He defeats a boar that has attacked his village or fights head-on with a knight who has come to test his skills.'):
+        "",
+
+    # ---------------------------------------------------------- :3514
+    (3514, "In an accident he gains human-level intelligence but at the cost of his mind losing his reason. That's why he was so easily enchanted by the mighty power of demons and evil gods. The other yeeks recognize him as a dangerous individual if he gets close to them."):
+        "",
+
+    # ---------------------------------------------------------- :3527
+    (3527, "An ancient species of yeeks. It has the ability to employ yeek tribes regardless of type. He has grand ambitions to create a nation of yeeks by yeeks for yeeks but he doesn't even think about how to go about it concretely."):
+        "",
+
+    # ---------------------------------------------------------- :3540
+    (3540, "An ancient species of yeek. He loves guns and often imitates a human gunman. A handgun is scavenged. They don't have the skills to make it themselves."):
+        "",
+
+    # ---------------------------------------------------------- :3553
+    (3553, "An ancient species of yeek. Their bodies are strong and sturdy but they are not as strong as other creatures. Perhaps because of this small highly fertile species of yeek have emerged in modern times. They don't try to flock but they have a strong sense of camaraderie."):
+        "",
+
+    # ---------------------------------------------------------- :3566
+    (3566, 'He used to be a terrible slob. However after risking his life to conquer one of the Nefian dungeons he had a change of heart. He has awakened to the joy of adventure and is still working as a ruins vandal today.'):
+        "",
+
+    # ---------------------------------------------------------- :3579
+    (3579, "She ran away from home at an early age because she hated being tied to her parents' home. While wandering she accidentally ventured into the underworld but survived by winning the gamble to regain her memory and insight. Later while working behind the scenes in search of thrills he meets a man who has fallen."):
+        "",
+
+    # ---------------------------------------------------------- :3592
+    (3592, 'Also known as a quickling workman. He uses his small body to blend in with the darkness and ambush his targets. He then manipulates the string to slaughter the target with uncanny speed. His skills are superb.'):
+        "",
+
+# 38 voci fra la riga 3101 e la 3600, 0 ambigue

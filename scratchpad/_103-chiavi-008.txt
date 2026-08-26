@@ -1,0 +1,157 @@
+    # ---------------------------------------------------------- :3605
+    (3605, "This special quickling is created by a storm of miasma that blew into a remote area of the underworld. They've felt a sense of destiny after hearing that there was a black sword called Stormbringer from rumors in the wind."):
+        "",
+
+    # ---------------------------------------------------------- :3618
+    (3618, 'A midget running through a meadow. It has extraordinary leg strength and a shockwave is generated with a single swing of the leg. As a quid pro quo it was born with a charge in its knee and if it runs or kicks with all its might it will be unable to withstand the recoil and explode.'):
+        "",
+
+    # ---------------------------------------------------------- :3631
+    (3631, 'A close relative of Quickling. A midget dancing in the meadow. He has a dexterous hand and a cheerful personality. Usually the steps are too fast to know what kind of dance they are doing but sometimes their charming movements and mysterious gazes will bewitch the audience in an instant.'):
+        "",
+
+    # ---------------------------------------------------------- :3644
+    (3644, 'A soldier who has been subjected to harsh treatment at a secret experimental facility in Zanan. He was able to flee and defect but he was suffering from a physical disorder. With the recent development of a palliative in Lothria he seems to have gained stability although his abilities are slightly less.'):
+        "",
+
+    # ---------------------------------------------------------- :3657
+    (3657, 'He was a skilled soldier but he was forced out of the army long ago when it was decided that he was no match given to his age. He realizes that he has become too stained with blood and can only live on the battlefield so he goes into exile in another country. He was able to re-enter the workforce because of his experience.'):
+        "",
+
+    # ---------------------------------------------------------- :3670
+    (3670, 'The nurses tire of nursing and awaken to the pleasures of murder. They fire a machine gun and go on a series of murders. Their compassionate hearts revived for a moment after the killing and they treat the corpse gently.'):
+        "",
+
+    # ---------------------------------------------------------- :3683
+    (3683, 'Daughter of the former Commander of the Knights of Lothria. Although her father kept her from fighting she became a corpsman at her own insistence. While her father was away on a mission her high fighting talent blossomed and she rose to the rank of Acting Commander. The spiky hair that is inherited from her parents bothers her.'):
+        "",
+
+    # ---------------------------------------------------------- :3696
+    (3696, 'The parent company is the Knights of Lothria which was disbanded when Vallius was deposed. He was secretly recalled with the return of Vallius and carried out various missions in the shadows. He wears a modified version of the magical armor that came in from Eulderna.'):
+        "",
+
+    # ---------------------------------------------------------- :3709
+    (3709, 'A subspecies that has the same roots as a normal Elea but has adapted to life outside the strange forest. They have strong magical powers dark skin and are reluctant to form groups. In terms of personality they are more warlike and worldly than normal Elea.'):
+        "",
+
+    # ---------------------------------------------------------- :3722
+    (3722, 'Hillfolk who traded near the border of Kikkas. A self-proclaimed adventurer she sells her wares on the battlefield and in other dangerous places. It seems that her style is to sell things at high prices where there is a high demand so she changes the products she deals with from place to place.'):
+        "",
+
+    # ---------------------------------------------------------- :3735
+    (3735, 'A space crab that inhabited a black hole. It was captured by an alien species and bred for use in invasions. Mainly fighting with scissors and liquid solvents. In recent years some of them have been kept as space pets because of their adorable calls and movements.'):
+        "",
+
+    # ---------------------------------------------------------- :3748
+    (3748, 'A giant sowbug that lived in a bizarre forest. He reigns as the king of the forest with an intelligence beyond that of humans and a generous heart. He also lives in symbiosis with Elea and when the forest was burned he led the people amidst the flames with his strength. In reality he is a relic of a biochemical civilization.'):
+        "",
+
+    # ---------------------------------------------------------- :3761
+    (3761, 'A close relative of the underworld crab. It is widely found from the riverbed of the Sanzu River to the shore of the Underworld and is more popular than the Underworld crab on the other side. It has a habit of guiding the dead with one arm but it is dangerous to the living because their souls will be pulled away.'):
+        "",
+
+    # ---------------------------------------------------------- :3774
+    (3774, 'It has an outer shell that is shaped like an overlapping crown. Because of its appearance it was regarded as the judge of kingly qualities in ancient Cyronia and climbing on its back was a ritual of succession to the throne. Remnants of the ritual can still be seen in festivals today.'):
+        "",
+
+    # ---------------------------------------------------------- :3787
+    (3787, 'Marine life thought to have gone extinct in extreme antiquity survived by adapting and evolving to live underground. It got its name from the fact that the female ingests the roots of the plant and produces essential oil in her body which she uses as a pheromone in her courtship behavior.'):
+        "",
+
+    # ---------------------------------------------------------- :3800
+    (3800, 'They have a sniper rifle on their shells. Due to the strength of the shell it is strong enough to shoot at a standstill. Because of its slow legs it is easily preyed upon by creatures that can withstand the sniping.'):
+        "",
+
+    # ---------------------------------------------------------- :3813
+    (3813, "It has an upper body that resembles a human and is called a ningen or hitokata but it is a member of the snail family. They've lived on land since ancient times but have gone unnoticed because they're so transparent and when they're found in the ocean they've been misidentified as marine mammals."):
+        "",
+
+    # ---------------------------------------------------------- :3826
+    (3826, "A fish that rushes at high speed and pierces you with its sharp maw. It can penetrate a person's skull at will. It has sharp teeth and in some cases it has bitten off the nose of an Indian elephant. They're perfectionists and if they can't finish off their opponents they'll go on a rampage stabbing and spinning."):
+        "",
+
+    # ---------------------------------------------------------- :3839
+    (3839, 'He is from the Land of the Dead the terminus of the Sanzu River. He has a strong curiosity and innocently plays games with strangers but is no joke. Few would be able to withstand the goofy rush of a huge body and the sweet bite that crushes armor.'):
+        "",
+
+    # ---------------------------------------------------------- :3852
+    (3852, "They are mild-mannered and have no poisonous needles. Normally they live off of mana and winged insects in the air as they swim low in the etheric winds but they are not incapable of eating meat either. When it comes to combat it stops the enemy's movement by scattering threads and discharging them."):
+        "",
+
+    # ---------------------------------------------------------- :3865
+    (3865, 'A single flower resting on the sea floor. In fact it is a group of coral worms. It lives in symbiosis with algae and is also capable of photosynthesis. It forms a multi-colored exoskeleton but it is not easily seen because it sprays seawater around it to make it habitable.'):
+        "",
+
+    # ---------------------------------------------------------- :3878
+    (3878, 'A giant starfish that calls itself the Big Star of the Sea. Recently it heard that there was a popular creature so he came up to not be outdone. He thinks of shuriken as a taciturn kindred spirit.'):
+        "",
+
+    # ---------------------------------------------------------- :3891
+    (3891, "They are called the Criminals of the Sea. They''re mainly pickpockets and food runners but one day they commit a terrible crime and are now flying overland. They are thinking of returning to the sea when the heat has cooled down."):
+        "",
+
+    # ---------------------------------------------------------- :3904
+    (3904, 'A sea gunslinger who wanders at the direction of the waves and at his own whim. He loves to soak up the sun and deliberately goes to lie down on the rocks on the land with a series of short teleports. And struggle on the way home.'):
+        "",
+
+    # ---------------------------------------------------------- :3917
+    (3917, "Her natural talent blossomed when she was no longer bound by existing ninjutsu. She goes by a code name that nobody understands and is in high spirits. ...In later years she's going to be burying her face in the cushion and lazing around."):
+        "",
+
+    # ---------------------------------------------------------- :3930
+    (3930, 'A dog god who is friendly to humans. He got into a fight with his brother who hates humans and wandered out of the forest resulting in his arrival in Mayroon. While guiding travelers who were lost in a blizzard the god came to be worshipped in some areas but it seems that it is still a minor god.'):
+        "",
+
+    # ---------------------------------------------------------- :3943
+    (3943, "A giant centipede that harbors a piece of God. Apparently the pieces belonged to the guardian gods of venom and the dead but they don't care about that and go on a rampage drowning in power. It dislikes the white silver dragon bugs that are being flattered by humans."):
+        "",
+
+    # ---------------------------------------------------------- :3956
+    (3956, "The worm is said to have been born from the demons of bondage. It's almost like a child. Their specialty is playing with impatience weakening their sluggish prey bit by bit and swallowing them head first when they are exhausted."):
+        "",
+
+    # ---------------------------------------------------------- :3969
+    (3969, 'A huge leech that could be mistaken for a hill at a distance. Since most of its massive frame is sucked blood it becomes quite small when it dries up. They desperately suck blood to maintain their body shape.'):
+        "",
+
+    # ---------------------------------------------------------- :3982
+    (3982, "A worm that looks like a giant tentacle. Growing out of the sides are the elastic sub-tentacles not legs. They kill their prey with their sticky sub-tentacles slowly and deliberately sucking their lifeblood while pecking at their prey's body."):
+        "",
+
+    # ---------------------------------------------------------- :3995
+    (3995, 'She is a self-proclaimed night entertainer. A demon maid who transforms the partners she works with one after another stripping them of their bones and taking away their magical power. She is disliked by the other maids and is derisively referred to as a witch. Being small is her biggest annoyance.'):
+        "",
+
+    # ---------------------------------------------------------- :4008
+    (4008, "She is the one who binds the demon maids. She puts on a savage show to entertain her master who is always bored. She is particularly good at torture and when she snatches people up she uses pliers to twist their nails fingers x's and x's without mercy."):
+        "",
+
+    # ---------------------------------------------------------- :4021
+    (4021, 'A demon maid in charge of cooking. They put on a gruesome show to entertain their master who is always bored. They savagely butcher and cook their prey alive. In their spare time they are looking for a lively prey.'):
+        "",
+
+    # ---------------------------------------------------------- :4034
+    (4034, "A demon maid who is in charge of cleaning. She puts on a gruesome show to entertain her master who is always bored. I'm also in charge of cleaning up the intruders."):
+        "",
+
+    # ---------------------------------------------------------- :4047
+    (4047, 'A demon maid who is in charge of the laundry. They put on a gruesome show to entertain their master who is always bored. It is more about washing blood with blood than it is washing clothes.'):
+        "",
+
+    # ---------------------------------------------------------- :4060
+    (4060, "An imp soldier in the service of the Demon King. They are loyal and obedient but they don't deserve to be treated well because they are an uninteresting bunch of stiffs. They are concerned about it but they are awkward and can't do anything about it."):
+        "",
+
+    # ---------------------------------------------------------- :4073
+    (4073, "As a result of absorbing the weakened vampire's entire body as nourishment the pumpkin monster has awakened to the pleasure of drinking a creature's blood. The blood he has taken in causes him to grow abnormally and he targets more prey."):
+        "",
+
+    # ---------------------------------------------------------- :4086
+    (4086, 'A type of mandrake that resembles a carrot. He is armed with ninja skills which he learned at some point but he has no intention of becoming a ninja. He has a habit of going ahead and not thinking ahead.'):
+        "",
+
+    # ---------------------------------------------------------- :4099
+    (4099, 'A brave cucumber with the soul of a warrior. It is believed that the legendary creature Kappa perished due to the resistance of these cucumber species. In reality however they were destroyed by humans because of a shortage of food which caused them to wreak havoc in the countryside.'):
+        "",
+
+# 39 voci fra la riga 3601 e la 4100, 0 ambigue

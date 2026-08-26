@@ -1,0 +1,274 @@
+--- db_card.hsp:3605   CREATURE_ID_STORMBLING   creatura 866
+    NOME  jp ストームブリング
+          en stormbling
+          IT il tempestello
+    JP    冥界の僻地に吹きすさぶという、瘴気の嵐の中で生まれる特殊なクイックリング。風の噂でストームブリンガーとかいう黒い剣があると聞いてから、運命めいたものを感じている。
+    EN    This special quickling is created by a storm of miasma that blew into a remote area of the underworld. They've felt a sense of destiny after hearing that there was a black sword called Stormbringer from rumors in the wind.
+
+--- db_card.hsp:3618   CREATURE_ID_GRASS_KILLER   creatura 865
+    NOME  jp グラスキラー
+          en grass killer
+          IT l'ammazzaerba
+    JP    草原を駆ける小人。尋常でない脚力を持ち、足を一振りするだけで衝撃波が発生する。代償として生まれつき膝に爆弾を抱えており、全力で走ったり蹴ったりすると反動に耐え切れずに破裂してしまう難儀な生物。
+    EN    A midget running through a meadow. It has extraordinary leg strength and a shockwave is generated with a single swing of the leg. As a quid pro quo it was born with a charge in its knee and if it runs or kicks with all its might it will be unable to withstand the recoil and explode.
+
+--- db_card.hsp:3631   CREATURE_ID_GRASS_DANCER   creatura 864
+    NOME  jp グラスダンサー
+          en grass dancer
+          IT il danzaerba
+    JP    クイックリングの近縁種。草原で踊り狂う小人。手先が器用で陽気な性格。普段はステップが速すぎてどんな踊りなのかよくわからないが、時折見せる魅力的な動作と妖しい視線は、観客の心を一瞬で惑わす。
+    EN    A close relative of Quickling. A midget dancing in the meadow. He has a dexterous hand and a cheerful personality. Usually the steps are too fast to know what kind of dance they are doing but sometimes their charming movements and mysterious gazes will bewitch the audience in an instant.
+
+--- db_card.hsp:3644   CREATURE_ID_ZANAN_ENHANCED_SOLDIER   creatura 863
+    NOME  jp ザナン強化兵
+          en zanan enhanced soldier
+          IT il soldato potenziato di Zanan
+    JP    ザナンの秘密実験施設で酷使されていた兵士。脱出・亡命できたのはいいが身体の異状に悩まされていた。ロスリアで最近開発された緩和薬によって、能力はやや落ちるものの安定性を手に入れた模様。
+    EN    A soldier who has been subjected to harsh treatment at a secret experimental facility in Zanan. He was able to flee and defect but he was suffering from a physical disorder. With the recent development of a palliative in Lothria he seems to have gained stability although his abilities are slightly less.
+
+--- db_card.hsp:3657   CREATURE_ID_ZANAN_OLD_SOLDIER   creatura 862
+    NOME  jp 歴戦の老兵
+          en zanan old soldier
+          IT il veterano
+    JP    熟練した兵士だったが寄る年波には勝てないと判断され、とっくの昔に軍を強制引退させられている。血で汚れすぎた自分は戦場でしか生きられないと悟り、他国へ亡命。経験を買われ再就職できた。
+    EN    He was a skilled soldier but he was forced out of the army long ago when it was decided that he was no match given to his age. He realizes that he has become too stained with blood and can only live on the battlefield so he goes into exile in another country. He was able to re-enter the workforce because of his experience.
+
+--- db_card.hsp:3670   CREATURE_ID_KILLER_NURSE   creatura 861
+    NOME  jp キラーナース
+          en killer nurse
+          IT l'infermiera assassina
+    JP    看護疲れをこじらせ、殺人の快楽に目覚めたナース。機関銃を乱射して連続殺人を繰り返す。殺した後に慈愛の心が一瞬だけ蘇り、死体に優しく接する。
+    EN    The nurses tire of nursing and awaken to the pleasures of murder. They fire a machine gun and go on a series of murders. Their compassionate hearts revived for a moment after the killing and they treat the corpse gently.
+
+--- db_card.hsp:3683   CREATURE_ID_LANKATA_THE_LIGHTNING_OF_BLUE   creatura 860
+    NOME  jp 蒼天の稲妻『ランカータ』
+          en <Lankata> the lightning of blue
+          IT <Lankata> il fulmine del cielo azzurro
+    JP    前ロスリア騎士団長の実娘。父に戦いから遠ざけられていたが、本人の強い希望で衛生兵に。父が任務で出払っている間に高い戦闘才能が開花し、団長代理にまでに登りつめた。親譲りのクセ毛が悩み。
+    EN    Daughter of the former Commander of the Knights of Lothria. Although her father kept her from fighting she became a corpsman at her own insistence. While her father was away on a mission her high fighting talent blossomed and she rose to the rank of Acting Commander. The spiky hair that is inherited from her parents bothers her.
+
+--- db_card.hsp:3696   CREATURE_ID_LOTHRIAN_AGENT   creatura 859
+    NOME  jp ロスリア特務部隊
+          en lothrian agent
+          IT l'agente speciale di Lothria
+    JP    ヴァリウスが失脚した際に解体された、ロスリア騎士団が母体。ヴァリウスの復権に伴って密かに再招集され、影で様々な任務を遂行していた。エウダーナから流入した魔鎧を改良した物を着用している。
+    EN    The parent company is the Knights of Lothria which was disbanded when Vallius was deposed. He was secretly recalled with the return of Vallius and carried out various missions in the shadows. He wears a modified version of the magical armor that came in from Eulderna.
+
+--- db_card.hsp:3709   CREATURE_ID_DARK_ELEA   creatura 858
+    NOME  jp ダークエレア
+          en dark elea
+          IT l'Elea oscuro
+    JP    普通のエレアとは同じルーツを持つが、異形の森の外での暮らしに適応した亜種。強い魔力と褐色の肌を持ち、群れを作りたがらないのが特徴。性格面では普通のエレアに比べて好戦的で世俗的。
+    EN    A subspecies that has the same roots as a normal Elea but has adapted to life outside the strange forest. They have strong magical powers dark skin and are reluctant to form groups. In terms of personality they are more warlike and worldly than normal Elea.
+
+--- db_card.hsp:3722   CREATURE_ID_MANYTIA_THE_ADVENTURE_MERCHANT   creatura 857
+    NOME  jp 冒険商人『メニティア』
+          en <Manytia> the adventure merchant
+          IT <Manytia> la mercante avventuriera
+    JP    キッカス-ニーサの国境付近で商売をしていた丘の民。冒険商人を自称しており、戦場などの危険な場所で商品を売りさばく。需要のある場所で物を高く売るのがスタイルらしく、扱う商品を場所によって変える。
+    EN    Hillfolk who traded near the border of Kikkas. A self-proclaimed adventurer she sells her wares on the battlefield and in other dangerous places. It seems that her style is to sell things at high prices where there is a high demand so she changes the products she deals with from place to place.
+
+--- db_card.hsp:3735   CREATURE_ID_DARK_DOME   creatura 856
+    NOME  jp 暗黒宇宙蟹
+          en dark dome
+          IT il granchio spaziale oscuro
+    JP    ブラックホールに生息していた宇宙蟹。異星種に捕獲され、侵略用に品種改良された。主にハサミと溶解液で戦う。可愛らしい鳴き声と動きから、近年では宇宙ペットとして飼われているケースもある。
+    EN    A space crab that inhabited a black hole. It was captured by an alien species and bred for use in invasions. Mainly fighting with scissors and liquid solvents. In recent years some of them have been kept as space pets because of their adorable calls and movements.
+
+--- db_card.hsp:3748   CREATURE_ID_SHELL_KING_OF_VINDALE   creatura 855
+    NOME  jp 甲殻王者『キングダンゴムシ』
+          en <Shell King of Vindale>
+          IT <Re Porcellino> il sovrano dei crostacei
+    JP    異形の森に住んでいた巨大ダンゴムシ。人間以上の知性と寛大な心を持ち、森の王者として君臨。エレアとも共生しており、森が焼かれた際には炎に囲まれた人々を身を挺して導いた。正体は生化学文明の遺産。
+    EN    A giant sowbug that lived in a bizarre forest. He reigns as the king of the forest with an intelligence beyond that of humans and a generous heart. He also lives in symbiosis with Elea and when the forest was burned he led the people amidst the flames with his strength. In reality he is a relic of a biochemical civilization.
+
+--- db_card.hsp:3761   CREATURE_ID_DEATH_MANEKI   creatura 854
+    NOME  jp 死ヲ招キ
+          en death maneki
+          IT il chiamamorte
+    JP    冥界蟹の近縁種。三途の川の河川敷から、冥海の海岸まで幅広く分布しており、あちら側では冥界蟹よりもポピュラーな存在。発達した片腕で死者を導く習性があるが、生者は魂ごと引っ張られるので危険。
+    EN    A close relative of the underworld crab. It is widely found from the riverbed of the Sanzu River to the shore of the Underworld and is more popular than the Underworld crab on the other side. It has a habit of guiding the dead with one arm but it is dangerous to the living because their souls will be pulled away.
+
+--- db_card.hsp:3774   CREATURE_ID_KING_WOODLOUSE   creatura 853
+    NOME  jp 王冠蟲
+          en king woodlouse
+          IT l'insetto coronato
+    JP    重なり合った王冠のような形の外殻を持つ。その見た目から古代サイロニアでは王の資質を見定める存在とされ、背中に登るのが王位継承の儀式となっていた。現代でも祭りにその儀式の名残が見られる。
+    EN    It has an outer shell that is shaped like an overlapping crown. Because of its appearance it was regarded as the judge of kingly qualities in ancient Cyronia and climbing on its back was a ritual of succession to the throne. Remnants of the ritual can still be seen in festivals today.
+
+--- db_card.hsp:3787   CREATURE_ID_AROMA_LOCARIS   creatura 852
+    NOME  jp アロマカリス
+          en aroma-locaris
+          IT l'aromalocaris
+    JP    超古代に絶滅したと思われていた海洋生物が、地中での暮らしに適応進化して生き延びていた。雌が植物の根を摂取して体内で精油を作り、フェロモンとして求愛行動に用いることからこの名がついた。
+    EN    Marine life thought to have gone extinct in extreme antiquity survived by adapting and evolving to live underground. It got its name from the fact that the female ingests the roots of the plant and produces essential oil in her body which she uses as a pheromone in her courtship behavior.
+
+--- db_card.hsp:3800   CREATURE_ID_SNIPE_HERMIT   creatura 851
+    NOME  jp スナイプハーミット
+          en snipe hermit
+          IT il paguro cecchino
+    JP    狙撃銃を殻に仕込んだやどかり。殻の丈夫さから、足を止めての撃ちあいに強い。足が遅いため、狙撃に耐えられる生物相手には簡単に捕食されてしまう。
+    EN    They have a sniper rifle on their shells. Due to the strength of the shell it is strong enough to shoot at a standstill. Because of its slow legs it is easily preyed upon by creatures that can withstand the sniping.
+
+--- db_card.hsp:3813   CREATURE_ID_SEA_FALLEN_ANGEL   creatura 850
+    NOME  jp 透明ニンゲン
+          en sea fallen angel
+          IT l'umanoide trasparente
+    JP    人に似た上半身を持ち、ニンゲンやヒトガタなどと呼ばれるが、巻貝の仲間。古代から陸上にも生息していたが透明なので気づかれなかったし、海で発見されても海洋哺乳類の見間違いだとされていた。
+    EN    It has an upper body that resembles a human and is called a ningen or hitokata but it is a member of the snail family. They've lived on land since ancient times but have gone unnoticed because they're so transparent and when they're found in the ocean they've been misidentified as marine mammals.
+
+--- db_card.hsp:3826   CREATURE_ID_NINE_DART_GARFISH   creatura 849
+    NOME  jp ナインダツフィッシュ
+          en nine dart garfish
+          IT l'aguglia dai nove dardi
+    JP    高速で突進し、鋭い顎を突き刺してくる魚。人の頭蓋骨を余裕で貫通する。鋭い歯を持っておりインド象の鼻を食いちぎったケースも。完璧主義者であり、相手を仕留められないと刺さったまま回転して大暴れする。
+    EN    A fish that rushes at high speed and pierces you with its sharp maw. It can penetrate a person's skull at will. It has sharp teeth and in some cases it has bitten off the nose of an Indian elephant. They're perfectionists and if they can't finish off their opponents they'll go on a rampage stabbing and spinning.
+
+--- db_card.hsp:3839   CREATURE_ID_ORCINUS_ORCA   creatura 848
+    NOME  jp 冥海魔オルチヌス
+          en orcinus orca
+          IT il demone marino Orcinus
+    JP    三途の川の終着点である、「冥海」出身。好奇心が強く、見知らぬ相手にも無邪気にジャレつくのだがそれがシャレにならない。巨体によるおふざけ突進や、鎧を圧砕する甘噛みに耐えられる者は少ないだろう。
+    EN    He is from the Land of the Dead the terminus of the Sanzu River. He has a strong curiosity and innocently plays games with strangers but is no joke. Few would be able to withstand the goofy rush of a huge body and the sweet bite that crushes armor.
+
+--- db_card.hsp:3852   CREATURE_ID_MANTA_RAYARN   creatura 847
+    NOME  jp イトマキシビレエイ
+          en manta rayarn
+          IT la manta torpedine
+    JP    温厚な性格で、毒針もないエイ。普段はエーテルの風に乗り低空を遊泳しながら空気中のマナや羽虫を食って生きているが、肉も食えないことはない。戦闘になると糸を撒いて敵の動きを止め、放電を行う。
+    EN    They are mild-mannered and have no poisonous needles. Normally they live off of mana and winged insects in the air as they swim low in the etheric winds but they are not incapable of eating meat either. When it comes to combat it stops the enemy's movement by scattering threads and discharging them.
+
+--- db_card.hsp:3865   CREATURE_ID_FLOWER_CORAL   creatura 846
+    NOME  jp 花珊瑚
+          en flower coral
+          IT il corallo fiorito
+    JP    海底にたたずむ一輪の花。実際は珊瑚虫の群体である。藻類と共生しており、光合成も可能。色とりどりの外骨格を形成するが、生息しやすいようにと周囲に海水を撒きちらすので、あまり観賞には向かない。
+    EN    A single flower resting on the sea floor. In fact it is a group of coral worms. It lives in symbiosis with algae and is also capable of photosynthesis. It forms a multi-colored exoskeleton but it is not easily seen because it sprays seawater around it to make it habitable.
+
+--- db_card.hsp:3878   CREATURE_ID_ABYSSTAR   creatura 845
+    NOME  jp ビッグアビスター
+          en abysstar
+          IT la stella marina abissale
+    JP    海のビッグスターを自称する巨大なヒトデ。最近、陸にはハムスターという人気者がいると聞いて、負けじと陸に上がってきた。手裏剣のことを寡黙な同族だと思い込んでいる。
+    EN    A giant starfish that calls itself the Big Star of the Sea. Recently it heard that there was a popular creature so he came up to not be outdone. He thinks of shuriken as a taciturn kindred spirit.
+
+--- db_card.hsp:3891   CREATURE_ID_FLIGHT_FISH   creatura 844
+    NOME  jp タカトビウオ
+          en flight fish
+          IT il pesce volante rapace
+    JP    海の犯罪者と呼ばれる。スリや食い逃げがメインだが、ある日やばすぎる犯罪を行ってしまい、現在は陸へ高飛び中。ほとぼりが冷めた頃に海に帰ろうと考えている。
+    EN    They are called the Criminals of the Sea. They''re mainly pickpockets and food runners but one day they commit a terrible crime and are now flying overland. They are thinking of returning to the sea when the heat has cooled down.
+
+--- db_card.hsp:3904   CREATURE_ID_GUNFISH   creatura 843
+    NOME  jp ガンマンボウ
+          en gunfish
+          IT il pesce cannone
+    JP    波の向くまま、気の向くままにさすらう海のガンマン。日光浴が大好きで、わざわざショートテレポートを連打して陸の岩の上まで寝そべりに行く。そして帰りに苦労する。
+    EN    A sea gunslinger who wanders at the direction of the waves and at his own whim. He loves to soak up the sun and deliberately goes to lie down on the rocks on the land with a series of short teleports. And struggle on the way home.
+
+--- db_card.hsp:3917   CREATURE_ID_FASHIONABLE_KUNOICHI   creatura 842
+    NOME  jp 謎のお洒落忍者『シャドウシスター』
+          en <Fashionable Kunoichi>
+          IT <Kunoichi alla moda>
+    JP    既存の忍術に縛られなくなったことで天性の才能が開花。よくわからないコードネームを名乗ってノリノリで活動している。…後年、クッションに顔を埋めて手足をバタバタさせてのた打ち回ることになりそうである。
+    EN    Her natural talent blossomed when she was no longer bound by existing ninjutsu. She goes by a code name that nobody understands and is in high spirits. ...In later years she's going to be burying her face in the cushion and lazing around.
+
+--- db_card.hsp:3930   CREATURE_ID_SAIMEF_THE_DOGGOD   creatura 841
+    NOME  jp 白氷の『サイメーブ』
+          en <Saimef> the doggod
+          IT <Saimef> il bianco ghiaccio
+    JP    人間に友好的な犬の神。人間嫌いの弟と喧嘩になり、森を出て彷徨った結果メイルーンへ辿り着いた。吹雪で遭難した旅人を導いている内に一部地域で信仰されるようになったが、まだまだマイナーな神らしい。
+    EN    A dog god who is friendly to humans. He got into a fight with his brother who hates humans and wandered out of the forest resulting in his arrival in Mayroon. While guiding travelers who were lost in a blizzard the god came to be worshipped in some areas but it seems that it is still a minor god.
+
+--- db_card.hsp:3943   CREATURE_ID_SEPA   creatura 840
+    NOME  jp セパ
+          en sepa
+          IT il sepa
+    JP    神の欠片を宿す巨大なムカデ。欠片は毒と死者の守護神のものだったらしいが、そんなことはお構いなしに力に溺れて暴れまわる。人間にチヤホヤされている白銀龍蟲のことが嫌い。
+    EN    A giant centipede that harbors a piece of God. Apparently the pieces belonged to the guardian gods of venom and the dead but they don't care about that and go on a rampage drowning in power. It dislikes the white silver dragon bugs that are being flattered by humans.
+
+--- db_card.hsp:3956   CREATURE_ID_BIND_DEVIL_WORM   creatura 839
+    NOME  jp 束縛の魔蟲
+          en bind devil worm
+          IT il verme demoniaco dei vincoli
+    JP    束縛の悪魔から生まれたとされるワーム。ほぼ子供みたいなもの。特技は焦らしプレイであり、身動きの取れない獲物を少しずつ弱らせ、衰弱したところを頭から丸呑みにする。
+    EN    The worm is said to have been born from the demons of bondage. It's almost like a child. Their specialty is playing with impatience weakening their sluggish prey bit by bit and swallowing them head first when they are exhausted.
+
+--- db_card.hsp:3969   CREATURE_ID_GRAND_LEECH   creatura 838
+    NOME  jp グランド・ヒル
+          en grand leech
+          IT la sanguisuga collinare
+    JP    遠目では丘と間違えられることもある、巨大なヒル。その巨躯のほとんどが吸った血なので、干からびるとかなり小さくなる。体型を維持するため必死に吸血する。
+    EN    A huge leech that could be mistaken for a hill at a distance. Since most of its massive frame is sucked blood it becomes quite small when it dries up. They desperately suck blood to maintain their body shape.
+
+--- db_card.hsp:3982   CREATURE_ID_TENTACLE_WORM   creatura 837
+    NOME  jp テンタクルワーム
+          en tentacle worm
+          IT il verme tentacolare
+    JP    巨大な触手のような姿のワーム。側面から生えているのは伸縮自在の副触手であり、脚ではない。粘着質の副触手で獲物の身体をまさぐりつつ、じっくりと生き血を吸って殺す。
+    EN    A worm that looks like a giant tentacle. Growing out of the sides are the elastic sub-tentacles not legs. They kill their prey with their sticky sub-tentacles slowly and deliberately sucking their lifeblood while pecking at their prey's body.
+
+--- db_card.hsp:3995   CREATURE_ID_PERFORMAID_BITCHIACK   creatura 836
+    NOME  jp エンタメイド・ウィッチビッチ
+          en performaid bitchiack
+          IT la spettacameriera stregaccia
+    JP    自称、夜のエンターテイナー。仕える相手を次々に変え、骨抜きにして魔力を奪い取っていく悪魔のメイド。他のメイドたちに嫌われており、嫌味混じりに「魔女」と呼ばれている。チビなことが最大の悩み。
+    EN    She is a self-proclaimed night entertainer. A demon maid who transforms the partners she works with one after another stripping them of their bones and taking away their magical power. She is disliked by the other maids and is derisively referred to as a witch. Being small is her biggest annoyance.
+
+--- db_card.hsp:4008   CREATURE_ID_PERFORMAID_PINCHIEF   creatura 835
+    NOME  jp エンタメイド・ペンチーフ
+          en performaid pinchief
+          IT la spettacameriera pinzacapo
+    JP    悪魔のメイドたちを束ねる存在。いつも退屈している主人を楽しませるため、残虐ショーを披露する。特に拷問が得意で、人をさらってきてはペンチで爪や指や××や×××を容赦なくねじり切る。
+    EN    She is the one who binds the demon maids. She puts on a savage show to entertain her master who is always bored. She is particularly good at torture and when she snatches people up she uses pliers to twist their nails fingers x's and x's without mercy.
+
+--- db_card.hsp:4021   CREATURE_ID_PERFORMAID_COCRUEL   creatura 834
+    NOME  jp エンタメイド・ザンコック
+          en performaid cocruel
+          IT la spettacameriera cuocrudele
+    JP    料理を担当する悪魔のメイド。いつも退屈している主人を楽しませるため、残虐ショーを披露する。獲物を生きたまま惨たらしく解体調理してしまう。暇な時は活きのいい獲物を探している。
+    EN    A demon maid in charge of cooking. They put on a gruesome show to entertain their master who is always bored. They savagely butcher and cook their prey alive. In their spare time they are looking for a lively prey.
+
+--- db_card.hsp:4034   CREATURE_ID_PERFORMAID_DESWEEPER   creatura 833
+    NOME  jp エンタメイド・デスイーパー
+          en performaid desweeper
+          IT la spettacameriera spazzamorte
+    JP    掃除を担当する悪魔のメイド。いつも退屈している主人を楽しませるため、残虐ショーを披露する。掃除は掃除でも、「侵入者の掃除」のほうも担当している。
+    EN    A demon maid who is in charge of cleaning. She puts on a gruesome show to entertain her master who is always bored. I'm also in charge of cleaning up the intruders.
+
+--- db_card.hsp:4047   CREATURE_ID_PERFORMAID_BLOODRESS   creatura 832
+    NOME  jp エンタメイド・ブラッドレス
+          en performaid bloodress
+          IT la spettacameriera vestisangue
+    JP    洗濯を担当する悪魔のメイド。いつも退屈している主人を楽しませるため、残虐ショーを披露する。衣服を洗うよりも、血で血を洗うことのほうが多い。
+    EN    A demon maid who is in charge of the laundry. They put on a gruesome show to entertain their master who is always bored. It is more about washing blood with blood than it is washing clothes.
+
+--- db_card.hsp:4060   CREATURE_ID_DEMONS_COMMANDER   creatura 831
+    NOME  jp 魔王の尖兵
+          en demon's commander
+          IT l'avanguardia del re dei demoni
+    JP    魔王に仕えるインプの兵士。忠実で従順だが、面白みがない堅物ぞろいなので扱いは不遇。本人たちも気にしているのだが、不器用なのでどうしようもないらしい。
+    EN    An imp soldier in the service of the Demon King. They are loyal and obedient but they don't deserve to be treated well because they are an uninteresting bunch of stiffs. They are concerned about it but they are awkward and can't do anything about it.
+
+--- db_card.hsp:4073   CREATURE_ID_VAMPKIN   creatura 830
+    NOME  jp ヴァンプキン
+          en vampkin
+          IT la zuccampira
+    JP    弱ったヴァンパイアを身体ごと養分として吸収した結果、生物の血を啜る快楽に目覚めた南瓜の怪物。取り入れた血により自らを異常成長させ、さらなる獲物を狙う。
+    EN    As a result of absorbing the weakened vampire's entire body as nourishment the pumpkin monster has awakened to the pleasure of drinking a creature's blood. The blood he has taken in causes him to grow abnormally and he targets more prey.
+
+--- db_card.hsp:4086   CREATURE_ID_NIN_NINZIN   creatura 829
+    NOME  jp ニンジンジャー
+          en nin-ninzin
+          IT la carota ninja
+    JP    キャロットに似たマンドレイクの一種。どこで習得したのか忍の技を身に着けているが、忍ぶつもりはさらさらない。後先考えず突っ走る癖がある。
+    EN    A type of mandrake that resembles a carrot. He is armed with ninja skills which he learned at some point but he has no intention of becoming a ninja. He has a habit of going ahead and not thinking ahead.
+
+--- db_card.hsp:4099   CREATURE_ID_CUCUMBER_WARRIOR   creatura 828
+    NOME  jp キュウリー武人
+          en cucumber warrior
+          IT il cetriolo guerriero
+    JP    武人の魂を宿した勇猛なキュウリ。伝説生物カッパはこのキュウリの抵抗にあい滅んだことにされている。だが実際は食料不足で人里を荒らすようになったため人間に滅ぼされたのである。
+    EN    A brave cucumber with the soul of a warrior. It is believed that the legendary creature Kappa perished due to the resistance of these cucumber species. In reality however they were destroyed by humans because of a shortage of food which caused them to wreak havoc in the countryside.
+
+== 39 carte fra la riga 3601 e la 4100
