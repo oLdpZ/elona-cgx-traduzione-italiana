@@ -36,10 +36,12 @@ su 1378, `linguette` 0 e 0, `battute --divergenti` 13,
     PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/_108-accento-decomposto.py
     → «rese con accento DECOMPOSTO: 0 su 23.404» piu' la riga della prova al contrario
 
-⚠️⚠️ **LA 107a SI ERA CHIUSA ANNUNCIANDO UN CAMBIO DI TERMINALE, e non c'e'
-stato**: la 108a si e' aperta sulla stessa macchina, con l'albero di build al
-suo posto. Il blocco qui sotto resta valido per la prossima volta che succede.
-Le cose che **non stanno nel repo** sono quattro, e l'ordine conta:
+⚠️⚠️ **ANCHE LA 108a SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
+spinto e l'albero e' pulito. ⓘ La 107a lo aveva annunciato e poi non era
+successo — la 108a si e' aperta sulla stessa macchina, con l'albero di build al
+suo posto — quindi la prima cosa da fare **non** e' ricostruire: e' guardare se
+c'e' gia' tutto, col comando qui sotto. Le cose che **non stanno nel repo** sono
+quattro, e l'ordine conta:
 
     dati-sorgente\             python -m strumenti.dati_sorgente --pinna
     l'albero di build          python -m strumenti.applica
