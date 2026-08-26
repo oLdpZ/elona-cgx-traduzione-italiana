@@ -120,6 +120,10 @@ _ASSEGNA_NOME = re.compile(
 # il rapporto di identificazione per l'indice 3 (`:16275`), che **non si
 # impagina** e ha un tetto secco: vedi `scratchpad/_107-descrizioni-item.py`.
 _DBMODE_DESC = re.compile(r"^\s*if\s*\(\s*dbmode\s*==\s*DBMODE_DESC\s*\)\s*\{\s*$")
+# il blocco per oggetto che racchiude tutti i `dbmode` di un `ITEM_ID`:
+# e' da qui che la descrizione prende l'oggetto a cui appartiene, e quindi il
+# **nome italiano gia' reso** con cui deve chiamarlo
+_IF_DBID = re.compile(r"^\s*if\s*\(\s*dbid\s*==\s*(\w+)\s*\)\s*\{\s*$")
 _ASSEGNA_DESCRIZIONE = re.compile(
     r'^\s*description\((\d+)\)\s*=\s*("(?:[^"\\]|\\.)*")\s*$')
 
@@ -426,8 +430,52 @@ def _assegnazioni_descrizione(righe: list[str], inizio: int
     return None
 
 
-def descrizioni_per_riga(righe: list[str]) -> dict[int, tuple[str, str, int, int]]:
-    """Indice di riga (base 0) -> (jp_grezzo, en_grezzo, inizio_en, fine_en).
+def _graffe(riga: str) -> int:
+    """Le graffe della riga che stanno **fuori** dai letterali, con segno.
+
+    Una graffa dentro una stringa e' testo, non struttura: contarla sfalserebbe
+    la profondita' e con essa l'oggetto attribuito a una descrizione. E' la
+    stessa ragione per cui `avvii()` scarta i `lang(` dentro un letterale.
+    """
+    stato = _dentro_stringa(riga)
+    saldo = 0
+    for indice, carattere in enumerate(riga):
+        if stato[indice]:
+            continue
+        if carattere == "{":
+            saldo += 1
+        elif carattere == "}":
+            saldo -= 1
+    return saldo
+
+
+def oggetti_racchiudenti(righe: list[str]) -> list[str | None]:
+    """Per ogni riga, l'`ITEM_ID` del `if ( dbid == … )` che la racchiude.
+
+    ⚠️ **L'ultimo visto non e' l'ultimo aperto.** Prendere il `dbid` piu'
+    recente incontrato scorrendo il file attribuirebbe la descrizione
+    all'oggetto **precedente** ogni volta che un blocco si e' gia' chiuso: un
+    dossier che pesca il nome sbagliato non da' nessun segnale, perche' un nome
+    c'e' e sembra plausibile. Le graffe si seguono come le seguirebbe il
+    compilatore, e quando la profondita' torna sotto quella d'apertura il
+    blocco si toglie dalla pila.
+    """
+    fuori: list[str | None] = [None] * len(righe)
+    pila: list[tuple[int, str]] = []
+    profondita = 0
+    for indice, riga in enumerate(righe):
+        fuori[indice] = pila[-1][1] if pila else None
+        apertura = _IF_DBID.match(riga)
+        if apertura is not None:
+            pila.append((profondita, apertura.group(1)))
+        profondita += _graffe(riga)
+        while pila and profondita <= pila[-1][0]:
+            pila.pop()
+    return fuori
+
+
+def descrizioni_per_riga(righe: list[str]) -> dict[int, tuple[str, str, int, int, str | None]]:
+    """Indice di riga (base 0) -> (jp_grezzo, en_grezzo, inizio_en, fine_en, oggetto).
 
     Una voce per ogni `description(N)` del ramo **inglese**, col giapponese
     dello stesso indice N. Vedi il riquadro accanto a `_DBMODE_DESC`: se i due
@@ -437,7 +485,8 @@ def descrizioni_per_riga(righe: list[str]) -> dict[int, tuple[str, str, int, int
     livelli non vanno confusi — `applica.py` ha bisogno di sapere che la riga
     e' una descrizione anche quando non c'e' niente da tradurci.
     """
-    trovate: dict[int, tuple[str, str, int, int]] = {}
+    trovate: dict[int, tuple[str, str, int, int, str | None]] = {}
+    oggetti = oggetti_racchiudenti(righe)
     for indice in range(len(righe)):
         if not _DBMODE_DESC.match(righe[indice]):
             continue
@@ -461,6 +510,7 @@ def descrizioni_per_riga(righe: list[str]) -> dict[int, tuple[str, str, int, int
             trovate[riga_en] = (
                 grezzo_jp, inglese.group(2),
                 inglese.start(2), inglese.end(2),
+                oggetti[indice],
             )
     return trovate
 
@@ -625,7 +675,7 @@ def siti(testo: str) -> Iterator[tuple]:
                 yield sito
         descrizione = descrizioni.get(numero_riga - 1)
         if descrizione is not None:
-            sito = emetti(numero_riga, *descrizione)
+            sito = emetti(numero_riga, *descrizione[:4])
             if sito is not None:
                 yield sito
 
@@ -635,6 +685,7 @@ def estrai_da_testo(nome_file: str, testo: str) -> list[dict]:
     voci: list[dict] = []
     righe, _, _ = spezza_righe(testo)
     nomi = nomi_per_riga(righe)
+    descrizioni = descrizioni_per_riga(righe)
     for sito in siti(testo):
         numero_riga, chiave, occorrenza, giapponese, grezzo_jp, inglese, grezzo_en, _, _ = sito
         dinamica = e_dinamica(grezzo_en)
@@ -663,6 +714,15 @@ def estrai_da_testo(nome_file: str, testo: str) -> list[dict]:
             voce["genere"] = ""
             voce["array"] = nome[4]
             voce["oggetto"] = nome[5]
+        # ⭐ Anche le descrizioni portano l'`oggetto`, ma NON l'`array`: non
+        # sono nomi, non hanno plurale ne' articolo, e `_teste()` non le deve
+        # poter scambiare per la testa di un composto. L'oggetto serve a due
+        # cose — legare la descrizione al **nome italiano gia' reso** dello
+        # stesso ITEM_ID (la dipendenza per cui esiste il dossier delle carte),
+        # e far scegliere i lotti per categoria con `categorie.py`.
+        descrizione = descrizioni.get(numero_riga - 1)
+        if descrizione is not None and descrizione[4] is not None:
+            voce["oggetto"] = descrizione[4]
         voci.append(voce)
     return voci
 

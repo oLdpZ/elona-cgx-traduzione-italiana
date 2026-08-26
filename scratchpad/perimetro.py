@@ -113,7 +113,7 @@ def descrizioni_oggetto() -> tuple[int, int]:
     testo = io.open(os.path.join(SORGENTE, 'db_item.hsp'), encoding='cp932').read()
     righe, _, _ = spezza_righe(testo)
     trovate = descrizioni_per_riga(righe)
-    vive = sum(1 for _, en, _, _ in trovate.values() if en != '""')
+    vive = sum(1 for dati in trovate.values() if dati[1] != '""')
     return len(trovate), vive
 
 

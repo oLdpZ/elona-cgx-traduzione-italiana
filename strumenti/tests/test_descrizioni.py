@@ -132,6 +132,70 @@ def test_fuori_da_dbmode_desc_non_si_aggancia():
     assert _coppie(fuori) == []
 
 
+# ---------------------------------------------------------------------------
+# l'oggetto a cui la descrizione appartiene
+#
+# ⭐ Non e' una comodita' per scegliere i lotti: e' la chiave che lega la
+# descrizione al NOME ITALIANO gia' reso dello stesso oggetto. E' la stessa
+# dipendenza per cui esiste `_102-dossier.py` sulle carte — la prosa e il nome
+# sono l'unico posto in cui il giocatore vede le due cose vicine, e se la prosa
+# nomina l'oggetto deve nominarlo con quel nome.
+# ---------------------------------------------------------------------------
+
+DENTRO_OGGETTO = (
+    "\tif ( dbid == ITEM_ID_TZ500_K ) {\n"
+    "\t\tif ( dbmode == DBMODE_REF ) {\n"
+    "\t\t\treturn\n"
+    "\t\t}\n"
+    + BLOCCO +
+    "\t}\n"
+)
+
+
+def test_la_descrizione_porta_il_suo_oggetto():
+    voci = estrai_da_testo("db_item.hsp", DENTRO_OGGETTO)
+    assert {v["oggetto"] for v in voci} == {"ITEM_ID_TZ500_K"}
+
+
+def test_l_oggetto_non_fa_della_descrizione_un_nome():
+    """`oggetto` sì, `array` no: senza array non c'e' plurale ne' articolo, e
+    `_teste()` non la puo' scambiare per la testa di un nome composto."""
+    voce = estrai_da_testo("db_item.hsp", DENTRO_OGGETTO)[0]
+    assert voce["oggetto"] == "ITEM_ID_TZ500_K"
+    assert "array" not in voce
+    assert "plurale" not in voce
+    assert "genere" not in voce
+
+
+def test_un_oggetto_gia_chiuso_non_deborda():
+    """⚠️ Il difetto plausibile: prendere l'ultimo `if ( dbid == … )` VISTO
+    invece di quello che ci sta ancora INTORNO. Le graffe si seguono come le
+    seguirebbe il compilatore, o la descrizione finisce attribuita all'oggetto
+    di prima — e un dossier che pesca il nome sbagliato non si vede.
+    """
+    testo = (
+        "\tif ( dbid == ITEM_ID_PRIMO ) {\n"
+        "\t\treturn\n"
+        "\t}\n"
+        + BLOCCO
+    )
+    voci = estrai_da_testo("db_item.hsp", testo)
+    assert voci, "le descrizioni ci sono lo stesso"
+    assert all("oggetto" not in v for v in voci)
+
+
+def test_l_oggetto_e_il_piu_interno():
+    annidato = (
+        "\tif ( dbid == ITEM_ID_FUORI ) {\n"
+        "\t\tif ( dbid == ITEM_ID_DENTRO ) {\n"
+        + BLOCCO +
+        "\t\t}\n"
+        "\t}\n"
+    )
+    voci = estrai_da_testo("db_item.hsp", annidato)
+    assert {v["oggetto"] for v in voci} == {"ITEM_ID_DENTRO"}
+
+
 def test_una_descrizione_non_e_un_nome():
     """Niente plurale, niente genere, niente array: non e' un sostantivo che il
     gioco mette dietro a un articolo, e' prosa."""
