@@ -1,23 +1,25 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-27, fine della **centottesima** sessione (**il primo lotto
-di descrizioni, e un campo che due tipi di sito si dividevano**).
+Aggiornato: 2026-08-27, fine della **centottesima** sessione (**tre lotti di
+descrizioni, e un campo che due tipi di sito si dividevano**).
 
-⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' DELLE 00:49 DEL 27/08**, ed e' quello da
-controllare prima di leggere uno screenshot. Contiene le **56 rese** della 108a,
-che arrivano a schermo su **133 righe**. Quello delle 19:07 del 26/08 e' il
-precedente: se la data e' ancora quella, la build non e' stata rifatta.
+⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' DELLE 01:13 DEL 27/08**, ed e' quello da
+controllare prima di leggere uno screenshot. Contiene le **186 rese** della
+108a, che arrivano a schermo su **276 righe**. Quello delle 19:07 del 26/08 e'
+il precedente; quello delle 00:49 e' la build di meta' sessione, coi soli cibi.
 
-⚠️⚠️ **DAL LOTTO DELLA 108a I VALORI DA ASPETTARSI IN APERTURA SONO QUESTI:**
+⚠️⚠️ **DOPO I TRE LOTTI DELLA 108a I VALORI DA ASPETTARSI IN APERTURA SONO
+QUESTI:**
 
     pytest                   **794 passed**, 6 skipped   (erano 792)
     prova_identita           72/72 e 30.905, **invariato** (la prova d'identita'
                              riscrive ogni sito con se stesso: non si muove
                              quando si traduce)
-    applica                  **27.650** sostituzioni      (erano 27.517)
-    verifica --dizionario    db_item.hsp: 0 da ritradurre, **2.524** non tradotte
-    _97-quanto-resta         TOTALE **2.634 / 110 / 2.524**
-    perimetro.py             perimetro **90%** (26.199), totale **93%**
+    applica                  **27.793** sostituzioni      (erano 27.517)
+    verifica --dizionario    db_item.hsp: 0 da ritradurre, **2.394** non tradotte
+    _97-quanto-resta         TOTALE **2.504 / 110 / 2.394**
+    perimetro.py             perimetro **90%** (26.329), totale **93%**
+    _108-accento-decomposto  **0 su 23.590**
 
 Tutto il resto e' **fermo dov'era**, riverificato in chiusura: `dati_applica
 --identita` 6 file e 3.767 righe, `toppe.jsonl` 1027 e `_97-toppe-agganciate`
@@ -63,8 +65,8 @@ di lui **non si applica**, perche' degradare esiste solo per CP932.
 dalla 92a alla 108a si sono aperte tutte cosi'. Si controlla in un colpo con
 `ls C:\Games\Elona\_traduzione\` (devono esserci `build`, `sorgente`,
 `dati-sorgente`, `hsp34`), e l'eseguibile in gioco dev'essere
-`elonaplus2.31\cgx-test.exe` delle **00:49 del 27/08**: se la data e' quella,
-la build corrente contiene le 56 rese della 108a e non va rifatta.
+`elonaplus2.31\cgx-test.exe` delle **01:13 del 27/08**: se la data e' quella,
+la build corrente contiene tutte e 186 le rese della 108a e non va rifatta.
 ⚠️ **La 107a NON aveva ricompilato**, ed era giusto cosi': non aveva reso
 niente. La 108a ha ricompilato, e la data buona non e' piu' quella del 26/08.
 ⚠️ I sei file dati **non sono cambiati** nella 108a: `cmp -s` li ha lasciati
@@ -141,16 +143,26 @@ I valori nuovi stanno in testa a questo file, sotto la data.
 
 ### ▶ Che cosa e' stato fatto
 
-    db_item.hsp   FILTER_ITEM_FOOD indice 3, il rapporto di identificazione
+    db_item.hsp   indice 3, il rapporto di identificazione — TRE lotti
     -------------------------------------------------------------------------
-    56 firme rese, che coprono **133 righe** del sorgente
-    applica 27.517 -> **27.650**   (+133 esatte)
-    la resa piu' lunga: **65 caratteri degradati su 69**, margine 4
+    001  FILTER_ITEM_FOOD      56 firme -> 133 righe   margine 4
+    002  FILTER_ITEM_POTION    65 firme ->  77 righe   margine 9
+    003  FILTER_ITEM_SCROLL    65 firme ->  66 righe   margine 2
+    -------------------------------------------------------------------------
+    **186 firme rese**, che coprono **276 righe** del sorgente
+    applica 27.517 -> **27.793**   (+276 esatte)
     tetto secco: introdotte dall'italiano **0** — il cancello e' verde
     rinviate: nessuna   toppe: nessuna   reti nuove: 1 (accento decomposto)
     strumenti toccati: assembla-lotto (modo --righe), verifica (+2 test)
-    test: 792 -> **794**   build: SI', 00:49 del 27/08
+    test: 792 -> **794**   build: SI', **01:13 del 27/08**
     -------------------------------------------------------------------------
+
+⚠️ **Il margine si stringe man mano, e non e' un caso**: il cibo ha la formula
+piu' corta (4 di margine, e la famiglia stretta sono i **semi**), le pozioni
+respirano (9), le pergamene arrivano a **2** sulla pergamena della fuga. Chi
+apre il lotto dopo lanci `scratchpad/lotti-108/_margine.py` **prima** di
+reimportare: al lotto 003 ha fermato quattro rese a 73 caratteri, cioe' quattro
+righe che sarebbero uscite dal riquadro senza che nessuno le vedesse.
 
 ### ▶ ⭐⭐⭐ IL PUNTO 16 E' CHIUSO: la zona si dichiara per INSIEME di righe
 
@@ -249,17 +261,29 @@ presentato. Un copia-incolla da una fonte decomposta lo riaprirebbe.
 
 ### ▶ Il lotto da cui si comincia la prossima volta
 
-Le categorie dell'indice 3 che restano, in ordine di convenienza — e la
-convenienza vera e' il rapporto **righe / firme**, che qui e' stato 133 / 56:
+Le categorie **dell'indice 3** che restano — e i numeri giusti sono questi, non
+quelli della ripresa della 107a, che sommavano tutti e quattro gli indici:
 
-    python scratchpad/_107-lotti-per-categoria.py
+    python scratchpad/_107-lotti-per-categoria.py --indice 3
 
-Le prime per dimensione (righe / firme): mobilio 512/479, utensili 376/347,
-cianfrusaglie 221/205, armi 216/215, grimori 174/174, pozioni 159/147,
-pergamene 145/138, tiro 116/115. ⚠️ Nessuna di queste ha il rapporto del cibo:
-sono quasi tutte una firma per riga, quindi costano quanto pesano.
+    righe  firme  categoria                    righe  firme  categoria
+    ------------------------------------       ------------------------------
+      251    218  FILTER_FURNITURE                33     21  FILTER_ORE
+      166    143  FILTER_ITEM_TOOL                32     30  FILTER_ITEM_ROD
+      105    105  FILTER_WEAPON                   23     23  FILTER_SHIELD
+       97     81  FILTER_JUNK                     23     20  FILTER_ITEM_BOOK
+       82     82  FILTER_ITEM_SPELLBOOK           22     21  FILTER_CONTAINER
+       56     55  FILTER_RANGE                    20     20  FILTER_ARMOR
 
-Il comando per aprire il lotto dopo, con la stessa forma di questo:
+piu' una coda di venti minori. Fatte: cibo (133/56), pozioni (77/65), pergamene
+(66/65) — **1.319 righe e 1.131 firme in tutto, 276 e 186 fatte**.
+
+⚠️ **Il rapporto righe/firme del cibo (2,4) non si ripete**: quasi tutte le
+altre categorie stanno a una firma per riga, quindi costano quanto pesano. Le
+eccezioni utili sono `FILTER_FURNITURE` (251/218), `FILTER_ITEM_TOOL`
+(166/143), `FILTER_JUNK` (97/81) e `FILTER_ORE` (33/21).
+
+Il comando per aprire il lotto dopo, con la stessa forma di questi:
 
     python scratchpad/_107-dossier-item.py --categoria <CAT> --indice 3
     python scratchpad/_107-chiavi-item.py  --categoria <CAT> --indice 3
@@ -269,10 +293,11 @@ Il comando per aprire il lotto dopo, con la stessa forma di questo:
 ⚠️ **Prima di chiudere un lotto**, i termini che il giapponese porta si cercano
 **a mano** in `glossario.md` e `invariati.md`: nessuna rete li legge.
 
-### ▶ ⚠️⚠️ LE 56 RESE NON SONO MAI STATE VISTE A SCHERMO
+### ▶ ⚠️⚠️ LE 186 RESE NON SONO MAI STATE VISTE A SCHERMO
 
-Il debito di collaudo sale da 6.546 a **6.602**. La lista di passi per guardarle
-e' stata data all'utente in chiusura di sessione ed e' questa:
+Il debito di collaudo sale da 6.546 a **6.732**. La lista di passi per guardarle
+e' stata data all'utente ed e' questa. ⓘ I numeri si leggono dal sorgente con
+`scratchpad/lotti-108/_id.py <ITEM_ID_X>`, non si ricordano.
 
     F12 apre la console (help.hsp:452)   ->   wizard   ->   spawn_item <id>
     poi `g` per raccogliere, `i` per l'inventario, **`x`** per il rapporto
@@ -286,6 +311,27 @@ e' stata data all'utente in chiusura di sessione ed e' questa:
     425   curaria            «Un'erba che alza un po' tutti gli attributi base.»
     943   ghianda dorata     «Frutti a guscio che si mangiano, ma non si possono cucinare.»
     738   biscotto d. fortuna «... Dopo averlo mangiato, predice la sorte.»
+
+    --- lotto 002, le pozioni
+    68    pozione di cura minore  «Una pozione che ridà HP e cura gli stati alterati.»
+    379   pozione dell'eroe       «Alza forza e destrezza, e resiste a terrore e confusione.»
+                                  ⭐ una delle quattro che aprono col VERBO: nei 69
+                                    caratteri «Una pozione che» non ci stava
+    601   bottiglia vuota         «Una bottiglia in cui si può prendere l'acqua.»
+                                  ⭐ l'inglese dice solo che è vuota
+    26    acqua sporca            «Una pozione che PUÒ far ammalare.»
+                                  ⭐ l'inglese lo dà per certo, il giapponese no
+
+    --- lotto 003, le pergamene e gli atti
+    14    pergamena dell'identificazione «Una pergamena che identifica gli oggetti che si portano.»
+    638   pergamena della fuga    «Porta fuori dal sotterraneo dopo qualche turno. Rileggerla annulla.»
+                                  ⚠️ 67 caratteri su 69: è la più stretta delle 186
+    344   atto della casa         «Un atto: letto, fa nascere una casa.»
+    1188  atto dell'autocarro     «Un atto per un mezzo da viaggio. Si può rileggere sempre.»
+                                  ⭐ dieci atti, un solo giapponese: il nome del mezzo
+                                    lo dice il nome dell'oggetto, non il referto
+    737   pergamena del nome      «Cambia il nome a un'arma o armatura eccezionale o celestiale.»
+                                  ⚠️ il giapponese dice ☆, che in CP932 non si può scrivere
 
 ⚠️ **Il rapporto compare solo se l'oggetto e' identificato a fondo**
 (`command.hsp:16061`, `inv(INV_ITEM_KNOWN, ci) >= ITEM_KNOWN_FULL`). Un oggetto

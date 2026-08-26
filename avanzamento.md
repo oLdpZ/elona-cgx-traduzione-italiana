@@ -2622,3 +2622,46 @@ Le altre tre caselle di `FILTER_ITEM_FOOD` — gli indici 0, 1 e 2, il **corpo**
 del pannello — non sono in questo lotto e sono un'altra cosa: passano
 dall'impaginatore, sono prosa vera e la loro mediana è di 205 caratteri contro i
 48 dell'indice 3.
+
+### I lotti 002 e 003 — le pozioni e le pergamene, 2026-08-27
+
+Due lotti nella stessa sessione, `FILTER_ITEM_POTION` (77 righe, **65 firme**) e
+`FILTER_ITEM_SCROLL` (66 righe, **65 firme**). Il conteggio in chiusura:
+
+    python -m strumenti.verifica --dizionario
+
+        db_item.hsp     2.524 non tradotte -> **2.394**
+
+    python scratchpad/_97-quanto-resta.py
+
+        TOTALE          2.634 / 110 / 2.524   ->   **2.504 / 110 / 2.394**
+
+    python -m strumenti.applica               27.650 -> **27.793**
+                                              = 27.650 + 143 esatte
+    python scratchpad/perimetro.py            perimetro **90%** (26.329)
+    python scratchpad/_107-descrizioni-item.py
+        indice 3: vive 1.319, **rese 276**;  introdotte dall'italiano **0**
+
+⭐⭐ **`_margine.py` ha fatto il suo lavoro, e per questo esiste.** Al lotto 003
+ha fermato **quattro rese a 73 caratteri** — gli atti dei mezzi di terra, «Si
+può rileggere quante volte si vuole» — prima della reimportazione. Il cancello
+della rete le avrebbe prese lo stesso, ma **dopo** che stavano nel dizionario;
+qui sono state riscritte prima («Si può rileggere sempre», 58 caratteri).
+
+⚠️ **Il margine si stringe di lotto in lotto, ed è il numero da guardare:**
+
+    001  cibi       la più lunga 65 su 69   margine 4   (i semi)
+    002  pozioni    la più lunga 60 su 69   margine 9
+    003  pergamene  la più lunga 67 su 69   margine 2   (la pergamena della fuga)
+
+ⓘ **E le rese sono più corte del loro inglese quasi sempre**: 0 su 65 lo
+superano nel lotto 003, 11 su 65 nel 002, 14 su 56 nel 001. L'inglese
+dell'indice 3 è prolisso — «It is a scroll that when read, …» — e l'italiano che
+segue il giapponese guadagna spazio invece di perderne.
+
+### Gli strumenti toccati dai lotti 002 e 003
+
+| file | che cosa |
+|---|---|
+| `scratchpad/lotti-108/_margine.py` | il file da misurare si passa come **argomento**: la prima versione lo aveva fisso e al secondo lotto è stato riscritto con `sed`, cioè un attimo prima di misurare il lotto sbagliato credendo di misurare quello giusto. Ed esce con 1 se il tetto è sfondato |
+| `scratchpad/lotti-108/_id.py` | il numero di un `ITEM_ID` letto da `defines/mod.hsp`, per la lista di passi: `spawn_item` vuole il numero, e una lista si esegue alla cieca |

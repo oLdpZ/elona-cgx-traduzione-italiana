@@ -1520,6 +1520,64 @@ l'aggiunta, per la regola di `decisioni.md` «Quando l'inglese aggiunge un fatto
 «ti fa tornare bambino» — il genere del giocatore non si conosce
 (`guida-stile.md`).
 
+### I lotti 002 e 003 — le pozioni, le pergamene e gli atti
+
+La formula regge, e prende la parola che il **giapponese** mette in fondo alla
+frase: 「…ポーションだ。」 → «Una pozione che …», 「…飲み物だ。」 → «Una bevanda
+che …», 「…巻物だ。」 → «Una pergamena che …», 「…権利書だ。」 → «Un atto: letto,
+…».
+
+⚠️⚠️ **E quando il fatto riempie i 69 caratteri, la testa cade e la frase apre
+col VERBO.** Sette righe delle pozioni compongono due fatti («alza X e Y, e
+resiste a Z e W») e venticinque pergamene aprono in inglese con «It is a scroll
+that when read, …», che in italiano costa venti caratteri per ripetere il nome
+dell'oggetto. Non è un'eccezione alla formula: è la formula che cede la testa
+quando il contenuto la riempie — e infatti 110 righe dell'indice 3 sforano già
+in inglese proprio così.
+
+| giapponese | italiano |
+|---|---|
+| 一時的に… | **… per un po'** (mai «temporaneamente», che ne mangia quindici) |
+| 耐性を得る | **resiste a …** / **dà resistenza a …** |
+| より強力だ | **È più forte del solito.** |
+| 何度でも読むことができる | **Si può rileggere sempre.** |
+| 混ぜた物を…する | **Mescolata a una cosa, la …** |
+
+⚠️ **Le stelle non si scrivono.** 「☆のついた武器防具」 (`:81743`) e gli oggetti
+col ★ (`:130246`): **`☆` e `★` sono a doppia larghezza in CP932**, li boccia
+`guardie`, e nel dizionario non ce n'è nemmeno uno su 23.590 rese. Si scrive
+quel che la stella significa — ☆ marca `_quality` 4 e 5, «eccezionale» e
+«celestiale»; ★ marca gli **artefatti**.
+
+⭐⭐ **Dieci atti, un solo giapponese, dieci inglesi.** `:45063`-`:45418` e
+`:51362`-`:51575` sono i mezzi di trasporto, e il giapponese scrive la stessa
+frase per tutti e dieci: 「海マップでの乗り物の権利書だ。」 e
+「ワールドマップでの…」. L'inglese ci mette il nome del mezzo, che è **già il
+nome dell'oggetto** dieci righe più su nella stessa scheda; la distinzione che
+serve è quella che fa il giapponese, mare contro terra, perché dice **dove** il
+mezzo si usa. Due rese per dieci firme.
+
+ⓘ **Quattro giapponesi uguali che l'inglese distingue**, e la resa è una:
+`:44445`/`:72144` (様々な状態異常, «undesired effects» / «negative status
+effects») e `:126010`/`:126081` (HPと状態異常, con «all» solo sulla pozione di
+Jure). Li stampa la **rete 13**, ed è il caso per cui esiste.
+
+ⓘ **Tre righe dove il giapponese dice un'altra cosa, e vince lui:** `:90772` la
+bottiglia «vuota», che in giapponese è *una bottiglia in cui si può prendere
+l'acqua*; `:129442` l'acqua sporca, che **può** far ammalare e non fa ammalare;
+`:63387` i dolcetti della strega, che l'inglese chiama «food» e il giapponese
+飲み物.
+
+ⓘ **Tre aggiunte dell'inglese taciute:** il «5» dei punti bonus (`:52520`), il
+**dove** del Vuoto (`:81402`), il «from sources unknown» della mappa del tesoro
+(`:89493`).
+
+ⓘ **I termini nuovi fissati qui:** 友好度 → «la simpatia» (`chat.hsp:25511`),
+状態異常 → «gli stati alterati», 巻物 → «pergamena», 権利書 → «atto», 呪い →
+«la maledizione», マテリアル → «materiale», スペルボーナス → «punti bonus per
+gli incantesimi». `DV`, `PV`, `HP`, `MP` restano **invariati**: il giapponese
+scrive le stesse sigle.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,
