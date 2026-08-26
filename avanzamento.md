@@ -46,7 +46,7 @@ quelli**.
     python scratchpad/_97-quanto-resta.py
 
     file                     non tradotte  rinviate  DA FARE
-    db_card.hsp                       600         1      599   ⭐ 153 rese nella 104a
+    db_card.hsp                       446         1      445   ⭐ 154 rese nella 105a
     tcg.hsp                             2         2        0   ⭐ CHIUSO
     system.hsp                          1         1        0   ⭐ CHIUSO
     proc.hsp                            7         7        0   ⭐ CHIUSO
@@ -2286,3 +2286,65 @@ Quella la trova `_103`, che confronta le parole e non la stringa.
 
 Perimetro onesto (`scratchpad/perimetro.py`): **84%**, fermo. Il salto vero
 resta il blocco delle 5.284 descrizioni di `db_item.hsp`.
+
+## `db_card.hsp`, dal lotto 15 al 18 — 2026-08-26, centocinquesima
+
+Quattro lotti, righe 7101-9100, **154 rese**. Il conteggio, rilanciato in
+chiusura e non ricopiato:
+
+    python scratchpad/_97-quanto-resta.py
+
+        db_card.hsp     599 da fare -> 445      (erano 599 in apertura)
+        TOTALE          708 / 109 / 599   ->   554 / 109 / 445
+
+    python scratchpad/perimetro.py            **85%**   (era 84%)
+
+    dizionario/db_card.hsp.jsonl              1.841 voci
+                                              = 1.141 nomi + **700 prose su 1.144**
+
+Il passo è quello della 102ª e non è cambiato. Le reti hanno detto **0 code
+perse e 0 parole spezzate** dopo ognuno dei quattro lotti. Nessuna toppa nuova
+(`toppe.jsonl` resta 1027), nessuna rinviata nuova (112), nessuna rete nuova.
+
+### ⭐⭐⭐ Il rendimento vero: quattro rese sbagliate che tutta la catena ha lasciato passare
+
+Non è un difetto di monte come quello della 104ª: è un difetto **mio**, e le
+reti non potevano vederlo perché nessuna di loro legge `glossario.md` o
+`invariati.md`.
+
+    手裏剣                          stelline da lancio  ->  shuriken
+    レム・イド                      Rehmido             ->  Rehm-Ido
+    精霊が◯◯を象って実体化した存在  parole mie          ->  la formula fissa
+    眷属 (混沌の—)                  creatura al seguito ->  il figlio del caos
+
+Tutte e quattro erano passate da `verifica` («39 voci, nessun problema»), da
+`guardie` (0 0 0), dalle tredici reti dello script di lotto e da `referti`. Le
+ho trovate rileggendo i documenti per scrivere la chiusura. Il ragionamento
+completo sta in `decisioni.md`, sezione della 105ª; i termini stanno nel
+glossario, sezione della 105ª.
+
+⚠️ **Rendimento misurato della rete che manca: quattro su 154 rese, in una
+sessione sola.** È il punto 15 di quel che resta aperto, e va provata al
+contrario sulle quattro rese di oggi prima di crederle.
+
+### Due proprietà dei blocchi, che non sono decisioni
+
+- **Nel lotto 18, quattordici carte su trentotto hanno l'inglese che finisce con
+  uno spazio** (`:8740`, `:8805`, `:8870`, `:8883`, `:8909`, `:8922`, `:8935`,
+  `:8961`, `:8974`, `:8987`, `:9000`, `:9013`, `:9078`, `:9091`), e `verifica`
+  pretende lo spazio anche in italiano. Conviene guardarlo **prima** di scrivere
+  il lotto: la rete lo prende, ma dopo.
+- **Due carte a due lotti di distanza raccontano la stessa storia dai due lati**:
+  `:9091` è il nonno `<Stoke>` che manda le caramelle, `:8103` il ragazzo `<Wel>`
+  che le riceve. Le due prose ora usano le stesse parole.
+
+### La catena, prima e dopo la build
+
+Diciannove verifiche in apertura, **diciannove ai valori attesi della 104ª**.
+In chiusura la build è stata rifatta **due volte** — la seconda dopo le quattro
+correzioni, perché la prima conteneva le rese sbagliate — e ogni volta con il
+`grep` del segnale di guasto sull'output di `applica` (muto, **27.073**
+sostituzioni), `_97-toppe-agganciate` **1027 su 1027**, `_96-morte-nella-build`
+**0**, `compila --eseguibile` con `#No error detected.`. `cgx-test.exe` ricopiato
+alle **15:30 del 26/08**. Nessuno dei sei file dati è cambiato: `cmp -s` li ha
+lasciati tutti dov'erano.

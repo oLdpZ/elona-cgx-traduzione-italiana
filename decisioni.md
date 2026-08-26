@@ -6,6 +6,65 @@ ancora aperte.
 
 ---
 
+## Le reti del lotto non leggono il glossario — 2026-08-26, centocinquesima
+
+Quattro rese dei lotti 15-18 contraddicevano un termine **già deciso e scritto**,
+e sono passate verdi da tutta la catena: `verifica` (39 voci, nessun problema),
+`guardie` (0 0 0), le tredici reti dello script di lotto, `referti`, e la
+riverifica dopo `reimporta`. Sarebbero finite nell'eseguibile.
+
+    手裏剣                          stelline da lancio  ->  shuriken
+    レム・イド                      Rehmido             ->  Rehm-Ido
+    精霊が◯◯を象って実体化した存在  parole mie          ->  la formula fissa
+    眷属 (混沌の—)                  creatura al seguito ->  il figlio del caos
+
+**Perché nessuna rete poteva vederle.** Le reti del lotto guardano tre cose: la
+forma della resa (accenti, caratteri proibiti, larghezza), il rapporto con
+l'**inglese di monte** (funzioni di contenuto, spazio in coda, teste di frase) e
+il rapporto con il **dizionario** (rete 3: lo stesso giapponese reso in due modi).
+Nessuna delle tre legge `glossario.md` o `invariati.md`, che sono **prosa
+italiana in Markdown** e non dati. La rete 3 avrebbe preso `レム・イド` solo se
+lo stesso giapponese *intero* fosse già stato reso — e non lo era: erano prose
+diverse che contengono lo stesso nome.
+
+⚠️ **E `Rehmido` è il caso peggiore dei quattro, perché veniva da una prova.**
+Avevo cercato nel dizionario, avevo trovato «frammento di Rehmido» e mi ero
+fermato lì: quella voce è indicizzata sull'**inglese** `Rehmido Fragment`, e il
+suo giapponese è レミード, cioè le **rovine**, non la civiltà. La 104ª aveva
+scelto `Rehm-Ido` col trattino proprio per tenere separate le due cose, e a
+scriverlo era la riga sopra la mia nel glossario. Una prova fatta nel posto
+sbagliato assomiglia a una prova fatta.
+
+**Come le ho trovate:** rileggendo `decisioni.md` e `glossario.md` per capire
+come si formattava la sezione da scrivere in chiusura. Cioè per caso, come i due
+nomi sdoppiati della 104ª — che erano usciti consultando il dizionario per un
+lotto. Due sessioni di fila, lo stesso modo di trovare le cose.
+
+**La rete che manca, e stavolta ha un rendimento misurato: quattro su 154 rese
+in una sessione.** La forma è meccanica e non chiede giudizio:
+
+1. dal `glossario.md` e da `invariati.md` si estraggono le coppie `JP -> IT` che
+   stanno nelle tabelle (sono righe `| ... | ... |` regolari);
+2. per ogni voce del lotto, se il **giapponese** contiene un termine della
+   tabella, si guarda se la resa italiana contiene la sua resa;
+3. se non la contiene, **referto** — non cancello: «il criceto» dentro una prosa
+   può legittimamente diventare «lui», e i nomi propri si declinano.
+
+⚠️ Il punto 3 è il motivo per cui non l'ho scritta oggi invece di scrivere il
+lotto 18: una rete così accende molto, e va **provata al contrario** (puntata
+sulle quattro rese sbagliate di stamattina, deve accendersi su tutte e quattro)
+prima di crederle. È il punto 15 di quel che resta aperto.
+
+ⓘ **Le altre due cose imparate sui blocchi, che non sono decisioni ma
+proprietà:** nel lotto 18 **quattordici carte su trentotto** hanno l'inglese che
+finisce con uno spazio — `verifica` pretende lo spazio anche in italiano, e non è
+la svista di una riga ma una proprietà del blocco; e due carte a due lotti di
+distanza si raccontano la stessa storia dai due lati (`:9091`, il nonno `<Stoke>`
+che manda le caramelle, e `:8103`, il ragazzo `<Wel>` che le riceve), quindi le
+due prose devono usare le stesse parole.
+
+---
+
 ## Tre file si chiudono, e resta un file solo — 2026-08-25, novantasettesima
 
 Cinque lotti, **121 rese**, 5 rinvii, 4 invarianti nuovi. `command.hsp`,

@@ -1339,6 +1339,55 @@ with»; `:5256` 少なくない (litote: *non pochi*) reso «there are few»; `:
 (*incomparabilmente più forte*) reso «in comparison to»; `:5763` 効かない (*non
 fa presa su di lui*) reso come un gigante malato, cioè il rovescio della carta.
 
+## I lotti 15-18 di `db_card.hsp`, decisi il 2026-08-26 (105ª)
+
+⚠️⚠️ **Quattro termini di questa sessione erano già decisi altrove e li ho
+sbagliati lo stesso.** Le reti del lotto — `verifica`, `guardie` e le tredici
+reti dello script — **non leggono questo file né `invariati.md`**, e tutte e
+quattro le rese sarebbero finite nel gioco. Stanno qui in cima perché la lezione
+è quella, non i termini nuovi.
+
+| JP | come l'avevo reso | resa giusta | dove stava già scritto |
+|---|---|---|---|
+| 手裏剣 | ~~stelline da lancio~~ | **shuriken** | `invariati.md`: prestito acquisito, maschile, invariato al plurale (`:8441`) |
+| レム・イド | ~~Rehmido~~ | **Rehm-Ido** | glossario della 104ª. ⚠️ `Rehmido` è l'inglese di monte, e `Remido` (レミード) sono le **rovine**: la distinzione è il motivo per cui la 104ª aveva scelto il trattino. Quattro carte, `:8168`-`:8207` |
+| 精霊が◯◯を象って実体化した存在 | ~~uno spirito che ha preso corpo dando a sé stesso la forma di…~~ | **uno spirito che ha preso corpo nella forma di…** | glossario della 104ª: formula fissa, e tre carte (`:5711`, `:5841`, `:5854`) la rendono identica. Qui torna a `:8025` |
+| 眷属 (混沌の—) | ~~una creatura al seguito del caos~~ | **il figlio del caos** | glossario della 104ª, da `chat.hsp:10321` (`:8337`) |
+
+### I termini nuovi
+
+| JP | EN di monte | IT | perché |
+|---|---|---|---|
+| 超獣 | `superbeast` | **la superbestia** | `:7193`. ⚠️ Compare **una volta sola in tutto il sorgente**: coniata, e se tornasse si ubbidisce a questa |
+| ロストテクノロジー | `lost technology` | **la tecnologia perduta** | `:7310` e `:7323`, i due moai. Le due carte condividono la prima frase in giapponese e in inglese, e le rese la condividono uguale |
+| 第一紀 | `the early First Age` | **la Prima Era** | `:7505` |
+| 決戦兵器 | `the decisive weapon` | **l'arma della battaglia decisiva** | `:7687`, il cannone a supergravità che ne era l'armamento aggiuntivo |
+| 旧時代 | `old-fashioned` | **il tempo antico** | `:8064`. L'inglese lo legge come «all'antica», ma è l'era precedente, quella delle macchine |
+| 鎖鎌 | `chain scythe` | **la falce a catena** | `:8766` |
+| ボコノン教 / カラース | `Bokononism` / `Kalas` | **il bokononismo** / **il karass** | `:8376`. Il nome della carta era già «il guardiano del karass»: la prosa gli va dietro. ⚠️ L'inglese scrive `Kalas` nel corpo e `wrang-wrang` nel nome, due traslitterazioni diverse dello stesso romanzo |
+| メルカ地方 | `the Melkawn region` | **la regione di Merca** | `:7271`. ⚠️ **メルカ non è メルカーン**: `map.hsp:3619` ha «Palude di Merca» e `map.hsp:8085` «di Melkawn». L'inglese le confonde in una sola |
+| 化け狸 (prosa) | `badger` | **il tanuki mutaforma** | `:7154`, e la prosa lo mette accanto al `mimic`: due che si ingannano a vicenda |
+
+⭐ **Una formula che si ripete e va resa identica**: `異常な素早さで彷徨する鐘の
+魔物` apre sia `:7167` (la campana a martello) sia `:8896` (la campana del
+giudizio), a due lotti di distanza. Stessa prima frase in italiano.
+
+⚠️ **Sei errori di monte presi dal giapponese**, verificabili riga per riga:
+
+- `:7648` 性根が腐っている (*ha l'animo marcio*, ed è il seguito di «dalla
+  cintola in giù è marcia») letto come una **pulsione sessuale corrotta**;
+- `:7843` 精霊の力 (*la forza di uno spirito*) reso «the power of a demigod»;
+- `:7882` l'inglese **salta una frase intera** delle tre del giapponese;
+- `:8129` やる気が空回りした (*la voglia le gira a vuoto*) reso «her lack of
+  motivation», che è il contrario: non le manca la voglia, la spende male;
+- `:8246` 調子に乗った部下を一喝する (*zittire con un urlo il sottoposto che si
+  monta la testa*) reso «cheer up a subordinate who's in a bad mood»;
+- `:8311` i puntini in mezzo alla frase, che il giapponese non ha.
+
+ⓘ **Il gioco di parole che non si rende, e la parola che resta**: `:7882` studia
+la parentela con 「おとおと」, cioè 弟 (*otooto*, «fratello minore») scritto
+storto. La parola resta com'è, come `tsukumogami` e `kunoichi`.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,
