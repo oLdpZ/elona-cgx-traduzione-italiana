@@ -2187,3 +2187,41 @@ dodici hanno solo `lang()` che `estrai` non estrae. Le due misure rispondono a
 due domande diverse e vanno tenute separate, come le colonne qui sopra.
 
 Perimetro onesto (`scratchpad/perimetro.py`): **81%**, era 80%.
+
+## `db_card.hsp`, dal lotto 7 al 10 — 2026-08-26, centotreesima
+
+Quattro lotti in una sessione, righe 3101-5100, **154 rese**. Il conteggio,
+rilanciato in chiusura e non ricopiato:
+
+    python scratchpad/_97-quanto-resta.py
+
+        db_card.hsp     861 da fare -> 752      (erano 906 in apertura)
+        TOTALE          938 / 109 / 829   ->   861 / 109 / 752
+
+    python scratchpad/perimetro.py            **84%**, era 83%
+
+Il passo è quello della 102ª e non è cambiato: `_102-dossier.py <da> <a>` per
+appaiare la prosa al nome già reso, `modello-rete6-barre.py` per le reti,
+`_102-carta-conoscenza.py` dopo ogni `reimporta`. Le tre reti hanno detto
+**0 code perse e 0 parole spezzate** dopo ognuno dei quattro lotti.
+
+⭐ **Ma il rendimento vero di questi lotti non sta nelle rese.** In quattro
+lotti sono usciti **nove errori di monte** verificabili riga per riga, e un
+**nome del progetto sbagliato da settanta sessioni**. Le prose delle carte
+descrivono creature i cui nomi sono già inchiodati: leggerle è insieme lavoro
+nuovo e collaudo di quello vecchio. Vedi `decisioni.md`, sezione della 103ª.
+
+### Gli strumenti nati oggi
+
+| strumento | a cosa serve | quando si lancia |
+|---|---|---|
+| `scratchpad/_103-chiavi-card.py` | stampa le chiavi `(riga, en)` di una zona col `repr()` dell'inglese, pronte da incollare in `RESE` | all'apertura di ogni lotto di `db_card`, dopo il dossier |
+| `scratchpad/_103-inglese-ripetuto.py` | le carte a cui monte ha dato l'inglese di un'altra, su **tutte** le 1.146 voci | referto, non guardia: si legge quando si apre un lotto nuovo |
+| `scratchpad/_103-carte-a-rischio.py` | ordina le rese per parola più lunga e riga media più corta, per scegliere quali carte guardare a schermo | prima di scrivere una lista di collaudo |
+| `scratchpad/correzione-cub.py` | la correzione di `カブ`, tenuta perché dice **perché** | una volta sola, già girata |
+
+⚠️ `_103-carte-a-rischio.py` **importa** `impagina` e `degrada` da
+`_102-carta-conoscenza.py`: non si riscrivono. La prima stesura le riscriveva e
+dava numeri che contraddicevano la rete.
+
+Perimetro onesto (`scratchpad/perimetro.py`): **84%**, era 83%.

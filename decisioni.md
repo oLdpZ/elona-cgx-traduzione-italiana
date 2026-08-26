@@ -10174,3 +10174,129 @@ che ne esce porta `cdata(CDATA_ID, tc)`. Il cadavere funziona anche lui
 default: `key_inventory` = `X`, `key_identify` = `x`, `key_get` = `g`,
 `key_throw` = `T`. La console è **F12** (`main.hsp:3322`), e si legge in
 `*pc_turn`: dentro un menu non risponde.
+
+---
+
+## Quattro lotti di carte, e tre difetti che stavano tutti in mezzo — 2026-08-26, centotreesima
+
+### ⭐⭐⭐ `カブ` non era un cucciolo, e il difetto stava fra il nome e la prosa
+
+Il nome `カブ` era reso **il cucciolo** in sei voci di quattro dizionari
+(`action.hsp`, `custom_enemyevolution.hsp`, `db_card.hsp`, `db_creature.hsp`,
+più il composto `カブ=トライズ`). Veniva dalla fase dei nomi, e veniva
+dall'inglese `cub` preso alla lettera.
+
+La sua carta lo smentisce in una riga sola (`db_card.hsp:13955`):
+
+    頑丈で燃費が良いだけでなく、高い生命力と速度を持つ機械の馬。
+
+«un cavallo meccanico robusto, che consuma poco». È la Honda Super Cub, ed è la
+sorella minore de «la moto grossa» — che infatti a `:3423` si presenta come
+「カブの仲間だが」. Corretto in **il Cub** da `scratchpad/correzione-cub.py`.
+
+⚠️⚠️ **Il punto non è il nome: è dove stava il difetto.** Nessuna rete poteva
+vederlo, e non per una svista nelle reti. Un nome di creatura e la prosa che lo
+descrive vivono in **due blocchi diversi**, a diecimila righe di distanza, e
+fino alla 102ª nessuno aveva mai aperto le prose: il progetto aveva letto i
+1.141 nomi da soli. Il difetto non era *dentro* un dato, era **fra due dati che
+nessuno aveva mai messo vicini**.
+
+⭐ **Conseguenza operativa: le 1.144 prose di `db_card.hsp` sono un banco di
+prova per i nomi già resi, non solo lavoro nuovo.** Ogni carta descrive una
+creatura il cui nome è già inchiodato, e ogni volta che la descrizione e il
+nome litigano, litigano per una ragione. Vale la pena leggerli insieme, ed è
+esattamente quello che fa `scratchpad/_102-dossier.py`.
+
+### ⭐⭐⭐ Tre carte hanno l'inglese di un'altra carta
+
+`:4125` in giapponese è la **mandragora zappatrice**, che picchia le cosce
+altrui con una bardana sbucciata. In inglese è il **cavallo di cetriolo**, cioè
+`:4112`. E la prova che non è una coincidenza è più forte del sospetto:
+l'inglese di `:4125` è la resa **più completa** del giapponese di `:4112`, con
+in coda la frase sul sudore che l'inglese di `:4112` **non ha**. Monte ha
+tradotto due volte la stessa carta, la seconda meglio della prima, e ha scritto
+la seconda nel blocco sbagliato.
+
+Da lì `scratchpad/_103-inglese-ripetuto.py`, che guarda tutte e **1.146** le
+voci del file in un colpo. Ne trova **tre**, senza un falso positivo:
+
+    :4112 / :4125   il cavallo di cetriolo -> la mandragora zappatrice
+    :6959 / :6972   il passero in stormo   -> il mostro spaghetto di un altro astro
+    :9637 / :9624   la coccinella antica   -> l'ente che sorveglia Nefia
+
+⚠️ **La rete 13 dei lotti non poteva trovarli**, e va detto perché: confronta
+gli inglesi **dentro la zona** del lotto. `:4112` e `:4125` sono caduti nella
+stessa zona per fortuna; `:6959`/`:6972` e `:9624`/`:9637` pure. Ma se una
+coppia cadesse a cavallo di due lotti passerebbe liscia. Il confronto giusto è
+su tutto il file, e adesso c'è.
+
+### ⚠️⚠️ Una soglia si sceglie misurando quanto rumore fa, non a occhio
+
+`_103-inglese-ripetuto` gira in due passate: uguaglianza esatta, poi
+somiglianza fra **insiemi di parole**. La prima soglia scelta per la seconda
+passata era **0,60**, che sembrava prudente. A 0,60 la coppia che ha fatto
+nascere la rete **sfugge**: `:4112` e `:4125` si somigliano solo al **30%**,
+perché monte le ha riscritte con altre parole (*an ego in a cucumber* contro
+*its soul in a cucumber*).
+
+Scendendo a **0,30** le coppie restano **tre**: il rumore non è cresciuto di
+una. Cioè la soglia prudente non era prudente, era solo alta — e il costo di
+abbassarla era zero. ⚠️ La lezione: una soglia non si giudica da quanto sembra
+severa, si giudica **puntandola dove il difetto c'è di sicuro** e poi contando
+quanto sporco tira dentro.
+
+⭐ E il secondo filtro **lavora davvero, non avanza**: le cameriere demoniache
+`:4021` e `:4034` hanno l'inglese al **36%**, cioè sopra la soglia, e a fermarle
+è il giapponese al **42%**. Senza quel filtro il referto conterrebbe tutte le
+famiglie di carte scritte a formula.
+
+### ⚠️⚠️ Due misure della stessa cosa che non tornano sono peggio di una misura sola
+
+`scratchpad/_103-carte-a-rischio.py` serve a scegliere **quali carte far vedere
+a schermo**, ordinandole per i due modi in cui il taglio del pannello si rompe.
+La prima stesura rifaceva l'impaginazione da capo e dava righe medie intorno a
+**52**, dove `_102-carta-conoscenza` dice **68,4**.
+
+La differenza era l'**ultima riga**, che finisce dove finisce il testo ed è
+corta per costruzione: la rete la scarta (`piene = r[:-1]`), la mia copia no.
+Non era un dettaglio estetico — con quei numeri lo strumento diceva che decine
+di carte erano sotto la soglia dei 61 caratteri, cioè che stavano perdendo la
+coda, mentre non ne perdeva nessuna.
+
+⚠️ **Corretto importando `impagina` e `degrada` dalla rete** invece di
+riscriverle. Regola generale: quando serve la stessa misura in due posti, si
+importa. Una seconda copia diverge in silenzio, e la copia sbagliata è quella
+nuova — che non ha alle spalle le sessioni che hanno creduto all'altra.
+
+### ⭐ Il collaudo delle carte ha una strada molto più corta di quella della 102ª
+
+La 102ª aveva costruito una lista giusta ma lunga: generare una `blank card`,
+raccoglierla, lanciarla addosso a una creatura viva, ammazzarla, andare sulla
+casella, raccogliere la carta. Sei passi.
+
+`*wish_card` (`command.hsp:5085`) fa tutto in uno: crea una carta con
+`INV_ITEM_SUB_NAME` già scritto (`:5091`), cioè il ramo di `:16019` scatta e il
+pannello si apre.
+
+⚠️ **E la parola chiave del desiderio è tradotta**, quindi nella build italiana
+non si scrive `card`: si scrive **`carta`**. Sta in `command.hsp:4846`, dentro
+una `lang()`, e in `module.hsp` le tre righe di `fix_wish` che spogliano
+l'input (`carta di `, `carta `, `carta`) le ha aggiunte il progetto.
+Verificato **nella build**, non nel sorgente di monte.
+
+⚠️ Il nome da scrivere dopo è quello **italiano** della creatura, perché
+`*wish_monster` (`:5147`) cerca dentro `DBSPEC_CHARA_NAME_ORG`, che nella build
+è tradotto; e `instr` è una sottostringa, quindi l'articolo si può omettere.
+La bacchetta è `spawn_item 290` (`ITEM_ID_ROD_WISHING`, `defines/mod.hsp:5035`)
+e si agita con `Z` — `key_zap` nel `config.txt` **del giocatore**, non il
+default.
+
+### ⚠️ Il referto dei participi ha preso una resa di oggi, in chiusura
+
+Rilanciando la catena, `referti.py` è passato da **9** a **10**: il nuovo era
+`db_card.hsp:3423`, «se **sei abituato** al Cub», che a una giocatrice suona
+sbagliato. Riscritto in «se il Cub lo conosci già», referto di nuovo a 9.
+
+⚠️ E l'eseguibile è stato **ricompilato dopo**: una lista di collaudo che punta
+a un eseguibile più vecchio della correzione è la trappola dell'11 agosto, e
+costa venti minuti a cercare un difetto che non c'è.

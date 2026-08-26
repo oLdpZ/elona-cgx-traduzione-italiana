@@ -168,7 +168,7 @@ RESE = {
     # ⚠️⚠️ カブ e' **il Cub**, corretto oggi: vedi la testa di questo file e
     #     `scratchpad/correzione-cub.py`. Qui il nome compare due volte.
     (3423, "It's a member of the cubs but it's large and capable of considerable speed. It has a shorter lifespan than a cub and is grumpy and rough. It's a relative pain in the ass but if you're used to cubs and are looking for speed it's a good idea to keep one."):
-        "È della famiglia del Cub, ma è grossa e sa tirare fuori una bella velocità. Rispetto al Cub ha vita più breve, ed è permalosa e ruvida. Dà il suo daffare, ma se sei abituato al Cub e quello che cerchi è la velocità, tenerne una può valere la pena.",
+        "È della famiglia del Cub, ma è grossa e sa tirare fuori una bella velocità. Rispetto al Cub ha vita più breve, ed è permalosa e ruvida. Dà il suo daffare, ma se il Cub lo conosci già e quello che cerchi è la velocità, tenerne una può valere la pena.",
 
     # ---------------------------------------------------------- :3436 <Halion> l'estremista
     (3436, 'For better or worse this young man is a straightforward Elean. Admiring his late father who had a strong sense of justice he was a member of the forest vigilante group. In the past when armies from various countries invaded the forest they formed an impromptu interdiction squad and steadfastly resisted until the end.'):

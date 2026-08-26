@@ -1261,6 +1261,48 @@ Bank», cioè lo stesso nome due volte. In italiano i due nomi restano due.
   **colomba** ed è un **falco**. Rendere `鳩` con «piccione» avrebbe spento la
   battuta a fine carta.
 
+## `db_card.hsp`, decisi il 2026-08-26 dalla 103ª — i lotti 7-10
+
+⚠️ Vale la premessa della 102ª: qui stanno solo le parole che un nome **non
+ce l'avevano**. Con una eccezione, la prima, che è invece la correzione di un
+nome che ce l'aveva ed era sbagliato.
+
+| giapponese | inglese di monte | italiano | perché |
+|---|---|---|---|
+| カブ | `cub` | **il Cub** | ⚠️⚠️ **correzione di un nome già reso.** Diceva «il cucciolo», dall'inglese `cub` preso alla lettera nella fase dei nomi. La sua carta lo smentisce: 機械の馬, «un cavallo meccanico robusto e che consuma poco» (`:13955`). È la Honda Super Cub, e `:3423` presenta «la moto grossa» come sua parente. Sei voci corrette in quattro dizionari da `scratchpad/correzione-cub.py`; `カブ=トライズ` diventa **il Cub Toraizu** |
+| ハム将軍 | `General Ham` | **il criceto generale** | occorrenza **unica** in tutto il sorgente, e sta dentro la prosa di `:4788`: non c'è nessun nome da rispettare. Segue il fratello maggiore `ハム大老` → «il criceto gran anziano» |
+| サイロニア | `Cyronia` | **Cyronia** | il regno antico di `:3774`, dove salire in groppa all'insetto coronato era il rito di successione. Occorrenza unica |
+| 三途の川 | `Sanzu River` | **il fiume Sanzu** | `:3761` e `:3839`. Non si italianizza in «Stige»: il mondo dei morti di Elona ha già un lessico suo |
+| 冥海 | `the Underworld` | **il mare dei morti** | dove finisce il fiume Sanzu (`:3839`). ⓘ Il `冥海魔オルチヌス` era già reso «il demone marino Orcinus», e la prosa non lo tocca |
+| シズルコード | `the Ssil Code` | **il Codice di Ssil** | `:4580` lo battezza, `:5022` lo cita. ⚠️ Il giapponese chiama la strega `シズル`, ma il nome della carta è già `<Ssil>`: il libro porta **quel** nome, non una traslitterazione nuova |
+| 竜人 | `dragon man` | **l'uomo lucertola** | nella prosa segue il nome della razza (`db_race.hsp:911`), non i nomi delle singole carte, che alternano «dragonewt» e «lucertola» |
+| ショクパンヨリフランスパン | `shoku panyori French bread` | **megliobaguettechepancarré** | ⚠️ **coniato qui.** È il materiale superduro di cui è fatto lo spirito del pane (`:4931`), e in giapponese è già una parola-scherzo. ⚠️⚠️ Dopo `degrada()` sono **27 caratteri**, e la finestra in cui il taglio del pannello cerca uno stacco ne è **15**: oggi cade in un punto che regge, ma è la stringa più fragile del progetto. Se `_102-carta-conoscenza` dovesse mai segnalare una parola spezzata in `db_card`, è la prima da guardare |
+
+### ⚠️ `ヴァリウス` è **Barius**, anche dove l'inglese scrive «Vallius»
+
+`:3345` e `:3696` lo chiamano *Vallius*. È lo stesso personaggio di
+`chat.hsp:13927` e `db_creature.hsp:55752`, dove l'inglese di monte dice *Lord
+Barius* e il progetto ha reso **Barius**. Vince il nome che il giocatore legge
+quando gli parla, non quello che monte ha scritto qui.
+
+### Tre bisticci persi, e uno tenuto di peso
+
+- ⭐ **Tenuto.** `:4697` chiude su 全ては亀のみぞ…もとい、神のみぞ知る: la
+  **tartaruga** infilata al posto del **dio** nel modo di dire. In italiano
+  «lo sa soltanto la tartaru... pardon, soltanto il cielo» fa lo stesso scherzo
+  con le stesse parole, ed è raro che capiti.
+- **Persi, e tutti e tre stanno nel nome, non nella prosa.** `イリス` è la dea
+  Iris dentro リス (scoiattolo); `テロリス` è テロリスト col medesimo innesto;
+  `ブルーブル` incastra ブルー (avvilito), ブルブル震える (tremare) e la
+  ブルーバブル che la carta nomina in coda. I nomi erano già resi: la prosa non
+  ci prova e non spiega.
+- **Perso senza rimedio.** `:3878`: la stella marina sale a terra perché ha
+  saputo che lassù è popolare un ハムスター — che finisce in **スター**. In
+  italiano «criceto» non contiene «stella». Si tiene il criceto, che è una
+  creatura del gioco e quindi verificabile, e si lascia cadere il bisticcio.
+  ⓘ L'inglese di monte aveva risolto togliendo il criceto: così la carta non
+  dice più niente.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,
