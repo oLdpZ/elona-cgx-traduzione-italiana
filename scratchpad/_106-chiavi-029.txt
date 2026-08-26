@@ -1,0 +1,153 @@
+    # ---------------------------------------------------------- :14111
+    (14111, "It was born when the grudges of pumpkins that were thrown away because they were not eaten gathered together to form the shape of a pumpkin again. Perhaps that's why it doesn't taste like a pumpkin when you eat it. in October, tension rises and the smile never ceases to grow."):
+        "",
+
+    # ---------------------------------------------------------- :14124
+    (14124, 'An aggregate of the grudges of unwanted children buried in the darkness. They take in those in the same situation as themselves, and then, in the darkness, clear out their resentment one after the other.'):
+        "",
+
+    # ---------------------------------------------------------- :14137
+    (14137, 'The grudge of an old man, once called a hermit, buried in darkness. The methods he mastered during his life for eliminating signs have not diminished, and no half-hearted adventurer will be able to capture them.'):
+        "",
+
+    # ---------------------------------------------------------- :14150
+    (14150, 'A giant who used to rule the labyrinth. He is always shivering in the snowy weather without being given any warm clothing, on the theory that he is a fire giant so he should be fine even if it is a little cold.'):
+        "",
+
+    # ---------------------------------------------------------- :14163
+    (14163, 'He buys the giants that used to be the masters of the Belon labyrinth and makes a spectacle of them. Due to sloppy management, the giants are often unleashed as a prank and, as a result, he is often the first to be burnt.'):
+        "",
+
+    # ---------------------------------------------------------- :14176
+    (14176, 'There is concern that quality is declining as a result of recent cheapening. In Irva, even men are called maids. No matter how strong the adventurer, they have the determination not to let their master enter the doorway until he says he will see them.'):
+        "",
+
+    # ---------------------------------------------------------- :14189
+    (14189, 'Additional armaments improve their mobility and defence, and they are often more powerful than elite machine soldiers, despite being petit. To prevent them from getting lost, they use joints when marching and run like a train.'):
+        "",
+
+    # ---------------------------------------------------------- :14202
+    (14202, 'Innocent and straightforward, she run around and follows strangers. Sometimes she is badly beaten up by bad adventurers, but she still follows them to this day. What fate awaits her in the future...'):
+        "",
+
+    # ---------------------------------------------------------- :14215
+    (14215, 'Her mother contracted ether disease, and while she spent all her time looking after her, she missed the opportunity to play with children her own age and became isolated. She puts her mother above all else.'):
+        "",
+
+    # ---------------------------------------------------------- :14228
+    (14228, 'She was raising her only daughter by herself after her husband was eaten by putits. However, she was not immune to the ether as much as other people, and one day she fell ill with ether disease.'):
+        "",
+
+    # ---------------------------------------------------------- :14241
+    (14241, "Port Kapul's womanizer. He has a tragic backstory of not having the love of his mother when he was a child and looks for her in married women. Many people sympathise with him, but he remains an annoying, erotic old man."):
+        "",
+
+    # ---------------------------------------------------------- :14254
+    (14254, 'Once he properly challenged the target for elimination, but failed miserably due to the stress caused by the strain of the promotion exam. He is now traumatised by the yeeks and has nightmares every time he sleeps.'):
+        "",
+
+    # ---------------------------------------------------------- :14267
+    (14267, 'He was injured in the onslaught of the Kamikaze suicide attack. His injuries at the time had long since healed, but he was reassigned and this time he was sent to defeat mutants, which resulted in constant injuries.'):
+        "",
+
+    # ---------------------------------------------------------- :14280
+    (14280, 'As much as she loves cats, she is famous for being a bratty girl. Her true nature is... oh? Someone is knocking on my door.'):
+        "",
+
+    # ---------------------------------------------------------- :14293
+    (14293, 'She suffered a mental breakdown after the suicide of her younger sister, whose dreams were dashed. She is on a retreat, watching the beautiful Lumiest scenery and attending parties as a distraction. '):
+        "",
+
+    # ---------------------------------------------------------- :14306
+    (14306, "A thief of rare distinction, he was even described as a thief who could steal anything. He is the third Marks, as his grandfather Marks was also a renowned thief. He is forced to wear a mask that has been cut in half, as he is still only half a man in his father's eyes."):
+        "",
+
+    # ---------------------------------------------------------- :14319
+    (14319, 'Her life has always been coloured by the flames of explosions and she now instinctively seeks fire. She makes bombs today in order to one day engulf everything in flames.'):
+        "",
+
+    # ---------------------------------------------------------- :14332
+    (14332, "A serious soldier who is concerned about Palmia's national security. He asks adventurers he sees to help him defeat dangerous individuals. He is feared by his subordinates because he has a very angry temper."):
+        "",
+
+    # ---------------------------------------------------------- :14345
+    (14345, "Stingy pickpocket apprenticeship. No matter what type of work you do, it's hard to get an apprenticeship. He is a fool who, perhaps lacking confidence in his own skills, returns to check on the result after he has already done the job."):
+        "",
+
+    # ---------------------------------------------------------- :14358
+    (14358, 'Bandit who uses force to extort gold. They are quite annoying, as they forcefully take the money and then persistently follow you to see if you still have it. '):
+        "",
+
+    # ---------------------------------------------------------- :14371
+    (14371, 'Professional thief with numerous experiences. Very well-spoken as a result of continually selling dubious goods obtained by stealing. '):
+        "",
+
+    # ---------------------------------------------------------- :14384
+    (14384, 'A spirit life-form that arrived from another planet. It is said to have taken over the body of a conical life-form that currently inhabits Irva and has sealed its natural enemy species deep underground.'):
+        "",
+
+    # ---------------------------------------------------------- :14397
+    (14397, 'The fertility mother goddess of the Otherworld, also known as the Black Goat of the Forest, who conceives a thousand pups. She has a history of withdrawing after a fierce battle with Kumiromi, and currently sends her weak alter ego to watch over her.'):
+        "",
+
+    # ---------------------------------------------------------- :14410
+    (14410, 'A giant who was banished to the depths of underground when he incurred the wrath of the gods. As a result of adapting to life in the narrow subterranean depths, they became somewhat smaller when they returned to the surface.'):
+        "",
+
+    # ---------------------------------------------------------- :14423
+    (14423, 'In the distant past, the pagan Virgin and Child were oppressed as pagans and died by fire. The god despised as an evil god added the power of the spiral to their grudge and created the dreaded King of Monsters.'):
+        "",
+
+    # ---------------------------------------------------------- :14436
+    (14436, 'Free-spirited stray fairy. She confuses passer-by travellers with illusions and steals their wallets. Enjoys watching them panic.'):
+        "",
+
+    # ---------------------------------------------------------- :14449
+    (14449, 'A part of the Yacatect of Wealth and her servant. A goose with shining white fur, it lays eggs filled with platinum coins when it is full. There are no platinum lumps in its body.'):
+        "",
+
+    # ---------------------------------------------------------- :14462
+    (14462, 'A part of the Ehekatl of Luck and her servant. A lustrous black cat with shiny jet-black fur. It is said that any armour licked by this cat is blessed by Ehekatl and given new powers.'):
+        "",
+
+    # ---------------------------------------------------------- :14475
+    (14475, 'Part of the Kumiromi of Harvest and his servant. A fairy who looks like something out of a fairy tale. Reincarnates food and produces crop seeds.'):
+        "",
+
+    # ---------------------------------------------------------- :14488
+    (14488, 'A part of and servant of the Mani of Machines. It is frequently improved by Mani, with the latest versions having sturdier armour.'):
+        "",
+
+    # ---------------------------------------------------------- :14501
+    (14501, 'Part of Lulwy of Wind and her servant. A beautiful angel with black wings and dress, but like her Lord, she is erotic, sadistic and egotistical.'):
+        "",
+
+    # ---------------------------------------------------------- :14514
+    (14514, 'Part of the Itzpalt of Element and his servant. A robed wizard. When they practised magic of other attributes in preference to elemental magic, Itzpalt were angered, and they are banished.'):
+        "",
+
+    # ---------------------------------------------------------- :14527
+    (14527, 'Part of the Opatos of Earth and his servant. A beautiful blonde female knight who looks as if she were spun from a thread made of gold itself. She has a physical strength that is unimaginable from her slender appearance.'):
+        "",
+
+    # ---------------------------------------------------------- :14540
+    (14540, 'Part of the Jure of Healing and her servant. Even when driven to the brink of death, he continues to protect his friends with his body as the only shield.'):
+        "",
+
+    # ---------------------------------------------------------- :14553
+    (14553, 'A wild mongrel horse that seems to have escaped from somewhere. Although they are derided as spoiled horses, they would make excellent companions for fledgling adventurers with limited riding skills.'):
+        "",
+
+    # ---------------------------------------------------------- :14566
+    (14566, 'A wild horse that has been in the Irva for a long time. Many improved breeds, such as the Noyel horse and the Yowyn horse, have been created from this breed, and it can be said to be the origin of all horses.'):
+        "",
+
+    # ---------------------------------------------------------- :14579
+    (14579, 'Horses bred to adapt to the cold climate of Noyel. Their legs have evolved to allow them to move nimbly through snowfields, and they can run faster than their wild counterparts.'):
+        "",
+
+    # ---------------------------------------------------------- :14592
+    (14592, 'A horse bred in Yowyn. They are known for their strength, strength and speed, and their meat is also prized as a tasty foodstuff that is good for the soul.'):
+        "",
+
+# 38 voci fra la riga 14101 e la 14600, 0 ambigue

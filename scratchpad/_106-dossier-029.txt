@@ -1,0 +1,267 @@
+--- db_card.hsp:14111   CREATURE_ID_HALLOWEEN_NIGHTMARE   creatura 198
+    NOME  jp ハロウィンナイトメア
+          en halloween nightmare
+          IT l'incubo di Halloween
+    JP    食べられず捨てられた南瓜の怨念が集まり再度南瓜の形を形成して生まれた。そのせいか、食べても南瓜の味がしない。１０月になるとテンションが上がり、笑顔が絶えなくなる。
+    EN    It was born when the grudges of pumpkins that were thrown away because they were not eaten gathered together to form the shape of a pumpkin again. Perhaps that's why it doesn't taste like a pumpkin when you eat it. in October, tension rises and the smile never ceases to grow.
+
+--- db_card.hsp:14124   CREATURE_ID_STALKER   creatura 199
+    NOME  jp 闇子
+          en stalker
+          IT il figlio del buio
+    JP    闇に葬られた、望まれなかった子供達の怨念の集合体。自分と同じ境遇のモノを取り込んでは、闇に紛れてその恨みを次々と晴らしてゆく。
+    EN    An aggregate of the grudges of unwanted children buried in the darkness. They take in those in the same situation as themselves, and then, in the darkness, clear out their resentment one after the other.
+
+--- db_card.hsp:14137   CREATURE_ID_SHADOW_STALKER   creatura 200
+    NOME  jp 闇の老師
+          en shadow stalker
+          IT l'eremita del buio
+    JP    闇に葬られた、かつては仙人と呼ばれたこともあった老人の怨念。生前習得した気配を消す法は衰えておらず、生半な冒険者では捉えることもできないだろう。
+    EN    The grudge of an old man, once called a hermit, buried in darkness. The methods he mastered during his life for eliminating signs have not diminished, and no half-hearted adventurer will be able to capture them.
+
+--- db_card.hsp:14150   CREATURE_ID_EBON_THE_FIRE_GIANT   creatura 202
+    NOME  jp 火の巨人『エボン』
+          en <Ebon> the fire giant
+          IT <Ebon> il gigante di fuoco
+    JP    かつては迷宮を支配していたという巨人。火の巨人だから多少寒くても大丈夫だろうという理屈で雪の降る中、防寒具も与えてもらえずにいつも震えている。
+    EN    A giant who used to rule the labyrinth. He is always shivering in the snowy weather without being given any warm clothing, on the theory that he is a fire giant so he should be fine even if it is a little cold.
+
+--- db_card.hsp:14163   CREATURE_ID_MOYER_THE_CROOKED   creatura 203
+    NOME  jp 見世物屋の『モイアー』
+          en <Moyer> the crooked
+          IT <Moyer> l'imbonitore
+    JP    ベロンの迷宮の主であった巨人を買い取り見世物にしている。管理がずさんなためイタズラで巨人を解き放たれ、結果、真っ先に燃やされることが多い。
+    EN    He buys the giants that used to be the masters of the Belon labyrinth and makes a spectacle of them. Due to sloppy management, the giants are often unleashed as a prank and, as a result, he is often the first to be burnt.
+
+--- db_card.hsp:14176   CREATURE_ID_MAID   creatura 205
+    NOME  jp メイド
+          en maid
+          IT la domestica
+    JP    最近の安売りの結果、質の低下が懸念されている。なお、イルヴァでは男性であってもメイドと呼ぶ。どんな屈強な冒険者であろうと、主人が会うと言うまで玄関に入らせない気丈さを持つ。
+    EN    There is concern that quality is declining as a result of recent cheapening. In Irva, even men are called maids. No matter how strong the adventurer, they have the determination not to let their master enter the doorway until he says he will see them.
+
+--- db_card.hsp:14189   CREATURE_ID_PUTIT_TANK   creatura 212
+    NOME  jp プチタンク
+          en putit tank
+          IT il putit corazzato
+    JP    追加武装で機動力と防御力が向上しており、プチなのにエリート機械兵より戦力になる場合も多い。迷子にならないよう、行軍の際はジョイントを用いて列車のように連結走行する。
+    EN    Additional armaments improve their mobility and defence, and they are often more powerful than elite machine soldiers, despite being petit. To prevent them from getting lost, they use joints when marching and run like a train.
+
+--- db_card.hsp:14202   CREATURE_ID_GWEN_THE_INNOCENT   creatura 213
+    NOME  jp 無邪気な少女『グウェン』
+          en <Gwen> the innocent
+          IT <Gwen> l'innocente
+    JP    無邪気で素直なため、知らない人についていってしまう。悪い冒険者にひどい目に遭わされることもあるが、それでも今日もついていく。その先に待つ運命は…。
+    EN    Innocent and straightforward, she run around and follows strangers. Sometimes she is badly beaten up by bad adventurers, but she still follows them to this day. What fate awaits her in the future...
+
+--- db_card.hsp:14215   CREATURE_ID_LONELY_PAEL   creatura 221
+    NOME  jp ひとりぼっちの『パエル』
+          en Lonely <Pael>
+          IT <Pael> la solitaria
+    JP    母親がエーテル病に罹患してしまい、その看病に明け暮れる内に同年代の子と遊ぶ機会を逃し孤立してしまった。母親のことを他の何よりも優先する。
+    EN    Her mother contracted ether disease, and while she spent all her time looking after her, she missed the opportunity to play with children her own age and became isolated. She puts her mother above all else.
+
+--- db_card.hsp:14228   CREATURE_ID_PAELS_MOM_LILY   creatura 222
+    NOME  jp パエルの母『リリィ』
+          en Pael's mom <Lily>
+          IT <Lily> la madre di Pael
+    JP    夫がプチに食べられてしまったため女手一つで一人娘を育てていた。だが、人一倍エーテルに免疫がなかったようである日エーテル病で倒れてしまう。
+    EN    She was raising her only daughter by herself after her husband was eaten by putits. However, she was not immune to the ether as much as other people, and one day she fell ill with ether disease.
+
+--- db_card.hsp:14241   CREATURE_ID_RAPHAEL_THE_WOMANIZER   creatura 223
+    NOME  jp 女たらしの『ラファエロ』
+          en <Raphael> the womanizer
+          IT <Raphael> il donnaiolo
+    JP    ポート・カプールの好色男。幼少時母親の愛を得られなかった気の毒な過去があり、母の面影を人妻の中に探している。同情する人も多いが、迷惑なエロオヤジであることに変わりはない。
+    EN    Port Kapul's womanizer. He has a tragic backstory of not having the love of his mother when he was a child and looks for her in married women. Many people sympathise with him, but he remains an annoying, erotic old man.
+
+--- db_card.hsp:14254   CREATURE_ID_AINC_THE_NOVICE_KNIGHT   creatura 224
+    NOME  jp 見習い騎士『アインク』
+          en <Ainc> the novice knight
+          IT <Ainc> il cavaliere novizio
+    JP    一度はちゃんと討伐対象に挑んだのだが、昇格試験の緊張からくるストレスで惨敗した。現在はイークがトラウマになっており、眠るたびに悪夢にうなされる。
+    EN    Once he properly challenged the target for elimination, but failed miserably due to the stress caused by the strain of the promotion exam. He is now traumatised by the yeeks and has nightmares every time he sleeps.
+
+--- db_card.hsp:14267   CREATURE_ID_ARNORD_THE_INJURED_SOLDIER   creatura 243
+    NOME  jp 負傷兵『アーノルド』
+          en <Arnord> the injured soldier
+          IT <Arnord> il soldato ferito
+    JP    カミカゼ特攻隊の猛攻により負傷した。その時の怪我はとっくに治ったのだが、配置転換で今度は変異種討伐に駆り出されるようになり怪我が絶えない。
+    EN    He was injured in the onslaught of the Kamikaze suicide attack. His injuries at the time had long since healed, but he was reassigned and this time he was sent to defeat mutants, which resulted in constant injuries.
+
+--- db_card.hsp:14280   CREATURE_ID_MIA_THE_CAT_FREAK   creatura 247
+    NOME  jp 猫かぶり『ミーア』
+          en <Mia> the cat freak
+          IT <Mia> la finta ingenua
+    JP    猫が大好きであるということと同じくらい、ぶりっ子であるということが有名。その本性は…おや？こんな時間に誰か来たみたいだ。
+    EN    As much as she loves cats, she is famous for being a bratty girl. Her true nature is... oh? Someone is knocking on my door.
+
+--- db_card.hsp:14293   CREATURE_ID_RENTON_THE_SUFFERING_WIZARD   creatura 252
+    NOME  jp 悩める魔術士『レントン』
+          en <Renton> the suffering wizard
+          IT <Renton> il mago tormentato
+    JP    夢破れた妹の自害がきっかけで精神を病んでしまった。気晴らしに美しいルミエストの景色を観たり、パーティーに参加するなどして静養中。
+    EN    She suffered a mental breakdown after the suicide of her younger sister, whose dreams were dashed. She is on a retreat, watching the beautiful Lumiest scenery and attending parties as a distraction. 
+
+--- db_card.hsp:14306   CREATURE_ID_MARKS_THE_GREAT_THIEF   creatura 253
+    NOME  jp 稀代の泥棒『マークス』
+          en <Marks> the great thief
+          IT <Marks> il ladro leggendario
+    JP    盗めぬものは無いとまで称された稀代の大泥棒。祖父マークスもまた高名な泥棒であったため、彼は三代目マークスに当たる。父親から言わせればまだ半人前であるらしく、半分になった仮面をつけさせられている。
+    EN    A thief of rare distinction, he was even described as a thief who could steal anything. He is the third Marks, as his grandfather Marks was also a renowned thief. He is forced to wear a mask that has been cut in half, as he is still only half a man in his father's eyes.
+
+--- db_card.hsp:14319   CREATURE_ID_NOEL_THE_BOMBER   creatura 259
+    NOME  jp 爆弾魔『ノエル』
+          en <Noel> the bomber
+          IT <Noel> la dinamitarda
+    JP    彼女の人生は常に爆炎に彩られており、今や本能的に炎を求めている。いつかすべてを爆炎に包み込むため、彼女は今日も爆弾を作る。
+    EN    Her life has always been coloured by the flames of explosions and she now instinctively seeks fire. She makes bombs today in order to one day engulf everything in flames.
+
+--- db_card.hsp:14332   CREATURE_ID_CONERY_PALMIAN_MAJOR_GENERAL   creatura 301
+    NOME  jp パルミア少将『コネリー』
+          en <Conery> Palmian major general
+          IT <Conery> il generale di Palmia
+    JP    パルミアの国防を憂いている生真面目な軍人。見込んだ冒険者に、危険分子の討伐を依頼している。かなり怒りっぽいので部下からは恐れられている。
+    EN    A serious soldier who is concerned about Palmia's national security. He asks adventurers he sees to help him defeat dangerous individuals. He is feared by his subordinates because he has a very angry temper.
+
+--- db_card.hsp:14345   CREATURE_ID_THIEF   creatura 214
+    NOME  jp 見習い盗賊
+          en thief
+          IT il ladro
+    JP    ケチなスリの見習い。どんな職種であれ、下積みというのは辛いものである。自らの腕に自信が無いのか、一度スった後でも確認のため再度戻ってきてしまう間抜け。
+    EN    Stingy pickpocket apprenticeship. No matter what type of work you do, it's hard to get an apprenticeship. He is a fool who, perhaps lacking confidence in his own skills, returns to check on the result after he has already done the job.
+
+--- db_card.hsp:14358   CREATURE_ID_ROBBER   creatura 215
+    NOME  jp 強盗
+          en robber
+          IT il rapinatore
+    JP    力に物を言わせて金を強奪する、ピンの盗賊。強引に金を奪い取っては、まだ持っているだろうとしつこく付きまとってくるため、かなり鬱陶しい。
+    EN    Bandit who uses force to extort gold. They are quite annoying, as they forcefully take the money and then persistently follow you to see if you still have it. 
+
+--- db_card.hsp:14371   CREATURE_ID_MASTER_THIEF   creatura 217
+    NOME  jp マスターシーフ
+          en master thief
+          IT il ladro maestro
+    JP    数々の経験を積んだ盗みのプロフェッショナル。盗みで手に入れた怪しげな商品を売り続けた結果、非常に口が上手い。
+    EN    Professional thief with numerous experiences. Very well-spoken as a result of continually selling dubious goods obtained by stealing. 
+
+--- db_card.hsp:14384   CREATURE_ID_GREAT_RACE_OF_YITH   creatura 216
+    NOME  jp イスの偉大なる種族
+          en great race of Yith
+          IT la Grande Razza di Yith
+    JP    別の惑星から到来した精神生命体。現在はイルヴァに生息していた円錐生命体の肉体を乗っ取っており、その天敵たる種族を地中深くに封じているという。
+    EN    A spirit life-form that arrived from another planet. It is said to have taken over the body of a conical life-form that currently inhabits Irva and has sealed its natural enemy species deep underground.
+
+--- db_card.hsp:14397   CREATURE_ID_SHUB_NIGGURATH   creatura 218
+    NOME  jp シュブ＝ニグラス
+          en Shub-Niggurath
+          IT la Shub-Niggurath
+    JP    千の仔を孕みし森の黒山羊とも呼ばれる異界の豊穣の母神。クミロミとの激闘の末に撤退した過去があり、現在は弱々しい分身を送り込んでは様子見をしている。
+    EN    The fertility mother goddess of the Otherworld, also known as the Black Goat of the Forest, who conceives a thousand pups. She has a history of withdrawing after a fierce battle with Kumiromi, and currently sends her weak alter ego to watch over her.
+
+--- db_card.hsp:14410   CREATURE_ID_GAGU   creatura 219
+    NOME  jp ガグ
+          en gagu
+          IT il gug
+    JP    神々の怒りに触れ地底に追放された巨人。狭い地底での暮らしに適応した結果、再び地上に戻ってきたときにはやや小柄になっていた。
+    EN    A giant who was banished to the depths of underground when he incurred the wrath of the gods. As a result of adapting to life in the narrow subterranean depths, they became somewhat smaller when they returned to the surface.
+
+--- db_card.hsp:14423   CREATURE_ID_SPIRAL_KING   creatura 220
+    NOME  jp 螺旋の王
+          en spiral king
+          IT il re della spirale
+    JP    遥かな過去、邪教徒として弾圧され火刑に死した異教の聖母子。邪神と蔑まれた神が二人の怨念に螺旋の力を加え、恐ろしき魔物の王を作り出した。
+    EN    In the distant past, the pagan Virgin and Child were oppressed as pagans and died by fire. The god despised as an evil god added the power of the spiral to their grudge and created the dreaded King of Monsters.
+
+--- db_card.hsp:14436   CREATURE_ID_FAIRY   creatura 250
+    NOME  jp 妖精
+          en fairy
+          IT la fata
+    JP    自由気ままな野良妖精。通りがかった旅人に幻覚を見せて混乱させたり、財布を盗んだりする。相手が慌てふためいた姿を眺めるのが趣味。
+    EN    Free-spirited stray fairy. She confuses passer-by travellers with illusions and steals their wallets. Enjoys watching them panic.
+
+--- db_card.hsp:14449   CREATURE_ID_GOOSE   creatura 354
+    NOME  jp 白金ガチョウ
+          en goose
+          IT l'oca
+    JP    富のヤカテクトの一部にしてその下僕。輝くような白い毛並みのガチョウで、満腹になるとプラチナ硬貨の入った卵を産む。体内にプラチナの塊などはない。
+    EN    A part of the Yacatect of Wealth and her servant. A goose with shining white fur, it lays eggs filled with platinum coins when it is full. There are no platinum lumps in its body.
+
+--- db_card.hsp:14462   CREATURE_ID_BLACK_CAT   creatura 260
+    NOME  jp 黒猫
+          en black cat
+          IT il gatto nero
+    JP    幸運のエヘカトルの一部にしてその下僕。光沢のある漆黒の毛が艶めかしい黒猫。この猫に舐められた武具は、エヘカトルの祝福を受けて新たな力を授かるという。
+    EN    A part of the Ehekatl of Luck and her servant. A lustrous black cat with shiny jet-black fur. It is said that any armour licked by this cat is blessed by Ehekatl and given new powers.
+
+--- db_card.hsp:14475   CREATURE_ID_CUTE_FAIRY   creatura 261
+    NOME  jp 妖精さん
+          en cute fairy
+          IT la fatina
+    JP    収穫のクミロミの一部にしてその下僕。おとぎ話から抜け出たような姿の妖精さん。食物を転生させ作物の種を生み出す。
+    EN    Part of the Kumiromi of Harvest and his servant. A fairy who looks like something out of a fairy tale. Reincarnates food and produces crop seeds.
+
+--- db_card.hsp:14488   CREATURE_ID_ANDROID   creatura 262
+    NOME  jp アンドロイド
+          en android
+          IT l'androide
+    JP    機械のマニの一部にしてその下僕。マニによって改良がたびたび行われており、最新バージョンは頑丈な装甲を持つ。
+    EN    A part of and servant of the Mani of Machines. It is frequently improved by Mani, with the latest versions having sturdier armour.
+
+--- db_card.hsp:14501   CREATURE_ID_BLACK_ANGEL   creatura 263
+    NOME  jp 黒天使
+          en black angel
+          IT l'angelo nero
+    JP    風のルルウィの一部にしてその下僕。黒い翼とドレスを身にまとった美しい天使だが、主に似てエロティックで、サディスティックで、エゴイスティック。
+    EN    Part of Lulwy of Wind and her servant. A beautiful angel with black wings and dress, but like her Lord, she is erotic, sadistic and egotistical.
+
+--- db_card.hsp:14514   CREATURE_ID_EXILE   creatura 264
+    NOME  jp 追放者
+          en exile
+          IT l'esiliato
+    JP    元素のイツパロトルの一部にしてその下僕。ローブを纏った魔法使い。元素魔法そっちのけで他属性の魔法を練習していたところ、怒りを買って追放された。
+    EN    Part of the Itzpalt of Element and his servant. A robed wizard. When they practised magic of other attributes in preference to elemental magic, Itzpalt were angered, and they are banished.
+
+--- db_card.hsp:14527   CREATURE_ID_GOLDEN_KNIGHT   creatura 265
+    NOME  jp 黄金の騎士
+          en golden knight
+          IT il cavaliere dorato
+    JP    地のオパートスの一部にしてその下僕。金そのもので出来た糸を紡いだような美しいブロンドの女性騎士。華奢な容姿からは想像もできないほどの膂力を持つ。
+    EN    Part of the Opatos of Earth and his servant. A beautiful blonde female knight who looks as if she were spun from a thread made of gold itself. She has a physical strength that is unimaginable from her slender appearance.
+
+--- db_card.hsp:14540   CREATURE_ID_DEFENDER   creatura 266
+    NOME  jp 防衛者
+          en defender
+          IT il difensore
+    JP    癒しのジュアの一部にしてその下僕。死の渕まで追いやられたとしても、その身をただ一枚の盾として仲間を守り続ける。
+    EN    Part of the Jure of Healing and her servant. Even when driven to the brink of death, he continues to protect his friends with his body as the only shield.
+
+--- db_card.hsp:14553   CREATURE_ID_LAME_HORSE   creatura 267
+    NOME  jp 駄馬
+          en lame horse
+          IT il cavallo zoppo
+    JP    どこかから脱走したと思しき野生化した雑種の馬。駄馬と嘲られてはいるが、乗馬技術の低い駆け出しの冒険者には最高の相棒になってくれるだろう。
+    EN    A wild mongrel horse that seems to have escaped from somewhere. Although they are derided as spoiled horses, they would make excellent companions for fledgling adventurers with limited riding skills.
+
+--- db_card.hsp:14566   CREATURE_ID_WILD_HORSE   creatura 276
+    NOME  jp 野生馬
+          en wild horse
+          IT il cavallo selvatico
+    JP    イルヴァに古くから居る野生の馬。この品種を元にノイエル馬やヨウィン馬等の改良種が多く作られており、全ての馬の原点とも言える。
+    EN    A wild horse that has been in the Irva for a long time. Many improved breeds, such as the Noyel horse and the Yowyn horse, have been created from this breed, and it can be said to be the origin of all horses.
+
+--- db_card.hsp:14579   CREATURE_ID_NOYEL_HORSE   creatura 275
+    NOME  jp ノイエル馬
+          en Noyel horse
+          IT il cavallo di Noyel
+    JP    ノイエルの寒い気候に適応するように品種改良された馬。雪原を軽快に進めるように進化した脚は、野生の物より速く駆けることが出来るようになっている。
+    EN    Horses bred to adapt to the cold climate of Noyel. Their legs have evolved to allow them to move nimbly through snowfields, and they can run faster than their wild counterparts.
+
+--- db_card.hsp:14592   CREATURE_ID_YOWYN_HORSE   creatura 268
+    NOME  jp ヨウィン馬
+          en Yowyn horse
+          IT il cavallo di Yowyn
+    JP    ヨウィンで品種改良された馬。力も強く足も速いグレードの高い名馬としても知られているが、その肉も精がつく美味な食材として珍重されている。
+    EN    A horse bred in Yowyn. They are known for their strength, strength and speed, and their meat is also prized as a tasty foodstuff that is good for the soul.
+
+== 38 carte fra la riga 14101 e la 14600

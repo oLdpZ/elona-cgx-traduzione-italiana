@@ -1,0 +1,153 @@
+    # ---------------------------------------------------------- :13110
+    (13110, 'Its body radiates a dazzling golden glow. There is no end to the number of merchants who greedily target this golem in order to make a profit, and are beaten up by the mercenaries they have hired.'):
+        "",
+
+    # ---------------------------------------------------------- :13123
+    (13123, 'Golem made of mithril. Its blows are so heavy that they seem to blow away the image of mithril as strong but light. It appears to be incapable of using magic.'):
+        "",
+
+    # ---------------------------------------------------------- :13136
+    (13136, 'It is made of a substance that does not exist in Irva. There have been eyewitness accounts of this golem falling from the sky, and it has even been debated whether another world exists in the sky.'):
+        "",
+
+    # ---------------------------------------------------------- :13149
+    (13149, 'It was made using rare ores sparingly. For a long time, it was even considered the most advanced species of golem, so ordinary adventurers would not be able to stand up to it.'):
+        "",
+
+    # ---------------------------------------------------------- :13162
+    (13162, 'The crab is encased in a red, glowing flame shell. Its meat is tender and tasty, and can heal a troubled heart. Although it is fire-based, it can also live near water, just like a crab.'):
+        "",
+
+    # ---------------------------------------------------------- :13175
+    (13175, 'It is characterised by its eye-watering red body. Their saliva is flammable and reacts with the air through the frictional heat of their bite, causing it to burn instantly. Although extremely rare, there have been cases of wildfires started by drool.'):
+        "",
+
+    # ---------------------------------------------------------- :13188
+    (13188, 'They summon red, lower-level monsters and golems and spread flames in a dubious ritual. They go on a pilgrimage to the Burning Tower once a year.'):
+        "",
+
+    # ---------------------------------------------------------- :13201
+    (13201, 'The corpse of a dead warrior, still fighting. The completely weathered, scarred, white bones remind us of the years that have passed.'):
+        "",
+
+    # ---------------------------------------------------------- :13214
+    (13214, 'The wreckage of a mad warrior who wanted nothing more than to kill the strong and continue to fight until death. Even after his life was over, he was happy to fight, and continued to kill on instinct.'):
+        "",
+
+    # ---------------------------------------------------------- :13227
+    (13227, 'A fanatic who believes in a pagan god, who rules over death and decay. Those who hear these words will be greatly confused by the difference in what they believe.'):
+        "",
+
+    # ---------------------------------------------------------- :13240
+    (13240, 'Large pieces in the shape of soldiers. They often attack in numbers, so you can never be too careful. In fact, they can only move forward, so they do their best to change direction.'):
+        "",
+
+    # ---------------------------------------------------------- :13253
+    (13253, 'A large piece in the shape of a castle wall. It stands as a wall and undertakes attacks on others. Does not appear to adopt castling rules.'):
+        "",
+
+    # ---------------------------------------------------------- :13266
+    (13266, 'A large piece in the shape of a monk. Tricky pieces that wreak havoc on the board with their magic arrows, bluntness and teleportation, but they are not very flexible and fragile because they fly around.'):
+        "",
+
+    # ---------------------------------------------------------- :13279
+    (13279, "Large pawns in the shape of horse-faced knights. They specialise in long-range attacks and utilise throwing weapons to escort the king's pawns from a distance. Although factual, please don't tell him he's horse-faced."):
+        "",
+
+    # ---------------------------------------------------------- :13292
+    (13292, "Large piece in the shape of a queen. The most powerful piece, with high mobility and the ability to use two types of magic arrows. For this reason, the King is a pain in the arse. In case you are wondering, he doesn't have a kingdom."):
+        "",
+
+    # ---------------------------------------------------------- :13305
+    (13305, 'Large pawns in the shape of a king. He has an inexhaustible army and controls the battlefield with a large number of pieces. Although it has the appearance of a king, command seems to be held by another entity.'):
+        "",
+
+    # ---------------------------------------------------------- :13318
+    (13318, 'Nomadic warriors who utilise their abilities as warriors by taking part in wars. Some operate out of conviction, but many live from one position to another in order to earn wages.'):
+        "",
+
+    # ---------------------------------------------------------- :13331
+    (13331, 'Archers who use their skills as archers to make a living by taking part in conflicts. Many of them survive, as it is easy for them to flee depending on the war situation.'):
+        "",
+
+    # ---------------------------------------------------------- :13344
+    (13344, 'He makes his living by applying his knowledge as a mage to warfare. He tends to fight using both his skills as a sorcerer and a warrior in order to adapt to the war situation.'):
+        "",
+
+    # ---------------------------------------------------------- :13357
+    (13357, 'A leader of a gang of ruffians who make their living by attacking peddlers and robbing them of their goods. They carry their stolen cargo around with them to sell it, and sometimes the adventurers who attack them take their earnings.'):
+        "",
+
+    # ---------------------------------------------------------- :13370
+    (13370, "A mercenary crackpot, employed by a band of thieves for money. They are sometimes called senshi, according to an old custom. This may be because there is something appealing about the sound of 'bouncer'."):
+        "",
+
+    # ---------------------------------------------------------- :13383
+    (13383, 'Hitmen who try to get as close as possible to fire due to their short-sightedness. Some of them are very good at it and fire their guns in rapid succession.'):
+        "",
+
+    # ---------------------------------------------------------- :13396
+    (13396, 'A sorcerer in a group of ruffians who raid peddlers. He often gets angry when he inadvertently uses fire magic and burns looted goods. She performs strange rituals and dyes his skin white.'):
+        "",
+
+    # ---------------------------------------------------------- :13409
+    (13409, 'Soldiers belonging to the Yerles Military. They are supplied with mechanical equipment and focus on firearms and other weapons in combat. They are not good at close combat, perhaps because they rely too much on firearms, and soon end up calling in air supports.'):
+        "",
+
+    # ---------------------------------------------------------- :13422
+    (13422, 'Soldiers belonging to the Yerles Military, who are particularly good with firearms. They wear red-coloured equipment, but it does not mean that they are three times faster.'):
+        "",
+
+    # ---------------------------------------------------------- :13435
+    (13435, 'He leads the Juere Liberation Army blockading the progress of the Yerles soldiers. His bold laugh is an imitation of a local opus. He is not averse to machines per se, and uses the guns he has taken from the Yerles soldiers.'):
+        "",
+
+    # ---------------------------------------------------------- :13448
+    (13448, 'It was developed as a self-propelled artillery gun, but as a result of too much emphasis on low cost, it could not achieve the mobility of a self-propelled artillery gun due to insufficient power output. Nevertheless, it was deployed in actual combat and used as a fixed battery.'):
+        "",
+
+    # ---------------------------------------------------------- :13461
+    (13461, 'A common soldier in Juere. As a country that originally started as a group of bandits and bad guys, they are uncoordinated and not good at controlled movements as soldiers.'):
+        "",
+
+    # ---------------------------------------------------------- :13474
+    (13474, 'A gladiator from Juere who used to fight monsters for his life in the arena, but came to the battlefield to break free from such a situation of his own. His eyes are filled with tragic determination.'):
+        "",
+
+    # ---------------------------------------------------------- :13487
+    (13487, 'He used to be a bard for a time, but he lacked any talent and was always stoned. He turned to stone-throwing man to avenge that grudge.'):
+        "",
+
+    # ---------------------------------------------------------- :13500
+    (13500, 'A pet animal widely kept in Irva. Why they are so cute is a mystery, but they are also agile predators. Anyone who eats its flesh is struck with a strong sense of guilt.'):
+        "",
+
+    # ---------------------------------------------------------- :13513
+    (13513, "With its docile character and white, flowing coat, it is a very popular cat among house-owners. They are small in stature, and as adults they are not so different in size from kittens, but this is the result of breed 'improvement' through repeated and quite reckless crossbreeding."):
+        "",
+
+    # ---------------------------------------------------------- :13526
+    (13526, 'They are very mischievous and curious and will go away as soon as the parent cat takes its eyes off them. They often wander into dangerous places such as Nefia.'):
+        "",
+
+    # ---------------------------------------------------------- :13539
+    (13539, 'A fierce animal of the cat tribe. According to old documents, only males once had manes, but it is not known when females started to grow manes as well.'):
+        "",
+
+    # ---------------------------------------------------------- :13552
+    (13552, 'Mischievous cat god. He repeatedly seeks out the homes of cat-hating humans and fills them with cats. Note that both ordinary cats and lions are equally cats to Cacy.'):
+        "",
+
+    # ---------------------------------------------------------- :13565
+    (13565, 'Cat with a flaming red treasure ball on its forehead. It uses a strange mewing sound to deceive its prey.It is able to use magic using its gaze as a medium, perhaps due to the power of the jewel.'):
+        "",
+
+    # ---------------------------------------------------------- :13578
+    (13578, 'Dogs live in the habitat of humans. Dogs and humans have a long history, and studies have shown that they were with humans in all civilisations that died out in prehistoric times.They are said to have weaker tail muscles than wolves.'):
+        "",
+
+    # ---------------------------------------------------------- :13591
+    (13591, 'Poppy is a foolish puppy who is not afraid and keeps going deeper into Nefia. Adventurers who misjudge their own strength are just like this puppy.'):
+        "",
+
+# 38 voci fra la riga 13101 e la 13600, 0 ambigue

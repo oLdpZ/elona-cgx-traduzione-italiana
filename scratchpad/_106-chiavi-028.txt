@@ -1,0 +1,157 @@
+    # ---------------------------------------------------------- :13604
+    (13604, 'A dog-loving girl with a reputation in the neighbourhood. She loves her dog Poppy very much, but the dog seems a little depressed and sometimes escapes when she is out of sight.'):
+        "",
+
+    # ---------------------------------------------------------- :13617
+    (13617, 'A young man who hates cats. Cats are very popular creatures in Irva, so he has a narrow shoulder to lean on. He used to live in Palmia but moved to Yowyn after neighbourhood problems with Mia.'):
+        "",
+
+    # ---------------------------------------------------------- :13630
+    (13630, "Usually the term 'little girl' refers to all women who have not fully grown up. They are also common as pets in Irva, and can be bought as slaves. Escaped individuals can be captured in the wild."):
+        "",
+
+    # ---------------------------------------------------------- :13643
+    (13643, 'Small omnivorous animals. Due to their high fertility and their propensity to eat anything, they can breed in large numbers and devour crops.They are rather large and can challenge cats.'):
+        "",
+
+    # ---------------------------------------------------------- :13656
+    (13656, 'A crustacean that makes shells and other objects its temporary home. They look like crabs but are actually prawns. Some of them carry very beautiful shells on their backs, which they may have picked up from somewhere.'):
+        "",
+
+    # ---------------------------------------------------------- :13669
+    (13669, "A wandering clown tries to perform juggling. The reason he doesn't do it in the city is apparently because he fears that the citizens will ruin it. He is so focused on power that he throws all sorts of things at the audience."):
+        "",
+
+    # ---------------------------------------------------------- :13682
+    (13682, 'Although she is a queen, she dislikes wearing noble clothes because they make it difficult to move around. The cats in her household also live a carefree life and do not feel like royalty. Perhaps because they have bad memories, they run away in a hurry when you try to touch their tails.'):
+        "",
+
+    # ---------------------------------------------------------- :13695
+    (13695, 'A younger sister who is not blood-related to you. A younger sister is a younger sister because she is a younger sister, nothing more, nothing less. Therefore, she is definitely your younger sister.'):
+        "",
+
+    # ---------------------------------------------------------- :13708
+    (13708, "Your younger sister, who is not blood-related to you, sells affectionate lunches in her sister's pavilion. She is the younger sister of all the older brothers and sisters in this world. It is unclear how long both the pavilion and the person in question have existed."):
+        "",
+
+    # ---------------------------------------------------------- :13721
+    (13721, 'A non-blood related younger sister-in-law of a capricious cat family. Very curious, but therefore often injured. Dislikes static electricity when she takes off her blazer.'):
+        "",
+
+    # ---------------------------------------------------------- :13734
+    (13734, 'A naive young lady. Having grown up in a venerable family, she tries to remember elegant gestures even if there is fighting. She enjoys concocting weird medicines.'):
+        "",
+
+    # ---------------------------------------------------------- :13747
+    (13747, 'A legacy of an ancient mechanical civilisation that has endlessly defended the Castle of Chaos south of Palmia. Although every part of the machine has deteriorated over the years as it has been running for many years, it still boasts an astonishing fighting power.'):
+        "",
+
+    # ---------------------------------------------------------- :13760
+    (13760, 'He serves an old evil god. Under the name of his god, he is an abomination who has deviated from the boundaries of humanity with his impure external laws. He is now shut up in the Castle of Chaos, endlessly researching magic.'):
+        "",
+
+    # ---------------------------------------------------------- :13773
+    (13773, 'The arena was set up for pets, inspired by the way aristocrats let their pets fight private battles to satisfy their self-esteem. Although they look like beastmen, they are actually stuffed mascot characters.'):
+        "",
+
+    # ---------------------------------------------------------- :13786
+    (13786, 'A taciturn blacksmith with legendary skills. The objects he makes are rugged and uniform in form, but they are all highly practical equipment and items. He and Miral have been friends since childhood.'):
+        "",
+
+    # ---------------------------------------------------------- :13799
+    (13799, 'A cheerful blacksmith with legendary skills. He is capricious and only does work he likes, but his playful creations have many fans. Loves cats.'):
+        "",
+
+    # ---------------------------------------------------------- :13812
+    (13812, 'A cat with two tails. It is highly intelligent and was the first non-human creature confirmed to worship a deity. They do not taste like prawns when eaten.'):
+        "",
+
+    # ---------------------------------------------------------- :13825
+    (13825, 'Wolves with beautiful fur. In fact, despite its appearance, it has a milder temperament than a hound and its attacks are not as ferocious. It seems more grey than silver.'):
+        "",
+
+    # ---------------------------------------------------------- :13838
+    (13838, 'An angel in white with a passion for healing the wounded. She was too motivated to wait for the wounded to show up, and as a result she threw herself into the battlefield.'):
+        "",
+
+    # ---------------------------------------------------------- :13851
+    (13851, 'A person who has no rank but has acquired wealth and power in a variety of ways. Tales of the rise of the first generation are sometimes circulated and retold as very interesting and entertaining reading.'):
+        "",
+
+    # ---------------------------------------------------------- :13864
+    (13864, 'As they are often terrorised at the same time as making their social debut, a knowledge of combat is part of their mandatory education. Every day he looks out of the window at the children playing freely in the streets and envies them.'):
+        "",
+
+    # ---------------------------------------------------------- :13877
+    (13877, 'Driven by a strong sense of curiosity, there are people who travel around to see different parts of the country. Because they are easily distracted by objects of interest, being the victim of pickpocketing has become an everyday occurrence.'):
+        "",
+
+    # ---------------------------------------------------------- :13890
+    (13890, "They came from faraway countries after hearing about a big festival. They don't seem to attach much importance to what the festival is about, but come to enjoy the stalls and atmosphere."):
+        "",
+
+    # ---------------------------------------------------------- :13903
+    (13903, 'Mechanical soldiers excavated from ruins. A killer machine with sharp blades in both hands that mercilessly mutilate all living creatures.By inverting and transforming its arms, a humanoid hand appears, which can also hold other weapons.'):
+        "",
+
+    # ---------------------------------------------------------- :13916
+    (13916, 'A refurbished version of the Blade with improved capabilities. Only those who know the difference can tell the difference.It should be noted that a small number of the Blade series are equipped with a blade-resistant waistplate for testing purposes.'):
+        "",
+
+    # ---------------------------------------------------------- :13929
+    (13929, 'A mechanical soldier improved to more efficiently and brutally slaughter living creatures. Its body is stained red from the blood returning to it, and even its original colour is no longer recognisable.When the blade becomes dull, it breaks off by itself and a new blade grows back.'):
+        "",
+
+    # ---------------------------------------------------------- :13942
+    (13942, 'Legendary monster machine, with systems such as ABS, anti-obstacle radar and auto-navigation, plus an engine producing over 200 hp at 12,000 rpm. '):
+        "",
+
+    # ---------------------------------------------------------- :13955
+    (13955, 'Mechanical horses that are not only robust and fuel-efficient, but also have high vitality and speed. They are not handled in horse stalls because of the different way they are cared for.'):
+        "",
+
+    # ---------------------------------------------------------- :13968
+    (13968, 'Named after the dog-like appearance of the mines that it impatiently buries, adventurers who see it in the flesh usually twist their heads at its strange appearance. Has a built-in gravity generator.'):
+        "",
+
+    # ---------------------------------------------------------- :13981
+    (13981, 'A mechanical, fully automatic execution tool. When attacked, it opens a door in its torso, and then counterattacks by piercing the attacker with a sharp needle attached to its interior.'):
+        "",
+
+    # ---------------------------------------------------------- :13994
+    (13994, 'Its body is so tainted with madness that just one bite would drive it insane. It has the special ability to change the body of its opponents.'):
+        "",
+
+    # ---------------------------------------------------------- :14007
+    (14007, "It has a cloudy eye called the evil eye. Fairy hats are said to have been made to prevent physical changes caused by this monster's eye."):
+        "",
+
+    # ---------------------------------------------------------- :14020
+    (14020, 'Discharge clouds that have exhausted their energy have taken in large amounts of ether as a replacement. It is feared as an omen of disaster and bad things are reported to happen if it is chased.'):
+        "",
+
+    # ---------------------------------------------------------- :14033
+    (14033, 'It has numerous sharp needles on its back made of body hair. A mole of the same name once existed, but this one is already extinct and is a completely different species.'):
+        "",
+
+    # ---------------------------------------------------------- :14046
+    (14046, 'A hedgehog with a large amount of ether stored in its body due to its feeding habits. The needles on its back are hard but brittle, and if they puncture, they leave fragments in the body.'):
+        "",
+
+    # ---------------------------------------------------------- :14059
+    (14059, 'A popular domesticated bird because of its frequent egg-laying. Escaped individuals are often found in the wild. They have a rough temperament, but not so rough that they can repel a adventurer who messes with them.'):
+        "",
+
+    # ---------------------------------------------------------- :14072
+    (14072, 'It is a mutated form of the vegetable pumpkin. It is customary for parents to feed it to their children as the rich nutritional content is good for the brain and makes them mentally lucid.'):
+        "",
+
+    # ---------------------------------------------------------- :14085
+    (14085, 'It is a mutated form of the vegetable pumpkin. It uses its transparent appearance to throw potions from a distance, but its throwing technique is still in its infancy. This is apparently because the vines are not shaped in a way that is suitable for throwing.'):
+        "",
+
+    # ---------------------------------------------------------- :14098
+    (14098, 'A pumpkin that grew to the size of a monster developed an ego. It was named exactly as it was by a Yowyn farmer who encountered it for the first time. As a result of his carnivorous awakening and eating animals all over the place, the fruit lost its vegetable-like taste.'):
+        "",
+
+# 39 voci fra la riga 13601 e la 14100, 0 ambigue

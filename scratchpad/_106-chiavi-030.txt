@@ -1,0 +1,85 @@
+    # ---------------------------------------------------------- :14605
+    (14605, 'The best of the best horses, born after various breedings. Because of their outstanding quality, their name is often used as a synonym for the elite.'):
+        "",
+
+    # ---------------------------------------------------------- :14618
+    (14618, 'A strange creature created in ancient times by mixing the genes of several creatures. Its continuously active cells transform its body as it grows.'):
+        "",
+
+    # ---------------------------------------------------------- :14631
+    (14631, 'He is a reputed weirdo in the neighbourhood. But his brain is unquestionably genius, and although he specialises in biochemistry, he has managed to recreate and mass produce a genetic complex device that is a legacy of previous civilisations.'):
+        "",
+
+    # ---------------------------------------------------------- :14644
+    (14644, 'A cleaner who is obsessed with keeping Lumiest looking beautiful. He is troubled by the fact that his title of cleaner is sometimes mistaken for that of an assassin. In his opinion, those who litter are worth less than the rubbish they litter.'):
+        "",
+
+    # ---------------------------------------------------------- :14657
+    (14657, "A young and powerful man who governs the Mages' Guild. He spends his days deciphering grimoires. He is troubled by the recent discovery that the magic bookshop is being used by other guild members without his permission."):
+        "",
+
+    # ---------------------------------------------------------- :14670
+    (14670, "He works as a gatekeeper for the Mages' Guild and gives assignments to subscribers. He is sometimes teleported despite the fact that his equipment is not cursed and is questioned."):
+        "",
+
+    # ---------------------------------------------------------- :14683
+    (14683, "He is the head of the Thieves' Guild, which is still the darkest part of the criminal town of Derphy. His heart has been betrayed and betrayed again and again, and his mind has become closed to the darkness and he no longer trusts people."):
+        "",
+
+    # ---------------------------------------------------------- :14696
+    (14696, "Keeper of the Thieves' Guild, who guards the staircase leading to the basement in Derphy's tavern. He intends to be on constant alert, but is often in the wrong place at the wrong time."):
+        "",
+
+    # ---------------------------------------------------------- :14709
+    (14709, 'A beautiful swordsman who is the head of the Warrior Guild. Many people join the guild for her, but she is unaware of this as she has no interest in anything other than wielding a sword.'):
+        "",
+
+    # ---------------------------------------------------------- :14722
+    (14722, 'He works as a gatekeeper for the Warrior Guild and gives assignments to subscribers. Frequent teleportation situations occur without his knowledge, and it has recently become difficult for him to return to his position each time.'):
+        "",
+
+    # ---------------------------------------------------------- :14735
+    (14735, 'Warriors who have been implanted with demons in order to defeat them, and who have acquired very good physical abilities. She is sometimes called Claymore because of the weapon she carries.'):
+        "",
+
+    # ---------------------------------------------------------- :14748
+    (14748, 'He lives in hiding in Nefia, using his body as a shield to protect his Little Sister, who is hunted by those who seek his power. He has no mercy for those who threaten his little angels.'):
+        "",
+
+    # ---------------------------------------------------------- :14761
+    (14761, 'The energy he stores in his body is targeted by many forces. For this reason, she hides out in Nefia, protected by Big Daddy, with whom she has a symbiotic relationship.'):
+        "",
+
+    # ---------------------------------------------------------- :14774
+    (14774, 'A female scientist who devotes her life to protecting Little Sisters. What she is trying to protect, what happened in her past and what on earth she is researching are all mysteries.'):
+        "",
+
+    # ---------------------------------------------------------- :14787
+    (14787, 'A mysterious man who travels to gather candidates to produce an idol that will make Irva go crazy. When he sees an attractive person, he has a bad habit of making a move on them, regardless of gender.'):
+        "",
+
+    # ---------------------------------------------------------- :14800
+    (14800, "A shadow of some creature that has awakened to its own consciousness and swallowed the original creature. In ancient times, it was believed to have been transformed by a fairy's mischief."):
+        "",
+
+    # ---------------------------------------------------------- :14813
+    (14813, 'A type of gnome that lives in seclusion in unpopular places. They are very quick but very vulnerable. Overhunting is a concern, as their flesh can make the people who eat them very fast.'):
+        "",
+
+    # ---------------------------------------------------------- :14826
+    (14826, 'Brave quicklings who take up their bows and stand up to defend their countrymen who are in danger of extinction. Many are shattered by their unusually fast hail of arrows.'):
+        "",
+
+    # ---------------------------------------------------------- :14839
+    (14839, 'The platinum-coloured ones have bodies made of platinum and have a habit of mistaking platinum coins for their friends and trying to protect them.'):
+        "",
+
+    # ---------------------------------------------------------- :14852
+    (14852, 'A bell monster that wanders with abnormal speed. The golden ones love money. They disappear in the blink of an eye to protect their wealth.'):
+        "",
+
+    # ---------------------------------------------------------- :14865
+    (14865, 'An alien organism that lurks in wells and invades from the lifeline direction. Has acidic body fluids. The theory that they are merely sentinels of a higher invader is supported by recent observation data.'):
+        "",
+
+# 21 voci fra la riga 14601 e la 15075, 0 ambigue

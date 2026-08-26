@@ -1,0 +1,267 @@
+--- db_card.hsp:13110   CREATURE_ID_GOLDEN_GOLEM   creatura 135
+    NOME  jp ゴールドゴーレム
+          en golden golem
+          IT il golem d'oro
+    JP    その体は目も眩むような黄金色の輝きを放つ。一儲けしようと欲張ってこのゴーレムを狙い、雇った傭兵ごとノシイカにされる商人が後を絶たない。
+    EN    Its body radiates a dazzling golden glow. There is no end to the number of merchants who greedily target this golem in order to make a profit, and are beaten up by the mercenaries they have hired.
+
+--- db_card.hsp:13123   CREATURE_ID_MITHRIL_GOLEM   creatura 136
+    NOME  jp ミスリルゴーレム
+          en mithril golem
+          IT il golem di mithril
+    JP    ミスリル製のゴーレム。丈夫だが軽いというミスリルのイメージを吹き飛ばしてしまいそうなほどに、繰り出すその一撃は重い。なお、魔法は使えない模様。
+    EN    Golem made of mithril. Its blows are so heavy that they seem to blow away the image of mithril as strong but light. It appears to be incapable of using magic.
+
+--- db_card.hsp:13136   CREATURE_ID_SKY_GOLEM   creatura 137
+    NOME  jp スカイゴーレム
+          en sky golem
+          IT il golem del cielo
+    JP    イルヴァに存在しない物質で作られている。このゴーレムが空から降ってきたという目撃談があり、天空に別の世界が存在するのではないかと議論の的になっていたことも。
+    EN    It is made of a substance that does not exist in Irva. There have been eyewitness accounts of this golem falling from the sky, and it has even been debated whether another world exists in the sky.
+
+--- db_card.hsp:13149   CREATURE_ID_ADAMANTIUM_GOLEM   creatura 138
+    NOME  jp アダマンタイトゴーレム
+          en adamantium golem
+          IT il golem d'adamantio
+    JP    希少な鉱石を惜しげもなく使って作られた。長らくゴーレムの最上級種とされていたくらいなので、並みの冒険者では歯が立たないだろう。
+    EN    It was made using rare ores sparingly. For a long time, it was even considered the most advanced species of golem, so ordinary adventurers would not be able to stand up to it.
+
+--- db_card.hsp:13162   CREATURE_ID_FIRE_CRAB   creatura 147
+    NOME  jp 火蟹
+          en fire crab
+          IT il granchio di fuoco
+    JP    紅に輝く炎の殻に包まれた蟹。その身はほっこりと柔らかくとても美味であり、荒んだ心を癒すことができる。火属性であるが、蟹らしく一応水辺でも暮らせるようだ。
+    EN    The crab is encased in a red, glowing flame shell. Its meat is tender and tasty, and can heal a troubled heart. Although it is fire-based, it can also live near water, just like a crab.
+
+--- db_card.hsp:13175   CREATURE_ID_FIRE_CENTIPEDE   creatura 148
+    NOME  jp 火炎ムカデ
+          en fire centipede
+          IT il millepiedi di fuoco
+    JP    目の醒めるような赤い体が特徴的。唾液は可燃性で、噛みついた際の摩擦熱で空気と反応して即座に燃焼する。極めて稀だが、よだれで山火事が起きたケースが存在する。
+    EN    It is characterised by its eye-watering red body. Their saliva is flammable and reacts with the air through the frictional heat of their bite, causing it to burn instantly. Although extremely rare, there have been cases of wildfires started by drool.
+
+--- db_card.hsp:13188   CREATURE_ID_CULTIST_OF_FIRE   creatura 149
+    NOME  jp 炎の信仰者
+          en cultist of fire
+          IT il cultista del fuoco
+    JP    怪しげな儀式で赤色の下級モンスターやゴーレムを召喚して炎を撒き散らす。年に一度、灼熱の塔に巡礼に行くらしい。
+    EN    They summon red, lower-level monsters and golems and spread flames in a dubious ritual. They go on a pilgrimage to the Burning Tower once a year.
+
+--- db_card.hsp:13201   CREATURE_ID_SKELETON_WARRIOR   creatura 150
+    NOME  jp 骸骨戦士
+          en skeleton warrior
+          IT lo scheletro guerriero
+    JP    死してなお、戦いに明け暮れる戦士の亡骸。完全に風化した、傷だらけの真白い骨が、過ぎた年月を感じさせる。
+    EN    The corpse of a dead warrior, still fighting. The completely weathered, scarred, white bones remind us of the years that have passed.
+
+--- db_card.hsp:13214   CREATURE_ID_SKELETON_BERSERKER   creatura 151
+    NOME  jp 骸骨狂戦士
+          en skeleton berserker
+          IT lo scheletro berserker
+    JP    ひたすら強者との殺し合いを欲し死ぬまで戦い続けた狂戦士の骸。命尽きた後でさえも戦えることに喜びを感じており、本能のままに殺戮を続ける。
+    EN    The wreckage of a mad warrior who wanted nothing more than to kill the strong and continue to fight until death. Even after his life was over, he was happy to fight, and continued to kill on instinct.
+
+--- db_card.hsp:13227   CREATURE_ID_MISSIONARY_OF_DARKNESS   creatura 152
+    NOME  jp 闇の宣教師
+          en missionary of darkness
+          IT il missionario dell'oscurità
+    JP    死と腐敗を支配する、邪教の神を信仰する狂信者。その言葉を聞いた者は、信じるものの違いに大きく混乱させられるだろう。
+    EN    A fanatic who believes in a pagan god, who rules over death and decay. Those who hear these words will be greatly confused by the difference in what they believe.
+
+--- db_card.hsp:13240   CREATURE_ID_PAWN   creatura 153
+    NOME  jp ＜ポーン＞
+          en <Pawn>
+          IT <Pedone>
+    JP    兵士を象った大きな駒。数で攻めて来ることも多いため油断は禁物。実は前進しか出来ないので、頑張って方向転換している。
+    EN    Large pieces in the shape of soldiers. They often attack in numbers, so you can never be too careful. In fact, they can only move forward, so they do their best to change direction.
+
+--- db_card.hsp:13253   CREATURE_ID_ROOK   creatura 154
+    NOME  jp ＜ルーク＞
+          en <Rook>
+          IT <Torre>
+    JP    城壁を象った大きな駒。壁として立ち塞がり、他の者への攻撃を引き受ける。キャスリングルールは採用していないようだ。
+    EN    A large piece in the shape of a castle wall. It stands as a wall and undertakes attacks on others. Does not appear to adopt castling rules.
+
+--- db_card.hsp:13266   CREATURE_ID_BISHOP   creatura 155
+    NOME  jp ＜ビショップ＞
+          en <Bishop>
+          IT <Alfiere>
+    JP    僧正を象った大きな駒。魔法の矢や鈍足、テレポートで盤を荒らすトリッキーな駒だが、飛び回るためにあまり融通が利かないうえに脆い。
+    EN    A large piece in the shape of a monk. Tricky pieces that wreak havoc on the board with their magic arrows, bluntness and teleportation, but they are not very flexible and fragile because they fly around.
+
+--- db_card.hsp:13279   CREATURE_ID_KNIGHT   creatura 156
+    NOME  jp ＜ナイト＞
+          en <Knight>
+          IT <Cavallo>
+    JP    馬顔の騎士を象った大きな駒。遠距離攻撃を得意としており、投擲武器を活用して離れた場所からもキングの駒を護衛する。事実だが、馬面とか言わないであげてほしい。
+    EN    Large pawns in the shape of horse-faced knights. They specialise in long-range attacks and utilise throwing weapons to escort the king's pawns from a distance. Although factual, please don't tell him he's horse-faced.
+
+--- db_card.hsp:13292   CREATURE_ID_QUEEN   creatura 157
+    NOME  jp ＜クィーン＞
+          en <Queen>
+          IT <Regina>
+    JP    王妃を象った大きな駒。高い機動力と２種類の魔法の矢を使いこなす最強の駒。そのためキングは尻に敷かれている。一応言っておくが、別に王国を持っているわけではない。
+    EN    Large piece in the shape of a queen. The most powerful piece, with high mobility and the ability to use two types of magic arrows. For this reason, the King is a pain in the arse. In case you are wondering, he doesn't have a kingdom.
+
+--- db_card.hsp:13305   CREATURE_ID_KING   creatura 158
+    NOME  jp ＜キング＞
+          en <King>
+          IT <Re>
+    JP    王を象った大きな駒。無尽蔵の兵力を持ち、多数の駒で戦場を制圧する。王の姿をしているが、指揮権は別の存在が持っているようだ。
+    EN    Large pawns in the shape of a king. He has an inexhaustible army and controls the battlefield with a large number of pieces. Although it has the appearance of a king, command seems to be held by another entity.
+
+--- db_card.hsp:13318   CREATURE_ID_MERCENARY_WARRIOR   creatura 159
+    NOME  jp 傭兵戦士
+          en mercenary warrior
+          IT il guerriero mercenario
+    JP    戦士としての能力を、戦争に加わることで活用する流浪の武人。信念を以て活動する者もいるが、多くは賃金を得るため、立場を流転させ暮らしている。
+    EN    Nomadic warriors who utilise their abilities as warriors by taking part in wars. Some operate out of conviction, but many live from one position to another in order to earn wages.
+
+--- db_card.hsp:13331   CREATURE_ID_MERCENARY_ARCHER   creatura 160
+    NOME  jp 傭兵射手
+          en mercenary archer
+          IT l'arciere mercenario
+    JP    射手としての腕前を、抗争に加担する事で生活の糧とする武人。戦況次第で逃走し易いため、しぶとく生き延びる者も多い。
+    EN    Archers who use their skills as archers to make a living by taking part in conflicts. Many of them survive, as it is easy for them to flee depending on the war situation.
+
+--- db_card.hsp:13344   CREATURE_ID_MERCENARY_WIZARD   creatura 161
+    NOME  jp 傭兵魔術士
+          en mercenary wizard
+          IT il mago mercenario
+    JP    魔術士としての知識を、戦に適用させる事で生計を立てている。戦況に対応するため、術士と戦士両方の能力を用いて戦う傾向がある。
+    EN    He makes his living by applying his knowledge as a mage to warfare. He tends to fight using both his skills as a sorcerer and a warrior in order to adapt to the war situation.
+
+--- db_card.hsp:13357   CREATURE_ID_ROGUE_BOSS   creatura 302
+    NOME  jp 盗賊団の頭領
+          en rogue boss
+          IT il capo della banda
+    JP    行商人を襲い、商品を奪うことを生業としているならず者達の親分。奪った積荷を売り捌く為に持ち歩いており、襲い掛かった冒険者達に、逆に稼ぎを奪われることも。
+    EN    A leader of a gang of ruffians who make their living by attacking peddlers and robbing them of their goods. They carry their stolen cargo around with them to sell it, and sometimes the adventurers who attack them take their earnings.
+
+--- db_card.hsp:13370   CREATURE_ID_ROGUE_WARRIOR   creatura 303
+    NOME  jp 盗賊団の用心棒
+          en rogue warrior
+          IT il guardaspalle della banda
+    JP    盗賊団に金で雇われている、傭兵崩れ。古くからの慣習でセンセイと呼ばれることもあるとか。用心棒という響きにどこか魅力的なものがあるからかもしれない。
+    EN    A mercenary crackpot, employed by a band of thieves for money. They are sometimes called senshi, according to an old custom. This may be because there is something appealing about the sound of 'bouncer'.
+
+--- db_card.hsp:13383   CREATURE_ID_ROGUE_ARCHER   creatura 304
+    NOME  jp 盗賊団の殺し屋
+          en rogue archer
+          IT il sicario della banda
+    JP    ド近眼のためなるべく接近して発砲しようとするヒットマン。一応その腕は本物で、凄まじい早さで銃を連射してくる強者も中にはいる。
+    EN    Hitmen who try to get as close as possible to fire due to their short-sightedness. Some of them are very good at it and fire their guns in rapid succession.
+
+--- db_card.hsp:13396   CREATURE_ID_ROGUE_WIZARD   creatura 305
+    NOME  jp 盗賊団の術士
+          en rogue wizard
+          IT lo stregone della banda
+    JP    行商人を襲撃するならずもの集団の術士。火の魔法をうっかり使ってしまい、略奪品を燃やして怒られる事が多い。変な儀式をやっており、肌を白く染めている。
+    EN    A sorcerer in a group of ruffians who raid peddlers. He often gets angry when he inadvertently uses fire magic and burns looted goods. She performs strange rituals and dyes his skin white.
+
+--- db_card.hsp:13409   CREATURE_ID_YERLES_MACHINE_INFANTRY   creatura 162
+    NOME  jp イェルス機械兵
+          en Yerles machine infantry
+          IT la fanteria meccanica Yerles
+    JP    イェルスに所属する兵士。機械の装備が支給されており、銃器などの兵器を重視して戦闘を行う。銃器に頼り過ぎたのか近接戦闘は苦手で、すぐに衛生兵を呼ぶ事になる。
+    EN    Soldiers belonging to the Yerles Military. They are supplied with mechanical equipment and focus on firearms and other weapons in combat. They are not good at close combat, perhaps because they rely too much on firearms, and soon end up calling in air supports.
+
+--- db_card.hsp:13422   CREATURE_ID_YERLES_ELITE_MACHINE_INFANTRY   creatura 234
+    NOME  jp イェルスエリート機械兵
+          en Yerles elite machine infantry
+          IT la fanteria meccanica scelta Yerles
+    JP    イェルスに所属する兵士の中でも、特に銃器の扱いに優れている者達。赤い色をした装備を身にまとっているが、速度が三倍という訳ではない。
+    EN    Soldiers belonging to the Yerles Military, who are particularly good with firearms. They wear red-coloured equipment, but it does not mean that they are three times faster.
+
+--- db_card.hsp:13435   CREATURE_ID_GILBERT_THE_COLONEL   creatura 231
+    NOME  jp 辺境の勇士『ギルバート大佐』
+          en <Colonel Gilbert> the frontier warrior
+          IT <Colonnello Gilbert> l'eroe di frontiera
+    JP    ジューア解放軍を率いてイェルス兵の進行を阻んでいる。その豪快な笑いは地のオパートスの真似。機械自体は嫌いではなく、イェルス兵から奪い取った銃を使っている。
+    EN    He leads the Juere Liberation Army blockading the progress of the Yerles soldiers. His bold laugh is an imitation of a local opus. He is not averse to machines per se, and uses the guns he has taken from the Yerles soldiers.
+
+--- db_card.hsp:13448   CREATURE_ID_YERLES_SELF_PROPELLED_GUN   creatura 232
+    NOME  jp イェルス自走砲
+          en yerles self-propelled gun
+          IT il cannone semovente di Yerles
+    JP    自走砲として開発されたのだが低コストを重視しすぎた結果、出力不足で自走砲としての機動力を実現できなかった。それでも実戦配備され固定砲台として使われている。
+    EN    It was developed as a self-propelled artillery gun, but as a result of too much emphasis on low cost, it could not achieve the mobility of a self-propelled artillery gun due to insufficient power output. Nevertheless, it was deployed in actual combat and used as a fixed battery.
+
+--- db_card.hsp:13461   CREATURE_ID_JUERE_INFANTRY   creatura 233
+    NOME  jp ジューア歩兵
+          en juere infantry
+          IT il fante juere
+    JP    ジューアの一般的な兵士。元が盗賊や悪人の集まりから始まった国であるため、協調性が無く、兵士としての統率された動きは苦手。
+    EN    A common soldier in Juere. As a country that originally started as a group of bandits and bad guys, they are uncoordinated and not good at controlled movements as soldiers.
+
+--- db_card.hsp:13474   CREATURE_ID_JUERE_SWORDMAN   creatura 235
+    NOME  jp ジューア剣闘士
+          en juere swordman
+          IT lo spadaccino juere
+    JP    元はアリーナで命を懸けて怪物と闘っていたが、そんな自らの境遇から脱却するために戦場に出てきたジューアの剣闘士。その瞳は悲壮なまでの決意を湛えている。
+    EN    A gladiator from Juere who used to fight monsters for his life in the arena, but came to the battlefield to break free from such a situation of his own. His eyes are filled with tragic determination.
+
+--- db_card.hsp:13487   CREATURE_ID_ROCK_THROWER   creatura 163
+    NOME  jp ロックスロアー
+          en rock thrower
+          IT il lanciapietre
+    JP    かつては吟遊詩人をやっていた時期もあったが、才能が欠片もなくいつも石を投げつけられていた。その恨みを晴らすべく石を投げる側に回った。
+    EN    He used to be a bard for a time, but he lacked any talent and was always stoned. He turned to stone-throwing man to avenge that grudge.
+
+--- db_card.hsp:13500   CREATURE_ID_CAT   creatura 164
+    NOME  jp 猫
+          en cat
+          IT il gatto
+    JP    イルヴァで広く飼われている愛玩動物。何故これほどまでに可愛いのかは謎だが、俊敏な捕食者としての顔も併せ持つ。その肉を食した者は強烈な罪悪感に襲われる。
+    EN    A pet animal widely kept in Irva. Why they are so cute is a mystery, but they are also agile predators. Anyone who eats its flesh is struck with a strong sense of guilt.
+
+--- db_card.hsp:13513   CREATURE_ID_SILVER_CAT   creatura 246
+    NOME  jp シルバーキャット
+          en silver cat
+          IT il gatto d'argento
+    JP    大人しい性格と白く流れるような毛並みで、家飼いに大人気の猫。小柄で大人になっても大きさは子猫とそう変わらないが、これは相当無茶な交雑を繰り返しての品種「改良」の成果である。
+    EN    With its docile character and white, flowing coat, it is a very popular cat among house-owners. They are small in stature, and as adults they are not so different in size from kittens, but this is the result of breed 'improvement' through repeated and quite reckless crossbreeding.
+
+--- db_card.hsp:13526   CREATURE_ID_STRAY_CAT   creatura 332
+    NOME  jp 迷子の子猫
+          en stray cat
+          IT il gatto randagio
+    JP    非常にやんちゃで好奇心が強く、親猫が目を離すとすぐにどこかへ行ってしまう。ネフィアなどの危険な場所に迷い込んでしまこともしばしば。
+    EN    They are very mischievous and curious and will go away as soon as the parent cat takes its eyes off them. They often wander into dangerous places such as Nefia.
+
+--- db_card.hsp:13539   CREATURE_ID_LION   creatura 229
+    NOME  jp ライオン
+          en lion
+          IT None
+    JP    猫族の猛獣。古い文献によると、かつては雄にのみたてがみが存在したらしいが、いつから雌にもたてがみが生えるようになったのかは不明である。
+    EN    A fierce animal of the cat tribe. According to old documents, only males once had manes, but it is not known when females started to grow manes as well.
+
+--- db_card.hsp:13552   CREATURE_ID_CACY_THE_CAT_TAMER   creatura 230
+    NOME  jp 猫使い『ケシー』
+          en <Cacy> the cat tamer
+          IT <Cacy> il domatore di gatti
+    JP    いたずら好きの猫の神。猫嫌いな人間の家を探しては猫で埋め尽くす行為を繰り返している。なお、普通の猫もライオンもケシーにとっては平等に猫なのだ。
+    EN    Mischievous cat god. He repeatedly seeks out the homes of cat-hating humans and fills them with cats. Note that both ordinary cats and lions are equally cats to Cacy.
+
+--- db_card.hsp:13565   CREATURE_ID_CARBUNCLE   creatura 228
+    NOME  jp カーバンクル
+          en carbuncle
+          IT il carbonchio
+    JP    燃えるような紅い宝玉を額に持つ猫。奇妙な鳴き声で獲物を惑わす。宝玉の力なのか、視線を媒体とした魔術を使うことができる。
+    EN    Cat with a flaming red treasure ball on its forehead. It uses a strange mewing sound to deceive its prey.It is able to use magic using its gaze as a medium, perhaps due to the power of the jewel.
+
+--- db_card.hsp:13578   CREATURE_ID_DOG   creatura 165
+    NOME  jp 犬
+          en dog
+          IT il cane
+    JP    人の生活圏で暮らす犬。犬と人類の歴史は古く、太古に滅んだ全ての文明において人類と共にいたという研究結果が出ている。狼より尻尾の筋肉が弱いらしい。
+    EN    Dogs live in the habitat of humans. Dogs and humans have a long history, and studies have shown that they were with humans in all civilisations that died out in prehistoric times.They are said to have weaker tail muscles than wolves.
+
+--- db_card.hsp:13591   CREATURE_ID_POPPY_THE_LITTLE_DOG   creatura 225
+    NOME  jp 子犬の『ポピー』
+          en <Poppy> the little dog
+          IT <Poppy> il cagnolino
+    JP    ポピーは怖いもの知らずでネフィアの奥に進み続ける、愚かな子犬である。しかし己の力を見誤った冒険者もこの子犬と同じなのだ。
+    EN    Poppy is a foolish puppy who is not afraid and keeps going deeper into Nefia. Adventurers who misjudge their own strength are just like this puppy.
+
+== 38 carte fra la riga 13101 e la 13600

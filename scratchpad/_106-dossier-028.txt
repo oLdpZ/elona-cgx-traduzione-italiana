@@ -1,0 +1,274 @@
+--- db_card.hsp:13604   CREATURE_ID_RILIAN_THE_DOG_LOVER   creatura 226
+    NOME  jp 犬好きの少女『リリアン』
+          en <Rilian> the dog lover
+          IT <Rilian> la bambina che adora i cani
+    JP    ご近所で評判の犬好き少女。愛犬のポピーを溺愛しているが、当の本犬にはやや鬱陶しがられている様子で、時々目を離した隙に脱走されてしまうことも。
+    EN    A dog-loving girl with a reputation in the neighbourhood. She loves her dog Poppy very much, but the dog seems a little depressed and sometimes escapes when she is out of sight.
+
+--- db_card.hsp:13617   CREATURE_ID_TAM_THE_CAT_HATER   creatura 227
+    NOME  jp 猫嫌いの『タム』
+          en <Tam> the cat hater
+          IT <Tam> il nemico dei gatti
+    JP    猫嫌いな青年。イルヴァでは猫は非常に人気の高い生き物であるため、肩身が狭い。元はパルミア暮らしだったがミーアとの近所トラブルの末にヨウィンに引っ越した。
+    EN    A young man who hates cats. Cats are very popular creatures in Irva, so he has a narrow shoulder to lean on. He used to live in Palmia but moved to Yowyn after neighbourhood problems with Mia.
+
+--- db_card.hsp:13630   CREATURE_ID_LITTLE_GIRL   creatura 166
+    NOME  jp 少女
+          en little girl
+          IT la bambina
+    JP    大人になりきれてない女性全般を指す。イルヴァではペットとしても一般的で、奴隷として買うこともできるし、脱走して野生化した個体を捕まえることもできる。
+    EN    Usually the term 'little girl' refers to all women who have not fully grown up. They are also common as pets in Irva, and can be bought as slaves. Escaped individuals can be captured in the wild.
+
+--- db_card.hsp:13643   CREATURE_ID_RAT   creatura 167
+    NOME  jp ネズミ
+          en rat
+          IT None
+    JP    雑食性の小動物。高い繁殖力と何でも食べてしまうその性質によって、大繁殖を起こし農作物を喰いつくす事もある。身体が割と大きく、猫に挑むこともある。
+    EN    Small omnivorous animals. Due to their high fertility and their propensity to eat anything, they can breed in large numbers and devour crops.They are rather large and can challenge cats.
+
+--- db_card.hsp:13656   CREATURE_ID_HERMIT_CRAB   creatura 168
+    NOME  jp やどかり
+          en hermit crab
+          IT il paguro
+    JP    貝殻などを仮の住まいとする甲殻類。見た目は蟹のようだが実際は海老の仲間。何処から拾ってきたのか、とても美しい貝を背負っているものも居る。
+    EN    A crustacean that makes shells and other objects its temporary home. They look like crabs but are actually prawns. Some of them carry very beautiful shells on their backs, which they may have picked up from somewhere.
+
+--- db_card.hsp:13669   CREATURE_ID_PUBLIC_PERFORMER   creatura 170
+    NOME  jp 大道芸人
+          en public performer
+          IT l'artista di strada
+    JP    ジャグリングを披露しようとする流浪のピエロ。街でやらないのは市民のダメ出しを恐れているためらしい。迫力を重視するあまり、客に向けて様々なものを投げつけてくる。
+    EN    A wandering clown tries to perform juggling. The reason he doesn't do it in the city is apparently because he fears that the citizens will ruin it. He is so focused on power that he throws all sorts of things at the audience.
+
+--- db_card.hsp:13682   CREATURE_ID_FRISIA_THE_CAT_QUEEN   creatura 175
+    NOME  jp 猫の女王『フリージア』
+          en <Frisia> the cat queen
+          IT <Frisia> la regina dei gatti
+    JP    女王でありながら、動きづらいという理由で高貴な服装を嫌う。家臣の猫たちも勝手気ままに生活しており、王家という感じがしない。何か嫌な思い出でもあるのか、尻尾に触ろうとすると慌てて逃げていく。
+    EN    Although she is a queen, she dislikes wearing noble clothes because they make it difficult to move around. The cats in her household also live a carefree life and do not feel like royalty. Perhaps because they have bad memories, they run away in a hurry when you try to touch their tails.
+
+--- db_card.hsp:13695   CREATURE_ID_YOUNGER_SISTER   creatura 176
+    NOME  jp 妹
+          en younger sister
+          IT la sorella minore
+    JP    あなたと血の繋がっていない妹。妹は妹であるが故に妹なのであり、それ以上でもそれ以下でもない。よってこの子は間違いなくあなたの妹なのだ。
+    EN    A younger sister who is not blood-related to you. A younger sister is a younger sister because she is a younger sister, nothing more, nothing less. Therefore, she is definitely your younger sister.
+
+--- db_card.hsp:13708   CREATURE_ID_YOUNGER_SISTER2   creatura 249
+    NOME  jp 妹
+          en younger sister
+          IT None
+    JP    妹の館で愛情弁当を売っている、あなたと血の繋がっていない妹。この世の全てのお兄ちゃん・お姉ちゃんの妹とでもいうべき存在である。館、本人ともに、いつから存在しているのか不明。
+    EN    Your younger sister, who is not blood-related to you, sells affectionate lunches in her sister's pavilion. She is the younger sister of all the older brothers and sisters in this world. It is unclear how long both the pavilion and the person in question have existed.
+
+--- db_card.hsp:13721   CREATURE_ID_YOUNGER_CAT_SISTER   creatura 210
+    NOME  jp 妹猫
+          en younger cat sister
+          IT la sorella gatta minore
+    JP    気まぐれな猫科の血の繋がらない義理の妹。好奇心が非常に旺盛だが、それ故に怪我をすることも多い。ブレザーを脱ぐときの静電気が嫌い。
+    EN    A non-blood related younger sister-in-law of a capricious cat family. Very curious, but therefore often injured. Dislikes static electricity when she takes off her blazer.
+
+--- db_card.hsp:13734   CREATURE_ID_YOUNG_LADY   creatura 211
+    NOME  jp 嬢
+          en young lady
+          IT la giovane dama
+    JP    世間知らずのお嬢様。由緒正しい家柄に育ったので、たとえ戦闘があったとしてもエレガントな仕草を忘れないよう心がけている。怪しい薬の調合が趣味。
+    EN    A naive young lady. Having grown up in a venerable family, she tries to remember elegant gestures even if there is fighting. She enjoys concocting weird medicines.
+
+--- db_card.hsp:13747   CREATURE_ID_UTIMA_THE_DESTROYER_OF_XEREN   creatura 177
+    NOME  jp ゼイレン究極破壊兵器『ウティマ』
+          en <Utima> the destroyer of Xeren
+          IT <Utima> l'arma distruttrice di Xeren
+    JP    パルミア南にある混沌の城を延々と守り続けている、古代機械文明の遺産。長年起動し続けていたため各部が経年劣化しているが、それでも驚異的な戦闘力を誇る。
+    EN    A legacy of an ancient mechanical civilisation that has endlessly defended the Castle of Chaos south of Palmia. Although every part of the machine has deteriorated over the years as it has been running for many years, it still boasts an astonishing fighting power.
+
+--- db_card.hsp:13760   CREATURE_ID_AZZRSSIL_THE_IMPURE   creatura 178
+    NOME  jp 不浄なる者『アズラシズル』
+          en <Azzrssil> the impure
+          IT <Azzrssil> l'impuro
+    JP    古き邪神に仕える。彼の神の名の下、不浄なる外法でもって人の枠から逸脱した忌むべき存在。今は混沌の城に引きこもり、延々と魔法の研究をしている。
+    EN    He serves an old evil god. Under the name of his god, he is an abomination who has deviated from the boundaries of humanity with his impure external laws. He is now shut up in the Castle of Chaos, endlessly researching magic.
+
+--- db_card.hsp:13773   CREATURE_ID_MASTER_OF_PET_ARENA   creatura 179
+    NOME  jp ペットアリーナの主催者
+          en master of pet arena
+          IT l'organizzatore dell'arena delle bestie
+    JP    貴族が自尊心を満足させるため各々のペットを私闘させる様をヒントにして、ペット用のアリーナを設けた。獣人のような姿だが、実はマスコットキャラの着ぐるみである。
+    EN    The arena was set up for pets, inspired by the way aristocrats let their pets fight private battles to satisfy their self-esteem. Although they look like beastmen, they are actually stuffed mascot characters.
+
+--- db_card.hsp:13786   CREATURE_ID_GAROK_THE_LEGENDARY_SMITH   creatura 208
+    NOME  jp 伝説の職人『ガロク』
+          en <Garok> the legendary smith
+          IT <Garok> il fabbro leggendario
+    JP    伝説級の腕を持つ寡黙な鍛冶師。作る物は形こそ無骨で均一的だが、どれも実用性が高い装備品やアイテムである。ミラルとは幼少の頃からの腐れ縁。
+    EN    A taciturn blacksmith with legendary skills. The objects he makes are rugged and uniform in form, but they are all highly practical equipment and items. He and Miral have been friends since childhood.
+
+--- db_card.hsp:13799   CREATURE_ID_MIRAL_THE_LEGENDARY_SMITH   creatura 209
+    NOME  jp 伝説の職人『ミラル』
+          en <Miral> the legendary smith
+          IT <Miral> il fabbro leggendario
+    JP    伝説級の腕を持つ陽気な鍛冶師。気まぐれで自分の気に入った仕事しかしないのだが、その遊び心あふれる彼の作品にはファンも多い。猫大好き。
+    EN    A cheerful blacksmith with legendary skills. He is capricious and only does work he likes, but his playful creations have many fans. Loves cats.
+
+--- db_card.hsp:13812   CREATURE_ID_TWINTAIL   creatura 180
+    NOME  jp ツインテール
+          en twintail
+          IT il gatto dai due codini
+    JP    二本の尻尾が特徴的な猫。高い知能をもち、人間以外の生物で初めて、神を祀っているのが確認された生物でもある。食べてもエビみたいな味はしない。
+    EN    A cat with two tails. It is highly intelligent and was the first non-human creature confirmed to worship a deity. They do not taste like prawns when eaten.
+
+--- db_card.hsp:13825   CREATURE_ID_SILVER_WOLF   creatura 181
+    NOME  jp 銀狼
+          en silver wolf
+          IT il lupo d'argento
+    JP    美しい毛並みを持つ狼。実は見た目に反して猟犬よりも温厚な気質で、攻撃もそこまで凶暴ではない。銀というより灰色のような気もする。
+    EN    Wolves with beautiful fur. In fact, despite its appearance, it has a milder temperament than a hound and its attacks are not as ferocious. It seems more grey than silver.
+
+--- db_card.hsp:13838   CREATURE_ID_NURSE   creatura 182
+    NOME  jp 白衣のナース
+          en nurse
+          IT l'infermiera
+    JP    傷ついた者を癒すことに情熱を燃やす白衣の天使。あまりにやる気がありすぎるために負傷者が現れるのを待つことができず、その結果自ら戦いの場へ身を投じた。
+    EN    An angel in white with a passion for healing the wounded. She was too motivated to wait for the wounded to show up, and as a result she threw herself into the battlefield.
+
+--- db_card.hsp:13851   CREATURE_ID_RICH_PERSON   creatura 183
+    NOME  jp 大富豪
+          en rich person
+          IT il riccone
+    JP    階級を持たないものの、様々な方法で財産と権力を手にした者。一代目の出世譚は、非常に興味深く面白い読み物として出回ったり、語り継がれる事もある。
+    EN    A person who has no rank but has acquired wealth and power in a variety of ways. Tales of the rise of the first generation are sometimes circulated and retold as very interesting and entertaining reading.
+
+--- db_card.hsp:13864   CREATURE_ID_NOBLE_CHILD   creatura 184
+    NOME  jp 貴族の子供
+          en noble child
+          IT il rampollo
+    JP    社交デビューと同時にテロに遭う事も多いため、戦闘の心得も必須教育の一環である。自由に街で遊んでいる子供たちを窓から眺めては羨む毎日が続く。
+    EN    As they are often terrorised at the same time as making their social debut, a knowledge of combat is part of their mandatory education. Every day he looks out of the window at the children playing freely in the streets and envies them.
+
+--- db_card.hsp:13877   CREATURE_ID_TOURIST   creatura 185
+    NOME  jp 観光客
+          en tourist
+          IT il turista
+    JP    強い好奇心に駆られ、各地を観て回る人々。興味を引く物に意識がすぐ行ってしまうので、スリの被害に遭うのは日常茶飯事となってしまっている。
+    EN    Driven by a strong sense of curiosity, there are people who travel around to see different parts of the country. Because they are easily distracted by objects of interest, being the victim of pickpocketing has become an everyday occurrence.
+
+--- db_card.hsp:13890   CREATURE_ID_FESTIVAL_TOURIST   creatura 350
+    NOME  jp 祭りの観光客
+          en festival tourist
+          IT il turista della festa
+    JP    大きなお祭りがあると聞きつけて、遠く離れた国からやって来た。何のお祭りかはあまり重視しておらず、屋台や雰囲気を楽しみに来ているようだ。
+    EN    They came from faraway countries after hearing about a big festival. They don't seem to attach much importance to what the festival is about, but come to enjoy the stalls and atmosphere.
+
+--- db_card.hsp:13903   CREATURE_ID_BLADE   creatura 186
+    NOME  jp ブレイド
+          en blade
+          IT la lama
+    JP    遺跡から発掘された機械兵士。両手に鋭い刃物を持ち無慈悲にあらゆる生物を切り刻むキラーマシーン。腕部を反転変形させることで人型の手が出現するため、他の武器を持つことも可能。
+    EN    Mechanical soldiers excavated from ruins. A killer machine with sharp blades in both hands that mercilessly mutilate all living creatures.By inverting and transforming its arms, a humanoid hand appears, which can also hold other weapons.
+
+--- db_card.hsp:13916   CREATURE_ID_BLADE_ALPHA   creatura 187
+    NOME  jp ブレイドβ
+          en blade alpha
+          IT la lama alfa
+    JP    ブレイドを改修し能力を向上させたもの。違いは分かる人にしか分からない。なお、ブレイドシリーズの中にはテスト用に耐刃性の腰当を装備したものが僅かながら存在する。
+    EN    A refurbished version of the Blade with improved capabilities. Only those who know the difference can tell the difference.It should be noted that a small number of the Blade series are equipped with a blade-resistant waistplate for testing purposes.
+
+--- db_card.hsp:13929   CREATURE_ID_BLADE_OMEGA   creatura 188
+    NOME  jp ブレイドΩ
+          en blade omega
+          IT la lama omega
+    JP    より効率よく、残忍に生物を殺戮する為に改良された機械兵士。その身は返り血で赤く染まりもはや元の色すら分からない。刃の部分は切れ味が鈍ると勝手に折れて次の新しい刃が生えてくる。
+    EN    A mechanical soldier improved to more efficiently and brutally slaughter living creatures. Its body is stained red from the blood returning to it, and even its original colour is no longer recognisable.When the blade becomes dull, it breaks off by itself and a new blade grows back.
+
+--- db_card.hsp:13942   CREATURE_ID_KANEDA_BIKE   creatura 345
+    NOME  jp 『カネダのバイク』
+          en <Kaneda Bike>
+          IT <Moto di Kaneda>
+    JP    伝説のモンスターマシン。ABSや対障害物用レーダー、オートナビなどのシステムに加え、12000回転で200馬力以上出すエンジンを備える。
+    EN    Legendary monster machine, with systems such as ABS, anti-obstacle radar and auto-navigation, plus an engine producing over 200 hp at 12,000 rpm. 
+
+--- db_card.hsp:13955   CREATURE_ID_CUB   creatura 346
+    NOME  jp カブ
+          en cub
+          IT il Cub
+    JP    頑丈で燃費が良いだけでなく、高い生命力と速度を持つ機械の馬。世話の仕方が違うため、馬屋では扱っていない。
+    EN    Mechanical horses that are not only robust and fuel-efficient, but also have high vitality and speed. They are not handled in horse stalls because of the different way they are cared for.
+
+--- db_card.hsp:13968   CREATURE_ID_MINE_DOG   creatura 341
+    NOME  jp 地雷犬
+          en mine dog
+          IT il cane mina
+    JP    地雷をせっせと埋める姿が犬に似ていることから命名されたが、実物を見た冒険者は大抵その奇妙な姿に首を捻る。重力発生装置を内蔵。
+    EN    Named after the dog-like appearance of the mines that it impatiently buries, adventurers who see it in the flesh usually twist their heads at its strange appearance. Has a built-in gravity generator.
+
+--- db_card.hsp:13981   CREATURE_ID_IRON_MAIDEN   creatura 258
+    NOME  jp 鉄の処女
+          en iron maiden
+          IT la vergine di ferro
+    JP    機械仕掛けの全自動処刑道具。攻撃を受けると胴体の扉を開き、内部に取り付けられた鋭い針で攻撃者を突き刺して反撃する。
+    EN    A mechanical, fully automatic execution tool. When attacked, it opens a door in its torso, and then counterattacks by piercing the attacker with a sharp needle attached to its interior.
+
+--- db_card.hsp:13994   CREATURE_ID_DEFORMED_EYE   creatura 189
+    NOME  jp 異形の目
+          en deformed eye
+          IT l'occhio deforme
+    JP    その肉体は狂気に染まっているため、一口食べるだけでも気が狂ってしまうだろう。相手の身体を変化させる特殊能力をもつ。
+    EN    Its body is so tainted with madness that just one bite would drive it insane. It has the special ability to change the body of its opponents.
+
+--- db_card.hsp:14007   CREATURE_ID_IMPURE_EYE   creatura 190
+    NOME  jp 不浄なる瞳
+          en impure eye
+          IT l'occhio impuro
+    JP    邪眼と呼ばれる濁った眼をもつ。妖精の帽子はこの魔物の眼差しによる肉体変化を防ぐために作られたとされる。
+    EN    It has a cloudy eye called the evil eye. Fairy hats are said to have been made to prevent physical changes caused by this monster's eye.
+
+--- db_card.hsp:14020   CREATURE_ID_WISP   creatura 191
+    NOME  jp ウィスプ
+          en wisp
+          IT il fuoco fatuo
+    JP    エネルギーを吐き出し切った放電雲が代替として大量のエーテルを取り込んだ。厄災の前兆として恐れられており、追いかけると良くない事が起きると伝えられている。
+    EN    Discharge clouds that have exhausted their energy have taken in large amounts of ether as a replacement. It is feared as an omen of disaster and bad things are reported to happen if it is chased.
+
+--- db_card.hsp:14033   CREATURE_ID_HEDGEHOG   creatura 192
+    NOME  jp ハリねずみ
+          en hedgehog
+          IT il riccio
+    JP    体毛で出来た鋭い針を背中に多数持つ。かつて同じ名前のモグラが存在していたがこちらは既に絶滅しており、種族的にもまったくの別物。
+    EN    It has numerous sharp needles on its back made of body hair. A mole of the same name once existed, but this one is already extinct and is a completely different species.
+
+--- db_card.hsp:14046   CREATURE_ID_SHINING_HEDGEHOG   creatura 193
+    NOME  jp 輝くハリねずみ
+          en shining hedgehog
+          IT il riccio splendente
+    JP    食性の影響で体内に大量のエーテルを蓄えたハリねずみ。背中の針は固いが脆いという性質を持ち、刺さると体内に破片が残ってしまう。
+    EN    A hedgehog with a large amount of ether stored in its body due to its feeding habits. The needles on its back are hard but brittle, and if they puncture, they leave fragments in the body.
+
+--- db_card.hsp:14059   CREATURE_ID_CHICKEN   creatura 195
+    NOME  jp 鶏
+          en chicken
+          IT la gallina
+    JP    頻繁に卵を産んでくれるため、家畜として人気のある鳥。脱走した個体がよく野生化している。気性は荒いが、ちょっかいを出してきた勇者を返り討ちにできるほどではない。
+    EN    A popular domesticated bird because of its frequent egg-laying. Escaped individuals are often found in the wild. They have a rough temperament, but not so rough that they can repel a adventurer who messes with them.
+
+--- db_card.hsp:14072   CREATURE_ID_PUMPKIN   creatura 196
+    NOME  jp パンプキン
+          en pumpkin
+          IT la zucca
+    JP    野菜の南瓜が変異して生まれた。豊富に含まれる栄養は頭によく、明晰になることから、親が子供に食べさせる風習がある。
+    EN    It is a mutated form of the vegetable pumpkin. It is customary for parents to feed it to their children as the rich nutritional content is good for the brain and makes them mentally lucid.
+
+--- db_card.hsp:14085   CREATURE_ID_PUPPY   creatura 201
+    NOME  jp パピー
+          en puppy
+          IT il cucciolo di cane
+    JP    野菜の南瓜が変異して生まれた。透明な姿を利用して遠くからポーションを投げてくるが、投擲技術はまだまだ未熟。つるの部分が投擲に適した形状になっていないためらしい。
+    EN    It is a mutated form of the vegetable pumpkin. It uses its transparent appearance to throw potions from a distance, but its throwing technique is still in its infancy. This is apparently because the vines are not shaped in a way that is suitable for throwing.
+
+--- db_card.hsp:14098   CREATURE_ID_GREATER_PUMPKIN   creatura 197
+    NOME  jp 南瓜の怪物
+          en greater pumpkin
+          IT la zucca maggiore
+    JP    化け物サイズに育った南瓜に自我が宿った。初めて遭遇したヨウィンの農夫によってそのまんまの名前をつけられた。肉食に目覚めて動物を食べまくった結果、実から野菜っぽい味が消えた。
+    EN    A pumpkin that grew to the size of a monster developed an ego. It was named exactly as it was by a Yowyn farmer who encountered it for the first time. As a result of his carnivorous awakening and eating animals all over the place, the fruit lost its vegetable-like taste.
+
+== 39 carte fra la riga 13601 e la 14100

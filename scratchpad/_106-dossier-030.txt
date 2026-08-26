@@ -1,0 +1,274 @@
+--- db_card.hsp:14605   CREATURE_ID_THOROUGHBRED   creatura 277
+    NOME  jp サラブレッド
+          en thoroughbred
+          IT il purosangue
+    JP    さまざまな品種改良の末に生まれた名馬中の名馬。抜きん出たその品質から、その名がエリートを指す代名詞として使われることも多い。
+    EN    The best of the best horses, born after various breedings. Because of their outstanding quality, their name is often used as a synonym for the elite.
+
+--- db_card.hsp:14618   CREATURE_ID_MUTANT   creatura 278
+    NOME  jp ミュータント
+          en mutant
+          IT il mutante
+    JP    古代にいくつもの生き物の遺伝子を混ぜて作られた奇妙な生物。活性化し続ける細胞が成長とともに肉体を変形させる。
+    EN    A strange creature created in ancient times by mixing the genes of several creatures. Its continuously active cells transform its body as it grows.
+
+--- db_card.hsp:14631   CREATURE_ID_ICOLLE_THE_BIOLOGIST   creatura 279
+    NOME  jp 生化学者『イコール』
+          en <Icolle> the biologist
+          IT <Icolle> il biochimico
+    JP    ご近所でも評判の変人。しかしその頭脳は疑う余地なく天才的であり、生化学専門でありながら前文明の遺産である遺伝子の複合装置を再現し量産するに至った。
+    EN    He is a reputed weirdo in the neighbourhood. But his brain is unquestionably genius, and although he specialises in biochemistry, he has managed to recreate and mass produce a genetic complex device that is a legacy of previous civilisations.
+
+--- db_card.hsp:14644   CREATURE_ID_BALZAK_THE_JANITOR   creatura 280
+    NOME  jp 掃除屋『バルザック』
+          en <Balzak> the janitor
+          IT <Balzak> il custode
+    JP    ルミエストの美観を保つ事に腐心する掃除屋。掃除屋という肩書を殺し屋のことと勘違いされることがあり困っている。彼に言わせれば、ゴミをポイ捨てする者はそのゴミ以下の存在価値であるらしい。
+    EN    A cleaner who is obsessed with keeping Lumiest looking beautiful. He is troubled by the fact that his title of cleaner is sometimes mistaken for that of an assassin. In his opinion, those who litter are worth less than the rubbish they litter.
+
+--- db_card.hsp:14657   CREATURE_ID_REVLUS_THE_MAGE_GUILDMASTER   creatura 288
+    NOME  jp 魔術士ギルドマスター『レヴラス』
+          en <Revlus> the mage guildmaster
+          IT <Revlus> il maestro della Gilda dei Maghi
+    JP    魔術士ギルドを治めている若き実力者。日々魔道書の解読に勤しむ。最近魔法書店を他ギルド民に勝手に利用されている事が判明し、悩んでいる。
+    EN    A young and powerful man who governs the Mages' Guild. He spends his days deciphering grimoires. He is troubled by the recent discovery that the magic bookshop is being used by other guild members without his permission.
+
+--- db_card.hsp:14670   CREATURE_ID_LEXUS_THE_MAGE_WATCHMAN   creatura 290
+    NOME  jp 魔術士ギルドの番人『レクサス』
+          en <Lexus> the mage watchman
+          IT <Lexus> il guardiano della Gilda dei Maghi
+    JP    魔術士ギルドの門番と、加入者に課題を与える仕事をしている。自分の装備が呪われていないにも関わらずテレポートしている事があり、疑問に感じている。
+    EN    He works as a gatekeeper for the Mages' Guild and gives assignments to subscribers. He is sometimes teleported despite the fact that his equipment is not cursed and is questioned.
+
+--- db_card.hsp:14683   CREATURE_ID_SIN_THE_THIEF_GUILDMASTER   creatura 292
+    NOME  jp 盗賊ギルドマスター『シン』
+          en <Sin> the thief guildmaster
+          IT <Sin> il maestro della Gilda dei Ladri
+    JP    犯罪者の町ダルフィにおいてなお、一番の暗部である盗賊ギルドを束ねる長。裏切り、裏切られを繰り返すうち彼の心は闇に閉ざされ、人を信用できなくなってしまった。
+    EN    He is the head of the Thieves' Guild, which is still the darkest part of the criminal town of Derphy. His heart has been betrayed and betrayed again and again, and his mind has become closed to the darkness and he no longer trusts people.
+
+--- db_card.hsp:14696   CREATURE_ID_ABYSS_THE_THIEF_WATCHMAN   creatura 294
+    NOME  jp 盗賊ギルドの番人『アビス』
+          en <Abyss> the thief watchman
+          IT <Abyss> il guardiano della Gilda dei Ladri
+    JP    ダルフィの酒場にある、地下へと続く階段を守っている盗賊ギルドの番人。常に警戒を怠ってはいないつもりなのだが、いつの間にか違う場所にいることがよくある。
+    EN    Keeper of the Thieves' Guild, who guards the staircase leading to the basement in Derphy's tavern. He intends to be on constant alert, but is often in the wrong place at the wrong time.
+
+--- db_card.hsp:14709   CREATURE_ID_FRAY_THE_FIGHTER_GUILDMASTER   creatura 291
+    NOME  jp 戦士ギルドマスター『フレイ』
+          en <Fray> the fighter guildmaster
+          IT <Fray> la maestra della Gilda dei Guerrieri
+    JP    戦士ギルドの長を務めている美剣士。彼女目当てでギルドに加入する者は少なくないが、本人は剣を振り回すこと以外に興味がないためそのことに気付いていない。
+    EN    A beautiful swordsman who is the head of the Warrior Guild. Many people join the guild for her, but she is unaware of this as she has no interest in anything other than wielding a sword.
+
+--- db_card.hsp:14722   CREATURE_ID_DORIA_THE_FIGHTER_WATCHMAN   creatura 297
+    NOME  jp 戦士ギルドの番人『ドリア』
+          en <Doria> the fighter watchman
+          IT <Doria> il guardiano della Gilda dei Guerrieri
+    JP    戦士ギルドの門番と、加入者に課題を与える仕事をしている。知らないうちにテレポートしている事態が頻発し、そのたびに定位置に戻るのが最近辛くなってきた。
+    EN    He works as a gatekeeper for the Warrior Guild and gives assignments to subscribers. Frequent teleportation situations occur without his knowledge, and it has recently become difficult for him to return to his position each time.
+
+--- db_card.hsp:14735   CREATURE_ID_SILVER_EYED_WITCH   creatura 317
+    NOME  jp 銀眼の斬殺者
+          en silver eyed witch
+          IT la mietitrice dagli occhi d'argento
+    JP    魔を討つために、魔を移植された、非常に優れた身体能力を得た戦士。所持している武器からクレイモアと呼ばれる事もある。
+    EN    Warriors who have been implanted with demons in order to defeat them, and who have acquired very good physical abilities. She is sometimes called Claymore because of the weapon she carries.
+
+--- db_card.hsp:14748   CREATURE_ID_BIG_DADDY   creatura 318
+    NOME  jp 『ビッグダディ』
+          en <Big Daddy>
+          IT <Big Daddy>
+    JP    力を求める人に追われる存在であるリトルシスターを、その身を盾として守りながらネフィアに隠れ住む。彼の小さな天使を脅かすものに対しては一切容赦しない。
+    EN    He lives in hiding in Nefia, using his body as a shield to protect his Little Sister, who is hunted by those who seek his power. He has no mercy for those who threaten his little angels.
+
+--- db_card.hsp:14761   CREATURE_ID_LITTLE_SISTER   creatura 319
+    NOME  jp 『リトルシスター』
+          en <Little Sister>
+          IT <Little Sister>
+    JP    体内に溜め込んでいるエネルギーを多くの勢力から狙われている。そのため共生関係にあるビッグダディに護られながらネフィアに身を隠している。
+    EN    The energy he stores in his body is targeted by many forces. For this reason, she hides out in Nefia, protected by Big Daddy, with whom she has a symbiotic relationship.
+
+--- db_card.hsp:14774   CREATURE_ID_STRANGE_SCIENTIST   creatura 322
+    NOME  jp 『謎の科学者』
+          en <Strange scientist>
+          IT la scienziata misteriosa
+    JP    リトルシスターの保護に一生を捧げる女科学者。何を思って保護しようとしているのか、彼女の過去に何があったのか、一体何を研究しているのか、すべては謎。
+    EN    A female scientist who devotes her life to protecting Little Sisters. What she is trying to protect, what happened in her past and what on earth she is researching are all mysteries.
+
+--- db_card.hsp:14787   CREATURE_ID_MYSTERIOUS_PRODUCER   creatura 334
+    NOME  jp 『謎のプロデューサー』
+          en <Mysterious Producer>
+          IT <Misterioso Produttore>
+    JP    イルヴァを熱狂させる偶像をプロデュースしようと、その候補生達を集める為に旅する謎の男。魅力的な人物を見ると、男女構わずつい手を出してしまう悪い癖がある。
+    EN    A mysterious man who travels to gather candidates to produce an idol that will make Irva go crazy. When he sees an attractive person, he has a bad habit of making a move on them, regardless of gender.
+
+--- db_card.hsp:14800   CREATURE_ID_SHADE   creatura 323
+    NOME  jp シェイド
+          en shade
+          IT l'ombra
+    JP    なんらかの生物の影が自意識に目覚め、元の生物を飲み込んだもの。古くは妖精のいたずらで姿を変質させられたものと信じられていた。
+    EN    A shadow of some creature that has awakened to its own consciousness and swallowed the original creature. In ancient times, it was believed to have been transformed by a fairy's mischief.
+
+--- db_card.hsp:14813   CREATURE_ID_QUICKLING   creatura 324
+    NOME  jp クイックリング
+          en quickling
+          IT il quickling
+    JP    人気の無い場所に、ひっそりと暮らしている小人の一種。非常にすばしっこいがとても脆弱。その肉を食せば、食べた者も素早くなれるため、乱獲が懸念されている。
+    EN    A type of gnome that lives in seclusion in unpopular places. They are very quick but very vulnerable. Overhunting is a concern, as their flesh can make the people who eat them very fast.
+
+--- db_card.hsp:14826   CREATURE_ID_QUICKLING_ARCHER   creatura 325
+    NOME  jp クイックリングの弓使い
+          en quickling archer
+          IT il quickling arciere
+    JP    滅亡の危機に陥っている同胞を守るため、弓を取り立ち向かう勇敢なクイックリング。異常な速さでの矢霰に、粉々にされる者も少なくない。
+    EN    Brave quicklings who take up their bows and stand up to defend their countrymen who are in danger of extinction. Many are shattered by their unusually fast hail of arrows.
+
+--- db_card.hsp:14839   CREATURE_ID_PLATINA_BELL   creatura 328
+    NOME  jp プラチナベル
+          en platina bell
+          IT la campana di platino
+    JP    異常な素早さで彷徨する鐘の魔物。白金色のものは体がプラチナでできており、プラチナ硬貨を仲間と間違えて保護しようとする習性がある。
+    EN    The platinum-coloured ones have bodies made of platinum and have a habit of mistaking platinum coins for their friends and trying to protect them.
+
+--- db_card.hsp:14852   CREATURE_ID_GOLD_BELL   creatura 329
+    NOME  jp ゴールドベル
+          en gold bell
+          IT la campana d'oro
+    JP    異常な素早さで彷徨する鐘の魔物。黄金色のものはお金が大好き。自分の財産を守るためにあっという間に消え去ってしまう。
+    EN    A bell monster that wanders with abnormal speed. The golden ones love money. They disappear in the blink of an eye to protect their wealth.
+
+--- db_card.hsp:14865   CREATURE_ID_ALIEN   creatura 330
+    NOME  jp エイリアン
+          en alien
+          IT l'alieno
+    JP    井戸に潜みライフライン方面から侵略を行う異星生物。酸性の体液を持つ。さらなる高位の侵略者の尖兵に過ぎないという学説が近年の観測データから有力視されている。
+    EN    An alien organism that lurks in wells and invades from the lifeline direction. Has acidic body fluids. The theory that they are merely sentinels of a higher invader is supported by recent observation data.
+
+--- db_card.hsp:14878   10100   creatura 990
+    NOME  jp 森
+          en forest
+          IT foresta
+    JP    
+    EN    
+
+--- db_card.hsp:14889   10101   creatura 991
+    NOME  jp 山
+          en mountain
+          IT montagna
+    JP    
+    EN    
+
+--- db_card.hsp:14900   10000   creatura 992
+    NOME  jp 海
+          en sea
+          IT mare
+    JP    
+    EN    
+
+--- db_card.hsp:14911   10001   creatura 993
+    NOME  jp 島
+          en island
+          IT isola
+    JP    
+    EN    
+
+--- db_card.hsp:14922   10300   creatura 994
+    NOME  jp 沼
+          en swamp
+          IT palude
+    JP    
+    EN    
+
+--- db_card.hsp:14933   10301   creatura 995
+    NOME  jp 枯地
+          en dead land
+          IT terra morta
+    JP    
+    EN    
+
+--- db_card.hsp:14944   10200   creatura 996
+    NOME  jp 平地
+          en plain
+          IT pianura
+    JP    
+    EN    
+
+--- db_card.hsp:14955   10201   creatura 997
+    NOME  jp 雪原
+          en snow field
+          IT distesa innevata
+    JP    
+    EN    
+
+--- db_card.hsp:14966   10400   creatura 996
+    NOME  jp 平地
+          en plain
+          IT None
+    JP    
+    EN    
+
+--- db_card.hsp:14977   10401   creatura 997
+    NOME  jp 雪原
+          en snow field
+          IT None
+    JP    
+    EN    
+
+--- db_card.hsp:14988   10500   creatura 996
+    NOME  jp 平地
+          en plain
+          IT None
+    JP    
+    EN    
+
+--- db_card.hsp:14999   10501   creatura 997
+    NOME  jp 雪原
+          en snow field
+          IT None
+    JP    
+    EN    
+
+--- db_card.hsp:15010   10600   creatura 996
+    NOME  jp 平地
+          en plain
+          IT None
+    JP    
+    EN    
+
+--- db_card.hsp:15021   10601   creatura 997
+    NOME  jp 雪原
+          en snow field
+          IT None
+    JP    
+    EN    
+
+--- db_card.hsp:15032   10700   creatura 996
+    NOME  jp 平地
+          en plain
+          IT None
+    JP    
+    EN    
+
+--- db_card.hsp:15043   10701   creatura 997
+    NOME  jp 雪原
+          en snow field
+          IT None
+    JP    
+    EN    
+
+--- db_card.hsp:15054   24000   creatura 998
+    NOME  jp 伝書鳩
+          en homing pigeon
+          IT piccione viaggiatore
+    JP    draw2Card
+    EN    
+
+--- db_card.hsp:15065   24001   creatura 999
+    NOME  jp 帰還
+          en return
+          IT Ritorno
+    JP    return
+    EN    
+
+== 39 carte fra la riga 14601 e la 15075
