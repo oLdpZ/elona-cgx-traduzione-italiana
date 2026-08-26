@@ -1,18 +1,43 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-27, fine della **centosettesima** sessione (**le descrizioni
-degli oggetti entrano nel perimetro, e un numero del progetto era falso**).
+Aggiornato: 2026-08-27, fine della **centottesima** sessione (**il primo lotto
+di descrizioni, e un campo che due tipi di sito si dividevano**).
 
-⚠️⚠️⚠️ **LA 107a NON HA RESO NIENTE, E NON E' UN BUCO: HA COSTRUITO IL FRONTE.**
-Nessuna resa nuova, nessuna build nuova, l'eseguibile in gioco resta quello
-delle **19:07 del 26/08**. Quel che e' cambiato e' che `estrai.siti()` adesso
-vede **2.832 stringhe** che prima non vedeva nessuno. Le sostituzioni della
-prova d'identita' salgono da 28.073 a **30.905**, cioe' +2.832 esatte, e
-`pytest` da 775 a **792**.
+⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' DELLE 00:49 DEL 27/08**, ed e' quello da
+controllare prima di leggere uno screenshot. Contiene le **56 rese** della 108a,
+che arrivano a schermo su **133 righe**. Quello delle 19:07 del 26/08 e' il
+precedente: se la data e' ancora quella, la build non e' stata rifatta.
 
-⚠️⚠️ **LA SESSIONE SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
-spinto e l'albero e' pulito; le cose che **non stanno nel repo** sono quattro, e
-l'ordine conta:
+⚠️⚠️ **DAL LOTTO DELLA 108a I VALORI DA ASPETTARSI IN APERTURA SONO QUESTI:**
+
+    pytest                   **794 passed**, 6 skipped   (erano 792)
+    prova_identita           72/72 e 30.905, **invariato** (la prova d'identita'
+                             riscrive ogni sito con se stesso: non si muove
+                             quando si traduce)
+    applica                  **27.650** sostituzioni      (erano 27.517)
+    verifica --dizionario    db_item.hsp: 0 da ritradurre, **2.524** non tradotte
+    _97-quanto-resta         TOTALE **2.634 / 110 / 2.524**
+    perimetro.py             perimetro **90%** (26.199), totale **93%**
+
+Tutto il resto e' **fermo dov'era**, riverificato in chiusura: `dati_applica
+--identita` 6 file e 3.767 righe, `toppe.jsonl` 1027 e `_97-toppe-agganciate`
+1027 su 1027, `rinviate.jsonl` 113, `creature` 1131/2466/0/0, `larghezze` 0
+fuori misura, `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `menu_dialogo` 0
+su 1378, `linguette` 0 e 0, `battute --divergenti` 13,
+`intestazioni_larghezze` perimetro 0, `dati_sorgente` 7/7 e gioco difforme su 0,
+`gronde` 0 su 5, `maiuscole` 143/6/1/7/0, `bilingui` 0, `referti` 9,
+`lang-nel-ramo-jp` 21 | 0, `_96-morte-nella-build` 0, `_103-inglese-ripetuto`
+1 + 2, `_104-inglese-slittato` 2 teste.
+
+⚠️ **La ventesima verifica e' nuova**, ed e' un cancello a zero:
+
+    PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/_108-accento-decomposto.py
+    → «rese con accento DECOMPOSTO: 0 su 23.404» piu' la riga della prova al contrario
+
+⚠️⚠️ **LA 107a SI ERA CHIUSA ANNUNCIANDO UN CAMBIO DI TERMINALE, e non c'e'
+stato**: la 108a si e' aperta sulla stessa macchina, con l'albero di build al
+suo posto. Il blocco qui sotto resta valido per la prossima volta che succede.
+Le cose che **non stanno nel repo** sono quattro, e l'ordine conta:
 
     dati-sorgente\             python -m strumenti.dati_sorgente --pinna
     l'albero di build          python -m strumenti.applica
@@ -35,17 +60,15 @@ e il suo lettore stanno in `dati.py` (`CODIFICHE`, `PIATTI`), e `degrada()` su
 di lui **non si applica**, perche' degradare esiste solo per CP932.
 
 💡 **Se il terminale nuovo e' sulla stessa macchina, non si rifa' niente**:
-dalla 92a alla 107a si sono aperte tutte cosi'. Si controlla in un colpo con
+dalla 92a alla 108a si sono aperte tutte cosi'. Si controlla in un colpo con
 `ls C:\Games\Elona\_traduzione\` (devono esserci `build`, `sorgente`,
 `dati-sorgente`, `hsp34`), e l'eseguibile in gioco dev'essere
-`elonaplus2.31\cgx-test.exe` delle **19:07 del 26/08**: se la data e' quella,
-la build corrente contiene tutte le 444 rese della 106a e non va rifatta.
-⚠️ Nella 106a le build sono state **due**, alle 16:25 e alle 19:07: quella che
-conta e' la seconda.
-⚠️⚠️ **La 107a NON ha ricompilato**, ed e' giusto cosi': non ha reso niente.
-`applica` e' girato (27.517 sostituzioni, invariate) ma `compila --eseguibile`
-no, quindi **la data da controllare resta quella del 26/08**. Non cercarne una
-piu' recente: non esiste, e non manca niente.
+`elonaplus2.31\cgx-test.exe` delle **00:49 del 27/08**: se la data e' quella,
+la build corrente contiene le 56 rese della 108a e non va rifatta.
+⚠️ **La 107a NON aveva ricompilato**, ed era giusto cosi': non aveva reso
+niente. La 108a ha ricompilato, e la data buona non e' piu' quella del 26/08.
+⚠️ I sei file dati **non sono cambiati** nella 108a: `cmp -s` li ha lasciati
+tutti e sei dov'erano.
 
 ⚠️⚠️⚠️ **LE RETI DEL LOTTO NON LEGGONO IL GLOSSARIO, E LA 105a CI E' CADUTA
 QUATTRO VOLTE IN UN GIORNO.** `verifica`, `guardie` e le tredici reti dello
@@ -104,7 +127,177 @@ e l'ha riparata. Chi trova una parola cosi' cerchi il byte 0x08, non il refuso.
 ---
 
 
-## La centosettesima sessione
+## La centottesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **venti** verifiche d'apertura (la
+ventesima e' `_108-accento-decomposto.py`, cancello a zero). La 108a si e'
+aperta con `origin/fase-0` allineato: **sessantacinquesima prova** di fila, e le
+diciannove hanno dato diciannove volte i valori attesi della 107a.
+
+I valori nuovi stanno in testa a questo file, sotto la data.
+
+### ▶ Che cosa e' stato fatto
+
+    db_item.hsp   FILTER_ITEM_FOOD indice 3, il rapporto di identificazione
+    -------------------------------------------------------------------------
+    56 firme rese, che coprono **133 righe** del sorgente
+    applica 27.517 -> **27.650**   (+133 esatte)
+    la resa piu' lunga: **65 caratteri degradati su 69**, margine 4
+    tetto secco: introdotte dall'italiano **0** — il cancello e' verde
+    rinviate: nessuna   toppe: nessuna   reti nuove: 1 (accento decomposto)
+    strumenti toccati: assembla-lotto (modo --righe), verifica (+2 test)
+    test: 792 -> **794**   build: SI', 00:49 del 27/08
+    -------------------------------------------------------------------------
+
+### ▶ ⭐⭐⭐ IL PUNTO 16 E' CHIUSO: la zona si dichiara per INSIEME di righe
+
+    python scratchpad/assembla-lotto.py 001 scratchpad/_102-rese-card-06.py \
+        scratchpad/lotti-108 --righe scratchpad/lotti-108/righe001.py \
+        --hsp db_item.hsp --lavoro lavoro/_107-daitem.jsonl
+
+**Non e' nato un secondo modello.** L'assemblatore riscrive **due righe** del
+modello unico — `DA, A = ...` diventa il `RIGHE = {...}`, e la riga della `zona`
+passa da `DA <= v['riga'] <= A` a `v['riga'] in RIGHE` — e il confronto finale
+carattere per carattere resta quello di prima. ✅ Provato al contrario: un `!=`
+cambiato in `==` dentro la rete 11 del file generato, e il confronto se ne
+accorge.
+
+⚠️⚠️ **Il modello e' `scratchpad/_102-rese-card-06.py`**, non `modello-rete4.py`.
+Le sue reti sono identiche a quelle dell'ultimo lotto delle carte — **zero righe
+di differenza** da `_106-rese-card-30.py` — e in piu' ha ancora l'ancora
+`# rete 5: l'accento`, che i lotti dal 07 in poi hanno perso copiandosi l'un
+l'altro. `modello-rete4.py` e' della 43a e la sua rete 6 non sa del commento
+`//` della 100a: **non si usa piu'**.
+
+⭐ E tre convenzioni dedotte sono diventate dichiarabili: `--lavoro`, `--fase`,
+`--hsp`. La convenzione «`nome.hsp` legge `lavoro/_nome.jsonl`» era rotta da sei
+sessioni, ed e' per quello che i lotti si scrivevano a mano.
+
+### ▶ ⚠️⚠️ UN CAMPO CHE DUE TIPI DI SITO SI DIVIDEVANO, E LA CATENA ERA VERDE
+
+Il primo lotto e' uscito da `verifica` con **56 problemi su 56**: «voce di nome
+incompleta, mancano: plurale, genere, array».
+
+Le descrizioni portano l'`ITEM_ID` in **`oggetto`** ma non in `array`
+(`estrai.py:717`, e la 107a lo scrive a chiare lettere: una descrizione non e' la
+testa di un composto). `verifica._problemi_del_nome` riconosceva un nome da **uno
+qualunque dei quattro campi**, e `oggetto` era uno dei quattro. Adesso guarda i
+tre che **solo** un nome ha — `plurale`, `genere`, `array` — e `_CAMPI_NOME`
+resta di quattro, perche' un nome deve avere anche l'`oggetto`.
+
+⚠️⚠️ **E la 107a aveva gia' trovato lo stesso criterio, in un altro posto**: due
+test di conteggio le erano caduti e lei li ha riportati a filtrare su `array`,
+«cio' che *fa* di una voce un nome». A `verifica.py` non e' arrivato. La
+correzione era stata applicata dove il guasto si era visto, non dove la stessa
+ipotesi era scritta una seconda volta.
+
+💡 Il difetto e' nato nella 107a e ha attraversato una catena tutta verde,
+perche' quella sessione **non ha reso niente**: una rete che non ha ancora avuto
+un caso da giudicare non e' una rete che funziona.
+
+### ▶ ⭐ LA FORMULA DEL RAPPORTO DI IDENTIFICAZIONE, che vale per le 2.524 rimaste
+
+`description(3)` non e' prosa, e' un referto. Il giapponese lo scrive **uguale**
+su tutta una categoria e lo cambia solo quando cambia il fatto. Le formule
+stanno in `glossario.md`, sezione della 108a. In breve:
+
+    Un cibo che sazia.                       il caso base
+    ... e che si può cucinare.               quando il giapponese lo dice
+    ... Certe volte va di traverso.          のどに詰まることがある
+    Un seme che diventa un albero di X. Si usa (usa e getta).
+    Un'erba che alza <attributi>.
+    Un cibo di mare / Una verdura / Un frutto / Frutti a guscio / Un uovo
+
+⭐⭐ **Dove l'inglese, invece di riempire la casella della categoria, si mette a
+raccontare, si torna alla formula.** Sette righe (il tonno «carnivoro», il
+salmone «dalle abitudini di deposizione uniche», il pesce sciabola «che somiglia
+a un'anguilla», la farina «da forno», la pasta «che verrebbe meglio cotta», il
+cadavere, il condimento sul bestiame): il giapponese di tutte e sette e' la
+formula generica. E' la regola di `decisioni.md`, «Quando l'inglese aggiunge un
+fatto».
+
+⭐⭐ **Tre difetti di monte riparati gratis**, e il primo e' il piu' grosso:
+
+- **`:115655`, la razione: l'inglese dice il CONTRARIO del giapponese.**
+  「調理することができる。」 e' «si puo' cucinare», l'inglese scrive «it cannot be
+  cooked», e in gioco la razione si cucina;
+- **`:80490`, il mochi: l'inglese ha perso una frase intera**, quella che sulla
+  gemella `:80553` c'e' come «CHOKE WARNING»;
+- **`:113943`, il filoncino: l'inglese ha perso 「調理することができる。」.**
+
+### ▶ ⚠️ IL MARGINE E' DI QUATTRO CARATTERI, E LA FAMIGLIA STRETTA NON E' QUELLA CHE SEMBRA
+
+Il cancello dice «0 introdotte dall'italiano», e da solo non basta a sapere se la
+formula reggera' sulle categorie dopo. La resa piu' lunga del lotto misura **65
+caratteri degradati su 69**, e sono i **semi**, non i cibi: «Un seme che diventa
+un albero di artefatti. Si usa (usa e getta).» I cibi stanno tutti sotto i 60.
+`scratchpad/lotti-108/_margine.py` lo rimisura in un comando.
+
+### ▶ ⓘ La rete 5 era caduta dai lotti, e nessuno lo aveva visto
+
+`RESE = {k: unicodedata.normalize('NFC', v) ...}` sta nel modello e **non c'e'**
+nei lotti delle carte dal 07 al 30: sparita copiando il 06 nel 07. Nessuno
+strumento la sostituisce — `accenti.TABELLA` sostituisce le vocali
+**precomposte**, quindi una «é» scritta come `e` + U+0301 gli passa davanti
+intatta. `scratchpad/_108-accento-decomposto.py` la misura sul dizionario
+intero: **0 su 23.404**. ⭐ E la ragione dello zero, senza la quale non sarebbe
+un risultato: le rese si scrivono gia' in NFC, quindi il caso non si e' mai
+presentato. Un copia-incolla da una fonte decomposta lo riaprirebbe.
+
+### ▶ Il lotto da cui si comincia la prossima volta
+
+Le categorie dell'indice 3 che restano, in ordine di convenienza — e la
+convenienza vera e' il rapporto **righe / firme**, che qui e' stato 133 / 56:
+
+    python scratchpad/_107-lotti-per-categoria.py
+
+Le prime per dimensione (righe / firme): mobilio 512/479, utensili 376/347,
+cianfrusaglie 221/205, armi 216/215, grimori 174/174, pozioni 159/147,
+pergamene 145/138, tiro 116/115. ⚠️ Nessuna di queste ha il rapporto del cibo:
+sono quasi tutte una firma per riga, quindi costano quanto pesano.
+
+Il comando per aprire il lotto dopo, con la stessa forma di questo:
+
+    python scratchpad/_107-dossier-item.py --categoria <CAT> --indice 3
+    python scratchpad/_107-chiavi-item.py  --categoria <CAT> --indice 3
+    python scratchpad/_107-chiavi-item.py  --categoria <CAT> --indice 3 --solo-righe \
+        | grep -v "^#" > scratchpad/lotti-NNN/righeNNN.py
+
+⚠️ **Prima di chiudere un lotto**, i termini che il giapponese porta si cercano
+**a mano** in `glossario.md` e `invariati.md`: nessuna rete li legge.
+
+### ▶ ⚠️⚠️ LE 56 RESE NON SONO MAI STATE VISTE A SCHERMO
+
+Il debito di collaudo sale da 6.546 a **6.602**. La lista di passi per guardarle
+e' stata data all'utente in chiusura di sessione ed e' questa:
+
+    F12 apre la console (help.hsp:452)   ->   wizard   ->   spawn_item <id>
+    poi `g` per raccogliere, `i` per l'inventario, **`x`** per il rapporto
+    (`key_identify. "x"` in config.txt del gioco, e command.hsp:15787)
+
+    233   razione            «Un cibo che sazia e che si può cucinare.»  ⭐ il contrario dell'inglese
+    756   mochi              «... Certe volte va di traverso.»           ⭐ frase persa dall'inglese
+    755   kagami mochi       la stessa riga, identica: i due giapponesi sono uguali
+    417   seme di ortaggio   la famiglia piu' stretta, 63 caratteri su 69
+    1136  cristallo curativo «... guarisce la malattia dell'etere.»
+    425   curaria            «Un'erba che alza un po' tutti gli attributi base.»
+    943   ghianda dorata     «Frutti a guscio che si mangiano, ma non si possono cucinare.»
+    738   biscotto d. fortuna «... Dopo averlo mangiato, predice la sorte.»
+
+⚠️ **Il rapporto compare solo se l'oggetto e' identificato a fondo**
+(`command.hsp:16061`, `inv(INV_ITEM_KNOWN, ci) >= ITEM_KNOWN_FULL`). Un oggetto
+**comprato in negozio** lo e' sempre (`item.hsp:2722`); uno creato con
+`spawn_item` nasce a zero e diventa FULL da solo dopo qualche turno nello zaino
+(`item.hsp:2102`-`2105`, la prova periodica del senso della qualita'). Se la
+riga non c'e', **non e' la traduzione: e' l'oggetto che non e' ancora
+identificato** — si aspettano dei turni, o si compra la stessa cosa da un
+mercante.
+
+
+## La centosettesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

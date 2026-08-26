@@ -1464,6 +1464,62 @@ parola (`de'i`, `e'lite`) e a schermo non si legge. Rese «divinità», «il mig
 fra i migliori», «il fior fiore». ⓘ E la **lineetta lunga** `—` è un carattere a
 doppia larghezza in CP932: la boccia `guardie`, non `verifica`.
 
+## `db_item.hsp`, deciso il 2026-08-27 dalla 108ª — la FORMULA del rapporto di identificazione
+
+`description(3)` non è prosa: è il **rapporto di identificazione**, la riga che
+chiude la scheda di `com_identify` (`command.hsp:16275`, dentro
+`inv(INV_ITEM_KNOWN, ci) >= ITEM_KNOWN_FULL`). Il giapponese la scrive **uguale**
+su tutta una categoria e la cambia solo quando cambia il fatto. L'italiano tiene
+la forma del referto, perché un referto che dice cose diverse per il tonno e per
+la sardina ha smesso di essere un referto.
+
+⚠️ **Il tetto è secco: 69 caratteri degradati.** Nessun impaginatore, nessun
+taglio: sfora e basta. La rete è `scratchpad/_107-descrizioni-item.py`, e la
+resa più lunga del primo lotto ne misura **65**: il margine è di quattro.
+
+| giapponese | italiano |
+|---|---|
+| 満腹度を回復することができる食物。 | **Un cibo che sazia.** |
+| … 調理することができる。 | **… e che si può cucinare.** |
+| … のどに詰まることがある。 | **… Certe volte va di traverso.** |
+| 満腹度をわずかに回復する… | **Un cibo che sazia poco.** |
+| 満腹度をほんのわずかに回復する… | **Un cibo che sazia appena appena.** |
+| 使用することができる（使い捨て） | **Si può usare (usa e getta).** |
+| Xの木に成長する種。 | **Un seme che diventa un albero di X.** |
+| ⟨erba⟩ …の能力値を上昇させる食物だ。 | **Un'erba che alza ⟨attributi⟩.** |
+
+E le caselle di categoria, che le riempie **l'inglese** perché il giapponese
+scrive 食物 per tutte: `seafood` → **un cibo di mare** (copre pesci e molluschi,
+dove «frutto di mare» no), `vegetable` → **una verdura**, `fruit` → **un
+frutto**, `nuts` → **frutti a guscio**, `egg` → **un uovo**.
+
+### ⭐⭐ Tre difetti di monte riparati, e sette aggiunte taciute
+
+- **`:115655`, la razione: l'inglese dice il CONTRARIO del giapponese.**
+  「調理することができる。」 è «si può cucinare», e l'inglese scrive «it cannot
+  be cooked». Non è un'aggiunta, è una negazione, e in gioco la razione si cucina.
+- **`:80490`, il mochi: l'inglese ha perso una frase intera** —
+  「のどに詰まることがある。」 — che la gemella `:80553`, il kagami mochi, ce l'ha
+  come «CHOKE WARNING». I due giapponesi sono identici e ora lo sono i due italiani.
+- **`:113943`, il filoncino: l'inglese ha perso 「調理することができる。」.**
+
+🔶 **E sette righe dove l'inglese, invece di riempire la casella, racconta**: il
+tonno «carnivoro», il salmone «dalle abitudini di deposizione uniche», il pesce
+sciabola «che somiglia a un'anguilla», la farina «da forno», la pasta «che
+verrebbe meglio cotta», il cadavere «che si può cucinare in piatti di carne», e
+il condimento che «qualcuno versa sul bestiame prima della macellazione». Il
+giapponese di tutte e sette è la formula generica: si segue lui e si tace
+l'aggiunta, per la regola di `decisioni.md` «Quando l'inglese aggiunge un fatto».
+
+ⓘ **I termini che il lotto porta e che erano già decisi altrove:**
+「エーテル病」 → «la malattia dell'etere» (`command.hsp:2336`), 「狂気度」 →
+«Follia» (`command.hsp:10517`), 「運勢」 → «fortuna» (`skill.hsp:64`),
+「生命力」 → «la vita» (`chat.hsp:16738`), 「マナ」 → mana (`invariati.md`).
+
+ⓘ **`:74301`, il pranzo del ringiovanimento**: «ti riporta all'infanzia» e non
+«ti fa tornare bambino» — il genere del giocatore non si conosce
+(`guida-stile.md`).
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

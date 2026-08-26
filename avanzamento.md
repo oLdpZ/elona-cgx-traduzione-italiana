@@ -2558,3 +2558,67 @@ tutta la categoria.
 🔶 **Prima serve un modello di lotto che selezioni per `RIGHE = {...}`** invece
 che per `DA, A`: le descrizioni di una categoria sono sparse per novantamila
 righe, e un intervallo prenderebbe dentro mezzo file.
+
+## `db_item.hsp`, il primo lotto di descrizioni — 2026-08-27, centottesima
+
+Un lotto solo, `FILTER_ITEM_FOOD` indice 3: **56 firme rese**, che coprono
+**133 righe** del sorgente. Il conteggio, rilanciato in chiusura e non ricopiato:
+
+    python -m strumenti.verifica --dizionario
+
+        db_item.hsp     2.580 non tradotte -> **2.524**   (0 da ritradurre)
+
+    python scratchpad/_97-quanto-resta.py
+
+        TOTALE          2.690 / 110 / 2.580   ->   **2.634 / 110 / 2.524**
+
+    python scratchpad/perimetro.py            perimetro **90%**, totale **93%**
+                                              (26.199 nel perimetro, erano 26.143)
+
+    python -m strumenti.applica               27.517 -> **27.650**
+                                              = 27.517 + 133 esatte
+    python -m pytest strumenti/tests -q       775 -> 792 -> **794**
+
+    rinviate.jsonl                            113, invariato
+    toppe.jsonl                               1027, invariato — e 1027 agganciate
+
+⚠️⚠️ **Le sostituzioni salgono di 133 e le firme di 56, e non è una discrepanza:**
+`estrai --da-tradurre` àncora una firma alla **prima** occorrenza, e le
+descrizioni di questa categoria si ripetono parola per parola su tutta la
+famiglia. Una resa scritta una volta arriva a schermo su tutte le sue righe. È
+il rapporto — 133 su 56, cioè **2,4 righe per firma** — che rende questo file
+meno caro di quel che il conteggio delle righe fa credere.
+
+### Il tetto secco, misurato invece che sperato
+
+    python scratchpad/_107-descrizioni-item.py
+
+        indice 3: vive 1.319, **rese 133**
+        oltre il tetto — inglese: 110   italiano: **0**
+        ⚠️ INTRODOTTE DALL'ITALIANO: **0**   (è il cancello)
+
+⭐ E il numero che il cancello non dice: la resa più lunga del lotto misura
+**65 caratteri degradati su 69**, quindi il margine è di **quattro**. Sono i
+semi — «Un seme che diventa un albero di artefatti. Si usa (usa e getta).» — e
+sono la famiglia da tenere d'occhio nei lotti dopo, non i cibi.
+`scratchpad/lotti-108/_margine.py` lo rimisura in un comando.
+
+ⓘ **14 rese su 56 sono più lunghe del loro inglese**, e nessuna sfora: il
+fattore italiano/inglese di ~1,0 misurato dalla 107ª regge anche qui.
+
+### Gli strumenti toccati
+
+| file | che cosa |
+|---|---|
+| `scratchpad/assembla-lotto.py` | il modo `--righe`: la zona per **insieme** di righe invece che per intervallo, riscrivendo due righe del modello unico. Più `--lavoro`, `--fase`, `--hsp` |
+| `strumenti/verifica.py` | `oggetto` non basta più a riconoscere un nome: lo riconoscono `plurale`, `genere`, `array`, che solo un nome ha |
+| `strumenti/tests/test_verifica.py` | +2 prove: una descrizione col solo `oggetto` non è un nome; un nome senza `oggetto` resta rotto |
+| `scratchpad/_108-accento-decomposto.py` | la rete 5 portata fuori dal lotto e misurata sul dizionario intero |
+| `scratchpad/lotti-108/` | `testa001.py`, `rese001.py`, `righe001.py` e le due misure usa-e-getta |
+
+### Che cosa resta di questa categoria
+
+Le altre tre caselle di `FILTER_ITEM_FOOD` — gli indici 0, 1 e 2, il **corpo**
+del pannello — non sono in questo lotto e sono un'altra cosa: passano
+dall'impaginatore, sono prosa vera e la loro mediana è di 205 caratteri contro i
+48 dell'indice 3.

@@ -10694,3 +10694,86 @@ Diciannove inglesi tornano più volte con firme diverse, e sono due problemi:
 
 **Decisione:** si traduce **dal giapponese**, come sempre, e queste distinzioni
 si ripristinano. Il dossier mostra il JP accanto all'EN proprio per questo.
+
+## 108ª — Il primo lotto che non è un intervallo, e `oggetto` non basta più
+
+### ⭐⭐ `assembla-lotto.py` sa dichiarare la zona per INSIEME di righe
+
+Era il punto 16 lasciato aperto dalla 107ª. Le descrizioni di una categoria sono
+sparse per settantacinquemila righe — i cibi dell'indice 3 stanno fra 42.785 e
+117.602 — e il modello di lotto seleziona con `DA <= riga <= A`: su un intervallo
+così prenderebbe dentro mezzo file.
+
+**Non è nato un secondo modello, ed è la scelta che conta.** Un modello gemello
+sarebbe la quinta copia delle quattordici reti, e le reti 3, 4, 6, 8 e 9 sono
+state corrette *perché sbagliavano loro*: due copie divergono, e la copia
+vecchia riporta indietro un difetto già chiuso. L'assemblatore riscrive **due
+righe** del modello unico:
+
+    DA, A = 2601, 3100                                 ->  RIGHE = {...}
+    zona = [v for v in tutte if DA <= v['riga'] <= A]   ->  zona = [... if v['riga'] in RIGHE]
+
+e la verifica finale — «le reti del file scritto sono identiche a quelle del
+modello, carattere per carattere» — resta quella di prima, con due righe in più
+fra quelle che possono cambiare. ✅ **Provata al contrario**: cambiato un
+`!=` in `==` dentro la rete 11 del lotto generato, il confronto se ne accorge e
+stampa la riga.
+
+⚠️ **Il modello è `scratchpad/_102-rese-card-06.py`, non `modello-rete4.py`.**
+Le sue reti sono identiche a quelle dell'ultimo lotto delle carte (`_106-rese-card-30.py`,
+zero righe di differenza), e in più ha ancora l'ancora `# rete 5: l'accento`, che
+i lotti dal 07 in poi hanno perso copiandosi l'un l'altro. `modello-rete4.py` è
+della 43ª e la sua rete 6 non sa del commento `//` della 100ª.
+
+⭐ **E tre convenzioni che erano dedotte diventano dichiarabili** — `--lavoro`,
+`--fase`, `--hsp` — perché la convenzione meccanica «`nome.hsp` legge
+`lavoro/_nome.jsonl`» era rotta da sei sessioni (`db_card.hsp` legge
+`_102-dacard.jsonl`, `db_item.hsp` legge `_107-daitem.jsonl`), e i lotti si
+scrivevano a mano proprio per quello. La forma vecchia a posizionali resta
+valida: sta scritta nei documenti di sei sessioni.
+
+### ⚠️⚠️ `oggetto` è diventato un campo CONDIVISO, e `verifica` non lo sapeva
+
+Il primo lotto di descrizioni è uscito da `verifica` con **56 problemi su 56**:
+«voce di nome incompleta, mancano: plurale, genere, array».
+
+La causa sta nella 107ª. Le descrizioni portano l'`ITEM_ID` in `oggetto` — è la
+chiave che lega la descrizione al nome italiano già reso dello stesso oggetto —
+ma **non portano `array`**, e la 107ª lo scrive a chiare lettere in
+`estrai.py:717`, perché una descrizione non è la testa di un composto e non ha
+righe gemelle da scrivere. `_problemi_del_nome` invece riconosceva un nome da
+**uno qualunque dei quattro campi**, e `oggetto` era uno dei quattro.
+
+**Il riconoscitore ora guarda i tre campi che *solo* un nome ha** — `plurale`,
+`genere`, `array` — mentre `_CAMPI_NOME` resta di quattro, perché un nome deve
+avere anche l'`oggetto`. Due prove nuove: una descrizione col solo `oggetto` non
+è un nome, e **la prova al contrario** — un nome a cui manca l'`oggetto` resta
+una voce rotta, cioè allargare il riconoscitore non ha spento la regola.
+
+⚠️⚠️ **E la 107ª aveva già trovato il criterio giusto, in un altro posto.** Due
+test di conteggio le erano caduti dicendo «tutte le voci di `db_item` sono nomi»,
+e lei li ha riportati a filtrare su **`array`** — «ciò che *fa* di una voce un
+nome» (`avanzamento.md`, 107ª, punto 4). Lo stesso criterio serviva a
+`verifica.py`, e lì non è arrivato: una correzione applicata dove il guasto si è
+visto, e non dove la stessa ipotesi era scritta una seconda volta.
+
+⚠️ **È la forma di guasto che questo progetto ha già visto tre volte**: un
+fronte nuovo passa una catena verde perché non c'era niente da verificare. La
+107ª non ha reso niente, quindi il difetto è nato lì ed è rimasto invisibile
+fino al primo lotto della 108ª. Una rete che non ha ancora avuto un caso da
+giudicare non è una rete che funziona.
+
+### ⓘ La rete 5, l'accento precomposto, era caduta dai lotti senza che nessuno lo vedesse
+
+`RESE = {k: unicodedata.normalize('NFC', v) ...}` sta nel modello e **non c'è**
+nei lotti delle carte dal 07 al 30: è sparita copiando il lotto 06 nel 07. E
+nessuno strumento la sostituisce — `accenti.TABELLA` sostituisce le vocali
+**precomposte**, quindi una «é» scritta come `e` + U+0301 le passa davanti
+intatta e arriva a CP932 come un carattere muto.
+
+`scratchpad/_108-accento-decomposto.py` la porta fuori dal lotto e la misura sul
+dizionario intero: **0 rese decomposte su 23.404**. ⭐ E la ragione dello zero,
+che senza non sarebbe un risultato: le rese si scrivono già in NFC, quindi il
+caso non si è mai presentato — non è merito di nessuno, e un copia-incolla da
+una fonte decomposta lo riaprirebbe. La prova al contrario **dice dove si
+accende** (il carattere 5 di una frase di prova), non stampa un ✅.
