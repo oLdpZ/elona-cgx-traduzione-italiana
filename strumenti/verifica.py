@@ -60,6 +60,19 @@ _ARTICOLO_DAVANTI_AD_APPELLATIVO = re.compile(
 # stata ritoccata a mano.
 _CAMPI_NOME = ("plurale", "genere", "array", "oggetto")
 
+# ⚠️⚠️ **`oggetto` NON basta piu' a riconoscere un nome, e dalla 107a e' un
+# campo condiviso.** Le descrizioni di `db_item.hsp` (`DBMODE_DESC`) portano
+# l'`ITEM_ID` in `oggetto` — e' la chiave che lega la descrizione al nome
+# italiano gia' reso dello stesso oggetto — ma **non portano `array`**, perche'
+# non sono la testa di un composto e non hanno righe gemelle da scrivere.
+# Riconoscere il nome da «uno qualunque dei quattro campi» faceva bocciare
+# **tutte** le 2.580 descrizioni come «voce di nome incompleta»: il difetto e'
+# nato nella 107a insieme al terzo tipo di sito e si e' visto nella 108a, il
+# primo lotto di descrizioni, perche' prima non c'era niente da verificare.
+# Il riconoscitore guarda i tre campi che **solo** un nome ha; `_CAMPI_NOME`
+# resta di quattro, perche' un nome deve avere anche l'`oggetto`.
+_CAMPI_SOLO_NOME = ("plurale", "genere", "array")
+
 
 # Le sezioni di `invariati.md` che portano una tabella, classificate per
 # prefisso del titolo. Non c'e' un default: una sezione con valori che non
@@ -189,7 +202,7 @@ def _problemi_del_nome(voce: dict) -> list[str]:
     controlli di carattere: virgoletta doppia, apostrofo scritto a mano,
     residuo non rappresentabile in CP932.
     """
-    presenti = [nome for nome in _CAMPI_NOME if nome in voce]
+    presenti = [nome for nome in _CAMPI_SOLO_NOME if nome in voce]
     if not presenti:
         return []  # non e' un nome: in `lang()` il plurale sta gia' nella stringa
 

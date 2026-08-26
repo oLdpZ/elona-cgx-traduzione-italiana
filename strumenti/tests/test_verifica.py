@@ -581,6 +581,36 @@ def test_mezzo_nome_e_una_voce_rotta():
     assert problemi and "db_item.hsp:1200" in problemi[0] and "array" in problemi[0]
 
 
+def test_una_descrizione_porta_l_oggetto_e_non_e_un_nome():
+    # ⚠️⚠️ 108a. Le descrizioni di `db_item.hsp` (`DBMODE_DESC`) portano
+    # l'`ITEM_ID` in `oggetto` — la chiave che le lega al nome italiano gia'
+    # reso dello stesso oggetto — ma NON portano `array`, `plurale` e `genere`,
+    # perche' non hanno righe gemelle da scrivere. Finche' il riconoscitore
+    # guardava «uno qualunque dei quattro campi», **tutte e 2.580** le
+    # descrizioni uscivano come «voce di nome incompleta»: il difetto e' nato
+    # nella 107a col terzo tipo di sito e non si e' visto, perche' quella
+    # sessione non ha reso niente. Si e' visto al primo lotto, nella 108a.
+    descrizione = voce(
+        file="db_item.hsp", riga=42785,
+        jp="満腹度を回復することができる食物。",
+        jp_grezzo='"満腹度を回復することができる食物。"',
+        en="It is food that can restore satiety.",
+        en_grezzo='"It is food that can restore satiety."',
+        it="Un cibo che sazia.", oggetto="ITEM_ID_MESUGAKI",
+    )
+    assert controlla_voce(descrizione) == []
+
+
+def test_un_nome_senza_oggetto_resta_una_voce_rotta():
+    # la prova al contrario della precedente: allargare il riconoscitore non
+    # deve spegnere la regola. `oggetto` e' il campo che le descrizioni
+    # condividono, quindi e' quello su cui il controllo poteva diventare muto
+    v = nome()
+    del v["oggetto"]
+    problemi = controlla_voce(v)
+    assert problemi and "oggetto" in problemi[0]
+
+
 def test_il_plurale_finisce_in_una_stringa_hsp_come_il_singolare():
     # `applica_dati_nome` scrive ioriginalnamerefplur(...) = "<plurale>": una
     # virgoletta doppia chiude la stringa in anticipo, esattamente come nel
