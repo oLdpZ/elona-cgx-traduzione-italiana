@@ -1303,6 +1303,42 @@ quando gli parla, non quello che monte ha scritto qui.
   ⓘ L'inglese di monte aveva risolto togliendo il criceto: così la carta non
   dice più niente.
 
+## I lotti 11-14 di `db_card.hsp`, decisi il 2026-08-26 (104ª)
+
+| JP | EN di monte | IT | perché |
+|---|---|---|---|
+| キッカス | `Kikkasu` / `Kikkas` | **Kikkasu** | ⚠️ **Monte lo scrive in due modi** e ogni lotto aveva seguito il file davanti: 7 volte `Kikkasu` in `chat.hsp` e `text.hsp`, 3 `Kikkas` nelle carte. Vince la maggioranza, che è anche quella della catena della missione. Tocca il **nome** `il pitone di Kikkasu`, stessa firma in due dizionari. Vedi `correzione-kikkasu.py` |
+| エルン | `Eln` / `Elun` | **Eln** | ⚠️ Stesso guasto, stesso giorno, e di nuovo di monte. `chat.hsp:7676` **definisce** i Norne nominando le tre stirpi insieme (Ahlung, Eln, Dovarn); `:9499` è una menzione. Serve a `db_card.hsp:7011`. Vedi `correzione-eln.py` |
+| 化身の黒猫 | the Black Cat | **il gatto nero delle Incarnazioni** | `化身` non è una parola sciolta: è una **razza**, `神の化身` → «Incarnazione» (`db_race.hsp:5553`), quella dei compagni-avatar che il lotto 13 nomina uno per uno. ⚠️ Torna a `db_card.hsp:10768` |
+| レム・イド | Rehmido | **Rehm-Ido** | ⚠️ **Non** `レミード` → «Remido», che sono le **rovine**: Rehm-Ido è la **civiltà** (`chat.hsp:8144`). Due nomi simili a due lotti di distanza |
+| 眷属 (混沌の—) | the Military Force | **il figlio del caos** | `chat.hsp:10321` lo aveva già reso «i figli del caos». L'inglese di `:6335`, `:6348` e `:6361` legge 眷属 come un corpo militare: non è né il senso né il numero |
+| 妖怪 (nei tre 鬼) | — | **creatura soprannaturale** | `:5529`, `:5542`, `:5555` hanno la stessa prima frase, e dentro c'è **anche** 悪魔, che nel progetto è «il demone». I loro nomi sono già `il demone splendente / squartatore / frantumatore`: chiamarli tutt'e due «demone» nella stessa riga li appiattisce |
+| 精霊が◯◯を象って実体化した存在 | a being whose spirit has materialized in the form of… | **uno spirito che ha preso corpo nella forma di…** | formula fissa, tre carte (`:5711`, `:5841`, `:5854`): si rende identica |
+| 外法 | foreign laws / the Outer Law | **le arti proibite** | `:5867` e `:6257`. L'inglese sbaglia due volte in due modi diversi, e la seconda la maiuscola come se fosse un'istituzione |
+| 当て馬 | a guessing horse | **l'esca** | `:5191`. È il cavallo che si mette in pista per far correre gli altri; l'inglese traduce alla lettera e in inglese non vuol dire niente |
+| 疫病神 (`:5399`) / 厄病神 (`:5828`) | the pestilence god / a god of disaster | **il dio della pestilenza** / **portasfortuna** | ⚠️ Stessa parola, due usi. A `:5399` è letterale ma **non è una creatura del gioco** (unica occorrenza nel sorgente) e **non** si aggancia al `疫病の悪魔` della missione; a `:5828` è il modo di dire |
+| 盆踊り | bon-dancing | **il ballo dell'Obon, la festa dei morti** | `:5880`. La glossa serve: la battuta è che a ballare il ballo dei morti è un morto |
+| élite | an elite | **fra le elette** | ⚠️ Non è una scelta di gusto: `verifica.py` boccia `élite`, perché `degrada()` in CP932 mette l'apostrofo **dentro** la parola e a schermo si legge `e'lite` |
+
+⭐ **Due citazioni con una forma italiana già fatta.** `:5243` ricalca Gettysburg
+— ペンギンのペンギンによるペンギンのための国 → *un paese dei pinguini, dai
+pinguini, per i pinguini* — e `:5802` è Muhammad Ali, 蝶のように舞い、蜂のように
+刺す → *vola come una farfalla, pungi come un'ape*. `:5386` porta la **pecorella
+smarrita** del Vangelo, che regge anche la carta gemella `:5373`.
+
+⭐ **Un bisticcio che si tiene cambiando parola.** `:5373`: 外道 è *fuori dalla
+via*, e il nome della carta è `la pecora smarrita`. In italiano *smarrire la
+retta via* fa lo stesso doppio senso, morale e stradale, che l'inglese («truly
+an outsider») aveva perso.
+
+⚠️ **Sei errori di monte presi dal giapponese nei lotti 11-13**, tutti
+verificabili riga per riga: `:5139` 食べられないことはない (*non è che non si
+possa mangiare*) reso «It's never eaten»; `:5178` 後天的 (*acquisito*) reso «born
+with»; `:5256` 少なくない (litote: *non pochi*) reso «there are few»; `:5646` un
+«God of Creation» inventato che rovescia il paragone; `:5672` 比較にならない
+(*incomparabilmente più forte*) reso «in comparison to»; `:5763` 効かない (*non
+fa presa su di lui*) reso come un gigante malato, cioè il rovescio della carta.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

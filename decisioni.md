@@ -10300,3 +10300,99 @@ sbagliato. Riscritto in «se il Cub lo conosci già», referto di nuovo a 9.
 ⚠️ E l'eseguibile è stato **ricompilato dopo**: una lista di collaudo che punta
 a un eseguibile più vecchio della correzione è la trappola dell'11 agosto, e
 costa venti minuti a cercare un difetto che non c'è.
+
+
+## L'inglese di monte slitta, e due nomi sdoppiati — 2026-08-26, centoquattresima
+
+### ⭐⭐⭐ Una rete che cerca doppioni vede solo il primo anello
+
+La 103ª aveva scritto «**tre** carte con l'inglese di un'altra», e il numero
+veniva da `_103-inglese-ripetuto.py`, che cerca due prose inglesi **uguali**.
+Aprendo il lotto 14, il dossier ha mostrato che `:6959`/`:6972` non era una
+coppia: era la **testa di una catena di nove**.
+
+    :6972  il mostro di spaghetti          l'inglese di :6959
+    :6985  la viverna folgorante           l'inglese di :6972
+    :6998  <Melugast type0>                l'inglese di :6985
+    :7011  <Norne> la guida                l'inglese di :6998
+    :7024  il Mara                         l'inglese di :7011
+    :7037  il mortaio semovente di Yerles  l'inglese di :7024
+    :7050  il lanciabombe                  l'inglese di :7037
+    :7063  lo Yerleswood di serie          l'inglese di :7050
+    :7076  il drago della nebbia           il suo — qui monte si riallinea
+
+⭐ **Il meccanismo, e il motivo per cui nessuna rete lo vedeva.** Monte copia
+l'inglese della carta precedente su una carta; l'inglese giusto di *quella*
+carta non si perde, **scivola** sulla successiva, e da lì in avanti tutto è
+spostato di un posto. Dal secondo anello in poi **ogni inglese compare una volta
+sola**, e una rete che cerca doppioni tace. La catena si chiude quando monte
+butta via un inglese: quello di `:7063` nel sorgente **non esiste da nessuna
+parte**.
+
+⚠️⚠️ **Il guasto ha due forme, e nessun conteggio le distingue.** Verificate
+tutt'e tre le teste leggendo la carta successiva: `:4125` (riparata dalla 103ª)
+e `:9637` sono **doppioni isolati** — `:4138` e `:9650` hanno il loro inglese e
+la catena non parte. `:6972` invece propaga. Quindi **da un doppione non si
+deduce quale forma sia**: la regola di lavoro è che quando ne salta fuori uno si
+legge il dossier delle **venti carte successive**.
+
+### ⚠️ La rete nuova è dichiarata debole, e il numero è misurato
+
+`scratchpad/_104-inglese-slittato.py` fa due cose: trova le teste (l'inglese
+copiato dalla carta prima) e stampa la finestra delle venti carte successive con
+due segnali — il **nome della carta dentro la propria prosa** e il **rapporto
+fra le lunghezze** di giapponese e inglese, che nel file è stabile a 2,94.
+
+⚠️⚠️ **Provata al contrario prima di crederle**, cioè puntata sul blocco dove il
+difetto c'è di sicuro: i due segnali accendono su **cinque carte su nove**
+(`:6985`, `:6998`, `:7037`, `:7050`, più `:4125` fuori blocco) e tacciono su
+`:6972`, `:7011`, `:7024` e `:7063`. Il rapporto fra le lunghezze è rumoroso su
+testi di due righe, e il nome nella prosa c'è solo quando c'è. Non è un cancello
+e nel referto lo dice.
+
+⭐ **E le due reti si leggono insieme.** `:4125` in `_104` non compare, perché il
+suo inglese non è una **copia** di `:4112` ma una traduzione **diversa** dello
+stesso giapponese: somiglianza **0,30**. La trova `_103`, che confronta le parole
+e non la stringa. Nessuna delle due vede quello che vede l'altra.
+
+### ⚠️⚠️ Due nomi sdoppiati in un giorno, e la causa non sta nei lotti
+
+| katakana | le due forme | dove | tenuta |
+|---|---|---|---|
+| `キッカス` | `Kikkasu` / `Kikkas` | `chat.hsp`, `text.hsp` (7) contro `db_card.hsp`, `db_creature.hsp` (3) | **Kikkasu** |
+| `エルン` | `Eln` / `Elun` | `chat.hsp:7676` contro `chat.hsp:9499` | **Eln** |
+
+⭐ **Non sono due sviste nostre: in tutt'e due i casi è l'inglese di monte a
+spaccarsi allo stesso modo**, e ogni lotto ha ubbidito al file che aveva davanti.
+`キッカス` è `Kikkasu` nella catena della missione e `Kikkas` nelle carte;
+`エルン` è `Eln` a `:7676` e `Elun` a `:9499`, e sono due righe dello stesso file.
+
+**Perché Kikkasu:** è la maggioranza (7 contro 3), sta nei punti che il giocatore
+legge per primi — il diario delle missioni e i dialoghi di Erystia — e in
+italiano una parola che finisce in `-su` si legge, mentre `Kikkas` chiude su un
+nesso che l'italiano non ha. ⚠️ Tocca anche un **nome di creatura**, `il pitone
+di Kikkasu`, che vive con la stessa firma in due dizionari e va cambiato in
+tutt'e due.
+
+**Perché Eln:** `:7676` è la riga che **definisce** i Norne nominando tutt'e tre
+le stirpi insieme — `アールン` Ahlung fra i giganti, `エルン` fra le fate,
+`ドヴァルン` Dovarn fra i nani — e una definizione batte una menzione. In più
+l'eco che il giapponese vuole, detta apertamente a `:9499` (*storpiando il nome,
+chiamavano anche elfi*), in `Eln` si sente di più.
+
+ⓘ Serviva **oggi** perché `db_card.hsp:7011`, la carta di `<Norne> la guida`,
+apre proprio su 「エルンという種類の妖精」.
+
+### ⚠️ `レム・イド` non è `レミード`
+
+Due nomi che si somigliano e non sono lo stesso: **Rehm-Ido** è la civiltà
+(`chat.hsp:8144`, `:10238`), **Remido** sono le rovine (`chat.hsp:7903`). A
+`:7076` serve il primo, a `:5750` il secondo, e stanno a due lotti di distanza.
+
+### ⭐ `化身の黒猫` si conia guardando la razza, non la parola
+
+Reso **il gatto nero delle Incarnazioni**. `化身` non è una parola sciolta: è il
+nome di una **razza**, `神の化身` → «Incarnazione» in `db_race.hsp:5553`, ed è la
+razza dei compagni-avatar che le carte del lotto 13 nominano una per una come
+`モデル` — l'oca, la fatina, il difensore, l'angelo nero, l'androide.
+⚠️ Torna a `db_card.hsp:10768`, che dev'essere reso allo stesso modo.

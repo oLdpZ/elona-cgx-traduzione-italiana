@@ -46,7 +46,7 @@ quelli**.
     python scratchpad/_97-quanto-resta.py
 
     file                     non tradotte  rinviate  DA FARE
-    db_card.hsp                       907         1      906   ⭐ 239 rese nella 102a
+    db_card.hsp                       600         1      599   ⭐ 153 rese nella 104a
     tcg.hsp                             2         2        0   ⭐ CHIUSO
     system.hsp                          1         1        0   ⭐ CHIUSO
     proc.hsp                            7         7        0   ⭐ CHIUSO
@@ -2225,3 +2225,64 @@ nuovo e collaudo di quello vecchio. Vedi `decisioni.md`, sezione della 103ª.
 dava numeri che contraddicevano la rete.
 
 Perimetro onesto (`scratchpad/perimetro.py`): **84%**, era 83%.
+
+
+## `db_card.hsp`, dal lotto 11 al 14 — 2026-08-26, centoquattresima
+
+Quattro lotti, righe 5101-7100, **153 rese**. Il conteggio, rilanciato in
+chiusura e non ricopiato:
+
+    python scratchpad/_97-quanto-resta.py
+
+        db_card.hsp     752 da fare -> 599      (erano 752 in apertura)
+        TOTALE          861 / 109 / 752   ->   708 / 109 / 599
+
+    python scratchpad/perimetro.py            **84%**, fermo
+
+    dizionario/db_card.hsp.jsonl              1.687 voci
+                                              = 1.141 nomi + **546 prose su 1.144**
+
+Il passo è quello della 102ª e non è cambiato. Le reti hanno detto **0 code
+perse e 0 parole spezzate** dopo ognuno dei quattro lotti.
+
+### ⭐⭐⭐ Il rendimento vero: una rete della 103ª contava tre e il difetto era nove
+
+`_103-inglese-ripetuto.py` cerca due prose inglesi **uguali**, e con quello
+aveva trovato «tre carte con l'inglese di un'altra». Aprendo il lotto 14, il
+dossier ha mostrato che `:6959`/`:6972` non è una coppia: è la **testa di una
+catena**. L'inglese giusto della carta copiata non si perde — **spinge in
+avanti** quello di tutte le successive — e da `:6972` a `:7063` l'inglese di
+monte è indietro di un posto per **nove carte**. Monte si riallinea a `:7076`
+buttando via l'inglese di `:7063`, che nel sorgente non esiste da nessuna parte.
+
+⭐ **Perché la rete taceva:** dal secondo anello in poi ogni inglese compare
+**una volta sola**, e una rete che cerca doppioni vede solo il primo.
+
+⚠️⚠️ **Il guasto ha due forme, e si distinguono solo leggendo.** Verificate le
+altre due teste: `:4125` (riparata dalla 103ª) e `:9637` sono **doppioni
+isolati** — `:4138` e `:9650` hanno il loro inglese, la catena non parte. Da un
+doppione non si può quindi dedurre quale forma sia. **Regola nuova: quando salta
+fuori un doppione, si legge il dossier delle venti carte successive.**
+
+### Gli strumenti nati oggi
+
+| strumento | a cosa serve | quando si lancia |
+|---|---|---|
+| `scratchpad/_104-inglese-slittato.py` | trova le **teste** (l'inglese copiato dalla carta prima) e stampa la finestra delle venti carte successive coi due segnali deboli | referto, non guardia: si legge insieme a `_103-inglese-ripetuto` |
+| `scratchpad/correzione-kikkasu.py` | unifica `キッカス` → **Kikkasu** in 3 voci, nome di creatura compreso | una volta sola, già girata |
+| `scratchpad/correzione-eln.py` | unifica `エルン` → **Eln** in 1 voce | una volta sola, già girata |
+
+⚠️⚠️ **`_104-inglese-slittato` è stato provato al contrario, e non basta da
+solo.** Puntato sul blocco `:6972`-`:7063`, dove il difetto c'è di sicuro, i suoi
+due segnali automatici — il nome della carta dentro la prosa, e il rapporto fra
+le lunghezze — accendono su **cinque carte su nove**. È dichiarato per quello
+che è: un aiuto alla lettura, non un cancello.
+
+⚠️ **E le due reti vanno lette insieme, perché nessuna vede quello che vede
+l'altra.** `_104` trova le copie esatte (`:6972`, `:9637`) e cammina lungo la
+catena; `:4125` non la trova, perché quel suo inglese non è una copia di `:4112`
+ma una **traduzione diversa dello stesso giapponese** — somiglianza **0,30**.
+Quella la trova `_103`, che confronta le parole e non la stringa.
+
+Perimetro onesto (`scratchpad/perimetro.py`): **84%**, fermo. Il salto vero
+resta il blocco delle 5.284 descrizioni di `db_item.hsp`.
