@@ -1,0 +1,274 @@
+--- db_card.hsp:8103   CREATURE_ID_CHILD_WEL   creatura 522
+    NOME  jp 少年の『ウェル』
+          en child <Wel>
+          IT il ragazzo <Wel>
+    JP    両親は演奏家で世界各地を転々としており、まったく構ってもらえていない。それもあり、頻繁に手紙やお菓子を送ってきてくれる祖父にとても懐いている。
+    EN    His parents are performers and have moved around the world and they don't care for him at all. For that reason he is very fond of his grandfather who frequently sends him letters and sweets.
+
+--- db_card.hsp:8116   CREATURE_ID_SEI_RYU   creatura 521
+    NOME  jp 青龍
+          en sei-ryu
+          IT il drago azzurro
+    JP    年を経た蜥蜴が変異した。姿はドラゴンとよく似ているがどちらかというと神の方に近い。雷やそれに伴う轟音を操り敵を攻撃する。
+    EN    An aged lizard has mutated. Its appearance is similar to that of a dragon but it is closer to that of a god. It uses lightning and its accompanying roar to attack the enemy.
+
+--- db_card.hsp:8129   CREATURE_ID_NAZUNA_THE_INSTRUCTOR   creatura 519
+    NOME  jp 師範の『ナズナ』
+          en <Nazuna> the instructor
+          IT <Nazuna> la maestra d'armi
+    JP    父親の跡を継ぎ道場を譲り受けた。だがやる気が空回りした結果、門下生全員に逃げられてしまう。竹刀は父から貰ったもので、失くすと途端に弱気になる。
+    EN    She took over the dojo in her father's footsteps. However as a result of her lack of motivation she is abandoned by all her students. The bamboo sword was given to her by her father and when she loses it she immediately becomes weak.
+
+--- db_card.hsp:8142   CREATURE_ID_PART_TIME_WORKER2   creatura 518
+    NOME  jp 『着ぐるみのバイト』
+          en <part time worker>
+          IT la mascotte a ore
+    JP    募集要項をよく読まずに応募してしまった。「雨を呼ぶために滅多打ちにされるマスコットの中の人」というバイト内容だったので後悔している。
+    EN    He applied for the job without reading the job description carefully. He regret it because his part-time job description was the person in the mascot who is often beaten up to call the rain.
+
+--- db_card.hsp:8155   CREATURE_ID_ESTORK_THE_DOGGOD   creatura 517
+    NOME  jp 白炎の『エストーク』
+          en <Estork> the doggod
+          IT <Estork> la bianca fiamma
+    JP    長い間、森とそこで暮らす生き物たちを守ってきた。寿命が尽きたその時、森の生き物たちの信仰心によって、白き炎に包まれ神への転生を果たした。
+    EN    For a long time he protected the forest and the creatures that live in it. At the end of his life he was reincarnated as a god enveloped in white fire by the faith of the creatures of the forest.
+
+--- db_card.hsp:8168   CREATURE_ID_ETHER_GENERATOR   creatura 516
+    NOME  jp 『エーテルジェネレイター』
+          en <Ether Generator>
+          IT <Ether Generator>
+    JP    遺伝子操作により生み出された人工生命体。エーテルの生成・散布器官をもち広範囲を浄化する。対メシェーラの切り札だったが量産される前にレム・イドは滅亡した。
+    EN    Genetically engineered artificial life forms. It has an ether generation and dispersal organ and can spread to a wide range of areas. It was a trump card against Meshera but Rehmido was destroyed before it could be mass-produced.
+
+--- db_card.hsp:8181   CREATURE_ID_OLD_HUMANKIND3   creatura 515
+    NOME  jp 旧人類
+          en old humankind
+          IT l'umano arcaico
+    JP    レム・イド文明生き残りの子孫。普段は皆シェルターで生活しており、庭園に出るのは月に一度ほど。
+    EN    The surviving descendants of the Rehmido civilization. They all live in a shelter and only go out to the garden about once a month.
+
+--- db_card.hsp:8194   CREATURE_ID_OLD_HUMANKIND2   creatura 514
+    NOME  jp 旧人類
+          en old humankind
+          IT None
+    JP    レム・イド文明生き残りの子孫。メシェーラの脅威とエーテルの加護について次の世代に語り継ぐのが主な仕事。
+    EN    The surviving descendants of the Rehmido civilization. His main job is to tell the next generation about the threat of Meshera and the blessings of the ether.
+
+--- db_card.hsp:8207   CREATURE_ID_OLD_HUMANKIND   creatura 513
+    NOME  jp 旧人類
+          en old humankind
+          IT None
+    JP    レム・イド文明生き残りの子孫。メシェーラの脅威をよくわかっておらず、外の世界に憧れを抱いている。
+    EN    The surviving descendants of the Rehmido civilization. He is not familiar with the threats of Meshera and has a longing for the outside world.
+
+--- db_card.hsp:8220   CREATURE_ID_ELEMENT_DRAGON   creatura 512
+    NOME  jp エレメントドラゴン
+          en element dragon
+          IT il drago elementale
+    JP    元は三匹のドラゴンだったが、元素のイツパロトルの加護を受け神化を果たした。火炎と氷という、相反する属性のブレスを融合させるだけの実力はない。
+    EN    He was originally three dragons but with the blessing of the elemental Itzparotl he became a deity. It does not have the ability to merge the conflicting attributes of fire and ice breaths.
+
+--- db_card.hsp:8233   CREATURE_ID_DEMONS_RULER   creatura 511
+    NOME  jp 魔王
+          en demon's ruler
+          IT il re dei demoni
+    JP    全ての魔族の頂点に立つ王。退屈症のため暇つぶし感覚でイルヴァにやってきている。強い魔力を持ち、深い絆が無ければ王の洗脳を跳ね除けるのは困難である。
+    EN    The king who stands at the top of all the demon races. They come to Irva to pass the time due to boredom. Without strong magic and a deep bond it would be difficult to repel the king's brainwashing.
+
+--- db_card.hsp:8246   CREATURE_ID_DEMONS_LORD   creatura 510
+    NOME  jp デモンズロード
+          en demon's lord
+          IT il signore dei demoni
+    JP    下位の悪魔達を束ね治める領主。調子に乗った部下を一喝するのも仕事の一環。人の下につくのが嫌で全力で振り落としに掛かるらしい。
+    EN    A lord who unites and reigns over the lower demons. It's part of the job to cheer up a subordinate who's in a bad mood. They don't like to get under people so they try their best to shake them off.
+
+--- db_card.hsp:8259   CREATURE_ID_DEMON   creatura 509
+    NOME  jp デーモン
+          en demon
+          IT il demone
+    JP    堕落と原罪をこよなく愛する一般的な悪魔。他者を虐げることを好しとする彼らの戦闘能力は高い。肉弾戦でも魔法でも並の人間を上回るだろう。
+    EN    A general devil who loves depravity and original sin immensely. Their fighting ability is high as they prefer to bully others. They would outperform the average human both in physical combat and in magic.
+
+--- db_card.hsp:8272   CREATURE_ID_MOBILE_COMMUNICATION_EQUIPMENT   creatura 508
+    NOME  jp 『イェルス自律戦闘通信機』
+          en <Mobile Communication Equipment>
+          IT <Apparato di comunicazione mobile>
+    JP    深い洞窟内であろうと特殊電波により通信が可能。開発主任が直々に設計開発しておりやたら高性能。待機中は自動で戦闘行動を行い、データも収集する。
+    EN    Special radio waves can be used to communicate even in deep caves. It is designed and developed directly by the chief developer and is very high performance. While on standby it automatically performs combat actions and also collects data.
+
+--- db_card.hsp:8285   CREATURE_ID_BLACK_HORNET   creatura 507
+    NOME  jp ブラックホーネット
+          en black hornet
+          IT il calabrone nero
+    JP    イルヴァで最も強い毒を持つ生物として有名。特定の巣を持たず集団で移動と襲撃を繰り返し生活する。獰猛で攻撃的であり、非常に危険。
+    EN    It is renowned as the most poisonous creature in Irva. They do not have a specific nest and live in groups repeatedly moving and attacking. They are fierce aggressive and very dangerous.
+
+--- db_card.hsp:8298   CREATURE_ID_ORION_KILLER   creatura 506
+    NOME  jp オリオンキラー
+          en Orion killer
+          IT l'uccisore di Orione
+    JP    神と星の加護を受けて変異したサソリ。一見何の変哲もない普通のサソリだが、その神経毒で動けなくなり殺される冒険者は後を断たない。
+    EN    A scorpion mutated with the blessings of the gods and stars. At first glance it appears to be an ordinary scorpion but there is no shortage of adventurers who are paralyzed and killed by its neurotoxin.
+
+--- db_card.hsp:8311   CREATURE_ID_VALIANT_WYVERN   creatura 505
+    NOME  jp バリアント・ワイバーン
+          en valiant wyvern
+          IT la viverna valorosa
+    JP    進化の過程で生まれた竜の亜種…のさらなる変異体。骨と筋肉の構造が特殊であり、片翼での攻撃でも異常な破壊力をたたき出す。
+    EN    A further mutant of a subspecies of the dragon...born in the process of evolution. It has a special bone and muscle structure and even a single-winged attack can be unusually destructive.
+
+--- db_card.hsp:8324   CREATURE_ID_CHAOS_UNICORN_KING_OF_CHAOS   creatura 504
+    NOME  jp 混沌の王『カオス・ユニコーン』
+          en <Chaos Unicorn> King of Chaos
+          IT <Unicorno del Caos> il re del caos
+    JP    混沌の力を操る黒きユニコーン。複数のモンスターが互いに取り込みあい融合した混沌の化身。偉いことには違いないのだが、混沌の神にはそこまで好かれていないようだ。
+    EN    A black unicorn that controls the power of chaos. An incarnation of chaos where multiple monsters have taken each other in and fused together. It must be a huge feat but the god of chaos doesn't seem to like it that much.
+
+--- db_card.hsp:8337   CREATURE_ID_CHAOS_SPIRIT   creatura 503
+    NOME  jp カオス・スピリット
+          en chaos spirit
+          IT lo spirito del caos
+    JP    混沌より生み出された眷属。混沌に呑まれ素材とされた者たちの意識が混ざり合っている。素材の中には混沌に立ち向かった勇士も混ざっているのだとか。
+    EN    The spawn of chaos. The consciousness of those who have been swallowed by chaos and made into material is blended. The material is mixed with the warriors who stood up to the chaos.
+
+--- db_card.hsp:8350   CREATURE_ID_XEREN_SATELLITE_UNIT   creatura 502
+    NOME  jp ゼイレン支援攻撃端末
+          en Xeren satellite unit
+          IT il terminale d'attacco Xeren
+    JP    素早い動きで敵をかく乱しつつ多方向から攻撃を行う。兵士のサポート用に言語機能を標準搭載している。ちょろちょろついてくるのもあって、ペット感覚で扱う兵士も多い。
+    EN    It attacks from multiple directions while disrupting the enemy with its quick movements. It comes standard with a language feature for supporting soldiers. There are also many soldiers who follow along and treat it as a pet.
+
+--- db_card.hsp:8363   CREATURE_ID_XEREN_ELECTRIC_TANK   creatura 501
+    NOME  jp ゼイレン自走雷撃砲
+          en Xeren electric tank
+          IT il semovente a fulmini di Xeren
+    JP    機械文明の遺産。レールガンの開発過程で生まれた雷撃砲を搭載している。基本は自走砲であるため最低限の装甲しか取り付けられていない。
+    EN    The legacy of mechanical civilization. It is equipped with a lightning cannon that was created during the development of the railgun. Since it is basically a self-propelled artillery it is equipped with only minimal armor.
+
+--- db_card.hsp:8376   CREATURE_ID_WRANG_WRANG   creatura 500
+    NOME  jp カラースの番人
+          en wrang-wrang
+          IT il guardiano del karass
+    JP    ボコノン教を守るための存在。教徒がカラースの本来の目的から逸脱しそうになったとき、思考を打ち消し馬鹿げたものにしてしまう。
+    EN    They exist to defend Bokononism. When the congregation is about to deviate from the original purpose of Kalas they cancel out the thought and render it foolish.
+
+--- db_card.hsp:8389   CREATURE_ID_GWEN_THE_PITILESS   creatura 499
+    NOME  jp 無慈悲な戦士『グウェン』
+          en <Gwen> the pitiless
+          IT <Gwen> la guerriera spietata
+    JP    3年もの間グウェンは心無い冒険者に捕まっていた。命からがら脱走に成功したが過酷な環境は少女を冷酷な戦士へと変えたのだった。
+    EN    For three years Gwen has been held captive by a heartless adventurer. She manages to escape with her life but the harsh environment has turned her into a ruthless warrior.
+
+--- db_card.hsp:8402   CREATURE_ID_GRIEF_SHIELD   creatura 498
+    NOME  jp グリーフシールド
+          en <Grief Shield>
+          IT <Scudo del Dolore>
+    JP    主を守れなかった騎士の嘆きと絶望が呪いを生み、所持していた盾を変化させた。守るべきものを求めて彷徨う。しかし騎士の顔がへばりついているのが気味悪いので誰も護衛してほしがらない。
+    EN    The lament and despair of the knight's failure to protect the Lord gave rise to a curse that transformed the shield in his possession. It wanders in search of things to protect. However no one wants to be escorted because the knight's face is so creepy.
+
+--- db_card.hsp:8415   CREATURE_ID_SILENT_LEECH   creatura 497
+    NOME  jp サイレント・ヒル
+          en silent leech
+          IT la sanguisuga silenziosa
+    JP    音もなく静かに獲物に忍び寄る。だがその図体のせいですぐに見つかってしまう。一応、霧を発生させるなどの工夫はするのだが…。
+    EN    They creep up on their prey quietly and without sound. But because of its figure it was soon discovered. It's trying to create a fog but...
+
+--- db_card.hsp:8428   CREATURE_ID_FLYING_LEECH   creatura 496
+    NOME  jp フライング・ヒル
+          en flying leech
+          IT la sanguisuga volante
+    JP    獲物めがけて長距離を跳躍する。200メートル以上も跳ぶものもいる。跳びついたあとはひたすら血を吸う。獲物に避けられても華麗に着地する技術を持つ。
+    EN    They leap long distances in pursuit of their prey some jumping over 200 meters. After jumping it sucks blood. It has the skill to land brilliantly even when its prey avoids it.
+
+--- db_card.hsp:8441   CREATURE_ID_NEW_CITIZEN   creatura 495
+    NOME  jp 市民のライエ
+          en new citizen
+          IT la cittadina
+    JP    ただ街を散歩しているだけなのに、なぜかとても嬉しそうにしている変な市民。まるで忍者のように俊敏なうえ、手裏剣を隠し持っている。
+    EN    It's a strange citizen who is just strolling around town but somehow seems very happy about it. In addition to being as agile as a ninja she has a hidden shuriken.
+
+--- db_card.hsp:8454   CREATURE_ID_M_GIRL   creatura 494
+    NOME  jp Ｍ少女
+          en M girl
+          IT la bambina masochista
+    JP    主人を守るため色々なものを犠牲にして魔法を会得した少女。いったいどんな苦痛を経験してきたのか、かなりひどい目に遭っても全然平気。
+    EN    A girl who sacrificed many things to protect her master and mastered magic. She doesn't care at all what kind of pain she's been through even though she's been through some pretty bad things.
+
+--- db_card.hsp:8467   CREATURE_ID_LAZY_OLDER_SISTER   creatura 493
+    NOME  jp 駄目姉
+          en lazy older sister
+          IT la sorella maggiore buona a nulla
+    JP    ものすごく駄目な姉。身だしなみやお洒落に全く興味がないどころか、寝癖を直す気すらない。最低限、下着さえつけていればジャージも着なくていいんじゃないかと最近思い始めている。
+    EN    She's a very bad sister. Not only does she have no interest in grooming or dressing up she doesn't even bother to fix her sleeping habits. Recently she's started to think that she doesn't have to wear a jersey as long as she's wearing at least some underwear.
+
+--- db_card.hsp:8480   CREATURE_ID_PASCAL   creatura 492
+    NOME  jp イヌの偉大なる『パスカル』
+          en <Pascal>
+          IT <Pascal>
+    JP    事故で主人と離ればなれになった犬。はぐれた先で変異を繰り返しながら外敵と戦い続けた結果、悪魔を退けるほどの力を身に着けた。
+    EN    The dog was separated from her master by an accident. As a result of repeatedly mutating and fighting external enemies at the point where she got separated she became powerful enough to fend off demons.
+
+--- db_card.hsp:8493   CREATURE_ID_LEIKI   creatura 491
+    NOME  jp 玄武の『レイキ』
+          en <Leiki>
+          IT <Leiki> la tartaruga nera
+    JP    年を経た亀が変異した。元が亀とは思えないほど素早い。四肢は自らの意思で形状変化させることができる。悪ガキが近寄ってくるとプラズマを吐いて消し炭にする。
+    EN    A tortoise that has mutated over the years. It is so fast that it is hard to believe that it was originally a tortoise. Its limbs can change shape at will. When a naughty kid comes close to it, it spits out plasma to obliterate the kid.
+
+--- db_card.hsp:8506   CREATURE_ID_MIZUKI_THE_ABYSS_PRINCESS   creatura 490
+    NOME  jp 深海の姫『ミヅキ』
+          en <Mizuki> The Abyss Princess
+          IT <Mizuki> la principessa dell'abisso
+    JP    九頭竜の子孫。その触手のような髪の毛を巧みに操る。何万年も海の底で暮らしていたため、地上の世界に興味深々。お弁当作りが趣味で、時々レイキに材料を買いに行ってもらっている。
+    EN    Descendant of the nine-headed dragon. She is skilled in manipulating her tentacle-like hair. Having lived at the bottom of the sea for tens of thousands of years, she is deeply interested in the world above ground. She enjoys making lunch boxes and sometimes asks Leiki to go shopping for ingredients.
+
+--- db_card.hsp:8519   CREATURE_ID_ABYSS_ANIMAL   creatura 489
+    NOME  jp 海底生物
+          en abyss animal
+          IT la creatura dei fondali
+    JP    元々は普通の魚だったものがミヅキの神気にあてられ変化した存在。今では彼女と彼女の祖先を崇拝する奉仕種族となっている。
+    EN    Originally an normal fish, they were transformed by Mizuki's divine energy. They are now a service tribe that worships her and her ancestors.
+
+--- db_card.hsp:8532   CREATURE_ID_SKELETON_HERO   creatura 488
+    NOME  jp 屍の英雄
+          en skeleton hero
+          IT l'eroe cadaverico
+    JP    魔法国家に滅ぼされた国の戦士のなれの果て。次々と浴びせられる魔法にも怯まず、祖国のため最期まで戦い抜いた英雄。
+    EN    The last of the warriors of a kingdom destroyed by a magical kingdom. A hero who fought to the last for his country, undaunted by the magic that was hurled at him one after another.
+
+--- db_card.hsp:8545   CREATURE_ID_GUN_SPIRIT   creatura 487
+    NOME  jp スピリット・レイナーダ
+          en gun spirit
+          IT lo spirito delle armi
+    JP    戦友を想う心が愛用の銃に宿り、持ち主の死後に魂と結合し精霊と化した。死してもなお、どこかの誰かのために戦い続ける存在。
+    EN    The love for one's comrades-in-arms is embodied in one's favourite gun, which combines with the soul after the owner's death and transforms into a spirit. Even in death, he continues to fight for someone somewhere.
+
+--- db_card.hsp:8558   CREATURE_ID_ABYSS_DWELLER   creatura 486
+    NOME  jp 深淵の住人
+          en abyss dweller
+          IT l'abitante dell'abisso
+    JP    イルヴァ土着の深海の住人。もとは別の神を崇めていたが、ミヅキの祖先の強い神気にあてられて改宗した。生まれた時はほぼ人の姿だが、歳をとるにつれて魚っぽくなっていく。
+    EN    Indigenous Irva inhabitants of the deep sea. Originally worshipped other deities, but converted due to the strong divine spirit of Mizuki's ancestors. At birth, they are almost human in appearance, but as they age they become more fish-like.
+
+--- db_card.hsp:8571   CREATURE_ID_WHITE_YOUNG_LADY   creatura 485
+    NOME  jp 黒お嬢様
+          en white young lady
+          IT la signorina dal cuore nero
+    JP    とても高貴な生まれ。物腰こそ柔らかだが、その性格は残虐で冷徹。使用人を戯れで皆殺しにしてしまい、もう少し頑丈な使用人を探している。来ている服こそ白いが、その実態は果てしなく黒い。
+    EN    A young lady of very noble birth. She has a soft manner, but her nature is cruel and cold-hearted. She kills all her servants for fun and is looking for a sturdier servant. Her clothes are white, but in reality she is endlessly black.
+
+--- db_card.hsp:8584   CREATURE_ID_ITZPALT   creatura 484
+    NOME  jp 《元素のイツパロトル》
+          en <Itzpalt>
+          IT <Itzpalt>
+    JP    現在の神々のまとめ役。三元素を司る。話が難しいうえに長いのでやや避けられ気味。本来は若々しい姿と他の神より強い力を持っているのだが、今はそのどちらも一部テスカトリポカのものとなっている。
+    EN    Head of the current group of deities. Governs the three elements. He is somewhat avoided because of his difficult and long story. He originally has a youthful appearance and more power than the other gods, but both of these are now partly the properties of Tezcatlipoca.
+
+--- db_card.hsp:8597   CREATURE_ID_THE_ELEMENT   creatura 483
+    NOME  jp 《エレメンティード》
+          en <The Element>
+          IT <L'Elemento>
+    JP    自らが支配する三元素の力を極限まで昇華させたイツパロトル。体が周囲の元素とリンクしたことによりマナの総量が膨れ上がっている。
+    EN    Itzparotl has sublimated the power of the three elements he controls to the utmost limit. The total amount of mana has swelled as a result of the body's link with the surrounding elements. 
+
+== 39 carte fra la riga 8101 e la 8600

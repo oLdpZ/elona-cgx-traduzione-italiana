@@ -1,0 +1,157 @@
+    # ---------------------------------------------------------- :8103
+    (8103, "His parents are performers and have moved around the world and they don't care for him at all. For that reason he is very fond of his grandfather who frequently sends him letters and sweets."):
+        "",
+
+    # ---------------------------------------------------------- :8116
+    (8116, 'An aged lizard has mutated. Its appearance is similar to that of a dragon but it is closer to that of a god. It uses lightning and its accompanying roar to attack the enemy.'):
+        "",
+
+    # ---------------------------------------------------------- :8129
+    (8129, "She took over the dojo in her father's footsteps. However as a result of her lack of motivation she is abandoned by all her students. The bamboo sword was given to her by her father and when she loses it she immediately becomes weak."):
+        "",
+
+    # ---------------------------------------------------------- :8142
+    (8142, 'He applied for the job without reading the job description carefully. He regret it because his part-time job description was the person in the mascot who is often beaten up to call the rain.'):
+        "",
+
+    # ---------------------------------------------------------- :8155
+    (8155, 'For a long time he protected the forest and the creatures that live in it. At the end of his life he was reincarnated as a god enveloped in white fire by the faith of the creatures of the forest.'):
+        "",
+
+    # ---------------------------------------------------------- :8168
+    (8168, 'Genetically engineered artificial life forms. It has an ether generation and dispersal organ and can spread to a wide range of areas. It was a trump card against Meshera but Rehmido was destroyed before it could be mass-produced.'):
+        "",
+
+    # ---------------------------------------------------------- :8181
+    (8181, 'The surviving descendants of the Rehmido civilization. They all live in a shelter and only go out to the garden about once a month.'):
+        "",
+
+    # ---------------------------------------------------------- :8194
+    (8194, 'The surviving descendants of the Rehmido civilization. His main job is to tell the next generation about the threat of Meshera and the blessings of the ether.'):
+        "",
+
+    # ---------------------------------------------------------- :8207
+    (8207, 'The surviving descendants of the Rehmido civilization. He is not familiar with the threats of Meshera and has a longing for the outside world.'):
+        "",
+
+    # ---------------------------------------------------------- :8220
+    (8220, 'He was originally three dragons but with the blessing of the elemental Itzparotl he became a deity. It does not have the ability to merge the conflicting attributes of fire and ice breaths.'):
+        "",
+
+    # ---------------------------------------------------------- :8233
+    (8233, "The king who stands at the top of all the demon races. They come to Irva to pass the time due to boredom. Without strong magic and a deep bond it would be difficult to repel the king's brainwashing."):
+        "",
+
+    # ---------------------------------------------------------- :8246
+    (8246, "A lord who unites and reigns over the lower demons. It's part of the job to cheer up a subordinate who's in a bad mood. They don't like to get under people so they try their best to shake them off."):
+        "",
+
+    # ---------------------------------------------------------- :8259
+    (8259, 'A general devil who loves depravity and original sin immensely. Their fighting ability is high as they prefer to bully others. They would outperform the average human both in physical combat and in magic.'):
+        "",
+
+    # ---------------------------------------------------------- :8272
+    (8272, 'Special radio waves can be used to communicate even in deep caves. It is designed and developed directly by the chief developer and is very high performance. While on standby it automatically performs combat actions and also collects data.'):
+        "",
+
+    # ---------------------------------------------------------- :8285
+    (8285, 'It is renowned as the most poisonous creature in Irva. They do not have a specific nest and live in groups repeatedly moving and attacking. They are fierce aggressive and very dangerous.'):
+        "",
+
+    # ---------------------------------------------------------- :8298
+    (8298, 'A scorpion mutated with the blessings of the gods and stars. At first glance it appears to be an ordinary scorpion but there is no shortage of adventurers who are paralyzed and killed by its neurotoxin.'):
+        "",
+
+    # ---------------------------------------------------------- :8311
+    (8311, 'A further mutant of a subspecies of the dragon...born in the process of evolution. It has a special bone and muscle structure and even a single-winged attack can be unusually destructive.'):
+        "",
+
+    # ---------------------------------------------------------- :8324
+    (8324, "A black unicorn that controls the power of chaos. An incarnation of chaos where multiple monsters have taken each other in and fused together. It must be a huge feat but the god of chaos doesn't seem to like it that much."):
+        "",
+
+    # ---------------------------------------------------------- :8337
+    (8337, 'The spawn of chaos. The consciousness of those who have been swallowed by chaos and made into material is blended. The material is mixed with the warriors who stood up to the chaos.'):
+        "",
+
+    # ---------------------------------------------------------- :8350
+    (8350, 'It attacks from multiple directions while disrupting the enemy with its quick movements. It comes standard with a language feature for supporting soldiers. There are also many soldiers who follow along and treat it as a pet.'):
+        "",
+
+    # ---------------------------------------------------------- :8363
+    (8363, 'The legacy of mechanical civilization. It is equipped with a lightning cannon that was created during the development of the railgun. Since it is basically a self-propelled artillery it is equipped with only minimal armor.'):
+        "",
+
+    # ---------------------------------------------------------- :8376
+    (8376, 'They exist to defend Bokononism. When the congregation is about to deviate from the original purpose of Kalas they cancel out the thought and render it foolish.'):
+        "",
+
+    # ---------------------------------------------------------- :8389
+    (8389, 'For three years Gwen has been held captive by a heartless adventurer. She manages to escape with her life but the harsh environment has turned her into a ruthless warrior.'):
+        "",
+
+    # ---------------------------------------------------------- :8402
+    (8402, "The lament and despair of the knight's failure to protect the Lord gave rise to a curse that transformed the shield in his possession. It wanders in search of things to protect. However no one wants to be escorted because the knight's face is so creepy."):
+        "",
+
+    # ---------------------------------------------------------- :8415
+    (8415, "They creep up on their prey quietly and without sound. But because of its figure it was soon discovered. It's trying to create a fog but..."):
+        "",
+
+    # ---------------------------------------------------------- :8428
+    (8428, 'They leap long distances in pursuit of their prey some jumping over 200 meters. After jumping it sucks blood. It has the skill to land brilliantly even when its prey avoids it.'):
+        "",
+
+    # ---------------------------------------------------------- :8441
+    (8441, "It's a strange citizen who is just strolling around town but somehow seems very happy about it. In addition to being as agile as a ninja she has a hidden shuriken."):
+        "",
+
+    # ---------------------------------------------------------- :8454
+    (8454, "A girl who sacrificed many things to protect her master and mastered magic. She doesn't care at all what kind of pain she's been through even though she's been through some pretty bad things."):
+        "",
+
+    # ---------------------------------------------------------- :8467
+    (8467, "She's a very bad sister. Not only does she have no interest in grooming or dressing up she doesn't even bother to fix her sleeping habits. Recently she's started to think that she doesn't have to wear a jersey as long as she's wearing at least some underwear."):
+        "",
+
+    # ---------------------------------------------------------- :8480
+    (8480, 'The dog was separated from her master by an accident. As a result of repeatedly mutating and fighting external enemies at the point where she got separated she became powerful enough to fend off demons.'):
+        "",
+
+    # ---------------------------------------------------------- :8493
+    (8493, 'A tortoise that has mutated over the years. It is so fast that it is hard to believe that it was originally a tortoise. Its limbs can change shape at will. When a naughty kid comes close to it, it spits out plasma to obliterate the kid.'):
+        "",
+
+    # ---------------------------------------------------------- :8506
+    (8506, 'Descendant of the nine-headed dragon. She is skilled in manipulating her tentacle-like hair. Having lived at the bottom of the sea for tens of thousands of years, she is deeply interested in the world above ground. She enjoys making lunch boxes and sometimes asks Leiki to go shopping for ingredients.'):
+        "",
+
+    # ---------------------------------------------------------- :8519
+    (8519, "Originally an normal fish, they were transformed by Mizuki's divine energy. They are now a service tribe that worships her and her ancestors."):
+        "",
+
+    # ---------------------------------------------------------- :8532
+    (8532, 'The last of the warriors of a kingdom destroyed by a magical kingdom. A hero who fought to the last for his country, undaunted by the magic that was hurled at him one after another.'):
+        "",
+
+    # ---------------------------------------------------------- :8545
+    (8545, "The love for one's comrades-in-arms is embodied in one's favourite gun, which combines with the soul after the owner's death and transforms into a spirit. Even in death, he continues to fight for someone somewhere."):
+        "",
+
+    # ---------------------------------------------------------- :8558
+    (8558, "Indigenous Irva inhabitants of the deep sea. Originally worshipped other deities, but converted due to the strong divine spirit of Mizuki's ancestors. At birth, they are almost human in appearance, but as they age they become more fish-like."):
+        "",
+
+    # ---------------------------------------------------------- :8571
+    (8571, 'A young lady of very noble birth. She has a soft manner, but her nature is cruel and cold-hearted. She kills all her servants for fun and is looking for a sturdier servant. Her clothes are white, but in reality she is endlessly black.'):
+        "",
+
+    # ---------------------------------------------------------- :8584
+    (8584, 'Head of the current group of deities. Governs the three elements. He is somewhat avoided because of his difficult and long story. He originally has a youthful appearance and more power than the other gods, but both of these are now partly the properties of Tezcatlipoca.'):
+        "",
+
+    # ---------------------------------------------------------- :8597
+    (8597, "Itzparotl has sublimated the power of the three elements he controls to the utmost limit. The total amount of mana has swelled as a result of the body's link with the surrounding elements. "):
+        "",
+
+# 39 voci fra la riga 8101 e la 8600, 0 ambigue

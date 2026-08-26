@@ -1,0 +1,153 @@
+    # ---------------------------------------------------------- :8610
+    (8610, 'She loves business and will trade with anyone, whether they are gods, men or demons. She is very picky about money and will not allow even 1gp to be wasted. Loves the stone money she has recently acquired.'):
+        "",
+
+    # ---------------------------------------------------------- :8623
+    (8623, 'Yacatect in a rage. She completely loses control of herself and goes on a rampage, throwing her precious collection at people. After she calms down, she suffers from self-loathing over the incident.'):
+        "",
+
+    # ---------------------------------------------------------- :8636
+    (8636, 'A huge bird with the elegance of a stone statue. It is almost motionless, but this is so as not to alarm its prey. Nevertheless, its eyes are so sharp that one has no choice but to be wary.'):
+        "",
+
+    # ---------------------------------------------------------- :8649
+    (8649, 'A ninja that, after relentless training, has abandoned the idea of being a human. The way it uses its massive afterimages to toy with the enemy and crush them with its sheer mass is truly breathtaking. They say that if you want to hide a tree, hide in the forest, the essence of covert manoeuvre is mastered by this ninja.'):
+        "",
+
+    # ---------------------------------------------------------- :8662
+    (8662, 'From an early age, she often ran away from home because she could not endure the rigorous training of the ninja. She does not have a very favourable view of ninjas. She has not been able to show her ability because she does not want to, but her brother and father saw that Eila had the potential to be a prodigious ninja.'):
+        "",
+
+    # ---------------------------------------------------------- :8675
+    (8675, 'He has endured the rigours of ninja training since childhood. He became chieftain of the ninja army at a young age. Extremely strict.His speciality is the art of shapeshifting, which can fool even the most seasoned adventurers.'):
+        "",
+
+    # ---------------------------------------------------------- :8688
+    (8688, 'She has a straightforward and hard-working personality, but also shows a mad side when it comes to alchemy. She has a soft-bread phobia after a lot of things with her alchemy teacher.'):
+        "",
+
+    # ---------------------------------------------------------- :8701
+    (8701, "She is very close to Siraha, who is experiencing the same difficulties since young. So much so that when she decided to move out, she cried a lot and didn't leave until he promised to exchange letters with her on a regular basis."):
+        "",
+
+    # ---------------------------------------------------------- :8714
+    (8714, 'Goats, a paper-eating creature, are said to have been among their ancestors. Perhaps because of this, when he sees a piece of paper, he unconsciously brings it to his mouth. Until now, he has accidentally eaten a letter he was in the middle of writing about 34 times.'):
+        "",
+
+    # ---------------------------------------------------------- :8727
+    (8727, "Rootless people go from town to town in search of a safe haven. Each person's path is his or her own, whether to become a tourist for funds or an adventurer or mercenary for power."):
+        "",
+
+    # ---------------------------------------------------------- :8740
+    (8740, 'The refugees, who were burned out of their forests and settled in Lothria, were scattered all over the world with the fall of Lothria. They lost their homes and hope, but only persecution remained after the truth was revealed. '):
+        "",
+
+    # ---------------------------------------------------------- :8753
+    (8753, 'The casino never rejects anyone and welcomes those who dream of getting rich. The casino staff are heartily supportive of their gambling endeavours. As long as the customer loses money.'):
+        "",
+
+    # ---------------------------------------------------------- :8766
+    (8766, 'A man who keeps to himself and hides in plain sight, performing all sorts of black work. This nasty fellow uses shuriken and chain scythes from medium range to slowly drain the blood and strength of the opponent. When not working, they live by farming.'):
+        "",
+
+    # ---------------------------------------------------------- :8779
+    (8779, 'A blade that absorbs the souls of enemies it has slain and takes their mighty power for itself. It has the ability to control gravity and is capable of simple flight. Its full power is unleashed when facing powerful enemies.'):
+        "",
+
+    # ---------------------------------------------------------- :8792
+    (8792, "They like the sea very much and come to visit Valm, where there is a beautiful coastline. They are too excited to go to the sea, so they come here in their swimming costumes and later get into trouble because they don't have any clothes to change into."):
+        "",
+
+    # ---------------------------------------------------------- :8805
+    (8805, "Members of the ultra-elite Yerles unit, where prototypes of the latest armaments are deployed as a priority. Often at the mercy of the chief development officer's playful attitude, some of them are seen returning home in tears. "):
+        "",
+
+    # ---------------------------------------------------------- :8818
+    (8818, 'A general term for people who do not have regular jobs and try to make a living through gambling. Those who lose their money disappear without being noticed, and no one knows their whereabouts.'):
+        "",
+
+    # ---------------------------------------------------------- :8831
+    (8831, 'The elites of the Yerles army. Although they were able to avoid being absorbed, they have been trapped by the mycelium growing from the ground and have undergone assimilation. It is only a matter of time before they are unable to retain their human form.'):
+        "",
+
+    # ---------------------------------------------------------- :8844
+    (8844, 'A candle controlled by the Death that has been set in motion. It enjoys dropping hot wax on a dying, writhing human being. The fire in their heads is strangely not hot to the touch.'):
+        "",
+
+    # ---------------------------------------------------------- :8857
+    (8857, 'One has double-downed on their love for pudding gathered and became a pudding spirit. Popular for being very sweet, combined with a simple facial expression. However, their corpses are not pudding-flavoured.'):
+        "",
+
+    # ---------------------------------------------------------- :8870
+    (8870, 'The magical residues of wizards who have already left this world, have fused with the mana that abounds in the wilderness and become independent as spirits. They react to specific magic and come close to it. '):
+        "",
+
+    # ---------------------------------------------------------- :8883
+    (8883, "One fought demons with one's bare hands to protect his family, stabbed to death, and a part of their souls became spirits. Their shining fists are wielded for the sake of those they are supposed to protect. "):
+        "",
+
+    # ---------------------------------------------------------- :8896
+    (8896, 'A bell monster that wanders around with abnormal speed. It was born when a bell signalling the end of the world came to life. It is a dangerous being, but it has a surprising fondness for caramels.'):
+        "",
+
+    # ---------------------------------------------------------- :8909
+    (8909, 'He is familiar with technology in a wide range of fields and often develops things that are beyond the level of civilisation. He is regarded by those around him as being beyond a genius and is now considered to be a freak. '):
+        "",
+
+    # ---------------------------------------------------------- :8922
+    (8922, 'The latest disaster created by an assemblage of cornered Meshera, reconstituting the materials they have absorbed. Compared to the original, it lacks various functions, but has superior combat power. '):
+        "",
+
+    # ---------------------------------------------------------- :8935
+    (8935, 'Formerly an unidentified animal, it has been sighted more frequently in recent years due to environmental changes. Its staple diet is wild animal and human blood, and it has a strong body. '):
+        "",
+
+    # ---------------------------------------------------------- :8948
+    (8948, 'Female vampire hails from the depths of hell in search of fresh blood. Her hobby is to brainwash her opponents completely before slowly sucking their blood. She prefers to prey on women.'):
+        "",
+
+    # ---------------------------------------------------------- :8961
+    (8961, 'Their main source of nutrition is raw blood, but they will eat basically anything. Vampires are naturally vulnerable to sunlight, but they are able to work in broad daylight because they block sunlight by cloaking their entire body in magical powers. '):
+        "",
+
+    # ---------------------------------------------------------- :8974
+    (8974, 'They are desperately trying to stay conscious, but their whole body has been so infested with bacteria that they no longer even know who they were. They are waiting for an entity that could kill them. '):
+        "",
+
+    # ---------------------------------------------------------- :8987
+    (8987, 'The result of a human who may have once been a wizard, infected by Meshera. They are faintly conscious, but the bacteria have now invaded 80% of their brains and they are completely helpless. '):
+        "",
+
+    # ---------------------------------------------------------- :9000
+    (9000, 'Their bodies are controlled by electrical signals produced by the bacteria. Due to imperfect nerve take-over, the person who is the prime body is in constant severe pain. '):
+        "",
+
+    # ---------------------------------------------------------- :9013
+    (9013, "It was given this name as a result of constantly fending off those who tried to eat it, and as a result, it is considered to be 'always in the fight'. It is shunned by other mushrooms because it is extremely aggressive. "):
+        "",
+
+    # ---------------------------------------------------------- :9026
+    (9026, 'They are curious and follow things that interest them. Escaped from the nest quickly, causing problems for its parents. They make a chirping sound similar to that of bird chicks. Barking and fire breathing skills are learned from their parents, so they need to be taught properly if they are to be kept in captivity.'):
+        "",
+
+    # ---------------------------------------------------------- :9039
+    (9039, 'Member of the West Irva Tourist Association. She is popular for her spectacular killing shows in which she literally tears off and throws wild thieves and monsters. Sometimes she tears apart her customers by mistake.'):
+        "",
+
+    # ---------------------------------------------------------- :9052
+    (9052, 'Mana-mediated traps designed to counter grave robbers. It operates by trapping the victim, who is now the source of the mana, inside the coffin. Sprays curses and its horrifying appearance leaves the viewer in a daze.'):
+        "",
+
+    # ---------------------------------------------------------- :9065
+    (9065, 'The soul of a cat, once dead and separated from its body, returns to its own body and is reborn. This often occurs when they have a strong attachment to their original body. Although the loving nature of the soul remains the same as when it was alive, their body is rapidly deteriorating.'):
+        "",
+
+    # ---------------------------------------------------------- :9078
+    (9078, 'Grown-up Little Sister. She boasts such fighting ability that there is no need for a symbiotic relationship, but she was considered a failure because she uses all the energy she was supposed to accumulate for fighting. '):
+        "",
+
+    # ---------------------------------------------------------- :9091
+    (9091, 'He became addicted to the candy his grandfather gave him as a child and has been giving the same candy to his own grandchildren. He enjoys throwing performance parties and bringing people together. '):
+        "",
+
+# 38 voci fra la riga 8601 e la 9100, 0 ambigue

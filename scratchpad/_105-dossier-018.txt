@@ -1,0 +1,267 @@
+--- db_card.hsp:8610   CREATURE_ID_YACATECT   creatura 482
+    NOME  jp 《富のヤカテクト》
+          en <Yacatect>
+          IT <Yacatect>
+    JP    商売が好きで相手が神でも人でも魔物でも分け隔てなく取引を行う。お金にうるさく1gpの無駄も許さない。最近手に入れた石のお金がお気に入り。
+    EN    She loves business and will trade with anyone, whether they are gods, men or demons. She is very picky about money and will not allow even 1gp to be wasted. Loves the stone money she has recently acquired.
+
+--- db_card.hsp:8623   CREATURE_ID_HYPER_YACATECT   creatura 481
+    NOME  jp 《ハイパー・ヤカテクト》
+          en <Hyper Yacatect>
+          IT <Iper Yacatect>
+    JP    激昂したヤカテクト。完全に我を忘れており、大事なコレクションを投げつけるなどの暴挙におよぶ。落ち着いた後はそのことで自己嫌悪に陥る。
+    EN    Yacatect in a rage. She completely loses control of herself and goes on a rampage, throwing her precious collection at people. After she calms down, she suffers from self-loathing over the incident.
+
+--- db_card.hsp:8636   CREATURE_ID_SHOEBILL   creatura 480
+    NOME  jp ハシビロコウさん
+          en shoebill
+          IT il signor becco a scarpa
+    JP    石像の如き気品を漂わせる巨大な鳥。ほとんど動かないがそれは獲物に警戒心を抱かせないためである。とは言え、その目つきは鋭すぎて警戒せざるを得ない。
+    EN    A huge bird with the elegance of a stone statue. It is almost motionless, but this is so as not to alarm its prey. Nevertheless, its eyes are so sharp that one has no choice but to be wary.
+
+--- db_card.hsp:8649   CREATURE_ID_RED_NINJA   creatura 479
+    NOME  jp レッドニンジャ
+          en red ninja
+          IT il ninja rosso
+    JP    弛まぬ鍛錬の末に人である事を捨てたもの。質量のある残像で敵を翻弄し、物量で押し潰す様は正に圧巻。木を隠すなら森の中、隠密機動の真髄がここにある。
+    EN    A ninja that, after relentless training, has abandoned the idea of being a human. The way it uses its massive afterimages to toy with the enemy and crush them with its sheer mass is truly breathtaking. They say that if you want to hide a tree, hide in the forest, the essence of covert manoeuvre is mastered by this ninja.
+
+--- db_card.hsp:8662   CREATURE_ID_EILA_THE_FUGITIVE_KUNOICHI   creatura 478
+    NOME  jp 抜け忍の『影羅』
+          en <Eila> the fugitive Kunoichi
+          IT <Eila> la kunoichi fuggiasca
+    JP    幼い頃から忍者の厳しい修行に耐えかねてよく家出をしていた。忍者をあまり好ましく思っていない。嫌々やっているため実力が出せていないが、兄や父は影羅に天才的忍者の素質があることを見抜いていた。
+    EN    From an early age, she often ran away from home because she could not endure the rigorous training of the ninja. She does not have a very favourable view of ninjas. She has not been able to show her ability because she does not want to, but her brother and father saw that Eila had the potential to be a prodigious ninja.
+
+--- db_card.hsp:8675   CREATURE_ID_GETUEI_THE_NINJA_MASTER   creatura 477
+    NOME  jp 忍者ファイター『月影』
+          en <Getuei> the ninja master
+          IT <Getuei> il maestro ninja
+    JP    幼い頃から忍者の厳しい修行に耐えてきた。若くして忍者軍団の頭領を務める。非常に厳格。特技は変わり身の術で、熟練の冒険者ですら欺く。
+    EN    He has endured the rigours of ninja training since childhood. He became chieftain of the ninja army at a young age. Extremely strict.His speciality is the art of shapeshifting, which can fool even the most seasoned adventurers.
+
+--- db_card.hsp:8688   CREATURE_ID_ALCHEMIST_NAPLUS   creatura 476
+    NOME  jp 錬金術士の『ナプラス』
+          en Alchemist <Naplus>
+          IT <Naplus> l'alchimista
+    JP    まっすぐで頑張り屋な性格だが、錬金術に関してはマッドな一面も見せる。錬金術の師と色々あって、ふかふかパン恐怖症になっている。
+    EN    She has a straightforward and hard-working personality, but also shows a mad side when it comes to alchemy. She has a soft-bread phobia after a lot of things with her alchemy teacher.
+
+--- db_card.hsp:8701   CREATURE_ID_KURON_THE_BLACK_CLOTH   creatura 475
+    NOME  jp 黒衣の『クロン』
+          en <Kuron> the black cloth
+          IT <Kuron> la veste nera
+    JP    同じ境遇のシラハとはとても仲が良い。それだけに引っ越すことが決まった際には大泣きし、「定期的に手紙のやり取りをする」と約束するまで離れなかった。
+    EN    She is very close to Siraha, who is experiencing the same difficulties since young. So much so that when she decided to move out, she cried a lot and didn't leave until he promised to exchange letters with her on a regular basis.
+
+--- db_card.hsp:8714   CREATURE_ID_SIRAHA_THE_WHITE_CLOTH   creatura 474
+    NOME  jp 白皙の『シラハ』
+          en <Siraha> the white cloth
+          IT <Siraha> la pelle candida
+    JP    ヤギという、紙を食べる生物が祖先にいたらしい。そのせいか紙を見ると無意識に口に運んでしまう。今までに34回ほど、書いてる最中の手紙をうっかり食べてしまっている。
+    EN    Goats, a paper-eating creature, are said to have been among their ancestors. Perhaps because of this, when he sees a piece of paper, he unconsciously brings it to his mouth. Until now, he has accidentally eaten a letter he was in the middle of writing about 34 times.
+
+--- db_card.hsp:8727   CREATURE_ID_TRAVELER   creatura 473
+    NOME  jp 旅人
+          en traveler
+          IT il viaggiatore
+    JP    安住の地を求めて街から街へと渡り歩く根無し草。資金を得て観光客になるか、力を得て冒険者や傭兵になるか人それぞれの道である。
+    EN    Rootless people go from town to town in search of a safe haven. Each person's path is his or her own, whether to become a tourist for funds or an adventurer or mercenary for power.
+
+--- db_card.hsp:8740   CREATURE_ID_REFUGEE   creatura 472
+    NOME  jp エレアの難民
+          en refugee
+          IT il profugo degli Elea
+    JP    森を焼かれロスリアに移住したが、ロスリアの堕落とともに世界中へと散らばった難民。彼らは故郷も希望も失ったのに、真実が明かされた後も迫害だけは残っていた。
+    EN    The refugees, who were burned out of their forests and settled in Lothria, were scattered all over the world with the fall of Lothria. They lost their homes and hope, but only persecution remained after the truth was revealed. 
+
+--- db_card.hsp:8753   CREATURE_ID_STAFF   creatura 471
+    NOME  jp カジノスタッフ
+          en staff
+          IT l'addetto del casinò
+    JP    カジノは誰をも拒むこと無く、一攫千金を夢見る者を歓迎する。カジノスタッフは、彼らがギャンブルに挑むその姿を心から応援しているのだ。その客が金を落とす限りは。
+    EN    The casino never rejects anyone and welcomes those who dream of getting rich. The casino staff are heartily supportive of their gambling endeavours. As long as the customer loses money.
+
+--- db_card.hsp:8766   CREATURE_ID_NINJA   creatura 470
+    NOME  jp ニンジャ
+          en ninja
+          IT il ninja
+    JP    我を殺し姿を潜め色々と黒い仕事をこなす者。中距離からの手裏剣と鎖鎌で相手の血と体力をジワジワと削り取る汚いやつ。仕事が無いときは農業などをして暮らしている。
+    EN    A man who keeps to himself and hides in plain sight, performing all sorts of black work. This nasty fellow uses shuriken and chain scythes from medium range to slowly drain the blood and strength of the opponent. When not working, they live by farming.
+
+--- db_card.hsp:8779   CREATURE_ID_BLADE_KING   creatura 469
+    NOME  jp ブレイドキング
+          en blade king
+          IT la lama re
+    JP    斬り伏せた敵の魂を吸収し強大な力を自らの物としたブレイド。重力制御能力を持ち、簡単な飛行も可能。強敵と相対するとき、その力が全開する。
+    EN    A blade that absorbs the souls of enemies it has slain and takes their mighty power for itself. It has the ability to control gravity and is capable of simple flight. Its full power is unleashed when facing powerful enemies.
+
+--- db_card.hsp:8792   CREATURE_ID_SWIMMER   creatura 468
+    NOME  jp 海水浴客
+          en swimmer
+          IT l'estivante
+    JP    海がとても好きで、綺麗な海岸線が広がるヴァルムへ遊びに来ている。海へ行くのが楽しみ過ぎて水着を着たまま来てしまった為に、着替えがなくて後で困る。
+    EN    They like the sea very much and come to visit Valm, where there is a beautiful coastline. They are too excited to go to the sea, so they come here in their swimming costumes and later get into trouble because they don't have any clothes to change into.
+
+--- db_card.hsp:8805   CREATURE_ID_YERLES_LATEST_OUTFIT_SOLDIER   creatura 467
+    NOME  jp 新型武装兵
+          en Yerles latest outfit soldier
+          IT il soldato Yerles di nuovo modello
+    JP    最新型の武装の試作機を優先的に配備される、イェルスの超エリート部隊の一員。開発主任の遊び心に翻弄され、泣きながら帰ってくる者もしばしば見受けられる。
+    EN    Members of the ultra-elite Yerles unit, where prototypes of the latest armaments are deployed as a priority. Often at the mercy of the chief development officer's playful attitude, some of them are seen returning home in tears. 
+
+--- db_card.hsp:8818   CREATURE_ID_GAMBLER   creatura 466
+    NOME  jp 遊び人
+          en gambler
+          IT il giocatore d'azzardo
+    JP    定職につかず、賭博により生計を立てようとしている輩の総称。金が無くなったものは知らぬ間に消えており、その行方を知る者は居ない。
+    EN    A general term for people who do not have regular jobs and try to make a living through gambling. Those who lose their money disappear without being noticed, and no one knows their whereabouts.
+
+--- db_card.hsp:8831   CREATURE_ID_INFECTED_YERLES_SOLDIER   creatura 465
+    NOME  jp 同化兵
+          en infected yerles soldier
+          IT il soldato yerles infetto
+    JP    イェルス軍の精鋭。取り込まれることは回避できたが、地面から伸びた菌糸に捕らえられ同化が進行してしまっている。人型を保てなくなるのも時間の問題だろう。
+    EN    The elites of the Yerles army. Although they were able to avoid being absorbed, they have been trapped by the mycelium growing from the ground and have undergone assimilation. It is only a matter of time before they are unable to retain their human form.
+
+--- db_card.hsp:8844   CREATURE_ID_CANDLE_WISP   creatura 464
+    NOME  jp ライフ・キャンドル
+          en candle wisp
+          IT la candela della vita
+    JP    死神が管理しているキャンドルが動き出した姿。瀕死で身動きが取れない人間に、熱したロウを垂らすのが趣味。頭の火は触っても不思議と熱くない。
+    EN    A candle controlled by the Death that has been set in motion. It enjoys dropping hot wax on a dying, writhing human being. The fire in their heads is strangely not hot to the touch.
+
+--- db_card.hsp:8857   CREATURE_ID_PUDDING_SPIRIT   creatura 463
+    NOME  jp プリンの精霊
+          en pudding spirit
+          IT lo spirito del budino
+    JP    プリンに対する沢山の愛が集まり、精霊となった。素朴な表情と相まって非常にスイーツであると人気。ただし死体はプリン味ではない。
+    EN    One has double-downed on their love for pudding gathered and became a pudding spirit. Popular for being very sweet, combined with a simple facial expression. However, their corpses are not pudding-flavoured.
+
+--- db_card.hsp:8870   CREATURE_ID_MAGIC_SPIRIT   creatura 462
+    NOME  jp スピリット・メギューム
+          en magic spirit
+          IT lo spirito magico
+    JP    すでにこの世を去った魔法使いたちの魔力の残滓が、大自然にあふれるマナと融合し精霊として独立した。特定の魔法に反応して寄ってくる。
+    EN    The magical residues of wizards who have already left this world, have fused with the mana that abounds in the wilderness and become independent as spirits. They react to specific magic and come close to it. 
+
+--- db_card.hsp:8883   CREATURE_ID_WAR_SPIRIT   creatura 461
+    NOME  jp スピリット・ナーディラス
+          en war spirit
+          IT lo spirito guerriero
+    JP    家族を守るため素手で魔物と戦い、刺し違えた者たちの魂の一部が精霊となった。その光り輝く拳は守るべき者のために振るわれる。
+    EN    One fought demons with one's bare hands to protect his family, stabbed to death, and a part of their souls became spirits. Their shining fists are wielded for the sake of those they are supposed to protect. 
+
+--- db_card.hsp:8896   CREATURE_ID_BELL_OF_TERMINATION   creatura 460
+    NOME  jp ギャラルベル
+          en bell of termination
+          IT la campana del giudizio
+    JP    異常な素早さで彷徨する鐘の魔物。終末を知らせる鐘に命が宿り誕生した。物騒な存在だが、キャラメルが好きという意外な嗜好をもつ。
+    EN    A bell monster that wanders around with abnormal speed. It was born when a bell signalling the end of the world came to life. It is a dangerous being, but it has a surprising fondness for caramels.
+
+--- db_card.hsp:8909   CREATURE_ID_LEAD_DEVELOPER_DR_GAVELA   creatura 459
+    NOME  jp 開発主任『ガベラ』
+          en Lead Developer <Dr. Gavela>
+          IT <Gavela> l'ingegnere capo
+    JP    幅広い分野の技術に精通しており、文明レベルに釣り合わないようなものを開発することもしばしば。周囲からは天才を超えてもはや変態扱いされている。
+    EN    He is familiar with technology in a wide range of fields and often develops things that are beyond the level of civilisation. He is regarded by those around him as being beyond a genius and is now considered to be a freak. 
+
+--- db_card.hsp:8922   CREATURE_ID_MESHERA_ALPHA_THE_DEFORMED_ANGEL   creatura 458
+    NOME  jp 『異形の天使』
+          en <Meshera Alpha> the deformed angel
+          IT l'angelo deforme
+    JP    追い詰められたメシェーラの集合体が、吸収した素材を再構成して生み出した最も新しき災厄。オリジナルと比較すると色々な機能が欠けているものの、戦闘力は上。
+    EN    The latest disaster created by an assemblage of cornered Meshera, reconstituting the materials they have absorbed. Compared to the original, it lacks various functions, but has superior combat power. 
+
+--- db_card.hsp:8935   CREATURE_ID_CHUPACABURA   creatura 457
+    NOME  jp チュパカブラ
+          en chupacabura
+          IT il chupacabra
+    JP    元未確認動物だが、環境の変化によって近年良く目撃されるようになってきた。野生動物や人の血液が主食で強靭な肉体を持つ。
+    EN    Formerly an unidentified animal, it has been sighted more frequently in recent years due to environmental changes. Its staple diet is wild animal and human blood, and it has a strong body. 
+
+--- db_card.hsp:8948   CREATURE_ID_CARMILLA   creatura 456
+    NOME  jp カーミラ
+          en carmilla
+          IT la Carmilla
+    JP    地獄の底から新鮮な血を求めてやってきた女吸血鬼。相手を完全に洗脳してからじっくりと吸血するのが趣味。どっちかというと女性を獲物にしたがる。
+    EN    Female vampire hails from the depths of hell in search of fresh blood. Her hobby is to brainwash her opponents completely before slowly sucking their blood. She prefers to prey on women.
+
+--- db_card.hsp:8961   CREATURE_ID_VAMPIRE   creatura 455
+    NOME  jp ヴァンパイア
+          en vampire
+          IT il vampiro
+    JP    生血を主食としているが基本的に何でも食べる。本来は日光に弱い吸血鬼だが魔力を全身に纏うことで日光を遮断しており、白日の下でも活動可能。
+    EN    Their main source of nutrition is raw blood, but they will eat basically anything. Vampires are naturally vulnerable to sunlight, but they are able to work in broad daylight because they block sunlight by cloaking their entire body in magical powers. 
+
+--- db_card.hsp:8974   CREATURE_ID_MESHERA_DELTA   creatura 454
+    NOME  jp メシェーラ・ヴィム
+          en meshera delta
+          IT il Meshera Vim
+    JP    必死に意識だけは保っているが、全身を細菌に浸食されてもはや自分が誰だったのかすら分からなくなっている。自らを殺してくれる存在を待ち望んでいる。
+    EN    They are desperately trying to stay conscious, but their whole body has been so infested with bacteria that they no longer even know who they were. They are waiting for an entity that could kill them. 
+
+--- db_card.hsp:8987   CREATURE_ID_MESHERA_GAMMA   creatura 453
+    NOME  jp メシェーラ・アーギン
+          en meshera gamma
+          IT il Meshera Argin
+    JP    メシェーラに侵された、元は魔法使いであったのだろう人間の成れの果て。意識はかすかに残っているが、今や細菌が脳の8割を侵食しており自由はない。
+    EN    The result of a human who may have once been a wizard, infected by Meshera. They are faintly conscious, but the bacteria have now invaded 80% of their brains and they are completely helpless. 
+
+--- db_card.hsp:9000   CREATURE_ID_MESHERA_BETA   creatura 452
+    NOME  jp メシェーラ・ヘルグムト
+          en meshera beta
+          IT il Meshera Hergmut
+    JP    身体は細菌の出す電気信号により制御されている。神経の乗っ取りが不完全であるため、素体となっている人間は常に激痛に苛まれている。
+    EN    Their bodies are controlled by electrical signals produced by the bacteria. Due to imperfect nerve take-over, the person who is the prime body is in constant severe pain. 
+
+--- db_card.hsp:9013   CREATURE_ID_RED_MUSHROOM   creatura 451
+    NOME  jp 闘駐火草
+          en red mushroom
+          IT il cordiceps
+    JP    自身を食そうとする者たちを退け続けた結果、｢常に闘いの中に身を置く｣とされてこの名前が付けられた。やたら暑苦しいため他のきのこから敬遠されている。
+    EN    It was given this name as a result of constantly fending off those who tried to eat it, and as a result, it is considered to be 'always in the fight'. It is shunned by other mushrooms because it is extremely aggressive. 
+
+--- db_card.hsp:9026   CREATURE_ID_FIRE_DRAGON_CHILD   creatura 450
+    NOME  jp 火炎竜の幼体
+          en fire dragon child
+          IT il cucciolo di drago di fuoco
+    JP    好奇心が強く、気になった物の後についていく。巣からすぐ脱走するので親竜は大変。鳥のヒナに似た鳴き声を発する。吠え方や火の吐き方は親から習うため、飼育する場合ちゃんと教えてやる必要がある。
+    EN    They are curious and follow things that interest them. Escaped from the nest quickly, causing problems for its parents. They make a chirping sound similar to that of bird chicks. Barking and fire breathing skills are learned from their parents, so they need to be taught properly if they are to be kept in captivity.
+
+--- db_card.hsp:9039   CREATURE_ID_ARMA_THE_TOUR_GUIDE   creatura 449
+    NOME  jp ガイドの『アルマ』
+          en <Arma> the tour guide
+          IT <Arma> la guida turistica
+    JP    西イルヴァ観光協会に所属。野盗やモンスターを文字通りちぎっては投げる大迫力の殺戮ショーで人気がある。たまに間違えて客をちぎってしまうことがある。
+    EN    Member of the West Irva Tourist Association. She is popular for her spectacular killing shows in which she literally tears off and throws wild thieves and monsters. Sometimes she tears apart her customers by mistake.
+
+--- db_card.hsp:9052   CREATURE_ID_CURSED_COFFIN   creatura 448
+    NOME  jp ファラオの呪い
+          en cursed coffin
+          IT la maledizione del faraone
+    JP    マナを媒介に動く、対遺跡荒らし用の罠。棺の中にマナの供給源となる者を固定して動作させる。呪詛を撒き散らし、そのおぞましい姿は見た者を朦朧とさせる。
+    EN    Mana-mediated traps designed to counter grave robbers. It operates by trapping the victim, who is now the source of the mana, inside the coffin. Sprays curses and its horrifying appearance leaves the viewer in a daze.
+
+--- db_card.hsp:9065   CREATURE_ID_CAT_ZOMBIE   creatura 447
+    NOME  jp 猫ゾンビ
+          en cat zombie
+          IT il gatto zombi
+    JP    死んで一度は肉体から離れた猫の魂が、自らの遺体に戻り誕生した。元の体に強い執着がある場合によく発生する。愛くるしさは生前のままだが、その体はどんどん朽ちていく。
+    EN    The soul of a cat, once dead and separated from its body, returns to its own body and is reborn. This often occurs when they have a strong attachment to their original body. Although the loving nature of the soul remains the same as when it was alive, their body is rapidly deteriorating.
+
+--- db_card.hsp:9078   CREATURE_ID_BIG_SISTER   creatura 446
+    NOME  jp ビッグシスター
+          en Big sister
+          IT la Big Sister
+    JP    成長したリトルシスター。共生関係が必要無いほどの戦闘能力を誇るが、本来溜め込むはずのエネルギーを全て戦闘に使ってしまうため失敗作とされた。
+    EN    Grown-up Little Sister. She boasts such fighting ability that there is no need for a symbiotic relationship, but she was considered a failure because she uses all the energy she was supposed to accumulate for fighting. 
+
+--- db_card.hsp:9091   CREATURE_ID_RICH_PERSON_STOKE   creatura 445
+    NOME  jp 老人の『ストック』
+          en rich person <Stoke>
+          IT il vecchio <Stoke>
+    JP    幼いころに祖父に貰っていたキャンディに病み付きになり、自分の孫にも同じキャンディをあげている。演奏パーティーを開いては人を集めるのが趣味。
+    EN    He became addicted to the candy his grandfather gave him as a child and has been giving the same candy to his own grandchildren. He enjoys throwing performance parties and bringing people together. 
+
+== 38 carte fra la riga 8601 e la 9100
