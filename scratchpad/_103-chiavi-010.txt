@@ -1,0 +1,157 @@
+    # ---------------------------------------------------------- :4606
+    (4606, 'A white hawk that shakes off the urge to flee to drugs and deep sorrow and flutters into the sky again. Despite being affected by the aftereffects he is steadily regaining the power he had in his prime.'):
+        "",
+
+    # ---------------------------------------------------------- :4619
+    (4619, 'She is a perverted demon who loves to be both bound and treated. She was thrown into a giant castle by the gods but her powers are not as limited as the other demons. It seems that the effect was less effective because of the ability she possessed.'):
+        "",
+
+    # ---------------------------------------------------------- :4632
+    (4632, 'The embodiment of fear. It is a caring person and when it gets lonely it will die etc. A lie of course. So it attracts everyone and creates a hell of a scene.'):
+        "",
+
+    # ---------------------------------------------------------- :4645
+    (4645, 'The goddess of the rainbow once defeated by the goddess of the wind in a great war between the gods which tore her body apart...these squirrels houses the pieces. When they are newborn their bodies glow a rainbow of colors due to the dominance of the fragments.'):
+        "",
+
+    # ---------------------------------------------------------- :4658
+    (4658, 'A pure white rabbit. It has a weak but divine power because it was raised as a god. Ancestral memories are strongly imprinted in its genes and it is not good at sharks. They are said to be good at matching couples.'):
+        "",
+
+    # ---------------------------------------------------------- :4671
+    (4671, 'A monster lurking in rabbit society. They are also called corpse-eating rabbits because they dig up graves at night and devour the bodies. It attracts not only rabbits but also other creatures and uses them as food.'):
+        "",
+
+    # ---------------------------------------------------------- :4684
+    (4684, 'They act on the idea that squirrels are the most noble creatures on earth. They demanded land surrender and unconditional surrender but were naturally refused so they went on an indiscriminate subversive campaign.'):
+        "",
+
+    # ---------------------------------------------------------- :4697
+    (4697, 'A synthetic beast of a rabbit and a tortoise. There was a race between a rabbit and a tortoise a long time ago and I wonder what the outcome would have been if this creature had been there. All things are in the hands of the tortoise... and God knows.'):
+        "",
+
+    # ---------------------------------------------------------- :4710
+    (4710, 'The giant bat lives in the mirror world. It has adapted to this side of the world through repeated survival. It flies in the sky like a swift wind. They are obsessive and once they have attempted to prey on their prey they target them thoroughly.'):
+        "",
+
+    # ---------------------------------------------------------- :4723
+    (4723, "The bat god. A hero who under the cover of darkness protects people from disease and demons. It often gets mistaken for a normal bat and is attacked by the people it is supposed to protect. It's good at playing dead."):
+        "",
+
+    # ---------------------------------------------------------- :4736
+    (4736, 'Bats have learned their own fighting skills by observing the humans at war from a distance. They learned how to handle the guns and even learned the foul-mouthed abuse of the soldiers.'):
+        "",
+
+    # ---------------------------------------------------------- :4749
+    (4749, "It looks to be a very large bat but it seems to be a monster. They live in a hole in the tree and lure people in with the cries of children. Kids who like it will be snatched and kids and adults who don't will be bitten by it."):
+        "",
+
+    # ---------------------------------------------------------- :4762
+    (4762, "The rats have awakened to their ultimate power. It's no different in size from a normal rat but it's fighting power is much different. In addition there is a saying that they bite and kill the ultimate rat cat and eventually kill the Indian elephant."):
+        "",
+
+    # ---------------------------------------------------------- :4775
+    (4775, 'A giant hamster that is considered a symbol of disaster. Its voracious appetite and fecundity will devour the food in the area. In addition the trees and pillars are gnawed by the ever-growing front teeth so no forests or buildings are left behind.'):
+        "",
+
+    # ---------------------------------------------------------- :4788
+    (4788, 'An elderly hamster disguised as an older hamster. In the hamster world he is the highest ranking being in the service of General Ham. They often escape to play so there are a number of substitutes.'):
+        "",
+
+    # ---------------------------------------------------------- :4801
+    (4801, 'A cattleman with the same name as the alias of the first Minotaur. The name means star or thunderbolt. Only those with divine strength among the minotaurs are allowed to call themselves so.'):
+        "",
+
+    # ---------------------------------------------------------- :4814
+    (4814, 'A human body with the head and hooves of a cow. He is now a monster but he was once a god of weapons. His personality is brave and patient and he has the ability to control the fog.'):
+        "",
+
+    # ---------------------------------------------------------- :4827
+    (4827, "A bull with a blue body and tremendous power. They are blue from not being able to control their own power and are often burbling and shaking. I've never spoken to them directly but I feel somehow familiar with the Blue Bubble."):
+        "",
+
+    # ---------------------------------------------------------- :4840
+    (4840, 'They have been domesticated for milking and for meat since ancient times. The cattle are considered sacred as ancestors by the minotaurs and the minotaurs sometimes attack people in order to free the cattle.'):
+        "",
+
+    # ---------------------------------------------------------- :4853
+    (4853, 'Rare among the centaurs he excels in magic and melee combat. He has a flair for flamboyance making his original shiny armor glow with even more magical power. Basically there are only males.'):
+        "",
+
+    # ---------------------------------------------------------- :4866
+    (4866, "A horse that has been strengthened with the power of darkness. His abilities are unknown and he does not receive much attention or expectation from the general public. Dark Horse itself on the other hand isn't concerned about that assessment."):
+        "",
+
+    # ---------------------------------------------------------- :4879
+    (4879, "A centaur wearing full body armor. He prefers to fight alone and has a high level of pride and fighting power. He doesn't like to be put on his armor unless his opponent is very skilled."):
+        "",
+
+    # ---------------------------------------------------------- :4892
+    (4892, 'A military horse trained to handle a small ballista on its own. Even with the muscle strength of a horse the ballista seems to be quite heavy and it cannot be shot unless it stops its feet and takes a posture.'):
+        "",
+
+    # ---------------------------------------------------------- :4905
+    (4905, 'The centaurs have switched from bows and arrows to guns. It excels in reflexes and athleticism such as shooting a distant Indian elephant between the eyebrows while sprinting. Their favorite thing is bolt action.'):
+        "",
+
+    # ---------------------------------------------------------- :4918
+    (4918, 'A half-man half-horse creature. Their center of gravity is more forward than a normal horse so if they try to lean forward they might fall over. They live by hunting and farming in herds.'):
+        "",
+
+    # ---------------------------------------------------------- :4931
+    (4931, "A spirit who loved the bread too much became one with the freshly baked bread. Sixty percent of the bread's constituents have been transformed into a mysterious super-hard substance called shoku panyori French bread. He uses his hardness to destroy objects with his body hit."):
+        "",
+
+    # ---------------------------------------------------------- :4944
+    (4944, 'A wisp fused with countless souls. It burns fiercely under the influence of a soul crazed with anger and hatred. Its movements are slow but it is difficult to escape because it pulls the body and soul of the opponent towards it.'):
+        "",
+
+    # ---------------------------------------------------------- :4957
+    (4957, 'An extremely developed discharge cloud that has been transformed by taking in a large amount of water vapor. It has a huge impact on the weather. They live by hunting birds while hovering in the air as if they were being swept away by the wind whenever the wind blows.'):
+        "",
+
+    # ---------------------------------------------------------- :4970
+    (4970, "It features a moai extending from the core on all four sides. The moai part is a strong shield as well as a propulsion device. To prevent the core from taking damage the moai's stone head parries the attack."):
+        "",
+
+    # ---------------------------------------------------------- :4983
+    (4983, 'A complex magic circuit is carved into the board and a huge amount of magic can be stored in the board. It has been given a provisional life and is capable of autonomous action. It is secretly tested and operated as a magical power supply device for the front lines and as a magical power battery for facilities.'):
+        "",
+
+    # ---------------------------------------------------------- :4996
+    (4996, "A troubled moai scattering landmines. With sensors that are more powerful than necessary he doesn't get caught by mines himself. He is regarded as a rival by landmine dogs but he doesn't seem to care about that."):
+        "",
+
+    # ---------------------------------------------------------- :5009
+    (5009, 'A demon that was used by the previous god of harvest. It is said that on a night of heavy rains a batch of headless corpses grew out of them. Many related lore survives throughout the world and today the term reaper generally refers to this demon.'):
+        "",
+
+    # ---------------------------------------------------------- :5022
+    (5022, 'It is the result of those who try to transcend death and meddle with the taboo. He deciphered a part of a magic book called the Ssil Code and used its magic to bring the undead into his body but failed. In truth they should have fused beautifully and sprouted three pairs of wings.'):
+        "",
+
+    # ---------------------------------------------------------- :5035
+    (5035, "A gnarled ghost created by a necromancer somewhere. The name is also intact meaning Tsugihagi in an ancient artificial language. The body is unbalanced due to the forced installation. The ego is far from unbalanced it's broken."):
+        "",
+
+    # ---------------------------------------------------------- :5048
+    (5048, "Concerned about being consumed by the war between the nations he gathered his comrades and formed a mercenary group. He has saved his comrades many times with his superior survivorship and many mercenaries look up to him as a mentor. When he's not working as a mercenary he's farming at his parents' house."):
+        "",
+
+    # ---------------------------------------------------------- :5061
+    (5061, 'The black aura is the main body. It operates by manipulating the corpse of Baphomet. The germs are generated and controlled by magic to cause great damage. But the infection is based on germs from the time of the sealing and without control it is almost ineffective against modern creatures in Irva.'):
+        "",
+
+    # ---------------------------------------------------------- :5074
+    (5074, "A slug that has been thoroughly enhanced with dark magic. A vicious wizard somewhere created it for fun and released it into the open air where it multiplied greatly. The wild beetles think it's dark and unapproachable."):
+        "",
+
+    # ---------------------------------------------------------- :5087
+    (5087, 'Originally an ordinary shell the snail was equipped with a high-powered cannon and machine gun at the request of humans. Unfortunately the balance control is too difficult to handle and it seems that it is all it can do is shoot the machine gun in single shots.'):
+        "",
+
+    # ---------------------------------------------------------- :5100
+    (5100, 'They believe that this will lead to the prosperity of the Snail family and they are willing to put their lives on the line. They charge at you with explosives packed into their shells but most of the time they are dealt with before you can approach them. Its life is so light that it flutters in the wind...'):
+        "",
+
+# 39 voci fra la riga 4601 e la 5100, 0 ambigue
