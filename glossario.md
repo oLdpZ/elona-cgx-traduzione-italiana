@@ -1388,6 +1388,82 @@ giudizio), a due lotti di distanza. Stessa prima frase in italiano.
 la parentela con 「おとおと」, cioè 弟 (*otooto*, «fratello minore») scritto
 storto. La parola resta com'è, come `tsukumogami` e `kunoichi`.
 
+## I lotti 19-30 di `db_card.hsp`, decisi il 2026-08-26 (106ª) — il file si chiude
+
+| giapponese | inglese di monte | italiano | perché |
+|---|---|---|---|
+| 冥王 | `the Dark Lord` | **il signore dell'oltretomba** | `:9325`, l'olog. Hapax come **persona**; il progetto ha già 冥王の咆哮 → «ruggito dell'oltretomba» (`skill.hsp:814`) |
+| 不死鳥 / 鳳凰 | `phoenixes and phoenixes` | **l'araba fenice** / **la fenice d'oriente** | `:9260`. ⚠️ L'inglese le **appiattisce tutt'e due** sulla stessa parola, e il senso della carta è proprio che l'uccello vermiglio odia essere confuso con l'una **e** con l'altra |
+| 猫族 | `the cat tribe` | **il popolo dei gatti** | `:10521`, il guerriero dalla testa di leopardo; torna a `:13539` (il leone) |
+| オチムシャ | `Ochimsha` | **ochimusha** | `:11379`. È 落武者 scritto in katakana per farne un soprannome, e resta invariato: l'inglese lo traslittera a sua volta, con un refuso |
+| 亜人 | `subhuman` | **una specie affine all'uomo** | `:11706`, il troll |
+| ジュア祭 | `the Jua festival` | **la festa di Jure** | `:11758`. La dea è già **Jure** dappertutto |
+| 音属性 | `the attribute of sound` | **l'attributo suono** | `:11810`, la mandragora. Sulla riga delle rese di `action.hsp` per gli altri attributi |
+| 邪眼 | `the evil eye` | **il malocchio** | `:14007`, l'occhio impuro |
+
+⭐ **Quattro formule che si ripetono e vanno rese identiche.** Nessuna rete le
+pretende — la rete 3 confronta i **giapponesi interi**, e questi sono interi
+diversi — quindi la coerenza è a carico di chi scrive:
+
+    エーテルを好む、竜族の一種      «Una specie della stirpe dei draghi, con un
+                                    debole per l'etere»  — sei carte, :12889-:12954
+    進化の過程で生まれた竜の亜種    «Una sottospecie di drago nata lungo il
+                                    cammino dell'evoluzione» — :10924, :12304,
+                                    :12538, :12551
+    〜の一部にしてその下僕          «Una parte di X e insieme il suo servo» — gli
+                                    otto servitori delle otto divinità,
+                                    :14449-:14540, che nel mazzo si leggono di fila
+    異常な素早さで彷徨する鐘の魔物   «Un mostro campana che vaga con una rapidità
+                                    anomala» — :14839 e :14852. ⚠️ E in :14839
+                                    l'inglese ha **perso** questa prima frase
+
+⚠️⚠️ **Quindici errori di monte presi dal giapponese**, verificabili riga per riga:
+
+- `:9338` 人間の腕 e `:9377` 下位の巨人, tutt'e due resi `an Indian Elephant`;
+- `:9728` 頚動脈 con lo stesso elefante aggiunto dal nulla;
+- `:9845` l'inglese **ha perso la prima frase** e comincia a metà;
+- `:10105` 乗り物にすごく弱い appiattito in `motion sickness`, che perde il perché;
+- `:10495` 集めるだけでは飽き足らず (*collezionarli non le bastava*) **rovesciato**
+  in `so bored with collecting them`;
+- `:10716` 上辺では (*in superficie*) letto come `on the upside`;
+- `:10027` 適当な教育 (*educata alla come viene*) **rovesciato** in
+  `her mother's proper upbringing`, ed è la ragione per cui il ragazzo è ingenuo;
+- `:11641` 手にした獲物 (*l'arma che ha in mano*) reso `the prey in his hands`;
+- `:11667` コブシ (*i pugni*) reso `his knob`;
+- `:11875` la fama di **traditore** del pipistrello resa `the inaccurate vision`,
+  che contraddice la frase prima;
+- `:12720` ハイイログマ (*l'orso grigio*) traslitterato `the hylog bear`;
+- `:12785` 悪阻 (*la nausea*, ed è uno stato del gioco) reso `malice`;
+- `:12811` la combinazione fra la creatura e i **suoi** serpenti resa
+  `the combination of the snakes and the snakes`;
+- `:12876` 姦しい (*chiassosa*, dai tre 女 del kanji) reso `fornicating`;
+- `:13292` キングは尻に敷かれている **rovesciato** in `the King is a pain in the
+  arse`: l'inglese scambia chi comanda, e la battuta è tutta lì;
+- `:13435` 地のオパートス (il **dio** Opatos della terra) reso `a local opus`;
+- `:13409` 衛生兵 (*il medico da campo*) reso `air supports`;
+- `:13370` センセイ traslitterato `senshi`;
+- `:12733` レム・イド reso `Remido`, che sono le **rovine** e non la civiltà.
+
+ⓘ **L'elefante indiano è una gag vera, ed è per questo che i tre errori sopra
+sono difficili da vedere.** `インド象` sta nel **giapponese** di dieci carte di
+fila, da `:12018` a `:12135`: è il tormentone con cui monte misura la potenza di
+ogni soffio dei segugi. Il traduttore inglese l'ha esteso a tre carte che non ce
+l'avevano.
+
+ⓘ **Tre giochi di parole che non passano, e la resa dice il senso**: `:9611`
+モロク / モーロク (*Moloch* / «rimbambito»), `:9624` てんとう虫 scritto 天道虫
+(«insetto della via del cielo») che regge tutta la frase su 天の道を行く, e
+`:12174` 怨念もおんねん, che è 怨念 più il «ce n'è» del Kansai. 🔶 Il quarto,
+`:9858`, non si può risolvere qui: la giraffa dice «esiste una bestia fantastica
+con lo stesso nome» ed è vero in giapponese (キリンさん e 麒麟), non in italiano
+(«la giraffa» e «il Kirin»). **Da guardare a schermo.**
+
+⚠️ **Tre parole che `degrada()` vieta**, tutte trovate da `verifica` in questa
+sessione: **dèi**, **élite** e **elite**. L'apostrofo finisce **dentro** la
+parola (`de'i`, `e'lite`) e a schermo non si legge. Rese «divinità», «il migliore
+fra i migliori», «il fior fiore». ⓘ E la **lineetta lunga** `—` è un carattere a
+doppia larghezza in CP932: la boccia `guardie`, non `verifica`.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

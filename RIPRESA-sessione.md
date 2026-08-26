@@ -1,7 +1,7 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-26, fine della **centocinquesima** sessione (**quattro lotti
-di carte, e quattro rese sbagliate che nessuna rete poteva vedere**).
+Aggiornato: 2026-08-26, fine della **centoseiesima** sessione (**`db_card.hsp`
+si chiude con 444 rese, e tre nomi che erano sdoppiati da prima**).
 
 ⚠️⚠️ **LA SESSIONE SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
 spinto e l'albero e' pulito; le cose che **non stanno nel repo** sono quattro, e
@@ -28,11 +28,13 @@ e il suo lettore stanno in `dati.py` (`CODIFICHE`, `PIATTI`), e `degrada()` su
 di lui **non si applica**, perche' degradare esiste solo per CP932.
 
 💡 **Se il terminale nuovo e' sulla stessa macchina, non si rifa' niente**:
-dalla 92a alla 105a si sono aperte tutte cosi'. Si controlla in un colpo con
+dalla 92a alla 106a si sono aperte tutte cosi'. Si controlla in un colpo con
 `ls C:\Games\Elona\_traduzione\` (devono esserci `build`, `sorgente`,
 `dati-sorgente`, `hsp34`), e l'eseguibile in gioco dev'essere
-`elonaplus2.31\cgx-test.exe` delle **15:30 del 26/08**: se la data e' quella,
-la build corrente contiene tutte le 154 rese della 105a e non va rifatta.
+`elonaplus2.31\cgx-test.exe` delle **19:07 del 26/08**: se la data e' quella,
+la build corrente contiene tutte le 444 rese della 106a e non va rifatta.
+⚠️ Nella 106a le build sono state **due**, alle 16:25 e alle 19:07: quella che
+conta e' la seconda.
 
 ⚠️⚠️⚠️ **LE RETI DEL LOTTO NON LEGGONO IL GLOSSARIO, E LA 105a CI E' CADUTA
 QUATTRO VOLTE IN UN GIORNO.** `verifica`, `guardie` e le tredici reti dello
@@ -81,14 +83,294 @@ riprovato due volte e le e' andata male tutt'e due — una regex
 un'altra volta ancora**, con un heredoc vuoto dentro un comando che serviva solo
 a cercare quattro parole in quattro file: due minuti di terminale bloccato per
 un `grep`. Uno script di dieci righe si scrive nello scratchpad: costa lo stesso
-e resta li' da rilanciare. ⚠️ **E colpisce anche fuori dal repo**: la 100a ha trovato
+e resta li' da rilanciare. ⚠️ **E la 106a ci e' ricascata una volta**, per due
+`replace` senza backslash su `avanzamento.md`: e' andata bene, ma la regola non
+e' «se non ci sono backslash si puo'» — e' che il file si scrive con lo
+strumento, perche' chi scrive non sa in anticipo che cosa il testo contiene. ⚠️ **E colpisce anche fuori dal repo**: la 100a ha trovato
 `data<BS>ook.txt` **due volte** dentro la voce della 99a in `log.md`, nel vault,
 e l'ha riparata. Chi trova una parola cosi' cerchi il byte 0x08, non il refuso.
 
 ---
 
 
-## La centocinquesima sessione
+## La centoseiesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **diciannove** verifiche d'apertura. La
+106a si e' aperta con `origin/fase-0` allineato: **sessantatreesima prova** di
+fila, e le diciannove hanno dato diciannove volte i valori attesi della 105a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    _97-quanto-resta         db_card **0 DA FARE** / 2 rinviate   ⭐ CHIUSO
+                             TOTALE **110 / 110 / 0**   (erano 554/109/445)
+    dizionario/db_card       **1.144 prose rese su 1.144**   (erano 700)
+                             il file ha **2.285** voci = 1.141 nomi + 1.144 prose
+    perimetro.py             **86%**                   (era 85%)
+    rinviate.jsonl           **113**                   (erano 112)
+    _102-carta-conoscenza    righe oltre i 69: **712** in italiano   (era 479)
+                             ⚠️ e «riga media sotto 61» ora e' **0 su 1144**,
+                             era 1: vedi la nota in fondo, non e' un guasto
+
+Tutto il resto e' **fermo dov'era**, riverificato in chiusura: `pytest` **775
+passed, 6 skipped**, `prova_identita` 72/72 e **28.073**, `dati_applica
+--identita` **6 file e 3.767 righe**, `toppe.jsonl` **1027** e
+`_97-toppe-agganciate` 1027 su 1027, `creature` 1131/2466/0/0, `larghezze` 0
+fuori misura, `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `menu_dialogo` 0
+su 1378, `linguette` 0 e 0, `battute --divergenti` **13**,
+`intestazioni_larghezze` perimetro **0**, `dati_sorgente` 7/7 e gioco difforme su
+0, `gronde` 0 su 5, `maiuscole` 143/6/1/7/**0**, `bilingui` **0**, `referti`
+**9**, `lang-nel-ramo-jp` **21 | 0**, `_96-morte-nella-build` **0**,
+`_98-exhelp-gmes` 0/0/0, `_98-book-mes` **0 su 2208**, `_100-commento-barre`
+**9 e 0**, `_100-selettori-ombra` **0**, `_100-modello-aggancia` **0**,
+`_101-manual-gmes` **2 sezioni alte, 0 titoli fuori misura**,
+`_102-carta-conoscenza` **0 e 0**, `_103-inglese-ripetuto` **1 + 2**,
+`_104-inglese-slittato` **2 teste**.
+
+⚠️ **Le due verifiche che sono REFERTI e il cui valore atteso NON e' zero:**
+
+    PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/_103-inglese-ripetuto.py
+    → «inglesi che tornano piu' volte: 1 ... coppie: 2»
+    PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/_104-inglese-slittato.py
+    → «teste trovate: 2   (atteso al 2026-08-26: 2)»
+
+⚠️ **`_103` e `_104` restano accese anche adesso che il file e' chiuso**, ed e'
+giusto: `:9637` e' stata **resa dal giapponese** (l'inglese di quella carta
+racconta il `kabuto` di `:9624`), ma il difetto sta a monte e i due referti
+continuano a vederlo. Il valore atteso non cambia.
+
+### ▶ Che cosa e' stato fatto
+
+    db_card.hsp   12 lotti, righe 9101-15075       444 prose rese
+    -------------------------------------------------------------------------
+    ⭐⭐⭐ IL FILE E' CHIUSO, e con lui il perimetro `lang()`: 110 / 110 / 0
+    rinviate: 2 (`:11405` e `:11412`, spente con `;`)   registro 112 -> 113
+    toppe: nessuna (toppe.jsonl resta 1027)                                0
+    reti nuove: nessuna                                                    0
+    correzioni: `イツパロトル` era sdoppiato, 2 rese riparate               2
+                `:9897` del lotto 19, corretta dopo il lotto 22            1
+    glossario: +8 termini, +4 formule ripetute, +15 errori di monte
+    -------------------------------------------------------------------------
+       444 rese, 2 rinviate, 0 toppe, 0 reti nuove, 3 rese riparate
+
+Due build: la prima alle **16:25** dopo i lotti 19-22, la seconda alle **19:07**
+con tutti e dodici. ⚠️ E' **quella delle 19:07** la data da controllare prima di
+leggere uno screenshot. `applica` 27.073 → 27.227 → **27.517**, cioe' 27.073 +
+444 esatte. Nessun file dati e' cambiato: `cmp -s` li ha lasciati tutti e sei
+dov'erano.
+
+### ▶ ⭐⭐⭐ TRE NOMI SDOPPIATI IN UN GIORNO, E UNO SOLO SI E' POTUTO CORREGGERE
+
+Tutti e tre trovati **cercando il nome nel dizionario prima di metterlo nella
+prosa**. Nessuno visto da una rete, e la rete 3 **non puo'** vederli: confronta i
+giapponesi **interi**, e qui gli interi sono prose diverse che contengono lo
+stesso nome.
+
+✅ **`イツパロトル`** era **Itzpalt** 52 volte in nove file e **Itzparotl** due
+volte, tutt'e due in `db_card` (`:8220`, `:8597`). La causa e' l'inglese di
+monte, che scrive `Itzparotl` **solo** in quelle due carte. Corretto da
+`scratchpad/_106-correzione-itzpalt.py`. ⚠️ Le tre grafie storpiate di
+`text.hsp` (`:549`, `:552`, `:555`) **non si toccano**: sono le risposte
+sbagliate del quiz.
+
+🔶 **`かたつむり`** e' «la chiocciola» come creatura base e «Lumaca» nelle tre
+uniche, che in giapponese portano lo **stesso** nome. Nelle prose di oggi ha
+ubbidito il referente, e `:9897` e' stata corretta di conseguenza. La decisione
+sui nomi resta aperta.
+
+🔶 **`パピー`** e' reso «il cucciolo di cane» e **non e' un cane**: la sua carta
+(`:14085`) dice che e' una zucca mutata, il sorgente le da' **lo stesso disegno
+della zucca** ricolorato di giallo (`db_card:14092`) e la razza
+`dbidn = "mandrake"` (`db_creature:120100`). Il nome viene dalla parola inglese
+`puppy`.
+
+⭐⭐ **E il rovescio, a `:9351`: due giapponesi diversi che cadono sulla stessa
+resa italiana.** `竜人` e' la razza «Uomo lucertola» e `リザードマン` e' la
+creatura «l'uomo lucertola», e la carta del dragonewt dice che il primo detesta
+essere scambiato per il secondo. Risolta rendendo `竜人` col nome della creatura
+stessa, **dragonewt**. Il ragionamento completo sta in `decisioni.md`, sezione
+della 106a.
+
+### ▶ ⚠️ Quindici errori di monte, e un tormentone che li rende difficili
+
+Le quindici carte con l'inglese rotto stanno elencate una per una in
+`glossario.md`, sezione della 106a. La cosa che vale la pena ricordare e'
+un'altra: nei lotti 19-20 avevo segnato tre carte in cui l'inglese scrive
+`Indian Elephant` e il giapponese dice altro — ma il lotto 24 mostra che
+**`インド象` sta nel giapponese di dieci carte di fila**, da `:12018` a `:12135`,
+tutta la famiglia dei segugi. ⭐ Le tre restano sbagliate, ma adesso si sa
+**perche'** sono difficili da vedere: il traduttore inglese ha esteso una gag che
+esisteva davvero. 💡 *Un difetto che imita una scelta legittima si riconosce solo
+tornando al giapponese ogni volta.*
+
+### ▶ Quel che resta aperto
+
+⚠️⚠️ **Da oggi il punto 1 non e' piu' un file da tradurre.** Il perimetro
+`lang()` e' chiuso; quello che resta e' **fuori** da `lang()`, oppure e' collaudo,
+oppure sono reti.
+
+1. ⭐⭐⭐ **LE 5.284 DESCRIZIONI DEGLI OGGETTI di `db_item.hsp`**, ed e' il blocco
+   piu' grosso che resta in assoluto: vale da solo il salto dall'**86% al 94%**.
+   ⚠️ Stanno **fuori** da `lang()`, quindi `estrai.py` non le vede e non
+   compaiono in nessuna delle tabelle di `avanzamento.md`. Prima di tradurre
+   serve capire **come si agganciano**: e' lavoro strutturale, non un lotto.
+2. ⚠️⚠️⚠️ **IL COLLAUDO A SCHERMO E' L'ARRETRATO CHE CRESCE PIU' IN FRETTA.**
+   Venticinque sessioni e **6.546 rese mai viste** — le 6.102 di ieri piu' le 444
+   di oggi. Il pannello `x` delle carte non l'ha ancora guardato nessuno, ed e'
+   **proprio quello che mostra le 1.144 prose appena finite**.
+
+   ⭐⭐ **LA LISTA DELLA 103a E' ANCORA VALIDA E VA USATA QUESTA**, con
+   l'eseguibile delle **19:07 del 26/08**. `*wish_card` (`command.hsp:5085`)
+   crea una carta con `INV_ITEM_SUB_NAME` gia' scritto (`:5091`), cioe' il ramo di
+   `:16019` scatta subito.
+   - **F12** apre la console (`main.hsp:3322`, si legge in `*pc_turn`: dentro un
+     menu non risponde). `spawn_item 290` → Invio, **cinque volte** → **ESC**.
+     A terra ci sono cinque bacchette dei desideri
+     (`ITEM_ID_ROD_WISHING`, `defines/mod.hsp:5035`).
+   - **`g`** le raccoglie.
+   - **`Z`** (maiuscola: `key_zap` nel `config.txt` **del giocatore**) → scegli
+     la bacchetta → scrivi `carta lo spirito del pane` → Invio.
+   - ⚠️⚠️ **La parola chiave e' `carta`, non `card`**: e' dentro una `lang()`
+     (`command.hsp:4846`) e il progetto l'ha tradotta, insieme alle tre righe di
+     `fix_wish` in `module.hsp`. Verificato **nella build**, non nel sorgente.
+   - ⚠️ Il nome dopo e' quello **italiano** della creatura: `*wish_monster`
+     (`:5147`) cerca dentro `DBSPEC_CHARA_NAME_ORG`, che nella build e' tradotto,
+     e `instr` e' una sottostringa, quindi l'articolo si puo' omettere.
+   - **`g`** raccoglie la carta, **`X`** apre l'inventario, **`x`** sulla carta
+     apre il pannello.
+   - ⭐ **Le cinque carte da chiedere, scelte dai numeri**
+     (`scratchpad/_103-carte-a-rischio.py`), non a gusto:
+
+         carta lo spirito del pane        la parola piu' lunga: 27 caratteri
+                                          dopo degrada(), e la finestra e' 15
+         carta il fuoco fatuo selvaggio   la riga media piu' corta: 64,0
+                                          contro i 61 sotto cui la coda si perde
+         carta la falena badante          la prosa piu' lunga: 6 righe
+         carta la moto grossa             «il Cub» due volte, la correzione della 103a
+         carta la mandragora zappatrice   la carta con l'inglese di un'altra
+
+   - ⭐ **E la sesta che vale piu' delle altre cinque**: `carta il mostro di
+     spaghetti`. E' la prima del blocco slittato, cioe' una carta la cui prosa
+     **non esiste in inglese da nessuna parte**: se a schermo dice degli spaghetti
+     e non dei passeri, il blocco e' reso giusto.
+   - ⭐ **La settima, dalla 105a**: `carta il vecchio Stoke` e `carta il ragazzo
+     Wel`, da guardare **una dopo l'altra**: sono il nonno e il nipote, e le due
+     prose sono state scritte per stare insieme.
+   - ⭐⭐ **E dalla 106a ce ne sono tre nuove, ognuna per una ragione diversa:**
+
+         carta il drago verde        una delle SEI che aprono con la stessa
+         + carta il drago rosso      formula (エーテルを好む、竜族の一種): a
+                                     schermo si vede se la ripetizione regge o
+                                     annoia, ed e' l'unica cosa che il conteggio
+                                     non puo' dire
+         carta l'oca                 uno degli OTTO servitori delle divinita',
+         + carta il gatto nero       che nel mazzo si leggono di fila con la
+                                     stessa apertura «Una parte di X e insieme
+                                     il suo servo»
+         carta la giraffa            🔶 LA DECISIONE APERTA: la prosa dice
+                                     «esiste una bestia fantastica con lo stesso
+                                     nome», vero in giapponese (キリンさん /
+                                     麒麟) e **falso in italiano** («la giraffa»
+                                     / «il Kirin»). Va **guardata a schermo**
+                                     prima di decidere se rinominare o lasciare
+
+   - ⚠️ **Guardare dove vanno a capo le righe**: e' l'unica cosa che la rete
+     misura per deduzione e che non e' mai stata vista a schermo. E guardare
+     anche lo sfondo, non solo la riga chiesta (lezione dell'11/08).
+   - 💡 Se una parola risulta spezzata a meta' sara' **megliobaguettechepancarre'**
+     di `:4931`: e' la stringa piu' fragile del progetto. Accorciarla e' una riga
+     sola in `scratchpad/_103-rese-card-10.py`.
+
+   Restano dalle sessioni prima i quattro passi della 101a (guida `?`, *Stati
+   alterati*, *Armi da tiro*, un libro rosso), i tre di `autopick.txt` della
+   100a (moneta d'oro, `Shift+Backspace`, `~oggetto con maledizione`), i libri
+   rossi della 99a, i consigli di Norne (serve un personaggio nuovo), i due menu
+   degli incantesimi (`v`, poi `z`, poi `/`), la scheda (`c`), e la coda lunga
+   di NERES, RYUTYE, CRAY, MARY, BURT, KARATA, MANSON, RAIZEL, NORNE, ALICE, i
+   ventotto nomi di MIKRAANESIS, il menu del seminario, il menu di Maile a
+   undici voci, il prospetto cittadino e il **[Non posare]**.
+3. 🔶🔶 **DUE NOMI DA DECIDERE, E ADESSO HANNO LE PROVE.** `かたつむり` (base
+   «chiocciola» contro le tre uniche «Lumaca») e `パピー` («il cucciolo di cane»
+   per una zucca). ⚠️ **Non e' lessico, e' rinominare creature che il giocatore
+   vede**: tocca `db_card.hsp` e `db_creature.hsp`, e per `かたつむり` anche
+   `action.hsp` e `custom_enemyevolution.hsp`. La strada e' quella di
+   `correzione-kikkasu.py` della 104a. Il ragionamento sta in `decisioni.md`,
+   sezione della 106a.
+4. ⚠️⚠️ **LE QUATTRO DEL MURO DEI PREFISSI VOGLIONO QUATTRO TOPPE**:
+   `item_func.hsp:1308`, `:1386`, `:1390`, `:1458`. La strada e' quella di
+   `:1399`. ⚠️ Vanno **viste in gioco una per una**.
+5. ⭐⭐ **`"Have"` di `command.hsp:11069`**: letterale inglese nudo nel pannello
+   «Scelta delle abilita'». Sta gia' in `blocchi_en.py`.
+6. ⭐⭐ **Le dieci righe `listn` senza metro**: cinque pannelli a colonne, il
+   metro si legge a mano e si scrive in `METRO_A_MANO`.
+7. ⭐⭐ **Tre reti che mancano**: la larghezza della riga degli incantamenti
+   (`showresist == 4`, budget 380 px / 47 caratteri, e l'inglese lo sfonda
+   gia'); gli **inglesi divergenti**; i **partner fuori da `lang()`** (81a); i
+   **buff** della finestra del dialogo (95a).
+8. ⚠️⚠️⚠️ **I 335 SITI DOVE L'INGLESE E' STATICO E IL GIAPPONESE NO**, e dentro
+   quelli i **quattro** dove l'inglese dice un'altra frase. Decisione aperta.
+   `python scratchpad/_94-jp-dinamico-en-statico.py --tutte`.
+9. 🔶 **L'EPITETO DI SINAHA**, la 🔶 **sorella H** (82a) e la 🔶 decisione della
+   80a sul menu degli arti. ⓘ La carta della sorella H e' stata resa oggi
+   (`:10131`) e **non ha deciso niente**: la battuta sta in `chat.hsp:6717`.
+10. ⚠️⚠️⚠️ **Le sette etichette del potenziale** (`command.hsp:10676`-`:10700`,
+    piu' 6): letterali nudi senza `lang()`, a schermo inglesi. Il giorno che si
+    toppano, `chat.hsp:14246` va rifatta.
+11. ⭐⭐⭐ **La rete che manca ha un rendimento misurato**: rileggere il
+    dizionario con le regole nuove. Il rendimento cala, non e' zero.
+12. ⭐⭐ **Dodici file con `lang()` e senza dizionario**, 447 `lang()`. ⚠️
+    L'elenco si **rilancia**, non si ricopia:
+    `python scratchpad/fuori_elenco.py`.
+13. ⭐⭐ Il **muro del materiale** generale, e ⚠️ **`scene2.hsp` non e' nel
+    dizionario**.
+14. ⭐⭐⭐ **LA RETE DEI NOMI SDOPPIATI NON ESISTE ANCORA, E ADESSO HA UN
+    RENDIMENTO: TRE CASI IN UNA SESSIONE.** Forma: *lo stesso nome proprio, in
+    file o prose diverse, con due rese italiane diverse*. ⚠️ Non e' la rete delle
+    `battute --divergenti`, che guarda i **giapponesi interi**.
+    ⚠️⚠️ **E da sola coprirebbe un terzo del problema**: dei tre casi di oggi ne
+    avrebbe visto **uno** (`Itzpalt`). `かたつむり` e `パピー` non sono lo stesso
+    nome reso in due modi, sono un nome reso **bene per una creatura e male per
+    un'altra** — quelli li trova solo chi legge la prosa accanto al nome.
+15. ⭐⭐⭐ **LA RETE DEL GLOSSARIO NON ESISTE ANCORA, E HA UN RENDIMENTO GIA'
+    MISURATO: QUATTRO SU 154 RESE IN UNA SESSIONE.** Forma:
+
+        1. dal `glossario.md` e da `invariati.md` si estraggono le coppie
+           `JP -> IT` che stanno nelle tabelle (righe `| ... | ... |` regolari);
+        2. per ogni voce del lotto, se il **giapponese** contiene un termine
+           della tabella, si guarda se la resa italiana contiene la sua resa;
+        3. se non la contiene, **referto** — non cancello: «il criceto» dentro
+           una prosa puo' legittimamente diventare «lui», e i nomi propri si
+           declinano.
+
+    ⚠️ Il punto 3 e' il motivo per cui non e' ancora scritta: accende molto, e va
+    **provata al contrario** — puntata sulle quattro rese sbagliate della 105a,
+    deve accendersi su tutte e quattro — prima di crederle.
+    ⓘ ⚠️ **E il glossario e' cresciuto**: la sezione della 106a ha aggiunto otto
+    termini coniati e quattro formule ripetute, che la rete dovrebbe leggere.
+
+### ▶ Come si e' chiusa
+
+`applica` e' girato **due volte** (16:25 e 19:07) e il `grep` del segnale di
+guasto sul suo output ha taciuto tutt'e due le volte; `_97-toppe-agganciate` dice
+**1027 su 1027**; `_96-morte-nella-build` **0**; `compila --eseguibile` ha detto
+`#No error detected.` e l'eseguibile e' stato ricopiato alle **19:07**. La catena
+e' stata **rilanciata dopo** la build, non prima: `pytest` 775 passed,
+`prova_identita` 72/72 e 28.073, `dati_applica --identita` 6 file e 3.767 righe,
+`referti` fermo a **9**, `_102-carta-conoscenza` **0 e 0** sulle 444 rese.
+
+⚠️ **E un numero e' cambiato da solo: e' stato spiegato, non accettato.**
+`_102-carta-conoscenza` e' passato da «riga media sotto 61: **1**» a «**0**»
+senza che nessuno toccasse la carta sospetta. Quel conto gira su **tutte** le
+1.144 carte e per quelle non rese misura **l'inglese**
+(`testo = degrada(it) if it else en`): la carta era `:10196`, il cui inglese e'
+una riga sola da 48 caratteri e il cui italiano ne fa 70. Verificato con
+`scratchpad/_106-media-riga.py`. 💡 *Non e' un valore atteso, e' una statistica
+che ogni lotto sposta.*
+
+
+## La centocinquesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

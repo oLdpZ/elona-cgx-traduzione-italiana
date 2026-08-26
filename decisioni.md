@@ -6,6 +6,138 @@ ancora aperte.
 
 ---
 
+## Tre nomi sdoppiati in un giorno, e la rete che li vedrebbe non esiste ancora — 2026-08-26, centoseiesima
+
+`db_card.hsp` si chiude con 444 rese in dodici lotti. Quello che vale la pena
+tenere non sono le rese: sono i **tre nomi** usciti mentre le scrivevo, tutti e
+tre trovati **cercando il nome nel dizionario prima di metterlo nella prosa**, e
+nessuno dei tre visto da una rete.
+
+### ✅ `イツパロトル`: due rese, e la seconda viene dall'inglese
+
+    Itzpalt      52 volte, in nove file — `god.hsp:84` è il nome del dio,
+                 `text.hsp:546` la risposta giusta del quiz, `db_card:8590`
+                 e `db_creature:87235` il nome della carta e della creatura
+    Itzparotl     2 volte, tutt'e due in `db_card.hsp` — `:8220` e `:8597`
+
+⚠️ **La causa non è una svista: l'inglese di monte scrive `Itzparotl` in quelle
+due carte, e solo lì.** Chi le ha rese ha preso il nome dalla riga che aveva
+davanti invece che dal dizionario — la stessa forma dei quattro sbagli della
+105ª e dei due nomi della 104ª (`キッカス`, `エルン`). ✅ Corrette da
+`scratchpad/_106-correzione-itzpalt.py`, che **si ferma senza scrivere** se le
+righe toccate non sono esattamente quelle due.
+
+⚠️ Le tre grafie storpiate di `text.hsp` — `:549` `Itzpatl`, `:552` `Itzpait`,
+`:555` `Itspalt` — **non si toccano**: sono le risposte sbagliate del quiz sul
+nome del dio degli elementi (`:542`), e sbagliate devono restare.
+
+### 🔶 `かたつむり`: la stessa parola giapponese, due creature italiane
+
+    かたつむり              la creatura BASE   ->  «la chiocciola»
+                            (`action.hsp:17991`, `custom_enemyevolution:1669`,
+                             `db_card:10969`)
+    『かたつむり（翼）』     le tre UNICHE      ->  «<Lumaca> alata»,
+    『かたつむり（機乗）』                          «<Lumaca> in sella all'androide»
+    かたつむり（寄生）                             «la lumaca parassitata»
+
+Le uniche **portano il nome della creatura base**, che in giapponese è la stessa
+parola; in italiano sono diventate un'altra bestia. Nelle prose di oggi ha
+ubbidito il referente — «chiocciola» dove il giapponese parla della base
+(`:10963`, `:11028`), «lumaca» dove parla di una delle uniche — e per lo stesso
+motivo `:9897` del lotto 19 è stata **corretta**: l'ex spazzino fa pace con una
+かたつむり base. 🔶 **Unificare i quattro nomi resta aperto**: tocca tre file e i
+nomi che il giocatore legge, e la direzione (`<Chiocciola>` per le uniche) è una
+scelta, non una riparazione.
+
+### 🔶 `パピー` è reso «il cucciolo di cane» e non è un cane
+
+La carta `db_card:14085` dice 野菜の南瓜が変異して生まれた. Il sorgente lo
+conferma tre volte:
+
+    db_card.hsp:14092    `xy2pic(11, 8)` col tint GIALLO, cioè **lo stesso
+                         disegno** della パンプキン di `:14078`, ricolorato
+    db_creature:120076   il blocco di `CREATURE_ID_PUPPY`
+    db_creature:120100   `dbidn = "mandrake"` — la razza della mandragora,
+                         la stessa della zucca di `:120061`
+
+Il nome viene dalla parola inglese `puppy`, non dalla creatura. 🔶 Non l'ho
+cambiato: sta in due file e va deciso insieme al `かたつむり`.
+⭐ **È la carta stessa a smentire il nome.** La prosa è la sola cosa nel progetto
+che dica *cos'è* una creatura: finché le carte non erano rese, un nome sbagliato
+non aveva niente contro cui sbattere. Chiudere `db_card.hsp` non ha solo aggiunto
+testo, ha aggiunto **un secondo testimone** su 1.141 nomi.
+
+### ⭐⭐ Il rovescio: due giapponesi diversi che cadono sulla stessa resa
+
+`:9351`, la carta del dragonewt, dice 屈強な**竜人**の戦士…下級戦士の
+**リザードマン**と間違われる事をとても嫌う. Ma nel progetto:
+
+    竜人        la RAZZA (`dbidn:911`, inglese `lizardman`)  ->  «Uomo lucertola»
+    リザードマン  la CREATURA (`db_card:11634`)                 ->  «l'uomo lucertola»
+
+e quattro carte già rese scrivono 竜人 «uomo lucertola» nella prosa (`:4255`,
+`:4281`, `:4294`, `:4320`). Applicando il precedente la carta direbbe «un
+guerriero uomo lucertola … detesta essere scambiato per un uomo lucertola»: vera
+parola per parola e **falsa come frase**. ✅ Qui 竜人 si rende col nome della
+creatura stessa, **dragonewt**, che il progetto usa già per 超竜人 → «il dragonewt
+supremo» (`:7524`). ⓘ `:11628`, la carta dell'uomo lucertola, conferma la lettura:
+リザードマン **è** un 竜人, e lì non c'è collisione perché la carta parla di sé.
+
+### ⭐⭐⭐ La forma della rete che manca, adesso è misurata
+
+Il punto 14 della ripresa chiedeva una rete per *lo stesso nome proprio dentro
+prose diverse, reso in due modi*. Oggi ha un rendimento: **tre casi in una
+sessione**, di cui uno riparabile subito. ⚠️ E ha anche il suo punto cieco
+dimostrato: la **rete 3 non può vederli**, perché confronta i giapponesi
+**interi**, e qui gli interi sono prose diverse che contengono lo stesso nome.
+
+⚠️ Ma la rete da sola non basterebbe per due dei tre: `かたつむり` e `パピー` non
+sono lo stesso nome reso in due modi, sono un nome reso **bene per una creatura
+e male per un'altra**. Quelli li trova solo chi legge la prosa accanto al nome.
+💡 *Tre sessioni di fila, questa classe di difetto esce leggendo e non
+misurando.* La rete conviene scriverla lo stesso, ma sapendo che copre un terzo
+del problema.
+
+### ⚠️ Una conclusione che si è precisata invece di cadere
+
+Nei lotti 19-20 avevo segnato tre carte in cui l'inglese scrive `Indian Elephant`
+e il giapponese dice altro (`:9338` 人間の腕, `:9377` 下位の巨人, `:9728` 頚動脈).
+Il lotto 24 mostra che `インド象` sta **nel giapponese** di dieci carte di fila —
+tutta la famiglia dei segugi, da `:12018` a `:12135` — ed è il tormentone con cui
+monte misura la potenza di ogni soffio.
+
+⭐ Le tre restano sbagliate, ma adesso si sa **perché** sono difficili da vedere:
+il traduttore inglese ha **esteso una gag che esisteva davvero**. 💡 *Un difetto
+che imita una scelta legittima non si riconosce dalla forma: si riconosce solo
+tornando al giapponese ogni volta.*
+
+### ⚠️ Un numero atteso che cambia da solo va spiegato, non accettato
+
+`_102-carta-conoscenza` è passato da «carte con la riga media sotto 61: **1** su
+1144» a «**0**» senza che nessuno avesse toccato la carta sospetta. Non era un
+guasto: quel conto gira su **tutte** le 1.144 carte e per quelle non ancora rese
+misura **l'inglese** (`testo = degrada(it) if it else en`). La carta era
+`:10196`, il cui inglese è una riga sola da 48 caratteri e il cui italiano ne fa
+70.
+
+⭐ **Trovato con uno strumento scritto apposta**
+(`scratchpad/_106-media-riga.py`), non dedotto. 💡 *Un valore atteso che si muove
+da solo è un guasto finché non si sa perché* — e qui la spiegazione era
+strutturale, non locale: il numero **non è** un valore atteso, è una statistica
+che ogni lotto sposta.
+
+### ⚠️ Tre parole che `degrada()` vieta, e una che vieta `guardie`
+
+`verifica` ha bocciato **dèi** (lotto 19), **élite** (lotto 23) e **elite**
+(lotto 30): la degradazione mette l'apostrofo **dentro** la parola (`de'i`,
+`e'lite`) e a schermo non si legge. Rese «divinità», «il migliore fra i migliori»,
+«il fior fiore». ⓘ E la lineetta lunga `—`, che a `:11979` sarebbe stata comoda,
+è un carattere a **doppia larghezza** in CP932: quella la boccia `guardie`, non
+`verifica`. 💡 *Le due guardie vietano cose diverse e nessuna delle due è
+indovinabile: si scrive, si lancia, si corregge.*
+
+---
+
 ## Le reti del lotto non leggono il glossario — 2026-08-26, centocinquesima
 
 Quattro rese dei lotti 15-18 contraddicevano un termine **già deciso e scritto**,

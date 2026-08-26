@@ -46,7 +46,7 @@ quelli**.
     python scratchpad/_97-quanto-resta.py
 
     file                     non tradotte  rinviate  DA FARE
-    db_card.hsp                       446         1      445   ⭐ 154 rese nella 105a
+    db_card.hsp                         2         2        0   ⭐ CHIUSO nella 106a
     tcg.hsp                             2         2        0   ⭐ CHIUSO
     system.hsp                          1         1        0   ⭐ CHIUSO
     proc.hsp                            7         7        0   ⭐ CHIUSO
@@ -63,7 +63,7 @@ quelli**.
     chara_func.hsp                      4         4        0   ⭐ CHIUSO
     action.hsp                          2         2        0   ⭐ CHIUSO
     -----------------------------------------------------------------
-    TOTALE                           1015       109      906
+    TOTALE                            110       110        0   ⭐⭐⭐ zero da fare
 
 ⚠️⚠️ **`verifica --dizionario` conta le rinviate dentro le «non tradotte»**, e
 da quando i file si chiudono quel numero non risponde piu' alla domanda «quanto
@@ -72,8 +72,16 @@ manca». La 95a l'ha scritto a mano per `chat.hsp` («il 6 vuol dire zero»), la
 una frase per file, ricopiata di sessione in sessione. Adesso e' un comando, e la
 tabella qui sopra si rifa' con quello.
 
-⭐ **Nel perimetro `lang()` e' rimasto un file solo**, `db_card.hsp`. La 102a
-lo ha aperto: **239 rese su 1.144**, e restano **906** (piu' la rinviata).
+⭐⭐⭐ **E dalla 106a il perimetro `lang()` e' CHIUSO.** `db_card.hsp` era
+l'ultimo file, aperto dalla 102a con 239 rese su 1.144: la 106a ha reso le
+ultime **444** e lo ha portato a zero. La colonna «DA FARE» e' zero su **tutti**
+i file che hanno un dizionario, e le 110 «non tradotte» che restano sono le 110
+**rinviate**.
+
+⚠️ **Zero da fare non vuol dire finito**, e i tre numeri che restano lo dicono:
+`perimetro.py` da' **86%** contando anche il testo fuori dal perimetro `lang()`,
+le **5.284 descrizioni degli oggetti** di `db_item.hsp` non sono mai entrate in
+nessuna di queste tabelle, e i **nove file senza dizionario** nemmeno.
 
 ⚠️⚠️ **Il numero di partenza era sbagliato di due, e nessuno lo aveva
 misurato.** `estrai --da-tradurre` rende **1.146** voci, ma `:11405` e `:11412`
@@ -2348,3 +2356,91 @@ sostituzioni), `_97-toppe-agganciate` **1027 su 1027**, `_96-morte-nella-build`
 **0**, `compila --eseguibile` con `#No error detected.`. `cgx-test.exe` ricopiato
 alle **15:30 del 26/08**. Nessuno dei sei file dati è cambiato: `cmp -s` li ha
 lasciati tutti dov'erano.
+
+## ⭐⭐⭐ `db_card.hsp` si chiude, dal lotto 19 al 30 — 2026-08-26, centoseiesima
+
+Dodici lotti, righe 9101-15075, **444 rese** e **2 rinviate**. Il conteggio,
+rilanciato in chiusura e non ricopiato:
+
+    python scratchpad/_97-quanto-resta.py
+
+        db_card.hsp     445 da fare -> **0**     ⭐ CHIUSO
+        TOTALE          554 / 109 / 445   ->   **110 / 110 / 0**
+
+    python scratchpad/perimetro.py            **86%**   (era 85%)
+
+    dizionario/db_card.hsp.jsonl              **2.285 voci**
+                                              = 1.141 nomi + **1.144 prose su 1.144**
+
+    rinviate.jsonl                            112 -> **113**
+    toppe.jsonl                               1027, invariato
+
+⚠️⚠️ **Il registro delle rinviate sale di UNO, non di due, ed è giusto così.**
+Le righe morte sono due — `:11405` (la prosa) e `:11412` (il nome), spente col
+`;` dentro il blocco di `CREATURE_ID_HARD_GAY` e rimpiazzate una riga sotto
+dall'`explosioman` — ma la **firma** di `:11412` era già nel registro, rinviata
+da `db_creature.hsp`: stessa creatura spenta nei due file. ⓘ Il registro è
+indicizzato per firma, non per riga.
+
+⚠️ E il numero di partenza era **1.144**, non 1.146: `estrai --da-tradurre` non
+filtra le righe morte, le filtra il modello di lotto. La 102ª lo aveva già
+misurato; oggi è stato confermato dal fatto che le due righe cadono esattamente
+nel lotto 23.
+
+### La struttura dei lotti, per chi rifà i conti
+
+    lotto 19   :9101-9600     39      lotto 25   :12101-12600   38
+    lotto 20   :9601-10100    38      lotto 26   :12601-13100   39
+    lotto 21   :10101-10600   39      lotto 27   :13101-13600   38
+    lotto 22   :10601-11100   38      lotto 28   :13601-14100   39
+    lotto 23   :11101-11600   38 + 2 rinviate    29   :14101-14600   38
+    lotto 24   :11601-12100   39      lotto 30   :14601-15075   **21**
+
+⭐ Il lotto 30 è corto perché le voci da `:14878` in poi **non sono carte di
+creature**: sono le otto tessere del terreno (foresta, montagna, mare, isola,
+palude, terra morta, pianura, distesa innevata) e le due carte di sistema
+(`draw2Card`, `return`). Non hanno prosa.
+
+### Le reti, lotto per lotto
+
+`verifica` **nessun problema** su tutti e dodici; `guardie` **0 | 0 | 0** su
+tutti e dodici; le tredici reti dello script di lotto **mute** su tutti e dodici;
+`_102-carta-conoscenza` **0 code perse e 0 parole spezzate** dopo ognuno.
+⚠️ Tre rese sono state respinte da `verifica` e riscritte: **dèi** (lotto 19),
+**élite** (lotto 23) e **elite** (lotto 30), che `degrada()` porta ad avere
+l'apostrofo dentro la parola.
+
+### Che cosa è uscito, e sta scritto altrove
+
+- **Tre nomi sdoppiati** — `イツパロトル` corretto, `かたつむり` e `パピー` aperti:
+  `decisioni.md`, sezione della 106ª.
+- **Una collisione al contrario**, due giapponesi diversi sulla stessa resa
+  (`竜人` / `リザードマン` a `:9351`): stessa sezione.
+- **Quindici errori di monte** presi dal giapponese, e l'elefante indiano che è
+  una gag vera in dieci carte: `glossario.md`, sezione della 106ª.
+- **Otto termini coniati** e **quattro formule che si ripetono**: stessa sezione
+  del glossario.
+
+### La catena, prima e dopo la build
+
+Diciannove verifiche in apertura, **diciannove ai valori attesi della 105ª** —
+sessantatreesima prova di fila con `origin/fase-0` allineato. Due build nella
+sessione: la prima alle **16:25** dopo i lotti 19-22, la seconda alle **19:07**
+con tutti e dodici. Ogni volta il `grep` del segnale di guasto sull'output di
+`applica` è rimasto **muto**, `_97-toppe-agganciate` ha detto **1027 su 1027**,
+`_96-morte-nella-build` **0**, `compila --eseguibile` `#No error detected.`.
+
+    applica    27.073 -> 27.227 (dopo i lotti 19-22) -> **27.517**
+               ⭐ 27.073 + 444 esatte: il numero atteso c'era e tornava
+
+Nessuno dei sei file dati è cambiato: `cmp -s` li ha lasciati tutti dov'erano.
+`pytest` **775 passed, 6 skipped**, `prova_identita` **72/72 e 28.073**,
+`dati_applica --identita` **6 file e 3.767 righe**, `referti` fermo a **9**.
+
+### ⚠️ Un numero che è cambiato da solo, e la spiegazione
+
+`_102-carta-conoscenza` è passato da «riga media sotto 61: **1** su 1144» a
+«**0**» senza che nessuno toccasse la carta sospetta. Non è un guasto: quel conto
+gira su **tutte** le 1.144 carte e per quelle non rese misura **l'inglese**. La
+carta era `:10196`, il cui inglese è una riga sola da 48 caratteri e il cui
+italiano ne fa 70. ⭐ Verificato con `scratchpad/_106-media-riga.py`, non dedotto.
