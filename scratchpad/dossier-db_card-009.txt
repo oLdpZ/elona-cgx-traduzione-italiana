@@ -1,0 +1,267 @@
+--- db_card.hsp:4112   CREATURE_ID_CUCUMBER_HORSE   creatura 827
+    NOME  jp 胡瓜の怪物
+          en cucumber horse
+          IT il cavallo di cetriolo
+    JP    キュウリに自我が宿ったモンスター。夏になると亡霊を乗せて冥界からやってくるとされる。関節のない短い脚を懸命に動かして走る。走り続けると、汗で水分がどんどん抜けていく。
+    EN    A monster with an ego in a cucumber. It comes from the underworld with a ghost on its back in the summer. It runs with its short legs moving hard.
+
+--- db_card.hsp:4125   CREATURE_ID_ZAP_MANDRAKE   creatura 826
+    NOME  jp マンドレザッパー
+          en zap mandrake
+          IT la mandragora zappatrice
+    JP    皮を剥いたゴボウで生物の太ももあたりを叩く習性がある、意味不明な魔物。ゴボウの恨みを晴らすための儀式だとも、「お前の足ゴボウみたいだな」という挑発だとも言われているが、真相は不明。
+    EN    A monster with its soul in a cucumber. It is said that they come from the underworld in the summer with ghosts. They run hard on their short arthritic legs. If they keep running they''ll lose more and more water through sweat.
+
+--- db_card.hsp:4138   CREATURE_ID_MEMORY_EMPTY_MAN   creatura 825
+    NOME  jp 記憶の抜け殻
+          en memory empty man
+          IT il guscio vuoto della memoria
+    JP    個人の記憶も、他人からの記憶も全て失った者の末路。彼らが何者だったのか、もうこの世界の誰にもわからない。本人の思考力が生まれたての赤ん坊と変わらないのがせめてもの救い。
+    EN    The end of a person who has lost all of his or her personal memories and those of others. Who they were no one in this world knows anymore. The only thing I can say is that his thinking ability is the same as that of a newborn baby.
+
+--- db_card.hsp:4151   CREATURE_ID_DEVOTEE_OF_OBLIVION   creatura 824
+    NOME  jp 忘却信徒
+          en devotee of oblivion
+          IT il fedele dell'oblio
+    JP    嫌な記憶を自他ともに消せる、その魅力に憑りつかれてしまった人々。少しでも苦しみや煩わしさを感じれば消してしまうのだとか。そんな生き方には、破滅しか待っていないような気がする。
+    EN    People who have become obsessed with the allure of being able to erase unpleasant memories of themselves and others. He said that if he feels even the slightest bit of pain or annoyance he will turn it off. I feel that there is nothing but ruin awaiting them in such a way of life.
+
+--- db_card.hsp:4164   CREATURE_ID_MAD_SCRATCHER   creatura 823
+    NOME  jp 面忘の獅子
+          en mad scratcher
+          IT il leone senza volto
+    JP    あふれ出る狂気を抑えられず、絶えず顔面を掻き毟り、髪を振り乱し、獣のようにうめき声を発する。人としての知性は残っておらず、とある富豪にはライオンのようだとまで言われた。
+    EN    Unable to contain the overflowing madness he constantly scratches his face shakes his hair and moans like a beast. He had no human intelligence left and was even described by some affluent people as being like a lion.
+
+--- db_card.hsp:4177   CREATURE_ID_MAILE_THE_MARIONETTE_SHAMAN   creatura 822
+    NOME  jp 傀儡巫女『メーイル』
+          en <Maile> the marionette shaman
+          IT <Maile> la sacerdotessa fantoccio
+    JP    瀕死の魔獣が、その辺にいた婦人に勝手に憑りついた姿。記憶を消去して人格を乗っ取っている。この世界の記憶を全て消すのが任務であり、そのためにも失った力を取り戻そうと暗躍している。
+    EN    A dying monster possessed a woman who was nearby. They are erasing memories and hijacking personalities. She is on a mission to erase all memories of this world and to do so she is plotting to regain her lost power.
+
+--- db_card.hsp:4190   CREATURE_ID_DHWTY   creatura 821
+    NOME  jp トキガミ
+          en dhwty
+          IT il dio ibis
+    JP    蒼い鎧を身に着けた鳥人。鎧には鳥の神の力を宿しているらしい。高速接近し、破壊の光を放ち、舞うように剣で敵を切り裂く。その猛々しさから、一部の地域では神同然の扱いを受けている。
+    EN    A bird-man wearing blue armor. It seems that the armor contains the power of the bird deity. Approaching at high speed it unleashes a destructive beam of light slashing through the enemy with its sword as it soars. Because of its ferocity it has been called a god in some parts of the world.
+
+--- db_card.hsp:4203   CREATURE_ID_ALKONOST   creatura 820
+    NOME  jp アルコノスト
+          en alkonost
+          IT l'alkonost
+    JP    天上に住む半人半鳥の魔物。情緒不安定で、嫌なことがあると泣きながら恐ろしい歌を歌い、八つ当たりで地獄に堕ちた魂に永遠の罰を与える。カラヴィカより自分の方が歌が上手いと思っている。
+    EN    A half-human half-bird demon that dwells in the sky. They''re emotionally unstable crying and singing horrible songs when they don't want to and inflicting eternal punishment on souls damned to hell to vent. They think they can sing better than Karavika.
+
+--- db_card.hsp:4216   CREATURE_ID_BLACK_WING   creatura 819
+    NOME  jp ブラックウィング
+          en black wing
+          IT l'ala nera
+    JP    翼までも覆う黒い鎧を身に着けた鳥人の拳闘士。自分の拳にやたら自信があるようで、自分より強い相手にも平気で殴りかかる。戦闘で破壊されないような、もっと強固な鎧が欲しいと思っている。
+    EN    A bird-man brawler wearing black armor that covers even his wings. He seems to have a lot of confidence in his fists and he doesn't mind striking out at opponents stronger than him. He wants more solid armor that won't be destroyed in battle.
+
+--- db_card.hsp:4229   CREATURE_ID_MAYU_SIBAYU   creatura 818
+    NOME  jp モー・ショボー
+          en mayu sibayu
+          IT la mayu sibayu
+    JP    恋も知らずに幼くして死んだ少女の魂が転生したもの。獲物を誘惑し、油断したところを攻撃する。頭部を砕いて脳髄を吸うのが好き、となかなかにアグレッシブ。
+    EN    The reincarnation of the soul of a girl who died at an early age without knowing love. They lure their prey and attack them when they are caught off guard. They like to crush the head and suck the brain tissue and they are quite aggressive.
+
+--- db_card.hsp:4242   CREATURE_ID_BELPHAT_THE_COSMIC_SWORD   creatura 817
+    NOME  jp 宇宙剣客『ベルファート』
+          en <Belphat> the cosmic sword
+          IT <Belphat> lo spadaccino cosmico
+    JP    食べ歩きと剣客商売をしながら様々な星を渡り歩く剣士。普通の腕の他に、肩から伸びる２本の触手を用いて戦う。根っからの戦闘種族なのだが、性格は呑気。胃酸が特殊で、幻覚成分を含むゲップが出る。
+    EN    A swordsman who travels the various stars while eating and peddling swords. In addition to his normal arms he fights with two tentacles that extend from his shoulders. He is a warrior at heart but his personality is a bit of a drinker. Stomach acid is special and burps with a hallucinogenic component.
+
+--- db_card.hsp:4255   CREATURE_ID_DRACO_EQUES   creatura 816
+    NOME  jp 波動竜戦士
+          en draco eques
+          IT il guerriero draconico dell'onda
+    JP    波動を操る力を身に着けた竜人の戦士。すさまじい戦闘力を誇るが、なぜそんな力が身についたのか、そもそも何の波動なのか、本人もよくわかっていない。
+    EN    A dragon warrior who has acquired the power to manipulate wave motion. He boasts tremendous fighting power but even he doesn't know how he got this power or what the waves are in the first place.
+
+--- db_card.hsp:4268   CREATURE_ID_BLIZZARD_LIZARD   creatura 815
+    NOME  jp ブリザード
+          en blizzard lizard
+          IT la lucertola della bufera
+    JP    体温が上がらないとテンションが上がらないので、周囲の熱を吸収して冷気に変えて放出する。複数体集まれば熱い地域にも吹雪を起こせるほどになる。
+    EN    When their body temperature doesn't rise their tension doesn't rise so they absorb the heat around them turn it into cold air and release it. If you collect more than one of them it's enough to cause a blizzard in a hot area.
+
+--- db_card.hsp:4281   CREATURE_ID_CLAYMORE_DRAGONEWT   creatura 814
+    NOME  jp ドラゴクレイモア
+          en claymore dragonewt
+          IT il dragonewt spadone
+    JP    大剣を振るうパワフルな竜人。大剣のずっしりとした重さが好き。自分の腕に自信を持っており、ドラゴンと戦ったりドラゴンハンターと戦ったりと見境がない。
+    EN    A powerful dragon man wielding a greatsword. He likes the sturdy weight of the greatsword. He is confident in his skills and has no reservations when it comes to fighting dragons and dragon hunters.
+
+--- db_card.hsp:4294   CREATURE_ID_ASSASSIN_LIZARD   creatura 813
+    NOME  jp アサシンリザード
+          en assassin lizard
+          IT la lucertola assassina
+    JP    竜人の暗殺者。竜人限定の暗殺者ギルドを作り、一族の脅威となる者を暗殺して回っている。シッポが邪魔で群衆に紛れることができないため、ステルス能力のある服を愛用している。
+    EN    Assassin of the Dragon Man. They have formed an assassin's guild for dragon people only and they go around assassinating those who pose a threat to the clan. Their tails are in the way and they can't blend in with the crowd so they prefer clothes with stealthy abilities.
+
+--- db_card.hsp:4307   CREATURE_ID_BLACK_LIZARDMAN   creatura 812
+    NOME  jp 黒鱗の毒含竜
+          en black lizardman
+          IT il drago velenoso dalle scaglie nere
+    JP    火を吐くことに憧れ、火炎の力を身に着けようとして全身の鱗が熱で焦げるほどの修行をした。結局ダメだったことに絶望して性格が歪んでしまい、結果的に吐けるようになったのは毒だけだった。
+    EN    He longed to breathe fire and cultivated so much that the scales on his entire body burned with heat in an attempt to acquire the power of the flame. In the end his personality was warped in despair that it didn't work and the only thing that resulted in him being able to throw up was poison.
+
+--- db_card.hsp:4320   CREATURE_ID_LIZARD_MAGE   creatura 811
+    NOME  jp リザードメイジ
+          en lizard mage
+          IT il mago lucertola
+    JP    頑張って魔法を身に着けた竜人。とはいえ肉体がもともと強靭なので、魔法攻撃よりも物理攻撃のほうが強い。そのことに長い間葛藤した結果、補助魔法を使う形に落ち着いた。
+    EN    The dragon man has worked hard to acquire magic. However since his body is strong to begin with his physical attacks are more powerful than his magical attacks. After struggling with that for a long time he settled on using auxiliary magic.
+
+--- db_card.hsp:4333   CREATURE_ID_FAIRY_THE_SHINING   creatura 810
+    NOME  jp 光輝の妖精
+          en fairy the shining
+          IT la fata splendente
+    JP    妖精族に危機迫る時、光の衣を纏って泉から生まれるという伝説の妖精。ただし他種族の台頭により、ここ数百年断続的に生まれてきている。本人たちは希少性の低下に悩んでいる模様。
+    EN    Legend has it that when a fairy tribe was threatened she was born from a spring clothed in a robe of light. However due to the rise of other races they have been born sporadically over the past few hundred years. They are suffering from diminishing numbers.
+
+--- db_card.hsp:4346   CREATURE_ID_YOUSEI_GORATH   creatura 809
+    NOME  jp フェアリーゴラス
+          en yousei gorath
+          IT la fata Gorath
+    JP    赤く燃えているくらいで、見た目こそ普通の妖精とそう変わらないが、通常の妖精の6000倍以上の質量を持つ。ものすごい勢いで特攻してくるので、頑張って避けよう。
+    EN    It burns red and although it looks no different from a normal fairy it has more than 6000 times the mass of a normal fairy. It attacks with great force so try your best to avoid it.
+
+--- db_card.hsp:4359   CREATURE_ID_PERI   creatura 808
+    NOME  jp ペリ
+          en peri
+          IT la peri
+    JP    火の元素から生まれた妖精。その証拠に火の魔法が使える。男は威厳があり、女は美しいとされる。ほぼ人間と同じサイズであり、人間と結婚することも珍しくない。
+    EN    A fairy born of the fire element. To prove it it will use fire magic. Men are said to be dignified and women are said to be beautiful. They are almost the same size as humans and it is not uncommon for them to marry humans.
+
+--- db_card.hsp:4372   CREATURE_ID_GIGANTIC_FAIRY   creatura 807
+    NOME  jp ギガントフェアリー
+          en gigantic fairy
+          IT la fata gigante
+    JP    先天的な病気で、成長抑制因子が正常に機能しなかった妖精。人間大にまで成長してしまい、やむなく妖精の里から出るはめになった。魔法も上手く使えないので、専ら人間用の弓などで戦う。
+    EN    A fairy with a congenital disease that prevented its growth inhibitors from functioning properly. They have grown to the size of a human and have had to leave the fairy home. They can''t use magic very well so they fight with human bows.
+
+--- db_card.hsp:4385   CREATURE_ID_PIXIE   creatura 806
+    NOME  jp ピクシー
+          en pixie
+          IT la pixie
+    JP    洗礼を受けずに死んだ子供の魂が転生したものとされる。人間にいたずらをするのが大好きだが、義理堅く仕事熱心な性格。月光を浴びながら集団で踊る。
+    EN    It is said to be the reincarnation of the soul of an unbaptized and dead child. They love to play pranks on humans but they are loyal and hardworking. They dance in groups while basking in the moonlight.
+
+--- db_card.hsp:4398   CREATURE_ID_RENAI_THE_OVER_MESHERA   creatura 805
+    NOME  jp 抑圧されし災厄『レナイ』
+          en <Renai> the over meshera
+          IT <Renai> la calamità repressa
+    JP    奇跡的に人格を取り戻したが、肉体的には既に人外。肉体制御によって人間だった頃の姿を再現しているにすぎない。兄による外部神経調整でメシェーラの影響をどうにか抑え込んでいる。
+    EN    She has miraculously regained her personality but she is already physically out of her element. She is merely recreating what she looked like when she was human through bodily control. External neural adjustments by her brother somewhat suppressed Meshera's influence.
+
+--- db_card.hsp:4411   CREATURE_ID_FALLEN_ANGEL   creatura 804
+    NOME  jp 堕天使
+          en fallen angel
+          IT l'angelo caduto
+    JP    階級以上の実力を持つが、上司のパワハラを受けてなかなか昇進できない。現在は労働環境の改善を求めてストライキ中。最近はいっそ悪魔陣営からのスカウトに応じようかなとも考えている。
+    EN    He has the ability to be above his rank but is unable to get promoted due to power harassment from his boss. They are currently on strike for better working conditions. Recently he's been thinking about accepting scouts from the Demon Squad.
+
+--- db_card.hsp:4424   CREATURE_ID_CUPID_INSPECTOR   creatura 803
+    NOME  jp 愛の監察官
+          en cupid inspector
+          IT l'ispettore dell'amore
+    JP    キューピッドたちが適正な恋愛成就活動をしているか、監督査察するのが役目。昔は割となあなあでやっていたが、近年はトラブルが表面化してきたため、厳しくなりつつある。
+    EN    The role is to supervise Cupid and the others to make sure that they are doing their best to achieve love. In the past they used to be able to do it with ease but in recent years they have become more strict because of the troubles that have come to the surface.
+
+--- db_card.hsp:4437   CREATURE_ID_APPRENTICE_ANGEL   creatura 802
+    NOME  jp 見習い天使
+          en apprentice angel
+          IT l'angelo apprendista
+    JP    一人前の天使を目指している。競争社会に放り込まれ、勝ち抜いたエリートだけが正天使になれるのだが、その先にも辛いことや苦しいことやとても辛いことや死ぬほど苦しいことが待っていることを知らない。
+    EN    He aims to be a full-fledged angel. Only the elite who are thrown into a competitive society and win out can become true angels but they don't know that there will be pain hardship extreme hardship and even deathly hardship ahead.
+
+--- db_card.hsp:4450   CREATURE_ID_SEIASHIN   creatura 801
+    NOME  jp セイアシン
+          en seiashin
+          IT il Seiashin
+    JP    蛙の神。戦闘力は大したことないのだが、天災を予知する天才と呼ばれ近年まで崇められてきた。あまりに心配性なため、自分の身に危険が迫ると発狂して暴れだす。
+    EN    God of frogs. Although he is not a great fighter he has been called a genius at predicting natural disasters and has been revered until recently. He is so anxious that when he is in danger he goes crazy and goes on a rampage.
+
+--- db_card.hsp:4463   CREATURE_ID_SALAMANDER   creatura 800
+    NOME  jp 沙羅曼蛇
+          en salamander
+          IT la salamandra d'oriente
+    JP    熱利用攻撃を得意とするが、非戦闘時には身体に熱がこもってしまう。普段は当たりかまわず熱を発散し、寝る時は冷却のため水中の巣に帰る。見た目のせいで溶岩の中に住んでいるとよく誤解される。
+    EN    It specializes in using heat to attack but when it is not in combat its body becomes feverish. Normally they radiate heat without incident and when they sleep they return to their underwater nests for cooling. It is often misunderstood that they live in lava because of their appearance.
+
+--- db_card.hsp:4476   CREATURE_ID_NUOU   creatura 799
+    NOME  jp ヌオウ
+          en nuou
+          IT il re del pantano
+    JP    沼の王と呼ばれる巨大生物。その正体はメルカサラマンダーが先祖帰りを起こした姿。ぬおーっとした雰囲気に似合わず、力がやたら強い。素揚げにすると結構イケるとのことで、珍味として売られる場合も。
+    EN    A giant creature called the King of the Swamp. Its true identity is the shape of the Melka Salamander that caused the ancestral return. It doesn't suit the languid atmosphere but it has a lot of power. It is said that it is quite good when deep-fried without sauce and sometimes it is sold as a delicacy.
+
+--- db_card.hsp:4489   CREATURE_ID_MUSICAL_NOTADPOLE   creatura 798
+    NOME  jp 音魔杓子
+          en musical notadpole
+          IT il girino musicale
+    JP    魔力で音を操るというオタマジャクシ。空気を激しく振動させ、その衝撃を攻撃に転用する。魔力で浮遊しているが、成長しても飛び蛙になったりはしない。
+    EN    The tadpole is said to manipulate sound by magic. It vibrates the air violently converting its force into an attack. It floats by magic but doesn't become a flying frog when it grows up.
+
+--- db_card.hsp:4502   CREATURE_ID_POISON_ARROW_FROG   creatura 797
+    NOME  jp 毒矢蛙
+          en poison arrow frog
+          IT la rana dai dardi velenosi
+    JP    自身の身体から分泌される毒液を用いて狩りをする珍しい蛙。派手な体色を嫌がっているが、毒を作る過程でこういう色になってしまうので仕方がないらしい。
+    EN    A rare frog that hunts using a poisonous liquid secreted by its own body. They don't like the flashy color of their bodies but apparently it can't be helped because the process of making the poison turns out to be this color.
+
+--- db_card.hsp:4515   CREATURE_ID_ARIBEL_THE_WHITE_ARMS   creatura 796
+    NOME  jp 腕白少女『アリベル』
+          en <Aribel> the white arms
+          IT <Aribel> la monella
+    JP    エレアの母とノーランドの父を持つ。両親の才能を受け継いでいるのか、若くしてとんでもない腕っぷしを誇る。アリベル七箇条という独自のルール・心構えを持っているが、これは父親の教えを参考にしたらしい。
+    EN    She has a mother of Elea and a father of Norland. She may have inherited the talents of her parents but she is also proud of her skill at a young age. Aribel has her own rules and mindset called the Seven Articles which she refers to as her father's teachings.
+
+--- db_card.hsp:4528   CREATURE_ID_ARCH_WRAITH   creatura 795
+    NOME  jp アークレイス
+          en arch wraith
+          IT l'arcispettro
+    JP    肉体から分離した生霊の成れの果て。元は高貴な魔法使いだったようで、強い魔力を持つ。特に力の強い個体は君主級として区別され、アークの接頭辞をつけられる。
+    EN    The end of the life spirit that separated from the body. It seems he was a noble wizard in the past and has strong magical powers. Particularly powerful individuals are distinguished as monarchs and are prefixed with arch.
+
+--- db_card.hsp:4541   CREATURE_ID_LEGION_MAGE   creatura 794
+    NOME  jp レギオンメイジ
+          en legion mage
+          IT il mago della legione
+    JP    「軍団」と呼称される悪霊。群れを作って生者を襲い、新たな仲間として取り込んでいく習性がある。一定数以上になると別グループが誕生する。自我が薄れており、他の個体と自分との区別が曖昧。
+    EN    An evil spirit called The Legion. They have a habit of attacking the living in packs and taking them in as new companions. When there is more than a certain number another group is born. The ego is fading and the distinction between oneself and other individuals is blurred.
+
+--- db_card.hsp:4554   CREATURE_ID_13TH_STEP_GHOST   creatura 793
+    NOME  jp 『13段目の悪霊』
+          en <13th step ghost>
+          IT lo spirito maligno del tredicesimo gradino
+    JP    階段で死んだ者たちの思念集合体。階段から階段へと移り潜り込む。疲労した通行人を階段から突き落とすのが趣味だが、暇だと普通に襲い掛かってくることもある。
+    EN    The thought-gathering of those who died on the stairs. I move from staircase to staircase and dive in. Their hobby is to push tired passersby down the stairs but when they have nothing to do they will usually pounce on them.
+
+--- db_card.hsp:4567   CREATURE_ID_SYLPH   creatura 792
+    NOME  jp シルフ
+          en Sylph
+          IT la silfide
+    JP    風のルルウィに捕獲・調教された、哀れな風の精霊。食事もろくに与えられず生かさず殺さずの状態で飼育されている。理性をほぼ失っており、食べられそうなものがあれば生きようと必死で食らいつく。
+    EN    A pitiful wind spirit who was captured and trained by Lulwy of the Wind. They are not fed much and are kept lifeless but not dead. It has almost lost all sense of rationality and if there is anything it can be eaten it is eaten in a desperate attempt to survive.
+
+--- db_card.hsp:4580   CREATURE_ID_SSIL_THE_UNDEAD_WITCH   creatura 207
+    NOME  jp 破禁の魔女『シズル』
+          en <Ssil> the undead witch
+          IT <Ssil> la strega del divieto infranto
+    JP    秘術によってアンデッドとなり悠久の時を過ごす。禁忌の研究をまとめた彼女の著書は、暗号のように難解ゆえシズルコードと呼ばれている。才能ある魔法使いが読むとその内容に強く魅了されてしまうため危険。
+    EN    She became an undead through mystic arts and lived for an eternity. Her book a compilation of research on abstinence is called The Ssil Code because it is as esoteric as a code. It is dangerous for a gifted wizard to read it because they will be strongly enchanted by its contents.
+
+--- db_card.hsp:4593   CREATURE_ID_MELUGAST_TYPEM   creatura 791
+    NOME  jp 量産型メルガスト
+          en Melugast typeM
+          IT il Melugast di serie
+    JP    外見こそ試作型と変わらないが、様々なパーツの互換が効くようになっている。次元歪曲ユニットを外して電子戦装備や重火器を積むことも可能であり、汎用戦闘機としても優秀。
+    EN    The appearance is the same as the prototype but various parts are interchangeable. It is also possible to carry heavy weapons and electronic warfare equipment to remove the dimensional distortion unit and is also excellent as a general-purpose fighter.
+
+== 38 carte fra la riga 4101 e la 4600

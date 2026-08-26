@@ -1,0 +1,153 @@
+    # ---------------------------------------------------------- :4112
+    (4112, 'A monster with an ego in a cucumber. It comes from the underworld with a ghost on its back in the summer. It runs with its short legs moving hard.'):
+        "",
+
+    # ---------------------------------------------------------- :4125
+    (4125, "A monster with its soul in a cucumber. It is said that they come from the underworld in the summer with ghosts. They run hard on their short arthritic legs. If they keep running they''ll lose more and more water through sweat."):
+        "",
+
+    # ---------------------------------------------------------- :4138
+    (4138, 'The end of a person who has lost all of his or her personal memories and those of others. Who they were no one in this world knows anymore. The only thing I can say is that his thinking ability is the same as that of a newborn baby.'):
+        "",
+
+    # ---------------------------------------------------------- :4151
+    (4151, 'People who have become obsessed with the allure of being able to erase unpleasant memories of themselves and others. He said that if he feels even the slightest bit of pain or annoyance he will turn it off. I feel that there is nothing but ruin awaiting them in such a way of life.'):
+        "",
+
+    # ---------------------------------------------------------- :4164
+    (4164, 'Unable to contain the overflowing madness he constantly scratches his face shakes his hair and moans like a beast. He had no human intelligence left and was even described by some affluent people as being like a lion.'):
+        "",
+
+    # ---------------------------------------------------------- :4177
+    (4177, 'A dying monster possessed a woman who was nearby. They are erasing memories and hijacking personalities. She is on a mission to erase all memories of this world and to do so she is plotting to regain her lost power.'):
+        "",
+
+    # ---------------------------------------------------------- :4190
+    (4190, 'A bird-man wearing blue armor. It seems that the armor contains the power of the bird deity. Approaching at high speed it unleashes a destructive beam of light slashing through the enemy with its sword as it soars. Because of its ferocity it has been called a god in some parts of the world.'):
+        "",
+
+    # ---------------------------------------------------------- :4203
+    (4203, "A half-human half-bird demon that dwells in the sky. They''re emotionally unstable crying and singing horrible songs when they don't want to and inflicting eternal punishment on souls damned to hell to vent. They think they can sing better than Karavika."):
+        "",
+
+    # ---------------------------------------------------------- :4216
+    (4216, "A bird-man brawler wearing black armor that covers even his wings. He seems to have a lot of confidence in his fists and he doesn't mind striking out at opponents stronger than him. He wants more solid armor that won't be destroyed in battle."):
+        "",
+
+    # ---------------------------------------------------------- :4229
+    (4229, 'The reincarnation of the soul of a girl who died at an early age without knowing love. They lure their prey and attack them when they are caught off guard. They like to crush the head and suck the brain tissue and they are quite aggressive.'):
+        "",
+
+    # ---------------------------------------------------------- :4242
+    (4242, 'A swordsman who travels the various stars while eating and peddling swords. In addition to his normal arms he fights with two tentacles that extend from his shoulders. He is a warrior at heart but his personality is a bit of a drinker. Stomach acid is special and burps with a hallucinogenic component.'):
+        "",
+
+    # ---------------------------------------------------------- :4255
+    (4255, "A dragon warrior who has acquired the power to manipulate wave motion. He boasts tremendous fighting power but even he doesn't know how he got this power or what the waves are in the first place."):
+        "",
+
+    # ---------------------------------------------------------- :4268
+    (4268, "When their body temperature doesn't rise their tension doesn't rise so they absorb the heat around them turn it into cold air and release it. If you collect more than one of them it's enough to cause a blizzard in a hot area."):
+        "",
+
+    # ---------------------------------------------------------- :4281
+    (4281, 'A powerful dragon man wielding a greatsword. He likes the sturdy weight of the greatsword. He is confident in his skills and has no reservations when it comes to fighting dragons and dragon hunters.'):
+        "",
+
+    # ---------------------------------------------------------- :4294
+    (4294, "Assassin of the Dragon Man. They have formed an assassin's guild for dragon people only and they go around assassinating those who pose a threat to the clan. Their tails are in the way and they can't blend in with the crowd so they prefer clothes with stealthy abilities."):
+        "",
+
+    # ---------------------------------------------------------- :4307
+    (4307, "He longed to breathe fire and cultivated so much that the scales on his entire body burned with heat in an attempt to acquire the power of the flame. In the end his personality was warped in despair that it didn't work and the only thing that resulted in him being able to throw up was poison."):
+        "",
+
+    # ---------------------------------------------------------- :4320
+    (4320, 'The dragon man has worked hard to acquire magic. However since his body is strong to begin with his physical attacks are more powerful than his magical attacks. After struggling with that for a long time he settled on using auxiliary magic.'):
+        "",
+
+    # ---------------------------------------------------------- :4333
+    (4333, 'Legend has it that when a fairy tribe was threatened she was born from a spring clothed in a robe of light. However due to the rise of other races they have been born sporadically over the past few hundred years. They are suffering from diminishing numbers.'):
+        "",
+
+    # ---------------------------------------------------------- :4346
+    (4346, 'It burns red and although it looks no different from a normal fairy it has more than 6000 times the mass of a normal fairy. It attacks with great force so try your best to avoid it.'):
+        "",
+
+    # ---------------------------------------------------------- :4359
+    (4359, 'A fairy born of the fire element. To prove it it will use fire magic. Men are said to be dignified and women are said to be beautiful. They are almost the same size as humans and it is not uncommon for them to marry humans.'):
+        "",
+
+    # ---------------------------------------------------------- :4372
+    (4372, "A fairy with a congenital disease that prevented its growth inhibitors from functioning properly. They have grown to the size of a human and have had to leave the fairy home. They can''t use magic very well so they fight with human bows."):
+        "",
+
+    # ---------------------------------------------------------- :4385
+    (4385, 'It is said to be the reincarnation of the soul of an unbaptized and dead child. They love to play pranks on humans but they are loyal and hardworking. They dance in groups while basking in the moonlight.'):
+        "",
+
+    # ---------------------------------------------------------- :4398
+    (4398, "She has miraculously regained her personality but she is already physically out of her element. She is merely recreating what she looked like when she was human through bodily control. External neural adjustments by her brother somewhat suppressed Meshera's influence."):
+        "",
+
+    # ---------------------------------------------------------- :4411
+    (4411, "He has the ability to be above his rank but is unable to get promoted due to power harassment from his boss. They are currently on strike for better working conditions. Recently he's been thinking about accepting scouts from the Demon Squad."):
+        "",
+
+    # ---------------------------------------------------------- :4424
+    (4424, 'The role is to supervise Cupid and the others to make sure that they are doing their best to achieve love. In the past they used to be able to do it with ease but in recent years they have become more strict because of the troubles that have come to the surface.'):
+        "",
+
+    # ---------------------------------------------------------- :4437
+    (4437, "He aims to be a full-fledged angel. Only the elite who are thrown into a competitive society and win out can become true angels but they don't know that there will be pain hardship extreme hardship and even deathly hardship ahead."):
+        "",
+
+    # ---------------------------------------------------------- :4450
+    (4450, 'God of frogs. Although he is not a great fighter he has been called a genius at predicting natural disasters and has been revered until recently. He is so anxious that when he is in danger he goes crazy and goes on a rampage.'):
+        "",
+
+    # ---------------------------------------------------------- :4463
+    (4463, 'It specializes in using heat to attack but when it is not in combat its body becomes feverish. Normally they radiate heat without incident and when they sleep they return to their underwater nests for cooling. It is often misunderstood that they live in lava because of their appearance.'):
+        "",
+
+    # ---------------------------------------------------------- :4476
+    (4476, "A giant creature called the King of the Swamp. Its true identity is the shape of the Melka Salamander that caused the ancestral return. It doesn't suit the languid atmosphere but it has a lot of power. It is said that it is quite good when deep-fried without sauce and sometimes it is sold as a delicacy."):
+        "",
+
+    # ---------------------------------------------------------- :4489
+    (4489, "The tadpole is said to manipulate sound by magic. It vibrates the air violently converting its force into an attack. It floats by magic but doesn't become a flying frog when it grows up."):
+        "",
+
+    # ---------------------------------------------------------- :4502
+    (4502, "A rare frog that hunts using a poisonous liquid secreted by its own body. They don't like the flashy color of their bodies but apparently it can't be helped because the process of making the poison turns out to be this color."):
+        "",
+
+    # ---------------------------------------------------------- :4515
+    (4515, "She has a mother of Elea and a father of Norland. She may have inherited the talents of her parents but she is also proud of her skill at a young age. Aribel has her own rules and mindset called the Seven Articles which she refers to as her father's teachings."):
+        "",
+
+    # ---------------------------------------------------------- :4528
+    (4528, 'The end of the life spirit that separated from the body. It seems he was a noble wizard in the past and has strong magical powers. Particularly powerful individuals are distinguished as monarchs and are prefixed with arch.'):
+        "",
+
+    # ---------------------------------------------------------- :4541
+    (4541, 'An evil spirit called The Legion. They have a habit of attacking the living in packs and taking them in as new companions. When there is more than a certain number another group is born. The ego is fading and the distinction between oneself and other individuals is blurred.'):
+        "",
+
+    # ---------------------------------------------------------- :4554
+    (4554, 'The thought-gathering of those who died on the stairs. I move from staircase to staircase and dive in. Their hobby is to push tired passersby down the stairs but when they have nothing to do they will usually pounce on them.'):
+        "",
+
+    # ---------------------------------------------------------- :4567
+    (4567, 'A pitiful wind spirit who was captured and trained by Lulwy of the Wind. They are not fed much and are kept lifeless but not dead. It has almost lost all sense of rationality and if there is anything it can be eaten it is eaten in a desperate attempt to survive.'):
+        "",
+
+    # ---------------------------------------------------------- :4580
+    (4580, 'She became an undead through mystic arts and lived for an eternity. Her book a compilation of research on abstinence is called The Ssil Code because it is as esoteric as a code. It is dangerous for a gifted wizard to read it because they will be strongly enchanted by its contents.'):
+        "",
+
+    # ---------------------------------------------------------- :4593
+    (4593, 'The appearance is the same as the prototype but various parts are interchangeable. It is also possible to carry heavy weapons and electronic warfare equipment to remove the dimensional distortion unit and is also excellent as a general-purpose fighter.'):
+        "",
+
+# 38 voci fra la riga 4101 e la 4600, 0 ambigue
