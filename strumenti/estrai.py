@@ -86,6 +86,43 @@ _CHIUSA = re.compile(r"^\s*\}\s*$")
 _ASSEGNA_NOME = re.compile(
     r'^\s*(ioriginalnameref2?|iknownnameref)\((\w+)\)\s*=\s*("(?:[^"\\]|\\.)*")\s*$')
 
+# Il TERZO tipo di sito: le DESCRIZIONI degli oggetti, nello stesso file e nello
+# stesso `if ( jp ) … else …`, ma dentro un `if ( dbmode == DBMODE_DESC )`.
+# `contratto-nomi.md` §1 le segnava come aperte dal 2026-08-09; misurate il
+# 2026-08-26 (`scratchpad/_107-struttura-db-item.py`): 1.321 blocchi, quattro
+# indici per ramo, 10.568 righe `description(` su 10.568 dentro un blocco.
+#
+#     if ( dbmode == DBMODE_DESC ) {
+#         if ( jp ) {
+#             description(0) = "連射可能なライフル型の麻酔銃。…"
+#             …
+#         }
+#         else {
+#             description(0) = "A dart-firing tranquilizer repeater-rifle…"
+#             …
+#         }
+#         return
+#     }
+#
+# ⚠️⚠️ **La coppia si fa per INDICE, non per posizione.** Accoppiare la prima
+# riga del ramo giapponese con la prima del ramo inglese e' plausibile e
+# sbagliato: se un ramo saltasse un indice, ogni descrizione prenderebbe il
+# giapponese di un'altra e la firma sarebbe **valida su una coppia falsa** —
+# nessuna verifica a valle puo' vedere un guasto cosi'. Gli asimmetrici sul
+# sorgente pinnato sono zero, e il riconoscitore non ci fa affidamento: se i due
+# insiemi di indici non coincidono lascia stare il blocco **intero**, perche'
+# agganciarne la meta' che combacia e' peggio che non agganciarne niente.
+#
+# ⓘ Le descrizioni non sono nomi e non passano da `nomi_per_riga`: non hanno
+# plurale, genere ne' articolo. Sono prosa, e il gioco non le mette dietro a un
+# articolo scelto dal codice. I loro tre lettori stanno in `command.hsp` — il
+# corpo del pannello «Conoscenza dell'oggetto» per gli indici 0-2 (`:16746`) e
+# il rapporto di identificazione per l'indice 3 (`:16275`), che **non si
+# impagina** e ha un tetto secco: vedi `scratchpad/_107-descrizioni-item.py`.
+_DBMODE_DESC = re.compile(r"^\s*if\s*\(\s*dbmode\s*==\s*DBMODE_DESC\s*\)\s*\{\s*$")
+_ASSEGNA_DESCRIZIONE = re.compile(
+    r'^\s*description\((\d+)\)\s*=\s*("(?:[^"\\]|\\.)*")\s*$')
+
 # Gli array di nomi che stanno su UNA riga, dentro `lang()`, invece che nel
 # blocco a sette righe qui sopra. Oggi ce n'e' uno: `fishdatan` di
 # item_data.hsp, la tabella dei 113 pesci.
@@ -348,6 +385,86 @@ def avvio_nome(riga: str) -> tuple[str, int, int] | None:
     return trovato.group(3), trovato.start(3), trovato.end(3)
 
 
+def avvio_descrizione(riga: str) -> tuple[str, int, int] | None:
+    """(letterale grezzo, inizio, fine) se la riga assegna una descrizione.
+
+    Come `avvio_nome`, e' il riconoscitore **per riga**: aggancia anche il ramo
+    giapponese, e va bene, perche' serve al riscontro strutturale di `applica`,
+    che confronta la riga prodotta con quella di partenza. La riga giapponese
+    non viene mai toccata e si rilegge identica.
+
+    Chi deve sapere **quale** letterale e' traducibile usa `siti()`, che guarda
+    il blocco intero e accoppia per indice.
+    """
+    trovato = _ASSEGNA_DESCRIZIONE.match(riga)
+    if trovato is None:
+        return None
+    return trovato.group(2), trovato.start(2), trovato.end(2)
+
+
+def _assegnazioni_descrizione(righe: list[str], inizio: int
+                              ) -> tuple[dict[int, tuple[int, re.Match]], int] | None:
+    """Le `description(N)` di un ramo che comincia alla riga `inizio` (la graffa).
+
+    Rende ({indice_description: (indice_riga, match)}, riga_della_chiusura), o
+    `None` se il ramo contiene qualcosa che non sia un'assegnazione — nel qual
+    caso il blocco non ha la forma canonica e si lascia stare.
+    """
+    trovate: dict[int, tuple[int, re.Match]] = {}
+    numero = inizio + 1
+    while numero < len(righe):
+        if _CHIUSA.match(righe[numero]):
+            return trovate, numero
+        assegnazione = _ASSEGNA_DESCRIZIONE.match(righe[numero])
+        if assegnazione is None:
+            return None
+        indice = int(assegnazione.group(1))
+        if indice in trovate:  # due volte lo stesso indice: non e' la forma
+            return None
+        trovate[indice] = (numero, assegnazione)
+        numero += 1
+    return None
+
+
+def descrizioni_per_riga(righe: list[str]) -> dict[int, tuple[str, str, int, int]]:
+    """Indice di riga (base 0) -> (jp_grezzo, en_grezzo, inizio_en, fine_en).
+
+    Una voce per ogni `description(N)` del ramo **inglese**, col giapponese
+    dello stesso indice N. Vedi il riquadro accanto a `_DBMODE_DESC`: se i due
+    rami non portano gli stessi indici il blocco si scarta intero.
+
+    ⚠️ Le vuote restano qui e le scarta `siti()`, come per i nomi: i due
+    livelli non vanno confusi — `applica.py` ha bisogno di sapere che la riga
+    e' una descrizione anche quando non c'e' niente da tradurci.
+    """
+    trovate: dict[int, tuple[str, str, int, int]] = {}
+    for indice in range(len(righe)):
+        if not _DBMODE_DESC.match(righe[indice]):
+            continue
+        if indice + 1 >= len(righe) or not _IF_JP.match(righe[indice + 1]):
+            continue
+        ramo_jp = _assegnazioni_descrizione(righe, indice + 1)
+        if ramo_jp is None:
+            continue
+        giapponesi, chiusa_jp = ramo_jp
+        if chiusa_jp + 1 >= len(righe) or not _ELSE.match(righe[chiusa_jp + 1]):
+            continue
+        ramo_en = _assegnazioni_descrizione(righe, chiusa_jp + 1)
+        if ramo_en is None:
+            continue
+        inglesi, _ = ramo_en
+        # gli stessi indici nei due rami, o non e' un blocco che sappiamo leggere
+        if giapponesi.keys() != inglesi.keys():
+            continue
+        for chiave, (riga_en, inglese) in inglesi.items():
+            grezzo_jp = giapponesi[chiave][1].group(2)
+            trovate[riga_en] = (
+                grezzo_jp, inglese.group(2),
+                inglese.start(2), inglese.end(2),
+            )
+    return trovate
+
+
 def nomi_per_riga(righe: list[str]) -> dict[int, tuple[str, str, int, int, str, str]]:
     """Indice di riga (base 0) -> (jp_grezzo, en_grezzo, inizio_en, fine_en,
     array, oggetto).
@@ -470,6 +587,7 @@ def siti(testo: str) -> Iterator[tuple]:
     conteggio: dict[str, int] = {}
     righe, _, _ = spezza_righe(testo)
     nomi = nomi_per_riga(righe)
+    descrizioni = descrizioni_per_riga(righe)
 
     def emetti(numero_riga, grezzo_jp, grezzo_en, inizio_en, fine_en):
         giapponese = _letterali(grezzo_jp)
@@ -503,6 +621,11 @@ def siti(testo: str) -> Iterator[tuple]:
         # deve comunque riconoscerli, o il plurale non saprebbe dove andare.
         if nome is not None and nome[4] not in ARRAY_IN_LANG:
             sito = emetti(numero_riga, *nome[:4])
+            if sito is not None:
+                yield sito
+        descrizione = descrizioni.get(numero_riga - 1)
+        if descrizione is not None:
+            sito = emetti(numero_riga, *descrizione)
             if sito is not None:
                 yield sito
 

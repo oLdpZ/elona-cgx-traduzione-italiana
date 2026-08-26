@@ -17,7 +17,8 @@ from pathlib import Path
 from strumenti import percorsi
 from strumenti.accenti import degrada
 from strumenti.articolo import GENERI, articoli
-from strumenti.estrai import (ARRAY_IN_LANG, _argomenti, _letterali, avvii, avvio_nome, nomi_per_riga,
+from strumenti.estrai import (ARRAY_IN_LANG, _argomenti, _letterali, avvii, avvio_descrizione,
+                              avvio_nome, nomi_per_riga,
                               normalizza_espressione, siti, spezza_righe,
                               virgola_nuda)
 
@@ -146,6 +147,14 @@ def _profilo(riga: str) -> list[tuple[str | None, tuple[int, int] | None]]:
     nome = avvio_nome(riga)
     if nome is not None:
         grezzo, inizio, fine = nome
+        profilo.append((grezzo, (inizio, fine)))
+    # il terzo tipo di sito, con la stessa logica: il riconoscitore per riga
+    # aggancia anche il ramo giapponese, che non viene mai toccato e si rilegge
+    # identico. Nessuna riga porta insieme una `lang()`, un nome e una
+    # descrizione: le tre forme si escludono per costruzione.
+    descrizione = avvio_descrizione(riga)
+    if descrizione is not None:
+        grezzo, inizio, fine = descrizione
         profilo.append((grezzo, (inizio, fine)))
     return profilo
 

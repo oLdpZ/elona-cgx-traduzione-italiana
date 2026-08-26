@@ -68,5 +68,14 @@ def test_il_sorgente_vero_classifica_i_nomi_che_restano():
         firme_tradotte(FILE),
         carica_rinviate(None, FILE),
     )
-    senza = [v["en"] for v in resta if v.get("oggetto") not in mappa]
+    # ⚠️ Il classificatore mappa ITEM_ID -> categoria, e serve a scegliere i
+    # lotti dei NOMI. Dalla 107a `db_item.hsp` porta anche le descrizioni, che
+    # un `oggetto` non ce l'hanno: sono prosa dentro `if ( dbmode ==
+    # DBMODE_DESC )`, non un'assegnazione indicizzata per ITEM_ID.
+    # 🔶 Che l'`oggetto` glielo si possa dare — il blocco sta dentro un
+    # `if ( dbid == ITEM_ID_X )` — e' vero e utile (i lotti delle descrizioni si
+    # sceglierebbero per categoria come quelli dei nomi), ma e' una decisione
+    # sua, non un effetto collaterale di questo test. Vedi `decisioni.md`, 107a.
+    nomi = [v for v in resta if "array" in v]
+    senza = [v["en"] for v in nomi if v.get("oggetto") not in mappa]
     assert senza == []

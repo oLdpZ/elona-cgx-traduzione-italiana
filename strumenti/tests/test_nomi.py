@@ -178,8 +178,14 @@ def test_i_conteggi_sul_sorgente_vero():
         pytest.skip("il clone del sorgente non e' disponibile")
     testo = percorso.read_bytes().decode("cp932")
 
-    voci = estrai_da_testo("db_item.hsp", testo)
+    # ⚠️ Dalla 107a `db_item.hsp` porta anche le DESCRIZIONI (2.832 voci vive,
+    # `test_descrizioni.py`), che non sono nomi: niente array, niente plurale,
+    # niente articolo. Il filtro e' su `array`, cioe' su cio' che fa di una voce
+    # un nome, e non su un conteggio da aggiornare a ogni famiglia nuova.
+    tutte = estrai_da_testo("db_item.hsp", testo)
+    voci = [v for v in tutte if "array" in v]
     assert len(voci) == 1309 + 298 + 260
+    assert len(tutte) - len(voci) == 2832
     righe, _, _ = spezza_righe(testo)
     for voce in voci:
         assert (righe[voce["riga"] - 1].lstrip()
