@@ -1,0 +1,267 @@
+--- db_card.hsp:12109   CREATURE_ID_SOUND_HOUND   creatura 58
+    NOME  jp 轟音ハウンド
+          en sound hound
+          IT il segugio del suono
+    JP    轟音を伴う息吹を放つ犬。耳元で叫ばれると、インド象でも簡単に失神してしまう。高い身体能力も持っており、その一撃は音速を超える。
+    EN    A dog releases a roaring breath. Even Indian elephants easily faint when it is shouted in their ears. They also have high physical capabilities, and their blows exceed the speed of sound.
+
+--- db_card.hsp:12122   CREATURE_ID_NETHER_HOUND   creatura 59
+    NOME  jp 地獄ハウンド
+          en nether hound
+          IT il segugio dell'oltretomba
+    JP    冥界の瘴気を帯びた息吹を放つ犬。まともに浴びればインド象でも昇天間違いなしとされる。長らくケルベロスと同一視されていたが、種として全くの別物であることが最近わかった。
+    EN    A dog that releases a breath tinged with the miasma of the underworld. It is said that even an Indian elephant would surely ascend to heaven if exposed to it. For a long time it was considered identical to Cerberus, but it has recently been discovered that they are completely different species.
+
+--- db_card.hsp:12135   CREATURE_ID_CHAOS_HOUND   creatura 60
+    NOME  jp カオスハウンド
+          en chaos hound
+          IT il segugio del caos
+    JP    混沌の息吹を放つ犬。混沌とは調和の取れていない様であり、その息を浴びればインド象でも複数の異常を併発して苦しんだ末に死んでしまう。
+    EN    A dog that emits the breath of chaos. Chaos is an appearance of lack of harmony, and if exposed to its breath, even an Indian elephant will suffer multiple anomalies and die after suffering from them. 
+
+--- db_card.hsp:12148   CREATURE_ID_GIANT_SQUIRREL   creatura 61
+    NOME  jp 巨大リス
+          en giant squirrel
+          IT lo scoiattolo gigante
+    JP    巨大化前から雑食性で何でも食べていたが、サイズがサイズなのでついに人間まで襲うようになった。その身体を維持するために多量の食糧が必要。
+    EN    It was omnivorous and ate everything before it became huge, but its size finally led it to attack even humans. They need large amounts of food to sustain their bodies. 
+
+--- db_card.hsp:12161   CREATURE_ID_KILLER_SQUIRREL   creatura 62
+    NOME  jp 殺人リス
+          en killer squirrel
+          IT lo scoiattolo assassino
+    JP    完全に人肉の味を覚え積極的に人を襲うようになった巨大リス。無防備に近づいた子供が犠牲になることが多い。やたらマッシブで目つきもギラギラしているので、よく見ると判別可能。
+    EN    Giant squirrels that have completely developed a taste for human flesh and actively attack people. Children who approach unprotected often become victims. It can be recognised on closer inspection because it is extremely massive and has a glare in its eyes.
+
+--- db_card.hsp:12174   CREATURE_ID_GRUDGE   creatura 63
+    NOME  jp 怨念
+          en grudge
+          IT il rancore
+    JP    自身を呪い、運を呪い、神を呪い、世界を呪う怨嗟の念が実体化したもの。その想いは死者だけのものではなく、生きた人間の怨念もおんねん。
+    EN    It is the materialisation of vindictive thoughts that curse themselves, curse luck, curse God and curse the world. The feelings are not only those of the dead, but also those of living people. 
+
+--- db_card.hsp:12187   CREATURE_ID_HUNGRY_DEMON   creatura 64
+    NOME  jp 餓鬼
+          en hungry demon
+          IT il demone affamato
+    JP    飢餓によって息絶えた者達の報われぬ魂の形。救いを求めて手を伸ばすが、同情してその手に触れた者さえも飢餓へと引きずり込んでしまう。
+    EN    A form of unrequited souls of those who have died out through starvation. They reach out for help, but even those who touch their hands out of pity are dragged into starvation. 
+
+--- db_card.hsp:12200   CREATURE_ID_HUNGRY_SEA_LION   creatura 312
+    NOME  jp 大食いトド
+          en hungry sea lion
+          IT il leone marino ingordo
+    JP    食欲旺盛で巨大なトド。異次元空間を通して相手の所持している食べ物を奪うことができ、食べた物は一瞬で消化して自らのエネルギーにしてしまう。
+    EN    A giant sea lion with a voracious appetite. It can take food possessed by its opponents through inter-dimensional space, and instantly digests the food it eats into its own energy. 
+
+--- db_card.hsp:12213   CREATURE_ID_SUPER_HUNGRY_SEA_LION   creatura 313
+    NOME  jp 超大食いトド
+          en super hungry sea lion
+          IT il leone marino ingordissimo
+    JP    食欲旺盛で超巨大なトド。ただの大きなトドがその肥大した食欲に身を任せて進化した結果、異次元を知覚し干渉するという高度な器官を備えたらしい。
+    EN    A very large sea lion with a huge appetite. It is said that just a big sea lion evolved to give way to its bloated appetite, and as a result it has developed an advanced organ for perceiving and interfering in other dimensions. 
+
+--- db_card.hsp:12226   CREATURE_ID_ELECTRIC_CLOUD   creatura 65
+    NOME  jp 放電雲
+          en electric cloud
+          IT la nube elettrica
+    JP    激しい放電を行う謎のエネルギー集合体。溜め込んだ不安定なエネルギーが電気に変換されて周囲に放たれ続けており、近寄るのさえ非常に危険。
+    EN    A mysterious energy aggregate that discharges violently. The unstable energy that has been stored is converted into electricity and is continuously discharged into the surrounding area, making it extremely dangerous to even get close to it. 
+
+--- db_card.hsp:12239   CREATURE_ID_CHAOS_CLOUD   creatura 66
+    NOME  jp 混沌の塊
+          en chaos cloud
+          IT la nube del caos
+    JP    混沌が凝縮され、一つの存在となった。周囲に混沌を撒き散らし、辺りを飲み込んで、さらに大きな混沌へと成長しようとする。その様は、ある種の災害。
+    EN    The chaos condensed and became one entity. It scatters chaos around it, swallows the area and tries to grow into an even bigger chaos. Its mere appearance is a sign of disaster.
+
+--- db_card.hsp:12252   CREATURE_ID_FLOATING_EYE   creatura 67
+    NOME  jp フローティングアイ
+          en floating eye
+          IT l'occhio fluttuante
+    JP    口はどこなのか、腹部はどこなのか、どうして生きているのか全く不明。一説によれば異世界からこちらを覗く悪魔の眼であると言われている。
+    EN    It is completely unclear where the mouth is, where the abdomen is and how it is alive. According to one theory, it is said to be the eye of a demon looking at us from another world. 
+
+--- db_card.hsp:12265   CREATURE_ID_CHAOS_EYE   creatura 315
+    NOME  jp カオスアイ
+          en chaos eye
+          IT l'occhio del caos
+    JP    謎の力で空中に浮いているが、速度はそれほど速くない。視線が合った相手は身体に変調をきたし、複数の状態異常や肉体の変化を引き起こしてしまう。
+    EN    It floats in the air with a mysterious power, but not very fast. The opponent whose gaze meets his or hers is physically altered, causing multiple abnormalities and physical changes. 
+
+--- db_card.hsp:12278   CREATURE_ID_MAD_GAZE   creatura 316
+    NOME  jp マッドゲイズ
+          en mad gaze
+          IT lo sguardo folle
+    JP    瞳を直視すると狂気に侵されてしまい、蛆虫が湧きあがるなどの幻影に悩まされることになる。その肉は幻惑に耐性をつけることができる貴重な手段の一つ。
+    EN    If you look directly into the eyes, you will become insane and suffer from illusions, such as maggots springing up. Its flesh is one of the most valuable means of making one resistant to illusions. 
+
+--- db_card.hsp:12291   CREATURE_ID_DEATH_GAZE   creatura 314
+    NOME  jp デスゲイズ
+          en death gaze
+          IT lo sguardo di morte
+    JP    死の眼差しを放つ魔物。単独ではそれほど脅威ではないが、睨まれると体が麻痺して魔力を奪われてしまうため、敵の群れに混じっていると一大事である。
+    EN    Monsters that emit the gaze of death. Alone, it is not much of a threat, but when it stares at you, your body is paralysed and deprived of magical power, which is a big problem if you are mixed in with a group of enemies. 
+
+--- db_card.hsp:12304   CREATURE_ID_WYVERN   creatura 68
+    NOME  jp ワイバーン
+          en wyvern
+          IT la viverna
+    JP    進化の過程で生まれた竜の亜種。一般的に翼竜と呼ばれ、完全なドラゴンと違い腕と翼が一体化している。ワイバーン的には自分の翼のほうがドラゴンよりも格好いいと思っている。
+    EN    A subspecies of dragon created during the process of evolution. Commonly referred to as pterodactyls, they have integrated arms and wings, unlike full dragons. In the wyvern's view, its own wings are better looking than those of dragons.
+
+--- db_card.hsp:12317   CREATURE_ID_PUPPET   creatura 78
+    NOME  jp パペット
+          en puppet
+          IT la marionetta
+    JP    人と同じ大きさをした人形。奇妙な動きをして道行く人々を困惑させている。その身体に繋がれた糸は、何処とも知れぬ場所に向かって伸びている。
+    EN    A doll the same size as a person. Its strange movements confuse people on the street. The threads connected to its body stretch towards an unknown place.
+
+--- db_card.hsp:12330   CREATURE_ID_WASP   creatura 81
+    NOME  jp ワスプ
+          en wasp
+          IT la vespa
+    JP    尻に毒針を持った巨大な飛行虫。一匹一匹は小さく弱いが、群れを作る習性があり、ひとたび囲まれると危険。羽音がブンブンうるさい。
+    EN    Giant flying insects with venomous stingers on their hips. Each one is small and weak, but they have a habit of swarming and are dangerous once surrounded. Their wings buzz noisily.
+
+--- db_card.hsp:12343   CREATURE_ID_RED_WASP   creatura 82
+    NOME  jp レッドワスプ
+          en red wasp
+          IT la vespa rossa
+    JP    獰猛かつ執念深い習性。針から注入される麻痺の毒を使って獲物の動きを止め、新鮮なまま食料として巣に持ち帰る。所詮は虫で、麻痺が効かない相手にも執拗に刺し続ける。
+    EN    Wasps with fierce and vindictive habit. It uses a paralysing venom injected from its stinger to stop its prey and bring it back fresh to its nest as food. They are insects after all, and will persistently sting even when paralysis is ineffective.
+
+--- db_card.hsp:12356   CREATURE_ID_CYCLOPS   creatura 83
+    NOME  jp サイクロプス
+          en cyclops
+          IT il ciclope
+    JP    一般的な人型種族の約10倍の体躯を誇る巨人族。その中で単眼の劣等種を指す。動きは鈍いが、頑丈な彼らの歩みを物理的に止めるのは難しい。
+    EN    A race of giants that boasts a physique approximately ten times that of the average humanoid race.The term refers to the monocular inferior species among them.They move slowly, but it is difficult to physically stop their sturdy steps.
+
+--- db_card.hsp:12369   CREATURE_ID_TITAN   creatura 84
+    NOME  jp タイタン
+          en titan
+          IT il titano
+    JP    信仰を失い神の座を追われた巨人族の末裔。終末が起これば地底に封じられた同胞が地響きと共に現れるという。その肉を食せば体力がつく。
+    EN    Descendants of a tribe of giants who lost their faith and were forced to leave the throne of God.When the apocalypse occurs, their brethren sealed in the depths of the earth will appear with an earth-shaking sound.If you eat their flesh, you will gain strength.
+
+--- db_card.hsp:12382   CREATURE_ID_IMP   creatura 85
+    NOME  jp インプ
+          en imp
+          IT il folletto
+    JP    悪魔の中で最下位の種。にわか仕込みの魔法を使うものの効果は微弱。だがその肉は魔力の覚醒を促すため、お使いに行った先で冒険者に襲われることも。
+    EN    Lowest species of demon. They use a kind of magic that is only marginally effective. However, its flesh promotes the awakening of magical powers, so it is sometimes attacked by adventurers when it goes on errands.
+
+--- db_card.hsp:12395   CREATURE_ID_NETHER_IMP   creatura 86
+    NOME  jp 冥界の使い
+          en nether imp
+          IT il folletto dell'oltretomba
+    JP    地獄から送り込まれた使い魔。魂を地獄に持ち帰るためにその辺りの生き物を襲う。主人のノルマ達成が厳しいらしく、よく隠れて愚痴を言っている。
+    EN    Messenger demons sent from hell. Attacks creatures in the area to bring their souls back to Hell. They seem to have a hard time meeting their master's quotas and often hide and complain.
+
+--- db_card.hsp:12408   CREATURE_ID_CHAOS_IMP   creatura 87
+    NOME  jp カオスインプ
+          en chaos imp
+          IT il folletto del caos
+    JP    秩序の崩壊を目論む上位悪魔の眷属。混沌の矢を打ち込まれた者は生体機能を乱され、合併症状に苦しめられる。待遇があまり良くなく、最近は転職を考えている。
+    EN    A higher demon's servant who plots the collapse of the order. Those who are hit by the arrows of chaos have their biological functions disrupted and suffer complications. They are not treated well and have recently been thinking about changing jobs.
+
+--- db_card.hsp:12421   CREATURE_ID_HAND_OF_THE_DEAD   creatura 88
+    NOME  jp 亡者の手
+          en hand of the dead
+          IT la mano dei morti
+    JP    死の世界へと招く魔物。温かい命を欲しており、生きた物を手当たり次第に手元に引き寄せる習性を持つ。暇になると地面にラクガキして遊びだす。
+    EN    A monster that invites you into the world of death. It craves warm life and has a habit of attracting living things to its hand at random. In its spare time, it starts to draw graffti on the ground.
+
+--- db_card.hsp:12434   CREATURE_ID_HAND_OF_THE_CHAOS   creatura 89
+    NOME  jp 混沌の手
+          en hand of the chaos
+          IT la mano del caos
+    JP    何らかの原因で密度を増した混沌が腕の形を成した魔物。その場から動かず、近寄る者を自らの混沌の中に飲み込もうと待ち構え続ける。
+    EN    A monster whose arms take the form of chaos that has increased in density for some reason. It does not move from its place and continues to wait to swallow anyone who approaches it into its own chaos.
+
+--- db_card.hsp:12447   CREATURE_ID_HAND_OF_THE_MURDERER   creatura 90
+    NOME  jp 殺人鬼の手
+          en hand of the murderer
+          IT la mano dell'assassino
+    JP    処刑された殺人鬼の狂気が集まり腕の形を成した魔物。処刑場の血溜まりの中から生まれるとされ、本人が死した今も新たな犠牲者を出そうとしている。
+    EN    A monster in the shape of an arm formed from the madness of an executed murderer. It is said to be born in a pool of blood at the place of execution, and even now that he is dead, it is still trying to produce new victims.
+
+--- db_card.hsp:12460   CREATURE_ID_GHOST   creatura 91
+    NOME  jp 亡霊
+          en ghost
+          IT lo spettro
+    JP    死して残る凄まじい負の念の集合体が生身に影響を及ぼす程の脅威となった。情念が大気中のエーテルと結合して仮の肉体を形成している。
+    EN    The aggregation of the terrible negative thoughts that remain after death has become such a threat that it affects the living. The sentiments combine with the ether in the atmosphere to form a temporary body.
+
+--- db_card.hsp:12473   CREATURE_ID_NYMPH   creatura 92
+    NOME  jp ニンフ
+          en nymph
+          IT la ninfa
+    JP    元は妖精だったのだが、旅人を魔力で惑わせようとしたところ思わぬ反撃を受けて死んでしまった。しかし本人には死んだという自覚がなく、浮遊霊として彷徨っている。
+    EN    She used to be a fairy, but when she tried to deceive travellers with her magic, she was unexpectedly struck back and died. However, she is not aware that she is dead and wanders around as a floating spirit.
+
+--- db_card.hsp:12486   CREATURE_ID_MAN_EATER_FLOWER   creatura 93
+    NOME  jp 人食い花
+          en man eater flower
+          IT il fiore mangiauomini
+    JP    土地の魔力を糧に異常成長した花。ミンチになった人間が栄養になることを知ってから、積極的に人を襲うようになった。その溶解液は人間の胃酸に近い性質を持つ。
+    EN    A flower that grew abnormally by feeding on the mana from the land. After discovering that minced human beings can be used as nourishment, it began to actively attack people. Its dissolved fluid has properties similar to human stomach acid.
+
+--- db_card.hsp:12499   CREATURE_ID_CHAOS_FLOWER   creatura 94
+    NOME  jp カオスフラワー
+          en chaos flower
+          IT il fiore del caos
+    JP    混沌の力を得た人食い花。多種多様な花粉をばらまき、硬質のつるを振るい数々の冒険者を養分としてきた。根が短く強靱で、歩いて移動が可能。
+    EN    A man-eating flower that has gained the power of chaos. They disperse a wide variety of pollen and have nourished numerous adventurers by waving hard vines. Its roots are short and strong, and it can move on foot.
+
+--- db_card.hsp:12512   CREATURE_ID_COBRA   creatura 95
+    NOME  jp コブラ
+          en cobra
+          IT il cobra
+    JP    毒蛇の一種。即効性の強力な毒を持っており、噛まれた場合に的確な対処が出来なければ、死に至る事も多い。臭みはあるが調理すれば割とイケる。
+    EN    A type of poisonous snake. It has a strong, fast-acting venom that often results in death if the bite is not dealt with properly. It has an unpleasant odour, but is rather tasty if cooked.
+
+--- db_card.hsp:12525   CREATURE_ID_KING_COBRA   creatura 96
+    NOME  jp キングコブラ
+          en king cobra
+          IT il cobra reale
+    JP    大型の動物や同種の蛇でさえ死に至らせるほど強い毒を持つ。その威容は王の風格を感じさせるが、性格は意外と臆病。冒険者の中にはこいつを毒ごと食べて耐性をつけようとする者もいる。
+    EN    Its venom is so strong that it can kill large animals and even snakes of the same species. Its majestic appearance gives it the air of a king, but its character is surprisingly timid. Some adventurers try to develop a resistance to its venom by eating it whole.
+
+--- db_card.hsp:12538   CREATURE_ID_FIRE_DRAKE   creatura 97
+    NOME  jp ファイアドレイク
+          en fire drake
+          IT il draco di fuoco
+    JP    進化の過程で生まれた竜の亜種。ドラゴンとは比べ物にならないほど弱いが、その強さを侮ってはいけない。ストレスを感じると火の混じった溜息を吐く。
+    EN    A subspecies of dragon born during its evolutionary process. It is incomparably weaker than dragons, but its strength should not be underestimated. When stressed, they breathe out a sigh mixed with fire.
+
+--- db_card.hsp:12551   CREATURE_ID_ICE_DRAKE   creatura 98
+    NOME  jp アイスドレイク
+          en ice drake
+          IT il draco di ghiaccio
+    JP    進化の過程で生まれた竜の亜種。アイスドレイク一匹よりもアイスハウンドの群れの方が恐ろしいとされていることに憤りを感じている。
+    EN    A subspecies of dragon born during its evolutionary process. They resent the fact that a pack of icehounds is considered more fearsome than a single ice drake.
+
+--- db_card.hsp:12564   CREATURE_ID_LESSER_MUMMY   creatura 99
+    NOME  jp レッサーマミー
+          en lesser mummy
+          IT la mummia minore
+    JP    マミー系の最下位種。主に罪人や市民の死体が放置され、劣悪な環境で偶然ミイラ化したものを指す。特に役職を持たず生者を見境無く襲う。
+    EN    Lowest class of mummy species. Mainly refers to the corpses of criminals and citizens who have been left to rot and accidentally mummified in poor conditions. They have no particular position and attack the living without regard.
+
+--- db_card.hsp:12577   CREATURE_ID_MUMMY   creatura 100
+    NOME  jp マミー
+          en mummy
+          IT la mummia
+    JP    かつて栄えた王国で兵士だったもの。生前から身に着けていた武器と技を駆使し、侵入者の行く手を阻む。群れで行動することが多い。
+    EN    A former soldier in a once prosperous kingdom. He uses the weapons and skills he acquired during his life to block the way of intruders. They often work in packs.
+
+--- db_card.hsp:12590   CREATURE_ID_GREATER_MUMMY   creatura 101
+    NOME  jp グレイターマミー
+          en greater mummy
+          IT la mummia maggiore
+    JP    マミー系の上位種。主に兵士を王の護衛役として人為的にミイラ化したものを指す。下位のマミーを従えて遺跡荒らしを追い詰める。
+    EN    A higher species of mummy type. Refers mainly to soldiers artificially mummified to act as guards for the king. They hunt down thiefs with lower-ranked mummies in tow.
+
+== 38 carte fra la riga 12101 e la 12600

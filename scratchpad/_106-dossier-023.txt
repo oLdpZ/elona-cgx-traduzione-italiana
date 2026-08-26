@@ -1,0 +1,267 @@
+--- db_card.hsp:11106   CREATURE_ID_JURE_FANATIC   creatura 347
+    NOME  jp ジュアの狂信者
+          en Jure fanatic
+          IT il fanatico di Jure
+    JP    癒しの女神『ジュア』を妄執するあまり狂ってしまった者の姿。その姿に癒しは欠片も無い。見る限り、本人たちは幸せなようだが…。
+    EN    The figure of a person who has gone mad with delusion about the healing goddess Jure. There is not a shred of healing in their appearance. As far as the eye can see, they are happy...
+
+--- db_card.hsp:11119   CREATURE_ID_ROGUE   creatura 271
+    NOME  jp ならずもの
+          en rogue
+          IT la canaglia
+    JP    彼らが生まれた町で生きる為にはその手を汚すしかなかった。その生きかた以外を彼等は知らない。不用心な人々からくすねた金で今日も彼らは生きていく。
+    EN    They had to get their hands dirty in order to live in the town of their birth. They know no other way of life.They live today on the money they skim off the backs of the unwary.
+
+--- db_card.hsp:11132   CREATURE_ID_PROSTITUTE   creatura 335
+    NOME  jp 娼婦
+          en prostitute
+          IT la prostituta
+    JP    気が狂うほど気持ちがいいマッサージを行う。普段は客に対して猫撫で声で話すが、客が金を持っていないとわかると態度を急変させる。
+    EN    Gives massages that feel so good that they drive you crazy. They usually speak to customers in a catcall voice, but their attitude changes abruptly when they realise that the customer doesn't have any money.
+
+--- db_card.hsp:11145   CREATURE_ID_PRISONER   creatura 337
+    NOME  jp 囚人
+          en prisoner
+          IT il prigioniero
+    JP    捕らえられ囚われる者。積み上げた負のカルマを清算するのに要する時は数時間か数日か、或いは数年か。今日も独房で無実を訴える声が虚しく響き渡る。
+    EN    Captives and prisoners. It takes hours, days or even years to clear the negative karma they have accumulated. Today, the voices of those pleading for their innocence echo in vain in their cells.
+
+--- db_card.hsp:11158   CREATURE_ID_ARTIST   creatura 272
+    NOME  jp 芸術家
+          en artist
+          IT l'artista
+    JP    彼らは「人生」というキャンパスに「生き様」と言う絵を描く。果たしてそれが傑作となるか、そしていつ完成するのかは彼ら次第である。
+    EN    They paint a picture of their 'way of life' on the canvas of 'life'. Whether it will be a masterpiece or not, and when it will be completed, is up to them.
+
+--- db_card.hsp:11171   CREATURE_ID_NOBLE   creatura 274
+    NOME  jp 貴族
+          en noble
+          IT l'aristocratico
+    JP    普段は刺激を求めて平民たちの生活を観察している。基本的に現金はあまり持ち歩かないが、裏では自身の性癖のために金を惜しみなく使う。
+    EN    He usually observes the lives of commoners in search of excitement. Basically, he doesn't carry much cash, but behind the scenes he spends money lavishly for his own proclivities.
+
+--- db_card.hsp:11184   CREATURE_ID_MAGE_GUILD_MEMBER   creatura 289
+    NOME  jp 魔術士ギルド
+          en mage guild member
+          IT il membro della Gilda dei Maghi
+    JP    魔術士ギルドの構成員。古文書の解読を仕事としており、その知識で魔法を使う事も出来るが、研究ばかりしてるため荒事は得意ではない。
+    EN    A member of the Mages' Guild. His job is to decipher ancient texts, and he can use his knowledge to do magic, but he is not good at rough work as he is always researching.
+
+--- db_card.hsp:11197   CREATURE_ID_THIEF_GUILD_MEMBER   creatura 293
+    NOME  jp 盗賊ギルド
+          en thief guild member
+          IT il membro della Gilda dei Ladri
+    JP    裏の世界に生きる者達の集まり。彼らには彼らなりの流儀があり。厳しい掟が課せられている。ルールを守って付き合う限りは、彼らの技能は大きな助けとなるだろう。
+    EN    A group of people who live in the underworld. They have their own way of doing things. They have strict rules. Their skills can be of great help as long as you keep to the rules.
+
+--- db_card.hsp:11210   CREATURE_ID_FIGHTER_GUILD_MEMBER   creatura 295
+    NOME  jp 戦士ギルド
+          en fighter guild member
+          IT il membro della Gilda dei Guerrieri
+    JP    基本的に物事を深く考えるのが苦手。しかしそれ故に一切の迷いを持たず、戦いの中では頼りになる。ギルドマスターに憧れを抱くものが多い。
+    EN    Basically, he is not good at thinking things deeply. However, that is why they have no doubts at all and are very reliable in battle. Many of them have admiration for their guildmaster.
+
+--- db_card.hsp:11223   CREATURE_ID_TOWN_CHILD   creatura 35
+    NOME  jp 街の子供
+          en town child
+          IT il bambino di città
+    JP    自身に訪れるであろう光り輝く未来を信じて疑わない姿はまさに子供と呼ぶにふさわしい。どれほどの時間が過ぎようとも、それを盲信し続けるかぎり彼等は子供なのである。
+    EN    Their unquestioning faith in the bright future that will come their way is what we call a child. No matter how much time passes, they are children as long as they continue to believe in it blindly. 
+
+--- db_card.hsp:11236   CREATURE_ID_OLD_PERSON   creatura 36
+    NOME  jp 老人
+          en old person
+          IT l'anziano
+    JP    歳を重ねた者だけではなく、若くして身体のみが急激に老化してしまった者も含まれる。目的もなく街を徘徊するだけの日々が続く。
+    EN    This includes not only those who have aged, but also those who have aged rapidly, but only physically, at a young age. They spend their days just wandering around the city aimlessly. 
+
+--- db_card.hsp:11249   CREATURE_ID_PUNK   creatura 174
+    NOME  jp パンク
+          en punk
+          IT il punk
+    JP    古代文明の遺産と知識に傾倒し、奇妙な格好で機械を弄繰り回す変わり者達。彼らいわく、エイス・テールの異端者を真似ているのだという。
+    EN    These eccentrics are devoted to the legacy and knowledge of ancient civilisations, and play around with machines in strange outfits. They are, they say, imitating the heretics of Eyth Terre. 
+
+--- db_card.hsp:11262   CREATURE_ID_WILD_SHEEP   creatura 10
+    NOME  jp 羊
+          en wild sheep
+          IT la pecora selvatica
+    JP    肉は食用となり、乳は栄養満点で、体毛は衣服に使えると至れり尽くせり。脱走して近所の畑で盗み食いを働いているものも多い。
+    EN    The perfect animal: edible and delicious meat, produces nutritional milk, and grows wool that can be used for clothing. Many escape their pens and snack on the neighboring fields.
+
+--- db_card.hsp:11275   CREATURE_ID_FLYING_FROG   creatura 11
+    NOME  jp 飛び蛙
+          en flying frog
+          IT la rana volante
+    JP    ティリス各地を跳び回る野生の渡り蛙。水中を遊泳するかのように空中を泳ぐが原理は不明。子供でも倒せるため、おやつとして人気。
+    EN    A species of flying frog found all over North Tyris. They can \"swim\" through the air as easily as swimming through water, though how this functions is unknown. Since even children are strong enough to take one down, they're a popular snack.
+
+--- db_card.hsp:11288   CREATURE_ID_GANGSTER   creatura 12
+    NOME  jp ごろつき
+          en gangster
+          IT il teppista
+    JP    働きもせずにあたりをぶらつき、恐喝やスリまがいのことをして食い扶持を得ている。強そうに粋がってはいるものの、実力の程はお察しである。
+    EN    Unemployed hooligans that wander about using blackmail and picking pockets in order to support themselves. They look strong and put up a brave front, but their true strength you can probably guess.
+
+--- db_card.hsp:11301   CREATURE_ID_KOBOLD   creatura 13
+    NOME  jp コボルト
+          en kobold
+          IT il coboldo
+    JP    犬のような頭部を持つ小鬼。加工しにくいためあまり使われていないが、鉱石の一種である｢コバルト｣はこの魔物の名前から取られたと言われている。
+    EN    A small monster with the head of a dog. Though it's difficult to process and so isn't used very often, the ore \"cobalt\" is said to come from this monster.
+
+--- db_card.hsp:11314   CREATURE_ID_YEEK   creatura 236
+    NOME  jp イーク
+          en yeek
+          IT lo yeek
+    JP    人に似た姿を持つ獣。彼らは愚かでか弱く、単体では人間の子供と同程度の能力しか持たないが、それを補うように数を持って攻めてくる。
+    EN    Beasts with a human-like appearance. They are stupid and frail, and on their own are only as capable as human children, but they attack with numbers to compensate. 
+
+--- db_card.hsp:11327   CREATURE_ID_YEEK_WARRIOR   creatura 238
+    NOME  jp イークの戦士
+          en yeek warrior
+          IT lo yeek guerriero
+    JP    人に似た姿を持つ獣。イークの中でも厳しい鍛錬に耐えたもののみが戦士の称号を授かる。そのため戦士であることを誇りとしている。
+    EN    Beasts with a human-like appearance. Only those who have endured the most rigorous training among the Yeeks are awarded the title of warrior. For this reason, they are proud to be warriors.
+
+--- db_card.hsp:11340   CREATURE_ID_YEEK_ARCHER   creatura 241
+    NOME  jp イークの射手
+          en yeek archer
+          IT lo yeek arciere
+    JP    他の同族と比べて遠くから攻撃する知性を持ったイーク。弓を扱おうと弦を引き続けた結果、同族の戦士程ではないが身体が鍛えられている。
+    EN    The yeek has the intelligence to attack from a distance compared to other members of his tribe. As a result of continually pulling the strings to handle the bow, his body has been trained, although not as well as the warriors of his own tribe. 
+
+--- db_card.hsp:11353   CREATURE_ID_MASTER_YEEK   creatura 240
+    NOME  jp マスター・イーク
+          en master yeek
+          IT lo yeek maestro
+    JP    産まれた時からマスターとなるべく定められた、エリート中のエリート。同族を率いる指揮能力に秀でており、数多くのイークを使役している。
+    EN    Elite of the elite, destined to become a master from birth. They excel in their ability to command and lead their own people, and they have commanded a large number of Yeeks. 
+
+--- db_card.hsp:11366   CREATURE_ID_KAMIKAZE_YEEK   creatura 237
+    NOME  jp カミカゼ・イーク
+          en kamikaze yeek
+          IT lo yeek kamikaze
+    JP    イーク族の身体能力の低さを克服しようと選んだ手段は、自身の命を犠牲にした自爆だった。だが、簡単に起爆してしまい味方も巻き込んでしまう。
+    EN    The means they chose to overcome the low physical capabilities of the Yeeks was self-destruction at the cost of their own lives. However, it was easily detonated and their allies were also collateralised. 
+
+--- db_card.hsp:11379   CREATURE_ID_KAMIKAZE_SAMURAI   creatura 244
+    NOME  jp 地雷侍
+          en kamikaze samurai
+          IT il samurai kamikaze
+    JP    東の国を追放された戦士の成れの果て。オチムシャと呼ばれる彼らは、家のため名誉のため戦場での華々しい死を望んでいるとされるが、本当は死ぬのがすごく怖いらしい。
+    EN    They are the result of warriors exiled from the East. Known as Ochimsha, they are said to want to die spectacularly on the battlefield for the sake of their home and honour, but they are actually very afraid of dying. 
+
+--- db_card.hsp:11392   CREATURE_ID_BOMB_ROCK   creatura 245
+    NOME  jp 爆弾岩
+          en bomb rock
+          IT la roccia esplosiva
+    JP    何の変哲もない岩が変異して魔物となった。こちらニヤニヤと笑いながら眺めているが、少しの刺激でも爆発してしまうため処理する際は遠くから慎重に行うべきである。
+    EN    An ordinary rock has mutated into a monster. It is watched with a grin, but even the slightest provocation can cause it to explode, so it should be handled carefully from a distance. 
+
+--- db_card.hsp:11406   CREATURE_ID_HARD_GAY   creatura 321
+    NOME  jp エクスプロージョマン
+          en explosioman
+          IT l'uomo esplosivo
+    JP    テロリストが生化学文明の遺物を悪用して製造したクローン人間。人込みに紛れて爆発させるのが目的。テロリストが遺物の使い方をよく分かっていないため、みんな同じ姿で出力されてしまう。爆発に命を賭けることが芸術だと、本能的に刷り込まれている。
+    EN    Cloned human beings produced by terrorists exploiting relics of biochemical civilisations. The aim is to detonate them in crowded places. As the terrorists do not know how to use the relics well, they are all output in the same appearance. They are instinctively imprinted with the idea that risking their lives in an explosion is an art form.
+
+--- db_card.hsp:11420   CREATURE_ID_RODLOB_THE_YEEK_CHIEF   creatura 242
+    NOME  jp イークの首領『ルードルボ』
+          en <Rodlob> the yeek chief
+          IT <Rodlob> il capo degli yeek
+    JP    イーク界の絶対のカリスマ。高い知能を持ち、種族全体をまとめ上げている。仲間を集めヨウィンの農作物を略取しようと画策している。
+    EN    Absolute charisma of the yeek world. Highly intelligent, he unites the entire tribe. He plans to gather his friends and plunder Yowyn's crops.
+
+--- db_card.hsp:11433   CREATURE_ID_HOT_SPRING_MANIAC   creatura 239
+    NOME  jp 温泉マニア
+          en hot spring maniac
+          IT l'amante delle terme
+    JP    温泉の魅力に取りつかれ、呪いのごとく温泉につかり続ける者たち。すでに全身がふやけている。温泉の魅力について尋ねようものならマニアックな話を延々と聞かされるのでやめたほうがいい。
+    EN    Those who have fallen under the spell of the hot springs and continue to bathe in them like a curse. Their whole body is already soaked. If you try to ask about the charms of hot springs, you will be told endless maniacal stories, so it's best not to try.
+
+--- db_card.hsp:11446   CREATURE_ID_CENTIPEDE   creatura 14
+    NOME  jp ムカデ
+          en centipede
+          IT il millepiedi
+    JP    土の多い場所を好んで生息し、様々な地域で見かける事が出来る。攻撃には使わないが毒をもっており、食べると吐き気を催す。
+    EN    A small creature that lives in soil, and thus appears in many places. Though it doesn't use it to attack, the creature does contain poison, so eating it will make you sick.
+
+--- db_card.hsp:11459   CREATURE_ID_MUSHROOM   creatura 15
+    NOME  jp きのこ
+          en mushroom
+          IT il fungo
+    JP    死体を養分に成長する菌糸類。エーテルの影響で突然変異を起こして巨大化した。胞子も巨大化しており攻撃手段になっている。
+    EN    A mushroom that feeds on decaying corpses in order to grow. Exposure to Ether has caused it to mutate and grow to gigantic sizes. That includes its spores, which it uses as a weapon.
+
+--- db_card.hsp:11472   CREATURE_ID_SPORE_MUSHROOM   creatura 283
+    NOME  jp 胞子きのこ
+          en spore mushroom
+          IT il fungo sporifero
+    JP    自生した土壌や空気のせいか、胞子に毒を含むようになったきのこ。むやみに食せば腹痛にのた打ち回ることになるだろう。
+    EN    Mushrooms that have become poisonous in their spores due to the soil and air in which they grow. If consumed carelessly, the mushrooms can cause abdominal pain. 
+
+--- db_card.hsp:11485   CREATURE_ID_CHAOS_MUSHROOM   creatura 284
+    NOME  jp 混沌きのこ
+          en chaos mushroom
+          IT il fungo del caos
+    JP    混沌の力を取り込んだ菌糸類で、胞子で敵を狙い撃ちじわじわと弱らせる。その危険な胞子はさまざまな苦しみを与える力を持つ。
+    EN    A mycelium that has taken on the power of chaos, it uses its spores to target and slowly weaken its enemies. Its dangerous spores have the power to inflict various kinds of suffering. 
+
+--- db_card.hsp:11498   CREATURE_ID_CITIZEN   creatura 16
+    NOME  jp 市民
+          en citizen
+          IT None
+    JP    街で暮らす人々。子供の誕生日を祝ったり、パーティーに行ったり、人の物を欲しがったり、モンスターに襲われたりと忙しい日々を送っている。
+    EN    People who live in a city. They'll keep you busy by asking you to provide them birthday gifts, performing for parties, getting things from other people, and protecting the town from monsters.
+
+--- db_card.hsp:11511   CREATURE_ID_CITIZEN2   creatura 39
+    NOME  jp 市民
+          en citizen
+          IT None
+    JP    どこの町にもいる、なんら変わったところの無い一般市民。彼らは一般に光物を収集することを好むが、同時に食べ切れなくて腐ってしまった食料を捨てきれずに持ち歩く一面も持つ。
+    EN    They are ordinary citizens in every town, who are not different in any way. They generally like to collect light objects, but at the same time they have a side that carries around uneaten and rotten food that they can't throw away. 
+
+--- db_card.hsp:11524   CREATURE_ID_CITIZEN_OF_CYBER_DOME   creatura 171
+    NOME  jp サイバードームの住人
+          en citizen of cyber dome
+          IT l'abitante della cupola cibernetica
+    JP    エイス・テールの遺産とも言われる機械で出来た巨大な建築物、アクリ・テオラに暮らす人々。人工的に整えられた快適な環境で過ごし、機械信仰が盛んに行われている。
+    EN    People live in Cyber Dome, a huge structure made of machines, which is said to be the legacy of Eyth Terre. They live in an artificially prepared and comfortable environment and have a thriving machine religion. 
+
+--- db_card.hsp:11537   CREATURE_ID_CITIZEN_OF_CYBER_DOME2   creatura 172
+    NOME  jp サイバードームの住人
+          en citizen of cyber dome
+          IT None
+    JP    ヴェルニースの南西の森の中に存在する怪しげな建物に住む人々。一説によるとそこは旧文明の遺産とも言うべき存在であり、とある神の祝福を受けているとかいないとか。
+    EN    People live in a mysterious building that exists in the forest south-west of Vernis. According to one theory, it is a legacy of the old civilisation and may or may not have been blessed by a certain god. 
+
+--- db_card.hsp:11550   CREATURE_ID_SALES_PERSON   creatura 173
+    NOME  jp セールスマン
+          en sales person
+          IT l'agente di commercio
+    JP    彼らが取り扱う商品は、各種不動産や遺産相続の権利書から、果ては銃器に至るまで多岐にわたる。まさに揺り籠から墓場までカバーしていると言えよう。
+    EN    The products they handle range from various types of property and inheritance rights to firearms. It can be said that they cover everything from the cradle to the grave. 
+
+--- db_card.hsp:11563   CREATURE_ID_SAILOR   creatura 71
+    NOME  jp 水夫
+          en sailor
+          IT il marinaio
+    JP    海を愛し、船を繰って異国を渡り行く仕事人。海は海賊や危険な魔物が多いくせにやりすごすことも難しく、水夫にとって地上の港町は安らぎの場所らしい。
+    EN    A man of business who loves the sea and sailing his ship across foreign lands. The sea is full of pirates and dangerous monsters, but it is also difficult to get around them, and it is said that port towns on the ground are a place of peace for sailors. 
+
+--- db_card.hsp:11576   CREATURE_ID_CAPTAIN   creatura 72
+    NOME  jp 船長
+          en captain
+          IT il capitano
+    JP    海に生き、波風を浴び、命も同等である船を駆って各国を渡り行く猛者。熟練しても予測の難しいエーテルの風により船とともに海の藻屑となるケースが多い。
+    EN    A fierce warrior who lives on the sea, bathed in waves and winds, and travels across countries in a ship whose life is equal to his own. Even the most skilled of sailors often end up with their ships in the sea due to the ether winds, which are difficult to predict. 
+
+--- db_card.hsp:11589   CREATURE_ID_STERSHA_THE_QUEEN_OF_PALMIA   creatura 79
+    NOME  jp パルミア王妃『スターシャ』
+          en <Stersha> the queen of Palmia
+          IT <Stersha> la regina di Palmia
+    JP    慈悲深く慎み深いジャビ王の妃。夫のことを深く愛しており、パルミア国内では理想的な夫婦としても有名。物腰は柔らかいが、賊に対しては見下すような態度をとることも。
+    EN    Queen of the benevolent and modest King Jabi. She is deeply in love with her husband and is well known in Palmia as the ideal couple. She is soft-spoken, but can be condescending towards bandits.
+
+== 38 carte fra la riga 11101 e la 11600

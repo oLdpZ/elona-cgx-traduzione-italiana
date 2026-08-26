@@ -1,0 +1,274 @@
+--- db_card.hsp:11602   CREATURE_ID_XABI_THE_KING_OF_PALMIA   creatura 80
+    NOME  jp パルミア王『ジャビ』
+          en <Xabi> the king of Palmia
+          IT <Xabi> il re di Palmia
+    JP    聡明なパルミアの王。民を思う心を強く持って善政を布くが、それゆえ自国民を危険に晒す危険性のある選択肢に対しては、必要以上に慎重になり過ぎるきらいがある。
+    EN    Wise king of Palmia. He is a benevolent ruler with a strong sense of duty to his people, but he tends to be more cautious than necessary about choices that might endanger his own people. 
+
+--- db_card.hsp:11615   CREATURE_ID_ORC   creatura 17
+    NOME  jp オーク
+          en orc
+          IT l'orco
+    JP    かつては白い肌の美しいエレアのような見た目の種族だった。邪悪な存在に堕落させられて現在の姿になったと言われている。
+    EN    At one time, these were a beautiful pale-skinned tribe of people similar to the Elea. It is said that their current appearance is due to being corrupted by wicked thoughts.
+
+--- db_card.hsp:11628   CREATURE_ID_LIZARD_MAN   creatura 281
+    NOME  jp リザードマン
+          en lizard man
+          IT l'uomo lucertola
+    JP    硬い鱗の肌を持つ竜人の戦士。武器や防具を扱う知性を持ち、独自の文化を築いているが、好戦的で他種族との交流はあまり無い。
+    EN    A dragonborn warrior with hard scaly skin. They have the intelligence to handle weapons and armour and have developed their own culture, but are belligerent and do not interact much with other races. 
+
+--- db_card.hsp:11641   CREATURE_ID_MINOTAUR   creatura 282
+    NOME  jp ミノタウロス
+          en minotaur
+          IT il minotauro
+    JP    すさまじい筋肉と体力を誇る牛人。自慢の体力にものを言わせ、手にした獲物を振るうことで幾人もの冒険者を挽き肉にしてきた。
+    EN    A bullfighter with tremendous muscle and strength. He has turned many adventurers into ground meat by using his physical strength to wield the prey in his hands. 
+
+--- db_card.hsp:11654   CREATURE_ID_MINOTAUR_MAGICIAN   creatura 296
+    NOME  jp ミノタウロスの術士
+          en minotaur magician
+          IT il minotauro mago
+    JP    牛頭ながら必死に勉強し、ファイアボルトを始めとする簡単な魔法を習得した。呪いの言葉は頭のいい冒険者に対する嫉妬らしい。
+    EN    Despite being a cow-head, he studied hard and learnt simple magic, including firebolt. His curse word seems to be jealousy of smart adventurers. 
+
+--- db_card.hsp:11667   CREATURE_ID_MINOTAUR_BOXER   creatura 298
+    NOME  jp ミノタウロスの闘士
+          en minotaur boxer
+          IT il minotauro pugile
+    JP    武器を使わずに己のコブシのみで戦えるまでに至った闘士。しかし愛用の斧がないと落ち着かないので結局いつも携行している。
+    EN    A fighter who has reached the point where he can fight without weapons, using only his knob. However, he is uncomfortable without his favourite axe, which he carries with him at all times. 
+
+--- db_card.hsp:11680   CREATURE_ID_MINOTAUR_KING   creatura 299
+    NOME  jp ミノタウロスの戦士
+          en minotaur king
+          IT il minotauro re
+    JP    凄まじい筋肉と体力を誇る牛人の戦士。戦士として修練を重ねたミノタウロスの自由自在に振るわれる鈍器は、唸り声を上げながら敵を粉砕する。
+    EN    A bullfighter who boasts tremendous muscle and physical strength. Trained as warriors, the freely wielded blunt weapons of the minotaurs crush their enemies with a roar. 
+
+--- db_card.hsp:11693   CREATURE_ID_UNGAGA_THE_MINOTAUR_KING   creatura 300
+    NOME  jp ミノタウロスの王『ウンガガ』
+          en <Ungaga> the minotaur king
+          IT <Ungaga> il re dei minotauri
+    JP    野蛮なミノタウロスたちを束ねる王。屈強な体格と恐るべき破壊力の斧で、敵の肉体と戦う意志を完膚なきまでに破壊する。王都への侵攻を企てているが、自分の巣で迷子になっており外に出られない。
+    EN    King who unites the savage minotaurs. With his mighty physique and fearsome destructive axe, he utterly destroys the bodies and will to fight of his enemies. He plans to invade the royal capital, but is lost in his own lair and unable to get out.
+
+--- db_card.hsp:11706   CREATURE_ID_TROLL   creatura 251
+    NOME  jp トロール
+          en troll
+          IT il troll
+    JP    巨大な体躯を持つ亜人の一種。再生力の高さが有名で、小さな傷ならすぐ治る。その秘密は特殊な血液にあると言われている。
+    EN    A type of subhuman with a gigantic physique. They are famous for their regenerative powers and can quickly heal small wounds. The secret is said to lie in its special blood.
+
+--- db_card.hsp:11719   CREATURE_ID_WARRIOR_OF_ELEA   creatura 18
+    NOME  jp エレアの戦士
+          en warrior of Elea
+          IT il guerriero di Elea
+    JP    ネフィアで暮らすエレアの民。迫害され町を追い出されたため、ネフィアの外からやってくる人物に対して恨みを抱いている。武装はネフィアで暮らすため仕方なくしているそうだ。
+    EN    An Elea who lives within ruins of Nefia. Because they were persecuted and exiled from their villages, they bear a grudge against those who enter the ruins. Their armaments are a natural consequence of having to live within the ruins.
+
+--- db_card.hsp:11732   CREATURE_ID_WIZARD_OF_ELEA   creatura 24
+    NOME  jp エレアの魔術士
+          en wizard of Elea
+          IT il mago di Elea
+    JP    ネフィアで暮らすエレアの民。迫害され町を追い出されたため、仕方なく雨風をしのげるネフィアで暮らしている。警戒心が強く、見慣れない相手はエレアだろうと攻撃する。
+    EN    Elea folks living inside Nefia. Persecuted and forced out of their town, they have no choice but to live in Nefia, where they can shelter from the wind and rain. They are very wary and will attack anyone unfamiliar to them, even if they are Elea.
+
+--- db_card.hsp:11745   CREATURE_ID_ASURA   creatura 309
+    NOME  jp 阿修羅
+          en asura
+          IT l'asura
+    JP    古の火の神の欠片を宿した好戦的な魔物。多手それぞれに武器を持ち、狂ったように敵対者を切り刻む。手に意識を集中しすぎて足元がお留守になることも。
+    EN    A belligerent demon that bears the shards of an ancient fire god. It holds a weapon in each of its many hands, and madly chops up its opponents. Sometimes concentrates too much on his hands, leaving his feet unattended.
+
+--- db_card.hsp:11758   CREATURE_ID_MITRA   creatura 310
+    NOME  jp ミトラ
+          en mitra
+          IT il Mitra
+    JP    古の太陽の神の欠片を宿した魔物。この太陽神の祭祀が、現在のジュア祭に影響を与えたと唱える歴史家もいる。なぜ緑色なのかはその歴史家にもわからないそうだが。
+    EN    A demon that inhabits a piece of the ancient sun god. Some historians claim that the rituals of this sun god influenced the present day Jua festival. Why it is green, though, is said to be unknown to those historians.
+
+--- db_card.hsp:11771   CREATURE_ID_VARUNA   creatura 311
+    NOME  jp ヴァルナ
+          en varuna
+          IT il varuna
+    JP    古の天空と秩序の神の欠片を宿した魔物。水を統べる能力も失われて久しく、この異形は目前の敵を物理的に殲滅するだけに、美しい腕を旋回させる。
+    EN    A demon that bears the fragments of an ancient god of sky and order. The ability to govern the waters has long since been lost, and this variant swivels its beautiful arms only to physically annihilate the enemy in front of it. 
+
+--- db_card.hsp:11784   CREATURE_ID_WIZARD   creatura 41
+    NOME  jp 魔術士
+          en wizard
+          IT il mago
+    JP    精霊と心を通わせ、神々の力の輪廻をひもとき生きる識者。厳然たる基礎事実の積み重ねを重視する科学者と対立する事が多い。
+    EN    A intellectual who communicates with spirits and lives through the circle of the gods' power. He is often at odds with scientists who emphasise the accumulation of rigorous basic facts. 
+
+--- db_card.hsp:11797   CREATURE_ID_WARRIOR   creatura 75
+    NOME  jp 戦士
+          en warrior
+          IT il guerriero
+    JP    己の身体を鍛錬し、常人に抗し得ない活力で生活する者達。戦闘力に特化し、主に戦乱下において真価を発揮するため、平時には軍人、教官や、力仕事に就く事が多い。
+    EN    They are those who train their bodies and live with a vitality that ordinary people cannot resist. As they specialise in combat and mainly show their true value in times of war, they are often employed as soldiers, instructors or in hard work in times of peace. 
+
+--- db_card.hsp:11810   CREATURE_ID_MANDRAKE   creatura 19
+    NOME  jp マンドレイク
+          en mandrake
+          IT la mandragora
+    JP    土地の魔力を糧に成長した野菜に似たモンスター。多分に魔力を含んだ彼らの肉には冒険者の魔力を僅かながら刺激する効果がある。音属性の魔法でもある悲鳴に注意。
+    EN    A monster, resembling a vegetable, that grows by feeding on magical energy within the soil. Their flesh contains a large amount of magical energy, and is capable of stimulating the magical powers of those who consume it. Be wary of its terrifying screams, which are magic with the attribute of sound.
+
+--- db_card.hsp:11823   CREATURE_ID_BEETLE   creatura 22
+    NOME  jp かぶと虫
+          en beetle
+          IT lo scarabeo
+    JP    街の子供の憧れな昆虫。乱獲によって大昔に野生のかぶと虫は絶滅したが、品種改良された個体が脱走し野生化している。越冬し、寿命も長い。
+    EN    Insects that are the dream of every child in the city. Wild beetles died out a long time ago due to overhunting, but bred individuals have escaped and are now in the wild. They survive over winter and have a long lifespan.
+
+--- db_card.hsp:11836   CREATURE_ID_ORC_WARRIOR   creatura 20
+    NOME  jp オークの戦士
+          en orc warrior
+          IT l'orco guerriero
+    JP    オーク達の中でも特に勇猛で好戦的な者達。オークは手先が器用で機械にも興味を示すが、武器等の破壊をもたらす物以外を一切作ろうとしない。
+    EN    Orcs are a tribe of particularly brave and warlike people. Orcs are very skillful with their hands and show interest in machinery, but they don't try to make anything other than weapons.
+
+--- db_card.hsp:11849   CREATURE_ID_GODA_THE_CAPTAIN_OF_ORC   creatura 25
+    NOME  jp オークの隊長『ゴダ』
+          en <Goda> the captain of orc
+          IT <Goda> il capitano degli orchi
+    JP    オーク族の歴戦の勇者。オークは決して愚かな存在では無いのだが鈍感で勝手なため、隊長となって部隊を纏めようとする者は非常に珍しい。
+    EN    A brave warrior of the Orc tribe who has fought in many battles. Orcs are not stupid, but they are insensitive and self-indulgent, so it is very rare for them to become captains and try to unite their troops. 
+
+--- db_card.hsp:11862   CREATURE_ID_ZOMBIE   creatura 21
+    NOME  jp ゾンビ
+          en zombie
+          IT lo zombi
+    JP    埋葬された遺体に残されたマナが周囲の魔力に反応し、取り込むべく遺体を動かしている。稀に生前の意識が残っている個体も存在する。
+    EN    A re-animated corpse brought to life by a reaction between mana left in its body and the mana in its surroundings. It's rare to find one that retains any memories of its life.
+
+--- db_card.hsp:11875   CREATURE_ID_BAT   creatura 42
+    NOME  jp コウモリ
+          en bat
+          IT il pipistrello
+    JP    野外で良く見かける野生動物。素早い動きでひらりと身をかわす。超音波で周囲の状況がわかるため、盲目状態にならない。よく裏切るやつ、というイメージのせいで迷惑している。
+    EN    Wild animals often seen in the open. Dodges and dodges with quick movements. They use ultrasound to understand their surroundings, so they are not blind. They are inconvenienced by the inaccurate vision.
+
+--- db_card.hsp:11888   CREATURE_ID_VAMPIRE_BAT   creatura 43
+    NOME  jp 吸血コウモリ
+          en vampire bat
+          IT il pipistrello vampiro
+    JP    コウモリの中でも吸血を行う種類の総称。ただしあまりお腹が膨れないため、吸血はおやつ感覚でしかないらしい。集団で獲物に群がり、血を吸い尽くしてしまう。
+    EN    A generic name for a species of bat that sucks blood. However, as their stomachs do not swell much, blood sucking is said to be only a snack. They swarm over their prey in groups and suck all the blood.
+
+--- db_card.hsp:11901   CREATURE_ID_DRAGON_BAT   creatura 44
+    NOME  jp ドラゴンバット
+          en dragon bat
+          IT il pipistrello drago
+    JP    竜のような翼を持つ戦闘能力の高い蝙蝠。その素早さに魅入られ、なんとかして乗馬しようとする者もいるという。ワイバーンに遭遇すると張り合おうとする習性がある。
+    EN    A highly skilled bat with dragon-like wings. Some are said to be fascinated by its swiftness and try to ride it somehow. They have a habit of trying to compete with wyverns when they encounter them.
+
+--- db_card.hsp:11914   CREATURE_ID_FIRE_ENT   creatura 45
+    NOME  jp 火炎樹
+          en fire ent
+          IT l'ent di fuoco
+    JP    美しい炎の花を咲かせたエント。動きはやや遅いものの高い生命力を誇り、その巨大な枝を振るう一撃はとても強烈である。
+    EN    Ent with beautiful flame flowers. Although it moves rather slowly, it boasts high vitality and the strikes it delivers with its huge branches are very powerful. 
+
+--- db_card.hsp:11927   CREATURE_ID_ICE_ENT   creatura 46
+    NOME  jp 氷結樹
+          en ice ent
+          IT l'ent di ghiaccio
+    JP    美しい氷の花を咲かせたエント。冷気に包まれた幹や枝は水晶のように輝いており、観賞用として貴族の間で人気が高い。
+    EN    Ent with beautiful ice flowers. The trunks and branches, surrounded by cold air, shine like crystals and are popular among the nobility as ornamental plants. 
+
+--- db_card.hsp:11940   CREATURE_ID_LICH   creatura 47
+    NOME  jp リッチ
+          en lich
+          IT il lich
+    JP    生前は魔術士だった者が死してなお現世にしがみつこうとした成れの果て。理性の残っていない者は人に害をもたらす仇敵となる。
+    EN    The result of those who were mages in life and tried to cling to this world even after death. Those who have no reason left become avengers who bring harm to others. 
+
+--- db_card.hsp:11953   CREATURE_ID_MASTER_LICH   creatura 48
+    NOME  jp マスターリッチ
+          en master lich
+          IT il lich maestro
+    JP    肉体を失い霊体化が進んできたリッチ。長き時の中で永遠を求めた過去の記憶は既に磨耗してしまっており、道行く生者を同じ存在に落とそうとする魔物と化している。
+    EN    Lich, who has lost his physical body and has been transformed into a spirit body. The memories of the past, which sought eternity in the long passage of time, have already worn away, and he has become a monster who tries to reduce the living in his path to the same existence. 
+
+--- db_card.hsp:11966   CREATURE_ID_DEMI_LICH   creatura 49
+    NOME  jp デミリッチ
+          en demi lich
+          IT il lich minore
+    JP    肉体が崩れ落ち半霊の存在となったリッチ。久遠の年月を彷徨い続けた結果、驚異的な魔力と引き換えに本能のみで生者を殺害しようとする悪霊となった。
+    EN    Lich, whose physical body collapsed and he became a half-spirit. As a result of his wandering through the ages, he became an evil spirit that tries to kill the living with only his instincts in exchange for his amazing magical powers. 
+
+--- db_card.hsp:11979   CREATURE_ID_EXECUTIONER   creatura 307
+    NOME  jp 死刑執行人
+          en executioner
+          IT il boia
+    JP    死に通ずる冥界の魔物。生きることが罪であるという生者と相いれない価値観を持ち、相手を強制的に殺害する恐ろしい呪いで一方的に刑を執行する。
+    EN    A monster of the underworld that is connected to death. It has values that are incompatible with those of the living, which state that to live is a sin, and unilaterally executes sentences with a terrible curse that forcibly kills its opponents. 
+
+--- db_card.hsp:11992   CREATURE_ID_MESSENGER_OF_DEATH   creatura 308
+    NOME  jp 死神の使い
+          en messenger of death
+          IT il messo della morte
+    JP    死に通ずる冥界の魔物。生者と死者の数の帳尻を合わせるために、彼らは死神の命令で死の宣告を行う。たいていは本来迎えるはずの死ではないため、返り討ちにすればなかったことにできる。
+    EN    A monster of the underworld that is connected to death. In order to balance the numbers of the living and the dead, they are ordered by the god of death to declare death sentences. Most of the time, the death is not the death that should have come, so it can be pretended that it never happened if the victim survives.
+
+--- db_card.hsp:12005   CREATURE_ID_HOUND   creatura 50
+    NOME  jp 猟犬
+          en hound
+          IT il segugio
+    JP    獲物を狩ることに特化している犬。犬は縄張り意識が強いために、自分より強いレベルの犬がいる場所には住み着くことはない。
+    EN    Dogs specialize in hunting prey. Because dogs are territorial, they will not settle in areas where there are dogs on a stronger level than themselves.
+
+--- db_card.hsp:12018   CREATURE_ID_FIRE_HOUND   creatura 51
+    NOME  jp ファイアハウンド
+          en fire hound
+          IT il segugio di fuoco
+    JP    火炎の息吹を放つ犬。放たれる炎はインド象を一瞬で丸焼きにしてしまうほど。熱に強いのは頭部や毛皮だけであり、肉は普通に焼くことができる。
+    EN    A dog that unleashes a breath of flame. The flames it releases can roast an Indian elephant whole in an instant. Only their heads and fur are resistant to heat; meat can be roasted normally.
+
+--- db_card.hsp:12031   CREATURE_ID_ICE_HOUND   creatura 52
+    NOME  jp アイスハウンド
+          en ice hound
+          IT il segugio di ghiaccio
+    JP    帯びたものを氷結させる息吹を放つ犬。インド象の縄張りに侵入し、手当たり次第に氷漬けにするほど狂暴で迷惑な奴。でも夏になると途端に人気が出る。
+    EN    A dog that releases breath that freezes anything it is girdled with. He is so rabid and annoying that he invades Indian elephant territory and freezes them at random. But he is instantly popular in summer.
+
+--- db_card.hsp:12044   CREATURE_ID_LIGHTNING_HOUND   creatura 53
+    NOME  jp ライトニングハウンド
+          en lightning hound
+          IT il segugio del fulmine
+    JP    雷撃を帯びた息吹を放つ犬。水浴びをしているインド象を感電死させることで有名。いくら電気に強い装備をしていてもまともに息吹を浴びれば少しの間痺れてしまう。
+    EN    Dogs that release lightning-breath tinged breath. Famous for electrocuting Indian elephants bathing in water. No matter how much electricity-resistant equipment you have, you will be paralysed for a short while if you are exposed to the breath.
+
+--- db_card.hsp:12057   CREATURE_ID_DARK_HOUND   creatura 54
+    NOME  jp ダークハウンド
+          en dark hound
+          IT il segugio dell'oscurità
+    JP    暗黒をもたらす息吹を放つ犬。対象が見えなければ多くの魔法は発動できないため、多くの魔法使いの天敵と言える。性格もダークで、かわいそうなインド象をもそそのかし暗黒面に叩き落とすという。
+    EN    A dog that releases breath that brings darkness. It is the natural enemy of many wizards, as it cannot perform many of its magic if it cannot see its target. It has a dark personality and is said to seduce poor Indian elephants and bring them down to the dark side.
+
+--- db_card.hsp:12070   CREATURE_ID_ILLUSION_HOUND   creatura 55
+    NOME  jp 幻惑ハウンド
+          en illusion hound
+          IT il segugio mentale
+    JP    幻覚成分を含む息吹を放つ犬。その息吹は少し吸い込むだけでインド象でも昏倒してしまう。混乱した獲物がふらふらになる様を眺めるのが好きらしい。
+    EN    Dogs that release breath containing hallucinogenic ingredients. The breath can cause even an Indian elephant to fall into a stupor if it inhales just a little. They like to watch their confused prey become flustered.
+
+--- db_card.hsp:12083   CREATURE_ID_NERVE_HOUND   creatura 56
+    NOME  jp 神経ハウンド
+          en nerve hound
+          IT il segugio dei nervi
+    JP    神経を麻痺させる息吹を放つ犬。麻痺して動けなくなった獲物に思う存分食らいつく戦法をとる。インド象であろうと息吹を吸い込んでしまったら卒倒は免れない。
+    EN    A dog that releases a breath that paralyses the nerves. It will bite its paralysed, immobilised prey to its heart's content. Even an Indian elephant cannot escape a stroke if it inhales the breath.
+
+--- db_card.hsp:12096   CREATURE_ID_POISON_HOUND   creatura 57
+    NOME  jp ポイズンハウンド
+          en poison hound
+          IT il segugio del veleno
+    JP    猛毒の息吹を放つ犬。その毒は致命的ではないものの、時間とともに確実に命を蝕む。記録によれば、インド象の多くがこの毒によって命を落としたとされている。
+    EN    The dog releases a highly poisonous breath. The poison is not fatal, but it certainly eats away at their lives over time. Records indicate that many Indian elephants have lost their lives to this poison.
+
+== 39 carte fra la riga 11601 e la 12100

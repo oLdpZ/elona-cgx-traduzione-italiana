@@ -1,0 +1,161 @@
+    # ---------------------------------------------------------- :11106
+    (11106, 'The figure of a person who has gone mad with delusion about the healing goddess Jure. There is not a shred of healing in their appearance. As far as the eye can see, they are happy...'):
+        "",
+
+    # ---------------------------------------------------------- :11119
+    (11119, 'They had to get their hands dirty in order to live in the town of their birth. They know no other way of life.They live today on the money they skim off the backs of the unwary.'):
+        "",
+
+    # ---------------------------------------------------------- :11132
+    (11132, "Gives massages that feel so good that they drive you crazy. They usually speak to customers in a catcall voice, but their attitude changes abruptly when they realise that the customer doesn't have any money."):
+        "",
+
+    # ---------------------------------------------------------- :11145
+    (11145, 'Captives and prisoners. It takes hours, days or even years to clear the negative karma they have accumulated. Today, the voices of those pleading for their innocence echo in vain in their cells.'):
+        "",
+
+    # ---------------------------------------------------------- :11158
+    (11158, "They paint a picture of their 'way of life' on the canvas of 'life'. Whether it will be a masterpiece or not, and when it will be completed, is up to them."):
+        "",
+
+    # ---------------------------------------------------------- :11171
+    (11171, "He usually observes the lives of commoners in search of excitement. Basically, he doesn't carry much cash, but behind the scenes he spends money lavishly for his own proclivities."):
+        "",
+
+    # ---------------------------------------------------------- :11184
+    (11184, "A member of the Mages' Guild. His job is to decipher ancient texts, and he can use his knowledge to do magic, but he is not good at rough work as he is always researching."):
+        "",
+
+    # ---------------------------------------------------------- :11197
+    (11197, 'A group of people who live in the underworld. They have their own way of doing things. They have strict rules. Their skills can be of great help as long as you keep to the rules.'):
+        "",
+
+    # ---------------------------------------------------------- :11210
+    (11210, 'Basically, he is not good at thinking things deeply. However, that is why they have no doubts at all and are very reliable in battle. Many of them have admiration for their guildmaster.'):
+        "",
+
+    # ---------------------------------------------------------- :11223
+    (11223, 'Their unquestioning faith in the bright future that will come their way is what we call a child. No matter how much time passes, they are children as long as they continue to believe in it blindly. '):
+        "",
+
+    # ---------------------------------------------------------- :11236
+    (11236, 'This includes not only those who have aged, but also those who have aged rapidly, but only physically, at a young age. They spend their days just wandering around the city aimlessly. '):
+        "",
+
+    # ---------------------------------------------------------- :11249
+    (11249, 'These eccentrics are devoted to the legacy and knowledge of ancient civilisations, and play around with machines in strange outfits. They are, they say, imitating the heretics of Eyth Terre. '):
+        "",
+
+    # ---------------------------------------------------------- :11262
+    (11262, 'The perfect animal: edible and delicious meat, produces nutritional milk, and grows wool that can be used for clothing. Many escape their pens and snack on the neighboring fields.'):
+        "",
+
+    # ---------------------------------------------------------- :11275
+    (11275, 'A species of flying frog found all over North Tyris. They can \\"swim\\" through the air as easily as swimming through water, though how this functions is unknown. Since even children are strong enough to take one down, they\'re a popular snack.'):
+        "",
+
+    # ---------------------------------------------------------- :11288
+    (11288, 'Unemployed hooligans that wander about using blackmail and picking pockets in order to support themselves. They look strong and put up a brave front, but their true strength you can probably guess.'):
+        "",
+
+    # ---------------------------------------------------------- :11301
+    (11301, 'A small monster with the head of a dog. Though it\'s difficult to process and so isn\'t used very often, the ore \\"cobalt\\" is said to come from this monster.'):
+        "",
+
+    # ---------------------------------------------------------- :11314
+    (11314, 'Beasts with a human-like appearance. They are stupid and frail, and on their own are only as capable as human children, but they attack with numbers to compensate. '):
+        "",
+
+    # ---------------------------------------------------------- :11327
+    (11327, 'Beasts with a human-like appearance. Only those who have endured the most rigorous training among the Yeeks are awarded the title of warrior. For this reason, they are proud to be warriors.'):
+        "",
+
+    # ---------------------------------------------------------- :11340
+    (11340, 'The yeek has the intelligence to attack from a distance compared to other members of his tribe. As a result of continually pulling the strings to handle the bow, his body has been trained, although not as well as the warriors of his own tribe. '):
+        "",
+
+    # ---------------------------------------------------------- :11353
+    (11353, 'Elite of the elite, destined to become a master from birth. They excel in their ability to command and lead their own people, and they have commanded a large number of Yeeks. '):
+        "",
+
+    # ---------------------------------------------------------- :11366
+    (11366, 'The means they chose to overcome the low physical capabilities of the Yeeks was self-destruction at the cost of their own lives. However, it was easily detonated and their allies were also collateralised. '):
+        "",
+
+    # ---------------------------------------------------------- :11379
+    (11379, 'They are the result of warriors exiled from the East. Known as Ochimsha, they are said to want to die spectacularly on the battlefield for the sake of their home and honour, but they are actually very afraid of dying. '):
+        "",
+
+    # ---------------------------------------------------------- :11392
+    (11392, 'An ordinary rock has mutated into a monster. It is watched with a grin, but even the slightest provocation can cause it to explode, so it should be handled carefully from a distance. '):
+        "",
+
+    # ---------------------------------------------------------- :11405
+    (11405, 'It was designated a hard gay species because it was the hardest of the gay species. They have a habit of being attracted to muscular muscles. The existence of soft gay species is debated in academic circles.'):
+        "",
+
+    # ---------------------------------------------------------- :11406
+    (11406, 'Cloned human beings produced by terrorists exploiting relics of biochemical civilisations. The aim is to detonate them in crowded places. As the terrorists do not know how to use the relics well, they are all output in the same appearance. They are instinctively imprinted with the idea that risking their lives in an explosion is an art form.'):
+        "",
+
+    # ---------------------------------------------------------- :11412
+    (11412, 'hard gay'):
+        "",
+
+    # ---------------------------------------------------------- :11420
+    (11420, "Absolute charisma of the yeek world. Highly intelligent, he unites the entire tribe. He plans to gather his friends and plunder Yowyn's crops."):
+        "",
+
+    # ---------------------------------------------------------- :11433
+    (11433, "Those who have fallen under the spell of the hot springs and continue to bathe in them like a curse. Their whole body is already soaked. If you try to ask about the charms of hot springs, you will be told endless maniacal stories, so it's best not to try."):
+        "",
+
+    # ---------------------------------------------------------- :11446
+    (11446, "A small creature that lives in soil, and thus appears in many places. Though it doesn't use it to attack, the creature does contain poison, so eating it will make you sick."):
+        "",
+
+    # ---------------------------------------------------------- :11459
+    (11459, 'A mushroom that feeds on decaying corpses in order to grow. Exposure to Ether has caused it to mutate and grow to gigantic sizes. That includes its spores, which it uses as a weapon.'):
+        "",
+
+    # ---------------------------------------------------------- :11472
+    (11472, 'Mushrooms that have become poisonous in their spores due to the soil and air in which they grow. If consumed carelessly, the mushrooms can cause abdominal pain. '):
+        "",
+
+    # ---------------------------------------------------------- :11485
+    (11485, 'A mycelium that has taken on the power of chaos, it uses its spores to target and slowly weaken its enemies. Its dangerous spores have the power to inflict various kinds of suffering. '):
+        "",
+
+    # ---------------------------------------------------------- :11498
+    (11498, "People who live in a city. They'll keep you busy by asking you to provide them birthday gifts, performing for parties, getting things from other people, and protecting the town from monsters."):
+        "",
+
+    # ---------------------------------------------------------- :11511
+    (11511, "They are ordinary citizens in every town, who are not different in any way. They generally like to collect light objects, but at the same time they have a side that carries around uneaten and rotten food that they can't throw away. "):
+        "",
+
+    # ---------------------------------------------------------- :11524
+    (11524, 'People live in Cyber Dome, a huge structure made of machines, which is said to be the legacy of Eyth Terre. They live in an artificially prepared and comfortable environment and have a thriving machine religion. '):
+        "",
+
+    # ---------------------------------------------------------- :11537
+    (11537, 'People live in a mysterious building that exists in the forest south-west of Vernis. According to one theory, it is a legacy of the old civilisation and may or may not have been blessed by a certain god. '):
+        "",
+
+    # ---------------------------------------------------------- :11550
+    (11550, 'The products they handle range from various types of property and inheritance rights to firearms. It can be said that they cover everything from the cradle to the grave. '):
+        "",
+
+    # ---------------------------------------------------------- :11563
+    (11563, 'A man of business who loves the sea and sailing his ship across foreign lands. The sea is full of pirates and dangerous monsters, but it is also difficult to get around them, and it is said that port towns on the ground are a place of peace for sailors. '):
+        "",
+
+    # ---------------------------------------------------------- :11576
+    (11576, 'A fierce warrior who lives on the sea, bathed in waves and winds, and travels across countries in a ship whose life is equal to his own. Even the most skilled of sailors often end up with their ships in the sea due to the ether winds, which are difficult to predict. '):
+        "",
+
+    # ---------------------------------------------------------- :11589
+    (11589, 'Queen of the benevolent and modest King Jabi. She is deeply in love with her husband and is well known in Palmia as the ideal couple. She is soft-spoken, but can be condescending towards bandits.'):
+        "",
+
+# 40 voci fra la riga 11101 e la 11600, 0 ambigue

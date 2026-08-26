@@ -1,0 +1,157 @@
+    # ---------------------------------------------------------- :11602
+    (11602, 'Wise king of Palmia. He is a benevolent ruler with a strong sense of duty to his people, but he tends to be more cautious than necessary about choices that might endanger his own people. '):
+        "",
+
+    # ---------------------------------------------------------- :11615
+    (11615, 'At one time, these were a beautiful pale-skinned tribe of people similar to the Elea. It is said that their current appearance is due to being corrupted by wicked thoughts.'):
+        "",
+
+    # ---------------------------------------------------------- :11628
+    (11628, 'A dragonborn warrior with hard scaly skin. They have the intelligence to handle weapons and armour and have developed their own culture, but are belligerent and do not interact much with other races. '):
+        "",
+
+    # ---------------------------------------------------------- :11641
+    (11641, 'A bullfighter with tremendous muscle and strength. He has turned many adventurers into ground meat by using his physical strength to wield the prey in his hands. '):
+        "",
+
+    # ---------------------------------------------------------- :11654
+    (11654, 'Despite being a cow-head, he studied hard and learnt simple magic, including firebolt. His curse word seems to be jealousy of smart adventurers. '):
+        "",
+
+    # ---------------------------------------------------------- :11667
+    (11667, 'A fighter who has reached the point where he can fight without weapons, using only his knob. However, he is uncomfortable without his favourite axe, which he carries with him at all times. '):
+        "",
+
+    # ---------------------------------------------------------- :11680
+    (11680, 'A bullfighter who boasts tremendous muscle and physical strength. Trained as warriors, the freely wielded blunt weapons of the minotaurs crush their enemies with a roar. '):
+        "",
+
+    # ---------------------------------------------------------- :11693
+    (11693, 'King who unites the savage minotaurs. With his mighty physique and fearsome destructive axe, he utterly destroys the bodies and will to fight of his enemies. He plans to invade the royal capital, but is lost in his own lair and unable to get out.'):
+        "",
+
+    # ---------------------------------------------------------- :11706
+    (11706, 'A type of subhuman with a gigantic physique. They are famous for their regenerative powers and can quickly heal small wounds. The secret is said to lie in its special blood.'):
+        "",
+
+    # ---------------------------------------------------------- :11719
+    (11719, 'An Elea who lives within ruins of Nefia. Because they were persecuted and exiled from their villages, they bear a grudge against those who enter the ruins. Their armaments are a natural consequence of having to live within the ruins.'):
+        "",
+
+    # ---------------------------------------------------------- :11732
+    (11732, 'Elea folks living inside Nefia. Persecuted and forced out of their town, they have no choice but to live in Nefia, where they can shelter from the wind and rain. They are very wary and will attack anyone unfamiliar to them, even if they are Elea.'):
+        "",
+
+    # ---------------------------------------------------------- :11745
+    (11745, 'A belligerent demon that bears the shards of an ancient fire god. It holds a weapon in each of its many hands, and madly chops up its opponents. Sometimes concentrates too much on his hands, leaving his feet unattended.'):
+        "",
+
+    # ---------------------------------------------------------- :11758
+    (11758, 'A demon that inhabits a piece of the ancient sun god. Some historians claim that the rituals of this sun god influenced the present day Jua festival. Why it is green, though, is said to be unknown to those historians.'):
+        "",
+
+    # ---------------------------------------------------------- :11771
+    (11771, 'A demon that bears the fragments of an ancient god of sky and order. The ability to govern the waters has long since been lost, and this variant swivels its beautiful arms only to physically annihilate the enemy in front of it. '):
+        "",
+
+    # ---------------------------------------------------------- :11784
+    (11784, "A intellectual who communicates with spirits and lives through the circle of the gods' power. He is often at odds with scientists who emphasise the accumulation of rigorous basic facts. "):
+        "",
+
+    # ---------------------------------------------------------- :11797
+    (11797, 'They are those who train their bodies and live with a vitality that ordinary people cannot resist. As they specialise in combat and mainly show their true value in times of war, they are often employed as soldiers, instructors or in hard work in times of peace. '):
+        "",
+
+    # ---------------------------------------------------------- :11810
+    (11810, 'A monster, resembling a vegetable, that grows by feeding on magical energy within the soil. Their flesh contains a large amount of magical energy, and is capable of stimulating the magical powers of those who consume it. Be wary of its terrifying screams, which are magic with the attribute of sound.'):
+        "",
+
+    # ---------------------------------------------------------- :11823
+    (11823, 'Insects that are the dream of every child in the city. Wild beetles died out a long time ago due to overhunting, but bred individuals have escaped and are now in the wild. They survive over winter and have a long lifespan.'):
+        "",
+
+    # ---------------------------------------------------------- :11836
+    (11836, "Orcs are a tribe of particularly brave and warlike people. Orcs are very skillful with their hands and show interest in machinery, but they don't try to make anything other than weapons."):
+        "",
+
+    # ---------------------------------------------------------- :11849
+    (11849, 'A brave warrior of the Orc tribe who has fought in many battles. Orcs are not stupid, but they are insensitive and self-indulgent, so it is very rare for them to become captains and try to unite their troops. '):
+        "",
+
+    # ---------------------------------------------------------- :11862
+    (11862, "A re-animated corpse brought to life by a reaction between mana left in its body and the mana in its surroundings. It's rare to find one that retains any memories of its life."):
+        "",
+
+    # ---------------------------------------------------------- :11875
+    (11875, 'Wild animals often seen in the open. Dodges and dodges with quick movements. They use ultrasound to understand their surroundings, so they are not blind. They are inconvenienced by the inaccurate vision.'):
+        "",
+
+    # ---------------------------------------------------------- :11888
+    (11888, 'A generic name for a species of bat that sucks blood. However, as their stomachs do not swell much, blood sucking is said to be only a snack. They swarm over their prey in groups and suck all the blood.'):
+        "",
+
+    # ---------------------------------------------------------- :11901
+    (11901, 'A highly skilled bat with dragon-like wings. Some are said to be fascinated by its swiftness and try to ride it somehow. They have a habit of trying to compete with wyverns when they encounter them.'):
+        "",
+
+    # ---------------------------------------------------------- :11914
+    (11914, 'Ent with beautiful flame flowers. Although it moves rather slowly, it boasts high vitality and the strikes it delivers with its huge branches are very powerful. '):
+        "",
+
+    # ---------------------------------------------------------- :11927
+    (11927, 'Ent with beautiful ice flowers. The trunks and branches, surrounded by cold air, shine like crystals and are popular among the nobility as ornamental plants. '):
+        "",
+
+    # ---------------------------------------------------------- :11940
+    (11940, 'The result of those who were mages in life and tried to cling to this world even after death. Those who have no reason left become avengers who bring harm to others. '):
+        "",
+
+    # ---------------------------------------------------------- :11953
+    (11953, 'Lich, who has lost his physical body and has been transformed into a spirit body. The memories of the past, which sought eternity in the long passage of time, have already worn away, and he has become a monster who tries to reduce the living in his path to the same existence. '):
+        "",
+
+    # ---------------------------------------------------------- :11966
+    (11966, 'Lich, whose physical body collapsed and he became a half-spirit. As a result of his wandering through the ages, he became an evil spirit that tries to kill the living with only his instincts in exchange for his amazing magical powers. '):
+        "",
+
+    # ---------------------------------------------------------- :11979
+    (11979, 'A monster of the underworld that is connected to death. It has values that are incompatible with those of the living, which state that to live is a sin, and unilaterally executes sentences with a terrible curse that forcibly kills its opponents. '):
+        "",
+
+    # ---------------------------------------------------------- :11992
+    (11992, 'A monster of the underworld that is connected to death. In order to balance the numbers of the living and the dead, they are ordered by the god of death to declare death sentences. Most of the time, the death is not the death that should have come, so it can be pretended that it never happened if the victim survives.'):
+        "",
+
+    # ---------------------------------------------------------- :12005
+    (12005, 'Dogs specialize in hunting prey. Because dogs are territorial, they will not settle in areas where there are dogs on a stronger level than themselves.'):
+        "",
+
+    # ---------------------------------------------------------- :12018
+    (12018, 'A dog that unleashes a breath of flame. The flames it releases can roast an Indian elephant whole in an instant. Only their heads and fur are resistant to heat; meat can be roasted normally.'):
+        "",
+
+    # ---------------------------------------------------------- :12031
+    (12031, 'A dog that releases breath that freezes anything it is girdled with. He is so rabid and annoying that he invades Indian elephant territory and freezes them at random. But he is instantly popular in summer.'):
+        "",
+
+    # ---------------------------------------------------------- :12044
+    (12044, 'Dogs that release lightning-breath tinged breath. Famous for electrocuting Indian elephants bathing in water. No matter how much electricity-resistant equipment you have, you will be paralysed for a short while if you are exposed to the breath.'):
+        "",
+
+    # ---------------------------------------------------------- :12057
+    (12057, 'A dog that releases breath that brings darkness. It is the natural enemy of many wizards, as it cannot perform many of its magic if it cannot see its target. It has a dark personality and is said to seduce poor Indian elephants and bring them down to the dark side.'):
+        "",
+
+    # ---------------------------------------------------------- :12070
+    (12070, 'Dogs that release breath containing hallucinogenic ingredients. The breath can cause even an Indian elephant to fall into a stupor if it inhales just a little. They like to watch their confused prey become flustered.'):
+        "",
+
+    # ---------------------------------------------------------- :12083
+    (12083, "A dog that releases a breath that paralyses the nerves. It will bite its paralysed, immobilised prey to its heart's content. Even an Indian elephant cannot escape a stroke if it inhales the breath."):
+        "",
+
+    # ---------------------------------------------------------- :12096
+    (12096, 'The dog releases a highly poisonous breath. The poison is not fatal, but it certainly eats away at their lives over time. Records indicate that many Indian elephants have lost their lives to this poison.'):
+        "",
+
+# 39 voci fra la riga 11601 e la 12100, 0 ambigue

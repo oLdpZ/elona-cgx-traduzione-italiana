@@ -1,0 +1,153 @@
+    # ---------------------------------------------------------- :12109
+    (12109, 'A dog releases a roaring breath. Even Indian elephants easily faint when it is shouted in their ears. They also have high physical capabilities, and their blows exceed the speed of sound.'):
+        "",
+
+    # ---------------------------------------------------------- :12122
+    (12122, 'A dog that releases a breath tinged with the miasma of the underworld. It is said that even an Indian elephant would surely ascend to heaven if exposed to it. For a long time it was considered identical to Cerberus, but it has recently been discovered that they are completely different species.'):
+        "",
+
+    # ---------------------------------------------------------- :12135
+    (12135, 'A dog that emits the breath of chaos. Chaos is an appearance of lack of harmony, and if exposed to its breath, even an Indian elephant will suffer multiple anomalies and die after suffering from them. '):
+        "",
+
+    # ---------------------------------------------------------- :12148
+    (12148, 'It was omnivorous and ate everything before it became huge, but its size finally led it to attack even humans. They need large amounts of food to sustain their bodies. '):
+        "",
+
+    # ---------------------------------------------------------- :12161
+    (12161, 'Giant squirrels that have completely developed a taste for human flesh and actively attack people. Children who approach unprotected often become victims. It can be recognised on closer inspection because it is extremely massive and has a glare in its eyes.'):
+        "",
+
+    # ---------------------------------------------------------- :12174
+    (12174, 'It is the materialisation of vindictive thoughts that curse themselves, curse luck, curse God and curse the world. The feelings are not only those of the dead, but also those of living people. '):
+        "",
+
+    # ---------------------------------------------------------- :12187
+    (12187, 'A form of unrequited souls of those who have died out through starvation. They reach out for help, but even those who touch their hands out of pity are dragged into starvation. '):
+        "",
+
+    # ---------------------------------------------------------- :12200
+    (12200, 'A giant sea lion with a voracious appetite. It can take food possessed by its opponents through inter-dimensional space, and instantly digests the food it eats into its own energy. '):
+        "",
+
+    # ---------------------------------------------------------- :12213
+    (12213, 'A very large sea lion with a huge appetite. It is said that just a big sea lion evolved to give way to its bloated appetite, and as a result it has developed an advanced organ for perceiving and interfering in other dimensions. '):
+        "",
+
+    # ---------------------------------------------------------- :12226
+    (12226, 'A mysterious energy aggregate that discharges violently. The unstable energy that has been stored is converted into electricity and is continuously discharged into the surrounding area, making it extremely dangerous to even get close to it. '):
+        "",
+
+    # ---------------------------------------------------------- :12239
+    (12239, 'The chaos condensed and became one entity. It scatters chaos around it, swallows the area and tries to grow into an even bigger chaos. Its mere appearance is a sign of disaster.'):
+        "",
+
+    # ---------------------------------------------------------- :12252
+    (12252, 'It is completely unclear where the mouth is, where the abdomen is and how it is alive. According to one theory, it is said to be the eye of a demon looking at us from another world. '):
+        "",
+
+    # ---------------------------------------------------------- :12265
+    (12265, 'It floats in the air with a mysterious power, but not very fast. The opponent whose gaze meets his or hers is physically altered, causing multiple abnormalities and physical changes. '):
+        "",
+
+    # ---------------------------------------------------------- :12278
+    (12278, 'If you look directly into the eyes, you will become insane and suffer from illusions, such as maggots springing up. Its flesh is one of the most valuable means of making one resistant to illusions. '):
+        "",
+
+    # ---------------------------------------------------------- :12291
+    (12291, 'Monsters that emit the gaze of death. Alone, it is not much of a threat, but when it stares at you, your body is paralysed and deprived of magical power, which is a big problem if you are mixed in with a group of enemies. '):
+        "",
+
+    # ---------------------------------------------------------- :12304
+    (12304, "A subspecies of dragon created during the process of evolution. Commonly referred to as pterodactyls, they have integrated arms and wings, unlike full dragons. In the wyvern's view, its own wings are better looking than those of dragons."):
+        "",
+
+    # ---------------------------------------------------------- :12317
+    (12317, 'A doll the same size as a person. Its strange movements confuse people on the street. The threads connected to its body stretch towards an unknown place.'):
+        "",
+
+    # ---------------------------------------------------------- :12330
+    (12330, 'Giant flying insects with venomous stingers on their hips. Each one is small and weak, but they have a habit of swarming and are dangerous once surrounded. Their wings buzz noisily.'):
+        "",
+
+    # ---------------------------------------------------------- :12343
+    (12343, 'Wasps with fierce and vindictive habit. It uses a paralysing venom injected from its stinger to stop its prey and bring it back fresh to its nest as food. They are insects after all, and will persistently sting even when paralysis is ineffective.'):
+        "",
+
+    # ---------------------------------------------------------- :12356
+    (12356, 'A race of giants that boasts a physique approximately ten times that of the average humanoid race.The term refers to the monocular inferior species among them.They move slowly, but it is difficult to physically stop their sturdy steps.'):
+        "",
+
+    # ---------------------------------------------------------- :12369
+    (12369, 'Descendants of a tribe of giants who lost their faith and were forced to leave the throne of God.When the apocalypse occurs, their brethren sealed in the depths of the earth will appear with an earth-shaking sound.If you eat their flesh, you will gain strength.'):
+        "",
+
+    # ---------------------------------------------------------- :12382
+    (12382, 'Lowest species of demon. They use a kind of magic that is only marginally effective. However, its flesh promotes the awakening of magical powers, so it is sometimes attacked by adventurers when it goes on errands.'):
+        "",
+
+    # ---------------------------------------------------------- :12395
+    (12395, "Messenger demons sent from hell. Attacks creatures in the area to bring their souls back to Hell. They seem to have a hard time meeting their master's quotas and often hide and complain."):
+        "",
+
+    # ---------------------------------------------------------- :12408
+    (12408, "A higher demon's servant who plots the collapse of the order. Those who are hit by the arrows of chaos have their biological functions disrupted and suffer complications. They are not treated well and have recently been thinking about changing jobs."):
+        "",
+
+    # ---------------------------------------------------------- :12421
+    (12421, 'A monster that invites you into the world of death. It craves warm life and has a habit of attracting living things to its hand at random. In its spare time, it starts to draw graffti on the ground.'):
+        "",
+
+    # ---------------------------------------------------------- :12434
+    (12434, 'A monster whose arms take the form of chaos that has increased in density for some reason. It does not move from its place and continues to wait to swallow anyone who approaches it into its own chaos.'):
+        "",
+
+    # ---------------------------------------------------------- :12447
+    (12447, 'A monster in the shape of an arm formed from the madness of an executed murderer. It is said to be born in a pool of blood at the place of execution, and even now that he is dead, it is still trying to produce new victims.'):
+        "",
+
+    # ---------------------------------------------------------- :12460
+    (12460, 'The aggregation of the terrible negative thoughts that remain after death has become such a threat that it affects the living. The sentiments combine with the ether in the atmosphere to form a temporary body.'):
+        "",
+
+    # ---------------------------------------------------------- :12473
+    (12473, 'She used to be a fairy, but when she tried to deceive travellers with her magic, she was unexpectedly struck back and died. However, she is not aware that she is dead and wanders around as a floating spirit.'):
+        "",
+
+    # ---------------------------------------------------------- :12486
+    (12486, 'A flower that grew abnormally by feeding on the mana from the land. After discovering that minced human beings can be used as nourishment, it began to actively attack people. Its dissolved fluid has properties similar to human stomach acid.'):
+        "",
+
+    # ---------------------------------------------------------- :12499
+    (12499, 'A man-eating flower that has gained the power of chaos. They disperse a wide variety of pollen and have nourished numerous adventurers by waving hard vines. Its roots are short and strong, and it can move on foot.'):
+        "",
+
+    # ---------------------------------------------------------- :12512
+    (12512, 'A type of poisonous snake. It has a strong, fast-acting venom that often results in death if the bite is not dealt with properly. It has an unpleasant odour, but is rather tasty if cooked.'):
+        "",
+
+    # ---------------------------------------------------------- :12525
+    (12525, 'Its venom is so strong that it can kill large animals and even snakes of the same species. Its majestic appearance gives it the air of a king, but its character is surprisingly timid. Some adventurers try to develop a resistance to its venom by eating it whole.'):
+        "",
+
+    # ---------------------------------------------------------- :12538
+    (12538, 'A subspecies of dragon born during its evolutionary process. It is incomparably weaker than dragons, but its strength should not be underestimated. When stressed, they breathe out a sigh mixed with fire.'):
+        "",
+
+    # ---------------------------------------------------------- :12551
+    (12551, 'A subspecies of dragon born during its evolutionary process. They resent the fact that a pack of icehounds is considered more fearsome than a single ice drake.'):
+        "",
+
+    # ---------------------------------------------------------- :12564
+    (12564, 'Lowest class of mummy species. Mainly refers to the corpses of criminals and citizens who have been left to rot and accidentally mummified in poor conditions. They have no particular position and attack the living without regard.'):
+        "",
+
+    # ---------------------------------------------------------- :12577
+    (12577, 'A former soldier in a once prosperous kingdom. He uses the weapons and skills he acquired during his life to block the way of intruders. They often work in packs.'):
+        "",
+
+    # ---------------------------------------------------------- :12590
+    (12590, 'A higher species of mummy type. Refers mainly to soldiers artificially mummified to act as guards for the king. They hunt down thiefs with lower-ranked mummies in tow.'):
+        "",
+
+# 38 voci fra la riga 12101 e la 12600, 0 ambigue

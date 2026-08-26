@@ -1,0 +1,157 @@
+    # ---------------------------------------------------------- :12603
+    (12603, 'An ancient king who lives in this world until the forbidden arts turn him into a living corpse. He occasionally lures dumb grave robbers with invitations and replenishes the soldiers guarding the pyramids.'):
+        "",
+
+    # ---------------------------------------------------------- :12616
+    (12616, 'The end result of a civilisation that flourished in ancient times, where noblemen were placed as dummies around a coffin in which they were enshrined. The corpse in which they were placed has fused with the coffin.'):
+        "",
+
+    # ---------------------------------------------------------- :12629
+    (12629, 'Goblins attack people in swarms. They speak their own language and have established an underground goblin-only society. Although they do not speak the same language as trolls, they seem to get on well with them.'):
+        "",
+
+    # ---------------------------------------------------------- :12642
+    (12642, 'Trained in melee combat among the goblin tribe. He uses his eye of mind to accurately aim for the vital spot, and his muscular body shows more strength than it appears.'):
+        "",
+
+    # ---------------------------------------------------------- :12655
+    (12655, 'Goblin tribe sorcerer. When this monster was discovered, the world was astonished to learn that goblins also had a practice of believing in spirits and gods. It was later discovered that they were, in a manner of speaking, imitating the humans.'):
+        "",
+
+    # ---------------------------------------------------------- :12668
+    (12668, 'A goblin tribe member who is skilled in magic. He is a simple but powerful man behind the scenes who uses magic arrows to hunt down his prey with confidence. He seems to have a nose to taking advantage of his magical abilities.'):
+        "",
+
+    # ---------------------------------------------------------- :12681
+    (12681, 'A person who has become fascinated by and worships the red devil, which is now sealed away somewhere. His face, hidden by his dressing gown, is so burnt that it has lost all trace of its original appearance. '):
+        "",
+
+    # ---------------------------------------------------------- :12694
+    (12694, 'A person who has become enthralled by and worships the blue devil, which is now sealed away somewhere. His face, hidden by a dressing gown, is horribly frozen and his eyeballs are entirely clouded with blue. '):
+        "",
+
+    # ---------------------------------------------------------- :12707
+    (12707, 'A bear that has been tamed by people. They learn tricks, but few are given the opportunity to perform them. Those that are abandoned become wild and attack people in packs.'):
+        "",
+
+    # ---------------------------------------------------------- :12720
+    (12720, 'A rabid bear that particularly likes to attack humans. It is also known as the hylog bear, and as its name suggests, its body hair is grey, but occasionally some individuals seem to have their fur stained red by returned blood. '):
+        "",
+
+    # ---------------------------------------------------------- :12733
+    (12733, 'A super-ancient creature that is believed to have been revived by genetic restoration technology during the Remido era. Its meat has fed humans since ancient times. Even today, mammoth meat is considered a delicacy.'):
+        "",
+
+    # ---------------------------------------------------------- :12746
+    (12746, 'The remorse of the dead warriors began to wander about in their cast-off armour. Unless someone destroys them, they continue to search for the enemy they could not defeat. They are not satisfied because they are empty inside.'):
+        "",
+
+    # ---------------------------------------------------------- :12759
+    (12759, 'The evil spirit of the dead warrior has taken over the masterless heavy-layered armour and has run amok, regarding everything that lives as an enemy. After being vanquished, they will continue to wander in search of the next vessel. '):
+        "",
+
+    # ---------------------------------------------------------- :12772
+    (12772, 'A beautiful armour, projected with the thoughts of ancient heroes. It keeps running, drowning in the joys of battle, until it meets the owner of a power that surpasses its own. It is not made of gold, so its value as an armour is not that high.'):
+        "",
+
+    # ---------------------------------------------------------- :12785
+    (12785, 'Armour attached to the grudge of an evil knight who died an untimely death and decayed without burial. It spreads death and malice on impulse. Do not wear it by mistake.'):
+        "",
+
+    # ---------------------------------------------------------- :12798
+    (12798, 'They have snake hair. Their ancestors had the power to turn what they saw into stone, but it was so inconvenient in their daily lives that the power degenerated over the generations. Now it only temporarily stiffens the opponent.'):
+        "",
+
+    # ---------------------------------------------------------- :12811
+    (12811, 'Each one of these snakes-hair, is self-aware and has occasionally been seen fighting with the main body. During the moult season, their heads become amazing. The combination of the snakes and the snakes is used to disorientate the opponent.'):
+        "",
+
+    # ---------------------------------------------------------- :12824
+    (12824, 'When she protested against seeing her sister turned into a monster by the wrath of God, she was turned into a monster along with her other sister. This is one of her descendants. '):
+        "",
+
+    # ---------------------------------------------------------- :12837
+    (12837, 'A monster that has gained the power of some love god. When pierced by its arrows, it falls in love and loses the words it should speak. He is quite a screw-up and sometimes accidentally shoots his target dead by releasing an ordinary arrow.'):
+        "",
+
+    # ---------------------------------------------------------- :12850
+    (12850, 'Armour in which ghosts dwell and move. It keeps muttering curses against the living. Because it has taken up residence in interior armour, it is surprisingly fragile.'):
+        "",
+
+    # ---------------------------------------------------------- :12863
+    (12863, 'Dinosaurs are a species that died out in prehistoric times but were apparently restored by the genetic technology of an old civilisation. They are said to have been powerful and highly agile, and to have preyed on other dinosaurs. '):
+        "",
+
+    # ---------------------------------------------------------- :12876
+    (12876, 'A half-human, half-bird, fornicating monster. Instead of arms, they have bird wings, but they are not as agile as they appear. It was fashionable to use its wings as broomsticks, but this is now prohibited by law.'):
+        "",
+
+    # ---------------------------------------------------------- :12889
+    (12889, 'A type of dragon tribe with a fondness for the ether. They are less aggressive than other dragons, but their breath is very powerful and they cannot be underestimated. They are omnivorous but often eat grass.'):
+        "",
+
+    # ---------------------------------------------------------- :12902
+    (12902, 'A type of dragon tribe with a fondness for the ether. They have a flammable gas-producing organ in their bodies called a flaming sac. Many individuals inadvertently burn their nests with the flames they exhale.'):
+        "",
+
+    # ---------------------------------------------------------- :12915
+    (12915, 'A type of dragon tribe with a fondness for the ether. They have organs filled with refrigerant, which take heat from the air they inhale and convert it into cold air. As a result, their body temperature is actually higher than that of other dragons.'):
+        "",
+
+    # ---------------------------------------------------------- :12928
+    (12928, 'A type of dragon tribe with a fondness for the ether. They have an organ in their bodies called an electric bag that produces static electricity, which they discharge from their mouths during battle. When they run out of electricity, they go out of their way to be struck by lightning.'):
+        "",
+
+    # ---------------------------------------------------------- :12941
+    (12941, 'A type of dragon tribe with a fondness for the ether. Their breath contains magical powers and robs the living of their life force. How they come from the underworld is still unknown.'):
+        "",
+
+    # ---------------------------------------------------------- :12954
+    (12954, 'A type of dragon tribe with a fondness for the ether. It has various energy sacks fused together and breathes chaos breath from its mouth. They have no likes or dislikes and eat everything well, so they may be easy to breed.'):
+        "",
+
+    # ---------------------------------------------------------- :12967
+    (12967, 'A beast with three heads. Each head sleeps in turn, but the fire-breathing head is on strike and lazy, so the head that breathes magical breath has been working hard recently. '):
+        "",
+
+    # ---------------------------------------------------------- :12980
+    (12980, 'An arthropod characterised by a large tail with needles. They look fearsome but are not very poisonous and their shells are surprisingly soft. They are also used as food, as they are said to be quite tasty.'):
+        "",
+
+    # ---------------------------------------------------------- :12993
+    (12993, 'Although large in size, they are not very strong, so hunting is still dependent on poison. More than half of its body has been converted into poison-producing organs, and its venom can easily poison an Indian elephant. '):
+        "",
+
+    # ---------------------------------------------------------- :13006
+    (13006, 'Its mottled body is poisonous and alarming, but despite its appearance it is not poisonous. It uses threads to entangle its prey and feed on them. '):
+        "",
+
+    # ---------------------------------------------------------- :13019
+    (13019, 'Many associate them with women because of their slender, shiny, black limbs, which are among the most slender of spiders. This may be partly due to the fact that they carry dangerous hidden venom. '):
+        "",
+
+    # ---------------------------------------------------------- :13032
+    (13032, 'A spider with a venom that acts on nerves. When it finds prey, it first pours paralysing venom into it and then shaves the immobilised parts into small pieces for easier eating later. '):
+        "",
+
+    # ---------------------------------------------------------- :13045
+    (13045, 'It is so well known that it is probably the first thing people associate with poisonous spiders. They are rarely described as being surprisingly adorable looking. They may or may not be bothered by their bristly hair.'):
+        "",
+
+    # ---------------------------------------------------------- :13058
+    (13058, 'A peculiar species of spider that likes to consume the blood of living creatures. It uses its threads to suck up the bodily fluids of its prey until it dries up. If there is a wrinkled corpse of a creature, it is probably the work of this one.'):
+        "",
+
+    # ---------------------------------------------------------- :13071
+    (13071, 'They have the body of a tree. In past literature, they are described as beings who follow the orders of their creator, but whose orders are they protecting Nefia?'):
+        "",
+
+    # ---------------------------------------------------------- :13084
+    (13084, 'It is said that erasing the writing on its forehead in an foreign language will stop its function, but there would be very little time to aim for such an object if confronted properly. '):
+        "",
+
+    # ---------------------------------------------------------- :13097
+    (13097, 'They have a wrought iron physique. The material used to make it is robust because it is designed for frequent combat, and it has a high level of combat ability to match. Its weaknesses are its joints.'):
+        "",
+
+# 39 voci fra la riga 12601 e la 13100, 0 ambigue
