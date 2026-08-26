@@ -1,0 +1,153 @@
+    # ---------------------------------------------------------- :5113
+    (5113, 'When meeting or being poked by an outside enemy the body spurts out an intense acidic liquid to protect itself. That acid attack often causes extra anger and gets them killed.'):
+        "",
+
+    # ---------------------------------------------------------- :5126
+    (5126, 'A rare snail that has accumulated magical power. Even though it is a snail it is able to use magic in its own way. It is often eaten because of its magical properties that make it stronger when eaten.'):
+        "",
+
+    # ---------------------------------------------------------- :5139
+    (5139, "The snail of the sea. The shell has degenerated and is housed in the body. It's never eaten but it has almost no flavor as it is and is poisonous. It is adaptable to seawater but it does not help if it is exposed to thick salt."):
+        "",
+
+    # ---------------------------------------------------------- :5152
+    (5152, 'Using a type of slime it was created by piecing together the corpse of a girl. She has been wandering around since before the present civilization in search of memories of her past. Its perfection is a work of art level with powers that cannot be compared to mass-produced zombies.'):
+        "",
+
+    # ---------------------------------------------------------- :5165
+    (5165, 'Using a type of slime it was created by piecing together the corpse of a girl. It has the ego as it was when it was alive. They have been instilled with a distorted appetite during manufacturing and instinctively prey on zombies or people against their will.'):
+        "",
+
+    # ---------------------------------------------------------- :5178
+    (5178, 'Using a type of slime it was created by piecing together the corpse of a girl. She takes on the persona of a girl who was alive but her mind is consumed by madness. She is the type who was born with a high shooting ability and works calmly from the rear.'):
+        "",
+
+    # ---------------------------------------------------------- :5191
+    (5191, "The strongest Savant made using a selection of human body parts. It can also use necromancy albeit briefly. It takes pride in being an elite but doesn't know that it's actually just a guessing horse."):
+        "",
+
+    # ---------------------------------------------------------- :5204
+    (5204, 'A wolf with a legendary hunger for victory. He is a terrible loser. It is possible to harden the body by practicing chi but this seems to be the result of learning the giantization technique in a rather incorrect way.'):
+        "",
+
+    # ---------------------------------------------------------- :5217
+    (5217, "A demon that peers into the minds of others and manipulates them with a vengeful spirit. Deep down she thinks revenge is a fool's errand and she has no intention of taking revenge on the gods who sealed her. When she meets someone who doesn't take her up on her offer she shows interest and becomes obsessed."):
+        "",
+
+    # ---------------------------------------------------------- :5230
+    (5230, 'A type of crow that has the tendency to kill each other in flocks. The last one to survive is called this. They are also called the dominant because they have congenital combat skills.'):
+        "",
+
+    # ---------------------------------------------------------- :5243
+    (5243, "A penguin warrior who travels to make a country for penguins by penguins penguins. They prefer the cold but they will work with guts even in the heat. They can''t fly but they're very good swimmers."):
+        "",
+
+    # ---------------------------------------------------------- :5256
+    (5256, 'He is a wizard at the royal palace. He is like a mass of talent and there are few who have been able to handle the enormous amount of magic at will since childhood. He is also the guardian of the royal palace in case of emergency.'):
+        "",
+
+    # ---------------------------------------------------------- :5269
+    (5269, 'A soldier of Eulderna who was born with an inferior talent for magic. He supplemented his fighting power with a bow. He is not considered a wizard and his treatment in his home country is of the lowest class. Because of this he is frustrated and jealous.'):
+        "",
+
+    # ---------------------------------------------------------- :5282
+    (5282, 'A bear that inherits a piece of power and a name from an angel that was scattered in the Great War of the Gods. Its name means God of the Bear. He has the power to use the crossbow but is completely incapable of using magic.'):
+        "",
+
+    # ---------------------------------------------------------- :5295
+    (5295, 'The strongest dark-eating koala leads a herd of dark-eating koalas. They are responsible for deciding where to feed and raid and guiding the herd. It has a habit of swinging a stick-shaped object. They seem to care about their skin and use a silky powder.'):
+        "",
+
+    # ---------------------------------------------------------- :5308
+    (5308, "A big bear has learned a taste for people. They appear actively around people's houses and are extremely obsessive. They are considered evil gods and have been hunted down by the people since time immemorial."):
+        "",
+
+    # ---------------------------------------------------------- :5321
+    (5321, "Bioweapons discovered in the ruins. A tiger whose body has been partially replaced by a machine or armor. It's hard to avoid continuous rushes with the agility of a beast. It seems to have been named after the glittering lights."):
+        "",
+
+    # ---------------------------------------------------------- :5334
+    (5334, 'A synthetic beast based on a lion and spawned through magic. It has the intelligence of a human or rather the intelligence of a complete human and it is curious to know what was done when it was created.'):
+        "",
+
+    # ---------------------------------------------------------- :5347
+    (5347, 'It is a subspecies of the carbuncle and is smaller. However its magic power is stronger than that of the normal species and it can summon a variety of monsters. It was once considered a fabled creature but today no one knows what the legend is.'):
+        "",
+
+    # ---------------------------------------------------------- :5360
+    (5360, "The nightmare took the form of a sheep. He chases a fleeing sheep but before he knows it he's lost in a nightmare. If...you have met this sheep in your dreams Never make eye contact."):
+        "",
+
+    # ---------------------------------------------------------- :5373
+    (5373, 'A black sheep that has been subjected to an excessive amount of magical modification in Eulderna. It can absorb visible light and disappear. They turn invisible and approach the enemy taking their life away. As the name implies it is truly an outsider.'):
+        "",
+
+    # ---------------------------------------------------------- :5386
+    (5386, 'A lost lamb grows up in mind and body and overcomes his hesitation. If you look into those eyes you can see that they are full of determination and resolve. He is a gentle watcher and sometimes a guide to the lost lamb.'):
+        "",
+
+    # ---------------------------------------------------------- :5399
+    (5399, "A feathered and magical serpent god. It is relatively small only about 5 meters long. The stench and poison that is emanating from the body is so strong that even the pestilence god runs away and has actually been repelled. This is what it means to conquer poison with poison isn't it?"):
+        "",
+
+    # ---------------------------------------------------------- :5412
+    (5412, 'A snake with a voice as heavy as stone. They have four wings and build a nest in the water. As they occupy water source areas and absorb moisture in the clouds drought occurs in areas without natural enemies.'):
+        "",
+
+    # ---------------------------------------------------------- :5425
+    (5425, "This snake is native to Kikkas and its body can be as long as 20 meters. It's not poisonous but it's a tightening force and it strangles horses and bears. Those brought in as pets devour their owners escape and multiply and today attack livestock all over the world."):
+        "",
+
+    # ---------------------------------------------------------- :5438
+    (5438, 'A golem made from the mud of hell. It is powerful and normally dangerous but it is covered with the cold air of hell and even if it is grazed its life will be lost. It is said to have been created by an evil sorcerer sent to the other world.'):
+        "",
+
+    # ---------------------------------------------------------- :5451
+    (5451, 'A mass of strong muscle. It is definitely categorized as a golem because of its structure and composition and it has a different flavor from an artificial person. They need to take the organism in to maintain their muscles but if the genes of other organisms get mixed in too much they run amok.'):
+        "",
+
+    # ---------------------------------------------------------- :5464
+    (5464, "On the 10th month they appear at other people's houses in costume. A mysterious rumor is spreading among children that there are more rare treats than a frontier house and it seems that the frontier is becoming more popular in turn. They are famous for their rather serious fancy dress."):
+        "",
+
+    # ---------------------------------------------------------- :5477
+    (5477, "On the 10th month they appear at other people's houses in costume. They are fearless and will fight through a pack of demons for sweets even jumping into the homes of adventurers. There are many families who fear that they will be extremely vindictive."):
+        "",
+
+    # ---------------------------------------------------------- :5490
+    (5490, 'A mass-produced dinosaur mecha that was discovered in the ruins. Analysis revealed that it was built with Zilla as a model. He has power but is not good at fighting and uses his hover ability to gain distance and engage in gunfights.'):
+        "",
+
+    # ---------------------------------------------------------- :5503
+    (5503, 'A foggy monster several tens of meters in size. It is carnivorous and usually mimics a cloud to attack ships. During predation it solidifies parts of its body and produces organs such as its mouth.'):
+        "",
+
+    # ---------------------------------------------------------- :5516
+    (5516, 'A huge slender creature with a body length of around one hundred meters. An invisible presence. It has devoured the earth with its voracious appetite and has even killed other stars. In Irva there is a natural enemy called Gigamor and it often runs away to the ground in desperation.'):
+        "",
+
+    # ---------------------------------------------------------- :5529
+    (5529, 'They are originally human though they have aspects such as gods demons and earth spirits. It is a high ranking among the demons. It possesses a high level of magical power that is uncontrollable even by itself and the magical power leaking from its body gives off a glow.'):
+        "",
+
+    # ---------------------------------------------------------- :5542
+    (5542, "They are originally human though they have aspects such as gods demons and earth spirits. They're cool and calm but they have wild impulses. They possess a combination of strength and skill and are skilled with blades and can cut through anything that gets in their way."):
+        "",
+
+    # ---------------------------------------------------------- :5555
+    (5555, 'They were originally human though they have aspects such as gods demons and earth spirits. They have a rugged personality and are extremely powerful shattering and eliminating anything that gets in their way. It is possible to hit it off with them and get to know them well.'):
+        "",
+
+    # ---------------------------------------------------------- :5568
+    (5568, 'An alien that specializes more in combat. It has taken in the genes of a parasitic organism from the past and its intelligence and physical abilities are beyond those of ordinary aliens. It actively uses acidic mucus as a weapon.'):
+        "",
+
+    # ---------------------------------------------------------- :5581
+    (5581, 'An ant-like behemoth that has been enhanced for combat by space technology. Overall ability has been increased with significant enhancements to the shell and acid eruption power. The stealth performance is down though due to the color.'):
+        "",
+
+    # ---------------------------------------------------------- :5594
+    (5594, "A spider-like behemoth enhanced by space technology. It has a steel-like body and tremendous jumping power. It spits out a thread of kneaded acid but it is incompatible with Irva's atmosphere so the thread breaks down and only the acid splashes out."):
+        "",
+
+# 38 voci fra la riga 5101 e la 5600, 0 ambigue
