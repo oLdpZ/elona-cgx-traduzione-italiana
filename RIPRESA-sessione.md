@@ -1,8 +1,7 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-26, fine della **centesima** sessione (**`autopick.txt` e
-`custom_autopick.hsp` chiusi nello stesso giro: un difetto che era in campo da
-mesi, e la quinta famiglia di riga morta**).
+Aggiornato: 2026-08-26, fine della **centunesima** sessione (**`data\` è
+chiusa: i 33 titoli dei libri e il manuale da 591 righe**).
 
 ⚠️⚠️ **LA SESSIONE SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
 spinto e l'albero e' pulito; le cose che **non stanno nel repo** sono quattro, e
@@ -13,11 +12,16 @@ l'ordine conta:
     cgx-test.exe               python -m strumenti.compila --eseguibile   (NON incatenato)
     i file _it.txt             li scrive `dati_applica` in `_traduzione\build\dati\`
 
-⚠️⚠️ **I file dati italiani sono CINQUE dalla 100a**: `board_it.txt`,
-`talk_it.txt`, `exhelp_it.txt`, `book_it.txt` e **`autopick_it.txt`**. Vanno in
-`C:\Games\Elona\elonaplus2.31\data\` (non nella radice del gioco: la 94a ci ha
-perso un comando), e si copiano **solo se sono cambiati** — `cmp -s` prima di
-`cp`, cosi' la data del file nel gioco dice qualcosa.
+⚠️⚠️ **I file dati italiani sono SEI dalla 101a**: `board_it.txt`,
+`talk_it.txt`, `exhelp_it.txt`, `book_it.txt`, `autopick_it.txt` e
+**`manual_ENG_it.txt`**. Vanno in `C:\Games\Elona\elonaplus2.31\data\` (non
+nella radice del gioco: la 94a ci ha perso un comando), e si copiano **solo se
+sono cambiati** — `cmp -s` prima di `cp`, cosi' la data del file nel gioco dice
+qualcosa.
+
+⚠️ **Il nome brutto e' voluto**: `manual_ENG_it.txt` e' `nome_italiano()`
+applicato senza eccezioni. E il dirottamento **non e' una toppa**: sta nel
+dizionario, `help.hsp:331`, perche' li' il nome del file e' dentro una `lang()`.
 
 ⚠️ **`autopick_it.txt` e' l'unico in UTF-8**, e non ha blocchi: la sua codifica
 e il suo lettore stanno in `dati.py` (`CODIFICHE`, `PIATTI`), e `degrada()` su
@@ -49,7 +53,206 @@ e l'ha riparata. Chi trova una parola cosi' cerchi il byte 0x08, non il refuso.
 ---
 
 
-## La centesima sessione
+## La centunesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle **quindici** verifiche d'apertura, più la
+sedicesima nata oggi. La 101ª si è aperta con `origin/fase-0` allineato:
+**cinquantottesima prova** di fila, e le quindici hanno dato quindici volte i
+valori attesi della 100ª.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    pytest                  775 passed, 6 skipped   (erano 755)
+    dati_applica --identita 6 file e 3.767 righe    (erano 5 e 3.143)
+    dizionario/dati/        + manual_ENG 591/591; book 2.241 (erano 2.208)
+    perimetro.py            83%                     (era 81%)
+    invariati               519 valori (`manual_ENG.txt` e' USCITO, vedi sotto)
+    _101-manual-gmes        2 sezioni alte, 0 titoli fuori misura  ⭐ RETE NUOVA
+
+Tutto il resto è **fermo dov'era**, riverificato in chiusura: `prova_identita`
+72/72 e **28.073**, `toppe.jsonl` **1027** e `_97-toppe-agganciate` 1027 su
+1027, `rinviate.jsonl` 112, `creature` 1131/2466/0/0, `larghezze` 0 fuori
+misura, `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `menu_dialogo` 0 su
+1378, `linguette` 0 e 0, `battute --divergenti` **13**,
+`intestazioni_larghezze` perimetro **0**, `dati_sorgente` 7/7 e gioco difforme
+su 0, `gronde` 0 su 5, `maiuscole` 143/6/1/7/**0**, `bilingui` **0**, `referti`
+**9**, `lang-nel-ramo-jp` **21 | 0**, `_96-morte-nella-build` **0**,
+`_98-exhelp-gmes` 0/0/0, `_98-book-mes` **0 su 2208**, `_100-commento-barre`
+**9 e 0**, `_100-selettori-ombra` **0**, `_100-modello-aggancia` **0**.
+
+### ▶ Che cosa è stato fatto
+
+    data\book.txt %DEFINE   i 33 titoli dei libri rossi              33  ⭐ CHIUSO
+    data\manual_ENG.txt     la guida in gioco, 49 sezioni           591  ⭐ CHIUSO
+    -------------------------------------------------------------------------
+    ⭐⭐⭐ `data\` E' CHIUSA: 6 file su 6, 3.767 righe
+    strumenti toccati: dati, dati_estrai, dati_applica, dati_verifica    4
+    reti nuove: _101-manual-gmes (la geometria del manuale)              1
+    strumenti di lotto nuovi: _101-impagina, _101-manuale-struttura,
+                              _101-manuale-rese, _101-rese-titoli-libri  4
+    test nuovi: 20 (CSV, file piatto, marcatore di sezione, identita')
+    invariati: +1 (`{} Console`), -1 (`manual_ENG.txt`)
+    toppe: **nessuna** — il dirottamento sta nel dizionario
+    -------------------------------------------------------------------------
+       624 rese, 0 toppe, 1 rete nuova, 4 strumenti
+
+L'eseguibile è stato ricompilato e ricopiato (**02:45 del 26/08** — ⚠️
+controllare la data del file prima di leggere uno screenshot, lezione
+dell'11/08). In gioco è stato copiato il solo `manual_ENG_it.txt` (26/08 02:45):
+gli altri cinque erano identici e `cmp -s` li ha lasciati stare.
+
+### ▶ ⭐⭐⭐ UN BLOCCO DI UN FILE DATI PUÒ NON ESSERE TESTO A RIGHE
+
+Il `%DEFINE` di `book.txt` è una **CSV**, e `item.hsp:112`-`:124` la legge con
+`csvsort` per riempire `booktitle`, che finisce nel **nome dell'oggetto**. Lì
+l'unità di traduzione non è la riga: è la **terza colonna**. Il parser vedeva il
+blocco benissimo; a non vederlo erano `dati_estrai` e `dati_applica`, che
+filtravano su `lingua != "EN"` e quel blocco la lingua non ce l'ha —
+trentatré righe invisibili a ogni conteggio.
+
+⭐ La forma sta in `dati.COLONNE_CSV`, cioè nell'unico posto che conosce il
+formato. ⚠️ E `sostituisci_campo_csv` **rifiuta la virgola**: sposterebbe di uno
+tutti i campi dopo, e il libro smetterebbe di comparire fra quelli casuali senza
+che niente lo dica. La prova che la colonna torna indietro intatta è la prova
+d'identità, che passa da 3.143 a **3.176** righe.
+
+### ▶ ⭐⭐⭐ NEL MANUALE IL VINCOLO È L'ALTEZZA DELLA SEZIONE, NON LA LARGHEZZA
+
+`gmes` manda a capo da solo a 73 caratteri, quindi una riga lunga non si perde:
+si **paga**, 16 px, in una pagina che ne ha **436**. Ogni riga del file ne costa
+18: ventiquattro righe e si è pieni, e quel che esce dalla finestra è perso —
+`page_change` impagina l'elenco degli argomenti, non il corpo.
+
+⚠️⚠️ **Due sezioni sfondano già in inglese** (*Abnormal States* 624 px,
+*Ranged Weapons* 468) e non c'è resa che le aggiusti: l'altezza la fa il numero
+di righe, che è fisso. È anche la taratura della rete. ⭐ L'italiano di *Abnormal
+States* misura **576** contro 624, perché le sue righe stanno tutte sotto i 73.
+
+⭐ **Il margine per sezione si è misurato prima di tradurre**: la più stretta
+(*Skill Gain*) ha il **19%** in più dell'inglese, e l'italiano ne chiede quindici.
+
+⚠️ **Il titolo ha una geometria sua: 21 caratteri** (l'elenco a `wx + 66`, il
+corpo a `wx + 216`). La rete l'ha preso: «Stili di combattimento» faceva 22.
+
+### ▶ ⭐⭐⭐ IL PARAGRAFO E LA RIGA NON SONO LA STESSA COSA
+
+`dati_applica` sostituisce righe e non ne aggiunge, e **una resa vuota non è una
+riga vuota**: è una voce «da fare», che nella build resta in inglese. Quindi un
+paragrafo inglese di quattro righe vuole un paragrafo italiano di quattro righe,
+né tre né cinque. Lo fa `scratchpad/_101-impagina.py`, che spezza in esattamente
+k righe rendendo minima la più lunga — un `textwrap` avrebbe ammassato in cima e
+lasciato l'ultima riga con due parole. ⚠️ Dove la spezzatura **è contenuto** (la
+tabella della portata delle armi da tiro) le righe si scrivono a mano.
+
+### ▶ ⚠️⚠️⚠️ QUATTRO PUNTI IN CUI IL MANUALE INGLESE NON DICE QUEL CHE IL GIOCO FA
+
+Tradurre alla lettera avrebbe scritto quattro cose false, e nessuna rete le
+avrebbe viste: sono italiano valido dentro una statica. Per esteso in
+`decisioni.md` §101ª.
+
+1. i **nervi** tengono il sonno, non la paralisi (`skill.hsp:81` e `:111`);
+2. la scheda dice **Arma, Lotta, Tiro**, non «Melee1, Melee2, Dist»;
+3. la parola per chiedere un alleato è `ally` / `friend` / `company` —
+   **`companion` non è nell'elenco** (`command.hsp:4726`, letterali nudi), e
+   quella per le abilità è **`abilita`** senza accento, perché è una chiave che
+   il giocatore scrive;
+4. il file delle ultime parole è **`lastwords-e.txt`** (`text.hsp:465`).
+
+💡 Tutt'e quattro si sono trovate cercando la parola nel dizionario **prima** di
+scriverla. Non è una revisione del manuale: è l'effetto collaterale di una
+regola di traduzione.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **`db_card.hsp`, 1.145 firme**: l'ultimo dentro il perimetro `lang()`.
+2. ⭐⭐⭐ **Le 5.284 descrizioni degli oggetti** di `db_item.hsp`: fuori da
+   `lang()`, `estrai.py` non le vede. È il blocco più grosso che resta e vale da
+   solo il salto dall'83% al 94%.
+3. ⚠️⚠️⚠️ **IL COLLAUDO A SCHERMO È L'ARRETRATO CHE CRESCE PIÙ IN FRETTA.**
+   Venti sessioni e **5.402 rese mai viste** — le 4.934 della 100ª più le 624 di
+   oggi, meno le 156 di `autopick.txt` già viste.
+
+   ⭐ **Quel che resta da vedere della 101ª** — l'eseguibile serve, ed è quello
+   delle **02:45 del 26/08**:
+   - premi `?` e apri la guida: l'elenco a sinistra deve leggersi tutto (il
+     tetto è 21 caratteri e nessun titolo lo passa, ma è la prima volta che si
+     guarda a schermo), e il corpo di una sezione qualunque deve stare dentro
+     la finestra;
+   - ⭐ la sezione **Stati alterati** è quella che sfonda: si guarda per sapere
+     *dove* taglia, non per aspettarsi che stia dentro;
+   - ⭐ **Armi da tiro**: la tabella deve restare incolonnata. È l'unico
+     paragrafo scritto riga per riga, ed è l'unico che una reimpaginazione
+     sbagliata rovinerebbe in modo visibile;
+   - un **libro rosso** qualunque: il nome dell'oggetto deve dire « dal titolo
+     <...>» con un titolo italiano. ⚠️ La toppa dei titoli non c'è: i titoli
+     stanno nel file dati, quindi basta l'eseguibile nuovo **e** il
+     `book_it.txt` nuovo, che è già in gioco (26/08 02:20).
+
+   Restano dalle sessioni prima i tre passi di `autopick.txt` della 100ª (moneta
+   d'oro, `Shift+Backspace`, `~oggetto con maledizione`), i libri rossi della
+   99ª, i consigli di Norne (serve un personaggio nuovo), il pannello
+   «Conoscenza dell'oggetto» (`X` poi `x`), i due menu degli incantesimi (`v`,
+   poi `z`, poi `/`), la scheda (`c`), e la coda lunga di NERES, RYUTYE, CRAY,
+   MARY, BURT, KARATA, MANSON, RAIZEL, NORNE, ALICE, i ventotto nomi di
+   MIKRAANESIS, il menu del seminario, il menu di Maile a undici voci, il
+   prospetto cittadino e il **[Non posare]**.
+4. ⚠️⚠️ **LE QUATTRO DEL MURO DEI PREFISSI VOGLIONO QUATTRO TOPPE**:
+   `item_func.hsp:1308`, `:1386`, `:1390`, `:1458`. La strada è quella di
+   `:1399`. ⚠️ Vanno **viste in gioco una per una**.
+5. ⭐⭐ **`"Have"` di `command.hsp:11069`**: letterale inglese nudo nel pannello
+   «Scelta delle abilità». Sta già in `blocchi_en.py`.
+6. ⭐⭐ **Le dieci righe `listn` senza metro**: cinque pannelli a colonne, il
+   metro si legge a mano e si scrive in `METRO_A_MANO`.
+7. ⭐⭐ **Tre reti che mancano**: la larghezza della riga degli incantamenti
+   (`showresist == 4`, budget 380 px / 47 caratteri, e l'inglese lo sfonda
+   già); gli **inglesi divergenti**; i **partner fuori da `lang()`** (81ª); i
+   **buff** della finestra del dialogo (95ª).
+8. ⚠️⚠️⚠️ **I 335 SITI DOVE L'INGLESE È STATICO E IL GIAPPONESE NO**, e dentro
+   quelli i **quattro** dove l'inglese dice un'altra frase. Decisione aperta.
+   `python scratchpad/_94-jp-dinamico-en-statico.py --tutte`.
+9. 🔶 **L'EPITETO DI SINAHA**, la 🔶 **sorella H** (82ª) e la 🔶 decisione della
+   80ª sul menu degli arti.
+10. ⚠️⚠️⚠️ **Le sette etichette del potenziale** (`command.hsp:10676`-`:10700`,
+    più 6): letterali nudi senza `lang()`, a schermo inglesi. Il giorno che si
+    toppano, `chat.hsp:14246` va rifatta.
+11. ⭐⭐⭐ **La rete che manca ha un rendimento misurato**: rileggere il
+    dizionario con le regole nuove. Il rendimento cala, non è zero.
+12. ⭐⭐ **Dodici file con `lang()` e senza dizionario**, 447 `lang()`:
+    `txtadv.hsp` 176, `material_data.hsp` 118, `net.hsp` 39,
+    `custom_itemenchantment.hsp` 31, `quest.hsp` 26, `material.hsp` 22,
+    `etc.hsp` 17 (**mezzo tradotto: finestra bilingue**), `map_rand.hsp` 6,
+    `custom_pet.hsp` 4, `scene.hsp` 3, `custom_dmgpop.hsp` 3,
+    `custom_nefiatypes.hsp` 2. ⚠️ L'elenco si **rilancia**, non si ricopia:
+    `python scratchpad/fuori_elenco.py`. ⭐ **E adesso ce n'è uno che il manuale
+    ha già toccato**: `map_user.hsp` porta il nome della grotta dei cuccioli,
+    che il manuale cita in italiano — quando quel file si apre, i due nomi
+    devono combaciare.
+13. ⭐⭐ Il **muro del materiale** generale, e ⚠️ **`scene2.hsp` non è nel
+    dizionario** (due fili: `<Minea> The Puppeteer`, e `:9399`-`:9403` di
+    Mikraanesis coi letterali nudi).
+
+### ▶ Come si è chiusa
+
+`applica` è girato e il `grep` del segnale di guasto sul suo output ha taciuto;
+`_97-toppe-agganciate` dice **1027 su 1027**; `compila --eseguibile` ha detto
+`#No error detected.` e l'eseguibile è stato ricopiato. `dati_applica
+--identita` riproduce **sei** file byte per byte, 3.767 righe. `pytest` 775 su
+775 coi venti test nuovi.
+
+⚠️ **Una prova è caduta e aveva ragione lei.**
+`test_il_file_vero_degli_invariati_si_carica` usava `manual_ENG.txt` come
+sentinella della sezione «Chiavi e nomi di file», e quel valore la 101ª l'ha
+tolto dagli invariati. Sentinella nuova: `scene2.hsp`, che nomina un file **di
+monte** e quindi non può diventare nostro. Il docstring di quella prova
+avvertiva già di non prendere il valore da un esempio: stavolta l'esempio è
+diventato falso per un'altra strada.
+
+---
+
+## La centesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

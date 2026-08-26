@@ -1977,29 +1977,37 @@ python -m strumenti.dati_verifica lavoro/<file>-001.jsonl
 | `board.txt` | **25** | 25 | **100%** | senso |
 | `talk.txt` | **569** | 569 | **100%** | senso |
 | `exhelp.txt` | **185** | 185 | **100%** | impaginazione |
-| `book.txt` | **2.208** | 2.208 | **100%** | impaginazione |
-| `manual_ENG.txt` | 0 | 591 | 0% | impaginazione |
-| `autopick.txt` | 0 | 156 | 0% | ⚠️ configurazione |
-| **totale** | **2.987** | **3.734** | **80%** | |
+| `book.txt` | **2.241** | 2.241 | **100%** | impaginazione |
+| `manual_ENG.txt` | **591** | 591 | **100%** | impaginazione |
+| `autopick.txt` | **156** | 156 | **100%** | ⚠️ configurazione |
+| **totale** | **3.767** | **3.767** | **100%** | |
 
-⭐⭐⭐ **Dalla 99a i quattro file installati nel gioco sono tutti chiusi**, e quel
-che resta di `data\` sono due file che nessuno ha ancora aperto: il manuale e
-`autopick.txt`. Le 1.984 righe di `book.txt` sono state fatte in **un giorno
-solo**, in nove lotti raggruppati per voce e non per dimensione.
+⭐⭐⭐ **DALLA 101ª `data\` È CHIUSA.** Sei file su sei, e i cinque che vanno nel
+gioco (`board_it.txt`, `talk_it.txt`, `exhelp_it.txt`, `book_it.txt`,
+`autopick_it.txt`) più `manual_ENG_it.txt`, che è il sesto dalla 101ª. Le 1.984
+righe di `book.txt` sono state fatte in **un giorno solo** (99ª), in nove lotti
+raggruppati per voce e non per dimensione.
 
-⚠️ **`autopick.txt` e' entrato in tabella nella 98a, e non e' lavoro nuovo: e'
-un difetto in campo.** `custom_autopick.hsp:358` confronta le regole col **nome
-dell'oggetto**, che da noi e' italiano, quindi le regole d'esempio del modello
-(`gold piece`, `platinum coin`, `small medal`, `!corpse?`) **oggi non agganciano
-niente**. Va tradotto nello **stesso lotto** di `custom_autopick.hsp`, le cui
-90 `lang()` sono i selettori di categoria del modello: a meta' strada non
-aggancia piu' niente. Per esteso in `decisioni.md` §98a.
+⭐ **Le 2.208 righe di `book.txt` sono diventate 2.241 nella 101ª**, e non è
+lavoro comparso dal nulla: sono i **33 titoli del blocco `%DEFINE`**, che fino
+alla 100ª nessun conteggio nominava. `item.hsp:112`-`:124` legge quel blocco
+come una **CSV** (`csvsort`, virgola per separatore) e ne ricava `booktitle`,
+che `item_func.hsp:907` incolla al nome dell'oggetto: « dal titolo <...>».
+L'unità lì non è la riga ma la **colonna**, e a saperlo è `dati.COLONNE_CSV`.
+Per esteso in `decisioni.md` §101ª.
 
-⚠️ **E i 33 titoli dei libri non sono in questa tabella**, perche' non sono nel
-lotto: stanno nel blocco `%DEFINE` di `book.txt`, e `item.hsp:121` li legge
-dalla CSV con `booktitle = lang(s(1), s(2))`, colonna 3. `dati_estrai` estrae
-solo i blocchi `%<n>,EN`. Vogliono un'**estensione dello strumento**, non una
-resa — stessa forma del punto cieco delle descrizioni di `db_item.hsp`.
+⚠️ **`autopick.txt` era entrato in tabella nella 98ª, e non era lavoro nuovo:
+era un difetto in campo** — `custom_autopick.hsp:358` confronta le regole col
+nome dell'oggetto, che da noi è italiano. Chiuso nella 100ª insieme a
+`custom_autopick.hsp`, nello stesso lotto. Per esteso in `decisioni.md` §98ª.
+
+⚠️ **Il manuale ha un vincolo che gli altri file dati non hanno: l'altezza della
+sezione.** `help.hsp:468` lo disegna con `gmes` in una pagina da **436 px**, e
+ogni riga del file ne costa 18: ventiquattro righe e si è pieni. Due sezioni
+sfondano **già in inglese** (*Abnormal States*, 624 px; *Ranged Weapons*, 468) e
+non c'è resa che le aggiusti, perché l'altezza la fa il numero di righe, che è
+fisso. La rete è `scratchpad/_101-manual-gmes.py`, e il valore atteso è **2 e
+0**: due sezioni alte di monte, zero titoli oltre i 21 caratteri.
 
 ### ⭐⭐⭐ Che cosa ha insegnato `book.txt`, chiuso (99a)
 

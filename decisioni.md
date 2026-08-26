@@ -9897,3 +9897,157 @@ un errore di esecuzione, e questo gira **alla creazione del personaggio**.
    nudo**, fuori da ogni `lang()`: tradurlo manderebbe il lettore a scrivere una
    parola che il codice non cerca. È il criterio della 99ª — non «suona
    tecnico», ma «passa da una funzione di lingua?».
+
+---
+
+## `data\` si chiude: i 33 titoli e il manuale — 2026-08-26, centunesima
+
+Due lavori diversi che chiudono la stessa cartella. I **33 titoli dei libri
+rossi** volevano un'estensione dello strumento, non delle rese; il **manuale**,
+591 righe, voleva prima una geometria e poi la traduzione. Con questi
+`elonaplus2.31\data\` non ha più file da tradurre.
+
+### 1. ⭐⭐⭐ Un blocco di un file dati può non essere testo a righe
+
+`item.hsp:112`-`:124` legge il `%DEFINE` di `book.txt` **a parte da tutto il
+resto del file**: `csvsort s, msgtemp, 44`, cioè `getstr` con la virgola per
+separatore (`etc.hsp:319`), e ne ricava i 33 titoli che poi finiscono nel **nome
+dell'oggetto** (`item_func.hsp:907`, « dal titolo <...>»). Lì l'unità di
+traduzione **non è la riga**: è la terza colonna, e il resto della riga — il
+numero del libro e il flag «1=generato a caso» — sono dati del gioco.
+
+La catena non lo sapeva, e non perché qualcuno se ne fosse dimenticato: il
+parser vedeva il blocco benissimo (`_intestazione` ne ricava `("DEFINE", "")`),
+ma `dati_estrai` e `dati_applica` filtravano su `lingua != "EN"` e quel blocco
+la lingua non ce l'ha. **Trentatré righe invisibili a tutti i conteggi**, la
+stessa forma del punto cieco delle descrizioni di `db_item.hsp`.
+
+**Deciso:** la forma si dichiara in `dati.COLONNE_CSV`, cioè in `dati.py`, che è
+l'unico posto del progetto che sa com'è fatto il formato. Chi estrae e chi
+applica chiedono a lui. ⚠️ E `sostituisci_campo_csv` **rifiuta la virgola**:
+`getstr` conta i campi in ordine, quindi mezzo titolo diventerebbe il campo del
+flag e il libro smetterebbe di comparire fra quelli casuali — un difetto che
+nessuna rete di larghezza vedrebbe e che il file non segnalerebbe mai.
+
+⭐ **La prova che la colonna torna indietro intatta è la prova d'identità**, che
+passa da 3.143 a 3.176 righe: se il rimontaggio della CSV perdesse una
+tabulazione o una virgola, `book.txt` non si riprodurrebbe più byte per byte.
+
+### 2. ⭐⭐ Quindici titoli su trentatré erano già decisi, e non si reinventano
+
+Il loro inglese è **la stessa stringa** che la 99ª ha reso dentro il libro (riga
+1 del blocco omonimo), e lo stesso inglese reso in due modi non ha nessuna scusa
+di monte — è esattamente quel che `scratchpad/misura-rete4.py` cerca
+all'indietro su tutto il dizionario. Misurato invece che stimato: la ripresa
+diceva «i 31 titoli non decisi altrove li ha decisi la 99ª dentro il libro», e i
+titoli che coincidono davvero, stringa per stringa, sono **15**. Gli altri 18
+sono etichette corte che nel libro non compaiono, e si rendono con le parole che
+il corpo di quel libro ha già scelto: «museo» (libro 4), «crimberry» (5, e
+`invariati.md` lo dichiara), «negozio» (8), «sotterranei» (15), e ⭐ «difetto»
+per *bug* (2), che è la parola che il corpo di quel libro stesso usa.
+
+⚠️ **Il nome dell'oggetto non ha un tetto, e non è una deduzione da `sdim`.**
+`sdim booktitle, noteinfo(0), 25` sembra dire 33 byte, e non li dice (regola del
+2026-08-17). I nomi composti più lunghi arrivano a **60 caratteri** in italiano
+contro 48 in inglese, ma nell'inventario ci sono già nomi da **65** («un pranzo
+preparato con amore dalla sorella [0,1] con maledizione»): questo lotto non
+sposta il massimo. L'unica taglierina vera del progetto è quella della finestra
+dell'equipaggiamento (`command.hsp:12741`), e i libri non si equipaggiano.
+
+### 3. ⭐⭐⭐ Nel manuale il vincolo non è la larghezza della riga: è l'altezza della sezione
+
+`help.hsp:468` disegna il corpo con `gmes`, lo stesso di `exhelp.txt`, e con lo
+stesso metro: **7 px per carattere** (`locvar_gmes_size` vale 14 dentro `gmes`,
+qualunque font si sia scelto prima), `gmesw = 510`, cioè **73 caratteri** per
+riga disegnata. Ma una riga più lunga non si perde: `gmes` la manda a capo da
+sola. Quel che si perde è **il fondo della sezione**, perché il ciclo di `:465`
+disegna dalla riga dopo il `{}` fino al `{` successivo, e quel che esce dalla
+finestra non va in una pagina dopo — `page_change` impagina l'elenco degli
+argomenti, non il corpo. Ogni riga del file costa 18 px, ogni a capo altri 16, e
+la pagina ne ha **436**: ventiquattro righe e si è pieni.
+
+⚠️⚠️ **Due sezioni sfondano già in inglese** — *Abnormal States* (32 righe, 624
+px) e *Ranged Weapons* (26 righe, 468) — e non c'è resa che le aggiusti, perché
+l'altezza la fa il **numero di righe**, che è fisso. Non è una regressione
+nostra, ed è anche la taratura della rete: un metro che desse tutto verde su un
+file che sfonda davvero starebbe misurando un'altra cosa. ⭐ L'italiano di
+*Abnormal States* misura **576 px contro i 624 dell'inglese**, perché le sue
+righe stanno tutte sotto i 73 caratteri e quelle di monte no.
+
+⭐ **Il margine per sezione si misura prima di tradurre, non dopo.** La più
+stretta — *Skill Gain* — ha il **19%** di capienza in più dell'inglese, e
+l'italiano ne chiede circa quindici. Sapere quel numero prima ha cambiato il
+modo di scrivere, non solo il modo di controllare.
+
+⚠️ **E il titolo ha una geometria tutta sua: 21 caratteri.** L'elenco a sinistra
+comincia a `wx + 66` e il corpo a `wx + 216`; l'ostacolo è il corpo, non il
+`display_topic` che nel sorgente viene prima — la lezione della 68ª un'altra
+volta. L'inglese si ferma a 20. La rete l'ha preso: «Stili di combattimento»
+faceva 22, ed è diventato «Modi di combattere».
+
+### 4. ⭐⭐ Il paragrafo e la riga non sono la stessa cosa, e impaginare è un vincolo
+
+Monte spezza i paragrafi a mano a metà frase, e ogni riga è una chiamata a
+`gmes` a sé. L'unità di senso è il paragrafo, quella del file è la riga, e **il
+numero di righe non si può scegliere**: `dati_applica` sostituisce righe senza
+aggiungerne, e una resa vuota non è una riga vuota — è una voce «da fare», che
+nella build resta **in inglese**.
+
+**Deciso:** si scrive il paragrafo intero e lo distribuisce
+`scratchpad/_101-impagina.py`, che lo spezza in **esattamente** k righe rendendo
+minima la più lunga. Un `textwrap` qualunque avrebbe ammassato il testo in cima
+lasciando l'ultima riga con due parole — e, dove l'italiano è più corto
+dell'inglese, non avrebbe riempito tutte le righe, cioè avrebbe lasciato inglese
+in campo. ⚠️ Dove la spezzatura **è contenuto** — la tabella della portata delle
+armi da tiro — il paragrafo si scrive a mano, riga per riga.
+
+### 5. ⚠️⚠️⚠️ QUATTRO PUNTI IN CUI IL MANUALE INGLESE NON DICE QUEL CHE IL GIOCO FA
+
+Un manuale cita quel che è a schermo (regola della 99ª). Tradurre alla lettera
+avrebbe portato in italiano quattro affermazioni false, e nessuna rete le
+avrebbe viste: sono italiano valido dentro una statica.
+
+1. **«Resistance to nerve paralysis reduces your chance of being paralyzed».**
+   Nel gioco i nervi tengono il **sonno** e la paralisi sta sotto **fulmine**
+   (`skill.hsp:81` e `:111`). Reso con la coppia giusta.
+2. **«to the right of your Melee1, Melee2, and Dist combat rolls».** La scheda di
+   questa build dice **Arma**, **Lotta** e **Tiro** (`command.hsp:12402`,
+   `:12408`, `:12414`). Reso con quelli.
+3. **«If you want a companion, just type in "companion" or "ally"».**
+   `command.hsp:4726` confronta `"友達" | "friend" | "company" | "ally"`, e
+   `companion` **in quell'elenco non c'è**. ⚠️ Sono letterali **nudi**, fuori da
+   ogni `lang()`: in italiano restano quelli, e il manuale li cita così. La
+   parola per le abilità invece passa da `lang("スキル", "skill")`
+   (`command.hsp:4336` e `:4840`) e il dizionario la rende **`abilita`**, senza
+   accento — perché è una chiave che il giocatore **scrive**, la stessa ragione
+   per cui le 78 chiavi della raccolta automatica non ne hanno (100ª).
+4. **`lastwords.txt`.** Il file si chiama **`lastwords-e.txt`**
+   (`text.hsp:465`), ed è un nome che il giocatore deve scrivere sul disco.
+
+💡 Tutt'e quattro si sono trovate allo stesso modo: cercando nel dizionario la
+parola prima di scriverla. Non è una revisione del manuale, è l'effetto
+collaterale di una regola di traduzione.
+
+### 6. ⓘ Il dirottamento del manuale non ha voluto nessuna toppa
+
+`help.hsp:331` è l'unico della famiglia in cui il nome del file sta **dentro**
+una `lang()` (`lang("manual_JP.txt", "manual_ENG.txt")`), quindi si dirotta dal
+dizionario: `manual_ENG_it.txt`. La ripresa diceva «una toppa serve lo stesso,
+per il ripiego `exist`» — **non serve**: quel ramo `exist` è di
+`custom_autopick.hsp`, e il manuale non ne ha uno. Misurato con un `grep`:
+`manual_` compare in **un sito solo** in tutto il sorgente.
+
+⚠️ E il nome italiano è `manual_ENG_it.txt`, che è brutto: è `nome_italiano()`
+applicato senza eccezioni. Un caso speciale nello strumento per fare un nome più
+bello costerebbe più della bruttezza.
+
+### 7. `{} Console` è italiano che coincide, e sta in `invariati.md`
+
+Il titolo della sezione della console è la stessa parola in tutt'e due le
+lingue, e la rete `identica` ha fatto il suo lavoro segnalandolo. Dichiarato per
+esteso — con il `{}` davanti, perché il confronto di `invariati.md` è sulla
+**stringa intera** — insieme al motivo: «console» è la parola italiana per
+quella finestra, e i comandi che ci si scrivono dentro (`wizard`, `freemove`,
+`exitroom`, `removequest`) sono chiavi che il codice confronta tal quali. È la
+terza riga di quel file che dice «non è inglese lasciato lì», dopo `Info` e
+`t `.
