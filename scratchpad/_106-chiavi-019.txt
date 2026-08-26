@@ -1,0 +1,157 @@
+    # ---------------------------------------------------------- :9104
+    (9104, 'A demon whose hobby is to mimic items and ridicule adventurers. However, it does not seem to think about what happens after its mimicry is discovered, and when it is, it explodes in a panic. '):
+        "",
+
+    # ---------------------------------------------------------- :9117
+    (9117, 'People living with the sea, reaping the bounty of the sea. Among fishermen, there is a custom to treat turtles with care, as they are considered to be messengers from the sea. '):
+        "",
+
+    # ---------------------------------------------------------- :9130
+    (9130, 'Those who travel the great seas of Irva in search of adventure and romance. But romance alone is not enough to feed them, so they regularly attack merchant ships. '):
+        "",
+
+    # ---------------------------------------------------------- :9143
+    (9143, 'Ordinary citizens living in South Tyris. They are often given rotten food on their request, or beaten to a pulp by demons, but they are still surviving in Ylva today. '):
+        "",
+
+    # ---------------------------------------------------------- :9156
+    (9156, 'People living in the city. They submit requests for various daily problems. Recently, there have been invasions from neighbouring countries, and they are very much concerned about the state of affairs in the city.'):
+        "",
+
+    # ---------------------------------------------------------- :9169
+    (9169, 'A fearsome insect given the title of demon. Although its fighting ability is low, its tenacity, resilience and ability to multiply are fearsome. Frustratingly, they are also very friendly.'):
+        "",
+
+    # ---------------------------------------------------------- :9182
+    (9182, 'A girl from a world called Gaius Vis. She once saved a traveller who was dying when his ship was shipwrecked. Elea.'):
+        "",
+
+    # ---------------------------------------------------------- :9195
+    (9195, "He comes from a world called Gaius Vis. He used to be a hard-headed man, but has recently become much more matured, probably due to Carla's influence. "):
+        "",
+
+    # ---------------------------------------------------------- :9208
+    (9208, 'A younger sister who is desperate for love. She has a habit of daydreaming and gets nosebleeds alone when she fantasises about an ecchi life with her brother (or sister). She seems to be anaemic because of this.'):
+        "",
+
+    # ---------------------------------------------------------- :9221
+    (9221, 'The original swarm of artificial bacteria, which were being researched at Remido. It was originally intended to strengthen all life forms and counter certain threats. Code name during research was Messiah.'):
+        "",
+
+    # ---------------------------------------------------------- :9234
+    (9234, 'It was born from the fusion of five dragons. They are revered by those who are fascinated by their overwhelming power, and even have the aspect of gods now. If they all breathe out their breath at the same time, they run out of oxygen, so they breathe out one by one in turn.'):
+        "",
+
+    # ---------------------------------------------------------- :9247
+    (9247, "A snail parasitised by something. It unleashes attacks without regard for its own physical vulnerability, but this is due to the parasite's will to change its host by daring to prey on it. "):
+        "",
+
+    # ---------------------------------------------------------- :9260
+    (9260, 'Mutated age-old birds. It hates being identified with phoenixes and phoenixes. Although its name is Vermilion Sparrow, it does not seem to be mistaken for a sparrow, as one would expect.'):
+        "",
+
+    # ---------------------------------------------------------- :9273
+    (9273, "Chicken monster. Those who are exposed to its gaze are rendered immobile as if their bodies had turned to stone. It is even said that 'if you make eye contact with it, you will die'."):
+        "",
+
+    # ---------------------------------------------------------- :9286
+    (9286, 'A rare sheep with a golden fleece. Its delicate, pure white fleece, which appears golden in the light, once caused people to fight over it. '):
+        "",
+
+    # ---------------------------------------------------------- :9299
+    (9299, 'A bird race bred by the dragon tribe. They are more ferocious than regular harpies, and their tendency to split apart when attacked, as if hit with a kaleidoscope, has caused many adventurers distress. '):
+        "",
+
+    # ---------------------------------------------------------- :9312
+    (9312, 'A moving rock with a tremendous energy source. It produces large bursts of light and explosions when stimulated from the outside. The explosions can be mistaken for a small sun.'):
+        "",
+
+    # ---------------------------------------------------------- :9325
+    (9325, 'Titans created by the Dark Lord, who planned to rule the earth from hell. They look like trolls, but are incomparably more intelligent and can speak their own language. '):
+        "",
+
+    # ---------------------------------------------------------- :9338
+    (9338, 'Its well-developed scissors have a very strong pinching force and can slice a Indian Elephant in a circle. Despite their name, they are omnivorous and will eat anything they can get their mouths on, including fruit, grass and animals. '):
+        "",
+
+    # ---------------------------------------------------------- :9351
+    (9351, 'A formidable dragon-man warrior. They have extremely high intelligence and a robust body covered with scales, and they very much dislike being mistaken for lower-ranked warrior lizardmen. '):
+        "",
+
+    # ---------------------------------------------------------- :9364
+    (9364, 'She is skilled in a variety of magic and is herself resistant to many different attributes. Even after becoming a respectable queen, she still has the mischievous spirit of a fairy. '):
+        "",
+
+    # ---------------------------------------------------------- :9377
+    (9377, 'A kobold with the strength of a demon. They are powerful enough to wrangle an Indian Elephant with ease, and they also attack in packs. '):
+        "",
+
+    # ---------------------------------------------------------- :9390
+    (9390, 'Frog hunter named after the water goddess. It will try to kill its target while planting eggs on them. The strong ones that survive will give birth to their strong offspring.'):
+        "",
+
+    # ---------------------------------------------------------- :9403
+    (9403, 'A snail that has grown wings under the influence of the ether wind. Surprisingly foul-mouthed. It seems that it is not only his movements that are slow, and he does not easily notice when favours are shown to him.'):
+        "",
+
+    # ---------------------------------------------------------- :9416
+    (9416, 'It was developed by capturing and analysing flight units from the age of mechanical civilisation. It is mainly used as flying equipment and cover for soldiers. It can also act independently using autonomous circuits.'):
+        "",
+
+    # ---------------------------------------------------------- :9429
+    (9429, 'A god of the dead, born from the amalgamation of the spirits of angels and demons, respectively. The power hidden in its wings is immeasurable. Its birth is said to be related to a certain sorcerer.'):
+        "",
+
+    # ---------------------------------------------------------- :9442
+    (9442, 'A large air combat weapon developed by the Yerles military. It was stored in the basement of the fortress, but was thrown out into the central core when the fortress was fused with Nefia by a tectonic movement. '):
+        "",
+
+    # ---------------------------------------------------------- :9455
+    (9455, 'Guardian of the underworld who controls the light of the sun while underground. He leads the dead to the Valley of the Dead, where he reigns, and weighs their sins. He used to have god-like powers, but not so much nowadays.'):
+        "",
+
+    # ---------------------------------------------------------- :9468
+    (9468, 'Rotting dragon corpses brought to life by high-level lich. Although magically enhanced, they are not very strong due to rotting muscles. '):
+        "",
+
+    # ---------------------------------------------------------- :9481
+    (9481, 'This creature is not of this world. Mysterious power seems to emanate out of it from somewhere. Its power source is also unknown. It cries, but where does it get its voice from?'):
+        "",
+
+    # ---------------------------------------------------------- :9494
+    (9494, 'He has managed to get hold of stubborn ball-makers and buys monster balls directly from them. As they are not widely distributed, they have a near-monopoly on them. '):
+        "",
+
+    # ---------------------------------------------------------- :9507
+    (9507, 'He had a country-born complex and left his village when he was young to become a merchant. He became very rich for a while but got overzealous and his business failed. '):
+        "",
+
+    # ---------------------------------------------------------- :9520
+    (9520, "It has body hair darkened by the reflux of blood that it is continually exposed to and soaks up. The old saying goes 'a cornered rat will bite a cat', and with this rat, the cat is the prey. "):
+        "",
+
+    # ---------------------------------------------------------- :9533
+    (9533, 'They are mainly installed in defensive positions. Prototype aircraft equipped with Gatling guns with seemingly excessive firepower exist, as a hobby of the chief developer. '):
+        "",
+
+    # ---------------------------------------------------------- :9546
+    (9546, 'The slime has taken in a mysterious object from outer space and mutated. The cells are severely unstable and a slight shock causes them to transform. '):
+        "",
+
+    # ---------------------------------------------------------- :9559
+    (9559, 'A sheep whose body hair, originally prone to storing static electricity, has somehow become so charged that it can be used to attack. Whenever it moves, it emits a loud, crackling sound. '):
+        "",
+
+    # ---------------------------------------------------------- :9572
+    (9572, 'A very restless and fidgety maid. She came to the city as a migrant worker, but soon afterwards she found herself on the street because her owner went bankrupt. '):
+        "",
+
+    # ---------------------------------------------------------- :9585
+    (9585, 'Blossoms that adorn the mansion. A professional who can appraise, train and investigate her peers with perfection, but she is not a great chef. Only male maids are treated badly by some masters.'):
+        "",
+
+    # ---------------------------------------------------------- :9598
+    (9598, 'Descendants of the gods who once ruled the earth. They carry intense resentment because their brethren have been forced underground by the current gods. '):
+        "",
+
+# 39 voci fra la riga 9101 e la 9600, 0 ambigue

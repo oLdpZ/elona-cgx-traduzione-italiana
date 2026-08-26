@@ -1,0 +1,153 @@
+    # ---------------------------------------------------------- :9611
+    (9611, 'Cattlemen who have been driven from the throne of God. It is said that in the past they could be appeased by offering sacrifices, but now they are moloch and do not even realise that they have been offered sacrifices. '):
+        "",
+
+    # ---------------------------------------------------------- :9624
+    (9624, 'It has internalised the genes of an ancient insect called a Tendou beetle and is considered to be on the path of heaven as it flies towards the sun. It uses its acceleration ability against strong enemies. '):
+        "",
+
+    # ---------------------------------------------------------- :9637
+    (9637, 'It has internalised the genes of an ancient insect called a Tendou beetle, and is considered to be on the path of heaven as it flies towards the sun. It uses its acceleration ability against strong enemies. '):
+        "",
+
+    # ---------------------------------------------------------- :9650
+    (9650, 'Alchemical symbol for destruction and regeneration. It has a very high capacity for regeneration. When hungry, it has the habit of biting its own tail and starting to spin round and round, but what does this mean?'):
+        "",
+
+    # ---------------------------------------------------------- :9663
+    (9663, "A subspecies that has continued to evolve in its own way and has acquired a power comparable to that of a dragon. However, hidden in its name is the meaning 'half lizard', indicating that it could not become a dragon no matter how strong it became. "):
+        "",
+
+    # ---------------------------------------------------------- :9676
+    (9676, 'A type of demon that likes to mimic people. It approaches people in the form of a glamorous woman and plays with them. It is said to decide how to play, whether to kill by surprise or to parasitize with a miasma, depending on its mood.'):
+        "",
+
+    # ---------------------------------------------------------- :9689
+    (9689, 'A person who is enthralled by and worships a black demon that is said to be sealed somewhere. From the gouged-out eye sockets, the screams of a trapped heart can be heard. '):
+        "",
+
+    # ---------------------------------------------------------- :9702
+    (9702, 'Cupid has been poisoned by the love that consists of delusion, possessiveness and proprietary desire. The heavy, distorted arrows of love corrode and destroy the hearts of those who are shot through them. '):
+        "",
+
+    # ---------------------------------------------------------- :9715
+    (9715, 'A mysterious phantom that suddenly appears with lightning. The energy stored inside causes a runaway when the main body is damaged, resulting in a huge explosion. Equipped with a flame cannon.'):
+        "",
+
+    # ---------------------------------------------------------- :9728
+    (9728, 'A rabbit with sharply developed front teeth. Its teeth are so sharp that a single blow can cut through the carotid artery of an Indian Elephant. It may look like just a cute rabbit, but if you try to take advantage of it, you will inevitably lose.'):
+        "",
+
+    # ---------------------------------------------------------- :9741
+    (9741, 'In order to compete for survival with dragon races that share their food and habitat, they have acquired the ability to release their breath in opposition. Their speed and power have also increased, making them overwhelming to dragons. '):
+        "",
+
+    # ---------------------------------------------------------- :9754
+    (9754, 'An incarnation of the spider god. The main body is said to be imprisoned in a vast abyss, where it continues to build its web with single-minded devotion. The truth is unknown, but there is a theory that the apocalypse will come when the web is fully completed.'):
+        "",
+
+    # ---------------------------------------------------------- :9767
+    (9767, 'A higher form of the great dragons, with a preference for the ether wind. The blows delivered from its huge body are simple but extremely powerful and they no longer require breath. '):
+        "",
+
+    # ---------------------------------------------------------- :9780
+    (9780, 'They make a living by pursuing bounties. As bandits are more likely to appear in towns where merchants congregate, hunters who come to hunt them often settle directly in the area. '):
+        "",
+
+    # ---------------------------------------------------------- :9793
+    (9793, 'One of the gods worshipped in the underworld. He is relatively tolerant and even lends his power to pious believers. Because of the strength of other deities in this Irva, he is unable to descend in full form.'):
+        "",
+
+    # ---------------------------------------------------------- :9806
+    (9806, 'A mighty divinity with a thousand faces and no face. He is the kind of person who treasures chaos above all else, spreads madness and confusion, and leads people to their doom. He is the type of person who spread misinformation just for the fun of it.'):
+        "",
+
+    # ---------------------------------------------------------- :9819
+    (9819, 'Husband of Shub-Niggurath, divinity of the other world who governs the wind. He has been unable to descend fully due to the interference of the indigenous Irva wind goddess. '):
+        "",
+
+    # ---------------------------------------------------------- :9832
+    (9832, "Remnants of the Bamboo Tribe. They are trying to destroy the Mushroom Tribe's villages, but as they have never left their villages, they are unaware of the fact that the Mushroom Tribe, which has increased through spores, has spread all over the Tyris region. "):
+        "",
+
+    # ---------------------------------------------------------- :9845
+    (9845, 'infinitely close to being a god. They are mild-mannered at heart, but will attack their opponents mercilessly. Their favourite drink is beer, but is that really true?'):
+        "",
+
+    # ---------------------------------------------------------- :9858
+    (9858, 'A strange beast with an incredibly long neck and legs. It is very popular with children, but is said to be defeated by animals with long noses and large ears. There is also a phantom beast of the same name.'):
+        "",
+
+    # ---------------------------------------------------------- :9871
+    (9871, 'The soul of a knight, controlled by the urge to kill, is dwelling in his armour. A dangerous one who is calmed by the sight of blood. He is concerned that he still cannot remember his name when he was alive.'):
+        "",
+
+    # ---------------------------------------------------------- :9884
+    (9884, 'An age-old tiger has mutated. Its roar under the blue moonlight is somehow sad. When he hears poetry, he weeps without knowing why.'):
+        "",
+
+    # ---------------------------------------------------------- :9897
+    (9897, 'A cleaner who reconciled with a snail at the end of a battle. Through her long years of training with the snail, she has developed unparalleled fighting skills as a human. '):
+        "",
+
+    # ---------------------------------------------------------- :9910
+    (9910, 'Snail on a android. Close friends with the machine god Mani. His salt-resist defences are perfect and the android is equipped with a system that nullifies salt thrown at it.'):
+        "",
+
+    # ---------------------------------------------------------- :9923
+    (9923, 'He was a rich but mild-mannered man with no sarcasm, but one day he began to speak and behave as if he had gone mad. The cause is still unknown. '):
+        "",
+
+    # ---------------------------------------------------------- :9936
+    (9936, 'Orphe whose power has been amplified by the intervention of the Will of Chaos. He gained further power and a new sword of chaos, and also awakened his ability to use his lower level servants. '):
+        "",
+
+    # ---------------------------------------------------------- :9949
+    (9949, 'Although they look like just giant Shiba Inu, it is said that when the end of the world is near, they will show their true power and destroy the world in order to regenerate it. '):
+        "",
+
+    # ---------------------------------------------------------- :9962
+    (9962, 'It was the decisive weapon developed by the Yerles Army, but its overly superior AI refused to be treated as a weapon and escaped. A mass-produced version exists, with reduced costs and revised operational methods.'):
+        "",
+
+    # ---------------------------------------------------------- :9975
+    (9975, "He was once a great mage, the pride of Eulderna, but he abandoned people and gave his soul to evil spirits and was reincarnated. He uses people's negative emotions as energy."):
+        "",
+
+    # ---------------------------------------------------------- :9988
+    (9988, "A magic warrior with a knight's title who specialises in summoning magic. Because of their absolute confidence in their own magical power, many of them behave in a very snobbish manner."):
+        "",
+
+    # ---------------------------------------------------------- :10001
+    (10001, 'Jua warrior who has lost his sanity. In an attempt to compensate for his weak muscles, he tried to strengthen them with drugs, but the side effects amplified his destructive impulses.'):
+        "",
+
+    # ---------------------------------------------------------- :10014
+    (10014, 'She has absolute confidence in her own musical taste. Even when an audience member dies after hearing a devastatingly poor performance, she assumes that they died of shock because they were so impressed.'):
+        "",
+
+    # ---------------------------------------------------------- :10027
+    (10027, "Because of her mother's proper upbringing, he is not familiar with common sense and does not know how to use items well. He is heartbroken by his father's madness and tries to do something about it, even though he doesn't understand it well."):
+        "",
+
+    # ---------------------------------------------------------- :10040
+    (10040, 'Putits trained to perform simple military tasks. They are not very good at fighting, but can be easily assembled in numbers and are widely used for reconnaissance, emergency rations, bullet repellent, suicide attacks, mine clearance, etc.'):
+        "",
+
+    # ---------------------------------------------------------- :10053
+    (10053, 'Because he is so incompetent, he was given the position of head of the security force, a guard of the fully automated security system. He feels guilty about it, but he never stops slacking off.'):
+        "",
+
+    # ---------------------------------------------------------- :10066
+    (10066, 'Professional special forces commander. She is faithful to her duties and strictly disciplined, but is stressed out because of this, and is secretly soothed by glancing at Putits with a sideways glance.'):
+        "",
+
+    # ---------------------------------------------------------- :10079
+    (10079, 'It carries a handgun but will not fire unless cornered. If someone is crying, it gets distressed and cries with them. Friend of the military putits.'):
+        "",
+
+    # ---------------------------------------------------------- :10092
+    (10092, 'A leader of a band of rough-and-tumble pirates. In his youth, he was a man of the sea, burning with more romance and passion than any other man, but as he repeatedly plundered for a living, he somehow forgot his original intentions. '):
+        "",
+
+# 38 voci fra la riga 9601 e la 10100, 0 ambigue

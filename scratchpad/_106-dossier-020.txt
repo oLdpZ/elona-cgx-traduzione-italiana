@@ -1,0 +1,267 @@
+--- db_card.hsp:9611   CREATURE_ID_MOLOCH   creatura 405
+    NOME  jp モロク
+          en moloch
+          IT il Moloch
+    JP    神の座を追われた牛人。昔は生贄を奉げることで鎮めることができたらしいが、今やモーロクしており生贄を奉げられたことにも気づかない。
+    EN    Cattlemen who have been driven from the throne of God. It is said that in the past they could be appeased by offering sacrifices, but now they are moloch and do not even realise that they have been offered sacrifices. 
+
+--- db_card.hsp:9624   CREATURE_ID_KABUTO   creatura 404
+    NOME  jp ヘブンズビートル
+          en kabuto
+          IT il kabuto
+    JP    てんとう虫という古代昆虫の遺伝子を内包しており、太陽に向かって飛ぶことから天の道を行くとされる。強敵には加速能力で対抗する。
+    EN    It has internalised the genes of an ancient insect called a Tendou beetle and is considered to be on the path of heaven as it flies towards the sun. It uses its acceleration ability against strong enemies. 
+
+--- db_card.hsp:9637   CREATURE_ID_GRAND_ENT   creatura 403
+    NOME  jp 世界樹
+          en grand ent
+          IT l'albero del mondo
+    JP    ネフィアを守る巨大なエント。世界樹の遺伝子はネフィアを持つ大樹と同じであるため、成長しきると人とは比べ物にならないほどの大きさを誇るのではと言われている。
+    EN    It has internalised the genes of an ancient insect called a Tendou beetle, and is considered to be on the path of heaven as it flies towards the sun. It uses its acceleration ability against strong enemies. 
+
+--- db_card.hsp:9650   CREATURE_ID_OUROBOROS   creatura 402
+    NOME  jp ウロボロス
+          en ouroboros
+          IT l'Ouroboros
+    JP    破壊と再生を表す錬金術のシンボル。再生能力が非常に高い。お腹がすくと自分の尻尾に噛みついてグルグル回りだす習性があるが意味はあるのだろうか。
+    EN    Alchemical symbol for destruction and regeneration. It has a very high capacity for regeneration. When hungry, it has the habit of biting its own tail and starting to spin round and round, but what does this mean?
+
+--- db_card.hsp:9663   CREATURE_ID_VIASHIVAN   creatura 401
+    NOME  jp ヴィーアシヴァン
+          en viashivan
+          IT il viashivan
+    JP    独自の進化を続け竜に遜色のない力を手に入れた亜種。だがその名には『半分蜥蜴』との意味が隠されており、どれだけ強くなっても竜になれなかったことを示している。
+    EN    A subspecies that has continued to evolve in its own way and has acquired a power comparable to that of a dragon. However, hidden in its name is the meaning 'half lizard', indicating that it could not become a dragon no matter how strong it became. 
+
+--- db_card.hsp:9676   CREATURE_ID_CAMOUFLAGED_IMP   creatura 400
+    NOME  jp 淫婦
+          en camouflaged imp
+          IT la lussuriosa
+    JP    人の擬態を好む悪魔の一種。艶めかしい女性の姿で人に近づき弄ぶ。不意打ちで殺すか、異物を寄生させるか、遊び方は気分次第で決めるらしい。
+    EN    A type of demon that likes to mimic people. It approaches people in the form of a glamorous woman and plays with them. It is said to decide how to play, whether to kill by surprise or to parasitize with a miasma, depending on its mood.
+
+--- db_card.hsp:9689   CREATURE_ID_BLACK_BAPTIST   creatura 399
+    NOME  jp 黒の洗礼者
+          en black baptist
+          IT il battezzatore nero
+    JP    何処かに封印されているという黒き悪魔に心を奪われ崇拝している者。ぽっかりと刳り抜かれた眼窩より、囚われた心の悲鳴が聞こえる。
+    EN    A person who is enthralled by and worships a black demon that is said to be sealed somewhere. From the gouged-out eye sockets, the screams of a trapped heart can be heard. 
+
+--- db_card.hsp:9702   CREATURE_ID_CUPID_OF_DEATH   creatura 398
+    NOME  jp 殺人キューピッド
+          en cupid of death
+          IT il cupido assassino
+    JP    妄執と所有欲と独占欲から成る愛に毒されてしまったキューピッド。重く歪んだ愛の矢は射抜かれた者の心を蝕み、破壊する。
+    EN    Cupid has been poisoned by the love that consists of delusion, possessiveness and proprietary desire. The heavy, distorted arrows of love corrode and destroy the hearts of those who are shot through them. 
+
+--- db_card.hsp:9715   CREATURE_ID_VOL_PHANTOM   creatura 397
+    NOME  jp ヴォルガーファントム
+          en vol phantom
+          IT il fantasma voltaico
+    JP    雷と共に突然現れる謎のファントム。内部に貯め込まれたエネルギーは本体が傷つくと暴走を起こし、大爆発の原因となる。火炎砲を装備。
+    EN    A mysterious phantom that suddenly appears with lightning. The energy stored inside causes a runaway when the main body is damaged, resulting in a huge explosion. Equipped with a flame cannon.
+
+--- db_card.hsp:9728   CREATURE_ID_VORPAL_BUNNY   creatura 396
+    NOME  jp ボーパルバニー
+          en vorpal bunny
+          IT il coniglio vorpal
+    JP    鋭く発達した前歯を持つウサギ。その歯による攻撃はとても鋭く、一撃で頚動脈をかき切る。見た目はただの可愛らしいウサギだが、舐めてかかろうものなら敗北必至。
+    EN    A rabbit with sharply developed front teeth. Its teeth are so sharp that a single blow can cut through the carotid artery of an Indian Elephant. It may look like just a cute rabbit, but if you try to take advantage of it, you will inevitably lose.
+
+--- db_card.hsp:9741   CREATURE_ID_TYRANNOBREAKER   creatura 395
+    NOME  jp ティラノブレイカー
+          en Tyrannobreaker
+          IT il tiranno demolitore
+    JP    餌や生息地域が被るドラゴン種族との生存競争に勝つため、対抗してブレスを放つ力を身に着けた。スピードとパワーも上がっており、ドラゴンを圧倒する。
+    EN    In order to compete for survival with dragon races that share their food and habitat, they have acquired the ability to release their breath in opposition. Their speed and power have also increased, making them overwhelming to dragons. 
+
+--- db_card.hsp:9754   CREATURE_ID_ATLACH_NACHA   creatura 394
+    NOME  jp アトラック＝ナチャ
+          en atlach-nacha
+          IT l'Atlach-Nacha
+    JP    蜘蛛の神の分体。その本体は広大な深淵に幽閉されており、今も一心不乱に巣を作り続けているとされる。真相は不明だが、巣が完全に完成すると終末が訪れるという説がある。
+    EN    An incarnation of the spider god. The main body is said to be imprisoned in a vast abyss, where it continues to build its web with single-minded devotion. The truth is unknown, but there is a theory that the apocalypse will come when the web is fully completed.
+
+--- db_card.hsp:9767   CREATURE_ID_GRAND_DRAGON   creatura 393
+    NOME  jp グランドドラゴン
+          en grand dragon
+          IT il gran drago
+    JP    エーテルを好む、偉大なる竜の上位種。巨体から繰り出される打撃は単純だが極めて強力であり、もはやブレスなどを必要としない。
+    EN    A higher form of the great dragons, with a preference for the ether wind. The blows delivered from its huge body are simple but extremely powerful and they no longer require breath. 
+
+--- db_card.hsp:9780   CREATURE_ID_BOUNTY_HUNTER   creatura 392
+    NOME  jp バウンティハンター
+          en bounty hunter
+          IT il cacciatore di taglie
+    JP    賞金首を狩ることで生計を立てている。商人が集まる街では盗賊が出没しやすいため、それを狩りに来たハンターがそのまま定住することが多い。
+    EN    They make a living by pursuing bounties. As bandits are more likely to appear in towns where merchants congregate, hunters who come to hunt them often settle directly in the area. 
+
+--- db_card.hsp:9793   CREATURE_ID_TSATHOGGUA   creatura 391
+    NOME  jp ツァトゥグァ
+          en tsathoggua
+          IT il Tsathoggua
+    JP    地下世界で崇拝されている神の一柱。比較的寛容で、敬虔な信者には力を貸す事すらある。このイルヴァにおいては他の神の力が強い為、完全な形で降臨する事はできない。
+    EN    One of the gods worshipped in the underworld. He is relatively tolerant and even lends his power to pious believers. Because of the strength of other deities in this Irva, he is unable to descend in full form.
+
+--- db_card.hsp:9806   CREATURE_ID_NYARLATHOTEP   creatura 390
+    NOME  jp ナイアーラトテップ
+          en nyarlathotep
+          IT il Nyarlathotep
+    JP    無貌にして千の貌を持った強壮なる神性。混沌をこそ何よりも貴び、狂気と混乱を撒き散らし、人々を破滅へと導く存在。面白半分で場をひっかき回すタイプ。
+    EN    A mighty divinity with a thousand faces and no face. He is the kind of person who treasures chaos above all else, spreads madness and confusion, and leads people to their doom. He is the type of person who spread misinformation just for the fun of it.
+
+--- db_card.hsp:9819   CREATURE_ID_THE_KING_IN_YELLOW   creatura 389
+    NOME  jp 黄衣の王
+          en the king in yellow
+          IT il Re in Giallo
+    JP    シュブ=ニグラスの夫にして風を司る異界の神性。イルヴァ土着の風神の妨害により完全な降臨が出来ず手をこまねいている。
+    EN    Husband of Shub-Niggurath, divinity of the other world who governs the wind. He has been unable to descend fully due to the interference of the indigenous Irva wind goddess. 
+
+--- db_card.hsp:9832   CREATURE_ID_BAMBOO_SPROUT   creatura 388
+    NOME  jp 『たけのこ』
+          en <Bamboo Sprout>
+          IT <Germoglio di Bambù>
+    JP    たけのこ族の生き残り。きのこ族の山を滅ぼそうとしているが里から出たことがなかったため、胞子で増えたきのこ族がティリス地方全体へと広がっている事実を知らない。
+    EN    Remnants of the Bamboo Tribe. They are trying to destroy the Mushroom Tribe's villages, but as they have never left their villages, they are unaware of the fact that the Mushroom Tribe, which has increased through spores, has spread all over the Tyris region. 
+
+--- db_card.hsp:9845   CREATURE_ID_KIRIN   creatura 387
+    NOME  jp 麒麟
+          en kirin
+          IT il Kirin
+    JP    獣類の長とされる幻獣で、限りなく神に近い存在。根は温厚だが、敵対する相手には容赦無く襲い掛かる。好きな飲み物はビアだというが本当だろうか。
+    EN    infinitely close to being a god. They are mild-mannered at heart, but will attack their opponents mercilessly. Their favourite drink is beer, but is that really true?
+
+--- db_card.hsp:9858   CREATURE_ID_GIRAFFE   creatura 386
+    NOME  jp キリンさん
+          en giraffe
+          IT la giraffa
+    JP    首と足がとてつもなく長い奇妙な獣。子供たちに大人気だが、鼻が長くて耳が大きい動物には負けるらしい。また、同名の幻獣が存在する。
+    EN    A strange beast with an incredibly long neck and legs. It is very popular with children, but is said to be defeated by animals with long noses and large ears. There is also a phantom beast of the same name.
+
+--- db_card.hsp:9871   CREATURE_ID_MURDER_KNIGHT   creatura 385
+    NOME  jp 『マーダーナイト』
+          en <Murder Knight>
+          IT <Cavaliere Assassino>
+    JP    殺戮衝動に支配された騎士の魂が鎧に宿ったもの。血を見ることで落ち着く危ないやつ。生身だったころの名前をまだ思い出せないことを気にしている。
+    EN    The soul of a knight, controlled by the urge to kill, is dwelling in his armour. A dangerous one who is calmed by the sight of blood. He is concerned that he still cannot remember his name when he was alive.
+
+--- db_card.hsp:9884   CREATURE_ID_LITYOU   creatura 384
+    NOME  jp 白虎の『サンゲツ』
+          en <Lityou>
+          IT <Lityou> la tigre bianca
+    JP    年を経た虎が変異した。蒼い月光の下で咆哮するその姿にはどこかもの悲しさを感じる。詩を聞くと、わけもわからず涙を流す。
+    EN    An age-old tiger has mutated. Its roar under the blue moonlight is somehow sad. When he hears poetry, he weeps without knowing why.
+
+--- db_card.hsp:9897   CREATURE_ID_RECONCILED_CLEANER   creatura 383
+    NOME  jp 『元清掃員』
+          en <Reconciled cleaner>
+          IT <Ex spazzino>
+    JP    戦いの果てにかたつむりと和解した清掃員。かたつむりとの長い修行を経て、人間としては破格の戦闘力を身に着けた。
+    EN    A cleaner who reconciled with a snail at the end of a battle. Through her long years of training with the snail, she has developed unparalleled fighting skills as a human. 
+
+--- db_card.hsp:9910   CREATURE_ID_SNAIL_THE_ANDROID_RIDER   creatura 382
+    NOME  jp 『かたつむり（機乗）』
+          en <Snail> the android rider
+          IT <Lumaca> in sella all'androide
+    JP    アンドロイドに乗ったかたつむり。機械のマニと仲がいい。耐塩防御は完璧で、投げつけられた塩を無効化するシステムをアンドロイドが搭載している。
+    EN    Snail on a android. Close friends with the machine god Mani. His salt-resist defences are perfect and the android is equipped with a system that nullifies salt thrown at it.
+
+--- db_card.hsp:9923   CREATURE_ID_CAIM_THE_MAD_RICH   creatura 381
+    NOME  jp 発狂金持ち『カイン』
+          en <Caim> the mad rich
+          IT <Caim> il riccone folle
+    JP    金持ちながらも嫌味なところがない温厚な男性だったが、ある日を境に狂ったかのような言動を繰り返すようになった。原因はいまだ不明。
+    EN    He was a rich but mild-mannered man with no sarcasm, but one day he began to speak and behave as if he had gone mad. The cause is still unknown. 
+
+--- db_card.hsp:9936   CREATURE_ID_ORPHE_THE_CHAOS_FOLLOWER   creatura 380
+    NOME  jp 混沌の従者『オルフェ』
+          en <Orphe> the chaos follower
+          IT <Orphe> il servo del caos
+    JP    混沌の意志の介入により力が増幅されたオルフェ。更なる力と新たな混沌の剣を手にし、下級眷属を使役する能力にも目覚めた。
+    EN    Orphe whose power has been amplified by the intervention of the Will of Chaos. He gained further power and a new sword of chaos, and also awakened his ability to use his lower level servants. 
+
+--- db_card.hsp:9949   CREATURE_ID_SIVA_THE_DESTRUCTION   creatura 379
+    NOME  jp 破壊神『シバ』
+          en <Siva> the destruction
+          IT <Siva> il dio della distruzione
+    JP    見た目こそただの巨大な柴犬だが、世界の終わりが近づいたときには真の力を発揮し、再生のために世界を破壊すると言われている。
+    EN    Although they look like just giant Shiba Inu, it is said that when the end of the world is near, they will show their true power and destroy the world in order to regenerate it. 
+
+--- db_card.hsp:9962   CREATURE_ID_YERLESWOOD_THE_SAVAGE_MACHINE   creatura 378
+    NOME  jp 超絶決戦兵器『イェルスード』
+          en <Yerleswood> the savage machine
+          IT <Yerleswood> l'arma della battaglia decisiva
+    JP    イェルス軍が開発した決戦兵器だったが、優秀すぎるＡＩが兵器として扱われることを拒み脱走。コストを抑え運用方法を見直した量産型が存在する。
+    EN    It was the decisive weapon developed by the Yerles Army, but its overly superior AI refused to be treated as a weapon and escaped. A mass-produced version exists, with reduced costs and revised operational methods.
+
+--- db_card.hsp:9975   CREATURE_ID_ULZASSIL_THE_DEAD_EMPEROR   creatura 377
+    NOME  jp 悪霊神『ウルザシズル』
+          en <Ulzassil> the dead emperor
+          IT <Ulzassil> il dio degli spettri
+    JP    かつてはエウダーナが誇る大魔導士であったが、人を捨て悪霊に魂を委ね転生した。人々の負の感情をエネルギーにする。
+    EN    He was once a great mage, the pride of Eulderna, but he abandoned people and gave his soul to evil spirits and was reincarnated. He uses people's negative emotions as energy.
+
+--- db_card.hsp:9988   CREATURE_ID_EULDERNA_SUMMONKNIGHT   creatura 376
+    NOME  jp エウダーナ召喚騎士
+          en eulderna summonknight
+          IT il cavaliere evocatore di Eulderna
+    JP    召喚魔法を得意とする、騎士の称号を冠する魔法戦士。自らの魔力に絶対の自信を持っているため、非常に鼻持ちならない言動をする者が多い。
+    EN    A magic warrior with a knight's title who specialises in summoning magic. Because of their absolute confidence in their own magical power, many of them behave in a very snobbish manner.
+
+--- db_card.hsp:10001   CREATURE_ID_JUERE_BERSERKER   creatura 375
+    NOME  jp ジューア狂戦士
+          en juere berserker
+          IT il berserker di Juere
+    JP    正気を失っているジューアの戦士。弱点である筋力を補おうと、薬物による強化を試みたところ、副作用によって破壊衝動が増幅されてしまった。
+    EN    Jua warrior who has lost his sanity. In an attempt to compensate for his weak muscles, he tried to strengthen them with drugs, but the side effects amplified his destructive impulses.
+
+--- db_card.hsp:10014   CREATURE_ID_MEFAN_THE_BARD   creatura 374
+    NOME  jp 笛吹きの『メファン』
+          en <Mefan> the bard
+          IT <Mefan> la pifferaia
+    JP    自らの音楽センスに絶対的な自信を持つ。壊滅的に下手な演奏を聴かされた聴衆が死んでも、感激してショック死したと思い込むほど。
+    EN    She has absolute confidence in her own musical taste. Even when an audience member dies after hearing a devastatingly poor performance, she assumes that they died of shock because they were so impressed.
+
+--- db_card.hsp:10027   CREATURE_ID_NAIVE_KYLE   creatura 373
+    NOME  jp 世間知らずの『カイル』
+          en Naive <Kyle>
+          IT l'ingenuo <Kyle>
+    JP    母親が適当な教育をしていたため、常識に疎くアイテムの使い方もよく知らない。父親の狂乱ぶりに心を痛めており、よくわからないなりになんとかしようとしている。
+    EN    Because of her mother's proper upbringing, he is not familiar with common sense and does not know how to use items well. He is heartbroken by his father's madness and tries to do something about it, even though he doesn't understand it well.
+
+--- db_card.hsp:10040   CREATURE_ID_MILITARY_PUTIT   creatura 372
+    NOME  jp 軍用プチ
+          en military putit
+          IT il putit militare
+    JP    簡単な軍務をこなせるよう訓練されたプチ。戦闘力はイマイチだが数を簡単に揃えられるため、偵察・非常食・弾除け・特攻・地雷除去などに幅広く酷使されている。
+    EN    Putits trained to perform simple military tasks. They are not very good at fighting, but can be easily assembled in numbers and are widely used for reconnaissance, emergency rations, bullet repellent, suicide attacks, mine clearance, etc.
+
+--- db_card.hsp:10053   CREATURE_ID_SECURITY_OFFICER_ORVILLE   creatura 371
+    NOME  jp 警備部隊長『オービル』
+          en Security Officer <Orville>
+          IT <Orville> il comandante della sicurezza
+    JP    あまりに無能なため警備部隊の隊長もとい全自動の警備システムの見張り、という役職につけられた。一応そのことに負い目を感じているがサボることはやめない。
+    EN    Because he is so incompetent, he was given the position of head of the security force, a guard of the fully automated security system. He feels guilty about it, but he never stops slacking off.
+
+--- db_card.hsp:10066   CREATURE_ID_MILIS_CAPTAIN_OF_THE_SPECIAL_FORCES   creatura 370
+    NOME  jp 特殊部隊長『ミーリス』
+          en <Milis> Captain of the Special Forces
+          IT <Milis> la comandante delle forze speciali
+    JP    特殊部隊の隊長を務めるプロフェッショナル。任務に忠実で規律に厳しいがその分ストレスがたまっており、プチを横目でちらちら見ては密かに癒されている。
+    EN    Professional special forces commander. She is faithful to her duties and strictly disciplined, but is stressed out because of this, and is secretly soothed by glancing at Putits with a sideways glance.
+
+--- db_card.hsp:10079   CREATURE_ID_DOG_COP   creatura 369
+    NOME  jp 『犬のおまわりさん』
+          en <Dog cop> 
+          IT <Cane poliziotto> 
+    JP    拳銃を所持しているが 、追い詰められなければ発砲しない。誰かが泣いていると困ってしまって一緒に泣いてしまう。軍用プチとは仲がよい。
+    EN    It carries a handgun but will not fire unless cornered. If someone is crying, it gets distressed and cries with them. Friend of the military putits.
+
+--- db_card.hsp:10092   CREATURE_ID_EBARTH_THE_PIRATE_BOSS   creatura 368
+    NOME  jp 海賊団長『エバース』
+          en <Ebarth> the pirate boss
+          IT <Ebarth> il capo dei pirati
+    JP    荒くれの海賊たちをまとめる存在。若いころは人一倍ロマンと情熱に燃える海の男だったが、生活のため略奪を繰り返すうちにいつしか初心を忘れてしまった。
+    EN    A leader of a band of rough-and-tumble pirates. In his youth, he was a man of the sea, burning with more romance and passion than any other man, but as he repeatedly plundered for a living, he somehow forgot his original intentions. 
+
+== 38 carte fra la riga 9601 e la 10100

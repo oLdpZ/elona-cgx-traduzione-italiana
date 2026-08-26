@@ -1,0 +1,157 @@
+    # ---------------------------------------------------------- :10105
+    (10105, 'He is an unusually skilled mercenary and has considerable experience among mercenaries, whose quality has continued to decline in recent years. However, he has motion sickness. For this reason, he mainly works in jobs that do not involve long-distance travel.'):
+        "",
+
+    # ---------------------------------------------------------- :10118
+    (10118, 'He likes the smell of gunpowder, the sound of mechanical drives and machine oil, and despite being a general, his hobby is designing mechanisms. From time to time, he devises absurd equipment and gets excited with Gavela. '):
+        "",
+
+    # ---------------------------------------------------------- :10131
+    (10131, 'Hitman younger sister. She enjoys hiding in the vicinity of her kill targets and killing them after terrorising them extensively with the daily sound of her chainsaw. She has a strong personality and keeps a very cringy diary.'):
+        "",
+
+    # ---------------------------------------------------------- :10144
+    (10144, 'Your older sister, who lives in Ludus and is not blood-related to you. She is always waiting for you to come home, although she is dissatisfied with your occasional visits. '):
+        "",
+
+    # ---------------------------------------------------------- :10157
+    (10157, "Non-blood-related older sister-in-law of a human-friendly canine family. She is not very strong, although she is as intimidating as possible towards those who would avenge her brother (or sister). Maid's clothes are a hobby."):
+        "",
+
+    # ---------------------------------------------------------- :10170
+    (10170, 'Sons of Rudra, the storm god, who inherited his power. During a struggle for supremacy with Lulwy of the Wind, their bodies were destroyed and turned into tornadoes themselves. Since then, they have been sworn to her allegiance.'):
+        "",
+
+    # ---------------------------------------------------------- :10183
+    (10183, 'Your older sister who is not related to you by blood. She still loves you and always wants you to spoil her. To her, you will always be her little brother (sister).'):
+        "",
+
+    # ---------------------------------------------------------- :10196
+    (10196, "A being that shouldn't exist. Its origin varies."):
+        "",
+
+    # ---------------------------------------------------------- :10209
+    (10209, 'Abbreviation for unique-subconscious-extra-reactant. The unique human subconscious has reacted with things outside this world and established its presence on this side of the world. '):
+        "",
+
+    # ---------------------------------------------------------- :10222
+    (10222, 'A person who sells various goods and serves as the public face of the town. Adept at using firearms to prevent robbery. Since they have next to no ability to negotiate, a rigorous training period is required when they inherit a store.'):
+        "",
+
+    # ---------------------------------------------------------- :10235
+    (10235, 'They are entrusted with leading caravans organised by traders for collective security. They are well trusted by the state and can pass through customs with only a simple check. '):
+        "",
+
+    # ---------------------------------------------------------- :10248
+    (10248, 'One has mastered resurrection in order to collect money from drunken and dead customers as well. In recent years, they has been baffled by the growing popularity of side jobs such as resurrection services and pet care. They are secretly very happy when people order drinks from them.'):
+        "",
+
+    # ---------------------------------------------------------- :10261
+    (10261, 'They live to reveal the information they have. When requested to do so, this professional can even find out the weight of a target in an instant. In their profession, they are sometimes blinded by national secrets and eliminated.'):
+        "",
+
+    # ---------------------------------------------------------- :10274
+    (10274, 'Their hobby of watching bloody fights has gone too far and they have built an arena. Because of the money they spend on living expenses for the arena, they are repeatedly told by their families to stop. '):
+        "",
+
+    # ---------------------------------------------------------- :10287
+    (10287, 'They have mastered the art of dispelling mental and physical ailments and curses that have been placed on them. Because of their popularity, some people go to great lengths to be healed by them. '):
+        "",
+
+    # ---------------------------------------------------------- :10300
+    (10300, "A nun in the service of God. She listens to all kinds of people's confessions without distinction, but when she is angry, her true nature comes out. She also shows no mercy to those who do not show sincerity."):
+        "",
+
+    # ---------------------------------------------------------- :10313
+    (10313, 'When it was decided to choose a leader, no one stood for the job, so it was decided by lot. The work as head is neglected, but everyone is too lazy to even complain about it. '):
+        "",
+
+    # ---------------------------------------------------------- :10326
+    (10326, "Has an amazing talent for teaching others things they can't do themselves. He does not belong to a guild because he hates being pinned on his earnings. "):
+        "",
+
+    # ---------------------------------------------------------- :10339
+    (10339, 'Trainer affiliated with the guild. They are very shy and seldom go outside the guild. Half of the platinum he earns goes to the guild.'):
+        "",
+
+    # ---------------------------------------------------------- :10352
+    (10352, 'According to one theory, they ought to protect the peaceful lives of the civilians. They have a habit of defending themselves at all costs when harm comes to them. If they die, they must undergo rigorous re-training.'):
+        "",
+
+    # ---------------------------------------------------------- :10365
+    (10365, 'According to one theory, they ought to protect the peaceful lives of the civilians. They have a habit of defending themselves at all costs when harm comes to them. He is also a observer and has full knowledge of the whereabouts of the citizens.'):
+        "",
+
+    # ---------------------------------------------------------- :10378
+    (10378, 'Special forces are sent out to buy time for the authorities to evacuate. Their dispersal is the spice of the battlefield. It is also sad that they are so serious about their job.'):
+        "",
+
+    # ---------------------------------------------------------- :10391
+    (10391, 'A mage who forsake both status and freedom to pursue his thirst for knowledge. Even had he not been sealed within the depths of Lesimas, he would have remained there to continue viewing the Origin of Vice.'):
+        "",
+
+    # ---------------------------------------------------------- :10404
+    (10404, 'Certain people realised the limits of their power, while others uttered the words in the hope that they would be active in the next life. Somehow it gained power and crawled around in the crevices of the world. Until the day it is called by its name.'):
+        "",
+
+    # ---------------------------------------------------------- :10417
+    (10417, 'Chosen by the God of Chaos as his agent. He is given a portion of the knowledge and power, as well as the Sword of Chaos, and works in the dark to envelop the world in chaos. '):
+        "",
+
+    # ---------------------------------------------------------- :10430
+    (10430, 'One who seeks the truth of the world and wishes to control it. He has madness in his eyes and is considered dangerous to be left unchecked. His scientific powers are indistinguishable from magic.'):
+        "",
+
+    # ---------------------------------------------------------- :10443
+    (10443, 'She was stripped of her powers and dismissed from her job because she was living a self-defeating life without any work as an angel. However, she is happy that she can now take naps without any worries. She still has wings that have lost their function and have become decorations, but it appears that removing them is also a hassle.'):
+        "",
+
+    # ---------------------------------------------------------- :10456
+    (10456, 'The White Hawk, a commoner who rose to a high position in Zanan Military with his abilities, but has fallen to the ground after losing someone he cared about. Now addicted to drugs, with his consciousness wandering aimlessly in the sky. '):
+        "",
+
+    # ---------------------------------------------------------- :10469
+    (10469, 'A talented soldier with long red hair who is hailed as a hero of Zanan. He wanted to win against the White Hawk on his own merit, but they dropped out on their own accord, so he feels ashamed inside. He is also famous for his strong shoulders.'):
+        "",
+
+    # ---------------------------------------------------------- :10482
+    (10482, 'A descendant of the legendary flame dragon, born from the flames of a primordial god. When dragon hunters once attacked the Dragon Cave, all the other dragons were wiped out, but for some reason the flame dragon was not targeted and survived. '):
+        "",
+
+    # ---------------------------------------------------------- :10495
+    (10495, 'A girl who loves stuffed toys. She is so bored with collecting them that she has taken up an apprenticeship to become a stuffed animal craftsman. However, she is surprisingly clumsy and is still an apprentice.'):
+        "",
+
+    # ---------------------------------------------------------- :10508
+    (10508, 'A girl who works in a tavern in Vernis. Her irresistible buttocks are a magnet for men and women alike, and she is unaware of the bloodshed amongst the nobility over her panties. '):
+        "",
+
+    # ---------------------------------------------------------- :10521
+    (10521, 'A warrior of the cat tribe who wandered in from another world. He cares for Sylvia, but has been away on expeditions for too long. '):
+        "",
+
+    # ---------------------------------------------------------- :10534
+    (10534, 'She is an imperial princess who was cast out of another world. She was subjected to a full course of abduction, confinement and humiliation during a period of instability, and has turned into a sex-crazed woman who repeatedly has affairs with the people she once loved. '):
+        "",
+
+    # ---------------------------------------------------------- :10547
+    (10547, "Artificial life forms created to clean up the town and Nefia. One is also placed in Vernis's tavern at the request of customers who are concerned about the remains of the bards. "):
+        "",
+
+    # ---------------------------------------------------------- :10560
+    (10560, "Elea folk who came from the Vindale Forest. She is known as 'the Listener of the Wind', due to her ability to sense distant conditions from the wind. "):
+        "",
+
+    # ---------------------------------------------------------- :10573
+    (10573, 'Elea folk who came from the Vindale Forest. Initially, there were other messengers, but they all became stuck due to mysterious illnesses, and as a result, only he and Larnneire were able to leave. '):
+        "",
+
+    # ---------------------------------------------------------- :10586
+    (10586, 'A secret agent in the service of the Palmia royal family. He is on the edge of his seat, determined not to die until he has passed on the information he has obtained to the king. He planned to get married when his mission was over.'):
+        "",
+
+    # ---------------------------------------------------------- :10599
+    (10599, 'He is an adventurer employed to investigate Lesimas and hails from Karune. He is a solitary, competent and capable person, hence his nickname of the Lone Wolf... although he believes he is not as competent as he thinks he is. '):
+        "",
+
+# 39 voci fra la riga 10101 e la 10600, 0 ambigue

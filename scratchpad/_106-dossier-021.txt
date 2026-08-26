@@ -1,0 +1,274 @@
+--- db_card.hsp:10105   CREATURE_ID_ZERNARD_THE_CAPABLE_MERCENARY   creatura 367
+    NOME  jp 腕利き傭兵『ザナード』
+          en <Zernard> the capable mercenary
+          IT <Zernard> il mercenario provetto
+    JP    近年質の低下し続けている傭兵の中では珍しく腕利きの傭兵であり、かなりの経験を積んでいる。だが乗り物にすごく弱い。そのため長距離移動のない仕事をメインにしている。
+    EN    He is an unusually skilled mercenary and has considerable experience among mercenaries, whose quality has continued to decline in recent years. However, he has motion sickness. For this reason, he mainly works in jobs that do not involve long-distance travel.
+
+--- db_card.hsp:10118   CREATURE_ID_HEINRICH_THE_ARMORED_GENERAL   creatura 366
+    NOME  jp 機甲将軍『アインリッヒ』
+          en <Heinrich> the iron colonel
+          IT <Heinrich> il generale corazzato
+    JP    硝煙やメカの駆動音、機械油の匂いなどが好きで、将軍でありながら趣味はメカの設計。時折、無茶苦茶な装備を考案してはガベラと盛り上がっている。
+    EN    He likes the smell of gunpowder, the sound of mechanical drives and machine oil, and despite being a general, his hobby is designing mechanisms. From time to time, he devises absurd equipment and gets excited with Gavela. 
+
+--- db_card.hsp:10131   CREATURE_ID_H_SISTER   creatura 365
+    NOME  jp 『Ｈな妹』
+          en <H sister>
+          IT la sorella minore sicaria
+    JP    ヒットマンな妹。殺しの標的の身近に潜伏し、チェーンソーの音を毎日鳴らして散々恐怖を味わわせた後に仕留めるのが快感。強烈な性格で、痛い日記を書いている。
+    EN    Hitman younger sister. She enjoys hiding in the vicinity of her kill targets and killing them after terrorising them extensively with the daily sound of her chainsaw. She has a strong personality and keeps a very cringy diary.
+
+--- db_card.hsp:10144   CREATURE_ID_OLDER_SISTER2   creatura 364
+    NOME  jp 姉
+          en older sister
+          IT la sorella maggiore
+    JP    ルードゥスに住んでいる、あなたと血の繋がっていない姉。たまにしか顔を出さないあなたに対して不満を感じつつも、いつでもあなたの帰りを待ってくれている。
+    EN    Your older sister, who lives in Ludus and is not blood-related to you. She is always waiting for you to come home, although she is dissatisfied with your occasional visits. 
+
+--- db_card.hsp:10157   CREATURE_ID_OLDER_DOG_SISTER   creatura 363
+    NOME  jp 姉犬
+          en older dog sister
+          IT la sorella cane maggiore
+    JP    人懐っこい犬科の血の繋がらない義理の姉。弟（妹）に仇なす者には精一杯威嚇するものの、あまり迫力がない。メイド服は趣味。
+    EN    Non-blood-related older sister-in-law of a human-friendly canine family. She is not very strong, although she is as intimidating as possible towards those who would avenge her brother (or sister). Maid's clothes are a hobby.
+
+--- db_card.hsp:10170   CREATURE_ID_RUDRAS   creatura 362
+    NOME  jp ルドラス
+          en Rudras
+          IT il Rudras
+    JP    暴風神ルドラの力を受け継ぐ息子たち。風のルルウィとの覇権争いの際、肉体を滅ぼされ竜巻そのものに変えられてしまった。それ以来彼女に忠誠を誓わされている。
+    EN    Sons of Rudra, the storm god, who inherited his power. During a struggle for supremacy with Lulwy of the Wind, their bodies were destroyed and turned into tornadoes themselves. Since then, they have been sworn to her allegiance.
+
+--- db_card.hsp:10183   CREATURE_ID_OLDER_SISTER   creatura 361
+    NOME  jp 姉
+          en older sister
+          IT None
+    JP    あなたと血の繋がっていない姉。それでもあなたが大好きで、甘えてきて欲しいと常に考えている。姉にとってあなたは、何時までたっても弟（妹）なのだ。
+    EN    Your older sister who is not related to you by blood. She still loves you and always wants you to spoil her. To her, you will always be her little brother (sister).
+
+--- db_card.hsp:10196   CREATURE_ID_BUG   creatura 0
+    NOME  jp バグ
+          en bug
+          IT il bug
+    JP    本来存在しないはずの生命体。発生原因は様々。
+    EN    A being that shouldn't exist. Its origin varies.
+
+--- db_card.hsp:10209   CREATURE_ID_USER   creatura 343
+    NOME  jp user
+          en user
+          IT user
+    JP    Unique-subconscious-extra-reactunt（特有潜在意識による範囲外反応体）の略称。特有の人間の潜在意識がこの世界の外の物と反応して、こちら側にその存在を定着させてしまった。
+    EN    Abbreviation for unique-subconscious-extra-reactant. The unique human subconscious has reacted with things outside this world and established its presence on this side of the world. 
+
+--- db_card.hsp:10222   CREATURE_ID_SHOPKEEPER   creatura 1
+    NOME  jp 店主
+          en shopkeeper
+          IT None
+    JP    様々な物資を販売している町の顔。強盗対策のため、銃器の扱いに長けている。ほとんど交渉の才能がないので、店を継ぐ際には猛特訓するらしい。
+    EN    A person who sells various goods and serves as the public face of the town. Adept at using firearms to prevent robbery. Since they have next to no ability to negotiate, a rigorous training period is required when they inherit a store.
+
+--- db_card.hsp:10235   CREATURE_ID_CARAVAN_MASTER   creatura 353
+    NOME  jp キャラバンの隊長
+          en caravan master
+          IT il capo della carovana
+    JP    交易商たちが集団的に身を守るために組織したキャラバンの指揮を任されている。国の信頼も厚く、関所を簡単なチェックだけで通行できる。
+    EN    They are entrusted with leading caravans organised by traders for collective security. They are well trusted by the state and can pass through customs with only a simple check. 
+
+--- db_card.hsp:10248   CREATURE_ID_BARTENDER   creatura 70
+    NOME  jp バーテンダー
+          en bartender
+          IT il barista
+    JP    酔っぱらって死んだ客からも代金を回収するために、蘇生法を会得している。近年では蘇生サービスやペット預かりといった副業の方が人気になってしまい困惑気味。飲み物を注文されると内心とても嬉しい。
+    EN    One has mastered resurrection in order to collect money from drunken and dead customers as well. In recent years, they has been baffled by the growing popularity of side jobs such as resurrection services and pet care. They are secretly very happy when people order drinks from them.
+
+--- db_card.hsp:10261   CREATURE_ID_INFORMER   creatura 69
+    NOME  jp 情報屋
+          en informer
+          IT l'informatore
+    JP    持っている情報をひけらかすのを生きがいとする。依頼とあらば、ターゲットの体重まで一瞬で調べ上げるプロ。職業柄、国家機密に目が眩んで抹殺されることも。
+    EN    They live to reveal the information they have. When requested to do so, this professional can even find out the weight of a target in an instant. In their profession, they are sometimes blinded by national secrets and eliminated.
+
+--- db_card.hsp:10274   CREATURE_ID_ARENA_MASTER   creatura 73
+    NOME  jp アリーナマスター
+          en arena master
+          IT il padrone dell'arena
+    JP    血なまぐさい戦いを観る趣味が行き過ぎて闘技場を作ってしまった。アリーナのために生活費をつぎ込むのが原因で、家族から再三やめるように言われている。
+    EN    Their hobby of watching bloody fights has gone too far and they have built an arena. Because of the money they spend on living expenses for the arena, they are repeatedly told by their families to stop. 
+
+--- db_card.hsp:10287   CREATURE_ID_HEALER   creatura 74
+    NOME  jp 癒し手
+          en healer
+          IT la guaritrice
+    JP    心身の衰弱や、かけられた呪いを払う術を身に付けている。彼女達に癒される為にわざわざ大変な目に遭ってくる者達も居る。
+    EN    They have mastered the art of dispelling mental and physical ailments and curses that have been placed on them. Because of their popularity, some people go to great lengths to be healed by them. 
+
+--- db_card.hsp:10300   CREATURE_ID_SISTER   creatura 206
+    NOME  jp シスター
+          en sister
+          IT la sorella
+    JP    神に仕える修道女。あらゆる人々の懺悔を分け隔てなく聞いてくれるが、怒ると素が出る。また、誠意を見せない者には容赦しない。
+    EN    A nun in the service of God. She listens to all kinds of people's confessions without distinction, but when she is angry, her true nature comes out. She also shows no mercy to those who do not show sincerity.
+
+--- db_card.hsp:10313   CREATURE_ID_ELDER   creatura 38
+    NOME  jp 長
+          en elder
+          IT il capo villaggio
+    JP    長を決めることになった際に誰も立候補者がいなかったため、くじ引きで決められた。長としての仕事は放置気味だが、みんな面倒くさがって文句すら言わない。
+    EN    When it was decided to choose a leader, no one stood for the job, so it was decided by lot. The work as head is neglected, but everyone is too lazy to even complain about it. 
+
+--- db_card.hsp:10326   CREATURE_ID_TRAINER   creatura 40
+    NOME  jp トレイナー
+          en trainer
+          IT l'istruttore
+    JP    自分ではできないことでも他人に教えることが出来る、すごい才能の持ち主。稼ぎをピンハネされるのを嫌い、ギルドには所属していない。
+    EN    Has an amazing talent for teaching others things they can't do themselves. He does not belong to a guild because he hates being pinned on his earnings. 
+
+--- db_card.hsp:10339   CREATURE_ID_GUILD_TRAINER   creatura 333
+    NOME  jp ギルドトレイナー
+          en guild trainer
+          IT l'istruttore della gilda
+    JP    ギルド所属のトレイナー。人見知りが激しいのでギルドの外には滅多に出ない。稼いだプラチナの半分はギルドのために使われる。
+    EN    Trainer affiliated with the guild. They are very shy and seldom go outside the guild. Half of the platinum he earns goes to the guild.
+
+--- db_card.hsp:10352   CREATURE_ID_GUARD   creatura 76
+    NOME  jp ガード
+          en guard
+          IT la guardia
+    JP    一説では市民の平和を守っているらしい。自分の身に危害が及ぶと全力で自身の身を守りだす習性がある。死ぬと厳しい再訓練が待っている。
+    EN    According to one theory, they ought to protect the peaceful lives of the civilians. They have a habit of defending themselves at all costs when harm comes to them. If they die, they must undergo rigorous re-training.
+
+--- db_card.hsp:10365   CREATURE_ID_GUARD2   creatura 77
+    NOME  jp ガード
+          en guard
+          IT None
+    JP    一説では市民の平和を守っているらしい。自分の身に危害が及ぶと全力で自身の身を守りだす習性がある。監視者でもあり、市民の居場所を完全に把握している。
+    EN    According to one theory, they ought to protect the peaceful lives of the civilians. They have a habit of defending themselves at all costs when harm comes to them. He is also a observer and has full knowledge of the whereabouts of the citizens.
+
+--- db_card.hsp:10378   CREATURE_ID_PALMIAN_ELITE_SOLDIER   creatura 204
+    NOME  jp 特殊部隊
+          en palmian elite soldier
+          IT il soldato scelto di Palmia
+    JP    偉い人が避難する時間を稼ぐために駆り出される特殊な部隊。その散り様は戦場を彩るスパイスである。本人たちは至って本気なのがまた哀しい。
+    EN    Special forces are sent out to buy time for the authorities to evacuate. Their dispersal is the spice of the battlefield. It is also sad that they are so serious about their job.
+
+--- db_card.hsp:10391   CREATURE_ID_ZEOME_THE_FALSE_PROPHET   creatura 2
+    NOME  jp 偽りの預言者『ゼーム』
+          en <Zeome> the false prophet
+          IT <Zeome> il falso profeta
+    JP    知識欲に駆られ地位も自由も捨てた魔術士。例えレシマスの下層ごと封印されなかったとしても、彼は自ら地下に留まり《常闇の眼》を眺め続けていたことだろう。
+    EN    A mage who forsake both status and freedom to pursue his thirst for knowledge. Even had he not been sealed within the depths of Lesimas, he would have remained there to continue viewing the Origin of Vice.
+
+--- db_card.hsp:10404   CREATURE_ID_AT_SIGN   creatura 37
+    NOME  jp ＠
+          en @
+          IT @
+    JP    ある者は力の限界を悟り、またある者は来世の自分の活躍を願いその言葉を発した。それはいつしか力を得、世界の隙間を這いずり廻る。その名を呼ばれるその時まで。
+    EN    Certain people realised the limits of their power, while others uttered the words in the hope that they would be active in the next life. Somehow it gained power and crawled around in the crevices of the world. Until the day it is called by its name.
+
+--- db_card.hsp:10417   CREATURE_ID_ORPHE_THE_CHAOS_CHILD   creatura 23
+    NOME  jp 混沌の寵児『オルフェ』
+          en <Orphe> the chaos child
+          IT <Orphe> il prediletto del caos
+    JP    混沌の神が代行者として選んだ者。知識と力の一部、そして混沌の剣を分け与えられており、世界を混沌で包むために暗躍する。
+    EN    Chosen by the God of Chaos as his agent. He is given a portion of the knowledge and power, as well as the Sword of Chaos, and works in the dark to envelop the world in chaos. 
+
+--- db_card.hsp:10430   CREATURE_ID_MAD_SCIENTIST   creatura 26
+    NOME  jp 『マッドサイエンティスト』
+          en <Mad scientist>
+          IT <Scienziato pazzo>
+    JP    世界の理を求め、それを支配しようと望む者。眼には狂気が宿っており、野放しにしておくのは危険と思われる。その科学力は魔法と区別がつかない。
+    EN    One who seeks the truth of the world and wishes to control it. He has madness in his eyes and is considered dangerous to be left unchecked. His scientific powers are indistinguishable from magic.
+
+--- db_card.hsp:10443   CREATURE_ID_ISCA_THE_FALLEN_ANGEL   creatura 27
+    NOME  jp 堕天使『イスカ』
+          en <Isca> the fallen angel
+          IT <Isca> l'angelo caduto
+    JP    天使としての仕事を一切せず自堕落な生活を送っていたため、力を剥奪され解雇された。しかし本人は気兼ねなく昼寝ができるようになったと喜んでいる。機能を失い飾りと化した翼が残っているが、外すのも面倒くさい模様。
+    EN    She was stripped of her powers and dismissed from her job because she was living a self-defeating life without any work as an angel. However, she is happy that she can now take naps without any worries. She still has wings that have lost their function and have become decorations, but it appears that removing them is also a hassle.
+
+--- db_card.hsp:10456   CREATURE_ID_WHOM_DWELL_IN_THE_VANITY   creatura 28
+    NOME  jp 『虚空を這いずる者』
+          en <Whom dwell in the vanity>
+          IT <Chi striscia nel vuoto>
+    JP    平民出でありながら実力でザナンの高官にまで登り詰めたが、大切な人を失ったことで地に墜ちた白き鷹。今は薬物に溺れ、その意識は虚ろに空を彷徨う。
+    EN    The White Hawk, a commoner who rose to a high position in Zanan Military with his abilities, but has fallen to the ground after losing someone he cared about. Now addicted to drugs, with his consciousness wandering aimlessly in the sky. 
+
+--- db_card.hsp:10469   CREATURE_ID_LOYTER_THE_CRIMSON_OF_ZANAN   creatura 29
+    NOME  jp ザナンの紅の英雄『ロイター』
+          en <Loyter> the crimson of Zanan
+          IT <Loyter> l'eroe cremisi di Zanan
+    JP    ザナンでは英雄と称えられる、赤い長髪の有能な軍人。白き鷹に実力で勝ちたいと思っていたが、彼が勝手に脱落したので内心忸怩たる思いを抱えている。その強肩でも有名。
+    EN    A talented soldier with long red hair who is hailed as a hero of Zanan. He wanted to win against the White Hawk on his own merit, but they dropped out on their own accord, so he feels ashamed inside. He is also famous for his strong shoulders.
+
+--- db_card.hsp:10482   CREATURE_ID_VESDA_THE_FIRE_DRAGON   creatura 140
+    NOME  jp 火炎竜『ヴェスダ』
+          en <Vesda> the fire dragon
+          IT <Vesda> il drago di fuoco
+    JP    原初の神の炎より生まれた伝説の火炎竜の子孫。かつてドラゴンハンターが竜窟を襲撃した際、他の竜は全滅したのだがなぜか火炎竜は狙われもせず生き延びた。
+    EN    A descendant of the legendary flame dragon, born from the flames of a primordial god. When dragon hunters once attacked the Dragon Cave, all the other dragons were wiped out, but for some reason the flame dragon was not targeted and survived. 
+
+--- db_card.hsp:10495   CREATURE_ID_MICHES_THE_APPRENTICE   creatura 30
+    NOME  jp 見習い『ミシェス』
+          en <Miches> the apprentice
+          IT <Miches> l'apprendista
+    JP    ぬいぐるみが大好きな少女。集めるだけでは飽き足らず、ぬいぐるみ職人になるべく弟子入りをしたほど。しかし意外と不器用なところが災いし、いまだに見習いである。
+    EN    A girl who loves stuffed toys. She is so bored with collecting them that she has taken up an apprenticeship to become a stuffed animal craftsman. However, she is surprisingly clumsy and is still an apprentice.
+
+--- db_card.hsp:10508   CREATURE_ID_SHENA_THE_DRAW   creatura 31
+    NOME  jp 看板娘『シーナ』
+          en <Shena> the draw
+          IT <Shena> l'attrazione del locale
+    JP    ヴェルニースの酒場で働く娘。魅力的な尻は男女を問わず虜にするため、その下着をめぐり貴族達が血で血を洗う戦いをしていることを彼女は知らない。
+    EN    A girl who works in a tavern in Vernis. Her irresistible buttocks are a magnet for men and women alike, and she is unaware of the bloodshed amongst the nobility over her panties. 
+
+--- db_card.hsp:10521   CREATURE_ID_THE_LEOPARD_WARRIOR   creatura 351
+    NOME  jp 『豹頭の戦士』
+          en <The leopard warrior>
+          IT il guerriero dalla testa di leopardo
+    JP    異世界から迷い込んできた猫族の戦士。シルヴィアを大事に思っているが、いかんせん遠征で留守にしている期間が長すぎた。
+    EN    A warrior of the cat tribe who wandered in from another world. He cares for Sylvia, but has been away on expeditions for too long. 
+
+--- db_card.hsp:10534   CREATURE_ID_SILVIA_THE_PRINCESS   creatura 352
+    NOME  jp 皇女『シルヴィア』
+          en <Silvia> The princess
+          IT <Silvia> la principessa
+    JP    異世界から飛ばされてきた皇女。不安定な時期に拉致監禁陵辱のフルコースをくらったため、相手にかつての思い人を重ねては情事を繰り返す色狂いと化してしまった。
+    EN    She is an imperial princess who was cast out of another world. She was subjected to a full course of abduction, confinement and humiliation during a period of instability, and has turned into a sex-crazed woman who repeatedly has affairs with the people she once loved. 
+
+--- db_card.hsp:10547   CREATURE_ID_DUNGEON_CLEANER   creatura 32
+    NOME  jp 『ダンジョンクリーナー』
+          en <Dungeon cleaner>
+          IT <Spazzino di sotterranei>
+    JP    町やネフィアを清掃するために作られた人造生命体。吟遊詩人の残骸が気になる、という客の要望でヴェルニースの酒場にも1体配置されている。
+    EN    Artificial life forms created to clean up the town and Nefia. One is also placed in Vernis's tavern at the request of customers who are concerned about the remains of the bards. 
+
+--- db_card.hsp:10560   CREATURE_ID_LARNNEIRE_THE_LISTENER_OF_WIND   creatura 33
+    NOME  jp 風を聴く者『ラーネイレ』
+          en <Larnneire> the listener of wind
+          IT <Larnneire> l'ascoltatrice del vento
+    JP    異形の森からやってきたエレアの民。彼女は『風を聴く者』と呼ばれているが、それは風から遠方の状況を感じとるその能力によるものである。
+    EN    Elea folk who came from the Vindale Forest. She is known as 'the Listener of the Wind', due to her ability to sense distant conditions from the wind. 
+
+--- db_card.hsp:10573   CREATURE_ID_LOMIAS_THE_MESSENGER_FROM_VINDALE   creatura 34
+    NOME  jp 異形の森の使者『ロミアス』
+          en <Lomias> the messenger from Vindale
+          IT <Lomias> il messaggero di Vindale
+    JP    異形の森からやってきたエレアの民。当初は他にも使者がいたのだが、全員が謎の体調不良により動けなくなり、結果彼とラーネイレだけで出発することになった。
+    EN    Elea folk who came from the Vindale Forest. Initially, there were other messengers, but they all became stuck due to mysterious illnesses, and as a result, only he and Larnneire were able to leave. 
+
+--- db_card.hsp:10586   CREATURE_ID_SLAN_THE_SHADOW_OF_PALMIA   creatura 139
+    NOME  jp パルミアの影『スラン』
+          en <Slan> the shadow of Palmia
+          IT <Slan> l'ombra di Palmia
+    JP    パルミア王家に仕える密偵。つかんだ情報を王に伝えるまでは死ぬわけにはいかない、とギリギリのところで踏ん張っている。任務が終わったら結婚する予定だった。
+    EN    A secret agent in the service of the Palmia royal family. He is on the edge of his seat, determined not to die until he has passed on the information he has obtained to the king. He planned to get married when his mission was over.
+
+--- db_card.hsp:10599   CREATURE_ID_KARAM_THE_LONELY_WOLF_OF_KARUNE   creatura 146
+    NOME  jp カルーンの孤狼『カラム』
+          en <Karam> the lonely wolf of Karune
+          IT <Karam> il lupo solitario di Karune
+    JP    レシマス調査に雇われた冒険者でカルーン出身。孤高で有能な実力者ゆえに孤狼の二つ名を持つ…と本人は思い込んでいたが実力はそこまで高くない。
+    EN    He is an adventurer employed to investigate Lesimas and hails from Karune. He is a solitary, competent and capable person, hence his nickname of the Lone Wolf... although he believes he is not as competent as he thinks he is. 
+
+== 39 carte fra la riga 10101 e la 10600

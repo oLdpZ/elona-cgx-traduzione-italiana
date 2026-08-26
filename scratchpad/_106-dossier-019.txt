@@ -1,0 +1,274 @@
+--- db_card.hsp:9104   CREATURE_ID_MIMIC   creatura 444
+    NOME  jp カミカゼ・ミミック
+          en mimic
+          IT il mimic kamikaze
+    JP    アイテムに擬態し、冒険者を嘲笑うのが趣味の魔物。しかし擬態がばれた後のことまでは考えていないらしく、ばれるとパニックの末に爆発してしまう。
+    EN    A demon whose hobby is to mimic items and ridicule adventurers. However, it does not seem to think about what happens after its mimicry is discovered, and when it is, it explodes in a panic. 
+
+--- db_card.hsp:9117   CREATURE_ID_FISHERMAN   creatura 443
+    NOME  jp 漁師
+          en fisherman
+          IT il pescatore
+    JP    海からの恵みを受け取り、海と共に生きる人々。漁師たちの間では亀を海からの遣いと考え、大切に扱う風習がある。
+    EN    People living with the sea, reaping the bounty of the sea. Among fishermen, there is a custom to treat turtles with care, as they are considered to be messengers from the sea. 
+
+--- db_card.hsp:9130   CREATURE_ID_PIRATE   creatura 442
+    NOME  jp 海賊
+          en pirate
+          IT il pirata
+    JP    冒険とロマンを求めてイルヴァの大海原をゆく者たち。だが、ロマンだけでは食っていけないため定期的に商船を襲う。
+    EN    Those who travel the great seas of Irva in search of adventure and romance. But romance alone is not enough to feed them, so they regularly attack merchant ships. 
+
+--- db_card.hsp:9143   CREATURE_ID_CITIZEN3   creatura 441
+    NOME  jp 市民
+          en citizen
+          IT il cittadino
+    JP    サウスティリスに住む一般市民。依頼で腐った食べ物を渡されたり、魔物をけしかけられてミンチになったりしながらも、彼らは今日もたくましくイルヴァを生き抜いている。
+    EN    Ordinary citizens living in South Tyris. They are often given rotten food on their request, or beaten to a pulp by demons, but they are still surviving in Ylva today. 
+
+--- db_card.hsp:9156   CREATURE_ID_CITIZEN4   creatura 440
+    NOME  jp 市民
+          en citizen
+          IT None
+    JP    街に住む人々。日々の色々な困ったことを依頼に出している。近頃は、周辺諸国から侵攻があったりと物騒な世情をひしひしと感じている。
+    EN    People living in the city. They submit requests for various daily problems. Recently, there have been invasions from neighbouring countries, and they are very much concerned about the state of affairs in the city.
+
+--- db_card.hsp:9169   CREATURE_ID_GOKIBURI   creatura 439
+    NOME  jp 茶色い悪魔
+          en gokiburi
+          IT il gokiburi
+    JP    悪魔の称号を与えられたおそるべき昆虫。戦闘能力こそ低いものの、そのしぶとさと耐性と増殖力は恐怖に値する。困ったことに人懐っこい。
+    EN    A fearsome insect given the title of demon. Although its fighting ability is low, its tenacity, resilience and ability to multiply are fearsome. Frustratingly, they are also very friendly.
+
+--- db_card.hsp:9182   CREATURE_ID_CARLA_OF_THE_FORGOTTEN_WORLD   creatura 438
+    NOME  jp 忘れられた世界の『カルラ』
+          en <Carla> Of The Forgotten World
+          IT <Carla> del Mondo Dimenticato
+    JP    ガイアス・ヴィスと呼ばれる世界からやってきた少女。船が難破して死にかけていた旅人を救ったことがある。エルシアの民。
+    EN    A girl from a world called Gaius Vis. She once saved a traveller who was dying when his ship was shipwrecked. Elea.
+
+--- db_card.hsp:9195   CREATURE_ID_MILOS_OF_THE_FORGOTTEN_WORLD   creatura 437
+    NOME  jp 忘れられた世界の『ミロス』
+          en <Milos> Of The Forgotten World
+          IT <Milos> del Mondo Dimenticato
+    JP    ガイアス・ヴィスと呼ばれる世界からやってきた。昔は頭の固い男だったがカルラの影響か最近ではだいぶ丸くなった。
+    EN    He comes from a world called Gaius Vis. He used to be a hard-headed man, but has recently become much more matured, probably due to Carla's influence. 
+
+--- db_card.hsp:9208   CREATURE_ID_H_SISTER2   creatura 436
+    NOME  jp えっちな妹
+          en H sister
+          IT la sorella minore maliziosa
+    JP    愛に飢えている義理の妹。妄想癖があり、兄（姉）とのえっちな生活を妄想してはひとりで鼻血を流している。そのせいか貧血気味らしい。
+    EN    A younger sister who is desperate for love. She has a habit of daydreaming and gets nosebleeds alone when she fantasises about an ecchi life with her brother (or sister). She seems to be anaemic because of this.
+
+--- db_card.hsp:9221   CREATURE_ID_MESHERA_PLANT   creatura 435
+    NOME  jp 災厄の苗床『メシェーラ・ムド』
+          en <Meshera plant>
+          IT <Meshera Mudo> il semenzaio della calamità
+    JP    レム・イドで研究されていた人工細菌の、オリジナル群体。本来は、全生命体を強化しある脅威に対抗するためのものだった。研究中のコードネームはメサイア。
+    EN    The original swarm of artificial bacteria, which were being researched at Remido. It was originally intended to strengthen all life forms and counter certain threats. Code name during research was Messiah.
+
+--- db_card.hsp:9234   CREATURE_ID_FIVE_HEAD_GOD   creatura 434
+    NOME  jp ファイブ・ヘッド・ゴッド
+          en five head god
+          IT il dio a cinque teste
+    JP    ５体の竜族が融合して産まれた。その圧倒的な力に魅せられた人々の畏敬を集め、もはや神としての側面すらもつ。一斉にブレスを吐くと酸欠になるため、一本ずつ交代で吐いている。
+    EN    It was born from the fusion of five dragons. They are revered by those who are fascinated by their overwhelming power, and even have the aspect of gods now. If they all breathe out their breath at the same time, they run out of oxygen, so they breathe out one by one in turn.
+
+--- db_card.hsp:9247   CREATURE_ID_LEUCOCHLORIDIUM   creatura 433
+    NOME  jp かたつむり（寄生）
+          en leucochloridium
+          IT la lumaca parassitata
+    JP    何かに寄生されたかたつむり。自身の肉体の脆弱さを顧みない攻撃を放ってくるが、これはあえて捕食されることで宿主を変えようとする寄生体の意志によるもの。
+    EN    A snail parasitised by something. It unleashes attacks without regard for its own physical vulnerability, but this is due to the parasite's will to change its host by daring to prey on it. 
+
+--- db_card.hsp:9260   CREATURE_ID_SUZAKU   creatura 432
+    NOME  jp 朱雀
+          en suzaku
+          IT l'uccello vermiglio
+    JP    年を経た鳥が変異した。不死鳥や鳳凰と同一視されるのが大嫌い。朱い雀という名前だが、さすがに雀に間違われることはないようだ。
+    EN    Mutated age-old birds. It hates being identified with phoenixes and phoenixes. Although its name is Vermilion Sparrow, it does not seem to be mistaken for a sparrow, as one would expect.
+
+--- db_card.hsp:9273   CREATURE_ID_COCKATRICE   creatura 431
+    NOME  jp コカトリス
+          en cockatrice
+          IT la coccatrice
+    JP    鶏の怪物。その視線を浴びた者は体がまるで石になったかのように動けなくなってしまう。そのことから『目を合わせたら死ぬ』とまで言われている。
+    EN    Chicken monster. Those who are exposed to its gaze are rendered immobile as if their bodies had turned to stone. It is even said that 'if you make eye contact with it, you will die'.
+
+--- db_card.hsp:9286   CREATURE_ID_GOLD_SHEEP   creatura 430
+    NOME  jp 黄金羊
+          en gold sheep
+          IT l'ariete dorato
+    JP    金色に輝く毛並みを持つ珍しい羊。光を受けて黄金色に輝いて見える、繊細な純白の毛は、かつて人々に争いを起こさせたこともあるほど。
+    EN    A rare sheep with a golden fleece. Its delicate, pure white fleece, which appears golden in the light, once caused people to fight over it. 
+
+--- db_card.hsp:9299   CREATURE_ID_DRAGONS_PET_HARPY   creatura 429
+    NOME  jp ドラゴンズペットハーピー
+          en dragon's pet harpy
+          IT l'arpia domestica del drago
+    JP    竜族に飼育されている鳥人種。通常のハーピーより凶暴性を増しており、攻撃すれば万華鏡を当てたかのように分裂する性質も合わせて多くの冒険者を苦しめている。
+    EN    A bird race bred by the dragon tribe. They are more ferocious than regular harpies, and their tendency to split apart when attacked, as if hit with a kaleidoscope, has caused many adventurers distress. 
+
+--- db_card.hsp:9312   CREATURE_ID_GIGA_BOMB_ROCK   creatura 428
+    NOME  jp 重水素爆弾岩
+          en giga bomb rock
+          IT la roccia esplosiva al deuterio
+    JP    非常に大きなエネルギー源を秘めた動く岩。外部からの刺激によって大きな光と爆発を発生させる。その爆発は小さな太陽と見紛うほど。
+    EN    A moving rock with a tremendous energy source. It produces large bursts of light and explosions when stimulated from the outside. The explosions can be mistaken for a small sun.
+
+--- db_card.hsp:9325   CREATURE_ID_OLOG   creatura 427
+    NOME  jp オログ
+          en olog
+          IT l'olog
+    JP    地獄から地上の支配を目論んだ冥王が作り上げた巨人。トロールと似た姿をしているが比べ物にならないほど知能が高く、独自の言葉を使って会話を行える。
+    EN    Titans created by the Dark Lord, who planned to rule the earth from hell. They look like trolls, but are incomparably more intelligent and can speak their own language. 
+
+--- db_card.hsp:9338   CREATURE_ID_MAN_EATER_CRAB   creatura 426
+    NOME  jp ヒトクイオオヤシガニ
+          en man-eater crab
+          IT il granchio del cocco mangiauomini
+    JP    発達した鋏は挟む力が非常に強く人間の腕程度なら輪切りに出来てしまう。名前に反し雑食性で、果実や草、動物などの口に入るものなら何でも食べてしまう。
+    EN    Its well-developed scissors have a very strong pinching force and can slice a Indian Elephant in a circle. Despite their name, they are omnivorous and will eat anything they can get their mouths on, including fruit, grass and animals. 
+
+--- db_card.hsp:9351   CREATURE_ID_DRAGONEWT   creatura 425
+    NOME  jp ドラゴニュート
+          en dragonewt
+          IT il dragonewt
+    JP    屈強な竜人の戦士。非常に高い知性と鱗に覆われた頑強な身体を持っており、下級戦士のリザードマンと間違われる事をとても嫌う。
+    EN    A formidable dragon-man warrior. They have extremely high intelligence and a robust body covered with scales, and they very much dislike being mistaken for lower-ranked warrior lizardmen. 
+
+--- db_card.hsp:9364   CREATURE_ID_TITANIA   creatura 424
+    NOME  jp タイターニア
+          en titania
+          IT la Titania
+    JP    様々な魔法を使いこなし、自身は多種の属性に耐性を持つ。立派な女王になっても、悪戯心を忘れないのが妖精の嗜みである。
+    EN    She is skilled in a variety of magic and is herself resistant to many different attributes. Even after becoming a respectable queen, she still has the mischievous spirit of a fairy. 
+
+--- db_card.hsp:9377   CREATURE_ID_DARK_KOBOLD   creatura 423
+    NOME  jp デビルコボルト
+          en dark kobold
+          IT il coboldo diabolico
+    JP    悪魔の如き強さを持つ小鬼。下位の巨人を楽にねじ伏せることができるほどの力を持ちながら、さらに群れを組んで襲ってくる。
+    EN    A kobold with the strength of a demon. They are powerful enough to wrangle an Indian Elephant with ease, and they also attack in packs. 
+
+--- db_card.hsp:9390   CREATURE_ID_HEQET   creatura 422
+    NOME  jp ヘカト
+          en heqet
+          IT la Heqet
+    JP    水の女神の名を冠する蛙の狩人。狙った相手に卵を植え付けながらも殺しに掛かってくる。生き残った強いものからは、さぞかし強い子が生まれるのだろう。
+    EN    Frog hunter named after the water goddess. It will try to kill its target while planting eggs on them. The strong ones that survive will give birth to their strong offspring.
+
+--- db_card.hsp:9403   CREATURE_ID_WING_SNAIL   creatura 421
+    NOME  jp 『かたつむり（翼）』
+          en wing snail
+          IT <Lumaca> alata
+    JP    エーテルの影響で翼の生えたかたつむり。意外と口が悪い。鈍いのは動きだけではないらしく、好意を向けられてもなかなか気がつかない。
+    EN    A snail that has grown wings under the influence of the ether wind. Surprisingly foul-mouthed. It seems that it is not only his movements that are slow, and he does not easily notice when favours are shown to him.
+
+--- db_card.hsp:9416   CREATURE_ID_YERLES_COMBAT_PLANE   creatura 420
+    NOME  jp イェルス自律型飛行ユニット
+          en Yerles combat plane
+          IT il velivolo da combattimento Yerles
+    JP    機械文明時代の飛行ユニットを鹵獲・解析して開発された。主に兵士の飛行装備兼、掩護用として運用される。自律回路により単独行動も可能。
+    EN    It was developed by capturing and analysing flight units from the age of mechanical civilisation. It is mainly used as flying equipment and cover for soldiers. It can also act independently using autonomous circuits.
+
+--- db_card.hsp:9429   CREATURE_ID_EXOSSIL_THE_CHAOS_WING   creatura 419
+    NOME  jp 混沌の翼『エグゾシズル』
+          en <Exossil> the chaos wing
+          IT <Exossil> l'ala del caos
+    JP    天使と悪魔、それぞれの霊が融合して生まれた死霊の神。その翼に秘められたパワーは計り知れない。その誕生には一人の魔術師が関わっているという。
+    EN    A god of the dead, born from the amalgamation of the spirits of angels and demons, respectively. The power hidden in its wings is immeasurable. Its birth is said to be related to a certain sorcerer.
+
+--- db_card.hsp:9442   CREATURE_ID_METAL_VESDA_THE_FIRE_MACHINE   creatura 418
+    NOME  jp 火炎機竜『メタルヴェスダ』
+          en <Metal Vesda> the fire machine
+          IT <Metal Vesda> il drago di fuoco meccanico
+    JP    イェルス軍の開発した大型空戦兵器。要塞の地下に格納されていたが、要塞が地殻変動によってネフィアと融合した際に中枢へと放り出された。
+    EN    A large air combat weapon developed by the Yerles military. It was stored in the basement of the fortress, but was thrown out into the central core when the fortress was fused with Nefia by a tectonic movement. 
+
+--- db_card.hsp:9455   CREATURE_ID_ANUBIS_THE_MASTER_OF_DEATH   creatura 417
+    NOME  jp 葬祭の『アヌビス』
+          en <Anubis> the master of death
+          IT <Anubis> il signore della morte
+    JP    地下にいながら太陽の光を操る冥界の守護者。自らの治める黄泉の谷へと死者を導き、その罪を量る。昔は神のような力を持っていたが現在はそうでもない。
+    EN    Guardian of the underworld who controls the light of the sun while underground. He leads the dead to the Valley of the Dead, where he reigns, and weighs their sins. He used to have god-like powers, but not so much nowadays.
+
+--- db_card.hsp:9468   CREATURE_ID_DRAGON_ZOMBIE   creatura 416
+    NOME  jp ドラゴンゾンビ
+          en dragon zombie
+          IT il drago zombi
+    JP    ハイレベルのリッチによって命を吹き込まれた腐ったドラゴンの死体。魔法で強化されているものの、筋肉が腐っているためあまり力はない。
+    EN    Rotting dragon corpses brought to life by high-level lich. Although magically enhanced, they are not very strong due to rotting muscles. 
+
+--- db_card.hsp:9481   CREATURE_ID_QUANTUM_CREATURE   creatura 415
+    NOME  jp 量子物理生命体
+          en Quantum creature
+          IT la forma di vita quantistica
+    JP    この生き物はこの世界のものではない。どこからか不思議な力が湧いて出るようである。動力も不明。きゅうきゅう鳴くが、どこから声が出ているのだろう。
+    EN    This creature is not of this world. Mysterious power seems to emanate out of it from somewhere. Its power source is also unknown. It cries, but where does it get its voice from?
+
+--- db_card.hsp:9494   CREATURE_ID_LEND_THE_TAKER   creatura 414
+    NOME  jp ボール屋の『レンド』
+          en <Lend> the taker
+          IT <Lend> il venditore di sfere
+    JP    頑固なボール職人にどうにか取り入ることに成功し、モンスターボールを直接買いつけている。あまり流通していないためほぼ独占状態である。
+    EN    He has managed to get hold of stubborn ball-makers and buys monster balls directly from them. As they are not widely distributed, they have a near-monopoly on them. 
+
+--- db_card.hsp:9507   CREATURE_ID_BANKRUPT_GUO   creatura 413
+    NOME  jp 没落商人『グオ』
+          en Bankrupt <Guo>
+          IT il mercante fallito <Guo>
+    JP    田舎出身であることがコンプレックスで、若いころに村を飛び出し商人になった。一時は大金持ちになったものの調子に乗りすぎて事業に失敗してしまった。
+    EN    He had a country-born complex and left his village when he was young to become a merchant. He became very rich for a while but got overzealous and his business failed. 
+
+--- db_card.hsp:9520   CREATURE_ID_CARNAGE_RAT   creatura 412
+    NOME  jp 殺戮ネズミ
+          en carnage rat
+          IT il ratto sanguinario
+    JP    浴び続け染み込んだ返り血によって黒ずんだ体毛を持つ。「窮鼠猫を噛む」という古い言葉があるが、このネズミにかかれば猫が獲物となる。
+    EN    It has body hair darkened by the reflux of blood that it is continually exposed to and soaks up. The old saying goes 'a cornered rat will bite a cat', and with this rat, the cat is the prey. 
+
+--- db_card.hsp:9533   CREATURE_ID_SECURITY_SYSTEM   creatura 411
+    NOME  jp イェルス防衛システム
+          en security system
+          IT il sistema di difesa di Yerles
+    JP    主に防衛拠点に設置されている。開発主任の趣味で、過剰とも思える火力のガトリング砲を搭載された試作機体が存在する。
+    EN    They are mainly installed in defensive positions. Prototype aircraft equipped with Gatling guns with seemingly excessive firepower exist, as a hobby of the chief developer. 
+
+--- db_card.hsp:9546   CREATURE_ID_METAMORPHOSE   creatura 410
+    NOME  jp メタモルスライム
+          en Metamorphose
+          IT la melma metamorfica
+    JP    スライムが宇宙からやってきた謎の物体を取り込み変異した。細胞が酷く不安定で、ちょっとしたショックで変質してしまう。
+    EN    The slime has taken in a mysterious object from outer space and mutated. The cells are severely unstable and a slight shock causes them to transform. 
+
+--- db_card.hsp:9559   CREATURE_ID_ELECTRIC_SHEEP   creatura 409
+    NOME  jp 電気羊
+          en electric sheep
+          IT la pecora elettrica
+    JP    元々静電気を蓄えやすかった体毛が、何故か攻撃に使用出来るほどに帯電してしまった羊。動くたびにバリバリと激しい音を発する。
+    EN    A sheep whose body hair, originally prone to storing static electricity, has somehow become so charged that it can be used to attack. Whenever it moves, it emits a loud, crackling sound. 
+
+--- db_card.hsp:9572   CREATURE_ID_LUNE_THE_MAID_CHIEF   creatura 408
+    NOME  jp メイドの『ルーネ』
+          en <Lune> the maid chief
+          IT <Lune> la cameriera
+    JP    非常に落ち着きがなくそそっかしいメイド。出稼ぎで都会に出てきたはいいものの、それから間もなく主が破産したため路頭に迷っている。
+    EN    A very restless and fidgety maid. She came to the city as a migrant worker, but soon afterwards she found herself on the street because her owner went bankrupt. 
+
+--- db_card.hsp:9585   CREATURE_ID_MAIDSANN   creatura 407
+    NOME  jp メイドさん
+          en maidsann
+          IT la cameriera
+    JP    屋敷を彩る花。鑑定・訓練・仲間の調査などもそつなくこなすプロフェッショナルだが、料理は苦手。主人によっては男のメイドさんだけ酷い扱いを受ける。
+    EN    Blossoms that adorn the mansion. A professional who can appraise, train and investigate her peers with perfection, but she is not a great chef. Only male maids are treated badly by some masters.
+
+--- db_card.hsp:9598   CREATURE_ID_ATLAS   creatura 406
+    NOME  jp アトラス
+          en atlas
+          IT l'Atlante
+    JP    かつて地上を支配していた神々の末裔。同胞たちが今の神によって地底に押し込められているため、激しい怨みを抱えている。
+    EN    Descendants of the gods who once ruled the earth. They carry intense resentment because their brethren have been forced underground by the current gods. 
+
+== 39 carte fra la riga 9101 e la 9600

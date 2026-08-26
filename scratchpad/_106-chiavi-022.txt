@@ -1,0 +1,153 @@
+    # ---------------------------------------------------------- :10612
+    (10612, 'Historical researcher in the service of the Palmia royal family. She is the deputy head of the Lesimas research team, thanks to her background in researching the history of the Nefia labyrinth complex. '):
+        "",
+
+    # ---------------------------------------------------------- :10625
+    (10625, 'In the past, he tried to ascend himself to godhood with his original theory and became a deformity that could neither be described as a god nor a demon. Since then, he has stopped researching and has become a fool who only protects the results of his research. '):
+        "",
+
+    # ---------------------------------------------------------- :10638
+    (10638, 'Lord of an old castle in the dense, deep forests of southern North Tyris. He has enjoyed playing chess since before he gained the power of the magic stone, and lives with his pawns after his family passed away. '):
+        "",
+
+    # ---------------------------------------------------------- :10651
+    (10651, 'A wizard with red artificial eyes who resides at the top of a burning, scorching tower. Her distrust of humans has led her to take a dragon as her husband, and they live a hot, passionate life together every day. '):
+        "",
+
+    # ---------------------------------------------------------- :10664
+    (10664, 'Evil dragon, husband of the red-eyed Quruiza. Together with his wife, who holds the magic stone, he rules the Burning Tower. His digestive system as well as his skin is as tough as steel and he eats everything well.'):
+        "",
+
+    # ---------------------------------------------------------- :10677
+    (10677, 'Goddess with healing powers. She makes a daily effort to make her breasts appear as large as possible and blatantly avoids standing next to Ehekatl. She is a bit absent-minded and is in all sorts of danger without a defender.'):
+        "",
+
+    # ---------------------------------------------------------- :10690
+    (10690, 'The form in which Jua, originally a healer, releases her power to destroy her enemies. The light emitted by its wings is said to be gentle to those who follow it and searing to those who oppose it. '):
+        "",
+
+    # ---------------------------------------------------------- :10703
+    (10703, 'She hates being bound by things like clothes and is usually fully naked. The most important parts of her body are obscured by distorting the air, but even so, she is sure to be difficult to look at. '):
+        "",
+
+    # ---------------------------------------------------------- :10716
+    (10716, 'On the upside, she appears to be acting as usual, but on the inside she\'s a raging bull. In her anger, she goes around destroying the area as she pleases and as the wind blows. The term \\"walking disaster\\" is apt.'):
+        "",
+
+    # ---------------------------------------------------------- :10729
+    (10729, 'Beautiful and muscular with muscles strengthened to the max. He can shatter a lump of adamantite with his abdominal muscles. The only complaint is that he has not been able to train his wings.'):
+        "",
+
+    # ---------------------------------------------------------- :10742
+    (10742, 'The shock from the pain turned him on completely. He swings the scythe in a bizarre manner with a broken laugh. When it comes to this, there is no stopping until someone dies.'):
+        "",
+
+    # ---------------------------------------------------------- :10755
+    (10755, "When Mani's makeshift body ceases to function, his true form is activated when the main programme is super-transferred. It suddenly manifests from the mechanisms and brings everything to an end. "):
+        "",
+
+    # ---------------------------------------------------------- :10768
+    (10768, 'She looks like a grown-up woman, but on the inside she is like a friendly cat. She is often seen sunbathing or eating fish with her incarnation, a black cat. '):
+        "",
+
+    # ---------------------------------------------------------- :10781
+    (10781, 'A mysterious dark Ehekatl pops out of the Ehekatl. Like a cat on the warpath, it snarls and threatens while keeping its distance. The look in its eyes is that of a beast hunting its prey.'):
+        "",
+
+    # ---------------------------------------------------------- :10794
+    (10794, 'He has a well-trained body as hard as a mineral and a heart as solid as the earth. He wears a blindfold to train his sense of equilibrium, but sometimes loses his balance and causes tectonic shifts. '):
+        "",
+
+    # ---------------------------------------------------------- :10807
+    (10807, 'A male deity who is sometimes mistaken for a goddess because of his appearance. His chest is swollen from the seeds he carries in his inside pocket, which makes his appearance even more misleading. When he feels cold, he covers his bare shoulders with his wings.'):
+        "",
+
+    # ---------------------------------------------------------- :10820
+    (10820, 'An artificial god created by a mechanical civilisation. He has trouble concentrating when he is tinkering with machines because Lulwy is always trying to interfere with him. He is the only one of the Eight Pillars without wings, but he can fly without problems thanks to the power of science.'):
+        "",
+
+    # ---------------------------------------------------------- :10833
+    (10833, "An iguana that has mutated and grown huge under the influence of nuclear testing. It looks like a dinosaur, but prefers to eat fish rather than meat. It fights with agility, but is weak and timid. It shouldn't eat fish all the time, after all."):
+        "",
+
+    # ---------------------------------------------------------- :10846
+    (10846, 'A slime that was bred to be edible. Many people find them cute and keep them as pets, but beware: they sometimes prey on people.'):
+        "",
+
+    # ---------------------------------------------------------- :10859
+    (10859, "A red-colored putit that's somewhat stronger than normal putits. Some people used to claim that red putits were simply female putits, but in truth, the two have nothing to do with each other. The actual reason behind their red coloring is unknown."):
+        "",
+
+    # ---------------------------------------------------------- :10872
+    (10872, 'They are liquid lifeforms that move in a flowing manner, dissolving and feeding on whatever enters their bodies. Watch out for squishy puddles of moving water.'):
+        "",
+
+    # ---------------------------------------------------------- :10885
+    (10885, 'A slime that has taken in chemicals illegally dumped by scientists and mages causing it to mutate. Dangerous chemical reactions are taking place in their bodies, and acidic body parts are dispersed when stimulated.'):
+        "",
+
+    # ---------------------------------------------------------- :10898
+    (10898, 'A creature with semi-transparent flesh. When a wound is inflicted on them, they multiply like bubbles, hence the name. Not a few towns are filled with them as they multiply.'):
+        "",
+
+    # ---------------------------------------------------------- :10911
+    (10911, 'A subspecies of bubble with bluish flesh. Some advocate the theory that the oceans were created after their mass increase, but no one is taking them seriously. '):
+        "",
+
+    # ---------------------------------------------------------- :10924
+    (10924, 'A subspecies of dragon born during the evolutionary process. Only the muscles have developed abnormally and the original form are no longer. It has destroyed countless towns and is regarded as a dangerous demon.'):
+        "",
+
+    # ---------------------------------------------------------- :10937
+    (10937, 'Mysterious machine discovered in underground ruins. Its nanomachine repair function has run amok due to a bug, and it creates an identical copy of itself from the faulty part. '):
+        "",
+
+    # ---------------------------------------------------------- :10950
+    (10950, "Its fluffy fur and overall cuteness makes it one of the more popular small animals. Though they're a bit temperamental, there are many who keep them as pets. They're also delicious, but don't say that in front of their fans."):
+        "",
+
+    # ---------------------------------------------------------- :10963
+    (10963, 'When exposed to salt, the water inside their bodies is absorbed, causing them to shrivel into nothingness. Without a doubt the most dull and pathetic creature in Irva. How the species has managed to survive is a complete mystery.'):
+        "",
+
+    # ---------------------------------------------------------- :10976
+    (10976, 'A person who has lost to something, and continues to run in order to escape from that fact. The circumstances are unique to each individual, but sooner or later, the time will come when they must face reality.'):
+        "",
+
+    # ---------------------------------------------------------- :10989
+    (10989, "A fighter for hire. Many exaggerate their past deeds or lie about former military service in order to get hired, but considering the current economy, they don't have much of a choice."):
+        "",
+
+    # ---------------------------------------------------------- :11002
+    (11002, 'A person who has completely abandoned their pride and fear, willing to even visit the homes of random adventurers and prostrate themselves for gold. It rarely ever works though.'):
+        "",
+
+    # ---------------------------------------------------------- :11015
+    (11015, 'Home-grown people skilled in cooking and sewing. No matter how much vegetables they produce, they are bought cheaply, so they basically live on the expenditure of their family.'):
+        "",
+
+    # ---------------------------------------------------------- :11028
+    (11028, 'They will not tolerate anyone who spoils the beauty of the city. They are feared by snails because they carry salt with them at all times. It seems to be safe, in the eyes of the cleaners, to sprinkle salt at snails.'):
+        "",
+
+    # ---------------------------------------------------------- :11041
+    (11041, 'He digs tunnels day and night for the peace and development of the town. It is refreshing to see him digging by force and without any skill.He is attacked by demons that live in the tunnels on a daily basis.'):
+        "",
+
+    # ---------------------------------------------------------- :11054
+    (11054, 'Performers who make a living from the music and singing they play while travelling from place to place. They are sometimes stoned for their inexperience, but they are not discouraged. They just work harder and harder.'):
+        "",
+
+    # ---------------------------------------------------------- :11067
+    (11067, "Regardless of gender, they are uniformly referred to as 'nuns'. They lead a life of celibacy, but few of them make it past the Feast of the Holy Nights, which is overflowing with various desires."):
+        "",
+
+    # ---------------------------------------------------------- :11080
+    (11080, 'It is a sacred beast that descends on the end of year festivals and has no insides. There is a superstition that if you are bitten on the head, you will live a year without illness. The clattering of its teeth is a little scary, though.'):
+        "",
+
+    # ---------------------------------------------------------- :11093
+    (11093, 'Part-time worker who dresses up in a bear costume and encourages people to convert. He earns bonuses according to his performance, so whenever he sees someone he can easily persuade, he calls out to them.'):
+        "",
+
+# 38 voci fra la riga 10601 e la 11100, 0 ambigue
