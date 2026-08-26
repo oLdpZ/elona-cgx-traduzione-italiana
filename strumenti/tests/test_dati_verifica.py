@@ -125,6 +125,42 @@ def test_una_resa_vuota_non_e_un_problema_e_solo_da_fare():
     assert problemi(voce(it="")) == []
 
 
+def _titolo(it):
+    return {"firma": "f" * 40, "file": "book.txt", "blocco": "DEFINE", "riga": 1,
+            "en": "My Diary", "jp_contesto": ["日記"], "it": it}
+
+
+def test_nel_blocco_csv_la_virgola_e_un_problema_di_struttura():
+    """⚠️ Sposterebbe di uno le colonne dopo, e il file non si lamenterebbe."""
+    assert "struttura" in [p.genere for p in dati_verifica.controlla([_titolo("Il diario, mio")])]
+    assert "struttura" in [p.genere for p in dati_verifica.controlla([_titolo("Diario\tmio")])]
+
+
+def _riga_manuale(en, it):
+    return {"firma": "f" * 40, "file": "manual_ENG.txt", "blocco": "", "riga": 1,
+            "en": en, "jp_contesto": [], "it": it}
+
+
+def test_nel_manuale_le_graffe_sono_il_marcatore_di_sezione_non_un_segnaposto():
+    """⚠️ Toglierle non lascia una parola fra graffe: fa sparire la voce dall'elenco."""
+    problemi = dati_verifica.controlla(
+        [_riga_manuale("{} For Beginners", "{} Per cominciare")])
+    assert problemi == []
+
+
+def test_nel_manuale_una_sezione_senza_marcatore_si_segnala():
+    """La prova al contrario: se il `{}` si perde, la rete deve accendersi."""
+    generi = [p.genere for p in dati_verifica.controlla(
+        [_riga_manuale("{} For Beginners", "Per cominciare")])]
+    assert "segnaposto" in generi
+
+
+def test_fuori_dal_blocco_csv_la_virgola_e_interpunzione_normale():
+    """La prova al contrario: la rete vale dove la CSV e' dichiarata."""
+    assert dati_verifica.controlla([_titolo("Il mio diario")]) == []
+    assert problemi(voce(it="Titolo:il corpo, con {reward}.")) == []
+
+
 # ------------------------------------------------------- gli altri controlli
 
 def test_un_doppio_byte_cp932_e_un_problema():

@@ -103,7 +103,7 @@ def test_l_identita_riproduce_il_testo_costruito():
 
 
 @pytest.mark.parametrize("nome", ("autopick.txt", "board.txt", "book.txt",
-                                  "exhelp.txt", "talk.txt"))
+                                  "exhelp.txt", "manual_ENG.txt", "talk.txt"))
 def test_l_identita_riproduce_i_file_veri_byte_per_byte(nome):
     percorso = percorsi.DATI_SORGENTE / nome
     if not percorso.exists():
@@ -115,6 +115,44 @@ def test_l_identita_riproduce_i_file_veri_byte_per_byte(nome):
     assert orfane == []
     assert quante == len(diz), "l'identita' deve toccare ogni riga che dichiara"
     assert nuovo.encode(dati.codifica(nome)) == grezzo
+
+
+# ---------------------------------------------------- il blocco CSV (%DEFINE)
+
+DEFINE = (
+    "%DEFINE\r\n"
+    "0,日記,My Diary,\t\t\t\t1\r\n"
+    "1,迷子の兵士に送るマニュアル,Beginner's Guide,\t0\r\n"
+    "%END\r\n"
+)
+
+
+def test_la_resa_entra_nella_colonna_e_il_resto_della_riga_non_si_muove():
+    diz = _dizionario(DEFINE, "book.txt", {"My Diary": "Il mio diario"})
+    nuovo, quante, orfane = dati_applica.applica_a_testo("book.txt", DEFINE, diz)
+    assert quante == 1 and orfane == []
+    assert "0,日記,Il mio diario,\t\t\t\t1\r\n" in nuovo
+    assert "1,迷子の兵士に送るマニュアル,Beginner's Guide,\t0\r\n" in nuovo
+
+
+def test_una_resa_con_la_virgola_non_arriva_mai_al_file():
+    """⚠️ Meglio fermarsi che scrivere una CSV con una colonna in piu'."""
+    diz = _dizionario(DEFINE, "book.txt", {"My Diary": "Il diario, mio"})
+    with pytest.raises(ValueError, match="virgola"):
+        dati_applica.applica_a_testo("book.txt", DEFINE, diz)
+
+
+def test_gli_accenti_si_degradano_anche_dentro_la_colonna():
+    diz = _dizionario(DEFINE, "book.txt", {"My Diary": "Il diario perché"})
+    nuovo, _, _ = dati_applica.applica_a_testo("book.txt", DEFINE, diz)
+    assert "0,日記,Il diario perche',\t\t\t\t1\r\n" in nuovo
+
+
+def test_l_identita_riproduce_il_blocco_csv():
+    diz = dati_applica.dizionario_identita("book.txt", DEFINE)
+    nuovo, quante, orfane = dati_applica.applica_a_testo("book.txt", DEFINE, diz)
+    assert nuovo == DEFINE
+    assert quante == 2 and orfane == []
 
 
 def test_l_identita_dichiara_quante_righe_misura():

@@ -31,12 +31,16 @@ tacere. E' la forma di `linguette.py`: «fuori misura» e «strette ma dentro».
 `page_change` impagina da solo, e `dati_applica` **sostituisce** righe senza
 aggiungerne, quindi il conto delle righe di un libro non puo' cambiare.
 
-⚠️⚠️ **E c'e' un pezzo che questa rete NON guarda, perche' non e' nel lotto: i
-33 titoli del blocco `%DEFINE`.** `item.hsp:121` li legge dalla CSV con
-`booktitle(int(s)) = lang(s(1), s(2))`, colonna 3. `dati_estrai` estrae solo i
-blocchi `%<n>,EN`, quindi i titoli **non sono ne' tradotti ne' fra quelli da
-fare** — la stessa forma del punto cieco delle descrizioni di `db_item.hsp`.
-Il conto lo stampa qui sotto perche' non se ne perda la memoria.
+⚠️⚠️ **E c'e' un pezzo che questa rete NON guarda, ed e' giusto cosi': i 33
+titoli del blocco `%DEFINE`.** `item.hsp:121` li legge dalla CSV con
+`booktitle(int(s)) = lang(s(1), s(2))`, colonna 3, e non finiscono nella pagina
+del libro: `item_func.hsp:907` li incolla al **nome dell'oggetto** (« dal titolo
+<...>»), dove questa colonna da 306 px non c'entra niente. Misurarli col metro
+del corpo sarebbe una rete giusta puntata sul posto sbagliato, che non tace: mente.
+
+⭐ Dalla 101a i titoli **sono tradotti**: `dati.COLONNE_CSV` insegna alla catena
+che quel blocco e' una CSV e che l'unita' e' una colonna. Il conto si stampa lo
+stesso qui sotto, perche' e' la riga che ricorda che sono due cose diverse.
 """
 import argparse
 import io
@@ -140,7 +144,8 @@ def main():
 
     dei_titoli = titoli(percorso if not scelte.file else MONTE)
     print(f"\n⚠️ e i {len(dei_titoli)} titoli del blocco %DEFINE non sono in questo "
-          "conto: `dati_estrai` non li estrae, `item.hsp:121` li legge dalla CSV")
+          "conto, e non ci vanno: non stanno nella pagina del libro ma nel nome "
+          "dell'oggetto (item_func.hsp:907)")
     return 1 if fuori else 0
 
 

@@ -1062,5 +1062,9 @@ def test_il_file_vero_degli_invariati_si_carica():
     assert "Vernis" in valori           # tabella iniziale
     assert "male" in valori             # «Valori di dato»
     assert "Qy@" in valori              # «Versi senza contenuto linguistico»
-    assert "manual_ENG.txt" in valori   # «Chiavi e nomi di file»
+    # ⚠️ 101a: qui c'era `manual_ENG.txt`, che quella sessione ha tolto dagli
+    # invariati perche' il manuale si traduce e il nome dirotta al file italiano.
+    # La sentinella e' un valore che nomina un file **di monte**, che non puo'
+    # diventare nostro.
+    assert "scene2.hsp" in valori       # «Chiavi e nomi di file»
     assert "-Flaenix" in valori         # «Nomi coniati del potioman»

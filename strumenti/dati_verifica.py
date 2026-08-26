@@ -13,8 +13,9 @@ Ogni rete nasce da un sito, non da una prudenza generica:
     titolo largo  vedi `TETTO_TITOLO` qui sotto: il tetto lo fissa la prima cosa
                   disegnata alla destra del titolo, che non e' la prima che si
                   incontra leggendo il sorgente.
-    struttura     `dati.py` rifiuta a-capo e percento, ma il lotto va fermato
-                  prima: qui l'errore si legge col blocco accanto.
+    struttura     `dati.py` rifiuta a-capo, percento e — dove il blocco e' una
+                  CSV — la virgola, ma il lotto va fermato prima: qui l'errore
+                  si legge col blocco accanto.
     cp932         doppi byte **e** caratteri non codificabili, sulla forma
                   degradata.
     accento interno  un accento che non sta sull'ultima lettera: la
@@ -144,6 +145,17 @@ NESSUN_ESPANSORE.giapponesi = frozenset()
 NESSUN_ESPANSORE.inglesi_nudi = frozenset()
 NESSUN_ESPANSORE.noti = frozenset()
 
+# ⚠️ In `manual_ENG.txt` le graffe **non sono un segnaposto**: `{}` in testa a
+# una riga e' il marcatore che apre una sezione, e `help.hsp:338` lo cerca tal
+# quale (`instr(q, 0, "{}")`) per riempire l'elenco degli argomenti. Toglierlo
+# non lascerebbe una parola fra graffe a schermo: farebbe **sparire la voce
+# dall'elenco**. Per questo qui il segnaposto senza nome e' «contenuto» — cioe'
+# roba che una resa italiana puo' e deve portarsi dietro — e non un ignoto.
+MARCATORE_SEZIONE = Espansore("il marcatore di sezione", ("",))
+MARCATORE_SEZIONE.giapponesi = frozenset()
+MARCATORE_SEZIONE.inglesi_nudi = frozenset()
+MARCATORE_SEZIONE.noti = frozenset({""})
+
 # Il profilo di un file: chi lo legge, se la riga e' `titolo:corpo`, e a che
 # larghezza il gioco la manda a capo.
 #
@@ -182,6 +194,12 @@ PROFILI = {
     # devono agganciare le **chiavi** di `custom_autopick.hsp`, e quello lo
     # misura `scratchpad/_100-modello-aggancia.py`.
     "autopick.txt": {"espansore": NESSUN_ESPANSORE, "titolo": False, "tetto_capo": None},
+    # ⚠️ `manual_ENG.txt` lo disegna `gmes` come `exhelp.txt` (`help.hsp:461`),
+    # e per la stessa ragione `tetto_capo` resta None: `gmes` manda a capo **per
+    # carattere** e la rete dell'altezza qui sotto rifa' `talk_conv`, che manda
+    # a capo sulle spaziature. Il vincolo vero e' l'**altezza della sezione**
+    # dentro una finestra da 496 px, e lo misura `scratchpad/_101-manual-gmes.py`.
+    "manual_ENG.txt": {"espansore": MARCATORE_SEZIONE, "titolo": False, "tetto_capo": None},
 }
 
 PROFILO_IGNOTO = {"espansore": TALKTXT_CONV, "titolo": True, "tetto_capo": None}
@@ -351,6 +369,21 @@ def controlla(voci: list[dict], invariati: set[str] | None = None,
         if resa.lstrip().startswith("%"):
             segnala(voce, "struttura", "la resa comincia per '%': verrebbe letta come intestazione")
             continue
+        # ⚠️ Dove il blocco e' una CSV la virgola e' un separatore, non un segno
+        # d'interpunzione: `dati.sostituisci_campo_csv` la rifiuta, ma il lotto
+        # va fermato **qui**, dove l'errore si legge col blocco accanto invece
+        # che a meta' della costruzione dei file dati.
+        if dati.colonne_csv(voce.get("file"), voce["blocco"]) is not None:
+            if "," in resa:
+                segnala(voce, "struttura",
+                        "la resa contiene una virgola, che in questo blocco "
+                        "separa le colonne: sposterebbe di uno tutti i campi dopo")
+                continue
+            if "\t" in resa:
+                segnala(voce, "struttura",
+                        "la resa contiene una tabulazione, che in questi file "
+                        "separa il commento di servizio")
+                continue
 
         # ------------------------------------------------------- segnaposto
         nell_inglese = segnaposto(voce["en"])

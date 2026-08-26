@@ -46,6 +46,27 @@ def applica_a_testo(nome_file: str, testo: str,
     quante = 0
 
     for blocco in documento.blocchi:
+        colonne = dati.colonne_csv(nome_file, blocco.chiave)
+        if colonne is not None:
+            # ⚠️ Qui si riscrive **una colonna**, non la riga: il numero del
+            # libro e il «1=generato a caso» sono dati del gioco e tornano
+            # indietro carattere per carattere.
+            for numero, indice in enumerate(blocco.indici_pieni(), 1):
+                riga = documento.riga(indice)
+                inglese = dati.campo_csv(riga, colonne["en"])
+                firma = dati_estrai.firma(nome_file, blocco.chiave, numero, inglese)
+                voce = dizionario.get(firma)
+                if voce is None:
+                    continue
+                agganciate.add(firma)
+                if not voce.get("it"):
+                    continue
+                documento.sostituisci(
+                    indice,
+                    dati.sostituisci_campo_csv(riga, colonne["en"],
+                                               aggiusta(voce["it"])))
+                quante += 1
+            continue
         if blocco.lingua != "EN":
             continue
         for numero, indice in enumerate(blocco.indici_pieni(), 1):
@@ -106,7 +127,8 @@ def prova_identita() -> bool:
     """Ogni riga tradotta in se' stessa deve ridare il file byte per byte."""
     pulita = True
     provati = righe = 0
-    for nome_file in ("autopick.txt", "board.txt", "book.txt", "exhelp.txt", "talk.txt"):
+    for nome_file in ("autopick.txt", "board.txt", "book.txt", "exhelp.txt",
+                      "manual_ENG.txt", "talk.txt"):
         origine = percorsi.DATI_SORGENTE / nome_file
         if not origine.exists():
             continue

@@ -227,8 +227,26 @@ def test_il_lettore_piatto_si_sceglie_dal_nome_del_file():
 
 def test_autopick_e_l_unico_file_dati_in_utf8():
     assert dati.codifica("autopick.txt") == "utf-8"
-    for nome in ("board.txt", "book.txt", "exhelp.txt", "talk.txt"):
+    for nome in ("board.txt", "book.txt", "exhelp.txt", "manual_ENG.txt", "talk.txt"):
         assert dati.codifica(nome) == "cp932"
+
+
+def test_i_file_senza_blocchi_sono_due_e_per_ragioni_diverse():
+    """`autopick.txt` non ha blocchi; il manuale ce li ha in un altro file."""
+    assert dati.e_piatto("manual_ENG.txt") is True
+    assert dati.e_piatto("autopick.txt") is True
+    for nome in ("board.txt", "book.txt", "exhelp.txt", "talk.txt"):
+        assert dati.e_piatto(nome) is False
+
+
+def test_il_manuale_vero_e_ascii_puro(tmp_path):
+    """⚠️ Se un giorno monte ci mettesse un accento, il CP932 lo cancellerebbe."""
+    from strumenti import percorsi
+    percorso = percorsi.DATI_SORGENTE / "manual_ENG.txt"
+    if not percorso.exists():
+        pytest.skip("manual_ENG.txt non e' ancora stato pinnato")
+    grezzo = percorso.read_bytes()
+    assert all(byte < 128 for byte in grezzo), "non e' piu' ASCII puro"
 
 
 def test_il_file_vero_non_si_decodifica_in_cp932(tmp_path):
@@ -246,3 +264,64 @@ def test_il_file_vero_non_si_decodifica_in_cp932(tmp_path):
     with pytest.raises(UnicodeDecodeError):
         grezzo.decode("cp932")
     assert dati.leggi(percorso).startswith("### Elona+ Custom-GX Autopickup")
+
+
+# --------------------------------------------------- il blocco CSV (%DEFINE)
+
+RIGA = "20,冒険暮らし,Adventurers Quarterly Spring '18,\t\t\t\t1"
+
+
+def test_il_blocco_csv_si_dichiara_per_file_e_per_chiave():
+    """Solo `book.txt`/`%DEFINE`: gli altri blocchi restano testo a righe."""
+    assert dati.colonne_csv("book.txt", "DEFINE") == {"jp": 1, "en": 2}
+    assert dati.colonne_csv("book.txt", "0") is None
+    assert dati.colonne_csv("talk.txt", "DEFINE") is None
+    assert dati.colonne_csv(None, "DEFINE") is None
+
+
+def test_le_colonne_si_leggono_dove_le_legge_getstr():
+    assert dati.campo_csv(RIGA, 0) == "20"
+    assert dati.campo_csv(RIGA, 1) == "冒険暮らし"
+    assert dati.campo_csv(RIGA, 2) == "Adventurers Quarterly Spring '18"
+    assert dati.campo_csv(RIGA, 3) == "\t\t\t\t1"
+    assert dati.campo_csv(RIGA, 9) == "", "una colonna che non c'e' non solleva"
+
+
+def test_sostituire_una_colonna_lascia_le_altre_carattere_per_carattere():
+    nuovo = dati.sostituisci_campo_csv(RIGA, 2, "L'avventuriero trimestrale")
+    assert nuovo == ("20,冒険暮らし,"
+                     "L'avventuriero trimestrale,\t\t\t\t1")
+    # il numero del libro e il «1=generato a caso» sono dati del gioco
+    assert dati.campo_csv(nuovo, 0) == "20"
+    assert dati.campo_csv(nuovo, 3) == "\t\t\t\t1"
+
+
+def test_la_virgola_nella_resa_si_rifiuta():
+    """⚠️ Sposterebbe di uno tutti i campi dopo, e in silenzio."""
+    with pytest.raises(ValueError, match="virgola"):
+        dati.sostituisci_campo_csv(RIGA, 2, "Il trimestrale, primavera 518")
+
+
+def test_la_tabulazione_e_il_campo_vuoto_si_rifiutano():
+    with pytest.raises(ValueError, match="tabulazione"):
+        dati.sostituisci_campo_csv(RIGA, 2, "Titolo\tcon tabulazione")
+    # `getstr` esce dal giro appena `strsize == 0` (etc.hsp:322): un campo
+    # vuoto fa sparire tutte le colonne che vengono dopo
+    with pytest.raises(ValueError, match="vuota"):
+        dati.sostituisci_campo_csv(RIGA, 2, "")
+
+
+def test_il_define_del_file_vero_ha_trentatre_libri():
+    """La misura sul corpus: se monte ne aggiunge uno, questo test lo dice."""
+    from strumenti import percorsi
+    percorso = percorsi.DATI_SORGENTE / "book.txt"
+    if not percorso.exists():
+        pytest.skip("book.txt non e' ancora stato pinnato")
+
+    documento = dati.analizza_file("book.txt", dati.leggi(percorso))
+    define = documento.blocco("DEFINE", "")
+    assert define is not None
+    righe = define.righe_piene()
+    assert len(righe) == 33
+    assert [dati.campo_csv(r, 0) for r in righe] == [str(n) for n in range(33)]
+    assert dati.campo_csv(righe[0], 2) == "My Diary"

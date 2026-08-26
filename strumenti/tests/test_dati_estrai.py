@@ -131,6 +131,35 @@ def test_ogni_voce_di_board_ha_un_titolo_e_un_corpo():
         assert titolo.strip(), voce["blocco"]
 
 
+# ---------------------------------------------------- il blocco CSV (%DEFINE)
+
+DEFINE = (
+    "%DEFINE\r\n"
+    "0,日記,My Diary,\t\t\t\t1\r\n"
+    "1,迷子の兵士に送るマニュアル,Beginner's Guide,\t0\r\n"
+    "%END\r\n"
+)
+
+
+def test_del_blocco_csv_si_estrae_la_COLONNA_non_la_riga():
+    """⚠️ La riga porta anche il numero del libro e il «1=generato a caso»."""
+    voci = dati_estrai.voci("book.txt", dati.analizza(DEFINE))
+    assert [v["en"] for v in voci] == ["My Diary", "Beginner's Guide"]
+    assert [v["riga"] for v in voci] == [1, 2]
+    assert all(v["blocco"] == "DEFINE" for v in voci)
+
+
+def test_il_giapponese_del_blocco_csv_sta_nella_colonna_accanto():
+    voci = dati_estrai.voci("book.txt", dati.analizza(DEFINE))
+    assert voci[0]["jp_contesto"] == ["日記"]
+
+
+def test_lo_stesso_blocco_in_un_altro_file_resta_testo_a_righe():
+    """La prova al contrario: la CSV e' dichiarata per (file, chiave)."""
+    voci = dati_estrai.voci("talk.txt", dati.analizza(DEFINE))
+    assert voci == [], "senza lingua EN e senza CSV dichiarata non si estrae nulla"
+
+
 # --------------------------------------------------------------- il lotto
 
 def test_il_lotto_si_scrive_e_si_rilegge(tmp_path):

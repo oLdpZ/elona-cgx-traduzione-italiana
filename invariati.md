@@ -36,6 +36,7 @@ scrivere, probabilmente la stringa va tradotta.
 | `}` | **non è testo**: è l'altra metà della coppia qui sopra |
 | `???` | `chat.hsp:19135`, dentro `cnvtalk`: la battuta del compagno che non capisce che cosa gli stia succedendo. Giapponese 「？？？」, cioè gli **stessi tre segni** a doppio byte. Non è inglese lasciato lì: è punteggiatura, e la punteggiatura non ha lingua. La forma italiana dei punti interrogativi è quella ASCII, e le tre domande piene giapponesi in CP932 escono a sei glifi |
 | `"<<" + iroiro + ">>"` | `chat.hsp:19311`: **non è testo, è una cornice attorno a una variabile.** La riga è `lang(iroiro + " ", "<<" + iroiro + ">>")`, e `iroiro` porta già la sua resa — «(Un po' di tutto)» da `:19306`, oppure una frase che `customtalk` pesca dal database della creatura. Le doppie angolari marcano le voci **speciali** del menu degli evochat, accanto a `<<Abbracciare>>` e `<<Baciare>>`: quel che c'è da tradurre sta dentro `iroiro`, e la resa italiana di questa riga non può che essere la stessa cornice. ⚠️ Il valore dichiarato qui è l'**espressione intera**, non `<<>>`: per una dinamica il termine di paragone di `verifica.py` è `en_grezzo`, come per `" < " + s + " > "` qui sopra |
+| `{} Console` | il titolo della sezione della guida in gioco che spiega la console (`data\manual_ENG.txt`). ⚠️ **Non è inglese lasciato lì: è italiano che coincide**, come `Info` e `t ` qui sopra — «console» è la parola italiana per quella finestra, e i comandi che ci si scrivono dentro (`wizard`, `freemove`, `exitroom`, `removequest`) sono chiavi che il codice confronta tal quali. Il `{}` in testa non è un segnaposto ma il marcatore di sezione che `help.hsp:338` cerca per riempire l'elenco degli argomenti |
 | Vernis | nome proprio di città, canone Elona |
 | Palmia | nome proprio di città, canone Elona |
 | Derphy | nome proprio di città, canone Elona |
@@ -619,16 +620,28 @@ da `verifica.py`, così la decisione non passa inosservata.
 
 ## Chiavi e nomi di file — non sono testo, sono indirizzi
 
-Aggiunta nella 72a col lotto di `help.hsp`, cresciuta nella 97a. Cinque valori che il gioco usa per
-**trovare qualcosa**, non per dire qualcosa: tradurli non fa parlare italiano
-nessuna schermata, fa fallire una ricerca.
+Aggiunta nella 72a col lotto di `help.hsp`, cresciuta nella 97a, **scesa a
+quattro nella 101a**. Valori che il gioco usa per **trovare qualcosa**, non per
+dire qualcosa: tradurli non fa parlare italiano nessuna schermata, fa fallire
+una ricerca.
+
+⭐ **`manual_ENG.txt` stava qui e nella 101ª è uscito**, ed è la differenza fra
+un indirizzo e un indirizzo *nostro*: il giorno in cui il manuale si traduce,
+quel nome deve puntare al file italiano. Diventa la resa `manual_ENG_it.txt`, e
+non una toppa come diceva questa riga fino a ieri — `help.hsp:331` è l'unico
+sito della famiglia in cui il nome sta **dentro** una `lang()`, quindi il
+dizionario ci arriva da solo, e il ramo `exist` di ripiego che questa riga
+citava è di `custom_autopick.hsp`, non del manuale (misurato: `manual_` compare
+in un sito solo in tutto il sorgente). ⚠️ Gli altri quattro restano perché il
+file che nominano **non è nostro**: `EN` è un marcatore dentro un file,
+`iknownnameref_en.` e `author_en.` sono campi di un file che scrive il
+giocatore, `scene2.hsp` è codice di monte.
 
 | valore | motivo |
 |---|---|
 | `EN` | `help.hsp:228` compone `"%" + ghelp + "," + lang("JP", "EN")` e lo cerca dentro `manual_ENG.txt` con `instr`. E' **la chiave del blocco**, cioe' lo stesso marcatore `%…,EN` che regge tutti e cinque i file di `data\` (vedi la Fase 3): la sigla non si legge da nessuna parte, si confronta. Tradotta, la guida in gioco non trova piu' un argomento. ⭐ **97a: il secondo sito e' `command.hsp:8372`**, che compone `"" + inv(INV_ITEM_BOOK_ID, ci) + "," + lang("JP", "EN")` e lo cerca dentro `data\book.txt`: e' la stessa chiave, sullo stesso schema `id,EN`, per il testo dei libri. ⚠️ Resta `EN` anche il giorno in cui `book.txt` si traduce — li' `dati_applica` riscrive il **testo** dentro il blocco, non il marcatore che lo apre |
 | `iknownnameref_en.` | `system.hsp:1441`, argomento di `getnpctxt()`: e' il **nome del campo** che il gioco cerca dentro il `.txt` con cui il giocatore descrive un oggetto suo, e la coppia `lang("iknownnameref.", "iknownnameref_en.")` dice che il file ne porta **due**, uno per lingua. Non si legge da nessuna parte: si confronta. Tradotta, il gioco non trova piu' il nome dell'oggetto e carica la stringa vuota. ⚠️ E il suffisso `_en` non e' un caso: e' upstream che ha chiamato «inglese» il campo non giapponese, e chi scrive un oggetto in italiano scrive **in quello** |
 | `author_en.` | `system.hsp:1442`, stesso `getnpctxt()` e stessa ragione di `iknownnameref_en.`: e' il campo dell'autore dentro il file dell'oggetto. ⭐ Sulla **stessa riga** c'e' il valore di ripiego quando il campo manca — `lang("プレイヤー", "Player")` — e quello **si traduce** («Giocatore»): la chiave e il suo valore predefinito stanno appaiati, e uno solo dei due e' testo |
-| `manual_ENG.txt` | `help.hsp:331`, argomento di un `noteload`: e' il **nome del file** del manuale, non il suo titolo. ⚠️ E il giorno in cui il manuale si traduce, questa riga non diventa una resa ma una **toppa** con `manual_IT.txt` e il ramo `exist` di ripiego — la stessa disciplina di `board_it.txt` e `talk_it.txt`, e per la stessa ragione: `noteload` su un file assente e' un errore di esecuzione, cioe' il gioco che muore |
 | `scene2.hsp` | `help.hsp:819`, stesso `noteload`, stesso motivo: e' il file delle scene sbloccabili. ⚠️ Qui l'inglese e' anche fuorviante — `lang("scene1.hsp", "scene2.hsp")` sembra una versione e sono **due file diversi**, uno per lingua |
 
 ## Nomi coniati del potioman — sono un nome proprio, non una parola

@@ -36,9 +36,28 @@ def firma(nome_file: str, blocco: str, riga: int, en: str) -> str:
 
 
 def voci(nome_file: str, documento: dati.Documento) -> list[dict]:
-    """Una voce per riga piena di ogni blocco inglese."""
+    """Una voce per riga piena di ogni blocco inglese.
+
+    ⚠️ Dove il blocco e' una **CSV** (`dati.COLONNE_CSV`) l'unita' non e' la
+    riga ma una **colonna**: l'inglese e' quel che c'e' nella sua, il
+    giapponese sta nella colonna accanto ed e' contesto come sempre.
+    """
     estratte: list[dict] = []
     for blocco in documento.blocchi:
+        colonne = dati.colonne_csv(nome_file, blocco.chiave)
+        if colonne is not None:
+            for numero, testo in enumerate(blocco.righe_piene(), 1):
+                estratte.append({
+                    "firma": firma(nome_file, blocco.chiave, numero,
+                                   dati.campo_csv(testo, colonne["en"])),
+                    "file": nome_file,
+                    "blocco": blocco.chiave,
+                    "riga": numero,
+                    "en": dati.campo_csv(testo, colonne["en"]),
+                    "jp_contesto": [dati.campo_csv(testo, colonne["jp"])],
+                    "it": "",
+                })
+            continue
         if blocco.lingua != "EN":
             continue
         giapponese = documento.blocco(blocco.chiave, "JP")

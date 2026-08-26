@@ -14,6 +14,10 @@ Il formato, contato sul corpus (board.txt, book.txt, exhelp.txt, talk.txt):
 Fuori dai blocchi il file puo' avere qualunque cosa — commenti, righe vuote, la
 documentazione che monte ci ha scritto dentro — e va conservata com'e'.
 
+⚠️ **Un blocco puo' anche non essere testo a righe.** Il `%DEFINE` di
+`book.txt` e' una **CSV**, e li' l'unita' di traduzione e' una colonna e non la
+riga: vedi `COLONNE_CSV` qui sotto.
+
 ⚠️ **Il round-trip si misura sui byte.** I file dati vogliono i CRLF, perche'
 `noteinfo(0)` di HSP conta le righe sui CRLF e un file a LF soltanto per HSP e'
 **una riga sola** (lezione della 65a: due CSV scritti a LF piantarono il gioco
@@ -47,7 +51,74 @@ CHIUSURA = "%END"
 # ⚠️ La conseguenza che conta: `degrada()` esiste **perche' CP932 cancella le
 # vocali accentate**, quindi si applica solo dove la codifica e' CP932.
 CODIFICHE = {"autopick.txt": "utf-8"}
-PIATTI = {"autopick.txt"}
+
+# ⚠️ `manual_ENG.txt` e' il secondo file senza blocchi, ed e' senza blocchi per
+# una ragione diversa da `autopick.txt`: **le due lingue stanno in due file**
+# (`help.hsp:331` fa `lang("manual_JP.txt", "manual_ENG.txt")`), quindi dentro
+# non serve nessuna intestazione che le distingua. Le sue sezioni le segna
+# `{}` in testa alla riga, che `help.hsp:337` usa per riempire l'elenco dei
+# titoli — non sono blocchi e non delimitano lingue.
+# ⓘ E' **ASCII puro** (misurato: nessun byte >= 128), quindi il CP932 di
+# default lo legge e lo riscrive senza perderci niente.
+PIATTI = {"autopick.txt", "manual_ENG.txt"}
+
+# ⚠️⚠️ **IL BLOCCO `%DEFINE` DI `book.txt` NON E' TESTO A RIGHE: E' UNA CSV.**
+#
+# `item.hsp:112`-`:124` lo legge a parte da tutto il resto del file — `csvsort
+# s, msgtemp, 44`, cioe' `getstr` con la virgola per separatore
+# (`etc.hsp:319`) — e ne ricava i **33 titoli dei libri rossi**, che poi
+# finiscono dentro il **nome dell'oggetto**: `item_func.hsp:907` scrive
+# « titled <...>», in italiano « intitolato <...>». Riga per riga:
+#
+#     numero , titolo giapponese , titolo inglese , \t\t\t 1=generato a caso
+#
+# Quindi qui l'unita' di traduzione **non e' la riga**: e' la terza colonna, e
+# tutto il resto della riga va riconsegnato carattere per carattere. Un file
+# dati puo' avere un blocco cosi' e non lo dice: la tabella e' l'unico posto in
+# cui questa forma sta scritta.
+#
+# ⚠️ **La virgola nella resa spaccherebbe il file, e in silenzio**: `getstr`
+# conta i campi in ordine, quindi meta' titolo diventerebbe il campo del
+# «1=generato a caso» e il libro smetterebbe di comparire fra quelli casuali.
+# Per questo `sostituisci_campo_csv` la rifiuta invece di scriverla.
+COLONNE_CSV = {("book.txt", "DEFINE"): {"jp": 1, "en": 2}}
+
+
+def colonne_csv(nome_file: str | None, chiave: str) -> dict | None:
+    """Le colonne di un blocco che e' una CSV, o None se e' testo a righe."""
+    return COLONNE_CSV.get((nome_file or "", chiave))
+
+
+def campo_csv(riga: str, colonna: int) -> str:
+    """Il campo `colonna` di una riga CSV, com'e' scritto nel file."""
+    campi = riga.split(",")
+    return campi[colonna] if colonna < len(campi) else ""
+
+
+def sostituisci_campo_csv(riga: str, colonna: int, nuovo: str) -> str:
+    """Riscrive **un solo campo**, lasciando gli altri byte per byte.
+
+    Rifiuta quel che spaccherebbe la CSV: la virgola sposta di uno tutti i
+    campi che vengono dopo, la tabulazione si confonde col commento di servizio
+    che monte scrive in coda, e un campo vuoto ferma `getstr` (`etc.hsp:322`
+    esce dal giro appena `strsize == 0`), cioe' fa sparire le colonne dopo.
+    """
+    if "," in nuovo:
+        raise ValueError(
+            f"colonna {colonna}: la resa contiene una virgola, "
+            "e sposterebbe di uno tutti i campi che vengono dopo")
+    if "\t" in nuovo:
+        raise ValueError(
+            f"colonna {colonna}: la resa contiene una tabulazione, "
+            "che in questi file separa il commento di servizio")
+    if not nuovo:
+        raise ValueError(
+            f"colonna {colonna}: la resa e' vuota, e getstr si fermerebbe li'")
+    campi = riga.split(",")
+    if colonna >= len(campi):
+        raise ValueError(f"la riga non ha una colonna {colonna}: {riga!r}")
+    campi[colonna] = nuovo
+    return ",".join(campi)
 
 
 def codifica(nome_file: str) -> str:
