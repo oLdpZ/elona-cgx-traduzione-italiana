@@ -176,23 +176,44 @@ della funzione che sta in `strumenti/`.
    `lang()`, `estrai.py` non le vede. E' il blocco piu' grosso che resta e vale
    da solo il salto dall'81% al 94%.
 5. ⚠️⚠️⚠️ **IL COLLAUDO A SCHERMO E' L'ARRETRATO CHE CRESCE PIU' IN FRETTA.**
-   Diciannove sessioni e **5.090 rese mai viste** (4.848 piu' le 242 di oggi).
-   ⭐ **I punti offerti dalla 100a** — l'eseguibile serve, ed e' quello delle
-   01:35 del 26/08:
-   - ⚠️⚠️ **prima di tutto: cancellare `save\<id>\autopick.txt`** se c'e', se no
-     il gioco tiene la copia inglese e non si vede niente. Poi accendere la
-     raccolta automatica in **Impostazioni extra 1** (`config.hsp:630`, la voce
-     «Raccolta e distruzione»);
-   - `[Ctrl+Backspace]` apre il file nell'editor: deve essere **italiano**, e le
-     righe d'esempio devono leggersi in italiano;
-   - poi la prova che conta: buttare per terra una **moneta d'oro** e passarci
-     sopra. La regola `moneta d'oro` deve raccoglierla. Con l'eseguibile vecchio
-     non succedeva, ed e' il difetto che questa sessione chiude;
-   - `[Shift+Backspace]` ricarica il file: il messaggio «autopick.txt
-     ricaricato.» e' una delle sei rese di testo del lotto;
+   Diciannove sessioni e **4.934 rese mai viste** — 4.848 piu' le 242 di oggi,
+   **meno le 156 di `autopick.txt`, che sono state viste** (vedi qui sotto).
+
+   ⭐⭐ **VISTO A SCHERMO IL 26/08 alle 01:53: il modello italiano arriva nel
+   salvataggio.** Il giocatore ha fatto il primo passo del collaudo e
+   `save\<id>\autopick.txt` e' nato **identico byte per byte** a
+   `data\autopick_it.txt` (4.543 byte), e con lui si sono lette a schermo le 156
+   righe del file. ⚠️ **La prova non e' il file in `data\`, e' la copia nel
+   salvataggio**: quella la scrive `AutoPickWriteDefaultSettingsFile`, cioe' la
+   riga che la toppa ha cambiato. Se la toppa non avesse agganciato, li' ci
+   sarebbe l'inglese di monte.
+   💡 La data di quel file e' la firma del collaudo, e si rilegge in un comando:
+   `cmp -s save\<id>\autopick.txt data\autopick_it.txt`.
+
+   ⭐ **Quel che resta da vedere della 100a** — l'eseguibile serve, ed e' quello
+   delle **01:35 del 26/08**. ⓘ Il file nel salvataggio ormai c'e', quindi non
+   si cancella piu' niente e `[Ctrl+Backspace]` lo riapre senza domande:
+   - buttare per terra una **moneta d'oro** e passarci sopra: la regola
+     `moneta d'oro` deve raccoglierla. Con l'eseguibile vecchio non succedeva,
+     ed e' il difetto che questa sessione chiude;
+   - `[Shift+Backspace]` ricarica: il messaggio «autopick.txt ricaricato.» e'
+     una delle sei rese di testo del lotto;
    - ⭐ e la piu' delicata: mettere `~oggetto con maledizione` e verificare che
      un oggetto maledetto **non** venga raccolto. Li' si prova insieme la chiave
      invariabile e il fatto che «con maledizione» stia anche nel nome.
+
+   ⚠️⚠️ **E per CREARE il file il tasto e' `Shift+Backspace`, non
+   `Ctrl+Backspace`.** `Ctrl+Backspace` (`main.hsp:3333`) chiama
+   `AutoPickOpenSettingsFile`, che apre solo un file **che esiste gia'**:
+   `custom_autopick.hsp:26` guarda `exist` e, se non c'e', non fa niente **senza
+   dirlo**. `AutoPickWriteDefaultSettingsFile` — la funzione che legge il nostro
+   `autopick_it.txt` — e' chiamata da **un punto solo** in tutto il sorgente,
+   `custom_autopick.hsp:64`, cioe' il ramo «non c'e', lo creo» di
+   `*AutoPickReloadSettingsFile`. ⚠️ E i tasti si leggono in `*pc_turn`: dentro
+   un menu non rispondono. 💡 Questa riga nasce da un errore: la prima lista di
+   collaudo diceva `Ctrl+Backspace` al passo dopo la cancellazione del file, e
+   sarebbe stata muta.
+
    Restano dalle sessioni prima i libri rossi della 99a, i consigli di Norne
    (serve un personaggio nuovo), il pannello «Conoscenza dell'oggetto» (`X` poi
    `x`), i due menu degli incantesimi (`v`, poi `z`, poi `/`), la scheda (`c`),
