@@ -31,7 +31,9 @@ di lui **non si applica**, perche' degradare esiste solo per CP932.
 💡 **Se il terminale nuovo e' sulla stessa macchina, non si rifa' niente**:
 dalla 92a alla 99a si sono aperte tutte cosi'. Si controlla in un colpo con
 `ls C:\Games\Elona\_traduzione\` (devono esserci `build`, `sorgente`,
-`dati-sorgente`, `hsp34`).
+`dati-sorgente`, `hsp34`), e l'eseguibile in gioco dev'essere
+`elonaplus2.31\cgx-test.exe` delle **14:32 del 26/08**: se la data e' quella,
+la build corrente contiene tutte le 153 rese della 104a e non va rifatta.
 
 ⚠️⚠️ **DUE RETI SULLE CARTE CON L'INGLESE DI UN'ALTRA, E VANNO LETTE INSIEME.**
 `_103-inglese-ripetuto.py` trova le prose inglesi **simili per parole**;
@@ -56,7 +58,12 @@ di ritorno** da qualche script, e poi ricopiato di sessione in sessione come se
 fosse un nome. Le sezioni storiche qui sotto se lo portano ancora dietro.
 💡 La causa e' sempre la stessa: `\b` dentro una stringa Python **non** grezza
 passata da un heredoc. Si scrive il file con lo strumento di scrittura, non con
-`python - <<'PY'`. ⚠️ **E colpisce anche fuori dal repo**: la 100a ha trovato
+`python - <<'PY'`. ⚠️ **E vale anche per gli script usa-e-getta**: la 104a ci ha
+riprovato due volte e le e' andata male tutt'e due — una regex
+`r'"((?:[^"\\]|\\.)*)"'` e' arrivata a Python coi backslash mangiati
+(`unterminated character set`, e sembrava un errore nella regex), e un heredoc
+**vuoto** ha bloccato il terminale fino al timeout. Uno script di dieci righe si
+scrive nello scratchpad: costa lo stesso e resta li' da rilanciare. ⚠️ **E colpisce anche fuori dal repo**: la 100a ha trovato
 `data<BS>ook.txt` **due volte** dentro la voce della 99a in `log.md`, nel vault,
 e l'ha riparata. Chi trova una parola cosi' cerchi il byte 0x08, non il refuso.
 
