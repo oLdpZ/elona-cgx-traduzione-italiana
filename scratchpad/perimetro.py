@@ -98,21 +98,23 @@ def firme_lang(testo: str) -> set:
     return fuori
 
 
-def descrizioni_oggetto() -> int:
-    """Le `description()` del ramo INGLESE di `db_item.hsp`."""
-    righe = io.open(os.path.join(SORGENTE, 'db_item.hsp'), encoding='cp932').read().split('\n')
-    ramo, quante = None, 0
-    for riga in righe:
-        s = riga.strip()
-        if _APRE_JP.match(s):
-            ramo = 'jp'
-            continue
-        if s == 'else {' and ramo == 'jp':
-            ramo = 'en'
-            continue
-        if _DESCRIZIONE.match(s) and ramo == 'en':
-            quante += 1
-    return quante
+def descrizioni_oggetto() -> tuple[int, int]:
+    """(righe del ramo inglese, descrizioni VIVE) di `db_item.hsp`.
+
+    ⚠️⚠️ **Dalla 107a non si contano piu' a mano.** Fino a ieri questo modulo
+    aveva un automa suo, che rendeva **5.284** — cioe' tutte le righe, comprese
+    le **2.452 che sono la stringa vuota**. Non era una stima per difetto come
+    quella delle firme `lang()`: era il 46% di lavoro che non esiste, messo al
+    denominatore di «a che punto siamo». Adesso il riconoscitore vero sta in
+    `estrai.descrizioni_per_riga` (vedi `strumenti/tests/test_descrizioni.py`) e
+    le vuote le scarta `siti()`, come per i nomi.
+    """
+    from strumenti.estrai import descrizioni_per_riga, spezza_righe
+    testo = io.open(os.path.join(SORGENTE, 'db_item.hsp'), encoding='cp932').read()
+    righe, _, _ = spezza_righe(testo)
+    trovate = descrizioni_per_riga(righe)
+    vive = sum(1 for _, en, _, _ in trovate.values() if en != '""')
+    return len(trovate), vive
 
 
 def file_esterni() -> dict:
@@ -173,13 +175,17 @@ def main() -> None:
     fatte_dati = sum(rese_dati.values())
 
     nomi_oggetto = rese.get('db_item.hsp', 0)   # non passa da lang()
-    descrizioni = descrizioni_oggetto()
+    righe_descrizione, descrizioni = descrizioni_oggetto()
     esterni = file_esterni()
     righe_esterne = sum(r for r, _ in esterni.values())
     caratteri_esterni = sum(c for _, c in esterni.values())
 
-    perimetro = dentro + nomi_oggetto
-    totale = perimetro + descrizioni + righe_esterne
+    # ⭐ Dalla 107a le descrizioni sono DENTRO il perimetro: `estrai.siti()` le
+    # vede, `verifica` le conta, la prova d'identita' le attraversa. Il numero
+    # sotto quindi **scende**, ed e' il primo calo onesto del progetto: prima
+    # 2.832 stringhe che il giocatore legge stavano fuori dal denominatore.
+    perimetro = dentro + nomi_oggetto + descrizioni
+    totale = perimetro + righe_esterne
 
     print(f'firme rese                          : {fatte:>7}')
     print(f'firme lang() stimate nel sorgente   : {dentro:>7}')
@@ -188,7 +194,8 @@ def main() -> None:
     print(f'--- perimetro dichiarato            : {perimetro:>7}   '
           f'fatto {100 * fatte / perimetro:.0f}%')
     print()
-    print(f'descrizioni di oggetto (ramo EN)    : {descrizioni:>7}   MAI contate')
+    print(f'descrizioni di oggetto (ramo EN)    : {descrizioni:>7}   '
+          f'vive su {righe_descrizione} righe (107a: ora nel perimetro)')
     for nome, (righe, caratteri) in esterni.items():
         quante = rese_dati.get(nome, 0)
         stato = '⭐ CHIUSO' if quante >= righe else f'{quante} rese'
@@ -198,6 +205,11 @@ def main() -> None:
     print()
     print(f'⚠️ le {descrizioni} descrizioni e i {caratteri_esterni} caratteri esterni sono '
           'PROSA: in caratteri pesano molto piu\' che in firme.')
+    print('⚠️ 107a: i due numeri si muovono in DIREZIONI OPPOSTE, e non e\' un errore.')
+    print('   Il PERIMETRO scende (100% -> 90%) perche\' 2.832 stringhe vere ci sono')
+    print('   entrate. Il TOTALE sale (86% -> 93%) perche\' ne sono uscite 2.452 che')
+    print('   sono la stringa VUOTA: l\'86% di ieri aveva al denominatore mezzo file')
+    print('   di lavoro che non esiste. Il salto non e\' progresso, e\' un conto giusto.')
 
 
 if __name__ == '__main__':
