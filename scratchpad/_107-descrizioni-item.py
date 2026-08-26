@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-"""107a - Le 5.284 descrizioni di `db_item.hsp` contro il pannello che le disegna.
+"""107a - Le descrizioni di `db_item.hsp` contro i pannelli che le disegnano.
 
 ⚠️ **I quattro indici NON sono la stessa cosa e non hanno lo stesso vincolo.**
-E' la cosa che il conteggio «5.284 descrizioni» nasconde, ed e' il motivo per
-cui questo file non e' un lotto ma un fronte da aprire con un piano.
+E' la cosa che il conteggio «5.284 descrizioni» nascondeva, ed e' il motivo per
+cui questo file e' un fronte e non un lotto. (E delle 5.284 righe, **2.452 sono
+la stringa vuota**: le vive sono 2.832.)
 
     description(0..2)   il CORPO del pannello «Conoscenza dell'oggetto».
                         `command.hsp:16746` fa `repeat 3`, salta le vuote,
@@ -19,23 +20,40 @@ cui questo file non e' un lotto ma un fronte da aprire con un piano.
                         primo `\n`. ⚠️⚠️ E poi finisce in `listn` **senza
                         nessun impaginatore**: non va a capo, non si taglia,
                         **sfora e basta**. E' l'unica delle quattro con un tetto
-                        secco.
+                        secco, ed e' la piu' numerosa (1.319 vive).
+
+⚠️ **E il tetto dell'indice 3 e' gia' rotto da monte su 110 voci** (massimo 73
+caratteri contro 69 di budget). Quindi il numero che deve restare a zero **non
+e' la seconda colonna**: e' la **terza**, quelle che introduce l'italiano dove
+l'inglese stava dentro. Un cancello sulla seconda boccerebbe lavoro giusto.
+
+⚠️ **L'italiano si misura DEGRADATO.** CP932 non ha le accentate e `degrada()`
+le allunga: «perche'» sta in 7 caratteri dove «perché» ne occupa 6. Su un tetto
+secco di 69 caratteri e' la differenza fra dentro e fuori, e misurare la forma
+accentata darebbe un verde falso.
 
 L'impaginatore, il rinculo e i tre guasti che ne nascono stanno gia' descritti
 in `_102-carta-conoscenza.py`, e da li' si **importano** invece di riscriverli:
 e' lo stesso ramo di codice, `command.hsp:16802`, e due copie divergerebbero.
+La scansione e' quella di `estrai.siti()` — dalla 107a le descrizioni sono un
+tipo di sito — e non un automa locale: era proprio un automa locale a far
+contare a `perimetro.py` 5.284 descrizioni invece di 2.832.
 
-    python scratchpad/_107-descrizioni-item.py            # il quadro per indice
+    python scratchpad/_107-descrizioni-item.py            # il referto
     python scratchpad/_107-descrizioni-item.py --peggiori 15
     python scratchpad/_107-descrizioni-item.py --prova    # la prova al contrario
 """
 import argparse
 import collections
 import importlib.util
+import io
+import json
 import re
 from pathlib import Path
 
-from strumenti.percorsi import SORGENTE_HSP
+from strumenti.accenti import degrada
+from strumenti.estrai import estrai_da_testo, spezza_righe
+from strumenti.percorsi import DIZIONARIO, SORGENTE_HSP
 
 # il fratello ha un trattino nel nome e non si importa con `import`
 _spec = importlib.util.spec_from_file_location(
@@ -55,46 +73,38 @@ SOGLIA_IMPAGINA = 66
 ACAPO = chr(92) + 'n'
 TABULA = chr(92) + 't'
 
-LETTERALE = re.compile(r'^\s*description\((\d+)\)\s*=\s*"(.*)"\s*$')
+_INDICE = re.compile(r'^\s*description\((\d+)\)\s*=')
 
 
 def carica():
-    """(riga, indice, en) per ogni `description(N)` del ramo `else` di db_item.
+    """(riga, indice, en, it_o_None) per ogni descrizione viva di `db_item.hsp`.
 
-    Il ramo si segue con le graffe: dentro `DBMODE_DESC` c'e' `if ( jp ) { }
-    else { }` e nient'altro, misurato da `_107-struttura-db-item.py` (1321
-    blocchi, 0 asimmetrici, 0 non letterali).
+    La scansione e' quella del progetto: `estrai_da_testo` rende le voci con la
+    firma, e le descrizioni sono quelle **senza** `array` — i nomi ce l'hanno,
+    loro no, perche' non hanno plurale ne' articolo.
     """
-    righe = (SORGENTE_HSP / FILE).read_text(encoding='cp932').splitlines()
-    fuori = []
-    n = 0
-    while n < len(righe):
-        if not righe[n].strip().startswith('if ( dbmode == DBMODE_DESC )'):
-            n += 1
-            continue
-        prof = righe[n].count('{') - righe[n].count('}')
-        inizio, n = n, n + 1
-        while n < len(righe) and prof > 0:
-            prof += righe[n].count('{') - righe[n].count('}')
-            n += 1
-        corpo = righe[inizio:n]
+    testo = (SORGENTE_HSP / FILE).read_text(encoding='cp932')
+    righe, _, _ = spezza_righe(testo)
+    reso = {}
+    percorso = DIZIONARIO / (FILE + '.jsonl')
+    if percorso.exists():
+        with io.open(percorso, encoding='utf-8') as f:
+            for linea in f:
+                if not linea.strip():
+                    continue
+                voce = json.loads(linea)
+                if voce.get('it'):
+                    reso[voce['firma']] = voce['it']
 
-        dove, p = None, 0
-        for i, riga in enumerate(corpo):
-            nudo = riga.strip()
-            if dove is None:
-                if nudo == 'if ( jp ) {':
-                    dove, p = 'jp', 1
-                elif nudo == 'else {':
-                    dove, p = 'en', 1
-                continue
-            p += riga.count('{') - riga.count('}')
-            if p <= 0:
-                dove = None
-                continue
-            m = LETTERALE.match(riga)
-            if m and dove == 'en':
-                fuori.append((inizio + i + 1, int(m.group(1)), m.group(2)))
+    fuori = []
+    for voce in estrai_da_testo(FILE, testo):
+        if 'array' in voce:          # e' un nome, non una descrizione
+            continue
+        trovato = _INDICE.match(righe[voce['riga'] - 1])
+        if trovato is None:          # non e' una `description()`: non e' roba nostra
+            continue
+        fuori.append((voce['riga'], int(trovato.group(1)),
+                      voce['en'], reso.get(voce['firma'])))
     return fuori
 
 
@@ -114,129 +124,265 @@ def trimdesc(testo, modo):
 def righe_a_schermo(testo):
     """Il corpo (indici 0-2): trimdesc 2, spezza sui `\n`, impagina solo se > 66.
 
-    Rende (righe, perduti) dove `perduti` sono i caratteri che il pannello non
-    scrive mai — la coda che sparisce di `_102`.
+    Rende (righe, perduti, spezzate).
     """
     q = trimdesc(testo, 2)
-    fuori, perduti = [], 0
+    fuori, perduti, spezzate = [], 0, 0
     for linea in q.split(ACAPO):
         if len(linea) > SOGLIA_IMPAGINA:
             pezzi, consumati = impagina(linea)
             fuori += pezzi
             perduti += len(linea) - consumati
+            spezzate += spezza_parola(linea, pezzi)
         else:
             fuori.append(linea)
-    return fuori, perduti
+    return fuori, perduti, spezzate
 
 
-def quadro(voci):
+def _misura_corpo(testo):
+    righe, perduti, spezzate = righe_a_schermo(testo)
+    larghe = sum(1 for r in righe if len(r.rstrip()) > BUDGET)
+    return perduti, spezzate, larghe
+
+
+def referto(voci):
     per_indice = collections.defaultdict(list)
-    for riga, i, en in voci:
-        per_indice[i].append((riga, en))
+    for riga, indice, en, it in voci:
+        per_indice[indice].append((riga, en, it))
 
-    print(f'{FILE}: {len(voci)} descrizioni nel ramo en, '
-          f'{len(set(t for _, _, t in voci))} testi distinti')
+    rese = sum(1 for _, _, _, it in voci if it)
+    print(f'{FILE}: {len(voci)} descrizioni vive, {rese} gia\' rese in italiano')
     print(f'budget del riquadro: {BUDGET} caratteri '
           f'(600 px meno l\'inset di 68, a 7,7 px/carattere)')
     print()
-    print('  idx    n   vuote  distinti  mediana   max   >66  con \\n  con #')
-    print('  ' + '-' * 62)
-    for i in sorted(per_indice):
-        testi = [t for _, t in per_indice[i]]
-        vive = [t for t in testi if t]
-        lung = sorted(len(t) for t in vive) or [0]
-        print(f'  {i:>3} {len(testi):>5}  {sum(1 for t in testi if not t):>5}'
-              f'  {len(set(vive)):>8}  {lung[len(lung) // 2]:>7}  {lung[-1]:>5}'
-              f'  {sum(1 for t in vive if len(t) > SOGLIA_IMPAGINA):>4}'
-              f'  {sum(1 for t in vive if ACAPO in t):>6}'
-              f'  {sum(1 for t in vive if "#" in t):>5}')
+    print('  idx   vive   rese  distinti  mediana   max   >66  con \\n')
+    print('  ' + '-' * 58)
+    for indice in sorted(per_indice):
+        gruppo = per_indice[indice]
+        lung = sorted(len(en) for _, en, _ in gruppo)
+        print(f'  {indice:>3} {len(gruppo):>6} {sum(1 for _, _, it in gruppo if it):>6}'
+              f'  {len(set(en for _, en, _ in gruppo)):>8}'
+              f'  {lung[len(lung) // 2]:>7}  {lung[-1]:>5}'
+              f'  {sum(1 for _, en, _ in gruppo if len(en) > SOGLIA_IMPAGINA):>4}'
+              f'  {sum(1 for _, en, _ in gruppo if ACAPO in en):>6}')
+
+    peggiori = []
+
+    # --- il corpo, indici 0-2 -------------------------------------------
+    corpo = [v for i in (0, 1, 2) for v in per_indice.get(i, [])]
+    c_en = c_it = s_en = s_it = l_en = l_it = 0
+    solo_coda = solo_spezza = solo_largo = 0
+    misurate = 0
+    for riga, en, it in corpo:
+        p_en, sp_en, la_en = _misura_corpo(en)
+        c_en += p_en > 0
+        s_en += sp_en
+        l_en += la_en
+        if not it:
+            continue
+        misurate += 1
+        testo = degrada(it)
+        p_it, sp_it, la_it = _misura_corpo(testo)
+        c_it += p_it > 0
+        s_it += sp_it
+        l_it += la_it
+        if p_it > 0 and p_en == 0:
+            solo_coda += 1
+            peggiori.append((riga, 'CODA PERSA', p_it, testo))
+        if sp_it > sp_en:
+            solo_spezza += 1
+            peggiori.append((riga, 'PAROLA SPEZZATA', sp_it - sp_en, testo))
+        if la_it > la_en:
+            solo_largo += 1
 
     print()
-    print('IL CORPO (indici 0-2), passato per l\'impaginatore vero:')
-    coda, rotte, oltre, totale = 0, 0, 0, 0
-    peggio = []
-    for i in (0, 1, 2):
-        for riga, en in per_indice.get(i, []):
-            if not en:
-                continue
-            totale += 1
-            fuori, perduti = righe_a_schermo(en)
-            larghe = sum(1 for r in fuori if len(r.rstrip()) > BUDGET)
-            q = trimdesc(en, 2)
-            spezzate = sum(spezza_parola(l, impagina(l)[0])
-                           for l in q.split(ACAPO) if len(l) > SOGLIA_IMPAGINA)
-            if perduti:
-                coda += 1
-                peggio.append((perduti, riga, i, en))
-            rotte += spezzate
-            oltre += larghe
-    print(f'  descrizioni misurate            : {totale}')
-    print(f'  con la CODA PERDUTA gia\' in inglese: {coda}')
-    print(f'  righe spezzate a meta\' parola   : {rotte}')
-    print(f'  righe oltre i {BUDGET} caratteri     : {oltre}')
+    print(f'=== IL CORPO (indici 0-2): {len(corpo)} vive, {misurate} rese')
+    print(f'                                inglese   italiano')
+    print(f'  con la coda persa           : {c_en:7d}   {c_it:8d}')
+    print(f'  righe spezzate a meta\'      : {s_en:7d}   {s_it:8d}')
+    print(f'  righe oltre i {BUDGET} caratteri : {l_en:7d}   {l_it:8d}')
+    print(f'  ⚠️ INTRODOTTE DALL\'ITALIANO — coda: {solo_coda}   '
+          f'parole spezzate: {solo_spezza}   righe larghe: {solo_largo}   (atteso 0/0/0)')
 
+    # --- l'indice 3, il tetto secco -------------------------------------
+    tre = per_indice.get(3, [])
+    fuori_en = fuori_it = solo_it = 0
+    misurate3 = 0
+    for riga, en, it in tre:
+        lungo_en = len(trimdesc(en, 1))
+        fuori_en += lungo_en > BUDGET
+        if not it:
+            continue
+        misurate3 += 1
+        lungo_it = len(trimdesc(degrada(it), 1))
+        fuori_it += lungo_it > BUDGET
+        if lungo_it > BUDGET and lungo_en <= BUDGET:
+            solo_it += 1
+            peggiori.append((riga, 'TETTO SECCO', lungo_it - BUDGET, degrada(it)))
+
+    lung3 = sorted(len(trimdesc(en, 1)) for _, en, _ in tre)
     print()
-    print(f'L\'INDICE 3 (rapporto di identificazione), che NON si impagina:')
-    tre = [(r, trimdesc(t, 1)) for r, t in per_indice.get(3, []) if t]
-    sforo = [(len(t), r, t) for r, t in tre if len(t) > BUDGET]
-    lung = sorted(len(t) for _, t in tre) or [0]
-    print(f'  voci vive dopo trimdesc(_, 1)   : {len(tre)}')
-    print(f'  mediana {lung[len(lung) // 2]}, massima {lung[-1]}, '
+    print(f'=== L\'INDICE 3 (rapporto di identificazione), che NON si impagina')
+    print(f'  vive {len(tre)}, rese {misurate3}; '
+          f'inglese: mediana {lung3[len(lung3) // 2]}, massima {lung3[-1]}, '
           f'budget {BUDGET}')
-    print(f'  ⚠️ gia\' fuori misura in inglese  : {len(sforo)}')
-    for n, r, t in sorted(sforo, reverse=True)[:5]:
-        print(f'      :{r}  {n} car.  {t[:76]}')
+    print(f'  oltre il tetto — inglese: {fuori_en}   italiano: {fuori_it}')
+    print(f'  ⚠️ INTRODOTTE DALL\'ITALIANO: {solo_it}   (atteso 0 — questo e\' il cancello)')
+    print(f'  ⓘ i {fuori_en} inglesi gia\' fuori sono un difetto di monte: '
+          f'non si contano contro di noi, ma una resa piu\' corta li ripara gratis')
 
-    return peggio
+    return peggiori
+
+
+def prova_al_contrario():
+    print()
+    print('PROVA AL CONTRARIO')
+    print('  1. la coda che sparisce: i giri sono strlen/61+1 ma ogni riga ne')
+    print('     consuma 57 se il confine cade in fondo al rinculo. Un testo con')
+    print('     uno spazio al 57o carattere e nessun confine prima e\' il caso')
+    print('     peggiore costruibile.')
+    modello = 'x' * 56 + ' '
+    acceso = None
+    for ripetizioni in range(2, 40):
+        finto = (modello * ripetizioni).rstrip()
+        _, perduti, _ = righe_a_schermo(finto)
+        if perduti:
+            acceso = (len(finto), perduti)
+            break
+    print(f'     {"✅ ACCESA" if acceso else "⚠️⚠️ SPENTA"}: '
+          + (f'a {acceso[0]} caratteri ne perde {acceso[1]}' if acceso
+             else 'non vede il guasto per cui e\' nata'))
+    print(f'     ⓘ l\'inglese piu\' lungo del file ne ha 716: sotto la soglia, ed e\'')
+    print(f'       per questo che la colonna «coda persa» sta a zero. Non e\' merito')
+    print(f'       di nessuno, e una resa molto piu\' lunga la riaprirebbe.')
+
+    print('  2. il tetto secco dell\'indice 3:')
+    corta = 'It is a rod.'
+    lunga = 'x' * (BUDGET + 1)
+    print(f'     {"✅" if len(trimdesc(lunga, 1)) > BUDGET else "⚠️"} accende su '
+          f'{BUDGET + 1} caratteri; '
+          f'{"✅" if len(trimdesc(corta, 1)) <= BUDGET else "⚠️"} muta su {len(corta)}')
+
+    print('  3. il degrado degli accenti, che allunga:')
+    accentata = 'perché è così'
+    print(f'     «{accentata}» {len(accentata)} car. -> '
+          f'«{degrada(accentata)}» {len(degrada(accentata))} car.  '
+          f'{"✅ allunga" if len(degrada(accentata)) > len(accentata) else "⚠️ non allunga"}')
+
+    falsi = 0
+    for lunghezza in (10, 40, 66, 67, 120, 300):
+        testo = ' '.join(['parola'] * (lunghezza // 7 + 1))[:lunghezza]
+        _, p, _ = righe_a_schermo(testo)
+        falsi += bool(p)
+    print(f'  4. {"✅ muta" if not falsi else "⚠️ FALSI POSITIVI"} su sei testi '
+          'innocui da 10 a 300 caratteri')
+
+
+def previsione(voci):
+    """Quanto e' stretto il tetto dell'indice 3 PRIMA di tradurre.
+
+    ⚠️ **E' una previsione, non una misura**, e va marcata come tale: dice che
+    cosa succede al rapporto di identificazione se l'italiano viene lungo
+    quanto l'italiano viene di solito. Serve a scegliere il registro **prima**
+    del primo lotto, invece di scoprirlo alla prima resa bocciata.
+
+    Il fattore non e' inventato: si legge dal progetto stesso, confrontando le
+    rese gia' fatte col loro inglese su tutto il dizionario.
+    """
+    print()
+    print('=== PREVISIONE sul tetto dell\'indice 3 (NON e\' una misura)')
+    fasce = _fattori_per_lunghezza()
+    print('  il fattore italiano/inglese delle rese esistenti, per fascia:')
+    for chiave in ('20-49', '50-99', '100-199', '200+'):
+        if chiave in fasce:
+            mediana, quante = fasce[chiave]
+            print(f'    inglese {chiave:>8} caratteri: x{mediana:.3f}  '
+                  f'({quante} rese)')
+    print('  ⓘ Le fasce servivano a un sospetto che la misura SMENTISCE: si')
+    print('    temeva che le corte fossero schiacciate dai tetti dei menu e che')
+    print('    la prosa fosse piu\' lunga. Stanno tutte a ~1,0, e i 200+ — prosa')
+    print('    vera, 1.482 rese — stanno a x1,000 esatto.')
+
+    # l'indice 3 ha una mediana di 48 caratteri: la fascia sua e' la 20-49,
+    # ma il contenuto e' prosa, quindi il fattore onesto sta fra le due
+    tre = [(riga, trimdesc(en, 1)) for riga, indice, en, _ in voci if indice == 3]
+    candidati = sorted({1.00, 1.05, 1.10, 1.15, 1.20, 1.25}
+                       | {round(m, 3) for m, _ in fasce.values()})
+    prosa = fasce.get('200+', (None, 0))[0]
+    for prova in candidati:
+        fuori = sum(1 for _, en in tre if len(en) * prova > BUDGET)
+        marca = '  <- la fascia della PROSA' if prosa and prova == round(prosa, 3) else ''
+        print(f'  a x{prova:.3f}: {fuori:>5} su {len(tre)} sforerebbero '
+              f'({100 * fuori / len(tre):.0f}%){marca}')
+    print('  💡 Il tetto e\' STRETTO: non e\' un vincolo che si rispetta per caso.')
+    print('     Il rapporto di identificazione va scritto CORTO per contratto,')
+    print('     non accorciato dopo che la rete lo boccia.')
+
+
+def _fattori_per_lunghezza():
+    """La mediana di len(degrada(it))/len(en), per fascia di lunghezza inglese.
+
+    Le fasce ci sono per un sospetto che la misura ha poi **smentito**, e vale
+    la pena tenerne il conto perche' il sospetto era ragionevole: il corpus
+    reso e' pieno di voci di MENU, che hanno tetti stretti (`larghezze.py`), e
+    ci si aspettava che fossero corte per costrizione — quindi che un fattore
+    unico sottostimasse la prosa. Non e' cosi': **tutte e quattro le fasce
+    stanno intorno a 1,0**, e la fascia dei 200+ caratteri, che e' prosa vera e
+    pesa 1.482 rese, sta a x1,000 esatto. L'italiano di questo progetto corre
+    alla pari con l'inglese anche dove nessun tetto lo costringe.
+
+    ⓘ Il che rende il numero **piu'** attendibile, non meno: la previsione
+    sull'indice 3 non poggia su una fascia sola.
+    """
+    fasce = {'20-49': [], '50-99': [], '100-199': [], '200+': []}
+    for percorso in sorted(DIZIONARIO.glob('*.jsonl')):
+        with io.open(percorso, encoding='utf-8') as f:
+            for linea in f:
+                if not linea.strip():
+                    continue
+                voce = json.loads(linea)
+                en, it = voce.get('en'), voce.get('it')
+                if voce.get('tipo') != 'statica' or not en or not it:
+                    continue
+                n = len(en)
+                if n < 20:            # le corte sono rumore di articolo
+                    continue
+                chiave = ('20-49' if n < 50 else '50-99' if n < 100
+                          else '100-199' if n < 200 else '200+')
+                fasce[chiave].append(len(degrada(it)) / n)
+    fuori = {}
+    for chiave, rapporti in fasce.items():
+        if rapporti:
+            rapporti.sort()
+            fuori[chiave] = (rapporti[len(rapporti) // 2], len(rapporti))
+    return fuori
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--peggiori', type=int, default=0)
     ap.add_argument('--prova', action='store_true')
+    ap.add_argument('--previsione', action='store_true')
     a = ap.parse_args()
 
     voci = carica()
-    peggio = quadro(voci)
+    peggiori = referto(voci)
 
-    if a.peggiori:
+    if a.previsione:
+        previsione(voci)
+
+    if a.peggiori and peggiori:
         print()
-        print(f'Le {a.peggiori} che perdono di piu\' (in inglese):')
-        for perduti, riga, i, en in sorted(peggio, reverse=True)[:a.peggiori]:
-            print(f'  :{riga} desc({i})  -{perduti} car.  {en[:100]}')
+        print(f'Le {a.peggiori} peggiori introdotte dall\'italiano:')
+        for riga, che, quanto, testo in sorted(
+                peggiori, key=lambda x: -x[2])[:a.peggiori]:
+            print(f'  :{riga}  {che} (+{quanto})  {testo[:90]}')
+    elif a.peggiori:
+        print()
+        print('Nessun guasto introdotto dall\'italiano da mostrare.')
 
     if a.prova:
-        print()
-        print('PROVA AL CONTRARIO')
-        print('  La coda sparisce quando le righe vengono CORTE: i giri sono')
-        print('  strlen/61+1 ma ogni riga ne consuma 57 se il confine cade in')
-        print('  fondo al rinculo. Un testo con uno spazio al 57o carattere e')
-        print('  nessun confine prima e\' il caso peggiore costruibile.')
-        modello = 'x' * 56 + ' '
-        acceso = None
-        for ripetizioni in range(2, 40):
-            finto = (modello * ripetizioni).rstrip()
-            righe, perduti = righe_a_schermo(finto)
-            if perduti:
-                acceso = (len(finto), len(righe), perduti)
-                break
-        if acceso:
-            print(f'  ✅ ACCESA: al primo testo di {acceso[0]} caratteri ne perde '
-                  f'{acceso[2]} in coda ({acceso[1]} righe scritte)')
-        else:
-            print('  ⚠️⚠️ SPENTA anche sul caso peggiore: la rete NON vede il '
-                  'guasto per cui e\' nata, e il suo zero non vale niente')
-
-        # e il rovescio: un testo innocuo non deve accenderla
-        falsi = 0
-        for lunghezza in (10, 40, 66, 67, 120, 300):
-            testo = ' '.join(['parola'] * (lunghezza // 7 + 1))[:lunghezza]
-            _, p = righe_a_schermo(testo)
-            if p:
-                falsi += 1
-                print(f'  ⚠️ FALSO POSITIVO su un testo di {lunghezza} caratteri')
-        if not falsi:
-            print('  ✅ muta su sei testi innocui da 10 a 300 caratteri')
+        prova_al_contrario()
 
 
 if __name__ == '__main__':
