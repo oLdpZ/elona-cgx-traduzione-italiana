@@ -1,7 +1,14 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-26, fine della **centoseiesima** sessione (**`db_card.hsp`
-si chiude con 444 rese, e tre nomi che erano sdoppiati da prima**).
+Aggiornato: 2026-08-27, fine della **centosettesima** sessione (**le descrizioni
+degli oggetti entrano nel perimetro, e un numero del progetto era falso**).
+
+⚠️⚠️⚠️ **LA 107a NON HA RESO NIENTE, E NON E' UN BUCO: HA COSTRUITO IL FRONTE.**
+Nessuna resa nuova, nessuna build nuova, l'eseguibile in gioco resta quello
+delle **19:07 del 26/08**. Quel che e' cambiato e' che `estrai.siti()` adesso
+vede **2.832 stringhe** che prima non vedeva nessuno. Le sostituzioni della
+prova d'identita' salgono da 28.073 a **30.905**, cioe' +2.832 esatte, e
+`pytest` da 775 a **792**.
 
 ⚠️⚠️ **LA SESSIONE SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
 spinto e l'albero e' pulito; le cose che **non stanno nel repo** sono quattro, e
@@ -28,13 +35,17 @@ e il suo lettore stanno in `dati.py` (`CODIFICHE`, `PIATTI`), e `degrada()` su
 di lui **non si applica**, perche' degradare esiste solo per CP932.
 
 💡 **Se il terminale nuovo e' sulla stessa macchina, non si rifa' niente**:
-dalla 92a alla 106a si sono aperte tutte cosi'. Si controlla in un colpo con
+dalla 92a alla 107a si sono aperte tutte cosi'. Si controlla in un colpo con
 `ls C:\Games\Elona\_traduzione\` (devono esserci `build`, `sorgente`,
 `dati-sorgente`, `hsp34`), e l'eseguibile in gioco dev'essere
 `elonaplus2.31\cgx-test.exe` delle **19:07 del 26/08**: se la data e' quella,
 la build corrente contiene tutte le 444 rese della 106a e non va rifatta.
 ⚠️ Nella 106a le build sono state **due**, alle 16:25 e alle 19:07: quella che
 conta e' la seconda.
+⚠️⚠️ **La 107a NON ha ricompilato**, ed e' giusto cosi': non ha reso niente.
+`applica` e' girato (27.517 sostituzioni, invariate) ma `compila --eseguibile`
+no, quindi **la data da controllare resta quella del 26/08**. Non cercarne una
+piu' recente: non esiste, e non manca niente.
 
 ⚠️⚠️⚠️ **LE RETI DEL LOTTO NON LEGGONO IL GLOSSARIO, E LA 105a CI E' CADUTA
 QUATTRO VOLTE IN UN GIORNO.** `verifica`, `guardie` e le tredici reti dello
@@ -93,7 +104,227 @@ e l'ha riparata. Chi trova una parola cosi' cerchi il byte 0x08, non il refuso.
 ---
 
 
-## La centoseiesima sessione
+## La centosettesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **diciannove** verifiche d'apertura. La
+107a si e' aperta con `origin/fase-0` allineato: **sessantaquattresima prova**
+di fila, e le diciannove hanno dato diciannove volte i valori attesi della 106a.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    pytest                   **792 passed**, 6 skipped   (erano 775)
+    prova_identita           72/72 e **30.905**          (era 28.073)
+    _97-quanto-resta         db_item **2.580 DA FARE**   ⚠️ NUOVO nel conteggio
+                             TOTALE **2.690 / 110 / 2.580**  (era 110/110/0)
+    verifica --dizionario    db_item.hsp: 0 da ritradurre, **2.580 non tradotte**
+    perimetro.py             perimetro **90%** (era 100%), totale **93%** (era 86%)
+                             ⚠️ i due si muovono in DIREZIONI OPPOSTE: vedi sotto
+
+Tutto il resto e' **fermo dov'era**, riverificato in chiusura: `dati_applica
+--identita` **6 file e 3.767 righe**, `toppe.jsonl` **1027** e
+`_97-toppe-agganciate` 1027 su 1027, `rinviate.jsonl` 113, `creature`
+1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205, `riquadri` 0 su 38
+e 0 su 71, `menu_dialogo` 0 su 1378, `linguette` 0 e 0, `battute --divergenti`
+**13**, `intestazioni_larghezze` perimetro **0**, `dati_sorgente` 7/7 e gioco
+difforme su 0, `gronde` 0 su 5, `maiuscole` 143/6/1/7/**0**, `bilingui` **0**,
+`referti` **9**, `lang-nel-ramo-jp` **21 | 0**, `_96-morte-nella-build` **0**,
+`applica` **27.517** col segnale di guasto muto.
+
+⚠️⚠️ **PERCHE' IL PERIMETRO SCENDE E IL TOTALE SALE, E NESSUNO DEI DUE E' UN
+ERRORE.** Il perimetro passa dal 100% al **90%** perche' 2.832 stringhe vere ci
+sono **entrate**. Il totale passa dall'86% al **93%** perche' ne sono **uscite
+2.452 che sono la stringa vuota**: `perimetro.py` le contava con un automa suo
+che prendeva tutte le 5.284 righe. ⭐ Quindi il «salto dall'86% al 94%» che la
+ripresa della 106a attribuiva a questo fronte **era gonfio di meta' file**.
+
+### ▶ Che cosa e' stato fatto
+
+    db_item.hsp   le descrizioni diventano il TERZO tipo di sito
+    -------------------------------------------------------------------------
+    ⭐⭐⭐ 2.832 stringhe vive entrano in `estrai.siti()`, 2.580 firme
+    struttura misurata: 1.321 blocchi, 4 indici per ramo, 0 asimmetrici,
+                        0 letterali sporchi, 10.568 righe su 10.568 nei blocchi
+    ogni descrizione porta il suo ITEM_ID: **2.832 su 2.832**, zero senza
+    rese: **nessuna**   toppe: **nessuna**   build: **nessuna**
+    reti nuove: 4 (struttura, impaginazione, categorie, firme gemelle)
+                + 2 strumenti di lotto (dossier, chiavi)
+    test: 775 -> **792**   (`strumenti/tests/test_descrizioni.py`, 17 test)
+    -------------------------------------------------------------------------
+
+### ▶ ⭐⭐⭐ COME SI AGGANCIANO — la domanda che la 106a lasciava aperta
+
+Il punto d'aggancio **esisteva gia'**: `estrai.siti()` non e' una scansione di
+sole `lang()`, portava gia' una **seconda** famiglia fuori da `lang()` — i nomi
+degli oggetti, `contratto-nomi.md` §1 e §1-ter. Le descrizioni sono la **terza
+nello stesso slot**, quindi ereditano firma, `verifica`, coda di ritraduzione e
+soprattutto la **prova d'identita'**. Niente catena parallela, niente 2.832
+toppe.
+
+    if ( dbid == ITEM_ID_X ) {
+        …
+        if ( dbmode == DBMODE_DESC ) {
+            if ( jp ) {  description(0..3) = "…"  }
+            else      {  description(0..3) = "…"  }
+            return
+        }
+    }
+
+⚠️⚠️ **L'ACCOPPIAMENTO E' PER INDICE, NON PER POSIZIONE.** Accoppiare la prima
+riga del ramo giapponese con la prima dell'inglese e' plausibile e sbagliato: se
+un ramo saltasse un indice, ogni descrizione prenderebbe il giapponese di
+un'altra e la firma sarebbe **valida su una coppia falsa** — e questo e' il tipo
+di guasto che nessuna verifica a valle puo' vedere, perche' torna tutto. Gli
+asimmetrici sono zero, ma il riconoscitore non ci fa affidamento: se i due
+insiemi di indici non coincidono lascia stare il blocco **intero**.
+
+⚠️⚠️ **E L'ULTIMO `dbid` VISTO NON E' L'ULTIMO APERTO.** Stessa forma di guasto
+sull'`ITEM_ID`: prendere il piu' recente incontrato scorrendo il file lo
+attribuirebbe all'oggetto **precedente** ogni volta che un blocco si e' gia'
+chiuso, e un dossier che pesca il nome sbagliato **non da' nessun segnale**,
+perche' un nome c'e' e sembra plausibile. Si segue la profondita' con una pila,
+e le graffe si contano **fuori dai letterali** (`_graffe`), perche' una graffa
+dentro una descrizione e' prosa.
+
+⭐ **L'`ITEM_ID` non e' un'etichetta per ordinare il lavoro**: e' la chiave che
+lega la descrizione al **nome italiano gia' reso** dello stesso oggetto. E' la
+dipendenza esatta per cui esiste `_102-dossier.py` sulle carte — con la
+differenza che li' il nome sta venti righe sotto, e qui a **novantamila**
+(descrizioni 42.408-132.000, nomi 133.931-152.824).
+
+### ▶ ⭐⭐ I QUATTRO INDICI SONO QUATTRO COSE DIVERSE
+
+E' la scoperta che cambia il piano, ed e' quella che il conteggio «5.284
+descrizioni» nascondeva.
+
+    idx   vive  distinti  mediana  max   chi la disegna
+    ---------------------------------------------------------------------
+     0    1316    1308      205    716   corpo del pannello, IMPAGINATO
+     1      39      28      168    364   idem
+     2     158     104      115    343   idem
+     3    1319    1117       48     73   ⚠️ NON impaginato: TETTO SECCO 69
+
+Gli indici 0-2 passano da `trimdesc(desc, 2)` (`command.hsp:16746`), si spezzano
+sui `\n`, e **solo** le righe oltre i 66 caratteri finiscono nell'impaginatore
+ANNA CUSTOM di `:16802` — lo stesso codice delle carte, e per questo la rete lo
+**importa** da `_102-carta-conoscenza.py` invece di riscriverlo.
+
+⚠️⚠️ L'indice 3 e' il **rapporto di identificazione** e passa da tutt'altra
+parte: `:16275`, `cnven(trimdesc(description(3), 1))`, troncato al primo `#`, e
+poi finisce in `listn` **senza nessun impaginatore**. Non va a capo, non si
+taglia, **sfora e basta**. E' il piu' numeroso e l'unico con un vincolo
+violabile in silenzio. ⚠️ **110 sforano gia' in inglese** (massimo 73 contro 69
+di budget): il numero che deve stare a zero non e' quello, e' quello che
+**introduce l'italiano**.
+
+⚠️ **L'italiano si misura DEGRADATO.** «perche'» sta in 7 caratteri dove
+«perché» ne occupa 6, e su un tetto secco di 69 e' la differenza fra dentro e
+fuori.
+
+### ▶ ⭐⭐ 2.580 FIRME NON SONO 2.580 TRADUZIONI: SONO 2.556
+
+`scratchpad/_107-firme-gemelle.py`, nato da due righe del primo scheletro che
+avevano lo stesso inglese e firme diverse. Diciannove inglesi tornano piu' volte,
+e sono **due problemi diversi**:
+
+- **2 gruppi** hanno il giapponese uguale a meno di spazi: stessa frase, stessa
+  resa, e vanno tradotti **insieme** o escono due rese per la stessa cosa.
+  ⚠️ Nessuna rete lo vedrebbe: `battute --divergenti` confronta i **giapponesi**
+  uguali, non gli inglesi;
+- **17 gruppi** hanno il giapponese **davvero diverso**, cioe' l'inglese di monte
+  ha appiattito distinzioni che ci sono:
+
+      «It is seaweed.»      copre 海藻だ / 巨大な海藻だ / 大きな海藻だ
+                            (alga, alga gigantesca, alga grande)
+      «It is food that can  ne copre quattro, e a MOCHI il giapponese aggiunge
+       restore satiety.»    のどに詰まることがある («puo' andare di traverso»)
+      SURVIVABILITY_EXT_Y   porta （未実装）, «non implementato», che l'inglese
+                            non dice
+
+  ⭐ Sono difetti di monte che l'italiano ripara **gratis** traducendo dal
+  giapponese, ed e' il motivo per cui il dossier mostra il JP accanto all'EN.
+
+### ▶ Gli strumenti nuovi
+
+    scratchpad/_107-zona-sorgente.py      una zona del sorgente pinnato, decodificata
+    scratchpad/_107-struttura-db-item.py  la forma dei blocchi DBMODE_DESC
+    scratchpad/_107-descrizioni-item.py   ⭐ LA RETE: il corpo e il tetto secco,
+                                          a tre colonne (en / it / introdotte dall'it)
+    scratchpad/_107-lotti-per-categoria.py  le descrizioni per categoria di oggetto
+    scratchpad/_107-dossier-item.py       ⭐ la descrizione col NOME gia' reso
+    scratchpad/_107-chiavi-item.py        lo scheletro delle chiavi, stessi filtri
+    scratchpad/_107-firme-gemelle.py      gli inglesi che tornano piu' volte
+
+⚠️ Il file di lavoro **non si versiona** (`.gitignore` riga 18) e si rigenera:
+
+    python -m strumenti.estrai db_item.hsp --da-tradurre --uscita lavoro/_107-daitem.jsonl
+
+⚠️ **I lotti di questo file NON sono intervalli di righe.** Le descrizioni di una
+categoria sono sparse per novantamila righe — i cinque cibi del primo dossier
+stanno a 42.785, 44.659, 44.731, 44.803 e 52.111 — quindi `_107-chiavi-item.py`
+emette un `RIGHE = {...}` invece di un `DA, A`. Il contratto del lotto («ogni
+voce della zona e' resa») resta identico e altrettanto verificabile.
+🔶 **Il modello di lotto va adattato a `RIGHE`**: oggi `modello-rete4.py` fa
+`zona = [v for v in tutte if DA <= v['riga'] <= A]`. E' il primo passo del
+prossimo lotto, non una cosa gia' fatta.
+
+### ▶ ⚠️ Due ipotesi mie cadute sotto misura, e una rete spenta
+
+1. Avevo chiamato l'`ITEM_ID` **«una comodita' per scegliere i lotti»**. E' invece
+   la chiave che lega la descrizione al nome gia' reso. La correzione e' nel
+   commento di `estrai_da_testo`.
+2. Avevo separato il fattore italiano/inglese **per fasce di lunghezza**
+   sospettando che le rese corte fossero schiacciate dai tetti dei menu e la
+   prosa si allungasse di piu'. **Tutte e quattro le fasce stanno a ~1,0**, e
+   quella dei 200+ caratteri — prosa vera, 1.482 rese — sta a **x1,000 esatto**.
+   Il commento nel codice adesso dice che il sospetto e' caduto, invece di
+   restare li' con l'autorita' del codice attorno.
+3. ⚠️⚠️ **La prova al contrario della rete nuova era SPENTA al primo giro.** La
+   rete diceva «0 code perdute», ma il testo finto che doveva farla accendere
+   aveva le virgole ovunque, quindi righe lunghe. Ora cerca il caso peggiore —
+   uno spazio al 57o carattere — e si accende a **911 caratteri**, restando muta
+   su sei testi innocui. ⭐ E dice anche **perche'** lo zero e' vero: l'inglese
+   piu' lungo del file ha 716 caratteri, sotto la soglia. **Non e' merito di
+   nessuno**, e una resa molto piu' lunga lo riaprirebbe.
+
+### ▶ ⭐ Il lotto da cui si comincia
+
+**`FILTER_ITEM_FOOD`, indice 3**: 133 righe ma **56 firme**, il piu' economico
+del file. Serve anche a fissare la **formula** del rapporto di identificazione
+(«E' un cibo che si puo' cucinare e mangiare.»), che poi si ripete su tutta la
+categoria — e sta dentro i 69 caratteri con margine.
+
+    python scratchpad/_107-dossier-item.py --categoria FILTER_ITEM_FOOD --indice 3
+    python scratchpad/_107-chiavi-item.py  --categoria FILTER_ITEM_FOOD --indice 3
+
+Le categorie, per scegliere i lotti dopo (righe / firme): mobilio 512/479,
+utensili 376/347, cibo 331/204, cianfrusaglie 221/205, armi 216/215, grimori
+174/174, pozioni 159/147, pergamene 145/138, tiro 116/115, e una coda di venti
+minori. **Una sola riga su 2.832** cade in «(nessuna)».
+
+⚠️ **Prima di chiudere un lotto**, i termini che il giapponese porta si cercano
+**a mano** in `glossario.md` e `invariati.md`: nessuna rete li legge, e la 105a
+ci e' caduta quattro volte in un giorno.
+
+### ▶ Quel che resta aperto
+
+Vale l'elenco della 106a qui sotto, **meno il punto 1**, che era «capire come si
+agganciano le 5.284 descrizioni» ed e' quello che ha fatto questa sessione. Il
+punto 1 adesso e' **tradurle**: 2.556 traduzioni distinte, e realisticamente
+sei-otto sessioni.
+
+⚠️⚠️ **Il punto 2 non e' cambiato e cresce**: il collaudo a schermo resta
+l'arretrato piu' grosso, **6.546 rese mai viste** in venticinque sessioni. La
+107a non ne ha aggiunte (nessuna resa nuova) ma non ne ha tolte.
+
+⭐⭐ **E c'e' un punto nuovo, il 16**: il modello di lotto che seleziona per
+`RIGHE = {...}` invece che per `DA, A`. Senza, i lotti per categoria non si
+possono assemblare con `assembla-lotto.py`.
+
+
+## La centoseiesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

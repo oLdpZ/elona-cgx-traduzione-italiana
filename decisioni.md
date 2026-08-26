@@ -10587,3 +10587,110 @@ nome di una **razza**, `神の化身` → «Incarnazione» in `db_race.hsp:5553`
 razza dei compagni-avatar che le carte del lotto 13 nominano una per una come
 `モデル` — l'oca, la fatina, il difensore, l'angelo nero, l'androide.
 ⚠️ Torna a `db_card.hsp:10768`, che dev'essere reso allo stesso modo.
+
+---
+
+## 107ª — Le descrizioni degli oggetti sono il terzo tipo di sito
+
+**Decisione:** le 2.832 descrizioni vive di `db_item.hsp` entrano in
+`estrai.siti()` come **terza famiglia** fuori da `lang()`, accanto alle `lang()`
+e ai nomi degli oggetti. Non una catena a parte, non 2.832 toppe.
+
+**Perché:** è la stessa scelta già presa per i nomi, e per la stessa ragione
+scritta in `estrai.py`: *«sono entrati qui, e non in una catena a parte, perché
+questa è l'unica scansione»*. Una famiglia dentro `siti()` eredita firma,
+`verifica`, coda di ritraduzione e — soprattutto — la **prova d'identità**, che
+attraversa il file intero e pretende di riprodurlo byte per byte. Una catena
+parallela avrebbe dovuto ricostruirsi tutte e quattro le garanzie, e le avrebbe
+avute più deboli.
+
+**La prova che la decisione regge:** `prova_identita` resta **72/72** e le
+sostituzioni passano da 28.073 a **30.905**, cioè **+2.832 esatte**. Non è un
+numero plausibile: è il numero atteso, e coincide.
+
+### ⚠️⚠️ L'accoppiamento è per INDICE, non per posizione
+
+`description(0..3)` compaiono in tutt'e due i rami. Accoppiare la prima riga del
+ramo giapponese con la prima dell'inglese è **plausibile e sbagliato**: se un
+ramo saltasse un indice, ogni descrizione prenderebbe il giapponese di un'altra,
+e la firma sarebbe **valida su una coppia falsa**.
+
+È il tipo peggiore di guasto che questo progetto conosca: tornerebbe tutto. La
+firma sarebbe ben formata, `verifica` la accetterebbe, la prova d'identità
+passerebbe (traduce ogni stringa in sé stessa e non guarda gli accoppiamenti), e
+il difetto uscirebbe solo a schermo, su una descrizione che parla di un altro
+oggetto.
+
+Sul sorgente pinnato gli asimmetrici sono **zero**. Il riconoscitore **non ci fa
+affidamento lo stesso**: pretende che i due insiemi di indici coincidano, e se no
+lascia stare il blocco **intero** — agganciarne la metà che combacia sarebbe
+peggio di non agganciarne niente, perché la metà agganciata sembrerebbe a posto
+e nessuno andrebbe più a guardare l'altra.
+
+### ⚠️⚠️ E l'ultimo `dbid` visto non è l'ultimo aperto
+
+Stessa forma di guasto sull'`ITEM_ID`. Prendere il `if ( dbid == … )` più recente
+incontrato scorrendo il file attribuirebbe la descrizione all'oggetto
+**precedente** ogni volta che un blocco si è già chiuso — e un dossier che pesca
+il nome sbagliato **non dà nessun segnale**, perché un nome c'è e sembra
+plausibile. Si segue la profondità con una pila, e le graffe si contano **fuori
+dai letterali** (`_graffe`), perché una graffa dentro una descrizione è prosa e
+non struttura: è la stessa regola per cui `avvii()` scarta i `lang(` dentro un
+letterale.
+
+### ⭐ L'`ITEM_ID` non è un'etichetta: è una dipendenza
+
+L'avevo lasciato fuori dal primo passo chiamandolo «una comodità per scegliere i
+lotti». **Non lo è.** `_102-dossier.py` esiste sulle carte perché la prosa di una
+carta sta accanto al **nome già reso** della creatura e deve chiamarla con quel
+nome. Le descrizioni hanno la stessa identica dipendenza, e i 1.828 nomi italiani
+degli oggetti sono già nel dizionario. L'`ITEM_ID` è la chiave che lega le due
+cose — con la differenza che nelle carte il nome sta venti righe sotto, e qui a
+**novantamila** (descrizioni 42.408-132.000, nomi 133.931-152.824).
+
+`oggetto` sì, `array` no: non sono nomi, non hanno plurale né articolo, e
+`_teste()` non le deve poter scambiare per la testa di un composto.
+
+### ⚠️ `perimetro.py` contava un numero falso, non un numero vecchio
+
+Contava le descrizioni con un automa suo che rendeva **5.284**: tutte le righe,
+comprese le **2.452 che sono la stringa vuota**. Quasi metà del denominatore di
+«a che punto siamo» era lavoro che non esiste, e il «salto dall'86% al 94%» che
+la ripresa attribuiva a questo fronte era gonfio della stessa quantità.
+
+**Come si è deciso di scriverlo:** i due numeri si muovono in direzioni opposte —
+il perimetro **scende** (100% → 90%) perché 2.832 stringhe vere ci sono entrate,
+il totale **sale** (86% → 93%) perché 2.452 fantasmi ne sono usciti — e il
+referto adesso lo **dice in chiaro** invece di lasciarlo dedurre. Un numero che
+migliora da solo va spiegato come uno che peggiora.
+
+💡 La causa è la stessa di sempre: un automa locale dove esisteva già la
+scansione del progetto. Adesso `perimetro.py` usa `estrai.descrizioni_per_riga`.
+
+### 🔶 Aperta: il modello di lotto per `RIGHE`, non per `DA, A`
+
+Le descrizioni di una categoria sono **sparse per novantamila righe**: i cinque
+cibi del primo dossier stanno a 42.785, 44.659, 44.731, 44.803 e 52.111. Il
+modello del progetto seleziona la zona con `DA <= riga <= A`, e su un intervallo
+così prenderebbe dentro mezzo file.
+
+`_107-chiavi-item.py` emette già un `RIGHE = {...}`, e il contratto del lotto —
+«ogni voce della zona è resa» — resta identico e altrettanto verificabile. Ma il
+modello (`modello-rete4.py`) va adattato, ed è il **primo passo** del prossimo
+lotto, non una cosa già fatta.
+
+### ⭐ 2.580 firme, 2.556 traduzioni, e diciassette difetti di monte
+
+Diciannove inglesi tornano più volte con firme diverse, e sono due problemi:
+
+- **2 gruppi** col giapponese uguale a meno di spazi: stessa frase, stessa resa,
+  e vanno tradotti **insieme**. ⚠️ Nessuna rete lo vedrebbe — `battute
+  --divergenti` confronta i **giapponesi** uguali, non gli inglesi;
+- **17 gruppi** col giapponese davvero diverso: l'inglese di monte ha appiattito
+  distinzioni che ci sono. `It is seaweed.` copre 海藻だ, 巨大な海藻だ e
+  大きな海藻だ (alga, alga gigantesca, alga grande); a `MOCHI` il giapponese
+  aggiunge のどに詰まることがある («può andare di traverso»); a
+  `SURVIVABILITY_EXTENDER_Y` aggiunge （未実装）, «non implementato».
+
+**Decisione:** si traduce **dal giapponese**, come sempre, e queste distinzioni
+si ripristinano. Il dossier mostra il JP accanto all'EN proprio per questo.

@@ -292,3 +292,32 @@ dizionari in memoria e li scrive solo dopo che `controlla_lotto` ha detto sì.
 ⚠️ **E la lezione minore**: `cerca.py` esisteva già in questa cartella, e nella
 39ª ne è stato riscritto un gemello nello scratch di sessione senza guardare.
 Questa tabella si legge **prima** di scrivere uno script nuovo.
+
+---
+
+## 107ª — gli strumenti delle descrizioni di `db_item.hsp`
+
+Dalla 107ª le descrizioni degli oggetti sono un **tipo di sito** di
+`estrai.siti()`, non un buco fuori perimetro. Questi sette script sono il fronte
+che ne è nato. ⚠️ Leggono il **sorgente pinnato e il dizionario**, non la build:
+girano anche su una macchina dove l'albero non è stato costruito.
+
+| file | a cosa serve | quando si lancia |
+|---|---|---|
+| `_107-zona-sorgente.py` | una zona di righe di un file del sorgente, decodificata in UTF-8. ⚠️ `zona.py` legge l'estrazione e `dossier.py` il dizionario: nessuno dei due serve per un file che il dizionario non ha ancora | quando si apre un file nuovo |
+| `_107-struttura-db-item.py` | la forma dei blocchi `DBMODE_DESC`: 1.321 blocchi, 4 indici per ramo, **0 asimmetrici, 0 letterali sporchi**. È la misura che ha reso meccanizzabile il file | una volta, e se il sorgente pinnato cambia |
+| ⭐⭐ `_107-descrizioni-item.py` | **la rete**: il corpo (indici 0-2) contro l'impaginatore vero, e l'indice 3 contro il suo **tetto secco di 69**. Tre colonne — inglese, italiano, e l'unica che deve stare a zero: *introdotte dall'italiano*. ⚠️ 110 indici 3 sforano **già in inglese**: un cancello sulla seconda colonna boccerebbe lavoro giusto. ⚠️ L'italiano si misura **degradato**. L'impaginatore si **importa** da `_102-carta-conoscenza.py`, non si riscrive: è lo stesso ramo di codice (`command.hsp:16802`). `--prova` ha quattro capi e si accende davvero; `--previsione` dice quanto è stretto il tetto prima di tradurre | a ogni lotto, e prima del primo |
+| `_107-lotti-per-categoria.py` | le descrizioni per **categoria** dell'oggetto (mobilio 512, utensili 376, cibo 331…). Dice anche quante non trovano il loro `ITEM_ID`: sono **0 su 2.832** | per scegliere il lotto |
+| ⭐⭐ `_107-dossier-item.py` | la descrizione col **nome italiano già reso** del suo oggetto, e col nome **non identificato**, che è un altro sostantivo con un altro genere (`contratto-nomi.md` §1-ter). ⚠️ È `_102-dossier.py` per gli oggetti, ma qui il nome non sta venti righe sotto: sta a **novantamila** | **prima** di scrivere le rese, su ogni lotto |
+| `_107-chiavi-item.py` | lo scheletro delle chiavi `(riga, en)`, con **gli stessi filtri** del dossier — un lotto e il suo dossier che selezionano in modo diverso sono un guasto che non si vede. ⚠️ Emette un `RIGHE = {...}` e non un `DA, A`: le descrizioni di una categoria sono sparse per novantamila righe | subito dopo il dossier |
+| ⭐ `_107-firme-gemelle.py` | gli inglesi che tornano più volte con firme diverse: **2.580 firme sono 2.556 traduzioni**. Separa i gruppi col giapponese uguale a meno di spazi (stessa resa, e nessuna rete lo vedrebbe) da quelli col giapponese **davvero diverso**, dove l'inglese di monte ha appiattito una distinzione che l'italiano può ripristinare | all'apertura del fronte, e quando due rese sembrano la stessa frase |
+
+⚠️ Il file di lavoro `lavoro/_107-daitem.jsonl` **non si versiona** e si rigenera:
+
+    python -m strumenti.estrai db_item.hsp --da-tradurre --uscita lavoro/_107-daitem.jsonl
+
+💡 **La lezione della 107ª per questa cartella**: `perimetro.py` aveva un automa
+suo per contare le descrizioni e contava **5.284** invece di 2.832, perché
+prendeva anche le 2.452 righe vuote. Uno script di questa cartella che rifà una
+scansione che `strumenti/` già fa non è più veloce: è un secondo numero che può
+divergere dal primo, e diverge in silenzio.

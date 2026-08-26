@@ -2444,3 +2444,117 @@ Nessuno dei sei file dati è cambiato: `cmp -s` li ha lasciati tutti dov'erano.
 gira su **tutte** le 1.144 carte e per quelle non rese misura **l'inglese**. La
 carta era `:10196`, il cui inglese è una riga sola da 48 caratteri e il cui
 italiano ne fa 70. ⭐ Verificato con `scratchpad/_106-media-riga.py`, non dedotto.
+
+---
+
+## 107ª sessione — 2026-08-27 — le descrizioni di `db_item.hsp` entrano nel perimetro
+
+Diciannove verifiche in apertura, **diciannove ai valori attesi della 106ª** —
+sessantaquattresima prova di fila con `origin/fase-0` allineato.
+
+**Sessione senza una resa e senza una build**, ed è la sua natura, non una
+mancanza: il fronte più grosso che restava non era un lotto ma lavoro
+strutturale, e la ripresa della 106ª lo diceva («prima di tradurre serve capire
+come si agganciano»).
+
+### Che cosa è entrato
+
+Le descrizioni degli oggetti sono il **terzo tipo di sito** di `estrai.siti()`,
+dopo le `lang()` e i nomi. Non una catena a parte: così ereditano firma,
+`verifica`, coda di ritraduzione e la **prova d'identità**, che è quel che tiene
+in piedi la garanzia byte per byte.
+
+    prova_identita   72/72   e 28.073 -> **30.905 sostituzioni**
+                             ⭐ +2.832 esatte: il numero atteso c'era e tornava
+    pytest           775 -> **792**   (17 test nuovi in test_descrizioni.py)
+    verifica         db_item.hsp: 0 da ritradurre, **2.580 non ancora tradotte**
+    _97-quanto-resta TOTALE **2.690 / 110 / 2.580**   (era 110 / 110 / 0)
+    applica          **27.517**, invariate, col segnale di guasto muto
+    toppe            1027 su 1027;  `_96-morte-nella-build` **0**
+
+Il resto della catena è fermo dov'era, riverificato in chiusura.
+
+### ⚠️ Il numero da cui si partiva era falso, non solo vecchio
+
+`perimetro.py` contava le descrizioni con un automa suo che rendeva **5.284**:
+tutte le righe, comprese le **2.452 che sono la stringa vuota**. Non era una
+stima per difetto come quella delle firme `lang()` — era **quasi metà del
+denominatore** di «a che punto siamo» occupata da lavoro che non esiste.
+
+    perimetro dichiarato   100% -> **90%**   (2.832 stringhe vere sono ENTRATE)
+    totale                  86% -> **93%**   (2.452 fantasmi sono USCITI)
+
+⚠️ I due si muovono in **direzioni opposte** e vanno letti insieme. ⭐ E il
+«salto dall'86% al 94%» che la ripresa della 106ª attribuiva a questo fronte era
+gonfio della stessa quantità.
+
+### La forma, misurata e non sperata
+
+    blocchi DBMODE_DESC                          1321
+    righe description() per ramo                 5284   (4 per oggetto)
+    di cui VIVE (non stringa vuota)              2832
+    firme distinte da tradurre                   2580
+    traduzioni DAVVERO distinte                  2556
+    blocchi asimmetrici / letterali sporchi      0 / 0
+    righe `description(` fuori da un blocco      0 su 10.568
+    descrizioni che trovano il loro ITEM_ID      **2832 su 2832**
+
+### I quattro indici sono quattro cose diverse
+
+| idx | vive | distinti | mediana | max | lettore |
+|---|---|---|---|---|---|
+| 0 | 1316 | 1308 | 205 | 716 | corpo del pannello, impaginato |
+| 1 | 39 | 28 | 168 | 364 | idem |
+| 2 | 158 | 104 | 115 | 343 | idem |
+| 3 | **1319** | 1117 | 48 | 73 | ⚠️ **non impaginato: tetto secco 69** |
+
+L'indice 3 è il rapporto di identificazione (`command.hsp:16275`) e finisce in
+`listn` senza impaginatore: non va a capo, non si taglia, **sfora e basta**.
+**110 sforano già in inglese**, quindi il numero che deve stare a zero è quello
+che introduce l'italiano, non il totale.
+
+### Le reti e gli strumenti nuovi
+
+| file | a che serve |
+|---|---|
+| `_107-zona-sorgente.py` | una zona del sorgente pinnato, decodificata |
+| `_107-struttura-db-item.py` | la forma dei blocchi `DBMODE_DESC` |
+| ⭐ `_107-descrizioni-item.py` | la rete: corpo e tetto secco, a tre colonne |
+| `_107-lotti-per-categoria.py` | le descrizioni per categoria di oggetto |
+| ⭐ `_107-dossier-item.py` | la descrizione col **nome già reso** dell'oggetto |
+| `_107-chiavi-item.py` | lo scheletro delle chiavi, con gli stessi filtri |
+| ⭐ `_107-firme-gemelle.py` | gli inglesi che tornano più volte |
+
+### ⚠️ Le cose andate storto, che sono la parte utile
+
+1. **La prova al contrario della rete nuova era SPENTA al primo giro.** Diceva
+   «0 code perdute», ma il testo finto costruito per farla accendere aveva le
+   virgole ovunque, quindi righe lunghe, quindi nessuna coda persa. Ora cerca il
+   caso peggiore — uno spazio al 57º carattere — e si accende a **911
+   caratteri**, restando muta su sei testi innocui. ⭐ E dice anche **perché** lo
+   zero è vero: l'inglese più lungo del file ha 716 caratteri, sotto la soglia.
+   *Non è merito di nessuno*, e una resa molto più lunga lo riaprirebbe.
+2. **Avevo chiamato l'`ITEM_ID` «una comodità per scegliere i lotti».** È invece
+   la chiave che lega la descrizione al **nome italiano già reso** dello stesso
+   oggetto — la dipendenza esatta per cui esiste il dossier delle carte.
+3. **Avevo separato il fattore italiano/inglese per fasce di lunghezza** perché
+   sospettavo che le rese corte fossero schiacciate dai tetti dei menu e la prosa
+   si allungasse di più. **La misura lo smentisce**: tutte e quattro le fasce
+   stanno a ~1,0, e quella dei 200+ caratteri — prosa vera, 1.482 rese — sta a
+   **x1,000 esatto**. Il commento nel codice ora dice che il sospetto è caduto.
+4. **Due test di conteggio sono caduti, e avevano ragione loro**: dicevano «tutte
+   le voci di `db_item` sono nomi». Riportati a filtrare su `array` — ciò che *fa*
+   di una voce un nome — invece che su un totale da aggiornare a ogni famiglia.
+5. ⚠️ **Un heredoc aperto per niente**, ancora una volta, dentro un comando che
+   non ne aveva bisogno. Non ha fatto danni (era un `print` di prova) ma è la
+   settima volta che la mano ci va da sola.
+
+### Il lotto da cui si comincia
+
+`FILTER_ITEM_FOOD` indice 3: 133 righe ma **56 firme**, il più economico del
+file, e fissa la formula del rapporto di identificazione che poi si ripete su
+tutta la categoria.
+
+🔶 **Prima serve un modello di lotto che selezioni per `RIGHE = {...}`** invece
+che per `DA, A`: le descrizioni di una categoria sono sparse per novantamila
+righe, e un intervallo prenderebbe dentro mezzo file.
