@@ -1202,6 +1202,65 @@ Tre vincoli che valgono per tutte e che non si vedono guardando la parola:
 ` dragon's ` (ドラゴンの) stanno dietro un commento `//` a `:200`-`:217`, cioè
 sono codice che il compilatore non vede. Sono in `rinviate.jsonl`.
 
+## `db_card.hsp`, decisi il 2026-08-26 dalla 102ª — la prosa delle carte
+
+⚠️ Queste parole si sono decise **traducendo la prosa delle carte**, dove il
+testo nomina creature e luoghi che altrove hanno già un nome. La regola resta
+quella di sempre: se il nome esiste nel dizionario si ricopia, non si
+reinventa. Qui stanno solo le parole che un nome **non ce l'avevano**.
+
+| giapponese | inglese di monte | italiano | perché |
+|---|---|---|---|
+| ギガモール | `Gigamole` | **la talpa colossale** | `メガモール` è già «la talpa gigante» (`db_card.hsp:7212`), e `:7206` dice che questa è **dieci volte più alta e mille volte più pesante**. Compare in tre carte (`:628`, `:5516`, `:7206`) e le altre due dovranno dire lo stesso. ⓘ `《ギガモールの骨鎌》` resta `<Falce della Bestia>` (`db_item.hsp:141477`): lì il nome era stato aggirato |
+| アイオン | `Aion` | **gli Aion** | la stirpe divina di Mikraanesis (`:1681`), defluita dall'abisso |
+| 超永遠世界 | `Trans-Eternal World` | **il mondo oltre l'eterno** | il luogo da cui gli Aion sono emigrati a Irva e a Gaius Vis |
+| 妖術士 | `sorcerer` | **gli stregoni** | quelli che hanno fabbricato gli uruk (`:2006`, `:2045`) |
+| 自律金属細胞 | `autonomous metal cells` | **cellule metalliche autonome** | i due desktop (`:1902`, `:1915`) |
+| 泡はきドラゴン | `foam-eating dragon` | **il drago sputabolle** | ⚠️ **coniato qui e non ancora nel dizionario**: `:2903` lo cita, e il suo blocco in `db_card.hsp` arriva più avanti. Quando quel blocco si apre, il nome dev'essere questo |
+| 鮫殴りセンター | `Shark Punching Centre` | **il Centro Pugilistico Antisqualo** | ⓘ occorrenza **unica** in tutto il sorgente (`:927`), ed è da lì che viene la sigla SP di `SP Champion` |
+
+### ⚠️⚠️ `菌` è «il fungo» o «il batterio», e a distinguerli è l'inglese
+
+`glossario.md` fissa già `菌` → **il fungo** quando è *il Meshera visto da
+dentro*. Nella 102ª `細菌` è comparso **tre volte** con la stessa parola
+giapponese, e sono tre cose diverse:
+
+- `:680` e `:693` — l'inglese di monte scrive **Meshera**: è il fungo;
+- `:719` — l'inglese scrive **bacteria**, e la carta racconta di un batterio
+  coltivato per davvero in laboratorio: resta **batterio**.
+
+⭐ La distinzione **non si deduce dal giapponese**, che dice `細菌` in tutt'e
+tre. Qui l'inglese non è la lingua di partenza ma un testimone: chi ha scritto
+quella versione sapeva quale delle due cose fosse in gioco. È il caso simmetrico
+di quelli in cui l'inglese appiattisce, e va guardato con lo stesso sospetto —
+si controlla, non si crede.
+
+⚠️ E il nome della carta può tirare dall'altra parte: `モンスターバクテリア` è
+**il batterio mostruoso** perché quello è il suo *nome proprio* in katakana, non
+la sostanza di cui è fatto. Nome e prosa si leggono a due righe di distanza
+nello stesso pannello, quindi la tensione si vede: è voluta.
+
+### ⚠️ Un nome che l'inglese appiattisce e il giapponese distingue
+
+`:2487` — la banca è `ザイエルン銀行`, **Zaielun**; la città in cui sta la
+filiale è `ザイール`, **Zaile**. L'inglese scrive «the Zaile branch of the Zaile
+Bank», cioè lo stesso nome due volte. In italiano i due nomi restano due.
+
+### ⭐ Tre giochi di parole tenuti, e come
+
+- `:1798` `先生きのこ` — 「この先生きのこれるか」 («riusciremo a sopravvivere
+  d'ora in poi?») si legge anche 「この先生 きのこ」, «questo professore fungo».
+  L'italiano nasconde il fungo dentro una frase seria: «ha poco da **fungere**».
+  L'inglese di monte rinuncia e scrive una frase piana.
+- `:1486` `邪拳王` («il re del pugno malvagio») suona come `ジャンケン`, il nome
+  giapponese della morra: la carta racconta l'origine del gioco, e in italiano
+  il gioco è **la morra**.
+- `:1512` chiude sul modo di dire `猫の手も借りたい`, «tanto indaffarati da
+  farsi prestare perfino la zampa di un gatto»: la resa lo tiene per intero.
+- `:2240` regge su una metafora che l'italiano ha uguale: il mediatore è una
+  **colomba** ed è un **falco**. Rendere `鳩` con «piccione» avrebbe spento la
+  battuta a fine carta.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

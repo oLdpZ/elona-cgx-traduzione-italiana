@@ -10051,3 +10051,126 @@ quella finestra, e i comandi che ci si scrivono dentro (`wizard`, `freemove`,
 `exitroom`, `removequest`) sono chiavi che il codice confronta tal quali. È la
 terza riga di quel file che dice «non è inglese lasciato lì», dopo `Info` e
 `t `.
+
+---
+
+## `db_card.hsp` si apre, e la prosa non sta dove sembra — 2026-08-26, centoduesima
+
+### ⭐⭐⭐ Il testo delle carte non è testo di carte: è il pannello `x`
+
+Le 1.144 `cardrefskill` di `db_card.hsp` sembrano — dal nome, dal file, dal
+contesto — il testo che si legge sulla carta del gioco di carte. Non lo sono.
+`command.hsp:16019`-`:16027` le dirotta in `description(0)` del pannello
+**«Conoscenza dell'oggetto»**, che si apre premendo `x` su un **cadavere**, una
+**carta** o una **figurina**, cioè sui tre oggetti che portano
+`INV_ITEM_SUB_NAME` diverso da zero.
+
+⚠️ **La differenza non è di lana caprina**: cambia il metro. Un testo dentro
+`gmes` va a capo da solo a 73 caratteri (lezione della 101ª sul manuale); questo
+no. Qui l'impaginazione è **scritta a mano** in `command.hsp:16802`-`:16829`, il
+ramo `ANNA CUSTOM` del blocco inglese:
+
+    p(1) = 61, 0                          <- p(1)=61 e p(2)=0
+    repeat strlen(q) / p(1) + 1           <- ⚠️ i GIRI si fissano QUI, con 61
+        p(1) = 70                         <- ma ogni riga si taglia a 70
+        repeat 15                         <- e si torna indietro fino a 15
+            if strmid(q, p(2)+p(1)-cnt, 1) == " " | "," | "."
+                p(1) = p(1)-cnt+1 : break
+        loop
+        listn(0, p) = strmid(q, p(2), p(1))
+        p(2) += p(1)
+    loop
+
+### ⭐⭐⭐ Tre rischi sembravano tre, e i numeri ne hanno lasciato uno
+
+Dal meccanismo escono tre guasti possibili, e sono tre domande diverse:
+
+1. **la coda che sparisce** — i giri sono contati su 61 caratteri per riga, ma
+   ogni riga ne consuma quanti gliene concede il rinculo. Se le righe vengono
+   corte, i giri finiscono prima del testo e l'ultimo pezzo **non viene mai
+   scritto**: niente «...», niente avviso, la frase smette;
+2. **la parola spezzata** — se fra il 56° e il 70° carattere non c'è né spazio
+   né virgola né punto, `p(1)` resta 70 e la parola si taglia di netto;
+3. **la larghezza** — il riquadro è largo 600 px e il testo comincia a
+   `wx + 68` (`command.hsp:16877`): restano 532 px, cioè 69 caratteri a 7,7
+   px/carattere.
+
+⭐ **Misurati, due dei tre non sono rischi, e adesso si sa perché.** La riga
+media consuma **68,5 caratteri** contro i 61 su cui sono contati i giri: il
+testo finisce sempre prima dei giri, e la coda non si perde — su 1.144 carte
+inglesi, **zero**. E la larghezza la impone il taglio stesso, perché sopra 70
+non ci si arriva mai: il taglio a 70 sfora di un carattere il budget da 69
+**già in inglese**, ed è un difetto di monte che vale da fondo scala.
+
+⚠️⚠️ **Resta la parola spezzata**, ed è l'unica cosa che l'italiano può
+peggiorare: parole più lunghe vuol dire finestre di 15 caratteri più facilmente
+senza confini. Sull'inglese di monte è **1 riga su 1.144 carte**.
+
+⭐ **Il margine non è una costante da ricordare, è una disuguaglianza**: 68,5
+contro 61. Chi in futuro allungasse le righe medie sotto i 61 riaprirebbe il
+primo guasto, e la rete lo dice con quel numero, non con un tetto.
+
+### ⭐ La rete si crede perché riproduce un difetto vero
+
+`scratchpad/_102-carta-conoscenza.py` rifà l'impaginazione carattere per
+carattere e misura le tre cose. È stata **provata al contrario** su testo
+costruito perché il difetto ci sia; ma la prova che conta è un'altra: tarata
+sull'inglese di monte trova **`single-handedl|y`** a `:7999`, cioè un taglio a
+metà parola che la build inglese ha davvero a schermo. Una rete che riproduce
+un difetto esistente sta simulando la cosa giusta.
+
+### ⚠️ Due righe morte nel conteggio di partenza
+
+`estrai --da-tradurre` ha reso **1.146** voci, ma `:11405` e `:11412` sono
+spente con un `;` — la vecchia `hard gay` sostituita da `explosioman`. La rete 6
+le fermerà quando il lotto le incontra, ma il numero che i documenti portavano —
+1.145 da fare — era **sbagliato di due**: il lavoro vero è **1.144**.
+
+⚠️ Vale la regola della 100ª dall'altro verso: un numero ricopiato non è un
+numero misurato. Qui la misura giusta non la dava nemmeno `estrai`, che le righe
+morte non le filtra: le filtra il modello di lotto, cioè un passo dopo.
+
+### ⭐⭐ Il nome della creatura e la sua prosa si leggono a due righe di distanza
+
+I 1.141 `cardrefn` sono resi dalla 54ª in poi. Nel pannello `x` il nome
+dell'oggetto sta nel `display_topic` (`command.hsp:16869`) e la prosa comincia
+subito sotto: **è l'unico punto del gioco in cui le due cose stanno vicine**.
+Quindi quando la prosa nomina la creatura deve nominarla con quel nome, e
+`scratchpad/_102-dossier.py` appaia le due cose apposta, insieme al
+`cardrefrace`, che porta l'identificativo con cui si va a cercare la stessa
+creatura in `db_creature.hsp`.
+
+⭐ E la rete 3 ha lavorato: due frasi giapponesi di questa zona erano **già
+rese** in `tcg_custom.hsp` (`:1936` e `:1956`, i testi delle carte del gioco di
+carte). Sono state **ricopiate parola per parola**, non ritradotte.
+
+### ⚠️⚠️ Una distinzione che il giapponese non fa e l'inglese sì
+
+Per esteso in `glossario.md` §102ª. In breve: `細菌` compare tre volte con la
+stessa parola, e l'inglese scrive **Meshera** in due casi e **bacteria** nel
+terzo. Sono davvero due cose diverse, e il giapponese non lo dice.
+
+⭐ **Il punto di metodo**: in questo progetto l'inglese di monte è la lingua che
+si legge con sospetto — appiattisce distinzioni (`:2487`, dove Zaielun e Zaile
+diventano lo stesso nome), lascia cadere frasi intere (`:4`, `:914`, `:1564`,
+`:1096`), sbaglia parole (`bearfish` per `クマノミ`, che è il pesce pagliaccio).
+Ma **non è rumore**: chi l'ha scritto aveva davanti il gioco, e dove aggiunge
+un'informazione che il giapponese non porta, quella informazione va guardata.
+Si controlla, non si crede — e non si butta.
+
+### ⚠️ La lista di collaudo, e il passo che sarebbe stato muto
+
+`spawn_item` (`system.hsp:4847`) chiama `itemcreate` con `INV_ITEM_SUB_NAME` a
+**zero**: una carta creata così **non** ha una creatura attaccata, e il ramo di
+`command.hsp:16019` non scatta. Il passo «genera una carta e guardala» sarebbe
+stato muto, esattamente come il `Ctrl+Backspace` della 100ª.
+
+⭐ La strada che funziona è la **blank card lanciata addosso a una creatura**
+(`action.hsp:586`-`:606`): non chiede che la creatura sia indebolita, e la carta
+che ne esce porta `cdata(CDATA_ID, tc)`. Il cadavere funziona anche lui
+(`item_func.hsp:2263`, `remain_make`), ma dipende dalla fortuna del bottino.
+
+⚠️ E i tasti sono stati letti dal `config.txt` **del giocatore**, non dai
+default: `key_inventory` = `X`, `key_identify` = `x`, `key_get` = `g`,
+`key_throw` = `T`. La console è **F12** (`main.hsp:3322`), e si legge in
+`*pc_turn`: dentro un menu non risponde.

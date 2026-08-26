@@ -1,7 +1,8 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-26, fine della **centunesima** sessione (**`data\` è
-chiusa: i 33 titoli dei libri e il manuale da 591 righe**).
+Aggiornato: 2026-08-26, fine della **centoduesima** sessione (**`db_card.hsp`
+si apre: 239 prose su 1.144, e la rete che rifa' a mano l'impaginazione del
+pannello `x`**).
 
 ⚠️⚠️ **LA SESSIONE SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
 spinto e l'albero e' pulito; le cose che **non stanno nel repo** sono quattro, e
@@ -39,6 +40,9 @@ leggono la **build**: su una macchina senza albero costruito non falliscono
 dicendo la loro, muoiono di file non trovato.
 💡 E `strumenti.battute` vuole `PYTHONIOENCODING=utf-8` davanti; i moduli di
 `scratchpad/` che importano `strumenti.*` vogliono anche `PYTHONPATH=.`.
+ⓘ `scratchpad/_102-carta-conoscenza.py` e `scratchpad/_102-dossier.py` invece
+leggono **il sorgente pinnato e il dizionario**, non la build: girano anche su
+una macchina dove l'albero non e' stato ancora costruito.
 
 ⚠️ **Il nome del primo file dati e' `board_it.txt`.** Dalla 92a alla 97a questa
 riga diceva `dataoard_it.txt`: un `\b` di `data\board` degradato a **carattere
@@ -53,7 +57,178 @@ e l'ha riparata. Chi trova una parola cosi' cerchi il byte 0x08, non il refuso.
 ---
 
 
-## La centunesima sessione
+## La centoduesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto è **spinto** e l'albero di lavoro è pulito. Si riparte da
+`git fetch && git status -sb` e dalle **sedici** verifiche d'apertura (le
+quindici di sempre più `_101-manual-gmes`), a cui la 102ª ne aggiunge una
+diciassettesima. La 102ª si è aperta con `origin/fase-0` allineato:
+**cinquantanovesima prova** di fila, e le sedici hanno dato sedici volte i
+valori attesi della 101ª.
+
+⚠️⚠️ **I valori cambiati, da usare alla prossima apertura:**
+
+    _97-quanto-resta         db_card 907 / 1 rinviata / 906 DA FARE
+                             TOTALE 1015 / 109 / 906   (erano 1251/106/1145)
+    dizionario/db_card       239 prose rese su 1.144
+    _102-carta-conoscenza    0 code perse, 0 parole spezzate  ⭐ RETE NUOVA
+
+Tutto il resto è **fermo dov'era**, riverificato in chiusura: `pytest` **775
+passed, 6 skipped**, `prova_identita` 72/72 e **28.073**, `dati_applica
+--identita` **6 file e 3.767 righe**, `toppe.jsonl` **1027** e
+`_97-toppe-agganciate` 1027 su 1027, `rinviate.jsonl` 112, `perimetro.py`
+**83%**, `creature` 1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su
+205, `riquadri` 0 su 38 e 0 su 71, `menu_dialogo` 0 su 1378, `linguette` 0 e 0,
+`battute --divergenti` **13**, `intestazioni_larghezze` perimetro **0**,
+`dati_sorgente` 7/7 e gioco difforme su 0, `gronde` 0 su 5, `maiuscole`
+143/6/1/7/**0**, `bilingui` **0**, `referti` **9**, `lang-nel-ramo-jp`
+**21 | 0**, `_96-morte-nella-build` **0**, `_98-exhelp-gmes` 0/0/0,
+`_98-book-mes` **0 su 2208**, `_100-commento-barre` **9 e 0**,
+`_100-selettori-ombra` **0**, `_100-modello-aggancia` **0**,
+`_101-manual-gmes` **2 sezioni alte, 0 titoli fuori misura**.
+
+⚠️ **La diciassettesima verifica è nuova e va lanciata a ogni lotto di
+`db_card`:**
+
+    PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/_102-carta-conoscenza.py
+    → «introdotte dall'italiano — coda persa: 0   parole spezzate: 0»
+
+💡 Le altre due colonne del suo referto **non** sono valori attesi a zero: sono
+il fondo scala dell'inglese di monte (1 riga spezzata, 606 righe oltre i 69
+caratteri). L'unico numero che deve restare a zero è la terza colonna.
+
+### ▶ Che cosa è stato fatto
+
+    db_card.hsp   6 lotti, righe 1-3100        239 prose rese
+    -------------------------------------------------------------------------
+    reti nuove: _102-carta-conoscenza (l'impaginazione del pannello `x`)   1
+    strumenti di lotto nuovi: _102-dossier, _102-rese-card-01..06         7
+    toppe: **nessuna**
+    glossario: +7 termini, +1 regola (il fungo e il batterio)
+    -------------------------------------------------------------------------
+       239 rese, 0 toppe, 1 rete nuova, 0 strumenti toccati
+
+L'eseguibile è stato ricompilato e ricopiato (**09:48 del 26/08** — ⚠️
+controllare la data del file prima di leggere uno screenshot, lezione
+dell'11/08). Nessun file dati è cambiato: `cmp -s` li ha lasciati tutti e sei
+dov'erano.
+
+### ▶ ⭐⭐⭐ IL TESTO DELLE CARTE NON STA NELLA CARTA
+
+`command.hsp:16019`-`:16027` dirotta `cardrefskill` in `description(0)` del
+pannello **«Conoscenza dell'oggetto»**, che si apre con `x` su un **cadavere**,
+una **carta** o una **figurina**. Non è una `gmes`: l'impaginazione è scritta a
+mano in `command.hsp:16802`-`:16829` e **taglia a 70 caratteri**, tornando
+indietro al massimo di 15 per cercare uno spazio, una virgola o un punto.
+
+⭐ **Dei tre guasti possibili ne resta uno, e i numeri dicono perché.** I giri
+del ciclo sono contati su **61** caratteri per riga, ma la riga media ne consuma
+**68,5**: il testo finisce sempre prima dei giri, e la coda non si perde mai. La
+larghezza la impone il taglio stesso. Resta **la parola spezzata di netto**, ed
+è l'unica cosa che l'italiano può peggiorare. ⚠️ Il margine non è una costante
+da ricordare: è la disuguaglianza 68,5 > 61, e chi accorciasse le righe medie
+sotto 61 riaprirebbe il primo guasto.
+
+⭐ La rete si crede perché sull'inglese di monte riproduce un difetto **vero**:
+`single-handedl|y` a `:7999`.
+
+### ▶ ⚠️⚠️ Il conto di partenza era sbagliato di due
+
+`estrai --da-tradurre` rende **1.146** voci, ma `:11405` e `:11412` sono spente
+con un `;`. `estrai` le righe morte non le filtra — le filtra il modello di
+lotto, un passo dopo. Il lavoro vero è **1.144**, non i 1.145 che i documenti
+portavano di sessione in sessione.
+
+### ▶ Quel che resta aperto
+
+1. ⭐⭐⭐ **`db_card.hsp`: 906 prose**, righe 3101-15075. Si prosegue con lo
+   stesso passo: `python scratchpad/_102-dossier.py <da> <a>` per il dossier
+   (che appaia la prosa al **nome già reso** della carta), il modello
+   `scratchpad/modello-rete6-barre.py` per le reti, e
+   `scratchpad/_102-carta-conoscenza.py` dopo ogni `reimporta`.
+   ⚠️ Le due righe morte `:11405` e `:11412` **si rinviano**, non si traducono.
+   ⚠️ E `泡はきドラゴン` è stato coniato «il drago sputabolle» in `glossario.md`
+   senza che il suo blocco sia ancora aperto: quando arriva, il nome è quello.
+   Idem `ギガモール` → «la talpa colossale», che torna a `:5516` e `:7206`.
+2. ⭐⭐⭐ **Le 5.284 descrizioni degli oggetti** di `db_item.hsp`: fuori da
+   `lang()`, `estrai.py` non le vede. È il blocco più grosso che resta e vale da
+   solo il salto dall'83% al 94%.
+3. ⚠️⚠️⚠️ **IL COLLAUDO A SCHERMO È L'ARRETRATO CHE CRESCE PIÙ IN FRETTA.**
+   Ventuno sessioni e **5.641 rese mai viste** — le 5.402 della 101ª più le 239
+   di oggi.
+
+   ⭐ **La lista della 102ª, verificata nel codice tasto per tasto.** Serve
+   l'eseguibile delle **09:48 del 26/08**. Le chiavi vengono dal `config.txt`
+   del giocatore, non dai default.
+   - **F12** apre la console (`main.hsp:3322`; si legge in `*pc_turn`, quindi
+     dentro un menu non risponde). `spawn_chara 1142` → Invio → **ESC**: compare
+     la zanzara gigante.
+   - **F12**, `spawn_item 1313` → Invio → **ESC**: una *blank card* per terra.
+   - **`g`** la raccoglie. **`T`** la lancia sulla zanzara: la carta cade sulla
+     casella della creatura, quindi va ammazzata e poi ci si va sopra.
+   - **`g`** raccoglie la carta. **`X`** apre l'inventario, **`x`** sulla carta
+     apre il pannello.
+   - ⚠️ **Guardare dove vanno a capo le righe**: è l'unica cosa che la rete
+     misura per deduzione e che non è mai stata vista a schermo.
+   - Altre due carte per lo stesso giro: `spawn_chara 1126` (il Lupo Divino),
+     `spawn_chara 1062` (l'alraune).
+   ⚠️⚠️ **`spawn_item` su una carta NON funziona**: `system.hsp:4847` chiama
+   `itemcreate` con `INV_ITEM_SUB_NAME` a **zero**, e senza creatura attaccata
+   il ramo di `:16019` non scatta. Il passo sarebbe muto, come il
+   `Ctrl+Backspace` della 100ª.
+
+   Restano dalle sessioni prima i quattro passi della 101ª (guida `?`, *Stati
+   alterati*, *Armi da tiro*, un libro rosso), i tre di `autopick.txt` della
+   100ª (moneta d'oro, `Shift+Backspace`, `~oggetto con maledizione`), i libri
+   rossi della 99ª, i consigli di Norne (serve un personaggio nuovo), i due menu
+   degli incantesimi (`v`, poi `z`, poi `/`), la scheda (`c`), e la coda lunga
+   di NERES, RYUTYE, CRAY, MARY, BURT, KARATA, MANSON, RAIZEL, NORNE, ALICE, i
+   ventotto nomi di MIKRAANESIS, il menu del seminario, il menu di Maile a
+   undici voci, il prospetto cittadino e il **[Non posare]**.
+4. ⚠️⚠️ **LE QUATTRO DEL MURO DEI PREFISSI VOGLIONO QUATTRO TOPPE**:
+   `item_func.hsp:1308`, `:1386`, `:1390`, `:1458`. La strada è quella di
+   `:1399`. ⚠️ Vanno **viste in gioco una per una**.
+5. ⭐⭐ **`"Have"` di `command.hsp:11069`**: letterale inglese nudo nel pannello
+   «Scelta delle abilità». Sta già in `blocchi_en.py`.
+6. ⭐⭐ **Le dieci righe `listn` senza metro**: cinque pannelli a colonne, il
+   metro si legge a mano e si scrive in `METRO_A_MANO`.
+7. ⭐⭐ **Tre reti che mancano**: la larghezza della riga degli incantamenti
+   (`showresist == 4`, budget 380 px / 47 caratteri, e l'inglese lo sfonda
+   già); gli **inglesi divergenti**; i **partner fuori da `lang()`** (81ª); i
+   **buff** della finestra del dialogo (95ª).
+8. ⚠️⚠️⚠️ **I 335 SITI DOVE L'INGLESE È STATICO E IL GIAPPONESE NO**, e dentro
+   quelli i **quattro** dove l'inglese dice un'altra frase. Decisione aperta.
+   `python scratchpad/_94-jp-dinamico-en-statico.py --tutte`.
+9. 🔶 **L'EPITETO DI SINAHA**, la 🔶 **sorella H** (82ª) e la 🔶 decisione della
+   80ª sul menu degli arti.
+10. ⚠️⚠️⚠️ **Le sette etichette del potenziale** (`command.hsp:10676`-`:10700`,
+    più 6): letterali nudi senza `lang()`, a schermo inglesi. Il giorno che si
+    toppano, `chat.hsp:14246` va rifatta.
+11. ⭐⭐⭐ **La rete che manca ha un rendimento misurato**: rileggere il
+    dizionario con le regole nuove. Il rendimento cala, non è zero.
+12. ⭐⭐ **Dodici file con `lang()` e senza dizionario**, 447 `lang()`. ⚠️
+    L'elenco si **rilancia**, non si ricopia:
+    `python scratchpad/fuori_elenco.py`.
+13. ⭐⭐ Il **muro del materiale** generale, e ⚠️ **`scene2.hsp` non è nel
+    dizionario**.
+
+### ▶ Come si è chiusa
+
+`applica` è girato e il `grep` del segnale di guasto sul suo output ha taciuto
+(**26.612** sostituzioni); `_97-toppe-agganciate` dice **1027 su 1027**;
+`_96-morte-nella-build` **0**; `prova_identita` **72/72 e 28.073**; `compila
+--eseguibile` ha detto `#No error detected.` e l'eseguibile è stato ricopiato.
+`_102-carta-conoscenza` dice **0 e 0** sulle 239 rese.
+
+⚠️ **La sessione si chiude annunciando un cambio di terminale.** Vale la testa
+di questo documento: sulla stessa macchina non si rifà niente, e lo si controlla
+con `ls C:\Games\Elona\_traduzione\`.
+
+---
+
+## La centunesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

@@ -46,7 +46,7 @@ quelli**.
     python scratchpad/_97-quanto-resta.py
 
     file                     non tradotte  rinviate  DA FARE
-    db_card.hsp                      1146         1     1145
+    db_card.hsp                       907         1      906   ⭐ 239 rese nella 102a
     tcg.hsp                             2         2        0   ⭐ CHIUSO
     system.hsp                          1         1        0   ⭐ CHIUSO
     proc.hsp                            7         7        0   ⭐ CHIUSO
@@ -63,7 +63,7 @@ quelli**.
     chara_func.hsp                      4         4        0   ⭐ CHIUSO
     action.hsp                          2         2        0   ⭐ CHIUSO
     -----------------------------------------------------------------
-    TOTALE                           1251       106     1145
+    TOTALE                           1015       109      906
 
 ⚠️⚠️ **`verifica --dizionario` conta le rinviate dentro le «non tradotte»**, e
 da quando i file si chiudono quel numero non risponde piu' alla domanda «quanto
@@ -72,8 +72,14 @@ manca». La 95a l'ha scritto a mano per `chat.hsp` («il 6 vuol dire zero»), la
 una frase per file, ricopiata di sessione in sessione. Adesso e' un comando, e la
 tabella qui sopra si rifa' con quello.
 
-⭐ **Nel perimetro `lang()` e' rimasto un file solo**, `db_card.hsp`: 1.145
-firme di prosa, le descrizioni delle carte.
+⭐ **Nel perimetro `lang()` e' rimasto un file solo**, `db_card.hsp`. La 102a
+lo ha aperto: **239 rese su 1.144**, e restano **906** (piu' la rinviata).
+
+⚠️⚠️ **Il numero di partenza era sbagliato di due, e nessuno lo aveva
+misurato.** `estrai --da-tradurre` rende **1.146** voci, ma `:11405` e `:11412`
+sono **spente con un `;`** — la vecchia `hard gay` sostituita da
+`explosioman`. `estrai` le righe morte non le filtra: le filtra il modello di
+lotto, cioe' un passo dopo. Quindi il lavoro vero e' **1.144**, non 1.145.
 
 ⚠️ La tabella grande qui sopra resta ferma e somma sessioni diverse: il conto
 vivo lo danno questo modulo per il perimetro `lang()` e
