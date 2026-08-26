@@ -1,0 +1,153 @@
+    # ---------------------------------------------------------- :5607
+    (5607, 'A lone zilla caught in a hypergravity collapse. As it drifted through the unstable space its body took in various things and reconfigured itself. It absorbs energy and creates a duplicate of itself from the crystals in its body.'):
+        "",
+
+    # ---------------------------------------------------------- :5620
+    (5620, "A sparrow demon that seeks its prey under the cover of darkness. It tracks the target takes away their sight and attacks them. Unlike the common sparrow it is nocturnal although there are many individuals who stay up late in the morning so don't let your guard down."):
+        "",
+
+    # ---------------------------------------------------------- :5633
+    (5633, 'An informant who covers a wide range of topics from state secrets to personal proclivities. She has been almost killed many times but she has become extremely strong as she has gone through the rounds. The weaknesses of those involved have been fully seized and she is now untouched.'):
+        "",
+
+    # ---------------------------------------------------------- :5646
+    (5646, 'A demon like a mass of destructive impulses. It seems that the God of Creation destroys for the sake of rebirth while the God of Destruction only feels pleasure in destroying tangible things. He especially likes to ruthlessly shatter beautiful things.'):
+        "",
+
+    # ---------------------------------------------------------- :5659
+    (5659, 'It is called by this name because it has some of the characteristics of a bird plus some of the ears. There is a description of a machine that speaks very similarly to them in the past and it is rumored that a reconnaissance machine was sent in from long ago.'):
+        "",
+
+    # ---------------------------------------------------------- :5672
+    (5672, 'A black ox-man boasting tremendous muscles that are built like steel. He is a power fighter in comparison to the Minotaur but he is not always on his feet and he is sometimes unable to fight due to injuries to his shins and knees.'):
+        "",
+
+    # ---------------------------------------------------------- :5685
+    (5685, 'A great great elder who has lived through repeated rebirth and division since long before even the first civilization was born. As it spent its eternity it accumulated magical power and evolved allowing it to operate in the air. In fact it is full of collagen and good for your beauty.'):
+        "",
+
+    # ---------------------------------------------------------- :5698
+    (5698, "A descendant of the legendary brave shark that ventured across the seas of space. He's a law-breaking pirate who can operate in space in the air and at sea. While searching for his ancestral birthplace which is said to be the land of gold he found himself in Irva."):
+        "",
+
+    # ---------------------------------------------------------- :5711
+    (5711, 'A being whose spirit has materialized in the form of a shark. It has the spirit of never-give-up and is tenacious but its combat power is not that high. Apparently the tip of its nose is harder than titanium and its sharp teeth can chew through even large rocks.'):
+        "",
+
+    # ---------------------------------------------------------- :5724
+    (5724, 'A shark whose basic tactics are to cooperate with his companions. He has seen his comrades who attack directly on the front lines get hurt so badly that he often has nightmares himself because of his own remorse.'):
+        "",
+
+    # ---------------------------------------------------------- :5737
+    (5737, 'A person who has been invaded by evil spirits and has become half a refrigerator. It is in a state where if it does not continue to fantasize it will lose its ego and become a complete fridge. It absorbs some of the attribute attacks and can be immediately ejected.'):
+        "",
+
+    # ---------------------------------------------------------- :5750
+    (5750, "As a result of human modification and medication to get the best out of Meshera's characteristics she was unable to adapt and mutated. Perhaps because it's based on fresh flesh it's much stronger than the original Meshera in the Rehmido Ruins."):
+        "",
+
+    # ---------------------------------------------------------- :5763
+    (5763, 'A giant with almost all health problems and no attributes. It is said that his true power is comparable to that of a god but he is always sleeping and it is difficult to see him fight. According to the few witness accounts of the battle he was sleepy and struck with his bare hands without using a weapon.'):
+        "",
+
+    # ---------------------------------------------------------- :5776
+    (5776, 'It may look like just a large butterfly but it has the power to interfere with the future. The fluttering of the wings is extremely minute but it can be a decisive factor in causing a huge storm.'):
+        "",
+
+    # ---------------------------------------------------------- :5789
+    (5789, 'The descendants of biological weapons produced by past civilizations. What appears to be scales has the ability to alter its property becoming a poison to consume the body when used for offense and a medicine when used for defense. Apparently their ancestors were more powerful and destroyed one civilization.'):
+        "",
+
+    # ---------------------------------------------------------- :5802
+    (5802, "Although it looks like just a large butterfly it is actually a trained assassin. It flutters like a harmless butterfly and stings like a bee. Don't be fooled by appearances."):
+        "",
+
+    # ---------------------------------------------------------- :5815
+    (5815, 'A werewolf disguised as a detective blends in with the city. They sway people with false testimony to keep their fellow wolves from being executed. They seem to be under a lot of stress because they try not to bark while they are disguised.'):
+        "",
+
+    # ---------------------------------------------------------- :5828
+    (5828, 'Instinctively he smells an incident. Because he always appears when an incident occurs he is often regarded by people as a god of disaster even though he has done nothing wrong. Some of them become mentally ill from this and try to make friends with wolves due to their madness.'):
+        "",
+
+    # ---------------------------------------------------------- :5841
+    (5841, 'A being whose spirit has materialized in the form of a lion. A red lion running with the power of the flame. Perhaps by sharpening the five senses the power to sleep will open up and it will become huge or something. Sharp claws are their weapon.'):
+        "",
+
+    # ---------------------------------------------------------- :5854
+    (5854, "A being whose spirit has materialized in the form of a wolf. An agile wolf who fights with a saber and a ray gun. They are strong for sure but there is something off about them. It appears to be a shiny gray rather than a silvery color but maybe it's just my imagination."):
+        "",
+
+    # ---------------------------------------------------------- :5867
+    (5867, 'A poor woman who has been turned into a zombie-like entity by foreign laws. In addition it is significantly enhanced by the curse of some one. Their emotions remain and they are often seen sitting and grieving. It will attack with its claws if approached.'):
+        "",
+
+    # ---------------------------------------------------------- :5880
+    (5880, 'The dead dance like mad forever by a curse. Apparently they are really good at bon-dancing but to the living it looks like nothing more than an orgy. Still it seems to have been generally well received by the dead.'):
+        "",
+
+    # ---------------------------------------------------------- :5893
+    (5893, 'A spearman who has become a spirit of death. It was once just a guard but when it lost its life it was cursed and reborn. It has no intelligence and only stabs at you with force perhaps a blunt instrument would be better suited.'):
+        "",
+
+    # ---------------------------------------------------------- :5906
+    (5906, 'A mysterious being with the same appearance and name as an ancient bird that has only just been preserved in lore. Their primary habitat and where they come from and where they go are unknown. Incidentally it has long been taboo to pursue the storks that visit you.'):
+        "",
+
+    # ---------------------------------------------------------- :5919
+    (5919, "Zanan's field-raised soldier. He is a war veteran but he has not graduated from officer's school and has a low rank and fame in the military. They are often sent out on dangerous missions without being informed."):
+        "",
+
+    # ---------------------------------------------------------- :5932
+    (5932, 'A boy with a head injury. He collapsed with Neres in a state where he had forgotten everything but his own name. He is polite and soft-spoken and it is said that he may have grown up in a very good family but the truth is unknown.'):
+        "",
+
+    # ---------------------------------------------------------- :5945
+    (5945, "Although she has the appearance of a child her physical abilities are extremely high and she is used to fighting. She has amnesia she just can't remember the important parts but there are many fragments left. Apparently she isn't at all familiar with the landscape of Irva."):
+        "",
+
+    # ---------------------------------------------------------- :5958
+    (5958, "He used to be a lumberjack but when he was forced into a debt he didn't recognize he went bankrupt and was abducted by a suspicious man to a research facility in Zanan's army. After enduring a bio-weapon modification surgery and the administration of heavy drugs he successfully escaped after gaining control of Meshera."):
+        "",
+
+    # ---------------------------------------------------------- :5971
+    (5971, 'A tour planner who works for the convenience of tourism. When necessary she travels at supersonic speed to the wilderness and even negotiates with gods. She prides herself on being quick on her feet and quick to set up things but she is even quicker to get her hands on things. She has a sister named Leah.'):
+        "",
+
+    # ---------------------------------------------------------- :5984
+    (5984, "When he was a child he became friends with an alien swordsman he met while running away from home and honed his sword skills. He carries a long sword with a design similar to his friend's beloved sword so that he won't forget it even after decades."):
+        "",
+
+    # ---------------------------------------------------------- :5997
+    (5997, "A miniature size golem. It's still about the same size as a human though. Many of them have a calm personality and sometimes a small bird is perched on their head before they notice."):
+        "",
+
+    # ---------------------------------------------------------- :6010
+    (6010, "A miniature size golem. It's still about the same size as a human though. It's a blunt and stubborn individual but there are many craftsmen who devote themselves to their work."):
+        "",
+
+    # ---------------------------------------------------------- :6023
+    (6023, 'A fire god with power equal to that of Cthugha. It lurks in the shadows of the dimensional door and appears among the cthughas when they are summoned. They are very dangerous with only burning and consuming in their minds.'):
+        "",
+
+    # ---------------------------------------------------------- :6036
+    (6036, 'A fire god from a different world. They are not antagonistic to humans and can communicate with them in some cases. But when it comes to battle the forest the city and the nyarlathotep will burn to the ground.'):
+        "",
+
+    # ---------------------------------------------------------- :6049
+    (6049, "A god who was worshipped as the ruler of the sea was defeated in a power struggle with the other sea gods. A piece of the power fell on the crab's nesting grounds and transformed into a crab-controlling demon. Because of this it is often mistakenly assumed that he has only been able to control crabs since he was a deity."):
+        "",
+
+    # ---------------------------------------------------------- :6062
+    (6062, 'A jet-black cube. It is said to be an autonomous machine but its internal structure is completely unknown. In addition to emitting heat and destructive rays it also has the ability to create a disturbing fog around it.'):
+        "",
+
+    # ---------------------------------------------------------- :6075
+    (6075, 'A mysterious machine discovered in the underground ruins. Because of its tremendous durability there is even a theory that it was originally a blunt instrument and the electronic components were built in later for some reason.'):
+        "",
+
+    # ---------------------------------------------------------- :6088
+    (6088, 'She is mid-level god of metals and gems and the sister of the earth god. Using the power of the God of the Earth at her disposal she created a golden knight modeled after herself to lead the Order. It is said that the god of the earth laughs at her boldness.'):
+        "",
+
+# 38 voci fra la riga 5601 e la 6100, 0 ambigue
