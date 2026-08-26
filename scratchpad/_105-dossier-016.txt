@@ -1,0 +1,267 @@
+--- db_card.hsp:7609   CREATURE_ID_QUICK_REDCAP   creatura 559
+    NOME  jp クイックレッドコーム
+          en quick redcap
+          IT il berrettorosso rapido
+    JP    恐るべき速さで瞬く間に接近し、斧を振りかざして襲ってくる。人を惨殺した後、溢れ出る血潮を用いて帽子を染め上げることを至上の喜びとする。
+    EN    They approach in the blink of an eye with frightening speed and attack with a swinging axe. After slaughtering a person they take great pleasure in using the overflowing blood to dye their hats.
+
+--- db_card.hsp:7622   CREATURE_ID_CAMAZOTZ   creatura 558
+    NOME  jp カマソッツ
+          en camazotz
+          IT il Camazotz
+    JP    蝙蝠の悪神。大きな牙とナイフのような形をした鼻をしているが、最大の特徴は人の頭も一撃で切り落とせるほどの大きく鋭い爪。
+    EN    The Evil One of the Bats. It has large fangs and a sharp knife-shaped nose but its biggest feature is its claws which are so large and sharp that they can cut off a person's head with a single blow.
+
+--- db_card.hsp:7635   CREATURE_ID_OSIRIS   creatura 557
+    NOME  jp オシリス
+          en osiris
+          IT l'Osiride
+    JP    かつて冥界を統治していた神の欠片を宿した魔物。その体はミイラ化しており、全身を包帯で覆っている。妹は大好きだが弟は大嫌い。
+    EN    A demon possessing a piece of the god that once ruled the underworld. Its body is mummified and its entire body is covered with bandages. He loves his sister but hates his brother.
+
+--- db_card.hsp:7648   CREATURE_ID_HEL   creatura 556
+    NOME  jp ヘル
+          en hel
+          IT la Hel
+    JP    冥界において、疾病や老衰で死んだ者達や悪人を裁く役割を持つ。下半身が腐っているがそれ以上に性根が腐っており、気まぐれで地上に出て人々を虐殺することがある。
+    EN    In the underworld she is responsible for judging those who have died of disease or old age as well as the wicked. She has a rotten lower body but more than that she has a corrupt sexual drive and on a whim she can go to earth and slaughter people.
+
+--- db_card.hsp:7661   CREATURE_ID_NEMAIN   creatura 555
+    NOME  jp バズウ
+          en nemain
+          IT la Nemain
+    JP    黒い体の神鳥。戦場を飛び回り、戦士達に恐怖と狂乱をもたらして同士討ちをさせる。意外と家庭的で、血まみれになった武具を洗ってくれる。なお、武具を洗われるとその持ち主は近いうちに戦死してしまう。
+    EN    A black-bodied divine bird. They fly around the battlefield bringing fear and frenzy to the warriors and making them strike out at each other. Surprisingly homely it washes others' blood-soaked arsenal. If a weapon is washed its owner will be killed in battle in the near future.
+
+--- db_card.hsp:7674   CREATURE_ID_HIGH_MAGICIAN   creatura 554
+    NOME  jp 上級魔導士
+          en high-magician
+          IT l'alto incantatore
+    JP    エウダーナの中でも高位の魔法使い。生まれつき膨大な魔力を持っている者がほとんどで、下位の魔法使いからは尊敬と畏怖の眼差しを向けられる。
+    EN    He is a high-ranking wizard in Eulderna. Most of them were born with a huge amount of magical power and are looked upon with respect and awe by lower-level wizards.
+
+--- db_card.hsp:7687   CREATURE_ID_GRAVITY_CANNON   creatura 553
+    NOME  jp イェルス超重力砲
+          en gravity cannon
+          IT il cannone a supergravità di Yerles
+    JP    決戦兵器の追加武装として開発された。接続して最大出力で発射した場合、余波でイルヴァの地殻が崩壊する危険性があると判明したため、やむなく砲台として単機運用されている。
+    EN    It was developed as an additional armament to the decisive weapon. When connected and fired at maximum power it was found that there was a danger of the crust of Irva collapsing in the aftermath so it was reluctantly operated as a stand-alone turret.
+
+--- db_card.hsp:7700   CREATURE_ID_ULTIMATE_GOLEM   creatura 552
+    NOME  jp マルチプルゴーレム
+          en ultimate golem
+          IT il golem composito
+    JP    多数の素材を複合して作られ、強さとしなやかさを兼ね備えた合理的なゴーレム。だが、「単一の素材で作らないのは反則だ」という意見もあり学会で論争になっている。
+    EN    A rational golem made from a composite of many materials with both strength and flexibility. However there is an opinion that it is a foul play not to make it out of a single material and it has become a controversy at academic conferences.
+
+--- db_card.hsp:7713   CREATURE_ID_ULFHEOINN   creatura 551
+    NOME  jp ウルフヘズナル
+          en ulfheoinn
+          IT l'ulfhednar
+    JP    犬のような頭部を持つ小鬼の狂戦士。武器や鎧を捨て、知性の無い野獣のように激しく獲物へ襲い掛かる。
+    EN    A mad warrior imp with a dog-like head. They lay down their weapons and armor and pounce on their prey fiercely like unintelligent beasts.
+
+--- db_card.hsp:7726   CREATURE_ID_DIABOLIC_CLOWN   creatura 550
+    NOME  jp 魔人道化師
+          en diabolic clown
+          IT il pagliaccio demoniaco
+    JP    高い身体能力を誇る魔人の道化師。おどけた言動を繰り返しながら獲物を追い詰め弄ぶ。その様子に恐怖を覚える者も多い。
+    EN    A demon clown with high physical abilities. The prey is chased down and played with while the clown repeatedly says and does jokes. Many are horrified at the sight of it.
+
+--- db_card.hsp:7739   CREATURE_ID_ANCIENT_LICH   creatura 549
+    NOME  jp エンシェントリッチ
+          en ancient lich
+          IT il lich antico
+    JP    古代から人の命と魔力を奪い続けてきたリッチ。あまりに永い時を過ごしてきたため、本人にはもう生前の記憶がない。
+    EN    A lich that has been taking human life and magic since ancient times. He has no memory of his life anymore because he has spent so much time in this world.
+
+--- db_card.hsp:7752   CREATURE_ID_GARUDA   creatura 548
+    NOME  jp ガルーダ
+          en garuda
+          IT il Garuda
+    JP    赤い翼を持つ半人半鳥の魔物。炎のように光り輝き熱を発する。火炎竜や朱雀の仲間と間違われることが多く、心底迷惑している。
+    EN    A half-human half-bird demon with red wings. It glows like a flame and emits heat. They are often mistaken for flaming dragons or Vermilion Sparrow companions which is deeply disturbing.
+
+--- db_card.hsp:7765   CREATURE_ID_BIRD_ARCHER   creatura 547
+    NOME  jp 鳥人の射手
+          en bird archer
+          IT l'arciere alato
+    JP    半人半鳥の魔物。機動力に優れ、上空からの奇襲を得意とする。鳥頭であることがコンプレックスで、ハーピーを羨ましがっている。
+    EN    Half-man half-bird demon. It has excellent maneuverability and excels at surprise attacks from above. They have a bird-headed complex and are envious of harpies.
+
+--- db_card.hsp:7778   CREATURE_ID_BLOOD_GOLEM   creatura 546
+    NOME  jp ブラッドゴーレム
+          en blood golem
+          IT il golem di sangue
+    JP    術者本人の血液を始め、多数の魔族の血液を固形化して作られたゴーレム。戦闘中も、血液を棘のように変化させて相手に突き刺し血を奪う。
+    EN    A golem created by solidifying the blood of many demon races including the blood of the wizard himself. Even during combat the blood is transformed into a thorn and the blood is thrust into the opponent to steal their blood.
+
+--- db_card.hsp:7791   CREATURE_ID_HOLDGAZER   creatura 545
+    NOME  jp ビホルドゲイザー
+          en holdgazer
+          IT l'occhio scrutatore
+    JP    威圧感のある眼差しを向け続ける魔物。歯向かってきた相手の視力を奪う、洗脳して土下座させる、などやることがエグい。
+    EN    A demon that continues to stare at you with an intimidating gaze. There are some ugly things to do such as taking away the eyesight of those who come at them brainwashing them and making them get down on their knees.
+
+--- db_card.hsp:7804   CREATURE_ID_BEHEMOTH   creatura 544
+    NOME  jp ベヒモス
+          en behemoth
+          IT il behemot
+    JP    水陸両生の獣。かつてはその暴飲暴食ぶりから貪欲を象徴していたらしいが、今日では餌の不足により小型で少食の個体がほとんど。
+    EN    An amphibious beast. It used to symbolize gluttony but nowadays due to lack of food most of them are small and small eaters.
+
+--- db_card.hsp:7817   CREATURE_ID_JAGUAR_WARRIOR   creatura 543
+    NOME  jp オセロメー
+          en jaguar warrior
+          IT l'ocelome
+    JP    テスカトリポカに仕えるジャガーの戦士。身分の高いエリート貴族の中でも、選ばれた者だけが戦士団の一員となれる。
+    EN    A jaguar warrior in the service of Tezcatlipoca. Even among the elite nobles with high status only the chosen ones can become a member of the Warrior Corps.
+
+--- db_card.hsp:7830   CREATURE_ID_ARKTOUROS   creatura 542
+    NOME  jp アルクトゥルス
+          en arktouros
+          IT l'Arcturus
+    JP    星の力を身体に宿した熊。体がオレンジ色に輝く。その名前は力の源である星に由来しており、「熊の守護者」という意味。
+    EN    A bear with the power of the stars in its body. The body glows orange. Its name is derived from the star which is the source of its power and it means guardian of the bear.
+
+--- db_card.hsp:7843   CREATURE_ID_OMEGA_HERAKLES   creatura 541
+    NOME  jp オメガヘラクレス
+          en omega herakles
+          IT lo scarabeo ercole omega
+    JP    精霊の力を宿しており、昆虫の中でも上位の存在。他の虫を背中に背負う代わりに生命エネルギーを少し分けてもらう、という共生を行うため、乗馬に適性を持つ。
+    EN    It harbors the power of a demigod and is a superior being among insects. They have an aptitude for riding because of their symbiotic relationship in which they receive a small share of life energy in exchange for carrying other insects on their backs.
+
+--- db_card.hsp:7856   CREATURE_ID_VISHNU   creatura 540
+    NOME  jp ヴィシュヌ
+          en vishnu
+          IT il Vishnu
+    JP    世界の維持を行う神の欠片を宿した魔物。欠片として散る前の本来の神格は世界を３歩で踏破する、太陽光を操るなどの力を持っていた。
+    EN    A demon that possesses a piece of the god that maintains the world. The original deity before it was scattered as a fragment had the power to tread the world in three steps manipulate sunlight and so on.
+
+--- db_card.hsp:7869   CREATURE_ID_CLUSTER_BOMB_ROCK   creatura 539
+    NOME  jp クラスター爆弾岩
+          en cluster bomb rock
+          IT la roccia esplosiva a grappolo
+    JP    大家族で固まって暮らす習性のある動く岩。親の体内に子が隠れ住み、その体内に孫が隠れ住む。親岩が爆ぜたらみな爆ぜる。
+    EN    It is a moving rock that has the habit of sticking together as a large family. In the body of the parent the child lives in hiding and in that body the grandchild lives in hiding. When the parent rock blows up everyone blows up.
+
+--- db_card.hsp:7882   CREATURE_ID_FOX_BROTHER   creatura 538
+    NOME  jp 弟狐
+          en fox brother
+          IT il fratello volpe
+    JP    狐の血の繋がらない義理の弟。「おとおと」という、さらなる謎の存在との関係性が研究されている。狐耳が邪魔でフードを被れない。
+    EN    The fox's non-blooded brother-in-law. He can' t wear the hood because his fox ears are in the way.
+
+--- db_card.hsp:7895   CREATURE_ID_MIRAGE_GRYPHON   creatura 537
+    NOME  jp ミラージュグリフォン
+          en mirage gryphon
+          IT il grifone del miraggio
+    JP    エウダーナで品種改良されたグリフォン。周囲に霧や蜃気楼を生み出して操る力を持つほか、獲物を幻惑させる魔法を連射する。
+    EN    A gryphon bred in Eulderna. It has the power to create and manipulate fog and mirages around it and to fire a series of spells to disorient its prey.
+
+--- db_card.hsp:7908   CREATURE_ID_BLACK_GRYFFON   creatura 536
+    NOME  jp ブラックグリフォン
+          en black gryffon
+          IT il grifone nero
+    JP    黒い体を持つ狂暴なグリフォン。スピードとパワーを兼ね備えており、高速突進から繰り出される一撃は機械ですらたやすく引き裂く。
+    EN    A rabid gryffon with a black body. It has both speed and power and the blows delivered from the high-speed rush can easily tear even machines apart.
+
+--- db_card.hsp:7921   CREATURE_ID_GRYFFON_CHILD   creatura 535
+    NOME  jp 仔グリフォン
+          en gryffon child
+          IT il cucciolo di grifone
+    JP    鷲あるいは鷹の翼と上半身、そしてライオンの下半身をもつ幻獣。毛も生え変わりだいぶグリフォンらしい見た目になってきているが、まだまだ子供であり飛ぶのは下手。
+    EN    A fantastic beast with the wings and upper body of an eagle or hawk and the lower body of a lion. Their fur has grown up to look more like a gryffon but they are still young and not very good at flying.
+
+--- db_card.hsp:7934   CREATURE_ID_AILE_THE_ATTENDANT   creatura 534
+    NOME  jp アテンダントの『エール』
+          en <Aile> the attendant
+          IT <Aile> l'assistente di volo
+    JP    魔族の血をひく客室添乗員。身体能力が高く、ハイジャック犯抹殺数トップの営業成績を収めている。元は荷馬車添乗員をしていたが、その戦闘能力から魔導船護衛として採用された。
+    EN    A flight attendant with the blood of a demon. She is physically capable and has the top sales record for the number of hijackers eliminated. Originally a wagon attendant she was hired as a wizard ship's escort because of her fighting ability.
+
+--- db_card.hsp:7947   CREATURE_ID_GIANT_EATER_FLOWER   creatura 520
+    NOME  jp 巨人食い花
+          en giant eater flower
+          IT il fiore mangiagiganti
+    JP    異常成長した巨大な人食い花。粘性液を分泌する蔓で獲物の動きを止めて捕食する。その名の通り巨人をエサにすることもある。
+    EN    A giant man-eating flower that has grown abnormally. They prey by stopping the movement of their prey with tendrils that secrete a viscous fluid. As its name implies it also feeds on giants.
+
+--- db_card.hsp:7960   CREATURE_ID_YERLES_CYBORG_SOLDIER   creatura 533
+    NOME  jp イェルスサイボーグ兵
+          en Yerles cyborg soldier
+          IT il soldato cyborg di Yerles
+    JP    武装がどうも体になじまない、と日ごろからぼやいていた。それを聞きつけた開発主任によって寝ている間に改造手術を施され、めでたく武装が体の一部となった。
+    EN    He had been complaining for some time that the armament did not fit his body well. After hearing about it the chief of development performed an alteration surgery while he was asleep and his armament became a part of his body.
+
+--- db_card.hsp:7973   CREATURE_ID_STAG_GOD   creatura 532
+    NOME  jp クワガタイラント
+          en stag god
+          IT il tiranno cervo volante
+    JP    邪悪な力を自らの身体に封じている。虫たちを統べる甲神にして暴君であり、時空を引き裂き雷を操る。その大あごで挟まれたら死を覚悟したほうがいい。
+    EN    They contain the evil forces in their own bodies. A tyrant in the form of a guardian god of insects able to tear time and space apart and manipulate lightning. Be prepared to die if caught between those mandibles.
+
+--- db_card.hsp:7986   CREATURE_ID_DRAGON_CENTIPEDE   creatura 531
+    NOME  jp 白銀龍蟲
+          en dragon centipede
+          IT il millepiedi drago argenteo
+    JP    白銀に輝く神秘的なボディを持ち、古くから縁起の良い存在とされていた。気性はおおらかで基本的に無害だが、その体液は強力な酸である。
+    EN    It has a mysterious body that shines white and silver and has been regarded as a good omen since ancient times. Their temper is relaxed and basically harmless but their body fluids are powerful acids.
+
+--- db_card.hsp:7999   CREATURE_ID_GRANDMASTER   creatura 530
+    NOME  jp ＜グランドマスター＞
+          en <Grandmaster>
+          IT <Gran Maestro>
+    JP    駒たちが心と力を合わせて融合した姿。制圧能力は低下したものの、その団結の力は戦術もへったくれもなく敵軍を単騎でなぎ倒す。
+    EN    The way the pieces fused together with their hearts and strength. Although its ability to control is reduced the power of its unity is neither tactical nor flawless it defeats the enemy army single-handedly.
+
+--- db_card.hsp:8012   CREATURE_ID_SHADOW   creatura 529
+    NOME  jp シュイド
+          en shadow
+          IT l'ombrame
+    JP    複数のシェイドが融合した存在で、シェイドの集合体ということでシュイドと命名された。この魔物の影がさらにシェイド化することもあるため非常にややこしい。
+    EN    A being that is a fusion of multiple shades named shadow because it is a collection of shades. The shadow of this demon can become even more shades so it's very confusing.
+
+--- db_card.hsp:8025   CREATURE_ID_POWER_EAGLE   creatura 528
+    NOME  jp 孤高の荒鷲
+          en power eagle
+          IT l'aquila solitaria
+    JP    精霊が鷲を象って実体化した存在。両翼を羽ばたかせることにより破壊光弾を放つ。高いところを飛ぶのに飽きて、たまに低空飛行している。
+    EN    A being whose spirit has materialized in the form of an eagle. Both wings can be flapped to emit destructive light bullets. It gets tired of flying high and occasionally fly low.
+
+--- db_card.hsp:8038   CREATURE_ID_STRIKE_EAGLE   creatura 527
+    NOME  jp ストライクイーグル
+          en strike eagle
+          IT l'aquila d'assalto
+    JP    急降下からの対地攻撃を得意とする巨大な鷲。間違えて自分より強い小動物に襲い掛かって返り討ちにあう個体も多く、絶滅危惧種である。
+    EN    A huge eagle that excels at attacking the ground from a steep drop. It is an endangered species because many individuals mistakenly attack small animals that are stronger than themselves only to killed.
+
+--- db_card.hsp:8051   CREATURE_ID_BLACK_GAUNTLET_LEOLD   creatura 526
+    NOME  jp 黒腕の『レオルド』
+          en black gauntlet <Leold>
+          IT <Leold> il braccio nero
+    JP    右腕を覆う黒いガントレットを用い、接近戦を好む格闘家。より強いものを探し求めており、場合によっては自ら強者を育てることも厭わない。
+    EN    He uses a black gauntlet that covers his right arm and prefers to fight in close quarters. He is in search of something stronger and in some cases he is willing to raise a stronger person himself.
+
+--- db_card.hsp:8064   CREATURE_ID_PRO_JET   creatura 525
+    NOME  jp プロジェットさん
+          en pro-jet
+          IT il signor Progetto
+    JP    旧時代の害虫駆除用小型ロボット。このためだけに開発された超小型ジェットエンジンを内蔵。しかし価格の高さと互換性の低さで売り上げが伸びず、生産中止になった。
+    EN    A small robot for old-fashioned pest control. It is equipped with an ultra-compact jet engine developed just for this purpose. However due to the high price and low versatility sales did not increase and production was discontinued.
+
+--- db_card.hsp:8077   CREATURE_ID_KING_COCKROACH   creatura 524
+    NOME  jp 害虫王『サラシナ』
+          en <King Cockroach>
+          IT <Sarashina> il re dei parassiti
+    JP    害虫たちを統べる恐怖の魔王。毒電波とフェロモンにより半径14km以内のゴキブリを呼び寄せ使役することができる。あらゆる殺虫剤が効かない。
+    EN    A demon king of fear who controls the vermin. Toxic electromagnetic waves and pheromones can be used to summon cockroaches within a 14km radius. No insecticide will work.
+
+--- db_card.hsp:8090   CREATURE_ID_MURDER_COCKROACH   creatura 523
+    NOME  jp 殺人ゴキブリ
+          en murder cockroach
+          IT lo scarafaggio assassino
+    JP    殺虫剤や放射線、エーテルなどをふんだんに浴びた結果、とんでもない変異を引き起こし戦闘力と免疫力と増殖力がアップした。好物は人肉。
+    EN    An abundance of insecticides radiation and ether resulted in an outrageous mutation that boosted their fighting power immunity and proliferation. Their favorite food is human flesh.
+
+== 38 carte fra la riga 7601 e la 8100

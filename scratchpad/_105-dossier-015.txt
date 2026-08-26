@@ -1,0 +1,274 @@
+--- db_card.hsp:7102   CREATURE_ID_HELL_NEEDLE_HEDGEHOG   creatura 598
+    NOME  jp 針地獄ねずみ
+          en hell needle hedgehog
+          IT il riccio dell'inferno di aghi
+    JP    寄り集まって針地獄を形成する、ハリねずみ型の魔獣。冥界に堕ちてきた罪人を針に突き刺して苦しめることで、罪を清算してやっている。群れからはぐれて地上に迷い込む個体もいる。
+    EN    A rodent-shaped beast that gathers together to form a hell of needles. The sinners who have fallen into the underworld are being tormented by sticking needles into them so that they can get rid of their sins. Some individuals are separated from the group and wander to the ground.
+
+--- db_card.hsp:7115   CREATURE_ID_THOUSAND_HEDGEHOG   creatura 597
+    NOME  jp 針千本ねずみ
+          en thousand hedgehog
+          IT il riccio dai mille aghi
+    JP    興奮すると針を展開し空気を吸って体を膨らませる。蓄えた魔力を針から矢のように発射することも可能。針が本当に千本なのか調べた学者がいたが案の定ミンチより酷いことになった。
+    EN    When it gets aroused it deploys its needles sucking in air and making its body swell. It is also possible to fire the stored magic power from a needle like an arrow. There was a scholar who looked into whether the needle was really a thousand needles and sure enough it turned out to be worse than being minced.
+
+--- db_card.hsp:7128   CREATURE_ID_INDIGO_LOBSTER   creatura 596
+    NOME  jp インディゴハンマー
+          en indigo lobster
+          IT il martello indaco
+    JP    まるで大槌のような巨大鋏を携えたロブスター。主に海底に生息しているのだが陸上での活動も可能。まずそうな色をしているが、火を通せば赤く美味しそうな色になる。
+    EN    A lobster carrying giant pincers that look like a sledgehammer. They live mainly on the ocean floor but can also be found on land. It has a ghastly color but if you cook it it turns a delicious red color.
+
+--- db_card.hsp:7141   CREATURE_ID_CAPYBARA   creatura 595
+    NOME  jp カピバラ
+          en capybara
+          IT il capibara
+    JP    草原の主とまで言われる巨大なネズミ。耐性がないわけではないが寒さを嫌う。穏やかで人間になつく性質もあり、人里の温泉に浸かっていることがある。
+    EN    A giant rat that is said to be the master of the prairie. They are not intolerant but they do not like the cold. They also have a gentle human-friendly nature and are sometimes found soaking in hot springs in the countryside.
+
+--- db_card.hsp:7154   CREATURE_ID_BADGER   creatura 594
+    NOME  jp 化け狸
+          en badger
+          IT il tanuki mutaforma
+    JP    変化能力を持つタヌキ。強力な魔物に化けて人間を驚かせたり、弱い魔物に化けて獲物を油断させたりする。ミミックとは互いに化かしあうライバル。
+    EN    A badger with the ability to change. They can turn into powerful demons to surprise humans or they can turn into weak demons to catch their prey off guard. They are rivals to Mimics who are also able to transform.
+
+--- db_card.hsp:7167   CREATURE_ID_BELL_OF_EMERGENCY   creatura 593
+    NOME  jp 非情ベル
+          en bell of emergency
+          IT la campana a martello
+    JP    異常な素早さで彷徨する鐘の魔物。高速でまとわりつき、派手な色のボディで自分の存在をアピールしてくる。叩かれると大きな警戒音を出して辺りの魔物を呼び寄せる。
+    EN    A bell demon that wanders around with unusual speed. It clings to others at high speed and presents itself with a gaudy colored body. When it is hit it emits a loud alarm sound and attracts demons in the area.
+
+--- db_card.hsp:7180   CREATURE_ID_RAGNAROCK   creatura 592
+    NOME  jp ラグナロック
+          en Ragnarock
+          IT il Ragnarocca
+    JP    神々の最終戦争の際に、膨大な神力の余波を浴びて誕生した。辺り構わず触れるものは突き刺し、終末を呼び寄せ、最期には自爆するという、徹底した破滅主義者。
+    EN    They were born in the wake of an enormous amount of divine power during the final war of the gods. They stab anything they touch call for doomsday and blow themselves up in the end.
+
+--- db_card.hsp:7193   CREATURE_ID_TALPIDAE   creatura 591
+    NOME  jp 暗黒土竜
+          en talpidae
+          IT la talpa oscura
+    JP    暗い巣穴の中で暮らすうちに暗黒への耐性を身に着けた超獣。目が退化しており盲目状態にもならない。立ち塞がる壁は乗り越えずに掘り壊す派。
+    EN    A superbeast that has developed a resistance to darkness while living in a dark den. Their eyes have degenerated but they are not blinded. They prefer not to go over a wall that stands in their way but to dig through it.
+
+--- db_card.hsp:7206   CREATURE_ID_MEGA_MOLE   creatura 590
+    NOME  jp メガモール
+          en mega mole
+          IT la talpa gigante
+    JP    巨大なモグラ。ネフィア並に広大な巣を作り、実際に他のモンスターが住み着いていることも。身長がこの10倍、体重が1000倍あるギガモールという種類もいるが地表に出てくることはない。
+    EN    A giant mole. It has a nest as vast as Nefia's and is actually inhabited by other monsters. There's also a species called the gigamole which is 10 times the height and 1000 times the weight but it doesn't come to the surface.
+
+--- db_card.hsp:7219   CREATURE_ID_KNIGHT_OF_ELEA   creatura 589
+    NOME  jp エレアの魔剣士
+          en knight of Elea
+          IT lo spadaccino magico degli Elea
+    JP    迫害に伴う理不尽な暴力と戦うため、剣の腕を磨いたエレア。非好戦的な者が多い故郷の森では鬱陶しがられ、森の外では迫害され、結局ネフィア暮らしを余儀なくされた。
+    EN    Elea honed their sword skills in order to fight the unreasonable violence that accompanies persecution. They were harassed in their home forest where many of the anti-war protesters were and were persecuted outside the forest eventually being forced to live in Nefia.
+
+--- db_card.hsp:7232   CREATURE_ID_SAGE_OF_ELEA   creatura 588
+    NOME  jp エレアの大賢者
+          en sage of Elea
+          IT il gran saggio degli Elea
+    JP    エレアの中でも特に賢い者たち。世間の迫害など気にも留めず、世界各地のネフィアを巡りその秘密を解き明かそうとしている。
+    EN    They are the wisest of the Elea. Not caring about the persecution of the world they travel to Nefia and seek to unravel its secrets.
+
+--- db_card.hsp:7245   CREATURE_ID_MISHAGUZI   creatura 587
+    NOME  jp ミシャグジ
+          en mishaguzi
+          IT il Mishaguji
+    JP    神の欠片を宿す白い大蛇。その希少性と美しい姿から縁起のよいものとされ一部の地域では崇められているほどであるが、容赦なく攻撃をしてくる。
+    EN    A white serpent that harbors a piece of a god. Because of its rarity and beauty it is regarded as a good omen in some areas but it attacks ruthlessly.
+
+--- db_card.hsp:7258   CREATURE_ID_EK_CHUAH   creatura 586
+    NOME  jp エク・チュアフ
+          en ek chuah
+          IT l'Ek Chuah
+    JP    かつてテスカトリポカに敗れ堕天した軍神の末裔。その名は「黒いサソリ」という意味を持つ。大型で恐ろしい姿をしているが毒はない。チョコレートが好物。
+    EN    A descendant of a fallen war god who was defeated by Tezcatlipoca. Its name means black scorpion. They are large and fearsome but not poisonous. Chocolate is their favorite.
+
+--- db_card.hsp:7271   CREATURE_ID_AMBYSTOMA   creatura 585
+    NOME  jp メルカサラマンダー
+          en ambystoma
+          IT l'ambystoma
+    JP    サウスティリスのメルカ地方原産の水陸両生生物。アホ可愛い外見からペット兼非常食として世界中に輸出されている。弱い毒の粘膜をもっており、素手で触るとピリピリする。
+    EN    An amphibian native to the Melkawn region of South Tyris. Because of their cute idiot appearance they are exported all over the world as pets and emergency food. It has a weak toxic mucous membrane that stings when touched with bare hands.
+
+--- db_card.hsp:7284   CREATURE_ID_DEMONS_SOUL   creatura 584
+    NOME  jp デモンズソウル
+          en demon's soul
+          IT l'anima del demone
+    JP    悪魔に売り渡された魂のなれの果て。何度も何度も死の苦痛を悪魔によって味わわされるのだが、それがいつしか快感に変わっていくのだという。
+    EN    The end of the soul that was sold to the devil. It is said that the pain of death is experienced by the demon over and over again but at some point it turns into a pleasure.
+
+--- db_card.hsp:7297   CREATURE_ID_HYPOMYCES   creatura 583
+    NOME  jp ヒポミケス
+          en hypomyces
+          IT l'ipomicete
+    JP    他のきのこ族に寄生して誕生する、おぞましい姿の子実体。分解者としての自覚がないのか、粘着質の胞子や菌糸で生き物を捕らえ直接栄養にしようとする。
+    EN    A horrible-looking child entity that is born as a parasite of another mushroom family. Lacking self-awareness as a decomposer they try to capture the creature with sticky spores and mycelium and feed on it directly.
+
+--- db_card.hsp:7310   CREATURE_ID_BLUE_MOAI   creatura 582
+    NOME  jp ブルーモアイ
+          en blue moai
+          IT il moai blu
+    JP    ロストテクノロジーで動く謎の人面岩。目から狂ったように発射されるレーザーは強力で、最大出力ならばインド象が2秒で蒸発する。
+    EN    A mysterious human-faced rock powered by lost technology. The laser fired like crazy from the eyes is so powerful that at maximum power an Indian elephant would vaporize in two seconds.
+
+--- db_card.hsp:7323   CREATURE_ID_MOAI   creatura 581
+    NOME  jp モアイ
+          en moai
+          IT il moai
+    JP    ロストテクノロジーで動く謎の人面岩。わざわざ岩をくりぬいて内部にレーザー砲が組み込まれており、いったいいつ誰がこんなものを作ったのかと不思議がられている。
+    EN    A mysterious human-faced rock powered by lost technology. A laser cannon is hollowed out of the rock and built into the interior and people are wondering when in the world such a thing was made.
+
+--- db_card.hsp:7336   CREATURE_ID_CURSE_DRAKE   creatura 580
+    NOME  jp カースドレイク
+          en curse drake
+          IT il draco maledetto
+    JP    ドラゴンへのコンプレックスをバネに努力を重ね、遂に上位のドラゴンより強くなった亜竜。しかし世間の「ドラゴンより低級」という認識は変わらず、絶望して全てを呪い恨むようになってしまった。
+    EN    Using its dragon complex as a springboard it has finally become stronger than the higher ranked dragons. However the world's perception of it as lower class than a dragon did not change and it cursed everything in despair.
+
+--- db_card.hsp:7349   CREATURE_ID_DEAD_EYES_BLOOD_DRAGON   creatura 579
+    NOME  jp デッドアイズ・ブラッドスカルドラゴン
+          en dead-eyes blood dragon
+          IT il drago di sangue dagli occhi morti
+    JP    死体の腐って衰えた筋肉では文字通りデッドウェイトにしかならないとの考えから、スカル化を施された。当然だが、その名の通り目が死んでいる。
+    EN    The idea that the rotting decaying muscles of a corpse would literally only make it a dead weight was given a skulling. Naturally as the name implies the eyes are dead.
+
+--- db_card.hsp:7362   CREATURE_ID_NECRO_DOLL   creatura 578
+    NOME  jp ネクロドール
+          en necro doll
+          IT la necrobambola
+    JP    復活の魔法を死亡時自動発動するように改良し、自分にかけておいたのだが失敗。こんな姿になってしまった。己の魔法技術に絶対の自信を持ち、ろくに実験もしなかったのが原因。
+    EN    It improved the resurrection spell to auto-activate on death and cast it on itself but it failed. This is what it's become. It had absolute confidence in its magical skills and didn't experiment much.
+
+--- db_card.hsp:7375   CREATURE_ID_LENAS_THE_MAGE_REPORTER   creatura 577
+    NOME  jp 魔術士ギルドの調査員『レーナス』
+          en <Lenas> the mage reporter
+          IT <Lenas> l'investigatrice della Gilda dei Maghi
+    JP    サウスティリスでのギルド員の働きぶりを調査するために、魔術士ギルド本部から出向中。いつか支部を設立し支部長になるのが夢。
+    EN    She is on secondment from the headquarters of the Mage Guild to investigate the workings of the guild staff in South Tyris. Her dream is to start a chapter one day and become its president.
+
+--- db_card.hsp:7388   CREATURE_ID_NAGA_THE_THIEF_REPORTER   creatura 576
+    NOME  jp 盗賊ギルドの調査員『ナーガ』
+          en <Naga> the thief reporter
+          IT <Naga> l'investigatrice della Gilda dei Ladri
+    JP    サウスティリスでのギルド員の働きぶりを調査するために、盗賊ギルド本部から出向中。貧民街育ちであり、メルカーンのスラムにも難なく順応した。
+    EN    She is on secondment from the Thieves Guild headquarters to investigate the workings of the guild staff in South Tyris. She grew up in a favela and adapted to the slums of Melkawn without difficulty.
+
+--- db_card.hsp:7401   CREATURE_ID_RATIN_THE_FIGHTER_REPORTER   creatura 575
+    NOME  jp 戦士ギルドの調査員『ラタン』
+          en <Ratin> the fighter reporter
+          IT <Ratin> l'investigatrice della Gilda dei Guerrieri
+    JP    サウスティリスでのギルド員の働きぶりを調査するために、戦士ギルド本部から出向中。ギルドマスターのフレイに憧れて加入したため、彼女に会えない現状を不満に思っている。
+    EN    She is on secondment from Warrior Guild Headquarters to investigate the workings of guild staff in South Tyris. She joined because of her admiration for Guildmaster Fray and is unhappy with the current situation of not being able to see her.
+
+--- db_card.hsp:7414   CREATURE_ID_SERAPH   creatura 574
+    NOME  jp セラフ
+          en seraph
+          IT il serafino
+    JP    ３対６枚の翼を持つ天使。天使族の中で最も上の階級に属する。６枚の翼で巧みに羽ばたくことでホバリングが可能だが、結構疲れるらしい。
+    EN    An angel with three pairs of wings totaling six wings. Belonging to the highest ranks of the Angel Tribe they can hover by flapping their six wings skillfully but it is said to be quite tiring.
+
+--- db_card.hsp:7427   CREATURE_ID_DOMINION   creatura 573
+    NOME  jp ドミニオン
+          en dominion
+          IT la dominazione
+    JP    天使全体で見ると中の上あたりの階級に属する天使。その名は統治・支配を意味しているが、実際は中間管理職。今日も上司の無理難題と部下の世話で苦しんでいる。
+    EN    When viewed as a whole angels belong to the upper middle class. Its name means to rule and control but it is actually a middle management position. Today they are still suffering from the unreasonable demands of their bosses and the care of their subordinates.
+
+--- db_card.hsp:7440   CREATURE_ID_ARKHAI   creatura 572
+    NOME  jp アルケー
+          en arkhai
+          IT il principato
+    JP    割と下のほうの階級の天使。まだ未熟で、人間のように失敗もすれば成長もする。げっぷやオナラだってする。天使と言えど完璧で潔癖な存在ではないのだ。
+    EN    An angel of a rather low rank. They are still immature and like humans they fail and grow. They even burp and fart. Even angels are not perfect and fastidious.
+
+--- db_card.hsp:7453   CREATURE_ID_PADANGU   creatura 571
+    NOME  jp ラストパーダンク
+          en padangu
+          IT il padangu
+    JP    元は罪人を葬るために迷宮に放たれていた狼だが、動物好きの罪人から餌をもらううちに人懐っこくなってしまった。罪人と協力して他の魔物と戦い続け、高い戦闘力を身に着けた。
+    EN    The wolf was originally released into the labyrinth to kill criminals but after receiving food from animal-loving criminals it became friendly. It continued to fight other demons in cooperation with the sinners and acquired a high fighting power.
+
+--- db_card.hsp:7466   CREATURE_ID_SHEEPDOG   creatura 570
+    NOME  jp 牧羊犬
+          en sheepdog
+          IT il cane pastore
+    JP    抜群の敏捷性とスピード、忍耐力を兼ね備えている。ブリーダーにすると機敏さを活かして散らばる羊の群を誘導し、牧場に集めてくる。
+    EN    It combines outstanding agility speed and patience. As a trainer they use their agility to guide the scattered flocks of sheep and bring them to the farm.
+
+--- db_card.hsp:7479   CREATURE_ID_GALACTICA_PHANTOM   creatura 569
+    NOME  jp ギャラクティカファントム
+          en galactica phantom
+          IT il fantasma galattico
+    JP    亡霊が宿り動き出した鎧。銀河の力に目覚めたそのパンチで発生するソリタリーウェーブは、１万ボルトのプラズマスパイラルを理論上無限遠にまで加速させる。
+    EN    The armor in which the ghosts dwelt and began to move. Awakening to the power of the galaxy the solitary wave generated by its punch accelerates a 10000-volt plasma spiral to the theoretical limit of infinity.
+
+--- db_card.hsp:7492   CREATURE_ID_CHAOS_MIMIC   creatura 568
+    NOME  jp カオスミミック
+          en chaos mimic
+          IT il mimic del caos
+    JP    アイテムに擬態した魔物。のこのこ近づいてきた注意不足な冒険者を、混沌の力を秘めた攻撃で襲う。何が起きているのかわからずに呆然とする冒険者を見るのが何より快感。
+    EN    A demon that mimics an item. It strikes inattentive adventurers with an attack that has the power of chaos. There's nothing more pleasurable than watching an adventurer stunned by what's going on.
+
+--- db_card.hsp:7505   CREATURE_ID_SHOGGOTH   creatura 567
+    NOME  jp ショゴス
+          en shoggoth
+          IT lo shoggoth
+    JP    第一紀文明において奴隷として用いられていた粘性生物。反旗を翻して激戦の末に鎮圧されたものの、生存能力の高さから今日まで生き残っている個体も多い。
+    EN    A viscous creature that was used as a slave in the early First Age civilizations. Although they revolted and were subdued after a fierce battle many individuals have survived to this day due to their high survival ability.
+
+--- db_card.hsp:7518   CREATURE_ID_SUPER_DRAGONEWT   creatura 566
+    NOME  jp 超竜人
+          en super-dragonewt
+          IT il dragonewt supremo
+    JP    激しい怒りによって目覚めた半竜の戦士。その力は人を超え、竜を超え、神にすら迫る。近年、人と竜の混血化が進むにつれて覚醒例が増えてきている。
+    EN    A half-dragon warrior awakened by fury. Its power surpasses man and dragon even approaching gods. In recent years there have been an increasing number of cases of awakening as the hybridization of humans and dragons has increased.
+
+--- db_card.hsp:7531   CREATURE_ID_MUCENCAB   creatura 565
+    NOME  jp アー・ムケンカブ
+          en mucencab
+          IT l'Ah Mucencab
+    JP    全ての蜂の頂点に立つ、女王蜂ならぬ女神蜂。普通の蜂から信仰され、ゴッドロイヤルゼリーというなんだかすごそうな名前の物質を捧げられている。
+    EN    The goddess bee not the queen bee stands at the top of all bees. It's believed by ordinary bees to be devoted to a substance with the somewhat awesome name of Godroyal Jelly.
+
+--- db_card.hsp:7544   CREATURE_ID_SUPER_GRANDMASTER   creatura 564
+    NOME  jp ＜超グランドマスター＞
+          en <Super-Grandmaster>
+          IT <Super Gran Maestro>
+    JP    グランドマスターの中でも強大なもの。グランドマスターの数が増えたことにより、区別するために上位のものはこの名称でよばれる。
+    EN    The strongest of grandmasters. Due to the increase in the number of Grandmasters the higher ranked ones are called by this name in order to distinguish them.
+
+--- db_card.hsp:7557   CREATURE_ID_UNGOLIANT   creatura 563
+    NOME  jp ウンゴリアント
+          en ungoliant
+          IT l'Ungoliant
+    JP    すさまじい食欲を持つ蜘蛛の怪物。光を食らい、闇を紡ぐ。あまりに飢えて自分の子孫を食い散らかしたところ、より強大な存在へと変異を遂げた。
+    EN    A spider monster with a terrifying appetite. It eats the light and spins darkness. It became so hungry that it devoured its own offspring and mutated into a more powerful being.
+
+--- db_card.hsp:7570   CREATURE_ID_KALI   creatura 562
+    NOME  jp カーリー
+          en kali
+          IT la Kali
+    JP    戦いの女神の額から生み出された欠片を宿す。血と酒と殺戮が大好物で、特に血は流すのも流させるのも飲むのも好き。
+    EN    It harbors a piece produced from the head of the goddess of battle. They love blood booze and slaughter especially blood and they love to shed it and drink it.
+
+--- db_card.hsp:7583   CREATURE_ID_EYE_OF_BALOR   creatura 561
+    NOME  jp バロールの魔眼
+          en eye of balor
+          IT il malocchio di Balor
+    JP    神の片目。抉り出されて衰えていると言えどもその魔力はすさまじく、嵐を起こしたり海を焼き尽くしたりすることが出来るとされている。
+    EN    One eye of God. Even if it is gouged out and weakened its magic power is tremendous and it is said to be able to cause storms and burn the sea.
+
+--- db_card.hsp:7596   CREATURE_ID_SUGAAR   creatura 560
+    NOME  jp シュガール
+          en sugaar
+          IT il Sugaar
+    JP    嵐と雷を操る神の欠片から生まれた大蛇。女好きで、興奮すると嵐を巻き起こし自分の身体を稲妻へと変化させて飛び回る。
+    EN    A great serpent born from a piece of the god who controls storms and thunder. It is a womanizer and when it is aroused it storms around transforming its own body into a lightning bolt.
+
+== 39 carte fra la riga 7101 e la 7600

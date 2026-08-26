@@ -1,0 +1,157 @@
+    # ---------------------------------------------------------- :7102
+    (7102, 'A rodent-shaped beast that gathers together to form a hell of needles. The sinners who have fallen into the underworld are being tormented by sticking needles into them so that they can get rid of their sins. Some individuals are separated from the group and wander to the ground.'):
+        "",
+
+    # ---------------------------------------------------------- :7115
+    (7115, 'When it gets aroused it deploys its needles sucking in air and making its body swell. It is also possible to fire the stored magic power from a needle like an arrow. There was a scholar who looked into whether the needle was really a thousand needles and sure enough it turned out to be worse than being minced.'):
+        "",
+
+    # ---------------------------------------------------------- :7128
+    (7128, 'A lobster carrying giant pincers that look like a sledgehammer. They live mainly on the ocean floor but can also be found on land. It has a ghastly color but if you cook it it turns a delicious red color.'):
+        "",
+
+    # ---------------------------------------------------------- :7141
+    (7141, 'A giant rat that is said to be the master of the prairie. They are not intolerant but they do not like the cold. They also have a gentle human-friendly nature and are sometimes found soaking in hot springs in the countryside.'):
+        "",
+
+    # ---------------------------------------------------------- :7154
+    (7154, 'A badger with the ability to change. They can turn into powerful demons to surprise humans or they can turn into weak demons to catch their prey off guard. They are rivals to Mimics who are also able to transform.'):
+        "",
+
+    # ---------------------------------------------------------- :7167
+    (7167, 'A bell demon that wanders around with unusual speed. It clings to others at high speed and presents itself with a gaudy colored body. When it is hit it emits a loud alarm sound and attracts demons in the area.'):
+        "",
+
+    # ---------------------------------------------------------- :7180
+    (7180, 'They were born in the wake of an enormous amount of divine power during the final war of the gods. They stab anything they touch call for doomsday and blow themselves up in the end.'):
+        "",
+
+    # ---------------------------------------------------------- :7193
+    (7193, 'A superbeast that has developed a resistance to darkness while living in a dark den. Their eyes have degenerated but they are not blinded. They prefer not to go over a wall that stands in their way but to dig through it.'):
+        "",
+
+    # ---------------------------------------------------------- :7206
+    (7206, "A giant mole. It has a nest as vast as Nefia's and is actually inhabited by other monsters. There's also a species called the gigamole which is 10 times the height and 1000 times the weight but it doesn't come to the surface."):
+        "",
+
+    # ---------------------------------------------------------- :7219
+    (7219, 'Elea honed their sword skills in order to fight the unreasonable violence that accompanies persecution. They were harassed in their home forest where many of the anti-war protesters were and were persecuted outside the forest eventually being forced to live in Nefia.'):
+        "",
+
+    # ---------------------------------------------------------- :7232
+    (7232, 'They are the wisest of the Elea. Not caring about the persecution of the world they travel to Nefia and seek to unravel its secrets.'):
+        "",
+
+    # ---------------------------------------------------------- :7245
+    (7245, 'A white serpent that harbors a piece of a god. Because of its rarity and beauty it is regarded as a good omen in some areas but it attacks ruthlessly.'):
+        "",
+
+    # ---------------------------------------------------------- :7258
+    (7258, 'A descendant of a fallen war god who was defeated by Tezcatlipoca. Its name means black scorpion. They are large and fearsome but not poisonous. Chocolate is their favorite.'):
+        "",
+
+    # ---------------------------------------------------------- :7271
+    (7271, 'An amphibian native to the Melkawn region of South Tyris. Because of their cute idiot appearance they are exported all over the world as pets and emergency food. It has a weak toxic mucous membrane that stings when touched with bare hands.'):
+        "",
+
+    # ---------------------------------------------------------- :7284
+    (7284, 'The end of the soul that was sold to the devil. It is said that the pain of death is experienced by the demon over and over again but at some point it turns into a pleasure.'):
+        "",
+
+    # ---------------------------------------------------------- :7297
+    (7297, 'A horrible-looking child entity that is born as a parasite of another mushroom family. Lacking self-awareness as a decomposer they try to capture the creature with sticky spores and mycelium and feed on it directly.'):
+        "",
+
+    # ---------------------------------------------------------- :7310
+    (7310, 'A mysterious human-faced rock powered by lost technology. The laser fired like crazy from the eyes is so powerful that at maximum power an Indian elephant would vaporize in two seconds.'):
+        "",
+
+    # ---------------------------------------------------------- :7323
+    (7323, 'A mysterious human-faced rock powered by lost technology. A laser cannon is hollowed out of the rock and built into the interior and people are wondering when in the world such a thing was made.'):
+        "",
+
+    # ---------------------------------------------------------- :7336
+    (7336, "Using its dragon complex as a springboard it has finally become stronger than the higher ranked dragons. However the world's perception of it as lower class than a dragon did not change and it cursed everything in despair."):
+        "",
+
+    # ---------------------------------------------------------- :7349
+    (7349, 'The idea that the rotting decaying muscles of a corpse would literally only make it a dead weight was given a skulling. Naturally as the name implies the eyes are dead.'):
+        "",
+
+    # ---------------------------------------------------------- :7362
+    (7362, "It improved the resurrection spell to auto-activate on death and cast it on itself but it failed. This is what it's become. It had absolute confidence in its magical skills and didn't experiment much."):
+        "",
+
+    # ---------------------------------------------------------- :7375
+    (7375, 'She is on secondment from the headquarters of the Mage Guild to investigate the workings of the guild staff in South Tyris. Her dream is to start a chapter one day and become its president.'):
+        "",
+
+    # ---------------------------------------------------------- :7388
+    (7388, 'She is on secondment from the Thieves Guild headquarters to investigate the workings of the guild staff in South Tyris. She grew up in a favela and adapted to the slums of Melkawn without difficulty.'):
+        "",
+
+    # ---------------------------------------------------------- :7401
+    (7401, 'She is on secondment from Warrior Guild Headquarters to investigate the workings of guild staff in South Tyris. She joined because of her admiration for Guildmaster Fray and is unhappy with the current situation of not being able to see her.'):
+        "",
+
+    # ---------------------------------------------------------- :7414
+    (7414, 'An angel with three pairs of wings totaling six wings. Belonging to the highest ranks of the Angel Tribe they can hover by flapping their six wings skillfully but it is said to be quite tiring.'):
+        "",
+
+    # ---------------------------------------------------------- :7427
+    (7427, 'When viewed as a whole angels belong to the upper middle class. Its name means to rule and control but it is actually a middle management position. Today they are still suffering from the unreasonable demands of their bosses and the care of their subordinates.'):
+        "",
+
+    # ---------------------------------------------------------- :7440
+    (7440, 'An angel of a rather low rank. They are still immature and like humans they fail and grow. They even burp and fart. Even angels are not perfect and fastidious.'):
+        "",
+
+    # ---------------------------------------------------------- :7453
+    (7453, 'The wolf was originally released into the labyrinth to kill criminals but after receiving food from animal-loving criminals it became friendly. It continued to fight other demons in cooperation with the sinners and acquired a high fighting power.'):
+        "",
+
+    # ---------------------------------------------------------- :7466
+    (7466, 'It combines outstanding agility speed and patience. As a trainer they use their agility to guide the scattered flocks of sheep and bring them to the farm.'):
+        "",
+
+    # ---------------------------------------------------------- :7479
+    (7479, 'The armor in which the ghosts dwelt and began to move. Awakening to the power of the galaxy the solitary wave generated by its punch accelerates a 10000-volt plasma spiral to the theoretical limit of infinity.'):
+        "",
+
+    # ---------------------------------------------------------- :7492
+    (7492, "A demon that mimics an item. It strikes inattentive adventurers with an attack that has the power of chaos. There's nothing more pleasurable than watching an adventurer stunned by what's going on."):
+        "",
+
+    # ---------------------------------------------------------- :7505
+    (7505, 'A viscous creature that was used as a slave in the early First Age civilizations. Although they revolted and were subdued after a fierce battle many individuals have survived to this day due to their high survival ability.'):
+        "",
+
+    # ---------------------------------------------------------- :7518
+    (7518, 'A half-dragon warrior awakened by fury. Its power surpasses man and dragon even approaching gods. In recent years there have been an increasing number of cases of awakening as the hybridization of humans and dragons has increased.'):
+        "",
+
+    # ---------------------------------------------------------- :7531
+    (7531, "The goddess bee not the queen bee stands at the top of all bees. It's believed by ordinary bees to be devoted to a substance with the somewhat awesome name of Godroyal Jelly."):
+        "",
+
+    # ---------------------------------------------------------- :7544
+    (7544, 'The strongest of grandmasters. Due to the increase in the number of Grandmasters the higher ranked ones are called by this name in order to distinguish them.'):
+        "",
+
+    # ---------------------------------------------------------- :7557
+    (7557, 'A spider monster with a terrifying appetite. It eats the light and spins darkness. It became so hungry that it devoured its own offspring and mutated into a more powerful being.'):
+        "",
+
+    # ---------------------------------------------------------- :7570
+    (7570, 'It harbors a piece produced from the head of the goddess of battle. They love blood booze and slaughter especially blood and they love to shed it and drink it.'):
+        "",
+
+    # ---------------------------------------------------------- :7583
+    (7583, 'One eye of God. Even if it is gouged out and weakened its magic power is tremendous and it is said to be able to cause storms and burn the sea.'):
+        "",
+
+    # ---------------------------------------------------------- :7596
+    (7596, 'A great serpent born from a piece of the god who controls storms and thunder. It is a womanizer and when it is aroused it storms around transforming its own body into a lightning bolt.'):
+        "",
+
+# 39 voci fra la riga 7101 e la 7600, 0 ambigue

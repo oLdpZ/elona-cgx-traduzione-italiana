@@ -1,0 +1,153 @@
+    # ---------------------------------------------------------- :7609
+    (7609, 'They approach in the blink of an eye with frightening speed and attack with a swinging axe. After slaughtering a person they take great pleasure in using the overflowing blood to dye their hats.'):
+        "",
+
+    # ---------------------------------------------------------- :7622
+    (7622, "The Evil One of the Bats. It has large fangs and a sharp knife-shaped nose but its biggest feature is its claws which are so large and sharp that they can cut off a person's head with a single blow."):
+        "",
+
+    # ---------------------------------------------------------- :7635
+    (7635, 'A demon possessing a piece of the god that once ruled the underworld. Its body is mummified and its entire body is covered with bandages. He loves his sister but hates his brother.'):
+        "",
+
+    # ---------------------------------------------------------- :7648
+    (7648, 'In the underworld she is responsible for judging those who have died of disease or old age as well as the wicked. She has a rotten lower body but more than that she has a corrupt sexual drive and on a whim she can go to earth and slaughter people.'):
+        "",
+
+    # ---------------------------------------------------------- :7661
+    (7661, "A black-bodied divine bird. They fly around the battlefield bringing fear and frenzy to the warriors and making them strike out at each other. Surprisingly homely it washes others' blood-soaked arsenal. If a weapon is washed its owner will be killed in battle in the near future."):
+        "",
+
+    # ---------------------------------------------------------- :7674
+    (7674, 'He is a high-ranking wizard in Eulderna. Most of them were born with a huge amount of magical power and are looked upon with respect and awe by lower-level wizards.'):
+        "",
+
+    # ---------------------------------------------------------- :7687
+    (7687, 'It was developed as an additional armament to the decisive weapon. When connected and fired at maximum power it was found that there was a danger of the crust of Irva collapsing in the aftermath so it was reluctantly operated as a stand-alone turret.'):
+        "",
+
+    # ---------------------------------------------------------- :7700
+    (7700, 'A rational golem made from a composite of many materials with both strength and flexibility. However there is an opinion that it is a foul play not to make it out of a single material and it has become a controversy at academic conferences.'):
+        "",
+
+    # ---------------------------------------------------------- :7713
+    (7713, 'A mad warrior imp with a dog-like head. They lay down their weapons and armor and pounce on their prey fiercely like unintelligent beasts.'):
+        "",
+
+    # ---------------------------------------------------------- :7726
+    (7726, 'A demon clown with high physical abilities. The prey is chased down and played with while the clown repeatedly says and does jokes. Many are horrified at the sight of it.'):
+        "",
+
+    # ---------------------------------------------------------- :7739
+    (7739, 'A lich that has been taking human life and magic since ancient times. He has no memory of his life anymore because he has spent so much time in this world.'):
+        "",
+
+    # ---------------------------------------------------------- :7752
+    (7752, 'A half-human half-bird demon with red wings. It glows like a flame and emits heat. They are often mistaken for flaming dragons or Vermilion Sparrow companions which is deeply disturbing.'):
+        "",
+
+    # ---------------------------------------------------------- :7765
+    (7765, 'Half-man half-bird demon. It has excellent maneuverability and excels at surprise attacks from above. They have a bird-headed complex and are envious of harpies.'):
+        "",
+
+    # ---------------------------------------------------------- :7778
+    (7778, 'A golem created by solidifying the blood of many demon races including the blood of the wizard himself. Even during combat the blood is transformed into a thorn and the blood is thrust into the opponent to steal their blood.'):
+        "",
+
+    # ---------------------------------------------------------- :7791
+    (7791, 'A demon that continues to stare at you with an intimidating gaze. There are some ugly things to do such as taking away the eyesight of those who come at them brainwashing them and making them get down on their knees.'):
+        "",
+
+    # ---------------------------------------------------------- :7804
+    (7804, 'An amphibious beast. It used to symbolize gluttony but nowadays due to lack of food most of them are small and small eaters.'):
+        "",
+
+    # ---------------------------------------------------------- :7817
+    (7817, 'A jaguar warrior in the service of Tezcatlipoca. Even among the elite nobles with high status only the chosen ones can become a member of the Warrior Corps.'):
+        "",
+
+    # ---------------------------------------------------------- :7830
+    (7830, 'A bear with the power of the stars in its body. The body glows orange. Its name is derived from the star which is the source of its power and it means guardian of the bear.'):
+        "",
+
+    # ---------------------------------------------------------- :7843
+    (7843, 'It harbors the power of a demigod and is a superior being among insects. They have an aptitude for riding because of their symbiotic relationship in which they receive a small share of life energy in exchange for carrying other insects on their backs.'):
+        "",
+
+    # ---------------------------------------------------------- :7856
+    (7856, 'A demon that possesses a piece of the god that maintains the world. The original deity before it was scattered as a fragment had the power to tread the world in three steps manipulate sunlight and so on.'):
+        "",
+
+    # ---------------------------------------------------------- :7869
+    (7869, 'It is a moving rock that has the habit of sticking together as a large family. In the body of the parent the child lives in hiding and in that body the grandchild lives in hiding. When the parent rock blows up everyone blows up.'):
+        "",
+
+    # ---------------------------------------------------------- :7882
+    (7882, "The fox's non-blooded brother-in-law. He can' t wear the hood because his fox ears are in the way."):
+        "",
+
+    # ---------------------------------------------------------- :7895
+    (7895, 'A gryphon bred in Eulderna. It has the power to create and manipulate fog and mirages around it and to fire a series of spells to disorient its prey.'):
+        "",
+
+    # ---------------------------------------------------------- :7908
+    (7908, 'A rabid gryffon with a black body. It has both speed and power and the blows delivered from the high-speed rush can easily tear even machines apart.'):
+        "",
+
+    # ---------------------------------------------------------- :7921
+    (7921, 'A fantastic beast with the wings and upper body of an eagle or hawk and the lower body of a lion. Their fur has grown up to look more like a gryffon but they are still young and not very good at flying.'):
+        "",
+
+    # ---------------------------------------------------------- :7934
+    (7934, "A flight attendant with the blood of a demon. She is physically capable and has the top sales record for the number of hijackers eliminated. Originally a wagon attendant she was hired as a wizard ship's escort because of her fighting ability."):
+        "",
+
+    # ---------------------------------------------------------- :7947
+    (7947, 'A giant man-eating flower that has grown abnormally. They prey by stopping the movement of their prey with tendrils that secrete a viscous fluid. As its name implies it also feeds on giants.'):
+        "",
+
+    # ---------------------------------------------------------- :7960
+    (7960, 'He had been complaining for some time that the armament did not fit his body well. After hearing about it the chief of development performed an alteration surgery while he was asleep and his armament became a part of his body.'):
+        "",
+
+    # ---------------------------------------------------------- :7973
+    (7973, 'They contain the evil forces in their own bodies. A tyrant in the form of a guardian god of insects able to tear time and space apart and manipulate lightning. Be prepared to die if caught between those mandibles.'):
+        "",
+
+    # ---------------------------------------------------------- :7986
+    (7986, 'It has a mysterious body that shines white and silver and has been regarded as a good omen since ancient times. Their temper is relaxed and basically harmless but their body fluids are powerful acids.'):
+        "",
+
+    # ---------------------------------------------------------- :7999
+    (7999, 'The way the pieces fused together with their hearts and strength. Although its ability to control is reduced the power of its unity is neither tactical nor flawless it defeats the enemy army single-handedly.'):
+        "",
+
+    # ---------------------------------------------------------- :8012
+    (8012, "A being that is a fusion of multiple shades named shadow because it is a collection of shades. The shadow of this demon can become even more shades so it's very confusing."):
+        "",
+
+    # ---------------------------------------------------------- :8025
+    (8025, 'A being whose spirit has materialized in the form of an eagle. Both wings can be flapped to emit destructive light bullets. It gets tired of flying high and occasionally fly low.'):
+        "",
+
+    # ---------------------------------------------------------- :8038
+    (8038, 'A huge eagle that excels at attacking the ground from a steep drop. It is an endangered species because many individuals mistakenly attack small animals that are stronger than themselves only to killed.'):
+        "",
+
+    # ---------------------------------------------------------- :8051
+    (8051, 'He uses a black gauntlet that covers his right arm and prefers to fight in close quarters. He is in search of something stronger and in some cases he is willing to raise a stronger person himself.'):
+        "",
+
+    # ---------------------------------------------------------- :8064
+    (8064, 'A small robot for old-fashioned pest control. It is equipped with an ultra-compact jet engine developed just for this purpose. However due to the high price and low versatility sales did not increase and production was discontinued.'):
+        "",
+
+    # ---------------------------------------------------------- :8077
+    (8077, 'A demon king of fear who controls the vermin. Toxic electromagnetic waves and pheromones can be used to summon cockroaches within a 14km radius. No insecticide will work.'):
+        "",
+
+    # ---------------------------------------------------------- :8090
+    (8090, 'An abundance of insecticides radiation and ether resulted in an outrageous mutation that boosted their fighting power immunity and proliferation. Their favorite food is human flesh.'):
+        "",
+
+# 38 voci fra la riga 7601 e la 8100, 0 ambigue
