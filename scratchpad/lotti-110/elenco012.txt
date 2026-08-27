@@ -1,0 +1,317 @@
+  43561
+    JP 骨っぽい戦斧だ。
+    EN It's a battle axe shaped like a bone.
+  51782
+    JP 兄弟剣が存在するといわれる長剣だ。
+    EN It is a longsword having another sword, as its counterpart.
+  51852
+    JP 竹でできた長槍だ。
+    EN It is a lance made from bamboo sticks.
+  51920
+    JP 長剣として使える長針だ。
+    EN It is a long clock hand that can be used as a longsword.
+  52720
+    JP ライトセーバーの形をした杏仁豆腐。長剣として装備可能。
+    EN It is Annin-tofu that looks like a lightsabre, you can wield it.
+  52790
+    JP カニっぽい鋏鎌だ。
+    EN It is a crab-claw shaped scissors.
+  52860
+    JP 五本一組の苦無だ。
+    EN It is a set of five Kunais.
+  52930
+    JP 電気を操る細剣だ。
+    EN It is a thin sword that manipulates electricity.
+  52999
+    JP 天に轟く巨大な螺旋機だ。
+    EN It is a giant drill that pierce the heavens.
+  53070
+    JP 両刃の長大な投斧だ。
+    EN It is a long, double-bladed throwing axe.
+  53140
+    JP 鳥のくちばしのような鋏鎌だ。
+    EN It is a scissors-sickle like a bird's beak.
+  53209
+    JP 高度な科学技術で作られた錫杖だ。
+    EN It is a pewter staff made with advanced science and technology.
+  53281
+    JP 三位一体の三節棍だ。
+    EN It is a staff of trinity of three sections.
+  53421
+    JP 足袋と呼ばれるタイプの靴下だ。
+    EN It is a type of sock called a tabi.
+  53843
+    JP 投げることにも適した忍者用の短剣だ。
+    EN It is a ninja's shortsword, also suitable for throwing.
+  53911
+    JP 非常に軽くて細い剣だ。
+    EN It is a very light and thin longsword with electric properties.
+  53978
+    JP 螺旋回転する刃を持つ槍だ。
+    EN It is a polearm with a spiral-rotating blade.
+  54045
+    JP 細長い円錐状の槍だ。
+    EN It is an elongated conical polearm.
+  54115
+    JP 投げることにも適した小型の斧だ。
+    EN It is a small axe suitable for throwing.
+  54183
+    JP 機械駆動の鋸。用途は斧と同じだ。
+    EN It is a mechanically driven saw. You can use it like an axe.
+  54251
+    JP 複数の刃を備えた鎌だ。
+    EN It is a scythe with multiple blades.
+  54319
+    JP 骨でできた鎌だ。
+    EN It is a scythe made of bones.
+  54387
+    JP 先端が左右に張り出している鈍器だ。
+    EN It is a blunt weapon with the protruding ends on both sides.
+  54456
+    JP 鉄球タイプの鈍器だ。
+    EN It is a blunt weapon with a wrecking ball.
+  54524
+    JP 先端に輪っかのついた杖だ。
+    EN It is a staff with a loop on the end.
+  54594
+    JP 分割して素早く振り回せる棒だ。
+    EN It is a staff that can be splitted and wielded quickly.
+  56811
+    JP 恐竜の尻尾についていた星球槌だ。
+    EN It is a star-sphere-hammer that was attached to the tail of a dinosaur.
+  60198
+    JP 軽量な青い戦斧だ。
+    EN It is a lightweight blue battle axe.
+  60789
+    JP 邪悪な鎌だ。使うことができる。
+    EN (Usable) Evil scythe.
+  61251
+    JP 杖に偽装した戦槌だ。
+    EN It is a war hammer disguised as a staff.
+  61796
+    JP 渦を発生させる鎖鎌だ。
+    EN It is a vortex-generating chain scythe.
+  63457
+    JP ＭＰを攻撃力に変える杖だ。
+    EN It is a staff that converts MP into offensive power.
+  63726
+    JP 真っ白な長剣だ。
+    EN It is a pure white long sword.
+  64488
+    JP 鉾槍としても使える多目的シャベルだ。
+    EN It is a multipurpose shovel that can also be used as a polearm.
+  65136
+    JP ごつごつとした長大な棍棒だ。
+    EN It is a long, burly club.
+  65268
+    JP 血塗れの鞭だ。
+    EN It is a bloody whip.
+  65882
+    JP 毒の棘を持つ鞭だ。
+    EN It is a whip with poisonous thorns.
+  66843
+    JP 音の出る短剣だ。一応、楽器としても使える。
+    EN It is a dagger of sound. Also, it can be used as Rank 0-6 instrument.
+  66913
+    JP 刃が分離する大剣だ。
+    EN It is a greatsword with a separable blade.
+  67048
+    JP 戦闘用の鞭だ。
+    EN It is a whip for combat.
+  67116
+    JP 鈍器として使える靴下だ。
+    EN It is a sturdy sock that can be used as a blunt weapon.
+  67184
+    JP 鎖分銅付きの鎌だ。
+    EN It is a scythe with a chain weight.
+  67463
+    JP 三つの都を破壊したとされる三叉槍だ。
+    EN It is a trident said to have destroyed three cities.
+  67533
+    JP 火を放つ大太刀だ。刀だが大剣に属する。
+    EN It is a giant katana that discharges fire blossoms.
+  69329
+    JP 星の光を宿した骨鎌だ。
+    EN It is a bone scythe of the stars.
+  70270
+    JP 闇の叡智を秘めた杖だ。
+    EN It is a staff that holds dark wisdom.
+  70890
+    JP 重力球を発生させる手斧だ。
+    EN It is a hatchet that generates a gravity sphere.
+  70961
+    JP 俊敏性を高める長棒だ。
+    EN It is a longstaff that improves agility.
+  71779
+    JP 月の光を放つライトセーバーだ。
+    EN It is a lightsaber that emits moonlight.
+  73093
+    JP 混沌の奔流を纏う騎士槍だ。
+    EN It is a knight's lance, clothed in a torrent of chaos.
+  73425
+    JP 灼熱の大剣だ。
+    EN It is a burning greatsword.
+  73495
+    JP やたらと固い長ネギ。長棒として使える。
+    EN It is a very hard green onion. Can be used as a staff.
+  73634
+    JP 主能力と引き換えに魔法を増幅する杖だ。
+    EN It is a staff that amplifies magic in exchange for your body functions.
+  74033
+    JP 貴重なヴァイオリンに惜しげもなく釘を突き刺した逸品だ。
+    EN It is a gem of a violin that has been pegged with a giant nail.
+  75448
+    JP ものすごい厚さ。非常に重い鈍器だ。
+    EN It is a very thick, very heavy blunt weapon.
+  75787
+    JP 猛毒を帯びた忍刀だ。兜ではない。
+    EN It is a ninja sword with deadly venom. It is not a hood.
+  75920
+    JP 身に着けると変形して槍状になる。
+    EN It is a godly gift that when worn, transforms into a spear shape.
+  76659
+    JP 太陽のように光り輝く長棒だ。
+    EN It is a longstaff that shines like the sun.
+  76866
+    JP モーンブレイドという兄弟剣が存在するといわれる長剣だ。
+    EN It is a longsword having another sword, Mourneblade, as its counterpart.
+  77008
+    JP 強大な意志の力を秘めた非常に重い長剣だ。
+    EN It is a very heavy longsword with a powerful will.
+  77218
+    JP 強大な力を秘めた非常に重い戦斧だ。
+    EN It is a very heavy battle-axe with mighty strength.
+  77288
+    JP 非常に重い骨鎌だ。
+    EN It is a very heavy bone scythe.
+  77497
+    JP いくつもの首を刎ねてきた包丁だ。
+    EN It is a kitchen knife that has cut off many heads.
+  77709
+    JP 豪快なつくりの海賊刀だ。
+    EN It is a pirate sword of bold design.
+  77986
+    JP 神をも引き裂く鎖鋸だ。
+    EN It is a chainsaw that could tear even God apart.
+  78055
+    JP 機械駆動で全てを打ち貫く強力な槍だ。
+    EN It is a mechanically-driven spear that pierces through anything.
+  78190
+    JP ドラゴンすらも確実に仕留める巨大な大剣だ。
+    EN It is a huge greatsword that can surely kill even a dragon.
+  78860
+    JP 主に調理に用いられる短剣だ。
+    EN It is a shortsword mainly used for cooking.
+  80289
+    JP 光り輝く刀剣だ。
+    EN It is a shiny sword.
+  81472
+    JP 竜に絶大な効果を持つ刀だ。
+    EN It is a sword that is immensely effective against dragons.
+  81609
+    JP 強大な魔力を秘めた非常に重い杖だ。
+    EN It is a very heavy staff with immense magical power.
+  81882
+    JP 大きく湾曲した刃を持った刀剣だ。
+    EN It is a scythe with a large curved blade.
+  82948
+    JP 非常に大きく武骨な大剣だ。
+    EN It is a very large and martial greatsword.
+  84585
+    JP クリティカルが出やすい大斧だ。
+    EN It is a big axe that can easily deliver a critical hit.
+  85645
+    JP 大地の神から下賜される大槌だ。
+    EN It is a large hammer bestowed by the God of Earth.
+  85717
+    JP 幸運の女神から下賜される短剣だ。
+    EN It is a dagger bestowed by the Goddess of Fortune.
+  85788
+    JP 癒しの女神から下賜される槍だ。
+    EN It is a spear bestowed by the Goddess of Healing.
+  85860
+    JP 元素の神から下賜される杖だ。
+    EN It is a staff bestowed by the God of Element.
+  85930
+    JP 収穫の神から下賜される大鎌だ。
+    EN It is a scythe bestowed by the God of Harvest.
+ 107255
+    JP 地獄の力を持った鉾槍だ。
+    EN It is a hooked spear with netherworldly power.
+ 107327
+    JP 相手の精神を崩壊させる杖だ。
+    EN It is a staff that disintegrates the opponent's psyche.
+ 107463
+    JP 相手のマナを吸い取る棍棒だ。
+    EN It is a blunt weapon that drains the opponent's mana.
+ 113389
+    JP 特殊な集団が用いる短剣だ。
+    EN It is a shortsword used by a special group of people.
+ 115524
+    JP 複数の使い方ができる槍だ。
+    EN It is a polearm with various way of attacking.
+ 115592
+    JP 刃先の広い斧だ。
+    EN It is a single-bladed axe with a longer pole.
+ 115723
+    JP 重量感ある剣だ。
+    EN It is a heavier-than-usual longsword.
+ 115944
+    JP 細長い棒だ。
+    EN It is a long and thin staff.
+ 116013
+    JP 先が３つに分かれた槍だ。
+    EN It is a polearm with three separate tips.
+ 116081
+    JP 重量感ある槌だ。
+    EN It is a very heavy blunt weapon.
+ 116149
+    JP 戦闘用に加工された斧だ。
+    EN It is a large double-bladed battle axe.
+ 116218
+    JP 刃が湾曲した短剣だ。
+    EN It is a curved shortsword.
+ 116285
+    JP 異国から来た細身の剣だ。
+    EN It is an unique curved longsword from a foreign land.
+ 116985
+    JP 細長い槍だ。
+    EN It is a polearm with a sharp point.
+ 117054
+    JP 魔法を補佐する為の棒だ。
+    EN It is a staff used to assist with magic.
+ 117122
+    JP 農業用の用具だ。
+    EN It is a farmer's tool for harvesting crops.
+ 117463
+    JP 雷の力を秘めた短剣だ。
+    EN It is a dagger with the power of wind and lightning.
+ 126224
+    JP 世界の終末を招くといわれる長剣だ。
+    EN It is a longsword said to bring the end of the world.
+ 126852
+    JP ストームブリンガーという兄弟剣が存在するといわれる長剣だ。
+    EN It is a longsword having another, Storm Bringer, as its counterpart.
+ 126921
+    JP 相手のマナを吸い取る大鎌だ。
+    EN It is a scythe that drains the opponent's mana.
+ 127352
+    JP 何でも貫くといわれる長剣だ。
+    EN It is the sword rumored to cut through anything.
+ 127424
+    JP 時を止める長剣だ。
+    EN It is the longsword that stops time.
+ 130980
+    JP 素材を削り出して作られた棒だ。
+    EN It is a simple but effective blunt weapon.
+ 131048
+    JP 小型の斧だ。
+    EN It is a smaller, single-bladed axe.
+ 131117
+    JP 小型の剣だ。
+    EN It is a shortsword.
+ 131185
+    JP 細い刀身の剣だ。
+    EN It is a double-edged longsword.
+
+105 firme, 105 giapponesi distinti; 0 giapponesi condivisi

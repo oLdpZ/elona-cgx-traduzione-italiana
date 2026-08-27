@@ -1,0 +1,911 @@
+=== ITEM_ID_HONEGUM   [FILTER_WEAPON]
+    NOME      jp 《骨噛矛》
+              en <Honegum>
+              IT <Honegum>
+    non ident. IT osso affilato   (en sharp bone)
+    --- description(3)  :43561 ⚠️ TETTO SECCO 69
+        JP  骨っぽい戦斧だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～
+        EN  It's a battle axe shaped like a bone.
+
+=== ITEM_ID_RAVENBRAND   [FILTER_WEAPON]
+    NOME      jp 《レイヴンブランド》
+              en <Ravenbrand>
+              IT <Ravenbrand>
+    non ident. IT spada caotica   (en chaotic sword)
+    --- description(3)  :51782 ⚠️ TETTO SECCO 69
+        JP  \t\t兄弟剣が存在するといわれる長剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a longsword having another sword, as its counterpart.
+
+=== ITEM_ID_BAMBNIR   [FILTER_WEAPON]
+    NOME      jp 《バンブニール》
+              en <Bambnir>
+              IT <Bambnir>
+    non ident. IT lancia di bambù lucente   (en shining bamboo spear)
+    --- description(3)  :51852 ⚠️ TETTO SECCO 69
+        JP  \t\t竹でできた長槍だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a lance made from bamboo sticks.
+
+=== ITEM_ID_KALPA_HAND   [FILTER_WEAPON]
+    NOME      jp 《劫波の針》
+              en <Kalpa Hand>
+              IT <Mano del Kalpa>
+    non ident. IT lancetta lucente   (en shining long hand)
+    --- description(3)  :51920 ⚠️ TETTO SECCO 69
+        JP  \t\t長剣として使える長針だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a long clock hand that can be used as a longsword.
+
+=== ITEM_ID_ANNINDOFU_LIKE_A_LIGHTSABRE   [FILTER_WEAPON]
+    NOME      jp 《ライトセーバーっぽい杏仁豆腐》
+              en <ANNINDOFU LIKE A LIGHTSABRE>
+              IT <ANNINDOFU TIPO SPADA LASER>
+    non ident. IT affare simile a una spada laser   (en lightsabre-like thing)
+    --- description(3)  :52720 ⚠️ TETTO SECCO 69
+        JP  \t\tライトセーバーの形をした杏仁豆腐。長剣として装備可能。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is Annin-tofu that looks like a lightsabre, you can wield it.
+
+=== ITEM_ID_KANI_KAMA   [FILTER_WEAPON]
+    NOME      jp 《カニカマ》
+              en <Kani-Kama>
+              IT <Kani-Kama>
+    non ident. IT forbici da granchio   (en crab-scissors)
+    --- description(3)  :52790 ⚠️ TETTO SECCO 69
+        JP  \t\tカニっぽい鋏鎌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a crab-claw shaped scissors.
+
+=== ITEM_ID_GO_RENGE   [FILTER_WEAPON]
+    NOME      jp 《伍連華草》
+              en <Go-Renge>
+              IT <Go-Renge>
+    non ident. IT kunai della bufera   (en set of blizzard kunais)
+    --- description(3)  :52860 ⚠️ TETTO SECCO 69
+        JP  \t\t五本一組の苦無だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a set of five Kunais.
+
+=== ITEM_ID_EPECLAIR   [FILTER_WEAPON]
+    NOME      jp 《エペクレイル》
+              en <Epeclair>
+              IT <Epeclair>
+    non ident. IT fioretto fulminante   (en lightning fleure)
+    --- description(3)  :52930 ⚠️ TETTO SECCO 69
+        JP  \t\t電気を操る細剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a thin sword that manipulates electricity.
+
+=== ITEM_ID_GOUTEN   [FILTER_WEAPON]
+    NOME      jp 《轟天》
+              en <Gouten>
+              IT <Gouten>
+    non ident. IT trapano volante   (en flying drill)
+    --- description(3)  :52999 ⚠️ TETTO SECCO 69
+        JP  \t\t天に轟く巨大な螺旋機だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a giant drill that pierce the heavens.
+
+=== ITEM_ID_DGT_101   [FILTER_WEAPON]
+    NOME      jp 《DGT-101》
+              en <DGT-101>
+              IT <DGT-101>
+    non ident. IT tomahawk doppio   (en double tomahawk)
+    --- description(3)  :53070 ⚠️ TETTO SECCO 69
+        JP  \t\t両刃の長大な投斧だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a long, double-bladed throwing axe.
+
+=== ITEM_ID_NUMENIUS   [FILTER_WEAPON]
+    NOME      jp 《ヌメニウス》
+              en <Numenius>
+              IT <Numenius>
+    non ident. IT forbici affilate   (en sharp scissors)
+    --- description(3)  :53140 ⚠️ TETTO SECCO 69
+        JP  \t\t鳥のくちばしのような鋏鎌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a scissors-sickle like a bird's beak.
+
+=== ITEM_ID_ENGOKU   [FILTER_WEAPON]
+    NOME      jp 《炎獄曼荼羅》
+              en <Engoku>
+              IT <Engoku>
+    non ident. IT bastone monastico sospetto   (en suspicious shakujo)
+    --- description(3)  :53209 ⚠️ TETTO SECCO 69
+        JP  \t\t高度な科学技術で作られた錫杖だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a pewter staff made with advanced science and technology.
+
+=== ITEM_ID_POWER_TRIANGLE   [FILTER_WEAPON]
+    NOME      jp 《三烈棍》
+              en <Power Triangle>
+              IT <Triangolo di Potenza>
+    non ident. IT bastone a tre sezioni   (en triple rod)
+    --- description(3)  :53281 ⚠️ TETTO SECCO 69
+        JP  \t\t三位一体の三節棍だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a staff of trinity of three sections.
+
+=== ITEM_ID_NAZUNAS_SOX   [FILTER_WEAPON]
+    NOME      jp 《ナズナの靴下》
+              en <Nazuna's Sox>
+              IT <Calzini di Nazuna>
+    non ident. IT calzino puzzolente   (en stinky sock)
+    --- description(3)  :53421 ⚠️ TETTO SECCO 69
+        JP  \t\t足袋と呼ばれるタイプの靴下だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a type of sock called a tabi.
+
+=== ITEM_ID_KUNAI   [FILTER_WEAPON]
+    NOME      jp 苦無
+              en kunai
+              IT kunai
+    --- description(3)  :53843 ⚠️ TETTO SECCO 69
+        JP  \t\t投げることにも適した忍者用の短剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a ninja's shortsword, also suitable for throwing.
+
+=== ITEM_ID_FLEURE   [FILTER_WEAPON]
+    NOME      jp 細剣
+              en fleure
+              IT fioretto
+    --- description(3)  :53911 ⚠️ TETTO SECCO 69
+        JP  \t\t非常に軽くて細い剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a very light and thin longsword with electric properties.
+
+=== ITEM_ID_DRILL   [FILTER_WEAPON]
+    NOME      jp 螺旋機
+              en drill
+              IT trapano
+    --- description(3)  :53978 ⚠️ TETTO SECCO 69
+        JP  \t\t螺旋回転する刃を持つ槍だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a polearm with a spiral-rotating blade.
+
+=== ITEM_ID_LANCE   [FILTER_WEAPON]
+    NOME      jp 騎士槍
+              en lance
+              IT lancia da cavaliere
+    --- description(3)  :54045 ⚠️ TETTO SECCO 69
+        JP  \t\t細長い円錐状の槍だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is an elongated conical polearm.
+
+=== ITEM_ID_TOMAHAWK   [FILTER_WEAPON]
+    NOME      jp 投斧
+              en tomahawk
+              IT tomahawk
+    --- description(3)  :54115 ⚠️ TETTO SECCO 69
+        JP  \t\t投げることにも適した小型の斧だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a small axe suitable for throwing.
+
+=== ITEM_ID_CHAINSAW   [FILTER_WEAPON]
+    NOME      jp 鎖鋸
+              en chain saw
+              IT motosega
+    --- description(3)  :54183 ⚠️ TETTO SECCO 69
+        JP  \t\t機械駆動の鋸。用途は斧と同じだ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a mechanically driven saw. You can use it like an axe.
+
+=== ITEM_ID_SCISSORS   [FILTER_WEAPON]
+    NOME      jp 鋏鎌
+              en scissors
+              IT cesoie
+    --- description(3)  :54251 ⚠️ TETTO SECCO 69
+        JP  \t\t複数の刃を備えた鎌だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a scythe with multiple blades.
+
+=== ITEM_ID_BONE_SCYTHE   [FILTER_WEAPON]
+    NOME      jp 骨鎌
+              en bone scythe
+              IT falce d'ossa
+    --- description(3)  :54319 ⚠️ TETTO SECCO 69
+        JP  \t\t骨でできた鎌だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a scythe made of bones.
+
+=== ITEM_ID_WAR_HAMMER   [FILTER_WEAPON]
+    NOME      jp 戦槌
+              en war hammer
+              IT martello da guerra
+    --- description(3)  :54387 ⚠️ TETTO SECCO 69
+        JP  \t\t先端が左右に張り出している鈍器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a blunt weapon with the protruding ends on both sides.
+
+=== ITEM_ID_STAR_HAMMER   [FILTER_WEAPON]
+    NOME      jp 星球槌
+              en star hammer
+              IT mazza ferrata
+    --- description(3)  :54456 ⚠️ TETTO SECCO 69
+        JP  \t\t鉄球タイプの鈍器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a blunt weapon with a wrecking ball.
+
+=== ITEM_ID_SHAKUJO   [FILTER_WEAPON]
+    NOME      jp 錫杖
+              en shakujo
+              IT shakujo
+    --- description(3)  :54524 ⚠️ TETTO SECCO 69
+        JP  \t\t先端に輪っかのついた杖だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a staff with a loop on the end.
+
+=== ITEM_ID_NUNCHAKU   [FILTER_WEAPON]
+    NOME      jp 節棍
+              en nunchaku
+              IT nunchaku
+    --- description(3)  :54594 ⚠️ TETTO SECCO 69
+        JP  \t\t分割して素早く振り回せる棒だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a staff that can be splitted and wielded quickly.
+
+=== ITEM_ID_GRAVITAIL   [FILTER_WEAPON]
+    NOME      jp 《グラヴィテール》
+              en <Gravitail>
+              IT <Gravitail>
+    non ident. IT sfera frantumatrice pesante   (en heavy crushing ball)
+    --- description(3)  :56811 ⚠️ TETTO SECCO 69
+        JP  \t\t恐竜の尻尾についていた星球槌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a star-sphere-hammer that was attached to the tail of a dinosaur.
+
+=== ITEM_ID_GULIWELZEN   [FILTER_WEAPON]
+    NOME      jp 《グリエルゼン》
+              en <Guliwelzen>
+              IT <Guliwelzen>
+    non ident. IT ascia da guerra che fende il vento   (en wind-tearing war-axe)
+    --- description(3)  :60198 ⚠️ TETTO SECCO 69
+        JP  \t\t軽量な青い戦斧だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a lightweight blue battle axe.
+
+=== ITEM_ID_NECROMANTIS   [FILTER_WEAPON]
+    NOME      jp 《邪成鎌ネクロマンティス》
+              en <Necromantis>
+              IT <Necromantis>
+    non ident. IT falce consunta   (en well-worn sickle)
+    --- description(3)  :60789 ⚠️ TETTO SECCO 69
+        JP  \t\t邪悪な鎌だ。使うことができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Usable) Evil scythe.
+
+=== ITEM_ID_ZUGAIKURAI   [FILTER_WEAPON]
+    NOME      jp 《ズガイクライ》
+              en <Zugaikurai>
+              IT <Zugaikurai>
+    non ident. IT bastone da passeggio pesante   (en heavy stick)
+    --- description(3)  :61251 ⚠️ TETTO SECCO 69
+        JP  \t\t杖に偽装した戦槌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a war hammer disguised as a staff.
+
+=== ITEM_ID_SASANQUA_SICKLE   [FILTER_WEAPON]
+    NOME      jp 《鎖惨渦》
+              en <Sasanqua Sickle>
+              IT <Falce Sasanqua>
+    non ident. IT falce rosa   (en pink sickle)
+    --- description(3)  :61796 ⚠️ TETTO SECCO 69
+        JP  \t\t渦を発生させる鎖鎌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a vortex-generating chain scythe.
+
+=== ITEM_ID_BLOOD_ROD   [FILTER_WEAPON]
+    NOME      jp 《ブラッドロッド》
+              en <Blood Rod>
+              IT <Blood Rod>
+    non ident. IT bacchetta rossa   (en red rod)
+    --- description(3)  :63457 ⚠️ TETTO SECCO 69
+        JP  \t\tＭＰを攻撃力に変える杖だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a staff that converts MP into offensive power.
+
+=== ITEM_ID_THE_WHITE_HAWK   [FILTER_WEAPON]
+    NOME      jp 《ウィーテハウク》
+              en <The White Hawk>
+              IT <The White Hawk>
+    non ident. IT spada bianca   (en white sword)
+    --- description(3)  :63726 ⚠️ TETTO SECCO 69
+        JP  \t\t真っ白な長剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a pure white long sword.
+
+=== ITEM_ID_SPADILLE   [FILTER_WEAPON]
+    NOME      jp 《スパディール》
+              en <Spadille>
+              IT <Spadille>
+    non ident. IT pala militare   (en military shovel)
+    --- description(3)  :64488 ⚠️ TETTO SECCO 69
+        JP  \t\t鉾槍としても使える多目的シャベルだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a multipurpose shovel that can also be used as a polearm.
+
+=== ITEM_ID_LUCKY_ALMONDS   [FILTER_WEAPON]
+    NOME      jp 《ラッキーアーモンド》
+              en <Lucky Almonds>
+              IT <Lucky Almonds>
+    non ident. IT mazza rozza   (en rugged mace)
+    --- description(3)  :65136 ⚠️ TETTO SECCO 69
+        JP  \t\tごつごつとした長大な棍棒だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a long, burly club.
+
+=== ITEM_ID_BLOODY_TEARS   [FILTER_WEAPON]
+    NOME      jp 《ブラッディ・ティアーズ》
+              en <Bloody Tears>
+              IT <Bloody Tears>
+    non ident. IT frusta rossa   (en red whip)
+    --- description(3)  :65268 ⚠️ TETTO SECCO 69
+        JP  \t\t血塗れの鞭だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a bloody whip.
+
+=== ITEM_ID_IVY_SPINE   [FILTER_WEAPON]
+    NOME      jp 《アイヴィ・スパイン》
+              en <Ivy Spine>
+              IT <Ivy Spine>
+    non ident. IT frusta pungente   (en tingling whip)
+    --- description(3)  :65882 ⚠️ TETTO SECCO 69
+        JP  \t\t毒の棘を持つ鞭だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a whip with poisonous thorns.
+
+=== ITEM_ID_MELODYUS   [FILTER_WEAPON]
+    NOME      jp 《メロディウス》
+              en <Melodyus>
+              IT <Melodyus>
+    non ident. IT spada della melodia   (en sword of melody)
+    --- description(3)  :66843 ⚠️ TETTO SECCO 69
+        JP  \t\t音の出る短剣だ。一応、楽器としても使える。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a dagger of sound. Also, it can be used as Rank 0-6 instrument.
+
+=== ITEM_ID_GRANDEL   [FILTER_WEAPON]
+    NOME      jp 《グランデイル》
+              en <Grandel>
+              IT <Grandel>
+    non ident. IT spadone dorato   (en golden heavysword)
+    --- description(3)  :66913 ⚠️ TETTO SECCO 69
+        JP  \t\t刃が分離する大剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a greatsword with a separable blade.
+
+=== ITEM_ID_WHIP   [FILTER_WEAPON]
+    NOME      jp 鞭
+              en whip
+              IT frusta
+    --- description(3)  :67048 ⚠️ TETTO SECCO 69
+        JP  \t\t戦闘用の鞭だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a whip for combat.
+
+=== ITEM_ID_SOCKS   [FILTER_WEAPON]
+    NOME      jp ソックス
+              en sox
+              IT calzini
+    --- description(3)  :67116 ⚠️ TETTO SECCO 69
+        JP  \t\t鈍器として使える靴下だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a sturdy sock that can be used as a blunt weapon.
+
+=== ITEM_ID_CHAINSICKLE   [FILTER_WEAPON]
+    NOME      jp 鎖鎌
+              en chainsickle
+              IT falce a catena
+    --- description(3)  :67184 ⚠️ TETTO SECCO 69
+        JP  \t\t鎖分銅付きの鎌だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a scythe with a chain weight.
+
+=== ITEM_ID_TRISHULA   [FILTER_WEAPON]
+    NOME      jp 《トリシューラ》
+              en <Trishula>
+              IT <Trishula>
+    non ident. IT tridente della distruzione   (en trident of destruction)
+    --- description(3)  :67463 ⚠️ TETTO SECCO 69
+        JP  \t\t三つの都を破壊したとされる三叉槍だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a trident said to have destroyed three cities.
+
+=== ITEM_ID_HOUSENKA   [FILTER_WEAPON]
+    NOME      jp 《大太刀鳳閃火》
+              en <Housenka>
+              IT <Housenka>
+    non ident. IT katana furiosa   (en katana of raging power)
+    --- description(3)  :67533 ⚠️ TETTO SECCO 69
+        JP  \t\t火を放つ大太刀だ。刀だが大剣に属する。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a giant katana that discharges fire blossoms.
+
+=== ITEM_ID_ASTRAL_SICKLE   [FILTER_WEAPON]
+    NOME      jp 《ネイベル・ネクス》
+              en <Astral Sickle>
+              IT <Astral Sickle>
+    non ident. IT falce lucente   (en shining sickle)
+    --- description(3)  :69329 ⚠️ TETTO SECCO 69
+        JP  \t\t星の光を宿した骨鎌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a bone scythe of the stars.
+
+=== ITEM_ID_VICE_STAFF   [FILTER_WEAPON]
+    NOME      jp 《常闇の杖》
+              en <Vice Staff>
+              IT <Bastone del Vizio>
+    non ident. IT bastone delle tenebre   (en darkness staff)
+    --- description(3)  :70270 ⚠️ TETTO SECCO 69
+        JP  \t\t闇の叡智を秘めた杖だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a staff that holds dark wisdom.
+
+=== ITEM_ID_GRAVITY_AXE   [FILTER_WEAPON]
+    NOME      jp 《グラビトンアクス》
+              en <Gravity Axe>
+              IT <Gravity Axe>
+    non ident. IT ascia nera   (en black handaxe)
+    --- description(3)  :70890 ⚠️ TETTO SECCO 69
+        JP  \t\t重力球を発生させる手斧だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a hatchet that generates a gravity sphere.
+
+=== ITEM_ID_DRAKE_ROD   [FILTER_WEAPON]
+    NOME      jp 《ドレイクロッド》
+              en <Drake Rod>
+              IT <Drake Rod>
+    non ident. IT bastone azzurro   (en blue rod)
+    --- description(3)  :70961 ⚠️ TETTO SECCO 69
+        JP  \t\t俊敏性を高める長棒だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a longstaff that improves agility.
+
+=== ITEM_ID_MOONLIGHT   [FILTER_WEAPON]
+    NOME      jp 《ムーンライトセーバー》
+              en <Moonlight>
+              IT <Moonlight>
+    non ident. IT spada lucente   (en shining sword)
+    --- description(3)  :71779 ⚠️ TETTO SECCO 69
+        JP  \t\t月の光を放つライトセーバーだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a lightsaber that emits moonlight.
+
+=== ITEM_ID_UNICORN_DRILL   [FILTER_WEAPON]
+    NOME      jp 《スパイラルカオス》
+              en <Unicorn Drill>
+              IT <Unicorn Drill>
+    non ident. IT corno di unicorno nero   (en black unicorn horn)
+    --- description(3)  :73093 ⚠️ TETTO SECCO 69
+        JP  \t\t混沌の奔流を纏う騎士槍だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a knight's lance, clothed in a torrent of chaos.
+
+=== ITEM_ID_FLAME_EDGE   [FILTER_WEAPON]
+    NOME      jp 《フレイムザンバー》
+              en <Flame Edge>
+              IT <Flame Edge>
+    non ident. IT spada di fuoco   (en fire sword)
+    --- description(3)  :73425 ⚠️ TETTO SECCO 69
+        JP  \t\t灼熱の大剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a burning greatsword.
+
+=== ITEM_ID_ZWIEBEL   [FILTER_WEAPON]
+    NOME      jp 《ゴルネ・ツィーベル》
+              en <Zwiebel>
+              IT <Zwiebel>
+    non ident. IT cipollotto durissimo   (en ultrahard green onion)
+    --- description(3)  :73495 ⚠️ TETTO SECCO 69
+        JP  \t\tやたらと固い長ネギ。長棒として使える。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a very hard green onion. Can be used as a staff.
+
+=== ITEM_ID_VITAL_FLAYER   [FILTER_WEAPON]
+    NOME      jp 《躰蝕の魔杖》
+              en <Vital Flayer>
+              IT <Scorticatore Vitale>
+    non ident. IT bastone tremante   (en shivering staff)
+    --- description(3)  :73634 ⚠️ TETTO SECCO 69
+        JP  \t\t主能力と引き換えに魔法を増幅する杖だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a staff that amplifies magic in exchange for your body functions.
+
+=== ITEM_ID_NAIL_STRADIVARIUS   [FILTER_WEAPON]
+    NOME      jp 《釘ストラディバリウス》
+              en <Nail Stradivarius>
+              IT <Stradivarius Chiodato>
+    non ident. IT arma a corde elegante   (en elegant string blunt)
+    --- description(3)  :74033 ⚠️ TETTO SECCO 69
+        JP  \t\t貴重なヴァイオリンに惜しげもなく釘を突き刺した逸品だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a gem of a violin that has been pegged with a giant nail.
+
+=== ITEM_ID_BUSTER_BOOK   [FILTER_WEAPON]
+    NOME      jp 《神を殺せる本》
+              en <Buster Book>
+              IT <Libro Distruttore>
+    non ident. IT libro spesso   (en thick book)
+    --- description(3)  :75448 ⚠️ TETTO SECCO 69
+        JP  \t\tものすごい厚さ。非常に重い鈍器だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a very thick, very heavy blunt weapon.
+
+=== ITEM_ID_BLACK_MONKSHOOD   [FILTER_WEAPON]
+    NOME      jp 《妖刀黒鳥兜》
+              en <Black Monkshood>
+              IT <Aconito Nero>
+    non ident. IT coltello nero   (en black knife)
+    --- description(3)  :75787 ⚠️ TETTO SECCO 69
+        JP  \t\t猛毒を帯びた忍刀だ。兜ではない。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a ninja sword with deadly venom. It is not a hood.
+
+=== ITEM_ID_SASUMATA   [FILTER_WEAPON]
+    NOME      jp 《不殺の刺又》
+              en <Sasumata>
+              IT <Sasumata>
+    non ident. IT sfera luminosa divina   (en god jewel)
+    --- description(3)  :75920 ⚠️ TETTO SECCO 69
+        JP  \t\t身に着けると変形して槍状になる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a godly gift that when worn, transforms into a spear shape.
+
+=== ITEM_ID_SOLAR_CANE   [FILTER_WEAPON]
+    NOME      jp 《リボルケイン》
+              en <Solar Cane>
+              IT <Solar Cane>
+    non ident. IT bastone radioso   (en radiant cane)
+    --- description(3)  :76659 ⚠️ TETTO SECCO 69
+        JP  \t\t太陽のように光り輝く長棒だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a longstaff that shines like the sun.
+
+=== ITEM_ID_STORM_BRINGER   [FILTER_WEAPON]
+    NOME      jp 《ストームブリンガー》
+              en <Stormbringer>
+              IT <Stormbringer>
+    non ident. IT spada caotica   (en chaotic sword)
+    --- description(3)  :76866 ⚠️ TETTO SECCO 69
+        JP  \t\tモーンブレイドという兄弟剣が存在するといわれる長剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a longsword having another sword, Mourneblade, as its counterpart.
+
+=== ITEM_ID_KINDNESS_BLADE   [FILTER_WEAPON]
+    NOME      jp 《カインドネス》
+              en <Kindness Blade>
+              IT <Kindness Blade>
+    non ident. IT spada grande   (en big sword)
+    --- description(3)  :77008 ⚠️ TETTO SECCO 69
+        JP  \t\t強大な意志の力を秘めた非常に重い長剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a very heavy longsword with a powerful will.
+
+=== ITEM_ID_GOD_BREAKER   [FILTER_WEAPON]
+    NOME      jp 《神壊の大戦斧》
+              en <God Breaker>
+              IT <Distruttore di Dei>
+    non ident. IT ascia divina   (en god axe)
+    --- description(3)  :77218 ⚠️ TETTO SECCO 69
+        JP  \t\t強大な力を秘めた非常に重い戦斧だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a very heavy battle-axe with mighty strength.
+
+=== ITEM_ID_BEAST_SICKLE   [FILTER_WEAPON]
+    NOME      jp 《ギガモールの骨鎌》
+              en <Beast Sickle>
+              IT <Falce della Bestia>
+    non ident. IT artiglio gigantesco   (en gigantic claw)
+    --- description(3)  :77288 ⚠️ TETTO SECCO 69
+        JP  \t\t非常に重い骨鎌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a very heavy bone scythe.
+
+=== ITEM_ID_OTI_TUBAKI   [FILTER_WEAPON]
+    NOME      jp 《落椿》
+              en <Oti-Tubaki>
+              IT <Oti-Tubaki>
+    non ident. IT coltello insanguinato   (en bloody knife)
+    --- description(3)  :77497 ⚠️ TETTO SECCO 69
+        JP  \t\tいくつもの首を刎ねてきた包丁だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a kitchen knife that has cut off many heads.
+
+=== ITEM_ID_DYNAMIC_SABER   [FILTER_WEAPON]
+    NOME      jp 《轟海刀》
+              en <Dynamic Saber>
+              IT <Sciabola Dinamica>
+    non ident. IT sciabola audace   (en bold saber)
+    --- description(3)  :77709 ⚠️ TETTO SECCO 69
+        JP  \t\t豪快なつくりの海賊刀だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a pirate sword of bold design.
+
+=== ITEM_ID_NEGATIVE_EDGE   [FILTER_WEAPON]
+    NOME      jp 《ネガティブエッヂ》
+              en <Negative Edge>
+              IT <Negative Edge>
+    non ident. IT lama insanguinata   (en bloody edge)
+    --- description(3)  :77986 ⚠️ TETTO SECCO 69
+        JP  \t\t神をも引き裂く鎖鋸だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a chainsaw that could tear even God apart.
+
+=== ITEM_ID_PILE_DRIVER   [FILTER_WEAPON]
+    NOME      jp 《パイルバンカー帯電式Y型》
+              en <Pile Driver>
+              IT <Battipalo>
+    non ident. IT lancia meccanica   (en mechanical lance)
+    --- description(3)  :78055 ⚠️ TETTO SECCO 69
+        JP  \t\t機械駆動で全てを打ち貫く強力な槍だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a mechanically-driven spear that pierces through anything.
+
+=== ITEM_ID_DRAGON_SLAYER   [FILTER_WEAPON]
+    NOME      jp 《ドラゴン殺し》
+              en <Dragon Slayer>
+              IT <Ammazzadraghi>
+    non ident. IT spadone a doppio taglio   (en double-edged greatsword)
+    --- description(3)  :78190 ⚠️ TETTO SECCO 69
+        JP  \t\tドラゴンすらも確実に仕留める巨大な大剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a huge greatsword that can surely kill even a dragon.
+
+=== ITEM_ID_KITCHEN_KNIFE   [FILTER_WEAPON]
+    NOME      jp 包丁
+              en kitchen knife
+              IT coltello da cucina
+    --- description(3)  :78860 ⚠️ TETTO SECCO 69
+        JP  \t\t主に調理に用いられる短剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a shortsword mainly used for cooking.
+
+=== ITEM_ID_LIGHTSABRE   [FILTER_WEAPON]
+    NOME      jp ライトセーバー
+              en lightsabre
+              IT spada laser
+    --- description(3)  :80289 ⚠️ TETTO SECCO 69
+        JP  \t\t光り輝く刀剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a shiny sword.
+
+=== ITEM_ID_HIRYU_TO   [FILTER_WEAPON]
+    NOME      jp 《飛竜刀》
+              en <Hiryu-To>
+              IT <Hiryu-To>
+    non ident. IT katana rossa   (en rutilant katana)
+    --- description(3)  :81472 ⚠️ TETTO SECCO 69
+        JP  \t\t竜に絶大な効果を持つ刀だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a sword that is immensely effective against dragons.
+
+=== ITEM_ID_FRISIAS_TAIL   [FILTER_WEAPON]
+    NOME      jp 《フリージアの尻尾》
+              en <Frisia's Tail>
+              IT <Coda di Frisia>
+    non ident. IT coda di gatto   (en cat's tail)
+    --- description(3)  :81609 ⚠️ TETTO SECCO 69
+        JP  \t\t強大な魔力を秘めた非常に重い杖だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a very heavy staff with immense magical power.
+
+=== ITEM_ID_SCYTHE   [FILTER_WEAPON]
+    NOME      jp 大鎌
+              en scythe
+              IT falce
+    --- description(3)  :81882 ⚠️ TETTO SECCO 69
+        JP  \t\t大きく湾曲した刃を持った刀剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a scythe with a large curved blade.
+
+=== ITEM_ID_CLAYMORE2   [FILTER_WEAPON]
+    NOME      jp 《クレイモア》
+              en <Claymore>
+              IT <Claymore>
+    non ident. IT spada grezza   (en brutish sword)
+    --- description(3)  :82948 ⚠️ TETTO SECCO 69
+        JP  \t\t非常に大きく武骨な大剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a very large and martial greatsword.
+
+=== ITEM_ID_AXE_OF_DESTRUCTION   [FILTER_WEAPON]
+    NOME      jp 《破壊の斧》
+              en <Axe of Destruction>
+              IT <Ascia della Distruzione>
+    non ident. IT ascia gigantesca   (en giant axe)
+    --- description(3)  :84585 ⚠️ TETTO SECCO 69
+        JP  \t\tクリティカルが出やすい大斧だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a big axe that can easily deliver a critical hit.
+
+=== ITEM_ID_GAIA_HAMMER   [FILTER_WEAPON]
+    NOME      jp 《大地の大槌》
+              en <Gaia Hammer>
+              IT <Martello di Gaia>
+    non ident. IT martello gigantesco   (en giant hammer)
+    --- description(3)  :85645 ⚠️ TETTO SECCO 69
+        JP  \t\t大地の神から下賜される大槌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a large hammer bestowed by the God of Earth.
+
+=== ITEM_ID_LUCKY_DAGGER   [FILTER_WEAPON]
+    NOME      jp 《ラッキーダガー》
+              en <Lucky Dagger>
+              IT <Lucky Dagger>
+    non ident. IT pugnale sottile   (en thin dagger)
+    --- description(3)  :85717 ⚠️ TETTO SECCO 69
+        JP  \t\t幸運の女神から下賜される短剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a dagger bestowed by the Goddess of Fortune.
+
+=== ITEM_ID_HOLY_LANCE   [FILTER_WEAPON]
+    NOME      jp 《ホーリーランス》
+              en <Holy Lance>
+              IT <Holy Lance>
+    non ident. IT lancia sacra   (en holy lance)
+    --- description(3)  :85788 ⚠️ TETTO SECCO 69
+        JP  \t\t癒しの女神から下賜される槍だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a spear bestowed by the Goddess of Healing.
+
+=== ITEM_ID_ELEMENTAL_STAFF   [FILTER_WEAPON]
+    NOME      jp 《エレメンタルスタッフ》
+              en <Elemental Staff>
+              IT <Elemental Staff>
+    non ident. IT bastone elementale   (en elemental staff)
+    --- description(3)  :85860 ⚠️ TETTO SECCO 69
+        JP  \t\t元素の神から下賜される杖だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a staff bestowed by the God of Element.
+
+=== ITEM_ID_KUMIROMI_SCYTHE   [FILTER_WEAPON]
+    NOME      jp 《クミロミサイズ》
+              en <Kumiromi Scythe>
+              IT <Kumiromi Scythe>
+    non ident. IT falce del raccolto   (en harvest scythe)
+    --- description(3)  :85930 ⚠️ TETTO SECCO 69
+        JP  \t\t収穫の神から下賜される大鎌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a scythe bestowed by the God of Harvest.
+
+=== ITEM_ID_RANKIS   [FILTER_WEAPON]
+    NOME      jp 《ランキス》
+              en <Rankis>
+              IT <Rankis>
+    non ident. IT alabarda maledetta   (en cursed halberd)
+    --- description(3)  :107255 ⚠️ TETTO SECCO 69
+        JP  \t\t地獄の力を持った鉾槍だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a hooked spear with netherworldly power.
+
+=== ITEM_ID_STAFF_OF_INSANITY   [FILTER_WEAPON]
+    NOME      jp 《狂気の杖》
+              en <Staff of Insanity>
+              IT <Bastone della Follia>
+    non ident. IT bastone tremante   (en shivering staff)
+    --- description(3)  :107327 ⚠️ TETTO SECCO 69
+        JP  \t\t相手の精神を崩壊させる杖だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a staff that disintegrates the opponent's psyche.
+
+=== ITEM_ID_BLOOD_MOON   [FILTER_WEAPON]
+    NOME      jp 《ブラッドムーン》
+              en <Blood Moon>
+              IT <Blood Moon>
+    non ident. IT mazza insanguinata   (en bloody mace)
+    --- description(3)  :107463 ⚠️ TETTO SECCO 69
+        JP  \t\t相手のマナを吸い取る棍棒だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a blunt weapon that drains the opponent's mana.
+
+=== ITEM_ID_WAKIZASHI   [FILTER_WEAPON]
+    NOME      jp 忍刀
+              en wakizashi
+              IT wakizashi
+    --- description(3)  :113389 ⚠️ TETTO SECCO 69
+        JP  \t\t特殊な集団が用いる短剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a shortsword used by a special group of people.
+
+=== ITEM_ID_HALBERD   [FILTER_WEAPON]
+    NOME      jp 鉾槍
+              en halberd
+              IT alabarda
+    --- description(3)  :115524 ⚠️ TETTO SECCO 69
+        JP  \t\t複数の使い方ができる槍だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a polearm with various way of attacking.
+
+=== ITEM_ID_BARDISH   [FILTER_WEAPON]
+    NOME      jp 大斧
+              en bardish
+              IT ascia lunga
+    --- description(3)  :115592 ⚠️ TETTO SECCO 69
+        JP  \t\t刃先の広い斧だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a single-bladed axe with a longer pole.
+
+=== ITEM_ID_CLAYMORE   [FILTER_WEAPON]
+    NOME      jp 大剣
+              en claymore
+              IT spadone
+    --- description(3)  :115723 ⚠️ TETTO SECCO 69
+        JP  \t\t重量感ある剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a heavier-than-usual longsword.
+
+=== ITEM_ID_LONG_STAFF   [FILTER_WEAPON]
+    NOME      jp 長棒
+              en long staff
+              IT bastone lungo
+    --- description(3)  :115944 ⚠️ TETTO SECCO 69
+        JP  \t\t細長い棒だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a long and thin staff.
+
+=== ITEM_ID_TRIDENT   [FILTER_WEAPON]
+    NOME      jp 三叉槍
+              en trident
+              IT tridente
+    --- description(3)  :116013 ⚠️ TETTO SECCO 69
+        JP  \t\t先が３つに分かれた槍だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a polearm with three separate tips.
+
+=== ITEM_ID_HAMMER   [FILTER_WEAPON]
+    NOME      jp 大槌
+              en hammer
+              IT martello
+    --- description(3)  :116081 ⚠️ TETTO SECCO 69
+        JP  \t\t重量感ある槌だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a very heavy blunt weapon.
+
+=== ITEM_ID_BATTLE_AXE   [FILTER_WEAPON]
+    NOME      jp 戦斧
+              en battle axe
+              IT ascia da battaglia
+    --- description(3)  :116149 ⚠️ TETTO SECCO 69
+        JP  \t\t戦闘用に加工された斧だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a large double-bladed battle axe.
+
+=== ITEM_ID_SCIMITAR   [FILTER_WEAPON]
+    NOME      jp 海賊刀
+              en scimitar
+              IT scimitarra
+    --- description(3)  :116218 ⚠️ TETTO SECCO 69
+        JP  \t\t刃が湾曲した短剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a curved shortsword.
+
+=== ITEM_ID_KATANA   [FILTER_WEAPON]
+    NOME      jp 刀
+              en katana
+              IT katana
+    --- description(3)  :116285 ⚠️ TETTO SECCO 69
+        JP  \t\t異国から来た細身の剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is an unique curved longsword from a foreign land.
+
+=== ITEM_ID_SPEAR   [FILTER_WEAPON]
+    NOME      jp 長槍
+              en spear
+              IT lancia
+    --- description(3)  :116985 ⚠️ TETTO SECCO 69
+        JP  \t\t細長い槍だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a polearm with a sharp point.
+
+=== ITEM_ID_STAFF   [FILTER_WEAPON]
+    NOME      jp 杖
+              en staff
+              IT bastone
+    --- description(3)  :117054 ⚠️ TETTO SECCO 69
+        JP  \t\t魔法を補佐する為の棒だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a staff used to assist with magic.
+
+=== ITEM_ID_SICKLE   [FILTER_WEAPON]
+    NOME      jp 鎌
+              en sickle
+              IT falcetto
+    --- description(3)  :117122 ⚠️ TETTO SECCO 69
+        JP  \t\t農業用の用具だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a farmer's tool for harvesting crops.
+
+=== ITEM_ID_ETHER_DAGGER   [FILTER_WEAPON]
+    NOME      jp 《エーテルダガー》
+              en <Ether Dagger>
+              IT <Ether Dagger>
+    non ident. IT pugnale avvolto dal vento   (en dagger surrounded by wind)
+    --- description(3)  :117463 ⚠️ TETTO SECCO 69
+        JP  \t\t雷の力を秘めた短剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a dagger with the power of wind and lightning.
+
+=== ITEM_ID_RAGNAROK   [FILTER_WEAPON]
+    NOME      jp 《ラグナロク》
+              en <Ragnarok>
+              IT <Ragnarok>
+    non ident. IT spada che tutto conclude   (en sword that ends all)
+    --- description(3)  :126224 ⚠️ TETTO SECCO 69
+        JP  \t\t世界の終末を招くといわれる長剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a longsword said to bring the end of the world.
+
+=== ITEM_ID_MOURNBLADE   [FILTER_WEAPON]
+    NOME      jp 《モーンブレイド》
+              en <Mournblade>
+              IT <Mournblade>
+    non ident. IT spada caotica   (en chaotic sword)
+    --- description(3)  :126852 ⚠️ TETTO SECCO 69
+        JP  \t\tストームブリンガーという兄弟剣が存在するといわれる長剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a longsword having another, Storm Bringer, as its counterpart.
+
+=== ITEM_ID_SCYTHE_OF_THE_VOID   [FILTER_WEAPON]
+    NOME      jp 《虚無の大鎌》
+              en <Scythe of the Void>
+              IT <Falce del Vuoto>
+    non ident. IT falce che canta la morte   (en scythe that sings death)
+    --- description(3)  :126921 ⚠️ TETTO SECCO 69
+        JP  \t\t相手のマナを吸い取る大鎌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a scythe that drains the opponent's mana.
+
+=== ITEM_ID_ZANTETSUKEN   [FILTER_WEAPON]
+    NOME      jp 《斬鉄剣》
+              en <Zantetsuken>
+              IT <Zantetsuken>
+    non ident. IT katana d'argento lucente   (en shining silver katana)
+    --- description(3)  :127352 ⚠️ TETTO SECCO 69
+        JP  \t\t何でも貫くといわれる長剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is the sword rumored to cut through anything.
+
+=== ITEM_ID_DIABLOS   [FILTER_WEAPON]
+    NOME      jp 《ディアボロス》
+              en <Diablos>
+              IT <Diablos>
+    non ident. IT spada nerissima   (en pure black sword)
+    --- description(3)  :127424 ⚠️ TETTO SECCO 69
+        JP  \t\t時を止める長剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is the longsword that stops time.
+
+=== ITEM_ID_CLUB   [FILTER_WEAPON]
+    NOME      jp 棍棒
+              en club
+              IT randello
+    --- description(3)  :130980 ⚠️ TETTO SECCO 69
+        JP  \t\t素材を削り出して作られた棒だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a simple but effective blunt weapon.
+
+=== ITEM_ID_HAND_AXE   [FILTER_WEAPON]
+    NOME      jp 手斧
+              en hand axe
+              IT accetta
+    --- description(3)  :131048 ⚠️ TETTO SECCO 69
+        JP  \t\t小型の斧だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a smaller, single-bladed axe.
+
+=== ITEM_ID_DAGGER   [FILTER_WEAPON]
+    NOME      jp 短剣
+              en dagger
+              IT pugnale
+    --- description(3)  :131117 ⚠️ TETTO SECCO 69
+        JP  \t\t小型の剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a shortsword.
+
+=== ITEM_ID_LONG_SWORD   [FILTER_WEAPON]
+    NOME      jp 長剣
+              en long sword
+              IT spada lunga
+    --- description(3)  :131185 ⚠️ TETTO SECCO 69
+        JP  \t\t細い刀身の剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a double-edged longsword.
+
+== 105 oggetti, 105 descrizioni

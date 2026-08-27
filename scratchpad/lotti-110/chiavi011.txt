@@ -1,0 +1,343 @@
+# la zona non e' un intervallo: si dichiara per insieme di righe
+RIGHE = {
+    47362, 47435, 47508, 47581, 47654, 47727, 47800, 47873, 47946, 48019,
+    48092, 48165, 48238, 48311, 48384, 48457, 48530, 48603, 48676, 58996,
+    61869, 65603, 72960, 78730, 82080, 82153, 83558, 84443, 84516, 85104,
+    86943, 89013, 91985, 92873, 93225, 94178, 94322, 94457, 98652, 98877,
+    102040, 103652, 104522, 104595, 105231, 105304, 105528, 105672, 105745, 105889,
+    106184, 106257, 106401, 106545, 106689, 106842, 111853, 112955, 113028, 113101,
+    113174, 113247, 113320, 113462, 113535, 113608, 114016, 114353, 114426, 114499,
+    114572, 114645, 114718, 114791, 123360, 123495, 128871, 128944, 129017, 129727,
+    129800, 129873,
+}
+# 82 righe, da 47362 a 129873
+
+    # ---------------------------------------------------------- :47362
+    (47362, 'Book of Rank 6 Magic. Area of Effect spell that does lightning damage.'):
+        "",
+
+    # ---------------------------------------------------------- :47435
+    (47435, 'Book of Rank 7 Magic. Area of Effect spell that does darkness damage.'):
+        "",
+
+    # ---------------------------------------------------------- :47508
+    (47508, 'Book of Rank 7 Magic. Area of Effect spell that does nether damage.'):
+        "",
+
+    # ---------------------------------------------------------- :47581
+    (47581, 'Book of Rank 7 Magic. Area of Effect spell that does poison damage.'):
+        "",
+
+    # ---------------------------------------------------------- :47654
+    (47654, 'Book of Rank 8 Magic. Area of Effect spell that does physical damage.'):
+        "",
+
+    # ---------------------------------------------------------- :47727
+    (47727, 'Book of Rank 7 Magic. Area of Effect spell that does mind damage.'):
+        "",
+
+    # ---------------------------------------------------------- :47800
+    (47800, 'Book of Rank 7 Magic. Area of Effect spell that does nerve damage.'):
+        "",
+
+    # ---------------------------------------------------------- :47873
+    (47873, 'Book of Rank 5 Magic. Bolt type spell that does nether damage.'):
+        "",
+
+    # ---------------------------------------------------------- :47946
+    (47946, 'Book of Rank 5 Magic. Bolt type spell that does poison damage.'):
+        "",
+
+    # ---------------------------------------------------------- :48019
+    (48019, 'Book of Rank 5 Magic. Bolt type spell that does sound damage.'):
+        "",
+
+    # ---------------------------------------------------------- :48092
+    (48092, 'Book of Rank 5 Magic. Bolt type spell that does chaos damage.'):
+        "",
+
+    # ---------------------------------------------------------- :48165
+    (48165, 'Book of Rank 5 Magic. Bolt type spell that does nerve damage.'):
+        "",
+
+    # ---------------------------------------------------------- :48238
+    (48238, 'Book of Rank 2 Magic. Arrow type spell that does fire damage.'):
+        "",
+
+    # ---------------------------------------------------------- :48311
+    (48311, 'Book of Rank 2 Magic. Arrow type spell that does cold damage.'):
+        "",
+
+    # ---------------------------------------------------------- :48384
+    (48384, 'Book of Rank 2 Magic. Arrow type spell that does lightning damage.'):
+        "",
+
+    # ---------------------------------------------------------- :48457
+    (48457, 'Book of Rank 3 Magic. Arrow type spell that does mind damage.'):
+        "",
+
+    # ---------------------------------------------------------- :48530
+    (48530, 'Book of Rank 3 Magic. Arrow type spell that does poison damage.'):
+        "",
+
+    # ---------------------------------------------------------- :48603
+    (48603, 'Book of Rank 3 Magic. Arrow type spell that does sound damage.'):
+        "",
+
+    # ---------------------------------------------------------- :48676
+    (48676, 'Book of Rank 3 Magic. Arrow type spell that does physical damage.'):
+        "",
+
+    # ---------------------------------------------------------- :58996
+    (58996, 'Book of Rank 1 Magic. Increases CON/CHR, give resist to Paralysis/Blind.'):
+        "",
+
+    # ---------------------------------------------------------- :61869
+    (61869, 'Book of Rank 5 Magic. Bolt type spell that does physical damage.'):
+        "",
+
+    # ---------------------------------------------------------- :65603
+    (65603, 'Book of Rank 1 Magic. Increases PER/WIL, give resist to Sleep/Confuse.'):
+        "",
+
+    # ---------------------------------------------------------- :72960
+    (72960, 'Book of Rank 2 Magic. It lets you float and dodge inaccurate attacks.'):
+        "",
+
+    # ---------------------------------------------------------- :78730
+    (78730, '(Single-use) paper that teaches you new recipes.'):
+        "",
+
+    # ---------------------------------------------------------- :82080
+    (82080, 'Book of Rank 4 Magic. It makes gold pieces rain from the sky.'):
+        "",
+
+    # ---------------------------------------------------------- :82153
+    (82153, 'Book of Rank 7 Magic. It summons a rift of pocket realm to storage items.'):
+        "",
+
+    # ---------------------------------------------------------- :83558
+    (83558, 'Book of Rank 12 Magic. The blessing negates fatal damage occasionally.'):
+        "",
+
+    # ---------------------------------------------------------- :84443
+    (84443, 'Book of Rank 2 Magic. Bolt type spell that does magic damage.'):
+        "",
+
+    # ---------------------------------------------------------- :84516
+    (84516, 'Book of Rank 5 Magic. Area of Effect spell that does magical damage.'):
+        "",
+
+    # ---------------------------------------------------------- :85104
+    (85104, '(Readable) book with ancient knowledge.'):
+        "",
+
+    # ---------------------------------------------------------- :86943
+    (86943, 'Book of Rank 4 Magic. Arrow type spell that does darkness damage.'):
+        "",
+
+    # ---------------------------------------------------------- :89013
+    (89013, 'Book of Rank 3 Magic. It reset memories of hostile situations.'):
+        "",
+
+    # ---------------------------------------------------------- :91985
+    (91985, 'Book of Rank 3 Magic. It manifests a door on target object.'):
+        "",
+
+    # ---------------------------------------------------------- :92873
+    (92873, 'Book of Rank 6 Magic. It can generate walls of flame on targeted spot.'):
+        "",
+
+    # ---------------------------------------------------------- :93225
+    (93225, 'Book of Rank 5 Magic. It can generate pools of acid on targeted spot.'):
+        "",
+
+    # ---------------------------------------------------------- :94178
+    (94178, 'Book of Rank 5 Magic. It can restore HP of the touched ally.'):
+        "",
+
+    # ---------------------------------------------------------- :94322
+    (94322, 'Book of Rank 5 Magic. It can restore HP of every nearby ally.'):
+        "",
+
+    # ---------------------------------------------------------- :94457
+    (94457, 'Book of Rank 3 Magic. It manifests a wall at target location.'):
+        "",
+
+    # ---------------------------------------------------------- :98652
+    (98652, 'Book of Rank 2 Magic. It creates spider webs on the targeted spot.'):
+        "",
+
+    # ---------------------------------------------------------- :98877
+    (98877, "Book of Rank 20 Magic. It bends target's will, making them join you."):
+        "",
+
+    # ---------------------------------------------------------- :102040
+    (102040, 'Book of Rank 20 Magic. It lets you mutate yourself.'):
+        "",
+
+    # ---------------------------------------------------------- :103652
+    (103652, 'Book of Rank 3 Magic. It highlights hidden objects around you.'):
+        "",
+
+    # ---------------------------------------------------------- :104522
+    (104522, 'Book of Rank 4 Magic. Helps handling various anomalies created by tomes.'):
+        "",
+
+    # ---------------------------------------------------------- :104595
+    (104595, 'Book of Rank 5 Magic. It reduces various magical resistance of target.'):
+        "",
+
+    # ---------------------------------------------------------- :105231
+    (105231, 'Book of Rank 8 Magic. It dispels various hex on the user.'):
+        "",
+
+    # ---------------------------------------------------------- :105304
+    (105304, 'Book of Rank 5 Magic. It dispels one hex from nearby people.'):
+        "",
+
+    # ---------------------------------------------------------- :105528
+    (105528, 'Book of Rank 8 Magic. It enhances your resistance against curses.'):
+        "",
+
+    # ---------------------------------------------------------- :105672
+    (105672, 'Book of Rank 6 Magic. It reduces elemental magical resistance of target.'):
+        "",
+
+    # ---------------------------------------------------------- :105745
+    (105745, 'Book of Rank 4 Magic. It reduces physical resilience of target.'):
+        "",
+
+    # ---------------------------------------------------------- :105889
+    (105889, 'Book of Rank 1 Magic. Increases STR/DEX, give resist to Fear/Confuse.'):
+        "",
+
+    # ---------------------------------------------------------- :106184
+    (106184, 'Book of Rank 5 Magic. It reduces the speed of the target..'):
+        "",
+
+    # ---------------------------------------------------------- :106257
+    (106257, 'Book of Rank 9 Magic. It increases the speed of user.'):
+        "",
+
+    # ---------------------------------------------------------- :106401
+    (106401, 'Book of Rank 4 Magic. It raises various magical resistance of user.'):
+        "",
+
+    # ---------------------------------------------------------- :106545
+    (106545, 'Book of Rank 5 Magic. It activates the healing factor of the user.'):
+        "",
+
+    # ---------------------------------------------------------- :106689
+    (106689, 'Book of Rank 6 Magic. It silences the target.'):
+        "",
+
+    # ---------------------------------------------------------- :106842
+    (106842, 'Book of Rank 2 Magic. Raise ones dodge abilities and give resist to fear.'):
+        "",
+
+    # ---------------------------------------------------------- :111853
+    (111853, 'Book of Rank 50 Magic. It grants the user a chance to say their wishes.'):
+        "",
+
+    # ---------------------------------------------------------- :112955
+    (112955, 'Book of Rank 7 Magic. Area of Effect spell that does chaos damage.'):
+        "",
+
+    # ---------------------------------------------------------- :113028
+    (113028, 'Book of Rank 7 Magic. Area of Effect spell that does sound damage.'):
+        "",
+
+    # ---------------------------------------------------------- :113101
+    (113101, 'Book of Rank 6 Magic. Area of Effect spell that does fire damage.'):
+        "",
+
+    # ---------------------------------------------------------- :113174
+    (113174, 'Book of Rank 6 Magic. Area of Effect spell that does cold damage.'):
+        "",
+
+    # ---------------------------------------------------------- :113247
+    (113247, 'Book of Rank 6 Magic. Bolt type spell that does mind damage.'):
+        "",
+
+    # ---------------------------------------------------------- :113320
+    (113320, 'Book of Rank 6 Magic. Bolt type spell that does darkness damage.'):
+        "",
+
+    # ---------------------------------------------------------- :113462
+    (113462, 'Book of Rank 3 Magic. Arrow type spell that does nerve damage.'):
+        "",
+
+    # ---------------------------------------------------------- :113535
+    (113535, 'Book of Rank 3 Magic. Arrow type spell that does chaos damage.'):
+        "",
+
+    # ---------------------------------------------------------- :113608
+    (113608, 'Book of Rank 3 Magic. Arrow type spell that does nether damage.'):
+        "",
+
+    # ---------------------------------------------------------- :114016
+    (114016, 'Book of Rank 1 Magic. Arrow type spell that does magical damage.'):
+        "",
+
+    # ---------------------------------------------------------- :114353
+    (114353, 'Book of Rank 12 Magic. It heals the spell user greatly.'):
+        "",
+
+    # ---------------------------------------------------------- :114426
+    (114426, 'Book of Rank 8 Magic. It heals the spell user.'):
+        "",
+
+    # ---------------------------------------------------------- :114499
+    (114499, 'Book of Rank 4 Magic. It heals the spell user.'):
+        "",
+
+    # ---------------------------------------------------------- :114572
+    (114572, 'Book of Rank 1 Magic. It heals the spell user.'):
+        "",
+
+    # ---------------------------------------------------------- :114645
+    (114645, 'Book of Rank 6 Magic. It teleports user to location across the continent.'):
+        "",
+
+    # ---------------------------------------------------------- :114718
+    (114718, 'Book of Rank 15 Magic. It shows the user location of powerful artifacts.'):
+        "",
+
+    # ---------------------------------------------------------- :114791
+    (114791, 'Book of Rank 5 Magic. It illuminates nearby walls to create a map.'):
+        "",
+
+    # ---------------------------------------------------------- :123360
+    (123360, 'Book of Rank 3 Magic. It summons several monsters from a nearby Nefia.'):
+        "",
+
+    # ---------------------------------------------------------- :123495
+    (123495, 'Book of Rank 1 Magic. It teleports user for a short distance.'):
+        "",
+
+    # ---------------------------------------------------------- :128871
+    (128871, 'Book of Rank 4 Magic. Bolt type spell that does lightning damage.'):
+        "",
+
+    # ---------------------------------------------------------- :128944
+    (128944, 'Book of Rank 4 Magic. Bolt type spell that does fire damage.'):
+        "",
+
+    # ---------------------------------------------------------- :129017
+    (129017, 'Book of Rank 4 Magic. Bolt type spell that does ice damage.'):
+        "",
+
+    # ---------------------------------------------------------- :129727
+    (129727, 'Book of Rank 7 Magic. It uncursed equipped items.'):
+        "",
+
+    # ---------------------------------------------------------- :129800
+    (129800, 'Book of Rank 8 Magic. It identifies an item for the user.'):
+        "",
+
+    # ---------------------------------------------------------- :129873
+    (129873, 'Book of Rank 5 Magic. It teleports user for a distance.'):
+        "",
+
+# 82 voci, 0 ambigue

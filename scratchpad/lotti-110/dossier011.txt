@@ -1,0 +1,657 @@
+=== ITEM_ID_SPELLBOOK_OF_THUNDER_VORTEX   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 雷霆の渦の魔法書 雷霆の渦の魔法書
+              en thunder vortex spellbook
+              IT vortice di tuono grimorio
+    --- description(3)  :47362 ⚠️ TETTO SECCO 69
+        JP  \t\t電撃属性の範囲魔法呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 6 Magic. Area of Effect spell that does lightning damage.
+
+=== ITEM_ID_SPELLBOOK_OF_ECLIPSE_JAIL   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 月蝕の檻の魔法書 月蝕の檻の魔法書
+              en eclipse jail spellbook
+              IT prigione d'eclissi grimorio
+    --- description(3)  :47435 ⚠️ TETTO SECCO 69
+        JP  \t\t暗黒属性の範囲魔法呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 7 Magic. Area of Effect spell that does darkness damage.
+
+=== ITEM_ID_SPELLBOOK_OF_NETHER_ROAR   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 冥王の咆哮の魔法書 冥王の咆哮の魔法書
+              en nether roar spellbook
+              IT ruggito dell'oltretomba grimorio
+    --- description(3)  :47508 ⚠️ TETTO SECCO 69
+        JP  \t\t地獄属性の範囲魔法呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 7 Magic. Area of Effect spell that does nether damage.
+
+=== ITEM_ID_SPELLBOOK_OF_POISON_STORM   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 猛毒の嵐の魔法書 猛毒の嵐の魔法書
+              en poison storm spellbook
+              IT tempesta di veleno grimorio
+    --- description(3)  :47581 ⚠️ TETTO SECCO 69
+        JP  \t\t毒属性の範囲魔法呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 7 Magic. Area of Effect spell that does poison damage.
+
+=== ITEM_ID_SPELLBOOK_OF_BUBBLE_STORM   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 泡沫の嵐の魔法書 泡沫の嵐の魔法書
+              en bubble storm spellbook
+              IT tempesta di bolle grimorio
+    --- description(3)  :47654 ⚠️ TETTO SECCO 69
+        JP  \t\tＰＶＤＶ属性の範囲魔法呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 8 Magic. Area of Effect spell that does physical damage.
+
+=== ITEM_ID_SPELLBOOK_OF_ILLUSION_ROAR   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 夢幻の咆哮の魔法書 夢幻の咆哮の魔法書
+              en illusion roar spellbook
+              IT ruggito d'illusione grimorio
+    --- description(3)  :47727 ⚠️ TETTO SECCO 69
+        JP  \t\t幻惑属性の範囲魔法呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 7 Magic. Area of Effect spell that does mind damage.
+
+=== ITEM_ID_SPELLBOOK_OF_ANGUISH_JAIL   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 苦悶の檻の魔法書 苦悶の檻の魔法書
+              en anguish jail spellbook
+              IT prigione d'angoscia grimorio
+    --- description(3)  :47800 ⚠️ TETTO SECCO 69
+        JP  \t\t神経属性の範囲魔法呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 7 Magic. Area of Effect spell that does nerve damage.
+
+=== ITEM_ID_SPELLBOOK_OF_NETHER_BOLT   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ネザーボルトの魔法書 ネザーボルトの魔法書
+              en nether bolt spellbook
+              IT saetta d'oltretomba grimorio
+    --- description(3)  :47873 ⚠️ TETTO SECCO 69
+        JP  \t\t地獄属性のボルトを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. Bolt type spell that does nether damage.
+
+=== ITEM_ID_SPELLBOOK_OF_POISON_BOLT   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ポイズンボルトの魔法書 ポイズンボルトの魔法書
+              en poison bolt spellbook
+              IT saetta velenosa grimorio
+    --- description(3)  :47946 ⚠️ TETTO SECCO 69
+        JP  \t\t毒属性のボルトを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. Bolt type spell that does poison damage.
+
+=== ITEM_ID_SPELLBOOK_OF_SOUND_BOLT   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp サウンドボルトの魔法書 サウンドボルトの魔法書
+              en sound bolt spellbook
+              IT saetta sonora grimorio
+    --- description(3)  :48019 ⚠️ TETTO SECCO 69
+        JP  \t\t音属性のボルトを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. Bolt type spell that does sound damage.
+
+=== ITEM_ID_SPELLBOOK_OF_CHAOS_BOLT   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp カオスボルトの魔法書 カオスボルトの魔法書
+              en chaos bolt spellbook
+              IT saetta caotica grimorio
+    --- description(3)  :48092 ⚠️ TETTO SECCO 69
+        JP  \t\t混沌属性のボルトを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. Bolt type spell that does chaos damage.
+
+=== ITEM_ID_SPELLBOOK_OF_NERVE_BOLT   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ナーブボルトの魔法書 ナーブボルトの魔法書
+              en nerve bolt spellbook
+              IT saetta dei nervi grimorio
+    --- description(3)  :48165 ⚠️ TETTO SECCO 69
+        JP  \t\t神経属性のボルトを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. Bolt type spell that does nerve damage.
+
+=== ITEM_ID_SPELLBOOK_OF_FIRE_CLAW   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 火炎の爪の魔法書 火炎の爪の魔法書
+              en fire claw spellbook
+              IT artiglio di fuoco grimorio
+    --- description(3)  :48238 ⚠️ TETTO SECCO 69
+        JP  \t\t火炎属性の矢を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 2 Magic. Arrow type spell that does fire damage.
+
+=== ITEM_ID_SPELLBOOK_OF_COLD_BLADE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 冷気の刃の魔法書 冷気の刃の魔法書
+              en cold blade spellbook
+              IT lama di gelo grimorio
+    --- description(3)  :48311 ⚠️ TETTO SECCO 69
+        JP  \t\t冷気属性の矢を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 2 Magic. Arrow type spell that does cold damage.
+
+=== ITEM_ID_SPELLBOOK_OF_LIGHTNING_SPEAR   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 電撃の槍の魔法書 電撃の槍の魔法書
+              en lightning spear spellbook
+              IT lancia di fulmine grimorio
+    --- description(3)  :48384 ⚠️ TETTO SECCO 69
+        JP  \t\t電撃属性の矢を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 2 Magic. Arrow type spell that does lightning damage.
+
+=== ITEM_ID_SPELLBOOK_OF_MIND_THORN   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 幻惑の棘の魔法書 幻惑の棘の魔法書
+              en mind thorn spellbook
+              IT spina mentale grimorio
+    --- description(3)  :48457 ⚠️ TETTO SECCO 69
+        JP  \t\t幻惑属性の矢を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 3 Magic. Arrow type spell that does mind damage.
+
+=== ITEM_ID_SPELLBOOK_OF_POISON_MUCUS   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 毒の粘液の魔法書 毒の粘液の魔法書
+              en poison mucus spellbook
+              IT muco velenoso grimorio
+    --- description(3)  :48530 ⚠️ TETTO SECCO 69
+        JP  \t\t毒属性の矢を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 3 Magic. Arrow type spell that does poison damage.
+
+=== ITEM_ID_SPELLBOOK_OF_SOUND_CANNONBALL   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 音の砲弾の魔法書 音の砲弾の魔法書
+              en sound cannonball spellbook
+              IT cannonata sonora grimorio
+    --- description(3)  :48603 ⚠️ TETTO SECCO 69
+        JP  \t\t音属性の矢を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 3 Magic. Arrow type spell that does sound damage.
+
+=== ITEM_ID_SPELLBOOK_OF_HYDRO_FANG   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 水の牙の魔法書 水の牙の魔法書
+              en hydro fang spellbook
+              IT zanna d'acqua grimorio
+    --- description(3)  :48676 ⚠️ TETTO SECCO 69
+        JP  PVDV属性の矢を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 3 Magic. Arrow type spell that does physical damage.
+
+=== ITEM_ID_SPELLBOOK_GEM   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 守護石の魔法書 守護石の魔法書
+              en gem spellbook
+              IT gemma grimorio
+    --- description(3)  :58996 ⚠️ TETTO SECCO 69
+        JP  \t\t耐久と魅力の向上と、麻痺と盲目に耐性を得る呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 1 Magic. Increases CON/CHR, give resist to Paralysis/Blind.
+
+=== ITEM_ID_SPELLBOOK_WATER_BEAM   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ハイドロボルトの魔法書 ハイドロボルトの魔法書
+              en hydro bolt spellbook
+              IT saetta d'acqua grimorio
+    --- description(3)  :61869 ⚠️ TETTO SECCO 69
+        JP  \t\tＰＶＤＶ属性のボルトを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. Bolt type spell that does physical damage.
+
+=== ITEM_ID_SPELLBOOK_CONCENTRATION   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 集中の魔法書 集中の魔法書
+              en concentration spellbook
+              IT concentrazione grimorio
+    --- description(3)  :65603 ⚠️ TETTO SECCO 69
+        JP  \t\t感覚と意志の向上と、睡眠と混乱に耐性を得る呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 1 Magic. Increases PER/WIL, give resist to Sleep/Confuse.
+
+=== ITEM_ID_SPELLBOOK_FEATHER   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp フェザーの魔法書 フェザーの魔法書
+              en feather spellbook
+              IT piuma grimorio
+    --- description(3)  :72960 ⚠️ TETTO SECCO 69
+        JP  \t\t重力から解放され、回避力を高める呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 2 Magic. It lets you float and dodge inaccurate attacks.
+
+=== ITEM_ID_RECIPE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp レシピ
+              en recipe
+              IT ricetta
+    --- description(3)  :78730 ⚠️ TETTO SECCO 69
+        JP  \t\t複雑な料理を覚えるための紙。使用することができる（使い捨て）。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  (Single-use) paper that teaches you new recipes.
+
+=== ITEM_ID_SPELLBOOK_HARVEST   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 収穫の魔法書 収穫の魔法書
+              en harvest spellbook
+              IT raccolto grimorio
+    --- description(3)  :82080 ⚠️ TETTO SECCO 69
+        JP  \t\t空から金貨が降ってくる呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 4 Magic. It makes gold pieces rain from the sky.
+
+=== ITEM_ID_SPELLBOOK_4D_POCKET   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 四次元ポケットの魔法書 四次元ポケットの魔法書
+              en 4 dimensional pocket spellbook
+              IT tasca quadridimensionale grimorio
+    --- description(3)  :82153 ⚠️ TETTO SECCO 69
+        JP  \t\tアイテムを保持しておく領域を召喚する呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 7 Magic. It summons a rift of pocket realm to storage items.
+
+=== ITEM_ID_SPELLBOOK_CONTINGENCY   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 契約の魔法書 契約の魔法書
+              en contingency spellbook
+              IT contingenza grimorio
+    --- description(3)  :83558 ⚠️ TETTO SECCO 69
+        JP  \t\t致命傷を負った時、確率でそのダメージを０にする呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 12 Magic. The blessing negates fatal damage occasionally.
+
+=== ITEM_ID_SPELLBOOK_MAGIC_LASER   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp マジックボルトの魔法書 マジックボルトの魔法書
+              en magic bolt spellbook
+              IT saetta magica grimorio
+    --- description(3)  :84443 ⚠️ TETTO SECCO 69
+        JP  \t\t魔法属性のボルトを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 2 Magic. Bolt type spell that does magic damage.
+
+=== ITEM_ID_SPELLBOOK_MAGIC_BALL   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 魔力の嵐の魔法書 魔力の嵐の魔法書
+              en magic storm spellbook
+              IT tempesta di magia grimorio
+    --- description(3)  :84516 ⚠️ TETTO SECCO 69
+        JP  \t\t範囲的な魔法属性の呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. Area of Effect spell that does magical damage.
+
+=== ITEM_ID_ANCIENT_BOOK   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 古書物
+              en ancient book
+              IT libro antico
+    --- description(3)  :85104 ⚠️ TETTO SECCO 69
+        JP  \t\t古代の知識が書き込まれた書。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  (Readable) book with ancient knowledge.
+
+=== ITEM_ID_SPELLBOOK_DARKNESS_ARROW   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 暗黒の楔の魔法書 暗黒の楔の魔法書
+              en darkness wedge spellbook
+              IT cuneo d'oscurità grimorio
+    --- description(3)  :86943 ⚠️ TETTO SECCO 69
+        JP  \t\t暗黒属性の矢を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 4 Magic. Arrow type spell that does darkness damage.
+
+=== ITEM_ID_SPELLBOOK_INCOGNITO   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp インコグニートの魔法書 インコグニートの魔法書
+              en incognito spellbook
+              IT incognito grimorio
+    --- description(3)  :89013 ⚠️ TETTO SECCO 69
+        JP  \t\tモンスター以外の敵対状況をリセットする呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 3 Magic. It reset memories of hostile situations.
+
+=== ITEM_ID_SPELLBOOK_MAKE_DOOR   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 扉生成の魔法書 扉生成の魔法書
+              en make door spellbook
+              IT creazione di porte grimorio
+    --- description(3)  :91985 ⚠️ TETTO SECCO 69
+        JP  \t\t対象に扉を生成する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 3 Magic. It manifests a door on target object.
+
+=== ITEM_ID_SPELLBOOK_FIRE_WALL   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 炎の壁の魔法書 炎の壁の魔法書
+              en fire wall spellbook
+              IT muro di fuoco grimorio
+    --- description(3)  :92873 ⚠️ TETTO SECCO 69
+        JP  \t\t対象に炎の壁を生成する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 6 Magic. It can generate walls of flame on targeted spot.
+
+=== ITEM_ID_SPELLBOOK_ACID_GROUND   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 酸の海の魔法書 酸の海の魔法書
+              en acid ground spellbook
+              IT suolo acido grimorio
+    --- description(3)  :93225 ⚠️ TETTO SECCO 69
+        JP  \t\t対象に酸の海を生成する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. It can generate pools of acid on targeted spot.
+
+=== ITEM_ID_SPELLBOOK_HEALING_HANDS   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 癒しの手の魔法書 癒しの手の魔法書
+              en healing hands spellbook
+              IT mani guaritrici grimorio
+    --- description(3)  :94178 ⚠️ TETTO SECCO 69
+        JP  \t\t自分、もしくは隣接した味方のHPを回復する呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. It can restore HP of the touched ally.
+
+=== ITEM_ID_SPELLBOOK_HEALING_RAIN   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 治癒の雨の魔法書 治癒の雨の魔法書
+              en healing rain spellbook
+              IT pioggia curativa grimorio
+    --- description(3)  :94322 ⚠️ TETTO SECCO 69
+        JP  \t\t周囲の味方のHPを回復する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. It can restore HP of every nearby ally.
+
+=== ITEM_ID_SPELLBOOK_WALL_CREATION   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 壁生成の魔法書 壁生成の魔法書
+              en wall creation spellbook
+              IT creazione di muri grimorio
+    --- description(3)  :94457 ⚠️ TETTO SECCO 69
+        JP  \t\t対象に壁を生成する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 3 Magic. It manifests a wall at target location.
+
+=== ITEM_ID_SPELLBOOK_WEB   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 蜘蛛の巣の魔法書 蜘蛛の巣の魔法書
+              en web spellbook
+              IT ragnatela grimorio
+    --- description(3)  :98652 ⚠️ TETTO SECCO 69
+        JP  \t\t対象に蜘蛛の巣を張る呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 2 Magic. It creates spider webs on the targeted spot.
+
+=== ITEM_ID_SPELLBOOK_DOMINATION   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 支配の魔法書 支配の魔法書
+              en domination spellbook
+              IT dominio grimorio
+    --- description(3)  :98877 ⚠️ TETTO SECCO 69
+        JP  \t\t対象を味方に引き入れる呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 20 Magic. It bends target's will, making them join you.
+
+=== ITEM_ID_SPELLBOOK_MUTATION   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 自己変容の魔法書 自己変容の魔法書
+              en mutation spellbook
+              IT mutazione grimorio
+    --- description(3)  :102040 ⚠️ TETTO SECCO 69
+        JP  \t\t自分に突然変異を起こす呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 20 Magic. It lets you mutate yourself.
+
+=== ITEM_ID_SPELLBOOK_DETECT_OBJECTS   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 物質感知の魔法書 物質感知の魔法書
+              en detect objects spellbook
+              IT individuazione degli oggetti grimorio
+    --- description(3)  :103652 ⚠️ TETTO SECCO 69
+        JP  \t\t周囲の物質を発見する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 3 Magic. It highlights hidden objects around you.
+
+=== ITEM_ID_SPELLBOOK_KNOWLEDGE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 知者の加護の魔法書 知者の加護の魔法書
+              en knowledge spellbook
+              IT conoscenza grimorio
+    --- description(3)  :104522 ⚠️ TETTO SECCO 69
+        JP  \t\t読書の補佐をする呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 4 Magic. Helps handling various anomalies created by tomes.
+
+=== ITEM_ID_SPELLBOOK_NIGHTMARE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ナイトメアの魔法書 ナイトメアの魔法書
+              en nightmare spellbook
+              IT incubo grimorio
+    --- description(3)  :104595 ⚠️ TETTO SECCO 69
+        JP  \t\t対象の精神的な耐性を一時的に下げる呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. It reduces various magical resistance of target.
+
+=== ITEM_ID_SPELLBOOK_HOLY_RAIN   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 全浄化の魔法書 全浄化の魔法書
+              en holy rain spellbook
+              IT pioggia sacra grimorio
+    --- description(3)  :105231 ⚠️ TETTO SECCO 69
+        JP  \t\t自らの呪いを全て打ち消す呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 8 Magic. It dispels various hex on the user.
+
+=== ITEM_ID_SPELLBOOK_HOLY_LIGHT   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 清浄なる光の魔法書 清浄なる光の魔法書
+              en holy light spellbook
+              IT luce sacra grimorio
+    --- description(3)  :105304 ⚠️ TETTO SECCO 69
+        JP  \t\t自らの呪いを一つ打ち消す呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. It dispels one hex from nearby people.
+
+=== ITEM_ID_SPELLBOOK_HOLY_VEIL   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ホーリーヴェイルの魔法書 ホーリーヴェイルの魔法書
+              en holy veil spellbook
+              IT velo sacro grimorio
+    --- description(3)  :105528 ⚠️ TETTO SECCO 69
+        JP  \t\t一定時間呪いに対する抵抗を得る呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 8 Magic. It enhances your resistance against curses.
+
+=== ITEM_ID_SPELLBOOK_ELEMENTAL_SCAR   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 元素の傷跡の魔法書 元素の傷跡の魔法書
+              en elemental scar spellbook
+              IT cicatrice elementale grimorio
+    --- description(3)  :105672 ⚠️ TETTO SECCO 69
+        JP  \t\t対象の元素の耐性を一時的に下げる呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 6 Magic. It reduces elemental magical resistance of target.
+
+=== ITEM_ID_SPELLBOOK_WEAKNESS   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 脆弱の霧の魔法書 脆弱の霧の魔法書
+              en weakness spellbook
+              IT debolezza grimorio
+    --- description(3)  :105745 ⚠️ TETTO SECCO 69
+        JP  \t\t対象のPVを一時的に下げる呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 4 Magic. It reduces physical resilience of target.
+
+=== ITEM_ID_SPELLBOOK_HERO   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 英雄の魔法書 英雄の魔法書
+              en hero spellbook
+              IT eroismo grimorio
+    --- description(3)  :105889 ⚠️ TETTO SECCO 69
+        JP  \t\t筋力と器用さの向上と、恐怖と混乱に耐性を得る呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 1 Magic. Increases STR/DEX, give resist to Fear/Confuse.
+
+=== ITEM_ID_SPELLBOOK_SLOW   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 鈍足の魔法書 鈍足の魔法書
+              en slow spellbook
+              IT rallentamento grimorio
+    --- description(3)  :106184 ⚠️ TETTO SECCO 69
+        JP  \t\t鈍足状態を引き起こす呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. It reduces the speed of the target..
+
+=== ITEM_ID_SPELLBOOK_SPEED   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 加速の魔法書 加速の魔法書
+              en speed spellbook
+              IT accelerazione grimorio
+    --- description(3)  :106257 ⚠️ TETTO SECCO 69
+        JP  \t\t加速状態を引き起こす呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 9 Magic. It increases the speed of user.
+
+=== ITEM_ID_SPELLBOOK_RESISTANCE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 属性保護の魔法書 属性保護の魔法書
+              en resistance spellbook
+              IT resistenza grimorio
+    --- description(3)  :106401 ⚠️ TETTO SECCO 69
+        JP  \t\t属性耐性を一時的に上げる呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 4 Magic. It raises various magical resistance of user.
+
+=== ITEM_ID_SPELLBOOK_REGENERATION   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp リジェネレーションの魔法書 リジェネレーションの魔法書
+              en regeneration spellbook
+              IT rigenerazione grimorio
+    --- description(3)  :106545 ⚠️ TETTO SECCO 69
+        JP  \t\t一時的に治癒力を上げる呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. It activates the healing factor of the user.
+
+=== ITEM_ID_SPELLBOOK_SILENCE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 沈黙の霧の魔法書 沈黙の霧の魔法書
+              en silence spellbook
+              IT silenzio grimorio
+    --- description(3)  :106689 ⚠️ TETTO SECCO 69
+        JP  \t\t対象を沈黙状態にする呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 6 Magic. It silences the target.
+
+=== ITEM_ID_SPELLBOOK_HOLY_SHIELD   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 聖なる盾の魔法書 聖なる盾の魔法書
+              en holy shield spellbook
+              IT scudo sacro grimorio
+    --- description(3)  :106842 ⚠️ TETTO SECCO 69
+        JP  \t\t一時的にDVを上げ、恐怖に耐性を得る呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 2 Magic. Raise ones dodge abilities and give resist to fear.
+
+=== ITEM_ID_SPELLBOOK_WISHING   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 願いの魔法書 願いの魔法書
+              en wishing spellbook
+              IT desiderio grimorio
+    --- description(3)  :111853 ⚠️ TETTO SECCO 69
+        JP  \t\t願いを言う機会が与えられる呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 50 Magic. It grants the user a chance to say their wishes.
+
+=== ITEM_ID_SPELLBOOK_CHAOS_BALL   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 混沌の渦の魔法書 混沌の渦の魔法書
+              en chaos vortex spellbook
+              IT vortice caotico grimorio
+    --- description(3)  :112955 ⚠️ TETTO SECCO 69
+        JP  \t\t混沌属性の範囲魔法呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 7 Magic. Area of Effect spell that does chaos damage.
+
+=== ITEM_ID_SPELLBOOK_SOUND_BALL   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 轟音の波動の魔法書 轟音の波動の魔法書
+              en howling wave spellbook
+              IT onda di boato grimorio
+    --- description(3)  :113028 ⚠️ TETTO SECCO 69
+        JP  \t\t音属性の範囲魔法呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 7 Magic. Area of Effect spell that does sound damage.
+
+=== ITEM_ID_SPELLBOOK_FIRE_BALL   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 灼熱の嵐の魔法書 灼熱の嵐の魔法書
+              en burning storm spellbook
+              IT tempesta rovente grimorio
+    --- description(3)  :113101 ⚠️ TETTO SECCO 69
+        JP  \t\t火炎属性の範囲魔法呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 6 Magic. Area of Effect spell that does fire damage.
+
+=== ITEM_ID_SPELLBOOK_ICE_BALL   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 氷結の波動の魔法書 氷結の波動の魔法書
+              en freezing wave spellbook
+              IT onda gelante grimorio
+    --- description(3)  :113174 ⚠️ TETTO SECCO 69
+        JP  \t\t冷気属性の範囲魔法呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 6 Magic. Area of Effect spell that does cold damage.
+
+=== ITEM_ID_SPELLBOOK_ILLUSION_BEAM   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp マインドボルトの魔法書 マインドボルトの魔法書
+              en mind bolt spellbook
+              IT saetta mentale grimorio
+    --- description(3)  :113247 ⚠️ TETTO SECCO 69
+        JP  \t\t幻惑属性のボルトを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 6 Magic. Bolt type spell that does mind damage.
+
+=== ITEM_ID_SPELLBOOK_DARKNESS_BEAM   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ダークネスボルトの魔法書 ダークネスボルトの魔法書
+              en darkness bolt spellbook
+              IT saetta d'oscurità grimorio
+    --- description(3)  :113320 ⚠️ TETTO SECCO 69
+        JP  \t\t暗黒属性のボルトを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 6 Magic. Bolt type spell that does darkness damage.
+
+=== ITEM_ID_SPELLBOOK_NERVE_EYE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 神経の針の魔法書 神経の針の魔法書
+              en nerve needle spellbook
+              IT ago neurale grimorio
+    --- description(3)  :113462 ⚠️ TETTO SECCO 69
+        JP  \t\t神経属性の矢を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 3 Magic. Arrow type spell that does nerve damage.
+
+=== ITEM_ID_SPELLBOOK_CHAOS_EYE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 混沌の瞳の魔法書 混沌の瞳の魔法書
+              en chaos eye spellbook
+              IT occhio caotico grimorio
+    --- description(3)  :113535 ⚠️ TETTO SECCO 69
+        JP  \t\t混沌属性の矢を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 3 Magic. Arrow type spell that does chaos damage.
+
+=== ITEM_ID_SPELLBOOK_NETHER_EYE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 地獄の吐息の魔法書 地獄の吐息の魔法書
+              en nether sigh spellbook
+              IT sospiro infernale grimorio
+    --- description(3)  :113608 ⚠️ TETTO SECCO 69
+        JP  \t\t地獄属性の矢を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 3 Magic. Arrow type spell that does nether damage.
+
+=== ITEM_ID_SPELLBOOK_MAGIC_ARROW   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 魔法の矢の魔法書 魔法の矢の魔法書
+              en magic arrow spellbook
+              IT freccia magica grimorio
+    --- description(3)  :114016 ⚠️ TETTO SECCO 69
+        JP  \t\t魔法属性の矢を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 1 Magic. Arrow type spell that does magical damage.
+
+=== ITEM_ID_SPELLBOOK_CURE_JURE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ジュアの癒しの魔法書 ジュアの癒しの魔法書
+              en cure <Jure> spellbook
+              IT cura <Jure> grimorio
+    --- description(3)  :114353 ⚠️ TETTO SECCO 69
+        JP  HPを回復する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 12 Magic. It heals the spell user greatly.
+
+=== ITEM_ID_SPELLBOOK_CURE_ERIS   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp エリスの癒しの魔法書 エリスの癒しの魔法書
+              en cure <Eris> spellbook
+              IT cura <Eris> grimorio
+    --- description(3)  :114426 ⚠️ TETTO SECCO 69
+        JP  HPを回復する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 8 Magic. It heals the spell user.
+
+=== ITEM_ID_SPELLBOOK_CURE_CRITICAL_WOUND   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 致命傷治癒の魔法書 致命傷治癒の魔法書
+              en cure critical wound spellbook
+              IT cura delle ferite critiche grimorio
+    --- description(3)  :114499 ⚠️ TETTO SECCO 69
+        JP  HPを回復する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 4 Magic. It heals the spell user.
+
+=== ITEM_ID_SPELLBOOK_CURE_MINOR_WOUND   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 軽傷治癒の魔法書 軽傷治癒の魔法書
+              en cure minor wound spellbook
+              IT cura delle ferite lievi grimorio
+    --- description(3)  :114572 ⚠️ TETTO SECCO 69
+        JP  HPを回復する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 1 Magic. It heals the spell user.
+
+=== ITEM_ID_SPELLBOOK_RETURN   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 帰還の魔法書 帰還の魔法書
+              en return spellbook
+              IT ritorno grimorio
+    --- description(3)  :114645 ⚠️ TETTO SECCO 69
+        JP  \t\t特定の場所にテレポートする呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 6 Magic. It teleports user to location across the continent.
+
+=== ITEM_ID_SPELLBOOK_ORACLE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 神託の魔法書 神託の魔法書
+              en oracle spellbook
+              IT oracolo grimorio
+    --- description(3)  :114718 ⚠️ TETTO SECCO 69
+        JP  \t\t今までに現れた★のつくアイテムの現在地を知る呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 15 Magic. It shows the user location of powerful artifacts.
+
+=== ITEM_ID_SPELLBOOK_MAGIC_MAPPING   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 魔法の地図の魔法書 魔法の地図の魔法書
+              en magic mapping spellbook
+              IT cartografia magica grimorio
+    --- description(3)  :114791 ⚠️ TETTO SECCO 69
+        JP  \t\t未探索の箇所を明らかにする呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. It illuminates nearby walls to create a map.
+
+=== ITEM_ID_SPELLBOOK_SUMMON_MONSTERS   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp モンスター召喚の魔法書 モンスター召喚の魔法書
+              en summon monsters spellbook
+              IT evocazione di mostri grimorio
+    --- description(3)  :123360 ⚠️ TETTO SECCO 69
+        JP  \t\tモンスターを召喚する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 3 Magic. It summons several monsters from a nearby Nefia.
+
+=== ITEM_ID_SPELLBOOK_MINOR_TELEPORTATION   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ショートテレポートの魔法書 ショートテレポートの魔法書
+              en minor teleportation spellbook
+              IT teletrasporto minore grimorio
+    --- description(3)  :123495 ⚠️ TETTO SECCO 69
+        JP  \t\t近距離のテレポートを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 1 Magic. It teleports user for a short distance.
+
+=== ITEM_ID_SPELLBOOK_LIGHTNING_BOLT   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ライトニングボルトの魔法書 ライトニングボルトの魔法書
+              en lightning bolt spellbook
+              IT saetta di fulmine grimorio
+    --- description(3)  :128871 ⚠️ TETTO SECCO 69
+        JP  \t\t電撃属性のボルトを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 4 Magic. Bolt type spell that does lightning damage.
+
+=== ITEM_ID_SPELLBOOK_FIRE_BOLT   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ファイアボルトの魔法書 ファイアボルトの魔法書
+              en fire bolt spellbook
+              IT saetta di fuoco grimorio
+    --- description(3)  :128944 ⚠️ TETTO SECCO 69
+        JP  \t\t火炎属性のボルトを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 4 Magic. Bolt type spell that does fire damage.
+
+=== ITEM_ID_SPELLBOOK_ICE_BOLT   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp アイスボルトの魔法書 アイスボルトの魔法書
+              en ice bolt spellbook
+              IT saetta di gelo grimorio
+    --- description(3)  :129017 ⚠️ TETTO SECCO 69
+        JP  \t\t冷気属性のボルトを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 4 Magic. Bolt type spell that does ice damage.
+
+=== ITEM_ID_SPELLBOOK_UNCURSE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 解呪の魔法書 解呪の魔法書
+              en uncurse spellbook
+              IT purificazione grimorio
+    --- description(3)  :129727 ⚠️ TETTO SECCO 69
+        JP  \t\tアイテムの呪いを解く呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 7 Magic. It uncursed equipped items.
+
+=== ITEM_ID_SPELLBOOK_IDENTIFY   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 鑑定の魔法書 鑑定の魔法書
+              en identify spellbook
+              IT identificazione grimorio
+    --- description(3)  :129800 ⚠️ TETTO SECCO 69
+        JP  \t\tアイテムを鑑定する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 8 Magic. It identifies an item for the user.
+
+=== ITEM_ID_SPELLBOOK_TELEPORTATION   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp テレポートの魔法書 テレポートの魔法書
+              en teleportation spellbook
+              IT teletrasporto grimorio
+    --- description(3)  :129873 ⚠️ TETTO SECCO 69
+        JP  \t\tテレポートを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. It teleports user for a distance.
+
+== 82 oggetti, 82 descrizioni

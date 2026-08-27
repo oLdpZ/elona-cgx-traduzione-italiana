@@ -1800,6 +1800,179 @@ seguita la voce più vicina — la stessa frase, 合成用アイテム — ma ne
 strumento confronta le due, e vale la lezione della famiglia `dardo`/`Saetta`:
 una regola scritta e non sorvegliata vale finché qualcuno se la ricorda.
 
+## `db_item.hsp`, deciso il 2026-08-27 dalla 110ª (seguito) — le tre categorie grosse
+
+Tre lotti ancora — grimori, armi da mischia, armi a distanza: **243 righe, 242
+firme**. Sono le tre categorie più grandi rimaste, e sono anche le due facce
+opposte dell'indice 3: i grimori hanno **una griglia**, le armi non hanno
+**niente**.
+
+### ⚠️⚠️ Il RANGO non si scrive, e qui la prova è enorme
+
+**Ognuno degli 82 inglesi dei grimori apre con «Book of Rank N Magic»**, e il
+giapponese non lo dice mai — non su una sola riga. È l'aggiunta dell'inglese più
+sistematica trovata in questo file: non una riga qua e là, ma una **colonna
+intera**.
+
+Si tace, e vale il controllo della 109ª che trasforma la regola in un argomento:
+*questo file, altrove, dice la cosa che l'inglese aggiunge?* Sì —
+`db_item.hsp` scrive 「（ランクN）」 quando vuole dirlo, su **tutti** i letti e
+su **tutti** i fornelli. Il rango si sa dire; qui l'autore ha scelto di non
+dirlo.
+
+ⓘ Ed è la **terza** volta: gli strumenti musicali (109ª), gli 82 grimori, e
+`:66843` del lotto delle armi — il pugnale che suona, dove l'inglese precisa
+«Rank 0-6 instrument» e il giapponese dice 「一応、楽器としても使える」.
+
+### ⭐ La griglia dei grimori: tre classi per dodici elementi
+
+| giapponese | italiano |
+|---|---|
+| 〜属性の矢 | **una freccia …** (12 firme) |
+| 〜属性のボルト | **una saetta …** (12 firme) |
+| 〜属性の範囲魔法呪文 | **una magia ad area …** (12 firme) |
+
+Trentasei righe su 82. In italiano le tre teste sono tutte **femminili** —
+freccia, saetta, magia — quindi l'aggettivo dell'elemento è lo stesso in tutt'e
+tre le righe della colonna, e la griglia si legge per righe e per colonne.
+
+⭐ I nomi degli elementi vengono da `skill.hsp`, che ha già tutta la famiglia
+delle saette (gelo, fuoco, fulmine, d'oscurità, mentale, d'oltretomba, velenosa,
+sonora, caotica, dei nervi, magica, d'acqua) — la stessa che la 90ª aveva
+riallineato quando `db_item.hsp` diceva «dardo». Le altre due classi si
+agganciano lì.
+
+⚠️ **Un'eccezione voluta:** `:84516` è 魔法属性 nella classe ad area, e «una
+magia ad area **magica**» si morde la coda. Reso **«arcana»**, che la riga della
+90ª dà come sinonimo pieno di 魔法. Sulla saetta e sulla freccia resta «magica»,
+perché lì i nomi degli oggetti lo dicono.
+
+### ⚠️ La coda dei grimori c'è o non c'è, e non è una svista da riparare
+
+Cinquantasei righe chiudono con 「読むことができる。」 e ventisei con
+「…必要な本だ。」 e basta. Un grimorio si legge sempre: la differenza non è un
+fatto di gioco, è come è stato scritto il file. Si segue il giapponese riga per
+riga.
+
+⭐ **E il conto torna da solo**: tutte le righe lunghe stanno fra quelle **senza**
+coda — i tre grimori degli attributi, le due resistenze abbassate, l'oracolo, la
+contingenza — e ci stanno nei 69 proprio perché non portano i diciassette
+caratteri di «Si può leggere.». Aggiungere la coda «per uniformità» avrebbe
+sfondato il tetto su almeno sei righe.
+
+### ⭐⭐ Le armi: il vocabolario non si è dovuto inventare
+
+`FILTER_WEAPON` è **105 righe, 105 firme, 105 giapponesi distinti** — zero
+doppioni, zero famiglie, zero formule, la categoria meno formulaica dell'indice
+3. Ogni riga dice **che arma è** e **una cosa sola** su di lei.
+
+Le trentatré parole di tipo d'arma c'erano **tutte** nei nomi degli oggetti,
+resi in sessioni precedenti:
+
+    長剣 spada lunga · 短剣 pugnale · 大剣 spadone · 細剣 fioretto · 刀 katana
+    忍刀 wakizashi · 海賊刀 scimitarra · 大斧 ascia lunga · 戦斧 ascia da
+    battaglia · 手斧 accetta · 投斧 tomahawk · 鎌 falcetto · 大鎌 falce ·
+    骨鎌 falce d'ossa · 鎖鎌 falce a catena · 鋏鎌 cesoie · 長槍 lancia ·
+    鉾槍 alabarda · 三叉槍 tridente · 騎士槍 lancia da cavaliere ·
+    棍棒 randello · 大槌 martello · 戦槌 martello da guerra ·
+    星球槌 mazza ferrata · 杖 bastone · 長棒 bastone lungo · 錫杖 shakujo ·
+    節棍 nunchaku · 鞭 frusta · 螺旋機 trapano · 鎖鋸 motosega ·
+    包丁 coltello da cucina · 苦無 kunai
+
+E per le armi a distanza: 弩/クロスボウ «balestra», 弩砲 «balista», 連弩 «arco a
+ripetizione», 短弓 «arco corto», 長弓 «arco lungo», 機械弓 «arco meccanico»,
+銃器 «arma da fuoco», 拳銃 «pistola», 双銃 «pistole gemelle», 狙撃銃 «fucile di
+precisione», 散弾銃 «fucile a pompa», 機関銃 «mitragliatrice», 光子銃 «pistola
+laser», 手榴弾 «granata», 投擲用武器 «arma da lancio».
+
+⚠️ **E il tipo d'arma va letto nel giapponese, non nel nome.** `:52720` è un
+budino di mandorle a forma di spada laser, e il giapponese dice
+「長剣として装備可能」: si impugna come **spada lunga**. `:67533` è un 大太刀 e
+il giapponese avverte che 「刀だが大剣に属する」 — *è un katana, ma sta fra gli
+spadoni*. Due righe dove la categoria di gioco e la forma non coincidono, e il
+giapponese lo dice apposta.
+
+### ⭐ Le sette armi degli dèi, e nessuna ha avuto bisogno di una decisione
+
+Cinque nel lotto delle armi (「〜の神から下賜される〜だ。」) e due in quello a
+distanza. I nomi delle divinità stanno **nello stesso file**, dalle statue, dai
+pendoli, dai dipinti e dai peluche resi prima:
+
+| giapponese | italiano | dove |
+|---|---|---|
+| 大地の神 | **il dio della terra** | 「大地の神を模したペンデュラム」 |
+| 収穫の神 | **il dio del raccolto** | 「収穫の神のぬいぐるみ」 |
+| 元素の神 | **il dio degli elementi** | 「元素の神を模した胸像」 |
+| 幸運の女神 | **la dea della fortuna** | 「幸運の女神を描いた絵」 |
+| 癒しの女神 | **la dea della guarigione** | 「癒しの女神を模った彫像」 |
+| 機械の神 | **il dio delle macchine** | 「機械の神を模した目覚まし時計」 |
+| 風の神 | **la dea del vento** | 「風の女神を模った彫像」 ⚠️ vedi sotto |
+
+⚠️ **Non sono gli epiteti.** Il dizionario ha anche «Jure della Cura», «Ehekatl
+della Sorte», «Kumiromi della Messe»: quelli sono **nomi**, e si usano dove il
+giapponese scrive il nome. Qui il giapponese scrive la **perifrasi**, e la
+perifrasi ha già la sua resa nello stesso file. Confondere le due avrebbe fatto
+dire alla scheda «donata da Jure della Cura» dove il giapponese non nomina Jure.
+
+⚠️ **E `:86070`, 風の神, è una dea.** Il giapponese scrive 神, che non ha genere;
+l'italiano il genere lo deve scegliere, e lo sceglie come lo ha già scelto
+questo file per 風の女神 — «la dea del vento». Lulwy è femminile e l'inglese qui
+è d'accordo.
+
+### ⭐ La scala della gittata, quattro scalini e una parola sola
+
+Il giapponese grada quanto un'arma da fuoco perde con la distanza usando sempre
+**減衰**, *il calo*, e cambiando l'avverbio:
+
+| giapponese | italiano |
+|---|---|
+| 遠距離でも安定した威力 | **tiene la forza anche a distanza** |
+| 距離による減衰が殆どない | **con la distanza non cala quasi** |
+| 距離による減衰が少ない | **con la distanza cala poco** |
+| 距離によって威力が減衰する | **con la distanza perde forza** |
+
+Stessa mossa della scala della luce della 109ª, e per la stessa ragione: quattro
+righe che il giocatore legge in schede diverse e che devono restare
+confrontabili. ⓘ `:97806` (有効射程が短い) **non** è della scala — parla della
+gittata utile, non del calo — e infatti dice un'altra cosa.
+
+### ⚠️ Due mitragliatrici, due modi di dire «molto pesante»
+
+`:77148` è 非常に重い, `:77916` è とても重い. Due giapponesi distinti, due rese:
+**«pesantissima»** e **«molto pesante»**. Renderle uguali sarebbe stato più
+liscio e avrebbe cancellato una differenza che il sorgente scrive. La rete 13 lo
+segnala perché l'inglese è identico, ed è il caso per cui esiste.
+
+⚠️ **E il contrario vale altrettanto**: `:68185` e `:117188` hanno lo *stesso*
+giapponese e due inglesi diversi («Difficult to use. Hurt as hell when hit.»
+contro «It is just a stone.»). Stessa resa. E `:72354`, `:74238`, `:83345` sono
+**tre** righe con un giapponese solo.
+
+### ⓘ Le altre righe dove l'inglese aggiunge e il giapponese no
+
+`:105304` la luce sacra (il giapponese dice 自らの, *a sé stessi*; l'inglese dice
+«from nearby people» — e la gemella `:105231` è d'accordo col giapponese) ·
+`:53911` la spada leggerissima («with electric properties») · `:117463` il
+pugnale del tuono («wind and lightning» per il solo 雷).
+
+### ⓘ Una riga che non è un libro
+
+`:78730`, la ricetta: è 「紙」, e non si legge — si **usa** e si consuma. È
+l'unica delle 82 del lotto dei grimori con la coda della 108ª invece di quella
+dei libri, e l'unica che non parla di una magia.
+
+### ⓘ I termini nuovi di questi tre lotti
+
+クリティカル → «colpi critici» (`buff.hsp`) · 潜在能力 → «potenziale» ·
+シーナ → «Shena» · 投げ銭 → «mance» (come おひねり, 109ª) ·
+主能力 → «attributi base» (109ª) · マナ → «mana» (`invariati.md`) ·
+★ → «artefatti» (108ª: le stelle non si scrivono, si scrive quel che
+significano). Le sei sigle degli attributi — Cos, Car, For, Des, Per, Vol — e le
+cinque parole degli stati — paralisi, cecità, terrore, confusione, sonno —
+vengono dalle **righe di potenziamento degli stessi tre incantesimi**, che il
+dizionario ha già: la scheda dell'oggetto e la barra dello stato adesso dicono
+le stesse parole.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

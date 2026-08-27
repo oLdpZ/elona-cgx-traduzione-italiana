@@ -1,0 +1,486 @@
+=== ITEM_ID_KONMOU_HAPPA   [FILTER_RANGE]
+    NOME      jp 《金毛発破》
+              en <Konmou Happa>
+              IT <Konmou Happa>
+    non ident. IT foglia dorata   (en golden leave)
+    --- description(3)  :43634 ⚠️ TETTO SECCO 69
+        JP  爆発する葉っぱだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～
+        EN  It's a bunch of explosive leaves.
+
+=== ITEM_ID_HIDEN_MASHI   [FILTER_RANGE]
+    NOME      jp 《秘伝魔紙》
+              en <Hiden Mashi>
+              IT <Hiden Mashi>
+    non ident. IT carte antiche   (en ancient papers)
+    --- description(3)  :43708 ⚠️ TETTO SECCO 69
+        JP  何度でも使用することができる。投擲用武器にもなる。\n#～鑑定報告書：＜秘宝＞カテゴリ～
+        EN  (Reusable) throwable artefact.
+
+=== ITEM_ID_FRIGHT_PRAWN   [FILTER_RANGE]
+    NOME      jp 《エビフライト》
+              en <Fright Prawn>
+              IT <Fright Prawn>
+    non ident. IT gambero fritto   (en fried prawn)
+    --- description(3)  :52651 ⚠️ TETTO SECCO 69
+        JP  \t\t爆発するエビフライだ。手榴弾として使える。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is an exploding fried shrimp. Can be used as a grenade.
+
+=== ITEM_ID_CROSS_RAIL   [FILTER_RANGE]
+    NOME      jp 《電磁炎弩》
+              en <Cross Rail>
+              IT <Balestra a Rotaia>
+    non ident. IT balestra a ignizione elettrica   (en electro-ignition crossbow)
+    --- description(3)  :53351 ⚠️ TETTO SECCO 69
+        JP  \t\t不完全な機械仕掛けの炎弩だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is an imperfect mechanical flame crossbow.
+
+=== ITEM_ID_SCORPIERCE   [FILTER_RANGE]
+    NOME      jp 《スコル・ピアス》
+              en <Scorpierce>
+              IT <Scorpierce>
+    non ident. IT balista da cecchino   (en sniper ballista)
+    --- description(3)  :53492 ⚠️ TETTO SECCO 69
+        JP  \t\t狙撃型の弩砲だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a crossbow designed for extreme ranges.
+
+=== ITEM_ID_YOMI_TO   [FILTER_RANGE]
+    NOME      jp 《黄泉戸欠片》
+              en <Yomi-To>
+              IT <Yomi-To>
+    non ident. IT masso che puzza di morte   (en boulder that reeks death)
+    --- description(3)  :53564 ⚠️ TETTO SECCO 69
+        JP  \t\t巨大な岩の破片だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a giant rock that reeks of death.
+
+=== ITEM_ID_RINKHALS   [FILTER_RANGE]
+    NOME      jp 《リンカルス》
+              en <Rinkhals>
+              IT <Rinkhals>
+    non ident. IT balestra vipera a ripetizione   (en viper repeating bow)
+    --- description(3)  :53634 ⚠️ TETTO SECCO 69
+        JP  \t\t毒蛇をイメージした連弩だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a crossbow with the image of a viper.
+
+=== ITEM_ID_LINGS_BOW   [FILTER_RANGE]
+    NOME      jp 《小人の魔法弓》
+              en <Ling's Bow>
+              IT <Arco di Ling>
+    non ident. IT arco corto minuscolo   (en tiny shortbow)
+    --- description(3)  :53704 ⚠️ TETTO SECCO 69
+        JP  \t\tとても小さな短弓だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a very small shortbow.
+
+=== ITEM_ID_BLADE_BOW   [FILTER_RANGE]
+    NOME      jp 斬弓
+              en blade bow
+              IT arco a lame
+    --- description(3)  :54670 ⚠️ TETTO SECCO 69
+        JP  \t\t刃のついている弓だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a bow with a blade.
+
+=== ITEM_ID_CROSSFIRE   [FILTER_RANGE]
+    NOME      jp 炎弩
+              en crossfire
+              IT balestra di fuoco
+    --- description(3)  :54746 ⚠️ TETTO SECCO 69
+        JP  \t\t矢に着火する機構を備えたクロスボウだ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a crossbow with a mechanism to ignite the arrow.
+
+=== ITEM_ID_GUN_PAIR   [FILTER_RANGE]
+    NOME      jp 双銃
+              en gun pair
+              IT pistole gemelle
+    --- description(3)  :54822 ⚠️ TETTO SECCO 69
+        JP  \t\t二つで一つの小型銃器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  These are two-in-one small firearms.
+
+=== ITEM_ID_BEETLE_CYBORG   [FILTER_RANGE]
+    NOME      jp 《ビートルパワーボーグ》
+              en <Beetle Cyborg>
+              IT <Beetle Cyborg>
+    non ident. IT scarabeo artificiale   (en artificial beetle)
+    --- description(3)  :57387 ⚠️ TETTO SECCO 69
+        JP  \t\t投擲用の甲虫だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a beetles made for throwing.
+
+=== ITEM_ID_DOKURO_MIKADUKI   [FILTER_RANGE]
+    NOME      jp 《髑髏三日月》
+              en <Dokuro-Mikaduki>
+              IT <Dokuro-Mikaduki>
+    non ident. IT arco d'ossa dell'odio   (en skull bow of hatred)
+    --- description(3)  :61446 ⚠️ TETTO SECCO 69
+        JP  \t\tおぞましい骨弓だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a terrifying bone bow.
+
+=== ITEM_ID_HELTIARRE   [FILTER_RANGE]
+    NOME      jp 《ヘルティアーレ》
+              en <Heltiarre>
+              IT <Heltiarre>
+    non ident. IT arco fulminante   (en lightning bow)
+    --- description(3)  :61516 ⚠️ TETTO SECCO 69
+        JP  \t\t電撃も放てる斬弓だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a slashing bow that can also release electric shocks.
+
+=== ITEM_ID_ION_CAKRAM   [FILTER_RANGE]
+    NOME      jp 《イオンチャクラム》
+              en <Ion Chakram>
+              IT <Ion Chakram>
+    non ident. IT cerchio lucente   (en shining ring)
+    --- description(3)  :64416 ⚠️ TETTO SECCO 69
+        JP  \t\t輪状の手裏剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a wheel-shaped shuriken.
+
+=== ITEM_ID_HL_KRSW   [FILTER_RANGE]
+    NOME      jp 《HL-KRSW》
+              en <HL-KRSW>
+              IT <HL-KRSW>
+    non ident. IT pistola del miraggio   (en gun of mirage)
+    --- description(3)  :65066 ⚠️ TETTO SECCO 69
+        JP  \t\t高性能だが重い光子銃だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a high-performance but heavy photon gun.
+
+=== ITEM_ID_BALLISTA   [FILTER_RANGE]
+    NOME      jp 弩砲
+              en ballista
+              IT balista
+    --- description(3)  :67261 ⚠️ TETTO SECCO 69
+        JP  \t\t超大型のクロスボウだ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a supersized crossbow.
+
+=== ITEM_ID_N97_CANNON   [FILTER_RANGE]
+    NOME      jp 《N97対戦艦自動砲》
+              en <N97 Cannon>
+              IT <Cannone N97>
+    non ident. IT fucile anti-materiale   (en anti-materiel rifle)
+    --- description(3)  :67393 ⚠️ TETTO SECCO 69
+        JP  \t\t大口径の狙撃銃だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a large caliber sniper rifle.
+
+=== ITEM_ID_ROCK   [FILTER_RANGE]
+    NOME      jp 大岩
+              en rock
+              IT masso
+    --- description(3)  :68185 ⚠️ TETTO SECCO 69
+        JP  \t\t投擲用武器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a throwing weapon. Difficult to use. Hurt as hell when hit.
+
+=== ITEM_ID_REPEATING_BOW   [FILTER_RANGE]
+    NOME      jp 連弩
+              en repeating bow
+              IT arco a ripetizione
+    --- description(3)  :68329 ⚠️ TETTO SECCO 69
+        JP  \t\t毒で威力を補った小型クロスボウだ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a small crossbow with poison to compensate for their power.
+
+=== ITEM_ID_GRIFFON   [FILTER_RANGE]
+    NOME      jp 《イーグル＆レオン》
+              en <Griffon>
+              IT <Griffon>
+    non ident. IT pistola alata   (en Twin pistol)
+    --- description(3)  :71582 ⚠️ TETTO SECCO 69
+        JP  \t\tなんだか合体しそうな双銃だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  These are twin guns that look like they could combine somehow.
+
+=== ITEM_ID_AA_12_ADVANCE   [FILTER_RANGE]
+    NOME      jp 《AA-12アドバンス》
+              en <AA-12 Advance>
+              IT <AA-12 Advance>
+    non ident. IT fucile a pompa automatico   (en auto shotgun)
+    --- description(3)  :72284 ⚠️ TETTO SECCO 69
+        JP  \t\t近接戦闘用の散弾銃だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a shotgun for close-quarter combat.
+
+=== ITEM_ID_SLASH_JOKER   [FILTER_RANGE]
+    NOME      jp 《斬り札》
+              en <Slash Joker>
+              IT <Jolly Tagliente>
+    non ident. IT jolly   (en joker)
+    --- description(3)  :72354 ⚠️ TETTO SECCO 69
+        JP  \t\t相手に出血を起こさせる投擲用武器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a thrown weapon that causes the opponent to bleed.
+
+=== ITEM_ID_RAINBOW   [FILTER_RANGE]
+    NOME      jp 《七光の大弓》
+              en <Rainbow>
+              IT <Arcobaleno>
+    non ident. IT grande arco dai sette colori   (en seven-colored greatbow)
+    --- description(3)  :72693 ⚠️ TETTO SECCO 69
+        JP  \t\t虹色の長弓だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a seven colored longbow.
+
+=== ITEM_ID_FLASH_CROSSBOW   [FILTER_RANGE]
+    NOME      jp 《フラッシュボウガン》
+              en <Flash Crossbow>
+              IT <Flash Crossbow>
+    non ident. IT balestra rapida   (en rapid crossbow)
+    --- description(3)  :72763 ⚠️ TETTO SECCO 69
+        JP  \t\t連射力を高めた機械弓だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a mechanical bow with enhanced firing rate.
+
+=== ITEM_ID_NOVA_GRENADE   [FILTER_RANGE]
+    NOME      jp 《ノヴァ・グレネード》
+              en <Nova Grenade>
+              IT <Nova Grenade>
+    non ident. IT granata nova   (en nova grenade)
+    --- description(3)  :73225 ⚠️ TETTO SECCO 69
+        JP  \t\t爆風が強力な手榴弾だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a grenade with a powerful blast.
+
+=== ITEM_ID_GERBERA_CROSS   [FILTER_RANGE]
+    NOME      jp 《菊十文字》
+              en <Gerbera Cross>
+              IT <Croce di Gerbera>
+    non ident. IT shuriken grande   (en big shuriken)
+    --- description(3)  :74238 ⚠️ TETTO SECCO 69
+        JP  \t\t相手に出血を起こさせる投擲用武器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a throwing weapon that causes the opponent to bleed.
+
+=== ITEM_ID_NIGHTMARE   [FILTER_RANGE]
+    NOME      jp 《ナイトメア》
+              en <Nightmare>
+              IT <Nightmare>
+    non ident. IT lama del coraggio   (en brave knife)
+    --- description(3)  :74506 ⚠️ TETTO SECCO 69
+        JP  \t\t投擲用のナイフだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a throwing knife.
+
+=== ITEM_ID_STONE_COIN   [FILTER_RANGE]
+    NOME      jp 《ライ》
+              en <Stone Coin>
+              IT <Stone Coin>
+    non ident. IT grossa moneta antica   (en big old coin)
+    --- description(3)  :75518 ⚠️ TETTO SECCO 69
+        JP  \t\t持っているだけで凄い、非常に重い石貨だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a terrific to hold, very heavy stone coin.
+
+=== ITEM_ID_SNIPER_RIFLE   [FILTER_RANGE]
+    NOME      jp 狙撃銃
+              en sniper rifle
+              IT fucile di precisione
+    --- description(3)  :76392 ⚠️ TETTO SECCO 69
+        JP  \t\t遠距離でも安定した威力を発揮する銃器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a firearm that are stable and powerful even at long distances.
+
+=== ITEM_ID_VALKOINEN_KUOLEMA   [FILTER_RANGE]
+    NOME      jp 《ベーラヤ・スメルチ》
+              en <Valkoinen Kuolema>
+              IT <Valkoinen Kuolema>
+    non ident. IT fucile da cecchino della morte   (en sniper rifle of death)
+    --- description(3)  :76461 ⚠️ TETTO SECCO 69
+        JP  \t\tかなりカスタムされた狙撃銃だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a very customized sniper rifle.
+
+=== ITEM_ID_DREADNOUGHT   [FILTER_RANGE]
+    NOME      jp 《ドレッドノート》
+              en <Dreadnought>
+              IT <Dreadnought>
+    non ident. IT balestra grande   (en big crossbow)
+    --- description(3)  :77078 ⚠️ TETTO SECCO 69
+        JP  \t\t非常に重い機械弓だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a very heavy mechanical bow.
+
+=== ITEM_ID_G3_EXA   [FILTER_RANGE]
+    NOME      jp 《G3-EXA》
+              en <G3-EXA>
+              IT <G3-EXA>
+    non ident. IT lanciagranate gravitazionale   (en gravity-grenade gun)
+    --- description(3)  :77148 ⚠️ TETTO SECCO 69
+        JP  \t\t非常に重い機関銃だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a very heavy machine gun.
+
+=== ITEM_ID_GEMINI   [FILTER_RANGE]
+    NOME      jp 《カストル＆ポルックス》
+              en <Gemini>
+              IT <Gemini>
+    non ident. IT pistola gemella   (en twin pistol)
+    --- description(3)  :77427 ⚠️ TETTO SECCO 69
+        JP  \t\t双子のようにそっくりな双銃だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  These are twin guns that look exactly alike.
+
+=== ITEM_ID_KANEITUUHOU   [FILTER_RANGE]
+    NOME      jp 《寛永通宝》
+              en <Kaneituuhou>
+              IT <Kaneituuhou>
+    non ident. IT moneta antica   (en old coin)
+    --- description(3)  :77846 ⚠️ TETTO SECCO 69
+        JP  \t\t昔のお金だ。投げ銭に使える。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  These are old money. Can be used for throwing.
+
+=== ITEM_ID_GAU_17_CUSTOM   [FILTER_RANGE]
+    NOME      jp 《GAU-17ミニガン改》
+              en <GAU-17 Custom>
+              IT <GAU-17 Custom>
+    non ident. IT mitragliatrice rotante   (en minigun)
+    --- description(3)  :77916 ⚠️ TETTO SECCO 69
+        JP  \t\tとても重い機関銃だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a very heavy machine gun.
+
+=== ITEM_ID_SKULL_BOW   [FILTER_RANGE]
+    NOME      jp 骨弓
+              en skull bow
+              IT arco di teschi
+    --- description(3)  :78401 ⚠️ TETTO SECCO 69
+        JP  \t\t骨を加工した弓だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a bow made of processed bone.
+
+=== ITEM_ID_MAUSER_C96_CUSTOM   [FILTER_RANGE]
+    NOME      jp 《マウザーC96カスタム》
+              en <Mauser C96 Custom>
+              IT <Mauser C96 Custom>
+    non ident. IT pistola arrugginita   (en rusted pistol)
+    --- description(3)  :80359 ⚠️ TETTO SECCO 69
+        JP  \t\t見えない者さえ打ちぬく拳銃だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a pistol that strikes down even those it cannot see.
+
+=== ITEM_ID_KILL_KILL_PIANO   [FILTER_RANGE]
+    NOME      jp 《キルキルピアノ》
+              en <Kill Kill Piano>
+              IT <Kill Kill Piano>
+    non ident. IT pianoforte pesante   (en heavy piano)
+    --- description(3)  :82550 ⚠️ TETTO SECCO 69
+        JP  \t\t暗殺用の重いピアノだ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a heavy piano for assassination.
+
+=== ITEM_ID_SHENAS_PANTY   [FILTER_RANGE]
+    NOME      jp 《シーナのパンティー》
+              en <Shena's Panty>
+              IT <Mutandine di Shena>
+    non ident. IT mutandine profumate   (en fragrant panties)
+    --- description(3)  :83018 ⚠️ TETTO SECCO 69
+        JP  \t\tシーナの使用していた下着だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is Shena's used underwears.
+
+=== ITEM_ID_VANILLA_ROCK   [FILTER_RANGE]
+    NOME      jp 《バニラロック》
+              en <Vanilla Rock>
+              IT <Vanilla Rock>
+    non ident. IT sasso lucente   (en shining rock)
+    --- description(3)  :83149 ⚠️ TETTO SECCO 69
+        JP  \t\t重い石ころ。装備することができる。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is a heavy pebble. Can be equipped.
+
+=== ITEM_ID_GRENADE   [FILTER_RANGE]
+    NOME      jp 手榴弾
+              en grenade
+              IT granata
+    --- description(3)  :83278 ⚠️ TETTO SECCO 69
+        JP  \t\t着弾すると周囲に爆風を起こす投擲用武器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a throwing weapon that creates a blast around it when it lands.
+
+=== ITEM_ID_SHURIKEN   [FILTER_RANGE]
+    NOME      jp 手裏剣
+              en shuriken
+              IT shuriken
+    --- description(3)  :83345 ⚠️ TETTO SECCO 69
+        JP  \t\t相手に出血を起こさせる投擲用武器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a throwing weapon that causes the opponent to bleed.
+
+=== ITEM_ID_WINCHESTER_PREMIUM   [FILTER_RANGE]
+    NOME      jp 《ウィンチェスター・プレミアム》
+              en <Winchester Premium>
+              IT <Winchester Premium>
+    non ident. IT fucile a pompa antico   (en ancient shotgun)
+    --- description(3)  :86000 ⚠️ TETTO SECCO 69
+        JP  \t\t機械の神から下賜される散弾銃だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a shotgun bestowed by the God of Machine.
+
+=== ITEM_ID_WIND_BOW   [FILTER_RANGE]
+    NOME      jp 《ウィンドボウ》
+              en <Wind Bow>
+              IT <Wind Bow>
+    non ident. IT arco avvolto dal vento   (en bow surrounded by wind)
+    --- description(3)  :86070 ⚠️ TETTO SECCO 69
+        JP  \t\t風の神から下賜される長弓だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a longbow bestowed by the Goddess of Wind.
+
+=== ITEM_ID_PANTY   [FILTER_RANGE]
+    NOME      jp ギャルのパンティー
+              en panty
+              IT mutandine
+    --- description(3)  :88673 ⚠️ TETTO SECCO 69
+        JP  \t\t女性の着用していた下着だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is an underwear worn by a woman.
+
+=== ITEM_ID_RAIL_GUN   [FILTER_RANGE]
+    NOME      jp 《レールガン》
+              en <Rail Gun>
+              IT <Rail Gun>
+    non ident. IT fucile del massacro   (en gun of genocide)
+    --- description(3)  :96570 ⚠️ TETTO SECCO 69
+        JP  \t\t様々な魔法効果を持つ光子銃だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a photon gun with various magical effects.
+
+=== ITEM_ID_LASER_GUN   [FILTER_RANGE]
+    NOME      jp 光子銃
+              en laser gun
+              IT pistola laser
+    --- description(3)  :96713 ⚠️ TETTO SECCO 69
+        JP  \t\t距離による減衰が殆どない銃器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a firearm with little or no attenuation with distance.
+
+=== ITEM_ID_SHOT_GUN   [FILTER_RANGE]
+    NOME      jp 散弾銃
+              en shot gun
+              IT fucile a pompa
+    --- description(3)  :97806 ⚠️ TETTO SECCO 69
+        JP  \t\t有効射程が短い銃器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a firearm with a short effective range.
+
+=== ITEM_ID_CROSSBOW   [FILTER_RANGE]
+    NOME      jp 機械弓
+              en crossbow
+              IT balestra
+    --- description(3)  :98804 ⚠️ TETTO SECCO 69
+        JP  \t\tクロスボウの矢束と共に装備する射撃武器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a weapon to be equipped along with a bundle of crossbow bolts.
+
+=== ITEM_ID_MACHINE_GUN   [FILTER_RANGE]
+    NOME      jp 機関銃
+              en machine gun
+              IT mitragliatrice
+    --- description(3)  :115799 ⚠️ TETTO SECCO 69
+        JP  \t\t距離による減衰が少ない銃器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a firearm with good medium range accuracy.
+
+=== ITEM_ID_SHORT_BOW   [FILTER_RANGE]
+    NOME      jp 短弓
+              en short bow
+              IT arco corto
+    --- description(3)  :115875 ⚠️ TETTO SECCO 69
+        JP  \t\t近～中距離に適した弓だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a bow specialized for short to medium range.
+
+=== ITEM_ID_STONE   [FILTER_RANGE]
+    NOME      jp 小石
+              en stone
+              IT sasso
+    --- description(3)  :117188 ⚠️ TETTO SECCO 69
+        JP  \t\t投擲用武器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is just a stone.
+
+=== ITEM_ID_BOW_OF_VINDALE   [FILTER_RANGE]
+    NOME      jp 《異形の森の弓》
+              en <Bow of Vindale>
+              IT <Arco di Vindale>
+    non ident. IT arco vibrante   (en shaking bow)
+    --- description(3)  :117391 ⚠️ TETTO SECCO 69
+        JP  \t\t敵を引き寄せる力を持つ長弓だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a longbow with the power to draw in the enemy.
+
+=== ITEM_ID_PISTOL   [FILTER_RANGE]
+    NOME      jp 拳銃
+              en pistol
+              IT pistola
+    --- description(3)  :127141 ⚠️ TETTO SECCO 69
+        JP  \t\t距離によって威力が減衰する銃器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a firearm made for short distances.
+
+=== ITEM_ID_LONG_BOW   [FILTER_RANGE]
+    NOME      jp 長弓
+              en long bow
+              IT arco lungo
+    --- description(3)  :127283 ⚠️ TETTO SECCO 69
+        JP  \t\t中～遠距離に適した弓だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a bow specialized for medium to long range.
+
+== 56 oggetti, 56 descrizioni

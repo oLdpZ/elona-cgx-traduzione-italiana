@@ -1,26 +1,26 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-27, fine della **centonovesima** sessione (**attrezzi e
-mobilio, e una riga dove il giapponese perde contro se stesso**).
+Aggiornato: 2026-08-27, fine della **centodecima** sessione (**otto lotti
+dell'indice 3, e il codice diventa una fonte**).
 
-⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' DELLE 03:05 DEL 27/08**, ed e' quello da
-controllare prima di leggere uno screenshot. Contiene le **361 rese** della
-109a, che arrivano a schermo su **417 righe**. Quello delle 02:49 e' la build di
-meta' sessione, coi soli attrezzi; quello delle 01:13 e' della 108a.
+⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' DELLE 14:28 DEL 27/08**, ed e' quello da
+controllare prima di leggere uno screenshot. Contiene le **450 rese** della
+110a. Quello delle 10:00 e' la build di meta' sessione (i primi cinque lotti);
+quello delle 03:05 e' della 109a.
 
-⚠️⚠️ **DOPO I DUE LOTTI DELLA 109a I VALORI DA ASPETTARSI IN APERTURA SONO
+⚠️⚠️ **DOPO GLI OTTO LOTTI DELLA 110a I VALORI DA ASPETTARSI IN APERTURA SONO
 QUESTI:**
 
     pytest                   794 passed, 6 skipped   **invariato**
     prova_identita           72/72 e 30.905, **invariato** (la prova d'identita'
                              riscrive ogni sito con se stesso: non si muove
                              quando si traduce)
-    applica                  **28.210** sostituzioni      (erano 27.793)
-    verifica --dizionario    db_item.hsp: 0 da ritradurre, **2.033** non tradotte
-    _97-quanto-resta         TOTALE **2.143 / 110 / 2.033**
-    perimetro.py             perimetro **90%** (26.690), totale **94%** (29.623)
-    _108-accento-decomposto  **0 su 23.951**
-    _107-descrizioni-item    indice 3: vive 1.319, **rese 693**; introdotte
+    applica                  **28.660** sostituzioni      (erano 28.210)
+    verifica --dizionario    db_item.hsp: 0 da ritradurre, **1.618** non tradotte
+    _97-quanto-resta         TOTALE **1.728 / 110 / 1.618**
+    perimetro.py             perimetro **90%** (27.105), totale **94%** (30.038)
+    _108-accento-decomposto  **0 su 24.366**
+    _107-descrizioni-item    indice 3: vive 1.319, **rese 1.130**; introdotte
                              dall'italiano **0** (questo e' il cancello)
 
 💡 **I tre percorsi che i documenti sbagliavano fino alla 108a**, e che in
@@ -28,7 +28,7 @@ apertura fanno perdere un comando a testa: `perimetro.py`, `referti.py` e
 `lang-nel-ramo-jp.py` stanno in **`scratchpad/`**, non in `strumenti/`. Si
 lanciano `python scratchpad/perimetro.py`, non `python -m strumenti.perimetro`.
 
-Tutto il resto e' **fermo dov'era**, riverificato in chiusura della 109a:
+Tutto il resto e' **fermo dov'era**, riverificato in chiusura della 110a:
 `dati_applica --identita` 6 file e 3.767 righe, `toppe.jsonl` 1027 e
 `_97-toppe-agganciate` 1027 su 1027, `rinviate.jsonl` 113, `creature`
 1131/2466/0/0, `larghezze` 0 fuori misura, `diario` 0 su 205, `riquadri` 0 su 38
@@ -36,31 +36,41 @@ e 0 su 71, `menu_dialogo` 0 su 1378, `linguette` 0 e 0, `battute --divergenti`
 13, `intestazioni_larghezze` perimetro 0, `dati_sorgente` 7/7 e gioco difforme
 su 0, `gronde` 0 su 5, `maiuscole` 143/6/1/7/0, `bilingui` 0, `referti` 9,
 `lang-nel-ramo-jp` 21 | 0, `_96-morte-nella-build` 0, `_103-inglese-ripetuto`
-1 + 2, `_104-inglese-slittato` 2 teste.
+2 coppie, `_104-inglese-slittato` 2 teste.
 
 ⚠️ **La ventesima verifica**, nata nella 108a, e' un cancello a zero:
 
     PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/_108-accento-decomposto.py
-    → «rese con accento DECOMPOSTO: 0 su 23.404» piu' la riga della prova al contrario
+    → «rese con accento DECOMPOSTO: 0 su 24.366» piu' la riga della prova al contrario
 
-⚠️⚠️ **ANCHE LA 109a SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
-spinto e l'albero e' pulito. ⓘ La 107a e la 108a lo avevano annunciato e poi la
-sessione dopo si era aperta sulla **stessa macchina**, con l'albero di build al
-suo posto — quindi la prima cosa da fare **non** e' ricostruire: e' guardare se
-c'e' gia' tutto, col comando qui sotto. Le cose che **non stanno nel repo** sono
-quattro, e l'ordine conta:
+⚠️⚠️ **ANCHE LA 110a SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
+spinto e l'albero e' pulito. ⓘ Dalla 107a in poi lo si e' annunciato ogni volta
+e la sessione dopo si e' aperta sulla **stessa macchina**, con l'albero di build
+al suo posto — quindi la prima cosa da fare **non** e' ricostruire: e' guardare
+se c'e' gia' tutto, col comando qui sotto. Le cose che **non stanno nel repo**
+sono quattro, e l'ordine conta:
 
     dati-sorgente\             python -m strumenti.dati_sorgente --pinna
     l'albero di build          python -m strumenti.applica
     cgx-test.exe               python -m strumenti.compila --eseguibile   (NON incatenato)
     i file _it.txt             li scrive `dati_applica` in `_traduzione\build\dati\`
 
+⚠️⚠️ **NON ESISTE `strumenti.installa`.** L'eseguibile si copia a mano, ed e'
+l'unico passo della catena che nessuno strumento fa:
+
+    cp "C:/Games/Elona/_traduzione/build/2.05-custom-gx/elonapluscgx.exe" \
+       "C:/Games/Elona/elonaplus2.31/cgx-test.exe"
+
+La 110a ha provato `python -m strumenti.installa` (che il `README.md` elenca fra
+gli strumenti) e ha avuto «No module named». `cgx-test.exe` non sovrascrive
+`elonapluscgx.exe`: e' la disciplina che tiene l'eseguibile inglese al suo posto.
+
 ⚠️⚠️ **I file dati italiani sono SEI dalla 101a**: `board_it.txt`,
 `talk_it.txt`, `exhelp_it.txt`, `book_it.txt`, `autopick_it.txt` e
 **`manual_ENG_it.txt`**. Vanno in `C:\Games\Elona\elonaplus2.31\data\` (non
 nella radice del gioco: la 94a ci ha perso un comando), e si copiano **solo se
 sono cambiati** — `cmp -s` prima di `cp`, cosi' la data del file nel gioco dice
-qualcosa.
+qualcosa. ⓘ Non sono cambiati ne' nella 108a, ne' nella 109a, ne' nella 110a.
 
 ⚠️ **Il nome brutto e' voluto**: `manual_ENG_it.txt` e' `nome_italiano()`
 applicato senza eccezioni. E il dirottamento **non e' una toppa**: sta nel
@@ -71,33 +81,31 @@ e il suo lettore stanno in `dati.py` (`CODIFICHE`, `PIATTI`), e `degrada()` su
 di lui **non si applica**, perche' degradare esiste solo per CP932.
 
 💡 **Se il terminale nuovo e' sulla stessa macchina, non si rifa' niente**:
-dalla 92a alla 109a si sono aperte tutte cosi'. Si controlla in un colpo con
+dalla 92a alla 110a si sono aperte tutte cosi'. Si controlla in un colpo con
 `ls C:\Games\Elona\_traduzione\` (devono esserci `build`, `sorgente`,
 `dati-sorgente`, `hsp34`), e l'eseguibile in gioco dev'essere
-`elonaplus2.31\cgx-test.exe` delle **03:05 del 27/08**: se la data e' quella,
-la build corrente contiene tutte e 361 le rese della 109a e non va rifatta.
-⚠️ **La 107a NON aveva ricompilato**, ed era giusto cosi': non aveva reso
-niente. La 108a e la 109a hanno ricompilato.
-⚠️ I sei file dati **non sono cambiati** ne' nella 108a ne' nella 109a: `cmp -s`
-li ha lasciati tutti e sei dov'erano.
+`elonaplus2.31\cgx-test.exe` delle **14:28 del 27/08**: se la data e' quella,
+la build corrente contiene tutte e 450 le rese della 110a e non va rifatta.
 
 ⚠️⚠️⚠️ **LE RETI DEL LOTTO NON LEGGONO IL GLOSSARIO, E LA 105a CI E' CADUTA
 QUATTRO VOLTE IN UN GIORNO.** `verifica`, `guardie` e le tredici reti dello
 script guardano la **forma** della resa, l'**inglese di monte** e il
 **dizionario**; `glossario.md` e `invariati.md` sono prosa in Markdown e nessuna
-li apre. Prima di chiudere un lotto di carte, i termini che il giapponese porta
-si **cercano a mano** in quei due file:
+li apre. Prima di chiudere un lotto, i termini che il giapponese porta si
+**cercano a mano** in quei due file.
 
-    手裏剣                          -> shuriken            (invariati.md)
-    レム・イド                      -> Rehm-Ido            ⚠️ non `Rehmido`, che
-                                                          e' l'inglese, e non
-                                                          `Remido`, che sono le
-                                                          rovine (レミード)
-    精霊が◯◯を象って実体化した存在  -> uno spirito che ha preso corpo nella
-                                       forma di...        (formula fissa, 4 carte)
-    眷属 (混沌の—)                  -> il figlio del caos  (chat.hsp:10321)
+⚠️⚠️⚠️ **E DALLA 110a LE FONTI SONO CINQUE, NON TRE.** Le tre di sempre —
+giapponese, inglese di monte, dizionario — piu' la **riga di categoria** dentro
+la stringa giapponese (109a, lo zizou) e il **codice del gioco** (110a). Il
+codice vince quando il giapponese e' ambiguo su un fatto di gioco o quando
+l'inglese scioglie un termine in una parola comune. **Nessuna rete lo vede**:
+sono tutte reti testuali. Vedi `decisioni.md`, sezione della 110a.
 
-⚠️⚠️ **DUE RETI SULLE CARTE CON L'INGLESE DI UN'ALTRA, E VANNO LETTE INSIEME.**
+💡 **Il sospetto ha una forma ricorrente**: il giapponese nomina uno **stato**,
+una **barra** o un **numero** senza dire quanto, e l'inglese lo parafrasa con
+una parola di uso comune. Li' si apre il sorgente.
+
+⚠️⚠️⚠️ **DUE RETI SULLE CARTE CON L'INGLESE DI UN'ALTRA, E VANNO LETTE INSIEME.**
 `_103-inglese-ripetuto.py` trova le prose inglesi **simili per parole**;
 `_104-inglese-slittato.py` trova le **copie esatte** e cammina lungo la catena
 che ne parte. Nessuna delle due vede quello che vede l'altra, e nessuna delle
@@ -131,14 +139,217 @@ un `grep`. Uno script di dieci righe si scrive nello scratchpad: costa lo stesso
 e resta li' da rilanciare. ⚠️ **E la 106a ci e' ricascata una volta**, per due
 `replace` senza backslash su `avanzamento.md`: e' andata bene, ma la regola non
 e' «se non ci sono backslash si puo'» — e' che il file si scrive con lo
-strumento, perche' chi scrive non sa in anticipo che cosa il testo contiene. ⚠️ **E colpisce anche fuori dal repo**: la 100a ha trovato
+strumento, perche' chi scrive non sa in anticipo che cosa il testo contiene.
+⚠️ **E la 110a ci e' ricascata DUE volte**, in due modi diversi: un heredoc
+**vuoto** (di nuovo, due minuti di terminale bloccato) e un `cat >> glossario.md`
+con dentro centosessanta righe di Markdown, morto con «unexpected EOF while
+looking for matching `''`» senza scrivere niente. ⚠️ Il secondo e' il piu'
+insidioso: il messaggio parla della **sintassi della shell**, non del file, e
+non dice se abbia scritto meta' documento. Si controlla con `git status` prima
+di rifare. La strada giusta e' scrivere il pezzo con lo strumento e innestarlo
+con tre righe di Python che verificano la marca (`assert base.count(marca) == 1`).
+⚠️ **E colpisce anche fuori dal repo**: la 100a ha trovato
 `data<BS>ook.txt` **due volte** dentro la voce della 99a in `log.md`, nel vault,
 e l'ha riparata. Chi trova una parola cosi' cerchi il byte 0x08, non il refuso.
 
 ---
 
 
-## La centonovesima sessione
+## La centodecima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle **venti** verifiche d'apertura. La 110a si
+e' aperta con `origin/fase-0` allineato: **sessantasettesima prova** di fila, e
+le venti hanno dato venti volte i valori attesi della 109a.
+
+I valori nuovi stanno in testa a questo file, sotto la data.
+
+### ▶ Che cosa e' stato fatto
+
+    db_item.hsp   indice 3, il rapporto di identificazione — OTTO lotti
+    -------------------------------------------------------------------------
+    006  FILTER_JUNK              81 firme ->  97 righe   margine 3
+    007  FILTER_ORE               21 firme ->  33 righe   margine 5
+    008  FILTER_ITEM_BOOK         20 firme ->  23 righe   margine 3
+    009  FILTER_ITEM_ROD          30 firme ->  32 righe   margine 4
+    010  FILTER_CONTAINER         21 firme ->  22 righe   margine 4
+    011  FILTER_ITEM_SPELLBOOK    82 firme ->  82 righe   margine 3
+    012  FILTER_WEAPON           105 firme -> 105 righe   margine 3
+    013  FILTER_RANGE             55 firme ->  56 righe   margine 7
+    -------------------------------------------------------------------------
+    **415 firme rese**, che coprono **450 righe** del sorgente
+    applica 28.210 -> **28.660**   (+450 esatte)
+    indice 3: rese 693 -> **1.130** su 1.319 vive
+    tetto secco: introdotte dall'italiano **0** — il cancello e' verde
+    rinviate: nessuna   toppe: nessuna   test: **794**, invariato
+    strumenti toccati: 2 (`_monta.py` prende la cartella, `_coerenza.py` salta
+                         il giapponese vuoto)
+    build: SI', **14:28 del 27/08**
+    -------------------------------------------------------------------------
+
+### ▶ ⭐⭐⭐ IL CODICE E' UNA FONTE, E DUE VOLTE HA BATTUTO TUTT'E DUE I TESTI
+
+- **`:59793`, l'ohuda: cancella UN potenziamento, non «i» potenziamenti.** Il
+  giapponese 「バフを消去する御札だ。」 non dice il numero — puo' permetterselo,
+  l'italiano no. L'inglese dice «erases buffs», al plurale.
+  `action.hsp:752-766` scorre i potenziamenti, chiama `delbuff` sul primo che
+  trova e poi **`break`**: ne cancella **uno**.
+- **`:63586`, 「態勢を崩す」 e' la ROTTURA GUARDIA del gioco.** L'inglese dice
+  «disorientates opponent», che non e' un termine; `action.hsp:745` chiama
+  **`chara_guardbreak tc, 15`**. Il dizionario ha gia' la parola. ⭐ E lo stesso
+  termine torna quattro categorie piu' in la', a `:47152` (il fischietto), dove
+  il giapponese lo scrive per esteso: 「ガードブレイクゲージ」.
+
+⚠️ **Nessuna rete puo' vederlo**, e non per una svista: sono tutte reti
+**testuali**, e qui il testo era in pareggio. La regola sta in `decisioni.md`.
+
+### ▶ ⭐⭐ CINQUE CODE SU SEI NON SONO DECISIONI, SONO RITROVAMENTI
+
+「読むことができる」 e 「何度でも読むことができる」 erano gia' nel dizionario
+dalla 108a; 「模造品だ」 era gia' «una riproduzione» in questo stesso file;
+「合成用アイテム」 era gia' «oggetti per la sintesi» in `chat.hsp`; e il verbo
+delle bacchette era gia' **a schermo** — 「を振った。」 e' «Hai agitato ...», il
+messaggio che il giocatore legge ogni volta che ne usa una.
+
+⭐ Lo stesso vale per **trentatre parole di tipo d'arma** e per le **sette
+divinita'** dei lotti 012 e 013: c'erano tutte, nei nomi degli oggetti e nelle
+statue rese prima.
+
+💡 **La parte cara del lavoro dell'indice 3 non e' scegliere: e' ricordarsi di
+cercare se qualcuno ha gia' scelto**, e cercare dove il **giocatore** legge —
+il messaggio dell'azione, il nome dell'oggetto, la riga di potenziamento — non
+solo nel glossario.
+
+### ▶ ⚠️⚠️ IL MODALE CADE ANCHE DOVE CI STAREBBE, per tenere insieme una famiglia
+
+I sette libri che fanno un compagno hanno la stessa coda; due — la sorella cane
+maggiore e la sorella gatta minore — arrivavano a **71 e 70** su 69 e dovevano
+perderla per forza. Farla cadere solo li' avrebbe messo **due code dentro una
+famiglia sola**. Cadono tutte e sette: «Si legge.».
+
+⚠️ **A dirlo e' stato il MARGINE, non il cancello.** Il cancello era verde
+tutt'e due le volte, perche' le righe da 70 e 71 non c'erano ancora — le avrei
+scritte io. `lotti-108/_margine.py`, lanciato **prima** di reimportare, ha detto
+che il lotto respirava di **1** carattere. Un cancello booleano non dice il
+margine, e in questa sessione e' successo tre volte: libri (1), bacchette (**0**),
+grimori (1).
+
+### ▶ ⭐ IL RAPPORTO RIGHE/FIRME E' IL PREZZO DELLA CATEGORIA
+
+Si legge **prima** di aprire il lotto, con
+`python scratchpad/_107-lotti-per-categoria.py --indice 3`:
+
+    minerali 1,57 (le dodici gemme) · scarti 1,20 · libri 1,15 · bacchette 1,07
+    contenitori 1,05 · a distanza 1,02 · grimori 1,00 · armi 1,00
+
+⚠️ **Ma non e' il solo criterio.** I grimori stanno a 1,00 e sono costati meno
+delle armi a parita' di righe, perche' **36 righe su 82 sono una griglia** — tre
+classi (freccia, saetta, magia ad area) per dodici elementi — e una griglia si
+scrive una volta sola. Il rapporto righe/firme non vede le famiglie **dentro**
+le firme: quelle si vedono solo con `lotti-109/_elenco.py`.
+
+### ▶ ⚠️ `_coerenza.py` DICEVA «UNA DIVERGENZA» E NON NE AVEVA VISTA NESSUNA
+
+`:89761`, l'esca, ha `description(3)` giapponese **vuota**, e la stringa vuota
+raggruppava **trenta** voci del dizionario che di comune hanno solo il non avere
+una fonte. Riparato saltando le voci col giapponese (o l'inglese) vuoto.
+✅ Controprova sul lotto 005 della 109a: 0 divergenze su **7** gruppi giudicati e
+3 di inglese, cioe' i valori con cui la 109a si era chiusa.
+
+⚠️ E `_monta.py` adesso prende la **cartella del lotto** come secondo argomento:
+
+    python scratchpad/lotti-109/_monta.py 014 scratchpad/lotti-111
+
+### ▶ ⚠️⚠️ LA LISTA DI COLLAUDO DELLA 109a AVEVA DUE PASSI MUTI
+
+**Il primo e' grosso.** La 109a scriveva che un oggetto creato con `spawn_item`
+diventa FULL da solo dopo qualche turno nello zaino: **per queste categorie non
+succede mai.** `item.hsp:2096` salta gli oggetti di tipo >= `FILTER_ITEM_MIN`
+(50.000) quando `CDATA_ROW_ACT` vale `ACTION_NONE`, cioe' quando il giocatore
+non sta svolgendo un lavoro — quasi sempre. `FILTER_JUNK` vale 64.000,
+`FILTER_ORE` 77.000.
+
+**La via che funziona** e' la pergamena di identificazione **maggiore**,
+`ITEM_ID_SCROLL_GREATER_IDENTIFY` = **362** (`db_item.hsp:107040` le da'
+`efp = 2000`; `item_func.hsp:640-648` porta a `ITEM_KNOWN_FULL`).
+
+**Il secondo:** il tasto dell'inventario di questa installazione e' **`X`**, non
+`i`. 💡 I tasti si leggono in `elonaplus2.31\config.txt`, non nel sorgente, che
+ha solo i valori di partenza: `key_inventory. "X"`, `key_interact. "i"`,
+`key_identify. "x"`, `key_get. "g"`, `key_read. "r"`.
+
+### ▶ ⚠️⚠️ LE 450 RESE NON SONO MAI STATE VISTE A SCHERMO
+
+Il debito di collaudo sale da 7.093 a **7.543**. La lista corretta:
+
+    F12 -> `wizard` -> `spawn_item 362` (x10, le pergamene maggiori)
+    poi `spawn_item <id>` per ogni oggetto
+    F12 chiude, `g` raccoglie, `r` legge la pergamena e sceglie l'oggetto
+    ("completamente identificato"), `X` apre l'inventario, `x` sulla voce
+    stampa il rapporto
+
+Gli identificativi si leggono col sorgente, non si ricordano
+(`scratchpad/lotti-108/_id.py <ITEM_ID_X>`). Quelli gia' verificati nella 110a:
+
+    1008  spada del teschio furiosa   la rottura guardia, il termine dal codice
+    1250  fischietto di comando       lo stesso termine, quattro categorie in la'
+    1064  ohuda                       «cancella UN potenziamento»
+     811  diario segreto sorella magg. la piu' lunga della famiglia, 66 su 69
+     215  bottiglie vuote mucchio     66 su 69
+     175  bacchetta saetta di fulmine
+     240  baule
+     967  E.G.G                       «Il dono dei figli.»
+    1227  granato                     una resa per dodici gemme
+
+⚠️ **Il rapporto compare solo se l'oggetto e' identificato a fondo**
+(`command.hsp:16061`). Se la riga non c'e', **non e' la traduzione**.
+
+### ▶ Il lotto da cui si comincia la prossima volta
+
+Le categorie dell'indice 3 che restano — **189 righe**:
+
+    python scratchpad/_107-lotti-per-categoria.py --indice 3
+
+    righe  firme  categoria                    righe  firme  categoria
+    ------------------------------------       ------------------------------
+       23     23  FILTER_SHIELD                   11     11  FILTER_ACCESSORY_RING
+       20     20  FILTER_ARMOR                    10      9  FILTER_CLOAK
+       19     18  FILTER_CARGO_TRADE              10     10  FILTER_GLOVES
+       15     15  FILTER_HELM                      9      9  FILTER_GIRDLE
+       13     13  FILTER_ACCESSORY_AMULET          9      9  FILTER_BOOTS
+       12      9  FILTER_ENVIRONMENT
+
+piu' una coda di minori. ⚠️ **Sono tutte categorie dell'EQUIPAGGIAMENTO e
+NESSUNA e' formulaica**: guardate in apertura della 110a, ogni riga e' una
+descrizione a se', come le armi del lotto 012. Costano quanto pesano.
+
+I comandi per aprire il lotto, nell'ordine:
+
+    python scratchpad/_107-dossier-item.py --categoria <CAT> --indice 3 > scratchpad/lotti-NNN/dossierNNN.txt
+    python scratchpad/_107-chiavi-item.py  --categoria <CAT> --indice 3 > scratchpad/lotti-NNN/chiaviNNN.txt
+    python scratchpad/_107-chiavi-item.py  --categoria <CAT> --indice 3 --solo-righe \
+        | grep -v "^#" > scratchpad/lotti-NNN/righeNNN.py
+    python scratchpad/lotti-109/_elenco.py scratchpad/lotti-NNN/righeNNN.py   # per scriverle
+
+poi `_traduzioniNNN.py` + `testaNNN.py` a mano, e la catena `_monta` →
+`assembla-lotto` → lotto → `_margine` → `reimporta` → `_coerenza`.
+
+⚠️⚠️ **Il lotto generato porta dentro una COPIA delle rese** (109a): dopo ogni
+modifica alle rese si **riassembla**, altrimenti si misurano quelle vecchie e
+l'output e' identico a quello di prima.
+
+⚠️ **`reimporta` e' tutto-o-niente**, e uno **spazio in coda** all'inglese fa
+cadere l'intero lotto (109a: 218 rese su 218 per due voci).
+
+⚠️ **Prima di chiudere un lotto**, i termini che il giapponese porta si cercano
+**a mano** in `glossario.md` e `invariati.md`: nessuna rete li legge. E prima
+ancora si guarda se il **nome dell'oggetto** o un **messaggio del gioco** hanno
+gia' la parola: nella 110a e' successo trentacinque volte.
+
+
+## La centonovesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

@@ -2824,3 +2824,78 @@ evidenziata dell'inventario** è `key_identify`, che chiama `*com_identify`
 
 💡 I tasti si leggono in `elonaplus2.31\config.txt`, non nel sorgente: il
 sorgente ha i **valori di partenza**, e questa installazione li ha cambiati.
+
+## `db_item.hsp`, altri tre lotti dell'indice 3 — 2026-08-27, centodecima (seguito)
+
+    db_item.hsp   indice 3 — le TRE categorie piu' grandi rimaste
+    -------------------------------------------------------------------------
+    011  FILTER_ITEM_SPELLBOOK    82 firme ->  82 righe   margine 3
+    012  FILTER_WEAPON           105 firme -> 105 righe   margine 3
+    013  FILTER_RANGE             55 firme ->  56 righe   margine 7
+    -------------------------------------------------------------------------
+    **242 firme rese**, che coprono **243 righe** del sorgente
+    applica 28.417 -> **28.660**   (+243 esatte)
+    -------------------------------------------------------------------------
+    IL TOTALE DELLA 110a, otto lotti:
+    **415 firme**, **450 righe**
+    applica 28.210 -> **28.660**   (+450 esatte)
+    non tradotte di db_item.hsp: 2.033 -> **1.618**   (-415 esatte)
+    indice 3: rese 693 -> **1.130**   su 1.319 vive
+    perimetro 26.690 -> **27.105**   dizionario 23.951 -> **24.366**
+    tetto secco: introdotte dall'italiano **0** — il cancello e' verde
+    rinviate: nessuna   toppe: nessuna   test: **794**, invariato
+    build: SI', **14:28 del 27/08**
+    -------------------------------------------------------------------------
+
+Le decisioni stanno in `glossario.md`, sezione della 110ª. Qui i numeri e le
+tre cose che riguardano il **modo di lavorare**.
+
+### ⭐ Il conto che dice quanto e' costato ogni lotto
+
+    lotto  categoria      firme  righe  righe/firme
+    ------------------------------------------------
+    007    minerali          21     33     1,57   ⭐ le dodici gemme
+    006    scarti            81     97     1,20
+    008    libri             20     23     1,15
+    009    bacchette         30     32     1,07
+    010    contenitori       21     22     1,05
+    013    a distanza        55     56     1,02
+    011    grimori           82     82     1,00
+    012    armi             105    105     1,00   ⚠️ nessun doppione
+
+⭐ **Il rapporto righe/firme e' il prezzo della categoria**, e si legge **prima**
+di aprirla con `_107-lotti-per-categoria.py --indice 3`. Chi deve scegliere il
+prossimo lotto guardi quella colonna: le gemme hanno reso 33 righe con 21 rese,
+le armi 105 con 105.
+
+⚠️ **Ma non e' il solo criterio.** I grimori stanno a 1,00 e sono costati meno
+delle armi a parita' di righe, perche' **36 righe su 82 sono una griglia** — tre
+classi per dodici elementi — e una griglia si scrive una volta sola. Il rapporto
+righe/firme non vede le famiglie **dentro** le firme: le vede solo l'elenco.
+
+### ⚠️ Il margine si e' dovuto stringere DUE volte su tre
+
+    011  grimori    margine 1 al primo giro -> 3   (accorciati 4 fatti)
+    012  armi       margine 3 subito
+    013  a distanza margine 7 subito
+
+Nei grimori la testa «Un libro per » costa 13 caratteri e la coda «Si può
+leggere.» ne costa 17: restano 39 per il fatto, e quattro righe ci sono arrivate
+contro. Accorciato il **fatto**, mai la formula.
+
+💡 **La regola che ne esce**: quando una categoria ha una testa fissa e una coda
+fissa, il budget vero non e' 69 — e' 69 meno la somma delle due. Conviene
+misurarlo **prima** di scrivere le rese, non dopo.
+
+### ⚠️ E l'heredoc ha colpito una settima volta, in un modo nuovo
+
+Un `cat >> glossario.md <<'FINE'` con dentro centosessanta righe di Markdown e'
+morto con «unexpected EOF while looking for matching `''`». Non ha scritto
+niente — l'ho controllato con `git status` prima di rifare — ma il fallimento e'
+**silenzioso sul contenuto**: se avesse scritto meta' file non lo avrei saputo
+dal messaggio.
+
+La regola del progetto vale anche per il testo lungo, e stavolta e' costato un
+comando invece di due minuti: **il file si scrive con lo strumento di scrittura**
+e poi si innesta con tre righe di Python che verificano la marca
+(`assert base.count(marca) == 1`).

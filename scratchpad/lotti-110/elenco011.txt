@@ -1,0 +1,248 @@
+  47362
+    JP 電撃属性の範囲魔法呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 6 Magic. Area of Effect spell that does lightning damage.
+  47435
+    JP 暗黒属性の範囲魔法呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 7 Magic. Area of Effect spell that does darkness damage.
+  47508
+    JP 地獄属性の範囲魔法呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 7 Magic. Area of Effect spell that does nether damage.
+  47581
+    JP 毒属性の範囲魔法呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 7 Magic. Area of Effect spell that does poison damage.
+  47654
+    JP ＰＶＤＶ属性の範囲魔法呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 8 Magic. Area of Effect spell that does physical damage.
+  47727
+    JP 幻惑属性の範囲魔法呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 7 Magic. Area of Effect spell that does mind damage.
+  47800
+    JP 神経属性の範囲魔法呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 7 Magic. Area of Effect spell that does nerve damage.
+  47873
+    JP 地獄属性のボルトを唱える為に必要な本。読むことができる。
+    EN Book of Rank 5 Magic. Bolt type spell that does nether damage.
+  47946
+    JP 毒属性のボルトを唱える為に必要な本。読むことができる。
+    EN Book of Rank 5 Magic. Bolt type spell that does poison damage.
+  48019
+    JP 音属性のボルトを唱える為に必要な本。読むことができる。
+    EN Book of Rank 5 Magic. Bolt type spell that does sound damage.
+  48092
+    JP 混沌属性のボルトを唱える為に必要な本。読むことができる。
+    EN Book of Rank 5 Magic. Bolt type spell that does chaos damage.
+  48165
+    JP 神経属性のボルトを唱える為に必要な本。読むことができる。
+    EN Book of Rank 5 Magic. Bolt type spell that does nerve damage.
+  48238
+    JP 火炎属性の矢を唱える為に必要な本。読むことができる。
+    EN Book of Rank 2 Magic. Arrow type spell that does fire damage.
+  48311
+    JP 冷気属性の矢を唱える為に必要な本。読むことができる。
+    EN Book of Rank 2 Magic. Arrow type spell that does cold damage.
+  48384
+    JP 電撃属性の矢を唱える為に必要な本。読むことができる。
+    EN Book of Rank 2 Magic. Arrow type spell that does lightning damage.
+  48457
+    JP 幻惑属性の矢を唱える為に必要な本。読むことができる。
+    EN Book of Rank 3 Magic. Arrow type spell that does mind damage.
+  48530
+    JP 毒属性の矢を唱える為に必要な本。読むことができる。
+    EN Book of Rank 3 Magic. Arrow type spell that does poison damage.
+  48603
+    JP 音属性の矢を唱える為に必要な本。読むことができる。
+    EN Book of Rank 3 Magic. Arrow type spell that does sound damage.
+  48676
+    JP PVDV属性の矢を唱える為に必要な本。読むことができる。
+    EN Book of Rank 3 Magic. Arrow type spell that does physical damage.
+  58996
+    JP 耐久と魅力の向上と、麻痺と盲目に耐性を得る呪文を唱える為に必要な本だ。
+    EN Book of Rank 1 Magic. Increases CON/CHR, give resist to Paralysis/Blind.
+  61869
+    JP ＰＶＤＶ属性のボルトを唱える為に必要な本。読むことができる。
+    EN Book of Rank 5 Magic. Bolt type spell that does physical damage.
+  65603
+    JP 感覚と意志の向上と、睡眠と混乱に耐性を得る呪文を唱える為に必要な本だ。
+    EN Book of Rank 1 Magic. Increases PER/WIL, give resist to Sleep/Confuse.
+  72960
+    JP 重力から解放され、回避力を高める呪文を唱える為に必要な本だ。
+    EN Book of Rank 2 Magic. It lets you float and dodge inaccurate attacks.
+  78730
+    JP 複雑な料理を覚えるための紙。使用することができる（使い捨て）。
+    EN (Single-use) paper that teaches you new recipes.
+  82080
+    JP 空から金貨が降ってくる呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 4 Magic. It makes gold pieces rain from the sky.
+  82153
+    JP アイテムを保持しておく領域を召喚する呪文を唱える為に必要な本だ。
+    EN Book of Rank 7 Magic. It summons a rift of pocket realm to storage items.
+  83558
+    JP 致命傷を負った時、確率でそのダメージを０にする呪文を唱える為に必要な本だ。
+    EN Book of Rank 12 Magic. The blessing negates fatal damage occasionally.
+  84443
+    JP 魔法属性のボルトを唱える為に必要な本。読むことができる。
+    EN Book of Rank 2 Magic. Bolt type spell that does magic damage.
+  84516
+    JP 範囲的な魔法属性の呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 5 Magic. Area of Effect spell that does magical damage.
+  85104
+    JP 古代の知識が書き込まれた書。読むことができる。
+    EN (Readable) book with ancient knowledge.
+  86943
+    JP 暗黒属性の矢を唱える為に必要な本。読むことができる。
+    EN Book of Rank 4 Magic. Arrow type spell that does darkness damage.
+  89013
+    JP モンスター以外の敵対状況をリセットする呪文を唱える為に必要な本だ。
+    EN Book of Rank 3 Magic. It reset memories of hostile situations.
+  91985
+    JP 対象に扉を生成する呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 3 Magic. It manifests a door on target object.
+  92873
+    JP 対象に炎の壁を生成する呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 6 Magic. It can generate walls of flame on targeted spot.
+  93225
+    JP 対象に酸の海を生成する呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 5 Magic. It can generate pools of acid on targeted spot.
+  94178
+    JP 自分、もしくは隣接した味方のHPを回復する呪文を唱える為に必要な本だ。
+    EN Book of Rank 5 Magic. It can restore HP of the touched ally.
+  94322
+    JP 周囲の味方のHPを回復する呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 5 Magic. It can restore HP of every nearby ally.
+  94457
+    JP 対象に壁を生成する呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 3 Magic. It manifests a wall at target location.
+  98652
+    JP 対象に蜘蛛の巣を張る呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 2 Magic. It creates spider webs on the targeted spot.
+  98877
+    JP 対象を味方に引き入れる呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 20 Magic. It bends target's will, making them join you.
+ 102040
+    JP 自分に突然変異を起こす呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 20 Magic. It lets you mutate yourself.
+ 103652
+    JP 周囲の物質を発見する呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 3 Magic. It highlights hidden objects around you.
+ 104522
+    JP 読書の補佐をする呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 4 Magic. Helps handling various anomalies created by tomes.
+ 104595
+    JP 対象の精神的な耐性を一時的に下げる呪文を唱える為に必要な本だ。
+    EN Book of Rank 5 Magic. It reduces various magical resistance of target.
+ 105231
+    JP 自らの呪いを全て打ち消す呪文を唱える為に必要な本だ。
+    EN Book of Rank 8 Magic. It dispels various hex on the user.
+ 105304
+    JP 自らの呪いを一つ打ち消す呪文を唱える為に必要な本だ。
+    EN Book of Rank 5 Magic. It dispels one hex from nearby people.
+ 105528
+    JP 一定時間呪いに対する抵抗を得る呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 8 Magic. It enhances your resistance against curses.
+ 105672
+    JP 対象の元素の耐性を一時的に下げる呪文を唱える為に必要な本だ。
+    EN Book of Rank 6 Magic. It reduces elemental magical resistance of target.
+ 105745
+    JP 対象のPVを一時的に下げる呪文を唱える為に必要な本だ。
+    EN Book of Rank 4 Magic. It reduces physical resilience of target.
+ 105889
+    JP 筋力と器用さの向上と、恐怖と混乱に耐性を得る呪文を唱える為に必要な本だ。
+    EN Book of Rank 1 Magic. Increases STR/DEX, give resist to Fear/Confuse.
+ 106184
+    JP 鈍足状態を引き起こす呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 5 Magic. It reduces the speed of the target..
+ 106257
+    JP 加速状態を引き起こす呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 9 Magic. It increases the speed of user.
+ 106401
+    JP 属性耐性を一時的に上げる呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 4 Magic. It raises various magical resistance of user.
+ 106545
+    JP 一時的に治癒力を上げる呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 5 Magic. It activates the healing factor of the user.
+ 106689
+    JP 対象を沈黙状態にする呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 6 Magic. It silences the target.
+ 106842
+    JP 一時的にDVを上げ、恐怖に耐性を得る呪文を唱える為に必要な本だ。
+    EN Book of Rank 2 Magic. Raise ones dodge abilities and give resist to fear.
+ 111853
+    JP 願いを言う機会が与えられる呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 50 Magic. It grants the user a chance to say their wishes.
+ 112955
+    JP 混沌属性の範囲魔法呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 7 Magic. Area of Effect spell that does chaos damage.
+ 113028
+    JP 音属性の範囲魔法呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 7 Magic. Area of Effect spell that does sound damage.
+ 113101
+    JP 火炎属性の範囲魔法呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 6 Magic. Area of Effect spell that does fire damage.
+ 113174
+    JP 冷気属性の範囲魔法呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 6 Magic. Area of Effect spell that does cold damage.
+ 113247
+    JP 幻惑属性のボルトを唱える為に必要な本。読むことができる。
+    EN Book of Rank 6 Magic. Bolt type spell that does mind damage.
+ 113320
+    JP 暗黒属性のボルトを唱える為に必要な本。読むことができる。
+    EN Book of Rank 6 Magic. Bolt type spell that does darkness damage.
+ 113462
+    JP 神経属性の矢を唱える為に必要な本。読むことができる。
+    EN Book of Rank 3 Magic. Arrow type spell that does nerve damage.
+ 113535
+    JP 混沌属性の矢を唱える為に必要な本。読むことができる。
+    EN Book of Rank 3 Magic. Arrow type spell that does chaos damage.
+ 113608
+    JP 地獄属性の矢を唱える為に必要な本。読むことができる。
+    EN Book of Rank 3 Magic. Arrow type spell that does nether damage.
+ 114016
+    JP 魔法属性の矢を唱える為に必要な本。読むことができる。
+    EN Book of Rank 1 Magic. Arrow type spell that does magical damage.
+ 114353  ×4
+    JP HPを回復する呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 12 Magic. It heals the spell user greatly.
+ 114426  ×4
+    JP HPを回復する呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 8 Magic. It heals the spell user.
+ 114499  ×4
+    JP HPを回復する呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 4 Magic. It heals the spell user.
+ 114572  ×4
+    JP HPを回復する呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 1 Magic. It heals the spell user.
+ 114645
+    JP 特定の場所にテレポートする呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 6 Magic. It teleports user to location across the continent.
+ 114718
+    JP 今までに現れた★のつくアイテムの現在地を知る呪文を唱える為に必要な本だ。
+    EN Book of Rank 15 Magic. It shows the user location of powerful artifacts.
+ 114791
+    JP 未探索の箇所を明らかにする呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 5 Magic. It illuminates nearby walls to create a map.
+ 123360
+    JP モンスターを召喚する呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 3 Magic. It summons several monsters from a nearby Nefia.
+ 123495
+    JP 近距離のテレポートを唱える為に必要な本。読むことができる。
+    EN Book of Rank 1 Magic. It teleports user for a short distance.
+ 128871
+    JP 電撃属性のボルトを唱える為に必要な本。読むことができる。
+    EN Book of Rank 4 Magic. Bolt type spell that does lightning damage.
+ 128944
+    JP 火炎属性のボルトを唱える為に必要な本。読むことができる。
+    EN Book of Rank 4 Magic. Bolt type spell that does fire damage.
+ 129017
+    JP 冷気属性のボルトを唱える為に必要な本。読むことができる。
+    EN Book of Rank 4 Magic. Bolt type spell that does ice damage.
+ 129727
+    JP アイテムの呪いを解く呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 7 Magic. It uncursed equipped items.
+ 129800
+    JP アイテムを鑑定する呪文を唱える為に必要な本。読むことができる。
+    EN Book of Rank 8 Magic. It identifies an item for the user.
+ 129873
+    JP テレポートを唱える為に必要な本。読むことができる。
+    EN Book of Rank 5 Magic. It teleports user for a distance.
+
+82 firme, 79 giapponesi distinti; 1 giapponesi condivisi
