@@ -1,0 +1,1190 @@
+# La famiglia delle righe-fonte: 224 titoli distinti, 1509 righe
+# tetto: 66 caratteri (degradati). Oltre, la riga smette di essere una fonte.
+
+##   1   237x   margine  39   db_item.hsp:42852
+   jp  ～イルヴァ幻想辞典～  (236x)
+   jp  ～イムウエル幻想辞典～  (1x)
+   en  ~Irva Fantasy Encyclopedia~
+   it  
+
+##   2   118x   margine  20   db_item.hsp:53840
+   jp  ～明日から使えるあなたの為の武具集～
+   en  ~Collection of Armaments you can Use Tomorrow~
+   it  
+
+##   3   110x   margine  38   db_item.hsp:42782
+   jp  ～移り変わりゆくティリスの食～
+   en  ~Everchanging Food of Tyris~
+   it  
+
+##   4    89x   margine  20   db_item.hsp:66703
+   jp  ～ノースティリス大家具事典～
+   en  ~Great Encyclopedia of North Tyris Furnitures~
+   it  
+
+##   5    81x   margine  39   db_item.hsp:47359
+   jp  ～本の為の本・魔法書編～
+   en  ~Big Book of Magical Books~
+   it  
+
+##   6    64x   margine  28   db_item.hsp:43900
+   jp  ～飲めるのみもの、飲めないのみもの～
+   en  ~Drinks to Drink, Drinks Not to Drink~
+   it  
+
+##   7    57x   margine  26   db_item.hsp:44658
+   jp  ～怯える錬金術士の『ナプラス』の言葉～  (1x)
+   jp  ⚠️ MUTO su 56x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  ~Identification Report: <Food> Category~
+   it  
+
+##   8    53x   margine  50   db_item.hsp:43240
+   jp  ～魔具全典～
+   en  ~Arcane Almanac~
+   it  
+
+##   9    43x   margine  43   db_item.hsp:42914
+   jp  ～ルミエスト美術目録～
+   en  ~Lumiest Art Catalogue~
+   it  
+
+##  10    40x   margine  49   db_item.hsp:44300
+   jp  ～魔具全典～
+   en  ~Arcane Alamanac~
+   it  
+
+##  11    33x   margine  25   db_item.hsp:59997
+   jp  ～ティリス園芸図鑑～
+   en  ~Illustrated Guide to Tyris Horticulture~
+   it  
+
+##  12    27x   margine  25   db_item.hsp:45060
+   jp  ～今日から君も冒険者・旅用マニュアル～
+   en  ~an Adventurer is You! Guide for Travels~
+   it  
+
+##  13    27x   margine  44   db_item.hsp:48805
+   jp  ～ヴェルニース鉱物図鑑～  (25x)
+   jp  ～ザイール鉱物図鑑～  (1x)
+   jp  ～ルミエスト美術目録～  (1x)
+   en  ~Vernis Ore Catalogue~
+   it  
+
+##  14    26x   margine  30   db_item.hsp:49776
+   jp  ～別冊ヨウィン・未知の知識を追え！～
+   en  ~The Yowyn Book of Secrt Knowledge!~
+   it  
+
+##  15    23x   margine  34   db_item.hsp:71643
+   jp  ～家庭を彩る日用雑貨～
+   en  ~Daily Necessities for the Home~
+   it  
+
+##  16    21x   margine  30   db_item.hsp:43829
+   jp  ～私の愛する幾千ものガラクタ～  (18x)
+   jp  ?私の愛する幾千ものガラクタ?  (2x)
+   jp  ～ゴミの山に光るもの～  (1x)
+   en  ~Thousands of pieces of Junk I love~
+   it  
+
+##  17    20x   margine  37   db_item.hsp:42709
+   jp  ～料理を支える脇役達～
+   en  ~Supporting Roles in Kitchen~
+   it  
+
+##  18    17x   margine  19   db_item.hsp:57707
+   jp  ～ノースティリス大家具事典～  (16x)
+   jp  ～今日から君も冒険者・旅用マニュアル～  (1x)
+   en  ~ Great Encyclopedia of North Tyris Furnitures~
+   it  
+
+##  19    17x   margine  25   db_item.hsp:73894
+   jp  ～エウダーナに学ぶ必勝交易法～
+   en  ~Eulderna's Winning Strategy for Trading~
+   it  
+
+##  20    16x   margine  37   db_item.hsp:62732
+   jp  ～玲瓏たるイルヴァの調べ～
+   en  ~Music of the Melodious Irva~
+   it  
+
+##  21    15x   margine  33   db_item.hsp:80012
+   jp  ～街中の名脇役達～
+   en  ~Supporting Roles on the Streets~
+   it  
+
+##  22    11x   margine  35   db_item.hsp:103233
+   jp  ～遊技大典・全年齢対応版～
+   en  ~Game Tricks, All Ages Version~
+   it  
+
+##  23    10x   margine  46   db_item.hsp:45061
+   jp  ～旅用マニュアル注釈～
+   en  ~note for Travelers~
+   it  
+
+##  24    10x   margine  32   db_item.hsp:57125
+   jp  ～貰って嬉しい贈り物あれこれ～
+   en  ~Gifts that I am Happy to Receive~
+   it  
+
+##  25     9x   margine  47   db_item.hsp:50816
+   jp  ～本の為の本～
+   en  ~Big Book of Books~
+   it  
+
+##  26     9x   margine  10   db_item.hsp:52045
+   jp  ～脱冒険者から始める商いライフ～
+   en  ~Merchant Life Starting from a Quitting as a Adventurer~
+   it  
+
+##  27     9x   margine  41   db_item.hsp:96782
+   jp  ～死にゆく者へ贈る書～
+   en  ~Book for the Dying Ones~
+   it  
+
+##  28     8x   margine  36   db_item.hsp:56055
+   jp  ～本の為の本・児童書編～
+   en  ~Big Book of Children's Books~
+   it  
+
+##  29     8x   margine  29   db_item.hsp:57063
+   jp  ～ノースティリス紀行・冬版～
+   en  ~North Tyris Travels, Winter Edition~
+   it  
+
+##  30     8x   margine  39   db_item.hsp:116540
+   jp  ～子供を騙す１００のテクニック・お土産編～
+   en  ~Cheap Gifts for Your Kids~
+   it  
+
+##  31     7x   margine  32   db_item.hsp:84163
+   jp  ～打切上等！箱マニア・創刊号～
+   en  ~Censored! Box Mania, First Issue~
+   it  
+
+##  32     6x   margine  34   db_item.hsp:44031
+   jp  ～ダルフィ不動産・商品カタログ～
+   en  ~Derphy Real Estate - Catalogue~
+   it  
+
+##  33     6x   margine  26   db_item.hsp:45549
+   jp  ⚠️ MUTO su 6x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  ~ Identification Report <Item> Category~
+   it  
+
+##  34     6x   margine  39   db_item.hsp:79764
+   jp  ～あなたの見知らぬ世界～
+   en  ~ Worlds you've Never Seen~
+   it  
+
+##  35     6x   margine  40   db_item.hsp:84967
+   jp  ～あなたの見知らぬ世界～
+   en  ~Worlds you've Never Seen~
+   it  
+
+##  36     6x   margine  36   db_item.hsp:102521
+   jp  ～ティリス園芸図鑑～
+   en  ~Tyris Gardening Encyclopedia~
+   it  
+
+##  37     5x   margine  42   db_item.hsp:47286
+   jp  ～パルミア秋冬物コレクション～
+   en  ~Palmian Winter Fashion~
+   it  
+
+##  38     5x   margine  43   db_item.hsp:60914
+   jp  ～病みつきになる煙の味は～
+   en  ~Sickly Taste of Smoke~
+   it  
+
+##  39     4x   margine  27   db_item.hsp:42415
+   jp  ～これからの魔物被害対策～
+   en  ~Future Monster Damage Countermeasures~
+   it  
+
+##  40     4x   margine  40   db_item.hsp:42416
+   jp  ～麻酔の射手の言葉～
+   en  ~words of Expert Marksman~
+   it  
+
+##  41     4x   margine  40   db_item.hsp:42417
+   jp  ～熟練狩人の言葉～
+   en  ~words of Expert Huntsman~
+   it  
+
+##  42     4x   margine  27   db_item.hsp:46479
+   jp  ～君にも使える！発掘兵器～
+   en  ~You Can Use it too! Excavated Weapons~
+   it  
+
+##  43     4x   margine  45   db_item.hsp:50474
+   jp  ～バトルホビー列伝～
+   en  ~Battle-Hobby Legend~
+   it  
+
+##  44     4x   margine  29   db_item.hsp:61310
+   jp  ～世界のコイン・ティリス編～
+   en  ~Coins of this World - Tyris Edition~
+   it  
+
+##  45     3x   margine  41   db_item.hsp:44863
+   jp  ～海藻と海草の違い～
+   en  ~Seaweed is not Sea Weed~
+   it  
+
+##  46     3x   margine  23   db_item.hsp:44865
+   jp  ⚠️ MUTO su 3x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  ~Identification Report: <Seaweed> Category~
+   it  
+
+##  47     3x   margine  35   db_item.hsp:45745
+   jp  ～毒も薬も用法・用量～
+   en  ~ Administration of Medicines ~
+   it  
+
+##  48     3x   margine  39   db_item.hsp:49646
+   jp  ～奥深い酒の世界～
+   en  ~The Wide World of Alcohol~
+   it  
+
+##  49     3x   margine  36   db_item.hsp:52579
+   jp  ～不思議な古代装飾品～
+   en  ~Mysterious Ancient Ornaments~
+   it  
+
+##  50     3x   margine  49   db_item.hsp:65195
+   jp  ～熱き決闘者たち～
+   en  ~Heated Duelists~
+   it  
+
+##  51     3x   margine  30   db_item.hsp:81130
+   jp  ～巻かれる為の長いもの～
+   en  ~Battles, Dragons, Swords and Magic~
+   it  
+
+##  52     3x   margine   4   db_item.hsp:91460
+   jp  ～嘘と勘違いされる全くの作り話・第２巻～
+   en  ~Totally Made-up Stories that are Mistaken for Lies, Volume 2~
+   it  
+
+##  53     3x   margine  42   db_item.hsp:92998
+   jp  ～パルミア春夏物コレクション～
+   en  ~Palmian Summer Fashion~
+   it  
+
+##  54     3x   margine  35   db_item.hsp:95422
+   jp  ～より良い業物を目指して～
+   en  ~Aiming for Better Workmanship~
+   it  
+
+##  55     3x   margine  26   db_item.hsp:113099
+   jp  ⚠️ MUTO su 3x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  a Eulderna Researcher handling this tome
+   it  
+
+##  56     2x   margine  40   db_item.hsp:43962
+   jp  ～選ぼう、大切な人への贈り物～
+   en  ~Gift for your loved ones~
+   it  
+
+##  57     2x   margine  41   db_item.hsp:44163
+   jp  ～今日から始める奴隷運用～
+   en  ~ Let's Slavery - Today ~
+   it  
+
+##  58     2x   margine  36   db_item.hsp:46076
+   jp  ～ロストテクノロジー、その片鱗～
+   en  ~a Glimpse of Lost Technology~
+   it  
+
+##  59     2x   margine  39   db_item.hsp:46886
+   jp  ～開発主任『ガベラ』の言葉～  (1x)
+   jp  ～生化学者『イコール』の言葉～  (1x)
+   en  Lead Developer <Dr. Gavela>
+   it  
+
+##  60     2x   margine  42   db_item.hsp:50410
+   jp  ～遺跡荒らしのメモ～  (1x)
+   jp  ⚠️ MUTO su 1x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  ~memo of a grave robber~
+   it  
+
+##  61     2x   margine  50   db_item.hsp:51917
+   jp  ～叡智の書～
+   en  ~Book of Wisdom~
+   it  
+
+##  62     2x   margine  27   db_item.hsp:52446
+   jp  ～農業、その新たな可能性～
+   en  ~Agriculture and its New Possibilities~
+   it  
+
+##  63     2x   margine  47   db_item.hsp:53772
+   jp  ～家庭でできる応急処置～
+   en  ~First aid at home~
+   it  
+
+##  64     2x   margine  39   db_item.hsp:56267
+   jp  ～イムウエル交易譚～
+   en  ~the Aimwell tale of trade~
+   it  
+
+##  65     2x   margine  18   db_item.hsp:57446
+   jp  ～いいもの選ぼう職人道具～
+   en  ~Choosing the Best Tools for the Best Craftsmen~
+   it  
+
+##  66     2x   margine  43   db_item.hsp:58396
+   jp  ～税金との付き合い方～
+   en  ~Irva Revenue Services~
+   it  
+
+##  67     2x   margine  43   db_item.hsp:59314
+   jp  ～牧畜と暮らす生活～
+   en  ~Living with Livestock~
+   it  
+
+##  68     2x   margine  26   db_item.hsp:63725
+   jp  ～ザナンの紅の英雄『ロイター』の言葉～
+   en  ~words of <Loyter> the crimson of Zanan~
+   it  
+
+##  69     2x   margine  25   db_item.hsp:71645
+   jp  ～釣り自慢のフィッシャーの言葉～
+   en  ~words of a fisherman proud of his catch~
+   it  
+
+##  70     2x   margine  40   db_item.hsp:72484
+   jp  ～別冊・怪しいアイテム買って試した～  (1x)
+   jp  ～錬金術・禁忌大全～  (1x)
+   en  ~Extra Issue: Weird Items~
+   it  
+
+##  71     2x   margine  35   db_item.hsp:81064
+   jp  ～本の為の本・歴史書編～
+   en  ~Big Books of Historical Books~
+   it  
+
+##  72     2x   margine  35   db_item.hsp:83015
+   jp  ～情報屋ウィーゼムの調べた情報～
+   en  ~Intel of the Informant Wiesem~
+   it  
+
+##  73     2x   margine  35   db_item.hsp:83972
+   jp  ～鉄の胃袋を求めて・完食列伝～
+   en  ~Iron Stomach: A Complete Diet~
+   it  
+
+##  74     2x   margine  45   db_item.hsp:86942
+   jp  ⚠️ MUTO su 2x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  a Eulderna Researcher
+   it  
+
+##  75     2x   margine  18   db_item.hsp:93360
+   jp  ～ティリス武具大全、広告のページ～
+   en  ~Tyris Armor Compendium, page of advertisements~
+   it  
+
+##  76     1x   margine  43   db_item.hsp:42783
+   jp  ～敗北者のうめき声～
+   en  ~words of the defeated~
+   it  
+
+##  77     1x   margine  41   db_item.hsp:42784
+   jp  ～涙目の煽りイカの言葉～
+   en  ~words of a Provocasquid~
+   it  
+
+##  78     1x   margine  14   db_item.hsp:43364
+   jp  ～続・明日から使えるあなたの為の武具集～
+   en  ~Collection of Armaments you can Use Tomorrow Cont.~
+   it  
+
+##  79     1x   margine  37   db_item.hsp:43488
+   jp  ～もう化かされない！魔物の罠の見抜き方～
+   en  ~Fool me twice, Shame on me!~
+   it  
+
+##  80     1x   margine  49   db_item.hsp:43632
+   jp  ～金毛九尾の言葉～
+   en  ~words of Kyu-Bi~
+   it  
+
+##  81     1x   margine  42   db_item.hsp:43767
+   jp  ～パルミア広報～
+   en  ~Palmia Public Services~
+   it  
+
+##  82     1x   margine  42   db_item.hsp:43768
+   jp  ～ペットトレイナーの言葉～
+   en  ~words of a Pet Trainer~
+   it  
+
+##  83     1x   margine  35   db_item.hsp:43769
+   jp  ～訓練所の張り紙～
+   en  ~words at the Training Center ~
+   it  
+
+##  84     1x   margine  35   db_item.hsp:43963
+   jp  ～鎖自慢された奴隷の言葉～
+   en  a Slave showing off his chains.
+   it  
+
+##  85     1x   margine  44   db_item.hsp:44097
+   jp  ～拘束器具の歴史～
+   en  ~ History of Bondage ~
+   it  
+
+##  86     1x   margine  34   db_item.hsp:45945
+   jp  ～機甲将軍『アインリッヒ』の言葉～
+   en  ~<Heinrich> the Armored General~
+   it  
+
+##  87     1x   margine  27   db_item.hsp:45946
+   jp  ～特殊部隊長『ミーリス』の言葉～
+   en  ~<Milis> Captain of the Special Forces~
+   it  
+
+##  88     1x   margine  39   db_item.hsp:46010
+   jp  ～サメ信者大全～
+   en  ~Shark Believer Compendium~
+   it  
+
+##  89     1x   margine  47   db_item.hsp:46144
+   jp  ～退屈ネクロマンサーの言葉～
+   en  a Bored Necromancer
+   it  
+
+##  90     1x   margine  39   db_item.hsp:46214
+   jp  ?ジュアの狂信者の独り言?
+   en  Monologue of a Jure Fanatic
+   it  
+
+##  91     1x   margine  24   db_item.hsp:46215
+   jp  ⚠️ MUTO su 1x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  ~Identification Report: <Plants> Category~
+   it  
+
+##  92     1x   margine  46   db_item.hsp:46404
+   jp  ～困惑する素人の言葉～
+   en  a bewildered amateur
+   it  
+
+##  93     1x   margine  45   db_item.hsp:46405
+   jp  ～解説中のマニアの言葉～
+   en  angry potio-plug nerd
+   it  
+
+##  94     1x   margine  46   db_item.hsp:46818
+   jp  ～進め！オカルト探検隊～
+   en  ~Embark! Occultists~
+   it  
+
+##  95     1x   margine  48   db_item.hsp:46885
+   jp  ～ザナン研究員の言葉～
+   en  a Zanan Researcher
+   it  
+
+##  96     1x   margine  53   db_item.hsp:46951
+   jp  ～邪悪な魔法使いの言葉～
+   en  a Evil Wizard
+   it  
+
+##  97     1x   margine  43   db_item.hsp:47016
+   jp  ～職人が教える武器の歴史～
+   en  ~Blacksmithing History~
+   it  
+
+##  98     1x   margine  41   db_item.hsp:47083
+   jp  ～姉波動聖典～
+   en  ~Big Sister Energy Waves~
+   it  
+
+##  99     1x   margine  51   db_item.hsp:47149
+   jp  ～玲瓏たるイルヴァの調べ～
+   en  ~Tunes of Irva~
+   it  
+
+## 100     1x   margine  49   db_item.hsp:47222
+   jp  ～挟まれていた紙片の殴り書き～
+   en  a Punched-in note
+   it  
+
+## 101     1x   margine  40   db_item.hsp:48237
+   jp  ⚠️ MUTO su 1x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  ~some Eulderna Pyromaniac~
+   it  
+
+## 102     1x   margine  40   db_item.hsp:48735
+   jp  ～イルヴァ昆虫大百科～
+   en  ~Irva Insect Encyclopedia~
+   it  
+
+## 103     1x   margine  29   db_item.hsp:48736
+   jp  ～イルヴァ昆虫大百科注釈～
+   en  ~Irva Insect Encyclopedia (Footnote)~
+   it  
+
+## 104     1x   margine  40   db_item.hsp:48737
+   jp  ～無名吟遊詩人の短歌～
+   en  ~Songs of a nameless poet~
+   it  
+
+## 105     1x   margine  24   db_item.hsp:51290
+   jp  ～遺跡研究者『メローキア』の言葉～
+   en  ~words of <Melochea> the Nefia Researcher~
+   it  
+
+## 106     1x   margine  33   db_item.hsp:51361
+   jp  ～現場を見た専門家の言葉～
+   en  ~words of an Expert on the Scene~
+   it  
+
+## 107     1x   margine  11   db_item.hsp:51432
+   jp  ～自称天才魔道具技師の言葉～
+   en  ~words of a Self-proclaimed Genius Grimoire Technician~
+   it  
+
+## 108     1x   margine  27   db_item.hsp:51979
+   jp  ～図解・忍者のひみつ１００選～
+   en  ~100 Secret of the Ninja - Illustrated~
+   it  
+
+## 109     1x   margine  36   db_item.hsp:52047
+   jp  ～富の女神の言葉～
+   en  Words of the Goddess of Wealth
+   it  
+
+## 110     1x   margine  47   db_item.hsp:52382
+   jp  ～ガイドの『ノルン』の言葉～
+   en  ~<Norne> the guide~
+   it  
+
+## 111     1x   margine  30   db_item.hsp:52519
+   jp  ～隅に記された魔女の言葉～
+   en  Witch's words, written in the corner
+   it  
+
+## 112     1x   margine  37   db_item.hsp:52650
+   jp  ～混乱する店員の言葉～
+   en  ~words of a eccentric bandit~
+   it  
+
+## 113     1x   margine  41   db_item.hsp:53420
+   jp  ～ソックスソードマンの評価～
+   en  ~words of a sockswordman~
+   it  
+
+## 114     1x   margine  37   db_item.hsp:54885
+   jp  ～君にもできるサバイバル～
+   en  ~Survival that Anyone Can Do~
+   it  
+
+## 115     1x   margine  29   db_item.hsp:55273
+   jp  ～危険物取扱マニュアル～
+   en  ~Hazardous Materials Handling Manual~
+   it  
+
+## 116     1x   margine  46   db_item.hsp:55346
+   jp  ⚠️ MUTO su 1x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  ~some weird old guy~
+   it  
+
+## 117     1x   margine  31   db_item.hsp:56471
+   jp  ～夢の廃物利用～
+   en  ~Magical Ways of Waste Utilization~
+   it  
+
+## 118     1x   margine  52   db_item.hsp:56473
+   jp  ～根元の濡れた標識～
+   en  ~the Whizzard~
+   it  
+
+## 119     1x   margine  35   db_item.hsp:57127
+   jp  ～はく製マニアからの手紙～
+   en  ~words of an Fossil Enthusiast~
+   it  
+
+## 120     1x   margine  41   db_item.hsp:57577
+   jp  ～本の為の本・成年誌編～
+   en  ~Big Book of Adult Books~
+   it  
+
+## 121     1x   margine   7   db_item.hsp:57645
+   jp  ～必見！貯蓄型資産運用のすべて～
+   en  ~Must Watch! Everything About Savings and Asset Management~
+   it  
+
+## 122     1x   margine  29   db_item.hsp:57831
+   jp  ～発見！世界の珍品～
+   en  ~Discovery! Curiosities of the World~
+   it  
+
+## 123     1x   margine  41   db_item.hsp:57893
+   jp  ～パルミア広報～
+   en  ~Palmia Public Relations~
+   it  
+
+## 124     1x   margine  38   db_item.hsp:60514
+   jp  ～移り変わりゆくティリスの食～
+   en  ~Everchanging Food of Tyris～
+   it  
+
+## 125     1x   margine  35   db_item.hsp:60649
+   jp  ～古代道具の謎に迫る！～
+   en  ~Mystery of the Ancient Tools!~
+   it  
+
+## 126     1x   margine  45   db_item.hsp:60848
+   jp  ～道端の危険物～
+   en  ~Dangers on the Road~
+   it  
+
+## 127     1x   margine  38   db_item.hsp:61312
+   jp  ～ガイドの『ノルン』の言葉～
+   en  ~words of <Norne> the guide~
+   it  
+
+## 128     1x   margine  35   db_item.hsp:61375
+   jp  ～少女の寝言～
+   en  ~a Little Girl's Bedtime Story~
+   it  
+
+## 129     1x   margine  49   db_item.hsp:62098
+   jp  ～添えられた説明書～
+   en  ~attached manual~
+   it  
+
+## 130     1x   margine  28   db_item.hsp:62236
+   jp  ～ブランケットにくるまった少女の言葉～
+   en  ~words of a girl wrapped in a blanket~
+   it  
+
+## 131     1x   margine  44   db_item.hsp:62866
+   jp  ～《剛石のウリカグアル》の言葉～
+   en  ~words of <Urcaguary>~
+   it  
+
+## 132     1x   margine  47   db_item.hsp:62867
+   jp  ～《地のオパートス》の言葉～
+   en  ~words of <Opatos>~
+   it  
+
+## 133     1x   margine  48   db_item.hsp:62930
+   jp  ～《守護のロヴィト》の言葉～
+   en  ~words of <Rovid>~
+   it  
+
+## 134     1x   margine  49   db_item.hsp:62931
+   jp  ～《癒しのジュア》の言葉～
+   en  ~words of <Jure>~
+   it  
+
+## 135     1x   margine  46   db_item.hsp:62994
+   jp  ～《砂嵐のラシエル》の言葉～
+   en  ~words of <Arasiel>~
+   it  
+
+## 136     1x   margine  48   db_item.hsp:62995
+   jp  ～《風のルルウィ》の言葉～
+   en  ~words of <Lulwy>~
+   it  
+
+## 137     1x   margine  49   db_item.hsp:63058
+   jp  ～《機械のマニ》の言葉～
+   en  ~words of <Mani>~
+   it  
+
+## 138     1x   margine  46   db_item.hsp:63059
+   jp  ～《鉄騎のガルジエム》の言葉～
+   en  ~words of <Garziem>~
+   it  
+
+## 139     1x   margine  45   db_item.hsp:63122
+   jp  ～《富のヤカテクト》の言葉～
+   en  ~words of <Yacatect>~
+   it  
+
+## 140     1x   margine  45   db_item.hsp:63123
+   jp  ～《歌踊のカラヴィカ》の言葉～
+   en  ~words of <Karavika>~
+   it  
+
+## 141     1x   margine  47   db_item.hsp:63186
+   jp  ～《叡智のソピアー》の言葉～
+   en  ~words of <Sophia>~
+   it  
+
+## 142     1x   margine  46   db_item.hsp:63187
+   jp  ～《元素のイツパロトル》の言葉～
+   en  ~words of <Itzpalt>~
+   it  
+
+## 143     1x   margine  47   db_item.hsp:63250
+   jp  ～《不幸のシナア》の言葉～
+   en  ~words of <Sinaha>~
+   it  
+
+## 144     1x   margine  46   db_item.hsp:63251
+   jp  ～《幸運のエヘカトル》の言葉～
+   en  ~words of <Ehekatl>~
+   it  
+
+## 145     1x   margine  45   db_item.hsp:63314
+   jp  ～《収穫のクミロミ》の言葉～
+   en  ~words of <Kumiromi>~
+   it  
+
+## 146     1x   margine  46   db_item.hsp:63315
+   jp  ～《永遠のネヘルタード》の言葉～
+   en  ~words of <Amurdad>~
+   it  
+
+## 147     1x   margine  29   db_item.hsp:63523
+   jp  ～不思議なノートの走り書き～
+   en  ~scribbling in a mysterious notebook~
+   it  
+
+## 148     1x   margine  50   db_item.hsp:64807
+   jp  ～奇妙な噂話～
+   en  ~Bizarre Gossip~
+   it  
+
+## 149     1x   margine  32   db_item.hsp:65197
+   jp  ～呪われた者の言葉～
+   en  ~words of the victim to the curse~
+   it  
+
+## 150     1x   margine  49   db_item.hsp:65466
+   jp  ～慌てる市民の言葉～
+   en  ~Worried Citizen~
+   it  
+
+## 151     1x   margine  29   db_item.hsp:65527
+   jp  ～古代祭事のルーツに迫る～
+   en  ~a Close Look at the Ancient Rituals~
+   it  
+
+## 152     1x   margine  42   db_item.hsp:66979
+   jp  ～スンバラリア星人の言葉～
+   en  ~words of a Sunbararian~
+   it  
+
+## 153     1x   margine  35   db_item.hsp:67462
+   jp  ～破壊の神の言葉～
+   en  ~words of a God of Destruction~
+   it  
+
+## 154     1x   margine  23   db_item.hsp:67729
+   jp  ～食べられる草、食べられない草～
+   en  ~Weeds you can Eat and Weeds you can't Eat~
+   it  
+
+## 155     1x   margine  29   db_item.hsp:67794
+   jp  ～異形の森の使者『ロミアス』の言葉～
+   en  ~<Lomias> The Messenger From Vindale~
+   it  
+
+## 156     1x   margine  31   db_item.hsp:68388
+   jp  ～森林と経済活動・製材編～
+   en  ~Forest Economics, Sawmill Edition~
+   it  
+
+## 157     1x   margine  23   db_item.hsp:68450
+   jp  ～特集・幻の植物を追う～
+   en  ~Special Edition: Pursuing Mythical Plants~
+   it  
+
+## 158     1x   margine  19   db_item.hsp:68587
+   jp  ～特選！裏の嗜好品～
+   en  ~Special Edition! Behind-the-scenes Favorites!~
+   it  
+
+## 159     1x   margine  49   db_item.hsp:68783
+   jp  ～アイオンの予言～
+   en  ~Aion's Prophecy~
+   it  
+
+## 160     1x   margine  35   db_item.hsp:70127
+   jp  ～イルヴァ航空販売カタログ～
+   en  ~Irva Airlines Sales Catalogue~
+   it  
+
+## 161     1x   margine  35   db_item.hsp:70197
+   jp  ～ダルフィ不動産・廃棄物件リスト～
+   en  ~Derphy Real Estate - Unlisted~
+   it  
+
+## 162     1x   margine  44   db_item.hsp:70598
+   jp  ～ネクロマンサー入門～
+   en  ~Necromancy for Noobs~
+   it  
+
+## 163     1x   margine  54   db_item.hsp:71511
+   jp  ～謎のメモ～
+   en  ~Weird Memo~
+   it  
+
+## 164     1x   margine  28   db_item.hsp:72283
+   jp  ～伝説の職人『ガロク』の言葉～
+   en  ~words of <Garok> the Legendary Smith~
+   it  
+
+## 165     1x   margine  29   db_item.hsp:72486
+   jp  ～裏路地の老店主の言葉～
+   en  ~Words from an Shady, Old Shopkeeper~
+   it  
+
+## 166     1x   margine  43   db_item.hsp:72552
+   jp  ⚠️ MUTO su 1x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  ~Jonah, the Adventurer~
+   it  
+
+## 167     1x   margine  26   db_item.hsp:73288
+   jp  ～戦場における指揮統制～
+   en  ~Command and Control on the Battlefield~
+   it  
+
+## 168     1x   margine  14   db_item.hsp:73354
+   jp  ～目覚めてしまった冒険者の言葉～
+   en  ~words of an adventurer who has entered a new world~
+   it  
+
+## 169     1x   margine  43   db_item.hsp:74693
+   jp  ～命を救う応急処置～
+   en  ~Life-saving First-aid~
+   it  
+
+## 170     1x   margine  42   db_item.hsp:74755
+   jp  ～毒物薬物辞典～
+   en  ~Encyclopedia of Poison~
+   it  
+
+## 171     1x   margine  34   db_item.hsp:74817
+   jp  ～インテリアパラダイス増刊号～
+   en  ~Interior Paradise: Extra Issue~
+   it  
+
+## 172     1x   margine  44   db_item.hsp:74941
+   jp  ～おしゃれアイテム大特集～
+   en  ~Stylish Item Special~
+   it  
+
+## 173     1x   margine  38   db_item.hsp:75003
+   jp  ～裁縫大百科～
+   en  ~The Encyclopedia of Sewing~
+   it  
+
+## 174     1x   margine  47   db_item.hsp:75065
+   jp  ～謎のレポート～
+   en  ~Mysterious Report~
+   it  
+
+## 175     1x   margine  27   db_item.hsp:75251
+   jp  ～特集・機械文明の遺産～
+   en  ~the Legacy of Mechanical Civilization~
+   it  
+
+## 176     1x   margine  38   db_item.hsp:75313
+   jp  ～ザイール鉱物図鑑～
+   en  ~Zaile's Book of Mineralogy~
+   it  
+
+## 177     1x   margine  39   db_item.hsp:75849
+   jp  ～廃業寸前のキャラメル職人の言葉～
+   en  ~an Indebted Caramel Maker~
+   it  
+
+## 178     1x   margine  28   db_item.hsp:76520
+   jp  ～ノースティリス紀行・夏版～
+   en  ~North Tyris Travels - Summer Edition~
+   it  
+
+## 179     1x   margine  39   db_item.hsp:77496
+   jp  ～迫り来る妹の言葉～
+   en  ~words of a younger sister~
+   it  
+
+## 180     1x   margine  44   db_item.hsp:77636
+   jp  ～特別な孫の言葉～
+   en  ~words of a grand-son~
+   it  
+
+## 181     1x   margine  45   db_item.hsp:78117
+   jp  ～犠牲者の言葉～
+   en  ~Victim's Last Words~
+   it  
+
+## 182     1x   margine  38   db_item.hsp:78256
+   jp  ～錬金術入門書～
+   en  ~An Introduction to Alchemy~
+   it  
+
+## 183     1x   margine  46   db_item.hsp:78464
+   jp  ～吐き気をこらえる少女の言葉～
+   en  ~a girl with nausea~
+   it  
+
+## 184     1x   margine  23   db_item.hsp:79243
+   jp  ～偉大なる料理評論家グラトナの言葉～
+   en  ~ Words of the great food critic, Gratona ~
+   it  
+
+## 185     1x   margine  41   db_item.hsp:80994
+   jp  ⚠️ MUTO su 1x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  ~Lane, the Fairy Invoker~
+   it  
+
+## 186     1x   margine  29   db_item.hsp:81669
+   jp  ～袋の裏に書かれた端書～
+   en  ~Note Written on the Back of the Bag~
+   it  
+
+## 187     1x   margine  29   db_item.hsp:81941
+   jp  ～箱裏に書かれた注意書き～
+   en  ~note written on the back of the box~
+   it  
+
+## 188     1x   margine  33   db_item.hsp:82079
+   jp  ⚠️ MUTO su 1x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  Bureau of Eulderna Punditry (BEP)
+   it  
+
+## 189     1x   margine  33   db_item.hsp:83017
+   jp  ～貴族のラスター、最後の言葉～
+   en  ~last words, of Luster the noble~
+   it  
+
+## 190     1x   margine  46   db_item.hsp:83974
+   jp  ～掃除屋『バルザック』の言葉～
+   en  ~the Cleaner Balzak~
+   it  
+
+## 191     1x   margine  40   db_item.hsp:84969
+   jp  ⚠️ MUTO su 1x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  ~words of a ex-excutioner~
+   it  
+
+## 192     1x   margine  23   db_item.hsp:85101
+   jp  ～本の為の本・解読書編～
+   en  ~Big Book of Magical Books: Pre-Censorship~
+   it  
+
+## 193     1x   margine  25   db_item.hsp:86200
+   jp  ～説明書の最後のページに書かれた文字～
+   en  ~the last page of the instruction manual~
+   it  
+
+## 194     1x   margine  20   db_item.hsp:86466
+   jp  ～妹研究の第一人者モクシスの研究論文～
+   en  ~report of <Moxis>, leading imouto researcher~
+   it  
+
+## 195     1x   margine  28   db_item.hsp:88939
+   jp  ～盗賊ギルドマスター『シン』の言葉～
+   en  ~words of <Sin> the thief guildmaster~
+   it  
+
+## 196     1x   margine  46   db_item.hsp:89358
+   jp  ⚠️ MUTO su 1x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  ~words on the cover~
+   it  
+
+## 197     1x   margine  20   db_item.hsp:90832
+   jp  ～囚人達が選ぶ、人気商品ベスト５０～
+   en  ~Top 50 Most Popular Products Among Prisoners~
+   it  
+
+## 198     1x   margine  34   db_item.hsp:91911
+   jp  ～ヴェルニースの雑貨店に張られた広告～
+   en  ~notice of good store of Vernis~
+   it  
+
+## 199     1x   margine  28   db_item.hsp:93292
+   jp  ～本の為の本・指導書編～
+   en  ~Big Book of Books: Teacher's Edition~
+   it  
+
+## 200     1x   margine  45   db_item.hsp:94927
+   jp  ～猫嫌いの『タム』の言葉～
+   en  ~<Tam> the cat hater~
+   it  
+
+## 201     1x   margine  31   db_item.hsp:95672
+   jp  ～青い髪の『ヴァリウス』の言葉～
+   en  ~words of <Barius> the blue haired~
+   it  
+
+## 202     1x   margine  45   db_item.hsp:98007
+   jp  ～見世物屋の『モイアー』がガラクタを売り付ける際の口上～
+   en  ~<Moyer> the crooked~
+   it  
+
+## 203     1x   margine  25   db_item.hsp:98356
+   jp  ～トレーニングマシーンの隅にかけられた謎の説明文～
+   en  ~Mysterious Memo on the Training Machine~
+   it  
+
+## 204     1x   margine  43   db_item.hsp:99809
+   jp  ～妄想少女『リアナ』の言葉～
+   en  ~Rianna the Daydreamer~
+   it  
+
+## 205     1x   margine  26   db_item.hsp:107326
+   jp  ～悩める魔術士『レントン』の言葉～
+   en  ~words of <Renton> the suffering wizard~
+   it  
+
+## 206     1x   margine  40   db_item.hsp:110799
+   jp  ～死にゆく者へ贈る書～
+   en  ~ Book for the Dying Ones~
+   it  
+
+## 207     1x   margine  31   db_item.hsp:110801
+   jp  ～見習い騎士『アインク』の言葉～
+   en  ~words of <Ainc> the novice knight~
+   it  
+
+## 208     1x   margine  32   db_item.hsp:111065
+   jp  ～女たらしの『ラファエロ』の言葉～
+   en  ~words of <Raphael> the womanizer~
+   it  
+
+## 209     1x   margine  38   db_item.hsp:112196
+   jp  ～ならずもののオネストの言葉～
+   en  ~words of the honest? rogue~
+   it  
+
+## 210     1x   margine  38   db_item.hsp:112258
+   jp  ～こそどろのグリドの言葉～
+   en  ~words of <Gleed> the thief~
+   it  
+
+## 211     1x   margine  47   db_item.hsp:112509
+   jp  ⚠️ MUTO su 1x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  ~a Mysterious Note~
+   it  
+
+## 212     1x   margine  27   db_item.hsp:113027
+   jp  ⚠️ MUTO su 1x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  a Eulderna Researcher holding this tome
+   it  
+
+## 213     1x   margine  49   db_item.hsp:113100
+   jp  ⚠️ MUTO su 1x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  arrested arsonist
+   it  
+
+## 214     1x   margine  39   db_item.hsp:113460
+   jp  ⚠️ MUTO su 1x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  outcast Eulderna Researcher
+   it  
+
+## 215     1x   margine  39   db_item.hsp:114277
+   jp  ～奥深い酒の世界～
+   en  ~The Wide World of Alcohol～
+   it  
+
+## 216     1x   margine  32   db_item.hsp:115134
+   jp  ～稀代の怪盗『マークス』の言葉～
+   en  ~words of <Marks> the great thief~
+   it  
+
+## 217     1x   margine  29   db_item.hsp:115260
+   jp  ～盗賊ギルドの番人『アビス』の言葉～
+   en  ~words of <Abyss> the thief watchman~
+   it  
+
+## 218     1x   margine  41   db_item.hsp:115384
+   jp  ～街の子供のセスの言葉～
+   en  ~words of <Seth> the kid~
+   it  
+
+## 219     1x   margine  29   db_item.hsp:116605
+   jp  ～異形の森の使者『ロミアス』の言葉～
+   en  ~<Lomias> the messenger from Vindale~
+   it  
+
+## 220     1x   margine  48   db_item.hsp:116915
+   jp  ⚠️ MUTO su 1x — il ramo giapponese non ha
+       questa riga: o e' vuoto, o la mette in un altro indice.
+       Li' l'inglese e' l'unica fonte, e va guardato il ramo jp
+       dello STESSO oggetto prima di decidere.
+   en  ~some Bearded Guy~
+   it  
+
+## 221     1x   margine  38   db_item.hsp:122025
+   jp  ～爆弾魔『ノエル』の言葉～
+   en  ~words of <Noel> the bomber~
+   it  
+
+## 222     1x   margine  36   db_item.hsp:122157
+   jp  ～無邪気な少女『グウェン』の言葉～
+   en  ~words of <Gwen> the innocent~
+   it  
+
+## 223     1x   margine  23   db_item.hsp:127609
+   jp  ～歴史を学ぶ『エリステア』の言葉～
+   en  ~words of <Erystia> the scholar of history~
+   it  
+
+## 224     1x   margine  49   db_item.hsp:127733
+   jp  ～子犬の『ポピー』の言葉～
+   en  ~Poppy the Puppy~
+   it  
+
