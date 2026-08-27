@@ -4,6 +4,14 @@
 Generalizza `_monta004.py`, che aveva il numero del lotto scritto dentro.
 
     PYTHONIOENCODING=utf-8 python scratchpad/lotti-109/_monta.py 005
+    PYTHONIOENCODING=utf-8 python scratchpad/lotti-109/_monta.py 006 scratchpad/lotti-110
+
+⚠️ La cartella del lotto e' il **secondo argomento**, e senza di lui e' quella
+dello script. Fino alla 109a i tre file stavano accanto a `_monta.py`, e la 110a
+li ha messi in `lotti-110/`: senza l'argomento lo script cercava `_traduzioni006`
+in `lotti-109/` e moriva dicendo che non c'era. Copiare lo script nella cartella
+nuova sarebbe stata la quarta copia di un file che la 108a ha gia' pagato caro
+(vedi `modello-rete4.py`).
 
 L'inglese e' la meta' della chiave e non si ricopia a mano: `_107-chiavi-item.py`
 lo emette dal sorgente, e questo script si limita a sostituire la resa vuota.
@@ -38,8 +46,8 @@ RESE = {
 """
 
 
-def carica_traduzioni(numero):
-    percorso = os.path.join(QUI, f'_traduzioni{numero}.py')
+def carica_traduzioni(numero, cartella):
+    percorso = os.path.join(cartella, f'_traduzioni{numero}.py')
     testo = io.open(percorso, encoding='utf-8').read()
 
     # (2) il doppione si cerca nel TESTO, prima che Python lo faccia sparire
@@ -53,13 +61,14 @@ def carica_traduzioni(numero):
 
 
 def main():
-    if len(sys.argv) != 2:
+    if len(sys.argv) not in (2, 3):
         sys.exit(__doc__)
     numero = sys.argv[1]
-    template = os.path.join(QUI, f'chiavi{numero}.txt')
-    uscita = os.path.join(QUI, f'rese{numero}.py')
+    cartella = sys.argv[2] if len(sys.argv) == 3 else QUI
+    template = os.path.join(cartella, f'chiavi{numero}.txt')
+    uscita = os.path.join(cartella, f'rese{numero}.py')
 
-    it, ripetute = carica_traduzioni(numero)
+    it, ripetute = carica_traduzioni(numero, cartella)
     righe = io.open(template, encoding='utf-8').read().splitlines()
     inizio = next(i for i, r in enumerate(righe) if r.startswith('# ') and 'righe, da' in r)
     corpo = righe[inizio + 1:]

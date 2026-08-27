@@ -43,8 +43,14 @@ def main():
         sys.exit(__doc__)
     percorso = sys.argv[1]
     lotto = [json.loads(l) for l in io.open(percorso, encoding='utf-8') if l.strip()]
-    jp_lotto = {v['jp'] for v in lotto}
-    en_lotto = {v['en'] for v in lotto}
+    # ⚠️⚠️ La stringa VUOTA non e' un giapponese, e raggruppa tutto quello che
+    #      non ne ha. `db_item.hsp:89761` (l'esca) ha `description(3)` giapponese
+    #      vuota, e la 110a l'ha vista accendere il cancello su un gruppo da
+    #      **trenta voci** — segnaposti, concatenazioni, battute — che di comune
+    #      hanno solo il non avere una fonte. Non era una divergenza: era il
+    #      raggruppamento a non voler dire niente.
+    jp_lotto = {v['jp'] for v in lotto if (v.get('jp') or '').strip()}
+    en_lotto = {v['en'] for v in lotto if (v.get('en') or '').strip()}
 
     per_jp = collections.defaultdict(set)
     per_en = collections.defaultdict(set)
