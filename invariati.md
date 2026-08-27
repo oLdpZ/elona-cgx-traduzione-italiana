@@ -651,7 +651,7 @@ Fino alla 110ª questa regola valeva solo per i **nomi** dentro le marche 《》
 e non c'è niente da rendere.* La 111ª l'ha applicata per la prima volta dentro
 una descrizione.
 
-| termine | motivo |
+| valore | motivo |
 |---|---|
 | `zekki` | 絶器, `db_item.hsp:75717`, la descrizione dei guanti dello Spirito Blu: 「絶器と呼ばれる篭手だ」, *guanti chiamati zekki*. Il termine **non è nel dizionario e non è nel glossario** — è una coniazione di Elona+, e l'**inglese lo traslittera** invece di scioglierlo («These are gloves that is called a 'zekki'»). Reso «Dei guanti d'arme detti zekki.» ⚠️ **Senza virgolette**: CP932 cancella « e », e la prima resa — che le aveva — è stata bocciata dalla rete dei caratteri sconosciuti. A schermo sarebbe arrivata identica a questa, e nessuno lo avrebbe saputo |
 
