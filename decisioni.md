@@ -6,6 +6,94 @@ ancora aperte.
 
 ---
 
+## «Si segue il giapponese» non è «si segue la frase giapponese» — 2026-08-27, centonovesima
+
+I lotti 004 (attrezzi) e 005 (mobilio) rendono 361 firme di `db_item.hsp`. Le
+rese stanno nel glossario; qui c'è la riga che ha costretto a riformulare la
+regola, e due casi minori che valgono per le categorie che restano.
+
+### ⚠️⚠️⚠️ `:66516`, lo zizou: la prima riga dove il giapponese PERDE
+
+    :66516  地蔵 (zizou)
+        JP  和風の間仕切りだ。\n#～鑑定報告書：＜彫像＞カテゴリ～
+        EN  It is an austere statue.
+
+    :87005  パーティション (partition)
+        JP  和風の間仕切りだ。\n#～鑑定報告書：＜家具＞カテゴリ～
+        EN  It is an eastern-style partition.
+
+Il testo giapponese di `:66516` — *un paravento in stile orientale* — è la
+**frase identica** di `:87005`, che un paravento lo è davvero. Ma la **riga di
+categoria**, che sta dentro la *stessa stringa giapponese* scritta dallo stesso
+autore, dice ＜彫像＞ (*statua*) e non ＜家具＞. E 地蔵 è la statua di Jizo.
+
+Il giapponese si contraddice da solo, e a decidere è la sua parte più
+affidabile: la categoria, che è generata insieme al resto della scheda, non
+ricopiata. Reso **«Una statua austera.»**; `:87005` tiene il paravento.
+
+⭐ **La regola va detta meglio.** Il progetto ripete da settanta sessioni «si
+segue il giapponese», e il caso da cui la regola nasce — l'inglese che aggiunge
+un fatto non attestato — le ha sempre dato ragione. Ma la regola vera è **«si
+segue la fonte più affidabile»**, e quasi sempre le due coincidono perché il
+giapponese *è* la fonte più affidabile. Quando non coincidono, come qui, si
+guarda **quale fonte è stata copiata e quale è stata scritta**. È lo stesso
+ragionamento con cui la razione della 108ª ha dato torto all'inglese: lì la
+prova era il gioco, qui è la riga sotto.
+
+💡 **Nessuna rete può vedere questo.** `verifica`, le quattordici reti del lotto
+e `_coerenza.py` guardano la coppia (giapponese, inglese) e la forma della resa;
+la **riga di categoria** è dentro la stringa giapponese e nessuno la legge come
+un dato. Se un giorno si volesse una rete, il caso di prova è questo: *il testo
+giapponese nomina un tipo di oggetto che la sua categoria smentisce*.
+
+### ⓘ Il rango che si tace, e come si sa che è una scelta e non una svista
+
+Quattro strumenti musicali (`:68851`, `:68916`, `:68981`, `:74571`) hanno **un
+solo giapponese**, 「演奏用の道具。何度でも使用することができる。」, e quattro
+inglesi che ci mettono il **rango** (1, 2, 3, 4). Il rango conta, per il
+giocatore che suona.
+
+La regola direbbe di tacerlo, e la prova che qui è giusto è **positiva, non
+per assenza**: il giapponese di questo file scrive 「（ランクN）」 quando vuole
+dirlo, e lo fa su **tutti** i letti (`:87322` rango 7, `:110934` rango 3,
+`:119690` rango 2, `:82878` rango 9, …) e su **tutti** i fornelli. Non è che il
+rango non si sappia dire in giapponese: è che lì l'autore ha scelto di non
+dirlo. ⚠️ Senza questo controllo la decisione sarebbe stata «la regola dice
+così», che è un argomento diverso e più debole.
+
+Stessa specie, e stessa conclusione: le **sette tombe** (`:119946`-`:120318`),
+un giapponese solo — 「とても重い建造物だ。」 — e sette inglesi che raccontano
+ciascuno una storia (stile Norland, stile Eulderna, la tomba di un eroe, «the
+name is still readable»); le **sette sedute** (`:79047` e le altre sei), dove
+l'inglese nomina il tipo di seduta che **è già il nome dell'oggetto**; i
+**quattro fucili anestetici** (`:42418`-`:42646`), dove l'inglese scrive la
+fascia di peso che **è già il nome dell'oggetto** (TZ500-K, TZC-500, TZ30-C,
+TZ-30).
+
+### ⓘ «(Unimplemented)» si tiene, e il precedente non è quello che sembra
+
+`:50948` (i globi oscuri) e `:73831` (lo scanner degli effetti) hanno
+«(Unimplemented)» **solo in inglese**. La regola direbbe di tacerlo.
+
+Si tiene, e la ragione è un precedente cercato invece che ricordato: delle cinque
+occorrenze nel dizionario, **quattro** hanno 未実装 anche in giapponese — quindi
+non dicono niente — ma la quinta, «You can add a recipe … (Not implemented yet)»,
+ha un giapponese **senza** 未実装 ed è resa «(non implementato)». È un caso
+identico, già deciso nell'altro senso. Forma corta già in uso: **«(non attivo)»**.
+
+### ⚠️ Un difetto di monte verificato nel sorgente invece che dedotto
+
+`:62023`, il lanciamissili atomico: l'inglese dice «(Reusable)», il giapponese
+「使用することができる（使い捨て）」. Non serviva scegliere per principio —
+`action.hsp:10130`, dentro `EFFECT_ATOMIC_LAUNCHER`, fa
+`inv(INV_ITEM_NUM, ci)--`: l'oggetto **si consuma**. Vince il giapponese.
+
+💡 Vale la pena notare che questa verifica è costata tre comandi. Le decisioni
+di questo tipo si prendevano per regola; quando il sorgente può rispondere,
+rispondere costa meno che argomentare.
+
+---
+
 ## Tre nomi sdoppiati in un giorno, e la rete che li vedrebbe non esiste ancora — 2026-08-26, centoseiesima
 
 `db_card.hsp` si chiude con 444 rese in dodici lotti. Quello che vale la pena

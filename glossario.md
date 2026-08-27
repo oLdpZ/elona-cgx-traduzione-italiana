@@ -1578,6 +1578,91 @@ l'acqua*; `:129442` l'acqua sporca, che **può** far ammalare e non fa ammalare;
 gli incantesimi». `DV`, `PV`, `HP`, `MP` restano **invariati**: il giapponese
 scrive le stesse sigle.
 
+## `db_item.hsp`, deciso il 2026-08-27 dalla 109ª — le CODE del rapporto, e la scala della LUCE
+
+I lotti 004 (attrezzi, `FILTER_ITEM_TOOL`) e 005 (mobilio, `FILTER_FURNITURE`)
+portano la formula della 108ª su due categorie che non l'avevano vista. La
+formula regge; quel che si aggiunge sono le **code fisse**.
+
+### ⚠️ La coda quadrupla: quante volte l'oggetto si usa
+
+Il giapponese chiude quasi ogni rapporto degli attrezzi dicendo **quante volte**
+l'oggetto si usa, e sono quattro fatti di gioco distinti — illimitato, cariche
+contate, tempo di ricarica, una volta sola:
+
+| giapponese | italiano |
+|---|---|
+| 何度でも使用することができる | **Si può usare sempre.** |
+| 何度か使用することができる | **Si può usare più volte.** |
+| 定期的に使用することができる | **Si può usare ogni tanto.** |
+| 使用することができる（使い捨て） | **Si usa (usa e getta).** (già 108ª) |
+| 投げつけて使う（使い捨て） | **Si lancia (usa e getta).** |
+| 投げることができる | **Si può lanciare.** |
+| 使用することはできない | **Non si può usare.** |
+| 装備することはできない | **Non si può equipaggiare.** |
+| 所持していると自動で使う | **Si usa da sé se lo porti.** |
+
+⚠️⚠️ **La coda costa fino a 27 caratteri degradati su 69, e dove il fatto di
+testa non ci sta nei quaranta che restano il MODALE cade**: «Si usa sempre», «Si
+usa ogni tanto», «Si usa più volte». Non è una seconda formula, è la stessa che
+si stringe — la 108ª faceva già cadere la testa «Una pergamena che …» quando il
+contenuto la riempiva.
+
+### ⭐ La scala della LUCE, cinque scalini, e in italiano si legge in ordine
+
+Il giapponese grada l'illuminazione con avverbi che tradotti uno per uno danno
+italiano illeggibile («illumina un po' debolmente»). La resa usa un **nome con
+un aggettivo**, così l'ordine è visibile a colpo d'occhio:
+
+| giapponese | italiano |
+|---|---|
+| 常に周囲を照らす。 | **Illumina sempre intorno.** (già 108ª, il falò) |
+| 常に周囲を明るく照らす。 | **Illumina sempre di luce viva.** |
+| 夜間、周囲を弱く照らす。 | **Di notte fa una luce fioca.** |
+| 夜間、周囲をやや弱く照らす。 | **Di notte fa una luce un po' fioca.** |
+| 夜間、周囲をやや明るく照らす。 | **Di notte fa una luce abbastanza viva.** |
+| 夜間、周囲を明るく照らす。 | **Di notte fa una luce viva.** |
+
+### Le altre formule fisse del mobilio
+
+| giapponese | italiano |
+|---|---|
+| 座る為の家具。 | **Un mobile per sedersi.** (7 firme) |
+| 眠る為の家具（ランクN）。 | **Un letto (rango N).** |
+| 演奏用の道具。 | **Uno strumento per suonare.** (4 firme) |
+| 観賞用の鉢植えだ。 | **Una pianta ornamentale in vaso.** |
+| 観賞用の植物だ。 | **Una pianta ornamentale.** |
+| その身を映す鏡。 | **Uno specchio per guardarsi.** |
+| とても重い建造物だ。 | **Una costruzione molto pesante.** (7 firme, le tombe) |
+| 本類を100種類まで入れることができる。 | **Ci stanno fino a 100 tipi di libri.** |
+| 使用することでランクNまでの料理を… | **Ci si cucinano i piatti fino al rango N.** |
+
+### ⭐ Il termine che NON aveva una voce, e adesso ce l'ha
+
+| giapponese | inglese | italiano | dove |
+|---|---|---|---|
+| ペット | pet | **il compagno** | `:81133` la frusta del domatore, `:85301` la macchina genetica. ⚠️ Il dizionario lo rendeva **dieci volte «animale» e dodici «compagno»**, senza una voce che arbitrasse. Vince «compagno» perché in Elona+ un ペット **può benissimo essere umano**, e «animale» sarebbe falso su metà dei casi; 仲間 è reso «compagno» anche lui, e nessuna riga del gioco mette i due in contrasto |
+
+### ⓘ I termini che i due lotti portano, tutti già decisi altrove
+
+労働エナジー → «energia da lavoro» · フィート → «talento» · ゲージ → «barra» ·
+はく製 → «statuetta» · ショウルーム → «sala d'esposizione» ·
+クラムベリー → «crimberry» · 生きている武器 → «arma vivente» ·
+アーティファクト → «artefatto» · 補正 → «modificatore» · ランク → «rango» ·
+職業 → «classe» · 種族 → «razza» · 部位 → «parte del corpo» ·
+鍵開け → «scasso» · 発言力 → «autorità» · 名声 → «fama» · スキル → «abilità» ·
+技能 → «capacità» · 狂気度 → «Follia» · 素材 → «materiale» · 栓 → «tappo» ·
+矢弾 → «munizioni» · 味方/仲間 → «compagni» · 魔導船 → «nave magica» ·
+ガシャポンの玉 → «sfera del tesoro» · 狂戦士 → «berserker» ·
+主能力 → «attributi base» · おひねり → «mance» · 友好度 → «la simpatia» ·
+木の実 → «frutti a guscio» · `<Little Sister>` invariato ·
+`AP`, `HP`, `MP`, `DV`, `PV`, `SP` invariati.
+
+⚠️ **Una parola vietata, e non dalla lunghezza.** `:89215` chiedeva *gli dèi
+stranieri*, e **«dèi» porta l'accento in mezzo alla parola**: a schermo diventa
+«de'i». È la lezione della 41ª, misurata sul dizionario nella 71ª. Si evita la
+parola — «le divinità straniere» — non si toglie l'accento.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

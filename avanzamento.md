@@ -41,6 +41,43 @@ fondo somma valori di sessioni diverse. Il conto vivo lo danno
 file di `data/` compresi. Finché nessuno rifà la tabella intera, **si guardano
 quelli**.
 
+## Due lotti, 361 rese, 417 righe a schermo — 2026-08-27, centonovesima sessione
+
+`db_item.hsp`, indice 3 (il rapporto di identificazione), due categorie:
+
+    004  FILTER_ITEM_TOOL    143 firme -> 166 righe   margine 3
+    005  FILTER_FURNITURE    218 firme -> 251 righe   margine 3
+    -----------------------------------------------------------------
+    **361 firme rese**, che coprono **417 righe** del sorgente
+    applica 27.793 -> **28.210**   (+417 esatte)
+    db_item non tradotte 2.394 -> **2.033**   (-361 esatte)
+    rese dell'indice 3: 442 -> **693** su 1.319
+    tetto secco: introdotte dall'italiano **0** in tutt'e due i lotti
+    rinviate: nessuna   toppe: nessuna   test: **794**, invariato
+    strumenti nuovi: 3 (`_monta`, `_coerenza`, `_elenco`, in `scratchpad/lotti-109/`)
+    build: SI', **03:05 del 27/08**
+    -----------------------------------------------------------------
+
+**Il conto dell'indice 3, categoria per categoria**, con
+`python scratchpad/_107-lotti-per-categoria.py --indice 3`:
+
+    fatte    cibo 133/56 · pozioni 77/65 · pergamene 66/65 (108a)
+             attrezzi 166/143 · mobilio 251/218 (109a)
+    restano  FILTER_WEAPON        105/105    FILTER_ITEM_ROD       32/30
+             FILTER_JUNK           97/81     FILTER_SHIELD         23/23
+             FILTER_ITEM_SPELLBOOK 82/82     FILTER_ITEM_BOOK      23/20
+             FILTER_RANGE          56/55     FILTER_CONTAINER      22/21
+             FILTER_ORE            33/21     FILTER_ARMOR          20/20
+             piu' una coda di venti minori
+    -----------------------------------------------------------------
+    693 righe fatte su 1.319; **626 restano**
+
+⚠️ **Il rapporto righe/firme non si ripete da una categoria all'altra**, e
+decide quanto rende un lotto: il cibo stava a 2,4 righe per firma, il mobilio a
+1,15, gli attrezzi a 1,16, e quasi tutte le altre stanno a **una firma per
+riga** — cioè costano quanto pesano. Le eccezioni utili che restano sono
+`FILTER_JUNK` (97/81), `FILTER_ORE` (33/21) e `FILTER_ITEM_BOOK` (23/20).
+
 ## ⭐⭐⭐ Il conto vivo, e da oggi si misura — 2026-08-25, novantasettesima
 
     python scratchpad/_97-quanto-resta.py

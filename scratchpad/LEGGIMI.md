@@ -324,6 +324,27 @@ girano anche su una macchina dove l'albero non è stato costruito.
 | `lotti-108/_margine.py` | **di quanto** le rese di un lotto stanno dentro il tetto secco di 69, degradate. Lo zero della rete dice che nessuna sfora; questo dice che il margine è di **quattro** caratteri e che la famiglia stretta sono i **semi**, non i cibi | a fine lotto, prima di scegliere il lotto dopo |
 | `lotti-108/` | `testa001.py`, `rese001.py`, `righe001.py`: i tre file scritti a mano che `assembla-lotto.py` monta col blocco delle reti | per ogni lotto di descrizioni |
 
+## La 109ª — tre strumenti per scrivere un lotto grosso senza sbagliarlo
+
+| file | a cosa serve | quando si lancia |
+|---|---|---|
+| ⭐⭐ `lotti-109/_monta.py` | monta `reseNNN.py` da `chiaviNNN.txt` (**l'inglese verbatim**, emesso dal sorgente) e da `_traduzioniNNN.py`, che è un dizionario `{riga: italiano}` e basta. ⚠️ **L'inglese è metà della chiave e qui non si ricopia a mano**, quindi non lo si può sbagliare. ⚠️⚠️ E cerca le **chiavi RIPETUTE nel TESTO** del file di rese: Python tiene l'ultima **in silenzio**, e due rese diverse per la stessa riga sparirebbero una nell'altra. Si conta sul testo perché nel dizionario il doppione non c'è più. Ne ha trovata una al primo giro | prima di `assembla-lotto.py`, per ogni lotto |
+| ⭐⭐ `lotti-109/_coerenza.py` | le rese di un lotto contro **tutto il dizionario**, in due direzioni: lo stesso **giapponese** reso in due modi (cancello) e lo stesso **inglese** reso in due modi (referto, l'atteso non è zero). ⚠️ È la domanda che **la rete 13 non può porsi**, perché guarda solo dentro il lotto. ⭐ Accanto allo zero stampa **quanti gruppi abbia davvero avuto da giudicare**, e in fondo una prova al contrario che **cerca** il caso peggiore. ⚠️ Va lanciato **dopo** `strumenti.reimporta`: prima il dizionario non ha nessuna di quelle rese e i due zeri non hanno guardato niente (lo dice da solo e muore) | dopo ogni reimportazione di un lotto |
+| `lotti-109/_elenco.py` | riga, giapponese e inglese di tutte le firme di un lotto **insieme**, col marchio `×N` sui giapponesi condivisi. Il dossier è fatto per essere letto una volta; questo serve a **scrivere** le rese di un lotto da 218 senza sei righe di contorno per ciascuna. ⚠️ Legge il **lavoro**, non il dossier, così non può selezionare in modo diverso dal lotto | prima di scrivere le rese di un lotto grosso |
+
+⚠️⚠️ **Tre trappole dell'attrezzatura che la 109ª ha pagato, e che tornano.**
+
+1. **Il lotto generato porta DENTRO una copia di `reseNNN.py`.** Correggere una
+   resa e rilanciare `scratchpad/lotto-fase5-*.py` **senza riassemblare** misura
+   le rese vecchie, e l'output è identico a prima. Dopo ogni modifica alle rese:
+   `_monta.py` → `assembla-lotto.py` → il lotto. In quest'ordine.
+2. **`reimporta` è tutto-o-niente**, e ha rifiutato 218 rese perché **due**
+   inglesi finiscono con uno **spazio** — che è la giuntura col pezzo che segue.
+   Il messaggio lo dice, ma nomina le voci per hash e non per riga.
+3. **`perimetro.py`, `referti.py` e `lang-nel-ramo-jp.py` stanno QUI**, in
+   `scratchpad/`, non in `strumenti/`. La ripresa e `avanzamento.md` li citavano
+   senza percorso e sembravano moduli.
+
 💡 **La lezione della 108ª per questa cartella**: il difetto più costoso della
 sessione — `verifica` che bocciava tutte e 56 le rese — era nato nella 107ª e
 aveva attraversato una catena tutta verde, perché la 107ª **non aveva reso
