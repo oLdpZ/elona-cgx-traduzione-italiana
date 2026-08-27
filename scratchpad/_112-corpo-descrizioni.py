@@ -71,10 +71,26 @@ asimmetria di `linguette.py`. Il testo si allunga verso destra piu' di quanto
 il gioco creda, quindi un titolo lungo esce dal bordo. Dove esattamente dipende
 dal margine vero della finestra, che si misura solo a schermo.
 
-⚠️ **IL TRATTINO ORFANO.** Un `\\n` in coda alla descrizione lascia un ultimo
-segmento **vuoto**, e il gioco gli mette il trattino lo stesso: a schermo esce
-una riga con un solo `-`. Succede gia' in inglese su **11** descrizioni. Chi
-traduce non deve aggiungerne.
+⚠️⚠️ **IL TRATTINO ORFANO, E LA PREVISIONE CHE UNO SCREENSHOT HA SMENTITO.**
+Se l'ultimo segmento e' **vuoto**, il gioco gli mette il trattino lo stesso: a
+schermo esce una riga con un solo `-`, e il titolo scivola indietro perdendo il
+corsivo.
+
+Questa rete ne contava **11**, e dieci erano falsi. Il modello spezzava col
+`split` di Python, che su un `\\n` in coda rende un elemento vuoto in piu';
+`notesel` + `noteinfo(0)` invece contano le **righe**, e quel `\\n` e' un
+**terminatore**. Il collaudo del telaio X (`db_item.hsp:45944`, una delle 11)
+ha mostrato l'esatto contrario di quel che avevo previsto: nessun trattino
+solo, e `- ~Irva Fantasy Encyclopedia~` a destra in corsivo, com'e' giusto.
+
+⭐ **L'undicesimo pero' e' vero**, e ci vogliono **due** a capo per farlo:
+`db_item.hsp:129299` scrive `description(1) = "\\t\\t\\n\\n"`, e nel pannello
+della pozione della confusione esce davvero una riga con un solo `-`. Difetto
+di monte su una stringa vuota: non si tocca, ma si sa.
+
+⚠️ La morale non e' «il modello era sbagliato»: e' che una rete costruita solo
+leggendo il codice puo' contare undici difetti dove ce n'e' uno, e nessuna
+rilettura del codice l'avrebbe detto. Lo ha detto uno schermo.
 
 ⚠️ **`db_item.hsp:60514` scrive il titolo con la tilde LARGA** (`～`), che sta
 fra i caratteri proibiti di `guardie.py`. Copiare quel titolo verbatim fa
@@ -106,6 +122,30 @@ TABULA = _107.TABULA
 TILDE_LARGA = chr(0xFF5E)
 
 
+def segmenti_hsp(q):
+    """Le righe come le vede `notesel` + `noteinfo(0)`, non come le vede Python.
+
+    ⚠️⚠️ **UN `\\n` IN CODA E' UN TERMINATORE, NON UN SEPARATORE.** HSP conta
+    le **righe** del buffer: `"a\\nb\\n"` ne ha due, non tre. Python invece
+    rende `['a', 'b', '']` con `split`, e quel terzo elemento vuoto non esiste
+    per il gioco.
+
+    ⭐ **Questa funzione nasce da uno screenshot che ha smentito il modello.**
+    Il 2026-08-27 questa rete diceva che 11 descrizioni avevano un «trattino
+    orfano»: un `\\n` di troppo in coda avrebbe lasciato un ultimo segmento
+    vuoto, il gioco gli avrebbe messo il trattino, e a schermo sarebbe uscita
+    una riga con un solo `-`, mentre il titolo scivolava indietro perdendo il
+    corsivo. Il collaudo del **telaio X** (`db_item.hsp:45944`, una delle 11)
+    ha mostrato l'esatto contrario: nessun trattino solo, e
+    `- ~Irva Fantasy Encyclopedia~` disegnato a destra in corsivo, com'e'
+    giusto. I difetti erano **zero**, ed erano un artefatto di `split`.
+    """
+    righe = q.split(ACAPO)
+    if len(righe) > 1 and righe[-1] == '':
+        righe.pop()
+    return righe
+
+
 def anatomia(en):
     """(prosa, fonte_o_None, segmenti) di una descrizione del corpo.
 
@@ -113,7 +153,7 @@ def anatomia(en):
     guarda **la posizione**, non il `#`. Il `#` e' gia' stato tolto da
     `trimdesc`, e serve solo a dire che chi ha scritto la riga la voleva fonte.
     """
-    segmenti = _107.trimdesc(en, 2).split(ACAPO)
+    segmenti = segmenti_hsp(_107.trimdesc(en, 2))
     if len(segmenti) >= 2 and len(segmenti[-1]) <= SOGLIA:
         return segmenti[:-1], segmenti[-1], segmenti
     return segmenti, None, segmenti
@@ -185,12 +225,15 @@ def referto(voci, mostra_titoli=False):
     print(f'  che DICHIARANO una fonte col `#`: {sum(titoli.values())}')
     print(f'  senza il marcatore `#`          : {len(senza_cancelletto)}')
     print(f'  senza ultima riga corta         : {len(senza_fonte)}')
-    print(f'  ⚠️ TRATTINO ORFANO: {len(orfani)}   — un `{ACAPO}` di troppo in coda.')
-    print(f'     Sono DUE difetti: a schermo esce un trattino solo su una riga,')
-    print(f'     e il titolo scivola indietro e viene disegnato come prosa,')
-    print(f'     a sinistra e senza corsivo. Gia\' cosi\' in inglese.')
+    print(f'  trattini orfani: {len(orfani)}   (atteso 1, tutto di monte)')
+    print(f'     ⭐ Per un\'ora questo numero e\' stato 11, e dieci erano falsi: il')
+    print(f'     modello spezzava col `split` di Python, che su un `{ACAPO}` in coda')
+    print(f'     rende un elemento vuoto in piu\'. HSP conta le RIGHE, e quel')
+    print(f'     `{ACAPO}` e\' un terminatore. L\'ha smentito uno screenshot del')
+    print(f'     telaio X (`db_item.hsp:45944`), non una rilettura del codice.')
+    print(f'     ⚠️ L\'undicesimo pero\' e\' VERO, e ha due a capo invece di uno:')
     for riga, idx, titolo in orfani[:4]:
-        print(f'       db_item.hsp:{riga} idx{idx}  {titolo}')
+        print(f'       ⚠️ db_item.hsp:{riga} idx{idx}  {titolo}')
     n = sorted(righe_per_voce)
     print(f'  righe disegnate per voce        : mediana {n[len(n)//2]}, '
           f'massima {n[-1]}   (pagesize 15: oltre, si sfoglia — non si taglia)')
@@ -287,14 +330,24 @@ def prova(voci):
         print('   -> NON si accende: la prova non prova niente')
 
     print()
-    print('=== 2. IL TRATTINO ORFANO')
-    finto = f'Prosa.{ACAPO}#~Titolo~{ACAPO}'
-    _, fonte, _ = anatomia(finto)
-    if fonte is not None and fonte.strip() == '':
-        print(f'   -> si accende con un {ACAPO!r} in coda: '
-              f'l\'ultimo segmento e\' vuoto e a schermo esce un trattino solo')
+    print('=== 2. IL TRATTINO ORFANO — e quanti a capo ci vogliono davvero')
+    for quanti in range(1, 5):
+        finto = f'Prosa.{ACAPO}#~Titolo~' + ACAPO * quanti
+        _, fonte, _ = anatomia(finto)
+        if fonte is not None and fonte.strip() == '':
+            print(f'   -> si accende con {quanti} a capo in coda: l\'ultimo')
+            print(f'      segmento e\' vuoto e a schermo esce un trattino solo')
+            break
     else:
         print('   -> NON si accende: la prova non prova niente')
+    print(f'   ⓘ UNO solo non basta, perche\' HSP lo tratta da terminatore: le 11')
+    print(f'      descrizioni che ne hanno uno in coda (`db_item.hsp:45944` e le')
+    print(f'      altre) sono a posto, e lo dice uno screenshot, non questa rete.')
+    print(f'   ⚠️ MA IL CONTO NON E\' ZERO: `db_item.hsp:129299` scrive')
+    print(f'      `description(1) = "\\t\\t{ACAPO}{ACAPO}"`, cioe\' DUE a capo e nient\'altro,')
+    print(f'      e li\' il trattino orfano c\'e\' davvero — una riga con un solo `-`')
+    print(f'      nel pannello della pozione della confusione. E\' un difetto di')
+    print(f'      monte su una stringa vuota: non lo tocchiamo, ma va saputo.')
 
     print()
     print('=== 3. LA CODA PERSA (il difetto dell\'impaginatore)')

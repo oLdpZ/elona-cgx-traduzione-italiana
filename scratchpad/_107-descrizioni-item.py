@@ -140,7 +140,14 @@ def righe_a_schermo(testo):
     """
     q = trimdesc(testo, 2)
     fuori, perduti, spezzate = [], 0, 0
-    for linea in q.split(ACAPO):
+    # ⚠️ `notesel` + `noteinfo(0)` contano le RIGHE: un `\n` in coda e' un
+    # terminatore, non un separatore, e non produce una riga vuota in piu'.
+    # Il `split` di Python invece la produce. Vedi `_112-corpo-descrizioni.py`,
+    # `segmenti_hsp()`: la differenza l'ha trovata uno screenshot, non il codice.
+    righe_note = q.split(ACAPO)
+    if len(righe_note) > 1 and righe_note[-1] == '':
+        righe_note.pop()
+    for linea in righe_note:
         if len(linea) > SOGLIA_IMPAGINA:
             pezzi, consumati = impagina(linea)
             fuori += pezzi
