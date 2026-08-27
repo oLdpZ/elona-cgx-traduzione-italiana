@@ -3006,3 +3006,71 @@ a buon fine.
 strumento», che ormai si fa. E' che **`python -` e `cat <<` non si scrivono
 proprio**, nemmeno per un no-op: se il corpo e' vuoto la shell aspetta per
 sempre, e un comando che non serve costa quanto uno che serve.
+
+## `db_item.hsp`, il CORPO: un fronte misurato e una famiglia decisa — 2026-08-27, centododicesima
+
+**Nessuna resa nuova.** La sessione ha fatto tre cose: riparato una catena
+rossa, capito e misurato il fronte del corpo (indici 0-2), e deciso la famiglia
+delle 224 righe-fonte. `applica` resta a **28.836**, `db_item` a **1.449** non
+tradotte, il debito di collaudo a **7.719**.
+
+### L'apertura era rossa, e l'aveva rotta il commit dei documenti
+
+Sedici test falliti fra `test_verifica`, `test_reimporta` e
+`test_dati_reimporta`. L'ultimo commit della 111a aggiungeva a `invariati.md`
+la sezione «Termini coniati dentro una DESCRIZIONE», e `_e_invariante()` non ha
+un default: una sezione che porta valori e non è classificata alza
+`ValueError`. Riparato mettendo il prefisso in `_SEZIONI_INVARIANTI`, e
+correggendo l'intestazione della tabella nuova — diceva `| termine | motivo |`
+mentre il lettore salta l'intestazione solo se la prima cella è `valore`,
+quindi «termine» sarebbe finito **dentro** l'insieme degli invariati.
+
+⚠️ La chiusura della 111a aveva scritto «pytest 794, invariato»: i test erano
+stati lanciati **prima** del commit dei documenti. La catena verde era misurata
+su un albero diverso da quello spinto.
+
+### Il corpo, misurato
+
+    righe-fonte (marcate da `#`)      1.509 su 1.513 descrizioni
+    titoli distinti, per inglese        224
+    titoli distinti, per giapponese     200 + 19 righe mute
+    i 20 più frequenti coprono           74% delle righe
+    tetto della riga-fonte               66 caratteri degradati
+    la resa italiana più lunga           55  (margine 11)
+    trattini orfani veri                  1  (di monte, `:129299`)
+
+Le quattro cose che possono rompersi, e quali l'italiano raggiunge davvero:
+
+| difetto | si accende a | raggiungibile? |
+|---|---|---|
+| la fonte smette di esserlo | titolo di **67** caratteri | **sì** |
+| trattino orfano | **due** `\n` in coda | no (uno non basta) |
+| coda persa | 911 caratteri con parole da 56 | **no** — la parola media è 4,6 |
+| parola spezzata | una parola di **17** caratteri | **sì** — «dell'equipaggiamento» ne fa 20 |
+
+💡 Il risultato più utile è negativo: **la geometria non è il problema.** Il
+taglio a 70 sta dentro un budget di 77, il pannello sfoglia invece di tagliare,
+e la coda non si perde. Restano due numeri veri — il tetto dei 66 e la parola
+spezzata — e sono gli unici da guardare quando i lotti cominceranno.
+
+### Tre numeri smentiti da uno schermo
+
+| dicevo | dice lo schermo |
+|---|---|
+| budget 69 per le righe impaginate | **77** (font 11, non 12) |
+| 11 trattini orfani | **1** (`split` ≠ `noteinfo`) |
+| la fonte più lunga forse sfora | finisce a **584 px su 600** |
+
+Nessuna delle tre si vedeva rileggendo il sorgente.
+
+### Strumenti nuovi: sei, più una tabella
+
+`_112-corpo-descrizioni.py` (anatomia e quattro prove al contrario),
+`_112-dossier-fonti.py`, `_112-nomi-fonti.py` (cerca i nomi **per inglese**,
+il verso che mancava), `_112-verifica-fonti.py` (cancello, esce 0/1),
+`_112-genera-glossario.py`, `_112-innesta-glossario.py`, e la tabella
+eseguibile `lotti-112/titoli_fonte.py` con 234 voci. `glossario.md` +268 righe.
+
+⚠️ E due strumenti vecchi corretti: `_102-carta-conoscenza.py` (il budget, e la
+separazione fra i due font) e `_107-descrizioni-item.py` (`segmenti_hsp()` e
+`BUDGET_INTERO`).

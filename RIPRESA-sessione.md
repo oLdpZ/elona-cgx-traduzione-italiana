@@ -1,27 +1,38 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-27, fine della **centoundicesima** sessione (**dodici lotti,
-e l'INDICE 3 SI CHIUDE**).
+Aggiornato: 2026-08-27, fine della **centododicesima** sessione (**nessuna resa
+nuova: una famiglia decisa, un fronte misurato, e TRE numeri smentiti da uno
+schermo**).
 
-⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' DELLE 15:25 DEL 27/08**, ed e' quello da
-controllare prima di leggere uno screenshot. Contiene le **176 rese** della
-111a, cioe' tutto il rapporto di identificazione. Quello delle 14:28 e' della
+⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' ANCORA QUELLO DELLE 15:25 DEL 27/08**, ed e'
+giusto cosi': la 112a non ha tradotto nessuna riga, quindi **non c'e' niente da
+ricompilare**. Contiene le 176 rese della 111a. Quello delle 14:28 e' della
 110a; quello delle 03:05 della 109a.
 
-⚠️⚠️ **DOPO I DODICI LOTTI DELLA 111a I VALORI DA ASPETTARSI IN APERTURA SONO
-QUESTI:**
+⚠️⚠️ **I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 112a:**
 
-    pytest                   794 passed, 6 skipped   **invariato**
-    prova_identita           72/72 e 30.905, **invariato** (la prova d'identita'
-                             riscrive ogni sito con se stesso: non si muove
-                             quando si traduce)
-    applica                  **28.836** sostituzioni      (erano 28.660)
+    pytest                   794 passed, 6 skipped
+                             ⚠️ in apertura della 112a erano **16 ROSSI**, e li
+                             aveva lasciati il commit dei DOCUMENTI della 111a:
+                             vedi il primo punto della sezione qui sotto
+    prova_identita           72/72 e 30.905, **invariato**
+    applica                  **28.836** sostituzioni      **invariato**
     verifica --dizionario    db_item.hsp: 0 da ritradurre, **1.449** non tradotte
-    _97-quanto-resta         TOTALE **1.559 / 110 / 1.449**
+    _97-quanto-resta         TOTALE **1.559 / 110 / 1.449**   **invariato**
     perimetro.py             perimetro **90%** (27.274), totale **94%** (30.207)
     _108-accento-decomposto  **0 su 24.535**
     _107-descrizioni-item    ⭐⭐⭐ indice 3: vive 1.319, **rese 1.319 — CHIUSO**;
+                             oltre il tetto: inglese **110**, italiano **0**;
                              introdotte dall'italiano **0** (questo e' il cancello)
+                             ⚠️ budget **69** per l'indice 3 (font 12) e **77**
+                             per il corpo impaginato (font 11): sono DUE, e il
+                             perche' sta piu' sotto
+                             corpo (indici 0-2): 0 / 0 / 0, e 0 rese
+    _112-corpo-descrizioni   1.509 righe-fonte, 224 titoli, **1** trattino orfano
+                             (di monte, `db_item.hsp:129299`)
+    _112-verifica-fonti      **234 su 234** coperte; tetto 0, caratteri
+                             cancellati 0, apostrofi dentro la parola 0
+                             (esce con 0: e' un cancello, non un referto)
 
 Tutto il resto e' **fermo dov'era**, riverificato in chiusura della 111a:
 `dati_applica --identita` 6 file e 3.767 righe, `toppe.jsonl` 1027 e
@@ -46,7 +57,25 @@ prima di credere al guasto controlli **che cosa conta lo strumento**.
     PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/_108-accento-decomposto.py
     → «rese con accento DECOMPOSTO: 0 su 24.535» piu' la riga della prova al contrario
 
-⚠️⚠️ **ANCHE LA 111a SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
+⚠️⚠️⚠️ **LA 112a HA APERTO CON SEDICI TEST ROSSI, E LI AVEVA LASCIATI IL
+COMMIT DEI *DOCUMENTI* DELLA 111a.** L'ultimo commit della 111a aggiungeva a
+`invariati.md` la sezione «Termini coniati dentro una DESCRIZIONE», e
+`_e_invariante()` (`strumenti/verifica.py`) **non ha un default**: una sezione
+che porta valori e non e' classificata alza `ValueError`, e quell'eccezione
+travolge tutto cio' che carica gli invariati. Riparato mettendo il prefisso in
+`_SEZIONI_INVARIANTI` — e l'intestazione della tabella nuova diceva
+`| termine | motivo |` mentre il lettore salta la riga d'intestazione solo se
+la prima cella e' `valore`, quindi «termine» sarebbe finito **dentro**
+l'insieme degli invariati.
+
+💡 **La lezione e' la misura, non l'errore.** La chiusura della 111a ha scritto
+«pytest 794, invariato» e i test erano stati lanciati **prima** del commit dei
+documenti: la catena verde era misurata su un albero **diverso da quello
+spinto**. ⚠️ Chi chiude una sessione rilanci `pytest` **dopo** aver scritto i
+documenti, non prima — anche quando i documenti «sono solo prosa». In questa
+sessione e' stato fatto cosi' tre volte.
+
+⚠️⚠️ **ANCHE LA 112a SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
 spinto e l'albero e' pulito. ⓘ Dalla 107a in poi lo si e' annunciato ogni volta
 e la sessione dopo si e' aperta sulla **stessa macchina**, con l'albero di build
 al suo posto — quindi la prima cosa da fare **non** e' ricostruire: e' guardare
@@ -182,6 +211,219 @@ e l'ha riparata. Chi trova una parola cosi' cerchi il byte 0x08, non il refuso.
 
 ---
 
+
+## La centododicesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito, con **cinque** commit. Si
+riparte da `git fetch && git status -sb` e dalle verifiche d'apertura, che
+adesso sono **ventidue**: le venti di sempre piu' `_112-corpo-descrizioni.py`
+e `_112-verifica-fonti.py`.
+
+⚠️ La 112a **non ha tradotto nessuna riga**. Ha fatto tre cose: ha riparato una
+catena rossa, ha capito e misurato il fronte del corpo, e ha deciso una
+famiglia di 224 titoli. Il debito di collaudo resta a **7.719**.
+
+### ▶ ⭐⭐⭐ IL CORPO NON E' PROSA LIBERA: E' PROSA PIU' UNA RIGA-FONTE
+
+1.509 descrizioni su 1.513 finiscono con una riga marcata da `#`, che
+`command.hsp:16836`-`:16840` e `:16901` disegnano a **destra**, in **corsivo**,
+col **trattino** davanti. E' il titolo del libro da cui la notizia viene:
+
+    A fashionable scarecrow with a white hat on his head. It is said that
+    this is the figure of a scarecrow that got tired of guarding the
+    farmland and made a bold debut in the city.
+                        -~Totally Made-up Stories that are Mistaken for Lies~
+
+⚠️⚠️ **IL TETTO E' 66, E NON E' UN TETTO DI LARGHEZZA**: e' la soglia che
+decide **di che tipo** e' la riga (`:16758`). A 67 la fonte smette di essere una
+fonte, cade nell'impaginatore e viene disegnata a sinistra come testo normale.
+Non rompe niente, non si vede in un conteggio, cambia solo l'aspetto — in
+silenzio. Il titolo inglese piu' lungo ne misura **62**.
+
+Il percorso completo, verificato riga per riga, sta nel docstring di
+`scratchpad/_112-corpo-descrizioni.py`. ⚠️ **Il corpo si vede SOLO a oggetto
+identificato a fondo** (`:16398`), come il rapporto d'identificazione.
+
+### ▶ ⭐⭐⭐ LA FAMIGLIA DELLE FONTI E' DECISA: 234 SU 234
+
+Non sono voci del dizionario — sono l'ultimo segmento di una descrizione che e'
+tutt'uno, e **non passano da `reimporta`**. Sono una decisione di **glossario**,
+come le ventiquattro parole dell'equipaggiamento della 111a, e si applicano a
+mano lotto per lotto.
+
+    tabella eseguibile   scratchpad/lotti-112/titoli_fonte.py
+    cancello             scratchpad/_112-verifica-fonti.py   (esce 0/1)
+    prosa                glossario.md, sezione «Le righe-fonte ... 112a»
+    dossier              scratchpad/lotti-112/dossier-fonti.txt
+
+⚠️⚠️ **LA CHIAVE E' IL GIAPPONESE, NON L'INGLESE.** Per inglese i titoli sono
+224; per giapponese sono **200 piu' 19 righe mute**, perche' l'inglese di monte
+**appiattisce su quattordici**:
+
+- `~Vernis Ore Catalogue~` copre **tre** libri giapponesi (Vernis, Zaile, e il
+  catalogo d'arte di Lumiest);
+- `~Irva Fantasy Encyclopedia~` ne copre due (Irva e Aimwell);
+- `Lead Developer <Dr. Gavela>` copre **due persone** — il caposquadra dello
+  sviluppo e il biochimico, che il progetto aveva gia' reso `<Icolle>`;
+- `~Arcane Almanac~` e `~Arcane Alamanac~` sono lo stesso 魔具全典 con un refuso;
+- `~Battles, Dragons, Swords and Magic~` traduce 「巻かれる為の長いもの」,
+  *cose lunghe fatte per essere avvolte*: non c'entra niente.
+
+⚠️ E in un caso l'inglese legge un **nome** come un aggettivo:
+「ならずもののオネストの言葉」 sono le parole di *Onest il farabutto*, e
+l'inglese scrive `~words of the honest? rogue~` — col punto interrogativo di chi
+ha sentito il gioco di parole e non l'ha sciolto.
+
+⭐ Le **sedici divinita'** portano in giapponese un epiteto dentro `《》` che
+l'inglese butta via (`《風のルルウィ》` e' *Lulwy del vento*). Il progetto aveva
+gia' reso quella forma come `<Lulwy>` in `db_card.hsp`, e queste righe le vanno
+dietro. Lo stesso per ventisei nomi di persona, ritrovati da
+`scratchpad/_112-nomi-fonti.py`, che cerca **per inglese** in tutto il
+dizionario: e' il verso che `lotti-111/_cerca.py` non copriva.
+
+⚠️ Due titoli il sorgente li scrive con la **tilde larga** `～`
+(`db_item.hsp:60514` e `:114277`), che sta fra i caratteri proibiti di
+`guardie.py`: copiati verbatim fanno bocciare il lotto.
+
+### ▶ ⭐⭐⭐ TRE COSE CHE IL CODICE SEMBRAVA DIRE, E CHE UNO SCHERMO HA SMENTITO
+
+Il collaudo (spaventapasseri di neve e telaio X) ha ribaltato tre numeri che
+nessuna rilettura del sorgente avrebbe corretto:
+
+| dicevo | dice lo schermo |
+|---|---|
+| budget 69 per le righe impaginate | **77** |
+| 11 trattini orfani | **1** |
+| la fonte piu' lunga forse sfora | finisce a **584 su 600** |
+
+**1. Il budget e' 77, non 69.** Il 7,7 px/carattere viene da `larghezze.py`,
+misurato sui **menu**, e i menu disegnano a `font 14 - en*2` = **12**. Le righe
+impaginate le disegna `:16897` a `font 13 - en*2` = **11**. La misura ha due
+ancore indipendenti nello stesso screenshot, e la prima **non dipende dal
+carattere**: la riga-fonte comincia a `wx + 600 - 6*L - 80` (`:16901`), cioe'
+136 px esatti per i suoi 64 caratteri, e sullo schermo torna a 135,3. Da cui
+**6,9 px/carattere**. I «606 inglesi e 712 italiani oltre i 69» erano un
+difetto del **metro**, non del testo.
+
+**2. Gli undici trattini orfani erano uno.** `notesel` + `noteinfo(0)` contano
+le **righe**, e un `\n` in coda e' un **terminatore**: `"a\nb\n"` ha due righe,
+non tre. Il `split` di Python produceva un elemento vuoto che per il gioco non
+esiste. ⭐ L'undicesimo pero' e' **vero** e vuole **due** a capo:
+`db_item.hsp:129299` scrive `description(1) = "\t\t\n\n"`, e nel pannello della
+pozione della confusione esce davvero una riga con un solo `-`. Adesso c'e'
+`segmenti_hsp()`, usata anche da `_107-descrizioni-item`.
+
+**3. La larghezza non e' il vincolo.** La riga-fonte piu' lunga (64 caratteri
+col trattino) finisce a **584 px su 600**: sedici di margine. Il bordo lo
+toccherebbe a 80 caratteri, ma a 67 la riga ha gia' smesso di essere una fonte.
+**Il vincolo che morde e' il tetto dei 66.**
+
+### ▶ ⚠️⚠️ LA CORREZIONE DEL BUDGET HA QUASI ALLENTATO UN CANCELLO CHIUSO
+
+`BUDGET` era **una costante sola per un riquadro che ha due corpi**. Il ciclo di
+disegno mette `font 12` a ogni riga (`:16875`) e lo riporta a **11** SOLO per le
+righe impaginate (`list == -1`) e per la fonte (`list == -2`), a `:16897` e
+`:16900`. Il rapporto d'identificazione entra con `list = 7` e **resta a font
+12**.
+
+Correggendo la costante condivisa, il cancello dell'indice 3 — **chiuso su
+1.319 rese** — e' passato da «110 inglesi fuori» a «0» senza che nulla fosse
+cambiato a schermo. Ora i budget sono **due**:
+
+    BUDGET          77   font 11   righe impaginate e riga-fonte
+    BUDGET_INTERO   69   font 12   indice 3, prezzo stimato, righe corte intere
+
+💡 **Un cancello che si allenta e' peggio di uno rosso: non chiede niente a
+nessuno.** Chi tocca una costante di geometria controlli **quante reti la
+usano** e se la usano per lo stesso carattere.
+
+### ▶ ⚠️ E LA LISTA DI PASSI AVEVA UN PASSO MUTO, CHE ERA MIO
+
+Ho fatto lanciare `allinv`, che stampa `MAX_INV_DATA` righe **comprese le
+migliaia vuote**: l'utente ha visto solo il proprio zaino e ha concluso che gli
+oggetti non c'erano. Il comando giusto e' **`mapinv`** (`system.hsp:4982`), che
+salta le caselle vuote e stampa solo il pavimento. Gli identificativi erano
+corretti — verificati in tre modi — ma **un passo che mostra la cosa sbagliata
+vale un identificativo inventato**.
+
+⭐ La lista giusta, tutta verificata nel sorgente:
+
+    F12                       apre la console (`main.hsp:3322`, VK 123).
+                              ⚠️ solo dal turno del giocatore, non da un menu.
+                              NON serve wizard per aprirla; ESC la chiude
+    wizard                    `system.hsp:4718`. SERVE: `spawn_item` sta dentro
+                              `if (gdata(GDATA_WIZARD))` (`:4815`).
+                              ⚠️ cambia il titolo del personaggio in `*Debug*`
+    spawn_item <id>           cade ai piedi (`:4850`). Non identifica.
+    mapinv                    `:4982` — il nome vero di cio' che e' a terra
+    ESC, poi `g`              raccoglie (config.txt: `key_get` = "g")
+    `r`                       legge la pergamena (`key_read` = "r")
+                              ⭐ deve dire «The item is fully identified as ...»
+                              (`command.hsp:15379`). Se dice «You need higher
+                              identification» (`:15372`) la potenza non basta
+    `X` poi `x`               inventario (`key_inventory` = "X"), poi il
+                              pannello (`key_identify` = "x", `:15787`)
+
+💡 I tasti si leggono in `elonaplus2.31\config.txt`, non nel sorgente, che ha
+solo i valori di partenza. E gli oggetti dei quattro collaudi sono
+**590** (spaventapasseri di neve, la fonte piu' lunga), **1254**
+(Survivability Extender X, il paragrafo piu' lungo), **1320** (TZ500-K, i tre
+indici pieni), **1268** (telaio X). ⓘ Tutti e quattro hanno
+`INV_ITEM_IDENTIFY_LEVEL = 0`, quindi basta anche la pergamena normale
+(`spawn_item 14`).
+
+### ▶ ⭐⭐⭐ IL LOTTO DA CUI SI COMINCIA LA PROSSIMA VOLTA
+
+Il primo **lotto di prosa** del corpo, con la tabella dei titoli in mano. Quel
+che resta e' 1.437 firme su 1.449, e la geometria adesso e' capita:
+
+      idx   vive   rese  distinti  mediana   max   segmenti  fonte
+      ------------------------------------------------------------
+        0   1316      0      1308      205    716    ~2       si'
+        1     39      0        28      168    364    ~2       si'
+        2    158      0       104      115    343    ~2       si'
+
+⚠️ **La geometria NON e' il problema**, e questo e' il risultato piu' utile
+della 112a. Delle quattro cose che possono rompersi, tre non le raggiunge
+l'italiano:
+
+- **coda persa**: vuole parole da 56 caratteri, e la parola media dei segmenti
+  impaginati e' **4,6**. Non ci si arriva;
+- **larghezza**: il taglio a 70 sta dentro un budget di 77;
+- **tetto verticale**: il pannello **sfoglia** (`pagesize = 15`, `page_change`),
+  non taglia — il telaio X dice gia' «Pag.1/2» in inglese.
+
+Restano **due** cose vere, e sono quelle da guardare:
+
+1. ⭐ **il tetto dei 66 sulla riga-fonte**, che decide se la riga e' ancora una
+   fonte. Le rese decise stanno tutte sotto: la piu' lunga ne misura **55**;
+2. ⭐ **la parola spezzata**, che si accende a **17** caratteri e che l'italiano
+   raggiunge — «dell'equipaggiamento» ne misura 20. E' l'unico numero delle
+   quattro colonne che vada guardato davvero.
+
+💡 **La categoria da cui conviene partire** e' il cibo (`~Il Cibo Mutevole di
+Tyris~`, 111 righe) oppure i mobili (`~Grande Enciclopedia dei Mobili di Tyris
+del Nord~`, 105): sono le due famiglie piu' dense, quindi quelle dove la
+tabella dei titoli rende di piu'.
+
+### ▶ Gli strumenti nuovi della 112a
+
+    scratchpad/_112-corpo-descrizioni.py   l'anatomia del corpo e le 4 prove
+    scratchpad/_112-dossier-fonti.py       jp | en | it, un titolo per blocco
+    scratchpad/_112-nomi-fonti.py          cerca i nomi PER INGLESE nel dizionario
+    scratchpad/_112-verifica-fonti.py      il cancello della famiglia (esce 0/1)
+    scratchpad/_112-genera-glossario.py    la sezione md, GENERATA dalla tabella
+    scratchpad/_112-innesta-glossario.py   l'innesto idempotente, senza shell
+    scratchpad/lotti-112/titoli_fonte.py   la tabella eseguibile, 234 voci
+
+⚠️ La sezione di `glossario.md` **si genera**, non si ricopia: ha 234 righe e
+due copie divergerebbero. Si rilancia `_112-genera-glossario.py` e poi
+`_112-innesta-glossario.py`, che sostituisce la sezione invece di aggiungerne
+una seconda.
+
+---
 
 ## La centoundicesima sessione
 

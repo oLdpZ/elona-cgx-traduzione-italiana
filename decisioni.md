@@ -11141,3 +11141,99 @@ la scrive **tre** volte; noi una.
 dell'oggetto, il messaggio dell'azione, la riga di potenziamento, l'etichetta di
 stato. Nella 110ª era successo trentacinque volte, qui otto: sono le righe che
 non si decidono, si trovano.
+
+## 112ª — La riga-fonte è una famiglia chiusa, e la chiave è il giapponese
+
+1.509 descrizioni del corpo di `db_item.hsp` finiscono con una riga marcata da
+`#` che il pannello disegna a destra, in corsivo, col trattino: il titolo del
+libro da cui la notizia viene. **Decisa tutta prima di aprire un lotto**,
+perché sta in coda a ogni categoria e deciderla dopo avrebbe voluto dire
+disfare lotti — è la lezione della famiglia sparsa della 111ª, moltiplicata per
+settanta.
+
+⚠️ **Indicizzata per inglese la famiglia mente.** Per inglese ha 224 titoli;
+per giapponese ne ha 200 più 19 righe mute, perché l'inglese di monte
+appiattisce su quattordici. `~Vernis Ore Catalogue~` copre **tre** libri
+giapponesi diversi; `Lead Developer <Dr. Gavela>` copre **due persone** (il
+caposquadra dello sviluppo e il biochimico, che il progetto aveva già reso
+`<Icolle>`); `~Arcane Almanac~` e `~Arcane Alamanac~` sono lo stesso 魔具全典
+con un refuso. Chi indicizza per inglese perde la distinzione e la riscrive
+sbagliata in un lotto su cento.
+
+⚠️ E `~Battles, Dragons, Swords and Magic~` traduce 「巻かれる為の長いもの」,
+*cose lunghe fatte per essere avvolte*: non c'entra niente. **Arbitra il
+giapponese**, com'è regola dalla 26ª.
+
+⭐ **Un caso in cui l'inglese legge un nome come un aggettivo.**
+「ならずもののオネストの言葉」 sono le parole di *Onest il farabutto*, e
+l'inglese scrive `~words of the honest? rogue~` — col punto interrogativo di
+chi ha sentito il gioco di parole e non l'ha sciolto. Reso `<Onest>`, come i
+nomi opachi del contratto.
+
+⭐ **Le divinità: l'epiteto resta nel giapponese.** `《風のルルウィ》` è *Lulwy
+del vento*, e l'inglese lo butta via lasciando `<Lulwy>`. Il progetto aveva già
+reso quella forma come `<Lulwy>` in `db_card.hsp`: queste sedici righe le vanno
+dietro invece di ridecidere. Lo stesso per ventisei nomi di persona, ritrovati
+cercando **per inglese** in tutto il dizionario — il verso che gli strumenti
+del progetto non coprivano.
+
+## 112ª — Un tetto che non è una larghezza ma un tipo
+
+Il tetto della riga-fonte è **66 caratteri degradati**, e non dice «oltre non
+ci sta»: dice **«oltre non è più una fonte»**. `command.hsp:16758` manda
+all'impaginatore ogni riga più lunga di 66, e l'impaginatore la disegna a
+sinistra, come testo normale, perdendo il corsivo e il trattino.
+
+💡 È una forma di guasto nuova per il progetto: non tronca, non sovrappone, non
+sfora. **Cambia l'aspetto e basta**, e nessun conteggio lo vede. Il titolo
+inglese più lungo ne misura 62 — quattro caratteri di margine — e la resa
+italiana più lunga decisa qui ne misura 55.
+
+## 112ª — Un cancello può allentarsi in silenzio, e succede correggendo un'altra cosa
+
+Correggendo il budget delle righe impaginate (da 69 a 77, vedi sotto), il
+cancello dell'**indice 3** — chiuso su 1.319 rese — è passato da «110 inglesi
+fuori» a «0» senza che nulla fosse cambiato a schermo. La causa: `BUDGET` era
+**una costante sola per un riquadro che ha due corpi**. Il ciclo di disegno
+mette `font 12` a ogni riga e lo riporta a **11** solo per le righe impaginate
+e per la riga-fonte; il rapporto d'identificazione resta a font 12.
+
+💡 **Un cancello che si allenta è peggio di uno rosso: non chiede niente a
+nessuno.** Chi tocca una costante di geometria controlli **quante reti la
+usano** e se la usano per lo stesso carattere. Ora sono due, `BUDGET` 77 e
+`BUDGET_INTERO` 69, e ognuna porta scritto a quale font appartiene.
+
+## 112ª — Tre numeri che il codice sembrava dire, e che uno schermo ha smentito
+
+Il progetto ricava quasi tutto leggendo il sorgente, e funziona. Queste tre no:
+
+1. **Il budget delle righe impaginate era 69, ed è 77.** Il 7,7 px/carattere
+   viene da `larghezze.py`, misurato sui **menu**, che disegnano a font 12; il
+   pannello disegna le impaginate a font 11. ⭐ La misura ha due ancore
+   indipendenti nello stesso screenshot, e **la prima non dipende dal
+   carattere**: la riga-fonte comincia a `wx + 600 - 6·L - 80`, cioè 136 px
+   esatti, e serve da righello per l'altra. Da cui 6,9 px/carattere.
+2. **Gli undici «trattini orfani» erano uno.** `notesel` + `noteinfo(0)`
+   contano le **righe**, e un `\n` in coda è un *terminatore*: `"a\nb\n"` ha
+   due righe, non tre. Il `split` di Python produceva un elemento vuoto che per
+   il gioco non esiste. L'undicesimo è vero e vuole **due** a capo.
+3. **La riga-fonte più lunga non sfora**: finisce a 584 px su 600.
+
+💡 La morale non è «il modello era sbagliato». È che **una rete costruita solo
+leggendo il codice può contare undici difetti dove ce n'è uno**, e nessuna
+rilettura del codice l'avrebbe detto: la differenza fra `split` e `noteinfo`
+non è visibile finché non la si guarda a schermo. Un modello del rendering va
+tarato almeno una volta su un pixel vero.
+
+## 112ª — Un passo che mostra la cosa sbagliata vale un identificativo inventato
+
+La lista di collaudo diceva `allinv`, che stampa `MAX_INV_DATA` righe comprese
+le migliaia vuote. Chi l'ha eseguita ha visto solo il proprio zaino e ha
+concluso che gli oggetti non c'erano — mentre erano a terra, all'indice 5340,
+qualche migliaio di righe più in basso. Il comando giusto è `mapinv`
+(`system.hsp:4982`), che salta le caselle vuote.
+
+💡 La regola della 111ª diceva di verificare ogni **identificativo** prima di
+scriverlo, e gli identificativi erano giusti — verificati in tre modi. Non
+bastava: va verificato anche **che il passo mostri la cosa che deve mostrare**.
+Un comando che stampa troppo è muto quanto uno che non stampa niente.
