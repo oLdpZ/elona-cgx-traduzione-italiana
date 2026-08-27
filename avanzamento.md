@@ -2785,3 +2785,42 @@ lui sarebbero usciti dal riquadro senza che nessuno lo vedesse:
   il *fatto*, non la testa, così la famiglia resta una;
 - il **008** (libri) misurava **margine 1**, e la riparazione ha cambiato la
   regola: vedi `glossario.md`, il modale che cade per tenere insieme la famiglia.
+
+### ⚠️⚠️ La lista di collaudo della 109ª aveva DUE passi muti, e il codice lo dice
+
+La 109ª chiudeva scrivendo che il rapporto compare da sé: *«uno creato con
+`spawn_item` nasce a zero e diventa FULL da solo dopo qualche turno nello
+zaino»*. Per **queste cinque categorie non succede mai.**
+
+`item.hsp:2086`, `*item_senseQuality`, è la rete che identifica passivamente
+quel che si porta addosso. Alle righe 2096-2100:
+
+    if ( sensep > 5 | cdata(CDATA_ROW_ACT, CHARA_PLAYER) == ACTION_NONE ) {
+        if ( refitem(..., DBSPEC_TYPE) >= FILTER_ITEM_MIN ) { continue }
+    }
+
+`ACTION_NONE` vale **0**, ed è quel che `CDATA_ROW_ACT` vale quando il
+giocatore **non sta svolgendo un lavoro** — cioè quasi sempre. E
+`FILTER_ITEM_MIN` vale **50.000**, mentre `FILTER_JUNK` vale 64.000 e
+`FILTER_ORE` 77.000: tutte e cinque le categorie della 110ª stanno sopra la
+soglia. Il ramo le **salta**, in silenzio, per sempre.
+
+⚠️ Chi avesse eseguito quella lista avrebbe aspettato dei turni davanti a uno
+schermo che non cambia, e concluso «non è tradotto».
+
+**La via che funziona** è la pergamena di identificazione **maggiore**,
+`ITEM_ID_SCROLL_GREATER_IDENTIFY` = **362**: `db_item.hsp:107040` le dà
+`efp = 2000`, e `item_func.hsp:640-648` porta a `ITEM_KNOWN_FULL` qualunque
+oggetto quando la potenza basta — e per gli oggetti sopra `FILTER_ITEM_MIN` ci
+arriva comunque, per la riga 646.
+
+### ⚠️ E il tasto dell'inventario di questa installazione è `X`, non `i`
+
+`config.txt` del gioco dice `key_inventory. "X"` e `key_interact. "i"`: la lista
+della 109ª diceva «`i` per l'inventario», che qui apre l'**interazione**. Gli
+altri tre sono giusti — `g` raccoglie, `r` legge, e **`x` sulla voce
+evidenziata dell'inventario** è `key_identify`, che chiama `*com_identify`
+(`command.hsp:15787`).
+
+💡 I tasti si leggono in `elonaplus2.31\config.txt`, non nel sorgente: il
+sorgente ha i **valori di partenza**, e questa installazione li ha cambiati.
