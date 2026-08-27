@@ -1,0 +1,656 @@
+  55676
+    JP 磁器製の人形だ。使うと仲間にできる。
+    EN It is a porcelain doll. If infused with mana, you can make it an ally.
+  55738
+    JP 見事な陶器だ。
+    EN It is a magnificent pottery.
+  55800
+    JP 珍妙な焼き物だ。
+    EN It is a curious pottery.
+  57449
+    JP 大地の神を模したペンデュラムだ。所持していると自動で使う。
+    EN (Autoused) tool pendulum that looks like the God of Earth.
+  57511
+    JP 収穫の神のぬいぐるみだ。畑に置いておくと効果がある。
+    EN It is a stuffed doll of God of the Harvest. Useful when placed in farm.
+  57710
+    JP 元素の神を模した胸像だ。所持していると自動で使う。
+    EN (Autoused) Bust Statue of the God of Element.
+  57772
+    JP 幸運の女神を描いた絵だ。家に置いておくと効果がある。
+    EN It is a painting of Goddess of Luck. Effective when placed in the house.
+  57834
+    JP 機械の神を模した目覚まし時計だ。所持していると自動で使う。
+    EN (Autoused) alarm clock in the shape of the God of Machine.
+  60000
+    JP 観賞用の植物だ。
+    EN It is an ornamental plant.
+  63872
+    JP 果物、野菜、木の実をジュースにする家具だ。
+    EN (Reusable) tool that juices fruits, vegetables, nuts.
+  65334
+    JP 眠る為の家具（ランク５）。持たせると添い寝しに来ることがある。
+    EN (Reusable) Rank 5 bed, hugging this makes you feel lonely at night.
+  66388
+    JP 神秘的な像だ。
+    EN It is a mysterious statue.
+  66454
+    JP 起動していないゴーレムだ。使うと仲間にできる。
+    EN It is a golem that hasn't been activated. Infuse with mana to activate.
+  66516
+    JP 和風の間仕切りだ。
+    EN It is an austere statue.
+  66578
+    JP 厳かな像だ。
+    EN It is an solemn statue.
+  66706
+    JP 小動物用の小屋だ。
+    EN It is a shed for small animals.
+  68851  ×4
+    JP 演奏用の道具。何度でも使用することができる。
+    EN (Reusable) Rank 1 instrument for performing.
+  68916  ×4
+    JP 演奏用の道具。何度でも使用することができる。
+    EN (Reusable) Rank 2 instrument for performing.
+  68981  ×4
+    JP 演奏用の道具。何度でも使用することができる。
+    EN (Reusable) Rank 3 instrument for performing.
+  70130
+    JP 魔導船のミニチュアだ。
+    EN It is a miniature of a Eulderna Blimp.
+  72825
+    JP 狛犬を模した像だ。
+    EN It is a statue of a guardian dog.
+  73355
+    JP 椅子代わりに何度でも使用することができる。
+    EN (Reusable) chair.
+  74571  ×4
+    JP 演奏用の道具。何度でも使用することができる。
+    EN (Reusable) Rank 4 instrument for performing.
+  76523
+    JP 砂で作られた立派なお城だ。
+    EN It is a magnificent castle made of sand.
+  78792
+    JP 料理等を載せる平たい器だ。
+    EN It is a flat vessel on which food is placed.
+  78922
+    JP 獣を加工した家具だ。
+    EN It is furniture made from processed beasts.
+  79047  ×7
+    JP 座る為の家具。何度でも使用することができる。
+    EN (Reusable) chair.
+  79306
+    JP 高価な戸棚だ。
+    EN It is an expensive cupboard.
+  79369
+    JP 大型の本棚だ。本類を100種類まで入れることができる。
+    EN (Openable) large bookshelf for up to 100 different types of books.
+  79639
+    JP 小さなモミの木だ。
+    EN It is a small fir tree.
+  79701
+    JP 新年に向けて作られた厳かな飾りだ。
+    EN It is a solemn decoration made for the New Year.
+  79767
+    JP いい夢を見ることができる枕（ランク０）。何度でも使用することができる。
+    EN (Reusable) Rank 0 bed that allows you to have good dreams.
+  79829
+    JP 祭事用の簡易的な店だ。
+    EN It is a simple store for festivities.
+  79953
+    JP 店用の机だ。
+    EN It is a desk for the store.
+  80015
+    JP うず高く盛り上がった台だ。
+    EN It is a raised platform.
+  80085
+    JP 特別な日の為に作られた冠だ。
+    EN It is a crown made for a special occasion.
+  80152
+    JP 聴衆を酔わす演奏用の道具。何度でも使用することができる。
+    EN (Reusable) Rank 5 instrument that makes people drunk.
+  80615
+    JP ユニークな形の人形だ。
+    EN It is an uniquely shaped doll.
+  80677
+    JP 寒い季節用の机。潜ることができる。
+    EN It is a desk for cold weather. You can hide under it.
+  80801
+    JP 下る為の石段。潜ることができる。
+    EN These are stone steps to descend. You can go downstairs here.
+  80863
+    JP 上る為の石段。潜ることができる。
+    EN These are stone steps to ascend. You can go upstairs here.
+  82278
+    JP 人に渡すと友好度が上がるアイテムだ。
+    EN It is a gift given to raise affection, won't be returned.
+  82878
+    JP 非常に優れた寝具（ランク９）。何度でも使用することができる。
+    EN (Reusable) Rank 9 bed of luxury quality.
+  83767
+    JP おひねりの質が上がる演奏用の道具。何度でも使用することができる。
+    EN (Reusable) Rank 4 instrument that increases the rewords of performing.
+  84647
+    JP 空間用の仕切りだ。
+    EN It is a space divider.
+  87005
+    JP 和風の間仕切りだ。
+    EN It is an eastern-style partition.
+  87067
+    JP 異国の簡易照明。夜間、周囲を弱く照らす。
+    EN It is an exotic lighting. Illuminates the surroundings softly at night.
+  87129
+    JP 円形をした窓。夜間、周囲を弱く照らす。
+    EN It is a circular window. Illuminates the surroundings softly at night.
+  87191
+    JP 異国の重い照明。常に周囲を照らす。
+    EN It is an exotic heavy lighting. Always illuminates the surroundings.
+  87322
+    JP 眠る為の家具（ランク７）。何度でも使用することができる。
+    EN (Reusable) Rank 7 bed.
+  87384
+    JP 特に使い道はない。
+    EN It is useless junk.
+  87446
+    JP 大きな流し台だ。使用することはできない。
+    EN It is a large sink. Cannot be used.
+  87508
+    JP 匠の作った食器用の棚だ。
+    EN It is a cupboard made by a master craftsman.
+  87647
+    JP 間仕切りのついた花壇だ。
+    EN It is a beautiful bed of flowers, with a partition.
+  87710  ×7
+    JP 座る為の家具。何度でも使用することができる。
+    EN (Reusable) sofa.
+  87772
+    JP 書き消し自由な板。使用することはできない。
+    EN It is a board that is free to write on and erase. Cannot be used.
+  87834
+    JP メニューが書かれた板だ。
+    EN It is a menu for a restaurant.
+  87896
+    JP 王様御用達の箪笥だ。
+    EN It is a king's royal cabinet.
+  87958
+    JP 間仕切りのついた窓。夜間、周囲を弱く照らす。
+    EN It is a window with partitions. illuminates the surroundings softly.
+  88086
+    JP 穀物が入った袋だ。
+    EN It is a barrel for holding rice.
+  88806
+    JP 使用することでショウルームを訪れるゲートだ（使い捨て）。
+    EN (Single-use) tool that oepns a gateway to the showroom world.
+  89215
+    JP 異国の神を迎える門だ。
+    EN It is a gate for Gods of foreign lands.
+  89949
+    JP 花が飾られた半円状の建造物だ。
+    EN It is an arch structure decorated with flowers.
+  90015
+    JP 王様御用達の優れたベッド（ランク８）。使用することができる。
+    EN (Reusable) Rank 8 bed made for royalty.
+  90077
+    JP 外から光を取りこむ家具。夜間、周囲を弱く照らす。
+    EN It is a furniture that sheds light. Illuminates surroundings softly.
+  90202
+    JP 角度をつけて刈り取られた木だ。
+    EN It is a tree was trimmed at an angle.
+  90388  ×2
+    JP 観賞用の鉢植えだ。
+    EN It is an ornamental potted plant.
+  90452
+    JP 使用することでランク９までの料理を作ることができる器具。
+    EN It is a cooking tool allowing the preparation of dishes up to Rank 9.
+  90640  ×7
+    JP 座る為の家具。何度でも使用することができる。
+    EN (Reusable) rare chair.
+  91091
+    JP 外から光を取りこむ家具。夜間、周囲をやや弱く照らす。
+    EN It is a furniture that lets in light, illuminates surroundings softly.
+  91153
+    JP 重い柱だ。
+    EN It is a heavy pillar.
+  91215
+    JP 大きく輝く十字架だ。
+    EN It is a great gleaming cross from ancient times.
+  91277
+    JP 備え付けられた灯。夜間、周囲を明るく照らす。
+    EN It is equipped with a light. Illuminates the surroundings brightly.
+  91339
+    JP 雪の掛った液体を保持しておく容器。使用することはできない。
+    EN It is a snow-covered container that holds liquid. Cannot be used.
+  91401
+    JP 小さな雪だるまだ。
+    EN It is a small snowman made of snow.
+  91783
+    JP 高名な芸術家によって作られた簡易照明。夜間、周囲を明るく照らす。
+    EN It is an artisan lighting. Illuminates the surroundings brightly.
+  91845
+    JP ロウで作られた簡易照明。常に周囲を照らす。
+    EN It is a simple lighting made of wax. Always illuminates the surroundings.
+  92127
+    JP 一般的な棚だ。
+    EN It is a common shelf.
+  94804
+    JP 雪で作られた雪像だ。
+    EN It is a snowman made of snow.
+  94866
+    JP 巨大な黒い鉱物だ。
+    EN It is a giant black crystal.
+  94928
+    JP 猫を模った柱だ。
+    EN It is a pillar in the shape of a cat.
+  94990
+    JP 植物の絵が書いてある。
+    EN It is a painting of a sunflower.
+  95052
+    JP 風景の絵が書いてある。
+    EN It is a painting of a landscape.
+  95114
+    JP 女性の絵が書いてある。
+    EN It is a painting of a lady.
+  95177
+    JP とても大きな机だ。何度でも使用できる。
+    EN (Reusable) very large desk.
+  95301
+    JP 煮炊きに使う窯。使用することはできない。
+    EN It is a stove useful for cooking food. Cannot be used.
+  95363
+    JP 部屋を暖める家具だ。
+    EN It is furniture that warms the room.
+  95425
+    JP 金属を暖める建造物だ。
+    EN It is a metal-warming structure.
+  97876
+    JP データが入っていない円盤。使用することはできない。
+    EN It is a disk that do not contain data. Cannot be used.
+  97946
+    JP 何かの情報片だ。
+    EN It is some kind of information piece.
+  98008
+    JP カンを捨てる為の箱だ。
+    EN It is a container for dumping the cans.
+  98078
+    JP 何かを入れる為の箱だ。
+    EN It is a box to put something in.
+  98148
+    JP 情報を入れる為の箱だ。
+    EN It is a box used to hold information.
+  98218
+    JP 壊れている調理器具。使用することはできない。
+    EN It is a broken cookware. Cannot be used.
+  98288
+    JP 被写体を撮影する道具。使用することはできない。
+    EN It is a tool for photographing a subject. It cannot be used.
+  98359
+    JP 主能力を鍛える道具。何度でも使用することができる。
+    EN (Reusable) tool that trains your primary attributes.
+  98429
+    JP 古代の頭脳だ。
+    EN These are ancient minds.
+  98499
+    JP 不定期な明滅と定期的な異音がする。
+    EN It is an object that is irregular flickering and periodic strange noises.
+ 103363
+    JP ガシャポンの玉を排出する機械。何度でも使用することができる。
+    EN (Reusable) treasure machine that produces gacha balls.
+ 108396
+    JP 使用することでショウルームに行くことができる道具だ（使い捨て）。
+    EN (Single-use) tool that oepns a gateway to the showroom world.
+ 108832
+    JP 非常にけばけばしい彫像だ。
+    EN It is a very flashy statue.
+ 108894
+    JP キャンドル用の台座。夜間周囲を明るく照らす。
+    EN It is a pedestal decorated with gold. Illuminates surroundings brightly.
+ 108957  ×7
+    JP 座る為の家具。何度でも使用することができる。
+    EN (Reusable) royal chair.
+ 109086
+    JP 作業を行う為の足のついた平板だ。何度でも使用できる。
+    EN (Reusable) common table that allows one to author books.
+ 109148
+    JP 目に鮮やかな衣服。装備することはできない。
+    EN These are clothing bright to the eye. Cannot be equipped.
+ 109273
+    JP 象徴的な建造物だ。
+    EN It is a symbolic structure.
+ 109401
+    JP 横に長い椅子。何度でも使用することができる。
+    EN (Reusable) wide chair.
+ 109463
+    JP すっきりした棚だ。
+    EN It is a neat shelf.
+ 109529  ×2
+    JP 眠る為の家具（ランク４）。何度でも使用することができる。
+    EN (Reusable) Rank 4 bed.
+ 109591
+    JP 小型の祭壇。使用することはできない。
+    EN It is a small altar, cannot be used.
+ 109653
+    JP 大きめな食器用の棚だ。
+    EN It is a large cupboard that holds a lot of dishes.
+ 109716  ×2
+    JP その身を映す鏡。何度でも使用することができる。
+    EN (Reusable) dresser used to adjust your clothes.
+ 109778
+    JP 小ざっぱりとした棚だ。
+    EN It is a rack with a framed set of glass doors.
+ 109840
+    JP いびつな机だ。
+    EN It is table made out of recycled wood.
+ 109906
+    JP 眠る為の家具（ランク０）。何度でも使用することができる。
+    EN (Reusable) Rank 0 bed made out of recycled parts...
+ 109969
+    JP 古めかしい本用の棚だ。本類を100種類まで入れることができる。
+    EN (Openable) shelf for up to 100 different types of books.
+ 110031
+    JP 埃のたまった棚だ。
+    EN It is a dusty shelf.
+ 110093  ×2
+    JP 観賞用の鉢植えだ。
+    EN It is an ornamental plant.
+ 110158
+    JP 投擲で遊ぶ台。何度でも使用することができる。
+    EN (Reusable) game machine that is used to play darts.
+ 110223
+    JP 数合わせで遊ぶ台。何度でも使用することができる。
+    EN (Reusable) game machine that is used to play slots.
+ 110288
+    JP 色々なもので遊ぶ台。何度でも使用することができる。
+    EN (Reusable) game machine that is used to play all sorts of games.
+ 110353
+    JP 小さい玉で遊ぶ台。何度でも使用することができる。
+    EN (Reusable) game machine that is used to play pachinko.
+ 110415
+    JP 水が入った家具。使用することはできない。
+    EN It is a porcelan bathtub. Cannot be used.
+ 110544  ×2
+    JP その身を映す鏡。何度でも使用することができる。
+    EN (Reusable) common dresser.
+ 110606
+    JP 簡素なつくりの棚だ。
+    EN It is an ordinary inexpensive rack.
+ 110672  ×2
+    JP 眠る為の家具（ランク４）。何度でも使用することができる。
+    EN (Reusable) Rank 4 soft bed meant for a child.
+ 110736
+    JP 使用することでランク８までの料理を作ることができる器具。
+    EN It is a cooking tool allowing the preparation of dishes up to Rank 8.
+ 110868  ×2
+    JP 眠る為の家具（ランク１）。何度でも使用することができる。
+    EN (Reusable) Rank 1 bed.
+ 110934
+    JP 眠る為の家具（ランク３）。何度でも使用することができる。
+    EN (Reusable) Rank 3, large and elegant bed.
+ 110996
+    JP 衣類用の箪笥だ。
+    EN It is a clean set of clothing.
+ 111128
+    JP 沢山入る戸棚だ。
+    EN It is a bar table with rack's of alchohol and wine.
+ 111191
+    JP その身を映す高価な鏡。何度でも使用することができる。
+    EN (Reusable) beautifully crafted dresser.
+ 111261
+    JP 良い素材で作られた花瓶だ。
+    EN It is a vase of high artistic quality on a night stand.
+ 111327
+    JP 眠る為の家具（ランク６）。何度でも使用することができる。
+    EN (Reusable) Rank 6 bed.
+ 111389
+    JP 酒用の戸棚だ。
+    EN It is a cupboard for liquor.
+ 111452
+    JP 傾いた机だ。何度でも使用できる。
+    EN (Reusable) rustic table.
+ 111514
+    JP 綿で作られた織物だ。
+    EN It is towel made of cotton.
+ 111576
+    JP 装飾品が載せられた棚だ。
+    EN It is a shelf on which ornaments are placed.
+ 111638
+    JP 日用品が載せられた棚だ。
+    EN It is a shelf on which commodity are placed.
+ 111700
+    JP 整った武具。装備することはできない。
+    EN It is oiled and polished decorative armor.
+ 112323
+    JP 雰囲気ある地図。使用することはできない。
+    EN It is an atmospheric map. Not available for use.
+ 112385
+    JP 救命用の道具だ。
+    EN It is a life-saving item.
+ 112448
+    JP シックな机だ。
+    EN It is a chic desk.
+ 112510
+    JP 水の入った凄く重い桶だ。
+    EN It is a very heavy tub of water.
+ 112634
+    JP 折れてしまった柱。それはとても重い。
+    EN It is a broken pillar. It is very heavy.
+ 112696
+    JP 長くて太い柱。それはとても重い。
+    EN It is a long and thick pillar. It is very heavy.
+ 115323
+    JP 剣の模造品だ。
+    EN It is a model of a sword.
+ 115385
+    JP 狂戦士の模造品だ。
+    EN It is a model of a berserker.
+ 118646
+    JP 重ねられた皿だ。
+    EN It is a stack of decorative dishes.
+ 119690
+    JP 眠る為の家具（ランク２）。何度でも使用することができる。
+    EN (Reusable) Rank 2 makeshift bunk bed.
+ 119946  ×7
+    JP とても重い建造物だ。
+    EN It is a very heavy ancient Norland style tomb.
+ 120008  ×7
+    JP とても重い建造物だ。
+    EN It is a very heavy ancient Eulderna style tomb.
+ 120070  ×7
+    JP とても重い建造物だ。
+    EN It is a very heavy tomb of a heroic figure.
+ 120132  ×7
+    JP とても重い建造物だ。
+    EN It is a recent grave... The name is still readable.
+ 120194  ×7
+    JP とても重い建造物だ。
+    EN It is a grave with flowers for the departed.. The name is still readable.
+ 120256  ×7
+    JP とても重い建造物だ。
+    EN It is a common style grave that has been destroyed.
+ 120318  ×7
+    JP とても重い建造物だ。
+    EN It is a common style grave that has started to crumble.
+ 120380
+    JP 糸を織り上げたもの。使用することはできない。
+    EN It is woven threads. Cannot be used.
+ 120442
+    JP 散乱した服。使用することはできない。
+    EN These are scattered clothes. Cannot be used.
+ 120636
+    JP シンプルな棚だ。
+    EN It is a simple shelf for your dining room.
+ 120698
+    JP 美しい加工の燭台。夜間、周囲を明るく照らす。
+    EN It is a beautiful candelabra. Illuminates surroundings brightly.
+ 120760
+    JP 貴族用の机だ。
+    EN It is a table for nobles.
+ 120822
+    JP 食事を取る為に作られた狭い机だ。
+    EN It is a narrow desk made for dining.
+ 120886
+    JP 使用することでランク６までの料理を作ることができる器具。
+    EN It is a cooking tool allowing the preparation of dishes up to Rank 6.
+ 121076
+    JP 手に余るほどの傷んだ酒。使用することはできない。
+    EN It is some unhandled, damaged liquor. Cannot be used.
+ 121139
+    JP 匠の作った本用の棚だ。本類を100種類まで入れることができる。
+    EN (Openable) craftsman bookshelf for up to 100 different types of books.
+ 121201
+    JP 匠の作った箪笥だ。
+    EN It is a nicely crafted piece of cabinet.
+ 121263
+    JP 重ねられた本。使用することはできない。
+    EN These are stacked books. Cannot be used.
+ 121325
+    JP 散乱した本。使用することはできない。
+    EN These are scattered books. Cannot be used.
+ 121387
+    JP 全身鎧の彫像。装備することはできない。
+    EN It is a statue in full body armor. It cannot be equipped.
+ 121449
+    JP 展示用の鎧。装備することはできない。
+    EN It is a statue in full body armor for display. Cannot be equipped.
+ 121511
+    JP 展示用の服。装備することはできない。
+    EN It is a decorative cloth for display. Cannot be equipped.
+ 121573
+    JP 束ねられた武器。装備することはできない。
+    EN It is bundled weapons for display. Cannot be equipped.
+ 121635
+    JP 重ねられた弓。装備することはできない。
+    EN It is bundled bows for display. Cannot be equipped.
+ 121770
+    JP 大陸の描かれた地図。読むことができる。
+    EN (Readable) drawn map of the continent. 
+ 121894
+    JP 花の乗った柱だ。
+    EN It is a pillar decorated with flowers. It is very heavy.
+ 121956
+    JP 植物の乗った柱だ。
+    EN It is a pillar decorated with plants. It is very heavy.
+ 122616
+    JP 地面に描かれた円陣だ。
+    EN It is a magical circles drawn on the ground.
+ 122744
+    JP 液体を入れる為の特殊な瓶。使用することはできない。
+    EN It is a special bottle for liquids. Cannot be used.
+ 122887
+    JP パンを並べる棚。パンを20種類まで置くことができる。
+    EN (Openable) shelf for displaying up to 20 different types of bread.
+ 123557
+    JP 情報の書かれた板。読むことはできない。
+    EN It is a board with information written on it. Cannot be used or read.
+ 123619
+    JP 未知の方向を示す板だ。
+    EN It is a board that points in an unknown direction.
+ 123681
+    JP 目印用の板だ。
+    EN It is a board for a landmark.
+ 123745
+    JP 使用することでランク７までの料理を作ることができる器具。
+    EN It is a cooking tool allowing the preparation of dishes up to Rank 7.
+ 123807
+    JP 赤熱した金属の入った炉。常に周囲を明るく照らす。
+    EN It is a furnace with hot metal. Illuminates the surroundings brightly.
+ 123869
+    JP 衣服の乗った小棚。使用することはできない。
+    EN It is a small shelf with clothes on it. Cannot be used.
+ 124001
+    JP 雑貨の乗った小棚。使用することはできない。
+    EN It is a small shelf with commodities on it. Cannot be used.
+ 124063
+    JP 道具の乗った小棚。使用することはできない。
+    EN It is a small shelf with items on it. Cannot be used.
+ 124125
+    JP 収納用の棚だ。
+    EN It is a closet for storing items.
+ 124187
+    JP 本立てのついた棚だ。
+    EN It is a shelf with a book stand.
+ 124249
+    JP 物を詰めておくための家具。使用することはできない。
+    EN It is a furniture for packing things. Cannot be used. 
+ 124311
+    JP 食器を収める為の棚だ。
+    EN It is a cupboard to store dishes.
+ 124374  ×7
+    JP 座る為の家具。何度でも使用することができる。
+    EN (Reusable) stool.
+ 124437  ×7
+    JP 座る為の家具。何度でも使用することができる。
+    EN (Reusable) everyday chair.
+ 124500
+    JP ポーションを収める為の棚。ポーション類を60種類まで置ける。
+    EN (Openable) rack for up to 60 different types of potions.
+ 124563
+    JP 勉強をする為に作られた机だ。何度でも使用できる。
+    EN (Reusable) desk for study.
+ 124625
+    JP 口の開いたつぼ。使用することはできない。
+    EN It is an open-mouthed crucible. Cannot be used.
+ 124687
+    JP 口の閉じたつぼ。使用することはできない。
+    EN It is an sealed-shut crucible. Cannot be used.
+ 124749
+    JP 精錬用の台。
+    EN It is an anvil used for blacksmithing.
+ 124811
+    JP 立派な鎧。装備することはできない。
+    EN It is a set of splendid armor for display. Cannot be equipped.
+ 124873
+    JP 携帯しやすい簡易照明。夜間周囲をやや明るく照らす。
+    EN It is a portable lightsource. Illuminates surroundings slightly at night.
+ 124935
+    JP 掘削用の道具。使用することはできない。
+    EN It is a pick originally used for mining, cannot be used.
+ 124998
+    JP 美しい加工の椅子。何度でも使用することができる。
+    EN (Reusable) beautifully crafted chair.
+ 125060
+    JP 液体を保持しておく容器。使用することはできない。
+    EN It is a container that holds liquid. Cannot be used.
+ 125122
+    JP 酒場向けの机だ。
+    EN It is a table for a bar.
+ 125249
+    JP 巨大でとても重い楽器。何度でも使用することができる。
+    EN (Reusable) Rank 5, very heavy instrument for performing.
+ 125311
+    JP 装飾品が陳列された小棚だ。
+    EN It is a display case for various gift items.
+ 125373
+    JP 雑貨が陳列された小棚だ。
+    EN It is a display case for various commodities.
+ 125435
+    JP 鎧が陳列された小棚だ。
+    EN It is a shelf of armor on display. Cannot be equipped.
+ 125497
+    JP 食事を取る為に作られた机だ。
+    EN It is a table made for eating.
+ 125560
+    JP 今風のテーブルだ。何度でも使用できる。
+    EN It is a table made with modern Yerles technology.
+ 125622
+    JP 子供用の遊具だ。
+    EN It is a child's toy.
+ 125685
+    JP ふわふわの人形。何度でも使用することができる。
+    EN (Reusable) fluffy doll.
+ 125751  ×2
+    JP 眠る為の家具（ランク１）。何度でも使用することができる。
+    EN (Reusable) Rank 1 refurbished bed.
+ 125813
+    JP 良い素材で作られた箪笥だ。
+    EN It is a cabinet made of fine materials.
+ 125876
+    JP 極普通の本を収める為の棚だ。本類を100種類まで入れることができる。
+    EN (Openable) simple shelf for up to 100 different types of books.
+ 125939  ×7
+    JP 座る為の家具。何度でも使用することができる。
+    EN (Reusable) small chair.
+ 127610
+    JP 文字の書かれた石の板だ。
+    EN It is a stone slab with letters written on it.
+
+218 firme, 199 giapponesi distinti; 7 giapponesi condivisi

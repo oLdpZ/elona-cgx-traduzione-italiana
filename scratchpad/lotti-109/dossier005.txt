@@ -1,0 +1,2014 @@
+=== ITEM_ID_BISQUE_DOLL   [FILTER_FURNITURE]
+    NOME      jp 磁器人形
+              en bisque doll
+              IT bambola di porcellana
+    --- description(3)  :55676 ⚠️ TETTO SECCO 69
+        JP  \t\t磁器製の人形だ。使うと仲間にできる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a porcelain doll. If infused with mana, you can make it an ally.
+
+=== ITEM_ID_DECORATIVE_POTTERY   [FILTER_FURNITURE]
+    NOME      jp 装飾陶器
+              en decorative pottery
+              IT ceramica decorativa
+    --- description(3)  :55738 ⚠️ TETTO SECCO 69
+        JP  \t\t見事な陶器だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a magnificent pottery.
+
+=== ITEM_ID_ANCIENT_POTTERY   [FILTER_FURNITURE]
+    NOME      jp 古代の焼き物
+              en ancient pottery
+              IT ceramica antica
+    --- description(3)  :55800 ⚠️ TETTO SECCO 69
+        JP  \t\t珍妙な焼き物だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a curious pottery.
+
+=== ITEM_ID_DOWSING_OPATOS   [FILTER_FURNITURE]
+    NOME      jp ダウジングオパートス
+              en dowsing opatos
+              IT Opatos rabdomante
+    --- description(3)  :57449 ⚠️ TETTO SECCO 69
+        JP  \t\t大地の神を模したペンデュラムだ。所持していると自動で使う。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool pendulum that looks like the God of Earth.
+
+=== ITEM_ID_KUMIROMI_GURUMI   [FILTER_FURNITURE]
+    NOME      jp くみろみぐるみ
+              en kumiromi-gurumi
+              IT kumiromi-gurumi
+    --- description(3)  :57511 ⚠️ TETTO SECCO 69
+        JP  \t\t収穫の神のぬいぐるみだ。畑に置いておくと効果がある。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is a stuffed doll of God of the Harvest. Useful when placed in farm.
+
+=== ITEM_ID_ITZPALTS_SCULPTURE   [FILTER_FURNITURE]
+    NOME      jp イツパロトルの胸像
+              en itzpalt's sculpture
+              IT scultura di Itzpalt
+    --- description(3)  :57710 ⚠️ TETTO SECCO 69
+        JP  \t\t元素の神を模した胸像だ。所持していると自動で使う。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) Bust Statue of the God of Element.
+
+=== ITEM_ID_PAINTING_OF_EHEKATL_AND_SWORDFISH   [FILTER_FURNITURE]
+    NOME      jp 絵画《エヘカトルとメカジキ》
+              en painting of ehekatl and swordfish
+              IT dipinto di Ehekatl e del pesce spada
+    --- description(3)  :57772 ⚠️ TETTO SECCO 69
+        JP  \t\t幸運の女神を描いた絵だ。家に置いておくと効果がある。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is a painting of Goddess of Luck. Effective when placed in the house.
+
+=== ITEM_ID_MANIS_ALARM_CLOCK   [FILTER_FURNITURE]
+    NOME      jp めざマニ時計
+              en mani's alarm clock
+              IT sveglia di Mani
+    --- description(3)  :57834 ⚠️ TETTO SECCO 69
+        JP  \t\t機械の神を模した目覚まし時計だ。所持していると自動で使う。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) alarm clock in the shape of the God of Machine.
+
+=== ITEM_ID_WILD_FLOWER   [FILTER_FURNITURE]
+    NOME      jp 
+              en wild flower
+              IT fiore selvatico
+    non ident. IT fiore selvatico   (en wild flower)
+    --- description(3)  :60000 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の植物だ。\n#～鑑定報告書：＜植物＞カテゴリ～\n
+        EN  It is an ornamental plant.
+
+=== ITEM_ID_JUICE_MIXER   [FILTER_FURNITURE]
+    NOME      jp ジュースミキサー
+              en juice mixer
+              IT frullatore
+    --- description(3)  :63872 ⚠️ TETTO SECCO 69
+        JP  \t\t果物、野菜、木の実をジュースにする家具だ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that juices fruits, vegetables, nuts.
+
+=== ITEM_ID_SLEEP_SHEEP   [FILTER_FURNITURE]
+    NOME      jp 眠り羊の夢枕
+              en sleep sheep
+              IT pecora del sonno
+    --- description(3)  :65334 ⚠️ TETTO SECCO 69
+        JP  \t\t眠る為の家具（ランク５）。持たせると添い寝しに来ることがある。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 5 bed, hugging this makes you feel lonely at night.
+
+=== ITEM_ID_ANGEL_STATUE   [FILTER_FURNITURE]
+    NOME      jp 天使の像 天使の像
+              en angel statue statue
+              IT angelo statua
+    --- description(3)  :66388 ⚠️ TETTO SECCO 69
+        JP  \t\t神秘的な像だ。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a mysterious statue.
+
+=== ITEM_ID_SMALL_STONE_GOLEM   [FILTER_FURNITURE]
+    NOME      jp ミニチュアゴーレム
+              en small stone golem
+              IT piccolo golem di pietra
+    --- description(3)  :66454 ⚠️ TETTO SECCO 69
+        JP  \t\t起動していないゴーレムだ。使うと仲間にできる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a golem that hasn't been activated. Infuse with mana to activate.
+
+=== ITEM_ID_ZIZOU   [FILTER_FURNITURE]
+    NOME      jp 地蔵
+              en zizou
+              IT zizou
+    --- description(3)  :66516 ⚠️ TETTO SECCO 69
+        JP  \t\t和風の間仕切りだ。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is an austere statue.
+
+=== ITEM_ID_STATUE_BUTUZOU   [FILTER_FURNITURE]
+    NOME      jp 仏像 仏像
+              en butuzou statue
+              IT Budda statua
+    --- description(3)  :66578 ⚠️ TETTO SECCO 69
+        JP  \t\t厳かな像だ。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is an solemn statue.
+
+=== ITEM_ID_SMALL_WOODEN_GOLEM   [FILTER_FURNITURE]
+    NOME      jp ミニチュアゴーレム
+              en small wooden golem
+              IT piccolo golem di legno
+    --- description(3)  :66644 ⚠️ TETTO SECCO 69
+        JP  \t\t起動していないゴーレムだ。使うと仲間にできる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a golem that hasn't been activated. Infuse with mana to activate.
+
+=== ITEM_ID_PETHOUSE   [FILTER_FURNITURE]
+    NOME      jp ペットハウス
+              en pethouse
+              IT cuccia
+    --- description(3)  :66706 ⚠️ TETTO SECCO 69
+        JP  \t\t小動物用の小屋だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a shed for small animals.
+
+=== ITEM_ID_OCARINA   [FILTER_FURNITURE]
+    NOME      jp オカリナ
+              en ocarina
+              IT ocarina
+    --- description(3)  :68851 ⚠️ TETTO SECCO 69
+        JP  \t\t演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜楽器＞カテゴリ～\n
+        EN  (Reusable) Rank 1 instrument for performing.
+
+=== ITEM_ID_RECORDER   [FILTER_FURNITURE]
+    NOME      jp リコーダー
+              en recorder
+              IT flauto dolce
+    --- description(3)  :68916 ⚠️ TETTO SECCO 69
+        JP  \t\t演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜楽器＞カテゴリ～\n
+        EN  (Reusable) Rank 2 instrument for performing.
+
+=== ITEM_ID_SERPENT   [FILTER_FURNITURE]
+    NOME      jp セルパン
+              en serpent
+              IT serpentone
+    --- description(3)  :68981 ⚠️ TETTO SECCO 69
+        JP  \t\t演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜楽器＞カテゴリ～\n
+        EN  (Reusable) Rank 3 instrument for performing.
+
+=== ITEM_ID_MINIATURE_BLIMP   [FILTER_FURNITURE]
+    NOME      jp ミニチュア魔導船
+              en miniature blimp
+              IT dirigibile in miniatura
+    --- description(3)  :70130 ⚠️ TETTO SECCO 69
+        JP  \t\t魔導船のミニチュアだ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a miniature of a Eulderna Blimp.
+
+=== ITEM_ID_KOMA_INU2   [FILTER_FURNITURE]
+    NOME      jp 阿形の狛犬
+              en koma-inu
+              IT koma-inu
+    --- description(3)  :72825 ⚠️ TETTO SECCO 69
+        JP  \t\t狛犬を模した像だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a statue of a guardian dog.
+
+=== ITEM_ID_KOMA_INU   [FILTER_FURNITURE]
+    NOME      jp 吽形の狛犬
+              en koma-inu
+              IT koma-inu
+    --- description(3)  :72887 ⚠️ TETTO SECCO 69
+        JP  \t\t狛犬を模した像だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a statue of a guardian dog.
+
+=== ITEM_ID_WOODEN_HORSE   [FILTER_FURNITURE]
+    NOME      jp 三角木馬
+              en wooden horse
+              IT cavallo di legno
+    --- description(3)  :73355 ⚠️ TETTO SECCO 69
+        JP  \t\t椅子代わりに何度でも使用することができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Reusable) chair.
+
+=== ITEM_ID_WADAIKO   [FILTER_FURNITURE]
+    NOME      jp 和太鼓
+              en wadaiko
+              IT wadaiko
+    --- description(3)  :74571 ⚠️ TETTO SECCO 69
+        JP  \t\t演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜楽器＞カテゴリ～\n
+        EN  (Reusable) Rank 4 instrument for performing.
+
+=== ITEM_ID_SAND_CASTLE   [FILTER_FURNITURE]
+    NOME      jp 砂のお城
+              en sand castle
+              IT castello di sabbia
+    --- description(3)  :76523 ⚠️ TETTO SECCO 69
+        JP  \t\t砂で作られた立派なお城だ。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a magnificent castle made of sand.
+
+=== ITEM_ID_LARGE_DISH   [FILTER_FURNITURE]
+    NOME      jp 皿
+              en large dish
+              IT piatto grande
+    --- description(3)  :78792 ⚠️ TETTO SECCO 69
+        JP  \t\t料理等を載せる平たい器だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a flat vessel on which food is placed.
+
+=== ITEM_ID_FUR_CARPET   [FILTER_FURNITURE]
+    NOME      jp 毛皮の敷物
+              en fur carpet
+              IT tappeto di pelliccia
+    --- description(3)  :78922 ⚠️ TETTO SECCO 69
+        JP  \t\t獣を加工した家具だ。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is furniture made from processed beasts.
+
+=== ITEM_ID_DEER_HEAD   [FILTER_FURNITURE]
+    NOME      jp 鹿の剥製
+              en deer head
+              IT testa di cervo
+    --- description(3)  :78984 ⚠️ TETTO SECCO 69
+        JP  \t\t獣を加工した家具だ。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is furniture made from processed beasts.
+
+=== ITEM_ID_LUXURY_SOFA   [FILTER_FURNITURE]
+    NOME      jp 高級ソファー
+              en luxury sofa
+              IT divano di lusso
+    --- description(3)  :79047 ⚠️ TETTO SECCO 69
+        JP  \t\t座る為の家具。何度でも使用することができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Reusable) chair.
+
+=== ITEM_ID_LUXURY_CABINET   [FILTER_FURNITURE]
+    NOME      jp 高級キャビネット
+              en luxury cabinet
+              IT mobiletto di lusso
+    --- description(3)  :79306 ⚠️ TETTO SECCO 69
+        JP  \t\t高価な戸棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is an expensive cupboard.
+
+=== ITEM_ID_LARGE_BOOKSHELF   [FILTER_FURNITURE]
+    NOME      jp おっきな本棚
+              en large bookshelf
+              IT libreria grande
+    --- description(3)  :79369 ⚠️ TETTO SECCO 69
+        JP  \t\t大型の本棚だ。本類を100種類まで入れることができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Openable) large bookshelf for up to 100 different types of books.
+
+=== ITEM_ID_MINIATURE_TREE   [FILTER_FURNITURE]
+    NOME      jp ミニチュアツリー
+              en miniature tree
+              IT albero in miniatura
+    --- description(3)  :79639 ⚠️ TETTO SECCO 69
+        JP  \t\t小さなモミの木だ。\n#～鑑定報告書：＜樹木＞カテゴリ～\n
+        EN  It is a small fir tree.
+
+=== ITEM_ID_NEW_YEARS_DECORATION   [FILTER_FURNITURE]
+    NOME      jp 正月飾り
+              en new year's decoration
+              IT decorazione di capodanno
+    --- description(3)  :79701 ⚠️ TETTO SECCO 69
+        JP  \t\t新年に向けて作られた厳かな飾りだ。\n#～鑑定報告書：＜縁起物＞カテゴリ～\n
+        EN  It is a solemn decoration made for the New Year.
+
+=== ITEM_ID_JURES_BODY_PILLOW   [FILTER_FURNITURE]
+    NOME      jp ジュアの抱き枕
+              en Jure's body pillow
+              IT cuscino di Jure
+    --- description(3)  :79767 ⚠️ TETTO SECCO 69
+        JP  \t\tいい夢を見ることができる枕（ランク０）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 0 bed that allows you to have good dreams.
+
+=== ITEM_ID_BLUE_STALL   [FILTER_FURNITURE]
+    NOME      jp 青い屋根の屋台
+              en blue stall
+              IT bancarella blu
+    --- description(3)  :79829 ⚠️ TETTO SECCO 69
+        JP  \t\t祭事用の簡易的な店だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a simple store for festivities.
+
+=== ITEM_ID_RED_STALL   [FILTER_FURNITURE]
+    NOME      jp 赤い屋根の屋台
+              en red stall
+              IT bancarella rossa
+    --- description(3)  :79891 ⚠️ TETTO SECCO 69
+        JP  \t\t祭事用の簡易的な店だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a simple store for festivities.
+
+=== ITEM_ID_COUNTER   [FILTER_FURNITURE]
+    NOME      jp カウンター
+              en counter
+              IT bancone
+    --- description(3)  :79953 ⚠️ TETTO SECCO 69
+        JP  \t\t店用の机だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a desk for the store.
+
+=== ITEM_ID_PEDESTAL   [FILTER_FURNITURE]
+    NOME      jp 台座
+              en pedestal
+              IT piedistallo
+    --- description(3)  :80015 ⚠️ TETTO SECCO 69
+        JP  \t\tうず高く盛り上がった台だ。\n#～鑑定報告書：＜壇＞カテゴリ～\n
+        EN  It is a raised platform.
+
+=== ITEM_ID_FESTIVAL_WREATH   [FILTER_FURNITURE]
+    NOME      jp 聖夜祭の花冠
+              en festival wreath
+              IT ghirlanda della festa
+    --- description(3)  :80085 ⚠️ TETTO SECCO 69
+        JP  \t\t特別な日の為に作られた冠だ。\n#～鑑定報告書：＜縁起物＞カテゴリ～\n
+        EN  It is a crown made for a special occasion.
+
+=== ITEM_ID_GOULDS_PIANO   [FILTER_FURNITURE]
+    NOME      jp 《グールドのピアノ》
+              en <Gould's Piano>
+              IT <Pianoforte di Gould>
+    non ident. IT pianoforte comune   (en nondescriptive piano)
+    --- description(3)  :80152 ⚠️ TETTO SECCO 69
+        JP  \t\t聴衆を酔わす演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜楽器＞カテゴリ～\n
+        EN  (Reusable) Rank 5 instrument that makes people drunk.
+
+=== ITEM_ID_DARUMA   [FILTER_FURNITURE]
+    NOME      jp だるま
+              en daruma
+              IT daruma
+    --- description(3)  :80615 ⚠️ TETTO SECCO 69
+        JP  \t\tユニークな形の人形だ。\n#～鑑定報告書：＜縁起物＞カテゴリ～\n
+        EN  It is an uniquely shaped doll.
+
+=== ITEM_ID_KOTATSU   [FILTER_FURNITURE]
+    NOME      jp こたつ
+              en kotatsu
+              IT kotatsu
+    --- description(3)  :80677 ⚠️ TETTO SECCO 69
+        JP  \t\t寒い季節用の机。潜ることができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a desk for cold weather. You can hide under it.
+
+=== ITEM_ID_DOWNSTAIRS   [FILTER_FURNITURE]
+    NOME      jp 降り階段
+              en downstairs
+              IT scala in discesa
+    --- description(3)  :80801 ⚠️ TETTO SECCO 69
+        JP  \t\t下る為の石段。潜ることができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  These are stone steps to descend. You can go downstairs here.
+
+=== ITEM_ID_UPSTAIRS   [FILTER_FURNITURE]
+    NOME      jp 昇り階段
+              en upstairs
+              IT scala in salita
+    --- description(3)  :80863 ⚠️ TETTO SECCO 69
+        JP  \t\t上る為の石段。潜ることができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  These are stone steps to ascend. You can go upstairs here.
+
+=== ITEM_ID_GIFT   [FILTER_FURNITURE]
+    NOME      jp おみやげ
+              en gift
+              IT regalo
+    --- description(3)  :82278 ⚠️ TETTO SECCO 69
+        JP  \t\t人に渡すと友好度が上がるアイテムだ。\n#～鑑定報告書：＜その他＞カテゴリ～\n
+        EN  It is a gift given to raise affection, won't be returned.
+
+=== ITEM_ID_HAPPY_BED   [FILTER_FURNITURE]
+    NOME      jp 幸せのベッド
+              en happy bed
+              IT letto della felicità
+    --- description(3)  :82878 ⚠️ TETTO SECCO 69
+        JP  \t\t非常に優れた寝具（ランク９）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 9 bed of luxury quality.
+
+=== ITEM_ID_STRADIVARIUS   [FILTER_FURNITURE]
+    NOME      jp 《ストラディバリウス》
+              en <Stradivarius>
+              IT <Stradivarius>
+    non ident. IT strumento a corde elegante   (en elegant string)
+    --- description(3)  :83767 ⚠️ TETTO SECCO 69
+        JP  \t\tおひねりの質が上がる演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  (Reusable) Rank 4 instrument that increases the rewords of performing.
+
+=== ITEM_ID_EASTERN_PARTITION   [FILTER_FURNITURE]
+    NOME      jp 間仕切り
+              en eastern partition
+              IT paravento orientale
+    --- description(3)  :84647 ⚠️ TETTO SECCO 69
+        JP  \t\t空間用の仕切りだ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a space divider.
+
+=== ITEM_ID_HARP   [FILTER_FURNITURE]
+    NOME      jp ハープ
+              en harp
+              IT arpa
+    --- description(3)  :84712 ⚠️ TETTO SECCO 69
+        JP  \t\t演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜楽器＞カテゴリ～\n
+        EN  (Reusable) Rank 4 instrument for performing.
+
+=== ITEM_ID_HARMONICA   [FILTER_FURNITURE]
+    NOME      jp ハーモニカ
+              en harmonica
+              IT armonica
+    --- description(3)  :84777 ⚠️ TETTO SECCO 69
+        JP  \t\t演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜楽器＞カテゴリ～\n
+        EN  (Reusable) Rank 1 instrument for performing.
+
+=== ITEM_ID_LUTE   [FILTER_FURNITURE]
+    NOME      jp リュート
+              en lute
+              IT liuto
+    --- description(3)  :84842 ⚠️ TETTO SECCO 69
+        JP  \t\t演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜楽器＞カテゴリ～\n
+        EN  (Reusable) Rank 3 instrument for performing.
+
+=== ITEM_ID_PAN_FLUTE   [FILTER_FURNITURE]
+    NOME      jp パンフルート
+              en pan flute
+              IT flauto di Pan
+    --- description(3)  :84907 ⚠️ TETTO SECCO 69
+        JP  \t\t演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜楽器＞カテゴリ～\n
+        EN  (Reusable) Rank 3 instrument for performing.
+
+=== ITEM_ID_PARTITION   [FILTER_FURNITURE]
+    NOME      jp パーティション
+              en partition
+              IT pannello divisorio
+    --- description(3)  :87005 ⚠️ TETTO SECCO 69
+        JP  \t\t和風の間仕切りだ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is an eastern-style partition.
+
+=== ITEM_ID_CHOCHIN   [FILTER_FURNITURE]
+    NOME      jp 提灯
+              en chochin
+              IT chochin
+    --- description(3)  :87067 ⚠️ TETTO SECCO 69
+        JP  \t\t異国の簡易照明。夜間、周囲を弱く照らす。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is an exotic lighting. Illuminates the surroundings softly at night.
+
+=== ITEM_ID_EASTERN_WINDOW   [FILTER_FURNITURE]
+    NOME      jp 東洋の窓
+              en eastern window
+              IT finestra orientale
+    --- description(3)  :87129 ⚠️ TETTO SECCO 69
+        JP  \t\t円形をした窓。夜間、周囲を弱く照らす。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a circular window. Illuminates the surroundings softly at night.
+
+=== ITEM_ID_EASTERN_LAMP   [FILTER_FURNITURE]
+    NOME      jp 灯篭
+              en eastern lamp
+              IT lanterna orientale
+    --- description(3)  :87191 ⚠️ TETTO SECCO 69
+        JP  \t\t異国の重い照明。常に周囲を照らす。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is an exotic heavy lighting. Always illuminates the surroundings.
+
+=== ITEM_ID_DOUBLE_BED   [FILTER_FURNITURE]
+    NOME      jp ダブルベッド
+              en double bed
+              IT letto matrimoniale
+    --- description(3)  :87322 ⚠️ TETTO SECCO 69
+        JP  \t\t眠る為の家具（ランク７）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 7 bed.
+
+=== ITEM_ID_JUNK   [FILTER_FURNITURE]
+    NOME      jp 廃品
+              en junk
+              IT cianfrusaglie
+    --- description(3)  :87384 ⚠️ TETTO SECCO 69
+        JP  \t\t特に使い道はない。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is useless junk.
+
+=== ITEM_ID_SINK2   [FILTER_FURNITURE]
+    NOME      jp シンク
+              en sink
+              IT lavello
+    --- description(3)  :87446 ⚠️ TETTO SECCO 69
+        JP  \t\t大きな流し台だ。使用することはできない。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a large sink. Cannot be used.
+
+=== ITEM_ID_CRAFT_CUPBOARD   [FILTER_FURNITURE]
+    NOME      jp 名工食器棚
+              en craft cupboard
+              IT credenza di pregio
+    --- description(3)  :87508 ⚠️ TETTO SECCO 69
+        JP  \t\t匠の作った食器用の棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a cupboard made by a master craftsman.
+
+=== ITEM_ID_FLOWERBED   [FILTER_FURNITURE]
+    NOME      jp フェンス付き花壇
+              en flowerbed
+              IT aiuola
+    --- description(3)  :87647 ⚠️ TETTO SECCO 69
+        JP  \t\t間仕切りのついた花壇だ。\n#～鑑定報告書：＜壇＞カテゴリ～\n
+        EN  It is a beautiful bed of flowers, with a partition.
+
+=== ITEM_ID_SOFA   [FILTER_FURNITURE]
+    NOME      jp ソファー
+              en sofa
+              IT divano
+    --- description(3)  :87710 ⚠️ TETTO SECCO 69
+        JP  \t\t座る為の家具。何度でも使用することができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Reusable) sofa.
+
+=== ITEM_ID_BLACK_BOARD   [FILTER_FURNITURE]
+    NOME      jp 黒板
+              en black board
+              IT lavagna
+    --- description(3)  :87772 ⚠️ TETTO SECCO 69
+        JP  \t\t書き消し自由な板。使用することはできない。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a board that is free to write on and erase. Cannot be used.
+
+=== ITEM_ID_MENU_BOARD   [FILTER_FURNITURE]
+    NOME      jp メニューボード
+              en menu board
+              IT lavagna del menù
+    --- description(3)  :87834 ⚠️ TETTO SECCO 69
+        JP  \t\tメニューが書かれた板だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a menu for a restaurant.
+
+=== ITEM_ID_KING_DRAWER   [FILTER_FURNITURE]
+    NOME      jp 王様箪笥
+              en king drawer
+              IT cassettiera regale
+    --- description(3)  :87896 ⚠️ TETTO SECCO 69
+        JP  \t\t王様御用達の箪笥だ。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is a king's royal cabinet.
+
+=== ITEM_ID_DECORATED_WINDOW   [FILTER_FURNITURE]
+    NOME      jp カーテン付きの窓
+              en decorated window
+              IT finestra decorata
+    --- description(3)  :87958 ⚠️ TETTO SECCO 69
+        JP  \t\t間仕切りのついた窓。夜間、周囲を弱く照らす。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a window with partitions. illuminates the surroundings softly.
+
+=== ITEM_ID_RICE_BARREL   [FILTER_FURNITURE]
+    NOME      jp 米俵
+              en rice barrel
+              IT barile di riso
+    --- description(3)  :88086 ⚠️ TETTO SECCO 69
+        JP  \t\t穀物が入った袋だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a barrel for holding rice.
+
+=== ITEM_ID_MOON_GATE   [FILTER_FURNITURE]
+    NOME      jp ムーンゲート
+              en moon gate
+              IT cancello lunare
+    --- description(3)  :88806 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでショウルームを訪れるゲートだ（使い捨て）。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  (Single-use) tool that oepns a gateway to the showroom world.
+
+=== ITEM_ID_SHRINE_GATE   [FILTER_FURNITURE]
+    NOME      jp 鳥居
+              en shrine gate
+              IT portale del santuario
+    non ident. IT portale straniero   (en foreign gate)
+    --- description(3)  :89215 ⚠️ TETTO SECCO 69
+        JP  \t\t異国の神を迎える門だ。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  It is a gate for Gods of foreign lands.
+
+=== ITEM_ID_FLOWER_ARCH   [FILTER_FURNITURE]
+    NOME      jp フラワーアーチ
+              en flower arch
+              IT arco di fiori
+    --- description(3)  :89949 ⚠️ TETTO SECCO 69
+        JP  \t\t花が飾られた半円状の建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is an arch structure decorated with flowers.
+
+=== ITEM_ID_KINGS_BED   [FILTER_FURNITURE]
+    NOME      jp 王様ベッド
+              en king's bed
+              IT letto regale
+    --- description(3)  :90015 ⚠️ TETTO SECCO 69
+        JP  \t\t王様御用達の優れたベッド（ランク８）。使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 8 bed made for royalty.
+
+=== ITEM_ID_NICE_WINDOW   [FILTER_FURNITURE]
+    NOME      jp アットホームな窓
+              en nice window
+              IT finestra graziosa
+    --- description(3)  :90077 ⚠️ TETTO SECCO 69
+        JP  \t\t外から光を取りこむ家具。夜間、周囲を弱く照らす。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a furniture that sheds light. Illuminates surroundings softly.
+
+=== ITEM_ID_TRIANGLE_PLANT   [FILTER_FURNITURE]
+    NOME      jp 三角木
+              en triangle plant
+              IT pianta triangolare
+    --- description(3)  :90202 ⚠️ TETTO SECCO 69
+        JP  \t\t角度をつけて刈り取られた木だ。\n#～鑑定報告書：＜樹木＞カテゴリ～\n
+        EN  It is a tree was trimmed at an angle.
+
+=== ITEM_ID_WINDOW   [FILTER_FURNITURE]
+    NOME      jp 窓
+              en window
+              IT finestra
+    --- description(3)  :90264 ⚠️ TETTO SECCO 69
+        JP  \t\t外から光を取りこむ家具。夜間、周囲を弱く照らす。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a furniture that sheds light. Illuminates surroundings softly.
+
+=== ITEM_ID_SQUARE_WINDOW   [FILTER_FURNITURE]
+    NOME      jp 格子窓
+              en square window
+              IT finestra quadrata
+    --- description(3)  :90326 ⚠️ TETTO SECCO 69
+        JP  \t\t外から光を取りこむ家具。夜間、周囲を弱く照らす。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a furniture that sheds light. Illuminates surroundings softly.
+
+=== ITEM_ID_GIANT_CACTUS   [FILTER_FURNITURE]
+    NOME      jp 巨大サボテン
+              en giant cactus
+              IT cactus gigante
+    --- description(3)  :90388 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の鉢植えだ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an ornamental potted plant.
+
+=== ITEM_ID_BARBECUE_SET   [FILTER_FURNITURE]
+    NOME      jp バーベキューセット
+              en barbecue set
+              IT set da barbecue
+    --- description(3)  :90452 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでランク９までの料理を作ることができる器具。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a cooking tool allowing the preparation of dishes up to Rank 9.
+
+=== ITEM_ID_MONEY_TREE   [FILTER_FURNITURE]
+    NOME      jp パキラ
+              en money tree
+              IT albero dei soldi
+    --- description(3)  :90514 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の鉢植えだ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an ornamental potted plant.
+
+=== ITEM_ID_GREEN_PLANT   [FILTER_FURNITURE]
+    NOME      jp 目に優しい植物
+              en green plant
+              IT pianta verde
+    --- description(3)  :90576 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の鉢植えだ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an ornamental potted plant.
+
+=== ITEM_ID_PRESIDENTS_CHAIR   [FILTER_FURNITURE]
+    NOME      jp ボスチェア
+              en president's chair
+              IT poltrona direzionale
+    non ident. IT poltrona imponente   (en glory chair)
+    --- description(3)  :90640 ⚠️ TETTO SECCO 69
+        JP  \t\t座る為の家具。何度でも使用することができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Reusable) rare chair.
+
+=== ITEM_ID_STAINED_GLASS_WINDOW   [FILTER_FURNITURE]
+    NOME      jp ステンドグラス
+              en stained glass window
+              IT vetrata istoriata
+    --- description(3)  :91091 ⚠️ TETTO SECCO 69
+        JP  \t\t外から光を取りこむ家具。夜間、周囲をやや弱く照らす。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a furniture that lets in light, illuminates surroundings softly.
+
+=== ITEM_ID_PILLAR   [FILTER_FURNITURE]
+    NOME      jp 扇形の柱
+              en pillar
+              IT colonna
+    --- description(3)  :91153 ⚠️ TETTO SECCO 69
+        JP  \t\t重い柱だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a heavy pillar.
+
+=== ITEM_ID_STATUE_HOLY_CROSS   [FILTER_FURNITURE]
+    NOME      jp 聖なる十字架 聖なる十字架
+              en holy cross statue
+              IT croce sacra statua
+    --- description(3)  :91215 ⚠️ TETTO SECCO 69
+        JP  \t\t大きく輝く十字架だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a great gleaming cross from ancient times.
+
+=== ITEM_ID_MODERN_LAMP2   [FILTER_FURNITURE]
+    NOME      jp 雪をかぶったモダンな街灯
+              en modern lamp
+              IT lampione moderno
+    --- description(3)  :91277 ⚠️ TETTO SECCO 69
+        JP  \t\t備え付けられた灯。夜間、周囲を明るく照らす。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is equipped with a light. Illuminates the surroundings brightly.
+
+=== ITEM_ID_SNOW_BARREL   [FILTER_FURNITURE]
+    NOME      jp 雪をかぶったタル
+              en snow barrel
+              IT barile innevato
+    --- description(3)  :91339 ⚠️ TETTO SECCO 69
+        JP  \t\t雪の掛った液体を保持しておく容器。使用することはできない。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a snow-covered container that holds liquid. Cannot be used.
+
+=== ITEM_ID_MINI_SNOW_MAN   [FILTER_FURNITURE]
+    NOME      jp ミニ雪だるま
+              en mini snow man
+              IT pupazzo di neve piccolo
+    --- description(3)  :91401 ⚠️ TETTO SECCO 69
+        JP  \t\t小さな雪だるまだ。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a small snowman made of snow.
+
+=== ITEM_ID_MODERN_LAMP   [FILTER_FURNITURE]
+    NOME      jp モダンな街灯
+              en modern lamp
+              IT lampione moderno
+    --- description(3)  :91721 ⚠️ TETTO SECCO 69
+        JP  \t\t備え付けられた灯。夜間、周囲を明るく照らす。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is equipped with a light. Illuminates the surroundings brightly.
+
+=== ITEM_ID_FANCY_LAMP   [FILTER_FURNITURE]
+    NOME      jp 奇抜なランプ
+              en fancy lamp
+              IT lampada stravagante
+    --- description(3)  :91783 ⚠️ TETTO SECCO 69
+        JP  \t\t高名な芸術家によって作られた簡易照明。夜間、周囲を明るく照らす。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is an artisan lighting. Illuminates the surroundings brightly.
+
+=== ITEM_ID_CANDLE   [FILTER_FURNITURE]
+    NOME      jp キャンドル
+              en candle
+              IT candela
+    --- description(3)  :91845 ⚠️ TETTO SECCO 69
+        JP  \t\tロウで作られた簡易照明。常に周囲を照らす。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a simple lighting made of wax. Always illuminates the surroundings.
+
+=== ITEM_ID_MODERN_RACK   [FILTER_FURNITURE]
+    NOME      jp 普通の棚
+              en modern rack
+              IT rastrelliera moderna
+    --- description(3)  :92127 ⚠️ TETTO SECCO 69
+        JP  \t\t一般的な棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a common shelf.
+
+=== ITEM_ID_SNOW_MAN   [FILTER_FURNITURE]
+    NOME      jp 雪だるま
+              en snow man
+              IT pupazzo di neve
+    --- description(3)  :94804 ⚠️ TETTO SECCO 69
+        JP  \t\t雪で作られた雪像だ。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a snowman made of snow.
+
+=== ITEM_ID_BLACK_CRYSTAL   [FILTER_FURNITURE]
+    NOME      jp 黒水晶
+              en black crystal
+              IT cristallo nero
+    --- description(3)  :94866 ⚠️ TETTO SECCO 69
+        JP  \t\t巨大な黒い鉱物だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a giant black crystal.
+
+=== ITEM_ID_STATUE_CAT   [FILTER_FURNITURE]
+    NOME      jp 猫の像 猫の像
+              en cat statue
+              IT gatto statua
+    --- description(3)  :94928 ⚠️ TETTO SECCO 69
+        JP  \t\t猫を模った柱だ。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a pillar in the shape of a cat.
+
+=== ITEM_ID_PAINTING_SUNFLOWER   [FILTER_FURNITURE]
+    NOME      jp 絵画《ひまわり》 絵画《ひまわり》
+              en sunflower painting
+              IT girasoli dipinto
+    --- description(3)  :94990 ⚠️ TETTO SECCO 69
+        JP  \t\t植物の絵が書いてある。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is a painting of a sunflower.
+
+=== ITEM_ID_PAINTING_LANDSCAPE   [FILTER_FURNITURE]
+    NOME      jp 絵画《風景》 絵画《風景》
+              en landscape painting
+              IT paesaggio dipinto
+    --- description(3)  :95052 ⚠️ TETTO SECCO 69
+        JP  \t\t風景の絵が書いてある。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is a painting of a landscape.
+
+=== ITEM_ID_PAINTING_MADAM   [FILTER_FURNITURE]
+    NOME      jp 絵画《マダム》 絵画《マダム》
+              en madam painting
+              IT dama dipinto
+    --- description(3)  :95114 ⚠️ TETTO SECCO 69
+        JP  \t\t女性の絵が書いてある。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is a painting of a lady.
+
+=== ITEM_ID_BIG_TABLE   [FILTER_FURNITURE]
+    NOME      jp 巨大なテーブル
+              en big table
+              IT tavolo enorme
+    --- description(3)  :95177 ⚠️ TETTO SECCO 69
+        JP  \t\tとても大きな机だ。何度でも使用できる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Reusable) very large desk.
+
+=== ITEM_ID_GIANT_FOLIAGE_PLANT   [FILTER_FURNITURE]
+    NOME      jp 巨大な観葉植物
+              en giant foliage plant
+              IT pianta ornamentale gigante
+    --- description(3)  :95239 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の鉢植えだ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an ornamental potted plant.
+
+=== ITEM_ID_STOVE   [FILTER_FURNITURE]
+    NOME      jp かまど
+              en stove
+              IT fornello
+    --- description(3)  :95301 ⚠️ TETTO SECCO 69
+        JP  \t\t煮炊きに使う窯。使用することはできない。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a stove useful for cooking food. Cannot be used.
+
+=== ITEM_ID_FIREPLACE   [FILTER_FURNITURE]
+    NOME      jp 暖炉
+              en fireplace
+              IT camino
+    --- description(3)  :95363 ⚠️ TETTO SECCO 69
+        JP  \t\t部屋を暖める家具だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is furniture that warms the room.
+
+=== ITEM_ID_FURNANCE   [FILTER_FURNITURE]
+    NOME      jp 溶鉱炉
+              en furnance
+              IT altoforno
+    --- description(3)  :95425 ⚠️ TETTO SECCO 69
+        JP  \t\t金属を暖める建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a metal-warming structure.
+
+=== ITEM_ID_BLANK_DISC   [FILTER_FURNITURE]
+    NOME      jp ブランクディスク
+              en blank disc
+              IT disco vuoto
+    --- description(3)  :97876 ⚠️ TETTO SECCO 69
+        JP  \t\tデータが入っていない円盤。使用することはできない。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  It is a disk that do not contain data. Cannot be used.
+
+=== ITEM_ID_CHIP   [FILTER_FURNITURE]
+    NOME      jp チップ
+              en chip
+              IT chip
+    --- description(3)  :97946 ⚠️ TETTO SECCO 69
+        JP  \t\t何かの情報片だ。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  It is some kind of information piece.
+
+=== ITEM_ID_TRASH_CAN   [FILTER_FURNITURE]
+    NOME      jp トラッシュカン
+              en trash can
+              IT cestino
+    --- description(3)  :98008 ⚠️ TETTO SECCO 69
+        JP  \t\tカンを捨てる為の箱だ。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  It is a container for dumping the cans.
+
+=== ITEM_ID_STORAGE   [FILTER_FURNITURE]
+    NOME      jp ストレージ
+              en storage
+              IT archivio dati
+    --- description(3)  :98078 ⚠️ TETTO SECCO 69
+        JP  \t\t何かを入れる為の箱だ。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  It is a box to put something in.
+
+=== ITEM_ID_SERVER   [FILTER_FURNITURE]
+    NOME      jp サーバー
+              en server
+              IT server
+    --- description(3)  :98148 ⚠️ TETTO SECCO 69
+        JP  \t\t情報を入れる為の箱だ。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  It is a box used to hold information.
+
+=== ITEM_ID_MICROWAVE_OVEN   [FILTER_FURNITURE]
+    NOME      jp レンジ
+              en microwave oven
+              IT forno a microonde
+    --- description(3)  :98218 ⚠️ TETTO SECCO 69
+        JP  \t\t壊れている調理器具。使用することはできない。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  It is a broken cookware. Cannot be used.
+
+=== ITEM_ID_CAMERA   [FILTER_FURNITURE]
+    NOME      jp カメラ
+              en camera
+              IT macchina fotografica
+    --- description(3)  :98288 ⚠️ TETTO SECCO 69
+        JP  \t\t被写体を撮影する道具。使用することはできない。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  It is a tool for photographing a subject. It cannot be used.
+
+=== ITEM_ID_TRAINING_MACHINE   [FILTER_FURNITURE]
+    NOME      jp トレーニングマシーン
+              en training machine
+              IT attrezzo da palestra
+    --- description(3)  :98359 ⚠️ TETTO SECCO 69
+        JP  \t\t主能力を鍛える道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that trains your primary attributes.
+
+=== ITEM_ID_COMPUTER   [FILTER_FURNITURE]
+    NOME      jp コンピューター
+              en computer
+              IT computer
+    --- description(3)  :98429 ⚠️ TETTO SECCO 69
+        JP  \t\t古代の頭脳だ。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  These are ancient minds.
+
+=== ITEM_ID_MACHINE   [FILTER_FURNITURE]
+    NOME      jp 電子機械
+              en machine
+              IT macchinario elettronico
+    --- description(3)  :98499 ⚠️ TETTO SECCO 69
+        JP  \t\t不定期な明滅と定期的な異音がする。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  It is an object that is irregular flickering and periodic strange noises.
+
+=== ITEM_ID_BLUE_TREASURE_MACHINE   [FILTER_FURNITURE]
+    NOME      jp 青のガシャポン
+              en blue treasure machine
+              IT macchina dei tesori blu
+    --- description(3)  :103363 ⚠️ TETTO SECCO 69
+        JP  \t\tガシャポンの玉を排出する機械。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) treasure machine that produces gacha balls.
+
+=== ITEM_ID_RED_TREASURE_MACHINE   [FILTER_FURNITURE]
+    NOME      jp 赤のガシャポン
+              en red treasure machine
+              IT macchina dei tesori rossa
+    --- description(3)  :103428 ⚠️ TETTO SECCO 69
+        JP  \t\tガシャポンの玉を排出する機械。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) treasure machine that produces gacha balls.
+
+=== ITEM_ID_RUNE   [FILTER_FURNITURE]
+    NOME      jp 懐かしいルーン
+              en rune
+              IT runa
+    --- description(3)  :108396 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでショウルームに行くことができる道具だ（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool that oepns a gateway to the showroom world.
+
+=== ITEM_ID_GOLDEN_STATUE   [FILTER_FURNITURE]
+    NOME      jp 金の像
+              en golden statue
+              IT statua d'oro
+    --- description(3)  :108832 ⚠️ TETTO SECCO 69
+        JP  \t\t非常にけばけばしい彫像だ。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a very flashy statue.
+
+=== ITEM_ID_GOLDEN_PEDESTAL   [FILTER_FURNITURE]
+    NOME      jp 金の飾台
+              en golden pedestal
+              IT piedistallo d'oro
+    --- description(3)  :108894 ⚠️ TETTO SECCO 69
+        JP  \t\tキャンドル用の台座。夜間周囲を明るく照らす。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is a pedestal decorated with gold. Illuminates surroundings brightly.
+
+=== ITEM_ID_THRONE   [FILTER_FURNITURE]
+    NOME      jp 王座
+              en throne
+              IT trono
+    --- description(3)  :108957 ⚠️ TETTO SECCO 69
+        JP  \t\t座る為の家具。何度でも使用することができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Reusable) royal chair.
+
+=== ITEM_ID_TABLE   [FILTER_FURNITURE]
+    NOME      jp テーブル
+              en table
+              IT tavolo
+    --- description(3)  :109086 ⚠️ TETTO SECCO 69
+        JP  \t\t作業を行う為の足のついた平板だ。何度でも使用できる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Reusable) common table that allows one to author books.
+
+=== ITEM_ID_DRESS   [FILTER_FURNITURE]
+    NOME      jp ドレス
+              en dress
+              IT abito
+    --- description(3)  :109148 ⚠️ TETTO SECCO 69
+        JP  \t\t目に鮮やかな衣服。装備することはできない。\n#～鑑定報告書：＜調度品＞カテゴリ～\n
+        EN  These are clothing bright to the eye. Cannot be equipped.
+
+=== ITEM_ID_STATUE_CROSS   [FILTER_FURNITURE]
+    NOME      jp 十字架 十字架
+              en cross statue
+              IT croce statua
+    --- description(3)  :109273 ⚠️ TETTO SECCO 69
+        JP  \t\t象徴的な建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a symbolic structure.
+
+=== ITEM_ID_UPRIGHT_PIANO   [FILTER_FURNITURE]
+    NOME      jp アップライトピアノ
+              en upright piano
+              IT pianoforte verticale
+    --- description(3)  :109338 ⚠️ TETTO SECCO 69
+        JP  \t\t演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜楽器＞カテゴリ～\n
+        EN  (Reusable) Rank 3 instrument for performing.
+
+=== ITEM_ID_WIDE_CHAIR   [FILTER_FURNITURE]
+    NOME      jp 長椅子
+              en wide chair
+              IT sedia larga
+    --- description(3)  :109401 ⚠️ TETTO SECCO 69
+        JP  \t\t横に長い椅子。何度でも使用することができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Reusable) wide chair.
+
+=== ITEM_ID_SIMPLE_RACK   [FILTER_FURNITURE]
+    NOME      jp シンプルな棚
+              en simple rack
+              IT rastrelliera semplice
+    --- description(3)  :109463 ⚠️ TETTO SECCO 69
+        JP  \t\tすっきりした棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a neat shelf.
+
+=== ITEM_ID_COMFORTABLE_BED   [FILTER_FURNITURE]
+    NOME      jp ふかふかのベッド
+              en comfortable bed
+              IT letto soffice
+    --- description(3)  :109529 ⚠️ TETTO SECCO 69
+        JP  \t\t眠る為の家具（ランク４）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 4 bed.
+
+=== ITEM_ID_SACRED_ALTAR   [FILTER_FURNITURE]
+    NOME      jp 神聖な祭壇
+              en sacred altar
+              IT altare sacro
+    --- description(3)  :109591 ⚠️ TETTO SECCO 69
+        JP  \t\t小型の祭壇。使用することはできない。\n#～鑑定報告書：＜壇＞カテゴリ～\n
+        EN  It is a small altar, cannot be used.
+
+=== ITEM_ID_BIG_CUPBOARD   [FILTER_FURNITURE]
+    NOME      jp 大きい食器棚
+              en big cupboard
+              IT credenza grande
+    --- description(3)  :109653 ⚠️ TETTO SECCO 69
+        JP  \t\t大きめな食器用の棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a large cupboard that holds a lot of dishes.
+
+=== ITEM_ID_SIMPLE_DRESSER   [FILTER_FURNITURE]
+    NOME      jp シンプルな鏡台
+              en simple dresser
+              IT toeletta semplice
+    --- description(3)  :109716 ⚠️ TETTO SECCO 69
+        JP  \t\tその身を映す鏡。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) dresser used to adjust your clothes.
+
+=== ITEM_ID_NEAT_RACK   [FILTER_FURNITURE]
+    NOME      jp 小奇麗な棚
+              en neat rack
+              IT rastrelliera ordinata
+    --- description(3)  :109778 ⚠️ TETTO SECCO 69
+        JP  \t\t小ざっぱりとした棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a rack with a framed set of glass doors.
+
+=== ITEM_ID_CHEAP_TABLE   [FILTER_FURNITURE]
+    NOME      jp でこぼこした机
+              en cheap table
+              IT tavolo dozzinale
+    --- description(3)  :109840 ⚠️ TETTO SECCO 69
+        JP  \t\tいびつな机だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is table made out of recycled wood.
+
+=== ITEM_ID_CHEAP_BED2   [FILTER_FURNITURE]
+    NOME      jp 簡易ベッド
+              en cheap bed
+              IT letto dozzinale
+    --- description(3)  :109906 ⚠️ TETTO SECCO 69
+        JP  \t\t眠る為の家具（ランク０）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 0 bed made out of recycled parts...
+
+=== ITEM_ID_OLD_BOOKSHELF   [FILTER_FURNITURE]
+    NOME      jp 古い本棚
+              en old bookshelf
+              IT libreria vecchia
+    --- description(3)  :109969 ⚠️ TETTO SECCO 69
+        JP  \t\t古めかしい本用の棚だ。本類を100種類まで入れることができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Openable) shelf for up to 100 different types of books.
+
+=== ITEM_ID_OLD_SHELF   [FILTER_FURNITURE]
+    NOME      jp 古い棚
+              en old shelf
+              IT scaffale vecchio
+    --- description(3)  :110031 ⚠️ TETTO SECCO 69
+        JP  \t\t埃のたまった棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a dusty shelf.
+
+=== ITEM_ID_BIG_FOLIAGE_PLANT   [FILTER_FURNITURE]
+    NOME      jp 特大の観葉植物
+              en big foliage plant
+              IT pianta ornamentale enorme
+    --- description(3)  :110093 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の鉢植えだ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an ornamental plant.
+
+=== ITEM_ID_DARTS_BOARD   [FILTER_FURNITURE]
+    NOME      jp ダーツ
+              en darts board
+              IT bersaglio per freccette
+    --- description(3)  :110158 ⚠️ TETTO SECCO 69
+        JP  \t\t投擲で遊ぶ台。何度でも使用することができる。\n#～鑑定報告書：＜遊技台＞カテゴリ～\n
+        EN  (Reusable) game machine that is used to play darts.
+
+=== ITEM_ID_SLOT_MACHINE   [FILTER_FURNITURE]
+    NOME      jp スロットマシーン
+              en slot machine
+              IT slot machine
+    --- description(3)  :110223 ⚠️ TETTO SECCO 69
+        JP  \t\t数合わせで遊ぶ台。何度でも使用することができる。\n#～鑑定報告書：＜遊技台＞カテゴリ～\n
+        EN  (Reusable) game machine that is used to play slots.
+
+=== ITEM_ID_CASINO_TABLE   [FILTER_FURNITURE]
+    NOME      jp カジノテーブル
+              en casino table
+              IT tavolo da casinò
+    --- description(3)  :110288 ⚠️ TETTO SECCO 69
+        JP  \t\t色々なもので遊ぶ台。何度でも使用することができる。\n#～鑑定報告書：＜遊技台＞カテゴリ～\n
+        EN  (Reusable) game machine that is used to play all sorts of games.
+
+=== ITEM_ID_PACHISURO_MACHINE   [FILTER_FURNITURE]
+    NOME      jp パチスロマシーン
+              en pachisuro machine
+              IT macchina pachislot
+    --- description(3)  :110353 ⚠️ TETTO SECCO 69
+        JP  \t\t小さい玉で遊ぶ台。何度でも使用することができる。\n#～鑑定報告書：＜遊技台＞カテゴリ～\n
+        EN  (Reusable) game machine that is used to play pachinko.
+
+=== ITEM_ID_BATHTUB   [FILTER_FURNITURE]
+    NOME      jp 風呂
+              en bathtub
+              IT vasca da bagno
+    --- description(3)  :110415 ⚠️ TETTO SECCO 69
+        JP  \t\t水が入った家具。使用することはできない。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a porcelan bathtub. Cannot be used.
+
+=== ITEM_ID_CLEAN_BED   [FILTER_FURNITURE]
+    NOME      jp 清潔なベッド
+              en clean bed
+              IT letto pulito
+    --- description(3)  :110481 ⚠️ TETTO SECCO 69
+        JP  \t\t眠る為の家具（ランク４）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 4 bed.
+
+=== ITEM_ID_DRESSER   [FILTER_FURNITURE]
+    NOME      jp 鏡台
+              en dresser
+              IT toeletta
+    --- description(3)  :110544 ⚠️ TETTO SECCO 69
+        JP  \t\tその身を映す鏡。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) common dresser.
+
+=== ITEM_ID_CHEAP_RACK   [FILTER_FURNITURE]
+    NOME      jp 簡易棚
+              en cheap rack
+              IT rastrelliera dozzinale
+    --- description(3)  :110606 ⚠️ TETTO SECCO 69
+        JP  \t\t簡素なつくりの棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is an ordinary inexpensive rack.
+
+=== ITEM_ID_SOFT_BED   [FILTER_FURNITURE]
+    NOME      jp 落ち着くベッド
+              en soft bed
+              IT letto accogliente
+    --- description(3)  :110672 ⚠️ TETTO SECCO 69
+        JP  \t\t眠る為の家具（ランク４）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 4 soft bed meant for a child.
+
+=== ITEM_ID_FOOD_PROCESSOR   [FILTER_FURNITURE]
+    NOME      jp フードプロセッサー
+              en food processor
+              IT robot da cucina
+    --- description(3)  :110736 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでランク８までの料理を作ることができる器具。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a cooking tool allowing the preparation of dishes up to Rank 8.
+
+=== ITEM_ID_COFFIN   [FILTER_FURNITURE]
+    NOME      jp 棺桶
+              en coffin
+              IT bara
+    --- description(3)  :110802 ⚠️ TETTO SECCO 69
+        JP  \t\t眠る為の家具（ランク４）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 4 bed.
+
+=== ITEM_ID_PLAIN_BED   [FILTER_FURNITURE]
+    NOME      jp 粗末なベッド
+              en plain bed
+              IT letto misero
+    --- description(3)  :110868 ⚠️ TETTO SECCO 69
+        JP  \t\t眠る為の家具（ランク１）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 1 bed.
+
+=== ITEM_ID_GIANT_BED   [FILTER_FURNITURE]
+    NOME      jp 巨大なベッド
+              en giant bed
+              IT letto gigante
+    --- description(3)  :110934 ⚠️ TETTO SECCO 69
+        JP  \t\t眠る為の家具（ランク３）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 3, large and elegant bed.
+
+=== ITEM_ID_CLOTHES_CHEST   [FILTER_FURNITURE]
+    NOME      jp 衣類箪笥 衣類箪笥
+              en clothes chest
+              IT vestiti baule
+    --- description(3)  :110996 ⚠️ TETTO SECCO 69
+        JP  \t\t衣類用の箪笥だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a clean set of clothing.
+
+=== ITEM_ID_NEAT_BAR_TABLE   [FILTER_FURNITURE]
+    NOME      jp 高収納バーテーブル
+              en neat bar table
+              IT tavolo da bar capiente
+    --- description(3)  :111128 ⚠️ TETTO SECCO 69
+        JP  \t\t沢山入る戸棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a bar table with rack's of alchohol and wine.
+
+=== ITEM_ID_HIGH_GRADE_DRESSER   [FILTER_FURNITURE]
+    NOME      jp 高級ミラー
+              en high grade dresser
+              IT toeletta pregiata
+    --- description(3)  :111191 ⚠️ TETTO SECCO 69
+        JP  \t\tその身を映す高価な鏡。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) beautifully crafted dresser.
+
+=== ITEM_ID_VASE   [FILTER_FURNITURE]
+    NOME      jp 高価な花瓶
+              en vase
+              IT vaso
+    --- description(3)  :111261 ⚠️ TETTO SECCO 69
+        JP  \t\t良い素材で作られた花瓶だ。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is a vase of high artistic quality on a night stand.
+
+=== ITEM_ID_LUXURY_BED   [FILTER_FURNITURE]
+    NOME      jp 高級ベッド
+              en luxury bed
+              IT letto di lusso
+    --- description(3)  :111327 ⚠️ TETTO SECCO 69
+        JP  \t\t眠る為の家具（ランク６）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 6 bed.
+
+=== ITEM_ID_CABINET   [FILTER_FURNITURE]
+    NOME      jp お酒のキャビネット
+              en cabinet
+              IT mobiletto
+    --- description(3)  :111389 ⚠️ TETTO SECCO 69
+        JP  \t\t酒用の戸棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a cupboard for liquor.
+
+=== ITEM_ID_RAGGED_TABLE   [FILTER_FURNITURE]
+    NOME      jp ぼろい机
+              en ragged table
+              IT tavolo malandato
+    --- description(3)  :111452 ⚠️ TETTO SECCO 69
+        JP  \t\t傾いた机だ。何度でも使用できる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Reusable) rustic table.
+
+=== ITEM_ID_TOWEL   [FILTER_FURNITURE]
+    NOME      jp タオル
+              en towel
+              IT asciugamano
+    --- description(3)  :111514 ⚠️ TETTO SECCO 69
+        JP  \t\t綿で作られた織物だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is towel made of cotton.
+
+=== ITEM_ID_RACK_ACCESSORIES   [FILTER_FURNITURE]
+    NOME      jp 装飾品の棚 装飾品の棚
+              en accessories rack
+              IT accessori rastrelliera
+    --- description(3)  :111576 ⚠️ TETTO SECCO 69
+        JP  \t\t装飾品が載せられた棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a shelf on which ornaments are placed.
+
+=== ITEM_ID_RACK_GOODS   [FILTER_FURNITURE]
+    NOME      jp 日用品の棚 日用品の棚
+              en goods rack
+              IT casalinghi rastrelliera
+    --- description(3)  :111638 ⚠️ TETTO SECCO 69
+        JP  \t\t日用品が載せられた棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a shelf on which commodity are placed.
+
+=== ITEM_ID_WELL_KEPT_ARMOR   [FILTER_FURNITURE]
+    NOME      jp 整備された武具
+              en well kept armor
+              IT armatura ben tenuta
+    --- description(3)  :111700 ⚠️ TETTO SECCO 69
+        JP  \t\t整った武具。装備することはできない。\n#～鑑定報告書：＜調度品＞カテゴリ～\n
+        EN  It is oiled and polished decorative armor.
+
+=== ITEM_ID_MYSTERIOUS_MAP   [FILTER_FURNITURE]
+    NOME      jp 意味深な地図
+              en mysterious map
+              IT mappa misteriosa
+    --- description(3)  :112323 ⚠️ TETTO SECCO 69
+        JP  \t\t雰囲気ある地図。使用することはできない。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is an atmospheric map. Not available for use.
+
+=== ITEM_ID_INNER_TUBE   [FILTER_FURNITURE]
+    NOME      jp 浮き輪
+              en inner tube
+              IT salvagente
+    --- description(3)  :112385 ⚠️ TETTO SECCO 69
+        JP  \t\t救命用の道具だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a life-saving item.
+
+=== ITEM_ID_COMFORTABLE_TABLE   [FILTER_FURNITURE]
+    NOME      jp 落ち着くテーブル
+              en comfortable table
+              IT tavolo comodo
+    --- description(3)  :112448 ⚠️ TETTO SECCO 69
+        JP  \t\tシックな机だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a chic desk.
+
+=== ITEM_ID_WATER_TUB   [FILTER_FURNITURE]
+    NOME      jp 水桶
+              en water tub
+              IT tinozza
+    --- description(3)  :112510 ⚠️ TETTO SECCO 69
+        JP  \t\t水の入った凄く重い桶だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a very heavy tub of water.
+
+=== ITEM_ID_STREET_LAMP   [FILTER_FURNITURE]
+    NOME      jp 街灯
+              en street lamp
+              IT lampione
+    --- description(3)  :112572 ⚠️ TETTO SECCO 69
+        JP  \t\t備え付けられた灯。夜間、周囲を明るく照らす。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is equipped with a light. Illuminates the surroundings brightly.
+
+=== ITEM_ID_BROKEN_PILLAR   [FILTER_FURNITURE]
+    NOME      jp 折れた柱
+              en broken pillar
+              IT colonna spezzata
+    --- description(3)  :112634 ⚠️ TETTO SECCO 69
+        JP  \t\t折れてしまった柱。それはとても重い。\n#～鑑定報告書：＜調度品＞カテゴリ～\n
+        EN  It is a broken pillar. It is very heavy.
+
+=== ITEM_ID_LONG_PILLAR   [FILTER_FURNITURE]
+    NOME      jp 長い柱
+              en long pillar
+              IT colonna lunga
+    --- description(3)  :112696 ⚠️ TETTO SECCO 69
+        JP  \t\t長くて太い柱。それはとても重い。\n#～鑑定報告書：＜調度品＞カテゴリ～\n
+        EN  It is a long and thick pillar. It is very heavy.
+
+=== ITEM_ID_HORN   [FILTER_FURNITURE]
+    NOME      jp ホーン
+              en horn
+              IT corno
+    --- description(3)  :114209 ⚠️ TETTO SECCO 69
+        JP  \t\t演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜楽器＞カテゴリ～\n
+        EN  (Reusable) Rank 2 instrument for performing.
+
+=== ITEM_ID_FIGURINE_SWORD   [FILTER_FURNITURE]
+    NOME      jp フィギア『伝説の剣』 フィギア『伝説の剣』
+              en sword figurine
+              IT spada leggendaria statuetta
+    --- description(3)  :115323 ⚠️ TETTO SECCO 69
+        JP  \t\t剣の模造品だ。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is a model of a sword.
+
+=== ITEM_ID_FIGURINE_WARRIOR   [FILTER_FURNITURE]
+    NOME      jp フィギア『狂戦士』 フィギア『狂戦士』
+              en warrior figurine
+              IT guerriero furioso statuetta
+    --- description(3)  :115385 ⚠️ TETTO SECCO 69
+        JP  \t\t狂戦士の模造品だ。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is a model of a berserker.
+
+=== ITEM_ID_DISH   [FILTER_FURNITURE]
+    NOME      jp 食器の山
+              en dish
+              IT pila di stoviglie
+    --- description(3)  :118646 ⚠️ TETTO SECCO 69
+        JP  \t\t重ねられた皿だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a stack of decorative dishes.
+
+=== ITEM_ID_BUNK_BED   [FILTER_FURNITURE]
+    NOME      jp 二段ベッド
+              en bunk bed
+              IT letto a castello
+    --- description(3)  :119690 ⚠️ TETTO SECCO 69
+        JP  \t\t眠る為の家具（ランク２）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 2 makeshift bunk bed.
+
+=== ITEM_ID_OLD_GRAVE   [FILTER_FURNITURE]
+    NOME      jp 古めかしい墓
+              en old grave
+              IT tomba vecchia
+    --- description(3)  :119946 ⚠️ TETTO SECCO 69
+        JP  \t\tとても重い建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a very heavy ancient Norland style tomb.
+
+=== ITEM_ID_ANCIENT_TOMB   [FILTER_FURNITURE]
+    NOME      jp 古墳
+              en ancient tomb
+              IT tumulo antico
+    --- description(3)  :120008 ⚠️ TETTO SECCO 69
+        JP  \t\tとても重い建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a very heavy ancient Eulderna style tomb.
+
+=== ITEM_ID_SOLEMN_TOMB   [FILTER_FURNITURE]
+    NOME      jp 荘厳な墓
+              en solemn tomb
+              IT tomba solenne
+    --- description(3)  :120070 ⚠️ TETTO SECCO 69
+        JP  \t\tとても重い建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a very heavy tomb of a heroic figure.
+
+=== ITEM_ID_BRAND_NEW_GRAVE   [FILTER_FURNITURE]
+    NOME      jp 新品の墓
+              en brand new grave
+              IT tomba nuova di zecca
+    --- description(3)  :120132 ⚠️ TETTO SECCO 69
+        JP  \t\tとても重い建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a recent grave... The name is still readable.
+
+=== ITEM_ID_GRAVE_ORNAMENTED_WITH_FLOWERS   [FILTER_FURNITURE]
+    NOME      jp 花で飾られた墓 花で飾られた墓
+              en ornamented with flowers grave
+              IT fiori tomba ornata
+    --- description(3)  :120194 ⚠️ TETTO SECCO 69
+        JP  \t\tとても重い建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a grave with flowers for the departed.. The name is still readable.
+
+=== ITEM_ID_CRUMBLED_GRAVE   [FILTER_FURNITURE]
+    NOME      jp 崩れた墓
+              en crumbled grave
+              IT tomba crollata
+    --- description(3)  :120256 ⚠️ TETTO SECCO 69
+        JP  \t\tとても重い建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a common style grave that has been destroyed.
+
+=== ITEM_ID_COLLAPSED_GRAVE   [FILTER_FURNITURE]
+    NOME      jp 風化した墓
+              en collapsed grave
+              IT tomba erosa
+    --- description(3)  :120318 ⚠️ TETTO SECCO 69
+        JP  \t\tとても重い建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a common style grave that has started to crumble.
+
+=== ITEM_ID_SILK_CLOTH   [FILTER_FURNITURE]
+    NOME      jp 絹の生地
+              en silk cloth
+              IT stoffa di seta
+    --- description(3)  :120380 ⚠️ TETTO SECCO 69
+        JP  \t\t糸を織り上げたもの。使用することはできない。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is woven threads. Cannot be used.
+
+=== ITEM_ID_MESSY_CLOTH   [FILTER_FURNITURE]
+    NOME      jp 散らばった衣類
+              en messy cloth
+              IT vestiti sparsi
+    --- description(3)  :120442 ⚠️ TETTO SECCO 69
+        JP  \t\t散乱した服。使用することはできない。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are scattered clothes. Cannot be used.
+
+=== ITEM_ID_SIMPLE_SHELF   [FILTER_FURNITURE]
+    NOME      jp 単なる棚
+              en simple shelf
+              IT scaffale semplice
+    --- description(3)  :120636 ⚠️ TETTO SECCO 69
+        JP  \t\tシンプルな棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a simple shelf for your dining room.
+
+=== ITEM_ID_GORGEOUS_CANDLESTICK   [FILTER_FURNITURE]
+    NOME      jp 絢爛な燭台
+              en gorgeous candlestick
+              IT candelabro sfarzoso
+    --- description(3)  :120698 ⚠️ TETTO SECCO 69
+        JP  \t\t美しい加工の燭台。夜間、周囲を明るく照らす。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a beautiful candelabra. Illuminates surroundings brightly.
+
+=== ITEM_ID_ELEGANT_TABLE   [FILTER_FURNITURE]
+    NOME      jp 上品なテーブル
+              en elegant table
+              IT tavolo elegante
+    --- description(3)  :120760 ⚠️ TETTO SECCO 69
+        JP  \t\t貴族用の机だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a table for nobles.
+
+=== ITEM_ID_NARROW_DINING_TABLE   [FILTER_FURNITURE]
+    NOME      jp 狭い食卓
+              en narrow dining table
+              IT tavolo da pranzo stretto
+    --- description(3)  :120822 ⚠️ TETTO SECCO 69
+        JP  \t\t食事を取る為に作られた狭い机だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a narrow desk made for dining.
+
+=== ITEM_ID_KITCHEN_OVEN   [FILTER_FURNITURE]
+    NOME      jp コンロ付き調理台
+              en kitchen oven
+              IT cucina con fornelli
+    --- description(3)  :120886 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでランク６までの料理を作ることができる器具。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a cooking tool allowing the preparation of dishes up to Rank 6.
+
+=== ITEM_ID_SINK   [FILTER_FURNITURE]
+    NOME      jp 流し台
+              en sink
+              IT lavello
+    --- description(3)  :120950 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでランク６までの料理を作ることができる器具。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a cooking tool allowing the preparation of dishes up to Rank 6.
+
+=== ITEM_ID_KITCHEN   [FILTER_FURNITURE]
+    NOME      jp 調理台
+              en kitchen
+              IT bancone da cucina
+    --- description(3)  :121014 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでランク６までの料理を作ることができる器具。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a cooking tool allowing the preparation of dishes up to Rank 6.
+
+=== ITEM_ID_LOT_ALCOHOLS   [FILTER_FURNITURE]
+    NOME      jp 飲みきれないほどの酒 飲みきれないほどの酒
+              en alcohols lot
+              IT alcolici mucchio
+    --- description(3)  :121076 ⚠️ TETTO SECCO 69
+        JP  \t\t手に余るほどの傷んだ酒。使用することはできない。\n#～鑑定報告書：＜廃物＞カテゴリ～\n
+        EN  It is some unhandled, damaged liquor. Cannot be used.
+
+=== ITEM_ID_CRAFT_BOOK_SHELF   [FILTER_FURNITURE]
+    NOME      jp 名工本棚
+              en craft book shelf
+              IT libreria di pregio
+    --- description(3)  :121139 ⚠️ TETTO SECCO 69
+        JP  \t\t匠の作った本用の棚だ。本類を100種類まで入れることができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Openable) craftsman bookshelf for up to 100 different types of books.
+
+=== ITEM_ID_CRAFT_RACK   [FILTER_FURNITURE]
+    NOME      jp 名工箪笥
+              en craft rack
+              IT cassettiera di pregio
+    --- description(3)  :121201 ⚠️ TETTO SECCO 69
+        JP  \t\t匠の作った箪笥だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a nicely crafted piece of cabinet.
+
+=== ITEM_ID_LOT_BOOKS   [FILTER_FURNITURE]
+    NOME      jp 本の山 本の山
+              en books lot
+              IT libri mucchio
+    --- description(3)  :121263 ⚠️ TETTO SECCO 69
+        JP  \t\t重ねられた本。使用することはできない。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  These are stacked books. Cannot be used.
+
+=== ITEM_ID_DISORDERLY_BOOKS   [FILTER_FURNITURE]
+    NOME      jp 散らかった本
+              en disorderly books
+              IT libri sparsi
+    --- description(3)  :121325 ⚠️ TETTO SECCO 69
+        JP  \t\t散乱した本。使用することはできない。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  These are scattered books. Cannot be used.
+
+=== ITEM_ID_ARMOR_STATUE   [FILTER_FURNITURE]
+    NOME      jp 鎧の像
+              en armor statue
+              IT statua in armatura
+    --- description(3)  :121387 ⚠️ TETTO SECCO 69
+        JP  \t\t全身鎧の彫像。装備することはできない。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue in full body armor. It cannot be equipped.
+
+=== ITEM_ID_DECORATED_ARMOR   [FILTER_FURNITURE]
+    NOME      jp 飾られた鎧
+              en decorated armor
+              IT armatura decorata
+    --- description(3)  :121449 ⚠️ TETTO SECCO 69
+        JP  \t\t展示用の鎧。装備することはできない。\n#～鑑定報告書：＜調度品＞カテゴリ～\n
+        EN  It is a statue in full body armor for display. Cannot be equipped.
+
+=== ITEM_ID_DECORATED_CLOTHING   [FILTER_FURNITURE]
+    NOME      jp 飾られた服
+              en decorated clothing
+              IT abito decorato
+    --- description(3)  :121511 ⚠️ TETTO SECCO 69
+        JP  \t\t展示用の服。装備することはできない。\n#～鑑定報告書：＜調度品＞カテゴリ～\n
+        EN  It is a decorative cloth for display. Cannot be equipped.
+
+=== ITEM_ID_WEAPONS   [FILTER_FURNITURE]
+    NOME      jp 武器の束 武器の束
+              en weapons bundle
+              IT armi fascio
+    --- description(3)  :121573 ⚠️ TETTO SECCO 69
+        JP  \t\t束ねられた武器。装備することはできない。\n#～鑑定報告書：＜調度品＞カテゴリ～\n
+        EN  It is bundled weapons for display. Cannot be equipped.
+
+=== ITEM_ID_BOWS   [FILTER_FURNITURE]
+    NOME      jp たくさんの弓 たくさんの弓
+              en bows bundle
+              IT archi fascio
+    --- description(3)  :121635 ⚠️ TETTO SECCO 69
+        JP  \t\t重ねられた弓。装備することはできない。\n#～鑑定報告書：＜調度品＞カテゴリ～\n
+        EN  It is bundled bows for display. Cannot be equipped.
+
+=== ITEM_ID_FOOD_MAKER   [FILTER_FURNITURE]
+    NOME      jp 調理機
+              en food maker
+              IT macchina da cucina
+    --- description(3)  :121699 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでランク８までの料理を作ることができる器具。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a cooking tool allowing the preparation of dishes up to Rank 8.
+
+=== ITEM_ID_MAP   [FILTER_FURNITURE]
+    NOME      jp 地図
+              en map
+              IT mappa
+    --- description(3)  :121770 ⚠️ TETTO SECCO 69
+        JP  \t\t大陸の描かれた地図。読むことができる。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  (Readable) drawn map of the continent. 
+
+=== ITEM_ID_FLOWER_ADORNED_PILLAR   [FILTER_FURNITURE]
+    NOME      jp 花で飾られた柱
+              en flower adorned pillar
+              IT colonna ornata di fiori
+    --- description(3)  :121894 ⚠️ TETTO SECCO 69
+        JP  \t\t花の乗った柱だ。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is a pillar decorated with flowers. It is very heavy.
+
+=== ITEM_ID_PLANT_ADORNED_PILLAR   [FILTER_FURNITURE]
+    NOME      jp 植物で飾られた柱
+              en plant adorned pillar
+              IT colonna ornata di piante
+    --- description(3)  :121956 ⚠️ TETTO SECCO 69
+        JP  \t\t植物の乗った柱だ。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is a pillar decorated with plants. It is very heavy.
+
+=== ITEM_ID_CARNATION   [FILTER_FURNITURE]
+    NOME      jp カーネーションの花
+              en carnation
+              IT garofano
+    --- description(3)  :122026 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の鉢植えだ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an ornamental plant.
+
+=== ITEM_ID_FOXTAIL_GRASS   [FILTER_FURNITURE]
+    NOME      jp 猫じゃらし
+              en foxtail grass
+              IT coda di volpe
+    --- description(3)  :122088 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の鉢植えだ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an ornamental plant.
+
+=== ITEM_ID_ANEMONE   [FILTER_FURNITURE]
+    NOME      jp アネモネの花
+              en anemone
+              IT anemone
+    --- description(3)  :122158 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の鉢植えだ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an ornamental potted plant.
+
+=== ITEM_ID_NERINE   [FILTER_FURNITURE]
+    NOME      jp ネリネの花
+              en nerine
+              IT nerina
+    --- description(3)  :122228 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の鉢植えだ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an ornamental potted plant.
+
+=== ITEM_ID_GAZANIA   [FILTER_FURNITURE]
+    NOME      jp ガザニアの花
+              en gazania
+              IT gazania
+    --- description(3)  :122298 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の鉢植えだ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an ornamental potted plant.
+
+=== ITEM_ID_SAGE   [FILTER_FURNITURE]
+    NOME      jp サルビアの花
+              en sage
+              IT salvia
+    --- description(3)  :122368 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の鉢植えだ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an ornamental potted plant.
+
+=== ITEM_ID_LARGE_DECORATIVE_PLANT   [FILTER_FURNITURE]
+    NOME      jp 大きい観葉植物
+              en large decorative plant
+              IT pianta ornamentale grande
+    --- description(3)  :122430 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の鉢植えだ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an ornamental potted plant.
+
+=== ITEM_ID_BANKS_ROSE   [FILTER_FURNITURE]
+    NOME      jp 木香薔薇
+              en banks' rose
+              IT rosa banksiae
+    --- description(3)  :122492 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の鉢植えだ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an ornamental potted plant.
+
+=== ITEM_ID_SMALL_DECORATIVE_PLANT   [FILTER_FURNITURE]
+    NOME      jp 小さい観葉植物
+              en small decorative plant
+              IT pianta ornamentale piccola
+    --- description(3)  :122554 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の鉢植えだ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an ornamental potted plant.
+
+=== ITEM_ID_MAGIC_CIRCLE   [FILTER_FURNITURE]
+    NOME      jp 魔法陣
+              en magic circle
+              IT cerchio magico
+    --- description(3)  :122616 ⚠️ TETTO SECCO 69
+        JP  \t\t地面に描かれた円陣だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a magical circles drawn on the ground.
+
+=== ITEM_ID_BEAKER   [FILTER_FURNITURE]
+    NOME      jp ビーカー
+              en beaker
+              IT ampolla
+    --- description(3)  :122744 ⚠️ TETTO SECCO 69
+        JP  \t\t液体を入れる為の特殊な瓶。使用することはできない。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a special bottle for liquids. Cannot be used.
+
+=== ITEM_ID_BREAD_DISPLAY   [FILTER_FURNITURE]
+    NOME      jp パンの陳列棚
+              en bread display
+              IT espositore del pane
+    --- description(3)  :122887 ⚠️ TETTO SECCO 69
+        JP  \t\tパンを並べる棚。パンを20種類まで置くことができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Openable) shelf for displaying up to 20 different types of bread.
+
+=== ITEM_ID_NOTICE_BOARD   [FILTER_FURNITURE]
+    NOME      jp 掲示板
+              en notice board
+              IT bacheca
+    --- description(3)  :123557 ⚠️ TETTO SECCO 69
+        JP  \t\t情報の書かれた板。読むことはできない。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a board with information written on it. Cannot be used or read.
+
+=== ITEM_ID_SIGNPOST   [FILTER_FURNITURE]
+    NOME      jp 道標
+              en signpost
+              IT segnavia
+    --- description(3)  :123619 ⚠️ TETTO SECCO 69
+        JP  \t\t未知の方向を示す板だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a board that points in an unknown direction.
+
+=== ITEM_ID_SIGN   [FILTER_FURNITURE]
+    NOME      jp 標識
+              en sign
+              IT insegna
+    --- description(3)  :123681 ⚠️ TETTO SECCO 69
+        JP  \t\t目印用の板だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a board for a landmark.
+
+=== ITEM_ID_OVEN   [FILTER_FURNITURE]
+    NOME      jp オーブン
+              en oven
+              IT forno
+    --- description(3)  :123745 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでランク７までの料理を作ることができる器具。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a cooking tool allowing the preparation of dishes up to Rank 7.
+
+=== ITEM_ID_SMELTER   [FILTER_FURNITURE]
+    NOME      jp 溶解炉
+              en smelter
+              IT forno fusorio
+    --- description(3)  :123807 ⚠️ TETTO SECCO 69
+        JP  \t\t赤熱した金属の入った炉。常に周囲を明るく照らす。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a furnace with hot metal. Illuminates the surroundings brightly.
+
+=== ITEM_ID_VARIETY_CLOTHES   [FILTER_FURNITURE]
+    NOME      jp いろんな洋服 いろんな洋服
+              en clothes variety
+              IT vestiti assortimento
+    --- description(3)  :123869 ⚠️ TETTO SECCO 69
+        JP  \t\t衣服の乗った小棚。使用することはできない。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a small shelf with clothes on it. Cannot be used.
+
+=== ITEM_ID_VARIETY_GOODS   [FILTER_FURNITURE]
+    NOME      jp いろんな雑貨 いろんな雑貨
+              en goods variety
+              IT cianfrusaglie assortimento
+    --- description(3)  :124001 ⚠️ TETTO SECCO 69
+        JP  \t\t雑貨の乗った小棚。使用することはできない。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a small shelf with commodities on it. Cannot be used.
+
+=== ITEM_ID_VARIETY_TOOLS   [FILTER_FURNITURE]
+    NOME      jp いろんな道具 いろんな道具
+              en tools variety
+              IT attrezzi assortimento
+    --- description(3)  :124063 ⚠️ TETTO SECCO 69
+        JP  \t\t道具の乗った小棚。使用することはできない。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a small shelf with items on it. Cannot be used.
+
+=== ITEM_ID_STORAGE_RACK   [FILTER_FURNITURE]
+    NOME      jp 収納棚
+              en storage rack
+              IT scaffale portaoggetti
+    --- description(3)  :124125 ⚠️ TETTO SECCO 69
+        JP  \t\t収納用の棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a closet for storing items.
+
+=== ITEM_ID_TIDY_BOOKSHELF   [FILTER_FURNITURE]
+    NOME      jp 本たてつきの棚
+              en tidy bookshelf
+              IT libreria ordinata
+    --- description(3)  :124187 ⚠️ TETTO SECCO 69
+        JP  \t\t本立てのついた棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a shelf with a book stand.
+
+=== ITEM_ID_SHED   [FILTER_FURNITURE]
+    NOME      jp 物置
+              en shed
+              IT ripostiglio
+    --- description(3)  :124249 ⚠️ TETTO SECCO 69
+        JP  \t\t物を詰めておくための家具。使用することはできない。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a furniture for packing things. Cannot be used. 
+
+=== ITEM_ID_CUPBOARD   [FILTER_FURNITURE]
+    NOME      jp 食器棚
+              en cupboard
+              IT credenza
+    --- description(3)  :124311 ⚠️ TETTO SECCO 69
+        JP  \t\t食器を収める為の棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a cupboard to store dishes.
+
+=== ITEM_ID_CHEAP_CHAIR   [FILTER_FURNITURE]
+    NOME      jp 安物の椅子
+              en cheap chair
+              IT sedia dozzinale
+    --- description(3)  :124374 ⚠️ TETTO SECCO 69
+        JP  \t\t座る為の家具。何度でも使用することができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Reusable) stool.
+
+=== ITEM_ID_SQUARE_CHAIR   [FILTER_FURNITURE]
+    NOME      jp 四角い椅子
+              en square chair
+              IT sedia quadrata
+    --- description(3)  :124437 ⚠️ TETTO SECCO 69
+        JP  \t\t座る為の家具。何度でも使用することができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Reusable) everyday chair.
+
+=== ITEM_ID_POTION_RACK   [FILTER_FURNITURE]
+    NOME      jp ポーションの棚
+              en potion rack
+              IT scaffale delle pozioni
+    --- description(3)  :124500 ⚠️ TETTO SECCO 69
+        JP  \t\tポーションを収める為の棚。ポーション類を60種類まで置ける。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Openable) rack for up to 60 different types of potions.
+
+=== ITEM_ID_WRITING_DESK   [FILTER_FURNITURE]
+    NOME      jp 勉強机
+              en writing desk
+              IT scrittoio
+    --- description(3)  :124563 ⚠️ TETTO SECCO 69
+        JP  \t\t勉強をする為に作られた机だ。何度でも使用できる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Reusable) desk for study.
+
+=== ITEM_ID_OPEN_VASE   [FILTER_FURNITURE]
+    NOME      jp 開いているつぼ
+              en open vase
+              IT vaso aperto
+    --- description(3)  :124625 ⚠️ TETTO SECCO 69
+        JP  \t\t口の開いたつぼ。使用することはできない。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is an open-mouthed crucible. Cannot be used.
+
+=== ITEM_ID_SEALED_VASE   [FILTER_FURNITURE]
+    NOME      jp 密封されたつぼ
+              en sealed vase
+              IT vaso sigillato
+    --- description(3)  :124687 ⚠️ TETTO SECCO 69
+        JP  \t\t口の閉じたつぼ。使用することはできない。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is an sealed-shut crucible. Cannot be used.
+
+=== ITEM_ID_ANVIL   [FILTER_FURNITURE]
+    NOME      jp 金床
+              en anvil
+              IT incudine
+    --- description(3)  :124749 ⚠️ TETTO SECCO 69
+        JP  \t\t精錬用の台。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is an anvil used for blacksmithing.
+
+=== ITEM_ID_ORNAMENTAL_ARMOR   [FILTER_FURNITURE]
+    NOME      jp 飾り物の鎧
+              en ornamental armor
+              IT armatura ornamentale
+    --- description(3)  :124811 ⚠️ TETTO SECCO 69
+        JP  \t\t立派な鎧。装備することはできない。\n#～鑑定報告書：＜調度品＞カテゴリ～\n
+        EN  It is a set of splendid armor for display. Cannot be equipped.
+
+=== ITEM_ID_LANTERN   [FILTER_FURNITURE]
+    NOME      jp ランタン
+              en lantern
+              IT lanterna
+    --- description(3)  :124873 ⚠️ TETTO SECCO 69
+        JP  \t\t携帯しやすい簡易照明。夜間周囲をやや明るく照らす。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a portable lightsource. Illuminates surroundings slightly at night.
+
+=== ITEM_ID_PICKAXE   [FILTER_FURNITURE]
+    NOME      jp つるはし
+              en pickaxe
+              IT piccone
+    --- description(3)  :124935 ⚠️ TETTO SECCO 69
+        JP  \t\t掘削用の道具。使用することはできない。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a pick originally used for mining, cannot be used.
+
+=== ITEM_ID_STYLISH_CHAIR   [FILTER_FURNITURE]
+    NOME      jp お洒落な椅子
+              en stylish chair
+              IT sedia alla moda
+    --- description(3)  :124998 ⚠️ TETTO SECCO 69
+        JP  \t\t美しい加工の椅子。何度でも使用することができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Reusable) beautifully crafted chair.
+
+=== ITEM_ID_BARREL   [FILTER_FURNITURE]
+    NOME      jp タル
+              en barrel
+              IT botte
+    --- description(3)  :125060 ⚠️ TETTO SECCO 69
+        JP  \t\t液体を保持しておく容器。使用することはできない。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a container that holds liquid. Cannot be used.
+
+=== ITEM_ID_BAR_TABLE_BETA   [FILTER_FURNITURE]
+    NOME      jp バーテーブルβ
+              en bar table beta
+              IT tavolo da bar beta
+    --- description(3)  :125122 ⚠️ TETTO SECCO 69
+        JP  \t\t酒場向けの机だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a table for a bar.
+
+=== ITEM_ID_BAR_TABLE_ALPHA   [FILTER_FURNITURE]
+    NOME      jp バーテーブルα
+              en bar table alpha
+              IT tavolo da bar alfa
+    --- description(3)  :125184 ⚠️ TETTO SECCO 69
+        JP  \t\t酒場向けの机だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a table for a bar.
+
+=== ITEM_ID_GRAND_PIANO   [FILTER_FURNITURE]
+    NOME      jp グランドピアノ
+              en grand piano
+              IT pianoforte a coda
+    --- description(3)  :125249 ⚠️ TETTO SECCO 69
+        JP  \t\t巨大でとても重い楽器。何度でも使用することができる。\n#～鑑定報告書：＜楽器＞カテゴリ～\n
+        EN  (Reusable) Rank 5, very heavy instrument for performing.
+
+=== ITEM_ID_VARIOUS_ACCESSORIES   [FILTER_FURNITURE]
+    NOME      jp 色とりどりの装飾品
+              en various accessories
+              IT accessori variopinti
+    --- description(3)  :125311 ⚠️ TETTO SECCO 69
+        JP  \t\t装飾品が陳列された小棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a display case for various gift items.
+
+=== ITEM_ID_GOODS   [FILTER_FURNITURE]
+    NOME      jp たくさんの雑貨
+              en goods
+              IT cianfrusaglie
+    --- description(3)  :125373 ⚠️ TETTO SECCO 69
+        JP  \t\t雑貨が陳列された小棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a display case for various commodities.
+
+=== ITEM_ID_ARMOR   [FILTER_FURNITURE]
+    NOME      jp 様々な鎧
+              en armor
+              IT armature
+    --- description(3)  :125435 ⚠️ TETTO SECCO 69
+        JP  \t\t鎧が陳列された小棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a shelf of armor on display. Cannot be equipped.
+
+=== ITEM_ID_DINING_TABLE   [FILTER_FURNITURE]
+    NOME      jp ダイニングテーブル
+              en dining table
+              IT tavolo da pranzo
+    --- description(3)  :125497 ⚠️ TETTO SECCO 69
+        JP  \t\t食事を取る為に作られた机だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a table made for eating.
+
+=== ITEM_ID_MODERN_TABLE   [FILTER_FURNITURE]
+    NOME      jp モダンテーブル
+              en modern table
+              IT tavolo moderno
+    --- description(3)  :125560 ⚠️ TETTO SECCO 69
+        JP  \t\t今風のテーブルだ。何度でも使用できる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a table made with modern Yerles technology.
+
+=== ITEM_ID_TOY   [FILTER_FURNITURE]
+    NOME      jp 玩具
+              en toy
+              IT giocattolo
+    --- description(3)  :125622 ⚠️ TETTO SECCO 69
+        JP  \t\t子供用の遊具だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a child's toy.
+
+=== ITEM_ID_PLUSH_DOLL   [FILTER_FURNITURE]
+    NOME      jp ぬいぐるみ
+              en plush doll
+              IT peluche
+    --- description(3)  :125685 ⚠️ TETTO SECCO 69
+        JP  \t\tふわふわの人形。何度でも使用することができる。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  (Reusable) fluffy doll.
+
+=== ITEM_ID_CHEAP_BED   [FILTER_FURNITURE]
+    NOME      jp 安物ベッド
+              en cheap bed
+              IT letto dozzinale
+    --- description(3)  :125751 ⚠️ TETTO SECCO 69
+        JP  \t\t眠る為の家具（ランク１）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 1 refurbished bed.
+
+=== ITEM_ID_LUXURY_DRAWER   [FILTER_FURNITURE]
+    NOME      jp 高級箪笥
+              en luxury drawer
+              IT cassettiera di lusso
+    --- description(3)  :125813 ⚠️ TETTO SECCO 69
+        JP  \t\t良い素材で作られた箪笥だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a cabinet made of fine materials.
+
+=== ITEM_ID_BOOKSHELF   [FILTER_FURNITURE]
+    NOME      jp 普通の本棚
+              en bookshelf
+              IT libreria
+    --- description(3)  :125876 ⚠️ TETTO SECCO 69
+        JP  \t\t極普通の本を収める為の棚だ。本類を100種類まで入れることができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Openable) simple shelf for up to 100 different types of books.
+
+=== ITEM_ID_ROUND_CHAIR   [FILTER_FURNITURE]
+    NOME      jp 丸椅子
+              en round chair
+              IT sgabello tondo
+    --- description(3)  :125939 ⚠️ TETTO SECCO 69
+        JP  \t\t座る為の家具。何度でも使用することができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Reusable) small chair.
+
+=== ITEM_ID_TOMBSTONE   [FILTER_FURNITURE]
+    NOME      jp 石碑
+              en tombstone
+              IT lapide
+    --- description(3)  :127610 ⚠️ TETTO SECCO 69
+        JP  \t\t文字の書かれた石の板だ。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  It is a stone slab with letters written on it.
+
+== 251 oggetti, 251 descrizioni
