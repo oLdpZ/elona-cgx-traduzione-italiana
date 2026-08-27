@@ -1,0 +1,47 @@
+# la zona non e' un intervallo: si dichiara per insieme di righe
+RIGHE = {
+    62804, 75650, 75717, 101117, 101183, 101250, 101317, 107530, 130585, 130652,
+}
+# 10 righe, da 62804 a 130652
+
+    # ---------------------------------------------------------- :62804
+    (62804, 'It is an armguard that allow combo-attacks like a meteor shower.'):
+        "",
+
+    # ---------------------------------------------------------- :75650
+    (75650, 'It is a godly gift that when worn, transforms and becomes gauntlets.'):
+        "",
+
+    # ---------------------------------------------------------- :75717
+    (75717, "These are gloves that is called a 'zekki'."):
+        "",
+
+    # ---------------------------------------------------------- :101117
+    (101117, 'It is a pair of gauntlets reinforced with composite mesh.'):
+        "",
+
+    # ---------------------------------------------------------- :101183
+    (101183, 'It is a pair of gloves with a soft inner lining.'):
+        "",
+
+    # ---------------------------------------------------------- :101250
+    (101250, 'It is a pair of very heavy plated gauntlets.'):
+        "",
+
+    # ---------------------------------------------------------- :101317
+    (101317, 'These are pieces of armor that fits on your palm.'):
+        "",
+
+    # ---------------------------------------------------------- :107530
+    (107530, 'These are gloves with excellent penetrating ability.'):
+        "",
+
+    # ---------------------------------------------------------- :130585
+    (130585, 'It is a pair of very heavy gauntlet.'):
+        "",
+
+    # ---------------------------------------------------------- :130652
+    (130652, 'These are ornated gloves often worn by nobility.'):
+        "",
+
+# 10 voci, 0 ambigue

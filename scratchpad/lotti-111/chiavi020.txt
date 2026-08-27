@@ -1,0 +1,52 @@
+# la zona non e' un intervallo: si dichiara per insieme di righe
+RIGHE = {
+    56740, 75584, 86674, 93630, 99165, 99236, 99308, 99380, 107184, 107393,
+    130388,
+}
+# 11 righe, da 56740 a 130388
+
+    # ---------------------------------------------------------- :56740
+    (56740, 'It is a ring created by the dragon.'):
+        "",
+
+    # ---------------------------------------------------------- :75584
+    (75584, 'It is a godly gift that when worn, transforms into a ring.'):
+        "",
+
+    # ---------------------------------------------------------- :86674
+    (86674, 'It is a rare magical ring that increases your speed.'):
+        "",
+
+    # ---------------------------------------------------------- :93630
+    (93630, 'It is a ring that protects you from bad weather.'):
+        "",
+
+    # ---------------------------------------------------------- :99165
+    (99165, "It is a ring given to raise affection, won't be returned."):
+        "",
+
+    # ---------------------------------------------------------- :99236
+    (99236, 'It is a decoration to put on your finger.'):
+        "",
+
+    # ---------------------------------------------------------- :99308
+    (99308, 'It is an armor plate that is processed to fit on the finger.'):
+        "",
+
+    # ---------------------------------------------------------- :99380
+    (99380, 'It is a sturdy ring.'):
+        "",
+
+    # ---------------------------------------------------------- :107184
+    (107184, 'It is a ring that will bring you luck.'):
+        "",
+
+    # ---------------------------------------------------------- :107393
+    (107393, 'It is a ring with a very high protective value.'):
+        "",
+
+    # ---------------------------------------------------------- :130388
+    (130388, 'It is a pretty ring with a few embellishments.'):
+        "",
+
+# 11 voci, 0 ambigue

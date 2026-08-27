@@ -1,0 +1,43 @@
+# la zona non e' un intervallo: si dichiara per insieme di righe
+RIGHE = {
+    61584, 64279, 64346, 68115, 76052, 82345, 100330, 100395, 126715,
+}
+# 9 righe, da 61584 a 126715
+
+    # ---------------------------------------------------------- :61584
+    (61584, "(Reusable) belt buckle that changes one's attribute of some skills."):
+        "",
+
+    # ---------------------------------------------------------- :64279
+    (64279, 'It is a broom that floats when you ride it.'):
+        "",
+
+    # ---------------------------------------------------------- :64346
+    (64346, "It is not underwear, it's hot pants."):
+        "",
+
+    # ---------------------------------------------------------- :68115
+    (68115, 'It is a belt studded with defensive magic.'):
+        "",
+
+    # ---------------------------------------------------------- :76052
+    (76052, 'It is a godly gift that when worn, transforms and becomes a waist belt.'):
+        "",
+
+    # ---------------------------------------------------------- :82345
+    (82345, 'It is a waistband that prevents bleeding and burning.'):
+        "",
+
+    # ---------------------------------------------------------- :100330
+    (100330, 'It is a reinforced girdle.'):
+        "",
+
+    # ---------------------------------------------------------- :100395
+    (100395, 'It is a girdle reinforced with composite materials.'):
+        "",
+
+    # ---------------------------------------------------------- :126715
+    (126715, 'It is armor for your waists.'):
+        "",
+
+# 9 voci, 0 ambigue

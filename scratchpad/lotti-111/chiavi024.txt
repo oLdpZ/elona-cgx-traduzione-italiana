@@ -1,0 +1,43 @@
+# la zona non e' un intervallo: si dichiara per insieme di righe
+RIGHE = {
+    76118, 86870, 93760, 100459, 100524, 100589, 100654, 130453, 130518,
+}
+# 9 righe, da 76118 a 130518
+
+    # ---------------------------------------------------------- :76118
+    (76118, 'It is a godly gift that when worn, transforms and become shackles.'):
+        "",
+
+    # ---------------------------------------------------------- :86870
+    (86870, 'These are shoes that speed up the journey.'):
+        "",
+
+    # ---------------------------------------------------------- :93760
+    (93760, 'These are boots magically enhanced to allow faster travel.'):
+        "",
+
+    # ---------------------------------------------------------- :100459
+    (100459, "It is a pair of boot's with armored plating."):
+        "",
+
+    # ---------------------------------------------------------- :100524
+    (100524, 'It is a tight fitting pair of boots.'):
+        "",
+
+    # ---------------------------------------------------------- :100589
+    (100589, 'It is a standard pair of boots.'):
+        "",
+
+    # ---------------------------------------------------------- :100654
+    (100654, 'These are simple protective gear that protects the feet from the ground.'):
+        "",
+
+    # ---------------------------------------------------------- :130453
+    (130453, 'It is a pair of boots reinforced with composite mesh.'):
+        "",
+
+    # ---------------------------------------------------------- :130518
+    (130518, 'It is a pair of extra sturdy boots.'):
+        "",
+
+# 9 voci, 0 ambigue
