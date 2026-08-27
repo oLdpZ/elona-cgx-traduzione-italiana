@@ -1663,6 +1663,143 @@ stranieri*, e **«dèi» porta l'accento in mezzo alla parola**: a schermo diven
 «de'i». È la lezione della 41ª, misurata sul dizionario nella 71ª. Si evita la
 parola — «le divinità straniere» — non si toglie l'accento.
 
+## `db_item.hsp`, deciso il 2026-08-27 dalla 110ª — le code che c'erano già, e il codice come fonte
+
+Cinque lotti — scarti, minerali, libri, bacchette, contenitori: **207 righe del
+sorgente, 173 firme**. La formula della 108ª e le code della 109ª hanno retto su
+tutte e cinque le categorie senza doversi allargare. Quel che si aggiunge sono
+**tre code nuove** e una fonte che finora non era stata usata.
+
+### Le code nuove, e quelle che erano già nel dizionario
+
+| giapponese | italiano | dove stava |
+|---|---|---|
+| 開けることができる | **Si può aprire.** | nuova (20 contenitori) |
+| 読むことができる | **Si può leggere.** | **c'era già** (108ª, la mappa del continente) |
+| 何度でも読むことができる | **Si può rileggere sempre.** | **c'era già** (108ª, i dieci atti) |
+| 振ることで… | **Una bacchetta che, agitata, …** | il verbo **c'era già**: 「を振った。」 → «Hai agitato …» |
+| 模造品だ。 | **Una riproduzione.** | **c'era già** in `db_item.hsp` |
+| 合成用のアイテムだ。 | **Un oggetto per la sintesi.** | **c'era già** (`chat.hsp`, 「合成用アイテムを持ってきた」) |
+
+⭐⭐ **Cinque righe su sei di questa tabella non sono decisioni: sono ritrovamenti.**
+La parte cara del lavoro dell'indice 3 non è scegliere la resa — è ricordarsi di
+cercare se qualcuno l'ha già scelta, e cercarla dove **il giocatore la legge**
+(il messaggio dell'azione, il nome dell'oggetto), non solo nel glossario.
+
+### ⭐⭐ Il CODICE è una fonte, e due volte ha battuto tutt'e due i testi
+
+- **`:59793`, l'ohuda: cancella UN potenziamento.** 「バフを消去する御札だ。」 non
+  dice il numero, l'inglese dice «erases buffs» al plurale, e l'italiano **deve**
+  scegliere. `action.hsp:752-766` scorre i potenziamenti, chiama `delbuff` sul
+  primo che trova e poi `break`: **uno solo**. Senza leggere il codice si sarebbe
+  seguito l'inglese, che qui è la fonte peggiore delle tre.
+- **`:63586`, 「態勢を崩す」 è la ROTTURA GUARDIA.** L'inglese dice
+  «disorientates opponent», che non è un termine e non aggancia niente.
+  `action.hsp:745` chiama `chara_guardbreak tc, 15`: è il meccanismo, e il
+  dizionario ha già la parola — «Rottura guardia» (`command.hsp`), «Abbassa la
+  rottura guardia». ⭐ Lo stesso termine torna a `:47152`, il fischietto, dove il
+  giapponese lo scrive per esteso (「ガードブレイクゲージ」): due righe lontane
+  che ora dicono la stessa cosa con la stessa parola.
+
+⚠️ **Nessuna rete poteva vedere né l'una né l'altra**, e non per una svista: le
+reti guardano la forma della resa, l'inglese di monte e il dizionario. Qui la
+fonte era il **comportamento del gioco**, che nessuno strumento del progetto
+legge.
+
+### ⚠️ Quando il modale cade per tenere insieme una FAMIGLIA, non per stare nel tetto
+
+La 109ª aveva stabilito che il modale cade quando il fatto riempie i 69
+caratteri («Si usa sempre» invece di «Si può usare sempre»). Il lotto dei libri
+aggiunge il caso in cui cade **anche dove ci starebbe**:
+
+sette libri hanno lo stesso giapponese di coda, 「読むことができる。」. Due —
+la sorella cane maggiore e la sorella gatta minore, i nomi più lunghi del gioco —
+arrivavano a **71 e 70** su 69 e il modale doveva cadere per forza. Farlo cadere
+**solo lì** avrebbe dato due code diverse dentro una famiglia sola, cioè il
+difetto che la formula esiste per impedire. Cadono tutte e sette: «Si legge.».
+
+ⓘ Fuori dalla famiglia il modale resta («Si può leggere.», `:71103`, `:83700`,
+`:84236`): lì non c'è nessuna famiglia da tenere insieme.
+
+### ⓘ «Un compagno» anche quando la figura è femminile
+
+Cinque dei sette libri qui sopra fanno di una **donna** un compagno — la sorella
+maggiore, la sorella cane maggiore, la signorina, la sorella gatta minore, la
+sorella minore — e «fa della signorina **una compagna**» sarebbe italiano più
+liscio. Resta **«un compagno»** per tutte e sette: qui la parola non è un
+aggettivo che concorda, è il **nome della categoria di gioco** — ペット, reso
+«compagno» dalla 109ª.
+
+### ⓘ Un participio che non poteva concordare col giocatore
+
+`:66012`, la magaqua: 「所持していると濡れ状態になる勾玉だ。」. «ti tiene
+**bagnato**» concorda col genere del giocatore, che non si conosce
+(`guida-stile.md`, e la rete dei participi di `referti.py`). Reso con
+l'impersonale: «portandola addosso, **ci si bagna**».
+
+### ⓘ Le righe dove l'inglese racconta e il giapponese no — altre sei
+
+Regola di `decisioni.md`, «Quando l'inglese aggiunge un fatto»:
+
+| riga | il giapponese | quel che l'inglese aggiunge |
+|---|---|---|
+| `:48738` | 「死にかけのセミだ。」, *una cicala moribonda* | che spaventa chi colpisci — e il nome è già «cicala morente» |
+| `:116668` | dentro c'è qualcosa | una citazione di Laozi, «the empty space which makes the bowl useful» |
+| `:46013` | solo la coda, 「何度でも使用することができる。」 | «Worth less than you think» |
+| `:82613` | il foglio **non fa niente** | a chi vengono dati i biglietti |
+| `:112199`, `:112261` | 「金品が入った袋/カバン。」 | che sono stati persi **da un turista** |
+
+### ⭐ Un giapponese, più inglesi, una resa — la quarta e la quinta volta
+
+`:115137`/`:115261` (un giapponese, «container containing money and goods» e
+«ancient jeweled chest») e le **dodici gemme dei mesi** `:48808`-`:49508` (un
+giapponese, 「贈り物に適した宝石だ。」, per granato, ametista, acquamarina,
+diamante, smeraldo, alessandrite, rubino, sardonice, zaffiro, opale, topazio e
+lapislazzuli).
+
+⭐ **Che si ripeta cinque volte in tre sessioni non è un caso**: il giapponese di
+`db_item.hsp` descrive **la classe**, l'inglese descrive **l'esemplare**, e il
+nome dell'oggetto sta dieci righe sopra a dire già qual è l'esemplare.
+
+### ⚠️ Due righe dell'indice 3 hanno il giapponese VUOTO
+
+`:89761`, l'esca (lotto 006) e `:129513`, il libro bacato (lotto 008). Sulla
+seconda l'inglese è per giunta una **nota per chi programma** — «generated when
+failed to create an item» — ma `description(3)` si vede quando l'oggetto è
+identificato a fondo, e l'oggetto esiste: la riga si rende com'è.
+
+ⓘ **Ed è per la prima che `_coerenza.py` è stato riparato**: la stringa vuota non
+è un giapponese, e raggruppava trenta voci che di comune hanno solo il non avere
+una fonte. Vedi `avanzamento.md`.
+
+### ⓘ I termini fissati o ritrovati in questi cinque lotti
+
+ガードブレイク → «rottura guardia» · 主従度 → «grado di sottomissione» ·
+バフ → «potenziamento» · 支配 → «dominare» · 合成用アイテム → «oggetti per la
+sintesi» · 勾玉 → «perla ricurva» (`invariati.md`) · ラムネ → «gazzosa» ·
+電撃 → «fulmine» · 疫 → «pestilenza» · 学習書 → «libro di studio» ·
+戦術指示 → «ordini tattici» · 士気 → «morale» · 調教 → «addestrare» ·
+プラチナ → «platino» · 潜在能力 → «potenziale» · 深淵 → «Abisso» ·
+執事 → «il maggiordomo» · 姉犬 → «la sorella cane maggiore» ·
+妹猫 → «la sorella gatta minore» · お嬢様 → «la signorina» ·
+宝石 → «gemma» · メダル → «medaglietta» · 模造品 → «riproduzione» ·
+武具 → «armi e armature» · 金品 → «denaro e beni» · 請求書 → «fattura» ·
+マテリアル → «materiali da lavorazione» · 振る → «agitare» ·
+沈黙 → «silenzio» · 加速 → «Accelerazione» · 鈍足 → «Rallentamento» ·
+蜘蛛の巣 → «ragnatela».
+
+ⓘ **`子宝` non era nel dizionario, e l'ha deciso `description(0)`.** `:66326`,
+l'E.G.G, dice 「子宝だ。」 in due caratteri; la descrizione lunga dello stesso
+oggetto (`db_item.hsp:66317`) dice che è la capsula che la cicogna porta **agli
+sposi**. È la benedizione dei figli, non un tesoro qualunque, e la categoria
+giapponese ＜秘宝＞ non bastava a dirlo. Reso «Il dono dei figli.».
+
+⚠️ **Una divergenza di monte che resta aperta:** 合成 è reso «sintesi» in
+`chat.hsp` (「合成用アイテム」) e «fusione» in 「合成の壺」, il vaso. Qui si è
+seguita la voce più vicina — la stessa frase, 合成用アイテム — ma nessuno
+strumento confronta le due, e vale la lezione della famiglia `dardo`/`Saetta`:
+una regola scritta e non sorvegliata vale finché qualcuno se la ricorda.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

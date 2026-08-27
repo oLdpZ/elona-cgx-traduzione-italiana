@@ -10865,3 +10865,93 @@ che senza non sarebbe un risultato: le rese si scrivono già in NFC, quindi il
 caso non si è mai presentato — non è merito di nessuno, e un copia-incolla da
 una fonte decomposta lo riaprirebbe. La prova al contrario **dice dove si
 accende** (il carattere 5 di una frase di prova), non stampa un ✅.
+
+## 110ª — Il codice è una fonte, e batte tutt'e due i testi
+
+Fino alla 109ª le fonti di una resa erano tre: il **giapponese**, l'**inglese di
+monte** e il **dizionario**. La 109ª ne aveva aggiunta una quarta senza dirlo —
+la *riga di categoria dentro la stessa stringa giapponese*, che sullo zizou ha
+dato torto alla frase giapponese. La 110ª aggiunge la quinta, e questa volta non
+è un testo: è il **comportamento del gioco**.
+
+### `:59793`, l'ohuda — il numero che il giapponese non dice e l'italiano deve dire
+
+「バフを消去する御札だ。」 non dice **quanti** potenziamenti cancella: il
+giapponese può permetterselo, l'italiano no — «cancella *un* potenziamento» e
+«cancella *i* potenziamenti» sono due frasi diverse e bisogna sceglierne una.
+L'inglese sceglie il plurale («erases buffs»).
+
+`action.hsp:752-766` scorre i potenziamenti del bersaglio, chiama `delbuff` sul
+primo che ne trova uno e poi fa **`break`**. Ne cancella **uno**. L'inglese, qui,
+è la fonte peggiore delle tre — e senza aprire il codice l'avremmo seguito,
+perché era l'unica delle due che una risposta la dava.
+
+### `:63586`, 「態勢を崩す」 — il termine che l'inglese aveva sciolto
+
+L'inglese dice «disorientates opponent»: una parola comune, che non aggancia
+niente. Il giapponese dice 態勢を崩す, che *sembra* una descrizione — «gli rompe
+l'assetto» — e il dizionario rende 態勢 con «assetto» in quattro battute di
+combattimento.
+
+`action.hsp:745` chiama **`chara_guardbreak tc, 15`**. Non è una descrizione: è
+il meccanismo della **rottura guardia**, che nel gioco ha una barra, una voce di
+scheda e una riga di potenziamento, e nel dizionario ha già la parola —
+«Rottura guardia», «Abbassa la rottura guardia». Reso col termine.
+
+⭐ E la conferma è arrivata da lontano: `:47152`, il fischietto, **quattro
+categorie più in là**, ha il giapponese che lo scrive per esteso —
+「ガードブレイクゲージを減らす笛だ。」. Due righe che parlano della stessa cosa
+e che adesso la chiamano allo stesso modo; prima della 110ª una delle due
+l'avrebbe chiamata «assetto».
+
+### ⚠️ La regola, e il suo costo
+
+**Quando il giapponese è ambiguo su un fatto di gioco, o quando l'inglese usa una
+parola comune dove il giapponese ne usa una tecnica, la fonte è il codice.**
+
+⚠️ Il costo è che **nessuna rete può vederlo**. Le tredici reti del lotto,
+`verifica`, `guardie` e `_coerenza` guardano la forma della resa, l'inglese di
+monte e il dizionario: sono tutte reti *testuali*, e qui il testo era in
+pareggio. Le due righe sono state trovate perché qualcuno ha aperto
+`action.hsp`, non perché uno strumento ha protestato.
+
+💡 **Il sospetto ha una forma ricorrente**, e chi apre le categorie che restano
+la riconosca: il giapponese nomina un **stato**, una **barra** o un **numero**
+senza dire quanto, e l'inglese lo parafrasa con una parola di uso comune. Lì il
+percorso si segue nel sorgente fino a chi *accende* la cosa — la stessa
+disciplina che la 108ª ha imposto agli identificativi e la 109ª ai tasti della
+lista di collaudo.
+
+## 110ª — Il modale cade anche dove ci starebbe, per tenere insieme una famiglia
+
+La 109ª aveva stabilito che il modale della coda cade quando il fatto riempie i
+69 caratteri: «Si usa sempre» invece di «Si può usare sempre». È una regola di
+**spazio**, e si applica riga per riga.
+
+I sette libri che fanno un compagno (`FILTER_ITEM_BOOK`) hanno tutti la stessa
+coda giapponese, 「読むことができる。」. Due — la sorella cane maggiore e la
+sorella gatta minore, che hanno i nomi più lunghi del gioco — arrivavano a **71
+e 70** su 69: lì il modale doveva cadere per forza. Gli altri cinque ci
+stavano.
+
+Farlo cadere **solo sui due** avrebbe messo due code diverse dentro una famiglia
+sola. Ma la ragione per cui la formula esiste è scritta nel glossario dalla 108ª:
+*«un referto che dice cose diverse per il tonno e per la sardina ha smesso di
+essere un referto»*. La lunghezza del nome di un oggetto non è una differenza di
+**fatto**: è un accidente.
+
+**Cadono tutte e sette.** La regola della 109ª si estende: *il modale cade quando
+non ci sta, e cade anche dove ci starebbe se in quella famiglia è già caduto
+altrove.*
+
+ⓘ Fuori dalla famiglia resta dov'è — `:71103`, `:83700`, `:84236` dicono «Si può
+leggere.», perché lì non c'è nessuna famiglia da tenere insieme e il modale non
+costa niente a nessuno.
+
+⚠️ **E il numero che ha fatto vedere il problema è il margine, non il cancello.**
+Il cancello («introdotte dall'italiano: 0») era verde tutt'e due le volte, perché
+le due righe da 70 e 71 non c'erano ancora — le avrei scritte io. È
+`lotti-108/_margine.py`, lanciato **prima** di reimportare, a dire che il lotto
+respirava di **1** carattere. Un cancello booleano non dice il margine: è la
+lezione che questo progetto ha già scritto, e qui ha pagato due volte in una
+sessione (l'altra sono le bacchette, a margine **0**).

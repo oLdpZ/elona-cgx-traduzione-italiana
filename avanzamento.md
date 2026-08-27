@@ -2702,3 +2702,86 @@ segue il giapponese guadagna spazio invece di perderne.
 |---|---|
 | `scratchpad/lotti-108/_margine.py` | il file da misurare si passa come **argomento**: la prima versione lo aveva fisso e al secondo lotto è stato riscritto con `sed`, cioè un attimo prima di misurare il lotto sbagliato credendo di misurare quello giusto. Ed esce con 1 se il tetto è sfondato |
 | `scratchpad/lotti-108/_id.py` | il numero di un `ITEM_ID` letto da `defines/mod.hsp`, per la lista di passi: `spawn_item` vuole il numero, e una lista si esegue alla cieca |
+
+## `db_item.hsp`, cinque lotti dell'indice 3 — 2026-08-27, centodecima
+
+    db_item.hsp   indice 3, il rapporto di identificazione — CINQUE lotti
+    -------------------------------------------------------------------------
+    006  FILTER_JUNK          81 firme ->  97 righe   margine 3
+    007  FILTER_ORE           21 firme ->  33 righe   margine 5
+    008  FILTER_ITEM_BOOK     20 firme ->  23 righe   margine 3
+    009  FILTER_ITEM_ROD      30 firme ->  32 righe   margine 4
+    010  FILTER_CONTAINER     21 firme ->  22 righe   margine 4
+    -------------------------------------------------------------------------
+    **173 firme rese**, che coprono **207 righe** del sorgente
+    applica 28.210 -> **28.417**   (+207 esatte)
+    non tradotte di db_item.hsp: 2.033 -> **1.860**   (-173 esatte)
+    indice 3: rese 693 -> **900**   vive 1.319
+    tetto secco: introdotte dall'italiano **0** — il cancello e' verde
+    rinviate: nessuna   toppe: nessuna   test: **794**, invariato
+    strumenti toccati: 2 (`_monta.py` prende la cartella, `_coerenza.py` salta
+                         il giapponese vuoto)
+    build: SI', **10:00 del 27/08**
+    -------------------------------------------------------------------------
+
+Le rese e le decisioni stanno in `glossario.md`, sezione della 110ª. Qui restano
+le due cose che riguardano il **modo di lavorare**.
+
+### ⚠️⚠️ `_coerenza.py` diceva «una divergenza» e non ne aveva vista nessuna
+
+Il lotto 006 contiene `:89761`, l'esca, la cui `description(3)` giapponese è
+**vuota**. `_coerenza.py` raggruppa le rese per giapponese, e la stringa vuota
+ha raccolto **trenta voci** del dizionario — segnaposti, concatenazioni HSP,
+battute — che di comune hanno soltanto il non avere una fonte giapponese. Rese
+diverse, ovviamente: il cancello si è acceso e diceva il falso.
+
+⚠️ **Non è un falso positivo qualunque, è un raggruppamento che non vuol dire
+niente.** Riparato saltando le voci col giapponese (o l'inglese) vuoto.
+✅ **Controprova sul lotto 005 della 109ª**: 0 divergenze su **7** gruppi
+giudicati e 3 divergenze di inglese, cioè esattamente i valori con cui la 109ª
+si era chiusa. La riparazione non ha spento niente di vero.
+
+ⓘ E lo zero del lotto 006 resta **0 su 0 gruppi giudicati**: nessuno degli 81
+giapponesi compare altrove nel dizionario. È la ragione per cui quel numero si
+stampa accanto allo zero — senza, sembrerebbe un risultato.
+
+### ⚠️ `_monta.py` cercava i suoi file accanto a sé
+
+Fino alla 109ª i tre file di un lotto (`_traduzioniNNN.py`, `chiaviNNN.txt`,
+`reseNNN.py`) stavano nella cartella dello script. La 110ª li ha messi in
+`scratchpad/lotti-110/`, e lo script moriva dicendo che `_traduzioni006.py` non
+c'era. La cartella è diventata il **secondo argomento**, che se manca è quella
+dello script:
+
+    python scratchpad/lotti-109/_monta.py 006 scratchpad/lotti-110
+
+⚠️ La strada breve era **copiare lo script** nella cartella nuova, ed è la
+strada che la 108ª ha pagato caro: `modello-rete4.py` è della 43ª e la sua rete
+6 non sapeva del commento `//` della 100ª, perché nessuno aggiorna quattro copie.
+✅ Controprova: rilanciato il vecchio comando su `005`, `git status` è rimasto
+vuoto — il file prodotto è byte per byte quello di prima.
+
+### ⚠️ E la trappola dell'heredoc vuoto ha colpito una sesta volta
+
+Un `python - <<'PY'` con dentro **niente**, per un comando che non serviva a
+nulla: due minuti di terminale bloccato fino al timeout. È la stessa forma che
+la 104ª e la 105ª hanno già pagato. La regola non è «attenzione ai backslash»:
+è che un file si scrive con lo strumento di scrittura, e uno script di dieci
+righe si mette nello scratchpad.
+
+### ⓘ Il margine, lotto per lotto — e dove si è dovuto stringere
+
+    006  scarti        la più lunga 66 su 69   margine 3
+    007  minerali      la più lunga 64 su 69   margine 5
+    008  libri         la più lunga 66 su 69   margine 3
+    009  bacchette     la più lunga 65 su 69   margine 4
+    010  contenitori   la più lunga 65 su 69   margine 4
+
+⚠️ **Due lotti sono passati per il misuratore prima di andare bene**, e senza di
+lui sarebbero usciti dal riquadro senza che nessuno lo vedesse:
+
+- il **009** (bacchette) misurava **margine 0**: la testa «Una bacchetta che,
+  agitata, » costa 28 caratteri, e cinque righe ci arrivavano contro. Accorciato
+  il *fatto*, non la testa, così la famiglia resta una;
+- il **008** (libri) misurava **margine 1**, e la riparazione ha cambiato la
+  regola: vedi `glossario.md`, il modale che cade per tenere insieme la famiglia.
