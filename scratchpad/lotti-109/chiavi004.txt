@@ -1,0 +1,593 @@
+# la zona non e' un intervallo: si dichiara per insieme di righe
+RIGHE = {
+    42418, 42494, 42570, 42646, 42712, 43243, 44100, 44166, 45484, 45550,
+    45616, 45682, 45748, 45814, 45880, 45947, 46079, 46145, 46406, 46482,
+    46550, 46821, 46887, 46953, 47019, 47086, 47289, 49779, 49850, 50063,
+    50134, 50205, 50274, 50344, 50411, 50477, 50749, 50948, 51291, 51982,
+    52048, 52383, 52449, 54888, 55145, 55484, 56606, 57066, 57648, 58529,
+    59661, 59929, 60066, 60652, 60917, 62023, 62099, 62175, 62237, 62603,
+    62669, 63524, 63940, 64556, 64681, 64744, 64810, 65198, 65467, 66078,
+    67669, 68590, 68786, 69457, 70336, 70601, 70820, 71927, 72487, 72553,
+    72623, 73023, 73291, 73701, 73768, 73831, 76317, 77776, 78259, 79114,
+    79181, 80221, 80927, 80995, 81133, 81199, 82007, 82812, 83081, 83212,
+    84038, 84166, 84299, 84970, 85171, 85237, 85301, 85370, 85437, 85506,
+    85575, 86203, 86536, 86603, 88024, 88213, 88413, 88475, 88541, 88607,
+    88872, 88940, 90140, 91912, 92255, 92392, 92937, 93001, 93361, 93826,
+    94604, 99094, 102461, 104794, 108460, 114080, 114144, 116349, 116606, 120508,
+    120574, 121832, 122682,
+}
+# 143 righe, da 42418 a 122682
+
+    # ---------------------------------------------------------- :42418
+    (42418, '(Reusable) Dart rifle that tranquilizes target weight 500-1000 kg.'):
+        "",
+
+    # ---------------------------------------------------------- :42494
+    (42494, '(Reusable) Dart rifle that tranquilizes target weight 100-500 kg.'):
+        "",
+
+    # ---------------------------------------------------------- :42570
+    (42570, '(Reusable) Dart rifle that tranquilizes target weight 30-100 kg.'):
+        "",
+
+    # ---------------------------------------------------------- :42646
+    (42646, '(Reusable) Dart rifle that tranquilizes target weight <30 kg.'):
+        "",
+
+    # ---------------------------------------------------------- :42712
+    (42712, '(Single-use) chopsticks.'):
+        "",
+
+    # ---------------------------------------------------------- :43243
+    (43243, "(Reusable) Magical item that changes one's form."):
+        "",
+
+    # ---------------------------------------------------------- :44100
+    (44100, '(Reusable) tool cage that capture and transport a defeated victim.'):
+        "",
+
+    # ---------------------------------------------------------- :44166
+    (44166, '(Reusable) tool that generates work energy using human labor.'):
+        "",
+
+    # ---------------------------------------------------------- :45484
+    (45484, '(Reusable) tool that set up traps.'):
+        "",
+
+    # ---------------------------------------------------------- :45550
+    (45550, '(Single-use) tool used to gain AP.'):
+        "",
+
+    # ---------------------------------------------------------- :45616
+    (45616, '(Single-use) tool used to restore mana.'):
+        "",
+
+    # ---------------------------------------------------------- :45682
+    (45682, '(Single-use) tool used to restore stamina.'):
+        "",
+
+    # ---------------------------------------------------------- :45748
+    (45748, '(Single-use) tool used to increase your resistance.'):
+        "",
+
+    # ---------------------------------------------------------- :45814
+    (45814, '(Single-use) tool used to increase your DV modifier.'):
+        "",
+
+    # ---------------------------------------------------------- :45880
+    (45880, '(Single-use) tool used to increase your PV modifier.'):
+        "",
+
+    # ---------------------------------------------------------- :45947
+    (45947, '(Single-use) exo-skeleton upgrade kit for your Potioman.'):
+        "",
+
+    # ---------------------------------------------------------- :46079
+    (46079, '(Single-use) tool to be used on certain corpses.'):
+        "",
+
+    # ---------------------------------------------------------- :46145
+    (46145, '(Single-use) tool that can graft new body parts.'):
+        "",
+
+    # ---------------------------------------------------------- :46406
+    (46406, '(Single-use) tool containing a large sum of corks.'):
+        "",
+
+    # ---------------------------------------------------------- :46482
+    (46482, '(Reusable) large-calibre gun that shoots guard-breaking laser.'):
+        "",
+
+    # ---------------------------------------------------------- :46550
+    (46550, '(Reusable) tool that summons spirits.'):
+        "",
+
+    # ---------------------------------------------------------- :46821
+    (46821, "(Reusable) tool for one to  discover one's personalities."):
+        "",
+
+    # ---------------------------------------------------------- :46887
+    (46887, '(Single-use) tool that give you a daughter.'):
+        "",
+
+    # ---------------------------------------------------------- :46953
+    (46953, '(Single-use) tool that give you a son.'):
+        "",
+
+    # ---------------------------------------------------------- :47019
+    (47019, '(Single-use) tool that gives experience to a living weapon.'):
+        "",
+
+    # ---------------------------------------------------------- :47086
+    (47086, '(Single-use) tool that restores your MP.'):
+        "",
+
+    # ---------------------------------------------------------- :47289
+    (47289, '(Reusable) tool. But it really is just smelly socks.'):
+        "",
+
+    # ---------------------------------------------------------- :49779
+    (49779, '(Reusable) tool that drench your thirst. Can be refilled under water.'):
+        "",
+
+    # ---------------------------------------------------------- :49850
+    (49850, "(Reusable) tool that raises one's stats to a certain level."):
+        "",
+
+    # ---------------------------------------------------------- :50063
+    (50063, '(Reusable) tool that turns a dying enemy into solid gold.'):
+        "",
+
+    # ---------------------------------------------------------- :50134
+    (50134, '(Reusable) tool that grants fame and authority.'):
+        "",
+
+    # ---------------------------------------------------------- :50205
+    (50205, '(Reusable) tool that allow simutaneous activation of two skills.'):
+        "",
+
+    # ---------------------------------------------------------- :50274
+    (50274, '(Reusable) tool that allows you to marry non-allies.'):
+        "",
+
+    # ---------------------------------------------------------- :50344
+    (50344, '(Reusable) tool used on the world map. May be used periodically.'):
+        "",
+
+    # ---------------------------------------------------------- :50411
+    (50411, '(Single-use) tool crystal that half your skill to gain a slight bonus.'):
+        "",
+
+    # ---------------------------------------------------------- :50477
+    (50477, '(Reusable) tool that shoots out potion plugs at lethal velocity.'):
+        "",
+
+    # ---------------------------------------------------------- :50749
+    (50749, '(Reusable) tool for processing vast amounts of information.'):
+        "",
+
+    # ---------------------------------------------------------- :50948
+    (50948, '(Unimplemented) (Reusable) tool used to set up or activate traps.'):
+        "",
+
+    # ---------------------------------------------------------- :51291
+    (51291, '(Single-use) tool shard that grants you the memory of a skill.'):
+        "",
+
+    # ---------------------------------------------------------- :51982
+    (51982, '(Single-use) throwing tool that creates a smoke screen.'):
+        "",
+
+    # ---------------------------------------------------------- :52048
+    (52048, '(Reusable) tool that allows you to check and use your Yaca points.'):
+        "",
+
+    # ---------------------------------------------------------- :52383
+    (52383, '(Reusable) tool that give you weapon experience through training.'):
+        "",
+
+    # ---------------------------------------------------------- :52449
+    (52449, '(Reusable) tool that secure the harvest.'):
+        "",
+
+    # ---------------------------------------------------------- :54888
+    (54888, '(Single-use) tool that starts a fire.'):
+        "",
+
+    # ---------------------------------------------------------- :55145
+    (55145, '(Reusable) tool to enhance the shooting attack power.'):
+        "",
+
+    # ---------------------------------------------------------- :55484
+    (55484, '(Single-use) tool that grants magic power.'):
+        "",
+
+    # ---------------------------------------------------------- :56606
+    (56606, '(Reusable) tool that cleans your ear.'):
+        "",
+
+    # ---------------------------------------------------------- :57066
+    (57066, '(Single-use) tool that creates a cake for your allies to eat.'):
+        "",
+
+    # ---------------------------------------------------------- :57648
+    (57648, '(Reusable) toy modeled after Goddess of Wealth. May be used periodically.'):
+        "",
+
+    # ---------------------------------------------------------- :58529
+    (58529, "It is a sword made for Seppuku. (Reusable) tool that can't be equipped."):
+        "",
+
+    # ---------------------------------------------------------- :59661
+    (59661, '(Single-use) tool stardust that enhances an artifact.'):
+        "",
+
+    # ---------------------------------------------------------- :59929
+    (59929, '(Single-use) tool that 3d-prints target with biological materials.'):
+        "",
+
+    # ---------------------------------------------------------- :60066
+    (60066, '(Single-use) tool that brings out the true potential of t equipment.'):
+        "",
+
+    # ---------------------------------------------------------- :60652
+    (60652, '(Reusable) tool that launches a ball of gunpowder.'):
+        "",
+
+    # ---------------------------------------------------------- :60917
+    (60917, '(Single-use) smoking tool.'):
+        "",
+
+    # ---------------------------------------------------------- :62023
+    (62023, '(Reusable) tactical nuclear weapon.'):
+        "",
+
+    # ---------------------------------------------------------- :62099
+    (62099, "(Reusable) tool that burns down the area around the target it's aimed at."):
+        "",
+
+    # ---------------------------------------------------------- :62175
+    (62175, '(Reusable) weapon that temporarily lowers the PV of a target.'):
+        "",
+
+    # ---------------------------------------------------------- :62237
+    (62237, 'It is a blanket that prevents allies from getting up early.'):
+        "",
+
+    # ---------------------------------------------------------- :62603
+    (62603, '(Single-use) tool box of first aid supplies.'):
+        "",
+
+    # ---------------------------------------------------------- :62669
+    (62669, '(Single-use) toolbox filled with specialized ammunitions.'):
+        "",
+
+    # ---------------------------------------------------------- :63524
+    (63524, '(Single-use) horrifying weapon of destruction from ancient times.'):
+        "",
+
+    # ---------------------------------------------------------- :63940
+    (63940, '(Reusable) tool that transforms you. Can be used with 50% gauge.'):
+        "",
+
+    # ---------------------------------------------------------- :64556
+    (64556, '(Reusable) tool that opens a pocket in another dimension to store item.'):
+        "",
+
+    # ---------------------------------------------------------- :64681
+    (64681, '(Single-use) tool box that allows all your friends to eat together.'):
+        "",
+
+    # ---------------------------------------------------------- :64744
+    (64744, '(Reusable) tool that holds 15 coffins of necromancy.'):
+        "",
+
+    # ---------------------------------------------------------- :64810
+    (64810, '(Single-use) tool that grants a body part you want.'):
+        "",
+
+    # ---------------------------------------------------------- :65198
+    (65198, '(Single-use) throwing tool that initializes duel with your opponent.'):
+        "",
+
+    # ---------------------------------------------------------- :65467
+    (65467, '(Single-use) tool lenses that allow you to see information of the target.'):
+        "",
+
+    # ---------------------------------------------------------- :66078
+    (66078, '(Reusable) tool stone that confirms your faith.'):
+        "",
+
+    # ---------------------------------------------------------- :67669
+    (67669, '(Reusable) tool that plays any music you want.'):
+        "",
+
+    # ---------------------------------------------------------- :68590
+    (68590, '(Single-use) tool that used for inhaling dried crimberry smoke.'):
+        "",
+
+    # ---------------------------------------------------------- :68786
+    (68786, '(Single-use) tool to use in a Showroom.'):
+        "",
+
+    # ---------------------------------------------------------- :69457
+    (69457, '(Single-use) tool for crops.'):
+        "",
+
+    # ---------------------------------------------------------- :70336
+    (70336, '(Single-use) cooking tool set.'):
+        "",
+
+    # ---------------------------------------------------------- :70601
+    (70601, '(Reusable) tool used for necromancy. May be used periodically.'):
+        "",
+
+    # ---------------------------------------------------------- :70820
+    (70820, '(Single-use) tool that duplicate the existence of target into your team.'):
+        "",
+
+    # ---------------------------------------------------------- :71927
+    (71927, '(Single-use) tool doll that is 10cm in height.'):
+        "",
+
+    # ---------------------------------------------------------- :72487
+    (72487, '(Single-use) tool that changes your profession. Write in lower caption.'):
+        "",
+
+    # ---------------------------------------------------------- :72553
+    (72553, '(Single-use) tool that changes your race. Use in lower caption.'):
+        "",
+
+    # ---------------------------------------------------------- :72623
+    (72623, '(Reusable) tool for sound of certain frequency. May be used periodically.'):
+        "",
+
+    # ---------------------------------------------------------- :73023
+    (73023, '(Single-use) tool that unlocks special abilities.'):
+        "",
+
+    # ---------------------------------------------------------- :73291
+    (73291, '(Reusable) tool that switch between offensive and defensive instructions.'):
+        "",
+
+    # ---------------------------------------------------------- :73701
+    (73701, 'It is a statue of God of Elements. May be used periodically.'):
+        "",
+
+    # ---------------------------------------------------------- :73768
+    (73768, 'It is a statue of Goddess of Wealth. May be used periodically.'):
+        "",
+
+    # ---------------------------------------------------------- :73831
+    (73831, '(Unimplemented) (Reusable) tool that apply the effect of the cards.'):
+        "",
+
+    # ---------------------------------------------------------- :76317
+    (76317, '(Reusable) tool used shoot every enemy nearby. May be used periodically.'):
+        "",
+
+    # ---------------------------------------------------------- :77776
+    (77776, '(Reusable) tool for monthly allowence. May be used periodically.'):
+        "",
+
+    # ---------------------------------------------------------- :78259
+    (78259, '(Reusable) tool that allow using of complex fusion recipes.'):
+        "",
+
+    # ---------------------------------------------------------- :79114
+    (79114, 'It is a statue of God of Machine. May be used periodically.'):
+        "",
+
+    # ---------------------------------------------------------- :79181
+    (79181, 'It is a statue of God of Harvest. May be used periodically.'):
+        "",
+
+    # ---------------------------------------------------------- :80221
+    (80221, '(Single-use) tool that raises the quality of the equipment.'):
+        "",
+
+    # ---------------------------------------------------------- :80927
+    (80927, 'It is a statue of creator from the Moongate world. The power is lost now.'):
+        "",
+
+    # ---------------------------------------------------------- :80995
+    (80995, '(Reusable) tool used in showrooms. May be used to summon CNPCs.'):
+        "",
+
+    # ---------------------------------------------------------- :81133
+    (81133, '(Reusable) tool that forbids pet from doing certain actions.'):
+        "",
+
+    # ---------------------------------------------------------- :81199
+    (81199, '(Reusable) tool that analyzes the mind of the target.'):
+        "",
+
+    # ---------------------------------------------------------- :82007
+    (82007, '(Reusable) tool that can tie up a weakened monster.'):
+        "",
+
+    # ---------------------------------------------------------- :82812
+    (82812, 'It is a statue of Goddess of Luck. May be used periodically.'):
+        "",
+
+    # ---------------------------------------------------------- :83081
+    (83081, '(Reusable?) gem that changes the past of the future.'):
+        "",
+
+    # ---------------------------------------------------------- :83212
+    (83212, '(Single-use) tool that grants you a feat.'):
+        "",
+
+    # ---------------------------------------------------------- :84038
+    (84038, '(Reusable) tool that creates a high pitch noise.'):
+        "",
+
+    # ---------------------------------------------------------- :84166
+    (84166, '(Reusable) tool to store cards.'):
+        "",
+
+    # ---------------------------------------------------------- :84299
+    (84299, "It is a throwable tool that can be used to capture 'Little Sister'."):
+        "",
+
+    # ---------------------------------------------------------- :84970
+    (84970, 'It is a horrible looking furniture. It is best not to touch it.'):
+        "",
+
+    # ---------------------------------------------------------- :85171
+    (85171, 'It is a statue of Goddess of Healing. May be used periodically.'):
+        "",
+
+    # ---------------------------------------------------------- :85237
+    (85237, 'It is a throwable tool that can be used to capture monsters.'):
+        "",
+
+    # ---------------------------------------------------------- :85301
+    (85301, '(Reusable) tool that erases a pet and transfers its ability to another.'):
+        "",
+
+    # ---------------------------------------------------------- :85370
+    (85370, '(Reusable) tool used the reconstruct material. May be used periodically.'):
+        "",
+
+    # ---------------------------------------------------------- :85437
+    (85437, '(Reusable) tool used to accelerate crop growth. May be used periodically.'):
+        "",
+
+    # ---------------------------------------------------------- :85506
+    (85506, "(Reusable) tool used to recover allies' health. May be used periodically."):
+        "",
+
+    # ---------------------------------------------------------- :85575
+    (85575, '(Reusable) tool used to raise speed. May be used periodically.'):
+        "",
+
+    # ---------------------------------------------------------- :86203
+    (86203, '(Single-use) bomb that inflicts devastating destruction over a wide area.'):
+        "",
+
+    # ---------------------------------------------------------- :86536
+    (86536, 'It is a statue of Goddess of Wind. May be used periodically.'):
+        "",
+
+    # ---------------------------------------------------------- :86603
+    (86603, 'It is a statue of God of Earth. May be used periodically.'):
+        "",
+
+    # ---------------------------------------------------------- :88024
+    (88024, '(Reusable) Rank 4 bed of simple design.'):
+        "",
+
+    # ---------------------------------------------------------- :88213
+    (88213, '(Single-use) tool that reduce the insanity level.'):
+        "",
+
+    # ---------------------------------------------------------- :88413
+    (88413, '(Autoused) tool that enhances your lockpicking capabilities.'):
+        "",
+
+    # ---------------------------------------------------------- :88475
+    (88475, '(Autoused) tool that is required for picking locks. It may break.'):
+        "",
+
+    # ---------------------------------------------------------- :88541
+    (88541, '(Single-use) tool that destroys the ones stepped on it when armed.'):
+        "",
+
+    # ---------------------------------------------------------- :88607
+    (88607, '(Reusable) tool to tie up friends and keep them from going too far away .'):
+        "",
+
+    # ---------------------------------------------------------- :88872
+    (88872, '(Single-use) tool that re-forge the material of target item.'):
+        "",
+
+    # ---------------------------------------------------------- :88940
+    (88940, '(Reusable) tool that reset non-monster hostile situations.'):
+        "",
+
+    # ---------------------------------------------------------- :90140
+    (90140, '(Reusable) tool that allows you to change the decor of a room.'):
+        "",
+
+    # ---------------------------------------------------------- :91912
+    (91912, '(Reusable) hand-held simple light.'):
+        "",
+
+    # ---------------------------------------------------------- :92255
+    (92255, '(Reusable) tool that allows you to save money.'):
+        "",
+
+    # ---------------------------------------------------------- :92392
+    (92392, "It is a mysterious disc that seem's to play your memories."):
+        "",
+
+    # ---------------------------------------------------------- :92937
+    (92937, 'It is a blanket that prevents items from being damaged by freezing.'):
+        "",
+
+    # ---------------------------------------------------------- :93001
+    (93001, 'It is a blanket that prevents items from being damaged by burning.'):
+        "",
+
+    # ---------------------------------------------------------- :93361
+    (93361, '(Reusable) tool that change assignments.'):
+        "",
+
+    # ---------------------------------------------------------- :93826
+    (93826, '(Reusable) tool that can be used to build a shelter in a hurry.'):
+        "",
+
+    # ---------------------------------------------------------- :94604
+    (94604, 'It is an usable disc etched with music data.'):
+        "",
+
+    # ---------------------------------------------------------- :99094
+    (99094, "(Reusable) tool that visualizes an ally's health."):
+        "",
+
+    # ---------------------------------------------------------- :102461
+    (102461, '(Reusable) Rank 0 makeshift bed.'):
+        "",
+
+    # ---------------------------------------------------------- :104794
+    (104794, '(Reusable) tool made for gem cutting, a necessity for jewelers.'):
+        "",
+
+    # ---------------------------------------------------------- :108460
+    (108460, '(Reusable) tool made for fishing, a necessity for the fisherman.'):
+        "",
+
+    # ---------------------------------------------------------- :114080
+    (114080, 'It is a cooking tool allowing the preparation of dishes up to Rank 5.'):
+        "",
+
+    # ---------------------------------------------------------- :114144
+    (114144, 'It is a glowing cooking tool allowing preparation of dishes up to Rank 3.'):
+        "",
+
+    # ---------------------------------------------------------- :116349
+    (116349, 'It is a cooking tool allowing the preparation of dishes up to Rank 4.'):
+        "",
+
+    # ---------------------------------------------------------- :116606
+    (116606, '(Reusable) tool that you should use them NOW! <Category: Punishment.'):
+        "",
+
+    # ---------------------------------------------------------- :120508
+    (120508, '(Reusable) tool made for carpentry, a necessity for carpenters.'):
+        "",
+
+    # ---------------------------------------------------------- :120574
+    (120574, '(Reusable) tool made for tailoring, a necessity for the tailors.'):
+        "",
+
+    # ---------------------------------------------------------- :121832
+    (121832, 'It is a tool for painting. Cannot be used.'):
+        "",
+
+    # ---------------------------------------------------------- :122682
+    (122682, '(Reusable) tool made for basic alchemy.'):
+        "",
+
+# 143 voci, 0 ambigue

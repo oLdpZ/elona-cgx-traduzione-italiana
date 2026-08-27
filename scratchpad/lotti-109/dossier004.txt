@@ -1,0 +1,1364 @@
+=== ITEM_ID_TZ500_K   [FILTER_ITEM_TOOL]
+    NOME      jp TZ500-K型麻酔銃
+              en TZ500-K
+              IT TZ500-K
+    --- description(3)  :42418 ⚠️ TETTO SECCO 69
+        JP  対象の体重で効果変動する麻酔銃だ。何度か使用することができる。\n#～鑑定報告書：＜用具＞カテゴリ～
+        EN  (Reusable) Dart rifle that tranquilizes target weight 500-1000 kg.
+
+=== ITEM_ID_TZC_500   [FILTER_ITEM_TOOL]
+    NOME      jp TZC-500型麻酔銃
+              en TZC-500
+              IT TZC-500
+    --- description(3)  :42494 ⚠️ TETTO SECCO 69
+        JP  対象の体重で効果変動する麻酔銃だ。何度か使用することができる。\n#～鑑定報告書：＜用具＞カテゴリ～
+        EN  (Reusable) Dart rifle that tranquilizes target weight 100-500 kg.
+
+=== ITEM_ID_TZ30_C   [FILTER_ITEM_TOOL]
+    NOME      jp TZ30-C型麻酔銃
+              en TZ30-C
+              IT TZ30-C
+    --- description(3)  :42570 ⚠️ TETTO SECCO 69
+        JP  対象の体重で効果変動する麻酔銃だ。何度か使用することができる。\n#～鑑定報告書：＜用具＞カテゴリ～
+        EN  (Reusable) Dart rifle that tranquilizes target weight 30-100 kg.
+
+=== ITEM_ID_TZ_30   [FILTER_ITEM_TOOL]
+    NOME      jp TZ-30型麻酔銃
+              en TZ-30
+              IT TZ-30
+    --- description(3)  :42646 ⚠️ TETTO SECCO 69
+        JP  対象の体重で効果変動する麻酔銃だ。何度か使用することができる。\n#～鑑定報告書：＜用具＞カテゴリ～
+        EN  (Reusable) Dart rifle that tranquilizes target weight <30 kg.
+
+=== ITEM_ID_WARIBASI   [FILTER_ITEM_TOOL]
+    NOME      jp わりばし
+              en waribasi
+              IT waribasi
+    --- description(3)  :42712 ⚠️ TETTO SECCO 69
+        JP  木製の箸だ。使うことができる(使い捨て)。\n#～鑑定報告書：＜用具＞カテゴリ～
+        EN  (Single-use) chopsticks.
+
+=== ITEM_ID_MIMIRROCRY   [FILTER_ITEM_TOOL]
+    NOME      jp ミラクリー
+              en mimirrocry
+              IT mimirrocry
+    --- description(3)  :43243 ⚠️ TETTO SECCO 69
+        JP  別の姿を与える道具だ。誰にでも何度でも使用できる。\n#～鑑定報告書：＜魔道具＞カテゴリ～
+        EN  (Reusable) Magical item that changes one's form.
+
+=== ITEM_ID_FLOAT_CAGE   [FILTER_ITEM_TOOL]
+    NOME      jp 浮遊檻
+              en float cage
+              IT gabbia fluttuante
+    --- description(3)  :44100 ⚠️ TETTO SECCO 69
+        JP  瀕死や行動不能の相手を連行できる檻。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Reusable) tool cage that capture and transport a defeated victim.
+
+=== ITEM_ID_SLAVE_SPINNER   [FILTER_ITEM_TOOL]
+    NOME      jp 奴隷グルグル
+              en slave spinner
+              IT giostra per schiavi
+    --- description(3)  :44166 ⚠️ TETTO SECCO 69
+        JP  人力で労働エナジーを生む器具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Reusable) tool that generates work energy using human labor.
+
+=== ITEM_ID_SLAVE_WHEEL   [FILTER_ITEM_TOOL]
+    NOME      jp 奴隷バタバタ
+              en slave wheel
+              IT ruota per schiavi
+    --- description(3)  :44232 ⚠️ TETTO SECCO 69
+        JP  人力で労働エナジーを生む器具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Reusable) tool that generates work energy using human labor.
+
+=== ITEM_ID_WHITE_DARK_ORB   [FILTER_ITEM_TOOL]
+    NOME      jp 白魔神石
+              en white devil orb
+              IT globo del demone bianco
+    --- description(3)  :45484 ⚠️ TETTO SECCO 69
+        JP  罠を設置する石だ。何度でも使用することができる。\n#～鑑定報告書：＜魔道具＞カテゴリ～
+        EN  (Reusable) tool that set up traps.
+
+=== ITEM_ID_AWAKE_DESTONE   [FILTER_ITEM_TOOL]
+    NOME      jp 覚醒の閃石
+              en awakening stone
+              IT pietra del risveglio
+    --- description(3)  :45550 ⚠️ TETTO SECCO 69
+        JP  ＡＰを得られる石だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Single-use) tool used to gain AP.
+
+=== ITEM_ID_MANA_DESTONE   [FILTER_ITEM_TOOL]
+    NOME      jp 魔導結石
+              en mana stone
+              IT pietra di mana
+    --- description(3)  :45616 ⚠️ TETTO SECCO 69
+        JP  魔力とＭＰを得られる石だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Single-use) tool used to restore mana.
+
+=== ITEM_ID_FIGHTING_DESTONE   [FILTER_ITEM_TOOL]
+    NOME      jp 闘魂石
+              en fighting stone
+              IT pietra da combattimento
+    --- description(3)  :45682 ⚠️ TETTO SECCO 69
+        JP  耐久とスタミナを得られる石だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Single-use) tool used to restore stamina.
+
+=== ITEM_ID_RES_UPPER   [FILTER_ITEM_TOOL]
+    NOME      jp Resアッパー
+              en Res upper
+              IT potenziatore di Res
+    --- description(3)  :45748 ⚠️ TETTO SECCO 69
+        JP  各耐性を一定まで上げる道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Single-use) tool used to increase your resistance.
+
+=== ITEM_ID_DV_FIXER   [FILTER_ITEM_TOOL]
+    NOME      jp DVフィクサー
+              en DV fixer
+              IT correttore di DV
+    --- description(3)  :45814 ⚠️ TETTO SECCO 69
+        JP  ＤＶ補正を上げる道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Single-use) tool used to increase your DV modifier.
+
+=== ITEM_ID_PV_FIXER   [FILTER_ITEM_TOOL]
+    NOME      jp PVフィクサー
+              en PV fixer
+              IT correttore di PV
+    --- description(3)  :45880 ⚠️ TETTO SECCO 69
+        JP  ＰＶ補正を上げる道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Single-use) tool used to increase your PV modifier.
+
+=== ITEM_ID_X_FRAME   [FILTER_ITEM_TOOL]
+    NOME      jp Ｘフレーム
+              en X-Frame
+              IT telaio X
+    non ident. IT componente intricato   (en intricate component)
+    --- description(3)  :45947 ⚠️ TETTO SECCO 69
+        JP  ポーショマンを強化する道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜部品＞カテゴリ～
+        EN  (Single-use) exo-skeleton upgrade kit for your Potioman.
+
+=== ITEM_ID_SLIME_MOLD   [FILTER_ITEM_TOOL]
+    NOME      jp 構成粘菌
+              en slime mold
+              IT muffa melmosa
+    non ident. IT massa appiccicosa   (en sticky blob)
+    --- description(3)  :46079 ⚠️ TETTO SECCO 69
+        JP  特殊な素材だ。特定の死体に使うことができる(使い捨て)。\n#～鑑定報告書：＜遺物＞カテゴリ～
+        EN  (Single-use) tool to be used on certain corpses.
+
+=== ITEM_ID_NECRO_PARTS   [FILTER_ITEM_TOOL]
+    ⚠️ NOME    non trovato nel dizionario: la prosa non ha un nome a cui obbedire
+    non ident. IT pezzi di cadavere   (en necro parts)
+    --- description(3)  :46145 ⚠️ TETTO SECCO 69
+        JP  部位を獲得できる義肢だ。使うことができる(使い捨て)。\n#～鑑定報告書：＜遺物＞カテゴリ～
+        EN  (Single-use) tool that can graft new body parts.
+
+=== ITEM_ID_CORK_PACK   [FILTER_ITEM_TOOL]
+    NOME      jp コルクパック
+              en cork pack
+              IT pacco di sughero
+    --- description(3)  :46406 ⚠️ TETTO SECCO 69
+        JP  \t\t大量の栓を獲得できる道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool containing a large sum of corks.
+
+=== ITEM_ID_LASER_BAZOOKA   [FILTER_ITEM_TOOL]
+    NOME      jp 光子バズーカ砲
+              en laser bazooka
+              IT bazooka laser
+    --- description(3)  :46482 ⚠️ TETTO SECCO 69
+        JP  \t\t狙った対象のガードを崩す兵器だ。何度か使用することができる。\n#～鑑定報告書：＜特殊兵器＞カテゴリ～\n
+        EN  (Reusable) large-calibre gun that shoots guard-breaking laser.
+
+=== ITEM_ID_MASTER_OF_DIAMOND   [FILTER_ITEM_TOOL]
+    NOME      jp ダイヤの宝札
+              en master of diamond
+              IT signore di quadri
+    --- description(3)  :46550 ⚠️ TETTO SECCO 69
+        JP  \t\t精霊を召喚する道具だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that summons spirits.
+
+=== ITEM_ID_MASTER_OF_HEART   [FILTER_ITEM_TOOL]
+    NOME      jp ハートの宝札
+              en master of heart
+              IT signore di cuori
+    --- description(3)  :46618 ⚠️ TETTO SECCO 69
+        JP  \t\t精霊を召喚する道具だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that summons spirits.
+
+=== ITEM_ID_MASTER_OF_CLUB   [FILTER_ITEM_TOOL]
+    NOME      jp クラブの宝札
+              en master of club
+              IT signore di fiori
+    --- description(3)  :46686 ⚠️ TETTO SECCO 69
+        JP  \t\t精霊を召喚する道具だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that summons spirits.
+
+=== ITEM_ID_MASTER_OF_SPADE   [FILTER_ITEM_TOOL]
+    NOME      jp スペードの宝札
+              en master of spade
+              IT signore di picche
+    --- description(3)  :46754 ⚠️ TETTO SECCO 69
+        JP  \t\t精霊を召喚する道具だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that summons spirits.
+
+=== ITEM_ID_SPIRITIUM   [FILTER_ITEM_TOOL]
+    NOME      jp スピリチウム
+              en spiritium
+              IT spiritium
+    --- description(3)  :46821 ⚠️ TETTO SECCO 69
+        JP  \t\t性格の一部を自覚させる道具だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool for one to  discover one's personalities.
+
+=== ITEM_ID_SURVIVABILITY_EXTENDER_X   [FILTER_ITEM_TOOL]
+    NOME      jp SuエクステンダーX
+              en Survivability EXtender X
+              IT estensore di sopravvivenza X
+    --- description(3)  :46887 ⚠️ TETTO SECCO 69
+        JP  \t\t強い女児を授かるための道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool that give you a daughter.
+
+=== ITEM_ID_SURVIVABILITY_EXTENDER_Y   [FILTER_ITEM_TOOL]
+    NOME      jp SuエクステンダーY
+              en Survivability EXtender Y
+              IT estensore di sopravvivenza Y
+    --- description(3)  :46953 ⚠️ TETTO SECCO 69
+        JP  \t\t強い男児を授かるための道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool that give you a son.
+
+=== ITEM_ID_STARFIBER   [FILTER_ITEM_TOOL]
+    NOME      jp 強化星維
+              en starfiber
+              IT fibra stellare
+    --- description(3)  :47019 ⚠️ TETTO SECCO 69
+        JP  \t\t生きている武器の経験値になる繊維だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool that gives experience to a living weapon.
+
+=== ITEM_ID_ANERING   [FILTER_ITEM_TOOL]
+    NOME      jp アネワッシャー
+              en anering
+              IT anering
+    --- description(3)  :47086 ⚠️ TETTO SECCO 69
+        JP  MPを回復できるリングだ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool that restores your MP.
+
+=== ITEM_ID_SOCKS2   [FILTER_ITEM_TOOL]
+    NOME      jp 靴下
+              en socks
+              IT calzini
+    --- description(3)  :47289 ⚠️ TETTO SECCO 69
+        JP  \t\t臭う靴下。何度でも使用することができる。\n#～鑑定報告書：＜衣類＞カテゴリ～\n
+        EN  (Reusable) tool. But it really is just smelly socks.
+
+=== ITEM_ID_FILTRATION_BOTTLE   [FILTER_ITEM_TOOL]
+    NOME      jp 浄水筒
+              en filtration bottle
+              IT borraccia filtrante
+    --- description(3)  :49779 ⚠️ TETTO SECCO 69
+        JP  \t\t喉を潤せる水筒。水中で使えば補充も可能。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that drench your thirst. Can be refilled under water.
+
+=== ITEM_ID_CHAOS_FRAGMENT   [FILTER_ITEM_TOOL]
+    NOME      jp 軍神の欠片
+              en Chaos Fragment
+              IT frammento del Caos
+    non ident. IT frammento possente   (en powerful fragment)
+    --- description(3)  :49850 ⚠️ TETTO SECCO 69
+        JP  \t\t能力を一定値まで上昇させる結晶。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that raises one's stats to a certain level.
+
+=== ITEM_ID_REMIDO_FRAGMENT   [FILTER_ITEM_TOOL]
+    NOME      jp レミードの欠片
+              en Rehmido Fragment
+              IT frammento di Rehmido
+    non ident. IT frammento possente   (en powerful fragment)
+    --- description(3)  :49921 ⚠️ TETTO SECCO 69
+        JP  \t\t能力を一定値まで上昇させる結晶。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that raises one's stats to a certain level.
+
+=== ITEM_ID_LESIMAS_FRAGMENT   [FILTER_ITEM_TOOL]
+    NOME      jp レシマスの欠片
+              en Lesimas Fragment
+              IT frammento di Lesimas
+    non ident. IT frammento possente   (en powerful fragment)
+    --- description(3)  :49992 ⚠️ TETTO SECCO 69
+        JP  \t\t能力を一定値まで上昇させる結晶。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that raises one's stats to a certain level.
+
+=== ITEM_ID_G_FINGER   [FILTER_ITEM_TOOL]
+    NOME      jp Ｇフィンガー
+              en G-Finger
+              IT G-Finger
+    non ident. IT dito dorato   (en golden finger)
+    --- description(3)  :50063 ⚠️ TETTO SECCO 69
+        JP  \t\t瀕死の敵を金の塊に変える道具。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that turns a dying enemy into solid gold.
+
+=== ITEM_ID_PHOTON_FAIRY   [FILTER_ITEM_TOOL]
+    NOME      jp 光子妖精
+              en Photon Fairy
+              IT fata fotonica
+    non ident. IT programma misterioso   (en photon program)
+    --- description(3)  :50134 ⚠️ TETTO SECCO 69
+        JP  \t\t名声か発言力を獲得する道具。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that grants fame and authority.
+
+=== ITEM_ID_CONTRADCTION   [FILTER_ITEM_TOOL]
+    NOME      jp 矛盾勲章
+              en Contradiction
+              IT Contraddizione
+    non ident. IT medaglia ragguardevole   (en respectable medal)
+    --- description(3)  :50205 ⚠️ TETTO SECCO 69
+        JP  \t\t２つの技能を発動する道具。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that allow simutaneous activation of two skills.
+
+=== ITEM_ID_BIGAMY_PERMIT   [FILTER_ITEM_TOOL]
+    NOME      jp 特殊重婚許可証
+              en Bigamy Permit
+              IT permesso di bigamia
+    non ident. IT documento divino   (en divine proof)
+    --- description(3)  :50274 ⚠️ TETTO SECCO 69
+        JP  \t\t仲間以外とも結婚できる道具。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that allows you to marry non-allies.
+
+=== ITEM_ID_FLOATING_FORTRESS_KEY   [FILTER_ITEM_TOOL]
+    NOME      jp 浮遊要塞の鍵 浮遊要塞の鍵
+              en Floating fortress key mysterious machine
+              IT chiave della fortezza volante macchina misteriosa
+    non ident. IT funzioni ignote   (en unknown functionailties)
+    --- description(3)  :50344 ⚠️ TETTO SECCO 69
+        JP  \t\tワールドマップで使用することができる。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool used on the world map. May be used periodically.
+
+=== ITEM_ID_MEMORY_CONVERTER   [FILTER_ITEM_TOOL]
+    NOME      jp 変憶結晶
+              en memory converter
+              IT convertitore di memoria
+    --- description(3)  :50411 ⚠️ TETTO SECCO 69
+        JP  \t\tスキル半減し僅かにボーナスを得る結晶。使用することができる（使い捨て）。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  (Single-use) tool crystal that half your skill to gain a slight bonus.
+
+=== ITEM_ID_CF_POTIOMAN   [FILTER_ITEM_TOOL]
+    ⚠️ NOME    non trovato nel dizionario: la prosa non ha un nome a cui obbedire
+    --- description(3)  :50477 ⚠️ TETTO SECCO 69
+        JP  \t\tポーションの栓を高速射出する道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that shoots out potion plugs at lethal velocity.
+
+=== ITEM_ID_CRUSH_POTIOMAN   [FILTER_ITEM_TOOL]
+    ⚠️ NOME    non trovato nel dizionario: la prosa non ha un nome a cui obbedire
+    --- description(3)  :50543 ⚠️ TETTO SECCO 69
+        JP  \t\tポーションの栓を高速射出する道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that shoots out potion plugs at lethal velocity.
+
+=== ITEM_ID_BATTLE_POTIOMAN   [FILTER_ITEM_TOOL]
+    ⚠️ NOME    non trovato nel dizionario: la prosa non ha un nome a cui obbedire
+    --- description(3)  :50609 ⚠️ TETTO SECCO 69
+        JP  \t\tポーションの栓を高速射出する道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that shoots out potion plugs at lethal velocity.
+
+=== ITEM_ID_SUPER_POTIOMAN   [FILTER_ITEM_TOOL]
+    ⚠️ NOME    non trovato nel dizionario: la prosa non ha un nome a cui obbedire
+    --- description(3)  :50675 ⚠️ TETTO SECCO 69
+        JP  \t\tポーションの栓を高速射出する道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that shoots out potion plugs at lethal velocity.
+
+=== ITEM_ID_OPERATING_BOARD   [FILTER_ITEM_TOOL]
+    NOME      jp オペレートボード
+              en operating board
+              IT pannello di comando
+    --- description(3)  :50749 ⚠️ TETTO SECCO 69
+        JP  \t\t膨大な情報を処理する為の道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool for processing vast amounts of information.
+
+=== ITEM_ID_JADE_DARK_ORB   [FILTER_ITEM_TOOL]
+    NOME      jp 翠魔神石
+              en green dark orb
+              IT globo oscuro verde
+    --- description(3)  :50948 ⚠️ TETTO SECCO 69
+        JP  \t\t罠を設置・起動する石だ。何度でも使用することができる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Unimplemented) (Reusable) tool used to set up or activate traps.
+
+=== ITEM_ID_AZURE_DARK_ORB   [FILTER_ITEM_TOOL]
+    NOME      jp 蒼魔神石
+              en blue dark orb
+              IT globo oscuro blu
+    --- description(3)  :51015 ⚠️ TETTO SECCO 69
+        JP  \t\t罠を設置・起動する石だ。何度でも使用することができる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Unimplemented) (Reusable) tool used to set up or activate traps.
+
+=== ITEM_ID_CRIMSON_DARK_ORB   [FILTER_ITEM_TOOL]
+    NOME      jp 紅魔神石
+              en crimson dark orb
+              IT globo oscuro cremisi
+    --- description(3)  :51082 ⚠️ TETTO SECCO 69
+        JP  \t\t罠を設置・起動する石だ。何度でも使用することができる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Unimplemented) (Reusable) tool used to set up or activate traps.
+
+=== ITEM_ID_MEMORY_FRAGMENT   [FILTER_ITEM_TOOL]
+    NOME      jp 記憶片
+              en debris
+              IT detriti
+    --- description(3)  :51291 ⚠️ TETTO SECCO 69
+        JP  \t\tスキルの記憶を秘めた欠片。使用することができる（使い捨て）。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  (Single-use) tool shard that grants you the memory of a skill.
+
+=== ITEM_ID_KEMURIDAMA   [FILTER_ITEM_TOOL]
+    NOME      jp 煙玉
+              en kemuridama
+              IT kemuridama
+    --- description(3)  :51982 ⚠️ TETTO SECCO 69
+        JP  \t\t煙幕を張るアイテムだ。投げつけて使う（使い捨て）。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  (Single-use) throwing tool that creates a smoke screen.
+
+=== ITEM_ID_YACA_POINT_CARD   [FILTER_ITEM_TOOL]
+    NOME      jp ヤカポイントカード
+              en YacaPoint card
+              IT carta YacaPoint
+    --- description(3)  :52048 ⚠️ TETTO SECCO 69
+        JP  \t\tポイントの確認と使用ができるカードだ。何度でも使用することができる。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  (Reusable) tool that allows you to check and use your Yaca points.
+
+=== ITEM_ID_MOKU_JIN   [FILTER_ITEM_TOOL]
+    NOME      jp 木人
+              en <Moku-Jin>
+              IT <Moku-Jin>
+    non ident. IT bambola di legno   (en wooden doll)
+    --- description(3)  :52383 ⚠️ TETTO SECCO 69
+        JP  \t\t武器スキルを鍛える道具。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that give you weapon experience through training.
+
+=== ITEM_ID_CROP_MANAGEMENT_TOOLS   [FILTER_ITEM_TOOL]
+    NOME      jp 作物管理セット
+              en crop management tools
+              IT attrezzi per le colture
+    --- description(3)  :52449 ⚠️ TETTO SECCO 69
+        JP  \t\t収穫物を固定する道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that secure the harvest.
+
+=== ITEM_ID_TWIG   [FILTER_ITEM_TOOL]
+    NOME      jp 小枝
+              en twig
+              IT rametto
+    --- description(3)  :54888 ⚠️ TETTO SECCO 69
+        JP  \t\t火を起こすのに使うことができる（使い捨て）。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  (Single-use) tool that starts a fire.
+
+=== ITEM_ID_FIXITY_ANCHOR   [FILTER_ITEM_TOOL]
+    NOME      jp 姿勢制御アンカー
+              en fixity anchor
+              IT ancora di stabilità
+    non ident. IT ancora   (en anchor)
+    --- description(3)  :55145 ⚠️ TETTO SECCO 69
+        JP  \t\t射撃攻撃力を強化する道具だ。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool to enhance the shooting attack power.
+
+=== ITEM_ID_DEVIL_FRAGMENT   [FILTER_ITEM_TOOL]
+    NOME      jp 魔神の欠片
+              en devil fragment
+              IT frammento di demone
+    --- description(3)  :55484 ⚠️ TETTO SECCO 69
+        JP  \t\t魔力を含んだ欠片だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Single-use) tool that grants magic power.
+
+=== ITEM_ID_NYOI_MIMIKAKI   [FILTER_ITEM_TOOL]
+    NOME      jp 如意耳掻棒
+              en nyoi mimikaki
+              IT nyoi mimikaki
+    --- description(3)  :56606 ⚠️ TETTO SECCO 69
+        JP  \t\t耳掃除用の道具だ。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that cleans your ear.
+
+=== ITEM_ID_CHRISTMAS_CAKE_SET   [FILTER_ITEM_TOOL]
+    NOME      jp クリスマスケーキセット
+              en christmas cake set
+              IT set di dolci natalizi
+    --- description(3)  :57066 ⚠️ TETTO SECCO 69
+        JP  \t\t食べるのではなく、使うことで仲間全員で食事ができる（使い捨て）。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  (Single-use) tool that creates a cake for your allies to eat.
+
+=== ITEM_ID_YACATECTS_BANK   [FILTER_ITEM_TOOL]
+    NOME      jp ヤカテクト預金箱
+              en yacatect's bank
+              IT salvadanaio di Yacatect
+    --- description(3)  :57648 ⚠️ TETTO SECCO 69
+        JP  \t\t富の女神を模した箱だ。定期的に使用することができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Reusable) toy modeled after Goddess of Wealth. May be used periodically.
+
+=== ITEM_ID_HARAKIRI   [FILTER_ITEM_TOOL]
+    NOME      jp 《腹切丸》
+              en <Harakiri>
+              IT <Harakiri>
+    --- description(3)  :58529 ⚠️ TETTO SECCO 69
+        JP  \t\t切腹用の刀だ。装備できないが何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a sword made for Seppuku. (Reusable) tool that can't be equipped.
+
+=== ITEM_ID_HEART_OF_TWILIGHT   [FILTER_ITEM_TOOL]
+    NOME      jp 黄昏の心臓 黄昏の心臓
+              en Heart of Twilight yellow gem stone
+              IT Cuore del Crepuscolo gemma gialla
+    non ident. IT poteri divini   (en godly powers)
+    --- description(3)  :59526 ⚠️ TETTO SECCO 69
+        JP  \t\tワールドマップで使用することができる。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool used on the world map. May be used periodically.
+
+=== ITEM_ID_STARDUST   [FILTER_ITEM_TOOL]
+    NOME      jp スターダスト
+              en stardust
+              IT polvere di stelle
+    --- description(3)  :59661 ⚠️ TETTO SECCO 69
+        JP  \t\tアーティファクトを強化できる星屑だ（使い捨て）。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Single-use) tool stardust that enhances an artifact.
+
+=== ITEM_ID_BIO_PRINTER   [FILTER_ITEM_TOOL]
+    NOME      jp バイオプリンター
+              en bio printer
+              IT bio-stampante
+    --- description(3)  :59929 ⚠️ TETTO SECCO 69
+        JP  \t\tはく製を作り出す装置だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  (Single-use) tool that 3d-prints target with biological materials.
+
+=== ITEM_ID_CRAFT_REPAIR_KIT   [FILTER_ITEM_TOOL]
+    NOME      jp 名工のリペアキット
+              en craft repair kit
+              IT kit di riparazione di pregio
+    --- description(3)  :60066 ⚠️ TETTO SECCO 69
+        JP  \t\t装備の本来の能力を引き出す道具だ（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool that brings out the true potential of t equipment.
+
+=== ITEM_ID_HANABI   [FILTER_ITEM_TOOL]
+    NOME      jp 連装花火ランチャー
+              en hanabi
+              IT hanabi
+    --- description(3)  :60652 ⚠️ TETTO SECCO 69
+        JP  \t\t火薬の玉を打ち上げる筒だ。何度か使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that launches a ball of gunpowder.
+
+=== ITEM_ID_KISERU   [FILTER_ITEM_TOOL]
+    NOME      jp キセル
+              en kiseru
+              IT kiseru
+    --- description(3)  :60917 ⚠️ TETTO SECCO 69
+        JP  \t\t喫煙道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜嗜好品＞カテゴリ～\n
+        EN  (Single-use) smoking tool.
+
+=== ITEM_ID_TOBACCO_PIPE   [FILTER_ITEM_TOOL]
+    NOME      jp パイプ
+              en tobacco pipe
+              IT pipa
+    --- description(3)  :60983 ⚠️ TETTO SECCO 69
+        JP  \t\t喫煙道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜嗜好品＞カテゴリ～\n
+        EN  (Single-use) smoking tool.
+
+=== ITEM_ID_HAMAKI   [FILTER_ITEM_TOOL]
+    NOME      jp 葉巻
+              en hamaki
+              IT hamaki
+    --- description(3)  :61049 ⚠️ TETTO SECCO 69
+        JP  \t\t喫煙道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜嗜好品＞カテゴリ～\n
+        EN  (Single-use) smoking tool.
+
+=== ITEM_ID_CIGARETTE   [FILTER_ITEM_TOOL]
+    NOME      jp 紙巻タバコ
+              en cigarette
+              IT sigaretta
+    --- description(3)  :61115 ⚠️ TETTO SECCO 69
+        JP  \t\t喫煙道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜嗜好品＞カテゴリ～\n
+        EN  (Single-use) smoking tool.
+
+=== ITEM_ID_ATOMIC_LAUNCHER   [FILTER_ITEM_TOOL]
+    NOME      jp アトミックランチャー
+              en atomic launcher
+              IT lanciamissili atomico
+    --- description(3)  :62023 ⚠️ TETTO SECCO 69
+        JP  \t\t戦術核兵器だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜特殊兵器＞カテゴリ～\n
+        EN  (Reusable) tactical nuclear weapon.
+
+=== ITEM_ID_M202_SPECIAL   [FILTER_ITEM_TOOL]
+    NOME      jp M202スペシャル
+              en M202 special
+              IT M202 special
+    --- description(3)  :62099 ⚠️ TETTO SECCO 69
+        JP  \t\t狙った対象の周囲を焼き尽くす兵器だ。何度か使用することができる。\n#～鑑定報告書：＜特殊兵器＞カテゴリ～\n
+        EN  (Reusable) tool that burns down the area around the target it's aimed at.
+
+=== ITEM_ID_PANZERFAUST_X   [FILTER_ITEM_TOOL]
+    NOME      jp パンツァーファウストＸ
+              en panzerfaust X
+              IT panzerfaust X
+    --- description(3)  :62175 ⚠️ TETTO SECCO 69
+        JP  \t\t狙った対象のＰＶを一時的に下げる兵器だ。何度か使用することができる。\n#～鑑定報告書：＜特殊兵器＞カテゴリ～\n
+        EN  (Reusable) weapon that temporarily lowers the PV of a target.
+
+=== ITEM_ID_PLEASANT_SLEEP_BLANKET   [FILTER_ITEM_TOOL]
+    NOME      jp 快眠ブランケット
+              en pleasant sleep blanket
+              IT coperta del sonno tranquillo
+    --- description(3)  :62237 ⚠️ TETTO SECCO 69
+        JP  \t\t持たせた仲間が早起きできなくなるブランケットだ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a blanket that prevents allies from getting up early.
+
+=== ITEM_ID_FIRST_AID_KIT   [FILTER_ITEM_TOOL]
+    NOME      jp ファーストエイド
+              en first aid kit
+              IT kit di pronto soccorso
+    --- description(3)  :62603 ⚠️ TETTO SECCO 69
+        JP  \t\t応急手当用の箱だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜入れ物＞カテゴリ～\n
+        EN  (Single-use) tool box of first aid supplies.
+
+=== ITEM_ID_SPECIAL_AMMO_BOX   [FILTER_ITEM_TOOL]
+    NOME      jp 特殊矢弾箱
+              en special ammo box
+              IT cassa di munizioni speciali
+    --- description(3)  :62669 ⚠️ TETTO SECCO 69
+        JP  \t\t使うことで特殊矢弾を補充できる箱だ（使い捨て）。\n#～鑑定報告書：＜入れ物＞カテゴリ～\n
+        EN  (Single-use) toolbox filled with specialized ammunitions.
+
+=== ITEM_ID_NUCLEAR_DEAD_LION   [FILTER_ITEM_TOOL]
+    NOME      jp 爆発する原子力の死んだライオン
+              en NUCLEAR DEAD LION
+              IT LEONE MORTO NUCLEARE
+    non ident. IT leone morto   (en dead lion)
+    --- description(3)  :63524 ⚠️ TETTO SECCO 69
+        JP  \t\t一定時間後広範囲に壊滅的な破壊を加える爆弾だ（使い捨て）。\n#～鑑定報告書：＜爆弾＞カテゴリ～\n
+        EN  (Single-use) horrifying weapon of destruction from ancient times.
+
+=== ITEM_ID_ALPHA_SHIFT_CORE   [FILTER_ITEM_TOOL]
+    NOME      jp アルファ変異殻
+              en alpha shift core
+              IT nucleo di transizione alfa
+    --- description(3)  :63940 ⚠️ TETTO SECCO 69
+        JP  \t\t別の姿と力を与える道具だ。ゲージ５０％以上の時に使用できる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool that transforms you. Can be used with 50% gauge.
+
+=== ITEM_ID_BETA_SHIFT_CORE   [FILTER_ITEM_TOOL]
+    NOME      jp ベータ変異殻
+              en beta shift core
+              IT nucleo di transizione beta
+    --- description(3)  :64008 ⚠️ TETTO SECCO 69
+        JP  \t\t別の姿と力を与える道具だ。ゲージ５０％以上の時に使用できる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool that transforms you. Can be used with 50% gauge.
+
+=== ITEM_ID_GAMMA_SHIFT_CORE   [FILTER_ITEM_TOOL]
+    NOME      jp ガンマ変異殻
+              en gamma shift core
+              IT nucleo di transizione gamma
+    --- description(3)  :64076 ⚠️ TETTO SECCO 69
+        JP  \t\t別の姿と力を与える道具だ。ゲージ５０％以上の時に使用できる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool that transforms you. Can be used with 50% gauge.
+
+=== ITEM_ID_DELTA_SHIFT_CORE   [FILTER_ITEM_TOOL]
+    NOME      jp デルタ変異殻
+              en delta shift core
+              IT nucleo di transizione delta
+    --- description(3)  :64144 ⚠️ TETTO SECCO 69
+        JP  \t\t別の姿と力を与える道具だ。ゲージ５０％以上の時に使用できる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool that transforms you. Can be used with 50% gauge.
+
+=== ITEM_ID_OMEGA_SHIFT_CORE   [FILTER_ITEM_TOOL]
+    NOME      jp オメガ変異殻
+              en omega shift core
+              IT nucleo di transizione omega
+    --- description(3)  :64212 ⚠️ TETTO SECCO 69
+        JP  \t\t別の姿と力を与える道具だ。ゲージ５０％以上の時に使用できる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool that transforms you. Can be used with 50% gauge.
+
+=== ITEM_ID_4D_MIRROR   [FILTER_ITEM_TOOL]
+    NOME      jp 四次元ミラー
+              en 4-Dimensional mirror
+              IT specchio quadridimensionale
+    --- description(3)  :64556 ⚠️ TETTO SECCO 69
+        JP  \t\t四次元ポケットを発動する鏡。何度か使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that opens a pocket in another dimension to store item.
+
+=== ITEM_ID_LARGE_PICNIC_BASKET   [FILTER_ITEM_TOOL]
+    NOME      jp 大型ピクニックバスケット
+              en large picnic basket
+              IT cesto da picnic grande
+    --- description(3)  :64681 ⚠️ TETTO SECCO 69
+        JP  \t\t使うことで仲間全員で食事ができる（使い捨て）。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  (Single-use) tool box that allows all your friends to eat together.
+
+=== ITEM_ID_DD_CEMETERY_KEY   [FILTER_ITEM_TOOL]
+    NOME      jp 異界墓地の鍵
+              en DD cemetery key
+              IT chiave del cimitero DD
+    --- description(3)  :64744 ⚠️ TETTO SECCO 69
+        JP  \t\t闇の棺を１５個まで保管可能。何度でも使用することができる。\n#～鑑定報告書：＜鍵＞カテゴリ～\n
+        EN  (Reusable) tool that holds 15 coffins of necromancy.
+
+=== ITEM_ID_WONDER_BODY_FORMER   [FILTER_ITEM_TOOL]
+    NOME      jp 不思議な秘宝
+              en wonder body former
+              IT rimodellatore prodigioso
+    --- description(3)  :64810 ⚠️ TETTO SECCO 69
+        JP  \t\t好きな部位を得られるアイテムだ。使用することができる（使い捨て）。\n#～鑑定報告書：＜特殊＞カテゴリ～\n
+        EN  (Single-use) tool that grants a body part you want.
+
+=== ITEM_ID_DUEL_GLOVE   [FILTER_ITEM_TOOL]
+    NOME      jp デュエルグローブ
+              en duel glove
+              IT guanto di sfida
+    --- description(3)  :65198 ⚠️ TETTO SECCO 69
+        JP  \t\t決闘用の手袋だ。相手に投げつけて使う（使い捨て）。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  (Single-use) throwing tool that initializes duel with your opponent.
+
+=== ITEM_ID_INSIGHT_LENS   [FILTER_ITEM_TOOL]
+    NOME      jp インサイトレンズ
+              en insight lens
+              IT lente dell'intuito
+    --- description(3)  :65467 ⚠️ TETTO SECCO 69
+        JP  \t\t対象の情報を確認できるレンズ。使用することができる（使い捨て）。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Single-use) tool lenses that allow you to see information of the target.
+
+=== ITEM_ID_NINE_GOD_SIGN   [FILTER_ITEM_TOOL]
+    NOME      jp 九神の印
+              en nine god sign
+              IT sigillo delle nove divinità
+    --- description(3)  :66078 ⚠️ TETTO SECCO 69
+        JP  \t\t信仰を確認できる石だ。何度でも使用することができる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool stone that confirms your faith.
+
+=== ITEM_ID_JUKE_BOX   [FILTER_ITEM_TOOL]
+    NOME      jp ジュークボックス
+              en Juke box
+              IT jukebox
+    --- description(3)  :67669 ⚠️ TETTO SECCO 69
+        JP  \t\t任意の曲を流せる機械だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that plays any music you want.
+
+=== ITEM_ID_DRUG_KISERU   [FILTER_ITEM_TOOL]
+    NOME      jp 麻薬煙管
+              en drug kiseru
+              IT pipa da oppio
+    --- description(3)  :68590 ⚠️ TETTO SECCO 69
+        JP  \t\t乾燥クラムベリーの煙を吸引するための器具。使用できる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool that used for inhaling dried crimberry smoke.
+
+=== ITEM_ID_WAKE_UP_OF_NEFIA   [FILTER_ITEM_TOOL]
+    NOME      jp 覚醒の宝玉 覚醒の宝玉
+              en Wake up of nefia black gem stone
+              IT Risveglio di Nefia gemma nera
+    non ident. IT poteri divini   (en godly powers)
+    --- description(3)  :68720 ⚠️ TETTO SECCO 69
+        JP  \t\tワールドマップで使用することができる。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool used on the world map. May be used periodically.
+
+=== ITEM_ID_SOUL_SPINDLE   [FILTER_ITEM_TOOL]
+    NOME      jp リンカネイト リンカネイト
+              en soul red spindle
+              IT reincarnazione fuso rosso
+    non ident. IT reincarnazione   (en reincarnation)
+    --- description(3)  :68786 ⚠️ TETTO SECCO 69
+        JP  \t\tショウルーム用。使用することができる（使い捨て）。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Single-use) tool to use in a Showroom.
+
+=== ITEM_ID_ORGANIC_FERTILIZER   [FILTER_ITEM_TOOL]
+    NOME      jp 有機肥料
+              en organic fertilizer
+              IT concime organico
+    --- description(3)  :69457 ⚠️ TETTO SECCO 69
+        JP  \t\t作物用の肥料。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool for crops.
+
+=== ITEM_ID_HANDMADE_CHOCOLATE_KIT   [FILTER_ITEM_TOOL]
+    NOME      jp チョコレート手作りキット
+              en handmade chocolate kit
+              IT kit di cioccolatini fatti in casa
+    --- description(3)  :70336 ⚠️ TETTO SECCO 69
+        JP  \t\t限定的な調理器具。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) cooking tool set.
+
+=== ITEM_ID_COFFIN_OF_NECROMANCY   [FILTER_ITEM_TOOL]
+    NOME      jp 闇の棺
+              en coffin of necromancy
+              IT bara della negromanzia
+    --- description(3)  :70601 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することで棺に眠る魔物を呼び覚ます。定期的に使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) tool used for necromancy. May be used periodically.
+
+=== ITEM_ID_ASTRAL_LIGHT_PEN   [FILTER_ITEM_TOOL]
+    NOME      jp アストラル光筆
+              en astral light pen
+              IT penna di luce astrale
+    non ident. IT penna d'oca lucente   (en shining featherpen)
+    --- description(3)  :70820 ⚠️ TETTO SECCO 69
+        JP  \t\t対象者の存在を増やして仲間に引き入れる道具。使用できる（使い捨て）。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Single-use) tool that duplicate the existence of target into your team.
+
+=== ITEM_ID_CLEANING_DOLL   [FILTER_ITEM_TOOL]
+    NOME      jp 魔よけの人形
+              en <Cleaning Doll>
+              IT <Bambola delle Pulizie>
+    non ident. IT bambola   (en doll)
+    --- description(3)  :71927 ⚠️ TETTO SECCO 69
+        JP  \t\t身長10cmほどの人形だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Single-use) tool doll that is 10cm in height.
+
+=== ITEM_ID_BLANK_BUSINESS_CARD   [FILTER_ITEM_TOOL]
+    NOME      jp かきこむ名刺
+              en Blank Business Card
+              IT Biglietto da Visita Vuoto
+    non ident. IT biglietto da visita   (en business card)
+    --- description(3)  :72487 ⚠️ TETTO SECCO 69
+        JP  \t\t職業を変更する消耗品だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Single-use) tool that changes your profession. Write in lower caption.
+
+=== ITEM_ID_PHILOSOPHERS_STONE_MASK   [FILTER_ITEM_TOOL]
+    NOME      jp 賢者の石仮面
+              en Philosopher's Stone Mask
+              IT Maschera della Pietra Filosofale
+    non ident. IT maschera di pietra   (en stone mask)
+    --- description(3)  :72553 ⚠️ TETTO SECCO 69
+        JP  \t\t種族を変更するアイテムだ。使用することができる（使い捨て）。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Single-use) tool that changes your race. Use in lower caption.
+
+=== ITEM_ID_DOG_WHISTLE   [FILTER_ITEM_TOOL]
+    NOME      jp 犬笛
+              en <Dog Whistle>
+              IT <Fischietto per Cani>
+    non ident. IT fischietto nero   (en black whistle)
+    --- description(3)  :72623 ⚠️ TETTO SECCO 69
+        JP  \t\t特殊な周波数の音を出す笛だ。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool for sound of certain frequency. May be used periodically.
+
+=== ITEM_ID_EVITEM   [FILTER_ITEM_TOOL]
+    ⚠️ NOME    non trovato nel dizionario: la prosa non ha un nome a cui obbedire
+    --- description(3)  :73023 ⚠️ TETTO SECCO 69
+        JP  \t\t特殊な能力を秘めた宝石。使用することができる（使い捨て）。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Single-use) tool that unlocks special abilities.
+
+=== ITEM_ID_COMMAND_FLAG   [FILTER_ITEM_TOOL]
+    NOME      jp コマンドフラッグ
+              en command flag
+              IT bandiera di comando
+    --- description(3)  :73291 ⚠️ TETTO SECCO 69
+        JP  \t\t攻撃指示と防御指示を切り替える道具だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that switch between offensive and defensive instructions.
+
+=== ITEM_ID_STATUE_ITZPALT   [FILTER_ITEM_TOOL]
+    NOME      jp イツパロトル像 イツパロトル像
+              en Itzpalt statue
+              IT Itzpalt statua
+    non ident. IT divinità di Irva   (en deity of Irva)
+    --- description(3)  :73701 ⚠️ TETTO SECCO 69
+        JP  \t\t元素の神を模った彫像。定期的に使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of God of Elements. May be used periodically.
+
+=== ITEM_ID_STATUE_YACATECT   [FILTER_ITEM_TOOL]
+    NOME      jp ヤカテクト像 ヤカテクト像
+              en Yacatect statue
+              IT Yacatect statua
+    non ident. IT divinità di Irva   (en deity of Irva)
+    --- description(3)  :73768 ⚠️ TETTO SECCO 69
+        JP  \t\t富の神を模った彫像。定期的に使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of Goddess of Wealth. May be used periodically.
+
+=== ITEM_ID_EFFECT_SCANNER   [FILTER_ITEM_TOOL]
+    NOME      jp エフェクト・スキャナー
+              en effect scanner
+              IT scanner degli effetti
+    --- description(3)  :73831 ⚠️ TETTO SECCO 69
+        JP  \t\tカードの効果を引き出す道具だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Unimplemented) (Reusable) tool that apply the effect of the cards.
+
+=== ITEM_ID_GEMSTONE_MANI   [FILTER_ITEM_TOOL]
+    NOME      jp マニの切り札の宝玉 マニの切り札の宝玉
+              en satellite shooter Mani's gem stone
+              IT tiratore orbitale gemma di Mani
+    non ident. IT poteri divini   (en godly powers)
+    --- description(3)  :76317 ⚠️ TETTO SECCO 69
+        JP  \t\t全ての敵に射撃スキル依存のダメージを与える。定期的に使用できる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool used shoot every enemy nearby. May be used periodically.
+
+=== ITEM_ID_GEMSTONE_YACATECT   [FILTER_ITEM_TOOL]
+    NOME      jp ヤカテクトの小遣銭の宝玉 ヤカテクトの小遣銭の宝玉
+              en god medal Yacatect's gem stone
+              IT medaglia divina gemma di Yacatect
+    non ident. IT poteri divini   (en godly powers)
+    --- description(3)  :77776 ⚠️ TETTO SECCO 69
+        JP  \t\t月に一度だけ、お小遣いが貰える。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool for monthly allowence. May be used periodically.
+
+=== ITEM_ID_POT_OF_ALCHEMIST   [FILTER_ITEM_TOOL]
+    NOME      jp 《賢者の錬金釜》
+              en pot of alchemist
+              IT calderone dell'alchimista
+    --- description(3)  :78259 ⚠️ TETTO SECCO 69
+        JP  \t\t複雑な合成用の器具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that allow using of complex fusion recipes.
+
+=== ITEM_ID_POT_FOR_FUSION   [FILTER_ITEM_TOOL]
+    NOME      jp 合成の壺
+              en pot for fusion
+              IT vaso della fusione
+    --- description(3)  :78325 ⚠️ TETTO SECCO 69
+        JP  \t\t複雑な合成用の器具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that allow using of complex fusion recipes.
+
+=== ITEM_ID_STATUE_MANI   [FILTER_ITEM_TOOL]
+    NOME      jp マニ像 マニ像
+              en Mani statue
+              IT Mani statua
+    non ident. IT divinità di Irva   (en deity of Irva)
+    --- description(3)  :79114 ⚠️ TETTO SECCO 69
+        JP  \t\t機械仕掛けの神を模った彫像。定期的に使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of God of Machine. May be used periodically.
+
+=== ITEM_ID_STATUE_KUMIROMI   [FILTER_ITEM_TOOL]
+    NOME      jp クミロミ像 クミロミ像
+              en Kumiromi statue
+              IT Kumiromi statua
+    non ident. IT divinità di Irva   (en deity of Irva)
+    --- description(3)  :79181 ⚠️ TETTO SECCO 69
+        JP  \t\t収穫の神を模った彫像。定期的に使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of God of Harvest. May be used periodically.
+
+=== ITEM_ID_GAROKS_HAMMER   [FILTER_ITEM_TOOL]
+    NOME      jp ガロクの槌
+              en Garok's hammer
+              IT martello di Garok
+    non ident. IT martello da maestro   (en master hammer)
+    --- description(3)  :80221 ⚠️ TETTO SECCO 69
+        JP  \t\t武器防具を☆化することができる槌。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool that raises the quality of the equipment.
+
+=== ITEM_ID_STATUE_CREATOR   [FILTER_ITEM_TOOL]
+    NOME      jp 創造主の像 創造主の像
+              en Creator statue
+              IT Creatore statua
+    non ident. IT figura sospetta   (en a fishy figure)
+    --- description(3)  :80927 ⚠️ TETTO SECCO 69
+        JP  \t\tショウルーム用。何度でも使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of creator from the Moongate world. The power is lost now.
+
+=== ITEM_ID_SUMMONING_CRYSTAL   [FILTER_ITEM_TOOL]
+    NOME      jp 召喚石
+              en summoning crystal
+              IT cristallo di evocazione
+    non ident. IT cristallo splendido   (en beautiful stone)
+    --- description(3)  :80995 ⚠️ TETTO SECCO 69
+        JP  \t\tショウルーム用。何度でも使用することができる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool used in showrooms. May be used to summon CNPCs.
+
+=== ITEM_ID_TAMERS_WHIP   [FILTER_ITEM_TOOL]
+    NOME      jp 調教鞭
+              en tamer's whip
+              IT frusta del domatore
+    --- description(3)  :81133 ⚠️ TETTO SECCO 69
+        JP  \t\tペットが物を拾うのを禁止できる。何度でも使用することができる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool that forbids pet from doing certain actions.
+
+=== ITEM_ID_OBJET_HEART   [FILTER_ITEM_TOOL]
+    NOME      jp こころ こころ
+              en heart objet
+              IT cuore oggetto d'arte
+    non ident. IT origine ignota   (en unknown origin)
+    --- description(3)  :81199 ⚠️ TETTO SECCO 69
+        JP  \t\t対象の心を分析するアイテムだ。何度でも使用することができる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool that analyzes the mind of the target.
+
+=== ITEM_ID_SAND_BAG   [FILTER_ITEM_TOOL]
+    NOME      jp サンドバッグ
+              en sand bag
+              IT sacco da boxe
+    --- description(3)  :82007 ⚠️ TETTO SECCO 69
+        JP  \t\t弱ったモンスターを吊るしあげる道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that can tie up a weakened monster.
+
+=== ITEM_ID_STATUE_EHEKATL   [FILTER_ITEM_TOOL]
+    NOME      jp エヘカトル像 エヘカトル像
+              en Ehekatl statue
+              IT Ehekatl statua
+    non ident. IT divinità di Irva   (en deity of Irva)
+    --- description(3)  :82812 ⚠️ TETTO SECCO 69
+        JP  \t\t幸運の女神を模った彫像。定期的に使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of Goddess of Luck. May be used periodically.
+
+=== ITEM_ID_SECRET_EXP_LOMIAS   [FILTER_ITEM_TOOL]
+    NOME      jp ロミアスの秘密の経験 ロミアスの秘密の経験
+              en Lomias secret experience
+              IT Lomias esperienza segreta
+    non ident. IT gemma sospetta   (en strange jewel)
+    --- description(3)  :83081 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することで、今後に何か変化をもたらす宝石だ。\n#～鑑定報告書：＜宝珠＞カテゴリ～\n
+        EN  (Reusable?) gem that changes the past of the future.
+
+=== ITEM_ID_SECRET_EXP_KUMIROMI   [FILTER_ITEM_TOOL]
+    NOME      jp クミロミの秘密の経験 クミロミの秘密の経験
+              en Kumiromi secret experience
+              IT Kumiromi esperienza segreta
+    non ident. IT gemma sospetta   (en strange jewel)
+    --- description(3)  :83212 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することで、新たなフィートを得ることができる宝石だ（使い捨て）。\n#～鑑定報告書：＜宝珠＞カテゴリ～\n
+        EN  (Single-use) tool that grants you a feat.
+
+=== ITEM_ID_WHISTLE   [FILTER_ITEM_TOOL]
+    NOME      jp ホイッスル
+              en whistle
+              IT fischietto
+    --- description(3)  :84038 ⚠️ TETTO SECCO 69
+        JP  \t\t周囲に高音を響かせる笛。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that creates a high pitch noise.
+
+=== ITEM_ID_DECK   [FILTER_ITEM_TOOL]
+    NOME      jp デッキ
+              en deck
+              IT mazzo di carte
+    --- description(3)  :84166 ⚠️ TETTO SECCO 69
+        JP  \t\tカードを収納できる箱。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool to store cards.
+
+=== ITEM_ID_LITTLE_BALL   [FILTER_ITEM_TOOL]
+    NOME      jp リトル捕獲玉
+              en little ball
+              IT sferetta di cattura
+    non ident. IT sfera meccanica   (en mechanical ball)
+    --- description(3)  :84299 ⚠️ TETTO SECCO 69
+        JP  \t\tリトルシスターにぶつけて捕獲できる玉。投げることができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a throwable tool that can be used to capture 'Little Sister'.
+
+=== ITEM_ID_GUILLOTINE   [FILTER_ITEM_TOOL]
+    NOME      jp ギロチン
+              en guillotine
+              IT ghigliottina
+    --- description(3)  :84970 ⚠️ TETTO SECCO 69
+        JP  \t\t見た目にも恐ろしい家具。触らぬ方がよいだろう。\n#～鑑定報告書：＜家具？＞カテゴリ～\n
+        EN  It is a horrible looking furniture. It is best not to touch it.
+
+=== ITEM_ID_IRON_MAIDEN   [FILTER_ITEM_TOOL]
+    NOME      jp アイアンメイデン
+              en iron maiden
+              IT vergine di ferro
+    --- description(3)  :85033 ⚠️ TETTO SECCO 69
+        JP  \t\t見た目にも恐ろしい家具。触らぬ方がよいだろう。\n#～鑑定報告書：＜家具？＞カテゴリ～\n
+        EN  It is a horrible looking furniture. It is best not to touch it.
+
+=== ITEM_ID_STATUE_JURE   [FILTER_ITEM_TOOL]
+    NOME      jp ジュア像 ジュア像
+              en Jure statue
+              IT Jure statua
+    non ident. IT divinità di Irva   (en deity of Irva)
+    --- description(3)  :85171 ⚠️ TETTO SECCO 69
+        JP  \t\t癒しの女神を模った彫像。定期的に使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of Goddess of Healing. May be used periodically.
+
+=== ITEM_ID_MONSTER_BALL   [FILTER_ITEM_TOOL]
+    NOME      jp モンスターボール
+              en monster ball
+              IT sfera dei mostri
+    --- description(3)  :85237 ⚠️ TETTO SECCO 69
+        JP  \t\tモンスターにぶつけて捕獲できる玉。投げることができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a throwable tool that can be used to capture monsters.
+
+=== ITEM_ID_GENE_MACHINE   [FILTER_ITEM_TOOL]
+    NOME      jp 能力複合機
+              en gene machine
+              IT macchina genetica
+    non ident. IT macchina mai vista   (en freaky machine)
+    --- description(3)  :85301 ⚠️ TETTO SECCO 69
+        JP  \t\tペットを１体消去し別のペットへ能力吸収させる機械。何度でも使用できる。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  (Reusable) tool that erases a pet and transfers its ability to another.
+
+=== ITEM_ID_ENERGY_CRYSTAL_MATRIX   [FILTER_ITEM_TOOL]
+    NOME      jp 再構成マトリクス 再構成マトリクス
+              en matrix energy crystal
+              IT matrice cristallo di energia
+    non ident. IT meccanismo ignoto   (en unknown mechanism)
+    --- description(3)  :85370 ⚠️ TETTO SECCO 69
+        JP  \t\t物質を再構成し別の物に変化させる宝玉。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool used the reconstruct material. May be used periodically.
+
+=== ITEM_ID_GEMSTONE_KUMIROMI   [FILTER_ITEM_TOOL]
+    NOME      jp クミロミの活性化の宝玉 クミロミの活性化の宝玉
+              en rejuvenation Kumiromi's gem stone
+              IT ringiovanimento gemma di Kumiromi
+    non ident. IT poteri divini   (en godly powers)
+    --- description(3)  :85437 ⚠️ TETTO SECCO 69
+        JP  \t\t農作物の育成を促進する宝玉。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool used to accelerate crop growth. May be used periodically.
+
+=== ITEM_ID_GEMSTONE_JURE   [FILTER_ITEM_TOOL]
+    NOME      jp ジュアの聖なる雨の宝玉 ジュアの聖なる雨の宝玉
+              en holy rain Jure's gem stone
+              IT pioggia sacra gemma di Jure
+    non ident. IT poteri divini   (en godly powers)
+    --- description(3)  :85506 ⚠️ TETTO SECCO 69
+        JP  \t\t周囲の味方のＨＰが回復する宝玉。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool used to recover allies' health. May be used periodically.
+
+=== ITEM_ID_GEMSTONE_LULWY   [FILTER_ITEM_TOOL]
+    NOME      jp ルルウィの神速の宝玉 ルルウィの神速の宝玉
+              en god speed Lulwy's gem stone
+              IT velocità divina gemma di Lulwy
+    non ident. IT poteri divini   (en godly powers)
+    --- description(3)  :85575 ⚠️ TETTO SECCO 69
+        JP  \t\t一時的に速度を上昇させる宝玉。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool used to raise speed. May be used periodically.
+
+=== ITEM_ID_SECRET_TREASURE   [FILTER_ITEM_TOOL]
+    NOME      jp 秘宝
+              en secret treasure
+              IT tesoro segreto
+    non ident. IT gemma misteriosa   (en mysterious jewel)
+    --- description(3)  :86135 ⚠️ TETTO SECCO 69
+        JP  \t\t特殊な能力を秘めた宝石。使用することができる（使い捨て）。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Single-use) tool that unlocks special abilities.
+
+=== ITEM_ID_NUCLEAR_BOMB   [FILTER_ITEM_TOOL]
+    NOME      jp 原子爆弾『Cat's Cradle』
+              en nuclear bomb
+              IT bomba atomica
+    non ident. IT bomba molto pericolosa   (en very dangerous bomb)
+    --- description(3)  :86203 ⚠️ TETTO SECCO 69
+        JP  \t\t一定時間後広範囲に壊滅的な破壊を加える爆弾だ（使い捨て）。\n#～鑑定報告書：＜爆弾＞カテゴリ～\n
+        EN  (Single-use) bomb that inflicts devastating destruction over a wide area.
+
+=== ITEM_ID_STATUE_LULWY   [FILTER_ITEM_TOOL]
+    NOME      jp ルルウィ像 ルルウィ像
+              en Lulwy statue
+              IT Lulwy statua
+    non ident. IT divinità di Irva   (en deity of Irva)
+    --- description(3)  :86536 ⚠️ TETTO SECCO 69
+        JP  \t\t風の女神を模った彫像。定期的に使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of Goddess of Wind. May be used periodically.
+
+=== ITEM_ID_STATUE_OPATOS   [FILTER_ITEM_TOOL]
+    NOME      jp オパートス像 オパートス像
+              en Opatos statue
+              IT Opatos statua
+    non ident. IT divinità di Irva   (en deity of Irva)
+    --- description(3)  :86603 ⚠️ TETTO SECCO 69
+        JP  \t\t大地の神を模った彫像。定期的に使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of God of Earth. May be used periodically.
+
+=== ITEM_ID_EASTERN_BED   [FILTER_ITEM_TOOL]
+    NOME      jp 布団
+              en eastern bed
+              IT letto orientale
+    --- description(3)  :88024 ⚠️ TETTO SECCO 69
+        JP  \t\t簡易的な寝具（ランク４）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 4 bed of simple design.
+
+=== ITEM_ID_UNICORN_HORN   [FILTER_ITEM_TOOL]
+    NOME      jp ユニコーンの角
+              en unicorn horn
+              IT corno di unicorno
+    --- description(3)  :88213 ⚠️ TETTO SECCO 69
+        JP  \t\t自身と周囲の味方の狂気度を下げる道具だ（使い捨て）。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Single-use) tool that reduce the insanity level.
+
+=== ITEM_ID_SKELETON_KEY   [FILTER_ITEM_TOOL]
+    NOME      jp スケルトンキー
+              en skeleton key
+              IT passe-partout
+    non ident. IT chiave bianca   (en white key)
+    --- description(3)  :88413 ⚠️ TETTO SECCO 69
+        JP  \t\t所持しているだけで鍵開けの成功率を飛躍的に上昇させる道具だ。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  (Autoused) tool that enhances your lockpicking capabilities.
+
+=== ITEM_ID_LOCKPICK   [FILTER_ITEM_TOOL]
+    NOME      jp ロックピック
+              en lockpick
+              IT grimaldello
+    --- description(3)  :88475 ⚠️ TETTO SECCO 69
+        JP  \t\t鍵開けの際に必要な道具。壊れることがある。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  (Autoused) tool that is required for picking locks. It may break.
+
+=== ITEM_ID_MINE   [FILTER_ITEM_TOOL]
+    NOME      jp 地雷
+              en mine
+              IT mina
+    --- description(3)  :88541 ⚠️ TETTO SECCO 69
+        JP  \t\t踏んだ者を爆砕する爆弾だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜爆弾＞カテゴリ～\n
+        EN  (Single-use) tool that destroys the ones stepped on it when armed.
+
+=== ITEM_ID_LEASH   [FILTER_ITEM_TOOL]
+    NOME      jp 紐
+              en leash
+              IT guinzaglio
+    --- description(3)  :88607 ⚠️ TETTO SECCO 69
+        JP  \t\t仲間を結んで遠くに行かないようにする道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool to tie up friends and keep them from going too far away .
+
+=== ITEM_ID_MATERIAL_KIT   [FILTER_ITEM_TOOL]
+    NOME      jp 素材槌
+              en material kit
+              IT kit di materiali
+    --- description(3)  :88872 ⚠️ TETTO SECCO 69
+        JP  \t\t指定された素材に作り直す槌だ（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool that re-forge the material of target item.
+
+=== ITEM_ID_DISGUISE_SET   [FILTER_ITEM_TOOL]
+    NOME      jp 変装セット
+              en disguise set
+              IT set da travestimento
+    --- description(3)  :88940 ⚠️ TETTO SECCO 69
+        JP  \t\tモンスター以外の敵対状況をリセットする道具。何度か使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that reset non-monster hostile situations.
+
+=== ITEM_ID_HOUSE_BOARD   [FILTER_ITEM_TOOL]
+    NOME      jp ハウスボード
+              en house board
+              IT bacheca della casa
+    --- description(3)  :90140 ⚠️ TETTO SECCO 69
+        JP  \t\t部屋の内装を変更できる板。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that allows you to change the decor of a room.
+
+=== ITEM_ID_TORCH   [FILTER_ITEM_TOOL]
+    NOME      jp 松明
+              en torch
+              IT torcia
+    --- description(3)  :91912 ⚠️ TETTO SECCO 69
+        JP  \t\t手に持つ簡易照明。何度でも使用することができる。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  (Reusable) hand-held simple light.
+
+=== ITEM_ID_KITTY_BANK   [FILTER_ITEM_TOOL]
+    NOME      jp 貯金箱
+              en kitty bank
+              IT salvadanaio a gattino
+    --- description(3)  :92255 ⚠️ TETTO SECCO 69
+        JP  \t\t指定された額ごとに貯金できる箱。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that allows you to save money.
+
+=== ITEM_ID_PLAYBACK_DISC   [FILTER_ITEM_TOOL]
+    NOME      jp ムービーディスク
+              en playback disc
+              IT disco video
+    --- description(3)  :92392 ⚠️ TETTO SECCO 69
+        JP  \t\t映像のデータが刻まれた円盤。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a mysterious disc that seem's to play your memories.
+
+=== ITEM_ID_COLDPROOF_BLANKET   [FILTER_ITEM_TOOL]
+    NOME      jp 耐冷ブランケット
+              en coldproof blanket
+              IT coperta termica
+    --- description(3)  :92937 ⚠️ TETTO SECCO 69
+        JP  \t\t氷結によるアイテムの破損を何度か防ぐブランケットだ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a blanket that prevents items from being damaged by freezing.
+
+=== ITEM_ID_FIREPROOF_BLANKET   [FILTER_ITEM_TOOL]
+    NOME      jp 耐火ブランケット
+              en fireproof blanket
+              IT coperta ignifuga
+    --- description(3)  :93001 ⚠️ TETTO SECCO 69
+        JP  \t\t燃焼によるアイテムの消滅を何度か防ぐブランケットだ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a blanket that prevents items from being damaged by burning.
+
+=== ITEM_ID_REGISTER   [FILTER_ITEM_TOOL]
+    NOME      jp レジスター
+              en register
+              IT registratore di cassa
+    --- description(3)  :93361 ⚠️ TETTO SECCO 69
+        JP  \t\t配属先を変更する為の道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that change assignments.
+
+=== ITEM_ID_SHELTER   [FILTER_ITEM_TOOL]
+    NOME      jp シェルター
+              en shelter
+              IT rifugio
+    --- description(3)  :93826 ⚠️ TETTO SECCO 69
+        JP  \t\t時間を少しかけて設置する避難所。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that can be used to build a shelter in a hurry.
+
+=== ITEM_ID_DISC   [FILTER_ITEM_TOOL]
+    NOME      jp ディスク
+              en disc
+              IT disco
+    --- description(3)  :94604 ⚠️ TETTO SECCO 69
+        JP  \t\t音楽のデータが刻まれた円盤。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is an usable disc etched with music data.
+
+=== ITEM_ID_STETHOSCOPE   [FILTER_ITEM_TOOL]
+    NOME      jp 聴診器
+              en stethoscope
+              IT stetoscopio
+    --- description(3)  :99094 ⚠️ TETTO SECCO 69
+        JP  \t\t仲間のHPを可視化する道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that visualizes an ally's health.
+
+=== ITEM_ID_SLEEPING_BAG   [FILTER_ITEM_TOOL]
+    NOME      jp 寝袋
+              en sleeping bag
+              IT sacco a pelo
+    --- description(3)  :102461 ⚠️ TETTO SECCO 69
+        JP  \t\t簡易的な寝具（ランク０）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 0 makeshift bed.
+
+=== ITEM_ID_GEM_CUTTER   [FILTER_ITEM_TOOL]
+    NOME      jp 宝石加工ツール
+              en gem cutter
+              IT tagliagemme
+    --- description(3)  :104794 ⚠️ TETTO SECCO 69
+        JP  \t\t宝石加工の際に必要な道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool made for gem cutting, a necessity for jewelers.
+
+=== ITEM_ID_FISHING_POLE   [FILTER_ITEM_TOOL]
+    NOME      jp 釣竿
+              en fishing pole
+              IT canna da pesca
+    --- description(3)  :108460 ⚠️ TETTO SECCO 69
+        JP  \t\t釣りの際に必要な道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool made for fishing, a necessity for the fisherman.
+
+=== ITEM_ID_PORTABLE_COOKING_TOOL   [FILTER_ITEM_TOOL]
+    NOME      jp 携帯調理道具
+              en portable cooking tool
+              IT attrezzo da cucina portatile
+    --- description(3)  :114080 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでランク５までの料理を作ることができる器具。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a cooking tool allowing the preparation of dishes up to Rank 5.
+
+=== ITEM_ID_CAMPFIRE   [FILTER_ITEM_TOOL]
+    NOME      jp 焚き火
+              en campfire
+              IT falò
+    --- description(3)  :114144 ⚠️ TETTO SECCO 69
+        JP  \t\tランク３までの料理を作れる照明器具。常に周囲を照らす。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a glowing cooking tool allowing preparation of dishes up to Rank 3.
+
+=== ITEM_ID_POT   [FILTER_ITEM_TOOL]
+    NOME      jp 鍋
+              en pot
+              IT pentola
+    --- description(3)  :116349 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでランク４までの料理を作ることができる器具。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a cooking tool allowing the preparation of dishes up to Rank 4.
+
+=== ITEM_ID_TIGHT_ROPE   [FILTER_ITEM_TOOL]
+    NOME      jp 頑丈なロープ
+              en tight rope
+              IT corda robusta
+    --- description(3)  :116606 ⚠️ TETTO SECCO 69
+        JP  \t\t何度でも使用することができる。\n#～鑑定報告書：＜刑具＞カテゴリ～\n
+        EN  (Reusable) tool that you should use them NOW! <Category: Punishment.
+
+=== ITEM_ID_CARPENTERS_TOOL   [FILTER_ITEM_TOOL]
+    NOME      jp 工具
+              en carpenter's tool
+              IT attrezzi da falegname
+    --- description(3)  :120508 ⚠️ TETTO SECCO 69
+        JP  \t\t工作の際に必要な道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool made for carpentry, a necessity for carpenters.
+
+=== ITEM_ID_SEWING_KIT   [FILTER_ITEM_TOOL]
+    NOME      jp 裁縫セット
+              en sewing kit
+              IT kit da cucito
+    --- description(3)  :120574 ⚠️ TETTO SECCO 69
+        JP  \t\t裁縫の際に必要な道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool made for tailoring, a necessity for the tailors.
+
+=== ITEM_ID_PAINTING_TOOLS   [FILTER_ITEM_TOOL]
+    NOME      jp 絵描き道具
+              en painting tools
+              IT attrezzi da pittore
+    --- description(3)  :121832 ⚠️ TETTO SECCO 69
+        JP  \t\t絵を描く為の道具。使用することはできない。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a tool for painting. Cannot be used.
+
+=== ITEM_ID_ALCHEMY_TOOLS   [FILTER_ITEM_TOOL]
+    NOME      jp 錬金術の道具
+              en alchemy tools
+              IT attrezzi da alchimista
+    --- description(3)  :122682 ⚠️ TETTO SECCO 69
+        JP  \t\t錬金術の際に必要な道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool made for basic alchemy.
+
+== 166 oggetti, 166 descrizioni
