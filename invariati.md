@@ -644,6 +644,17 @@ giocatore, `scene2.hsp` è codice di monte.
 | `author_en.` | `system.hsp:1442`, stesso `getnpctxt()` e stessa ragione di `iknownnameref_en.`: e' il campo dell'autore dentro il file dell'oggetto. ⭐ Sulla **stessa riga** c'e' il valore di ripiego quando il campo manca — `lang("プレイヤー", "Player")` — e quello **si traduce** («Giocatore»): la chiave e il suo valore predefinito stanno appaiati, e uno solo dei due e' testo |
 | `scene2.hsp` | `help.hsp:819`, stesso `noteload`, stesso motivo: e' il file delle scene sbloccabili. ⚠️ Qui l'inglese e' anche fuorviante — `lang("scene1.hsp", "scene2.hsp")` sembra una versione e sono **due file diversi**, uno per lingua |
 
+## Termini coniati dentro una DESCRIZIONE — 111ª
+
+Fino alla 110ª questa regola valeva solo per i **nomi** dentro le marche 《》:
+*quando l'originale traslittera, non sta leggendo il nome come una descrizione,
+e non c'è niente da rendere.* La 111ª l'ha applicata per la prima volta dentro
+una descrizione.
+
+| termine | motivo |
+|---|---|
+| `zekki` | 絶器, `db_item.hsp:75717`, la descrizione dei guanti dello Spirito Blu: 「絶器と呼ばれる篭手だ」, *guanti chiamati zekki*. Il termine **non è nel dizionario e non è nel glossario** — è una coniazione di Elona+, e l'**inglese lo traslittera** invece di scioglierlo («These are gloves that is called a 'zekki'»). Reso «Dei guanti d'arme detti zekki.» ⚠️ **Senza virgolette**: CP932 cancella « e », e la prima resa — che le aveva — è stata bocciata dalla rete dei caratteri sconosciuti. A schermo sarebbe arrivata identica a questa, e nessuno lo avrebbe saputo |
+
 ## Nomi coniati del potioman — sono un nome proprio, non una parola
 
 Le 39 stringhe qui sotto compongono il nome di un **potioman personalizzato**

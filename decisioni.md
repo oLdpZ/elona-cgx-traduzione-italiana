@@ -10955,3 +10955,189 @@ le due righe da 70 e 71 non c'erano ancora — le avrei scritte io. È
 respirava di **1** carattere. Un cancello booleano non dice il margine: è la
 lezione che questo progetto ha già scritto, e qui ha pagato due volte in una
 sessione (l'altra sono le bacchette, a margine **0**).
+
+## 111ª — Una famiglia che nessuna rete può vedere si scrive tutta in una volta
+
+Il rapporto di identificazione ha otto artefatti che dicono la **stessa riga**:
+
+    身に着けると変形して〜になる     «se lo indossi si trasforma in ...»
+
+Otto righe, otto categorie diverse — scudi, armature, elmi, amuleti, anelli,
+guanti, cinture, calzature — e otto oggetti diversi al posto del 〜. Nel gioco
+non si incontrano mai: sono artefatti rari, e un giocatore ne vede uno per
+partita.
+
+**Nessuno strumento del progetto può accorgersene**, e non per una svista:
+
+- le reti del lotto guardano **dentro** il lotto, e le otto righe stanno in
+  dodici lotti diversi;
+- `_coerenza.py` raggruppa per **giapponese identico** e per **inglese
+  identico**: qui i giapponesi sono otto stringhe diverse (cambia la parola) e
+  gli inglesi pure;
+- `battute --divergenti` guarda lo stesso giapponese reso in due modi, che non
+  è questo caso.
+
+La famiglia si vede solo **leggendo il giapponese**, e solo se si leggono le
+otto righe di fila. ⚠️ **L'inglese la nasconde**: le appiattisce tutte su «It is
+a godly gift that when worn, transforms into ...», che è la stessa frase con un
+nome cambiato — ma è anche la frase che aggiunge «godly gift», cioè una cosa che
+il giapponese non dice e che sta già nel nome dell'oggetto.
+
+### La resa: la costruzione resta, cambia solo il nome della cosa
+
+    :57965  手枷          -> Se lo indossi, si trasforma in manette.
+    :75986  拘束具        -> ... in una gabbia.
+    :76184  頭につける輪   -> ... in un cerchietto da testa.
+    :76250  首輪          -> ... in un collare.
+    :75584  指輪          -> ... in un anello.
+    :75650  腕装備        -> ... in un bracciale.
+    :76052  腰当          -> ... in una cintura.
+    :76118  足枷          -> ... in ceppi.
+
+### ⚠️ E la prima resa era sbagliata, per una ragione che si vede solo alla fine
+
+Il lotto 014 aveva reso 手枷 con **«ceppi»**. Presa da sola è una resa giusta:
+手枷 sono ferri da polso, e «ceppi» in italiano li dice. Ma 足枷 — che arriva
+**dieci lotti dopo**, nelle calzature — sono i ferri da **piede**, e l'oggetto
+si chiama già «Ceppo della Terra» (`<Fetter of Earth>`), un nome deciso in una
+sessione precedente. Due righe della stessa famiglia avrebbero avuto la stessa
+parola per due cose che il giapponese distingue con 手 e 足.
+
+Riscritto: **手枷 sono manette, 足枷 sono ceppi** — che è anche la divisione
+dell'italiano corrente. Il lotto 014 è stato rifatto e reimportato per intero.
+
+⚠️ **La regola che ne esce:** quando una riga appartiene a una famiglia sparsa,
+la resa non si giudica da sola. Si scrivono le righe della famiglia **tutte
+insieme**, anche se stanno in lotti diversi, e la prima si riapre se l'ultima lo
+chiede. È il seguito diretto della regola della 110ª sui sette libri: lì il
+modale cadeva su tutta la famiglia, qui la parola si cambia su tutta la
+famiglia.
+
+## 111ª — Il giapponese distingue con i katakana, e l'italiano lo segue solo se i nomi glielo permettono
+
+Tre volte in questa sessione il giapponese ha usato **due parole** per la stessa
+cosa — un kanji e un katakana — e l'italiano le ha tenute distinte:
+
+    鎧 «corazza»       contro  アーマー «armatura»     (lotto 015)
+    兜 «elmo»          contro  ヘルメット «casco»      (lotto 017)
+    篭手 «guanti d'arme» contro 手袋 «guanti»          (lotto 022)
+
+Il katakana è il **moderno**: l'armatura di bambù e il casco meccanico sono
+oggetti di fantascienza in un gioco di fantasy, e il sorgente lo dice cambiando
+alfabeto.
+
+⚠️ **Ma la quarta volta la distinzione è caduta, ed è una decisione, non una
+dimenticanza.** Nelle cinture (lotto 023) il giapponese ha 腰当 e ベルト, e
+l'italiano ha una parola sola: «cintura». I **nomi degli oggetti** — decisi
+prima, e già a schermo — dicono «cintura a piastre», «cintura composita»,
+«cintura rossa», e il dizionario ha 腰当 → «cintura» come voce sua. «Cinturone»
+per ベルト direbbe una cosa che il sorgente non dice.
+
+💡 **La regola:** la distinzione si tiene quando l'italiano ce l'ha **già**, nei
+nomi resi; non si inventa per rispettare una simmetria del giapponese. Chi
+riaprisse le cinture per «renderle coerenti con gli altri tre» rimetterebbe una
+differenza che l'italiano non ha.
+
+## 111ª — Quando l'inglese aggiunge, e quando l'inglese è rotto
+
+La 110ª aveva scritto che il **codice** è la quinta fonte, e vince quando
+l'inglese scioglie un termine di gioco in una parola comune. Questa sessione ha
+trovato i due casi opposti, e nessuno dei due ha avuto bisogno del codice.
+
+### L'inglese aggiunge quel che sta già nel nome — sedici volte in una categoria
+
+Le merci da commercio (lotto 016) hanno **tre** giapponesi per diciannove righe:
+交易品だ, 重い交易品だ, とても重い交易品だ. L'inglese ne ha diciannove diversi —
+«It is a cargo of rabbit foot», «of seafood», «of high value children's toys» —
+cioè ripete **il nome dell'oggetto**, che nel rapporto di identificazione sta
+scritto una riga sopra, nella stessa scheda.
+
+Si segue il giapponese, e sedici righe prendono la stessa resa: «Merce da
+commercio.». ⓘ 交易品 era già «merce da commercio» nel dizionario **e** nel
+manuale.
+
+Stessa specie, più piccola: `:68253` (l'artiglio) dove l'inglese spiega «sturdy
+enough to be used like a shield» — un fatto di gioco vero, che però il
+giapponese tace e che la scheda dice già col nome; e le tre righe dell'acqua
+(lotto 025), dove l'inglese scrive «(Re-drinkable) facility that supplies water»
+su pozzo, fontana **e gabinetto**, mentre il giapponese distingue 使用する (la
+usa) da 湛える (la raccoglie) e 何度か (qualche volta) dal bere semplice.
+
+### L'inglese è rotto: `:71512`, tagliato a metà parola
+
+    description(0) = "... It allows it's user to sac\n# ~Irva Fantasy ..."
+    description(3) = "It is a tonfa that suc"
+
+Due stringhe **troncate nel sorgente**, non nell'estrazione. Il giapponese dice
+soltanto 「トンファーだ。」, cioè non dice niente — com'è suo diritto per un
+artefatto non ancora identificato. Reso «Un tonfa.».
+
+⚠️ Chi un giorno trova quella riga povera guardi l'inglese **prima** di
+allungarla: lì l'inglese non è una fonte, è un troncone.
+
+## 111ª — Un termine coniato che l'inglese traslittera resta traslitterato
+
+`:75717`, i guanti dello Spirito Blu: 「絶器と呼ばれる篭手だ」, *guanti chiamati
+zekki*. 絶器 non è nel dizionario, non è in `glossario.md`, e **l'inglese lo
+traslittera** invece di scioglierlo: «These are gloves that is called a
+'zekki'».
+
+È la stessa forma della regola che `invariati.md` scrive per i nomi dentro le
+marche 《》 — *quando l'originale traslittera, non sta descrivendo* — applicata
+per la prima volta dentro una **descrizione** invece che dentro un nome.
+
+Reso: «Dei guanti d'arme detti zekki.»
+
+⚠️ **Senza virgolette basse.** La prima resa aveva «zekki» fra « », e la rete
+dei caratteri sconosciuti ha bocciato il lotto: CP932 le **cancella**. La resa
+sarebbe arrivata a schermo con la parola nuda — cioè identica — e nessuno lo
+avrebbe saputo.
+
+## 111ª — 首輪 è «collana» nella descrizione e «amuleto» nel nome, e non è un errore
+
+Il dizionario ha tutt'e due, e le due parole rispondono a due domande diverse:
+
+    首輪          -> collana                (la voce generica)
+    結婚首輪      -> amuleto nuziale        (i nomi degli oggetti)
+    細工首輪      -> amuleto ingioiellato
+    《暴風の首輪》 -> <Collare della Tempesta>
+
+I **nomi** sono stati decisi contro l'inglese («engagement amulet»), che per i
+nomi è la fonte; la **descrizione** dice la parola generica, e la parola
+generica del dizionario è «collana». Le nove descrizioni degli amuleti prendono
+«collana».
+
+⚠️ **L'eccezione è `:76250`**, dove la descrizione nomina l'oggetto che
+l'artefatto **diventa**, e quell'oggetto ha un nome suo: «Collare della
+Tempesta». Lì si scrive «collare», se no la riga contraddice il nome che sta una
+riga sopra nella stessa scheda.
+
+💡 La forma generale: **la descrizione segue la voce generica; quando però
+nomina un oggetto che ha un nome proprio nel gioco, segue quel nome.**
+
+## 111ª — Il ritrovamento è la parte cara, e questa volta ha reso otto volte
+
+La 110ª aveva scritto che «la parte cara del lavoro non è scegliere: è
+ricordarsi di cercare se qualcuno ha già scelto». Nei dodici lotti di questa
+sessione il conto è di **otto righe intere già scritte altrove**:
+
+| il giapponese | dove stava già | la resa |
+|---|---|---|
+| 何度でも使用することができる | ottanta volte in `db_item.hsp` | «Si può usare sempre.» |
+| 飲むことができる | due volte, le pozioni | «Si può bere.» |
+| 人に渡すと友好度が上がるアイテムだ | `db_item.hsp` | «Dato a qualcuno, alza la simpatia.» |
+| 運勢が上昇する食物だ | `db_item.hsp` | «Un cibo che alza la fortuna.» |
+| 見えない者 | la pistola del lotto 013 | «chi non si vede» |
+| 追加打撃 / 追加射撃 | le righe di potenziamento | «attacco extra in mischia / a distanza» |
+| 拘束具 | `chat.hsp`, la stessa scena | «gabbia» |
+| 光子 | il lotto 013 | «laser» |
+
+⚠️ **Due di queste sono righe intere, non parole**: `:99451` (l'amuleto
+nuziale) e `:99165` (l'anello nuziale) sono la stessa frase del dono di
+`db_item.hsp` con una coda in più, e la resa è quella con la coda. Il sorgente
+la scrive **tre** volte; noi una.
+
+💡 E dove cercare non è il glossario: è **dove il giocatore legge** — il nome
+dell'oggetto, il messaggio dell'azione, la riga di potenziamento, l'etichetta di
+stato. Nella 110ª era successo trentacinque volte, qui otto: sono le righe che
+non si decidono, si trovano.

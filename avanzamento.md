@@ -2903,3 +2903,106 @@ La regola del progetto vale anche per il testo lungo, e stavolta e' costato un
 comando invece di due minuti: **il file si scrive con lo strumento di scrittura**
 e poi si innesta con tre righe di Python che verificano la marca
 (`assert base.count(marca) == 1`).
+
+## ⭐⭐⭐ `db_item.hsp`, l'INDICE 3 SI CHIUDE — 2026-08-27, centoundicesima
+
+    db_item.hsp   indice 3, il rapporto di identificazione — DODICI lotti
+    -------------------------------------------------------------------------
+    014  FILTER_SHIELD             23 firme ->  23 righe   margine 7
+    015  FILTER_ARMOR              20 firme ->  20 righe   margine 15
+    016  FILTER_CARGO_TRADE        18 firme ->  19 righe   margine 36
+    017  FILTER_HELM               15 firme ->  15 righe   margine 15
+    018  FILTER_ACCESSORY_AMULET   13 firme ->  13 righe   margine 2
+    019  FILTER_ENVIRONMENT         9 firme ->  12 righe   margine 27
+    020  FILTER_ACCESSORY_RING     11 firme ->  11 righe   margine 15
+    021  FILTER_CLOAK               9 firme ->  10 righe   margine 22
+    022  FILTER_GLOVES             10 firme ->  10 righe   margine 3
+    023  FILTER_GIRDLE              9 firme ->   9 righe   margine 10
+    024  FILTER_BOOTS               9 firme ->   9 righe   margine 15
+    025  la CODA (nove categorie)  23 firme ->  25 righe   margine 8
+    -------------------------------------------------------------------------
+    **169 firme rese**, che coprono **176 righe** del sorgente
+    applica 28.660 -> **28.836**   (+176 esatte)
+    non tradotte di db_item.hsp: 1.618 -> **1.449**   (-169 esatte)
+    ⭐⭐⭐ indice 3: rese 1.143 -> **1.319 su 1.319 vive — CHIUSO**
+    perimetro 27.105 -> **27.274**   dizionario 24.366 -> **24.535**
+    tetto secco: introdotte dall'italiano **0** — il cancello e' verde
+    rinviate: nessuna   toppe: nessuna   test: **794**, invariato
+    strumenti nuovi: 2 (`lotti-111/_cerca.py`, `lotti-111/_coda.py`)
+    build: SI', **15:25 del 27/08**
+    -------------------------------------------------------------------------
+
+Le decisioni stanno in `decisioni.md`, sezione della 111ª. Qui i numeri e le
+quattro cose che riguardano il **modo di lavorare**.
+
+### ⭐⭐⭐ La famiglia degli otto doni divini, e perche' nessuna rete la vedeva
+
+「身に着けると変形して〜になる」 e' la stessa riga otto volte, in otto categorie
+diverse, con una parola cambiata. Le otto righe non si incontrano mai — ne' nel
+gioco, ne' in un lotto, ne' in una rete:
+
+    :57965  手枷      -> in manette              scudi      (lotto 014)
+    :75986  拘束具    -> in una gabbia           armature   (lotto 015)
+    :76184  頭につける輪 -> in un cerchietto da testa  elmi  (lotto 017)
+    :76250  首輪      -> in un collare           amuleti    (lotto 018)
+    :75584  指輪      -> in un anello            anelli     (lotto 020)
+    :75650  腕装備    -> in un bracciale         guanti     (lotto 022)
+    :76052  腰当      -> in una cintura          cinture    (lotto 023)
+    :76118  足枷      -> in ceppi                calzature  (lotto 024)
+
+⚠️⚠️ **Il lotto 014 e' stato rifatto per colpa del lotto 024.** 手枷 (la mano) e
+足枷 (il piede) sono la stessa parola con un'altra parte del corpo; il 014 aveva
+scritto «ceppi» per il primo, che lasciava il secondo senza parola — e l'oggetto
+del secondo si chiama gia' **«Ceppo della Terra»**. Riscritto: 手枷 **manette**,
+足枷 **ceppi**.
+
+💡 **Nessuna rete poteva vederlo, e non per una svista.** Le due righe stanno in
+categorie diverse, hanno giapponesi diversi e inglesi diversi, e ognuna per
+conto suo era giusta. Si vede solo scrivendo la famiglia intera in un colpo, e
+la famiglia si vede solo dal **giapponese**: l'inglese la appiattisce tutta su
+«It is a godly gift that when worn, transforms into ...».
+⚠️ E il rifacimento e' passato per la catena — `_monta` -> `assembla` -> lotto ->
+`reimporta` — **non** per una modifica a mano del dizionario.
+
+### ⭐ Il rapporto righe/firme di dodici lotti, e cosa NON dice
+
+    lotto  categoria           firme  righe  righe/firme
+    -----------------------------------------------------
+    019    alberi                  9     12     1,33  ⭐ tre firme per cinque righe
+    016    merci da commercio     18     19     1,06
+    021    mantelli                9     10     1,11
+    025    la coda                23     25     1,09
+    014/015/017/018/020/022/023/024        1,00
+
+⚠️ **Il rapporto non ha previsto niente, stavolta.** Gli alberi stanno a 1,33 e
+sono costati **dieci minuti**; gli amuleti stanno a 1,00 e sono costati un'ora,
+perche' ognuna delle tredici righe voleva un termine cercato altrove. Il costo
+vero non e' nelle righe: e' in **quante parole nuove** la categoria porta.
+
+💡 La misura che avrebbe funzionato e' un'altra: **quanti termini del giapponese
+non sono gia' nel dizionario**. Vale la pena scriverla, se un giorno tocca un
+altro indice.
+
+### ⭐⭐ Le reti hanno bocciato due lotti, e tutt'e due le volte avevano ragione
+
+- **`:81539`, «degli dèi»** — la rete dell'accento: la degradazione a CP932 fa
+  `de'i`, l'apostrofo **dentro** la parola, e a schermo non si legge. Cambiata
+  la parola («la parola divina»), non tolto l'accento.
+- **`:75717`, «zekki» fra virgolette basse** — la rete dei caratteri
+  sconosciuti: CP932 **cancella** « e ». La resa sarebbe arrivata a schermo con
+  la parola nuda comunque, e nessuno lo avrebbe saputo.
+
+⚠️ `reimporta` e' tutto-o-niente: tutt'e due le volte **niente** e' stato
+scritto nel dizionario, ed e' esattamente quel che deve succedere.
+
+### ⚠️ E l'heredoc ha colpito un'ottava e una nona volta, nello stesso modo
+
+Due `python - <<'PY'` **vuoti**, due minuti di terminale bloccato ciascuno, in
+una sessione che aveva letto la regola in apertura. Tutt'e due erano comandi
+che non servivano a niente — un controllo di cortesia dopo una scrittura andata
+a buon fine.
+
+💡 **La forma nuova della regola**: non e' «i file si scrivono con lo
+strumento», che ormai si fa. E' che **`python -` e `cat <<` non si scrivono
+proprio**, nemmeno per un no-op: se il corpo e' vuoto la shell aspetta per
+sempre, e un comando che non serve costa quanto uno che serve.

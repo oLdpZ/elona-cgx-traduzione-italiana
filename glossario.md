@@ -1973,6 +1973,101 @@ vengono dalle **righe di potenziamento degli stessi tre incantesimi**, che il
 dizionario ha già: la scheda dell'oggetto e la barra dello stato adesso dicono
 le stesse parole.
 
+## `db_item.hsp`, deciso il 2026-08-27 dalla 111ª — l'EQUIPAGGIAMENTO, e l'indice 3 si chiude
+
+Dodici lotti, 169 firme, 176 righe: scudi, armature, merci da commercio, elmi,
+amuleti, alberi, anelli, mantelli, guanti, cinture, calzature e la coda. Con
+questi il rapporto di identificazione è **1.319 su 1.319**.
+
+### ⭐ Le parole dell'equipaggiamento, e i nomi che le avevano già decise
+
+Quasi tutto il vocabolario di questi lotti era **già a schermo**, nei nomi degli
+oggetti resi in sessioni precedenti. Qui sta scritto solo per poterlo cercare.
+
+| il giapponese | la resa | dove stava già |
+|---|---|---|
+| 盾 | scudo | i nomi: 小盾 «scudo piccolo», 長盾 «scudo a mandorla», 重層盾 «scudo a torre» |
+| 鉤爪 | artiglio, artigli | il nome dell'oggetto comune |
+| トンファー | tonfa | `invariati.md`: è il prestito corrente |
+| 鎧 | corazza | i nomi: 軽鎧, 輪鎧, 重層鎧, 厚鎧 |
+| アーマー | armatura | ⚠️ il **katakana**, tenuto distinto da 鎧 |
+| 防具 | armatura | la voce generica |
+| 服 | vestito | 衣服 era già «vestiti» (i vestiti sporchi nel cesto) |
+| スーツ | tuta | il nome non identificato «tuta blu» |
+| 兜 | elmo | i nomi: 合金兜, 騎士兜, 重兜 |
+| 帽子 | cappello | i nomi: 羽帽子 «cappello piumato», 魔法帽 «cappello magico» |
+| ヘルメット | casco | ⚠️ il **katakana**, tenuto distinto da 兜 |
+| ウィッグ | parrucca | i nomi non identificati |
+| 首輪 | collana | la voce generica del dizionario |
+| 指輪 | anello | la voce generica |
+| 外套 | mantello | i nomi: 防護外套 «mantello corazzato», 軽外套 «mantello leggero» |
+| 篭手 | guanti d'arme | i nomi: 合成篭手, 重層篭手, 厚篭手 |
+| 手袋 | guanti | la voce, più 軽手袋 «guanti leggeri» |
+| 腕装備 | bracciale | ⓘ è un'altra parola da 篭手, e resta un'altra parola |
+| 腰当 / ベルト | cintura | la voce 腰当 → «cintura», più tutti i nomi |
+| 靴 | scarpe | ⓘ una parola sola per sei oggetti, di cui tre «stivali» nel nome |
+| 樹木 | albero | la voce del dizionario |
+| モミの木 | abete | 「小さなモミの木だ」 → «Un piccolo abete» |
+| 交易品 | merce da commercio | la voce, **e** il manuale |
+| 生物 | creatura | la parola del progetto |
+
+### ⭐ I termini nuovi, e da dove vengono
+
+出血 → **«sanguinamento»**, che è l'etichetta di stato di `command.hsp:1888` ·
+光子 → **«laser»** (110ª, la pistola) · 黒曜石 → **«ossidiana»** (dal
+`Black Mirror` «Specchio d'ossidiana») · 推進装置 → **«propulsore»** ·
+連続攻撃 → **«raffica di colpi»** (il messaggio d'attacco) · 軽装備 →
+**«armatura leggera»** · 追加打撃 / 追加射撃 → **«attacco extra in mischia / a
+distanza»** (le righe di potenziamento) · 魔力 → **«potere magico»** · 友好度 →
+**«simpatia»** · 運勢 → **«fortuna»** · 貫通 → **«perforare»** · 見えない者 →
+**«chi non si vede»** (110ª) · 異星人 → **«extraterrestre»** · 魔法使い →
+**«mago»** · 浮遊 → **«levitare»** · エーテルの嵐 → **«vento di etere»** (dal
+già reso エーテルの風) · トレイナー → **«istruttore»** · 捧げ物 → **«offerte»** ·
+デッキ → **«mazzo»** · 海藻 → **«alga»** · 絶器 → **«zekki»**, invariato
+(vedi `invariati.md`).
+
+### ⭐ Le scale, che attraversano più categorie e vanno lette insieme
+
+**Il peso**, fissato dalla 110ª sulle due mitragliatrici e adesso valido su
+cinque categorie:
+
+    非常に重い  -> pesantissimo/a     (scudo, corazza, guanti d'arme)
+    とても重い  -> molto pesante      (le merci da commercio)
+    重い        -> pesante            (le merci, le scarpe)
+    重量がある  -> di un certo peso   (l'elmo — ⚠️ è un'altra espressione)
+
+**La durezza**, sulle stesse categorie: 固い → «duro/a», 分厚い → «spesso/a»
+(era già «spesso» nel dizionario, dal 分厚い魔法書 «libro spesso»).
+
+**Il viaggio**, due scalini nelle calzature: 旅の歩みを早める → «che fanno
+viaggiare più svelti», 旅の歩みを非常にはやめる → «... molto più svelti».
+
+### ⭐ Le formule, che si scrivono in fila o non si leggono come formule
+
+    〜ために作られた服だ     tre righe, le armature del corpo
+    〜を束ねて作った鎧だ     due righe (束ねて era già «legando insieme»)
+    〜のこめられた首輪だ     due righe (想い «un sentimento», 魔力 «il potere magico»)
+    〜のついた〜だ           tre righe in tre lotti, tutte con «con»
+    〜を守る為の防具だ       quattro righe in quattro lotti: testa, corpo, fianchi, piedi
+    〜と共に装備する武器だ   quattro righe, le munizioni
+    生物の〜だ               cinque righe, i resti di creatura
+    身に着けると変形して〜になる  **otto** righe in otto categorie (vedi `decisioni.md`)
+
+### ⚠️ Due parole che il giapponese distingue e l'italiano no
+
+- 用 / 向け / のため — tre modi di dire «per», e in italiano sono tutti «per»
+  (騎士用の兜, 妖精向けの帽子, 魔法使いのための帽子, e i due del lotto 014).
+- 腰当 / ベルト — il kanji e il katakana della cintura. La distinzione
+  kanji/katakana regge negli altri tre casi perché l'italiano ce l'ha **già**
+  nei nomi resi; qui no, e non si inventa.
+
+### ⓘ Dove la descrizione NON ripete il nome
+
+枯れた樹木だ diventa «Un albero secco» e non «Un albero morto», che è il nome
+dell'oggetto; 葉の無い樹木だ diventa «Un albero senza foglie» e non «spoglio».
+Il nome sta una riga sopra nella stessa scheda, e una descrizione che lo ripete
+non dice niente.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,
