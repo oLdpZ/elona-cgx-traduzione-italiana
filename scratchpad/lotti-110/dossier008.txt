@@ -1,0 +1,189 @@
+=== ITEM_ID_AURTEHOM   [FILTER_ITEM_BOOK]
+    NOME      jp アウルテホム アウルテホム
+              en Aurtehom horrible book
+              IT Aurtehom libro orribile
+    non ident. IT origini ignote   (en unknown origins)
+    --- description(3)  :47223 ⚠️ TETTO SECCO 69
+        JP  \t\t深淵魔術を行使できる本。何度でも読める。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is the book of collected knowledge of abyssal magic practices.
+
+=== ITEM_ID_PRODUCED_BOOK   [FILTER_ITEM_BOOK]
+    ⚠️ NOME    non trovato nel dizionario: la prosa non ha un nome a cui obbedire
+    non ident. IT libro   (en book)
+    --- description(3)  :50819 ⚠️ TETTO SECCO 69
+        JP  \t\t雑多な情報が書かれた本。何度でも読むことができる。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  It is a book with miscellaneous information. Can be read more than once.
+
+=== ITEM_ID_FISHING_INTRODUCTION   [FILTER_ITEM_BOOK]
+    NOME      jp 《釣り入門》
+              en fishing introduction
+              IT introduzione alla pesca
+    --- description(3)  :51153 ⚠️ TETTO SECCO 69
+        JP  \t\t雑多な情報が書かれた本。何度でも読むことができる。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  It is a book with miscellaneous information. Can be read more than once.
+
+=== ITEM_ID_QUEST_ADVICE   [FILTER_ITEM_BOOK]
+    NOME      jp 《依頼についてのアドバイス》
+              en quest advice
+              IT consigli sugli incarichi
+    --- description(3)  :51224 ⚠️ TETTO SECCO 69
+        JP  \t\t雑多な情報が書かれた手帳。何度でも読むことができる。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  It is a memo with miscellaneous information. Can be read more than once.
+
+=== ITEM_ID_BUTLERS_DIARY   [FILTER_ITEM_BOOK]
+    NOME      jp 執事の日記
+              en butler's diary
+              IT diario del maggiordomo
+    --- description(3)  :56058 ⚠️ TETTO SECCO 69
+        JP  \t\t執事をペットにすることができる本。読むことができる。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  (Readable) diary of a butler, it befriends them when read.
+
+=== ITEM_ID_OBSERVATION_REPORT   [FILTER_ITEM_BOOK]
+    NOME      jp 《次元間力観測実験報告書》
+              en Observation report
+              IT rapporto d'osservazione
+    --- description(3)  :56204 ⚠️ TETTO SECCO 69
+        JP  \t\t難解な情報が書かれた報告書。何度でも読むことができる。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  It is a report with misc. information. Can be read more than once.
+
+=== ITEM_ID_LULWYS_PHOTO_COLLECTION   [FILTER_ITEM_BOOK]
+    NOME      jp ルルウィの写真集
+              en Lulwy's photo collection
+              IT raccolta di foto di Lulwy
+    --- description(3)  :57580 ⚠️ TETTO SECCO 69
+        JP  \t\t風の女神の写真集だ。足元にあると気になる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  It is a set of photograph of the Wind Goddess, very eye-catching.
+
+=== ITEM_ID_RESEARCHERS_DIARY   [FILTER_ITEM_BOOK]
+    NOME      jp 《研究員の閻魔帳》
+              en researcher's diary
+              IT diario del ricercatore
+    --- description(3)  :62537 ⚠️ TETTO SECCO 69
+        JP  \t\t何度でも読むことができる。読んでも研究員はペットにならない。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  (Readable) report, it won't make you a real researcher.
+
+=== ITEM_ID_MYSTERIOUS_DIARY   [FILTER_ITEM_BOOK]
+    NOME      jp 誰かの日記
+              en mysterious diary
+              IT diario misterioso
+    --- description(3)  :71103 ⚠️ TETTO SECCO 69
+        JP  \t\t読むことができる。日記の主は不明。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  (Readable) diary of unknown author, it befriends them when read.
+
+=== ITEM_ID_INSANE_BOOK   [FILTER_ITEM_BOOK]
+    NOME      jp 狂人の日記
+              en Insane book
+              IT libro del folle
+    --- description(3)  :74104 ⚠️ TETTO SECCO 69
+        JP  \t\t何度でも読むことができる。読んでも狂人はペットにならない。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  (Readable) diary, won't make you a real madman.
+
+=== ITEM_ID_DOG_SISTERS_DIARY   [FILTER_ITEM_BOOK]
+    NOME      jp 姉の秘密の日記
+              en dog sister's diary
+              IT diario segreto della sorella maggiore
+    --- description(3)  :76794 ⚠️ TETTO SECCO 69
+        JP  \t\t姉犬をペットにすることができる本。読むことができる。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  (Readable) diary of a dog-eared big sister, it befriends them when read.
+
+=== ITEM_ID_OLDER_SISTERS_DIARY   [FILTER_ITEM_BOOK]
+    NOME      jp 姉の日記
+              en older sister's diary
+              IT diario della sorella maggiore
+    --- description(3)  :76938 ⚠️ TETTO SECCO 69
+        JP  \t\t姉をペットにすることができる本。読むことができる。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  (Readable) diary of a older sister, it befriends them when read.
+
+=== ITEM_ID_BOOK_BOKONON   [FILTER_ITEM_BOOK]
+    NOME      jp ボコノンの書 ボコノンの書
+              en Bokonon book
+              IT Bokonon libro
+    --- description(3)  :81067 ⚠️ TETTO SECCO 69
+        JP  \t\t何かがペットになる本。読むことができる。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  (Readable) wampeter of karass, it brings zah-mah-ki-bo to them when read.
+
+=== ITEM_ID_BOOK_RESURRECTION   [FILTER_ITEM_BOOK]
+    NOME      jp 復活の書 復活の書
+              en resurrection book
+              IT resurrezione libro
+    --- description(3)  :83700 ⚠️ TETTO SECCO 69
+        JP  \t\t死んでいる者を復活させる本。読むことができる。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  (Readable) book that can resurrect dead people.
+
+=== ITEM_ID_TOWN_BOOK   [FILTER_ITEM_BOOK]
+    NOME      jp タウンブック
+              en town book
+              IT libro della città
+    --- description(3)  :84236 ⚠️ TETTO SECCO 69
+        JP  \t\t町の情勢を知る本。読むことができる。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  (Readable) book about what's going on in town.
+
+=== ITEM_ID_BOOK_RACHEL   [FILTER_ITEM_BOOK]
+    NOME      jp レイチェルの絵本
+              en book
+              IT libro illustrato
+    --- description(3)  :86406 ⚠️ TETTO SECCO 69
+        JP  \t\tある童話作家の書いた本。何度でも読むことができる。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  (Readable) book written by an author of children's stories.
+
+=== ITEM_ID_GIRLS_DIARY   [FILTER_ITEM_BOOK]
+    NOME      jp お嬢様の日記
+              en girl's diary
+              IT diario della signorina
+    --- description(3)  :89287 ⚠️ TETTO SECCO 69
+        JP  \t\tお嬢様をペットにすることができる本。読むことができる。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  (Readable) diary of a young lady, it befriends them when read.
+
+=== ITEM_ID_CAT_SISTERS_DIARY   [FILTER_ITEM_BOOK]
+    NOME      jp 妹の秘密の日記
+              en cat sister's diary
+              IT diario segreto della sorella minore
+    --- description(3)  :89359 ⚠️ TETTO SECCO 69
+        JP  \t\t妹猫をペットにすることができる本。読むことができる。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  (Readable) secret diary of a younger sister, it befriends them when read.
+
+=== ITEM_ID_SKILLBOOK   [FILTER_ITEM_BOOK]
+    NOME      jp 学習書
+              en textbook
+              IT libro di studio
+    non ident. IT libro   (en book)
+    --- description(3)  :93295 ⚠️ TETTO SECCO 69
+        JP  \t\t指定されたスキルの潜在値を上昇させる本。読むことができる。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  (Readable) book that increases the potential of a given skill.
+
+=== ITEM_ID_LITTLE_SISTERS_DIARY   [FILTER_ITEM_BOOK]
+    NOME      jp 妹の日記
+              en little sister's diary
+              IT diario della sorella minore
+    --- description(3)  :97203 ⚠️ TETTO SECCO 69
+        JP  \t\t妹をペットにすることができる本。読むことができる。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  (Readable) diary of a younger sister, it befriends them when read.
+
+=== ITEM_ID_BUGGED_BOOK   [FILTER_ITEM_BOOK]
+    NOME      jp バグの本
+              en bugged book
+              IT libro bacato
+    non ident. IT libro   (en book)
+    --- description(3)  :129513 ⚠️ TETTO SECCO 69
+        JP  
+        EN  generated when failed to create an item.
+
+=== ITEM_ID_RED_BOOK   [FILTER_ITEM_BOOK]
+    NOME      jp 本
+              en book
+              IT libro
+    non ident. IT libro   (en book)
+    --- description(3)  :129583 ⚠️ TETTO SECCO 69
+        JP  \t\t雑多な情報が書かれた本。何度でも読むことができる。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  It is a book with miscellaneous information. Can be read more than once.
+
+=== ITEM_ID_BOOK   [FILTER_ITEM_BOOK]
+    NOME      jp 本
+              en book
+              IT libro
+    non ident. IT libro   (en book)
+    --- description(3)  :129654 ⚠️ TETTO SECCO 69
+        JP  \t\t雑多な情報が書かれた本。何度でも読むことができる。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  It is a book with miscellaneous information. Can be read more than once.
+
+== 23 oggetti, 23 descrizioni

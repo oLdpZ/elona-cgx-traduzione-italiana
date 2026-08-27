@@ -1,0 +1,182 @@
+=== ITEM_ID_MYSTERIOUS_ENVELOPE   [FILTER_CONTAINER]
+    NOME      jp 謎の茶封筒
+              en mysterious envelope
+              IT busta misteriosa
+    --- description(3)  :57128 ⚠️ TETTO SECCO 69
+        JP  \t\t中身が透けない紙の袋。開けることができる。\n#～鑑定報告書：＜袋＞カテゴリ～\n
+        EN  (Openable) paper bag that are not visible through.
+
+=== ITEM_ID_CARD_PACK   [FILTER_CONTAINER]
+    NOME      jp カードパック
+              en card pack
+              IT pacchetto di carte
+    --- description(3)  :78661 ⚠️ TETTO SECCO 69
+        JP  \t\tランダムなカードが連番で入っている袋だ。\n#～鑑定報告書：＜袋＞カテゴリ～\n
+        EN  It is a pack of 5 cards.
+
+=== ITEM_ID_NEW_YEARS_GIFT   [FILTER_CONTAINER]
+    NOME      jp お年玉
+              en new year's gift
+              IT regalo di capodanno
+    --- description(3)  :80739 ⚠️ TETTO SECCO 69
+        JP  \t\t中に様々なものが詰まった袋。開けることができる。\n#～鑑定報告書：＜縁起物＞カテゴリ～\n
+        EN  (Openable) container that all sorts of things.
+
+=== ITEM_ID_SCHRODINGERS_CAT   [FILTER_CONTAINER]
+    NOME      jp シュレディンガーの猫 シュレディンガーの猫
+              en Schrodinger's Cat box
+              IT gatto di Schrodinger scatola
+    non ident. IT contenuto ignoto   (en unknown content)
+    --- description(3)  :81263 ⚠️ TETTO SECCO 69
+        JP  \t\t猫が入っている箱。開けることができる。\n#～鑑定報告書：＜入れ物＞カテゴリ～\n
+        EN  (Openable) container that contains a cat.
+
+=== ITEM_ID_SMALL_GAMBLE_CHEST   [FILTER_CONTAINER]
+    NOME      jp 小さな宝くじ箱
+              en small gamble chest
+              IT piccolo baule della lotteria
+    --- description(3)  :81944 ⚠️ TETTO SECCO 69
+        JP  \t\t中に小銭、稀に大金の入った箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) container with coins inside and rarely ,large sums of money.
+
+=== ITEM_ID_COOLER_BOX   [FILTER_CONTAINER]
+    NOME      jp クーラーボックス
+              en cooler box
+              IT frigo portatile
+    non ident. IT scatola fredda   (en chilly box)
+    --- description(3)  :88150 ⚠️ TETTO SECCO 69
+        JP  \t\t４種の食物を腐らすことなく保持する箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) container that can hold 4 types of food.
+
+=== ITEM_ID_TAX_MASTERS_TAX_BOX   [FILTER_CONTAINER]
+    NOME      jp 徴税士の納税箱
+              en tax master's tax box
+              IT cassetta delle tasse dell'esattore
+    non ident. IT cassetta delle tasse   (en tax box)
+    --- description(3)  :89824 ⚠️ TETTO SECCO 69
+        JP  \t\t請求書と付随された金額を収める為の箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) container that hold the tax bill and the accompanying tax.
+
+=== ITEM_ID_GIANTS_SHACKLE   [FILTER_CONTAINER]
+    NOME      jp 巨人の足枷
+              en giant's shackle
+              IT ceppo del gigante
+    non ident. IT ceppo   (en shakle)
+    --- description(3)  :90835 ⚠️ TETTO SECCO 69
+        JP  \t\t巨人を繋ぎとめている枷。開けることができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Openable) fetters that restrains a giant.
+
+=== ITEM_ID_FREEZER   [FILTER_CONTAINER]
+    NOME      jp 冷蔵庫
+              en freezer
+              IT congelatore
+    --- description(3)  :92189 ⚠️ TETTO SECCO 69
+        JP  \t\t１５種の食物を腐らすことなく保持する箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) container keep 15 different types of food from spoiling.
+
+=== ITEM_ID_SHOP_STRONGBOX   [FILTER_CONTAINER]
+    NOME      jp 店の金庫
+              en shop strongbox
+              IT cassaforte del negozio
+    --- description(3)  :93423 ⚠️ TETTO SECCO 69
+        JP  \t\t店の売り上げが入った金庫。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) safe for the store's sales.
+
+=== ITEM_ID_MASTERS_DELIVERY_CHEST   [FILTER_CONTAINER]
+    NOME      jp 主の納入箱
+              en master's delivery chest
+              IT baule delle consegne del padrone
+    non ident. IT baule delle consegne   (en delivery chest)
+    --- description(3)  :93486 ⚠️ TETTO SECCO 69
+        JP  \t\t指定された物品を収める箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) container that holds designated items.
+
+=== ITEM_ID_SALARY_CHEST   [FILTER_CONTAINER]
+    NOME      jp 給料箱
+              en salary chest
+              IT baule degli stipendi
+    --- description(3)  :94384 ⚠️ TETTO SECCO 69
+        JP  \t\t与えられた給料を受け取る為の箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) box to receive the earned salary.
+
+=== ITEM_ID_HEIR_TRUNK   [FILTER_CONTAINER]
+    NOME      jp 形見のカバン
+              en heir trunk
+              IT borsa dell'erede
+    --- description(3)  :96847 ⚠️ TETTO SECCO 69
+        JP  \t\t過去のキャラの残した遺品を受け取る為のカバン。開けることができる。\n#～鑑定報告書：＜遺失物＞カテゴリ～\n
+        EN  (Openable) trunk to receive ancestral relics left by past characters.
+
+=== ITEM_ID_RARE_TREASURE_BALL   [FILTER_CONTAINER]
+    NOME      jp ガシャポンの玉(レア)
+              en rare treasure ball
+              IT sfera del tesoro rara
+    --- description(3)  :103236 ⚠️ TETTO SECCO 69
+        JP  \t\tアイテムが詰まった球体。開けることができる。\n#～鑑定報告書：＜容器＞カテゴリ～\n
+        EN  (Openable) sphere that contains a rare item.
+
+=== ITEM_ID_TREASURE_BALL   [FILTER_CONTAINER]
+    NOME      jp ガシャポンの玉
+              en treasure ball
+              IT sfera del tesoro
+    --- description(3)  :103298 ⚠️ TETTO SECCO 69
+        JP  \t\tアイテムが詰まった球体。開けることができる。\n#～鑑定報告書：＜容器＞カテゴリ～\n
+        EN  (Openable) sphere that contains a rare item.
+
+=== ITEM_ID_MATERIAL_BOX   [FILTER_CONTAINER]
+    NOME      jp 素材箱
+              en material box
+              IT cassa dei materiali
+    --- description(3)  :104728 ⚠️ TETTO SECCO 69
+        JP  \t\tマテリアルの入った箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) box filled with materials.
+
+=== ITEM_ID_SHOPKEEPERS_TRUNK   [FILTER_CONTAINER]
+    NOME      jp 商人のカバン
+              en shopkeeper's trunk
+              IT borsa del mercante
+    --- description(3)  :107117 ⚠️ TETTO SECCO 69
+        JP  \t\t武器防具が入ったカバン。開けることができる。\n#～鑑定報告書：＜遺失物＞カテゴリ～\n
+        EN  (Openable) trunk containing weapons and armor.
+
+=== ITEM_ID_WALLET   [FILTER_CONTAINER]
+    NOME      jp 財布(落し物)
+              en wallet
+              IT portafoglio
+    --- description(3)  :112199 ⚠️ TETTO SECCO 69
+        JP  \t\t金品が入った袋。開けることができる。\n#～鑑定報告書：＜遺失物＞カテゴリ～\n
+        EN  (Openable) wallet lost by a tourist.
+
+=== ITEM_ID_SUITCASE   [FILTER_CONTAINER]
+    NOME      jp カバン(落し物)
+              en suitcase
+              IT valigia
+    --- description(3)  :112261 ⚠️ TETTO SECCO 69
+        JP  \t\t金品が入ったカバン。開けることができる。\n#～鑑定報告書：＜遺失物＞カテゴリ～\n
+        EN  (Openable) suitcase lost by a tourist.
+
+=== ITEM_ID_SAFE   [FILTER_CONTAINER]
+    NOME      jp 金庫
+              en safe
+              IT cassaforte
+    --- description(3)  :115137 ⚠️ TETTO SECCO 69
+        JP  \t\t金品が入った箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) container containing money and goods.
+
+=== ITEM_ID_CHEST   [FILTER_CONTAINER]
+    NOME      jp 宝箱
+              en chest
+              IT baule
+    --- description(3)  :115199 ⚠️ TETTO SECCO 69
+        JP  \t\t金品が入った非常に重い箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) very heavy chest.
+
+=== ITEM_ID_BEJEWELED_CHEST   [FILTER_CONTAINER]
+    NOME      jp 宝石で飾られた宝箱
+              en bejeweled chest
+              IT baule ingioiellato
+    --- description(3)  :115261 ⚠️ TETTO SECCO 69
+        JP  \t\t金品が入った箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) ancient jeweled chest.
+
+== 22 oggetti, 22 descrizioni

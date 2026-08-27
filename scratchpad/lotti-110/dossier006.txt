@@ -1,0 +1,780 @@
+=== ITEM_ID_BLANK_CARD   [FILTER_JUNK]
+    NOME      jp ブランクカード
+              en blank card
+              IT carta vuota
+    --- description(3)  :42917 ⚠️ TETTO SECCO 69
+        JP  ぶつけた相手の情報を登録するカードだ。\n#～鑑定報告書：＜紙片＞カテゴリ～
+        EN  It's a card that can be used to record info on a creature.
+
+=== ITEM_ID_EXPOOPSION   [FILTER_JUNK]
+    NOME      jp エクソプロージョン
+              en expoopsion
+              IT expoopsion
+    --- description(3)  :42979 ⚠️ TETTO SECCO 69
+        JP  投げてぶつけると毒爆発を起こすウンチだ。\n#～鑑定報告書：＜美術品＞カテゴリ～
+        EN  Throwable shit. Causes a poisonous explosion on impact.
+
+=== ITEM_ID_SURSTROMMING   [FILTER_JUNK]
+    NOME      jp シュールストレミング
+              en surstromming
+              IT surstromming
+    --- description(3)  :43177 ⚠️ TETTO SECCO 69
+        JP  食べられない缶詰め。投げてぶつけると神経爆発を起こす。\n#～鑑定報告書：＜廃品＞カテゴリ～
+        EN  Throwable, inedible metal can. Causes a nerve explosion on impact.
+
+=== ITEM_ID_SNOW_CRYSTAL   [FILTER_JUNK]
+    NOME      jp 雪の大結晶
+              en snow crystal
+              IT cristallo di neve
+    --- description(3)  :43305 ⚠️ TETTO SECCO 69
+        JP  投げてぶつけると冷気を放つ雪の結晶だ。\n#～鑑定報告書：＜廃品＞カテゴリ～
+        EN  Throwable, crystalized snowflakes. Causes an icy explosion on impact.
+
+=== ITEM_ID_DARKNESSBANG   [FILTER_JUNK]
+    NOME      jp 暗黒弾
+              en darknessbang
+              IT colpo oscuro
+    --- description(3)  :43367 ⚠️ TETTO SECCO 69
+        JP  投げてぶつけると暗黒を放つ道具だ。\n#～鑑定報告書：＜用具＞カテゴリ～
+        EN  Throwable grenades that unleashes darkness explosion.
+
+=== ITEM_ID_LIGHTNING_DISCHARGER   [FILTER_JUNK]
+    NOME      jp 放雷針
+              en lightning discharger
+              IT scaricatore di fulmini
+    --- description(3)  :43429 ⚠️ TETTO SECCO 69
+        JP  投げてぶつけると電撃を放つ長い針だ。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  Throwable batteries that discharges electrical shocks.
+
+=== ITEM_ID_ECHINOBOX   [FILTER_JUNK]
+    NOME      jp エキノボックス
+              en echinobox
+              IT echinobox
+    --- description(3)  :43491 ⚠️ TETTO SECCO 69
+        JP  疫が詰め込まれた箱だ。開けないほうがいい。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  Throwable boxes packed with plagues, probably shouldn't open them.
+
+=== ITEM_ID_TRAINING_TICKET   [FILTER_JUNK]
+    NOME      jp ペット訓練券
+              en pet training ticket
+              IT biglietto d'addestramento
+    --- description(3)  :43770 ⚠️ TETTO SECCO 69
+        JP  LV以下のペットに持たせると所持金の代わりに訓練で使う紙だ。\n#～鑑定報告書：＜紙片＞カテゴリ～
+        EN  It is a coupon covering basic pet training fees.
+
+=== ITEM_ID_POTION_PLUG   [FILTER_JUNK]
+    NOME      jp ポーションの栓
+              en potion plug
+              IT tappo di pozione
+    --- description(3)  :43832 ⚠️ TETTO SECCO 69
+        JP  何の変哲もないポーションの栓だ。\n#～鑑定報告書：＜廃品＞カテゴリ～
+        EN  It's a bland potion cork.
+
+=== ITEM_ID_SPLENDID_CHAIN   [FILTER_JUNK]
+    NOME      jp 立派な鎖
+              en splendid chain
+              IT catena splendida
+    --- description(3)  :43965 ⚠️ TETTO SECCO 69
+        JP  主従度の高い相手に渡すと喜ばれる鎖だ。\n#～鑑定報告書：＜用具＞カテゴリ～
+        EN  It is an item rewarded to obedient slaves.
+
+=== ITEM_ID_SLIME_FUKAGURUMI   [FILTER_JUNK]
+    NOME      jp フカグルミ
+              en fukagurumi
+              IT fukagurumi
+    --- description(3)  :46013 ⚠️ TETTO SECCO 69
+        JP  何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Reusable) tool. Worth less than you think.
+
+=== ITEM_ID_DERNEFIA   [FILTER_JUNK]
+    NOME      jp デルネフィアの花
+              en dernefia
+              IT dernefia
+    --- description(3)  :46216 ⚠️ TETTO SECCO 69
+        JP  食べると少し回復する植物だ。\n#?鑑定報告書：＜植物＞カテゴリ?
+        EN  It is an edible plant that heals you.
+
+=== ITEM_ID_BOTTLE_CAP   [FILTER_JUNK]
+    NOME      jp ボトルキャップ
+              en bottle cap
+              IT tappo di bottiglia
+    --- description(3)  :46278 ⚠️ TETTO SECCO 69
+        JP  ボトルの栓だ。特に他の使い道はない。\n#?鑑定報告書：＜廃品＞カテゴリ?
+        EN  It is a bottle cap.
+
+=== ITEM_ID_B_DAMA   [FILTER_JUNK]
+    NOME      jp ビーダマ
+              en b-dama
+              IT b-dama
+    --- description(3)  :46340 ⚠️ TETTO SECCO 69
+        JP  ラムネの栓だ。特に他の使い道はない。\n#?鑑定報告書：＜廃品＞カテゴリ?
+        EN  It is a bottle cap for Ramune soda. It's useless.
+
+=== ITEM_ID_COMMAND_WHISTLE   [FILTER_JUNK]
+    NOME      jp コマンドホイッスル
+              en command whistle
+              IT fischietto di comando
+    --- description(3)  :47152 ⚠️ TETTO SECCO 69
+        JP  \t\tガードブレイクゲージを減らす笛だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that reduces the guard break gauge.
+
+=== ITEM_ID_DYING_CICADA   [FILTER_JUNK]
+    NOME      jp 喪蝉
+              en dying cicada
+              IT cicala morente
+    --- description(3)  :48738 ⚠️ TETTO SECCO 69
+        JP  \t\t死にかけのセミだ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is an insect that frightens the opponent when you hit them with it.
+
+=== ITEM_ID_MANUSCRIPT   [FILTER_JUNK]
+    NOME      jp 原稿
+              en manuscript
+              IT manoscritto
+    --- description(3)  :50881 ⚠️ TETTO SECCO 69
+        JP  \t\t本を作るための素材だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  These are materials for book publishing.
+
+=== ITEM_ID_MAGAICE   [FILTER_JUNK]
+    NOME      jp 冷吸の勾玉
+              en magaice
+              IT magaice
+    --- description(3)  :52582 ⚠️ TETTO SECCO 69
+        JP  \t\t所持していると冷気を放っても物が砕けない勾玉だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a bead that prevents objects from shattering due to low-temp.
+
+=== ITEM_ID_BOMB_BARREL   [FILTER_JUNK]
+    NOME      jp ボムタル
+              en bomb barrel
+              IT barile esplosivo
+    --- description(3)  :55276 ⚠️ TETTO SECCO 69
+        JP  \t\t燃焼時に火を噴くタルだ。投げてぶつけると火炎爆発を起こす。\n#～鑑定報告書：＜爆弾＞カテゴリ～\n
+        EN  Threwable barrel that spews flame when burning.
+
+=== ITEM_ID_MYSTERIOUS_FOSSIL   [FILTER_JUNK]
+    NOME      jp 謎の化石
+              en mysterious fossil
+              IT fossile misterioso
+    --- description(3)  :55862 ⚠️ TETTO SECCO 69
+        JP  \t\t生物の痕跡だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  These are remains of ancient organisms.
+
+=== ITEM_ID_CLAY   [FILTER_JUNK]
+    NOME      jp 粘土
+              en clay
+              IT argilla
+    --- description(3)  :55924 ⚠️ TETTO SECCO 69
+        JP  \t\t粘っこい土だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is some sticky soil.
+
+=== ITEM_ID_SULFUR   [FILTER_JUNK]
+    NOME      jp 硫黄
+              en sulfur
+              IT zolfo
+    --- description(3)  :55986 ⚠️ TETTO SECCO 69
+        JP  \t\t黄色い結晶体だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a yellow crystal.
+
+=== ITEM_ID_BIO_BATTERY   [FILTER_JUNK]
+    NOME      jp 生体バッテリー
+              en bio battery
+              IT biobatteria
+    --- description(3)  :56536 ⚠️ TETTO SECCO 69
+        JP  \t\t所持者の体型を維持する器具だ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a device that keeps the holder in shape.
+
+=== ITEM_ID_SKILL_TICKET   [FILTER_JUNK]
+    NOME      jp スキルチケット
+              en skill ticket
+              IT biglietto d'abilità
+    non ident. IT biglietto misterioso   (en some kind of ticket)
+    --- description(3)  :57896 ⚠️ TETTO SECCO 69
+        JP  \t\tスキルを教わる際にプラチナの代わりに使える紙だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a ticket that can be used instead of platinum when teaching skills.
+
+=== ITEM_ID_SHARP_HIGH_MATERIUM   [FILTER_JUNK]
+    NOME      jp 鋭のハイマテリウム
+              en sharp high materium
+              IT materium affilato superiore
+    --- description(3)  :58027 ⚠️ TETTO SECCO 69
+        JP  \t\t鋭い中間素材だ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is a sharp interim material.
+
+=== ITEM_ID_SHARP_MATERIUM   [FILTER_JUNK]
+    NOME      jp 鋭のマテリウム
+              en sharp materium
+              IT materium affilato
+    --- description(3)  :58089 ⚠️ TETTO SECCO 69
+        JP  \t\t鋭い中間素材だ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is a sharp interim material.
+
+=== ITEM_ID_HARD_HIGH_MATERIUM   [FILTER_JUNK]
+    NOME      jp 剛のハイマテリウム
+              en hard high materium
+              IT materium duro superiore
+    --- description(3)  :58151 ⚠️ TETTO SECCO 69
+        JP  \t\t頑丈な中間素材だ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is a hard interim material.
+
+=== ITEM_ID_HARD_MATERIUM   [FILTER_JUNK]
+    NOME      jp 剛のマテリウム
+              en hard materium
+              IT materium duro
+    --- description(3)  :58213 ⚠️ TETTO SECCO 69
+        JP  \t\t頑丈な中間素材だ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is a hard interim material.
+
+=== ITEM_ID_SOFT_HIGH_MATERIUM   [FILTER_JUNK]
+    NOME      jp 柔のハイマテリウム
+              en soft high materium
+              IT materium morbido superiore
+    --- description(3)  :58275 ⚠️ TETTO SECCO 69
+        JP  \t\t柔らかい中間素材だ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is a soft interim material.
+
+=== ITEM_ID_SOFT_MATERIUM   [FILTER_JUNK]
+    NOME      jp 柔のマテリウム
+              en soft materium
+              IT materium morbido
+    --- description(3)  :58337 ⚠️ TETTO SECCO 69
+        JP  \t\t柔らかい中間素材だ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is a soft interim material.
+
+=== ITEM_ID_LOVELY_BOUQUET   [FILTER_JUNK]
+    NOME      jp 素敵な花束
+              en lovely bouquet
+              IT bel mazzo di fiori
+    --- description(3)  :59731 ⚠️ TETTO SECCO 69
+        JP  \t\t束ねられた生花だ。想いを伝えるために使う。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a bunch of fresh flowers. Used to convey feelings.
+
+=== ITEM_ID_OHUDA   [FILTER_JUNK]
+    NOME      jp 退芭符
+              en ohuda
+              IT ohuda
+    --- description(3)  :59793 ⚠️ TETTO SECCO 69
+        JP  \t\tバフを消去する御札だ。投げることができる。\n#～鑑定報告書：＜紙＞カテゴリ～\n
+        EN  It is a thrown talisman that erases buffs.
+
+=== ITEM_ID_PRESENT   [FILTER_JUNK]
+    NOME      jp プレゼント
+              en present
+              IT regalo
+    --- description(3)  :60128 ⚠️ TETTO SECCO 69
+        JP  \t\t開けることができない箱だ。投げることはできる。\n#～鑑定報告書：＜入れ物＞カテゴリ～\n
+        EN  It is a box that can't be opened. But it can be thrown.
+
+=== ITEM_ID_SUIGARA   [FILTER_JUNK]
+    NOME      jp 吸い殻
+              en suigara
+              IT mozzicone
+    --- description(3)  :60851 ⚠️ TETTO SECCO 69
+        JP  \t\tタバコの吸い殻だ。投げると発火する。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are cigarette butts that ignites when thrown.
+
+=== ITEM_ID_TOBACCO   [FILTER_JUNK]
+    NOME      jp タバコ
+              en tobacco
+              IT tabacco
+    --- description(3)  :61181 ⚠️ TETTO SECCO 69
+        JP  \t\t依存性のある植物の葉だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜嗜好品＞カテゴリ～\n
+        EN  (Single-use) medicinal tool that is highly addictive.
+
+=== ITEM_ID_BRONZE_COIN   [FILTER_JUNK]
+    NOME      jp ブロンズ硬貨
+              en bronze coin
+              IT moneta di bronzo
+    --- description(3)  :61313 ⚠️ TETTO SECCO 69
+        JP  \t\t赤みのかかった硬貨だ。特定のサービスを受けることができる。\n#～鑑定報告書：＜貨幣＞カテゴリ～\n
+        EN  These are red coins used for special services.
+
+=== ITEM_ID_TAKTSTOCK   [FILTER_JUNK]
+    NOME      jp コマンドタクト
+              en Taktstock
+              IT Taktstock
+    --- description(3)  :62735 ⚠️ TETTO SECCO 69
+        JP  \t\t味方の士気を上げつつ攻撃対象を自動で指定する棒だ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that designates the target and raises the morale.
+
+=== ITEM_ID_DUMBBELL_OF_OPATOS   [FILTER_JUNK]
+    NOME      jp ヘヴィダンベル
+              en <Dumbbell of Opatos>
+              IT <Manubrio di Opatos>
+    --- description(3)  :62868 ⚠️ TETTO SECCO 69
+        JP  \t\tトレーニングの時に自動で使うアイテムだ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool that helps with training.
+
+=== ITEM_ID_AMULET_OF_JURE   [FILTER_JUNK]
+    NOME      jp 健康のお守り
+              en <Amulet of Jure>
+              IT <Amuleto di Jure>
+    --- description(3)  :62932 ⚠️ TETTO SECCO 69
+        JP  \t\t病気にかかった時に自動発動するアイテムだ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool that cure your sickness.
+
+=== ITEM_ID_CANDLE_OF_LULWY   [FILTER_JUNK]
+    NOME      jp 媚赤蝋燭
+              en <Candle of Lulwy>
+              IT <Candela di Lulwy>
+    --- description(3)  :62996 ⚠️ TETTO SECCO 69
+        JP  \t\t調教の時に自動で使うアイテムだ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool that helps with special training.
+
+=== ITEM_ID_VERY_PISTOL_OF_MANI   [FILTER_JUNK]
+    NOME      jp 特殊信号拳銃
+              en <Very Pistol of Mani>
+              IT <Pistola Lanciarazzi di Mani>
+    --- description(3)  :63060 ⚠️ TETTO SECCO 69
+        JP  \t\t戦術指示の時に自動で使うアイテムだ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool that helps with tactical instruction.
+
+=== ITEM_ID_GLASSES_OF_YACATECT   [FILTER_JUNK]
+    NOME      jp レッドアンダーリム
+              en <Glasses of Yacatect>
+              IT <Occhiali di Yacatect>
+    --- description(3)  :63124 ⚠️ TETTO SECCO 69
+        JP  \t\tキャラ情報を見る時に自動で使うアイテムだ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool that reveals extra character information.
+
+=== ITEM_ID_BOOKMARK_OF_ITZPALT   [FILTER_JUNK]
+    NOME      jp 古霜の栞
+              en <Bookmark of Itzpalt>
+              IT <Segnalibro di Itzpalt>
+    --- description(3)  :63188 ⚠️ TETTO SECCO 69
+        JP  \t\t学習書を読む時に自動で使うアイテムだ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool that helps reading.
+
+=== ITEM_ID_MUG_OF_EHEKATL   [FILTER_JUNK]
+    NOME      jp おさかなマグカップ
+              en <Mug of Ehekatl>
+              IT <Tazza di Ehekatl>
+    --- description(3)  :63252 ⚠️ TETTO SECCO 69
+        JP  \t\tポーション類を飲む時に自動で使うアイテムだ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool for drinking potions.
+
+=== ITEM_ID_SCISSORS_OF_KUMIROMI   [FILTER_JUNK]
+    NOME      jp 輪廻鋏
+              en <Scissors of Kumiromi>
+              IT <Cesoie di Kumiromi>
+    --- description(3)  :63316 ⚠️ TETTO SECCO 69
+        JP  \t\t収穫の時に自動で使うアイテムだ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool that helps harvest.
+
+=== ITEM_ID_VIOLENT_SKULL_SWORD   [FILTER_JUNK]
+    NOME      jp 暴魔の大剣
+              en violent skull sword
+              IT spada del teschio furiosa
+    --- description(3)  :63586 ⚠️ TETTO SECCO 69
+        JP  \t\tぶつけることでダメージを与えつつ相手の態勢を崩すアイテムだ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a throwable item that inflicts damage and disorientates opponent.
+
+=== ITEM_ID_LARGE_EMPTY_BASKET   [FILTER_JUNK]
+    NOME      jp 空の大型バスケット
+              en large empty basket
+              IT cesto vuoto grande
+    --- description(3)  :64618 ⚠️ TETTO SECCO 69
+        JP  \t\t中身の入っていない編みかごだ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a woven basket with no contents.
+
+=== ITEM_ID_TRISMAGISTUS   [FILTER_JUNK]
+    NOME      jp トリス・マギストス
+              en trismagistus
+              IT trismagistus
+    --- description(3)  :64872 ⚠️ TETTO SECCO 69
+        JP  \t\t投げてぶつけると多段爆発する結晶だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  Throwable magic crystal that explodes thrice upon impact.
+
+=== ITEM_ID_MAGISTUS   [FILTER_JUNK]
+    NOME      jp マギスト
+              en magistus
+              IT magistus
+    --- description(3)  :64934 ⚠️ TETTO SECCO 69
+        JP  \t\tぶつけることで爆発する結晶だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  Throwable magical crystal that explodes on impact.
+
+=== ITEM_ID_SKULL_SWORD   [FILTER_JUNK]
+    NOME      jp 暴れる魔剣
+              en skull sword
+              IT spada del teschio
+    --- description(3)  :64996 ⚠️ TETTO SECCO 69
+        JP  \t\tぶつけることでダメージを与えつつ相手の態勢を崩すアイテムだ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a throwable item that inflicts damage and disorientates opponent.
+
+=== ITEM_ID_MAGAQUA   [FILTER_JUNK]
+    NOME      jp 被水の勾玉
+              en magaqua
+              IT magaqua
+    --- description(3)  :66012 ⚠️ TETTO SECCO 69
+        JP  \t\t所持していると濡れ状態になる勾玉だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a bead that soaks the holder in water.
+
+=== ITEM_ID_MIND_DISC   [FILTER_JUNK]
+    NOME      jp マインドディスク
+              en mind disc
+              IT disco mentale
+    --- description(3)  :66264 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+
+=== ITEM_ID_E_G_G   [FILTER_JUNK]
+    NOME      jp E,G,G
+              en E.G.G
+              IT E.G.G
+    --- description(3)  :66326 ⚠️ TETTO SECCO 69
+        JP  \t\t子宝だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a stork E.G.G, or S.E.G.Gs.
+
+=== ITEM_ID_STONE_MATERIAL   [FILTER_JUNK]
+    NOME      jp 石材
+              en stone material
+              IT materiale di pietra
+    --- description(3)  :66768 ⚠️ TETTO SECCO 69
+        JP  \t\t彫刻向きの大きな石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a large stone suitable for sculpture.
+
+=== ITEM_ID_MAGATAMA   [FILTER_JUNK]
+    NOME      jp 火吸の勾玉
+              en magatama
+              IT magatama
+    --- description(3)  :68048 ⚠️ TETTO SECCO 69
+        JP  \t\t所持していると火を放っても火事にならない勾玉だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a bead that prevents objects from shattering due to high-temp.
+
+=== ITEM_ID_WOOD_MATERIAL   [FILTER_JUNK]
+    NOME      jp 材木
+              en wood material
+              IT materiale di legno
+    --- description(3)  :68391 ⚠️ TETTO SECCO 69
+        JP  \t\t材料として加工された木だ。\n#～鑑定報告書：＜樹木＞カテゴリ～\n
+        EN  It is a tree processed into a carpentry material.
+
+=== ITEM_ID_BIG_BRUSH   [FILTER_JUNK]
+    NOME      jp 大型ブラシ
+              en big brush
+              IT spazzola grande
+    --- description(3)  :69391 ⚠️ TETTO SECCO 69
+        JP  \t\t家畜を撫でる際に何度でも自動的に使用する。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool for rubbing livestocks.
+
+=== ITEM_ID_SUPER_LURE   [FILTER_JUNK]
+    NOME      jp マシンルアー
+              en <Super Lure>
+              IT <Super Esca>
+    non ident. IT esca meccanica   (en machine lure)
+    --- description(3)  :71646 ⚠️ TETTO SECCO 69
+        JP  \t\t自動捕獲ルアーだ。釣りの時に自動で使う。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool that catches the fish automatically.
+
+=== ITEM_ID_MAGIC_ICE   [FILTER_JUNK]
+    NOME      jp マジカルアイス
+              en magic ice
+              IT ghiaccio magico
+    --- description(3)  :74696 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+
+=== ITEM_ID_BLACK_DRIP   [FILTER_JUNK]
+    NOME      jp ブラックドリップ
+              en black drip
+              IT caffè filtro nero
+    --- description(3)  :74758 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+
+=== ITEM_ID_LAMP_PLANT   [FILTER_JUNK]
+    NOME      jp ランプラント
+              en lamp plant
+              IT pianta lampada
+    --- description(3)  :74820 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+
+=== ITEM_ID_CHAOS_JEWEL   [FILTER_JUNK]
+    NOME      jp カオスジュエル
+              en chaos jewel
+              IT gioiello del caos
+    --- description(3)  :74882 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+
+=== ITEM_ID_ETHER_MIRROR   [FILTER_JUNK]
+    NOME      jp エーテルの鏡
+              en ether mirror
+              IT specchio d'etere
+    --- description(3)  :74944 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+
+=== ITEM_ID_IKAROS_WING   [FILTER_JUNK]
+    NOME      jp イカロスの翼
+              en ikaros wing
+              IT ala di Icaro
+    --- description(3)  :75006 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+
+=== ITEM_ID_TROLL_CELL   [FILTER_JUNK]
+    NOME      jp トロール細胞
+              en troll cell
+              IT cellula di troll
+    --- description(3)  :75068 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+
+=== ITEM_ID_MURDER_CD   [FILTER_JUNK]
+    NOME      jp 殺人ＣＤ
+              en murder CD
+              IT CD assassino
+    --- description(3)  :75130 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+
+=== ITEM_ID_HIBACHI   [FILTER_JUNK]
+    NOME      jp 火鉢
+              en hibachi
+              IT hibachi
+    --- description(3)  :75192 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+
+=== ITEM_ID_ACCUMULATOR   [FILTER_JUNK]
+    NOME      jp 蓄電池
+              en accumulator
+              IT accumulatore
+    --- description(3)  :75254 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+
+=== ITEM_ID_GLIA_CRYSTAL   [FILTER_JUNK]
+    NOME      jp グリア結晶
+              en glia crystal
+              IT cristallo di glia
+    --- description(3)  :75316 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+
+=== ITEM_ID_WASTE_ART   [FILTER_JUNK]
+    NOME      jp クズ竜
+              en waste art
+              IT arte di scarto
+    --- description(3)  :75378 ⚠️ TETTO SECCO 69
+        JP  \t\tそれなりの値段で売れるオブジェだ。\n#～鑑定報告書：＜芸術品＞カテゴリ～\n
+        EN  They sell for a reasonable price.
+
+=== ITEM_ID_MONSTER_HEART   [FILTER_JUNK]
+    NOME      jp モンスターハート
+              en monster heart
+              IT cuore di mostro
+    non ident. IT cuore che batte   (en beating heart)
+    --- description(3)  :86738 ⚠️ TETTO SECCO 69
+        JP  \t\t所持するだけでモンスターの支配成功率が上昇する道具だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Autoused) tool that enhances your mastery of monsters.
+
+=== ITEM_ID_BAIT   [FILTER_JUNK]
+    NOME      jp 
+              en bait
+              IT esca
+    --- description(3)  :89761 ⚠️ TETTO SECCO 69
+        JP  
+        EN  It is bait for a fishing pole.
+
+=== ITEM_ID_SNOW_SCARECROW   [FILTER_JUNK]
+    NOME      jp 雪かかし
+              en snow scarecrow
+              IT spaventapasseri di neve
+    --- description(3)  :91463 ⚠️ TETTO SECCO 69
+        JP  \t\t雪をかぶったかかしだ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a scarecrow covered in snow.
+
+=== ITEM_ID_SHIT   [FILTER_JUNK]
+    NOME      jp フン
+              en shit
+              IT sterco
+    --- description(3)  :92454 ⚠️ TETTO SECCO 69
+        JP  \t\t生物の排泄物だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is biological excrement.
+
+=== ITEM_ID_STUMP   [FILTER_JUNK]
+    NOME      jp 切り株
+              en stump
+              IT ceppo d'albero
+    --- description(3)  :109211 ⚠️ TETTO SECCO 69
+        JP  \t\t切断された樹木の残った部分。何度でも使用することができる。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is the remain's of a tree. It can be used as a seat.
+
+=== ITEM_ID_LARGE_BOUQUET   [FILTER_JUNK]
+    NOME      jp 大きな花束
+              en large bouquet
+              IT grande mazzo di fiori
+    --- description(3)  :111066 ⚠️ TETTO SECCO 69
+        JP  \t\t束ねられた生花だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a bundle of fresh flowers.
+
+=== ITEM_ID_BROOM   [FILTER_JUNK]
+    NOME      jp ほうき
+              en broom
+              IT scopa
+    --- description(3)  :112758 ⚠️ TETTO SECCO 69
+        JP  \t\t掃除用の道具だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is an item for cleaning.
+
+=== ITEM_ID_SCARECROW   [FILTER_JUNK]
+    NOME      jp かかし
+              en scarecrow
+              IT spaventapasseri
+    --- description(3)  :112820 ⚠️ TETTO SECCO 69
+        JP  \t\t畑においておく鳥よけだ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a bird deterrent placed in the field.
+
+=== ITEM_ID_FIRE_WOOD   [FILTER_JUNK]
+    NOME      jp 薪
+              en fire wood
+              IT legna da ardere
+    --- description(3)  :112882 ⚠️ TETTO SECCO 69
+        JP  \t\tかまどにくべる為に切られた木片だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is dried wood ready for burning.
+
+=== ITEM_ID_ANIMAL_BONE   [FILTER_JUNK]
+    NOME      jp 動物の骨
+              en animal bone
+              IT osso d'animale
+    --- description(3)  :116411 ⚠️ TETTO SECCO 69
+        JP  \t\t打ち捨てられた動物の骨だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are bones of a dead animal.
+
+=== ITEM_ID_STRAW   [FILTER_JUNK]
+    NOME      jp 藁
+              en straw
+              IT paglia
+    --- description(3)  :116473 ⚠️ TETTO SECCO 69
+        JP  \t\t乾燥させた草を束ねたものだ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is a bundle of dried grass.
+
+=== ITEM_ID_DEAD_FISH   [FILTER_JUNK]
+    NOME      jp 魚の死骸
+              en dead fish
+              IT pesce morto
+    --- description(3)  :116543 ⚠️ TETTO SECCO 69
+        JP  \t\t干からびた魚。使用することはできない。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is a dried fish. Cannot be used.
+
+=== ITEM_ID_BOWL   [FILTER_JUNK]
+    NOME      jp 鉢
+              en bowl
+              IT ciotola
+    --- description(3)  :116668 ⚠️ TETTO SECCO 69
+        JP  \t\t中身の入っている器だ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is the empty space which makes the bowl useful, and it's full already.
+
+=== ITEM_ID_EMPTY_BOWL   [FILTER_JUNK]
+    NOME      jp 空っぽの鉢
+              en empty bowl
+              IT ciotola vuota
+    --- description(3)  :116730 ⚠️ TETTO SECCO 69
+        JP  \t\t中身の入っていない器だ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an empty bowl.
+
+=== ITEM_ID_BASKET   [FILTER_JUNK]
+    NOME      jp バスケット
+              en basket
+              IT cesto
+    --- description(3)  :116792 ⚠️ TETTO SECCO 69
+        JP  \t\t編みかごだ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a woven basket.
+
+=== ITEM_ID_LOT_EMPTY_BOTTLES   [FILTER_JUNK]
+    NOME      jp たくさんの空のビン たくさんの空のビン
+              en empty bottles lot
+              IT bottiglie vuote mucchio
+    --- description(3)  :116854 ⚠️ TETTO SECCO 69
+        JP  \t\t一か所に集められた欠けた空き瓶。使用することはできない。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are chipped empty bottles. Cannot be used.
+
+=== ITEM_ID_ORE_PIECE   [FILTER_JUNK]
+    NOME      jp 鉱石の欠片
+              en ore piece
+              IT pezzo di minerale
+    --- description(3)  :116916 ⚠️ TETTO SECCO 69
+        JP  \t\t殆ど岩でできている鉱物だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are minerals that are mostly made of rock.
+
+=== ITEM_ID_EMPTY_BASKET   [FILTER_JUNK]
+    NOME      jp 空のバスケット
+              en empty basket
+              IT cesto vuoto
+    --- description(3)  :123422 ⚠️ TETTO SECCO 69
+        JP  \t\t中身の入っていない編みかごだ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a woven basket with no contents.
+
+=== ITEM_ID_SKELETON   [FILTER_JUNK]
+    NOME      jp 骸
+              en skeleton
+              IT scheletro
+    --- description(3)  :127672 ⚠️ TETTO SECCO 69
+        JP  \t\t打ち捨てられた人の骨だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are abandoned human bones.
+
+=== ITEM_ID_BONE_FRAGMENT   [FILTER_JUNK]
+    NOME      jp 骨
+              en bone fragment
+              IT frammento d'osso
+    --- description(3)  :127734 ⚠️ TETTO SECCO 69
+        JP  \t\t打ち捨てられた何かの骨だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are abandoned bones.
+
+=== ITEM_ID_BROKEN_SWORD   [FILTER_JUNK]
+    NOME      jp 折れた刃
+              en broken sword
+              IT spada rotta
+    --- description(3)  :127796 ⚠️ TETTO SECCO 69
+        JP  \t\t使い物にならない破損した剣だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is a useless damaged sword.
+
+=== ITEM_ID_FLAG   [FILTER_JUNK]
+    NOME      jp 旗
+              en flag
+              IT bandiera
+    --- description(3)  :127858 ⚠️ TETTO SECCO 69
+        JP  \t\t布で作られた装飾品だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is an ornament made of cloth.
+
+=== ITEM_ID_BRAZIER_STAND   [FILTER_JUNK]
+    NOME      jp かがり台
+              en brazier stand
+              IT braciere
+    --- description(3)  :127920 ⚠️ TETTO SECCO 69
+        JP  \t\t簡素な照明器具。常に周囲を明るく照らす。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a simple lighting fixture. Always illuminates the surroundings.
+
+=== ITEM_ID_WASHINGS   [FILTER_JUNK]
+    NOME      jp 洗物
+              en washings
+              IT bucato
+    --- description(3)  :127982 ⚠️ TETTO SECCO 69
+        JP  \t\tかごに入った汚れた衣服だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are dirty clothes in a basket.
+
+=== ITEM_ID_BROKEN_VASE   [FILTER_JUNK]
+    NOME      jp 割れたつぼ
+              en broken vase
+              IT vaso rotto
+    --- description(3)  :128044 ⚠️ TETTO SECCO 69
+        JP  \t\t使い物にならない破損したつぼだ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is a useless and damaged crucible.
+
+=== ITEM_ID_GARBAGE   [FILTER_JUNK]
+    NOME      jp クズ
+              en garbage
+              IT spazzatura
+    --- description(3)  :128106 ⚠️ TETTO SECCO 69
+        JP  \t\t乾燥した草の束だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is a bunch of dry grass.
+
+=== ITEM_ID_WOOD_CHIP   [FILTER_JUNK]
+    NOME      jp 木片
+              en wood chip
+              IT scheggia di legno
+    --- description(3)  :128238 ⚠️ TETTO SECCO 69
+        JP  \t\t破損した木の破片だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is a damaged piece of wood.
+
+== 97 oggetti, 97 descrizioni

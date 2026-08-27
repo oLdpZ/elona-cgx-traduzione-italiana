@@ -1,0 +1,245 @@
+  42917
+    JP ぶつけた相手の情報を登録するカードだ。
+    EN It's a card that can be used to record info on a creature.
+  42979
+    JP 投げてぶつけると毒爆発を起こすウンチだ。
+    EN Throwable shit. Causes a poisonous explosion on impact.
+  43177
+    JP 食べられない缶詰め。投げてぶつけると神経爆発を起こす。
+    EN Throwable, inedible metal can. Causes a nerve explosion on impact.
+  43305
+    JP 投げてぶつけると冷気を放つ雪の結晶だ。
+    EN Throwable, crystalized snowflakes. Causes an icy explosion on impact.
+  43367
+    JP 投げてぶつけると暗黒を放つ道具だ。
+    EN Throwable grenades that unleashes darkness explosion.
+  43429
+    JP 投げてぶつけると電撃を放つ長い針だ。
+    EN Throwable batteries that discharges electrical shocks.
+  43491
+    JP 疫が詰め込まれた箱だ。開けないほうがいい。
+    EN Throwable boxes packed with plagues, probably shouldn't open them.
+  43770
+    JP LV以下のペットに持たせると所持金の代わりに訓練で使う紙だ。
+    EN It is a coupon covering basic pet training fees.
+  43832
+    JP 何の変哲もないポーションの栓だ。
+    EN It's a bland potion cork.
+  43965
+    JP 主従度の高い相手に渡すと喜ばれる鎖だ。
+    EN It is an item rewarded to obedient slaves.
+  46013
+    JP 何度でも使用することができる。
+    EN (Reusable) tool. Worth less than you think.
+  46216
+    JP 食べると少し回復する植物だ。
+    EN It is an edible plant that heals you.
+  46278
+    JP ボトルの栓だ。特に他の使い道はない。
+    EN It is a bottle cap.
+  46340
+    JP ラムネの栓だ。特に他の使い道はない。
+    EN It is a bottle cap for Ramune soda. It's useless.
+  47152
+    JP ガードブレイクゲージを減らす笛だ。何度でも使用することができる。
+    EN (Reusable) tool that reduces the guard break gauge.
+  48738
+    JP 死にかけのセミだ。
+    EN It is an insect that frightens the opponent when you hit them with it.
+  50881
+    JP 本を作るための素材だ。
+    EN These are materials for book publishing.
+  52582
+    JP 所持していると冷気を放っても物が砕けない勾玉だ。
+    EN It is a bead that prevents objects from shattering due to low-temp.
+  55276
+    JP 燃焼時に火を噴くタルだ。投げてぶつけると火炎爆発を起こす。
+    EN Threwable barrel that spews flame when burning.
+  55862
+    JP 生物の痕跡だ。
+    EN These are remains of ancient organisms.
+  55924
+    JP 粘っこい土だ。
+    EN It is some sticky soil.
+  55986
+    JP 黄色い結晶体だ。
+    EN It is a yellow crystal.
+  56536
+    JP 所持者の体型を維持する器具だ。
+    EN It is a device that keeps the holder in shape.
+  57896
+    JP スキルを教わる際にプラチナの代わりに使える紙だ。
+    EN It is a ticket that can be used instead of platinum when teaching skills.
+  58027
+    JP 鋭い中間素材だ。
+    EN It is a sharp interim material.
+  58151
+    JP 頑丈な中間素材だ。
+    EN It is a hard interim material.
+  58275
+    JP 柔らかい中間素材だ。
+    EN It is a soft interim material.
+  59731
+    JP 束ねられた生花だ。想いを伝えるために使う。
+    EN It is a bunch of fresh flowers. Used to convey feelings.
+  59793
+    JP バフを消去する御札だ。投げることができる。
+    EN It is a thrown talisman that erases buffs.
+  60128
+    JP 開けることができない箱だ。投げることはできる。
+    EN It is a box that can't be opened. But it can be thrown.
+  60851
+    JP タバコの吸い殻だ。投げると発火する。
+    EN These are cigarette butts that ignites when thrown.
+  61181
+    JP 依存性のある植物の葉だ。使用することができる（使い捨て）。
+    EN (Single-use) medicinal tool that is highly addictive.
+  61313
+    JP 赤みのかかった硬貨だ。特定のサービスを受けることができる。
+    EN These are red coins used for special services.
+  62735
+    JP 味方の士気を上げつつ攻撃対象を自動で指定する棒だ。
+    EN (Reusable) tool that designates the target and raises the morale.
+  62868
+    JP トレーニングの時に自動で使うアイテムだ。
+    EN (Autoused) tool that helps with training.
+  62932
+    JP 病気にかかった時に自動発動するアイテムだ。
+    EN (Autoused) tool that cure your sickness.
+  62996
+    JP 調教の時に自動で使うアイテムだ。
+    EN (Autoused) tool that helps with special training.
+  63060
+    JP 戦術指示の時に自動で使うアイテムだ。
+    EN (Autoused) tool that helps with tactical instruction.
+  63124
+    JP キャラ情報を見る時に自動で使うアイテムだ。
+    EN (Autoused) tool that reveals extra character information.
+  63188
+    JP 学習書を読む時に自動で使うアイテムだ。
+    EN (Autoused) tool that helps reading.
+  63252
+    JP ポーション類を飲む時に自動で使うアイテムだ。
+    EN (Autoused) tool for drinking potions.
+  63316
+    JP 収穫の時に自動で使うアイテムだ。
+    EN (Autoused) tool that helps harvest.
+  63586
+    JP ぶつけることでダメージを与えつつ相手の態勢を崩すアイテムだ。
+    EN It is a throwable item that inflicts damage and disorientates opponent.
+  64618
+    JP 中身の入っていない編みかごだ。
+    EN It is a woven basket with no contents.
+  64872
+    JP 投げてぶつけると多段爆発する結晶だ。
+    EN Throwable magic crystal that explodes thrice upon impact.
+  64934
+    JP ぶつけることで爆発する結晶だ。
+    EN Throwable magical crystal that explodes on impact.
+  66012
+    JP 所持していると濡れ状態になる勾玉だ。
+    EN It is a bead that soaks the holder in water.
+  66264
+    JP 合成用のアイテムだ。
+    EN It is an item used for artifact fusion.
+  66326
+    JP 子宝だ。
+    EN It is a stork E.G.G, or S.E.G.Gs.
+  66768
+    JP 彫刻向きの大きな石だ。
+    EN It is a large stone suitable for sculpture.
+  68048
+    JP 所持していると火を放っても火事にならない勾玉だ。
+    EN It is a bead that prevents objects from shattering due to high-temp.
+  68391
+    JP 材料として加工された木だ。
+    EN It is a tree processed into a carpentry material.
+  69391
+    JP 家畜を撫でる際に何度でも自動的に使用する。
+    EN (Autoused) tool for rubbing livestocks.
+  71646
+    JP 自動捕獲ルアーだ。釣りの時に自動で使う。
+    EN (Autoused) tool that catches the fish automatically.
+  75378
+    JP それなりの値段で売れるオブジェだ。
+    EN They sell for a reasonable price.
+  86738
+    JP 所持するだけでモンスターの支配成功率が上昇する道具だ。
+    EN (Autoused) tool that enhances your mastery of monsters.
+  89761
+    JP 
+    EN It is bait for a fishing pole.
+  91463
+    JP 雪をかぶったかかしだ。
+    EN It is a scarecrow covered in snow.
+  92454
+    JP 生物の排泄物だ。
+    EN It is biological excrement.
+ 109211
+    JP 切断された樹木の残った部分。何度でも使用することができる。
+    EN It is the remain's of a tree. It can be used as a seat.
+ 111066
+    JP 束ねられた生花だ。
+    EN It is a bundle of fresh flowers.
+ 112758
+    JP 掃除用の道具だ。
+    EN It is an item for cleaning.
+ 112820
+    JP 畑においておく鳥よけだ。
+    EN It is a bird deterrent placed in the field.
+ 112882
+    JP かまどにくべる為に切られた木片だ。
+    EN It is dried wood ready for burning.
+ 116411
+    JP 打ち捨てられた動物の骨だ。
+    EN These are bones of a dead animal.
+ 116473
+    JP 乾燥させた草を束ねたものだ。
+    EN It is a bundle of dried grass.
+ 116543
+    JP 干からびた魚。使用することはできない。
+    EN It is a dried fish. Cannot be used.
+ 116668
+    JP 中身の入っている器だ。
+    EN It is the empty space which makes the bowl useful, and it's full already.
+ 116730
+    JP 中身の入っていない器だ。
+    EN It is an empty bowl.
+ 116792
+    JP 編みかごだ。
+    EN It is a woven basket.
+ 116854
+    JP 一か所に集められた欠けた空き瓶。使用することはできない。
+    EN These are chipped empty bottles. Cannot be used.
+ 116916
+    JP 殆ど岩でできている鉱物だ。
+    EN These are minerals that are mostly made of rock.
+ 127672
+    JP 打ち捨てられた人の骨だ。
+    EN These are abandoned human bones.
+ 127734
+    JP 打ち捨てられた何かの骨だ。
+    EN These are abandoned bones.
+ 127796
+    JP 使い物にならない破損した剣だ。
+    EN It is a useless damaged sword.
+ 127858
+    JP 布で作られた装飾品だ。
+    EN It is an ornament made of cloth.
+ 127920
+    JP 簡素な照明器具。常に周囲を明るく照らす。
+    EN It is a simple lighting fixture. Always illuminates the surroundings.
+ 127982
+    JP かごに入った汚れた衣服だ。
+    EN These are dirty clothes in a basket.
+ 128044
+    JP 使い物にならない破損したつぼだ。
+    EN It is a useless and damaged crucible.
+ 128106
+    JP 乾燥した草の束だ。
+    EN It is a bunch of dry grass.
+ 128238
+    JP 破損した木の破片だ。
+    EN It is a damaged piece of wood.
+
+81 firme, 81 giapponesi distinti; 0 giapponesi condivisi

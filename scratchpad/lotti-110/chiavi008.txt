@@ -1,0 +1,88 @@
+# la zona non e' un intervallo: si dichiara per insieme di righe
+RIGHE = {
+    47223, 50819, 51224, 56058, 56204, 57580, 62537, 71103, 74104, 76794,
+    76938, 81067, 83700, 84236, 86406, 89287, 89359, 93295, 97203, 129513,
+}
+# 20 righe, da 47223 a 129513
+
+    # ---------------------------------------------------------- :47223
+    (47223, 'It is the book of collected knowledge of abyssal magic practices.'):
+        "",
+
+    # ---------------------------------------------------------- :50819
+    (50819, 'It is a book with miscellaneous information. Can be read more than once.'):
+        "",
+
+    # ---------------------------------------------------------- :51224
+    (51224, 'It is a memo with miscellaneous information. Can be read more than once.'):
+        "",
+
+    # ---------------------------------------------------------- :56058
+    (56058, '(Readable) diary of a butler, it befriends them when read.'):
+        "",
+
+    # ---------------------------------------------------------- :56204
+    (56204, 'It is a report with misc. information. Can be read more than once.'):
+        "",
+
+    # ---------------------------------------------------------- :57580
+    (57580, 'It is a set of photograph of the Wind Goddess, very eye-catching.'):
+        "",
+
+    # ---------------------------------------------------------- :62537
+    (62537, "(Readable) report, it won't make you a real researcher."):
+        "",
+
+    # ---------------------------------------------------------- :71103
+    (71103, '(Readable) diary of unknown author, it befriends them when read.'):
+        "",
+
+    # ---------------------------------------------------------- :74104
+    (74104, "(Readable) diary, won't make you a real madman."):
+        "",
+
+    # ---------------------------------------------------------- :76794
+    (76794, '(Readable) diary of a dog-eared big sister, it befriends them when read.'):
+        "",
+
+    # ---------------------------------------------------------- :76938
+    (76938, '(Readable) diary of a older sister, it befriends them when read.'):
+        "",
+
+    # ---------------------------------------------------------- :81067
+    (81067, '(Readable) wampeter of karass, it brings zah-mah-ki-bo to them when read.'):
+        "",
+
+    # ---------------------------------------------------------- :83700
+    (83700, '(Readable) book that can resurrect dead people.'):
+        "",
+
+    # ---------------------------------------------------------- :84236
+    (84236, "(Readable) book about what's going on in town."):
+        "",
+
+    # ---------------------------------------------------------- :86406
+    (86406, "(Readable) book written by an author of children's stories."):
+        "",
+
+    # ---------------------------------------------------------- :89287
+    (89287, '(Readable) diary of a young lady, it befriends them when read.'):
+        "",
+
+    # ---------------------------------------------------------- :89359
+    (89359, '(Readable) secret diary of a younger sister, it befriends them when read.'):
+        "",
+
+    # ---------------------------------------------------------- :93295
+    (93295, '(Readable) book that increases the potential of a given skill.'):
+        "",
+
+    # ---------------------------------------------------------- :97203
+    (97203, '(Readable) diary of a younger sister, it befriends them when read.'):
+        "",
+
+    # ---------------------------------------------------------- :129513
+    (129513, 'generated when failed to create an item.'):
+        "",
+
+# 20 voci, 0 ambigue

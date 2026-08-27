@@ -1,0 +1,269 @@
+=== ITEM_ID_M01_GARNET   [FILTER_ORE]
+    NOME      jp M01-真実のガーネット M01-真実のガーネット
+              en M01-Garnet jewel
+              IT M01-Granato gioiello
+    --- description(3)  :48808 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+
+=== ITEM_ID_M02_AMETHYST   [FILTER_ORE]
+    NOME      jp M02-高貴のアメジスト M02-高貴のアメジスト
+              en M02-Amethyst jewel
+              IT M02-Ametista gioiello
+    --- description(3)  :48878 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+
+=== ITEM_ID_M03_AQUAMARINE   [FILTER_ORE]
+    NOME      jp M03-聡明のアクアマリン M03-聡明のアクアマリン
+              en M03-Aquamarine jewel
+              IT M03-Acquamarina gioiello
+    --- description(3)  :48948 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+
+=== ITEM_ID_M04_DIAMOND   [FILTER_ORE]
+    NOME      jp M04-無垢のダイヤモンド M04-無垢のダイヤモンド
+              en M04-Diamond jewel
+              IT M04-Diamante gioiello
+    --- description(3)  :49018 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+
+=== ITEM_ID_M05_EMERALD   [FILTER_ORE]
+    NOME      jp M05-誠実のエメラルド M05-誠実のエメラルド
+              en M05-Emerald jewel
+              IT M05-Smeraldo gioiello
+    --- description(3)  :49088 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+
+=== ITEM_ID_M06_ALEXANDRITE   [FILTER_ORE]
+    NOME      jp M06-情熱のアレキサンドライト M06-情熱のアレキサンドライト
+              en M06-Alexandrite jewel
+              IT M06-Alessandrite gioiello
+    --- description(3)  :49158 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+
+=== ITEM_ID_M07_RUBY   [FILTER_ORE]
+    NOME      jp M07-威厳のルビー M07-威厳のルビー
+              en M07-Ruby jewel
+              IT M07-Rubino gioiello
+    --- description(3)  :49228 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+
+=== ITEM_ID_M08_SARDONYX   [FILTER_ORE]
+    NOME      jp M08-円満のサードニクス M08-円満のサードニクス
+              en M08-Sardonyx jewel
+              IT M08-Sardonice gioiello
+    --- description(3)  :49298 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+
+=== ITEM_ID_M09_SAPPHIRE   [FILTER_ORE]
+    NOME      jp M09-慈愛のサファイア M09-慈愛のサファイア
+              en M09-Sapphire jewel
+              IT M09-Zaffiro gioiello
+    --- description(3)  :49368 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+
+=== ITEM_ID_M10_OPAL   [FILTER_ORE]
+    NOME      jp M10-希望のオパール M10-希望のオパール
+              en M10-Opal jewel
+              IT M10-Opale gioiello
+    --- description(3)  :49438 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+
+=== ITEM_ID_M11_TOPAZ   [FILTER_ORE]
+    NOME      jp M11-友情のトパーズ M11-友情のトパーズ
+              en M11-Topaz jewel
+              IT M11-Topazio gioiello
+    --- description(3)  :49508 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+
+=== ITEM_ID_M12_LAPIS_LAZULI   [FILTER_ORE]
+    NOME      jp M12-成功のラピスラズリ M12-成功のラピスラズリ
+              en M12-Lapis Lazuli jewel
+              IT M12-Lapislazzuli gioiello
+    --- description(3)  :49578 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+
+=== ITEM_ID_GOLDEN_DOLL   [FILTER_ORE]
+    NOME      jp 黄金像
+              en golden doll
+              IT bambola dorata
+    --- description(3)  :49711 ⚠️ TETTO SECCO 69
+        JP  \t\t高価だが重い像だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It's a expensive but heavy statue.
+
+=== ITEM_ID_JEWEL_CORAL   [FILTER_ORE]
+    NOME      jp 宝石珊瑚
+              en jewel coral
+              IT corallo prezioso
+    --- description(3)  :52173 ⚠️ TETTO SECCO 69
+        JP  \t\t深海の芸術だ。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  These are artworks of the deep sea.
+
+=== ITEM_ID_DRAGONS_RED   [FILTER_ORE]
+    NOME      jp 赤竜石 赤竜石
+              en red dragon mysterious stone
+              IT drago rosso pietra misteriosa
+    --- description(3)  :52316 ⚠️ TETTO SECCO 69
+        JP  \t\t武具の素材になりそうな鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is an ore that could be used as a material for armaments.
+
+=== ITEM_ID_TEAR_OF_GOD   [FILTER_ORE]
+    NOME      jp 神雫石 神雫石
+              en tear of god jewel
+              IT lacrima divina gioiello
+    --- description(3)  :66140 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+
+=== ITEM_ID_CORE_OF_NEFIA   [FILTER_ORE]
+    NOME      jp ネフィアティア ネフィアティア
+              en core of nefia jewel
+              IT nucleo di Nefia gioiello
+    --- description(3)  :66202 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+
+=== ITEM_ID_BRILLIANT_RUBYNUS   [FILTER_ORE]
+    NOME      jp ルビナス ルビナス
+              en brilliant rubynus jewel
+              IT rubynus brillante gioiello
+    --- description(3)  :69051 ⚠️ TETTO SECCO 69
+        JP  \t\t加工したルビナスだ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a processed rubynus ore.
+
+=== ITEM_ID_TABLET_EMERALD   [FILTER_ORE]
+    NOME      jp エメラルド・タブレット エメラルド・タブレット
+              en emerald tablet
+              IT smeraldo tavoletta
+    --- description(3)  :69121 ⚠️ TETTO SECCO 69
+        JP  \t\tエメラルドでできた板だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a processed emerald.
+
+=== ITEM_ID_BRILLIANT_DIAMOND   [FILTER_ORE]
+    NOME      jp ダイヤモンド ダイヤモンド
+              en brilliant diamond jewel
+              IT diamante brillante gioiello
+    --- description(3)  :69191 ⚠️ TETTO SECCO 69
+        JP  \t\t加工したダイヤモンドだ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a processed diamond.
+
+=== ITEM_ID_TOKEN_FRIENDSHIP   [FILTER_ORE]
+    NOME      jp 友情の証 友情の証
+              en friendship token
+              IT amicizia gettone
+    non ident. IT carta sbrindellata   (en crumbling paper)
+    --- description(3)  :82216 ⚠️ TETTO SECCO 69
+        JP  \t\t友達以上の相手との友好を深める紙だ。渡すことができる。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a token for your friends, it deepens your relationship.
+
+=== ITEM_ID_MUSIC_TICKET   [FILTER_ORE]
+    NOME      jp 音楽チケット
+              en music ticket
+              IT biglietto per il concerto
+    non ident. IT biglietto misterioso   (en some kind of ticket)
+    --- description(3)  :82613 ⚠️ TETTO SECCO 69
+        JP  \t\t特に効果の無い紙だ。収集している人を探そう。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  These are tickets given out to promising musicians. Some collect these.
+
+=== ITEM_ID_SMALL_MEDAL   [FILTER_ORE]
+    NOME      jp 小さなメダル
+              en small medal
+              IT medaglietta
+    non ident. IT medaglia dorata   (en golg coin)
+    --- description(3)  :89422 ⚠️ TETTO SECCO 69
+        JP  \t\tどこかにコレクターがいると言われるメダルだ。\n#～鑑定報告書：＜貨幣＞カテゴリ～\n
+        EN  It is currency with high collection value, rarely found.
+
+=== ITEM_ID_WORTHLESS_FAKE_GOLD_BAR   [FILTER_ORE]
+    NOME      jp 途方も価値のない錆びた偽物の金塊
+              en worthless fake gold bar
+              IT lingotto d'oro falso e senza valore
+    non ident. IT lingotto d'oro di gran valore   (en valuable gold bar)
+    --- description(3)  :117321 ⚠️ TETTO SECCO 69
+        JP  \t\t模造品だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are knockoffs.
+
+=== ITEM_ID_JUNK_STONE   [FILTER_ORE]
+    NOME      jp クズ石
+              en junk stone
+              IT pietra di scarto
+    --- description(3)  :128176 ⚠️ TETTO SECCO 69
+        JP  \t\tとるに足らない小石だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is an insignificant pebble.
+
+=== ITEM_ID_RAW_DIAMOND_ORE   [FILTER_ORE]
+    NOME      jp ダイヤモンドの原石
+              en raw diamond ore
+              IT diamante grezzo
+    --- description(3)  :128308 ⚠️ TETTO SECCO 69
+        JP  \t\tダイヤモンドの要素が含まれる鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is an ore that contain traces of diamonds.
+
+=== ITEM_ID_RAW_EMERALD_ORE   [FILTER_ORE]
+    NOME      jp エメラルドの原石
+              en raw emerald ore
+              IT smeraldo grezzo
+    --- description(3)  :128378 ⚠️ TETTO SECCO 69
+        JP  \t\tエメラルドの要素が含まれる鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is an ore that contain traces of emerald.
+
+=== ITEM_ID_MICA_ORE   [FILTER_ORE]
+    NOME      jp ミカ
+              en mica ore
+              IT minerale di mica
+    --- description(3)  :128448 ⚠️ TETTO SECCO 69
+        JP  \t\t白い色をした鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a white-colored ore.
+
+=== ITEM_ID_RAW_RUBYNUS_ORE   [FILTER_ORE]
+    NOME      jp ルビナスの原石
+              en raw rubynus ore
+              IT rubynus grezzo
+    --- description(3)  :128518 ⚠️ TETTO SECCO 69
+        JP  \t\tルビナスの要素が含まれる鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is an ore that contain traces of rubynus.
+
+=== ITEM_ID_GOLD_BAR   [FILTER_ORE]
+    NOME      jp 金塊
+              en gold bar
+              IT lingotto d'oro
+    --- description(3)  :128588 ⚠️ TETTO SECCO 69
+        JP  \t\t黄金色の輝く鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a golden, shining metal bar.
+
+=== ITEM_ID_SUN_CRYSTAL   [FILTER_ORE]
+    NOME      jp 太陽の結晶
+              en sun crystal
+              IT cristallo di sole
+    --- description(3)  :128658 ⚠️ TETTO SECCO 69
+        JP  \t\t黄色をした鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a yellowish ore.
+
+=== ITEM_ID_MANA_CRYSTAL   [FILTER_ORE]
+    NOME      jp 魔力の結晶
+              en mana crystal
+              IT cristallo di mana
+    --- description(3)  :128728 ⚠️ TETTO SECCO 69
+        JP  \t\t赤色をした鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a reddish ore.
+
+=== ITEM_ID_EARTH_CRYSTAL   [FILTER_ORE]
+    NOME      jp 大地の結晶
+              en earth crystal
+              IT cristallo di terra
+    --- description(3)  :128798 ⚠️ TETTO SECCO 69
+        JP  \t\t橙色をした鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is an orange-ish ore.
+
+== 33 oggetti, 33 descrizioni

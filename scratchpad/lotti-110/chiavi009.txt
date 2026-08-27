@@ -1,0 +1,129 @@
+# la zona non e' un intervallo: si dichiara per insieme di righe
+RIGHE = {
+    61949, 62317, 62397, 70754, 71859, 92065, 92800, 93152, 94105, 94537,
+    96278, 96358, 98579, 98957, 103508, 104945, 105384, 105969, 106769, 111780,
+    117762, 119544, 119624, 122824, 122967, 123047, 123127, 123207, 129953, 130033,
+}
+# 30 righe, da 61949 a 130033
+
+    # ---------------------------------------------------------- :61949
+    (61949, 'It is a rod that, when zapped, unleash an area-of-effect physical attack.'):
+        "",
+
+    # ---------------------------------------------------------- :62317
+    (62317, 'It is a rod that, when zapped, unleashes a beam of magical torrent.'):
+        "",
+
+    # ---------------------------------------------------------- :62397
+    (62397, 'It is a rod that, when zapped, unleashes an area-of-effect poison attack.'):
+        "",
+
+    # ---------------------------------------------------------- :70754
+    (70754, 'It is a rod that, when zapped, unleash an area-of-effect electric shock.'):
+        "",
+
+    # ---------------------------------------------------------- :71859
+    (71859, 'It is a rod that, when zapped, unleashes an area-of-effect dark pulse.'):
+        "",
+
+    # ---------------------------------------------------------- :92065
+    (92065, 'It is a rod that, when zapped, manifests doorways on nearby walls.'):
+        "",
+
+    # ---------------------------------------------------------- :92800
+    (92800, 'It is a rod that, when zapped, creates walls of flame at target location.'):
+        "",
+
+    # ---------------------------------------------------------- :93152
+    (93152, 'It is a rod that, when zapped, creates pools of acid at target location.'):
+        "",
+
+    # ---------------------------------------------------------- :94105
+    (94105, 'It is a rod that, when zapped, heal wounds of nearby target.'):
+        "",
+
+    # ---------------------------------------------------------- :94537
+    (94537, 'It is a rod that, when zapped, creates magical walls at target location.'):
+        "",
+
+    # ---------------------------------------------------------- :96278
+    (96278, 'It is a rod that, when zapped, reconstruct targeted items.'):
+        "",
+
+    # ---------------------------------------------------------- :96358
+    (96358, 'It is a rod that, when zapped, forcifully transforms target creature.'):
+        "",
+
+    # ---------------------------------------------------------- :98579
+    (98579, 'It is a rod that, when zapped, creates spider webs at target location.'):
+        "",
+
+    # ---------------------------------------------------------- :98957
+    (98957, 'It is a rod that, when zapped, dominates target creature.'):
+        "",
+
+    # ---------------------------------------------------------- :103508
+    (103508, 'It is a rod that, when zapped, uncurses nearby equipped items.'):
+        "",
+
+    # ---------------------------------------------------------- :104945
+    (104945, 'It is a rod that, when zapped, restores your mana.'):
+        "",
+
+    # ---------------------------------------------------------- :105384
+    (105384, 'It is a rod that, when zapped, protects nearby target from curses.'):
+        "",
+
+    # ---------------------------------------------------------- :105969
+    (105969, 'It is a rod that, when zapped, puts nearby target in accelerated status.'):
+        "",
+
+    # ---------------------------------------------------------- :106769
+    (106769, 'It is a rod that, when zapped, silences the target.'):
+        "",
+
+    # ---------------------------------------------------------- :111780
+    (111780, 'It is a rod that, when zapped, grants audience to the wish goddess.'):
+        "",
+
+    # ---------------------------------------------------------- :117762
+    (117762, 'It is a rod that, when zapped, scan and maps undiscovered areas.'):
+        "",
+
+    # ---------------------------------------------------------- :119544
+    (119544, 'It is a rod that, when zapped, puts a nearby target in slow motion.'):
+        "",
+
+    # ---------------------------------------------------------- :119624
+    (119624, 'It is a rod that, when zapped, unleashes a beam of electric torrent.'):
+        "",
+
+    # ---------------------------------------------------------- :122824
+    (122824, 'It is a rod that, when zapped, heal wounds of nearby target.'):
+        "",
+
+    # ---------------------------------------------------------- :122967
+    (122967, 'It is a rod that, when zapped, unleashes a beam of heat wave.'):
+        "",
+
+    # ---------------------------------------------------------- :123047
+    (123047, 'It is a rod that, when zapped, unleashes a beam of freezing air.'):
+        "",
+
+    # ---------------------------------------------------------- :123127
+    (123127, 'It is a rod that, when zapped, opens a rift containing hostile creatures.'):
+        "",
+
+    # ---------------------------------------------------------- :123207
+    (123207, 'It is a rod that, when zapped, shoots an arrow of concentrated magic.'):
+        "",
+
+    # ---------------------------------------------------------- :129953
+    (129953, 'It is a rod that, when zapped, teleports nearby target.'):
+        "",
+
+    # ---------------------------------------------------------- :130033
+    (130033, 'It is a rod that, when zapped, reveal the structure of targeted item.'):
+        "",
+
+# 30 voci, 0 ambigue

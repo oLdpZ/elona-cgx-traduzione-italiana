@@ -1,0 +1,257 @@
+=== ITEM_ID_ROD_BUBBLE_BALL   [FILTER_ITEM_ROD]
+    NOME      jp 泡沫の波動の魔杖 泡沫の波動の魔杖
+              en bubble ball rod
+              IT sfera di bolle bacchetta
+    --- description(3)  :61949 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることでＰＶＤＶ属性の範囲攻撃を発動する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, unleash an area-of-effect physical attack.
+
+=== ITEM_ID_ROD_MAGIC_LASER   [FILTER_ITEM_ROD]
+    NOME      jp マジックレーザーの魔杖 マジックレーザーの魔杖
+              en magic laser rod
+              IT raggio magico bacchetta
+    --- description(3)  :62317 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に魔法属性のボルトを放つ魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, unleashes a beam of magical torrent.
+
+=== ITEM_ID_ROD_POISON_BALL   [FILTER_ITEM_ROD]
+    NOME      jp 猛毒の波動の魔杖 猛毒の波動の魔杖
+              en poison ball rod
+              IT sfera di veleno bacchetta
+    --- description(3)  :62397 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで毒属性の範囲攻撃を発動する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, unleashes an area-of-effect poison attack.
+
+=== ITEM_ID_ROD_LIGHTNING_BALL   [FILTER_ITEM_ROD]
+    NOME      jp 雷光の波動の魔杖 雷光の波動の魔杖
+              en lightning ball rod
+              IT sfera di fulmine bacchetta
+    --- description(3)  :70754 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで電撃属性の範囲攻撃を発動する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, unleash an area-of-effect electric shock.
+
+=== ITEM_ID_ROD_ECLIPSE   [FILTER_ITEM_ROD]
+    NOME      jp 月蝕の波動の魔杖 月蝕の波動の魔杖
+              en eclipse rod
+              IT eclissi bacchetta
+    --- description(3)  :71859 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで暗黒属性の範囲攻撃を発動する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, unleashes an area-of-effect dark pulse.
+
+=== ITEM_ID_ROD_MAKE_DOOR   [FILTER_ITEM_ROD]
+    NOME      jp 扉生成の魔杖 扉生成の魔杖
+              en make door rod
+              IT creazione di porte bacchetta
+    --- description(3)  :92065 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで近距離に扉を作り出す魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, manifests doorways on nearby walls.
+
+=== ITEM_ID_ROD_FIRE_WALL   [FILTER_ITEM_ROD]
+    NOME      jp 炎の壁の魔杖 炎の壁の魔杖
+              en fire wall rod
+              IT muro di fuoco bacchetta
+    --- description(3)  :92800 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に炎の壁を作り出す魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, creates walls of flame at target location.
+
+=== ITEM_ID_ROD_ACID_GROUND   [FILTER_ITEM_ROD]
+    NOME      jp 酸の滴る杖 酸の滴る杖
+              en acid ground rod
+              IT suolo acido bacchetta
+    --- description(3)  :93152 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に酸の海を作り出す魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, creates pools of acid at target location.
+
+=== ITEM_ID_ROD_HEALING_HANDS   [FILTER_ITEM_ROD]
+    NOME      jp 癒しの手の魔杖 癒しの手の魔杖
+              en healing hands rod
+              IT mani guaritrici bacchetta
+    --- description(3)  :94105 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで自分、または隣接者のHPを回復する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, heal wounds of nearby target.
+
+=== ITEM_ID_ROD_WALL_CREATION   [FILTER_ITEM_ROD]
+    NOME      jp 壁生成の魔杖 壁生成の魔杖
+              en wall creation rod
+              IT creazione di muri bacchetta
+    --- description(3)  :94537 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に壁を作り出す魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, creates magical walls at target location.
+
+=== ITEM_ID_ROD_ALCHEMY   [FILTER_ITEM_ROD]
+    NOME      jp 錬金術の魔杖 錬金術の魔杖
+              en alchemy rod
+              IT alchimia bacchetta
+    --- description(3)  :96278 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで指定したアイテムを再構築する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, reconstruct targeted items.
+
+=== ITEM_ID_ROD_CHANGE_CREATURE   [FILTER_ITEM_ROD]
+    NOME      jp 変化の魔杖 変化の魔杖
+              en change creature rod
+              IT mutamento di creatura bacchetta
+    --- description(3)  :96358 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象を再構築する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, forcifully transforms target creature.
+
+=== ITEM_ID_ROD_WEB   [FILTER_ITEM_ROD]
+    NOME      jp 蜘蛛の巣の魔杖 蜘蛛の巣の魔杖
+              en web rod
+              IT ragnatela bacchetta
+    --- description(3)  :98579 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に蜘蛛の巣を張る魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, creates spider webs at target location.
+
+=== ITEM_ID_ROD_DOMINATION   [FILTER_ITEM_ROD]
+    NOME      jp 支配の魔杖 支配の魔杖
+              en domination rod
+              IT dominio bacchetta
+    --- description(3)  :98957 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象を支配下に置く魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, dominates target creature.
+
+=== ITEM_ID_ROD_UNCURSE   [FILTER_ITEM_ROD]
+    NOME      jp 解呪の魔杖 解呪の魔杖
+              en uncurse rod
+              IT purificazione bacchetta
+    --- description(3)  :103508 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで自分、または隣接者の持つアイテムの呪いを解く魔法の杖。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, uncurses nearby equipped items.
+
+=== ITEM_ID_ROD_MANA   [FILTER_ITEM_ROD]
+    NOME      jp 魔力の魔杖 魔力の魔杖
+              en mana rod
+              IT mana bacchetta
+    --- description(3)  :104945 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで自分のＭＰを回復する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, restores your mana.
+
+=== ITEM_ID_ROD_HOLY_LIGHT   [FILTER_ITEM_ROD]
+    NOME      jp 浄化の魔杖 浄化の魔杖
+              en holy light rod
+              IT luce sacra bacchetta
+    --- description(3)  :105384 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで自分、または隣接者に呪いに対する抵抗を得る衣を張る魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, protects nearby target from curses.
+
+=== ITEM_ID_ROD_SPEED   [FILTER_ITEM_ROD]
+    NOME      jp 加速の魔杖 加速の魔杖
+              en speed rod
+              IT accelerazione bacchetta
+    --- description(3)  :105969 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで自分、または隣接者を一定時間加速状態にする魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, puts nearby target in accelerated status.
+
+=== ITEM_ID_ROD_SILENCE   [FILTER_ITEM_ROD]
+    NOME      jp 沈黙の魔杖 沈黙の魔杖
+              en silence rod
+              IT silenzio bacchetta
+    --- description(3)  :106769 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象を沈黙状態にする魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, silences the target.
+
+=== ITEM_ID_ROD_WISHING   [FILTER_ITEM_ROD]
+    NOME      jp 願いの魔杖 願いの魔杖
+              en wishing rod
+              IT desiderio bacchetta
+    --- description(3)  :111780 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで願いを言う機会が与えられる魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, grants audience to the wish goddess.
+
+=== ITEM_ID_ROD_CURE   [FILTER_ITEM_ROD]
+    NOME      jp 癒しの魔杖 癒しの魔杖
+              en cure rod
+              IT cura bacchetta
+    --- description(3)  :117682 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで自分、または隣接者のHPを回復する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, heal wounds of nearby target.
+
+=== ITEM_ID_ROD_MAGIC_MAPPING   [FILTER_ITEM_ROD]
+    NOME      jp 千里眼の魔杖 千里眼の魔杖
+              en magic mapping rod
+              IT cartografia magica bacchetta
+    --- description(3)  :117762 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで未探索の箇所を明らかにする魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, scan and maps undiscovered areas.
+
+=== ITEM_ID_ROD_SLOW   [FILTER_ITEM_ROD]
+    NOME      jp 鈍足の魔杖 鈍足の魔杖
+              en slow rod
+              IT rallentamento bacchetta
+    --- description(3)  :119544 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象者を鈍足状態にする魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, puts a nearby target in slow motion.
+
+=== ITEM_ID_ROD_LIGHTNING_BOLT   [FILTER_ITEM_ROD]
+    NOME      jp 稲妻の軌跡の魔杖 稲妻の軌跡の魔杖
+              en lightning bolt rod
+              IT saetta di fulmine bacchetta
+    --- description(3)  :119624 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に電撃属性のボルトを放つ魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, unleashes a beam of electric torrent.
+
+=== ITEM_ID_ROD_LIFE   [FILTER_ITEM_ROD]
+    NOME      jp 生命の魔杖 生命の魔杖
+              en life rod
+              IT vita bacchetta
+    --- description(3)  :122824 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで自分、または隣接者のＨＰを回復する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, heal wounds of nearby target.
+
+=== ITEM_ID_ROD_FIRE_BOLT   [FILTER_ITEM_ROD]
+    NOME      jp 炎の衝撃の魔杖 炎の衝撃の魔杖
+              en fire bolt rod
+              IT saetta di fuoco bacchetta
+    --- description(3)  :122967 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に火炎属性のボルトを放つ魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, unleashes a beam of heat wave.
+
+=== ITEM_ID_ROD_ICE_BOLT   [FILTER_ITEM_ROD]
+    NOME      jp 氷の視線の魔杖 氷の視線の魔杖
+              en ice bolt rod
+              IT saetta di gelo bacchetta
+    --- description(3)  :123047 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に冷気属性のボルトを放つ魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, unleashes a beam of freezing air.
+
+=== ITEM_ID_ROD_SUMMON_MONSTERS   [FILTER_ITEM_ROD]
+    NOME      jp サモンモンスターの魔杖 サモンモンスターの魔杖
+              en summon monsters rod
+              IT evocazione di mostri bacchetta
+    --- description(3)  :123127 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで周辺に敵対的なモンスターを召喚する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, opens a rift containing hostile creatures.
+
+=== ITEM_ID_ROD_MAGIC_MISSILE   [FILTER_ITEM_ROD]
+    NOME      jp マジックミサイルの魔杖 マジックミサイルの魔杖
+              en magic missile rod
+              IT dardo magico bacchetta
+    --- description(3)  :123207 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に魔法属性の矢を放つ魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, shoots an arrow of concentrated magic.
+
+=== ITEM_ID_ROD_CURE_MINOR_WOUND   [FILTER_ITEM_ROD]
+    NOME      jp 軽傷治療の魔杖 軽傷治療の魔杖
+              en cure minor wound rod
+              IT cura delle ferite lievi bacchetta
+    --- description(3)  :123287 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで自分、または隣接者のＨＰを回復する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, heal wounds of nearby target.
+
+=== ITEM_ID_ROD_TELEPORTATION   [FILTER_ITEM_ROD]
+    NOME      jp テレポートの魔杖 テレポートの魔杖
+              en teleportation rod
+              IT teletrasporto bacchetta
+    --- description(3)  :129953 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることでランダムなテレポートを行う魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, teleports nearby target.
+
+=== ITEM_ID_ROD_IDENTIFY   [FILTER_ITEM_ROD]
+    NOME      jp 鑑定の魔杖 鑑定の魔杖
+              en identify rod
+              IT identificazione bacchetta
+    --- description(3)  :130033 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで所持アイテムの鑑定を行う魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, reveal the structure of targeted item.
+
+== 32 oggetti, 32 descrizioni
