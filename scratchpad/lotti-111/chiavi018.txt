@@ -1,0 +1,60 @@
+# la zona non e' un intervallo: si dichiara per insieme di righe
+RIGHE = {
+    62466, 76250, 81539, 82679, 82745, 83904, 99451, 99522, 99594, 99666,
+    99738, 99810, 126650,
+}
+# 13 righe, da 62466 a 126650
+
+    # ---------------------------------------------------------- :62466
+    (62466, 'It is a sphere that strengthen the spiritual aspect of the body.'):
+        "",
+
+    # ---------------------------------------------------------- :76250
+    (76250, 'It is a godly gift that when worn, transforms into a collar.'):
+        "",
+
+    # ---------------------------------------------------------- :81539
+    (81539, "It is a necklace that allows you to hear God's whisper."):
+        "",
+
+    # ---------------------------------------------------------- :82679
+    (82679, 'It is a necklace that provides a chance for extra strikes.'):
+        "",
+
+    # ---------------------------------------------------------- :82745
+    (82745, 'It is a necklace that gives a chance for an additional shot.'):
+        "",
+
+    # ---------------------------------------------------------- :83904
+    (83904, 'It is a necklace that protects you from unfortunate events.'):
+        "",
+
+    # ---------------------------------------------------------- :99451
+    (99451, "It is an amulet that show's one's love, cannot be returned."):
+        "",
+
+    # ---------------------------------------------------------- :99522
+    (99522, 'It is a polished, jeweled amulet.'):
+        "",
+
+    # ---------------------------------------------------------- :99594
+    (99594, 'It is a charm that ward off evil.'):
+        "",
+
+    # ---------------------------------------------------------- :99666
+    (99666, 'It is an armor plate that is processed to fit on the neck.'):
+        "",
+
+    # ---------------------------------------------------------- :99738
+    (99738, 'It is a talisman infused with mana.'):
+        "",
+
+    # ---------------------------------------------------------- :99810
+    (99810, 'It is a green gem attached to a neck chain.'):
+        "",
+
+    # ---------------------------------------------------------- :126650
+    (126650, 'It is an ornate amulet.'):
+        "",
+
+# 13 voci, 0 ambigue

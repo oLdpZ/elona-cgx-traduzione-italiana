@@ -1,0 +1,200 @@
+=== ITEM_ID_TURAHAGI   [FILTER_SHIELD]
+    NOME      jp 《ツラハギ》
+              en <Turahagi>
+              IT <Turahagi>
+    non ident. IT artigli robusti   (en strong claws)
+    --- description(3)  :42855 ⚠️ TETTO SECCO 69
+        JP  とても丈夫で鋭い爪だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～
+        EN  It's a pair of extremely durable and sharp claws.
+
+=== ITEM_ID_GOD_BINDER   [FILTER_SHIELD]
+    NOME      jp 《神々の枷鎖》
+              en <God Binder>
+              IT <Vincolo degli Dei>
+    non ident. IT gemma divina maledetta   (en cursed jewel of god)
+    --- description(3)  :57965 ⚠️ TETTO SECCO 69
+        JP  \t\t身に着けると変形して手枷になる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a godly gift that when worn, transforms into manacles.
+
+=== ITEM_ID_CROWN_POINT   [FILTER_SHIELD]
+    NOME      jp 《クラウンポイント》
+              en <Crown Point>
+              IT <Crown Point>
+    non ident. IT scudo a corona   (en crown shield)
+    --- description(3)  :59595 ⚠️ TETTO SECCO 69
+        JP  \t\t四角い小盾だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a squared small shield.
+
+=== ITEM_ID_YOHUALLI_TEZCATL   [FILTER_SHIELD]
+    NOME      jp 《ヨワリ・テスカトル》
+              en <Yohualli Tezcatl>
+              IT <Yohualli Tezcatl>
+    non ident. IT scudo a specchio   (en mirror shield)
+    --- description(3)  :59863 ⚠️ TETTO SECCO 69
+        JP  \t\t黒曜石を磨いて作られた鏡の盾だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a mirror shield made of polished obsidian.
+
+=== ITEM_ID_OTOGIRI   [FILTER_SHIELD]
+    NOME      jp 《音切爪》
+              en <Otogiri>
+              IT <Otogiri>
+    non ident. IT artigli azzurri   (en blue claws)
+    --- description(3)  :67602 ⚠️ TETTO SECCO 69
+        JP  \t\t軽くて鋭い爪だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a light, sharp claws.
+
+=== ITEM_ID_CLAW   [FILTER_SHIELD]
+    NOME      jp 鉤爪
+              en claw
+              IT artiglio
+    --- description(3)  :68253 ⚠️ TETTO SECCO 69
+        JP  \t\tそれなりに頑丈な爪だ。\n#～鑑定報告書：＜武具＞カテゴリ～\n
+        EN  These are laws sturdy enough to be used like a shield.
+
+=== ITEM_ID_GUR_BAGH_NAKH   [FILTER_SHIELD]
+    NOME      jp 《ガルバグナウ》
+              en <Gur Bagh Nakh>
+              IT <Gur Bagh Nakh>
+    non ident. IT artigli neri   (en black claws)
+    --- description(3)  :69259 ⚠️ TETTO SECCO 69
+        JP  \t\t恐ろしく鋭い爪だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  These are sharp, dreadful claws.
+
+=== ITEM_ID_SONIC_TONFA   [FILTER_SHIELD]
+    NOME      jp 《ST-05 ソニック》
+              en <Sonic Tonfa>
+              IT <Sonic Tonfa>
+    non ident. IT tonfa   (en tonfa)
+    --- description(3)  :71236 ⚠️ TETTO SECCO 69
+        JP  \t\t推進装置を内蔵したトンファーだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a tonfa with a built-in propulsion system.
+
+=== ITEM_ID_SABER_TONFA   [FILTER_SHIELD]
+    NOME      jp 《ST-04 セイバー》
+              en <Saber Tonfa>
+              IT <Saber Tonfa>
+    non ident. IT tonfa   (en tonfa)
+    --- description(3)  :71305 ⚠️ TETTO SECCO 69
+        JP  \t\t光子刃の出るトンファーだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a tonfa that generates photon blades.
+
+=== ITEM_ID_SMASH_TONFA   [FILTER_SHIELD]
+    NOME      jp 《ST-03 スマッシュ》
+              en <Smash Tonfa>
+              IT <Smash Tonfa>
+    non ident. IT tonfa   (en tonfa)
+    --- description(3)  :71374 ⚠️ TETTO SECCO 69
+        JP  \t\t連続攻撃ができるトンファーだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a tonfa that allows quick concessive strikes.
+
+=== ITEM_ID_SHIELD_TONFA   [FILTER_SHIELD]
+    NOME      jp 《ST-02 シールド》
+              en <Shield Tonfa>
+              IT <Shield Tonfa>
+    non ident. IT tonfa   (en tonfa)
+    --- description(3)  :71442 ⚠️ TETTO SECCO 69
+        JP  \t\t防御装置を内蔵したトンファーだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a tonfa with a built-in shield generator.
+
+=== ITEM_ID_SACRIFICE_TONFA   [FILTER_SHIELD]
+    NOME      jp 《ST-01 サクリファイス》
+              en <Sacrifice Tonfa>
+              IT <Sacrifice Tonfa>
+    non ident. IT tonfa   (en tonfa)
+    --- description(3)  :71512 ⚠️ TETTO SECCO 69
+        JP  \t\tトンファーだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a tonfa that suc
+
+=== ITEM_ID_SEALED_SHIELD   [FILTER_SHIELD]
+    NOME      jp 《シールド・シールド》
+              en <Sealed Shield>
+              IT <Sealed Shield>
+    non ident. IT scudo resistente   (en hard shield)
+    --- description(3)  :73563 ⚠️ TETTO SECCO 69
+        JP  \t\t防御力の高い盾だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a highly defensive shield.
+
+=== ITEM_ID_CARNEADES_PLANK   [FILTER_SHIELD]
+    NOME      jp 《カルネアデスの板》 《カルネアデスの板》
+              en Carneades plank
+              IT Carneade asse
+    non ident. IT origine ignota   (en unknown origin)
+    --- description(3)  :81331 ⚠️ TETTO SECCO 69
+        JP  \t\t船に使われていた木の板だ。\n#～鑑定報告書：＜盾＞カテゴリ～\n
+        EN  It is a wooden plank that was used on a ship.
+
+=== ITEM_ID_SHIELD_OF_THORNS   [FILTER_SHIELD]
+    NOME      jp 《棘の盾》
+              en <Shield of Thorns>
+              IT <Scudo di Spine>
+    non ident. IT scudo pungente   (en tingling shield)
+    --- description(3)  :82413 ⚠️ TETTO SECCO 69
+        JP  \t\t出血を促す盾だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a shield that induce bleeding.
+
+=== ITEM_ID_ALUD   [FILTER_SHIELD]
+    NOME      jp 《アル・ウード》
+              en <Al'ud>
+              IT <Al'ud>
+    non ident. IT liuto robusto   (en tough lute)
+    --- description(3)  :82481 ⚠️ TETTO SECCO 69
+        JP  \t\t鉄壁を誇る楽器の形状の盾だ。\n#～鑑定報告書：＜盾＞カテゴリ～\n
+        EN  It is a shield in the shape of an instrument.
+
+=== ITEM_ID_TOWER_SHIELD   [FILTER_SHIELD]
+    NOME      jp 重層盾
+              en tower shield
+              IT scudo a torre
+    --- description(3)  :100720 ⚠️ TETTO SECCO 69
+        JP  \t\t非常に重い盾だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a very heavy shields
+
+=== ITEM_ID_KITE_SHIELD   [FILTER_SHIELD]
+    NOME      jp 長盾
+              en kite shield
+              IT scudo a mandorla
+    --- description(3)  :100786 ⚠️ TETTO SECCO 69
+        JP  \t\t長い盾だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a large shield shaped like a kite.
+
+=== ITEM_ID_LARGE_SHIELD   [FILTER_SHIELD]
+    NOME      jp 合成盾
+              en large shield
+              IT scudo grande
+    --- description(3)  :100852 ⚠️ TETTO SECCO 69
+        JP  \t\t固い盾だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a large circular shield.
+
+=== ITEM_ID_SHIELD   [FILTER_SHIELD]
+    NOME      jp 盾
+              en shield
+              IT scudo
+    --- description(3)  :100918 ⚠️ TETTO SECCO 69
+        JP  \t\t手に装備するタイプの防具だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is the type of armor you hold on your hands.
+
+=== ITEM_ID_ROUND_SHIELD   [FILTER_SHIELD]
+    NOME      jp 丸型盾
+              en round shield
+              IT scudo rotondo
+    --- description(3)  :100984 ⚠️ TETTO SECCO 69
+        JP  \t\t丸い盾だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a round shield.
+
+=== ITEM_ID_SMALL_SHIELD   [FILTER_SHIELD]
+    NOME      jp 小盾
+              en small shield
+              IT scudo piccolo
+    --- description(3)  :101050 ⚠️ TETTO SECCO 69
+        JP  \t\t軽装向けの盾だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a smaller and lighter shield.
+
+=== ITEM_ID_KNIGHT_SHIELD   [FILTER_SHIELD]
+    NOME      jp 騎士盾
+              en knight shield
+              IT scudo da cavaliere
+    --- description(3)  :127207 ⚠️ TETTO SECCO 69
+        JP  \t\t騎士用の盾だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a shield given to knights.
+
+== 23 oggetti, 23 descrizioni

@@ -1,0 +1,153 @@
+=== ITEM_ID_PAINTING_ERUPTION   [FILTER_CARGO_TRADE]
+    NOME      jp 地獄絵図(荷車)
+              en eruption painting
+              IT dipinto dell'eruzione
+    --- description(3)  :56270 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of painting.
+
+=== ITEM_ID_RABBIT_FOOT   [FILTER_CARGO_TRADE]
+    NOME      jp ウサギの足(荷車)
+              en rabbit foot
+              IT zampa di coniglio
+    --- description(3)  :56336 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of rabbit foot.
+
+=== ITEM_ID_CARGO_MARIMO   [FILTER_CARGO_TRADE]
+    NOME      jp 巨大マリモ(荷車)
+              en marimo
+              IT marimo
+    --- description(3)  :73897 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of marimo.
+
+=== ITEM_ID_CARGO_RATION   [FILTER_CARGO_TRADE]
+    NOME      jp 観賞用レーション(荷車)
+              en ration
+              IT razione
+    --- description(3)  :73963 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of ration.
+
+=== ITEM_ID_CANVAS   [FILTER_CARGO_TRADE]
+    NOME      jp お絵かきセット(荷車)
+              en canvas
+              IT tela
+    --- description(3)  :86269 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of canvas.
+
+=== ITEM_ID_ART   [FILTER_CARGO_TRADE]
+    NOME      jp 絵画(荷車)
+              en art
+              IT opera d'arte
+    --- description(3)  :86335 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of art supplies.
+
+=== ITEM_ID_CARGO_SNOW_MAN   [FILTER_CARGO_TRADE]
+    NOME      jp スノーマン(荷車)
+              en snow man
+              IT pupazzo di neve
+    --- description(3)  :90963 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of snow men.
+
+=== ITEM_ID_CARGO_CHRISTMAS_TREE   [FILTER_CARGO_TRADE]
+    NOME      jp 直送クリスマスツリー(荷車)
+              en christmas tree
+              IT albero di Natale
+    --- description(3)  :91029 ⚠️ TETTO SECCO 69
+        JP  \t\t重い交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a heavy cargo of pine trees.
+
+=== ITEM_ID_CARGO_INNER_TUBE   [FILTER_CARGO_TRADE]
+    NOME      jp 浮き輪(荷車)
+              en inner tube
+              IT salvagente
+    --- description(3)  :103718 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of lifebuoy rings.
+
+=== ITEM_ID_CARGO_NOBLE_TOY   [FILTER_CARGO_TRADE]
+    NOME      jp 貴族の玩具(荷車)
+              en noble toy
+              IT giocattolo nobiliare
+    --- description(3)  :103784 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of high value children's toys.
+
+=== ITEM_ID_CARGO_WHISKY   [FILTER_CARGO_TRADE]
+    NOME      jp 銘酒セット(荷車)
+              en whisky
+              IT whisky
+    --- description(3)  :103850 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of alchohol.
+
+=== ITEM_ID_CARGO_TUNA_FISH   [FILTER_CARGO_TRADE]
+    NOME      jp ツナ(荷車)
+              en tuna fish
+              IT tonno
+    --- description(3)  :103916 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of seafood.
+
+=== ITEM_ID_CARGO_GRAVE   [FILTER_CARGO_TRADE]
+    NOME      jp 墓(荷車)
+              en grave
+              IT tomba
+    --- description(3)  :103982 ⚠️ TETTO SECCO 69
+        JP  \t\tとても重い交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a very heavy cargo of grave slabs.
+
+=== ITEM_ID_CARGO_MANBOO   [FILTER_CARGO_TRADE]
+    NOME      jp マンボー(荷車)
+              en manboo
+              IT pesce luna
+    --- description(3)  :104048 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of seafood.
+
+=== ITEM_ID_CARGO_COFFIN   [FILTER_CARGO_TRADE]
+    NOME      jp 棺桶(荷車)
+              en coffin
+              IT bara
+    --- description(3)  :104114 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of coffins.
+
+=== ITEM_ID_CARGO_ROPE   [FILTER_CARGO_TRADE]
+    NOME      jp ロープ(荷車)
+              en rope
+              IT corda
+    --- description(3)  :104180 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of rope.
+
+=== ITEM_ID_CARGO_PIANO   [FILTER_CARGO_TRADE]
+    NOME      jp 装飾ピアノ(荷車)
+              en piano
+              IT pianoforte
+    --- description(3)  :104246 ⚠️ TETTO SECCO 69
+        JP  \t\t重い交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of pianos.
+
+=== ITEM_ID_CARGO_BARREL   [FILTER_CARGO_TRADE]
+    NOME      jp 匠のタル(荷車)
+              en barrel
+              IT barile
+    --- description(3)  :104312 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of barrels.
+
+=== ITEM_ID_CARGO_RAG_DOLL   [FILTER_CARGO_TRADE]
+    NOME      jp 特産ぬいぐるみ(荷車)
+              en rag doll
+              IT bambola di pezza
+    --- description(3)  :104378 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of children's toys.
+
+== 19 oggetti, 19 descrizioni

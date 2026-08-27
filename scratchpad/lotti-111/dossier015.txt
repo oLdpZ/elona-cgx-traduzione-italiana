@@ -1,0 +1,169 @@
+=== ITEM_ID_CLOTHWORLD   [FILTER_ARMOR]
+    NOME      jp 《世界制服》
+              en <Clothworld>
+              IT <Clothworld>
+    non ident. IT uniforme mutevole   (en changing uniform)
+    --- description(3)  :51643 ⚠️ TETTO SECCO 69
+        JP  \t\t使うと見た目が変わる服だ。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) clothes that changes it's appearance.
+
+=== ITEM_ID_BAMAGICAR   [FILTER_ARMOR]
+    NOME      jp 《破竹魔甲冑》
+              en <Bamagicar>
+              IT <Bamagicar>
+    non ident. IT armatura di bambù   (en bamboo armor)
+    --- description(3)  :51710 ⚠️ TETTO SECCO 69
+        JP  \t\tカランカランうるさい竹のアーマーだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a bamboo armor that makes cracking sounds.
+
+=== ITEM_ID_MAGIC_RESTRAINT   [FILTER_ARMOR]
+    NOME      jp 《魔術式拘束服》
+              en <Magic Restraint>
+              IT <Costrizione Magica>
+    non ident. IT veste piena di cinghie   (en garb full of belts)
+    --- description(3)  :56673 ⚠️ TETTO SECCO 69
+        JP  \t\t沢山のベルトがついた服だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is an outfit has many belts attached to it.
+
+=== ITEM_ID_ARGENT_SNOW   [FILTER_ARMOR]
+    NOME      jp 《アルジェントスノウ》
+              en <Argent Snow>
+              IT <Argent Snow>
+    non ident. IT armatura di Mayroon   (en armor from Mayroon)
+    --- description(3)  :65812 ⚠️ TETTO SECCO 69
+        JP  \t\t寒冷地仕様の鎧だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is an armor for colder regions of Irva.
+
+=== ITEM_ID_DANGER_SWIMWEAR   [FILTER_ARMOR]
+    NOME      jp 《危険な水着》
+              en <Danger Swimwear>
+              IT <Costume da Bagno Pericoloso>
+    non ident. IT costume da bagno bianco   (en white swimwear)
+    --- description(3)  :70466 ⚠️ TETTO SECCO 69
+        JP  \t\t分子構造的にとても脆いスーツだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a very fragile suit in terms of molecular structure.
+
+=== ITEM_ID_WAR_SUIT   [FILTER_ARMOR]
+    NOME      jp 《ウォースーツ》
+              en <War Suit>
+              IT <War Suit>
+    non ident. IT tuta blu   (en blue suit)
+    --- description(3)  :70533 ⚠️ TETTO SECCO 69
+        JP  \t\t高性能な特殊スーツだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a high-performance special suit.
+
+=== ITEM_ID_MECHANICAL_BINDER   [FILTER_ARMOR]
+    NOME      jp 《機械拘束具》
+              en <Mechanical Binder>
+              IT <Vincolo Meccanico>
+    non ident. IT sfera luminosa divina   (en god jewel)
+    --- description(3)  :75986 ⚠️ TETTO SECCO 69
+        JP  \t\t身に着けると変形して拘束具になる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a godly gift that when worn, transforms and becomes a restraint.
+
+=== ITEM_ID_AWESOME_SWIMWEAR   [FILTER_ARMOR]
+    NOME      jp 《特殊防護スーツ》
+              en <Awesome Swimwear>
+              IT <Costume da Bagno Formidabile>
+    non ident. IT costume da bagno   (en swimwear)
+    --- description(3)  :77564 ⚠️ TETTO SECCO 69
+        JP  \t\t水着っぽい特殊スーツだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a special suit that look like a swimwear.
+
+=== ITEM_ID_BULLETPROOF_JACKET   [FILTER_ARMOR]
+    NOME      jp 防弾服
+              en bulletproof jacket
+              IT giubbotto antiproiettile
+    --- description(3)  :101382 ⚠️ TETTO SECCO 69
+        JP  \t\t銃弾を防ぐために作られた服だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  These clothes are made to protect against bullets, and much more.
+
+=== ITEM_ID_BREAST_PLATE   [FILTER_ARMOR]
+    NOME      jp 胴衣
+              en breast plate
+              IT pettorale
+    --- description(3)  :101447 ⚠️ TETTO SECCO 69
+        JP  \t\t前面に金属が付けられた服だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is an armor designed to protect the chest.
+
+=== ITEM_ID_COAT   [FILTER_ARMOR]
+    NOME      jp 防護服
+              en coat
+              IT cappotto
+    --- description(3)  :101512 ⚠️ TETTO SECCO 69
+        JP  \t\t攻撃を防ぐために作られた服だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  These are clothings designed to protect against attacks.
+
+=== ITEM_ID_LIGHT_MAIL   [FILTER_ARMOR]
+    NOME      jp 軽鎧
+              en light mail
+              IT corazza leggera
+    --- description(3)  :101577 ⚠️ TETTO SECCO 69
+        JP  \t\t軽い鎧だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a mail with thin plating.
+
+=== ITEM_ID_POPE_ROBE   [FILTER_ARMOR]
+    NOME      jp 法王衣
+              en pope robe
+              IT veste papale
+    --- description(3)  :101642 ⚠️ TETTO SECCO 69
+        JP  \t\t法王のために作られた服だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  These clothes were made for high-ranked priests.
+
+=== ITEM_ID_CHAIN_MAIL   [FILTER_ARMOR]
+    NOME      jp 綴り鎧
+              en chain mail
+              IT cotta di maglia
+    --- description(3)  :101707 ⚠️ TETTO SECCO 69
+        JP  \t\t薄片を束ねて作った鎧だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is an armor made of small linked rings.
+
+=== ITEM_ID_COMPOSITE_MAIL   [FILTER_ARMOR]
+    NOME      jp 合成鎧
+              en composite mail
+              IT corazza composita
+    --- description(3)  :101772 ⚠️ TETTO SECCO 69
+        JP  \t\t固い鎧だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a sturdy armor reinforced with composite mesh.
+
+=== ITEM_ID_RING_MAIL   [FILTER_ARMOR]
+    NOME      jp 輪鎧
+              en ring mail
+              IT corazza ad anelli
+    --- description(3)  :101837 ⚠️ TETTO SECCO 69
+        JP  \t\t輪を束ねて作った鎧だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is an armor made of a bundle of rings.
+
+=== ITEM_ID_PLATE_MAIL   [FILTER_ARMOR]
+    NOME      jp 重層鎧
+              en plate mail
+              IT corazza a piastre
+    --- description(3)  :101902 ⚠️ TETTO SECCO 69
+        JP  \t\t非常に重い鎧だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a very heavy armor.
+
+=== ITEM_ID_BANDED_MAIL   [FILTER_ARMOR]
+    NOME      jp 厚鎧
+              en banded mail
+              IT corazza a bande
+    --- description(3)  :101967 ⚠️ TETTO SECCO 69
+        JP  \t\t分厚い鎧だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a form of reinforced mail armor.
+
+=== ITEM_ID_ROBE   [FILTER_ARMOR]
+    NOME      jp 法衣
+              en robe
+              IT veste
+    --- description(3)  :130717 ⚠️ TETTO SECCO 69
+        JP  \t\t僧侶用の服だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a common robe for monks.
+
+=== ITEM_ID_BREASTPLATE   [FILTER_ARMOR]
+    NOME      jp 鎧
+              en breastplate
+              IT corazza
+    --- description(3)  :130782 ⚠️ TETTO SECCO 69
+        JP  \t\t身を守る為に作られた戦闘用の防具だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is an armor that offer's decent protection to the torso.
+
+== 20 oggetti, 20 descrizioni

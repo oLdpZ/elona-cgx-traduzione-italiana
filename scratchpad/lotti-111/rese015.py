@@ -1,0 +1,92 @@
+import collections
+import glob
+import importlib.util
+import io
+import json
+import re
+import unicodedata
+
+RESE = {
+
+    # ---------------------------------------------------------- :51643
+    (51643, "(Reusable) clothes that changes it's appearance."):
+        "Un vestito che cambia aspetto. Si può usare sempre.",
+
+    # ---------------------------------------------------------- :51710
+    (51710, 'It is a bamboo armor that makes cracking sounds.'):
+        "Un'armatura di bambù che sbatacchia forte.",
+
+    # ---------------------------------------------------------- :56673
+    (56673, 'It is an outfit has many belts attached to it.'):
+        "Un vestito pieno di cinghie.",
+
+    # ---------------------------------------------------------- :65812
+    (65812, 'It is an armor for colder regions of Irva.'):
+        "Una corazza fatta per le terre fredde.",
+
+    # ---------------------------------------------------------- :70466
+    (70466, 'It is a very fragile suit in terms of molecular structure.'):
+        "Una tuta fragilissima nella struttura molecolare.",
+
+    # ---------------------------------------------------------- :70533
+    (70533, 'It is a high-performance special suit.'):
+        "Una tuta speciale ad alte prestazioni.",
+
+    # ---------------------------------------------------------- :75986
+    (75986, 'It is a godly gift that when worn, transforms and becomes a restraint.'):
+        "Se lo indossi, si trasforma in una gabbia.",
+
+    # ---------------------------------------------------------- :77564
+    (77564, 'It is a special suit that look like a swimwear.'):
+        "Una tuta speciale che sembra un costume da bagno.",
+
+    # ---------------------------------------------------------- :101382
+    (101382, 'These clothes are made to protect against bullets, and much more.'):
+        "Un vestito fatto per fermare i proiettili.",
+
+    # ---------------------------------------------------------- :101447
+    (101447, 'It is an armor designed to protect the chest.'):
+        "Un vestito con del metallo sul davanti.",
+
+    # ---------------------------------------------------------- :101512
+    (101512, 'These are clothings designed to protect against attacks.'):
+        "Un vestito fatto per parare i colpi.",
+
+    # ---------------------------------------------------------- :101577
+    (101577, 'It is a mail with thin plating.'):
+        "Una corazza leggera.",
+
+    # ---------------------------------------------------------- :101642
+    (101642, 'These clothes were made for high-ranked priests.'):
+        "Un vestito fatto per il papa.",
+
+    # ---------------------------------------------------------- :101707
+    (101707, 'It is an armor made of small linked rings.'):
+        "Una corazza fatta legando insieme delle lamelle.",
+
+    # ---------------------------------------------------------- :101772
+    (101772, 'It is a sturdy armor reinforced with composite mesh.'):
+        "Una corazza dura.",
+
+    # ---------------------------------------------------------- :101837
+    (101837, 'It is an armor made of a bundle of rings.'):
+        "Una corazza fatta legando insieme degli anelli.",
+
+    # ---------------------------------------------------------- :101902
+    (101902, 'It is a very heavy armor.'):
+        "Una corazza pesantissima.",
+
+    # ---------------------------------------------------------- :101967
+    (101967, 'It is a form of reinforced mail armor.'):
+        "Una corazza spessa.",
+
+    # ---------------------------------------------------------- :130717
+    (130717, 'It is a common robe for monks.'):
+        "Un vestito da monaco.",
+
+    # ---------------------------------------------------------- :130782
+    (130782, "It is an armor that offer's decent protection to the torso."):
+        "Un'armatura da combattimento, per proteggere il corpo.",
+
+# 20 voci, 0 ambigue
+}
