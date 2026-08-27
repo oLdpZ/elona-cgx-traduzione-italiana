@@ -62,6 +62,18 @@ _102 = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_102)
 BUDGET, impagina, spezza_parola = _102.BUDGET, _102.impagina, _102.spezza_parola
 
+# ⚠️⚠️ **IL RIQUADRO HA DUE BUDGET PERCHE' HA DUE CORPI**, e i due indici stanno
+# da parti diverse. Le righe **impaginate** del corpo (indici 0-2) le disegna
+# `command.hsp:16897` a font **11**: budget 77. Il rapporto d'identificazione
+# (indice 3) entra in `listn` con `list = 7` (`:16278`) e **non** passa da
+# quel ritocco: resta al font **12** di `:16875`, dove il budget e' **69**.
+# ⚠️ Il 2026-08-27 il budget del font 11 e' stato corretto da 69 a 77 e per un
+# momento questa riga non c'era: il cancello dell'indice 3 — CHIUSO su 1.319
+# rese — e' passato da «110 inglesi fuori» a «0» senza che nulla fosse
+# cambiato a schermo. Un cancello che si allenta in silenzio e' peggio di uno
+# rosso.
+BUDGET_INTERO = _102.BUDGET_INTERO
+
 FILE = 'db_item.hsp'
 
 # `command.hsp:16758`: sotto questa soglia la riga si stampa intera
@@ -210,22 +222,22 @@ def referto(voci):
     misurate3 = 0
     for riga, en, it in tre:
         lungo_en = len(trimdesc(en, 1))
-        fuori_en += lungo_en > BUDGET
+        fuori_en += lungo_en > BUDGET_INTERO
         if not it:
             continue
         misurate3 += 1
         lungo_it = len(trimdesc(degrada(it), 1))
-        fuori_it += lungo_it > BUDGET
-        if lungo_it > BUDGET and lungo_en <= BUDGET:
+        fuori_it += lungo_it > BUDGET_INTERO
+        if lungo_it > BUDGET_INTERO and lungo_en <= BUDGET_INTERO:
             solo_it += 1
-            peggiori.append((riga, 'TETTO SECCO', lungo_it - BUDGET, degrada(it)))
+            peggiori.append((riga, 'TETTO SECCO', lungo_it - BUDGET_INTERO, degrada(it)))
 
     lung3 = sorted(len(trimdesc(en, 1)) for _, en, _ in tre)
     print()
     print(f'=== L\'INDICE 3 (rapporto di identificazione), che NON si impagina')
     print(f'  vive {len(tre)}, rese {misurate3}; '
           f'inglese: mediana {lung3[len(lung3) // 2]}, massima {lung3[-1]}, '
-          f'budget {BUDGET}')
+          f'budget {BUDGET_INTERO} (font 12, non impaginato)')
     print(f'  oltre il tetto — inglese: {fuori_en}   italiano: {fuori_it}')
     print(f'  ⚠️ INTRODOTTE DALL\'ITALIANO: {solo_it}   (atteso 0 — questo e\' il cancello)')
     print(f'  ⓘ i {fuori_en} inglesi gia\' fuori sono un difetto di monte: '
@@ -258,10 +270,10 @@ def prova_al_contrario():
 
     print('  2. il tetto secco dell\'indice 3:')
     corta = 'It is a rod.'
-    lunga = 'x' * (BUDGET + 1)
-    print(f'     {"✅" if len(trimdesc(lunga, 1)) > BUDGET else "⚠️"} accende su '
-          f'{BUDGET + 1} caratteri; '
-          f'{"✅" if len(trimdesc(corta, 1)) <= BUDGET else "⚠️"} muta su {len(corta)}')
+    lunga = 'x' * (BUDGET_INTERO + 1)
+    print(f'     {"✅" if len(trimdesc(lunga, 1)) > BUDGET_INTERO else "⚠️"} accende su '
+          f'{BUDGET_INTERO + 1} caratteri; '
+          f'{"✅" if len(trimdesc(corta, 1)) <= BUDGET_INTERO else "⚠️"} muta su {len(corta)}')
 
     print('  3. il degrado degli accenti, che allunga:')
     accentata = 'perché è così'
@@ -310,7 +322,7 @@ def previsione(voci):
                        | {round(m, 3) for m, _ in fasce.values()})
     prosa = fasce.get('200+', (None, 0))[0]
     for prova in candidati:
-        fuori = sum(1 for _, en in tre if len(en) * prova > BUDGET)
+        fuori = sum(1 for _, en in tre if len(en) * prova > BUDGET_INTERO)
         marca = '  <- la fascia della PROSA' if prosa and prova == round(prosa, 3) else ''
         print(f'  a x{prova:.3f}: {fuori:>5} su {len(tre)} sforerebbero '
               f'({100 * fuori / len(tre):.0f}%){marca}')

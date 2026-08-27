@@ -35,9 +35,31 @@ Da cui **tre** guasti possibili, e sono tre domande diverse:
    facilmente senza confini.
 
 3. ⓘ **LA LARGHEZZA.** Il riquadro e' largo 600 px, il testo comincia a
-   `wx + 68` (`command.hsp:16877`): restano 532 px, cioe' **69 caratteri** a
-   7,7 px/carattere. Il taglio a 70 sfora di un carattere **gia' in inglese**:
-   e' un difetto di monte, non nostro, e serve solo da fondo scala.
+   `wx + 68` (`command.hsp:16877`): restano 532 px.
+
+   ⚠️⚠️ **PER UN GIORNO QUI C'E' STATO SCRITTO 7,7 px/carattere, E IL BUDGET
+   USCIVA 69.** Era il metro sbagliato: 7,7 e' misurato sui **menu**
+   (`larghezze.py`), e i menu disegnano a `font 14 - en*2`, cioe' **12**. Le
+   righe impaginate di questo riquadro le disegna `command.hsp:16897` a
+   `font 13 - en*2`, cioe' **11**: un carattere piu' stretto.
+
+   ⭐ **Misurato a schermo il 2026-08-27** (112a), sullo spaventapasseri di
+   neve, con due ancore indipendenti nello stesso screenshot:
+
+     - la riga-fonte comincia a `wx + 600 - 6*L - 80` (`:16901`), che per i
+       suoi 64 caratteri fa **136 px esatti**: e' l'ancora che fissa la scala
+       dello screenshot, perche' non dipende dal carattere ma solo dal codice;
+     - con quella scala, i 69 caratteri della prima riga del corpo occupano
+       **477 px**, e la riga-fonte ne occupa **441**.
+
+   Da cui **6,9 px/carattere**, e un budget di **77**. Il taglio a 70 (71 col
+   rinculo) sta dentro con sei caratteri di margine: ⚠️ **non sfora, e non ha
+   mai sforato.** I «606 inglesi e 712 italiani oltre i 69» che questa rete
+   contava erano un difetto del metro, non del testo.
+
+   ⓘ E il 7,7 di `larghezze.py` **resta giusto**: e' un altro carattere, come
+   gia' aveva scoperto `menu_dialogo.py` il 2026-08-18 trovandone un terzo a
+   7,0. Il progetto ha tre metri perche' il gioco ha tre corpi.
 
 ⚠️ Il numero che deve restare a zero e' la **terza colonna**: i guasti che
 l'italiano introduce dove l'inglese non ce li aveva.
@@ -67,8 +89,34 @@ CONFINI = (' ', ',', '.')
 # `command.hsp:16868` e `:16877`
 LARGHEZZA_RIQUADRO = 600
 INSET_SINISTRO = 68
-PIXEL_PER_CARATTERE = 7.7
+# ⚠️ corretto il 2026-08-27 da 7,7 a 6,9: vedi il docstring, punto 3. Il 7,7
+# era il carattere dei MENU (font 12); qui il riquadro disegna a font 11.
+# Misurato a schermo, con la riga-fonte come ancora di scala.
+PIXEL_PER_CARATTERE = 6.9
 BUDGET = int((LARGHEZZA_RIQUADRO - INSET_SINISTRO) / PIXEL_PER_CARATTERE)
+
+# ⚠️⚠️ **LO STESSO RIQUADRO HA DUE BUDGET, PERCHE' HA DUE CORPI.** Il ciclo di
+# disegno mette `font 14 - en*2` = **12** a ogni riga (`command.hsp:16875`) e
+# poi lo riporta a `13 - en*2` = **11** SOLO per le righe impaginate
+# (`list == -1`) e per la riga-fonte (`list == -2`), a `:16897` e `:16900`.
+# Tutte le altre — il prezzo stimato, il rapporto d'identificazione
+# (`list == 7`), le righe corte stampate intere — restano a **font 12**, dove
+# il carattere misura 7,7 e il budget e' **69**.
+# ⚠️ Il 2026-08-27, correggendo il budget delle righe impaginate, per un
+# momento questa distinzione non c'era e il cancello dell'indice 3 e' passato
+# da «110 inglesi fuori» a «0» senza che nulla fosse cambiato a schermo: un
+# cancello CHIUSO su 1.319 rese si era allentato in silenzio. Un metro che
+# serve due caratteri e' un metro sbagliato per uno dei due.
+PIXEL_PER_CARATTERE_INTERO = 7.7
+BUDGET_INTERO = int((LARGHEZZA_RIQUADRO - INSET_SINISTRO) / PIXEL_PER_CARATTERE_INTERO)
+
+# `command.hsp:16901`: la riga-fonte si posiziona contando 6 px/carattere
+# mentre il carattere ne misura 6,9 — la stessa asimmetria di `linguette.py`.
+# Il testo finisce percio' a `520 + L` px invece che a `520`, e tocca il bordo
+# destro del riquadro a L = 80. ⭐ Il titolo piu' lungo del gioco ne misura 64
+# (63 piu' il trattino): **sedici caratteri di margine**, verificato a schermo.
+PIXEL_SUPPOSTI_FONTE = 6
+FONTE_TOCCA_IL_BORDO = LARGHEZZA_RIQUADRO - 80
 
 _CARDREFSKILL = re.compile(r'^\s*cardrefskill\s*=\s*lang\(')
 
