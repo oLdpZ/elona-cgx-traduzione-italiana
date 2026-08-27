@@ -2840,7 +2840,11 @@ sorgente ha i **valori di partenza**, e questa installazione li ha cambiati.
     **415 firme**, **450 righe**
     applica 28.210 -> **28.660**   (+450 esatte)
     non tradotte di db_item.hsp: 2.033 -> **1.618**   (-415 esatte)
-    indice 3: rese 693 -> **1.130**   su 1.319 vive
+    indice 3: rese 693 -> **1.143**   su 1.319 vive
+    ⚠️ scritto **1.130** in chiusura della 110a e riparato in apertura della
+       111a: `_107-descrizioni-item` conta **righe**, non firme (a meta' 110a
+       registrava 693 -> 900, e 900-693 = 207 = le righe dei primi cinque
+       lotti). 693 + 450 = **1.143**, la stessa cifra di `applica`.
     perimetro 26.690 -> **27.105**   dizionario 23.951 -> **24.366**
     tetto secco: introdotte dall'italiano **0** — il cancello e' verde
     rinviate: nessuna   toppe: nessuna   test: **794**, invariato

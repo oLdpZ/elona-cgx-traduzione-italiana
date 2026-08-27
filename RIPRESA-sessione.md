@@ -20,8 +20,11 @@ QUESTI:**
     _97-quanto-resta         TOTALE **1.728 / 110 / 1.618**
     perimetro.py             perimetro **90%** (27.105), totale **94%** (30.038)
     _108-accento-decomposto  **0 su 24.366**
-    _107-descrizioni-item    indice 3: vive 1.319, **rese 1.130**; introdotte
+    _107-descrizioni-item    indice 3: vive 1.319, **rese 1.143**; introdotte
                              dall'italiano **0** (questo e' il cancello)
+                             ⚠️ la 110a aveva scritto 1.130: la rete conta
+                             **righe**, non firme, e 693 + 450 fa 1.143.
+                             Riparato in apertura della 111a.
 
 💡 **I tre percorsi che i documenti sbagliavano fino alla 108a**, e che in
 apertura fanno perdere un comando a testa: `perimetro.py`, `referti.py` e
@@ -181,7 +184,7 @@ I valori nuovi stanno in testa a questo file, sotto la data.
     -------------------------------------------------------------------------
     **415 firme rese**, che coprono **450 righe** del sorgente
     applica 28.210 -> **28.660**   (+450 esatte)
-    indice 3: rese 693 -> **1.130** su 1.319 vive
+    indice 3: rese 693 -> **1.143** su 1.319 vive   (la 110a scrisse 1.130)
     tetto secco: introdotte dall'italiano **0** — il cancello e' verde
     rinviate: nessuna   toppe: nessuna   test: **794**, invariato
     strumenti toccati: 2 (`_monta.py` prende la cartella, `_coerenza.py` salta
