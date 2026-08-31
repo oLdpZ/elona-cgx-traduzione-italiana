@@ -41,6 +41,30 @@ fondo somma valori di sessioni diverse. Il conto vivo lo danno
 file di `data/` compresi. Finché nessuno rifà la tabella intera, **si guardano
 quelli**.
 
+## Due lotti, 59 rese, e i CIBI si chiudono — 2026-08-31, centodiciassettesima sessione
+
+`db_item.hsp`, il **corpo** delle descrizioni (indici 0-2). La sessione ha
+chiuso `FILTER_ITEM_FOOD`, che la 116ª aveva cominciato:
+
+    045  ITEM_FOOD   righe  88.300-110.000   28 rese  (28 idx0)
+    046  ITEM_FOOD   righe 110.000 in su     31 rese  (30 idx0, 1 idx2)
+    -----------------------------------------------------------------
+    **59 rese**, che coprono **60 righe** del sorgente
+    applica 29.680 -> **29.740**   (+60 per 59 rese, previsto prima)
+    db_item non tradotte 661 -> **602**   (-59 esatte)
+    rese del corpo: 844 -> **904** su 1.513
+    FILTER_ITEM_FOOD   59 -> **0 da fare su 148**   ⭐ CHIUSA
+
+⭐ **Il +60 su 59 rese era scritto prima**, non scoperto dopo: `:113814` e
+`:113879` (indice 2, giapponese vuoto, stesso inglese) sono una firma sola, e a
+dirlo e' stato `scratchpad/lotti-113/_previsione.py`, nato in questa sessione
+dalla lezione della 116ª. Nella 116ª lo stesso fatto era arrivato come un numero
+che non tornava.
+
+**Cinque categorie del corpo chiuse**: `FILTER_FURNITURE` (261),
+`FILTER_ITEM_TOOL` (204), `FILTER_ITEM_FOOD` (148), `FILTER_JUNK` (124) e
+`FILTER_WEAPON` (110). Totale del corpo da fare: **602 su 1.449**.
+
 ## Quattro lotti, 149 rese, e le ARMI si chiudono — 2026-08-31, centosedicesima sessione
 
 `db_item.hsp`, il **corpo** delle descrizioni (indici 0-2). La sessione ha

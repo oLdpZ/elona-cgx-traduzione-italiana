@@ -11585,3 +11585,84 @@ numero da guardare resta il suo, che sulle 187 righe rese dice 0.
 propaga: quel 17 stava per diventare la base dei conteggi dei lotti prossimi.
 Vedi la lezione gemella della 110ª, dove «rese 1.130» era una trascrizione già
 ricopiata in tre posti.
+
+## 117ª — Quando la prosa spiega il nome, il metro non è la fedeltà ma la verità a schermo
+
+Quattro pesci dei cibi contengono l'etimologia del proprio nome. Due la reggono
+in italiano e due no, e la linea che li separa non è quanto siamo fedeli: è se
+la frase resti **vera davanti al nome che il giocatore ha sotto gli occhi**.
+
+| riga | nome IT | il giapponese dice | regge? |
+|---|---|---|---|
+| `:107673` | pesce sciabola | 舶刀「カトラス」, la sciabola | ✅ il nostro nome la porta già |
+| `:108111` | pesce piatto | 名の通り平坦で四角い, «come dice il nome» | ✅ |
+| `:107819` | **pesce palla** | グローブ, il **guanto** che la forma ricorda | ❌ |
+| `:108257` | **pesce re** | 三日月, la **falce di luna** presa a forza | ❌ |
+
+Reso alla lettera, «il nome viene da un guanto» davanti a *pesce palla* è una
+frase falsa, e la luna non spiega niente davanti a *pesce re*. Non è una
+sfumatura di stile: è una riga che si contraddice con la riga sopra.
+
+**La decisione** è il precedente che il progetto aveva già preso due volte —
+*si rende il gioco, non le sillabe*: le fusioni delle razze, dove il modello è
+l'**inglese stesso** che ricostruisce ダゴンズイ in `daganotosus`, e la battuta
+della formica di `chat.hsp:9942`, rifatta con la parola che l'italiano aveva già
+in mano. Il gioco di parole si rifà **sul nome che il progetto ha scelto**, e si
+tiene di ciascuno la parte che sopravvive:
+
+    pesce palla   il guanto RESTA — ma è il guanto imbottito, che è tondo:
+                  «tonda come un guanto imbottito da infilare in mano»
+    pesce re      resta il PRENDERE A FORZA, che è il cuore dell'immagine:
+                  «pare di star prendendo a forza un re che non vuole
+                  saperne di arrendersi»
+
+⚠️ **Il nome non si tocca, e questa è la metà che conta.** La tentazione era
+rinominare *pesce re* in «pesce luna» per far tornare l'etimologia: ma «pesce
+luna» è già di マンボー (`:108038`), che sta **nello stesso lotto** ed è il pesce
+luna vero. Cambiare un nome per far quadrare una descrizione avrebbe spostato il
+difetto da una riga a tre, e su nomi già a schermo da sessioni.
+
+⭐ **E lo stesso metro può far guadagnare, non solo perdere.** `:117978` (la
+zucca) chiude dicendo che c'è chi la vuole imparentata col mostro chiamato
+パンプキン: in giapponese カボチャ e パンプキン sono **due parole diverse**, ed è
+lì la battuta. In italiano il mostro si chiama già **«zucca»**
+(`db_creature.hsp`), esattamente come l'ortaggio. Reso «il mostro che porta il
+suo stesso nome», il gioco funziona **meglio** che in giapponese, perché da noi i
+due nomi coincidono davvero.
+
+**Come applicarlo:** quando la prosa nomina o spiega l'oggetto, la prima cosa da
+cercare non è la traduzione della parola — è **come quell'oggetto si chiama già
+a schermo**, e poi se la frase con quel nome resta vera. Se non lo resta, si
+rifà il gioco sul nome; il nome non si piega alla frase. Vedi
+`contratto-nomi.md` e la lezione della 111ª sulle famiglie sparse.
+
+## 117ª — Una lezione che resta una riga da ricordare si dimentica: va fatta strumento
+
+La 116ª aveva scoperto, guardando un numero che non tornava, che una riga può
+avere una **gemella** con giapponese e inglese identici byte per byte — stessa
+firma, una resa che copre due righe — e che la gemella **non sta in nessuna
+tabella**, perché l'estrazione tiene una voce per firma. Aveva chiuso scrivendo
+la contromisura: «il conto è una riga di script, `t.count(jp)` sul sorgente».
+
+Una riga di script è una cosa che *qualcuno deve ricordarsi di scrivere*. Nella
+117ª è diventata `scratchpad/lotti-113/_previsione.py NNN`, e nel lotto **046**
+si è accesa da sola, prima che `applica` girasse: `:113814` → anche `:113879`,
+**+32 per 31 rese**. `applica` ha poi detto 32.
+
+⭐ **Provata al contrario su casi noti, non su casi comodi.** Puntata sul lotto
+**042** — dove la gemella c'è di sicuro — stampa la coppia giusta e prevede +36
+per 35 rese, che è il numero arrivato a sorpresa nella 116ª; sul 043 e sul 044
+dice +34 su 34 e +39 su 39, cioè le due previsioni che allora furono esatte.
+Tre casi già misurati, due spenti e uno acceso, prima di crederle su un caso
+nuovo.
+
+**Come applicarlo:** una lezione scritta nei documenti come «da qui in poi si
+fa così» è un promemoria, e un promemoria invecchia come un numero scritto a
+mano. Se il controllo si può eseguire, va eseguito da un comando — e il comando
+va provato contro un fatto che si conosce già, altrimenti il suo zero non
+significa niente.
+
+⚠️ E il nome conta: si chiamava `_gemelle.py` finché non è saltato fuori che
+`strumenti/gemelle.py` esiste già e risponde a un'altra domanda (la firma resa
+in un file che non arriva a un altro file). Due strumenti con lo stesso nome
+sono un modo di sbagliare tool a distanza di sessioni.

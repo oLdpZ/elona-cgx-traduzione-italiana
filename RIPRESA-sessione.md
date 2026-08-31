@@ -1,42 +1,42 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-31, fine della **centosedicesima** sessione (**quattro
-lotti, 149 rese, UNA categoria chiusa, e un cancello che sale da 6 a 7 per
-decisione presa**).
+Aggiornato: 2026-08-31, fine della **centodiciassettesima** sessione (**due
+lotti, 59 rese, i CIBI si chiudono, e la previsione di `applica` smette di
+essere una riga scritta a mano**).
 
-⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 22:34 DEL 31/08**, e contiene
-tutte e 149 le rese di questa sessione. Quello delle 16:57 del 31/08 e' della
-115a; quello delle 14:36 e' della 114a.
+⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 23:38 DEL 31/08**, e contiene
+tutte e 59 le rese di questa sessione. Quello delle 22:34 del 31/08 e' della
+116a; quello delle 16:57 e' della 115a.
 
-⚠️⚠️⚠️ **IL CANCELLO DEI TITOLI ADESSO E' 7, NON 6.** Non e' un difetto: e' una
-decisione della 116a, presa dall'utente su una riga sola e spiegata piu' sotto.
-Chi apre e legge «6» nei documenti vecchi sta leggendo un valore superato.
+⚠️⚠️⚠️ **IL CANCELLO DEI TITOLI E' 7, NON 6.** Non e' un difetto: e' una
+decisione della 116a, presa dall'utente su una riga sola. La 117a non l'ha
+mosso. Chi apre e legge «6» nei documenti vecchi sta leggendo un valore
+superato.
 
-⚠️⚠️ **I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 116a:**
+⚠️⚠️ **I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 117a:**
 
     pytest                   794 passed, 6 skipped
                              ⓘ rilanciato DOPO aver scritto i documenti, come
                              vuole la lezione della 112a
     prova_identita           72/72 e 30.905, **invariato**
-    applica                  **29.680** sostituzioni      (era 29.530: +150)
-                             ⚠️ +150 per **149 rese**: una firma copre due
-                             oggetti (Stormbringer e Mournblade). La previsione
-                             giusta si fa contando il giapponese nel sorgente,
-                             non leggendo la tabella delle categorie
-    verifica --dizionario    db_item.hsp: 0 da ritradurre, **661** non tradotte
-    _97-quanto-resta         TOTALE **771 / 110 / 661**
-    perimetro.py             perimetro **90%** (28.062), totale **94%** (30.995)
-    _108-accento-decomposto  **0 su 25.323**
+    applica                  **29.740** sostituzioni      (era 29.680: +60)
+                             ⚠️ +60 per **59 rese**: una firma copre due righe
+                             (`:113814` e `:113879`). ⭐ E stavolta il +60 era
+                             SCRITTO PRIMA, da `lotti-113/_previsione.py`
+    verifica --dizionario    db_item.hsp: 0 da ritradurre, **602** non tradotte
+    _97-quanto-resta         TOTALE **712 / 110 / 602**
+    perimetro.py             perimetro **90%** (28.121), totale **94%** (31.054)
+    _108-accento-decomposto  **0 su 25.382**
                              ⚠️ il denominatore cresce con le rese: e' il conto
                              delle rese guardate, non un valore fisso
-    _107-descrizioni-item    ⭐⭐⭐ corpo (indici 0-2): 1.513 vive, **844 rese**;
+    _107-descrizioni-item    ⭐⭐⭐ corpo (indici 0-2): 1.513 vive, **904 rese**;
                              introdotte dall'italiano **0 / 0 / 0** (il cancello)
                              indice 3: vive 1.319, rese 1.319 — CHIUSO;
                              oltre il tetto: inglese 110, italiano 0
                              ⚠️ budget **77** per il corpo impaginato (font 11) e
                              **69** per l'indice 3 (font 12): sono DUE
     _112-corpo-descrizioni   1.509 righe-fonte, 224 titoli, **1** trattino orfano
-                             (di monte, `db_item.hsp:129299`); su 844 rese
+                             (di monte, `db_item.hsp:129299`); su 904 rese
                              cinque zeri e **«titoli resi in PIU' modi: 7»**
                              ⚠️⚠️ IL 7 E' ATTESO, E SONO QUESTI SETTE:
                                `Lead Developer <Dr. Gavela>` -> Gavela / Icolle
@@ -61,14 +61,16 @@ Chi apre e legge «6» nei documenti vecchi sta leggendo un valore superato.
                              altrove — e' un REFERTO, il valore atteso non e' zero
                              ⚠️ il denominatore e' la **tabella dei titoli**, e
                              cresce quando la tabella cresce: era 201 in
-                             apertura, 202 dopo il titolo aggiunto dalla 116a.
-                             La 115a aveva scritto 200, misura vecchia
-    _114-corpo-da-fare       ⭐ TOTALE da fare **661 su 1.449 vive**, e in fondo
-                             QUATTRO categorie chiuse: `FILTER_FURNITURE` **0 su
+                             apertura della 116a, 202 dopo il titolo che quella
+                             ha aggiunto. La 117a non l'ha mossa
+    _114-corpo-da-fare       ⭐ TOTALE da fare **602 su 1.449 vive**, e in fondo
+                             CINQUE categorie chiuse: `FILTER_FURNITURE` **0 su
                              261**, `FILTER_ITEM_TOOL` **0 su 204**,
-                             `FILTER_JUNK` **0 su 124** e `FILTER_WEAPON`
-                             **0 su 110**.
-                             La prima da fare e' `FILTER_ITEM_FOOD`, **59 su 148**.
+                             `FILTER_ITEM_FOOD` **0 su 148**, `FILTER_JUNK`
+                             **0 su 124** e `FILTER_WEAPON` **0 su 110**.
+                             La piu' grossa da fare e' `FILTER_ITEM_SPELLBOOK`,
+                             **92 su 92**, poi `FILTER_ITEM_POTION` (82) e
+                             `FILTER_ITEM_SCROLL` (73).
                              ⓘ il totale deve coincidere con quello di
                              `verifica --dizionario`: sono due fonti diverse
     _115-fonti-storpiate     REFERTO: **7 code su 2.542** scritte col punto
@@ -90,15 +92,14 @@ righe, `toppe.jsonl` 1027 e `_97-toppe-agganciate` **1027 su 1027**,
 `_96-morte-nella-build` 0, `_103-inglese-ripetuto` 2 coppie,
 `_104-inglese-slittato` 2 teste.
 
-⚠️⚠️⚠️ **ANCHE LA 116a HA APERTO CON LA CATENA TUTTA VERDE**, ventiquattro
-verifiche su ventiquattro ai valori della 115a, albero pulito, allineato a
-`origin/fase-0` e `log.md` del vault aggiornato. E' la **quarta** apertura
-pulita di fila dopo il guasto della 112a, e la build era gia' al suo posto.
-ⓘ Un solo numero non tornava, e non era un difetto: `_113-fonti-gia-rese`
-diceva 45 su **201** contro le 200 attese. Il denominatore e' la **tabella dei
-titoli**, non un valore fisso, ed era cresciuta di uno con i lotti della 115a.
-E' lo stesso caso del denominatore di `_108` visto in apertura della 115a: due
-volte di fila la sola cosa che non tornava era un denominatore che cresce.
+⚠️⚠️⚠️ **ANCHE LA 117a HA APERTO CON LA CATENA TUTTA VERDE**, venticinque
+verifiche su venticinque ai valori della 116a, albero pulito, allineato a
+`origin/fase-0` e `log.md` del vault aggiornato. E' la **quinta** apertura
+pulita di fila dopo il guasto della 112a, e la build era gia' al suo posto —
+`cgx-test.exe` delle 22:34, esattamente la data che la 116a aveva scritto.
+ⓘ Stavolta **non c'era nemmeno il numero che non torna**: nella 115a e nella
+116a la sola cosa fuori posto era stata un denominatore che cresce
+(`_108` prima, `_113` poi), qui nessuno dei venticinque si e' mosso.
 💡 **Come si legge un referto**: si guarda il numeratore *e* si chiede di che
 cosa e' fatto il denominatore, prima di chiamarlo difetto.
 
@@ -107,13 +108,10 @@ cosa e' fatto il denominatore, prima di chiamarlo difetto.
 macchina**, con l'albero di build al suo posto: la prima cosa da fare **non** e'
 ricostruire — e' guardare se c'e' gia' tutto, con
 `ls C:\Games\Elona\_traduzione\`, e controllare che
-`elonaplus2.31\cgx-test.exe` sia quello delle **22:34 del 31/08**. Se la data e'
-quella, la build contiene tutte e 149 le rese della 116a e non va rifatta.
-⚠️ La 116a e' stata chiusa dicendo **«riprendo in un altro terminale»**: la
-macchina e' la stessa, ma la sessione nuova non ha in memoria niente di questa.
-Tutto quel che serve sta qui.
+`elonaplus2.31\cgx-test.exe` sia quello delle **23:38 del 31/08**. Se la data e'
+quella, la build contiene tutte e 59 le rese della 117a e non va rifatta.
 ⓘ I sei file dati non cambiano dalla 108a: `cmp -s` prima di `cp`, e non serve
-copiarli. Verificato anche a fine 116a: sei su sei identici.
+copiarli. Verificato anche a fine 117a: sei su sei identici.
 
 ---
 
@@ -253,9 +251,21 @@ nel dossier, non e' nella tabella delle categorie, non e' da nessuna parte
 tranne che nel sorgente. Nel 042 la categoria diceva «110 e 110» — nessuna
 differenza — e il moltiplicatore c'era lo stesso, perche' la gemella stava in
 un'altra categoria.
-💡 Il conto e' una riga di script: per ogni voce del lotto, `t.count(jp)` sul
-sorgente pinnato. Fatto nel 043 e nel 044, e tutt'e due le previsioni sono state
-esatte. ⭐ **La differenza fra 1.513 (righe, `_107`) e 1.449 (firme, `_114`) e'
+⭐⭐⭐ **DALLA 117a IL CONTO NON SI SCRIVE PIU' A MANO: E' UNO STRUMENTO.**
+
+    PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/lotti-113/_previsione.py NNN
+
+Raggruppa per firma **tutte** le voci di `db_item.hsp` e stampa quante righe del
+sorgente porta ciascuna firma del lotto, piu' la previsione. Si lancia **prima**
+di scrivere le rese, e il numero si mette nella testa del lotto.
+⚠️ **Non confonderlo con `strumenti/gemelle.py`**, che risponde a un'altra
+domanda: la firma resa in un file che non arriva a un altro file.
+ⓘ Provato al contrario sul **042** (dove la gemella c'e'): stampa la coppia e
+prevede +36 per 35 rese, che e' il numero arrivato a sorpresa nella 116a. Sul
+043 e sul 044 dice +34 e +39, le due previsioni allora esatte. Nel **046** si e'
+acceso da solo: `:113814` -> anche `:113879`, +32 per 31 rese, e `applica` ha
+detto 32.
+⭐ **La differenza fra 1.513 (righe, `_107`) e 1.449 (firme, `_114`) e'
 64**: sono le righe del corpo che nessun lotto potra' mai scegliere, e che si
 riempiono da sole quando si rende la gemella.
 
@@ -268,7 +278,210 @@ il referto «righe senza resa in tabella: 0» resta verde su una riga sbagliata.
 
 ---
 
-## La centosedicesima sessione
+## La centodiciassettesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle verifiche d'apertura, che restano
+**venticinque**: `_previsione.py` e' nuovo ma e' uno strumento **di lotto**, non
+una verifica d'apertura — si lancia su un lotto, e in apertura non ce n'e' uno.
+
+La 117a ha tradotto **59 righe** in due lotti (045 e 046) e ha **chiuso una
+categoria**: `FILTER_ITEM_FOOD` 0 su 148, in tre lotti fra la 116a e la 117a.
+E' la **quinta** categoria chiusa del corpo. Il debito di collaudo sale da 8.507
+a **8.566**.
+
+### ▶ ⭐⭐⭐ IL LOTTO DA CUI SI COMINCIA LA PROSSIMA VOLTA
+
+Nessuna categoria e' cominciata a meta': si sceglie dalla tabella di
+`_114-corpo-da-fare`, dove **le prime tre sono intatte** («da fare» e «vive»
+coincidono):
+
+    92  92   FILTER_ITEM_SPELLBOOK     <- la piu' grossa
+    82  82   FILTER_ITEM_POTION
+    73  73   FILTER_ITEM_SCROLL
+
+Il comando che apre il lotto 047 e':
+
+    python scratchpad/lotti-113/_corpo.py 047 FILTER_ITEM_SPELLBOOK 0 <fine>
+
+💡 **Come si sceglie `<fine>`**: si lancia con un estremo qualunque e si legge
+il numero che stampa **prima** di scrivere il dossier. Un lotto sano sta fra le
+30 e le 55.
+⚠️ E anche su una categoria intatta si lancia **`_previsione.py`** prima di
+scrivere le rese: nelle armi «da fare» e «vive» coincidevano e il moltiplicatore
+c'era lo stesso.
+
+### ▶ ⭐⭐⭐ LA PREVISIONE DI `applica` DIVENTA UNO STRUMENTO, E SI ACCENDE SUBITO
+
+La 116a aveva scoperto **dopo il fatto** che una riga puo' avere una gemella con
+giapponese e inglese identici byte per byte, e aveva chiuso dicendo «il conto e'
+una riga di script». Una riga di script che si riscriveva a mano ogni lotto, e
+che quindi si poteva dimenticare.
+
+Adesso e' `scratchpad/lotti-113/_previsione.py NNN`. Nel lotto **046** si e'
+acceso da solo, e prima che `applica` girasse:
+
+    :113814  ->  anche :113879   ⚠️ FUORI DAL LOTTO
+    previsione di `applica`: +32 sostituzioni per 31 rese
+
+`:113814` (il sacco di farina) e `:113879` (la pasta fresca) sono tutt'e due
+l'indice 2, hanno il giapponese **vuoto** e lo stesso identico inglese: una
+firma, due righe, una resa. `applica` e' poi salito di **32**.
+
+⭐ **Provata al contrario su tre casi noti, non su un caso comodo.** Sul **042**
+— dove la gemella c'e' di sicuro — stampa `:76863 -> anche :126849` e prevede
+**+36 per 35 rese**, che e' il numero arrivato a sorpresa nella 116a; sul 043 e
+sul 044 dice +34 su 34 e +39 su 39, le due previsioni allora esatte. Due spenti
+e uno acceso, tutti verificabili contro un fatto gia' misurato.
+
+⚠️ Rinominata da `_gemelle.py` a `_previsione.py` a lavoro fatto: `strumenti/
+gemelle.py` esiste gia' e risponde a un'altra domanda — la firma resa in un file
+che non arriva all'altro. Due strumenti con lo stesso nome sono un modo di
+sbagliare tool a distanza di sessioni.
+
+### ▶ ⭐⭐⭐ DUE PESCI SPIEGANO IL PROPRIO NOME, E IN ITALIANO IL NOME E' UN ALTRO
+
+Quattro pesci del 045 contengono l'etimologia del proprio nome. Due reggono la
+traduzione e due no, e la differenza non e' di stile: e' se la frase resti
+**vera davanti al nome che il giocatore legge**.
+
+    :107673  pesce sciabola  舶刀「カトラス」        regge
+    :108111  pesce piatto    名の通り平坦で四角い    regge
+    :107819  pesce palla     グローブ = il GUANTO    NON regge
+    :108257  pesce re        三日月 = la falce di luna   NON regge
+
+**La decisione** e' il precedente gia' del progetto — *si rende il gioco, non le
+sillabe*, dalle fusioni delle razze e dalla battuta della formica di
+`chat.hsp:9942`, dove a rifare i giochi di parole e' **l'inglese stesso**. Il
+gioco si rifa' sul nome che il progetto ha gia' scelto:
+
+    pesce palla   il guanto RESTA, ma e' il guanto imbottito, che e' tondo
+    pesce re      resta il PRENDERE A FORZA, e a resistere e' un re
+
+⚠️ **I nomi non si toccano.** `ムーンフィッシュ -> pesce re` e
+`グローブフィッシュ -> pesce palla` sono gia' a schermo, e «pesce luna» e' preso
+da マンボー (`:108038`), che sta nello **stesso lotto**. Cambiare un nome per
+far tornare una descrizione sposterebbe il difetto su tre righe invece di una.
+
+⭐ **E un terzo nome ci ha guadagnato.** `:117978` (la zucca) dice che c'e' chi
+la vuole imparentata col mostro chiamato パンプキン: in giapponese due parole
+diverse, ed e' li' la battuta. In italiano il mostro **si chiama gia' «zucca»**
+(`db_creature.hsp`), quindi reso «il mostro che porta il suo stesso nome» il
+gioco funziona meglio che in giapponese.
+
+### ▶ ⭐⭐ TRE ORTAGGI SI GUARDANO DENTRO LO STESSO LOTTO, E L'INGLESE NE ROMPE DUE
+
+    :117978  la zucca        «parente della ウリ»          -> il MELONE, :117905
+    :118787  la patata d.    «meno adatta della カボチ»     -> la ZUCCA,  :117978
+    :118581  l'imo           «più piccolo della さつまいも» -> la PATATA D., :118787
+
+L'inglese scrive «cucumber family» per il primo e sostituisce il secondo con un
+generico «It tastes terrible when eaten wrong». In italiano i tre nomi sono
+quelli gia' a schermo e i tre rimandi restano veri.
+
+⚠️ **Nessuna rete puo' vederlo**: tre stringhe diverse, tre inglesi diversi, e
+il legame e' una parola dentro la prosa. E' la lezione della 111a — «le altre
+righe della stessa famiglia» — applicata **dentro un lotto solo**, dove e' anche
+piu' facile non guardare.
+
+### ▶ ⭐⭐ I SETTE SEMI: L'INGLESE NE APPIATTISCE TRE, E IL CODICE CONFERMA IL JP
+
+Tutti e sette condividono la seconda frase parola per parola; la terza si
+sdoppia, e l'inglese scrive per **tutti e sette** la prima, per giunta lasciando
+cadere 今日よりも明日なんだ:
+
+    杖 / 鉱石 / 果物 / 野菜        «aspetta un poco che cresca. Vale più
+                                    domani di oggi»
+    アーティファクト / 謎 / ハーブ  «non ne verrà una sazietà che stia alla pari
+                                    con quello che il seme promette»
+
+⭐ E il **codice ha confermato il giapponese**: 杖 qui e' la **bacchetta**, non
+il bastone — `action.hsp:19811` fa cadere `ITEM_ID_ROD_HEALING_HANDS`,
+`..._UNCURSE`, `..._MANA` e gli altri dall'albero magico. Il dizionario aveva
+gia' le due rese di 杖 distinte, e a scegliere non e' stato il senso comune.
+
+### ▶ ⚠️⚠️ UNA `é` PERSA A MONTE DENTRO IL CORPO, E LA FAMIGLIA E' DI UNA
+
+`:92585` (l'uovo) scrive in inglese `our home d?cor`: un punto interrogativo
+**vero**, 0x3F, letto byte per byte nel sorgente pinnato. E' il guasto delle
+sette code storpiate della 115a, ma nel **corpo** invece che nella coda, dove
+nessuna rete lo cercava.
+
+Misurata la famiglia col criterio «un `?` in mezzo a due lettere»:
+
+    db_item.hsp     1 occorrenza     d?c        <- questa
+    tutto il resto  0                (i tre di `net.hsp` sono query di URL)
+
+**Come applicarlo:** una occorrenza in tutto il sorgente non merita una rete —
+la merita un difetto che si ripete. La domanda giusta non era «come lo riparo»
+ma «quante ce ne sono», e la risposta e' un comando di due secondi.
+
+### ▶ ⚠️ L'INGLESE SBAGLIA IN GROSSO QUATTORDICI VOLTE IN DUE LOTTI
+
+**Due rovesciamenti**: `:118116` (il limone), dove
+大凡の果実のように…止めておいた方がよい diventa «like most fruits, should not be
+eaten», cioe' che a non doversi mangiare sono anche gli altri; `:102836` (la
+morgia), dove «efficace **contro** il calo dell'appetito» diventa «effective in
+reducing appetite» — e a dirlo non e' la grammatica ma la frase dopo, che la
+mangia da malati.
+
+**Tre sostituzioni**: `:113812` e `:113877` (la farina e la pasta fresca)
+ricevono **la stessa** frase inventata; `:118860` (il ravanello) si prende una
+battaglia di cibo dei bambini di **Noyel** che nel giapponese non c'e', ne' la
+battaglia ne' Noyel.
+
+**Il resto**: una frase ripetuta due volte (`:97601`, lo snack cibernetico), un
+nome sbagliato (**«Palmyre»** per パルミア, `:108111`), una parola letta male
+(もいで «cogliere» -> «wriggling», `:119461`), delle fiamme aggiunte (はじける e'
+«scoppiare», `:113749`), tre appiattimenti (il ballo dell'alraunia, lo sforzo
+della spenseweed, le spezie della mareilon) e tre tagli fra cui la battuta su
+cui si chiude la razione e il chicco d'uva che sta nella bocca di un bambino.
+
+### ▶ Gli strumenti nuovi della 117a
+
+  - ⭐⭐⭐ `scratchpad/lotti-113/_previsione.py NNN` — la previsione di `applica`
+    per un lotto, contata sul **sorgente** e non su una tabella. E' la lezione
+    della 116a smessa di essere una riga da ricordare.
+
+### ▶ ⚠️⚠️ LE 59 RESE NON SONO MAI STATE VISTE A SCHERMO
+
+Il debito di collaudo e' **8.566**. La lista di passi per guardarle, con gli
+identificativi **letti in `defines/mod.hsp`** e l'`IDENTIFY_LEVEL` verificato a
+**0** per ognuno in `db_item.hsp`:
+
+    F12 -> wizard
+    spawn_item 573   l'uovo          (la prosa piu' lunga del 045)
+    spawn_item 554   il seme magico  (la famiglia dei sette, variante A)
+    spawn_item 199   la zucca        <- «il mostro che porta il suo stesso nome»
+    spawn_item 233   la razione      <- qui l'inglese perdeva la battuta
+    spawn_item 351   il pesce palla  <- il gioco di parole rifatto
+    spawn_item 345   il pesce re     <- il gioco di parole rifatto
+    spawn_item 187   la patata dolce <- qui l'inglese perdeva la zucca
+    spawn_item 180   la mela         (la torta di mele)
+    spawn_item 14    la pergamena di identificazione — UNA PER OGGETTO,
+                     quindi il comando si ripete otto volte
+    ESC -> g (raccogli tutto da terra) -> r (leggi) -> X (zaino) -> x (info)
+
+⚠️ `spawn_item` fa `itemcreate -1, ...` (`system.hsp:4847`): gli oggetti cadono
+**a terra**, non nello zaino. Percio' `g` per raccoglierli, e `mapinv` — non
+`allinv` — se si vuole guardare cosa c'e' per terra (lezione della 112a).
+⚠️⚠️ **Il corpo si vede solo a oggetto identificato a fondo**: il blocco che
+disegna `description(0..2)` sta dentro
+`if ( inv(INV_ITEM_KNOWN, ci) >= ITEM_KNOWN_FULL )`, `command.hsp:16398`. E i
+cibi **non** nascono identificati: `item.hsp:2736` salta il ramo
+`reftype < FILTER_ITEM_MIN`, e `FILTER_ITEM_FOOD` e' 57.000 contro un minimo di
+50.000. Senza pergamena il pannello resta muto e la conclusione «non tradotto»
+sarebbe falsa.
+⚠️ La pergamena identifica **un oggetto per lettura** (`proc.hsp:11402` apre
+l'inventario e ne fa scegliere uno), quindi otto oggetti vogliono otto letture.
+ⓘ I tasti sono quelli di `config.txt` dell'utente: `key_get` = `g`,
+`key_read` = `r`, `key_inventory` = `X`, `key_identify` = `x`.
+
+---
+
+## La centosedicesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
