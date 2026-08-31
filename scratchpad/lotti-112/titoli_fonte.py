@@ -52,6 +52,12 @@ TITOLI_JP = {
     "～魔具全典～": "~Compendio Completo degli Oggetti Magici~",
     "～ルミエスト美術目録～": "~Catalogo d'Arte di Lumiest~",
     "～ティリス園芸図鑑～": "~Atlante Illustrato del Giardinaggio di Tyris~",
+    # ⚠️ 115a: la terza chiave con i punti interrogativi al posto della tilde,
+    #    dopo le due gia' qui sotto. Sono le sole sette righe-fonte del corpo
+    #    scritte cosi' nel sorgente pinnato, e stanno tutte fra :46213 e
+    #    :46340 — tre oggetti, una sola sessione di monte. Vedi
+    #    `scratchpad/_115-fonti-storpiate.py`, che le conta.
+    "?ティリス園芸図鑑?": "~Atlante Illustrato del Giardinaggio di Tyris~",
     "～今日から君も冒険者・旅用マニュアル～": "~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~",
     "～旅用マニュアル注釈～": "~Note al Manuale di Viaggio~",
     "～ヴェルニース鉱物図鑑～": "~Atlante dei Minerali di Vernis~",

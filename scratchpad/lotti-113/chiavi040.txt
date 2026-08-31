@@ -1,0 +1,127 @@
+RIGHE = {
+    86735, 91460, 92451, 109208, 111063, 111065, 112755, 112817, 112879, 116408,
+    116470, 116540, 116665, 116727, 116789, 116851, 116913, 116915, 123419, 127669,
+    127731, 127733, 127793, 127855, 127917, 127979, 128041, 128103, 128235,
+}
+# 29 righe, da 86735 a 128235
+
+    # ---------------------------------------------------------- :86735
+    (86735, "A mysterious heart that continues to beat even now. It is said that just by possessing it, one can possess the hearts of one's enemies. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :91460
+    (91460, 'A fashionable scarecrow with a white hat on his head. It is said that this is the figure of a scarecrow that got tired of guarding the farmland and made a bold debut in the city. \\n# ~Totally Made-up Stories that are Mistaken for Lies, Volume 2~'):
+        "",
+
+    # ---------------------------------------------------------- :92451
+    (92451, 'Brown substance spawned from living organisms. It has an abominable odor, but it is said that some people, perhaps caught up in madness, collect these things. \\n#~Thousands of pieces of Junk I love~'):
+        "",
+
+    # ---------------------------------------------------------- :109208
+    (109208, "Plain, unremarkable tree stump. It has a rugged, natural roughness that makes it ideal as a chair for the house! But don't fall for it, because although you can sit on it, it's really just a piece of junk. \\n#~Thousands of pieces of Junk I love~"):
+        "",
+
+    # ---------------------------------------------------------- :111063
+    (111063, 'Miscellaneous goods consisting of cut flowers in a single package. Often used as a thoughtful gift. \\n# ~Gifts that I am Happy to Receive~'):
+        "",
+
+    # ---------------------------------------------------------- :111065
+    (111065, '\\"When you are as beautiful as I am, women will come to you, but when I want to approach a woman myself, I usually use this one. Women are weak against things, and the woman I love the most also says so.\\" \\n# ~words of <Raphael> the womanizer~'):
+        "",
+
+    # ---------------------------------------------------------- :112755
+    (112755, "Tool used for cleaning. It has long been considered an abomination because it symbolizes a magician, but nowadays it is used exclusively as a plaything for children's sword fighting. \\n# ~Daily Necessities for the Home~"):
+        "",
+
+    # ---------------------------------------------------------- :112817
+    (112817, 'The guardian of the farmland, with its arms outstretched wide, threatening the vermin. Its legs are thrust into the ground, a sign of its will to engage in command without ever leaving the scene. \\n# ~Totally Made-up Stories that are Mistaken for Lies, Volume 2~'):
+        "",
+
+    # ---------------------------------------------------------- :112879
+    (112879, 'Wood that has been prepared at a certain height and dried for use as fuel. Because it burns very well, it has a value in daily life, and is not expensive because it is a daily commodity. \\n#~Supporting Roles in Kitchen~'):
+        "",
+
+    # ---------------------------------------------------------- :116408
+    (116408, 'Weathered animal bones. There are many opportunities to use the bones for spells and for refining water medicine, but they are in such oversupply that they are worth little more than a dime. \\n#~Thousands of pieces of Junk I love~'):
+        "",
+
+    # ---------------------------------------------------------- :116470
+    (116470, 'Dried and bundled grass. It has some elasticity and could be used for sleeping, but it would be best not to use it to rest, as the day would be consumed with the task of removing the straw from your clothes. \\n#~Thousands of pieces of Junk I love~'):
+        "",
+
+    # ---------------------------------------------------------- :116540
+    (116540, 'Dried fish carcasses. They are worthless and inedible, but when given to children, they are said to hold them in their hands and play with them as if they were legendary creatures. \\n#~Cheap Gifts for Your Kids~'):
+        "",
+
+    # ---------------------------------------------------------- :116665
+    (116665, 'A bowl with something inside, but it is not food, so you cannot eat it even if you are hungry. \\n# ~Daily Necessities for the Home~'):
+        "",
+
+    # ---------------------------------------------------------- :116727
+    (116727, 'An empty bowl with nothing inside. It can be used as a tableware, or put a plant in it for decoration. \\n# ~Supporting Roles in Kitchen~'):
+        "",
+
+    # ---------------------------------------------------------- :116789
+    (116789, 'Woven baskets made of grass vines. It has some holding power, but its coarse texture makes it impossible to use for activities such as fetching water. \\n# ~Supporting Roles in Kitchen~'):
+        "",
+
+    # ---------------------------------------------------------- :116851
+    (116851, "Empty bottles of various sizes. They are somewhat too small to hold water, but enough to catch a child's eye. \\n#~Cheap Gifts for Your Kids~"):
+        "",
+
+    # ---------------------------------------------------------- :116913
+    (116913, 'Rock lumps containing a small amount of minerals. It has no monetary value due to its very low content, but it is said to have certain uses, such as being used in cooking and bathing when heated red-hot. \\n#~Thousands of pieces of Junk I love~'):
+        "",
+
+    # ---------------------------------------------------------- :116915
+    (116915, '\\"This ore piece is a real piece of trash.\\" \\n#~some Bearded Guy~'):
+        "",
+
+    # ---------------------------------------------------------- :123419
+    (123419, 'A basket with nothing in it. Most of them are disposable. \\n# ~Supporting Roles in Kitchen~'):
+        "",
+
+    # ---------------------------------------------------------- :127669
+    (127669, 'Weathered human bones. There are many opportunities to use the bones for spells, refining water medicine, and other purposes, however, there is an oversupply, so the value of the bones is a mere trifling sum. \\n#~Thousands of pieces of Junk I love~'):
+        "",
+
+    # ---------------------------------------------------------- :127731
+    (127731, 'Weathered bones. There are many opportunities to use the bones for spells, refining water medicine, and other purposes, however, there is an oversupply, so the value of the bones is a mere trifling sum. \\n#~Thousands of pieces of Junk I love~'):
+        "",
+
+    # ---------------------------------------------------------- :127733
+    (127733, '\\"Woof! Woof! ..scut!\\" \\n#~Poppy the Puppy~'):
+        "",
+
+# 3 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :127793
+    (127793, 'A sword broken in two from the middle. It has been exposed to the wind and rain and has spilled so much that it is no longer of any value, nevertheless, when given to children, they will try their best to imitate warriors, which is amusing. \\n#~Cheap Gifts for Your Kids~'):
+        "",
+
+    # ---------------------------------------------------------- :127855
+    (127855, 'Cloth that catches the wind and flutters in the wind. It is one of the most popular products among tourists as a memento of their trip because of the variety of colors and patterns, and each town has its own unique variant. \\n#~Cheap Gifts for Your Kids~'):
+        "",
+
+    # ---------------------------------------------------------- :127917
+    (127917, 'A simple light with an iron cage attached to the end of a pillar to hold a flame. The rugged construction gives a somewhat wild impression. In recent years, some restaurants have installed these lighting fixtures in their restaurants to achieve this effect. \\n# ~an Adventurer is You! Guide for Travels~'):
+        "",
+
+    # ---------------------------------------------------------- :127979
+    (127979, 'A tub with dirty clothes stuck in it. It is a wonder that anyone would want such a thing, but it is said to be irresistible to a certain type of cleaning enthusiast. \\n#~Thousands of pieces of Junk I love~'):
+        "",
+
+    # ---------------------------------------------------------- :128041
+    (128041, 'A jar that is broken and can no longer be used. Some artists see some potential in them and buy them half-heartedly, even though they have no value at all. \\n#~Thousands of pieces of Junk I love~'):
+        "",
+
+    # ---------------------------------------------------------- :128103
+    (128103, 'Withered grass curled up in a ball. It is very hard and cannot be used as a grass substitute, but when given to children, they play with it by kicking it around with all their hearts. \\n#~Cheap Gifts for Your Kids~'):
+        "",
+
+    # ---------------------------------------------------------- :128235
+    (128235, 'Pieces of crushed wood. Completely useless, but it would at least be interesting to a child. \\n#~Cheap Gifts for Your Kids~'):
+        "",
+
+# 26 voci, 0 ambigue
+

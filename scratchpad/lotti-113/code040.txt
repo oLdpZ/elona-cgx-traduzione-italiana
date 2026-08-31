@@ -1,0 +1,89 @@
+:86735
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:91460
+   en  # ~Totally Made-up Stories that are Mistaken for Lies, Volume 2~
+   IT  # ~Storie Inventate Scambiate per Bugie, Volume 2~
+:92451
+   en  #~Thousands of pieces of Junk I love~
+   IT  #~Le Mille Cianfrusaglie che Amo~
+:109208
+   en  #~Thousands of pieces of Junk I love~
+   IT  #~Le Mille Cianfrusaglie che Amo~
+:111063
+   en  # ~Gifts that I am Happy to Receive~
+   IT  # ~Regali che Fa Piacere Ricevere~
+:111065
+   en  # ~words of <Raphael> the womanizer~
+   IT  # ~Parole di <Raphael> il donnaiolo~
+:112755
+   en  # ~Daily Necessities for the Home~
+   IT  # ~Casalinghi che Danno Colore alla Casa~
+:112817
+   en  # ~Totally Made-up Stories that are Mistaken for Lies, Volume 2~
+   IT  # ~Storie Inventate Scambiate per Bugie, Volume 2~
+:112879
+   en  #~Supporting Roles in Kitchen~
+   IT  #~I Comprimari della Cucina~
+:116408
+   en  #~Thousands of pieces of Junk I love~
+   IT  #~Le Mille Cianfrusaglie che Amo~
+:116470
+   en  #~Thousands of pieces of Junk I love~
+   IT  #~Le Mille Cianfrusaglie che Amo~
+:116540
+   en  #~Cheap Gifts for Your Kids~
+   IT  #~Cento Modi per Fregare i Bambini: i Souvenir~
+:116665
+   en  # ~Daily Necessities for the Home~
+   IT  # ~Casalinghi che Danno Colore alla Casa~
+:116727
+   en  # ~Supporting Roles in Kitchen~
+   IT  # ~I Comprimari della Cucina~
+:116789
+   en  # ~Supporting Roles in Kitchen~
+   IT  # ~I Comprimari della Cucina~
+:116851
+   en  #~Cheap Gifts for Your Kids~
+   IT  #~Cento Modi per Fregare i Bambini: i Souvenir~
+:116913
+   en  #~Thousands of pieces of Junk I love~
+   IT  #~Le Mille Cianfrusaglie che Amo~
+:116915
+   en  #~some Bearded Guy~
+   IT  #~un tizio con la barba~
+:123419
+   en  # ~Supporting Roles in Kitchen~
+   IT  # ~I Comprimari della Cucina~
+:127669
+   en  #~Thousands of pieces of Junk I love~
+   IT  #~Le Mille Cianfrusaglie che Amo~
+:127731
+   en  #~Thousands of pieces of Junk I love~
+   IT  #~Le Mille Cianfrusaglie che Amo~
+:127733
+   en  #~Poppy the Puppy~
+   IT  #~Parole di <Poppy> il cagnolino~
+:127793
+   en  #~Cheap Gifts for Your Kids~
+   IT  #~Cento Modi per Fregare i Bambini: i Souvenir~
+:127855
+   en  #~Cheap Gifts for Your Kids~
+   IT  #~Cento Modi per Fregare i Bambini: i Souvenir~
+:127917
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:127979
+   en  #~Thousands of pieces of Junk I love~
+   IT  #~Le Mille Cianfrusaglie che Amo~
+:128041
+   en  #~Thousands of pieces of Junk I love~
+   IT  #~Le Mille Cianfrusaglie che Amo~
+:128103
+   en  #~Cheap Gifts for Your Kids~
+   IT  #~Cento Modi per Fregare i Bambini: i Souvenir~
+:128235
+   en  #~Cheap Gifts for Your Kids~
+   IT  #~Cento Modi per Fregare i Bambini: i Souvenir~
+
+righe senza resa in tabella: 0   (atteso 0)

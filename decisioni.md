@@ -6,6 +6,47 @@ ancora aperte.
 
 ---
 
+## Quando un cancello dà un numero inatteso, la prima domanda è quanto è grande la famiglia — 2026-08-31, centoquindicesima
+
+Aprendo il lotto 038, `_code.py` ha detto «righe senza resa in tabella: **1**»,
+dove il valore atteso è 0. La riga è `db_item.hsp:46213`, e la sua coda-fonte
+giapponese è `#?ティリス園芸図鑑?`: **due punti interrogativi ASCII** (U+003F)
+al posto della tilde larga (U+FF5E) che le altre quaranta occorrenze dello
+stesso libro portano. Sta così nel sorgente pinnato — verificato byte per byte,
+non dedotto.
+
+La tentazione è aggiungere la chiave storpiata alla tabella e andare avanti. La
+domanda giusta è un'altra: **quante sono?**
+
+`scratchpad/_115-fonti-storpiate.py` risponde: **7 code su 2.542**, tutte fra
+`:46213` e `:46340`, cioè **tre oggetti soli**, contigui — una sola sessione di
+lavoro di monte. Con quel numero in mano la decisione è facile e motivata: si
+aggiunge la chiave, come la 112ª aveva già fatto per due delle sette.
+
+⚠️ **Sette su 2.542 è un difetto puntuale di monte; settecento sarebbe stato un
+difetto della nostra estrazione.** Senza misurare, le due ipotesi si assomigliano
+e si sceglie quella comoda.
+
+### ⭐⭐ E lo stesso strumento ha smascherato un numero che non voleva dire niente
+
+Il referto conta anche le righe che hanno la coda in giapponese e **non** in
+inglese. Alla prima stesura diceva **1.131**, che sembrava enorme. Sono quasi
+tutti i **rapporti di identificazione** (l'indice 3), il cui inglese una coda
+non ce l'ha mai per costruzione.
+
+Escludendoli, il numero vero è **3**: `:46213`, e `:47287`-`:47288` che il lotto
+033 aveva già trovato. Tre righe in tutto il corpo, e per tutt'e tre la
+decisione è la stessa: la resa **non porta la coda**, perché il cancello conta
+il `#` contro l'inglese.
+
+⚠️⚠️ È la lezione della 114ª (il «30 su 30» di una soglia mancante) ripetuta su
+un altro referto, e stavolta è stata vista **prima** di scriverla nei documenti.
+ⓘ `_112-verifica-fonti` queste tre righe non le vede affatto: la sua copertura
+salta le righe senza coda inglese (`if not t_en: continue`). Due reti, due punti
+ciechi diversi, e il 234 su 234 resta vero.
+
+---
+
 ## Un inglese uguale non basta a fondere due firme — 2026-08-31, centoquindicesima
 
 Il lotto 034 ha due righe con l'**inglese identico**, 229 caratteri parola per
@@ -67,9 +108,27 @@ e costa una riga di script.
 
 💡 Da qui `scratchpad/lotti-113/_preflight034.py`, che fa **prima** del montaggio
 le domande che i cancelli fanno dopo la build: chiavi, spaziatura prima del
-`\n`, il `#`, e le parole più lunghe della finestra di rinculo. Non sostituisce
-i cancelli — li anticipa, e ha già trovato due difetti veri (una parola da 16
-caratteri nel 034, uno spazio di troppo nel 037 fra due righe gemelle).
+`\n`, il `#`, le parole più lunghe della finestra di rinculo e i caratteri
+proibiti. Non sostituisce i cancelli — li anticipa, e ha trovato sei difetti
+veri in quattro lotti.
+
+### ⚠️⚠️ E la sua prima versione si accendeva su un accento GIUSTO
+
+La rete dell'accento isolava la parola con `strip()` di qualche segno, e su
+`così!\"` — accento in ultima posizione, seguito da punteggiatura e
+dall'escape delle virgolette — vedeva l'accento «in mezzo». Un falso positivo
+al primo giro.
+
+⭐ **Da lì `scratchpad/lotti-113/_prova_preflight.py`**, che è la prova al
+contrario: cinque frasi che *devono* accendere il preflight — sono i testi veri
+per cui `reimporta` ha respinto i lotti — e quattro che *devono* restare spente,
+fra cui proprio `così!\"`. Le regole le **legge dal preflight** invece di
+ricopiarle, così le due copie non possono divergere e la prova non finisce per
+provare se stessa.
+
+⚠️ **Un cancello che dice zero su un lotto già corretto non ha dimostrato
+niente.** È la lezione della 114ª («una rete mai esercitata non è una rete»)
+applicata nel momento in cui la rete nasce, invece che tre sessioni dopo.
 
 ---
 

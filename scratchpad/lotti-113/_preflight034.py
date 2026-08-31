@@ -23,6 +23,28 @@ QUI = os.path.dirname(os.path.abspath(__file__))
 LAVORO = 'lavoro/_107-daitem.jsonl'
 RINCULO = 15
 
+# ⚠️ i caratteri per cui `reimporta` ha respinto tre lotti nella 115a, piu'
+#    quelli che `_112-verifica-fonti` chiama «cancellati». La lista non e'
+#    indovinata: e' l'elenco dei messaggi di errore veri.
+PROIBITI = {
+    '«': 'virgolette a caporale: zero in tutto il dizionario, CP932 non le ha',
+    '»': 'virgolette a caporale: zero in tutto il dizionario, CP932 non le ha',
+    '…': 'puntini di sospensione: si scrivono con tre punti',
+    '“': 'virgolette curve: si scrive \\"',
+    '”': 'virgolette curve: si scrive \\"',
+    '—': 'lineetta lunga: CP932 non ce l\'ha',
+    '–': 'lineetta media: CP932 non ce l\'ha',
+    '～': 'tilde larga: la tilde giusta e\' quella ASCII',
+    '①': 'numeri cerchiati: due byte in CP932, la build ne disegna uno per byte',
+    '②': 'numeri cerchiati: due byte in CP932, la build ne disegna uno per byte',
+    '③': 'numeri cerchiati: due byte in CP932, la build ne disegna uno per byte',
+    '④': 'numeri cerchiati: due byte in CP932, la build ne disegna uno per byte',
+}
+
+# ⚠️ `degrada()` trasforma l'accento in apostrofo: in fondo alla parola va
+#    bene («qualita'»), in mezzo la spacca («de'i»).
+ACCENTATE = 'àèéìòóù'
+
 
 def carica(nome):
     spazio = {}
@@ -93,10 +115,31 @@ def main():
         print('  nessuna parola oltre i %d caratteri' % (RINCULO - 1))
 
     print()
+    print('=== I CARATTERI CHE `reimporta` RIFIUTA')
+    print('  ⓘ tre lotti su otto della 115a sono stati respinti per questi.')
+    respinti = 0
+    for n in sorted(righe):
+        for c, perche in PROIBITI.items():
+            if c in it[n]:
+                respinti += 1
+                print('  ⚠️ :%d  %r  %s' % (n, c, perche))
+    for n in sorted(righe):
+        # ⚠️ la parola si isola con le LETTERE, non con lo spazio: `cosi'!\"`
+        #    finisce con la punteggiatura e con l'escape delle virgolette, e
+        #    uno `strip()` di segni non basta — la prima stesura di questa
+        #    rete si accendeva proprio li', su un accento legittimo.
+        for parola in re.findall(r"[^\W\d_]+(?:'[^\W\d_]+)*", it[n], re.UNICODE):
+            if any(v in parola[:-1] for v in ACCENTATE):
+                respinti += 1
+                print('  ⚠️ :%d  accento dentro la parola: %s' % (n, parola))
+    if not respinti:
+        print('  nessuno')
+
+    print()
     print('=== LE CODE, contate')
-    print('  righe: %d   guasti di struttura: %d   parole lunghe: %d'
-          % (len(righe), guasti, lunghe))
-    return 1 if guasti else 0
+    print('  righe: %d   guasti di struttura: %d   parole lunghe: %d   '
+          'caratteri respinti: %d' % (len(righe), guasti, lunghe, respinti))
+    return 1 if (guasti or respinti) else 0
 
 
 if __name__ == '__main__':

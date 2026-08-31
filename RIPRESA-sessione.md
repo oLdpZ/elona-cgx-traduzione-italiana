@@ -1,11 +1,11 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-31, fine della **centoquindicesima** sessione (**gli
-attrezzi si chiudono: quattro lotti, 154 rese, e un inglese uguale che non era
-la stessa firma**).
+Aggiornato: 2026-08-31, fine della **centoquindicesima** sessione (**sette
+lotti, 278 rese, DUE categorie chiuse, e un inglese uguale che non era la
+stessa firma**).
 
-⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 16:13 DEL 31/08**, e contiene
-tutte e 154 le rese di questa sessione. Quello delle 14:36 del 31/08 e' della
+⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 16:57 DEL 31/08**, e contiene
+tutte e 278 le rese di questa sessione. Quello delle 14:36 del 31/08 e' della
 114a; quello delle 08:25 del 31/08 e' della 113a.
 
 ⚠️⚠️ **I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 115a:**
@@ -14,28 +14,29 @@ tutte e 154 le rese di questa sessione. Quello delle 14:36 del 31/08 e' della
                              ⓘ rilanciato DOPO aver scritto i documenti, come
                              vuole la lezione della 112a
     prova_identita           72/72 e 30.905, **invariato**
-    applica                  **29.406** sostituzioni      (era 29.252: +154)
-                             ⓘ +154 esatte: nei lotti 034-037 il rapporto e'
-                             uno a uno. Il moltiplicatore degli attrezzi stava
-                             nei quattro fucili del 033, non nella categoria
-    verifica --dizionario    db_item.hsp: 0 da ritradurre, **934** non tradotte
-    _97-quanto-resta         TOTALE **1.044 / 110 / 934**
-    perimetro.py             perimetro **90%** (27.789), totale **94%** (30.722)
-    _108-accento-decomposto  **0 su 25.050**
+    applica                  **29.530** sostituzioni      (era 29.252: +278)
+                             ⓘ +278 esatte: in tutti e sette i lotti il
+                             rapporto e' uno a uno. Il moltiplicatore degli
+                             attrezzi stava nei quattro fucili del lotto 033,
+                             non nella categoria
+    verifica --dizionario    db_item.hsp: 0 da ritradurre, **810** non tradotte
+    _97-quanto-resta         TOTALE **920 / 110 / 810**
+    perimetro.py             perimetro **90%** (27.913), totale **94%** (30.846)
+    _108-accento-decomposto  **0 su 25.174**
                              ⚠️ il denominatore cresce con le rese: e' il conto
                              delle rese guardate, non un valore fisso. La 114a
                              ci aveva scritto 24.673, che era una misura presa
                              a meta' sessione
-    _107-descrizioni-item    ⭐⭐⭐ corpo (indici 0-2): 1.513 vive, **570 rese**;
+    _107-descrizioni-item    ⭐⭐⭐ corpo (indici 0-2): 1.513 vive, **694 rese**;
                              introdotte dall'italiano **0 / 0 / 0** (il cancello)
                              indice 3: vive 1.319, rese 1.319 — CHIUSO;
                              oltre il tetto: inglese 110, italiano 0
                              ⚠️ budget **77** per il corpo impaginato (font 11) e
                              **69** per l'indice 3 (font 12): sono DUE
     _112-corpo-descrizioni   1.509 righe-fonte, 224 titoli, **1** trattino orfano
-                             (di monte, `db_item.hsp:129299`); su 570 rese
-                             cinque zeri e **«titoli resi in PIU' modi: 5»**
-                             ⚠️⚠️ IL 5 E' ATTESO, E SONO QUESTI CINQUE:
+                             (di monte, `db_item.hsp:129299`); su 694 rese
+                             cinque zeri e **«titoli resi in PIU' modi: 6»**
+                             ⚠️⚠️ IL 6 E' ATTESO, E SONO QUESTI SEI:
                                `Lead Developer <Dr. Gavela>` -> Gavela / Icolle
                                `~Thousands of pieces of Junk I love~`
                                   -> Le Mille Cianfrusaglie / Quel che Brilla
@@ -44,20 +45,27 @@ tutte e 154 le rese di questa sessione. Quello delle 14:36 del 31/08 e' della
                                   -> Oggetti Sospetti / Alchimia
                                `~ Great Encyclopedia of North Tyris Furnitures~`
                                   -> Mobili / Manuale di Viaggio
-                             Sono cinque appiattimenti o errori dell'INGLESE,
+                               `~Vernis Ore Catalogue~` -> Vernis / Lumiest
+                             Sono sei appiattimenti o errori dell'INGLESE,
                              non nostri: il giapponese distingue in tutti e
-                             cinque i casi. Un **6** e' un difetto nuovo.
+                             sei i casi. Un **7** e' un difetto nuovo.
     _112-verifica-fonti      **234 su 234** coperte; tetto 0, caratteri
                              cancellati 0, apostrofi dentro la parola 0
                              (esce con 0: e' un cancello, non un referto)
     _113-fonti-gia-rese      **45 su 200** titoli il cui giapponese e' gia' reso
                              altrove — e' un REFERTO, il valore atteso non e' zero
-    _114-corpo-da-fare       ⭐ TOTALE da fare **934 su 1.449 vive**, e in fondo
-                             DUE categorie chiuse: `FILTER_FURNITURE` **0 su
-                             261** e `FILTER_ITEM_TOOL` **0 su 204**.
-                             La prima da fare e' `FILTER_JUNK`, **124 su 124**.
+    _114-corpo-da-fare       ⭐ TOTALE da fare **810 su 1.449 vive**, e in fondo
+                             TRE categorie chiuse: `FILTER_FURNITURE` **0 su
+                             261**, `FILTER_ITEM_TOOL` **0 su 204** e
+                             `FILTER_JUNK` **0 su 124**.
+                             La prima da fare e' `FILTER_WEAPON`, **110 su 110**.
                              ⓘ il totale deve coincidere con quello di
                              `verifica --dizionario`: sono due fonti diverse
+    _115-fonti-storpiate     REFERTO: **7 code su 2.542** scritte col punto
+                             interrogativo al posto della tilde, tutte fra
+                             `:46213` e `:46340`; e **3 righe** del corpo che
+                             hanno la coda in giapponese e non in inglese
+                             (`:46213`, `:47287`, `:47288`)
 
 Tutto il resto e' **fermo dov'era**: `dati_applica --identita` 6 file e 3.767
 righe, `toppe.jsonl` 1027 e `_97-toppe-agganciate` **1027 su 1027**,
@@ -83,8 +91,8 @@ prima di reimportare l'ultimo lotto.
 macchina**, con l'albero di build al suo posto: la prima cosa da fare **non** e'
 ricostruire — e' guardare se c'e' gia' tutto, con
 `ls C:\Games\Elona\_traduzione\`, e controllare che
-`elonaplus2.31\cgx-test.exe` sia quello delle **16:13 del 31/08**. Se la data e'
-quella, la build contiene tutte e 154 le rese della 115a e non va rifatta.
+`elonaplus2.31\cgx-test.exe` sia quello delle **16:57 del 31/08**. Se la data e'
+quella, la build contiene tutte e 278 le rese della 115a e non va rifatta.
 ⓘ I sei file dati non cambiano dalla 108a: `cmp -s` prima di `cp`, e non serve
 copiarli. Verificato anche a fine 115a: sei su sei identici.
 
@@ -217,25 +225,29 @@ Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
 **ventiquattro** (le ventitre' della 113a piu' `_114-corpo-da-fare.py`, che e'
 la tabella da cui si sceglie il lotto prossimo).
 
-La 115a ha tradotto **154 righe** in quattro lotti (034, 035, 036, 037, tutti
-`FILTER_ITEM_TOOL`) e ha **chiuso gli attrezzi**: 204 righe su 204, dai lotti
-033 al 037. Il debito di collaudo sale da 8.080 a **8.234**.
+La 115a ha tradotto **278 righe** in sette lotti (034-037 sugli attrezzi,
+038-040 sugli scarti) e ha **chiuso due categorie**: `FILTER_ITEM_TOOL` 204 su
+204 (dal lotto 033) e `FILTER_JUNK` 124 su 124. Il debito di collaudo sale da
+8.080 a **8.358**.
 
 ### ▶ ⭐⭐⭐ IL LOTTO DA CUI SI COMINCIA LA PROSSIMA VOLTA
 
-**`FILTER_JUNK`, 124 righe su 124**: e' la piu' grossa fra quelle intatte, e a
-differenza degli attrezzi non ha moltiplicatore. Il comando che apre il lotto
-038 e':
+**`FILTER_WEAPON`, 110 righe su 110**: e' la piu' grossa fra quelle intatte, e
+come gli scarti non ha moltiplicatore («da fare» e «vive» coincidono). Il
+comando che apre il lotto 041 e':
 
-    python scratchpad/lotti-113/_corpo.py 038 FILTER_JUNK 0 <fine>
+    python scratchpad/lotti-113/_corpo.py 041 FILTER_WEAPON 0 <fine>
 
 💡 **Come si sceglie `<fine>`**: si lancia `_corpo.py` con un estremo qualunque
 e si legge il numero che stampa **prima** di scrivere il dossier, poi si
-aggiusta. Nella 115a: sugli attrezzi `48000 62000` dava 44, `62000 75000` 43,
-`75000 90000` 42. Un lotto sano sta fra le 30 e le 55.
+aggiusta. Nella 115a: `48000 62000` dava 44, `62000 75000` 43, `75000 90000` 42.
+Un lotto sano sta fra le 30 e le 55.
 ⚠️ E l'ultimo lotto di una categoria **non e' un intervallo stretto**: le 25
-righe del 037 stavano sparse fra `:90137` e `:122679`, e ci e' voluto
-`90000 200000`.
+righe del 037 stavano sparse fra `:90137` e `:122679` (ci e' voluto
+`90000 200000`), e le 29 del 040 fra `:86735` e `:128235`.
+⚠️ **Le righe non sono distribuite in modo uniforme**: negli scarti, fra
+`0 60000` (39 righe) e `0 64000` (70) c'e' un addensamento. Due tentativi in
+piu' costano niente; un lotto da 70 righe costa una sessione.
 
 ⚠️ La catena e' quella della 113a, con **un passo nuovo in mezzo**:
 `_corpo.py` → `_107-dossier-item.py` → `_code.py` → `_gia-reso.py`, poi
@@ -296,19 +308,25 @@ la resa nostra e' la stessa: si accende solo l'occhio di chi legge il
 giapponese. Il cancello dei titoli vede solo i casi in cui **noi** rendiamo
 diversamente, ed e' un'altra cosa.
 
-### ▶ ⚠️⚠️ IL CANCELLO DEI TITOLI PASSA DA 2 A 5, E TRE VOLTE ERA ANNUNCIATO
+### ▶ ⚠️⚠️ IL CANCELLO DEI TITOLI PASSA DA 2 A 6, E QUATTRO VOLTE ERA ANNUNCIATO
 
     ~Irva Fantasy Encyclopedia~   -> Irva / Aimwell            (034, annunciato)
     ~Extra Issue: Weird Items~    -> Oggetti Sospetti / Alchimia (035, NO)
     ~ Great Encyclopedia of North Tyris Furnitures~
                                   -> Mobili / Manuale di Viaggio (037, annunciato)
+    ~Vernis Ore Catalogue~        -> Vernis / Lumiest          (038, annunciato)
 
-Il valore atteso e' **5**. ⭐ Annunciare il numero **prima** di misurarlo e' la
-differenza fra una previsione e una scusa: nel 034 e nel 037 la sezione di
-`testaNNN.py` diceva «il cancello passera' a 3» e «a 5» prima che il lotto
-fosse montato. Nel 035 no, ed e' arrivato a sorpresa: si e' dovuto verificare
-a posteriori che i due giapponesi fossero davvero due libri diversi, che e' lo
-stesso lavoro fatto in condizioni peggiori.
+Il valore atteso e' **6**. ⭐ Annunciare il numero **prima** di misurarlo e' la
+differenza fra una previsione e una scusa: nel 034, nel 037 e nel 038 la sezione
+di `testaNNN.py` diceva «il cancello passera' a 3», «a 5» e «a 6» prima che il
+lotto fosse montato. Nel 035 no, ed e' arrivato a sorpresa: si e' dovuto
+verificare a posteriori che i due giapponesi fossero davvero due libri diversi,
+che e' lo stesso lavoro fatto in condizioni peggiori.
+
+💡 **Come si annuncia**: leggendo le code del lotto in `codeNNN.txt` e cercando
+due rese italiane diverse sotto lo stesso inglese. Nel 038 l'argilla e lo zolfo
+avevano tutt'e due `~Vernis Ore Catalogue~` in inglese e due libri diversi in
+giapponese: si vede in dieci secondi, guardando la colonna.
 
 ### ▶ ⚠️⚠️ LE TRE COSE CHE `degrada()` NON PERDONA, VISTE TUTTE IN UN GIORNO
 
@@ -337,11 +355,43 @@ che *da qualche parte* c'e' un moltiplicatore, non che ce ne sia uno diffuso.
 Negli attrezzi stava tutto nei quattro fucili anestetici del 033. La previsione
 giusta si legge nel lotto, non nella riga della tabella.
 
-### ▶ ⭐ QUATTRO RIGHE DEL CORPO NON HANNO UN GIAPPONESE, E VANNO CONTATE
+### ▶ ⭐⭐⭐ LA TILDE DI MONTE NON E' SEMPRE UNA TILDE
 
-`:50410` (034), `:72552` (035), `:80994` e `:84969` (036) hanno il giapponese
-**vuoto** e un inglese vero. Sono **quattro su 570 rese del corpo**, e tutte e
-quattro di indice 2, cioe' battute.
+`_code.py` ha aperto il lotto 038 dicendo «righe senza resa in tabella: **1**»,
+dove l'atteso e' 0. La riga e' `:46213`, e la sua coda giapponese porta **due
+punti interrogativi ASCII** (U+003F) al posto della tilde larga (U+FF5E) che le
+altre quaranta occorrenze dello stesso libro portano. Non e' la nostra
+estrazione: sta cosi' nel sorgente pinnato, e si legge byte per byte.
+
+⭐ Misurata con `scratchpad/_115-fonti-storpiate.py`: **7 code su 2.542**, tutte
+fra `:46213` e `:46340` — tre oggetti, una sola sessione di lavoro di monte.
+Due erano gia' in tabella dalla 112a **con i punti interrogativi dentro la
+chiave**; la terza si e' aggiunta allo stesso modo.
+
+**Come applicarlo:** quando un cancello dice un numero inatteso, la prima
+domanda non e' «come lo faccio tornare» ma «quanto e' grande la famiglia».
+Sette righe su 2.542 e' un difetto puntuale; settecento sarebbe stato un
+difetto della nostra estrazione.
+
+### ▶ ⭐⭐ TRE RIGHE DEL CORPO HANNO LA CODA IN GIAPPONESE E NON IN INGLESE
+
+`:46213` (038), piu' `:47287` e `:47288` gia' trovate dal lotto 033. La resa
+**non porta la coda**, perche' il cancello conta il `#` contro l'inglese e
+aggiungerlo lo accenderebbe: e' la decisione della 114a, applicata di nuovo.
+
+⚠️⚠️ `_112-verifica-fonti` queste righe **non le vede**: la sua copertura salta
+le righe senza coda inglese (`if not t_en: continue`), ed e' per questo che dice
+234 su 234 con serenita'. Il conto giusto lo da' `_115-fonti-storpiate.py`, che
+per dirlo deve escludere i **1.128 rapporti di identificazione**, il cui inglese
+una coda non ce l'ha mai. ⓘ Senza quel taglio il numero e' 1.131 e non vuol dire
+niente: e' la lezione della 114a sulla soglia mancante, ripetuta su un altro
+referto.
+
+### ▶ ⭐ CINQUE RIGHE DEL CORPO NON HANNO UN GIAPPONESE, E VANNO CONTATE
+
+`:50410` (034), `:72552` (035), `:80994` e `:84969` (036), `:116915` (040) hanno
+il giapponese **vuoto** e un inglese vero. Sono **cinque su 694 rese del
+corpo**, e tutte e cinque di indice 2, cioe' battute.
 
 La spiegazione probabile e' che siano aggiunte del CGX scritte direttamente nel
 ramo inglese. ⚠️ Se il numero salisse di colpo, vorrebbe dire che l'estrazione
@@ -351,25 +401,42 @@ della 110a: la stringa vuota raggruppa tutto quello che non ha una fonte).
 
 ### ▶ Gli strumenti nuovi della 115a
 
-  - `scratchpad/lotti-113/_preflight034.py NNN` — le domande dei cancelli fatte
-    **prima** del montaggio: chiavi contro `righeNNN.py`, spaziatura prima del
-    `\n`, il `#` con o senza spazio, e le parole piu' lunghe della finestra di
-    rinculo. Ha trovato due difetti veri (una parola da 16 caratteri, uno
-    spazio di troppo fra due righe gemelle);
+  - ⭐⭐⭐ `scratchpad/lotti-113/_preflight034.py NNN` — le domande dei cancelli
+    fatte **prima** del montaggio: chiavi contro `righeNNN.py`, spaziatura prima
+    del `\n`, il `#` con o senza spazio, le parole piu' lunghe della finestra di
+    rinculo, e **i caratteri che `reimporta` rifiuta**. Ha trovato sei difetti
+    veri in quattro lotti;
+  - `scratchpad/lotti-113/_prova_preflight.py` — la **prova al contrario** del
+    preflight: le cinque frasi che devono accenderlo (sono i testi veri per cui
+    `reimporta` ha respinto i lotti) e le quattro che devono restare spente.
+    Legge le regole dal preflight invece di ricopiarle, cosi' le due copie non
+    possono divergere. ⓘ Esiste perche' un cancello che dice zero su un lotto
+    gia' corretto non ha dimostrato niente;
+  - `scratchpad/_115-fonti-storpiate.py` — il referto delle code col carattere
+    sbagliato e di quelle che l'inglese ha perso;
   - `scratchpad/lotti-113/_scheda034.py NNN` — la struttura dell'inglese col
     `repr()`: quanti segmenti, il giapponese vuoto, e la coda di ogni segmento.
     Serve perche' la spaziatura prima del `\n` **non e' uniforme** e nel
-    dossier non si vede.
+    dossier non si vede;
+  - `scratchpad/lotti-113/_abilita038.py <termini>` — i nomi delle abilita'
+    come sono gia' resi in `skill.hsp`. ⚠️ Serve perche' **射撃 in `skill.hsp`
+    e' «Mira»**, non «Tiro»: «Tiro» e' la resa di `command.hsp`, dove 射撃 e'
+    l'azione. E l'indice 3 di `:76317` dice «Tiro» per l'abilita': difetto
+    nostro gia' in gioco, da uniformare in una passata sull'indice 3.
 
-### ▶ ⚠️⚠️ LE 154 RESE NON SONO MAI STATE VISTE A SCHERMO
+### ▶ ⚠️⚠️ LE 278 RESE NON SONO MAI STATE VISTE A SCHERMO
 
-Il debito di collaudo sale a **8.234**. Come sempre, i cancelli misurano la
+Il debito di collaudo sale a **8.358**. Come sempre, i cancelli misurano la
 forma della resa e non il pannello: `_107-descrizioni-item` e
 `_112-corpo-descrizioni` dicono 0/0/0 su tutto, ma nessuno ha aperto il gioco.
-⚠️ Gli oggetti da guardare per primi sono i tre con la prosa piu' lunga —
-`:70817` (la penna di luce astrale), `:57645` (il salvadanaio di Yacatect) e
-`:73828` (lo scanner degli effetti, che ha quattro punti numerati) — perche' se
-l'impaginatore ha un limite, e' li' che si vede.
+⚠️ Gli oggetti da guardare per primi sono i quattro con la prosa piu' lunga —
+`:70817` (la penna di luce astrale), `:57645` (il salvadanaio di Yacatect),
+`:73828` (lo scanner degli effetti, che ha quattro punti numerati) e `:46275`
+(il tappo di bottiglia, la piu' lunga di tutte) — perche' se l'impaginatore ha
+un limite, e' li' che si vede.
+⚠️ E poi `:91460`, dove «spaventapasseri» misura **15** caratteri contro una
+finestra di rinculo di 15: il cancello dice che non si spezza, ma e' l'unico
+caso della sessione in cui la parola sfiora il limite.
 
 ## La centoquattordicesima sessione (per storia)
 

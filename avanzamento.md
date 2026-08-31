@@ -41,7 +41,66 @@ fondo somma valori di sessioni diverse. Il conto vivo lo danno
 file di `data/` compresi. Finché nessuno rifà la tabella intera, **si guardano
 quelli**.
 
-## Quattro lotti, 154 rese, e gli attrezzi si chiudono — 2026-08-31, centoquindicesima sessione
+## Sette lotti, 278 rese, e si chiudono DUE categorie — 2026-08-31, centoquindicesima sessione
+
+`db_item.hsp`, il **corpo** delle descrizioni (indici 0-2). La sessione ha
+chiuso `FILTER_ITEM_TOOL` (lotti 034-037) e `FILTER_JUNK` (lotti 038-040):
+
+    034  ITEM_TOOL   righe  48.000-62.000   44 rese  (39 idx0, 1 idx1, 4 idx2)
+    035  ITEM_TOOL   righe  62.000-75.000   43 rese  (36 idx0, 7 idx2)
+    036  ITEM_TOOL   righe  75.000-90.000   42 rese  (39 idx0, 3 idx2)
+    037  ITEM_TOOL   righe  90.000 in su    25 rese  (21 idx0, 4 idx2)
+    038  JUNK        righe       0-62.000   44 rese  (36 idx0, 4 idx1, 4 idx2)
+    039  JUNK        righe  62.000-76.000   51 rese  (34 idx0, 8 idx1, 9 idx2)
+    040  JUNK        righe  76.000 in su    29 rese  (26 idx0, 3 idx2)
+    -----------------------------------------------------------------
+    **278 rese**, che coprono **278 righe** del sorgente (nessun doppione)
+    applica 29.252 -> **29.530**   (+278 esatte)
+    db_item non tradotte 1.088 -> **810**   (-278 esatte)
+    rese del corpo: 416 -> **694** su 1.513
+    perimetro 27.635 -> **27.913** (90%), totale 30.568 -> **30.846** (94%)
+    cancello dei tagli: introdotte dall'italiano **0/0/0**, mai acceso
+    rinviate: nessuna   toppe: nessuna   test: **794**, invariato
+    strumenti nuovi: 5   build: SI', **16:57 del 31/08**
+    -----------------------------------------------------------------
+    ⭐⭐⭐ **CHIUSE**: `FILTER_ITEM_TOOL` 204/204 (033-037) e
+    `FILTER_JUNK` 124/124 (038-040). Col mobilio della 114a fanno **tre**
+    categorie chiuse su ventitre'.
+
+⚠️⚠️ **Il cancello «titoli resi in piu' modi» passa da 2 a 6, e tutti e sei
+sono difetti dell'inglese**, che appiattisce o sbaglia titoli-fonte che il
+giapponese distingue:
+
+    Lead Developer <Dr. Gavela>      -> Gavela / Icolle              (114a)
+    ~Thousands of pieces of Junk~    -> Cianfrusaglie / Brilla       (114a)
+    ~Irva Fantasy Encyclopedia~      -> Irva / Aimwell               (034)
+    ~Extra Issue: Weird Items~       -> Oggetti Sospetti / Alchimia  (035)
+    ~ Great Encyclopedia of North Tyris Furnitures~
+                                     -> Mobili / Manuale di Viaggio  (037)
+    ~Vernis Ore Catalogue~           -> Vernis / Lumiest             (038)
+
+Il valore atteso e' **6, con questi sei accanto**. Un 7 e' un difetto nuovo.
+⭐ Quattro su sei sono stati **annunciati prima di misurarli**, leggendo il
+giapponese del lotto; solo quello del 035 e' arrivato senza preavviso.
+
+**Il conto del corpo, categoria per categoria**, con
+`python scratchpad/_114-corpo-da-fare.py`:
+
+    chiuse   mobilio 261/261 · attrezzi 204/204 · junk 124/124
+    restano  FILTER_WEAPON         110/110   FILTER_ORE             33/33
+             FILTER_ITEM_FOOD       98/148   FILTER_ITEM_ROD        32/32
+             FILTER_ITEM_SPELLBOOK   92/92   FILTER_CONTAINER       25/25
+             FILTER_ITEM_POTION      82/82   FILTER_SHIELD          24/24
+             FILTER_ITEM_SCROLL      73/73   FILTER_ITEM_BOOK       23/23
+             FILTER_RANGE            60/60   FILTER_ARMOR           20/20
+             piu' una coda di diciotto minori
+    -----------------------------------------------------------------
+    694 righe fatte su 1.449 vive; **810 restano**
+
+ⓘ Il totale coincide con quello di `verifica --dizionario` a ogni lotto: sette
+volte di fila in questa sessione.
+
+### Il dettaglio dei primi quattro lotti (gli attrezzi)
 
 `db_item.hsp`, il **corpo** delle descrizioni (indici 0-2), tutta
 `FILTER_ITEM_TOOL`:
@@ -58,8 +117,6 @@ quelli**.
     perimetro 27.635 -> **27.789** (90%), totale 30.568 -> **30.722** (94%)
     cancello dei tagli: introdotte dall'italiano **0/0/0**, mai acceso
     rinviate: nessuna   toppe: nessuna   test: **794**, invariato
-    strumenti nuovi: 2 (`lotti-113/_scheda034.py`, `lotti-113/_preflight034.py`)
-    build: SI', **16:13 del 31/08**
     -----------------------------------------------------------------
     ⭐⭐⭐ **`FILTER_ITEM_TOOL` e' CHIUSA**: 204 righe su 204, lotti 033-037
 
@@ -71,38 +128,29 @@ quattro fucili anestetici condividono due righe: nei lotti 034-037 il rapporto
 e' **uno a uno**, e le 154 rese hanno fatto 154 sostituzioni esatte. Il
 moltiplicatore stava in quattro oggetti, non nella categoria.
 
-⚠️⚠️ **Il cancello «titoli resi in piu' modi» passa da 2 a 5, e tutti e cinque
-sono difetti dell'inglese.** Il conto chiava sull'inglese, e l'inglese
-appiattisce o sbaglia cinque titoli-fonte che il giapponese distingue:
+### Il dettaglio degli ultimi tre lotti (gli scarti)
 
-    Lead Developer <Dr. Gavela>      -> Gavela / Icolle          (114a)
-    ~Thousands of pieces of Junk~    -> Cianfrusaglie / Brilla   (114a)
-    ~Irva Fantasy Encyclopedia~      -> Irva / Aimwell           (034)
-    ~Extra Issue: Weird Items~       -> Oggetti Sospetti / Alchimia  (035)
-    ~ Great Encyclopedia of North Tyris Furnitures~
-                                     -> Mobili / Manuale di Viaggio (037)
+    038  JUNK   righe      0-62.000   44 rese   36 oggetti
+    039  JUNK   righe 62.000-76.000   51 rese   34 oggetti
+    040  JUNK   righe 76.000 in su    29 rese   27 oggetti
 
-Il valore atteso e' **5, con questi cinque accanto**. Un 6 e' un difetto nuovo.
-⭐ Tre su cinque sono stati **annunciati prima di misurarli**, leggendo il
-giapponese del lotto; il quarto (035) e' arrivato senza preavviso.
+⚠️ **La categoria non ha moltiplicatore**: «da fare» e «vive» coincidevano a
+124, e le 124 rese hanno fatto 124 sostituzioni. Dopo il caso degli attrezzi
+questa e' la conferma che il moltiplicatore e' una proprieta' di **certi
+oggetti gemelli**, non di una categoria.
 
-**Il conto del corpo, categoria per categoria**, con
-`python scratchpad/_114-corpo-da-fare.py`:
+⭐⭐ **Il lotto 039 e' il piu' denso di indici 1 e 2 di tutta la sessione**, e la
+ragione e' una famiglia sola: gli **otto oggetti personali degli dei**, dove
+ogni pannello e' una scenetta a due voci (l'enciclopedia, poi la battuta di un
+dio e la risposta di un altro).
 
-    fatte    mobilio 261/261 (027-032) · attrezzi 204/204 (033-037)
-             cibo 50/148 (026)
-    restano  FILTER_JUNK           124/124   FILTER_ITEM_SCROLL     73/73
-             FILTER_WEAPON         110/110   FILTER_RANGE           60/60
-             FILTER_ITEM_FOOD       98/148   FILTER_ORE             33/33
-             FILTER_ITEM_SPELLBOOK   92/92   FILTER_ITEM_ROD        32/32
-             FILTER_ITEM_POTION      82/82   FILTER_CONTAINER       25/25
-             piu' una coda di venti minori
-    -----------------------------------------------------------------
-    570 righe fatte su 1.449 vive; **934 restano**
-
-ⓘ Il totale coincide con quello di `verifica --dizionario`, come nella 114a:
-due conti fatti da due parti diverse, visti coincidere quattro volte
-(1.088, 1.044, 1.001, 959, 934).
+⚠️⚠️ **La tilde di monte non e' sempre una tilde.** `_code.py` ha aperto il
+lotto 038 dicendo «righe senza resa in tabella: 1», e la riga era `:46213`, la
+cui coda giapponese porta **due punti interrogativi ASCII** al posto della tilde
+larga. Misurate con `scratchpad/_115-fonti-storpiate.py`: sono **7 code su
+2.542**, tutte fra `:46213` e `:46340`, cioe' tre oggetti soli. Due erano gia'
+in tabella dalla 112a, con i punti interrogativi dentro la chiave; questa e' la
+terza e si e' aggiunta allo stesso modo.
 
 ## Cinque lotti, 223 rese, e il mobilio si chiude — 2026-08-31, centoquattordicesima sessione
 

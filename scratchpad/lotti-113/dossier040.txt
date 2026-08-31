@@ -1,0 +1,332 @@
+=== ITEM_ID_MONSTER_HEART   [FILTER_JUNK]
+    NOME      jp モンスターハート
+              en monster heart
+              IT cuore di mostro
+    non ident. IT cuore che batte   (en beating heart)
+    --- description(0)  :86735
+        JP  \t\t今もなお鼓動し続ける謎の心臓。所持しているだけで敵の心をも自分の物にすると言われている。\n#～イルヴァ幻想辞典～\n
+        EN  A mysterious heart that continues to beat even now. It is said that just by possessing it, one can possess the hearts of one's enemies. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :86738 ⚠️ TETTO SECCO 69
+        JP  \t\t所持するだけでモンスターの支配成功率が上昇する道具だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Autoused) tool that enhances your mastery of monsters.
+        IT  Portato addosso, alza le probabilità di dominare i mostri.
+
+=== ITEM_ID_BAIT   [FILTER_JUNK]
+    NOME      jp 
+              en bait
+              IT esca
+    --- description(3)  :89761 ⚠️ TETTO SECCO 69
+        JP  
+        EN  It is bait for a fishing pole.
+        IT  Un'esca per la canna da pesca.
+
+=== ITEM_ID_SNOW_SCARECROW   [FILTER_JUNK]
+    NOME      jp 雪かかし
+              en snow scarecrow
+              IT spaventapasseri di neve
+    --- description(0)  :91460
+        JP  \t\t頭に白い帽子をかぶったお洒落なかかし。農地を守護することに飽きたかかしが思い切って都会デビューした姿がこれと言われている。\n#～嘘と勘違いされる全くの作り話・第２巻～\n
+        EN  A fashionable scarecrow with a white hat on his head. It is said that this is the figure of a scarecrow that got tired of guarding the farmland and made a bold debut in the city. \n# ~Totally Made-up Stories that are Mistaken for Lies, Volume 2~
+    --- description(3)  :91463 ⚠️ TETTO SECCO 69
+        JP  \t\t雪をかぶったかかしだ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a scarecrow covered in snow.
+        IT  Uno spaventapasseri coperto di neve.
+
+=== ITEM_ID_SHIT   [FILTER_JUNK]
+    NOME      jp フン
+              en shit
+              IT sterco
+    --- description(0)  :92451
+        JP  \t\t生物から産み落とされた褐色の物体。匂いもあり忌み嫌われる存在だが、狂気に囚われたのか、中には取りつかれたかのようにある一定の種の物を集めている者もいるそうだ。\n#～私の愛する幾千ものガラクタ～\n
+        EN  Brown substance spawned from living organisms. It has an abominable odor, but it is said that some people, perhaps caught up in madness, collect these things. \n#~Thousands of pieces of Junk I love~
+    --- description(3)  :92454 ⚠️ TETTO SECCO 69
+        JP  \t\t生物の排泄物だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is biological excrement.
+        IT  Gli escrementi di un essere vivente.
+
+=== ITEM_ID_STUMP   [FILTER_JUNK]
+    NOME      jp 切り株
+              en stump
+              IT ceppo d'albero
+    --- description(0)  :109208
+        JP  \t\t何の変哲もない木の切り株。武骨な中に自然の荒々しさがあり家の椅子代わりに最適！等と巧みに売りつけようとする輩がいるらしいが、座れはすれど実際の所ガラクタなので引っかからないようにしよう。\n#～私の愛する幾千ものガラクタ～\n
+        EN  Plain, unremarkable tree stump. It has a rugged, natural roughness that makes it ideal as a chair for the house! But don't fall for it, because although you can sit on it, it's really just a piece of junk. \n#~Thousands of pieces of Junk I love~
+    --- description(3)  :109211 ⚠️ TETTO SECCO 69
+        JP  \t\t切断された樹木の残った部分。何度でも使用することができる。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is the remain's of a tree. It can be used as a seat.
+        IT  Quel che resta di un albero tagliato. Si può usare sempre.
+
+=== ITEM_ID_LARGE_BOUQUET   [FILTER_JUNK]
+    NOME      jp 大きな花束
+              en large bouquet
+              IT grande mazzo di fiori
+    --- description(0)  :111063
+        JP  \t\t切り花を一つにまとめた雑貨。しばしば気持ちのこもった贈り物として用いられる。\n#～貰って嬉しい贈り物あれこれ～\n
+        EN  Miscellaneous goods consisting of cut flowers in a single package. Often used as a thoughtful gift. \n# ~Gifts that I am Happy to Receive~
+    --- description(2)  :111065
+        JP  \t\t「俺ほどの美男子になると、女の方から寄ってくるもんだが、それでも自分からアプローチしたい時は、大抵こいつを使う。女ってもんは物に弱いからな、俺の最も愛する女性もそう言ってたよ」\n#～女たらしの『ラファエロ』の言葉～\n
+        EN  \"When you are as beautiful as I am, women will come to you, but when I want to approach a woman myself, I usually use this one. Women are weak against things, and the woman I love the most also says so.\" \n# ~words of <Raphael> the womanizer~
+    --- description(3)  :111066 ⚠️ TETTO SECCO 69
+        JP  \t\t束ねられた生花だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a bundle of fresh flowers.
+        IT  Un mazzo di fiori freschi.
+
+=== ITEM_ID_BROOM   [FILTER_JUNK]
+    NOME      jp ほうき
+              en broom
+              IT scopa
+    --- description(0)  :112755
+        JP  \t\t掃除をする際に用いる用具。古来魔法使いを象徴するとされ忌み嫌われてきたが、現在は専ら子供達のチャンバラ用の遊具と化している。\n#～家庭を彩る日用雑貨～\n
+        EN  Tool used for cleaning. It has long been considered an abomination because it symbolizes a magician, but nowadays it is used exclusively as a plaything for children's sword fighting. \n# ~Daily Necessities for the Home~
+    --- description(3)  :112758 ⚠️ TETTO SECCO 69
+        JP  \t\t掃除用の道具だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is an item for cleaning.
+        IT  Un attrezzo per pulire.
+
+=== ITEM_ID_SCARECROW   [FILTER_JUNK]
+    NOME      jp かかし
+              en scarecrow
+              IT spaventapasseri
+    --- description(0)  :112817
+        JP  \t\t両手を大きく広げ害獣を威嚇する、農地の守護者。その足が地面に突き刺さっているのは決してその場から離れることなく命令を従事しようとする意志の現れだろう。\n#～嘘と勘違いされる全くの作り話・第２巻～\n
+        EN  The guardian of the farmland, with its arms outstretched wide, threatening the vermin. Its legs are thrust into the ground, a sign of its will to engage in command without ever leaving the scene. \n# ~Totally Made-up Stories that are Mistaken for Lies, Volume 2~
+    --- description(3)  :112820 ⚠️ TETTO SECCO 69
+        JP  \t\t畑においておく鳥よけだ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a bird deterrent placed in the field.
+        IT  Uno scacciauccelli da mettere nel campo.
+
+=== ITEM_ID_FIRE_WOOD   [FILTER_JUNK]
+    NOME      jp 薪
+              en fire wood
+              IT legna da ardere
+    --- description(0)  :112879
+        JP  \t\t燃料とするべく一定の高さに整えられ乾燥処理を施された木材。非常によく燃える為、日常生活において一定の価値は持ち得ているが、日用品故、高価なものではないと言える。\n#～料理を支える脇役達～\n
+        EN  Wood that has been prepared at a certain height and dried for use as fuel. Because it burns very well, it has a value in daily life, and is not expensive because it is a daily commodity. \n#~Supporting Roles in Kitchen~
+    --- description(3)  :112882 ⚠️ TETTO SECCO 69
+        JP  \t\tかまどにくべる為に切られた木片だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is dried wood ready for burning.
+        IT  Pezzi di legno tagliati per il focolare.
+
+=== ITEM_ID_ANIMAL_BONE   [FILTER_JUNK]
+    NOME      jp 動物の骨
+              en animal bone
+              IT osso d'animale
+    --- description(0)  :116408
+        JP  \t\t風化した動物の骨。呪術や水薬精製など使用する機会は割とあるのだが、いかんせん供給過多なので価値としても二束三文である。\n#～私の愛する幾千ものガラクタ～\n
+        EN  Weathered animal bones. There are many opportunities to use the bones for spells and for refining water medicine, but they are in such oversupply that they are worth little more than a dime. \n#~Thousands of pieces of Junk I love~
+    --- description(3)  :116411 ⚠️ TETTO SECCO 69
+        JP  \t\t打ち捨てられた動物の骨だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are bones of a dead animal.
+        IT  Le ossa abbandonate di un animale.
+
+=== ITEM_ID_STRAW   [FILTER_JUNK]
+    NOME      jp 藁
+              en straw
+              IT paglia
+    --- description(0)  :116470
+        JP  \t\t草を乾して束ねたもの。一定の弾力性があるので寝ることに使えそうだが、体についた藁を取る作業で一日を追われてしまうので、これを用いて休息を取るのは止めた方がいいだろう。\n#～私の愛する幾千ものガラクタ～\n
+        EN  Dried and bundled grass. It has some elasticity and could be used for sleeping, but it would be best not to use it to rest, as the day would be consumed with the task of removing the straw from your clothes. \n#~Thousands of pieces of Junk I love~
+    --- description(3)  :116473 ⚠️ TETTO SECCO 69
+        JP  \t\t乾燥させた草を束ねたものだ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is a bundle of dried grass.
+        IT  Erba secca legata in fascio.
+
+=== ITEM_ID_DEAD_FISH   [FILTER_JUNK]
+    NOME      jp 魚の死骸
+              en dead fish
+              IT pesce morto
+    --- description(0)  :116540
+        JP  \t\t乾燥した魚の亡骸。水につけても勿論食べることはできない無価値なものだが、子供に与えると手に持ち、さながら伝説の生き物のように動かして遊ぶという。\n#～子供を騙す１００のテクニック・お土産編～\n
+        EN  Dried fish carcasses. They are worthless and inedible, but when given to children, they are said to hold them in their hands and play with them as if they were legendary creatures. \n#~Cheap Gifts for Your Kids~
+    --- description(3)  :116543 ⚠️ TETTO SECCO 69
+        JP  \t\t干からびた魚。使用することはできない。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is a dried fish. Cannot be used.
+        IT  Un pesce secco. Non si può usare.
+
+=== ITEM_ID_BOWL   [FILTER_JUNK]
+    NOME      jp 鉢
+              en bowl
+              IT ciotola
+    --- description(0)  :116665
+        JP  \t\t椀より広く浅く作られた器。中に物が詰まっているが、食べ物ではないのでお腹がすいても食べることはできない。\n#～家庭を彩る日用雑貨～\n
+        EN  A bowl with something inside, but it is not food, so you cannot eat it even if you are hungry. \n# ~Daily Necessities for the Home~
+    --- description(3)  :116668 ⚠️ TETTO SECCO 69
+        JP  \t\t中身の入っている器だ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is the empty space which makes the bowl useful, and it's full already.
+        IT  Un recipiente con qualcosa dentro.
+
+=== ITEM_ID_EMPTY_BOWL   [FILTER_JUNK]
+    NOME      jp 空っぽの鉢
+              en empty bowl
+              IT ciotola vuota
+    --- description(0)  :116727
+        JP  \t\t中に何も入っていない空の鉢。食器にしてみたり、植物を入れて飾って見たり、使い道は人それぞれだ。\n#～料理を支える脇役達～\n
+        EN  An empty bowl with nothing inside. It can be used as a tableware, or put a plant in it for decoration. \n# ~Supporting Roles in Kitchen~
+    --- description(3)  :116730 ⚠️ TETTO SECCO 69
+        JP  \t\t中身の入っていない器だ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an empty bowl.
+        IT  Un recipiente senza niente dentro.
+
+=== ITEM_ID_BASKET   [FILTER_JUNK]
+    NOME      jp バスケット
+              en basket
+              IT cesto
+    --- description(0)  :116789
+        JP  \t\t草木の蔓で作られた編みかご。保持性はいくらか持ち合わせているが、目が粗いので水を汲むといった行為に使用することはできない。\n#～料理を支える脇役達～\n
+        EN  Woven baskets made of grass vines. It has some holding power, but its coarse texture makes it impossible to use for activities such as fetching water. \n# ~Supporting Roles in Kitchen~
+    --- description(3)  :116792 ⚠️ TETTO SECCO 69
+        JP  \t\t編みかごだ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a woven basket.
+        IT  Un cesto di vimini.
+
+=== ITEM_ID_LOT_EMPTY_BOTTLES   [FILTER_JUNK]
+    NOME      jp たくさんの空のビン たくさんの空のビン
+              en empty bottles lot
+              IT bottiglie vuote mucchio
+    --- description(0)  :116851
+        JP  \t\t大小様々な中身の入っていないビン。水分を保持するにはいささか小さすぎるが、子供の目を引くには十分だろう。\n#～子供を騙す１００のテクニック・お土産編～\n
+        EN  Empty bottles of various sizes. They are somewhat too small to hold water, but enough to catch a child's eye. \n#~Cheap Gifts for Your Kids~
+    --- description(3)  :116854 ⚠️ TETTO SECCO 69
+        JP  \t\t一か所に集められた欠けた空き瓶。使用することはできない。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are chipped empty bottles. Cannot be used.
+        IT  Bottiglie vuote e scheggiate, tutte insieme. Non si possono usare.
+
+=== ITEM_ID_ORE_PIECE   [FILTER_JUNK]
+    NOME      jp 鉱石の欠片
+              en ore piece
+              IT pezzo di minerale
+    --- description(0)  :116913
+        JP  \t\t僅かに鉱物が含まれる岩の塊。含有量が非常に少ないので金銭的価値はないが、これを赤熱させたものを料理や浴場で用いる等、一応それなりに使用法があるらしい。\n#～私の愛する幾千ものガラクタ～\n
+        EN  Rock lumps containing a small amount of minerals. It has no monetary value due to its very low content, but it is said to have certain uses, such as being used in cooking and bathing when heated red-hot. \n#~Thousands of pieces of Junk I love~
+    --- description(2)  :116915
+        JP  
+        EN  \"This ore piece is a real piece of trash.\" \n#~some Bearded Guy~
+    --- description(3)  :116916 ⚠️ TETTO SECCO 69
+        JP  \t\t殆ど岩でできている鉱物だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are minerals that are mostly made of rock.
+        IT  Un minerale fatto quasi tutto di roccia.
+
+=== ITEM_ID_EMPTY_BASKET   [FILTER_JUNK]
+    NOME      jp 空のバスケット
+              en empty basket
+              IT cesto vuoto
+    --- description(0)  :123419
+        JP  \t\t中に何も入っていないバスケット。主に屋外で食事を取る時に入れ物代わりに用いる物で、その殆どが使い捨てだ。\n#～料理を支える脇役達～\n
+        EN  A basket with nothing in it. Most of them are disposable. \n# ~Supporting Roles in Kitchen~
+    --- description(3)  :123422 ⚠️ TETTO SECCO 69
+        JP  \t\t中身の入っていない編みかごだ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a woven basket with no contents.
+        IT  Un cesto di vimini senza niente dentro.
+
+=== ITEM_ID_SKELETON   [FILTER_JUNK]
+    NOME      jp 骸
+              en skeleton
+              IT scheletro
+    --- description(0)  :127669
+        JP  \t\t風化した人間の骨。呪術や水薬精製など、使用する機会は割とあるのだがいかんせん供給過多なので、価値としても二束三文である。\n#～私の愛する幾千ものガラクタ～\n
+        EN  Weathered human bones. There are many opportunities to use the bones for spells, refining water medicine, and other purposes, however, there is an oversupply, so the value of the bones is a mere trifling sum. \n#~Thousands of pieces of Junk I love~
+    --- description(3)  :127672 ⚠️ TETTO SECCO 69
+        JP  \t\t打ち捨てられた人の骨だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are abandoned human bones.
+        IT  Le ossa abbandonate di una persona.
+
+=== ITEM_ID_BONE_FRAGMENT   [FILTER_JUNK]
+    NOME      jp 骨
+              en bone fragment
+              IT frammento d'osso
+    --- description(0)  :127731
+        JP  \t\t風化した何かの骨。呪術や水薬精製など、使用する機会は割とあるのだがいかんせん供給過多なので、価値としても二束三文である。\n#～私の愛する幾千ものガラクタ～\n
+        EN  Weathered bones. There are many opportunities to use the bones for spells, refining water medicine, and other purposes, however, there is an oversupply, so the value of the bones is a mere trifling sum. \n#~Thousands of pieces of Junk I love~
+    --- description(2)  :127733
+        JP  \t\t「う～、わんわん！わん！　…くぅん」\n#～子犬の『ポピー』の言葉～\n
+        EN  \"Woof! Woof! ..scut!\" \n#~Poppy the Puppy~
+    --- description(3)  :127734 ⚠️ TETTO SECCO 69
+        JP  \t\t打ち捨てられた何かの骨だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are abandoned bones.
+        IT  Le ossa abbandonate di qualcosa.
+
+=== ITEM_ID_BROKEN_SWORD   [FILTER_JUNK]
+    NOME      jp 折れた刃
+              en broken sword
+              IT spada rotta
+    --- description(0)  :127793
+        JP  \t\t真中から二つに折れてしまった刀剣。風雨に晒されはこぼれも酷くもはや価値は微塵も無いが、それでも子供に与えると一生懸命戦士の真似事をするのだから面白い。\n#～子供を騙す１００のテクニック・お土産編～\n
+        EN  A sword broken in two from the middle. It has been exposed to the wind and rain and has spilled so much that it is no longer of any value, nevertheless, when given to children, they will try their best to imitate warriors, which is amusing. \n#~Cheap Gifts for Your Kids~
+    --- description(3)  :127796 ⚠️ TETTO SECCO 69
+        JP  \t\t使い物にならない破損した剣だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is a useless damaged sword.
+        IT  Una spada rotta che non serve a niente.
+
+=== ITEM_ID_FLAG   [FILTER_JUNK]
+    NOME      jp 旗
+              en flag
+              IT bandiera
+    --- description(0)  :127855
+        JP  \t\t風を受けその身をはためかせる布。色や模様が多様であり、各町それぞれに特徴が違うので旅先の思い出として、観光客に人気の商品の一つである。\n#～子供を騙す１００のテクニック・お土産編～\n
+        EN  Cloth that catches the wind and flutters in the wind. It is one of the most popular products among tourists as a memento of their trip because of the variety of colors and patterns, and each town has its own unique variant. \n#~Cheap Gifts for Your Kids~
+    --- description(3)  :127858 ⚠️ TETTO SECCO 69
+        JP  \t\t布で作られた装飾品だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is an ornament made of cloth.
+        IT  Un ornamento fatto di stoffa.
+
+=== ITEM_ID_BRAZIER_STAND   [FILTER_JUNK]
+    NOME      jp かがり台
+              en brazier stand
+              IT braciere
+    --- description(0)  :127917
+        JP  \t\t柱の先に炎を入れておく鉄のかごを取り付けた簡素な照明。その武骨な作りはどことなく野性的な印象を与える。近年そういった効果も狙って店舗に設置している料理店もあるらしい。\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  A simple light with an iron cage attached to the end of a pillar to hold a flame. The rugged construction gives a somewhat wild impression. In recent years, some restaurants have installed these lighting fixtures in their restaurants to achieve this effect. \n# ~an Adventurer is You! Guide for Travels~
+    --- description(3)  :127920 ⚠️ TETTO SECCO 69
+        JP  \t\t簡素な照明器具。常に周囲を明るく照らす。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a simple lighting fixture. Always illuminates the surroundings.
+        IT  Una lampada semplice. Illumina sempre di luce viva.
+
+=== ITEM_ID_WASHINGS   [FILTER_JUNK]
+    NOME      jp 洗物
+              en washings
+              IT bucato
+    --- description(0)  :127979
+        JP  \t\t汚れた衣服が突っ込まれたたらい。こんな物を欲しがる者がいるのか甚だ不思議だが、それでもある種の掃除好きにはたまらないものがあるらしい。\n#～私の愛する幾千ものガラクタ～\n
+        EN  A tub with dirty clothes stuck in it. It is a wonder that anyone would want such a thing, but it is said to be irresistible to a certain type of cleaning enthusiast. \n#~Thousands of pieces of Junk I love~
+    --- description(3)  :127982 ⚠️ TETTO SECCO 69
+        JP  \t\tかごに入った汚れた衣服だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are dirty clothes in a basket.
+        IT  Vestiti sporchi dentro un cesto.
+
+=== ITEM_ID_BROKEN_VASE   [FILTER_JUNK]
+    NOME      jp 割れたつぼ
+              en broken vase
+              IT vaso rotto
+    --- description(0)  :128041
+        JP  \t\t割れてしまって使用することができなくなったつぼ。全く価値はないが、そこに幾らかの可能性を見出し、半ば挑戦的に買っていく芸術家もいるとか。\n#～私の愛する幾千ものガラクタ～\n
+        EN  A jar that is broken and can no longer be used. Some artists see some potential in them and buy them half-heartedly, even though they have no value at all. \n#~Thousands of pieces of Junk I love~
+    --- description(3)  :128044 ⚠️ TETTO SECCO 69
+        JP  \t\t使い物にならない破損したつぼだ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is a useless and damaged crucible.
+        IT  Un vaso rotto che non serve a niente.
+
+=== ITEM_ID_GARBAGE   [FILTER_JUNK]
+    NOME      jp クズ
+              en garbage
+              IT spazzatura
+    --- description(0)  :128103
+        JP  \t\t枯れた草が一纏めに丸まったもの。非常に硬いので牧草代わりに使うことはできないが、子供に与えると一心不乱に蹴飛ばし続けて遊ぶのだという。\n#～子供を騙す１００のテクニック・お土産編～\n
+        EN  Withered grass curled up in a ball. It is very hard and cannot be used as a grass substitute, but when given to children, they play with it by kicking it around with all their hearts. \n#~Cheap Gifts for Your Kids~
+    --- description(3)  :128106 ⚠️ TETTO SECCO 69
+        JP  \t\t乾燥した草の束だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is a bunch of dry grass.
+        IT  Un fascio di erba secca.
+
+=== ITEM_ID_WOOD_CHIP   [FILTER_JUNK]
+    NOME      jp 木片
+              en wood chip
+              IT scheggia di legno
+    --- description(0)  :128235
+        JP  \t\t破砕された木の欠片。全く役に立たないが、子供の興味を引くくらいにはなるだろう。\n#～子供を騙す１００のテクニック・お土産編～\n
+        EN  Pieces of crushed wood. Completely useless, but it would at least be interesting to a child. \n#~Cheap Gifts for Your Kids~
+    --- description(3)  :128238 ⚠️ TETTO SECCO 69
+        JP  \t\t破損した木の破片だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is a damaged piece of wood.
+        IT  Una scheggia di legno rotto.
+
+== 27 oggetti, 56 descrizioni

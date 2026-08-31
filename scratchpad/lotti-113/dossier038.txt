@@ -1,0 +1,458 @@
+=== ITEM_ID_BLANK_CARD   [FILTER_JUNK]
+    NOME      jp ブランクカード
+              en blank card
+              IT carta vuota
+    --- description(0)  :42914
+        JP  情報がまだ記載されていないカード。特殊な魔術が施されており、ぶつけた相手の情報を記録する。個人情報を勝手に持ち出すも同然であり、身内意外に使うと怒られるのは必至。\n#～ルミエスト美術目録～
+        EN  An unregistered card with special magic. It records information from the person hit by it. Using it on anyone other than close friends will definitely make them angry, as it's like stealing personal information. \n#~Lumiest Art Catalogue~
+    --- description(3)  :42917 ⚠️ TETTO SECCO 69
+        JP  ぶつけた相手の情報を登録するカードだ。\n#～鑑定報告書：＜紙片＞カテゴリ～
+        EN  It's a card that can be used to record info on a creature.
+        IT  Una carta che registra i dati di chi colpisci.
+
+=== ITEM_ID_EXPOOPSION   [FILTER_JUNK]
+    NOME      jp エクソプロージョン
+              en expoopsion
+              IT expoopsion
+    --- description(0)  :42976
+        JP  イチゴ味のソフトクリームではない。あまりにも芸術的な形に仕上がったフン。まごうことなき芸術なので当然爆発する。その威力は宝石細工と生化学の技術に依存するという。\n#～ルミエスト美術目録～
+        EN  This is not mere strawberry ice cream. But a masterpiece of shit, sculpted with such artistic perfection. And like any true art, it naturally explodes, the magnum poopus. Its explosive power depends on the techniques of gem-cutting and gene-engineering.\n# ~Lumiest Art Catalogue~
+    --- description(3)  :42979 ⚠️ TETTO SECCO 69
+        JP  投げてぶつけると毒爆発を起こすウンチだ。\n#～鑑定報告書：＜美術品＞カテゴリ～
+        EN  Throwable shit. Causes a poisonous explosion on impact.
+        IT  Uno sterco che, lanciato, fa un'esplosione velenosa.
+
+=== ITEM_ID_SURSTROMMING   [FILTER_JUNK]
+    NOME      jp シュールストレミング
+              en surstromming
+              IT surstromming
+    --- description(0)  :43174
+        JP  缶の中で発酵し続けた保存食の成れの果て。解読によると古代の魚の塩漬けだったらしい。パンパンに膨らんでおり、強い衝撃を与えると臭気が噴出し生化学と料理の技術に依存した爆発を起こす。開封は危険なので内部を物質感知したところ、中身が分解されてほとんどガス状になっていることが判明した。\n#～移り変わりゆくティリスの食～
+        EN  The result of a preserved food that has been fermenting in a can. According to analysis, it appears to be an ancient salted fish. The can is extremely bloated, and if subjected to strong impact, it will release a powerful stench, causing an explosion dependent on user's gene engineering and cooking skills. It is dangerous to open, as scans reveal the contents have mostly degraded into a gaseous state.\n#~Everchanging Food of Tyris~
+    --- description(3)  :43177 ⚠️ TETTO SECCO 69
+        JP  食べられない缶詰め。投げてぶつけると神経爆発を起こす。\n#～鑑定報告書：＜廃品＞カテゴリ～
+        EN  Throwable, inedible metal can. Causes a nerve explosion on impact.
+        IT  Una scatoletta immangiabile. Lanciata, fa un'esplosione neurale.
+
+=== ITEM_ID_SNOW_CRYSTAL   [FILTER_JUNK]
+    NOME      jp 雪の大結晶
+              en snow crystal
+              IT cristallo di neve
+    --- description(0)  :43302
+        JP  魔術士が製造したあまりにもでかい雪の結晶。水にやさしい言葉をかけて凍らせると美しい結晶になる、という怪しい学説を検証したらしい。人間に美醜を決められてたまるか、人間の言葉で話しかけてくるな、そもそも勝手に凍らせるな、といった不満によって瞑想と宝石細工の技術に依存した爆発を起こし敵を傷つける。\n#～魔具全典～
+        EN  Too-big-to-be-true snowflakes manufactured by wizards. Apparently, they tested a dubious theory that if you speak kind words to water and freeze it, it will turn into beautiful crystals. The wizard's hypothesis- that humans should not be allowed to decide what is beautiful or ugly, that he should not speak in human terms, and that humans should not freeze these without permission in the first place - which cause explosions that rely on user's meditation and gem cutting skills. \n#~Arcane Almanac~
+    --- description(3)  :43305 ⚠️ TETTO SECCO 69
+        JP  投げてぶつけると冷気を放つ雪の結晶だ。\n#～鑑定報告書：＜廃品＞カテゴリ～
+        EN  Throwable, crystalized snowflakes. Causes an icy explosion on impact.
+        IT  Un cristallo di neve che, lanciato, sprigiona gelo.
+
+=== ITEM_ID_DARKNESSBANG   [FILTER_JUNK]
+    NOME      jp 暗黒弾
+              en darknessbang
+              IT colpo oscuro
+    --- description(0)  :43364
+        JP  周囲を暗黒で包む不殺兵器。その威力は戦術と射撃の技術に依存するという。文献によると、かつてこの世界には閃光弾というものが溢れていた。しかし突如現れた暗黒弾に敗れ、閃光弾は歴史の闇へと葬り去られたのだとか。\n#～続・明日から使えるあなたの為の武具集～
+        EN  Non-lethal weapons that envelops its surroundings in darkness. Its power is said to depend on user's tactics and marksmanship skills. According to documents, the world used to be full of flashbangs. However, they were defeated by the sudden appearance of darkbangs, and the flashbangs were buried in the darkness of history. \n#~Collection of Armaments you can Use Tomorrow Cont.~
+    --- description(3)  :43367 ⚠️ TETTO SECCO 69
+        JP  投げてぶつけると暗黒を放つ道具だ。\n#～鑑定報告書：＜用具＞カテゴリ～
+        EN  Throwable grenades that unleashes darkness explosion.
+        IT  Un attrezzo che, lanciato, sprigiona oscurità.
+
+=== ITEM_ID_LIGHTNING_DISCHARGER   [FILTER_JUNK]
+    NOME      jp 放雷針
+              en lightning discharger
+              IT scaricatore di fulmini
+    --- description(0)  :43426
+        JP  避雷針から発展した装置。魔力防護によって針自体に落雷のエネルギーを貯めこみ、必要に応じて放電できるようになっている。放電の出力は魔力制御と魔力の限界に依存するらしい。窃盗や破損を恐れて普段は仕舞われているが、雷雨になると魔術士たちが野外に設置し始める。\n#～魔具全典～
+        EN  Device based on the lightning conductor. The needle itself stores the energy of lightning strikes through magical protection and can discharge it as needed. The output of the discharge is said to depend on the user's Control Magic and Magic Capacity skills. Normally, they are stored away for fear of theft or damage, but when a thunderstorm occurs, mages begin to set them up in the open air. \n#~Arcane Almanac~
+    --- description(3)  :43429 ⚠️ TETTO SECCO 69
+        JP  投げてぶつけると電撃を放つ長い針だ。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  Throwable batteries that discharges electrical shocks.
+        IT  Un lungo ago che, lanciato, sprigiona fulmini.
+
+=== ITEM_ID_ECHINOBOX   [FILTER_JUNK]
+    NOME      jp エキノボックス
+              en echinobox
+              IT echinobox
+    --- description(0)  :43488
+        JP  通称、疫の箱。プレゼントに偽装してあるが、狐が相手を化かし殺す際に使う化学兵装。寄生虫を利用して作られており、相手の脳に作用して意識障害をもたらす。その脳波を妖術で周囲の敵に伝播させて二次被害をもたらす。その威力は罠の知識と生化学の技術に依存するという。\n#～もう化かされない！魔物の罠の見抜き方～
+        EN  Also known as box of plagues. Disguised as a gift, it is a chemical armament used by foxes as deterrants. It is made from cultivated parasites, which acts on the opponent's brain and causes disorientation. The brain waves are then transmitted by sorcery to surrounding enemies, causing secondary damage. Its power is said to depend on the skills of Disarm Traps and Gene Engineering of the user. \n#~Fool me twice, Shame on me!~
+    --- description(3)  :43491 ⚠️ TETTO SECCO 69
+        JP  疫が詰め込まれた箱だ。開けないほうがいい。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  Throwable boxes packed with plagues, probably shouldn't open them.
+        IT  Una scatola piena di pestilenza. Meglio non aprirla.
+
+=== ITEM_ID_TRAINING_TICKET   [FILTER_JUNK]
+    NOME      jp ペット訓練券
+              en pet training ticket
+              IT biglietto d'addestramento
+    --- description(0)  :43767
+        JP  しつけのなっていないペットが増えて社会問題になっていたため、その解決策として導入された。ペットに持たせると、券と引き換えに訓練を受けることができる。各家庭に無料配布されており、ペットを飼っていない人は飼っている人にプレゼントして酒をおごってもらうなどの使い方をしているようだ。\n#～パルミア広報～
+        EN  Introduced as a solution to the increasing number of untrained pets, which was becoming a social problem. Pets can be trained in exchange for this coupon. They are distributed free of charge to each household, and people who do not have pets can use them as gifts for those who do. \n#~Palmia Public Services~
+    --- description(1)  :43768
+        JP  「訓練券で受けられるのは基本コースまでです。それ以上は所持金払いじゃないと割に合わないので」\n#～ペットトレイナーの言葉～
+        EN  The training ticket will only take them up to the basic course. Anything beyond that is not covered.\n# ~words of a Pet Trainer~
+    --- description(2)  :43769
+        JP  「訓練券も使えますが手続きが面倒なので所持金払い歓迎！」\n#～訓練所の張り紙～
+        EN  Saving tickets is annoying! Pay in Cash!\n# ~words at the Training Center ~
+    --- description(3)  :43770 ⚠️ TETTO SECCO 69
+        JP  LV以下のペットに持たせると所持金の代わりに訓練で使う紙だ。\n#～鑑定報告書：＜紙片＞カテゴリ～
+        EN  It is a coupon covering basic pet training fees.
+        IT  Paga l'addestramento di un compagno di LV non superiore al tuo.
+
+=== ITEM_ID_POTION_PLUG   [FILTER_JUNK]
+    NOME      jp ポーションの栓
+              en potion plug
+              IT tappo di pozione
+    --- description(0)  :43829
+        JP  現代で一般的に使われているポーションの栓。普通の人にとってはゴミである。\n#～私の愛する幾千ものガラクタ～
+        EN  A potion plug commonly used in modern times. To the average person, they are garbage. \n#~Thousands of pieces of Junk I love~
+    --- description(3)  :43832 ⚠️ TETTO SECCO 69
+        JP  何の変哲もないポーションの栓だ。\n#～鑑定報告書：＜廃品＞カテゴリ～
+        EN  It's a bland potion cork.
+        IT  Un tappo di pozione come tanti.
+
+=== ITEM_ID_SPLENDID_CHAIN   [FILTER_JUNK]
+    NOME      jp 立派な鎖
+              en splendid chain
+              IT catena splendida
+    --- description(0)  :43962
+        JP  自慢できるほどに立派な鎖。首でも手首でも足首でも、場所を選ばず付けられるデザインが人気だが、首に付けてネクタイっぽく垂らすのが一番スタンダードだ。\n#～選ぼう、大切な人への贈り物～
+        EN  A magnificent chain to be proud of. The design is popular because it can be worn anywhere, on the neck, wrist, or ankle, but the most standard is to wear it around the neck and drape it like a necktie.\n#~Gift for your loved ones~
+    --- description(1)  :43963
+        JP  「他の奴隷が最近やたらと立派な鎖を見せびらかして自慢してくるのだ。俺もたまらなく立派な鎖が欲しい！」\n#～鎖自慢された奴隷の言葉～
+        EN  \"Don't hate me chains because they beautiful, maybe get yourself some cool ass golden chains you'd be braggin 'bout them like me.\" \n# a Slave showing off his chains.
+    --- description(3)  :43965 ⚠️ TETTO SECCO 69
+        JP  主従度の高い相手に渡すと喜ばれる鎖だ。\n#～鑑定報告書：＜用具＞カテゴリ～
+        EN  It is an item rewarded to obedient slaves.
+        IT  Una catena gradita a chi ha un alto grado di sottomissione.
+
+=== ITEM_ID_SLIME_FUKAGURUMI   [FILTER_JUNK]
+    NOME      jp フカグルミ
+              en fukagurumi
+              IT fukagurumi
+    --- description(0)  :46010
+        JP  でっかいサメのぬいぐるみ。なかなかジョーズに作られており、とってもフカフカ。しかしイルヴァのサメはぬいぐるみに制作者が名前をつけるのが主流。そのため、ぬいぐるみに自分で名前をつけたい派の人類からは敬遠されているし、ぬいぐるみに名前をつけない派の人類からは幼稚とされ、あまり需要がない。\n#～サメ信者大全～
+        EN  Large stuffed shark. It is quite jawsome and very fluffy. However, sharks in Ylva are usually named by their creators on their plush toys. For this reason, they are shunned by humans who want to name their plush toys themselves, and are considered childish by humans who do not name their plush toys, and are not in great demand.\n#~Shark Believer Compendium~
+    --- description(3)  :46013 ⚠️ TETTO SECCO 69
+        JP  何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Reusable) tool. Worth less than you think.
+        IT  Si può usare sempre.
+
+=== ITEM_ID_DERNEFIA   [FILTER_JUNK]
+    NOME      jp デルネフィアの花
+              en dernefia
+              IT dernefia
+    --- description(0)  :46213
+        JP  野外には生育していない花。ネフィアに自生しておりネフィアの魔力を根から吸っているのだが、こういった形態の植物はデルネフィア以外ほぼ全てモンスター化している。デルネフィアだけモンスター化しないメカニズムについては長年にわたり研究されているが、難航しているとされる。安全な階層には生えにくいことに加え、薬効がありモンスターや冒険者に好んで食われてしまうことから、サンプル数が少ないのだ。\n#?ティリス園芸図鑑?
+        EN  A flower that does not grow outdoors. It grows wild in Nefia and absorb its magic using the roots, but almost all plants in this form are monstrous except Dernefia. This very oddity has been studied for many years, but alas fruitless. In addition to the fact that it is difficult to grow in safe layers, it has great medicinal value, which is why there are so few samples of it.
+    --- description(1)  :46214
+        JP  「ジュア様に似合う幻の花があるらしい…贈ればきっと口ではなんだかんだ言いながらも喜んでくれるんだろうな…ちょっとネフィア行ってくる」\n#?ジュアの狂信者の独り言?
+        EN  \"YES OF COURSE IT SUITS JUA! SHE WILL DEFINITELY GET ALL FLUSTERED WHEN I GIVE IT TO HER! YES I AM GOING NEFIA DIVING\" \n# Monologue of a Jure Fanatic
+    --- description(2)  :46215
+        JP  
+        EN  It's a plant that heals you a bit when you eat it. \n#~Identification Report: <Plants> Category~
+    --- description(3)  :46216 ⚠️ TETTO SECCO 69
+        JP  食べると少し回復する植物だ。\n#?鑑定報告書：＜植物＞カテゴリ?
+        EN  It is an edible plant that heals you.
+        IT  Una pianta che, mangiata, cura un poco.
+
+=== ITEM_ID_BOTTLE_CAP   [FILTER_JUNK]
+    NOME      jp ボトルキャップ
+              en bottle cap
+              IT tappo di bottiglia
+    --- description(0)  :46275
+        JP  プラスチック製のフタ。軽くて丈夫でリサイクルも可能。ペットボトルと呼ばれる容器が活躍していた時代には共に世に溢れかえっていた。しかしながら洗わずにリサイクルに出す者が多く、リサイクルのコストや手間が増大し再資源化が破綻。道端に捨てていく馬鹿のせいで環境汚染が進行し、エコテロリストによる矛先を間違えたテロも勃発。ボトルキャップを高速射出する道具で社会を牛耳ろうとする悪党まで出現。百年以上に渡り積み重なった諸々の社会問題にメーカーが耐え切れず、製造中止に至ったとされる。安価で加工しやすい疑似ガラスが普及した現代では完全に過去の遺物と化している。\n#?私の愛する幾千ものガラクタ?
+        EN  Plastic lid. Light, strong and recyclable. Abundant in the world when plastic bottles were still used. However, many of them were not washed and sent for recycling, and there are idiots who discard them and cause environmental pollution, and eco-terrorist attacks have also broken out because of it. A villain even attempts to control society with a weapon that ejects bottle caps at high speed. It is said that the manufacturers could not stand the various social problems accumulated, leading to the discontinuation of production. Today, with the spread of cheap, easy-to-process pseudo-glass, they have completely become a relic of the past.\n#~Thousands of pieces of Junk I love~
+    --- description(3)  :46278 ⚠️ TETTO SECCO 69
+        JP  ボトルの栓だ。特に他の使い道はない。\n#?鑑定報告書：＜廃品＞カテゴリ?
+        EN  It is a bottle cap.
+        IT  Il tappo di una bottiglia. Non serve ad altro.
+
+=== ITEM_ID_B_DAMA   [FILTER_JUNK]
+    NOME      jp ビーダマ
+              en b-dama
+              IT b-dama
+    --- description(0)  :46337
+        JP  小さなガラス玉。近年では観賞用を兼ねて様々な模様・色のものが用いられている。名前の由来は不明だが、古代の言葉でガラスを意味するビードロが変化してビーダマという説、等級がＢの玉だったのでビーダマという説、Ｂ魂に反応する玉だからビーダマという説の３つが有力とされている。内部に模様が入っているタイプは模様をフレイムと呼称することがある。こちらについては、特に名前がなかったところにガセ用語が定着したという説、Ｂ魂に反応して燃える炎のように見えることがあるのでフレイムという説の２つが有力。\n#?私の愛する幾千ものガラクタ?
+        EN  Small glass beads. In recent years, they have been given a variety of patterns and colours for ornamental purposes. The origin of the name is unknown, there are theories that B-dama is a ball that reacts to the B soul. The pattern inside is sometimes called Flame, because it looks like the Burning Flame inside of a Burning Soul.\n#~Thousands of pieces of Junk I love~
+    --- description(3)  :46340 ⚠️ TETTO SECCO 69
+        JP  ラムネの栓だ。特に他の使い道はない。\n#?鑑定報告書：＜廃品＞カテゴリ?
+        EN  It is a bottle cap for Ramune soda. It's useless.
+        IT  Il tappo di una bottiglia di gazzosa. Non serve ad altro.
+
+=== ITEM_ID_COMMAND_WHISTLE   [FILTER_JUNK]
+    NOME      jp コマンドホイッスル
+              en command whistle
+              IT fischietto di comando
+    --- description(0)  :47149
+        JP  \t\t警告用のホイッスル。短く鋭く吹き鳴らすことで、聴いた者の気を引き締める。音量自体は大したことが無いので、寝ている者を起こすのには向いていない。\n#～玲瓏たるイルヴァの調べ～\n
+        EN  Warning whistle. A short, sharp blast is used to alert anyone who hears it.The volume itself is not very loud, so it is not suitable for waking sleeping people.\n#~Tunes of Irva~
+    --- description(3)  :47152 ⚠️ TETTO SECCO 69
+        JP  \t\tガードブレイクゲージを減らす笛だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that reduces the guard break gauge.
+        IT  Un fischietto che abbassa la rottura guardia. Si usa sempre.
+
+=== ITEM_ID_DYING_CICADA   [FILTER_JUNK]
+    NOME      jp 喪蝉
+              en dying cicada
+              IT cicala morente
+    --- description(0)  :48735
+        JP  \t\t一生に一度もモテなかったセミ。土の中に何年も引きこもっていたが、このままではいけないと意を決して街コンに参加。慣れないなりに求愛に挑戦し続けたが、報われることなく力尽きてしまった。どうせ死ぬなら最期まで前のめりでありたい、と必死に足掻いている。\n#～イルヴァ昆虫大百科～\n
+        EN  Cicada had never been popular in its life. After years of being cooped up in the dirt, it decided that it could not go on like this and entered a town. It kept on trying to court females in a way it was not accustomed to. It desperately wants to stay in the forefront until the end of its life if its going to die anyway. \n#~Irva Insect Encyclopedia~
+    --- description(1)  :48736
+        JP  \t\tぶつけるとびっくりして生化学と投擲とレベル依存の轟音の波動を発生させる。衝撃に耐えられずに絶命することもある。\n#～イルヴァ昆虫大百科注釈～\n
+        EN  When hit, they are startled and generate a wave of roars, depending on thrower's gene-engineering and throwing skills. Normal human may not be able to withstand the impact and will probably die. \n#~Irva Insect Encyclopedia (Footnote)~
+    --- description(2)  :48737
+        JP  \t\t「夕暮れの　暑さ残りし　道端に　のたうつ蝉の　声が消えゆく」\n#～無名吟遊詩人の短歌～\n
+        EN  \"Evening heat lingers, and the sound of cicadas on the roadside fades away.\" \n#~Songs of a nameless poet~
+    --- description(3)  :48738 ⚠️ TETTO SECCO 69
+        JP  \t\t死にかけのセミだ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is an insect that frightens the opponent when you hit them with it.
+        IT  Una cicala moribonda.
+
+=== ITEM_ID_MANUSCRIPT   [FILTER_JUNK]
+    NOME      jp 原稿
+              en manuscript
+              IT manoscritto
+    --- description(0)  :50878
+        JP  \t\t様々な文章や絵が書かれている紙。大事に封筒に入れられているが、このままだと一般的に価値はない。\n#～本の為の本～\n
+        EN  Paper with various texts and drawings on it. They are carefully placed in envelopes, but are generally of little value in this state. \n#~Big Book of Books~
+    --- description(3)  :50881 ⚠️ TETTO SECCO 69
+        JP  \t\t本を作るための素材だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  These are materials for book publishing.
+        IT  Un materiale per fare libri.
+
+=== ITEM_ID_MAGAICE   [FILTER_JUNK]
+    NOME      jp 冷吸の勾玉
+              en magaice
+              IT magaice
+    --- description(0)  :52579
+        JP  \t\t冷気を吸収する魔力を持つ曲がった石。冷気を放つ際にレンズのようにして魔力を通すと凍結破壊を抑えられる。しかしその効果範囲は非常に狭く、周囲を覆う冷気から身を守るためには役に立たない。\n#～不思議な古代装飾品～\n
+        EN  A curved stone with magical power to absorb hot air. When it is used as a lens when exposed to hot air, it can pass the magic power through it to suppress freezing damage. However, its range of effect is very narrow and it is useless to protect oneself from the cold air that covers the surroundings. \n#~Mysterious Ancient Ornaments~
+    --- description(3)  :52582 ⚠️ TETTO SECCO 69
+        JP  \t\t所持していると冷気を放っても物が砕けない勾玉だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a bead that prevents objects from shattering due to low-temp.
+        IT  Una perla ricurva: portandola, il gelo non spacca gli oggetti.
+
+=== ITEM_ID_BOMB_BARREL   [FILTER_JUNK]
+    NOME      jp ボムタル
+              en bomb barrel
+              IT barile esplosivo
+    --- description(0)  :55273
+        JP  \t\t複数ブロックに火薬が詰められたタル。ぶつけると爆炎を発生させて周囲を焼き払う。それとは別に、火がつくと火炎の残滓を噴き出す。いずれも威力は工作と生化学の技術に依存する。\n#～危険物取扱マニュアル～\n
+        EN  A barrel with multiple blocks of gunpowder packed in it. When hit, it produces an explosive flame that burns away the surrounding area. Apart from that, when set on fire, it spews out a residue of flame. The power depends on one's carpentry and engineering techniques.\n# ~Hazardous Materials Handling Manual~
+    --- description(3)  :55276 ⚠️ TETTO SECCO 69
+        JP  \t\t燃焼時に火を噴くタルだ。投げてぶつけると火炎爆発を起こす。\n#～鑑定報告書：＜爆弾＞カテゴリ～\n
+        EN  Threwable barrel that spews flame when burning.
+        IT  Un barile che bruciando sputa fuoco. Lanciato, esplode in fiamme.
+
+=== ITEM_ID_MYSTERIOUS_FOSSIL   [FILTER_JUNK]
+    NOME      jp 謎の化石
+              en mysterious fossil
+              IT fossile misterioso
+    --- description(0)  :55859
+        JP  \t\t過去の生物の遺骸が堆積岩に封じ込められたもの。体組織は古い地層では鉱物に置換されているが、比較的新しい地層だと残っていたりする。生化学文明紀には、化石から元の生物を復元する技術も確立されていたという。\n#～ルミエスト美術目録～\n
+        EN  Remains of past organisms encapsulated in sedimentary rocks. Body tissues have been replaced by minerals in older strata, but may remain in relatively newer strata. During the Biogeocenozoic period, the technology to reconstruct original organisms from fossils was established. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :55862 ⚠️ TETTO SECCO 69
+        JP  \t\t生物の痕跡だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  These are remains of ancient organisms.
+        IT  La traccia di un essere vivente.
+
+=== ITEM_ID_CLAY   [FILTER_JUNK]
+    NOME      jp 粘土
+              en clay
+              IT argilla
+    --- description(0)  :55921
+        JP  \t\t非常に細かい粒子でできた土。手でこねて細工できるが、熱すると固くなる。その性質を利用して陶器などが作られる。\n#～ルミエスト美術目録～\n
+        EN  Soil consisting of very fine particles. It can be kneaded by hand and becomes hard when heated. This property is used to make ceramics. \n#~Vernis Ore Catalogue~
+    --- description(3)  :55924 ⚠️ TETTO SECCO 69
+        JP  \t\t粘っこい土だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is some sticky soil.
+        IT  Della terra appiccicosa.
+
+=== ITEM_ID_SULFUR   [FILTER_JUNK]
+    NOME      jp 硫黄
+              en sulfur
+              IT zolfo
+    --- description(0)  :55983
+        JP  \t\t燃える石の異名を持つ鉱物。かつての文明では様々な分野で原料とされていたらしいが、現代イルヴァではあまり需要がない。\n#～ヴェルニース鉱物図鑑～\n
+        EN  A mineral with the nickname 'burning stone'. It is said to have been used as a raw material in various fields in former civilizations, but there is not much demand for it in modern Irva. \n#~Vernis Ore Catalogue~
+    --- description(3)  :55986 ⚠️ TETTO SECCO 69
+        JP  \t\t黄色い結晶体だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a yellow crystal.
+        IT  Un cristallo giallo.
+
+=== ITEM_ID_BIO_BATTERY   [FILTER_JUNK]
+    NOME      jp 生体バッテリー
+              en bio battery
+              IT biobatteria
+    --- description(0)  :56533
+        JP  \t\t生化学文明で用いられていたサバイバル器具。外付けの脂肪のようなもの。余剰な質量をエネルギー源に変換して長期的に蓄え、必要に応じて元に戻す機能がある。当時の人間の体質に合わせて開発されたため、現代生物には身長体重維持くらいの効果しか出ない。餓死は防止できないのでちゃんとご飯は食べよう。\n#～別冊ヨウィン・未知の知識を追え！～\n
+        EN  Survival equipment used in biochemical civilization. It is like an external fat. It has the function of converting excess mass into an energy source, storing it for a long period of time, and then restoring it as needed. Because it was developed for the human physique of the time, it is only as effective as maintaining height and weight for modern organisms. It cannot prevent starvation, so make sure you eat your food. \n# ~The Yowyn Book of Secrt Knowledge!~
+    --- description(3)  :56536 ⚠️ TETTO SECCO 69
+        JP  \t\t所持者の体型を維持する器具だ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a device that keeps the holder in shape.
+        IT  Un apparecchio che conserva la linea di chi lo porta.
+
+=== ITEM_ID_SKILL_TICKET   [FILTER_JUNK]
+    NOME      jp スキルチケット
+              en skill ticket
+              IT biglietto d'abilità
+    non ident. IT biglietto misterioso   (en some kind of ticket)
+    --- description(0)  :57893
+        JP  \t\tパルミアが近年発行しているチケット。仕事に必要なスキルを無料で習得するために使える。就職者の負担をなるべく減らし、経済活動を活性化させるのが目的。支援が必要と判断された市民の元へ給料と一緒に送られてくる。\n#～パルミア広報～\n
+        EN  Tickets issued by Palmia in recent years. They can be used to learn work-related skills for free. The aim is to reduce the burden on jobseekers as much as possible and to stimulate economic activity. They are sent with the salary to citizens who are identified as needing assistance. \n#~Palmia Public Relations~
+    --- description(3)  :57896 ⚠️ TETTO SECCO 69
+        JP  \t\tスキルを教わる際にプラチナの代わりに使える紙だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a ticket that can be used instead of platinum when teaching skills.
+        IT  Un foglio che sostituisce il platino quando impari un'abilità.
+
+=== ITEM_ID_SHARP_HIGH_MATERIUM   [FILTER_JUNK]
+    NOME      jp 鋭のハイマテリウム
+              en sharp high materium
+              IT materium affilato superiore
+    --- description(0)  :58024
+        JP  \t\t高度な技術で素材を加工し、半マテリアルの状態で存在固定したもの。鋭い武具を製造する際に重宝する。大昔に丘の民が加工法を発見したらしい。\n#～別冊ヨウィン・未知の知識を追え！～\n
+        EN  Materials processed into a semi-material condition. It is useful in the manufacture of sharp weapons. Apparently the hill people discovered the processing method a long time ago. \n# ~The Yowyn Book of Secrt Knowledge!~
+    --- description(3)  :58027 ⚠️ TETTO SECCO 69
+        JP  \t\t鋭い中間素材だ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is a sharp interim material.
+        IT  Un materiale intermedio affilato.
+
+=== ITEM_ID_SHARP_MATERIUM   [FILTER_JUNK]
+    NOME      jp 鋭のマテリウム
+              en sharp materium
+              IT materium affilato
+    --- description(0)  :58086
+        JP  \t\t素材を加工し、半マテリアルの状態で存在固定したもの。鋭い武具を改修する際に重宝する。\n#～別冊ヨウィン・未知の知識を追え！～\n
+        EN  Materials processed into a semi-material condition. It is useful for refurbishing sharp weapons. \n# ~The Yowyn Book of Secrt Knowledge!~
+    --- description(3)  :58089 ⚠️ TETTO SECCO 69
+        JP  \t\t鋭い中間素材だ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is a sharp interim material.
+        IT  Un materiale intermedio affilato.
+
+=== ITEM_ID_HARD_HIGH_MATERIUM   [FILTER_JUNK]
+    NOME      jp 剛のハイマテリウム
+              en hard high materium
+              IT materium duro superiore
+    --- description(0)  :58148
+        JP  \t\t高度な技術で素材を加工し、半マテリアルの状態で存在固定したもの。頑丈な武具を製造する際に重宝する。大昔に丘の民が加工法を発見したらしい。\n#～別冊ヨウィン・未知の知識を追え！～\n
+        EN  Materials processed into a semi-material condition. It is useful in the manufacture of sturdy armor. It is said that the hill people discovered the processing method a long time ago. \n# ~The Yowyn Book of Secrt Knowledge!~
+    --- description(3)  :58151 ⚠️ TETTO SECCO 69
+        JP  \t\t頑丈な中間素材だ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is a hard interim material.
+        IT  Un materiale intermedio duro.
+
+=== ITEM_ID_HARD_MATERIUM   [FILTER_JUNK]
+    NOME      jp 剛のマテリウム
+              en hard materium
+              IT materium duro
+    --- description(0)  :58210
+        JP  \t\t素材を加工し、半マテリアルの状態で存在固定したもの。頑丈な武具を改修する際に重宝する。\n#～別冊ヨウィン・未知の知識を追え！～\n
+        EN  Materials processed into a semi-material condition. It is useful for refurbishing sturdy armor. \n# ~The Yowyn Book of Secrt Knowledge!~
+    --- description(3)  :58213 ⚠️ TETTO SECCO 69
+        JP  \t\t頑丈な中間素材だ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is a hard interim material.
+        IT  Un materiale intermedio duro.
+
+=== ITEM_ID_SOFT_HIGH_MATERIUM   [FILTER_JUNK]
+    NOME      jp 柔のハイマテリウム
+              en soft high materium
+              IT materium morbido superiore
+    --- description(0)  :58272
+        JP  \t\t高度な技術で素材を加工し、半マテリアルの状態で存在固定したもの。柔らかい武具を製造する際に重宝する。大昔に丘の民が加工法を発見したらしい。\n#～別冊ヨウィン・未知の知識を追え！～\n
+        EN  Materials processed into a semi-material condition. It is useful in the manufacture of soft armor. It is said that the hill people discovered the processing method a long time ago. \n# ~The Yowyn Book of Secrt Knowledge!~
+    --- description(3)  :58275 ⚠️ TETTO SECCO 69
+        JP  \t\t柔らかい中間素材だ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is a soft interim material.
+        IT  Un materiale intermedio morbido.
+
+=== ITEM_ID_SOFT_MATERIUM   [FILTER_JUNK]
+    NOME      jp 柔のマテリウム
+              en soft materium
+              IT materium morbido
+    --- description(0)  :58334
+        JP  \t\t素材を加工し、半マテリアルの状態で存在固定したもの。柔らかい武具を改修する際に重宝する。\n#～別冊ヨウィン・未知の知識を追え！～\n
+        EN  Materials processed into a semi-material condition. It is useful for refurbishing soft armor. \n# ~The Yowyn Book of Secrt Knowledge!~
+    --- description(3)  :58337 ⚠️ TETTO SECCO 69
+        JP  \t\t柔らかい中間素材だ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is a soft interim material.
+        IT  Un materiale intermedio morbido.
+
+=== ITEM_ID_LOVELY_BOUQUET   [FILTER_JUNK]
+    NOME      jp 素敵な花束
+              en lovely bouquet
+              IT bel mazzo di fiori
+    --- description(0)  :59728
+        JP  \t\t切り花を一つにまとめて装飾を施した贈り物。しかし、本気が伝わりすぎてむしろ重い。あまり仲のよくない相手に贈るとドン引きされるので、渡す相手はよく考えよう。\n#～選ぼう、大切な人への贈り物～\n
+        EN  A gift of trimmed flowers, all in one decorative package. However, it conveys too much seriousness and is rather heavy. If you give it to someone you don't get along with very well, they will be turned off, so think carefully about who you give it to. \n#~Gift for your loved ones~
+    --- description(3)  :59731 ⚠️ TETTO SECCO 69
+        JP  \t\t束ねられた生花だ。想いを伝えるために使う。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a bunch of fresh flowers. Used to convey feelings.
+        IT  Un mazzo di fiori freschi. Si usa per dire quel che si prova.
+
+=== ITEM_ID_OHUDA   [FILTER_JUNK]
+    NOME      jp 退芭符
+              en ohuda
+              IT ohuda
+    --- description(0)  :59790
+        JP  \t\t一見すると模様が描かれただけの紙だが、魔力が込められている。投げると空気抵抗をものともせず軽やかに飛んでいき、触れた相手に魔法ダメージを与え祝福効果も消す。威力は使用者の魔道具と投擲の技術にもよる。\n#～魔具全典～\n
+        EN  At first glance, it appears to be just a piece of paper with a pattern drawn on it, but it is imbued with magical power. When thrown, it flies lightly through the air, dealing magical damage to anyone it touches and removing blessing effects. Its power depends on the user's magical equipment and throwing technique. \n# ~Arcane Almanac~
+    --- description(3)  :59793 ⚠️ TETTO SECCO 69
+        JP  \t\tバフを消去する御札だ。投げることができる。\n#～鑑定報告書：＜紙＞カテゴリ～\n
+        EN  It is a thrown talisman that erases buffs.
+        IT  Un talismano che cancella un potenziamento. Si può lanciare.
+
+=== ITEM_ID_PRESENT   [FILTER_JUNK]
+    NOME      jp プレゼント
+              en present
+              IT regalo
+    --- description(0)  :60125
+        JP  \t\t特定の時期に目を覚ますと、置いた覚えもないのにいつの間にか傍らに置かれている不思議な箱。他人に贈りつけると、敵対する者には痛みを、友好的な者には癒しを与えるという謎の物体。どうしても包装を剥がすことができないので中身の確認ができないが、一説によると災厄と希望が込められているという。\n#～魔具全典～\n
+        EN  When you wake up at certain times of the year, this mysterious box is placed beside you before you know it. When presented to others, this mysterious object is said to bring pain to those who are hostile to it and healing to those who are friendly to it. Since the wrapping cannot be removed by any means, the contents cannot be confirmed, but according to one theory, it is said to contain both disaster and hope. \n# ~Arcane Almanac~
+    --- description(3)  :60128 ⚠️ TETTO SECCO 69
+        JP  \t\t開けることができない箱だ。投げることはできる。\n#～鑑定報告書：＜入れ物＞カテゴリ～\n
+        EN  It is a box that can't be opened. But it can be thrown.
+        IT  Una scatola che non si può aprire. Ma si può lanciare.
+
+=== ITEM_ID_SUIGARA   [FILTER_JUNK]
+    NOME      jp 吸い殻
+              en suigara
+              IT mozzicone
+    --- description(0)  :60848
+        JP  \t\t短くなって捨てられた紙巻タバコの残骸。この状態でも発火することがあるので注意。発生する火は弱いが、間違ってもそこら辺に投げ捨てたりしてはいけない。\n#～道端の危険物～\n
+        EN  Remnants of shortened and discarded cigarettes. Note that even in this state, it might still ignite. Although the fire is weak, do not throw it on the ground by mistake. \n#~Dangers on the Road~
+    --- description(3)  :60851 ⚠️ TETTO SECCO 69
+        JP  \t\tタバコの吸い殻だ。投げると発火する。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are cigarette butts that ignites when thrown.
+        IT  Un mozzicone di sigaretta. Lanciato, prende fuoco.
+
+=== ITEM_ID_TOBACCO   [FILTER_JUNK]
+    NOME      jp タバコ
+              en tobacco
+              IT tabacco
+    --- description(0)  :61178
+        JP  \t\tナスの親戚の植物。様々な形に加工され、喫煙に用いられる。古代では体に有害なものだったが、生化学文明期に品種改良された。現行種は毒性を持たず、逆に多量の薬効成分が含まれているので安心…と思いきや、依存性はあるので注意。そのまま葉を噛んでも風味を楽しめ、ニコチンを補給することができる。質の良いものなら禁煙の助けにもなるだろう。\n#～病みつきになる煙の味は～\n
+        EN  A relative of the eggplant. It is processed into various forms and used for smoking. In ancient times it was toxic to the body, but was bred during biochemical civilization. The current species is not toxic, on the contrary, it contains a large amount of medicinal properties, so it is safe...but be careful, it is addictive. You can chew the leaves as they are to enjoy the flavor and provide nicotine. If they are of good quality, they can help you quit smoking. \n# ~Sickly Taste of Smoke~
+    --- description(3)  :61181 ⚠️ TETTO SECCO 69
+        JP  \t\t依存性のある植物の葉だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜嗜好品＞カテゴリ～\n
+        EN  (Single-use) medicinal tool that is highly addictive.
+        IT  Foglie di una pianta che dà dipendenza. Si usa (usa e getta).
+
+=== ITEM_ID_BRONZE_COIN   [FILTER_JUNK]
+    NOME      jp ブロンズ硬貨
+              en bronze coin
+              IT moneta di bronzo
+    --- description(0)  :61310
+        JP  \t\t純粋な銅ではなく青銅でできているのでカッパーコインではない。感謝を示したいがプラチナ硬貨を出すほどではない…という時用に作られた。近年流通し始めたものであり、プラチナ硬貨と比べるとまだ馴染みが薄い。\n#～世界のコイン・ティリス編～\n
+        EN  It is not a copper coin because it is made of bronze, not pure copper. It was created for those who want to show their appreciation but do not have enough money to pay platinum coins. They have only recently come into circulation and are still less familiar than platinum coins. \n# ~Coins of this World - Tyris Edition~
+    --- description(2)  :61312
+        JP  \t\t「こっちにもブロンズコインがあると知った時は驚いたよ」\n#～ガイドの『ノルン』の言葉～\n
+        EN  \"I was surprised when I found out we have bronze coins over here.\" \n# ~words of <Norne> the guide~
+    --- description(3)  :61313 ⚠️ TETTO SECCO 69
+        JP  \t\t赤みのかかった硬貨だ。特定のサービスを受けることができる。\n#～鑑定報告書：＜貨幣＞カテゴリ～\n
+        EN  These are red coins used for special services.
+        IT  Una moneta rossastra. Dà diritto a certi servizi.
+
+== 36 oggetti, 80 descrizioni

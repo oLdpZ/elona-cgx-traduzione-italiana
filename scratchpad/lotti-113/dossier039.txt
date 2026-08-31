@@ -1,0 +1,461 @@
+=== ITEM_ID_TAKTSTOCK   [FILTER_JUNK]
+    NOME      jp コマンドタクト
+              en Taktstock
+              IT Taktstock
+    --- description(0)  :62732
+        JP  \t\tいわゆる指揮棒。手の動きを拡大することで、身振り手振りで指示を出しやすくする。本来は演奏指揮に使うものだが、味方に攻撃対象を指示するくらいなら簡単にできるだろう。\n#～玲瓏たるイルヴァの調べ～\n
+        EN  The so-called conductor's stick. By magnifying the movement of the hand, it makes it easier to give directions with gestures. It is originally used for conducting performances, but it could easily be used to instruct allies on the target of an attack. \n# ~Music of the Melodious Irva~
+    --- description(3)  :62735 ⚠️ TETTO SECCO 69
+        JP  \t\t味方の士気を上げつつ攻撃対象を自動で指定する棒だ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that designates the target and raises the morale.
+        IT  Un bastone che alza il morale dei compagni e sceglie il bersaglio.
+
+=== ITEM_ID_DUMBBELL_OF_OPATOS   [FILTER_JUNK]
+    NOME      jp ヘヴィダンベル
+              en <Dumbbell of Opatos>
+              IT <Manubrio di Opatos>
+    --- description(0)  :62865
+        JP  \t\t剛石の女神が、弟である地の神から強引に拝借してきたダンベル。トレーニング時に併用すると著しく効果が上がる。昔から自分の私物を探すのを面倒臭がり目についた弟の私物を代わりに持っていくので、地の神も困っている。だが姉には逆らえないのだ。\n#～イルヴァ幻想辞典～\n
+        EN  Dumbbells that the Urcaguary forcefully borrowed from her brother, the God of Earth. The God of Earth is troubled by the fact that she's too lazy to look for her own personal belongings, and just take his instead. But he cannot resist his big sister.\n# ~Irva Fantasy Encyclopedia~
+    --- description(1)  :62866
+        JP  \t\t「フハハ！このダンベルちょっと借りていくよ！」\n#～《剛石のウリカグアル》の言葉～\n
+        EN  \"Muwahahahaha! I'm gonna have these dumbbells for a while!\" \n# ~words of <Urcaguary>~
+    --- description(2)  :62867
+        JP  \t\t「フゥハハハハハハハハハー！かえして」\n#～《地のオパートス》の言葉～\n
+        EN  \"Muwahahahahahahave it back!\" \n# ~words of <Opatos>~
+    --- description(3)  :62868 ⚠️ TETTO SECCO 69
+        JP  \t\tトレーニングの時に自動で使うアイテムだ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool that helps with training.
+        IT  Un oggetto che si usa da sé quando ti alleni.
+
+=== ITEM_ID_AMULET_OF_JURE   [FILTER_JUNK]
+    NOME      jp 健康のお守り
+              en <Amulet of Jure>
+              IT <Amuleto di Jure>
+    --- description(0)  :62929
+        JP  \t\t病気になって寝込んだりすると迷惑だから、という口実で守護の神と防衛者たちに配られたお守り。病気を予防するような効力は無いが、複雑でない病気であれば病気になった瞬間に高速で癒して完治させてしまう。\n#～イルヴァ幻想辞典～\n
+        EN  Amulet was distributed to guardian deities and defenders on the pretext that it would be a nuisance if they became bedridden due to illness. It is not effective in preventing illness, but it cures the illness at high speed the moment it occurs. \n# ~Irva Fantasy Encyclopedia~
+    --- description(1)  :62930
+        JP  \t\t「ほら、見てくださいこのお守り。真ん中に健康と大きく書きすぎて文字が入りきらなくなり、以降はスペースに納めようとして急激に文字が小さくなっていて…これを書いている際のジュア様の慌てぶりが容易に想像できます。ああ、実に癒されるでしょう？」\n#～《守護のロヴィト》の言葉～\n
+        EN  \"Here, take a closer look at this amulet. The centerpiece of the amulet is too small to contain all the letters of her blessings, and after that one big \'Health\', the letters are rapidly getting smaller to fit in the space... It is easy to imagine how flustered Lady Jure was when she was writing this. Ahh.. isn't that really soothing?\" \n# ~words of <Rovid>~
+    --- description(2)  :62931
+        JP  \t\t「ちょっ、バカ！恥ずかしいからやめてー！」\n#～《癒しのジュア》の言葉～\n
+        EN  \"W-what did you..  you idiot! Ahhhh!!!! This is so embarrassing, stop looking at it!!!!\" \n# ~words of <Jure>~
+    --- description(3)  :62932 ⚠️ TETTO SECCO 69
+        JP  \t\t病気にかかった時に自動発動するアイテムだ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool that cure your sickness.
+        IT  Un oggetto che scatta da sé quando ti ammali.
+
+=== ITEM_ID_CANDLE_OF_LULWY   [FILTER_JUNK]
+    NOME      jp 媚赤蝋燭
+              en <Candle of Lulwy>
+              IT <Candela di Lulwy>
+    --- description(0)  :62993
+        JP  \t\t怪しい薬を含んだ、妖しい赤蝋燭。燃焼すると成分が気化して拡散し、対象者の精神を高揚させる。延々と蝋燭責めにしようとして風の女神が大量に用意したのだが、砂嵐の女神はわずか１本でダウンしてしまった。興ざめした風の女神がその後砂漠に全部投棄したはずなのだが…。\n#～イルヴァ幻想辞典～\n
+        EN  Bewitching red candle containing a suspicious medicine. When burned, the ingredients vaporize and diffuse, uplifting the spirit of the subject. The Goddess of Wind prepared a large quantity of candles in order to torture the subject with them endlessly, but the Goddess of Sandstorms went down after only one candle. The Goddess of Wind was so amused that she must have dumped them all in the desert afterwards. \n# ~Irva Fantasy Encyclopedia~
+    --- description(1)  :62994
+        JP  \t\t「アハハ！奴隷君が白目剥いて悦んでいるわ！その蝋燭すごいですねお姉さま！」\n#～《砂嵐のラシエル》の言葉～\n
+        EN  \"Ahahaha! Look how cute our Slave-kun is when he rolls his little eyes in ecstacy! This candle is amazing, big sister!\" \n# ~words of <Arasiel>~
+    --- description(2)  :62995
+        JP  \t\t「ラシエル、次は貴方よ」\n#～《風のルルウィ》の言葉～\n
+        EN  \"Arasiel, you're next.\" \n# ~words of <Lulwy>~
+    --- description(3)  :62996 ⚠️ TETTO SECCO 69
+        JP  \t\t調教の時に自動で使うアイテムだ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool that helps with special training.
+        IT  Un oggetto che si usa da sé quando addestri.
+
+=== ITEM_ID_VERY_PISTOL_OF_MANI   [FILTER_JUNK]
+    NOME      jp 特殊信号拳銃
+              en <Very Pistol of Mani>
+              IT <Pistola Lanciarazzi di Mani>
+    --- description(0)  :63057
+        JP  \t\t専用の信号弾とセット。色やパターンを容易に変更して撃ち分ける機能を持つ。電波の悪い地域での作戦行動に悩む鉄騎の神に、機械の神が与えたもの。昼間でも認識できるほどの光を放ち、嵐の中でも輝いて見えるため、声が届かない位置にいる相手にも素早く指示が伝わる。ターンも消費しない。\n#～イルヴァ幻想辞典～\n
+        EN  Set of specialized signal bullets. It has the ability to easily change the shot's colors and patterns. It was given by the God of Machine to the God of Pharact who was having trouble operating in areas with poor radio reception. It emits enough light to be recognized even in daylight and appears to shine even in a storm, so that instructions can be quickly transmitted to the other party in a position where their voice cannot be heard. It also consumes no turns. \n# ~Irva Fantasy Encyclopedia~
+    --- description(1)  :63058
+        JP  \t\t「電波障害があっても近距離ならこれで指示が出せる。原始的な手段だがな」\n#～《機械のマニ》の言葉～\n
+        EN  \"Even if there is signal interference, I can use this to give instructions. It's a primitive means, though.\" \n# ~words of <Mani>~
+    --- description(2)  :63059
+        JP  \t\t「さすがはマニ様です！」\n#～《鉄騎のガルジエム》の言葉～\n
+        EN  \"As expected of Lord Mani!\" \n# ~words of <Garziem>~
+    --- description(3)  :63060 ⚠️ TETTO SECCO 69
+        JP  \t\t戦術指示の時に自動で使うアイテムだ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool that helps with tactical instruction.
+        IT  Un oggetto che si usa da sé quando dai ordini tattici.
+
+=== ITEM_ID_GLASSES_OF_YACATECT   [FILTER_JUNK]
+    NOME      jp レッドアンダーリム
+              en <Glasses of Yacatect>
+              IT <Occhiali di Yacatect>
+    --- description(0)  :63121
+        JP  \t\t富の女神が相手の力量を慎重に見定める際に着用する眼鏡。歌踊の女神の才能を見出した時にも着用していたらしい。目が疲れるという理由で普段は外しており、たまに置き忘れることがある。\n#～イルヴァ幻想辞典～\n
+        EN  Glasses worn by the Goddess of Wealth when she carefully assesses the strength of her opponent. It is said that she also wore them when she discovered the talent of the Goddess of Opera. She usually takes them off because they tire her eyes, and sometimes she forgets to put them back on. \n# ~Irva Fantasy Encyclopedia~
+    --- description(1)  :63122
+        JP  \t\t「ウチのお眼鏡に適ったお眼鏡やで！」\n#～《富のヤカテクト》の言葉～\n
+        EN  \"Hey! my glasses fits you well~\" \n# ~words of <Yacatect>~
+    --- description(2)  :63123
+        JP  \t\t「ヤカ姐、また楽屋に眼鏡忘れてる…」\n#～《歌踊のカラヴィカ》の言葉～\n
+        EN  \"Yaca-ne, you forgot to wear your glasses again..\" \n# ~words of <Karavika>~
+    --- description(3)  :63124 ⚠️ TETTO SECCO 69
+        JP  \t\tキャラ情報を見る時に自動で使うアイテムだ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool that reveals extra character information.
+        IT  Un oggetto che si usa da sé quando guardi una scheda.
+
+=== ITEM_ID_BOOKMARK_OF_ITZPALT   [FILTER_JUNK]
+    NOME      jp 古霜の栞
+              en <Bookmark of Itzpalt>
+              IT <Segnalibro di Itzpalt>
+    --- description(0)  :63185
+        JP  \t\t元素の神が叡智の女神に送ったとされる栞。張り切って数千冊分作ってしまい我に返った後途方に暮れたらしいが、叡智の女神は喜んで全部受け取り普通に全部使用している。挟むと書の続きが無性に気になるようになるのだとか。\n#～イルヴァ幻想辞典～\n
+        EN  Bookmarks said to have been gifted to the Goddess of Wisdom by the God of Element. The God of Element made several thousand of these bookmarks and was at a loss when he came back to himself, but the Goddess of Wisdom was happy to receive all of them and uses them all as usual. It is said that when the bookmark is inserted, it makes the reader feel an irresistible desire to read the rest of the book. \n# ~Irva Fantasy Encyclopedia~
+    --- description(1)  :63186
+        JP  \t\t「読書は良いね。知識を得るだけではない。読み取り、思考する。豊かな時間がそこにある」\n#～《叡智のソピアー》の言葉～\n
+        EN  \"Reading is always good. Not just for knowledge. But to read and to think. It is time well spent.\" \n# ~words of <Sophia>~
+    --- description(2)  :63187
+        JP  \t\t「成程、書物を好むか。ならば授ける贈り物はこれだ」\n#～《元素のイツパロトル》の言葉～\n
+        EN  \"So you are fond of books, well then, here is a gift for you.\" \n# ~words of <Itzpalt>~
+    --- description(3)  :63188 ⚠️ TETTO SECCO 69
+        JP  \t\t学習書を読む時に自動で使うアイテムだ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool that helps reading.
+        IT  Un oggetto che si usa da sé quando leggi un libro di studio.
+
+=== ITEM_ID_MUG_OF_EHEKATL   [FILTER_JUNK]
+    NOME      jp おさかなマグカップ
+              en <Mug of Ehekatl>
+              IT <Tazza di Ehekatl>
+    --- description(0)  :63249
+        JP  \t\t幸運の女神のマグカップだが、ある日散歩で通りかかった不幸の女神が目をつけ、抵抗もさせずに持ち去ってしまった。不幸の女神はよほどこれを気に入ったのかその後も襲撃と強奪を繰り返しており、現在では同じものを大量所持している疑いが非常に強い。調べによると、このマグカップには危険な井戸水でも安全に飲める効果があるとのこと。\n#～イルヴァ幻想辞典～\n
+        EN  This mug originally belonging to the Goddess of Fortune, was noticed by the Goddess of Misfortune who was passing by, and she snatched it away from her without putting up a fight. According to investigations, this mug has the effect of making even dangerous well water safe to drink. \n# ~Irva Fantasy Encyclopedia~
+    --- description(1)  :63250
+        JP  \t\t「エヘカトル！これ可愛いからアタシがもらっといてやるニャア！大人しくよこすのニャ！」\n#～《不幸のシナア》の言葉～\n
+        EN  \"Ehekatl! I want this! It's cute! It's cute! Give it to me! Gimme!\" \n# ~words of <Sinaha>~
+    --- description(2)  :63251
+        JP  \t\t「わおっ♪猫ちゃんコップ気に入ったの？たの？あげるよー♪」\n#～《幸運のエヘカトル》の言葉～\n
+        EN  \"Kitty loves her kitty cup? Kitty can have it~\" \n# ~words of <Ehekatl>~
+    --- description(3)  :63252 ⚠️ TETTO SECCO 69
+        JP  \t\tポーション類を飲む時に自動で使うアイテムだ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool for drinking potions.
+        IT  Un oggetto che si usa da sé quando bevi una pozione.
+
+=== ITEM_ID_SCISSORS_OF_KUMIROMI   [FILTER_JUNK]
+    NOME      jp 輪廻鋏
+              en <Scissors of Kumiromi>
+              IT <Cesoie di Kumiromi>
+    --- description(0)  :63313
+        JP  \t\t収穫の神が自身の羽根から生み出し、永遠の神に渡したとされる鋏。運命通りの死を迎えた魂を肉体から完全に切り離し、輪廻の流れへと戻すために使われる。相応の神力がなくても一部力を引き出すことができ、作物の収穫に使えば新たな芽が出やすくなる。\n#～イルヴァ幻想辞典～\n
+        EN  Shears said to have been created by the God of Harvest from his own feathers and passed on to the God of Eternity. They are used to completely separate the soul from the body after it has met its fateful death and return it to the flow of reincarnation. It is possible to draw out some of the power without the corresponding divine power, and if used to harvest crops, it is easier for new sprouts to appear. \n# ~Irva Fantasy Encyclopedia~
+    --- description(1)  :63314
+        JP  \t\t「これ…使っていい…よ」\n#～《収穫のクミロミ》の言葉～\n
+        EN  \"Have.. this..\" \n# ~words of <Kumiromi>~
+    --- description(2)  :63315
+        JP  \t\t「魂は肉体より離れ…光の中へと回帰する…」\n#～《永遠のネヘルタード》の言葉～\n
+        EN  \"The soul leaves the body... and returns to the light...\" \n# ~words of <Amurdad>~
+    --- description(3)  :63316 ⚠️ TETTO SECCO 69
+        JP  \t\t収穫の時に自動で使うアイテムだ。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool that helps harvest.
+        IT  Un oggetto che si usa da sé quando raccogli.
+
+=== ITEM_ID_VIOLENT_SKULL_SWORD   [FILTER_JUNK]
+    NOME      jp 暴魔の大剣
+              en violent skull sword
+              IT spada del teschio furiosa
+    --- description(0)  :63583
+        JP  \t\t再度の錬金術によって融合し、立派な魔剣に生まれ変わった。切れ味は上がっているが、長く握っていると柄から生命を吸い取られるので敵にぶつけてしまった方がいい。ぶつけた時の威力は生成時の錬金術の技術に依存する。\n#～魔具全典～\n
+        EN  The sword has been fused by alchemy again and transformed into a magnificent magic sword. It has been powered up with the power of nether and magic, but its rampancy has increased, so it is better to throw it at enemies. The power depends on user's throwing techniques and thier magical device experience.\n# ~Arcane Almanac~
+    --- description(3)  :63586 ⚠️ TETTO SECCO 69
+        JP  \t\tぶつけることでダメージを与えつつ相手の態勢を崩すアイテムだ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a throwable item that inflicts damage and disorientates opponent.
+        IT  Un oggetto che all'urto ferisce e rompe la guardia.
+
+=== ITEM_ID_LARGE_EMPTY_BASKET   [FILTER_JUNK]
+    NOME      jp 空の大型バスケット
+              en large empty basket
+              IT cesto vuoto grande
+    --- description(0)  :64615
+        JP  \t\t中に何も入っていない大型バスケット。主に屋外で食事を取る時に入れ物代わりに用いる物。丁寧に編み込まれており非常に丈夫。\n#～料理を支える脇役達～\n
+        EN  A large basket with nothing inside. It is mainly used as a container when eating outdoors. It is carefully woven and very sturdy. \n# ~Supporting Roles in Kitchen~
+    --- description(3)  :64618 ⚠️ TETTO SECCO 69
+        JP  \t\t中身の入っていない編みかごだ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a woven basket with no contents.
+        IT  Un cesto di vimini senza niente dentro.
+
+=== ITEM_ID_TRISMAGISTUS   [FILTER_JUNK]
+    NOME      jp トリス・マギストス
+              en trismagistus
+              IT trismagistus
+    --- description(0)  :64869
+        JP  \t\t錬金術で作られた強力な魔力爆弾。護身用に昔の錬金術士が開発したものらしい。放出された魔力が多段爆発するのが特徴。その威力は魔力制御と魔道具の技術に依存する\n#～魔具全典～\n
+        EN  A powerful magic bomb made by alchemy. It is said to have been developed by an old alchemist for self-defense. It is characterized by the multi-stage explosion of the released magic power. Its power depends on the user's magical device and magic control skills. \n# ~Arcane Almanac~
+    --- description(3)  :64872 ⚠️ TETTO SECCO 69
+        JP  \t\t投げてぶつけると多段爆発する結晶だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  Throwable magic crystal that explodes thrice upon impact.
+        IT  Un cristallo che, lanciato, esplode più volte.
+
+=== ITEM_ID_MAGISTUS   [FILTER_JUNK]
+    NOME      jp マギスト
+              en magistus
+              IT magistus
+    --- description(0)  :64931
+        JP  \t\t錬金術により魔力の結晶の組成を組み替えたもの。封じ込めた魔力が不安定になっており、ピンを抜いて衝撃を与えると魔力爆発を起こす。その威力は魔力制御と魔道具の技術に依存する簡単に作れる危険物として有名。\n#～魔具全典～\n
+        EN  Alchemy altered crystals of magic power. The enclosed magic power is unstable, and when the pin is pulled out and a shock is given, a magical explosion occurs. Its power depends on the user's magical device and magic control skills. \n# ~Arcane Almanac~
+    --- description(3)  :64934 ⚠️ TETTO SECCO 69
+        JP  \t\tぶつけることで爆発する結晶だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  Throwable magical crystal that explodes on impact.
+        IT  Un cristallo che esplode all'urto.
+
+=== ITEM_ID_SKULL_SWORD   [FILTER_JUNK]
+    NOME      jp 暴れる魔剣
+              en skull sword
+              IT spada del teschio
+    --- description(0)  :64993
+        JP  \t\t一度は折れてしまった剣が、錬金術によって生まれ変わった姿。再び折れることを怖がって、構えようとすると剣が暴れる。振り回すには向いていないので暴れる隙を与えず投げてしまおう。情けは無用だ。ぶつけた時の威力は生成時の錬金術の技術に依存する。\n#～魔具全典～\n
+        EN  A sword that was once broken, but has been reborn through alchemy. The sword is afraid of being broken again and goes wild when you try to hold it up. It is not suitable for wielding, so throw the sword without giving it a chance to flail about. Show no mercy. The power of the sword depends on the technique of alchemy at the time of its creation. \n# ~Arcane Almanac~
+    --- description(3)  :64996 ⚠️ TETTO SECCO 69
+        JP  \t\tぶつけることでダメージを与えつつ相手の態勢を崩すアイテムだ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a throwable item that inflicts damage and disorientates opponent.
+        IT  Un oggetto che all'urto ferisce e rompe la guardia.
+
+=== ITEM_ID_MAGAQUA   [FILTER_JUNK]
+    NOME      jp 被水の勾玉
+              en magaqua
+              IT magaqua
+    --- description(0)  :66009
+        JP  \t\t魔力を持つ曲がった石。マナに反応して大気中の水分を凝集する性質を持っており、ポケットなどに入れた瞬間ずぶ濡れになること間違いなし。その原理上、砂漠などの乾燥地帯ではその機能をうまく発揮できない。\n#～不思議な古代装飾品～\n
+        EN  A curved stone with magical powers. It has the property of reacting to mana and agglomerating atmospheric moisture, so the moment you put it in your pocket, you are sure to get soaked. Due to its principle, it does not function well in arid areas such as deserts. \n#~Mysterious Ancient Ornaments~
+    --- description(3)  :66012 ⚠️ TETTO SECCO 69
+        JP  \t\t所持していると濡れ状態になる勾玉だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a bead that soaks the holder in water.
+        IT  Una perla ricurva: portandola addosso, ci si bagna.
+
+=== ITEM_ID_MIND_DISC   [FILTER_JUNK]
+    NOME      jp マインドディスク
+              en mind disc
+              IT disco mentale
+    --- description(0)  :66261
+        JP  \t\t記憶や思念を含む人のあらゆる情報を複写して円盤に刻んだ物。製法のみが伝わるロストテクノロジーであり、どうやって読み取ればいいのか、何に使えばいいのかは不明。\n#～別冊ヨウィン・未知の知識を追え！～\n
+        EN  A disk on which all kinds of information about a person, including memories and thoughts, are copied and engraved. It is a lost technology that only the manufacturing process is transmitted, and it is unknown how it can be read or what it can be used for. \n# ~The Yowyn Book of Secrt Knowledge!~
+    --- description(3)  :66264 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+        IT  Un oggetto per la sintesi.
+
+=== ITEM_ID_E_G_G   [FILTER_JUNK]
+    NOME      jp E,G,G
+              en E.G.G
+              IT E.G.G
+    --- description(0)  :66323
+        JP  \t\tコウノトリが夫婦の元に運んでくる、卵状の有機カプセル。特殊な畑で採れるなどという噂もあるが、真相に迫った者はもれなく行方不明となっている。\n#～イルヴァ幻想辞典～\n
+        EN  Egg-shaped organic capsules brought to the couple by storks. There are rumors that they are harvested in a special garden, but anyone who has ever gotten to the bottom of the matter has been lost. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :66326 ⚠️ TETTO SECCO 69
+        JP  \t\t子宝だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a stork E.G.G, or S.E.G.Gs.
+        IT  Il dono dei figli.
+
+=== ITEM_ID_STONE_MATERIAL   [FILTER_JUNK]
+    NOME      jp 石材
+              en stone material
+              IT materiale di pietra
+    --- description(0)  :66765
+        JP  \t\t切り出された石の塊。主に彫刻や壁を作るのに使われる。\n#～ルミエスト美術目録～\n
+        EN  Quarried stone block. Mainly used to make sculptures and walls. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :66768 ⚠️ TETTO SECCO 69
+        JP  \t\t彫刻向きの大きな石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a large stone suitable for sculpture.
+        IT  Una grande pietra buona per scolpire.
+
+=== ITEM_ID_MAGATAMA   [FILTER_JUNK]
+    NOME      jp 火吸の勾玉
+              en magatama
+              IT magatama
+    --- description(0)  :68045
+        JP  \t\t火を吸収する魔力を持つ曲がった石。火を放つ際にレンズのようにして魔力を通すと燃焼を抑えられる。しかしその効果範囲は非常に狭く、燃え広がる火から身を守るためには役に立たない。\n#～不思議な古代装飾品～\n
+        EN  A curved stone with magical power to absorb hot air. When it is used as a lens when exposed to hot air, it can pass the magic power through it to suppress burning damage. However, its range of effect is very narrow and it is useless to protect oneself from the cold air that covers the surroundings. \n#~Mysterious Ancient Ornaments~
+    --- description(3)  :68048 ⚠️ TETTO SECCO 69
+        JP  \t\t所持していると火を放っても火事にならない勾玉だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a bead that prevents objects from shattering due to high-temp.
+        IT  Una perla ricurva: portandola, il fuoco non provoca incendi.
+
+=== ITEM_ID_WOOD_MATERIAL   [FILTER_JUNK]
+    NOME      jp 材木
+              en wood material
+              IT materiale di legno
+    --- description(0)  :68388
+        JP  \t\t樹木を伐採し、建材や道具類の材料として加工した物。十分に乾燥されていない木材は重く、腐りやすく、収縮・変形し強度も乾燥材に劣る。\n#～森林と経済活動・製材編～\n
+        EN  Trees that are cut down and processed into building materials and tools. Insufficiently dried wood is heavier, more susceptible to rot, shrinkage and deformation, and less strong than dried wood. \n# ~Forest Economics, Sawmill Edition~
+    --- description(3)  :68391 ⚠️ TETTO SECCO 69
+        JP  \t\t材料として加工された木だ。\n#～鑑定報告書：＜樹木＞カテゴリ～\n
+        EN  It is a tree processed into a carpentry material.
+        IT  Del legno lavorato per farne materiale.
+
+=== ITEM_ID_BIG_BRUSH   [FILTER_JUNK]
+    NOME      jp 大型ブラシ
+              en big brush
+              IT spazzola grande
+    --- description(0)  :69388
+        JP  \t\t牧畜用の大型ブラシ。こまめなブラッシングは血行やけづやをよくし、汚れや虫を除外することで健康にもつながる。\n#～牧畜と暮らす生活～\n
+        EN  Large brush for livestock. Frequent brushing improves blood circulation, congestion, and health by eliminating dirt and insects. \n# ~Living with Livestock~
+    --- description(3)  :69391 ⚠️ TETTO SECCO 69
+        JP  \t\t家畜を撫でる際に何度でも自動的に使用する。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool for rubbing livestocks.
+        IT  Si usa da sé, sempre, quando accarezzi il bestiame.
+
+=== ITEM_ID_SUPER_LURE   [FILTER_JUNK]
+    NOME      jp マシンルアー
+              en <Super Lure>
+              IT <Super Esca>
+    non ident. IT esca meccanica   (en machine lure)
+    --- description(0)  :71643
+        JP  \t\t同時装着された普通の釣餌をエネルギー源とし、一瞬で獲物を自動サーチして捕獲する。捕獲後も水上まで自動で戻ってくるため人間がやることはほとんどなく、釣りの技術はほとんど上達しない。\n#～家庭を彩る日用雑貨～\n
+        EN  It uses ordinary fishing bait attached as its energy source to automatically search for and capture prey in an instant. After the capture, the fishes are automatically propelled into air, so there is very little for humans to do, and fishing skills are rarely improved. \n# ~Daily Necessities for the Home~
+    --- description(2)  :71645
+        JP  \t\t「こいつは確かに便利だが、動きが激しくて竿を持っている方はスタミナを大きく消耗するんだ。俺は普通にのんびり釣るほうが好きだな」\n#～釣り自慢のフィッシャーの言葉～\n
+        EN  \"This is certainly useful, but it moves so fast and drains a lot of my stamina. So I prefer to fish in a more normal, leisurely manner.\" \n# ~words of a fisherman proud of his catch~
+    --- description(3)  :71646 ⚠️ TETTO SECCO 69
+        JP  \t\t自動捕獲ルアーだ。釣りの時に自動で使う。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Autoused) tool that catches the fish automatically.
+        IT  Un'esca automatica. Si usa da sé quando peschi.
+
+=== ITEM_ID_MAGIC_ICE   [FILTER_JUNK]
+    NOME      jp マジカルアイス
+              en magic ice
+              IT ghiaccio magico
+    --- description(0)  :74693
+        JP  \t\t魔力を含む水を凍らせたもの。神経痛に効く。\n#～命を救う応急処置～\n
+        EN  Frozen water containing magical powers. It is good for nerve damage.\n# ~Life-saving First-aid~
+    --- description(3)  :74696 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+        IT  Un oggetto per la sintesi.
+
+=== ITEM_ID_BLACK_DRIP   [FILTER_JUNK]
+    NOME      jp ブラックドリップ
+              en black drip
+              IT caffè filtro nero
+    --- description(0)  :74755
+        JP  \t\t黒い水滴。体に悪そうだがその逆で、解毒作用がある。\n#～毒物薬物辞典～\n
+        EN  Black water droplets. It looks bad for you, but on the contrary, it has a detoxifying effect.\n# ~Encyclopedia of Poison~
+    --- description(3)  :74758 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+        IT  Un oggetto per la sintesi.
+
+=== ITEM_ID_LAMP_PLANT   [FILTER_JUNK]
+    NOME      jp ランプラント
+              en lamp plant
+              IT pianta lampada
+    --- description(0)  :74817
+        JP  \t\t光る草で作った照明器具。ほんのりとした明るさがお洒落。\n#～インテリアパラダイス増刊号～\n
+        EN  Lighting fixture made of glowing grass. The slight brightness is stylish. s\n# ~Interior Paradise: Extra Issue~
+    --- description(3)  :74820 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+        IT  Un oggetto per la sintesi.
+
+=== ITEM_ID_CHAOS_JEWEL   [FILTER_JUNK]
+    NOME      jp カオスジュエル
+              en chaos jewel
+              IT gioiello del caos
+    --- description(0)  :74879
+        JP  \t\t様々な成分が混ざり合った鉱石を加工したもの。\n#～ヴェルニース鉱物図鑑～\n
+        EN  Processed ores that are a mixture of various components. \n#~Vernis Ore Catalogue~
+    --- description(3)  :74882 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+        IT  Un oggetto per la sintesi.
+
+=== ITEM_ID_ETHER_MIRROR   [FILTER_JUNK]
+    NOME      jp エーテルの鏡
+              en ether mirror
+              IT specchio d'etere
+    --- description(0)  :74941
+        JP  \t\tエーテルで作られた鏡。神秘的な輝きを放つ。\n#～おしゃれアイテム大特集～\n
+        EN  A mirror made of ether. It emits a mysterious radiance.\n# ~Stylish Item Special~
+    --- description(3)  :74944 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+        IT  Un oggetto per la sintesi.
+
+=== ITEM_ID_IKAROS_WING   [FILTER_JUNK]
+    NOME      jp イカロスの翼
+              en ikaros wing
+              IT ala di Icaro
+    --- description(0)  :75003
+        JP  \t\t鳥の羽を縫い合わせて作った翼。ロウで固めてるわけではないので熱してもバラバラにはならない。\n#～裁縫大百科～\n
+        EN  Wings made by sewing together bird feathers. They are not solidified with wax, so they do not fall apart when heated. \n# ~The Encyclopedia of Sewing~
+    --- description(3)  :75006 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+        IT  Un oggetto per la sintesi.
+
+=== ITEM_ID_TROLL_CELL   [FILTER_JUNK]
+    NOME      jp トロール細胞
+              en troll cell
+              IT cellula di troll
+    --- description(0)  :75065
+        JP  \t\tトロールの細胞を培養したもの。治療用に開発されたが他の細胞を浸食するため実用には適さなかった。\n#～謎のレポート～\n
+        EN  Cultured troll cells. Developed for therapeutic use but not practical because it erodes other cells. \n# ~Mysterious Report~
+    --- description(3)  :75068 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+        IT  Un oggetto per la sintesi.
+
+=== ITEM_ID_MURDER_CD   [FILTER_JUNK]
+    NOME      jp 殺人ＣＤ
+              en murder CD
+              IT CD assassino
+    --- description(0)  :75127
+        JP  \t\t再生すると頭がおかしくなりそうな音楽が流れる。まともな人間ほどダメージが大きい。\n#～玲瓏たるイルヴァの調べ～\n
+        EN  The music it plays drives people crazy. The more sane you are, the more damage it does. \n# ~Music of the Melodious Irva~
+    --- description(3)  :75130 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+        IT  Un oggetto per la sintesi.
+
+=== ITEM_ID_HIBACHI   [FILTER_JUNK]
+    NOME      jp 火鉢
+              en hibachi
+              IT hibachi
+    --- description(0)  :75189
+        JP  \t\t昔の暖房器具。一酸化炭素など有害な燃焼ガスを多量に発生するので、換気はこまめに。\n#～ノースティリス大家具事典～\n
+        EN  An old-fashioned heating appliance. Please ventilate frequently as it produces large amounts of carbon monoxide and other harmful flammable gases. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :75192 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+        IT  Un oggetto per la sintesi.
+
+=== ITEM_ID_ACCUMULATOR   [FILTER_JUNK]
+    NOME      jp 蓄電池
+              en accumulator
+              IT accumulatore
+    --- description(0)  :75251
+        JP  \t\tバッテリー。充電することで繰り返し使える。\n#～特集・機械文明の遺産～\n
+        EN  Battery. Can be recharged for repeated use. \n# ~the Legacy of Mechanical Civilization~
+    --- description(3)  :75254 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+        IT  Un oggetto per la sintesi.
+
+=== ITEM_ID_GLIA_CRYSTAL   [FILTER_JUNK]
+    NOME      jp グリア結晶
+              en glia crystal
+              IT cristallo di glia
+    --- description(0)  :75313
+        JP  \t\t石ころ中に微量に含まれている成分を集めて錬金術で再構成したもの。かなりの高熱でなければ加工できない。\n#～ザイール鉱物図鑑～\n
+        EN  The ingredients contained in trace amounts in pebbles are collected and reconstituted by alchemy. It can only be processed at a fairly high heat. \n# ~Zaile's Book of Mineralogy~
+    --- description(3)  :75316 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜素材＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+        IT  Un oggetto per la sintesi.
+
+=== ITEM_ID_WASTE_ART   [FILTER_JUNK]
+    NOME      jp クズ竜
+              en waste art
+              IT arte di scarto
+    --- description(0)  :75375
+        JP  \t\tクズで作った竜の像。チリも積もれば山となる。クズも加工すればアートになるのだ。\n#～ルミエスト美術目録～\n
+        EN  Statue of a dragon made from scraps. A heap of dust makes a heap. Even scraps can become art if they are processed. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :75378 ⚠️ TETTO SECCO 69
+        JP  \t\tそれなりの値段で売れるオブジェだ。\n#～鑑定報告書：＜芸術品＞カテゴリ～\n
+        EN  They sell for a reasonable price.
+        IT  Un oggetto che si vende a un prezzo discreto.
+
+== 34 oggetti, 85 descrizioni

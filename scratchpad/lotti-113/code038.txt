@@ -1,0 +1,134 @@
+:42914
+   en  #~Lumiest Art Catalogue~
+   IT  #~Catalogo d'Arte di Lumiest~
+:42976
+   en  # ~Lumiest Art Catalogue~
+   IT  # ~Catalogo d'Arte di Lumiest~
+:43174
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:43302
+   en  #~Arcane Almanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:43364
+   en  #~Collection of Armaments you can Use Tomorrow Cont.~
+   IT  #~Ancora Armi e Armature da Usare Domani~
+:43426
+   en  #~Arcane Almanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:43488
+   en  #~Fool me twice, Shame on me!~
+   IT  #~Non ci Casco Più! Come Scoprire i Trucchi dei Mostri~
+:43767
+   en  #~Palmia Public Services~
+   IT  #~Bollettino di Palmia~
+:43768
+   en  # ~words of a Pet Trainer~
+   IT  # ~Parole dell'Addestratore di Bestie~
+:43769
+   en  # ~words at the Training Center ~
+   IT  # ~Avviso Affisso alla Palestra~
+:43829
+   en  #~Thousands of pieces of Junk I love~
+   IT  #~Le Mille Cianfrusaglie che Amo~
+:43962
+   en  #~Gift for your loved ones~
+   IT  #~Scegliamo un Dono per Chi ci sta a Cuore~
+:43963
+   en  # a Slave showing off his chains.
+   IT  #~Parole di uno Schiavo Fiero delle Sue Catene~
+:46010
+   en  #~Shark Believer Compendium~
+   IT  #~Grande Compendio dei Fedeli dello Squalo~
+:46213
+   en  (nessuna fonte)
+   IT  ⚠️ NESSUNA RESA IN TABELLA
+:46214
+   en  # Monologue of a Jure Fanatic
+   IT  #~Monologo di un Fanatico di Jure~
+:46215
+   en  #~Identification Report: <Plants> Category~
+   IT  #~Rapporto di Identificazione: categoria <Piante>~
+:46275
+   en  #~Thousands of pieces of Junk I love~
+   IT  #~Le Mille Cianfrusaglie che Amo~
+:46337
+   en  #~Thousands of pieces of Junk I love~
+   IT  #~Le Mille Cianfrusaglie che Amo~
+:47149
+   en  #~Tunes of Irva~
+   IT  #~Le Melodie della Limpida Irva~
+:48735
+   en  #~Irva Insect Encyclopedia~
+   IT  #~Grande Enciclopedia degli Insetti di Irva~
+:48736
+   en  #~Irva Insect Encyclopedia (Footnote)~
+   IT  #~Grande Enciclopedia degli Insetti di Irva: Note~
+:48737
+   en  #~Songs of a nameless poet~
+   IT  #~Le Liriche di un Bardo Senza Nome~
+:50878
+   en  #~Big Book of Books~
+   IT  #~Il Libro dei Libri~
+:52579
+   en  #~Mysterious Ancient Ornaments~
+   IT  #~Misteriosi Ornamenti Antichi~
+:55273
+   en  # ~Hazardous Materials Handling Manual~
+   IT  # ~Manuale per il Maneggio di Materiali Pericolosi~
+:55859
+   en  # ~Lumiest Art Catalogue~
+   IT  # ~Catalogo d'Arte di Lumiest~
+:55921
+   en  #~Vernis Ore Catalogue~
+   IT  #~Catalogo d'Arte di Lumiest~
+:55983
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:56533
+   en  # ~The Yowyn Book of Secrt Knowledge!~
+   IT  # ~Speciale Yowyn: a Caccia del Sapere Ignoto!~
+:57893
+   en  #~Palmia Public Relations~
+   IT  #~Bollettino di Palmia~
+:58024
+   en  # ~The Yowyn Book of Secrt Knowledge!~
+   IT  # ~Speciale Yowyn: a Caccia del Sapere Ignoto!~
+:58086
+   en  # ~The Yowyn Book of Secrt Knowledge!~
+   IT  # ~Speciale Yowyn: a Caccia del Sapere Ignoto!~
+:58148
+   en  # ~The Yowyn Book of Secrt Knowledge!~
+   IT  # ~Speciale Yowyn: a Caccia del Sapere Ignoto!~
+:58210
+   en  # ~The Yowyn Book of Secrt Knowledge!~
+   IT  # ~Speciale Yowyn: a Caccia del Sapere Ignoto!~
+:58272
+   en  # ~The Yowyn Book of Secrt Knowledge!~
+   IT  # ~Speciale Yowyn: a Caccia del Sapere Ignoto!~
+:58334
+   en  # ~The Yowyn Book of Secrt Knowledge!~
+   IT  # ~Speciale Yowyn: a Caccia del Sapere Ignoto!~
+:59728
+   en  #~Gift for your loved ones~
+   IT  #~Scegliamo un Dono per Chi ci sta a Cuore~
+:59790
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:60125
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:60848
+   en  #~Dangers on the Road~
+   IT  #~I Pericoli sul Ciglio della Strada~
+:61178
+   en  # ~Sickly Taste of Smoke~
+   IT  # ~Il Sapore del Fumo che Dà Dipendenza~
+:61310
+   en  # ~Coins of this World - Tyris Edition~
+   IT  # ~Le Monete del Mondo: Tyris~
+:61312
+   en  # ~words of <Norne> the guide~
+   IT  # ~Parole di <Norne> la guida~
+
+righe senza resa in tabella: 1   (atteso 0)

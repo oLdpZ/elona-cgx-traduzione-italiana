@@ -1,0 +1,155 @@
+:62732
+   en  # ~Music of the Melodious Irva~
+   IT  # ~Le Melodie della Limpida Irva~
+:62865
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:62866
+   en  # ~words of <Urcaguary>~
+   IT  # ~Parole di <Urcaguary>~
+:62867
+   en  # ~words of <Opatos>~
+   IT  # ~Parole di <Opatos>~
+:62929
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:62930
+   en  # ~words of <Rovid>~
+   IT  # ~Parole di <Rovid>~
+:62931
+   en  # ~words of <Jure>~
+   IT  # ~Parole di <Jure>~
+:62993
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:62994
+   en  # ~words of <Arasiel>~
+   IT  # ~Parole di <Arasiel>~
+:62995
+   en  # ~words of <Lulwy>~
+   IT  # ~Parole di <Lulwy>~
+:63057
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:63058
+   en  # ~words of <Mani>~
+   IT  # ~Parole di <Mani>~
+:63059
+   en  # ~words of <Garziem>~
+   IT  # ~Parole di <Garziem>~
+:63121
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:63122
+   en  # ~words of <Yacatect>~
+   IT  # ~Parole di <Yacatect>~
+:63123
+   en  # ~words of <Karavika>~
+   IT  # ~Parole di <Karavika>~
+:63185
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:63186
+   en  # ~words of <Sophia>~
+   IT  # ~Parole di <Sophia>~
+:63187
+   en  # ~words of <Itzpalt>~
+   IT  # ~Parole di <Itzpalt>~
+:63249
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:63250
+   en  # ~words of <Sinaha>~
+   IT  # ~Parole di <Sinaha>~
+:63251
+   en  # ~words of <Ehekatl>~
+   IT  # ~Parole di <Ehekatl>~
+:63313
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:63314
+   en  # ~words of <Kumiromi>~
+   IT  # ~Parole di <Kumiromi>~
+:63315
+   en  # ~words of <Amurdad>~
+   IT  # ~Parole di <Amurdad>~
+:63583
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:64615
+   en  # ~Supporting Roles in Kitchen~
+   IT  # ~I Comprimari della Cucina~
+:64869
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:64931
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:64993
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:66009
+   en  #~Mysterious Ancient Ornaments~
+   IT  #~Misteriosi Ornamenti Antichi~
+:66261
+   en  # ~The Yowyn Book of Secrt Knowledge!~
+   IT  # ~Speciale Yowyn: a Caccia del Sapere Ignoto!~
+:66323
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:66765
+   en  # ~Lumiest Art Catalogue~
+   IT  # ~Catalogo d'Arte di Lumiest~
+:68045
+   en  #~Mysterious Ancient Ornaments~
+   IT  #~Misteriosi Ornamenti Antichi~
+:68388
+   en  # ~Forest Economics, Sawmill Edition~
+   IT  # ~Foreste ed Economia: la Segheria~
+:69388
+   en  # ~Living with Livestock~
+   IT  # ~Vivere Insieme al Bestiame~
+:71643
+   en  # ~Daily Necessities for the Home~
+   IT  # ~Casalinghi che Danno Colore alla Casa~
+:71645
+   en  # ~words of a fisherman proud of his catch~
+   IT  # ~Parole di un Pescatore Fiero della Sua Preda~
+:74693
+   en  # ~Life-saving First-aid~
+   IT  # ~Il Primo Soccorso che Salva la Vita~
+:74755
+   en  # ~Encyclopedia of Poison~
+   IT  # ~Dizionario dei Veleni e dei Farmaci~
+:74817
+   en  # ~Interior Paradise: Extra Issue~
+   IT  # ~Interior Paradise: Numero Straordinario~
+:74879
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:74941
+   en  # ~Stylish Item Special~
+   IT  # ~Grande Speciale sugli Oggetti alla Moda~
+:75003
+   en  # ~The Encyclopedia of Sewing~
+   IT  # ~Grande Enciclopedia del Cucito~
+:75065
+   en  # ~Mysterious Report~
+   IT  # ~Rapporto Misterioso~
+:75127
+   en  # ~Music of the Melodious Irva~
+   IT  # ~Le Melodie della Limpida Irva~
+:75189
+   en  # ~Great Encyclopedia of North Tyris Furnitures~
+   IT  # ~Grande Enciclopedia dei Mobili di Tyris del Nord~
+:75251
+   en  # ~the Legacy of Mechanical Civilization~
+   IT  # ~Speciale: l'Eredità della Civiltà Meccanica~
+:75313
+   en  # ~Zaile's Book of Mineralogy~
+   IT  # ~Atlante dei Minerali di Zaile~
+:75375
+   en  # ~Lumiest Art Catalogue~
+   IT  # ~Catalogo d'Arte di Lumiest~
+
+righe senza resa in tabella: 0   (atteso 0)
