@@ -1,0 +1,86 @@
+:92585
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:92717
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:93890
+   en  # ~Illustrated Guide to Tyris Horticulture~
+   IT  # ~Atlante Illustrato del Giardinaggio di Tyris~
+:93957
+   en  # ~Illustrated Guide to Tyris Horticulture~
+   IT  # ~Atlante Illustrato del Giardinaggio di Tyris~
+:97601
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:97664
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:97727
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:102521
+   en  #~Tyris Gardening Encyclopedia~
+   IT  #~Atlante Illustrato del Giardinaggio di Tyris~
+:102584
+   en  #~Tyris Gardening Encyclopedia~
+   IT  #~Atlante Illustrato del Giardinaggio di Tyris~
+:102647
+   en  #~Tyris Gardening Encyclopedia~
+   IT  #~Atlante Illustrato del Giardinaggio di Tyris~
+:102710
+   en  #~Tyris Gardening Encyclopedia~
+   IT  #~Atlante Illustrato del Giardinaggio di Tyris~
+:102773
+   en  #~Tyris Gardening Encyclopedia~
+   IT  #~Atlante Illustrato del Giardinaggio di Tyris~
+:102836
+   en  #~Tyris Gardening Encyclopedia~
+   IT  #~Atlante Illustrato del Giardinaggio di Tyris~
+:102903
+   en  # ~Illustrated Guide to Tyris Horticulture~
+   IT  # ~Atlante Illustrato del Giardinaggio di Tyris~
+:102970
+   en  # ~Illustrated Guide to Tyris Horticulture~
+   IT  # ~Atlante Illustrato del Giardinaggio di Tyris~
+:103037
+   en  # ~Illustrated Guide to Tyris Horticulture~
+   IT  # ~Atlante Illustrato del Giardinaggio di Tyris~
+:103104
+   en  # ~Illustrated Guide to Tyris Horticulture~
+   IT  # ~Atlante Illustrato del Giardinaggio di Tyris~
+:103171
+   en  # ~Illustrated Guide to Tyris Horticulture~
+   IT  # ~Atlante Illustrato del Giardinaggio di Tyris~
+:107600
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:107673
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:107746
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:107819
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:107892
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:107965
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:108038
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:108111
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:108184
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:108257
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+
+righe senza resa in tabella: 0   (atteso 0)

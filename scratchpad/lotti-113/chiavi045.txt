@@ -1,0 +1,121 @@
+RIGHE = {
+    92585, 92717, 93890, 93957, 97601, 97664, 97727, 102521, 102584, 102647,
+    102710, 102773, 102836, 102903, 102970, 103037, 103104, 103171, 107600, 107673,
+    107746, 107819, 107892, 107965, 108038, 108111, 108184, 108257,
+}
+# 28 righe, da 92585 a 108257
+
+    # ---------------------------------------------------------- :92585
+    (92585, 'An oval object filled with the source of life. Naturally, it is a mass of nutrients. The North Tyris egg does not decay, so you can crack it now to feed your growth, or keep it on hand and display it as part of our home d?cor.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :92717
+    (92717, 'To prevent damaging the meat, it is cured in salt water and then dried under the sun to increase portability and shelf life. Although it is an unremarkable dish, it seems to go surprisingly well with Crim ale, and strong men often take bites of it at the bar. \\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :93890
+    (93890, 'Seeds that can be sown in the ground to harvest magical rods. It is a mixture of various genotypes and the harvest will vary depending on the environment. You can eat them, but you should wait for them to grow a little longer. \\n# ~Illustrated Guide to Tyris Horticulture~'):
+        "",
+
+    # ---------------------------------------------------------- :93957
+    (93957, 'Seeds that can be sown in the ground to harvest ores and gems. It is a mixture of various genotypes and the harvest will vary depending on the environment. You can eat them, but you should wait for them to grow a little longer. \\n# ~Illustrated Guide to Tyris Horticulture~'):
+        "",
+
+    # ---------------------------------------------------------- :97601
+    (97601, "No ingredients or production methods are known! But it is delicious! But it is really tasty! Most of the people who eat it are children, but even adults who have a rare chance to try it are said to be captivated by the snack's unique, unhealthy taste. \\n#~Everchanging Food of Tyris~"):
+        "",
+
+    # ---------------------------------------------------------- :97664
+    (97664, 'A snack popular among young people that is made by frying certain vegetables in oil. Currently, this process is monopolized by a few vendors, so it is not available on the market. For some reason, the vendors do not aim to expand their business, so the economy is in a strange equilibrium. \\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :97727
+    (97727, 'A snack that is extremely popular among young people, made from a certain vegetable that has been transformed using a unique manufacturing process. Currently, this process is monopolized by a few vendors, so it is not available in the market. However, many customers buy it as a souvenir, and the vendors are apparently satisfied with that. \\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :102521
+    (102521, 'Herb famous for its plump, thick, fresh leaves. In ancient times, it was documented that when dried and watered, the herb would swell to more than its mass. Nowadays, people seem to take advantage of this and carry it as an emergency ration.\\n#~Tyris Gardening Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :102584
+    (102584, 'This herb is famed for its sweet, gentle fragrance. Its fragrance is popular among the nobility, and most ladies cultivate the herb in their gardens, perfume themselves with it before social occasions.\\n#~Tyris Gardening Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :102647
+    (102647, 'This herb is widely known for its small, white blossoms. Because of its higher fertility compared to other herbs, it often thrives in the wild and can be said to be a folk herb in that respect.\\n#~Tyris Gardening Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :102710
+    (102710, 'Herb that is well known for its refreshing fragrance. Its scent has a calming effect on the spirit of those who smell it, many citizens use it before important tasks or exams.\\n#~Tyris Gardening Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :102773
+    (102773, "This herb is famous for its zesty aroma. It is not widely used due to its rarity, it is sometimes used in haute cuisine for it's kick.\\n#~Tyris Gardening Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :102836
+    (102836, 'This herb is famous for its wild aroma. It is believed to be effective in reducing appetite and is sometimes eaten as a medicinal herb in minor illnesses.\\n#~Tyris Gardening Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :102903
+    (102903, 'Seeds that can be sown in the ground to harvest powerful artifacts. It is a mixture of various genotypes and the harvest will vary depending on the environment. You can eat them, but you should wait for them to grow a little longer. \\n# ~Illustrated Guide to Tyris Horticulture~'):
+        "",
+
+    # ---------------------------------------------------------- :102970
+    (102970, 'Seeds that can be sown in the ground to harvest all kinds of plants. It is a mixture of various genotypes and the harvest will vary depending on the environment. You can eat them, but you should wait for them to grow a little longer. \\n# ~Illustrated Guide to Tyris Horticulture~'):
+        "",
+
+    # ---------------------------------------------------------- :103037
+    (103037, 'Seeds that can be sown in the ground to harvest magical herbs. It is a mixture of various genotypes and the harvest will vary depending on the environment. You can eat them, but you should wait for them to grow a little longer. \\n# ~Illustrated Guide to Tyris Horticulture~'):
+        "",
+
+    # ---------------------------------------------------------- :103104
+    (103104, 'Seeds that can be sown in the ground to harvest various fruits. It is a mixture of various genotypes and the harvest will vary depending on the environment. You can eat them, but you should wait for them to grow a little longer. \\n# ~Illustrated Guide to Tyris Horticulture~'):
+        "",
+
+    # ---------------------------------------------------------- :103171
+    (103171, 'Seeds that can be sown in the ground to harvest vegetables. It is a mixture of various genotypes and the harvest will vary depending on the environment. You can eat them, but you should wait for them to grow a little longer. \\n# ~Illustrated Guide to Tyris Horticulture~'):
+        "",
+
+    # ---------------------------------------------------------- :107600
+    (107600, 'Small enough to fit in both hands. It is not suitable for large-scale cooking, but suitable for frying, tempura, etc. Rumor has it that in Palmia, it is a trend to carry and eat this fried with imo chips.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :107673
+    (107673, 'Fish looked like a cutlass, because of the way it reflects the sunlight and glistens. As its name suggests, it is very long and slender and has no scales on its body. Its light taste makes it suitable for delicate dishes.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :107746
+    (107746, 'Fish found all around Tyris, but the most famous are those found in the waters around Port Kapul. Its bright red flesh is delicious as sashimi, but it can also be cooked to give it a meaty texture.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :107819
+    (107819, 'Brownish-brown coloured fish said to inhabit the shallow seabed, where it lurks and waits for its prey. Its name is said to derive from its overall shape, which resembles a glove worn on the hand.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :107892
+    (107892, "Saltwater fish about the width of an adult's shoulders. The taste varies considerably depending on the time of year. The fish landed at the right time of year have a bright peach-coloured flesh, a colour so distinctive that in the past it was added to the dye list at the behest of a dyer.\\n#~Everchanging Food of Tyris~"):
+        "",
+
+    # ---------------------------------------------------------- :107965
+    (107965, "The fish's bright scales are a sight to behold. The taste is also very good, with a strange and mysterious flavour that has been considered precious since ancient times. It is said that in foreign countries it is customary to grill the whole fish and serve it on special occasions.\\n#~Everchanging Food of Tyris~"):
+        "",
+
+    # ---------------------------------------------------------- :108038
+    (108038, "Fish with overwhelming presence. It has not been eaten for a long time, but a chef who believes in 'eating it and die rather than not eating it at all' took the plunge and found in recent years that it is not poisonous and has a rather delicate taste.\\n#~Everchanging Food of Tyris~"):
+        "",
+
+    # ---------------------------------------------------------- :108111
+    (108111, 'As the name suggests, the fish is flat and square in shape. There is a story that it was used as a substitute for paper in the past when paper was scarce in Palmyre, but this is completely untrue. It goes without saying that its long tail was never used as a pen.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :108184
+    (108184, "In ancient times, the fish was sometimes described as the 'Jewel of Port Kapul'. This is not only because of its taste, but also because it was extremely difficult to keep fresh and cooks treated it like a gem.\\n#~Everchanging Food of Tyris~"):
+        "",
+
+    # ---------------------------------------------------------- :108257
+    (108257, "A vigorous fish with a sharp, cone-like mouth. The name 'moonfish' comes from its desperate resistance when caught, which resembles a crescent moon being captured by force.\\n#~Everchanging Food of Tyris~"):
+        "",
+
+# 28 voci, 0 ambigue
+

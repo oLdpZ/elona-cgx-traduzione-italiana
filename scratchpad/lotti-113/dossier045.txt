@@ -1,0 +1,377 @@
+=== ITEM_ID_EGG   [FILTER_ITEM_FOOD]
+    NOME      jp 卵
+              en egg
+              IT uovo
+    --- description(0)  :92585
+        JP  \t\t生命の源が詰まった楕円状の物体。当然ながら栄養素の塊である。ノースティリスの卵は腐らないので、あなたは今すぐこれを割り成長の糧にしてもよいし、手元に置いて我が家のインテリアの一部として飾ってもよい。\n#～移り変わりゆくティリスの食～\n
+        EN  An oval object filled with the source of life. Naturally, it is a mass of nutrients. The North Tyris egg does not decay, so you can crack it now to feed your growth, or keep it on hand and display it as part of our home d?cor.\n#~Everchanging Food of Tyris~
+    --- description(3)  :92588 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is an egg that can be cooked and eaten.
+        IT  Un uovo che si può cucinare e mangiare.
+
+=== ITEM_ID_JERKY   [FILTER_ITEM_FOOD]
+    NOME      jp 干し肉
+              en jerky
+              IT carne secca
+    --- description(0)  :92717
+        JP  \t\t生肉が痛まぬよう塩漬けにし、天日で干すことにより携帯性と日持ちを増したもの。申し訳程度の料理ではあるが、意外とクリムエールと合うらしく、屈強な男達がしばしば酒場で齧っている。\n#～移り変わりゆくティリスの食～\n
+        EN  To prevent damaging the meat, it is cured in salt water and then dried under the sun to increase portability and shelf life. Although it is an unremarkable dish, it seems to go surprisingly well with Crim ale, and strong men often take bites of it at the bar. \n#~Everchanging Food of Tyris~
+    --- description(3)  :92720 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is a dried out meat that can restore satiety.
+        IT  Della carne secca che sazia.
+
+=== ITEM_ID_MAGICAL_SEED   [FILTER_ITEM_FOOD]
+    NOME      jp 魔法の木の種
+              en magical seed
+              IT seme magico
+    --- description(0)  :93890
+        JP  \t\t地面に蒔くことによって杖が収穫できる種。様々な遺伝子が混ざっており、収穫物は環境によって変化する。食べることができるが、そうするくらいなら少し成長を待ってあげてほしい。今日よりも明日なんだ。\n#～ティリス園芸図鑑～\n
+        EN  Seeds that can be sown in the ground to harvest magical rods. It is a mixture of various genotypes and the harvest will vary depending on the environment. You can eat them, but you should wait for them to grow a little longer. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :93893 ⚠️ TETTO SECCO 69
+        JP  \t\t魔法の木に成長する種。使用することができる（使い捨て）。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  (Single-use) edible seed that can be planted to grow magical plants.
+        IT  Un seme che diventa un albero magico. Si usa (usa e getta).
+
+=== ITEM_ID_GEM_SEED   [FILTER_ITEM_FOOD]
+    NOME      jp 宝石の種
+              en gem seed
+              IT seme di gemma
+    --- description(0)  :93957
+        JP  \t\t地面に蒔くことによって鉱石が収穫できる種。様々な遺伝子が混ざっており、収穫物は環境によって変化する。食べることができるが、そうするくらいなら少し成長を待ってあげてほしい。今日よりも明日なんだ。\n#～ティリス園芸図鑑～\n
+        EN  Seeds that can be sown in the ground to harvest ores and gems. It is a mixture of various genotypes and the harvest will vary depending on the environment. You can eat them, but you should wait for them to grow a little longer. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :93960 ⚠️ TETTO SECCO 69
+        JP  \t\t宝石の木に成長する種。使用することができる（使い捨て）。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  (Single-use) edible seed that can be planted to grow gems.
+        IT  Un seme che diventa un albero di gemme. Si usa (usa e getta).
+
+=== ITEM_ID_CYBER_SNACK   [FILTER_ITEM_FOOD]
+    NOME      jp サイバースナック
+              en cyber snack
+              IT snack cibernetico
+    --- description(0)  :97601
+        JP  \t\t素材も製法も一切不明！でもおいしい！という謎の一品。口にするのは殆ど子供だが、稀に口にした大人でさえもスナック独特の、体に悪そうな味の虜になってしまうという。\n#～移り変わりゆくティリスの食～\n
+        EN  No ingredients or production methods are known! But it is delicious! But it is really tasty! Most of the people who eat it are children, but even adults who have a rare chance to try it are said to be captivated by the snack's unique, unhealthy taste. \n#~Everchanging Food of Tyris~
+    --- description(3)  :97604 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_FRIED_POTATO   [FILTER_ITEM_FOOD]
+    NOME      jp フライドポテト
+              en fried potato
+              IT patatine fritte
+    --- description(0)  :97664
+        JP  \t\t特定の野菜を油で揚げた若者に大人気のスナック。現在この製法は一部の業者が独占して握っている為市場に出回らないが、業者も何故か企業拡大を目指さない為、経済的には奇妙な均衡が保たれている。\n#～移り変わりゆくティリスの食～\n
+        EN  A snack popular among young people that is made by frying certain vegetables in oil. Currently, this process is monopolized by a few vendors, so it is not available on the market. For some reason, the vendors do not aim to expand their business, so the economy is in a strange equilibrium. \n#~Everchanging Food of Tyris~
+    --- description(3)  :97667 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_POP_CORN   [FILTER_ITEM_FOOD]
+    NOME      jp ポップコーン
+              en pop corn
+              IT popcorn
+    --- description(0)  :97727
+        JP  \t\tとある野菜を独自の製法で造り変えた、若者に大人気のスナック。現在この製法は一部の業者が独占している為市場に出回らないが、土産として買っていく客が多いので業者はそれで満足らしい。\n#～移り変わりゆくティリスの食～\n
+        EN  A snack that is extremely popular among young people, made from a certain vegetable that has been transformed using a unique manufacturing process. Currently, this process is monopolized by a few vendors, so it is not available in the market. However, many customers buy it as a souvenir, and the vendors are apparently satisfied with that. \n#~Everchanging Food of Tyris~
+    --- description(3)  :97730 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_STOMAFILLIA   [FILTER_ITEM_FOOD]
+    NOME      jp ストマフィリア
+              en stomafillia
+              IT stomafillia
+    --- description(0)  :102521
+        JP  \t\t厚ぼったく瑞々しい葉を持つことで有名なハーブ。古代、乾燥させたこれに水を与えた所、質量以上に膨れ上がったという記録が残っている。現在ではそれを逆手に取って、非常食として携行する者もいるようだ。\n#～ティリス園芸図鑑～\n
+        EN  Herb famous for its plump, thick, fresh leaves. In ancient times, it was documented that when dried and watered, the herb would swell to more than its mass. Nowadays, people seem to take advantage of this and carry it as an emergency ration.\n#~Tyris Gardening Encyclopedia~
+    --- description(3)  :102524 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を大きく回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is a type of herb that can greatly restore satiety.
+        IT  Un'erba che sazia molto.
+
+=== ITEM_ID_ALRAUNIA   [FILTER_ITEM_FOOD]
+    NOME      jp アルローニア
+              en alraunia
+              IT alraunia
+    --- description(0)  :102584
+        JP  \t\t甘く優しい香りを漂わせることで有名なハーブ。その香りは貴族達にも人気で、大抵の貴婦人達はハーブ園でこれを栽培し、その身に香りを宿した後、舞踏会へ赴くのだという。\n#～ティリス園芸図鑑～\n
+        EN  This herb is famed for its sweet, gentle fragrance. Its fragrance is popular among the nobility, and most ladies cultivate the herb in their gardens, perfume themselves with it before social occasions.\n#~Tyris Gardening Encyclopedia~
+    --- description(3)  :102587 ⚠️ TETTO SECCO 69
+        JP  \t\t習得と魅力の能力値を上昇させる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is a type of herb that is good for your learning and charisma..
+        IT  Un'erba che alza apprendimento e carisma.
+
+=== ITEM_ID_CURARIA   [FILTER_ITEM_FOOD]
+    NOME      jp キュラリア
+              en curaria
+              IT curaria
+    --- description(0)  :102647
+        JP  \t\t白くて小さい花をつけることで有名なハーブ。繁殖力が他のそれに比べて高い為、自生していることも多くその点から庶民的なハーブともいえよう。\n#～ティリス園芸図鑑～\n
+        EN  This herb is widely known for its small, white blossoms. Because of its higher fertility compared to other herbs, it often thrives in the wild and can be said to be a folk herb in that respect.\n#~Tyris Gardening Encyclopedia~
+    --- description(3)  :102650 ⚠️ TETTO SECCO 69
+        JP  \t\t全基礎能力を少し上昇させる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is a type of herb that is good for your overall abilities.
+        IT  Un'erba che alza un po' tutti gli attributi base.
+
+=== ITEM_ID_SPENSEWEED   [FILTER_ITEM_FOOD]
+    NOME      jp スペンスウィード
+              en spenseweed
+              IT spenseweed
+    --- description(0)  :102710
+        JP  \t\t清々しい香りを漂わせることで有名なハーブ。その香りは嗅いだ者の精神を落ちつける効果がある為、大事な仕事や試験の前に奮発して購入していく市民も多いという。\n#～ティリス園芸図鑑～\n
+        EN  Herb that is well known for its refreshing fragrance. Its scent has a calming effect on the spirit of those who smell it, many citizens use it before important tasks or exams.\n#~Tyris Gardening Encyclopedia~
+    --- description(3)  :102713 ⚠️ TETTO SECCO 69
+        JP  \t\t器用と感覚の能力値を上昇させる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is a type of herb that is good for your dexterity and perception.
+        IT  Un'erba che alza destrezza e percezione.
+
+=== ITEM_ID_MAREILON   [FILTER_ITEM_FOOD]
+    NOME      jp マレイロン
+              en mareilon
+              IT mareilon
+    --- description(0)  :102773
+        JP  \t\t刺激的な香りを漂わせることで有名なハーブ。希少な為広く使用はされないが、他の香辛料にも劣らぬその香りは高級料理のアクセントとして使われることもあるほどだ。\n#～ティリス園芸図鑑～\n
+        EN  This herb is famous for its zesty aroma. It is not widely used due to its rarity, it is sometimes used in haute cuisine for it's kick.\n#~Tyris Gardening Encyclopedia~
+    --- description(3)  :102776 ⚠️ TETTO SECCO 69
+        JP  \t\t魔力と意志の能力値を上昇させる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is a type of herb that is good for your magic and willpower..
+        IT  Un'erba che alza magia e volontà.
+
+=== ITEM_ID_MORGIA   [FILTER_ITEM_FOOD]
+    NOME      jp モージア
+              en morgia
+              IT morgia
+    --- description(0)  :102836
+        JP  \t\t野性味溢れる香りを漂わせることで有名なハーブ。食欲減退に効果があるとされ、軽病の際には薬膳料理として食されることもあるという。\n#～ティリス園芸図鑑～\n
+        EN  This herb is famous for its wild aroma. It is believed to be effective in reducing appetite and is sometimes eaten as a medicinal herb in minor illnesses.\n#~Tyris Gardening Encyclopedia~
+    --- description(3)  :102839 ⚠️ TETTO SECCO 69
+        JP  \t\t筋力と耐久の能力値を上昇させる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is a type of herb that is good for your strength and constitution.
+        IT  Un'erba che alza forza e costituzione.
+
+=== ITEM_ID_ARTIFACT_SEED   [FILTER_ITEM_FOOD]
+    NOME      jp アーティファクトの種
+              en artifact seed
+              IT seme di artefatto
+    --- description(0)  :102903
+        JP  \t\t地面に蒔くことによってアーティファクトが収穫できる種。様々な遺伝子が混ざっており、収穫物は環境によって変化する。食べることができるが、種の持つ可能性につりあう満腹度は得られないだろう。\n#～ティリス園芸図鑑～\n
+        EN  Seeds that can be sown in the ground to harvest powerful artifacts. It is a mixture of various genotypes and the harvest will vary depending on the environment. You can eat them, but you should wait for them to grow a little longer. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :102906 ⚠️ TETTO SECCO 69
+        JP  \t\tアーティファクトの木に成長する種。使用することができる（使い捨て）。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  (Single-use) edible seed that can be planted to grow artifacts.
+        IT  Un seme che diventa un albero di artefatti. Si usa (usa e getta).
+
+=== ITEM_ID_UNKNOWN_SEED   [FILTER_ITEM_FOOD]
+    NOME      jp 謎の種
+              en unknown seed
+              IT seme ignoto
+    --- description(0)  :102970
+        JP  \t\t地面に蒔くことによって様々なものが収穫できる種。様々な遺伝子が混ざっており、収穫物は環境によって変化する。食べることができるが、種の持つ可能性につりあう満腹度は得られないだろう。\n#～ティリス園芸図鑑～\n
+        EN  Seeds that can be sown in the ground to harvest all kinds of plants. It is a mixture of various genotypes and the harvest will vary depending on the environment. You can eat them, but you should wait for them to grow a little longer. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :102973 ⚠️ TETTO SECCO 69
+        JP  \t\t謎の木に成長する種。使用することができる（使い捨て）。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  (Single-use) edible seed that can be planted to grow a mysterious plant.
+        IT  Un seme che diventa un albero misterioso. Si usa (usa e getta).
+
+=== ITEM_ID_HERB_SEED   [FILTER_ITEM_FOOD]
+    NOME      jp ハーブの種
+              en herb seed
+              IT seme di erba
+    --- description(0)  :103037
+        JP  \t\t地面に蒔くことによってハーブが収穫できる種。様々な遺伝子が混ざっており、収穫物は環境によって変化する。食べることができるが、種の持つ可能性につりあう満腹度は得られないだろう。\n#～ティリス園芸図鑑～\n
+        EN  Seeds that can be sown in the ground to harvest magical herbs. It is a mixture of various genotypes and the harvest will vary depending on the environment. You can eat them, but you should wait for them to grow a little longer. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :103040 ⚠️ TETTO SECCO 69
+        JP  \t\tハーブの木に成長する種。使用することができる（使い捨て）。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  (Single-use) edible seed that can be planted to grow magical herbs.
+        IT  Un seme che diventa un albero di erbe. Si usa (usa e getta).
+
+=== ITEM_ID_FRUIT_SEED   [FILTER_ITEM_FOOD]
+    NOME      jp 果物の種
+              en fruit seed
+              IT seme di frutto
+    --- description(0)  :103104
+        JP  \t\t地面に蒔くことによって果物が収穫できる種。様々な遺伝子が混ざっており、収穫物は環境によって変化する。食べることができるが、そうするくらいなら少し成長を待ってあげてほしい。今日よりも明日なんだ。\n#～ティリス園芸図鑑～\n
+        EN  Seeds that can be sown in the ground to harvest various fruits. It is a mixture of various genotypes and the harvest will vary depending on the environment. You can eat them, but you should wait for them to grow a little longer. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :103107 ⚠️ TETTO SECCO 69
+        JP  \t\t果物の木に成長する種。使用することができる（使い捨て）。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  (Single-use) edible seed that can be planted to grow fruits.
+        IT  Un seme che diventa un albero da frutto. Si usa (usa e getta).
+
+=== ITEM_ID_VEGETABLE_SEED   [FILTER_ITEM_FOOD]
+    NOME      jp 野菜の種
+              en vegetable seed
+              IT seme di ortaggio
+    --- description(0)  :103171
+        JP  \t\t地面に蒔くことによって野菜が収穫できる種。様々な遺伝子が混ざっており、収穫物は環境によって変化する。食べることができるが、そうするくらいなら少し成長を待ってあげてほしい。今日よりも明日なんだ。\n#～ティリス園芸図鑑～\n
+        EN  Seeds that can be sown in the ground to harvest vegetables. It is a mixture of various genotypes and the harvest will vary depending on the environment. You can eat them, but you should wait for them to grow a little longer. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :103174 ⚠️ TETTO SECCO 69
+        JP  \t\t野菜の木に成長する種。使用することができる（使い捨て）。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  (Single-use) edible seed that can be planted to grow vegetables.
+        IT  Un seme che diventa un albero di ortaggi. Si usa (usa e getta).
+
+=== ITEM_ID_SANDBORER   [FILTER_ITEM_FOOD]
+    NOME      jp サンドボーラー
+              en sandborer
+              IT pesce trivella
+    --- description(0)  :107600
+        JP  \t\t両手に収まるほどの小柄な魚。大がかりな料理には不向きだがフライやてんぷら等に適している。巷の噂によれば、パルミアではこれとイーモのフライを携帯して食べるのがトレンドだとか。\n#～移り変わりゆくティリスの食～\n
+        EN  Small enough to fit in both hands. It is not suitable for large-scale cooking, but suitable for frying, tempura, etc. Rumor has it that in Palmia, it is a trend to carry and eat this fried with imo chips.\n#~Everchanging Food of Tyris~
+    --- description(2)  :107602
+        JP  
+        EN  A type of seafood that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un cibo di mare che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :107603 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is seafood that can be cooked and eaten.
+        IT  Un cibo di mare che si può cucinare e mangiare.
+
+=== ITEM_ID_CUTLASSFISH   [FILTER_ITEM_FOOD]
+    NOME      jp カトラスフィッシュ
+              en cutlassfish
+              IT pesce sciabola
+    --- description(0)  :107673
+        JP  \t\t日の光を反射しギラギラと輝く様を舶刀「カトラス」になぞらえた魚。その名の通りとても細長く、体に鱗がないのが特徴。味は淡白である為、繊細な料理に向いていると言える。\n#～移り変わりゆくティリスの食～\n
+        EN  Fish looked like a cutlass, because of the way it reflects the sunlight and glistens. As its name suggests, it is very long and slender and has no scales on its body. Its light taste makes it suitable for delicate dishes.\n#~Everchanging Food of Tyris~
+    --- description(2)  :107675
+        JP  
+        EN  A type of seafood that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un cibo di mare che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :107676 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is seafood that looks something like an Eel.
+        IT  Un cibo di mare che si può cucinare e mangiare.
+
+=== ITEM_ID_TUNA   [FILTER_ITEM_FOOD]
+    NOME      jp ツナ
+              en tuna
+              IT tonno
+    --- description(0)  :107746
+        JP  \t\t広く分布するが、ポート・カプール近海に生息するものが有名。身は鮮やかな赤であり刺身にすると美味だが、火を通すことによりさながら肉の様な触感も味わえる、１尾で二度おいしい魚である。\n#～移り変わりゆくティリスの食～\n
+        EN  Fish found all around Tyris, but the most famous are those found in the waters around Port Kapul. Its bright red flesh is delicious as sashimi, but it can also be cooked to give it a meaty texture.\n#~Everchanging Food of Tyris~
+    --- description(2)  :107748
+        JP  
+        EN  A type of seafood that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un cibo di mare che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :107749 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is a carnivorous fish that can be cooked and eaten.
+        IT  Un cibo di mare che si può cucinare e mangiare.
+
+=== ITEM_ID_GLOBEFISH   [FILTER_ITEM_FOOD]
+    NOME      jp グローブフィッシュ
+              en globefish
+              IT pesce palla
+    --- description(0)  :107819
+        JP  \t\t茶褐色をした魚。浅い海底に生息し、息を潜め獲物を待つという。その名の由来は全体の形状が手に装着するグローブに似ていた為、と言われている。\n#～移り変わりゆくティリスの食～\n
+        EN  Brownish-brown coloured fish said to inhabit the shallow seabed, where it lurks and waits for its prey. Its name is said to derive from its overall shape, which resembles a glove worn on the hand.\n#~Everchanging Food of Tyris~
+    --- description(2)  :107821
+        JP  
+        EN  A type of seafood that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un cibo di mare che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :107822 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is seafood that can be cooked and eaten.
+        IT  Un cibo di mare che si può cucinare e mangiare.
+
+=== ITEM_ID_SALMON   [FILTER_ITEM_FOOD]
+    NOME      jp サーモン
+              en salmon
+              IT salmone
+    --- description(0)  :107892
+        JP  \t\t大人の肩幅程の海水魚。時期によって味の善し悪しが格段に違う。絶妙な頃に水揚げされたものは身の色が鮮やかな桃色で、特徴的なその色は過去、染料屋の一声で染料の種類に加えられたほどだ。\n#～移り変わりゆくティリスの食～\n
+        EN  Saltwater fish about the width of an adult's shoulders. The taste varies considerably depending on the time of year. The fish landed at the right time of year have a bright peach-coloured flesh, a colour so distinctive that in the past it was added to the dye list at the behest of a dyer.\n#~Everchanging Food of Tyris~
+    --- description(2)  :107894
+        JP  
+        EN  A type of seafood that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un cibo di mare che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :107895 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is a fish with unique spawning habits.
+        IT  Un cibo di mare che si può cucinare e mangiare.
+
+=== ITEM_ID_SEABREAM   [FILTER_ITEM_FOOD]
+    NOME      jp シーブリーム
+              en seabream
+              IT orata
+    --- description(0)  :107965
+        JP  \t\t鮮やかな鱗が見る者さえも楽しませてくれる魚。味の方も確かなもので、幽妙な味は古来から貴重とされている。異国ではめでたい席に丸々焼き上げて出すことが習わしとされているそうだ。\n#～移り変わりゆくティリスの食～\n
+        EN  The fish's bright scales are a sight to behold. The taste is also very good, with a strange and mysterious flavour that has been considered precious since ancient times. It is said that in foreign countries it is customary to grill the whole fish and serve it on special occasions.\n#~Everchanging Food of Tyris~
+    --- description(2)  :107967
+        JP  
+        EN  A type of seafood that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un cibo di mare che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :107968 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is seafood that can be cooked and eaten.
+        IT  Un cibo di mare che si può cucinare e mangiare.
+
+=== ITEM_ID_MANBOO   [FILTER_ITEM_FOOD]
+    NOME      jp マンボー
+              en manboo
+              IT pesce luna
+    --- description(0)  :108038
+        JP  \t\t圧倒する存在感を持った魚。長らく口にされることはなかったが「食べないより食べて埋れ」を信条とする或る料理人が意を決して食したが、毒はなく割と繊細な味をしていることが近年わかった。\n#～移り変わりゆくティリスの食～\n
+        EN  Fish with overwhelming presence. It has not been eaten for a long time, but a chef who believes in 'eating it and die rather than not eating it at all' took the plunge and found in recent years that it is not poisonous and has a rather delicate taste.\n#~Everchanging Food of Tyris~
+    --- description(2)  :108040
+        JP  
+        EN  A type of seafood that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un cibo di mare che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :108041 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is seafood that can be cooked and eaten.
+        IT  Un cibo di mare che si può cucinare e mangiare.
+
+=== ITEM_ID_FLATFISH   [FILTER_ITEM_FOOD]
+    NOME      jp フラットフィッシュ
+              en flatfish
+              IT pesce piatto
+    --- description(0)  :108111
+        JP  \t\t名の通り平坦で四角い形状をした魚。過去パルミアにおいて紙の不足した時代に、これを代用したという話があるが全くの嘘である。その長い尾をペンとして用いたという話に至っては言うまでもない。\n#～移り変わりゆくティリスの食～\n
+        EN  As the name suggests, the fish is flat and square in shape. There is a story that it was used as a substitute for paper in the past when paper was scarce in Palmyre, but this is completely untrue. It goes without saying that its long tail was never used as a pen.\n#~Everchanging Food of Tyris~
+    --- description(2)  :108113
+        JP  
+        EN  A type of seafood that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un cibo di mare che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :108114 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is seafood that can be cooked and eaten.
+        IT  Un cibo di mare che si può cucinare e mangiare.
+
+=== ITEM_ID_SARDINE   [FILTER_ITEM_FOOD]
+    NOME      jp サーディン
+              en sardine
+              IT sardina
+    --- description(0)  :108184
+        JP  \t\t古来「ポート・カプールの生きた宝石」と評される事もあった魚。それは味もさることながら、鮮度を保つことが非常に困難であり、調理人達が宝石の様にこの魚を扱っていたからだと言われている。\n#～移り変わりゆくティリスの食～\n
+        EN  In ancient times, the fish was sometimes described as the 'Jewel of Port Kapul'. This is not only because of its taste, but also because it was extremely difficult to keep fresh and cooks treated it like a gem.\n#~Everchanging Food of Tyris~
+    --- description(2)  :108186
+        JP  
+        EN  A type of seafood that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un cibo di mare che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :108187 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is seafood that can be cooked and eaten.
+        IT  Un cibo di mare che si può cucinare e mangiare.
+
+=== ITEM_ID_MOONFISH   [FILTER_ITEM_FOOD]
+    NOME      jp ムーンフィッシュ
+              en moonfish
+              IT pesce re
+    --- description(0)  :108257
+        JP  \t\tまるで錐のような尖った口が特徴の生命力あふれる魚。ムーンフィッシュの名は、釣り上げた際に必死に抵抗する様が三日月を力ずくで捕らえるように見えた事から名づけられた。\n#～移り変わりゆくティリスの食～\n
+        EN  A vigorous fish with a sharp, cone-like mouth. The name 'moonfish' comes from its desperate resistance when caught, which resembles a crescent moon being captured by force.\n#~Everchanging Food of Tyris~
+    --- description(2)  :108259
+        JP  
+        EN  A type of seafood that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un cibo di mare che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :108260 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is seafood that can be cooked and eaten.
+        IT  Un cibo di mare che si può cucinare e mangiare.
+
+== 28 oggetti, 66 descrizioni
