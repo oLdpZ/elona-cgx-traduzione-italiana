@@ -1,0 +1,136 @@
+RIGHE = {
+    113749, 113812, 113814, 113877, 113940, 115652, 117599, 117832, 117905, 117978,
+    118051, 118116, 118181, 118246, 118311, 118382, 118447, 118510, 118581, 118716,
+    118787, 118860, 118933, 118998, 119063, 119128, 119193, 119258, 119331, 119396,
+    119461,
+}
+# 31 righe, da 113749 a 119461
+
+    # ---------------------------------------------------------- :113749
+    (113749, 'The most popular type of fish in North Tyris. It has many small bones, but has a relatively light flavour and seems to go well with any dish. Some of its relatives are said to burst into flames at the end of their lives.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :113812
+    (113812, 'Grounded wheat flour that can be made into various type of bread after processing. Taste a lot better when cooked, but some prefer to ate it raw.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :113814
+    (113814, "Food that restores satiety, it's used in many cooking dishes.\\n#~Identification Report: <Food> Category~"):
+        "",
+
+# 1 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :113877
+    (113877, 'Raw material that is said to be the ancestor of all noodles. Taste a lot better when cooked, but some prefer to ate it raw.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :113940
+    (113940, "A rather small loaf of bread in the shape of a thin stick. Smaller than regular bread, it is unlikely to fill one's stomach, but it seems to be enough for a quick bite when one is feeling hungry. \\n#~Everchanging Food of Tyris~"):
+        "",
+
+    # ---------------------------------------------------------- :115652
+    (115652, 'This food is said to have been carried by soldiers in ancient times when they went to battlefields, because it is portable, an has an extremely high shelf life which does not spoil at all. \\n# ~an Adventurer is You! Guide for Travels~'):
+        "",
+
+    # ---------------------------------------------------------- :117599
+    (117599, 'The creature is in its natural state, and it is not suitable to be eaten raw as it is. How to cook them from this point on is where the skill of the chef really comes into play.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :117832
+    (117832, 'Vegetable very similar to lettuce. The leaves are slightly crunchy and are more suited to cooked dishes than raw. In recent years, a style of eating grilled meat wrapped in these leaves has been established that takes advantage of this point.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :117905
+    (117905, 'Oval-shaped vegetable with a high water content. It can be eaten raw to enjoy its water content and tactile qualities, but when stewed, its smooth mouthfeel is unforgettable.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :117978
+    (117978, 'A member of the cucumber family with very hard skin. Because of its characteristics, it is not suitable for eating raw and is usually cooked. There are also those who insist that it is related to the pumpkin monster, but this does not seem to be recognised by the public.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :118051
+    (118051, 'Small, granular vegetable. As an edible seed, it is highly nutritious. It is mainly used in soups, etc., and its bright green colour is very appetising.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :118116
+    (118116, 'A spindle-shaped fruit with a pungent taste. Its taste is indescribably sour and, like most fruits, should not be eaten directly as an after-dinner palate cleanser.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :118181
+    (118181, 'Fruit with fresh and rich texture. Its moisture content is more than sufficient to quench thirst, and naturally it is preferable to prepare it accordingly.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :118246
+    (118246, 'This small fruit is said to come from the land where the sun never sets. The bright orange colour of the fruit is so bright that it could be mistaken for a small sun, as is the flesh, and the taste is, as is typical of such fruits, very sour and sweet.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :118311
+    (118311, 'A valuable fruit that can be seen in different colours depending on the light. Many people like them not only for their appearance, but also for their taste, which varies from unripe to fully ripe. On the other hand, it is difficult for cooks to find the flavour they are looking for.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :118382
+    (118382, 'A variety of wild herbs that have been believed to be beneficial for physical improvement since ancient times. As a vegetable eaten as an extension of folk medicine, it has no fast-acting effect and even its efficacy is questionable. It tastes extremely bitter, but there are rare people who find it irresistible.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :118447
+    (118447, 'A red fruit with a small shape. It is sour and gives a pleasant kick, but when heated, it loses its acidity and instead a wrapping, leisurely sweetness dances on your tongue.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :118510
+    (118510, 'Nuts that is found in all regions of North Tyris. It produces a sweet taste with a slight astringency, but when dried, the sweet taste increases, and the astringency transforms into a slight sour taste. It has a very high shelf life and many adventurers carry it with them.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :118581
+    (118581, 'Vegetable whose underground part of the stem is eaten. Although slightly smaller than sweet potatoes, these do not become sweeter when heated and are regarded as an everyday staple food. It is a versatile vegetable that can be used in all kinds of cooking methods except when eaten raw.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :118716
+    (118716, 'It is vegetable that looks like a bunch of leaves. Some of them can be slightly bitter when eaten raw, but they are most popularly used in salads and other dishes. It can also be cooked, but this method seems to be less popular.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :118787
+    (118787, "Vegetable with enlarged edible roots. It tastes terrible when eaten wrong, and was said by a powerful man to be 'only a Yeek will eat it raw'. However, it is also suitable for other cooking, and some species are so sweet when steamed that they can be mistaken for expensive pastries.\\n#~Everchanging Food of Tyris~"):
+        "",
+
+    # ---------------------------------------------------------- :118860
+    (118860, 'Vegetable with a characteristic white colour. They are so rich in water that they overflow even when cut. It is often used in food fights by the childrens of Noyel.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :118933
+    (118933, 'Vegetable with a red, horn-like shape. It is characterised by a subtle sweetness when cooked. It is a versatile vegetable, both raw and cooked, but some people do not like the sweetness when cooked, so be careful when serving it to others.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :118998
+    (118998, 'A fruit with a peach-coloured flesh that is said to have been introduced from the tropics. The taste is very sweet and sour and appetising, but the smell is peculiar, so it is said to be eater-picky.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :119063
+    (119063, 'Fruit with small, pretty berries, also known as red jewels. The fruits range from sweet to sour, but those from the suburbs of Yowyn are said to be of the best quality, small but very sweet.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :119128
+    (119128, 'A refreshingly sour fruit from the land of everlasting summer. The flesh is bright green in contrast to the outer skin, which is reminiscent of animal hair, and attracts the interest of those who see it. Its soft flesh is suitable for eating raw.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :119193
+    (119193, 'Dark blue fruit grown in a cluster like berries. Once eaten, its distinctive sweet flavour fills the mouth and you are instantly captivated by the fruit. It is sometimes used to make wine.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :119258
+    (119258, 'Fruit with a fresh red colour. Since ancient times, it has been called the source of wisdom and the fruit of good fortune, and has a long history with us. However, for some reason, apple pie cannot be made from apples.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :119331
+    (119331, 'A type of vegetable known as wild herbs that grows in the wild. Its simple taste is a tremendous luxury for nature lovers.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :119396
+    (119396, 'A plant which is said to have been used in medicine since ancient times, is believed to have a bowel-regulating effect, but no firm conclusions have been reached. Aloe in North Tyris has a slightly sweet taste and is therefore treated in the same way as the fruit.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :119461
+    (119461, 'An unusual tropical plant whose leaves are eaten by wriggling them. The tactile sensation when you bite into it, its moderate moisture and good acidity will surely give you a new experience.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+# 30 voci, 0 ambigue
+

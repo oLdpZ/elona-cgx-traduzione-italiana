@@ -1,0 +1,467 @@
+=== ITEM_ID_BOMB_FISH   [FILTER_ITEM_FOOD]
+    NOME      jp はじけ魚
+              en bomb fish
+              IT pesce bomba
+    --- description(0)  :113749
+        JP  \t\tノースティリスで最もポピュラーとされる魚の一種。小骨が多いが割合さっぱりした味で、どんな料理にも合うようだ。近種に、絶命時はじけるものも存在すると言われている。\n#～移り変わりゆくティリスの食～\n
+        EN  The most popular type of fish in North Tyris. It has many small bones, but has a relatively light flavour and seems to go well with any dish. Some of its relatives are said to burst into flames at the end of their lives.\n#~Everchanging Food of Tyris~
+    --- description(2)  :113751
+        JP  
+        EN  A type of seafood that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un cibo di mare che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :113752 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is seafood that can be cooked and eaten.
+        IT  Un cibo di mare che si può cucinare e mangiare.
+
+=== ITEM_ID_SACK_FLOUR   [FILTER_ITEM_FOOD]
+    NOME      jp 小麦粉 小麦粉
+              en flour sack
+              IT farina sacco
+    --- description(0)  :113812
+        JP  \t\t小麦を挽いた粉。加工することによって様々なパンが作られる。稀にそのまま食する奇特な人物もいるが、何か故あってのことだろうから、そっとしておいてあげよう。\n#～移り変わりゆくティリスの食～\n
+        EN  Grounded wheat flour that can be made into various type of bread after processing. Taste a lot better when cooked, but some prefer to ate it raw.\n#~Everchanging Food of Tyris~
+    --- description(2)  :113814
+        JP  
+        EN  Food that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+    --- description(3)  :113815 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is flour used for baking.
+        IT  Un cibo che sazia e che si può cucinare.
+
+=== ITEM_ID_RAW_NOODLE   [FILTER_ITEM_FOOD]
+    NOME      jp 生麺
+              en raw noodle
+              IT pasta fresca
+    --- description(0)  :113877
+        JP  \t\tあらゆる麺に対応することのできる麺の祖たる物質。非常に傷みやすいことでも有名。稀にこのまま食する者もいるが、曰く「独特の優しくやや甘い味が忘れられない」そうだ。\n#～移り変わりゆくティリスの食～\n
+        EN  Raw material that is said to be the ancestor of all noodles. Taste a lot better when cooked, but some prefer to ate it raw.\n#~Everchanging Food of Tyris~
+    --- description(2)  :113879
+        JP  
+        EN  Food that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+    --- description(3)  :113880 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that would taste better cooked.
+        IT  Un cibo che sazia e che si può cucinare.
+
+=== ITEM_ID_STICK_BREAD   [FILTER_ITEM_FOOD]
+    NOME      jp スティックパン
+              en stick bread
+              IT filoncino
+    --- description(0)  :113940
+        JP  \t\t細い棒状をしたやや小振りのパン。通常のパンより小さいのでそこまで腹は満たせないだろうが、小腹がすいた時等にそっと齧る分にはこれでも十分そうだ。\n#～移り変わりゆくティリスの食～\n
+        EN  A rather small loaf of bread in the shape of a thin stick. Smaller than regular bread, it is unlikely to fill one's stomach, but it seems to be enough for a quick bite when one is feeling hungry. \n#~Everchanging Food of Tyris~
+    --- description(3)  :113943 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia e che si può cucinare.
+
+=== ITEM_ID_RATION   [FILTER_ITEM_FOOD]
+    NOME      jp 兵糧
+              en ration
+              IT razione
+    --- description(0)  :115652
+        JP  \t\t古来兵士が戦場に赴く際、常に携帯していたと言われている食糧。携帯食故保存性が極めて高く、全く腐らないという特性を持つが、それに比例してか味の方は絶望的な出来栄えである。\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  This food is said to have been carried by soldiers in ancient times when they went to battlefields, because it is portable, an has an extremely high shelf life which does not spoil at all. \n# ~an Adventurer is You! Guide for Travels~
+    --- description(3)  :115655 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that restores satiety, it cannot be cooked.
+        IT  Un cibo che sazia e che si può cucinare.
+
+=== ITEM_ID_CORPSE   [FILTER_ITEM_FOOD]
+    NOME      jp 死体
+              en corpse
+              IT cadavere
+    --- description(0)  :117599
+        JP  \t\tそのまま口に入れるのは憚られる生物のあるがままの姿。ここからどう調理していくかが、調理人の腕の見せ所だろう。\n#～移り変わりゆくティリスの食～\n
+        EN  The creature is in its natural state, and it is not suitable to be eaten raw as it is. How to cook them from this point on is where the skill of the chef really comes into play.\n#~Everchanging Food of Tyris~
+    --- description(3)  :117602 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that restores satiety, it can be cooked into meat dishes.
+        IT  Un cibo che sazia e che si può cucinare.
+
+=== ITEM_ID_LECCHO   [FILTER_ITEM_FOOD]
+    NOME      jp レッチョ
+              en leccho
+              IT leccho
+    --- description(0)  :117832
+        JP  \t\tレタスに非常によく似た野菜。やや葉に歯ごたえがあり、生よりも火を通す料理に向いている。その点を逆手にとり、焼いた肉をこの葉に巻いて食べるスタイルも近年確立されている。\n#～移り変わりゆくティリスの食～\n
+        EN  Vegetable very similar to lettuce. The leaves are slightly crunchy and are more suited to cooked dishes than raw. In recent years, a style of eating grilled meat wrapped in these leaves has been established that takes advantage of this point.\n#~Everchanging Food of Tyris~
+    --- description(2)  :117834
+        JP  
+        EN  A type of vegetable that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Una verdura che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :117835 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is vegetable that can be cooked and eaten.
+        IT  Una verdura che si può cucinare e mangiare.
+
+=== ITEM_ID_MELON   [FILTER_ITEM_FOOD]
+    NOME      jp ウリ
+              en melon
+              IT melone
+    --- description(0)  :117905
+        JP  \t\t水分を多く含む楕円状の野菜。水分や触感を楽しむ生食もいいが、煮こんだ際の程良い口どけは忘れ難いものがある。\n#～移り変わりゆくティリスの食～\n
+        EN  Oval-shaped vegetable with a high water content. It can be eaten raw to enjoy its water content and tactile qualities, but when stewed, its smooth mouthfeel is unforgettable.\n#~Everchanging Food of Tyris~
+    --- description(2)  :117907
+        JP  
+        EN  A type of vegetable that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Una verdura che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :117908 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is vegetable that can be cooked and eaten.
+        IT  Una verdura che si può cucinare e mangiare.
+
+=== ITEM_ID_SQUASH   [FILTER_ITEM_FOOD]
+    NOME      jp カボチャ
+              en squash
+              IT zucca
+    --- description(0)  :117978
+        JP  \t\t非常に硬い皮を持ったウリの仲間。その特徴から生食には向かず、火を通すのが一般的といわれている。またパンプキンなるモンスターと関連があるとしきりに主張する輩がいるが、世間には認められていないようだ。\n#～移り変わりゆくティリスの食～\n
+        EN  A member of the cucumber family with very hard skin. Because of its characteristics, it is not suitable for eating raw and is usually cooked. There are also those who insist that it is related to the pumpkin monster, but this does not seem to be recognised by the public.\n#~Everchanging Food of Tyris~
+    --- description(2)  :117980
+        JP  
+        EN  A type of vegetable that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Una verdura che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :117981 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is vegetable that can be cooked and eaten.
+        IT  Una verdura che si può cucinare e mangiare.
+
+=== ITEM_ID_GREEN_PEA   [FILTER_ITEM_FOOD]
+    NOME      jp グリーンピース
+              en green pea
+              IT pisello
+    --- description(0)  :118051
+        JP  \t\t小さな粒状の野菜。可食の種である為栄養価は抜群。主にスープ等に用いられることが多く、その鮮やかな緑色は非常に食欲をそそる。\n#～移り変わりゆくティリスの食～\n
+        EN  Small, granular vegetable. As an edible seed, it is highly nutritious. It is mainly used in soups, etc., and its bright green colour is very appetising.\n#~Everchanging Food of Tyris~
+    --- description(2)  :118053
+        JP  
+        EN  A type of vegetable that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Una verdura che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :118054 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is vegetable that can be cooked and eaten.
+        IT  Una verdura che si può cucinare e mangiare.
+
+=== ITEM_ID_LEMON   [FILTER_ITEM_FOOD]
+    NOME      jp レモン
+              en lemon
+              IT limone
+    --- description(0)  :118116
+        JP  \t\t刺激的な味を秘めた紡錘形の果実。その味は筆舌に尽くし難い程酸っぱく、大凡の果実のように食後の口直しとして直接食べることは止めておいた方がよいだろう。\n#～移り変わりゆくティリスの食～\n
+        EN  A spindle-shaped fruit with a pungent taste. Its taste is indescribably sour and, like most fruits, should not be eaten directly as an after-dinner palate cleanser.\n#~Everchanging Food of Tyris~
+    --- description(2)  :118118
+        JP  
+        EN  A type of fruit that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un frutto che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :118119 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is fruit that can be cooked and eaten.
+        IT  Un frutto che si può cucinare e mangiare.
+
+=== ITEM_ID_TANGERINE   [FILTER_ITEM_FOOD]
+    NOME      jp 夏ミカン
+              en tangerine
+              IT mandarino
+    --- description(0)  :118181
+        JP  \t\t非常に瑞々しい果肉を含んだ果物。その水分は、喉の渇きを癒すに十分すぎる程であり、当然ながらそれに沿った調理法が好ましいと言えよう。\n#～移り変わりゆくティリスの食～\n
+        EN  Fruit with fresh and rich texture. Its moisture content is more than sufficient to quench thirst, and naturally it is preferable to prepare it accordingly.\n#~Everchanging Food of Tyris~
+    --- description(2)  :118183
+        JP  
+        EN  A type of fruit that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un frutto che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :118184 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is fruit that can be cooked and eaten.
+        IT  Un frutto che si può cucinare e mangiare.
+
+=== ITEM_ID_QUCCHE   [FILTER_ITEM_FOOD]
+    NOME      jp クッチェ
+              en qucche
+              IT qucche
+    --- description(0)  :118246
+        JP  \t\t日の沈まぬ国からやってきたとされる小ぶりな果物。まるで小さな太陽と見紛う程の鮮やかな橙色は果肉も同様で、味はそう言った類の果実の例に漏れなく、非常に酸味の利いた甘さをしている。\n#～移り変わりゆくティリスの食～\n
+        EN  This small fruit is said to come from the land where the sun never sets. The bright orange colour of the fruit is so bright that it could be mistaken for a small sun, as is the flesh, and the taste is, as is typical of such fruits, very sour and sweet.\n#~Everchanging Food of Tyris~
+    --- description(2)  :118248
+        JP  
+        EN  A type of fruit that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un frutto che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :118249 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is fruit that can be cooked and eaten.
+        IT  Un frutto che si può cucinare e mangiare.
+
+=== ITEM_ID_RAINBOW_FRUIT   [FILTER_ITEM_FOOD]
+    NOME      jp 万色フルーツ
+              en rainbow fruit
+              IT frutto arcobaleno
+    --- description(0)  :118311
+        JP  \t\t光の加減で様々な色に見えるという貴重な果物。外見だけでなく、味の方も未熟から完熟にかけ様々な味に移りゆく為、好む者も多い。半面、調理側は求める味を探すのが困難という問題も抱えている。\n#～移り変わりゆくティリスの食～\n
+        EN  A valuable fruit that can be seen in different colours depending on the light. Many people like them not only for their appearance, but also for their taste, which varies from unripe to fully ripe. On the other hand, it is difficult for cooks to find the flavour they are looking for.\n#~Everchanging Food of Tyris~
+    --- description(2)  :118313
+        JP  
+        EN  A type of fruit that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un frutto che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :118314 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is fruit that can be cooked and eaten.
+        IT  Un frutto che si può cucinare e mangiare.
+
+=== ITEM_ID_HEALTHY_LEAF   [FILTER_ITEM_FOOD]
+    NOME      jp 薬草
+              en healthy leaf
+              IT foglia salutare
+    --- description(0)  :118382
+        JP  \t\t古来、肉体向上に利くとされた様々な野草の中の一種。民間療法の延長上で食される野菜の為、速効性など無く寧ろ効能さえ怪しい。味は滅法苦いが、稀にそれがたまらないという珍しい者もいる。\n#～移り変わりゆくティリスの食～\n
+        EN  A variety of wild herbs that have been believed to be beneficial for physical improvement since ancient times. As a vegetable eaten as an extension of folk medicine, it has no fast-acting effect and even its efficacy is questionable. It tastes extremely bitter, but there are rare people who find it irresistible.\n#~Everchanging Food of Tyris~
+    --- description(2)  :118384
+        JP  
+        EN  A type of vegetable that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Una verdura che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :118385 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is vegetable that can be cooked and eaten.
+        IT  Una verdura che si può cucinare e mangiare.
+
+=== ITEM_ID_STRAWBERRY   [FILTER_ITEM_FOOD]
+    NOME      jp 苺
+              en strawberry
+              IT fragola
+    --- description(0)  :118447
+        JP  \t\t小さな形状をした赤き果物。果肉は酸味があり、疲れた肉体に心地よい刺激を与えてくれるが、熱を加えると酸味が失せ、代わりに、身を包む程のゆったりとした甘味があなたの舌の上で踊ることだろう。\n#～移り変わりゆくティリスの食～\n
+        EN  A red fruit with a small shape. It is sour and gives a pleasant kick, but when heated, it loses its acidity and instead a wrapping, leisurely sweetness dances on your tongue.\n#~Everchanging Food of Tyris~
+    --- description(2)  :118449
+        JP  
+        EN  A type of fruit that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un frutto che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :118450 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is fruit that can be cooked and eaten.
+        IT  Un frutto che si può cucinare e mangiare.
+
+=== ITEM_ID_API_NUT   [FILTER_ITEM_FOOD]
+    NOME      jp アピの実
+              en api nut
+              IT noce di Api
+    --- description(0)  :118510
+        JP  \t\tノースティリス全域に生育する果実樹が落とす果実。微かに渋みを伴った甘味を生ずるが、干すと渋みが抜ける代わりに甘味が増し、更に若干の酸味が伴うという。保存性が非常に高く、携行する冒険者も少なくない。\n#～移り変わりゆくティリスの食～\n
+        EN  Nuts that is found in all regions of North Tyris. It produces a sweet taste with a slight astringency, but when dried, the sweet taste increases, and the astringency transforms into a slight sour taste. It has a very high shelf life and many adventurers carry it with them.\n#~Everchanging Food of Tyris~
+    --- description(2)  :118512
+        JP  
+        EN  A type of nut that restores satiety, it's used to make candies.\n#~Identification Report: <Food> Category~
+        IT  Un frutto a guscio che sazia, e con cui si fanno dolciumi.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :118513 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  These are nuts that can be cooked and eaten.
+        IT  Frutti a guscio che si possono cucinare e mangiare.
+
+=== ITEM_ID_IMO   [FILTER_ITEM_FOOD]
+    NOME      jp イーモ
+              en imo
+              IT imo
+    --- description(0)  :118581
+        JP  \t\t茎の地下部分を食する野菜。さつまいもよりやや小ぶりだが、こちらは熱しても甘くならず、専ら日常の主食と扱われる。生食以外ならばありとあらゆる料理法に対応した万能な野菜だ。\n#～移り変わりゆくティリスの食～\n
+        EN  Vegetable whose underground part of the stem is eaten. Although slightly smaller than sweet potatoes, these do not become sweeter when heated and are regarded as an everyday staple food. It is a versatile vegetable that can be used in all kinds of cooking methods except when eaten raw.\n#~Everchanging Food of Tyris~
+    --- description(2)  :118583
+        JP  
+        EN  A type of vegetable that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Una verdura che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :118584 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is vegetable that can be cooked and eaten.
+        IT  Una verdura che si può cucinare e mangiare.
+
+=== ITEM_ID_LETTUCE   [FILTER_ITEM_FOOD]
+    NOME      jp レタス
+              en lettuce
+              IT lattuga
+    --- description(0)  :118716
+        JP  \t\tまるで束ねた葉っぱの様な野菜。生食はやや苦みを生じるものもあるが、専らサラダなどに用いられるのがポピュラーな使われ方。火を通す調理法もあるがそちらはあまり浸透していないようだ。\n#～移り変わりゆくティリスの食～\n
+        EN  It is vegetable that looks like a bunch of leaves. Some of them can be slightly bitter when eaten raw, but they are most popularly used in salads and other dishes. It can also be cooked, but this method seems to be less popular.\n#~Everchanging Food of Tyris~
+    --- description(2)  :118718
+        JP  
+        EN  A type of vegetable that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Una verdura che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :118719 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is vegetable that can be cooked and eaten.
+        IT  Una verdura che si può cucinare e mangiare.
+
+=== ITEM_ID_SWEET_POTATO   [FILTER_ITEM_FOOD]
+    NOME      jp さつまいも
+              en sweet potato
+              IT patata dolce
+    --- description(0)  :118787
+        JP  \t\t肥大した根の部分を食する野菜。カボチより更に生食に向かず「生で食べるはイークのみ」と時の権力者に言わしめたほど。されどそれ以外の調理には良く合い、蒸した際は高級な菓子と紛う程の甘さを生じる種もある。\n#～移り変わりゆくティリスの食～\n
+        EN  Vegetable with enlarged edible roots. It tastes terrible when eaten wrong, and was said by a powerful man to be 'only a Yeek will eat it raw'. However, it is also suitable for other cooking, and some species are so sweet when steamed that they can be mistaken for expensive pastries.\n#~Everchanging Food of Tyris~
+    --- description(2)  :118789
+        JP  
+        EN  A type of vegetable that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Una verdura che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :118790 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is vegetable that can be cooked and eaten.
+        IT  Una verdura che si può cucinare e mangiare.
+
+=== ITEM_ID_RADISH   [FILTER_ITEM_FOOD]
+    NOME      jp 大根
+              en radish
+              IT ravanello
+    --- description(0)  :118860
+        JP  \t\t白さが特徴の野菜。切っただけでも溢れるほど水分が豊富。子供の頃にこれらの野菜を使ってチャンバラごっこをやって二人仲良く怒られた者も少なくないだろう。\n#～移り変わりゆくティリスの食～\n
+        EN  Vegetable with a characteristic white colour. They are so rich in water that they overflow even when cut. It is often used in food fights by the childrens of Noyel.\n#~Everchanging Food of Tyris~
+    --- description(2)  :118862
+        JP  
+        EN  A type of vegetable that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Una verdura che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :118863 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is vegetable that can be cooked and eaten.
+        IT  Una verdura che si può cucinare e mangiare.
+
+=== ITEM_ID_CARROT   [FILTER_ITEM_FOOD]
+    NOME      jp キャロット
+              en carrot
+              IT carota
+    --- description(0)  :118933
+        JP  \t\t赤い角の様な形状の野菜。加熱すると仄かな甘みが出るのが特徴。生、加熱と万能な野菜だが、加熱の際の甘みが逆に苦手な者もいる為、人に出す時は注意しよう。\n#～移り変わりゆくティリスの食～\n
+        EN  Vegetable with a red, horn-like shape. It is characterised by a subtle sweetness when cooked. It is a versatile vegetable, both raw and cooked, but some people do not like the sweetness when cooked, so be careful when serving it to others.\n#~Everchanging Food of Tyris~
+    --- description(2)  :118935
+        JP  
+        EN  A type of vegetable that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Una verdura che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :118936 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is vegetable that can be cooked and eaten.
+        IT  Una verdura che si può cucinare e mangiare.
+
+=== ITEM_ID_GUAVA   [FILTER_ITEM_FOOD]
+    NOME      jp グアバ
+              en guava
+              IT guava
+    --- description(0)  :118998
+        JP  \t\t南国から伝わったとされる桃色の果肉が目に鮮やかな果物。非常に甘酸っぱく食欲を誘う味だが、匂いが独特である為好む者を選ぶという。\n#～移り変わりゆくティリスの食～\n
+        EN  A fruit with a peach-coloured flesh that is said to have been introduced from the tropics. The taste is very sweet and sour and appetising, but the smell is peculiar, so it is said to be eater-picky.\n#~Everchanging Food of Tyris~
+    --- description(2)  :119000
+        JP  
+        EN  A type of fruit that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un frutto che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :119001 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is fruit that can be cooked and eaten.
+        IT  Un frutto che si può cucinare e mangiare.
+
+=== ITEM_ID_CHERRY   [FILTER_ITEM_FOOD]
+    NOME      jp さくらんぼ
+              en cherry
+              IT ciliegia
+    --- description(0)  :119063
+        JP  \t\t赤い宝石とも呼ばれる、小さく可愛らしい果実を携える果物。その実は甘いものから酸っぱいものまで様々だが、中でもヨウィン近郊のものは、小ぶりながら非常に甘い一級品と言われている。\n#～移り変わりゆくティリスの食～\n
+        EN  Fruit with small, pretty berries, also known as red jewels. The fruits range from sweet to sour, but those from the suburbs of Yowyn are said to be of the best quality, small but very sweet.\n#~Everchanging Food of Tyris~
+    --- description(2)  :119065
+        JP  
+        EN  A type of fruit that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un frutto che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :119066 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is fruit that can be cooked and eaten.
+        IT  Un frutto che si può cucinare e mangiare.
+
+=== ITEM_ID_KIWI   [FILTER_ITEM_FOOD]
+    NOME      jp キウイ
+              en kiwi
+              IT kiwi
+    --- description(0)  :119128
+        JP  \t\t常夏の国からやってきたさわやかな酸味を感じさせる果物。動物の毛を思われる外皮に対し果肉は鮮やかな緑色をしており、見る者の興味を誘う。身が柔らかいので生食に適しているだろう。\n#～移り変わりゆくティリスの食～\n
+        EN  A refreshingly sour fruit from the land of everlasting summer. The flesh is bright green in contrast to the outer skin, which is reminiscent of animal hair, and attracts the interest of those who see it. Its soft flesh is suitable for eating raw.\n#~Everchanging Food of Tyris~
+    --- description(2)  :119130
+        JP  
+        EN  A type of fruit that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un frutto che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :119131 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is fruit that can be cooked and eaten.
+        IT  Un frutto che si può cucinare e mangiare.
+
+=== ITEM_ID_GRAPE   [FILTER_ITEM_FOOD]
+    NOME      jp ブドウ
+              en grape
+              IT grappolo d'uva
+    --- description(0)  :119193
+        JP  \t\t連なった実をつける紺色の果物。一粒は子供の口に入るほど小さいが、一度食べれば特有の甘みを含んだ香りが口の中一杯に広がり、忽ちこの果実の虜となるであろう。酒を造る際にも使われることがあるらしい。\n#～移り変わりゆくティリスの食～\n
+        EN  Dark blue fruit grown in a cluster like berries. Once eaten, its distinctive sweet flavour fills the mouth and you are instantly captivated by the fruit. It is sometimes used to make wine.\n#~Everchanging Food of Tyris~
+    --- description(2)  :119195
+        JP  
+        EN  A type of fruit that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un frutto che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :119196 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is fruit that can be cooked and eaten.
+        IT  Un frutto che si può cucinare e mangiare.
+
+=== ITEM_ID_APPLE   [FILTER_ITEM_FOOD]
+    NOME      jp リンゴ
+              en apple
+              IT mela
+    --- description(0)  :119258
+        JP  \t\t瑞々しい赤い色をした果物。古来より知恵の源や、幸運の結晶等と言われるほど我々との歴史は深く、伴って様々な調理方法が生まれいる。しかしながら、どういう訳かリンゴからアップルパイだけは作れないのだ。\n#～移り変わりゆくティリスの食～\n
+        EN  Fruit with a fresh red colour. Since ancient times, it has been called the source of wisdom and the fruit of good fortune, and has a long history with us. However, for some reason, apple pie cannot be made from apples.\n#~Everchanging Food of Tyris~
+    --- description(2)  :119260
+        JP  
+        EN  A type of fruit that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un frutto che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :119261 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is fruit that can be cooked and eaten.
+        IT  Un frutto che si può cucinare e mangiare.
+
+=== ITEM_ID_EDIBLE_WILD_PLANT   [FILTER_ITEM_FOOD]
+    NOME      jp 山菜
+              en edible wild plant
+              IT erba selvatica commestibile
+    --- description(0)  :119331
+        JP  \t\t野に生えている野草と呼ばれる野菜の一種。その素朴な味は自然を愛する者にとって、とてつもない贅沢な味と言えるだろう。\n#～移り変わりゆくティリスの食～\n
+        EN  A type of vegetable known as wild herbs that grows in the wild. Its simple taste is a tremendous luxury for nature lovers.\n#~Everchanging Food of Tyris~
+    --- description(2)  :119333
+        JP  
+        EN  A type of vegetable that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Una verdura che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :119334 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is vegetable that can be cooked and eaten.
+        IT  Una verdura che si può cucinare e mangiare.
+
+=== ITEM_ID_ALOE   [FILTER_ITEM_FOOD]
+    NOME      jp アロエ
+              en aloe
+              IT aloe
+    --- description(0)  :119396
+        JP  \t\t瑞々しい葉をもつ植物。古来医療にも用いられたとされる果肉には整腸作用があるとされるが、確たる結論には至っていない。ノースティリスでは果肉に若干の甘みを含む為、果実と同様に扱っている。\n#～移り変わりゆくティリスの食～\n
+        EN  A plant which is said to have been used in medicine since ancient times, is believed to have a bowel-regulating effect, but no firm conclusions have been reached. Aloe in North Tyris has a slightly sweet taste and is therefore treated in the same way as the fruit.\n#~Everchanging Food of Tyris~
+    --- description(2)  :119398
+        JP  
+        EN  A type of fruit that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un frutto che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :119399 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is fruit that can be cooked and eaten.
+        IT  Un frutto che si può cucinare e mangiare.
+
+=== ITEM_ID_QUWAPANA   [FILTER_ITEM_FOOD]
+    NOME      jp クワパナ
+              en quwapana
+              IT quwapana
+    --- description(0)  :119461
+        JP  \t\t葉っぱそのものをもいで食べるという、世にも珍しい南国の植物。齧った時の触感や適度な水分と程よい酸味は、あなたにきっと初めての経験を与えてくれるだろう。\n#～移り変わりゆくティリスの食～\n
+        EN  An unusual tropical plant whose leaves are eaten by wriggling them. The tactile sensation when you bite into it, its moderate moisture and good acidity will surely give you a new experience.\n#~Everchanging Food of Tyris~
+    --- description(2)  :119463
+        JP  
+        EN  A type of fruit that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+        IT  Un frutto che sazia, e che entra in molte ricette.\n#~Rapporto di Identificazione: categoria <Cibo>~
+    --- description(3)  :119464 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is fruit that can be cooked and eaten.
+        IT  Un frutto che si può cucinare e mangiare.
+
+== 30 oggetti, 87 descrizioni

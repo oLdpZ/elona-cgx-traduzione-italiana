@@ -1,0 +1,95 @@
+:113749
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:113812
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:113814
+   en  #~Identification Report: <Food> Category~
+   IT  #~Rapporto di Identificazione: categoria <Cibo>~
+:113877
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:113940
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:115652
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:117599
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:117832
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:117905
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:117978
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:118051
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:118116
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:118181
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:118246
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:118311
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:118382
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:118447
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:118510
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:118581
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:118716
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:118787
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:118860
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:118933
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:118998
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:119063
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:119128
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:119193
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:119258
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:119331
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:119396
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:119461
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+
+righe senza resa in tabella: 0   (atteso 0)
