@@ -110,6 +110,12 @@ ricostruire — e' guardare se c'e' gia' tutto, con
 `ls C:\Games\Elona\_traduzione\`, e controllare che
 `elonaplus2.31\cgx-test.exe` sia quello delle **23:38 del 31/08**. Se la data e'
 quella, la build contiene tutte e 59 le rese della 117a e non va rifatta.
+⚠️ La 117a e' stata chiusa dicendo **«riprendo in un altro terminale»**, come la
+116a: la macchina e' la stessa, ma la sessione nuova non ha in memoria niente di
+questa. Tutto quel che serve sta qui. ⓘ La chiusura e' avvenuta **dopo la
+mezzanotte**, il 2026-09-01: la voce di `log.md` porta la data del **31/08**,
+che e' quella del lavoro, e l'eseguibile porta l'ora del 31/08. Chi apre non
+cerchi una voce del primo settembre che non c'e'.
 ⓘ I sei file dati non cambiano dalla 108a: `cmp -s` prima di `cp`, e non serve
 copiarli. Verificato anche a fine 117a: sei su sei identici.
 
