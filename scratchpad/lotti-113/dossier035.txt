@@ -1,0 +1,462 @@
+=== ITEM_ID_ATOMIC_LAUNCHER   [FILTER_ITEM_TOOL]
+    NOME      jp アトミックランチャー
+              en atomic launcher
+              IT lanciamissili atomico
+    --- description(0)  :62020
+        JP  \t\t核ロケット弾を発射する兵器。前線での使用・ピンポイントな対象の破壊を想定しており、射程距離と爆破範囲はかなり控えめ。しかし範囲当たりの威力はむしろ高められているので、巻き込まれないよう注意する必要がある。再装填できず砲身強度的にも使い捨て。重量的に個人携行は大変なので、普通は車両などに積む。\n#～君にも使える！発掘兵器～\n
+        EN  A weapon that fires nuclear rockets. Intended for front-line use and pinpoint target destruction, the range and blast radius are quite modest. However, the power per range is rather enhanced, so care must be taken not to get caught in the middle. It cannot be reloaded and is disposable in terms of barrel strength. Since it is too heavy to be carried individually, it is usually carried in a vehicle. \n# ~You Can Use it too! Excavated Weapons~
+    --- description(3)  :62023 ⚠️ TETTO SECCO 69
+        JP  \t\t戦術核兵器だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜特殊兵器＞カテゴリ～\n
+        EN  (Reusable) tactical nuclear weapon.
+        IT  Un'arma nucleare tattica. Si usa (usa e getta).
+
+=== ITEM_ID_M202_SPECIAL   [FILTER_ITEM_TOOL]
+    NOME      jp M202スペシャル
+              en M202 special
+              IT M202 special
+    --- description(0)  :62096
+        JP  \t\t４つの砲身から焼夷ロケット弾を一発ずつ発射する携行兵器。大幅に改良されており短距離での命中精度が高い。混合された特殊な燃焼剤は発熱が凄まじく、飛び散った飛沫を直接浴びると大火傷を引き起こす。一面を焼き払える火力を持つが、かさばるのでイェルスではほとんど使用されていない。その形状のせいでどっちから弾が出るのか、たまに間違えられることがある。\n#～君にも使える！発掘兵器～\n
+        EN  This is a portable weapon that fires incendiary rockets from four barrels, one at a time. It has been greatly improved and has high accuracy at short distances. The special combustion agent mixed with the rockets generates a tremendous amount of heat, and direct exposure to the flying droplets can cause severe burns. Although it has the firepower to burn an entire area, it is bulky and is rarely used in the Yerles military. Because of its shape, it is sometimes mistaken as to which side the shell comes out from. \n# ~You Can Use it too! Excavated Weapons~
+    --- description(2)  :62098
+        JP  \t\t「敵に向けて撃ってください」\n#～添えられた説明書～\n
+        EN  \"Aim towards the enemy!\" \n# ~attached manual~
+    --- description(3)  :62099 ⚠️ TETTO SECCO 69
+        JP  \t\t狙った対象の周囲を焼き尽くす兵器だ。何度か使用することができる。\n#～鑑定報告書：＜特殊兵器＞カテゴリ～\n
+        EN  (Reusable) tool that burns down the area around the target it's aimed at.
+        IT  Incendia tutto intorno al bersaglio. Si può usare più volte.
+
+=== ITEM_ID_PANZERFAUST_X   [FILTER_ITEM_TOOL]
+    NOME      jp パンツァーファウストＸ
+              en panzerfaust X
+              IT panzerfaust X
+    --- description(0)  :62172
+        JP  \t\t過去の文明で使われていたとされる対戦車ロケット砲。横風に強い特殊ロケット推進により、命中精度は高い。成型炸薬弾頭が装甲や金属製の鎧に穴を開けて爆風を流し込み、ダメージを与える。装弾数の割に重いのが難点。\n#～君にも使える！発掘兵器～\n
+        EN  An anti-tank rocket launcher believed to have been used by past civilizations. Its special rocket propulsion, which is resistant to crosswinds, provides high accuracy. Molded explosive warheads penetrate armor and metal armor to channel the blast and inflict damage. Its disadvantage is that it is heavy for the number of rounds it can carry. \n# ~You Can Use it too! Excavated Weapons~
+    --- description(3)  :62175 ⚠️ TETTO SECCO 69
+        JP  \t\t狙った対象のＰＶを一時的に下げる兵器だ。何度か使用することができる。\n#～鑑定報告書：＜特殊兵器＞カテゴリ～\n
+        EN  (Reusable) weapon that temporarily lowers the PV of a target.
+        IT  Abbassa per un po' il PV del bersaglio. Si usa più volte.
+
+=== ITEM_ID_PLEASANT_SLEEP_BLANKET   [FILTER_ITEM_TOOL]
+    NOME      jp 快眠ブランケット
+              en pleasant sleep blanket
+              IT coperta del sonno tranquillo
+    --- description(0)  :62234
+        JP  \t\t薄手ながらもフワフワの毛布。心地よい眠りを提供するが、朝起きるのがつらくなる。非常につらくなる。\n#～パルミア秋冬物コレクション～\n
+        EN  A thin but fluffy blanket. Provides a comfortable sleep, but makes it hard to get up in the morning. VERY hard. \n# ~Palmian Winter Fashion~
+    --- description(2)  :62236
+        JP  \t\t「そろそろ起きて朝ごはん作らなきゃ…それに昨夜作った手袋の仕上げも…。ダメ…眠い…もうちょっと…もうちょっとだけ寝よう」\n#～ブランケットにくるまった少女の言葉～\n
+        EN  \"I have to get up and make breakfast soon...and finish the gloves I made last night... No... I'm sleepy...I'll sleep a little longer...... just a little more.\" \n# ~words of a girl wrapped in a blanket~
+    --- description(3)  :62237 ⚠️ TETTO SECCO 69
+        JP  \t\t持たせた仲間が早起きできなくなるブランケットだ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a blanket that prevents allies from getting up early.
+        IT  Il compagno che la porta non riesce più ad alzarsi presto.
+
+=== ITEM_ID_FIRST_AID_KIT   [FILTER_ITEM_TOOL]
+    NOME      jp ファーストエイド
+              en first aid kit
+              IT kit di pronto soccorso
+    --- description(0)  :62600
+        JP  \t\t使い捨ての薬品や医療器具を収納した道具箱。使用者の器用さと生化学の知識に応じて傷を回復することができる。また、麻痺、盲目、毒、出血の症状を大幅に軽減する。\n#～家庭でできる応急処置～\n
+        EN  Toolbox containing disposable medicines and medical instruments. It can heal wounds according to the user's dexterity and knowledge of biochemistry. It also greatly reduces the symptoms of paralysis, blindness, poisoning, and bleeding. \n#~First aid at home~
+    --- description(3)  :62603 ⚠️ TETTO SECCO 69
+        JP  \t\t応急手当用の箱だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜入れ物＞カテゴリ～\n
+        EN  (Single-use) tool box of first aid supplies.
+        IT  Una scatola per il primo soccorso. Si usa (usa e getta).
+
+=== ITEM_ID_SPECIAL_AMMO_BOX   [FILTER_ITEM_TOOL]
+    NOME      jp 特殊矢弾箱
+              en special ammo box
+              IT cassa di munizioni speciali
+    --- description(0)  :62666
+        JP  \t\t矢弾の入った箱。時止弾以外の矢弾を最大まで補充できるのだが、結構重い。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A box of bullet and arrows. It can replenish arrow ammunition to the maximum except for time-stopping ammunition, but it is quite heavy. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :62669 ⚠️ TETTO SECCO 69
+        JP  \t\t使うことで特殊矢弾を補充できる箱だ（使い捨て）。\n#～鑑定報告書：＜入れ物＞カテゴリ～\n
+        EN  (Single-use) toolbox filled with specialized ammunitions.
+        IT  Una cassa che ricarica le munizioni speciali (usa e getta).
+
+=== ITEM_ID_NUCLEAR_DEAD_LION   [FILTER_ITEM_TOOL]
+    NOME      jp 爆発する原子力の死んだライオン
+              en NUCLEAR DEAD LION
+              IT LEONE MORTO NUCLEARE
+    non ident. IT leone morto   (en dead lion)
+    --- description(0)  :63521
+        JP  \t\t使用するとカウント後に核爆発を起こすライオン。ライオンは死んでいますが、原子爆弾として使えるので問題ありません。\n#～イルヴァ幻想辞典～\n
+        EN  When used, the lion causes a nuclear explosion after the count. Although the lion is dead, it does not matter because it can be used as an atomic bomb. \n# ~Irva Fantasy Encyclopedia~
+    --- description(2)  :63523
+        JP  \t\t「死んだライオンは、生きている犬に勝る」\n#～不思議なノートの走り書き～\n
+        EN  \"A dead lion beats a live dog.\" \n# ~scribbling in a mysterious notebook~
+    --- description(3)  :63524 ⚠️ TETTO SECCO 69
+        JP  \t\t一定時間後広範囲に壊滅的な破壊を加える爆弾だ（使い捨て）。\n#～鑑定報告書：＜爆弾＞カテゴリ～\n
+        EN  (Single-use) horrifying weapon of destruction from ancient times.
+        IT  Dopo un po' esplode e devasta un'area vasta (usa e getta).
+
+=== ITEM_ID_ALPHA_SHIFT_CORE   [FILTER_ITEM_TOOL]
+    NOME      jp アルファ変異殻
+              en alpha shift core
+              IT nucleo di transizione alfa
+    --- description(0)  :63937
+        JP  \t\t魔石が組み込まれた魔道具。使用者とリンクして、姿と能力を変化させる。姿の変化は使用者の状態に大きく左右され、服飾が部分的に変化するだけのこともあれば、肉体が全くの別物に変化することも。一時的に使用者の筋力や感覚を引き上げる力をもつ。一度使用するとしばらく使えなくなる。\n#～魔具全典～\n
+        EN  Magical tool with a special gemstone built into it. By linking with the user, it changes the user's appearance and abilities. The change in appearance is largely dependent on the state of the user. They have the power to temporarily increase the user's strength and perception. Once used, it becomes unusable for a while. \n# ~Arcane Almanac~
+    --- description(3)  :63940 ⚠️ TETTO SECCO 69
+        JP  \t\t別の姿と力を与える道具だ。ゲージ５０％以上の時に使用できる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool that transforms you. Can be used with 50% gauge.
+        IT  Dà un altro aspetto e altra forza. Si usa con la barra al 50%.
+
+=== ITEM_ID_BETA_SHIFT_CORE   [FILTER_ITEM_TOOL]
+    NOME      jp ベータ変異殻
+              en beta shift core
+              IT nucleo di transizione beta
+    --- description(0)  :64005
+        JP  \t\t魔石が組み込まれた魔道具。使用者とリンクして、姿と能力を変化させる。姿の変化は使用者の状態に大きく左右され、服飾が部分的に変化するだけのこともあれば、肉体が全くの別物に変化することも。一時的に使用者の魔力や器用さを引き上げる力を持つ。一度使用するとしばらく使えなくなる。\n#～魔具全典～\n
+        EN  Magical tool with a special gemstone built into it. By linking with the user, it changes the user's appearance and abilities. The change in appearance is largely dependent on the state of the user. They have the power to temporarily increase the user's magical power and dexterity. Once used, it becomes unusable for a while. \n# ~Arcane Almanac~
+    --- description(3)  :64008 ⚠️ TETTO SECCO 69
+        JP  \t\t別の姿と力を与える道具だ。ゲージ５０％以上の時に使用できる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool that transforms you. Can be used with 50% gauge.
+        IT  Dà un altro aspetto e altra forza. Si usa con la barra al 50%.
+
+=== ITEM_ID_GAMMA_SHIFT_CORE   [FILTER_ITEM_TOOL]
+    NOME      jp ガンマ変異殻
+              en gamma shift core
+              IT nucleo di transizione gamma
+    --- description(0)  :64073
+        JP  \t\t魔石が組み込まれた魔道具。使用者とリンクして、姿と能力を変化させる。姿の変化は使用者の状態に大きく左右され、服飾が部分的に変化するだけのこともあれば、肉体が全くの別物に変化することも。一時的に使用者を高速化、回避力を上げる力を持つ。一度使用するとしばらく使えなくなる。\n#～魔具全典～\n
+        EN  Magical tool with a special gemstone built into it. By linking with the user, it changes the user's appearance and abilities. The change in appearance is largely dependent on the state of the user. They have the power to temporarily increase the user's speed and agility. Once used, it becomes unusable for a while. \n# ~Arcane Almanac~
+    --- description(3)  :64076 ⚠️ TETTO SECCO 69
+        JP  \t\t別の姿と力を与える道具だ。ゲージ５０％以上の時に使用できる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool that transforms you. Can be used with 50% gauge.
+        IT  Dà un altro aspetto e altra forza. Si usa con la barra al 50%.
+
+=== ITEM_ID_DELTA_SHIFT_CORE   [FILTER_ITEM_TOOL]
+    NOME      jp デルタ変異殻
+              en delta shift core
+              IT nucleo di transizione delta
+    --- description(0)  :64141
+        JP  \t\t魔石が組み込まれた魔道具。使用者とリンクして、姿と能力を変化させる。姿の変化は使用者の状態に大きく左右され、服飾が部分的に変化するだけのこともあれば、肉体が全くの別物に変化することも。一時的に使用者の防御力や回復能力を引き上げる力を持つ。一度使用するとしばらく使えなくなる。\n#～魔具全典～\n
+        EN  Magical tool with a special gemstone built into it. By linking with the user, it changes the user's appearance and abilities. The change in appearance is largely dependent on the state of the user. They have the power to temporarily increase the user's defense and recovery capabilities. Once used, it becomes unusable for a while. \n# ~Arcane Almanac~
+    --- description(3)  :64144 ⚠️ TETTO SECCO 69
+        JP  \t\t別の姿と力を与える道具だ。ゲージ５０％以上の時に使用できる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool that transforms you. Can be used with 50% gauge.
+        IT  Dà un altro aspetto e altra forza. Si usa con la barra al 50%.
+
+=== ITEM_ID_OMEGA_SHIFT_CORE   [FILTER_ITEM_TOOL]
+    NOME      jp オメガ変異殻
+              en omega shift core
+              IT nucleo di transizione omega
+    --- description(0)  :64209
+        JP  \t\t魔石が組み込まれた魔道具。使用者とリンクして、姿と能力を変化させる。姿の変化は使用者の状態に大きく左右され、服飾が部分的に変化するだけのこともあれば、肉体が全くの別物に変化することも。一時的に使用者の能力を引き上げるが負荷が大きく、命を削る。一度使用するとしばらく使えなくなる。\n#～魔具全典～\n
+        EN  Magical tool with a special gemstone built into it. By linking with the user, it changes the user's appearance and abilities. The change in appearance is largely dependent on the state of the user. They have the power to temporarily increase the user's all abilities in exchange for life. Once used, it becomes unusable for a while. \n# ~Arcane Almanac~
+    --- description(3)  :64212 ⚠️ TETTO SECCO 69
+        JP  \t\t別の姿と力を与える道具だ。ゲージ５０％以上の時に使用できる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool that transforms you. Can be used with 50% gauge.
+        IT  Dà un altro aspetto e altra forza. Si usa con la barra al 50%.
+
+=== ITEM_ID_4D_MIRROR   [FILTER_ITEM_TOOL]
+    NOME      jp 四次元ミラー
+              en 4-Dimensional mirror
+              IT specchio quadridimensionale
+    --- description(0)  :64553
+        JP  \t\t充填された魔力によって四次元空間とつなげる鏡。使用回数に限りがあるが荷物の整理に便利。鏡に気に入られると鏡面から手が伸びてきて引きずり込まれるという都市伝説がある。実際、荷物整理中に袖を掴まれた少女が、その手の指を全部へし折って撃退したという報告もある。\n#～魔具全典～\n
+        EN  A mirror that connects to the fourth dimensional space by means of filled magic power. It can be used only a limited number of times, but it is useful for organizing luggage. There is an urban legend that if the mirror likes you, a hand will reach out from the mirror's surface and drag you in. In fact, there is a report of a girl who was grabbed by the sleeve while organizing her belongings and fought back by breaking all the fingers of her hand. \n# ~Arcane Almanac~
+    --- description(3)  :64556 ⚠️ TETTO SECCO 69
+        JP  \t\t四次元ポケットを発動する鏡。何度か使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that opens a pocket in another dimension to store item.
+        IT  Apre una tasca quadridimensionale. Si può usare più volte.
+
+=== ITEM_ID_LARGE_PICNIC_BASKET   [FILTER_ITEM_TOOL]
+    NOME      jp 大型ピクニックバスケット
+              en large picnic basket
+              IT cesto da picnic grande
+    --- description(0)  :64678
+        JP  \t\t料理がたっぷり詰め込まれた立派なバスケット。皆でお腹いっぱい食べられる。大勢でのピクニックに最適だが、料理を用意するのは大変だし量があるぶん重い。\n#～料理を支える脇役達～\n
+        EN  A fine basket filled to the brim with food. Everyone can eat to their heart's content. It is ideal for a picnic with many people, but it is difficult to prepare the food and heavy because of the quantity. \n# ~Supporting Roles in Kitchen~
+    --- description(3)  :64681 ⚠️ TETTO SECCO 69
+        JP  \t\t使うことで仲間全員で食事ができる（使い捨て）。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  (Single-use) tool box that allows all your friends to eat together.
+        IT  Usandolo, mangiano tutti i compagni (usa e getta).
+
+=== ITEM_ID_DD_CEMETERY_KEY   [FILTER_ITEM_TOOL]
+    NOME      jp 異界墓地の鍵
+              en DD cemetery key
+              IT chiave del cimitero DD
+    --- description(0)  :64741
+        JP  \t\t現世と冥界の狭間にあるという異界墓地の鍵。この鍵が作り出されて以降、棺だらけの不気味な世界へ迷い込んだという奇妙な話を耳にするようになった。干渉の影響で別の場所にも入口が開いてしまうのかもしれない。\n#～魔具全典～\n
+        EN  The key to the Cemetery of a Different Dimension, which is located between this world and the underworld. Since this key was produced, we have heard strange stories of people wandering into an eerie world full of coffins. It may be that the interference opens entrances to other places as well. \n# ~Arcane Almanac~
+    --- description(3)  :64744 ⚠️ TETTO SECCO 69
+        JP  \t\t闇の棺を１５個まで保管可能。何度でも使用することができる。\n#～鑑定報告書：＜鍵＞カテゴリ～\n
+        EN  (Reusable) tool that holds 15 coffins of necromancy.
+        IT  Contiene fino a 15 bare della negromanzia. Si può usare sempre.
+
+=== ITEM_ID_WONDER_BODY_FORMER   [FILTER_ITEM_TOOL]
+    NOME      jp 不思議な秘宝
+              en wonder body former
+              IT rimodellatore prodigioso
+    --- description(0)  :64807
+        JP  \t\t現在のテクノロジーでは解明できない謎の物質。腕なら腕、足なら足を思い浮かべれば、まるで最初からあったかのようにいつの間にかその部位が体にくっついているという。数少ない発見者たちは皆、気が付いたら足元に転がっていたとしか言わず、その出自は不明。発見者たちしかその力を使えず、使えば消えるというその特性から、研究は困難である。\n#～奇妙な噂話～\n
+        EN  A mysterious substance that cannot be understood with current technology. Think of an arm for an arm or a leg for a leg, and it is said that the part is attached to the body before you know it, as if it had been there from the beginning. The few people who have discovered it all say that it was lying around their feet when they came across it. Its origin is unknown. Only the discoverers can use its power, and its characteristic of disappearing after use makes it difficult to study. \n# ~Bizarre Gossip~
+    --- description(3)  :64810 ⚠️ TETTO SECCO 69
+        JP  \t\t好きな部位を得られるアイテムだ。使用することができる（使い捨て）。\n#～鑑定報告書：＜特殊＞カテゴリ～\n
+        EN  (Single-use) tool that grants a body part you want.
+        IT  Dà la parte del corpo che si vuole. Si usa (usa e getta).
+
+=== ITEM_ID_DUEL_GLOVE   [FILTER_ITEM_TOOL]
+    NOME      jp デュエルグローブ
+              en duel glove
+              IT guanto di sfida
+    --- description(0)  :65195
+        JP  \t\t決闘を申し込む際に用いられる手袋。決闘によって相手が傷つこうが死亡しようがカルマに影響しない。呪いのような力を持っており、手袋を投げつけた側は決着がつくまでそのマップから逃げることができなくなる。決闘に勝利した者は、相手の所持品をより多く奪えるだろう。\n#～熱き決闘者たち～\n
+        EN  A glove used to challenge someone to a duel. It possesses the power of a curse, and the person who throws the glove at the opponent will not be able to escape from the map until the duel is settled. The winner of the duel will take a larger amount of his or her opponent's possessions.\n# ~Heated Duelists~
+    --- description(2)  :65197
+        JP  \t\t「うそつき」\n#～呪われた者の言葉～\n
+        EN  \"Scut!\" \n# ~words of the victim to the curse~
+    --- description(3)  :65198 ⚠️ TETTO SECCO 69
+        JP  \t\t決闘用の手袋だ。相手に投げつけて使う（使い捨て）。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  (Single-use) throwing tool that initializes duel with your opponent.
+        IT  Un guanto da duello: si lancia all'avversario (usa e getta).
+
+=== ITEM_ID_INSIGHT_LENS   [FILTER_ITEM_TOOL]
+    NOME      jp インサイトレンズ
+              en insight lens
+              IT lente dell'intuito
+    --- description(0)  :65464
+        JP  \t\t「洞察」の名を持つ魔道具。目に当てた状態で対象を覗き込むと、レンズに対象の情報を一時的に焼き付けることができる。それなりに高価なうえ使い捨てなので情報屋が使うことはない。\n#～魔具全典～\n
+        EN  Magical tool with the name of [insight]. When you look into an object while holding it to your eyes, you can temporarily burn information about the object into the lenses. It is expensive and disposable, so it is not used by informants. \n# ~Arcane Almanac~
+    --- description(2)  :65466
+        JP  \t\t「そ、そんなもので人をジロジロ見るなんて失礼じゃないですか」\n#～慌てる市民の言葉～\n
+        EN  \"Well, isn't it rude to stare at people with something like that?\" \n# ~Worried Citizen~
+    --- description(3)  :65467 ⚠️ TETTO SECCO 69
+        JP  \t\t対象の情報を確認できるレンズ。使用することができる（使い捨て）。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Single-use) tool lenses that allow you to see information of the target.
+        IT  Una lente che mostra i dati del bersaglio. Si usa (usa e getta).
+
+=== ITEM_ID_NINE_GOD_SIGN   [FILTER_ITEM_TOOL]
+    NOME      jp 九神の印
+              en nine god sign
+              IT sigillo delle nove divinità
+    --- description(0)  :66075
+        JP  \t\t現イルヴァを統括する八柱の神々と謎のもう一柱の加護を受けたお守り。中心には目だか柱だかよくわからないマークが小さく描かれている。特に退魔の力はないが、身に着けていると神の改宗を迫る声に惑わされなくなるとか。\n#～魔具全典～\n
+        EN  Amulet is blessed by the eight gods and one other mysterious deity who oversees the current Irva. At the center of the amulet is a small symbol of an eye or a pillar, which is not clear. It has no particular power to repel demons, but it is said that wearing it will keep you from being deceived by the voice of the god who urges you to convert to a new religion. \n# ~Arcane Almanac~
+    --- description(3)  :66078 ⚠️ TETTO SECCO 69
+        JP  \t\t信仰を確認できる石だ。何度でも使用することができる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool stone that confirms your faith.
+        IT  Una pietra che dice la fede. Si può usare sempre.
+
+=== ITEM_ID_JUKE_BOX   [FILTER_ITEM_TOOL]
+    NOME      jp ジュークボックス
+              en Juke box
+              IT jukebox
+    --- description(0)  :67666
+        JP  \t\t多数の音楽ディスクを内蔵した機械。曲名とボタンがずらりと並んでおり、任意の曲を選んで流すことができる。カラフルな照明で美しく輝く。\n#～玲瓏たるイルヴァの調べ～\n
+        EN  Machine with many music discs built in. It has a row of song titles and buttons that allow you to select and play any song you wish. It shines beautifully with colorful lighting. \n# ~Music of the Melodious Irva~
+    --- description(3)  :67669 ⚠️ TETTO SECCO 69
+        JP  \t\t任意の曲を流せる機械だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that plays any music you want.
+        IT  Suona il brano che si vuole. Si può usare sempre.
+
+=== ITEM_ID_DRUG_KISERU   [FILTER_ITEM_TOOL]
+    NOME      jp 麻薬煙管
+              en drug kiseru
+              IT pipa da oppio
+    --- description(0)  :68587
+        JP  \t\tブラックマーケット等で取り扱われている非合法の喫煙具。使用した者は罰せられる。取引時は名目上、普通のキセルに偽装されているらしい。乾燥クラムベリーから作られた麻薬が内蔵されており、使うと気分が一瞬にして高揚する。副作用で鬱になることが知られているため、服従した相手でもない限り勧めても断られるだろう。\n#～特選！裏の嗜好品～\n
+        EN  Illegal smoking paraphernalia handled on the black market. Those who use it are punished. When traded, it is disguised as an ordinary pack of cigarettes. It contains a narcotic made from dried crimberries, and when used, it instantly elevates the smoker's mood. The side effect is known to be depression, so unless the recipient is a submissive, the drug is likely to be rejected. \n# ~Special Edition! Behind-the-scenes Favorites!~
+    --- description(3)  :68590 ⚠️ TETTO SECCO 69
+        JP  \t\t乾燥クラムベリーの煙を吸引するための器具。使用できる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool that used for inhaling dried crimberry smoke.
+        IT  Serve a fumare crimberry essiccate. Si usa (usa e getta).
+
+=== ITEM_ID_WAKE_UP_OF_NEFIA   [FILTER_ITEM_TOOL]
+    NOME      jp 覚醒の宝玉 覚醒の宝玉
+              en Wake up of nefia black gem stone
+              IT Risveglio di Nefia gemma nera
+    non ident. IT poteri divini   (en godly powers)
+    --- description(0)  :68717
+        JP  \t\tネフィアの核を活性化させ、真の力を目覚めさせる宝玉。その力はネフィア内部のモンスターにも作用し狂暴化を促す。\n#～イルヴァ幻想辞典～\n
+        EN  Treasure that activates the core of Nefia and awakens its true power. Its power also affects the monsters inside Nefia, causing them to go berserk. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :68720 ⚠️ TETTO SECCO 69
+        JP  \t\tワールドマップで使用することができる。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool used on the world map. May be used periodically.
+        IT  Funziona sulla mappa del mondo. Si può usare ogni tanto.
+
+=== ITEM_ID_SOUL_SPINDLE   [FILTER_ITEM_TOOL]
+    NOME      jp リンカネイト リンカネイト
+              en soul red spindle
+              IT reincarnazione fuso rosso
+    non ident. IT reincarnazione   (en reincarnation)
+    --- description(0)  :68783
+        JP  \t\t絆で結ばれた者たちの魂で紡がれる、運命の赤い糸。たとえ世界が何度変わり、時が何巡しようとも、無限の世界を越えた時の果てで二人を再び結びつけることだろう。\n#～アイオンの予言～\n
+        EN  A red thread of destiny, spun by the souls of those bound together with a bond. No matter how the world changes, no matter how time goes, it will bring them together again at the end of time, beyond the infinite worlds. \n# ~Aion's Prophecy~
+    --- description(3)  :68786 ⚠️ TETTO SECCO 69
+        JP  \t\tショウルーム用。使用することができる（使い捨て）。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Single-use) tool to use in a Showroom.
+        IT  Serve nella sala d'esposizione. Si usa (usa e getta).
+
+=== ITEM_ID_ORGANIC_FERTILIZER   [FILTER_ITEM_TOOL]
+    NOME      jp 有機肥料
+              en organic fertilizer
+              IT concime organico
+    --- description(0)  :69454
+        JP  \t\t植物に養分を与え、急速な成長と品質の向上をもたらすことができる。イルヴァの作物の多くは養分吸収速度が尋常でないため、即効性はあるが持続性はない。\n#～農業、その新たな可能性～\n
+        EN  It can provide nutrients to plants, resulting in rapid growth and improved quality. Because of the unusual rate of nutrient absorption in many of Irva's crops, the effect is immediate but not sustainable. \n# ~Agriculture and its New Possibilities~
+    --- description(3)  :69457 ⚠️ TETTO SECCO 69
+        JP  \t\t作物用の肥料。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool for crops.
+        IT  Concime per le colture. Si usa (usa e getta).
+
+=== ITEM_ID_HANDMADE_CHOCOLATE_KIT   [FILTER_ITEM_TOOL]
+    NOME      jp チョコレート手作りキット
+              en handmade chocolate kit
+              IT kit di cioccolatini fatti in casa
+    --- description(0)  :70333
+        JP  \t\t材料から器具まで一通りセットになった使い切りの器具。料理スキルが皆無だろうと簡単に手作りチョコが完成する。ふざけたりしない限り。\n#～料理を支える脇役達～\n
+        EN  A complete set of ingredients and utensils that can be used up. Even if you have no cooking skills, you can easily complete homemade chocolates. As long as you don't mess around too much. \n# ~Supporting Roles in Kitchen~
+    --- description(3)  :70336 ⚠️ TETTO SECCO 69
+        JP  \t\t限定的な調理器具。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) cooking tool set.
+        IT  Un attrezzo da cucina limitato. Si usa (usa e getta).
+
+=== ITEM_ID_COFFIN_OF_NECROMANCY   [FILTER_ITEM_TOOL]
+    NOME      jp 闇の棺
+              en coffin of necromancy
+              IT bara della negromanzia
+    --- description(0)  :70598
+        JP  \t\t魔力の結晶を核として、棺の中に培養した残骸で仮初の肉体を構築。完成した後は主に持ち運ぶための器として用いる。出てくるアンデッドの強さは術者の解剖学と錬金術の技術に依存する。\n#～ネクロマンサー入門～\n
+        EN  Using the magical crystals as the nucleus, a pseudo-body is constructed with the cultured remains in a coffin. After completion, it is used mainly as a vessel for carrying around. The strength of the undead that emerges depends on the user's anatomy and alchemical skills. \n# ~Necromancy for Noobs~
+    --- description(3)  :70601 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することで棺に眠る魔物を呼び覚ます。定期的に使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) tool used for necromancy. May be used periodically.
+        IT  Sveglia il mostro che dorme nella bara. Si usa ogni tanto.
+
+=== ITEM_ID_ASTRAL_LIGHT_PEN   [FILTER_ITEM_TOOL]
+    NOME      jp アストラル光筆
+              en astral light pen
+              IT penna di luce astrale
+    non ident. IT penna d'oca lucente   (en shining featherpen)
+    --- description(0)  :70817
+        JP  \t\tアストラル光を帯びた羽ペン。この世界の生命の存在記録…アカシックレコードに限定干渉し、対象者がもう一人存在するように書き換える。増えた方は全く同じ記憶と人格を持つ同一人物でありながら、本来の役割や運命といったものから解き放たれている。ただし、使用者には最低でも対象者の半分以上の存在級位が求められる。干渉には対象者の存在級位に応じてマテリアルの「魔法のインク」が必要になるうえ、対象者が心から望んでいなければ失敗する。\n#～イルヴァ幻想辞典～\n
+        EN  A quill pen imbued with astral light. It interferes exclusively with the existence records of life in this world...the Akashic Records, and rewrites them so that the subject exists as another person. The resulting person is the identical person with the same memories and personality, but free from any original role or destiny. However, the user is required to have at least half the existence level of the subject. Intervention requires material \"magic ink\" according to the subject's level of existence, and will fail if the subject does not sincerely desire it. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :70820 ⚠️ TETTO SECCO 69
+        JP  \t\t対象者の存在を増やして仲間に引き入れる道具。使用できる（使い捨て）。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Single-use) tool that duplicate the existence of target into your team.
+        IT  Duplica il bersaglio e lo mette nel gruppo. Si usa (usa e getta).
+
+=== ITEM_ID_CLEANING_DOLL   [FILTER_ITEM_TOOL]
+    NOME      jp 魔よけの人形
+              en <Cleaning Doll>
+              IT <Bambola delle Pulizie>
+    non ident. IT bambola   (en doll)
+    --- description(0)  :71924
+        JP  \t\t古くから清掃員たちの間でお守りとして伝わる人形。夜中にひとりでに動き出し黒や茶色の悪魔を狩るとされている。\n#～イルヴァ幻想辞典～\n
+        EN  Doll that has been passed down from generation to generation as a charm among cleaners. It is said to move by itself in the night and hunt the G-demons. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :71927 ⚠️ TETTO SECCO 69
+        JP  \t\t身長10cmほどの人形だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Single-use) tool doll that is 10cm in height.
+        IT  Una bambola alta una decina di centimetri. Si usa (usa e getta).
+
+=== ITEM_ID_BLANK_BUSINESS_CARD   [FILTER_ITEM_TOOL]
+    NOME      jp かきこむ名刺
+              en Blank Business Card
+              IT Biglietto da Visita Vuoto
+    non ident. IT biglietto da visita   (en business card)
+    --- description(0)  :72484
+        JP  \t\t名前の後に職業を記入すると、どんなにデタラメな内容でもその職に就くことができる。ただし、その職にふさわしい能力がつくとは限らない。\n#～別冊・怪しいアイテム買って試した～\n
+        EN  Providing an occupation after the name, no matter how bullshit it may sound, will get you the job. However, it does not necessarily mean that you will be competent for that position. \n# ~Extra Issue: Weird Items~
+    --- description(2)  :72486
+        JP  \t\t「このアイテムをどう使うかはお客様しだいでございます」\n#～裏路地の老店主の言葉～\n
+        EN  \"It is up to the customer to decide how to use this item.\" \n# ~Words from an Shady, Old Shopkeeper~
+    --- description(3)  :72487 ⚠️ TETTO SECCO 69
+        JP  \t\t職業を変更する消耗品だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Single-use) tool that changes your profession. Write in lower caption.
+        IT  Un articolo che cambia la classe. Si usa (usa e getta).
+
+=== ITEM_ID_PHILOSOPHERS_STONE_MASK   [FILTER_ITEM_TOOL]
+    NOME      jp 賢者の石仮面
+              en Philosopher's Stone Mask
+              IT Maschera della Pietra Filosofale
+    non ident. IT maschera di pietra   (en stone mask)
+    --- description(0)  :72550
+        JP  \t\t謎の仮面。はめこまれた賢者の赤石の力により、被ると身体が再構成され別の種族へ生まれ変わるとされる。\n#～錬金術・禁忌大全～\n
+        EN  Mysterious stone mask. With the power of the red stone of the philosopher, it is said that when worn, the body is reconstructed and reborn into a different race. \n# ~Extra Issue: Weird Items~
+    --- description(2)  :72552
+        JP  
+        EN  \"Stop playing the race card!\" \n# ~Jonah, the Adventurer~
+    --- description(3)  :72553 ⚠️ TETTO SECCO 69
+        JP  \t\t種族を変更するアイテムだ。使用することができる（使い捨て）。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Single-use) tool that changes your race. Use in lower caption.
+        IT  Un oggetto che cambia la razza. Si usa (usa e getta).
+
+=== ITEM_ID_DOG_WHISTLE   [FILTER_ITEM_TOOL]
+    NOME      jp 犬笛
+              en <Dog Whistle>
+              IT <Fischietto per Cani>
+    non ident. IT fischietto nero   (en black whistle)
+    --- description(0)  :72620
+        JP  \t\t犬族にしか聞こえない音を出す笛。見た目はただの笛だがれっきとした魔道具であり、犬族以外には絶対に全く決して聞き取れない。\n#～イルヴァ幻想辞典～\n
+        EN  A whistle that produces a sound that can only be heard by dogs. It may look like a simple flute, but it is in fact a magical tool, and is absolutely inaudible to all but the dogs. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :72623 ⚠️ TETTO SECCO 69
+        JP  \t\t特殊な周波数の音を出す笛だ。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool for sound of certain frequency. May be used periodically.
+        IT  Un fischietto a frequenza speciale. Si può usare ogni tanto.
+
+=== ITEM_ID_EVITEM   [FILTER_ITEM_TOOL]
+    ⚠️ NOME    non trovato nel dizionario: la prosa non ha un nome a cui obbedire
+    --- description(0)  :73020
+        JP  \t\t条件を満たした特定の仲間に使用することで進化をもたらすとされる宝石だ。\n#～イルヴァ幻想辞典～\n
+        EN  It is a gemstone that is supposed to bring about evolution when used on certain allies who meet the requirements.\n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :73023 ⚠️ TETTO SECCO 69
+        JP  \t\t特殊な能力を秘めた宝石。使用することができる（使い捨て）。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Single-use) tool that unlocks special abilities.
+        IT  Una gemma che serba poteri speciali. Si usa (usa e getta).
+
+=== ITEM_ID_COMMAND_FLAG   [FILTER_ITEM_TOOL]
+    NOME      jp コマンドフラッグ
+              en command flag
+              IT bandiera di comando
+    --- description(0)  :73288
+        JP  \t\t指揮官等が用いる命令伝達用の旗。声が届かない状況下でも仲間に指示が可能。\n#～戦場における指揮統制～\n
+        EN  A flag used by commanders and others to communicate orders. It can be used to give instructions to fellow allies even when your voices cannot be heard. \n# ~Command and Control on the Battlefield~
+    --- description(3)  :73291 ⚠️ TETTO SECCO 69
+        JP  \t\t攻撃指示と防御指示を切り替える道具だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that switch between offensive and defensive instructions.
+        IT  Alterna ordini d'attacco e di difesa. Si può usare sempre.
+
+=== ITEM_ID_STATUE_ITZPALT   [FILTER_ITEM_TOOL]
+    NOME      jp イツパロトル像 イツパロトル像
+              en Itzpalt statue
+              IT Itzpalt statua
+    non ident. IT divinità di Irva   (en deity of Irva)
+    --- description(0)  :73698
+        JP  \t\tさる高名な芸術家が作った、元素の神を模った彫像。その佇まいは威厳に満ちている。\n#～ルミエスト美術目録～\n
+        EN  A statue in the shape of the God of Elements. created by a renowned artist. Its appearance is full of dignity. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :73701 ⚠️ TETTO SECCO 69
+        JP  \t\t元素の神を模った彫像。定期的に使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of God of Elements. May be used periodically.
+        IT  Una statua del dio degli elementi. Si usa ogni tanto.
+
+=== ITEM_ID_STATUE_YACATECT   [FILTER_ITEM_TOOL]
+    NOME      jp ヤカテクト像 ヤカテクト像
+              en Yacatect statue
+              IT Yacatect statua
+    non ident. IT divinità di Irva   (en deity of Irva)
+    --- description(0)  :73765
+        JP  \t\tさる高名な芸術家が作った、富の神を模った彫像。作るにあたって、芸術家は売却額の3割をヤカテクトに渡す契約を結ばされた。\n#～ルミエスト美術目録～\n
+        EN  A statue in the shape of the Goddess of Wealth, created by a renowned artist. The artist was required to sign a contract to give 30% of the sale price to the Yacatect. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :73768 ⚠️ TETTO SECCO 69
+        JP  \t\t富の神を模った彫像。定期的に使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of Goddess of Wealth. May be used periodically.
+        IT  Una statua della dea della ricchezza. Si usa ogni tanto.
+
+=== ITEM_ID_EFFECT_SCANNER   [FILTER_ITEM_TOOL]
+    NOME      jp エフェクト・スキャナー
+              en effect scanner
+              IT scanner degli effetti
+    --- description(0)  :73828
+        JP  \t\t（効果未実装）①ターン開始時にデッキから手札が５枚になるようカードを引く。②１ターンに１度、手札を１枚捨ててそのカードの効果を発動できる。発動したカードのランクと同じ数だけデッキからカードを捨てる。③デッキが０枚以下になったターンの終了時、このアイテムのコントローラーのＨＰは０になる。その後捨てられているカードを全てデッキに戻しシャッフルする。④３０ターン、自分の行動をスキップできる。成功した場合、捨てられているカードを全てデッキに戻しシャッフルする。その後、使用可能な任意のデッキを選択し、以降はそのデッキをゲームに使用する。\n#～熱き決闘者たち～\n
+        EN  ① At the start of your turn: You can draw until you had 5 card in your hand. ② Once per turn: you can discard 1 card; Send cards from the top of your Deck to the GY equal to this card's rank. ③ At the end of the turn, if you have no cards left in your Deck, you lose the Duel. And if you do, shuffle all cards in your GY into your Deck. ④ You can skip your action for 30 turns. If you do, shuffle all cards in your GY into your Deck. Then, you can select any available deck for the rest of this duel.\n# ~Heated Duelists~
+    --- description(3)  :73831 ⚠️ TETTO SECCO 69
+        JP  \t\tカードの効果を引き出す道具だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Unimplemented) (Reusable) tool that apply the effect of the cards.
+        IT  Tira fuori l'effetto delle carte (non attivo). Si usa sempre.
+
+== 36 oggetti, 79 descrizioni

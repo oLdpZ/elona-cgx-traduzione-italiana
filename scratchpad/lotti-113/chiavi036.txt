@@ -1,0 +1,181 @@
+RIGHE = {
+    76314, 77773, 78256, 78322, 79111, 79178, 80218, 80924, 80992, 80994,
+    81130, 81196, 82004, 82809, 83078, 83209, 84035, 84163, 84296, 84967,
+    84969, 85030, 85168, 85234, 85298, 85367, 85434, 85503, 85572, 86132,
+    86200, 86533, 86600, 88021, 88210, 88410, 88472, 88538, 88604, 88869,
+    88937, 88939,
+}
+# 42 righe, da 76314 a 88939
+
+    # ---------------------------------------------------------- :76314
+    (76314, 'Miraculous jewel brought by the God of Machine. It is said that if you hold it up to the sky, a rain of charged particle beams will rain down from a satellite orbit. It is said that the beam is simultaneously projected with a laser to prevent diffusion and attenuation of the charged particles, but the details are not known. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :77773
+    (77773, 'Miraculous treasure brought by the Goddess of Wealth. They are given to persons she want to give allowance to. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :78256
+    (78256, 'A boiling pot used by alchemists for item synthesis. Materials are boiled together with special chemicals to change the structure of matter at the atomic level through mutual reactions. \\n# ~An Introduction to Alchemy~'):
+        "",
+
+    # ---------------------------------------------------------- :78322
+    (78322, 'Items placed inside are magically fused with each other to create something else. It is a state-of-art magical tool. \\n# ~Lumiest Art Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :79111
+    (79111, 'A statue in the shape of the God of Machine, created by a renowned artist. Even the intricately made complex parts are recreated. \\n# ~Lumiest Art Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :79178
+    (79178, 'A statue in the shape of the God of Harvest. created by a renowned artist. The melancholy expression on his face is somehow dignified. \\n# ~Lumiest Art Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :80218
+    (80218, "Garok's hammer is a master craftsman's hammer that instantly transforms any piece of junk into a one-of-a-kind item. However, since the craftsman's difficult temperament is directly reflected in his hammer, he does not seem to listen to our wishes. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :80924
+    (80924, "Indescribable statue made by an unknown artist. It appears to be a strangely dressed figure, but the word 'Creator' is engraved on the side, so perhaps this is the figure of the Creator. \\n# ~Lumiest Art Catalogue~"):
+        "",
+
+    # ---------------------------------------------------------- :80992
+    (80992, 'Giant crystals created by time immemorial. It is said that its light projects the heart of the beholder and reveals it in this world. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :80994
+    (80994, '\\"Just summon adventurers from another world to do the chores for you, neat, right?\\" \\n# ~Lane, the Fairy Invoker~'):
+        "",
+
+    # ---------------------------------------------------------- :81130
+    (81130, 'Leather whip used by circus leaders and others. Once wielded, it will make any beast of prey obedient. \\n# ~Battles, Dragons, Swords and Magic~'):
+        "",
+
+    # ---------------------------------------------------------- :81196
+    (81196, 'This work of art utilizes special materials to depict anguished hearts. The intertwined materials are said to move slightly like a real heart. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :82004
+    (82004, 'Vertical exercise equipment designed to relieve daily stress and to train oneself. The only difference between this and the typical North Tyris sandbag is that it uses weak victims instead of sand as its material. \\n# ~Daily Necessities for the Home~'):
+        "",
+
+    # ---------------------------------------------------------- :82809
+    (82809, 'A statue in the shape of the Goddess of Luck. created by a renowned artist. Her carefree smile is irresistibly endearing. \\n# ~Lumiest Art Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :83078
+    (83078, 'A mysterious gemstone that makes you feel uncomfortable just by looking at it. It can be used, but no one has confirmed its effectiveness. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :83209
+    (83209, 'Another miracle given by the God of Harvest. It is said that when you use it, it emits light and you can have an unforgettable experience there. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :84035
+    (84035, 'A whistle that produces a high-pitched sound when used. The sound, which can wake even the most sleepy person instantly, is like a horn of calamity that evokes the apocalypse. ...at least for those who have been asleep. \\n# ~Music of the Melodious Irva~'):
+        "",
+
+    # ---------------------------------------------------------- :84163
+    (84163, 'A container for storing cards. Some aristocrats were not satisfied with the collection and even came up with the idea of using it for games. \\n# ~Censored! Box Mania, First Issue~'):
+        "",
+
+    # ---------------------------------------------------------- :84296
+    (84296, 'Suspiciously glowing mechanical balls made to capture special beings. The ball is so mechanically reckless in its attempt to create a comfortable space inside that it breaks and disappears when thrown unsuccessfully. \\n# ~The Yowyn Book of Secrt Knowledge!~'):
+        "",
+
+    # ---------------------------------------------------------- :84967
+    (84967, "This is a horrifying device that once existed for executions. It is so simple in structure that it was made only for the purpose of decapitating the victim's head. It may not be used anymore, but never be too careful. The blade always glints dully above your head. \\n# ~Worlds you've Never Seen~"):
+        "",
+
+    # ---------------------------------------------------------- :84969
+    (84969, '\\"You are sure to get ahead in life with one of these!\\" \\n# ~words of a ex-excutioner~'):
+        "",
+
+    # ---------------------------------------------------------- :85030
+    (85030, "This is a horrifying device that once existed for torture. The front of the structure opens to the left and right, and inside the structure are bloodthirsty iron needles protruding toward the center. According to the story, some of them start to move, so it would be better not to touch them out of curiosity. \\n# ~Worlds you've Never Seen~"):
+        "",
+
+    # ---------------------------------------------------------- :85168
+    (85168, 'A statue in the shape of the Goddess of Healing. created by a renowned artist. Its modest posture is somehow pure and innocent. \\n# ~Lumiest Art Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :85234
+    (85234, 'A mechanical ball that is thrown to capture weakened enemies. The detailed manufacturing process is unknown, but it is believed that the rise of genetics had much to do with the evolution of this tool. \\n# ~The Yowyn Book of Secrt Knowledge!~'):
+        "",
+
+    # ---------------------------------------------------------- :85298
+    (85298, 'A strange machine in the shape of a transparent cylinder. It is a devilish machine that deviates from the norm, capable of breaking down living organisms into particles, extracting only their abilities, and then adding those abilities to other living organisms. \\n# ~The Yowyn Book of Secrt Knowledge!~'):
+        "",
+
+    # ---------------------------------------------------------- :85367
+    (85367, 'Mysterious high-energy crystals from outer space. It is said to contain the wisdom of warriors from another planet, but the details are unknown. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :85434
+    (85434, 'Miraculous treasure from the God of Harvest. It is said to have the power to bestow fertility. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :85503
+    (85503, 'Miraculous treasure from the Goddess of Healing. It is said to have the power to sprinkle life force around it. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :85572
+    (85572, 'Miraculous treasure from the Goddess of Wind. It is said to have the power to wind up time. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :86132
+    (86132, "Gemstone that is said to bring about new changes in one's own body when used. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :86200
+    (86200, '\\"The bomb isn\'t the evil, it\'s what you use it for that is evil. \\" \\n# ~the last page of the instruction manual~'):
+        "",
+
+    # ---------------------------------------------------------- :86533
+    (86533, 'A statue in the shape of the Goddess of Wind. created by a renowned artist. The curves of body is elegant and beautiful. \\n# ~Lumiest Art Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :86600
+    (86600, 'A statue in the shape of the God of Earth. created by a renowned artist. Its dynamic posture is rather heroic. \\n# ~Lumiest Art Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :88021
+    (88021, 'This type of bedding was introduced from a foreign land, and the mattress is laid directly on the ground. Although it is made of cloth, it is not very comfortable because it is placed on the back of the bed against the hard ground. \\n#~ Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :88210
+    (88210, 'The horn of the mythical unicorn. It is said to remove anxiety and madness from the body when decocted and consumed. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :88410
+    (88410, 'Special item that can be used in conjunction with a lockpick to make locks easier to unlock. It is speculated that it is a relic from the old days, as it fits perfectly no matter what keyhole it is inserted into. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :88472
+    (88472, 'An essential tool for opening locks. Although it may break down from time to time, if you are good at it, you can open any treasure chest. There are keys to open locks, but there are no keys to close locks in this world. \\n# ~an Adventurer is You! Guide for Travels~'):
+        "",
+
+    # ---------------------------------------------------------- :88538
+    (88538, 'A weapon that, when used, buries itself in the ground and becomes completely invisible. It is said that if you step on the spot without knowing anything about it, it will be obliterated without a trace in the end. Yes, that is even if you step on it... \\n# ~Gifts that I am Happy to Receive~'):
+        "",
+
+    # ---------------------------------------------------------- :88604
+    (88604, 'Cord that binds the object by using it. It is recommended for lonely people who want someone to be there, but they might get angry if you tie them up without asking them to. \\n# ~Battles, Dragons, Swords and Magic~'):
+        "",
+
+    # ---------------------------------------------------------- :88869
+    (88869, 'A hammer that can smash a material into a specific and completely different material. This miraculous item is the work of two brothers, artisans who live quietly in the snowfields, and is considered a tool for their use. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :88937
+    (88937, 'Tool that allows a person to escape difficulties by disguising themselves as someone else with a quick change of clothes in an instant. Even if you are short on time, you can use this tool with peace of mind, because when you use it, a white mist blows out vigorously, giving you time to disguise yourself. \\n# ~an Adventurer is You! Guide for Travels~'):
+        "",
+
+# 39 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :88939
+    (88939, '\\"I wasn\'t even ten when I stole for the first time. I was just trying to survive back then. I\'m still as bold as I was then, just a little savvier.\\" \\n# ~words of <Sin> the thief guildmaster~'):
+        "",
+
+# 3 voci, 0 ambigue
+

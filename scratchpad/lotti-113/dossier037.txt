@@ -1,0 +1,265 @@
+=== ITEM_ID_HOUSE_BOARD   [FILTER_ITEM_TOOL]
+    NOME      jp ハウスボード
+              en house board
+              IT bacheca della casa
+    --- description(0)  :90137
+        JP  \t\t様々な図面が詳細に書かれた板。所有する建築物で使用することで、無駄な筋力を使うことなく家の配置替えをすることができる優れものだ。\n#～街中の名脇役達～\n
+        EN  A board with various drawings detailed on it. It is an excellent tool to use on buildings you own to rearrange your home without wasting muscle power. \n# ~Supporting Roles on the Streets~
+    --- description(3)  :90140 ⚠️ TETTO SECCO 69
+        JP  \t\t部屋の内装を変更できる板。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that allows you to change the decor of a room.
+        IT  Cambia l'arredo della stanza. Si può usare sempre.
+
+=== ITEM_ID_TORCH   [FILTER_ITEM_TOOL]
+    NOME      jp 松明
+              en torch
+              IT torcia
+    --- description(0)  :91909
+        JP  \t\tいつの世も人は火と共に合った。火があるから空間を温める熱を得、火があるから夜を照らす光を得た。今やあなたは文明の火種と共にあるのだ！\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  People have always lived with fire. With fire we got heat to warm the space, and with fire we got light to illuminate the night. Now you are holding the spark of civilization! \n# ~an Adventurer is You! Guide for Travels~
+    --- description(2)  :91911
+        JP  \t\t「片手に握りしめるだけで、あなたのネフィアライフはぐっと冒険者チックになります。あなたも是非ともこの優れたライトアップツールをお試しください」\n#～ヴェルニースの雑貨店に張られた広告～\n
+        EN  \"Just by clutching it in one hand, your Nefia life will become much more adventurous. You should definitely try this excellent light-up tool.\" \n# ~notice of good store of Vernis~
+    --- description(3)  :91912 ⚠️ TETTO SECCO 69
+        JP  \t\t手に持つ簡易照明。何度でも使用することができる。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  (Reusable) hand-held simple light.
+        IT  Una luce semplice da tenere in mano. Si può usare sempre.
+
+=== ITEM_ID_KITTY_BANK   [FILTER_ITEM_TOOL]
+    NOME      jp 貯金箱
+              en kitty bank
+              IT salvadanaio a gattino
+    --- description(0)  :92252
+        JP  \t\t使用する度一定の金額を入れ、保管しておくことができる箱。使う度に少しずつ重くなっていくのは、きっと貯める幸せによるところなのだろう。\n#～ノースティリス大家具事典～\n
+        EN  A box that allows you to put a certain amount of money in it every time you use it and keep it. The fact that it gets a little heavier each time it is used is surely due to the happiness of storing it. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :92255 ⚠️ TETTO SECCO 69
+        JP  \t\t指定された額ごとに貯金できる箱。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that allows you to save money.
+        IT  Ci si mette da parte una somma alla volta. Si usa sempre.
+
+=== ITEM_ID_PLAYBACK_DISC   [FILTER_ITEM_TOOL]
+    NOME      jp ムービーディスク
+              en playback disc
+              IT disco video
+    --- description(0)  :92389
+        JP  \t\t映像が収められた円盤。使用することで過去の記録を映像として呼び起こすことができるが、残念ながら今日において使用法以外の全ての技術は忘れ去られてしまった。\n#～別冊ヨウィン・未知の知識を追え！～\n
+        EN  Disks containing videos. The use of these disks can bring back past memories in the form of videos, but unfortunately all other techniques have been forgotten today except for their use. \n# ~The Yowyn Book of Secrt Knowledge!~
+    --- description(3)  :92392 ⚠️ TETTO SECCO 69
+        JP  \t\t映像のデータが刻まれた円盤。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a mysterious disc that seem's to play your memories.
+        IT  Un disco con dei filmati incisi. Si può usare sempre.
+
+=== ITEM_ID_COLDPROOF_BLANKET   [FILTER_ITEM_TOOL]
+    NOME      jp 耐冷ブランケット
+              en coldproof blanket
+              IT coperta termica
+    --- description(0)  :92934
+        JP  \t\t吹きすさぶ氷刃に対して開発された毛布。氷結における水薬の破損を完全に防ぐが、ものには限界があるので過信は禁物である。\n#～パルミア秋冬物コレクション～\n
+        EN  Blankets developed against icy blades of wind. Although it completely prevents freezing damage to the potion, overconfidence is not advised, as there are limits to what can be achieved. \n# ~Palmian Winter Fashion~
+    --- description(3)  :92937 ⚠️ TETTO SECCO 69
+        JP  \t\t氷結によるアイテムの破損を何度か防ぐブランケットだ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a blanket that prevents items from being damaged by freezing.
+        IT  Una coperta che protegge dal gelo, per qualche volta.
+
+=== ITEM_ID_FIREPROOF_BLANKET   [FILTER_ITEM_TOOL]
+    NOME      jp 耐火ブランケット
+              en fireproof blanket
+              IT coperta ignifuga
+    --- description(0)  :92998
+        JP  \t\t迫りくる火炎に対して開発された毛布。燃焼状態におけるアイテムの炭化を完全に防ぐが、ものには限界があるので過信は禁物である。\n#～パルミア春夏物コレクション～\n
+        EN  Blankets developed against an approaching flame. It completely prevents the destruction of items due to combustion, but it has its limitations and one should not be overconfident. \n# ~Palmian Summer Fashion~
+    --- description(3)  :93001 ⚠️ TETTO SECCO 69
+        JP  \t\t燃焼によるアイテムの消滅を何度か防ぐブランケットだ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a blanket that prevents items from being damaged by burning.
+        IT  Una coperta che protegge dal fuoco, per qualche volta.
+
+=== ITEM_ID_REGISTER   [FILTER_ITEM_TOOL]
+    NOME      jp レジスター
+              en register
+              IT registratore di cassa
+    --- description(0)  :93358
+        JP  \t\t金品を売買する際に不可欠な機械。防犯の為、登録した一人にしか使用できないシステムになっている。\n#～脱冒険者から始める商いライフ～\n
+        EN  An indispensable machine for buying and selling money and goods. For security purposes, the system allows only one person registered to use it. \n# ~Merchant Life Starting from a Quitting as a Adventurer~
+    --- description(2)  :93360
+        JP  \t\t人を配属するにおいて必要不可欠な機械。ここで仲間の配属先が変更できる。「もし不慮の事故で無くしてもご安心あれ。経済の要、パルミア大使館ですべて揃います」\n#～ティリス武具大全、広告のページ～\n
+        EN  This machine is essential in assigning personnel. It is here that you can change the assignment of your fellow workers. \"If you lose it by accident, don't worry. Everything is available at the Palmia Embassy, the keystone of the economy.\" \n# ~Tyris Armor Compendium, page of advertisements~
+    --- description(3)  :93361 ⚠️ TETTO SECCO 69
+        JP  \t\t配属先を変更する為の道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that change assignments.
+        IT  Cambia l'incarico. Si può usare sempre.
+
+=== ITEM_ID_SHELTER   [FILTER_ITEM_TOOL]
+    NOME      jp シェルター
+              en shelter
+              IT rifugio
+    --- description(0)  :93823
+        JP  \t\t緊急時に設置することができる簡易的なシェルター。ひとしきり危機をやり過ごした後は、拾うことで再利用が可能な万能機具だ。\n#～家庭を彩る日用雑貨～\n
+        EN  A simple shelter that can be set up in an emergency. After the crisis has passed, it can be picked up and reused. \n# ~Daily Necessities for the Home~
+    --- description(3)  :93826 ⚠️ TETTO SECCO 69
+        JP  \t\t時間を少しかけて設置する避難所。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that can be used to build a shelter in a hurry.
+        IT  Un rifugio che si monta in un po' di tempo. Si usa sempre.
+
+=== ITEM_ID_DISC   [FILTER_ITEM_TOOL]
+    NOME      jp ディスク
+              en disc
+              IT disco
+    --- description(0)  :94601
+        JP  \t\t音楽が収められた円盤。使用することで封入された特定の音楽を奏でるが、残念ながら今日において使用法以外の全ての技術は忘れ去られてしまった。\n#～別冊ヨウィン・未知の知識を追え！～\n
+        EN  A disc containing music. These discs play a specific enclosed song when used, but unfortunately, the technology to do anything but play them is lost to the present day.\n# ~The Yowyn Book of Secrt Knowledge!~
+    --- description(3)  :94604 ⚠️ TETTO SECCO 69
+        JP  \t\t音楽のデータが刻まれた円盤。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is an usable disc etched with music data.
+        IT  Un disco con della musica incisa. Si può usare sempre.
+
+=== ITEM_ID_STETHOSCOPE   [FILTER_ITEM_TOOL]
+    NOME      jp 聴診器
+              en stethoscope
+              IT stetoscopio
+    --- description(0)  :99091
+        JP  \t\t使用することにより、体調が立ちどころにわかるという医療用具。子供の頃は誰しもお医者さんごっこなる行為をしたかもしれないが、良識ある冒険者は決して良からぬことに使わぬように。\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  Medical equipment that, when used, determines a person's physical condition. Everyone may have played doctor when they were a child, but sensible adventurers should never use it for anything nefarious. \n# ~an Adventurer is You! Guide for Travels~
+    --- description(3)  :99094 ⚠️ TETTO SECCO 69
+        JP  \t\t仲間のHPを可視化する道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that visualizes an ally's health.
+        IT  Mostra gli HP dei compagni. Si può usare sempre.
+
+=== ITEM_ID_SLEEPING_BAG   [FILTER_ITEM_TOOL]
+    NOME      jp 寝袋
+              en sleeping bag
+              IT sacco a pelo
+    --- description(0)  :102458
+        JP  \t\t野外で寝ることを主な目的とした簡易的な寝具。眠い時はこれにすっぽり収まることで外界から遮断され、一時的な安寧を得ることができよう。\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  A simple bedding mainly intended for sleeping outdoors. When you are sleepy, you can get temporary peace of mind by being completely enclosed in this bedding, cut off from the outside world. \n#~ Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :102461 ⚠️ TETTO SECCO 69
+        JP  \t\t簡易的な寝具（ランク０）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 0 makeshift bed.
+        IT  Un letto semplice (rango 0). Si può usare sempre.
+
+=== ITEM_ID_GEM_CUTTER   [FILTER_ITEM_TOOL]
+    NOME      jp 宝石加工ツール
+              en gem cutter
+              IT tagliagemme
+    --- description(0)  :104791
+        JP  \t\t宝石加工を行うに当たって必要な基本ツール。当然ながら技術が無ければ扱うことはできない。\n#～家庭を彩る日用雑貨～\n
+        EN  Basic tool necessary for jewelry processing. Naturally, it cannot be handled without skill. \n# ~Daily Necessities for the Home~
+    --- description(3)  :104794 ⚠️ TETTO SECCO 69
+        JP  \t\t宝石加工の際に必要な道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool made for gem cutting, a necessity for jewelers.
+        IT  Serve a lavorare le gemme. Si può usare sempre.
+
+=== ITEM_ID_FISHING_POLE   [FILTER_ITEM_TOOL]
+    NOME      jp 釣竿
+              en fishing pole
+              IT canna da pesca
+    --- description(0)  :108457
+        JP  \t\t魚を釣る為に必要な道具。休日のポート・カプールの波止場には大物を釣り上げることを夢見て、幾人もの釣り人、もとい観光客がその手に握りしめ、孤軍奮闘しているという。\n#～家庭を彩る日用雑貨～\n
+        EN  Tool needed to catch fish. On holidays, the docks of Port Kapul are said to be filled with anglers, or even tourists, who are struggling alone, clutching their gear in their hands, dreaming of catching a big fish. \n# ~Daily Necessities for the Home~
+    --- description(2)  :108459
+        JP  \t\t「魚を釣るには餌もそうだが何よりこいつが重要だ。後は簡単、竿を振ってじっと待つだけ。そうそう、当然ながらスキルを持っていなければただの待ちぼうけだからな」\n#～釣り自慢のフィッシャーの言葉～\n
+        EN  \"To catch fish, the bait is the most important. The rest is easy, just swing the rod, wait, and profit. And yes, of course, if you don't have the skill, you'd be just waiting and waiting.\" \n# ~words of a fisherman proud of his catch~
+    --- description(3)  :108460 ⚠️ TETTO SECCO 69
+        JP  \t\t釣りの際に必要な道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool made for fishing, a necessity for the fisherman.
+        IT  Serve a pescare. Si può usare sempre.
+
+=== ITEM_ID_PORTABLE_COOKING_TOOL   [FILTER_ITEM_TOOL]
+    NOME      jp 携帯調理道具
+              en portable cooking tool
+              IT attrezzo da cucina portatile
+    --- description(0)  :114077
+        JP  \t\t使用するだけで一通りの料理ができる小型の調理セット。とは言え利点はその軽さだけなので、プロを目指すならばもっと値の張る調理器具を買うことをお勧めする。\n#～料理を支える脇役達～\n
+        EN  Small cooking set that can do a whole range of cooking. However, its only advantage is its light weight, so if you want to become a professional, we recommend you buy more expensive cooking equipment. \n# ~Supporting Roles in Kitchen~
+    --- description(3)  :114080 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでランク５までの料理を作ることができる器具。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a cooking tool allowing the preparation of dishes up to Rank 5.
+        IT  Ci si cucinano i piatti fino al rango 5.
+
+=== ITEM_ID_CAMPFIRE   [FILTER_ITEM_TOOL]
+    NOME      jp 焚き火
+              en campfire
+              IT falò
+    --- description(0)  :114141
+        JP  \t\t調理器具としてだけでなく、照明にもなり、置くだけで優しい炎の音まで演出する一石三鳥の優れ物。しかしながら調理器具の観点から見れば些か力不足であり、結局はインテリアとして扱われることが多い。\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  It is not only a cooking utensil, but also serves as a lightsource, and even produces the gentle sound of flames just by placing it on the table. However, from the standpoint of a cooking utensil, it is a little underpowered, and is often used as interior decoration. \n# ~an Adventurer is You! Guide for Travels~
+    --- description(3)  :114144 ⚠️ TETTO SECCO 69
+        JP  \t\tランク３までの料理を作れる照明器具。常に周囲を照らす。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a glowing cooking tool allowing preparation of dishes up to Rank 3.
+        IT  Ci si cucina fino al rango 3. Illumina sempre intorno.
+
+=== ITEM_ID_POT   [FILTER_ITEM_TOOL]
+    NOME      jp 鍋
+              en pot
+              IT pentola
+    --- description(0)  :116346
+        JP  \t\t中に材料を放りこんで、使用するだけで料理が完成するという画期的な調理器具。ただし、やはりと言うべきか単に放りこんでいるだけなので、複雑な料理は作りにくいようだ。\n#～料理を支える脇役達～\n
+        EN  This revolutionary cooking utensil allows you to throw ingredients into it and cook a dish just by using it. However, as one might expect, it is difficult to make complicated dishes since the ingredients are simply thrown into the cooker. \n# ~Supporting Roles in Kitchen~
+    --- description(3)  :116349 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでランク４までの料理を作ることができる器具。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a cooking tool allowing the preparation of dishes up to Rank 4.
+        IT  Ci si cucinano i piatti fino al rango 4.
+
+=== ITEM_ID_TIGHT_ROPE   [FILTER_ITEM_TOOL]
+    NOME      jp 頑丈なロープ
+              en tight rope
+              IT corda robusta
+    --- description(0)  :116603
+        JP  \t\tどんなに引っ張っても解れることのない屈強なロープ。あくまでも物品に対して使用する道具なので、人に括りつける等といった用途には不向きの様だ。\n#～巻かれる為の長いもの～\n
+        EN  A strong rope that will not come undone no matter how hard it is pulled. It is a tool to be used for objects, so it is not suitable for attaching to people. \n# ~Battles, Dragons, Swords and Magic~
+    --- description(2)  :116605
+        JP  \t\t「おいおい、何を怒っているんだ。私は聞かれた通り答えたまでだ。感謝こそすれ、罵られる筋合いはないと思うが。それに私は『使え』なんて言ってないぞ。『試してみるのも数ある選択の一つだ』とは言ったがね」\n#～異形の森の使者『ロミアス』の言葉～\n
+        EN  \"I said, 'Hey, hey, hey, what are you mad about?' I answered as I was asked. I don't think I deserve your thanks or your abuse. And I didn't just say, 'Use it.' I said, 'It's one of the many options you have to try.'\" \n# ~<Lomias> the messenger from Vindale~
+    --- description(3)  :116606 ⚠️ TETTO SECCO 69
+        JP  \t\t何度でも使用することができる。\n#～鑑定報告書：＜刑具＞カテゴリ～\n
+        EN  (Reusable) tool that you should use them NOW! <Category: Punishment.
+        IT  Si può usare sempre.
+
+=== ITEM_ID_CARPENTERS_TOOL   [FILTER_ITEM_TOOL]
+    NOME      jp 工具
+              en carpenter's tool
+              IT attrezzi da falegname
+    --- description(0)  :120505
+        JP  \t\t工作を行うに当たって必要な基本道具。当然ながら技術が無ければ扱うことはできない。\n#～家庭を彩る日用雑貨～\n
+        EN  Basic tool necessary for carpentry. Naturally, it cannot be handled without skill. \n# ~Daily Necessities for the Home~
+    --- description(3)  :120508 ⚠️ TETTO SECCO 69
+        JP  \t\t工作の際に必要な道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool made for carpentry, a necessity for carpenters.
+        IT  Serve per i lavori di falegnameria. Si può usare sempre.
+
+=== ITEM_ID_SEWING_KIT   [FILTER_ITEM_TOOL]
+    NOME      jp 裁縫セット
+              en sewing kit
+              IT kit da cucito
+    --- description(0)  :120571
+        JP  \t\t裁縫を行うに当たって必要な基本セット。当然ながら技術が無ければ扱うことはできない。\n#～家庭を彩る日用雑貨～\n
+        EN  Basic tool necessary for tailoring. Naturally, it cannot be handled without skill. \n# ~Daily Necessities for the Home~
+    --- description(3)  :120574 ⚠️ TETTO SECCO 69
+        JP  \t\t裁縫の際に必要な道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool made for tailoring, a necessity for the tailors.
+        IT  Serve a cucire. Si può usare sempre.
+
+=== ITEM_ID_PAINTING_TOOLS   [FILTER_ITEM_TOOL]
+    NOME      jp 絵描き道具
+              en painting tools
+              IT attrezzi da pittore
+    --- description(0)  :121829
+        JP  \t\t絵を書く為に必要な道具が一通りそろった用具。絵心があるならば使って見るといいだろう。あくまで絵心があればの話だが。\n#～貰って嬉しい贈り物あれこれ～\n
+        EN  A complete set of tools necessary for painting. If you have an artistic mind, it would be a good idea to use it. If you have a good mind for painting, you should try it. \n# ~Gifts that I am Happy to Receive~
+    --- description(3)  :121832 ⚠️ TETTO SECCO 69
+        JP  \t\t絵を描く為の道具。使用することはできない。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a tool for painting. Cannot be used.
+        IT  Serve a dipingere. Non si può usare.
+
+=== ITEM_ID_ALCHEMY_TOOLS   [FILTER_ITEM_TOOL]
+    NOME      jp 錬金術の道具
+              en alchemy tools
+              IT attrezzi da alchimista
+    --- description(0)  :122679
+        JP  \t\t錬金術を行うに当たって必要な基本キット。当然ながら技術が無ければ扱うことはできない。\n#～魔具全典～\n
+        EN  This is the basic kit required to perform alchemy. Naturally, it cannot be handled without skill. \n# ~Arcane Almanac~
+    --- description(3)  :122682 ⚠️ TETTO SECCO 69
+        JP  \t\t錬金術の際に必要な道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool made for basic alchemy.
+        IT  Serve per l'alchimia. Si può usare sempre.
+
+== 21 oggetti, 46 descrizioni

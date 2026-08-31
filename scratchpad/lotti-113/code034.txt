@@ -1,0 +1,134 @@
+:49776
+   en  # ~The Yowyn Book of Secrt Knowledge!~
+   IT  # ~Speciale Yowyn: a Caccia del Sapere Ignoto!~
+:49847
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:49918
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:49989
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:50060
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:50131
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:50202
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:50271
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:50341
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:50408
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:50410
+   en  # ~memo of a grave robber~
+   IT  # ~Appunti di un Predone di Rovine~
+:50474
+   en  # ~Battle-Hobby Legend~
+   IT  # ~Cronache del Battle Hobby~
+:50540
+   en  # ~Battle-Hobby Legend~
+   IT  # ~Cronache del Battle Hobby~
+:50606
+   en  # ~Battle-Hobby Legend~
+   IT  # ~Cronache del Battle Hobby~
+:50672
+   en  # ~Battle-Hobby Legend~
+   IT  # ~Cronache del Battle Hobby~
+:50746
+   en  # ~The Yowyn Book of Secrt Knowledge!~
+   IT  # ~Speciale Yowyn: a Caccia del Sapere Ignoto!~
+:50945
+   en  #~Irva Fantasy Encyclopedia~
+   IT  #~Dizionario Fantastico di Irva~
+:51012
+   en  #~Irva Fantasy Encyclopedia~
+   IT  #~Dizionario Fantastico di Irva~
+:51079
+   en  #~Irva Fantasy Encyclopedia~
+   IT  #~Dizionario Fantastico di Irva~
+:51288
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:51289
+   en  # ~memo of a grave robber~
+   IT  # ~Appunti di un Predone di Rovine~
+:51290
+   en  # ~words of <Melochea> the Nefia Researcher~
+   IT  # ~Parole di <Melochea>, studiosa di rovine~
+:51979
+   en  # ~100 Secret of the Ninja - Illustrated~
+   IT  # ~Illustrato: Cento Segreti del Ninja~
+:52045
+   en  #~Merchant Life Starting from a Quitting as a Adventurer~
+   IT  #~Vita da Mercante Dopo l'Avventura~
+:52047
+   en  # Words of the Goddess of Wealth
+   IT  #~Parole della Dea del Tesoro~
+:52380
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Aimwell~
+:52382
+   en  # ~<Norne> the guide~
+   IT  # ~Parole di <Norne> la guida~
+:52446
+   en  # ~Agriculture and its New Possibilities~
+   IT  # ~L'Agricoltura e le sue Nuove Possibilità~
+:54885
+   en  # ~Survival that Anyone Can Do~
+   IT  # ~La Sopravvivenza Alla Portata di Tutti~
+:55142
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:55481
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:56603
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:57063
+   en  # ~North Tyris Travels, Winter Edition~
+   IT  # ~Viaggio in Tyris del Nord: Inverno~
+:57645
+   en  # ~Must Watch! Everything About Savings and Asset Management~
+   IT  # ~Da Vedere! Tutto sul Risparmio e sugli Investimenti~
+:58526
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:59523
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:59658
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:59926
+   en  # ~The Yowyn Book of Secrt Knowledge!~
+   IT  # ~Speciale Yowyn: a Caccia del Sapere Ignoto!~
+:60063
+   en  # ~Choosing the Best Tools for the Best Craftsmen~
+   IT  # ~Scegliere Bene gli Attrezzi da Artigiano~
+:60649
+   en  # ~Mystery of the Ancient Tools!~
+   IT  # ~All'Inseguimento del Mistero degli Arnesi Antichi!~
+:60914
+   en  # ~Sickly Taste of Smoke~
+   IT  # ~Il Sapore del Fumo che Dà Dipendenza~
+:60980
+   en  # ~Sickly Taste of Smoke~
+   IT  # ~Il Sapore del Fumo che Dà Dipendenza~
+:61046
+   en  # ~Sickly Taste of Smoke~
+   IT  # ~Il Sapore del Fumo che Dà Dipendenza~
+:61112
+   en  # ~Sickly Taste of Smoke~
+   IT  # ~Il Sapore del Fumo che Dà Dipendenza~
+
+righe senza resa in tabella: 0   (atteso 0)

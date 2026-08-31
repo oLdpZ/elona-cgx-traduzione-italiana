@@ -1,0 +1,77 @@
+:90137
+   en  # ~Supporting Roles on the Streets~
+   IT  # ~I Grandi Comprimari della Città~
+:91909
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:91911
+   en  # ~notice of good store of Vernis~
+   IT  # ~Reclame Affissa al Bazar di Vernis~
+:92252
+   en  # ~Great Encyclopedia of North Tyris Furnitures~
+   IT  # ~Grande Enciclopedia dei Mobili di Tyris del Nord~
+:92389
+   en  # ~The Yowyn Book of Secrt Knowledge!~
+   IT  # ~Speciale Yowyn: a Caccia del Sapere Ignoto!~
+:92934
+   en  # ~Palmian Winter Fashion~
+   IT  # ~Palmia: Collezione Autunno-Inverno~
+:92998
+   en  # ~Palmian Summer Fashion~
+   IT  # ~Palmia: Collezione Primavera-Estate~
+:93358
+   en  # ~Merchant Life Starting from a Quitting as a Adventurer~
+   IT  # ~Vita da Mercante Dopo l'Avventura~
+:93360
+   en  # ~Tyris Armor Compendium, page of advertisements~
+   IT  # ~Grande Compendio delle Armi di Tyris: le Reclame~
+:93823
+   en  # ~Daily Necessities for the Home~
+   IT  # ~Casalinghi che Danno Colore alla Casa~
+:94601
+   en  # ~The Yowyn Book of Secrt Knowledge!~
+   IT  # ~Speciale Yowyn: a Caccia del Sapere Ignoto!~
+:99091
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:102458
+   en  #~ Great Encyclopedia of North Tyris Furnitures~
+   IT  #~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:104791
+   en  # ~Daily Necessities for the Home~
+   IT  # ~Casalinghi che Danno Colore alla Casa~
+:108457
+   en  # ~Daily Necessities for the Home~
+   IT  # ~Casalinghi che Danno Colore alla Casa~
+:108459
+   en  # ~words of a fisherman proud of his catch~
+   IT  # ~Parole di un Pescatore Fiero della Sua Preda~
+:114077
+   en  # ~Supporting Roles in Kitchen~
+   IT  # ~I Comprimari della Cucina~
+:114141
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:116346
+   en  # ~Supporting Roles in Kitchen~
+   IT  # ~I Comprimari della Cucina~
+:116603
+   en  # ~Battles, Dragons, Swords and Magic~
+   IT  # ~Cose Lunghe Fatte per Essere Avvolte~
+:116605
+   en  # ~<Lomias> the messenger from Vindale~
+   IT  # ~Parole di <Lomias> il messaggero di Vindale~
+:120505
+   en  # ~Daily Necessities for the Home~
+   IT  # ~Casalinghi che Danno Colore alla Casa~
+:120571
+   en  # ~Daily Necessities for the Home~
+   IT  # ~Casalinghi che Danno Colore alla Casa~
+:121829
+   en  # ~Gifts that I am Happy to Receive~
+   IT  # ~Regali che Fa Piacere Ricevere~
+:122679
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+
+righe senza resa in tabella: 0   (atteso 0)

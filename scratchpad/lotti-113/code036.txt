@@ -1,0 +1,128 @@
+:76314
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:77773
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:78256
+   en  # ~An Introduction to Alchemy~
+   IT  # ~Manuale d'Introduzione all'Alchimia~
+:78322
+   en  # ~Lumiest Art Catalogue~
+   IT  # ~Catalogo d'Arte di Lumiest~
+:79111
+   en  # ~Lumiest Art Catalogue~
+   IT  # ~Catalogo d'Arte di Lumiest~
+:79178
+   en  # ~Lumiest Art Catalogue~
+   IT  # ~Catalogo d'Arte di Lumiest~
+:80218
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:80924
+   en  # ~Lumiest Art Catalogue~
+   IT  # ~Catalogo d'Arte di Lumiest~
+:80992
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:80994
+   en  # ~Lane, the Fairy Invoker~
+   IT  # ~<Lane>, evocatrice di fate~
+:81130
+   en  # ~Battles, Dragons, Swords and Magic~
+   IT  # ~Cose Lunghe Fatte per Essere Avvolte~
+:81196
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:82004
+   en  # ~Daily Necessities for the Home~
+   IT  # ~Casalinghi che Danno Colore alla Casa~
+:82809
+   en  # ~Lumiest Art Catalogue~
+   IT  # ~Catalogo d'Arte di Lumiest~
+:83078
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:83209
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:84035
+   en  # ~Music of the Melodious Irva~
+   IT  # ~Le Melodie della Limpida Irva~
+:84163
+   en  # ~Censored! Box Mania, First Issue~
+   IT  # ~Chiudeteci Pure! Box Mania, Numero Uno~
+:84296
+   en  # ~The Yowyn Book of Secrt Knowledge!~
+   IT  # ~Speciale Yowyn: a Caccia del Sapere Ignoto!~
+:84967
+   en  # ~Worlds you've Never Seen~
+   IT  # ~I Mondi che Non Hai Mai Visto~
+:84969
+   en  # ~words of a ex-excutioner~
+   IT  # ~parole di un ex boia~
+:85030
+   en  # ~Worlds you've Never Seen~
+   IT  # ~I Mondi che Non Hai Mai Visto~
+:85168
+   en  # ~Lumiest Art Catalogue~
+   IT  # ~Catalogo d'Arte di Lumiest~
+:85234
+   en  # ~The Yowyn Book of Secrt Knowledge!~
+   IT  # ~Speciale Yowyn: a Caccia del Sapere Ignoto!~
+:85298
+   en  # ~The Yowyn Book of Secrt Knowledge!~
+   IT  # ~Speciale Yowyn: a Caccia del Sapere Ignoto!~
+:85367
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:85434
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:85503
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:85572
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:86132
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:86200
+   en  # ~the last page of the instruction manual~
+   IT  # ~Le Parole sull'Ultima Pagina del Manuale~
+:86533
+   en  # ~Lumiest Art Catalogue~
+   IT  # ~Catalogo d'Arte di Lumiest~
+:86600
+   en  # ~Lumiest Art Catalogue~
+   IT  # ~Catalogo d'Arte di Lumiest~
+:88021
+   en  #~ Great Encyclopedia of North Tyris Furnitures~
+   IT  #~Grande Enciclopedia dei Mobili di Tyris del Nord~
+:88210
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:88410
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:88472
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:88538
+   en  # ~Gifts that I am Happy to Receive~
+   IT  # ~Regali che Fa Piacere Ricevere~
+:88604
+   en  # ~Battles, Dragons, Swords and Magic~
+   IT  # ~Cose Lunghe Fatte per Essere Avvolte~
+:88869
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:88937
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:88939
+   en  # ~words of <Sin> the thief guildmaster~
+   IT  # ~Parole di <Sin> il maestro della Gilda dei Ladri~
+
+righe senza resa in tabella: 0   (atteso 0)

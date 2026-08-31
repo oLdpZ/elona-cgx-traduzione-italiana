@@ -1,0 +1,111 @@
+RIGHE = {
+    90137, 91909, 91911, 92252, 92389, 92934, 92998, 93358, 93360, 93823,
+    94601, 99091, 102458, 104791, 108457, 108459, 114077, 114141, 116346, 116603,
+    116605, 120505, 120571, 121829, 122679,
+}
+# 25 righe, da 90137 a 122679
+
+    # ---------------------------------------------------------- :90137
+    (90137, 'A board with various drawings detailed on it. It is an excellent tool to use on buildings you own to rearrange your home without wasting muscle power. \\n# ~Supporting Roles on the Streets~'):
+        "",
+
+    # ---------------------------------------------------------- :91909
+    (91909, 'People have always lived with fire. With fire we got heat to warm the space, and with fire we got light to illuminate the night. Now you are holding the spark of civilization! \\n# ~an Adventurer is You! Guide for Travels~'):
+        "",
+
+    # ---------------------------------------------------------- :91911
+    (91911, '\\"Just by clutching it in one hand, your Nefia life will become much more adventurous. You should definitely try this excellent light-up tool.\\" \\n# ~notice of good store of Vernis~'):
+        "",
+
+    # ---------------------------------------------------------- :92252
+    (92252, 'A box that allows you to put a certain amount of money in it every time you use it and keep it. The fact that it gets a little heavier each time it is used is surely due to the happiness of storing it. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :92389
+    (92389, 'Disks containing videos. The use of these disks can bring back past memories in the form of videos, but unfortunately all other techniques have been forgotten today except for their use. \\n# ~The Yowyn Book of Secrt Knowledge!~'):
+        "",
+
+    # ---------------------------------------------------------- :92934
+    (92934, 'Blankets developed against icy blades of wind. Although it completely prevents freezing damage to the potion, overconfidence is not advised, as there are limits to what can be achieved. \\n# ~Palmian Winter Fashion~'):
+        "",
+
+    # ---------------------------------------------------------- :92998
+    (92998, 'Blankets developed against an approaching flame. It completely prevents the destruction of items due to combustion, but it has its limitations and one should not be overconfident. \\n# ~Palmian Summer Fashion~'):
+        "",
+
+    # ---------------------------------------------------------- :93358
+    (93358, 'An indispensable machine for buying and selling money and goods. For security purposes, the system allows only one person registered to use it. \\n# ~Merchant Life Starting from a Quitting as a Adventurer~'):
+        "",
+
+    # ---------------------------------------------------------- :93360
+    (93360, 'This machine is essential in assigning personnel. It is here that you can change the assignment of your fellow workers. \\"If you lose it by accident, don\'t worry. Everything is available at the Palmia Embassy, the keystone of the economy.\\" \\n# ~Tyris Armor Compendium, page of advertisements~'):
+        "",
+
+    # ---------------------------------------------------------- :93823
+    (93823, 'A simple shelter that can be set up in an emergency. After the crisis has passed, it can be picked up and reused. \\n# ~Daily Necessities for the Home~'):
+        "",
+
+    # ---------------------------------------------------------- :94601
+    (94601, 'A disc containing music. These discs play a specific enclosed song when used, but unfortunately, the technology to do anything but play them is lost to the present day.\\n# ~The Yowyn Book of Secrt Knowledge!~'):
+        "",
+
+    # ---------------------------------------------------------- :99091
+    (99091, "Medical equipment that, when used, determines a person's physical condition. Everyone may have played doctor when they were a child, but sensible adventurers should never use it for anything nefarious. \\n# ~an Adventurer is You! Guide for Travels~"):
+        "",
+
+    # ---------------------------------------------------------- :102458
+    (102458, 'A simple bedding mainly intended for sleeping outdoors. When you are sleepy, you can get temporary peace of mind by being completely enclosed in this bedding, cut off from the outside world. \\n#~ Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :104791
+    (104791, 'Basic tool necessary for jewelry processing. Naturally, it cannot be handled without skill. \\n# ~Daily Necessities for the Home~'):
+        "",
+
+    # ---------------------------------------------------------- :108457
+    (108457, 'Tool needed to catch fish. On holidays, the docks of Port Kapul are said to be filled with anglers, or even tourists, who are struggling alone, clutching their gear in their hands, dreaming of catching a big fish. \\n# ~Daily Necessities for the Home~'):
+        "",
+
+    # ---------------------------------------------------------- :108459
+    (108459, '\\"To catch fish, the bait is the most important. The rest is easy, just swing the rod, wait, and profit. And yes, of course, if you don\'t have the skill, you\'d be just waiting and waiting.\\" \\n# ~words of a fisherman proud of his catch~'):
+        "",
+
+    # ---------------------------------------------------------- :114077
+    (114077, 'Small cooking set that can do a whole range of cooking. However, its only advantage is its light weight, so if you want to become a professional, we recommend you buy more expensive cooking equipment. \\n# ~Supporting Roles in Kitchen~'):
+        "",
+
+    # ---------------------------------------------------------- :114141
+    (114141, 'It is not only a cooking utensil, but also serves as a lightsource, and even produces the gentle sound of flames just by placing it on the table. However, from the standpoint of a cooking utensil, it is a little underpowered, and is often used as interior decoration. \\n# ~an Adventurer is You! Guide for Travels~'):
+        "",
+
+    # ---------------------------------------------------------- :116346
+    (116346, 'This revolutionary cooking utensil allows you to throw ingredients into it and cook a dish just by using it. However, as one might expect, it is difficult to make complicated dishes since the ingredients are simply thrown into the cooker. \\n# ~Supporting Roles in Kitchen~'):
+        "",
+
+    # ---------------------------------------------------------- :116603
+    (116603, 'A strong rope that will not come undone no matter how hard it is pulled. It is a tool to be used for objects, so it is not suitable for attaching to people. \\n# ~Battles, Dragons, Swords and Magic~'):
+        "",
+
+    # ---------------------------------------------------------- :116605
+    (116605, '\\"I said, \'Hey, hey, hey, what are you mad about?\' I answered as I was asked. I don\'t think I deserve your thanks or your abuse. And I didn\'t just say, \'Use it.\' I said, \'It\'s one of the many options you have to try.\'\\" \\n# ~<Lomias> the messenger from Vindale~'):
+        "",
+
+# 4 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :120505
+    (120505, 'Basic tool necessary for carpentry. Naturally, it cannot be handled without skill. \\n# ~Daily Necessities for the Home~'):
+        "",
+
+    # ---------------------------------------------------------- :120571
+    (120571, 'Basic tool necessary for tailoring. Naturally, it cannot be handled without skill. \\n# ~Daily Necessities for the Home~'):
+        "",
+
+    # ---------------------------------------------------------- :121829
+    (121829, 'A complete set of tools necessary for painting. If you have an artistic mind, it would be a good idea to use it. If you have a good mind for painting, you should try it. \\n# ~Gifts that I am Happy to Receive~'):
+        "",
+
+    # ---------------------------------------------------------- :122679
+    (122679, 'This is the basic kit required to perform alchemy. Naturally, it cannot be handled without skill. \\n# ~Arcane Almanac~'):
+        "",
+
+# 21 voci, 0 ambigue
+

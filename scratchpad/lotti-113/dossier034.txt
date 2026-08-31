@@ -1,0 +1,487 @@
+=== ITEM_ID_FILTRATION_BOTTLE   [FILTER_ITEM_TOOL]
+    NOME      jp 浄水筒
+              en filtration bottle
+              IT borraccia filtrante
+    --- description(0)  :49776
+        JP  \t\t生化学文明末期に製造された水筒。高度ろ過機構を搭載しており、汚染された水も量さえ用意できればどうにか飲めるようにできる。\n#～別冊ヨウィン・未知の知識を追え！～\n
+        EN  Water bottles manufactured at the end of the biochemical civilization. It is equipped with an advanced filtration mechanism and can somehow make contaminated water drinkable. \n# ~The Yowyn Book of Secrt Knowledge!~
+    --- description(3)  :49779 ⚠️ TETTO SECCO 69
+        JP  \t\t喉を潤せる水筒。水中で使えば補充も可能。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that drench your thirst. Can be refilled under water.
+        IT  Disseta; si riempie sott'acqua. Si può usare sempre.
+
+=== ITEM_ID_CHAOS_FRAGMENT   [FILTER_ITEM_TOOL]
+    NOME      jp 軍神の欠片
+              en Chaos Fragment
+              IT frammento del Caos
+    non ident. IT frammento possente   (en powerful fragment)
+    --- description(0)  :49847
+        JP  \t\tテスカトリポカからこぼれ落ちた歪な結晶。通常のネフィア守護者が遺す欠片とは似て非なる物体。これ自体に魔力はないが、強力な触媒になる。\n#～イルヴァ幻想辞典～\n
+        EN  Distorted crystals spilled from Tezcatlipoca. Unlike the shards left behind by ordinary Nefia guardians, this object has no magical power of its own, but it is a powerful catalyst. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :49850 ⚠️ TETTO SECCO 69
+        JP  \t\t能力を一定値まで上昇させる結晶。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that raises one's stats to a certain level.
+        IT  Alza gli attributi fino a un limite. Si può usare sempre.
+
+=== ITEM_ID_REMIDO_FRAGMENT   [FILTER_ITEM_TOOL]
+    NOME      jp レミードの欠片
+              en Rehmido Fragment
+              IT frammento di Rehmido
+    non ident. IT frammento possente   (en powerful fragment)
+    --- description(0)  :49918
+        JP  \t\t異形の天使の体内から見つかった歪な結晶。通常のネフィア守護者が遺す欠片とは似て非なる物体。これ自体に魔力はないが、強力な触媒になる。\n#～イルヴァ幻想辞典～\n
+        EN  Distorted crystals found inside the body of the deformed angel. Unlike the shards left behind by ordinary Nefia guardians, this object has no magical power of its own, but it is a powerful catalyst. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :49921 ⚠️ TETTO SECCO 69
+        JP  \t\t能力を一定値まで上昇させる結晶。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that raises one's stats to a certain level.
+        IT  Alza gli attributi fino a un limite. Si può usare sempre.
+
+=== ITEM_ID_LESIMAS_FRAGMENT   [FILTER_ITEM_TOOL]
+    NOME      jp レシマスの欠片
+              en Lesimas Fragment
+              IT frammento di Lesimas
+    non ident. IT frammento possente   (en powerful fragment)
+    --- description(0)  :49989
+        JP  \t\tゼームが保管していた歪な結晶。通常のネフィア守護者が遺す欠片とは似て非なる物体。これ自体に魔力はないが、強力な触媒になる。\n#～イルヴァ幻想辞典～\n
+        EN  Distorted crystals kept by Zeome. Unlike the shards left behind by ordinary Nefia guardians, this object has no magical power of its own, but it is a powerful catalyst. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :49992 ⚠️ TETTO SECCO 69
+        JP  \t\t能力を一定値まで上昇させる結晶。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that raises one's stats to a certain level.
+        IT  Alza gli attributi fino a un limite. Si può usare sempre.
+
+=== ITEM_ID_G_FINGER   [FILTER_ITEM_TOOL]
+    NOME      jp Ｇフィンガー
+              en G-Finger
+              IT G-Finger
+    non ident. IT dito dorato   (en golden finger)
+    --- description(0)  :50060
+        JP  \t\t神の力を宿した手。かつて同じ力を手にしたロバ耳の黄金王が、愛の力で悲劇を打ち破った話はあまりにも有名。\n#～イルヴァ幻想辞典～\n
+        EN  The hand that holds the power of God. The story of the Golden King of Donkey Ears, who once held the same power in his hands, who defeated tragedy with the power of love, is all too well known. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :50063 ⚠️ TETTO SECCO 69
+        JP  \t\t瀕死の敵を金の塊に変える道具。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that turns a dying enemy into solid gold.
+        IT  Trasforma in oro il nemico in fin di vita. Si può usare sempre.
+
+=== ITEM_ID_PHOTON_FAIRY   [FILTER_ITEM_TOOL]
+    NOME      jp 光子妖精
+              en Photon Fairy
+              IT fata fotonica
+    non ident. IT programma misterioso   (en photon program)
+    --- description(0)  :50131
+        JP  \t\t光子で構成された巡回プログラム。光速で飛び回って情報を収集したり逆に情報を広めたりする。\n#～イルヴァ幻想辞典～\n
+        EN  Patrol program composed of photons. It flies around at the speed of light to collect information or, conversely, to spread information. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :50134 ⚠️ TETTO SECCO 69
+        JP  \t\t名声か発言力を獲得する道具。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that grants fame and authority.
+        IT  Dà fama o autorità. Si può usare sempre.
+
+=== ITEM_ID_CONTRADCTION   [FILTER_ITEM_TOOL]
+    NOME      jp 矛盾勲章
+              en Contradiction
+              IT Contraddizione
+    non ident. IT medaglia ragguardevole   (en respectable medal)
+    --- description(0)  :50202
+        JP  \t\t神々しい勲章。自分を貫き通す強さと、自分さえ捨ててまで守るべきものを守り通す強さを象徴する。強い力を秘めているが、よく考えて使わないと何も守れず何も貫けずに死ぬことになる。\n#～イルヴァ幻想辞典～\n
+        EN  Divine medal of honor. It symbolizes the strength to carry oneself through and the strength to protect what needs to be protected, even to the point of abandoning oneself. It has strong power, but if you don't use it thoughtfully, you will die without being able to protect or carry through anything. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :50205 ⚠️ TETTO SECCO 69
+        JP  \t\t２つの技能を発動する道具。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that allow simutaneous activation of two skills.
+        IT  Attiva due capacità insieme. Si può usare sempre.
+
+=== ITEM_ID_BIGAMY_PERMIT   [FILTER_ITEM_TOOL]
+    NOME      jp 特殊重婚許可証
+              en Bigamy Permit
+              IT permesso di bigamia
+    non ident. IT documento divino   (en divine proof)
+    --- description(0)  :50271
+        JP  \t\t神が用意した許可証。現代イルヴァにおいては、まず仲間関係にならなければ結婚は許可されない。しかしこれを突きつければ、結婚が可能になるのだ。もちろん相手には断る権利があるのだが。\n#～イルヴァ幻想辞典～\n
+        EN  A license prepared by God. In modern Irva, marriage is not permitted without first becoming partners. However, if the couple confronts the marriage partner with this, the marriage is possible. Of course, the other party has the right to refuse. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :50274 ⚠️ TETTO SECCO 69
+        JP  \t\t仲間以外とも結婚できる道具。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that allows you to marry non-allies.
+        IT  Fa sposare anche chi non è tra i compagni. Si può usare sempre.
+
+=== ITEM_ID_FLOATING_FORTRESS_KEY   [FILTER_ITEM_TOOL]
+    NOME      jp 浮遊要塞の鍵 浮遊要塞の鍵
+              en Floating fortress key mysterious machine
+              IT chiave della fortezza volante macchina misteriosa
+    non ident. IT funzioni ignote   (en unknown functionailties)
+    --- description(0)  :50341
+        JP  \t\t空間潜航している浮遊要塞を呼び寄せるアクセスキー。ただし何らかの改造を施されており、明らかに規格外の電子部品が外付けされている。\n#～イルヴァ幻想辞典～\n
+        EN  An access key that calls up a floating fortress in spatial submergence. However, it has been modified in some way, with obviously non-standard electronic components attached externally. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :50344 ⚠️ TETTO SECCO 69
+        JP  \t\tワールドマップで使用することができる。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool used on the world map. May be used periodically.
+        IT  Funziona sulla mappa del mondo. Si può usare ogni tanto.
+
+=== ITEM_ID_MEMORY_CONVERTER   [FILTER_ITEM_TOOL]
+    NOME      jp 変憶結晶
+              en memory converter
+              IT convertitore di memoria
+    --- description(0)  :50408
+        JP  \t\t守護者の体内から見つかる謎の結晶。記憶と化合することで力を生み出すという。ネフィア症候群の末期患者を解剖したところ、体内に同様の結晶が形成されつつあったという記録もある。\n#～イルヴァ幻想辞典～\n
+        EN  Mysterious crystals found inside a Nefia guardian's body. It is said to generate power by compounding with memories. Similar crystals were reportedly found inside the bodies of patients suffering from Nephia Syndrome. \n# ~Irva Fantasy Encyclopedia~
+    --- description(2)  :50410
+        JP  
+        EN  It seems that if the relevant skill is too low, it cannot be converted into a bonus and the skill itself will be gone. There is no such thing as an unnecessary skill, so it seems difficult to utilize. \n# ~memo of a grave robber~
+    --- description(3)  :50411 ⚠️ TETTO SECCO 69
+        JP  \t\tスキル半減し僅かにボーナスを得る結晶。使用することができる（使い捨て）。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  (Single-use) tool crystal that half your skill to gain a slight bonus.
+        IT  Dimezza un'abilità e dà un piccolo bonus. Si usa (usa e getta).
+
+=== ITEM_ID_CF_POTIOMAN   [FILTER_ITEM_TOOL]
+    ⚠️ NOME    non trovato nel dizionario: la prosa non ha un nome a cui obbedire
+    --- description(0)  :50474
+        JP  \t\t伝統工芸品の一種。これの使い手はポーショナーと呼ばれる。ポーションを混ぜると、魔力を吸収して一時的にパワーアップする。基本威力は単純な握力と射撃の腕前に左右され、その魔力を帯びた衝撃はどんな鎧でも防げず、ＭＰにまでダメージを与える。これは自我が宿っているタイプであり、吸収した魔力を効率的に使ってくれる。\n#～バトルホビー列伝～\n
+        EN  Traditional crafts toys. Its wielder is called a Potioner. When mixed with a potion, it absorbs magical power and temporarily increases its power. Its basic power depends on one's grip and marksmanship, and its magical impact can pierce through any armor and even damages MP. This Potio-man is the self-powered type, and it uses the absorbed magical power efficiently.\n# ~Battle-Hobby Legend~
+    --- description(3)  :50477 ⚠️ TETTO SECCO 69
+        JP  \t\tポーションの栓を高速射出する道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that shoots out potion plugs at lethal velocity.
+        IT  Spara tappi di pozione a gran velocità. Si può usare sempre.
+
+=== ITEM_ID_CRUSH_POTIOMAN   [FILTER_ITEM_TOOL]
+    ⚠️ NOME    non trovato nel dizionario: la prosa non ha un nome a cui obbedire
+    --- description(0)  :50540
+        JP  \t\t伝統工芸品の一種。時代に合わせて色々な飲み物の栓が弾に用いられてきたという。ポーションを混ぜると、魔力を吸収して一時的にパワーアップする。基本威力は単純な握力と射撃の腕前に左右され、その魔力を帯びた衝撃はどんな鎧でも防げず、ＭＰにまでダメージを与える。これはシンクロさせることで外付けのグレネードを発射可能なタイプ。\n#～バトルホビー列伝～\n
+        EN  Traditional crafts toys. Its wielder is called a Potioner. When mixed with a potion, it absorbs magical power and temporarily increases its power. Its basic power depends on one's grip and marksmanship, and its magical impact can pierce through any armor and even damages MP. Potio-man of this model can be synchronized to fire an attached grenade.\n# ~Battle-Hobby Legend~
+    --- description(3)  :50543 ⚠️ TETTO SECCO 69
+        JP  \t\tポーションの栓を高速射出する道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that shoots out potion plugs at lethal velocity.
+        IT  Spara tappi di pozione a gran velocità. Si può usare sempre.
+
+=== ITEM_ID_BATTLE_POTIOMAN   [FILTER_ITEM_TOOL]
+    ⚠️ NOME    non trovato nel dizionario: la prosa non ha un nome a cui obbedire
+    --- description(0)  :50606
+        JP  \t\t伝統工芸品の一種。地域によってはコルクマンと呼ぶところもある。ポーションを混ぜると、魔力を吸収して一時的にパワーアップする。基本威力は単純な握力と射撃の腕前に左右され、その魔力を帯びた衝撃はどんな鎧でも防げず、ＭＰにまでダメージを与える。撃ち合いを想定して半透明のシールドを備えたタイプであり、発射後しばらく防御力が上がる。\n#～バトルホビー列伝～\n
+        EN  Traditional crafts toys. Its wielder is called a Potioner. When mixed with a potion, it absorbs magical power and temporarily increases its power. Its basic power depends on one's grip and marksmanship, and its magical impact can pierce through any armor and even damages MP. Potio-man of this model is equipped with a transparent shield, and raises one's defensive power for a while after firing. \n# ~Battle-Hobby Legend~
+    --- description(3)  :50609 ⚠️ TETTO SECCO 69
+        JP  \t\tポーションの栓を高速射出する道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that shoots out potion plugs at lethal velocity.
+        IT  Spara tappi di pozione a gran velocità. Si può usare sempre.
+
+=== ITEM_ID_SUPER_POTIOMAN   [FILTER_ITEM_TOOL]
+    ⚠️ NOME    non trovato nel dizionario: la prosa non ha un nome a cui obbedire
+    --- description(0)  :50672
+        JP  \t\t伝統工芸品の一種。使ったポーションの数だけ弾数が増えるのだが、一般的でない容器の栓は直径が違うので使用できない。ポーションを混ぜると、魔力を吸収して一時的にパワーアップする。基本威力は単純な握力と射撃の腕前に左右され、その魔力を帯びた衝撃はどんな鎧でも防げず、ＭＰにまでダメージを与える。力加減を考えていない初期タイプであり、握力で威力が上がりやすい。\n#～バトルホビー列伝～\n
+        EN  Traditional crafts toys. Its wielder is called a Potioner. When mixed with a potion, it absorbs magical power and temporarily increases its power. Its basic power depends on one's grip and marksmanship, and its magical impact can pierce through any armor and even damages MP. Prototype Potioman that has no consideration of holding back power, it is easy to increase its power by grip strength. \n# ~Battle-Hobby Legend~
+    --- description(3)  :50675 ⚠️ TETTO SECCO 69
+        JP  \t\tポーションの栓を高速射出する道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that shoots out potion plugs at lethal velocity.
+        IT  Spara tappi di pozione a gran velocità. Si può usare sempre.
+
+=== ITEM_ID_OPERATING_BOARD   [FILTER_ITEM_TOOL]
+    NOME      jp オペレートボード
+              en operating board
+              IT pannello di comando
+    --- description(0)  :50746
+        JP  \t\t様々な計器やパネル、液晶がついたボード。全ての機能を扱いこなすには、高い情報処理能力が求められる。\n#～別冊ヨウィン・未知の知識を追え！～\n
+        EN  Board with various instruments, panels, and LCDs. A high level of information processing capability is required to handle all the functions. \n# ~The Yowyn Book of Secrt Knowledge!~
+    --- description(3)  :50749 ⚠️ TETTO SECCO 69
+        JP  \t\t膨大な情報を処理する為の道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool for processing vast amounts of information.
+        IT  Elabora una mole enorme di informazioni. Si può usare sempre.
+
+=== ITEM_ID_JADE_DARK_ORB   [FILTER_ITEM_TOOL]
+    NOME      jp 翠魔神石
+              en green dark orb
+              IT globo oscuro verde
+    --- description(0)  :50945
+        JP  \t\t魔神の力を秘めているという翠の石。分類上は魔石の一種だが、製法は大きく異なる。魔法の罠を使用者の現在地に仕掛け、石を再使用することで罠が起動する。罠の起動は一瞬でありターンが経過しないが、ＳＰを少し消費する。（未実装）\n#～イルヴァ幻想辞典～\n
+        EN  Green stone said to have the power of a demon god. Classified as a type of magic stone, the manufacturing process is very different. Magical traps are placed in the user's current location, and the traps are activated by reusing the stone. The activation of the trap is instantaneous and no turn elapses, but it consumes a small amount of SP. \n#~Irva Fantasy Encyclopedia~
+    --- description(3)  :50948 ⚠️ TETTO SECCO 69
+        JP  \t\t罠を設置・起動する石だ。何度でも使用することができる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Unimplemented) (Reusable) tool used to set up or activate traps.
+        IT  Piazza e innesca trappole (non attivo). Si può usare sempre.
+
+=== ITEM_ID_AZURE_DARK_ORB   [FILTER_ITEM_TOOL]
+    NOME      jp 蒼魔神石
+              en blue dark orb
+              IT globo oscuro blu
+    --- description(0)  :51012
+        JP  \t\t魔神の力を秘めているという蒼の石。分類上は魔石の一種だが、製法は大きく異なる。魔法の罠を使用者の現在地に仕掛け、石を再使用することで罠が起動する。罠の起動は一瞬でありターンが経過しないが、ＭＰを少し消費する。（未実装）\n#～イルヴァ幻想辞典～\n
+        EN  Blue stone said to have the power of a demon god. Classified as a type of magic stone, the manufacturing process is very different. Magical traps are placed in the user's current location, and the traps are activated by reusing the stone. The activation of the trap is instantaneous and no turn elapses, but it consumes a small amount of SP. \n#~Irva Fantasy Encyclopedia~
+    --- description(3)  :51015 ⚠️ TETTO SECCO 69
+        JP  \t\t罠を設置・起動する石だ。何度でも使用することができる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Unimplemented) (Reusable) tool used to set up or activate traps.
+        IT  Piazza e innesca trappole (non attivo). Si può usare sempre.
+
+=== ITEM_ID_CRIMSON_DARK_ORB   [FILTER_ITEM_TOOL]
+    NOME      jp 紅魔神石
+              en crimson dark orb
+              IT globo oscuro cremisi
+    --- description(0)  :51079
+        JP  \t\t魔神の力を秘めているという紅の石。分類上は魔石の一種だが、製法は大きく異なる。魔法の罠を使用者の現在地に仕掛け、石を再使用することで罠が起動する。罠の起動は一瞬でありターンが経過しないが、ＨＰを少し消費する。（未実装）\n#～イルヴァ幻想辞典～\n
+        EN  Red stone said to have the power of a demon god. Classified as a type of magic stone, the manufacturing process is very different. Magical traps are placed in the user's current location, and the traps are activated by reusing the stone. The activation of the trap is instantaneous and no turn elapses, but it consumes a small amount of SP. \n#~Irva Fantasy Encyclopedia~
+    --- description(3)  :51082 ⚠️ TETTO SECCO 69
+        JP  \t\t罠を設置・起動する石だ。何度でも使用することができる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Unimplemented) (Reusable) tool used to set up or activate traps.
+        IT  Piazza e innesca trappole (non attivo). Si può usare sempre.
+
+=== ITEM_ID_MEMORY_FRAGMENT   [FILTER_ITEM_TOOL]
+    NOME      jp 記憶片
+              en debris
+              IT detriti
+    --- description(0)  :51288
+        JP  \t\t守護者となってしまった者が遺す破片。ネフィアから与えられた知識や過去の技術、守護者自身の記憶などがかすかに宿っている。技術や知識を吸収することができるが、他人の記憶が流れ込んでくるので気が狂いそうになる。もしもネフィア症候群の末期患者が使った場合、意識を失い、新たなネフィアの守護者となってしまうだろう。\n#～イルヴァ幻想辞典～\n
+        EN  These are treasures that provide experience, or even knowledge of the skill. In rare cases, some people are incapable of acquiring skills this way due to body rejection? \n# ~Irva Fantasy Encyclopedia~
+    --- description(1)  :51289
+        JP  持っているスキルなら経験を得られ、持っていないスキルなら習得することができるお宝だ。まれに拒絶反応でスキルを習得できない体質のやつもいるらしいが、本当だろうか。\n#～遺跡荒らしのメモ～
+        EN  It seems that if the relevant skill is too low, it cannot be converted into a bonus and the skill itself will be gone. There is no such thing as an unnecessary skill, so it seems difficult to utilize. \n# ~memo of a grave robber~
+    --- description(2)  :51290
+        JP  \t\t「抵抗力のある者であればネフィアに取り込まれず、記憶片を集めて強くなれる。何事にも穴はあるものだ。…いや待てよ。抵抗力のある者に力を集中させることが本来の目的だとしたら…？」\n#～遺跡研究者『メローキア』の言葉～\n
+        EN  \"Those who are resistant won't be taken in by Nefia and can gather memory fragments to make them stronger. There are loopholes in everything. ...No, wait. What if the original purpose of this item is to concentrate power on those who are resistant?\" \n# ~words of <Melochea> the Nefia Researcher~
+    --- description(3)  :51291 ⚠️ TETTO SECCO 69
+        JP  \t\tスキルの記憶を秘めた欠片。使用することができる（使い捨て）。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  (Single-use) tool shard that grants you the memory of a skill.
+        IT  Un frammento con la memoria di un'abilità. Si usa (usa e getta).
+
+=== ITEM_ID_KEMURIDAMA   [FILTER_ITEM_TOOL]
+    NOME      jp 煙玉
+              en kemuridama
+              IT kemuridama
+    --- description(0)  :51979
+        JP  \t\t古来より忍者が使用・発展させてきた煙幕発生装置。旧式は火をつける必要があったが、現代のものは着火不要になっている。投げると煙幕を展開して視界を遮断する。煙幕はほとんどの遠距離攻撃を妨げるため、その隙に逃げたり奇襲して各個撃破したりできる。忍術の中にはこれを用いず、自力で煙を発生させる流派もあるのだとか。\n#～図解・忍者のひみつ１００選～\n
+        EN  Smoke screen generators have been used and developed by the ninja since ancient times. Older models required a fire to be lit, but modern ones no longer require ignition. When thrown, it deploys a smoke screen to block vision. The smoke screen blocks most long-range attacks, allowing the ninja to escape or surprise the enemy and destroy them individually. Some schools of ninjutsu do not use this method, but instead generate smoke by themselves. \n# ~100 Secret of the Ninja - Illustrated~
+    --- description(3)  :51982 ⚠️ TETTO SECCO 69
+        JP  \t\t煙幕を張るアイテムだ。投げつけて使う（使い捨て）。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  (Single-use) throwing tool that creates a smoke screen.
+        IT  Stende una cortina di fumo. Si lancia (usa e getta).
+
+=== ITEM_ID_YACA_POINT_CARD   [FILTER_ITEM_TOOL]
+    NOME      jp ヤカポイントカード
+              en YacaPoint card
+              IT carta YacaPoint
+    --- description(0)  :52045
+        JP  \t\t富の女神が発行しているカード。商人の保護・育成と経済活動促進を目的としているらしい。店の売り上げと客入りに応じてヤカポイントが加算されていく。ポイントは１０万が上限なので適度に使おう。\n#～脱冒険者から始める商いライフ～\n
+        EN  Cards issued by the Goddess of Wealth. They are apparently aimed at protecting and fostering merchants and promoting economic activity. Yaca points are added according to shop sales and customer traffic. The maximum amount of points is 100,000, so use them in moderation. \n#~Merchant Life Starting from a Quitting as a Adventurer~
+    --- description(2)  :52047
+        JP  \t\t「毎年１２月はヤカポイント５倍や！年末商戦は計画的に！」\n#～富の女神の言葉～\n
+        EN  \"You get five times the Yaca points every December! Plan your year-end sales!\" \n# Words of the Goddess of Wealth
+    --- description(3)  :52048 ⚠️ TETTO SECCO 69
+        JP  \t\tポイントの確認と使用ができるカードだ。何度でも使用することができる。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  (Reusable) tool that allows you to check and use your Yaca points.
+        IT  Una carta per vedere e spendere i punti. Si può usare sempre.
+
+=== ITEM_ID_MOKU_JIN   [FILTER_ITEM_TOOL]
+    NOME      jp 木人
+              en <Moku-Jin>
+              IT <Moku-Jin>
+    non ident. IT bambola di legno   (en wooden doll)
+    --- description(0)  :52380
+        JP  \t\t人型に似せて作られた木人。この木人を戦闘相手に見立てて、武器スキルの訓練ができる。\n#～イムウエル幻想辞典～\n
+        EN  A wooden person made to resemble a humanoid. You can train your weapon skills by using this wooden person as a combatant. \n# ~Irva Fantasy Encyclopedia~
+    --- description(2)  :52382
+        JP  \t\t「君はあの洞窟でずっと待っていたんだね…帰ってこない主人を何人も、何年も」\n#～ガイドの『ノルン』の言葉～\n
+        EN  \"You've been waiting in that cave for years... for your master who never returned, for years.\" \n# ~<Norne> the guide~
+    --- description(3)  :52383 ⚠️ TETTO SECCO 69
+        JP  \t\t武器スキルを鍛える道具。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that give you weapon experience through training.
+        IT  Allena le abilità con le armi. Si può usare sempre.
+
+=== ITEM_ID_CROP_MANAGEMENT_TOOLS   [FILTER_ITEM_TOOL]
+    NOME      jp 作物管理セット
+              en crop management tools
+              IT attrezzi per le colture
+    --- description(0)  :52446
+        JP  \t\t農作業道具の詰め合わせ。作物に成長促進と品質向上をもたらす。特定の品種が有利に育つように作業方法を選び、環境を整える。その都合上、混ざっている他の品種は成長競争に負け養分と化す。作業にはスタミナを消費するので注意。\n#～農業、その新たな可能性～\n
+        EN  Assorted farming tools. Provides growth acceleration and quality improvement to crops. Selects work methods and creates an environment in which certain varieties grow to their advantage. For this reason, other varieties in the mix will lose the growth competition and become nutrients. Note that the work consumes stamina. \n# ~Agriculture and its New Possibilities~
+    --- description(3)  :52449 ⚠️ TETTO SECCO 69
+        JP  \t\t収穫物を固定する道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that secure the harvest.
+        IT  Fissa il raccolto. Si può usare sempre.
+
+=== ITEM_ID_TWIG   [FILTER_ITEM_TOOL]
+    NOME      jp 小枝
+              en twig
+              IT rametto
+    --- description(0)  :54885
+        JP  \t\tなぜかその辺に落ちている、手ごろな大きさの枝。火を起こすことができる。\n#～君にもできるサバイバル～\n
+        EN  A reasonably sized branch that for some reason has fallen around. It can start a fire. \n# ~Survival that Anyone Can Do~
+    --- description(3)  :54888 ⚠️ TETTO SECCO 69
+        JP  \t\t火を起こすのに使うことができる（使い捨て）。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  (Single-use) tool that starts a fire.
+        IT  Serve ad accendere il fuoco. Si usa (usa e getta).
+
+=== ITEM_ID_FIXITY_ANCHOR   [FILTER_ITEM_TOOL]
+    NOME      jp 姿勢制御アンカー
+              en fixity anchor
+              IT ancora di stabilità
+    non ident. IT ancora   (en anchor)
+    --- description(0)  :55142
+        JP  \t\t手ぶれを抑えたり射撃手や砲架が受ける反動を受け流したりするための固定器具。精密な射撃を可能にする他、反動を気にせず思いっきりぶっ放すことも可能に。オートマチックで地面に突き刺さった後は、一定時間経過すると解除される。その間は逃げることもできないので注意。\n#～イルヴァ幻想辞典～\n
+        EN  A stabilizing device used to suppress hand shaking and to absorb the recoil received by the shooter and the gun mount. In addition to enabling precise shooting, it also makes it possible to fire with all one's might without worrying about the recoil. Once the automatic weapon is stuck in the ground, it is released after a certain period of time. Note that you cannot escape during this time. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :55145 ⚠️ TETTO SECCO 69
+        JP  \t\t射撃攻撃力を強化する道具だ。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool to enhance the shooting attack power.
+        IT  Potenzia l'attacco a distanza. Si può usare sempre.
+
+=== ITEM_ID_DEVIL_FRAGMENT   [FILTER_ITEM_TOOL]
+    NOME      jp 魔神の欠片
+              en devil fragment
+              IT frammento di demone
+    --- description(0)  :55481
+        JP  \t\t欲望を煽るように怪しく輝く欠片。そこそこ綺麗なので宝石の代用にされたりもする。使用者にトラップを操る魔力を与え、代償として命を蝕む…というウワサもあるが誰も信じていない。遥か昔に人間を滅ぼそうとして敗れた魔神が、赤い破片となって飛び散ったという伝承があり、そこからこの名がつけられた。\n#～イルヴァ幻想辞典～\n
+        EN  Fragments that shine suspiciously to incite desire. Because it is so beautiful, it is sometimes used as a substitute for jewelry. There are rumors that it gives the user the magical power to manipulate traps, and in return, it eats away at one's life... but no one believes it. There is a legend that a long time ago, a demonic god attempting to destroy humanity was defeated and scattered into red fragments, hence the name. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :55484 ⚠️ TETTO SECCO 69
+        JP  \t\t魔力を含んだ欠片だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Single-use) tool that grants magic power.
+        IT  Un frammento che contiene magia. Si usa (usa e getta).
+
+=== ITEM_ID_NYOI_MIMIKAKI   [FILTER_ITEM_TOOL]
+    NOME      jp 如意耳掻棒
+              en nyoi mimikaki
+              IT nyoi mimikaki
+    --- description(0)  :56603
+        JP  \t\t使用者の思念に応じてサイズが変わる伝説の耳かき。妖精だろうが巨人だろうがこれ一本で済むが、適当なことを考えていると制御不能に陥る。使いこなせば全みみくそを一度にまとめて摘出することも可能な逸品なので、ただ修行あるのみ。端に付いているフワフワしたものは人造ケサランパサランであり、使った後はゆっくり休ませないと死ぬ。\n#～イルヴァ幻想辞典～\n
+        EN  Legendary ear picks that change size according to the user's thoughts. Whether you are a fairy or a giant, you only need one of these, but you will lose control of it if you are thinking about the wrong thing. If you master the use of this masterpiece, you can remove all the earwax at once, so you just have to train yourself. The fluffy thing attached to the end is artificial kesalanpatharan, which will die if it is not allowed to rest slowly after use. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :56606 ⚠️ TETTO SECCO 69
+        JP  \t\t耳掃除用の道具だ。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool that cleans your ear.
+        IT  Serve a pulirsi le orecchie. Si può usare sempre.
+
+=== ITEM_ID_CHRISTMAS_CAKE_SET   [FILTER_ITEM_TOOL]
+    NOME      jp クリスマスケーキセット
+              en christmas cake set
+              IT set di dolci natalizi
+    --- description(0)  :57063
+        JP  \t\tクリスマス用のでかいケーキ。12月になると雑貨店が売り始めるが、売れ残ることも。でかいので皆でお腹いっぱい食べられる。もちろん独り占めすることもできるが、虚しい。12月なら信仰の技術を成長させ幸運も呼ぶ。\n#～ノースティリス紀行・冬版～\n
+        EN  A large Christmas cake, sold at grocery stores in December, but sometimes left unsold. It's so big that everyone can eat a whole lot of it. Of course, you can have it all to yourself, but that's wasteful; in December, you can develop the art of faith and bring good luck by eating it. \n# ~North Tyris Travels, Winter Edition~
+    --- description(3)  :57066 ⚠️ TETTO SECCO 69
+        JP  \t\t食べるのではなく、使うことで仲間全員で食事ができる（使い捨て）。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  (Single-use) tool that creates a cake for your allies to eat.
+        IT  Non si mangia: usandolo, mangiano tutti i compagni (usa e getta).
+
+=== ITEM_ID_YACATECTS_BANK   [FILTER_ITEM_TOOL]
+    NOME      jp ヤカテクト預金箱
+              en yacatect's bank
+              IT salvadanaio di Yacatect
+    --- description(0)  :57645
+        JP  \t\tガチョウを抱えたヤカテクトの人形。神公式の工場で製造されているらしい。金貨を入れると翼を動かしながら喋る。入れた金貨はヤカテクトに運用され、トワリならぬヒャクワリ…およそ１００日で１割の利子がつく。高利と引き換えに１００日目まで出し入れはできないし、以降は追加預金しないと利子が増えないという制約がある。そして取り出す際は金貨が尻から出る。もちろんガチョウの。\n#～必見！貯蓄型資産運用のすべて～\n
+        EN  Plushie of Yacatect holding a goose. It is said to be manufactured at the God's official factory. When gold coins are inserted, it speaks and moves its wings. The gold coins are invested by Yacatect, and generate interest at a rate of 10% per 100 days. In exchange for the high interest rate, the coins cannot be taken out until the 100th day, and after that, the interest will not increase unless additional deposits are made. And when you take it out, a gold coin comes out of its butt. The goose's butt, of course. \n# ~Must Watch! Everything About Savings and Asset Management~
+    --- description(3)  :57648 ⚠️ TETTO SECCO 69
+        JP  \t\t富の女神を模した箱だ。定期的に使用することができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Reusable) toy modeled after Goddess of Wealth. May be used periodically.
+        IT  Riproduce la dea della ricchezza. Si può usare ogni tanto.
+
+=== ITEM_ID_HARAKIRI   [FILTER_ITEM_TOOL]
+    NOME      jp 《腹切丸》
+              en <Harakiri>
+              IT <Harakiri>
+    --- description(0)  :58526
+        JP  \t\t血ぬられた小太刀。切腹して詫びながら果てた武士の思念が残っており、握っていると自然と腹に刃が向かう。謝罪する際に使うと相手に本気が伝わると評判。土下座よりもはるかに謝罪力が高く、敵対している相手にもしばらく見逃してもらえる。すぐ手当すれば死にはしない。\n#～イルヴァ幻想辞典～\n
+        EN  Bloodstained kodachi, a small dagger. It contains the thoughts of warriors who committed seppuku (ritual suicide) and died with an apology, and when held, the blade will naturally aim at your stomach. When used to apologize, it is reputed to convey one's true intentions to the other party. It has much more apologetic power than the \"Kneeling on the Ground\" method, and even enemies will let you off the hook for a while. If treated immediately, it will not kill you. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :58529 ⚠️ TETTO SECCO 69
+        JP  \t\t切腹用の刀だ。装備できないが何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a sword made for Seppuku. (Reusable) tool that can't be equipped.
+        IT  Una spada per il seppuku. Non si equipaggia, ma si usa sempre.
+
+=== ITEM_ID_HEART_OF_TWILIGHT   [FILTER_ITEM_TOOL]
+    NOME      jp 黄昏の心臓 黄昏の心臓
+              en Heart of Twilight yellow gem stone
+              IT Cuore del Crepuscolo gemma gialla
+    non ident. IT poteri divini   (en godly powers)
+    --- description(0)  :59523
+        JP  \t\tネフィアへと繋がる龍脈を操作し、ネフィアの難度を変化させる宝玉。決戦因子候補の成長に合わせて調整するためのもの。\n#～イルヴァ幻想辞典～\n
+        EN  Treasure that manipulates the dragon vein leading to Nefia and changes the difficulty level of Nefia. Designed to adjust to the growth of the decisive factor candidate. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :59526 ⚠️ TETTO SECCO 69
+        JP  \t\tワールドマップで使用することができる。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool used on the world map. May be used periodically.
+        IT  Funziona sulla mappa del mondo. Si può usare ogni tanto.
+
+=== ITEM_ID_STARDUST   [FILTER_ITEM_TOOL]
+    NOME      jp スターダスト
+              en stardust
+              IT polvere di stelle
+    --- description(0)  :59658
+        JP  \t\t存在に耐え切れず砕けた星の欠片。不思議な深い青色の光を放つ。屑扱いされたりもするが、やがて巡り巡って別の星の礎になる。\n#～イルヴァ幻想辞典～\n
+        EN  A piece of shattered star. They emit a mysterious deep blue light. They are just dust at the beginning, and eventually they will become the foundation of another star. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :59661 ⚠️ TETTO SECCO 69
+        JP  \t\tアーティファクトを強化できる星屑だ（使い捨て）。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Single-use) tool stardust that enhances an artifact.
+        IT  Polvere di stelle che potenzia un artefatto (usa e getta).
+
+=== ITEM_ID_BIO_PRINTER   [FILTER_ITEM_TOOL]
+    NOME      jp バイオプリンター
+              en bio printer
+              IT bio-stampante
+    --- description(0)  :59926
+        JP  \t\t生化学文明時代の禁忌の装置。構成材料を対象から無理矢理採取して高速培養、三次元スキャンデータを元に複製人間を作り出す。現代では専用の材料転送設備が残存していないため、命が宿らずガワだけの肉塊になってしまうし、装置自体も実質使い捨て。それでも一部のマニアの間ではく製メーカーとして使われている。本人に無断で使うと怒られるので気をつけよう。\n#～別冊ヨウィン・未知の知識を追え！～\n
+        EN  Forbidden device in the era of biochemical civilization. It forcibly extracts the constituent materials from the subject, cultivates them at high speed, and creates a duplicate human being based on the scan data. Since there are no dedicated material transfer facilities left today, the human is reduced to a lump of flesh with no life in it, and the device itself is practically disposable. It is still used by some enthusiasts as a fabricator. Be careful not to use it without the person's permission, as it will make them angry. \n# ~The Yowyn Book of Secrt Knowledge!~
+    --- description(3)  :59929 ⚠️ TETTO SECCO 69
+        JP  \t\tはく製を作り出す装置だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  (Single-use) tool that 3d-prints target with biological materials.
+        IT  Un apparecchio che fa statuette. Si usa (usa e getta).
+
+=== ITEM_ID_CRAFT_REPAIR_KIT   [FILTER_ITEM_TOOL]
+    NOME      jp 名工のリペアキット
+              en craft repair kit
+              IT kit di riparazione di pregio
+    --- description(0)  :60063
+        JP  \t\t使い捨ての研磨剤や補修材、細工道具をまとめたもの。説明書付き。少数の丘の民が細々と販売している。目に見えないほどの細かい破損やズレを修復し、武具の性能を最大限に引き出す。さすがに激しい錆などはお手上げなので別の方法を考えよう。\n#～いいもの選ぼう職人道具～\n
+        EN  A collection of disposable abrasives, repair materials, and crafting tools. Comes with instructions. Sold in small quantities by a small number of hill people. Repairing invisible minor damages and misalignments to maximize the performance of the armor. As expected, heavy rust and the like cannot be helped, and we will need some other method. \n# ~Choosing the Best Tools for the Best Craftsmen~
+    --- description(3)  :60066 ⚠️ TETTO SECCO 69
+        JP  \t\t装備の本来の能力を引き出す道具だ（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool that brings out the true potential of t equipment.
+        IT  Tira fuori le vere doti dell'equipaggiamento (usa e getta).
+
+=== ITEM_ID_HANABI   [FILTER_ITEM_TOOL]
+    NOME      jp 連装花火ランチャー
+              en hanabi
+              IT hanabi
+    --- description(0)  :60649
+        JP  \t\tたまに遺跡から専用の火薬玉と一緒に見つかる筒。殺傷力を重視していないこと、真上にしか撃てないことから、専門家は当時における信号弾ではないかと考えている。爆発がなかなか綺麗なため、近年では祭りの際に観賞用として使われることがある。\n#～古代道具の謎に迫る！～\n
+        EN  A cylinder that is sometimes found in archaeological sites along with a special gunpowder ball. Because it does not emphasize killing power, and it can only be shot straight up, experts believe that it may have been a signal bullet in those days. Because the explosion is quite beautiful, it is sometimes used as an ornamental object during festivals in recent years. \n# ~Mystery of the Ancient Tools!~
+    --- description(3)  :60652 ⚠️ TETTO SECCO 69
+        JP  \t\t火薬の玉を打ち上げる筒だ。何度か使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that launches a ball of gunpowder.
+        IT  Spara in aria palle di polvere. Si può usare più volte.
+
+=== ITEM_ID_KISERU   [FILTER_ITEM_TOOL]
+    NOME      jp キセル
+              en kiseru
+              IT kiseru
+    --- description(0)  :60914
+        JP  \t\t喫煙用パイプの亜種。パイプとは対照的に、香料を用いずに一息で煙を吸い切る。魅力を成長させる成分が含まれているほか、脳細胞が活性化し、軽い眠気に耐えられるようになる。ただし依存症になる危険性があるのでほどほどに。\n#～病みつきになる煙の味は～\n
+        EN  A variant of the smoking pipe. In contrast to the pipe, the smoke is inhaled in a single breath without the use of flavoring. It contains ingredients thats beneficial to the skin, and activate brain cells, and make it possible to tolerate light sleepiness. However, there is a risk of addiction, so use in moderation. \n# ~Sickly Taste of Smoke~
+    --- description(3)  :60917 ⚠️ TETTO SECCO 69
+        JP  \t\t喫煙道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜嗜好品＞カテゴリ～\n
+        EN  (Single-use) smoking tool.
+        IT  Un attrezzo per fumare. Si usa (usa e getta).
+
+=== ITEM_ID_TOBACCO_PIPE   [FILTER_ITEM_TOOL]
+    NOME      jp パイプ
+              en tobacco pipe
+              IT pipa
+    --- description(0)  :60980
+        JP  \t\t木製の喫煙具。タバコの葉を刻んで詰めるのだが、そこに薬草等の香料をブレンドして楽しむ。紙巻に比べるとゆっくりとタバコを味わうのに向いている。習得を成長させる成分が含まれているほか、脳細胞が活性化し、軽い眠気に耐えられるようになる。ただし依存症になる危険性があるのでほどほどに。\n#～病みつきになる煙の味は～\n
+        EN  Wooden smoking utensil. Tobacco leaves are chopped and packed, and then blended with herbs and other flavoring agents. Compared to paper cigars, it is better suited for slowing down and savoring tobacco. It contains ingredients that help grow mastery, activates brain cells, and makes light drowsiness tolerable. However, there is a risk of addiction, so use in moderation. \n# ~Sickly Taste of Smoke~
+    --- description(3)  :60983 ⚠️ TETTO SECCO 69
+        JP  \t\t喫煙道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜嗜好品＞カテゴリ～\n
+        EN  (Single-use) smoking tool.
+        IT  Un attrezzo per fumare. Si usa (usa e getta).
+
+=== ITEM_ID_HAMAKI   [FILTER_ITEM_TOOL]
+    NOME      jp 葉巻
+              en hamaki
+              IT hamaki
+    --- description(0)  :61046
+        JP  \t\tタバコの葉を筒状に巻いたもの。本来は刃物で先端を切って使うのだが、面倒くさがりな人用に手でも切れるように加工されている。器用を成長させる成分が含まれているほか、脳細胞が活性化し、軽い眠気に耐えられるようになる。ただし依存症になる危険性があるのでほどほどに。\n#～病みつきになる煙の味は～\n
+        EN  Tobacco leaf rolled into a cylindrical shape. Originally, the tip is cut off with a knife, but for those who are lazy, it has been processed so that it can be cut by hand. In addition to containing ingredients that help develop dexterity, it also activates brain cells and makes it possible to tolerate light sleepiness. However, there is a risk of addiction, so use in moderation. \n# ~Sickly Taste of Smoke~
+    --- description(3)  :61049 ⚠️ TETTO SECCO 69
+        JP  \t\t喫煙道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜嗜好品＞カテゴリ～\n
+        EN  (Single-use) smoking tool.
+        IT  Un attrezzo per fumare. Si usa (usa e getta).
+
+=== ITEM_ID_CIGARETTE   [FILTER_ITEM_TOOL]
+    NOME      jp 紙巻タバコ
+              en cigarette
+              IT sigaretta
+    --- description(0)  :61112
+        JP  \t\tタバコの葉を刻んで紙で巻いたもの。着火剤がついており、特に着火装置なしでも発火させることができる。感覚を成長させる成分が含まれているほか、脳細胞が活性化し、軽い眠気に耐えられるようになる。ただし依存症になる危険性があるのでほどほどに。\n#～病みつきになる煙の味は～\n
+        EN  A tobacco leaf is chopped and rolled up in paper. It has an igniter and can be ignited without any particular ignition device. It contains ingredients that grow the senses, activate brain cells, and make it possible to tolerate light drowsiness. However, there is a risk of addiction, so use in moderation. \n# ~Sickly Taste of Smoke~
+    --- description(3)  :61115 ⚠️ TETTO SECCO 69
+        JP  \t\t喫煙道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜嗜好品＞カテゴリ～\n
+        EN  (Single-use) smoking tool.
+        IT  Un attrezzo per fumare. Si usa (usa e getta).
+
+== 39 oggetti, 83 descrizioni

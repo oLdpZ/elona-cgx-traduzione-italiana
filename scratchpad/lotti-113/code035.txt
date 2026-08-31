@@ -1,0 +1,131 @@
+:62020
+   en  # ~You Can Use it too! Excavated Weapons~
+   IT  # ~Puoi Usarle Anche Tu! Le Armi Riesumate~
+:62096
+   en  # ~You Can Use it too! Excavated Weapons~
+   IT  # ~Puoi Usarle Anche Tu! Le Armi Riesumate~
+:62098
+   en  # ~attached manual~
+   IT  # ~Il Foglietto delle Istruzioni Allegato~
+:62172
+   en  # ~You Can Use it too! Excavated Weapons~
+   IT  # ~Puoi Usarle Anche Tu! Le Armi Riesumate~
+:62234
+   en  # ~Palmian Winter Fashion~
+   IT  # ~Palmia: Collezione Autunno-Inverno~
+:62236
+   en  # ~words of a girl wrapped in a blanket~
+   IT  # ~Parole di una Bambina Avvolta in una Coperta~
+:62600
+   en  #~First aid at home~
+   IT  #~Primo Soccorso in Casa~
+:62666
+   en  # ~Collection of Armaments you can Use Tomorrow~
+   IT  # ~Raccolta di Armi e Armature da Usare Domani~
+:63521
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:63523
+   en  # ~scribbling in a mysterious notebook~
+   IT  # ~Scarabocchi su un Quaderno Misterioso~
+:63937
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:64005
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:64073
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:64141
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:64209
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:64553
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:64678
+   en  # ~Supporting Roles in Kitchen~
+   IT  # ~I Comprimari della Cucina~
+:64741
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:64807
+   en  # ~Bizarre Gossip~
+   IT  # ~Dicerie Bizzarre~
+:65195
+   en  # ~Heated Duelists~
+   IT  # ~Duellanti Ardenti~
+:65197
+   en  # ~words of the victim to the curse~
+   IT  # ~Parole di Chi è Stato Maledetto~
+:65464
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:65466
+   en  # ~Worried Citizen~
+   IT  # ~Parole di un Cittadino in Affanno~
+:66075
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:67666
+   en  # ~Music of the Melodious Irva~
+   IT  # ~Le Melodie della Limpida Irva~
+:68587
+   en  # ~Special Edition! Behind-the-scenes Favorites!~
+   IT  # ~Selezione! I Piaceri Clandestini~
+:68717
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:68783
+   en  # ~Aion's Prophecy~
+   IT  # ~La Profezia di Aion~
+:69454
+   en  # ~Agriculture and its New Possibilities~
+   IT  # ~L'Agricoltura e le sue Nuove Possibilità~
+:70333
+   en  # ~Supporting Roles in Kitchen~
+   IT  # ~I Comprimari della Cucina~
+:70598
+   en  # ~Necromancy for Noobs~
+   IT  # ~Negromanzia per Principianti~
+:70817
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:71924
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:72484
+   en  # ~Extra Issue: Weird Items~
+   IT  # ~Speciale: Oggetti Sospetti Comprati e Provati~
+:72486
+   en  # ~Words from an Shady, Old Shopkeeper~
+   IT  # ~Parole del Vecchio Bottegaio del Vicolo~
+:72550
+   en  # ~Extra Issue: Weird Items~
+   IT  # ~Alchimia: Grande Compendio dei Divieti~
+:72552
+   en  # ~Jonah, the Adventurer~
+   IT  # ~<Jonah> l'avventuriero~
+:72620
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:73020
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:73288
+   en  # ~Command and Control on the Battlefield~
+   IT  # ~Comando e Controllo sul Campo di Battaglia~
+:73698
+   en  # ~Lumiest Art Catalogue~
+   IT  # ~Catalogo d'Arte di Lumiest~
+:73765
+   en  # ~Lumiest Art Catalogue~
+   IT  # ~Catalogo d'Arte di Lumiest~
+:73828
+   en  # ~Heated Duelists~
+   IT  # ~Duellanti Ardenti~
+
+righe senza resa in tabella: 0   (atteso 0)

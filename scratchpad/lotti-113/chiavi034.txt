@@ -1,0 +1,191 @@
+RIGHE = {
+    49776, 49847, 49918, 49989, 50060, 50131, 50202, 50271, 50341, 50408,
+    50410, 50474, 50540, 50606, 50672, 50746, 50945, 51012, 51079, 51288,
+    51289, 51290, 51979, 52045, 52047, 52380, 52382, 52446, 54885, 55142,
+    55481, 56603, 57063, 57645, 58526, 59523, 59658, 59926, 60063, 60649,
+    60914, 60980, 61046, 61112,
+}
+# 44 righe, da 49776 a 61112
+
+    # ---------------------------------------------------------- :49776
+    (49776, 'Water bottles manufactured at the end of the biochemical civilization. It is equipped with an advanced filtration mechanism and can somehow make contaminated water drinkable. \\n# ~The Yowyn Book of Secrt Knowledge!~'):
+        "",
+
+    # ---------------------------------------------------------- :49847
+    (49847, 'Distorted crystals spilled from Tezcatlipoca. Unlike the shards left behind by ordinary Nefia guardians, this object has no magical power of its own, but it is a powerful catalyst. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :49918
+    (49918, 'Distorted crystals found inside the body of the deformed angel. Unlike the shards left behind by ordinary Nefia guardians, this object has no magical power of its own, but it is a powerful catalyst. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :49989
+    (49989, 'Distorted crystals kept by Zeome. Unlike the shards left behind by ordinary Nefia guardians, this object has no magical power of its own, but it is a powerful catalyst. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :50060
+    (50060, 'The hand that holds the power of God. The story of the Golden King of Donkey Ears, who once held the same power in his hands, who defeated tragedy with the power of love, is all too well known. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :50131
+    (50131, 'Patrol program composed of photons. It flies around at the speed of light to collect information or, conversely, to spread information. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :50202
+    (50202, "Divine medal of honor. It symbolizes the strength to carry oneself through and the strength to protect what needs to be protected, even to the point of abandoning oneself. It has strong power, but if you don't use it thoughtfully, you will die without being able to protect or carry through anything. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :50271
+    (50271, 'A license prepared by God. In modern Irva, marriage is not permitted without first becoming partners. However, if the couple confronts the marriage partner with this, the marriage is possible. Of course, the other party has the right to refuse. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :50341
+    (50341, 'An access key that calls up a floating fortress in spatial submergence. However, it has been modified in some way, with obviously non-standard electronic components attached externally. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :50408
+    (50408, "Mysterious crystals found inside a Nefia guardian's body. It is said to generate power by compounding with memories. Similar crystals were reportedly found inside the bodies of patients suffering from Nephia Syndrome. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :50410
+    (50410, 'It seems that if the relevant skill is too low, it cannot be converted into a bonus and the skill itself will be gone. There is no such thing as an unnecessary skill, so it seems difficult to utilize. \\n# ~memo of a grave robber~'):
+        "",
+
+    # ---------------------------------------------------------- :50474
+    (50474, "Traditional crafts toys. Its wielder is called a Potioner. When mixed with a potion, it absorbs magical power and temporarily increases its power. Its basic power depends on one's grip and marksmanship, and its magical impact can pierce through any armor and even damages MP. This Potio-man is the self-powered type, and it uses the absorbed magical power efficiently.\\n# ~Battle-Hobby Legend~"):
+        "",
+
+    # ---------------------------------------------------------- :50540
+    (50540, "Traditional crafts toys. Its wielder is called a Potioner. When mixed with a potion, it absorbs magical power and temporarily increases its power. Its basic power depends on one's grip and marksmanship, and its magical impact can pierce through any armor and even damages MP. Potio-man of this model can be synchronized to fire an attached grenade.\\n# ~Battle-Hobby Legend~"):
+        "",
+
+    # ---------------------------------------------------------- :50606
+    (50606, "Traditional crafts toys. Its wielder is called a Potioner. When mixed with a potion, it absorbs magical power and temporarily increases its power. Its basic power depends on one's grip and marksmanship, and its magical impact can pierce through any armor and even damages MP. Potio-man of this model is equipped with a transparent shield, and raises one's defensive power for a while after firing. \\n# ~Battle-Hobby Legend~"):
+        "",
+
+    # ---------------------------------------------------------- :50672
+    (50672, "Traditional crafts toys. Its wielder is called a Potioner. When mixed with a potion, it absorbs magical power and temporarily increases its power. Its basic power depends on one's grip and marksmanship, and its magical impact can pierce through any armor and even damages MP. Prototype Potioman that has no consideration of holding back power, it is easy to increase its power by grip strength. \\n# ~Battle-Hobby Legend~"):
+        "",
+
+    # ---------------------------------------------------------- :50746
+    (50746, 'Board with various instruments, panels, and LCDs. A high level of information processing capability is required to handle all the functions. \\n# ~The Yowyn Book of Secrt Knowledge!~'):
+        "",
+
+    # ---------------------------------------------------------- :50945
+    (50945, "Green stone said to have the power of a demon god. Classified as a type of magic stone, the manufacturing process is very different. Magical traps are placed in the user's current location, and the traps are activated by reusing the stone. The activation of the trap is instantaneous and no turn elapses, but it consumes a small amount of SP. \\n#~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :51012
+    (51012, "Blue stone said to have the power of a demon god. Classified as a type of magic stone, the manufacturing process is very different. Magical traps are placed in the user's current location, and the traps are activated by reusing the stone. The activation of the trap is instantaneous and no turn elapses, but it consumes a small amount of SP. \\n#~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :51079
+    (51079, "Red stone said to have the power of a demon god. Classified as a type of magic stone, the manufacturing process is very different. Magical traps are placed in the user's current location, and the traps are activated by reusing the stone. The activation of the trap is instantaneous and no turn elapses, but it consumes a small amount of SP. \\n#~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :51288
+    (51288, 'These are treasures that provide experience, or even knowledge of the skill. In rare cases, some people are incapable of acquiring skills this way due to body rejection? \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :51289
+    (51289, 'It seems that if the relevant skill is too low, it cannot be converted into a bonus and the skill itself will be gone. There is no such thing as an unnecessary skill, so it seems difficult to utilize. \\n# ~memo of a grave robber~'):
+        "",
+
+# 1 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :51290
+    (51290, '\\"Those who are resistant won\'t be taken in by Nefia and can gather memory fragments to make them stronger. There are loopholes in everything. ...No, wait. What if the original purpose of this item is to concentrate power on those who are resistant?\\" \\n# ~words of <Melochea> the Nefia Researcher~'):
+        "",
+
+    # ---------------------------------------------------------- :51979
+    (51979, 'Smoke screen generators have been used and developed by the ninja since ancient times. Older models required a fire to be lit, but modern ones no longer require ignition. When thrown, it deploys a smoke screen to block vision. The smoke screen blocks most long-range attacks, allowing the ninja to escape or surprise the enemy and destroy them individually. Some schools of ninjutsu do not use this method, but instead generate smoke by themselves. \\n# ~100 Secret of the Ninja - Illustrated~'):
+        "",
+
+    # ---------------------------------------------------------- :52045
+    (52045, 'Cards issued by the Goddess of Wealth. They are apparently aimed at protecting and fostering merchants and promoting economic activity. Yaca points are added according to shop sales and customer traffic. The maximum amount of points is 100,000, so use them in moderation. \\n#~Merchant Life Starting from a Quitting as a Adventurer~'):
+        "",
+
+    # ---------------------------------------------------------- :52047
+    (52047, '\\"You get five times the Yaca points every December! Plan your year-end sales!\\" \\n# Words of the Goddess of Wealth'):
+        "",
+
+    # ---------------------------------------------------------- :52380
+    (52380, 'A wooden person made to resemble a humanoid. You can train your weapon skills by using this wooden person as a combatant. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :52382
+    (52382, '\\"You\'ve been waiting in that cave for years... for your master who never returned, for years.\\" \\n# ~<Norne> the guide~'):
+        "",
+
+# 4 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :52446
+    (52446, 'Assorted farming tools. Provides growth acceleration and quality improvement to crops. Selects work methods and creates an environment in which certain varieties grow to their advantage. For this reason, other varieties in the mix will lose the growth competition and become nutrients. Note that the work consumes stamina. \\n# ~Agriculture and its New Possibilities~'):
+        "",
+
+    # ---------------------------------------------------------- :54885
+    (54885, 'A reasonably sized branch that for some reason has fallen around. It can start a fire. \\n# ~Survival that Anyone Can Do~'):
+        "",
+
+    # ---------------------------------------------------------- :55142
+    (55142, "A stabilizing device used to suppress hand shaking and to absorb the recoil received by the shooter and the gun mount. In addition to enabling precise shooting, it also makes it possible to fire with all one's might without worrying about the recoil. Once the automatic weapon is stuck in the ground, it is released after a certain period of time. Note that you cannot escape during this time. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :55481
+    (55481, "Fragments that shine suspiciously to incite desire. Because it is so beautiful, it is sometimes used as a substitute for jewelry. There are rumors that it gives the user the magical power to manipulate traps, and in return, it eats away at one's life... but no one believes it. There is a legend that a long time ago, a demonic god attempting to destroy humanity was defeated and scattered into red fragments, hence the name. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :56603
+    (56603, "Legendary ear picks that change size according to the user's thoughts. Whether you are a fairy or a giant, you only need one of these, but you will lose control of it if you are thinking about the wrong thing. If you master the use of this masterpiece, you can remove all the earwax at once, so you just have to train yourself. The fluffy thing attached to the end is artificial kesalanpatharan, which will die if it is not allowed to rest slowly after use. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :57063
+    (57063, "A large Christmas cake, sold at grocery stores in December, but sometimes left unsold. It's so big that everyone can eat a whole lot of it. Of course, you can have it all to yourself, but that's wasteful; in December, you can develop the art of faith and bring good luck by eating it. \\n# ~North Tyris Travels, Winter Edition~"):
+        "",
+
+    # ---------------------------------------------------------- :57645
+    (57645, "Plushie of Yacatect holding a goose. It is said to be manufactured at the God's official factory. When gold coins are inserted, it speaks and moves its wings. The gold coins are invested by Yacatect, and generate interest at a rate of 10% per 100 days. In exchange for the high interest rate, the coins cannot be taken out until the 100th day, and after that, the interest will not increase unless additional deposits are made. And when you take it out, a gold coin comes out of its butt. The goose's butt, of course. \\n# ~Must Watch! Everything About Savings and Asset Management~"):
+        "",
+
+    # ---------------------------------------------------------- :58526
+    (58526, 'Bloodstained kodachi, a small dagger. It contains the thoughts of warriors who committed seppuku (ritual suicide) and died with an apology, and when held, the blade will naturally aim at your stomach. When used to apologize, it is reputed to convey one\'s true intentions to the other party. It has much more apologetic power than the \\"Kneeling on the Ground\\" method, and even enemies will let you off the hook for a while. If treated immediately, it will not kill you. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :59523
+    (59523, 'Treasure that manipulates the dragon vein leading to Nefia and changes the difficulty level of Nefia. Designed to adjust to the growth of the decisive factor candidate. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :59658
+    (59658, 'A piece of shattered star. They emit a mysterious deep blue light. They are just dust at the beginning, and eventually they will become the foundation of another star. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :59926
+    (59926, "Forbidden device in the era of biochemical civilization. It forcibly extracts the constituent materials from the subject, cultivates them at high speed, and creates a duplicate human being based on the scan data. Since there are no dedicated material transfer facilities left today, the human is reduced to a lump of flesh with no life in it, and the device itself is practically disposable. It is still used by some enthusiasts as a fabricator. Be careful not to use it without the person's permission, as it will make them angry. \\n# ~The Yowyn Book of Secrt Knowledge!~"):
+        "",
+
+    # ---------------------------------------------------------- :60063
+    (60063, 'A collection of disposable abrasives, repair materials, and crafting tools. Comes with instructions. Sold in small quantities by a small number of hill people. Repairing invisible minor damages and misalignments to maximize the performance of the armor. As expected, heavy rust and the like cannot be helped, and we will need some other method. \\n# ~Choosing the Best Tools for the Best Craftsmen~'):
+        "",
+
+    # ---------------------------------------------------------- :60649
+    (60649, 'A cylinder that is sometimes found in archaeological sites along with a special gunpowder ball. Because it does not emphasize killing power, and it can only be shot straight up, experts believe that it may have been a signal bullet in those days. Because the explosion is quite beautiful, it is sometimes used as an ornamental object during festivals in recent years. \\n# ~Mystery of the Ancient Tools!~'):
+        "",
+
+    # ---------------------------------------------------------- :60914
+    (60914, 'A variant of the smoking pipe. In contrast to the pipe, the smoke is inhaled in a single breath without the use of flavoring. It contains ingredients thats beneficial to the skin, and activate brain cells, and make it possible to tolerate light sleepiness. However, there is a risk of addiction, so use in moderation. \\n# ~Sickly Taste of Smoke~'):
+        "",
+
+    # ---------------------------------------------------------- :60980
+    (60980, 'Wooden smoking utensil. Tobacco leaves are chopped and packed, and then blended with herbs and other flavoring agents. Compared to paper cigars, it is better suited for slowing down and savoring tobacco. It contains ingredients that help grow mastery, activates brain cells, and makes light drowsiness tolerable. However, there is a risk of addiction, so use in moderation. \\n# ~Sickly Taste of Smoke~'):
+        "",
+
+    # ---------------------------------------------------------- :61046
+    (61046, 'Tobacco leaf rolled into a cylindrical shape. Originally, the tip is cut off with a knife, but for those who are lazy, it has been processed so that it can be cut by hand. In addition to containing ingredients that help develop dexterity, it also activates brain cells and makes it possible to tolerate light sleepiness. However, there is a risk of addiction, so use in moderation. \\n# ~Sickly Taste of Smoke~'):
+        "",
+
+    # ---------------------------------------------------------- :61112
+    (61112, 'A tobacco leaf is chopped and rolled up in paper. It has an igniter and can be ignited without any particular ignition device. It contains ingredients that grow the senses, activate brain cells, and make it possible to tolerate light drowsiness. However, there is a risk of addiction, so use in moderation. \\n# ~Sickly Taste of Smoke~'):
+        "",
+
+# 39 voci, 0 ambigue
+

@@ -1,0 +1,501 @@
+=== ITEM_ID_GEMSTONE_MANI   [FILTER_ITEM_TOOL]
+    NOME      jp マニの切り札の宝玉 マニの切り札の宝玉
+              en satellite shooter Mani's gem stone
+              IT tiratore orbitale gemma di Mani
+    non ident. IT poteri divini   (en godly powers)
+    --- description(0)  :76314
+        JP  \t\t機械の神がもたらした奇跡の宝玉。空にかざせば衛星軌道上から荷電粒子ビームの雨が降り注ぐという。レーザーと同時投射することで荷電粒子の拡散や減衰を防いでいるらしいが、詳しいことはわからない。\n#～イルヴァ幻想辞典～\n
+        EN  Miraculous jewel brought by the God of Machine. It is said that if you hold it up to the sky, a rain of charged particle beams will rain down from a satellite orbit. It is said that the beam is simultaneously projected with a laser to prevent diffusion and attenuation of the charged particles, but the details are not known. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :76317 ⚠️ TETTO SECCO 69
+        JP  \t\t全ての敵に射撃スキル依存のダメージを与える。定期的に使用できる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool used shoot every enemy nearby. May be used periodically.
+        IT  Danno a tutti i nemici, secondo il Tiro. Si usa ogni tanto.
+
+=== ITEM_ID_GEMSTONE_YACATECT   [FILTER_ITEM_TOOL]
+    NOME      jp ヤカテクトの小遣銭の宝玉 ヤカテクトの小遣銭の宝玉
+              en god medal Yacatect's gem stone
+              IT medaglia divina gemma di Yacatect
+    non ident. IT poteri divini   (en godly powers)
+    --- description(0)  :77773
+        JP  \t\t富の女神がもたらした奇跡の宝玉。お小遣いを渡したい相手に贈るという。\n#～イルヴァ幻想辞典～\n
+        EN  Miraculous treasure brought by the Goddess of Wealth. They are given to persons she want to give allowance to. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :77776 ⚠️ TETTO SECCO 69
+        JP  \t\t月に一度だけ、お小遣いが貰える。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool for monthly allowence. May be used periodically.
+        IT  Una volta al mese arriva la paghetta. Si usa ogni tanto.
+
+=== ITEM_ID_POT_OF_ALCHEMIST   [FILTER_ITEM_TOOL]
+    NOME      jp 《賢者の錬金釜》
+              en pot of alchemist
+              IT calderone dell'alchimista
+    --- description(0)  :78256
+        JP  \t\t錬金術士が合成で用いる煮釜。特殊な薬品といっしょに材料を煮込み、相互反応で物質構造を原子レベルで変化させるのだ。\n#～錬金術入門書～\n
+        EN  A boiling pot used by alchemists for item synthesis. Materials are boiled together with special chemicals to change the structure of matter at the atomic level through mutual reactions. \n# ~An Introduction to Alchemy~
+    --- description(3)  :78259 ⚠️ TETTO SECCO 69
+        JP  \t\t複雑な合成用の器具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that allow using of complex fusion recipes.
+        IT  Un attrezzo per le fusioni complesse. Si può usare sempre.
+
+=== ITEM_ID_POT_FOR_FUSION   [FILTER_ITEM_TOOL]
+    NOME      jp 合成の壺
+              en pot for fusion
+              IT vaso della fusione
+    --- description(0)  :78322
+        JP  \t\t特定のアイテム同士を融合させ、別の物を作りだす魔法がかけられている。芸術品として見てもいい物だ。\n#～ルミエスト美術目録～\n
+        EN  Items placed inside are magically fused with each other to create something else. It is a state-of-art magical tool. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :78325 ⚠️ TETTO SECCO 69
+        JP  \t\t複雑な合成用の器具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that allow using of complex fusion recipes.
+        IT  Un attrezzo per le fusioni complesse. Si può usare sempre.
+
+=== ITEM_ID_STATUE_MANI   [FILTER_ITEM_TOOL]
+    NOME      jp マニ像 マニ像
+              en Mani statue
+              IT Mani statua
+    non ident. IT divinità di Irva   (en deity of Irva)
+    --- description(0)  :79111
+        JP  \t\tさる高名な芸術家が作った、機械仕掛けの神を模った彫像。所々複雑に作られた箇所が、どことなくかっこいい。\n#～ルミエスト美術目録～\n
+        EN  A statue in the shape of the God of Machine, created by a renowned artist. Even the intricately made complex parts are recreated. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :79114 ⚠️ TETTO SECCO 69
+        JP  \t\t機械仕掛けの神を模った彫像。定期的に使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of God of Machine. May be used periodically.
+        IT  Una statua del dio delle macchine. Si usa ogni tanto.
+
+=== ITEM_ID_STATUE_KUMIROMI   [FILTER_ITEM_TOOL]
+    NOME      jp クミロミ像 クミロミ像
+              en Kumiromi statue
+              IT Kumiromi statua
+    non ident. IT divinità di Irva   (en deity of Irva)
+    --- description(0)  :79178
+        JP  \t\tさる高名な芸術家が作った、収穫の神を模った彫像。その愁いを帯びた表情は、どことなく凛々しい。\n#～ルミエスト美術目録～\n
+        EN  A statue in the shape of the God of Harvest. created by a renowned artist. The melancholy expression on his face is somehow dignified. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :79181 ⚠️ TETTO SECCO 69
+        JP  \t\t収穫の神を模った彫像。定期的に使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of God of Harvest. May be used periodically.
+        IT  Una statua del dio del raccolto. Si usa ogni tanto.
+
+=== ITEM_ID_GAROKS_HAMMER   [FILTER_ITEM_TOOL]
+    NOME      jp ガロクの槌
+              en Garok's hammer
+              IT martello di Garok
+    non ident. IT martello da maestro   (en master hammer)
+    --- description(0)  :80218
+        JP  \t\tどんなガラクタだろうが、たちまち一点物に作り変えるという名工ガロクの槌。ただし、職人の気難しい気質がそのまま槌に宿っている為、こちらの希望は聞き入れてくれないようだ。\n#～イルヴァ幻想辞典～\n
+        EN  Garok's hammer is a master craftsman's hammer that instantly transforms any piece of junk into a one-of-a-kind item. However, since the craftsman's difficult temperament is directly reflected in his hammer, he does not seem to listen to our wishes. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :80221 ⚠️ TETTO SECCO 69
+        JP  \t\t武器防具を☆化することができる槌。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool that raises the quality of the equipment.
+        IT  Rende eccezionale un'arma o un'armatura. Si usa (usa e getta).
+
+=== ITEM_ID_STATUE_CREATOR   [FILTER_ITEM_TOOL]
+    NOME      jp 創造主の像 創造主の像
+              en Creator statue
+              IT Creatore statua
+    non ident. IT figura sospetta   (en a fishy figure)
+    --- description(0)  :80924
+        JP  \t\t名も知らぬ芸術家が作った何ともいえぬ彫像。どうみても奇妙な格好をした人物像なのだが、側面に「創造主」と彫られているので恐らくこれが創造主の姿なのだろう。\n#～ルミエスト美術目録～\n
+        EN  Indescribable statue made by an unknown artist. It appears to be a strangely dressed figure, but the word 'Creator' is engraved on the side, so perhaps this is the figure of the Creator. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :80927 ⚠️ TETTO SECCO 69
+        JP  \t\tショウルーム用。何度でも使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of creator from the Moongate world. The power is lost now.
+        IT  Serve nella sala d'esposizione. Si può usare sempre.
+
+=== ITEM_ID_SUMMONING_CRYSTAL   [FILTER_ITEM_TOOL]
+    NOME      jp 召喚石
+              en summoning crystal
+              IT cristallo di evocazione
+    non ident. IT cristallo splendido   (en beautiful stone)
+    --- description(0)  :80992
+        JP  \t\t悠久の時が作り上げた巨大な水晶。その光は見る者の心を投影し、現世に現すという。\n#～イルヴァ幻想辞典～\n
+        EN  Giant crystals created by time immemorial. It is said that its light projects the heart of the beholder and reveals it in this world. \n# ~Irva Fantasy Encyclopedia~
+    --- description(2)  :80994
+        JP  
+        EN  \"Just summon adventurers from another world to do the chores for you, neat, right?\" \n# ~Lane, the Fairy Invoker~
+    --- description(3)  :80995 ⚠️ TETTO SECCO 69
+        JP  \t\tショウルーム用。何度でも使用することができる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool used in showrooms. May be used to summon CNPCs.
+        IT  Serve nella sala d'esposizione. Si può usare sempre.
+
+=== ITEM_ID_TAMERS_WHIP   [FILTER_ITEM_TOOL]
+    NOME      jp 調教鞭
+              en tamer's whip
+              IT frusta del domatore
+    --- description(0)  :81130
+        JP  \t\tサーカスの団長等が用いる革製の良くしなる鞭。一度振るえばどんな猛獣であろうと従順になるだろう。\n#～巻かれる為の長いもの～\n
+        EN  Leather whip used by circus leaders and others. Once wielded, it will make any beast of prey obedient. \n# ~Battles, Dragons, Swords and Magic~
+    --- description(3)  :81133 ⚠️ TETTO SECCO 69
+        JP  \t\tペットが物を拾うのを禁止できる。何度でも使用することができる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool that forbids pet from doing certain actions.
+        IT  Vieta ai compagni di raccogliere roba. Si può usare sempre.
+
+=== ITEM_ID_OBJET_HEART   [FILTER_ITEM_TOOL]
+    NOME      jp こころ こころ
+              en heart objet
+              IT cuore oggetto d'arte
+    non ident. IT origine ignota   (en unknown origin)
+    --- description(0)  :81196
+        JP  \t\t２つの相容れない感情に苦悩する心を、特殊な素材を用いて表した芸術作品。互いに絡み合った素材達は、さながら本物の心臓の様に微動するのだという。\n#～イルヴァ幻想辞典～\n
+        EN  This work of art utilizes special materials to depict anguished hearts. The intertwined materials are said to move slightly like a real heart. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :81199 ⚠️ TETTO SECCO 69
+        JP  \t\t対象の心を分析するアイテムだ。何度でも使用することができる。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Reusable) tool that analyzes the mind of the target.
+        IT  Analizza l'animo del bersaglio. Si può usare sempre.
+
+=== ITEM_ID_SAND_BAG   [FILTER_ITEM_TOOL]
+    NOME      jp サンドバッグ
+              en sand bag
+              IT sacco da boxe
+    --- description(0)  :82004
+        JP  \t\t日々のストレスの解消や、自らを鍛える為に作られた縦長の運動器具。ノースティリスにおけるそれと一般的な物とのささやかな違いは、材質に砂ではなく弱った犠牲者を用いることであろうか。\n#～家庭を彩る日用雑貨～\n
+        EN  Vertical exercise equipment designed to relieve daily stress and to train oneself. The only difference between this and the typical North Tyris sandbag is that it uses weak victims instead of sand as its material. \n# ~Daily Necessities for the Home~
+    --- description(3)  :82007 ⚠️ TETTO SECCO 69
+        JP  \t\t弱ったモンスターを吊るしあげる道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that can tie up a weakened monster.
+        IT  Ci si appende un mostro indebolito. Si può usare sempre.
+
+=== ITEM_ID_STATUE_EHEKATL   [FILTER_ITEM_TOOL]
+    NOME      jp エヘカトル像 エヘカトル像
+              en Ehekatl statue
+              IT Ehekatl statua
+    non ident. IT divinità di Irva   (en deity of Irva)
+    --- description(0)  :82809
+        JP  \t\tさる高名な芸術家が作った、幸運な女神を模った彫像。その屈託ない笑顔は、どことなく愛くるしい。\n#～ルミエスト美術目録～\n
+        EN  A statue in the shape of the Goddess of Luck. created by a renowned artist. Her carefree smile is irresistibly endearing. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :82812 ⚠️ TETTO SECCO 69
+        JP  \t\t幸運の女神を模った彫像。定期的に使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of Goddess of Luck. May be used periodically.
+        IT  Una statua della dea della fortuna. Si usa ogni tanto.
+
+=== ITEM_ID_SECRET_EXP_LOMIAS   [FILTER_ITEM_TOOL]
+    NOME      jp ロミアスの秘密の経験 ロミアスの秘密の経験
+              en Lomias secret experience
+              IT Lomias esperienza segreta
+    non ident. IT gemma sospetta   (en strange jewel)
+    --- description(0)  :83078
+        JP  \t\t見ているだけで不快な気分を感じる謎の宝石。使用することができるが、効果の程を確認した者はいないという。\n#～イルヴァ幻想辞典～\n
+        EN  A mysterious gemstone that makes you feel uncomfortable just by looking at it. It can be used, but no one has confirmed its effectiveness. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :83081 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することで、今後に何か変化をもたらす宝石だ。\n#～鑑定報告書：＜宝珠＞カテゴリ～\n
+        EN  (Reusable?) gem that changes the past of the future.
+        IT  Una gemma che, usata, cambierà qualcosa più avanti.
+
+=== ITEM_ID_SECRET_EXP_KUMIROMI   [FILTER_ITEM_TOOL]
+    NOME      jp クミロミの秘密の経験 クミロミの秘密の経験
+              en Kumiromi secret experience
+              IT Kumiromi esperienza segreta
+    non ident. IT gemma sospetta   (en strange jewel)
+    --- description(0)  :83209
+        JP  \t\t収穫の神が与えたもう一度の奇跡。使用すると光を放ち、そこで得も言われぬ経験をすることができるという。\n#～イルヴァ幻想辞典～\n
+        EN  Another miracle given by the God of Harvest. It is said that when you use it, it emits light and you can have an unforgettable experience there. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :83212 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することで、新たなフィートを得ることができる宝石だ（使い捨て）。\n#～鑑定報告書：＜宝珠＞カテゴリ～\n
+        EN  (Single-use) tool that grants you a feat.
+        IT  Una gemma che dà un talento nuovo (usa e getta).
+
+=== ITEM_ID_WHISTLE   [FILTER_ITEM_TOOL]
+    NOME      jp ホイッスル
+              en whistle
+              IT fischietto
+    --- description(0)  :84035
+        JP  \t\t使用することで周囲に高音を響かせる笛。どんなに眠った者でもたちどころに起こすその音は、さながら終末を呼び起こす災厄の角笛の様だ。…少なくとも眠っていた者にとっては。\n#～玲瓏たるイルヴァの調べ～\n
+        EN  A whistle that produces a high-pitched sound when used. The sound, which can wake even the most sleepy person instantly, is like a horn of calamity that evokes the apocalypse. ...at least for those who have been asleep. \n# ~Music of the Melodious Irva~
+    --- description(3)  :84038 ⚠️ TETTO SECCO 69
+        JP  \t\t周囲に高音を響かせる笛。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that creates a high pitch noise.
+        IT  Manda un suono acuto tutt'intorno. Si può usare sempre.
+
+=== ITEM_ID_DECK   [FILTER_ITEM_TOOL]
+    NOME      jp デッキ
+              en deck
+              IT mazzo di carte
+    --- description(0)  :84163
+        JP  \t\tカードを保管しておくための容れ物。貴族達の中にはコレクションに飽き足らず、これを用いた遊戯を考え出す者まで現れたという。\n#～打切上等！箱マニア・創刊号～\n
+        EN  A container for storing cards. Some aristocrats were not satisfied with the collection and even came up with the idea of using it for games. \n# ~Censored! Box Mania, First Issue~
+    --- description(3)  :84166 ⚠️ TETTO SECCO 69
+        JP  \t\tカードを収納できる箱。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool to store cards.
+        IT  Una scatola per le carte. Si può usare sempre.
+
+=== ITEM_ID_LITTLE_BALL   [FILTER_ITEM_TOOL]
+    NOME      jp リトル捕獲玉
+              en little ball
+              IT sferetta di cattura
+    non ident. IT sfera meccanica   (en mechanical ball)
+    --- description(0)  :84296
+        JP  \t\t特別な存在を捕らえる為に作られた、怪しく光る機械仕掛けの玉。内部に快適な空間を作り出そうと、相当な機構的に無茶をしている為、投擲に失敗するだけで壊れて無くなってしまう。\n#～別冊ヨウィン・未知の知識を追え！～\n
+        EN  Suspiciously glowing mechanical balls made to capture special beings. The ball is so mechanically reckless in its attempt to create a comfortable space inside that it breaks and disappears when thrown unsuccessfully. \n# ~The Yowyn Book of Secrt Knowledge!~
+    --- description(3)  :84299 ⚠️ TETTO SECCO 69
+        JP  \t\tリトルシスターにぶつけて捕獲できる玉。投げることができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a throwable tool that can be used to capture 'Little Sister'.
+        IT  Colpisce e cattura la <Little Sister>. Si può lanciare.
+
+=== ITEM_ID_GUILLOTINE   [FILTER_ITEM_TOOL]
+    NOME      jp ギロチン
+              en guillotine
+              IT ghigliottina
+    --- description(0)  :84967
+        JP  \t\tかつて処刑用に存在した世にも恐ろしき刑具。余りにシンプルな構造なそれは犠牲者の首を落とす為だけに作られている。今は使われていないようだが決して油断する勿れ。刃は常にあなたの頭上で鈍く光っている。\n#～あなたの見知らぬ世界～\n
+        EN  This is a horrifying device that once existed for executions. It is so simple in structure that it was made only for the purpose of decapitating the victim's head. It may not be used anymore, but never be too careful. The blade always glints dully above your head. \n# ~Worlds you've Never Seen~
+    --- description(2)  :84969
+        JP  
+        EN  \"You are sure to get ahead in life with one of these!\" \n# ~words of a ex-excutioner~
+    --- description(3)  :84970 ⚠️ TETTO SECCO 69
+        JP  \t\t見た目にも恐ろしい家具。触らぬ方がよいだろう。\n#～鑑定報告書：＜家具？＞カテゴリ～\n
+        EN  It is a horrible looking furniture. It is best not to touch it.
+        IT  Un mobile orribile a vedersi. Meglio non toccarlo.
+
+=== ITEM_ID_IRON_MAIDEN   [FILTER_ITEM_TOOL]
+    NOME      jp アイアンメイデン
+              en iron maiden
+              IT vergine di ferro
+    --- description(0)  :85030
+        JP  \t\tかつて拷問用に存在した世にも恐ろしき刑具。前面が左右に開く構造で、その内部には血に飢えた鉄針が中心へ向かって突き出ている。話によれば動き出すものもあるらしく、興味本位で触らない方がいいだろう。\n#～あなたの見知らぬ世界～\n
+        EN  This is a horrifying device that once existed for torture. The front of the structure opens to the left and right, and inside the structure are bloodthirsty iron needles protruding toward the center. According to the story, some of them start to move, so it would be better not to touch them out of curiosity. \n# ~Worlds you've Never Seen~
+    --- description(3)  :85033 ⚠️ TETTO SECCO 69
+        JP  \t\t見た目にも恐ろしい家具。触らぬ方がよいだろう。\n#～鑑定報告書：＜家具？＞カテゴリ～\n
+        EN  It is a horrible looking furniture. It is best not to touch it.
+        IT  Un mobile orribile a vedersi. Meglio non toccarlo.
+
+=== ITEM_ID_STATUE_JURE   [FILTER_ITEM_TOOL]
+    NOME      jp ジュア像 ジュア像
+              en Jure statue
+              IT Jure statua
+    non ident. IT divinità di Irva   (en deity of Irva)
+    --- description(0)  :85168
+        JP  \t\tさる高名な芸術家が作った、癒しの女神を模った彫像。その控えめな姿勢は、どことなく清楚さを感じる。\n#～ルミエスト美術目録～\n
+        EN  A statue in the shape of the Goddess of Healing. created by a renowned artist. Its modest posture is somehow pure and innocent. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :85171 ⚠️ TETTO SECCO 69
+        JP  \t\t癒しの女神を模った彫像。定期的に使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of Goddess of Healing. May be used periodically.
+        IT  Una statua della dea della guarigione. Si usa ogni tanto.
+
+=== ITEM_ID_MONSTER_BALL   [FILTER_ITEM_TOOL]
+    NOME      jp モンスターボール
+              en monster ball
+              IT sfera dei mostri
+    --- description(0)  :85234
+        JP  \t\t投げることで弱った敵を捕獲する機械仕掛けの玉。詳しい製法は不明だが、遺伝子学の隆盛がこの道具の進化に大いに関わっていると考えられている。\n#～別冊ヨウィン・未知の知識を追え！～\n
+        EN  A mechanical ball that is thrown to capture weakened enemies. The detailed manufacturing process is unknown, but it is believed that the rise of genetics had much to do with the evolution of this tool. \n# ~The Yowyn Book of Secrt Knowledge!~
+    --- description(3)  :85237 ⚠️ TETTO SECCO 69
+        JP  \t\tモンスターにぶつけて捕獲できる玉。投げることができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a throwable tool that can be used to capture monsters.
+        IT  Colpisce e cattura un mostro. Si può lanciare.
+
+=== ITEM_ID_GENE_MACHINE   [FILTER_ITEM_TOOL]
+    NOME      jp 能力複合機
+              en gene machine
+              IT macchina genetica
+    non ident. IT macchina mai vista   (en freaky machine)
+    --- description(0)  :85298
+        JP  \t\t透明な円柱形をした奇妙な機械。その正体は生物を粒子状に分解して能力だけを取り出し、他の生物にその能力を付加することができるという、何とも常軌を逸する悪魔の機械なのだ。\n#～別冊ヨウィン・未知の知識を追え！～\n
+        EN  A strange machine in the shape of a transparent cylinder. It is a devilish machine that deviates from the norm, capable of breaking down living organisms into particles, extracting only their abilities, and then adding those abilities to other living organisms. \n# ~The Yowyn Book of Secrt Knowledge!~
+    --- description(3)  :85301 ⚠️ TETTO SECCO 69
+        JP  \t\tペットを１体消去し別のペットへ能力吸収させる機械。何度でも使用できる。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  (Reusable) tool that erases a pet and transfers its ability to another.
+        IT  Cancella un compagno e dà le sue doti a un altro. Si usa sempre.
+
+=== ITEM_ID_ENERGY_CRYSTAL_MATRIX   [FILTER_ITEM_TOOL]
+    NOME      jp 再構成マトリクス 再構成マトリクス
+              en matrix energy crystal
+              IT matrice cristallo di energia
+    non ident. IT meccanismo ignoto   (en unknown mechanism)
+    --- description(0)  :85367
+        JP  \t\t宇宙よりもたらされた謎の高エネルギー結晶体。中には異星の戦士たちの叡智が詰まっているとも言われているが詳細は不明。\n#～イルヴァ幻想辞典～\n
+        EN  Mysterious high-energy crystals from outer space. It is said to contain the wisdom of warriors from another planet, but the details are unknown. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :85370 ⚠️ TETTO SECCO 69
+        JP  \t\t物質を再構成し別の物に変化させる宝玉。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool used the reconstruct material. May be used periodically.
+        IT  Ricompone la materia e la muta in altro. Si usa ogni tanto.
+
+=== ITEM_ID_GEMSTONE_KUMIROMI   [FILTER_ITEM_TOOL]
+    NOME      jp クミロミの活性化の宝玉 クミロミの活性化の宝玉
+              en rejuvenation Kumiromi's gem stone
+              IT ringiovanimento gemma di Kumiromi
+    non ident. IT poteri divini   (en godly powers)
+    --- description(0)  :85434
+        JP  \t\t収穫の神がもたらした奇跡の宝玉。局所的な豊穣を与える力を持つという。\n#～イルヴァ幻想辞典～\n
+        EN  Miraculous treasure from the God of Harvest. It is said to have the power to bestow fertility. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :85437 ⚠️ TETTO SECCO 69
+        JP  \t\t農作物の育成を促進する宝玉。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool used to accelerate crop growth. May be used periodically.
+        IT  Accelera la crescita delle colture. Si usa ogni tanto.
+
+=== ITEM_ID_GEMSTONE_JURE   [FILTER_ITEM_TOOL]
+    NOME      jp ジュアの聖なる雨の宝玉 ジュアの聖なる雨の宝玉
+              en holy rain Jure's gem stone
+              IT pioggia sacra gemma di Jure
+    non ident. IT poteri divini   (en godly powers)
+    --- description(0)  :85503
+        JP  \t\t癒しの女神がもたらした奇跡の宝玉。周囲に生命力を振りまく力を持つという。\n#～イルヴァ幻想辞典～\n
+        EN  Miraculous treasure from the Goddess of Healing. It is said to have the power to sprinkle life force around it. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :85506 ⚠️ TETTO SECCO 69
+        JP  \t\t周囲の味方のＨＰが回復する宝玉。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool used to recover allies' health. May be used periodically.
+        IT  Cura gli HP dei compagni intorno. Si usa ogni tanto.
+
+=== ITEM_ID_GEMSTONE_LULWY   [FILTER_ITEM_TOOL]
+    NOME      jp ルルウィの神速の宝玉 ルルウィの神速の宝玉
+              en god speed Lulwy's gem stone
+              IT velocità divina gemma di Lulwy
+    non ident. IT poteri divini   (en godly powers)
+    --- description(0)  :85572
+        JP  \t\t風の女神がもたらした奇跡の宝玉。時の風を感じ取れる力を持つという。\n#～イルヴァ幻想辞典～\n
+        EN  Miraculous treasure from the Goddess of Wind. It is said to have the power to wind up time. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :85575 ⚠️ TETTO SECCO 69
+        JP  \t\t一時的に速度を上昇させる宝玉。定期的に使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) tool used to raise speed. May be used periodically.
+        IT  Alza la velocità per un po'. Si può usare ogni tanto.
+
+=== ITEM_ID_SECRET_TREASURE   [FILTER_ITEM_TOOL]
+    NOME      jp 秘宝
+              en secret treasure
+              IT tesoro segreto
+    non ident. IT gemma misteriosa   (en mysterious jewel)
+    --- description(0)  :86132
+        JP  \t\t使用することで自らの肉体に新たな変化をもたらすとされる宝石だ。\n#～イルヴァ幻想辞典～\n
+        EN  Gemstone that is said to bring about new changes in one's own body when used. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :86135 ⚠️ TETTO SECCO 69
+        JP  \t\t特殊な能力を秘めた宝石。使用することができる（使い捨て）。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Single-use) tool that unlocks special abilities.
+        IT  Una gemma che serba poteri speciali. Si usa (usa e getta).
+
+=== ITEM_ID_NUCLEAR_BOMB   [FILTER_ITEM_TOOL]
+    NOME      jp 原子爆弾『Cat's Cradle』
+              en nuclear bomb
+              IT bomba atomica
+    non ident. IT bomba molto pericolosa   (en very dangerous bomb)
+    --- description(0)  :86200
+        JP  \t\t「それ自体が悪なのではない、使ったものが悪なのだ」\n#～説明書の最後のページに書かれた文字～\n
+        EN  \"The bomb isn't the evil, it's what you use it for that is evil. \" \n# ~the last page of the instruction manual~
+    --- description(3)  :86203 ⚠️ TETTO SECCO 69
+        JP  \t\t一定時間後広範囲に壊滅的な破壊を加える爆弾だ（使い捨て）。\n#～鑑定報告書：＜爆弾＞カテゴリ～\n
+        EN  (Single-use) bomb that inflicts devastating destruction over a wide area.
+        IT  Dopo un po' esplode e devasta un'area vasta (usa e getta).
+
+=== ITEM_ID_STATUE_LULWY   [FILTER_ITEM_TOOL]
+    NOME      jp ルルウィ像 ルルウィ像
+              en Lulwy statue
+              IT Lulwy statua
+    non ident. IT divinità di Irva   (en deity of Irva)
+    --- description(0)  :86533
+        JP  \t\tさる高名な芸術家が作った、風の女神を模った彫像。流れるように作られた肢体は、どことなく美しい。\n#～ルミエスト美術目録～\n
+        EN  A statue in the shape of the Goddess of Wind. created by a renowned artist. The curves of body is elegant and beautiful. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :86536 ⚠️ TETTO SECCO 69
+        JP  \t\t風の女神を模った彫像。定期的に使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of Goddess of Wind. May be used periodically.
+        IT  Una statua della dea del vento. Si usa ogni tanto.
+
+=== ITEM_ID_STATUE_OPATOS   [FILTER_ITEM_TOOL]
+    NOME      jp オパートス像 オパートス像
+              en Opatos statue
+              IT Opatos statua
+    non ident. IT divinità di Irva   (en deity of Irva)
+    --- description(0)  :86600
+        JP  \t\tさる高名な芸術家が作った、大地の神を模った彫像。その躍動感ある姿勢は、どことなく雄々しい。\n#～ルミエスト美術目録～\n
+        EN  A statue in the shape of the God of Earth. created by a renowned artist. Its dynamic posture is rather heroic. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :86603 ⚠️ TETTO SECCO 69
+        JP  \t\t大地の神を模った彫像。定期的に使用することができる。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue of God of Earth. May be used periodically.
+        IT  Una statua del dio della terra. Si usa ogni tanto.
+
+=== ITEM_ID_EASTERN_BED   [FILTER_ITEM_TOOL]
+    NOME      jp 布団
+              en eastern bed
+              IT letto orientale
+    --- description(0)  :88021
+        JP  \t\t異国から伝わりし地面に直接布を敷く寝具。布越しとはいえ堅い地面と背中合わせなので、寝心地はそれほど良くないようだ。\n#～ノースティリス大家具事典～\n
+        EN  This type of bedding was introduced from a foreign land, and the mattress is laid directly on the ground. Although it is made of cloth, it is not very comfortable because it is placed on the back of the bed against the hard ground. \n#~ Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :88024 ⚠️ TETTO SECCO 69
+        JP  \t\t簡易的な寝具（ランク４）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 4 bed of simple design.
+        IT  Un letto semplice (rango 4). Si può usare sempre.
+
+=== ITEM_ID_UNICORN_HORN   [FILTER_ITEM_TOOL]
+    NOME      jp ユニコーンの角
+              en unicorn horn
+              IT corno di unicorno
+    --- description(0)  :88210
+        JP  \t\t幻の一角獣の角。煎じて飲み下すことで体内の不安や狂気を取り去ってくれるという。\n#～イルヴァ幻想辞典～\n
+        EN  The horn of the mythical unicorn. It is said to remove anxiety and madness from the body when decocted and consumed. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :88213 ⚠️ TETTO SECCO 69
+        JP  \t\t自身と周囲の味方の狂気度を下げる道具だ（使い捨て）。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  (Single-use) tool that reduce the insanity level.
+        IT  Abbassa la Follia tua e dei compagni intorno (usa e getta).
+
+=== ITEM_ID_SKELETON_KEY   [FILTER_ITEM_TOOL]
+    NOME      jp スケルトンキー
+              en skeleton key
+              IT passe-partout
+    non ident. IT chiave bianca   (en white key)
+    --- description(0)  :88410
+        JP  \t\tロックピックと併用することで解錠しやすくさせる特別な品。どんな鍵穴に差し込んでもピタリと合うことから旧時代の遺物ではないかと推測されている。\n#～イルヴァ幻想辞典～\n
+        EN  Special item that can be used in conjunction with a lockpick to make locks easier to unlock. It is speculated that it is a relic from the old days, as it fits perfectly no matter what keyhole it is inserted into. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :88413 ⚠️ TETTO SECCO 69
+        JP  \t\t所持しているだけで鍵開けの成功率を飛躍的に上昇させる道具だ。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  (Autoused) tool that enhances your lockpicking capabilities.
+        IT  Basta averlo addosso: lo scasso riesce molto più spesso.
+
+=== ITEM_ID_LOCKPICK   [FILTER_ITEM_TOOL]
+    NOME      jp ロックピック
+              en lockpick
+              IT grimaldello
+    --- description(0)  :88472
+        JP  \t\t鍵を開ける際に必須ともいうべき道具。時々壊れてしまうのが玉に疵だが、腕が良ければどんな宝箱だって開けることができるだろう。開ける鍵は有っても閉める鍵なんて、この世界には無いのだ。\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  An essential tool for opening locks. Although it may break down from time to time, if you are good at it, you can open any treasure chest. There are keys to open locks, but there are no keys to close locks in this world. \n# ~an Adventurer is You! Guide for Travels~
+    --- description(3)  :88475 ⚠️ TETTO SECCO 69
+        JP  \t\t鍵開けの際に必要な道具。壊れることがある。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  (Autoused) tool that is required for picking locks. It may break.
+        IT  Serve per lo scasso. Certe volte si rompe.
+
+=== ITEM_ID_MINE   [FILTER_ITEM_TOOL]
+    NOME      jp 地雷
+              en mine
+              IT mina
+    --- description(0)  :88538
+        JP  \t\t使用することで地面に埋まり、完全に見えなくなる兵器。何も知らずにその場所を踏みつけたら最後、跡形も無く消し飛ぶという。そう、それはたとえあなたが踏んだとしても…。\n#～貰って嬉しい贈り物あれこれ～\n
+        EN  A weapon that, when used, buries itself in the ground and becomes completely invisible. It is said that if you step on the spot without knowing anything about it, it will be obliterated without a trace in the end. Yes, that is even if you step on it... \n# ~Gifts that I am Happy to Receive~
+    --- description(3)  :88541 ⚠️ TETTO SECCO 69
+        JP  \t\t踏んだ者を爆砕する爆弾だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜爆弾＞カテゴリ～\n
+        EN  (Single-use) tool that destroys the ones stepped on it when armed.
+        IT  Una bomba che dilania chi la calpesta. Si usa (usa e getta).
+
+=== ITEM_ID_LEASH   [FILTER_ITEM_TOOL]
+    NOME      jp 紐
+              en leash
+              IT guinzaglio
+    --- description(0)  :88604
+        JP  \t\t使用することで対象を縛る紐。その場にいてほしい時等、寂しがり屋のあなたにお勧めだが、誰かれ構わず縛っていると怒られてしまうかもしれないぞ。\n#～巻かれる為の長いもの～\n
+        EN  Cord that binds the object by using it. It is recommended for lonely people who want someone to be there, but they might get angry if you tie them up without asking them to. \n# ~Battles, Dragons, Swords and Magic~
+    --- description(3)  :88607 ⚠️ TETTO SECCO 69
+        JP  \t\t仲間を結んで遠くに行かないようにする道具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool to tie up friends and keep them from going too far away .
+        IT  Lega un compagno perché non si allontani. Si usa sempre.
+
+=== ITEM_ID_MATERIAL_KIT   [FILTER_ITEM_TOOL]
+    NOME      jp 素材槌
+              en material kit
+              IT kit di materiali
+    --- description(0)  :88869
+        JP  \t\t物質の素材を全く違う特定の素材に叩き上げることができる槌。この奇跡の品は雪原にひっそりと住む兄弟の職人達による作品であり、かつ使用道具とされている。\n#～イルヴァ幻想辞典～\n
+        EN  A hammer that can smash a material into a specific and completely different material. This miraculous item is the work of two brothers, artisans who live quietly in the snowfields, and is considered a tool for their use. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :88872 ⚠️ TETTO SECCO 69
+        JP  \t\t指定された素材に作り直す槌だ（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool that re-forge the material of target item.
+        IT  Rifà l'oggetto nel materiale scelto (usa e getta).
+
+=== ITEM_ID_DISGUISE_SET   [FILTER_ITEM_TOOL]
+    NOME      jp 変装セット
+              en disguise set
+              IT set da travestimento
+    --- description(0)  :88937
+        JP  \t\t一瞬の早着替えで他人になり済まし、難を逃れることができる道具。喩え時間が無い場合でも、使用した際に勢いよく白い霧が吹き出し変装する時間を与えてくれるので、安心して使うことができる。\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  Tool that allows a person to escape difficulties by disguising themselves as someone else with a quick change of clothes in an instant. Even if you are short on time, you can use this tool with peace of mind, because when you use it, a white mist blows out vigorously, giving you time to disguise yourself. \n# ~an Adventurer is You! Guide for Travels~
+    --- description(2)  :88939
+        JP  \t\t「初めて盗みをやった時、俺はまだ10にもなっていなかった。その時は生きる為に必死なだけだったが、今でもあの時と同じくらい大胆なつもりさ。ただ、ちょっと知恵はついたがね」\n#～盗賊ギルドマスター『シン』の言葉～\n
+        EN  \"I wasn't even ten when I stole for the first time. I was just trying to survive back then. I'm still as bold as I was then, just a little savvier.\" \n# ~words of <Sin> the thief guildmaster~
+    --- description(3)  :88940 ⚠️ TETTO SECCO 69
+        JP  \t\tモンスター以外の敵対状況をリセットする道具。何度か使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that reset non-monster hostile situations.
+        IT  Azzera l'ostilità di chi non è un mostro. Si usa più volte.
+
+== 39 oggetti, 81 descrizioni
