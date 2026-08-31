@@ -122,8 +122,18 @@ ricostruire — e' guardare se c'e' gia' tutto, con
 `ls C:\Games\Elona\_traduzione\`, e controllare che
 `elonaplus2.31\cgx-test.exe` sia quello dell'**01:01 del 01/09**. Se la data e'
 quella, la build contiene tutte e 92 le rese della 118a e non va rifatta.
+⚠️ La 118a e' stata chiusa dicendo **«riprendo in un altro terminale»**, come la
+117a e la 116a: la macchina e' la stessa, ma la sessione nuova non ha in memoria
+niente di questa. Tutto quel che serve sta qui.
 ⓘ I sei file dati non cambiano dalla 108a: `cmp -s` prima di `cp`, e non serve
 copiarli. Verificato anche a fine 118a: sei su sei identici.
+
+⭐ **La 118a ha lasciato una pagina nuova nel vault**:
+`wiki/concepts/una-premessa-negativa-si-verifica-sul-sorgente.md`, che generalizza
+la faccenda del rango — «questo file non dice mai X» si verifica sul **sorgente**
+e non sull'estratto, perche' l'estratto tiene solo le righe che l'inglese
+riempie. E il caso dei 37 nomi e' finito in
+`wiki/concepts/il-nome-interno-non-e-quello-a-schermo.md`, che gia' esisteva.
 
 ---
 
