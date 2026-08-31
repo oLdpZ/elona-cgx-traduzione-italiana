@@ -1,0 +1,189 @@
+RIGHE = {
+    47359, 47432, 47505, 47578, 47651, 47724, 47797, 47870, 47943, 48016,
+    48089, 48162, 48235, 48237, 48308, 48381, 48454, 48527, 48600, 48673,
+    58993, 61866, 65600, 72957, 78727, 82077, 82079, 82150, 83555, 84440,
+    84513, 85101, 86940, 86942, 89010, 91982, 92870, 93222, 94175, 94319,
+    94454, 98649, 98651, 98874,
+}
+# 44 righe, da 47359 a 98874
+
+    # ---------------------------------------------------------- :47359
+    (47359, "A spellbook to help you learn about the spell 'Thunder Vortex'. For those who want to get angry and cast thunderbolts.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :47432
+    (47432, "A spellbook to help you learn about the spell 'Eclipse Jail'. For those who find solace in the mystery of the dark.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :47505
+    (47505, "A spellbook to help you learn about the spell 'Roar of Hades'. For those who wants to reign in hell.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :47578
+    (47578, "A spellbook to help you learn about the spell 'Poison Storm'. For those who want to pollute the environment.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :47651
+    (47651, "A spellbook to help you learn about the spell 'Bubble Storm'. For those who loves soap bubbles.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :47724
+    (47724, "A spellbook to help you learn about the spell 'Dreaming Roar'. For those who loves dreaming.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :47797
+    (47797, "A spellbook to help you learn about the spell 'Anguish Jail'. For sadists.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :47870
+    (47870, "A spellbook to help you learn about the spell 'Nether Bolt'. For enemies you want to throw into hell.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :47943
+    (47943, "A spellbook to help you learn about the spell 'Poison Bolt'. For genuinely toxic people.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :48016
+    (48016, "A spellbook to help you learn about the spell 'Sound Bolt'. For those who like to annoy their neighbours.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :48089
+    (48089, "A spellbook to help you learn about the spell 'Chaos Bolt'. For those who love to mess things up.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :48162
+    (48162, "A spellbook to help you learn about the spell 'Nerve Bolt'. For those who find love in suffering.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :48235
+    (48235, "A spellbook to help you learn about the spell 'Fire Claw'. For those who want to leave a hot scar.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :48237
+    (48237, '\\"I have found a new reason to LIVE.\\" \\n# ~some Eulderna Pyromaniac~'):
+        "",
+
+    # ---------------------------------------------------------- :48308
+    (48308, "A spellbook to help you learn about the spell 'Cold Blade'. For those who are naturally cool.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :48381
+    (48381, "A spellbook to help you learn about the spell 'Lightning Spear'. For those wanted to wielded these rays of lightning, which remains fierce even as they fade.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :48454
+    (48454, "A spellbook to help you learn about the spell 'Mind Thorn'. For those wanted to trick enemies with illusion.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :48527
+    (48527, "A spellbook to help you learn about the spell 'Poison Mucus'. For those loves poisonous creatures.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :48600
+    (48600, "A spellbook to help you learn about the spell 'Sound Cannonball'. For those who wants to blast people with music.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :48673
+    (48673, "A spellbook to help you learn about the spell 'Hydro Fang'. For those want people to know more about hydrophobia.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :58993
+    (58993, "A spellbook to help you learn about the spell 'Gem Power'. For those who are interested in Healing Crystals.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :61866
+    (61866, "A spellbook to help you learn about the spell 'Hydro Bolt'. For those who love watercraft.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :65600
+    (65600, "A spellbook to help you learn about the spell 'Concentration'. For those who wants to concentrate more on things.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :72957
+    (72957, "A spellbook to help you learn about the spell 'Feather'. For those who wants to lose body weight.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :78727
+    (78727, 'A piece of paper containing the secret techniques of the cooks. You could learn as much as the best cooks with this. Whether you had the skill to keep up with it or not. \\n# ~Supporting Roles in Kitchen~'):
+        "",
+
+    # ---------------------------------------------------------- :82077
+    (82077, "A spellbook to help you learn about the spell 'Wizard's Harvest'. For those deeply in debt.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :82079
+    (82079, '\\"Wizards Harvest go brrr.\\" \\n# Bureau of Eulderna Punditry (BEP)'):
+        "",
+
+    # ---------------------------------------------------------- :82150
+    (82150, "A spellbook to help you learn about the spell '4 Dimesional Pocket'. Designed for lazy hoarders.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :83555
+    (83555, "A spellbook to help you learn about the spell 'Contigency'. For those who want to befriend their reaper.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :84440
+    (84440, "A spellbook to help you learn about the spell 'Magic Bolt'. For those who loves dynamites and laser beams.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :84513
+    (84513, "A spellbook to help you learn about the spell 'Magic Storm'. For those who wants to go outside during etherwind.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :85101
+    (85101, 'A valuable document with diverse things written about it. It is believed that by reading and understanding it, one can come into contact with higher beings. \\n# ~Big Book of Magical Books: Pre-Censorship~'):
+        "",
+
+    # ---------------------------------------------------------- :86940
+    (86940, "A spellbook to help you learn about the spell 'Darkness Wedge'. For those who want to be cool and edgy.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :86942
+    (86942, '\\"This tome seems to carefully bend light.\\" \\n# a Eulderna Researcher'):
+        "",
+
+    # ---------------------------------------------------------- :89010
+    (89010, "A spellbook to help you learn about the spell 'Incognito'. For the trickers kinds.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :91982
+    (91982, "A spellbook to help you learn about the spell 'Door Creation'. For those of you who want to open the door to someone else's heart.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :92870
+    (92870, "A spellbook to help you learn about the spell 'Fire Wall'. For the all-year cold sufferer.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :93222
+    (93222, "A spellbook to help you learn about the spell 'Acid Ground'. For those who love to make a huge mess that is extremely unpleasant to clean up.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :94175
+    (94175, "A spellbook to help you learn about the spell 'Healing Touch'. For those who wants to shake hands with everyone.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :94319
+    (94319, "A spellbook to help you learn about the spell 'Healing Rain'. For those who want to show their companions love.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :94454
+    (94454, "A spellbook to help you learn about the spell 'Wall Creation'. For those with social anxiety.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :98649
+    (98649, "A spellbook to help you learn about the spell 'Spider Web'. For those who celebrates Halloween everyday.\\n#~Big Book of Magical Books~"):
+        "",
+
+    # ---------------------------------------------------------- :98651
+    (98651, '\\"I swear I saw spiders crawling out of this tome.\\" \\n# a Eulderna Researcher'):
+        "",
+
+# 4 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :98874
+    (98874, "A spellbook to help you learn about the spell 'Domination'. For thos who want to become friends with that girl you had a crush on.\\n#~Big Book of Magical Books~"):
+        "",
+
+# 40 voci, 0 ambigue
+

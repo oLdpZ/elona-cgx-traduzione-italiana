@@ -1,0 +1,134 @@
+:47359
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:47432
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:47505
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:47578
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:47651
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:47724
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:47797
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:47870
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:47943
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:48016
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:48089
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:48162
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:48235
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:48237
+   en  # ~some Eulderna Pyromaniac~
+   IT  # ~un piromane Eulderna~
+:48308
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:48381
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:48454
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:48527
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:48600
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:48673
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:58993
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:61866
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:65600
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:72957
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:78727
+   en  # ~Supporting Roles in Kitchen~
+   IT  # ~I Comprimari della Cucina~
+:82077
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:82079
+   en  # Bureau of Eulderna Punditry (BEP)
+   IT  #Ufficio Eulderna degli Studi Dotti (UESD)
+:82150
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:83555
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:84440
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:84513
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:85101
+   en  # ~Big Book of Magical Books: Pre-Censorship~
+   IT  # ~Il Libro dei Libri: i Libri da Decifrare~
+:86940
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:86942
+   en  # a Eulderna Researcher
+   IT  #un ricercatore Eulderna
+:89010
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:91982
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:92870
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:93222
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:94175
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:94319
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:94454
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:98649
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:98651
+   en  # a Eulderna Researcher
+   IT  #un ricercatore Eulderna
+:98874
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+
+righe senza resa in tabella: 0   (atteso 0)
