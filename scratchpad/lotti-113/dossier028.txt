@@ -1,0 +1,556 @@
+=== ITEM_ID_DARUMA   [FILTER_FURNITURE]
+    NOME      jp だるま
+              en daruma
+              IT daruma
+    --- description(0)  :80612
+        JP  \t\t縁起物とされる赤い色の玩具。異国では眼が書かれていない物が主流で、願いがかなう度にそこに黒い染料で目を書き入れるのだという。\n#～貰って嬉しい贈り物あれこれ～\n
+        EN  A red-colored toy considered a good-luck charm. In foreign countries, the most common toy has no eyes written on it, and every time a wish is granted, an eye is drawn on it with black dye. \n# ~Gifts that I am Happy to Receive~
+    --- description(3)  :80615 ⚠️ TETTO SECCO 69
+        JP  \t\tユニークな形の人形だ。\n#～鑑定報告書：＜縁起物＞カテゴリ～\n
+        EN  It is an uniquely shaped doll.
+        IT  Una bambola dalla forma unica.
+
+=== ITEM_ID_KOTATSU   [FILTER_FURNITURE]
+    NOME      jp こたつ
+              en kotatsu
+              IT kotatsu
+    --- description(0)  :80674
+        JP  \t\t寒い季節に使用される暖房家具。潜り込むと気分は洞窟探検者、そんなことを言いながらそのまま中で眠りこける子供が後を絶たないという。\n#～ノースティリス大家具事典～\n
+        EN  Heating furniture used in the cold season. It is said that there is no end to the number of children who fall asleep in them, saying that they feel like cave explorers when they crawl into them. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :80677 ⚠️ TETTO SECCO 69
+        JP  \t\t寒い季節用の机。潜ることができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a desk for cold weather. You can hide under it.
+        IT  Un tavolo per la stagione fredda. Ci si può infilare sotto.
+
+=== ITEM_ID_DOWNSTAIRS   [FILTER_FURNITURE]
+    NOME      jp 降り階段
+              en downstairs
+              IT scala in discesa
+    --- description(0)  :80798
+        JP  \t\t地下へようこそ！この優れた道具は、一瞬にして地下空間に繋がる道を作ってしまうのだ。\n#～ノースティリス大家具事典～\n
+        EN  Welcome to the underground! This excellent tool instantly creates a path that leads to underground space. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :80801 ⚠️ TETTO SECCO 69
+        JP  \t\t下る為の石段。潜ることができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  These are stone steps to descend. You can go downstairs here.
+        IT  Gradini di pietra per scendere. Ci si può passare.
+
+=== ITEM_ID_UPSTAIRS   [FILTER_FURNITURE]
+    NOME      jp 昇り階段
+              en upstairs
+              IT scala in salita
+    --- description(0)  :80860
+        JP  \t\t地上へおかえり！この優れた道具は、一瞬にして外界へと繋がる道を作ってしまうのだ。\n#～ノースティリス大家具事典～\n
+        EN  Welcome to the overworld! This excellent tool instantly creates a path that leads to the outside world. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :80863 ⚠️ TETTO SECCO 69
+        JP  \t\t上る為の石段。潜ることができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  These are stone steps to ascend. You can go upstairs here.
+        IT  Gradini di pietra per salire. Ci si può passare.
+
+=== ITEM_ID_GIFT   [FILTER_FURNITURE]
+    NOME      jp おみやげ
+              en gift
+              IT regalo
+    --- description(0)  :82275
+        JP  \t\t自らの気持ちを代わりに伝える時に用いる贈答品。無論、使用することはできない。\n#～貰って嬉しい贈り物あれこれ～\n
+        EN  A gift used to convey one's feelings on one's own behalf. Of course, it cannot be used. \n# ~Gifts that I am Happy to Receive~
+    --- description(3)  :82278 ⚠️ TETTO SECCO 69
+        JP  \t\t人に渡すと友好度が上がるアイテムだ。\n#～鑑定報告書：＜その他＞カテゴリ～\n
+        EN  It is a gift given to raise affection, won't be returned.
+        IT  Dato a qualcuno, alza la simpatia.
+
+=== ITEM_ID_HAPPY_BED   [FILTER_FURNITURE]
+    NOME      jp 幸せのベッド
+              en happy bed
+              IT letto della felicità
+    --- description(0)  :82875
+        JP  \t\t神の落とし物とも言われる、非常に上質なベッド。その優しい肌触りは寝る者の心を豊かにするという。\n#～ノースティリス大家具事典～\n
+        EN  A very high quality bed, said to be God's gift to the world. Its gentle touch is said to enrich the hearts of those who sleep on it. \n#~ Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :82878 ⚠️ TETTO SECCO 69
+        JP  \t\t非常に優れた寝具（ランク９）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 9 bed of luxury quality.
+        IT  Un letto eccellente (rango 9). Si può usare sempre.
+
+=== ITEM_ID_STRADIVARIUS   [FILTER_FURNITURE]
+    NOME      jp 《ストラディバリウス》
+              en <Stradivarius>
+              IT <Stradivarius>
+    non ident. IT strumento a corde elegante   (en elegant string)
+    --- description(0)  :83764
+        JP  \t\t演奏の名手の元に訪れるという伝説のヴァイオリン。その音色は聴衆の心に大きく響き、奏者へ感謝の贈り物をする者が後を絶たないという。\n#～イルヴァ幻想辞典～\n
+        EN  The legendary violin is said to be a favorite of virtuoso performers. Its sound resonates so loudly in the hearts of its listeners that there is no end to the number of people who give the violinist a gift of appreciation. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :83767 ⚠️ TETTO SECCO 69
+        JP  \t\tおひねりの質が上がる演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  (Reusable) Rank 4 instrument that increases the rewords of performing.
+        IT  Suonandolo si prendono mance migliori. Si può usare sempre.
+
+=== ITEM_ID_EASTERN_PARTITION   [FILTER_FURNITURE]
+    NOME      jp 間仕切り
+              en eastern partition
+              IT paravento orientale
+    --- description(0)  :84644
+        JP  \t\t部屋の仕切りとして用いられる家具。お洒落な雰囲気を家に醸し出すことができる。\n#～ノースティリス大家具事典～\n
+        EN  Furniture used as room dividers. It can create a stylish atmosphere in a house. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :84647 ⚠️ TETTO SECCO 69
+        JP  \t\t空間用の仕切りだ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a space divider.
+        IT  Un pannello che divide lo spazio.
+
+=== ITEM_ID_HARP   [FILTER_FURNITURE]
+    NOME      jp ハープ
+              en harp
+              IT arpa
+    --- description(0)  :84709
+        JP  \t\t両手で持ち弦を弾いて音を出す弦楽器。持ち運びには適さないが、そのゆったりとした音は聴衆を優雅な気分にさせることだろう。\n#～玲瓏たるイルヴァの調べ～\n
+        EN  A stringed instrument that is held with both hands and the strings are plucked to produce sound. It is not suitable for carrying around, but its relaxing sound will make the audience feel elegant. \n# ~Music of the Melodious Irva~
+    --- description(3)  :84712 ⚠️ TETTO SECCO 69
+        JP  \t\t演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜楽器＞カテゴリ～\n
+        EN  (Reusable) Rank 4 instrument for performing.
+        IT  Uno strumento per suonare. Si può usare sempre.
+
+=== ITEM_ID_HARMONICA   [FILTER_FURNITURE]
+    NOME      jp ハーモニカ
+              en harmonica
+              IT armonica
+    --- description(0)  :84774
+        JP  \t\t軽い音で旋律を奏でる特殊な楽器。小さな体から発せられる楽しげな音は、聞いている方まで楽しくさせるという。\n#～玲瓏たるイルヴァの調べ～\n
+        EN  A special instrument that plays a melody with a light sound. The joyful sound emitted from its small body is said to make even the listener happy. \n# ~Music of the Melodious Irva~
+    --- description(3)  :84777 ⚠️ TETTO SECCO 69
+        JP  \t\t演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜楽器＞カテゴリ～\n
+        EN  (Reusable) Rank 1 instrument for performing.
+        IT  Uno strumento per suonare. Si può usare sempre.
+
+=== ITEM_ID_LUTE   [FILTER_FURNITURE]
+    NOME      jp リュート
+              en lute
+              IT liuto
+    --- description(0)  :84839
+        JP  \t\t掻き鳴らすことで音を発す弦楽器。卵を縦半分に切ったような特異な形状は、内部に音を反響させ、音色に深みを与えることに一役買っている。\n#～玲瓏たるイルヴァの調べ～\n
+        EN  A stringed instrument that produces sound by scratching. Its peculiar shape, which resembles an egg cut in half lengthwise, helps to reverberate the sound inside and give depth to the tone. \n# ~Music of the Melodious Irva~
+    --- description(3)  :84842 ⚠️ TETTO SECCO 69
+        JP  \t\t演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜楽器＞カテゴリ～\n
+        EN  (Reusable) Rank 3 instrument for performing.
+        IT  Uno strumento per suonare. Si può usare sempre.
+
+=== ITEM_ID_PAN_FLUTE   [FILTER_FURNITURE]
+    NOME      jp パンフルート
+              en pan flute
+              IT flauto di Pan
+    --- description(0)  :84904
+        JP  \t\t幾つかの管を重ねた管楽器。音程が安定しにくく、これを扱う演奏家は絶えず調律する必要があるという。\n#～玲瓏たるイルヴァの調べ～\n
+        EN  A wind instrument consisting of several layered tubes. It is said to be difficult to keep the pitch stable, so players who handle it need to tune it constantly. \n# ~Music of the Melodious Irva~
+    --- description(3)  :84907 ⚠️ TETTO SECCO 69
+        JP  \t\t演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜楽器＞カテゴリ～\n
+        EN  (Reusable) Rank 3 instrument for performing.
+        IT  Uno strumento per suonare. Si può usare sempre.
+
+=== ITEM_ID_PARTITION   [FILTER_FURNITURE]
+    NOME      jp パーティション
+              en partition
+              IT pannello divisorio
+    --- description(0)  :87002
+        JP  \t\t折りたたむことができる、雰囲気ある間仕切り。かつて異国の若い僧侶がこれの一つに封じ込まれた虎を倒そうとしたことがあるとか。\n#～ノースティリス大家具事典～\n
+        EN  An atmospheric partition that can be folded. A young monk from another country once tried to defeat a tiger enclosed in one of these. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :87005 ⚠️ TETTO SECCO 69
+        JP  \t\t和風の間仕切りだ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is an eastern-style partition.
+        IT  Un paravento in stile orientale.
+
+=== ITEM_ID_CHOCHIN   [FILTER_FURNITURE]
+    NOME      jp 提灯
+              en chochin
+              IT chochin
+    --- description(0)  :87064
+        JP  \t\t持ち運びやすいように作られた照明器具。装飾品としても扱われる他、異国では、ガードが夜警の為に持ち歩いているという話だ。\n#～家庭を彩る日用雑貨～\n
+        EN  Lighting devices made to be easily carried around. Besides being treated as ornaments, it is said that in foreign countries, guards carry them with them for night watch. \n# ~Daily Necessities for the Home~
+    --- description(3)  :87067 ⚠️ TETTO SECCO 69
+        JP  \t\t異国の簡易照明。夜間、周囲を弱く照らす。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is an exotic lighting. Illuminates the surroundings softly at night.
+        IT  Un lume semplice straniero. Di notte fa una luce fioca.
+
+=== ITEM_ID_EASTERN_WINDOW   [FILTER_FURNITURE]
+    NOME      jp 東洋の窓
+              en eastern window
+              IT finestra orientale
+    --- description(0)  :87126
+        JP  \t\t異国情緒あふれる丸型の窓。取り付ければ何となく外国を訪れている気分にさせるという。\n#～ノースティリス大家具事典～\n
+        EN  Exotic round windows. When installed, they are said to make people feel as if they are visiting a foreign country. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :87129 ⚠️ TETTO SECCO 69
+        JP  \t\t円形をした窓。夜間、周囲を弱く照らす。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a circular window. Illuminates the surroundings softly at night.
+        IT  Una finestra tonda. Di notte fa una luce fioca.
+
+=== ITEM_ID_EASTERN_LAMP   [FILTER_FURNITURE]
+    NOME      jp 灯篭
+              en eastern lamp
+              IT lanterna orientale
+    --- description(0)  :87188
+        JP  \t\t照明を安置する為の石造りの構造物。これが一台あるだけで周囲が厳かな雰囲気に包まれるという。\n#～ノースティリス大家具事典～\n
+        EN  A stone structure used to enshrine lighting. It is said that the mere presence of one of these lamps creates a solemn atmosphere in the surrounding area. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :87191 ⚠️ TETTO SECCO 69
+        JP  \t\t異国の重い照明。常に周囲を照らす。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is an exotic heavy lighting. Always illuminates the surroundings.
+        IT  Un lume straniero e pesante. Illumina sempre intorno.
+
+=== ITEM_ID_DOUBLE_BED   [FILTER_FURNITURE]
+    NOME      jp ダブルベッド
+              en double bed
+              IT letto matrimoniale
+    --- description(0)  :87319
+        JP  \t\t２人用のやや幅広な寝具。想定人数は２人だが詰めれば４人までいけるので、困窮にあえぐ冒険者の一団が金額を折半して皆でこのベッドに寝ることもあるようだ。\n#～ノースティリス大家具事典～\n
+        EN  A rather wide bedding for two. The beds are designed for two people, but can accommodate up to four if they are packed together, so a group of adventurers in dire straits may split the cost and sleep together on these beds. \n#~ Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :87322 ⚠️ TETTO SECCO 69
+        JP  \t\t眠る為の家具（ランク７）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 7 bed.
+        IT  Un letto (rango 7). Si può usare sempre.
+
+=== ITEM_ID_JUNK   [FILTER_FURNITURE]
+    NOME      jp 廃品
+              en junk
+              IT cianfrusaglie
+    --- description(0)  :87381
+        JP  \t\t不用品をかき集め、うず高く積んだとても重い物体。本来持ち運ぶようなものではないが、どうしても持ち運ばなければならない事情がある時は、廃品の一部にならないように細心の注意を払おう。\n#～私の愛する幾千ものガラクタ～\n
+        EN  Unused items are gathered up and piled up high in a very heavy pile. It is not something you would normally carry, but if you have to carry it under certain circumstances, be very careful not to become part of the waste. \n#~Thousands of pieces of Junk I love~
+    --- description(3)  :87384 ⚠️ TETTO SECCO 69
+        JP  \t\t特に使い道はない。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is useless junk.
+        IT  Non serve a niente in particolare.
+
+=== ITEM_ID_SINK2   [FILTER_FURNITURE]
+    NOME      jp シンク
+              en sink
+              IT lavello
+    --- description(0)  :87443
+        JP  \t\t水周りの仕事を一手に引き受ける流し台。非常に巨大で重量もある為持ち運びには注意が必要だ。\n#～ノースティリス大家具事典～\n
+        EN  A sink that takes care of all water-related work. It is very huge and heavy, so care must be taken when carrying it. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :87446 ⚠️ TETTO SECCO 69
+        JP  \t\t大きな流し台だ。使用することはできない。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a large sink. Cannot be used.
+        IT  Un grande lavello. Non si può usare.
+
+=== ITEM_ID_CRAFT_CUPBOARD   [FILTER_FURNITURE]
+    NOME      jp 名工食器棚
+              en craft cupboard
+              IT credenza di pregio
+    --- description(0)  :87505
+        JP  \t\tその道のプロが精魂込めて作り上げた食器棚。一見シンプルに見えるが、普段見えない部分に匠の遊び心が隠れている。\n#～ノースティリス大家具事典～\n
+        EN  A cupboard created by professionals who put their hearts and souls into their work. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :87508 ⚠️ TETTO SECCO 69
+        JP  \t\t匠の作った食器用の棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a cupboard made by a master craftsman.
+        IT  Una credenza fatta da un maestro artigiano.
+
+=== ITEM_ID_FLOWERBED   [FILTER_FURNITURE]
+    NOME      jp フェンス付き花壇
+              en flowerbed
+              IT aiuola
+    --- description(0)  :87644
+        JP  \t\t小さな花達を守る為、簡易な塀が取り付けられている花壇だ。\n#～ノースティリス大家具事典～\n
+        EN  A flower bed with a simple fence attached to protect the small flowers. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :87647 ⚠️ TETTO SECCO 69
+        JP  \t\t間仕切りのついた花壇だ。\n#～鑑定報告書：＜壇＞カテゴリ～\n
+        EN  It is a beautiful bed of flowers, with a partition.
+        IT  Un'aiuola con una recinzione.
+
+=== ITEM_ID_SOFA   [FILTER_FURNITURE]
+    NOME      jp ソファー
+              en sofa
+              IT divano
+    --- description(0)  :87707
+        JP  \t\tゆったりとした安定感抜群の長椅子。我が家でくつろぐには最適な家具だろう。\n#～ノースティリス大家具事典～\n
+        EN  A spacious and stable chaise longue. It would be the perfect furniture for relaxing in one's own home. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :87710 ⚠️ TETTO SECCO 69
+        JP  \t\t座る為の家具。何度でも使用することができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Reusable) sofa.
+        IT  Un mobile per sedersi. Si può usare sempre.
+
+=== ITEM_ID_BLACK_BOARD   [FILTER_FURNITURE]
+    NOME      jp 黒板
+              en black board
+              IT lavagna
+    --- description(0)  :87769
+        JP  \t\t白墨で書かれた文字を書き消しできる巨大な板。大抵の学び舎にはこの板が備え付けられているという。\n#～ノースティリス大家具事典～\n
+        EN  A huge board on which letters written in white ink can be written and erased. Most schools are equipped with this board. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :87772 ⚠️ TETTO SECCO 69
+        JP  \t\t書き消し自由な板。使用することはできない。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a board that is free to write on and erase. Cannot be used.
+        IT  Una tavola su cui scrivere e cancellare. Non si può usare.
+
+=== ITEM_ID_MENU_BOARD   [FILTER_FURNITURE]
+    NOME      jp メニューボード
+              en menu board
+              IT lavagna del menù
+    --- description(0)  :87831
+        JP  \t\t品書が書かれた板。お店のオススメなる料理が書かれているが、それがどこの町のものかは定かではない。\n#～街中の名脇役達～\n
+        EN  A board with a list of items. It contains the restaurant's recommended dishes, but it is not certain which town they are from. \n# ~Supporting Roles on the Streets~
+    --- description(3)  :87834 ⚠️ TETTO SECCO 69
+        JP  \t\tメニューが書かれた板だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a menu for a restaurant.
+        IT  Una tavola con scritto il menù.
+
+=== ITEM_ID_KING_DRAWER   [FILTER_FURNITURE]
+    NOME      jp 王様箪笥
+              en king drawer
+              IT cassettiera regale
+    --- description(0)  :87893
+        JP  \t\t国王御用達の誉れ高い箪笥。機能性を損なう程に鮮やかな装飾がなされている。\n#～ノースティリス大家具事典～\n
+        EN  A cabinet of drawers honored by the King's warrant. It is so brilliantly decorated that its functionality is compromised. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :87896 ⚠️ TETTO SECCO 69
+        JP  \t\t王様御用達の箪笥だ。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is a king's royal cabinet.
+        IT  Una cassettiera da re.
+
+=== ITEM_ID_DECORATED_WINDOW   [FILTER_FURNITURE]
+    NOME      jp カーテン付きの窓
+              en decorated window
+              IT finestra decorata
+    --- description(0)  :87955
+        JP  \t\t間仕切りが付けられた室内用窓。覗きを嫌うレイディー達がこぞって買っていくという。\n#～ノースティリス大家具事典～\n
+        EN  An interior window with a partition attached. It is said that ladies who don't like peeping are buying them all the time. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :87958 ⚠️ TETTO SECCO 69
+        JP  \t\t間仕切りのついた窓。夜間、周囲を弱く照らす。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a window with partitions. illuminates the surroundings softly.
+        IT  Una finestra con un divisorio. Di notte fa una luce fioca.
+
+=== ITEM_ID_RICE_BARREL   [FILTER_FURNITURE]
+    NOME      jp 米俵
+              en rice barrel
+              IT barile di riso
+    --- description(0)  :88083
+        JP  \t\t穀物が詰まった藁製の袋。風通しが良く穀物が傷みにくい為、広く使われている。\n#～家庭を彩る日用雑貨～\n
+        EN  Straw bags filled with grain. Widely used because of its good ventilation and resistance to damage of grains. \n# ~Daily Necessities for the Home~
+    --- description(3)  :88086 ⚠️ TETTO SECCO 69
+        JP  \t\t穀物が入った袋だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a barrel for holding rice.
+        IT  Un sacco pieno di granaglie.
+
+=== ITEM_ID_MOON_GATE   [FILTER_FURNITURE]
+    NOME      jp ムーンゲート
+              en moon gate
+              IT cancello lunare
+    --- description(0)  :88803
+        JP  \t\t何やら危険な感じのする門。怪しく揺らめく光の中から、時折異形の姿や悲鳴が聞こえることがあるという。\n#～あなたの見知らぬ世界～\n
+        EN  Gate that looks suspiciously dangerous. From the mysterious flickering light, it is said that sometimes an unusual figure or a scream can be heard. \n#~ Worlds you've Never Seen~
+    --- description(3)  :88806 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでショウルームを訪れるゲートだ（使い捨て）。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  (Single-use) tool that oepns a gateway to the showroom world.
+        IT  Un cancello per la sala d'esposizione (usa e getta).
+
+=== ITEM_ID_SHRINE_GATE   [FILTER_FURNITURE]
+    NOME      jp 鳥居
+              en shrine gate
+              IT portale del santuario
+    non ident. IT portale straniero   (en foreign gate)
+    --- description(0)  :89212
+        JP  \t\t異国の神の領域を主張するという木製の門。赤色に染められたそれは、何処となく生命の躍動を感じさせる。\n#～あなたの見知らぬ世界～\n
+        EN  Wooden gate that claims the domain of Gods of the foreign lands. Tinted red, it somehow evokes the vibrancy of life. \n#~ Worlds you've Never Seen~
+    --- description(3)  :89215 ⚠️ TETTO SECCO 69
+        JP  \t\t異国の神を迎える門だ。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+        EN  It is a gate for Gods of foreign lands.
+        IT  Un portale che accoglie le divinità straniere.
+
+=== ITEM_ID_FLOWER_ARCH   [FILTER_FURNITURE]
+    NOME      jp フラワーアーチ
+              en flower arch
+              IT arco di fiori
+    --- description(0)  :89946
+        JP  \t\t花で飾られた弓形の建造物。潜り抜ける際に若干の気恥ずかしさを感じるのは一体何故だろうか。\n#～街中の名脇役達～\n
+        EN  An arched structure decorated with flowers. Why on earth do I feel a little embarrassed when I go through it? \n# ~Supporting Roles on the Streets~
+    --- description(3)  :89949 ⚠️ TETTO SECCO 69
+        JP  \t\t花が飾られた半円状の建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is an arch structure decorated with flowers.
+        IT  Una costruzione a semicerchio ornata di fiori.
+
+=== ITEM_ID_KINGS_BED   [FILTER_FURNITURE]
+    NOME      jp 王様ベッド
+              en king's bed
+              IT letto regale
+    --- description(0)  :90012
+        JP  \t\t国王御用達の誉れ高い寝具。柔らかな眠り心地はいうまでも無く、様々な贅を凝らして作られたこのベッドは、家具を愛する者にとって最大の憧れである。\n#～ノースティリス大家具事典～\n
+        EN  Bedding acclaimed by the King's warrant. This bed, which is made with various luxuries, not to mention its soft and comfortable sleep, is the greatest dream for those who love furniture. \n#~ Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :90015 ⚠️ TETTO SECCO 69
+        JP  \t\t王様御用達の優れたベッド（ランク８）。使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 8 bed made for royalty.
+        IT  Un letto da re, eccellente (rango 8). Si può usare.
+
+=== ITEM_ID_NICE_WINDOW   [FILTER_FURNITURE]
+    NOME      jp アットホームな窓
+              en nice window
+              IT finestra graziosa
+    --- description(0)  :90074
+        JP  \t\tくつろげる空間を演出する窓。窓枠から差し込む暖かな光は、一時の安らぎをあなたに提供するだろう。\n#～ノースティリス大家具事典～\n
+        EN  Windows that create a relaxing space. The warm light shining through the window frame will provide you with temporary peace of mind. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :90077 ⚠️ TETTO SECCO 69
+        JP  \t\t外から光を取りこむ家具。夜間、周囲を弱く照らす。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a furniture that sheds light. Illuminates surroundings softly.
+        IT  Fa entrare la luce da fuori. Di notte fa una luce fioca.
+
+=== ITEM_ID_TRIANGLE_PLANT   [FILTER_FURNITURE]
+    NOME      jp 三角木
+              en triangle plant
+              IT pianta triangolare
+    --- description(0)  :90199
+        JP  \t\t程良く人の手が入った植物。どれだけ時間がたってもその形状が崩れないのは、恐らく人知れず綺麗に刈り取っていく辻庭師がいるからなのだろう。\n#～ティリス園芸図鑑～\n
+        EN  A plant that has been well taken care of by people. The reason why it does not lose its shape no matter how much time passes is probably due to the presence of a street gardener who neatly trims it away without people knowing about it. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :90202 ⚠️ TETTO SECCO 69
+        JP  \t\t角度をつけて刈り取られた木だ。\n#～鑑定報告書：＜樹木＞カテゴリ～\n
+        EN  It is a tree was trimmed at an angle.
+        IT  Un albero potato ad angolo.
+
+=== ITEM_ID_WINDOW   [FILTER_FURNITURE]
+    NOME      jp 窓
+              en window
+              IT finestra
+    --- description(0)  :90261
+        JP  \t\t広く見かける一般的な窓。これといって目立つ特徴はないが、比較的手に入りやすいので広く流通している。\n#～ノースティリス大家具事典～\n
+        EN  These are common windows that are widely found. It has no outstanding features, but is widely distributed because it is relatively easy to obtain. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :90264 ⚠️ TETTO SECCO 69
+        JP  \t\t外から光を取りこむ家具。夜間、周囲を弱く照らす。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a furniture that sheds light. Illuminates surroundings softly.
+        IT  Fa entrare la luce da fuori. Di notte fa una luce fioca.
+
+=== ITEM_ID_SQUARE_WINDOW   [FILTER_FURNITURE]
+    NOME      jp 格子窓
+              en square window
+              IT finestra quadrata
+    --- description(0)  :90323
+        JP  \t\t硬い金属の枠組みが特徴的の窓。その硬さはかつて何処かの収容所で採用されたほどだという。\n#～ノースティリス大家具事典～\n
+        EN  The window is characterized by its hard metal frame. Its hardness is said to be so great that it was once used in a prison camp somewhere. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :90326 ⚠️ TETTO SECCO 69
+        JP  \t\t外から光を取りこむ家具。夜間、周囲を弱く照らす。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a furniture that sheds light. Illuminates surroundings softly.
+        IT  Fa entrare la luce da fuori. Di notte fa una luce fioca.
+
+=== ITEM_ID_GIANT_CACTUS   [FILTER_FURNITURE]
+    NOME      jp 巨大サボテン
+              en giant cactus
+              IT cactus gigante
+    --- description(0)  :90385
+        JP  \t\t愛嬌のある形をした植物。夜、人々が寝静まった頃、この植物はそっと鉢から抜けだし街の外を自由に駆け回っている、という作り話が近年パルミアで人々の笑いを誘っている。\n#～ティリス園芸図鑑～\n
+        EN  Plant with a charming shape. In recent years, there is a Palmian urban legend, involving a plant that quietly slips out of its pot at night when people are asleep and runs freely outside the city, which has drawn laughter in Palmia. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :90388 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の鉢植えだ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an ornamental potted plant.
+        IT  Una pianta ornamentale in vaso.
+
+=== ITEM_ID_BARBECUE_SET   [FILTER_FURNITURE]
+    NOME      jp バーベキューセット
+              en barbecue set
+              IT set da barbecue
+    --- description(0)  :90449
+        JP  \t\t直火を用いる優れた調理器具。これで調理した際に広がる香ばしい匂いは、食べる者にとって最高の調味料となろう。\n#～料理を支える脇役達～\n
+        EN  An excellent cooking utensil that uses an open flame. The savory smell that spreads when cooking with it will be the best seasoning for those who eat with it. \n# ~Supporting Roles in Kitchen~
+    --- description(3)  :90452 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでランク９までの料理を作ることができる器具。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a cooking tool allowing the preparation of dishes up to Rank 9.
+        IT  Ci si cucinano i piatti fino al rango 9.
+
+=== ITEM_ID_MONEY_TREE   [FILTER_FURNITURE]
+    NOME      jp パキラ
+              en money tree
+              IT albero dei soldi
+    --- description(0)  :90511
+        JP  \t\t南国気分を味わえる鉢植え。お金が無い時はこの鉢植えを買って、是非とも南国へ行った気分に浸ろう。\n#～ティリス園芸図鑑～\n
+        EN  Tropical potted plants. If you don't have the money, buy this potted plant and enjoy the tropical atmosphere by all means. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :90514 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の鉢植えだ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an ornamental potted plant.
+        IT  Una pianta ornamentale in vaso.
+
+=== ITEM_ID_GREEN_PLANT   [FILTER_FURNITURE]
+    NOME      jp 目に優しい植物
+              en green plant
+              IT pianta verde
+    --- description(0)  :90573
+        JP  \t\t目の疲れを取ってくれるという鉢植え。それが対外的による物なのか体内摂取によるものなのかは、売っている人間にしか知る由はない。\n#～ティリス園芸図鑑～\n
+        EN  Potted plant that is said to relieve eye fatigue. Whether this is used externally or taken internally, only the seller can know. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :90576 ⚠️ TETTO SECCO 69
+        JP  \t\t観賞用の鉢植えだ。\n#～鑑定報告書：＜鉢＞カテゴリ～\n
+        EN  It is an ornamental potted plant.
+        IT  Una pianta ornamentale in vaso.
+
+=== ITEM_ID_PRESIDENTS_CHAIR   [FILTER_FURNITURE]
+    NOME      jp ボスチェア
+              en president's chair
+              IT poltrona direzionale
+    non ident. IT poltrona imponente   (en glory chair)
+    --- description(0)  :90637
+        JP  \t\tゆったりとした座り心地を提供する威厳ある椅子。聞くところによると左手にシルバーキャット、右手にウィスキーを持つのがこの椅子の正式な座り方らしい。\n#～ノースティリス大家具事典～\n
+        EN  A dignified chair that offers a comfortable and relaxed atmosphere. From what I hear, the official way to sit in this chair is to hold a silver cat in your left hand and a whiskey in your right. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :90640 ⚠️ TETTO SECCO 69
+        JP  \t\t座る為の家具。何度でも使用することができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Reusable) rare chair.
+        IT  Un mobile per sedersi. Si può usare sempre.
+
+=== ITEM_ID_STAINED_GLASS_WINDOW   [FILTER_FURNITURE]
+    NOME      jp ステンドグラス
+              en stained glass window
+              IT vetrata istoriata
+    --- description(0)  :91088
+        JP  \t\t芸術家の粋を集めた偉大な作品。それを通して差し込む光は、人々に感動と驚きを与える。\n#～ルミエスト美術目録～\n
+        EN  Great works of art created by the best of artists. The light that shines through it moves and amazes people. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :91091 ⚠️ TETTO SECCO 69
+        JP  \t\t外から光を取りこむ家具。夜間、周囲をやや弱く照らす。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a furniture that lets in light, illuminates surroundings softly.
+        IT  Fa entrare la luce da fuori. Di notte fa una luce un po' fioca.
+
+=== ITEM_ID_PILLAR   [FILTER_FURNITURE]
+    NOME      jp 扇形の柱
+              en pillar
+              IT colonna
+    --- description(0)  :91150
+        JP  \t\t天井を支える目的に特化した柱。その独特な形状により通常の柱よりずっと重い重量を支えることができる。\n#～ルミエスト美術目録～\n
+        EN  Pillars specialized for the purpose of supporting ceilings. Its unique shape allows it to support much heavier weights than ordinary columns. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :91153 ⚠️ TETTO SECCO 69
+        JP  \t\t重い柱だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a heavy pillar.
+        IT  Una colonna pesante.
+
+=== ITEM_ID_STATUE_HOLY_CROSS   [FILTER_FURNITURE]
+    NOME      jp 聖なる十字架 聖なる十字架
+              en holy cross statue
+              IT croce sacra statua
+    --- description(0)  :91212
+        JP  \t\t尊き存在の力と権力を体現した調度品。その大きさは見る者を圧倒させ、自ずとひざまずいてしまう程だという。\n#～あなたの見知らぬ世界～\n
+        EN  The furnishings are the embodiment of the power and authority of a divine being. Its size is said to overwhelm those who see it, so much so that they are forced to kneel down. \n# ~Worlds you've Never Seen~
+    --- description(3)  :91215 ⚠️ TETTO SECCO 69
+        JP  \t\t大きく輝く十字架だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a great gleaming cross from ancient times.
+        IT  Una grande croce splendente.
+
+=== ITEM_ID_MODERN_LAMP2   [FILTER_FURNITURE]
+    NOME      jp 雪をかぶったモダンな街灯
+              en modern lamp
+              IT lampione moderno
+    --- description(0)  :91274
+        JP  \t\t雪のお陰でお洒落に磨きがかかった街灯。雪降る夜、長身の紳士が優しく照らす光は、恋する二人に火を灯すという。\n#～街中の名脇役達～\n
+        EN  A street lamp, fashionably polished thanks to the snow. It is said that the light gently illuminated by a tall gentleman on a snowy night will light a fire between two people in love. \n# ~Supporting Roles on the Streets~
+    --- description(3)  :91277 ⚠️ TETTO SECCO 69
+        JP  \t\t備え付けられた灯。夜間、周囲を明るく照らす。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is equipped with a light. Illuminates the surroundings brightly.
+        IT  Un lume fisso. Di notte fa una luce viva.
+
+=== ITEM_ID_SNOW_BARREL   [FILTER_FURNITURE]
+    NOME      jp 雪をかぶったタル
+              en snow barrel
+              IT barile innevato
+    --- description(0)  :91336
+        JP  \t\t寒空に置かれ、白い化粧で身を飾ったタル。その姿はある種の芸術品と見紛う程だ。\n#～街中の名脇役達～\n
+        EN  Placed in the cold air, and adorned with white makeup of snow, the figure of this barrel could be mistaken for some kind of work of art. \n# ~Supporting Roles on the Streets~
+    --- description(3)  :91339 ⚠️ TETTO SECCO 69
+        JP  \t\t雪の掛った液体を保持しておく容器。使用することはできない。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a snow-covered container that holds liquid. Cannot be used.
+        IT  Un recipiente per liquidi, coperto di neve. Non si può usare.
+
+=== ITEM_ID_MINI_SNOW_MAN   [FILTER_FURNITURE]
+    NOME      jp ミニ雪だるま
+              en mini snow man
+              IT pupazzo di neve piccolo
+    --- description(0)  :91398
+        JP  \t\t身近に雪を感じたいという意見から生み出された小型の雪だるま。その愛らしい表情は小さくなっても変わることなく世界を見つめ続けている。\n#～ノースティリス紀行・冬版～\n
+        EN  This small-sized snowman was created from the opinion that people want to feel snow close at hand. The adorable expression on his face remains unchanged even in his smaller size as he continues to gaze out at the world. \n# ~North Tyris Travels, Winter Edition~
+    --- description(3)  :91401 ⚠️ TETTO SECCO 69
+        JP  \t\t小さな雪だるまだ。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a small snowman made of snow.
+        IT  Un pupazzo di neve piccolo.
+
+== 46 oggetti, 92 descrizioni

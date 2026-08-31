@@ -1,0 +1,215 @@
+RIGHE = {
+    42782, 42783, 42784, 44656, 44658, 44728, 44730, 44800, 52108, 52110,
+    52243, 54948, 55011, 55074, 55544, 55607, 56400, 56871, 56934, 56997,
+    57188, 57251, 57314, 58589, 58652, 58715, 58778, 59125, 59188, 59251,
+    59314, 60258, 60321, 60384, 60447, 60514, 60581, 60712, 61373, 61375,
+    65527, 67321, 67729, 67792, 67794, 67857, 67859, 67920, 67983, 67985,
+}
+# 50 righe, da 42782 a 67985
+
+    # ---------------------------------------------------------- :42782
+    (42782, "Delightfully Devillish Female Clams (Mesu-Kakis) renowned for their creamy flavor and crisp texture, normally two-shelled but often deliberately displayed to provoke reactions. Hazardous individuals are frequently mixed in, leading to days of one's dignity being trampled upon contact. Though those with proper labeling are safe, insufficiently processed ones with live tissue remain dangerous. Despite many experiencing hell due to losing to Mesukakis, numerous individuals continue challenging them based on chance alone. \\n#~Everchanging Food of Tyris~"):
+        "",
+
+    # ---------------------------------------------------------- :42783
+    (42783, 'Uohhhhhh, my belly rumbles and my chest aches on my way to work.\\n# ~words of the defeated~'):
+        "",
+
+# 1 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :42784
+    (42784, 'This clam is the worst of our kind! It needs urgent correction via legal action!\\n# ~words of a Provocasquid~'):
+        "",
+
+    # ---------------------------------------------------------- :44656
+    (44656, "Giants sea snail characterized by it's drill-shaped conch and multitude of thorns. It's usually made into sashimi, but it's reported in some regions, it is eaten roasted in its shell.\\n#~Everchanging Food of Tyris~"):
+        "",
+
+    # ---------------------------------------------------------- :44658
+    (44658, "A type of seafood that restores satiety, it's used in many cooking dishes.\\n#~Identification Report: <Food> Category~"):
+        "",
+
+    # ---------------------------------------------------------- :44728
+    (44728, "Clams with a rich taste and umami. They were used to be much smaller, but are gradually getting large due to change in environments. It's two shells are famous for not fitting together unless they are from the same individual.\\n#~Everchanging Food of Tyris~"):
+        "",
+
+    # ---------------------------------------------------------- :44730
+    (44730, 'A type of seafood that restores satiety, they can be grilled with a Barbeque Set, obviously.\\n#~Identification Report: <Food> Category~'):
+        "",
+
+    # ---------------------------------------------------------- :44800
+    (44800, 'Giant scallop packing a strong umami. The front and back sides of the shell are different colors. Normally, they live on the seafloor with the reddish-brown side up and the white side down.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :52108
+    (52108, 'Plants that have adapted both aquatic and non-aqualitc environment. Widely used for ornamental purposes, but not inedible.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :52110
+    (52110, "A type of vegetable that restores satiety, it's used in many cooking dishes.\\n#~Identification Report: <Food> Category~"):
+        "",
+
+    # ---------------------------------------------------------- :52243
+    (52243, 'A type of small fish with funny looking face. They are usually half buried on the ocean floor, eating only the food that flows by. Therefore, they cannot be caught, and even if they are brought to the surface, they try to bury themselves somewhere. When you drag them out of their burrows, they are surprisingly long.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :54948
+    (54948, 'Weed that are native to all regions of Aimwell. It is highly prolific, and at one time it was said to grow in the city. The leaves produce a sweet juice that is used as a sweetener, and the thick, long roots are edible.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :55011
+    (55011, 'Weed that are native to all regions of Aimwell. It looks just like fern at first glance, but the leaves have spines and the roots are thin and emit a pungent odor. The leaves are surprisingly tasty when the spines are removed, and the roots are used in medicine.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :55074
+    (55074, 'Coagulated ether antibodies. It has increased shelf life, but is less effective due to alteration. Not recognized as an antibody by the public.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :55544
+    (55544, "Flavorless gum. It can be used to distract hunger, but it doesn't taste good and it is hard. It's better to throw it away, but please refrain from littering.\\n#~Everchanging Food of Tyris~"):
+        "",
+
+    # ---------------------------------------------------------- :55607
+    (55607, 'A resin called gum base to which sweeteners and flavorings are added. It gives a pleasant taste and texture. It is not nutritious and does not fill you up, but it can at least distract you from hunger if you keep chewing it. Some gorillas use gum as a kind of intimidating behavior by chewing it.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :56400
+    (56400, 'Bait used for fish in the water. It can be eaten, but it smells unpleasant and tastes bad. It seems to be very nutritious for fish, and it makes their scales beautiful and their flesh tighter. You should feed it to your fish as it can improve their quality. It does not seem to have any particular effect on fish monsters, and it is a mystery where the difference comes from.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :56871
+    (56871, 'A dish recreated from ancient writings. It is a relative of the sandwich, but it seems to place more emphasis on the meat. It is too large, heavy, and difficult to eat, and many scholars question whether this size was really the standard.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :56934
+    (56934, 'A sweet dish using rice cake as the ingredient. Kagamimochi, which had turned hard and dry, was put in azuki bean soup to treat it. However, there is a theory that dumplings or chestnuts should be added instead of mochi, and a similar product called zenzai has also been discovered, causing controversy in academic circles.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :56997
+    (56997, 'A sweet dish using rice cake as the ingredient. Kagamimochi, which had turned hard and dry, was put in azuki bean soup to treat it. At first, it was called something like mochi soup, but later a similar item was found in ancient documents, and it has now taken on that name. However, since there are differences in details in different documents, even experts cannot tell to what extent they are the same.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :57188
+    (57188, 'To prevent damaging the seafood, it is cured in salt water and then dried under the sun to increase portability and shelf life. It is very savory when grilled. For some reason, it is said that the Goddess of Fortune is not pleased with it.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :57251
+    (57251, 'To prevent damaging the vegetables, it is cured in salt water and then dried under the sun to increase portability and shelf life. This resulted in sweetness and flavor being concentrated. For some reason, it is said that the God(dess?) of Harvest is not pleased with it.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :57314
+    (57314, 'To prevent damaging the fruits, it is cured in sugar and then dried under the sun to increase portability and shelf life. The skin, which is difficult to eat raw, becomes easier to eat. There are people who do not like the unique sweet taste.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :58589
+    (58589, 'Processed food made from soybeans. It is made by frying thin slices of tofu. It has been a favorite food of foxes since very ancient times, but for a long time the reason for this was unknown, and it was generally believed that it was a substitute for rat meat. Recent research has revealed that the spongy interior contains magical elements and that foxes instinctively sense them.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :58652
+    (58652, 'Processed food made from soybeans. Fermented with natto bacteria. It is very sticky and requires some skill to eat it neatly. In addition to its stickiness, it also has a distinctive smell, and people get very angry if you pour it on them.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :58715
+    (58715, "Processed food made from soybeans. Solidified squeezed juice. Besides useful for maintaining a healthy body, the corners will stick into the opponent's head if thrown. It is already flavored, so there is no need to put soy sauce on it.\\n#~Everchanging Food of Tyris~"):
+        "",
+
+    # ---------------------------------------------------------- :58778
+    (58778, 'It is the only plant that contains enough protein to rival meat. For this reason, it is nicknamed the meat of the field. It can be eaten or thrown. It is also used to dispel demons and other things.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :59125
+    (59125, 'Processed food made from milk. The solids are extracted and hardened. It has a high shelf life and is often produced in areas where dairy farming is popular.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :59188
+    (59188, 'Processed food made from milk. It is made by coagulating separated fat, but it becomes sticky at room temperature. It is like a lump of oil and is flammable, so be careful when pouring it on people.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :59251
+    (59251, 'Processed food made from milk. It is fermented with special bacteria, which prevents the growth of weak germs and thus has a high shelf life despite its appearance. It helps to build a healthy body, but people get very angry if you pour it on them.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :59314
+    (59314, 'Foods and other ingredients are crushed into a powdered granular form. They are concentrated in calories and are designed to make you feel a little fuller and fatter. However, taste and texture are not considered. It can be given to hungry livestock. \\n# ~Living with Livestock~'):
+        "",
+
+    # ---------------------------------------------------------- :60258
+    (60258, 'Plucked leaves. Different colors and flavors appear depending on how they are fermented. They are used worldwide as an ingredient in tea. It can also be eaten as is... \\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :60321
+    (60321, 'The raw material for coffee. Originally, it was said that it had to be heated to undergo chemical changes and produce a proper aroma and taste. However, the varieties grown today all undergo chemical changes from the harvest stage due to improvements, so heat treatment is no longer necessary. \\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :60384
+    (60384, 'Although it is originally suited for wet areas, it has been enhanced for drought tolerance and grows well even when left in the field. In fact, excessive moisture increases the time and difficulty of cultivation.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :60447
+    (60447, 'This grain combines the characteristics of wheat and barley through breeding. 80% of the flour distributed today is milled from here, instead of pure wheat.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :60514
+    (60514, 'One of the basic seasonings that can make or break a dish. This reddish-brown liquid has a distinct aroma. Its salty flavor carries undertones of rich umami and sweetness.\\n#~Everchanging Food of Tyris～\\n'):
+        "",
+
+    # ---------------------------------------------------------- :60581
+    (60581, "A typical example of a spice, it's one of the seasonings that can make or break a dish. It was once treasured for its preservative properties and fetched a high price at market. Goes well on meat.\\n#~Everchanging Food of Tyris~\\n"):
+        "",
+
+    # ---------------------------------------------------------- :60712
+    (60712, "The final form of a flying creature serving the King in Yellow. It was working as a courier, playing music, making honey wine, etc., but it was not satisfied with that and became dried meat on it's own will. It goes well with alcohol.\\n#~Everchanging Food of Tyris~"):
+        "",
+
+    # ---------------------------------------------------------- :61373
+    (61373, 'This soup is made from a mysterious mushroom held by a girl who woke up from a daydream. It is blended in a perfect ratio, and when eaten, your body grows larger or smaller. It has a strange color, but the taste is good. It is said that those who continue to eat it will grow to the same size as the girl.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :61375
+    (61375, '\\"I can\'t go back to yesterday. Because I\'m not the same person I was yesterday.\\" \\n# ~a Little Girl\'s Bedtime Story~'):
+        "",
+
+    # ---------------------------------------------------------- :65527
+    (65527, 'A lantern made from a hollowed-out pumpkin. Although it does not have the power to repel evil spirits, as the legend says, it does have a mysterious power, albeit in very small quantities. It can be eaten. \\n# ~a Close Look at the Ancient Rituals~'):
+        "",
+
+    # ---------------------------------------------------------- :67321
+    (67321, 'This dish contains the flavor of shellfish and seaweed from the deep sea. No fish is used. The cooking process may or may not involve the application of advanced magic.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :67729
+    (67729, "A clover with four leaves. Each leaf symbolizes hope, faithfulness, love, and good luck. You can keep it as a good luck charm, but eating it may make you happier. \\n# ~Weeds you can Eat and Weeds you can't Eat~"):
+        "",
+
+    # ---------------------------------------------------------- :67792
+    (67792, 'Pastry characterized by its flower-like shape. The combination of thin, textured sabl? and savory almonds is delicious. It takes a lot of skill to squeeze out the dough.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :67794
+    (67794, '\\"..why are you looking at me? My name isn\'t spelled like that.\\" \\n# ~<Lomias> The Messenger From Vindale~'):
+        "",
+
+    # ---------------------------------------------------------- :67857
+    (67857, 'Fruit has a horizontal tomato-like shape. When ripe, it becomes dramatically sweeter. It contains an abundance of vitamins and minerals, and there was a time when it was treated as a panacea.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :67859
+    (67859, "A type of fruit that restores satiety, it's used in many cooking dishes.\\n#~Identification Report: <Food> Category~"):
+        "",
+
+    # ---------------------------------------------------------- :67920
+    (67920, 'Golden acorns of miraculous color. It is not that rare, but the cause of its appearance remains unclear, and it has great academic value. Even more so than ordinary gold nuggets. It is almost impossible to cook because there is almost no fruit part, but the taste itself does not seem to be that bad. Although it is too wasteful to eat. \\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :67983
+    (67983, "A nut with a smooth shell. Because it's abundancy and starch-rich nature, it's an important food source for those who live in the forest. They taste good when eaten raw, and tastes much better after cooking.\\n#~Everchanging Food of Tyris~"):
+        "",
+
+# 41 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :67985
+    (67985, "A type of nut that restores satiety, it's used to make candies.\\n#~Identification Report: <Food> Category~"):
+        "",
+
+# 8 voci, 0 ambigue
+

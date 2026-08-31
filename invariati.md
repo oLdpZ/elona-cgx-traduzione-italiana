@@ -334,6 +334,7 @@ scrivere, probabilmente la stringa va tradotta.
 | osiruko | dolce giapponese (`db_item.hsp`), giapponese おしるこ: l'inglese e' gia' una **romanizzazione**, non una descrizione, e l'italiano non ha un nome per questa zuppa di fagioli azuki. Maschile, invariato |
 | ozouni | zuppa di capodanno (`db_item.hsp`), giapponese お雑煮: l'inglese e' una romanizzazione, come `osiruko`. Maschile, invariato |
 | kagami mochi | dolce di capodanno (`db_item.hsp`), giapponese 鏡もち: romanizzazione, e `mochi` e' gia' invariato nel dizionario. Maschile, invariato |
+| zenzai | dolce giapponese (`db_item.hsp:56934`, **dentro la descrizione** dell'osiruko), giapponese ぜんざい: il piatto somigliante da cui l'osiruko si distingue. Non e' il nome di un oggetto — e' un termine che la prosa cita — e l'italiano non ne ha uno. Maschile, invariato. Prima parola coniata dal corpo delle descrizioni (113a) |
 | bannou mugi | cereale di Elona (`db_item.hsp`), giapponese 万能ムギ: l'inglese e' una romanizzazione. Nome opaco, maschile, invariato |
 | b-jerky | cibo di Elona+ (`db_item.hsp`), giapponese ビジャーキー: **coniazione**, non una descrizione. Nome opaco, maschile, invariato |
 | putitoro | cibo di Elona (`db_item.hsp`), giapponese プチトロ: nome opaco e scherzoso, come `mesugaki`. Maschile, invariato |

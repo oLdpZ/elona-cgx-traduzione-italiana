@@ -1,0 +1,532 @@
+=== ITEM_ID_MESUGAKI   [FILTER_ITEM_FOOD]
+    NOME      jp メス牡蠣
+              en mesugaki
+              IT mesugaki
+    --- description(0)  :42782
+        JP  クリーミーな旨味とぷりっとした食感が魅力の貝。本来は二枚貝なのだが、わざと露出して周囲の反応を楽しんでいる。有害な個体が結構な確率で混ざっており、それに当たった場合は連日にわたって尊厳を踏みにじられることになる。しっかりわからせてある個体は安全なのだが、わからせが不十分で生イキな部分が残っているものは危険。メス牡蠣に敗北して地獄を味わったにも関わらず、運任せで挑み続ける者も多い。\n#～移り変わりゆくティリスの食～
+        EN  Delightfully Devillish Female Clams (Mesu-Kakis) renowned for their creamy flavor and crisp texture, normally two-shelled but often deliberately displayed to provoke reactions. Hazardous individuals are frequently mixed in, leading to days of one's dignity being trampled upon contact. Though those with proper labeling are safe, insufficiently processed ones with live tissue remain dangerous. Despite many experiencing hell due to losing to Mesukakis, numerous individuals continue challenging them based on chance alone. \n#~Everchanging Food of Tyris~
+    --- description(1)  :42783
+        JP  「牡蠣食えば　腹が鳴るなり　通勤時」\n#～敗北者のうめき声～
+        EN  Uohhhhhh, my belly rumbles and my chest aches on my way to work.\n# ~words of the defeated~
+    --- description(2)  :42784
+        JP  「誹謗中傷してくる最低な奴です！法的措置を検討します」\n#～涙目の煽りイカの言葉～
+        EN  This clam is the worst of our kind! It needs urgent correction via legal action!\n# ~words of a Provocasquid~
+    --- description(3)  :42785 ⚠️ TETTO SECCO 69
+        JP  満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～
+        EN  It is seafood that can be cooked and eaten.
+        IT  Un cibo di mare che si può cucinare e mangiare.
+
+=== ITEM_ID_SAZAE   [FILTER_ITEM_FOOD]
+    NOME      jp サザエ
+              en sazae
+              IT sazae
+    --- description(0)  :44656
+        JP  大きめの巻貝。複数のトゲやドリルのような形状が特徴的。刺身にしてもよいが、一部の地方では貝殻のまま焼いて食すとされる。\n#～移り変わりゆくティリスの食～
+        EN  Giants sea snail characterized by it's drill-shaped conch and multitude of thorns. It's usually made into sashimi, but it's reported in some regions, it is eaten roasted in its shell.\n#~Everchanging Food of Tyris~
+    --- description(2)  :44658
+        JP  
+        EN  A type of seafood that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+    --- description(3)  :44659 ⚠️ TETTO SECCO 69
+        JP  満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～
+        EN  It is seafood that can be cooked and eaten.
+        IT  Un cibo di mare che si può cucinare e mangiare.
+
+=== ITEM_ID_HAMAGURI   [FILTER_ITEM_FOOD]
+    NOME      jp ハマグリ
+              en hamaguri
+              IT vongola
+    --- description(0)  :44728
+        JP  旨味とコクが強い二枚貝。大昔はもう少し小さかったが環境の変化で少しずつ巨大化してきているらしい。二枚の殻は、同一個体の殻でなければぴったりとかみ合わないことで有名。\n#～移り変わりゆくティリスの食～
+        EN  Clams with a rich taste and umami. They were used to be much smaller, but are gradually getting large due to change in environments. It's two shells are famous for not fitting together unless they are from the same individual.\n#~Everchanging Food of Tyris~
+    --- description(2)  :44730
+        JP  
+        EN  A type of seafood that restores satiety, they can be grilled with a Barbeque Set, obviously.\n#~Identification Report: <Food> Category~
+    --- description(3)  :44731 ⚠️ TETTO SECCO 69
+        JP  満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～
+        EN  It is seafood that can be cooked and eaten.
+        IT  Un cibo di mare che si può cucinare e mangiare.
+
+=== ITEM_ID_HOTATE   [FILTER_ITEM_FOOD]
+    NOME      jp ホタテ
+              en hotate
+              IT capasanta
+    --- description(0)  :44800
+        JP  大きな二枚貝。肉厚な貝柱に旨味が詰まっている。貝殻は表と裏で色が異なる。普段は赤茶色の面を上に、白色の面を下にして海底で暮らしている。\n#～移り変わりゆくティリスの食～
+        EN  Giant scallop packing a strong umami. The front and back sides of the shell are different colors. Normally, they live on the seafloor with the reddish-brown side up and the white side down.\n#~Everchanging Food of Tyris~
+    --- description(2)  :44802
+        JP  
+        EN  A type of seafood that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+    --- description(3)  :44803 ⚠️ TETTO SECCO 69
+        JP  満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～
+        EN  It is seafood that can be cooked and eaten.
+        IT  Un cibo di mare che si può cucinare e mangiare.
+
+=== ITEM_ID_AQUATIC_PLANT   [FILTER_ITEM_FOOD]
+    NOME      jp 水草
+              en aquatic plant
+              IT pianta acquatica
+    --- description(0)  :52108
+        JP  \t\t一度は陸上生活に適応した植物なのに、そこから水中生活に再適応した出戻り組。観賞用に広く使われるが、食べられないこともない。\n#～移り変わりゆくティリスの食～\n
+        EN  Plants that have adapted both aquatic and non-aqualitc environment. Widely used for ornamental purposes, but not inedible.\n#~Everchanging Food of Tyris~
+    --- description(2)  :52110
+        JP  
+        EN  A type of vegetable that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+    --- description(3)  :52111 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is vegetable that can be cooked and eaten.
+        IT  Una verdura che si può cucinare e mangiare.
+
+=== ITEM_ID_SPOTTED_GARDEN_EEL   [FILTER_ITEM_FOOD]
+    NOME      jp チンアナゴ
+              en spotted garden eel
+              IT anguilla giardiniera
+    --- description(0)  :52243
+        JP  \t\tひょうきんな顔の小魚。普段は海底に半分埋まっており、流れてくる餌ばかり食べている。そのため釣れることはないし、地上に揚げてもどこかに埋まろうとする。名前のチンは、顔つきが似ている犬の種類名から来ているらしい。埋まっているのを引きずり出すと、意外と長い。\n#～移り変わりゆくティリスの食～\n
+        EN  A type of small fish with funny looking face. They are usually half buried on the ocean floor, eating only the food that flows by. Therefore, they cannot be caught, and even if they are brought to the surface, they try to bury themselves somewhere. When you drag them out of their burrows, they are surprisingly long.\n#~Everchanging Food of Tyris~
+    --- description(2)  :52245
+        JP  
+        EN  A type of seafood that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+    --- description(3)  :52246 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is seafood that can be cooked and eaten.
+        IT  Un cibo di mare che si può cucinare e mangiare.
+
+=== ITEM_ID_FANE   [FILTER_ITEM_FOOD]
+    NOME      jp フェーン
+              en fane
+              IT fane
+    --- description(0)  :54948
+        JP  \t\tイムウエルのノースティリス全域に自生する草。繁殖力が高く、街中にも生えていた時期もあったらしい。葉は甘い汁が出るため甘味料に、太く長い根は食用に適する。\n#～移り変わりゆくティリスの食～\n
+        EN  Weed that are native to all regions of Aimwell. It is highly prolific, and at one time it was said to grow in the city. The leaves produce a sweet juice that is used as a sweetener, and the thick, long roots are edible.\n#~Everchanging Food of Tyris~
+    --- description(2)  :54950
+        JP  
+        EN  A type of vegetable that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+    --- description(3)  :54951 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is vegetable that can be cooked and eaten.
+        IT  Una verdura che si può cucinare e mangiare.
+
+=== ITEM_ID_CHICORY   [FILTER_ITEM_FOOD]
+    NOME      jp チクリー
+              en chicory
+              IT cicoria
+    --- description(0)  :55011
+        JP  \t\tイムウエルのノースティリス全域に自生する草。一見するとフェーンにそっくりだが、葉にトゲがあり根は細くて刺激臭を放つ。葉はトゲをとると意外と美味しく、根は薬の材料になる。\n#～移り変わりゆくティリスの食～\n
+        EN  Weed that are native to all regions of Aimwell. It looks just like fern at first glance, but the leaves have spines and the roots are thin and emit a pungent odor. The leaves are surprisingly tasty when the spines are removed, and the roots are used in medicine.\n#~Everchanging Food of Tyris~
+    --- description(2)  :55013
+        JP  
+        EN  A type of vegetable that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+    --- description(3)  :55014 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is vegetable that can be cooked and eaten.
+        IT  Una verdura che si può cucinare e mangiare.
+
+=== ITEM_ID_CURE_CRYSTAL   [FILTER_ITEM_FOOD]
+    NOME      jp 抗体結晶
+              en cure crystal
+              IT cristallo curativo
+    --- description(0)  :55074
+        JP  \t\tエーテル抗体を凝固させたもの。保存性は増しているが、変質して効果が低下している。世間一般的には抗体として認知されていない。\n#～移り変わりゆくティリスの食～\n
+        EN  Coagulated ether antibodies. It has increased shelf life, but is less effective due to alteration. Not recognized as an antibody by the public.\n#~Everchanging Food of Tyris~
+    --- description(3)  :55077 ⚠️ TETTO SECCO 69
+        JP  \t\tエーテル病を治すことができる貴重な食品だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is a precious food used to cure ether disease.
+        IT  Un cibo prezioso che guarisce la malattia dell'etere.
+
+=== ITEM_ID_CHEWED_UP_GUM   [FILTER_ITEM_FOOD]
+    NOME      jp ガムの残骸
+              en chewed-up gum
+              IT gomma masticata
+    --- description(0)  :55544
+        JP  \t\t味の無くなったガム。空腹を誤魔化すのに使えなくもないが、美味しくないし硬い。捨てたほうがマシだがポイ捨てはやめよう。\n#～移り変わりゆくティリスの食～\n
+        EN  Flavorless gum. It can be used to distract hunger, but it doesn't taste good and it is hard. It's better to throw it away, but please refrain from littering.\n#~Everchanging Food of Tyris~
+    --- description(3)  :55547 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度をほんのわずかに回復することができる食物。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that barely restores satiety.
+        IT  Un cibo che sazia appena appena.
+
+=== ITEM_ID_CHEWING_GUM   [FILTER_ITEM_FOOD]
+    NOME      jp ガム
+              en chewing gum
+              IT gomma da masticare
+    --- description(0)  :55607
+        JP  \t\tガムベースと呼ばれる樹脂に甘味料や香料を加えたもの。風味や口当たりを楽しめる。栄養はないし腹も膨れないが、噛み続けることで空腹を誤魔化すくらいはできる。ごろつきの中には、クチャクチャ噛むことでガムを一種の威嚇行動に用いる個体も存在する。\n#～移り変わりゆくティリスの食～\n
+        EN  A resin called gum base to which sweeteners and flavorings are added. It gives a pleasant taste and texture. It is not nutritious and does not fill you up, but it can at least distract you from hunger if you keep chewing it. Some gorillas use gum as a kind of intimidating behavior by chewing it.\n#~Everchanging Food of Tyris~
+    --- description(3)  :55610 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度をわずかに回復することができる食物。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can slightly restore satiety.
+        IT  Un cibo che sazia poco.
+
+=== ITEM_ID_GROUND_BAIT   [FILTER_ITEM_FOOD]
+    NOME      jp 撒き餌
+              en ground bait
+              IT pastura
+    --- description(0)  :56400
+        JP  \t\t水中の魚に対して使う餌。一応食べることもできるが、生臭いしマズい。魚にとっては栄養抜群らしく、鱗が綺麗になったり身が引き締まったりする。品質を上げることができるので、飼っている魚に与えるといいだろう。魚のモンスターには特に効果がないようで、その差はどこからくるのか謎。\n#～移り変わりゆくティリスの食～\n
+        EN  Bait used for fish in the water. It can be eaten, but it smells unpleasant and tastes bad. It seems to be very nutritious for fish, and it makes their scales beautiful and their flesh tighter. You should feed it to your fish as it can improve their quality. It does not seem to have any particular effect on fish monsters, and it is a mystery where the difference comes from.\n#~Everchanging Food of Tyris~
+    --- description(3)  :56403 ⚠️ TETTO SECCO 69
+        JP  \t\t食物の一種。置いてある魚に使用することができる（使い捨て）。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  (Single-use) tool type food for feeding fishes placed on the ground.
+        IT  Un cibo da dare ai pesci posati per terra (usa e getta).
+
+=== ITEM_ID_HAMBURGER   [FILTER_ITEM_FOOD]
+    NOME      jp ハンバーガー
+              en hamburger
+              IT hamburger
+    --- description(0)  :56871
+        JP  \t\t古代の文献をもとに再現された料理。サンドイッチの親戚だが肉に重きを置いているフシがある。でかすぎて重い上に食べづらく、本当にこのサイズが標準だったのか疑問を持つ学者も多い。\n#～移り変わりゆくティリスの食～\n
+        EN  A dish recreated from ancient writings. It is a relative of the sandwich, but it seems to place more emphasis on the meat. It is too large, heavy, and difficult to eat, and many scholars question whether this size was really the standard.\n#~Everchanging Food of Tyris~
+    --- description(3)  :56874 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_OSIRUKO   [FILTER_ITEM_FOOD]
+    NOME      jp おしるこ
+              en osiruko
+              IT osiruko
+    --- description(0)  :56934
+        JP  \t\tもちを具材とした甘味。硬く乾燥してしまった鏡もちを処理するために小豆汁に入れたのが始まり。しかし、もちではなく団子や栗を入れるのが正しいとする説や、ぜんざいと呼ばれる類似品も発見され、学会でも論争になっている。\n#～移り変わりゆくティリスの食～\n
+        EN  A sweet dish using rice cake as the ingredient. Kagamimochi, which had turned hard and dry, was put in azuki bean soup to treat it. However, there is a theory that dumplings or chestnuts should be added instead of mochi, and a similar product called zenzai has also been discovered, causing controversy in academic circles.\n#~Everchanging Food of Tyris~
+    --- description(3)  :56937 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。のどに詰まることがある。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety. CHOKE WARNING.
+        IT  Un cibo che sazia. Certe volte va di traverso.
+
+=== ITEM_ID_OZOUNI   [FILTER_ITEM_FOOD]
+    NOME      jp お雑煮
+              en ozouni
+              IT ozouni
+    --- description(0)  :56997
+        JP  \t\tもちを具材としたスープ料理。硬く乾燥してしまった鏡もちを処理するために汁物にしたのが始まり。当初はもち汁などと呼ばれていたが、後に古代の文献で似たような品が発見され、今ではその名を受け継いでいる。ただし資料によって細部に違いがあるため、どこまで同じものなのかは専門家にもわからない。\n#～移り変わりゆくティリスの食～\n
+        EN  A sweet dish using rice cake as the ingredient. Kagamimochi, which had turned hard and dry, was put in azuki bean soup to treat it. At first, it was called something like mochi soup, but later a similar item was found in ancient documents, and it has now taken on that name. However, since there are differences in details in different documents, even experts cannot tell to what extent they are the same.\n#~Everchanging Food of Tyris~
+    --- description(3)  :57000 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。のどに詰まることがある。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety. CHOKE WARNING.
+        IT  Un cibo che sazia. Certe volte va di traverso.
+
+=== ITEM_ID_DRIED_FISH   [FILTER_ITEM_FOOD]
+    NOME      jp 干物
+              en dried fish
+              IT pesce essiccato
+    --- description(0)  :57188
+        JP  \t\t魚介類が痛まぬよう、塩水に漬けてから天日で干すことにより携帯性と日持ちを増したもの。焼くととても香ばしい。なぜか幸運の女神には喜ばれないらしい。\n#～移り変わりゆくティリスの食～\n
+        EN  To prevent damaging the seafood, it is cured in salt water and then dried under the sun to increase portability and shelf life. It is very savory when grilled. For some reason, it is said that the Goddess of Fortune is not pleased with it.\n#~Everchanging Food of Tyris~
+    --- description(3)  :57191 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is a dried out fish that can restore satiety.
+        IT  Un pesce essiccato che sazia.
+
+=== ITEM_ID_DRIED_VEGETABLE   [FILTER_ITEM_FOOD]
+    NOME      jp 干し野菜
+              en dried vegetable
+              IT verdura essiccata
+    --- description(0)  :57251
+        JP  \t\t野菜が痛まぬよう、天日で干すことにより携帯性と日持ちを増したもの。水分が抜けたことにより甘味やうまみや凝縮されている。なぜか収穫の神には喜ばれないらしい。\n#～移り変わりゆくティリスの食～\n
+        EN  To prevent damaging the vegetables, it is cured in salt water and then dried under the sun to increase portability and shelf life. This resulted in sweetness and flavor being concentrated. For some reason, it is said that the God(dess?) of Harvest is not pleased with it.\n#~Everchanging Food of Tyris~
+    --- description(3)  :57254 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is a dried out vegetable that can restore satiety.
+        IT  Una verdura essiccata che sazia.
+
+=== ITEM_ID_DRIED_FRUIT   [FILTER_ITEM_FOOD]
+    NOME      jp ドライフルーツ
+              en dried fruit
+              IT frutta secca
+    --- description(0)  :57314
+        JP  \t\t果実が痛まぬよう砂糖に漬けたり天日で干すことで水分を飛ばし、携帯性と日持ちを増したもの。生のままだと食べづらい皮も食べやすくなる。独特の甘味が苦手な人もいる。\n#～移り変わりゆくティリスの食～\n
+        EN  To prevent damaging the fruits, it is cured in sugar and then dried under the sun to increase portability and shelf life. The skin, which is difficult to eat raw, becomes easier to eat. There are people who do not like the unique sweet taste.\n#~Everchanging Food of Tyris~
+    --- description(3)  :57317 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is a dried out fruit that can restore satiety.
+        IT  Un frutto essiccato che sazia.
+
+=== ITEM_ID_FRIED_TOFU   [FILTER_ITEM_FOOD]
+    NOME      jp 油揚げ
+              en fried tofu
+              IT tofu fritto
+    --- description(0)  :58589
+        JP  \t\t大豆から作られた加工食品。薄切りのとうふを揚げたもの。超古代からきつねの好物であったがその理由は長らく不明であり、ねずみ肉の代用食という説が一般的であった。近年の研究によって、スポンジ状の内部に魔力の素が含まれていること、きつねが本能的にそれを嗅ぎ付けていることが明らかになった。\n#～移り変わりゆくティリスの食～\n
+        EN  Processed food made from soybeans. It is made by frying thin slices of tofu. It has been a favorite food of foxes since very ancient times, but for a long time the reason for this was unknown, and it was generally believed that it was a substitute for rat meat. Recent research has revealed that the spongy interior contains magical elements and that foxes instinctively sense them.\n#~Everchanging Food of Tyris~
+    --- description(3)  :58592 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_NATTO   [FILTER_ITEM_FOOD]
+    NOME      jp 納豆
+              en natto
+              IT natto
+    --- description(0)  :58652
+        JP  \t\t大豆から作られた加工食品。納豆菌で発酵させたもの。やたらネバネバしており綺麗に食べるにはコツがいる。粘りのほかに独特な臭みもあるので、人にぶっかけるととても怒られる。\n#～移り変わりゆくティリスの食～\n
+        EN  Processed food made from soybeans. Fermented with natto bacteria. It is very sticky and requires some skill to eat it neatly. In addition to its stickiness, it also has a distinctive smell, and people get very angry if you pour it on them.\n#~Everchanging Food of Tyris~
+    --- description(3)  :58655 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_TOFU   [FILTER_ITEM_FOOD]
+    NOME      jp とうふ
+              en tofu
+              IT tofu
+    --- description(0)  :58715
+        JP  \t\t大豆から作られた加工食品。搾り汁を固めたもの。健康な身体を作るのに役立つほか、投げれば角が相手の頭に刺さる。味が既についているタイプなので、醤油をかける必要はない。\n#～移り変わりゆくティリスの食～\n
+        EN  Processed food made from soybeans. Solidified squeezed juice. Besides useful for maintaining a healthy body, the corners will stick into the opponent's head if thrown. It is already flavored, so there is no need to put soy sauce on it.\n#~Everchanging Food of Tyris~
+    --- description(3)  :58718 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_SOYBEAN   [FILTER_ITEM_FOOD]
+    NOME      jp 大豆
+              en soybean
+              IT soia
+    --- description(0)  :58778
+        JP  \t\t植物の中では唯一肉に匹敵するだけのタンパク質を含有する存在。そのため畑の肉の異名を持つ。食べてよし、投げてよし。鬼退治にも使えるとかなんとか。\n#～移り変わりゆくティリスの食～\n
+        EN  It is the only plant that contains enough protein to rival meat. For this reason, it is nicknamed the meat of the field. It can be eaten or thrown. It is also used to dispel demons and other things.\n#~Everchanging Food of Tyris~
+    --- description(3)  :58781 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_CHEESE   [FILTER_ITEM_FOOD]
+    NOME      jp チーズ
+              en cheese
+              IT formaggio
+    --- description(0)  :59125
+        JP  \t\t乳から作られた加工食品。固形分を取り出して固めてある。保存性が高く、酪農が盛んな地域でよく作られている。\n#～移り変わりゆくティリスの食～\n
+        EN  Processed food made from milk. The solids are extracted and hardened. It has a high shelf life and is often produced in areas where dairy farming is popular.\n#~Everchanging Food of Tyris~
+    --- description(3)  :59128 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_BUTTER   [FILTER_ITEM_FOOD]
+    NOME      jp バター
+              en butter
+              IT burro
+    --- description(0)  :59188
+        JP  \t\t乳から作られた加工食品。分離した脂肪を凝固させたものだが、常温だとべちゃべちゃになる。油の塊みたいなものであり燃えやすいので人にかける時は注意しよう。\n#～移り変わりゆくティリスの食～\n
+        EN  Processed food made from milk. It is made by coagulating separated fat, but it becomes sticky at room temperature. It is like a lump of oil and is flammable, so be careful when pouring it on people.\n#~Everchanging Food of Tyris~
+    --- description(3)  :59191 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_YOGURT   [FILTER_ITEM_FOOD]
+    NOME      jp ヨーグルト
+              en yogurt
+              IT yogurt
+    --- description(0)  :59251
+        JP  \t\t乳から作られた加工食品。特殊な菌で発酵させており、弱い雑菌の繁殖を防ぐため見た目によらず保存性が高い。健康な身体を作るのに役立つが、人にぶっかけるととても怒られる。\n#～移り変わりゆくティリスの食～\n
+        EN  Processed food made from milk. It is fermented with special bacteria, which prevents the growth of weak germs and thus has a high shelf life despite its appearance. It helps to build a healthy body, but people get very angry if you pour it on them.\n#~Everchanging Food of Tyris~
+    --- description(3)  :59254 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_LIVESTOCK_FEED   [FILTER_ITEM_FOOD]
+    NOME      jp 家畜の餌
+              en livestock feed
+              IT mangime per il bestiame
+    --- description(0)  :59314
+        JP  \t\t食品などを砕いて粉粒状にしたもの。カロリーが凝縮されており、少しの満腹感でより太らせる工夫がされている。しかし味や食感は考慮されていない。腹を空かせた家畜にも渡せる。\n#～牧畜と暮らす生活～\n
+        EN  Foods and other ingredients are crushed into a powdered granular form. They are concentrated in calories and are designed to make you feel a little fuller and fatter. However, taste and texture are not considered. It can be given to hungry livestock. \n# ~Living with Livestock~
+    --- description(3)  :59317 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_TEA_LEAF   [FILTER_ITEM_FOOD]
+    NOME      jp 茶葉
+              en tea leaf
+              IT foglia di tè
+    --- description(0)  :60258
+        JP  \t\t摘み取った葉っぱ。発酵のさせ方によって異なる色や風味が表れる。茶の材料として世界中で重宝されている。一応そのまま食べることもできるが…。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  Plucked leaves. Different colors and flavors appear depending on how they are fermented. They are used worldwide as an ingredient in tea. It can also be eaten as is... \n# ~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :60261 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_COFFEE_BEANS   [FILTER_ITEM_FOOD]
+    NOME      jp コーヒー豆
+              en coffee beans
+              IT chicchi di caffè
+    --- description(0)  :60321
+        JP  \t\tコーヒーの原料。元々は加熱しなければ化学変化が起きず、まともな香りや味が出なかったらしい。しかし現在栽培されている品種は、いずれも改良によって収穫段階から化学変化を起こしているため、加熱処理が不要となっている。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  The raw material for coffee. Originally, it was said that it had to be heated to undergo chemical changes and produce a proper aroma and taste. However, the varieties grown today all undergo chemical changes from the harvest stage due to improvements, so heat treatment is no longer necessary. \n# ~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :60324 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_RICE   [FILTER_ITEM_FOOD]
+    NOME      jp 稲
+              en rice
+              IT riso
+    --- description(0)  :60384
+        JP  \t\t本来は湿った土地向きの穀物なのだが、乾燥耐性を強化されており畑地で放置していてもよく育つ。むしろ、過剰な水分を与えると栽培の手間と難度が増すのだとか。\n#～移り変わりゆくティリスの食～\n
+        EN  Although it is originally suited for wet areas, it has been enhanced for drought tolerance and grows well even when left in the field. In fact, excessive moisture increases the time and difficulty of cultivation.\n#~Everchanging Food of Tyris~
+    --- description(3)  :60387 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_BANNOU_MUGI   [FILTER_ITEM_FOOD]
+    NOME      jp 万能ムギ
+              en bannou mugi
+              IT bannou mugi
+    --- description(0)  :60447
+        JP  \t\t品種改良によって小麦と大麦の特性を併せ持った穀物。現代で流通している小麦粉の８０％は、純粋な小麦ではなくこちらから製粉されている。\n#～移り変わりゆくティリスの食～\n
+        EN  This grain combines the characteristics of wheat and barley through breeding. 80% of the flour distributed today is milled from here, instead of pure wheat.\n#~Everchanging Food of Tyris~
+    --- description(3)  :60450 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_BOTTLE_SOY_SAUCE   [FILTER_ITEM_FOOD]
+    NOME      jp 醤油 醤油
+              en soy sauce bottle
+              IT salsa di soia bottiglia
+    --- description(0)  :60514
+        JP  \t\t料理の善し悪しを決定づける基本的調味料の一つ。独特の香りのある、赤褐色の液体。塩辛さの中に濃厚な旨味と甘味を持つ。\n#～移り変わりゆくティリスの食～\n
+        EN  One of the basic seasonings that can make or break a dish. This reddish-brown liquid has a distinct aroma. Its salty flavor carries undertones of rich umami and sweetness.\n#~Everchanging Food of Tyris～\n
+    --- description(3)  :60517 ⚠️ TETTO SECCO 69
+        JP  \t\t調味料だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜調味料＞カテゴリ～\n
+        EN  (Single-use) Seasoning. Some pour these on livestocks before slaughter.
+        IT  Un condimento. Si può usare (usa e getta).
+
+=== ITEM_ID_BOTTLE_PEPPER   [FILTER_ITEM_FOOD]
+    NOME      jp コショウ コショウ
+              en pepper bottle
+              IT pepe bottiglia
+    --- description(0)  :60581
+        JP  \t\t料理の善し悪しを決定づける調味料の一つであり、代表的なスパイス。かつては食料の長期保存に重宝され、高額で取引されていた時代もあった。肉との相性がよい。\n#～移り変わりゆくティリスの食～\n
+        EN  A typical example of a spice, it's one of the seasonings that can make or break a dish. It was once treasured for its preservative properties and fetched a high price at market. Goes well on meat.\n#~Everchanging Food of Tyris~\n
+    --- description(3)  :60584 ⚠️ TETTO SECCO 69
+        JP  \t\t調味料だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜調味料＞カテゴリ～\n
+        EN  (Single-use) Seasoning. Some pour these on livestocks before slaughter.
+        IT  Un condimento. Si può usare (usa e getta).
+
+=== ITEM_ID_B_JERKY   [FILTER_ITEM_FOOD]
+    NOME      jp ビジャーキー
+              en b-jerky
+              IT b-jerky
+    --- description(0)  :60712
+        JP  \t\t黄衣の王に仕える飛行生物の成れの果て。主のために運び屋をやったり演奏したり蜂蜜酒を造ったり…とご奉仕大好き生物だったが、それでも飽き足らず自らおつまみの干し肉になった。お酒によく合う。\n#～移り変わりゆくティリスの食～\n
+        EN  The final form of a flying creature serving the King in Yellow. It was working as a courier, playing music, making honey wine, etc., but it was not satisfied with that and became dried meat on it's own will. It goes well with alcohol.\n#~Everchanging Food of Tyris~
+    --- description(3)  :60715 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_SOUP_OF_WONDERLAND   [FILTER_ITEM_FOOD]
+    NOME      jp 不思議の国のキノコスープ
+              en soup of wonderland
+              IT zuppa del paese delle meraviglie
+    --- description(0)  :61373
+        JP  \t\t白昼夢から覚めた少女がいつの間にか握っていたとかいう、不思議なキノコを使用したスープ。絶妙な割合でブレンドされており、食べると体が大きくなったり小さくなったりする。妙な色をしているが味はそこそこ。食べ続けた者はその少女と同じ体格に近づいていくとされる。\n#～移り変わりゆくティリスの食～\n
+        EN  This soup is made from a mysterious mushroom held by a girl who woke up from a daydream. It is blended in a perfect ratio, and when eaten, your body grows larger or smaller. It has a strange color, but the taste is good. It is said that those who continue to eat it will grow to the same size as the girl.\n#~Everchanging Food of Tyris~
+    --- description(2)  :61375
+        JP  \t\t「昨日になんて戻れない。だって昨日の私は別人だもの」\n#～少女の寝言～\n
+        EN  \"I can't go back to yesterday. Because I'm not the same person I was yesterday.\" \n# ~a Little Girl's Bedtime Story~
+    --- description(3)  :61376 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_JACK_LANTERN   [FILTER_ITEM_FOOD]
+    NOME      jp かぼちゃランタン
+              en jack lantern
+              IT lanterna di zucca
+    --- description(0)  :65527
+        JP  \t\t南瓜を繰り抜いて作られたランタン。悪霊を退けるという伝承通りの力こそないが、微量ながらも不思議な力が宿っている。一応食べることができる。\n#～古代祭事のルーツに迫る～\n
+        EN  A lantern made from a hollowed-out pumpkin. Although it does not have the power to repel evil spirits, as the legend says, it does have a mysterious power, albeit in very small quantities. It can be eaten. \n# ~a Close Look at the Ancient Rituals~
+    --- description(3)  :65530 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる簡易照明。夜間周囲をやや明るく照らす。\n#～鑑定報告書：＜用具・食物＞カテゴリ～\n
+        EN  It is food that can restore satiety, illuminates surroundings brightly.
+        IT  Un cibo che sazia e che di notte illumina un po' i dintorni.
+
+=== ITEM_ID_ABYSS_LUNCH   [FILTER_ITEM_FOOD]
+    NOME      jp 特製深海弁当
+              en abyss lunch
+              IT pranzo dell'abisso
+    --- description(0)  :67321
+        JP  \t\t深海で採れた貝や海藻の旨味を閉じ込めた一品。魚は使われていない。調理には高等魔術が応用されているとかいないとか。\n#～移り変わりゆくティリスの食～\n
+        EN  This dish contains the flavor of shellfish and seaweed from the deep sea. No fish is used. The cooking process may or may not involve the application of advanced magic.\n#~Everchanging Food of Tyris~
+    --- description(3)  :67324 ⚠️ TETTO SECCO 69
+        JP  \t\t水の加護を受けたお弁当だ。体力も回復する。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is a bento blessed by abyssal powers, it restores your stamina.
+        IT  Un pranzo protetto dall'acqua. Ridà anche vigore.
+
+=== ITEM_ID_FOUR_LEAF_CLOVER   [FILTER_ITEM_FOOD]
+    NOME      jp 四つ葉のクローバー
+              en four-leaf clover
+              IT quadrifoglio
+    --- description(0)  :67729
+        JP  \t\t四枚の葉を持つクローバー。それぞれの葉は、希望・誠実・愛情・幸運を象徴する。お守りにして持っておいてもいいが、食べるともっと幸せになれるかもしれない。\n#～食べられる草、食べられない草～\n
+        EN  A clover with four leaves. Each leaf symbolizes hope, faithfulness, love, and good luck. You can keep it as a good luck charm, but eating it may make you happier. \n# ~Weeds you can Eat and Weeds you can't Eat~
+    --- description(3)  :67732 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety.
+        IT  Un cibo che sazia.
+
+=== ITEM_ID_ROMIAS   [FILTER_ITEM_FOOD]
+    NOME      jp ロミアス
+              en romias
+              IT romias
+    --- description(0)  :67792
+        JP  \t\t花のような形状が特徴的なお菓子。薄くて食感の良いサブレと香ばしいアーモンドの組み合わせは美味。生地を絞り出す際には結構コツが必要。\n#～移り変わりゆくティリスの食～\n
+        EN  Pastry characterized by its flower-like shape. The combination of thin, textured sabl? and savory almonds is delicious. It takes a lot of skill to squeeze out the dough.\n#~Everchanging Food of Tyris~
+    --- description(2)  :67794
+        JP  \t\t「…なぜ私を見る？私の名前とは綴りが違うぞ」\n#～異形の森の使者『ロミアス』の言葉～\n
+        EN  \"..why are you looking at me? My name isn't spelled like that.\" \n# ~<Lomias> The Messenger From Vindale~
+    --- description(3)  :67795 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。本当に食べてしまうのか？\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is food that can restore satiety. Are you sure you want to eat it?
+        IT  Un cibo che sazia. Vuoi davvero mangiarlo?
+
+=== ITEM_ID_KAKI   [FILTER_ITEM_FOOD]
+    NOME      jp 柿
+              en kaki
+              IT caco
+    --- description(0)  :67857
+        JP  \t\tトマトのような横長の形状の果実。熟すと劇的に甘みが強くなる。豊富なビタミン類とミネラルを含み、「柿が赤くなると医者が青くなる」などと万能薬扱いをされていた時代もあったとか。\n#～移り変わりゆくティリスの食～\n
+        EN  Fruit has a horizontal tomato-like shape. When ripe, it becomes dramatically sweeter. It contains an abundance of vitamins and minerals, and there was a time when it was treated as a panacea.\n#~Everchanging Food of Tyris~
+    --- description(2)  :67859
+        JP  
+        EN  A type of fruit that restores satiety, it's used in many cooking dishes.\n#~Identification Report: <Food> Category~
+    --- description(3)  :67860 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is fruit that can be cooked and eaten.
+        IT  Un frutto che si può cucinare e mangiare.
+
+=== ITEM_ID_GOLD_ACORN   [FILTER_ITEM_FOOD]
+    NOME      jp 黄金どんぐり
+              en gold acorn
+              IT ghianda dorata
+    --- description(0)  :67920
+        JP  \t\t黄金に輝く幻のどんぐり。そこまで珍しいものでもないが、その発生原因は未だよくわかっておらず、学術的に非常に価値がある。それこそ普通の金塊を凌ぐくらいに。実の部分がほとんどなく料理することができないが、味自体はそこまで悪くないようだ。食べるのはあまりに勿体ないが。\n#～移り変わりゆくティリスの食～\n
+        EN  Golden acorns of miraculous color. It is not that rare, but the cause of its appearance remains unclear, and it has great academic value. Even more so than ordinary gold nuggets. It is almost impossible to cook because there is almost no fruit part, but the taste itself does not seem to be that bad. Although it is too wasteful to eat. \n#~Everchanging Food of Tyris~
+    --- description(3)  :67923 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理はできない。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  These are nuts that can be eaten, but it cannot cooked.
+        IT  Frutti a guscio che si mangiano, ma non si possono cucinare.
+
+=== ITEM_ID_ACORN   [FILTER_ITEM_FOOD]
+    NOME      jp どんぐり
+              en acorn
+              IT ghianda
+    --- description(0)  :67983
+        JP  \t\tすべすべした殻を持つ果実。大量のデンプンを蓄え生産量も多い事から、森に住む生命の重要な食料である。木の根元に埋めて保管されていることが多い。そのままだと渋みが強いが、料理すると結構いけるらしい。\n#～移り変わりゆくティリスの食～\n
+        EN  A nut with a smooth shell. Because it's abundancy and starch-rich nature, it's an important food source for those who live in the forest. They taste good when eaten raw, and tastes much better after cooking.\n#~Everchanging Food of Tyris~
+    --- description(2)  :67985
+        JP  
+        EN  A type of nut that restores satiety, it's used to make candies.\n#~Identification Report: <Food> Category~
+    --- description(3)  :67986 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復することができる食物。調理することができる。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  These are nuts that can be cooked and eaten.
+        IT  Frutti a guscio che si possono cucinare e mangiare.
+
+== 41 oggetti, 95 descrizioni
