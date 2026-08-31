@@ -41,6 +41,55 @@ fondo somma valori di sessioni diverse. Il conto vivo lo danno
 file di `data/` compresi. Finché nessuno rifà la tabella intera, **si guardano
 quelli**.
 
+## Quattro lotti, 173 rese, e il mobilio si chiude — 2026-08-31, centoquattordicesima sessione
+
+`db_item.hsp`, il **corpo** delle descrizioni (indici 0-2), `FILTER_FURNITURE`:
+
+    029  righe  91.500-108.000    30 rese  (27 dell'indice 0, 3 del 2)
+    030  righe 108.000-113.000    53 rese  (51 dell'indice 0, 2 del 2)
+    031  righe 113.000-122.000    36 rese  (35 dell'indice 0, 1 del 2)
+    032  righe 122.000 in su      54 rese  (51 dell'indice 0, 3 del 2)
+    -----------------------------------------------------------------
+    **173 rese**, che coprono **173 righe** del sorgente (una a una)
+    applica 29.023 -> **29.196**   (+173 esatte, +30/+53/+36/+54)
+    db_item non tradotte 1.311 -> **1.138**   (-173 esatte)
+    rese del corpo: 187 -> **360** su 1.513
+    perimetro 27.412 -> **27.585** (90%), totale 30.345 -> **30.518** (94%)
+    cancello dei tagli: introdotte dall'italiano **0/0/0**, acceso una
+      volta in corso d'opera (`:95111`, «Quell'espressione», 17 caratteri)
+    rinviate: nessuna   toppe: nessuna   test: **794**, invariato
+    strumenti nuovi: 2 (`lotti-113/_gia-reso.py`, `_114-corpo-da-fare.py`)
+    build: SI', **09:22 del 31/08**
+    -----------------------------------------------------------------
+    ⭐⭐⭐ **`FILTER_FURNITURE` e' CHIUSA**: 261 righe su 261, lotti 027-032
+
+**Il conto del corpo, categoria per categoria**, con
+`python scratchpad/_114-corpo-da-fare.py` — che dalla 114a **non si scrive piu'
+a mano**, ed e' questo il punto:
+
+    fatte    mobilio 261/261 (027-032) · cibo 50/148 (026)
+    restano  FILTER_ITEM_TOOL      204/204   FILTER_ITEM_SCROLL     73/73
+             FILTER_JUNK           124/124   FILTER_RANGE           60/60
+             FILTER_WEAPON         110/110   FILTER_ORE             33/33
+             FILTER_ITEM_FOOD       98/148   FILTER_ITEM_ROD        32/32
+             FILTER_ITEM_SPELLBOOK   92/92   FILTER_CONTAINER       25/25
+             FILTER_ITEM_POTION      82/82   FILTER_SHIELD          24/24
+             piu' una coda di diciannove minori
+    -----------------------------------------------------------------
+    360 righe fatte su 1.449 vive; **1.138 restano**
+
+⚠️ **Nel corpo il rapporto e' quasi ovunque UNA riga per resa**, al contrario
+dell'indice 3 e del cibo: `FILTER_ITEM_FOOD` e' l'unica categoria dove «da fare»
+e «vive» non coincidono (98 su 148), perche' li' quattro firme generiche
+dell'indice 2 coprono 53 righe. Ovunque altrove una resa costa una riga, e il
+lotto rende quanto pesa.
+
+⚠️⚠️ **E il totale di questa tabella deve coincidere con quello di
+`verifica --dizionario`.** Sono due conti fatti da due parti diverse — uno
+partendo dalle categorie del sorgente, l'altro dal dizionario — e la 114a li ha
+visti coincidere a **1.281** in apertura e a **1.138** in chiusura. Un totale che
+torna da due strade e' l'unica ragione per credere alla tabella.
+
 ## Due lotti, 361 rese, 417 righe a schermo — 2026-08-27, centonovesima sessione
 
 `db_item.hsp`, indice 3 (il rapporto di identificazione), due categorie:

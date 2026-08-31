@@ -1,37 +1,42 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-31, fine della **centotredicesima** sessione (**il corpo
-delle descrizioni comincia: 138 rese di prosa in tre lotti, e dieci nomi che il
-glossario contraddiceva**).
+Aggiornato: 2026-08-31, fine della **centoquattordicesima** sessione (**il
+mobilio si chiude: quattro lotti, 173 rese, e due numeri dei documenti erano al
+contrario**).
 
-⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 08:25 DEL 31/08**, e contiene
-tutte e 138 le rese di questa sessione. Quello delle 00:02 del 31/08 e' del solo
-lotto 026; quello delle 15:25 del 27/08 e' della 111a.
+⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 09:22 DEL 31/08**, e contiene
+tutte e 173 le rese di questa sessione. Quello delle 08:25 del 31/08 e' della
+113a; quello delle 15:25 del 27/08 e' della 111a.
 
-⚠️⚠️ **I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 113a:**
+⚠️⚠️ **I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 114a:**
 
     pytest                   794 passed, 6 skipped
-                             ⓘ rilanciato DOPO aver scritto i documenti, tre
-                             volte, come vuole la lezione della 112a
+                             ⓘ rilanciato DOPO aver scritto i documenti, come
+                             vuole la lezione della 112a
     prova_identita           72/72 e 30.905, **invariato**
-    applica                  **29.023** sostituzioni      (era 28.836: +187)
-    verifica --dizionario    db_item.hsp: 0 da ritradurre, **1.311** non tradotte
-    _97-quanto-resta         TOTALE **1.421 / 110 / 1.311**
-    perimetro.py             perimetro **90%** (27.412), totale **94%** (30.345)
+    applica                  **29.196** sostituzioni      (era 29.023: +173)
+    verifica --dizionario    db_item.hsp: 0 da ritradurre, **1.138** non tradotte
+    _97-quanto-resta         TOTALE **1.248 / 110 / 1.138**
+    perimetro.py             perimetro **90%** (27.585), totale **94%** (30.518)
     _108-accento-decomposto  **0 su 24.673**
-    _107-descrizioni-item    ⭐⭐⭐ corpo (indici 0-2): 1.513 vive, **187 rese**;
+    _107-descrizioni-item    ⭐⭐⭐ corpo (indici 0-2): 1.513 vive, **360 rese**;
                              introdotte dall'italiano **0 / 0 / 0** (il cancello)
                              indice 3: vive 1.319, rese 1.319 — CHIUSO;
                              oltre il tetto: inglese 110, italiano 0
                              ⚠️ budget **77** per il corpo impaginato (font 11) e
                              **69** per l'indice 3 (font 12): sono DUE
     _112-corpo-descrizioni   1.509 righe-fonte, 224 titoli, **1** trattino orfano
-                             (di monte, `db_item.hsp:129299`)
+                             (di monte, `db_item.hsp:129299`); sei zeri sul
+                             cancello dell'italiano, su 360 rese
     _112-verifica-fonti      **234 su 234** coperte; tetto 0, caratteri
                              cancellati 0, apostrofi dentro la parola 0
                              (esce con 0: e' un cancello, non un referto)
     _113-fonti-gia-rese      **45 su 200** titoli il cui giapponese e' gia' reso
                              altrove — e' un REFERTO, il valore atteso non e' zero
+    _114-corpo-da-fare       ⭐ TOTALE da fare **1.138 su 1.449 vive**, e
+                             `FILTER_FURNITURE` in fondo a **0 su 261**: chiusa.
+                             ⓘ il totale deve coincidere con quello di
+                             `verifica --dizionario`: sono due fonti diverse
 
 Tutto il resto e' **fermo dov'era**: `dati_applica --identita` 6 file e 3.767
 righe, `toppe.jsonl` 1027 e `_97-toppe-agganciate` **1027 su 1027**,
@@ -43,18 +48,19 @@ righe, `toppe.jsonl` 1027 e `_97-toppe-agganciate` **1027 su 1027**,
 `_96-morte-nella-build` 0, `_103-inglese-ripetuto` 2 coppie,
 `_104-inglese-slittato` 2 teste.
 
-⚠️⚠️⚠️ **LA 113a HA APERTO CON LA CATENA TUTTA VERDE**, ventidue verifiche su
-ventidue ai valori della 112a, albero pulito e `log.md` del vault aggiornato.
-E' la prima apertura pulita dopo il guasto della 112a.
+⚠️⚠️⚠️ **ANCHE LA 114a HA APERTO CON LA CATENA TUTTA VERDE**, ventitre'
+verifiche su ventitre' ai valori della 113a, albero pulito, allineato a
+`origin/fase-0` e `log.md` del vault aggiornato. E' la **seconda** apertura
+pulita di fila dopo il guasto della 112a, e la build era gia' al suo posto.
 
-⚠️⚠️ **E ANCHE LA 113a SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
-spinto (`origin/fase-0` allineato, quattro commit) e l'albero e' pulito.
-ⓘ Dalla 107a in poi lo si e' annunciato ogni volta e la sessione dopo si e'
-aperta sulla **stessa macchina**, con l'albero di build al suo posto: la prima
-cosa da fare **non** e' ricostruire — e' guardare se c'e' gia' tutto, con
-`ls C:\Games\Elona\_traduzione\`, e controllare che
-`elonaplus2.31\cgx-test.exe` sia quello delle **08:25 del 31/08**. Se la data e'
-quella, la build contiene tutte e 138 le rese della 113a e non va rifatta.
+⚠️⚠️ **La prima cosa da fare in apertura NON e' ricostruire.** Dalla 107a in poi
+la sessione dopo si e' sempre aperta sulla **stessa macchina**, con l'albero di
+build al suo posto: si guarda se c'e' gia' tutto, con
+`ls C:\Games\Elona\_traduzione\`, e si controlla che
+`elonaplus2.31\cgx-test.exe` sia quello delle **09:22 del 31/08**. Se la data e'
+quella, la build contiene tutte e 173 le rese della 114a e non va rifatta.
+ⓘ I sei file dati non cambiano dalla 108a: `cmp -s` prima di `cp`, e non serve
+copiarli.
 
 ---
 
@@ -148,6 +154,11 @@ SCRIVERE PUO' ESSERE GIA' RESO ALTROVE, IN UN ALTRO FILE.**
 **45 su 200**; dieci divergevano dalla forma che il giocatore vede gia'. La
 domanda vale in generale, non solo per i titoli: *questa stringa giapponese sta
 gia' nel dizionario?* Se si', la resa nuova non la contraddice.
+💡 **Dalla 114a la stessa domanda si fa anche al corpo**, con
+`scratchpad/lotti-113/_gia-reso.py NNN`. ⚠️ Ma cerca la prosa **intera**, quindi
+trova le righe gemelle e **non** le frasi gemelle: nella 114a le due frasi
+condivise fra lotti diversi (`:125432` col 031, `:121136` col 028) le ha trovate
+`_cerca.py` a mano, non lei.
 
 ⚠️ **`reimporta` e' tutto-o-niente**, e uno **spazio in coda** all'inglese fa
 cadere l'intero lotto (109a: 218 rese su 218 per due voci).
@@ -171,7 +182,160 @@ apostrofi spariscono e i backtick si espandono.
 
 ---
 
-## La centotredicesima sessione
+## La centoquattordicesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle verifiche d'apertura, che adesso sono
+**ventiquattro**: le ventitre' della 113a piu' `_114-corpo-da-fare.py`, che pero'
+e' un **referto** — anzi, e' la tabella da cui si sceglie il lotto prossimo.
+
+La 114a ha tradotto **173 righe** in quattro lotti (029, 030, 031, 032) e ha
+**chiuso il mobilio**: `FILTER_FURNITURE` sta a **0 righe da fare su 261 vive**,
+261 rese dal lotto 027 al 032. Il debito di collaudo sale da 7.857 a **8.030**.
+
+### ▶ ⭐⭐⭐ IL LOTTO DA CUI SI COMINCIA LA PROSSIMA VOLTA
+
+La tabella non si scrive piu' a mano: la stampa
+`python scratchpad/_114-corpo-da-fare.py`. Al termine della 114a dice:
+
+    da fare   vive   categoria            da fare   vive   categoria
+    ----------------------------         ----------------------------
+      204     204   FILTER_ITEM_TOOL        73      73   FILTER_ITEM_SCROLL
+      124     124   FILTER_JUNK             60      60   FILTER_RANGE
+      110     110   FILTER_WEAPON           33      33   FILTER_ORE
+       98     148   FILTER_ITEM_FOOD        32      32   FILTER_ITEM_ROD
+       92      92   FILTER_ITEM_SPELLBOOK   25      25   FILTER_CONTAINER
+       82      82   FILTER_ITEM_POTION      24      24   FILTER_SHIELD
+                                       piu' una coda di diciannove minori
+    -------------------------------------------------------------------
+    TOTALE da fare **1.138 su 1.449 vive**
+    e in fondo alla tabella, **0 su 261, FILTER_FURNITURE**
+
+⚠️ Il mobilio **compare ancora**, con lo zero davanti: la tabella elenca le
+categorie **vive**, non quelle da fare, e una categoria chiusa resta li' a dire
+quanto pesava. La prima stesura di questi documenti scriveva «non compare
+piu'» — dedotto invece che guardato, e falso.
+
+⭐ **`FILTER_ITEM_FOOD` e' l'unica categoria dove «da fare» e «vive» non
+coincidono** (98 su 148): li' vive il moltiplicatore delle quattro firme
+generiche che il lotto 026 ha sfruttato. In tutte le altre una resa e' una riga.
+💡 Conviene `FILTER_ITEM_TOOL`, che e' la piu' grossa e va spezzata in tre o
+quattro lotti, oppure finire il cibo, che costa meno di quel che pesa.
+
+⚠️ Il comando per aprire un lotto e' quello della 113a, con la categoria e
+l'intervallo di righe: `_corpo.py` → `_107-dossier-item.py` → `_code.py` →
+`_gia-reso.py`, poi `_traduzioniNNN.py` + `testaNNN.py` a mano, e la catena
+`_monta` → `assembla-lotto` → lotto → `reimporta` → `_coerenza` →
+`_107-descrizioni-item` → `_112-corpo-descrizioni`.
+
+### ▶ ⚠️⚠️ UN NUMERO DEI DOCUMENTI ERA GIUSTO COME QUANTITA' E MUTO COME POSIZIONE
+
+La 113a chiudeva scrivendo «restano 164 righe del mobilio», e la 114a ha aperto
+scrivendo nel docstring del lotto 029, per imitazione, «tutte **sotto** la riga
+91.500». Misurate: le 143 che restavano stavano **tutte sopra la 108.000**, da
+`:108393` a `:127609`. La quantita' era esatta (164 - 27 = 137 dell'indice 0, e
+9 - 3 = 6 dell'indice 2, cioe' 143), la posizione era inventata.
+
+**Come applicarlo:** un numero scritto a mano nei documenti invecchia senza
+dirlo, e quello che invecchia per primo non e' la cifra — e' il **contorno**
+della cifra, che nessuno ha misurato mai. Da qui `_114-corpo-da-fare.py`.
+⭐ E il modo di credergli e' che il suo totale, **1.138**, coincide con quello di
+`verifica --dizionario`, che lo calcola da tutt'altra parte.
+
+### ▶ ⚠️⚠️ LA RETE NUOVA HA DETTO «30 SU 30» DICENDO NIENTE
+
+`scratchpad/lotti-113/_gia-reso.py` porta al **corpo** la domanda che
+`_113-fonti-gia-rese.py` fa ai titoli: *questa prosa giapponese e' gia' resa
+altrove?* La prima versione cercava il contenimento con la soglia di lunghezza
+su **un lato solo** — quello del lotto — e ogni voce del dizionario col
+giapponese corto (una particella, un `。`) sta dentro qualunque prosa. Rispondeva
+**30 su 30** su un lotto che non ne aveva **nessuna**.
+
+Con la soglia sui due lati dice **0 su 30**, e la prova al contrario e' il lotto
+**028**, gia' reso, dove la stessa rete si accende **46 su 46**.
+
+⚠️ Un numero che sembra un risultato puo' essere il rumore di una soglia
+mancante, e si accorge solo chi si chiede **perche'** quel numero sia quello.
+Vedi la lezione gemella della 113a, lo «0 su 200» che nascondeva 45 casi.
+
+### ▶ ⭐⭐⭐ L'INGLESE SBAGLIA TRE VOLTE IN GROSSO, E DUE SONO ROVESCIAMENTI
+
+1. **`:109083`, il tavolo.** L'inglese e' la **copia verbatim** di quello del
+   trono `:108954` — «A magnificent chair made only for the king to sit on...» —
+   mentre il giapponese dice 物が載せられているテーブル。大きさからすると
+   テーブルというより机といった方が正しいだろう: un tavolo con sopra della roba,
+   che per grandezza sarebbe piu' giusto chiamare scrivania. ⓘ La **rete 13** del
+   lotto l'ha confermato da sola, ma l'avevo gia' visto leggendo il dossier: le
+   due righe stanno a 129 righe di distanza.
+2. **`:109335`, il pianoforte verticale.** 長旅には適さないだろう: per un viaggio
+   lungo **non** va bene. L'inglese scrive «still heavy enough to be suitable for
+   long trips».
+3. **`:109903`, il letto dozzinale.** 余り疲れは取れないだろう: la **stanchezza
+   non se ne va** granche'. L'inglese scrive «you will probably not get very
+   fatigued», cioe' che non ci si stanca — l'opposto del punto del testo, che e'
+   un letto che non riposa.
+
+⚠️ E due tagli: `:94863` (il cristallo nero) perde
+日の光を乱反射し燦然と輝く, l'unica frase che dice **come si vede** l'oggetto;
+`:110220` (la slot) perde la prima frase e sbaglia la seconda —
+７が揃った vuole i sette **tutti e tre** allineati, l'inglese ne accetta uno solo.
+
+### ▶ ⭐⭐ LA FAMIGLIA BATTE IL LOTTO, E IL GENERE ITALIANO LA ROMPE
+
+Cinque gruppi del lotto 031 e tre del 032 condividono una frase giapponese
+**identica parola per parola**, e in italiano lo sono altrettanto. In **tre**
+casi il genere l'avrebbe rotta:
+
+- le **sette tombe** (`:119943`…`:120315`) condividono
+  当然ながら非常に重いので持ち上げてみようと思わない方がいいだろう, e `:120005`
+  e' un **tumulo**, maschile;
+- **le armi e gli archi** (`:121570`, `:121632`) condividono la loro, e sono di
+  genere diverso;
+- i **tre ripiani** (`:123866`, `:123998`, `:124060`) hanno un soggetto
+  maschile plurale, femminile plurale e femminile singolare.
+
+Le frasi condivise sono scritte **senza genere** apposta: «non conviene nemmeno
+pensare di provare a sollevare una cosa simile», «e mai a pezzo singolo», «Il
+mucchio sta su per un equilibrio così preciso». Sono piu' lunghe di quel che
+servirebbe, e la lunghezza e' il prezzo dell'identita'.
+
+⚠️⚠️ **E due famiglie attraversano il confine del lotto.** `:125432` (lotto 032)
+porta la frase di `:121446` e `:121508` (lotto **031**); `:121136` e `:121198`
+(lotto 031) portano quella della credenza `:87505` del lotto **028** — la riga a
+cui l'inglese aveva buttato via proprio quella frase. **Nessuna rete lo vede**:
+`_coerenza.py` confronta le stringhe **intere**, e queste differiscono nella
+prima frase. L'ha trovato `_cerca.py` cercando a mano 匠の遊び心.
+
+### ▶ ⚠️ IL CANCELLO DEI TAGLI SI E' ACCESO UNA VOLTA, SU UNA PAROLA SOLA
+
+`:95111`: «Quell'espressione», 17 caratteri, e l'impaginatore la spezzava.
+Riscritta «Quella sua espressione», il cancello torna **0/0/0**. E' l'unica
+delle 173 rese che l'abbia acceso, e conferma la soglia dei 14 misurata dalla
+113a: sopra i 13 e' un indizio di pericolo, e a decidere e' il cancello, che
+guarda **dove** cade il taglio.
+
+### ▶ Gli strumenti nuovi della 114a
+
+    scratchpad/lotti-113/_gia-reso.py    la prosa gia' resa altrove (REFERTO)
+    scratchpad/_114-corpo-da-fare.py     quanto resta per categoria (la tabella
+                                         che prima si scriveva a mano)
+
+### ▶ ⚠️⚠️ LE 173 RESE NON SONO MAI STATE VISTE A SCHERMO
+
+Il debito sale a **8.030**. In questa sessione **non e' stata data nessuna lista
+di passi**: quella della 113a — `spawn_item` 1315, 1116, 945, 1053, 942 e la
+pergamena 14, poi `mapinv` → `ESC` → `g` → `r` → `X` → `x` — non e' mai tornata
+indietro, e vale ancora. ⚠️ Il corpo si vede **solo a oggetto identificato a
+fondo** (`db_item.hsp:16398`).
+
+💡 Gli identificativi buoni per guardare il mobilio della 114a vanno **letti nel
+sorgente prima di darli**: nessuno di quelli qui sopra e' un mobile.
+
+---
+
+## La centotredicesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 
