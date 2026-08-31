@@ -6,6 +6,73 @@ ancora aperte.
 
 ---
 
+## Un inglese uguale non basta a fondere due firme — 2026-08-31, centoquindicesima
+
+Il lotto 034 ha due righe con l'**inglese identico**, 229 caratteri parola per
+parola: `:50410` (l'indice 2 del convertitore di memoria) e `:51289` (l'indice
+1 dei detriti). Sembrava il caso della 114ª — i quattro fucili anestetici, dove
+una firma sola copriva più righe — e quindi una scelta obbligata: quale dei due
+sensi sacrificare, visto che la resa poteva essere una sola.
+
+**Non era così, e la ragione sta in una riga di `estrai.py`:**
+
+    firma = sha1(giapponese + \x00 + inglese)
+
+Il giapponese è **metà della chiave**. Qui i due giapponesi sono diversi — anzi,
+quello di `:50410` è la stringa **vuota** — quindi le firme sono due, le voci di
+dizionario sono due, e le rese possono essere due. Nessuna toppa, nessuna
+scelta.
+
+⚠️ **La domanda giusta prima di dare due righe per gemelle non è «hanno lo
+stesso inglese?» ma «hanno la stessa firma?».** E la firma si calcola, non si
+guarda a occhio: due minuti di script contro un'ora di ragionamento su un
+dilemma che non esisteva.
+
+### ⭐⭐⭐ E la coda dice a quale riga appartiene il testo
+
+Quelle due righe stanno dentro un guasto più grande: nel lotto 034 **l'inglese
+è slittato di una posizione** su tre righe di due oggetti diversi. Il corpo
+inglese di `:51288` è la traduzione del giapponese di `:51289`; quello di
+`:51289` appartiene a `:50410`, che un giapponese non ce l'ha.
+
+A renderlo dimostrabile — invece che sospettabile — sono le **code**, che invece
+sono al posto giusto: `:51288` porta ～イルヴァ幻想辞典～ / `~Irva Fantasy
+Encyclopedia~` in tutt'e due le lingue, `:51289` porta ～遺跡荒らしのメモ～ /
+`~memo of a grave robber~` in tutt'e due. La coda dice a quale fonte appartiene
+il testo, e il corpo inglese non le corrisponde.
+
+💡 **La coda-fonte è una prova, non un ornamento.** Senza, sarebbero state due
+prose plausibili in due pannelli plausibili, e nessuna rete avrebbe detto
+niente. È il settimo posto dove guardare della 113ª, usato al contrario.
+
+## Le tre cose che `degrada()` non perdona, e si sono viste tutte in un giorno — 2026-08-31, centoquindicesima
+
+`reimporta` è tutto-o-niente, e nella 115ª ha rifiutato due lotti su quattro.
+Le tre cause, tutte di codifica, tutte trovate **dallo strumento e non da noi**:
+
+| scritto | perché cade |
+|---|---|
+| `dèi` | `degrada()` mette l'apostrofo **dentro** la parola: `de'i`. Si cambia parola («divinità»), non si toglie l'accento |
+| `①②③④` | CP932 li scrive su **due byte** e la build inglese ne disegna uno per byte: escono lettere latine a caso. Si scrive `1)` `2)` `3)` `4)` |
+| `detto 'usala'` | un apostrofo scritto a mano non si distingue da un accento degradato. Si riscrive la frase senza virgolette interne |
+
+⭐ E una quarta, che nessuno strumento avrebbe fermato perché non è un errore ma
+una **consuetudine**: le virgolette a caporale. La prima stesura del lotto 035
+scriveva un nome fra `«»`. Contate nel dizionario intero: **zero su 24.940**.
+
+⚠️ **La domanda non era «mi piacciono?» ma «ce ne sono altre?».** Una scelta di
+stile che nel corpus non ha nemmeno un precedente non è una scelta di stile: è
+una novità, e va decisa apposta o non fatta. Il modo di accorgersene è contare,
+e costa una riga di script.
+
+💡 Da qui `scratchpad/lotti-113/_preflight034.py`, che fa **prima** del montaggio
+le domande che i cancelli fanno dopo la build: chiavi, spaziatura prima del
+`\n`, il `#`, e le parole più lunghe della finestra di rinculo. Non sostituisce
+i cancelli — li anticipa, e ha già trovato due difetti veri (una parola da 16
+caratteri nel 034, uno spazio di troppo nel 037 fra due righe gemelle).
+
+---
+
 ## «Si segue il giapponese» non è «si segue la frase giapponese» — 2026-08-27, centonovesima
 
 I lotti 004 (attrezzi) e 005 (mobilio) rendono 361 firme di `db_item.hsp`. Le

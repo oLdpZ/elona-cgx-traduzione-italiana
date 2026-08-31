@@ -41,6 +41,69 @@ fondo somma valori di sessioni diverse. Il conto vivo lo danno
 file di `data/` compresi. Finché nessuno rifà la tabella intera, **si guardano
 quelli**.
 
+## Quattro lotti, 154 rese, e gli attrezzi si chiudono — 2026-08-31, centoquindicesima sessione
+
+`db_item.hsp`, il **corpo** delle descrizioni (indici 0-2), tutta
+`FILTER_ITEM_TOOL`:
+
+    034  ITEM_TOOL   righe  48.000-62.000   44 rese  (39 idx0, 1 idx1, 4 idx2)
+    035  ITEM_TOOL   righe  62.000-75.000   43 rese  (36 idx0, 7 idx2)
+    036  ITEM_TOOL   righe  75.000-90.000   42 rese  (39 idx0, 3 idx2)
+    037  ITEM_TOOL   righe  90.000 in su    25 rese  (21 idx0, 4 idx2)
+    -----------------------------------------------------------------
+    **154 rese**, che coprono **154 righe** del sorgente (nessun doppione)
+    applica 29.252 -> **29.406**   (+44/+43/+42/+25 esatte)
+    db_item non tradotte 1.088 -> **934**   (-154 esatte)
+    rese del corpo: 416 -> **570** su 1.513
+    perimetro 27.635 -> **27.789** (90%), totale 30.568 -> **30.722** (94%)
+    cancello dei tagli: introdotte dall'italiano **0/0/0**, mai acceso
+    rinviate: nessuna   toppe: nessuna   test: **794**, invariato
+    strumenti nuovi: 2 (`lotti-113/_scheda034.py`, `lotti-113/_preflight034.py`)
+    build: SI', **16:13 del 31/08**
+    -----------------------------------------------------------------
+    ⭐⭐⭐ **`FILTER_ITEM_TOOL` e' CHIUSA**: 204 righe su 204, lotti 033-037
+
+⚠️⚠️ **Il moltiplicatore degli attrezzi era di UN lotto solo.** La 114a
+chiudeva scrivendo che negli attrezzi «da fare» (154) e «vive» (204) non
+coincidono per le righe condivise fra oggetti gemelli, e che quindi `applica`
+sarebbe salito di piu' delle rese. E' successo **solo nel lotto 033**, dove i
+quattro fucili anestetici condividono due righe: nei lotti 034-037 il rapporto
+e' **uno a uno**, e le 154 rese hanno fatto 154 sostituzioni esatte. Il
+moltiplicatore stava in quattro oggetti, non nella categoria.
+
+⚠️⚠️ **Il cancello «titoli resi in piu' modi» passa da 2 a 5, e tutti e cinque
+sono difetti dell'inglese.** Il conto chiava sull'inglese, e l'inglese
+appiattisce o sbaglia cinque titoli-fonte che il giapponese distingue:
+
+    Lead Developer <Dr. Gavela>      -> Gavela / Icolle          (114a)
+    ~Thousands of pieces of Junk~    -> Cianfrusaglie / Brilla   (114a)
+    ~Irva Fantasy Encyclopedia~      -> Irva / Aimwell           (034)
+    ~Extra Issue: Weird Items~       -> Oggetti Sospetti / Alchimia  (035)
+    ~ Great Encyclopedia of North Tyris Furnitures~
+                                     -> Mobili / Manuale di Viaggio (037)
+
+Il valore atteso e' **5, con questi cinque accanto**. Un 6 e' un difetto nuovo.
+⭐ Tre su cinque sono stati **annunciati prima di misurarli**, leggendo il
+giapponese del lotto; il quarto (035) e' arrivato senza preavviso.
+
+**Il conto del corpo, categoria per categoria**, con
+`python scratchpad/_114-corpo-da-fare.py`:
+
+    fatte    mobilio 261/261 (027-032) · attrezzi 204/204 (033-037)
+             cibo 50/148 (026)
+    restano  FILTER_JUNK           124/124   FILTER_ITEM_SCROLL     73/73
+             FILTER_WEAPON         110/110   FILTER_RANGE           60/60
+             FILTER_ITEM_FOOD       98/148   FILTER_ORE             33/33
+             FILTER_ITEM_SPELLBOOK   92/92   FILTER_ITEM_ROD        32/32
+             FILTER_ITEM_POTION      82/82   FILTER_CONTAINER       25/25
+             piu' una coda di venti minori
+    -----------------------------------------------------------------
+    570 righe fatte su 1.449 vive; **934 restano**
+
+ⓘ Il totale coincide con quello di `verifica --dizionario`, come nella 114a:
+due conti fatti da due parti diverse, visti coincidere quattro volte
+(1.088, 1.044, 1.001, 959, 934).
+
 ## Cinque lotti, 223 rese, e il mobilio si chiude — 2026-08-31, centoquattordicesima sessione
 
 `db_item.hsp`, il **corpo** delle descrizioni (indici 0-2):
