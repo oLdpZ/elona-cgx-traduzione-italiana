@@ -11666,3 +11666,66 @@ significa niente.
 `strumenti/gemelle.py` esiste già e risponde a un'altra domanda (la firma resa
 in un file che non arriva a un altro file). Due strumenti con lo stesso nome
 sono un modo di sbagliare tool a distanza di sessioni.
+
+## 118ª — Il nome che la descrizione deve dire è quello che il giocatore userà per cercare
+
+Ottanta descrizioni di grimorio dicono «un grimorio su cui studiare
+l'incantesimo X». X sembra il nome del libro: il libro si chiama «grimorio di
+cartografia magica», e la magia che insegna dovrebbe chiamarsi «cartografia
+magica». Nel gioco si chiama **Mappa magica**.
+
+Succede su **37 grimori su 80**, misurati da
+`scratchpad/_118-nomi-vs-incantesimi.py`. Solo **2** sono divergenze di monte:
+in giapponese il nome del libro e lo `skillname` coincidono 78 volte su 80. Le
+altre 35 le abbiamo fatte noi, rendendo i nomi degli oggetti e i nomi degli
+incantesimi in sessioni diverse, senza che nessuno strumento confrontasse le due
+tabelle.
+
+**La decisione**: nella descrizione si scrive il nome dell'**incantesimo**,
+preso dal codice (`scratchpad/lotti-113/_incantesimo.py`, che passa dall'`efid`
+di `DBMODE_ON_READ` allo `skillname()` di `skill.hsp`).
+
+**Perché:** quella riga non descrive il libro, dice a chi legge **che cosa
+imparerà**, e serve a cercarlo nella lista degli incantesimi. Col nome del libro
+il giocatore cercherebbe una voce che nella lista non esiste. Il nome
+dell'oggetto invece è già stampato in testa al pannello, due righe sopra: dirlo
+un'altra volta non aggiunge niente, e dirlo *invece* del nome buono toglie
+l'unica cosa che quella riga porta.
+
+**Come applicarlo:** quando una prosa nomina qualcosa che il giocatore andrà a
+cercare altrove — una magia, un'abilità, un luogo, un oggetto — il nome si
+prende **da dove il giocatore lo leggerà**, non da dove sta scritto più vicino.
+E il percorso fino a lì si segue nel codice, come per gli identificativi della
+111ª: qui è `efid` → `skillname`, e nessuna rete del lotto lo guarda.
+
+⚠️ Resta aperta la questione più grande, che questo lotto non chiude: i 37 nomi
+di oggetto andrebbero allineati allo `skillname`, perché adesso il pannello
+mostra le due parole insieme.
+
+## 118ª — Una premessa scritta nel glossario invecchia come un numero scritto a mano
+
+La 110ª ha deciso di non scrivere il rango dei grimori, e l'argomento era
+esplicito: «il giapponese non lo dice mai — non su una sola riga [...] Il rango
+si sa dire; qui l'autore ha scelto di non dirlo».
+
+L'autore lo dice. È in `description(1)` del ramo `if ( jp )`, come `<ランク6魔法>`,
+su **80 righe su 80** — una per ogni grimorio. La 110ª aveva guardato l'indice 3,
+dove il giapponese davvero tace, e ne aveva tratto una conclusione sull'intero
+file.
+
+**Perché non si era mai visto:** su 76 di quelle 80 l'inglese lascia
+`description(1) = ""`, e una riga con l'inglese vuoto **non entra
+nell'estrazione**. Per otto sessioni la premessa è stata invisibile agli
+strumenti perché stava esattamente dove gli strumenti non guardano — nel ramo
+giapponese di righe che, dal nostro lato, non esistono.
+
+**Come applicarlo:** una premessa del tipo «questo file non dice mai X» va
+verificata **sul sorgente**, non sull'estrazione, perché l'estrazione tiene solo
+ciò che l'inglese riempie. E quando la si scrive nei documenti, va scritto anche
+**dove** è stata cercata: «non lo dice nell'indice 3» sarebbe rimasta vera.
+
+ⓘ La decisione in sé (non scrivere il rango) non è stata cambiata qui: cambiarla
+vuol dire riaprire 80 righe dell'indice 3 già chiuse, con un tetto secco a 69
+che regge anche perché quelle parole non ci sono. Ma oggi il giocatore italiano
+è l'unico dei tre che il rango non lo legge, e questo va deciso apposta, non per
+inerzia.

@@ -1,42 +1,56 @@
 # Ripresa sessione
 
-Aggiornato: 2026-08-31, fine della **centodiciassettesima** sessione (**due
-lotti, 59 rese, i CIBI si chiudono, e la previsione di `applica` smette di
-essere una riga scritta a mano**).
+Aggiornato: 2026-09-01, fine della **centodiciottesima** sessione (**due lotti,
+92 rese, i GRIMORI si chiudono, e una premessa del glossario e' stata
+smentita**).
 
-⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 23:38 DEL 31/08**, e contiene
-tutte e 59 le rese di questa sessione. Quello delle 22:34 del 31/08 e' della
-116a; quello delle 16:57 e' della 115a.
+⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELL'01:01 DEL 01/09**, e contiene
+tutte e 92 le rese di questa sessione. Quello delle 23:38 del 31/08 e' della
+117a; quello delle 22:34 e' della 116a.
 
 ⚠️⚠️⚠️ **IL CANCELLO DEI TITOLI E' 7, NON 6.** Non e' un difetto: e' una
-decisione della 116a, presa dall'utente su una riga sola. La 117a non l'ha
-mosso. Chi apre e legge «6» nei documenti vecchi sta leggendo un valore
-superato.
+decisione della 116a, presa dall'utente su una riga sola. Ne' la 117a ne' la
+118a l'hanno mosso. Chi apre e legge «6» nei documenti vecchi sta leggendo un
+valore superato.
 
-⚠️⚠️ **I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 117a:**
+⚠️⚠️⚠️ **DUE COSE APERTE, CHE LA 118a HA TROVATO E NON HA CHIUSO** — stanno per
+esteso nella sezione della 118a, e vanno decise, non ereditate:
+
+  1. **il RANGO dei grimori**: la premessa su cui la 110a ha deciso di non
+     scriverlo («il giapponese non lo dice mai») e' **falsa**. Lo dice, su 80
+     righe su 80, in `description(1)` del ramo `if ( jp )`. Oggi il giocatore
+     italiano e' l'unico dei tre che il rango non lo legge;
+  2. **37 nomi di grimorio su 80** non dicono la stessa parola del nome
+     dell'incantesimo che insegnano, e adesso il giocatore le vede nello stesso
+     pannello. Le conta `scratchpad/_118-nomi-vs-incantesimi.py`. In giapponese
+     divergono **2** su 80: le altre 35 sono nostre.
+
+⚠️⚠️ **I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 118a:**
 
     pytest                   794 passed, 6 skipped
                              ⓘ rilanciato DOPO aver scritto i documenti, come
                              vuole la lezione della 112a
     prova_identita           72/72 e 30.905, **invariato**
-    applica                  **29.740** sostituzioni      (era 29.680: +60)
-                             ⚠️ +60 per **59 rese**: una firma copre due righe
-                             (`:113814` e `:113879`). ⭐ E stavolta il +60 era
-                             SCRITTO PRIMA, da `lotti-113/_previsione.py`
-    verifica --dizionario    db_item.hsp: 0 da ritradurre, **602** non tradotte
-    _97-quanto-resta         TOTALE **712 / 110 / 602**
-    perimetro.py             perimetro **90%** (28.121), totale **94%** (31.054)
-    _108-accento-decomposto  **0 su 25.382**
+    applica                  **29.832** sostituzioni      (era 29.740: +92)
+                             ⓘ +92 per 92 rese, nessuna gemella, e il numero era
+                             SCRITTO PRIMA da `lotti-113/_previsione.py`
+    verifica --dizionario    db_item.hsp: 0 da ritradurre, **510** non tradotte
+    _97-quanto-resta         TOTALE **620 / 110 / 510**
+    perimetro.py             perimetro **90%** (28.213), totale **94%** (31.146)
+    _108-accento-decomposto  **0 su 25.474**
                              ⚠️ il denominatore cresce con le rese: e' il conto
                              delle rese guardate, non un valore fisso
-    _107-descrizioni-item    ⭐⭐⭐ corpo (indici 0-2): 1.513 vive, **904 rese**;
+    _107-descrizioni-item    ⭐⭐⭐ corpo (indici 0-2): 1.513 vive, **996 rese**;
                              introdotte dall'italiano **0 / 0 / 0** (il cancello)
                              indice 3: vive 1.319, rese 1.319 — CHIUSO;
                              oltre il tetto: inglese 110, italiano 0
                              ⚠️ budget **77** per il corpo impaginato (font 11) e
                              **69** per l'indice 3 (font 12): sono DUE
+    _118-nomi-vs-incantesimi ⭐ NUOVO. REFERTO: giapponese **2 su 80**, italiano
+                             **37 su 80**. Non e' un cancello: e' il conto del
+                             lavoro che resta sui NOMI, non sulle descrizioni
     _112-corpo-descrizioni   1.509 righe-fonte, 224 titoli, **1** trattino orfano
-                             (di monte, `db_item.hsp:129299`); su 904 rese
+                             (di monte, `db_item.hsp:129299`); su 996 rese
                              cinque zeri e **«titoli resi in PIU' modi: 7»**
                              ⚠️⚠️ IL 7 E' ATTESO, E SONO QUESTI SETTE:
                                `Lead Developer <Dr. Gavela>` -> Gavela / Icolle
@@ -62,15 +76,15 @@ superato.
                              ⚠️ il denominatore e' la **tabella dei titoli**, e
                              cresce quando la tabella cresce: era 201 in
                              apertura della 116a, 202 dopo il titolo che quella
-                             ha aggiunto. La 117a non l'ha mossa
-    _114-corpo-da-fare       ⭐ TOTALE da fare **602 su 1.449 vive**, e in fondo
-                             CINQUE categorie chiuse: `FILTER_FURNITURE` **0 su
+                             ha aggiunto. Ne' la 117a ne' la 118a l'hanno mossa
+    _114-corpo-da-fare       ⭐ TOTALE da fare **510 su 1.449 vive**, e in fondo
+                             SEI categorie chiuse: `FILTER_FURNITURE` **0 su
                              261**, `FILTER_ITEM_TOOL` **0 su 204**,
                              `FILTER_ITEM_FOOD` **0 su 148**, `FILTER_JUNK`
-                             **0 su 124** e `FILTER_WEAPON` **0 su 110**.
-                             La piu' grossa da fare e' `FILTER_ITEM_SPELLBOOK`,
-                             **92 su 92**, poi `FILTER_ITEM_POTION` (82) e
-                             `FILTER_ITEM_SCROLL` (73).
+                             **0 su 124**, `FILTER_WEAPON` **0 su 110** e
+                             `FILTER_ITEM_SPELLBOOK` **0 su 92**.
+                             La piu' grossa da fare e' `FILTER_ITEM_POTION`,
+                             **82 su 82**, poi `FILTER_ITEM_SCROLL` (73).
                              ⓘ il totale deve coincidere con quello di
                              `verifica --dizionario`: sono due fonti diverse
     _115-fonti-storpiate     REFERTO: **7 code su 2.542** scritte col punto
@@ -92,14 +106,12 @@ righe, `toppe.jsonl` 1027 e `_97-toppe-agganciate` **1027 su 1027**,
 `_96-morte-nella-build` 0, `_103-inglese-ripetuto` 2 coppie,
 `_104-inglese-slittato` 2 teste.
 
-⚠️⚠️⚠️ **ANCHE LA 117a HA APERTO CON LA CATENA TUTTA VERDE**, venticinque
-verifiche su venticinque ai valori della 116a, albero pulito, allineato a
-`origin/fase-0` e `log.md` del vault aggiornato. E' la **quinta** apertura
-pulita di fila dopo il guasto della 112a, e la build era gia' al suo posto —
-`cgx-test.exe` delle 22:34, esattamente la data che la 116a aveva scritto.
-ⓘ Stavolta **non c'era nemmeno il numero che non torna**: nella 115a e nella
-116a la sola cosa fuori posto era stata un denominatore che cresce
-(`_108` prima, `_113` poi), qui nessuno dei venticinque si e' mosso.
+⚠️⚠️⚠️ **ANCHE LA 118a HA APERTO CON LA CATENA TUTTA VERDE**, venticinque
+verifiche su venticinque ai valori della 117a, albero pulito, allineato a
+`origin/fase-0` e `log.md` del vault aggiornato. E' la **sesta** apertura pulita
+di fila dopo il guasto della 112a, e la build era gia' al suo posto —
+`cgx-test.exe` delle 23:38, esattamente la data che la 117a aveva scritto.
+ⓘ Nessuno dei venticinque si e' mosso, nemmeno un denominatore.
 💡 **Come si legge un referto**: si guarda il numeratore *e* si chiede di che
 cosa e' fatto il denominatore, prima di chiamarlo difetto.
 
@@ -108,16 +120,10 @@ cosa e' fatto il denominatore, prima di chiamarlo difetto.
 macchina**, con l'albero di build al suo posto: la prima cosa da fare **non** e'
 ricostruire — e' guardare se c'e' gia' tutto, con
 `ls C:\Games\Elona\_traduzione\`, e controllare che
-`elonaplus2.31\cgx-test.exe` sia quello delle **23:38 del 31/08**. Se la data e'
-quella, la build contiene tutte e 59 le rese della 117a e non va rifatta.
-⚠️ La 117a e' stata chiusa dicendo **«riprendo in un altro terminale»**, come la
-116a: la macchina e' la stessa, ma la sessione nuova non ha in memoria niente di
-questa. Tutto quel che serve sta qui. ⓘ La chiusura e' avvenuta **dopo la
-mezzanotte**, il 2026-09-01: la voce di `log.md` porta la data del **31/08**,
-che e' quella del lavoro, e l'eseguibile porta l'ora del 31/08. Chi apre non
-cerchi una voce del primo settembre che non c'e'.
+`elonaplus2.31\cgx-test.exe` sia quello dell'**01:01 del 01/09**. Se la data e'
+quella, la build contiene tutte e 92 le rese della 118a e non va rifatta.
 ⓘ I sei file dati non cambiano dalla 108a: `cmp -s` prima di `cp`, e non serve
-copiarli. Verificato anche a fine 117a: sei su sei identici.
+copiarli. Verificato anche a fine 118a: sei su sei identici.
 
 ---
 
@@ -284,7 +290,189 @@ il referto «righe senza resa in tabella: 0» resta verde su una riga sbagliata.
 
 ---
 
-## La centodiciassettesima sessione
+## La centodiciottesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle verifiche d'apertura, che adesso sono
+**ventisei**: `scratchpad/_118-nomi-vs-incantesimi.py` e' un referto sul
+sorgente e sul dizionario, non uno strumento di lotto, quindi in apertura si
+lancia.
+
+La 118a ha tradotto **92 righe** in due lotti (047 e 048) e ha **chiuso una
+categoria**: `FILTER_ITEM_SPELLBOOK` 0 su 92, tutta dentro questa sessione. E'
+la **sesta** categoria chiusa del corpo. Il debito di collaudo sale da 8.566 a
+**8.658**.
+
+### ▶ ⭐⭐⭐ IL LOTTO DA CUI SI COMINCIA LA PROSSIMA VOLTA
+
+Nessuna categoria e' cominciata a meta'. Le prime tre di `_114-corpo-da-fare`
+sono intatte («da fare» e «vive» coincidono):
+
+    82  82   FILTER_ITEM_POTION      <- la piu' grossa
+    73  73   FILTER_ITEM_SCROLL
+    60  60   FILTER_RANGE
+
+Il comando che apre il lotto 049 e':
+
+    python scratchpad/lotti-113/_corpo.py 049 FILTER_ITEM_POTION 0 <fine>
+
+💡 **Come si sceglie `<fine>`**: si lancia con un estremo qualunque e si legge
+il numero che stampa **prima** di scrivere il dossier. Un lotto sano sta fra le
+30 e le 55. ⓘ Sulle 92 dei grimori il taglio a `:100000` ha dato 44 e 48, che e'
+uscito al primo tentativo.
+⚠️ E si lancia sempre **`_previsione.py`** prima di scrivere le rese, anche su
+una categoria intatta.
+
+### ▶ ⚠️⚠️⚠️ DUE COSE APERTE, CHE VANNO DECISE E NON EREDITATE
+
+**1. Il rango dei grimori: la premessa della 110a e' falsa.** La 110a ha deciso
+di non scrivere il rango con questo argomento, che sta ancora nel glossario: «il
+giapponese non lo dice mai — non su una sola riga [...] Il rango si sa dire; qui
+l'autore ha scelto di non dirlo». Cercato 「ランク…魔法」 su ogni `description()`
+di `db_item.hsp`, il tassello del rango c'e' su **80 righe su 80**, una per ogni
+grimorio, in `description(1)` del ramo `if ( jp )`.
+
+    JP   description(1)   <ランク6魔法>            80 su 80
+    EN   description(3)   Book of Rank 6 Magic.    82 su 82
+    IT   da nessuna parte                          (la decisione della 110a)
+
+⚠️ Non si erano mai viste perche' su **76** di quelle 80 l'inglese lascia
+`description(1) = ""`, e una riga con l'inglese vuoto **non entra
+nell'estrazione**: la premessa e' stata invisibile per otto sessioni perche'
+stava dove gli strumenti non guardano. Le quattro vive sono nel lotto 048, e li'
+l'inglese ci mette una battuta al posto del rango.
+
+Oggi il giocatore italiano e' **l'unico dei tre** che il rango non lo legge.
+Rimetterlo vuol dire riaprire 80 righe dell'indice 3 gia' chiuse, col tetto
+**secco a 69** che regge anche perche' quelle parole non ci sono: e' un lavoro
+suo, da misurare prima di cominciarlo.
+
+**2. Trentasette nomi di grimorio non dicono la parola dell'incantesimo.**
+`scratchpad/_118-nomi-vs-incantesimi.py` separa due cose che sembravano una:
+
+    il GIAPPONESE  nome del libro contro skillname    divergenti   2 su 80
+    l'ITALIANO     nome dell'oggetto contro skillname divergenti  37 su 80
+
+Le due di monte sono `:91976` (扉生成 contro ドア生成) e `:102031` (自己変容
+contro 自己の変容). **Le altre 35 sono nostre**: nomi degli oggetti e nomi degli
+incantesimi resi in sessioni diverse, e nessuno strumento che confronti le due
+tabelle. «cartografia magica» insegna *Mappa magica*, «mani guaritrici» insegna
+*Tocco curativo*, «gemma» insegna *Pietra protettrice*.
+
+⚠️ Fino a ieri le due parole non si vedevano mai insieme. Adesso si': il nome e'
+in testa al pannello e la descrizione, che dalla 118a nomina l'incantesimo, sta
+due righe sotto. **Il rimedio e' allineare i NOMI allo `skillname`**, non il
+contrario — la descrizione serve a cercare la magia nella lista.
+
+### ▶ ⭐⭐⭐ IL NOME CHE LA DESCRIZIONE DEVE DIRE E' QUELLO CHE IL GIOCATORE CERCHERA'
+
+Ottanta righe su 92 dicono 「「X」という呪文について学ぶことができる魔法書。」 —
+*un grimorio su cui studiare l'incantesimo X*. X sembra il nome del libro, che
+sta due righe sopra nel dossier: copiarlo era la cosa comoda, e sarebbe stato
+sbagliato 37 volte su 80.
+
+Il nome buono lo da' il **codice**, e adesso e' uno strumento:
+
+    PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/lotti-113/_incantesimo.py NNN
+
+Va dal blocco `if ( dbid == ... )` che contiene la riga all'`efid =
+SKILL_SPELL_...` del ramo `DBMODE_ON_READ`, poi allo `skillname()` di
+`skill.hsp`, e da li' alla resa che il dizionario ha gia'. Su 80 grimori su 80
+risolve un nome, zero non resi.
+
+ⓘ E' la lezione della 110a — «il codice e' la quinta fonte» — usata **prima** di
+scrivere invece che per rimediare. Nessuna rete del lotto guarda `skill.hsp`, e
+il difetto che avrebbe prodotto — un nome che nella lista degli incantesimi non
+esiste — sarebbe stato invisibile a tutti i cancelli e visibile solo a chi gioca.
+
+### ▶ ⭐⭐ LA DEDICA IN SECONDA PERSONA, CHE L'INGLESE PERDE 80 VOLTE SU 80
+
+La seconda frase e' sempre 「〜なあなたに。」: una dedica da quarta di copertina,
+rivolta a **te** che leggi. L'inglese la gira in terza persona **tutte e 80 le
+volte** — «For those who...», «For sadists», «Designed for lazy hoarders» — e
+otto volte la butta del tutto per scrivere una battuta sul libro invece che sul
+lettore. In italiano resta «Per te che...».
+
+⭐ E `:111850` (il Desiderio) e' l'unico degli 80 che apra con 珍しい魔法書, «un
+grimorio **raro**»: e' il libro di rango 50, il piu' raro che ci sia, e
+l'inglese lascia cadere la parola.
+
+### ▶ ⭐ UN GIOCO DI PAROLE CHE SI RIFA', E QUATTRO CHE L'INGLESE ROMPE
+
+`:48381` — 皆を痺れさせたい gioca su 痺れる, che e' insieme *intorpidire* e *far
+restare a bocca aperta*. In italiano **«folgorare»** e' insieme tutt'e due, e il
+gioco non si perde. E' il precedente delle fusioni delle razze: si rende il
+gioco, non le sillabe.
+
+E quattro parole che l'inglese legge male: 水芸 (il prestigio con l'acqua) letto
+«watercraft»; 毒々しい (dai colori velenosi) letto «genuinely toxic»; 足を引っ張る
+(ostacolare) letto «pull people's legs»; 寒がり (chi sente il freddo) letto
+«catches the cold». Piu' un rovesciamento vero: `:129870`, dove
+今すぐ旅に出たい («voglio partire subito») diventa «For those who hates
+traveling».
+
+### ▶ Gli strumenti nuovi della 118a
+
+  - ⭐⭐⭐ `scratchpad/lotti-113/_incantesimo.py NNN` — per ogni riga del lotto,
+    il nome italiano dell'incantesimo che il grimorio insegna, preso dal codice
+    (`efid` -> `skillname`) e non dal nome del libro;
+  - ⭐⭐ `scratchpad/_118-nomi-vs-incantesimi.py` — il referto che conta le
+    divergenze fra nome dell'oggetto e nome dell'incantesimo, separando quelle
+    di monte (2) dalle nostre (35). Va in apertura.
+
+### ▶ ⚠️⚠️ `_coerenza` SI ACCENDE SUL LOTTO 048, ED E' ATTESO
+
+`scratchpad/lotti-109/_coerenza.py lavoro/fase5-db_item-048.jsonl` esce con **1**:
+`<ランク6魔法>` e' lo stesso giapponese su tre righe, e le tre rese sono diverse
+perche' i tre **inglesi** sono diversi. Il giapponese li' non e' una frase, e'
+il tassello del rango. Renderle uguali cancellerebbe tre battute. Chi rilancia
+quella rete su quel lotto **non ripari niente**.
+
+### ▶ ⚠️⚠️ LE 92 RESE NON SONO MAI STATE VISTE A SCHERMO
+
+Il debito di collaudo e' **8.658**. La lista di passi per guardarle, con gli
+identificativi **letti in `defines/mod.hsp`** e il percorso verificato nel
+codice:
+
+    F12 -> wizard
+    spawn_item 582   il grimorio di creazione di porte  <- «Crea porte»:
+                     qui il nome del libro e quello della magia divergono
+    spawn_item 550   il grimorio di mani guaritrici     <- «Tocco curativo»
+    spawn_item 289   il grimorio del desiderio          <- «Un grimorio RARO»
+    spawn_item 270   il grimorio di tempesta rovente    <- l'UNICO con tutti e
+                     tre gli indici: prosa, «Ahi! Scotta!» e l'incendiario
+    spawn_item 731   il grimorio della tasca quadridimensionale
+                     <- la parola da 18 caratteri: si guarda se va a capo intera
+    spawn_item 783   la ricetta                         <- l'unica che non e'
+                     un grimorio, e ha una fonte tutta sua
+    spawn_item 14    la pergamena di identificazione — UNA PER OGGETTO,
+                     quindi il comando si ripete sei volte
+    ESC -> g (raccogli tutto da terra) -> r (leggi) -> X (zaino) -> x (info)
+
+⚠️ `spawn_item` fa `itemcreate -1, ...` (`system.hsp:4847`): gli oggetti cadono
+**a terra**, non nello zaino. Percio' `g` per raccoglierli, e `mapinv` — non
+`allinv` — se si vuole guardare cosa c'e' per terra (lezione della 112a).
+⚠️⚠️ **Il corpo si vede solo a oggetto identificato a fondo**: il blocco che
+disegna `description(0..2)` sta dentro
+`if ( inv(INV_ITEM_KNOWN, ci) >= ITEM_KNOWN_FULL )`, `command.hsp:16398`. E i
+grimori **non** nascono identificati: `item.hsp:2736` da' il grado di qualita'
+solo a `reftype < FILTER_ITEM_MIN`, e `FILTER_ITEM_SPELLBOOK` e' 54.000 contro
+un minimo di 50.000. Senza pergamena il pannello resta muto e la conclusione
+«non tradotto» sarebbe falsa.
+⚠️ La pergamena identifica **un oggetto per lettura** (`proc.hsp:11402`), quindi
+sei oggetti vogliono sei letture.
+ⓘ I tasti sono quelli di `config.txt` dell'utente: `key_get` = `g`,
+`key_read` = `r`, `key_inventory` = `X`, `key_identify` = `x`.
+⭐ E lo `spawn_item 270` e' quello che porta piu' informazione di tutti: e'
+l'unico oggetto del lotto con prosa, indice 1 e indice 2 insieme, quindi il
+pannello mostra in una schermata sola la formula, la battuta del ricercatore e
+quella dell'incendiario.
+
+---
+
+## La centodiciassettesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

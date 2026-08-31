@@ -2069,6 +2069,87 @@ dell'oggetto; 葉の無い樹木だ diventa «Un albero senza foglie» e non «s
 Il nome sta una riga sopra nella stessa scheda, e una descrizione che lo ripete
 non dice niente.
 
+## `db_item.hsp`, deciso il 2026-09-01 dalla 118ª — il CORPO dei GRIMORI
+
+Due lotti, 92 righe, e `FILTER_ITEM_SPELLBOOK` si chiude. Ottanta delle 92
+portano la stessa formula, che è la più grande del corpo:
+
+    「「X」という呪文について学ぶことができる魔法書。〜なあなたに。」
+    Un grimorio su cui studiare l'incantesimo X. Per te che ...
+
+### ⭐⭐⭐ X è il nome dell'INCANTESIMO, e lo dà il codice
+
+Il nome della magia si prende da `skillname()` di `skill.hsp`, **non** dal nome
+del libro. Il percorso è nel codice, e non si fa a occhio:
+`scratchpad/lotti-113/_incantesimo.py NNN` va dal blocco `if ( dbid == ... )`
+all'`efid = SKILL_SPELL_...` del ramo `DBMODE_ON_READ`, e da lì allo
+`skillname`. Su 80 righe su 80 risolve un nome già reso.
+
+**Perché**: quella riga serve al giocatore per **cercare la magia nella lista**.
+Col nome del libro non la troverebbe.
+
+⚠️⚠️ **E in italiano le due cose divergono su 37 grimori su 80.** Misurate da
+`scratchpad/_118-nomi-vs-incantesimi.py`, che le separa in due specie:
+
+| | | divergenti |
+|---|---|---|
+| il giapponese | nome del libro contro `skillname` | **2** su 80 |
+| l'italiano | nome dell'oggetto contro `skillname` | **37** su 80 |
+
+Le due di monte sono `:91976` (扉生成 contro ドア生成) e `:102031` (自己変容
+contro 自己の変容). **Le altre 35 sono nostre**: i nomi degli oggetti e i nomi
+degli incantesimi sono stati resi in sessioni diverse, e nessuno strumento del
+progetto confronta le due tabelle. «cartografia magica» insegna *Mappa magica*,
+«mani guaritrici» insegna *Tocco curativo*, «gemma» insegna *Pietra
+protettrice*. In giapponese il giocatore legge la stessa parola in testa al
+pannello e dentro la descrizione; in italiano, 37 volte su 80, ne legge due.
+Il rimedio è allineare i **nomi** allo `skillname`, ed è un lavoro suo.
+
+### ⭐⭐ La dedica in seconda persona: «Per te che ...»
+
+「〜なあなたに。」 è una dedica da quarta di copertina, rivolta a **te** che
+leggi. L'inglese la gira in terza persona **tutte e 80 le volte** — «For those
+who...», «For sadists», «Designed for lazy hoarders» — e otto volte butta la
+dedica e ne scrive una sua sul libro invece che sul lettore. In italiano resta
+«Per te che...», che è la forma del risvolto di copertina.
+
+### ⚠️⚠️⚠️ E il RANGO era detto: la premessa della 110ª era falsa
+
+La sezione della 110ª qui sopra dice, degli 82 inglesi dell'indice 3: «il
+giapponese non lo dice mai — non su una sola riga [...] Il rango si sa dire; qui
+l'autore ha scelto di non dirlo». **Non è vero.** Cercato 「ランク…魔法」 su ogni
+`description()` di `db_item.hsp`, il tassello del rango è su **80 righe**, una
+per ogni grimorio, in `description(1)` del ramo `if ( jp )`.
+
+    JP   description(1)   <ランク6魔法>            80 su 80
+    EN   description(3)   Book of Rank 6 Magic.    82 su 82
+    IT   da nessuna parte                          (la decisione della 110ª)
+
+Non si erano mai viste perché su **76** di quelle 80 l'inglese lascia
+`description(1) = ""`, e una riga con l'inglese vuoto non entra
+nell'estrazione. Le quattro vive — `:113099`, `:113172`, `:113245`, `:113460` —
+sono in questo lotto, e lì l'inglese ci mette una battuta al posto del rango.
+
+Oggi il giocatore italiano è **l'unico dei tre** che il rango non lo legge. La
+decisione va riaperta; non la riapre questo lotto, perché l'indice 3 è chiuso a
+1.319 su 1.319 col tetto **secco a 69**, e la sezione della 110ª nota che quelle
+righe ci stanno dentro proprio perché non portano parole in più.
+
+### ⓘ I termini nuovi di questi due lotti
+
+パワーストーン → **«i cristalli e il loro potere»** (l'inglese conferma:
+«Healing Crystals») · 水芸 → **«i giochi d'acqua»**, il prestigio da
+palcoscenico, non la navigazione dell'inglese · 毒々しい → **«dai colori
+velenosi»**, non «tossico» · 流し眼 → **«sguardo di sottecchi»** · 冷え症 →
+**«patire il freddo»**, e 寒がり → **«soffrire il freddo»**, che sono due cose
+diverse · 死神 → **«la Morte»** (era già nella riga del patto di `buff.hsp`) ·
+高位の存在 → **«esseri superiori»** · tome → **«tomo»** (era già nella tabella
+dei titoli-fonte).
+
+⭐ E 痺れさせる, che è insieme intorpidire e far restare a bocca aperta, è reso
+**«folgorare»**, che in italiano è insieme tutt'e due: il gioco di parole si
+rifà, non si spiega. È il precedente delle fusioni delle razze.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

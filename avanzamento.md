@@ -41,6 +41,53 @@ fondo somma valori di sessioni diverse. Il conto vivo lo danno
 file di `data/` compresi. Finché nessuno rifà la tabella intera, **si guardano
 quelli**.
 
+## Due lotti, 92 rese, i GRIMORI si chiudono, e il rango era detto — 2026-09-01, centodiciottesima sessione
+
+`db_item.hsp`, il **corpo** delle descrizioni (indici 0-2). La sessione ha
+aperto e chiuso `FILTER_ITEM_SPELLBOOK`, la categoria più grande rimasta:
+
+    047  ITEM_SPELLBOOK  righe      0-100.000   44 rese  (40 idx0, 4 idx2)
+    048  ITEM_SPELLBOOK  righe 100.000 in su    48 rese  (42 idx0, 4 idx1, 2 idx2)
+    -----------------------------------------------------------------
+    **92 rese**, che coprono **92 righe** del sorgente
+    applica 29.740 -> **29.832**   (+92 per 92 rese, previsto prima, zero gemelle)
+    db_item non tradotte 602 -> **510**   (-92 esatte)
+    rese del corpo: 904 -> **996** su 1.513
+    FILTER_ITEM_SPELLBOOK   92 -> **0 da fare su 92**   ⭐ CHIUSA
+
+⭐⭐⭐ **Il nome dell'incantesimo non sta nel nome del libro, e in italiano
+diverge 37 volte su 80.** In giapponese il libro e la magia si chiamano uguale
+su **78 righe su 80** (le due eccezioni sono `:91976`, 扉生成 contro ドア生成, e
+`:102031`, 自己変容 contro 自己の変容). In italiano no: la tabella dei nomi degli
+oggetti e `skillname()` sono stati resi in sessioni diverse, e su **37 grimori
+su 80** dicono due cose — «cartografia magica» contro *Mappa magica*, «mani
+guaritrici» contro *Tocco curativo*, «gemma» contro *Pietra protettrice*.
+
+Nel corpo si è scritto il nome dell'**incantesimo**, preso dal codice:
+`scratchpad/lotti-113/_incantesimo.py` va dall'`efid` di `DBMODE_ON_READ`
+allo `skillname()` di `skill.hsp`, 80 righe su 80, zero non rese. Il motivo è
+che quella riga serve al giocatore per **cercare la magia nella lista**: col
+nome del libro non la troverebbe.
+
+⚠️ Ma le 37 divergenze restano, e adesso si vedono **nello stesso pannello** —
+il nome in testa e la descrizione sotto. Il rimedio vero è allineare i 37 nomi
+di oggetto allo `skillname`, ed è un lavoro suo: nessuno strumento del progetto
+confronta quelle due tabelle.
+
+⚠️⚠️⚠️ **E il rango era detto: la 110ª aveva deciso su una premessa falsa.** Il
+glossario dice, dei 82 inglesi dell'indice 3, «il giapponese non lo dice mai —
+non su una sola riga». Cercato 「ランク…魔法」 nel sorgente: è su **80 righe**,
+una per ogni grimorio, in `description(1)` del ramo `if ( jp )`. Le 76 dove
+l'inglese lascia la stringa vuota non arrivano nell'estrazione, e per questo in
+otto sessioni non si erano mai viste. Oggi il giocatore italiano è **l'unico
+dei tre** che il rango non lo legge. Decisione da riaprire, e non in questo
+lotto: l'indice 3 è chiuso a 1.319 su 1.319 e ha il tetto secco a 69.
+
+**Sei categorie del corpo chiuse**: `FILTER_FURNITURE` (261),
+`FILTER_ITEM_TOOL` (204), `FILTER_ITEM_FOOD` (148), `FILTER_JUNK` (124),
+`FILTER_WEAPON` (110) e `FILTER_ITEM_SPELLBOOK` (92). Totale del corpo da fare:
+**510 su 1.449**.
+
 ## Due lotti, 59 rese, e i CIBI si chiudono — 2026-08-31, centodiciassettesima sessione
 
 `db_item.hsp`, il **corpo** delle descrizioni (indici 0-2). La sessione ha
