@@ -1,11 +1,11 @@
 # Ripresa sessione
 
 Aggiornato: 2026-08-31, fine della **centoquattordicesima** sessione (**il
-mobilio si chiude: quattro lotti, 173 rese, e due numeri dei documenti erano al
-contrario**).
+mobilio si chiude e gli attrezzi cominciano: cinque lotti, 223 rese, e due
+numeri dei documenti erano al contrario**).
 
-⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 09:22 DEL 31/08**, e contiene
-tutte e 173 le rese di questa sessione. Quello delle 08:25 del 31/08 e' della
+⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 14:36 DEL 31/08**, e contiene
+tutte e 223 le rese di questa sessione. Quello delle 08:25 del 31/08 e' della
 113a; quello delle 15:25 del 27/08 e' della 111a.
 
 ⚠️⚠️ **I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 114a:**
@@ -14,27 +14,39 @@ tutte e 173 le rese di questa sessione. Quello delle 08:25 del 31/08 e' della
                              ⓘ rilanciato DOPO aver scritto i documenti, come
                              vuole la lezione della 112a
     prova_identita           72/72 e 30.905, **invariato**
-    applica                  **29.196** sostituzioni      (era 29.023: +173)
-    verifica --dizionario    db_item.hsp: 0 da ritradurre, **1.138** non tradotte
-    _97-quanto-resta         TOTALE **1.248 / 110 / 1.138**
-    perimetro.py             perimetro **90%** (27.585), totale **94%** (30.518)
+    applica                  **29.252** sostituzioni      (era 29.023: +229)
+                             ⚠️ +229 e non +223: il lotto 033 ha 50 rese e ha
+                             fatto +56, perche' i quattro fucili anestetici
+                             condividono le righe di indice 1 e 2
+    verifica --dizionario    db_item.hsp: 0 da ritradurre, **1.088** non tradotte
+    _97-quanto-resta         TOTALE **1.198 / 110 / 1.088**
+    perimetro.py             perimetro **90%** (27.635), totale **94%** (30.568)
     _108-accento-decomposto  **0 su 24.673**
-    _107-descrizioni-item    ⭐⭐⭐ corpo (indici 0-2): 1.513 vive, **360 rese**;
+    _107-descrizioni-item    ⭐⭐⭐ corpo (indici 0-2): 1.513 vive, **416 rese**;
                              introdotte dall'italiano **0 / 0 / 0** (il cancello)
                              indice 3: vive 1.319, rese 1.319 — CHIUSO;
                              oltre il tetto: inglese 110, italiano 0
                              ⚠️ budget **77** per il corpo impaginato (font 11) e
                              **69** per l'indice 3 (font 12): sono DUE
     _112-corpo-descrizioni   1.509 righe-fonte, 224 titoli, **1** trattino orfano
-                             (di monte, `db_item.hsp:129299`); sei zeri sul
-                             cancello dell'italiano, su 360 rese
+                             (di monte, `db_item.hsp:129299`); su 416 rese
+                             cinque zeri e **«titoli resi in PIU' modi: 2»**
+                             ⚠️⚠️ IL 2 E' ATTESO, E SONO QUESTI DUE:
+                               `Lead Developer <Dr. Gavela>` -> Gavela / Icolle
+                               `~Thousands of pieces of Junk I love~`
+                                  -> Le Mille Cianfrusaglie / Quel che Brilla
+                             Sono due appiattimenti dell'INGLESE, non nostri:
+                             vedi la sezione del lotto 033. Un **3** e' un
+                             difetto nuovo, e va guardato.
     _112-verifica-fonti      **234 su 234** coperte; tetto 0, caratteri
                              cancellati 0, apostrofi dentro la parola 0
                              (esce con 0: e' un cancello, non un referto)
     _113-fonti-gia-rese      **45 su 200** titoli il cui giapponese e' gia' reso
                              altrove — e' un REFERTO, il valore atteso non e' zero
-    _114-corpo-da-fare       ⭐ TOTALE da fare **1.138 su 1.449 vive**, e
+    _114-corpo-da-fare       ⭐ TOTALE da fare **1.088 su 1.449 vive**, e
                              `FILTER_FURNITURE` in fondo a **0 su 261**: chiusa.
+                             `FILTER_ITEM_TOOL` **154 su 204** (il 033 ne ha
+                             fatte 50).
                              ⓘ il totale deve coincidere con quello di
                              `verifica --dizionario`: sono due fonti diverse
 
@@ -53,14 +65,16 @@ verifiche su ventitre' ai valori della 113a, albero pulito, allineato a
 `origin/fase-0` e `log.md` del vault aggiornato. E' la **seconda** apertura
 pulita di fila dopo il guasto della 112a, e la build era gia' al suo posto.
 
-⚠️⚠️ **La prima cosa da fare in apertura NON e' ricostruire.** Dalla 107a in poi
-la sessione dopo si e' sempre aperta sulla **stessa macchina**, con l'albero di
-build al suo posto: si guarda se c'e' gia' tutto, con
-`ls C:\Games\Elona\_traduzione\`, e si controlla che
-`elonaplus2.31\cgx-test.exe` sia quello delle **09:22 del 31/08**. Se la data e'
-quella, la build contiene tutte e 173 le rese della 114a e non va rifatta.
+⚠️⚠️ **LA 114a SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e' spinto
+(`origin/fase-0` allineato) e l'albero e' pulito.
+ⓘ Dalla 107a in poi lo si e' annunciato ogni volta e la sessione dopo si e'
+aperta sulla **stessa macchina**, con l'albero di build al suo posto: la prima
+cosa da fare **non** e' ricostruire — e' guardare se c'e' gia' tutto, con
+`ls C:\Games\Elona\_traduzione\`, e controllare che
+`elonaplus2.31\cgx-test.exe` sia quello delle **14:36 del 31/08**. Se la data e'
+quella, la build contiene tutte e 223 le rese della 114a e non va rifatta.
 ⓘ I sei file dati non cambiano dalla 108a: `cmp -s` prima di `cp`, e non serve
-copiarli.
+copiarli. Verificato anche a fine 114a: sei su sei identici.
 
 ---
 
@@ -191,18 +205,29 @@ Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
 **ventiquattro**: le ventitre' della 113a piu' `_114-corpo-da-fare.py`, che pero'
 e' un **referto** — anzi, e' la tabella da cui si sceglie il lotto prossimo.
 
-La 114a ha tradotto **173 righe** in quattro lotti (029, 030, 031, 032) e ha
-**chiuso il mobilio**: `FILTER_FURNITURE` sta a **0 righe da fare su 261 vive**,
-261 rese dal lotto 027 al 032. Il debito di collaudo sale da 7.857 a **8.030**.
+La 114a ha tradotto **223 righe** in cinque lotti (029, 030, 031, 032 sul
+mobilio, 033 sugli attrezzi) e ha **chiuso il mobilio**: `FILTER_FURNITURE` sta
+a **0 righe da fare su 261 vive**, 261 rese dal lotto 027 al 032. Il debito di
+collaudo sale da 7.857 a **8.080**.
 
 ### ▶ ⭐⭐⭐ IL LOTTO DA CUI SI COMINCIA LA PROSSIMA VOLTA
 
-La tabella non si scrive piu' a mano: la stampa
+**`FILTER_ITEM_TOOL` da 48.000 in su**: il lotto 033 ha preso le prime 50 righe
+(fino a `:47288`) e ne restano **154**. Il comando che apre il lotto 034 e':
+
+    python scratchpad/lotti-113/_corpo.py 034 FILTER_ITEM_TOOL 48000 <fine>
+
+💡 Le taglie provate nella 114a: `0 48000` da' 50 righe, `0 52000` ne da' 73,
+`0 60000` 88, `0 80000` 143. Un lotto sano sta fra le 30 e le 55; si sceglie
+l'estremo guardando il numero che `_corpo.py` stampa **prima** di scrivere il
+dossier.
+
+La tabella di quel che resta non si scrive piu' a mano: la stampa
 `python scratchpad/_114-corpo-da-fare.py`. Al termine della 114a dice:
 
     da fare   vive   categoria            da fare   vive   categoria
     ----------------------------         ----------------------------
-      204     204   FILTER_ITEM_TOOL        73      73   FILTER_ITEM_SCROLL
+      154     204   FILTER_ITEM_TOOL        73      73   FILTER_ITEM_SCROLL
       124     124   FILTER_JUNK             60      60   FILTER_RANGE
       110     110   FILTER_WEAPON           33      33   FILTER_ORE
        98     148   FILTER_ITEM_FOOD        32      32   FILTER_ITEM_ROD
@@ -210,7 +235,7 @@ La tabella non si scrive piu' a mano: la stampa
        82      82   FILTER_ITEM_POTION      24      24   FILTER_SHIELD
                                        piu' una coda di diciannove minori
     -------------------------------------------------------------------
-    TOTALE da fare **1.138 su 1.449 vive**
+    TOTALE da fare **1.088 su 1.449 vive**
     e in fondo alla tabella, **0 su 261, FILTER_FURNITURE**
 
 ⚠️ Il mobilio **compare ancora**, con lo zero davanti: la tabella elenca le
@@ -218,11 +243,11 @@ categorie **vive**, non quelle da fare, e una categoria chiusa resta li' a dire
 quanto pesava. La prima stesura di questi documenti scriveva «non compare
 piu'» — dedotto invece che guardato, e falso.
 
-⭐ **`FILTER_ITEM_FOOD` e' l'unica categoria dove «da fare» e «vive» non
-coincidono** (98 su 148): li' vive il moltiplicatore delle quattro firme
-generiche che il lotto 026 ha sfruttato. In tutte le altre una resa e' una riga.
-💡 Conviene `FILTER_ITEM_TOOL`, che e' la piu' grossa e va spezzata in tre o
-quattro lotti, oppure finire il cibo, che costa meno di quel che pesa.
+⭐ **Dove «da fare» e «vive» non coincidono, c'e' un moltiplicatore.** Il cibo
+(98 su 148) e ora gli attrezzi (154 su 204) sono le due categorie dove una resa
+copre piu' di una riga: nel cibo per le quattro firme generiche dell'indice 2,
+negli attrezzi per le righe di indice 1 e 2 condivise fra oggetti gemelli. Nel
+mobilio il rapporto era uno a uno.
 
 ⚠️ Il comando per aprire un lotto e' quello della 113a, con la categoria e
 l'intervallo di righe: `_corpo.py` → `_107-dossier-item.py` → `_code.py` →
@@ -316,22 +341,105 @@ delle 173 rese che l'abbia acceso, e conferma la soglia dei 14 misurata dalla
 113a: sopra i 13 e' un indizio di pericolo, e a decidere e' il cancello, che
 guarda **dove** cade il taglio.
 
+### ▶ ⭐⭐⭐ IL LOTTO 033 NON SOMIGLIA AL MOBILIO, E TRE COSE LO DICONO
+
+Il primo lotto di `FILTER_ITEM_TOOL` (50 righe: 31 dell'indice 0, **6
+dell'indice 1**, 13 del 2) e' fatto di oggetti **aggiunti dal CGX**: prosa
+lunga, tecnica, piena di termini che il gioco usa altrove. Tre differenze che
+valgono anche per i lotti prossimi:
+
+**1. Una resa non copre una riga sola.** I quattro fucili anestetici
+(`:42415`, `:42491`, `:42567`, `:42643`) differiscono solo nella fascia di peso,
+ma le loro righe di indice 1 e 2 sono **identiche in tutti e quattro**: una
+firma, `:42416` e `:42417`, che copre quattro righe ciascuna. `applica` e'
+salito di **56** su 50 rese, e i 6 in piu' sono esattamente quelli.
+⚠️ Il numero atteso di un lotto di attrezzi **non e'** il numero delle rese.
+
+**2. La spaziatura prima del `\n` non e' uniforme.** Nel mobilio era quasi
+sempre uno spazio; qui l'inglese ne mette uno, zero o **due** (`:45549`,
+`:45615`, `:45681`), e `:45944` porta un `\n` **in coda** che nessun'altra riga
+ha. Ogni riga copia il suo, verbatim.
+
+**3. Cinque righe di indice 2 non hanno giapponese affatto** (`:45549`,
+`:45615`, `:45681`, `:45747`, `:45813`, `:45879`): sono aggiunte del CGX, e la
+sola fonte e' l'inglese.
+
+### ▶ ⭐⭐⭐ IL CODICE HA SMENTITO IL GIAPPONESE, E HA VINTO IL CODICE
+
+Il giapponese di `:46950` (l'estensore di sopravvivenza Y) comincia con
+**（未実装）**, «non implementato». L'oggetto pero' **funziona**:
+`action.hsp:8721` ha il suo ramo di effetto e `:8782` mette
+`CDATA_PREGNANCY_MALE_CHILD`, come la X fa con `..._FEMALE_CHILD`. Il giapponese
+e' fermo a una versione vecchia.
+
+E' la quinta fonte della 110a alla lettera, e non era un'ambiguita': era una
+riga che avrebbe detto al giocatore di non usare un oggetto che funziona. Il
+marcatore non si rende, e le due rese restano identiche come lo sono i due
+inglesi. ⓘ La **rete 13** del lotto ha segnalato la coppia da sola.
+
+### ▶ ⚠️⚠️ IL CANCELLO «TITOLI RESI IN PIU' MODI» PASSA DA 0 A 2, E IL 2 E' GIUSTO
+
+`lotti-113/_code.py` assegna la riga-fonte passando dal **giapponese**, e cosi'
+ha trovato due punti in cui l'inglese attribuisce male:
+
+    :46952  en `# Lead Developer <Dr. Gavela>`   jp 生化学者『イコール』
+            -> e' **<Icolle> il biochimico**, non <Gavela>
+    :46403  en `#~Thousands of pieces of Junk I love~`  jp ～ゴミの山に光るもの～
+            -> sono **due libri diversi**: la coda giusta e'
+               `~Quel che Brilla nel Mucchio dei Rifiuti~`
+
+Il cancello di `_112-corpo-descrizioni.py` e' chiavato sull'**inglese**, quindi
+due inglesi uguali con due italiani diversi lo accendono. Le rese sono giuste e
+**restano**; il valore atteso diventa **2**, con i due nomi scritti accanto
+nella testa di questo file. ⚠️ Un **3** e' un difetto nuovo.
+
+### ▶ ⚠️⚠️ DUE RIGHE HANNO PERSO IL `#`, E NON GLIELO RIMETTIAMO
+
+`:47287` e `:47288` (le battute sui calzini) hanno in giapponese
+`#～…の言葉～` col cancelletto e in inglese `~Bandit Leader~` **senza**. Senza il
+`#` il gioco non la disegna come riga-fonte (`command.hsp:16758`).
+
+Il `#` **non** si aggiunge: il cancello «`#` perso o aggiunto» conta i
+cancelletti **contro l'inglese** (`en.count('#') != it.count('#')`), e
+aggiungerlo lo accenderebbe. E' un difetto di **monte**, come i 110 inglesi
+oltre il tetto dell'indice 3: non si conta contro di noi e non si ripara di
+nascosto.
+ⓘ Per questo `_code.py` **esce con 1** su questo lotto («2 righe senza resa in
+tabella»): cerca il segmento che comincia per `#`. Non e' un guasto della rete.
+
 ### ▶ Gli strumenti nuovi della 114a
 
     scratchpad/lotti-113/_gia-reso.py    la prosa gia' resa altrove (REFERTO)
     scratchpad/_114-corpo-da-fare.py     quanto resta per categoria (la tabella
                                          che prima si scriveva a mano)
 
-### ▶ ⚠️⚠️ LE 173 RESE NON SONO MAI STATE VISTE A SCHERMO
+### ▶ ⚠️⚠️ LE 223 RESE NON SONO MAI STATE VISTE A SCHERMO
 
-Il debito sale a **8.030**. In questa sessione **non e' stata data nessuna lista
-di passi**: quella della 113a — `spawn_item` 1315, 1116, 945, 1053, 942 e la
-pergamena 14, poi `mapinv` → `ESC` → `g` → `r` → `X` → `x` — non e' mai tornata
-indietro, e vale ancora. ⚠️ Il corpo si vede **solo a oggetto identificato a
-fondo** (`db_item.hsp:16398`).
+Il debito sale a **8.080**. La lista di passi della 114a e' stata data in
+chiusura, con gli identificativi **letti in `defines/mod.hsp`** e l'
+`IDENTIFY_LEVEL` verificato a 0 per ognuno (`db_item.hsp`):
 
-💡 Gli identificativi buoni per guardare il mobilio della 114a vanno **letti nel
-sorgente prima di darli**: nessuno di quelli qui sopra e' un mobile.
+    F12 -> wizard
+    spawn_item 539  la statua del gatto     (idx 0 + la battuta di <Tam>)
+    spawn_item 488  l'attrezzo da palestra  (idx 0 + idx 2)
+    spawn_item 305  la bara                 (la battuta di <Ainc>)
+    spawn_item 137  il garofano             (la battuta di <Noel>)
+    spawn_item 53   la lapide               (le parole di <Erystia>)
+    spawn_item 332  il tavolo   <- qui l'inglese diceva «trono»
+    spawn_item 328  il pianoforte verticale <- qui l'inglese perdeva il «non»
+    spawn_item 14   la pergamena di identificazione (ITEM_ID_SCROLL_IDENTIFY)
+    mapinv -> ESC -> g -> r -> X -> x
+
+⚠️ `spawn_item` fa `itemcreate -1, ...` (`system.hsp:4849`): gli oggetti cadono
+**a terra**, non nello zaino. Percio' `mapinv` e non `allinv` — la lezione della
+112a.
+⚠️ Il corpo si vede **solo a oggetto identificato a fondo**
+(`command.hsp:16398`, `ITEM_KNOWN_FULL`): senza la pergamena il pannello resta
+muto e la conclusione «non tradotto» sarebbe falsa.
+💡 Per il lotto 033 gli identificativi **non sono stati letti**: chi li vuole li
+cerchi in `defines/mod.hsp` (`ITEM_ID_TZ500_K`, `ITEM_ID_CORK_PACK`,
+`ITEM_ID_MASTER_OF_DIAMOND`, `ITEM_ID_SOCKS2`), e verifichi l'`IDENTIFY_LEVEL`
+prima di scriverli in una lista.
 
 ---
 

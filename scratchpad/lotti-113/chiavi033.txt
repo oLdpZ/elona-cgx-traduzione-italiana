@@ -1,0 +1,215 @@
+RIGHE = {
+    42415, 42416, 42417, 42491, 42567, 42643, 42709, 43240, 44097, 44163,
+    44229, 45481, 45547, 45549, 45613, 45615, 45679, 45681, 45745, 45747,
+    45811, 45813, 45877, 45879, 45944, 45945, 45946, 46076, 46142, 46144,
+    46403, 46404, 46405, 46479, 46547, 46615, 46683, 46751, 46818, 46884,
+    46885, 46886, 46950, 46951, 46952, 47016, 47083, 47286, 47287, 47288,
+}
+# 50 righe, da 42415 a 47288
+
+    # ---------------------------------------------------------- :42415
+    (42415, 'A dart-firing tranquilizer repeater-rifle designed for targets weighing between 500 to 1000 kg. It uses specialized anesthetizing rounds to incapacitate large creatures, though the effect takes a moment to manifest. Overdosing can destroy nerve tissue, and its efficacy greatly diminishes for subjects outside the proper weight range. Utilizing a low-velocity gas propulsion system to minimize impact damage, the darts may fail to penetrate at longer distances, presenting a notable drawback. \\n#~Future Monster Damage Countermeasures~'):
+        "",
+
+    # ---------------------------------------------------------- :42416
+    (42416, 'No need for time-consuming individualized mixtures. Guaranteed penetration and impact within range. Consistent onset and follow-up shots possible. Unquestionably the best tranquilizer gun series today. \\n# ~words of Expert Marksman~'):
+        "",
+
+    # ---------------------------------------------------------- :42417
+    (42417, "For eradication, isn't it quicker and more certain to just shoot them dead? \\n# ~words of Expert Huntsman~"):
+        "",
+
+    # ---------------------------------------------------------- :42491
+    (42491, 'A dart-firing tranquilizer repeater-rifle designed for targets weighing between 100 to 500 kg. It uses specialized anesthetizing rounds to incapacitate large creatures, though the effect takes a moment to manifest. Overdosing can destroy nerve tissue, and its efficacy greatly diminishes for subjects outside the proper weight range. Utilizing a low-velocity gas propulsion system to minimize impact damage, the darts may fail to penetrate at longer distances, presenting a notable drawback. \\n#~Future Monster Damage Countermeasures~'):
+        "",
+
+    # ---------------------------------------------------------- :42567
+    (42567, 'A dart-firing tranquilizer repeater-rifle designed for targets weighing between 30 to 100 kg. It uses specialized anesthetizing rounds to incapacitate large creatures, though the effect takes a moment to manifest. Overdosing can destroy nerve tissue, and its efficacy greatly diminishes for subjects outside the proper weight range. Utilizing a low-velocity gas propulsion system to minimize impact damage, the darts may fail to penetrate at longer distances, presenting a notable drawback. \\n#~Future Monster Damage Countermeasures~'):
+        "",
+
+    # ---------------------------------------------------------- :42643
+    (42643, 'A dart-firing tranquilizer repeater-rifle designed for targets weighing lower than 30 kg. It uses specialized anesthetizing rounds to incapacitate large creatures, though the effect takes a moment to manifest. Overdosing can destroy nerve tissue, and its efficacy greatly diminishes for subjects outside the proper weight range. Utilizing a low-velocity gas propulsion system to minimize impact damage, the darts may fail to penetrate at longer distances, presenting a notable drawback. \\n#~Future Monster Damage Countermeasures~'):
+        "",
+
+    # ---------------------------------------------------------- :42709
+    (42709, "Wooden Chopsticks, crafted using off-cuts from boards. Can be used as a feint, reducing the opponent's power gauge and preventing them from using their own gauge-based attacks. May also be planted on the ground. \\n#~Supporting Roles in Kitchen~"):
+        "",
+
+    # ---------------------------------------------------------- :43240
+    (43240, "An arcane device containing a magic stone. When a card of a creature is inserted into its lower case, the device emits a light from its upper mirror that transforms the user into the card's depicted creature. The effect lasts until the device is used again or the user dies, but it lacks a camouflage set-like mind-altering ability, so caution is advised. The device is called the Mimicry Mirror, based on the mimic's metamorphic mechanism.\\n#~Arcane Almanac~"):
+        "",
+
+    # ---------------------------------------------------------- :44097
+    (44097, 'Restraint devices developed in Eulderna. It was mainly used to take in experimental animals and felonious mages. In recent years, it has become an antique due to the spread of monster balls and domination magic that make them instantly obedient. It turns blue when activated, but to save money, levitation magic is not always activated and it only floats when the cage is moved. \\n#~ History of Bondage ~'):
+        "",
+
+    # ---------------------------------------------------------- :44163
+    (44163, "A device that allows slaves to spin round and round to gain energy. Older versions were so heavy that they could only be spun by several people, but in recent years, in line with the boom in slave economy, types that are light enough to be spun by a single person have become mainstream. \\n#~ Let's Slavery - Today ~"):
+        "",
+
+    # ---------------------------------------------------------- :44229
+    (44229, "Equipment that makes slaves run to gain energy. Hamsters enjoy turning it and even if they are not hamsters, it is a healthy way to get exercise. So forcing them to run is probably not abusive. \\n#~ Let's Slavery - Today ~"):
+        "",
+
+    # ---------------------------------------------------------- :45481
+    (45481, "A white orb said to contain the power of a demonic deity. Classified as a type of magic stone, but the method of production is vastly different. It consumes abyssal power to create simple magic traps at the user's current location. The strength of the trap depends on the Magic Device and Trapping skill of the user, as well as the depth of the Nefia. \\n#~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :45547
+    (45547, 'Manifested experience of the strong, semi-embodied due to a confluence of various conditions. When used, they get an overwhelming inspiration as if an electricity shock has been applied.\\n#~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :45549
+    (45549, "It's a stone that gives you AP.  \\n#~ Identification Report <Item> Category~"):
+        "",
+
+    # ---------------------------------------------------------- :45613
+    (45613, 'Conductive Cells infuesd with Coagulated Mana Clots, the creation process is extremelt painful. But its great for restoring magic circulations.\\n#~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :45615
+    (45615, "It's a stone that gives you magical powers (MP).  \\n#~ Identification Report <Item> Category~"):
+        "",
+
+    # ---------------------------------------------------------- :45679
+    (45679, 'Solidified Ether Compound containing hardened fighting spirits, giving it a flame-like shape. It eases its users fatigue.\\n#~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :45681
+    (45681, 'The stone provides endurance and stamina.  \\n#~ Identification Report <Item> Category~'):
+        "",
+
+    # ---------------------------------------------------------- :45745
+    (45745, "Drugs made to let user's immune system improvise, adapt, and overcome harsh environments. There were fake news which said it was made from fairy scales, but that's just untrustworthy Elea misinformation.\\n#~ Administration of Medicines ~"):
+        "",
+
+    # ---------------------------------------------------------- :45747
+    (45747, 'A tool to raise each resistance to a certain level. \\n#~ Identification Report <Item> Category~'):
+        "",
+
+    # ---------------------------------------------------------- :45811
+    (45811, "A medicine that permanently enhances the user's reflexes. However, it is not very effective without good equipment. \\n#~ Administration of Medicines ~"):
+        "",
+
+    # ---------------------------------------------------------- :45813
+    (45813, 'It is a tool to increase DV modifier. \\n#~ Identification Report <Item> Category~'):
+        "",
+
+    # ---------------------------------------------------------- :45877
+    (45877, "A medicine that permanently strengthens the skin's durability. However, it is not very effective without good equipment. \\n#~ Administration of Medicines ~"):
+        "",
+
+    # ---------------------------------------------------------- :45879
+    (45879, 'It is a tool to increase PV modifier. \\n#~ Identification Report <Item> Category~'):
+        "",
+
+    # ---------------------------------------------------------- :45944
+    (45944, 'Parts that can be disassembled and reassembled to change their gimmick according to the situation, allowing transformation into a further six forms. It was originally intended as add-ons for large mechanoids, but was deemed too complex to be practical and ended up on the paper plan. A miniature model was also made to illustrate the mechanism, but only a few were able to transform it properly.\\n# ~Irva Fantasy Encyclopedia~\\n'):
+        "",
+
+    # ---------------------------------------------------------- :45945
+    (45945, '\\"I can feel the romance in its transformation mechanics, the performance is not bad either, if only we have the budget..\\" \\n#~<Heinrich> the Armored General~'):
+        "",
+
+    # ---------------------------------------------------------- :45946
+    (45946, '\\"Regardless of it\'s performance, it\'s useless if we can\'t mass-produce nor maintain it.\\" \\n#~<Milis> Captain of the Special Forces~'):
+        "",
+
+    # ---------------------------------------------------------- :46076
+    (46076, 'A collection of special slime molds. It functions like a computer and moves freely with electrical signals. Former civilizations had the technology to download personalities and skills to this slime mold. Undead weapons composed of slime mold are said to have radically changed the warfare of that time.\\n#~a Glimpse of Lost Technology~'):
+        "",
+
+    # ---------------------------------------------------------- :46142
+    (46142, 'Dismembered Corpse, filled with constituent mucus. When attached to the subject, they can be moved at will, but modern technology will not allow them to be attached if they already have the relevant parts of the body due to rejection.\\n#~a Glimpse of Lost Technology~'):
+        "",
+
+    # ---------------------------------------------------------- :46144
+    (46144, '\\"If you wanna grow an arm, would you prefer a beautiful one? a eldritch one? or a giant robot arm?! If you\'re going to do it, you WILL pay attention to the details! Customise your own and win the battle!\\" \\n# a Bored Necromancer'):
+        "",
+
+    # ---------------------------------------------------------- :46403
+    (46403, 'An assortment of cork stoppers used as poton plugs. They look almost identical, but slightly different due to the manufacturer. Only a true cork maniac and tell the difference.\\n#~Thousands of pieces of Junk I love~'):
+        "",
+
+    # ---------------------------------------------------------- :46404
+    (46404, '\\"They are the same plugs, no?\\" \\n# a bewildered amateur'):
+        "",
+
+    # ---------------------------------------------------------- :46405
+    (46405, '\\"And that\'s why they call you an amateur!!\\" \\n# angry potio-plug nerd'):
+        "",
+
+    # ---------------------------------------------------------- :46479
+    (46479, "Large-calibre photon cannon. Therefore, despite the name 'bazooka', it does not fire rockets and is structurally classified as a recoilless gun. However, the common name for the rocket launcher bazooka also derives from the fact that it originally resembled the shape of a musical instrument bazooka, so it is probably fair to call it a bazooka regardless of its structure if its shape is similar to a bazooka.\\n# ~You Can Use it too! Excavated Weapons~"):
+        "",
+
+    # ---------------------------------------------------------- :46547
+    (46547, 'Cards imbued with special magical powers. Once per turn: You can pay 10% of your MP, then activate 1 of these effects;\\n(1) If you control 5 or more \\"Card Spirit\\", change \\"Card Spirit - Diamond Eyes\\" you control into Attack Position, they gain 1 rank if cards of higher rank doesn\'t exists. \\n(2) If you control 4 or less \\"Card Spirit\\", summon random \\"Card Spirit\\" until you control 5 of them. \\"Card Spirit\\" summoned this way change into Defense Position after attacking.\\n#~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :46615
+    (46615, 'Cards imbued with special magical powers. Once per turn: You can pay 10% of your MP, then activate 1 of these effects;\\n(1) If you control 5 or more \\"Card Spirit\\", change \\"Card Spirit - Heart Witch\\" you control into Attack Position, they gain 1 rank if cards of higher rank doesn\'t exists. \\n(2) If you control 4 or less \\"Card Spirit\\", summon random \\"Card Spirit\\" until you control 5 of them. \\"Card Spirit\\" summoned this way change into Defense Position after attacking.\\n#~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :46683
+    (46683, 'Cards imbued with special magical powers. Once per turn: You can pay 10% of your MP, then activate 1 of these effects;\\n(1) If you control 5 or more \\"Card Spirit\\", change \\"Card Spirit - Club Feathers\\" you control into Attack Position, they gain 1 rank if cards of higher rank doesn\'t exists. \\n(2) If you control 4 or less \\"Card Spirit\\", summon random \\"Card Spirit\\" until you control 5 of them. \\"Card Spirit\\" summoned this way change into Defense Position after attacking.\\n#~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :46751
+    (46751, 'Cards imbued with special magical powers. Once per turn: You can pay 10% of your MP, then activate 1 of these effects;\\n(1) If you control 5 or more \\"Card Spirit\\", change \\"Card Spirit - Spade Warrior\\" you control into Attack Position, they gain 1 rank if cards of higher rank doesn\'t exists. \\n(2) If you control 4 or less \\"Card Spirit\\", summon random \\"Card Spirit\\" until you control 5 of them. \\"Card Spirit\\" summoned this way change into Defense Position after attacking.\\n#~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :46818
+    (46818, "A mysterious metallic body said to have come from outer space. Because it is beautiful and rare, it is treated as a precious metal by the rich. There is an urban legend that if you press it against your head it will change your personality because it emits weak psychic waves. I tried it on my friend becuase why not, but it only made him more aware of his own personality. So I wouldn't deny the probability that this effect is the result of Self-Hypnosis.\\n#~Embark! Occultists~"):
+        "",
+
+    # ---------------------------------------------------------- :46884
+    (46884, 'Amidst the mechanical civilisation ... the human body became more fragile with every generation due to the deteriorating environment. They were on the verge of extinction, but were spared by the development of technology to extend the human survival capabilities. Nanomachines that record and reproduce characteristics that are advantageous to survival, both organic and inorganic, and rewrite them by assimilating them into the cells of their offspring... these are the Survivability Extenders. Similar nanomachines, albeit with reduced function, remain in the cells of most modern organisms. This is largely responsible for the phenomenon that genes can be left behind across species.\\n#~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :46885
+    (46885, '\\"The cells of primordial life were not equipped with mitochondria, nanomachines nor magical conductors. So life evolved by incorporating things that gave it an extra edge at the cellular level.\\" \\n# a Zanan Researcher'):
+        "",
+
+    # ---------------------------------------------------------- :46886
+    (46886, '\\"Many mechanical life forms were spawned with humans by these nanomachines. Of course, some were born of a completely different lineage of technology... but only the types that could eat, sleep, have the ability to heal and reproduce eventually survived. Maybe it\'s called convergent evolution.\\" \\n# Lead Developer <Dr. Gavela>'):
+        "",
+
+    # ---------------------------------------------------------- :46950
+    (46950, 'Amidst the mechanical civilisation ... the human body became more fragile with every generation due to the deteriorating environment. They were on the verge of extinction, but were spared by the development of technology to extend the human survival capabilities. Nanomachines that record and reproduce characteristics that are advantageous to survival, both organic and inorganic, and rewrite them by assimilating them into the cells of their offspring... these are the Survivability Extenders. Similar nanomachines, albeit with reduced function, remain in the cells of most modern organisms. This is largely responsible for the phenomenon that genes can be left behind across species.\\n#~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :46951
+    (46951, '\\"Hee hee hee... it was good that I created a synthetic beast by crossing many creatures with this tool, but it was too hard to raise them, so I guess I\'ll work steadily with synthetic magic after all!\\" \\n# a Evil Wizard'):
+        "",
+
+    # ---------------------------------------------------------- :46952
+    (46952, '\\"I\'ve heard the folklore that a child born with the traits of a beast left the human village because he couldn\'t control his wild nature. I guess some of the modern beastmen have their roots in that kind of thing.\\" \\n# Lead Developer <Dr. Gavela>'):
+        "",
+
+    # ---------------------------------------------------------- :47016
+    (47016, 'A fibrous substance with miraculous powers. If there is a weapon that can incorporate it, it will help in its growth.\\n#~Blacksmithing History~'):
+        "",
+
+    # ---------------------------------------------------------- :47083
+    (47083, "A thin ring-like crystalline substance. Note that there are some infidels who sell screw-fastening parts similar to these, which have no effect, at exorbitant prices as electromagnetic wave countermeasures and items to prevent thought eavesdropping.This is a shameful practice that preys on people suffering from hallucinations and delusions, so don't say it's safe because it's a win-win situation, but repent quickly....Rest assured that the Anering contains sisterly energy waves and can be bathed in if cracked open.\\n#~Big Sister Energy Waves~"):
+        "",
+
+    # ---------------------------------------------------------- :47286
+    (47286, 'A pair of garments. They are not intended to be used as weapons or as armour, but there are enthusiasts who collect even these. Note that the socks of people who are not in the habit of washing their feet smell quite bad. Incidentally, when washing socks, turning them inside out makes it easier to remove sebum stains from the parts in contact with the feet.\\n# ~Palmian Winter Fashion~'):
+        "",
+
+# 31 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :47287
+    (47287, '\\"Wash my feet? Don\'t be ridiculous.\\"\\n~Bandit Leader~'):
+        "",
+
+# 6 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :47288
+    (47288, '\\"Wash my socks? Don\'t be ridiculous.\\"\\n~Socks Enthusiast~'):
+        "",
+
+# 13 voci, 0 ambigue
+

@@ -1,0 +1,449 @@
+=== ITEM_ID_TZ500_K   [FILTER_ITEM_TOOL]
+    NOME      jp TZ500-K型麻酔銃
+              en TZ500-K
+              IT TZ500-K
+    --- description(0)  :42415
+        JP  連射可能なライフル型の麻酔銃。体重５００キログラム以上１０００キログラム未満のターゲットを気絶させる特殊麻酔弾を発射するが、効果が出るまでに少し時間がかかる。過剰投与すると神経を破壊してしまうし、適正体重を超える相手には効果が激減する。着弾の衝撃でダメージを与えないよう威力の弱いガス発射式になっているため、遠距離からだと麻酔弾が刺さらないのも欠点。\n#～これからの魔物被害対策～
+        EN  A dart-firing tranquilizer repeater-rifle designed for targets weighing between 500 to 1000 kg. It uses specialized anesthetizing rounds to incapacitate large creatures, though the effect takes a moment to manifest. Overdosing can destroy nerve tissue, and its efficacy greatly diminishes for subjects outside the proper weight range. Utilizing a low-velocity gas propulsion system to minimize impact damage, the darts may fail to penetrate at longer distances, presenting a notable drawback. \n#~Future Monster Damage Countermeasures~
+    --- description(1)  :42416
+        JP  「相手に応じて細かく調合を変える手間がなく、有効射程内なら確実に命中して刺さる精度を誇り、一定の時間で確実に効果が出て、連射までできる。間違いなく現代において最強の麻酔銃シリーズだ」\n#～麻酔の射手の言葉～
+        EN  No need for time-consuming individualized mixtures. Guaranteed penetration and impact within range. Consistent onset and follow-up shots possible. Unquestionably the best tranquilizer gun series today. \n# ~words of Expert Marksman~
+    --- description(2)  :42417
+        JP  「駆除目的の場合は、普通に射殺したほうが早くて確実じゃないか？」\n#～熟練狩人の言葉～
+        EN  For eradication, isn't it quicker and more certain to just shoot them dead? \n# ~words of Expert Huntsman~
+    --- description(3)  :42418 ⚠️ TETTO SECCO 69
+        JP  対象の体重で効果変動する麻酔銃だ。何度か使用することができる。\n#～鑑定報告書：＜用具＞カテゴリ～
+        EN  (Reusable) Dart rifle that tranquilizes target weight 500-1000 kg.
+        IT  Fucile anestetico: l'effetto varia col peso. Si usa più volte.
+
+=== ITEM_ID_TZC_500   [FILTER_ITEM_TOOL]
+    NOME      jp TZC-500型麻酔銃
+              en TZC-500
+              IT TZC-500
+    --- description(0)  :42491
+        JP  連射可能なライフル型の麻酔銃。体重１００キログラム以上５００キログラム未満のターゲットを気絶させる特殊麻酔弾を発射するが、効果が出るまでに少し時間がかかる。過剰投与すると神経を破壊してしまうし、適正体重を超える相手には効果が激減する。着弾の衝撃でダメージを与えないよう威力の弱いガス発射式になっているため、遠距離からだと麻酔弾が刺さらないのも欠点。\n#～これからの魔物被害対策～
+        EN  A dart-firing tranquilizer repeater-rifle designed for targets weighing between 100 to 500 kg. It uses specialized anesthetizing rounds to incapacitate large creatures, though the effect takes a moment to manifest. Overdosing can destroy nerve tissue, and its efficacy greatly diminishes for subjects outside the proper weight range. Utilizing a low-velocity gas propulsion system to minimize impact damage, the darts may fail to penetrate at longer distances, presenting a notable drawback. \n#~Future Monster Damage Countermeasures~
+    --- description(1)  :42492
+        JP  「相手に応じて細かく調合を変える手間がなく、有効射程内なら確実に命中して刺さる精度を誇り、一定の時間で確実に効果が出て、連射までできる。間違いなく現代において最強の麻酔銃シリーズだ」\n#～麻酔の射手の言葉～
+        EN  No need for time-consuming individualized mixtures. Guaranteed penetration and impact within range. Consistent onset and follow-up shots possible. Unquestionably the best tranquilizer gun series today. \n# ~words of Expert Marksman~
+    --- description(2)  :42493
+        JP  「駆除目的の場合は、普通に射殺したほうが早くて確実じゃないか？」\n#～熟練狩人の言葉～
+        EN  For eradication, isn't it quicker and more certain to just shoot them dead? \n# ~words of Expert Huntsman~
+    --- description(3)  :42494 ⚠️ TETTO SECCO 69
+        JP  対象の体重で効果変動する麻酔銃だ。何度か使用することができる。\n#～鑑定報告書：＜用具＞カテゴリ～
+        EN  (Reusable) Dart rifle that tranquilizes target weight 100-500 kg.
+        IT  Fucile anestetico: l'effetto varia col peso. Si usa più volte.
+
+=== ITEM_ID_TZ30_C   [FILTER_ITEM_TOOL]
+    NOME      jp TZ30-C型麻酔銃
+              en TZ30-C
+              IT TZ30-C
+    --- description(0)  :42567
+        JP  連射可能なライフル型の麻酔銃。体重３０キログラム以上１００キログラム未満のターゲットを気絶させる特殊麻酔弾を発射するが、効果が出るまでに少し時間がかかる。過剰投与すると神経を破壊してしまうし、適正体重を超える相手には効果が激減する。着弾の衝撃でダメージを与えないよう威力の弱いガス発射式になっているため、遠距離からだと麻酔弾が刺さらないのも欠点。\n#～これからの魔物被害対策～
+        EN  A dart-firing tranquilizer repeater-rifle designed for targets weighing between 30 to 100 kg. It uses specialized anesthetizing rounds to incapacitate large creatures, though the effect takes a moment to manifest. Overdosing can destroy nerve tissue, and its efficacy greatly diminishes for subjects outside the proper weight range. Utilizing a low-velocity gas propulsion system to minimize impact damage, the darts may fail to penetrate at longer distances, presenting a notable drawback. \n#~Future Monster Damage Countermeasures~
+    --- description(1)  :42568
+        JP  「相手に応じて細かく調合を変える手間がなく、有効射程内なら確実に命中して刺さる精度を誇り、一定の時間で確実に効果が出て、連射までできる。間違いなく現代において最強の麻酔銃シリーズだ」\n#～麻酔の射手の言葉～
+        EN  No need for time-consuming individualized mixtures. Guaranteed penetration and impact within range. Consistent onset and follow-up shots possible. Unquestionably the best tranquilizer gun series today. \n# ~words of Expert Marksman~
+    --- description(2)  :42569
+        JP  「駆除目的の場合は、普通に射殺したほうが早くて確実じゃないか？」\n#～熟練狩人の言葉～
+        EN  For eradication, isn't it quicker and more certain to just shoot them dead? \n# ~words of Expert Huntsman~
+    --- description(3)  :42570 ⚠️ TETTO SECCO 69
+        JP  対象の体重で効果変動する麻酔銃だ。何度か使用することができる。\n#～鑑定報告書：＜用具＞カテゴリ～
+        EN  (Reusable) Dart rifle that tranquilizes target weight 30-100 kg.
+        IT  Fucile anestetico: l'effetto varia col peso. Si usa più volte.
+
+=== ITEM_ID_TZ_30   [FILTER_ITEM_TOOL]
+    NOME      jp TZ-30型麻酔銃
+              en TZ-30
+              IT TZ-30
+    --- description(0)  :42643
+        JP  連射可能なライフル型の麻酔銃。体重３０キログラム未満のターゲットを気絶させる特殊麻酔弾を発射するが、効果が出るまでに少し時間がかかる。過剰投与すると神経を破壊してしまうし、適正体重を超える相手には効果が激減する。着弾の衝撃でダメージを与えないよう威力の弱いガス発射式になっているため、遠距離からだと麻酔弾が刺さらないのも欠点。\n#～これからの魔物被害対策～
+        EN  A dart-firing tranquilizer repeater-rifle designed for targets weighing lower than 30 kg. It uses specialized anesthetizing rounds to incapacitate large creatures, though the effect takes a moment to manifest. Overdosing can destroy nerve tissue, and its efficacy greatly diminishes for subjects outside the proper weight range. Utilizing a low-velocity gas propulsion system to minimize impact damage, the darts may fail to penetrate at longer distances, presenting a notable drawback. \n#~Future Monster Damage Countermeasures~
+    --- description(1)  :42644
+        JP  「相手に応じて細かく調合を変える手間がなく、有効射程内なら確実に命中して刺さる精度を誇り、一定の時間で確実に効果が出て、連射までできる。間違いなく現代において最強の麻酔銃シリーズだ」\n#～麻酔の射手の言葉～
+        EN  No need for time-consuming individualized mixtures. Guaranteed penetration and impact within range. Consistent onset and follow-up shots possible. Unquestionably the best tranquilizer gun series today. \n# ~words of Expert Marksman~
+    --- description(2)  :42645
+        JP  「駆除目的の場合は、普通に射殺したほうが早くて確実じゃないか？」\n#～熟練狩人の言葉～
+        EN  For eradication, isn't it quicker and more certain to just shoot them dead? \n# ~words of Expert Huntsman~
+    --- description(3)  :42646 ⚠️ TETTO SECCO 69
+        JP  対象の体重で効果変動する麻酔銃だ。何度か使用することができる。\n#～鑑定報告書：＜用具＞カテゴリ～
+        EN  (Reusable) Dart rifle that tranquilizes target weight <30 kg.
+        IT  Fucile anestetico: l'effetto varia col peso. Si usa più volte.
+
+=== ITEM_ID_WARIBASI   [FILTER_ITEM_TOOL]
+    NOME      jp わりばし
+              en waribasi
+              IT waribasi
+    --- description(0)  :42709
+        JP  木で作られた箸。材木を作る際に端材を利用して作られる。眼前の相手に使用することでフェイントを仕掛け、パワーゲージを低下させて相手のゲージ技を使えなくさせることができる。足元に植えることもできる。\n#～料理を支える脇役達～
+        EN  Wooden Chopsticks, crafted using off-cuts from boards. Can be used as a feint, reducing the opponent's power gauge and preventing them from using their own gauge-based attacks. May also be planted on the ground. \n#~Supporting Roles in Kitchen~
+    --- description(3)  :42712 ⚠️ TETTO SECCO 69
+        JP  木製の箸だ。使うことができる(使い捨て)。\n#～鑑定報告書：＜用具＞カテゴリ～
+        EN  (Single-use) chopsticks.
+        IT  Bacchette di legno. Si usa (usa e getta).
+
+=== ITEM_ID_MIMIRROCRY   [FILTER_ITEM_TOOL]
+    NOME      jp ミラクリー
+              en mimirrocry
+              IT mimirrocry
+    --- description(0)  :43240
+        JP  魔石が組み込まれた魔道具。下部のケースにカードをセットすると、そのカードの生物の姿へと変身させる光線が上部の鏡から放たれる。再度使うか死亡するまで効果は解除されないが、変装セットのような認識阻害能力は備わっていないため注意。ミミックの擬態メカニズムを参考にしており、擬態鏡と呼ばれることもある。\n#～魔具全典～
+        EN  An arcane device containing a magic stone. When a card of a creature is inserted into its lower case, the device emits a light from its upper mirror that transforms the user into the card's depicted creature. The effect lasts until the device is used again or the user dies, but it lacks a camouflage set-like mind-altering ability, so caution is advised. The device is called the Mimicry Mirror, based on the mimic's metamorphic mechanism.\n#~Arcane Almanac~
+    --- description(3)  :43243 ⚠️ TETTO SECCO 69
+        JP  別の姿を与える道具だ。誰にでも何度でも使用できる。\n#～鑑定報告書：＜魔道具＞カテゴリ～
+        EN  (Reusable) Magical item that changes one's form.
+        IT  Dà un altro aspetto, a chiunque. Si può usare sempre.
+
+=== ITEM_ID_FLOAT_CAGE   [FILTER_ITEM_TOOL]
+    NOME      jp 浮遊檻
+              en float cage
+              IT gabbia fluttuante
+    --- description(0)  :44097
+        JP  エウダーナで開発された拘束器具。主に実験動物や重罪魔導士を連行するために用いられていた。近年は即時従順にさせるモンスターボールや支配魔法が普及したため、骨董品と化している。起動すると青くなるが、節約のため浮遊魔術は常時発動しておらず、檻を移動させる時のみ浮く仕様。\n#～拘束器具の歴史～
+        EN  Restraint devices developed in Eulderna. It was mainly used to take in experimental animals and felonious mages. In recent years, it has become an antique due to the spread of monster balls and domination magic that make them instantly obedient. It turns blue when activated, but to save money, levitation magic is not always activated and it only floats when the cage is moved. \n#~ History of Bondage ~
+    --- description(3)  :44100 ⚠️ TETTO SECCO 69
+        JP  瀕死や行動不能の相手を連行できる檻。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Reusable) tool cage that capture and transport a defeated victim.
+        IT  Ci si porta via chi è in fin di vita o inerme. Si usa sempre.
+
+=== ITEM_ID_SLAVE_SPINNER   [FILTER_ITEM_TOOL]
+    NOME      jp 奴隷グルグル
+              en slave spinner
+              IT giostra per schiavi
+    --- description(0)  :44163
+        JP  奴隷にぐるぐる回させてエナジーを得る器具。昔のものは複数人でないと回らないくらい重い物だったが、近年の省奴隷ブームに乗っかり、独りで回せるくらい軽いタイプが主流となってきている。\n#～今日から始める奴隷運用～
+        EN  A device that allows slaves to spin round and round to gain energy. Older versions were so heavy that they could only be spun by several people, but in recent years, in line with the boom in slave economy, types that are light enough to be spun by a single person have become mainstream. \n#~ Let's Slavery - Today ~
+    --- description(3)  :44166 ⚠️ TETTO SECCO 69
+        JP  人力で労働エナジーを生む器具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Reusable) tool that generates work energy using human labor.
+        IT  Genera energia da lavoro a forza di braccia. Si può usare sempre.
+
+=== ITEM_ID_SLAVE_WHEEL   [FILTER_ITEM_TOOL]
+    NOME      jp 奴隷バタバタ
+              en slave wheel
+              IT ruota per schiavi
+    --- description(0)  :44229
+        JP  奴隷を走らせてエナジーを得る器具。ハムスターは楽しそうに回すし、ハムスターでなくても運動不足を解消できて健康にいい。だから無理矢理走らせてもたぶん虐待にはならない。\n#～今日から始める奴隷運用～
+        EN  Equipment that makes slaves run to gain energy. Hamsters enjoy turning it and even if they are not hamsters, it is a healthy way to get exercise. So forcing them to run is probably not abusive. \n#~ Let's Slavery - Today ~
+    --- description(3)  :44232 ⚠️ TETTO SECCO 69
+        JP  人力で労働エナジーを生む器具。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Reusable) tool that generates work energy using human labor.
+        IT  Genera energia da lavoro a forza di braccia. Si può usare sempre.
+
+=== ITEM_ID_WHITE_DARK_ORB   [FILTER_ITEM_TOOL]
+    NOME      jp 白魔神石
+              en white devil orb
+              IT globo del demone bianco
+    --- description(0)  :45481
+        JP  魔神の力を秘めているという白の石。分類上は魔石の一種だが、製法は大きく異なる。深淵魔力を消費して、簡易的な魔法の罠を使用者の現在地に仕掛ける。特殊な素養があれば遠隔起動できるという情報もあるが、現在のところ立証されていない。罠の強度は魔道具と罠の知識さらには階層の深さに依存する。\n#～イルヴァ幻想辞典～
+        EN  A white orb said to contain the power of a demonic deity. Classified as a type of magic stone, but the method of production is vastly different. It consumes abyssal power to create simple magic traps at the user's current location. The strength of the trap depends on the Magic Device and Trapping skill of the user, as well as the depth of the Nefia. \n#~Irva Fantasy Encyclopedia~
+    --- description(3)  :45484 ⚠️ TETTO SECCO 69
+        JP  罠を設置する石だ。何度でも使用することができる。\n#～鑑定報告書：＜魔道具＞カテゴリ～
+        EN  (Reusable) tool that set up traps.
+        IT  Una pietra che piazza trappole. Si può usare sempre.
+
+=== ITEM_ID_AWAKE_DESTONE   [FILTER_ITEM_TOOL]
+    NOME      jp 覚醒の閃石
+              en awakening stone
+              IT pietra del risveglio
+    --- description(0)  :45547
+        JP  様々な条件が重なったことにより半具現化した、強者の経験。使うと電流が走ったかのような圧倒的ひらめきを得る。\n#～イルヴァ幻想辞典～
+        EN  Manifested experience of the strong, semi-embodied due to a confluence of various conditions. When used, they get an overwhelming inspiration as if an electricity shock has been applied.\n#~Irva Fantasy Encyclopedia~
+    --- description(2)  :45549
+        JP  
+        EN  It's a stone that gives you AP.  \n#~ Identification Report <Item> Category~
+    --- description(3)  :45550 ⚠️ TETTO SECCO 69
+        JP  ＡＰを得られる石だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Single-use) tool used to gain AP.
+        IT  Una pietra che dà AP. Si usa (usa e getta).
+
+=== ITEM_ID_MANA_DESTONE   [FILTER_ITEM_TOOL]
+    NOME      jp 魔導結石
+              en mana stone
+              IT pietra di mana
+    --- description(0)  :45613
+        JP  マナの反動によって細胞内の魔導体が凝集したもの。起きていることは実質細胞破壊なので、生成過程はめちゃくちゃ痛い。使うと魔導体が少し修復され魔力のめぐりが改善される。\n#～イルヴァ幻想辞典～
+        EN  Conductive Cells infuesd with Coagulated Mana Clots, the creation process is extremelt painful. But its great for restoring magic circulations.\n#~Irva Fantasy Encyclopedia~
+    --- description(2)  :45615
+        JP  
+        EN  It's a stone that gives you magical powers (MP).  \n#~ Identification Report <Item> Category~
+    --- description(3)  :45616 ⚠️ TETTO SECCO 69
+        JP  魔力とＭＰを得られる石だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Single-use) tool used to restore mana.
+        IT  Una pietra che dà magia e MP. Si usa (usa e getta).
+
+=== ITEM_ID_FIGHTING_DESTONE   [FILTER_ITEM_TOOL]
+    NOME      jp 闘魂石
+              en fighting stone
+              IT pietra da combattimento
+    --- description(0)  :45679
+        JP  急激に発散された闘志がエーテルと化合して固まったもの。エーテル分布と感情のゆらぎにより炎のような形状になるのだとか。やる気の塊みたいなものであり、使うと疲労が和らいでもう少し頑張れそうな気がしてくる。\n#～イルヴァ幻想辞典～
+        EN  Solidified Ether Compound containing hardened fighting spirits, giving it a flame-like shape. It eases its users fatigue.\n#~Irva Fantasy Encyclopedia~
+    --- description(2)  :45681
+        JP  
+        EN  The stone provides endurance and stamina.  \n#~ Identification Report <Item> Category~
+    --- description(3)  :45682 ⚠️ TETTO SECCO 69
+        JP  耐久とスタミナを得られる石だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Single-use) tool used to restore stamina.
+        IT  Una pietra che dà costituzione e SP. Si usa (usa e getta).
+
+=== ITEM_ID_RES_UPPER   [FILTER_ITEM_TOOL]
+    NOME      jp Resアッパー
+              en Res upper
+              IT potenziatore di Res
+    --- description(0)  :45745
+        JP  過酷な環境に適応するために開発された薬。身体の免疫力を活性化することで、装備に依存せず耐性を獲得するという。妖精の鱗粉から作られるというデマが流行った時期があり、鱗粉を奪われ翅がハゲてスカスカになる妖精が続出したがそれも昔のことである。\n#～毒も薬も用法・用量～
+        EN  Drugs made to let user's immune system improvise, adapt, and overcome harsh environments. There were fake news which said it was made from fairy scales, but that's just untrustworthy Elea misinformation.\n#~ Administration of Medicines ~
+    --- description(2)  :45747
+        JP  
+        EN  A tool to raise each resistance to a certain level. \n#~ Identification Report <Item> Category~
+    --- description(3)  :45748 ⚠️ TETTO SECCO 69
+        JP  各耐性を一定まで上げる道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Single-use) tool used to increase your resistance.
+        IT  Alza tutte le resistenze fino a un limite. Si usa (usa e getta).
+
+=== ITEM_ID_DV_FIXER   [FILTER_ITEM_TOOL]
+    NOME      jp DVフィクサー
+              en DV fixer
+              IT correttore di DV
+    --- description(0)  :45811
+        JP  反応速度を永続強化し、回避力を上げる薬。とは言っても貧弱な装備をしていてはあまり効果がない。良い装備で増幅した時にこそ真価を発揮する。\n#～毒も薬も用法・用量～
+        EN  A medicine that permanently enhances the user's reflexes. However, it is not very effective without good equipment. \n#~ Administration of Medicines ~
+    --- description(2)  :45813
+        JP  
+        EN  It is a tool to increase DV modifier. \n#~ Identification Report <Item> Category~
+    --- description(3)  :45814 ⚠️ TETTO SECCO 69
+        JP  ＤＶ補正を上げる道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Single-use) tool used to increase your DV modifier.
+        IT  Alza il modificatore DV. Si usa (usa e getta).
+
+=== ITEM_ID_PV_FIXER   [FILTER_ITEM_TOOL]
+    NOME      jp PVフィクサー
+              en PV fixer
+              IT correttore di PV
+    --- description(0)  :45877
+        JP  表皮の強度を永続強化し、防御力を上げる薬。とは言っても貧弱な装備をしていてはあまり効果がない。良い装備で増幅した時にこそ真価を発揮する。\n#～毒も薬も用法・用量～
+        EN  A medicine that permanently strengthens the skin's durability. However, it is not very effective without good equipment. \n#~ Administration of Medicines ~
+    --- description(2)  :45879
+        JP  
+        EN  It is a tool to increase PV modifier. \n#~ Identification Report <Item> Category~
+    --- description(3)  :45880 ⚠️ TETTO SECCO 69
+        JP  ＰＶ補正を上げる道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～
+        EN  (Single-use) tool used to increase your PV modifier.
+        IT  Alza il modificatore PV. Si usa (usa e getta).
+
+=== ITEM_ID_X_FRAME   [FILTER_ITEM_TOOL]
+    NOME      jp Ｘフレーム
+              en X-Frame
+              IT telaio X
+    non ident. IT componente intricato   (en intricate component)
+    --- description(0)  :45944
+        JP  分解・組立することで状況に応じて性能を変化するパーツ。Ｘ状の形態からさらに６形態に変形する。元々は大型機械兵器用の装備だったのだが、複雑すぎて実用性がないと判断されペーパープランに終わった。機構説明用のミニチュアモデルも作られていたが、まともに変形させることができたのは数名だけだった。\n#～イルヴァ幻想辞典～
+        EN  Parts that can be disassembled and reassembled to change their gimmick according to the situation, allowing transformation into a further six forms. It was originally intended as add-ons for large mechanoids, but was deemed too complex to be practical and ended up on the paper plan. A miniature model was also made to illustrate the mechanism, but only a few were able to transform it properly.\n# ~Irva Fantasy Encyclopedia~\n
+    --- description(1)  :45945
+        JP  「性能も悪くないし変形にもロマンを感じたので、本当は予算をつけてやりたかった…」\n#～機甲将軍『アインリッヒ』の言葉～
+        EN  \"I can feel the romance in its transformation mechanics, the performance is not bad either, if only we have the budget..\" \n#~<Heinrich> the Armored General~
+    --- description(2)  :45946
+        JP  「こんな量産にも整備にも手間がかかって地味に重くてかさばる装備は性能が良くてもダメです」\n#～特殊部隊長『ミーリス』の言葉～
+        EN  \"Regardless of it's performance, it's useless if we can't mass-produce nor maintain it.\" \n#~<Milis> Captain of the Special Forces~
+    --- description(3)  :45947 ⚠️ TETTO SECCO 69
+        JP  ポーショマンを強化する道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜部品＞カテゴリ～
+        EN  (Single-use) exo-skeleton upgrade kit for your Potioman.
+        IT  Potenzia il Potioman. Si usa (usa e getta).
+
+=== ITEM_ID_SLIME_MOLD   [FILTER_ITEM_TOOL]
+    NOME      jp 構成粘菌
+              en slime mold
+              IT muffa melmosa
+    non ident. IT massa appiccicosa   (en sticky blob)
+    --- description(0)  :46076
+        JP  特殊な粘菌の集合体。コンピュータのような機能を備えており、電気信号で自在に動く。かつての文明ではこの粘菌に個人の人格やスキルなどをダウンロードする技術もあった。粘菌によって構成されたアンデッド兵器は、当時の戦争を激変させたという。\n#～ロストテクノロジー、その片鱗～
+        EN  A collection of special slime molds. It functions like a computer and moves freely with electrical signals. Former civilizations had the technology to download personalities and skills to this slime mold. Undead weapons composed of slime mold are said to have radically changed the warfare of that time.\n#~a Glimpse of Lost Technology~
+    --- description(3)  :46079 ⚠️ TETTO SECCO 69
+        JP  特殊な素材だ。特定の死体に使うことができる(使い捨て)。\n#～鑑定報告書：＜遺物＞カテゴリ～
+        EN  (Single-use) tool to be used on certain corpses.
+        IT  Un materiale speciale, per certi cadaveri. Si usa (usa e getta).
+
+=== ITEM_ID_NECRO_PARTS   [FILTER_ITEM_TOOL]
+    ⚠️ NOME    non trovato nel dizionario: la prosa non ha un nome a cui obbedire
+    non ident. IT pezzi di cadavere   (en necro parts)
+    --- description(0)  :46142
+        JP  バラバラ死体に構成粘菌を充填したもの。対象者にくっつけると自在に動かすことができるが、現代の技術では該当部位を既に持っていると拒絶反応が出てくっつかない。\n#～ロストテクノロジー、その片鱗～
+        EN  Dismembered Corpse, filled with constituent mucus. When attached to the subject, they can be moved at will, but modern technology will not allow them to be attached if they already have the relevant parts of the body due to rejection.\n#~a Glimpse of Lost Technology~
+    --- description(2)  :46144
+        JP  「腕を一本生やすにしても、キミの好みは美品？異形？メカニカル？どうせ組むなら細部のパーツもこだわりたい！キミだけのカスタマイズでバトルを勝ち抜け！」\n#～退屈ネクロマンサーの言葉～
+        EN  \"If you wanna grow an arm, would you prefer a beautiful one? a eldritch one? or a giant robot arm?! If you're going to do it, you WILL pay attention to the details! Customise your own and win the battle!\" \n# a Bored Necromancer
+    --- description(3)  :46145 ⚠️ TETTO SECCO 69
+        JP  部位を獲得できる義肢だ。使うことができる(使い捨て)。\n#～鑑定報告書：＜遺物＞カテゴリ～
+        EN  (Single-use) tool that can graft new body parts.
+        IT  Una protesi che dà una parte del corpo. Si usa (usa e getta).
+
+=== ITEM_ID_CORK_PACK   [FILTER_ITEM_TOOL]
+    NOME      jp コルクパック
+              en cork pack
+              IT pacco di sughero
+    --- description(0)  :46403
+        JP  \t\tポーションなどの瓶に用いられる、コルク栓の詰め合わせ。栓だけを欲しがる客がなぜか一定数いたため、廃棄品をリサイクルした商品が誕生。ひとつひとつの見た目や規格はほぼ同じだが、製作した錬金術師や工場が独自の記号を入れていたり素材の違いがあるため、マニアなら全部見分けられるらしい。\n#～ゴミの山に光るもの～\n
+        EN  An assortment of cork stoppers used as poton plugs. They look almost identical, but slightly different due to the manufacturer. Only a true cork maniac and tell the difference.\n#~Thousands of pieces of Junk I love~
+    --- description(1)  :46404
+        JP  \t\t「全部同じじゃないですか！？」\n#～困惑する素人の言葉～\n
+        EN  \"They are the same plugs, no?\" \n# a bewildered amateur
+    --- description(2)  :46405
+        JP  \t\t「これだからしろうとはダメだ！もっとよく見ろ！」\n#～解説中のマニアの言葉～\n
+        EN  \"And that's why they call you an amateur!!\" \n# angry potio-plug nerd
+    --- description(3)  :46406 ⚠️ TETTO SECCO 69
+        JP  \t\t大量の栓を獲得できる道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool containing a large sum of corks.
+        IT  Dà una gran quantità di tappi. Si usa (usa e getta).
+
+=== ITEM_ID_LASER_BAZOOKA   [FILTER_ITEM_TOOL]
+    NOME      jp 光子バズーカ砲
+              en laser bazooka
+              IT bazooka laser
+    --- description(0)  :46479
+        JP  \t\t大口径化された光子銃。なのでバズーカという名でありながらロケット弾を発射しないし構造的にも無反動砲に分類される。だがロケットランチャーのほうのバズーカも元は楽器のバズーカに形状が似ていたことに由来する通称なので、形状がそれっぽいのなら構造に関わらずバズーカと呼んでやるのが公平なのかもしれない。\n#～君にも使える！発掘兵器～\n
+        EN  Large-calibre photon cannon. Therefore, despite the name 'bazooka', it does not fire rockets and is structurally classified as a recoilless gun. However, the common name for the rocket launcher bazooka also derives from the fact that it originally resembled the shape of a musical instrument bazooka, so it is probably fair to call it a bazooka regardless of its structure if its shape is similar to a bazooka.\n# ~You Can Use it too! Excavated Weapons~
+    --- description(3)  :46482 ⚠️ TETTO SECCO 69
+        JP  \t\t狙った対象のガードを崩す兵器だ。何度か使用することができる。\n#～鑑定報告書：＜特殊兵器＞カテゴリ～\n
+        EN  (Reusable) large-calibre gun that shoots guard-breaking laser.
+        IT  Un'arma che rompe la guardia. Si può usare più volte.
+
+=== ITEM_ID_MASTER_OF_DIAMOND   [FILTER_ITEM_TOOL]
+    NOME      jp ダイヤの宝札
+              en master of diamond
+              IT signore di quadri
+    --- description(0)  :46547
+        JP  \t\t特殊な魔力が込められたカード。プレイヤーのMPを最大値の１０％消費して発動する。①マップ上に仲間ではないカード精霊が５体の場合、アイテムのスートに対応する全てのカード精霊のランクを１つ上げ、攻撃態勢にする。ただし他のカード精霊とスートとランクの両方が一致した場合はランクを元に戻す。ダメージを与えたカード精霊は防御態勢になる。②マップ上に仲間ではないカード精霊が５体未満の場合、ランダムなランク・スートのカード精霊を５体、魔道具と暗記スキル依存のレベルで防御態勢で召喚する。プレイヤーがマップを離れた時、仲間ではないカード精霊は全て除外される\n#～イルヴァ幻想辞典～\n
+        EN  Cards imbued with special magical powers. Once per turn: You can pay 10% of your MP, then activate 1 of these effects;\n(1) If you control 5 or more \"Card Spirit\", change \"Card Spirit - Diamond Eyes\" you control into Attack Position, they gain 1 rank if cards of higher rank doesn't exists. \n(2) If you control 4 or less \"Card Spirit\", summon random \"Card Spirit\" until you control 5 of them. \"Card Spirit\" summoned this way change into Defense Position after attacking.\n#~Irva Fantasy Encyclopedia~
+    --- description(3)  :46550 ⚠️ TETTO SECCO 69
+        JP  \t\t精霊を召喚する道具だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that summons spirits.
+        IT  Uno strumento che evoca gli spiriti. Si può usare sempre.
+
+=== ITEM_ID_MASTER_OF_HEART   [FILTER_ITEM_TOOL]
+    NOME      jp ハートの宝札
+              en master of heart
+              IT signore di cuori
+    --- description(0)  :46615
+        JP  \t\t特殊な魔力が込められたカード。プレイヤーのMPを最大値の１０％消費して発動する。①マップ上に仲間ではないカード精霊が５体の場合、アイテムのスートに対応する全てのカード精霊のランクを１つ上げ、攻撃態勢にする。ただし他のカード精霊とスートとランクの両方が一致した場合はランクを元に戻す。ダメージを与えたカード精霊は防御態勢になる。②マップ上に仲間ではないカード精霊が５体未満の場合、ランダムなランク・スートのカード精霊を５体、魔道具と暗記スキル依存のレベルで防御態勢で召喚する。プレイヤーがマップを離れた時、仲間ではないカード精霊は全て除外される\n#～イルヴァ幻想辞典～\n
+        EN  Cards imbued with special magical powers. Once per turn: You can pay 10% of your MP, then activate 1 of these effects;\n(1) If you control 5 or more \"Card Spirit\", change \"Card Spirit - Heart Witch\" you control into Attack Position, they gain 1 rank if cards of higher rank doesn't exists. \n(2) If you control 4 or less \"Card Spirit\", summon random \"Card Spirit\" until you control 5 of them. \"Card Spirit\" summoned this way change into Defense Position after attacking.\n#~Irva Fantasy Encyclopedia~
+    --- description(3)  :46618 ⚠️ TETTO SECCO 69
+        JP  \t\t精霊を召喚する道具だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that summons spirits.
+        IT  Uno strumento che evoca gli spiriti. Si può usare sempre.
+
+=== ITEM_ID_MASTER_OF_CLUB   [FILTER_ITEM_TOOL]
+    NOME      jp クラブの宝札
+              en master of club
+              IT signore di fiori
+    --- description(0)  :46683
+        JP  \t\t特殊な魔力が込められたカード。プレイヤーのMPを最大値の１０％消費して発動する。①マップ上に仲間ではないカード精霊が５体の場合、アイテムのスートに対応する全てのカード精霊のランクを１つ上げ、攻撃態勢にする。ただし他のカード精霊とスートとランクの両方が一致した場合はランクを元に戻す。ダメージを与えたカード精霊は防御態勢になる。②マップ上に仲間ではないカード精霊が５体未満の場合、ランダムなランク・スートのカード精霊を５体、魔道具と暗記スキル依存のレベルで防御態勢で召喚する。プレイヤーがマップを離れた時、仲間ではないカード精霊は全て除外される\n#～イルヴァ幻想辞典～\n
+        EN  Cards imbued with special magical powers. Once per turn: You can pay 10% of your MP, then activate 1 of these effects;\n(1) If you control 5 or more \"Card Spirit\", change \"Card Spirit - Club Feathers\" you control into Attack Position, they gain 1 rank if cards of higher rank doesn't exists. \n(2) If you control 4 or less \"Card Spirit\", summon random \"Card Spirit\" until you control 5 of them. \"Card Spirit\" summoned this way change into Defense Position after attacking.\n#~Irva Fantasy Encyclopedia~
+    --- description(3)  :46686 ⚠️ TETTO SECCO 69
+        JP  \t\t精霊を召喚する道具だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that summons spirits.
+        IT  Uno strumento che evoca gli spiriti. Si può usare sempre.
+
+=== ITEM_ID_MASTER_OF_SPADE   [FILTER_ITEM_TOOL]
+    NOME      jp スペードの宝札
+              en master of spade
+              IT signore di picche
+    --- description(0)  :46751
+        JP  \t\t特殊な魔力が込められたカード。プレイヤーのMPを最大値の１０％消費して発動する。①マップ上に仲間ではないカード精霊が５体の場合、アイテムのスートに対応する全てのカード精霊のランクを１つ上げ、攻撃態勢にする。ただし他のカード精霊とスートとランクの両方が一致した場合はランクを元に戻す。ダメージを与えたカード精霊は防御態勢になる。②マップ上に仲間ではないカード精霊が５体未満の場合、ランダムなランク・スートのカード精霊を５体、魔道具と暗記スキル依存のレベルで防御態勢で召喚する。プレイヤーがマップを離れた時、仲間ではないカード精霊は全て除外される\n#～イルヴァ幻想辞典～\n
+        EN  Cards imbued with special magical powers. Once per turn: You can pay 10% of your MP, then activate 1 of these effects;\n(1) If you control 5 or more \"Card Spirit\", change \"Card Spirit - Spade Warrior\" you control into Attack Position, they gain 1 rank if cards of higher rank doesn't exists. \n(2) If you control 4 or less \"Card Spirit\", summon random \"Card Spirit\" until you control 5 of them. \"Card Spirit\" summoned this way change into Defense Position after attacking.\n#~Irva Fantasy Encyclopedia~
+    --- description(3)  :46754 ⚠️ TETTO SECCO 69
+        JP  \t\t精霊を召喚する道具だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool that summons spirits.
+        IT  Uno strumento che evoca gli spiriti. Si può usare sempre.
+
+=== ITEM_ID_SPIRITIUM   [FILTER_ITEM_TOOL]
+    NOME      jp スピリチウム
+              en spiritium
+              IT spiritium
+    --- description(0)  :46818
+        JP  \t\t宇宙から飛来したという謎の金属体。綺麗で珍しいため、金持ちからは貴金属扱いされている。微弱な精神波を放っているため頭に押しつけると人格が変わってしまうという都市伝説がある。暇つぶしで知人に試してみたが、残念ながら自分の性格を改めて自覚する程度であった。思い込みの激しい人だと自己催眠にかかってしまう可能性は否定しないでおく。\n#～進め！オカルト探検隊～\n
+        EN  A mysterious metallic body said to have come from outer space. Because it is beautiful and rare, it is treated as a precious metal by the rich. There is an urban legend that if you press it against your head it will change your personality because it emits weak psychic waves. I tried it on my friend becuase why not, but it only made him more aware of his own personality. So I wouldn't deny the probability that this effect is the result of Self-Hypnosis.\n#~Embark! Occultists~
+    --- description(3)  :46821 ⚠️ TETTO SECCO 69
+        JP  \t\t性格の一部を自覚させる道具だ。何度でも使用することができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Reusable) tool for one to  discover one's personalities.
+        IT  Rivela una parte del carattere. Si può usare sempre.
+
+=== ITEM_ID_SURVIVABILITY_EXTENDER_X   [FILTER_ITEM_TOOL]
+    NOME      jp SuエクステンダーX
+              en Survivability EXtender X
+              IT estensore di sopravvivenza X
+    --- description(0)  :46884
+        JP  \t\t機械文明中期…環境の悪化によって世代を重ねるごとに人体の脆弱化が進行。絶滅の危機にまで瀕したが、ヒトの生存能力を拡張する技術が開発され難を逃れた。有機物無機物問わず生存に有利な特徴を記録・再生し、子の細胞に同化して書き換えるナノマシン…それがサバイバビリティーエクステンダーである。機能こそ低下しているが同様のナノマシンがほとんどの現代生物の細胞に残留している。これこそが、種族を超えて遺伝子を残せる現象に大きく関わっているのだ。\n#～イルヴァ幻想辞典～\n
+        EN  Amidst the mechanical civilisation ... the human body became more fragile with every generation due to the deteriorating environment. They were on the verge of extinction, but were spared by the development of technology to extend the human survival capabilities. Nanomachines that record and reproduce characteristics that are advantageous to survival, both organic and inorganic, and rewrite them by assimilating them into the cells of their offspring... these are the Survivability Extenders. Similar nanomachines, albeit with reduced function, remain in the cells of most modern organisms. This is largely responsible for the phenomenon that genes can be left behind across species.\n#~Irva Fantasy Encyclopedia~
+    --- description(1)  :46885
+        JP  \t\t「原初生命の細胞はミトコンドリアもナノマシンも魔導体も備えていなかったという。細胞レベルで有利になる物を取り入れて生命は進化してきたんだな」\n#～ザナン研究員の言葉～\n
+        EN  \"The cells of primordial life were not equipped with mitochondria, nanomachines nor magical conductors. So life evolved by incorporating things that gave it an extra edge at the cellular level.\" \n# a Zanan Researcher
+    --- description(2)  :46886
+        JP  \t\t「機械生命体には、このナノマシンによってヒトとの間に産まれたものも多い。もちろん全く別系統の技術で誕生したものもいるが…食事や睡眠をして治癒能力を持ち、繁殖できるタイプだけが結局生き残った。収斂進化というやつかもしれん」\n#～開発主任『ガベラ』の言葉～\n
+        EN  \"Many mechanical life forms were spawned with humans by these nanomachines. Of course, some were born of a completely different lineage of technology... but only the types that could eat, sleep, have the ability to heal and reproduce eventually survived. Maybe it's called convergent evolution.\" \n# Lead Developer <Dr. Gavela>
+    --- description(3)  :46887 ⚠️ TETTO SECCO 69
+        JP  \t\t強い女児を授かるための道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool that give you a daughter.
+        IT  Serve ad avere una figlia forte. Si usa (usa e getta).
+
+=== ITEM_ID_SURVIVABILITY_EXTENDER_Y   [FILTER_ITEM_TOOL]
+    NOME      jp SuエクステンダーY
+              en Survivability EXtender Y
+              IT estensore di sopravvivenza Y
+    --- description(0)  :46950
+        JP  \t\t（未実装）機械文明中期…環境の悪化によって世代を重ねるごとに人体の脆弱化が進行。絶滅の危機にまで瀕したが、ヒトの生存能力を拡張する技術が開発され難を逃れた。有機物無機物問わず生存に有利な特徴を記録・再生し、子の細胞に同化して書き換えるナノマシン…それがサバイバビリティーエクステンダーである。機能こそ低下しているが同様のナノマシンがほとんどの現代生物の細胞に残留している。これこそが、種族を超えて遺伝子を残せる現象に大きく関わっているのだ。\n#～イルヴァ幻想辞典～\n
+        EN  Amidst the mechanical civilisation ... the human body became more fragile with every generation due to the deteriorating environment. They were on the verge of extinction, but were spared by the development of technology to extend the human survival capabilities. Nanomachines that record and reproduce characteristics that are advantageous to survival, both organic and inorganic, and rewrite them by assimilating them into the cells of their offspring... these are the Survivability Extenders. Similar nanomachines, albeit with reduced function, remain in the cells of most modern organisms. This is largely responsible for the phenomenon that genes can be left behind across species.\n#~Irva Fantasy Encyclopedia~
+    --- description(1)  :46951
+        JP  \t\t「ひっひっひっ…この道具で多数の生物を掛け合わせた合成獣を生み出したはいいけれど育てるのが大変すぎて無理だったからやっぱり地道に合成魔法で頑張ってくれるわ！」\n#～邪悪な魔法使いの言葉～\n
+        EN  \"Hee hee hee... it was good that I created a synthetic beast by crossing many creatures with this tool, but it was too hard to raise them, so I guess I'll work steadily with synthetic magic after all!\" \n# a Evil Wizard
+    --- description(2)  :46952
+        JP  \t\t「獣の特徴を得て産まれた子が、野性を抑えられずに人里を離れたという伝承を聞いたことがあるわい。現代の獣人には、そういうのをルーツとする種族もいるのじゃろうな」\n#～生化学者『イコール』の言葉～\n
+        EN  \"I've heard the folklore that a child born with the traits of a beast left the human village because he couldn't control his wild nature. I guess some of the modern beastmen have their roots in that kind of thing.\" \n# Lead Developer <Dr. Gavela>
+    --- description(3)  :46953 ⚠️ TETTO SECCO 69
+        JP  \t\t強い男児を授かるための道具だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool that give you a son.
+        IT  Serve ad avere un figlio forte. Si usa (usa e getta).
+
+=== ITEM_ID_STARFIBER   [FILTER_ITEM_TOOL]
+    NOME      jp 強化星維
+              en starfiber
+              IT fibra stellare
+    --- description(0)  :47016
+        JP  \t\t奇跡の力を宿した繊維状の物質。これだけでは何の役にも立たない。だが、もしもこれを取り込むことのできる武器があるのなら、その成長に役立つだろう。\n#～職人が教える武器の歴史～\n
+        EN  A fibrous substance with miraculous powers. If there is a weapon that can incorporate it, it will help in its growth.\n#~Blacksmithing History~
+    --- description(3)  :47019 ⚠️ TETTO SECCO 69
+        JP  \t\t生きている武器の経験値になる繊維だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool that gives experience to a living weapon.
+        IT  Dà esperienza alle armi viventi. Si usa (usa e getta).
+
+=== ITEM_ID_ANERING   [FILTER_ITEM_TOOL]
+    NOME      jp アネワッシャー
+              en anering
+              IT anering
+    --- description(0)  :47083
+        JP  \t\t薄い輪っかのような結晶体。これによく似た何の効果もないネジ止め用部品を、電磁波対策・思考盗聴防止アイテムとして法外な値段で売りつける不届き者も存在するので注意。幻覚・妄想に苦しんでいる人々を食い物にする恥ずべき行為なので、WIN－WINだからセーフとか言ってないで早く悔い改めてほしいものである。…アネワッシャーにはちゃんと姉波動が内包されており、割れば浴びることができるので安心してほしい。\n#～姉波動聖典～\n
+        EN  A thin ring-like crystalline substance. Note that there are some infidels who sell screw-fastening parts similar to these, which have no effect, at exorbitant prices as electromagnetic wave countermeasures and items to prevent thought eavesdropping.This is a shameful practice that preys on people suffering from hallucinations and delusions, so don't say it's safe because it's a win-win situation, but repent quickly....Rest assured that the Anering contains sisterly energy waves and can be bathed in if cracked open.\n#~Big Sister Energy Waves~
+    --- description(3)  :47086 ⚠️ TETTO SECCO 69
+        JP  MPを回復できるリングだ。使用することができる（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Single-use) tool that restores your MP.
+        IT  Un anello che ridà MP. Si usa (usa e getta).
+
+=== ITEM_ID_SOCKS2   [FILTER_ITEM_TOOL]
+    NOME      jp 靴下
+              en socks
+              IT calzini
+    --- description(0)  :47286
+        JP  \t\t２枚１組の衣類。武器として使うことは想定されておらず防具にもならないが、こんなのでも収集しているマニアがいる。足を洗う習慣のない人々の靴下はかなり臭うので注意。ちなみに靴下を洗う際は、裏返して洗うと足に接していた部分の皮脂汚れが落ちやすくなる。\n#～パルミア秋冬物コレクション～\n
+        EN  A pair of garments. They are not intended to be used as weapons or as armour, but there are enthusiasts who collect even these. Note that the socks of people who are not in the habit of washing their feet smell quite bad. Incidentally, when washing socks, turning them inside out makes it easier to remove sebum stains from the parts in contact with the feet.\n# ~Palmian Winter Fashion~
+    --- description(1)  :47287
+        JP  \t\t「足を洗うなんてとんでもない」\n#～盗賊団の頭領の言葉～\n
+        EN  \"Wash my feet? Don't be ridiculous.\"\n~Bandit Leader~
+    --- description(2)  :47288
+        JP  \t\t「靴下を洗うなんてとんでもないッ！！！！」\n#～脱ぎたて愛好家の言葉～\n
+        EN  \"Wash my socks? Don't be ridiculous.\"\n~Socks Enthusiast~
+    --- description(3)  :47289 ⚠️ TETTO SECCO 69
+        JP  \t\t臭う靴下。何度でも使用することができる。\n#～鑑定報告書：＜衣類＞カテゴリ～\n
+        EN  (Reusable) tool. But it really is just smelly socks.
+        IT  Calzini che puzzano. Si può usare sempre.
+
+== 31 oggetti, 87 descrizioni

@@ -41,34 +41,50 @@ fondo somma valori di sessioni diverse. Il conto vivo lo danno
 file di `data/` compresi. Finché nessuno rifà la tabella intera, **si guardano
 quelli**.
 
-## Quattro lotti, 173 rese, e il mobilio si chiude — 2026-08-31, centoquattordicesima sessione
+## Cinque lotti, 223 rese, e il mobilio si chiude — 2026-08-31, centoquattordicesima sessione
 
-`db_item.hsp`, il **corpo** delle descrizioni (indici 0-2), `FILTER_FURNITURE`:
+`db_item.hsp`, il **corpo** delle descrizioni (indici 0-2):
 
-    029  righe  91.500-108.000    30 rese  (27 dell'indice 0, 3 del 2)
-    030  righe 108.000-113.000    53 rese  (51 dell'indice 0, 2 del 2)
-    031  righe 113.000-122.000    36 rese  (35 dell'indice 0, 1 del 2)
-    032  righe 122.000 in su      54 rese  (51 dell'indice 0, 3 del 2)
+    029  FURNITURE   righe  91.500-108.000   30 rese  (27 idx0, 3 idx2)
+    030  FURNITURE   righe 108.000-113.000   53 rese  (51 idx0, 2 idx2)
+    031  FURNITURE   righe 113.000-122.000   36 rese  (35 idx0, 1 idx2)
+    032  FURNITURE   righe 122.000 in su     54 rese  (51 idx0, 3 idx2)
+    033  ITEM_TOOL   righe      0-48.000     50 rese  (31 idx0, 6 idx1, 13 idx2)
     -----------------------------------------------------------------
-    **173 rese**, che coprono **173 righe** del sorgente (una a una)
-    applica 29.023 -> **29.196**   (+173 esatte, +30/+53/+36/+54)
-    db_item non tradotte 1.311 -> **1.138**   (-173 esatte)
-    rese del corpo: 187 -> **360** su 1.513
-    perimetro 27.412 -> **27.585** (90%), totale 30.345 -> **30.518** (94%)
+    **223 rese**, che coprono **229 righe** del sorgente
+    applica 29.023 -> **29.252**   (+30/+53/+36/+54 esatte, **+56** il 033)
+    db_item non tradotte 1.311 -> **1.088**   (-223 esatte)
+    rese del corpo: 187 -> **416** su 1.513
+    perimetro 27.412 -> **27.635** (90%), totale 30.345 -> **30.568** (94%)
     cancello dei tagli: introdotte dall'italiano **0/0/0**, acceso una
       volta in corso d'opera (`:95111`, «Quell'espressione», 17 caratteri)
     rinviate: nessuna   toppe: nessuna   test: **794**, invariato
     strumenti nuovi: 2 (`lotti-113/_gia-reso.py`, `_114-corpo-da-fare.py`)
-    build: SI', **09:22 del 31/08**
+    build: SI', **14:36 del 31/08**
     -----------------------------------------------------------------
     ⭐⭐⭐ **`FILTER_FURNITURE` e' CHIUSA**: 261 righe su 261, lotti 027-032
+
+⚠️⚠️ **Il lotto 033 ha 50 rese e ha fatto +56, e il perche' conta per tutti i
+lotti di attrezzi che verranno.** I quattro fucili anestetici hanno le righe di
+indice 1 e 2 **identiche parola per parola**: sono due firme sole, e ciascuna
+copre quattro righe del sorgente. Negli attrezzi «da fare» e «vive» non
+coincidono (154 su 204) proprio per questo, come nel cibo — e a differenza del
+mobilio, dove il rapporto era uno a uno.
+
+⚠️⚠️ **E lo stesso lotto ha alzato un cancello da 0 a 2, per un difetto di
+monte.** `_112-corpo-descrizioni` conta i «titoli resi in piu' modi» chiavando
+sull'**inglese**, e l'inglese attribuisce `:46952` a <Gavela> quando il
+giapponese dice <Icolle>, e cita per `:46403` un libro che non e' quello del
+giapponese. Le rese giuste divergono, il cancello se ne accorge, e il valore
+atteso diventa **2 con i due nomi accanto**. Un 3 e' un difetto nuovo.
 
 **Il conto del corpo, categoria per categoria**, con
 `python scratchpad/_114-corpo-da-fare.py` — che dalla 114a **non si scrive piu'
 a mano**, ed e' questo il punto:
 
     fatte    mobilio 261/261 (027-032) · cibo 50/148 (026)
-    restano  FILTER_ITEM_TOOL      204/204   FILTER_ITEM_SCROLL     73/73
+             attrezzi 50/204 (033)
+    restano  FILTER_ITEM_TOOL      154/204   FILTER_ITEM_SCROLL     73/73
              FILTER_JUNK           124/124   FILTER_RANGE           60/60
              FILTER_WEAPON         110/110   FILTER_ORE             33/33
              FILTER_ITEM_FOOD       98/148   FILTER_ITEM_ROD        32/32
@@ -76,19 +92,20 @@ a mano**, ed e' questo il punto:
              FILTER_ITEM_POTION      82/82   FILTER_SHIELD          24/24
              piu' una coda di diciannove minori
     -----------------------------------------------------------------
-    360 righe fatte su 1.449 vive; **1.138 restano**
+    416 righe fatte su 1.449 vive; **1.088 restano**
 
-⚠️ **Nel corpo il rapporto e' quasi ovunque UNA riga per resa**, al contrario
-dell'indice 3 e del cibo: `FILTER_ITEM_FOOD` e' l'unica categoria dove «da fare»
-e «vive» non coincidono (98 su 148), perche' li' quattro firme generiche
-dell'indice 2 coprono 53 righe. Ovunque altrove una resa costa una riga, e il
-lotto rende quanto pesa.
+⚠️ **Dove «da fare» e «vive» non coincidono, c'e' un moltiplicatore**, e sono
+due categorie: il cibo (98 su 148), per le quattro firme generiche dell'indice 2
+che il lotto 026 ha sfruttato, e gli attrezzi (154 su 204), per le righe di
+indice 1 e 2 condivise fra oggetti gemelli. Nel mobilio il rapporto era uno a
+uno, e il lotto rendeva quanto pesava.
 
 ⚠️⚠️ **E il totale di questa tabella deve coincidere con quello di
 `verifica --dizionario`.** Sono due conti fatti da due parti diverse — uno
 partendo dalle categorie del sorgente, l'altro dal dizionario — e la 114a li ha
-visti coincidere a **1.281** in apertura e a **1.138** in chiusura. Un totale che
-torna da due strade e' l'unica ragione per credere alla tabella.
+visti coincidere tre volte: **1.281** in apertura, **1.138** dopo il mobilio,
+**1.088** in chiusura. Un totale che torna da due strade e' l'unica ragione per
+credere alla tabella.
 
 ## Due lotti, 361 rese, 417 righe a schermo — 2026-08-27, centonovesima sessione
 

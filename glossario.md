@@ -190,6 +190,7 @@ Sotto ci sono solo le **27 rese nuove**.
 | abyss power | potere abissale | la risorsa che si spende. Aggettivo e non complemento, come `Mind` → «Danno mentale»; e non deroga a `Power` → «Potenza». Nell'etichetta stretta delle mosse abissali la sigla resta «Abisso»: `SAN300/Abisso300/…`, un carattere in più dell'inglese |
 | Port Kapul | Porto Kapul | `Port` è parola comune, `Kapul` no: vedi la regola qui sotto |
 | Cyber Dome | Cupola Cibernetica | idem, entrambe le parole sono comuni |
+| magical conductor<br>Conductive Cell ⚠️ | conduttore magico | 魔導体, l'organo che conduce la magia nelle cellule: `db_item.hsp:45613` e `:46885` (114ª). ⚠️ **Non è nel dizionario in nessuna forma**, e l'inglese lo chiama in due modi diversi nelle due righe — coniato qui perché serviva, e messo per iscritto perché la prossima riga che lo nomina non lo reinventi |
 
 ## Gli oggetti della trama, fissati dal quiz prima che dal loro file
 
