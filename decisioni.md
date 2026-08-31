@@ -11237,3 +11237,115 @@ qualche migliaio di righe più in basso. Il comando giusto è `mapinv`
 scriverlo, e gli identificativi erano giusti — verificati in tre modi. Non
 bastava: va verificato anche **che il passo mostri la cosa che deve mostrare**.
 Un comando che stampa troppo è muto quanto uno che non stampa niente.
+
+## 113ª — Il lotto del corpo è l'unione di tre indici, non l'indice 0
+
+`_107-chiavi-item.py` seleziona **un** indice per volta, e il corpo di
+`db_item.hsp` ne ha tre. I tre segmenti di un oggetto il gioco li disegna
+**nello stesso pannello**, uno sotto l'altro (`command.hsp:16875` e seguenti):
+un lotto che rende l'indice 0 e lascia l'1 e il 2 in inglese produce un pannello
+metà italiano.
+
+**Decisione:** la zona di un lotto del corpo è l'**unione degli indici 0, 1 e 2
+sulle stesse righe**, e a costruirla è `scratchpad/lotti-113/_corpo.py`, che
+chiede tre volte allo strumento di sempre e ne incolla i blocchi — così i filtri
+restano identici a quelli del dossier. Muore se una riga esce da due indici
+diversi.
+
+⚠️ Nessuna rete potrebbe segnalare il pannello mezzo tradotto: ogni riga, presa
+da sola, è a posto.
+
+## 113ª — La stringa che stai per rendere può essere già resa in un altro file
+
+`～異形の森の使者『ロミアス』の言葉～`, la riga-fonte di `db_item.hsp:67794`,
+era stata decisa nella 112ª come «~Parole di <Lomias>, messo della **foresta
+deforme**~». Lo **stesso identico giapponese** — `異形の森の使者『ロミアス』` —
+sta in `db_card.hsp:10579` e in `db_creature.hsp:100005`, reso **«<Lomias> il
+messaggero di Vindale»**, e il giocatore quel nome lo vede già sulla carta e
+sulla creatura.
+
+**Decisione:** la resa segue la forma **già a schermo**. Corretti dieci titoli su
+duecento (Balzak «netturbino» → **custode**; Gwen «la bambina innocente» →
+**l'innocente**; Milis «capo» → **la comandante**; Poppy «cucciolo» →
+**cagnolino**; Erystia, Loyter; Sin e Abyss con **Gilda dei Ladri** maiuscola; il
+sunbararian «un Abitante del Pianeta Sunbararia» → **un alieno di Sunbararia**).
+
+ⓘ **Un caso non è una divergenza:** `《叡智のソピアー》` resta `~Parole di
+<Sophia>~` anche se la carta dice «<Sophia> la Saggia», perché lì l'inglese del
+**titolo** è `~words of <Sophia>~`, nudo come per le altre quindici divinità. Il
+confronto si fa fra il titolo e la sua fonte, non fra il titolo e una carta.
+
+⚠️ È il **settimo posto dove guardare**, dopo i sei della 111ª, e la rete che lo
+chiede è `scratchpad/_113-fonti-gia-rese.py`. Non è un cancello: 45 titoli su 200
+hanno il giapponese già reso altrove, e trentacinque di quei quarantacinque
+coincidono. Il valore atteso non è zero.
+
+## 113ª — Una rete che cerca l'uguaglianza tace sul caso che l'ha fatta nascere
+
+La prima versione di `_113-fonti-gia-rese.py` confrontava il giapponese del
+titolo con le voci del dizionario per **uguaglianza**, e stampava «0 su 200» —
+mentre il caso di Lomias, che era il motivo per cui la rete esisteva, c'era
+eccome. Il titolo è la voce del dizionario **più una coda** che dice di che tipo
+di riga si tratta: `『ロミアス』` e poi `の言葉`, «le parole di».
+
+**Come applicarlo:** una rete nuova si punta prima sul caso che la fa nascere, e
+se non si accende è la rete a essere rotta, non il mondo a essere pulito. Vale la
+stessa regola della prova al contrario della 107ª, un livello più su.
+
+## 113ª — Nel dizionario gli accenti sono veri anche dentro un titolo generato
+
+Dieci titoli-fonte della tabella della 112ª portavano la forma **degradata** —
+`~Scoperta! Le Rarita' del Mondo~`, `~Parole di un Avventuriero che si e'
+Risvegliato~` — cioè l'apostrofo al posto dell'accento. La `guida-stile.md` dice
+che nel dizionario si scrivono gli accenti veri e che la degradazione la fa
+`applica.py`: un titolo incollato dentro una resa **è** una voce di dizionario, e
+`verifica.py` avrebbe segnalato.
+
+**Decisione:** corretti tutti e dieci. ⓘ La lunghezza degradata non cambia (`à`
+→ `a'`, due caratteri come prima), quindi il cancello dei 66 resta a 55 con
+margine 11: **nessun conteggio poteva mostrarlo**.
+
+💡 Il difetto è stato invisibile per una sessione intera perché il primo lotto
+del corpo — il cibo — non usava nessuno dei dieci. Una tabella decisa tutta in
+una volta e applicata a rate ha questo rischio: il pezzo sbagliato aspetta il
+lotto che lo tocca.
+
+## 113ª — Uno strumento che scrive codice deve rileggere quel che ha scritto
+
+`lotti-109/_monta.py` inseriva la resa **grezza** fra virgolette doppie in un
+file Python. Andava bene per l'indice 3 — righe corte, senza backslash — e
+sarebbe stato un disastro sul corpo, che porta dentro `\n#~fonte~`: un
+**backslash vero** seguito da `n`, l'a capo che stacca la riga-fonte, che il
+dizionario conserva tale e quale (53 rese ce l'hanno già, 188 hanno `\"`).
+Scritto grezzo, Python lo rileggeva come **un a capo vero**.
+
+**Decisione:** `_in_letterale()` (escape di backslash e virgolette) più un **giro
+di ritorno** che rilegge il file appena scritto, ricostruisce il dizionario e lo
+confronta con le rese di partenza, riga per riga. Esce con un errore se una sola
+non torna.
+
+⚠️ Il difetto non avrebbe dato nessun segnale: la resa sarebbe entrata nel
+dizionario spezzata in due, `verifica` non ha ragione di lamentarsi e a valle
+nessuno l'avrebbe riconosciuta per quello che era. **Uno strumento che genera
+codice sorgente non è verificato finché non rilegge il codice che ha generato.**
+
+## 113ª — La parola si spezza a 14, non a 17
+
+La 112ª aveva scritto che la parola spezzata «si accende a 17 caratteri». La
+finestra di rinculo dell'impaginatore è **15** (`RINCULO` in
+`scratchpad/_102-carta-conoscenza.py`), e provando parola per parola e posizione
+per posizione il taglio cade dentro la parola **già a 14**; a 13 non ci arriva
+mai.
+
+Il 17 era la misura di **una parola** — «sorprendentemente», che in quella
+sessione capitava di avere sotto gli occhi — non della regola.
+
+**Come applicarlo:** la soglia è un **indizio di pericolo**, non un vincolo:
+l'italiano supera i 13 di continuo (`dell'avversario` 15, `un'imboccatura` 14) e
+a decidere è **dove** cade il taglio, che solo `_107-descrizioni-item` sa. Il
+numero da guardare resta il suo, che sulle 187 righe rese dice 0.
+
+⚠️ Un numero ricavato da un esempio e scritto come se fosse una regola si
+propaga: quel 17 stava per diventare la base dei conteggi dei lotti prossimi.
+Vedi la lezione gemella della 110ª, dove «rese 1.130» era una trascrizione già
+ricopiata in tre posti.

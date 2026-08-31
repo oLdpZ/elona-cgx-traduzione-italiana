@@ -3074,3 +3074,80 @@ eseguibile `lotti-112/titoli_fonte.py` con 234 voci. `glossario.md` +268 righe.
 ⚠️ E due strumenti vecchi corretti: `_102-carta-conoscenza.py` (il budget, e la
 separazione fra i due font) e `_107-descrizioni-item.py` (`segmenti_hsp()` e
 `BUDGET_INTERO`).
+
+## `db_item.hsp`, il CORPO: i primi tre lotti di prosa — 2026-08-31, centotredicesima
+
+Aperta con la catena **tutta verde**, ventidue verifiche su ventidue ai valori
+della 112ª: albero pulito, `log.md` del vault aggiornato, eseguibile in gioco
+delle 15:25 del 27/08. È la prima apertura pulita dopo il guasto della 112ª.
+
+### Tre lotti, 138 rese, 187 righe del sorgente
+
+    lotto  categoria           indici   righe  righe del sorgente coperte
+    ------------------------------------------------------------------
+    026    FILTER_ITEM_FOOD    0,1,2       50   99
+    027    FILTER_FURNITURE    0,2         42   42
+    028    FILTER_FURNITURE    0           46   46
+                                          ---  ---
+                                          138  187
+
+Il corpo (indici 0-2) passa da **0 a 187 righe rese** su 1.513 vive.
+`verifica --dizionario` su `db_item.hsp` scende da **1.449 a 1.311** non
+tradotte; il perimetro sale da 27.274 a **27.412** (90%), il totale a 30.345
+(94%); `applica` da 28.836 a **29.023**, cioè +187 esatte.
+
+⚠️ **Il moltiplicatore 50 → 99 sono quattro firme.** Le righe generiche
+dell'indice 2 del cibo — «A type of vegetable/fruit/seafood/nut that restores
+satiety...» — tornano **18, 18, 15 e 2** volte in tutto il file: 53 righe da
+quattro rese. Nel mobilio il rapporto è 1 a 1.
+
+### Il cancello del corpo
+
+    _107-descrizioni-item   corpo (0-2): 1.513 vive, 187 rese
+                            coda persa      : inglese 0   italiano 0
+                            righe spezzate  : inglese 2   italiano 0
+                            righe oltre i 77: inglese 0   italiano 0
+                            ⚠️ INTRODOTTE DALL'ITALIANO: 0 / 0 / 0
+
+Rimisurato dopo ogni lotto, e verde tutte e tre le volte.
+
+### Gli strumenti
+
+Nuovi: `scratchpad/_113-fonti-gia-rese.py` (referto, non cancello),
+`scratchpad/lotti-113/_corpo.py` (lo scheletro del corpo, tre indici uniti),
+`scratchpad/lotti-113/_code.py` (la coda di ogni riga, assegnata dal
+giapponese).
+
+⚠️ **Corretto `scratchpad/lotti-109/_monta.py`**, che avrebbe corrotto ogni resa
+del corpo in silenzio: la resa entrava grezza fra virgolette doppie e il
+backslash di `\n#~fonte~` tornava indietro come un a capo vero. Ora c'è l'escape
+e un **giro di ritorno** che rilegge il file scritto e lo confronta con le rese
+di partenza.
+
+⚠️ **Corretta la tabella `lotti-112/titoli_fonte.py` in venti punti**: dieci
+titoli che contraddicevano un nome già a schermo e dieci che portavano
+l'apostrofo al posto dell'accento. `glossario.md` rigenerato e reinnestato,
+2.343 righe prima e dopo.
+
+⚠️ **Corretto un numero della 112ª**: la parola si spezza a **14** caratteri, non
+a 17. La finestra di rinculo è 15 e il 17 era la misura di una parola.
+
+### Una parola nuova in `invariati.md`
+
+`zenzai` — il dolce giapponese citato *dentro* la descrizione dell'osiruko
+(`db_item.hsp:56934`). Non è il nome di un oggetto: è un termine che la prosa
+porta, e il corpo delle descrizioni ne porterà altri. È la prima parola coniata
+dal corpo.
+
+### Quel che resta
+
+    164  FILTER_FURNITURE (indice 0)   +9 dell'indice 2
+    166  FILTER_ITEM_TOOL
+    105  FILTER_WEAPON
+     96  FILTER_JUNK
+     82  FILTER_ITEM_SPELLBOOK
+     ... e una coda di venti categorie minori
+
+⚠️ Debito di collaudo: **7.857** rese mai viste a schermo. La lista di passi è
+stata data a metà sessione, con cinque identificativi letti dal sorgente e tutti
+verificati a `IDENTIFY_LEVEL = 0`.
