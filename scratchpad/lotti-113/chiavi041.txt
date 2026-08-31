@@ -1,0 +1,177 @@
+RIGHE = {
+    43558, 51779, 51849, 51917, 52717, 52787, 52857, 52927, 52996, 53067,
+    53137, 53206, 53278, 53418, 53420, 53840, 53908, 53975, 54042, 54112,
+    54180, 54248, 54316, 54384, 54453, 54521, 54591, 56808, 60195, 60786,
+    61248, 61793, 63454, 63723, 63725, 64485, 65133, 65265, 65879, 66840,
+    66910,
+}
+# 41 righe, da 43558 a 66910
+
+    # ---------------------------------------------------------- :43558
+    (43558, 'Spears made in the shape of a bone. Not made of bone. It can be chewed to relieve stress or eaten as a snack. As a weapon, it is used like a battle axe. \\n#~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :51779
+    (51779, 'A black sword, surrounded with an aura of dread, was created from the idea of using an even more powerful evil to exorcise evil. There are multiple alter egos of this sword across the world, each with slightly different appearances and abilities. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :51849
+    (51849, 'Legendary bamboo spear symbolizing freedom and independence. It is said to slay a ninja with a single thrust, but also to shoot down bombers and killing Gods. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :51917
+    (51917, 'Kalpa hands. Kalpa is the time it takes for a world to come into being and cease to exist. An enormous flow of time runs through the surface of the blade. If wielded with divine power, it can cut through time and space, and is also used as a means of transportation. \\n# ~Book of Wisdom~'):
+        "",
+
+    # ---------------------------------------------------------- :52717
+    (52717, 'A long, thin, luminescent, penetrating Tofu attached to an Annin shaped like a handle. The sharpness is somewhat inferior to that of a lightsaber. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :52787
+    (52787, "A giant third hand created by the crab to resemble its own scissors. It is composed of the shells and pseudo-muscles of its prey, and seems to be moved through a neural connection. It looks like a crab's scissors, but it is not the crab's scissors. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :52857
+    (52857, 'This is a special kind of throwing blade that has been handed down from one school of ninja to another. It is said that to obtain it, one must go through an ordeal in the mountains during a blizzard. It is easy to hit as it is thrown in batches, but it is bulky and heavy. It has the power to drain stamina of the person it hits. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :52927
+    (52927, 'This thin sword is said to have fallen from the heavens with a bolt of lightning one stormy day. It is characterized by its ability to finely manipulate the electricity it generates. It is possible to store electricity in the blade and release electric blasts, and even to forcefully increase the reaction speed by channeling the electricity to its user, although it places a heavy burden on the user. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :52996
+    (52996, 'A versatile drill for breaking through all kinds of obstacles in the air, land, and sea. It easily crushes hard bedrock and ice blocks, and can also dive and fly underwater. It is also equipped with a cryogenic cannon. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :53067
+    (53067, 'An oddly shaped throwing axe, far from a typical tomahawk. It is equipped with a nanomachine trajectory control system. Because it spins on its own axis, it does not lose momentum when it hits its target. Conversely, when it returns to the hand, the rotation is slowed down to make it easier to catch. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :53137
+    (53137, 'Sickle said to have been made by a bird-man craftsman and is intended for use in aerial combat. It has two blades resembling an elongated beak. Since it is double-edged, it can cut by pressing down without pulling, and it can also shear objects by pinching them. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :53206
+    (53206, 'Pewter staff discovered in the ruins. The heated nanomachine blade boasts tremendous sharpness. The sound that the ring makes is also designed so that it can be handled without relying on the sense of sight. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :53278
+    (53278, 'Originally, they were three staves, each with a different blessing. After the deaths of the three wielders, they were processed by a mutual disciple into a single jointed stick. Various abilities are enhanced, but they may or may not mesh. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :53418
+    (53418, "Highly regarded by enthusiasts, the odor is not removed even after washing, it's as smelly as a pair of socks that hasn't been washed for half a year. The wearer discards it when he or she notices the unusual odor, but in the name of protection it is recovered and found on the back market. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :53420
+    (53420, '\\"This is more than just a smelly thing. I can easily feel the daily effort from the sweat soaked to the point of being sweltering. I have to work hard too.\\" \\n# ~words of a sockswordman~'):
+        "",
+
+    # ---------------------------------------------------------- :53840
+    (53840, 'Survival knives from the world of the ninja. It seems to have been valued since ancient times as a multi-purpose tool that is safe to have one with you. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :53908
+    (53908, 'A thin sword derived from the rapier. It is lightweight and can be handled even by the weak. Although it is thin and unreliable, it can kill by accurately aiming at gaps in armor. When force is applied to the tip of the sword, electricity flows. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :53975
+    (53975, 'A rotating conical spiral-shaped machine. When the tip is pierced, the blades in the groove section cut and shred the object. Ancient writings are scattered with descriptions of tanks and battleships using it to burrow into the ground. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :54042
+    (54042, "Spears are designed to be thrust by the horse's thrusting power. Because it is designed for charging, it is heavy and sturdy, and is not suitable for melee fighting. If you want to use it while dismounting from a horse, you must use your arm strength to overcome its weight and poor maneuverability. \\n# ~Collection of Armaments you can Use Tomorrow~"):
+        "",
+
+    # ---------------------------------------------------------- :54112
+    (54112, 'A hand-held axe. The center of gravity and the shape of the handle have been adjusted so that it sticks well when thrown. However, it should be remembered that the main usage is to slash while holding it. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :54180
+    (54180, 'Machines that rotate a chain with blades at high speed. It can be used to cut down trees. If used in battle, be careful not to be pushed back and injure yourself. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :54248
+    (54248, 'A scythe shaped like a pair of scissors. It is heavy, but its sub-blades strike in slightly different trajectories, making it difficult for opponents to avoid it. Since it is double-edged, it can also cut through with a thrust, unlike ordinary scythes. Some scythes have a mechanism that closes and cuts like a pair of scissors. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :54316
+    (54316, 'A sickle made by grafting together bones. However, it is not as strong as it should be, and if not maintained properly, the sharpness of the blade will deteriorate rapidly. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :54384
+    (54384, 'A striking weapon for combat, derived from a tool. A hammer head is joined at right angles to the tip of the tool, which is struck to create an impact. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :54453
+    (54453, 'It is a type of mace, but the handle is chained to a star-shaped iron ball with spikes. The reach is increased and the power is improved by centrifugal force. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :54521
+    (54521, 'A walking stick used in some sects. It has a large loop at the tip through which multiple rings are threaded, and it makes a sound when waved. This sound is believed to have a beneficial effect in repelling evil spirits and eliminating troubles. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :54591
+    (54591, 'A staff with two or more sections. Each is connected to the other by a chain and can be split. It takes a good deal of practice to swing it around without hitting yourself while it is split. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :56808
+    (56808, 'A natural weapon created by a dinosaur. It is said to have been made overly heavy to increase its power, which hindered its daily life. Connected by graviton-coated muscle fibers and bones, it does not break even when swung with all your might. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :60195
+    (60195, 'A lightweight battle axe for its size. It has been adjusted so that it can be wielded with one hand. In addition to being equipped with magical auxiliary mechanisms in each part, the blade dissipates the surrounding air to create a vacuum state, ignoring air resistance. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :60786
+    (60786, 'Seemingly created by some god, it somehow found its way into the human world and was used as a toy for necromancers and the powers that be. By reducing the power gauge by 25%, it sends a predetermined combination of serving undead within view to the coffin and fusion summon a powerful undead. You can only control one fusion undead of the same type, at the same time. The fusion undead summoned by this effect will not become a coffin, and will self-destruct if the user leaves the map. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :61248
+    (61248, 'War hammer modified to resemble a walking cane in appearance. It is heavy and strong enough to crush a skull. It blows off the head of an unwary opponent from the neck. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :61793
+    (61793, 'Pink chain sickle. The blade is round, the weight is low, and the power itself appears to be of little importance. In reality, it is a ninja tool that manipulates energy vortexes, and it is dangerous to be careless with its appearance. Normally, the scythe is hidden and hung as a fashionable chain. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :63454
+    (63454, "The staff converts the user's MP into attack power, depending on the amount of MP, it can be said to be the most powerful weapon in the world. However, it requires a good judgment to use it well, because the more you attack, the more it is depleted. Also, if your MP is low, it is just a sturdy stick. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :63723
+    (63723, 'Longsword with a hawk motif. No matter what it slashes, it does not catch any blood and keeps its morbid whiteness. Many people find its appearance eerie. The Zanan soldier who found this sword in the ruins became famous as the \\"White Hawk\\" over the course of his battles.\\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :63725
+    (63725, '\\"The sharpness seems perfect... a little too clean for me.\\" \\n# ~words of <Loyter> the crimson of Zanan~'):
+        "",
+
+# 2 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :64485
+    (64485, 'It has a name that means ace of spades. It is said to be a refurbished version of a shovel that was once stuck in the battlefield. It can be used like a spear by slashing and poking, and by utilizing its wide blade, made of bulletproof steel, as a shield. In addition to combat, it is also used for digging holes and cutting branches in the way of advancing troops. The handle is extremely heavy as a result of the telescopic function and strength of the handle, making it difficult to handle. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :65133
+    (65133, 'Blunt weapon coated with black metal and embedded with pieces of metal shaped like crushed almonds. It was originally not a weapon, but an object that had been displayed in the center of a village. According to the story, it is said to be a statue of a hero who once hid and saved a village that was about to be destroyed in a conflict. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :65265
+    (65265, 'A whip of exorcism created by a dark ritual to destroy demons. It is said that many lives, both human and demon, were spent in the ritual. It has something like a ego, and appears before those it chooses. It is said to have been passed down through time, along with the whip of the beginning and the vampire-killing whip.\\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :65879
+    (65879, 'Ivy vines are cut off and used as whips. The surface is covered with cilia, each of which is a sharp, poisonous thorn. Even a graze wound will cause blood to gush from everywhere in the body if left untreated, so be careful how you handle them. At the very least, it is best not to wield it with bare hands. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :66840
+    (66840, 'A dagger that is said to play the tone in your mind. However, it is quite difficult to use it as a musical instrument because it requires a high level of concentration to produce a melody with no noise mixed in. As a blade, it does not have much killing power, but depending on the user, it can produce everything from hypnotic sound waves to explosive sounds at will, making it a formidable weapon. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :66910
+    (66910, 'Greatsword that can be wielded and attacked like a whip by connecting the multi-sectioned blade with magical power extracted from the wielder. In the connected state, the blade parts are only folded over each other, and if left as they are, the blade will fall apart when slashed. Therefore, it is necessary to maintain the strength of the blade by covering it with magical power supplied by the wielder. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+# 39 voci, 0 ambigue
+

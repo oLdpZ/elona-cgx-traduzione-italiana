@@ -1,0 +1,119 @@
+:68650
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:69527
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:69598
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:69669
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:69734
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:69799
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:69864
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:69929
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:69994
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:70396
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:70398
+   en  #~Identification Report: <Food> Category~
+   IT  #~Rapporto di Identificazione: categoria <Cibo>~
+:70671
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:71163
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:71706
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:73153
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:74164
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:74298
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:74361
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:74631
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:75847
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:75849
+   en  # ~an Indebted Caramel Maker~
+   IT  # ~Parole di un Caramellaio sull'Orlo del Fallimento~
+:76719
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:78115
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:78117
+   en  # ~Victim's Last Words~
+   IT  # ~Le Ultime Parole della Vittima~
+:78462
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:78464
+   en  # ~a girl with nausea~
+   IT  # ~Parole di una Bambina che Trattiene la Nausea~
+:78529
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:78596
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:79241
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:79243
+   en  # ~ Words of the great food critic, Gratona ~
+   IT  # ~Parole di <Gratona>, grande critico gastronomico~
+:79431
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:80487
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:80550
+   en  # ~Gifts that I am Happy to Receive~
+   IT  # ~Regali che Fa Piacere Ricevere~
+:81669
+   en  # ~Note Written on the Back of the Bag~
+   IT  # ~Postilla Scritta sul Retro del Sacco~
+:84100
+   en  #~Iron Stomach: A Complete Diet~
+   IT  #~In Cerca di uno Stomaco di Ferro: Piatti Finiti~
+:86466
+   en  # ~report of <Moxis>, leading imouto researcher~
+   IT  # ~Studio di <Moxis>, massimo esperto di sorelle minori~
+:86800
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:87253
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:88275
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+
+righe senza resa in tabella: 0   (atteso 0)

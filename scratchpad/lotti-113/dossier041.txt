@@ -1,0 +1,502 @@
+=== ITEM_ID_HONEGUM   [FILTER_WEAPON]
+    NOME      jp 《骨噛矛》
+              en <Honegum>
+              IT <Honegum>
+    non ident. IT osso affilato   (en sharp bone)
+    --- description(0)  :43558
+        JP  骨を模して作られた矛。ボーン製ではない。噛み噛みすることでストレスを解消したり、おやつとして食べることができる。武器としては戦斧のような使い方になる。\n#～イルヴァ幻想辞典～
+        EN  Spears made in the shape of a bone. Not made of bone. It can be chewed to relieve stress or eaten as a snack. As a weapon, it is used like a battle axe. \n#~Irva Fantasy Encyclopedia~
+    --- description(3)  :43561 ⚠️ TETTO SECCO 69
+        JP  骨っぽい戦斧だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～
+        EN  It's a battle axe shaped like a bone.
+        IT  Un'ascia da battaglia che pare fatta d'osso.
+
+=== ITEM_ID_RAVENBRAND   [FILTER_WEAPON]
+    NOME      jp 《レイヴンブランド》
+              en <Ravenbrand>
+              IT <Ravenbrand>
+    non ident. IT spada caotica   (en chaotic sword)
+    --- description(0)  :51779
+        JP  \t\t邪を祓う為に更に強大な邪を用いる、という考えから生み出された黒の剣。これには分身ともいうべく剣が世界を越えて複数存在し、それぞれ姿や能力が微妙に異なるという。\n#～イルヴァ幻想辞典～\n
+        EN  A black sword, surrounded with an aura of dread, was created from the idea of using an even more powerful evil to exorcise evil. There are multiple alter egos of this sword across the world, each with slightly different appearances and abilities. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :51782 ⚠️ TETTO SECCO 69
+        JP  \t\t兄弟剣が存在するといわれる長剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a longsword having another sword, as its counterpart.
+        IT  Una spada lunga che, dicono, ha una spada gemella.
+
+=== ITEM_ID_BAMBNIR   [FILTER_WEAPON]
+    NOME      jp 《バンブニール》
+              en <Bambnir>
+              IT <Bambnir>
+    non ident. IT lancia di bambù lucente   (en shining bamboo spear)
+    --- description(0)  :51849
+        JP  \t\t自由と独立を象徴する伝説の竹槍。ふさわしき者が手にすれば、ニンジャを一突きで殺すどころか、爆撃機すらも撃墜し、神をも殺せるという。\n#～イルヴァ幻想辞典～\n
+        EN  Legendary bamboo spear symbolizing freedom and independence. It is said to slay a ninja with a single thrust, but also to shoot down bombers and killing Gods. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :51852 ⚠️ TETTO SECCO 69
+        JP  \t\t竹でできた長槍だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a lance made from bamboo sticks.
+        IT  Una lancia fatta di bambù.
+
+=== ITEM_ID_KALPA_HAND   [FILTER_WEAPON]
+    NOME      jp 《劫波の針》
+              en <Kalpa Hand>
+              IT <Mano del Kalpa>
+    non ident. IT lancetta lucente   (en shining long hand)
+    --- description(0)  :51917
+        JP  \t\tカルパの針。カルパとはひとつの世界が誕生し消滅するまでの時間。膨大な時の流れが刃の表面を伝っている。神力を込めて振るえば時空を切り裂くことが可能であり、移動手段にも使われている。\n#～叡智の書～\n
+        EN  Kalpa hands. Kalpa is the time it takes for a world to come into being and cease to exist. An enormous flow of time runs through the surface of the blade. If wielded with divine power, it can cut through time and space, and is also used as a means of transportation. \n# ~Book of Wisdom~
+    --- description(3)  :51920 ⚠️ TETTO SECCO 69
+        JP  \t\t長剣として使える長針だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a long clock hand that can be used as a longsword.
+        IT  Una lancetta lunga che si usa come spada lunga.
+
+=== ITEM_ID_ANNINDOFU_LIKE_A_LIGHTSABRE   [FILTER_WEAPON]
+    NOME      jp 《ライトセーバーっぽい杏仁豆腐》
+              en <ANNINDOFU LIKE A LIGHTSABRE>
+              IT <ANNINDOFU TIPO SPADA LASER>
+    non ident. IT affare simile a una spada laser   (en lightsabre-like thing)
+    --- description(0)  :52717
+        JP  \t\t柄のような形の杏仁豆腐に、細長くて発光して貫通力のある杏仁豆腐を着けた杏仁豆腐。切れ味はライトセーバーにやや劣る。\n#～イルヴァ幻想辞典～\n
+        EN  A long, thin, luminescent, penetrating Tofu attached to an Annin shaped like a handle. The sharpness is somewhat inferior to that of a lightsaber. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :52720 ⚠️ TETTO SECCO 69
+        JP  \t\tライトセーバーの形をした杏仁豆腐。長剣として装備可能。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is Annin-tofu that looks like a lightsabre, you can wield it.
+        IT  Un budino di mandorle a forma di spada laser. Vale da spada lunga.
+
+=== ITEM_ID_KANI_KAMA   [FILTER_WEAPON]
+    NOME      jp 《カニカマ》
+              en <Kani-Kama>
+              IT <Kani-Kama>
+    non ident. IT forbici da granchio   (en crab-scissors)
+    --- description(0)  :52787
+        JP  \t\tカニが自らのハサミに似せて作りだした巨大な第三の手。捕食した生物の殻と擬似筋肉で構成されており、神経接続によって動かすらしい。カニのハサミのようでカニのハサミでない存在。\n#～イルヴァ幻想辞典～\n
+        EN  A giant third hand created by the crab to resemble its own scissors. It is composed of the shells and pseudo-muscles of its prey, and seems to be moved through a neural connection. It looks like a crab's scissors, but it is not the crab's scissors. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :52790 ⚠️ TETTO SECCO 69
+        JP  \t\tカニっぽい鋏鎌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a crab-claw shaped scissors.
+        IT  Un paio di cesoie che paiono chele di granchio.
+
+=== ITEM_ID_GO_RENGE   [FILTER_WEAPON]
+    NOME      jp 《伍連華草》
+              en <Go-Renge>
+              IT <Go-Renge>
+    non ident. IT kunai della bufera   (en set of blizzard kunais)
+    --- description(0)  :52857
+        JP  \t\t忍者の一流派に伝わる、特殊な飛苦無。手に入れるには吹雪の山中で試練を突破する必要があるらしい。まとめて投げる分当たりやすいが、かさばって重い。当たった者のＳＰを奪う力がある。\n#～イルヴァ幻想辞典～\n
+        EN  This is a special kind of throwing blade that has been handed down from one school of ninja to another. It is said that to obtain it, one must go through an ordeal in the mountains during a blizzard. It is easy to hit as it is thrown in batches, but it is bulky and heavy. It has the power to drain stamina of the person it hits. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :52860 ⚠️ TETTO SECCO 69
+        JP  \t\t五本一組の苦無だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a set of five Kunais.
+        IT  Un gruppo di cinque kunai.
+
+=== ITEM_ID_EPECLAIR   [FILTER_WEAPON]
+    NOME      jp 《エペクレイル》
+              en <Epeclair>
+              IT <Epeclair>
+    non ident. IT fioretto fulminante   (en lightning fleure)
+    --- description(0)  :52927
+        JP  \t\tある嵐の日、稲妻と共に天から降ってきたという細剣。生み出した電気を細かく操れるのが特徴。刀身に蓄えて電撃を放つのは勿論、負担は大きいが使用者に流して反応速度を無理矢理高めることさえ可能。\n#～イルヴァ幻想辞典～\n
+        EN  This thin sword is said to have fallen from the heavens with a bolt of lightning one stormy day. It is characterized by its ability to finely manipulate the electricity it generates. It is possible to store electricity in the blade and release electric blasts, and even to forcefully increase the reaction speed by channeling the electricity to its user, although it places a heavy burden on the user. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :52930 ⚠️ TETTO SECCO 69
+        JP  \t\t電気を操る細剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a thin sword that manipulates electricity.
+        IT  Un fioretto che comanda l'elettricità.
+
+=== ITEM_ID_GOUTEN   [FILTER_WEAPON]
+    NOME      jp 《轟天》
+              en <Gouten>
+              IT <Gouten>
+    non ident. IT trapano volante   (en flying drill)
+    --- description(0)  :52996
+        JP  \t\t空陸海、あらゆる障害を突破し突き進むための万能ドリル。硬い岩盤や氷塊をたやすく粉砕し、水中潜航や飛行も可能。あとついでに冷凍砲も装備。\n#～イルヴァ幻想辞典～\n
+        EN  A versatile drill for breaking through all kinds of obstacles in the air, land, and sea. It easily crushes hard bedrock and ice blocks, and can also dive and fly underwater. It is also equipped with a cryogenic cannon. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :52999 ⚠️ TETTO SECCO 69
+        JP  \t\t天に轟く巨大な螺旋機だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a giant drill that pierce the heavens.
+        IT  Un trapano gigantesco che rimbomba fino al cielo.
+
+=== ITEM_ID_DGT_101   [FILTER_WEAPON]
+    NOME      jp 《DGT-101》
+              en <DGT-101>
+              IT <DGT-101>
+    non ident. IT tomahawk doppio   (en double tomahawk)
+    --- description(0)  :53067
+        JP  \t\t一般的なトマホークとはかけ離れた異形の投斧。ナノマシンによる軌道制御システムを搭載。自転するので、目標に命中しても勢いを失わない。逆に、手元に戻ってくる際には回転を落としてキャッチしやすくする。\n#～イルヴァ幻想辞典～\n
+        EN  An oddly shaped throwing axe, far from a typical tomahawk. It is equipped with a nanomachine trajectory control system. Because it spins on its own axis, it does not lose momentum when it hits its target. Conversely, when it returns to the hand, the rotation is slowed down to make it easier to catch. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :53070 ⚠️ TETTO SECCO 69
+        JP  \t\t両刃の長大な投斧だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a long, double-bladed throwing axe.
+        IT  Un tomahawk lungo e a doppia lama.
+
+=== ITEM_ID_NUMENIUS   [FILTER_WEAPON]
+    NOME      jp 《ヌメニウス》
+              en <Numenius>
+              IT <Numenius>
+    non ident. IT forbici affilate   (en sharp scissors)
+    --- description(0)  :53137
+        JP  \t\t鳥人の職人が作ったとされる鎌であり、空中戦での使用も想定されている。細長いくちばしに似た二枚の刃を持つ。両刃なので引かずに押しつけても切れるし、挟み込んで対象を剪断することもできる。\n#～イルヴァ幻想辞典～\n
+        EN  Sickle said to have been made by a bird-man craftsman and is intended for use in aerial combat. It has two blades resembling an elongated beak. Since it is double-edged, it can cut by pressing down without pulling, and it can also shear objects by pinching them. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :53140 ⚠️ TETTO SECCO 69
+        JP  \t\t鳥のくちばしのような鋏鎌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a scissors-sickle like a bird's beak.
+        IT  Un paio di cesoie come il becco di un uccello.
+
+=== ITEM_ID_ENGOKU   [FILTER_WEAPON]
+    NOME      jp 《炎獄曼荼羅》
+              en <Engoku>
+              IT <Engoku>
+    non ident. IT bastone monastico sospetto   (en suspicious shakujo)
+    --- description(0)  :53206
+        JP  \t\t遺跡から発見された仕込み錫杖。見た目によらずかなりのハイテク武装で、加熱したナノマシンの刃は凄まじい切れ味を誇る。視覚に頼らず扱えるように、輪の出す音にも工夫が施されている。\n#～イルヴァ幻想辞典～\n
+        EN  Pewter staff discovered in the ruins. The heated nanomachine blade boasts tremendous sharpness. The sound that the ring makes is also designed so that it can be handled without relying on the sense of sight. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :53209 ⚠️ TETTO SECCO 69
+        JP  \t\t高度な科学技術で作られた錫杖だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a pewter staff made with advanced science and technology.
+        IT  Uno shakujo fatto con tecnologia avanzata.
+
+=== ITEM_ID_POWER_TRIANGLE   [FILTER_WEAPON]
+    NOME      jp 《三烈棍》
+              en <Power Triangle>
+              IT <Triangolo di Potenza>
+    non ident. IT bastone a tre sezioni   (en triple rod)
+    --- description(0)  :53278
+        JP  \t\t元々は、それぞれ異なる加護を受けた三本の棒だった。使い手だった三人の武人が死亡した後、共通の弟子の手によって加工され、一つなぎの節棍となった。様々な能力が強化されるが、噛みあっているかどうかは別。\n#～イルヴァ幻想辞典～\n
+        EN  Originally, they were three staves, each with a different blessing. After the deaths of the three wielders, they were processed by a mutual disciple into a single jointed stick. Various abilities are enhanced, but they may or may not mesh. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :53281 ⚠️ TETTO SECCO 69
+        JP  \t\t三位一体の三節棍だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a staff of trinity of three sections.
+        IT  Un bastone a tre sezioni: tre in uno.
+
+=== ITEM_ID_NAZUNAS_SOX   [FILTER_WEAPON]
+    NOME      jp 《ナズナの靴下》
+              en <Nazuna's Sox>
+              IT <Calzini di Nazuna>
+    non ident. IT calzino puzzolente   (en stinky sock)
+    --- description(0)  :53418
+        JP  \t\t洗っても臭いが落ちない、基礎スペックは半年物に匹敵、などとマニアの間では高評価。着用者は異臭に気づいた時点で捨てているが、保護という名目でそれが回収されて、裏市場に出回っている。\n#～イルヴァ幻想辞典～\n
+        EN  Highly regarded by enthusiasts, the odor is not removed even after washing, it's as smelly as a pair of socks that hasn't been washed for half a year. The wearer discards it when he or she notices the unusual odor, but in the name of protection it is recovered and found on the back market. \n# ~Irva Fantasy Encyclopedia~
+    --- description(2)  :53420
+        JP  \t\t「これはただ臭いだけの品じゃないね。むせるほど染みついた汗からは、日々の努力を容易に感じとれるよ。…僕も頑張らないとね」\n#～ソックスソードマンの評価～\n
+        EN  \"This is more than just a smelly thing. I can easily feel the daily effort from the sweat soaked to the point of being sweltering. I have to work hard too.\" \n# ~words of a sockswordman~
+    --- description(3)  :53421 ⚠️ TETTO SECCO 69
+        JP  \t\t足袋と呼ばれるタイプの靴下だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a type of sock called a tabi.
+        IT  Un calzino del tipo che chiamano tabi.
+
+=== ITEM_ID_KUNAI   [FILTER_WEAPON]
+    NOME      jp 苦無
+              en kunai
+              IT kunai
+    --- description(0)  :53840
+        JP  \t\t忍びの世界に伝わるサバイバルナイフ。一本携行しておくと安心な多目的ツールとして、古来から重宝されていたようだ。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Survival knives from the world of the ninja. It seems to have been valued since ancient times as a multi-purpose tool that is safe to have one with you. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :53843 ⚠️ TETTO SECCO 69
+        JP  \t\t投げることにも適した忍者用の短剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a ninja's shortsword, also suitable for throwing.
+        IT  Un pugnale da ninja, buono anche da lanciare.
+
+=== ITEM_ID_FLEURE   [FILTER_WEAPON]
+    NOME      jp 細剣
+              en fleure
+              IT fioretto
+    --- description(0)  :53908
+        JP  \t\tレイピアから派生した細い剣。軽量化されており非力な者でも扱える。細くて頼りないが、鎧の隙間などを的確に狙うことで殺傷可能。剣先に力が加わると電気が流れるようになっている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A thin sword derived from the rapier. It is lightweight and can be handled even by the weak. Although it is thin and unreliable, it can kill by accurately aiming at gaps in armor. When force is applied to the tip of the sword, electricity flows. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :53911 ⚠️ TETTO SECCO 69
+        JP  \t\t非常に軽くて細い剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a very light and thin longsword with electric properties.
+        IT  Una spada leggerissima e sottile.
+
+=== ITEM_ID_DRILL   [FILTER_WEAPON]
+    NOME      jp 螺旋機
+              en drill
+              IT trapano
+    --- description(0)  :53975
+        JP  \t\t回転する円錐螺旋状の機械。先端を突き刺すと、溝部分の刃が切り刻んで対象物を破砕する。古代の文献には、戦車や戦艦が地中に潜るのに使うという描写が散見される。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A rotating conical spiral-shaped machine. When the tip is pierced, the blades in the groove section cut and shred the object. Ancient writings are scattered with descriptions of tanks and battleships using it to burrow into the ground. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :53978 ⚠️ TETTO SECCO 69
+        JP  \t\t螺旋回転する刃を持つ槍だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a polearm with a spiral-rotating blade.
+        IT  Una lancia con la lama che gira a spirale.
+
+=== ITEM_ID_LANCE   [FILTER_WEAPON]
+    NOME      jp 騎士槍
+              en lance
+              IT lancia da cavaliere
+    --- description(0)  :54042
+        JP  \t\t馬の突進力に任せて突き刺すことを想定した設計の槍。突撃用であるため重く丈夫に作られており、乱戦には向いていない。馬から降りて使いたい場合は、重さと取り回しの悪さを腕力で解決する必要がある。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Spears are designed to be thrust by the horse's thrusting power. Because it is designed for charging, it is heavy and sturdy, and is not suitable for melee fighting. If you want to use it while dismounting from a horse, you must use your arm strength to overcome its weight and poor maneuverability. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :54045 ⚠️ TETTO SECCO 69
+        JP  \t\t細長い円錐状の槍だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is an elongated conical polearm.
+        IT  Una lancia a cono, lunga e sottile.
+
+=== ITEM_ID_TOMAHAWK   [FILTER_WEAPON]
+    NOME      jp 投斧
+              en tomahawk
+              IT tomahawk
+    --- description(0)  :54112
+        JP  \t\t手ごろな斧。投げた時に上手く刺さるように、重心や柄の形状が調整されている。ただし、持ったまま斬りつける使用法がメインであることを忘れてはならない。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A hand-held axe. The center of gravity and the shape of the handle have been adjusted so that it sticks well when thrown. However, it should be remembered that the main usage is to slash while holding it. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :54115 ⚠️ TETTO SECCO 69
+        JP  \t\t投げることにも適した小型の斧だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a small axe suitable for throwing.
+        IT  Un'ascia piccola, buona anche da lanciare.
+
+=== ITEM_ID_CHAINSAW   [FILTER_WEAPON]
+    NOME      jp 鎖鋸
+              en chain saw
+              IT motosega
+    --- description(0)  :54180
+        JP  \t\t刃のついたチェーンを高速回転させる機械。樹木を伐採するのに使える。戦闘に用いる場合は、押し返されて自分が怪我をしないように気をつけよう。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Machines that rotate a chain with blades at high speed. It can be used to cut down trees. If used in battle, be careful not to be pushed back and injure yourself. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :54183 ⚠️ TETTO SECCO 69
+        JP  \t\t機械駆動の鋸。用途は斧と同じだ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a mechanically driven saw. You can use it like an axe.
+        IT  Una sega a motore. Si usa come un'ascia.
+
+=== ITEM_ID_SCISSORS   [FILTER_WEAPON]
+    NOME      jp 鋏鎌
+              en scissors
+              IT cesoie
+    --- description(0)  :54248
+        JP  \t\t鋏のような形状の鎌。重量はあるが、サブブレードが微妙に異なる軌道で襲いかかるため相手は避けにくい。両刃なので、普通の鎌と違い突きでも切り裂くことができる。本当に鋏のように閉じて切断する機構を持つ品もある。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A scythe shaped like a pair of scissors. It is heavy, but its sub-blades strike in slightly different trajectories, making it difficult for opponents to avoid it. Since it is double-edged, it can also cut through with a thrust, unlike ordinary scythes. Some scythes have a mechanism that closes and cuts like a pair of scissors. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :54251 ⚠️ TETTO SECCO 69
+        JP  \t\t複数の刃を備えた鎌だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a scythe with multiple blades.
+        IT  Una falce con più lame.
+
+=== ITEM_ID_BONE_SCYTHE   [FILTER_WEAPON]
+    NOME      jp 骨鎌
+              en bone scythe
+              IT falce d'ossa
+    --- description(0)  :54316
+        JP  \t\t骨を接ぎ合わせて作られた鎌。一般的に見かけよりも軽く、鋭い。ただし強度に劣り、適度にメンテナンスしないと切れ味の低下も激しい。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A sickle made by grafting together bones. However, it is not as strong as it should be, and if not maintained properly, the sharpness of the blade will deteriorate rapidly. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :54319 ⚠️ TETTO SECCO 69
+        JP  \t\t骨でできた鎌だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a scythe made of bones.
+        IT  Una falce fatta d'ossa.
+
+=== ITEM_ID_WAR_HAMMER   [FILTER_WEAPON]
+    NOME      jp 戦槌
+              en war hammer
+              IT martello da guerra
+    --- description(0)  :54384
+        JP  \t\t工具から派生した戦闘用打撃武器。先端に槌頭というものが直角に接合されており、これを打ち付けて衝撃を与える。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A striking weapon for combat, derived from a tool. A hammer head is joined at right angles to the tip of the tool, which is struck to create an impact. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :54387 ⚠️ TETTO SECCO 69
+        JP  \t\t先端が左右に張り出している鈍器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a blunt weapon with the protruding ends on both sides.
+        IT  Un'arma contundente con le punte sporgenti ai lati.
+
+=== ITEM_ID_STAR_HAMMER   [FILTER_WEAPON]
+    NOME      jp 星球槌
+              en star hammer
+              IT mazza ferrata
+    --- description(0)  :54453
+        JP  \t\tメイスの一種だが、棘の生えた星型鉄球と柄が鎖で繋がれている。リーチが増し、遠心力によって威力も向上している。\n#～明日から使えるあなたの為の武具集～\n
+        EN  It is a type of mace, but the handle is chained to a star-shaped iron ball with spikes. The reach is increased and the power is improved by centrifugal force. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :54456 ⚠️ TETTO SECCO 69
+        JP  \t\t鉄球タイプの鈍器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a blunt weapon with a wrecking ball.
+        IT  Un'arma contundente con una palla di ferro.
+
+=== ITEM_ID_SHAKUJO   [FILTER_WEAPON]
+    NOME      jp 錫杖
+              en shakujo
+              IT shakujo
+    --- description(0)  :54521
+        JP  \t\t一部の宗派で用いられる杖。先端の大きな輪に複数の輪が通してあり、振ると音が鳴る。この音には魔よけや煩悩除去といったありがたい効果があると信じられている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A walking stick used in some sects. It has a large loop at the tip through which multiple rings are threaded, and it makes a sound when waved. This sound is believed to have a beneficial effect in repelling evil spirits and eliminating troubles. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :54524 ⚠️ TETTO SECCO 69
+        JP  \t\t先端に輪っかのついた杖だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a staff with a loop on the end.
+        IT  Un bastone con un anello in cima.
+
+=== ITEM_ID_NUNCHAKU   [FILTER_WEAPON]
+    NOME      jp 節棍
+              en nunchaku
+              IT nunchaku
+    --- description(0)  :54591
+        JP  \t\t二つ以上の節を持つ棒。それぞれが鎖で繋がれており、分割が可能。分割状態で自分に当たらないように振り回すには、それなりに練習が必要。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A staff with two or more sections. Each is connected to the other by a chain and can be split. It takes a good deal of practice to swing it around without hitting yourself while it is split. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :54594 ⚠️ TETTO SECCO 69
+        JP  \t\t分割して素早く振り回せる棒だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a staff that can be splitted and wielded quickly.
+        IT  Un bastone che si divide e si gira in fretta.
+
+=== ITEM_ID_GRAVITAIL   [FILTER_WEAPON]
+    NOME      jp 《グラヴィテール》
+              en <Gravitail>
+              IT <Gravitail>
+    non ident. IT sfera frantumatrice pesante   (en heavy crushing ball)
+    --- description(0)  :56808
+        JP  \t\t恐竜が生み出した天然の武器。威力を高めるために重くしすぎて、日常生活に支障をきたしていたらしい。重力子でコーティングされた筋繊維と骨で繋がっており、思いきり振り回しても千切れない。\n#～イルヴァ幻想辞典～\n
+        EN  A natural weapon created by a dinosaur. It is said to have been made overly heavy to increase its power, which hindered its daily life. Connected by graviton-coated muscle fibers and bones, it does not break even when swung with all your might. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :56811 ⚠️ TETTO SECCO 69
+        JP  \t\t恐竜の尻尾についていた星球槌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a star-sphere-hammer that was attached to the tail of a dinosaur.
+        IT  Una mazza ferrata che stava in coda a un dinosauro.
+
+=== ITEM_ID_GULIWELZEN   [FILTER_WEAPON]
+    NOME      jp 《グリエルゼン》
+              en <Guliwelzen>
+              IT <Guliwelzen>
+    non ident. IT ascia da guerra che fende il vento   (en wind-tearing war-axe)
+    --- description(0)  :60195
+        JP  \t\t大きさの割に軽量な戦斧。片手でも振り回せるように調整されている。各部に魔術補助機構を備える他、刃の部分は周囲の空気を発散させて真空状態を作り出し、空気抵抗を無視する。\n#～イルヴァ幻想辞典～\n
+        EN  A lightweight battle axe for its size. It has been adjusted so that it can be wielded with one hand. In addition to being equipped with magical auxiliary mechanisms in each part, the blade dissipates the surrounding air to create a vacuum state, ignoring air resistance. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :60198 ⚠️ TETTO SECCO 69
+        JP  \t\t軽量な青い戦斧だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a lightweight blue battle axe.
+        IT  Un'ascia da battaglia azzurra e leggera.
+
+=== ITEM_ID_NECROMANTIS   [FILTER_WEAPON]
+    NOME      jp 《邪成鎌ネクロマンティス》
+              en <Necromantis>
+              IT <Necromantis>
+    non ident. IT falce consunta   (en well-worn sickle)
+    --- description(0)  :60786
+        JP  \t\tどこかの神が作ったものらしいが、いつの間にか人間界に流出しネクロマンサーや権力者の玩具にされていた。パワーゲージを２５％減らすことで、視界内から定められた組み合わせの使役アンデッドを棺に送り、融合アンデッドを召喚する。ただし同じ種類の融合アンデッドは同時に２体以上使役できない。この効果で召喚した融合アンデッドは棺にならず、術者がそのマップを離れた場合に自壊する。\n#～イルヴァ幻想辞典～\n
+        EN  Seemingly created by some god, it somehow found its way into the human world and was used as a toy for necromancers and the powers that be. By reducing the power gauge by 25%, it sends a predetermined combination of serving undead within view to the coffin and fusion summon a powerful undead. You can only control one fusion undead of the same type, at the same time. The fusion undead summoned by this effect will not become a coffin, and will self-destruct if the user leaves the map. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :60789 ⚠️ TETTO SECCO 69
+        JP  \t\t邪悪な鎌だ。使うことができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Usable) Evil scythe.
+        IT  Una falce malvagia. Si può usare.
+
+=== ITEM_ID_ZUGAIKURAI   [FILTER_WEAPON]
+    NOME      jp 《ズガイクライ》
+              en <Zugaikurai>
+              IT <Zugaikurai>
+    non ident. IT bastone da passeggio pesante   (en heavy stick)
+    --- description(0)  :61248
+        JP  \t\t戦槌を改造し、外見を杖に似せたもの。頭蓋骨を粉砕するのに充分な重さと強度がある。油断した相手の頭部を根元から吹き飛ばす。\n#～イルヴァ幻想辞典～\n
+        EN  War hammer modified to resemble a walking cane in appearance. It is heavy and strong enough to crush a skull. It blows off the head of an unwary opponent from the neck. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :61251 ⚠️ TETTO SECCO 69
+        JP  \t\t杖に偽装した戦槌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a war hammer disguised as a staff.
+        IT  Un martello da guerra travestito da bastone.
+
+=== ITEM_ID_SASANQUA_SICKLE   [FILTER_WEAPON]
+    NOME      jp 《鎖惨渦》
+              en <Sasanqua Sickle>
+              IT <Falce Sasanqua>
+    non ident. IT falce rosa   (en pink sickle)
+    --- description(0)  :61793
+        JP  \t\tピンク色の鎖鎌。刃も丸く、分銅も小さく、威力自体は大したことなさそうに見える。その実態はエネルギー渦を操る忍具であり、見た目で油断すると危険。普段は鎌部分を隠して、お洒落なチェーンとしてぶら下げられている。\n#～イルヴァ幻想辞典～\n
+        EN  Pink chain sickle. The blade is round, the weight is low, and the power itself appears to be of little importance. In reality, it is a ninja tool that manipulates energy vortexes, and it is dangerous to be careless with its appearance. Normally, the scythe is hidden and hung as a fashionable chain. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :61796 ⚠️ TETTO SECCO 69
+        JP  \t\t渦を発生させる鎖鎌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a vortex-generating chain scythe.
+        IT  Una falce a catena che leva vortici.
+
+=== ITEM_ID_BLOOD_ROD   [FILTER_WEAPON]
+    NOME      jp 《ブラッドロッド》
+              en <Blood Rod>
+              IT <Blood Rod>
+    non ident. IT bacchetta rossa   (en red rod)
+    --- description(0)  :63454
+        JP  \t\t使用者のＭＰを攻撃力に変換する杖。ＭＰ量によっては最強の武器と言っても過言でないほどの威力をたたき出す。しかし攻撃すればその分消耗していくため、使いこなすにはセンスが必要。また、ＭＰが少ないと丈夫なだけの棒と化す。\n#～イルヴァ幻想辞典～\n
+        EN  The staff converts the user's MP into attack power, depending on the amount of MP, it can be said to be the most powerful weapon in the world. However, it requires a good judgment to use it well, because the more you attack, the more it is depleted. Also, if your MP is low, it is just a sturdy stick. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :63457 ⚠️ TETTO SECCO 69
+        JP  \t\tＭＰを攻撃力に変える杖だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a staff that converts MP into offensive power.
+        IT  Un bastone che muta gli MP in forza d'attacco.
+
+=== ITEM_ID_THE_WHITE_HAWK   [FILTER_WEAPON]
+    NOME      jp 《ウィーテハウク》
+              en <The White Hawk>
+              IT <The White Hawk>
+    non ident. IT spada bianca   (en white sword)
+    --- description(0)  :63723
+        JP  \t\t鷹をあしらったデザインの長剣。何を斬ろうが返り血一つつかず、病的なまでの白さを保ち続ける。その様子を不気味に思う者も多い。遺跡でこの剣を見つけたザナンの兵士は、戦ううちに「白き鷹」として有名になっていった。\n#～イルヴァ幻想辞典～\n
+        EN  Longsword with a hawk motif. No matter what it slashes, it does not catch any blood and keeps its morbid whiteness. Many people find its appearance eerie. The Zanan soldier who found this sword in the ruins became famous as the \"White Hawk\" over the course of his battles.\n# ~Irva Fantasy Encyclopedia~
+    --- description(2)  :63725
+        JP  \t\t「切れ味は申し分ないようだが…俺には少し綺麗すぎるだろう」\n#～ザナンの紅の英雄『ロイター』の言葉～\n
+        EN  \"The sharpness seems perfect... a little too clean for me.\" \n# ~words of <Loyter> the crimson of Zanan~
+    --- description(3)  :63726 ⚠️ TETTO SECCO 69
+        JP  \t\t真っ白な長剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a pure white long sword.
+        IT  Una spada lunga tutta bianca.
+
+=== ITEM_ID_SPADILLE   [FILTER_WEAPON]
+    NOME      jp 《スパディール》
+              en <Spadille>
+              IT <Spadille>
+    non ident. IT pala militare   (en military shovel)
+    --- description(0)  :64485
+        JP  \t\tスペードのエースという意味の名前を持つ。かつて戦場に刺さっていた一本のシャベルを改修したものらしい。切ったり突いたりして鉾槍のように使えるほか、防弾鋼鈑で作られた幅広の刃部分は盾にもなる。戦闘以外にも穴を掘ったり進軍に邪魔な枝を切ったりするのに使われる。柄の伸縮機能と強度を両立させた結果非常に重くなり、扱いづらいのが難点。\n#～イルヴァ幻想辞典～\n
+        EN  It has a name that means ace of spades. It is said to be a refurbished version of a shovel that was once stuck in the battlefield. It can be used like a spear by slashing and poking, and by utilizing its wide blade, made of bulletproof steel, as a shield. In addition to combat, it is also used for digging holes and cutting branches in the way of advancing troops. The handle is extremely heavy as a result of the telescopic function and strength of the handle, making it difficult to handle. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :64488 ⚠️ TETTO SECCO 69
+        JP  \t\t鉾槍としても使える多目的シャベルだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a multipurpose shovel that can also be used as a polearm.
+        IT  Una pala buona a tutto, anche da alabarda.
+
+=== ITEM_ID_LUCKY_ALMONDS   [FILTER_WEAPON]
+    NOME      jp 《ラッキーアーモンド》
+              en <Lucky Almonds>
+              IT <Lucky Almonds>
+    non ident. IT mazza rozza   (en rugged mace)
+    --- description(0)  :65133
+        JP  \t\t黒い金属でコーティングし、砕いたアーモンドのような形状の金属片を埋め込んだ鈍器。なんと元は武器ではなく、とある村の中央に飾られていたオブジェである。聞くところによると、かつて紛争に巻き込まれて滅びかけていた村を隠匿し救った英雄の像らしい。\n#～イルヴァ幻想辞典～\n
+        EN  Blunt weapon coated with black metal and embedded with pieces of metal shaped like crushed almonds. It was originally not a weapon, but an object that had been displayed in the center of a village. According to the story, it is said to be a statue of a hero who once hid and saved a village that was about to be destroyed in a conflict. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :65136 ⚠️ TETTO SECCO 69
+        JP  \t\tごつごつとした長大な棍棒だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a long, burly club.
+        IT  Un randello enorme e pieno di nodi.
+
+=== ITEM_ID_BLOODY_TEARS   [FILTER_WEAPON]
+    NOME      jp 《ブラッディ・ティアーズ》
+              en <Bloody Tears>
+              IT <Bloody Tears>
+    non ident. IT frusta rossa   (en red whip)
+    --- description(0)  :65265
+        JP  \t\t邪悪な魔物を滅ぼすべく、闇の儀式によって生みだされた退魔の鞭。儀式には人魔問わず数多くの命が費やされたという。意思のようなものを持っており、選んだ者の前に姿を現す。始まりの鞭、吸血鬼殺しの鞭とともに時を超えて今もなお受け継がれているのだとか。\n#～イルヴァ幻想辞典～\n
+        EN  A whip of exorcism created by a dark ritual to destroy demons. It is said that many lives, both human and demon, were spent in the ritual. It has something like a ego, and appears before those it chooses. It is said to have been passed down through time, along with the whip of the beginning and the vampire-killing whip.\n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :65268 ⚠️ TETTO SECCO 69
+        JP  \t\t血塗れの鞭だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a bloody whip.
+        IT  Una frusta sporca di sangue.
+
+=== ITEM_ID_IVY_SPINE   [FILTER_WEAPON]
+    NOME      jp 《アイヴィ・スパイン》
+              en <Ivy Spine>
+              IT <Ivy Spine>
+    non ident. IT frusta pungente   (en tingling whip)
+    --- description(0)  :65879
+        JP  \t\tツタを切り取り、鞭としたもの。表面には繊毛がびっしりと生えているが、その一つ一つが猛毒の鋭い棘であり、下手に触れると死にたくなるような痛みと激しい吐き気に襲われる。かすり傷でも、放っておくと全身の粘膜から血を噴き出すことになるので取扱いには注意だ。少なくとも素手で振り回すのはやめた方がいいだろう。\n#～イルヴァ幻想辞典～\n
+        EN  Ivy vines are cut off and used as whips. The surface is covered with cilia, each of which is a sharp, poisonous thorn. Even a graze wound will cause blood to gush from everywhere in the body if left untreated, so be careful how you handle them. At the very least, it is best not to wield it with bare hands. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :65882 ⚠️ TETTO SECCO 69
+        JP  \t\t毒の棘を持つ鞭だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a whip with poisonous thorns.
+        IT  Una frusta con le spine avvelenate.
+
+=== ITEM_ID_MELODYUS   [FILTER_WEAPON]
+    NOME      jp 《メロディウス》
+              en <Melodyus>
+              IT <Melodyus>
+    non ident. IT spada della melodia   (en sword of melody)
+    --- description(0)  :66840
+        JP  \t\t心に浮かんだ音色を奏でると言われる短剣。もっとも、ノイズの混ざらない旋律にするためには高い集中力を要するため、楽器として使うにはかなり難易度が高い。刃物としての殺傷力はさほど高くないが、使い手によっては催眠音波から爆音まで自在に出せるため凄まじい武器となる。\n#～イルヴァ幻想辞典～\n
+        EN  A dagger that is said to play the tone in your mind. However, it is quite difficult to use it as a musical instrument because it requires a high level of concentration to produce a melody with no noise mixed in. As a blade, it does not have much killing power, but depending on the user, it can produce everything from hypnotic sound waves to explosive sounds at will, making it a formidable weapon. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :66843 ⚠️ TETTO SECCO 69
+        JP  \t\t音の出る短剣だ。一応、楽器としても使える。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a dagger of sound. Also, it can be used as Rank 0-6 instrument.
+        IT  Un pugnale che suona. Volendo, vale da strumento.
+
+=== ITEM_ID_GRANDEL   [FILTER_WEAPON]
+    NOME      jp 《グランデイル》
+              en <Grandel>
+              IT <Grandel>
+    non ident. IT spadone dorato   (en golden heavysword)
+    --- description(0)  :66910
+        JP  \t\t多段分離した刀身を所持者から抽出した魔力で繋ぐことで、鞭のように振り回して攻撃できる大剣。連結状態では刀身パーツ同士が折り重なっているだけであり、そのままでは斬り付けた際に刀身がバラバラになってしまう。そのため、所持者から供給した魔力で覆い強度を維持する必要がある。\n#～イルヴァ幻想辞典～\n
+        EN  Greatsword that can be wielded and attacked like a whip by connecting the multi-sectioned blade with magical power extracted from the wielder. In the connected state, the blade parts are only folded over each other, and if left as they are, the blade will fall apart when slashed. Therefore, it is necessary to maintain the strength of the blade by covering it with magical power supplied by the wielder. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :66913 ⚠️ TETTO SECCO 69
+        JP  \t\t刃が分離する大剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a greatsword with a separable blade.
+        IT  Uno spadone con la lama che si stacca.
+
+== 39 oggetti, 80 descrizioni

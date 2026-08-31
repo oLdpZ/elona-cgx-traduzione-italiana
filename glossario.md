@@ -2218,7 +2218,8 @@ righe le vanno dietro: l'epiteto resta nel giapponese.
 | ～イムウエル幻想辞典～ | `~Irva Fantasy Encyclopedia~` | `~Dizionario Fantastico di Aimwell~` | 1 |
 | ～隅に記された魔女の言葉～ | `Witch's words, written in the corner` | `~Parole di una Strega Scritte in un Angolo~` | 1 |
 | ～混乱する店員の言葉～ | `~words of a eccentric bandit~` | `~Parole di un Commesso Confuso~` | 1 |
-| ～ソックスソードマンの評価～ | `~words of a sockswordman~` | `~Il Giudizio del Sockswordman~` | 1 |
+| ～怯える錬金術士の『ナプラス』の言葉～ | `~Identification Report: <Food> Category~` ⚠️ | `~Parole di <Naplus> l'alchimista spaventata~` | 1 |
+| ～ソックスソードマンの評価～ | `~words of a sockswordman~` | `~Il Giudizio dello Spadaccino dei Calzini~` | 1 |
 | ～君にもできるサバイバル～ | `~Survival that Anyone Can Do~` | `~La Sopravvivenza Alla Portata di Tutti~` | 1 |
 | ～危険物取扱マニュアル～ | `~Hazardous Materials Handling Manual~` | `~Manuale per il Maneggio di Materiali Pericolosi~` | 1 |
 | ～夢の廃物利用～ | `~Magical Ways of Waste Utilization~` | `~Il Sogno di Riusare gli Scarti~` | 1 |

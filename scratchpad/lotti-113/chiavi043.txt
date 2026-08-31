@@ -1,0 +1,148 @@
+RIGHE = {
+    82945, 84582, 85642, 85714, 85785, 85857, 85927, 107252, 107324, 107326,
+    107460, 113386, 115521, 115589, 115720, 115941, 116010, 116078, 116146, 116215,
+    116282, 116982, 117051, 117119, 117460, 126221, 126918, 127349, 127421, 127423,
+    130977, 131045, 131114, 131182,
+}
+# 34 righe, da 82945 a 131182
+
+    # ---------------------------------------------------------- :82945
+    (82945, 'Huge, unadorned silver cross-sword. The sword has no decoration except for a mysterious engraving on the blade, and its design, which is solely dedicated to cutting down the enemy, is breathtaking. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :84582
+    (84582, 'A great red axe that looks as if it is painted with blood. The blow from it is said to pierce and shatter anything. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :85642
+    (85642, 'Huge, heavy hammer with an imposing appearance. The figure wielding the hammer seems to be a manifestation of the God of Earth. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :85714
+    (85714, 'Dagger carved out of mica, an ancient sign of good fortune. According to one theory, it was accidentally dropped to the mortal world by the Goddess of Fortune when she was cutting up a fish. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :85785
+    (85785, 'A holy spear, without a trace of shadow. Once you strike your enemy, you might have a glimpse of the power of the Goddess of Healing. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :85857
+    (85857, 'Black staff decorated with three types of gemstones. Each gemstone is said to symbolize an element, which dramatically increases the magic power of the wielder. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :85927
+    (85927, "There are probably no farmers who doen't know this fairy tale. In the past, when there was no harvest due to continuous drought, this appeared out of nowhere and the surrounding area was covered with greenery eventually. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :107252
+    (107252, 'This amazing spear is said to have been forged in the flames of the netherworld. It is said that as it is forged, the spear gradually absorbs the power of hell, and when wielded, opens the gates of hell. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :107324
+    (107324, 'It is said that only those who have fallen into darkness are qualified to hold this staff. It is said to contain the souls of its past owners, which often come back to haunt them in nightmares when they attack. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :107326
+    (107326, '\\"I heard that in the past, the staff was in the hands of a mage who wished to destroy himself. At the time, I laughed at what a foolish person he was, but now I think I understand somewhat how he felt. He must have lost too much.\\" \\n# ~words of <Renton> the suffering wizard~'):
+        "",
+
+    # ---------------------------------------------------------- :107460
+    (107460, 'A club with an iron ball attached to it that looks like a bloody full moon. The sphere is said to be enchanted to absorb the spirit of the opponent and convert its energy into flames. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :113386
+    (113386, "This is a shortsword used by an intelligence organization that grew up in secrecy in a foreign land, and is processed to fit comfortably in one's hand. The blade is said to be dyed black so that it does not reflect light. \\n# ~Collection of Armaments you can Use Tomorrow~"):
+        "",
+
+    # ---------------------------------------------------------- :115521
+    (115521, 'A spear that can be used in a variety of fighting styles such as slashing, thrusting, and striking all by itself. In ancient times, when people were constantly fighting each other, this weapon was used by various races as well as its usage. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :115589
+    (115589, 'An axe with a blade larger than a battle-axe. It even looks like a wide sword attached to a long pole, but because of its weight, it is mainly used for smashing rather than slashing. It can also be used for felling trees. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :115720
+    (115720, 'A huge sword designed to be handled with both hands. Although heavy, it is a sharp weapon whose purpose is not to crush the enemy with its weight, but to cut them down. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :115941
+    (115941, 'A stick with a considerable length. It has no blades, so its lethality is low, but because of its lightness, it is often wielded or used as a medium to put magic power into. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :116010
+    (116010, 'The spear originally invented to catch fish. The three-parted end of the handle makes it easier to hit an opponent, and it is also thought to have the effect of delaying healing due to wounds inflicted in close proximity. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :116078
+    (116078, "A large hammer, fashioned from a blacksmith's hammer for use in battle. The blow struck from the tip of a large hammer is said to crush any enemy. \\n# ~Collection of Armaments you can Use Tomorrow~"):
+        "",
+
+    # ---------------------------------------------------------- :116146
+    (116146, 'Axes developed for combat use. The blade is larger and heavier, so it must be handled with both hands. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :116215
+    (116215, 'A double-edged sword used by the bandit groups that plague the seas. It is made to be easy to handle on the battlefield, with a rather small blade and a broad hilt to defend against swords. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :116282
+    (116282, "Longswords said to have been favored by exotic fighting groups. It has a unique curve, and each is said to have a unique design and bears the swordsmith's soul. \\n# ~Collection of Armaments you can Use Tomorrow~"):
+        "",
+
+    # ---------------------------------------------------------- :116982
+    (116982, 'A stick born to assist magic. Despite its everyday look, if you hit with it with all your might, your opponent will probably fall unconscious. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :117051
+    (117051, 'A stick born to assist magic. Despite its everyday look, if you hit with it with all your might, your opponent will probably fall unconscious. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :117119
+    (117119, 'Originally, this weapon was used to cut grass. On the battlefield, this weapon is used to hunt for heads and is considered an object of fear. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :117460
+    (117460, 'Dagger made from an unknown mineral. It is said to be extremely light, and the quick sword flashes from it look as if they are swinging a cord. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :126221
+    (126221, 'A long sword that was said to have been quietly stuck in a small hill. How many enemies has the black blade slaughtered? The sword does not speak silently. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :126918
+    (126918, 'A scythe with multiple layers of enhancement magic. It was said to strengthen the magic of the wielder and bring him closer to the ultimate existence, but it has long since been lost to the world. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :127349
+    (127349, 'It is said that there is nothing in this world that cannot be cut. As rumor has it, it can cut through anything, but it is said to be unable to cut through only gray food, which is rich in elasticity. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :127421
+    (127421, "This is a breathtaking sword bearing the name 'Diablos'. It is said that its black blade disrupts not only the spirit of the cutter, but even the flow of time. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :127423
+    (127423, '\\"I have heard about that weapon. I have heard that it is a sword born of a black dragon that harbors evil, and that its cutting blade cuts through time. I don\'t know if this is true or not, but if it is, I would love to see it. It may be a weapon worthy of my power.\\" \\n# ~words of <Loyter> the crimson of Zanan~'):
+        "",
+
+# 2 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :130977
+    (130977, 'A simple weapon designed for striking. It is very simple to make and use, and many adventurers are said to be its favorite users. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :131045
+    (131045, 'Axe light enough to be handled with one hand. It is more of an everyday tool than a weapon, but its lightness makes it versatile enough to be used like a club. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :131114
+    (131114, 'Originating from an ancient domain, it is a short and light sword that can be easily handled with one hand. Its simple shape is still in use today. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :131182
+    (131182, 'A sword with a long blade, widely used for killing. The variety of these swords is said to be still evolving. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+# 32 voci, 0 ambigue
+

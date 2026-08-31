@@ -247,7 +247,20 @@ TITOLI_JP = {
     "～自称天才魔道具技師の言葉～": "~Parole di un Sedicente Genio degli Arnesi Magici~",
     "～隅に記された魔女の言葉～": "~Parole di una Strega Scritte in un Angolo~",
     "～混乱する店員の言葉～": "~Parole di un Commesso Confuso~",
-    "～ソックスソードマンの評価～": "~Il Giudizio del Sockswordman~",
+    # ⚠️ 116a: mancava, e la mancanza non si vedeva. `_code.py` cerca prima la
+    #    coda giapponese e, non trovandola, RIPIEGA sull'inglese: per `:70398`
+    #    (l'unica riga che la porta) l'inglese e' il rapporto di
+    #    identificazione generico, quindi il referto «righe senza resa in
+    #    tabella» restava a 0 e la riga prendeva il titolo sbagliato.
+    #    Misurato con `scratchpad/_116-code-discordi.py`: 1 riga su 1.411.
+    #    ナプラス e' donna (`chat.hsp`, «mi ha chiesto di portarle»).
+    "～怯える錬金術士の『ナプラス』の言葉～": "~Parole di <Naplus> l'alchimista spaventata~",
+    # ⚠️ 116a: era «~Il Giudizio del Sockswordman~», e contraddiceva il nome
+    #    che il giocatore vede gia' a schermo. ソックスソードマン e' reso
+    #    «lo Spadaccino dei Calzini» in `chat.hsp:12731` ed e' cosi' nel
+    #    glossario (riga 482): il titolo-fonte diceva un terzo nome. Una sola
+    #    riga del sorgente porta questa coda (`:53420`, lotto 041).
+    "～ソックスソードマンの評価～": "~Il Giudizio dello Spadaccino dei Calzini~",
     "～はく製マニアからの手紙～": "~Lettera di un Fissato di Tassidermia~",
     "～ブランケットにくるまった少女の言葉～": "~Parole di una Bambina Avvolta in una Coperta~",
     "～スンバラリア星人の言葉～": "~Parole di un alieno di Sunbararia~",

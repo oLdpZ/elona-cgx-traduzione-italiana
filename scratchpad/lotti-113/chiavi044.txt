@@ -1,0 +1,168 @@
+RIGHE = {
+    68650, 69527, 69598, 69669, 69734, 69799, 69864, 69929, 69994, 70396,
+    70398, 70671, 71163, 71706, 73153, 74164, 74298, 74361, 74631, 75847,
+    75849, 76719, 78115, 78117, 78462, 78464, 78529, 78596, 79241, 79243,
+    79431, 80487, 80550, 81669, 84100, 86466, 86800, 87253, 88275,
+}
+# 39 righe, da 68650 a 88275
+
+    # ---------------------------------------------------------- :68650
+    (68650, 'Small berries with medicinal properties. When fermented, the toxicity disappears and it makes an excellent ale. On the other hand, when dried, it becomes a highly addictive narcotic, making it a favorite of many smugglers. \\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :69527
+    (69527, 'A glossy, shiny purple vegetable. The fruit is spongy and easily soaks up water and oil. It has a light flavor and blends well with other ingredients.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :69598
+    (69598, 'Crop with beautifully aligned yellow grains. It is not suitable for eating raw, and the fresh taste at harvest is lost soon after harvest.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :69669
+    (69669, 'Crop that is suitable for stewing as it does not fall apart when cooked. The skin and buds contain poison, so it is dangerous to scrape them off carefully before eating.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :69734
+    (69734, 'Fruit combining a refreshing acidity with a rich sweetness. It contains substances that help break down meat and can also tenderize it. Be careful not to eat too much, as it can break down the tissues in the mouth.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :69799
+    (69799, 'Fruit with a crunchy texture. Sweet and juicy, but like apples, the core is highly acidic. Universally eaten raw, and were rarely cooked.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :69864
+    (69864, 'A slender, curved yellow fruit. Popular as a snack, but also a staple food in some countries due to its high nutritional value and high yield. Note that ripe bananas can quickly become sore if left to ripen.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :69929
+    (69929, 'Fruits known for its high quality. Many farmers aim to make a fortune from high-quality muskmelons. It is not known how they became so different from watermelons.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :69994
+    (69994, 'A close relative of the cucumber, it is a vegetable... but because of its sweetness, it is treated exclusively as a fruit. It is a wonderful fruit that can be smashed with a long stick.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :70396
+    (70396, "Nut with a spiky shell. It is still called sea urchin by some people, perhaps because it looks like one. It's shorter spikes makes it an excellent throwing weapon.\\n#~Everchanging Food of Tyris~"):
+        "",
+
+    # ---------------------------------------------------------- :70398
+    (70398, "A type of nut that restores satiety, it's used to make candies.\\n#~Identification Report: <Food> Category~"):
+        "",
+
+    # ---------------------------------------------------------- :70671
+    (70671, 'It is a member of the hermit crab family, although it looks a lot like a crab. They are generally distributed in a boiled state because their fibers are tough and tasteless without being cooked. Before being boiled, their body color is dark purple. Although they are boiled this way, they are still alive.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :71163
+    (71163, 'Salad made from the vegetative parts of mandrake corpses. It does not contain magic itself, but it does contain a large amount of ingredients that generate magic.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :71706
+    (71706, 'Sweet treats. A strange custom of giving chocolate on certain days to express gratitude has taken hold in recent years. \\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :73153
+    (73153, 'Yith tentacles, chopped into small pieces, are placed in a flour dough and baked into a spherical shape. The secret of this dish is that it contains a trace amount of hallucinogenic ingredients. \\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :74164
+    (74164, 'Ingredients unknown. Emits a suspicious odor and makes one want to refuse to eat it. Only those who are prepared to eat it should do so. \\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :74298
+    (74298, 'Strange bentos that instantly turn you into a child when you eat them. \\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :74361
+    (74361, "Bento box lunches that contain time. Don't eat it. \\n#~Everchanging Food of Tyris~"):
+        "",
+
+    # ---------------------------------------------------------- :74631
+    (74631, "An icy treat made by pouring syrup over shaved ice. When eaten in a hurry, it causes a sharp headache, which is due to the brain's misidentification of the stimulation to the pharynx. \\n#~Everchanging Food of Tyris~"):
+        "",
+
+    # ---------------------------------------------------------- :75847
+    (75847, 'One of the last products made by a caramel maker in despair after his business failed. It evokes an apocalypse. \\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :75849
+    (75849, '\\"Tomorrow is the day for debt collection, and I don\'t have the money ready... I wish the world would end tomorrow...\\" \\n# ~an Indebted Caramel Maker~'):
+        "",
+
+    # ---------------------------------------------------------- :76719
+    (76719, 'Simple dish of rice, hardened and seasoned with a firm fist. It is characterized by its ability to be eaten quickly, even with one hand. \\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :78115
+    (78115, 'The combination of a thick texture and a crunchy texture makes it a popular food. In the past, washed Putits were used directly, but due to numerous incidents of unwary customers being eaten by Putits, they now use Putits that have been put in a state of suspended animation. \\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :78117
+    (78117, '\\"Look at this Lily, this Putit is quite lively... wait.. noooooooooooo! \\" \\n# ~Victim\'s Last Words~'):
+        "",
+
+    # ---------------------------------------------------------- :78462
+    (78462, 'By adding unique elements to the process, the bread has a fluffier texture. The softness of the bread is not only apparent when you touch it, but it is even more obvious when you taste it. \\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :78464
+    (78464, '\\"Oh, the fluffy bread made by my big sister is delicious!\\" \\n# ~a girl with nausea~'):
+        "",
+
+    # ---------------------------------------------------------- :78529
+    (78529, 'One of the basic seasonings that can make or break a dish. It is an excellent seasoning that not only adds sweetness, but also brings out the umami and saltiness of the ingredients when used in small quantities. \\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :78596
+    (78596, "One of the basic seasonings that can make or break a dish. While it obviously imparts a salty flavor on any food, using it sparingly can bring out the ingredients' natural sweetness and umami, making for an excellent seasoning in moderation.\\n#~Everchanging Food of Tyris~\\n"):
+        "",
+
+    # ---------------------------------------------------------- :79241
+    (79241, "A very tasty dish that fills you with juices that overflow when you put it in your mouth. It's probably a silly question to ask what ingredients are used. \\n#~Everchanging Food of Tyris~"):
+        "",
+
+    # ---------------------------------------------------------- :79243
+    (79243, '\\"Hm. The texture when you put it in your mouth, the juicy meat juices that pour out of it with great vigor, and the unique flavor that lingers in your mouth. This dish deserves the highest rank I have ever had. By the way, what kind of meat is used in this dish?\\" \\n# ~ Words of the great food critic, Gratona ~'):
+        "",
+
+# 5 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :79431
+    (79431, 'Vegetable with a strong acidity that has received all the blessings of the sun. It can be prepared in a variety of ways, but one unusual way to eat it is to cut it raw into round slices and dip it in sugar.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :80487
+    (80487, 'The white devil from a foreign land. It beckons people with its savory smell and soft touch, but once it has been eaten, it will suddenly pause at the throat and deprive the eater of action and consciousness! If this happens, get help from someone nearby.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :80550
+    (80550, 'Special rice cake decorated with festive items. A grateful rice cake blessed by God, but eaten without concern. However, God cannot do anything about the rice cake getting stuck in your throat. So be careful when eating it. \\n# ~Gifts that I am Happy to Receive~'):
+        "",
+
+    # ---------------------------------------------------------- :81669
+    (81669, "Fortune for you and me! Fortune! If you take a bite gently, happiness will surely arrive. If you ate the whole thing, God's blessing will come to you. \\n# ~Note Written on the Back of the Bag~"):
+        "",
+
+    # ---------------------------------------------------------- :84100
+    (84100, 'The tail of a rabbit has been considered a sign of good luck since ancient times. Some regions use it as an ornament, but the ancient North Tyris belief is that eating it brings good luck. \\n#~Iron Stomach: A Complete Diet~'):
+        "",
+
+    # ---------------------------------------------------------- :86466
+    (86466, 'A lunch made by your younger sister just for you. It never spoils because of love. It is said that just eating it generates negative ions around you and has an amazing relaxation effect, but I have yet to eat it... \\n# ~report of <Moxis>, leading imouto researcher~'):
+        "",
+
+    # ---------------------------------------------------------- :86800
+    (86800, "It is said that when eaten, a fountain of knowledge springs up in one's head. A famous wizard spent all his knowledge in researching this fruit so that he could obtain it permanently, but in the end he was unable to propagate it. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :87253
+    (87253, 'Fragrant cheese that is said to be full of life force when eaten. Since ancient times, it is said to have been a favorite food of brave and daring heroes. \\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :88275
+    (88275, 'A rare apple with a faint golden color. It is said to contain plenty of honey and good fortune, and in the past, people wandered the continent in search of this miraculous fruit. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+# 34 voci, 0 ambigue
+

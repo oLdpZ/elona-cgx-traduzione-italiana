@@ -1,0 +1,420 @@
+=== ITEM_ID_CLAYMORE2   [FILTER_WEAPON]
+    NOME      jp 《クレイモア》
+              en <Claymore>
+              IT <Claymore>
+    non ident. IT spada grezza   (en brutish sword)
+    --- description(0)  :82945
+        JP  \t\t飾り気のない巨大な銀の十字剣。刀身に謎の刻印がされている以外一切の装飾はなく、単純に敵を切り払うことのみに特化したその作りは、一種の畏怖さえも感じる。\n#～イルヴァ幻想辞典～\n
+        EN  Huge, unadorned silver cross-sword. The sword has no decoration except for a mysterious engraving on the blade, and its design, which is solely dedicated to cutting down the enemy, is breathtaking. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :82948 ⚠️ TETTO SECCO 69
+        JP  \t\t非常に大きく武骨な大剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a very large and martial greatsword.
+        IT  Uno spadone grandissimo e rozzo.
+
+=== ITEM_ID_AXE_OF_DESTRUCTION   [FILTER_WEAPON]
+    NOME      jp 《破壊の斧》
+              en <Axe of Destruction>
+              IT <Ascia della Distruzione>
+    non ident. IT ascia gigantesca   (en giant axe)
+    --- description(0)  :84582
+        JP  \t\tまるで血塗られているかの如く赤き大斧。そこから繰り出される一撃は、どんなものでも貫き砕くという。\n#～イルヴァ幻想辞典～\n
+        EN  A great red axe that looks as if it is painted with blood. The blow from it is said to pierce and shatter anything. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :84585 ⚠️ TETTO SECCO 69
+        JP  \t\tクリティカルが出やすい大斧だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a big axe that can easily deliver a critical hit.
+        IT  Un'ascia lunga che fa spesso colpi critici.
+
+=== ITEM_ID_GAIA_HAMMER   [FILTER_WEAPON]
+    NOME      jp 《大地の大槌》
+              en <Gaia Hammer>
+              IT <Martello di Gaia>
+    non ident. IT martello gigantesco   (en giant hammer)
+    --- description(0)  :85642
+        JP  \t\t堂々たる風格を持った巨大で重い槌。その槌を振るう姿は、さながら大地の神が顕現しているかのようだ。\n#～イルヴァ幻想辞典～\n
+        EN  Huge, heavy hammer with an imposing appearance. The figure wielding the hammer seems to be a manifestation of the God of Earth. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :85645 ⚠️ TETTO SECCO 69
+        JP  \t\t大地の神から下賜される大槌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a large hammer bestowed by the God of Earth.
+        IT  Un martello donato dal dio della terra.
+
+=== ITEM_ID_LUCKY_DAGGER   [FILTER_WEAPON]
+    NOME      jp 《ラッキーダガー》
+              en <Lucky Dagger>
+              IT <Lucky Dagger>
+    non ident. IT pugnale sottile   (en thin dagger)
+    --- description(0)  :85714
+        JP  \t\t古来から幸運の証であるミカを削り出して作られた短剣。一説によれば幸運の女神が魚を捌く際、誤って地上に落としたものだと言われている。\n#～イルヴァ幻想辞典～\n
+        EN  Dagger carved out of mica, an ancient sign of good fortune. According to one theory, it was accidentally dropped to the mortal world by the Goddess of Fortune when she was cutting up a fish. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :85717 ⚠️ TETTO SECCO 69
+        JP  \t\t幸運の女神から下賜される短剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a dagger bestowed by the Goddess of Fortune.
+        IT  Un pugnale donato dalla dea della fortuna.
+
+=== ITEM_ID_HOLY_LANCE   [FILTER_WEAPON]
+    NOME      jp 《ホーリーランス》
+              en <Holy Lance>
+              IT <Holy Lance>
+    non ident. IT lancia sacra   (en holy lance)
+    --- description(0)  :85785
+        JP  \t\t一片の曇りも無い聖なる槍。一度敵を突けば、あなたはそこに癒しの女神の力の片鱗を見ることとなるだろう。\n#～イルヴァ幻想辞典～\n
+        EN  A holy spear, without a trace of shadow. Once you strike your enemy, you might have a glimpse of the power of the Goddess of Healing. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :85788 ⚠️ TETTO SECCO 69
+        JP  \t\t癒しの女神から下賜される槍だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a spear bestowed by the Goddess of Healing.
+        IT  Una lancia donata dalla dea della guarigione.
+
+=== ITEM_ID_ELEMENTAL_STAFF   [FILTER_WEAPON]
+    NOME      jp 《エレメンタルスタッフ》
+              en <Elemental Staff>
+              IT <Elemental Staff>
+    non ident. IT bastone elementale   (en elemental staff)
+    --- description(0)  :85857
+        JP  \t\t三種の宝石が飾り付けられた黒い杖。宝石それぞれが元素の象徴とされ、それは扱う者の魔法力を飛躍的に増大させるのだという。\n#～イルヴァ幻想辞典～\n
+        EN  Black staff decorated with three types of gemstones. Each gemstone is said to symbolize an element, which dramatically increases the magic power of the wielder. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :85860 ⚠️ TETTO SECCO 69
+        JP  \t\t元素の神から下賜される杖だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a staff bestowed by the God of Element.
+        IT  Un bastone donato dal dio degli elementi.
+
+=== ITEM_ID_KUMIROMI_SCYTHE   [FILTER_WEAPON]
+    NOME      jp 《クミロミサイズ》
+              en <Kumiromi Scythe>
+              IT <Kumiromi Scythe>
+    non ident. IT falce del raccolto   (en harvest scythe)
+    --- description(0)  :85927
+        JP  \t\t農業を営む者でこのお伽噺を知らぬ者はいないだろう。かつて日照り続きで作物が取れなかった頃、どこからともなくそれは現れ、やがて周辺が緑に覆われたという話を。\n#～イルヴァ幻想辞典～\n
+        EN  There are probably no farmers who doen't know this fairy tale. In the past, when there was no harvest due to continuous drought, this appeared out of nowhere and the surrounding area was covered with greenery eventually. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :85930 ⚠️ TETTO SECCO 69
+        JP  \t\t収穫の神から下賜される大鎌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a scythe bestowed by the God of Harvest.
+        IT  Una falce donata dal dio del raccolto.
+
+=== ITEM_ID_RANKIS   [FILTER_WEAPON]
+    NOME      jp 《ランキス》
+              en <Rankis>
+              IT <Rankis>
+    non ident. IT alabarda maledetta   (en cursed halberd)
+    --- description(0)  :107252
+        JP  \t\t地獄の炎で鍛え上げられたとされる驚異の槍。鍛えるにつれ徐々に地獄の力を吸い込んだこの槍は、振るわれることで地獄の門を開くのだという。\n#～イルヴァ幻想辞典～\n
+        EN  This amazing spear is said to have been forged in the flames of the netherworld. It is said that as it is forged, the spear gradually absorbs the power of hell, and when wielded, opens the gates of hell. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :107255 ⚠️ TETTO SECCO 69
+        JP  \t\t地獄の力を持った鉾槍だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a hooked spear with netherworldly power.
+        IT  Un'alabarda con dentro la forza dell'oltretomba.
+
+=== ITEM_ID_STAFF_OF_INSANITY   [FILTER_WEAPON]
+    NOME      jp 《狂気の杖》
+              en <Staff of Insanity>
+              IT <Bastone della Follia>
+    non ident. IT bastone tremante   (en shivering staff)
+    --- description(0)  :107324
+        JP  \t\t闇に堕ちた者のみ手にする資格があるとされる杖。そこには過去の所有者達の魂が込められているとされ、攻撃の際にそれはしばしば悪夢となって降りかかる。\n#～イルヴァ幻想辞典～\n
+        EN  It is said that only those who have fallen into darkness are qualified to hold this staff. It is said to contain the souls of its past owners, which often come back to haunt them in nightmares when they attack. \n# ~Irva Fantasy Encyclopedia~
+    --- description(2)  :107326
+        JP  \t\t「過去、破滅を望んだ魔道士が手にした杖と聞いているよ。あの頃はなんて愚かしい人間がいたものだと笑っていたが、今なら気持ちが何となくわかる気がする。彼もきっと失いすぎたのだろうね」\n#～悩める魔術士『レントン』の言葉～\n
+        EN  \"I heard that in the past, the staff was in the hands of a mage who wished to destroy himself. At the time, I laughed at what a foolish person he was, but now I think I understand somewhat how he felt. He must have lost too much.\" \n# ~words of <Renton> the suffering wizard~
+    --- description(3)  :107327 ⚠️ TETTO SECCO 69
+        JP  \t\t相手の精神を崩壊させる杖だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a staff that disintegrates the opponent's psyche.
+        IT  Un bastone che manda in pezzi la mente del nemico.
+
+=== ITEM_ID_BLOOD_MOON   [FILTER_WEAPON]
+    NOME      jp 《ブラッドムーン》
+              en <Blood Moon>
+              IT <Blood Moon>
+    non ident. IT mazza insanguinata   (en bloody mace)
+    --- description(0)  :107460
+        JP  \t\t血塗られた満月のような鉄球が取り付けられた棍棒。その球体には相手の精神を吸収し、その力を火炎へと還元する魔法がかけられているという。\n#～イルヴァ幻想辞典～\n
+        EN  A club with an iron ball attached to it that looks like a bloody full moon. The sphere is said to be enchanted to absorb the spirit of the opponent and convert its energy into flames. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :107463 ⚠️ TETTO SECCO 69
+        JP  \t\t相手のマナを吸い取る棍棒だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a blunt weapon that drains the opponent's mana.
+        IT  Un randello che succhia il mana del nemico.
+
+=== ITEM_ID_WAKIZASHI   [FILTER_WEAPON]
+    NOME      jp 忍刀
+              en wakizashi
+              IT wakizashi
+    --- description(0)  :113386
+        JP  \t\t異国にて秘密裏に育った諜報組織が用いる、やや小振りながら手に馴染むよう加工された小剣。その刃は光に反射しないよう黒く染められているという。\n#～明日から使えるあなたの為の武具集～\n
+        EN  This is a shortsword used by an intelligence organization that grew up in secrecy in a foreign land, and is processed to fit comfortably in one's hand. The blade is said to be dyed black so that it does not reflect light. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :113389 ⚠️ TETTO SECCO 69
+        JP  \t\t特殊な集団が用いる短剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a shortsword used by a special group of people.
+        IT  Un pugnale in uso a un gruppo particolare.
+
+=== ITEM_ID_HALBERD   [FILTER_WEAPON]
+    NOME      jp 鉾槍
+              en halberd
+              IT alabarda
+    --- description(0)  :115521
+        JP  \t\tこれ一本で斬る、突く、叩くといった多様な戦い方ができる槍。古代、人と人との戦いが絶えなかった頃、この武器は使い方同様、多様な人種によって使用されていたという。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A spear that can be used in a variety of fighting styles such as slashing, thrusting, and striking all by itself. In ancient times, when people were constantly fighting each other, this weapon was used by various races as well as its usage. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :115524 ⚠️ TETTO SECCO 69
+        JP  \t\t複数の使い方ができる槍だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a polearm with various way of attacking.
+        IT  Una lancia che si usa in più modi.
+
+=== ITEM_ID_BARDISH   [FILTER_WEAPON]
+    NOME      jp 大斧
+              en bardish
+              IT ascia lunga
+    --- description(0)  :115589
+        JP  \t\t戦斧より更に大きな刃を取り付けた斧。それはもはや長い棒に幅広の剣が取り付けてあるようにさえ見えるが、重量故斬るというより叩きつぶすように使うのが主らしい。樹木を伐採するのにも使える。\n#～明日から使えるあなたの為の武具集～\n
+        EN  An axe with a blade larger than a battle-axe. It even looks like a wide sword attached to a long pole, but because of its weight, it is mainly used for smashing rather than slashing. It can also be used for felling trees. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :115592 ⚠️ TETTO SECCO 69
+        JP  \t\t刃先の広い斧だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a single-bladed axe with a longer pole.
+        IT  Un'ascia con la lama larga.
+
+=== ITEM_ID_CLAYMORE   [FILTER_WEAPON]
+    NOME      jp 大剣
+              en claymore
+              IT spadone
+    --- description(0)  :115720
+        JP  \t\t両手で扱うことを前提とした巨大な剣。重量はあるが決してその重みに任せて敵を叩き潰すのではなく、断ち切ることを目的とする切れ味のよい武器である。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A huge sword designed to be handled with both hands. Although heavy, it is a sharp weapon whose purpose is not to crush the enemy with its weight, but to cut them down. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :115723 ⚠️ TETTO SECCO 69
+        JP  \t\t重量感ある剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a heavier-than-usual longsword.
+        IT  Una spada che si sente pesante.
+
+=== ITEM_ID_LONG_STAFF   [FILTER_WEAPON]
+    NOME      jp 長棒
+              en long staff
+              IT bastone lungo
+    --- description(0)  :115941
+        JP  \t\tある程度の長さを持った棒。特に刃も付いていないので殺傷性は低いが、その軽さから振り回したり、魔力を込める媒体として扱われることが多い。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A stick with a considerable length. It has no blades, so its lethality is low, but because of its lightness, it is often wielded or used as a medium to put magic power into. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :115944 ⚠️ TETTO SECCO 69
+        JP  \t\t細長い棒だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a long and thin staff.
+        IT  Un bastone lungo e sottile.
+
+=== ITEM_ID_TRIDENT   [FILTER_WEAPON]
+    NOME      jp 三叉槍
+              en trident
+              IT tridente
+    --- description(0)  :116010
+        JP  \t\t元々は魚を取る為に考え出された槍。柄の先が３つに分かれていることで相手に当たりやすくなる上、至近に受けた傷によって治癒を遅らせるという効果も考えられているようだ。\n#～明日から使えるあなたの為の武具集～\n
+        EN  The spear originally invented to catch fish. The three-parted end of the handle makes it easier to hit an opponent, and it is also thought to have the effect of delaying healing due to wounds inflicted in close proximity. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :116013 ⚠️ TETTO SECCO 69
+        JP  \t\t先が３つに分かれた槍だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a polearm with three separate tips.
+        IT  Una lancia con la punta divisa in tre.
+
+=== ITEM_ID_HAMMER   [FILTER_WEAPON]
+    NOME      jp 大槌
+              en hammer
+              IT martello
+    --- description(0)  :116078
+        JP  \t\t鍛冶用から戦闘用に加工された大型の槌。大きく振り上げた先から叩きつける一撃は、どんな敵も叩きつぶすという。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A large hammer, fashioned from a blacksmith's hammer for use in battle. The blow struck from the tip of a large hammer is said to crush any enemy. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :116081 ⚠️ TETTO SECCO 69
+        JP  \t\t重量感ある槌だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a very heavy blunt weapon.
+        IT  Un martello che si sente pesante.
+
+=== ITEM_ID_BATTLE_AXE   [FILTER_WEAPON]
+    NOME      jp 戦斧
+              en battle axe
+              IT ascia da battaglia
+    --- description(0)  :116146
+        JP  \t\t戦闘用に開発された斧。刃も大きめに作られた為重量を増し、結果として両手で扱わなければいけなくなっている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Axes developed for combat use. The blade is larger and heavier, so it must be handled with both hands. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :116149 ⚠️ TETTO SECCO 69
+        JP  \t\t戦闘用に加工された斧だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a large double-bladed battle axe.
+        IT  Un'ascia lavorata per il combattimento.
+
+=== ITEM_ID_SCIMITAR   [FILTER_WEAPON]
+    NOME      jp 海賊刀
+              en scimitar
+              IT scimitarra
+    --- description(0)  :116215
+        JP  \t\t海にはびこる盗賊集団が扱う刃先が両刃の剣。戦場でも扱いやすい様、やや小振りの刀身で身幅が広く剣を防げるよう作られている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A double-edged sword used by the bandit groups that plague the seas. It is made to be easy to handle on the battlefield, with a rather small blade and a broad hilt to defend against swords. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :116218 ⚠️ TETTO SECCO 69
+        JP  \t\t刃が湾曲した短剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a curved shortsword.
+        IT  Un pugnale con la lama ricurva.
+
+=== ITEM_ID_KATANA   [FILTER_WEAPON]
+    NOME      jp 刀
+              en katana
+              IT katana
+    --- description(0)  :116282
+        JP  \t\t異国の戦闘集団が好んで用いたとされる長剣。独特の反りがあり、それぞれに独特の銘と刀工の魂が込められているという。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Longswords said to have been favored by exotic fighting groups. It has a unique curve, and each is said to have a unique design and bears the swordsmith's soul. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :116285 ⚠️ TETTO SECCO 69
+        JP  \t\t異国から来た細身の剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is an unique curved longsword from a foreign land.
+        IT  Una spada sottile venuta da un paese straniero.
+
+=== ITEM_ID_SPEAR   [FILTER_WEAPON]
+    NOME      jp 長槍
+              en spear
+              IT lancia
+    --- description(0)  :116982
+        JP  \t\t長い柄の先に尖った切っ先を持つ武器。シンプルな構造ながら誰にでも扱うことができ、長い柄を活かして中距離で戦うことを可能にさせている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A stick born to assist magic. Despite its everyday look, if you hit with it with all your might, your opponent will probably fall unconscious. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :116985 ⚠️ TETTO SECCO 69
+        JP  \t\t細長い槍だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a polearm with a sharp point.
+        IT  Una lancia lunga e sottile.
+
+=== ITEM_ID_STAFF   [FILTER_WEAPON]
+    NOME      jp 杖
+              en staff
+              IT bastone
+    --- description(0)  :117051
+        JP  \t\t魔法の補佐をする為に生まれた棒。武器とはおおよそ言い難い外見をしているが、それでも力一杯これで叩けば恐らく相手は昏倒することだろう。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A stick born to assist magic. Despite its everyday look, if you hit with it with all your might, your opponent will probably fall unconscious. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :117054 ⚠️ TETTO SECCO 69
+        JP  \t\t魔法を補佐する為の棒だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a staff used to assist with magic.
+        IT  Un bastone che dà una mano alla magia.
+
+=== ITEM_ID_SICKLE   [FILTER_WEAPON]
+    NOME      jp 鎌
+              en sickle
+              IT falcetto
+    --- description(0)  :117119
+        JP  \t\t本来は草などを刈る為に用いる武器。戦場においてこの武器は首を狩る為に用いられるので、恐怖の対象とされている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Originally, this weapon was used to cut grass. On the battlefield, this weapon is used to hunt for heads and is considered an object of fear. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :117122 ⚠️ TETTO SECCO 69
+        JP  \t\t農業用の用具だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a farmer's tool for harvesting crops.
+        IT  Un attrezzo da contadino.
+
+=== ITEM_ID_ETHER_DAGGER   [FILTER_WEAPON]
+    NOME      jp 《エーテルダガー》
+              en <Ether Dagger>
+              IT <Ether Dagger>
+    non ident. IT pugnale avvolto dal vento   (en dagger surrounded by wind)
+    --- description(0)  :117460
+        JP  \t\t未知なる鉱物を用いて作られた短剣。非常に軽く、そこから繰り出される素早い剣閃は、まるで棚引く紐を振り回しているようにも見えるという。\n#～イルヴァ幻想辞典～\n
+        EN  Dagger made from an unknown mineral. It is said to be extremely light, and the quick sword flashes from it look as if they are swinging a cord. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :117463 ⚠️ TETTO SECCO 69
+        JP  \t\t雷の力を秘めた短剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a dagger with the power of wind and lightning.
+        IT  Un pugnale con dentro la forza del tuono.
+
+=== ITEM_ID_RAGNAROK   [FILTER_WEAPON]
+    NOME      jp 《ラグナロク》
+              en <Ragnarok>
+              IT <Ragnarok>
+    non ident. IT spada che tutto conclude   (en sword that ends all)
+    --- description(0)  :126221
+        JP  \t\t小高い丘にひっそりと刺さっていたという長剣。その黒い刀身は一体どれだけの敵を屠ってきたのだろうか。剣は黙して語らない。\n#～イルヴァ幻想辞典～\n
+        EN  A long sword that was said to have been quietly stuck in a small hill. How many enemies has the black blade slaughtered? The sword does not speak silently. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :126224 ⚠️ TETTO SECCO 69
+        JP  \t\t世界の終末を招くといわれる長剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a longsword said to bring the end of the world.
+        IT  Una spada lunga che, dicono, chiama la fine del mondo.
+
+=== ITEM_ID_MOURNBLADE   [FILTER_WEAPON]
+    NOME      jp 《モーンブレイド》
+              en <Mournblade>
+              IT <Mournblade>
+    non ident. IT spada caotica   (en chaotic sword)
+    --- description(0)  :126849
+        JP  \t\t邪を祓う為に更に強大な邪を用いる、という考えから生み出された黒の剣。これには兄弟ともいうべく剣が存在し、それぞれを両手に握れば世界ですら破壊し得る程の力を得るのだという。\n#～イルヴァ幻想辞典～\n
+        EN  A black sword, surrounded with an aura of dread, was created from the idea of using an even more powerful evil to exorcise evil. It is rumored that there are a counterpart sword, and that if each is held in both hands, they can become so powerful that they can destroy even the world. \n# ~Irva Fantasy Encyclopedia~
+        IT  Una spada nera, nata dall'idea di usare un male ancora più grande per scacciare il male. Ne esiste una che si potrebbe dire sua gemella, e dicono che, a stringerle tutt'e due, una per mano, si ottenga una forza capace di distruggere perfino il mondo. \n# ~Dizionario Fantastico di Irva~
+    --- description(3)  :126852 ⚠️ TETTO SECCO 69
+        JP  \t\tストームブリンガーという兄弟剣が存在するといわれる長剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a longsword having another, Storm Bringer, as its counterpart.
+        IT  Una spada lunga che, dicono, ha per gemella Stormbringer.
+
+=== ITEM_ID_SCYTHE_OF_THE_VOID   [FILTER_WEAPON]
+    NOME      jp 《虚無の大鎌》
+              en <Scythe of the Void>
+              IT <Falce del Vuoto>
+    non ident. IT falce che canta la morte   (en scythe that sings death)
+    --- description(0)  :126918
+        JP  \t\t何重もの強化魔法が掛けられた大鎌。扱う者の魔力を強化し、自身を究極の存在に近しめるとされたが、長らく世から失われて久しい。\n#～イルヴァ幻想辞典～\n
+        EN  A scythe with multiple layers of enhancement magic. It was said to strengthen the magic of the wielder and bring him closer to the ultimate existence, but it has long since been lost to the world. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :126921 ⚠️ TETTO SECCO 69
+        JP  \t\t相手のマナを吸い取る大鎌だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a scythe that drains the opponent's mana.
+        IT  Una falce che succhia il mana del nemico.
+
+=== ITEM_ID_ZANTETSUKEN   [FILTER_WEAPON]
+    NOME      jp 《斬鉄剣》
+              en <Zantetsuken>
+              IT <Zantetsuken>
+    non ident. IT katana d'argento lucente   (en shining silver katana)
+    --- description(0)  :127349
+        JP  \t\tこの世に切れぬ者など無いと謳われる一振りの奇跡。噂通りどんな物でも切り貫くが、話によると弾力性に富む灰色の食物だけは、切ることができないらしい。\n#～イルヴァ幻想辞典～\n
+        EN  It is said that there is nothing in this world that cannot be cut. As rumor has it, it can cut through anything, but it is said to be unable to cut through only gray food, which is rich in elasticity. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :127352 ⚠️ TETTO SECCO 69
+        JP  \t\t何でも貫くといわれる長剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is the sword rumored to cut through anything.
+        IT  Una spada lunga che, dicono, passa qualunque cosa.
+
+=== ITEM_ID_DIABLOS   [FILTER_WEAPON]
+    NOME      jp 《ディアボロス》
+              en <Diablos>
+              IT <Diablos>
+    non ident. IT spada nerissima   (en pure black sword)
+    --- description(0)  :127421
+        JP  \t\t「悪魔」と言う名を冠した畏れ多き剣。その黒い刃は斬られた者の精神ばかりか、時の流れさえ乱すのだとされている。\n#～イルヴァ幻想辞典～\n
+        EN  This is a breathtaking sword bearing the name 'Diablos'. It is said that its black blade disrupts not only the spirit of the cutter, but even the flow of time. \n# ~Irva Fantasy Encyclopedia~
+    --- description(2)  :127423
+        JP  \t\t「その武器の事は聞いている。災いを抱く黒き竜から生れし剣で、切り裂く刃は時間さえ断ち切るとか。それが真実かどうか知らないが、本当なら是非ともお目にかかりたいものだ。俺の力に値する武器かもしれんしな」\n#～ザナンの紅の英雄『ロイター』の言葉～\n
+        EN  \"I have heard about that weapon. I have heard that it is a sword born of a black dragon that harbors evil, and that its cutting blade cuts through time. I don't know if this is true or not, but if it is, I would love to see it. It may be a weapon worthy of my power.\" \n# ~words of <Loyter> the crimson of Zanan~
+    --- description(3)  :127424 ⚠️ TETTO SECCO 69
+        JP  \t\t時を止める長剣だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is the longsword that stops time.
+        IT  Una spada lunga che ferma il tempo.
+
+=== ITEM_ID_CLUB   [FILTER_WEAPON]
+    NOME      jp 棍棒
+              en club
+              IT randello
+    --- description(0)  :130977
+        JP  \t\t殴打する為に作られた簡素な武器。作成方法も使い方も非常にシンプルな為、冒険者にも愛用者が多いという。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A simple weapon designed for striking. It is very simple to make and use, and many adventurers are said to be its favorite users. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :130980 ⚠️ TETTO SECCO 69
+        JP  \t\t素材を削り出して作られた棒だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a simple but effective blunt weapon.
+        IT  Un bastone ricavato scavando il materiale.
+
+=== ITEM_ID_HAND_AXE   [FILTER_WEAPON]
+    NOME      jp 手斧
+              en hand axe
+              IT accetta
+    --- description(0)  :131045
+        JP  \t\t片手で扱えるよう軽く作られている斧。武器というより薪を割る等日常的な側面が色濃く残る作りをしているが、その軽さを生かし棍棒の様に使える万能さも持っている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Axe light enough to be handled with one hand. It is more of an everyday tool than a weapon, but its lightness makes it versatile enough to be used like a club. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :131048 ⚠️ TETTO SECCO 69
+        JP  \t\t小型の斧だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a smaller, single-bladed axe.
+        IT  Un'ascia piccola.
+
+=== ITEM_ID_DAGGER   [FILTER_WEAPON]
+    NOME      jp 短剣
+              en dagger
+              IT pugnale
+    --- description(0)  :131114
+        JP  \t\t古代の氏族が発端の、片手でも簡単に扱えるよう短く軽い小剣。そのシンプルな形状は現在でも変わることなく存り続けている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Originating from an ancient domain, it is a short and light sword that can be easily handled with one hand. Its simple shape is still in use today. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :131117 ⚠️ TETTO SECCO 69
+        JP  \t\t小型の剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a shortsword.
+        IT  Una spada piccola.
+
+=== ITEM_ID_LONG_SWORD   [FILTER_WEAPON]
+    NOME      jp 長剣
+              en long sword
+              IT spada lunga
+    --- description(0)  :131182
+        JP  \t\t長い刀身を携えた、斬ることを広く目的とした剣。その多種多様さは今も尚進化を続けているという。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A sword with a long blade, widely used for killing. The variety of these swords is said to be still evolving. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :131185 ⚠️ TETTO SECCO 69
+        JP  \t\t細い刀身の剣だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a double-edged longsword.
+        IT  Una spada dalla lama sottile.
+
+== 33 oggetti, 68 descrizioni

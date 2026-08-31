@@ -1,0 +1,152 @@
+RIGHE = {
+    67045, 67113, 67181, 67460, 67462, 67530, 69326, 70267, 70887, 70958,
+    71776, 73090, 73422, 73492, 73631, 74030, 75445, 75784, 75917, 76656,
+    76863, 77005, 77215, 77285, 77494, 77496, 77706, 77983, 78052, 78187,
+    78857, 80286, 81469, 81606, 81879,
+}
+# 35 righe, da 67045 a 81879
+
+    # ---------------------------------------------------------- :67045
+    (67045, 'A combat whip with the tip of the cord reinforced with metal. Originally, the whip was designed to inflict pain rather than fatal injury, but the strengthening of the whip has given it the power to shatter bones. The sound of the tip reaching the speed of sound and striking the air is different from the sound produced when it strikes an object. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :67113
+    (67113, 'A sock with a sturdy construction, designed by experts to be used as a weapon. It is a first-class product that does not lose its shape even when filled with sand or coins and swung around as much as possible. The disadvantage is that they are too fine-grained, making them susceptible to moisture and odors. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :67181
+    (67181, "A self-defense weapon developed from the scythe, a farming tool. It is common to use the chain to slow down the attacker's movement before approaching and attacking with the sickle. \\n# ~Collection of Armaments you can Use Tomorrow~"):
+        "",
+
+    # ---------------------------------------------------------- :67460
+    (67460, 'Once upon a time, when the God of Destruction assaulted the Goddess of Healing, the guardian protected the Goddess from the destructive blow by using his own body as a shield. The God of Destruction was so impressed by the guardian, who was able to withstand the attack even though his body was shredded, that he gave him this weapon and left. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :67462
+    (67462, '\\"Offense and defense are two sides of the same coin. If you have something to defend, you should have the strength to do so.\\" \\n# ~words of a God of Destruction~'):
+        "",
+
+    # ---------------------------------------------------------- :67530
+    (67530, 'A huge, katana-shaped, high-frequency blade. Originally intended as a personal weapon, it was difficult to handle, so the chief developer decided to make it even larger and more powerful. The excess heat is converted into a flaming projectile, which explodes like a rose balsam. The weight of the sword has been further increased to produce this effect. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :69326
+    (69326, 'A scythe whose blade is made of converged astral light. It can be separated from the bone-like section to form a multi-sectioned whip-like shape, allowing for flexible slashing. It symbolizes the severed samsara, eternal rest. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :70267
+    (70267, 'This staff has been handed down from generation to generation to the Gods of Wisdom. It has the power to perceive and record what is happening around the world in an instant, but can only be used by a very limited number of deities. It is also closely related to the Origin of Vice that was once lost. \\n# ~Book of Wisdom~'):
+        "",
+
+    # ---------------------------------------------------------- :70887
+    (70887, 'A hatchet with the power to manipulate gravity. It crushes a slashed opponent by trapping him in a ball of gravity. The slash itself is also heavy with added gravity. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :70958
+    (70958, 'A staff-shaped weapon that holds the power of the drake race. Because it is a staff, it is not particularly destructive compared to other weapons. However, it is easy to handle and can be used to make fast, technical strikes. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :71776
+    (71776, 'A beautiful long sword of light made from a stone said to have been recovered from the moon and used as an oscillator. The surplus energy produced is converted into waves of light. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :73090
+    (73090, 'Lance made of the horn of a black unicorn. The power of chaos swirls along the spiral of its surface, gouging through anything that opposes it. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :73422
+    (73422, 'Greatsword said to have been born from the fire of God. With holy fire in its blade, it burns and purifies the defiled immortals. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :73492
+    (73492, 'It was born from a failed cultivating attempt. In addition to being uselessly durable like a weapon, the tip is rich in nutrients, making it twice as beneficial as a weapon in one. For some reason, just holding it makes it easier to get a critical hit. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :73631
+    (73631, "A staff that greatly amplifies magical power at the expense of one's own physical abilities. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :74030
+    (74030, 'What a surprise! Legendary musical instrument, transformed into a blunt weapon by the hands of a master craftsman. The extravagance of the instrument is enough to make anyone who understands the value of musical instruments swoon. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :75445
+    (75445, "A huge book. It is so thick that even a God couldn't read it. It is so heavy that it cannot be wielded by a human being, but when a person comes along who knows how to use it, this weapon will give the user tremendous learning ability. And a little whimsy. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :75784
+    (75784, 'A demon sword that seeps an endless supply of poison from its blade. It is a secret of the ninja, and few people know the details. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :75917
+    (75917, 'Self-defense item of the Goddess of Healing. It is used to seize an opponent without harming him. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :76656
+    (76656, 'A staff created by the son of the sun God by crystallizing light. It looks like a sword and can actually be used like a sword, but it is only a long staff. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :76863
+    (76863, 'A black sword, surrounded with an aura of dread, was created from the idea of using an even more powerful evil to exorcise evil. It is rumored that there are a counterpart sword, and that if each is held in both hands, they can become so powerful that they can destroy even the world. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :77005
+    (77005, 'Giant crossed swords designed for euthanasia. Some things can only be healed through death. It is so heavy that no man can wield it, but when someone comes along who knows how to use it, this weapon will give the user a firm will. And a little whimsy. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :77215
+    (77215, 'A huge battle axe that destroys everything. It is so heavy that it cannot be wielded by a single person, but when a person finds a way to master it, this weapon will give the user tremendous strength. And a little whimsy. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :77285
+    (77285, 'Scythe made from the bones of a huge subterranean beast. It is too heavy for a man to wield, but when a master emerges, this weapon will give the user boundless constitution. And a little whimsy. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :77494
+    (77494, 'Kitchen knife filled with love, anger, and sorrow. The sharpness with which it cuts off the heads of enemies one after another reminds the viewer of a camellia flower falling in droplets. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :77496
+    (77496, '\\"Hey...get out of the way. If you don\'t get out of my way, I can\'t kill her, can I? I have to teach that thieving pussy cat what happens when you stole something that belongs to someone else...so please don\'t protect her...please. Otherwise, I...!\\" \\n# ~words of a younger sister~'):
+        "",
+
+# 2 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :77706
+    (77706, 'Saber used by a hero who was stigmatized as a pirate. Ironically, it is now in the hands of real pirates. When swung, it produces a shockwave of power. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :77983
+    (77983, 'Chainsaw with tremendous cutting power. It can even dismember God. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :78052
+    (78052, 'An electrified stake-shaped shooting spear. It is very difficult to handle, and only a serious Mani-devotee or maniac would like to use such a weapon. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :78187
+    (78187, 'A huge sword. It is so large, thick, heavy, and rough that it is more appropriate to call it a lump of iron than a sword. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :78857
+    (78857, 'Small dagger used to handle foodstuffs. Its original purpose is for household use, but since the blade is well sharpened, it may be used in battle. \\n# ~Supporting Roles in Kitchen~'):
+        "",
+
+    # ---------------------------------------------------------- :80286
+    (80286, 'A strange long sword with a brilliantly shining blade. The method of making it is completely unknown, but according to rumors, knights in other worlds make it by themselves to show their power when they become full-fledged knights. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :81469
+    (81469, 'Special sword made to repel dragons. Its blade glows mysteriously as if it is drenched in fresh blood, and it is said that it slaughters dragons day and night with blows so sharp that they produce electric shocks. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :81606
+    (81606, "The staff is so large that it could be mistaken for a statue of a giant cat's tail. It is too heavy for a man to wield, but if one were to master it, this weapon would bestow unparalleled magical power upon its wielder. And a little whimsy. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :81879
+    (81879, 'A large scythe with a long handle. The blade is less curved than a sickle, but by grasping the handle with both hands and swinging it vigorously, it is said to reap the battle spirit and body parts of the enemy. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+# 33 voci, 0 ambigue
+
