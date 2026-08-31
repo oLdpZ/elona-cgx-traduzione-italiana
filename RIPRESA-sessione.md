@@ -47,6 +47,15 @@ righe, `toppe.jsonl` 1027 e `_97-toppe-agganciate` **1027 su 1027**,
 ventidue ai valori della 112a, albero pulito e `log.md` del vault aggiornato.
 E' la prima apertura pulita dopo il guasto della 112a.
 
+⚠️⚠️ **E ANCHE LA 113a SI CHIUDE ANNUNCIANDO UN CAMBIO DI TERMINALE.** Tutto e'
+spinto (`origin/fase-0` allineato, quattro commit) e l'albero e' pulito.
+ⓘ Dalla 107a in poi lo si e' annunciato ogni volta e la sessione dopo si e'
+aperta sulla **stessa macchina**, con l'albero di build al suo posto: la prima
+cosa da fare **non** e' ricostruire — e' guardare se c'e' gia' tutto, con
+`ls C:\Games\Elona\_traduzione\`, e controllare che
+`elonaplus2.31\cgx-test.exe` sia quello delle **08:25 del 31/08**. Se la data e'
+quella, la build contiene tutte e 138 le rese della 113a e non va rifatta.
+
 ---
 
 ## Le cose che non stanno nel repo, e l'ordine in cui si rifanno
