@@ -6,6 +6,116 @@ ancora aperte.
 
 ---
 
+## La previsione di `applica` si fa contando il sorgente, e da qui in poi si fa sempre — 2026-08-31, centosedicesima
+
+Il lotto 042 aveva previsto «+35 esatte», per la ragione che la 115ª aveva
+scritto: nelle armi «da fare» e «vive» coincidono (110 e 110), quindi non c'è
+moltiplicatore. `applica` ha detto **+36**.
+
+Il colpevole è `db_item.hsp:126849`, **Mournblade**: il suo indice 0 è identico
+byte per byte a quello di `<Stormbringer>` — giapponese **e** inglese — quindi
+stessa firma, e una resa sola copre tutt'e due.
+
+⚠️⚠️ **La gemella non è in `lavoro/_107-daitem.jsonl`.** L'estrazione tiene una
+voce per firma, e il conto lo dimostra: 2.580 voci, 2.580 firme distinte. Non è
+nel dossier, non è nella tabella delle categorie, non è da nessuna parte tranne
+che nel sorgente. **E stava in un'altra categoria**, il che è la ragione per cui
+la riga «110 e 110» non poteva dire niente.
+
+### Che cosa si è deciso
+
+Prima di scrivere le rese di un lotto si conta, per ogni sua voce, quante volte
+il suo giapponese compare nel sorgente pinnato:
+
+    per ogni voce del lotto:  t.count(voce['jp'])  su db_item.hsp in cp932
+    previsione applica = righe del lotto + (occorrenze - 1) sommate
+
+È una riga di script. Fatto nel 043 (previsione +34, misurato +34) e nel 044
+(previsione +39, misurato +39): due previsioni su due.
+
+⭐ **La misura della famiglia intera** si legge confrontando i due modi di
+contare il corpo: `_107-descrizioni-item` dice 1.513 vive **per riga**,
+`_114-corpo-da-fare` dice 1.449 **per firma**. La differenza, **64 righe**, è
+l'insieme che nessun lotto potrà scegliere e che si riempie da solo quando si
+rende la gemella.
+
+ⓘ Il risultato è giusto e si vede: nel dossier del 043 Mournblade compare già
+tradotta, e i due indici 3 restano distinti — «ha per gemella Mournblade» e «ha
+per gemella Stormbringer». La firma ha fatto la cosa giusta; a essere
+insufficiente era la nostra previsione.
+
+**La regola sostituisce quella della 115ª**, che diceva di leggere la differenza
+fra «da fare» e «vive» nella riga della categoria. Quella differenza dice che un
+moltiplicatore c'è; **non dire niente non dice che non c'è**.
+
+---
+
+## Il giapponese vince anche quando far vincere l'inglese terrebbe il cancello fermo — 2026-08-31, centosedicesima
+
+`db_item.hsp:70398` è l'indice 2 della castagna. In giapponese è una battuta:
+
+    「う、うにを粗末にするとバチが当たるんですよ！」
+    #～怯える錬金術士の『ナプラス』の言葉～
+
+In inglese, **nella stessa posizione**, c'è il testo generico del rapporto di
+identificazione: «A type of nut that restores satiety, it's used to make
+candies.» con la coda `~Identification Report: <Food> Category~`.
+
+Non è uno slittamento: il sorgente è stato letto riga per riga — `:70392` nel
+ramo `if ( jp )` contro `:70398` nel ramo `else` — e le posizioni
+corrispondono. È una **sostituzione** fatta a monte, nel ramo inglese.
+
+### La cosa che il cancello non poteva dire
+
+`_code.py` cerca la coda **giapponese** in tabella e, se non la trova, ripiega
+sulla **inglese**. Il titolo ～怯える錬金術士の『ナプラス』の言葉～ in tabella
+non c'era: quindi il ripiego trovava il rapporto di identificazione, assegnava
+quel titolo, e il referto «righe senza resa in tabella: **0**» restava verde su
+una riga sbagliata. ⚠️ **Uno zero prodotto da un ripiego non è uno zero.**
+
+### La famiglia, misurata prima di decidere
+
+`scratchpad/_116-code-discordi.py` (nuovo) guarda tutte le righe che hanno
+**tutt'e due** le code e chiede se indicano lo stesso libro. Su **1.411** righe
+le discordi sono **1**: questa. Un difetto puntuale di monte, non un difetto
+della nostra estrazione — è la lezione della 115ª sulla tilde, applicata a una
+famiglia diversa.
+
+### La decisione, e il suo costo dichiarato
+
+Le tre opzioni sono state portate all'utente **con i loro costi misurati**:
+
+| | che cosa legge il giocatore | costo |
+|---|---|---|
+| dal giapponese | la battuta di <Naplus> | il cancello dei titoli passa da 6 a **7** |
+| dall'inglese | il testo generico | la battuta non arriva mai |
+| rinviare | niente | `FILTER_ITEM_FOOD` non può chiudersi |
+
+**L'utente ha scelto il giapponese.** Il titolo è entrato in tabella e in
+glossario come `~Parole di <Naplus> l'alchimista spaventata~`: ナプラス è donna
+(`chat.hsp`, «mi ha chiesto di portarle»), e `錬金術士の『ナプラス』` era già
+reso «<Naplus> l'alchimista».
+
+⭐ La battuta si regge da sola perché il dizionario la spiegava già: in
+`chat.hsp` «quelli che si dicono alchimisti, quando tirano una castagna,
+insistono» che sia un riccio di mare, e 「うにーっ！」 è «Ricciooo!». Naplus è
+una di quelli, ed è spaventata perché crede di aver maltrattato un riccio.
+
+### ⚠️⚠️ Che cosa cambia per chi apre la prossima sessione
+
+Il valore atteso di **«titoli resi in PIÙ modi» è 7, non 6**. Il settimo è
+l'inglese `~Identification Report: <Food> Category~`, che ora copre due
+italiani: il rapporto di identificazione (nelle venti righe di indice 2 dei
+cibi, dove il giapponese è **vuoto**) e le parole di <Naplus> (qui, dove il
+giapponese c'è e dice un'altra cosa). Un **8** è un difetto nuovo.
+
+**La regola generale.** Quando un cancello dovrebbe cambiare valore, non lo si
+aggira e non lo si subisce: si misura la famiglia, si portano le opzioni col
+loro costo, e poi **si scrive il valore nuovo nei documenti**. Un cancello che
+cambia di nascosto smette di essere un cancello.
+
+---
+
 ## Quando un cancello dà un numero inatteso, la prima domanda è quanto è grande la famiglia — 2026-08-31, centoquindicesima
 
 Aprendo il lotto 038, `_code.py` ha detto «righe senza resa in tabella: **1**»,

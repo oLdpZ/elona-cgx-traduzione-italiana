@@ -41,6 +41,40 @@ fondo somma valori di sessioni diverse. Il conto vivo lo danno
 file di `data/` compresi. Finché nessuno rifà la tabella intera, **si guardano
 quelli**.
 
+## Quattro lotti, 149 rese, e le ARMI si chiudono — 2026-08-31, centosedicesima sessione
+
+`db_item.hsp`, il **corpo** delle descrizioni (indici 0-2). La sessione ha
+chiuso `FILTER_WEAPON` (lotti 041-043) e ha cominciato `FILTER_ITEM_FOOD`:
+
+    041  WEAPON      righe       0-67.000   41 rese  (39 idx0, 2 idx2)
+    042  WEAPON      righe  67.000-82.000   35 rese  (33 idx0, 2 idx2)
+    043  WEAPON      righe  82.000 in su    34 rese  (32 idx0, 2 idx2)
+    044  ITEM_FOOD   righe  68.000-90.000   39 rese  (34 idx0, 5 idx2)
+    -----------------------------------------------------------------
+    **149 rese**, che coprono **150 righe** del sorgente
+    applica 29.530 -> **29.680**   (+150 per 149 rese)
+    db_item non tradotte 810 -> **661**   (-149 esatte)
+    rese del corpo: 694 -> **844** su 1.513
+    FILTER_WEAPON     110 -> **0 da fare su 110**   ⭐ CHIUSA
+    FILTER_ITEM_FOOD   98 -> **59 da fare su 148**
+
+⚠️⚠️ **150 righe per 149 rese, e la riga in più non è un errore.** Nel lotto 042
+`:76863` (<Stormbringer>) e `:126849` (<Mournblade>) hanno il **giapponese e
+l'inglese identici byte per byte**: stessa firma, una resa copre due oggetti.
+La gemella **non è in `lavoro/_107-daitem.jsonl`** — l'estrazione tiene una voce
+per firma, 2.580 voci e 2.580 firme — quindi non è in nessun dossier e in
+nessuna tabella di lotto. Il dettaglio è in `decisioni.md`.
+
+⭐ **Le due unità di misura del corpo, e perché differiscono di 64.**
+`_107-descrizioni-item` conta **per riga** e dice 1.513 vive;
+`_114-corpo-da-fare` conta **per firma** e dice 1.449. Le 64 righe di differenza
+sono quelle che nessun lotto potrà scegliere e che si riempiono da sole quando
+si rende la gemella. È la stessa distinzione fra firma e occorrenza che questo
+documento dichiara in testa, vista dentro un file solo.
+
+ⓘ Il conto delle rese e quello delle righe **non coincideranno più**: da qui in
+avanti si scrivono tutt'e due.
+
 ## Sette lotti, 278 rese, e si chiudono DUE categorie — 2026-08-31, centoquindicesima sessione
 
 `db_item.hsp`, il **corpo** delle descrizioni (indici 0-2). La sessione ha
