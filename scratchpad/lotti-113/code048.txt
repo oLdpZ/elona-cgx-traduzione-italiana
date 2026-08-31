@@ -1,0 +1,146 @@
+:102037
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:103649
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:104519
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:104592
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:105228
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:105301
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:105525
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:105669
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:105742
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:105886
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:106181
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:106254
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:106398
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:106542
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:106686
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:106839
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:111850
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:112952
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:113025
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:113027
+   en  # a Eulderna Researcher holding this tome
+   IT  #un ricercatore Eulderna che tiene in mano questo tomo
+:113098
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:113099
+   en  # a Eulderna Researcher handling this tome
+   IT  #un ricercatore Eulderna che maneggia questo tomo
+:113100
+   en  # arrested arsonist
+   IT  #un incendiario in arresto
+:113171
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:113172
+   en  # a Eulderna Researcher handling this tome
+   IT  #un ricercatore Eulderna che maneggia questo tomo
+:113244
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:113245
+   en  # a Eulderna Researcher handling this tome
+   IT  #un ricercatore Eulderna che maneggia questo tomo
+:113317
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:113459
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:113460
+   en  # outcast Eulderna Researcher
+   IT  #un ricercatore Eulderna ripudiato
+:113532
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:113605
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:114013
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:114350
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:114423
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:114496
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:114569
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:114642
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:114715
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:114788
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:123357
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:123492
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:128868
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:128941
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:129014
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:129724
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:129797
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:129870
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+
+righe senza resa in tabella: 0   (atteso 0)

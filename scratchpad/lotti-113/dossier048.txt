@@ -1,0 +1,523 @@
+=== ITEM_ID_SPELLBOOK_MUTATION   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 自己変容の魔法書 自己変容の魔法書
+              en mutation spellbook
+              IT mutazione grimorio
+    --- description(0)  :102037
+        JP  \t\t「自己変容」という呪文について学ぶことができる魔法書。自分を変えたいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Mutation'. For those who want to change themselves.\n#~Big Book of Magical Books~
+    --- description(3)  :102040 ⚠️ TETTO SECCO 69
+        JP  \t\t自分に突然変異を起こす呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 20 Magic. It lets you mutate yourself.
+        IT  Un libro per farsi venire una mutazione. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_DETECT_OBJECTS   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 物質感知の魔法書 物質感知の魔法書
+              en detect objects spellbook
+              IT individuazione degli oggetti grimorio
+    --- description(0)  :103649
+        JP  \t\t「物質感知」という呪文について学ぶことができる魔法書。探偵志望のあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Detect Object'. For future detectives.\n#~Big Book of Magical Books~
+    --- description(3)  :103652 ⚠️ TETTO SECCO 69
+        JP  \t\t周囲の物質を発見する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 3 Magic. It highlights hidden objects around you.
+        IT  Un libro per scoprire gli oggetti qui intorno. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_KNOWLEDGE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 知者の加護の魔法書 知者の加護の魔法書
+              en knowledge spellbook
+              IT conoscenza grimorio
+    --- description(0)  :104519
+        JP  \t\t「知者の加護」という呪文について学ぶことができる魔法書。試験に臨むあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Divine Wisdom'. For those who are going to the exams.\n#~Big Book of Magical Books~
+    --- description(3)  :104522 ⚠️ TETTO SECCO 69
+        JP  \t\t読書の補佐をする呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 4 Magic. Helps handling various anomalies created by tomes.
+        IT  Un libro per farsi aiutare nella lettura. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_NIGHTMARE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ナイトメアの魔法書 ナイトメアの魔法書
+              en nightmare spellbook
+              IT incubo grimorio
+    --- description(0)  :104592
+        JP  \t\t「ナイトメア」という呪文について学ぶことができる魔法書。ついつい寝過すあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Nightmare'. For those who overslept a lot.\n#~Big Book of Magical Books~
+    --- description(3)  :104595 ⚠️ TETTO SECCO 69
+        JP  \t\t対象の精神的な耐性を一時的に下げる呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. It reduces various magical resistance of target.
+        IT  Un libro per abbassare per un po' le resistenze mentali altrui.
+
+=== ITEM_ID_SPELLBOOK_HOLY_RAIN   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 全浄化の魔法書 全浄化の魔法書
+              en holy rain spellbook
+              IT pioggia sacra grimorio
+    --- description(0)  :105228
+        JP  \t\t「全浄化」という呪文について学ぶことができる魔法書。滅入った気分のあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Vanquish Hex'. For those of you who are feeling down and out.\n#~Big Book of Magical Books~
+    --- description(3)  :105231 ⚠️ TETTO SECCO 69
+        JP  \t\t自らの呪いを全て打ち消す呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 8 Magic. It dispels various hex on the user.
+        IT  Un libro per togliersi di dosso tutte le maledizioni.
+
+=== ITEM_ID_SPELLBOOK_HOLY_LIGHT   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 清浄なる光の魔法書 清浄なる光の魔法書
+              en holy light spellbook
+              IT luce sacra grimorio
+    --- description(0)  :105301
+        JP  \t\t「清浄なる光」という呪文について学ぶことができる魔法書。体調の優れぬあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Holy Light'. For the hardcore exorcists.\n#~Big Book of Magical Books~
+    --- description(3)  :105304 ⚠️ TETTO SECCO 69
+        JP  \t\t自らの呪いを一つ打ち消す呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. It dispels one hex from nearby people.
+        IT  Un libro per togliersi di dosso una maledizione.
+
+=== ITEM_ID_SPELLBOOK_HOLY_VEIL   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ホーリーヴェイルの魔法書 ホーリーヴェイルの魔法書
+              en holy veil spellbook
+              IT velo sacro grimorio
+    --- description(0)  :105525
+        JP  \t\t「ホーリーヴェイル」という呪文について学ぶことができる魔法書。体の弱いあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Holy Veil'. For those with a fragile physique.\n#~Big Book of Magical Books~
+    --- description(3)  :105528 ⚠️ TETTO SECCO 69
+        JP  \t\t一定時間呪いに対する抵抗を得る呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 8 Magic. It enhances your resistance against curses.
+        IT  Un libro per resistere un po' alle maledizioni. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_ELEMENTAL_SCAR   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 元素の傷跡の魔法書 元素の傷跡の魔法書
+              en elemental scar spellbook
+              IT cicatrice elementale grimorio
+    --- description(0)  :105669
+        JP  \t\t「元素の傷跡」という呪文について学ぶことができる魔法書。自然の脅威を知りたいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Element Scar'. For those who knew the danger of nature.\n#~Big Book of Magical Books~
+    --- description(3)  :105672 ⚠️ TETTO SECCO 69
+        JP  \t\t対象の元素の耐性を一時的に下げる呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 6 Magic. It reduces elemental magical resistance of target.
+        IT  Un libro per abbassare per un po' le resistenze elementali altrui.
+
+=== ITEM_ID_SPELLBOOK_WEAKNESS   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 脆弱の霧の魔法書 脆弱の霧の魔法書
+              en weakness spellbook
+              IT debolezza grimorio
+    --- description(0)  :105742
+        JP  \t\t「脆弱の霧」という呪文について学ぶことができる魔法書。力自慢が過ぎる友人を持ったあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Mist of Frailness'. For those who have a friend who is too proud of his strength.\n#~Big Book of Magical Books~
+    --- description(3)  :105745 ⚠️ TETTO SECCO 69
+        JP  \t\t対象のPVを一時的に下げる呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 4 Magic. It reduces physical resilience of target.
+        IT  Un libro per abbassare per un po' il PV del bersaglio.
+
+=== ITEM_ID_SPELLBOOK_HERO   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 英雄の魔法書 英雄の魔法書
+              en hero spellbook
+              IT eroismo grimorio
+    --- description(0)  :105886
+        JP  \t\t「英雄」という呪文について学ぶことができる魔法書。英雄気分に浸りたいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Hero'. Strangely reading this book gives you a slight adrenalin rush.\n#~Big Book of Magical Books~
+    --- description(3)  :105889 ⚠️ TETTO SECCO 69
+        JP  \t\t筋力と器用さの向上と、恐怖と混乱に耐性を得る呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 1 Magic. Increases STR/DEX, give resist to Fear/Confuse.
+        IT  Un libro per alzare For e Des e resistere a terrore e confusione.
+
+=== ITEM_ID_SPELLBOOK_SLOW   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 鈍足の魔法書 鈍足の魔法書
+              en slow spellbook
+              IT rallentamento grimorio
+    --- description(0)  :106181
+        JP  \t\t「鈍足」という呪文について学ぶことができる魔法書。ライバルの足を引っ張りたいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Slow'. For those who love to pull people's legs.\n#~Big Book of Magical Books~
+    --- description(3)  :106184 ⚠️ TETTO SECCO 69
+        JP  \t\t鈍足状態を引き起こす呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. It reduces the speed of the target..
+        IT  Un libro per rallentare il bersaglio. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_SPEED   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 加速の魔法書 加速の魔法書
+              en speed spellbook
+              IT accelerazione grimorio
+    --- description(0)  :106254
+        JP  \t\t「加速」という呪文について学ぶことができる魔法書。ライバルに差をつけたいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Speed'. For those who want to stand out from your competitors.\n#~Big Book of Magical Books~
+    --- description(3)  :106257 ⚠️ TETTO SECCO 69
+        JP  \t\t加速状態を引き起こす呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 9 Magic. It increases the speed of user.
+        IT  Un libro per accelerare. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_RESISTANCE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 属性保護の魔法書 属性保護の魔法書
+              en resistance spellbook
+              IT resistenza grimorio
+    --- description(0)  :106398
+        JP  \t\t「属性保護」という呪文について学ぶことができる魔法書。様々な脅威から身を守りたいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Attirbute Shield'. For those who want to protect themselves against various threats.\n#~Big Book of Magical Books~
+    --- description(3)  :106401 ⚠️ TETTO SECCO 69
+        JP  \t\t属性耐性を一時的に上げる呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 4 Magic. It raises various magical resistance of user.
+        IT  Un libro per alzare per un po' le resistenze. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_REGENERATION   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp リジェネレーションの魔法書 リジェネレーションの魔法書
+              en regeneration spellbook
+              IT rigenerazione grimorio
+    --- description(0)  :106542
+        JP  \t\t「リジェネレーション」という呪文について学ぶことができる魔法書。怪我の治りが遅いあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Regeneration'. For those who want to heal in a more natural way.\n#~Big Book of Magical Books~
+    --- description(3)  :106545 ⚠️ TETTO SECCO 69
+        JP  \t\t一時的に治癒力を上げる呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. It activates the healing factor of the user.
+        IT  Un libro per alzare per un po' la guarigione. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_SILENCE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 沈黙の霧の魔法書 沈黙の霧の魔法書
+              en silence spellbook
+              IT silenzio grimorio
+    --- description(0)  :106686
+        JP  \t\t「沈黙の霧」という呪文について学ぶことができる魔法書。おしゃべりな友人を持ったあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Mist of Silence'. For those who with really annoying friends.\n#~Big Book of Magical Books~
+    --- description(3)  :106689 ⚠️ TETTO SECCO 69
+        JP  \t\t対象を沈黙状態にする呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 6 Magic. It silences the target.
+        IT  Un libro per mettere il bersaglio in silenzio. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_HOLY_SHIELD   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 聖なる盾の魔法書 聖なる盾の魔法書
+              en holy shield spellbook
+              IT scudo sacro grimorio
+    --- description(0)  :106839
+        JP  \t\t「聖なる盾」という呪文について学ぶことができる魔法書。ガードが甘いあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Holy Shield'. For those with a loose guard.\n#~Big Book of Magical Books~
+    --- description(3)  :106842 ⚠️ TETTO SECCO 69
+        JP  \t\t一時的にDVを上げ、恐怖に耐性を得る呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 2 Magic. Raise ones dodge abilities and give resist to fear.
+        IT  Un libro per alzare per un po' il DV e resistere al terrore.
+
+=== ITEM_ID_SPELLBOOK_WISHING   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 願いの魔法書 願いの魔法書
+              en wishing spellbook
+              IT desiderio grimorio
+    --- description(0)  :111850
+        JP  \t\t「願い」という呪文について学ぶことができる珍しい魔法書。奇跡を信じるあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Wish'. For those who believe in a miracle.\n#~Big Book of Magical Books~
+    --- description(3)  :111853 ⚠️ TETTO SECCO 69
+        JP  \t\t願いを言う機会が与えられる呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 50 Magic. It grants the user a chance to say their wishes.
+        IT  Un libro per poter esprimere un desiderio. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_CHAOS_BALL   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 混沌の渦の魔法書 混沌の渦の魔法書
+              en chaos vortex spellbook
+              IT vortice caotico grimorio
+    --- description(0)  :112952
+        JP  \t\t「混沌の渦」という呪文について学ぶことができる魔法書。めちゃくちゃに騒ぎたいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Chaos Ball'. For those who want to make a big mess.\n#~Big Book of Magical Books~
+    --- description(3)  :112955 ⚠️ TETTO SECCO 69
+        JP  \t\t混沌属性の範囲魔法呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 7 Magic. Area of Effect spell that does chaos damage.
+        IT  Un libro per una magia ad area caotica. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_SOUND_BALL   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 轟音の波動の魔法書 轟音の波動の魔法書
+              en howling wave spellbook
+              IT onda di boato grimorio
+    --- description(0)  :113025
+        JP  \t\t「轟音の波動」という呪文について学ぶことができる魔法書。大音量で騒ぎたいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Raging Roar'. For those who really, really hate their neighbours.\n#~Big Book of Magical Books~
+    --- description(2)  :113027
+        JP  
+        EN  \"I swear I just heard something.\" \n# a Eulderna Researcher holding this tome
+    --- description(3)  :113028 ⚠️ TETTO SECCO 69
+        JP  \t\t音属性の範囲魔法呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 7 Magic. Area of Effect spell that does sound damage.
+        IT  Un libro per una magia ad area sonora. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_FIRE_BALL   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 灼熱の嵐の魔法書 灼熱の嵐の魔法書
+              en burning storm spellbook
+              IT tempesta rovente grimorio
+    --- description(0)  :113098
+        JP  \t\t「灼熱の嵐」という呪文について学ぶことができる魔法書。辺りを暖かくしたいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Burning Storm'. For those who aims for global warming.\n#~Big Book of Magical Books~
+    --- description(1)  :113099
+        JP  <ランク6魔法>
+        EN  \"Ouch! Hot!\" \n# a Eulderna Researcher handling this tome
+    --- description(2)  :113100
+        JP  
+        EN  \"I-I just want to start a flame in her heart..\" \n# arrested arsonist
+    --- description(3)  :113101 ⚠️ TETTO SECCO 69
+        JP  \t\t火炎属性の範囲魔法呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 6 Magic. Area of Effect spell that does fire damage.
+        IT  Un libro per una magia ad area di fuoco. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_ICE_BALL   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 氷結の波動の魔法書 氷結の波動の魔法書
+              en freezing wave spellbook
+              IT onda gelante grimorio
+    --- description(0)  :113171
+        JP  \t\t「氷結の波動」という呪文について学ぶことができる魔法書。辺りを涼しくしたいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Freezing Wave'. For those who try to prevent global warming.\n#~Big Book of Magical Books~
+    --- description(1)  :113172
+        JP  <ランク6魔法>
+        EN  \"Yeeek! Cold!\" \n# a Eulderna Researcher handling this tome
+    --- description(3)  :113174 ⚠️ TETTO SECCO 69
+        JP  \t\t冷気属性の範囲魔法呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 6 Magic. Area of Effect spell that does cold damage.
+        IT  Un libro per una magia ad area di gelo. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_ILLUSION_BEAM   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp マインドボルトの魔法書 マインドボルトの魔法書
+              en mind bolt spellbook
+              IT saetta mentale grimorio
+    --- description(0)  :113244
+        JP  \t\t「マインドボルト」という呪文について学ぶことができる魔法書。魅惑的なウインクのできるあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Mind Bolt'. For those who wants to do a sexy wink (and kill their rivals in the process).\n#~Big Book of Magical Books~
+    --- description(1)  :113245
+        JP  <ランク6魔法>
+        EN  \"My eyes hurt, and my head hurts even more..\" \n# a Eulderna Researcher handling this tome
+    --- description(3)  :113247 ⚠️ TETTO SECCO 69
+        JP  \t\t幻惑属性のボルトを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 6 Magic. Bolt type spell that does mind damage.
+        IT  Un libro per una saetta mentale. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_DARKNESS_BEAM   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ダークネスボルトの魔法書 ダークネスボルトの魔法書
+              en darkness bolt spellbook
+              IT saetta d'oscurità grimorio
+    --- description(0)  :113317
+        JP  \t\t「ダークネスボルト」という呪文について学ぶことができる魔法書。周りを威圧する眼光を持つあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Darkness Bolt'. For absolute edgelords with a supreme demon-king-evil eye.\n#~Big Book of Magical Books~
+    --- description(3)  :113320 ⚠️ TETTO SECCO 69
+        JP  \t\t暗黒属性のボルトを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 6 Magic. Bolt type spell that does darkness damage.
+        IT  Un libro per una saetta d'oscurità. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_NERVE_EYE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 神経の針の魔法書 神経の針の魔法書
+              en nerve needle spellbook
+              IT ago neurale grimorio
+    --- description(0)  :113459
+        JP  \t\t「神経の針」という呪文について学ぶことができる魔法書。運命の出会いと勘違いしやすいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Nerve Needle'. It makes people's eye twitch.\n#~Big Book of Magical Books~
+    --- description(1)  :113460
+        JP  <ランク3魔法>
+        EN  \"In my theory, it's a sound spell that creates blackboard scratching noises.\" \n# outcast Eulderna Researcher
+    --- description(3)  :113462 ⚠️ TETTO SECCO 69
+        JP  \t\t神経属性の矢を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 3 Magic. Arrow type spell that does nerve damage.
+        IT  Un libro per una freccia dei nervi. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_CHAOS_EYE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 混沌の瞳の魔法書 混沌の瞳の魔法書
+              en chaos eye spellbook
+              IT occhio caotico grimorio
+    --- description(0)  :113532
+        JP  \t\t「混沌の瞳」という呪文について学ぶことができる魔法書。流し眼を練習しているあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Chaos Eye'. For people with a lot of eye problems.\n#~Big Book of Magical Books~
+    --- description(3)  :113535 ⚠️ TETTO SECCO 69
+        JP  \t\t混沌属性の矢を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 3 Magic. Arrow type spell that does chaos damage.
+        IT  Un libro per una freccia caotica. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_NETHER_EYE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 地獄の吐息の魔法書 地獄の吐息の魔法書
+              en nether sigh spellbook
+              IT sospiro infernale grimorio
+    --- description(0)  :113605
+        JP  \t\t「地獄の吐息」という呪文について学ぶことができる魔法書。悪魔ぶりたいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Nether Sigh'. Designed for devil's advocates.\n#~Big Book of Magical Books~
+    --- description(3)  :113608 ⚠️ TETTO SECCO 69
+        JP  \t\t地獄属性の矢を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 3 Magic. Arrow type spell that does nether damage.
+        IT  Un libro per una freccia d'oltretomba. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_MAGIC_ARROW   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 魔法の矢の魔法書 魔法の矢の魔法書
+              en magic arrow spellbook
+              IT freccia magica grimorio
+    --- description(0)  :114013
+        JP  \t\t「魔法の矢」という呪文について学ぶことができる魔法書。魔法の本質に触れたいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Magic Dart'. Designed for beginners.\n#~Big Book of Magical Books~
+    --- description(3)  :114016 ⚠️ TETTO SECCO 69
+        JP  \t\t魔法属性の矢を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 1 Magic. Arrow type spell that does magical damage.
+        IT  Un libro per una freccia magica. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_CURE_JURE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ジュアの癒しの魔法書 ジュアの癒しの魔法書
+              en cure <Jure> spellbook
+              IT cura <Jure> grimorio
+    --- description(0)  :114350
+        JP  \t\t「ジュアの癒し」という呪文について学ぶことができる魔法書。九死に一生を得たいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Cure of Jure'. For those who almost met their demise.\n#~Big Book of Magical Books~
+    --- description(3)  :114353 ⚠️ TETTO SECCO 69
+        JP  HPを回復する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 12 Magic. It heals the spell user greatly.
+        IT  Un libro per recuperare HP. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_CURE_ERIS   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp エリスの癒しの魔法書 エリスの癒しの魔法書
+              en cure <Eris> spellbook
+              IT cura <Eris> grimorio
+    --- description(0)  :114423
+        JP  \t\t「エリスの癒し」という呪文について学ぶことができる魔法書。奇跡の生還を遂げたいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Cure of Eris'. For those who survived miraculously.\n#~Big Book of Magical Books~
+    --- description(3)  :114426 ⚠️ TETTO SECCO 69
+        JP  HPを回復する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 8 Magic. It heals the spell user.
+        IT  Un libro per recuperare HP. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_CURE_CRITICAL_WOUND   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 致命傷治癒の魔法書 致命傷治癒の魔法書
+              en cure critical wound spellbook
+              IT cura delle ferite critiche grimorio
+    --- description(0)  :114496
+        JP  \t\t「致命傷治癒」という呪文について学ぶことができる魔法書。度々事故にあう不幸なあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Heal Criticle Wound'. For those who often suffers from accidents.\n#~Big Book of Magical Books~
+    --- description(3)  :114499 ⚠️ TETTO SECCO 69
+        JP  HPを回復する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 4 Magic. It heals the spell user.
+        IT  Un libro per recuperare HP. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_CURE_MINOR_WOUND   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 軽傷治癒の魔法書 軽傷治癒の魔法書
+              en cure minor wound spellbook
+              IT cura delle ferite lievi grimorio
+    --- description(0)  :114569
+        JP  \t\t「軽傷治癒」という呪文について学ぶことができる魔法書。生傷の絶えないあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Heal Light Wound'. For those who are covered in scratches.\n#~Big Book of Magical Books~
+    --- description(3)  :114572 ⚠️ TETTO SECCO 69
+        JP  HPを回復する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 1 Magic. It heals the spell user.
+        IT  Un libro per recuperare HP. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_RETURN   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 帰還の魔法書 帰還の魔法書
+              en return spellbook
+              IT ritorno grimorio
+    --- description(0)  :114642
+        JP  \t\t「帰還」という呪文について学ぶことができる魔法書。度々ホームシックにかかるあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Return'. For those who suffer from homesick.\n#~Big Book of Magical Books~
+    --- description(3)  :114645 ⚠️ TETTO SECCO 69
+        JP  \t\t特定の場所にテレポートする呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 6 Magic. It teleports user to location across the continent.
+        IT  Un libro per tornare in un posto preciso. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_ORACLE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 神託の魔法書 神託の魔法書
+              en oracle spellbook
+              IT oracolo grimorio
+    --- description(0)  :114715
+        JP  \t\t「神託」という呪文について学ぶことができる魔法書。占い好きなあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Oracle'. For those who loves fortune-telling.\n#~Big Book of Magical Books~
+    --- description(3)  :114718 ⚠️ TETTO SECCO 69
+        JP  \t\t今までに現れた★のつくアイテムの現在地を知る呪文を唱える為に必要な本だ。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 15 Magic. It shows the user location of powerful artifacts.
+        IT  Un libro per sapere dove sono finiti gli artefatti apparsi.
+
+=== ITEM_ID_SPELLBOOK_MAGIC_MAPPING   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 魔法の地図の魔法書 魔法の地図の魔法書
+              en magic mapping spellbook
+              IT cartografia magica grimorio
+    --- description(0)  :114788
+        JP  \t\t「魔法の地図」という呪文について学ぶことができる魔法書。道に迷いやすいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Magic Map'. For those who often lost their way home.\n#~Big Book of Magical Books~
+    --- description(3)  :114791 ⚠️ TETTO SECCO 69
+        JP  \t\t未探索の箇所を明らかにする呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. It illuminates nearby walls to create a map.
+        IT  Un libro per rivelare le zone non esplorate. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_SUMMON_MONSTERS   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp モンスター召喚の魔法書 モンスター召喚の魔法書
+              en summon monsters spellbook
+              IT evocazione di mostri grimorio
+    --- description(0)  :123357
+        JP  \t\t「モンスター召喚」という呪文について学ぶことができる魔法書。動物好きなあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Summon Monsters'. For aspiring zoologists.\n#~Big Book of Magical Books~
+    --- description(3)  :123360 ⚠️ TETTO SECCO 69
+        JP  \t\tモンスターを召喚する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 3 Magic. It summons several monsters from a nearby Nefia.
+        IT  Un libro per evocare mostri. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_MINOR_TELEPORTATION   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ショートテレポートの魔法書 ショートテレポートの魔法書
+              en minor teleportation spellbook
+              IT teletrasporto minore grimorio
+    --- description(0)  :123492
+        JP  \t\t「ショートテレポート」という呪文について学ぶことができる魔法書。歩くのが面倒なあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Short Teleport'. For those who hates walking.\n#~Big Book of Magical Books~
+    --- description(3)  :123495 ⚠️ TETTO SECCO 69
+        JP  \t\t近距離のテレポートを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 1 Magic. It teleports user for a short distance.
+        IT  Un libro per un teletrasporto corto. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_LIGHTNING_BOLT   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ライトニングボルトの魔法書 ライトニングボルトの魔法書
+              en lightning bolt spellbook
+              IT saetta di fulmine grimorio
+    --- description(0)  :128868
+        JP  \t\t「ライトニングボルト」という呪文について学ぶことができる魔法書。いつでも雷を見たいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Lightning Bolt'. This tome let's off a static discharge.\n#~Big Book of Magical Books~
+    --- description(3)  :128871 ⚠️ TETTO SECCO 69
+        JP  \t\t電撃属性のボルトを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 4 Magic. Bolt type spell that does lightning damage.
+        IT  Un libro per una saetta di fulmine. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_FIRE_BOLT   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp ファイアボルトの魔法書 ファイアボルトの魔法書
+              en fire bolt spellbook
+              IT saetta di fuoco grimorio
+    --- description(0)  :128941
+        JP  \t\t「ファイアボルト」という呪文について学ぶことができる魔法書。寒がりなあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Fire Bolt'. For those who catches the cold.\n#~Big Book of Magical Books~
+    --- description(3)  :128944 ⚠️ TETTO SECCO 69
+        JP  \t\t火炎属性のボルトを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 4 Magic. Bolt type spell that does fire damage.
+        IT  Un libro per una saetta di fuoco. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_ICE_BOLT   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp アイスボルトの魔法書 アイスボルトの魔法書
+              en ice bolt spellbook
+              IT saetta di gelo grimorio
+    --- description(0)  :129014
+        JP  \t\t「アイスボルト」という呪文について学ぶことができる魔法書。暑がりなあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Ice Bolt'. For those who are heatstorke.\n#~Big Book of Magical Books~
+    --- description(3)  :129017 ⚠️ TETTO SECCO 69
+        JP  \t\t冷気属性のボルトを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 4 Magic. Bolt type spell that does ice damage.
+        IT  Un libro per una saetta di gelo. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_UNCURSE   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 解呪の魔法書 解呪の魔法書
+              en uncurse spellbook
+              IT purificazione grimorio
+    --- description(0)  :129724
+        JP  \t\t「解呪」という呪文について学ぶことができる魔法書。霊の存在を信じるあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Uncurse'. For those believe in the spirits.\n#~Big Book of Magical Books~
+    --- description(3)  :129727 ⚠️ TETTO SECCO 69
+        JP  \t\tアイテムの呪いを解く呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 7 Magic. It uncursed equipped items.
+        IT  Un libro per purificare gli oggetti. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_IDENTIFY   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp 鑑定の魔法書 鑑定の魔法書
+              en identify spellbook
+              IT identificazione grimorio
+    --- description(0)  :129797
+        JP  \t\t「鑑定」という呪文について学ぶことができる魔法書。何でも疑う癖のあるあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Identification'. For those who are paranoid about unknown things.\n#~Big Book of Magical Books~
+    --- description(3)  :129800 ⚠️ TETTO SECCO 69
+        JP  \t\tアイテムを鑑定する呪文を唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 8 Magic. It identifies an item for the user.
+        IT  Un libro per identificare un oggetto. Si può leggere.
+
+=== ITEM_ID_SPELLBOOK_TELEPORTATION   [FILTER_ITEM_SPELLBOOK]
+    NOME      jp テレポートの魔法書 テレポートの魔法書
+              en teleportation spellbook
+              IT teletrasporto grimorio
+    --- description(0)  :129870
+        JP  \t\t「テレポート」という呪文について学ぶことができる魔法書。今すぐ旅に出たいあなたに。\n#～本の為の本・魔法書編～\n
+        EN  A spellbook to help you learn about the spell 'Teleport'. For those who hates traveling.\n#~Big Book of Magical Books~
+    --- description(3)  :129873 ⚠️ TETTO SECCO 69
+        JP  \t\tテレポートを唱える為に必要な本。読むことができる。\n#～鑑定報告書：＜書物＞カテゴリ～\n
+        EN  Book of Rank 5 Magic. It teleports user for a distance.
+        IT  Un libro per il teletrasporto. Si può leggere.
+
+== 42 oggetti, 90 descrizioni
