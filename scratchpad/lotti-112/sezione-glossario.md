@@ -53,9 +53,9 @@ righe le vanno dietro: l'epiteto resta nel giapponese.
 | ～私の愛する幾千ものガラクタ～ | `~Thousands of pieces of Junk I love~` | `~Le Mille Cianfrusaglie che Amo~` | 18 |
 | ～玲瓏たるイルヴァの調べ～ | `~Music of the Melodious Irva~`<br>`~Tunes of Irva~` ⚠️ | `~Le Melodie della Limpida Irva~` | 17 |
 | ～エウダーナに学ぶ必勝交易法～ | `~Eulderna's Winning Strategy for Trading~` | `~Il Commercio Vincente Secondo gli Eulderna~` | 17 |
-| ～街中の名脇役達～ | `~Supporting Roles on the Streets~` | `~I Grandi Comprimari della Citta'~` | 15 |
+| ～街中の名脇役達～ | `~Supporting Roles on the Streets~` | `~I Grandi Comprimari della Città~` | 15 |
 | ～あなたの見知らぬ世界～ | `~ Worlds you've Never Seen~`<br>`~Worlds you've Never Seen~` ⚠️ | `~I Mondi che Non Hai Mai Visto~` | 12 |
-| ～遊技大典・全年齢対応版～ | `~Game Tricks, All Ages Version~` | `~Grande Compendio dei Giochi: Per Tutte le Eta'~` | 11 |
+| ～遊技大典・全年齢対応版～ | `~Game Tricks, All Ages Version~` | `~Grande Compendio dei Giochi: Per Tutte le Età~` | 11 |
 | ～旅用マニュアル注釈～ | `~note for Travelers~` | `~Note al Manuale di Viaggio~` | 10 |
 | ～貰って嬉しい贈り物あれこれ～ | `~Gifts that I am Happy to Receive~` | `~Regali che Fa Piacere Ricevere~` | 10 |
 | ～死にゆく者へ贈る書～ | `~ Book for the Dying Ones~`<br>`~Book for the Dying Ones~` ⚠️ | `~Libro in Dono a Chi Sta Morendo~` | 10 |
@@ -67,7 +67,7 @@ righe le vanno dietro: l'epiteto resta nel giapponese.
 | ～打切上等！箱マニア・創刊号～ | `~Censored! Box Mania, First Issue~` | `~Chiudeteci Pure! Box Mania, Numero Uno~` | 7 |
 | ～ダルフィ不動産・商品カタログ～ | `~Derphy Real Estate - Catalogue~` | `~Immobiliare Derphy: Catalogo~` | 6 |
 | ～パルミア秋冬物コレクション～ | `~Palmian Winter Fashion~` | `~Palmia: Collezione Autunno-Inverno~` | 5 |
-| ～病みつきになる煙の味は～ | `~Sickly Taste of Smoke~` | `~Il Sapore del Fumo che Da' Dipendenza~` | 5 |
+| ～病みつきになる煙の味は～ | `~Sickly Taste of Smoke~` | `~Il Sapore del Fumo che Dà Dipendenza~` | 5 |
 | ～これからの魔物被害対策～ | `~Future Monster Damage Countermeasures~` | `~Difendersi dai Mostri, da Qui in Avanti~` | 4 |
 | ～麻酔の射手の言葉～ | `~words of Expert Marksman~` | `~Parole del Tiratore Anestetista~` | 4 |
 | ～熟練狩人の言葉～ | `~words of Expert Huntsman~` | `~Parole del Cacciatore Esperto~` | 4 |
@@ -91,14 +91,14 @@ righe le vanno dietro: l'epiteto resta nel giapponese.
 | ～叡智の書～ | `~Book of Wisdom~` | `~Il Libro della Sapienza~` | 2 |
 | ～ザイール鉱物図鑑～ | `~Vernis Ore Catalogue~`<br>`~Zaile's Book of Mineralogy~` ⚠️ | `~Atlante dei Minerali di Zaile~` | 2 |
 | ～ガイドの『ノルン』の言葉～ | `~<Norne> the guide~`<br>`~words of <Norne> the guide~` ⚠️ | `~Parole di <Norne> la guida~` | 2 |
-| ～農業、その新たな可能性～ | `~Agriculture and its New Possibilities~` | `~L'Agricoltura e le sue Nuove Possibilita'~` | 2 |
+| ～農業、その新たな可能性～ | `~Agriculture and its New Possibilities~` | `~L'Agricoltura e le sue Nuove Possibilità~` | 2 |
 | ～家庭でできる応急処置～ | `~First aid at home~` | `~Primo Soccorso in Casa~` | 2 |
 | ～イムウエル交易譚～ | `~the Aimwell tale of trade~` | `~Racconti di Commercio di Aimwell~` | 2 |
 | ～いいもの選ぼう職人道具～ | `~Choosing the Best Tools for the Best Craftsmen~` | `~Scegliere Bene gli Attrezzi da Artigiano~` | 2 |
 | ～税金との付き合い方～ | `~Irva Revenue Services~` | `~Come Andare d'Accordo con le Tasse~` | 2 |
 | ～牧畜と暮らす生活～ | `~Living with Livestock~` | `~Vivere Insieme al Bestiame~` | 2 |
-| ～ザナンの紅の英雄『ロイター』の言葉～ | `~words of <Loyter> the crimson of Zanan~` | `~Parole di <Loyter>, l'eroe cremisi di Zanan~` | 2 |
-| ～異形の森の使者『ロミアス』の言葉～ | `~<Lomias> The Messenger From Vindale~`<br>`~<Lomias> the messenger from Vindale~` ⚠️ | `~Parole di <Lomias>, messo della foresta deforme~` | 2 |
+| ～ザナンの紅の英雄『ロイター』の言葉～ | `~words of <Loyter> the crimson of Zanan~` | `~Parole di <Loyter> l'eroe cremisi di Zanan~` | 2 |
+| ～異形の森の使者『ロミアス』の言葉～ | `~<Lomias> The Messenger From Vindale~`<br>`~<Lomias> the messenger from Vindale~` ⚠️ | `~Parole di <Lomias> il messaggero di Vindale~` | 2 |
 | ～釣り自慢のフィッシャーの言葉～ | `~words of a fisherman proud of his catch~` | `~Parole di un Pescatore Fiero della Sua Preda~` | 2 |
 | ～本の為の本・歴史書編～ | `~Big Books of Historical Books~` | `~Il Libro dei Libri: i Libri di Storia~` | 2 |
 | ～情報屋ウィーゼムの調べた情報～ | `~Intel of the Informant Wiesem~` | `~Le Notizie Raccolte da <Wiesem> l'informatore~` | 2 |
@@ -107,14 +107,14 @@ righe le vanno dietro: l'epiteto resta nel giapponese.
 | ～敗北者のうめき声～ | `~words of the defeated~` | `~Il Gemito dello Sconfitto~` | 1 |
 | ～涙目の煽りイカの言葉～ | `~words of a Provocasquid~` | `~Parole del Calamaro Provocatore con gli Occhi Lucidi~` | 1 |
 | ～続・明日から使えるあなたの為の武具集～ | `~Collection of Armaments you can Use Tomorrow Cont.~` | `~Ancora Armi e Armature da Usare Domani~` | 1 |
-| ～もう化かされない！魔物の罠の見抜き方～ | `~Fool me twice, Shame on me!~` | `~Non ci Casco Piu'! Come Scoprire i Trucchi dei Mostri~` | 1 |
+| ～もう化かされない！魔物の罠の見抜き方～ | `~Fool me twice, Shame on me!~` | `~Non ci Casco Più! Come Scoprire i Trucchi dei Mostri~` | 1 |
 | ～金毛九尾の言葉～ | `~words of Kyu-Bi~` | `~Parole della Volpe a Nove Code dal Manto d'Oro~` | 1 |
 | ～ペットトレイナーの言葉～ | `~words of a Pet Trainer~` | `~Parole dell'Addestratore di Bestie~` | 1 |
 | ～訓練所の張り紙～ | `~words at the Training Center ~` | `~Avviso Affisso alla Palestra~` | 1 |
 | ～鎖自慢された奴隷の言葉～ | `a Slave showing off his chains.` | `~Parole di uno Schiavo Fiero delle Sue Catene~` | 1 |
 | ～拘束器具の歴史～ | `~ History of Bondage ~` | `~Storia degli Strumenti di Costrizione~` | 1 |
 | ～機甲将軍『アインリッヒ』の言葉～ | `~<Heinrich> the Armored General~` | `~Parole di <Heinrich> il generale corazzato~` | 1 |
-| ～特殊部隊長『ミーリス』の言葉～ | `~<Milis> Captain of the Special Forces~` | `~Parole di <Milis>, capo delle forze speciali~` | 1 |
+| ～特殊部隊長『ミーリス』の言葉～ | `~<Milis> Captain of the Special Forces~` | `~Parole di <Milis> la comandante delle forze speciali~` | 1 |
 | ～サメ信者大全～ | `~Shark Believer Compendium~` | `~Grande Compendio dei Fedeli dello Squalo~` | 1 |
 | ～退屈ネクロマンサーの言葉～ | `a Bored Necromancer` | `~Parole di un Negromante Annoiato~` | 1 |
 | ?ジュアの狂信者の独り言? | `Monologue of a Jure Fanatic` | `~Monologo di un Fanatico di Jure~` | 1 |
@@ -149,7 +149,7 @@ righe le vanno dietro: l'epiteto resta nel giapponese.
 | ～はく製マニアからの手紙～ | `~words of an Fossil Enthusiast~` | `~Lettera di un Fissato di Tassidermia~` | 1 |
 | ～本の為の本・成年誌編～ | `~Big Book of Adult Books~` | `~Il Libro dei Libri: le Riviste per Adulti~` | 1 |
 | ～必見！貯蓄型資産運用のすべて～ | `~Must Watch! Everything About Savings and Asset Management~` | `~Da Vedere! Tutto sul Risparmio e sugli Investimenti~` | 1 |
-| ～発見！世界の珍品～ | `~Discovery! Curiosities of the World~` | `~Scoperta! Le Rarita' del Mondo~` | 1 |
+| ～発見！世界の珍品～ | `~Discovery! Curiosities of the World~` | `~Scoperta! Le Rarità del Mondo~` | 1 |
 | ～古代道具の謎に迫る！～ | `~Mystery of the Ancient Tools!~` | `~All'Inseguimento del Mistero degli Arnesi Antichi!~` | 1 |
 | ～道端の危険物～ | `~Dangers on the Road~` | `~I Pericoli sul Ciglio della Strada~` | 1 |
 | ～少女の寝言～ | `~a Little Girl's Bedtime Story~` | `~Le Parole nel Sonno di una Bambina~` | 1 |
@@ -173,10 +173,10 @@ righe le vanno dietro: l'epiteto resta nel giapponese.
 | ～《永遠のネヘルタード》の言葉～ | `~words of <Amurdad>~` | `~Parole di <Amurdad>~` | 1 |
 | ～不思議なノートの走り書き～ | `~scribbling in a mysterious notebook~` | `~Scarabocchi su un Quaderno Misterioso~` | 1 |
 | ～奇妙な噂話～ | `~Bizarre Gossip~` | `~Dicerie Bizzarre~` | 1 |
-| ～呪われた者の言葉～ | `~words of the victim to the curse~` | `~Parole di Chi e' Stato Maledetto~` | 1 |
+| ～呪われた者の言葉～ | `~words of the victim to the curse~` | `~Parole di Chi è Stato Maledetto~` | 1 |
 | ～慌てる市民の言葉～ | `~Worried Citizen~` | `~Parole di un Cittadino in Affanno~` | 1 |
 | ～古代祭事のルーツに迫る～ | `~a Close Look at the Ancient Rituals~` | `~Alle Radici degli Antichi Riti~` | 1 |
-| ～スンバラリア星人の言葉～ | `~words of a Sunbararian~` | `~Parole di un Abitante del Pianeta Sunbararia~` | 1 |
+| ～スンバラリア星人の言葉～ | `~words of a Sunbararian~` | `~Parole di un alieno di Sunbararia~` | 1 |
 | ～破壊の神の言葉～ | `~words of a God of Destruction~` | `~Parole del Dio della Distruzione~` | 1 |
 | ～食べられる草、食べられない草～ | `~Weeds you can Eat and Weeds you can't Eat~` | `~Erbe che si Mangiano ed Erbe che Non si Mangiano~` | 1 |
 | ～森林と経済活動・製材編～ | `~Forest Economics, Sawmill Edition~` | `~Foreste ed Economia: la Segheria~` | 1 |
@@ -192,14 +192,14 @@ righe le vanno dietro: l'epiteto resta nel giapponese.
 | ～裏路地の老店主の言葉～ | `~Words from an Shady, Old Shopkeeper~` | `~Parole del Vecchio Bottegaio del Vicolo~` | 1 |
 | ～錬金術・禁忌大全～ | `~Extra Issue: Weird Items~` | `~Alchimia: Grande Compendio dei Divieti~` | 1 |
 | ～戦場における指揮統制～ | `~Command and Control on the Battlefield~` | `~Comando e Controllo sul Campo di Battaglia~` | 1 |
-| ～目覚めてしまった冒険者の言葉～ | `~words of an adventurer who has entered a new world~` | `~Parole di un Avventuriero che si e' Risvegliato~` | 1 |
+| ～目覚めてしまった冒険者の言葉～ | `~words of an adventurer who has entered a new world~` | `~Parole di un Avventuriero che si è Risvegliato~` | 1 |
 | ～命を救う応急処置～ | `~Life-saving First-aid~` | `~Il Primo Soccorso che Salva la Vita~` | 1 |
 | ～毒物薬物辞典～ | `~Encyclopedia of Poison~` | `~Dizionario dei Veleni e dei Farmaci~` | 1 |
 | ～インテリアパラダイス増刊号～ | `~Interior Paradise: Extra Issue~` | `~Interior Paradise: Numero Straordinario~` | 1 |
 | ～おしゃれアイテム大特集～ | `~Stylish Item Special~` | `~Grande Speciale sugli Oggetti alla Moda~` | 1 |
 | ～裁縫大百科～ | `~The Encyclopedia of Sewing~` | `~Grande Enciclopedia del Cucito~` | 1 |
 | ～謎のレポート～ | `~Mysterious Report~` | `~Rapporto Misterioso~` | 1 |
-| ～特集・機械文明の遺産～ | `~the Legacy of Mechanical Civilization~` | `~Speciale: l'Eredita' della Civilta' Meccanica~` | 1 |
+| ～特集・機械文明の遺産～ | `~the Legacy of Mechanical Civilization~` | `~Speciale: l'Eredità della Civiltà Meccanica~` | 1 |
 | ～廃業寸前のキャラメル職人の言葉～ | `~an Indebted Caramel Maker~` | `~Parole di un Caramellaio sull'Orlo del Fallimento~` | 1 |
 | ～ノースティリス紀行・夏版～ | `~North Tyris Travels - Summer Edition~` | `~Viaggio in Tyris del Nord: Estate~` | 1 |
 | ～迫り来る妹の言葉～ | `~words of a younger sister~` | `~Parole della Sorella Minore che si Fa Sotto~` | 1 |
@@ -211,11 +211,11 @@ righe le vanno dietro: l'epiteto resta nel giapponese.
 | ～袋の裏に書かれた端書～ | `~Note Written on the Back of the Bag~` | `~Postilla Scritta sul Retro del Sacco~` | 1 |
 | ～箱裏に書かれた注意書き～ | `~note written on the back of the box~` | `~Avvertenza Scritta sul Retro della Scatola~` | 1 |
 | ～貴族のラスター、最後の言葉～ | `~last words, of Luster the noble~` | `~Le Ultime Parole di <Luster> il nobile~` | 1 |
-| ～掃除屋『バルザック』の言葉～ | `~the Cleaner Balzak~` | `~Parole di <Balzak> il netturbino~` | 1 |
+| ～掃除屋『バルザック』の言葉～ | `~the Cleaner Balzak~` | `~Parole di <Balzak> il custode~` | 1 |
 | ～本の為の本・解読書編～ | `~Big Book of Magical Books: Pre-Censorship~` | `~Il Libro dei Libri: i Libri da Decifrare~` | 1 |
 | ～説明書の最後のページに書かれた文字～ | `~the last page of the instruction manual~` | `~Le Parole sull'Ultima Pagina del Manuale~` | 1 |
 | ～妹研究の第一人者モクシスの研究論文～ | `~report of <Moxis>, leading imouto researcher~` | `~Studio di <Moxis>, massimo esperto di sorelle minori~` | 1 |
-| ～盗賊ギルドマスター『シン』の言葉～ | `~words of <Sin> the thief guildmaster~` | `~Parole di <Sin>, maestro della gilda dei ladri~` | 1 |
+| ～盗賊ギルドマスター『シン』の言葉～ | `~words of <Sin> the thief guildmaster~` | `~Parole di <Sin> il maestro della Gilda dei Ladri~` | 1 |
 | ～囚人達が選ぶ、人気商品ベスト５０～ | `~Top 50 Most Popular Products Among Prisoners~` | `~I 50 Prodotti Preferiti dai Detenuti~` | 1 |
 | ～ヴェルニースの雑貨店に張られた広告～ | `~notice of good store of Vernis~` | `~Reclame Affissa al Bazar di Vernis~` | 1 |
 | ～本の為の本・指導書編～ | `~Big Book of Books: Teacher's Edition~` | `~Il Libro dei Libri: i Manuali d'Insegnamento~` | 1 |
@@ -230,12 +230,12 @@ righe le vanno dietro: l'epiteto resta nel giapponese.
 | ～ならずもののオネストの言葉～ | `~words of the honest? rogue~` | `~Parole di <Onest> il farabutto~` | 1 |
 | ～こそどろのグリドの言葉～ | `~words of <Gleed> the thief~` | `~Parole di <Gleed> il topo d'appartamento~` | 1 |
 | ～稀代の怪盗『マークス』の言葉～ | `~words of <Marks> the great thief~` | `~Parole di <Marks>, ladro senza pari~` | 1 |
-| ～盗賊ギルドの番人『アビス』の言葉～ | `~words of <Abyss> the thief watchman~` | `~Parole di <Abyss>, guardiano della gilda dei ladri~` | 1 |
-| ～街の子供のセスの言葉～ | `~words of <Seth> the kid~` | `~Parole di <Seth>, ragazzino di citta'~` | 1 |
+| ～盗賊ギルドの番人『アビス』の言葉～ | `~words of <Abyss> the thief watchman~` | `~Parole di <Abyss> il guardiano della Gilda dei Ladri~` | 1 |
+| ～街の子供のセスの言葉～ | `~words of <Seth> the kid~` | `~Parole di <Seth>, ragazzino di città~` | 1 |
 | ～爆弾魔『ノエル』の言葉～ | `~words of <Noel> the bomber~` | `~Parole di <Noel> la dinamitarda~` | 1 |
-| ～無邪気な少女『グウェン』の言葉～ | `~words of <Gwen> the innocent~` | `~Parole di <Gwen> la bambina innocente~` | 1 |
-| ～歴史を学ぶ『エリステア』の言葉～ | `~words of <Erystia> the scholar of history~` | `~Parole di <Erystia>, studiosa di storia~` | 1 |
-| ～子犬の『ポピー』の言葉～ | `~Poppy the Puppy~` | `~Parole di <Poppy> il cucciolo~` | 1 |
+| ～無邪気な少女『グウェン』の言葉～ | `~words of <Gwen> the innocent~` | `~Parole di <Gwen> l'innocente~` | 1 |
+| ～歴史を学ぶ『エリステア』の言葉～ | `~words of <Erystia> the scholar of history~` | `~Parole di <Erystia> la studiosa di storia~` | 1 |
+| ～子犬の『ポピー』の言葉～ | `~Poppy the Puppy~` | `~Parole di <Poppy> il cagnolino~` | 1 |
 
 ### Le righe **mute**, dove l'inglese è l'unica fonte (19)
 

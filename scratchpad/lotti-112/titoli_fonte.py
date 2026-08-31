@@ -15,6 +15,22 @@ riscrive sbagliata in un lotto su cento.
 `TITOLI_EN` serve solo per le righe **mute**: quelle dove il ramo giapponese
 non ha la riga-fonte, perche' la mette in un altro indice o non ce l'ha. Li'
 l'inglese e' l'unica fonte.
+
+⚠️⚠️ **DIECI TITOLI CONTRADDICEVANO UN NOME CHE IL GIOCATORE VEDE GIA', E A
+TROVARLI E' STATA UNA RETE DELLA 113a** (`scratchpad/_113-fonti-gia-rese.py`).
+Il giapponese di 45 titoli su 200 e' **gia' reso** altrove nel dizionario —
+`異形の森の使者『ロミアス』` sta in `db_card.hsp:10579` e `db_creature.hsp:100005`,
+reso «<Lomias> il messaggero di Vindale», mentre qui c'era scritto «messo della
+foresta deforme»: una terza forma che nel dizionario non esiste. Corretti anche
+Balzak (netturbino -> **custode**), Gwen (bambina innocente -> **l'innocente**),
+Milis (capo -> **la comandante**), Poppy (cucciolo -> **cagnolino**), Erystia,
+Loyter, Sin e Abyss (**Gilda dei Ladri** maiuscola) e il sunbararian.
+
+💡 `_112-nomi-fonti.py` cercava i **nomi** per inglese e non poteva vederli: qui
+il nome sta dentro un titolo piu' lungo, e la chiave che li lega e' il
+**giapponese intero**. ⓘ `《叡智のソピアー》` resta `~Parole di <Sophia>~` anche
+se la carta dice «<Sophia> la Saggia»: li' l'inglese del titolo e'
+`~words of <Sophia>~`, nudo come per le altre quindici divinita'.
 """
 
 # ---------------------------------------------------------------------------
@@ -46,10 +62,10 @@ TITOLI_JP = {
     "?私の愛する幾千ものガラクタ?": "~Le Mille Cianfrusaglie che Amo~",
     "～ゴミの山に光るもの～": "~Quel che Brilla nel Mucchio dei Rifiuti~",
     "～料理を支える脇役達～": "~I Comprimari della Cucina~",
-    "～街中の名脇役達～": "~I Grandi Comprimari della Citta'~",
+    "～街中の名脇役達～": "~I Grandi Comprimari della Città~",
     "～エウダーナに学ぶ必勝交易法～": "~Il Commercio Vincente Secondo gli Eulderna~",
     "～玲瓏たるイルヴァの調べ～": "~Le Melodie della Limpida Irva~",
-    "～遊技大典・全年齢対応版～": "~Grande Compendio dei Giochi: Per Tutte le Eta'~",
+    "～遊技大典・全年齢対応版～": "~Grande Compendio dei Giochi: Per Tutte le Età~",
     "～貰って嬉しい贈り物あれこれ～": "~Regali che Fa Piacere Ricevere~",
 
     # --- la famiglia «本の為の本», che va tenuta insieme --------------------
@@ -74,7 +90,7 @@ TITOLI_JP = {
     "～パルミア秋冬物コレクション～": "~Palmia: Collezione Autunno-Inverno~",
     "～パルミア春夏物コレクション～": "~Palmia: Collezione Primavera-Estate~",
     "～パルミア広報～": "~Bollettino di Palmia~",
-    "～病みつきになる煙の味は～": "~Il Sapore del Fumo che Da' Dipendenza~",
+    "～病みつきになる煙の味は～": "~Il Sapore del Fumo che Dà Dipendenza~",
     "～これからの魔物被害対策～": "~Difendersi dai Mostri, da Qui in Avanti~",
     "～君にも使える！発掘兵器～": "~Puoi Usarle Anche Tu! Le Armi Riesumate~",
     "～バトルホビー列伝～": "~Cronache del Battle Hobby~",
@@ -93,7 +109,7 @@ TITOLI_JP = {
     "～ロストテクノロジー、その片鱗～": "~Tecnologia Perduta: un Barlume~",
     "～遺跡荒らしのメモ～": "~Appunti di un Predone di Rovine~",
     "～叡智の書～": "~Il Libro della Sapienza~",
-    "～農業、その新たな可能性～": "~L'Agricoltura e le sue Nuove Possibilita'~",
+    "～農業、その新たな可能性～": "~L'Agricoltura e le sue Nuove Possibilità~",
     "～家庭でできる応急処置～": "~Primo Soccorso in Casa~",
     "～命を救う応急処置～": "~Il Primo Soccorso che Salva la Vita~",
     "～イムウエル交易譚～": "~Racconti di Commercio di Aimwell~",
@@ -105,7 +121,7 @@ TITOLI_JP = {
     "～情報屋ウィーゼムの調べた情報～": "~Le Notizie Raccolte da <Wiesem> l'informatore~",
     "～鉄の胃袋を求めて・完食列伝～": "~In Cerca di uno Stomaco di Ferro: Piatti Finiti~",
     "～ティリス武具大全、広告のページ～": "~Grande Compendio delle Armi di Tyris: le Reclame~",
-    "～もう化かされない！魔物の罠の見抜き方～": "~Non ci Casco Piu'! Come Scoprire i Trucchi dei Mostri~",
+    "～もう化かされない！魔物の罠の見抜き方～": "~Non ci Casco Più! Come Scoprire i Trucchi dei Mostri~",
     "～訓練所の張り紙～": "~Avviso Affisso alla Palestra~",
     "～サメ信者大全～": "~Grande Compendio dei Fedeli dello Squalo~",
     "～職人が教える武器の歴史～": "~La Storia delle Armi Raccontata da un Artigiano~",
@@ -120,7 +136,7 @@ TITOLI_JP = {
     "～夢の廃物利用～": "~Il Sogno di Riusare gli Scarti~",
     "～根元の濡れた標識～": "~Il Cartello Bagnato alla Base~",
     "～必見！貯蓄型資産運用のすべて～": "~Da Vedere! Tutto sul Risparmio e sugli Investimenti~",
-    "～発見！世界の珍品～": "~Scoperta! Le Rarita' del Mondo~",
+    "～発見！世界の珍品～": "~Scoperta! Le Rarità del Mondo~",
     "～古代道具の謎に迫る！～": "~All'Inseguimento del Mistero degli Arnesi Antichi!~",
     "～道端の危険物～": "~I Pericoli sul Ciglio della Strada~",
     "～少女の寝言～": "~Le Parole nel Sonno di una Bambina~",
@@ -142,7 +158,7 @@ TITOLI_JP = {
     "～インテリアパラダイス増刊号～": "~Interior Paradise: Numero Straordinario~",
     "～おしゃれアイテム大特集～": "~Grande Speciale sugli Oggetti alla Moda~",
     "～裁縫大百科～": "~Grande Enciclopedia del Cucito~",
-    "～特集・機械文明の遺産～": "~Speciale: l'Eredita' della Civilta' Meccanica~",
+    "～特集・機械文明の遺産～": "~Speciale: l'Eredità della Civiltà Meccanica~",
     "～錬金術入門書～": "~Manuale d'Introduzione all'Alchimia~",
     "～袋の裏に書かれた端書～": "~Postilla Scritta sul Retro del Sacco~",
     "～箱裏に書かれた注意書き～": "~Avvertenza Scritta sul Retro della Scatola~",
@@ -154,7 +170,7 @@ TITOLI_JP = {
     "～挟まれていた紙片の殴り書き～": "~Scarabocchio sul Foglietto Infilato Dentro~",
     "～特別な孫の言葉～": "~Parole di un Nipote Speciale~",
     "～犠牲者の言葉～": "~Le Ultime Parole della Vittima~",
-    "～呪われた者の言葉～": "~Parole di Chi e' Stato Maledetto~",
+    "～呪われた者の言葉～": "~Parole di Chi è Stato Maledetto~",
     "～慌てる市民の言葉～": "~Parole di un Cittadino in Affanno~",
 
     # --- le divinita': l'epiteto sta nel giapponese, il nome e' gia' deciso -
@@ -179,22 +195,22 @@ TITOLI_JP = {
     "?ジュアの狂信者の独り言?": "~Monologo di un Fanatico di Jure~",
 
     # --- le persone: l'epiteto lo tiene il giapponese ------------------------
-    "～ザナンの紅の英雄『ロイター』の言葉～": "~Parole di <Loyter>, l'eroe cremisi di Zanan~",
+    "～ザナンの紅の英雄『ロイター』の言葉～": "~Parole di <Loyter> l'eroe cremisi di Zanan~",
     "～機甲将軍『アインリッヒ』の言葉～": "~Parole di <Heinrich> il generale corazzato~",
-    "～特殊部隊長『ミーリス』の言葉～": "~Parole di <Milis>, capo delle forze speciali~",
+    "～特殊部隊長『ミーリス』の言葉～": "~Parole di <Milis> la comandante delle forze speciali~",
     "～開発主任『ガベラ』の言葉～": "~Parole di <Gavela> l'ingegnere capo~",
     "～生化学者『イコール』の言葉～": "~Parole di <Icolle> il biochimico~",
     "～ガイドの『ノルン』の言葉～": "~Parole di <Norne> la guida~",
     "～遺跡研究者『メローキア』の言葉～": "~Parole di <Melochea>, studiosa di rovine~",
     "～伝説の職人『ガロク』の言葉～": "~Parole di <Garok> il fabbro leggendario~",
-    "～異形の森の使者『ロミアス』の言葉～": "~Parole di <Lomias>, messo della foresta deforme~",
-    "～盗賊ギルドマスター『シン』の言葉～": "~Parole di <Sin>, maestro della gilda dei ladri~",
-    "～盗賊ギルドの番人『アビス』の言葉～": "~Parole di <Abyss>, guardiano della gilda dei ladri~",
+    "～異形の森の使者『ロミアス』の言葉～": "~Parole di <Lomias> il messaggero di Vindale~",
+    "～盗賊ギルドマスター『シン』の言葉～": "~Parole di <Sin> il maestro della Gilda dei Ladri~",
+    "～盗賊ギルドの番人『アビス』の言葉～": "~Parole di <Abyss> il guardiano della Gilda dei Ladri~",
     "～稀代の怪盗『マークス』の言葉～": "~Parole di <Marks>, ladro senza pari~",
     "～こそどろのグリドの言葉～": "~Parole di <Gleed> il topo d'appartamento~",
     "～ならずもののオネストの言葉～": "~Parole di <Onest> il farabutto~",
-    "～街の子供のセスの言葉～": "~Parole di <Seth>, ragazzino di citta'~",
-    "～掃除屋『バルザック』の言葉～": "~Parole di <Balzak> il netturbino~",
+    "～街の子供のセスの言葉～": "~Parole di <Seth>, ragazzino di città~",
+    "～掃除屋『バルザック』の言葉～": "~Parole di <Balzak> il custode~",
     "～猫嫌いの『タム』の言葉～": "~Parole di <Tam> il nemico dei gatti~",
     "～青い髪の『ヴァリウス』の言葉～": "~Parole di <Barius> dai capelli blu~",
     "～見世物屋の『モイアー』がガラクタを売り付ける際の口上～": "~La Cantilena di <Moyer> l'imbonitore~",
@@ -202,10 +218,10 @@ TITOLI_JP = {
     "～見習い騎士『アインク』の言葉～": "~Parole di <Ainc> il cavaliere novizio~",
     "～女たらしの『ラファエロ』の言葉～": "~Parole di <Raphael> il donnaiolo~",
     "～爆弾魔『ノエル』の言葉～": "~Parole di <Noel> la dinamitarda~",
-    "～無邪気な少女『グウェン』の言葉～": "~Parole di <Gwen> la bambina innocente~",
-    "～歴史を学ぶ『エリステア』の言葉～": "~Parole di <Erystia>, studiosa di storia~",
+    "～無邪気な少女『グウェン』の言葉～": "~Parole di <Gwen> l'innocente~",
+    "～歴史を学ぶ『エリステア』の言葉～": "~Parole di <Erystia> la studiosa di storia~",
     "～妄想少女『リアナ』の言葉～": "~Parole di <Rianna> la sognatrice~",
-    "～子犬の『ポピー』の言葉～": "~Parole di <Poppy> il cucciolo~",
+    "～子犬の『ポピー』の言葉～": "~Parole di <Poppy> il cagnolino~",
     "～貴族のラスター、最後の言葉～": "~Le Ultime Parole di <Luster> il nobile~",
     "～偉大なる料理評論家グラトナの言葉～": "~Parole di <Gratona>, grande critico gastronomico~",
     "～金毛九尾の言葉～": "~Parole della Volpe a Nove Code dal Manto d'Oro~",
@@ -228,12 +244,12 @@ TITOLI_JP = {
     "～ソックスソードマンの評価～": "~Il Giudizio del Sockswordman~",
     "～はく製マニアからの手紙～": "~Lettera di un Fissato di Tassidermia~",
     "～ブランケットにくるまった少女の言葉～": "~Parole di una Bambina Avvolta in una Coperta~",
-    "～スンバラリア星人の言葉～": "~Parole di un Abitante del Pianeta Sunbararia~",
+    "～スンバラリア星人の言葉～": "~Parole di un alieno di Sunbararia~",
     "～廃業寸前のキャラメル職人の言葉～": "~Parole di un Caramellaio sull'Orlo del Fallimento~",
     "～迫り来る妹の言葉～": "~Parole della Sorella Minore che si Fa Sotto~",
     "～吐き気をこらえる少女の言葉～": "~Parole di una Bambina che Trattiene la Nausea~",
     "～裏路地の老店主の言葉～": "~Parole del Vecchio Bottegaio del Vicolo~",
-    "～目覚めてしまった冒険者の言葉～": "~Parole di un Avventuriero che si e' Risvegliato~",
+    "～目覚めてしまった冒険者の言葉～": "~Parole di un Avventuriero che si è Risvegliato~",
 }
 
 # ---------------------------------------------------------------------------
