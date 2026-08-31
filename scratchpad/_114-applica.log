@@ -1,0 +1,86 @@
+blend.hsp: 1 toppe prima del dizionario
+chara.hsp: 1 toppe prima del dizionario
+command.hsp: 7 toppe prima del dizionario
+config.hsp: 1 toppe prima del dizionario
+economy.hsp: 1 toppe prima del dizionario
+map_user.hsp: 1 toppe prima del dizionario
+action.hsp: 1497 sostituzioni
+adv.hsp: 14 sostituzioni
+ai.hsp: 111 sostituzioni
+blend.hsp: 181 sostituzioni
+buff.hsp: 205 sostituzioni
+calculation.hsp: 44 sostituzioni
+chara.hsp: 274 sostituzioni
+chara_func.hsp: 338 sostituzioni
+chat.hsp: 4756 sostituzioni
+chips.hsp: 3 sostituzioni
+command.hsp: 1447 sostituzioni
+config.hsp: 219 sostituzioni
+custom_ai.hsp: 6 sostituzioni
+custom_autopick.hsp: 86 sostituzioni
+custom_enemyevolution.hsp: 420 sostituzioni
+custom_tweaks.hsp: 12 sostituzioni
+db_card.hsp: 2306 sostituzioni
+db_class.hsp: 48 sostituzioni
+db_creature.hsp: 5700 sostituzioni
+db_item.hsp: 3546 sostituzioni, 5005 righe di plurale e articolo
+db_race.hsp: 87 sostituzioni
+economy.hsp: 42 sostituzioni
+event.hsp: 753 sostituzioni
+god.hsp: 114 sostituzioni
+help.hsp: 52 sostituzioni
+init.hsp: 170 sostituzioni
+item.hsp: 241 sostituzioni
+item_data.hsp: 318 sostituzioni, 339 righe di plurale e articolo
+item_func.hsp: 235 sostituzioni
+main.hsp: 371 sostituzioni
+map.hsp: 299 sostituzioni
+map_user.hsp: 203 sostituzioni
+module.hsp: 22 sostituzioni
+proc.hsp: 1318 sostituzioni
+screen.hsp: 104 sostituzioni
+skill.hsp: 894 sostituzioni
+system.hsp: 55 sostituzioni
+tcg.hsp: 92 sostituzioni
+tcg_ai.hsp: 2 sostituzioni
+tcg_custom.hsp: 70 sostituzioni
+tcg_mod.hsp: 8 sostituzioni
+text.hsp: 2127 sostituzioni
+trait.hsp: 406 sostituzioni
+action.hsp: 7 toppe
+buff.hsp: 1 toppe
+chara.hsp: 4 toppe
+chara_func.hsp: 6 toppe
+chat.hsp: 3 toppe
+command.hsp: 170 toppe
+custom_ai.hsp: 57 toppe
+custom_autopick.hsp: 1 toppe
+custom_dmgpop.hsp: 1 toppe
+custom_pet.hsp: 15 toppe
+custom_tweaks.hsp: 264 toppe
+db_item.hsp: 214 toppe
+etc.hsp: 5 toppe
+event.hsp: 27 toppe
+help.hsp: 1 toppe
+init.hsp: 6 toppe
+item.hsp: 3 toppe
+item_data.hsp: 2 toppe
+item_func.hsp: 35 toppe
+main.hsp: 1 toppe
+map.hsp: 2 toppe
+map_user.hsp: 4 toppe
+module.hsp: 4 toppe
+proc.hsp: 28 toppe
+screen.hsp: 25 toppe
+system.hsp: 1 toppe
+tcg.hsp: 102 toppe
+tcg_custom.hsp: 15 toppe
+tcg_mod.hsp: 1 toppe
+text.hsp: 10 toppe
+  autopick.txt: 156 righe scritte su 156 tradotte (156 voci)
+  board.txt: 25 righe scritte su 25 tradotte (25 voci)
+  book.txt: 2241 righe scritte su 2241 tradotte (2241 voci)
+  exhelp.txt: 185 righe scritte su 185 tradotte (185 voci)
+  manual_ENG.txt: 591 righe scritte su 591 tradotte (591 voci)
+  talk.txt: 569 righe scritte su 569 tradotte (569 voci)
+totale: 29196 sostituzioni in C:\Games\Elona\_traduzione\build\2.05-custom-gx

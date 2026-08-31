@@ -1,0 +1,226 @@
+RIGHE = {
+    108393, 108829, 108891, 108954, 109083, 109145, 109270, 109335, 109398, 109460,
+    109526, 109588, 109650, 109713, 109775, 109837, 109903, 109966, 110028, 110090,
+    110155, 110220, 110285, 110350, 110412, 110478, 110541, 110603, 110669, 110733,
+    110799, 110801, 110865, 110931, 110993, 111125, 111188, 111258, 111324, 111386,
+    111449, 111511, 111573, 111635, 111697, 112320, 112382, 112445, 112507, 112509,
+    112569, 112631, 112693,
+}
+# 53 righe, da 108393 a 112693
+
+    # ---------------------------------------------------------- :108393
+    (108393, "Stone with ancient letters written on it. When used, it is said to open a gateway to another world. \\n#~ Worlds you've Never Seen~"):
+        "",
+
+    # ---------------------------------------------------------- :108829
+    (108829, 'A flashy shiny golden statue representing a symbol of wealth. It is said that if you have several of them in your house, your friends will call you a parvenu. \\n# ~Totally Made-up Stories that are Mistaken for Lies, Volume 2~'):
+        "",
+
+    # ---------------------------------------------------------- :108891
+    (108891, 'Golden columns decorated with flowers and grasses are a glittering work of art. In addition to the detailed carvings, the material used for the sculpture is said to shine even more brightly at night when bathed in ambient light. \\n# ~Lumiest Art Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :108954
+    (108954, 'A magnificent chair made only for the king to sit on. Since it is not intended for mass production, it is made with the utmost luxury. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :109083
+    (109083, 'A magnificent chair made only for the king to sit on. Since it is not intended for mass production, it is made with the utmost luxury. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :109145
+    (109145, 'Beautiful garment of the latest model. It is very delicately made and cannot even be tried on. \\n# ~Palmian Winter Fashion~'):
+        "",
+
+    # ---------------------------------------------------------- :109270
+    (109270, "The furnishings exude prestige. Perhaps it is because of its spiritual significance, or perhaps it is because it is polished every day. It lights up the surroundings at night. \\n# ~Worlds you've Never Seen~"):
+        "",
+
+    # ---------------------------------------------------------- :109335
+    (109335, 'Rectangular black box-like keyboard instrument. It is lighter than a grand piano, but still heavy enough to be suitable for long trips. \\n# ~Music of the Melodious Irva~'):
+        "",
+
+    # ---------------------------------------------------------- :109398
+    (109398, 'A horizontal chair made of hard material. When placed outdoors, it is said that on rare occasions some people take a nap on it. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :109460
+    (109460, 'This shelf is the ultimate pursuit of functional beauty. It is a truly elegant piece of furniture with no unnecessary functions. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :109526
+    (109526, "The bedding is so soft that one's hands sink into it, and when the bedding is just right and the quilt is full of the smell of the sun, one is enveloped in a strange sensation as if one were a baby again. \\n#~ Great Encyclopedia of North Tyris Furnitures~"):
+        "",
+
+    # ---------------------------------------------------------- :109588
+    (109588, 'Small altar shining brightly. Since it is more of a furnishing element, it does not seem to be able to accommodate offerings. \\n# ~Daily Necessities for the Home~'):
+        "",
+
+    # ---------------------------------------------------------- :109650
+    (109650, 'A cupboard made larger than usual. It is mainly a piece of furniture for nobles who host parties with many guests. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :109713
+    (109713, 'A mirror stand that pursues functional beauty to the extreme. It is a piece of furniture that is so drastic that it makes one think that a mirror is all that is needed. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :109775
+    (109775, 'Clean, dust-free shelves. They are often bought by indolent customers because of their reputation for staying this way for several years. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :109837
+    (109837, 'This is a desk with an uneven surface for artistic purposes. Due to its characteristics, it is not suitable for precision work. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :109903
+    (109903, 'Bedding with only the bare minimum of functionality. Even if you use this bed, which is said to be used for meditation rather than sleeping, you will probably not get very fatigued. \\n#~ Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :109966
+    (109966, 'The bookshelves are so old that even the books in them seem to have a certain charm. The unique damage to the bookshelf is said to be irresistible to antique lovers. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :110028
+    (110028, 'The shelf has a somehow nostalgic atmosphere. Its texture resembles the warmth of wood that I certainly touched as a child. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :110090
+    (110090, 'Potted plant stands out for its lush foliage. The lush foliage growing sideways is truly full of vitality. \\n# ~Illustrated Guide to Tyris Horticulture~'):
+        "",
+
+    # ---------------------------------------------------------- :110155
+    (110155, 'A game table where you can enjoy throwing darts at the target. Some adventurers play with it to see if their throwing skills have improved. \\n# ~Game Tricks, All Ages Version~'):
+        "",
+
+    # ---------------------------------------------------------- :110220
+    (110220, 'Legend has it that when a seven appears in any of the three frames, a mysterious voice is heard from the heavens. \\n# ~Game Tricks, All Ages Version~'):
+        "",
+
+    # ---------------------------------------------------------- :110285
+    (110285, 'This is an amusement table where you can enjoy a variety of grown-up games. It claims to be able to do everything, but the staff is stubborn and will only let you play blackjack. \\n# ~Game Tricks, All Ages Version~'):
+        "",
+
+    # ---------------------------------------------------------- :110350
+    (110350, 'An amusement table that uses a small metal ball. It can be played by a single person in a short time, but it is said that sometimes people get too absorbed in the game and find that it is nighttime before they realize it. \\n# ~Game Tricks, All Ages Version~'):
+        "",
+
+    # ---------------------------------------------------------- :110412
+    (110412, 'Furniture that stores hot water and heals the body by soaking. Floating bubbles in it is said to be popular among aristocrats. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :110478
+    (110478, 'The bedding is crisp right down to the hem of the sheets. Its cleanliness is often likened to that of a white healer and sold as such. \\n#~ Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :110541
+    (110541, 'A mirror stand used by the public. This is basically a piece of furniture whose value is determined by the amount of decoration, so it would be perfect in terms of functionality. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :110603
+    (110603, 'The shelves are simply made. It is reasonably priced, so if you are living alone, this is probably enough. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :110669
+    (110669, "The bedding's soothing colors are easy on the eyes. The bed is simple, with no superfluous features, so it seems to be surprisingly popular with men as well. \\n#~ Great Encyclopedia of North Tyris Furnitures~"):
+        "",
+
+    # ---------------------------------------------------------- :110733
+    (110733, 'An excellent cooking utensil that crushes food with its sharp blade. It is said that there used to be a pair of merchants in Palmia who would put on somewhat deliberate skits in order to sell these extremely expensive utensils. \\n# ~Supporting Roles in Kitchen~'):
+        "",
+
+    # ---------------------------------------------------------- :110799
+    (110799, 'Bedclothes that are not normally used by living people. Some adventurers seem to have no choice but to use it because it at least shelters them from the wind and rain. \\n#~ Book for the Dying Ones~'):
+        "",
+
+    # ---------------------------------------------------------- :110801
+    (110801, '\\"It is too hard to be used as bedding, and it\'s sturdy enough to withstand attack from any direction. The only drawback is that you have to get out of it somehow.\\" \\n# ~words of <Ainc> the novice knight~'):
+        "",
+
+    # ---------------------------------------------------------- :110865
+    (110865, 'This bedding is rattling in places. Just lying on the bed is noisy and noisy, so people with nervousness will not be able to sleep on it. \\n#~ Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :110931
+    (110931, 'The bedding is more than enough even if you sleep with arms and legs spread wide apart. It is useful when you have a sudden guest and you want to put everyone to bed together. \\n#~ Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :110993
+    (110993, 'A chest of drawers specializing in storing clothes. They are made slightly wider than normal ones and can be used to store different seasons. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :111125
+    (111125, 'A magnificent desk made to be installed in a bar. It has more storage capacity, but keeps its size unchanged. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :111188
+    (111188, 'A mirror stand that looks expensive. It is one of the most coveted pieces of furniture for women. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :111258
+    (111258, 'Vase made of expensive-looking material. Its surface is so glossy that it shines. \\n# ~Lumiest Art Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :111324
+    (111324, 'The bedding is of the highest quality and made of the finest materials. Its smooth feel gives the illusion that it is a work of art. \\n#~ Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :111386
+    (111386, "A cupboard made for storing alcoholic beverages. Don't try to sneak out and drink from it, as it is an act that will cause terrible resentment from those who have saved it for their enjoyment. \\n# ~Great Encyclopedia of North Tyris Furnitures~"):
+        "",
+
+    # ---------------------------------------------------------- :111449
+    (111449, 'A desk that has been used for many years and is somewhat worn out. The reason why he continues to use the desk is not only because he is used to using it, but also because he is attached to it. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :111511
+    (111511, 'Woven textile with high water absorbency. No fabric softener is used.\\n# ~Palmian Winter Fashion~'):
+        "",
+
+    # ---------------------------------------------------------- :111573
+    (111573, 'Shelves crammed with various decorative items. The items are stacked in a perfect balance so that it is impossible to remove items from them. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :111635
+    (111635, 'Shelves crammed with various commodities. The items are stacked in a perfect balance so that it is impossible to remove items from them. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :111697
+    (111697, 'Armor that has been beautifully polished and prepared for all eventualities. All of them are marked as sold, so you cannot equip them without permission. \\n# ~Merchant Life Starting from a Quitting as a Adventurer~'):
+        "",
+
+    # ---------------------------------------------------------- :112320
+    (112320, 'The map has an enigmatic atmosphere. It is said to have no particular remarkable effect, just a sense of significance. \\n# ~an Adventurer is You! Guide for Travels~'):
+        "",
+
+    # ---------------------------------------------------------- :112382
+    (112382, 'Buoyancy aid mainly used by non-swimmers to increase their buoyancy. Often seen used by town children in Port Kapul swimming pools. \\n# ~Daily Necessities for the Home~'):
+        "",
+
+    # ---------------------------------------------------------- :112445
+    (112445, 'A warm, circular table. What is it about it that makes you want to use it without chairs or flip the table over with your hands? \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :112507
+    (112507, 'A very heavy container filled with water. Since it is mainly used for livestock, even the most adventurous of adventurers are not likely to touch it. \\n# ~Supporting Roles on the Streets~'):
+        "",
+
+    # ---------------------------------------------------------- :112509
+    (112509, '\\"Not suitable for golems\\" \\n# ~a Mysterious Note~'):
+        "",
+
+# 2 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :112569
+    (112569, 'It is the second moonlight. They are always creating shadows for the people on the street without a break. \\n# ~Supporting Roles on the Streets~'):
+        "",
+
+    # ---------------------------------------------------------- :112631
+    (112631, 'A very heavy pillar, broken from the base for some reason. Its unique shape is somehow artistic. \\n# ~Lumiest Art Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :112693
+    (112693, 'Majestic and very heavy, it is a pillar that stretches straight up to the sky. Its motionless form reminds us of the God of Earth. \\n# ~Lumiest Art Catalogue~'):
+        "",
+
+# 51 voci, 0 ambigue
+

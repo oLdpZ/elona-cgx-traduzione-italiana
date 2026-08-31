@@ -1,0 +1,131 @@
+RIGHE = {
+    91718, 91780, 91842, 92124, 94801, 94863, 94925, 94927, 94987, 95049,
+    95111, 95174, 95236, 95298, 95360, 95422, 97873, 97943, 98005, 98007,
+    98075, 98145, 98215, 98285, 98356, 98358, 98426, 98496, 103360, 103425,
+}
+# 30 righe, da 91718 a 103425
+
+    # ---------------------------------------------------------- :91718
+    (91718, 'A streetlight with a stylish decoration. At night, they glow faintly with their own light, making the area look gorgeous. \\n# ~Supporting Roles on the Streets~'):
+        "",
+
+    # ---------------------------------------------------------- :91780
+    (91780, 'This lighting fixture was once created by a genius of the century. Its innovative construction is still one of the most popular among aristocrats. \\n# ~Daily Necessities for the Home~'):
+        "",
+
+    # ---------------------------------------------------------- :91842
+    (91842, 'Atmospheric lighting made of wax. Its small flickering flame is said to bring two people in love even closer together. \\n# ~Daily Necessities for the Home~'):
+        "",
+
+    # ---------------------------------------------------------- :92124
+    (92124, "A shelf that is widely used by the masses. It is a safe piece of furniture that can't be used for more than you expect, but does the bare minimum of what you need it to do. \\n# ~Great Encyclopedia of North Tyris Furnitures~"):
+        "",
+
+    # ---------------------------------------------------------- :94801
+    (94801, 'Very funny looking snow sculptures. When it snows, children gather to make snowmen of their own design and show them to each other. \\n# ~North Tyris Travels, Winter Edition~'):
+        "",
+
+    # ---------------------------------------------------------- :94863
+    (94863, 'Giant mineral that is said to purge evil spirits. It is said to have occupied an important position in magic since ancient times. \\n#~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :94925
+    (94925, "Pillar with an adorable cat modeled at the top. It is said that the charming rear figure was carved by an artist who sensed the cat's inherent whimsy. \\n# ~Lumiest Art Catalogue~"):
+        "",
+
+    # ---------------------------------------------------------- :94927
+    (94927, '\\"I went to Vernis before, and there it was, that thing! The horrible tail and those ears, I can\'t stop shaking just thinking about it.... Who in the world could have made a stone pillar like that? The only relief was that it wasn\'t facing me.\\" \\n# ~<Tam> the cat hater~'):
+        "",
+
+    # ---------------------------------------------------------- :94987
+    (94987, "Still-life painting said to have been painted by a famous artist. The canvas is said to be filled with many sunflowers, attracting the viewer's eyes and heart. \\n# ~Lumiest Art Catalogue~"):
+        "",
+
+    # ---------------------------------------------------------- :95049
+    (95049, 'Landscape painting said to have been painted by a famous artist. It is said that this painting, which evokes a nostalgic atmosphere, reminds people of their hometowns. \\n# ~Lumiest Art Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :95111
+    (95111, "Portrait painting said to have been painted by a famous artist. The melancholy expression on her face possesses something that moves the viewer's heart. \\n# ~Lumiest Art Catalogue~"):
+        "",
+
+    # ---------------------------------------------------------- :95174
+    (95174, 'The table is big enough to accommodate unexpected guests. One should learn from the depth of this open-mindedness. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :95236
+    (95236, 'Potted plants are so tall that they almost reach the ceiling. Every stem is growing toward the sun single-mindedly. \\n# ~Illustrated Guide to Tyris Horticulture~'):
+        "",
+
+    # ---------------------------------------------------------- :95298
+    (95298, 'Equipment used to cook food. It is not allowed to cook as it is being used anytime you see it. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :95360
+    (95360, 'A heating device used to warm a room. The crackling flames inside the furnace will slowly melt your hearty cold body. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :95422
+    (95422, 'Furnace for melting metals. The inside is always heated by red-hot wood. \\n# ~Aiming for Better Workmanship~'):
+        "",
+
+    # ---------------------------------------------------------- :97873
+    (97873, 'A disk in unused condition. It is a worthless item because it cannot be used, but it is said to be bought as a souvenir by Yowyn farmers on rare occasions when they visit the area for sightseeing. \\n# ~The Yowyn Book of Secrt Knowledge!~'):
+        "",
+
+    # ---------------------------------------------------------- :97943
+    (97943, 'A mysterious small piece with a regular pattern engraved on it. It is presumed to be very beautiful and ornamental, but cannot be equipped. \\n# ~The Yowyn Book of Secrt Knowledge!~'):
+        "",
+
+    # ---------------------------------------------------------- :98005
+    (98005, 'A container made to hold specific waste materials. It is said that if you put anything other than specific items in this in the cyberdome, the residents will look at you with disgust. \\n# ~The Yowyn Book of Secrt Knowledge!~'):
+        "",
+
+    # ---------------------------------------------------------- :98007
+    (98007, '\\"This is one of those things that I\'ve witnessed and gotten. It\'s not just any old thing. First of all, the color is nice, and the shape. There\'s something fun about it. And between you and me, it has a secret...oops, you\'ll have to wait until after you buy it.\\" \\n# ~<Moyer> the crooked~'):
+        "",
+
+    # ---------------------------------------------------------- :98075
+    (98075, 'Cylindrical metal objects used to store something. Its purpose is now lost, so it is usually filled with garbage. \\n# ~The Yowyn Book of Secrt Knowledge!~'):
+        "",
+
+    # ---------------------------------------------------------- :98145
+    (98145, 'Mysterious memory device that is said to contain ancient memories. Such is the rumor, but there is still no one who has been able to open the memory. \\n# ~The Yowyn Book of Secrt Knowledge!~'):
+        "",
+
+    # ---------------------------------------------------------- :98215
+    (98215, 'Amazing box that destroys stored items by applying powerful heat to them. It is currently broken and unusable. \\n# ~The Yowyn Book of Secrt Knowledge!~'):
+        "",
+
+    # ---------------------------------------------------------- :98285
+    (98285, 'Amazing device that can contain ones existence. Currently it is broken and cannot be used. \\n# ~The Yowyn Book of Secrt Knowledge!~'):
+        "",
+
+    # ---------------------------------------------------------- :98356
+    (98356, '\\"Try this for 5 minutes a day, 5 minutes a day! That fat, ugly body of yours will somehow get rid of itself just by working out with this for 5 minutes a day! The results are unknown!\\" \\n# ~Mysterious Memo on the Training Machine~'):
+        "",
+
+    # ---------------------------------------------------------- :98358
+    (98358, 'A machine that, when used, can stimulate growth in the body. Some of the Palmia Guard, whose bodies are their most important assets, have even gone to the trouble of purchasing the machine and using it at home. \\n# ~Daily Necessities for the Home~'):
+        "",
+
+# 3 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :98426
+    (98426, "A strange box with a dull sound. There is no place to open it, so you can't stuff things inside. \\n# ~The Yowyn Book of Secrt Knowledge!~"):
+        "",
+
+    # ---------------------------------------------------------- :98496
+    (98496, 'Strange object with a flickering light. Its use is unknown, but it is said to be bought by wealthy people on rare occasions as a decorative item for their rooms. \\n# ~The Yowyn Book of Secrt Knowledge!~'):
+        "",
+
+    # ---------------------------------------------------------- :103360
+    (103360, 'A machine that ejects spheres containing items by using exotic coins. It requires more valuable materials than the red ones, but you can expect better items to come out of it. \\n# ~Game Tricks, All Ages Version~'):
+        "",
+
+    # ---------------------------------------------------------- :103425
+    (103425, "A machine that ejects spheres containing items by using exotic coins. I don't know why, but I hear there are a lot of kids hanging out in that area. \\n# ~Game Tricks, All Ages Version~"):
+        "",
+
+# 27 voci, 0 ambigue
+

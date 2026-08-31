@@ -1,0 +1,424 @@
+=== ITEM_ID_HORN   [FILTER_FURNITURE]
+    NOME      jp ホーン
+              en horn
+              IT corno
+    --- description(0)  :114206
+        JP  \t\t高らかな音を鳴らす角笛。基本的に単音しか出せないが、その雄々しい音色は人々の心を十分に揺さぶるだろう。\n#～玲瓏たるイルヴァの調べ～\n
+        EN  A horn with a high-pitched sound. Basically, it can only produce a single note, but its heroic tone is sure to move people's hearts enough. \n# ~Music of the Melodious Irva~
+    --- description(3)  :114209 ⚠️ TETTO SECCO 69
+        JP  \t\t演奏用の道具。何度でも使用することができる。\n#～鑑定報告書：＜楽器＞カテゴリ～\n
+        EN  (Reusable) Rank 2 instrument for performing.
+        IT  Uno strumento per suonare. Si può usare sempre.
+
+=== ITEM_ID_FIGURINE_SWORD   [FILTER_FURNITURE]
+    NOME      jp フィギア『伝説の剣』 フィギア『伝説の剣』
+              en sword figurine
+              IT spada leggendaria statuetta
+    --- description(0)  :115320
+        JP  \t\t実際の武器と見紛う程の調度品。大地に刺さった剣をイメージして造られたものだが、過去これを強引に武器として扱った勇士がいたとかいないとか。\n#～遊技大典・全年齢対応版～\n
+        EN  The furnishings are so large that they could easily be mistaken for actual weapons. It was made in the image of a sword stuck in the earth, but some brave warrior may or may not have used it as a weapon in the past. \n# ~Game Tricks, All Ages Version~
+    --- description(3)  :115323 ⚠️ TETTO SECCO 69
+        JP  \t\t剣の模造品だ。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is a model of a sword.
+        IT  La riproduzione di una spada.
+
+=== ITEM_ID_FIGURINE_WARRIOR   [FILTER_FURNITURE]
+    NOME      jp フィギア『狂戦士』 フィギア『狂戦士』
+              en warrior figurine
+              IT guerriero furioso statuetta
+    --- description(0)  :115382
+        JP  \t\t精巧に作られた戦士を模した可動型人形。値は張るものの、様々な動きに対応できる為、子供達の憧れの的だという。\n#～遊技大典・全年齢対応版～\n
+        EN  These are movable dolls that resemble elaborately crafted warriors. Although expensive, they are said to be the object of children's admiration because of their ability to respond to a variety of movements. \n# ~Game Tricks, All Ages Version~
+    --- description(2)  :115384
+        JP  \t\t「フハハハハ！スゴいぞー！カッコイイぞー！」\n#～街の子供のセスの言葉～\n
+        EN  \"Muhahahaha! Great! Cool!\" \n# ~words of <Seth> the kid~
+    --- description(3)  :115385 ⚠️ TETTO SECCO 69
+        JP  \t\t狂戦士の模造品だ。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is a model of a berserker.
+        IT  La riproduzione di un berserker.
+
+=== ITEM_ID_DISH   [FILTER_FURNITURE]
+    NOME      jp 食器の山
+              en dish
+              IT pila di stoviglie
+    --- description(0)  :118643
+        JP  \t\t同じ種類の皿が重ねられた家具。急なお客が来る時に便利だが、慌てて躓いて割ってしまった、なんてことにならないように床に置くのは止めた方がいいだろう。\n#～料理を支える脇役達～\n
+        EN  Furniture with plates of the same kind stacked on top of each other. They are useful when you have a sudden guest, but you probably shouldn't put them on the floor lest you trip over them in your haste and break them. \n# ~Supporting Roles in Kitchen~
+    --- description(3)  :118646 ⚠️ TETTO SECCO 69
+        JP  \t\t重ねられた皿だ。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a stack of decorative dishes.
+        IT  Piatti impilati.
+
+=== ITEM_ID_BUNK_BED   [FILTER_FURNITURE]
+    NOME      jp 二段ベッド
+              en bunk bed
+              IT letto a castello
+    --- description(0)  :119687
+        JP  \t\t縦に重ねられた効率的な寝具。宿屋に備え付けられていることが多く、冒険者達が泊った際に、しばしばどちらが上で寝るか喧嘩をしている光景を目にするという。\n#～ノースティリス大家具事典～\n
+        EN  Efficient bedding stacked vertically. They are often provided in inns, and when adventurers stay there, they often see fights over who gets to sleep on top. \n#~ Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :119690 ⚠️ TETTO SECCO 69
+        JP  \t\t眠る為の家具（ランク２）。何度でも使用することができる。\n#～鑑定報告書：＜寝具＞カテゴリ～\n
+        EN  (Reusable) Rank 2 makeshift bunk bed.
+        IT  Un letto (rango 2). Si può usare sempre.
+
+=== ITEM_ID_OLD_GRAVE   [FILTER_FURNITURE]
+    NOME      jp 古めかしい墓
+              en old grave
+              IT tomba vecchia
+    --- description(0)  :119943
+        JP  \t\tそこに歴史を感じる墓。当然ながら非常に重いので持ち上げてみようと思わない方がいいだろう。\n#～死にゆく者へ贈る書～\n
+        EN  A tomb with a sense of history in it. Naturally it is very heavy and you should not try to lift it. \n# ~Book for the Dying Ones~
+    --- description(3)  :119946 ⚠️ TETTO SECCO 69
+        JP  \t\tとても重い建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a very heavy ancient Norland style tomb.
+        IT  Una costruzione molto pesante.
+
+=== ITEM_ID_ANCIENT_TOMB   [FILTER_FURNITURE]
+    NOME      jp 古墳
+              en ancient tomb
+              IT tumulo antico
+    --- description(0)  :120005
+        JP  \t\t古の権力者の為に作られた巨大な墓。当然ながら非常に重いので持ち上げてみようと思わない方がいいだろう。\n#～死にゆく者へ贈る書～\n
+        EN  A huge tomb built for an ancient ruler. Naturally, it is very heavy and you should not try to lift it. \n# ~Book for the Dying Ones~
+    --- description(3)  :120008 ⚠️ TETTO SECCO 69
+        JP  \t\tとても重い建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a very heavy ancient Eulderna style tomb.
+        IT  Una costruzione molto pesante.
+
+=== ITEM_ID_SOLEMN_TOMB   [FILTER_FURNITURE]
+    NOME      jp 荘厳な墓
+              en solemn tomb
+              IT tomba solenne
+    --- description(0)  :120067
+        JP  \t\t思わず息を飲んで後ずさってしまう程の墓。当然ながら非常に重いので持ち上げてみようと思わない方がいいだろう。\n#～死にゆく者へ贈る書～\n
+        EN  The tomb is so large that you can't help but gasp and back away. Naturally, it is very heavy and you should not try to lift it. \n# ~Book for the Dying Ones~
+    --- description(3)  :120070 ⚠️ TETTO SECCO 69
+        JP  \t\tとても重い建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a very heavy tomb of a heroic figure.
+        IT  Una costruzione molto pesante.
+
+=== ITEM_ID_BRAND_NEW_GRAVE   [FILTER_FURNITURE]
+    NOME      jp 新品の墓
+              en brand new grave
+              IT tomba nuova di zecca
+    --- description(0)  :120129
+        JP  \t\t立派な石碑と見紛う程の墓。当然ながら非常に重いので持ち上げてみようと思わない方がいいだろう。\n#～死にゆく者へ贈る書～\n
+        EN  The tomb is so large that it could be mistaken for a magnificent stone monument. Naturally, it is very heavy and you should not try to lift it. \n# ~Book for the Dying Ones~
+    --- description(3)  :120132 ⚠️ TETTO SECCO 69
+        JP  \t\tとても重い建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a recent grave... The name is still readable.
+        IT  Una costruzione molto pesante.
+
+=== ITEM_ID_GRAVE_ORNAMENTED_WITH_FLOWERS   [FILTER_FURNITURE]
+    NOME      jp 花で飾られた墓 花で飾られた墓
+              en ornamented with flowers grave
+              IT fiori tomba ornata
+    --- description(0)  :120191
+        JP  \t\t花に埋め尽くされた美しい墓。当然ながら非常に重いので持ち上げてみようと思わない方がいいだろう。\n#～死にゆく者へ贈る書～\n
+        EN  A beautiful tomb covered in flowers. Naturally, it is very heavy and you should not try to lift it. \n# ~Book for the Dying Ones~
+    --- description(3)  :120194 ⚠️ TETTO SECCO 69
+        JP  \t\tとても重い建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a grave with flowers for the departed.. The name is still readable.
+        IT  Una costruzione molto pesante.
+
+=== ITEM_ID_CRUMBLED_GRAVE   [FILTER_FURNITURE]
+    NOME      jp 崩れた墓
+              en crumbled grave
+              IT tomba crollata
+    --- description(0)  :120253
+        JP  \t\tいよいよ自分用の墓が欲しくなった墓。当然ながら非常に重いので持ち上げてみようと思わない方がいいだろう。\n#～死にゆく者へ贈る書～\n
+        EN  The tomb that made one finally want a tomb for oneself. Naturally, it is very heavy and you should not try to lift it. \n# ~Book for the Dying Ones~
+    --- description(3)  :120256 ⚠️ TETTO SECCO 69
+        JP  \t\tとても重い建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a common style grave that has been destroyed.
+        IT  Una costruzione molto pesante.
+
+=== ITEM_ID_COLLAPSED_GRAVE   [FILTER_FURNITURE]
+    NOME      jp 風化した墓
+              en collapsed grave
+              IT tomba erosa
+    --- description(0)  :120315
+        JP  \t\t人の手から離れて大分経つ墓。当然ながら非常に重いので持ち上げてみようと思わない方がいいだろう。\n#～死にゆく者へ贈る書～\n
+        EN  The tomb has long since left human hands. Naturally, it is very heavy and you should not try to lift it. \n# ~Book for the Dying Ones~
+    --- description(3)  :120318 ⚠️ TETTO SECCO 69
+        JP  \t\tとても重い建造物だ。\n#～鑑定報告書：＜建造物＞カテゴリ～\n
+        EN  It is a common style grave that has started to crumble.
+        IT  Una costruzione molto pesante.
+
+=== ITEM_ID_SILK_CLOTH   [FILTER_FURNITURE]
+    NOME      jp 絹の生地
+              en silk cloth
+              IT stoffa di seta
+    --- description(0)  :120377
+        JP  \t\t絹で織られた反物。売約済みと大きく書かれているので使用することはできない。\n#～パルミア春夏物コレクション～\n
+        EN  Woven silk antique. It is marked 'sold' in large letters and cannot be used. \n# ~Palmian Summer Fashion~
+    --- description(3)  :120380 ⚠️ TETTO SECCO 69
+        JP  \t\t糸を織り上げたもの。使用することはできない。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is woven threads. Cannot be used.
+        IT  Fili tessuti insieme. Non si può usare.
+
+=== ITEM_ID_MESSY_CLOTH   [FILTER_FURNITURE]
+    NOME      jp 散らばった衣類
+              en messy cloth
+              IT vestiti sparsi
+    --- description(0)  :120439
+        JP  \t\t地上に散らばった衣服。洗濯前の脱ぎ散らかしなのか、洗濯後の整頓前なのか、どちらであるかは定かではない。\n#～私の愛する幾千ものガラクタ～\n
+        EN  Clothes scattered on the ground. It is not certain whether they were taken off and scattered before washing or before tidying up after washing. \n#~Thousands of pieces of Junk I love~
+    --- description(3)  :120442 ⚠️ TETTO SECCO 69
+        JP  \t\t散乱した服。使用することはできない。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are scattered clothes. Cannot be used.
+        IT  Vestiti sparsi. Non si può usare.
+
+=== ITEM_ID_SIMPLE_SHELF   [FILTER_FURNITURE]
+    NOME      jp 単なる棚
+              en simple shelf
+              IT scaffale semplice
+    --- description(0)  :120633
+        JP  \t\tどこからどう見ても棚そのものだ。それ以上でもそれ以下でもない。\n#～ノースティリス大家具事典～\n
+        EN  For all intents and purposes, it is the shelf itself. Nothing more, nothing less. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :120636 ⚠️ TETTO SECCO 69
+        JP  \t\tシンプルな棚だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a simple shelf for your dining room.
+        IT  Uno scaffale semplice.
+
+=== ITEM_ID_GORGEOUS_CANDLESTICK   [FILTER_FURNITURE]
+    NOME      jp 絢爛な燭台
+              en gorgeous candlestick
+              IT candelabro sfarzoso
+    --- description(0)  :120695
+        JP  \t\t装飾品という面に重きを置いた燭台。台座にもふんだんに贅沢な加工がなされており、キャンドルが不要な程光り輝いている。\n#～家庭を彩る日用雑貨～\n
+        EN  This is a candelabra with an emphasis on the decorative aspect. The base is also lavishly processed, it shines so brightly that candles are unnecessary. \n# ~Daily Necessities for the Home~
+    --- description(3)  :120698 ⚠️ TETTO SECCO 69
+        JP  \t\t美しい加工の燭台。夜間、周囲を明るく照らす。\n#～鑑定報告書：＜用具＞カテゴリ～\n
+        EN  It is a beautiful candelabra. Illuminates surroundings brightly.
+        IT  Un candelabro lavorato con arte. Di notte fa una luce viva.
+
+=== ITEM_ID_ELEGANT_TABLE   [FILTER_FURNITURE]
+    NOME      jp 上品なテーブル
+              en elegant table
+              IT tavolo elegante
+    --- description(0)  :120757
+        JP  \t\tご婦人方の憧れである雰囲気あるテーブル。ただのテーブルなのに気品に満ちあふれている。\n#～ノースティリス大家具事典～\n
+        EN  An atmospheric table that is every lady's dream. It is just a table, but it is full of elegance. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :120760 ⚠️ TETTO SECCO 69
+        JP  \t\t貴族用の机だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a table for nobles.
+        IT  Un tavolo da nobili.
+
+=== ITEM_ID_NARROW_DINING_TABLE   [FILTER_FURNITURE]
+    NOME      jp 狭い食卓
+              en narrow dining table
+              IT tavolo da pranzo stretto
+    --- description(0)  :120819
+        JP  \t\t主婦達の期待に答え小型化を実現した食卓。フルコースを食べるのでない限り、この位の大きさで十分なのだろう。\n#～ノースティリス大家具事典～\n
+        EN  This dining table has been miniaturized to meet the expectations of housewives. Unless you are eating a full course meal, this size is probably sufficient. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :120822 ⚠️ TETTO SECCO 69
+        JP  \t\t食事を取る為に作られた狭い机だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a narrow desk made for dining.
+        IT  Un tavolo stretto fatto per mangiare.
+
+=== ITEM_ID_KITCHEN_OVEN   [FILTER_FURNITURE]
+    NOME      jp コンロ付き調理台
+              en kitchen oven
+              IT cucina con fornelli
+    --- description(0)  :120883
+        JP  \t\tコンロが備え付けられた調理台。一台で２つの事ができる為、朝が忙しい御婦人方に専らの人気だ。\n#～料理を支える脇役達～\n
+        EN  Cooking table equipped with a stove. Because two tasks can be done with a single stove, it is popular among ladies who are busy in the mornings. \n# ~Supporting Roles in Kitchen~
+    --- description(3)  :120886 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでランク６までの料理を作ることができる器具。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a cooking tool allowing the preparation of dishes up to Rank 6.
+        IT  Ci si cucinano i piatti fino al rango 6.
+
+=== ITEM_ID_SINK   [FILTER_FURNITURE]
+    NOME      jp 流し台
+              en sink
+              IT lavello
+    --- description(0)  :120947
+        JP  \t\t食材の下拵えに適した流し台。我慢しきれずこの場で料理を作ってしまうせっかちな人もいるのだとか。\n#～ノースティリス大家具事典～\n
+        EN  A sink suitable for food preparation. Some impatient people can't resist and cook their food right here. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :120950 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでランク６までの料理を作ることができる器具。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a cooking tool allowing the preparation of dishes up to Rank 6.
+        IT  Ci si cucinano i piatti fino al rango 6.
+
+=== ITEM_ID_KITCHEN   [FILTER_FURNITURE]
+    NOME      jp 調理台
+              en kitchen
+              IT bancone da cucina
+    --- description(0)  :121011
+        JP  \t\t食材の下拵えに適した調理台。我慢しきれずこの場で料理を作ってしまうせっかちな人もいるのだとか。\n#～ノースティリス大家具事典～\n
+        EN  A table suitable for food preparation. Some impatient people can't resist and cook their food right here. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :121014 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでランク６までの料理を作ることができる器具。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a cooking tool allowing the preparation of dishes up to Rank 6.
+        IT  Ci si cucinano i piatti fino al rango 6.
+
+=== ITEM_ID_LOT_ALCOHOLS   [FILTER_FURNITURE]
+    NOME      jp 飲みきれないほどの酒 飲みきれないほどの酒
+              en alcohols lot
+              IT alcolici mucchio
+    --- description(0)  :121073
+        JP  \t\t両手に余るほどの沢山の酒。飲みきれないので使用することはできない。\n#～貰って嬉しい贈り物あれこれ～\n
+        EN  So much booze that it is too much for both hands. Cannot be used because it is undrinkable. \n# ~Gifts that I am Happy to Receive~
+    --- description(3)  :121076 ⚠️ TETTO SECCO 69
+        JP  \t\t手に余るほどの傷んだ酒。使用することはできない。\n#～鑑定報告書：＜廃物＞カテゴリ～\n
+        EN  It is some unhandled, damaged liquor. Cannot be used.
+        IT  Liquore andato a male, e in quantità. Non si può usare.
+
+=== ITEM_ID_CRAFT_BOOK_SHELF   [FILTER_FURNITURE]
+    NOME      jp 名工本棚
+              en craft book shelf
+              IT libreria di pregio
+    --- description(0)  :121136
+        JP  \t\tその道のプロが精魂込めて作り上げた本棚。一見シンプルに見えるが、普段見えない部分に匠の遊び心が隠れている。\n#～ノースティリス大家具事典～\n
+        EN  A bookshelf created by professionals who put their heart and soul into their work. At first glance, it looks simple, but the playful spirit of a master craftsman is hidden in parts that are not usually seen. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :121139 ⚠️ TETTO SECCO 69
+        JP  \t\t匠の作った本用の棚だ。本類を100種類まで入れることができる。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  (Openable) craftsman bookshelf for up to 100 different types of books.
+        IT  Una libreria da maestro. Ci stanno fino a 100 tipi di libri.
+
+=== ITEM_ID_CRAFT_RACK   [FILTER_FURNITURE]
+    NOME      jp 名工箪笥
+              en craft rack
+              IT cassettiera di pregio
+    --- description(0)  :121198
+        JP  \t\tその道のプロが精魂込めて作り上げた箪笥。一見シンプルに見えるが、普段見えない裏側に匠の遊び心が隠れている。\n#～ノースティリス大家具事典～\n
+        EN  Cabinet made by craftsmen who put their hearts and souls into their work. At first glance, they may look simple, but the playful spirit of the artisan is hidden behind the scenes, hidden from view. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :121201 ⚠️ TETTO SECCO 69
+        JP  \t\t匠の作った箪笥だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It is a nicely crafted piece of cabinet.
+        IT  Una cassettiera fatta da un maestro.
+
+=== ITEM_ID_LOT_BOOKS   [FILTER_FURNITURE]
+    NOME      jp 本の山 本の山
+              en books lot
+              IT libri mucchio
+    --- description(0)  :121260
+        JP  \t\t読了後、床に丁寧に重ねられた本。殆どが専門的な本なので、特に読むべき情報はないだろう。\n#～家庭を彩る日用雑貨～\n
+        EN  These books were carefully stacked on the floor after reading. Most of the books are technical, so there will be nothing special to read. \n# ~Daily Necessities for the Home~
+    --- description(3)  :121263 ⚠️ TETTO SECCO 69
+        JP  \t\t重ねられた本。使用することはできない。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  These are stacked books. Cannot be used.
+        IT  Libri impilati. Non si può usare.
+
+=== ITEM_ID_DISORDERLY_BOOKS   [FILTER_FURNITURE]
+    NOME      jp 散らかった本
+              en disorderly books
+              IT libri sparsi
+    --- description(0)  :121322
+        JP  \t\t読了後、片づけられなかった本。殆どが大衆雑誌なので、特に読むべき情報はないだろう。\n#～家庭を彩る日用雑貨～\n
+        EN  Books that one could not put away after reading. Mostly magazines, so there would be no special information to read. \n# ~Daily Necessities for the Home~
+    --- description(3)  :121325 ⚠️ TETTO SECCO 69
+        JP  \t\t散乱した本。使用することはできない。\n#～鑑定報告書：＜書類＞カテゴリ～\n
+        EN  These are scattered books. Cannot be used.
+        IT  Libri sparsi. Non si può usare.
+
+=== ITEM_ID_ARMOR_STATUE   [FILTER_FURNITURE]
+    NOME      jp 鎧の像
+              en armor statue
+              IT statua in armatura
+    --- description(0)  :121384
+        JP  \t\t厳めしい雰囲気を身に纏う全身鎧。いかにも曰くありげな装備品のように見えるが実際の所レプリカなので装備することはできない。\n#～ルミエスト美術目録～\n
+        EN  Full-body armor with a stern atmosphere. Although it looks like special equipment, it is in fact a replica and cannot be worn. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :121387 ⚠️ TETTO SECCO 69
+        JP  \t\t全身鎧の彫像。装備することはできない。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  It is a statue in full body armor. It cannot be equipped.
+        IT  Una statua in armatura completa. Non si può equipaggiare.
+
+=== ITEM_ID_DECORATED_ARMOR   [FILTER_FURNITURE]
+    NOME      jp 飾られた鎧
+              en decorated armor
+              IT armatura decorata
+    --- description(0)  :121446
+        JP  \t\t陳列用に配置された鎧。大きく試着不可と書かれている為、装備することはできない。\n#～脱冒険者から始める商いライフ～\n
+        EN  Armor placed for display. It is marked 'not for try-on' so you cannot equip it. \n# ~Merchant Life Starting from a Quitting as a Adventurer~
+    --- description(3)  :121449 ⚠️ TETTO SECCO 69
+        JP  \t\t展示用の鎧。装備することはできない。\n#～鑑定報告書：＜調度品＞カテゴリ～\n
+        EN  It is a statue in full body armor for display. Cannot be equipped.
+        IT  Un'armatura da esposizione. Non si può equipaggiare.
+
+=== ITEM_ID_DECORATED_CLOTHING   [FILTER_FURNITURE]
+    NOME      jp 飾られた服
+              en decorated clothing
+              IT abito decorato
+    --- description(0)  :121508
+        JP  \t\t陳列用に配置された服。大きく試着不可と書かれている為、装備することはできない。\n#～パルミア春夏物コレクション～\n
+        EN  Clothes placed for display. It is marked 'not for try-on' so you cannot equip it. \n# ~Palmian Summer Fashion~
+    --- description(3)  :121511 ⚠️ TETTO SECCO 69
+        JP  \t\t展示用の服。装備することはできない。\n#～鑑定報告書：＜調度品＞カテゴリ～\n
+        EN  It is a decorative cloth for display. Cannot be equipped.
+        IT  Un abito da esposizione. Non si può equipaggiare.
+
+=== ITEM_ID_WEAPONS   [FILTER_FURNITURE]
+    NOME      jp 武器の束 武器の束
+              en weapons bundle
+              IT armi fascio
+    --- description(0)  :121570
+        JP  \t\t展示用に束ねられた武具。あくまでもまとめ売り用らしく、個別に売ることはしていないようだ。\n#～脱冒険者から始める商いライフ～\n
+        EN  Stack of weapons bundled for display. They seem to be for sale in bulk and not sold individually. \n# ~Merchant Life Starting from a Quitting as a Adventurer~
+    --- description(3)  :121573 ⚠️ TETTO SECCO 69
+        JP  \t\t束ねられた武器。装備することはできない。\n#～鑑定報告書：＜調度品＞カテゴリ～\n
+        EN  It is bundled weapons for display. Cannot be equipped.
+        IT  Armi legate in fascio. Non si può equipaggiare.
+
+=== ITEM_ID_BOWS   [FILTER_FURNITURE]
+    NOME      jp たくさんの弓 たくさんの弓
+              en bows bundle
+              IT archi fascio
+    --- description(0)  :121632
+        JP  \t\t大小様々な重ねられた弓。あくまでもまとめ売り用らしく、個別に売ることはしていないようだ。\n#～脱冒険者から始める商いライフ～\n
+        EN  Stacked bows of various sizes. They seem to be for bulk sale only and are not sold individually. \n# ~Merchant Life Starting from a Quitting as a Adventurer~
+    --- description(3)  :121635 ⚠️ TETTO SECCO 69
+        JP  \t\t重ねられた弓。装備することはできない。\n#～鑑定報告書：＜調度品＞カテゴリ～\n
+        EN  It is bundled bows for display. Cannot be equipped.
+        IT  Archi impilati. Non si può equipaggiare.
+
+=== ITEM_ID_FOOD_MAKER   [FILTER_FURNITURE]
+    NOME      jp 調理機
+              en food maker
+              IT macchina da cucina
+    --- description(0)  :121696
+        JP  \t\t焼く、蒸す、煮る、全てを万能にこなす、優れた調理器具。非常に大きく重量もあるので購入に尻込みしてしまうが、その分実力は折り紙つきである。\n#～料理を支える脇役達～\n
+        EN  This is an excellent all-around cookware for baking, steaming, and stewing. It is very large and heavy, which may make people hesitate to purchase it, but it is a proven performer. \n# ~Supporting Roles in Kitchen~
+    --- description(3)  :121699 ⚠️ TETTO SECCO 69
+        JP  \t\t使用することでランク８までの料理を作ることができる器具。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  It is a cooking tool allowing the preparation of dishes up to Rank 8.
+        IT  Ci si cucinano i piatti fino al rango 8.
+
+=== ITEM_ID_MAP   [FILTER_FURNITURE]
+    NOME      jp 地図
+              en map
+              IT mappa
+    --- description(0)  :121767
+        JP  \t\t大陸全土が描かれた地図。冒険者達もそうでない者も、これを読むことでまだ見ぬ彼の地へ思いをはせるのだ。\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  A map of the entire continent. Adventurers and non-adventurers alike are encouraged to read this map and think of the lands yet to be discovered. \n# ~an Adventurer is You! Guide for Travels~
+    --- description(3)  :121770 ⚠️ TETTO SECCO 69
+        JP  \t\t大陸の描かれた地図。読むことができる。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  (Readable) drawn map of the continent. 
+        IT  Una mappa del continente. Si può leggere. 
+
+=== ITEM_ID_FLOWER_ADORNED_PILLAR   [FILTER_FURNITURE]
+    NOME      jp 花で飾られた柱
+              en flower adorned pillar
+              IT colonna ornata di fiori
+    --- description(0)  :121891
+        JP  \t\t天頂に花があしらわれた立派な柱。これは古代の建築様式を復元したものであるという。\n#～ルミエスト美術目録～\n
+        EN  Magnificent pillars with flowers decorated at the zenith. This is said to be a restoration of an ancient architectural style. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :121894 ⚠️ TETTO SECCO 69
+        JP  \t\t花の乗った柱だ。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is a pillar decorated with flowers. It is very heavy.
+        IT  Una colonna con sopra dei fiori.
+
+=== ITEM_ID_PLANT_ADORNED_PILLAR   [FILTER_FURNITURE]
+    NOME      jp 植物で飾られた柱
+              en plant adorned pillar
+              IT colonna ornata di piante
+    --- description(0)  :121953
+        JP  \t\t天頂に植物があしらわれた立派な柱。これは古代の建築様式を復元したものであるという。\n#～ルミエスト美術目録～\n
+        EN  Magnificent pillars decorated with plants at the zenith. This is said to be a restoration of an ancient architectural style. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :121956 ⚠️ TETTO SECCO 69
+        JP  \t\t植物の乗った柱だ。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  It is a pillar decorated with plants. It is very heavy.
+        IT  Una colonna con sopra delle piante.
+
+== 35 oggetti, 71 descrizioni
