@@ -1,0 +1,177 @@
+RIGHE = {
+    43900, 44442, 44513, 44584, 49646, 53772, 55344, 55346, 55415, 56130,
+    56471, 56473, 58849, 58920, 59385, 59456, 61652, 61723, 63384, 63794,
+    65671, 65742, 68521, 70065, 71997, 72070, 72141, 72212, 74432, 77634,
+    77636, 79503, 79574, 81811, 83482, 83835, 83972, 83974, 84367, 89149,
+    89561,
+}
+# 41 righe, da 43900 a 89561
+
+    # ---------------------------------------------------------- :43900
+    (43900, "A beverage containing toil-energy. It has the effect of borrowing energy in advance and prevents stamina consumption or a one-time reduction in lifespan due to labor or milking. There are rumors that drinking too much of it can damage one's health, but at least no creature is that poor in the modern Ylva.\\n#~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :44442
+    (44442, "An advanced potion packed with a number of sufferings. If your enemy isn't ver strong, you will be able to neutralise them with one of these.\\n#~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :44513
+    (44513, 'An advanced potion packed with many curses. It could be ued to rapidly weaken a tough opponent.\\n#~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :44584
+    (44584, 'An advanced potion that temporarily sharpens physical abilities. It is a new medicine whose formulation has been established fairly recently.\\n#~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :49646
+    (49646, 'An elegant golden liquor made from honey. When drunk, it temporarily separates the mind from the body, allowing the drinker to walk freely around the area. \\n#~The Wide World of Alcohol~'):
+        "",
+
+    # ---------------------------------------------------------- :53772
+    (53772, 'Popular chemical for germaphobes. Through its purifying power and chemical mechanism, it weakens pathogenic microorganisms and viruses and renders them non-pathogenic. It cannot sterilize, but it is effective against poisons and diseases. Its main ingredient is the same as alcohol, but because it is purified, it cannot be consumed to get drunk. \\n#~First aid at home~'):
+        "",
+
+    # ---------------------------------------------------------- :55344
+    (55344, 'Carbonated beverage with a distinctive cinnamon and vanilla flavor. The name comes from the fact that it was initially made from the fruit of a tree called cola. It contains large amounts of sugar and makes you fat if you drink too much. \\n#~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :55346
+    (55346, '\\"If you drink a cola, you\'ll burp!! Like how you climb a mountain without where the summit is, you\'ll run into trouble! You absolutely will! It\'s inevitable!\\" \\n#~some weird old guy~'):
+        "",
+
+    # ---------------------------------------------------------- :55415
+    (55415, 'Tea made by infusing the seeds of the all-purpose wheatgrass. Since it is not made from tea leaves, it does not contain caffeine. It is characterized by its savory and refreshing taste. It also improves blood flow. \\n#~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :56130
+    (56130, 'This is a concentrated agent with ingredients that instinctively put creatures on alert. If sprayed regularly around the area while walking, wildlife attacks can be avoided. Even a small amount is effective and can be used for 400 miles. It is possible to drink it, but it is best not to, as your body will reject it beyond alarm. \\n#~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :56471
+    (56471, 'Liquid excrement made from waste and excess water. It is by no means hygienic, but when fermented, it can be used for washing clothes. It is not a medicine, but it is drinkable..... Do beware its high salt content. \\n#~Magical Ways of Waste Utilization~'):
+        "",
+
+    # ---------------------------------------------------------- :56473
+    (56473, '\\"Dare you enter my magical realm?\\" \\n#~the Whizzard~'):
+        "",
+
+    # ---------------------------------------------------------- :58849
+    (58849, "A high-level potion that temporarily hones one's mind and body. Said to have been formulated by an ancient emperor who was also a prodigious alchemist.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :58920
+    (58920, "This potion envelops the imbiber in a dance of glittering lights, reminiscent of sparkling gems. It's enough to leave a dazzling impression, though it only lasts a short time.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :59385
+    (59385, "Highly popular beverage of choice. It is made by minimizing the fermentation of tea leaves. In addition to calming the mind, it also has the effect of boosting the body's immune system and aiding in the burning of fat. \\n#~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :59456
+    (59456, 'Highly popular beverage of choice. It is made by minimizing the fermentation of tea leaves. The mana remaining in the leaves is transformed into an easily absorbable form during the fermentation process, and is effective for MP recovery, recovery from fatigue, etc. \\n#~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :61652
+    (61652, 'Also known as petrol. Used as fuel by ancient civilizations. Highly volatile, it evaporates in a short time in the current atmospheric environment of Irva. Because it is flammable and dangerous, if you must be exposed to it, do so in a place where there is no fire. \\n#~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :61723
+    (61723, 'Essential oils. Expensive because they must be extracted from large quantities of plants. They are highly volatile and evaporate in a short time in the current atmospheric environment of Irva. It is usually used in small quantities as a fragrance. It has a strong odor when applied in large quantities, so do not apply too much. It is also flammable. \\n#~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :63384
+    (63384, 'Mysterious syrup that changes color and increases in efficacy the more it is kneaded. The witch spent many years kneading it in her spare time, and as a result, it became so delicious that people would faint.\\n#~Everchanging Food of Tyris~'):
+        "",
+
+    # ---------------------------------------------------------- :63794
+    (63794, "A beverage made from the juice of fruits, vegetables and nuts. The nutrients of the ingredients can be absorbed efficiently. You can mix several kinds to make a mixed juice or mix it with milk, according to each person's taste. \\n#~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :65671
+    (65671, 'This potion imparts a sudden feeling of becoming a bird, soaring through the sky. Temporarily weakens the effects of gravity on the user, and makes the body feel more nimble for a while.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :65742
+    (65742, "A potion that instantly sharpens one's ability to concentrate. Though it clears the user's head and wards off drowsiness, it will not make you any smarter.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :68521
+    (68521, 'A popular beverage of choice. Its flavor varies depending on the degree of roasting and grinding, the brewing method and equipment used, and there is no one best for everyone. Mixing with milk is also popular. \\n#~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :70065
+    (70065, "When mixed with food, this chemical permanently prevents it from rotting, though its nutritional value will be halved. It's meant to be diluted in food, and is highly toxic when consumed as-is. Naturally, this preservative will have no effect on things that are already rotten, so it will not stop undead from decaying, even if they drink it.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :71997
+    (71997, 'A nutritional supplement used by the gods. It energizes the mind and body, wipes away drowsiness and fatigue, and even cures illnesses with just a single dose. However, be advised that its extreme potency is known to induce hallucinations.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :72070
+    (72070, "In ancient times, the gods were said to have drunk an alcohol that granted immortality; this is a reproduction of that drink. It goes well with all manner of foods, and its delicious flavor can even cure anorexia. However, this replica is imperfect, and even though it's heavily diluted, it will make anyone violently drunk.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :72141
+    (72141, 'A great calamity has been sealed within this high-level potion. Said to have been created on accident by a wizard burning with revenge.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :72212
+    (72212, 'A dangerous fluid that, when exposed to air, reacts explosively to heat or physical shocks. It was once used to punish criminals.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :74432
+    (74432, 'A potion formulated by a distinguished alchemist after many years of research. Its production process is too complicated for any other alchemist to comprehend.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :77634
+    (77634, 'This traditional candy has been made in Vernis since the old days. It is only available among the wealthy and other special people, and the general public does not usually have the opportunity to taste it. In fact, it is rare to even see it. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :77636
+    (77636, '\\"Grandpa always gives me candy, it\'s very creamy and delicious... but I\'d rather have an allowance.\\" \\n# ~words of a grand-son~'):
+        "",
+
+    # ---------------------------------------------------------- :79503
+    (79503, "Small cylindrical substance made of blue material. It is rumored to be a food that activates one's body, but no one seems to be willing to try it because of its appearance. \\n# ~The Yowyn Book of Secrt Knowledge!~"):
+        "",
+
+    # ---------------------------------------------------------- :79574
+    (79574, 'Often sold at festivals, even children can enjoy this tongue-tingling drink. Its refreshing semisweet taste seems to melt away fatigue somehow.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :81811
+    (81811, 'Potion that applies a flame-resistant protective coating to the item in which it is immersed. It is only effective on the item, so when you drink it, your internal organs will not show any resistance to the burns that occur when you eat something hot. \\n#~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :83482
+    (83482, "A potion that reconstructs the imbiber's body in a logical fashion. Its composition is unknown. All that's known is that a group from a mysterious dome may understand a part of the secret.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :83835
+    (83835, 'The moment you drink this highly dangerous potion, it will feel as though something you have built up has crumbled away. Beware, for you are now the you-of-the-past!\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :83972
+    (83972, "Produced by excessive consumption or eating spoiled food. It is a tragic substance produced by the body's self-protective actions in such cases. It is not a potion, but it is drinkable. Surely.. drinkable... \\n#~Iron Stomach: A Complete Diet~"):
+        "",
+
+    # ---------------------------------------------------------- :83974
+    (83974, '\\"As long as you\'re alive, you\'re going to throw up. But I will never allow you to throw up in the city. If you do it in front of me, I will immediately push it back into your mouth!\\" \\n#~the Cleaner Balzak~'):
+        "",
+
+# 4 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :84367
+    (84367, "A potion containing excessive amounts of sodium. Since the salt is completely dissolved, it can't be used for cooking. But town cleaners supposedly carry lots of this substance for use in pest control.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :89149
+    (89149, 'A strange liquid substance, its intense heat can be felt even through the bottle. When gulped down with determination, you might see your past self!\\n# ~Irva Fantasy Encyclopedia~\\n'):
+        "",
+
+    # ---------------------------------------------------------- :89561
+    (89561, 'Just the name alone is enough to make one feel a certain kind of crush. Those with no sense of delicacy will get a painful slap if they try to hand it to you directly, but those who have a taste for such things are free to do so. It has no effect on relationships beyond acquaintance. \\n#~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+# 37 voci, 0 ambigue
+

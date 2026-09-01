@@ -1,0 +1,125 @@
+:43900
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+:44442
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+:44513
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+:44584
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+:49646
+   en  #~The Wide World of Alcohol~
+   IT  #~Il Mondo Profondo dei Liquori~
+:53772
+   en  #~First aid at home~
+   IT  #~Primo Soccorso in Casa~
+:55344
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+:55346
+   en  #~some weird old guy~
+   IT  #~un vecchio bizzarro~
+:55415
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+:56130
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+:56471
+   en  #~Magical Ways of Waste Utilization~
+   IT  #~Il Sogno di Riusare gli Scarti~
+:56473
+   en  #~the Whizzard~
+   IT  #~Il Cartello Bagnato alla Base~
+:58849
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:58920
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:59385
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+:59456
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+:61652
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+:61723
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+:63384
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:63794
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+:65671
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:65742
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:68521
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+:70065
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:71997
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:72070
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:72141
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:72212
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:74432
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:77634
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:77636
+   en  # ~words of a grand-son~
+   IT  # ~Parole di un Nipote Speciale~
+:79503
+   en  # ~The Yowyn Book of Secrt Knowledge!~
+   IT  # ~Speciale Yowyn: a Caccia del Sapere Ignoto!~
+:79574
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:81811
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+:83482
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:83835
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:83972
+   en  #~Iron Stomach: A Complete Diet~
+   IT  #~In Cerca di uno Stomaco di Ferro: Piatti Finiti~
+:83974
+   en  #~the Cleaner Balzak~
+   IT  #~Parole di <Balzak> il custode~
+:84367
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:89149
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:89561
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+
+righe senza resa in tabella: 0   (atteso 0)

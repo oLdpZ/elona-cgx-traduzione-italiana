@@ -1,0 +1,122 @@
+:90769
+   en  #~Daily Necessities for the Home~
+   IT  #~Casalinghi che Danno Colore alla Casa~
+:91656
+   en  # ~North Tyris Travels, Winter Edition~
+   IT  # ~Viaggio in Tyris del Nord: Inverno~
+:92323
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+:92522
+   en  #~Everchanging Food of Tyris~
+   IT  #~Il Cibo Mutevole di Tyris~
+:93069
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+:93554
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:96195
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:96426
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:102108
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:102179
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:102392
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:104862
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:105596
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:105813
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:106037
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:106108
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:106325
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:106469
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:106613
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:106910
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:111992
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:112063
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:112134
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:113676
+   en  #~Drinks to Drink, Drinks Not to Drink~
+   IT  #~Bevande da Bere e Bevande da Non Bere~
+:114277
+   en  #~The Wide World of Alcohol～
+   IT  #~Il Mondo Profondo dei Liquori~
+:117531
+   en  #~The Wide World of Alcohol~
+   IT  #~Il Mondo Profondo dei Liquori~
+:126007
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:126078
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:126149
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:126292
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:126363
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:126434
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:126505
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:126576
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:129085
+   en  #~The Wide World of Alcohol~
+   IT  #~Il Mondo Profondo dei Liquori~
+:129156
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:129227
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:129298
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:129369
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+:129439
+   en  # ~Drinks to Drink, Drinks Not to Drink~
+   IT  # ~Bevande da Bere e Bevande da Non Bere~
+
+righe senza resa in tabella: 0   (atteso 0)

@@ -1,0 +1,101 @@
+RIGHE = {
+    102250, 102321, 103576, 104446, 104663, 105013, 105084, 105155, 105452, 106981,
+    107052, 108327, 111921, 114859, 114930, 115001, 115072, 115453, 117256, 130101,
+    130172, 130243, 130314,
+}
+# 23 righe, da 102250 a 130314
+
+    # ---------------------------------------------------------- :102250
+    (102250, "A scroll that allows people to deepen their faith by conversing with God. It's probably more like a letter to God than a scroll. \\n#~Arcane Alamanac~"):
+        "",
+
+    # ---------------------------------------------------------- :102321
+    (102321, 'These precious scrolls are enchanted to develop your body. Reading it will make you even stronger. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :103576
+    (103576, 'Scrolls that allow the user to detect the location of objects. It can detect objects behind walls, or even invisible objects, so it should be readied when searching for something. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :104446
+    (104446, 'A scroll that makes you smarter temporarily. It is said that during the examination season, the tool shops are temporarily crowded with customers who rely on these scrolls without studying as far as they are concerned. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :104663
+    (104663, 'Strange scrolls that, when read, cause materials to fall from the sky. It is still unclear why materials fall from the sky when the scroll is read. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :105013
+    (105013, 'A scroll that, when read, instantly fills the body with mana. They say that having a scroll with you in an emergency is more useful than you think. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :105084
+    (105084, 'A scroll that cancels all curses on the body. It does not cancel curses on equipment. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :105155
+    (105155, 'A scroll that cancels 1 curses on the body. It does not cancel curses on equipment. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :105452
+    (105452, 'It is a scroll that temporarily deploys a sacred robe that is said to protect the body from curses. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :106981
+    (106981, 'Scrolls that break the curse of worn equipment. It is more powerful and thus never fails to break the curse. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :107052
+    (107052, 'A scroll that appraises unappraised items. It is more powerful, but if the item still cannot be appraised, have it investigated by a mage instead. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :108327
+    (108327, 'A deed gives the right to a house. Even adventurers cannot always camp out in the wilderness. \\n# ~an Adventurer is You! Guide for Travels~'):
+        "",
+
+    # ---------------------------------------------------------- :111921
+    (111921, 'Dangerous scrolls that cast a curse on worn equipment. In some rare cases when it is used, it may not work and turn to dust, probably as a result of daily conduct. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :114859
+    (114859, 'A scroll that creates a small distortion in space, allowing a person to travel instantaneously. Because its potency is rather weak, there are some funny stories about people who used it when they were leaving someone, only to have it reappear nearby, causing them to feel awkward. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :114930
+    (114930, 'Scrolls of magical knowledge. One theory is that they are fragments of pages that fell out of a book in which the gods had written down their magic so that they would not forget it. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :115001
+    (115001, 'Precious scrolls that are said to give new abilities when read. In distant, far away foreign lands, these scrolls were called Master Recipe Tomes. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :115072
+    (115072, "A scroll that instantly reads the surrounding terrain. This scroll is mainly for Nefia, so you can't use it to break into the house of that girl you're interested in. \\n#~Arcane Alamanac~"):
+        "",
+
+    # ---------------------------------------------------------- :115453
+    (115453, 'A scroll that invokes a gate leading to the specified location. If used by mistake, it can be undone by reading it again. Naturally, two copies are consumed, but consider it a tuition fee. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :117256
+    (117256, 'Scrolls that break the curse of worn equipment. It sometimes fails on strong curses. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :130101
+    (130101, 'A scroll that allows you to impersonate someone else in an instant. When you use it, you feel like a great thief who steals the country. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :130172
+    (130172, 'A scroll that creates a distortion in space, allowing you to travel elsewhere instantaneously. It is useful in emergencies, but the destination cannot be specified, so it cannot be used if you are late for a meeting, for example. \\n#~Arcane Alamanac~'):
+        "",
+
+    # ---------------------------------------------------------- :130243
+    (130243, "The scrolls are supposed to tell you about the existence of legendary items. It doesn't even tell you who has it, God is not that friendly to you. \\n#~Arcane Alamanac~"):
+        "",
+
+    # ---------------------------------------------------------- :130314
+    (130314, 'A scroll that appraises unappraised items. It is useless agains powerful items, you will need a mage instead. \\n#~Arcane Alamanac~'):
+        "",
+
+# 23 voci, 0 ambigue
+

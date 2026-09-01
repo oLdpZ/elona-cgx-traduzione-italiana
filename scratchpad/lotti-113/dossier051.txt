@@ -1,0 +1,559 @@
+=== ITEM_ID_DEED_CAMP   [FILTER_ITEM_SCROLL]
+    NOME      jp 収容所の権利書 収容所の権利書
+              en camp deed
+              IT accampamento atto
+    --- description(0)  :44031
+        JP  収容所を作る権利が得られる証書。何を収容して何をするかは権利者に委ねられている。\n#～ダルフィ不動産・商品カタログ～
+        EN  A deed gives the right to create a labor camp. It is left to the right holder to decide what to accommodate and what to do with it. \n# ~Derphy Real Estate - Catalogue~
+    --- description(3)  :44034 ⚠️ TETTO SECCO 69
+        JP  読むことで収容所を作ることができる権利書だ。\n#～鑑定報告書：＜証書＞カテゴリ～
+        EN  (Single-use) Readable deed used to build a labor camp.
+        IT  Un atto: letto, fa nascere un accampamento.
+
+=== ITEM_ID_SCROLL_HARVEST   [FILTER_ITEM_SCROLL]
+    NOME      jp 収穫の巻物 収穫の巻物
+              en harvest scroll
+              IT raccolto pergamena
+    --- description(0)  :44300
+        JP  金貨を収穫する魔法が込められた巻物。その金貨がどこから来ているのかは、深く考えない方がいいだろう。\n#～魔具全典～
+        EN  A scroll containing magic to harvest gold coins. It is best not to think too much about where the gold coins come from.\n#~Arcane Alamanac~
+    --- description(3)  :44303 ⚠️ TETTO SECCO 69
+        JP  読むと空から金貨が降ってくる巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～
+        EN  It is a scroll that when read, causes gold coins to fall from the sky.
+        IT  Una pergamena che fa piovere monete d'oro dal cielo.
+
+=== ITEM_ID_SCROLL_ATTRACT   [FILTER_ITEM_SCROLL]
+    NOME      jp 引き寄せの巻物 引き寄せの巻物
+              en attract scroll
+              IT richiamo pergamena
+    --- description(0)  :44371
+        JP  敵対者を自分の周りに引き寄せる巻物。逃げ隠れしている敵を探し出し、殲滅するためのもの。使い時を間違えると囲まれて危険なことになるので注意。\n#～魔具全典～
+        EN  Scrolls that pull hostiles to their surroundings. It is used to seek out and destroy enemies who are running and hiding. Be careful not to use it at the wrong time, as it can be dangerous to be surrounded.\n#~Arcane Alamanac~
+    --- description(3)  :44374 ⚠️ TETTO SECCO 69
+        JP  敵を３体まで引き寄せる巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～
+        EN  It is a scroll that when read, pulls three enemies to you.
+        IT  Una pergamena che tira a sé fino a tre nemici.
+
+=== ITEM_ID_DEED_OF_HUGE_RAFT   [FILTER_ITEM_SCROLL]
+    NOME      jp 巨大イカダの権利書 巨大イカダの権利書
+              en huge raft deed
+              IT zattera gigante atto
+    --- description(0)  :45060
+        JP  イカダの所有権を得られる証書。やたらとでかいが、木材の浮力頼みなので積載量に乏しい。申し訳程度に帆は付いているものの、頑張って漕がないと波に逆らって進むのは難しい。\n#～今日から君も冒険者・旅用マニュアル～
+        EN  Certificate of ownership of a raft. It is very large, but relies on the buoyancy of the timber, so it has a limited carrying capacity. Although it has a modest sail, it is difficult to row against the waves unless you paddle hard.\n# ~an Adventurer is You! Guide for Travels~
+    --- description(1)  :45061
+        JP  権利書を染めることで塗装を指定可能。海に面した街などで読むと船を呼べる。なお、税金は期間中に使用した最も高価な船で計算されるので注意。雷雨やエーテル風にとてつもなく弱いが、沈んでも保険料を払っていれば権利は失わない。\n#～旅用マニュアル注釈～
+        EN  You can paint the ship by dyeing the deed. You can call a ship when you read it in a sea-facing town. Note that taxes are calculated on the most expensive ship used during the period. It is tremendously vulnerable to thunderstorms and ether winds, but if it sinks, you do not lose your rights if you have paid the insurance premium.\n#~note for Travelers~
+    --- description(3)  :45063 ⚠️ TETTO SECCO 69
+        JP  海マップでの乗り物の権利書だ。何度でも読むことができる。\n#～鑑定報告書：＜証書＞カテゴリ～
+        EN  Certificate of ownership of a land raft. Can be read more than once.
+        IT  Un atto per un mezzo di mare. Si può rileggere sempre.
+
+=== ITEM_ID_DEED_OF_FISHING_SHIP   [FILTER_ITEM_SCROLL]
+    NOME      jp 漁船の権利書 漁船の権利書
+              en fishing ship deed
+              IT peschereccio atto
+    --- description(0)  :45131
+        JP  漁船の所有権を得られる証書。漁獲用の網を備えており、魚を一網打尽にできる。しかし気を付けた方がいい…船を軽く沈めるモンスターの前ではあなたが獲物となるのだから。\n#～今日から君も冒険者・旅用マニュアル～
+        EN  Certificates of ownership of a fishing boat. It is equipped with nets for catching fish. But be careful... you are the prey in front of a monster that can lightly sink your boat.\n# ~an Adventurer is You! Guide for Travels~
+    --- description(1)  :45132
+        JP  権利書を染めることで塗装を指定可能。海に面した街などで読むと船を呼べる。なお、税金は期間中に使用した最も高価な船で計算されるので注意。雷雨やエーテル風にかなり弱いが、沈んでも保険料を払っていれば権利は失わない。\n#～旅用マニュアル注釈～
+        EN  You can paint the ship by dyeing the deed. You can call a ship when you read it in a sea-facing town. Note that taxes are calculated on the most expensive ship used during the period. It is tremendously vulnerable to thunderstorms and ether winds, but if it sinks, you do not lose your rights if you have paid the insurance premium.\n#~note for Travelers~
+    --- description(3)  :45134 ⚠️ TETTO SECCO 69
+        JP  海マップでの乗り物の権利書だ。何度でも読むことができる。\n#～鑑定報告書：＜証書＞カテゴリ～
+        EN  Certificate of ownership of a fishing ship. Can be read more than once.
+        IT  Un atto per un mezzo di mare. Si può rileggere sempre.
+
+=== ITEM_ID_DEED_OF_PIRATE_SHIP   [FILTER_ITEM_SCROLL]
+    NOME      jp 海賊船の権利書 海賊船の権利書
+              en pirate ship deed
+              IT nave pirata atto
+    --- description(0)  :45202
+        JP  海賊船の所有権を得られる証書。レトロな大砲を備えており砲撃が可能。大きく掲げられた海賊旗には大きなロマンが詰まっている。問題は、遭遇した商船が一目散に逃げていくことだろうか。\n#～今日から君も冒険者・旅用マニュアル～
+        EN  Deed of ownership of a pirate ship. Equipped with a antique cannon and capable of bombarding. The pirate flag flying large is filled with great romance. The problem may be that merchant ships encountered flee at once.\n# ~an Adventurer is You! Guide for Travels~
+    --- description(1)  :45203
+        JP  権利書を染めることで塗装を指定可能。海に面した街などで読むと船を呼べる。なお、税金は期間中に使用した最も高価な船で計算されるので注意。雷雨やエーテル風にかなり弱いが、沈んでも保険料を払っていれば権利は失わない。\n#～旅用マニュアル注釈～
+        EN  You can paint the ship by dyeing the deed. You can call a ship when you read it in a sea-facing town. Note that taxes are calculated on the most expensive ship used during the period. It is tremendously vulnerable to thunderstorms and ether winds, but if it sinks, you do not lose your rights if you have paid the insurance premium.\n#~note for Travelers~
+    --- description(3)  :45205 ⚠️ TETTO SECCO 69
+        JP  海マップでの乗り物の権利書だ。何度でも読むことができる。\n#～鑑定報告書：＜証書＞カテゴリ～
+        EN  Certificate of ownership of a pirate ship. Can be read more than once.
+        IT  Un atto per un mezzo di mare. Si può rileggere sempre.
+
+=== ITEM_ID_DEED_OF_CRUISE_SHIP   [FILTER_ITEM_SCROLL]
+    NOME      jp 客船の権利書 客船の権利書
+              en cruise ship deed
+              IT nave da crociera atto
+    --- description(0)  :45273
+        JP  客船の所有権を得られる証書。設備はとっても快適だが、もてなしてくれるスタッフまでは付属していない。\n#～今日から君も冒険者・旅用マニュアル～
+        EN  Certificate of ownership of a cruise ship. The facilities are very comfortable but do not come with even hospitable staff.\n# ~an Adventurer is You! Guide for Travels~
+    --- description(1)  :45274
+        JP  権利書を染めることで塗装を指定可能。海に面した街などで読むと船を呼べる。なお、税金は期間中に使用した最も高価な船で計算されるので注意。雷雨やエーテル風に結構弱いが、沈んでも保険料を払っていれば権利は失わない。\n#～旅用マニュアル注釈～
+        EN  You can paint the ship by dyeing the deed. You can call a ship when you read it in a sea-facing town. Note that taxes are calculated on the most expensive ship used during the period. It is tremendously vulnerable to thunderstorms and ether winds, but if it sinks, you do not lose your rights if you have paid the insurance premium.\n#~note for Travelers~
+    --- description(3)  :45276 ⚠️ TETTO SECCO 69
+        JP  海マップでの乗り物の権利書だ。何度でも読むことができる。\n#～鑑定報告書：＜証書＞カテゴリ～
+        EN  Certificate of ownership of a cruise ship. Can be read more than once.
+        IT  Un atto per un mezzo di mare. Si può rileggere sempre.
+
+=== ITEM_ID_DEED_OF_WARSHIP   [FILTER_ITEM_SCROLL]
+    NOME      jp 軍用艦の権利書 軍用艦の権利書
+              en warship deed
+              IT nave da guerra atto
+    --- description(0)  :45344
+        JP  軍用艦の所有権が得られる証書。古代の遺物を復元したものであり、どのような運用をされていた艦なのかがいまいちハッキリしない。ある程度の装甲と武装を備えており海の魔物にも遅れは取らないが、嵐には勝てない。\n#～今日から君も冒険者・旅用マニュアル～
+        EN  Certificate of ownership of a military ship. It is a restored relic of antiquity and it is not clear exactly how the ship was operated. It has some armour and armament and is not slowed by sea monsters, but it is no match for storms.\n# ~an Adventurer is You! Guide for Travels~
+    --- description(1)  :45345
+        JP  権利書を染めることで塗装を指定可能。海に面した街などで読むと船を呼べる。なお、税金は期間中に使用した最も高価な船で計算されるので注意。雷雨やエーテル風には弱いが、沈んでも保険料を払っていれば権利は失わない。\n#～旅用マニュアル注釈～
+        EN  You can paint the ship by dyeing the deed. You can call a ship when you read it in a sea-facing town. Note that taxes are calculated on the most expensive ship used during the period. It is tremendously vulnerable to thunderstorms and ether winds, but if it sinks, you do not lose your rights if you have paid the insurance premium.\n#~note for Travelers~
+    --- description(3)  :45347 ⚠️ TETTO SECCO 69
+        JP  海マップでの乗り物の権利書だ。何度でも読むことができる。\n#～鑑定報告書：＜証書＞カテゴリ～
+        EN  Certificate of ownership of a warship. Can be read more than once.
+        IT  Un atto per un mezzo di mare. Si può rileggere sempre.
+
+=== ITEM_ID_DEED_OF_SUBMARINE   [FILTER_ITEM_SCROLL]
+    NOME      jp 潜水艦の権利書 潜水艦の権利書
+              en submarine deed
+              IT sottomarino atto
+    --- description(0)  :45415
+        JP  潜水艦の所有権が得られる証書。究極のステルス兵器の異名は伊達ではなく、他の船や魔物に捕捉されることがない。魚雷を備えているが、発射するとせっかく隠していた存在や位置がバレることになる。\n#～今日から君も冒険者・旅用マニュアル～
+        EN  Certificate of ownership of a submarine. It is not aptly known as the ultimate stealth weapon and cannot be captured by other vessels or demons. It is equipped with torpedoes, but firing them will reveal your existence and position.\n# ~an Adventurer is You! Guide for Travels~
+    --- description(1)  :45416
+        JP  権利書を染めることで塗装を指定可能。海に面した街などで読むと船を呼べる。なお、税金は期間中に使用した最も高価な船で計算されるので注意。雷雨やエーテル風には弱いが、沈んでも保険料を払っていれば権利は失わない。\n#～旅用マニュアル注釈～
+        EN  You can paint the ship by dyeing the deed. You can call a ship when you read it in a sea-facing town. Note that taxes are calculated on the most expensive ship used during the period. It is tremendously vulnerable to thunderstorms and ether winds, but if it sinks, you do not lose your rights if you have paid the insurance premium.\n#~note for Travelers~
+    --- description(3)  :45418 ⚠️ TETTO SECCO 69
+        JP  海マップでの乗り物の権利書だ。何度でも読むことができる。\n#～鑑定報告書：＜証書＞カテゴリ～
+        EN  Certificate of ownership of a submarine. Can be read more than once.
+        IT  Un atto per un mezzo di mare. Si può rileggere sempre.
+
+=== ITEM_ID_DEED_OF_LAND_BATTLESHIP   [FILTER_ITEM_SCROLL]
+    NOME      jp 陸上戦艦の権利書 陸上戦艦の権利書
+              en land battleship deed
+              IT corazzata terrestre atto
+    --- description(0)  :51359
+        JP  \t\t陸上戦艦の所有権を得られる証書。機械文明時代の遺跡から発掘されたものを、ジャンク屋が独自修復したらしい。ちょっとした金持ち程度では維持費を工面できない、ロマンの塊。全盛期の性能こそ発揮できないがそこは腐っても戦艦。野良モンスター程度なら先制攻撃で蹴散らせる。かなり重い荷物を運べるし、重すぎても速度が落ちにくい。空調設備もあるので砂漠でも快適だ。\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  Certificate of ownership of a land battleship. Originally excavated from the ruins of a mechanical civilization, apparently some junk dealer restored it on his own. This is a romantic piece of technology that even the richest person cannot afford to maintain. It may not have the performance of its heyday, but it is still a battleship, even if it is rotten. It can kick the crap out of wild monsters with a preemptive attack. The ship can carry quite heavy cargo, and even if it is too heavy, it does not slow down easily. It is also air-conditioned, so it is comfortable even in the desert. \n# ~an Adventurer is You! Guide for Travels~
+    --- description(1)  :51360
+        JP  \t\t権利書を染めることで塗装を指定可能。ｓキーで音を鳴らすことができるが特に意味はない。もしも徒歩で旅したくなったら同じ種類の権利書を読むこと。なお、税金は期間中に使用した最も高価な乗り物で計算されるので注意。\n#～旅用マニュアル注釈～
+        EN  You can paint the vehicle by dyeing the deed. You can honk the horns with 's' key. If you want to travel on foot again, just read the same deed. Note that taxes are calculated by the most expensive vehicle used during the month. \n#~note for Travelers~
+    --- description(2)  :51361
+        JP  \t\t「よりにもよってコイツばかり発掘されるとはな。…まぁ現代では問題にならないだろう」\n#～現場を見た専門家の言葉～\n
+        EN  \"I'm surprised they found this monster out of all things. Well, it wouldn't be a problem in this day and age.\" \n# ~words of an Expert on the Scene~
+    --- description(3)  :51362 ⚠️ TETTO SECCO 69
+        JP  \t\tワールドマップでの乗り物の権利書だ。何度でも読むことができる。\n#～鑑定報告書：＜証書＞カテゴリ～
+        EN  Certificate of ownership of a battleship. Can be read more than once.
+        IT  Un atto per un mezzo da viaggio. Si può rileggere sempre.
+
+=== ITEM_ID_DEED_OF_MAGIC_LOCOMOTIVE   [FILTER_ITEM_SCROLL]
+    NOME      jp 魔導機関車の権利書 魔導機関車の権利書
+              en magic locomotive deed
+              IT locomotiva magica atto
+    --- description(0)  :51430
+        JP  \t\t魔法で動く機関車の所有権が得られる証書。魔法のレールを展開して走るため、雪原地帯でも移動に影響を受けない。また、やや重い荷物も牽引でき、重すぎても速度が落ちにくい。ただし魔力炉を活性化させていないと走行に支障が出る弱点があり、少量でもＭＰを投入し続ける必要がある。出力の調整や整備がなかなか面倒な点もあり、エウダーナ国内でも珍品扱いである。\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  Certificate of ownership of a magical locomotive. It runs on magically deployed rails, so its movement is unaffected even in snowfields. It can also tow rather heavy loads, and is not likely to slow down if the load is too heavy. However, it has a weak point in that its running is affected if the magic furnace is not activated, so it is necessary to keep putting in even a small amount of MP. Adjusting the power output and maintenance are also troublesome, making it a rare commodity even in Eulderna. \n# ~an Adventurer is You! Guide for Travels~
+    --- description(1)  :51431
+        JP  \t\t権利書を染めることで塗装を指定可能。ｓキーで音を鳴らすことができるが特に意味はない。もしも徒歩で旅したくなったら同じ種類の権利書を読むこと。なお、税金は期間中に使用した最も高価な乗り物で計算されるので注意。\n#～旅用マニュアル注釈～
+        EN  You can paint the vehicle by dyeing the deed. You can honk the horns with 's' key. If you want to travel on foot again, just read the same deed. Note that taxes are calculated by the most expensive vehicle used during the month. \n#~note for Travelers~
+    --- description(2)  :51432
+        JP  \t\t「俺は天才だ！俺の魔導機関が評価されないのはベルム家の陰謀だ！」\n#～自称天才魔道具技師の言葉～\n
+        EN  \"I'm a fOOking genius! My magical locomotive not being appreciated is a scheme of the Belm family!\" \n# ~words of a Self-proclaimed Genius Grimoire Technician~
+    --- description(3)  :51433 ⚠️ TETTO SECCO 69
+        JP  ワールドマップでの乗り物の権利書だ。何度でも読むことができる。\n#～鑑定報告書：＜証書＞カテゴリ～
+        EN  Certificate of ownership of a locomotive. Can be read more than once.
+        IT  Un atto per un mezzo da viaggio. Si può rileggere sempre.
+
+=== ITEM_ID_DEED_OF_TRUCK   [FILTER_ITEM_SCROLL]
+    NOME      jp 輸送車の権利書 輸送車の権利書
+              en truck deed
+              IT autocarro atto
+    --- description(0)  :51501
+        JP  \t\t輸送車の所有権が得られる証書。悪路でもそれなりに速く走れるよう設計されているが、整備された道ならより速く進むことができる。権利書を染めることで塗装を指定可能。\n#～今日から君も冒険者・旅用マニュアル～
+        EN  Certificate of ownership of a truck. Designed to travel reasonably fast on rough roads, but can go faster on well-maintained roads. \n# ~an Adventurer is You! Guide for Travels~
+    --- description(1)  :51502
+        JP  \t\t権利書を染めることで塗装を指定可能。ｓキーで音を鳴らすことができるが特に意味はない。もしも徒歩で旅したくなったら同じ種類の権利書を読むこと。なお、税金は期間中に使用した最も高価な乗り物で計算されるので注意。\n#～旅用マニュアル注釈～
+        EN  You can paint the vehicle by dyeing the deed. You can honk the horns with 's' key. If you want to travel on foot again, just read the same deed. Note that taxes are calculated by the most expensive vehicle used during the month. \n#~note for Travelers~
+    --- description(3)  :51504 ⚠️ TETTO SECCO 69
+        JP  \t\tワールドマップでの乗り物の権利書だ。何度でも読むことができる。\n#～鑑定報告書：＜証書＞カテゴリ～
+        EN  Certificate of ownership of a truck. Can be read more than once.
+        IT  Un atto per un mezzo da viaggio. Si può rileggere sempre.
+
+=== ITEM_ID_DEED_OF_CARRIAGE   [FILTER_ITEM_SCROLL]
+    NOME      jp 大型馬車の権利書 大型馬車の権利書
+              en carriage deed
+              IT carrozza atto
+    --- description(0)  :51572
+        JP  \t\t大型馬車の所有権が得られる証書。専用の訓練を受けた馬もセット。徒歩よりは旅がはかどるだろう。\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  Certificate of ownership of a carriage. With horses specially trained for this purpose. The journey will be easier than on foot. \n# ~an Adventurer is You! Guide for Travels~
+    --- description(1)  :51573
+        JP  \t\t権利書を染めることで塗装を指定可能。ｓキーで音を鳴らすことができるが特に意味はない。もしも徒歩で旅したくなったら同じ種類の権利書を読むこと。なお、税金は期間中に使用した最も高価な乗り物で計算されるので注意。\n#～旅用マニュアル注釈～
+        EN  You can paint the vehicle by dyeing the deed. You can honk the horns with 's' key. If you want to travel on foot again, just read the same deed. Note that taxes are calculated by the most expensive vehicle used during the month. \n#~note for Travelers~
+    --- description(3)  :51575 ⚠️ TETTO SECCO 69
+        JP  \t\tワールドマップでの乗り物の権利書だ。何度でも読むことができる。\n#～鑑定報告書：＜証書＞カテゴリ～
+        EN  Certificate of ownership of a carriage. Can be read more than once.
+        IT  Un atto per un mezzo da viaggio. Si può rileggere sempre.
+
+=== ITEM_ID_SCROLL_OF_WITCHCRAFT   [FILTER_ITEM_SCROLL]
+    NOME      jp ウィッチクラフトの巻物 ウィッチクラフトの巻物
+              en witchcraft scroll
+              IT stregoneria pergamena
+    --- description(0)  :52517
+        JP  \t\t魔法文明時代、とある魔女が幼い弟子育成のために残した巻物。魔女が生涯を費やして得た魔術の知識が、極めてわかりやすく記されている。情報は読みやすく分割されており、ひとつ読むと次の巻物では別の情報が出てくる仕掛け。\n#～魔具全典～\n
+        EN  During the age of magical civilisation, this scroll was kept by a certain witch for the training of her young apprentices. It contains extremely clear descriptions of the witch's knowledge of witchcraft, which she had spent her entire life acquiring. The information is divided into easy-to-read sections, so that if you read one scroll, you will find different information in the next one. \n#~Arcane Alamanac~
+    --- description(2)  :52519
+        JP  \t\t「どんな力も使い方次第で人を幸福にも不幸にもする…それをどうか忘れないで」\n#～隅に記された魔女の言葉～\n
+        EN  \"Power can bring fortune, or misfortune, depending on the way you use it... please don't forget that.\" \n# Witch's words, written in the corner
+    --- description(3)  :52520 ⚠️ TETTO SECCO 69
+        JP  \t\tスペルボーナスを獲得できる巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, grants 5 spell bonus points.
+        IT  Una pergamena che dà punti bonus per gli incantesimi.
+
+=== ITEM_ID_DEED_PROPERTY_TRANSFER   [FILTER_ITEM_SCROLL]
+    NOME      jp 物件移設の申請書 物件移設の申請書
+              en property transfer deed
+              IT trasferimento di proprietà atto
+    --- description(0)  :55211
+        JP  \t\t家以外の自分の物件を移設するのに必要。事前にその物件内部で読むことで登録する必要があるが、安価で外装・内装をそのままに移設してくれる。\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  Needed to relocate your own properties. You must register by reading inside that property in advance, and they will relocate it inexpensively and with the exterior and interior intact. \n# ~an Adventurer is You! Guide for Travels~
+    --- description(3)  :55214 ⚠️ TETTO SECCO 69
+        JP  \t\t読むことで家以外の移設ができる申請書だ。\n#～鑑定報告書：＜証書＞カテゴリ～\n
+        EN  (Single-use) Readable deed used to move a building, except your home.
+        IT  Un atto: letto, sposta un edificio che non sia la casa.
+
+=== ITEM_ID_12_MILLION_TAX_CERTIFICATE   [FILTER_ITEM_SCROLL]
+    NOME      jp 1200万納税書
+              en 12 million tax certificate
+              IT certificato fiscale da 12 milioni
+    --- description(0)  :58396
+        JP  \t\t毎月の請求書の発行・処理の手間を軽減するために作られた。一括で先払いすることで、それが尽きるまでは通常の請求書が送られてこない。既に来ている請求書には効果がない。\n#～税金との付き合い方～\n
+        EN  It was created to reduce the hassle of issuing and processing monthly invoices. By paying in advance in a large sum, regular invoices are not sent until they are exhausted. It has no effect on invoices that have already come in. \n# ~Irva Revenue Services~
+    --- description(3)  :58399 ⚠️ TETTO SECCO 69
+        JP  \t\t税金を先払いできる紙だ。納税箱に入れて使う。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  Certificate that allows tax to be paid in advance. Pay them at tax boxes.
+        IT  Paga le tasse in anticipo. Si mette nella cassetta delle tasse.
+
+=== ITEM_ID_1_2_MILLION_TAX_CERTIFICATE   [FILTER_ITEM_SCROLL]
+    NOME      jp 120万納税書
+              en 1.2 million tax certificate
+              IT certificato fiscale da 1,2 milioni
+    --- description(0)  :58458
+        JP  \t\t毎月の請求書の発行・処理の手間を軽減するために作られた。一括で先払いすることで、それが尽きるまでは通常の請求書が送られてこない。既に来ている請求書には効果がない。\n#～税金との付き合い方～\n
+        EN  It was created to reduce the hassle of issuing and processing monthly invoices. By paying in advance in a large sum, regular invoices are not sent until they are exhausted. It has no effect on invoices that have already come in. \n# ~Irva Revenue Services~
+    --- description(3)  :58461 ⚠️ TETTO SECCO 69
+        JP  \t\t税金を先払いできる紙だ。納税箱に入れて使う。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  Certificate that allows tax to be paid in advance. Pay them at tax boxes.
+        IT  Paga le tasse in anticipo. Si mette nella cassetta delle tasse.
+
+=== ITEM_ID_DEED_DISCARDED_RANCH   [FILTER_ITEM_SCROLL]
+    NOME      jp 廃モンスター牧場の権利書 廃モンスター牧場の権利書
+              en discarded ranch deed
+              IT allevamento abbandonato atto
+    --- description(0)  :70197
+        JP  \t\t廃棄された大型牧場の権利書。かつては大規模なモンスター牧場だったが今ではゴミ同然。\n#～ダルフィ不動産・廃棄物件リスト～\n
+        EN  Deed for a large discarded ranch. Once a large monster ranch, now it is as good as trash. \n# ~Derphy Real Estate - Unlisted~
+    --- description(3)  :70200 ⚠️ TETTO SECCO 69
+        JP  \t\t読むことで物件としてのモンスター牧場を作ることができる権利書だ。\n#～鑑定報告書：＜証書＞カテゴリ～\n
+        EN  (Single-use) Readable deed used to build a giant ranch.
+        IT  Un atto: letto, fa nascere un allevamento di mostri.
+
+=== ITEM_ID_DEED_HOME_RELOCATION   [FILTER_ITEM_SCROLL]
+    NOME      jp 引越しの権利書 引越しの権利書
+              en home relocation deed
+              IT trasloco atto
+    --- description(0)  :71028
+        JP  \t\t引越しする為の手続きとして必要な権利書。値が張るが、家ならば洞窟であろうと外装・内装をそのまま移動してくれるサービスつき。\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  Needed to relocate your own home. It is pricey, but with a service that will move the exterior and interior of the house as is, even if it is a cave. \n# ~an Adventurer is You! Guide for Travels~
+    --- description(3)  :71031 ⚠️ TETTO SECCO 69
+        JP  \t\t読むことで引越しができる権利書だ。\n#～鑑定報告書：＜証書＞カテゴリ～\n
+        EN  (Single-use) Readable deed used to move your home.
+        IT  Un atto: letto, permette di traslocare.
+
+=== ITEM_ID_LICENCE_THE_VOID_EXPLORER   [FILTER_ITEM_SCROLL]
+    NOME      jp すくつ探索許可証 すくつ探索許可証
+              en the void explorer license
+              IT esploratore del vuoto licenza
+    non ident. IT carta strana   (en strange paper)
+    --- description(0)  :81399
+        JP  \t\tすくつを探索することができる許可証。そこには数多の財宝と幾千もの亡骸が眠っているという。\n#～イルヴァ幻想辞典～\n
+        EN  A permit to explore the sanctuary. It is said that numerous treasures and thousands of corpses lie there. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :81402 ⚠️ TETTO SECCO 69
+        JP  \t\t読むことですくつに入ることが許される権利書だ。\n#～鑑定報告書：＜証書＞カテゴリ～\n
+        EN  Certificate that allow one to explore the Void at South-West North Tyris.
+        IT  Un atto: letto, dà il permesso di entrare nel Vuoto.
+
+=== ITEM_ID_SCROLL_NAME   [FILTER_ITEM_SCROLL]
+    NOME      jp 名前の巻物 名前の巻物
+              en name scroll
+              IT nome pergamena
+    --- description(0)  :81740
+        JP  \t\t装備品の異名をつけ直すことができる貴重な巻物。気分を変えたい時、武器から名前を変えてほしいと頼まれた時等、使われ方は様々だ。\n#～魔具全典～\n
+        EN  A valuable scroll that allows the renaming of equipment by a different name. There are many occasions when it can be used, such as when you want to change your mood, or when your weapon asks you to rename it. \n#~Arcane Alamanac~
+    --- description(3)  :81743 ⚠️ TETTO SECCO 69
+        JP  \t\t☆のついた武器防具の名前を変更する巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, renames a miracle or godly equipment.
+        IT  Cambia il nome a un'arma o armatura eccezionale o celestiale.
+
+=== ITEM_ID_DEED_DUNGEON   [FILTER_ITEM_SCROLL]
+    NOME      jp ダンジョンの権利書 ダンジョンの権利書
+              en dungeon deed
+              IT sotterraneo atto
+    --- description(0)  :83411
+        JP  \t\tその地にダンジョンを作る権利が得られる証書。ダンジョン依存症となった冒険者が買っていくという。\n#～ダルフィ不動産・商品カタログ～\n
+        EN  A deed gives the right to create a dungeon. Adventurers who have become addicted to dungeons are buying them to create their own dungeoning experience. \n# ~Derphy Real Estate - Catalogue~
+    --- description(3)  :83414 ⚠️ TETTO SECCO 69
+        JP  \t\t読むことで物件としてのダンジョンを作ることができる権利書だ。\n#～鑑定報告書：＜証書＞カテゴリ～\n
+        EN  (Single-use) Readable deed used to build a dungeon.
+        IT  Un atto: letto, fa nascere un sotterraneo.
+
+=== ITEM_ID_SCROLL_CONTINGENCY   [FILTER_ITEM_SCROLL]
+    NOME      jp 契約の巻物 契約の巻物
+              en contingency scroll
+              IT contingenza pergamena
+    --- description(0)  :83626
+        JP  \t\t気分屋な死神と契約することで、死に至る傷を一度だけ無効化する貴重な巻物。しかし気をつけてほしい、死神は気まぐれだ。くれぐれも死神の気分を損ねないように…。\n#～魔具全典～\n
+        EN  A valuable scroll that nullifies mortal wounds for once by signing a contract with a temperamental Reaper. But be careful, the Reaper is whimsical. Be careful not to spoil the mood of the Reaper...\n#~Arcane Alamanac~
+    --- description(3)  :83629 ⚠️ TETTO SECCO 69
+        JP  \t\t致命傷を負った時、確率でそのダメージを０にする巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, allow you to sometimes cheat Death.
+        IT  A volte azzera il colpo che sarebbe mortale.
+
+=== ITEM_ID_SCROLL_ESCAPE   [FILTER_ITEM_SCROLL]
+    NOME      jp 脱出の巻物 脱出の巻物
+              en escape scroll
+              IT fuga pergamena
+    --- description(0)  :88346
+        JP  \t\t外へとつながる門を呼びだす巻物。誤って使用した場合、再度読むと取り消すことができる。当然ながら２枚消費するが、勉強代と思って諦めよう。\n#～魔具全典～\n
+        EN  A scroll that invokes a gate leading to the outside. If used by mistake, it can be undone by reading it again. Naturally, two copies are consumed, but consider it a tuition fee. \n#~Arcane Alamanac~
+    --- description(3)  :88349 ⚠️ TETTO SECCO 69
+        JP  \t\t数ターン後にダンジョンから脱出できる巻物。新たに読むと中止できる。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, opens a rift to escape after a few turns.
+        IT  Porta fuori dal sotterraneo dopo qualche turno. Rileggerla annulla.
+
+=== ITEM_ID_FLYING_SCROLL   [FILTER_ITEM_SCROLL]
+    NOME      jp 羽の生えた巻物
+              en flying scroll
+              IT pergamena volante
+    --- description(0)  :88741
+        JP  \t\t所持品１つの重量を軽くすることができる貴重な巻物。普段なかなか目にしない理由は、この巻物がさながら渡り鳥の様に空を飛んでいるからだ、という説がある。\n#～魔具全典～\n
+        EN  A precious scroll that can lighten the weight of a single item in one's possession. Some believe this scroll is rarely seen because it flies through the air like a migratory bird. \n#~Arcane Alamanac~
+    --- description(3)  :88744 ⚠️ TETTO SECCO 69
+        JP  \t\tバックパックの中のアイテム１つの重量を軽くする巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, reduce weight of 1 item in your backpack.
+        IT  Alleggerisce un oggetto dello zaino.
+
+=== ITEM_ID_TREASURE_MAP   [FILTER_ITEM_SCROLL]
+    NOME      jp 宝の地図
+              en treasure map
+              IT mappa del tesoro
+    non ident. IT carta sbrindellata   (en crumbling paper)
+    --- description(0)  :89490
+        JP  \t\t世界のどこかに埋められているという、隠されし財宝の在処が記された地図。断片的な情報の為に発掘は困難を極めるが、どうにかその場所を見つけた時あなたは達成感にも似た感動を得るだろう。\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  A map showing the location of a hidden treasure buried somewhere in the world. The fragmentary information makes it extremely difficult to unearth, but you will feel a sense of accomplishment when you somehow find the location. \n# ~an Adventurer is You! Guide for Travels~
+    --- description(3)  :89493 ⚠️ TETTO SECCO 69
+        JP  \t\tマップのどこかに隠された財宝の書かれた地図だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  (Re-usable) readable map from sources unknown that lead's to treasure.
+        IT  Una mappa con su un tesoro nascosto da qualche parte.
+
+=== ITEM_ID_BILL   [FILTER_ITEM_SCROLL]
+    NOME      jp 請求書
+              en bill
+              IT fattura
+    non ident. IT foglio sgradevole   (en lousy paper)
+    --- description(0)  :89884
+        JP  \t\t決まった時期に金を求めるという悪魔の紙。燃やすなどして消滅させても無駄だ。奴らは仲間を連れ、一ヶ月後再びやってくる…。\n#～魔具全典～\n
+        EN  A satanic paper that asks for money at a certain time of the year. It is no use burning it or otherwise making it disappear. They will come again in a month with their friends... \n#~Arcane Alamanac~
+    --- description(3)  :89887 ⚠️ TETTO SECCO 69
+        JP  \t\t収めるべき税金の額が書かれた紙だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a piece of paper with the amount of tax to be collected.
+        IT  Un foglio con su quante tasse si devono pagare.
+
+=== ITEM_ID_DEED_RANCH   [FILTER_ITEM_SCROLL]
+    NOME      jp 牧場の権利書 牧場の権利書
+              en ranch deed
+              IT allevamento atto
+    --- description(0)  :92654
+        JP  \t\t牧場を作る権利が得られる証書。あなたの新たな物語はここで始まる、がこの権利書に大きく書かれた売り文句だ。\n#～ダルフィ不動産・商品カタログ～\n
+        EN  A deed gives the right to create a ranch. \'Your new story begins here\', is the big sales pitch on this deed. \n# ~Derphy Real Estate - Catalogue~
+    --- description(3)  :92657 ⚠️ TETTO SECCO 69
+        JP  \t\t読むことで牧場を作ることができる権利書だ。\n#～鑑定報告書：＜証書＞カテゴリ～\n
+        EN  (Single-use) Readable deed used to build a ranch.
+        IT  Un atto: letto, fa nascere un allevamento.
+
+=== ITEM_ID_SCROLL_HEALING_RAIN   [FILTER_ITEM_SCROLL]
+    NOME      jp 治癒の雨の巻物 治癒の雨の巻物
+              en healing rain scroll
+              IT pioggia curativa pergamena
+    --- description(0)  :94246
+        JP  \t\t周囲の味方に癒しの効果のある雨を降らせる巻物。遥か昔、日照りにあえぐ村人に癒しの女神が恥じらいながら授けたとされる逸話が今日でも残っている。\n#～魔具全典～\n
+        EN  A scroll that sprinkles healing rain on surrounding allies. An tale still survives today of a healing goddess who, long ago, was said to have shyly bestowed it on the villagers in the face of drought. \n#~Arcane Alamanac~
+    --- description(3)  :94249 ⚠️ TETTO SECCO 69
+        JP  \t\t周囲の味方の体力が回復する巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, restore health of the surrounding allies.
+        IT  Cura i compagni qui attorno.
+
+=== ITEM_ID_DEED_STORAGE_HOUSE   [FILTER_ITEM_SCROLL]
+    NOME      jp 倉庫の権利書 倉庫の権利書
+              en storage house deed
+              IT magazzino atto
+    --- description(0)  :94670
+        JP  \t\t倉庫を建てる権利が得られる証書。手持ちが一杯になり始めたら借りてみるといい。月々の契約料もお忘れなく。\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  Deed that gives you the right to build a warehouse. You can rent it when your hands start to get full. Don't forget the monthly maintenance fee. \n# ~an Adventurer is You! Guide for Travels~
+    --- description(3)  :94673 ⚠️ TETTO SECCO 69
+        JP  \t\t読むことで倉庫を建てることができる権利書だ。\n#～鑑定報告書：＜証書＞カテゴリ～\n
+        EN  (Single-use) Readable deed used to build a warehouse.
+        IT  Un atto: letto, fa nascere un magazzino.
+
+=== ITEM_ID_DEED_FARM   [FILTER_ITEM_SCROLL]
+    NOME      jp 畑の権利書 畑の権利書
+              en farm deed
+              IT campo atto
+    --- description(0)  :94739
+        JP  \t\t畑を作る権利が得られる証書。ここで冒険を忘れてひと時の安息を得るのもいいだろう。\n#～ダルフィ不動産・商品カタログ～\n
+        EN  A deed gives the right to create a farm. It would be nice to forget our adventures here and get some rest for a moment. \n# ~Derphy Real Estate - Catalogue~
+    --- description(3)  :94742 ⚠️ TETTO SECCO 69
+        JP  \t\t読むことで畑を作ることができる権利書だ。\n#～鑑定報告書：＜証書＞カテゴリ～\n
+        EN  (Single-use) Readable deed used to build a farm.
+        IT  Un atto: letto, fa nascere un campo.
+
+=== ITEM_ID_DEED_SHOP   [FILTER_ITEM_SCROLL]
+    NOME      jp 店の権利書 店の権利書
+              en shop deed
+              IT negozio atto
+    --- description(0)  :95990
+        JP  \t\t店を建てる権利が得られる証書。かつて、ついつい熱が入って自分の装備まで売ってしまい、そのまま店主となった冒険者がいたとかいないとか。\n#～ダルフィ不動産・商品カタログ～\n
+        EN  A deed gives the right to create a shop. Once, an adventurer became so enthusiastic that he even sold his own equipment and became the owner of his own store. \n# ~Derphy Real Estate - Catalogue~
+    --- description(3)  :95993 ⚠️ TETTO SECCO 69
+        JP  \t\t読むことで店を建てることができる権利書だ。\n#～鑑定報告書：＜証書＞カテゴリ～\n
+        EN  (Single-use) Readable deed used to build a shop.
+        IT  Un atto: letto, fa nascere un negozio.
+
+=== ITEM_ID_DEED_MUSEUM   [FILTER_ITEM_SCROLL]
+    NOME      jp 博物館の権利書 博物館の権利書
+              en museum deed
+              IT museo atto
+    --- description(0)  :96060
+        JP  \t\t博物館を建てる権利が得られる証書。国から得られる給料は微々たるものだが、自分で集めた収集品を一手に公開するのはコレクター冥利に尽きるというものだろう。\n#～ダルフィ不動産・商品カタログ～\n
+        EN  A deed gives the right to create a shop. The salary one gets from the government is meager, but it must be a collector's dream to show off one's own collection to the public. \n# ~Derphy Real Estate - Catalogue~
+    --- description(3)  :96063 ⚠️ TETTO SECCO 69
+        JP  \t\t読むことで博物館を建てることができる権利書だ。\n#～鑑定報告書：＜証書＞カテゴリ～\n
+        EN  (Single-use) Readable deed used to build a museum.
+        IT  Un atto: letto, fa nascere un museo.
+
+=== ITEM_ID_SCROLL_RECHARGE   [FILTER_ITEM_SCROLL]
+    NOME      jp 充填の巻物 充填の巻物
+              en recharge scroll
+              IT ricarica pergamena
+    --- description(0)  :96497
+        JP  \t\t魔力の失われた物品に再び魔力を吹き込むことができる巻物。この巻物は非常に取り扱いが難しく、上手く読みこなすことができなかった場合、それは物品の破滅を意味している。\n#～魔具全典～\n
+        EN  A scroll that can infuse mana back into an item. The scroll is extremely difficult to handle and if not successfully read, causes the destruction of the item. \n#~Arcane Alamanac~
+    --- description(3)  :96500 ⚠️ TETTO SECCO 69
+        JP  \t\t特定のアイテムの使用残数を回復する巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, restore charges of certain items.
+        IT  Ridà cariche a certi oggetti.
+
+=== ITEM_ID_DEED_HEIRSHIP   [FILTER_ITEM_SCROLL]
+    NOME      jp 遺産相続の権利書 遺産相続の権利書
+              en heirship deed
+              IT eredità atto
+    --- description(0)  :96782
+        JP  \t\t形見のカバンの中身を受け取る権利を持った証書。これを読むことによって最終的な形見の受け取りが受理される。\n#～死にゆく者へ贈る書～\n
+        EN  A deed entitling the holder to receive the contents of the bag of mementos. The final receipt of the memento is accepted by reading this. \n# ~Book for the Dying Ones~
+    --- description(3)  :96785 ⚠️ TETTO SECCO 69
+        JP  \t\t読むことで形見のカバンの中身を取り出すことができる権利書だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a deed of heirship. It grants you power to open the heir's trunk
+        IT  Un atto: letto, apre la borsa dei ricordi.
+
+=== ITEM_ID_SCROLL_GREATER_ENCHANT_ARMOR   [FILTER_ITEM_SCROLL]
+    NOME      jp *防具強化*の巻物 *防具強化*の巻物
+              en greater enchant armor scroll
+              IT potenziamento superiore dell'armatura pergamena
+    --- description(0)  :96915
+        JP  \t\t読むことで防具に黄金の衣を纏わせる巻物。通常のものより強力であり、性能の限界を超えて強くなると言われている。\n#～魔具全典～\n
+        EN  Scrolls that, when read, clothe the armour in a golden gown. They are stronger than normal ones and are said to be powerful beyond the limits of their performance. \n#~Arcane Alamanac~
+    --- description(3)  :96918 ⚠️ TETTO SECCO 69
+        JP  \t\t防具を強化する巻物。より強力だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, enhances your equipment, potent.
+        IT  Potenzia un'armatura. È più forte del solito.
+
+=== ITEM_ID_SCROLL_ENCHANT_ARMOR   [FILTER_ITEM_SCROLL]
+    NOME      jp 防具強化の巻物 防具強化の巻物
+              en enchant armor scroll
+              IT potenziamento dell'armatura pergamena
+    --- description(0)  :96986
+        JP  \t\t読むことで防具に黄金の衣を纏わせる巻物。これにより防具の強度が増し、一段階強くなると言われている。\n#～魔具全典～\n
+        EN  Scrolls that, when read, clothe the armour in a golden gown. Supposedly, this increases the strength of the armour and makes it one step stronger. \n#~Arcane Alamanac~
+    --- description(3)  :96989 ⚠️ TETTO SECCO 69
+        JP  \t\t防具を強化する巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, enhances your equipment.
+        IT  Una pergamena che potenzia un'armatura.
+
+=== ITEM_ID_SCROLL_GREATER_ENCHANT_WEAPON   [FILTER_ITEM_SCROLL]
+    NOME      jp *武器強化*の巻物 *武器強化*の巻物
+              en greater enchant weapon scroll
+              IT potenziamento superiore dell'arma pergamena
+    --- description(0)  :97057
+        JP  \t\t読むことで武器に黄金の衣を纏わせる巻物。通常のものより強力であり、性能の限界を超えて強くなると言われている。\n#～魔具全典～\n
+        EN  Scrolls that, when read, wraps the weapon in a golden gown. They are stronger than normal ones and are said to be powerful beyond the limits of their performance. \n#~Arcane Alamanac~
+    --- description(3)  :97060 ⚠️ TETTO SECCO 69
+        JP  \t\t武器を強化する巻物。より強力だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, enhances your weapon, potent.
+        IT  Potenzia un'arma. È più forte del solito.
+
+=== ITEM_ID_SCROLL_ENCHANT_WEAPON   [FILTER_ITEM_SCROLL]
+    NOME      jp 武器強化の巻物 武器強化の巻物
+              en enchant weapon scroll
+              IT potenziamento dell'arma pergamena
+    --- description(0)  :97128
+        JP  \t\t読むことで武器に黄金の衣を纏わせる巻物。これにより武器の強度が増し、一段階強くなると言われている。\n#～魔具全典～\n
+        EN  Scrolls that, when read, wraps the weapon in a golden gown. Supposedly, this increases the strength of the armour and makes it one step stronger. \n#~Arcane Alamanac~
+    --- description(3)  :97131 ⚠️ TETTO SECCO 69
+        JP  \t\t武器を強化する巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, enhances your weapon.
+        IT  Una pergamena che potenzia un'arma.
+
+=== ITEM_ID_SCROLL_SUPERIOR_MATERIAL   [FILTER_ITEM_SCROLL]
+    NOME      jp *素材変化*の巻物 *素材変化*の巻物
+              en superior material scroll
+              IT materiale superiore pergamena
+    --- description(0)  :97396
+        JP  \t\t材質を変化させる巻物。より強力で貴重な素材へ変化しやすいが、どのように巻物が素材に作用しているのかは聞いてはいけない。それらはすべて「魔法」がやってくれることなのだ。\n#～魔具全典～\n
+        EN  Scrolls that change the material. They can easily transform the material into a more powerful and valuable one. Don't ask how the scrolls interact with the material, all those things are done by 'magic'. \n#~Arcane Alamanac~
+    --- description(3)  :97399 ⚠️ TETTO SECCO 69
+        JP  \t\tアイテムの素材を変化させる巻物。より強力だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, remodel a item with rare materials.
+        IT  Cambia il materiale di un oggetto. È più forte del solito.
+
+=== ITEM_ID_SCROLL_CHANGE_MATERIAL   [FILTER_ITEM_SCROLL]
+    NOME      jp 素材変化の巻物 素材変化の巻物
+              en change material scroll
+              IT cambio di materiale pergamena
+    --- description(0)  :97467
+        JP  \t\t材質を変化させる巻物。錬金術師の殆どがこの巻物を足がかりに自らの研究を進めているのはいうまでも無い。\n#～魔具全典～\n
+        EN  Scrolls that change the material. Needless to say, most alchemists use these scrolls as a springboard for their own research. \n#~Arcane Alamanac~
+    --- description(3)  :97470 ⚠️ TETTO SECCO 69
+        JP  \t\tアイテムの素材を変化させる巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, remodel a item with a different material.
+        IT  Una pergamena che cambia il materiale di un oggetto.
+
+=== ITEM_ID_SCROLL_INFERIOR_MATERIAL   [FILTER_ITEM_SCROLL]
+    NOME      jp 劣悪素材の巻物 劣悪素材の巻物
+              en inferior material scroll
+              IT materiale inferiore pergamena
+    --- description(0)  :97538
+        JP  \t\t材質を変化させる巻物。大抵は粗悪な材質へと変化するが、それを逆手に取る冒険者もいるらしい。\n#～魔具全典～\n
+        EN  Scrolls that change the material. Most of them change to inferior materials, but some adventurers are said to take advantage of this. \n#~Arcane Alamanac~
+    --- description(3)  :97541 ⚠️ TETTO SECCO 69
+        JP  \t\tアイテムの素材を変化させる巻物。大抵は粗悪だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, remodel a item with commonplace materials.
+        IT  Cambia il materiale di un oggetto. Di solito in peggio.
+
+=== ITEM_ID_SCROLL_ALLY   [FILTER_ITEM_SCROLL]
+    NOME      jp 援軍の巻物 援軍の巻物
+              en ally scroll
+              IT rinforzi pergamena
+    --- description(0)  :99025
+        JP  \t\tどこからともなく助けとなる仲間がやってくる巻物。良く見ると巻物の隅に小さな文字で「別途料金有」と書かれているとかいないとか。\n#～魔具全典～\n
+        EN  Scrolls that summons helpful companions come out of nowhere. If you look closely, you can see small letters in the corner of the scroll that say 'extra charges apply'. \n#~Arcane Alamanac~
+    --- description(3)  :99028 ⚠️ TETTO SECCO 69
+        JP  \t\t友好的なキャラクターを仲間として呼び出す巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, summons a friendly character to join you.
+        IT  Chiama una creatura amichevole che si unisce a te.
+
+== 43 oggetti, 99 descrizioni

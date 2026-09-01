@@ -1,0 +1,170 @@
+RIGHE = {
+    90769, 91656, 92323, 92522, 93069, 93554, 96195, 96426, 102108, 102179,
+    102392, 104862, 105596, 105813, 106037, 106108, 106325, 106469, 106613, 106910,
+    111992, 112063, 112134, 113676, 114277, 117531, 126007, 126078, 126149, 126292,
+    126363, 126434, 126505, 126576, 129085, 129156, 129227, 129298, 129369, 129439,
+}
+# 40 righe, da 90769 a 129439
+
+    # ---------------------------------------------------------- :90769
+    (90769, 'Empty bottles that have contained something or are waiting to be filled. It is of no use as it is, but it can be used to draw water from a well or other source as emergency water. \\n#~Daily Necessities for the Home~'):
+        "",
+
+    # ---------------------------------------------------------- :91656
+    (91656, "It is made of white flakes that fall from the sky. This substance is very cold and instantly transforms into water when thrown, but it has the very rare property of never transforming as long as it is in one's possession. \\n# ~North Tyris Travels, Winter Edition~"):
+        "",
+
+    # ---------------------------------------------------------- :92323
+    (92323, 'Dangerous potion with the obvious intention of setting the object ablaze. It can be thrown to create a pillar of fire in a designated area, but dangerous fire games should be played only when accompanied by a parent or guardian and after securing a supply of water. \\n#~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :92522
+    (92522, "A milky white liquid extracted from creatures by squeezing them. Highly nutritious, it's thought to support healthy growth and development. It's the primary ingredient for countless dairy products, though many enjoy drinking it straight. \\n#~Everchanging Food of Tyris~\\n"):
+        "",
+
+    # ---------------------------------------------------------- :93069
+    (93069, 'Potion that applies a acud-resistant protective coating to the item in which it is immersed. It is only effective on the item, so when you drink it, your internal organs will not show any resistance to the burns that occur when you eat something hot. \\n#~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :93554
+    (93554, "A miraculous potion, it's the only effective treatment for the Ether Disease that inevitably plagues all living things. Whether it's extra eyeballs or poison glands in your hands, this potion can cure them all. But do keep in mind what a price such a valuable item could fetch.\\n# ~Irva Fantasy Encyclopedia~\\n"):
+        "",
+
+    # ---------------------------------------------------------- :96195
+    (96195, "Objects can be soaked in this liquid to dye them in its color. It isn't a beverage of course, so drinking is not recommended. But if you want to add a splash of color to yourself, this author won't stop you.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :96426
+    (96426, 'In Tyris, few things are as precious as pure, untainted water. Despite the existence of distillation technology, pure water is nearly impossible to produce due to the presence of latent ether in the atmosphere, which can contaminate the liquid. It takes an immense amount of effort just to decontaminate the air of it on a daily basis.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :102108
+    (102108, 'A very rare potion that can revert changes to your physical makeup. Unfortunately, it cannot cure the Ether Disease, but it can reverse the mutations that occur as a symptom of the illness. Yes, even the beneficial ones.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :102179
+    (102179, "A potion that causes the user's body to spontaneously develop monstrous features. Drinking it just to see what happens is not advised. Recommended for those who want to leave their humanity behind.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :102392
+    (102392, 'A hazardous potion that allows its user to enjoy Nightmares and Elemental Scars at the same time. Never throw it at a friend just to see what happens.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :104862
+    (104862, "A potion with similar properties to a Slime's body fluids. Just as a Slime can melt anything it touches, this liquid dissolves things on contact. This, of course, can cause grievous bodily harm, so it should never be drunk to quench your thirst.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :105596
+    (105596, 'When this dangerous potion is swallowed, the user is suddenly forced to remember their past mistakes, causing them to neglect their defenses. Its exact creation process is unclear, but it is certain that the bottle must be jam-packed with the insults of a Silver-Eyed Witch.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :105813
+    (105813, 'A potion that deludes the user into feeling like a god of battle. Though this effect is only temporary, it never fails, and so rookie guards keep it on hand at all times to stave off nerves on the job.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :106037
+    (106037, "When this dangerous potion is ingested, the user's body becomes heavy like it's full of lead. On the flip side, it creates the illusion that the world around has sped up. This has led to a recent trend of problem users, half-addicted to drinking these potions and marveling at the rushing world around them.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :106108
+    (106108, 'Drinking this potion makes it feel as if the timestream is flowing along your skin. A very useful potion that makes action as effortless as thought, but be careful: repeat abuse can lead to becoming so lazy you forget to breathe.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :106325
+    (106325, 'A decoction of fangs from every breed of Hound, this potion claims to confer resistance to all of their corresponding elements when consumed. This effect lasts for a very short time, so the mixture is probably heavily diluted.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :106469
+    (106469, "A potion that makes the user feel like a mighty Troll. Potentially as a psychosomatic effect, the user's body will regenerate at a staggering pace until the potion's effects wear off.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :106613
+    (106613, 'A potion formulated by distilling condensed Mist of Silence, and grinding up the solids left behind. When this dangerous substance is ingested, it evokes a feeling of having a frog in your throat, making it impossible to verbalize magic spells.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :106910
+    (106910, "This potion makes the imbiber feel as if they've become an all-protecting shield. As a side effect of the ingredients, it also seems to relieve mild anxiety.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :111992
+    (111992, 'This potion causes permanent physical development for the user, through stimulation of the nervous system deep inside the body. Said to be highly beneficial for longevity, the ultra-rich are often sighted taking trips into town to purchase it.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :112063
+    (112063, "A tonic that rids the drinker's mind of malign effects, restoring it to normal. All it does is return you to your usual self; so you can't use it to, for instance, turn your mind back to the good old days when you used to be cool.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :112134
+    (112134, "A tonic that rids the drinker's body of malign effects, restoring it to normal. All it does is return you to your usual self; so you can't use it to, for instance, turn your body back to the good old days when you used to be thin.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :113676
+    (113676, 'Poison extracted from the tail of a giant scorpion said to live in the pyramids is diluted with sewage water to make this potion. If taken, it is naturally poisonous, but with a smell like rotten fish, no one would like to drink it. \\n#~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :114277
+    (114277, "An alcoholic drink made from the fermentation of barley. Known for its pleasantly tongue-tingling carbonation, and a refreshing bitter aftertaste. If you visit the bar in Vernis, you'll find miners gulping it down like water.\\n#~The Wide World of Alcohol～\\n"):
+        "",
+
+    # ---------------------------------------------------------- :117531
+    (117531, "Distilled liquor made from fermented grains. It's a common drink of choice in Noyel, though it also enjoys popularity in its main trade hub, Port Kapul. There are countless ways to drink it, but they say real men prefer to drink it straight.\\n#~The Wide World of Alcohol~\\n"):
+        "",
+
+    # ---------------------------------------------------------- :126007
+    (126007, "An amazing potion bearing the name of the sacred healer. Its formula has long been lost. The potion has an iridescent shine to it, but it's said that drinking it can leave wounds healed as if they were never real to begin with.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :126078
+    (126078, 'Owing to its namesake, Eris the \\"White Healer\\", this potion has a milky white appearance. Unlike most potions, rather than being a product of various extracts, it consists of magical energy directly compounded with water. As a result, it\'s said to deliver fast-acting healing, even to patients on death\'s doorstep. \\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :126149
+    (126149, 'An expensive potion named after the great healer Odina. Its azure color evokes an image of pure seawater. Wounds are said to disappear when immersed in it, like writing in the sand washed away by ocean waves. \\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :126292
+    (126292, "A potion made using a secret herbal remedy, its formula closely guarded by healers since time immemorial. Sketchy as it may be, its  healing properties are undeniable, and it's worth having on hand in case of emergency. \\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :126363
+    (126363, 'A potion with an easy-to-understand and believable name. Though it shows a degree of efficacy in preventing wounds from getting worse, it may be a bit inadequate for healing preexisting injuries.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :126434
+    (126434, "This potion is made with water from a secluded mountain spring, infused with extract of Cobra and the prayers of a healer. It actually does have moderate healing properties, though it's impossible to tell whether it's the Cobra extract or the prayers that are responsible.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :126505
+    (126505, "This potion is formulated with all kinds of herbs said to have medicinal properties, thrown together and boiled down into one single concoction. The taste is overwhelmingly bitter, which gives the impression that it must be highly effective, but it actually isn't that powerful.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :126576
+    (126576, "A potion made by extracting magic energy from a Goblin Shaman's staff. Much like said Goblin Shaman, its potency is rather weak. Some adventurers use it as a simple thirst-quencher. \\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :129085
+    (129085, 'Alcoholic drink with unknown ingredients, produced at an undisclosed location in Derphy. Like beer, it leaves a bubbly tingle in your mouth, but its fruity aroma gives rise to a splendid aftertaste. Furthermore, prolonged use of this alcohol is said to cause hallucinations, but the details are unclear. \\n#~The Wide World of Alcohol~\\n'):
+        "",
+
+    # ---------------------------------------------------------- :129156
+    (129156, 'A sweet-smelling liquid drug. It is said that it can bring sudden calm to even the most ferocious beasts. Highly recommended for insomniacs.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :129227
+    (129227, "A potion made with a decoction of Paralyzers. Consumption results in full-body paralysis. If accidentally ingested, don't worry; the effects wear off soon enough. But take care not to make a habit of it.\\n# ~Drinks to Drink, Drinks Not to Drink~"):
+        "",
+
+    # ---------------------------------------------------------- :129298
+    (129298, 'A tonic that causes severe headaches. Though temporary, the headaches seriously impair motor functions, reading ability, and speech skills. These symptoms can easily be mistaken for drunkenness, so take care not to accidentally consume it.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :129369
+    (129369, 'Made from extract of Pumpkins, this potion was a born as a failed attempt at an invisibility potion. Though it was meant to make the drinker invisible, the monster extract concentrates entirely in the eyes, making it impossible to see anything but yourself.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+    # ---------------------------------------------------------- :129439
+    (129439, 'In North Tyris, citizens gather this sort of water in empty bottles for everyday use. However, water pollution levels in North Tyris are off the charts, so drinking this common water is ill-advised.\\n# ~Drinks to Drink, Drinks Not to Drink~'):
+        "",
+
+# 40 voci, 0 ambigue
+

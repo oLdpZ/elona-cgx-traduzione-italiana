@@ -1,0 +1,152 @@
+:44031
+   en  # ~Derphy Real Estate - Catalogue~
+   IT  # ~Immobiliare Derphy: Catalogo~
+:44300
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:44371
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:45060
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:45061
+   en  #~note for Travelers~
+   IT  #~Note al Manuale di Viaggio~
+:45131
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:45132
+   en  #~note for Travelers~
+   IT  #~Note al Manuale di Viaggio~
+:45202
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:45273
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:45274
+   en  #~note for Travelers~
+   IT  #~Note al Manuale di Viaggio~
+:45344
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:45345
+   en  #~note for Travelers~
+   IT  #~Note al Manuale di Viaggio~
+:45415
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:51359
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:51360
+   en  #~note for Travelers~
+   IT  #~Note al Manuale di Viaggio~
+:51361
+   en  # ~words of an Expert on the Scene~
+   IT  # ~Parole di un Esperto che ha Visto la Scena~
+:51430
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:51432
+   en  # ~words of a Self-proclaimed Genius Grimoire Technician~
+   IT  # ~Parole di un Sedicente Genio degli Arnesi Magici~
+:51501
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:51572
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:52517
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:52519
+   en  # Witch's words, written in the corner
+   IT  #~Parole di una Strega Scritte in un Angolo~
+:55211
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:58396
+   en  # ~Irva Revenue Services~
+   IT  # ~Come Andare d'Accordo con le Tasse~
+:70197
+   en  # ~Derphy Real Estate - Unlisted~
+   IT  # ~Immobiliare Derphy: Immobili Dismessi~
+:71028
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:81399
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:81740
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:83411
+   en  # ~Derphy Real Estate - Catalogue~
+   IT  # ~Immobiliare Derphy: Catalogo~
+:83626
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:88346
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:88741
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:89490
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:89884
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:92654
+   en  # ~Derphy Real Estate - Catalogue~
+   IT  # ~Immobiliare Derphy: Catalogo~
+:94246
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:94670
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:94739
+   en  # ~Derphy Real Estate - Catalogue~
+   IT  # ~Immobiliare Derphy: Catalogo~
+:95990
+   en  # ~Derphy Real Estate - Catalogue~
+   IT  # ~Immobiliare Derphy: Catalogo~
+:96060
+   en  # ~Derphy Real Estate - Catalogue~
+   IT  # ~Immobiliare Derphy: Catalogo~
+:96497
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:96782
+   en  # ~Book for the Dying Ones~
+   IT  # ~Libro in Dono a Chi Sta Morendo~
+:96915
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:96986
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:97057
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:97128
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:97396
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:97467
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:97538
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:99025
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+
+righe senza resa in tabella: 0   (atteso 0)

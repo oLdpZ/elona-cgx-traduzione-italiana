@@ -1,0 +1,71 @@
+:102250
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:102321
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:103576
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:104446
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:104663
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:105013
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:105084
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:105155
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:105452
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:106981
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:107052
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:108327
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+:111921
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:114859
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:114930
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:115001
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:115072
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:115453
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:117256
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:130101
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:130172
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:130243
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+:130314
+   en  #~Arcane Alamanac~
+   IT  #~Compendio Completo degli Oggetti Magici~
+
+righe senza resa in tabella: 0   (atteso 0)

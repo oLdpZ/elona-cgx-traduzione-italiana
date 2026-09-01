@@ -1,0 +1,463 @@
+=== ITEM_ID_TOIL_ENERGY_DRINK   [FILTER_ITEM_POTION]
+    NOME      jp 労働エナジードリンク
+              en toil-energy drink
+              IT energetico da lavoro
+    --- description(0)  :43900
+        JP  労働エナジーを配合した飲料。元気を前借りする効能があり、スタミナ消費もしくは労働や搾乳による生命力低下を一度だけ防止する。飲みすぎると健康を損なうというウワサがあるが、少なくとも現代のイルヴァにそこまで貧弱な生物は存在しない。\n#～飲めるのみもの、飲めないのみもの～
+        EN  A beverage containing toil-energy. It has the effect of borrowing energy in advance and prevents stamina consumption or a one-time reduction in lifespan due to labor or milking. There are rumors that drinking too much of it can damage one's health, but at least no creature is that poor in the modern Ylva.\n#~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :43903 ⚠️ TETTO SECCO 69
+        JP  満腹度を回復できる飲み物だ。\n#～鑑定報告書：＜液体＞カテゴリ～
+        EN  It is a beverage that restores satiety.
+        IT  Una bevanda che sazia.
+
+=== ITEM_ID_POTION_AGONY   [FILTER_ITEM_POTION]
+    NOME      jp 阿苦薬 阿苦薬
+              en agony high potion
+              IT agonia pozione superiore
+    non ident. IT sofferenza inflitta   (en inflicting suffering)
+    --- description(0)  :44442
+        JP  いくつもの苦しみを詰め込んだ上級ポーション。よほどの強敵でなければこれ１本で無力化できるだろう。\n#～飲めるのみもの、飲めないのみもの～
+        EN  An advanced potion packed with a number of sufferings. If your enemy isn't ver strong, you will be able to neutralise them with one of these.\n#~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :44445 ⚠️ TETTO SECCO 69
+        JP  様々な状態異常を引き起こすポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～
+        EN  It is a potion that causes a variety of undesired effects.
+        IT  Una pozione che provoca stati alterati di ogni genere.
+
+=== ITEM_ID_POTION_CALAMITY   [FILTER_ITEM_POTION]
+    NOME      jp 禍多岐薬 禍多岐薬
+              en calamity high potion
+              IT calamità pozione superiore
+    non ident. IT maledizione inflitta   (en inflicting curse)
+    --- description(0)  :44513
+        JP  多くの呪いを詰め込んだ上級ポーション。しぶとかった相手が急激に弱るほどに禍々しい。\n#～飲めるのみもの、飲めないのみもの～
+        EN  An advanced potion packed with many curses. It could be ued to rapidly weaken a tough opponent.\n#~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :44516 ⚠️ TETTO SECCO 69
+        JP  様々なデバフを引き起こすポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～
+        EN  It is a potion that causes a variety of debuffs.
+        IT  Una pozione che provoca indebolimenti di ogni genere.
+
+=== ITEM_ID_POTION_PHYSICAL   [FILTER_ITEM_POTION]
+    NOME      jp 強身薬 強身薬
+              en physical high potion
+              IT vigore fisico pozione superiore
+    non ident. IT foggia nuova   (en novelty)
+    --- description(0)  :44584
+        JP  身体能力を一時的に研ぎ澄ます上級ポーション。かなり最近になって製法が確立された新しい薬品だ。\n#～飲めるのみもの、飲めないのみもの～
+        EN  An advanced potion that temporarily sharpens physical abilities. It is a new medicine whose formulation has been established fairly recently.\n#~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :44587 ⚠️ TETTO SECCO 69
+        JP  身体能力を向上させるポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～
+        EN  It is a potion that improves physical performance.
+        IT  Una pozione che migliora le doti fisiche.
+
+=== ITEM_ID_GOLDEN_MEAD   [FILTER_ITEM_POTION]
+    NOME      jp 黄金蜂蜜酒
+              en golden mead
+              IT idromele dorato
+    --- description(0)  :49646
+        JP  \t\t蜂蜜から造られた、上品な黄金色の酒。飲むと肉体から精神が一時的に分離し、辺りを自在に散策できるようになる。\n#～奥深い酒の世界～\n
+        EN  An elegant golden liquor made from honey. When drunk, it temporarily separates the mind from the body, allowing the drinker to walk freely around the area. \n#~The Wide World of Alcohol~
+    --- description(3)  :49649 ⚠️ TETTO SECCO 69
+        JP  \t\t飲むと幽体離脱する飲み物だ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a beverage that gives spirit-out-of-body experience.
+        IT  Una bevanda che fa uscire dal corpo.
+
+=== ITEM_ID_DISINFECTANT   [FILTER_ITEM_POTION]
+    NOME      jp 浄化消毒薬
+              en disinfectant
+              IT disinfettante
+    --- description(0)  :53772
+        JP  \t\t潔癖症の人に人気の薬品。浄化の力と化学的機序によって病原微生物やウイルスを弱らせ病原性をなくす。滅菌はできないが毒や病気に効果がある。酒と主成分が同じだが、浄化されているため飲んでも酔うことができない。\n#～家庭でできる応急処置～\n
+        EN  Popular chemical for germaphobes. Through its purifying power and chemical mechanism, it weakens pathogenic microorganisms and viruses and renders them non-pathogenic. It cannot sterilize, but it is effective against poisons and diseases. Its main ingredient is the same as alcohol, but because it is purified, it cannot be consumed to get drunk. \n#~First aid at home~
+    --- description(3)  :53775 ⚠️ TETTO SECCO 69
+        JP  \t\t消毒用の薬品だ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a gallon of disinfectant.
+        IT  Un prodotto per disinfettare.
+
+=== ITEM_ID_COLA   [FILTER_ITEM_POTION]
+    NOME      jp コーラ
+              en cola
+              IT cola
+    --- description(0)  :55344
+        JP  \t\tシナモンやバニラの風味が特徴的な炭酸飲料。コーラという木の実を当初使っていたことが名前の由来。大量に糖分が入っており、飲み過ぎると太る。飲んだらゲップが出るのは確実。ルートもわからん状態で山に登れば遭難するっていうくらい確実。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  Carbonated beverage with a distinctive cinnamon and vanilla flavor. The name comes from the fact that it was initially made from the fruit of a tree called cola. It contains large amounts of sugar and makes you fat if you drink too much. \n#~Drinks to Drink, Drinks Not to Drink~
+    --- description(2)  :55346
+        JP  
+        EN  \"If you drink a cola, you'll burp!! Like how you climb a mountain without where the summit is, you'll run into trouble! You absolutely will! It's inevitable!\" \n#~some weird old guy~
+    --- description(3)  :55347 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復できる飲み物だ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a beverage that restores satiety.
+        IT  Una bevanda che sazia.
+
+=== ITEM_ID_BARLEY_TEA   [FILTER_ITEM_POTION]
+    NOME      jp 麦茶
+              en barley tea
+              IT tè d'orzo
+    --- description(0)  :55415
+        JP  \t\t万能ムギの種子を煎じて作ったお茶。茶葉から作られていないためカフェインが入っていない。香ばしさとスッキリした味わいが特徴。血流を改善する効果もある。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  Tea made by infusing the seeds of the all-purpose wheatgrass. Since it is not made from tea leaves, it does not contain caffeine. It is characterized by its savory and refreshing taste. It also improves blood flow. \n#~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :55418 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復できる飲み物だ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a beverage that restores satiety.
+        IT  Una bevanda che sazia.
+
+=== ITEM_ID_ENCOUNTER_CANCELLER   [FILTER_ITEM_POTION]
+    NOME      jp アラートドキシン
+              en encounter canceller
+              IT annullatore d'incontri
+    --- description(0)  :56130
+        JP  \t\t生物を本能的に警戒させる成分が凝縮された薬剤。歩きながら定期的に周囲へ散布すれば、野生動物の襲撃は回避できるだろう。ほんの少しでも効果がありたっぷり４００マイルは使える。一応飲めるが、身体が警戒を通り越して拒絶反応を起こすのでやめたほうがいい。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  This is a concentrated agent with ingredients that instinctively put creatures on alert. If sprayed regularly around the area while walking, wildlife attacks can be avoided. Even a small amount is effective and can be used for 400 miles. It is possible to drink it, but it is best not to, as your body will reject it beyond alarm. \n#~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :56133 ⚠️ TETTO SECCO 69
+        JP  \t\t飲むこともできる物体だ。使用することができる（使い捨て）。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  (Single-use) usable potion.
+        IT  Un oggetto che si può anche bere. Si usa (usa e getta).
+
+=== ITEM_ID_URINE   [FILTER_ITEM_POTION]
+    NOME      jp ジョロジョロ
+              en urine
+              IT urina
+    --- description(0)  :56471
+        JP  \t\t老廃物や過剰水分から作られた、液体状の排泄物。決して衛生的なものではないが、発酵させると洗濯に使えるというから奥が深い。水薬ではないが一応飲める。…塩分濃度が高いので注意。\n#～夢の廃物利用～\n
+        EN  Liquid excrement made from waste and excess water. It is by no means hygienic, but when fermented, it can be used for washing clothes. It is not a medicine, but it is drinkable..... Do beware its high salt content. \n#~Magical Ways of Waste Utilization~
+    --- description(2)  :56473
+        JP  \t\t「ここにおしっこをさせないでください」\n#～根元の濡れた標識～\n
+        EN  \"Dare you enter my magical realm?\" \n#~the Whizzard~
+    --- description(3)  :56474 ⚠️ TETTO SECCO 69
+        JP  \t\t飲むことができる物体だ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is something that is (questionably) drinkable.
+        IT  Un oggetto che si può bere.
+
+=== ITEM_ID_POTION_WISDOM   [FILTER_ITEM_POTION]
+    NOME      jp 賢皇薬 賢皇薬
+              en wisdom high potion
+              IT saggezza pozione superiore
+    non ident. IT origini antiche   (en ancient origins)
+    --- description(0)  :58849
+        JP  \t\t心身を一時的に研ぎ澄ます上級ポーション。皇帝でありながら優れた錬金術士だった古の人物が生み出したとされる。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  A high-level potion that temporarily hones one's mind and body. Said to have been formulated by an ancient emperor who was also a prodigious alchemist.\n# ~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :58852 ⚠️ TETTO SECCO 69
+        JP  \t\t様々な能力を向上させるポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a potion that boosts all sorts of abilities.
+        IT  Una pozione che migliora attributi di ogni genere.
+
+=== ITEM_ID_POTION_GEM   [FILTER_ITEM_POTION]
+    NOME      jp 宝石絢爛のポーション 宝石絢爛のポーション
+              en gem potion
+              IT gemma pozione
+    --- description(0)  :58920
+        JP  \t\t飲むと宝石が周囲を舞っているかのような輝きに包まれる水薬。一時的なものだがきらびやかな雰囲気を出すには十分だ。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  This potion envelops the imbiber in a dance of glittering lights, reminiscent of sparkling gems. It's enough to leave a dazzling impression, though it only lasts a short time.\n# ~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :58923 ⚠️ TETTO SECCO 69
+        JP  \t\t耐久と魅力の向上と、麻痺と盲目に耐性を得ることができるポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a potion that boosts CON & CHA and resists paralysis & blindness.
+        IT  Alza costituzione e carisma, e resiste a paralisi e cecità.
+
+=== ITEM_ID_GREEN_TEA   [FILTER_ITEM_POTION]
+    NOME      jp 緑茶
+              en green tea
+              IT tè verde
+    --- description(0)  :59385
+        JP  \t\t人気の高い嗜好飲料。茶葉を極力発酵させないようにして作られる。精神を落ち着ける他、身体の免疫力を高める、脂肪の燃焼を助けるといった効能がある。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  Highly popular beverage of choice. It is made by minimizing the fermentation of tea leaves. In addition to calming the mind, it also has the effect of boosting the body's immune system and aiding in the burning of fat. \n#~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :59388 ⚠️ TETTO SECCO 69
+        JP  \t\t回復効果のあるお茶だ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a tea beverage with health benefits.
+        IT  Un tè che ha effetti curativi.
+
+=== ITEM_ID_BLACK_TEA   [FILTER_ITEM_POTION]
+    ⚠️ NOME    non trovato nel dizionario: la prosa non ha un nome a cui obbedire
+    --- description(0)  :59456
+        JP  \t\t人気の高い嗜好飲料。茶葉を完全発酵させて作られる。葉に残留していたマナが発酵の過程で吸収しやすい形に変化しており、ＭＰ回復・疲労回復等の効能がある。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  Highly popular beverage of choice. It is made by minimizing the fermentation of tea leaves. The mana remaining in the leaves is transformed into an easily absorbable form during the fermentation process, and is effective for MP recovery, recovery from fatigue, etc. \n#~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :59459 ⚠️ TETTO SECCO 69
+        JP  \t\t回復効果のあるお茶だ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a tea beverage with health benefits.
+        IT  Un tè che ha effetti curativi.
+
+=== ITEM_ID_GASOLINE   [FILTER_ITEM_POTION]
+    NOME      jp 揮発油
+              en gasoline
+              IT benzina
+    --- description(0)  :61652
+        JP  \t\tガソリンとも呼ばれる。古代文明では燃料として用いられていたらしい。揮発性が高く、現在のイルヴァの大気環境では短時間で蒸発してしまう。引火して危ないので、どうしても浴びたいなら火の気のないところで。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  Also known as petrol. Used as fuel by ancient civilizations. Highly volatile, it evaporates in a short time in the current atmospheric environment of Irva. Because it is flammable and dangerous, if you must be exposed to it, do so in a place where there is no fire. \n#~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :61655 ⚠️ TETTO SECCO 69
+        JP  \t\t臭気を放つ揮発性の油だ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is volatile oil that gives off an odor.
+        IT  Un olio volatile che manda cattivo odore.
+
+=== ITEM_ID_ESSENTIAL_OIL   [FILTER_ITEM_POTION]
+    NOME      jp 精油
+              en essential oil
+              IT olio essenziale
+    --- description(0)  :61723
+        JP  \t\tエッセンシャルオイルとも呼ばれる。大量の植物から抽出する必要があるため高価。揮発性が高く、現在のイルヴァの大気環境では短時間で蒸発してしまう。普通は香料として少量ずつ用いるもの。多量につけると匂いがキツいので、つけすぎないように。引火性もある。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  Essential oils. Expensive because they must be extracted from large quantities of plants. They are highly volatile and evaporate in a short time in the current atmospheric environment of Irva. It is usually used in small quantities as a fragrance. It has a strong odor when applied in large quantities, so do not apply too much. It is also flammable. \n#~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :61726 ⚠️ TETTO SECCO 69
+        JP  \t\t植物産の揮発性の油だ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is some plant-based volatile oil.
+        IT  Un olio volatile di origine vegetale.
+
+=== ITEM_ID_KNEADED_SWEETS_OF_WITCH   [FILTER_ITEM_POTION]
+    NOME      jp 魔女の練り菓子
+              en kneaded sweets of witch
+              IT dolcetti della strega
+    --- description(0)  :63384
+        JP  \t\tねればねるほど色が変わって効能が増すという不思議な水飴。魔女が暇つぶしで長年かけてねりにねりまくった結果、美味すぎて気絶する程になった。\n#～移り変わりゆくティリスの食～\n
+        EN  Mysterious syrup that changes color and increases in efficacy the more it is kneaded. The witch spent many years kneading it in her spare time, and as a result, it became so delicious that people would faint.\n#~Everchanging Food of Tyris~
+    --- description(3)  :63387 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復できる飲み物だ。全回復するが気絶する。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is food that fully restore satiety. Some faint due to its strong kick.
+        IT  Una bevanda che sazia. Rimette in sesto, ma fa svenire.
+
+=== ITEM_ID_JUICE   [FILTER_ITEM_POTION]
+    ⚠️ NOME    non trovato nel dizionario: la prosa non ha un nome a cui obbedire
+    --- description(0)  :63794
+        JP  \t\t果物や野菜、木の実の汁で作られた飲料。素材の栄養を効率的に吸収できる。各人の嗜好に合わせ、数種類を混ぜてミックスジュースにしたり、乳と混ぜたりしてもいいだろう。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  A beverage made from the juice of fruits, vegetables and nuts. The nutrients of the ingredients can be absorbed efficiently. You can mix several kinds to make a mixed juice or mix it with milk, according to each person's taste. \n#~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :63797 ⚠️ TETTO SECCO 69
+        JP  \t\t満腹度を回復できる飲み物だ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a beverage that restores satiety.
+        IT  Una bevanda che sazia.
+
+=== ITEM_ID_POTION_FEATHER   [FILTER_ITEM_POTION]
+    NOME      jp 翼鳥のポーション 翼鳥のポーション
+              en feather potion
+              IT piuma pozione
+    --- description(0)  :65671
+        JP  \t\t突然自らが空を駆ける鳥になったような気になる水薬。重力を一時的に弱め、体が一時的に軽くなる。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  This potion imparts a sudden feeling of becoming a bird, soaring through the sky. Temporarily weakens the effects of gravity on the user, and makes the body feel more nimble for a while.\n# ~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :65674 ⚠️ TETTO SECCO 69
+        JP  \t\t一時的にDVを上げ、浮遊することができるポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a potion that temporarily raises DV and floats you.
+        IT  Alza il DV per un po' e fa fluttuare.
+
+=== ITEM_ID_POTION_CONCENTRATION   [FILTER_ITEM_POTION]
+    NOME      jp 集中力向上のポーション 集中力向上のポーション
+              en concentration potion
+              IT concentrazione pozione
+    --- description(0)  :65742
+        JP  \t\t突然自らの集中力が高まる水薬。頭が冴えた状態になり、眠気にも耐性がつくが頭が良くなるわけではない。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  A potion that instantly sharpens one's ability to concentrate. Though it clears the user's head and wards off drowsiness, it will not make you any smarter.\n# ~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :65745 ⚠️ TETTO SECCO 69
+        JP  \t\t感覚と意志の向上と、睡眠と混乱に耐性を得ることができるポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a potion that boosts PER & WIL and helps resist sleep & confusion.
+        IT  Alza percezione e volontà, e resiste a sonno e confusione.
+
+=== ITEM_ID_COFFEE   [FILTER_ITEM_POTION]
+    ⚠️ NOME    non trovato nel dizionario: la prosa non ha un nome a cui obbedire
+    --- description(0)  :68521
+        JP  \t\t人気の高い嗜好飲料。その風味は焙煎の度合いや挽き加減、淹れ方や用いる器具などにより異なり、万人が最善だと思うものは存在しない。乳を混ぜるのも人気。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  A popular beverage of choice. Its flavor varies depending on the degree of roasting and grinding, the brewing method and equipment used, and there is no one best for everyone. Mixing with milk is also popular. \n#~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :68524 ⚠️ TETTO SECCO 69
+        JP  \t\t軽い眠気を誤魔化せるポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a potion that can trick mild sleepiness.
+        IT  Una pozione che inganna un po' di sonnolenza.
+
+=== ITEM_ID_BOTTLE_ANTISEPTIC   [FILTER_ITEM_POTION]
+    NOME      jp 永久防腐剤 永久防腐剤
+              en antiseptic bottle
+              IT antisettico bottiglia
+    --- description(0)  :70065
+        JP  \t\t混ぜることで食品を永久に腐らないようにするが、食事の成長効果が半減する薬品。希釈してかつ食品に混ぜて使うことを想定しており、そのまま飲むと有害。当然既に腐っている物には効果が無いので、アンデッドに飲ませても腐らなくなったりはしない。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  When mixed with food, this chemical permanently prevents it from rotting, though its nutritional value will be halved. It's meant to be diluted in food, and is highly toxic when consumed as-is. Naturally, this preservative will have no effect on things that are already rotten, so it will not stop undead from decaying, even if they drink it.\n# ~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :70068 ⚠️ TETTO SECCO 69
+        JP  \t\t混ぜた食品を腐らなくするポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a potion that keeps food from rotting.
+        IT  Mescolata a un cibo, gli impedisce di marcire.
+
+=== ITEM_ID_POTION_SOMA   [FILTER_ITEM_POTION]
+    NOME      jp ソーマ ソーマ
+              en soma high potion
+              IT soma pozione superiore
+    non ident. IT colore azzurro   (en blue color)
+    --- description(0)  :71997
+        JP  \t\t神々の用いる栄養剤。心身を強化し疲労と眠気を吹き飛ばし、病気すら一発で治す効果がある。ただし、あまりの強烈さに幻覚が見えてくるので注意。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  A nutritional supplement used by the gods. It energizes the mind and body, wipes away drowsiness and fatigue, and even cures illnesses with just a single dose. However, be advised that its extreme potency is known to induce hallucinations.\n# ~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :72000 ⚠️ TETTO SECCO 69
+        JP  \t\t疲労と眠気を回復するポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a potion that restores stamina and and relieves drowsiness.
+        IT  Una pozione che toglie fatica e sonnolenza.
+
+=== ITEM_ID_POTION_NEKTAR   [FILTER_ITEM_POTION]
+    NOME      jp ネクタル ネクタル
+              en nektar high potion
+              IT nettare pozione superiore
+    non ident. IT formato barile   (en a barrel-size)
+    --- description(0)  :72070
+        JP  \t\t昔の神々が飲んでいたとされる不死の酒を再現したもの。あらゆる食品と相性がよく、拒食症すら忘れるほどに美味。たが再現が不十分であり、希釈しているにも関わらず激しく酔う。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  In ancient times, the gods were said to have drunk an alcohol that granted immortality; this is a reproduction of that drink. It goes well with all manner of foods, and its delicious flavor can even cure anorexia. However, this replica is imperfect, and even though it's heavily diluted, it will make anyone violently drunk.\n# ~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :72073 ⚠️ TETTO SECCO 69
+        JP  \t\t体力を大幅に回復するポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a potion that greatly restores HP.
+        IT  Una pozione che ridà molti HP.
+
+=== ITEM_ID_POTION_DISASTER   [FILTER_ITEM_POTION]
+    NOME      jp 大災薬 大災薬
+              en disaster high potion
+              IT disastro pozione superiore
+    non ident. IT sventura inflitta   (en inflicting misfortune)
+    --- description(0)  :72141
+        JP  \t\t災いを封じ込めた上級ポーション。復讐に燃える魔術士が偶然生み出したとされる。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  A great calamity has been sealed within this high-level potion. Said to have been created on accident by a wizard burning with revenge.\n# ~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :72144 ⚠️ TETTO SECCO 69
+        JP  \t\t様々な状態異常を引き起こすポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a potion that causes many negative status effects.
+        IT  Una pozione che provoca stati alterati di ogni genere.
+
+=== ITEM_ID_POTION_AQUA_SANCTIO   [FILTER_ITEM_POTION]
+    NOME      jp サンクティオ サンクティオ
+              en aqua sanctio high potion
+              IT aqua sanctio pozione superiore
+    non ident. IT reazione volatile   (en volatile reaction)
+    --- description(0)  :72212
+        JP  \t\t空気に触れた状態で衝撃や熱を与えると、小爆発を起こす危険な液体。かつては罪人への制裁に用いられていた。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  A dangerous fluid that, when exposed to air, reacts explosively to heat or physical shocks. It was once used to punish criminals.\n# ~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :72215 ⚠️ TETTO SECCO 69
+        JP  \t\t強力な攻撃用ポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a powerful offensive potion.
+        IT  Una pozione d'attacco, e potente.
+
+=== ITEM_ID_BOTTLE_SPEED_UPPER   [FILTER_ITEM_POTION]
+    NOME      jp スピードリンク スピードリンク
+              en speed upper bottle
+              IT acceleratore bottiglia
+    --- description(0)  :74432
+        JP  \t\t高名な錬金術師が長年の研究の末に作り出したポーション。その生成法は複雑すぎて他の錬金術師にはよくわからない。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  A potion formulated by a distinguished alchemist after many years of research. Its production process is too complicated for any other alchemist to comprehend.\n# ~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :74435 ⚠️ TETTO SECCO 69
+        JP  \t\t速度の潜在能力を回復するポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a potion that restores speed potential.
+        IT  Una pozione che ridà potenziale alla velocità.
+
+=== ITEM_ID_VERNIS_ORIGINAL   [FILTER_ITEM_POTION]
+    NOME      jp ヴェルニースオリジナル
+              en <Vernis Original>
+              IT <Originale di Vernis>
+    non ident. IT caramella speciale   (en special candy)
+    --- description(0)  :77634
+        JP  \t\tヴェルニースで古くから作られている伝統的なキャンディ。富豪など特別な人間の間でしか出回っておらず、一般人が口にする機会は普通ない。それどころか見る機会もない。\n#～イルヴァ幻想辞典～\n
+        EN  This traditional candy has been made in Vernis since the old days. It is only available among the wealthy and other special people, and the general public does not usually have the opportunity to taste it. In fact, it is rare to even see it. \n# ~Irva Fantasy Encyclopedia~
+    --- description(2)  :77636
+        JP  \t\t「お爺ちゃんがいつもくれるキャンディ、とてもクリーミーでおいしいけど…どっちかというとお小遣いのほうが欲しいなぁ」\n#～特別な孫の言葉～\n
+        EN  \"Grandpa always gives me candy, it's very creamy and delicious... but I'd rather have an allowance.\" \n# ~words of a grand-son~
+    --- description(3)  :77637 ⚠️ TETTO SECCO 69
+        JP  \t\t色々回復する特別なキャンディだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a special candy that restores all sorts of things.
+        IT  Una caramella speciale che ridà un po' di tutto.
+
+=== ITEM_ID_BLUE_CAPSULE_DRAG   [FILTER_ITEM_POTION]
+    NOME      jp ブルーカプセルドラッグ
+              en blue capsule drag
+              IT droga in capsula blu
+    non ident. IT capsula azzurra   (en blue capsule)
+    --- description(0)  :79503
+        JP  \t\t青い素材で作られた小さな円筒形の物質。肉体を活性化させる食べ物という噂だが、その見た目から進んで食べてみようと思う者はいないようだ。\n#～別冊ヨウィン・未知の知識を追え！～\n
+        EN  Small cylindrical substance made of blue material. It is rumored to be a food that activates one's body, but no one seems to be willing to try it because of its appearance. \n# ~The Yowyn Book of Secrt Knowledge!~
+    --- description(3)  :79506 ⚠️ TETTO SECCO 69
+        JP  \t\t疲れを取ることができるカプセルだ。飲むことができる。\n#～鑑定報告書：＜薬物＞カテゴリ～\n
+        EN  It is a drinkable capsule that restores your stamina.
+        IT  Una capsula che toglie la fatica. Si può bere.
+
+=== ITEM_ID_BOTTLE_SODA   [FILTER_ITEM_POTION]
+    NOME      jp ラムネ ラムネ
+              en soda bottle
+              IT gazzosa bottiglia
+    non ident. IT liquido trasparente   (en clear liquid)
+    --- description(0)  :79574
+        JP  \t\t祭りの出店等で販売される、子供でも飲むことができる舌を騒がす水薬。程良く甘いその味は、飲むだけで何だか疲れが吹き飛ぶようだ。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  Often sold at festivals, even children can enjoy this tongue-tingling drink. Its refreshing semisweet taste seems to melt away fatigue somehow.\n# ~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :79577 ⚠️ TETTO SECCO 69
+        JP  \t\t疲れを取ることができる飲み物だ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a drink that can restore stamina.
+        IT  Una bevanda che toglie la fatica.
+
+=== ITEM_ID_FIREPROOF_LIQUID   [FILTER_ITEM_POTION]
+    NOME      jp 耐熱コーティング液
+              en fireproof liquid
+              IT liquido ignifugo
+    --- description(0)  :81811
+        JP  \t\t浸したものに耐炎の保護膜を塗布する水薬。あくまでも物品にしか効果がないので、飲んだところで、あなたの内臓はアツアツの物を食べた時に生ずる火傷に何ら抵抗を示さないだろう。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  Potion that applies a flame-resistant protective coating to the item in which it is immersed. It is only effective on the item, so when you drink it, your internal organs will not show any resistance to the burns that occur when you eat something hot. \n#~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :81814 ⚠️ TETTO SECCO 69
+        JP  \t\t混ぜた物を炎から守るポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a potion that protect items from fire when blended.
+        IT  Mescolata a una cosa, la protegge dal fuoco.
+
+=== ITEM_ID_POTION_EVOLUTION   [FILTER_ITEM_POTION]
+    NOME      jp 進化のポーション 進化のポーション
+              en evolution potion
+              IT evoluzione pozione
+    --- description(0)  :83482
+        JP  \t\t自らの肉体を合理的に再構築させる効果を持つ水薬。成分は不明だが、謎のドームの一団が秘密の一端を握っているらしい、ということだけ分かっている。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  A potion that reconstructs the imbiber's body in a logical fashion. Its composition is unknown. All that's known is that a group from a mysterious dome may understand a part of the secret.\n# ~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :83485 ⚠️ TETTO SECCO 69
+        JP  \t\t有効的な変異を得ることができるポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a potion that causes advantageous mutations.
+        IT  Una pozione che porta mutazioni utili.
+
+=== ITEM_ID_POTION_DESCENT   [FILTER_ITEM_POTION]
+    NOME      jp 下落のポーション 下落のポーション
+              en descent potion
+              IT declino pozione
+    --- description(0)  :83835
+        JP  \t\t飲んだ瞬間、自分が今まで積み上げてきた何かが崩れ去っていったかのような感覚に陥る非常に危険なポーション。気をつけるがいい、あなたは今や過去のあなただ！\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  The moment you drink this highly dangerous potion, it will feel as though something you have built up has crumbled away. Beware, for you are now the you-of-the-past!\n# ~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :83838 ⚠️ TETTO SECCO 69
+        JP  \t\tレベルを下げるポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a potion that induces level-lowering effect.
+        IT  Una pozione che abbassa il livello.
+
+=== ITEM_ID_VOMIT   [FILTER_ITEM_POTION]
+    NOME      jp ゲロゲロ
+              en vomit
+              IT vomito
+    --- description(0)  :83972
+        JP  \t\t調子に乗って飲みすぎたり、傷んだものを食べてしまったり。その様な際に肉体がとる自衛的行動によって生み出された悲劇の物質。水薬ではないが一応飲める。一応、飲める…。\n#～鉄の胃袋を求めて・完食列伝～\n
+        EN  Produced by excessive consumption or eating spoiled food. It is a tragic substance produced by the body's self-protective actions in such cases. It is not a potion, but it is drinkable. Surely.. drinkable... \n#~Iron Stomach: A Complete Diet~
+    --- description(2)  :83974
+        JP  \t\t「生きている以上吐くことだってあるだろうな。だがな、街の中に吐くことだけは決して許さん。もし俺の眼の前でやってみろ、その場で即座におまえの口に押し戻してやるからな！」\n#～掃除屋『バルザック』の言葉～\n
+        EN  \"As long as you're alive, you're going to throw up. But I will never allow you to throw up in the city. If you do it in front of me, I will immediately push it back into your mouth!\" \n#~the Cleaner Balzak~
+    --- description(3)  :83975 ⚠️ TETTO SECCO 69
+        JP  \t\t飲むことができる物体だ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is something that is (questionably) drinkable.
+        IT  Un oggetto che si può bere.
+
+=== ITEM_ID_POTION_SALT_SOLUTION   [FILTER_ITEM_POTION]
+    NOME      jp 食塩水 食塩水
+              en salt solution potion
+              IT soluzione salina pozione
+    --- description(0)  :84367
+        JP  \t\t塩分が過分に含まれた水薬。完全に混ざり切っている為料理に使用することはできないが、町の清掃員達はこれを害虫駆除用に多数携行しているという。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  A potion containing excessive amounts of sodium. Since the salt is completely dissolved, it can't be used for cooking. But town cleaners supposedly carry lots of this substance for use in pest control.\n# ~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :84370 ⚠️ TETTO SECCO 69
+        JP  \t\t塩辛いだけのポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a potion that's just salty.
+        IT  Una pozione che è soltanto salata.
+
+=== ITEM_ID_BOTTLE_HERMES_BLOOD   [FILTER_ITEM_POTION]
+    NOME      jp ヘルメスの血 ヘルメスの血
+              en hermes blood bottle
+              IT sangue di Ermes bottiglia
+    --- description(0)  :89149
+        JP  \t\t瓶を通してでも高熱を帯びていると分かる異様な液体。意を決してそれを飲み込んだ時、あなたはそこに過去のあなたを見るだろう！\n#～イルヴァ幻想辞典～\n
+        EN  A strange liquid substance, its intense heat can be felt even through the bottle. When gulped down with determination, you might see your past self!\n# ~Irva Fantasy Encyclopedia~\n
+    --- description(3)  :89152 ⚠️ TETTO SECCO 69
+        JP  \t\t速度が恒久的に上昇するポーションだ。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a potion that permanently increases speed.
+        IT  Una pozione che alza la velocità per sempre.
+
+=== ITEM_ID_LOVE_POTION   [FILTER_ITEM_POTION]
+    NOME      jp 媚薬
+              en love potion
+              IT filtro d'amore
+    non ident. IT liquido trasparente   (en clear liquid)
+    --- description(0)  :89561
+        JP  \t\t名前だけで何やらときめきを感じさせる魅惑の水薬。デリカシーのない者は直接手渡そうとして手痛い平手を食らうが、そういう趣味のある人はご自由に。友達以上の関係には効果がない。\n#～飲めるのみもの、飲めないのみもの～\n
+        EN  Just the name alone is enough to make one feel a certain kind of crush. Those with no sense of delicacy will get a painful slap if they try to hand it to you directly, but those who have a taste for such things are free to do so. It has no effect on relationships beyond acquaintance. \n#~Drinks to Drink, Drinks Not to Drink~
+    --- description(3)  :89564 ⚠️ TETTO SECCO 69
+        JP  \t\t人の友好度を上げるポーション。食物に混ぜることができる。\n#～鑑定報告書：＜液体＞カテゴリ～\n
+        EN  It is a potion that increases impression. You can blend it in food.
+        IT  Alza la simpatia. Si può mescolare al cibo.
+
+== 37 oggetti, 78 descrizioni

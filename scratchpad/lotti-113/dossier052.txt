@@ -1,0 +1,277 @@
+=== ITEM_ID_SCROLL_FAITH   [FILTER_ITEM_SCROLL]
+    NOME      jp 信仰の巻物 信仰の巻物
+              en faith scroll
+              IT fede pergamena
+    --- description(0)  :102250
+        JP  \t\t神との対話を行うことで、信仰を深めることができる巻物。巻き物というより神へ宛てた手紙の様なものなのだろう。\n#～魔具全典～\n
+        EN  A scroll that allows people to deepen their faith by conversing with God. It's probably more like a letter to God than a scroll. \n#~Arcane Alamanac~
+    --- description(3)  :102253 ⚠️ TETTO SECCO 69
+        JP  \t\t信仰の深さが増す巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, deepens your faith.
+        IT  Una pergamena che fa crescere la Fede.
+
+=== ITEM_ID_SCROLL_GROWTH   [FILTER_ITEM_SCROLL]
+    NOME      jp 成長の巻物 成長の巻物
+              en growth scroll
+              IT crescita pergamena
+    --- description(0)  :102321
+        JP  \t\t肉体を成長させる魔法がかけられた貴重な巻物。読むことであなたは更に強靭になるだろう。\n#～魔具全典～\n
+        EN  These precious scrolls are enchanted to develop your body. Reading it will make you even stronger. \n#~Arcane Alamanac~
+    --- description(3)  :102324 ⚠️ TETTO SECCO 69
+        JP  \t\tスキルの潜在能力を上げる巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, raises your skill potential.
+        IT  Alza il potenziale di un'abilità.
+
+=== ITEM_ID_SCROLL_DETECT_OBJECTS   [FILTER_ITEM_SCROLL]
+    NOME      jp 物質感知の巻物 物質感知の巻物
+              en detect objects scroll
+              IT individuazione degli oggetti pergamena
+    --- description(0)  :103576
+        JP  \t\t何かがある箇所を察知させる巻物。何があるかわからない壁の向こうや、透明の物体をも感知できるため、探索時には用意しておきたい。\n#～魔具全典～\n
+        EN  Scrolls that allow the user to detect the location of objects. It can detect objects behind walls, or even invisible objects, so it should be readied when searching for something. \n#~Arcane Alamanac~
+    --- description(3)  :103579 ⚠️ TETTO SECCO 69
+        JP  \t\t周囲の物質を感知する巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, detects and marks nearby objects.
+        IT  Una pergamena che scopre le cose qui attorno.
+
+=== ITEM_ID_SCROLL_KNOWLEDGE   [FILTER_ITEM_SCROLL]
+    NOME      jp 知恵の巻物 知恵の巻物
+              en knowledge scroll
+              IT conoscenza pergamena
+    --- description(0)  :104446
+        JP  \t\t一時的に賢くなれる巻物。試験の季節になると碌に勉強もせず、この巻物を当てにした客で道具屋が一時的に賑わうという。\n#～魔具全典～\n
+        EN  A scroll that makes you smarter temporarily. It is said that during the examination season, the tool shops are temporarily crowded with customers who rely on these scrolls without studying as far as they are concerned. \n#~Arcane Alamanac~
+    --- description(3)  :104449 ⚠️ TETTO SECCO 69
+        JP  \t\t一定時間読書をする為に必要な要素を上昇させる巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, enhances reading capabilities temporarily.
+        IT  Per un po', rende più facile leggere i libri.
+
+=== ITEM_ID_SCROLL_GAIN_MATERIAL   [FILTER_ITEM_SCROLL]
+    NOME      jp マテリアル生成の巻物 マテリアル生成の巻物
+              en gain material scroll
+              IT creazione di materiali pergamena
+    --- description(0)  :104663
+        JP  \t\t読むと空からマテリアルが落ちてくる奇妙な巻物。何故巻物を読むとマテリアルが降ってくるのか、この関連性は未だ以て不明である。\n#～魔具全典～\n
+        EN  Strange scrolls that, when read, cause materials to fall from the sky. It is still unclear why materials fall from the sky when the scroll is read. \n#~Arcane Alamanac~
+    --- description(3)  :104666 ⚠️ TETTO SECCO 69
+        JP  \t\tマテリアルが手に入る巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, grants you miscellaneous materials.
+        IT  Una pergamena che fa ottenere dei materiali.
+
+=== ITEM_ID_SCROLL_MANA   [FILTER_ITEM_SCROLL]
+    NOME      jp 魔力の巻物 魔力の巻物
+              en mana scroll
+              IT mana pergamena
+    --- description(0)  :105013
+        JP  \t\t読むことで一瞬のうちに肉体をマナで満たす巻物。緊急時に一巻持っていると思った以上に役立つらしい。\n#～魔具全典～\n
+        EN  A scroll that, when read, instantly fills the body with mana. They say that having a scroll with you in an emergency is more useful than you think. \n#~Arcane Alamanac~
+    --- description(3)  :105016 ⚠️ TETTO SECCO 69
+        JP  \t\tＭＰを回復する巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, restores your MP.
+        IT  Una pergamena che ridà MP.
+
+=== ITEM_ID_SCROLL_HOLY_RAIN   [FILTER_ITEM_SCROLL]
+    NOME      jp 全浄化の巻物 全浄化の巻物
+              en holy rain scroll
+              IT pioggia sacra pergamena
+    --- description(0)  :105084
+        JP  \t\t身にかかった呪いを全て打ち消す巻物。尚、勝手が違うのか装備品の呪いは打ち消すことはできない。\n#～魔具全典～\n
+        EN  A scroll that cancels all curses on the body. It does not cancel curses on equipment. \n#~Arcane Alamanac~
+    --- description(3)  :105087 ⚠️ TETTO SECCO 69
+        JP  \t\t身にかかった呪いを全て打ち消す巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, removes all curses cast on you.
+        IT  Toglie di dosso tutte le maledizioni.
+
+=== ITEM_ID_SCROLL_HOLY_LIGHT   [FILTER_ITEM_SCROLL]
+    NOME      jp 清浄なる光の巻物 清浄なる光の巻物
+              en holy light scroll
+              IT luce sacra pergamena
+    --- description(0)  :105155
+        JP  \t\t身にかかった呪いを１つ打ち消す巻物。尚、勝手が違うのか装備品の呪いは打ち消すことはできない。\n#～魔具全典～\n
+        EN  A scroll that cancels 1 curses on the body. It does not cancel curses on equipment. \n#~Arcane Alamanac~
+    --- description(3)  :105158 ⚠️ TETTO SECCO 69
+        JP  \t\t身にかかった呪いを１つ打ち消す巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, removes 1 curses cast on you.
+        IT  Toglie di dosso una maledizione.
+
+=== ITEM_ID_SCROLL_HOLY_VEIL   [FILTER_ITEM_SCROLL]
+    NOME      jp ホーリーヴェイルの巻物 ホーリーヴェイルの巻物
+              en holy veil scroll
+              IT velo sacro pergamena
+    --- description(0)  :105452
+        JP  \t\t身に降りかかる呪いを防ぐという聖なる衣を一時的に展開する巻物だ。\n#～魔具全典～\n
+        EN  It is a scroll that temporarily deploys a sacred robe that is said to protect the body from curses. \n#~Arcane Alamanac~
+    --- description(3)  :105455 ⚠️ TETTO SECCO 69
+        JP  \t\t一定時間呪いに対する抵抗を得る巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, dispels curses temporarily.
+        IT  Per un po', dà resistenza alle maledizioni.
+
+=== ITEM_ID_SCROLL_VANISH_CURSE   [FILTER_ITEM_SCROLL]
+    NOME      jp *解呪*の巻物 *解呪*の巻物
+              en vanish curse scroll
+              IT purificazione superiore pergamena
+    --- description(0)  :106981
+        JP  \t\t身につけた装備品の呪いを解く巻物。より強力である為解呪に失敗することはない、はずだ。\n#～魔具全典～\n
+        EN  Scrolls that break the curse of worn equipment. It is more powerful and thus never fails to break the curse. \n#~Arcane Alamanac~
+    --- description(3)  :106984 ⚠️ TETTO SECCO 69
+        JP  \t\tアイテムの呪いを解く巻物。より強力だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, removes curses from equipments. Potent.
+        IT  Toglie la maledizione a un oggetto. È più forte del solito.
+
+=== ITEM_ID_SCROLL_GREATER_IDENTIFY   [FILTER_ITEM_SCROLL]
+    NOME      jp *鑑定*の巻物 *鑑定*の巻物
+              en greater identify scroll
+              IT identificazione superiore pergamena
+    --- description(0)  :107052
+        JP  \t\t未鑑定の品を鑑定する巻物。より強力であるが、それでも鑑定できない場合は大人しく魔道士に調査してもらおう。\n#～魔具全典～\n
+        EN  A scroll that appraises unappraised items. It is more powerful, but if the item still cannot be appraised, have it investigated by a mage instead. \n#~Arcane Alamanac~
+    --- description(3)  :107055 ⚠️ TETTO SECCO 69
+        JP  \t\t未鑑定のアイテムを鑑定する巻物。より強力だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, identifies unknown items. Potent.
+        IT  Identifica gli oggetti ignoti. È più forte del solito.
+
+=== ITEM_ID_DEED   [FILTER_ITEM_SCROLL]
+    NOME      jp 権利書
+              en deed
+              IT atto
+    --- description(0)  :108327
+        JP  \t\t家を購入する為の手続きとして必要な権利書。冒険者といえど、常に野宿というわけにはいかないのだ。\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  A deed gives the right to a house. Even adventurers cannot always camp out in the wilderness. \n# ~an Adventurer is You! Guide for Travels~
+    --- description(3)  :108330 ⚠️ TETTO SECCO 69
+        JP  \t\t読むことで家を建てることができる権利書だ。\n#～鑑定報告書：＜証書＞カテゴリ～\n
+        EN  (Single-use) Readable deed used to build your own house.
+        IT  Un atto: letto, fa nascere una casa.
+
+=== ITEM_ID_SCROLL_CURSE   [FILTER_ITEM_SCROLL]
+    NOME      jp 呪縛の巻物 呪縛の巻物
+              en curse scroll
+              IT maledizione pergamena
+    --- description(0)  :111921
+        JP  \t\t身につけた装備品に呪いかける危険な巻物。使用した際に稀に効果を発揮しないで塵となる場合があるが、恐らくは日頃の行いの結果だろう。\n#～魔具全典～\n
+        EN  Dangerous scrolls that cast a curse on worn equipment. In some rare cases when it is used, it may not work and turn to dust, probably as a result of daily conduct. \n#~Arcane Alamanac~
+    --- description(3)  :111924 ⚠️ TETTO SECCO 69
+        JP  \t\tアイテムを呪う巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, curses an item in your possession.
+        IT  Una pergamena che maledice un oggetto.
+
+=== ITEM_ID_SCROLL_MINOR_TELEPORTATION   [FILTER_ITEM_SCROLL]
+    NOME      jp ショートテレポートの巻物 ショートテレポートの巻物
+              en minor teleportation scroll
+              IT teletrasporto minore pergamena
+    --- description(0)  :114859
+        JP  \t\t空間に小さな歪みを作り出すことで一瞬のうちに移動することができる巻物。効力がやや弱い為、人と別れる際に使用してすぐ傍にまた現れてしまい気まずい思いをした、という笑い話もあるようだ。\n#～魔具全典～\n
+        EN  A scroll that creates a small distortion in space, allowing a person to travel instantaneously. Because its potency is rather weak, there are some funny stories about people who used it when they were leaving someone, only to have it reappear nearby, causing them to feel awkward. \n#~Arcane Alamanac~
+    --- description(3)  :114862 ⚠️ TETTO SECCO 69
+        JP  \t\t短距離のテレポートを行う巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, teleports you for a short distance.
+        IT  Una pergamena che teletrasporta poco lontano.
+
+=== ITEM_ID_SCROLL_WONDER   [FILTER_ITEM_SCROLL]
+    NOME      jp 不思議な巻物 不思議な巻物
+              en wonder scroll
+              IT meraviglia pergamena
+    --- description(0)  :114930
+        JP  \t\t頭に突然魔法の知識が浮かぶ巻物。一説では、神々が自らの魔法を忘れないようにしたためた本から落ちた、ページの切れはしだと考えられている。\n#～魔具全典～\n
+        EN  Scrolls of magical knowledge. One theory is that they are fragments of pages that fell out of a book in which the gods had written down their magic so that they would not forget it. \n#~Arcane Alamanac~
+    --- description(3)  :114933 ⚠️ TETTO SECCO 69
+        JP  \t\t魔法の知識を得る巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, grants you magical knowledge.
+        IT  Una pergamena che dà conoscenza magica.
+
+=== ITEM_ID_SCROLL_GAIN_ATTRIBUTE   [FILTER_ITEM_SCROLL]
+    NOME      jp 能力獲得の巻物 能力獲得の巻物
+              en gain attribute scroll
+              IT acquisizione di attributi pergamena
+    --- description(0)  :115001
+        JP  \t\t読むことで新たな能力を得るとされる貴重な巻物。遠く、異国の地ではこれらの巻物のことをヒデンショと読んでいたという。\n#～魔具全典～\n
+        EN  Precious scrolls that are said to give new abilities when read. In distant, far away foreign lands, these scrolls were called Master Recipe Tomes. \n#~Arcane Alamanac~
+    --- description(3)  :115004 ⚠️ TETTO SECCO 69
+        JP  \t\t所持していないスキルを得る巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, grants you profession skills.
+        IT  Dà un'abilità che non si ha ancora.
+
+=== ITEM_ID_SCROLL_MAGICAL_MAP   [FILTER_ITEM_SCROLL]
+    NOME      jp 魔法の地図 魔法の地図
+              en magical map scroll
+              IT mappa magica pergamena
+    --- description(0)  :115072
+        JP  \t\t周辺の地形を瞬時に読み取る巻物。主にネフィア用の巻物なので、気になるあの娘の家に侵入して使うという不届きな使い方はできない。\n#～魔具全典～\n
+        EN  A scroll that instantly reads the surrounding terrain. This scroll is mainly for Nefia, so you can't use it to break into the house of that girl you're interested in. \n#~Arcane Alamanac~
+    --- description(3)  :115075 ⚠️ TETTO SECCO 69
+        JP  \t\tダンジョンの未探索部分を明らかにする巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, reveal undiscovered regions nearby.
+        IT  Svela le parti del sotterraneo non ancora esplorate.
+
+=== ITEM_ID_SCROLL_RETURN   [FILTER_ITEM_SCROLL]
+    NOME      jp 帰還の巻物 帰還の巻物
+              en return scroll
+              IT ritorno pergamena
+    --- description(0)  :115453
+        JP  \t\t特定の場所と繋がる門を呼びだす巻物。誤って使用した場合でも慌てず騒がず、再度読むと取り消すことができる。当然ながら２枚消費するが、勉強代と思って諦めよう。\n#～魔具全典～\n
+        EN  A scroll that invokes a gate leading to the specified location. If used by mistake, it can be undone by reading it again. Naturally, two copies are consumed, but consider it a tuition fee. \n#~Arcane Alamanac~
+    --- description(3)  :115456 ⚠️ TETTO SECCO 69
+        JP  \t\t数ターン後に特定の場所にテレポートできる巻物。新たに読むと中止できる。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, teleports you to specified location.
+        IT  Fra qualche turno porta in un luogo scelto. Rileggerla annulla.
+
+=== ITEM_ID_SCROLL_UNCURSE   [FILTER_ITEM_SCROLL]
+    NOME      jp 解呪の巻物 解呪の巻物
+              en uncurse scroll
+              IT purificazione pergamena
+    --- description(0)  :117256
+        JP  \t\t身につけた装備品の呪いを解く巻物。呪いが強力すぎる場合解呪に失敗するが、そうなった時は何か別の手を考えよう。\n#～魔具全典～\n
+        EN  Scrolls that break the curse of worn equipment. It sometimes fails on strong curses. \n#~Arcane Alamanac~
+    --- description(3)  :117259 ⚠️ TETTO SECCO 69
+        JP  \t\tアイテムの呪いを解く巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, removes curses from your equipment.
+        IT  Una pergamena che toglie la maledizione a un oggetto.
+
+=== ITEM_ID_SCROLL_INCOGNITO   [FILTER_ITEM_SCROLL]
+    NOME      jp インコグニートの巻物 インコグニートの巻物
+              en incognito scroll
+              IT incognito pergamena
+    --- description(0)  :130101
+        JP  \t\t一瞬で別人になりすますことができる巻物。使った時の気分はさながら国を動かす大怪盗だ。\n#～魔具全典～\n
+        EN  A scroll that allows you to impersonate someone else in an instant. When you use it, you feel like a great thief who steals the country. \n#~Arcane Alamanac~
+    --- description(3)  :130104 ⚠️ TETTO SECCO 69
+        JP  \t\tモンスター以外の敵対状況をリセットする巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, reset memories of hostile situations.
+        IT  Azzera le ostilità, tranne quelle dei mostri.
+
+=== ITEM_ID_SCROLL_TELEPORTATION   [FILTER_ITEM_SCROLL]
+    NOME      jp テレポートの巻物 テレポートの巻物
+              en teleportation scroll
+              IT teletrasporto pergamena
+    --- description(0)  :130172
+        JP  \t\t空間に歪みを作り出すことで一瞬のうちに別の場所に移動することができる巻物。緊急時には便利だが行き先までは指定できないので待ち合わせに遅れた時等には使えないだろう。\n#～魔具全典～\n
+        EN  A scroll that creates a distortion in space, allowing you to travel elsewhere instantaneously. It is useful in emergencies, but the destination cannot be specified, so it cannot be used if you are late for a meeting, for example. \n#~Arcane Alamanac~
+    --- description(3)  :130175 ⚠️ TETTO SECCO 69
+        JP  \t\tランダムな位置へテレポートを行う巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, teleports you for a distance.
+        IT  Una pergamena che teletrasporta a caso.
+
+=== ITEM_ID_SCROLL_ORACLE   [FILTER_ITEM_SCROLL]
+    NOME      jp 神託の巻物 神託の巻物
+              en oracle scroll
+              IT oracolo pergamena
+    --- description(0)  :130243
+        JP  \t\t伝説の品の存在を知ることができるとされる巻物。誰が持っているかまでは教えてくれない、神はそこまであなたに親身ではないのだ。\n#～魔具全典～\n
+        EN  The scrolls are supposed to tell you about the existence of legendary items. It doesn't even tell you who has it, God is not that friendly to you. \n#~Arcane Alamanac~
+    --- description(3)  :130246 ⚠️ TETTO SECCO 69
+        JP  \t\t今までに現れた★のつくアイテムの現在地を知ることができる巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, reveal locations of powerful artifacts.
+        IT  Dice dove sono finiti gli artefatti già apparsi.
+
+=== ITEM_ID_SCROLL_IDENTIFY   [FILTER_ITEM_SCROLL]
+    NOME      jp 鑑定の巻物 鑑定の巻物
+              en identify scroll
+              IT identificazione pergamena
+    --- description(0)  :130314
+        JP  \t\t未鑑定の品を鑑定する巻物。強力な品の場合鑑定できない場合があるが、そういった場合は魔道士の手を借りよう。\n#～魔具全典～\n
+        EN  A scroll that appraises unappraised items. It is useless agains powerful items, you will need a mage instead. \n#~Arcane Alamanac~
+    --- description(3)  :130317 ⚠️ TETTO SECCO 69
+        JP  \t\t所持アイテムの鑑定を行う巻物だ。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a scroll that when read, identifies unknown items.
+        IT  Una pergamena che identifica gli oggetti che si portano.
+
+== 23 oggetti, 46 descrizioni
