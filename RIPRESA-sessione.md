@@ -1,19 +1,26 @@
 # Ripresa sessione
 
-Aggiornato: 2026-09-01, fine della **centoventesima** sessione (**cinque lotti,
-150 rese, QUATTRO categorie chiuse, e la ricerca delle serie diventa uno
-strumento**).
+Aggiornato: 2026-09-01, fine della **centoventunesima** sessione (**tre lotti,
+67 rese, TRE categorie chiuse, e una riga sorella nel lotto di un'ora prima**).
 
-⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 13:44 DEL 01/09**, e contiene
-tutte e 150 le rese della sessione piu' la correzione di `:96060`. Quello delle
-13:09 e' di meta' sessione; quello delle 11:58 e' della 119a.
+⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 15:01 DEL 01/09**, e contiene
+tutte e 67 le rese della sessione. Quello delle 14:51 e' del lotto 059, quello
+delle 14:21 del 058, quello delle 13:44 e' della 120a.
 
-⚠️⚠️⚠️ **LA PERGAMENA DEL COLLAUDO E' LA 362, NON LA 14.** E' la decisione piu'
-riusabile della 120a e sta per esteso nella sua sezione: il corpo si vede solo
-con `ITEM_KNOWN_FULL`, la scorciatoia di `item_func.hsp:646` vale solo sopra
-`FILTER_ITEM_MIN` (50.000), e i pezzi unici 《…》 hanno difficolta' **500**
-mentre la pergamena normale vale **100**. `ITEM_ID_SCROLL_GREATER_IDENTIFY` (id
-**362**) vale 2000 e basta per ogni categoria.
+⚠️⚠️⚠️ **LA PERGAMENA DEL COLLAUDO E' LA 362, NON LA 14**, ed e' la decisione
+della 120a che la 121a ha **misurato su tre categorie di fila**: il corpo si
+vede solo con `ITEM_KNOWN_FULL`, la scorciatoia di `item_func.hsp:646` vale solo
+sopra `FILTER_ITEM_MIN` (50.000), e serve `efp >= IDENTIFY_LEVEL`.
+`ITEM_ID_SCROLL_GREATER_IDENTIFY` (id **362**) vale 2000 e basta per tutto.
+
+    categoria          reftype   IDENTIFY_LEVEL     la 14 (efp 100) basta?
+    FILTER_SHIELD      14.000    500 su 16 di 23    NO
+    FILTER_ITEM_BOOK   55.000    0 su 21 di 21      SI, e per due ragioni
+    FILTER_ARMOR       16.000    500 su 7, 0 su 13  NO su meta' categoria
+
+⭐ Tre categorie, tre risposte diverse. **La domanda va rifatta ogni volta**,
+perche' la premessa non sta nel passo ma nella categoria. La 362 resta la
+regola perche' non e' mai sbagliata.
 
 ⚠️⚠️⚠️ **PRIMA DI SCRIVERE LE RESE SI LANCIA `_120-serie-bacchette.py`**, come
 si lancia `_previsione.py`. E' nuovo di questa sessione e risponde alla domanda
@@ -36,10 +43,13 @@ nessuno l'ha mosso. Chi apre e legge «6» nei documenti vecchi sta leggendo un
 valore superato.
 
 ⚠️⚠️⚠️ **`FILTER_ITEM_POTION` LEGGE «1 SU 82» E NON E' LAVORO.** Quell'uno e'
-`:129299`, una riga **rinviata** perche' un testo non ce l'ha (vedi la sezione
-della 119a). `_114-corpo-da-fare` lo dice da solo, in fondo alla tabella. ⓘ Ed
-e' anche la ragione per cui `verifica --dizionario` (206) e `_97-quanto-resta`
-(205) differiscono di uno.
+`:129299`, una riga **rinviata** perche' un testo non ce l'ha **in nessuna delle
+due lingue** (vedi la sezione della 119a). `_114-corpo-da-fare` lo dice da solo,
+in fondo alla tabella. ⓘ Ed e' anche la ragione per cui `verifica --dizionario`
+(139) e `_97-quanto-resta` (138) differiscono di uno.
+⚠️ **Non confonderlo col caso di `:89358` (121a)**, dove il giapponese e' vuoto
+ma **l'inglese un testo ce l'ha**: quella si rende, non si rinvia. La domanda
+non e' «manca il giapponese?» ma «esiste una fonte?».
 
 ⚠️⚠️⚠️ **TRE COSE APERTE, CHE VANNO DECISE E NON EREDITATE** — le prime due
 dalla 118a, la terza dalla 120a:
@@ -57,30 +67,29 @@ dalla 118a, la terza dalla 120a:
      l'inglese: oggi si legge «M01-Granato gioiello» dove il giapponese dice
      «Granato della verita'». Sta per esteso nella sezione della 120a.
 
-⚠️⚠️ **I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 120a:**
+⚠️⚠️ **I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 121a:**
 
     pytest                   794 passed, 6 skipped
                              ⓘ rilanciato DOPO aver scritto i documenti, come
                              vuole la lezione della 112a
     prova_identita           72/72 e 30.905, **invariato**
-    applica                  **30.142** sostituzioni      (era 29.992: +150)
-                             ⓘ +150 per 150 rese: NESSUNA gemella in cinque
-                             lotti, e le cinque previsioni erano tutte scritte
-                             prima — +50, +10, +33, +32, +25
-    verifica --dizionario    db_item.hsp: 0 da ritradurre, **206** non tradotte
-    _97-quanto-resta         TOTALE **316 / 111 / 205**
+    applica                  **30.210** sostituzioni      (era 30.142: +68)
+                             ⚠️⚠️ +68 per **67** rese: nel lotto 059 c'e' una
+                             GEMELLA (`:129580` copre anche `:129651`). Le tre
+                             previsioni erano scritte prima — +24, +24, +20
+    verifica --dizionario    db_item.hsp: 0 da ritradurre, **139** non tradotte
+    _97-quanto-resta         TOTALE **249 / 111 / 138**
                              ⚠️ la colonna di mezzo sono le RINVIATE, ferme a
-                             111. Il 205 e' il 206 di `verifica` meno la
+                             111. Il 138 e' il 139 di `verifica` meno la
                              rinviata: i due numeri differiscono di uno
     referti                  **participi 9, elisioni 0**
-                             ⚠️⚠️ IN APERTURA DELLA 120a DICEVA 10, e il decimo
-                             l'aveva scritto la 119a misurando prima
-                             dell'ultima resa. Da qui in poi si rilancia in
-                             chiusura, DOPO l'ultima resa, insieme a `pytest`
-    perimetro.py             perimetro **90%** (28.517), totale **94%** (31.450)
-    _108-accento-decomposto  **0 su 25.778**
+                             ⓘ rilanciato in chiusura DOPO l'ultima resa, come
+                             vuole la lezione della 120a
+    perimetro.py             perimetro **90%** (28.584), totale **94%** (31.517)
+                             ⓘ +67 sul denominatore, uno per resa
+    _108-accento-decomposto  **0 su 25.845**
                              ⚠️ il denominatore cresce con le rese
-    _107-descrizioni-item    ⭐⭐⭐ corpo (indici 0-2): 1.513 vive, **1.306 rese**;
+    _107-descrizioni-item    ⭐⭐⭐ corpo (indici 0-2): 1.513 vive, **1.374** rese;
                              introdotte dall'italiano **0 / 0 / 0** (il cancello)
                              indice 3: vive 1.319, rese 1.319 — CHIUSO;
                              oltre il tetto: inglese 110, italiano 0
@@ -90,30 +99,27 @@ dalla 118a, la terza dalla 120a:
                              80**. Non e' un cancello: e' il conto del lavoro
                              che resta sui NOMI, non sulle descrizioni
     _112-corpo-descrizioni   1.509 righe-fonte, 224 titoli, **1** trattino orfano
-                             (di monte, `db_item.hsp:129299`); su 1.306 rese
+                             (di monte, `db_item.hsp:129299`); su 1.374 rese
                              cinque zeri e **«titoli resi in PIU' modi: 7»**
                              ⚠️⚠️ IL 7 E' ATTESO, E SONO I SETTE ELENCATI NELLA
                              SEZIONE DELLA 119a: appiattimenti dell'INGLESE,
-                             non nostri. Un **8** e' un difetto nuovo — e nella
-                             120a sarebbe stato un **15**, se le otto code
-                             scritte a memoria fossero passate
+                             non nostri. Un **8** e' un difetto nuovo
     _112-verifica-fonti      **234 su 234** coperte; tetto 0, caratteri
                              cancellati 0, apostrofi dentro la parola 0
     _113-fonti-gia-rese      **46 su 202** titoli il cui giapponese e' gia' reso
                              altrove — REFERTO, il valore atteso non e' zero
-    _114-corpo-da-fare       ⭐ TOTALE da fare **206 su 1.449 vive**, e in fondo
-                             DODICI categorie chiuse: `FILTER_FURNITURE` 0/261,
-                             `FILTER_ITEM_TOOL` 0/204, `FILTER_ITEM_FOOD` 0/148,
-                             `FILTER_JUNK` 0/124, `FILTER_WEAPON` 0/110,
+    _114-corpo-da-fare       ⭐ TOTALE da fare **139 su 1.449 vive**, e in fondo
+                             **QUINDICI** categorie chiuse: `FILTER_FURNITURE`
+                             0/261, `FILTER_ITEM_TOOL` 0/204, `FILTER_ITEM_FOOD`
+                             0/148, `FILTER_JUNK` 0/124, `FILTER_WEAPON` 0/110,
                              `FILTER_ITEM_SPELLBOOK` 0/92, `FILTER_ITEM_SCROLL`
-                             0/73, e — nuove dalla 120a — **`FILTER_RANGE`
-                             0/60**, **`FILTER_ORE` 0/33**, **`FILTER_ITEM_ROD`
-                             0/32** e **`FILTER_CONTAINER` 0/25**.
+                             0/73, `FILTER_RANGE` 0/60, `FILTER_ORE` 0/33,
+                             `FILTER_ITEM_ROD` 0/32, `FILTER_CONTAINER` 0/25, e
+                             — nuove dalla 121a — **`FILTER_SHIELD` 0/24**,
+                             **`FILTER_ITEM_BOOK` 0/23** e **`FILTER_ARMOR`
+                             0/20**.
                              ⚠️ `FILTER_ITEM_POTION` legge 1 su 82, ed e' la
-                             RINVIATA: la categoria e' chiusa.
-                             La piu' grossa da fare e' ora `FILTER_SHIELD`,
-                             **24 su 24**, poi `FILTER_ITEM_BOOK` (23) e
-                             `FILTER_ARMOR` (20)
+                             RINVIATA: la categoria e' chiusa
     _115-fonti-storpiate     REFERTO: **7 code su 2.542** col punto interrogativo
                              al posto della tilde; e **3 righe** del corpo con la
                              coda in giapponese e non in inglese
@@ -125,21 +131,17 @@ Tutto il resto e' **fermo dov'era**: `dati_applica --identita` 6 file e 3.767
 righe, `toppe.jsonl` 1027 e `_97-toppe-agganciate` **1027 su 1027**,
 `rinviate.jsonl` **114**, `creature` 1131/2466/0/0, `larghezze` 0 fuori misura,
 `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `menu_dialogo` 0 su 1378,
-`linguette` 0 e 0, `battute --divergenti` **13** (⚠️ ed e' il numero che dice
-che le due rese col giapponese identico del lotto 056 non sono divergenti),
+`linguette` 0 e 0, `battute --divergenti` **13**,
 `intestazioni_larghezze` perimetro 0, `dati_sorgente` 7/7 e gioco difforme su 0,
 `gronde` 0 su 5, `maiuscole` 143/6/1/7/0, `bilingui` 0, `lang-nel-ramo-jp`
 21 | 0, `_96-morte-nella-build` 0, `_103-inglese-ripetuto` 2 coppie,
 `_104-inglese-slittato` 2 teste.
 
-⚠️⚠️⚠️ **LA 120a HA APERTO CON VENTICINQUE VERIFICHE SU VENTISEI AI VALORI
-ATTESI, E LA VENTISEIESIMA ERA UN DIFETTO VERO.** `referti` diceva 10 invece di
-9, e il decimo participio l'aveva scritto la 119a: la sua chiusura aveva
-misurato **prima** dell'ultima resa.
-⭐ **La catena verde non ha protetto da questo, e nemmeno ci ha provato**: un
-referto che il progetto lancia solo in apertura misura sempre lo stato di
-*ieri*. La contromisura non e' guardare meglio, e' **spostare la misura dopo
-l'ultima resa**.
+⭐ **LA 121a HA APERTO CON VENTISEI VERIFICHE SU VENTISEI AI VALORI ATTESI**, la
+prima volta dalla 119a che non c'e' un difetto da correggere prima di
+cominciare. ⓘ La 120a ne aveva ventisei su ventisei tranne `referti`, che
+diceva 10 invece di 9 perche' la 119a l'aveva misurato **prima** dell'ultima
+resa; da allora si rilancia in chiusura, e infatti stavolta era a posto.
 💡 **Come si legge un referto**: si guarda il numeratore *e* si chiede di che
 cosa e' fatto il denominatore, prima di chiamarlo difetto.
 
@@ -148,13 +150,13 @@ cosa e' fatto il denominatore, prima di chiamarlo difetto.
 macchina**, con l'albero di build al suo posto: la prima cosa da fare **non** e'
 ricostruire — e' guardare se c'e' gia' tutto, con
 `ls C:\Games\Elona\_traduzione\`, e controllare che
-`elonaplus2.31\cgx-test.exe` sia quello delle **13:44 del 01/09**. Se la data e'
-quella, la build contiene tutte e 150 le rese della 120a e non va rifatta.
-⚠️ La 120a e' stata chiusa dicendo **«riprendo in un altro terminale»**, come le
-quattro sessioni prima: la macchina e' la stessa, ma la sessione nuova non ha in
+`elonaplus2.31\cgx-test.exe` sia quello delle **15:01 del 01/09**. Se la data e'
+quella, la build contiene tutte e 67 le rese della 121a e non va rifatta.
+⚠️ La 121a e' stata chiusa dicendo **«riprendo in un altro terminale»**, come le
+cinque sessioni prima: la macchina e' la stessa, ma la sessione nuova non ha in
 memoria niente di questa. Tutto quel che serve sta qui.
 ⓘ I sei file dati non cambiano dalla 108a: `cmp -s` prima di `cp`, e non serve
-copiarli. Verificato anche a fine 120a: sei su sei identici.
+copiarli. Verificato anche a fine 121a: sei su sei identici.
 
 ---
 
@@ -298,6 +300,27 @@ rete lo vede, e nemmeno la lista: la premessa sta nella categoria, non nel
 passo.** Prima di ricopiare si guardano due numeri — il `reftype` contro 50.000
 e l'`IDENTIFY_LEVEL` degli oggetti scelti.
 
+⚠️⚠️⚠️ **E DALLA 121a IL SESTO POSTO HA UN CASO PEGGIORE: LA RIGA SORELLA STA
+NEL LOTTO DI UN'ORA FA.** Il lotto 060 ha due righe la cui apertura e' identica
+a due del lotto 058, chiuso nella stessa sessione, e cambia **un carattere**:
+非常に分厚く作られた**盾**。 contro 非常に分厚く作られた**鎧**。
+⚠️ **Tre strumenti rispondono giusto e mancano tutti il punto**: `_gia-reso`
+dice 0 (cerca la prosa intera, e le stringhe differiscono),
+`_120-serie-bacchette` dice «nessuna serie» (raggruppa **dentro** il lotto, e la
+sorella sta fuori), `_coerenza` non le accosta per la stessa ragione. Non e'
+successo niente solo perche' le rese del 058 erano ancora sotto gli occhi.
+💡 Finche' lo strumento non c'e': **quando un lotto apre una categoria parente
+di una appena chiusa — scudi e armature, spade e asce — le rese della categoria
+vicina si RILEGGONO, non si ricordano.**
+
+⚠️⚠️⚠️ **E DALLA 121a: GIAPPONESE VUOTO NON VUOL DIRE RINVIATA.** `:89358` ha
+`description(2) = ""` nel ramo `if ( jp )` e un testo nel ramo inglese: **si
+rende dall'inglese**, ed e' il precedente della 110a. Si rinvia solo quando il
+testo non c'e' in **nessuna** delle due lingue, che e' il caso di `:129299`.
+⚠️ E su una riga cosi' `_coerenza` ha una rete in meno: scarta i giapponesi
+vuoti, quindi stampa un giapponese distinto in meno del numero di rese. Quel
+numero e' il segnale, non un errore di conteggio.
+
 ⚠️⚠️ **E DALLA 120a UN REFERTO SI RILANCIA IN CHIUSURA, DOPO L'ULTIMA RESA.**
 `scratchpad/referti.py` sta fra le verifiche d'**apertura**, quindi misura
 sempre lo stato di ieri: la 119a ha chiuso scrivendo «fermo a 9» avendolo
@@ -360,7 +383,208 @@ il referto «righe senza resa in tabella: 0» resta verde su una riga sbagliata.
 
 ---
 
-## La centoventesima sessione
+## La centoventunesima sessione
+
+### ▶ Il punto esatto in cui si riprende
+
+Tutto e' **spinto** e l'albero di lavoro e' pulito. Si riparte da
+`git fetch && git status -sb` e dalle verifiche d'apertura, che restano
+**ventisei**.
+
+La 121a ha tradotto **67 righe** in tre lotti, chiudendo **tre** categorie del
+corpo — la tredicesima, la quattordicesima e la quindicesima:
+
+    058  FILTER_SHIELD     24 rese   gli scudi (e gli artigli, e i tonfa)
+    059  FILTER_ITEM_BOOK  23 rese   i libri
+    060  FILTER_ARMOR      20 rese   le armature
+
+Il debito di collaudo sale da 8.962 a **9.029**.
+
+⭐ In apertura le verifiche erano **ventisei su ventisei**: la prima volta dalla
+119a che non c'e' niente da correggere prima di cominciare.
+
+### ▶ ⭐⭐⭐ IL LOTTO DA CUI SI COMINCIA LA PROSSIMA VOLTA
+
+Nessuna categoria e' cominciata a meta'. `_114-corpo-da-fare`, **riletto in
+chiusura della 121a**, in testa dice:
+
+    19  19   FILTER_CARGO_TRADE        <- la piu' grossa rimasta
+    16  16   FILTER_HELM
+    14  14   FILTER_ACCESSORY_AMULET
+    13  13   FILTER_ENVIRONMENT
+    11  11   FILTER_ACCESSORY_RING
+    10  10   FILTER_GLOVES
+    10  10   FILTER_CLOAK
+
+Il comando che apre il lotto 061 e':
+
+    python scratchpad/lotti-113/_corpo.py 061 FILTER_CARGO_TRADE 0 200000
+
+⚠️ **La tabella si rilegge comunque**, non si eredita da qui: e' la stessa
+lezione del collaudo. ⓘ Nel primo giro di questa sezione avevo scritto tre
+categorie a memoria — `FILTER_ITEM_MEDAL`, `FILTER_ITEM_MUSIC`,
+`FILTER_FURNITURE_ALTAR` — e **tutte e tre erano sbagliate**, come gli otto
+titoli-fonte del lotto 057. Un nome di categoria plausibile non insospettisce
+chi rilegge.
+⭐ E il 061 e' il primo lotto da otto che **non e' un pezzo d'equipaggiamento**:
+`FILTER_CARGO_TRADE` sono le merci da commercio, e il glossario ha gia' 交易品
+-> «merce da commercio» (111a).
+
+ⓘ Sotto le 55 righe la categoria ci sta **intera** in un lotto e l'intervallo
+largo basta. Un lotto sano sta fra le 30 e le 55.
+
+⚠️⚠️ **I tre passi che seguono `_corpo.py`, in ordine:**
+
+    scratchpad/_119-togli-rinviate.py NNN scratchpad/lotti-113
+    scratchpad/lotti-113/_previsione.py NNN
+    scratchpad/_120-serie-bacchette.py NNN scratchpad/lotti-113
+
+Poi il dossier e le code, che **si copiano** e non si scrivono a memoria:
+
+    python scratchpad/_107-dossier-item.py --categoria <CATEGORIA> > scratchpad/lotti-113/dossierNNN.txt
+    python scratchpad/lotti-113/_code.py NNN > scratchpad/lotti-113/codeNNN.txt
+    python scratchpad/lotti-113/_forma.py NNN
+
+E la catena: `_traduzioniNNN.py` scritto a mano -> `_monta` -> **`_preflight034`**
+-> `testaNNN.py` -> `assembla-lotto` -> il lotto -> `reimporta` -> `_coerenza`
+-> `_107-descrizioni-item` -> `applica` -> `compila --eseguibile` -> **la copia
+a mano dell'eseguibile**.
+
+### ▶ ⭐⭐⭐ 神の間 NON E' «TRA GLI DEI»: E' UN LUOGO, E IL GIOCATORE LO CONOSCE
+
+E' la cosa piu' riusabile della sessione, e sta per esteso in `decisioni.md`.
+
+`:57962`, le manette del 《神々の枷鎖》, dice 神の間での使用を想定し. Letto come
+lingua, 神の間 e' «fra gli dei», e la frase suona benissimo: manette pensate per
+essere usate fra dei. **E' sbagliato.** 神の間 e' il **Sigillo Eterno**, il
+luogo dell'atto finale — inglese `Eternal Seal` — e sta in una quarantina di
+battute gia' rese.
+
+⚠️ **L'inglese ci e' cascato per primo** («Intended for the gods»): ha letto
+anche lui il composto come lingua e non come nome.
+⚠️⚠️ **Nessuna rete puo' vederlo, e non e' un difetto delle reti.** La riga e'
+pulita in ogni senso misurabile. Il guasto esisterebbe solo nella testa del
+giocatore, che quel nome lo ha letto quaranta volte.
+
+💡 **La regola: un composto di kanji comuni si cerca con `_cerca.py` prima di
+renderlo, soprattutto quando sembra non averne bisogno.** Nella stessa sessione
+la stessa domanda ha ripescato メイルーン → «Mayroon», 開発主任 → «<Gavela>
+l'ingegnere capo», 第三部 → «Parte terza» (l'inglese dice «ACT III»),
+クイーン・セドナ号 → «la <Regina Sedona>» e カイン → **<Caim>**, che l'inglese
+scrive «Cain» in **quell'unico posto** e in nessun altro.
+
+### ▶ ⭐⭐⭐ LA RIGA SORELLA STAVA NEL LOTTO DI UN'ORA PRIMA
+
+Il lotto 060 ha due righe la cui apertura e' identica a due del lotto 058,
+chiuso poche ore prima **nella stessa sessione**, e cambia un carattere:
+
+    :100717 (058)  非常に分厚く作られた盾。  ->  Uno scudo fatto spessissimo.
+    :101964 (060)  非常に分厚く作られた鎧。  ->  Una corazza fatta spessissima.
+    :100849 (058)  特殊な素材を…得た盾。     ->  Uno scudo che, incrociando…
+    :101769 (060)  特殊な素材を…得た鎧。     ->  Una corazza che, incrociando…
+
+⚠️⚠️ **Tre strumenti hanno risposto giusto e tutti e tre hanno mancato il
+punto**, e nessuno dei tre e' difettoso: `_gia-reso` cerca la prosa **intera**,
+`_120-serie-bacchette` raggruppa **dentro il lotto**, `_coerenza` fa lo stesso.
+La domanda che nessuno si pone e' *questa riga ha una sorella in un lotto che
+non e' questo?*
+
+⭐ **Non e' successo niente solo perche' le rese del 058 erano ancora sotto gli
+occhi.** Su una sessione che riprende domani non lo sarebbero, e le due coppie
+sarebbero uscite con verbi diversi senza che niente protestasse.
+💡 Lo strumento che manca c'e' gia' quasi: e' `_120-serie-bacchette.py` col
+denominatore allargato a **tutto `db_item.hsp`** invece che al lotto. E' il
+candidato piu' ovvio per la prossima sessione che voglia costruire.
+
+### ▶ ⭐⭐⭐ IL COLLAUDO MISURATO SU TRE CATEGORIE, E TRE RISPOSTE DIVERSE
+
+La 120a aveva deciso che la pergamena e' la **362**. Questa sessione ha rifatto
+i due conti su tre categorie di fila:
+
+    categoria          reftype   IDENTIFY_LEVEL      la 14 (efp 100) basta?
+    FILTER_SHIELD      14.000    500 su 16 di 23     NO
+    FILTER_ITEM_BOOK   55.000    0 su 21 di 21       SI, e per DUE ragioni
+    FILTER_ARMOR       16.000    500 su 7, 0 su 13   NO su meta' categoria
+
+Sui libri la 14 basterebbe due volte: `item_func.hsp:641` da' FULL gia' perche'
+`efp >= IDENTIFY_LEVEL` e quel livello e' 0, e `:646` lo darebbe comunque
+perche' 55.000 supera `FILTER_ITEM_MIN`. Sulle armature basta per dodici oggetti
+su venti — cioe' **non basta**.
+
+⭐ E' la prova piu' solida possibile della decisione della 120a: la premessa non
+sta nel passo, sta nella categoria. La 362 resta la regola perche' non e' mai
+sbagliata.
+
+### ▶ ⭐⭐ QUATTRO DIARI CHE DEVONO RESTARE UGUALI, E UNO CHE DEVE RESTARE DIVERSO
+
+Nel 059, 「◯がしたためたとされる日記。」 si ripete quattro volte — il
+maggiordomo, qualcuno, la sorella maggiore, la signorina — e la resa e' «Un
+diario che si dice vergato da ◯.» in tutte e quattro. ⓘ したためる non e'
+書く: e' il verbo formale del *mettere per iscritto*, e «vergare» e' il suo pari.
+
+⚠️⚠️ **Ma `:97200` non e' della serie**: dice 妹が**書いた**日記, il verbo
+comune, e la resa dice «Il diario che ha scritto la sorella minore».
+⭐ E' la lezione della 119a **al rovescio**: la' l'inglese aveva ricopiato righe
+che dovevano differire, qui il rischio era appiattire righe che il giapponese
+distingue di proposito.
+
+⭐ Stessa forma nel 060: `:101574` (軽鎧) e `:101964` (厚鎧) chiudono con la
+stessa frase e **si nominano a vicenda** — 「厚鎧とどちらを取るか…」 /
+「軽鎧とどちらを取るか…」. Sono due oggetti che il giocatore ha davvero.
+L'inglese perde tutt'e due i nomi («standard thick armor», «lighter armor») e
+non manda il lettore da nessuna parte.
+
+### ▶ ⭐⭐ IL SEGMENTO CHE ESISTE SOLO IN INGLESE, E NON E' UNA RINVIATA
+
+`:89358`, la copertina del diario segreto della sorella gatta:
+
+    db_item.hsp:89352   description(2) = ""                       <- ramo jp
+    db_item.hsp:89358   description(2) = "\"Nyo reading!\" ..."   <- ramo en
+
+⚠️ La tentazione e' trattarlo come `:129299`, la rinviata della 119a. **La
+differenza sta scritta nella rinviata stessa**: la' il motivo e' «la riga non ha
+testo in **nessuna delle due lingue**». Qui l'inglese ce l'ha, e vale il
+precedente della 110a: si rende.
+
+⭐ Il bisticcio si e' potuto rendere perche' il tic del gatto **e' gia' in
+gioco**: «miao» in coda alla frase. La resa e' «Vietato leggere, miao!».
+ⓘ Altrove il progetto fa il contrario e **butta** il gatto inglese (le battute
+di Mia sono rese dal giapponese, che di gatto non ha niente): non e'
+incoerenza, e' che li' un giapponese c'era.
+
+### ▶ ⚠️⚠️ IL PREFLIGHT HA PRESO QUATTRO RESE, E L'ERRORE ERA DI LETTURA
+
+Nel 059 quattro rese sono uscite dal montaggio con la coda **attaccata al punto
+finale** e il segmento in meno. `_forma.py` stampa due cose sulla stessa riga —
+lo spazio prima del `\n` e lo spazio dopo il `#` — e io ho letto «senza lo
+spazio prima del `\n`» come «senza il `\n`».
+
+⭐ `_preflight034.py` le ha prese tutte e quattro («segmenti diversi: en 1, it
+0») **prima** del reimporta e prima della build. E' il suo punto 3, scritto
+nella 115a per un guasto diverso, che qui ha pescato **un errore di lettura di
+chi scrive le rese**, non un errore di battitura.
+💡 Da qui in poi, quando `_forma.py` dice «senza lo spazio prima del `\n`»: il
+`\n` **c'e' sempre**, manca solo lo spazio.
+
+### ▶ ⓘ Gli strumenti della 121a
+
+Nessuno strumento nuovo: la sessione ha reso, e ha usato quelli che c'erano.
+⚠️ L'unico che manca e' quello della riga sorella fra lotti diversi, descritto
+qui sopra.
+
+### ▶ ⓘ Due divergenze di monte, viste passando e non toccate
+
+  - **«Rachael»** in `text.hsp` contro **«Rachel»** altrove, 3 contro 12. Anche
+    l'inglese ne ha **una** con la a, quindi e' ricopiata da monte;
+  - **«vento di etere»** in due voci contro **«vento d'etere»** in venticinque.
+    La seconda e' la forma del progetto.
+  - ⓘ E il **nome** di 《カルネアデスの板》 sta nel dizionario spezzato in due
+    voci e a schermo si legge **«Carneade asse»**. In italiano l'oggetto ha un
+    nome suo e famoso — la **tavola di Carneade**, il naufrago che ne salva uno
+    solo — che e' esattamente quel che la sua descrizione dice. E' una riga di
+    **nomi**, non di corpo.
+
+## La centoventesima sessione (per storia)
 
 ### ▶ Il punto esatto in cui si riprende
 

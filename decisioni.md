@@ -6,6 +6,125 @@ ancora aperte.
 
 ---
 
+## Una parola di kanji comuni può essere un nome proprio, e si scopre cercandola — 2026-09-01, centoventunesima
+
+`db_item.hsp:57962`, le manette del 《神々の枷鎖》, dice:
+
+    神の間での使用を想定し、神力による補助なしで…物理的に頑丈に作られている
+
+神の間 si legge benissimo come lingua: 神 «dio» più 間 «fra», cioè *fra gli
+dei*. La frase che ne viene — «manette pensate per essere usate fra dei» — è
+scorrevole, coerente col resto della riga e **sbagliata**.
+
+神の間 è il **Sigillo Eterno**: il luogo dell'atto finale del gioco, inglese
+`Eternal Seal`, che il giocatore italiano incontra in una quarantina di battute
+già rese («Al Sigillo Eterno non ci andare», «il Sigillo Eterno è in mano a
+qualcuno che non si sa chi sia»). La riga non parla di teologia, dice **dove**
+si usa l'oggetto.
+
+⚠️ **L'inglese ci è cascato per primo**: scrive «Intended for the gods», cioè ha
+letto anche lui il composto come lingua e non come nome. Chi rende dall'inglese
+eredita l'errore senza mai vederlo.
+
+⚠️⚠️ **Nessuna rete può vederlo, e non è un difetto delle reti.** La riga è
+pulita in ogni senso misurabile: il giapponese c'è, l'inglese c'è, la forma è a
+posto, la coda è quella giusta, nessun carattere proibito. Il guasto esisterebbe
+solo nella testa del giocatore, che quel nome lo ha letto quaranta volte
+altrove. È il tipo di cosa che sta nella **quinta fonte** della 110ª — il resto
+del gioco — e che ci si arriva solo interrogandola.
+
+**La decisione:** un composto di kanji comuni dentro una descrizione **si cerca
+nel dizionario prima di renderlo**, anche — soprattutto — quando sembra non
+averne bisogno. `scratchpad/lotti-111/_cerca.py` costa un secondo, e la
+differenza fra un nome proprio e una frase comune non si vede guardando: si vede
+solo scoprendo che qualcun altro l'ha già reso.
+💡 Nella stessa sessione la stessa domanda ha ripescato メイルーン → «Mayroon»,
+開発主任 → «<Gavela> l'ingegnere capo» e 第三部 → «Parte terza» (che l'inglese
+chiama «ACT III», parola che in italiano il giocatore non ha mai letto).
+
+---
+
+## Un segmento che esiste solo in inglese si rende; uno che non esiste in nessuna delle due si rinvia — 2026-09-01, centoventunesima
+
+`db_item.hsp:89358`, la copertina del diario segreto della sorella gatta:
+
+    89352   description(2) = ""                            <- ramo if ( jp )
+    89358   description(2) = "\"Nyo reading!\" \n# ~words on the cover~"
+
+Il giapponese **non c'è**: è la stringa vuota, non una frase che manca.
+
+⚠️ La tentazione è trattarlo come `:129299`, la rinviata della 119ª — anche
+quella una riga senza giapponese. **Non è lo stesso caso, e la differenza sta
+scritta dentro la rinviata stessa**: là il motivo è «la riga non ha testo in
+**nessuna delle due lingue**», e una resa avrebbe inventato dal nulla. Qui
+l'inglese un testo ce l'ha, ed è l'unica fonte che esiste.
+
+Vale allora il precedente della 110ª, citato nella rinviata come «precedente
+vicino»: *due righe dell'indice 3 hanno il giapponese vuoto… la riga si rende
+com'è* — «lì però l'inglese un testo ce l'aveva». Questo è esattamente quel
+caso, ed è la prima volta che capita nel corpo.
+
+**La decisione:** giapponese vuoto **e** inglese pieno → si rende dall'inglese.
+Vuoti tutt'e due → si rinvia. La domanda da farsi non è «manca il giapponese?»
+ma «esiste una fonte?».
+
+⚠️⚠️ **E questo ha una conseguenza sulle reti che va scritta**: `_coerenza`
+scarta le righe col giapponese vuoto (`jp_lotto` filtra su `.strip()`), quindi
+su una riga così **il lato giapponese non lo giudica**. Nel lotto 059 ha
+stampato «23 rese, **22** giapponesi distinti», e quel 22 è il segnale — non un
+errore di conteggio. Una riga di questo tipo ha una rete in meno, e lo si sa
+solo leggendo quel numero.
+
+ⓘ Sul merito: «Nyo reading!» è il gatto che dice «no», e il bisticcio si è
+potuto rendere perché il tic **è già in gioco** — «miao» in coda alla frase
+(«E va bene, miao!», «Basta che tu abbia capito, miao»). La resa è «Vietato
+leggere, miao!». ⚠️ Altrove il progetto fa il contrario e **butta** il gatto
+inglese: le battute di Mia («Nyobody knyows the touble Mia's seen») sono rese
+dal giapponese, che di gatto non ha niente. Non è incoerenza — è che lì un
+giapponese c'era, e qui no.
+
+---
+
+## La riga sorella può stare nel lotto di un'ora fa, e nessuno strumento lo dice — 2026-09-01, centoventunesima
+
+Il lotto 060 (armature) ha due righe la cui apertura è **identica** a due righe
+del lotto 058 (scudi), chiuso poche ore prima nella stessa sessione. Cambia un
+carattere: 盾 → 鎧.
+
+    :100717  非常に分厚く作られた盾。   :101964  非常に分厚く作られた鎧。
+    :100849  特殊な素材を…得た盾。      :101769  特殊な素材を…得た鎧。
+
+⚠️⚠️ **Tre strumenti hanno risposto giusto, e tutti e tre hanno mancato il
+punto:**
+
+  - `_gia-reso.py 060` dice **0 su 20**, e ha ragione: cerca la prosa **intera**,
+    e le due stringhe differiscono di un carattere;
+  - `_120-serie-bacchette.py 060` dice **«nessuna serie»**, e ha ragione: le
+    aperture le raggruppa **dentro il lotto**, e la sorella sta fuori;
+  - `_coerenza.py` non le accosta, per lo stesso motivo del primo.
+
+Nessuno dei tre è difettoso. La domanda che nessuno di loro si pone è *questa
+riga ha una sorella in un lotto che non è questo?*, ed è il «sesto posto dove
+guardare» della 111ª, che finora era stato un problema fra lotti **lontani**
+(il 014 e il 024, otto artefatti in otto categorie).
+
+⭐ **La novità è che stavolta i due lotti erano nella stessa sessione, e per
+questo il guasto non è successo**: le rese del 058 erano ancora sotto gli occhi
+quando ho letto quelle del 060. Su una sessione che riprende domani non lo
+sarebbero state, e le due coppie sarebbero uscite con due verbi diversi — «uno
+scudo fatto spessissimo» e «una corazza molto spessa» — senza che niente
+protestasse.
+
+**La decisione, per ora:** quando un lotto apre una categoria **parente** di una
+appena chiusa — scudi e armature, spade e asce, pozioni e pergamene — le rese
+della categoria vicina si **rileggono**, non si ricordano. La forma meccanica di
+questa regola non esiste ancora: servirebbe uno strumento che raggruppa le
+aperture su **tutto `db_item.hsp`** e non dentro il lotto, cioè
+`_120-serie-bacchette.py` con il denominatore allargato. ⓘ È il candidato più
+ovvio per la prossima sessione che voglia costruire invece di rendere.
+
+---
+
 ## Una serie si cerca contando, non guardando — 2026-09-01, centoventesima
 
 Le due sessioni precedenti hanno trovato tre volte la stessa forma di guasto:

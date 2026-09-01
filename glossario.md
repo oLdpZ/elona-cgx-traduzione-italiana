@@ -2232,6 +2232,78 @@ traslittera da solo, perché la frase dice «in terre lontane e straniere le
 chiamavano così» e la terra straniera, vista da Irva, è il Giappone. Regola
 della 111ª applicata al verso opposto.
 
+## `db_item.hsp`, deciso il 2026-09-01 dalla 121ª — il CORPO di SCUDI, LIBRI e ARMATURE
+
+Tre lotti (058-060), 67 rese, tre categorie chiuse: `FILTER_SHIELD`,
+`FILTER_ITEM_BOOK` e `FILTER_ARMOR`.
+
+### ⭐⭐⭐ I nomi che il giapponese porta e l'inglese scioglie in parole comuni
+
+Cinque volte in tre lotti il giapponese ha nominato qualcosa che il giocatore
+italiano **conosce già**, e cinque volte l'inglese l'ha reso come lingua comune.
+Sono la ragione per cui `_cerca.py` va lanciato anche sulle parole che non
+sembrano nomi.
+
+| giapponese | la resa, e da dove viene | che cosa scrive l'inglese |
+|---|---|---|
+| 神の間 | **il Sigillo Eterno** — il luogo, quaranta battute rese | «for the gods» (letto come lingua) |
+| カイン | **<Caim>** — `<Caim> il riccone folle`, dodici voci | «a mad man named **Cain**» |
+| 第三部 | **la parte terza** — `@QM[…]` → «Parte terza - Il patto eterno» | «ACT III» |
+| クイーン・セドナ号 | **la <Regina Sedona>** — nave *e* persona | «the Queen Sedona» |
+| 開発主任 | **l'ingegnere capo** — è `<Gavela>`, un personaggio | «the chief developer» |
+
+⭐ Più メイルーン → **Mayroon**, テスカトリポカ → **Tezcatlipoca**, 冒険ゼミ →
+**Seminario d'Avventura**, 赤剣先生 → **il maestro Spada Rossa**,
+レイチェル → **Rachel** (ed è una **donna**: «la scrittrice di favole Rachel»).
+
+### ⭐ I termini nuovi, e da dove vengono
+
+バリアコーティング → **«rivestimento a barriera»** (nasce qui, e nasce già in
+tre righe) · 記録媒体 → **«supporto di registrazione»**, il tecnicismo secco con
+cui l'enciclopedia parla del libro, ed è la battuta · 斥力シールド →
+**«scudo repulsivo»** · 攻防一体 → **«che unisce attacco e difesa»** ·
+したためる → **«vergare»** (⚠️ non 書く, che è «scrivere») ·
+鎖帷子 → **«cotta di maglia»**, che è il nome dell'oggetto 綴り鎧 ·
+甲冑 → **«piastre»** (il nome 重層鎧 è «corazza a piastre») ·
+大鎧 → **«grande corazza»** · 秘術 → **«arti segrete»** · 手枷 → **«manette»** ·
+猛禽 → **«rapaci»** · インド象 → **«elefante indiano»** · 現代イルヴァ →
+**«l'Irva di oggi»** · 潜在値 → **«potenziale»** · 掲示板 → **«bacheca»** ·
+シルフ → **«silfidi»** · 研究家 → **«studiosi»** · 童話集 → **«raccolta di
+fiabe»** · 法衣 → **«veste»**, 法王衣 → **«veste papale»**.
+
+⚠️ 光子 resta **«laser»** (110ª) anche in 光子刃 → «lama laser», perché
+l'indice 3 dello stesso tonfa dice già «lame laser» e i due segmenti stanno
+**nello stesso pannello**.
+
+### ⭐⭐ Le formule che si ripetono, e che si scrivono in fila
+
+    攻防一体の装備。              CINQUE righe, i tonfa ST-01..ST-05
+    ◯がしたためたとされる日記。    QUATTRO righe, i diari
+    ◯の秘密が隠された日記。        DUE righe, sorella maggiore e minore
+    服の中に(多数の)素材片を…      DUE righe, e a distinguerle è 多数の
+    非常に分厚く作られた◯。        DUE righe, ma in DUE LOTTI (058 e 060)
+    特殊な素材を…得た◯。          DUE righe, ma in DUE LOTTI (058 e 060)
+
+⚠️⚠️ Le ultime due attraversano il **confine del lotto**, e nessuno strumento
+le accosta: vedi `decisioni.md`, «La riga sorella può stare nel lotto di un'ora
+fa».
+
+### ⚠️ Due parole che il giapponese distingue e l'italiano deve distinguere
+
+- 防具 **«armatura»** contro 鎧 **«corazza»**: il glossario della 111ª le teneva
+  già separate, e il lotto 060 le mette **nella stessa frase** (`:101639`: «è
+  un'armatura che pesa un po' di più, ma sempre meno di una corazza»);
+- したためる **«vergare»** contro 書く **«scrivere»**: quattro diari usano il
+  primo e uno (`:97200`) il secondo. Appiattirli sarebbe stato cancellare una
+  differenza che l'autore ha scritto.
+
+### ⓘ Due divergenze di monte, viste passando e non toccate
+
+- **«Rachael»** in `text.hsp` contro **«Rachel»** altrove — 3 contro 12. Anche
+  l'inglese ne ha una sola con la a, quindi è ricopiata da monte;
+- **«vento di etere»** in due voci contro **«vento d'etere»** in venticinque.
+  La seconda è la forma del progetto.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

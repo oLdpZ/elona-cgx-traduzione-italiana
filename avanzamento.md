@@ -41,6 +41,95 @@ fondo somma valori di sessioni diverse. Il conto vivo lo danno
 file di `data/` compresi. Finché nessuno rifà la tabella intera, **si guardano
 quelli**.
 
+## Tre lotti, 67 rese, e si chiudono SCUDI, LIBRI e ARMATURE — 2026-09-01, centoventunesima sessione
+
+`db_item.hsp`, il **corpo** delle descrizioni. Tre categorie intere, una per
+lotto: la tredicesima, la quattordicesima e la quindicesima.
+
+    058  FILTER_SHIELD     24 rese  (23 idx0, 1 idx2)   la categoria intera
+    059  FILTER_ITEM_BOOK  23 rese  (21 idx0, 2 idx2)   la categoria intera
+    060  FILTER_ARMOR      20 rese  (20 idx0)           la categoria intera
+
+    corpo (indici 0-2): 1.306 -> **1.374** rese su 1.513 vive
+    non tradotte di db_item.hsp: 206 -> **139**   (-67 esatte)
+    applica: 30.142 -> **30.210**   (+24, +24, +20)
+    ⚠️ il secondo +24 e' per 23 rese: nel 059 c'e' una GEMELLA
+
+⭐ In apertura le verifiche erano **ventisei su ventisei** ai valori attesi: la
+prima volta dalla 119ª che non c'è un difetto da correggere prima di cominciare.
+
+### ⭐⭐⭐ La stessa domanda, tre risposte diverse: il collaudo non si eredita
+
+La 120ª aveva deciso che la pergamena del collaudo è la **362**, dopo che la
+lista della 119ª sarebbe stata muta sulle armi a distanza. Questa sessione ha
+misurato i due numeri su **tre** categorie di fila, e ha avuto tre risposte:
+
+    categoria           reftype   IDENTIFY_LEVEL       la pergamena 14 basta?
+    FILTER_SHIELD       14.000    500 su 16 di 23      NO
+    FILTER_ITEM_BOOK    55.000    0 su 21 di 21        SI, e per due ragioni
+    FILTER_ARMOR        16.000    500 su 7, 0 su 13    NO su metà categoria
+
+⭐ È la prova più solida possibile della decisione della 120ª: **la domanda va
+rifatta a ogni categoria**, perché la premessa non sta nel passo, sta nella
+categoria. Sui libri la 14 basterebbe due volte — `item_func.hsp:641` dà FULL
+già perché `efp >= 0`, e `:646` lo darebbe comunque perché 55.000 supera
+`FILTER_ITEM_MIN` — e sulle armature basterebbe per dodici oggetti su venti.
+La regola «usa la 362» resta giusta perché **non è mai sbagliata**, e adesso si
+sa anche quando sarebbe stata di troppo.
+
+### ⭐⭐⭐ Due famiglie hanno attraversato due lotti della stessa sessione
+
+Il lotto 060 ha due righe la cui apertura è **identica** a due righe del lotto
+058, chiuso un'ora prima, e cambia **un carattere**:
+
+    :100717 (058)  非常に分厚く作られた盾。  ->  Uno scudo fatto spessissimo.
+    :101964 (060)  非常に分厚く作られた鎧。  ->  Una corazza fatta spessissima.
+    :100849 (058)  特殊な素材を…得た盾。     ->  Uno scudo che, incrociando…
+    :101769 (060)  特殊な素材を…得た鎧。     ->  Una corazza che, incrociando…
+
+⚠️⚠️ **Tre strumenti hanno risposto giusto e tutti e tre hanno mancato il
+punto**: `_gia-reso` dice 0 su 20 perché cerca la prosa intera e le stringhe
+differiscono; `_120-serie-bacchette` dice «nessuna serie» perché guarda dentro
+il lotto e la sorella sta fuori; `_coerenza` non le vede per lo stesso motivo.
+È la forma del 014 contro il 024 — un lotto rende, il lotto dopo disfa — e non
+è successo **solo perché le rese del 058 erano ancora sotto gli occhi**. Su una
+sessione che riprende domani non lo sarebbero.
+
+### ⭐⭐ Una coppia che si nomina a vicenda, e l'inglese che slega il nodo
+
+`:101574` (軽鎧) e `:101964` (厚鎧) chiudono con la stessa frase e ciascuna
+**nomina l'altra**: 「厚鎧とどちらを取るかは冒険者の好み」 e
+「軽鎧とどちらを取るかは冒険者の好み」. Sono due oggetti che il giocatore ha
+davvero, e la riga gli sta dicendo *questo o quello, scegli*. L'inglese perde
+tutt'e due i nomi — «standard thick armor», «lighter armor» — e non manda il
+lettore da nessuna parte. Le due rese usano i nomi veri, «corazza a bande» e
+«corazza leggera», e per il resto sono identiche parola per parola.
+
+### ⭐⭐ Quattro diari che devono restare uguali, e uno che deve restare diverso
+
+Nel 059, 「◯がしたためたとされる日記。」 si ripete **quattro** volte — il
+maggiordomo, qualcuno, la sorella maggiore, la signorina — e la resa è «Un
+diario che si dice vergato da ◯.» in tutte e quattro. Ma `:97200` dice
+妹が**書いた**日記, il verbo comune, e la resa dice «Il diario che ha scritto la
+sorella minore».
+
+⭐ È la lezione della 119ª **al rovescio**: là l'inglese aveva ricopiato righe
+che dovevano differire, qui il rischio era appiattire righe che il giapponese
+distingue di proposito. Uniformare avrebbe «migliorato» il testo cancellando una
+differenza che l'autore ha scritto.
+
+### ⚠️⚠️ Il preflight ha preso quattro rese, e l'errore era di lettura
+
+Nel 059 quattro rese sono uscite dal montaggio con la coda **attaccata al punto
+finale** e il segmento `\n` in meno. La causa: `_forma.py` stampa due cose sulla
+stessa riga — lo spazio prima del `\n` e lo spazio dopo il `#` — e io ho letto
+«senza lo spazio prima del `\n`» come «senza il `\n`».
+
+⭐ `_preflight034.py` le ha prese tutte e quattro («segmenti diversi: en 1, it
+0») **prima** del reimporta e prima della build. È il suo punto 3, scritto nella
+115ª per un guasto diverso, che qui ha pescato un errore di lettura di chi
+scrive le rese — non un errore di battitura.
+
 ## Tre lotti, 90 rese, e si chiudono MINERALI, BACCHETTE e CONTENITORI — 2026-09-01, centoventesima sessione (seconda parte)
 
 `db_item.hsp`, il **corpo** delle descrizioni. Tre categorie intere, una per
