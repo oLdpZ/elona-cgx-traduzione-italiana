@@ -16,6 +16,8 @@ import json
 import subprocess
 import sys
 
+from strumenti import estrai
+
 LAVORO = 'lavoro/_107-daitem.jsonl'
 DIZIONARIO = 'dizionario/db_item.hsp.jsonl'
 INDICI = (0, 1, 2)
@@ -48,6 +50,22 @@ def righe_di(categoria, indice):
     return dentro
 
 
+def rinviate_per_riga():
+    """(riga -> motivo accorciato) per le firme rinviate di `db_item.hsp`.
+
+    ⓘ Le rinviate stanno per FIRMA; il conto di qui sta per RIGA, e il ponte
+    fra i due e' l'estrazione. Vedi il commento in fondo a `main`.
+    """
+    firme = estrai.carica_rinviate(None, 'db_item.hsp')
+    fuori = {}
+    for linea in io.open(LAVORO, encoding='utf-8'):
+        if linea.strip():
+            voce = json.loads(linea)
+            if voce['firma'] in firme:
+                fuori[voce['riga']] = voce.get('oggetto', '?')
+    return fuori
+
+
 def main():
     # ⚠️ «reso» vuol dire che il dizionario ha un `it` non vuoto per QUELLA
     #    riga: e' la stessa domanda che fa `verifica --dizionario`, non un
@@ -77,6 +95,24 @@ def main():
     print()
     print('  TOTALE da fare: %d su %d vive'
           % (sum(t[0] for t in tabella), sum(t[1] for t in tabella)))
+
+    # ⚠️⚠️ Il «da fare» qui e' `vive - rese`, la stessa domanda di
+    #    `verifica --dizionario`, e quindi conta dentro anche le RINVIATE —
+    #    che il progetto tratta come fatte dappertutto (`categorie.py` le
+    #    filtra passando da `estrai.da_tradurre`). Sottrarle qui romperebbe
+    #    l'invariante «il totale coincide con quello di verifica»: si
+    #    **nominano** invece, cosi' un «1» che non e' lavoro si legge per
+    #    quello che e'. Nato nella 119a, quando `FILTER_ITEM_POTION` si e'
+    #    fermato a 1 su 82 per `:129299`, che un testo non ce l'ha.
+    rinviate = rinviate_per_riga()
+    dentro = sorted(r for r in rinviate if r not in rese)
+    print()
+    if dentro:
+        print('  ⓘ di cui RINVIATE, cioe\' non lavoro: %d' % len(dentro))
+        for riga in dentro:
+            print('       :%d  %s' % (riga, rinviate[riga]))
+    else:
+        print('  ⓘ rinviate dentro il conto: 0   (il «da fare» e\' tutto lavoro)')
     return 0
 
 
