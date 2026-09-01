@@ -1,0 +1,23 @@
+RIGHE = {
+    87574, 90707, 119757, 123936,
+}
+# 4 righe, da 87574 a 123936
+
+    # ---------------------------------------------------------- :87574
+    (87574, 'Naturally, North Tyris also has toilets. They are even flush toilets. However, only a very eccentric person or a person who has left everything behind would try to satisfy his or her thirst in such a place. \\n#~ Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :90707
+    (90707, "There is only one well in the world that is filled with holy water. Do not defile it, and if you throw water pills into it lightly, you will surely regret it. \\n# ~Worlds you've Never Seen~"):
+        "",
+
+    # ---------------------------------------------------------- :119757
+    (119757, 'A summer retreat that creates a clean sound and cool space around it. It sounds good, but at the end of the day, the water in North Tyris is circulating, and it is probably not the cleanest water in the world. \\n# ~Supporting Roles on the Streets~'):
+        "",
+
+    # ---------------------------------------------------------- :123936
+    (123936, 'It is a lifeline for the citizens and a facility where they can easily drink water. Although it is a social gathering place for ladies, North Tyris lacks water purification technology, and problems caused by drinking water are noticeable. Therefore, it is often seen burning on rainy days, perhaps to sterilize the water. \\n# ~Supporting Roles on the Streets~'):
+        "",
+
+# 4 voci, 0 ambigue
+

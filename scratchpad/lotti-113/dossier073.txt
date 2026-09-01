@@ -1,0 +1,49 @@
+=== ITEM_ID_TOILET   [FILTER_FURNITURE_WELL]
+    NOME      jp トイレ
+              en toilet
+              IT gabinetto
+    --- description(0)  :87574
+        JP  \t\t当然ながらノースティリスにもトイレは存在する。それも水洗だ。しかし喉が渇いているからといってこのような所で渇きを満たそうとする者はかなりの変わり者か、全てを捨て去った者だけだろう。\n#～ノースティリス大家具事典～\n
+        EN  Naturally, North Tyris also has toilets. They are even flush toilets. However, only a very eccentric person or a person who has left everything behind would try to satisfy his or her thirst in such a place. \n#~ Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :87577 ⚠️ TETTO SECCO 69
+        JP  \t\t水を使用する設備。何度か飲むことができる。\n#～鑑定報告書：＜設備＞カテゴリ～\n
+        EN  (Re-drinkable) facility that supplies water.
+        IT  Un impianto che usa l'acqua. Si può bere più volte.
+
+=== ITEM_ID_HOLY_WELL   [FILTER_FURNITURE_WELL]
+    NOME      jp 聖なる井戸
+              en holy well
+              IT pozzo sacro
+    --- description(0)  :90707
+        JP  \t\t世界に一か所のみ存在するという、聖なる水を湛えた井戸。決して汚すことなかれ、もし軽い気持ちで水薬を投げようものならあなたはきっと後悔するであろう。\n#～あなたの見知らぬ世界～\n
+        EN  There is only one well in the world that is filled with holy water. Do not defile it, and if you throw water pills into it lightly, you will surely regret it. \n# ~Worlds you've Never Seen~
+    --- description(3)  :90710 ⚠️ TETTO SECCO 69
+        JP  \t\t聖なる水を湛えた井戸。飲むことができる。\n#～鑑定報告書：＜設備＞カテゴリ～\n
+        EN  (Drinkable) well that contains holy water.
+        IT  Un pozzo pieno d'acqua santa. Si può bere.
+
+=== ITEM_ID_FOUNTAIN   [FILTER_FURNITURE_WELL]
+    NOME      jp 噴水
+              en fountain
+              IT fontana
+    --- description(0)  :119757
+        JP  \t\t辺りに清浄な音とひんやりとした空間を作り出す避暑設備。聞こえはいいが、結局のところノースティリスの水が循環している訳で、お世辞にも清浄といえるものではないだろう。\n#～街中の名脇役達～\n
+        EN  A summer retreat that creates a clean sound and cool space around it. It sounds good, but at the end of the day, the water in North Tyris is circulating, and it is probably not the cleanest water in the world. \n# ~Supporting Roles on the Streets~
+    --- description(3)  :119760 ⚠️ TETTO SECCO 69
+        JP  \t\t水を使用する設備。何度か飲むことができる。\n#～鑑定報告書：＜設備＞カテゴリ～\n
+        EN  (Re-drinkable) facility that supplies water.
+        IT  Un impianto che usa l'acqua. Si può bere più volte.
+
+=== ITEM_ID_WELL   [FILTER_FURNITURE_WELL]
+    NOME      jp 井戸
+              en well
+              IT pozzo
+    --- description(0)  :123936
+        JP  \t\t市民の生命線であり、気軽に水が飲める設備。ご婦人方の社交場であるがノースティリスは浄水技術に乏しく、飲んだ水によるトラブルも目立つ。それ故殺菌の為か、雨の日にはしばしば燃えている光景を目にする。\n#～街中の名脇役達～\n
+        EN  It is a lifeline for the citizens and a facility where they can easily drink water. Although it is a social gathering place for ladies, North Tyris lacks water purification technology, and problems caused by drinking water are noticeable. Therefore, it is often seen burning on rainy days, perhaps to sterilize the water. \n# ~Supporting Roles on the Streets~
+    --- description(3)  :123939 ⚠️ TETTO SECCO 69
+        JP  \t\t水を湛える設備。飲むことができる。\n#～鑑定報告書：＜設備＞カテゴリ～\n
+        EN  (Re-drinkable) facility that supplies water.
+        IT  Un impianto che raccoglie l'acqua. Si può bere.
+
+== 4 oggetti, 8 descrizioni

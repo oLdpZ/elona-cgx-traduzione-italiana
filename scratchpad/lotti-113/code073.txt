@@ -1,0 +1,14 @@
+:87574
+   en  #~ Great Encyclopedia of North Tyris Furnitures~
+   IT  #~Grande Enciclopedia dei Mobili di Tyris del Nord~
+:90707
+   en  # ~Worlds you've Never Seen~
+   IT  # ~I Mondi che Non Hai Mai Visto~
+:119757
+   en  # ~Supporting Roles on the Streets~
+   IT  # ~I Grandi Comprimari della Città~
+:123936
+   en  # ~Supporting Roles on the Streets~
+   IT  # ~I Grandi Comprimari della Città~
+
+righe senza resa in tabella: 0   (atteso 0)
