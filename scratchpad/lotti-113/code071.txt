@@ -1,0 +1,20 @@
+:44863
+   en  #~Seaweed is not Sea Weed~
+   IT  #~Alghe e Piante Marine: la Differenza~
+:44865
+   en  #~Identification Report: <Seaweed> Category~
+   IT  #~Rapporto di Identificazione: categoria <Alghe>~
+:44926
+   en  #~Seaweed is not Sea Weed~
+   IT  #~Alghe e Piante Marine: la Differenza~
+:44928
+   en  #~Identification Report: <Seaweed> Category~
+   IT  #~Rapporto di Identificazione: categoria <Alghe>~
+:44989
+   en  #~Seaweed is not Sea Weed~
+   IT  #~Alghe e Piante Marine: la Differenza~
+:44991
+   en  #~Identification Report: <Seaweed> Category~
+   IT  #~Rapporto di Identificazione: categoria <Alghe>~
+
+righe senza resa in tabella: 0   (atteso 0)

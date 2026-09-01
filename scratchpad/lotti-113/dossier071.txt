@@ -1,0 +1,46 @@
+=== ITEM_ID_MOZUKU   [FILTER_ENVIRONMENT_SEABED]
+    NOME      jp もずく
+              en mozuku
+              IT mozuku
+    --- description(0)  :44863
+        JP  細長く枝分かれした体を持つ海藻。１メートル以上になることもある。食感と喉越しに優れるが、酢漬けにされることが多く、あまり好かれない。\n#～海藻と海草の違い～
+        EN  A seaweed with long, slender, branched bodies that can grow to over a meter in length. It has an excellent texture and throat, but is often pickled in vinegar and is not well-liked.\n#~Seaweed is not Sea Weed~
+    --- description(2)  :44865
+        JP  
+        EN  It's seaweed. You can eat it I guess.\n#~Identification Report: <Seaweed> Category~
+    --- description(3)  :44866 ⚠️ TETTO SECCO 69
+        JP  海藻だ。食べることができる。\n#～鑑定報告書：＜海藻＞カテゴリ～
+        EN  It is seaweed.
+        IT  Un'alga. Si può mangiare.
+
+=== ITEM_ID_KOMBU   [FILTER_ENVIRONMENT_SEABED]
+    NOME      jp 昆布
+              en kombu
+              IT kombu
+    --- description(0)  :44926
+        JP  とても長くなる海藻。水分も多いためかなり重い。干すのにもコツがいるが、乾燥するといいダシが取れるようになる。\n#～海藻と海草の違い～
+        EN  Seaweed that grows very long. It is also quite heavy due to its high water content. It takes some skill to dry it, but when it dries, it makes a good broth.\n#~Seaweed is not Sea Weed~
+    --- description(2)  :44928
+        JP  
+        EN  Giant seaweed. You can eat it I guess.\n#~Identification Report: <Seaweed> Category~
+    --- description(3)  :44929 ⚠️ TETTO SECCO 69
+        JP  巨大な海藻だ。食べることができる。\n#～鑑定報告書：＜海藻＞カテゴリ～
+        EN  It is seaweed.
+        IT  Un'alga gigantesca. Si può mangiare.
+
+=== ITEM_ID_WAKAME   [FILTER_ENVIRONMENT_SEABED]
+    NOME      jp ワカメ
+              en wakame
+              IT wakame
+    --- description(0)  :44989
+        JP  大型の海藻。海中の栄養を吸ってどんどん増える。一部の地域では古くから様々な料理の具材として重宝されてきた。\n#～海藻と海草の違い～
+        EN  Large seaweed. It grows rapidly by absorbing nutrients from the sea. In some regions, it has long been valued as an ingredient in various dishes.\n#~Seaweed is not Sea Weed~
+    --- description(2)  :44991
+        JP  
+        EN  Huge seaweed. You can eat it I guess.\n#~Identification Report: <Seaweed> Category~
+    --- description(3)  :44992 ⚠️ TETTO SECCO 69
+        JP  大きな海藻だ。食べることができる。\n#～鑑定報告書：＜海藻＞カテゴリ～
+        EN  It is seaweed.
+        IT  Un'alga grande. Si può mangiare.
+
+== 3 oggetti, 9 descrizioni

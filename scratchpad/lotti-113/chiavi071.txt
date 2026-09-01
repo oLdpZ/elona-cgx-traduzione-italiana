@@ -1,0 +1,33 @@
+RIGHE = {
+    44863, 44865, 44926, 44928, 44989, 44991,
+}
+# 6 righe, da 44863 a 44991
+
+    # ---------------------------------------------------------- :44863
+    (44863, 'A seaweed with long, slender, branched bodies that can grow to over a meter in length. It has an excellent texture and throat, but is often pickled in vinegar and is not well-liked.\\n#~Seaweed is not Sea Weed~'):
+        "",
+
+    # ---------------------------------------------------------- :44865
+    (44865, "It's seaweed. You can eat it I guess.\\n#~Identification Report: <Seaweed> Category~"):
+        "",
+
+    # ---------------------------------------------------------- :44926
+    (44926, 'Seaweed that grows very long. It is also quite heavy due to its high water content. It takes some skill to dry it, but when it dries, it makes a good broth.\\n#~Seaweed is not Sea Weed~'):
+        "",
+
+    # ---------------------------------------------------------- :44928
+    (44928, 'Giant seaweed. You can eat it I guess.\\n#~Identification Report: <Seaweed> Category~'):
+        "",
+
+    # ---------------------------------------------------------- :44989
+    (44989, 'Large seaweed. It grows rapidly by absorbing nutrients from the sea. In some regions, it has long been valued as an ingredient in various dishes.\\n#~Seaweed is not Sea Weed~'):
+        "",
+
+# 3 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :44991
+    (44991, 'Huge seaweed. You can eat it I guess.\\n#~Identification Report: <Seaweed> Category~'):
+        "",
+
+# 3 voci, 0 ambigue
+
