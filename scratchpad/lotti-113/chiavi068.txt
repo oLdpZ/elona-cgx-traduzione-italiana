@@ -1,0 +1,43 @@
+RIGHE = {
+    61581, 64276, 64343, 68112, 76049, 82342, 100327, 100392, 126712,
+}
+# 9 righe, da 61581 a 126712
+
+    # ---------------------------------------------------------- :61581
+    (61581, "Giant belt buckle with an ego. It emits a light that temporarily transforms one's signature attribute. It is studded with gemstones that resemble eyes, each of which represents a different attribute. Its main body is also in the shape of a giant eye, but it seems that this design was created by chance during the course of its creation. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :64276
+    (64276, "This broom was given the ability to fly by Nein. Although it was originally intended to be ridden astride, it is safer to ride it sitting sideways because one's crotch might split open when it soars. It is capable of flying at the speed of sound due to its high specifications, but if it is actually used, the passenger will surely be swept off. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :64343
+    (64343, 'It was made by sewing tiger fur using magical threads extracted from the souls of mages. They are famous for their toughness and do not tear or stink even after 100 years of wear. Because they are easy to move in, they are used as sportswear, and there are even brand-name products made of white tiger fur. They are pants, but more like hot pants, so there is no need to be embarrassed when people see them. Put them on, yes, right now! \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :68112
+    (68112, 'Belt studded with an imitation of the Lesimas Magic Stone. The original magic stone had the power to seal Lesimas, and a plan was proposed to apply it to create a defensive facility to protect Palmia. With the cooperation of adventurers from Eulderna, an imitation was produced, but the plan was abandoned because some of the strength could not be reproduced. Only a prototype of armor that temporarily covered only the bearer with a magical wall was produced. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :76049
+    (76049, 'Something the God of the Harvest uses to keep his precious objects from escaping. If you are not careful, it will wrap around you like a belt on its own. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :82342
+    (82342, "Waistband made of ancient metals joined together in a scaly pattern. It is coated with a special red chemical that is said to protect the wearer's body and possessions. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :100327
+    (100327, 'A waist support with increased protection by layering. In addition to the increased weight, the overlapping parts collide with each other, which has the adverse effect of creating noise. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :100392
+    (100392, "A waist brace made of a combination of special materials to provide stronger protection. It is lighter than the usual one, perhaps as a result of the material's advantages. \\n# ~Collection of Armaments you can Use Tomorrow~"):
+        "",
+
+    # ---------------------------------------------------------- :126712
+    (126712, 'Protective gear designed to protect the lower half of the body while not impeding action. In cold weather, some elderly women wear these due to their lightweight material. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+# 9 voci, 0 ambigue
+

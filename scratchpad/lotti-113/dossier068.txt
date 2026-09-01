@@ -1,0 +1,115 @@
+=== ITEM_ID_ELEMENTS_EYES   [FILTER_GIRDLE]
+    NOME      jp 《エレメントアイズ》
+              en <Elements Eyes>
+              IT <Elements Eyes>
+    non ident. IT occhi variopinti   (en colorful eyes)
+    --- description(0)  :61581
+        JP  \t\t巨大なバックルのベルト。得意属性を一時的に変換する光を放つ。眼を模した宝石が散りばめられており、そのひとつひとつが各属性を司っている。本体も巨大な眼の形をしているが、これは漫然と作っている内に偶然こんなデザインになっただけらしい。\n#～イルヴァ幻想辞典～\n
+        EN  Giant belt buckle with an ego. It emits a light that temporarily transforms one's signature attribute. It is studded with gemstones that resemble eyes, each of which represents a different attribute. Its main body is also in the shape of a giant eye, but it seems that this design was created by chance during the course of its creation. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :61584 ⚠️ TETTO SECCO 69
+        JP  \t\t一部技能の参照属性を変える道具だ。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  (Reusable) belt buckle that changes one's attribute of some skills.
+        IT  Cambia l'attributo di certe abilità. Si può usare sempre.
+
+=== ITEM_ID_SONIC_BROOM   [FILTER_GIRDLE]
+    NOME      jp 《ソニックブルーム》
+              en <Sonic Broom>
+              IT <Sonic Broom>
+    non ident. IT scopa magica supersonica   (en supersonic magic broom)
+    --- description(0)  :64276
+        JP  \t\tネインによって飛行能力を与えられたほうき。当初は跨って乗ることを想定されていたが、急上昇時に股が裂けかねないため腰掛けて乗るのが無難。無駄にスペックが高く音速飛行が可能だが、実際にやると搭乗者が確実に振り落される。\n#～イルヴァ幻想辞典～\n
+        EN  This broom was given the ability to fly by Nein. Although it was originally intended to be ridden astride, it is safer to ride it sitting sideways because one's crotch might split open when it soars. It is capable of flying at the speed of sound due to its high specifications, but if it is actually used, the passenger will surely be swept off. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :64279 ⚠️ TETTO SECCO 69
+        JP  \t\t乗ると浮遊する箒だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a broom that floats when you ride it.
+        IT  Una scopa che ti fa levitare quando ci sali.
+
+=== ITEM_ID_PANTS_OF_OGRE   [FILTER_GIRDLE]
+    NOME      jp 《鬼のパンツ》
+              en <Pants of Ogre>
+              IT <Mutande dell'Ogre>
+    non ident. IT mutande favolose   (en hot pants)
+    --- description(0)  :64343
+        JP  \t\t魔術士の魂から抽出した魔力糸を用い、虎の毛皮を縫って作られた。とにかく強靭なことで有名で、実際１００年穿いても破れないし臭くならない。動きやすいのでスポーツウェアとして用いられるほか、白虎の毛皮で作ったブランド品も存在している。パンツはパンツでもホットパンツのほうなので、見られても恥ずかしくない。みんなで穿こう。投げたりしないで穿こう。\n#～イルヴァ幻想辞典～\n
+        EN  It was made by sewing tiger fur using magical threads extracted from the souls of mages. They are famous for their toughness and do not tear or stink even after 100 years of wear. Because they are easy to move in, they are used as sportswear, and there are even brand-name products made of white tiger fur. They are pants, but more like hot pants, so there is no need to be embarrassed when people see them. Put them on, yes, right now! \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :64346 ⚠️ TETTO SECCO 69
+        JP  \t\t下着ではなく短いズボンだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is not underwear, it's hot pants.
+        IT  Non sono mutande: sono pantaloni corti.
+
+=== ITEM_ID_ASTEROID_BELT   [FILTER_GIRDLE]
+    NOME      jp 《アステロイドベルト》
+              en <Asteroid Belt>
+              IT <Asteroid Belt>
+    non ident. IT cintura di pietre   (en power stone belt)
+    --- description(0)  :68112
+        JP  \t\t魔石の模倣品がちりばめられたベルト。オリジナルの魔石はレシマスの封印に関わる力を秘めていたが、その応用でパルミアを守る防御設備を作る計画が挙がっていた。エウダーナ出身冒険者の協力で模倣品は精製できたものの、力の一部が再現不能で計画は頓挫。所持者だけを一時的に魔力壁で覆う防具が、試作品として作られるに留まった。\n#～イルヴァ幻想辞典～\n
+        EN  Belt studded with an imitation of the Lesimas Magic Stone. The original magic stone had the power to seal Lesimas, and a plan was proposed to apply it to create a defensive facility to protect Palmia. With the cooperation of adventurers from Eulderna, an imitation was produced, but the plan was abandoned because some of the strength could not be reproduced. Only a prototype of armor that temporarily covered only the bearer with a magical wall was produced. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :68115 ⚠️ TETTO SECCO 69
+        JP  \t\t防御魔力の備わったベルトだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a belt studded with defensive magic.
+        IT  Una cintura con una magia di difesa dentro.
+
+=== ITEM_ID_GREEN_GOD_THORN   [FILTER_GIRDLE]
+    NOME      jp 《神緑の茨》
+              en <Green God Thorn>
+              IT <Spina del Dio Verde>
+    non ident. IT sfera luminosa divina   (en god jewel)
+    --- description(0)  :76049
+        JP  \t\t収穫の神が大切なものが逃げ出さないように使うもの。油断すると勝手にベルトのように巻き付いてくる。\n#～イルヴァ幻想辞典～\n
+        EN  Something the God of the Harvest uses to keep his precious objects from escaping. If you are not careful, it will wrap around you like a belt on its own. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :76052 ⚠️ TETTO SECCO 69
+        JP  \t\t身に着けると変形して腰当になる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a godly gift that when worn, transforms and becomes a waist belt.
+        IT  Se lo indossi, si trasforma in una cintura.
+
+=== ITEM_ID_CRIMSON_PLATE   [FILTER_GIRDLE]
+    NOME      jp 《紅凛》
+              en <Crimson Plate>
+              IT <Corazza Cremisi>
+    non ident. IT cintura rossa   (en red girdle)
+    --- description(0)  :82342
+        JP  \t\t古の金属を鱗状に繋ぎ合せた腰当。特殊な赤い薬品が塗ってあり、装備した者の所持品と肉体を守ってくれるという。\n#～イルヴァ幻想辞典～\n
+        EN  Waistband made of ancient metals joined together in a scaly pattern. It is coated with a special red chemical that is said to protect the wearer's body and possessions. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :82345 ⚠️ TETTO SECCO 69
+        JP  \t\t出血と炎上を防ぐ腰当だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a waistband that prevents bleeding and burning.
+        IT  Una cintura che ferma il sanguinamento e le fiamme.
+
+=== ITEM_ID_PLATE_GIRDLE   [FILTER_GIRDLE]
+    NOME      jp 重層腰当
+              en plate girdle
+              IT cintura a piastre
+    --- description(0)  :100327
+        JP  \t\t何層も重ねることで防護を上げた腰当。重量が増した上、重なった部位と部位とがぶつかり騒音をもたらすという弊害もある。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A waist support with increased protection by layering. In addition to the increased weight, the overlapping parts collide with each other, which has the adverse effect of creating noise. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :100330 ⚠️ TETTO SECCO 69
+        JP  \t\t幾つも連なった腰当だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a reinforced girdle.
+        IT  Una cintura fatta di più pezzi in fila.
+
+=== ITEM_ID_COMPOSITE_GIRDLE   [FILTER_GIRDLE]
+    NOME      jp 合成腰当
+              en composite girdle
+              IT cintura composita
+    --- description(0)  :100392
+        JP  \t\t特殊な素材をかけ合わせてより強固な防護を得た腰当。素材の長所を伸ばした結果か、通常のものより軽めに仕上がっている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A waist brace made of a combination of special materials to provide stronger protection. It is lighter than the usual one, perhaps as a result of the material's advantages. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :100395 ⚠️ TETTO SECCO 69
+        JP  \t\t固い腰当だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a girdle reinforced with composite materials.
+        IT  Una cintura dura.
+
+=== ITEM_ID_GIRDLE   [FILTER_GIRDLE]
+    NOME      jp 腰当
+              en girdle
+              IT cintura
+    --- description(0)  :126712
+        JP  \t\t行動を阻害しないようにしつつ、下半身を守る為考案された防具。寒い季節になると軽い素材のこれを身につける婦人もいるようだ。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Protective gear designed to protect the lower half of the body while not impeding action. In cold weather, some elderly women wear these due to their lightweight material. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :126715 ⚠️ TETTO SECCO 69
+        JP  \t\t腰を守る為の防具だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is armor for your waists.
+        IT  Un'armatura per proteggere i fianchi.
+
+== 9 oggetti, 18 descrizioni
