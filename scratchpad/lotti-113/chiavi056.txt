@@ -1,0 +1,138 @@
+RIGHE = {
+    61946, 62314, 62394, 70751, 71856, 92062, 92797, 93149, 94102, 94534,
+    96275, 96355, 98576, 98954, 103505, 104942, 105381, 105966, 106766, 111777,
+    117679, 117759, 119541, 119621, 122821, 122964, 123044, 123124, 123204, 123284,
+    129950, 130030,
+}
+# 32 righe, da 61946 a 130030
+
+    # ---------------------------------------------------------- :61946
+    (61946, 'Rods encasing specific magic, an ephemeral, yet fragile looking gem is attached to it.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :62314
+    (62314, 'Rods encasing specific magic, an translucent, shining gem is attached to it.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :62394
+    (62394, 'Rods encasing specific magic, a poison-tainted gem is attached to it.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :70751
+    (70751, 'Rods encasing specific magic, a shiny, glittering gem is attached to it.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :71856
+    (71856, 'Rods encasing specific magic, a black and murky gem is attached to it.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :92062
+    (92062, 'Rods encasing specific magic, an opaque white spherical gem is attached to it.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :92797
+    (92797, 'Rods encasing specific magic, an transparent gem, with a hint of red taint, is attached to it.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :93149
+    (93149, 'Rods encasing specific magic, not jeweled, just a long, thin rod with a pointed end. \\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :94102
+    (94102, 'Rods encasing specific magic, carved with a pattern resembling intertwined ivy. \\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :94534
+    (94534, 'Rods encasing specific magic, mineralized shiny gemstones are attached to it. \\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :96275
+    (96275, 'Rods encasing specific magic, a Uroboros is carved on it.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :96355
+    (96355, 'Rods encasing specific magic, sacred geometric patterns are carved into it. \\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :98576
+    (98576, 'Rods encasing specific magic, not jeweled, latticed pattern is engraved on it. \\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :98954
+    (98954, "Rods encasing specific magic, a huge purple gem like a creature's eye is attached to it.\\n# ~Arcane Almanac~"):
+        "",
+
+    # ---------------------------------------------------------- :103505
+    (103505, 'Rods encasing specific magic, carved with fine letter-like patterns.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :104942
+    (104942, 'Rods encasing specific magic, an octahedron shaped crimson gemstone is attached. \\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :105381
+    (105381, 'Rods encasing specific magic, a cold blue gemstone is mounted on it. \\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :105966
+    (105966, 'Rods encasing specific magic, an opaque, blue gem is attached to it.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :106766
+    (106766, 'Rods encasing specific magic, a black, murky gem is attached to it.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :111777
+    (111777, 'Rods encasing specific magic, a cat-eye-shaped gem is attached to it.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :117679
+    (117679, 'Rods encasing specific magic, three small red jewels are attached.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :117759
+    (117759, 'Rods encasing specific magic, carved with spiral-like patterns.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :119541
+    (119541, 'Rods encasing specific magic, an opaque, red gem is attached to it.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :119621
+    (119621, 'Rods encasing specific magic, an translucent, yellow gem is attached to it.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :122821
+    (122821, 'Rods encasing specific magic, carved with intertwined serpent-like patterns. \\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :122964
+    (122964, 'Rods encasing specific magic, an translucent, red gem is attached to it.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :123044
+    (123044, 'Rods encasing specific magic, an translucent, blue gem is attached to it.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :123124
+    (123124, 'Rods encasing specific magic, a sphere made from some kind of bone is attached to it. \\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :123204
+    (123204, 'Rods encasing specific magic, an translucent, white gem is attached to it.\\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :123284
+    (123284, 'Rods encasing specific magic, spherical small red gemstone is attached. \\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :129950
+    (129950, 'Rods encasing specific magic, a green gemstone with clear quadrangulars is attached. \\n# ~Arcane Almanac~'):
+        "",
+
+    # ---------------------------------------------------------- :130030
+    (130030, 'Rods encasing specific magic, a crystal clear gemstone is attached to it.\\n# ~Arcane Almanac~'):
+        "",
+
+# 32 voci, 0 ambigue
+

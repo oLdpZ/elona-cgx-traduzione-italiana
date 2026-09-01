@@ -1,0 +1,111 @@
+RIGHE = {
+    57125, 57127, 78658, 80736, 81260, 81941, 88147, 89821, 90832, 92186,
+    93420, 93422, 93483, 94381, 96844, 103233, 103295, 104725, 107114, 112196,
+    112258, 115134, 115196, 115258, 115260,
+}
+# 25 righe, da 57125 a 115260
+
+    # ---------------------------------------------------------- :57125
+    (57125, 'Envelope made of thick brown paper. The sender is not written, but a letter is attached. \\n# ~Gifts that I am Happy to Receive~'):
+        "",
+
+    # ---------------------------------------------------------- :57127
+    (57127, '\\"Thank you for generously opening up your unique collection of fossils to the public. They are things that we would not be able to see if we lived in a straight life, and they excite me every day. Keep up the good work in collecting these unique finds!\\" \\n# ~words of an Fossil Enthusiast~'):
+        "",
+
+    # ---------------------------------------------------------- :78658
+    (78658, 'Pack of 5 collectible cards. The contained cards have no images, but can be putted into your deck.\\n# ~Heated Duelists~'):
+        "",
+
+    # ---------------------------------------------------------- :80736
+    (80736, 'In some regions, it is customary to give gifts to acquaintances at the beginning of the year. The gifts are filled with good things for those who are close to the recipient, but on the other hand, for those who are not so close to the recipient, a prank is sometimes played on the recipient. It is said that some people become a good person on all sides just for this reason. \\n# ~Gifts that I am Happy to Receive~'):
+        "",
+
+    # ---------------------------------------------------------- :81260
+    (81260, 'Cat in a box. Whether the cat inside is alive or dead will not be known until the box is opened. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :81941
+    (81941, '\\"A great experience for a handful of lucky people! Please bring your lockpicks to the challenge.\\" \\n# ~note written on the back of the box~'):
+        "",
+
+    # ---------------------------------------------------------- :88147
+    (88147, 'A mechanical box that allows food to be stored without spoiling. Extremely useful item, but only holds four kinds of food, so beware if you are going on a picnic with a lot of people. \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :89821
+    (89821, 'Special box for payment of designated taxes. Visit the Palmia Embassy to pay tax once a month. \\n# ~Censored! Box Mania, First Issue~'):
+        "",
+
+    # ---------------------------------------------------------- :90832
+    (90832, 'Huge, sturdy fetters made of metal. It does not seem to be affected by pushing or pulling, but the joints seem to be a little loose. \\n# ~Top 50 Most Popular Products Among Prisoners~'):
+        "",
+
+    # ---------------------------------------------------------- :92186
+    (92186, 'A work of wisdom that can store foodstuffs semi-permanently. However, there is a secret to this furniture. No matter how many units you own, their doors can only lead to the same space! \\n# ~Great Encyclopedia of North Tyris Furnitures~'):
+        "",
+
+    # ---------------------------------------------------------- :93420
+    (93420, "A special safe that takes care of all the store's sales. For security purposes, the system is such that it can never be opened outside of the store. \\n# ~Merchant Life Starting from a Quitting as a Adventurer~"):
+        "",
+
+    # ---------------------------------------------------------- :93422
+    (93422, 'A safe is essential to running a store. This is where all sales proceeds are stored. \\"If you lose it by accident, don\'t worry. Everything is available at the Palmia Embassy, the keystone of the economy.\\" \\n# ~Tyris Armor Compendium, page of advertisements~'):
+        "",
+
+    # ---------------------------------------------------------- :93483
+    (93483, 'A special box for the delivery of designated items. It is said that a little effort is made at the slot to prevent wrong everything from being dumped. \\n# ~Censored! Box Mania, First Issue~'):
+        "",
+
+    # ---------------------------------------------------------- :94381
+    (94381, 'A box to receive the earned salary twice a month. Even if the box is lost due to unforeseen circumstances, the salary will be properly transferred. But remember that Palmia officials are inflexible, you need to buy another box from them. \\n# ~Censored! Box Mania, First Issue~'):
+        "",
+
+    # ---------------------------------------------------------- :96844
+    (96844, 'An old briefcase. Inside the briefcase are items left behind by those who left the continent in the midst of their ambitions. To receive them, one must follow the proper procedures. \\n# ~Book for the Dying Ones~'):
+        "",
+
+    # ---------------------------------------------------------- :103233
+    (103233, "Sphere containing some item. Inside it is filled with hope in the name of 'desire'. \\n# ~Game Tricks, All Ages Version~"):
+        "",
+
+    # ---------------------------------------------------------- :103295
+    (103295, "Sphere containing some item. Inside it is filled with hope in the name of 'expectation'. \\n# ~Game Tricks, All Ages Version~"):
+        "",
+
+    # ---------------------------------------------------------- :104725
+    (104725, 'A black box that pops out materials when opened. A wide variety of items pop out all at once, but no one knows how they fit into this box. \\n# ~Censored! Box Mania, First Issue~'):
+        "",
+
+    # ---------------------------------------------------------- :107114
+    (107114, 'A briefcase filled with the best goods that a peddler has worked tirelessly to collect. For security purposes, the bag is said to be enchanted with a spell that makes people feel extremely guilty if anyone other than the registered owner opens it. \\n# ~Merchant Life Starting from a Quitting as a Adventurer~'):
+        "",
+
+    # ---------------------------------------------------------- :112196
+    (112196, '\\"Oh, I found a wallet here. Good, I was worried it might be lost. You say I look familiar? That\'s right, \'cause I have a lot of wallets.\\" \\n# ~words of the honest? rogue~'):
+        "",
+
+    # ---------------------------------------------------------- :112258
+    (112258, '\\"This bag belongs to me. No, I used to have it. No, I remember I had it, no, I wanted to buy it - no, wait. Oh yes, I remember, it was a bag that some old gentleman put there. In other words, it belonged to me.\\" \\n# ~words of <Gleed> the thief~'):
+        "",
+
+    # ---------------------------------------------------------- :115134
+    (115134, '\\"Is there hope inside, or is it despair? I guess the only thing I know is that for those who keep it, it\'s all despair.\\" \\n# ~words of <Marks> the great thief~'):
+        "",
+
+    # ---------------------------------------------------------- :115196
+    (115196, 'A box containing items that are said to be mainly kept in Nephia. The boxes are made to be very heavy so that adventurers who cannot unlock them will not be able to rob them by brute force. \\n# ~Censored! Box Mania, First Issue~'):
+        "",
+
+    # ---------------------------------------------------------- :115258
+    (115258, 'A shining treasure box decorated with jewelry. Despite its appearance, it is surprisingly lightweight, and some customers seem to buy it as a glamorous accessory box. \\n# ~Censored! Box Mania, First Issue~'):
+        "",
+
+# 22 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :115260
+    (115260, '\\"I\'ve been here all my life, sifting through the stolen goods, and I\'ve been surprised twice in the past. The first time was by a gentleman who brought me a golden statue of a giant god. The second time was to a man like you who brought not the contents of the treasure, but its bejeweled exterior.\\" \\n# ~words of <Abyss> the thief watchman~'):
+        "",
+
+# 3 voci, 0 ambigue
+

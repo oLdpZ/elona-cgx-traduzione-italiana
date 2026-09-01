@@ -1,0 +1,385 @@
+=== ITEM_ID_ROD_BUBBLE_BALL   [FILTER_ITEM_ROD]
+    NOME      jp 泡沫の波動の魔杖 泡沫の波動の魔杖
+              en bubble ball rod
+              IT sfera di bolle bacchetta
+    --- description(0)  :61946
+        JP  \t\t特定の魔法が封じ込められた杖。今にも割れてしまいそうな儚げな宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, an ephemeral, yet fragile looking gem is attached to it.\n# ~Arcane Almanac~
+    --- description(3)  :61949 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることでＰＶＤＶ属性の範囲攻撃を発動する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, unleash an area-of-effect physical attack.
+        IT  Una bacchetta che, agitata, fa un attacco ad area di tipo PV/DV.
+
+=== ITEM_ID_ROD_MAGIC_LASER   [FILTER_ITEM_ROD]
+    NOME      jp マジックレーザーの魔杖 マジックレーザーの魔杖
+              en magic laser rod
+              IT raggio magico bacchetta
+    --- description(0)  :62314
+        JP  \t\t特定の魔法が封じ込められた杖。半透明の輝く宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, an translucent, shining gem is attached to it.\n# ~Arcane Almanac~
+    --- description(3)  :62317 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に魔法属性のボルトを放つ魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, unleashes a beam of magical torrent.
+        IT  Una bacchetta che, agitata, tira una saetta arcana.
+
+=== ITEM_ID_ROD_POISON_BALL   [FILTER_ITEM_ROD]
+    NOME      jp 猛毒の波動の魔杖 猛毒の波動の魔杖
+              en poison ball rod
+              IT sfera di veleno bacchetta
+    --- description(0)  :62394
+        JP  \t\t特定の魔法が封じ込められた杖。毒々しい色の宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, a poison-tainted gem is attached to it.\n# ~Arcane Almanac~
+    --- description(3)  :62397 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで毒属性の範囲攻撃を発動する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, unleashes an area-of-effect poison attack.
+        IT  Una bacchetta che, agitata, fa un attacco ad area di veleno.
+
+=== ITEM_ID_ROD_LIGHTNING_BALL   [FILTER_ITEM_ROD]
+    NOME      jp 雷光の波動の魔杖 雷光の波動の魔杖
+              en lightning ball rod
+              IT sfera di fulmine bacchetta
+    --- description(0)  :70751
+        JP  \t\t特定の魔法が封じ込められた杖。バチバチと光る宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, a shiny, glittering gem is attached to it.\n# ~Arcane Almanac~
+    --- description(3)  :70754 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで電撃属性の範囲攻撃を発動する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, unleash an area-of-effect electric shock.
+        IT  Una bacchetta che, agitata, fa un attacco ad area di fulmine.
+
+=== ITEM_ID_ROD_ECLIPSE   [FILTER_ITEM_ROD]
+    NOME      jp 月蝕の波動の魔杖 月蝕の波動の魔杖
+              en eclipse rod
+              IT eclissi bacchetta
+    --- description(0)  :71856
+        JP  \t\t特定の魔法が封じ込められた杖。黒く濁った宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, a black and murky gem is attached to it.\n# ~Arcane Almanac~
+    --- description(3)  :71859 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで暗黒属性の範囲攻撃を発動する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, unleashes an area-of-effect dark pulse.
+        IT  Una bacchetta che, agitata, fa un attacco ad area d'oscurità.
+
+=== ITEM_ID_ROD_MAKE_DOOR   [FILTER_ITEM_ROD]
+    NOME      jp 扉生成の魔杖 扉生成の魔杖
+              en make door rod
+              IT creazione di porte bacchetta
+    --- description(0)  :92062
+        JP  \t\t特定の魔法が封じ込められた杖。不透明な白い球状をした宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, an opaque white spherical gem is attached to it.\n# ~Arcane Almanac~
+    --- description(3)  :92065 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで近距離に扉を作り出す魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, manifests doorways on nearby walls.
+        IT  Una bacchetta che, agitata, apre porte nei muri vicini.
+
+=== ITEM_ID_ROD_FIRE_WALL   [FILTER_ITEM_ROD]
+    NOME      jp 炎の壁の魔杖 炎の壁の魔杖
+              en fire wall rod
+              IT muro di fuoco bacchetta
+    --- description(0)  :92797
+        JP  \t\t特定の魔法が封じ込められた杖。透明の中に赤い色が混ざり込んだ宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, an transparent gem, with a hint of red taint, is attached to it.\n# ~Arcane Almanac~
+    --- description(3)  :92800 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に炎の壁を作り出す魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, creates walls of flame at target location.
+        IT  Una bacchetta che, agitata, alza muri di fiamme dove vuoi.
+
+=== ITEM_ID_ROD_ACID_GROUND   [FILTER_ITEM_ROD]
+    NOME      jp 酸の滴る杖 酸の滴る杖
+              en acid ground rod
+              IT suolo acido bacchetta
+    --- description(0)  :93149
+        JP  \t\t特定の魔法が封じ込められた杖。宝石が付いておらず、先の尖った長細い棒の様である。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, not jeweled, just a long, thin rod with a pointed end. \n# ~Arcane Almanac~
+    --- description(3)  :93152 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に酸の海を作り出す魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, creates pools of acid at target location.
+        IT  Una bacchetta che, agitata, crea una pozza d'acido dove vuoi.
+
+=== ITEM_ID_ROD_HEALING_HANDS   [FILTER_ITEM_ROD]
+    NOME      jp 癒しの手の魔杖 癒しの手の魔杖
+              en healing hands rod
+              IT mani guaritrici bacchetta
+    --- description(0)  :94102
+        JP  \t\t特定の魔法が封じ込められた杖。絡みあった蔦のような模様が彫り込まれている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, carved with a pattern resembling intertwined ivy. \n# ~Arcane Almanac~
+    --- description(3)  :94105 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで自分、または隣接者のHPを回復する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, heal wounds of nearby target.
+        IT  Una bacchetta che, agitata, cura te o chi ti sta accanto.
+
+=== ITEM_ID_ROD_WALL_CREATION   [FILTER_ITEM_ROD]
+    NOME      jp 壁生成の魔杖 壁生成の魔杖
+              en wall creation rod
+              IT creazione di muri bacchetta
+    --- description(0)  :94534
+        JP  \t\t特定の魔法が封じ込められた杖。鉱物のように光る宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, mineralized shiny gemstones are attached to it. \n# ~Arcane Almanac~
+    --- description(3)  :94537 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に壁を作り出す魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, creates magical walls at target location.
+        IT  Una bacchetta che, agitata, alza muri magici dove vuoi.
+
+=== ITEM_ID_ROD_ALCHEMY   [FILTER_ITEM_ROD]
+    NOME      jp 錬金術の魔杖 錬金術の魔杖
+              en alchemy rod
+              IT alchimia bacchetta
+    --- description(0)  :96275
+        JP  \t\t特定の魔法が封じ込められた杖。自分の尾を咥えた竜が彫り込まれている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, a Uroboros is carved on it.\n# ~Arcane Almanac~
+    --- description(3)  :96278 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで指定したアイテムを再構築する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, reconstruct targeted items.
+        IT  Una bacchetta che, agitata, ricostruisce l'oggetto scelto.
+
+=== ITEM_ID_ROD_CHANGE_CREATURE   [FILTER_ITEM_ROD]
+    NOME      jp 変化の魔杖 変化の魔杖
+              en change creature rod
+              IT mutamento di creatura bacchetta
+    --- description(0)  :96355
+        JP  \t\t特定の魔法が封じ込められた杖。神聖幾何学模様が彫り込まれている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, sacred geometric patterns are carved into it. \n# ~Arcane Almanac~
+    --- description(3)  :96358 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象を再構築する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, forcifully transforms target creature.
+        IT  Una bacchetta che, agitata, ricostruisce il bersaglio.
+
+=== ITEM_ID_ROD_WEB   [FILTER_ITEM_ROD]
+    NOME      jp 蜘蛛の巣の魔杖 蜘蛛の巣の魔杖
+              en web rod
+              IT ragnatela bacchetta
+    --- description(0)  :98576
+        JP  \t\t特定の魔法が封じ込められた杖。杖の部分に格子状の模様が刻み込まれている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, not jeweled, latticed pattern is engraved on it. \n# ~Arcane Almanac~
+    --- description(3)  :98579 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に蜘蛛の巣を張る魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, creates spider webs at target location.
+        IT  Una bacchetta che, agitata, tende una ragnatela sul bersaglio.
+
+=== ITEM_ID_ROD_DOMINATION   [FILTER_ITEM_ROD]
+    NOME      jp 支配の魔杖 支配の魔杖
+              en domination rod
+              IT dominio bacchetta
+    --- description(0)  :98954
+        JP  \t\t特定の魔法が封じ込められた杖。生き物の目の様な巨大な紫色の宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, a huge purple gem like a creature's eye is attached to it.\n# ~Arcane Almanac~
+    --- description(3)  :98957 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象を支配下に置く魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, dominates target creature.
+        IT  Una bacchetta che, agitata, ti sottomette il bersaglio.
+
+=== ITEM_ID_ROD_UNCURSE   [FILTER_ITEM_ROD]
+    NOME      jp 解呪の魔杖 解呪の魔杖
+              en uncurse rod
+              IT purificazione bacchetta
+    --- description(0)  :103505
+        JP  \t\t特定の魔法が封じ込められた杖。細かい文字のような模様が彫り込まれている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, carved with fine letter-like patterns.\n# ~Arcane Almanac~
+    --- description(3)  :103508 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで自分、または隣接者の持つアイテムの呪いを解く魔法の杖。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, uncurses nearby equipped items.
+        IT  Una bacchetta che, agitata, purifica gli oggetti qui intorno.
+
+=== ITEM_ID_ROD_MANA   [FILTER_ITEM_ROD]
+    NOME      jp 魔力の魔杖 魔力の魔杖
+              en mana rod
+              IT mana bacchetta
+    --- description(0)  :104942
+        JP  \t\t特定の魔法が封じ込められた杖。八面体に整えられた深紅の宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, an octahedron shaped crimson gemstone is attached. \n# ~Arcane Almanac~
+    --- description(3)  :104945 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで自分のＭＰを回復する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, restores your mana.
+        IT  Una bacchetta che, agitata, ti recupera gli MP.
+
+=== ITEM_ID_ROD_HOLY_LIGHT   [FILTER_ITEM_ROD]
+    NOME      jp 浄化の魔杖 浄化の魔杖
+              en holy light rod
+              IT luce sacra bacchetta
+    --- description(0)  :105381
+        JP  \t\t特定の魔法が封じ込められた杖。冷たさを感じさせる青い宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, a cold blue gemstone is mounted on it. \n# ~Arcane Almanac~
+    --- description(3)  :105384 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで自分、または隣接者に呪いに対する抵抗を得る衣を張る魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, protects nearby target from curses.
+        IT  Una bacchetta che, agitata, para le maledizioni a te e ai vicini.
+
+=== ITEM_ID_ROD_SPEED   [FILTER_ITEM_ROD]
+    NOME      jp 加速の魔杖 加速の魔杖
+              en speed rod
+              IT accelerazione bacchetta
+    --- description(0)  :105966
+        JP  \t\t特定の魔法が封じ込められた杖。不透明な青い宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, an opaque, blue gem is attached to it.\n# ~Arcane Almanac~
+    --- description(3)  :105969 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで自分、または隣接者を一定時間加速状態にする魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, puts nearby target in accelerated status.
+        IT  Una bacchetta che, agitata, accelera te o chi ti sta accanto.
+
+=== ITEM_ID_ROD_SILENCE   [FILTER_ITEM_ROD]
+    NOME      jp 沈黙の魔杖 沈黙の魔杖
+              en silence rod
+              IT silenzio bacchetta
+    --- description(0)  :106766
+        JP  \t\t特定の魔法が封じ込められた杖。黒く濁った宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, a black, murky gem is attached to it.\n# ~Arcane Almanac~
+    --- description(3)  :106769 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象を沈黙状態にする魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, silences the target.
+        IT  Una bacchetta che, agitata, mette il bersaglio in silenzio.
+
+=== ITEM_ID_ROD_WISHING   [FILTER_ITEM_ROD]
+    NOME      jp 願いの魔杖 願いの魔杖
+              en wishing rod
+              IT desiderio bacchetta
+    --- description(0)  :111777
+        JP  \t\t特定の魔法が封じ込められた貴重な杖。猫の目の様な宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, a cat-eye-shaped gem is attached to it.\n# ~Arcane Almanac~
+    --- description(3)  :111780 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで願いを言う機会が与えられる魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, grants audience to the wish goddess.
+        IT  Una bacchetta che, agitata, dà modo di esprimere un desiderio.
+
+=== ITEM_ID_ROD_CURE   [FILTER_ITEM_ROD]
+    NOME      jp 癒しの魔杖 癒しの魔杖
+              en cure rod
+              IT cura bacchetta
+    --- description(0)  :117679
+        JP  \t\t特定の魔法が封じ込められた杖。小さく赤い宝石が３つ取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, three small red jewels are attached.\n# ~Arcane Almanac~
+    --- description(3)  :117682 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで自分、または隣接者のHPを回復する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, heal wounds of nearby target.
+        IT  Una bacchetta che, agitata, cura te o chi ti sta accanto.
+
+=== ITEM_ID_ROD_MAGIC_MAPPING   [FILTER_ITEM_ROD]
+    NOME      jp 千里眼の魔杖 千里眼の魔杖
+              en magic mapping rod
+              IT cartografia magica bacchetta
+    --- description(0)  :117759
+        JP  \t\t特定の魔法が封じ込められた杖。螺旋状の模様が彫り込まれている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, carved with spiral-like patterns.\n# ~Arcane Almanac~
+    --- description(3)  :117762 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで未探索の箇所を明らかにする魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, scan and maps undiscovered areas.
+        IT  Una bacchetta che, agitata, rivela le zone non esplorate.
+
+=== ITEM_ID_ROD_SLOW   [FILTER_ITEM_ROD]
+    NOME      jp 鈍足の魔杖 鈍足の魔杖
+              en slow rod
+              IT rallentamento bacchetta
+    --- description(0)  :119541
+        JP  \t\t特定の魔法が封じ込められた杖。不透明な赤い宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, an opaque, red gem is attached to it.\n# ~Arcane Almanac~
+    --- description(3)  :119544 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象者を鈍足状態にする魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, puts a nearby target in slow motion.
+        IT  Una bacchetta che, agitata, rallenta il bersaglio.
+
+=== ITEM_ID_ROD_LIGHTNING_BOLT   [FILTER_ITEM_ROD]
+    NOME      jp 稲妻の軌跡の魔杖 稲妻の軌跡の魔杖
+              en lightning bolt rod
+              IT saetta di fulmine bacchetta
+    --- description(0)  :119621
+        JP  \t\t特定の魔法が封じ込められた杖。半透明の黄色い宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, an translucent, yellow gem is attached to it.\n# ~Arcane Almanac~
+    --- description(3)  :119624 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に電撃属性のボルトを放つ魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, unleashes a beam of electric torrent.
+        IT  Una bacchetta che, agitata, tira una saetta di fulmine.
+
+=== ITEM_ID_ROD_LIFE   [FILTER_ITEM_ROD]
+    NOME      jp 生命の魔杖 生命の魔杖
+              en life rod
+              IT vita bacchetta
+    --- description(0)  :122821
+        JP  \t\t特定の魔法が封じ込められた杖。絡みあった蛇のような模様が彫り込まれている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, carved with intertwined serpent-like patterns. \n# ~Arcane Almanac~
+    --- description(3)  :122824 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで自分、または隣接者のＨＰを回復する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, heal wounds of nearby target.
+        IT  Una bacchetta che, agitata, cura te o chi ti sta accanto.
+
+=== ITEM_ID_ROD_FIRE_BOLT   [FILTER_ITEM_ROD]
+    NOME      jp 炎の衝撃の魔杖 炎の衝撃の魔杖
+              en fire bolt rod
+              IT saetta di fuoco bacchetta
+    --- description(0)  :122964
+        JP  \t\t特定の魔法が封じ込められた杖。半透明の赤い宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, an translucent, red gem is attached to it.\n# ~Arcane Almanac~
+    --- description(3)  :122967 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に火炎属性のボルトを放つ魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, unleashes a beam of heat wave.
+        IT  Una bacchetta che, agitata, tira una saetta di fuoco.
+
+=== ITEM_ID_ROD_ICE_BOLT   [FILTER_ITEM_ROD]
+    NOME      jp 氷の視線の魔杖 氷の視線の魔杖
+              en ice bolt rod
+              IT saetta di gelo bacchetta
+    --- description(0)  :123044
+        JP  \t\t特定の魔法が封じ込められた杖。半透明の青い宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, an translucent, blue gem is attached to it.\n# ~Arcane Almanac~
+    --- description(3)  :123047 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に冷気属性のボルトを放つ魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, unleashes a beam of freezing air.
+        IT  Una bacchetta che, agitata, tira una saetta di gelo.
+
+=== ITEM_ID_ROD_SUMMON_MONSTERS   [FILTER_ITEM_ROD]
+    NOME      jp サモンモンスターの魔杖 サモンモンスターの魔杖
+              en summon monsters rod
+              IT evocazione di mostri bacchetta
+    --- description(0)  :123124
+        JP  \t\t特定の魔法が封じ込められた杖。何かの骨から作られた球体が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, a sphere made from some kind of bone is attached to it. \n# ~Arcane Almanac~
+    --- description(3)  :123127 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで周辺に敵対的なモンスターを召喚する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, opens a rift containing hostile creatures.
+        IT  Una bacchetta che, agitata, evoca mostri ostili qui intorno.
+
+=== ITEM_ID_ROD_MAGIC_MISSILE   [FILTER_ITEM_ROD]
+    NOME      jp マジックミサイルの魔杖 マジックミサイルの魔杖
+              en magic missile rod
+              IT dardo magico bacchetta
+    --- description(0)  :123204
+        JP  \t\t特定の魔法が封じ込められた杖。半透明の白い宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, an translucent, white gem is attached to it.\n# ~Arcane Almanac~
+    --- description(3)  :123207 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで対象に魔法属性の矢を放つ魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, shoots an arrow of concentrated magic.
+        IT  Una bacchetta che, agitata, tira un dardo magico.
+
+=== ITEM_ID_ROD_CURE_MINOR_WOUND   [FILTER_ITEM_ROD]
+    NOME      jp 軽傷治療の魔杖 軽傷治療の魔杖
+              en cure minor wound rod
+              IT cura delle ferite lievi bacchetta
+    --- description(0)  :123284
+        JP  \t\t特定の魔法が封じ込められた杖。球状の小さな赤い宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, spherical small red gemstone is attached. \n# ~Arcane Almanac~
+    --- description(3)  :123287 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで自分、または隣接者のＨＰを回復する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, heal wounds of nearby target.
+        IT  Una bacchetta che, agitata, cura te o chi ti sta accanto.
+
+=== ITEM_ID_ROD_TELEPORTATION   [FILTER_ITEM_ROD]
+    NOME      jp テレポートの魔杖 テレポートの魔杖
+              en teleportation rod
+              IT teletrasporto bacchetta
+    --- description(0)  :129950
+        JP  \t\t特定の魔法が封じ込められた杖。四角い透き通った緑色の宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, a green gemstone with clear quadrangulars is attached. \n# ~Arcane Almanac~
+    --- description(3)  :129953 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることでランダムなテレポートを行う魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, teleports nearby target.
+        IT  Una bacchetta che, agitata, teletrasporta a caso.
+
+=== ITEM_ID_ROD_IDENTIFY   [FILTER_ITEM_ROD]
+    NOME      jp 鑑定の魔杖 鑑定の魔杖
+              en identify rod
+              IT identificazione bacchetta
+    --- description(0)  :130030
+        JP  \t\t特定の魔法が封じ込められた杖。全てを見透かすような透明な宝石が取り付けられている。\n#～魔具全典～\n
+        EN  Rods encasing specific magic, a crystal clear gemstone is attached to it.\n# ~Arcane Almanac~
+    --- description(3)  :130033 ⚠️ TETTO SECCO 69
+        JP  \t\t振ることで所持アイテムの鑑定を行う魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+        EN  It is a rod that, when zapped, reveal the structure of targeted item.
+        IT  Una bacchetta che, agitata, identifica gli oggetti che porti.
+
+== 32 oggetti, 64 descrizioni

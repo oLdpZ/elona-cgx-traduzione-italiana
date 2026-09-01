@@ -23,7 +23,7 @@ custom_tweaks.hsp: 12 sostituzioni
 db_card.hsp: 2306 sostituzioni
 db_class.hsp: 48 sostituzioni
 db_creature.hsp: 5700 sostituzioni
-db_item.hsp: 4402 sostituzioni, 5005 righe di plurale e articolo
+db_item.hsp: 4492 sostituzioni, 5005 righe di plurale e articolo
 db_race.hsp: 87 sostituzioni
 economy.hsp: 42 sostituzioni
 event.hsp: 753 sostituzioni
@@ -83,4 +83,4 @@ text.hsp: 10 toppe
   exhelp.txt: 185 righe scritte su 185 tradotte (185 voci)
   manual_ENG.txt: 591 righe scritte su 591 tradotte (591 voci)
   talk.txt: 569 righe scritte su 569 tradotte (569 voci)
-totale: 30052 sostituzioni in C:\Games\Elona\_traduzione\build\2.05-custom-gx
+totale: 30142 sostituzioni in C:\Games\Elona\_traduzione\build\2.05-custom-gx

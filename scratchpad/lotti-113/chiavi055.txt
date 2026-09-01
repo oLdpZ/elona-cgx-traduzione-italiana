@@ -1,0 +1,142 @@
+RIGHE = {
+    48805, 48875, 48945, 49015, 49085, 49155, 49225, 49295, 49365, 49435,
+    49505, 49575, 49708, 52170, 52313, 66137, 66199, 69048, 69118, 69188,
+    82213, 82610, 89419, 117318, 128173, 128305, 128375, 128445, 128515, 128585,
+    128655, 128725, 128795,
+}
+# 33 righe, da 48805 a 128795
+
+    # ---------------------------------------------------------- :48805
+    (48805, 'Artfully processed garnet, this gemstone represents the month of January and would make a particularly nice gift for someone whose anniversary is in January. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :48875
+    (48875, 'Artfully processed amethyst, this gemstone represents the month of Febuary and would make a particularly nice gift for someone whose anniversary is in Febuary. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :48945
+    (48945, 'Artfully processed aquamarine, this gemstone represents the month of March and would make a particularly nice gift for someone whose anniversary is in March. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :49015
+    (49015, 'Artfully processed diamond, this gemstone represents the month of April and would make a particularly nice gift for someone whose anniversary is in April. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :49085
+    (49085, 'Artfully processed emerald, this gemstone represents the month of May and would make a particularly nice gift for someone whose anniversary is in May. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :49155
+    (49155, 'Artfully processed Alexandrite, this gemstone represents the month of June and would make a particularly nice gift for someone whose anniversary is in June. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :49225
+    (49225, 'Artfully processed ruby, this gemstone represents the month of July and would make a particularly nice gift for someone whose anniversary is in July. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :49295
+    (49295, 'Artfully processed sardonyx, this gemstone represents the month of August and would make a particularly nice gift for someone whose anniversary is in August. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :49365
+    (49365, 'Artfully processed sapphire, this gemstone represents the month of September and would make a particularly nice gift for someone whose anniversary is in September. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :49435
+    (49435, 'Artfully processed opal, this gemstone represents the month of October and would make a particularly nice gift for someone whose anniversary is in October. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :49505
+    (49505, 'Artfully processed topaz, this gemstone represents the month of November and would make a particularly nice gift for someone whose anniversary is in November. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :49575
+    (49575, 'Artfully processed lapis lazuli, this gemstone represents the month of December and would make a particularly nice gift for someone whose anniversary is in December. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :49708
+    (49708, 'Golden statue. It is a very realistic sculpture, as if the real thing were turned directly into gold. \\n# ~Lumiest Art Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :52170
+    (52170, 'Beautiful skeleton formed by coralline worms. It is calcareous and hard, but can be eaten up or swallowed whole by stronger fish. \\n# ~Lumiest Art Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :52313
+    (52313, 'Reddish in color, this ore is softer than iron as it is, but once heated and processed, it turns silver in color and becomes remarkably hard. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :66137
+    (66137, 'Teardrop-shaped jewel crystallized from a drop of divine power. It has the same kind of power as an artifact, albeit in a smaller quantity. It appears unexpectedly when the power of the gods is temporarily increased, and it is said to be difficult to produce it when you want it to appear. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :66199
+    (66199, 'Fragments of divine power, the core of Nefia that forms the labyrinth and empowers its guardians. Almost all of its hidden power has already been used, and it is virtually a husk. However, since there is usually nothing left over after the birth of Nefia, it has a high scarcity value. It is traded at a high price, partly because the residue of divine power remains in the form of enchantments. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :69048
+    (69048, 'Large rubynus are cut from collected gemstones that have been fused together through alchemy. Even though each rough stone is not worth polishing, if they are gathered together and polished, they will shine as splendid gems. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :69118
+    (69118, 'Large emerald are cut from collected gemstones that have been fused together through alchemy. Even though each rough stone is not worth polishing, if they are gathered together and polished, they will shine as splendid gems. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :69188
+    (69188, 'Large diamond are cut from collected gemstones that have been fused together through alchemy. Even though each rough stone is not worth polishing, if they are gathered together and polished, they will shine as splendid gems. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :82213
+    (82213, "A priceless piece of paper. It has the word 'friendship' crudely written on it. \\n#~Thousands of pieces of Junk I love~"):
+        "",
+
+    # ---------------------------------------------------------- :82610
+    (82610, "Mystery ticket with several instruments drawn on it. It contains the performer's dream and the audience's appreciation. \\n# ~Music of the Melodious Irva~"):
+        "",
+
+    # ---------------------------------------------------------- :89419
+    (89419, 'A small coin believed to have been used in ancient times. They are not in circulation because they have only academic value, but many collectors are said to have especially collected them because of their rarity. \\n# ~Coins of this World - Tyris Edition~'):
+        "",
+
+    # ---------------------------------------------------------- :117318
+    (117318, "It is a sinful mineral that, when appraised, leaves one in dismay. It shines so brightly that it seems almost deliberate, and is given mainly to children or to those who don't understand its value, as a token of appreciation. \\n#~Cheap Gifts for Your Kids~"):
+        "",
+
+    # ---------------------------------------------------------- :128173
+    (128173, 'Stones that have no scarcity value. There are plenty of them lying around, but it seems that many children collect them. \\n#~Cheap Gifts for Your Kids~'):
+        "",
+
+    # ---------------------------------------------------------- :128305
+    (128305, 'A rare mineral that contains many elements of diamond. Through the process of processing, its size becomes extremely small, so it is not considered to be so valuable in relation to the size of the gemstone. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :128375
+    (128375, 'A rare mineral that contains many elements of emerald. Through the process of processing, its size becomes extremely small, so it is not considered to be so valuable in relation to the size of the gemstone. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :128445
+    (128445, 'Small white minerals that emit a pale light. It is so beautiful that it is described as a pearl of stone, as it slowly builds up an almost elliptical sphere over time. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :128515
+    (128515, 'A rare mineral that contains many elements of rubynus. Through the process of processing, its size becomes extremely small, so it is not considered to be so valuable in relation to the size of the gemstone. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :128585
+    (128585, 'A brilliant mineral that never rusts. It is very easy to process, and its unique bright color has been favored by powerful people as a symbol of wealth and power since ancient times. Because of its mysterious nature, it is often the subject of research. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :128655
+    (128655, 'This yellow crystal is said to contain the power of the sun. When you look through the light, you can see a faint atmospheric undulation-like movement in the mineral. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :128725
+    (128725, 'A red crystal that is said to contain magical power. The mineral itself is as transparent as pure magic power. It is said that in an emergency, a mage would crush it and put it in his body. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+    # ---------------------------------------------------------- :128795
+    (128795, 'This orange crystal is said to contain the power of the earth. When you look through the light, the reflection from the many cracks inside the crystal is very beautiful. \\n#~Vernis Ore Catalogue~'):
+        "",
+
+# 33 voci, 0 ambigue
+

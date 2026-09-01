@@ -1,0 +1,98 @@
+:61946
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:62314
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:62394
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:70751
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:71856
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:92062
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:92797
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:93149
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:94102
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:94534
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:96275
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:96355
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:98576
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:98954
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:103505
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:104942
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:105381
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:105966
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:106766
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:111777
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:117679
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:117759
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:119541
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:119621
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:122821
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:122964
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:123044
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:123124
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:123204
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:123284
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:129950
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+:130030
+   en  # ~Arcane Almanac~
+   IT  # ~Compendio Completo degli Oggetti Magici~
+
+righe senza resa in tabella: 0   (atteso 0)

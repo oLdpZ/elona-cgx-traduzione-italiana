@@ -1,0 +1,77 @@
+:57125
+   en  # ~Gifts that I am Happy to Receive~
+   IT  # ~Regali che Fa Piacere Ricevere~
+:57127
+   en  # ~words of an Fossil Enthusiast~
+   IT  # ~Lettera di un Fissato di Tassidermia~
+:78658
+   en  # ~Heated Duelists~
+   IT  # ~Duellanti Ardenti~
+:80736
+   en  # ~Gifts that I am Happy to Receive~
+   IT  # ~Regali che Fa Piacere Ricevere~
+:81260
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:81941
+   en  # ~note written on the back of the box~
+   IT  # ~Avvertenza Scritta sul Retro della Scatola~
+:88147
+   en  # ~Great Encyclopedia of North Tyris Furnitures~
+   IT  # ~Grande Enciclopedia dei Mobili di Tyris del Nord~
+:89821
+   en  # ~Censored! Box Mania, First Issue~
+   IT  # ~Chiudeteci Pure! Box Mania, Numero Uno~
+:90832
+   en  # ~Top 50 Most Popular Products Among Prisoners~
+   IT  # ~I 50 Prodotti Preferiti dai Detenuti~
+:92186
+   en  # ~Great Encyclopedia of North Tyris Furnitures~
+   IT  # ~Grande Enciclopedia dei Mobili di Tyris del Nord~
+:93420
+   en  # ~Merchant Life Starting from a Quitting as a Adventurer~
+   IT  # ~Vita da Mercante Dopo l'Avventura~
+:93422
+   en  # ~Tyris Armor Compendium, page of advertisements~
+   IT  # ~Grande Compendio delle Armi di Tyris: le Reclame~
+:93483
+   en  # ~Censored! Box Mania, First Issue~
+   IT  # ~Chiudeteci Pure! Box Mania, Numero Uno~
+:94381
+   en  # ~Censored! Box Mania, First Issue~
+   IT  # ~Chiudeteci Pure! Box Mania, Numero Uno~
+:96844
+   en  # ~Book for the Dying Ones~
+   IT  # ~Libro in Dono a Chi Sta Morendo~
+:103233
+   en  # ~Game Tricks, All Ages Version~
+   IT  # ~Grande Compendio dei Giochi: Per Tutte le Età~
+:103295
+   en  # ~Game Tricks, All Ages Version~
+   IT  # ~Grande Compendio dei Giochi: Per Tutte le Età~
+:104725
+   en  # ~Censored! Box Mania, First Issue~
+   IT  # ~Chiudeteci Pure! Box Mania, Numero Uno~
+:107114
+   en  # ~Merchant Life Starting from a Quitting as a Adventurer~
+   IT  # ~Vita da Mercante Dopo l'Avventura~
+:112196
+   en  # ~words of the honest? rogue~
+   IT  # ~Parole di <Onest> il farabutto~
+:112258
+   en  # ~words of <Gleed> the thief~
+   IT  # ~Parole di <Gleed> il topo d'appartamento~
+:115134
+   en  # ~words of <Marks> the great thief~
+   IT  # ~Parole di <Marks>, ladro senza pari~
+:115196
+   en  # ~Censored! Box Mania, First Issue~
+   IT  # ~Chiudeteci Pure! Box Mania, Numero Uno~
+:115258
+   en  # ~Censored! Box Mania, First Issue~
+   IT  # ~Chiudeteci Pure! Box Mania, Numero Uno~
+:115260
+   en  # ~words of <Abyss> the thief watchman~
+   IT  # ~Parole di <Abyss> il guardiano della Gilda dei Ladri~
+
+righe senza resa in tabella: 0   (atteso 0)

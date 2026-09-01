@@ -1,0 +1,401 @@
+=== ITEM_ID_M01_GARNET   [FILTER_ORE]
+    NOME      jp M01-真実のガーネット M01-真実のガーネット
+              en M01-Garnet jewel
+              IT M01-Granato gioiello
+    --- description(0)  :48805
+        JP  \t\t芸術的に加工されたザクロ石。１月を代表とする宝石であり、記念日が１月の相手にプレゼントすると特に喜ばれるだろう。\n#～ヴェルニース鉱物図鑑～\n
+        EN  Artfully processed garnet, this gemstone represents the month of January and would make a particularly nice gift for someone whose anniversary is in January. \n#~Vernis Ore Catalogue~
+    --- description(3)  :48808 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+        IT  Una gemma adatta a farne un regalo.
+
+=== ITEM_ID_M02_AMETHYST   [FILTER_ORE]
+    NOME      jp M02-高貴のアメジスト M02-高貴のアメジスト
+              en M02-Amethyst jewel
+              IT M02-Ametista gioiello
+    --- description(0)  :48875
+        JP  \t\t芸術的に加工された紫水晶。２月を代表とする宝石であり、記念日が２月の相手にプレゼントすると特に喜ばれるだろう。\n#～ヴェルニース鉱物図鑑～\n
+        EN  Artfully processed amethyst, this gemstone represents the month of Febuary and would make a particularly nice gift for someone whose anniversary is in Febuary. \n#~Vernis Ore Catalogue~
+    --- description(3)  :48878 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+        IT  Una gemma adatta a farne un regalo.
+
+=== ITEM_ID_M03_AQUAMARINE   [FILTER_ORE]
+    NOME      jp M03-聡明のアクアマリン M03-聡明のアクアマリン
+              en M03-Aquamarine jewel
+              IT M03-Acquamarina gioiello
+    --- description(0)  :48945
+        JP  \t\t芸術的に加工された藍玉。３月を代表とする宝石であり、記念日が３月の相手にプレゼントすると特に喜ばれるだろう。\n#～ヴェルニース鉱物図鑑～\n
+        EN  Artfully processed aquamarine, this gemstone represents the month of March and would make a particularly nice gift for someone whose anniversary is in March. \n#~Vernis Ore Catalogue~
+    --- description(3)  :48948 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+        IT  Una gemma adatta a farne un regalo.
+
+=== ITEM_ID_M04_DIAMOND   [FILTER_ORE]
+    NOME      jp M04-無垢のダイヤモンド M04-無垢のダイヤモンド
+              en M04-Diamond jewel
+              IT M04-Diamante gioiello
+    --- description(0)  :49015
+        JP  \t\t芸術的に加工された金剛石。４月を代表とする宝石であり、記念日が４月の相手にプレゼントすると特に喜ばれるだろう。\n#～ヴェルニース鉱物図鑑～\n
+        EN  Artfully processed diamond, this gemstone represents the month of April and would make a particularly nice gift for someone whose anniversary is in April. \n#~Vernis Ore Catalogue~
+    --- description(3)  :49018 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+        IT  Una gemma adatta a farne un regalo.
+
+=== ITEM_ID_M05_EMERALD   [FILTER_ORE]
+    NOME      jp M05-誠実のエメラルド M05-誠実のエメラルド
+              en M05-Emerald jewel
+              IT M05-Smeraldo gioiello
+    --- description(0)  :49085
+        JP  \t\t芸術的に加工された翠玉。５月を代表とする宝石であり、記念日が５月の相手にプレゼントすると特に喜ばれるだろう。\n#～ヴェルニース鉱物図鑑～\n
+        EN  Artfully processed emerald, this gemstone represents the month of May and would make a particularly nice gift for someone whose anniversary is in May. \n#~Vernis Ore Catalogue~
+    --- description(3)  :49088 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+        IT  Una gemma adatta a farne un regalo.
+
+=== ITEM_ID_M06_ALEXANDRITE   [FILTER_ORE]
+    NOME      jp M06-情熱のアレキサンドライト M06-情熱のアレキサンドライト
+              en M06-Alexandrite jewel
+              IT M06-Alessandrite gioiello
+    --- description(0)  :49155
+        JP  \t\t芸術的に加工された金緑石。６月を代表とする宝石であり、記念日が６月の相手にプレゼントすると特に喜ばれるだろう。\n#～ヴェルニース鉱物図鑑～\n
+        EN  Artfully processed Alexandrite, this gemstone represents the month of June and would make a particularly nice gift for someone whose anniversary is in June. \n#~Vernis Ore Catalogue~
+    --- description(3)  :49158 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+        IT  Una gemma adatta a farne un regalo.
+
+=== ITEM_ID_M07_RUBY   [FILTER_ORE]
+    NOME      jp M07-威厳のルビー M07-威厳のルビー
+              en M07-Ruby jewel
+              IT M07-Rubino gioiello
+    --- description(0)  :49225
+        JP  \t\t芸術的に加工された紅玉。７月を代表とする宝石であり、記念日が７月の相手にプレゼントすると特に喜ばれるだろう。\n#～ヴェルニース鉱物図鑑～\n
+        EN  Artfully processed ruby, this gemstone represents the month of July and would make a particularly nice gift for someone whose anniversary is in July. \n#~Vernis Ore Catalogue~
+    --- description(3)  :49228 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+        IT  Una gemma adatta a farne un regalo.
+
+=== ITEM_ID_M08_SARDONYX   [FILTER_ORE]
+    NOME      jp M08-円満のサードニクス M08-円満のサードニクス
+              en M08-Sardonyx jewel
+              IT M08-Sardonice gioiello
+    --- description(0)  :49295
+        JP  \t\t芸術的に加工されたメノウ。８月を代表とする宝石であり、記念日が８月の相手にプレゼントすると特に喜ばれるだろう。\n#～ヴェルニース鉱物図鑑～\n
+        EN  Artfully processed sardonyx, this gemstone represents the month of August and would make a particularly nice gift for someone whose anniversary is in August. \n#~Vernis Ore Catalogue~
+    --- description(3)  :49298 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+        IT  Una gemma adatta a farne un regalo.
+
+=== ITEM_ID_M09_SAPPHIRE   [FILTER_ORE]
+    NOME      jp M09-慈愛のサファイア M09-慈愛のサファイア
+              en M09-Sapphire jewel
+              IT M09-Zaffiro gioiello
+    --- description(0)  :49365
+        JP  \t\t芸術的に加工された青玉。９月を代表とする宝石であり、記念日が９月の相手にプレゼントすると特に喜ばれるだろう。\n#～ヴェルニース鉱物図鑑～\n
+        EN  Artfully processed sapphire, this gemstone represents the month of September and would make a particularly nice gift for someone whose anniversary is in September. \n#~Vernis Ore Catalogue~
+    --- description(3)  :49368 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+        IT  Una gemma adatta a farne un regalo.
+
+=== ITEM_ID_M10_OPAL   [FILTER_ORE]
+    NOME      jp M10-希望のオパール M10-希望のオパール
+              en M10-Opal jewel
+              IT M10-Opale gioiello
+    --- description(0)  :49435
+        JP  \t\t芸術的に加工されたタンパク石。１０月を代表とする宝石であり、記念日が１０月の相手にプレゼントすると特に喜ばれるだろう。\n#～ヴェルニース鉱物図鑑～\n
+        EN  Artfully processed opal, this gemstone represents the month of October and would make a particularly nice gift for someone whose anniversary is in October. \n#~Vernis Ore Catalogue~
+    --- description(3)  :49438 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+        IT  Una gemma adatta a farne un regalo.
+
+=== ITEM_ID_M11_TOPAZ   [FILTER_ORE]
+    NOME      jp M11-友情のトパーズ M11-友情のトパーズ
+              en M11-Topaz jewel
+              IT M11-Topazio gioiello
+    --- description(0)  :49505
+        JP  \t\t芸術的に加工された黄玉。１１月を代表とする宝石であり、記念日が１１月の相手にプレゼントすると特に喜ばれるだろう。\n#～ヴェルニース鉱物図鑑～\n
+        EN  Artfully processed topaz, this gemstone represents the month of November and would make a particularly nice gift for someone whose anniversary is in November. \n#~Vernis Ore Catalogue~
+    --- description(3)  :49508 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+        IT  Una gemma adatta a farne un regalo.
+
+=== ITEM_ID_M12_LAPIS_LAZULI   [FILTER_ORE]
+    NOME      jp M12-成功のラピスラズリ M12-成功のラピスラズリ
+              en M12-Lapis Lazuli jewel
+              IT M12-Lapislazzuli gioiello
+    --- description(0)  :49575
+        JP  \t\t芸術的に加工された瑠璃。１２月を代表とする宝石であり、記念日が１２月の相手にプレゼントすると特に喜ばれるだろう。\n#～ヴェルニース鉱物図鑑～\n
+        EN  Artfully processed lapis lazuli, this gemstone represents the month of December and would make a particularly nice gift for someone whose anniversary is in December. \n#~Vernis Ore Catalogue~
+    --- description(3)  :49578 ⚠️ TETTO SECCO 69
+        JP  \t\t贈り物に適した宝石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a gem that would make a great gift.
+        IT  Una gemma adatta a farne un regalo.
+
+=== ITEM_ID_GOLDEN_DOLL   [FILTER_ORE]
+    NOME      jp 黄金像
+              en golden doll
+              IT bambola dorata
+    --- description(0)  :49708
+        JP  \t\t金ぴかな像。大変リアルな造形であり、まるで本物がそのまま金に変えられたかのようだ。\n#～ルミエスト美術目録～\n
+        EN  Golden statue. It is a very realistic sculpture, as if the real thing were turned directly into gold. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :49711 ⚠️ TETTO SECCO 69
+        JP  \t\t高価だが重い像だ。\n#～鑑定報告書：＜家具＞カテゴリ～\n
+        EN  It's a expensive but heavy statue.
+        IT  Una statua di valore, ma pesante.
+
+=== ITEM_ID_JEWEL_CORAL   [FILTER_ORE]
+    NOME      jp 宝石珊瑚
+              en jewel coral
+              IT corallo prezioso
+    --- description(0)  :52170
+        JP  \t\t珊瑚虫が形成した美しい骨格。石灰質で硬いのだが、強靭な魚にはバリバリ食われたり丸呑みにされたりする。\n#～ルミエスト美術目録～\n
+        EN  Beautiful skeleton formed by coralline worms. It is calcareous and hard, but can be eaten up or swallowed whole by stronger fish. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :52173 ⚠️ TETTO SECCO 69
+        JP  \t\t深海の芸術だ。\n#～鑑定報告書：＜美術品＞カテゴリ～\n
+        EN  These are artworks of the deep sea.
+        IT  L'arte del mare profondo.
+
+=== ITEM_ID_DRAGONS_RED   [FILTER_ORE]
+    NOME      jp 赤竜石 赤竜石
+              en red dragon mysterious stone
+              IT drago rosso pietra misteriosa
+    --- description(0)  :52313
+        JP  \t\t赤みを帯びたこの鉱石は、そのままでは鉄よりも柔らかいが、一度加熱して加工すると、色が銀色に変色し、驚くほど硬くなる。\n#～ザイール鉱物図鑑～\n
+        EN  Reddish in color, this ore is softer than iron as it is, but once heated and processed, it turns silver in color and becomes remarkably hard. \n#~Vernis Ore Catalogue~
+    --- description(3)  :52316 ⚠️ TETTO SECCO 69
+        JP  \t\t武具の素材になりそうな鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is an ore that could be used as a material for armaments.
+        IT  Un minerale che può servire come materiale per armi e armature.
+
+=== ITEM_ID_TEAR_OF_GOD   [FILTER_ORE]
+    NOME      jp 神雫石 神雫石
+              en tear of god jewel
+              IT lacrima divina gioiello
+    --- description(0)  :66137
+        JP  \t\t神力のひとしずくが結晶化したティアドロップ状の宝石。わずかだがアーティファクトと同質の力を秘めている。神の力が一時的に高まった際に何気なくポロッと出てくるもので、逆に出そうと思って出すのは難しいらしい。\n#～イルヴァ幻想辞典～\n
+        EN  Teardrop-shaped jewel crystallized from a drop of divine power. It has the same kind of power as an artifact, albeit in a smaller quantity. It appears unexpectedly when the power of the gods is temporarily increased, and it is said to be difficult to produce it when you want it to appear. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :66140 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+        IT  Un oggetto per la sintesi.
+
+=== ITEM_ID_CORE_OF_NEFIA   [FILTER_ORE]
+    NOME      jp ネフィアティア ネフィアティア
+              en core of nefia jewel
+              IT nucleo di Nefia gioiello
+    --- description(0)  :66199
+        JP  \t\t神力の断片にして、迷宮を形成し守護者に力を与えるネフィアの核。秘められた力はほぼ全て使われた後であり、事実上は残りカスである。しかし通常ならネフィア誕生後に残らない物のため、希少価値は高い。神力の残滓がエンチャントの形で残っていることもあって高値で取引される。\n#～イルヴァ幻想辞典～\n
+        EN  Fragments of divine power, the core of Nefia that forms the labyrinth and empowers its guardians. Almost all of its hidden power has already been used, and it is virtually a husk. However, since there is usually nothing left over after the birth of Nefia, it has a high scarcity value. It is traded at a high price, partly because the residue of divine power remains in the form of enchantments. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :66202 ⚠️ TETTO SECCO 69
+        JP  \t\t合成用のアイテムだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is an item used for artifact fusion.
+        IT  Un oggetto per la sintesi.
+
+=== ITEM_ID_BRILLIANT_RUBYNUS   [FILTER_ORE]
+    NOME      jp ルビナス ルビナス
+              en brilliant rubynus jewel
+              IT rubynus brillante gioiello
+    --- description(0)  :69048
+        JP  \t\t集めた原石を錬金術によって融合させた後にカットした、大粒のルビナス。ひとつひとつは磨く価値もない原石でも、寄り集まり切磋琢磨すれば立派な宝石となって輝くのだ。\n#～ヴェルニース鉱物図鑑～\n
+        EN  Large rubynus are cut from collected gemstones that have been fused together through alchemy. Even though each rough stone is not worth polishing, if they are gathered together and polished, they will shine as splendid gems. \n#~Vernis Ore Catalogue~
+    --- description(3)  :69051 ⚠️ TETTO SECCO 69
+        JP  \t\t加工したルビナスだ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a processed rubynus ore.
+        IT  Del rubynus lavorato.
+
+=== ITEM_ID_TABLET_EMERALD   [FILTER_ORE]
+    NOME      jp エメラルド・タブレット エメラルド・タブレット
+              en emerald tablet
+              IT smeraldo tavoletta
+    --- description(0)  :69118
+        JP  \t\t錬金術の基本思想を記したエメラルドの碑文。錬金術マニア向けのアイテムだが、芸術品としての価値も高い。\n#～ヴェルニース鉱物図鑑～\n
+        EN  Large emerald are cut from collected gemstones that have been fused together through alchemy. Even though each rough stone is not worth polishing, if they are gathered together and polished, they will shine as splendid gems. \n#~Vernis Ore Catalogue~
+    --- description(3)  :69121 ⚠️ TETTO SECCO 69
+        JP  \t\tエメラルドでできた板だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a processed emerald.
+        IT  Una tavoletta fatta di smeraldo.
+
+=== ITEM_ID_BRILLIANT_DIAMOND   [FILTER_ORE]
+    NOME      jp ダイヤモンド ダイヤモンド
+              en brilliant diamond jewel
+              IT diamante brillante gioiello
+    --- description(0)  :69188
+        JP  \t\t集めた原石を錬金術によって融合させた後にカットした、大粒のダイヤモンド。大きさ、美しさともに完璧で、アーティファクトをも凌ぐ値がつく。\n#～ヴェルニース鉱物図鑑～\n
+        EN  Large diamond are cut from collected gemstones that have been fused together through alchemy. Even though each rough stone is not worth polishing, if they are gathered together and polished, they will shine as splendid gems. \n#~Vernis Ore Catalogue~
+    --- description(3)  :69191 ⚠️ TETTO SECCO 69
+        JP  \t\t加工したダイヤモンドだ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a processed diamond.
+        IT  Un diamante lavorato.
+
+=== ITEM_ID_TOKEN_FRIENDSHIP   [FILTER_ORE]
+    NOME      jp 友情の証 友情の証
+              en friendship token
+              IT amicizia gettone
+    non ident. IT carta sbrindellata   (en crumbling paper)
+    --- description(0)  :82213
+        JP  \t\t金では買えない価値があるとされる紙きれ。ミミズの這ったような字で「友情」と書かれている。\n#～私の愛する幾千ものガラクタ～\n
+        EN  A priceless piece of paper. It has the word 'friendship' crudely written on it. \n#~Thousands of pieces of Junk I love~
+    --- description(3)  :82216 ⚠️ TETTO SECCO 69
+        JP  \t\t友達以上の相手との友好を深める紙だ。渡すことができる。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a token for your friends, it deepens your relationship.
+        IT  Stringe il legame con chi è più di un amico. Si può dare.
+
+=== ITEM_ID_MUSIC_TICKET   [FILTER_ORE]
+    NOME      jp 音楽チケット
+              en music ticket
+              IT biglietto per il concerto
+    non ident. IT biglietto misterioso   (en some kind of ticket)
+    --- description(0)  :82610
+        JP  \t\tいくつかの楽器が描かれた謎のチケット。そこには演奏家の夢と聴衆の感謝が込められている。\n#～玲瓏たるイルヴァの調べ～\n
+        EN  Mystery ticket with several instruments drawn on it. It contains the performer's dream and the audience's appreciation. \n# ~Music of the Melodious Irva~
+    --- description(3)  :82613 ⚠️ TETTO SECCO 69
+        JP  \t\t特に効果の無い紙だ。収集している人を探そう。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  These are tickets given out to promising musicians. Some collect these.
+        IT  Un foglio senza alcun effetto. Cerca qualcuno che li collezioni.
+
+=== ITEM_ID_SMALL_MEDAL   [FILTER_ORE]
+    NOME      jp 小さなメダル
+              en small medal
+              IT medaglietta
+    non ident. IT medaglia dorata   (en golg coin)
+    --- description(0)  :89419
+        JP  \t\t古代使用されていたとされる小さな硬貨。学術的価値しかない為流通はしていないが、その希少性から特に集めているという収集家も多いらしい。\n#～世界のコイン・ティリス編～\n
+        EN  A small coin believed to have been used in ancient times. They are not in circulation because they have only academic value, but many collectors are said to have especially collected them because of their rarity. \n# ~Coins of this World - Tyris Edition~
+    --- description(3)  :89422 ⚠️ TETTO SECCO 69
+        JP  \t\tどこかにコレクターがいると言われるメダルだ。\n#～鑑定報告書：＜貨幣＞カテゴリ～\n
+        EN  It is currency with high collection value, rarely found.
+        IT  Dicono che da qualche parte ci sia chi le colleziona.
+
+=== ITEM_ID_WORTHLESS_FAKE_GOLD_BAR   [FILTER_ORE]
+    NOME      jp 途方も価値のない錆びた偽物の金塊
+              en worthless fake gold bar
+              IT lingotto d'oro falso e senza valore
+    non ident. IT lingotto d'oro di gran valore   (en valuable gold bar)
+    --- description(0)  :117318
+        JP  \t\t鑑定すると落胆を禁じえない罪作りな鉱物。わざとらしい程に輝くそれは、主に子供か、価値の分かっていない者に感謝の意を込められて贈られるのだという。\n#～子供を騙す１００のテクニック・お土産編～\n
+        EN  It is a sinful mineral that, when appraised, leaves one in dismay. It shines so brightly that it seems almost deliberate, and is given mainly to children or to those who don't understand its value, as a token of appreciation. \n#~Cheap Gifts for Your Kids~
+    --- description(3)  :117321 ⚠️ TETTO SECCO 69
+        JP  \t\t模造品だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  These are knockoffs.
+        IT  Una riproduzione.
+
+=== ITEM_ID_JUNK_STONE   [FILTER_ORE]
+    NOME      jp クズ石
+              en junk stone
+              IT pietra di scarto
+    --- description(0)  :128173
+        JP  \t\t希少価値がまるでない石くれ。そこらへんにいくらでも転がっているが、こういうものを集めている子供も多いようだ。\n#～子供を騙す１００のテクニック・お土産編～\n
+        EN  Stones that have no scarcity value. There are plenty of them lying around, but it seems that many children collect them. \n#~Cheap Gifts for Your Kids~
+    --- description(3)  :128176 ⚠️ TETTO SECCO 69
+        JP  \t\tとるに足らない小石だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is an insignificant pebble.
+        IT  Un sassolino da niente.
+
+=== ITEM_ID_RAW_DIAMOND_ORE   [FILTER_ORE]
+    NOME      jp ダイヤモンドの原石
+              en raw diamond ore
+              IT diamante grezzo
+    --- description(0)  :128305
+        JP  \t\tダイヤモンドの要素が多く含まれた珍しい鉱物。加工の過程を経て、その大きさは極端に小さくなってしまうので、原石の大きさに対してそれほど価値はないとされる。\n#～ヴェルニース鉱物図鑑～\n
+        EN  A rare mineral that contains many elements of diamond. Through the process of processing, its size becomes extremely small, so it is not considered to be so valuable in relation to the size of the gemstone. \n#~Vernis Ore Catalogue~
+    --- description(3)  :128308 ⚠️ TETTO SECCO 69
+        JP  \t\tダイヤモンドの要素が含まれる鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is an ore that contain traces of diamonds.
+        IT  Un minerale che contiene tracce di diamante.
+
+=== ITEM_ID_RAW_EMERALD_ORE   [FILTER_ORE]
+    NOME      jp エメラルドの原石
+              en raw emerald ore
+              IT smeraldo grezzo
+    --- description(0)  :128375
+        JP  \t\tエメラルドの要素が多く含まれた珍しい鉱物。加工の過程を経て、その大きさは極端に小さくなってしまうので、原石の大きさに対してそれほど価値はないとされる。\n#～ヴェルニース鉱物図鑑～\n
+        EN  A rare mineral that contains many elements of emerald. Through the process of processing, its size becomes extremely small, so it is not considered to be so valuable in relation to the size of the gemstone. \n#~Vernis Ore Catalogue~
+    --- description(3)  :128378 ⚠️ TETTO SECCO 69
+        JP  \t\tエメラルドの要素が含まれる鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is an ore that contain traces of emerald.
+        IT  Un minerale che contiene tracce di smeraldo.
+
+=== ITEM_ID_MICA_ORE   [FILTER_ORE]
+    NOME      jp ミカ
+              en mica ore
+              IT minerale di mica
+    --- description(0)  :128445
+        JP  \t\t淡い光を放つ白く小さな鉱物。幾星霜の時を経てじっくりと楕円に近い球体を作り上げていくその様は、石の真珠と評されるほど美しい。\n#～ヴェルニース鉱物図鑑～\n
+        EN  Small white minerals that emit a pale light. It is so beautiful that it is described as a pearl of stone, as it slowly builds up an almost elliptical sphere over time. \n#~Vernis Ore Catalogue~
+    --- description(3)  :128448 ⚠️ TETTO SECCO 69
+        JP  \t\t白い色をした鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a white-colored ore.
+        IT  Un minerale di colore bianco.
+
+=== ITEM_ID_RAW_RUBYNUS_ORE   [FILTER_ORE]
+    NOME      jp ルビナスの原石
+              en raw rubynus ore
+              IT rubynus grezzo
+    --- description(0)  :128515
+        JP  \t\tルビナスの要素が多く含まれた珍しい鉱物。加工の過程を経て、その大きさは極端に小さくなってしまうので、原石の大きさに対してそれほど価値はないとされる。\n#～ヴェルニース鉱物図鑑～\n
+        EN  A rare mineral that contains many elements of rubynus. Through the process of processing, its size becomes extremely small, so it is not considered to be so valuable in relation to the size of the gemstone. \n#~Vernis Ore Catalogue~
+    --- description(3)  :128518 ⚠️ TETTO SECCO 69
+        JP  \t\tルビナスの要素が含まれる鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is an ore that contain traces of rubynus.
+        IT  Un minerale che contiene tracce di rubynus.
+
+=== ITEM_ID_GOLD_BAR   [FILTER_ORE]
+    NOME      jp 金塊
+              en gold bar
+              IT lingotto d'oro
+    --- description(0)  :128585
+        JP  \t\t決して錆びることのない輝ける鉱物。非常に加工しやすく、また独特の明るい色は古来から富と力の象徴として権力者に好まれている。その神秘性からしばしば研究の対象となることもあるらしい。\n#～ヴェルニース鉱物図鑑～\n
+        EN  A brilliant mineral that never rusts. It is very easy to process, and its unique bright color has been favored by powerful people as a symbol of wealth and power since ancient times. Because of its mysterious nature, it is often the subject of research. \n#~Vernis Ore Catalogue~
+    --- description(3)  :128588 ⚠️ TETTO SECCO 69
+        JP  \t\t黄金色の輝く鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a golden, shining metal bar.
+        IT  Un minerale che brilla d'oro.
+
+=== ITEM_ID_SUN_CRYSTAL   [FILTER_ORE]
+    NOME      jp 太陽の結晶
+              en sun crystal
+              IT cristallo di sole
+    --- description(0)  :128655
+        JP  \t\t太陽の力を封じ込めたとされる黄色の結晶。光に透かすと、微かに大気のうねりのような動きを鉱物の中に見て取ることができる。\n#～ヴェルニース鉱物図鑑～\n
+        EN  This yellow crystal is said to contain the power of the sun. When you look through the light, you can see a faint atmospheric undulation-like movement in the mineral. \n#~Vernis Ore Catalogue~
+    --- description(3)  :128658 ⚠️ TETTO SECCO 69
+        JP  \t\t黄色をした鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a yellowish ore.
+        IT  Un minerale di colore giallo.
+
+=== ITEM_ID_MANA_CRYSTAL   [FILTER_ORE]
+    NOME      jp 魔力の結晶
+              en mana crystal
+              IT cristallo di mana
+    --- description(0)  :128725
+        JP  \t\t魔力を封じ込めたとされる赤色の結晶。鉱物自体も純粋な魔力と同様に透き通っている。緊急時には魔道士がこれを砕いてその身に宿したいう話もあるそうだ。\n#～ヴェルニース鉱物図鑑～\n
+        EN  A red crystal that is said to contain magical power. The mineral itself is as transparent as pure magic power. It is said that in an emergency, a mage would crush it and put it in his body. \n#~Vernis Ore Catalogue~
+    --- description(3)  :128728 ⚠️ TETTO SECCO 69
+        JP  \t\t赤色をした鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is a reddish ore.
+        IT  Un minerale di colore rosso.
+
+=== ITEM_ID_EARTH_CRYSTAL   [FILTER_ORE]
+    NOME      jp 大地の結晶
+              en earth crystal
+              IT cristallo di terra
+    --- description(0)  :128795
+        JP  \t\t大地の力を封じ込めたとされる橙色の結晶。光に透かすと、内部にたくさん走ったヒビに反射してとてもきれいだ。\n#～ヴェルニース鉱物図鑑～\n
+        EN  This orange crystal is said to contain the power of the earth. When you look through the light, the reflection from the many cracks inside the crystal is very beautiful. \n#~Vernis Ore Catalogue~
+    --- description(3)  :128798 ⚠️ TETTO SECCO 69
+        JP  \t\t橙色をした鉱石だ。\n#～鑑定報告書：＜鉱物＞カテゴリ～\n
+        EN  It is an orange-ish ore.
+        IT  Un minerale di colore arancione.
+
+== 33 oggetti, 66 descrizioni

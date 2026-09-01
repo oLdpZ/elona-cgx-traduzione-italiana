@@ -1,0 +1,279 @@
+=== ITEM_ID_MYSTERIOUS_ENVELOPE   [FILTER_CONTAINER]
+    NOME      jp 謎の茶封筒
+              en mysterious envelope
+              IT busta misteriosa
+    --- description(0)  :57125
+        JP  \t\t厚手の茶色の紙で作られた封筒。差出人は書いていないが、手紙が添えられている。\n#～貰って嬉しい贈り物あれこれ～\n
+        EN  Envelope made of thick brown paper. The sender is not written, but a letter is attached. \n# ~Gifts that I am Happy to Receive~
+    --- description(2)  :57127
+        JP  \t\t「ユニークなはく製を、惜しげもなく一般公開してくださってありがとうございます。真っ当に生きていたら見られないようなものばかりで、毎日のように興奮させていただいています。これからもユニークなはく製の収集を頑張ってください！」\n#～はく製マニアからの手紙～\n
+        EN  \"Thank you for generously opening up your unique collection of fossils to the public. They are things that we would not be able to see if we lived in a straight life, and they excite me every day. Keep up the good work in collecting these unique finds!\" \n# ~words of an Fossil Enthusiast~
+    --- description(3)  :57128 ⚠️ TETTO SECCO 69
+        JP  \t\t中身が透けない紙の袋。開けることができる。\n#～鑑定報告書：＜袋＞カテゴリ～\n
+        EN  (Openable) paper bag that are not visible through.
+        IT  Un sacchetto di carta: dentro non si vede. Si può aprire.
+
+=== ITEM_ID_CARD_PACK   [FILTER_CONTAINER]
+    NOME      jp カードパック
+              en card pack
+              IT pacchetto di carte
+    --- description(0)  :78658
+        JP  \t\t入っているカードはデッキに入れないと画像が反映されない。\n#～熱き決闘者たち～\n
+        EN  Pack of 5 collectible cards. The contained cards have no images, but can be putted into your deck.\n# ~Heated Duelists~
+    --- description(3)  :78661 ⚠️ TETTO SECCO 69
+        JP  \t\tランダムなカードが連番で入っている袋だ。\n#～鑑定報告書：＜袋＞カテゴリ～\n
+        EN  It is a pack of 5 cards.
+        IT  Un pacchetto di carte a caso, numerate di seguito.
+
+=== ITEM_ID_NEW_YEARS_GIFT   [FILTER_CONTAINER]
+    NOME      jp お年玉
+              en new year's gift
+              IT regalo di capodanno
+    --- description(0)  :80736
+        JP  \t\t一部の地域では年の初めに知人へ贈る習慣がある。仲の良い相手にはそれだけ良いものを入れて贈るが、逆にそれほど仲の良くない相手にはイタズラを仕込むこともある。これのためだけに八方美人になる者もいるという。\n#～貰って嬉しい贈り物あれこれ～\n
+        EN  In some regions, it is customary to give gifts to acquaintances at the beginning of the year. The gifts are filled with good things for those who are close to the recipient, but on the other hand, for those who are not so close to the recipient, a prank is sometimes played on the recipient. It is said that some people become a good person on all sides just for this reason. \n# ~Gifts that I am Happy to Receive~
+    --- description(3)  :80739 ⚠️ TETTO SECCO 69
+        JP  \t\t中に様々なものが詰まった袋。開けることができる。\n#～鑑定報告書：＜縁起物＞カテゴリ～\n
+        EN  (Openable) container that all sorts of things.
+        IT  Un sacco pieno di cose di ogni genere. Si può aprire.
+
+=== ITEM_ID_SCHRODINGERS_CAT   [FILTER_CONTAINER]
+    NOME      jp シュレディンガーの猫 シュレディンガーの猫
+              en Schrodinger's Cat box
+              IT gatto di Schrodinger scatola
+    non ident. IT contenuto ignoto   (en unknown content)
+    --- description(0)  :81260
+        JP  \t\t猫が入れられた箱。中の猫が生きているのか死んでいるのかは、この箱を開けてみないと分からないだろう。\n#～イルヴァ幻想辞典～\n
+        EN  Cat in a box. Whether the cat inside is alive or dead will not be known until the box is opened. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :81263 ⚠️ TETTO SECCO 69
+        JP  \t\t猫が入っている箱。開けることができる。\n#～鑑定報告書：＜入れ物＞カテゴリ～\n
+        EN  (Openable) container that contains a cat.
+        IT  Una scatola con dentro un gatto. Si può aprire.
+
+=== ITEM_ID_SMALL_GAMBLE_CHEST   [FILTER_CONTAINER]
+    NOME      jp 小さな宝くじ箱
+              en small gamble chest
+              IT piccolo baule della lotteria
+    --- description(0)  :81941
+        JP  \t\t「一握りの幸運者に極上の経験を！どちら様もロックピックを御持参して挑戦下さい」\n#～箱裏に書かれた注意書き～\n
+        EN  \"A great experience for a handful of lucky people! Please bring your lockpicks to the challenge.\" \n# ~note written on the back of the box~
+    --- description(3)  :81944 ⚠️ TETTO SECCO 69
+        JP  \t\t中に小銭、稀に大金の入った箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) container with coins inside and rarely ,large sums of money.
+        IT  Una scatola con spiccioli, e di rado un tesoro. Si può aprire.
+
+=== ITEM_ID_COOLER_BOX   [FILTER_CONTAINER]
+    NOME      jp クーラーボックス
+              en cooler box
+              IT frigo portatile
+    non ident. IT scatola fredda   (en chilly box)
+    --- description(0)  :88147
+        JP  \t\t食べ物を腐らせることなく保管できる機械仕掛けの箱。極めて便利な品物だが４種類しか入らないので、大勢でピクニックに行く時はご注意あれ。\n#～ノースティリス大家具事典～\n
+        EN  A mechanical box that allows food to be stored without spoiling. Extremely useful item, but only holds four kinds of food, so beware if you are going on a picnic with a lot of people. \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :88150 ⚠️ TETTO SECCO 69
+        JP  \t\t４種の食物を腐らすことなく保持する箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) container that can hold 4 types of food.
+        IT  Tiene 4 cibi senza farli marcire. Si può aprire.
+
+=== ITEM_ID_TAX_MASTERS_TAX_BOX   [FILTER_CONTAINER]
+    NOME      jp 徴税士の納税箱
+              en tax master's tax box
+              IT cassetta delle tasse dell'esattore
+    non ident. IT cassetta delle tasse   (en tax box)
+    --- description(0)  :89821
+        JP  \t\t指定された税金を納める為の特別な箱。月に一度はパルミア大使館を訪れよう。\n#～打切上等！箱マニア・創刊号～\n
+        EN  Special box for payment of designated taxes. Visit the Palmia Embassy to pay tax once a month. \n# ~Censored! Box Mania, First Issue~
+    --- description(3)  :89824 ⚠️ TETTO SECCO 69
+        JP  \t\t請求書と付随された金額を収める為の箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) container that hold the tax bill and the accompanying tax.
+        IT  Una scatola per la fattura e i soldi delle tasse. Si può aprire.
+
+=== ITEM_ID_GIANTS_SHACKLE   [FILTER_CONTAINER]
+    NOME      jp 巨人の足枷
+              en giant's shackle
+              IT ceppo del gigante
+    non ident. IT ceppo   (en shakle)
+    --- description(0)  :90832
+        JP  \t\t金属でできた巨大で頑強な枷。押しても引いてもびくともしないように見えるが、どうやら繋ぎ目が少し緩んでいるようにも見える。\n#～囚人達が選ぶ、人気商品ベスト５０～\n
+        EN  Huge, sturdy fetters made of metal. It does not seem to be affected by pushing or pulling, but the joints seem to be a little loose. \n# ~Top 50 Most Popular Products Among Prisoners~
+    --- description(3)  :90835 ⚠️ TETTO SECCO 69
+        JP  \t\t巨人を繋ぎとめている枷。開けることができる。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+        EN  (Openable) fetters that restrains a giant.
+        IT  I ceppi che tengono legato un gigante. Si può aprire.
+
+=== ITEM_ID_FREEZER   [FILTER_CONTAINER]
+    NOME      jp 冷蔵庫
+              en freezer
+              IT congelatore
+    --- description(0)  :92186
+        JP  \t\t食材を半永久的に保管することができる叡智の結晶。しかしながら、この家具にはある秘密が存在する。なんと、何台所持していても扉の先は同じ空間にしか繋がらないのだ！\n#～ノースティリス大家具事典～\n
+        EN  A work of wisdom that can store foodstuffs semi-permanently. However, there is a secret to this furniture. No matter how many units you own, their doors can only lead to the same space! \n# ~Great Encyclopedia of North Tyris Furnitures~
+    --- description(3)  :92189 ⚠️ TETTO SECCO 69
+        JP  \t\t１５種の食物を腐らすことなく保持する箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) container keep 15 different types of food from spoiling.
+        IT  Tiene 15 cibi senza farli marcire. Si può aprire.
+
+=== ITEM_ID_SHOP_STRONGBOX   [FILTER_CONTAINER]
+    NOME      jp 店の金庫
+              en shop strongbox
+              IT cassaforte del negozio
+    --- description(0)  :93420
+        JP  \t\t店の売り上げを一手に引き受ける特別な金庫。防犯の為、店以外の場所では決して開かないシステムになっている。\n#～脱冒険者から始める商いライフ～\n
+        EN  A special safe that takes care of all the store's sales. For security purposes, the system is such that it can never be opened outside of the store. \n# ~Merchant Life Starting from a Quitting as a Adventurer~
+    --- description(2)  :93422
+        JP  \t\t店を経営するにおいて必要不可欠な金庫。ここに売上金が全て収められる。「不慮の事故で無くしてもご安心あれ。経済の要、パルミア大使館ですべて揃います」\n#～ティリス武具大全、広告のページ～\n
+        EN  A safe is essential to running a store. This is where all sales proceeds are stored. \"If you lose it by accident, don't worry. Everything is available at the Palmia Embassy, the keystone of the economy.\" \n# ~Tyris Armor Compendium, page of advertisements~
+    --- description(3)  :93423 ⚠️ TETTO SECCO 69
+        JP  \t\t店の売り上げが入った金庫。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) safe for the store's sales.
+        IT  La cassaforte con l'incasso del negozio. Si può aprire.
+
+=== ITEM_ID_MASTERS_DELIVERY_CHEST   [FILTER_CONTAINER]
+    NOME      jp 主の納入箱
+              en master's delivery chest
+              IT baule delle consegne del padrone
+    non ident. IT baule delle consegne   (en delivery chest)
+    --- description(0)  :93483
+        JP  \t\t指定された品を納入する為の特別な箱。何でもかんでも投棄されないよう、投入口に少し工夫がなされているらしい。\n#～打切上等！箱マニア・創刊号～\n
+        EN  A special box for the delivery of designated items. It is said that a little effort is made at the slot to prevent wrong everything from being dumped. \n# ~Censored! Box Mania, First Issue~
+    --- description(3)  :93486 ⚠️ TETTO SECCO 69
+        JP  \t\t指定された物品を収める箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) container that holds designated items.
+        IT  Una scatola per riporre le cose indicate. Si può aprire.
+
+=== ITEM_ID_SALARY_CHEST   [FILTER_CONTAINER]
+    NOME      jp 給料箱
+              en salary chest
+              IT baule degli stipendi
+    --- description(0)  :94381
+        JP  \t\t月に二回、得た給料を受け取る為の箱。不測の事態で箱を失っても給料はきちんと振り込まれる。しかし、パルミアの役人は融通が利かないということを憶えておくといいだろう。\n#～打切上等！箱マニア・創刊号～\n
+        EN  A box to receive the earned salary twice a month. Even if the box is lost due to unforeseen circumstances, the salary will be properly transferred. But remember that Palmia officials are inflexible, you need to buy another box from them. \n# ~Censored! Box Mania, First Issue~
+    --- description(3)  :94384 ⚠️ TETTO SECCO 69
+        JP  \t\t与えられた給料を受け取る為の箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) box to receive the earned salary.
+        IT  Una scatola dove arriva la paga. Si può aprire.
+
+=== ITEM_ID_HEIR_TRUNK   [FILTER_CONTAINER]
+    NOME      jp 形見のカバン
+              en heir trunk
+              IT borsa dell'erede
+    --- description(0)  :96844
+        JP  \t\t古ぼけたカバン。その中には志半ばで大陸から去っていった者達の残した品々が収められている。受け取るには然るべき手続きを踏まなければならない。\n#～死にゆく者へ贈る書～\n
+        EN  An old briefcase. Inside the briefcase are items left behind by those who left the continent in the midst of their ambitions. To receive them, one must follow the proper procedures. \n# ~Book for the Dying Ones~
+    --- description(3)  :96847 ⚠️ TETTO SECCO 69
+        JP  \t\t過去のキャラの残した遺品を受け取る為のカバン。開けることができる。\n#～鑑定報告書：＜遺失物＞カテゴリ～\n
+        EN  (Openable) trunk to receive ancestral relics left by past characters.
+        IT  Una borsa con l'eredità dei personaggi passati. Si può aprire.
+
+=== ITEM_ID_RARE_TREASURE_BALL   [FILTER_CONTAINER]
+    NOME      jp ガシャポンの玉(レア)
+              en rare treasure ball
+              IT sfera del tesoro rara
+    --- description(0)  :103233
+        JP  \t\t何らかのアイテムが収められた球体。その中には「欲望」という名の希望が詰め込まれている。\n#～遊技大典・全年齢対応版～\n
+        EN  Sphere containing some item. Inside it is filled with hope in the name of 'desire'. \n# ~Game Tricks, All Ages Version~
+    --- description(3)  :103236 ⚠️ TETTO SECCO 69
+        JP  \t\tアイテムが詰まった球体。開けることができる。\n#～鑑定報告書：＜容器＞カテゴリ～\n
+        EN  (Openable) sphere that contains a rare item.
+        IT  Una sfera piena di oggetti. Si può aprire.
+
+=== ITEM_ID_TREASURE_BALL   [FILTER_CONTAINER]
+    NOME      jp ガシャポンの玉
+              en treasure ball
+              IT sfera del tesoro
+    --- description(0)  :103295
+        JP  \t\t何らかのアイテムが収められた球体。その中には「期待」という名の希望が詰め込まれている。\n#～遊技大典・全年齢対応版～\n
+        EN  Sphere containing some item. Inside it is filled with hope in the name of 'expectation'. \n# ~Game Tricks, All Ages Version~
+    --- description(3)  :103298 ⚠️ TETTO SECCO 69
+        JP  \t\tアイテムが詰まった球体。開けることができる。\n#～鑑定報告書：＜容器＞カテゴリ～\n
+        EN  (Openable) sphere that contains a rare item.
+        IT  Una sfera piena di oggetti. Si può aprire.
+
+=== ITEM_ID_MATERIAL_BOX   [FILTER_CONTAINER]
+    NOME      jp 素材箱
+              en material box
+              IT cassa dei materiali
+    --- description(0)  :104725
+        JP  \t\t開けると素材が飛び出す黒い箱。多様な品が一気に飛び出すが、どうやってこの箱におさまっているのかは誰一人知らないという。\n#～打切上等！箱マニア・創刊号～\n
+        EN  A black box that pops out materials when opened. A wide variety of items pop out all at once, but no one knows how they fit into this box. \n# ~Censored! Box Mania, First Issue~
+    --- description(3)  :104728 ⚠️ TETTO SECCO 69
+        JP  \t\tマテリアルの入った箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) box filled with materials.
+        IT  Una scatola con materiali da lavorazione. Si può aprire.
+
+=== ITEM_ID_SHOPKEEPERS_TRUNK   [FILTER_CONTAINER]
+    NOME      jp 商人のカバン
+              en shopkeeper's trunk
+              IT borsa del mercante
+    --- description(0)  :107114
+        JP  \t\t行商人が自ら苦労して集めた逸品が詰め込まれたカバン。防犯の為、登録者以外が開けると著しく不安を煽る魔法が掛けられているという。\n#～脱冒険者から始める商いライフ～\n
+        EN  A briefcase filled with the best goods that a peddler has worked tirelessly to collect. For security purposes, the bag is said to be enchanted with a spell that makes people feel extremely guilty if anyone other than the registered owner opens it. \n# ~Merchant Life Starting from a Quitting as a Adventurer~
+    --- description(3)  :107117 ⚠️ TETTO SECCO 69
+        JP  \t\t武器防具が入ったカバン。開けることができる。\n#～鑑定報告書：＜遺失物＞カテゴリ～\n
+        EN  (Openable) trunk containing weapons and armor.
+        IT  Una borsa con armi e armature. Si può aprire.
+
+=== ITEM_ID_WALLET   [FILTER_CONTAINER]
+    NOME      jp 財布(落し物)
+              en wallet
+              IT portafoglio
+    --- description(0)  :112196
+        JP  \t\t「おやこんな所に財布が。良かった、無くなったかと思って心配していたんだ。こないだ無くした自分のものと似てるって？そりゃそうだよ、何故なら僕は沢山財布を持ってるから」\n#～ならずもののオネストの言葉～\n
+        EN  \"Oh, I found a wallet here. Good, I was worried it might be lost. You say I look familiar? That's right, 'cause I have a lot of wallets.\" \n# ~words of the honest? rogue~
+    --- description(3)  :112199 ⚠️ TETTO SECCO 69
+        JP  \t\t金品が入った袋。開けることができる。\n#～鑑定報告書：＜遺失物＞カテゴリ～\n
+        EN  (Openable) wallet lost by a tourist.
+        IT  Un sacchetto con denaro e beni. Si può aprire.
+
+=== ITEM_ID_SUITCASE   [FILTER_CONTAINER]
+    NOME      jp カバン(落し物)
+              en suitcase
+              IT valigia
+    --- description(0)  :112258
+        JP  \t\t「このカバンは自分のものだ。いや、昔持っていたんだ。いや、持っていた記憶がある、いや、買いたかった－、いや待てよ。ああそうだ思い出した、どこかの老紳士が置いたカバンだった。つまりは自分のものだ」\n#～こそどろのグリドの言葉～\n
+        EN  \"This bag belongs to me. No, I used to have it. No, I remember I had it, no, I wanted to buy it - no, wait. Oh yes, I remember, it was a bag that some old gentleman put there. In other words, it belonged to me.\" \n# ~words of <Gleed> the thief~
+    --- description(3)  :112261 ⚠️ TETTO SECCO 69
+        JP  \t\t金品が入ったカバン。開けることができる。\n#～鑑定報告書：＜遺失物＞カテゴリ～\n
+        EN  (Openable) suitcase lost by a tourist.
+        IT  Una borsa con denaro e beni. Si può aprire.
+
+=== ITEM_ID_SAFE   [FILTER_CONTAINER]
+    NOME      jp 金庫
+              en safe
+              IT cassaforte
+    --- description(0)  :115134
+        JP  \t\t「中に希望が入っているか、それとも絶望か。ただ一つだけ分かることは、保管している人間にとっては絶望でしかないことだろうね」\n#～稀代の怪盗『マークス』の言葉～\n
+        EN  \"Is there hope inside, or is it despair? I guess the only thing I know is that for those who keep it, it's all despair.\" \n# ~words of <Marks> the great thief~
+    --- description(3)  :115137 ⚠️ TETTO SECCO 69
+        JP  \t\t金品が入った箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) container containing money and goods.
+        IT  Una scatola con denaro e beni. Si può aprire.
+
+=== ITEM_ID_CHEST   [FILTER_CONTAINER]
+    NOME      jp 宝箱
+              en chest
+              IT baule
+    --- description(0)  :115196
+        JP  \t\t主にネフィアに安置されているというアイテムの保管された箱。解錠できなかった冒険者が力任せに強奪していかないように非常に重く作られている。\n#～打切上等！箱マニア・創刊号～\n
+        EN  A box containing items that are said to be mainly kept in Nephia. The boxes are made to be very heavy so that adventurers who cannot unlock them will not be able to rob them by brute force. \n# ~Censored! Box Mania, First Issue~
+    --- description(3)  :115199 ⚠️ TETTO SECCO 69
+        JP  \t\t金品が入った非常に重い箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) very heavy chest.
+        IT  Una scatola pesantissima con denaro e beni. Si può aprire.
+
+=== ITEM_ID_BEJEWELED_CHEST   [FILTER_CONTAINER]
+    NOME      jp 宝石で飾られた宝箱
+              en bejeweled chest
+              IT baule ingioiellato
+    --- description(0)  :115258
+        JP  \t\t宝飾品で彩られた輝く宝箱。見た目に反して以外と軽く、外装の煌びやかさも手伝って小物入れとして購入していく客もいるようだ。\n#～打切上等！箱マニア・創刊号～\n
+        EN  A shining treasure box decorated with jewelry. Despite its appearance, it is surprisingly lightweight, and some customers seem to buy it as a glamorous accessory box. \n# ~Censored! Box Mania, First Issue~
+    --- description(2)  :115260
+        JP  \t\t「俺はずっとここで盗品の品定めをしているが、過去に二度程驚いたことがある。一度目は黄金の巨神像を持ってきたマスターに。そして二度目は、財宝の中身ではなく外身を持ってきたお前のような奴にだ」\n#～盗賊ギルドの番人『アビス』の言葉～\n
+        EN  \"I've been here all my life, sifting through the stolen goods, and I've been surprised twice in the past. The first time was by a gentleman who brought me a golden statue of a giant god. The second time was to a man like you who brought not the contents of the treasure, but its bejeweled exterior.\" \n# ~words of <Abyss> the thief watchman~
+    --- description(3)  :115261 ⚠️ TETTO SECCO 69
+        JP  \t\t金品が入った箱。開けることができる。\n#～鑑定報告書：＜箱＞カテゴリ～\n
+        EN  (Openable) ancient jeweled chest.
+        IT  Una scatola con denaro e beni. Si può aprire.
+
+== 22 oggetti, 47 descrizioni

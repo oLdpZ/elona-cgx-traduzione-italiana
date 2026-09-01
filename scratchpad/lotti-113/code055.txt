@@ -1,0 +1,101 @@
+:48805
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:48875
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:48945
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:49015
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:49085
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:49155
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:49225
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:49295
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:49365
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:49435
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:49505
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:49575
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:49708
+   en  # ~Lumiest Art Catalogue~
+   IT  # ~Catalogo d'Arte di Lumiest~
+:52170
+   en  # ~Lumiest Art Catalogue~
+   IT  # ~Catalogo d'Arte di Lumiest~
+:52313
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Zaile~
+:66137
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:66199
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:69048
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:69118
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:69188
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:82213
+   en  #~Thousands of pieces of Junk I love~
+   IT  #~Le Mille Cianfrusaglie che Amo~
+:82610
+   en  # ~Music of the Melodious Irva~
+   IT  # ~Le Melodie della Limpida Irva~
+:89419
+   en  # ~Coins of this World - Tyris Edition~
+   IT  # ~Le Monete del Mondo: Tyris~
+:117318
+   en  #~Cheap Gifts for Your Kids~
+   IT  #~Cento Modi per Fregare i Bambini: i Souvenir~
+:128173
+   en  #~Cheap Gifts for Your Kids~
+   IT  #~Cento Modi per Fregare i Bambini: i Souvenir~
+:128305
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:128375
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:128445
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:128515
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:128585
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:128655
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:128725
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+:128795
+   en  #~Vernis Ore Catalogue~
+   IT  #~Atlante dei Minerali di Vernis~
+
+righe senza resa in tabella: 0   (atteso 0)
