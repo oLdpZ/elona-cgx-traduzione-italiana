@@ -1,0 +1,71 @@
+:47220
+   en  #~Irva Fantasy Encyclopedia~
+   IT  #~Dizionario Fantastico di Irva~
+:47222
+   en  # a Punched-in note
+   IT  #~Scarabocchio sul Foglietto Infilato Dentro~
+:50816
+   en  # ~Big Book of Books~
+   IT  # ~Il Libro dei Libri~
+:51150
+   en  # ~Big Book of Books~
+   IT  # ~Il Libro dei Libri~
+:51221
+   en  # ~Big Book of Books~
+   IT  # ~Il Libro dei Libri~
+:56055
+   en  # ~Big Book of Children's Books~
+   IT  # ~Il Libro dei Libri: i Libri per Bambini~
+:56201
+   en  # ~Big Book of Books~
+   IT  # ~Il Libro dei Libri~
+:57577
+   en  #~Big Book of Adult Books~
+   IT  #~Il Libro dei Libri: le Riviste per Adulti~
+:62534
+   en  # ~Big Book of Books~
+   IT  # ~Il Libro dei Libri~
+:71100
+   en  # ~Big Book of Children's Books~
+   IT  # ~Il Libro dei Libri: i Libri per Bambini~
+:74101
+   en  # ~Big Book of Books~
+   IT  # ~Il Libro dei Libri~
+:76791
+   en  # ~Big Book of Children's Books~
+   IT  # ~Il Libro dei Libri: i Libri per Bambini~
+:76935
+   en  # ~Big Book of Children's Books~
+   IT  # ~Il Libro dei Libri: i Libri per Bambini~
+:81064
+   en  # ~Big Books of Historical Books~
+   IT  # ~Il Libro dei Libri: i Libri di Storia~
+:83697
+   en  #~Big Book of Magical Books~
+   IT  #~Il Libro dei Libri: i Grimori~
+:84233
+   en  # ~Big Books of Historical Books~
+   IT  # ~Il Libro dei Libri: i Libri di Storia~
+:86403
+   en  # ~Big Book of Children's Books~
+   IT  # ~Il Libro dei Libri: i Libri per Bambini~
+:89284
+   en  # ~Big Book of Children's Books~
+   IT  # ~Il Libro dei Libri: i Libri per Bambini~
+:89356
+   en  # ~Big Book of Children's Books~
+   IT  # ~Il Libro dei Libri: i Libri per Bambini~
+:89358
+   en  # ~words on the cover~
+   IT  # ~parole sulla copertina~
+:93292
+   en  # ~Big Book of Books: Teacher's Edition~
+   IT  # ~Il Libro dei Libri: i Manuali d'Insegnamento~
+:97200
+   en  # ~Big Book of Children's Books~
+   IT  # ~Il Libro dei Libri: i Libri per Bambini~
+:129580
+   en  # ~Big Book of Books~
+   IT  # ~Il Libro dei Libri~
+
+righe senza resa in tabella: 0   (atteso 0)

@@ -1,0 +1,295 @@
+=== ITEM_ID_TURAHAGI   [FILTER_SHIELD]
+    NOME      jp 《ツラハギ》
+              en <Turahagi>
+              IT <Turahagi>
+    non ident. IT artigli robusti   (en strong claws)
+    --- description(0)  :42852
+        JP  大きな人喰い熊の爪。鉄板を引き裂くほど頑丈であり、一撃で現代イルヴァ生物の顔面を骨ごと吹き飛ばし、攻撃の余波で近くのインド象まで死に至らしめる。\n#～イルヴァ幻想辞典～
+        EN  The claws of a giant man-eating bear. They are incredibly robust and can even tear through iron sheets. A single strike can blow off an Irva creature's face along with its skull, and the shockwave alone can kill nearby Indian elephants.\n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :42855 ⚠️ TETTO SECCO 69
+        JP  とても丈夫で鋭い爪だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～
+        EN  It's a pair of extremely durable and sharp claws.
+        IT  Degli artigli molto resistenti e affilati.
+
+=== ITEM_ID_GOD_BINDER   [FILTER_SHIELD]
+    NOME      jp 《神々の枷鎖》
+              en <God Binder>
+              IT <Vincolo degli Dei>
+    non ident. IT gemma divina maledetta   (en cursed jewel of god)
+    --- description(0)  :57962
+        JP  \t\t古の神々が作り上げた、鎖付きの手枷。神の間での使用を想定し、神力による補助なしでとにかく物理的に頑丈に作られている。\n#～イルヴァ幻想辞典～\n
+        EN  Chained shackles created by the ancient gods. Intended for the gods, they are made physically sturdy even without supplying divine power. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :57965 ⚠️ TETTO SECCO 69
+        JP  \t\t身に着けると変形して手枷になる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a godly gift that when worn, transforms into manacles.
+        IT  Se lo indossi, si trasforma in manette.
+
+=== ITEM_ID_CROWN_POINT   [FILTER_SHIELD]
+    NOME      jp 《クラウンポイント》
+              en <Crown Point>
+              IT <Crown Point>
+    non ident. IT scudo a corona   (en crown shield)
+    --- description(0)  :59592
+        JP  \t\t冒険ゼミの受講生に贈られる品。かつては赤剣先生の出す総合問題を突破した者だけに与えられていた。当時はがんばりシールドと言う名称で、冠以外の模様パターンもあったらしい。\n#～イルヴァ幻想辞典～\n
+        EN  Gift given to students of the Adventurer Seminar. In the past, it was given only to those who had broken through the comprehensive questions given by Prof. Redsword. At that time, it was called \"Ganbari Shield\", and there were other patterns besides the crown. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :59595 ⚠️ TETTO SECCO 69
+        JP  \t\t四角い小盾だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a squared small shield.
+        IT  Uno scudo piccolo e quadrato.
+
+=== ITEM_ID_YOHUALLI_TEZCATL   [FILTER_SHIELD]
+    NOME      jp 《ヨワリ・テスカトル》
+              en <Yohualli Tezcatl>
+              IT <Yohualli Tezcatl>
+    non ident. IT scudo a specchio   (en mirror shield)
+    --- description(0)  :59860
+        JP  \t\t神力を込めると煙を吐く不思議な鏡。初代テスカトリポカがある女神を殺す際に脚を食いちぎられてしまい、義足代わりにこの鏡をくっつけていた時期もあるという。その名は古代語で「夜の鏡」を意味する。\n#～イルヴァ幻想辞典～\n
+        EN  Mysterious mirror that exhales smoke when imbued with divine power. The first Tezcatlipoca had his leg bitten off while killing a certain goddess, and he attached this mirror to him as a prosthetic leg. Its name means \"Mirror of the Night\" in the ancient language. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :59863 ⚠️ TETTO SECCO 69
+        JP  \t\t黒曜石を磨いて作られた鏡の盾だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a mirror shield made of polished obsidian.
+        IT  Uno scudo a specchio, fatto di ossidiana levigata.
+
+=== ITEM_ID_OTOGIRI   [FILTER_SHIELD]
+    NOME      jp 《音切爪》
+              en <Otogiri>
+              IT <Otogiri>
+    non ident. IT artigli azzurri   (en blue claws)
+    --- description(0)  :67599
+        JP  \t\tニンジャの秘術によって鍛えられた爪。特定の音波に共鳴して振動し、切れ味を高める。詠唱した呪文を増幅し威力を高めることもできるとか。\n#～イルヴァ幻想辞典～\n
+        EN  Claws forged by the secret arts of the ninja. They vibrate in resonance with specific sound waves, enhancing their sharpness. They can also amplify the power of chanted spells. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :67602 ⚠️ TETTO SECCO 69
+        JP  \t\t軽くて鋭い爪だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a light, sharp claws.
+        IT  Degli artigli leggeri e affilati.
+
+=== ITEM_ID_CLAW   [FILTER_SHIELD]
+    NOME      jp 鉤爪
+              en claw
+              IT artiglio
+    --- description(0)  :68250
+        JP  \t\t獣や猛禽、虫などの爪を模した装備。樹や地面に引っ掛けるのが本来の使い方。だが攻撃を弾く防具にも、格闘の威力を高める武器にもなるため、専ら戦闘用に使われている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Equipment that imitates the claws of a beast, bird of prey, insect, etc.Its original use is to hook onto a tree or the ground. However, since it can be used as armor to repel attacks or to enhance the power of weapons, it is used exclusively for combat purposes. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :68253 ⚠️ TETTO SECCO 69
+        JP  \t\tそれなりに頑丈な爪だ。\n#～鑑定報告書：＜武具＞カテゴリ～\n
+        EN  These are laws sturdy enough to be used like a shield.
+        IT  Degli artigli abbastanza robusti.
+
+=== ITEM_ID_GUR_BAGH_NAKH   [FILTER_SHIELD]
+    NOME      jp 《ガルバグナウ》
+              en <Gur Bagh Nakh>
+              IT <Gur Bagh Nakh>
+    non ident. IT artigli neri   (en black claws)
+    --- description(0)  :69256
+        JP  \t\t切り裂いた対象に、不幸をもたらす爪型の武器。かつては触れた者に永遠の不幸をもたらすほどの代物だったが、幸運の女神との戦いの際に力のほとんどを失ってしまった。\n#～イルヴァ幻想辞典～\n
+        EN  Claw-shaped weapon that brings misfortune to the target it slices open. It used to bring eternal misfortune to those it touched, but lost most of its power during the battle with the Goddess of Fortune. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :69259 ⚠️ TETTO SECCO 69
+        JP  \t\t恐ろしく鋭い爪だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  These are sharp, dreadful claws.
+        IT  Degli artigli affilati da far paura.
+
+=== ITEM_ID_SONIC_TONFA   [FILTER_SHIELD]
+    NOME      jp 《ST-05 ソニック》
+              en <Sonic Tonfa>
+              IT <Sonic Tonfa>
+    non ident. IT tonfa   (en tonfa)
+    --- description(0)  :71233
+        JP  \t\t攻防一体の装備。小型の推進装置を内蔵し、加速によって攻撃の貫通力を上げる。一時的に音速を超えて加速するため耐熱・耐衝撃機能も持つ。\n#～イルヴァ幻想辞典～\n
+        EN  Offensive-and-defensive equipment. It incorporates a small propulsion device to increase the penetration power of the attack through acceleration. Since it temporarily accelerates above the speed of sound, it is also heat and shock resistant. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :71236 ⚠️ TETTO SECCO 69
+        JP  \t\t推進装置を内蔵したトンファーだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a tonfa with a built-in propulsion system.
+        IT  Un tonfa con un propulsore incorporato.
+
+=== ITEM_ID_SABER_TONFA   [FILTER_SHIELD]
+    NOME      jp 《ST-04 セイバー》
+              en <Saber Tonfa>
+              IT <Saber Tonfa>
+    non ident. IT tonfa   (en tonfa)
+    --- description(0)  :71302
+        JP  \t\t攻防一体の装備。使用者のマナを転換し光子刃を形成する機能を持つ。隙あらば殴打からそのまま斬撃につなげることができる。\n#～イルヴァ幻想辞典～\n
+        EN  Offensive-and-defensive equipment. It has the ability to convert the user's mana to form a photon blade. If there is an opportunity, it can be connected directly from a strike to a slash. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :71305 ⚠️ TETTO SECCO 69
+        JP  \t\t光子刃の出るトンファーだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a tonfa that generates photon blades.
+        IT  Un tonfa da cui escono lame laser.
+
+=== ITEM_ID_SMASH_TONFA   [FILTER_SHIELD]
+    NOME      jp 《ST-03 スマッシュ》
+              en <Smash Tonfa>
+              IT <Smash Tonfa>
+    non ident. IT tonfa   (en tonfa)
+    --- description(0)  :71371
+        JP  \t\t攻防一体の装備。軽くて丈夫。握りを少し緩めてから回転させて打つこともできる。コンパクトで素早い格闘攻撃を可能とし、目標を次々と粉砕する。\n#～イルヴァ幻想辞典～\n
+        EN  Offensive-and-defensive equipment. Light and sturdy. It can be struck by slightly loosening its grip and then rotating it. It enables compact and quick combat attacks, smashing targets one after another. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :71374 ⚠️ TETTO SECCO 69
+        JP  \t\t連続攻撃ができるトンファーだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a tonfa that allows quick concessive strikes.
+        IT  Un tonfa che attacca a raffica.
+
+=== ITEM_ID_SHIELD_TONFA   [FILTER_SHIELD]
+    NOME      jp 《ST-02 シールド》
+              en <Shield Tonfa>
+              IT <Shield Tonfa>
+    non ident. IT tonfa   (en tonfa)
+    --- description(0)  :71439
+        JP  \t\t攻防一体の装備。斥力シールドの発生装置が取り付けられており、トンファーでありながら高い防御力を発揮する。\n#～イルヴァ幻想辞典～\n
+        EN  Offensive-and-defensive equipment. A repulsive shield generator is attached, which provides high defense despite being a tonfa.\n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :71442 ⚠️ TETTO SECCO 69
+        JP  \t\t防御装置を内蔵したトンファーだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a tonfa with a built-in shield generator.
+        IT  Un tonfa con un dispositivo di difesa incorporato.
+
+=== ITEM_ID_SACRIFICE_TONFA   [FILTER_SHIELD]
+    NOME      jp 《ST-01 サクリファイス》
+              en <Sacrifice Tonfa>
+              IT <Sacrifice Tonfa>
+    non ident. IT tonfa   (en tonfa)
+    --- description(0)  :71509
+        JP  \t\t攻防一体の装備。\n#～イルヴァ幻想辞典～\n
+        EN  Offensive-and-defensive equipment. It allows it's user to sac\n# ~Irva Fantasy Encyclopedia~
+    --- description(2)  :71511
+        JP  \t\t第三部用。\n#～謎のメモ～\n
+        EN  \"Reserved for ACT III.\" \n# ~Weird Memo~
+    --- description(3)  :71512 ⚠️ TETTO SECCO 69
+        JP  \t\tトンファーだ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a tonfa that suc
+        IT  Un tonfa.
+
+=== ITEM_ID_SEALED_SHIELD   [FILTER_SHIELD]
+    NOME      jp 《シールド・シールド》
+              en <Sealed Shield>
+              IT <Sealed Shield>
+    non ident. IT scudo resistente   (en hard shield)
+    --- description(0)  :73560
+        JP  \t\t呪いの力を封じた騎士盾。結果、盾に宿った「主を守ろうとする、騎士の魂」のみが作用し高い防御力をたたき出す。\n#～イルヴァ幻想辞典～\n
+        EN  Knight's shield that seals a curse. As a result, the \"knight's soul that tries to protect the lord\" that resides in the shield works to produce a high defensive power. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :73563 ⚠️ TETTO SECCO 69
+        JP  \t\t防御力の高い盾だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a highly defensive shield.
+        IT  Uno scudo con la difesa alta.
+
+=== ITEM_ID_CARNEADES_PLANK   [FILTER_SHIELD]
+    NOME      jp 《カルネアデスの板》 《カルネアデスの板》
+              en Carneades plank
+              IT Carneade asse
+    non ident. IT origine ignota   (en unknown origin)
+    --- description(0)  :81328
+        JP  \t\tエーテル風で沈んだクイーン・セドナ号の一部。盾として使えないこともないが防御力は心もとない。水に浮くが、溺れている人間一人を支えるのが限界である。\n#～イルヴァ幻想辞典～\n
+        EN  Part of the Queen Sedona, which sank in the etheric wind. It can be used as a shield, but its defensive capability is not so good. It floats on water, but it can only support one drowning person. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :81331 ⚠️ TETTO SECCO 69
+        JP  \t\t船に使われていた木の板だ。\n#～鑑定報告書：＜盾＞カテゴリ～\n
+        EN  It is a wooden plank that was used on a ship.
+        IT  Un'asse di legno che stava su una nave.
+
+=== ITEM_ID_SHIELD_OF_THORNS   [FILTER_SHIELD]
+    NOME      jp 《棘の盾》
+              en <Shield of Thorns>
+              IT <Scudo di Spine>
+    non ident. IT scudo pungente   (en tingling shield)
+    --- description(0)  :82410
+        JP  \t\t表面に大小様々な棘が付けられた見るからに痛そうな盾。身を守るには少々力不足だが、これを力一杯叩きつけられた時、哀れな敵は苦痛に悶絶することとなろう。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A shield with thorns of various sizes on its surface. It is not strong enough to protect itself, but when it is struck with full force, the poor enemy will scream in agony. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :82413 ⚠️ TETTO SECCO 69
+        JP  \t\t出血を促す盾だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a shield that induce bleeding.
+        IT  Uno scudo che provoca sanguinamento.
+
+=== ITEM_ID_ALUD   [FILTER_SHIELD]
+    NOME      jp 《アル・ウード》
+              en <Al'ud>
+              IT <Al'ud>
+    non ident. IT liuto robusto   (en tough lute)
+    --- description(0)  :82478
+        JP  \t\t古の時代、素晴らしい音色を響かせていたとされるリュート。しかし今日においてそれは単に経年を感じさせない非常に強固な木材を元にした優れた盾として扱われ、最早当時の様な音色を響かせることはないだろう。\n#～イルヴァ幻想辞典～\n
+        EN  In ancient times, the lute was said to have sounded wonderful. Today, however, it is simply treated as an excellent shield made of very strong wood that does not show its age, and it will never sound as good as it did back then. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :82481 ⚠️ TETTO SECCO 69
+        JP  \t\t鉄壁を誇る楽器の形状の盾だ。\n#～鑑定報告書：＜盾＞カテゴリ～\n
+        EN  It is a shield in the shape of an instrument.
+        IT  Uno scudo a forma di strumento musicale, difende come un muro.
+
+=== ITEM_ID_TOWER_SHIELD   [FILTER_SHIELD]
+    NOME      jp 重層盾
+              en tower shield
+              IT scudo a torre
+    --- description(0)  :100717
+        JP  \t\t非常に分厚く作られた盾。当然ながら重量は半端なものではなく、一度地に落としたら手元に戻すのに数人の力が必要とさえいわれている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  An extremely bulky shield. Naturally, it is not half as heavy as it should be, and it is said that once it is dropped to the ground, it will require the strength of several people to lift it back up. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :100720 ⚠️ TETTO SECCO 69
+        JP  \t\t非常に重い盾だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a very heavy shields
+        IT  Uno scudo pesantissimo.
+
+=== ITEM_ID_KITE_SHIELD   [FILTER_SHIELD]
+    NOME      jp 長盾
+              en kite shield
+              IT scudo a mandorla
+    --- description(0)  :100783
+        JP  \t\t大きな長方形をした盾。体を覆う程の大きさを誇る為、敵を遮蔽する為の簡易壁ともなるがその分弊害も多く、扱うには熟練を要するという。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A large rectangular shield. It is large enough to cover the body and can be used as a simple wall to shield the enemy, but it also has many harmful effects and requires skill to handle. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :100786 ⚠️ TETTO SECCO 69
+        JP  \t\t長い盾だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a large shield shaped like a kite.
+        IT  Uno scudo lungo.
+
+=== ITEM_ID_LARGE_SHIELD   [FILTER_SHIELD]
+    NOME      jp 合成盾
+              en large shield
+              IT scudo grande
+    --- description(0)  :100849
+        JP  \t\t特殊な素材をかけ合わせてより強固な防護を得た盾。やや重いという欠点はあるが、それに有り余る効果を発揮してくれるだろう。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Shields made from a combination of special materials to provide stronger protection. It has the disadvantage of being somewhat heavy, but it just works. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :100852 ⚠️ TETTO SECCO 69
+        JP  \t\t固い盾だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a large circular shield.
+        IT  Uno scudo duro.
+
+=== ITEM_ID_SHIELD   [FILTER_SHIELD]
+    NOME      jp 盾
+              en shield
+              IT scudo
+    --- description(0)  :100915
+        JP  \t\t攻撃を防ぐために考案された防具。鎧と違い自らの手に持つことで、襲いかかる暴力に相対することができる。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Protective gear designed to prevent attacks. Unlike armor, it can be held in one's own hands to oppose violence. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :100918 ⚠️ TETTO SECCO 69
+        JP  \t\t手に装備するタイプの防具だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is the type of armor you hold on your hands.
+        IT  Un'armatura che si equipaggia in mano.
+
+=== ITEM_ID_ROUND_SHIELD   [FILTER_SHIELD]
+    NOME      jp 丸型盾
+              en round shield
+              IT scudo rotondo
+    --- description(0)  :100981
+        JP  \t\t中心に重心が取り付けられた丸型の盾。その特異な丸型は、戦地へ赴く際に地面に当たって歩行が阻害されぬよう考えだされた結果だと言われている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Shield with its center of gravity attached to the center. It is said that the round shape of the shield was designed so that it would not hit the ground and impede walking when going into battle. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :100984 ⚠️ TETTO SECCO 69
+        JP  \t\t丸い盾だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a round shield.
+        IT  Uno scudo rotondo.
+
+=== ITEM_ID_SMALL_SHIELD   [FILTER_SHIELD]
+    NOME      jp 小盾
+              en small shield
+              IT scudo piccolo
+    --- description(0)  :101047
+        JP  \t\t通常のものより小型の盾。腕に装着することで、携行の不便さとそれに伴った重量の軽量化に成功しているが、その代わり防御に使える範囲はかなり狭まっている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Shields smaller than normal shields. By attaching it to the arm, it succeeds in reducing the inconvenience of carrying it and its weight, but at the same time, the range in which it can be used for defense is considerably narrowed. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :101050 ⚠️ TETTO SECCO 69
+        JP  \t\t軽装向けの盾だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a smaller and lighter shield.
+        IT  Uno scudo per chi porta armatura leggera.
+
+=== ITEM_ID_KNIGHT_SHIELD   [FILTER_SHIELD]
+    NOME      jp 騎士盾
+              en knight shield
+              IT scudo da cavaliere
+    --- description(0)  :127204
+        JP  \t\t騎士用に作られた格調高い盾。使う者に合わせ、趣向を凝らした彫金と飾りが付けられているが、単なる儀礼用ではなく、一定の防護も備わっている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A prestigious shield made for knights. They are elaborately engraved and decorated to suit the user, but they are not merely ceremonial and offer a certain degree of protection. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :127207 ⚠️ TETTO SECCO 69
+        JP  \t\t騎士用の盾だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a shield given to knights.
+        IT  Uno scudo per i cavalieri.
+
+== 23 oggetti, 47 descrizioni
