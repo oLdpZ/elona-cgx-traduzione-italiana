@@ -1,0 +1,111 @@
+=== ITEM_ID_FETTER_OF_EARTH   [FILTER_BOOTS]
+    NOME      jp 《大地の足枷》
+              en <Fetter of Earth>
+              IT <Ceppo della Terra>
+    non ident. IT sfera luminosa divina   (en god jewel)
+    --- description(0)  :76115
+        JP  \t\t大地の神のトレーニング器具。重いわけでもないのに、付けるとほとんど動けなくなり大地に固定されているような感覚すら覚える。\n#～イルヴァ幻想辞典～\n
+        EN  The training equipment of the God of Earth. It is not heavy, but when you put it on, you can hardly move and even feel as if you are fixed to the earth. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :76118 ⚠️ TETTO SECCO 69
+        JP  \t\t身に着けると変形して足枷になる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a godly gift that when worn, transforms and become shackles.
+        IT  Se lo indossi, si trasforma in ceppi.
+
+=== ITEM_ID_DAL_I_THALION   [FILTER_BOOTS]
+    NOME      jp 《ダル=イ=サリオン》
+              en <Dal-i-thalion>
+              IT <Dal-i-thalion>
+    non ident. IT scarpe leggere   (en light shoes)
+    --- description(0)  :86867
+        JP  \t\t革で作られたしっかりとした靴。思ったより足に馴染み、長旅における唯一無二の友となるだろう。\n#～イルヴァ幻想辞典～\n
+        EN  A solid shoe made of leather. They are more comfortable than expected and will be your one and only friend on a long trip. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :86870 ⚠️ TETTO SECCO 69
+        JP  \t\t旅の歩みを早める靴だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  These are shoes that speed up the journey.
+        IT  Delle scarpe che fanno viaggiare più svelti.
+
+=== ITEM_ID_SEVEN_LEAGUE_BOOTS   [FILTER_BOOTS]
+    NOME      jp セブンリーグブーツ
+              en seven league boots
+              IT stivali delle sette leghe
+    --- description(0)  :93757
+        JP  \t\t長距離を一瞬で駆け抜けることができる魔法が掛けられた靴。その話は伊達ではなく、さる高名な行商人はこの靴のお陰で世界を股にかけ、現在の地位を手に入れたのだとか。\n#～イルヴァ幻想辞典～\n
+        EN  A pair of shoes with a magic that allows you to run long distances in an instant. A famous peddler, who had been traveling around the world thanks to these shoes, achieved his current position. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :93760 ⚠️ TETTO SECCO 69
+        JP  \t\t旅の歩みを非常にはやめる靴だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  These are boots magically enhanced to allow faster travel.
+        IT  Delle scarpe che fanno viaggiare molto più svelti.
+
+=== ITEM_ID_ARMORED_BOOTS   [FILTER_BOOTS]
+    NOME      jp 装甲靴
+              en armored boots
+              IT stivali corazzati
+    --- description(0)  :100456
+        JP  \t\t足から脚まですっぽりと覆った靴。隙も漏らさぬその構造は完璧な防護を図るが、やはりそういった類のものはどれも重いようだ。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Shoes that completely cover the feet and legs. The structure of the shoes is designed to provide perfect protection, but it seems that all such shoes are heavy. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :100459 ⚠️ TETTO SECCO 69
+        JP  \t\t鎧状に作られた靴だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a pair of boot's with armored plating.
+        IT  Delle scarpe fatte a corazza.
+
+=== ITEM_ID_TIGHT_BOOTS   [FILTER_BOOTS]
+    NOME      jp 厚靴
+              en tight boots
+              IT stivali attillati
+    --- description(0)  :100521
+        JP  \t\tしっかりと作られた靴。その丁寧な作りは、職人の強い思いが感じられる。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Well-made shoes. Their careful craftsmanship shows the craftsman's strong desire. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :100524 ⚠️ TETTO SECCO 69
+        JP  \t\t分厚い靴だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a tight fitting pair of boots.
+        IT  Delle scarpe spesse.
+
+=== ITEM_ID_BOOTS   [FILTER_BOOTS]
+    NOME      jp 靴
+              en boots
+              IT stivali
+    --- description(0)  :100586
+        JP  \t\t足をすっぽりと覆った履物。戦闘用にはやや心もとないが、日常的に使用するにはこれくらいで十分だ。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Footwear that completely covers the feet. Although somewhat inadequate for combat use, this is sufficient for daily use. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :100589 ⚠️ TETTO SECCO 69
+        JP  \t\t足先を守る防具だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a standard pair of boots.
+        IT  Un'armatura per proteggere la punta dei piedi.
+
+=== ITEM_ID_SHOES   [FILTER_BOOTS]
+    NOME      jp 履物
+              en shoes
+              IT scarpe
+    --- description(0)  :100651
+        JP  \t\t足を守る為に簡易的に作られた防具。戦闘用にはやや心もとないが、日常的に使用するにはこれくらいで十分だ。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A simple piece of protective gear made to protect the feet. It is somewhat inadequate for combat use, but it is sufficient for daily use. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :100654 ⚠️ TETTO SECCO 69
+        JP  \t\t足を接地面から守る簡素な防具だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  These are simple protective gear that protects the feet from the ground.
+        IT  Un'armatura semplice, per proteggere i piedi da terra.
+
+=== ITEM_ID_COMPOSITE_BOOTS   [FILTER_BOOTS]
+    NOME      jp 合成靴
+              en composite boots
+              IT stivali compositi
+    --- description(0)  :130450
+        JP  \t\t特殊な素材をかけ合わせてより強固な防護を得た靴。非常に硬く、歩くだけで心地よい音が辺りに響くと言う。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Shoes made of a special composite material to provide stronger protection. They are extremely hard and are said to make a pleasant sound around the area just by walking. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :130453 ⚠️ TETTO SECCO 69
+        JP  \t\t固い靴だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a pair of boots reinforced with composite mesh.
+        IT  Delle scarpe dure.
+
+=== ITEM_ID_HEAVY_BOOTS   [FILTER_BOOTS]
+    NOME      jp 重靴
+              en heavy boots
+              IT stivali pesanti
+    --- description(0)  :130515
+        JP  \t\t沢山の素材片を張り付けた靴。当然通常より重くなっているが、その分防護は硬くなっている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Shoes covered with numerous pieces of material. Naturally, they are heavier than usual, but they offer better protection. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :130518 ⚠️ TETTO SECCO 69
+        JP  \t\t重い靴だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a pair of extra sturdy boots.
+        IT  Delle scarpe pesanti.
+
+== 9 oggetti, 18 descrizioni

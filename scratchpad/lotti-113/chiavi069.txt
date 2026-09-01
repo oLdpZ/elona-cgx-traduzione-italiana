@@ -1,0 +1,43 @@
+RIGHE = {
+    76115, 86867, 93757, 100456, 100521, 100586, 100651, 130450, 130515,
+}
+# 9 righe, da 76115 a 130515
+
+    # ---------------------------------------------------------- :76115
+    (76115, 'The training equipment of the God of Earth. It is not heavy, but when you put it on, you can hardly move and even feel as if you are fixed to the earth. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :86867
+    (86867, 'A solid shoe made of leather. They are more comfortable than expected and will be your one and only friend on a long trip. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :93757
+    (93757, 'A pair of shoes with a magic that allows you to run long distances in an instant. A famous peddler, who had been traveling around the world thanks to these shoes, achieved his current position. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :100456
+    (100456, 'Shoes that completely cover the feet and legs. The structure of the shoes is designed to provide perfect protection, but it seems that all such shoes are heavy. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :100521
+    (100521, "Well-made shoes. Their careful craftsmanship shows the craftsman's strong desire. \\n# ~Collection of Armaments you can Use Tomorrow~"):
+        "",
+
+    # ---------------------------------------------------------- :100586
+    (100586, 'Footwear that completely covers the feet. Although somewhat inadequate for combat use, this is sufficient for daily use. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :100651
+    (100651, 'A simple piece of protective gear made to protect the feet. It is somewhat inadequate for combat use, but it is sufficient for daily use. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :130450
+    (130450, 'Shoes made of a special composite material to provide stronger protection. They are extremely hard and are said to make a pleasant sound around the area just by walking. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :130515
+    (130515, 'Shoes covered with numerous pieces of material. Naturally, they are heavier than usual, but they offer better protection. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+# 9 voci, 0 ambigue
+
