@@ -1,0 +1,66 @@
+RIGHE = {
+    62463, 76247, 81536, 82676, 82742, 83901, 99448, 99519, 99591, 99663,
+    99735, 99807, 99809, 126647,
+}
+# 14 righe, da 62463 a 126647
+
+    # ---------------------------------------------------------- :62463
+    (62463, "A crystal sphere in the image of the supreme deity of the planet Yekub, and has the power to strengthen one's spirit. It is a popular souvenir among some aliens, who say that wearing it enables one to resist Sunbararian's hypnotism and mind absorption. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :76247
+    (76247, 'Special collar that the Goddess of the wind puts on her prized pets. It has an invisible chain. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :81536
+    (81536, 'A shell-shaped ornament made of mica with beautiful spirals. It is said to have been left behind by the gods. It is said that if you hold it gently to your ear, you can hear someone talking. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :82676
+    (82676, 'Necklace that looks like a pair of tiny swords. When worn, it is said to give the wearer the ability to move quickly, as if he or she had two extra arms. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :82742
+    (82742, 'Purple necklace that looks like a broken crossbow. It is said that when you wear it, covering fire will come out of nowhere. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :83901
+    (83901, 'Shabby necklace made of iron. It looks more like some kind of tag than an ornament, but it is said that this is because it is a symbol for lower class people to distinguish between friend and foe. \\n# ~Intel of the Informant Wiesem~'):
+        "",
+
+    # ---------------------------------------------------------- :99448
+    (99448, 'Amulet of love is given to the bride-to-be at the wedding ceremony. Naturally, this amulet is considered the property of the spouse, and forcible attempts to take it away from him or her will incur his or her wrath. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :99519
+    (99519, 'An ornament with a polished surface. It is more of a jewelry item and is often used as a gift. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :99591
+    (99591, 'Small ornaments are meant to ward off evil spirits. The ornaments are said to carry a variety of feelings. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :99663
+    (99663, 'Armor made to protect the neck. It is more like a piece of armor than something to be worn. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :99735
+    (99735, 'Accessories with special magic inside. It is not expected to provide direct protection, but it is said to often contain special abilities. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :99807
+    (99807, 'An ornament with a bright green gemstone at its center. Cut into a distinctive oval shape, it glows even at night and is considered by some to be a symbol of exceptional vitality. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :99809
+    (99809, '\\"Well, what a lovely shape. It\'s round and green with a hint of red in it, perfect for him, who is like a transparent canvas. I bet when he sees this necklace...oh no!\\" \\n# ~Rianna the Daydreamer~'):
+        "",
+
+# 1 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :126647
+    (126647, 'Ornaments worn around the neck. They can be made of a variety of materials and shapes, but those made of rare materials are often the most expensive. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+# 13 voci, 0 ambigue
+

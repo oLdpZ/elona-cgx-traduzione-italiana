@@ -1,0 +1,166 @@
+=== ITEM_ID_AMULET_OF_YEKUB   [FILTER_ACCESSORY_AMULET]
+    NOME      jp 《イェーキュブ・スフィア》
+              en <Amulet of Yekub>
+              IT <Amulet of Yekub>
+    non ident. IT collana con sfera di cristallo   (en necklace with crytal ball)
+    --- description(0)  :62463
+        JP  \t\t惑星イェーキュブの最高神を模した水晶玉。精神強化の御利益がある。身に着けているとシャンの催眠術やサキュバロリンの思念吸収にも抵抗できる、と一部の異星人の間で好評のお土産。\n#～イルヴァ幻想辞典～\n
+        EN  A crystal sphere in the image of the supreme deity of the planet Yekub, and has the power to strengthen one's spirit. It is a popular souvenir among some aliens, who say that wearing it enables one to resist Sunbararian's hypnotism and mind absorption. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :62466 ⚠️ TETTO SECCO 69
+        JP  \t\t精神面を強化する球体だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a sphere that strengthen the spiritual aspect of the body.
+        IT  Una sfera che rinforza lo spirito.
+
+=== ITEM_ID_TEMPEST_CHOKER   [FILTER_ACCESSORY_AMULET]
+    NOME      jp 《暴風の首輪》
+              en <Tempest Choker>
+              IT <Collare della Tempesta>
+    non ident. IT sfera luminosa divina   (en god jewel)
+    --- description(0)  :76247
+        JP  \t\t風の神が己の大事なペットにつける特製の首輪。見えない鎖が付いている。\n#～イルヴァ幻想辞典～\n
+        EN  Special collar that the Goddess of the wind puts on her prized pets. It has an invisible chain. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :76250 ⚠️ TETTO SECCO 69
+        JP  \t\t身に着けると変形して首輪になる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a godly gift that when worn, transforms into a collar.
+        IT  Se lo indossi, si trasforma in un collare.
+
+=== ITEM_ID_UNKNOWN_SHELL   [FILTER_ACCESSORY_AMULET]
+    NOME      jp 《謎の貝》
+              en <Unknown Shell>
+              IT <Conchiglia Ignota>
+    non ident. IT bella conchiglia   (en beautiful shell)
+    --- description(0)  :81536
+        JP  \t\t螺旋が美しい、ミカで作られた貝型の装身具。誰が作ったか等一切不明で、一説には神々の落とし物ともいわれる。耳元にそっと当てると誰かの話し声が聞こえるそうだ。\n#～イルヴァ幻想辞典～\n
+        EN  A shell-shaped ornament made of mica with beautiful spirals. It is said to have been left behind by the gods. It is said that if you hold it gently to your ear, you can hear someone talking. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :81539 ⚠️ TETTO SECCO 69
+        JP  \t\t神の発言を聞くことができる首輪だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a necklace that allows you to hear God's whisper.
+        IT  Una collana che fa sentire la parola divina.
+
+=== ITEM_ID_TWIN_EDGE   [FILTER_ACCESSORY_AMULET]
+    NOME      jp 《ツインエッジ》
+              en <Twin Edge>
+              IT <Twin Edge>
+    non ident. IT collana gialla   (en yellow necklace)
+    --- description(0)  :82676
+        JP  \t\t小さな双剣のような首飾り。身につけるとまるで腕が二本増えたかのような素早い身のこなしを得るという。\n#～イルヴァ幻想辞典～\n
+        EN  Necklace that looks like a pair of tiny swords. When worn, it is said to give the wearer the ability to move quickly, as if he or she had two extra arms. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :82679 ⚠️ TETTO SECCO 69
+        JP  \t\t追加打撃の機会を得られる首輪だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a necklace that provides a chance for extra strikes.
+        IT  Una collana che dà la probabilità di un attacco extra in mischia.
+
+=== ITEM_ID_ARBALEST   [FILTER_ACCESSORY_AMULET]
+    NOME      jp 《アルバレスト》
+              en <Arbalest>
+              IT <Arbalest>
+    non ident. IT collana viola   (en purple necklace)
+    --- description(0)  :82742
+        JP  \t\t折れたクロスボウのような紫色の首飾り。これを身につけていると、どこからともなく援護射撃が飛んでくるのだという。\n#～イルヴァ幻想辞典～\n
+        EN  Purple necklace that looks like a broken crossbow. It is said that when you wear it, covering fire will come out of nowhere. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :82745 ⚠️ TETTO SECCO 69
+        JP  \t\t追加射撃の機会を得られる首輪だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a necklace that gives a chance for an additional shot.
+        IT  Una collana che dà la probabilità di un attacco extra a distanza.
+
+=== ITEM_ID_BEGGARS_PENDANT   [FILTER_ACCESSORY_AMULET]
+    NOME      jp 《乞食のペンダント》
+              en <Beggar's Pendant>
+              IT <Pendente del Mendicante>
+    non ident. IT ciondolo sporco   (en dirty pendant)
+    --- description(0)  :83901
+        JP  \t\t鉄でできたみすぼらしい首飾り。装飾品というより何かの札のようにも見えるが、これは下賤な者達にとって味方か敵かを区別する目印であるからだとされる。\n#～情報屋ウィーゼムの調べた情報～\n
+        EN  Shabby necklace made of iron. It looks more like some kind of tag than an ornament, but it is said that this is because it is a symbol for lower class people to distinguish between friend and foe. \n# ~Intel of the Informant Wiesem~
+    --- description(3)  :83904 ⚠️ TETTO SECCO 69
+        JP  \t\t不幸な出来事から身を守る首輪だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a necklace that protects you from unfortunate events.
+        IT  Una collana che protegge dalle disgrazie.
+
+=== ITEM_ID_ENGAGEMENT_AMULET   [FILTER_ACCESSORY_AMULET]
+    NOME      jp 結婚首輪
+              en engagement amulet
+              IT amuleto nuziale
+    --- description(0)  :99448
+        JP  \t\t婚礼の儀において、伴侶となる者へ送られる愛のこめられた首輪。当然ながらこの首輪は伴侶の所有物となるので、無理やり取り上げようものなら激しい怒りを買うこととなろう。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Amulet of love is given to the bride-to-be at the wedding ceremony. Naturally, this amulet is considered the property of the spouse, and forcible attempts to take it away from him or her will incur his or her wrath. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :99451 ⚠️ TETTO SECCO 69
+        JP  \t\t上げた人との友好度が上がる首輪。返ってくることはない。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is an amulet that show's one's love, cannot be returned.
+        IT  Data a qualcuno, alza la simpatia. Non torna indietro.
+
+=== ITEM_ID_BEJEWELED_AMULET   [FILTER_ACCESSORY_AMULET]
+    NOME      jp 細工首輪
+              en bejeweled amulet
+              IT amuleto ingioiellato
+    --- description(0)  :99519
+        JP  \t\t表面を磨き上げた装身具。どちらかといえば宝飾品というべきもので、しばしば贈答用として用いられている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  An ornament with a polished surface. It is more of a jewelry item and is often used as a gift. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :99522 ⚠️ TETTO SECCO 69
+        JP  \t\t磨き上げられた首輪だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a polished, jeweled amulet.
+        IT  Una collana ben lucidata.
+
+=== ITEM_ID_CHARM   [FILTER_ACCESSORY_AMULET]
+    NOME      jp お守り
+              en charm
+              IT amuleto portafortuna
+    --- description(0)  :99591
+        JP  \t\t魔除け的な意味合いが強い小さな装身具。その飾りには様々な思いが込められているという。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Small ornaments are meant to ward off evil spirits. The ornaments are said to carry a variety of feelings. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :99594 ⚠️ TETTO SECCO 69
+        JP  \t\t想いのこめられた首輪だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a charm that ward off evil.
+        IT  Una collana in cui è racchiuso un sentimento.
+
+=== ITEM_ID_NECK_GUARD   [FILTER_ACCESSORY_AMULET]
+    NOME      jp 首当て
+              en neck guard
+              IT gorgiera
+    --- description(0)  :99663
+        JP  \t\t首を守る為に作られた装身具。装着するというより装備するといった表現が近く、やや武骨な作りとなっている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Armor made to protect the neck. It is more like a piece of armor than something to be worn. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :99666 ⚠️ TETTO SECCO 69
+        JP  \t\t身を守る為の首輪だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is an armor plate that is processed to fit on the neck.
+        IT  Una collana per proteggersi.
+
+=== ITEM_ID_TALISMAN   [FILTER_ACCESSORY_AMULET]
+    NOME      jp 護符
+              en talisman
+              IT talismano
+    --- description(0)  :99735
+        JP  \t\t特殊な魔法が内に込められた装身具。直接的な防護は期待できないが、往々にして特殊な能力を秘めているという。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Accessories with special magic inside. It is not expected to provide direct protection, but it is said to often contain special abilities. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :99738 ⚠️ TETTO SECCO 69
+        JP  \t\t魔力のこめられた首輪だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a talisman infused with mana.
+        IT  Una collana in cui è racchiuso il potere magico.
+
+=== ITEM_ID_PERIDOT   [FILTER_ACCESSORY_AMULET]
+    NOME      jp ペリドット
+              en peridot
+              IT peridoto
+    --- description(0)  :99807
+        JP  \t\t中心部に鮮やかな緑色をした宝石をあしらった装飾品。特徴的な卵形にカットされたそれは、夜においてもなお光り輝き、類まれなる生命力の象徴であるという人もいる。\n#～明日から使えるあなたの為の武具集～\n
+        EN  An ornament with a bright green gemstone at its center. Cut into a distinctive oval shape, it glows even at night and is considered by some to be a symbol of exceptional vitality. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(2)  :99809
+        JP  \t\t「まぁ、なんて可愛らしい形なのかしら。丸くて緑色でその中に仄かに赤色が入ってて、一面透明なキャンバスの様な彼にぴったりだわ。きっとこの首飾りをあの人がみたら…いやぁん！」\n#～妄想少女『リアナ』の言葉～\n
+        EN  \"Well, what a lovely shape. It's round and green with a hint of red in it, perfect for him, who is like a transparent canvas. I bet when he sees this necklace...oh no!\" \n# ~Rianna the Daydreamer~
+    --- description(3)  :99810 ⚠️ TETTO SECCO 69
+        JP  \t\t宝石のついた首輪だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a green gem attached to a neck chain.
+        IT  Una collana con una gemma.
+
+=== ITEM_ID_DECORATIVE_AMULET   [FILTER_ACCESSORY_AMULET]
+    NOME      jp 装飾首輪
+              en decorative amulet
+              IT amuleto decorativo
+    --- description(0)  :126647
+        JP  \t\t首元に飾る装身具。材質形状様々なものがあるが、往々にして希少な素材で作られたものが高価である。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Ornaments worn around the neck. They can be made of a variety of materials and shapes, but those made of rare materials are often the most expensive. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :126650 ⚠️ TETTO SECCO 69
+        JP  \t\t装飾が施された首輪だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is an ornate amulet.
+        IT  Una collana con delle decorazioni.
+
+== 13 oggetti, 27 descrizioni
