@@ -1,0 +1,5 @@
+:109020
+   en  # ~an Adventurer is You! Guide for Travels~
+   IT  # ~Da Oggi Avventuriero Anche Tu: Manuale di Viaggio~
+
+righe senza resa in tabella: 0   (atteso 0)

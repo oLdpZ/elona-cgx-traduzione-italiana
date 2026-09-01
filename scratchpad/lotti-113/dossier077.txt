@@ -1,0 +1,13 @@
+=== ITEM_ID_TRAVELERS_FOOD   [FILTER_CARGO_FOOD]
+    NOME      jp 旅糧(荷車)
+              en traveler's food
+              IT cibo da viaggio
+    --- description(0)  :109020
+        JP  \t\t荷車に積み込むタイプの食糧。保存性が極めて高い上、味も悪くはない。しかしこの手のタイプは質より量、旅においては、しばしば詰め込んだ量の方が味を凌駕するものなのだ。飲み物もセットになっているため、喉の渇きも少しは癒えるだろう。\n#～今日から君も冒険者・旅用マニュアル～\n
+        EN  A type of food that is loaded into carts. It has extremely high shelf life and the taste is not bad. However, this type of food is more about quantity than quality, and on a journey, the quantity of food packed often outweighs the taste. The set also includes a drink, so you can quench your thirst a little. \n# ~an Adventurer is You! Guide for Travels~
+    --- description(3)  :109023 ⚠️ TETTO SECCO 69
+        JP  \t\t荷車に積み込むタイプの食物だ。\n#～鑑定報告書：＜食物＞カテゴリ～\n
+        EN  It is a cargo of travel rations often used by merchants.
+        IT  Un cibo del tipo che si carica sul carretto.
+
+== 1 oggetti, 2 descrizioni

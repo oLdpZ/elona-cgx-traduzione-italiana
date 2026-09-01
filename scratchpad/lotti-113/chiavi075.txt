@@ -1,0 +1,11 @@
+RIGHE = {
+    127483,
+}
+# 1 righe, da 127483 a 127483
+
+    # ---------------------------------------------------------- :127483
+    (127483, "A platinum coin used for special occasions. It cannot be used as money and vice versa. Its main use is when expressing one's gratitude instead, etc. This usage is widely recognized and a considerable number of coins are in circulation. \\n# ~Coins of this World - Tyris Edition~"):
+        "",
+
+# 1 voci, 0 ambigue
+

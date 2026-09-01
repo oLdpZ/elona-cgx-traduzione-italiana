@@ -1,0 +1,11 @@
+RIGHE = {
+    127545,
+}
+# 1 righe, da 127545 a 127545
+
+    # ---------------------------------------------------------- :127545
+    (127545, 'Currency widely circulated in the world. It has recently been established as an alternative to barter, but the downside is that it tends to concentrate wealth in one place, making it vulnerable to thieves, especially when traveling, and the wealthy are demanding that the government issue more valuable currency. \\n# ~Coins of this World - Tyris Edition~'):
+        "",
+
+# 1 voci, 0 ambigue
+

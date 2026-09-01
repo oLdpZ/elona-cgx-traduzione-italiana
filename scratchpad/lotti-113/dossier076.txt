@@ -1,0 +1,13 @@
+=== ITEM_ID_GOLD_PIECE   [FILTER_GOLD]
+    NOME      jp 金貨
+              en gold piece
+              IT moneta d'oro
+    --- description(0)  :127545
+        JP  \t\t世界で広く流通している通貨。昨今において物々交換に代わる方法として確立されたが、弊害として財が一か所に集中しやすい為、主に旅先で盗人に狙われやすく富豪達は更に価値のある貨幣の発行を国に求めている。\n#～世界のコイン・ティリス編～\n
+        EN  Currency widely circulated in the world. It has recently been established as an alternative to barter, but the downside is that it tends to concentrate wealth in one place, making it vulnerable to thieves, especially when traveling, and the wealthy are demanding that the government issue more valuable currency. \n# ~Coins of this World - Tyris Edition~
+    --- description(3)  :127548 ⚠️ TETTO SECCO 69
+        JP  \t\t世界共通の通貨だ。\n#～鑑定報告書：＜貨幣＞カテゴリ～\n
+        EN  It is the standard currency of Irva.
+        IT  La moneta corrente in tutto il mondo.
+
+== 1 oggetti, 2 descrizioni

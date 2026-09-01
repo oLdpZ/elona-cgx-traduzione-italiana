@@ -1,0 +1,25 @@
+=== ITEM_ID_CEREMONY_ALTAR   [FILTER_FURNITURE_ALTAR]
+    NOME      jp 儀式用の祭壇
+              en ceremony altar
+              IT altare cerimoniale
+    --- description(0)  :119819
+        JP  \t\t捧げ物をする為だけの最低限の設備が備わった簡素な祭壇。ここで祈ることにより神と交感できると言われている。\n#～あなたの見知らぬ世界～\n
+        EN  Simple altar with minimal facilities for offerings. It is said that by praying here, one can commune with the Gods. \n#~ Worlds you've Never Seen~
+    --- description(3)  :119822 ⚠️ TETTO SECCO 69
+        JP  \t\t簡易的な祭壇。捧げ物を捧げることができる。\n#～鑑定報告書：＜壇＞カテゴリ～\n
+        EN  It is an altar for ritual's to give tribute to the gods.
+        IT  Un altare semplice. Ci si possono fare offerte.
+
+=== ITEM_ID_ALTAR   [FILTER_FURNITURE_ALTAR]
+    NOME      jp 祭壇
+              en altar
+              IT altare
+    --- description(0)  :119881
+        JP  \t\t厳かな雰囲気を醸し出す、石でできた巨大な構造物。ここで祈ることにより神と交感できると言われている。\n#～あなたの見知らぬ世界～\n
+        EN  Huge structure made of stone that creates a solemn atmosphere. It is said that by praying here, one can commune with the Gods. \n#~ Worlds you've Never Seen~
+    --- description(3)  :119884 ⚠️ TETTO SECCO 69
+        JP  \t\t神を讃えた壇。捧げ物を捧げることができる。\n#～鑑定報告書：＜壇＞カテゴリ～\n
+        EN  It is a podium for ritual's to give tribute to the gods.
+        IT  Un piedistallo in lode del dio. Ci si possono fare offerte.
+
+== 2 oggetti, 4 descrizioni

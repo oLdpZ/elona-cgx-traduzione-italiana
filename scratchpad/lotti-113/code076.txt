@@ -1,0 +1,5 @@
+:127545
+   en  # ~Coins of this World - Tyris Edition~
+   IT  # ~Le Monete del Mondo: Tyris~
+
+righe senza resa in tabella: 0   (atteso 0)

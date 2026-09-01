@@ -1,0 +1,13 @@
+=== ITEM_ID_PLATINUM_COIN   [FILTER_PLATINUM]
+    NOME      jp プラチナ硬貨
+              en platinum coin
+              IT moneta di platino
+    --- description(0)  :127483
+        JP  \t\t特殊な時に使用される白金の硬貨。貨幣として使用することはできないがまた逆もしかり。主な使用用途は、自分の感謝の気持ちを代わりに表す時等。この使用法は広く認知されており、かなりの枚数が流通している。\n#～世界のコイン・ティリス編～\n
+        EN  A platinum coin used for special occasions. It cannot be used as money and vice versa. Its main use is when expressing one's gratitude instead, etc. This usage is widely recognized and a considerable number of coins are in circulation. \n# ~Coins of this World - Tyris Edition~
+    --- description(3)  :127486 ⚠️ TETTO SECCO 69
+        JP  \t\t綺麗に輝く特殊な硬貨だ。スキルをトレイナーに鍛えてもらう時等に用いる。\n#～鑑定報告書：＜貨幣＞カテゴリ～\n
+        EN  These are rare coins used by the guilds as currency.
+        IT  Una moneta speciale e lucente. Serve a pagare l'istruttore.
+
+== 1 oggetti, 2 descrizioni

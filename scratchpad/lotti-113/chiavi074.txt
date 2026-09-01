@@ -1,0 +1,15 @@
+RIGHE = {
+    119819, 119881,
+}
+# 2 righe, da 119819 a 119881
+
+    # ---------------------------------------------------------- :119819
+    (119819, "Simple altar with minimal facilities for offerings. It is said that by praying here, one can commune with the Gods. \\n#~ Worlds you've Never Seen~"):
+        "",
+
+    # ---------------------------------------------------------- :119881
+    (119881, "Huge structure made of stone that creates a solemn atmosphere. It is said that by praying here, one can commune with the Gods. \\n#~ Worlds you've Never Seen~"):
+        "",
+
+# 2 voci, 0 ambigue
+
