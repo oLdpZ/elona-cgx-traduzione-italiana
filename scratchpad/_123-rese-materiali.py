@@ -90,7 +90,8 @@ NOMI = {
     74: 'erba che geme',             # 唸る草
     79: 'erba rossa',                # 赤い草
     84: 'erba azzurra',              # 青い草
-    89: 'erba della maledizione',    # 呪いの草
+    89: 'erba di maledizione',       # 呪いの草 — ⚠️ «erba della maledizione» (22)
+                                     #   sfora: col contatore fanno 29 su 27
     129: 'nebbia nera',              # 黒い霧
     139: 'pietra di fuoco',          # 火炎石
     144: 'pietra di ghiaccio',       # 冷凍石
@@ -104,7 +105,8 @@ NOMI = {
     219: 'erba medicinale',          # 薬草
     244: 'ramo robusto',             # 頑丈な枝 — «ramo» dal glossario, :239
     254: 'scheggia di memoria',      # 記憶の欠片
-    259: 'scheggia di forza magica', # 魔力の欠片
+    259: 'scheggia magica',           # 魔力の欠片 — ⚠️ «scheggia di forza magica»
+                                      #   (24) col contatore fa 31 su 27
     274: 'liana',                    # ⚠️ ツル e' la LIANA, non la vena: «Vein» e' un refuso di monte per «Vine»
     279: 'colla',                    # 接着剤
     284: 'carta di qualità',         # 上質紙 — «carta» dal glossario, :224
@@ -124,12 +126,17 @@ DESCRIZIONI = {
     25: 'Legname di qualità scadente.',          # ⚠️ jp: あまり質の良くない木材. EN dice «Common driftwood»
     30: "Una penna d'uccello comune.",           # 普通の鳥の羽
     35: "Una goccia d'acqua.",                   # 水滴 — il jp ripete il nome
-    40: 'Un pezzo di legno di forma insolita.',  # ⚠️ jp: 杖, che ripete il nome. Qui la fonte e' l'inglese
-    45: 'Scheggia di minerale con mithril.',     # ミスリルを含んだ鉱石の欠片
-    50: "Scheggia di minerale con etere.",       # エーテルを含んだ鉱石の欠片
-    55: 'Scheggia di minerale con ferro.',       # 鉄分を含んだ鉱石の欠片
+    40: 'Legno di forma particolare.',           # ⚠️ jp: 杖, che ripete il nome. Qui la fonte e' l'inglese
+    # ⭐ I TRE MINERALI SONO UNA FAMIGLIA, e la famiglia si accorcia INTERA.
+    #   «Scheggia di minerale con mithril.» faceva 33 su 32; gli altri due
+    #   stavano dentro per un carattere. Accorciare solo quello che sfora
+    #   sarebbe il difetto della 119a al rovescio: tre righe che il giapponese
+    #   scrive uguali, rese in due modi.
+    45: 'Minerale che contiene mithril.',        # ミスリルを含んだ鉱石の欠片
+    50: 'Minerale che contiene etere.',          # エーテルを含んだ鉱石の欠片
+    55: 'Minerale che contiene ferro.',          # 鉄分を含んだ鉱石の欠片
     60: 'Una lacrima di strano splendore.',      # ⚠️ jp: 不思議な輝きを放つ涙. EN dice «Hard to gather»
-    65: 'Una lacrima che non si asciuga mai.',   # 決して乾かない涙
+    65: 'Non si asciuga mai.',                   # 決して乾かない涙
     70: 'Acqua salata.',                         # しょっぱい水
     75: 'Un\'erba che fa un suono strano.',      # 変な音を出す草
     80: "Un'erba appena rossastra.",             # ほんのり赤い草
@@ -140,38 +147,42 @@ DESCRIZIONI = {
     105: 'Un gene che si rigenera.',             # 再生する遺伝子
     110: 'Chissà perché non si scioglie.',       # なぜか溶けない
     115: 'La polvere che lasciano le fate.',     # 妖精の燐粉
-    120: 'Una strana pietra che taglia il vento.',  # ⚠️ jp: 風を裂く不思議な石. Il NOME e' «scheggia
+    120: 'Pietra che taglia il vento.',         # ⚠️ jp: 風を裂く不思議な石. Il NOME e' «scheggia
                                                  #   elementale» per coerenza, ma la DESCRIZIONE
-                                                 #   puo' dire quel che dice il giapponese
+                                                 #   puo' dire quel che dice il giapponese.
+                                                 #   ⓘ 不思議な «strana» cade per il budget: e' la
+                                                 #   parola che porta meno, e il resto e' il fatto
     125: 'Sta scaricando.',                      # 放電している
     130: 'Una nebbia nerissima.',                # 真っ黒な霧
     135: 'Chissà perché non si raffredda.',      # なぜか冷めない
     140: 'Una pietra che porta calore.',         # 熱を帯びた石
     145: 'Una pietra fredda.',                   # 冷たい石
-    150: 'Una pietra che porta elettricità.',    # 電気を帯びた石
+    150: 'Pietra elettrizzata.',                 # 電気を帯びた石
     155: "Un'erba che risplende.",               # 光輝く草
-    160: 'Un blocco di forza magica ignota.',    # 謎の魔力の塊 — 魔力 «forza magica» (dizionario)
+    160: 'Blocco di forza magica ignota.',       # 謎の魔力の塊 — 魔力 «forza magica» (dizionario)
     165: 'Un gene comune.',                      # 普通の遺伝子
     170: 'Si muovono ancora.',                   # まだ動いている — l'inglese ha il plurale, il jp no
     175: 'Pelle conciata.',                      # なめした皮
-    180: 'Una linfa che guarisce ogni ferita.',  # ⚠️ jp: どんな傷も癒す樹液. EN dice «It's pretty rare»
-    185: 'Carta che cela forza magica.',         # 魔力を秘めた紙
-    190: 'Inchiostro che cela forza magica.',    # ⚠️ jp: 魔力を秘めたインク. EN dice «Wizards love to use it»
-    195: 'Non fa il suo mestiere di bastone.',   # 杖の役割を果たさない
+    180: 'Guarisce ogni ferita.',                # ⚠️ jp: どんな傷も癒す樹液. EN dice «It's pretty rare»
+    # ⭐ La coppia carta/inchiostro ha lo stesso giapponese (魔力を秘めた〜) e
+    #   resta parallela: «cela forza magica» sarebbe stato 33 sull'inchiostro.
+    185: 'Carta con forza magica.',              # 魔力を秘めた紙
+    190: 'Inchiostro con forza magica.',         # ⚠️ jp: 魔力を秘めたインク. EN dice «Wizards love to use it»
+    195: 'Non fa da bastone.',                   # 杖の役割を果たさない
     200: 'Non sta mai zitto.',                   # 黙らない
     205: 'Molto corta.',                         # とても短い
     210: 'Denaro di un paese straniero.',        # 異国のお金
     215: 'Denaro di un paese straniero.',        # 異国のお金 — ⚠️ IDENTICA a :210, e va tenuta identica
     220: 'Guarisce un poco le ferite.',          # 少し傷を癒す
     225: 'Carta bianca.',                        # 白紙
-    230: 'Una macchina che produce qualcosa.',   # 何かを生み出す機械
+    230: 'Produce qualcosa.',                    # 何かを生み出す機械
     235: 'Solo una pezza di stoffa.',            # ただの布きれ
     240: 'Spezzato da un albero.',               # ⚠️ jp: 枝, che ripete il nome. Fonte: l'inglese
     245: 'Non si spezza facilmente.',            # なかなか折れない
     250: 'Se ne trovano dappertutto.',           # どこにでも落ちている
     255: 'Ci sono rimasti dei ricordi.',         # 思い出が残っている
     260: 'Ci è racchiusa forza magica.',         # 魔力が込められている
-    265: 'Una pietra che sigilla la forza del caos.',  # 混沌の力が封じられた石
+    265: 'Sigilla la forza del caos.',          # 混沌の力が封じられた石
     270: 'Una pietra in buono stato.',           # 状態の良い石
     275: 'Una liana.',                           # ツル — il jp ripete il nome
     280: 'È tutta appiccicosa.',                 # ネトネトしている
