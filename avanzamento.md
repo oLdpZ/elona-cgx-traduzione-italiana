@@ -3808,3 +3808,71 @@ dal corpo.
 ⚠️ Debito di collaudo: **7.857** rese mai viste a schermo. La lista di passi è
 stata data a metà sessione, con cinque identificativi letti dal sorgente e tutti
 verificati a `IDENTIFY_LEVEL = 0`.
+
+---
+
+## 122ª — Nove categorie del corpo, e il fronte scende a 28 righe
+
+Nove lotti, **111 rese**, nove categorie chiuse. Le categorie chiuse del corpo
+passano da quindici a **ventiquattro**.
+
+    061  FILTER_CARGO_TRADE       19    le merci da commercio
+    062  FILTER_ENVIRONMENT       13    gli alberi
+    063  FILTER_HELM              16    gli elmi e i cappelli
+    064  FILTER_ACCESSORY_AMULET  14    le collane
+    065  FILTER_ACCESSORY_RING    11    gli anelli
+    066  FILTER_GLOVES            10    i guanti
+    067  FILTER_CLOAK             10    i mantelli e le ali
+    068  FILTER_GIRDLE             9    le cinture
+    069  FILTER_BOOTS              9    le scarpe
+
+### Il corpo, misurato
+
+    _107-descrizioni-item   corpo (0-2): 1.513 vive, 1.485 rese
+                            introdotte dall'italiano: 0 / 0 / 0   (il cancello)
+                            indice 3: 1.319 su 1.319 — CHIUSO
+    _114-corpo-da-fare      28 su 1.449 firme, di cui 1 rinviata
+    verifica --dizionario   db_item.hsp: 0 da ritradurre, 28 non tradotte
+    _97-quanto-resta        138 / 111 / 27
+    applica                 30.321 sostituzioni   (era 30.210: +111)
+    perimetro.py            perimetro 90% (28.695), totale 94% (31.628)
+
+⭐ **Nove previsioni di `applica`, nove esatte.** `_previsione.py` ha detto
+«nessuna gemella» nove volte su nove, e nove volte il conteggio è salito
+esattamente del numero di rese.
+
+### Quel che resta
+
+    7  FILTER_REMAINS               2  FILTER_FURNITURE_ALTAR
+    6  FILTER_ENVIRONMENT_SEABED    1  FILTER_PLATINUM
+    5  FILTER_AMMO                  1  FILTER_GOLD
+    4  FILTER_FURNITURE_WELL        1  FILTER_CARGO_FOOD
+
+    + 1 in FILTER_ITEM_POTION, che è la RINVIATA e non è lavoro
+
+**Ventisette righe vere, e il corpo di `db_item.hsp` si chiude.**
+⚠️ Il lotto **070** su `FILTER_REMAINS` è già aperto — righe, dossier, code e
+referto delle sorelle sono sul disco, le rese no.
+
+### Due strumenti nuovi
+
+    scratchpad/_122-inglese-doppio-item.py    l'inglese di un ALTRO oggetto
+    scratchpad/_122-sorelle-per-frase.py      la frase sorella su tutto il file
+
+Tutt'e due hanno `--prova`, e la prova del secondo ha trovato un difetto nel
+secondo al primo giro. Stanno per esteso in `decisioni.md`.
+
+### Il debito di collaudo
+
+⚠️⚠️ **Nessuna delle 111 rese è stata vista a schermo.** La lista di passi data
+a metà sessione copre i lotti **061, 062 e 063** — venti oggetti con
+`spawn_item`, la pergamena **362**, e per ognuno che cosa guardare. Per i lotti
+064-069 non è mai stata scritta: alla domanda «vado avanti o chiudo?» l'utente
+ha risposto «vai avanti».
+
+Il debito sale da 9.029 a **9.140** rese mai viste a schermo.
+
+ⓘ **Costruito, misurato dagli strumenti, provato al contrario e visto a schermo
+sono quattro stati distinti**, e qui il quarto manca. Tre scelte forti di questa
+sessione — i cinque «Non si può usare» del 061, la forma impersonale del 069, i
+due nomi alieni trascritti del 064 — sono **giudicate solo da me**.

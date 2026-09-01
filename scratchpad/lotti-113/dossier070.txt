@@ -1,0 +1,85 @@
+=== ITEM_ID_CARD   [FILTER_REMAINS]
+    NOME      jp カード
+              en card
+              IT carta
+    --- description(0)  :97263
+        JP  \t\t情報が克明に記述された紙片。身長体重は勿論、特徴等も細かく書かれているが、そういった情報収集的に使われることは少なく、艶のある材質も手伝って専らは収集用や遊戯用に用いられているという。\n#～ルミエスト美術目録～\n
+        EN  A piece of paper on which information is clearly described. It contains detailed descriptions of height and weight as well as characteristics, but it is rarely used for collecting such information and is said to be used exclusively for collecting and playing with, helped by its shiny material.  \n# ~Lumiest Art Catalogue~
+    --- description(3)  :97266 ⚠️ TETTO SECCO 69
+        JP  \t\t生物の情報が書かれた紙だ。使うとデッキに入れることができる。\n#～鑑定報告書：＜紙片＞カテゴリ～\n
+        EN  It is a card with information about creature. You can put them in decks.
+        IT  Un foglio con i dati di una creatura. Si mette nel mazzo.
+
+=== ITEM_ID_FIGURINE   [FILTER_REMAINS]
+    NOME      jp はく製
+              en figurine
+              IT statuetta
+    --- description(0)  :97325
+        JP  \t\t犠牲者の生き写しとも思える程、精巧に作られた像。その姿は今にも動き出しそうなほどに生気を孕んでいる。\n#～ルミエスト美術目録～\n
+        EN  The statues are so elaborately crafted that they seem to be living replicas of their victims. The figure is so lifelike that it looks as if it could start moving at any moment. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :97328 ⚠️ TETTO SECCO 69
+        JP  \t\tモンスターの姿を模った彫像だ。\n#～鑑定報告書：＜彫像＞カテゴリ～\n
+        EN  These are statues in the shape of monsters.
+        IT  Una statua che riproduce un mostro.
+
+=== ITEM_ID_BONE   [FILTER_REMAINS]
+    NOME      jp 骨片
+              en bone
+              IT osso
+    --- description(0)  :108519
+        JP  \t\t敵を破砕した際に飛び散った生物の骨片。特に価値はないが水薬や呪術に使用できる為、そこそこの値で売れる。\n#～私の愛する幾千ものガラクタ～\n
+        EN  Bone fragments of a shattered creature. It is not particularly valuable, but can be used for medicine and sorcery, so it can be sold for a modest price. \n#~Thousands of pieces of Junk I love~
+    --- description(3)  :108522 ⚠️ TETTO SECCO 69
+        JP  \t\t生物の骨片だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is the bone of a creature.
+        IT  L'osso di una creatura.
+
+=== ITEM_ID_HEART   [FILTER_REMAINS]
+    NOME      jp 心臓
+              en heart
+              IT cuore
+    --- description(0)  :108581
+        JP  \t\t敵を破砕した際に飛び散った生物の心臓。特に価値はないが水薬や呪術に使用できる為、そこそこの値で売れる。\n#～私の愛する幾千ものガラクタ～\n
+        EN  Heart of a shattered creature. It is not particularly valuable, but can be used for medicine and sorcery, so it can be sold for a modest price. \n#~Thousands of pieces of Junk I love~
+    --- description(3)  :108584 ⚠️ TETTO SECCO 69
+        JP  \t\t生物の心臓だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is the heart of a creature.
+        IT  Il cuore di una creatura.
+
+=== ITEM_ID_EYE   [FILTER_REMAINS]
+    NOME      jp 瞳
+              en eye
+              IT occhio
+    --- description(0)  :108643
+        JP  \t\t敵を破砕した際に飛び散った生物の瞳。特に価値はないが装飾品や薬に加工できる為、そこそこの値で売れる。\n#～私の愛する幾千ものガラクタ～\n
+        EN  Eyes of a shattered creature. It is not particularly valuable, but can be used for medicine and sorcery, so it can be sold for a modest price. \n#~Thousands of pieces of Junk I love~
+    --- description(3)  :108646 ⚠️ TETTO SECCO 69
+        JP  \t\t生物の瞳だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is the eye of a creature.
+        IT  L'occhio di una creatura.
+
+=== ITEM_ID_BLOOD   [FILTER_REMAINS]
+    NOME      jp 体液
+              en blood
+              IT sangue
+    --- description(0)  :108705
+        JP  \t\t飛び散った生物の体液を集めたもの。特に価値はないが水薬等に加工できる為、そこそこの値で売れる。\n#～私の愛する幾千ものガラクタ～\n
+        EN  Collected body fluids of scattered creatures. It is not particularly valuable, but can be used for medicine and sorcery, so it can be sold for a modest price. \n#~Thousands of pieces of Junk I love~
+    --- description(3)  :108708 ⚠️ TETTO SECCO 69
+        JP  \t\t生物の体液だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is the blood of a creature.
+        IT  Il sangue di una creatura.
+
+=== ITEM_ID_SKIN   [FILTER_REMAINS]
+    NOME      jp 皮
+              en skin
+              IT pelle
+    --- description(0)  :108767
+        JP  \t\t敵を破砕した際に飛び散った生物の皮。特に価値はないが服や鞄に加工できる為、そこそこの値で売れる。\n#～私の愛する幾千ものガラクタ～\n
+        EN  Skin patches of a shattered creature. It is not particularly valuable, but can be used for medicine and sorcery, so it can be sold for a modest price. \n#~Thousands of pieces of Junk I love~
+    --- description(3)  :108770 ⚠️ TETTO SECCO 69
+        JP  \t\t生物の皮だ。\n#～鑑定報告書：＜廃品＞カテゴリ～\n
+        EN  It is the skin of a creature.
+        IT  La pelle di una creatura.
+
+== 7 oggetti, 14 descrizioni

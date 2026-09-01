@@ -12216,3 +12216,198 @@ L'inglese traduce («Master Recipe Tomes») e la battuta muore.
 **La decisione**: resta traslitterata — «le chiamavano hidensho». È la regola
 della 111ª, «un termine coniato che l'inglese traslittera resta traslitterato»,
 applicata al caso in cui a traslitterarsi è il **giapponese stesso**.
+
+## 122ª — L'inglese di monte può descrivere l'oggetto sbagliato, e nessun cancello lo vede
+
+`db_item.hsp:56267` è la `description(0)` inglese del dipinto dell'eruzione, e
+dice: «In some parts of Gaius Vis, a rabbit's foot, not its tail, is a lucky
+charm…». È la **copia letterale** della riga di `:56333`, la zampa di coniglio,
+che nel sorgente è l'oggetto immediatamente successivo. Il giapponese è a posto
+e anche la `description(3)` inglese della stessa voce («It is a cargo of
+painting.»): monte ha sbagliato **una riga sola**.
+
+⚠️ **La riga è pulita in ogni senso misurabile** — coda al suo posto, larghezza
+dentro il budget, accenti veri, glossario rispettato. Una resa presa
+dall'inglese avrebbe descritto un altro oggetto, e nessuna guardia avrebbe
+protestato. È la forma di 神の間 della 121ª: il guasto esiste solo per il
+giocatore che ha in mano la cosa.
+
+**La decisione**: la resa viene dal **giapponese**, che è già la regola del
+progetto — ed è la ragione per cui questo difetto non ci ha mai fatto danno.
+
+⚠️⚠️ **Ma la regola vale finché qualcuno il giapponese ce l'ha.** Su una riga
+dove il giapponese manca (il caso `:89358` della 121ª, dove si rende
+dall'inglese per precedente della 110ª) l'inglese sbagliato passerebbe senza
+nessun segnale.
+
+**Lo strumento**: `scratchpad/_122-inglese-doppio-item.py` cerca due
+`description` inglesi identiche con giapponesi diversi su tutto `db_item.hsp`.
+Trova **10 gruppi, 27 righe**. ⓘ Le gemelle vere — stesso giapponese *e* stesso
+inglese — non contano: quelle sono il moltiplicatore che `_previsione.py`
+misura già, e la prova al contrario verifica che la rete **taccia** sul gruppo
+di gemelle più numeroso del file.
+
+⚠️ La rete che fa esattamente questa domanda esiste dalla 103ª, ma legge
+`db_card.hsp` e basta (`FILE = 'db_card.hsp'`, prima riga di `_103` e di
+`_104`). Sulla rete 13 del lotto la domanda c'è, ma solo **dentro il lotto**: è
+per fortuna che `:56267` e `:56333` erano caduti nello stesso.
+
+---
+
+## 122ª — La riga sorella per frase, e una rete provata al contrario che si rompe
+
+La 121ª chiedeva questo strumento; la 122ª l'ha reso urgente **tre volte in tre
+lotti**, e ogni volta l'ha trovato a mano.
+
+`scratchpad/_122-sorelle-per-frase.py` chiede: *questa **frase** del giapponese
+esiste, quasi uguale, in un'altra riga del file?* Spezza per 。, indicizza per
+3-grammi, confronta col rapporto di `difflib`, e per ogni sorella stampa **come
+è già stata resa**.
+
+Quel che ha trovato subito: la famiglia 特殊な素材をかけ合わせてより強固な防護
+を得た◯ ha **sei** membri — scudo (058), corazza (060), elmo (063), guanti
+(066), cintura (068), stivali (069) — dove all'inizio della sessione se ne
+conoscevano **due**. E 〜を守る為に作られた ne ha **quattro**: testa (063),
+collo (064), polso (066), piedi (069).
+
+⚠️⚠️ **La prova al contrario ha trovato un difetto nella rete, al primo giro.**
+Puntata sulle tre coppie note, due si accendevano e la terza no. Il filtro
+scartava le frasi **identiche** — una riga scritta per togliere rumore — e le
+due parrucche del 063 condividono la prima e l'ultima frase **parola per
+parola**: la rete taceva esattamente sul caso più forte.
+
+**La decisione**: si scarta solo la riga stessa, mai la frase identica. Due
+righe diverse che dicono la stessa frase sono il segnale più forte, non il più
+debole.
+
+⭐ **La lezione**: una rete provata solo dove ci si aspetta che funzioni non è
+provata. La prova deve **cercare il caso peggiore** e stampare dove si accende
+— qui 0.96, 0.98 e 1.00 — invece di un ✅.
+
+⚠️ E la soglia della frase minima è stata **misurata, non scelta**: a 14
+caratteri la famiglia della testa non si vedeva, perché 頭部を守る為に作られた
+防具 è lungo **13**. Portata a 12, sul lotto 066 le frasi trovate passano da 5 a
+7 e le due nuove sono tutt'e due vere: zero rumore.
+
+---
+
+## 122ª — Una frase condivisa può costringere a cambiare la costruzione italiana
+
+`:100586` (靴, gli stivali) e `:100651` (履物, le scarpe) condividono la seconda
+frase parola per parola:
+
+    戦闘用にはやや心もとないが、日常的に使用するにはこれくらいで十分だ
+
+Il giapponese **non ha soggetto**. L'italiano ce l'avrebbe, e diverso: la prima
+riga parla di «calzature» (plurale), la seconda di «un'armatura» (singolare).
+Reso in modo naturale sarebbe venuto «danno poca sicurezza» contro «dà poca
+sicurezza» — due frasi dove il giapponese ne ha una.
+
+**La decisione**: forma **impersonale** — «per il combattimento c'è poco da
+fidarsi, ma per l'uso di tutti i giorni tanto basta» — che regge tutt'e due i
+soggetti e resta identica parola per parola.
+
+⭐ È il primo caso in cui una rete non ha soltanto **evitato** una divergenza,
+ma ha **cambiato come si scrive la frase**. Senza, le due rese si sarebbero
+scritte a mezz'ora di distanza, ognuna giusta per conto suo.
+
+---
+
+## 122ª — Una stringa che si copia perché «non si traduce» va guardata carattere per carattere
+
+`:66979` è 「ＡＳＤＪＵＲＨＦＫ＞ＲＯＷＲＷ＜ＭＷ！」, il verso di un alieno di
+Sunbararia, e monte lo lascia identico in tutt'e tre le lingue. Copiarlo com'era
+ha fatto **respingere il lotto intero da `reimporta`**: 16 rese su 16.
+
+Quei caratteri sono a **doppia larghezza**. CP932 li scrive su due byte e la
+build ne disegna **uno per byte**: a schermo sarebbero uscite lettere latine a
+caso, come il 「・」 diventato «E» in una sessione passata.
+
+**La decisione**: il verso si riscrive a **larghezza singola**, lettera per
+lettera — `ASDJURHFK>ROWRW<MW!`. Non è una traduzione: è la stessa cosa scritta
+con caratteri che la build sa disegnare.
+
+⚠️ **La lezione generale**: l'idea che copiare sia l'operazione sicura è
+esattamente sbagliata qui. Una stringa presa da monte perché «non si traduce»
+passa dalla stessa pipeline CP932 di tutte le altre.
+ⓘ E a prenderla è stato `reimporta`, non il preflight: il punto 4 del preflight
+guarda gli **accenti dentro la parola** (nella stessa sessione ha preso
+«Càpita»), i caratteri che CP932 spezza li guarda solo `reimporta`. Sono due
+reti diverse, e la seconda non copre la prima.
+
+---
+
+## 122ª — Due popoli che l'inglese fonde in uno, e perché si trascrivono
+
+`:62463`, la sfera di Yekub. Il giapponese nomina **due** specie aliene:
+
+    シャンの催眠術          l'ipnosi degli Shan
+    サキュバロリンの思念吸収   l'assorbimento del pensiero dei Sakyubalorin
+
+L'inglese scrive «Sunbararian's hypnotism and mind absorption»: **un popolo
+solo**, e per giunta un **terzo** — gli abitanti di Sunbararia, che nella riga
+giapponese non compaiono affatto.
+
+⚠️ I due nomi giapponesi stanno in **tutto il sorgente solo qui**: cercati, due
+occorrenze, che sono le due lingue di questa stessa riga. Non sono nomi di
+creature che il giocatore incontra.
+
+**La decisione**: si **trascrivono** tutt'e due. Il lettore giapponese è opaco
+esattamente quanto quello italiano — non ha modo di sapere chi siano — e questo
+rende la trascrizione la scelta **fedele**, non un ripiego. Seguire l'inglese
+avrebbe messo in bocca alla riga un popolo che non nomina.
+
+ⓘ Non è un errore di monte come `:56267`: è una **semplificazione**
+dell'intermedio. Nella stessa sessione l'intermedio ha sbagliato nelle due
+direzioni opposte — `:64343` **butta** la battuta finale delle mutande
+(投げたりしないで穿こう, «mettiamocele invece di tirarle», su un gesto che nel
+gioco si fa davvero) e `:126712` **aggiunge** «elderly» dove il giapponese dice
+solo 婦人, le signore.
+
+---
+
+## 122ª — Tre parole per tre cose, dove il glossario ne aveva una
+
+Il glossario ha 首輪 → «collana», e l'indice 3 delle collane lo ripete su tredici
+oggetti. Ma il **corpo** usa 装身具 — l'ornamento che si porta addosso — e in
+`:99519` le due parole diverse stanno nella stessa frase, con una terza:
+
+    表面を磨き上げた**装身具**。どちらかといえば**宝飾品**というべきもの…
+
+**La decisione**: tre parole distinte — 首輪 «collana», 装身具 «ornamento»,
+宝飾品 «gioiello». ⓘ 装身具 non era nel dizionario da nessuna parte: è una
+parola nuova del lotto 064.
+
+⚠️ **E la parola segue il nome, non il glossario.** In `:76247` 首輪 non è una
+collana ma un **collare**, perché l'oggetto si chiama 《暴風の首輪》 → «Collare
+della Tempesta» ed è quello che il giocatore legge in cima al pannello. Stessa
+regola nel 069: il nome dice «stivali compositi» e la resa apre con «Degli
+stivali», anche se l'indice 3 di quell'oggetto dice «Delle scarpe dure».
+
+---
+
+## 122ª — Tre divergenze del progetto, viste e non toccate
+
+Tre righe **fuori dal corpo** che questa sessione ha incontrato e ha deciso di
+**non** correggere dentro un lotto:
+
+1. **«vento di etere» contro «vento d'etere»**, 2 voci contro 25. Una delle due
+   è l'indice 3 del mantello di Vindale. ⓘ Il corpo di quell'oggetto (`:93692`)
+   dice 忌むべき風, «il vento maledetto», e reso alla lettera **non amplifica**
+   la divergenza: nel pannello le due righe non si contraddicono;
+2. **il genere di una divinità.** 収穫の神 è reso al **maschile** due volte nel
+   dizionario, 富の神 al **femminile** (ed è Yacatect, che in gioco parla al
+   femminile). Se i due epiteti indicano la stessa divinità, il progetto le dà
+   due generi. ⓘ Le due righe già rese parlano del dio del raccolto
+   **precedente** e di una divinità *nata dal suo lato*: è possibile che non
+   siano Yacatect, e la domanda va **guardata**, non risolta a occhio;
+3. **«stivali» nei nomi contro «scarpe» negli indici 3**, col giapponese che usa
+   靴 in tutt'e due i posti.
+
+**La decisione**: nessuna delle tre si tocca dentro un lotto del corpo. Sono
+righe di indici chiusi o di nomi, e cambiarle di straforo è esattamente il
+genere di modifica che **nessun conteggio segnala** — la 112ª ha già il
+precedente di un cancello che si allenta correggendo altro.
+
+⚠️ E vanno guardate **insieme**, perché la domanda è la stessa: quale delle due
+forme legge il giocatore, e in quale ordine.

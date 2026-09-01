@@ -1999,7 +1999,9 @@ oggetti resi in sessioni precedenti. Qui sta scritto solo per poterlo cercare.
 | 帽子 | cappello | i nomi: 羽帽子 «cappello piumato», 魔法帽 «cappello magico» |
 | ヘルメット | casco | ⚠️ il **katakana**, tenuto distinto da 兜 |
 | ウィッグ | parrucca | i nomi non identificati |
-| 首輪 | collana | la voce generica del dizionario |
+| 首輪 | collana | la voce generica del dizionario. ⚠️ **Ma in 《暴風の首輪》 è «collare»**: la parola segue il NOME dell'oggetto, che il giocatore legge in cima al pannello (122ª) |
+| 装身具 | ornamento | 122ª, dal corpo delle collane. È l'oggetto che si porta addosso, e nel corpo sta dove l'indice 3 usa 首輪 |
+| 宝飾品 | gioiello | 122ª. In `:99519` sta nella stessa frase di 装身具, e la distinzione è tutto il senso della riga |
 | 指輪 | anello | la voce generica |
 | 外套 | mantello | i nomi: 防護外套 «mantello corazzato», 軽外套 «mantello leggero» |
 | 篭手 | guanti d'arme | i nomi: 合成篭手, 重層篭手, 厚篭手 |
