@@ -6,6 +6,124 @@ ancora aperte.
 
 ---
 
+## Una lista di collaudo si ricopia dalla sessione prima solo dopo aver riverificato l'INTERRUTTORE — 2026-09-01, centoventesima
+
+La 119ª aveva chiuso lasciando una lista di passi che finiva così: genera
+l'oggetto, genera **sei pergamene di identificazione** (`spawn_item 14`),
+leggile una per oggetto, e guarda il pannello. Funzionava. Ricopiarla per le
+armi a distanza avrebbe prodotto **sette pannelli senza corpo su dieci**, e la
+conclusione «non tradotto» su lavoro giusto.
+
+La ragione sta in tre punti del codice, e nessuno dei tre si vede rileggendo la
+lista:
+
+  - il corpo (indici 0-2) si disegna solo dentro
+    `if ( inv(INV_ITEM_KNOWN, ci) >= ITEM_KNOWN_FULL )` — `command.hsp:16398`.
+    Questo vale per **tutte** le categorie, ed è la premessa;
+  - `item_func.hsp:646` promuove a piena identificazione qualunque oggetto il
+    cui `reftype` stia **sopra `FILTER_ITEM_MIN` (50.000)**. È da qui che
+    veniva la comodità della 119ª: le pozioni sono 52.000 e le pergamene
+    53.000, quindi per loro *qualunque* identificazione diventa piena. ⚠️
+    `FILTER_RANGE` è **24.000**: la scorciatoia non si applica;
+  - fuori da quella scorciatoia serve `efp >= inv(INV_ITEM_IDENTIFY_LEVEL, ci)`,
+    dove `IDENTIFY_LEVEL` è la **difficoltà** dell'oggetto, scritta voce per
+    voce in `db_item.hsp` (`DBMODE_SET`). Nelle armi a distanza vale **0** per
+    le armi base e **500 per ogni pezzo unico** 《…》.
+
+E i poteri delle pergamene, letti in `db_item.hsp`:
+
+    ITEM_ID_SCROLL_IDENTIFY          id  14   efp   100
+    ITEM_ID_SCROLL_GREATER_IDENTIFY  id 362   efp  2000
+    ITEM_ID_ROD_IDENTIFY / SPELLBOOK          efp   100
+
+Quindi per un pezzo unico di `FILTER_RANGE` la pergamena normale **non basta**
+(100 < 500) e quella superiore sì (2000 ≥ 500). Il gioco lo dice anche a
+schermo — «The item is half-identified as...» — ma chi esegue una lista alla
+cieca legge quel messaggio come rumore e va avanti.
+
+⚠️ Terza cosa da sapere, e non è deducibile: `spawn_item` fa
+`itemcreate -1, ...`, e `item.hsp:2736` dà a un oggetto con
+`reftype < FILTER_ITEM_MIN` al massimo `ITEM_KNOWN_QUALITY`. **Un'arma generata
+dalla console non è mai piena identificata**, nemmeno per caso, quindi la
+pergamena serve sempre — non è una precauzione.
+
+**La decisione:** la pergamena del collaudo è la **superiore, id 362**, e vale
+per tutte le categorie perché 2000 supera ogni difficoltà del gioco. Da qui in
+poi, prima di ricopiare una lista di passi si controllano due numeri: il
+`reftype` della categoria contro `FILTER_ITEM_MIN`, e l'`IDENTIFY_LEVEL` degli
+oggetti scelti.
+
+⚠️⚠️ **La regola generale che ne esce è più larga della pergamena.** La memoria
+del progetto diceva già «cercare ogni id nel sorgente prima di scriverlo»
+(111ª) e «verificare che il comando di controllo mostri la cosa da guardare»
+(112ª). Manca(va) il terzo: **una lista che ha funzionato non è una lista che
+funziona**, perché fra le due sessioni è cambiata la categoria, e la categoria
+è l'interruttore. Un passo copiato da una lista riuscita porta con sé una
+premessa che nessuno rilegge.
+
+---
+
+## Una serie si riconosce dalla ripetizione, e la ripetizione non si «migliora» — 2026-09-01, centoventesima
+
+Tre righe del lotto 053 chiudono con la stessa formula giapponese, parola per
+parola, e cambiano **una** parola sola: 魅力 / 器用さ / 超感覚, cioè CHR, DEX e
+PER. Sono tre armi che nessun uomo solleva, e ognuna dà l'attributo che nomina.
+
+La tentazione, scrivendo la terza, è variare — «dona», «concede», «regala»,
+«fuori dal comune» / «straordinaria» / «smisurata» — perché tre frasi identiche
+di fila sembrano una svista del traduttore. **È l'opposto:** la ripetizione è il
+testo. È così che un giocatore che trova la seconda arma riconosce la prima, e
+capisce che ce n'è una terza.
+
+⭐ La regola vale al di là di queste tre, ed è il rovescio della scala delle
+navi della 119ª. Là l'inglese aveva **appiattito** quattro gradini in una
+stringa sola, e il lavoro era ricostruire la differenza; qui le tre righe sono
+già distinte, e il lavoro è **non introdurne una che il giapponese non fa**.
+Nei due casi la domanda è la stessa: *questa riga ha delle sorelle, e che cosa
+cambia fra loro?*
+
+⚠️ E come la scala delle navi, nessuna rete può vederlo: firme diverse, tre
+oggetti di tre tipi (una moneta, una balestra, un cannone), e ognuna presa da
+sola è a posto. Nel dossier stanno a dodici voci di distanza. Si trovano solo
+cercandole, per **struttura**, sull'originale — la lezione della 119ª, qui
+applicata in avanti invece che a posteriori.
+
+⭐ Il corollario pratico l'ha dato il 054, dove metà della serie **era già in
+gioco**: le sei armi base che dicono quanto la forza cali con la distanza hanno
+l'indice 3 reso e chiuso da sessioni («non cala quasi» / «cala poco» / «perde
+forza» / «porta poco lontano»). Lì il lavoro non è stato costruire la scala, è
+stato **non romperla** usando lo stesso verbo — e il pannello disegna i due
+indici uno sotto l'altro, quindi un sinonimo si sarebbe visto nella stessa
+schermata.
+
+---
+
+## Un referto si rimisura DOPO l'ultima resa, non dopo l'ultimo lotto misurato — 2026-09-01, centoventesima
+
+La 119ª ha chiuso scrivendo «`referti` fermo a 9». In apertura della 120ª ne
+diceva **10**, e il decimo era una resa della 119ª stessa: `db_item.hsp:96060`,
+«la collezione **che ti sei fatto da solo**» — participio e aggettivo al
+maschile in una riga che parla al giocatore, che può essere femmina.
+
+Non era una bugia: era una misura presa **prima** dei lotti 051-052. È
+esattamente la forma della lezione della 112ª — «in chiusura, `pytest` si
+rilancia dopo aver scritto i documenti» — ma applicata a un **referto**, che
+nessuno aveva pensato di includere in quella regola perché non è un test e non
+esce con un codice d'errore.
+
+**La decisione:** in chiusura si rilanciano **`referti.py` e i referti del corpo**
+insieme a `pytest`, e dopo l'ultima resa. ⓘ Nella 120ª è stato fatto tre volte
+— dopo la correzione, dopo il 053 e dopo il 054 — e le tre volte ha detto 9.
+
+⚠️ E la resa nuova è venuta dal giapponese, non da un giro di parole
+qualunque: 自分で集めた収集品 è «i pezzi raccolti **da sé**», e il participio si
+appoggia alla collezione invece che a chi la possiede. L'italiano fa lo stesso
+con «la collezione **raccolta di persona**», e per giunta recupera 一手に
+(«tutta in una volta») che la resa vecchia lasciava cadere. Un accordo di
+genere si scioglie guardando l'originale, non cercando un sinonimo neutro.
+
+---
+
 ## La previsione di `applica` si fa contando il sorgente, e da qui in poi si fa sempre — 2026-08-31, centosedicesima
 
 Il lotto 042 aveva previsto «+35 esatte», per la ragione che la 115ª aveva

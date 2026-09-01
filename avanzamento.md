@@ -41,6 +41,110 @@ fondo somma valori di sessioni diverse. Il conto vivo lo danno
 file di `data/` compresi. Finché nessuno rifà la tabella intera, **si guardano
 quelli**.
 
+## Due lotti, 60 rese, e si chiude ARMI A DISTANZA — 2026-09-01, centoventesima sessione
+
+`db_item.hsp`, il **corpo** delle descrizioni (indici 0-2). La sessione ha
+aperto e chiuso **una** categoria, la nona, ed era la più grossa rimasta:
+
+    053  FILTER_RANGE  righe      0- 90.000   50 rese  (46 idx0, 1 idx1, 3 idx2)
+    054  FILTER_RANGE  righe 90.000 in su     10 rese  (10 idx0)
+
+    corpo (indici 0-2): 1.156 -> **1.216** rese su 1.513 vive
+    non tradotte di db_item.hsp: 356 -> **296**   (-60 esatte)
+    applica: 29.992 -> **30.052**   (+60: nessuna gemella, previsto)
+    perimetro: 90%; totale: 94%
+
+⚠️ La zona del 053 non è l'intera categoria per scelta: `0 200000` dava **60**
+righe, sopra il tetto di 55 che la 115ª dichiara sano. `0 90000` ne dà 50, e il
+054 raccoglie le dieci che restano.
+
+⭐ `_previsione.py` ha detto **+50** e **+10** prima che `applica` girasse, e
+`applica` ha detto 30.042 e 30.052. Nessuna delle 60 firme ha una gemella nel
+sorgente: è la prima categoria intera senza moltiplicatori da quattro
+sessioni.
+
+### ⭐⭐⭐ Una serie di tre, e la parola che cambia è un attributo del gioco
+
+`:75515`, `:77075` e `:77145` chiudono con la stessa formula, parola per parola:
+
+    人では扱えない程の重さだが、使いこなす者が現れた時
+    この武器は使用者に ◯◯ を授けるだろう。それと少しばかりの気まぐれを。
+
+    :75515  la moneta di pietra      魅力            -> carisma
+    :77075  la balestra gigantesca   飛びぬけた器用さ  -> destrezza fuori dal comune
+    :77145  il cannone a gravità     超感覚           -> percezione fuori dall'umano
+
+Le tre parole sono **CHR, DEX e PER**: le statistiche che il giocatore legge
+nella propria scheda, e che quelle tre armi danno davvero. Le rese vengono dal
+dizionario (`_cerca.py`: 魅力の成長 -> «Cresce carisma», 器用の成長 ->
+«Cresce destrezza») e non dall'inglese, che scrive «a tremendous **charm**»:
+renderlo «fascino» avrebbe spezzato il legame con la voce che a schermo si
+chiama **carisma**.
+
+⭐ E la formula si ripete **identica** nelle tre rese, di proposito: variare i
+verbi avrebbe cancellato la serie, che è come il giocatore riconosce la terza
+arma come parente delle prime due. È la scala delle navi della 119ª al
+rovescio — là l'inglese aveva appiattito quattro gradini in uno, qui tre righe
+devono restare **uguali** tranne una parola.
+
+⚠️ Nessuna rete poteva vederle: firme diverse, tre oggetti di tre tipi, e
+ognuna presa da sola è a posto. Nel dossier stanno a dodici voci di distanza.
+
+### ⭐⭐ E una scala che era già metà in gioco: il lavoro è stato non romperla
+
+Sei armi base del 054 dicono, ciascuna a modo suo, quanto la forza cali
+allontanandosi. La scala **era già resa nell'indice 3**, chiuso da sessioni:
+
+    光子銃   pistola laser     殆どない   -> «con la distanza non cala quasi»
+    機関銃   mitragliatrice    少ない     -> «con la distanza cala poco»
+    拳銃     pistola           減衰する   -> «con la distanza perde forza»
+    散弾銃   fucile a pompa    射程が短い -> «porta poco lontano»
+
+Il pannello disegna il corpo e l'indice 3 **uno sotto l'altro**: un verbo
+diverso nel corpo — «diminuire», «scemare», «indebolirsi» — avrebbe spezzato la
+stessa scala **nella stessa schermata**. Tutte le rese del corpo dicono
+**calare**. I due archi la chiudono dall'altro capo (近～中距離 per il corto,
+中～遠距離 per il lungo).
+
+### ⚠️⚠️ Il referto dei participi era salito a 10, e a farlo salire era la 119ª
+
+`scratchpad/referti.py` in apertura accusava `db_item.hsp:96060`, l'atto del
+museo: «la collezione **che ti sei fatto da solo**», participio e aggettivo al
+maschile in una riga rivolta al giocatore. La chiusura della 119ª aveva scritto
+«`referti` fermo a 9», e non mentiva: la misura era stata presa **prima** delle
+rese dei lotti 051-052. È la lezione della 112ª — una catena verde misurata su
+un albero che non è quello finale — applicata a un **referto** invece che a
+`pytest`.
+
+Corretto sul giapponese, che il problema non ce l'ha: 自分で集めた収集品 è «i
+pezzi raccolti da sé», e il participio si appoggia alla collezione, non a chi la
+possiede. La resa nuova fa lo stesso — «la collezione **raccolta di persona**» —
+e in più recupera 一手に («tutta in una volta»), che la resa vecchia lasciava
+cadere. `scratchpad/_120-correzione-museo.py`, e il referto è tornato a **9**.
+
+### ⭐ Il doppio senso della foglia, che l'italiano tiene per intero
+
+`:43632`: 「おぬしにハッパをかけてやろうぞ…ドカーン！」. ハッパ è insieme
+葉っぱ **la foglia** (l'oggetto), 発破 **la carica esplosiva** (che è il nome
+dell'oggetto, 金毛発破) e ハッパをかける **dare la carica, incitare**. Tre sensi
+in una parola, e l'italiano ne ha una che ne tiene due: «ti do io **la
+carica**» è insieme l'incitamento e l'esplosivo, e il «BUM!» fa scattare il
+secondo. L'inglese («Lemme give you a little nudge») tiene solo il primo.
+
+### ⚠️ Due righe dello stesso oggetto dove l'inglese ha riscritto
+
+  - `:52650`, il gambero fritto esplosivo: in giapponese parla un **commesso
+    confuso** (「エビフライ５本くらいぶつけんぞ」), in inglese un **bandito
+    eccentrico** con un bisticcio suo su shrimp/shrimping. ⭐ A dire quale sia
+    la fonte non è stato il giudizio ma `_code.py`, che assegna il titolo
+    passando dal **giapponese** e scrive «Parole di un Commesso Confuso»:
+    rendere dall'inglese avrebbe messo la battuta del bandito sotto il titolo
+    del commesso, **nello stesso pannello**;
+  - `:52648`, due voci sopra e stesso oggetto: il giapponese chiude con
+    「悪魔の兵器」の別称でも知られている — *lo chiamano anche l'arma del
+    diavolo*, che è un fatto sull'oggetto. L'inglese lo butta per un altro
+    bisticcio («shrimply devilish»). La resa tiene il fatto.
+
 ## Quattro lotti, 154 rese, e si chiudono POZIONI e PERGAMENE — 2026-09-01, centodiciannovesima sessione
 
 `db_item.hsp`, il **corpo** delle descrizioni (indici 0-2). La sessione ha
