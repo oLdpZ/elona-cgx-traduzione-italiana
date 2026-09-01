@@ -1,193 +1,311 @@
 # Ripresa sessione
 
-Aggiornato: 2026-09-01, fine della **centoventiduesima** sessione (**nove lotti,
-111 rese, NOVE categorie chiuse, e due reti nuove**).
+Aggiornato: 2026-09-01, fine della **centoventitreesima** sessione (**otto lotti,
+32 rese, OTTO categorie chiuse, IL CORPO DI `db_item.hsp` CHIUSO, e un fronte
+nuovo da 355 firme che nessun contatore mostrava**).
 
-⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 19:04 DEL 01/09**, e contiene
-tutte e 111 le rese della sessione. Ogni lotto ha avuto la sua compilazione e la
-sua copia a mano: se la data e' quella, non c'e' niente da rifare.
+⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 23:01 DEL 01/09**, ricompilato
+dopo l'ultima correzione di larghezza dei materiali. Ogni lotto ha avuto la sua
+compilazione e la sua copia a mano: se la data e' quella, non c'e' niente da
+rifare. ⓘ La data esatta si legge con
+`ls -l C:\Games\Elona\elonaplus2.31\cgx-test.exe`.
 
-⚠️⚠️⚠️ **IL LOTTO 070 E' GIA' APERTO E NON E' RESO.** `righe070.py`,
-`chiavi070.txt`, `dossier070.txt` e `code070.txt` sono sul disco; le rese no.
-Il comando che lo ha aperto e' `_corpo.py 070 FILTER_REMAINS 0 200000`, e i tre
-passi che seguono sono gia' stati fatti. **Si riprende scrivendo
-`_traduzioni070.py`.**
+⭐⭐⭐ **IL CORPO DI `db_item.hsp` E' CHIUSO.** 1.512 rese su 1.513, e l'unica
+rimasta e' la **rinviata** `:129299`, che non ha un testo in nessuna delle due
+lingue. `_114-corpo-da-fare` deve leggere **TOTALE da fare 1 su 1.449 vive, di
+cui rinviate 1**: zero lavoro. Trentadue categorie chiuse.
 
-⚠️⚠️⚠️ **E IL 070 PORTA IL RISULTATO PIU' GROSSO ANCORA DA USARE.** Le cinque
-righe dei resti dicono in giapponese **cinque usi diversi**, e l'inglese li
-appiattisce tutti e cinque in «can be used for medicine and sorcery»:
+⚠️⚠️⚠️ **E QUI COMINCIA IL PROBLEMA VERO, CHE E' UNA MISURA.** Chiuso il corpo,
+**ogni** file con un dizionario dice `⭐ CHIUSO`: `_97-quanto-resta` legge
+«TOTALE da fare 0» e `verifica --dizionario` legge zero da ritradurre
+dappertutto. Ma `perimetro.py` dice **91%**, e i due numeri non si
+contraddicono:
 
-    :108519  骨片  osso     水薬や呪術に**使用**できる
-    :108581  心臓  cuore    水薬や呪術に**使用**できる
-    :108643  瞳    occhio   装飾品や薬に**加工**できる
-    :108705  体液  sangue   水薬等に**加工**できる
-    :108767  皮    pelle    服や鞄に**加工**できる
+    `_97-quanto-resta` guarda SOLO i file che HANNO un dizionario.
+    I file che non ce l'hanno non compaiono nemmeno come riga.
 
-⭐ E' la lezione della 119a su **cinque righe in fila**, ed e' anche la
-distinzione fra 使用できる (si usa) e 加工できる (ci si lavora): due verbi, e il
-giapponese sceglie. Reso dall'inglese, il giocatore leggerebbe la stessa frase
-cinque volte.
-⚠️ `_forma.py 070` dice **5 code su 7 SENZA lo spazio dopo il `#`**: sono le
-cinque delle cianfrusaglie. Le due del Catalogo d'Arte ce l'hanno.
+⭐ E' la forma peggiore di zero: non «zero perche' e' finito», ma **zero perche'
+non e' stato chiesto**. Chi apre la sessione dopo legge una catena tutta verde
+su un decimo di lavoro invisibile.
 
-⚠️⚠️⚠️ **DUE RETI NUOVE, E VANNO LANCIATE COME `_previsione.py`:**
+⚠️⚠️⚠️ **LA DOMANDA AL POSTO GIUSTO LA FA UNO STRUMENTO NUOVO:**
 
-    scratchpad/_122-inglese-doppio-item.py           una volta, su tutto il file
-    scratchpad/_122-sorelle-per-frase.py NNN <cart>  per ogni lotto
+    PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/_123-file-senza-dizionario.py
 
-La prima chiede *due `description` inglesi identiche con giapponesi diversi?* —
-cioe' se monte abbia dato a un oggetto l'inglese di un altro. La seconda chiede
-*questa **frase** del giapponese esiste quasi uguale in un'altra riga del file?*
-⭐ Tutt'e due hanno `--prova`, e la prova della seconda **ha trovato un difetto
-nella rete al primo giro**: scartava le frasi identiche e taceva sul caso piu'
-forte. Una rete provata solo dove ci si aspetta che funzioni non e' provata.
+Dice **238 firme in 11 file**, e prima dei materiali erano 355 in 12.
+`strumenti.estrai` non aveva nessun elenco che li escludesse: prende i file come
+argomenti, e **nessuno li aveva chiesti**.
+⚠️ La prima stesura contava le **occorrenze** e diceva 447 dove il perimetro
+dice 355. Riscritta per riusare `perimetro.firme_lang()` invece di riscriverla:
+la colonna «firme» deve fare **esatto** il «di cui in file mai estratti» del
+perimetro, e la colonna «lang()» sta accanto solo per far vedere le ripetizioni.
 
-⚠️⚠️⚠️ **LA PERGAMENA DEL COLLAUDO E' LA 362, NON LA 14.** Decisione della 120a,
-misurata dalla 121a su tre categorie e dalla 122a su altre tre. Il corpo si vede
-solo con `ITEM_KNOWN_FULL`, la scorciatoia di `item_func.hsp:646` vale solo
-sopra `FILTER_ITEM_MIN` (50.000), e fuori di li' serve `efp >= IDENTIFY_LEVEL`.
+    firme  lang()  file
+      118     176  txtadv.hsp          <- il prossimo per peso
+       27      39  net.hsp
+       27      31  custom_itemenchantment.hsp
+       21      26  quest.hsp
+       18      22  material.hsp        <- ⚠️ vedi sotto
+       15      17  etc.hsp
+        6       6  map_rand.hsp
+        2       3  scene.hsp
+        2       2  custom_nefiatypes.hsp
+        1       4  custom_pet.hsp
+        1       3  custom_dmgpop.hsp
 
-    categoria             reftype   la 14 (efp 100) basta?
-    FILTER_CARGO_TRADE     92.000   SI, sta sopra i 50.000
-    FILTER_ENVIRONMENT     80.000   SI, sta sopra i 50.000
-    FILTER_HELM            12.000   NO: 7 oggetti su 15 hanno IDENTIFY_LEVEL 500
-    (121a) FILTER_SHIELD   14.000   NO      FILTER_ITEM_BOOK 55.000  SI
-           FILTER_ARMOR    16.000   NO su meta' categoria
+⚠️ La tabella si rilegge con lo strumento, **non si eredita da qui**.
 
-⭐ **Sei categorie, e la risposta cambia ogni volta.** La 362 resta la regola
-perche' non e' mai sbagliata. ⚠️ E `<Ruota della Fortuna>` (`:107181`) e' un
-pezzo unico 《…》 con `IDENTIFY_LEVEL` **0**: la regola «gli unici valgono 500»
-non e' universale, e si guarda voce per voce.
+⭐⭐⭐ **IL PRIMO DEI DODICI E' APERTO E CHIUSO: I 59 MATERIALI.**
+`dizionario/material_data.hsp.jsonl` esiste, 118 rese, e il perimetro passa da
+90% a **91%**. Il file era invisibile a ogni contatore per-file del progetto.
 
-⚠️⚠️⚠️ **PRIMA DI SCRIVERE LE RESE SI LANCIANO, IN ORDINE:**
+⚠️⚠️⚠️ **VENTISETTE DEI 59 NOMI ERANO GIA' DECISI, E NON NEL DIZIONARIO.** Stanno
+in `glossario.md`, in una tabella con i **numeri di riga di `material_data.hsp`**
+e la frase «chi aprira' `material_data.hsp` li trova gia' decisi»: l'aveva
+scritta una sessione che li aveva incontrati **dentro una frase** di
+`command.hsp`. Tre delle rese scritte prima di leggerla erano sbagliate:
 
-    scratchpad/_119-togli-rinviate.py NNN scratchpad/lotti-113
-    scratchpad/lotti-113/_previsione.py NNN
-    scratchpad/_120-serie-bacchette.py NNN scratchpad/lotti-113
-    scratchpad/_122-sorelle-per-frase.py NNN scratchpad/lotti-113   <- NUOVO
+    :249  Pebble             «sasso»                        -> pietruzza
+    :179  Sap of Yaggdrasil  «linfa dell'albero del mondo»  -> linfa di Yaggdrasil
+    :119  Element fragment   «pietra tagliavento»           -> scheggia elementale
 
-⚠️⚠️⚠️ **I TITOLI-FONTE SI COPIANO DA `_code.py`, NON SI SCRIVONO A MEMORIA.**
-Nel lotto 057 ne ho ricostruiti otto su venticinque a senso, e tutti e otto
-erano **plausibili e sbagliati**.
+⚠️ L'ultima e' la piu' istruttiva: il giapponese dice 風切石, «pietra che taglia
+il vento», e ragionando dal giapponese si arriva a «pietra tagliavento» — che e'
+la lettura **giusta della fonte** e la decisione **sbagliata**. La costante e'
+`MATERIAL_ELEMENT_FRAGMENT` e nel gioco ci sono altre quattro schegge (etere,
+mithril, ferro, memoria, magia). E' la formula della 42a: **la coerenza batte il
+giapponese**. ⭐ E il file dov'e' scritta e' prosa, che **nessuna rete apre**.
 
-⚠️⚠️⚠️ **IL CANCELLO DEI TITOLI E' 7, NON 6.** Decisione della 116a, presa
-dall'utente su una riga sola. Chi legge «6» nei documenti vecchi legge un valore
-superato.
+⚠️⚠️⚠️ **IL BUDGET DI LARGHEZZA DEI MATERIALI E' 27 E 32, E IL METRO NON ANDAVA
+MISURATO: C'ERA GIA'.** La geometria sta in `material.hsp`:
 
-⚠️⚠️⚠️ **`FILTER_ITEM_POTION` LEGGE «1 SU 82» E NON E' LAVORO.** Quell'uno e'
-`:129299`, una riga **rinviata** perche' un testo non ce l'ha **in nessuna delle
-due lingue**. ⓘ Ed e' la ragione per cui `verifica --dizionario` (28) e
-`_97-quanto-resta` (27) differiscono di uno.
-⚠️ **Non confonderlo col caso di `:89358`**, dove il giapponese e' vuoto ma
-l'inglese un testo ce l'ha: quella si rende. La domanda non e' «manca il
-giapponese?» ma «esiste una fonte?».
+    :445  pos wx + 70   gfini 490, 18        la riga: wx+70 .. wx+560
+    :450  font ..., 14 - en * 2, 0           font **12**, come i menu
+    :459  cs_list s, wx + 96                 la colonna del NOME
+    :461  pos wx + 308                       la colonna della DESCRIZIONE
 
-⚠️⚠️⚠️ **SEI COSE APERTE, CHE VANNO DECISE E NON EREDITATE.** Le prime tre
-vengono dalla 118a e dalla 120a e nessuna sessione le ha ancora toccate; le
-ultime tre sono nate nella 122a:
+    nome + « x N»   212 px / 7,7 = 27 caratteri
+    descrizione     252 px / 7,7 = 32 caratteri
 
-  1. **il RANGO dei grimori**: la premessa su cui la 110a ha deciso di non
-     scriverlo («il giapponese non lo dice mai») e' **falsa**. Lo dice, su 80
-     righe su 80. Oggi il giocatore italiano e' l'unico dei tre che non lo legge;
-  2. **37 nomi di grimorio su 80** non dicono la stessa parola del nome
-     dell'incantesimo che insegnano. In giapponese divergono **2**;
-  3. **i dodici nomi delle pietre dei mesi**: il giapponese porta un epiteto —
-     真実 la verita', 高貴 la nobilta' — e l'inglese ci mette «jewel» su dodici
-     righe su dodici. Oggi si legge «M01-Granato gioiello» dove il giapponese
-     dice «Granato della verita'»;
-  4. ⭐ **NUOVA: «vento di etere» contro «vento d'etere»**, 2 voci contro 25. Una
-     delle due e' l'**indice 3 del mantello di Vindale**, e il corpo reso nella
-     122a evita la parola per non amplificare la divergenza. Va sistemata a
-     mano, fuori da un lotto del corpo;
-  5. ⭐ **NUOVA: il genere di una divinita'.** 収穫の神 e' reso al **maschile**
-     due volte nel dizionario, 富の神 al **femminile** (ed e' Yacatect, che in
-     gioco parla al femminile). Se i due epiteti indicano la stessa divinita', il
-     progetto le da' due generi. ⓘ Le due righe gia' rese parlano del dio del
-     raccolto **precedente** e di una divinita' *nata dal suo lato*: e' possibile
-     che non siano Yacatect, e la domanda va guardata invece che risolta a occhio;
-  6. ⭐ **NUOVA: «stivali» nei nomi contro «scarpe» negli indici 3.** Il
-     giapponese usa 靴 in tutt'e due i posti, e i nomi dicono «stivali
-     compositi» mentre l'indice 3 dice «Delle scarpe dure». Le rese del corpo
-     della 122a seguono il **nome**, perche' e' quel che il giocatore legge in
-     cima al pannello.
+⭐ Il **7,7 px/carattere** viene da `larghezze.py`, misurato su uno screenshot
+dei **menu**, che disegnano alla stessa riga `font 14 - en*2` = 12. Stesso
+carattere, stessa dimensione: si applica senza taratura nuova.
+⚠️ **NON e' il 6,9 px/carattere del font 11**, che vale per le righe impaginate
+del pannello degli oggetti. Sono **due metri**, come i due budget della 112a
+(`BUDGET` 77 a font 11, `BUDGET_INTERO` 69 a font 12), e confonderli allenta un
+cancello in silenzio.
+⭐ **La conferma che il modello regge la da' monte**: il suo nome piu' lungo e'
+17 e la sua descrizione piu' lunga e' **33**, appoggiata esatta al calcolo. Un
+modello che ricava 32,7 e trova la fonte ferma a 33 non e' ipotizzato.
+⚠️ Il cancello e' `scratchpad/_123-larghezze-materiali.py`, e all'inizio contava
+**quattro** cifre di contatore: non una misura, una speranza. `mat()` non ha
+nessun tetto in tutto il sorgente, e `MAX_MATERIAL` limita quanti materiali
+**esistono**, non quanti se ne posseggono.
 
-⚠️⚠️ **I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 122a:**
+⚠️⚠️ **E LA TOPPA DEI MATERIALI NON ERA RINVIABILE.** `material.hsp:120`
+costruisce il plurale col **suffisso inglese** (`material_plural` vale `""`,
+`"s"` o `"es"`, scelto da uno `switch` a mano su 56 righe). Appena `matname()`
+torna italiano, quella riga stampa **«You get 3 carbones»**: dizionario e toppa
+vanno nello **stesso commit**. La forma giusta era gia' decisa in `glossario.md`
+— il contatore e' la **parentesi**, «Materiale ricevuto: pietruzza (3)», come il
+contatore giapponese che lascia il nome invariato — ed era gia' in gioco su 54
+righe fra `command.hsp` e `chat.hsp`.
+ⓘ Quelle 54 passano `arg3 = 6` e **ritornano prima di stampare**
+(`material.hsp:49`): `:120` serve **tutti gli altri modi** di ottenere un
+materiale, e nessuno l'aveva toccato.
+⚠️ **`material.hsp` ha 18 firme sue ancora da estrarre**, fra cui `:160`
+(«N X was consumed.»), gemella della riga sistemata oggi: finche' non si fa, le
+due frasi dei materiali parlano due lingue diverse.
+
+⚠️⚠️⚠️ **UNA TOPPA SI SCRIVE IN ASCII, COMMENTI COMPRESI.** `applica` e' morto a
+meta' lavoro con `UnicodeEncodeError: 'cp932' codec can't encode character
+'\xab'` — 842 toppe su 1028 agganciate, build a pezzi — perche' nel **commento**
+della toppa c'erano le virgolette basse e un ideogramma. Un commento non si vede
+in gioco ma passa dallo stesso codificatore **CP932** del codice.
+ⓘ E prima ancora `applica` aveva **rifiutato** la toppa perche' mancava il campo
+`motivo`, fermandosi senza toccare niente. Due guardie, due errori miei presi
+prima del gioco.
+
+⚠️⚠️⚠️ **UN AVVISO DI UGUAGLIANZA DATO SU UN VALORE VUOTO NON E' UNA PROVA.**
+Nel lotto 071 `_120-serie-bacchette` dice che `:44928` e `:44991` devono avere
+rese **identiche** «perche' il giapponese e' lo stesso». E' lo stesso perche' e'
+**vuoto** in tutt'e due — sono `description(2)` senza giapponese — e due stringhe
+vuote sono uguali a ogni rete che le confronti. Seguito alla lettera avrebbe
+cancellato una distinzione vera: l'inglese dice «Giant» e «Huge», e l'indice 3
+degli stessi due oggetti, **gia' reso dal giapponese**, dice «gigantesca»
+(巨大な) e «grande» (大きな).
+⭐ La regola generale: prima di seguire un avviso di uguaglianza si guarda se il
+valore su cui l'ha dato e' **vuoto**. Se lo e', non e' una prova, e' un'assenza
+di prove.
+
+⚠️⚠️ **I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 123a:**
 
     pytest                   794 passed, 6 skipped
-                             ⓘ rilanciato DOPO aver scritto i documenti, come
-                             vuole la lezione della 112a
+                             ⓘ rilanciato DOPO aver scritto i documenti
     prova_identita           72/72 e 30.905, **invariato**
-    applica                  **30.321** sostituzioni      (era 30.210: +111)
-                             ⓘ nove previsioni, nove esatte: nessuna gemella in
-                             tutta la sessione
-    verifica --dizionario    db_item.hsp: 0 da ritradurre, **28** non tradotte
-    _97-quanto-resta         TOTALE **138 / 111 / 27**
-                             ⚠️ la colonna di mezzo sono le RINVIATE, ferme a
-                             111. Il 27 e' il 28 di `verifica` meno la rinviata
+    applica                  **30.466** sostituzioni      (era 30.321: +32 lotti
+                             +118 materiali, e -5 perche' 5 firme del corpo
+                             erano gemelle di righe gia' contate)
+                             ⓘ otto previsioni, otto esatte
+    verifica --dizionario    db_item.hsp: 0 da ritradurre, **1** non tradotta
+                             material_data.hsp: 0 e **0**
+    _97-quanto-resta         TOTALE **111 / 111 / 0**  — ogni file ⭐ CHIUSO
+                             ⚠️⚠️ LO ZERO NON VUOL DIRE FINITO: vedi sopra
     referti                  **participi 9, elisioni 0**
                              ⓘ rilanciato in chiusura DOPO l'ultima resa
-    perimetro.py             perimetro **90%** (28.695), totale **94%** (31.628)
-                             ⓘ +111 sul denominatore, uno per resa
+    perimetro.py             perimetro **91%** (28.722), totale **94%** (31.655)
+    _123-file-senza-dizionario  **238 firme in 11 file** (erano 355 in 12)
+                             ⚠️ referto: il valore atteso NON e' zero
+    _123-larghezze-materiali nomi fuori **0**, descrizioni fuori **0**
+                             ⓘ una eccezione DICHIARATA: «macchina generatrice»,
+                             che sfora solo a cinque cifre di contatore
     _108-accento-decomposto  **0 su 25.956**
-    _107-descrizioni-item    ⭐⭐⭐ corpo (indici 0-2): 1.513 vive, **1.485** rese;
+    _107-descrizioni-item    ⭐⭐⭐ corpo (indici 0-2): 1.513 vive, **1.512** rese;
                              introdotte dall'italiano **0 / 0 / 0** (il cancello)
                              indice 3: vive 1.319, rese 1.319 — CHIUSO;
                              oltre il tetto: inglese 110, italiano 0
                              ⚠️ budget **77** per il corpo impaginato (font 11) e
                              **69** per l'indice 3 (font 12): sono DUE
-    _114-corpo-da-fare       ⭐ TOTALE da fare **28 su 1.449 vive**, e in fondo
-                             **VENTIQUATTRO** categorie chiuse. Le nove nuove
-                             della 122a: `FILTER_CARGO_TRADE` 0/19,
-                             `FILTER_ENVIRONMENT` 0/13, `FILTER_HELM` 0/16,
-                             `FILTER_ACCESSORY_AMULET` 0/14,
-                             `FILTER_ACCESSORY_RING` 0/11, `FILTER_GLOVES` 0/10,
-                             `FILTER_CLOAK` 0/10, `FILTER_GIRDLE` 0/9,
-                             `FILTER_BOOTS` 0/9
-    _122-inglese-doppio-item **10** gruppi, **27** righe toccate, 27 gia' rese
-                             ⚠️ referto: il valore atteso non e' zero, e le 27
-                             rese sono tutte salve perche' vengono dal giapponese
-    _122-sorelle-per-frase   `--prova`: si accende a 0.96, 0.98 e 1.00 sulle tre
-                             coppie note e **tace** su `:95672`
+    _114-corpo-da-fare       ⭐⭐⭐ TOTALE da fare **1 su 1.449 vive**, di cui
+                             rinviate **1**. Zero lavoro. **32 categorie chiuse**
+    toppe                    **1028**, e `_97-toppe-agganciate` **1028 su 1028**
+    _122-inglese-doppio-item **10** gruppi, **27** righe toccate
     _118-nomi-vs-incantesimi REFERTO: giapponese **2 su 80**, italiano **37 su 80**
-    _112-corpo-descrizioni   1.509 righe-fonte, 224 titoli, **1** trattino orfano;
-                             cinque zeri e **«titoli resi in PIU' modi: 7»**
-                             ⚠️⚠️ IL 7 E' ATTESO, e sono i sette della 119a:
-                             appiattimenti dell'INGLESE, non nostri. Un **8** e'
-                             un difetto nuovo
-    _112-verifica-fonti      **234 su 234** coperte; tetto 0, caratteri
-                             cancellati 0, apostrofi dentro la parola 0
+    _112-corpo-descrizioni   **1** trattino orfano; «titoli resi in PIU' modi: 7»
+                             ⚠️⚠️ IL 7 E' ATTESO. Un **8** e' un difetto nuovo
     _113-fonti-gia-rese      **46 su 202** — REFERTO, il valore atteso non e' zero
-    _115-fonti-storpiate     REFERTO: **7 code su 2.542** col punto interrogativo
-                             al posto della tilde; e **3 righe** del corpo con la
-                             coda in giapponese e non in inglese
+    _115-fonti-storpiate     REFERTO: **7 code su 2.542**; **3 righe** col corpo
+                             in giapponese e non in inglese
     _116-code-discordi       REFERTO: **1 riga su 1.411** (`:70398`)
 
 Tutto il resto e' **fermo dov'era**: `dati_applica --identita` 6 file e 3.767
-righe, `toppe.jsonl` 1027 e `_97-toppe-agganciate` **1027 su 1027**,
-`rinviate.jsonl` **114**, `creature` 1131/2466/0/0, `larghezze` 0 fuori misura,
-`diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `menu_dialogo` 0 su 1378,
-`linguette` 0 e 0, `battute --divergenti` **13**,
+righe, `rinviate.jsonl` **114**, `creature` 1131/2466/0/0, `larghezze` 0 fuori
+misura, `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71, `menu_dialogo` 0 su
+1378, `linguette` 0 e 0, `battute --divergenti` **13**,
 `intestazioni_larghezze` perimetro 0, `dati_sorgente` 7/7 e gioco difforme su 0,
 `gronde` 0 su 5, `maiuscole` 143/6/1/7/0, `bilingui` 0, `lang-nel-ramo-jp`
 21 | 0, `_96-morte-nella-build` 0, `_103-inglese-ripetuto` 2 coppie,
 `_104-inglese-slittato` 2 teste.
 
-⚠️⚠️⚠️ **NESSUNA DELLE 111 RESE E' STATA VISTA A SCHERMO.** La lista di collaudo
-data a meta' sessione copre **061, 062 e 063**; per 064-069 non e' mai stata
-scritta, e l'utente ha risposto «vai avanti». Il debito di collaudo sale da
-9.029 a **9.140**. ⓘ Costruito, misurato e provato dagli strumenti sono tre
-stati; visto a schermo e' il quarto, e qui manca.
+⚠️⚠️⚠️ **NESSUNA DELLE 150 RESE DI OGGI E' STATA VISTA A SCHERMO** — 32 dei
+lotti e 118 dei materiali. Il debito di collaudo sale da 9.140 a **9.290**.
+⭐ **Ma la lista di collaudo dei lotti 070-077 c'e', ed e' verificata**: sta piu'
+sotto, con gli identificativi cercati nel sorgente e le premesse rimisurate sul
+caso di oggi. ⓘ Costruito, misurato e provato dagli strumenti sono tre stati;
+visto a schermo e' il quarto, e qui manca.
 
-⚠️⚠️ **TUTTO E' SPINTO** (`origin/fase-0` allineato) e l'albero e' pulito.
+⚠️⚠️ **TUTTO E' COMMITTATO** e l'albero e' pulito.
 ⓘ Dalla 107a in poi la sessione dopo si e' sempre aperta sulla **stessa
 macchina**: la prima cosa da fare **non** e' ricostruire — e' guardare se c'e'
-gia' tutto, con `ls C:\Games\Elona\_traduzione\`, e controllare che
-`elonaplus2.31\cgx-test.exe` sia quello delle **19:04 del 01/09**.
-⚠️ La 122a e' stata chiusa dicendo **«riprendo in un altro terminale»**, come le
-sei sessioni prima: la macchina e' la stessa, ma la sessione nuova non ha in
+gia' tutto, con `ls C:\Games\Elona\_traduzione\`, e controllare la data di
+`elonaplus2.31\cgx-test.exe`.
+⚠️ La 123a e' stata chiusa dicendo **«riprendo in un altro terminale»**, come le
+sette sessioni prima: la macchina e' la stessa, ma la sessione nuova non ha in
 memoria niente di questa. Tutto quel che serve sta qui.
-ⓘ I sei file dati non cambiano dalla 108a: `cmp -s` prima di `cp`, e non serve
-copiarli. Verificato anche a fine 122a: sei su sei identici.
+ⓘ I sei file dati non cambiano dalla 108a.
+
+⚠️⚠️⚠️ **SETTE COSE APERTE, CHE VANNO DECISE E NON EREDITATE.** Le prime sei
+vengono dalla 118a, dalla 120a e dalla 122a; la settima e' nata nella 123a:
+
+  1. **il RANGO dei grimori**: la premessa su cui la 110a ha deciso di non
+     scriverlo («il giapponese non lo dice mai») e' **falsa**. Lo dice, su 80
+     righe su 80;
+  2. **37 nomi di grimorio su 80** non dicono la stessa parola del nome
+     dell'incantesimo che insegnano. In giapponese divergono **2**;
+  3. **i dodici nomi delle pietre dei mesi**: il giapponese porta un epiteto e
+     l'inglese ci mette «jewel» su dodici righe su dodici;
+  4. **«vento di etere» contro «vento d'etere»**, 2 voci contro 25;
+  5. **il genere di una divinita'**: 収穫の神 al maschile due volte, 富の神 al
+     femminile;
+  6. **«stivali» nei nomi contro «scarpe» negli indici 3**;
+  7. ⭐ **NUOVA: 機械弓 e' reso in due modi.** «balestra» quattro volte —
+     compreso il **nome dell'oggetto** e l'indice 3 di `:98728` — e «arco
+     meccanico» due, in due indici 3 di pezzi unici della categoria ＜秘宝＞.
+     Il lotto 072 ha usato «balestra» per la regola del nome, ma la divergenza
+     resta e va sistemata a mano, fuori da un lotto del corpo.
+
+---
+
+## LA LISTA DI COLLAUDO DEI LOTTI 070-077, verificata sul caso di oggi
+
+⚠️⚠️ **Le premesse, rimisurate e non ereditate** (la lezione della 120a: una
+lista che ha funzionato non e' una lista che funziona):
+
+- le sette categorie della sessione hanno `reftype` **sopra** i 50.000 —
+  `FILTER_REMAINS` 62.000, `FILTER_ENVIRONMENT_SEABED` 80.001,
+  `FILTER_FURNITURE_WELL` 60.001, `FILTER_FURNITURE_ALTAR` 60.002,
+  `FILTER_GOLD` 68.000, `FILTER_PLATINUM` 69.000, `FILTER_CARGO_FOOD` 91.000 —
+  quindi la scorciatoia di `item_func.hsp:646` vale;
+- **`FILTER_AMMO` no**, sta a **25.000**; ma tutti e cinque i suoi oggetti hanno
+  `IDENTIFY_LEVEL` **0** in `db_item.hsp`, quindi basta qualsiasi pergamena.
+  ⓘ Oggi la **14** basterebbe ovunque; la **362** resta la regola perche' non e'
+  mai sbagliata;
+- ⚠️ **oro e platino non entrano mai nell'inventario**: `action.hsp:923` li
+  assorbe nel borsellino appena li raccogli. Ma `item.hsp:2724` li crea gia' a
+  `ITEM_KNOWN_FULL`, quindi **non serve la pergamena** — si guardano con `x`
+  dalla lista da terra;
+- ⚠️ e quella lista si apre **solo se sulla casella c'e' piu' di un oggetto**
+  (`command.hsp:13004`, `if rtval > 1`): con un oggetto solo `g` lo raccoglie e
+  basta, e il passo diventa muto;
+- il corpo si disegna **solo a `ITEM_KNOWN_FULL`** (`command.hsp:16398`), e il
+  tasto del pannello e' **`x`** (`key_identify` in `config.txt:119`).
+
+```
+F12 -> wizard
+
+spawn_item 362     la pergamena di identificazione SUPERIORE
+                   ⚠️ una lettura per oggetto
+
+--- LOTTO 070: le cinque righe che l'inglese dice TUTTE UGUALI.
+    Da leggere DI FILA: due devono essere identiche e tre diverse
+spawn_item 341   osso    -> «si usano per le pozioni e per la stregoneria»
+spawn_item 340   cuore   -> LA STESSA FRASE, identica a quella dell'osso
+spawn_item 339   occhio  -> «si lavora in ORNAMENTI e in MEDICINE»
+spawn_item 338   sangue  -> «si lavora in POZIONI E SIMILI», e apre con
+                            «schizzato via e RACCOLTO»
+spawn_item 337   pelle   -> «si lavorano in VESTITI E IN BORSE»
+
+--- LOTTO 070: i due pezzi da collezione
+spawn_item 504   carta      <- il testo piu' lungo del lotto: l'impaginazione
+spawn_item 503   statuetta  -> «il ritratto vivente della vittima»
+
+--- LOTTO 071: le due righe col giapponese VUOTO, che devono restare DIVERSE
+spawn_item 1283  kombu   -> «Un'alga GIGANTESCA. Si puo' mangiare, credo.»
+spawn_item 1282  wakame  -> «Un'alga GRANDE. Si puo' mangiare, credo.»
+spawn_item 1284  mozuku  -> «Un'alga. Si puo' mangiare, credo.»
+
+--- LOTTO 072: la riga il cui inglese e' rotto
+spawn_item 483   dardi da balestra -> «un dardo sottile, a forma d'asta, con
+                                       la punta quadrata»
+spawn_item 973   proiettile magnum -> «a parita' di calibro»
+
+--- LOTTI 075/076: ⚠️ NON raccoglierle, spariscono nel borsellino.
+    Sono gia' identificate: `g` e poi `x` sulla riga della moneta
+spawn_item 55    moneta di platino -> «e il denaro non la sostituisce»
+spawn_item 54    moneta d'oro      -> chiede allo Stato una moneta di valore
+                                       maggiore: e' proprio quella di platino
+
+--- LOTTO 077: l'ultima riga del corpo
+spawn_item 333   cibo da viaggio -> deve aprire con «Un cibo del tipo che si
+                                     carica sul carretto», parola per parola
+                                     come il rapporto piu' in basso
+
+ESC -> g (raccogli) -> r (leggi la pergamena) -> x sul pannello
+```
+
+⚠️ **I pozzi e gli altari (073/074) sono fuori dalla lista di proposito**: non
+ho verificato che si possano raccogliere — sono mobilio, e se il peso o
+`PROP_CONSTRUCT` li blocca il passo e' muto. Prima di aggiungerli si guarda
+`command.hsp:13009`, dove `PROP_CONSTRUCT` fa fallire il raccogli.
+
+⚠️ **E LA LISTA DEI MATERIALI NON SI PUO' SCRIVERE.** Il pannello (`m`,
+`key_material` in `config.txt:132`) elenca **solo i materiali con quantita'
+diversa da zero** (`material.hsp:406`), e non esiste **nessun comando wizard che
+dia materiali**: l'elenco di `system.hsp:4700`-`5000` non ne ha. L'unica strada
+e' la raccolta vera ai punti di campionamento della mappa del mondo
+(`proc.hsp:130`). Chiesto all'utente in chiusura della 123a, ha risposto **«non
+ho materiali ora»** — e quella risposta ha fatto trovare il difetto delle
+larghezze, perche' ha costretto a cercare la taratura invece dello screenshot.
 
 ---
 

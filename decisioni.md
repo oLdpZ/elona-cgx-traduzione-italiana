@@ -12411,3 +12411,250 @@ precedente di un cancello che si allenta correggendo altro.
 
 ⚠️ E vanno guardate **insieme**, perché la domanda è la stessa: quale delle due
 forme legge il giocatore, e in quale ordine.
+
+---
+
+# La centoventitreesima sessione
+
+## ⭐⭐⭐ UNO ZERO PUÒ VOLER DIRE «NON È STATO CHIESTO»
+
+**Il fatto.** Chiuso il corpo di `db_item.hsp`, ogni file con un dizionario
+diceva `⭐ CHIUSO`: `_97-quanto-resta` leggeva «TOTALE da fare 0» e
+`verifica --dizionario` leggeva zero da ritradurre su venticinque file. Ma
+`perimetro.py` diceva **90%**.
+
+I due numeri non si contraddicevano. `_97-quanto-resta` costruisce la sua
+tabella **partendo dai dizionari**: per ogni `dizionario/*.jsonl` conta le voci
+senza `it`. Un file del sorgente che non ha un dizionario non ha una riga con
+zero — **non ha una riga**.
+
+**La decisione**: uno strumento che faccia la domanda dall'altro capo, cioè dal
+**sorgente**. `scratchpad/_123-file-senza-dizionario.py` elenca i file `.hsp`
+che contengono `lang()` e non hanno un `.jsonl`, con quante firme ci sono
+dentro. Risposta: **355 firme in 12 file**, e `strumenti.estrai` non aveva
+nessun elenco che li escludesse — prende i file come argomenti, e nessuno li
+aveva chiesti.
+
+⚠️ **La prima stesura era sbagliata in un modo istruttivo.** Contava le
+**occorrenze** di `lang()` e diceva **447** dove il perimetro dice **355**: due
+referti sulla stessa cosa che non si potevano confrontare. `perimetro.firme_lang()`
+raccoglie gli argomenti inglesi in un **insieme**, perché due `lang()` con lo
+stesso inglese sono **una** firma e una resa le copre tutt'e due. Riscritto per
+**importare** quella funzione invece di riscriverla: la colonna «firme» deve
+sommare esatta al «di cui in file mai estratti» del perimetro, e la colonna
+«lang()» sta accanto solo per far vedere quante ripetizioni ci sono.
+
+⭐ **La regola che ne esce, e che vale oltre questo progetto**: un contatore che
+si costruisce partendo da ciò che **esiste già** non può vedere ciò che manca.
+Quando ogni riga di un referto dice zero, la domanda da farsi non è «è finito?»
+ma **«quante righe dovrebbe avere questo referto?»**.
+
+---
+
+## ⭐⭐⭐ LA COERENZA BATTE IL GIAPPONESE, E STA SCRITTA DOVE NESSUNA RETE GUARDA
+
+**Il fatto.** Aperto `material_data.hsp`, ho scritto le 59 rese leggendo il
+giapponese. Poi ho cercato i termini nel glossario, e ho trovato una tabella con
+**ventisette dei cinquantanove nomi già decisi**, ciascuno col **numero di riga
+di `material_data.hsp`** e la frase: «chi aprirà `material_data.hsp` li trova
+già decisi». L'aveva scritta una sessione che aveva incontrato gli stessi nomi
+**annegati dentro una frase** di `command.hsp`.
+
+Tre delle mie rese erano sbagliate:
+
+| riga | inglese | avevo scritto | il glossario dice |
+|---|---|---|---|
+| `:249` | Pebble | sasso | **pietruzza** |
+| `:179` | Sap of Yaggdrasil | linfa dell'albero del mondo | **linfa di Yaggdrasil** |
+| `:119` | Element fragment | pietra tagliavento | **scheggia elementale** |
+
+⚠️⚠️ **La terza è la più istruttiva, perché il mio ragionamento era corretto e
+la conclusione sbagliata.** Il giapponese dice 風切石, «pietra che taglia il
+vento», e l'inglese dice `Element fragment`, che non è la stessa cosa. Applicando
+la regola di sempre — il giapponese arbitra — si arriva a «pietra tagliavento».
+
+Il glossario spiega perché no: la costante è `MATERIAL_ELEMENT_FRAGMENT`, e nel
+gioco ci sono **altre quattro schegge** (etere, mithril, ferro, memoria, magia).
+È la formula della 42ª: **la coerenza batte il giapponese**. Rendere questa
+«pietra» e le altre quattro «schegge» spezzerebbe una serie che il giocatore
+vede tutta insieme nello stesso pannello.
+
+**La decisione**: le ventisette restano come il glossario le ha decise, e le
+trentadue nuove sono state scritte **dopo** aver letto quella tabella, non
+prima.
+
+⭐ E la lezione operativa è quella che la ripresa ripete da dodici sessioni:
+`glossario.md` e `invariati.md` sono **prosa in Markdown**, e nessuna rete del
+lotto li apre. Qui il costo di non averli letti sarebbe stato di **tre nomi su
+cinquantanove, tutti e tre plausibili** — cioè tre difetti che nessun cancello
+avrebbe mai acceso.
+
+---
+
+## ⭐⭐ IL METRO DI UN RIQUADRO SI CERCA PRIMA DI MISURARLO
+
+**Il fatto.** Le 118 rese dei materiali sono state scritte senza budget. Il
+pannello (`material.hsp:440-470`) ha due colonne strette: il nome parte a
+`wx+96` e la descrizione a `wx+308`, dentro una riga che finisce a `wx+560`.
+Avevo chiesto uno **screenshot** per tarare i caratteri per colonna, e l'utente
+ha risposto «non ho materiali ora» — col pannello vuoto (`material.hsp:406`,
+`if mat(cnt) != 0`) lo scatto non si poteva fare.
+
+**La decisione**: cercare la taratura invece dello scatto. `larghezze.py` aveva
+già misurato **7,7 px/carattere** su uno screenshot dei **menu**, e i menu
+disegnano a `font 14 - en*2` = **12**. Il pannello dei materiali disegna alla
+stessa riga (`:450`): **stesso carattere, stessa dimensione**. Il metro si
+applica senza taratura nuova.
+
+    nome + « x N»   wx+96  -> wx+308  = 212 px / 7,7  ->  budget 27
+    descrizione     wx+308 -> wx+560  = 252 px / 7,7  ->  budget 32
+
+⚠️ **Non è il 6,9 px/carattere del font 11**, che vale per le righe impaginate
+del pannello degli oggetti. Sono **due metri**, come i due budget della 112ª
+(`BUDGET` 77 a font 11, `BUDGET_INTERO` 69 a font 12), e confonderli allenta un
+cancello in silenzio — è già successo una volta.
+
+⭐ **La conferma che il modello regge la dà monte**: il suo nome più lungo è
+**17** caratteri e la sua descrizione più lunga è **33**, appoggiata esatta al
+calcolo. Un modello che ricava 32,7 e trova la fonte ferma a 33 non è un modello
+ipotizzato: è un modello che ha trovato il muro dove diceva che stava.
+
+**L'esito**: **tredici** delle mie rese sforavano — due nomi e undici
+descrizioni, la peggiore a **41 su 32**. Riscritte tutte.
+
+⚠️ **E la famiglia dei tre minerali si è accorciata intera.** Sforava solo
+«Scheggia di minerale con mithril.» (33); gli altri due stavano dentro per un
+carattere. Accorciare solo quello sarebbe stato il difetto della 119ª al
+rovescio: tre righe che il giapponese scrive uguali (〜を含んだ鉱石の欠片), rese
+in due modi. Sono diventate «Minerale che contiene mithril / etere / ferro».
+
+---
+
+## ⚠️⚠️ UN'ECCEZIONE SI DICHIARA, NON SI ABBASSA IL CANCELLO
+
+**Il fatto.** Il cancello di larghezza contava **quattro** cifre di contatore
+(« x 1234»). Non era una misura: era una speranza. In tutto il sorgente non
+c'è un `limit` che tocchi `mat()`, e `MAX_MATERIAL` limita quanti materiali
+**esistono**, non quanti se ne posseggono: un personaggio che scava a lungo
+passa le diecimila pietruzze.
+
+Alzato a cinque cifre, resta fuori una riga sola: **«macchina generatrice»**
+(20 caratteri, che con « x 12345» fanno 28 su 27). Ed è uno dei ventisette nomi
+**già decisi nel glossario**.
+
+**La decisione**: né cambiare il nome, né abbassare il cancello. L'eccezione è
+**dichiarata** nel codice dello strumento, con la sua ragione: `material_data.hsp:228`
+dà a quel materiale livello **70** e rarità **7**, e le uniche strade sono gli
+alleati (`chat.hsp:21309`, `command.hsp:6520`); a tre cifre fa 26 su 27 e sta
+dentro. Il referto la stampa come «oltre il budget ma DICHIARATA», col motivo
+accanto.
+
+⚠️ Riportare `CONTATORE` a quattro avrebbe azzerato il referto **e nascosto il
+motivo**: è l'allentamento silenzioso della 112ª, dove un cancello chiuso su
+1.319 rese è passato da «110 fuori» a «0» senza che nulla fosse cambiato a
+schermo.
+
+---
+
+## ⭐ IL CONTATORE È LA PARENTESI, ANCHE NELL'ALTRA METÀ DEL GIOCO
+
+**Il fatto.** `material.hsp:120` costruisce la frase della raccolta così:
+
+    locvar_matgetmain_s = "You get " + n + " " + matname(...) + material_plural + ". "
+
+dove `material_plural` vale `""`, `"s"` o `"es"`, scelto da uno `switch` scritto
+a mano su 56 righe. Finché `matname()` restituisce l'inglese il difetto non si
+vede; nel momento in cui `material_data.hsp` prende un dizionario, la stessa
+riga stampa **«You get 3 carbones»**.
+
+**La decisione**: dizionario e toppa nello **stesso commit**. Metterne uno senza
+l'altro introduce un difetto visibile.
+
+⭐ E la forma giusta **era già decisa**, in fondo alla tabella del glossario: il
+giapponese ha già la soluzione — 石ころを3個受け取った, col contatore 個 che
+lascia il nome invariato — e in italiano il contatore è la **parentesi**:
+
+> Materiale ricevuto: pietruzza (3).
+
+Il participio cade su «materiale», che un genere ce l'ha suo. Quella forma era
+**già in gioco** su 27 righe di `command.hsp` e 27 di `chat.hsp`.
+
+ⓘ **Perché erano due strade diverse.** `matgetmain` ritorna **prima di
+stampare** quando il terzo argomento è 6 (`material.hsp:49`), ed è proprio
+quello che passano `chat.hsp:21050` e seguenti: quei siti la frase se la
+scrivono da soli, e sono i cinquantaquattro già resi. `material.hsp:120` serve
+**tutti gli altri modi** di ottenere un materiale — la raccolta ai punti di
+campionamento, lo smontaggio — e nessuno l'aveva toccato.
+
+⚠️ **Resta aperto il gemello**: `material.hsp:160` dice «N X was consumed.» ed è
+dentro un `lang()`, quindi lo prenderà il dizionario quando `material.hsp` verrà
+estratto (18 firme). Finché non si fa, le due frasi dei materiali parlano due
+lingue diverse.
+
+---
+
+## ⚠️⚠️ UN AVVISO DI UGUAGLIANZA DATO SU UN VALORE VUOTO NON È UNA PROVA
+
+**Il fatto.** Nel lotto 071 (le alghe) `_120-serie-bacchette` ha detto:
+
+    ⚠️ le rese di queste righe devono essere IDENTICHE: il giapponese è lo
+       stesso, e l'inglese differisce per una sciocchezza
+       en :44928  Giant seaweed. You can eat it I guess.
+       en :44991  Huge seaweed. You can eat it I guess.
+
+Il giapponese è lo stesso perché è **vuoto** in tutt'e due: sono `description(2)`
+senza giapponese, e due stringhe vuote sono uguali a ogni rete che le confronti.
+
+**La decisione**: le tre `description(2)` del lotto si rendono **dall'inglese**
+(è il caso di `:89358`, non quello di `:129299`: la domanda non è «manca il
+giapponese?» ma «esiste una fonte?»), e restano **diverse**. L'arbitro è la
+`description(3)` degli stessi oggetti, che il giapponese ce l'ha ed è già resa:
+`:44929` 巨大な海藻 → «Un'alga gigantesca», `:44992` 大きな海藻 → «Un'alga
+grande». Le tre rese dell'indice 2 aprono con la stessa parola dell'indice 3
+dello stesso oggetto.
+
+⭐ **La regola generale**: prima di seguire un avviso di uguaglianza si guarda se
+il valore su cui l'ha dato è **vuoto**. Se lo è, non è una prova — è un'assenza
+di prove. ⓘ `_coerenza` la applica già (riga 52: filtra i giapponesi vuoti prima
+di raggruppare); `_120-serie-bacchette` no.
+
+---
+
+## ⓘ Tre difetti di monte trovati nei lotti, e una parola che il giapponese ripete apposta
+
+- **`:98725`** dice «A thin rod-shaped **arrowhead** with a square
+  **arrowhead**»: 矢弾 (il dardo) e 矢じり (la punta) sono due parole e monte le
+  ha rese tutt'e due «arrowhead», lasciando la frase senza soggetto. Non è il
+  difetto della 122ª (l'inglese di un **altro** oggetto): è l'inglese di
+  **questo** oggetto scritto male, e nessuna rete lo prende, perché la riga non
+  è duplicata da nessuna parte.
+- **`:90707`** dice «water **pills**» dove 水薬 è **pozione** — il composto
+  tradotto a pezzi (水 acqua + 薬 medicina). E il fatto è di gioco: nel pozzo
+  sacro **le pozioni si gettano davvero**.
+- **`ツル`** è la **liana**, e monte scrive «Vein» invece di «Vine».
+- ⭐ **`:119757`** (la fontana) regge su 清浄, che il giapponese dice **due
+  volte**: la fontana fa un suono *limpido*, e l'acqua *limpida* non è. Se in
+  italiano le due parole divergono, il perno salta. ⚠️ **Nessuna rete lo vede**,
+  perché la ripetizione sta **dentro una riga sola**: `_122-sorelle-per-frase`
+  cerca la frase gemella in un'**altra** riga, `_120` confronta righe fra loro.
+
+---
+
+## ⓘ E la settima cosa aperta: 機械弓 è reso in due modi
+
+Il lotto 072 (le munizioni) ha portato alla luce una divergenza vera nel
+dizionario:
+
+| resa | dove |
+|---|---|
+| **balestra** | il **nome** dell'oggetto (機械弓), «balestra rapida» (閃光の機械弓), e l'indice 3 di `:98728` |
+| **arco meccanico** | due indici 3 di **pezzi unici** della categoria ＜秘宝＞ |
+
+**La decisione per il lotto**: «balestra», per la regola del 069 e del 070 — il
+pezzo si chiama col nome che il giocatore legge in cima al pannello, e l'indice
+3 di quella stessa voce dice già «balestra».
+
+**La decisione per il progetto**: nessuna, ancora. Come «vento di etere» della
+122ª, va sistemata **a mano e fuori da un lotto del corpo**, perché sono righe
+di indici già chiusi e cambiarle di straforo è esattamente il genere di modifica
+che nessun conteggio segnala.

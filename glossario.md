@@ -391,6 +391,32 @@ decisi.**
 I ventisette qui sotto sono quelli che un compagno può consegnare; gli altri
 trentadue `matname()` restano da decidere quando quel file si apre.
 
+⭐⭐⭐ **Il file si è aperto nella 123ª, e i trentadue sono decisi**: stanno nella
+seconda tabella, sotto la prima. `material_data.hsp` ha ora un dizionario e
+tutti e 59 i nomi (più le 59 descrizioni) sono resi.
+
+⚠️⚠️ **E questa tabella ha fatto il suo mestiere.** Le 59 rese erano state
+scritte leggendo il giapponese, *prima* di cercarla; tre erano sbagliate —
+«sasso» per `Pebble`, «linfa dell'albero del mondo» per `Sap of Yaggdrasil`,
+«pietra tagliavento» per `Element fragment`. L'ultima con un ragionamento
+corretto e una conclusione sbagliata: il giapponese dice davvero 風切石, ma qui
+la coerenza della serie delle cinque schegge batte il giapponese, ed è scritto
+qui sotto. **Nessuna rete apre questo file**: leggerlo prima di scrivere è
+l'unica cosa che lo fa valere.
+
+⚠️⚠️ **C'è un vincolo di LARGHEZZA che quando questa tabella fu scritta non
+c'era ancora.** Il pannello dei materiali (`material.hsp:440`-`470`) ha due
+colonne strette e disegna a **font 12**, lo stesso dei menu, quindi vale il
+**7,7 px/carattere** di `larghezze.py`:
+
+    nome + « x N»   wx+96  -> wx+308  = 212 px  ->  budget **27** caratteri
+    descrizione     wx+308 -> wx+560  = 252 px  ->  budget **32** caratteri
+
+Il cancello è `scratchpad/_123-larghezze-materiali.py`, e conta **cinque** cifre
+di contatore perché `mat()` non ha nessun tetto in tutto il sorgente. ⓘ Una sola
+eccezione **dichiarata**: «macchina generatrice» (20) sfora a cinque cifre, ma è
+livello 70 e rarità 7 (`material_data.hsp:228`) e a tre cifre sta dentro.
+
 | EN | IT | riga di `material_data.hsp` |
 |---|---|---|
 | Pebble | pietruzza | `:249` |
@@ -420,6 +446,50 @@ trentadue `matname()` restano da decidere quando quel file si apre.
 | Magic mass | massa magica | `:159` |
 | Generator | macchina generatrice | `:229` |
 | Electricity | elettricità | `:124` |
+
+### I trentadue restanti, decisi nella 123ª
+
+| EN | IT | riga di `material_data.hsp` |
+|---|---|---|
+| Garbage | scarti | `:9` — ⚠️ **non** «cianfrusaglia», che è l'oggetto `junk` (`db_item.hsp:143816`): qui è materia prima da lavorazione |
+| Casino chip | fiche da casinò | `:14` — invariabile al plurale, come in italiano |
+| Charcoal | carbone | `:19` |
+| Driftwood | legno di deriva | `:24` |
+| Bird's feather | penna d'uccello | `:29` |
+| Mithril fragment | scheggia di mithril | `:44` — `mithril` è invariato (dizionario) |
+| Iron fragment | scheggia di ferro | `:54` |
+| Seawater | acqua di mare | `:69` |
+| Howling weed | erba che geme | `:74` |
+| Red weed | erba rossa | `:79` |
+| Blue weed | erba azzurra | `:84` |
+| Curse weed | erba di maledizione | `:89` — ⚠️ **non** «erba della maledizione» (22): col contatore fa 29 su 27. E non «erba maledetta», che è già la sua descrizione (呪われた草) |
+| Black mist | nebbia nera | `:129` |
+| Fire stone | pietra di fuoco | `:139` |
+| Ice stone | pietra di ghiaccio | `:144` |
+| Discharging stone | pietra elettrica | `:149` |
+| Leather | cuoio | `:174` |
+| Magic paper | carta magica | `:184` |
+| Curved stick | bastone storto | `:194` — «bastone» dalla tabella sopra, `:39` |
+| Bear's tail | coda d'orso | `:204` — come «coda di coniglio», `:99` |
+| 100 Yen coin | moneta da 100 yen | `:209` |
+| 500 Yen coin | moneta da 500 yen | `:214` |
+| Medicinal weed | erba medicinale | `:219` |
+| Thick wood | ramo robusto | `:244` — «ramo» dalla tabella sopra, `:239` |
+| Memory fragment | scheggia di memoria | `:254` |
+| Magic fragment | scheggia magica | `:259` — ⚠️ **non** «scheggia di forza magica» (24): col contatore fa 31 su 27 |
+| Vein | liana | `:274` — ⚠️ **l'inglese sbaglia parola**: ツル è la *vine*, non la *vein*. È un refuso di monte, e il giapponese arbitra |
+| Adhesive | colla | `:279` |
+| Good paper | carta di qualità | `:284` — «carta» dalla tabella sopra, `:224` |
+| Durable cloth | stoffa resistente | `:289` |
+| Log | tronco | `:294` |
+| White weed | erba bianca | `:299` |
+
+⭐ **Tre delle trentadue sono state accorciate dal cancello di larghezza**, non
+scelte così: `erba di maledizione` e `scheggia magica` sforavano il budget dei
+27, e la famiglia dei tre minerali si è accorciata **intera** nelle descrizioni
+(«Minerale che contiene mithril / etere / ferro») perché sforava solo il
+mithril — accorciare solo quello avrebbe reso in due modi tre righe che il
+giapponese scrive uguali.
 
 ⭐ **E la forma della riga non fa concordare niente col numero.** L'inglese
 scrive «You get 3 Pebble.», sgrammaticato anche in inglese; l'italiano non può

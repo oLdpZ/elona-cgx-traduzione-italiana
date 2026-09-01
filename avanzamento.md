@@ -3876,3 +3876,110 @@ Il debito sale da 9.029 a **9.140** rese mai viste a schermo.
 sono quattro stati distinti**, e qui il quarto manca. Tre scelte forti di questa
 sessione — i cinque «Non si può usare» del 061, la forma impersonale del 069, i
 due nomi alieni trascritti del 064 — sono **giudicate solo da me**.
+
+---
+
+# La centoventitreesima sessione — 2026-09-01
+
+## Il corpo di `db_item.hsp` si chiude
+
+Otto lotti, **32 rese**, **otto categorie** chiuse — dalla venticinquesima alla
+trentaduesima:
+
+    070  FILTER_REMAINS               7 rese   i resti, e i due pezzi da collezione
+    071  FILTER_ENVIRONMENT_SEABED    6 rese   le alghe
+    072  FILTER_AMMO                  5 rese   le munizioni
+    073  FILTER_FURNITURE_WELL        4 rese   i pozzi
+    074  FILTER_FURNITURE_ALTAR       2 rese   gli altari
+    075  FILTER_PLATINUM              1 resa   la moneta di platino
+    076  FILTER_GOLD                  1 resa   la moneta d'oro
+    077  FILTER_CARGO_FOOD            1 resa   il cibo da viaggio
+
+Il corpo passa da **1.485 a 1.512 rese su 1.513**, e l'unica rimasta è la
+**rinviata** `:129299`, che non ha un testo in nessuna delle due lingue.
+`_114-corpo-da-fare` legge **TOTALE da fare 1 su 1.449 vive, di cui rinviate 1**:
+zero lavoro.
+
+⭐ Otto previsioni di `applica`, **otto esatte**: nessuna gemella in tutta la
+serie.
+
+## Il fronte nuovo: 355 firme che nessun contatore mostrava
+
+Chiuso il corpo, **ogni** file con un dizionario dice `⭐ CHIUSO` e
+`_97-quanto-resta` legge «TOTALE da fare 0». Ma `perimetro.py` diceva **90%**, e
+il motivo è che `_97-quanto-resta` guarda **solo i file che hanno un
+dizionario**.
+
+`scratchpad/_123-file-senza-dizionario.py`, nuovo, fa la domanda dal sorgente:
+**355 firme in 12 file mai estratti**. Dopo i materiali sono **238 in 11**.
+
+    firme  lang()  file
+      118     176  txtadv.hsp          <- il prossimo per peso
+       27      39  net.hsp
+       27      31  custom_itemenchantment.hsp
+       21      26  quest.hsp
+       18      22  material.hsp
+       15      17  etc.hsp
+        6       6  map_rand.hsp
+        2       3  scene.hsp
+        2       2  custom_nefiatypes.hsp
+        1       4  custom_pet.hsp
+        1       3  custom_dmgpop.hsp
+
+## Il primo dei dodici: i 59 materiali
+
+`dizionario/material_data.hsp.jsonl` esiste, **118 rese** (59 nomi e 59
+descrizioni, 117 firme distinte perché due descrizioni sono identiche). Il
+perimetro passa da **90% a 91%**.
+
+- **27 nomi su 59 erano già decisi** in `glossario.md`, con i numeri di riga.
+  Tre delle rese scritte prima di leggerla erano sbagliate.
+- **13 rese sforavano** il budget di larghezza del pannello (2 nomi e 11
+  descrizioni, la peggiore a 41 su 32). Riscritte.
+- Una **toppa** su `material.hsp:120` toglie il suffisso inglese al plurale e
+  porta la forma «Materiale ricevuto: pietruzza (3)», già decisa e già in gioco
+  su 54 righe altrove. Le toppe passano da **1027 a 1028**.
+
+## Gli strumenti nuovi
+
+    scratchpad/_123-file-senza-dizionario.py   i file con lang() e senza dizionario
+    scratchpad/_123-rese-materiali.py          le 118 rese, col referto dei buchi
+    scratchpad/_123-toppa-materiali.py         la toppa, con la prova al contrario
+                                               sull'ancora commentata di :55
+    scratchpad/_123-larghezze-materiali.py     il cancello di larghezza del pannello
+
+## I numeri, a fine sessione
+
+    pytest                       794 passed, 6 skipped   (dopo i documenti)
+    prova_identita               72/72 e 30.905          invariato
+    applica                      30.321 -> 30.466
+    toppe                        1027 -> 1028, agganciate 1028 su 1028
+    perimetro                    90% -> 91% (28.722); totale 94% (31.655)
+    _123-file-senza-dizionario   355 in 12 -> 238 in 11
+    _114-corpo-da-fare           28 -> 1 (di cui rinviate 1), 32 categorie chiuse
+    _107-descrizioni-item        corpo 1.485 -> 1.512 su 1.513; cancello 0/0/0
+    _123-larghezze-materiali     nomi fuori 0, descrizioni fuori 0
+                                 (una eccezione dichiarata)
+
+## Il debito di collaudo
+
+⚠️⚠️ **Nessuna delle 150 rese è stata vista a schermo** — 32 dei lotti e 118 dei
+materiali. Il debito sale da 9.140 a **9.290**.
+
+⭐ **Ma la lista di collaudo dei lotti 070-077 c'è ed è verificata**, e sta in
+`RIPRESA-sessione.md`: gli identificativi cercati nel sorgente, e le premesse
+rimisurate sul caso di oggi invece che ereditate. Due passi della lista vecchia
+qui sarebbero stati **muti** — oro e platino non entrano nell'inventario
+(`action.hsp:923` li assorbe nel borsellino), e la lista da terra si apre solo
+se sulla casella c'è più di un oggetto (`command.hsp:13004`).
+
+⚠️ **La lista dei materiali non si può scrivere**: il pannello elenca solo i
+materiali con quantità diversa da zero (`material.hsp:406`) e **non esiste
+nessun comando wizard che dia materiali** — l'elenco di `system.hsp:4700`-`5000`
+non ne ha. L'unica strada è la raccolta vera ai punti di campionamento.
+
+ⓘ **Costruito, misurato dagli strumenti, provato al contrario e visto a schermo
+sono quattro stati distinti**, e qui il quarto manca. Le scelte più forti della
+sessione — le cinque righe dei resti col verbo distinto, le tre alghe che devono
+restare diverse, i tredici accorciamenti dei materiali — sono **giudicate solo
+da me**.
