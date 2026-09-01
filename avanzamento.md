@@ -41,6 +41,81 @@ fondo somma valori di sessioni diverse. Il conto vivo lo danno
 file di `data/` compresi. Finché nessuno rifà la tabella intera, **si guardano
 quelli**.
 
+## Quattro lotti, 154 rese, e si chiudono POZIONI e PERGAMENE — 2026-09-01, centodiciannovesima sessione
+
+`db_item.hsp`, il **corpo** delle descrizioni (indici 0-2). La sessione ha
+aperto e chiuso **due** categorie, la settima e l'ottava:
+
+    049  ITEM_POTION  righe       0- 90.000   41 rese  (37 idx0, 4 idx2)
+    050  ITEM_POTION  righe  90.000 in su     40 rese  (40 idx0)  + 1 RINVIATA
+    051  ITEM_SCROLL  righe       0-100.000   50 rese  (42 idx0, 5 idx1, 3 idx2)
+    052  ITEM_SCROLL  righe 100.000 in su     23 rese  (23 idx0)
+
+    corpo (indici 0-2): 996 -> **1.156** rese su 1.513 vive
+    non tradotte di db_item.hsp: 510 -> **356**   (-154 esatte)
+    applica: 29.832 -> **29.992**   (+160, non +154: vedi sotto)
+    perimetro: 90% (28.367); totale: 94% (31.300)
+
+### ⚠️ Perché `applica` è salito di 160 e le rese sono 154
+
+Sei righe del sorgente sono **gemelle** di righe del lotto 051: stessa firma,
+cioè stesso giapponese *e* stesso inglese, quindi una resa sola le copre tutte e
+due. `lotti-113/_previsione.py` le ha contate **prima** che `applica` girasse:
+
+    :45132 -> anche :45203        la nota della nave, かなり弱い
+    :45345 -> anche :45416        la nota della nave, 弱い
+    :51360 -> anche :51431, :51502, :51573   la nota del mezzo di terra
+    :58396 -> anche :58458        il certificato fiscale, 12 milioni e 1,2
+
+Lotto per lotto: **+41, +40, +56 per 50 rese, +23**. Tutti e quattro previsti
+prima, tutti e quattro esatti.
+
+### ⚠️ Una riga rinviata, e due strumenti che non filtravano le rinviate
+
+`:129299` — `description(1)` della pozione di confusione — ha `\t\t\n\n` in
+tutt'e due le lingue: uno slot vuoto, non una frase. Resa identica, `reimporta`
+la rifiuta e si porta dietro il lotto intero; resa vuota non è esprimibile. È in
+`rinviate.jsonl`, che sale da **113 a 114**.
+
+Conseguenze sui conti, tutte volute e tutte scritte:
+
+    verifica --dizionario   356   (le rinviate le conta)
+    _97-quanto-resta        355   (le toglie: colonna «rinviate» 110 -> 111)
+    _114-corpo-da-fare      356 totale, e FILTER_ITEM_POTION legge «1 su 82»
+
+⚠️ Il «1» di `FILTER_ITEM_POTION` **non è lavoro**, e da questa sessione lo dice
+lo strumento: in fondo alla tabella c'è «di cui RINVIATE, cioè non lavoro: 1 —
+:129299». Sottrarle avrebbe rotto in silenzio l'invariante «il totale coincide
+con `verifica --dizionario`».
+
+E `scratchpad/_107-chiavi-item.py` le rinviate non le filtra affatto — legge
+l'estrazione dritta, senza passare da `estrai.da_tradurre` come fa
+`categorie.py` — quindi la riga restava nel template e `_monta` moriva di
+`KeyError`. Strumento nuovo: **`scratchpad/_119-togli-rinviate.py`**, da lanciare
+dopo ogni `_corpo.py`.
+
+### ⭐⭐ Il cancello delle parole spezzate si è acceso davvero
+
+Dopo il 051, `_107-descrizioni-item` ha detto «parole spezzate introdotte: 1», e
+`--peggiori` ha dato il nome: `:81740`, dove «equipaggiamento» andava a capo
+spezzato. Riscritta, riassemblata **dal passo che copia**, rimisurata: 0. ⚠️ La
+stessa parola a `:95990` non si spezza — conta dove cade il taglio, non la
+lunghezza (113ª), e questa è la prima verifica su un caso vero.
+
+### Quel che resta
+
+    60  FILTER_RANGE       <- la più grossa
+    33  FILTER_ORE
+    32  FILTER_ITEM_ROD
+    25  FILTER_CONTAINER
+    24  FILTER_SHIELD
+    23  FILTER_ITEM_BOOK
+    ... e una coda di categorie minori
+
+⚠️ Debito di collaudo: **8.812** rese mai viste a schermo. Le due liste di passi
+stanno in `RIPRESA-sessione.md`, con gli identificativi letti in
+`defines/mod.hsp` e la nota che pozioni e pergamene **non nascono identificate**.
+
 ## Due lotti, 92 rese, i GRIMORI si chiudono, e il rango era detto — 2026-09-01, centodiciottesima sessione
 
 `db_item.hsp`, il **corpo** delle descrizioni (indici 0-2). La sessione ha

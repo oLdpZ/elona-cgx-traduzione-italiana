@@ -2150,6 +2150,88 @@ dei titoli-fonte).
 **«folgorare»**, che in italiano è insieme tutt'e due: il gioco di parole si
 rifà, non si spiega. È il precedente delle fusioni delle razze.
 
+## `db_item.hsp`, deciso il 2026-09-01 dalla 119ª — il CORPO delle POZIONI e delle PERGAMENE
+
+Quattro lotti (049-052), 154 rese, e due categorie chiuse: `FILTER_ITEM_POTION`
+e `FILTER_ITEM_SCROLL`.
+
+### ⭐⭐⭐ La scala della fragilità dei mezzi di mare, quattro gradini
+
+Sei mezzi di mare portano la stessa nota del manuale di viaggio, e in inglese
+sono **sei stringhe identiche**. Il giapponese cambia un avverbio, ed è un fatto
+di gioco:
+
+| giapponese | italiano | mezzi |
+|---|---|---|
+| とてつもなく弱い | **debolissima** | la zattera |
+| かなり弱い | **parecchio debole** | il peschereccio, la nave pirata |
+| 結構弱い | **abbastanza debole** | la nave da crociera |
+| 弱い | **debole** | la nave da guerra, il sottomarino |
+
+Vale la regola della scala della gittata (110ª): **quattro gradini, una parola
+sola ciascuno, e nessuna perifrasi**, perché una scala si legge solo se le
+parole si allineano.
+
+⚠️ Peschereccio e nave pirata hanno lo **stesso** giapponese, e così nave da
+guerra e sottomarino: due rese coprono quattro righe. La divisione in gradini è
+dell'autore, non nostra.
+
+### ⭐⭐ La scala del potenziamento e del materiale: normale contro superiore
+
+Otto pergamene in due coppie più due, e il giapponese oppone due formule fisse:
+
+| giapponese | italiano |
+|---|---|
+| 一段階強くなる | **sale di un gradino** |
+| 性能の限界を超えて強くなる | **oltre il limite di ciò che X può dare** |
+| より強力である為失敗することはない、はずだ | **non fallisce mai. Dovrebbe.** |
+
+⭐ L'ultima è la battuta della riga: はずだ si rimangia la promessa che la frase
+ha appena fatto, e l'inglese («never fails to break the curse») la toglie. In
+italiano sta in una parola staccata.
+
+### ⓘ Le formule fisse degli atti e dei mezzi
+
+| giapponese | italiano |
+|---|---|
+| 〜の権利が得られる証書 | **un atto che dà il diritto di …** |
+| 〜の所有権を得られる証書 | **un atto che dà la proprietà di …** |
+| 権利書を染めることで塗装を指定可能 | **tingendo l'atto si sceglie la vernice** |
+| 税金は…最も高価な乗り物で計算される | **le tasse si calcolano sul mezzo più caro che hai usato nel periodo** |
+| 勉強代と思って諦めよう | **pazienza: consideralo il prezzo della lezione** |
+
+### ⚠️ 装備品 non è sempre «equipaggiamento»
+
+Il termine resta quello del glossario, ma **dentro la prosa impaginata** con la
+preposizione articolata arriva a 19-20 caratteri e l'impaginatore lo spezza. In
+cinque righe del lotto 052 è reso **«un oggetto indossato»**, che è la forma già
+usata dal rapporto di identificazione di quelle stesse pergamene.
+
+⚠️ E la soglia è un indizio, non un vincolo: nel 051 la stessa parola si è
+spezzata a `:81740` e **non** a `:95990`. Conta dove cade il taglio.
+
+### ⓘ I termini che il corpo porta, tutti già decisi altrove
+
+スライム → **la melma** (non «slime») · ハウンド → **il segugio** ·
+パラライザー → **il paralizzatore** · パンプキン → **la zucca** ·
+ダイオウサソリ → **lo scorpione re** (l'inglese scrive «giant scorpion») ·
+死神 → **la Morte**, femminile e maiuscola · ベルム家 → **casa Bellum** ·
+ポート・カプール → **Porto Kapul** · ノイエル → **Noyel** ·
+ダルフィ → **Derphy** · エウダーナ → **Eulderna** · ネフィア → **Nefia** ·
+すくつ → **il Vuoto** (l'inglese scrive «the sanctuary») ·
+形見のカバン → **la borsa dei ricordi** · 万能ムギ → **bannou mugi** ·
+沈黙の霧 → **Nebbia di silenzio** · 悪夢 → **Incubo** ·
+元素の傷 → **Cicatrice elementale** · ホーリーヴェイル → **velo sacro** ·
+マテリアル → **materiale** · 労働エナジー → **Energia da Lavoro** ·
+スタミナ → gli **SP** · 生命力 → **la vita**.
+
+### ⭐ Una parola che resta traslitterata, e la ragione è nuova
+
+**hidensho** (`:115001`). 秘伝書 scritto in **katakana**: il giapponese si
+traslittera da solo, perché la frase dice «in terre lontane e straniere le
+chiamavano così» e la terra straniera, vista da Irva, è il Giappone. Regola
+della 111ª applicata al verso opposto.
+
 ## Da decidere
 
 *Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,

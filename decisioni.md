@@ -11729,3 +11729,174 @@ vuol dire riaprire 80 righe dell'indice 3 già chiuse, con un tetto secco a 69
 che regge anche perché quelle parole non ci sono. Ma oggi il giocatore italiano
 è l'unico dei tre che il rango non lo legge, e questo va deciso apposta, non per
 inerzia.
+
+## 119ª — Una riga senza testo si rinvia, non si rende identica
+
+`db_item.hsp:129299`, `description(1)` della pozione di confusione, ha in
+tutt'e due le lingue lo stesso contenuto: `\t\t\n\n`, due tabulazioni e due a
+capo. È uno **slot vuoto**, non una frase.
+
+Le tre strade, e perché due non stanno in piedi:
+
+| strada | esito |
+|---|---|
+| resa **identica** all'inglese | `reimporta` la rifiuta — «traduzione identica all'inglese» — e, essendo tutto-o-niente, si porta dietro **tutte e 41 le righe del lotto**. È successo davvero |
+| resa **vuota** | non è esprimibile: `estrai.firme_tradotte` conta come non tradotta ogni voce con `it` falso. È la lezione della rinviata di `tcg.hsp:2470`, dove per spegnere la riga ci volle una toppa |
+| **rinviata** | l'unica che regge |
+
+**La decisione**: rinviata, con il motivo scritto per esteso in
+`rinviate.jsonl`. A schermo non cambia niente, perché la build tiene l'inglese,
+che è già lo spazio bianco che il giocatore deve vedere; e le rinviate contano
+come fatte dappertutto, quindi la categoria chiude.
+
+ⓘ Il precedente vicino è della 110ª — «due righe dell'indice 3 hanno il
+giapponese VUOTO... la riga si rende com'è». Qui è vuoto **anche l'inglese**, ed
+è il caso limite di quella stessa decisione.
+
+## 119ª — Un numero che non è zero va spiegato quanto uno che lo è
+
+La rinviata ha fatto leggere a `_114-corpo-da-fare` «FILTER_ITEM_POTION: 1 su
+82» su una categoria chiusa. Due strade:
+
+- **sottrarre le rinviate** dal «da fare». Avrebbe rotto in silenzio
+  l'invariante documentata «il totale coincide con quello di
+  `verifica --dizionario`», che le rinviate le conta: i due numeri sarebbero
+  divergiti di uno senza che niente lo dicesse;
+- **nominarle**. In fondo alla tabella adesso c'è «di cui RINVIATE, cioè non
+  lavoro: 1 — :129299 ITEM_ID_POTION_CONFUSION».
+
+**La decisione**: nominarle, come fa già `_97-quanto-resta` con la sua colonna.
+Un «1» che nessuno ha spiegato è un risultato tanto quanto uno zero che nessuno
+ha spiegato, e un numero che **migliora** sparendo va guardato con lo stesso
+sospetto di uno che peggiora.
+
+ⓘ Conseguenza da tenere: `verifica --dizionario` (356) e `_97-quanto-resta`
+(355) da qui in poi **differiscono di uno**, ed è quella riga. Chi trova un due
+cerchi una rinviata nuova, non un difetto.
+
+## 119ª — L'intermedio ricopia la riga gemella, e cambia un fatto
+
+Quattro volte in quattro lotti, sempre la stessa forma: due righe **gemelle per
+costruzione** — stessa struttura, una parola sola a distinguerle — e l'inglese
+ha ricopiato l'una nell'altra dimenticando proprio quella parola.
+
+| riga | il giapponese dice | l'inglese scrive | copiata da |
+|---|---|---|---|
+| `:59456` il tè nero | 完全発酵, fermentato **del tutto** | «minimizing the fermentation» | il tè **verde**, `:59385` |
+| `:93069` il liquido antiacido | 胃酸, i **succhi gastrici** | «the burns when you eat something hot» | il liquido **ignifugo**, `:81811` |
+| `:96060` l'atto del museo | 博物館, il **museo** | «the right to create a **shop**» | l'atto del **negozio**, `:95990` |
+| `:97128` il potenziamento dell'arma | 武器の強度, la robustezza dell'**arma** | «the strength of the **armour**» | il potenziamento dell'**armatura**, `:96986` |
+
+**Perché nessuna rete lo vede**: ogni riga presa da sola è a posto — firma
+diversa, lunghezza normale, parole tutte legittime, tetto e impaginazione a
+posto. Il guasto esiste solo **nel confronto fra le due righe**, e tre casi su
+quattro stavano in lotti diversi, cioè non si vedevano insieme nemmeno leggendo
+un dossier intero.
+
+**Come applicarlo**: la domanda non è «questa frase è giusta?» ma «questa riga
+ha una gemella, e dice la parola che la distingue?». Si fa per **struttura** —
+coppie normale/superiore, serie di oggetti dello stesso tipo, righe che
+condividono la struttura ma non il soggetto — e si fa **sull'originale**, perché
+è l'originale a dire quale parola doveva cambiare.
+
+⚠️ E in almeno un caso la parola ricopiata **regge tutta la riga**: è la
+fermentazione completa a trasformare il mana rimasto nelle foglie, cioè è quella
+parola a spiegare perché il tè nero ridà MP e il verde no. Chi avesse tradotto
+dall'inglese avrebbe scritto una descrizione che contraddice l'effetto
+dell'oggetto in gioco.
+
+Vedi `wiki/concepts/l-intermedio-ricopia-la-riga-gemella.md` nel vault.
+
+## 119ª — Un collasso dell'intermedio può cancellare una scala, non solo un carattere
+
+Sei mezzi di mare portano nell'indice 1 la stessa nota del manuale di viaggio.
+In **inglese sono sei stringhe identiche byte per byte**; in giapponese cambia
+un avverbio, e sono quattro gradini di fragilità:
+
+    とてつもなく弱い   la zattera          -> **debolissima**
+    かなり弱い         peschereccio, pirata -> **parecchio debole**
+    結構弱い           nave da crociera    -> **abbastanza debole**
+    弱い               nave da guerra, sottomarino -> **debole**
+
+**La decisione**: si tiene la scala, con quattro avverbi e una parola sola —
+come la scala della gittata della 110ª. Chi avesse reso le sei note dall'inglese
+avrebbe scritto sei volte «debolissima», cancellando una distinzione che il
+gioco usa.
+
+⭐ **E il collasso era anche il modo di trovarlo.** `estrai.firma()` è
+`sha1(giapponese + \x00 + inglese)`: dove il giapponese coincide coincide la
+firma, quindi due rese coprono quattro righe, e `_previsione.py` ha segnalato
+«+56 per 50 rese» prima che si scrivesse una parola. Uno strumento nato per
+contare il lavoro ha detto dove guardare.
+
+ⓘ La rete 13 del lotto si accende — «un inglese per 4 giapponesi diversi» — ed è
+esattamente il caso per cui esiste.
+
+## 119ª — Lo stesso contenuto in uno slot diverso, e il doppione nasce dal pannello
+
+`:55344` e `:55346` sono la cola, e i due testi non si corrispondono riga per
+riga: il giapponese mette il rutto e la montagna in fondo alla **descrizione**
+(indice 0) e lascia l'indice 2 **vuoto**; l'inglese le toglie da lì e le rimette
+nell'indice 2, virgolettate, in bocca a «some weird old guy».
+
+**La decisione**: si rende la disposizione che il giocatore ha davanti. Il
+pannello disegna i tre indici uno sotto l'altro, quindi renderle in tutt'e due i
+posti le farebbe leggere **due volte nella stessa schermata**. La battuta resta
+una sola volta, nell'indice 2, dov'è oggi. Il giapponese non perde niente: perde
+solo il doppione.
+
+⚠️ **È una forma di guasto che nessuna rete può vedere**: le due righe hanno
+firme diverse, stanno in due indici diversi, e ognuna presa da sola è a posto. Il
+doppione nasce dal **pannello**, che le mette insieme — cioè da un posto che
+nessuno strumento del progetto guarda.
+
+## 119ª — Quando un termine del glossario non ci sta a schermo
+
+Cinque righe del lotto 052 parlano di 装備品, che il progetto rende
+«equipaggiamento». Con la preposizione articolata sono **19-20 caratteri**, ben
+oltre la finestra di rinculo dell'impaginatore: la parola si sarebbe spezzata a
+metà.
+
+**La decisione**: rese «un oggetto indossato», che è la forma che il rapporto di
+identificazione di quelle stesse pergamene usa già. Non è una deroga al
+glossario — è la stessa cosa detta con le parole che il pannello lascia dire.
+
+⚠️ **E la soglia è un indizio, non un vincolo.** Nel lotto 051 «equipaggiamento»
+si è spezzata **una volta su due**: `:81740` sì, `:95990` no. Conta **dove cade
+il taglio**, non la lunghezza — è la lezione della 113ª, e questa è la prima
+volta che si verifica su un caso vero. Il preflight dà l'indizio;
+`_107-descrizioni-item --peggiori` dà il nome della riga.
+
+## 119ª — Il nome spiegato col nome si gira, non si butta
+
+`:61652` e `:61723` aprono tutt'e due dicendo «lo chiamano anche X», e in
+tutt'e due X è **il nome che il giocatore italiano ha sotto gli occhi**:
+
+| riga | nome JP | la frase dice | nome IT | regge? |
+|---|---|---|---|---|
+| `:61652` | 揮発油 | «detto anche gasolina» | **benzina** | ❌ |
+| `:61723` | 精油 | «detto anche essential oil» | **olio essenziale** | ❌ |
+
+In giapponese la frase informa: l'oggetto si chiama *olio volatile* e c'è anche
+quest'altro nome. In italiano il nome è già «benzina», e la frase spiegherebbe
+il nome col nome.
+
+**La decisione**: si **gira** l'informazione invece di buttarla — «detta anche
+olio volatile», «lo chiamano anche essenza». Il fatto che il giapponese porta —
+questa cosa ha due nomi — resta intero, e la frase è vera davanti al nome che il
+giocatore legge. È la regola della 117ª (i pesci che spiegano il proprio nome):
+il metro non è la fedeltà alla parola, è la verità a schermo.
+
+## 119ª — Il giapponese che chiama se stesso «terra straniera»
+
+`:115001`: 「遠く、異国の地ではこれらの巻物のことを**ヒデンショ**と読んでいた」 —
+*in terre lontane e straniere queste pergamene le chiamavano hidensho*. ヒデンショ
+è 秘伝書, «libro dei segreti», scritto in **katakana**, cioè col vestito che il
+giapponese mette alle parole straniere: la battuta è che il paese straniero,
+visto da Irva, è il Giappone.
+
+L'inglese traduce («Master Recipe Tomes») e la battuta muore.
+
+**La decisione**: resta traslitterata — «le chiamavano hidensho». È la regola
+della 111ª, «un termine coniato che l'inglese traslittera resta traslitterato»,
+applicata al caso in cui a traslitterarsi è il **giapponese stesso**.
