@@ -41,6 +41,113 @@ fondo somma valori di sessioni diverse. Il conto vivo lo danno
 file di `data/` compresi. Finché nessuno rifà la tabella intera, **si guardano
 quelli**.
 
+## Tre lotti, 90 rese, e si chiudono MINERALI, BACCHETTE e CONTENITORI — 2026-09-01, centoventesima sessione (seconda parte)
+
+`db_item.hsp`, il **corpo** delle descrizioni. Tre categorie intere, una per
+lotto: la decima, l'undicesima e la dodicesima.
+
+    055  FILTER_ORE        33 rese  (33 idx0)   la categoria intera
+    056  FILTER_ITEM_ROD   32 rese  (32 idx0)   la categoria intera
+    057  FILTER_CONTAINER  25 rese  (22 idx0, 3 idx2)
+
+    corpo (indici 0-2): 1.216 -> **1.306** rese su 1.513 vive
+    non tradotte di db_item.hsp: 296 -> **206**   (-90 esatte)
+    applica: 30.052 -> **30.142**   (+33, +32, +25: tutte previste, nessuna gemella)
+
+⭐ Con i lotti 053-054 della prima parte fanno **150 rese e quattro categorie
+chiuse** in una sessione sola.
+
+### ⭐⭐⭐ La ricerca delle serie e' diventata uno strumento
+
+`scratchpad/_120-serie-bacchette.py` prende un lotto e risponde a tre domande
+che il dossier non risponde, perche' mostra una voce per volta:
+
+  1. quante righe **aprono identiche**, e quale diverge;
+  2. quali righe hanno il **giapponese identico** fra loro — perche' allora le
+     rese devono essere identiche;
+  3. dove il giapponese porta una parola che l'inglese lascia cadere.
+
+⭐⭐ Sulle 32 bacchette del 056 ha trovato due cose che l'occhio avrebbe perso:
+
+  - **31 righe su 32 aprono identiche**, e l'unica che diverge e' `:111777` —
+    la bacchetta dei **desideri**, la piu' rara del gioco — che dice 貴重な杖,
+    «una bacchetta **preziosa**». L'inglese non lo porta. Il gradino sta in due
+    caratteri dentro una formula ripetuta trentadue volte: e' esattamente cio'
+    che l'occhio salta, perche' sta leggendo la parte che cambia (la gemma);
+  - **`:71856` e `:106766` hanno il giapponese IDENTICO** — l'eclissi e il
+    silenzio — e due inglesi che differiscono per **una virgola**. Le due rese
+    puntano a una **costante sola** nel file, cosi' non possono divergere per
+    distrazione; `battute --divergenti` e' rimasto a 13.
+
+⭐ E il **valore atteso** dello strumento e' «nessuna serie»: sul 057 l'ha detto
+in un secondo (25 righe, 24 aperture distinte, nessuna coppia). Sapere che non
+c'e' niente da cercare vale quanto trovare qualcosa.
+
+ⓘ E' la lezione della 119a (cercare per struttura, sull'originale) salita di un
+gradino: **la' la struttura si cercava a mano, qui si conta**. La domanda
+«questa riga ha delle sorelle?» ha smesso di dipendere da quanto sto attento.
+
+### ⚠️⚠️⚠️ Otto code su venticinque scritte a memoria, e otto sbagliate
+
+Nel 057 ho ricostruito i titoli-fonte **a senso** dal giapponese invece di
+copiarli dall'uscita di `_code.py`. Otto su venticinque, tutti plausibili e
+tutti diversi da quello in tabella:
+
+    «Alla Faccia della Chiusura! Box Mania, Numero Primo»
+                          -> «Chiudeteci Pure! Box Mania, Numero Uno»
+    «Manuale dei Giochi: Edizione per Tutte le Età»
+                          -> «Grande Compendio dei Giochi: Per Tutte le Età»
+    «Cose Belle da Ricevere in Regalo» -> «Regali che Fa Piacere Ricevere»
+    «Libro da Donare a Chi Sta per Morire» -> «Libro in Dono a Chi Sta Morendo»
+    «I Cinquanta Articoli Più Amati dai Carcerati»
+                          -> «I 50 Prodotti Preferiti dai Detenuti»
+    … e altre tre.
+
+⚠️ **Il preflight non le prende**: guarda la spaziatura e la struttura, non il
+testo del titolo. A prenderle sarebbe stato `_112-corpo-descrizioni`, il cui
+«titoli resi in PIU' modi» sarebbe salito da 7 a **15** — ma solo **dopo** il
+reimporta, cioe' dopo aver scritto nel dizionario quindici titoli doppi.
+Corrette prima, il cancello e' rimasto a 7.
+
+⭐ La regola non e' «stare piu' attento»: e' che i titoli si **copiano**
+dall'uscita dello strumento, come le righe si copiano dal template. Un titolo
+somiglia abbastanza al giusto da non insospettire chi lo rilegge.
+
+### ⚠️⚠️ La quinta riga gemella ricopiata, e la piu' grossa
+
+`:69118`, la **tavoletta di smeraldo** del lotto 055. Il giapponese dice
+錬金術の基本思想を記したエメラルドの碑文 — «l'iscrizione su smeraldo che riporta
+il pensiero fondamentale dell'alchimia», cioe' la Tavola Smeraldina. L'inglese
+ci scrive **parola per parola** la frase del rubynus e del diamante: «Large
+emerald are cut from collected gemstones that have been fused together through
+alchemy...».
+
+⚠️ Qui il guasto e' piu' grosso dei quattro della 119a, perche' la riga copiata
+**non ha senso sull'oggetto**: una tavoletta incisa non e' una gemma tagliata.
+⭐ E a confermarlo non serviva il solo giapponese: l'**indice 3**, reso e chiuso
+da sessioni, dice «Una tavoletta fatta di smeraldo», e i due indici il pannello
+li disegna uno sotto l'altro.
+
+### ⭐ Le dodici pietre dei mesi, e una distinzione che l'italiano tiene a meta'
+
+Il giapponese usa **due nomi diversi** per la stessa pietra: il nome
+dell'oggetto e' in katakana (サードニクス, アレキサンドライト), la descrizione
+usa il nome mineralogico (メノウ **l'agata**, 金緑石 **il crisoberillo**).
+L'inglese scrive due volte la stessa parola.
+
+In italiano le due coincidono quasi sempre — granato, ametista, rubino — ma nei
+**due** casi in cui la coppia esiste davvero la resa la tiene: il giocatore vede
+«M08-Sardonice» e legge «un'agata lavorata ad arte», che e' quello che legge
+anche il giocatore giapponese.
+
+⚠️ **E una cosa che questo lotto NON puo' riparare.** I dodici **nomi** portano
+in giapponese un epiteto — 真実 la verita', 高貴 la nobilta', 聡明 la sagacia,
+無垢 la purezza, 誠実 la sincerita', 情熱 la passione, 威厳 la dignita', 円満
+l'armonia, 慈愛 l'affetto, 希望 la speranza, 友情 l'amicizia, 成功 il successo —
+e l'inglese ci mette «jewel» su **dodici righe su dodici**. L'italiano ha
+seguito l'inglese. Non e' materia del corpo, ed e' la stessa forma delle due
+questioni aperte dalla 118a sui grimori: va **decisa**, non ereditata.
+
 ## Due lotti, 60 rese, e si chiude ARMI A DISTANZA — 2026-09-01, centoventesima sessione
 
 `db_item.hsp`, il **corpo** delle descrizioni (indici 0-2). La sessione ha

@@ -6,6 +6,85 @@ ancora aperte.
 
 ---
 
+## Una serie si cerca contando, non guardando — 2026-09-01, centoventesima
+
+Le due sessioni precedenti hanno trovato tre volte la stessa forma di guasto:
+righe **sorelle per costruzione**, dove il giapponese cambia una parola e
+l'inglese no (la scala delle navi, le quattro righe ricopiate, la serie delle
+tre armi). Ogni volta le ho trovate **leggendo**, e ogni volta la ripresa ha
+scritto «si cercano per struttura, sull'originale».
+
+Quella regola dipende da quanto sto attento, ed e' il tipo di regola che regge
+finche' la formula ripetuta e' corta. Nel lotto delle bacchette non lo era:
+**32 righe che aprono con la stessa frase**, e il gradino da trovare erano due
+caratteri (貴重な, «preziosa») dentro l'apertura. Leggendo il dossier non lo
+avrei visto, perche' leggendo si guarda la parte che **cambia** — la gemma — e
+si da' per identica quella che si ripete.
+
+`scratchpad/_120-serie-bacchette.py` fa tre conti su un lotto:
+
+  1. raggruppa le **aperture** (fino al primo 。) e stampa quante righe per
+     ciascuna: se una sola riga ha la sua, quella e' il gradino;
+  2. raggruppa per **giapponese intero**: due righe con lo stesso originale
+     devono avere la stessa resa, o diventano due rese diverse per la stessa
+     cosa — il difetto che `battute --divergenti` misura;
+  3. cerca le righe che infilano un aggettivo dove le sorelle non ce l'hanno.
+
+Sulle 32 bacchette ha trovato **tutt'e due** i casi che contavano: il 貴重な
+di `:111777` (la bacchetta dei desideri, la piu' rara del gioco, e l'inglese lo
+lascia cadere) e la coppia `:71856`/`:106766`, che hanno il giapponese identico
+e due inglesi diversi per una **virgola**. La seconda non si vede affatto
+leggendo: le due righe stanno a trentacinquemila righe di distanza.
+
+⭐ **E il valore atteso e' zero.** Sul lotto dei contenitori lo strumento ha
+detto «25 righe, 24 aperture distinte, nessuna coppia»: sapere in un secondo
+che non c'e' niente da cercare vale quanto trovare qualcosa, perche' altrimenti
+la regola «cerca le sorelle» costa venti minuti su ogni lotto normale.
+
+**Come applicarlo:** si lancia dopo `_corpo.py` e prima di scrivere le rese,
+insieme a `_previsione.py`. ⚠️ E dove trova due righe col giapponese identico,
+le rese si scrivono **una volta sola** — una costante nel file, non due stringhe
+uguali: due stringhe uguali oggi sono due stringhe diverse dopo la prima
+rilettura.
+
+---
+
+## Un titolo-fonte si copia dallo strumento, non si ricostruisce a senso — 2026-09-01, centoventesima
+
+Scrivendo il lotto 057 ho ricostruito otto titoli-fonte **a senso** dal
+giapponese invece di copiarli dall'uscita di `_code.py`. Otto su venticinque, e
+tutti e otto diversi da quello in tabella:
+
+    «Alla Faccia della Chiusura! Box Mania, Numero Primo»
+                          -> «Chiudeteci Pure! Box Mania, Numero Uno»
+    «Manuale dei Giochi: Edizione per Tutte le Età»
+                          -> «Grande Compendio dei Giochi: Per Tutte le Età»
+    «Cose Belle da Ricevere in Regalo» -> «Regali che Fa Piacere Ricevere»
+    «Libro da Donare a Chi Sta per Morire» -> «Libro in Dono a Chi Sta Morendo»
+    «I Cinquanta Articoli Più Amati dai Carcerati»
+                          -> «I 50 Prodotti Preferiti dai Detenuti»
+
+**Perche' e' pericoloso:** ogni titolo ricostruito e' **plausibile**. Traduce lo
+stesso giapponese, dice la stessa cosa, e riletto non insospettisce — e' la
+differenza fra un errore che salta all'occhio e uno che si mimetizza. In gioco
+sarebbero stati quindici titoli doppi: lo stesso libro con due nomi, in due
+pannelli diversi.
+
+⚠️ **Il preflight non li vede**: guarda la spaziatura prima del `\\n`, il `#`,
+le parole lunghe e i caratteri che `reimporta` rifiuta — non il **testo** del
+titolo. A prenderli sarebbe stato `_112-corpo-descrizioni` («titoli resi in
+PIU' modi», che sarebbe salito da 7 a 15), ma quello gira **dopo** il
+reimporta: avrebbe accusato un danno gia' scritto nel dizionario.
+
+**Come applicarlo:** `_code.py NNN` si lancia gia' (e' nella catena dalla 115a),
+ma la sua uscita va **letta e copiata**, non usata come conferma. Vale la regola
+che il progetto applica gia' ai lotti — «si copia il file, non si riscrive a
+memoria», che `assembla-lotto.py` rende meccanica — estesa alle code. ⓘ Nella
+120a le otto sono state corrette prima del reimporta, e il cancello dei titoli
+e' rimasto a **7**.
+
+---
+
 ## Una lista di collaudo si ricopia dalla sessione prima solo dopo aver riverificato l'INTERRUTTORE — 2026-09-01, centoventesima
 
 La 119ª aveva chiuso lasciando una lista di passi che finiva così: genera
