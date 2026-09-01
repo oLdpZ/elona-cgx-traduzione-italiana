@@ -1,0 +1,74 @@
+RIGHE = {
+    43044, 43112, 65398, 66977, 66979, 72418, 76181, 80424, 89077, 99872,
+    99937, 100002, 100067, 100132, 130844, 130909,
+}
+# 16 righe, da 43044 a 130909
+
+    # ---------------------------------------------------------- :43044
+    (43044, "Once upon a time, an evil secret society developed this hairpiece as part of their world domination scheme. It can change into various hairstyles, and once dyed, it's nearly impossible to identify the wearer. Even more terrifying, it can be controlled with brainwaves and used like a whip or drill to mercilessly kill unsuspecting victims. Only a few have been unearthed and restored by skilled craftsmen to this day. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :43112
+    (43112, "Once upon a time, an evil secret society developed this hairpiece as part of their world domination scheme. It can change into various hairstyles and was used for disguises, but cleverly, it could also double as a makeshift bulletproof helmet, concealing the fact that it was even being worn on one's head. Nowadays, only a few have been salvaged and painstakingly restored by skilled craftsmen. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :65398
+    (65398, 'Recovered from drifting in space. Analysis revealed that it was a helmet-shaped mechanical life form, but it was already unconscious when it was found. Part of its system has been successfully restored, and it is capable of simple gravity control and body function assistance. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :66977
+    (66977, 'The head of a Sunbararian. Shaped like a nautilus, it is covered with a hard shell and is surprisingly protective. Since it is probably completely dead, it is surely safe to wear, probably. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :66979
+    (66979, '\\"ＡＳＤＪＵＲＨＦＫ＞ＲＯＷＲＷ＜ＭＷ！\\" \\n# ~words of a Sunbararian~'):
+        "",
+
+# 1 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :72418
+    (72418, 'Special magical hats made of mana of wizards who were contacted by the abyss of magic. It is worn by wizards who have been resurrected as the undead, but there are rare wizards who create it while still alive. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :76181
+    (76181, 'Favorite toy of the Goddess of Fortune. If you touch it, your luck will be sucked out of you. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :80424
+    (80424, 'Shiny black helmet characterized by its horns protruding forward. It is said that only one horn is unusually long because it mimics the characteristics of the creature from which it was devised. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :89077
+    (89077, "Helmet made by a sage to attain a higher level. It is said that by wearing it, one can deepen one's knowledge and even see invisible beings. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :99872
+    (99872, 'Helmets that combine special materials to provide stronger protection. While many of these examples exist, there seem to be few examples that compensate for the inimitable weakness of weight. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :99937
+    (99937, 'Armor made to protect the head. It has a wider range of protection than a hat, but is naturally heavier. There are some funny stories about people getting stiff shoulders after using it for a long time. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :100002
+    (100002, 'A prestigious helmet made for a knight. It is elaborately carved and decorated to suit the user, but it is not merely ceremonial and offers a certain degree of protection. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :100067
+    (100067, 'A helmet built thicker than normal helmets. The defensive power is certainly improved, but the weight is sacrificed, so care must be taken when wearing it. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :100132
+    (100132, 'A fashionable hat with bird feathers. It is often worn by bards because they liken their singing voice to that of birds. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :130844
+    (130844, 'A very light hat worn by fairies. Perhaps because they consider themselves fragile, these hats have the ability to protect them from the mutations of the outside world. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :130909
+    (130909, 'A tall pointed cone hat that a mage would wear. There is no special effect of this shape, but wearing it makes you feel somewhat smarter. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+# 15 voci, 0 ambigue
+

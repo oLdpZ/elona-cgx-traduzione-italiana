@@ -1,0 +1,192 @@
+=== ITEM_ID_GENOCIDE_TAIL   [FILTER_HELM]
+    NOME      jp 《ジェノサイドテール》
+              en <Genocide Tail>
+              IT <Genocide Tail>
+    non ident. IT parrucca mutevole a codino   (en changing side-tail wig)
+    --- description(0)  :43044
+        JP  かつて世界征服を目論んだ秘密組織によって開発された。様々な髪型に変化するウィッグであり、染色までされたら装着者を見極めるのは極めて困難。しかも脳波コントロールができ、鞭やドリルのように使って油断した相手を次々に殺害したケースも。現在はわずかに発掘されたものが職人の手で修復されて残っている程度。\n#～イルヴァ幻想辞典～
+        EN  Once upon a time, an evil secret society developed this hairpiece as part of their world domination scheme. It can change into various hairstyles, and once dyed, it's nearly impossible to identify the wearer. Even more terrifying, it can be controlled with brainwaves and used like a whip or drill to mercilessly kill unsuspecting victims. Only a few have been unearthed and restored by skilled craftsmen to this day. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :43047 ⚠️ TETTO SECCO 69
+        JP  使うと見た目が変わるウィッグだ。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～
+        EN  (Reusable) side-tail wig that changes it's appearance.
+        IT  Una parrucca che cambia aspetto. Si può usare sempre.
+
+=== ITEM_ID_HAIRMET   [FILTER_HELM]
+    NOME      jp 《ヘアメット》
+              en <Hairmet>
+              IT <Hairmet>
+    non ident. IT parrucca mutevole   (en changing wig)
+    --- description(0)  :43112
+        JP  かつて世界征服を目論んだ秘密組織によって開発された。様々な髪型に変化するウィッグ。変装にも用いられていたが、装備していることを隠しつつ頭部を保護できるので、防弾チョッキの頭版みたいに使われることもあった。現在はわずかに発掘されたものが職人の手で修復されて残っている程度。\n#～イルヴァ幻想辞典～
+        EN  Once upon a time, an evil secret society developed this hairpiece as part of their world domination scheme. It can change into various hairstyles and was used for disguises, but cleverly, it could also double as a makeshift bulletproof helmet, concealing the fact that it was even being worn on one's head. Nowadays, only a few have been salvaged and painstakingly restored by skilled craftsmen. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :43115 ⚠️ TETTO SECCO 69
+        JP  使うと見た目が変わるウィッグだ。何度でも使用することができる。\n#～鑑定報告書：＜秘宝＞カテゴリ～
+        EN  (Reusable) wig that changes it's appearance.
+        IT  Una parrucca che cambia aspetto. Si può usare sempre.
+
+=== ITEM_ID_USAMIMI   [FILTER_HELM]
+    NOME      jp 《ウサミミ》
+              en <Usamimi>
+              IT <Usamimi>
+    non ident. IT elmo meccanico   (en machine helm)
+    --- description(0)  :65398
+        JP  \t\t宇宙空間を漂っていたところを回収された。解析の結果ヘルメット状の機械生命体と判明したが、発見された時すでに自意識はなかったようだ。システムの一部は復元に成功しており、簡易的な重力制御および身体機能補助が可能。\n#～イルヴァ幻想辞典～\n
+        EN  Recovered from drifting in space. Analysis revealed that it was a helmet-shaped mechanical life form, but it was already unconscious when it was found. Part of its system has been successfully restored, and it is capable of simple gravity control and body function assistance. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :65401 ⚠️ TETTO SECCO 69
+        JP  \t\tヘルメット状の機械だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a helmet-shaped machine.
+        IT  Una macchina a forma di casco.
+
+=== ITEM_ID_SUNBARARIA_HELM   [FILTER_HELM]
+    NOME      jp 《スンバラリアヘッド》
+              en <Sunbararia Helm>
+              IT <Sunbararia Helm>
+    non ident. IT nautilo verde   (en green nautilus)
+    --- description(0)  :66977
+        JP  \t\tスンバラリア星人の頭部。オウムガイのような形のそれは固い殻で覆われており、意外と防御力が高い。たぶん完全に死んでいるので、おそらく被ってもきっと大丈夫なはず。\n#～イルヴァ幻想辞典～\n
+        EN  The head of a Sunbararian. Shaped like a nautilus, it is covered with a hard shell and is surprisingly protective. Since it is probably completely dead, it is surely safe to wear, probably. \n# ~Irva Fantasy Encyclopedia~
+    --- description(2)  :66979
+        JP  \t\t「ＡＳＤＪＵＲＨＦＫ＞ＲＯＷＲＷ＜ＭＷ！」\n#～スンバラリア星人の言葉～\n
+        EN  \"ＡＳＤＪＵＲＨＦＫ＞ＲＯＷＲＷ＜ＭＷ！\" \n# ~words of a Sunbararian~
+    --- description(3)  :66980 ⚠️ TETTO SECCO 69
+        JP  \t\t異星人の頭部を利用した兜だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a helmet made from an alien's head.
+        IT  Un elmo ricavato dalla testa di un extraterrestre.
+
+=== ITEM_ID_MAG_ABYSS   [FILTER_HELM]
+    NOME      jp 《アルアビス》
+              en <Mag-Abyss>
+              IT <Mag-Abyss>
+    non ident. IT cappello blu scuro   (en deep blue hat)
+    --- description(0)  :72418
+        JP  \t\t死の際に魔法の深淵に触れた魔法使いが、生前のマナを込めて作った特殊な魔法帽。アンデッドとなって甦った魔法使いが着用するものだが、稀に生きながらにして作り出す魔法使いもいる。\n#～イルヴァ幻想辞典～\n
+        EN  Special magical hats made of mana of wizards who were contacted by the abyss of magic. It is worn by wizards who have been resurrected as the undead, but there are rare wizards who create it while still alive. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :72421 ⚠️ TETTO SECCO 69
+        JP  \t\t魔法を増幅する帽子だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a hat that amplifies the magic.
+        IT  Un cappello che amplifica la magia.
+
+=== ITEM_ID_WHEEL_OF_FORTUNE   [FILTER_HELM]
+    NOME      jp 《運命の輪》
+              en <Wheel of Fortune>
+              IT <Ruota della Fortuna>
+    non ident. IT sfera luminosa divina   (en god jewel)
+    --- description(0)  :76181
+        JP  \t\t幸運の神のお気に入りの玩具。定命が下手に触れようものなら運を吸い取られる。\n#～イルヴァ幻想辞典～\n
+        EN  Favorite toy of the Goddess of Fortune. If you touch it, your luck will be sucked out of you. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :76184 ⚠️ TETTO SECCO 69
+        JP  \t\t身に着けると変形して頭につける輪になる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a godly gift that when worn, transforms into a circlet.
+        IT  Se lo indossi, si trasforma in un cerchietto da testa.
+
+=== ITEM_ID_FIVE_HORNED_HELM   [FILTER_HELM]
+    NOME      jp 《五本角の兜》
+              en <Five Horned Helm>
+              IT <Elmo a Cinque Corna>
+    non ident. IT elmo cornuto   (en horned helmet)
+    --- description(0)  :80424
+        JP  \t\t前方に突き出た角が特徴の黒々と光った兜。一本の角だけ異常に長いのは、考案元の生物の特徴をそのまま真似たからだと言われている。\n#～イルヴァ幻想辞典～\n
+        EN  Shiny black helmet characterized by its horns protruding forward. It is said that only one horn is unusually long because it mimics the characteristics of the creature from which it was devised. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :80427 ⚠️ TETTO SECCO 69
+        JP  \t\t攻撃的な性能を持った兜だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a helmet with offensive capabilities.
+        IT  Un elmo con doti offensive.
+
+=== ITEM_ID_SAGES_HELM   [FILTER_HELM]
+    NOME      jp 《賢者の兜》
+              en <Sage's Helm>
+              IT <Elmo del Saggio>
+    non ident. IT elmo abbagliante   (en shining helm)
+    --- description(0)  :89077
+        JP  \t\t賢者がより高みを目指す為に製作した兜。身につけることで知識が深まり、本来見えない存在まで見ることができるという。\n#～イルヴァ幻想辞典～\n
+        EN  Helmet made by a sage to attain a higher level. It is said that by wearing it, one can deepen one's knowledge and even see invisible beings. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :89080 ⚠️ TETTO SECCO 69
+        JP  \t\t見えない者を見ることができる兜だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a helmet that can see the invisible.
+        IT  Un elmo che fa vedere chi non si vede.
+
+=== ITEM_ID_COMPOSITE_HELM   [FILTER_HELM]
+    NOME      jp 合金兜
+              en composite helm
+              IT elmo composito
+    --- description(0)  :99872
+        JP  \t\t特殊な素材をかけ合わせてより強固な防護を得た兜。素材の持つ長所を生かし、短所を補うといったこれらのパターンは多く見られるが、重量という無二の短所を補った逸品は少ないようだ。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Helmets that combine special materials to provide stronger protection. While many of these examples exist, there seem to be few examples that compensate for the inimitable weakness of weight. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :99875 ⚠️ TETTO SECCO 69
+        JP  \t\t固い兜だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a very sturdy helm.
+        IT  Un elmo duro.
+
+=== ITEM_ID_HELM   [FILTER_HELM]
+    NOME      jp 兜
+              en helm
+              IT elmo
+    --- description(0)  :99937
+        JP  \t\t頭部を守る為に作られた防具。帽子より防護する範囲が広くなったが当然重量は増している。長時間使用していて肩凝りになった、などという笑い話もあるようだ。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Armor made to protect the head. It has a wider range of protection than a hat, but is naturally heavier. There are some funny stories about people getting stiff shoulders after using it for a long time. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :99940 ⚠️ TETTO SECCO 69
+        JP  \t\t頭部を守る為の防具だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a standard helm.
+        IT  Un'armatura per proteggere la testa.
+
+=== ITEM_ID_KNIGHT_HELM   [FILTER_HELM]
+    NOME      jp 騎士兜
+              en knight helm
+              IT elmo da cavaliere
+    --- description(0)  :100002
+        JP  \t\t騎士用に作られた格調高い兜。使う者に合わせ、趣向を凝らした彫金と飾りが付けられているが、単なる儀礼用ではなく、一定の防護も備わっている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A prestigious helmet made for a knight. It is elaborately carved and decorated to suit the user, but it is not merely ceremonial and offers a certain degree of protection. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :100005 ⚠️ TETTO SECCO 69
+        JP  \t\t騎士用の兜だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a helm made for knights.
+        IT  Un elmo per i cavalieri.
+
+=== ITEM_ID_HEAVY_HELM   [FILTER_HELM]
+    NOME      jp 重兜
+              en heavy helm
+              IT elmo pesante
+    --- description(0)  :100067
+        JP  \t\t通常のものより厚めに作られた兜。防御力は確かに上がっているが、その分重量を犠牲にしている為身につける際には注意が必要だ。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A helmet built thicker than normal helmets. The defensive power is certainly improved, but the weight is sacrificed, so care must be taken when wearing it. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :100070 ⚠️ TETTO SECCO 69
+        JP  \t\t重量がある兜だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a heavy helm designed for good protection.
+        IT  Un elmo di un certo peso.
+
+=== ITEM_ID_FEATHER_HAT   [FILTER_HELM]
+    NOME      jp 羽帽子
+              en feather hat
+              IT cappello piumato
+    --- description(0)  :100132
+        JP  \t\t鳥類の羽飾りがついたお洒落な帽子。吟遊詩人が良く身につけているが、それは彼らが自らの歌声を鳥のそれになぞらえているからだとか。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A fashionable hat with bird feathers. It is often worn by bards because they liken their singing voice to that of birds. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :100135 ⚠️ TETTO SECCO 69
+        JP  \t\t羽のついた帽子だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a hat with a feather often worn by bards.
+        IT  Un cappello con una piuma.
+
+=== ITEM_ID_FAIRY_HAT   [FILTER_HELM]
+    NOME      jp フェアリーハット
+              en fairy hat
+              IT cappello da fata
+    --- description(0)  :130844
+        JP  \t\t妖精達が身につけるという非常に軽い帽子。か弱き存在と自負する故か、その帽子には外界の変異から身を守る能力が備わっているという。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A very light hat worn by fairies. Perhaps because they consider themselves fragile, these hats have the ability to protect them from the mutations of the outside world. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :130847 ⚠️ TETTO SECCO 69
+        JP  \t\t妖精向けの帽子だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is an exotic hat designed for faeries.
+        IT  Un cappello per le fate.
+
+=== ITEM_ID_MAGIC_HAT   [FILTER_HELM]
+    NOME      jp 魔法帽
+              en magic hat
+              IT cappello magico
+    --- description(0)  :130909
+        JP  \t\t魔道士が身につけていそうな三角形の帽子。特に得られる効果はないが、被ることで何となく賢くなった気分にはさせてくれる。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A tall pointed cone hat that a mage would wear. There is no special effect of this shape, but wearing it makes you feel somewhat smarter. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :130912 ⚠️ TETTO SECCO 69
+        JP  \t\t魔法使いのための帽子だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a hat mages often wear.
+        IT  Un cappello per i maghi.
+
+== 15 oggetti, 31 descrizioni
