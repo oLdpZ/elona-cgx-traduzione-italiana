@@ -1,0 +1,17 @@
+:65947
+   en  # ~Collection of Armaments you can Use Tomorrow~
+   IT  # ~Raccolta di Armi e Armature da Usare Domani~
+:96634
+   en  # ~Collection of Armaments you can Use Tomorrow~
+   IT  # ~Raccolta di Armi e Armature da Usare Domani~
+:98725
+   en  # ~Collection of Armaments you can Use Tomorrow~
+   IT  # ~Raccolta di Armi e Armature da Usare Domani~
+:126986
+   en  # ~Collection of Armaments you can Use Tomorrow~
+   IT  # ~Raccolta di Armi e Armature da Usare Domani~
+:127062
+   en  # ~Collection of Armaments you can Use Tomorrow~
+   IT  # ~Raccolta di Armi e Armature da Usare Domani~
+
+righe senza resa in tabella: 0   (atteso 0)

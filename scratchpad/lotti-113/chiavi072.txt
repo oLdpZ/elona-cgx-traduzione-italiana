@@ -1,0 +1,27 @@
+RIGHE = {
+    65947, 96634, 98725, 126986, 127062,
+}
+# 5 righe, da 65947 a 127062
+
+    # ---------------------------------------------------------- :65947
+    (65947, 'Bullets with the same caliber but with a greatly increased amount of gunpowder. It can be used in handguns with high power, but the recoil is significant. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :96634
+    (96634, 'High-energy materials are processed into bullets using special technology. A special firearm is required to use them. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :98725
+    (98725, 'A thin rod-shaped arrowhead with a square arrowhead used in mechanical bows. Although heavy, it is the only one that can be loaded into a mechanical bow. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :126986
+    (126986, 'Small spheres machined to be fired from a firearm. Without it, a firearm would be nothing but a mere tube, no matter how prestigious the gun may be. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :127062
+    (127062, 'A bundle of arrows for use with a bow. Because they are bundled, some materials are very heavy and must be carried with care. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+# 5 voci, 0 ambigue
+
