@@ -1,0 +1,125 @@
+=== ITEM_ID_ASSAULT_GOLD   [FILTER_CLOAK]
+    NOME      jp 《黄金剣舞翼》
+              en <Assault Gold>
+              IT <Oro d'Assalto>
+    non ident. IT ala dorata   (en golden wing)
+    --- description(0)  :59062
+        JP  \t\t異世界の女神が作り出したとされる絶器。それは光輝にして守護の剣。世界を越えて空から舞い降り、闇をはらうとされる黄金の翼。\n#～イルヴァ幻想辞典～\n
+        EN  Exquisite weapons said to have been created by a goddess from another world. It is a sword of light and protection. These golden wings are said to transcend the world, descend from the sky, and repel darkness. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :59065 ⚠️ TETTO SECCO 69
+        JP  \t\t敵へひとりでに突撃する翼だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  These are wings that automatically assault the enemy.
+        IT  Delle ali che caricano il nemico da sole.
+
+=== ITEM_ID_MIGHTY_ARMS   [FILTER_CLOAK]
+    NOME      jp 《GARMS-2》
+              en <Mighty Arms>
+              IT <Mighty Arms>
+    non ident. IT bracci meccanici   (en machine arms)
+    --- description(0)  :63652
+        JP  \t\t元は戦闘用義手だったものを、付け替えが容易な装備として発展させた。神経接続せずに電気信号を服の上から読み取るため、状況によっては思い通りに動かないこともある。マニピュレーターが頑丈に作られており、ギア比を変えることで強烈な攻撃も繰り出せる。\n#～イルヴァ幻想辞典～\n
+        EN  Originally a prosthetic hand designed for combat, it has been developed into an easily replaceable piece of equipment. Electrical signals are read from the clothing without any neural connection, so depending on the situation, it may not work as desired. The manipulators are made to be sturdy, and by changing the gear ratio, powerful attacks can be unleashed. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :63655 ⚠️ TETTO SECCO 69
+        JP  \t\t機械仕掛けの副腕だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a pair of mechanical side arms.
+        IT  Delle braccia in più, meccaniche.
+
+=== ITEM_ID_METAL_WING_OF_VESDA   [FILTER_CLOAK]
+    NOME      jp 《メタルヴェスダの機械翼》
+              en <Metal Wing of Vesda>
+              IT <Ala Metallica di Vesda>
+    non ident. IT ala di metallo   (en metal wing)
+    --- description(0)  :76587
+        JP  \t\tイェルス軍が火炎竜の翼を元に開発した飛行・推進ユニット。頑丈で、防御に使えないこともない。兵士の個人装備として開発されたが脚部装着型飛行ユニットにコンペで敗れ、採用は見送られた。しかしその飛行能力は確かであったため、後に空戦兵器の部品として転用されている。\n#～イルヴァ幻想辞典～\n
+        EN  Flight and propulsion unit developed by the Yerles military based on the wings of a flaming dragon. It is sturdy and can be used for defense. It was developed as personal equipment for soldiers, but lost in a competition to a leg-mounted flying unit and was not adopted. However, its flight capability was so strong that it was later used as a component in air combat weapons. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :76590 ⚠️ TETTO SECCO 69
+        JP  \t\t機械仕掛けの翼だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a pair of mechanical wings.
+        IT  Delle ali meccaniche.
+
+=== ITEM_ID_HEROS_CLOAK   [FILTER_CLOAK]
+    NOME      jp 《英雄のマント》
+              en <Hero's Cloak>
+              IT <Mantello dell'Eroe>
+    non ident. IT mantello sciatto   (en shabby cloak)
+    --- description(0)  :77354
+        JP  \t\tかつての英雄が身に着けていたマント。ボロボロのヨレヨレであるため、幸薄そうな者が着ると悪い意味でサマになってしまう。渋い人なら着こなせるかもしれないが。\n#～イルヴァ幻想辞典～\n
+        EN  A cloak worn by heroes in the past. Because it is tattered and shabby, it looks bad when worn by someone who seems to be less fortunate. A person who is austere may be able to wear it, though. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :77357 ⚠️ TETTO SECCO 69
+        JP  \t\tよれよれになるまで使い込まれた外套だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a cloak used, shabby, and worn out.
+        IT  Un mantello portato fino a ridurlo sciatto.
+
+=== ITEM_ID_VINDALE_CLOAK   [FILTER_CLOAK]
+    NOME      jp ヴィンデールクローク
+              en vindale cloak
+              IT mantello di Vindale
+    --- description(0)  :93692
+        JP  \t\t異形の森から巻き起こる忌むべき風を防ぐという外套。あくまでも風による変異を防ぐ為の物なので、日常的な変異や雨風はしのげないだろう。\n#～イルヴァ幻想辞典～\n
+        EN  This cloak is designed to protect against the abominable winds that arise from the Vindale Forest. It is designed to prevent etherwind-induced mutation, so it will not be able to withstand everyday mutation or rain and wind. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :93695 ⚠️ TETTO SECCO 69
+        JP  \t\tエーテルの嵐から身を守る外套だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a cloak that protects against the etherwind.
+        IT  Un mantello che protegge dal vento di etere.
+
+=== ITEM_ID_FEATHER   [FILTER_CLOAK]
+    NOME      jp 羽
+              en feather
+              IT piuma
+    --- description(0)  :94022
+        JP  \t\tコウモリの羽を模した装具。背中の攻撃を防ぐことができるが、あくまでも外見を彩る為に作られている。尚、微小ながら宙に浮くといった効果も持つ。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Ornaments that resemble the wings of a bat. It can prevent attacks on the back, but it is made only to decorate the appearance of the wearer. It allows floating in the air, albeit only slightly. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :94025 ⚠️ TETTO SECCO 69
+        JP  \t\t背中に付ける羽飾りだ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a feather ornament to be worn on the back.
+        IT  Un ornamento di piume da mettere sulla schiena.
+
+=== ITEM_ID_WING   [FILTER_CLOAK]
+    NOME      jp 翼
+              en wing
+              IT ala
+    --- description(0)  :96124
+        JP  \t\t鳥の羽を模した装具。背中の攻撃を防ぐことができるが、あくまでも外見を彩る為に作られている。尚、微小ながら宙に浮くといった効果も持つ。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Ornaments that resemble the wings of a bird. It can prevent attacks on the back, but it is made only to decorate the appearance of the wearer. It allows floating in the air, albeit only slightly. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :96127 ⚠️ TETTO SECCO 69
+        JP  \t\t背中に付ける羽飾りだ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a feather ornament to be worn on the back.
+        IT  Un ornamento di piume da mettere sulla schiena.
+
+=== ITEM_ID_CLOAK   [FILTER_CLOAK]
+    NOME      jp 外套
+              en cloak
+              IT mantello
+    --- description(0)  :100197
+        JP  \t\t体に巻きつけるゆったりとした布生地。幾多の素材を織り込むことで布自体の強度を増している。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A loose-fitting fabric that wraps around the body. The strength of the cloth itself is increased by weaving in a number of materials. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :100200 ⚠️ TETTO SECCO 69
+        JP  \t\t背中に羽織る防具だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a heavy cloak designed for travel.
+        IT  Un'armatura da buttarsi sulle spalle.
+
+=== ITEM_ID_ARMORED_CLOAK   [FILTER_CLOAK]
+    NOME      jp 防護外套
+              en armored cloak
+              IT mantello corazzato
+    --- description(0)  :100262
+        JP  \t\t素材を織り込んだ布の裏に固い金属を張り付けた外套。身に纏うことで幾らかの攻撃を防ぐことができる。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A cloak of hard metal attached to the back of a cloth made of interwoven materials. Wearing this cloak can protect the wearer from some attacks. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :100265 ⚠️ TETTO SECCO 69
+        JP  \t\t戦闘用に加工された外套だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a reinforced cloak designed for protection.
+        IT  Un mantello lavorato per il combattimento.
+
+=== ITEM_ID_LIGHT_CLOAK   [FILTER_CLOAK]
+    NOME      jp 軽外套
+              en light cloak
+              IT mantello leggero
+    --- description(0)  :126777
+        JP  \t\t鎧の上から羽織る薄い布生地。幾多の素材を織り込むことで布自体の強度を増している。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A thin cloth fabric worn over armor. The strength of the cloth itself is increased by weaving in a number of materials. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :126780 ⚠️ TETTO SECCO 69
+        JP  \t\t軽い外套だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a light mantle.
+        IT  Un mantello leggero.
+
+== 10 oggetti, 20 descrizioni

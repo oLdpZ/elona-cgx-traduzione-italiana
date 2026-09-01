@@ -1,0 +1,32 @@
+:59062
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:63652
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:76587
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:77354
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:93692
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:94022
+   en  # ~Collection of Armaments you can Use Tomorrow~
+   IT  # ~Raccolta di Armi e Armature da Usare Domani~
+:96124
+   en  # ~Collection of Armaments you can Use Tomorrow~
+   IT  # ~Raccolta di Armi e Armature da Usare Domani~
+:100197
+   en  # ~Collection of Armaments you can Use Tomorrow~
+   IT  # ~Raccolta di Armi e Armature da Usare Domani~
+:100262
+   en  # ~Collection of Armaments you can Use Tomorrow~
+   IT  # ~Raccolta di Armi e Armature da Usare Domani~
+:126777
+   en  # ~Collection of Armaments you can Use Tomorrow~
+   IT  # ~Raccolta di Armi e Armature da Usare Domani~
+
+righe senza resa in tabella: 0   (atteso 0)
