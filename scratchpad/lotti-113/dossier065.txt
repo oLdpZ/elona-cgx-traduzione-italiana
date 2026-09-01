@@ -1,0 +1,137 @@
+=== ITEM_ID_RASEN   [FILTER_ACCESSORY_RING]
+    NOME      jp 《ダブルヘリックス》
+              en <Rasen>
+              IT <Rasen>
+    non ident. IT anello intrecciato   (en intertwined ring)
+    --- description(0)  :56737
+        JP  \t\t異なる二つの力を宿した指輪。再生能力を補助する役割も持っている。赤と青のラインが螺旋のように絡み合うデザイン。\n#～イルヴァ幻想辞典～\n
+        EN  The ring possesses two different elemental powers. It also assists the regenerative capabilities. The red and blue lines intertwine like a spiral. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :56740 ⚠️ TETTO SECCO 69
+        JP  \t\t竜が作り出した指輪だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a ring created by the dragon.
+        IT  Un anello fatto da un drago.
+
+=== ITEM_ID_MAGIC_CANCELER   [FILTER_ACCESSORY_RING]
+    NOME      jp 《魔断の指輪》
+              en <Magic Canceler>
+              IT <Annullatore di Magia>
+    non ident. IT sfera luminosa divina   (en god jewel)
+    --- description(0)  :75581
+        JP  \t\t元素の神が生み出した、魔力を封じる指輪。強大な魔力をも抑え込む。\n#～イルヴァ幻想辞典～\n
+        EN  Ring that seals magic power, created by the God of Elements. It suppresses immense amounts of magical power. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :75584 ⚠️ TETTO SECCO 69
+        JP  \t\t身に着けると変形して指輪になる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a godly gift that when worn, transforms into a ring.
+        IT  Se lo indossi, si trasforma in un anello.
+
+=== ITEM_ID_SPEED_RING   [FILTER_ACCESSORY_RING]
+    NOME      jp スピードの指輪
+              en speed ring
+              IT anello della velocità
+    --- description(0)  :86671
+        JP  \t\t人を常に加速させる魔力が込められた指輪。老化するという弊害はないので、愛用している冒険者も多いようだ。\n#～イルヴァ幻想辞典～\n
+        EN  This ring is filled with magical power that constantly accelerates a person. Since it has no harmful effects of aging, many adventurers seem to love using it. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :86674 ⚠️ TETTO SECCO 69
+        JP  \t\t速度が上昇する指輪だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a rare magical ring that increases your speed.
+        IT  Un anello che alza la velocità.
+
+=== ITEM_ID_AURORA_RING   [FILTER_ACCESSORY_RING]
+    NOME      jp オーロラリング
+              en aurora ring
+              IT anello dell'aurora
+    --- description(0)  :93627
+        JP  \t\t周辺の季候を感じ取り、悪天候に合わせて効果を発揮する指輪。その際指輪は柔らかい光を放ち、周囲に静穏を保つ力場を作り出すのだという。\n#～イルヴァ幻想辞典～\n
+        EN  The ring senses the surrounding seasonal weather and is effective in bad weather. In doing so, the ring emits a soft light and creates a force field that maintains tranquility in the surrounding area. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :93630 ⚠️ TETTO SECCO 69
+        JP  \t\t悪天候でも歩みが遅れなくなる指輪だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a ring that protects you from bad weather.
+        IT  Un anello che non fa rallentare col brutto tempo.
+
+=== ITEM_ID_ENGAGEMENT_RING   [FILTER_ACCESSORY_RING]
+    NOME      jp 結婚指輪
+              en engagement ring
+              IT anello nuziale
+    --- description(0)  :99162
+        JP  \t\t婚礼の儀において、伴侶となる者へ送られる愛のこめられた指輪。当然ながらこの指輪は伴侶の所有物となるので、無理やり取り上げようものなら激しい怒りを買うこととなろう。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Rings of love are given to the spouse at the wedding ceremony. Naturally, the ring belongs to the spouse, and forcibly taking it away from him or her will provoke his or her fury. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :99165 ⚠️ TETTO SECCO 69
+        JP  \t\t上げた人との友好度が上がる指輪。返ってくることはない。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a ring given to raise affection, won't be returned.
+        IT  Dato a qualcuno, alza la simpatia. Non torna indietro.
+
+=== ITEM_ID_RING   [FILTER_ACCESSORY_RING]
+    NOME      jp 指輪
+              en ring
+              IT anello
+    --- description(0)  :99233
+        JP  \t\t指にはめる輪状の装具。儀礼的なことに用いる簡素なものや、重大な魔力が封じ込められたもの等、その種類は多様であるという。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Rings of ornaments worn on the fingers. There are a variety of types, including simple ones used for ceremonial purposes and ones in which significant magical power is enclosed. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :99236 ⚠️ TETTO SECCO 69
+        JP  \t\t指にはめる輪だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a decoration to put on your finger.
+        IT  Un cerchio da infilare al dito.
+
+=== ITEM_ID_ARMORED_RING   [FILTER_ACCESSORY_RING]
+    NOME      jp 指当て
+              en armored ring
+              IT anello corazzato
+    --- description(0)  :99305
+        JP  \t\tより指を守ることに特化した指輪。装飾品としての価値は低いが、身を守る際にはこちらの方が良いと言えるだろう。\n#～明日から使えるあなたの為の武具集～\n
+        EN  This ring is more specialized in protecting the finger. Although less valuable as an ornament, this is a better choice when protecting oneself. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :99308 ⚠️ TETTO SECCO 69
+        JP  \t\t指にはめる加工品だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is an armor plate that is processed to fit on the finger.
+        IT  Un pezzo lavorato da infilare al dito.
+
+=== ITEM_ID_COMPOSITE_RING   [FILTER_ACCESSORY_RING]
+    NOME      jp 合金指輪
+              en composite ring
+              IT anello composito
+    --- description(0)  :99377
+        JP  \t\t多様な素材を混ぜ合わせ、より高みを目指した指輪。耐久性に富む為斬新な試みをした作品も多く、通常のものよりはやや値段が張るようだ。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Rings made by mixing a variety of materials to achieve a higher level of performance. Many of them are more expensive than ordinary rings because of their durability and novelty. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :99380 ⚠️ TETTO SECCO 69
+        JP  \t\t固い指輪だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a sturdy ring.
+        IT  Un anello duro.
+
+=== ITEM_ID_PALMIA_PRIDE   [FILTER_ACCESSORY_RING]
+    NOME      jp 《パルミア・プライド》
+              en <Palmia Pride>
+              IT <Palmia Pride>
+    non ident. IT anello azzurro   (en blue ring)
+    --- description(0)  :107181
+        JP  \t\t青緑色の宝石を携えた小さくかわいらしい指輪。秘められた力によって、所有者の気品を高めるという。\n#～ルミエスト美術目録～\n
+        EN  Lovely small ring with a blue-green gemstone. It is said to enhance the owner's nobility through its hidden power. \n# ~Lumiest Art Catalogue~
+    --- description(3)  :107184 ⚠️ TETTO SECCO 69
+        JP  \t\t運勢の上がる指輪だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a ring that will bring you luck.
+        IT  Un anello che alza la fortuna.
+
+=== ITEM_ID_RING_OF_STEEL_DRAGON   [FILTER_ACCESSORY_RING]
+    NOME      jp 《鋼鉄竜の指輪》
+              en <Ring of Steel Dragon>
+              IT <Anello del Drago d'Acciaio>
+    non ident. IT anello d'acciaio   (en steel ring)
+    --- description(0)  :107390
+        JP  \t\t鋼鉄竜の骨から作られたとされる武骨な指輪。身につければ自らが鋼鉄竜となったと錯覚させる程の強大な力を得るという。\n#～イルヴァ幻想辞典～\n
+        EN  Ring said to have been made from the bones of a steel dragon. It is said to be so powerful that the wearer is made to believe he or she has become a steel dragon. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :107393 ⚠️ TETTO SECCO 69
+        JP  PVが非常に高い指輪だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a ring with a very high protective value.
+        IT  Un anello dal PV altissimo.
+
+=== ITEM_ID_DECORATIVE_RING   [FILTER_ACCESSORY_RING]
+    NOME      jp 装飾の指輪
+              en decorative ring
+              IT anello decorativo
+    --- description(0)  :130385
+        JP  \t\t様々な飾りがとても美しい指輪。かつて、この小さな円の中にどれだけの彩を凝らすかで職人の腕が競われたことがあったという。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Beautiful ring with a variety of decorations. It is said that once there was a competition among craftsmen to see how much color they could put onto this small ring. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :130388 ⚠️ TETTO SECCO 69
+        JP  \t\t幾つかの装飾がされた指輪だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a pretty ring with a few embellishments.
+        IT  Un anello con qualche decorazione.
+
+== 11 oggetti, 22 descrizioni

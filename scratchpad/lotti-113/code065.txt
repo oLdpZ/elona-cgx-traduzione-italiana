@@ -1,0 +1,35 @@
+:56737
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:75581
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:86671
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:93627
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:99162
+   en  # ~Collection of Armaments you can Use Tomorrow~
+   IT  # ~Raccolta di Armi e Armature da Usare Domani~
+:99233
+   en  # ~Collection of Armaments you can Use Tomorrow~
+   IT  # ~Raccolta di Armi e Armature da Usare Domani~
+:99305
+   en  # ~Collection of Armaments you can Use Tomorrow~
+   IT  # ~Raccolta di Armi e Armature da Usare Domani~
+:99377
+   en  # ~Collection of Armaments you can Use Tomorrow~
+   IT  # ~Raccolta di Armi e Armature da Usare Domani~
+:107181
+   en  # ~Lumiest Art Catalogue~
+   IT  # ~Catalogo d'Arte di Lumiest~
+:107390
+   en  # ~Irva Fantasy Encyclopedia~
+   IT  # ~Dizionario Fantastico di Irva~
+:130385
+   en  # ~Collection of Armaments you can Use Tomorrow~
+   IT  # ~Raccolta di Armi e Armature da Usare Domani~
+
+righe senza resa in tabella: 0   (atteso 0)

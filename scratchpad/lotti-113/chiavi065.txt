@@ -1,0 +1,52 @@
+RIGHE = {
+    56737, 75581, 86671, 93627, 99162, 99233, 99305, 99377, 107181, 107390,
+    130385,
+}
+# 11 righe, da 56737 a 130385
+
+    # ---------------------------------------------------------- :56737
+    (56737, 'The ring possesses two different elemental powers. It also assists the regenerative capabilities. The red and blue lines intertwine like a spiral. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :75581
+    (75581, 'Ring that seals magic power, created by the God of Elements. It suppresses immense amounts of magical power. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :86671
+    (86671, 'This ring is filled with magical power that constantly accelerates a person. Since it has no harmful effects of aging, many adventurers seem to love using it. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :93627
+    (93627, 'The ring senses the surrounding seasonal weather and is effective in bad weather. In doing so, the ring emits a soft light and creates a force field that maintains tranquility in the surrounding area. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :99162
+    (99162, 'Rings of love are given to the spouse at the wedding ceremony. Naturally, the ring belongs to the spouse, and forcibly taking it away from him or her will provoke his or her fury. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :99233
+    (99233, 'Rings of ornaments worn on the fingers. There are a variety of types, including simple ones used for ceremonial purposes and ones in which significant magical power is enclosed. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :99305
+    (99305, 'This ring is more specialized in protecting the finger. Although less valuable as an ornament, this is a better choice when protecting oneself. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :99377
+    (99377, 'Rings made by mixing a variety of materials to achieve a higher level of performance. Many of them are more expensive than ordinary rings because of their durability and novelty. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :107181
+    (107181, "Lovely small ring with a blue-green gemstone. It is said to enhance the owner's nobility through its hidden power. \\n# ~Lumiest Art Catalogue~"):
+        "",
+
+    # ---------------------------------------------------------- :107390
+    (107390, 'Ring said to have been made from the bones of a steel dragon. It is said to be so powerful that the wearer is made to believe he or she has become a steel dragon. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :130385
+    (130385, 'Beautiful ring with a variety of decorations. It is said that once there was a competition among craftsmen to see how much color they could put onto this small ring. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+# 11 voci, 0 ambigue
+
