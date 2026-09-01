@@ -1,0 +1,125 @@
+=== ITEM_ID_CESTUS_OF_METEORS   [FILTER_GLOVES]
+    NOME      jp 《流星群のセスタス》
+              en <Cestus of Meteors>
+              IT <Cesto delle Meteore>
+    non ident. IT cinghie di cuoio bianche   (en white leather straps)
+    --- description(0)  :62801
+        JP  \t\t金具を打ち込んだ、白い丈夫な革紐。前腕部から拳にかけてバンテージのように巻き付けて装備する。隕鉄製の金具には魔力が含まれているのだとか。\n#～イルヴァ幻想辞典～\n
+        EN  Sturdy white leather strap with metal fittings hammered into it. It is worn around the forearm and fist like a bandage. The metal fittings made of meteoric iron are said to contain magical power. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :62804 ⚠️ TETTO SECCO 69
+        JP  \t\t流星群を思わせる連続攻撃を可能とする腕装備だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is an armguard that allow combo-attacks like a meteor shower.
+        IT  Un bracciale che dà raffiche di colpi come uno sciame di meteore.
+
+=== ITEM_ID_AUREATE_CONSTRICTER   [FILTER_GLOVES]
+    NOME      jp 《金色の鎖》
+              en <Aureate Constricter>
+              IT <Costrittore Aureo>
+    non ident. IT sfera luminosa divina   (en god jewel)
+    --- description(0)  :75647
+        JP  \t\t富の神が特注で作らせたド派手な鎖。見てるだけで嫌になるくらい絢爛豪華。\n#～イルヴァ幻想辞典～\n
+        EN  Flashy chains that the God of Wealth had custom-made. It is so gorgeous that just looking at it makes you feel sick. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :75650 ⚠️ TETTO SECCO 69
+        JP  \t\t身に着けると変形して腕装備になる。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a godly gift that when worn, transforms and becomes gauntlets.
+        IT  Se lo indossi, si trasforma in un bracciale.
+
+=== ITEM_ID_BLUE_SPIRIT   [FILTER_GLOVES]
+    NOME      jp 《精霊手甲》
+              en <Blue Spirit>
+              IT <Spirito Blu>
+    non ident. IT guanti d'arme azzurri   (en gauntlets of blue)
+    --- description(0)  :75714
+        JP  \t\t謎の紋様が表面に描かれた青い篭手。精霊を宿す。\n#～イルヴァ幻想辞典～\n
+        EN  A blue glove with a mysterious pattern on its surface. It holds a spirit. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :75717 ⚠️ TETTO SECCO 69
+        JP  \t\t絶器と呼ばれる篭手だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  These are gloves that is called a 'zekki'.
+        IT  Dei guanti d'arme detti zekki.
+
+=== ITEM_ID_COMPOSITE_GAUNTLETS   [FILTER_GLOVES]
+    NOME      jp 合成篭手
+              en composite gauntlets
+              IT guanti d'arme compositi
+    --- description(0)  :101114
+        JP  \t\t特殊な素材をかけ合わせてより強固な防護を得た篭手。主に甲冑に合わせて身につけるものとされる。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A bracer made of a combination of special materials to provide stronger protection. It is mainly worn with armor. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :101117 ⚠️ TETTO SECCO 69
+        JP  \t\t固い篭手だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a pair of gauntlets reinforced with composite mesh.
+        IT  Dei guanti d'arme duri.
+
+=== ITEM_ID_LIGHT_GLOVES   [FILTER_GLOVES]
+    NOME      jp 軽手袋
+              en light gloves
+              IT guanti leggeri
+    --- description(0)  :101180
+        JP  \t\t肌にぴったりくっつくように作られた手袋。非常に軽く、付けていることを忘れてしまうほどだ。\n#～明日から使えるあなたの為の武具集～\n
+        EN  These gloves are made to stick snugly to the skin. They are so light that you may forget you are wearing them. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :101183 ⚠️ TETTO SECCO 69
+        JP  \t\t薄めの手袋だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a pair of gloves with a soft inner lining.
+        IT  Dei guanti sottili.
+
+=== ITEM_ID_PLATE_GAUNTLETS   [FILTER_GLOVES]
+    NOME      jp 重層篭手
+              en plate gauntlets
+              IT guanti d'arme a piastre
+    --- description(0)  :101247
+        JP  \t\t何より防護に重点を置いて作られた武骨な小手。やや重いがそれでも尚余りある性能を持っている。\n#～明日から使えるあなたの為の武具集～\n
+        EN  These are warrior-style kote, made with an emphasis on protection above all else. They are somewhat heavy, but still have more than enough performance. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :101250 ⚠️ TETTO SECCO 69
+        JP  \t\t非常に重い篭手だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a pair of very heavy plated gauntlets.
+        IT  Dei guanti d'arme pesantissimi.
+
+=== ITEM_ID_GLOVES   [FILTER_GLOVES]
+    NOME      jp 手袋
+              en gloves
+              IT guanti
+    --- description(0)  :101314
+        JP  \t\t防寒具的な意味合いも持つ防具。それだけでなく、武器の滑り止めとしての効果も少なからず持つという。\n#～明日から使えるあなたの為の武具集～\n
+        EN  This armor is also meant to be a cold-weather gear. Not only that, it is also said to have no small effect as an anti-slip device for weapons. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :101317 ⚠️ TETTO SECCO 69
+        JP  \t\t掌にぴったり装着する防具だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  These are pieces of armor that fits on your palm.
+        IT  Un'armatura che calza sul palmo.
+
+=== ITEM_ID_GLOVES_OF_VESDA   [FILTER_GLOVES]
+    NOME      jp 《火炎竜ヴェスダの篭手》
+              en <Gloves of Vesda>
+              IT <Guanti di Vesda>
+    non ident. IT guanti d'arme ardenti   (en burning gloves)
+    --- description(0)  :107527
+        JP  \t\t火炎竜を素材に用いたと言われる篭手。噂に違わず常に炎に包まれているが、着用者は燃えるどころか、熱ささえ感じないという。\n#～イルヴァ幻想辞典～\n
+        EN  Made from parts of flame dragons. True to the rumor, it is always enveloped in flames, but the wearer does not feel the heat, let alone burn. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :107530 ⚠️ TETTO SECCO 69
+        JP  \t\t貫通能力に長けた篭手だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  These are gloves with excellent penetrating ability.
+        IT  Dei guanti d'arme bravi a perforare.
+
+=== ITEM_ID_THICK_GAUNTLETS   [FILTER_GLOVES]
+    NOME      jp 厚篭手
+              en thick gauntlets
+              IT guanti d'arme spessi
+    --- description(0)  :130582
+        JP  \t\t手首から先を守る為に作られた防具。手先の自由は少々奪われるが手を失うよりはましだろう。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Armor made to protect the wrist and forearm. It does take away some of the freedom of the fingers, but it is better than losing a hand. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :130585 ⚠️ TETTO SECCO 69
+        JP  \t\t分厚い篭手だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  It is a pair of very heavy gauntlet.
+        IT  Dei guanti d'arme spessi.
+
+=== ITEM_ID_DECORATED_GLOVES   [FILTER_GLOVES]
+    NOME      jp 細工篭手
+              en decorated gloves
+              IT guanti d'arme decorati
+    --- description(0)  :130649
+        JP  \t\t様々な細工が散りばめられた上等な篭手。儀礼的な要素が強いが、それでも装飾によっていくらかの防護にはなる。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Fine gloves covered with assorted ornaments. Despite its ceremonial aspect, it still provides some protection through its decoration. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :130652 ⚠️ TETTO SECCO 69
+        JP  \t\t飾りのついた篭手だ。\n#～鑑定報告書：＜防具＞カテゴリ～\n
+        EN  These are ornated gloves often worn by nobility.
+        IT  Dei guanti d'arme con degli ornamenti.
+
+== 10 oggetti, 20 descrizioni

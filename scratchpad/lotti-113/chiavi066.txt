@@ -1,0 +1,47 @@
+RIGHE = {
+    62801, 75647, 75714, 101114, 101180, 101247, 101314, 107527, 130582, 130649,
+}
+# 10 righe, da 62801 a 130649
+
+    # ---------------------------------------------------------- :62801
+    (62801, 'Sturdy white leather strap with metal fittings hammered into it. It is worn around the forearm and fist like a bandage. The metal fittings made of meteoric iron are said to contain magical power. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :75647
+    (75647, 'Flashy chains that the God of Wealth had custom-made. It is so gorgeous that just looking at it makes you feel sick. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :75714
+    (75714, 'A blue glove with a mysterious pattern on its surface. It holds a spirit. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :101114
+    (101114, 'A bracer made of a combination of special materials to provide stronger protection. It is mainly worn with armor. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :101180
+    (101180, 'These gloves are made to stick snugly to the skin. They are so light that you may forget you are wearing them. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :101247
+    (101247, 'These are warrior-style kote, made with an emphasis on protection above all else. They are somewhat heavy, but still have more than enough performance. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :101314
+    (101314, 'This armor is also meant to be a cold-weather gear. Not only that, it is also said to have no small effect as an anti-slip device for weapons. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :107527
+    (107527, 'Made from parts of flame dragons. True to the rumor, it is always enveloped in flames, but the wearer does not feel the heat, let alone burn. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :130582
+    (130582, 'Armor made to protect the wrist and forearm. It does take away some of the freedom of the fingers, but it is better than losing a hand. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :130649
+    (130649, 'Fine gloves covered with assorted ornaments. Despite its ceremonial aspect, it still provides some protection through its decoration. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+# 10 voci, 0 ambigue
+
