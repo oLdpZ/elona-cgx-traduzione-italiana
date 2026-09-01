@@ -1,0 +1,215 @@
+RIGHE = {
+    43631, 43632, 43705, 52648, 52650, 53348, 53489, 53561, 53631, 53701,
+    54667, 54743, 54819, 57384, 61443, 61513, 64413, 65063, 67258, 67390,
+    68182, 68326, 71579, 72281, 72283, 72351, 72690, 72760, 73222, 74235,
+    74503, 75515, 76389, 76458, 77075, 77145, 77424, 77843, 77913, 78398,
+    80356, 82547, 83015, 83017, 83146, 83275, 83342, 85997, 86067, 88670,
+}
+# 50 righe, da 43631 a 88670
+
+    # ---------------------------------------------------------- :43631
+    (43631, 'A golden leaf created by a golden-haired Nine Tail polymorphing its body hair. It contains a special Yokai energy and explodes. Legend has it that if one goes to the shrine with a pair of silver leaves, a guardian deity of the forest will appear. \\n#~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :43632
+    (43632, 'Lemme give you a little nudge...boom!\\n# ~words of Kyu-Bi~'):
+        "",
+
+# 1 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :43705
+    (43705, 'Mysterious, antiquated paper. It is woven with hidden magic and special fibres, and is robust enough to be used as a throwing weapon. However, it is believed that its true ability lies elsewhere and that only those who have mastered the ancient magic of manipulating paper can unleash it.\\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :52648
+    (52648, 'While its ingredients are almost the same as those of ordinary fried shrimp, it is a hazardous substance that causes a phenomenon known as the shell-shocking effect, which can cause an explosion for various reasons. When scattered in the air, it can fly away like a missile or remain behind like a land mine. Children who are interested in the appearance of the product tend to become victims, shrimply devilish. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :52650
+    (52650, '\\"Haha! a traveling merchant with some prawn money!! I\'m gonna hit the shrimping ground running!\\" \\n# ~words of a eccentric bandit~'):
+        "",
+
+    # ---------------------------------------------------------- :53348
+    (53348, 'A flame crossbow made by a shadowy criminal syndicate. It is said to accelerate and shoot out arrows by electromagnetic induction, and ignite them by using the excess heat generated. The structure is imperfect, and the crossed parts sometimes glow. In that case, it is very dangerous, so do not touch it. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :53489
+    (53489, "The late work of a now deceased crossbowman. A lightweight ballista with sharpshooter specifications. As a result of the craftsman's full knowledge, it has a range equivalent to that of a sniper rifle. Penetration and handling have also been improved. A coveted item for crossbow collectors. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :53561
+    (53561, 'Yomi-To Shards. A piece of a large rock that was blocking the gateway to the underworld. The management is apparently having a hard time replacing it because no matter how many times it is replaced, the deceased keep smashing it up. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :53631
+    (53631, 'It was lying at the innermost part of the cave covered with poisonous snakes. It seems to be a repeating crossbow based on the concept of a venom attack to the face. The tips of the arrows are coated with splashing venom and fired in rapid succession. When the poison enters the eye, it causes severe pain. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :53701
+    (53701, 'This is a short bow that has been handed down from generation to generation among the Quicklings. It is much smaller than an ordinary bow, but it is said that this is just right for the Quicklings. It is covered with magic, so although it is small, it is powerful. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :54667
+    (54667, 'This is a bow designed for close-quarter combat. The arc has a double structure, with the blade on the exterior. The rim is separate on the inside, so arrows can be released even if the exterior bends in a swordfight. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :54743
+    (54743, 'A crossbow with an ignition barrel at the tip. When fired, the bolt burns up and flies as a fire arrow. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :54819
+    (54819, 'A pair of guns. They are designed to suppress recoil so that they can be handled with one hand. It is not recommended to fire at multiple enemies at the same time. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :57384
+    (57384, 'Long ago, these beetles were cyborgified for the sole purpose of insect wrestling. Due to being cultivated extensively in the past, these beetles are now only found in the wild, abandoned, and living in secret. When thrown, it can destroy even the most ferocious of beasts, and when synchronized with its wielder, it can produce mysterious beams of light and destruction. Although they do not speak, they have an ego, so you should name them and take good care of them. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :61443
+    (61443, 'A bone bow that shoots arrows carrying strong hatred. It is made from the bones of a brutally slaughtered beast that has been abused to the point of hatred for everything in the world. The person being shot will be inconvenienced by the hatred being unleashed on them. Most of bows were made in ancient times, but it is said that even today, some tribes continue to make them in secret. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :61513
+    (61513, 'Enhanced from Eulderna magic bow, it is a slashing bow that incorporates the mechanical technology of the Yerles army. In addition to being able to engage in hand-to-hand combat, it can also release electric blasts from its stabilizers when you pull its strings. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :64413
+    (64413, 'It is a type of shuriken that is coated with powerful energy. A direct hit is sharp enough to penetrate the armor of a fighter plane. It is not made of ions, but is so called because it is processed by ion beams. The color changes to blue or light blue depending on the energy state. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :65063
+    (65063, "Photon guns found at archaeological sites. It is rather heavy. For some reason, crows are sometimes equipped with this gun, so it is called 'Karasawa' together with its model number. The official name is unknown. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :67258
+    (67258, 'A type of large crossbow. The smaller ones can be carried somehow by carrying or on the back, but they are essentially stationary turrets. It has a foldable prop at the bottom, but it is not easy to maneuver. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :67390
+    (67390, 'In the midst of a chaotic battle, the God of Machine created this weapon on the spur of the moment using spare parts from the sub-cannon of a battleship. It is said that the shot it fires, which was filled with divine power, easily penetrated the hull of the chaos fleet, and its shockwave obliterated all the chaos servants in the fleet. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :68182
+    (68182, 'A big chunk of rock. It is not enough to say that it hurts if you are hit by such a thing. Because it is heavy and its distorted shape makes it difficult to throw, it is more powerful than other throwing weapons only at close range. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :68326
+    (68326, 'This crossbow uses a handle, not a winder, to raise the string. It is equipped with a magazine, which increases the loading speed, but the power and accuracy of each shot are much less powerful.It does not have the power to pierce armor, and its power is compensated for by poison applied to the bolt. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :71579
+    (71579, 'This two-in-one gun, created from a griffon, has extremely high rapid-firing performance. It features a large, easy-to-hold grip. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :72281
+    (72281, 'A modified version of a rare shotgun found at the ruins, capable of full-auto fire and firing a dedicated small grenade. The discoverer proposed mass production to the military, but it was not considered because it was heavy, bulky, and had excessive firepower. Afterwards, the discoverer dared to modify it to specialize in close quarters combat by trimming the stock and barrel, etc. The destructive and suppressive power is triple-A as the name suggests, but at the cost of missing various important qualities for a gun. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :72283
+    (72283, '\\"What\'s with this renovation plan? This is madness...\\" \\n# ~words of <Garok> the Legendary Smith~'):
+        "",
+
+    # ---------------------------------------------------------- :72351
+    (72351, 'Card-shaped hidden-weapons. The edge has a sharp blade that can easily cut off a human head. It is made a little heavier to enhance stability when throwing. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :72690
+    (72690, "The great bow created by the goddess of winds and once used by her. The light that it emits changes seven times, just like a woman's mind, which is changeable and fickle. She gave it up because she was tired of being too flashy. \\n# ~Irva Fantasy Encyclopedia~"):
+        "",
+
+    # ---------------------------------------------------------- :72760
+    (72760, 'A type of rapid bowgun. It is a gem designed by fundamentally reviewing the structure of crossbow. It excels in rapid and continuous fire performance. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :73222
+    (73222, 'Grenade with the highest-spec firepower. Therefore, extreme care must be taken to avoid being caught in the blast. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :74235
+    (74235, 'A shuriken designed for power at the expense of portability and concealment. Its size makes it no longer a hidden-weapon, but it has the advantage that it can be used for defense. The blade is made of rare metal and can cut through hard objects. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :74503
+    (74503, 'Dagger that sever nightmares. It is not very sharp, but when thrown, it flies for a long distance. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :75515
+    (75515, 'Huge stone money. It was circulated in ancient civilizations and is extremely valuable. It is so heavy that it cannot be handled by a human being, but when a person who knows how to use it appears, this weapon will bestow upon the user a tremendous charm. And a little whimsy.\\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :76389
+    (76389, 'Firearm specialized for sniping. Suitable for shooting from a long distance. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :76458
+    (76458, 'Sniper rifle, nicknamed the \\"white death\\". It does not have a sniper\'s scope, making it very difficult for an amateur to hit a target. Also, the barrel is a little short and heavy. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :77075
+    (77075, 'Giant crossbow. It is too heavy for a single person to handle, but when someone finds a way to use it, this weapon will give the user extraordinary dexterity. And a little whimsy. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :77145
+    (77145, 'Huge grenade gravity gun. To compensate for the instability of the gravity gun, a grenade launcher is attached. It is too heavy for one person to handle, but when the right person comes along, this weapon will give the user extraordinary perception. And a little whimsy. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :77424
+    (77424, 'Two guns in one. It is said that a pair of twins used to use one gun each. After the older brother was killed in battle, the gun was passed down to the younger brother as a memento. The younger brother spent his life developing the fundamentals of the two-gun combat technique. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :77843
+    (77843, 'A coin that was used in an island nation a long, long time ago. According to later documents, some of the guards of the time used to fight by throwing it. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :77913
+    (77913, 'A type of machine gun in which multiple barrels are rotated and fired to reduce frictional heat during firing and to increase rapid-fire performance. However, the rate of fire is intentionally slightly reduced to suppress the recoil and vibration when firing. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :78398
+    (78398, 'This short bow combines flexibility and toughness by layering other materials on a foundation of carved biological bones. It is an excellent product that has been processed so that no unnecessary force is applied when drawing it. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :80356
+    (80356, 'An improved version of the pistol that succeeded in mechanizing the work of loading the bullets. Unfortunately, all of the original improvements have been lost over the ages, but this gun is still alive and well. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :82547
+    (82547, 'Thrown weapon in the name of a musical instrument. It is said to have slaughtered many performers in the past. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :83015
+    (83015, 'A lovely, neat piece of fabric with a cute little ribbon on the front. Often it is in the possession of someone else, but not the owner, and the only one who is unaware of this is Shena herself. \\n# ~Intel of the Informant Wiesem~'):
+        "",
+
+    # ---------------------------------------------------------- :83017
+    (83017, '\\"I was minding my business in the mining town of Vernis, and BAM, I fell in love! But I didn\'t dare to spoke to her, so instead I asked a thief and stole this from her. And wow, love was much softer than what I had imagined! She and I will always be together.\\" \\n# ~last words, of Luster the noble~'):
+        "",
+
+# 3 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :83146
+    (83146, 'Adamantite ore shards. Since it is relatively crude, it cannot be used as an ornament, and can only be used as a projectile weapon. \\n#~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :83275
+    (83275, 'Small bombs designed for throwing. After landing in a bow, the bomb explodes in a large area, giving it a wide range of effects, but at the same time, it is powerful regardless of friend or foe, so it must be handled with care. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :83342
+    (83342, 'A bladed throwing weapon used by foreign intelligence organizations. They come in a variety of shapes and sizes, but all are said to be coated with a poison that delays coagulation and causes the target to bleed. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :85997
+    (85997, 'Shotgun that reflects light diffusely, said to have been created by a master gunmaker. The special gunpowder smoke that is vigorously emitted from the muzzle is said to have a special power to interfere with chanting. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :86067
+    (86067, 'Longbow made of an unknown material. It is said to give the wearer the blessing of the wind, and once the bow is drawn, the wearer will see the Goddess of Wind. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :88670
+    (88670, "A 'weapon' woven by a craftsman exclusively for maidens. You will understand why underwear can be used as a weapon when you have a taste of it. \\n# ~Collection of Armaments you can Use Tomorrow~"):
+        "",
+
+# 46 voci, 0 ambigue
+

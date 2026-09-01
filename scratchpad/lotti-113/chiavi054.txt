@@ -1,0 +1,47 @@
+RIGHE = {
+    96567, 96710, 97803, 98801, 115796, 115872, 117185, 117388, 127138, 127280,
+}
+# 10 righe, da 96567 a 127280
+
+    # ---------------------------------------------------------- :96567
+    (96567, 'A super-heavyweight device that ejects a substance at high speed. In addition to the complex mechanism, it has succeeded in reducing weight by processing special materials. However, since both of these technologies are now lost, it would be impossible to mass produce them. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :96710
+    (96710, 'Firearms that shoot a massive beam of light by loading a special bullet. Unlike other ranged weapons whose power diminishes as the distance increases, this is an excellent weapon whose power hardly diminishes at all. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :97803
+    (97803, 'Firearms used to fire projectiles that scatter over a wide area. It is incomparably powerful at close range, but its power decreases at an accelerated rate as you move away from it, so it must be handled with care. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :98801
+    (98801, 'Bows are designed for easy firing of arrows. The advantage  is that it can be handled by anyone without the need for bow skill, but on the other hand, it takes a lot of strength and time to prepare for loading, so it has its advantages and disadvantages. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :115796
+    (115796, 'Firearms with a long barrel designed for continuous firing. Although its size and weight make it somewhat maneuverable, it is still much easier to operate than a bow. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :115872
+    (115872, 'Short bow developed for hunting. Requires skill to handle, but once you get the hang of it, it will be a reliable friend to hunters. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :117185
+    (117185, 'A collection of roadside pebbles, hard as iron, used as weapons. They certainly do hurt when thrown, but since they are only pebbles, they are little more than a scare tactic. \\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+    # ---------------------------------------------------------- :117388
+    (117388, 'Longbows are said to be filled with the wisdom of the Vindalian folk. It seems to have been devised in several ways to keep the prey from escaping. \\n# ~Irva Fantasy Encyclopedia~'):
+        "",
+
+    # ---------------------------------------------------------- :127138
+    (127138, "A heavy, compact firearm. It is designed to be handled by any person, but due to the short barrel, its range won't be very long. \\n# ~Collection of Armaments you can Use Tomorrow~"):
+        "",
+
+    # ---------------------------------------------------------- :127280
+    (127280, 'A bow longer than the body size, designed to extend the range of a bow. By angling the shot, it can snipe the enemy from a very long range.\\n# ~Collection of Armaments you can Use Tomorrow~'):
+        "",
+
+# 10 voci, 0 ambigue
+

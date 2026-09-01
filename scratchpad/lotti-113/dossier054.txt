@@ -1,0 +1,123 @@
+=== ITEM_ID_RAIL_GUN   [FILTER_RANGE]
+    NOME      jp 《レールガン》
+              en <Rail Gun>
+              IT <Rail Gun>
+    non ident. IT fucile del massacro   (en gun of genocide)
+    --- description(0)  :96567
+        JP  \t\t高速化された物質を射出する超重量装置。複雑な機構もさることながら、特殊な素材を加工することで軽量化に成功している。しかしどちらも現在では失われた技術の為、量産することは不可能だろう。\n#～イルヴァ幻想辞典～\n
+        EN  A super-heavyweight device that ejects a substance at high speed. In addition to the complex mechanism, it has succeeded in reducing weight by processing special materials. However, since both of these technologies are now lost, it would be impossible to mass produce them. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :96570 ⚠️ TETTO SECCO 69
+        JP  \t\t様々な魔法効果を持つ光子銃だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a photon gun with various magical effects.
+        IT  Una pistola laser con effetti magici di ogni genere.
+
+=== ITEM_ID_LASER_GUN   [FILTER_RANGE]
+    NOME      jp 光子銃
+              en laser gun
+              IT pistola laser
+    --- description(0)  :96710
+        JP  \t\t特殊な弾丸を装填することで、発射孔から質量のある光線を発射する銃器。距離が延びるごとに威力が衰える他の射撃武器とは違い、殆ど威力が衰えない優れものだ。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Firearms that shoot a massive beam of light by loading a special bullet. Unlike other ranged weapons whose power diminishes as the distance increases, this is an excellent weapon whose power hardly diminishes at all. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :96713 ⚠️ TETTO SECCO 69
+        JP  \t\t距離による減衰が殆どない銃器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a firearm with little or no attenuation with distance.
+        IT  Un'arma da fuoco che con la distanza non cala quasi.
+
+=== ITEM_ID_SHOT_GUN   [FILTER_RANGE]
+    NOME      jp 散弾銃
+              en shot gun
+              IT fucile a pompa
+    --- description(0)  :97803
+        JP  \t\t広域に飛散する弾を発射する為の銃器。近距離においては比類なき威力を発揮するが、離れるにつれその威力が加速度的に落ちるので扱いには注意が必要だ。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Firearms used to fire projectiles that scatter over a wide area. It is incomparably powerful at close range, but its power decreases at an accelerated rate as you move away from it, so it must be handled with care. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :97806 ⚠️ TETTO SECCO 69
+        JP  \t\t有効射程が短い銃器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a firearm with a short effective range.
+        IT  Un'arma da fuoco che porta poco lontano.
+
+=== ITEM_ID_CROSSBOW   [FILTER_RANGE]
+    NOME      jp 機械弓
+              en crossbow
+              IT balestra
+    --- description(0)  :98801
+        JP  \t\t簡単に矢を発射できるように考案された弓。熟練を要することなく誰にでも扱えるのが利点だが、逆に装填準備にかなりの力と時間がかかってしまう為、一長一短といえよう。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Bows are designed for easy firing of arrows. The advantage  is that it can be handled by anyone without the need for bow skill, but on the other hand, it takes a lot of strength and time to prepare for loading, so it has its advantages and disadvantages. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :98804 ⚠️ TETTO SECCO 69
+        JP  \t\tクロスボウの矢束と共に装備する射撃武器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a weapon to be equipped along with a bundle of crossbow bolts.
+        IT  Un'arma da tiro che si equipaggia coi dardi da balestra.
+
+=== ITEM_ID_MACHINE_GUN   [FILTER_RANGE]
+    NOME      jp 機関銃
+              en machine gun
+              IT mitragliatrice
+    --- description(0)  :115796
+        JP  \t\t連続発射する為に作られた銃身の長い銃器。大きさや重量から多少人を選ぶが、それでも弓とは違い格段に操作しやすいと言える。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Firearms with a long barrel designed for continuous firing. Although its size and weight make it somewhat maneuverable, it is still much easier to operate than a bow. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :115799 ⚠️ TETTO SECCO 69
+        JP  \t\t距離による減衰が少ない銃器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a firearm with good medium range accuracy.
+        IT  Un'arma da fuoco che con la distanza cala poco.
+
+=== ITEM_ID_SHORT_BOW   [FILTER_RANGE]
+    NOME      jp 短弓
+              en short bow
+              IT arco corto
+    --- description(0)  :115872
+        JP  \t\t狩猟用として開発された全長が短めの弓。扱いには熟練を要するが、コツさえ掴めば狩人達の信頼おける友となり得るだろう。\n#～明日から使えるあなたの為の武具集～\n
+        EN  Short bow developed for hunting. Requires skill to handle, but once you get the hang of it, it will be a reliable friend to hunters. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :115875 ⚠️ TETTO SECCO 69
+        JP  \t\t近～中距離に適した弓だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a bow specialized for short to medium range.
+        IT  Un arco buono da vicino e a media distanza.
+
+=== ITEM_ID_STONE   [FILTER_RANGE]
+    NOME      jp 小石
+              en stone
+              IT sasso
+    --- description(0)  :117185
+        JP  \t\t路傍に転がる鉄の様に硬い小石を武器として幾つか集めたもの。投げられれば確かに痛いが、所詮小石なのでこけおどしにしか過ぎない。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A collection of roadside pebbles, hard as iron, used as weapons. They certainly do hurt when thrown, but since they are only pebbles, they are little more than a scare tactic. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :117188 ⚠️ TETTO SECCO 69
+        JP  \t\t投擲用武器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is just a stone.
+        IT  Un'arma da lancio.
+
+=== ITEM_ID_BOW_OF_VINDALE   [FILTER_RANGE]
+    NOME      jp 《異形の森の弓》
+              en <Bow of Vindale>
+              IT <Arco di Vindale>
+    non ident. IT arco vibrante   (en shaking bow)
+    --- description(0)  :117388
+        JP  \t\t森の民の英知が詰まったとされる長弓。狙った獲物を逃がさぬよう、幾つかの工夫が凝らされているようだ。\n#～イルヴァ幻想辞典～\n
+        EN  Longbows are said to be filled with the wisdom of the Vindalian folk. It seems to have been devised in several ways to keep the prey from escaping. \n# ~Irva Fantasy Encyclopedia~
+    --- description(3)  :117391 ⚠️ TETTO SECCO 69
+        JP  \t\t敵を引き寄せる力を持つ長弓だ。\n#～鑑定報告書：＜秘宝＞カテゴリ～\n
+        EN  It is a longbow with the power to draw in the enemy.
+        IT  Un arco lungo che ha la forza di tirarti addosso i nemici.
+
+=== ITEM_ID_PISTOL   [FILTER_RANGE]
+    NOME      jp 拳銃
+              en pistol
+              IT pistola
+    --- description(0)  :127138
+        JP  \t\t重量感ある小型の銃器。誰にでも扱えるよう設計されているが、銃身の短さ故に射程はそれほど長くないだろう。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A heavy, compact firearm. It is designed to be handled by any person, but due to the short barrel, its range won't be very long. \n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :127141 ⚠️ TETTO SECCO 69
+        JP  \t\t距離によって威力が減衰する銃器だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a firearm made for short distances.
+        IT  Un'arma da fuoco che con la distanza perde forza.
+
+=== ITEM_ID_LONG_BOW   [FILTER_RANGE]
+    NOME      jp 長弓
+              en long bow
+              IT arco lungo
+    --- description(0)  :127280
+        JP  \t\t射程を延ばす為に身の丈を越えるほどの大きさをもった弓。通常でも十分の射程があるが、角度をつけることで超長距離の射程から敵に一撃を加えることができるという。\n#～明日から使えるあなたの為の武具集～\n
+        EN  A bow longer than the body size, designed to extend the range of a bow. By angling the shot, it can snipe the enemy from a very long range.\n# ~Collection of Armaments you can Use Tomorrow~
+    --- description(3)  :127283 ⚠️ TETTO SECCO 69
+        JP  \t\t中～遠距離に適した弓だ。\n#～鑑定報告書：＜武器＞カテゴリ～\n
+        EN  It is a bow specialized for medium to long range.
+        IT  Un arco buono a media e lunga distanza.
+
+== 10 oggetti, 20 descrizioni
