@@ -1,0 +1,41 @@
+:68450
+   en  # ~Special Edition: Pursuing Mythical Plants~
+   IT  # ~Speciale: sulle Tracce delle Piante Leggendarie~
+:90894
+   en  # ~North Tyris Travels, Winter Edition~
+   IT  # ~Viaggio in Tyris del Nord: Inverno~
+:91522
+   en  # ~Illustrated Guide to Tyris Horticulture~
+   IT  # ~Atlante Illustrato del Giardinaggio di Tyris~
+:91584
+   en  # ~Illustrated Guide to Tyris Horticulture~
+   IT  # ~Atlante Illustrato del Giardinaggio di Tyris~
+:95484
+   en  # ~Illustrated Guide to Tyris Horticulture~
+   IT  # ~Atlante Illustrato del Giardinaggio di Tyris~
+:95546
+   en  # ~Illustrated Guide to Tyris Horticulture~
+   IT  # ~Atlante Illustrato del Giardinaggio di Tyris~
+:95608
+   en  # ~Illustrated Guide to Tyris Horticulture~
+   IT  # ~Atlante Illustrato del Giardinaggio di Tyris~
+:95670
+   en  # ~Illustrated Guide to Tyris Horticulture~
+   IT  # ~Atlante Illustrato del Giardinaggio di Tyris~
+:95672
+   en  # ~words of <Barius> the blue haired~
+   IT  # ~Parole di <Barius> dai capelli blu~
+:95734
+   en  # ~Illustrated Guide to Tyris Horticulture~
+   IT  # ~Atlante Illustrato del Giardinaggio di Tyris~
+:95796
+   en  # ~Illustrated Guide to Tyris Horticulture~
+   IT  # ~Atlante Illustrato del Giardinaggio di Tyris~
+:95858
+   en  # ~Illustrated Guide to Tyris Horticulture~
+   IT  # ~Atlante Illustrato del Giardinaggio di Tyris~
+:95920
+   en  # ~Illustrated Guide to Tyris Horticulture~
+   IT  # ~Atlante Illustrato del Giardinaggio di Tyris~
+
+righe senza resa in tabella: 0   (atteso 0)

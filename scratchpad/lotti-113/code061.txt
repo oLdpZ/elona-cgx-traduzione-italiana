@@ -1,0 +1,59 @@
+:56267
+   en  # ~the Aimwell tale of trade~
+   IT  # ~Racconti di Commercio di Aimwell~
+:56333
+   en  # ~the Aimwell tale of trade~
+   IT  # ~Racconti di Commercio di Aimwell~
+:73894
+   en  # ~Eulderna's Winning Strategy for Trading~
+   IT  # ~Il Commercio Vincente Secondo gli Eulderna~
+:73960
+   en  # ~Eulderna's Winning Strategy for Trading~
+   IT  # ~Il Commercio Vincente Secondo gli Eulderna~
+:86266
+   en  # ~Eulderna's Winning Strategy for Trading~
+   IT  # ~Il Commercio Vincente Secondo gli Eulderna~
+:86332
+   en  # ~Eulderna's Winning Strategy for Trading~
+   IT  # ~Il Commercio Vincente Secondo gli Eulderna~
+:90960
+   en  # ~Eulderna's Winning Strategy for Trading~
+   IT  # ~Il Commercio Vincente Secondo gli Eulderna~
+:91026
+   en  # ~Eulderna's Winning Strategy for Trading~
+   IT  # ~Il Commercio Vincente Secondo gli Eulderna~
+:103715
+   en  # ~Eulderna's Winning Strategy for Trading~
+   IT  # ~Il Commercio Vincente Secondo gli Eulderna~
+:103781
+   en  # ~Eulderna's Winning Strategy for Trading~
+   IT  # ~Il Commercio Vincente Secondo gli Eulderna~
+:103847
+   en  # ~Eulderna's Winning Strategy for Trading~
+   IT  # ~Il Commercio Vincente Secondo gli Eulderna~
+:103913
+   en  # ~Eulderna's Winning Strategy for Trading~
+   IT  # ~Il Commercio Vincente Secondo gli Eulderna~
+:103979
+   en  # ~Eulderna's Winning Strategy for Trading~
+   IT  # ~Il Commercio Vincente Secondo gli Eulderna~
+:104045
+   en  # ~Eulderna's Winning Strategy for Trading~
+   IT  # ~Il Commercio Vincente Secondo gli Eulderna~
+:104111
+   en  # ~Eulderna's Winning Strategy for Trading~
+   IT  # ~Il Commercio Vincente Secondo gli Eulderna~
+:104177
+   en  # ~Eulderna's Winning Strategy for Trading~
+   IT  # ~Il Commercio Vincente Secondo gli Eulderna~
+:104243
+   en  # ~Eulderna's Winning Strategy for Trading~
+   IT  # ~Il Commercio Vincente Secondo gli Eulderna~
+:104309
+   en  # ~Eulderna's Winning Strategy for Trading~
+   IT  # ~Il Commercio Vincente Secondo gli Eulderna~
+:104375
+   en  # ~Eulderna's Winning Strategy for Trading~
+   IT  # ~Il Commercio Vincente Secondo gli Eulderna~
+
+righe senza resa in tabella: 0   (atteso 0)

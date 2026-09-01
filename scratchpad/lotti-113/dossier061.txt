@@ -1,0 +1,229 @@
+=== ITEM_ID_PAINTING_ERUPTION   [FILTER_CARGO_TRADE]
+    NOME      jp 地獄絵図(荷車)
+              en eruption painting
+              IT dipinto dell'eruzione
+    --- description(0)  :56267
+        JP  \t\t実際に噴火の現場で描かれたという、違う意味で伝説の一品の版画。この世の終わりのような光景から、むせかえるほどの熱気と凄まじさが伝わってくる。\n#～イムウエル交易譚～\n
+        EN  In some parts of Gaius Vis, a rabbit's foot, not its tail, is a lucky charm. It has been handed down since ancient times and is a popular travel companion among adventurers. \n# ~the Aimwell tale of trade~
+    --- description(3)  :56270 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of painting.
+        IT  Merce da commercio.
+
+=== ITEM_ID_RABBIT_FOOT   [FILTER_CARGO_TRADE]
+    NOME      jp ウサギの足(荷車)
+              en rabbit foot
+              IT zampa di coniglio
+    --- description(0)  :56333
+        JP  \t\tガイアス・ヴィスの一部地域では、ウサギの尻尾ではなく足が幸運のお守り。古くから伝わり、冒険者のあいだでも旅のお供として人気がある。\n#～イムウエル交易譚～\n
+        EN  In some parts of Gaius Vis, a rabbit's foot, not its tail, is a lucky charm. It has been handed down since ancient times and is a popular travel companion among adventurers. \n# ~the Aimwell tale of trade~
+    --- description(3)  :56336 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of rabbit foot.
+        IT  Merce da commercio.
+
+=== ITEM_ID_CARGO_MARIMO   [FILTER_CARGO_TRADE]
+    NOME      jp 巨大マリモ(荷車)
+              en marimo
+              IT marimo
+    --- description(0)  :73894
+        JP  \t\tサウスティリスの湖に生育するマリモをちぎって人工的に丸めたもの。これを作るために大量採取していることで湖のマリモは絶滅の危機を迎えている。\n#～エウダーナに学ぶ必勝交易法～\n
+        EN  Marimo that grows in a lake in South Tyris, is ripped off and artificially rounded up. The lake's marimo is in danger of extinction due to the mass harvesting. \n# ~Eulderna's Winning Strategy for Trading~
+    --- description(3)  :73897 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of marimo.
+        IT  Merce da commercio.
+
+=== ITEM_ID_CARGO_RATION   [FILTER_CARGO_TRADE]
+    NOME      jp 観賞用レーション(荷車)
+              en ration
+              IT razione
+    --- description(0)  :73960
+        JP  \t\tイェルス軍が観賞用グッズとして民間に払い下げした古い軍用レーション。食品としてはとっくに駄目になっている。\n#～エウダーナに学ぶ必勝交易法～\n
+        EN  Old military ration that was dispensed to the civilian by the Yerles Army as an ornamental item. Long since ruined as food. \n# ~Eulderna's Winning Strategy for Trading~
+    --- description(3)  :73963 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of ration.
+        IT  Merce da commercio.
+
+=== ITEM_ID_CANVAS   [FILTER_CARGO_TRADE]
+    NOME      jp お絵かきセット(荷車)
+              en canvas
+              IT tela
+    --- description(0)  :86266
+        JP  \t\t一通りの絵画用具が詰まった交易品。開封すると絵具などが周囲に散らばってしまう為、使用することはできない。\n#～エウダーナに学ぶ必勝交易法～\n
+        EN  Trade goods filled with a set of painting tools. It cannot be used because paints and other materials will be scattered around when the package is opened. \n# ~Eulderna's Winning Strategy for Trading~
+    --- description(3)  :86269 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of canvas.
+        IT  Merce da commercio.
+
+=== ITEM_ID_ART   [FILTER_CARGO_TRADE]
+    NOME      jp 絵画(荷車)
+              en art
+              IT opera d'arte
+    --- description(0)  :86332
+        JP  \t\t様々な芸術家が書いた絵を一絡げにした交易品。そうは言っても最低限の保管はされている為、取引先で開いたらまるで価値のないものになっていた、といったトラブルは起こっていないようだ。\n#～エウダーナに学ぶ必勝交易法～\n
+        EN  The trade goods are a collection of paintings by various artists. Even so, they are kept in a minimum amount of storage, so there seems to be no trouble such as opening them at a trading partner and finding that they are worthless. \n# ~Eulderna's Winning Strategy for Trading~
+    --- description(3)  :86335 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of art supplies.
+        IT  Merce da commercio.
+
+=== ITEM_ID_CARGO_SNOW_MAN   [FILTER_CARGO_TRADE]
+    NOME      jp スノーマン(荷車)
+              en snow man
+              IT pupazzo di neve
+    --- description(0)  :90960
+        JP  \t\t雪で作られた可愛らしい交易品。そのとぼけた表情に癒しを感じ、購入していくものが多いという。\n#～エウダーナに学ぶ必勝交易法～\n
+        EN  Cute trading goods made of snow. Many of them feel comforted by their bland expressions and purchase them. \n# ~Eulderna's Winning Strategy for Trading~
+    --- description(3)  :90963 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of snow men.
+        IT  Merce da commercio.
+
+=== ITEM_ID_CARGO_CHRISTMAS_TREE   [FILTER_CARGO_TRADE]
+    NOME      jp 直送クリスマスツリー(荷車)
+              en christmas tree
+              IT albero di Natale
+    --- description(0)  :91026
+        JP  \t\t伐採したモミの木に幾多の飾りをつけたとても重い交易品。ノイエルまで足を運べない人が自宅でお祝いをする為に買っていくという。\n#～エウダーナに学ぶ必勝交易法～\n
+        EN  Very heavy traded goods made of felled fir trees decorated with many ornaments. It is said that people who cannot travel to Noyel buy it to celebrate at home. \n# ~Eulderna's Winning Strategy for Trading~
+    --- description(3)  :91029 ⚠️ TETTO SECCO 69
+        JP  \t\t重い交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a heavy cargo of pine trees.
+        IT  Merce da commercio pesante.
+
+=== ITEM_ID_CARGO_INNER_TUBE   [FILTER_CARGO_TRADE]
+    NOME      jp 浮き輪(荷車)
+              en inner tube
+              IT salvagente
+    --- description(0)  :103715
+        JP  \t\t浮き輪を幾つかのまとまりで束ねた交易品。捌きにくくなる為、ばら売りはできない。\n#～エウダーナに学ぶ必勝交易法～\n
+        EN  A trade item consisting of several bundles of lifebuoy. They cannot be sold separately because they are difficult to sell. \n# ~Eulderna's Winning Strategy for Trading~
+    --- description(3)  :103718 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of lifebuoy rings.
+        IT  Merce da commercio.
+
+=== ITEM_ID_CARGO_NOBLE_TOY   [FILTER_CARGO_TRADE]
+    NOME      jp 貴族の玩具(荷車)
+              en noble toy
+              IT giocattolo nobiliare
+    --- description(0)  :103781
+        JP  \t\t複雑な機巧を備えた、見るものを楽しませる交易品。重たいので取り扱いには注意が必要だ。\n#～エウダーナに学ぶ必勝交易法～\n
+        EN  An intricately crafted trading item that is a joy to behold. It is heavy and should be handled with care. \n# ~Eulderna's Winning Strategy for Trading~
+    --- description(3)  :103784 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of high value children's toys.
+        IT  Merce da commercio.
+
+=== ITEM_ID_CARGO_WHISKY   [FILTER_CARGO_TRADE]
+    NOME      jp 銘酒セット(荷車)
+              en whisky
+              IT whisky
+    --- description(0)  :103847
+        JP  \t\t貰うと嬉しい交易品。開封すると価値が大幅に落ちる為、使用することはできない。\n#～エウダーナに学ぶ必勝交易法～\n
+        EN  A trading item that is nice to receive. It cannot be used because its value drops dramatically once it is opened. \n# ~Eulderna's Winning Strategy for Trading~
+    --- description(3)  :103850 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of alchohol.
+        IT  Merce da commercio.
+
+=== ITEM_ID_CARGO_TUNA_FISH   [FILTER_CARGO_TRADE]
+    NOME      jp ツナ(荷車)
+              en tuna fish
+              IT tonno
+    --- description(0)  :103913
+        JP  \t\t個人で食すには余りにも巨大なツナ。主に交易品として取引される。\n#～エウダーナに学ぶ必勝交易法～\n
+        EN  Tuna is too huge to be eaten by individuals. It is mainly traded as a commodity. \n# ~Eulderna's Winning Strategy for Trading~
+    --- description(3)  :103916 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of seafood.
+        IT  Merce da commercio.
+
+=== ITEM_ID_CARGO_GRAVE   [FILTER_CARGO_TRADE]
+    NOME      jp 墓(荷車)
+              en grave
+              IT tomba
+    --- description(0)  :103979
+        JP  \t\t石で造られたとても重い交易品。無茶をして墓運びが墓に埋もれる、等ということにならないように。\n#～エウダーナに学ぶ必勝交易法～\n
+        EN  Very heavy trading goods made of stone. Do not be reckless and let the grave carrier be buried in the grave. \n# ~Eulderna's Winning Strategy for Trading~
+    --- description(3)  :103982 ⚠️ TETTO SECCO 69
+        JP  \t\tとても重い交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a very heavy cargo of grave slabs.
+        IT  Merce da commercio molto pesante.
+
+=== ITEM_ID_CARGO_MANBOO   [FILTER_CARGO_TRADE]
+    NOME      jp マンボー(荷車)
+              en manboo
+              IT pesce luna
+    --- description(0)  :104045
+        JP  \t\t個人で食すには余りにも巨大なマンボー。主に交易品として取引される。\n#～エウダーナに学ぶ必勝交易法～\n
+        EN  Mamboos that are too huge to be eaten by individuals. It is mainly traded as a commodity. \n# ~Eulderna's Winning Strategy for Trading~
+    --- description(3)  :104048 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of seafood.
+        IT  Merce da commercio.
+
+=== ITEM_ID_CARGO_COFFIN   [FILTER_CARGO_TRADE]
+    NOME      jp 棺桶(荷車)
+              en coffin
+              IT bara
+    --- description(0)  :104111
+        JP  \t\t質の高い木材を使った、丁寧な作りの交易品。先約がいるので、使用することはできない。\n#～エウダーナに学ぶ必勝交易法～\n
+        EN  A carefully crafted trade item made of high quality wood. It is not available for use because of prior commitments. \n# ~Eulderna's Winning Strategy for Trading~
+    --- description(3)  :104114 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of coffins.
+        IT  Merce da commercio.
+
+=== ITEM_ID_CARGO_ROPE   [FILTER_CARGO_TRADE]
+    NOME      jp ロープ(荷車)
+              en rope
+              IT corda
+    --- description(0)  :104177
+        JP  \t\tきつく束ねられた交易品。解れたら大変なので、使用することはできない。\n#～エウダーナに学ぶ必勝交易法～\n
+        EN  Tightly bound trade goods. You cannot use it because it would be very troublesome if it gets loose. \n# ~Eulderna's Winning Strategy for Trading~
+    --- description(3)  :104180 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of rope.
+        IT  Merce da commercio.
+
+=== ITEM_ID_CARGO_PIANO   [FILTER_CARGO_TRADE]
+    NOME      jp 装飾ピアノ(荷車)
+              en piano
+              IT pianoforte
+    --- description(0)  :104243
+        JP  \t\t色鮮やかなとても重い交易品。音は出るが所詮観賞用に作られた代物なので、まともに使用することはできない。\n#～エウダーナに学ぶ必勝交易法～\n
+        EN  A brightly colored, very heavy trade item. Although it produces sound, it cannot be used properly because it was only made for ornamental purposes. \n# ~Eulderna's Winning Strategy for Trading~
+    --- description(3)  :104246 ⚠️ TETTO SECCO 69
+        JP  \t\t重い交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of pianos.
+        IT  Merce da commercio pesante.
+
+=== ITEM_ID_CARGO_BARREL   [FILTER_CARGO_TRADE]
+    NOME      jp 匠のタル(荷車)
+              en barrel
+              IT barile
+    --- description(0)  :104309
+        JP  \t\tこちらが映りこむほどに磨き上げられた交易品。一つ一つが手作りの豪華仕様となっている。\n#～エウダーナに学ぶ必勝交易法～\n
+        EN  The trade goods are so polished that they mirror each other. Each one is handmade to a luxurious specification. \n# ~Eulderna's Winning Strategy for Trading~
+    --- description(3)  :104312 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of barrels.
+        IT  Merce da commercio.
+
+=== ITEM_ID_CARGO_RAG_DOLL   [FILTER_CARGO_TRADE]
+    NOME      jp 特産ぬいぐるみ(荷車)
+              en rag doll
+              IT bambola di pezza
+    --- description(0)  :104375
+        JP  \t\t丁寧に包まれた交易品。開封してしまうと価値が下がる為、使用することはできない。\n#～エウダーナに学ぶ必勝交易法～\n
+        EN  Carefully wrapped trade goods. Once opened, it cannot be used because its value will decrease. \n# ~Eulderna's Winning Strategy for Trading~
+    --- description(3)  :104378 ⚠️ TETTO SECCO 69
+        JP  \t\t交易品だ。\n#～鑑定報告書：＜交易品＞カテゴリ～\n
+        EN  It is a cargo of children's toys.
+        IT  Merce da commercio.
+
+== 19 oggetti, 38 descrizioni

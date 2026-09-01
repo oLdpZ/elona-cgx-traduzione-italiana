@@ -1,0 +1,90 @@
+=== LO STESSO INGLESE PER GIAPPONESI DIVERSI: 10 gruppi
+
+:45061, :45132, :45203, :45274, :45345, :45416   (6 righe, 4 giapponesi distinti)
+    en   You can paint the ship by dyeing the deed. You can call a ship when you read it in a sea-facing town. Note that taxes are calculated on the most expen
+    :45061    RESA     jp  権利書を染めることで塗装を指定可能。海に面した街などで読むと船を呼べる。なお、税金は期間中に使用した最も高価な船で計算されるので注意。雷雨やエーテル風にとてつもなく弱いが、沈んでも
+                       it  Tingendo l'atto si sceglie la vernice. Letto in una città sul mare, chiama la nave. Attenz
+    :45132    RESA     jp  権利書を染めることで塗装を指定可能。海に面した街などで読むと船を呼べる。なお、税金は期間中に使用した最も高価な船で計算されるので注意。雷雨やエーテル風にかなり弱いが、沈んでも保険料
+                       it  Tingendo l'atto si sceglie la vernice. Letto in una città sul mare, chiama la nave. Attenz
+    :45203    RESA     jp  権利書を染めることで塗装を指定可能。海に面した街などで読むと船を呼べる。なお、税金は期間中に使用した最も高価な船で計算されるので注意。雷雨やエーテル風にかなり弱いが、沈んでも保険料
+                       it  Tingendo l'atto si sceglie la vernice. Letto in una città sul mare, chiama la nave. Attenz
+    :45274    RESA     jp  権利書を染めることで塗装を指定可能。海に面した街などで読むと船を呼べる。なお、税金は期間中に使用した最も高価な船で計算されるので注意。雷雨やエーテル風に結構弱いが、沈んでも保険料を
+                       it  Tingendo l'atto si sceglie la vernice. Letto in una città sul mare, chiama la nave. Attenz
+    :45345    RESA     jp  権利書を染めることで塗装を指定可能。海に面した街などで読むと船を呼べる。なお、税金は期間中に使用した最も高価な船で計算されるので注意。雷雨やエーテル風には弱いが、沈んでも保険料を払
+                       it  Tingendo l'atto si sceglie la vernice. Letto in una città sul mare, chiama la nave. Attenz
+    :45416    RESA     jp  権利書を染めることで塗装を指定可能。海に面した街などで読むと船を呼べる。なお、税金は期間中に使用した最も高価な船で計算されるので注意。雷雨やエーテル風には弱いが、沈んでも保険料を払
+                       it  Tingendo l'atto si sceglie la vernice. Letto in una città sul mare, chiama la nave. Attenz
+
+:46884, :46950   (2 righe, 2 giapponesi distinti)
+    en   Amidst the mechanical civilisation ... the human body became more fragile with every generation due to the deteriorating environment. They were on the
+    :46884    RESA     jp  \t\t機械文明中期…環境の悪化によって世代を重ねるごとに人体の脆弱化が進行。絶滅の危機にまで瀕したが、ヒトの生存能力を拡張する技術が開発され難を逃れた。有機物無機物問わず生存に有
+                       it  Metà dell'età delle macchine... l'ambiente peggiorava, e a ogni generazione il corpo umano
+    :46950    RESA     jp  \t\t（未実装）機械文明中期…環境の悪化によって世代を重ねるごとに人体の脆弱化が進行。絶滅の危機にまで瀕したが、ヒトの生存能力を拡張する技術が開発され難を逃れた。有機物無機物問わ
+                       it  Metà dell'età delle macchine... l'ambiente peggiorava, e a ogni generazione il corpo umano
+
+:50410, :51289   (2 righe, 2 giapponesi distinti)
+    en   It seems that if the relevant skill is too low, it cannot be converted into a bonus and the skill itself will be gone. There is no such thing as an un
+    :50410    RESA     jp  
+                       it  Pare che se l'abilità in questione è troppo bassa non si converta in bonus e sparisca del 
+    :51289    RESA     jp  持っているスキルなら経験を得られ、持っていないスキルなら習得することができるお宝だ。まれに拒絶反応でスキルを習得できない体質のやつもいるらしいが、本当だろうか。\n#～遺跡荒らしの
+                       it  Un tesoro che, se l'abilità già ce l'hai, ti dà esperienza, e se non ce l'hai te la fa imp
+
+:56267, :56333   (2 righe, 2 giapponesi distinti)
+    en   In some parts of Gaius Vis, a rabbit's foot, not its tail, is a lucky charm. It has been handed down since ancient times and is a popular travel compa
+    :56267    RESA     jp  \t\t実際に噴火の現場で描かれたという、違う意味で伝説の一品の版画。この世の終わりのような光景から、むせかえるほどの熱気と凄まじさが伝わってくる。\n#～イムウエル交易譚～\n
+                       it  Una stampa che dicono disegnata sul posto, durante l'eruzione: un pezzo leggendario, ma in
+    :56333    RESA     jp  \t\tガイアス・ヴィスの一部地域では、ウサギの尻尾ではなく足が幸運のお守り。古くから伝わり、冒険者のあいだでも旅のお供として人気がある。\n#～イムウエル交易譚～\n
+                       it  In certe zone di Gaius Vis il portafortuna è la zampa del coniglio, non la coda. Si traman
+
+:67985, :70398, :118512   (3 righe, 2 giapponesi distinti)
+    en   A type of nut that restores satiety, it's used to make candies.\n#~Identification Report: <Food> Category~
+    :67985    RESA     jp  
+                       it  Un frutto a guscio che sazia, e con cui si fanno dolciumi.\n#~Rapporto di Identificazione:
+    :70398    RESA     jp  \t\t「う、うにを粗末にするとバチが当たるんですよ！」\n#～怯える錬金術士の『ナプラス』の言葉～\n
+                       it  \"R-rovinare un riccio porta castigo!\"\n#~Parole di <Naplus> l'alchimista spaventata~
+    :118512   RESA     jp  
+                       it  Un frutto a guscio che sazia, e con cui si fanno dolciumi.\n#~Rapporto di Identificazione:
+
+:88806, :108396   (2 righe, 2 giapponesi distinti)
+    en   (Single-use) tool that oepns a gateway to the showroom world.
+    :88806    RESA     jp  \t\t使用することでショウルームを訪れるゲートだ（使い捨て）。\n#～鑑定報告書：＜遺物＞カテゴリ～\n
+                       it  Un cancello per la sala d'esposizione (usa e getta).
+    :108396   RESA     jp  \t\t使用することでショウルームに行くことができる道具だ（使い捨て）。\n#～鑑定報告書：＜器具＞カテゴリ～\n
+                       it  Serve ad andare nella sala d'esposizione (usa e getta).
+
+:91522, :95858   (2 righe, 2 giapponesi distinti)
+    en   Evergreen tree that does not produce any fruit. It is said that in the cold season, festivals are held in Noyel to celebrate the Saint by decorating t
+    :91522    da fare  jp  \t\t実を落とさない常緑樹。寒い季節になるとこれらの木に様々な飾りをし、さる聖人を祝う祭りがノイエルで行われるらしい。\n#～ティリス園芸図鑑～\n
+    :95858    da fare  jp  \t\t実を落とさない常緑樹。誰かに詠唱を妨害されていると思ったらこの木の花粉だったという話はままある。\n#～ティリス園芸図鑑～\n
+
+:94105, :117682, :122824, :123287   (4 righe, 2 giapponesi distinti)
+    en   It is a rod that, when zapped, heal wounds of nearby target.
+    :94105    RESA     jp  \t\t振ることで自分、または隣接者のHPを回復する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+                       it  Una bacchetta che, agitata, cura te o chi ti sta accanto.
+    :117682   RESA     jp  \t\t振ることで自分、または隣接者のHPを回復する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+                       it  Una bacchetta che, agitata, cura te o chi ti sta accanto.
+    :122824   RESA     jp  \t\t振ることで自分、または隣接者のＨＰを回復する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+                       it  Una bacchetta che, agitata, cura te o chi ti sta accanto.
+    :123287   RESA     jp  \t\t振ることで自分、または隣接者のＨＰを回復する魔法の杖だ。\n#～鑑定報告書：＜魔道具＞カテゴリ～\n
+                       it  Una bacchetta che, agitata, cura te o chi ti sta accanto.
+
+:108954, :109083   (2 righe, 2 giapponesi distinti)
+    en   A magnificent chair made only for the king to sit on. Since it is not intended for mass production, it is made with the utmost luxury. \n# ~Great Ency
+    :108954   RESA     jp  \t\t王が座る為だけに作られた立派な椅子。量産性は考えていないので、贅を極めた作りとなっている。\n#～ノースティリス大家具事典～\n
+                       it  Una sedia magnifica, fatta perché ci si sieda il re e nessun altro. Nessuno ha pensato a p
+    :109083   RESA     jp  \t\t物が載せられているテーブル。大きさからするとテーブルというより机といった方が正しいだろう。\n#～ノースティリス大家具事典～\n
+                       it  Un tavolo con sopra della roba. A giudicare dalla grandezza, più che un tavolo sarebbe giu
+
+:116982, :117051   (2 righe, 2 giapponesi distinti)
+    en   A stick born to assist magic. Despite its everyday look, if you hit with it with all your might, your opponent will probably fall unconscious. \n# ~Co
+    :116982   RESA     jp  \t\t長い柄の先に尖った切っ先を持つ武器。シンプルな構造ながら誰にでも扱うことができ、長い柄を活かして中距離で戦うことを可能にさせている。\n#～明日から使えるあなたの為の武具集
+                       it  Un'arma con la punta acuminata in cima a un manico lungo. Ha una struttura semplice e la p
+    :117051   RESA     jp  \t\t魔法の補佐をする為に生まれた棒。武器とはおおよそ言い難い外見をしているが、それでも力一杯これで叩けば恐らく相手は昏倒することだろう。\n#～明日から使えるあなたの為の武具集
+                       it  Un bastone nato per dare una mano alla magia. A vederlo non lo chiameresti un'arma, eppure
+
+voci di db_item.hsp: 4699   gruppi col solo inglese in comune: 10   righe toccate: 27
+di quelle righe, gia' rese: 25
+
+ⓘ referto, non cancello: il valore atteso non e' zero. Per ogni gruppo la
+  domanda e' se la resa italiana venga dal giapponese (e allora e' salva)
+  o dall'inglese (e allora descrive l'oggetto sbagliato).

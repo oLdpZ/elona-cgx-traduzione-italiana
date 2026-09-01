@@ -1,0 +1,62 @@
+RIGHE = {
+    68450, 90894, 91522, 91584, 95484, 95546, 95608, 95670, 95672, 95734,
+    95796, 95858, 95920,
+}
+# 13 righe, da 68450 a 95920
+
+    # ---------------------------------------------------------- :68450
+    (68450, 'Mysterious cherry tree blooms and then falls forever in the world of the dead. The petals that fall to the ground disappear like a phantom. This phenomenon of the cycle of flowers is more maddening than transient. \\n# ~Special Edition: Pursuing Mythical Plants~'):
+        "",
+
+    # ---------------------------------------------------------- :90894
+    (90894, 'A fir tree with numerous decorations. The bright ornaments attached to the tree brightly illuminate its surroundings as if it were glowing with its own power. \\n# ~North Tyris Travels, Winter Edition~'):
+        "",
+
+    # ---------------------------------------------------------- :91522
+    (91522, 'Evergreen tree that does not produce any fruit. It is said that in the cold season, festivals are held in Noyel to celebrate the Saint by decorating these trees with various ornaments. \\n# ~Illustrated Guide to Tyris Horticulture~'):
+        "",
+
+    # ---------------------------------------------------------- :91584
+    (91584, 'Trees with all their leaves fallen off. They look very frigid, but this is their way of surviving the winter. \\n# ~Illustrated Guide to Tyris Horticulture~'):
+        "",
+
+    # ---------------------------------------------------------- :95484
+    (95484, 'Deciduous tree that does not produce fruit. It is very hard and is primarily used as wood to make various types of furniture. \\n# ~Illustrated Guide to Tyris Horticulture~'):
+        "",
+
+    # ---------------------------------------------------------- :95546
+    (95546, 'Trees of tropical origin. It is said that its fruit is hard and looks like a huge cannonball, but these trees do not seem to bear fruit in North Tyris. \\n# ~Illustrated Guide to Tyris Horticulture~'):
+        "",
+
+    # ---------------------------------------------------------- :95608
+    (95608, 'Deciduous trees that does not produce any fruit. It has very high quality and is mainly used as wood to make various types of furniture. \\n# ~Illustrated Guide to Tyris Horticulture~'):
+        "",
+
+    # ---------------------------------------------------------- :95670
+    (95670, 'Completely dead old tree. It is highly flammable, so do not play with fire in the vicinity. \\n# ~Illustrated Guide to Tyris Horticulture~'):
+        "",
+
+    # ---------------------------------------------------------- :95672
+    (95672, '\\"It makes you think a lot. Of course, this is just a rotting tree, but with a different perspective, it could be us or it could be a forest. I wonder who this projector will capture as time goes by.\\" \\n# ~words of <Barius> the blue haired~'):
+        "",
+
+# 1 voci, 0 ambigue
+
+    # ---------------------------------------------------------- :95734
+    (95734, "This is a tree that drops fruit when you bash it. Be careful not to get carried away and hit yourself too many times, because you won't be able to get unlimited fruits this way. \\n# ~Illustrated Guide to Tyris Horticulture~"):
+        "",
+
+    # ---------------------------------------------------------- :95796
+    (95796, "A tree that hasn't been producing any fruit even after years of waiting. Forget about it and look for a tree that has borne fruit. \\n# ~Illustrated Guide to Tyris Horticulture~"):
+        "",
+
+    # ---------------------------------------------------------- :95858
+    (95858, 'Evergreen tree that does not produce any fruit. It is said that in the cold season, festivals are held in Noyel to celebrate the Saint by decorating these trees with various ornaments. \\n# ~Illustrated Guide to Tyris Horticulture~'):
+        "",
+
+    # ---------------------------------------------------------- :95920
+    (95920, "A deciduous tree that does not produce fruit. In recent years, it has been discovered that as it grows, it releases toxins from its roots and kills the surrounding trees. The Mages' Guild is currently researching the possibility of using it as a potion. \\n# ~Illustrated Guide to Tyris Horticulture~"):
+        "",
+
+# 12 voci, 0 ambigue
+

@@ -1,0 +1,148 @@
+=== ITEM_ID_TREE_SAKURA   [FILTER_ENVIRONMENT]
+    NOME      jp 常世桜
+              en sakura tree
+              IT ciliegio
+    --- description(0)  :68450
+        JP  \t\t死者の世界で永遠に咲いては散り、咲いては散る不思議な桜の木。地面に落ちた花びらは、まるで幻のようにすうっと消えていく。その狂い咲きぶりには儚さを通り越して狂気すら感じる。\n#～特集・幻の植物を追う～\n
+        EN  Mysterious cherry tree blooms and then falls forever in the world of the dead. The petals that fall to the ground disappear like a phantom. This phenomenon of the cycle of flowers is more maddening than transient. \n# ~Special Edition: Pursuing Mythical Plants~
+    --- description(3)  :68453 ⚠️ TETTO SECCO 69
+        JP  \t\t永遠に散り続ける桜の木だ。\n#～鑑定報告書：＜樹木＞カテゴリ～\n
+        EN  It is a cherry tree that its blossoms is forever falling.
+        IT  Un ciliegio i cui fiori cadono per sempre.
+
+=== ITEM_ID_CHRISTMAS_TREE   [FILTER_ENVIRONMENT]
+    NOME      jp クリスマスツリー
+              en christmas tree
+              IT albero di Natale
+    --- description(0)  :90894
+        JP  \t\t幾多の飾りがつけられたモミの木。取り付けられた鮮やかな装飾品によって、それはあたかも自らの力で光っているかの如く、周囲を明るく照らす。\n#～ノースティリス紀行・冬版～\n
+        EN  A fir tree with numerous decorations. The bright ornaments attached to the tree brightly illuminate its surroundings as if it were glowing with its own power. \n# ~North Tyris Travels, Winter Edition~
+    --- description(3)  :90897 ⚠️ TETTO SECCO 69
+        JP  \t\t飾られたモミの木だ。\n#～鑑定報告書：＜樹木＞カテゴリ～\n
+        EN  It is a decorated fir tree.
+        IT  Un abete addobbato.
+
+=== ITEM_ID_TREE_FIR   [FILTER_ENVIRONMENT]
+    NOME      jp モミの木
+              en fir tree
+              IT abete
+    --- description(0)  :91522
+        JP  \t\t実を落とさない常緑樹。寒い季節になるとこれらの木に様々な飾りをし、さる聖人を祝う祭りがノイエルで行われるらしい。\n#～ティリス園芸図鑑～\n
+        EN  Evergreen tree that does not produce any fruit. It is said that in the cold season, festivals are held in Noyel to celebrate the Saint by decorating these trees with various ornaments. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :91525 ⚠️ TETTO SECCO 69
+        JP  \t\t常緑樹だ。\n#～鑑定報告書：＜樹木＞カテゴリ～\n
+        EN  It is evergreen with a scented wood.
+        IT  Un sempreverde.
+
+=== ITEM_ID_TREE_NAKED   [FILTER_ENVIRONMENT]
+    NOME      jp 葉の散った木
+              en naked tree
+              IT albero spoglio
+    --- description(0)  :91584
+        JP  \t\t葉が全て落ちてしまった樹木。とても寒そうに見えるが、これが彼らなりの冬の越し方なのだ。\n#～ティリス園芸図鑑～\n
+        EN  Trees with all their leaves fallen off. They look very frigid, but this is their way of surviving the winter. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :91587 ⚠️ TETTO SECCO 69
+        JP  \t\t葉の無い樹木だ。\n#～鑑定報告書：＜樹木＞カテゴリ～\n
+        EN  It is a leafless tree.
+        IT  Un albero senza foglie.
+
+=== ITEM_ID_TREE_ASH   [FILTER_ENVIRONMENT]
+    NOME      jp トネリコの木
+              en ash tree
+              IT frassino
+    --- description(0)  :95484
+        JP  \t\t実を落とさない落葉樹。非常に硬く、主に木材として様々な家具へと加工されている。\n#～ティリス園芸図鑑～\n
+        EN  Deciduous tree that does not produce fruit. It is very hard and is primarily used as wood to make various types of furniture. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :95487 ⚠️ TETTO SECCO 69
+        JP  \t\t落葉樹だ。\n#～鑑定報告書：＜樹木＞カテゴリ～\n
+        EN  It is a deciduous tree.
+        IT  Un albero che perde le foglie.
+
+=== ITEM_ID_TREE_PALM   [FILTER_ENVIRONMENT]
+    NOME      jp ヤシの木
+              en palm tree
+              IT palma
+    --- description(0)  :95546
+        JP  \t\t南国由来の樹木。実は硬く巨大な砲丸のようだと言われているが、ノースティリスにおいてこれらの樹木は実を宿さないようだ。\n#～ティリス園芸図鑑～\n
+        EN  Trees of tropical origin. It is said that its fruit is hard and looks like a huge cannonball, but these trees do not seem to bear fruit in North Tyris. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :95549 ⚠️ TETTO SECCO 69
+        JP  \t\t南国の樹木だ。\n#～鑑定報告書：＜樹木＞カテゴリ～\n
+        EN  It is a tropical tree.
+        IT  Un albero dei paesi caldi.
+
+=== ITEM_ID_TREE_ZELKOVA   [FILTER_ENVIRONMENT]
+    NOME      jp ケヤキの木
+              en zelkova tree
+              IT zelkova
+    --- description(0)  :95608
+        JP  \t\t実を落とさない落葉樹。非常に良質で、主に木材として様々な家具へと加工されている。\n#～ティリス園芸図鑑～\n
+        EN  Deciduous trees that does not produce any fruit. It has very high quality and is mainly used as wood to make various types of furniture. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :95611 ⚠️ TETTO SECCO 69
+        JP  \t\t落葉樹だ。\n#～鑑定報告書：＜樹木＞カテゴリ～\n
+        EN  It is a deciduous tree.
+        IT  Un albero che perde le foglie.
+
+=== ITEM_ID_TREE_DEAD_TREE   [FILTER_ENVIRONMENT]
+    NOME      jp 枯れ木
+              en dead tree
+              IT albero morto
+    --- description(0)  :95670
+        JP  \t\t完全に枯れてしまった古木。非常に可燃性が高いので付近での火遊びはしないようにしよう。\n#～ティリス園芸図鑑～\n
+        EN  Completely dead old tree. It is highly flammable, so do not play with fire in the vicinity. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(2)  :95672
+        JP  \t\t「色々考えられさせますね。これは確かにただの朽ちた木ですが、見識を変えれば我々にも、かの森にもなるのです。時が過ぎていく中でこの映写機が写すのは、果たしてどちらでしょうね」\n#～青い髪の『ヴァリウス』の言葉～\n
+        EN  \"It makes you think a lot. Of course, this is just a rotting tree, but with a different perspective, it could be us or it could be a forest. I wonder who this projector will capture as time goes by.\" \n# ~words of <Barius> the blue haired~
+    --- description(3)  :95673 ⚠️ TETTO SECCO 69
+        JP  \t\t枯れた樹木だ。\n#～鑑定報告書：＜樹木＞カテゴリ～\n
+        EN  It is a dead tree.
+        IT  Un albero secco.
+
+=== ITEM_ID_TREE_FRUIT   [FILTER_ENVIRONMENT]
+    NOME      jp 果実の木
+              en fruit tree
+              IT albero da frutto
+    --- description(0)  :95734
+        JP  \t\t体当たりすることで果実を落とす樹木。調子に乗って何度も体当たりするとしばらくは実が手に入らなくなるので気をつけよう。\n#～ティリス園芸図鑑～\n
+        EN  This is a tree that drops fruit when you bash it. Be careful not to get carried away and hit yourself too many times, because you won't be able to get unlimited fruits this way. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :95737 ⚠️ TETTO SECCO 69
+        JP  \t\t果実を落とす樹木だ。\n#～鑑定報告書：＜樹木＞カテゴリ～\n
+        EN  It is a fruit tree.
+        IT  Un albero che lascia cadere i frutti.
+
+=== ITEM_ID_TREE_FRUITLESS   [FILTER_ENVIRONMENT]
+    NOME      jp 果実のない木
+              en fruitless tree
+              IT albero senza frutti
+    --- description(0)  :95796
+        JP  \t\t待てど暮らせど果実を実らせる気がない樹木。諦めて果実の実った樹木を探そう。\n#～ティリス園芸図鑑～\n
+        EN  A tree that hasn't been producing any fruit even after years of waiting. Forget about it and look for a tree that has borne fruit. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :95799 ⚠️ TETTO SECCO 69
+        JP  \t\t果実の無くなった樹木だ。\n#～鑑定報告書：＜樹木＞カテゴリ～\n
+        EN  It is a fruit tree with no fruits.
+        IT  Un albero rimasto senza frutti.
+
+=== ITEM_ID_TREE_CEDAR   [FILTER_ENVIRONMENT]
+    NOME      jp スギの木
+              en cedar tree
+              IT cedro
+    --- description(0)  :95858
+        JP  \t\t実を落とさない常緑樹。誰かに詠唱を妨害されていると思ったらこの木の花粉だったという話はままある。\n#～ティリス園芸図鑑～\n
+        EN  Evergreen tree that does not produce any fruit. It is said that in the cold season, festivals are held in Noyel to celebrate the Saint by decorating these trees with various ornaments. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :95861 ⚠️ TETTO SECCO 69
+        JP  \t\t常緑樹だ。\n#～鑑定報告書：＜樹木＞カテゴリ～\n
+        EN  It is evergreen with a scented wood.
+        IT  Un sempreverde.
+
+=== ITEM_ID_TREE_BEECH   [FILTER_ENVIRONMENT]
+    NOME      jp ブナの木
+              en beech tree
+              IT faggio
+    --- description(0)  :95920
+        JP  \t\t実を落とさない落葉樹。成長するに従って根から毒素を出して周りの樹木を枯らしてしまうということが近年分かり、魔術士ギルドが水薬に使用できないかどうか、目下研究中である。\n#～ティリス園芸図鑑～\n
+        EN  A deciduous tree that does not produce fruit. In recent years, it has been discovered that as it grows, it releases toxins from its roots and kills the surrounding trees. The Mages' Guild is currently researching the possibility of using it as a potion. \n# ~Illustrated Guide to Tyris Horticulture~
+    --- description(3)  :95923 ⚠️ TETTO SECCO 69
+        JP  \t\t落葉樹だ。\n#～鑑定報告書：＜樹木＞カテゴリ～\n
+        EN  It is a deciduous tree.
+        IT  Un albero che perde le foglie.
+
+== 12 oggetti, 25 descrizioni
