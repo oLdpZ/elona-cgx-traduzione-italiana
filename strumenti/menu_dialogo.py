@@ -108,7 +108,7 @@ che viene dopo, e i posti sono piu' d'uno. Contate sul sorgente:
     chat_select        1240 righe   la pergamena del dialogo, tetto 58
     re_select           177         la finestra dell'evento, tetto 40-56
     talk_quest          148         non misurato
-    com_txtadv_loop      46         non misurato
+    com_txtadv_loop      46         la schermata testuale, tetto 48 (125a)
     altri                 9         non misurato
 
 ⚠️ **`*re_select` (`event.hsp:4119`) e' un'altra geometria**, e il suo tetto non
@@ -127,10 +127,17 @@ voci gia' tradotte dentro `*re_select` non ne sforava nessuna. La correzione non
 ripara un danno — **toglie un permesso** che nessuno aveva ancora usato.
 
 ⚠️ **E quel che non si sa misurare si CONTA, non si misura a occhio.** Per
-`talk_quest` e `com_txtadv_loop` la geometria non e' stata letta: quelle voci
-escono dal conto degli sfori ed entrano in un conto loro, che il referto stampa.
-Applicare 58 «tanto per avere un numero» e' come il filtro furbo di
-`custom_dmgpop.hsp` — non prova niente, e fa credere di aver guardato.
+`talk_quest` la geometria non e' stata letta: quelle voci escono dal conto degli
+sfori ed entrano in un conto loro, che il referto stampa. Applicare 58 «tanto
+per avere un numero» e' come il filtro furbo di `custom_dmgpop.hsp` — non prova
+niente, e fa credere di aver guardato.
+
+⭐ **`com_txtadv_loop` e' uscito da quel conto nella 125a**, e non perche' si
+sia deciso di fidarsi: perche' `txtadv.hsp` e' stato tradotto e la sua geometria
+e' stata **letta** (`:157`-`:173`, vedi le costanti piu' sotto). ⓘ E' stato il
+test `test_le_voci_tradotte_stanno_tutte_in_un_contenitore_misurabile` a
+chiederlo, cadendo sulle prime rese del file: la regola «si misura prima, non
+dopo» qui ha funzionato da sola.
 
 💡 **Il contenitore si trova guardando avanti fino al primo `gosub`, senza
 limite di righe**, fermandosi su un'etichetta o su un `return`. Un limite di
@@ -226,12 +233,36 @@ MARGINE_GOD = 12             # lo stesso bordo interno di *re_select
 INIZIO_VOCE_LEGGI = 104      # cs_list a wx+100 (:509) + 4  (module.hsp:129)
 FINE_VOCE_LEGGI = 439        # la striscia della riga: wx+74 + gfini 365 (:494)
 
-# i quattro contenitori di cui la geometria e' stata letta. Tutto il resto si
+# --- la geometria della schermata testuale, letta da txtadv.hsp:157-:173 (125a)
+#
+# ⚠️⚠️ **Qui il confine non e' un bordo disegnato: e' il rettangolo che il ciclo
+# RIPULISCE a ogni giro.** `x = 170, 400` e `gcopy 2, x, y, x(1), y(1)`
+# (`:157`-`:161`) ricopiano dal buffer pulito la striscia 170..570; la barra
+# evidenziata la disegna `cs_list s, 170 + 30, …` (`:173`) da 200 in poi. Quel
+# che finisce oltre i 570 **non viene ripulito al giro dopo** e resta a schermo
+# come scia. Non e' un troncamento, e' sporcizia — la stessa specie del
+# `cs_list` che non taglia della pergamena.
+#
+# ⓘ Il font e' 12 (`font …, 14 - en * 2`, `:163`), lo stesso della pergamena,
+# quindi il passo di 7 px vale anche qui senza prenderlo in prestito da un
+# carattere diverso.
+#
+# ⚠️ **E monte stesso puo' sforare, su una riga sola**: `txtadv.hsp:1256` e'
+# `"(Cheat) Slow time using " + itemname(…) + "!"`, 25 caratteri fissi piu' il
+# nome di un oggetto. Oltre i 23 caratteri di nome la barra passa i 570 anche in
+# inglese. E' un difetto di monte, e per questo la resa italiana di quella riga
+# e' piu' corta della sua parte fissa inglese invece che piu' lunga.
+FINE_PULITO_TXTADV = 570     # 170 + 400            (txtadv.hsp:157)
+INIZIO_VOCE_TXTADV = 200     # cs_list a 170 + 30   (txtadv.hsp:173)
+CORNICE_TXTADV = 34          # 32 di cs_list (module.hsp:70) + arg5 = 2
+
+# i cinque contenitori di cui la geometria e' stata letta. Tutto il resto si
 # conta e non si misura: vedi il docstring.
 PERGAMENA = "chat_select"
 FINESTRA_EVENTO = "re_select"
 PANNELLO_DEI = "god_select_WHILE1"
 LEGGI_CITTA = "skip_rule"
+SCHERMATA_TXTADV = "com_txtadv_loop"
 
 # ⚠️ **I `gosub` che non disegnano un menu.** La regola «a disegnarla e' il
 # `gosub` che segue» vale finche' il primo `gosub` dopo la voce e' quello che
@@ -484,6 +515,11 @@ def tetto_di(contenitore: str, sfondo: str, grafica: Path | None = None) -> int 
         # ⚠️ Qui il riquadro non dipende da un bitmap: `god.hsp:382` lo scrive
         #    a mano, `dx = 650`, ed e' lo stesso per tutti e nove gli dei.
         utili = LARGHEZZA_GOD - INIZIO_VOCE_GOD - MARGINE_GOD
+        return int(utili / PIXEL_PER_CARATTERE)
+    if contenitore == SCHERMATA_TXTADV:
+        # ⚠️ Qui il confine e' il rettangolo che il ciclo RIPULISCE, non un
+        #    bordo disegnato: vedi le costanti. Chi sfora lascia una scia.
+        utili = FINE_PULITO_TXTADV - INIZIO_VOCE_TXTADV - CORNICE_TXTADV
         return int(utili / PIXEL_PER_CARATTERE)
     return None
 

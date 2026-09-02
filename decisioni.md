@@ -6,6 +6,160 @@ ancora aperte.
 
 ---
 
+## Il perimetro `lang()` si chiude: 100%, e l'ultimo file era inglese scritto su giapponese ricopiato a caso — 2026-09-02, centoventicinquesima
+
+`net.hsp` (24 rese) e `txtadv.hsp` (117) chiudono l'**ultimo fronte di `lang()`
+del progetto**: `perimetro.py` dice **26.326 su 26.326, zero da fare**. I due
+file che restano nell'elenco, `custom_pet.hsp` e `custom_dmgpop.hsp`, hanno una
+firma sola ciascuno **ed è muta**: erano già finiti dalla 124ª.
+
+### `txtadv.hsp`: il segnaposto non era nemmeno la riga giusta
+
+Il file tiene l'esplorazione del sito casuale, il blackjack e le **slot**, che
+sono di Custom-GX. È lo stesso caso del fabbro degli incantamenti — inglese
+scritto, giapponese ricopiato — ma peggiore: per le voci nuove il mod ha riusato
+il giapponese della **prima riga che gli capitava**.
+
+    :1183  jp «il blackjack è il gioco in cui ci si avvicina a 21»
+           en «In Slots, stop the spinning at right time…»
+    :1253  jp «che faccio?»        en «Wheel of Fortune»
+    :1254  jp «esplora»            en «Pull»
+    :799   jp «blackjack»          en «I want to play Slots.»
+
+⭐⭐ **E tre punti dell'esplorazione sono lo stesso caso dentro il codice di
+monte**, dove a smentire il giapponese non è l'inglese ma le **abilità
+controllate due righe sopra**:
+
+    :507  CARPENTRY / WEIGHT_LIFTING   jp «ho trovato dei resti»
+                                       en «heavy wood blocking the path»
+    :516  TACTICS / STEALTH            jp «ho trovato dei resti»
+                                       en «kamikaze-yeeks ahead»
+    :525  LITERACY / MEMORIZATION      jp «ho trovato dei resti»
+                                       en «familiar magical inscriptions»
+
+Falegnameria e sollevamento pesi non frugano fra i resti: tagliano e sollevano
+un tronco. Le voci di menu che seguono lo confermano riga per riga
+(«Chop»/«Lift», «Approach»/«Sneak attack», «Just read it»/«Try to recall») su un
+giapponese che dice «fruga»/«seziona». **Nessuna rete può vederlo**: bisogna
+leggere le due righe di `atxskillcheck` sopra la `noteadd`.
+
+### Due difetti di monte che si vedono solo nel codice
+
+⚠️ **`:665`** — il giapponese è `lang("叩き割る(筋力: ", "Smash it. ")`, e la
+riga poi ci attacca `"(" + skillname(SKILL_ATTR_STR) + ": " + sdata(…) + ")"`:
+in giapponese esce **«叩き割る(筋力: (筋力: 12)»**, con la parentesi aperta due
+volte. L'inglese ha buttato il pezzo di troppo, e l'italiano fa lo stesso.
+
+⚠️ **`net.hsp:375`** — tre righe portano lo stesso inglese, «You need to wait
+before submitting a new vote.», ma i giapponesi sono due, e il codice dà ragione
+al giapponese: `:373` entra in quel ramo con `MDATA_WEREWOLF_STAGE == 0`, cioè
+*nessuna votazione in corso*, mentre `:563` e `:715` guardano `GDATA_NEXT_VOTE`,
+cioè *il tuo diritto di voto*. È la forma della 119ª — l'inglese che ricopia una
+riga nell'altra — su due cose che non hanno niente in comune.
+
+### `:825` e `:826` sono scambiate, e non si raddrizzano
+
+Il giapponese del blackjack dice prima «dichiara la puntata» e poi «più fiche
+punti, migliore è il premio»; l'inglese le rovescia (forma della 104ª, «inglese
+slittato»). Sono due firme e ciascuna si rende **dal suo** giapponese, quindi in
+italiano l'ordine a schermo torna quello di monte giapponese.
+ⓘ L'ordine inglese è forse più comodo — la domanda finisce attaccata al menu —
+ma non è un difetto da correggere: è una riscrittura, e qui il giapponese è la
+fonte scritta. Raddrizzarlo vorrebbe dire scegliere fra due versioni entrambe
+volute, e non è una decisione che spetta alla traduzione.
+
+### ⭐ Le quattro «戻る» si rendono in tre modi, e a distinguerle è il codice
+
+Il giapponese dice «torna indietro» in tutt'e quattro le voci; l'inglese le
+colora («Return», «Bah...!», «Great.»). La tentazione è dire che la colorazione
+è un capriccio del traduttore e appiattirle. **Non lo è, e lo dimostra il
+codice**: `:937` si raggiunge con `winner == 0`, cioè dopo aver *perso*; `:1170`
+e `:1529` dopo aver *incassato il premio*; `:763` alla fine di un'esplorazione
+qualunque. Sono tre situazioni diverse per costruzione. Seguire la
+differenziazione di monte qui non è inventare: è leggere il ramo.
+
+---
+
+## Un test del progetto ha fermato 117 rese, e aveva ragione — 2026-09-02, centoventicinquesima
+
+Dopo aver reimportato `txtadv.hsp`, `pytest` è passato da 794 verdi a **1 rosso**:
+
+    test_le_voci_tradotte_stanno_tutte_in_un_contenitore_misurabile
+    AssertionError: txtadv.hsp:438 in *com_txtadv_loop  (e altre 39)
+
+Quel test dice: *se una resa finisce in un menu di cui nessuno ha misurato il
+riquadro, il riquadro va misurato prima, non dopo*. `menu_dialogo.py` elencava
+`com_txtadv_loop` fra i «non misurati» dalla 72ª, e nessuno ci aveva mai messo
+una resa dentro. Con questo lotto ce ne sono finite quaranta in un colpo.
+
+⭐⭐⭐ **È la prima volta che una rete del progetto ferma un lotto per una cosa
+che non era ancora successa.** Non ha trovato un danno: ha impedito un permesso.
+La 118ª aveva scritto la stessa idea a proposito di `*re_select` — «la
+correzione non ripara un danno, toglie un permesso che nessuno aveva ancora
+usato» — ma là il permesso l'aveva tolto una persona; qui l'ha tolto il test.
+
+### La geometria, e perché il confine è la scia e non un bordo
+
+    txtadv.hsp:157-161   x = 170, 400 ; gcopy 2, x, y, x(1), y(1)
+    txtadv.hsp:173       cs_list s, 170 + 30, …
+    txtadv.hsp:163       font …, 14 - en * 2        cioè font 12
+    module.hsp:70        limit(strlen(…) * 7 + 32 + arg5, 10, 480)
+
+⚠️⚠️ **Qui non c'è nessun taglio: c'è una scia.** Il ciclo ripulisce a ogni giro
+la striscia 170..570 ricopiandola dal buffer pulito; la barra evidenziata parte
+da 200. Quel che finisce oltre i 570 **non viene ripulito al giro dopo** e resta
+a schermo. Il tetto è quindi `(570 - 200 - 34) / 7 = 48 caratteri`, ed è entrato
+in `menu_dialogo.py` come **quinto contenitore** (`SCHERMATA_TXTADV`), accanto
+alla pergamena, alla finestra dell'evento, al pannello degli dei e alle leggi.
+Le voci misurate salgono da 1.383 a **1.423**.
+
+⚠️ **E monte stesso può sforare, su una riga sola.** `:1256` è
+`"(Cheat) Slow time using " + itemname(…) + "!"`: 25 caratteri fissi più il nome
+di un oggetto, e oltre i 23 caratteri di nome la barra passa i 570 **anche in
+inglese**. Per questo la resa italiana di quella riga è stata accorciata *sotto*
+la parte fissa inglese — «(Trucco) Rallenta con X!», 22 caratteri — invece che
+allungata: su una riga dove monte è già al limite, la traduzione non aggiunge il
+suo.
+
+### Le altre due geometrie di quella schermata restano fuori dalle reti
+
+`scratchpad/_125-larghezze-txtadv.py` misura anche le **righe di messaggio**
+(`pos 170`, font 14) e il **pannello in alto** (`screen.hsp:100`, font 11). Per
+il pannello il passo lo dichiara il gioco stesso — `sx + strlen*13/2 + 14`, cioè
+6,5 px — e il tetto viene 51 caratteri. Per le righe di messaggio il passo del
+font 14 **non è misurato a schermo e non si inventa**: la 118ª ha già insegnato
+che prendere una costante da un'altra rete dicendo «tanto è lo stesso carattere»
+è esattamente il difetto. Lì il metro è monte, cioè la riga inglese più lunga
+che il gioco disegna già oggi: **71 caratteri**.
+
+---
+
+## Il referto dei participi ha trovato sei rese che danno del maschile al giocatore — 2026-09-02, centoventicinquesima
+
+`scratchpad/referti.py` è passato da **9 participi a 15** dopo il lotto di
+`txtadv.hsp`, e tutte e sei le nuove erano mie:
+
+    :550  «Ti sei fatto male nel farlo»      -> «Ti fai male nel farlo»
+    :581  «Ti sei perso!»                    -> «Hai perso la strada!»
+    :596  «Sei inciampato … e sei caduto!»   -> «Inciampi in un sasso e cadi!»
+    :615  «Ti sei seduto e ti sei riposato»  -> «Ti siedi e riprendi fiato»
+    :710  «Ti sei stirato un muscolo»        -> «Ti stiri un muscolo»
+    :998  «Ti hanno beccato a barare»        -> «Ti hanno visto barare»
+
+Il giocatore di Elona può essere donna, e il passato prossimo alla seconda
+persona lo costringe a un genere. ⭐ **Il rimedio non è una perifrasi
+faticosa: è il presente.** Cinque righe su sei si risolvono cambiando tempo, e
+il testo ci guadagna anche in immediatezza — è un registro da messaggio di
+gioco, non da racconto. La sesta (`:998`) cambia verbo.
+
+⚠️⚠️ **E il referto le ha viste solo perché è stato rilanciato in chiusura.**
+La regola della 120ª — *un referto si rimisura dopo l'ultima resa, non dopo
+l'ultimo lotto misurato* — qui ha pagato per la prima volta: rilanciato in
+apertura avrebbe detto 9, che era il numero di ieri.
+ⓘ I nove che restano vengono da `chat.hsp` e sono di sessioni vecchie: non sono
+stati toccati oggi, e restano da guardare.
+
+---
 ## In un file di mod la fonte copiata può essere il giapponese — 2026-09-02, centoventicinquesima
 
 `custom_itemenchantment.hsp` chiude con 26 rese, e **diciassette erano già

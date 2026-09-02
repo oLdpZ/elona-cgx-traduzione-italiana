@@ -1140,6 +1140,46 @@ ninja dalla maschera demoniaca», e la formula «chi va all'avventura».
 Il compositore del nome degli oggetti. Tre famiglie, e in due l'inglese non e' il
 testimone da seguire.
 
+### Il casinò e la schermata testuale (`txtadv.hsp`, `net.hsp`)
+
+| JP | EN | IT | nota |
+|---|---|---|---|
+| カジノチップ | Casino chip | **fiche da casinò** | è quel che `matname(1)` restituisce (`material_data.hsp:14`), cioè quel che il gioco compone da sé. ⚠️ Altre due righe dicono «chip da casinò»: misurato, non deciso (vedi `RIPRESA-sessione.md`) |
+| 景品 | Rewards / Chest-Rank | **premio** | già in `chat.hsp`, il suggerimento sul casinò |
+| 親 | Dealer | **il banco** | idem |
+| イカサマ | Cheat | **barare** / **trucco** | `chat.hsp` «Hai barato, vero!?» |
+| 行動回数 | Actions | **Azioni** | il contatore dell'esplorazione |
+| カジノ《フォーチュンクッキー》 | Casino \<\<Fortune Cookie\>\> | **Casinò \<\<Biscotto della Fortuna\>\>** | フォーチュンクッキー è già «biscotto della fortuna» in `db_item.hsp` |
+| 戦利品 | loot list | **bottino** | |
+| 異名 (nome della funzione) | alias | **epiteto** | tre rese su cinque; le altre due dicono «alias» ed è una cosa aperta |
+| 異名 (in prosa) | — | **soprannome** | otto rese su otto, ed è un caso diverso |
+| 処刑投票 | vote | **votazione per l'esecuzione** | `action.hsp:2238` «Vota per l'esecuzione» |
+| 投票箱 | Voting Box | **Urna** | |
+
+**I simboli dei rulli delle slot**, tutti già decisi altrove e ripresi dalla
+toppa che rende gli esiti (`3 putits!` e sorelle):
+
+| EN | IT | dove era già |
+|---|---|---|
+| putit | **putit** | `action.hsp:16907`, prestito invariabile |
+| dog | **cane** / cani | |
+| bread | **pane** / pani | |
+| cat | **gatto** / gatti | |
+| bethel | **Bethel** | `db_card.hsp:4612`, il falco bianco — nome proprio |
+| larnneire | **Larnneire** | `db_card.hsp:10566` — nome proprio |
+| ehekatl | **Ehekatl** | `chat.hsp:13654` — nome proprio |
+| crimberry | **crimberry** | `db_item.hsp:139482`, prestito invariabile |
+
+⚠️ **Il plurale segue l'italiano, non l'inglese.** L'inglese mette la -s a tutti
+e otto, compresi i nomi di persona («3 larnneires!»); in italiano i prestiti e i
+nomi propri non si flettono.
+
+⚠️⚠️ **E il giocatore può essere donna.** Nelle righe alla seconda persona il
+passato prossimo costringe a un genere («ti sei perso», «sei caduto»): si usa il
+**presente**, che non lo costringe e che è anche il registro giusto per un
+messaggio di gioco. Lo controlla `scratchpad/referti.py`, ma solo se rilanciato
+**dopo** l'ultima resa.
+
 ### Il fabbro degli incantamenti (`custom_itemenchantment.hsp`, `chat.hsp`)
 
 Il lessico è quello già in gioco dal dialogo di monte; qui c'è solo ciò che la

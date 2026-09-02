@@ -48,6 +48,83 @@ una sottrazione: `fatte` e `da fare` contati con lo stesso `estrai`. Chi legge
 in giro per questo file un «perimetro 90%, totale 94%» sta leggendo il vecchio
 conto, non un arretramento.
 
+## Il perimetro `lang()` si chiude al 100%: 167 rese in tre file — 2026-09-02, centoventicinquesima sessione
+
+`custom_itemenchantment.hsp` (26), `net.hsp` (24) e `txtadv.hsp` (117) chiudono
+**l'ultimo fronte di `lang()` del progetto**.
+
+    perimetro.py    26.326 fatte, 0 da fare = 100,0%   (era 26.159 / 167)
+    applica         30.764 sostituzioni più 17 toppe   (era 30.532)
+    toppe           1.048                              (erano 1.031)
+    nudi_en         400 ancora da fare                 (erano 417)
+    menu_dialogo    0 fuori misura su 1.423 misurate   (erano 1.383)
+
+I due file che restano nell'elenco, `custom_pet.hsp` e `custom_dmgpop.hsp`,
+hanno **una firma sola ciascuno ed è muta**: erano già finiti dalla 124ª.
+
+### ⚠️⚠️⚠️ Il 100% non è la fine: restano 212 righe di testo che nessun lotto raggiunge
+
+`nudi_en.py` conta **400** letterali inglesi ancora intatti, e `triage_nudi.py`
+li spacca: **212 sono testo**, 87 sigle (i nomi delle tracce del jukebox), 93
+`dbg` (la console da mago), 22 spente dentro un commento. Le 212 non passano da
+nessuna `lang()` — niente firma, niente voce di dizionario — e si toccano solo
+con una toppa. Stanno in **blocchi**, e un blocco è una schermata sola:
+`item_func.hsp:*skipName` 13, `proc.hsp:*jump_changeCreature` 13,
+`item_func.hsp:*itemname` 11, `map_rand.hsp:*map_randomDungeon` 9,
+`system.hsp:*game_title` 9.
+
+💡 **È il fronte da aprire nella prossima sessione**, ed è l'unico rimasto che
+sia lavoro di traduzione. Si comincia da `triage_nudi.py`, non da `nudi_en.py`.
+
+### Che cosa avevano dentro i tre file
+
+Tutti e tre sono lo stesso caso, ed è il rovescio della regola di sempre: **il
+giapponese è la fonte copiata e l'inglese quella scritta.** Custom-GX ricopia il
+giapponese di monte e riscrive l'inglese, e nelle slot di `txtadv.hsp` il
+segnaposto non è nemmeno la riga giusta (`:1183` porta la spiegazione del
+blackjack sotto l'inglese delle slot).
+
+⭐⭐ **E tre punti dell'esplorazione sono lo stesso caso dentro il codice di
+monte**, dove a smentire il giapponese sono le **abilità controllate due righe
+sopra**: falegnameria e sollevamento pesi non frugano fra i resti, tagliano e
+sollevano un tronco.
+
+Due difetti di monte trovati leggendo il codice: `txtadv.hsp:665` stampa la
+parentesi due volte in giapponese, e `net.hsp:375` porta un inglese ricopiato da
+un'altra riga che dice tutt'altro (`WEREWOLF_STAGE` contro `NEXT_VOTE`).
+
+### ⭐⭐⭐ Un test ha fermato il lotto, ed è la prima volta
+
+Dopo il reimporta di `txtadv.hsp`, `pytest` è passato da 794 verdi a 1 rosso:
+`test_le_voci_tradotte_stanno_tutte_in_un_contenitore_misurabile`.
+`menu_dialogo.py` elencava `com_txtadv_loop` fra i «non misurati» dalla 72ª e
+nessuno ci aveva mai messo una resa dentro; con questo lotto ce ne sono finite
+quaranta in un colpo. **Non ha trovato un danno: ha impedito un permesso.**
+
+La geometria è stata letta e il tetto — 48 caratteri, ed è una **scia** e non un
+taglio — è entrato in `menu_dialogo.py` come **quinto contenitore**.
+
+### ⭐⭐ Il referto dei participi ha trovato sei rese al maschile
+
+`referti.py` è passato da 9 a 15 dopo il lotto, e tutte e sei le nuove davano
+del maschile al giocatore, che in Elona può essere donna. **Il rimedio è il
+presente**, non una perifrasi: cinque su sei si risolvono cambiando tempo.
+⚠️ Le ha viste solo perché è stato rilanciato **in chiusura** (regola della
+120ª): in apertura avrebbe detto 9, cioè il numero di ieri.
+
+### Il debito di collaudo
+
+⚠️⚠️ **Nessuna delle 167 rese è stata vista a schermo**, e nemmeno le 17 toppe.
+Il debito sale da 9.349 a **9.516**. ⚠️ E quel numero **non è misurato da
+niente**: è tenuto a mano nel documento di ripresa.
+
+⭐ Le due schermate nuove si guardano in pochi minuti: il **menu del fabbro**
+(`chatval 114514` e `69000`) e la **schermata testuale** (esplorazione, blackjack
+e slot). La seconda è l'unico posto dove si vede se i tetti tengono davvero,
+perché il passo del font 14 non è mai stato misurato a schermo.
+
+---
+
 ## `custom_itemenchantment.hsp` si chiude: 26 rese, 17 già decise — 2026-09-02, centoventicinquesima sessione
 
 Il fronte aperto dalla 123ª scende da tre file a **due**. Restano **141 firme**:
