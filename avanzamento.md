@@ -62,11 +62,11 @@ conto, non un arretramento.
 I due file che restano nell'elenco, `custom_pet.hsp` e `custom_dmgpop.hsp`,
 hanno **una firma sola ciascuno ed è muta**: erano già finiti dalla 124ª.
 
-### ⚠️⚠️⚠️ Il 100% non è la fine: restano 212 righe di testo che nessun lotto raggiunge
+### ⚠️⚠️⚠️ Il 100% non è la fine: restano 198 righe di testo che nessun lotto raggiunge
 
 `nudi_en.py` conta **400** letterali inglesi ancora intatti, e `triage_nudi.py`
-li spacca: **212 sono testo**, 87 sigle (i nomi delle tracce del jukebox), 93
-`dbg` (la console da mago), 22 spente dentro un commento. Le 212 non passano da
+li spacca: **198 sono testo**, 87 sigle (i nomi delle tracce del jukebox), 93
+`dbg` (la console da mago), 22 spente dentro un commento. Le 198 non passano da
 nessuna `lang()` — niente firma, niente voce di dizionario — e si toccano solo
 con una toppa. Stanno in **blocchi**, e un blocco è una schermata sola:
 `item_func.hsp:*skipName` 13, `proc.hsp:*jump_changeCreature` 13,

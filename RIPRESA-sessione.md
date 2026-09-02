@@ -23,10 +23,10 @@ si chiuderanno mai traducendoli.
 
 ⚠️⚠️⚠️ **E IL 100% NON E' LA FINE DEL PROGETTO. RESTANO DUE FRONTI VERI.**
 
-  1. ⭐ **212 righe inglesi nude che sono TESTO** — `nudi_en.py` ne conta 400
-     ancora intatte, e `triage_nudi.py` le spacca: **212 testo**, 87 sigle (i
+  1. ⭐ **198 righe inglesi nude che sono TESTO** — `nudi_en.py` ne conta 400
+     ancora intatte, e `triage_nudi.py` le spacca: **198 testo**, 87 sigle (i
      nomi delle tracce del jukebox), 93 `dbg` (la console da mago) e 22 spente
-     dentro un commento. Le 212 non passano da nessuna `lang()`, non hanno
+     dentro un commento. Le 198 non passano da nessuna `lang()`, non hanno
      firma, non hanno voce di dizionario e **nessun lotto puo' raggiungerle**:
      si toccano solo con una toppa. Stanno in **blocchi**, e un blocco e' una
      schermata sola:
@@ -172,8 +172,8 @@ ieri. I nove che restano vengono da `chat.hsp` e sono di sessioni vecchie.
     perimetro.py             **26.326 fatte, 0 da fare, 100,0%**
     _123-file-senza-dizionario  **2 firme in 2 file, 2 mute, 0 da fare**
     nudi_en                  struttura 1044, **ancora da fare 400** (era 417)
-    triage_nudi              **testo 212**, sigla 87, dbg 93, spenta 22
-                             ⭐ le 212 sono il fronte di domani
+    triage_nudi              **testo 198**, sigla 87, dbg 93, spenta 22
+                             ⭐ le 198 sono il fronte di domani
     toppe                    **1048**, e `_97-toppe-agganciate` **1048 su 1048**
     menu_dialogo             0 fuori misura su **1423** (erano 1383)
                              ⓘ il quinto contenitore e' `com_txtadv_loop`
