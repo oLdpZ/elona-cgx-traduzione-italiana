@@ -739,3 +739,44 @@ dizionario, e i sei modi vanno riletti con lei.
 | ` N` | Ｎ | la sigla della parte montata, `item_func.hsp:864` |
 | ` C` | Ｃ | la sigla della parte montata, `item_func.hsp:867` |
 | `X` | Ｘ | la sigla della parte montata, `item_func.hsp:870` |
+
+## Una riga che il giocatore ha scelto di leggere in giapponese — 126ª
+
+`proc.hsp:14384` è uno `switch` su `TWEAK_MISC_HOKUTO_NO_KEN_MODE`, cioè un
+**ritocco che il giocatore accende**, e offre tre forme della stessa battuta di
+Ken il guerriero quando un colpo uccide:
+
+    :14386  「お前はもう死んでいる。」    il giapponese, ramo `jp`: in italiano non lo legge nessuno
+    :14389  You are already dead.       SI TOPA:  «Tu sei già morto.»
+    :14392  Omae wa mou shindeiru.      RESTA:    è la traslitterazione, ed è il senso dell'opzione
+
+ⓘ **Qui non c'è una tabella apposta.** Le tabelle di questo file le legge
+`verifica.py` come dichiarazioni di valore, e delle tre righe qui sopra una sola
+resta invariata: una tabella ne dichiarerebbe tre. ⚠️ E la riga che resta non
+sta comunque nel dizionario — è nuda — quindi `verifica.py` non la incontra mai:
+la dichiarazione che conta è questa prosa e il `motivo` della toppa.
+
+⚠️ **Il `default` non è una dimenticanza, è la terza opzione.** Chi lo sceglie
+ha chiesto proprio di leggere la frase *in rōmaji*, come la si sente nella
+sigla: tradurla toglierebbe l'unica cosa per cui quella voce del menu esiste.
+È lo stesso criterio di `Kamikakushi` e delle altre romanizzazioni qui sopra,
+solo che qui la scelta è **del giocatore e non del traduttore**.
+
+⚠️⚠️ **E il `case 2` porta un participio maschile apposta.** «Tu sei già morto»
+è la battuta del doppiaggio italiano, e `guida-stile.md` vieta il participio
+riferito a chi non ha genere noto — qui il bersaglio può essere la giocatrice.
+L'eccezione è dichiarata: la riga **non descrive** un personaggio, **cita** una
+frase che in italiano ha una forma sola, e una versione neutra sarebbe corretta
+e non sarebbe più la citazione. ⓘ Nessuna rete la vede: `referti.py` legge il
+dizionario, e le toppe non ci stanno. Il posto dove è scritta è questo e il
+`motivo` della toppa.
+
+## Una battuta che nessuna rete misura ancora — 126ª
+
+`proc.hsp:14392` resta nell'elenco di `nudi_en.py` e di `triage_nudi.py` come
+riga «testo ancora da fare», e ci resterà: quei due strumenti contano i
+**letterali inglesi intatti**, e una riga che deve restare intatta è
+indistinguibile da una che nessuno ha guardato. È lo stesso caso di
+`net.hsp:263` della 125ª — **misurata, non da fare** — e finché il triage non
+avrà una classe per «dichiarata invariata» il conto delle righe nude porterà
+dentro anche queste.
