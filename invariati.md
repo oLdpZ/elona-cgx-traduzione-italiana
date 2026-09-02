@@ -883,3 +883,23 @@ comincia a `wx + 534` su una finestra che non è stata misurata. ⚠️ Un punto
 parola, e in italiano si scrive uguale. La coda `(条件不足)`/`(requirement)` che
 la riga dopo può appendere passa invece dal dizionario, ed è tradotta: la
 distinzione fra le due è esattamente quella fra sigla e parola.
+
+## Le due righe di `config.hsp` che scrivono `config.txt` — 127ª
+
+**`config.hsp:47`, `noteadd "" + valn + " \"" + valn(1) + "\""`** e
+**`config.hsp:1515`, `valn = "Pcc_show.", str(cfg_pcc_show)`** — ⚠️ **non sono
+testo: sono il file di configurazione.** La prima è la riga che `*cfg_write`
+scrive dentro `config.txt` quando la chiave non c'era ancora (`notesave` a
+`:49`); i suoi letterali sono uno spazio e due virgolette, cioè la sintassi del
+file. La seconda è il **nome di una chiave**, `Pcc_show.`, che `*config_init`
+rilegge con `cfgRead`.
+
+⚠️ Tradurne una qualunque significa scrivere in `config.txt` una chiave che il
+lettore non riconosce più: le impostazioni del giocatore si perderebbero **in
+silenzio**, e nessuna rete del progetto guarda dentro quel file. È la stessa
+classe di `Direct sound` e `MCI` più su — il valore che lega l'etichetta al file
+di configurazione — vista dal lato della chiave invece che del valore.
+
+💡 Sono, come `command.hsp:4651`-`:4652`, un falso positivo del conteggio: il
+triage vede un letterale su una riga che compone, e non può sapere che quel che
+compone è un file e non una schermata.
