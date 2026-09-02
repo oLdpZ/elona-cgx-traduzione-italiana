@@ -117,6 +117,7 @@ def test_una_rinviata_conta_come_fatta(finto, tmp_path):
         "en": "I want to sell.",
         "rinviata_a": "mai",
         "motivo": "prova",
+        "condizione": {"tipo": "mai", "nota": "prova"},
     }, ensure_ascii=False) + "\n", encoding="utf-8")
     assert _bilingui(finto, rinviate=rinviate) == []
 

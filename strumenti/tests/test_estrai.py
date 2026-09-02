@@ -293,6 +293,7 @@ def test_una_rinviata_di_un_file_non_toglie_lavoro_a_un_altro(tmp_path):
     percorso.write_text(json.dumps({
         "firma": "abc", "file": "text.hsp", "en": "gold bar",
         "motivo": "risposta del quiz, dipende dai nomi degli oggetti",
+        "condizione": {"tipo": "attende_resa", "siti": ["db_item.hsp:1"]},
     }, ensure_ascii=False) + "\n", encoding="utf-8")
 
     assert carica_rinviate(percorso, "text.hsp") == {"abc"}
@@ -308,8 +309,47 @@ def test_senza_file_le_rinviate_si_leggono_tutte(tmp_path):
     percorso = tmp_path / "rinviate.jsonl"
     percorso.write_text(json.dumps({
         "firma": "abc", "file": "text.hsp", "en": "x", "motivo": "y",
+        "condizione": {"tipo": "riga_morta"},
     }) + "\n", encoding="utf-8")
     assert carica_rinviate(percorso) == {"abc"}
+
+
+# --- la condizione e' un campo, non una frase (2026-09-02, 129a) -------------
+#
+# Nella 128a tre rinvii dicevano in prosa «va tradotta INSIEME a chi assegna il
+# nome della mappa, non prima». Chi assegna e' stato tradotto in una sessione
+# qualunque, e nessuno e' tornato a leggere il rinvio: **quattro rami del gioco
+# erano morti** — il ballo nella sala delle feste durava 4 turni invece di 41.
+#
+# Il `motivo` resta obbligatorio per chi legge; `condizione.tipo` e'
+# obbligatorio perche' qualcosa possa **misurare** se il rinvio e' scaduto.
+
+def test_le_rinviate_vogliono_una_condizione(tmp_path):
+    import json, pytest
+    from strumenti.estrai import carica_rinviate
+    percorso = tmp_path / "rinviate.jsonl"
+    percorso.write_text(json.dumps({
+        "firma": "abc", "file": "text.hsp", "en": "x",
+        "motivo": "va tradotta INSIEME a map_rand.hsp: non prima",
+    }) + "\n", encoding="utf-8")
+    with pytest.raises(ValueError) as errore:
+        carica_rinviate(percorso)
+    assert "condizione" in str(errore.value)
+
+
+def test_una_condizione_con_un_tipo_inventato_non_passa(tmp_path):
+    # un tipo fuori vocabolario e' peggio di un campo assente: sembra
+    # classificato, e nessun referto lo misura
+    import json, pytest
+    from strumenti.estrai import carica_rinviate
+    percorso = tmp_path / "rinviate.jsonl"
+    percorso.write_text(json.dumps({
+        "firma": "abc", "file": "text.hsp", "en": "x", "motivo": "y",
+        "condizione": {"tipo": "quando sara' il momento"},
+    }, ensure_ascii=False) + "\n", encoding="utf-8")
+    with pytest.raises(ValueError) as errore:
+        carica_rinviate(percorso)
+    assert "tipo" in str(errore.value)
 
 
 def test_i_nomi_di_db_item_non_sono_rinviati_da_text():

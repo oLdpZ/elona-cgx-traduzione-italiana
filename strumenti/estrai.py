@@ -732,7 +732,29 @@ def estrai_da_file(percorso: Path) -> list[dict]:
     return estrai_da_testo(percorso.name, testo)
 
 
-_CAMPI_RINVIATA = ("firma", "file", "en", "motivo")
+_CAMPI_RINVIATA = ("firma", "file", "en", "motivo", "condizione")
+
+# Il vocabolario delle condizioni di rinvio. Sta qui e non nel referto che le
+# valuta (`scratchpad/_129-condizioni-dei-rinvii.py`) perche' e' il **campo** a
+# essere obbligatorio, come il `motivo`: chi aggiunge un rinvio deve scegliere
+# fra questi sette, e il referto viene dopo.
+#
+# ⚠️⚠️ Nata nella 129a, dal guasto della 128a: tre rinvii dicevano in prosa «va
+# tradotta INSIEME a chi assegna il nome della mappa, non prima», chi assegna
+# **e' stato tradotto** in una sessione qualunque, e nessuno e' tornato a
+# leggere il rinvio. Quattro rami del gioco erano morti per questo. Una
+# condizione scritta in un `motivo` e' una decisione rimandata a un evento che
+# nessuno osserva; scritta qui, e' un numero che qualcuno misura.
+TIPI_CONDIZIONE = (
+    "riga_morta",        # spenta nel sorgente: `;`, `//`, `/* */`, `if ( jp )`,
+                         # `if ( FALSE )`, guardia composta `& jp`
+    "morta_per_flusso",  # la riga e' viva, e' morto chi la stampa
+    "risolta_da_toppa",  # la build la cambia gia'
+    "attende_toppa",     # aspetta una toppa che ancora non c'e'
+    "attende_resa",      # aspetta che un ALTRO sito sia reso
+    "attende_monte",     # aspetta che monte cambi il sorgente pinnato
+    "mai",               # non c'e' niente che possa maturare, e si dice perche'
+)
 
 
 def carica_rinviate(percorso: Path | None = None,
@@ -774,7 +796,17 @@ def carica_rinviate(percorso: Path | None = None,
             raise ValueError(
                 f"{percorso.name}, riga {indice}: campi mancanti o vuoti: "
                 f"{', '.join(mancanti)}. Una voce rinviata senza motivo e' lavoro "
-                "saltato di cui fra sei mesi nessuno sa il perche'."
+                "saltato di cui fra sei mesi nessuno sa il perche', e una senza "
+                "`condizione` e' una decisione rimandata a un evento che nessuno "
+                "osserva: nella 128a tre rinvii cosi' avevano ucciso quattro rami "
+                "del gioco."
+            )
+        tipo = voce["condizione"].get("tipo") if isinstance(voce["condizione"], dict) else None
+        if tipo not in TIPI_CONDIZIONE:
+            raise ValueError(
+                f"{percorso.name}, riga {indice}: `condizione.tipo` vale {tipo!r}, "
+                f"che non e' fra {', '.join(TIPI_CONDIZIONE)}. Il tipo dice **che "
+                "cosa** va misurato per sapere se il rinvio e' scaduto."
             )
         if nome_file is None or voce["file"] == nome_file:
             firme.add(voce["firma"])
