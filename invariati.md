@@ -817,3 +817,69 @@ dice solo che la casella che le contiene è più larga in inglese. ⚠️ E in
 italiano `PF` **si legge «Punti Ferita»**, che è un'altra cosa: tradurre a caso
 qui non è impreciso, è fuorviante. Resta inglese finché qualcuno non la vede a
 schermo con una mano di poker in corso.
+
+## Le righe nude di `command.hsp` che restano inglesi — 127ª
+
+Chiudendo `command.hsp` (51 righe nude vive, 29 toppate) restano diciotto righe
+che **non si toccano**. Non sono lavoro rimandato: sono due classi, e tutt'e due
+hanno un motivo misurato. ⚠️ Restano però nel conto di `nudi_en` e
+`triage_nudi` come «da fare», per la ragione già scritta per `net.hsp:263`:
+quei referti contano i letterali **intatti**, e una riga che deve restare
+intatta è indistinguibile da una che nessuno ha guardato.
+
+### Le sigle della colonna larga venti caratteri
+
+**`command.hsp:1348`, `:1365`, `:1387`, `:1401`, `:1468`, `:3614`, `:3631`,
+`:3638`, `:14191`, `:14205`** — `Hp:`, `Lv.`, `Rank.`, `Dv:`, `Pv:`. ⭐⭐ **Qui
+la larghezza non è un'opinione: è già misurata in questo stesso file.** La riga
+si stampa a `pos wx + 372` (`command.hsp:3666`) e la colonna successiva comincia
+a `wx + 512` (`:3676`): **140 px**, a 7 px per carattere del corpo 12, cioè
+**venti caratteri**. E l'inglese ne usa già diciannove — «Lv.100 female?(999)» —
+come la voce `(` di questo file aveva già misurato per `:3634`.
+
+⚠️ **E `Rank.` non è un'eccezione alla scelta di `item_func.hsp`, che rende
+`Rank` con «Rango»**: lì la parola sta nella coda fra parentesi del nome di un
+oggetto, dove il posto c'è. Qui «Rango.» costerebbe un carattere su venti già
+tutti spesi, e la riga porta anche il sesso del personaggio. La stessa parola in
+due mestieri diversi, come la rete 3 insegna a leggere.
+
+ⓘ `Hp:`, `Dv:` e `Pv:` sono inoltre le sigle che **il giapponese scrive
+uguali**: `command.hsp:17679`-`:17680` le mette dentro una `lang()` col
+medesimo testo dalle due parti, cioè upstream stesso le tratta come simboli.
+
+### Le quattro sigle del pannello del discernimento
+
+**`command.hsp:188`, `:189`, `:190`, `:208`** — `" Lv:"`, `" DV:"`, `" PV:"`,
+`" HP: … MP: "`, dentro `*txttargetnpcextrainfo`. Stessa ragione: sono simboli
+che upstream scrive identici nelle due lingue. Le **quattro parole** dello
+stesso blocco (`Target: `, `Gauge:`, `GUARD BREAK`, `Guard:`) sono invece state
+tradotte, ed è la differenza che conta: una sigla non è una parola.
+
+### Due righe che non hanno niente da tradurre — un difetto del triage
+
+**`command.hsp:4651` e `:4652`, `promptAdd cnven(strmale), "null", 0`** —
+⚠️ **sono un FALSO POSITIVO del conteggio, non lavoro.** L'unico letterale
+inglese di quelle righe è `"null"`, che non è testo ma la lettera di scelta di
+`promptAdd` — `nudi_accanto_a_lang.py` lo dichiara già dalla 61ª. Il testo che
+il giocatore legge lì viene da `strmale`/`strfemale`, assegnate a
+`text.hsp:123`-`:124`, che **hanno già la loro toppa**: nella build dicono
+«maschio» e «femmina» (vedi la sezione `male`/`female` più su). La voce del
+menu è italiana da sessioni.
+
+💡 È il costo di misurare per forma: `triage_nudi` classifica `testo` una riga
+che disegna e contiene un letterale, e non può sapere che quel letterale è una
+chiave. Sono due righe su 141, e il rimedio — insegnare al triage l'elenco delle
+chiavi di `promptAdd` — costerebbe più della dichiarazione.
+
+### Una parola che il posto non basta a decidere
+
+**`command.hsp:459`, `display_topic "Ver", wx + 534, wy + 36`** — l'intestazione
+della colonna delle versioni nel menu che importa un personaggio. In italiano
+l'abbreviazione sarebbe «Ver.» col punto, un carattere in più, e la colonna
+comincia a `wx + 534` su una finestra che non è stata misurata. ⚠️ Un punto non
+è una traduzione: si aggiunge quando qualcuno avrà visto la schermata.
+
+**`command.hsp:2131`, `traitrefn2(…) + "(MAX)"`** — `MAX` è un simbolo, non una
+parola, e in italiano si scrive uguale. La coda `(条件不足)`/`(requirement)` che
+la riga dopo può appendere passa invece dal dizionario, ed è tradotta: la
+distinzione fra le due è esattamente quella fra sigla e parola.
