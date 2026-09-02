@@ -6,6 +6,157 @@ ancora aperte.
 
 ---
 
+## Un rinvio con una condizione è un debito che nessuno rilegge — 2026-09-02, centoventottesima
+
+`rinviate.jsonl` portava tre voci di `proc.hsp`, scritte nella 27ª e nella 60ª,
+tutte e tre con la stessa forma e tutte e tre **giuste quando furono scritte**:
+
+> «Non è testo, è un operando di confronto fra due file. `map_rand.hsp:1287`
+> ASSEGNA il nome della mappa e `proc.hsp:1123` lo CONFRONTA con lo stesso
+> letterale. Tradurre solo il confronto lo fa fallire per sempre, in silenzio.
+> Va tradotta **INSIEME** a `map_rand.hsp`: **non prima**.»
+
+⚠️⚠️⚠️ **L'altra metà è stata tradotta, e nessuno è tornato a leggere il
+rinvio.** Nella build di oggi `map_rand.hsp:1287` dice «Sala feste» e
+`map.hsp:4092`/`:4104`/`:8296` dicono «Nave mercantile» e «Nave pirata», mentre
+i confronti cercavano ancora l'inglese. **I tre rami erano morti**, e non da
+oggi:
+
+| sito | che cosa non succedeva più |
+|---|---|
+| `proc.hsp:1123` | ballare nella sala delle feste durava **4 turni invece di 41** |
+| `proc.hsp:5584`, `:5685` | scavare **dentro una nave** fruttava minerali e polvere di stelle invece di spazzatura, schegge e legname |
+
+> Un rinvio con una condizione non è una decisione presa: è una decisione
+> **rimandata a un evento che nessuno osserva**. La condizione è scritta in
+> prosa, dentro un campo `motivo`, e nessuno strumento la valuta.
+
+**La cura è un cancello, non una regola di memoria:**
+`scratchpad/_128-confronti-contro-un-nome-assegnato.py`. Per ogni `X == lang(J,
+E)` nella build cerca un `X = lang(J, A)`: se `A != E` e la riga del confronto
+non porta anche `A`, il ramo è morto. ⭐ **La chiave è il giapponese**, non
+l'inglese — stessa lezione della 127ª sulle famiglie sparse.
+
+⭐⭐ **E il cancello ha trovato subito un quarto caso, di un'altra famiglia:
+`text.hsp:362`.** Lì il colpevole non è un rinvio dimenticato ma una
+**collisione dentro un file solo**: `lang("なし", "none")` compare due volte in
+`text.hsp` — a `:49` è la prima voce dell'elenco `_dengon` dei tipi di
+messaggio, che il giocatore legge, e a `:362` è l'operando di
+`*txttargetsex`. Il dizionario è indicizzato **per contenuto**, una firma sola
+(`2007e5b7`), e `applica` la sostituisce in tutt'e due: guardando un
+personaggio di sesso «nessuno» la funzione non entrava in nessuno dei sei rami
+e `s` restava la parola di un'altra frase.
+
+⚠️ **Il totale del cancello non è il numero che conta.** Tre rami morti stanno
+**già nel sorgente pinnato** — `command.hsp:3639` confronta «bisexual» dove
+tutti assegnano «hermaphrodite»; `text.hsp:359` confronta «hermaph**or**odite»,
+un refuso; `init.hsp:1981` accoppia 自称男性 con «female?» — e sono difetti di
+monte, che un progetto di traduzione non tocca. Il referto li conta a parte, e
+il numero che fa da cancello è **i rami morti che la traduzione ha aggiunto:
+atteso 0**.
+
+### La forma della riparazione era già nel progetto
+
+Tutte e quattro le toppe **allargano la condizione** invece di tradurre
+l'operando, ed è la forma della migrazione di «Your Home» (toppa di
+`map.hsp:1396`, 42ª): la `lang()` non si tocca — resta rinviata, ed è quel che
+rende stabile la stringa cercata — e il letterale si aggiunge **fuori** da
+`lang()`, con un `|`. Così il confronto accetta sia il valore nuovo sia quello
+che un salvataggio vecchio porta scritto dentro (`mdatan` è serializzato,
+`module.hsp:4598`/`:4601`).
+
+⚠️⚠️ **E il contratto delle toppe ha respinto la prima stesura, come doveva.**
+La toppa di `text.hsp:362` era stata scritta cercando la riga della **build**
+(«Nessuna»), e `test_le_toppe_del_progetto_si_applicano_al_sorgente_pinnato` è
+diventato rosso: una toppa deve trovare la sua riga nel **sorgente pinnato**, e
+le due cose coincidono solo finché il dizionario non tocca quella riga — qui la
+tocca. La toppa giusta è dichiarata **`prima`**, il che è ammesso perché i
+letterali dentro `lang()` non cambiano. ⓘ È la seconda volta in questa sessione
+che un invariante del progetto prende un mio errore prima che uscisse un
+eseguibile sbagliato.
+
+---
+
+## Una premessa ereditata era falsa, e teneva chiuso un fronte da due toppe — 2026-09-02, centoventottesima
+
+Gli AP di `chara_func.hsp` erano **l'unica cosa aperta e misurata** che la 127ª
+lasciasse: `RIPRESA-sessione.md`, questo file e `invariati.md` la descrivevano
+allo stesso modo, con le stesse parole, in tre posti. «`gain_ap_source` è
+operando e testo insieme; la frase si compone **per ricorsione** con quattro
+frammenti inglesi, uno dei quali porta `his()` a un argomento, che è morfologia;
+la strada è una tabella al sito di stampa, **tre basi per cinque code**; è una
+toppa a blocco di una certa dimensione e **vuole una sessione sua**.»
+
+⚠️⚠️⚠️ **Le cinque code non escono mai a schermo.** Le otto chiamate che le
+compongono stanno tutte dentro `gain_ap_old`, che ha **un chiamante solo in
+tutto il sorgente** — `action.hsp:8992`, con `"destone"` — e stanno dentro
+`if ( gain_ap_source == "talk" )` e `if ( gain_ap_source == "kill" )`: dentro
+quella funzione la variabile vale sempre `"destone"` e non è mai riassegnata.
+Codice irraggiungibile. Il fronte erano **due toppe**, chiuse in mezz'ora.
+
+⭐ **La prova stava scritta nel sorgente, in inglese, tre righe sopra la
+funzione viva** (`chara_func.hsp:8342`):
+
+> `// Ano made ap gain functions a lot simpler in 2.29, but he didn't change the destone formula.`
+
+Cioè: l'autore del mod ha riscritto `gain_ap` e ha lasciato in piedi la vecchia
+**solo** per la pietra. Chi ha misurato il fronte nella 127ª ha letto le righe
+`:8533`-`:8560`, ha visto le code, e **non ha guardato chi chiama la funzione
+che le contiene**.
+
+> Una riga si legge nel blocco; un **frammento di frase** si legge nella catena
+> di chiamata. La domanda «questo blocco è raggiungibile?» non è un dettaglio da
+> ottimizzatore: è la differenza fra un fronte da una sessione e uno da due
+> toppe.
+
+**La regola, e costa un comando.** Prima di scrivere che un fronte è grande, si
+contano i **chiamanti** delle funzioni in cui vive, non le sue righe:
+
+```
+grep -nE '(^|[^A-Za-z0-9_])gain_ap(_old)?\s*("|\(|\s+[A-Za-z0-9_"(])' *.hsp
+```
+
+Tredici righe, e dodici sono dentro `chara_func.hsp` stesso. Le tre che contano
+— i chiamanti veri — si vedono in un colpo d'occhio.
+
+⚠️ **Ed è la lezione della 120ª nell'altro verso.** Lì una lista di collaudo
+*giusta* era pericolosa perché la sua premessa era cambiata; qui una misura
+*sbagliata* è stata pericolosa perché scritta in tre documenti con la stessa
+sicurezza degli altri numeri, che erano veri. Un fronte «misurato e non chiuso»
+va rimisurato quando lo si apre, esattamente come i conteggi in testa alla
+ripresa, che infatti portano già scritto «non si eredita da qui».
+
+### Che cosa si è deciso, per le tre rese
+
+Nessuna delle tre parole si è scelta: tutt'e tre erano già decise altrove.
+
+| operando | a schermo prima | resa | da dove viene |
+|---|---|---|---|
+| `"talk"` | «from the talk.» | «dalla **trattativa**» | `skill.hsp:222` rende `Negotiation` → «Trattativa»; `action.hsp:15250` e `proc.hsp:26922` rendono «switched to talking mode!» → «passa in assetto di trattativa!» |
+| `"kill"` | «from the kill.» | «dall'**uccisione**» | — |
+| `"destone"` | «from the destone.» | «dalla **pietra del risveglio**» | `db_item.hsp:134581`, 覚醒の閃石 / «awakening stone» |
+
+⭐ **«talk» non è il chiacchierare**: è la sconfitta per **persuasione** —
+`proc.hsp:2338` sfonda gli SP con `dmgtalk` e `:2340` dà esperienza in
+`SKILL_NORMAL_NEGOTIATION`. Reso «conversazione» sarebbe stato un errore di
+gioco, non di lingua.
+
+⚠️⚠️ **E «destone» non era inglese: era un identificatore di codice finito
+dentro una frase.** `ITEM_ID_AWAKE_DESTONE` / `EFFECT_AWAKE_DESTONE`. Il
+giocatore inglese legge «X obtained 3 AP from the destone.» e non ha modo di
+sapere che parla della pietra che ha appena usato. Qui la traduzione non
+traduce: **ripara**.
+
+⚠️ La toppa di `:8430` è **a blocco** perché deve esserlo: «from the » +
+operando + «.» non si rende in italiano senza spaccare le due vie, dato che
+«dalla trattativa» e «dall'uccisione» vogliono preposizioni diverse e
+l'operando deve restare inglese. La forma dell'`if` non è inventata — è copiata
+da `:8415`-`:8419`, **dentro la stessa funzione**, stesso confronto, stesso
+`} else {`. È la disciplina della 127ª (il ramo giapponese del `{syujin}`)
+applicata a un modello che stavolta sta nel ramo inglese.
+
+---
+
 ## Una famiglia toppata a metà l'avevo lasciata io — 2026-09-02, centoventisettesima
 
 Il fronte delle righe nude è sceso da 141 a 45 con 78 toppe, e **quattro volte
@@ -163,14 +314,12 @@ metà delle righe. La parola era già decisa venti righe sopra, dove `:4014` dic
 
 ---
 
-## ⓘ Aperte alla fine della 127ª
+## ⓘ Aperte alla fine della 128ª
 
-1. **Gli AP di `chara_func.hsp:8430`/`:8522`** — misurata e non chiusa.
-   `gain_ap_source` è **operando e testo insieme** (sette confronti lo leggono
-   per decidere il ramo) e la frase si compone **per ricorsione** con quattro
-   frammenti inglesi, uno dei quali porta `his()` a un argomento, che è
-   morfologia. La strada è separare l'operando dalla resa con una tabella al
-   sito di stampa: tre basi per cinque code. Il dettaglio è in `invariati.md`.
+1. ~~**Gli AP di `chara_func.hsp:8430`/`:8522`**~~ — **chiusa nella 128ª con due
+   toppe**, e la misura ereditata era sbagliata: le «cinque code» stavano in
+   codice irraggiungibile. Vedi la sezione in testa a questo file e
+   `invariati.md`.
 2. **Un referto per la coda nuda di una `lang()` già resa.** `chat.hsp:17065`
    era la sesta riga di una frase le cui prime cinque erano italiane: a schermo
    si leggeva «…Uscire senza salva ed esci *option from the ESC menu will result

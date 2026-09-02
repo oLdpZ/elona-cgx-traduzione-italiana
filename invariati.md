@@ -952,26 +952,62 @@ rimasto nel clone di monte. Non è testo del gioco.
 VERSION_STRING + " Debug Console…"`, dentro `*game_debug`. Stessa classe del
 `*debug*` di `screen.hsp`.
 
-### Un fronte misurato e NON chiuso: gli AP di `chara_func.hsp`
+### ~~Un fronte misurato e NON chiuso: gli AP di `chara_func.hsp`~~ — CHIUSO nella 128ª, e la misura era sbagliata
 
-**`chara_func.hsp:8430` e `:8522`**, `name(…) + " obtained " + N + " AP from
-the " + gain_ap_source + "."` — ⚠️⚠️ **queste due non sono dichiarate
-invariate: sono aperte, e la ragione va scritta perché non si perda.**
+⚠️⚠️⚠️ **Quel che questa sezione diceva fino al 2026-09-02 era falso nella
+parte che rendeva il lavoro grande.** Diceva: «una tabella al sito di stampa che
+mappa le tre basi per le **cinque code**», e che la frase si compone «per
+ricorsione» con quattro frammenti inglesi, uno dei quali porta `his()` a un
+argomento — «una toppa a blocco di una certa dimensione, vuole una sessione
+sua». **Le cinque code non escono mai a schermo, e il lavoro erano due toppe.**
 
-`gain_ap_source` è **operando e testo insieme**, come `male`/`female` più su. Il
-codice lo confronta con `"talk"`, `"kill"` e `"destone"` in sette punti
-(`:8415`, `:8436`, `:8455`, `:8509`, `:8524`, `:8530`, `:8543`) per decidere
-che cosa fare, e **la stessa variabile finisce dentro la frase** che il
-giocatore legge. Tradurre l'operando romperebbe le sette condizioni in
-silenzio.
+**Quel che regge.** `gain_ap_source` è davvero **operando e testo insieme**,
+come `male`/`female` più su: sette confronti lo leggono per scegliere il ramo
+(`:8415`, `:8436`, `:8455`, `:8509`, `:8524`, `:8530`, `:8543`) e la stessa
+variabile finisce dentro la frase. Tradurre l'operando romperebbe le sette
+condizioni in silenzio, quindi l'operando **non si tocca** e la resa si separa
+da lui **al sito di stampa**. Quella parte era giusta.
 
-⚠️ **E non è una parola sola: è una frase che si compone per ricorsione.**
-`:8533`-`:8560` richiamano `gain_ap` passandogli `gain_ap_source + " of yours"`,
-`+ " of your mount"`, `+ " of your minion"`, `+ " of " + his(…) + " tag-team
-partner"` — cioè altri quattro frammenti inglesi nudi, uno dei quali porta
-`his()` a un argomento, che è **morfologia inglese** e in italiano va tolta. A
-schermo esce «X obtained 3 AP from the kill of your minion.»
+**Quel che non reggeva.** Le otto chiamate che compongono le code (`:8533`,
+`:8536`, `:8540`, `:8546`, `:8548`, `:8553`, `:8556`, `:8560`) stanno **tutte
+dentro `gain_ap_old`**, e `gain_ap_old` ha **un chiamante solo in tutto il
+sorgente**: `action.hsp:8992`, che gli passa `"destone"`. Le chiamate stanno
+dentro `if ( gain_ap_source == "talk" )` (`:8530`) e
+`if ( gain_ap_source == "kill" )` (`:8543`), e lì dentro quella variabile vale
+sempre e solo `"destone"` — non viene mai riassegnata, i sei riferimenti nel
+file sono tutti confronti `==`. **Quei due blocchi sono irraggiungibili.**
+Nessuna coda, nessun `his()`, nessuna ricorsione.
 
-✅ La strada c'è, ed è separare l'operando dalla resa: una tabella al **sito di
-stampa** che mappa le tre basi per le cinque code. È una toppa a blocco di una
-certa dimensione e vuole una sessione sua. Misurata, non decisa.
+⭐ **E l'autore del mod lo dice lui stesso**, tre righe sopra la funzione viva
+(`:8342`): «*Ano made ap gain functions a lot simpler in 2.29, but he didn't
+change the destone formula*». La funzione vecchia sopravvive **solo** per la
+pietra, e si porta dietro la sua coda morta.
+
+Quindi i valori vivi sono **tre e fissi**, non tre basi per cinque code:
+
+- `:8430`, dentro `gain_ap` (`:8343`), chiamata da `chara_func.hsp:3991` e
+  `:4135` — `gain_ap_source` vale `"talk"` oppure `"kill"`;
+- `:8522`, dentro `gain_ap_old` (`:8443`), chiamata da `action.hsp:8992` —
+  `gain_ap_source` vale sempre `"destone"`.
+
+✅ **Chiuso con due toppe** (128ª, `scratchpad/_128-toppe-ap.py`): a `:8430` un
+`if`/`else` copiato da `:8415`-`:8419` — quindici righe più su, **dentro la
+stessa funzione** — che sceglie fra «**AP dalla trattativa**» e «**AP
+dall'uccisione**»; a `:8522` una stringa fissa, «**AP dalla pietra del
+risveglio**». Nessuna delle tre parole è stata scelta: «Trattativa» è la resa di
+`Negotiation` (`skill.hsp:222`, e «switched to talking mode!» → «passa in
+assetto di trattativa!»), e «pietra del risveglio» è la resa di 覚醒の閃石 /
+«awakening stone» in `db_item.hsp:134581`.
+
+⚠️⚠️ **E «destone» non era una parola inglese: era il nome interno
+dell'oggetto.** `ITEM_ID_AWAKE_DESTONE` / `EFFECT_AWAKE_DESTONE`. A schermo
+usciva «X obtained 3 AP from the destone.», cioè un identificatore di codice
+dentro una frase — l'inglese stesso era rotto, non solo non tradotto.
+
+ⓘ **Nota per chi volesse collaudarlo:** `spawn_item 1274` **non basta** per
+vedere la terza riga. La pietra porta le statistiche della creatura da cui è
+caduta in `INV_ITEM_PARAM2`/`PARAM3`/`AMUR_CAGE` (`chat.hsp:20263`-`:20265`), e
+una pietra generata dalla console li ha a zero: `gain_ap_old` esce alla soglia
+`>= 1000` di `:8465` e il gioco stampa invece la riga già italiana di
+`action.hsp:8995`, «non sembra servirgli a niente». È un passo muto, ed è
+scritto qui perché nessuno lo riprovi.
