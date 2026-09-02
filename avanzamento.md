@@ -48,19 +48,49 @@ una sottrazione: `fatte` e `da fare` contati con lo stesso `estrai`. Chi legge
 in giro per questo file un «perimetro 90%, totale 94%» sta leggendo il vecchio
 conto, non un arretramento.
 
-## Il fronte delle righe nude si apre: 14 toppe in `proc.hsp` — 2026-09-02, centoventiseiesima sessione
+## Il fronte delle righe nude si apre: 40 toppe e 14 righe che erano morte — 2026-09-02, centoventiseiesima sessione
 
-Il primo blocco del fronte aperto dalla 125ª. `proc.hsp` teneva **quindici**
-righe inglesi nude vive: le battute che i personaggi si dicono addosso quando
-usano una mossa speciale — la provocazione, l'insulto, `<Clementia>` e il colpo
-di Ken il guerriero. Quattordici sono state toppate, una resta invariata apposta.
+Il fronte aperto dalla 125ª scende da **181 a 141** righe vive in una sessione:
+40 toppate e 14 dichiarate morte senza tradurne nessuna.
 
-    triage_nudi     testo 184                      (erano 198)
-    nudi_en         ancora da fare 386             (erano 400)
-    toppe           1.062, agganciate 1.062        (erano 1.048)
-    pytest          794 passed, 6 skipped          invariato
-    prova_identita  72/72 e 30.905                 invariato
-    applica         30.764 sostituzioni + 42 toppe in proc.hsp   (erano 28)
+    _126-nudi-nel-ramo-jp   181 vive  ->  141          il numero che conta
+    triage_nudi             testo 198 ->  158
+    toppe                   1.048     ->  1.088, agganciate 1.088 su 1.088
+    pytest                  794 passed, 6 skipped      invariato
+    prova_identita          72/72 e 30.905             invariato
+    applica                 30.764 sostituzioni        invariato
+
+| blocco | righe | che cos'era |
+|---|---|---|
+| `proc.hsp` | 14 | le battute delle mosse speciali: provocazione, insulto, `<Clementia>`, il colpo di Ken |
+| `item_func.hsp` | 18 | i pezzi di nome degli oggetti: le nove parti del corpo, «decoded», «custom», le code fra parentesi |
+| `system.hsp` + `screen.hsp` | 8 | i sette crediti del titolo e l'etichetta «AUTO TURN» |
+| `map_rand.hsp` | **9 morte** | un tabellone di parametri dentro un `if ( FALSE )` |
+| `item_func.hsp` | **5 morte** | il pluralizzatore inglese, che una nostra toppa aveva già spento |
+
+### ⭐⭐⭐ Una riga può essere morta perché l'abbiamo uccisa noi
+
+La sesta famiglia di riga morta è il blocco spento da una **costante**, e la
+guardia va cercata **nella build, non solo nel sorgente**: il pluralizzatore
+inglese di `item_func.hsp:1842` nel sorgente ha una guardia vera, e nella build
+una nostra toppa l'ha sostituita con `if ( 0 )` perché il plurale italiano viene
+da `ioriginalnamerefplur`. Le sue cinque righe restano intatte, quindi il triage
+le contava come lavoro: erano morte da sessioni, e per mano nostra.
+
+### ⭐⭐ E le nove parti del corpo erano già decise, in un'altra finestra
+
+`item_func.hsp:1338` compone il nome delle parti necromantiche, e le nove parole
+il progetto le aveva già rese nel menu in cui le parti si comprano. ⚠️ «chest»
+non è «petto» ma **torso**, e «waist» non è «vita» ma **fianchi**: «vita di
+putit» in italiano si legge *la vita del putit*, e su un pezzo di cadavere quella
+non è imprecisione, è ambiguità.
+
+## Il primo blocco del fronte: 14 toppe in `proc.hsp` — 2026-09-02, centoventiseiesima sessione
+
+`proc.hsp` teneva **quindici** righe inglesi nude vive: le battute che i
+personaggi si dicono addosso quando usano una mossa speciale — la provocazione,
+l'insulto, `<Clementia>` e il colpo di Ken il guerriero. Quattordici sono state
+toppate, una resta invariata apposta.
 
 ### ⭐⭐⭐ Le righe nude avevano una seconda fonte, e nessuno la leggeva
 

@@ -6,6 +6,95 @@ ancora aperte.
 
 ---
 
+## Una riga può essere morta perché l'abbiamo uccisa noi — 2026-09-02, centoventiseiesima
+
+Le famiglie di riga morta conosciute erano cinque: il `;`, il blocco `/* … */`,
+il ramo `if ( jp )`, la routine `dbg_*`, la sigla. La sesta è il blocco spento
+da una **costante**, e si è vista aprendo `map_rand.hsp:*map_randomDungeon`:
+
+```hsp
+map_rand.hsp:683    if ( FALSE ) {
+map_rand.hsp:691        noteadd "atype["+adata(ADATA_TYPE, …)+"];"
+```
+
+Nove righe che il triage chiamava «testo da fare», e **due motivi indipendenti
+per non tradurle**: il blocco non gira mai, e quando girava scriveva un
+tabellone di parametri in `mapinfo_NNNNNN.txt` — il dump con cui l'autore del
+mod controllava la generazione delle mappe. Nessuno dei due motivi si vede
+guardando la riga.
+
+⚠️⚠️⚠️ **E la guardia va cercata nella BUILD, non solo nel sorgente, perché a
+spegnere un blocco può essere stato il progetto.** Il pluralizzatore inglese di
+`item_func.hsp:1842` nel sorgente ha una guardia vera; **nella build una toppa
+l'ha sostituita con `if ( 0 )`**, perché il plurale italiano viene da
+`ioriginalnamerefplur` dove il nome si concatena (`contratto-nomi.md` §4-bis).
+Le sue cinque righe — `"es"`, `"ves"`, `"ies"`, `"coffins"` — restano **intatte**
+e il triage le contava come lavoro: erano morte da sessioni, e morte **per
+mano nostra**. Un referto che leggesse solo il sorgente non lo vedrebbe, e quel
+che gira è la build.
+
+⚠️ L'aggancio fra i due alberi è **per testo**, non per numero di riga: le toppe
+fanno scivolare i numeri. E una riga conta come morta solo se **tutte** le sue
+occorrenze nella build stanno dentro un blocco spento — `+= "es"` compare due
+volte, e mezza risposta non è una risposta.
+
+Le due misure insieme tolgono **14 righe** dal fronte senza tradurne nessuna.
+Lo strumento è `scratchpad/_126-spente-da-una-costante.py`.
+
+## Le nove parti del corpo erano già decise, in un'altra finestra — 2026-09-02, centoventiseiesima
+
+`item_func.hsp:1338` compone il nome delle **parti necromantiche** — l'oggetto
+che `db_item.hsp` lascia senza nome (`ioriginalnameref = ""`) e che si costruisce
+a tempo di esecuzione: parte del corpo, poi `" of "` (già reso `" di "`), poi il
+nome della creatura. ⭐ **L'ordine inglese è già quello italiano**, quindi la
+parte resta un prefisso e non serve spostarla: «testa di putit».
+
+E le nove parole non si sceglievano: il progetto le aveva **già rese** nel menu
+in cui le parti si comprano (`頭（減少生命力)` → «Testa (Vita -N)» e sorelle).
+È la regola della 113ª — *questa stringa è già stata resa altrove?* — applicata
+a un blocco che non ha né firma né dizionario, e quindi a mano.
+
+⚠️⚠️ **«chest» non è «petto» e «waist» non è «vita».** Il giapponese dice 胴体
+(*torso*) e 腰 (*fianchi*), lo slot si chiama `EQUIP_SLOT_BODY`, e soprattutto
+**«vita di putit» in italiano si legge *la vita del putit***: qui la parola
+sbagliata non sarebbe imprecisa, sarebbe **ambigua**, e su un pezzo di cadavere
+è il tipo di ambiguità che si nota. Il progetto aveva già scelto «Torso» e
+«Fianchi» nell'altra finestra, ed è quella la fonte.
+
+ⓘ Il ramo giapponese di queste nove sta a `item_func.hsp:1034` ed è vivo per il
+giapponese e morto per noi (`… == ITEM_ID_NECRO_PARTS & jp`). È una guardia
+**composta**, quindi `lang-nel-ramo-jp.py` non la vede: le sue nove `lang()`
+sono estratte da `estrai` e **non stanno nel dizionario**, e non è un buco —
+sono proprio le righe che l'italiano non esegue.
+
+⚠️ **Resta aperto quel che si vede a schermo**: le parti necromantiche non hanno
+articolo italiano, perché `ioriginalnamearticolo` è indicizzato per `ITEM_ID` e
+quell'oggetto non ha nome, quindi il ripiego stampa «a testa di putit». Non è un
+arretramento — prima diceva «a head of putit» — e si chiude solo assegnando
+`locvar_itemname_s8`/`s9` **dopo** la loro inizializzazione, che nella build sta
+a `:1903`. È una toppa a blocco e una decisione.
+
+## Il metro di una schermata mai misurata è la riga inglese — 2026-09-02, centoventiseiesima
+
+I sette crediti del titolo (`system.hsp:*game_title`) stanno a `pos 20` con
+`font …, 13 - en * 2`, cioè font 11. Il passo di quel font **su quella
+schermata** non è mai stato misurato, e la 118ª insegna che prendere una
+costante da un'altra rete dicendo «tanto è lo stesso carattere» è esattamente il
+difetto.
+
+⭐⭐ **Il tetto però c'è già, ed è l'inglese stesso**: la riga inglese è quella
+che il gioco spedisce, quindi ci sta. Una resa non più lunga della riga che
+sostituisce è dentro il tetto **senza bisogno di sapere quanto vale il tetto**.
+Lo script lo pretende e si ferma se una resa sfora — la più lunga, `:3511`, ha
+103 caratteri.
+
+ⓘ L'unica deroga è `screen.hsp:2198`, «AUTO TURN» → «TURNO AUTO», dieci
+caratteri contro nove. Lì la geometria **si legge**: `:2194` disegna
+`window2 sx, sy, 148, 25` e `:2196` scrive a `pos sx + 43`, quindi restano
+105 px; dieci caratteri vogliono un passo non superiore a 10,5 px, e i due passi
+misurati dal progetto per questo carattere sono 6,5 e 7,7. L'argomento non è
+«tanto è lo stesso carattere»: è che **qualunque passo plausibile ci sta**.
+
 ## Le righe nude non avevano una fonte sola: la sorella giapponese sta tre righe sopra — 2026-09-02, centoventiseiesima
 
 Una riga inglese nuda non ha firma, non ha voce di dizionario e per questo si

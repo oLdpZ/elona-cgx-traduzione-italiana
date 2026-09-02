@@ -1,10 +1,11 @@
 # Ripresa sessione
 
 Aggiornato: 2026-09-02, fine della **centoventiseiesima** sessione (**il fronte
-delle righe nude si apre: 14 toppe in `proc.hsp`, tre strumenti nuovi, e due
-participi al maschile che stavano li' da sessioni dietro una catena verde**).
+delle righe nude scende da 181 a 141: 40 toppe, 14 righe che erano gia' morte,
+quattro strumenti nuovi, e due participi al maschile che stavano li' da sessioni
+dietro una catena verde**).
 
-⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 09:26 DEL 02/09**, ricompilato e
+⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 13:31 DEL 02/09**, ricompilato e
 ricopiato a mano dopo l'ultima toppa. Se la data e' quella, non c'e' niente da
 rifare. ⓘ Si legge con `ls -l C:\Games\Elona\elonaplus2.31\cgx-test.exe`.
 
@@ -17,23 +18,40 @@ da qui** — si rilancia:
         firme ancora da fare, contate                0
         --- fatto 26.326 su 26.326            = 100,0%
 
-⚠️⚠️⚠️ **IL FRONTE APERTO SONO LE RIGHE INGLESI NUDE, E OGGI NE RESTANO 181.**
+⚠️⚠️⚠️ **IL FRONTE APERTO SONO LE RIGHE INGLESI NUDE, E OGGI NE RESTANO 141.**
 Non passano da nessuna `lang()`, non hanno firma, non hanno voce di dizionario e
 **nessun lotto puo' raggiungerle**: si toccano solo con una toppa. Il conto si
-rilancia, non si eredita:
+rilancia in due comandi, e **non si eredita da qui**:
 
     PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/_126-nudi-nel-ramo-jp.py
 
-        testo, dal triage della 125a                184
+        testo, dal triage della 125a                158
         dentro un `if ( jp )`, che la build en non esegue   3
-        --- vive, e sono il lavoro vero             181
+        --- vive secondo questo referto             155
 
-Stanno in **blocchi**, e un blocco e' una schermata sola:
+    PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/_126-spente-da-una-costante.py
 
-    13  item_func.hsp  *skipName      11  item_func.hsp *itemname
-     9  map_rand.hsp   *map_randomDungeon   8  command.hsp *txttargetnpcextrainfo
-     8  config.hsp     *com_config_loop_WHILE1    7  system.hsp *game_title
-     6  command.hsp    *skipCustomizationOptions  5  screen.hsp *screen_drawStatus
+        dentro un `if ( FALSE )`, che non gira mai   14
+        --- VIVE DAVVERO                            141
+
+⚠️⚠️ **Le due sottrazioni non si sommano a mano: la seconda parte dalla prima.**
+E la seconda guarda **anche la build**, non solo il sorgente, perche' a spegnere
+un blocco puo' essere stata una nostra toppa — il pluralizzatore inglese di
+`item_func.hsp:1842` e' `if ( 0 )` nella build e ha una guardia vera nel
+sorgente.
+
+Stanno in **blocchi**, e un blocco e' una schermata sola. Tolte le nove di
+`map_randomDungeon` (morte) e le due di `skipName` (dichiarate in
+`invariati.md`), le prossime sono:
+
+     8  command.hsp *txttargetnpcextrainfo   8  config.hsp *com_config_loop_WHILE1
+     6  command.hsp *skipCustomizationOptions   5  command.hsp *com_ally_loop_WHILE1
+     5  command.hsp *inv_skipSc               5  command.hsp *dump_chara
+     5  screen.hsp  *screen_drawStatus        4  command.hsp *com_userNpcExisting_loop
+
+⚠️ `command.hsp:*dump_chara` **sembra roba da sviluppatore e non lo e'**:
+`triage_nudi` lo dice nel proprio docstring — dentro ci sono «superb», «great»,
+«good», «bad», «hopeless», cioe' gli aggettivi di rango che il giocatore legge.
 
 ⭐⭐⭐ **E PRIMA DI TOPARNE UNA SI GUARDA SE HA UNA SORELLA GIAPPONESE.** Quasi
 sempre il giapponese sta **tre righe sopra**, dentro il ramo `if ( jp )` di cui
@@ -41,33 +59,84 @@ quella riga e' l'`else`: e' la coppia di sempre, scritta con un `if` invece che
 con una funzione. Chi legge solo l'`else` lavora con **una fonte su due**.
 
     PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/_126-sorella-jp.py
-    ... --file proc.hsp     il dossier di un file, riga per riga
+    ... --file command.hsp     il dossier di un file, riga per riga
 
-        con sorella (due fonti, come tutto il resto)   24
-        senza sorella (l'inglese e' l'unica fonte)    157
+        con sorella (due fonti, come tutto il resto)   23
+        senza sorella (l'inglese e' l'unica fonte)    132
 
 ⚠️ **La corrispondenza NON e' riga per riga**, e il primo giro dello strumento
 ci ha provato e ha restituito una **graffa chiusa**: il ramo `jp` puo' avere un
 `if` dentro che l'`else` non ha. Adesso rende il ramo **intero**, ed e' contesto
 da leggere, non una coppia di cui fidarsi.
 
-💡 **Da dove ripartire.** `item_func.hsp:*skipName` e `*itemname` (24 righe
-insieme) sono la **morfologia inglese del nome degli oggetti** — «the », «es»,
-«ves», «ies», i nomi delle parti del corpo — e sono il blocco piu' grosso e il
-piu' delicato, perche' toccano `contratto-nomi.md`. `map_rand.hsp:*map_randomDungeon`
-(9) va **guardato prima di tradurlo**: sono `noteadd "atype[…];"`, cioe' un
-tabellone di parametri, e potrebbero non essere testo affatto.
+💡 **E la sorella giapponese non e' l'unica fonte in casa.** Le nove parti del
+corpo di `item_func.hsp` erano **gia' rese** in un'altra finestra del gioco, e
+si sono trovate cercando il giapponese a mano nel dizionario
+(`scratchpad/lotti-111/_cerca.py`). Su una riga nuda la regola della 113a —
+*questa stringa e' gia' stata resa altrove?* — non ha uno strumento: si fa a
+mano, e paga.
 
-⚠️⚠️⚠️ **IL DEBITO DI COLLAUDO E' ~9.530 E NON E' MISURATO DA NIENTE.** E' un
+⚠️⚠️⚠️ **IL DEBITO DI COLLAUDO E' ~9.570 E NON E' MISURATO DA NIENTE.** E' un
 numero tenuto **a mano** in questo documento, non c'e' nessuno strumento che lo
-calcoli, e vale come ordine di grandezza e non come misura. ⓘ Nessuna delle 14
+calcoli, e vale come ordine di grandezza e non come misura. ⓘ Nessuna delle 40
 toppe di oggi e' stata vista a schermo, ne' le 167 rese e le 17 toppe della 125a.
 
 ---
 
-## LE QUATTORDICI TOPPE DELLA 126a, E CHE COSA AVEVANO DENTRO
+## LE QUARANTA TOPPE DELLA 126a, IN TRE BLOCCHI
 
-Tutte in `proc.hsp`, e tutte sono **battute che i personaggi si dicono addosso**
+    proc.hsp                  14   le battute delle mosse speciali
+    item_func.hsp             18   i pezzi di nome degli oggetti
+    system.hsp + screen.hsp    8   i crediti del titolo e «AUTO TURN»
+
+### ⭐⭐ `item_func.hsp`: le nove parti del corpo erano gia' decise altrove
+
+`:1338` compone il nome delle **parti necromantiche** — l'oggetto che
+`db_item.hsp` lascia senza nome e che si costruisce a tempo di esecuzione: parte
+del corpo, poi `" of "` (gia' reso `" di "`, `:1007`), poi il nome della
+creatura. ⭐ **L'ordine inglese e' gia' quello italiano**, quindi la parte resta
+un prefisso: «testa di putit».
+
+E le nove parole non si sono scelte: il progetto le aveva **gia' rese** nel menu
+in cui le parti si comprano (`頭（減少生命力)` -> «Testa (Vita -N)» e sorelle).
+
+⚠️⚠️ **«chest» non e' «petto» e «waist» non e' «vita».** Il giapponese dice 胴体
+(*torso*) e 腰 (*fianchi*), lo slot si chiama `EQUIP_SLOT_BODY`, e soprattutto
+**«vita di putit» si legge *la vita del putit***: su un pezzo di cadavere non e'
+imprecisione, e' ambiguita'.
+
+⚠️ `"decoded "` e `"custom "` erano **prefissi**, e in italiano l'aggettivo
+segue: si sono spostati in `locvar_itemname_s6`, la fessura dei complementi che
+la build stampa dopo il nome (`contratto-nomi.md` §3). Le code fra parentesi
+restano dove sono e prendono la parola che **questo stesso file** aveva gia'
+scelto: `No.` -> `n.`, `Rank` -> `Rango`, e `Lv.` resta.
+
+⚠️⚠️ **Resta aperto quel che si vede a schermo**: le parti necromantiche non
+hanno articolo italiano — `ioriginalnamearticolo` e' indicizzato per `ITEM_ID` e
+quell'oggetto non ha nome — quindi il ripiego stampa «a testa di putit». Non e'
+un arretramento (prima diceva «a head of putit») e si chiude solo assegnando
+`locvar_itemname_s8`/`s9` **dopo** la loro inizializzazione, che nella build sta
+a `:1903`: e' una toppa a blocco e una decisione.
+
+### ⭐ Il titolo: sette righe inglesi sopra un menu gia' italiano
+
+`system.hsp:*game_title` stampa i crediti, ed e' **la prima cosa che il giocatore
+legge**. Il menu sotto era italiano da una toppa vecchia; i crediti no.
+
+⚠️ **Il metro di una schermata mai misurata e' la riga inglese.** Il passo del
+font 11 su quel titolo non e' mai stato misurato, e la 118a vieta di prendere in
+prestito una costante da un'altra rete. Ma il tetto c'e' gia': la riga inglese
+e' quella che il gioco spedisce, quindi ci sta, e una resa non piu' lunga di lei
+e' dentro il tetto **senza sapere quanto vale il tetto**. Lo script lo pretende.
+ⓘ L'unica deroga e' «AUTO TURN» -> «TURNO AUTO», e li' la geometria si legge:
+`window2 …, 148, 25` con testo a `pos sx + 43` lascia 105 px per dieci
+caratteri, cioe' 10,5 px l'uno, contro i 6,5 e 7,7 misurati per questo carattere.
+
+---
+
+## LE QUATTORDICI TOPPE DI `proc.hsp`, E CHE COSA AVEVANO DENTRO
+
+Tutte sono **battute che i personaggi si dicono addosso**
 quando usano una mossa speciale. Il file ne teneva **quindici** nude e vive: 14
 toppate, una lasciata invariata apposta.
 
@@ -160,18 +229,22 @@ il codec CP932 di Python su «è» **solleva**, non degrada in silenzio.
                              ⓘ rilanciato DOPO aver scritto i documenti
     prova_identita           72/72 e 30.905, **invariato**
     applica                  30.764 sostituzioni, **invariato**
-                             ⓘ le toppe non sono sostituzioni: proc.hsp passa
-                                da 28 a **42 toppe**
+                             ⓘ le toppe non sono sostituzioni: proc.hsp 28 -> **42**,
+                                item_func.hsp 35 -> **53**, screen.hsp 25 -> **26**,
+                                system.hsp 1 -> **8**
     perimetro.py             26.326 fatte, 0 da fare, 100,0%, **invariato**
-    triage_nudi              **testo 184** (era 198), sigla 87, dbg 93, spenta 22
-    _126-nudi-nel-ramo-jp    **181 vive**, 3 nel ramo jp
-    _126-sorella-jp          **24 con sorella**, 157 senza
-    _126-referti-toppe       **participi 0, elisioni 0** su 801 toppe con testo
+    triage_nudi              **testo 158** (era 198), sigla 87, dbg 93, spenta 22
+    _126-nudi-nel-ramo-jp    **155 vive**, 3 nel ramo jp
+    _126-spente-da-una-costante  **14 morte**, e **141 VIVE DAVVERO**
+                             ⭐ e' il numero che governa il fronte
+    _126-sorella-jp          **23 con sorella**, 132 senza
+    _126-referti-toppe       **participi 0, elisioni 0** su 827 toppe con testo
                              ⚠️ lo zero non e' «nessun participio»: vedi sopra
-    nudi_en                  struttura 1044, **ancora da fare 386** (era 400)
-    toppe                    **1.062**, e `_97-toppe-agganciate` **1.062 su 1.062**
+    nudi_en                  struttura 1044, **ancora da fare 360** (era 400)
+    toppe                    **1.088**, e `_97-toppe-agganciate` **1.088 su 1.088**
     referti                  **participi 9, elisioni 0** (il dizionario, invariato)
                              ⚠️ rilanciato DOPO l'ultima resa, non prima
+    maiuscole                143/6/1/7/0, **invariato**
 
 Tutto il resto e' **fermo dov'era** e vale l'elenco della 125a piu' sotto:
 `_123-file-senza-dizionario` 2 firme mute, `menu_dialogo` 0 su 1.423,
@@ -376,31 +449,49 @@ La 126a ne aggiunge due, tutt'e due **misurate e non decise**:
      dall'inglese, perche' li' l'inglese fa quel che deve e si corregge il
      difetto, non si riscrive il testo che funziona. Prendere il giapponese
      vuole una **toppa a blocco che cambia l'`if`**, ed e' una decisione;
- 13. **`map_rand.hsp:*map_randomDungeon`**, 9 righe che `triage_nudi` chiama
-     testo e che sono `noteadd "atype["+…+"];"`: un tabellone di parametri della
-     mappa. ⚠️ **Vanno guardate prima di tradurle**: potrebbero essere una
-     quinta classe del triage — dato, non testo — e in quel caso il conto delle
-     righe nude cala di nove senza che nessuno traduca niente.
+ 13. ⭐ **L'articolo delle parti necromantiche.** `item_func.hsp:1338` compone
+     «testa di putit», ma l'oggetto non ha nome in `db_item.hsp`, quindi non ha
+     nemmeno un articolo italiano e il ripiego stampa «**a** testa di putit». Non
+     e' un arretramento — prima era «a head of putit» — e si chiude assegnando
+     `locvar_itemname_s8`/`s9` **dopo** la loro inizializzazione (build `:1903`),
+     in un blocco keyed su `INV_ITEM_PARTS`: e' una toppa a blocco;
+ 14. **`screen.hsp:1031`, `mes "PF"`**, l'etichetta del contapunti del poker.
+     ⚠️ Non si sa che cosa siano quelle due lettere, non c'e' un giapponese
+     gemello, e **in italiano `PF` si legge «Punti Ferita»**: tradurre a caso qui
+     non e' impreciso, e' fuorviante. Vuole un collaudo con una mano in corso.
+
+ⓘ `map_rand.hsp:*map_randomDungeon` era stato aperto qui in mattinata e **si e'
+chiuso senza tradurre niente**: le nove righe stanno dentro un `if ( FALSE )` e
+scrivono un tabellone di parametri in un file di diagnostica. E' il modo piu'
+economico di chiudere una voce di questo elenco, e vale la pena cercarlo prima
+di mettersi a rendere. Vedi `decisioni.md`.
 
 ⭐⭐⭐ **LA LISTA DI COLLAUDO CHE SERVE ADESSO, in ordine di costo.** Ne' le 167
-rese della 125a ne' le 14 toppe della 126a sono state viste a schermo, e le
+rese della 125a ne' le 40 toppe della 126a sono state viste a schermo, e le
 schermate nuove si guardano in pochi minuti:
 
-  1. ⭐ **la provocazione e l'insulto** (126a) — sono due mosse speciali, e si
+  1. ⭐⭐⭐ **il titolo** (126a) — e' gratis: si guarda all'avvio, e le sette
+     righe dei crediti devono essere italiane come il menu sotto;
+  2. ⭐ **la provocazione e l'insulto** (126a) — sono due mosse speciali, e si
      leggono nel registro: `<Provoke>` deve dire «vieni avanti, prova a
      prendermi», `<Insult>` deve dire insulti. **Se dicono la stessa cosa, la
      toppa non ha agganciato la riga che credeva.** E' il collaudo piu' rapido
      del blocco, perche' basta guardare che i due elenchi siano diversi;
-  2. **`<Clementia>` e la prostrazione** (126a) — le tre forme di `rtval` 1, 2 e
+  3. ⭐ **una parte necromantica** (126a) — «testa di putit», e li' si vede anche
+     l'articolo che manca («a testa di putit», voce 13 qui sopra). Le si prendono
+     con la necromanzia o si comprano dal mercante di parti;
+  4. **un cibo cucinato** e **una bottiglia di tintura** (126a) — « (Rango: N)» e
+     « (n. N)» nel nome dell'oggetto;
+  5. **`<Clementia>` e la prostrazione** (126a) — le tre forme di `rtval` 1, 2 e
      3, e il gioco di parole «Clemenza… Clementia!»;
-  3. **il menu del fabbro** — fusione (`chatval 114514`) e disincantazione
+  6. **il menu del fabbro** — fusione (`chatval 114514`) e disincantazione
      (`69000`): le tre voci nuove («Potenziare?», «Indebolire?», «Cancellare?»),
      il prefisso del punteggio e l'etichetta del prezzo `[N oro]`;
-  4. **la schermata testuale** — l'esplorazione di un sito casuale e il casino'
+  7. **la schermata testuale** — l'esplorazione di un sito casuale e il casino'
      (blackjack e slot): e' l'unico posto dove si vede se il tetto di 48
      caratteri e quello di 71 tengono davvero, perche' il passo del font 14
      **non e' mai stato misurato a schermo**;
-  5. **i ventuno nomi di mappa** della 124a, che dipendono da
+  8. **i ventuno nomi di mappa** della 124a, che dipendono da
      `adata(ADATA_TYPE)` a tempo di esecuzione e che il codice non sa dare.
 
 ---
