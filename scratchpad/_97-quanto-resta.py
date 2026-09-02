@@ -59,5 +59,27 @@ for dafare, nome, aperte, rinv in righe:
     marca = '   ⭐ CHIUSO' if dafare == 0 else ''
     print(f'{nome:<24} {aperte:>12} {rinv:>9} {dafare:>8}{marca}')
 print(f'\n{"TOTALE":<24} {tot_dafare + tot_rinv:>12} {tot_rinv:>9} {tot_dafare:>8}')
-print('\n⚠️ Solo i file che HANNO un dizionario: quelli senza non compaiono '
-      '(nove, punto 17 della ripresa).')
+# ⚠️⚠️ QUESTA CODA PORTAVA UN NUMERO SCRITTO A MANO — «nove» — e nella 124a era
+# gia' falso da due sessioni: i file senza dizionario erano dodici nella 123a,
+# undici dopo i materiali, dieci dopo `material.hsp`. Un numero fisso dentro il
+# referto che avverte di un punto cieco e' esso stesso un punto cieco. Adesso si
+# conta, con la stessa funzione del perimetro che lo conta altrove.
+import glob  # noqa: E402
+import os  # noqa: E402
+import sys  # noqa: E402
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import perimetro  # noqa: E402
+
+_con_dizionario = {p.name.replace('.jsonl', '')
+                   for p in percorsi.DIZIONARIO.glob('*.jsonl')}
+_senza = [os.path.basename(p)
+          for p in glob.glob(str(percorsi.SORGENTE_HSP / '*.hsp'))
+          if os.path.basename(p) not in _con_dizionario
+          and perimetro.firme_lang(
+              io.open(p, encoding='cp932', errors='replace').read())]
+print('\n⚠️ Solo i file che HANNO un dizionario: quelli senza non compaiono, e '
+      'sono %d.' % len(_senza))
+print('   Li elenca `scratchpad/_123-file-senza-dizionario.py`, col peso di '
+      'ciascuno:')
+print('   %s' % ', '.join(sorted(_senza)))

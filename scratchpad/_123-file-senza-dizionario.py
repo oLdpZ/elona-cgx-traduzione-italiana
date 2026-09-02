@@ -51,24 +51,38 @@ def main():
     for percorso in sorted(glob.glob(os.path.join(SORGENTE, '*.hsp'))):
         nome = os.path.basename(percorso)
         testo = io.open(percorso, encoding='cp932', errors='replace').read()
-        firme = len(perimetro.firme_lang(testo))
+        tutte = perimetro.firme_lang(testo)
+        firme = len(tutte)
         if firme == 0:
             continue
+        # ⚠️⚠️ 124a: NON OGNI FIRMA E' LAVORO. `perimetro.firme_lang()` raccoglie
+        # l'argomento inglese di ogni `lang()`, e alcune non portano **nessun
+        # letterale**: `font lang(cfg_font1, cfg_font2)` sceglie il carattere,
+        # `lang(cnvrank(p), ...)` passa un valore gia' reso altrove. Sono 45 in
+        # tutto il sorgente, di cui 26 sono `cfg_font2`. Il perimetro le conta e
+        # va bene — e' un denominatore, non una lista di compiti — ma in QUESTO
+        # referto, che dice «ecco il lavoro che nessuno ha chiesto», una riga
+        # che non si puo' tradurre gonfia il numero. `material.hsp` diceva 18 e
+        # il lavoro vero era 17: la diciottesima era il carattere.
+        muti = len([x for x in tutte if '"' not in x])
         (con if nome in con_dizionario else senza).append(
-            (firme, len(LANG.findall(testo)), nome))
+            (firme, len(LANG.findall(testo)), muti, nome))
 
     senza.sort(reverse=True)
     print()
     print('  I FILE CON `lang()` E SENZA DIZIONARIO')
     print()
-    print('   firme   lang()   file')
-    print('  ' + '-' * 50)
-    for firme, occorrenze, nome in senza:
-        print('  %6d   %6d   %s' % (firme, occorrenze, nome))
-    print('  ' + '-' * 50)
-    print('  %6d   %6d   TOTALE in %d file'
-          % (sum(f for f, _, _ in senza),
-             sum(o for _, o, _ in senza), len(senza)))
+    print('   firme   lang()     muti   da fare   file')
+    print('  ' + '-' * 58)
+    for firme, occorrenze, muti, nome in senza:
+        print('  %6d   %6d   %6d   %7d   %s'
+              % (firme, occorrenze, muti, firme - muti, nome))
+    print('  ' + '-' * 58)
+    print('  %6d   %6d   %6d   %7d   TOTALE in %d file'
+          % (sum(f for f, _, _, _ in senza),
+             sum(o for _, o, _, _ in senza),
+             sum(m for _, _, m, _ in senza),
+             sum(f - m for f, _, m, _ in senza), len(senza)))
     print()
     print('  ⓘ referto, non cancello. Il valore atteso NON e\' zero: e\' il')
     print('    numero che `_97-quanto-resta` non puo\' vedere, e la colonna')
@@ -82,13 +96,21 @@ def main():
     # peggiore» e «non l'ho cercato abbastanza».
     if con:
         peggiore = max(con)
-        nomi_senza = [n for _, _, n in senza]
+        nomi_senza = [n for _, _, _, n in senza]
         print('  prova al contrario: il file CON dizionario piu\' carico e\' %s'
-              % peggiore[2])
+              % peggiore[3])
         print('    (%d firme, %d lang()), e la rete %s'
               % (peggiore[0], peggiore[1],
                  'lo TACE, com\'e\' giusto'
-                 if peggiore[2] not in nomi_senza else '⚠️ LO STAMPA: e\' rotta'))
+                 if peggiore[3] not in nomi_senza else '⚠️ LO STAMPA: e\' rotta'))
+    # ⓘ 124a: e due file dell'elenco sono INTERAMENTE muti — `custom_pet.hsp` e
+    #   `custom_dmgpop.hsp` hanno una firma sola ciascuno, ed e' `cfg_font2`.
+    #   Non si chiuderanno mai «traducendoli»: sono gia' finiti.
+    muti_interi = [n for f, _, m, n in senza if f == m]
+    if muti_interi:
+        print()
+        print('  ⓘ file senza NIENTE da tradurre (ogni firma e\' muta): %s'
+              % ', '.join(muti_interi))
     print()
     return 0
 
