@@ -558,6 +558,17 @@ dicendo la loro, muoiono di file non trovato.
 
 ## Le regole che le reti non sanno far rispettare
 
+⚠️⚠️⚠️ **UN CONTEGGIO NUOVO NASCE CIECO: NON EREDITA LE RETI DEL VECCHIO.** Le
+famiglie di riga morta il progetto le conosce tutte da sessioni — il `;`, il
+`//`, il `/* … */`, il ramo della lingua, l'`if ( 0 )`, la riga riassegnata — ma
+le conosce **sul conto delle `lang()`**. Quando la 125a ha aperto il conto delle
+**righe nude**, quel conto e' partito senza nessuna di quelle reti, e la 126a ne
+ha dovute riportare due a mano: il ramo `if ( jp )` (nota dalla 45a) e la
+costante (nota dalla 100a). Insieme valgono **17 righe su 198**, cioe' quasi un
+decimo del fronte, tolte senza tradurne una.
+💡 Quindi: quando nasce un elenco di lavoro nuovo, la prima domanda non e' «da
+dove comincio» ma **«quali delle reti che ho gia' non guardano ancora qui»**.
+
 ⚠️⚠️⚠️ **E DALLA 126a SI SA CHE LE RETI NON LEGGONO NEMMENO LE TOPPE.** Una
 toppa non ha firma — e' la sua definizione — quindi `verifica`, `guardie`,
 `maiuscole`, `larghezze` e `menu_dialogo` non la vedono, e `referti.py` legge il

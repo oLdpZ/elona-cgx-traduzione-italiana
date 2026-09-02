@@ -68,10 +68,16 @@ Il fronte aperto dalla 125ª scende da **181 a 141** righe vive in una sessione:
 | `map_rand.hsp` | **9 morte** | un tabellone di parametri dentro un `if ( FALSE )` |
 | `item_func.hsp` | **5 morte** | il pluralizzatore inglese, che una nostra toppa aveva già spento |
 
-### ⭐⭐⭐ Una riga può essere morta perché l'abbiamo uccisa noi
+### ⭐⭐⭐ Una rete conosciuta, portata dove non era mai arrivata
 
-La sesta famiglia di riga morta è il blocco spento da una **costante**, e la
-guardia va cercata **nella build, non solo nel sorgente**: il pluralizzatore
+⚠️ Il blocco `if ( 0 )` **non è una famiglia nuova**: il progetto la conosce
+dalla 100ª. Nuovo è dove si applica — sul conto delle **righe nude** non
+l'aveva guardata nessuno, perché `triage_nudi.py` spacca per commento, routine
+`dbg_*` e sigla. Come il ramo `if ( jp )`, conosciuto dalla 45ª e portato qui
+solo adesso: **un conteggio nuovo nasce cieco e non eredita le reti del
+vecchio.**
+
+E la guardia va cercata **nella build, non solo nel sorgente**: il pluralizzatore
 inglese di `item_func.hsp:1842` nel sorgente ha una guardia vera, e nella build
 una nostra toppa l'ha sostituita con `if ( 0 )` perché il plurale italiano viene
 da `ioriginalnamerefplur`. Le sue cinque righe restano intatte, quindi il triage

@@ -6,11 +6,28 @@ ancora aperte.
 
 ---
 
-## Una riga può essere morta perché l'abbiamo uccisa noi — 2026-09-02, centoventiseiesima
+## Una rete conosciuta, portata dove non era mai arrivata — 2026-09-02, centoventiseiesima
 
-Le famiglie di riga morta conosciute erano cinque: il `;`, il blocco `/* … */`,
-il ramo `if ( jp )`, la routine `dbg_*`, la sigla. La sesta è il blocco spento
-da una **costante**, e si è vista aprendo `map_rand.hsp:*map_randomDungeon`:
+⚠️⚠️ **Correzione di quel che questa sezione diceva quando è stata scritta:
+«la sesta famiglia di riga morta». Non lo è.** Il blocco `if ( 0 )` sta fra le
+forme di riga morta che il progetto conosce **dalla 100ª**, insieme al `;`, al
+`//`, al `/* … */`, al ramo della lingua e alla riga «morta per assegnazione»
+(`il-codice-morto-conta-come-lavoro` nel vault le elenca tutte). Chiamarla nuova
+era un vanto, e un vanto in un documento di ripresa diventa una cosa che la
+sessione dopo crede.
+
+⭐ **Quel che è nuovo è dove si applica.** Fin qui la famiglia serviva a ripulire
+il conto delle `lang()` da fare; sul conto delle **righe nude** non l'aveva
+guardata nessuno, perché `triage_nudi.py` (125ª) spacca per commento, per
+routine `dbg_*` e per sigla, e la costante non la vede. È esattamente la stessa
+storia del ramo `if ( jp )`: conosciuto dalla 45ª per le `lang()`, e portato
+sulle righe nude solo stamattina.
+
+> Una famiglia di riga morta si scopre una volta e si **riapplica** ogni volta
+> che nasce un conteggio nuovo. Il conteggio nuovo non eredita le reti del
+> vecchio: nasce cieco.
+
+Si è vista aprendo `map_rand.hsp:*map_randomDungeon`:
 
 ```hsp
 map_rand.hsp:683    if ( FALSE ) {

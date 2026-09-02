@@ -1,10 +1,17 @@
 # -*- coding: utf-8 -*-
-"""La sesta famiglia di riga morta: il blocco spento da una **costante**.
+"""Il blocco spento da una **costante**, portato dove non era mai arrivato.
 
-Le prime cinque si conoscono: la riga commentata col `;`, il blocco `/* ... */`
-(`commenti-blocco.py`), il ramo `if ( jp )` che la build `en` non esegue
-(`_126-nudi-nel-ramo-jp.py`), la routine `dbg_*` e la sigla (`triage_nudi.py`).
-Questa e' la sesta, ed e' la piu' silenziosa di tutte:
+⚠️⚠️ **La famiglia NON e' nuova, e dirlo storto sarebbe un vanto.** Il blocco
+`if ( 0 )` sta gia' fra le forme di riga morta che il progetto conosce dalla
+100a, insieme al `;`, al `//`, al `/* ... */`, al ramo della lingua e alla riga
+«morta per assegnazione» (vedi `il-codice-morto-conta-come-lavoro` nel vault).
+Quel che e' nuovo e' **dove si applica**: fin qui la famiglia serviva a ripulire
+il conto delle `lang()` da fare, e sul conto delle **righe nude** non l'aveva
+guardata nessuno — `triage_nudi.py` (125a) spacca per commento, routine `dbg_*`
+e sigla, e la costante non la vede.
+
+E' la stessa cosa che era successa col ramo `if ( jp )`: conosciuto dalla 45a
+per le `lang()`, e mai portato sulle righe nude fino a `_126-nudi-nel-ramo-jp.py`.
 
     map_rand.hsp:683    if ( FALSE ) {
     map_rand.hsp:691        noteadd "atype["+adata(ADATA_TYPE, …)+"];"
