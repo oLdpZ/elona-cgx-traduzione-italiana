@@ -138,6 +138,28 @@ def glossario() -> dict:
     return fuori
 
 
+# Le divergenze gia' lette, col motivo per cui la resa li' regge. ⚠️ Come
+# `GIUDICATI` in `strumenti/maiuscole.py`: il referto non chiede zero divergenze,
+# chiede che **questo elenco non si allunghi da solo**. Una divergenza nuova e'
+# una riga da leggere, non per forza un difetto.
+GIUDICATI = {
+    ("command.hsp", "bread"):
+        "il contatore del rendiconto («Pagnotte mangiate:») sta in una colonna "
+        "di contabili al plurale — Mutandine mangiate, Umani mangiati, Oggetti "
+        "rubati — e «Pane mangiato» spezzerebbe il verso della colonna. "
+        "Eccezione dichiarata in glossario.md, riga di `bread`",
+    ("command.hsp", "detail"):
+        "«Nome, Livello, Effetto» sono le colonne di «Talenti e tratti», e il "
+        "giapponese dice 特徴の効果, «l'effetto del tratto»: `Detail` era gia' "
+        "una scelta larga dell'inglese. La colonna mostra l'effetto",
+    ("custom_ai.hsp", "learning"):
+        "«Currently Learning:» e' il verbo, non l'attributo Apprendimento",
+    ("custom_tweaks.hsp", "items"):
+        "«Highlight and Mark Items» -> «evidenzia e segna»: l'oggetto e' gia' "
+        "detto dalla riga di sopra del pannello, e la voce ha un tetto",
+}
+
+
 def usato_da_termine(termine: str, inglese: str) -> bool:
     """Il termine compare **maiuscolo e in mezzo a una frase**: e' un'etichetta.
 
@@ -199,6 +221,7 @@ def main(argv: list[str] | None = None) -> int:
     coppie = coppie_del_dizionario() if sul_dizionario else coppie_delle_toppe()
     giudicati = 0
     divergenze = []
+    gia_lette = []
     quante_volte: dict = {}
     for dove, inglese, italiano in coppie:
         if CODICE.search(italiano):
@@ -215,6 +238,10 @@ def main(argv: list[str] | None = None) -> int:
                           for stems in termini[termine])
             if not va_bene:
                 rese = sorted(" ".join(s) for s in termini[termine])
+                nome = dove.split(":")[0]
+                if (nome, termine) in GIUDICATI:
+                    gia_lette.append((dove, termine))
+                    continue
                 divergenze.append((dove, termine, rese, inglese, italiano))
 
     for dove, termine, rese, inglese, italiano in divergenze:
@@ -225,7 +252,8 @@ def main(argv: list[str] | None = None) -> int:
     print("termini di glossario caricati        : %d" % len(termini))
     print("%-36s : %d" % ("voci con un termine da giudicare",
                           giudicati))
-    print("divergenze                           : %d" % len(divergenze))
+    print("divergenze gia' lette e dichiarate   : %d   ⓘ vedi GIUDICATI" % len(gia_lette))
+    print("divergenze NUOVE                     : %d" % len(divergenze))
     if quante_volte:
         piu_visti = sorted(quante_volte.items(), key=lambda x: -x[1])[:8]
         print("i termini che hanno giudicato di piu': %s"

@@ -69,7 +69,7 @@ progetti.
 | Summon | Evoca / Evocazione | |
 | Charge | Carica | |
 | Sleep | Sonno / Dormi | sostantivo per lo stato, verbo per il comando |
-| Gauge | Barra | la barra delle mosse speciali di Elona+. `[50% Gauge]` → «`[Barra 50%]`»: 5 caratteri come l'inglese, e le etichette dell'elenco sono a larghezza compressa. In prosa `power gauge` → «barra di potenza», che si aggancia a `Power` → «Potenza» |
+| Gauge | Barra | la barra delle mosse speciali di Elona+. `[50% Gauge]` → «`[Barra 50%]`»: 5 caratteri come l'inglese, e le etichette dell'elenco sono a larghezza compressa. In prosa `power gauge` → «barra di potenza», che si aggancia a `Power` → «Potenza». ⚠️⚠️ **Vale anche nei NOMI delle mosse**, e per un po' non è stato così: `<Gauge Release>` era «<Forza liberata>» e `<Gauge Save/Release>` «<Serba/libera la forza>», mentre le loro descrizioni — sulla stessa riga dell'elenco — dicevano già «barra». Dal 2026-09-03 sono «<Libera la barra>» e «<Serba/libera la barra>». ⓘ Il giapponese è `【力の解放】`, «liberazione della forza», e «Forza» era la resa **più fedele**: si sceglie l'inglese perché 60 occorrenze su 75 sono le etichette di costo, e una mossa che si chiama «Forza» e costa «Barra» sono due nomi per una cosa sola. **«Carica» non è mai stata una resa di questo termine**: era una deroga di `command.hsp:1361` e `:191`, chiusa lo stesso giorno |
 | Chaos | Caos | l'elemento. `Chaos damage` → «Danno caotico», aggettivo come `Mind`. Coincide con Elin (`Nether / Ether / Chaos` → «Oltretomba / Etere / Caos») |
 | Skill | Abilità | coincide con Elin. **Non** collide con *ability*, che nel sorgente è quasi sempre prosa generica e in italiano vuole «capacità»: `enhances your ability to hide` → «migliora la capacità di nascondersi» |
 | hex | malocchio | ⚠️ **non** «maledizione», che è già `curse`. Il gioco ha due 呪い e li distingue: `cursed` sta sull'**oggetto** e si oppone a `blessed`; `hex` sta sulla **persona** e si oppone a un buff (`command.hsp:10814`, «blessed or hexed»). L'italiano separa le due sullo stesso asse. Il sorgente conferma che il giapponese da solo non bastava: `skill.hsp:440` scrive `呪い(hex)`, con la glossa inglese accanto |
@@ -1163,7 +1163,7 @@ toppa che rende gli esiti (`3 putits!` e sorelle):
 |---|---|---|
 | putit | **putit** | `action.hsp:16907`, prestito invariabile |
 | dog | **cane** / cani | |
-| bread | **pane** / pani | |
+| bread | **pane** / pani | ⓘ **Eccezione dichiarata, `command.hsp:3079`:** il contatore del rendiconto resta «Pagnotte mangiate:». Non è una deroga di gusto — quella riga sta in una colonna di contabili al plurale che si leggono come un insieme («Mutandine mangiate», «Umani mangiati», «Oggetti rubati», «Sorelline»), e «Pane mangiato» spezzerebbe il verso della colonna per far combaciare un termine che lì nessuno può confondere. Il **nome dell'oggetto** resta «pane» dappertutto. Segnalata da `_130-glossario-nelle-toppe.py` il 2026-09-03 |
 | cat | **gatto** / gatti | |
 | bethel | **Bethel** | `db_card.hsp:4612`, il falco bianco — nome proprio |
 | larnneire | **Larnneire** | `db_card.hsp:10566` — nome proprio |
