@@ -5,12 +5,28 @@ perimetro: le descrizioni degli oggetti e i quattro file di `data/`.
 ⚠️ **Ci sono due risposte diverse alla domanda «a che punto siamo», e finche'
 non si dice quale si sta dando il numero inganna.**
 
+⚠️⚠️⚠️ **124a: LA PERCENTUALE NON E' PIU' UN RAPPORTO FRA UN CONTO VERO E UNA
+STIMA.** Fino a ieri il referto diceva **91%**, e sbagliava due volte nello
+stesso senso: metteva al denominatore le 2.832 descrizioni **una seconda volta**
+(stanno gia' dentro `rese['db_item.hsp']` dalla 107a), e divideva un numeratore
+vero per un denominatore stimato per difetto. Corretta la prima, veniva
+**101%** — che almeno lo diceva ad alta voce. Adesso quel che resta si **conta**,
+con lo stesso `estrai` che scrive il dizionario, e la risposta e' una
+sottrazione: **26.159 fatte, 167 da fare, 99,4%**.
+
+⭐ E' la terza volta che questo referto sbaglia, e tutte e tre nello stesso modo:
+la 98a ci aveva trovato le rese dei file dati contate solo al denominatore, la
+107a le 2.452 stringhe vuote, la 124a le descrizioni contate due volte. Ogni
+volta, lavoro che non esisteva messo al denominatore di «a che punto siamo».
+
+I due numeri storici (per capire la forma del problema, non lo stato di oggi):
+
 - **Dentro il perimetro** — quel che passa da `lang()`, piu' i nomi di
-  `db_item.hsp` — la traduzione e' a circa il **47%**. E' la risposta a «quanto
-  manca del lavoro impostato», ed e' quella che danno `verifica --dizionario` e
-  `avanzamento.md`.
-- **Contando tutto il testo che il giocatore legge** si scende al **35%**,
-  perche' due blocchi grossi non sono mai stati contati da nessuna parte:
+  `db_item.hsp` — la traduzione era al **47%** quando questo file fu scritto.
+  E' la risposta a «quanto manca del lavoro impostato», ed e' quella che danno
+  `verifica --dizionario` e `avanzamento.md`.
+- **Contando tutto il testo che il giocatore legge** si scendeva al **35%**,
+  perche' due blocchi grossi non erano mai stati contati da nessuna parte:
 
   1. **Le descrizioni degli oggetti**: `db_item.hsp` le scrive come
      `description(0..3) = "..."` dentro un `if ( jp ) { ... } else { ... }`,
@@ -143,6 +159,36 @@ def file_esterni() -> dict:
     return fuori
 
 
+def _file_senza(rese: dict) -> list:
+    """I file .hsp che portano `lang()` e non hanno un dizionario."""
+    fuori = []
+    for percorso in sorted(glob.glob(os.path.join(SORGENTE, '*.hsp'))):
+        nome = os.path.basename(percorso)
+        if nome in rese:
+            continue
+        if firme_lang(io.open(percorso, encoding='cp932', errors='replace').read()):
+            fuori.append(nome)
+    return fuori
+
+
+def _da_fare_davvero(rese: dict) -> int:
+    """Le firme che restano, contate col riconoscitore VERO, non con la stima.
+
+    ⚠️ `firme_lang()` qui sopra approssima (sbaglia per difetto del 2-4%) e
+    conta anche le `lang()` che non portano nessun letterale — il carattere,
+    un valore gia' reso altrove. `estrai` no: e' lo stesso codice che scrive il
+    dizionario, quindi «fatte + da fare» sono due numeri della stessa specie.
+    """
+    from strumenti.estrai import estrai_da_testo
+    firme = set()
+    for nome in _file_senza(rese):
+        testo = io.open(os.path.join(SORGENTE, nome), encoding='cp932',
+                        errors='replace').read()
+        for voce in estrai_da_testo(nome, testo):
+            firme.add(voce['firma'])
+    return len(firme)
+
+
 def main() -> None:
     rese = {}
     for percorso in sorted(glob.glob(os.path.join(DIZIONARIO, '*.jsonl'))):
@@ -184,32 +230,66 @@ def main() -> None:
     # vede, `verifica` le conta, la prova d'identita' le attraversa. Il numero
     # sotto quindi **scende**, ed e' il primo calo onesto del progetto: prima
     # 2.832 stringhe che il giocatore legge stavano fuori dal denominatore.
-    perimetro = dentro + nomi_oggetto + descrizioni
+    # ⚠️⚠️⚠️ **124a: QUI LE DESCRIZIONI SI CONTAVANO DUE VOLTE, E IL REFERTO
+    # DICEVA 91% DOVE SIAMO AL 99%.** `nomi_oggetto` non e' un conto del
+    # sorgente: e' `rese['db_item.hsp']`, cioe' **tutte** le voci del dizionario
+    # di quel file — e dalla 107a le descrizioni stanno **dentro** quel
+    # dizionario (2.831 rese su 4.407 voci; le altre 1.576 sono i nomi).
+    # Sommare `descrizioni` accanto le metteva al denominatore una seconda
+    # volta, mentre al numeratore stavano una volta sola: 2.832 di lavoro
+    # inesistente, cioe' il 10% del progetto.
+    # ⭐ E' lo stesso guasto della 98a («le rese dei file dati stavano solo al
+    # denominatore») e della 107a («le 2.452 stringhe vuote stavano al
+    # denominatore»), alla terza ripetizione: ogni volta che questo referto ha
+    # sbagliato, ha sbagliato mettendo al denominatore lavoro che non c'era.
+    # ⓘ Trovato perche' l'utente ha chiesto «siamo quasi alla fine?» e i due
+    # modi di rispondere non tornavano: il referto diceva che mancava il 9%
+    # (2.563 firme) e `verifica --dizionario` diceva che ogni file col
+    # dizionario e' chiuso e che fuori ne restano **174**.
+    perimetro = dentro + nomi_oggetto
     totale = perimetro + righe_esterne
 
     print(f'firme rese                          : {fatte:>7}')
     print(f'firme lang() stimate nel sorgente   : {dentro:>7}')
     print(f'  di cui in file mai estratti       : {fuori_dizionario:>7}')
     print(f'nomi di db_item.hsp (senza lang())  : {nomi_oggetto:>7}')
-    print(f'--- perimetro dichiarato            : {perimetro:>7}   '
-          f'fatto {100 * fatte / perimetro:.0f}%')
+    print(f'--- perimetro STIMATO               : {perimetro:>7}   '
+          f'(la stima sbaglia per difetto del 2-4%: vedi in testa)')
     print()
-    print(f'descrizioni di oggetto (ramo EN)    : {descrizioni:>7}   '
-          f'vive su {righe_descrizione} righe (107a: ora nel perimetro)')
+    # ⚠️⚠️⚠️ **124a: LA PERCENTUALE NON SI RICAVA PIU' DA QUESTA STIMA.** Il
+    # numeratore e' un conto VERO (le voci di dizionario con `it`) e il
+    # denominatore era una STIMA per difetto: il rapporto dei due non e' una
+    # percentuale, e' un'illusione ottica — con la stima corretta della doppia
+    # contatura veniva **101%**, che almeno lo dice ad alta voce.
+    # ⭐ Il conto onesto e' una sottrazione, non un rapporto: quel che resta si
+    # CONTA, con lo stesso riconoscitore che scrive il dizionario
+    # (`estrai --da-tradurre` sui file che un dizionario non ce l'hanno), e il
+    # denominatore diventa «fatte + da fare».
+    da_fare = _da_fare_davvero(rese)
+    print(f'firme ancora DA FARE, contate con estrai: {da_fare:>4}   '
+          f'({", ".join(_file_senza(rese)) or "nessun file"})')
+    print(f'--- fatto: {fatte} su {fatte + da_fare}   '
+          f'= {100 * fatte / (fatte + da_fare):.1f}%')
+    print()
+    print(f'  di cui descrizioni di oggetto     : {descrizioni:>7}   '
+          f'vive su {righe_descrizione} righe — GIA\' DENTRO la riga qui sopra,')
+    print(f'{"":38}   non si sommano di nuovo (vedi il commento, 124a)')
+    print()
     for nome, (righe, caratteri) in esterni.items():
         quante = rese_dati.get(nome, 0)
         stato = '⭐ CHIUSO' if quante >= righe else f'{quante} rese'
         print(f'  data/{nome:<24}{righe:>7} righe EN, {caratteri:>6} caratteri   {stato}')
-    print(f'--- TOTALE col testo fuori perimetro: {totale:>7}   '
-          f'fatto {100 * (fatte + fatte_dati) / totale:.0f}%')
+    print(f'--- TOTALE coi file dati: {fatte + fatte_dati} su '
+          f'{fatte + fatte_dati + da_fare}   '
+          f'= {100 * (fatte + fatte_dati) / (fatte + fatte_dati + da_fare):.1f}%')
     print()
     print(f'⚠️ le {descrizioni} descrizioni e i {caratteri_esterni} caratteri esterni sono '
           'PROSA: in caratteri pesano molto piu\' che in firme.')
-    print('⚠️ 107a: i due numeri si muovono in DIREZIONI OPPOSTE, e non e\' un errore.')
-    print('   Il PERIMETRO scende (100% -> 90%) perche\' 2.832 stringhe vere ci sono')
-    print('   entrate. Il TOTALE sale (86% -> 93%) perche\' ne sono uscite 2.452 che')
-    print('   sono la stringa VUOTA: l\'86% di ieri aveva al denominatore mezzo file')
-    print('   di lavoro che non esiste. Il salto non e\' progresso, e\' un conto giusto.')
+    print('⚠️⚠️ E QUESTO 99% E\' IL PERIMETRO, NON IL PROGETTO. Dice che le stringhe')
+    print('   che qualcuno ha chiesto sono rese; NON dice che siano state viste a')
+    print('   schermo (il debito di collaudo sta in RIPRESA-sessione.md), ne\' che')
+    print('   non esistano fronti che nessuno ha ancora chiesto — la 123a ne ha')
+    print('   trovato uno da 355 firme quando il referto diceva «TOTALE da fare 0».')
 
 
 if __name__ == '__main__':
