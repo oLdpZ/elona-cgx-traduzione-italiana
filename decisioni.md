@@ -6,6 +6,196 @@ ancora aperte.
 
 ---
 
+## Un denominatore che contiene lavoro inesistente non desta sospetti in nessuno — 2026-09-02, centoventiquattresima
+
+L'utente ha chiesto **«siamo quasi alla fine?»**, e la risposta non stava nel
+documento di ripresa: andava rimisurata. Rimisurandola, i due modi di rispondere
+non tornavano.
+
+    perimetro.py            mancava il 9%, cioè 2.563 firme
+    verifica --dizionario   ogni file col dizionario è chiuso, e fuori ne restano 174
+
+Mentiva il referto, **due volte nello stesso senso**.
+
+**Primo.** `nomi_oggetto` non è un conteggio del sorgente:
+
+```python
+nomi_oggetto = rese['db_item.hsp']                  # TUTTE le voci del dizionario
+perimetro = dentro + nomi_oggetto + descrizioni     # ← e le descrizioni ci sono già
+```
+
+Dalla 107ª le descrizioni degli oggetti stanno **dentro** il dizionario di
+`db_item.hsp` — 2.831 voci su 4.407; le altre 1.576 sono i nomi. Sommarle di
+nuovo accanto le metteva al denominatore una seconda volta, mentre al numeratore
+stavano una volta sola: **2.832 di lavoro inesistente, il 10% del progetto.**
+
+**Secondo.** Corretta la doppia contatura, il referto diceva **101%**. Un numero
+sopra il cento non è un fastidio da arrotondare: è la prova che i due termini
+sono di **specie diversa**. Il numeratore era un conteggio vero (le voci con
+`it`), il denominatore una **stima per difetto del 2-4%** — dichiarata tale in
+testa al file e usata lo stesso come se fosse un conteggio.
+
+> **Il rapporto fra un conteggio e una stima non è una percentuale.** Se una
+> delle due metà è approssimata, il risultato eredita l'approssimazione *senza
+> dirlo* — e lo confessa solo nel caso fortunato in cui supera il 100.
+
+### La decisione: una sottrazione, non un rapporto
+
+Quel che resta si **conta**, con lo stesso `estrai` che produce il numeratore, e
+il denominatore diventa «fatte + da fare»:
+
+    firme rese                              26.159
+    firme ancora da fare, contate              167     txtadv 117, itemench 26, net 24
+    --- fatto 26.159 su 26.326             = 99,4%
+
+Due numeri della stessa specie, e la domanda «quanto manca» ha per risposta un
+**elenco di file** invece di una percentuale — che è la forma in cui la risposta
+serve davvero a decidere.
+
+### La costante delle tre volte
+
+È la terza volta che questo referto sbaglia, e tutte e tre nello stesso senso:
+
+| quando | che cosa stava al denominatore e non esisteva |
+|---|---|
+| 98ª | le 779 righe dei file dati, già rese, contate come da fare |
+| 107ª | le 2.452 descrizioni che sono la **stringa vuota** |
+| 124ª | le 2.832 descrizioni, contate **due volte** |
+
+> Un numeratore gonfiato lo si scopre appena qualcosa non funziona. Un
+> **denominatore** gonfiato rassicura chi teme di aver dimenticato qualcosa, e
+> per questo sopravvive più a lungo di ogni altro difetto di misura.
+
+⚠️ E il referto adesso lo dice da solo, in coda: il 99,4% è il **perimetro**,
+non il progetto. Non dice che le rese siano state viste a schermo, né che
+l'elenco delle domande sia completo — la 123ª ha trovato un fronte da 355 firme
+mentre `_97-quanto-resta` leggeva «TOTALE da fare 0».
+
+Vedi [[percentuale-senza-denominatore]] nel vault, quarta occorrenza.
+
+---
+
+## Una firma non è sempre lavoro: la `lang()` che non porta nessun letterale — 2026-09-02, centoventiquattresima
+
+`material.hsp` risultava 18 firme e il lavoro vero era **17**. La diciottesima:
+
+```hsp
+font lang(cfg_font1, cfg_font2), 14 - en * 2, 0
+```
+
+`perimetro.firme_lang()` raccoglie l'**argomento inglese** di ogni `lang()`, e
+qui quell'argomento è il nome del **carattere tipografico**. Ce ne sono **45** in
+tutto il sorgente — 26 sono `cfg_font2`, le altre sono valori già resi altrove
+(`cnvrank(p)`, `cdatan(CDATAN_CLASS, cc)`, `randn1(1)`) — e nei file senza
+dizionario ne pesano 7.
+
+**La decisione**: il *perimetro* continua a contarle, ed è giusto — è un
+denominatore, non una lista di compiti, e una `lang()` è una `lang()`. Ma il
+referto che dice «ecco il lavoro che nessuno ha chiesto» no: ha ora una colonna
+**muti** e una **da fare**, e dichiara quali file non hanno **niente** da
+tradurre. `custom_pet.hsp` e `custom_dmgpop.hsp` hanno una firma sola ciascuno
+ed è quella: non si chiuderanno mai traducendoli, sono già finiti.
+
+⚠️ E lo stesso referto portava in coda un numero **scritto a mano** — «i file
+senza dizionario sono nove» — già falso da due sessioni. Un numero fisso dentro
+il referto che avverte di un punto cieco è **esso stesso** un punto cieco.
+
+---
+
+## Il nome di una mappa vive in dodici caratteri, e nessuno lo diceva — 2026-09-02, centoventiquattresima
+
+`screen.hsp:153` disegna il nome della mappa nella barra in alto e lo **taglia**
+senza dire niente:
+
+```hsp
+if ( strlen(mdatan(MDATAN_NAME)) > 16 - (maplevel() != "") * 4 ) {
+    mes cnven(strmid(mdatan(MDATAN_NAME), 0, 16 - (maplevel() != "") * 4))
+```
+
+Sedici caratteri, **dodici** se la mappa mostra il livello — e `maplevel()`
+(`text.hsp:2595`) lo mostra per Lesimas, i sotterranei casuali, `AREA_QUEST` e
+ogni mappa di tipo dungeon. ⭐ Il modello lo conferma monte: i cinque nomi di
+`map_rand.hsp` sono 9, 9, 8, 10, 10.
+
+### La decisione sul cancello: si misura il PEGGIORAMENTO, non lo zero
+
+Monte stesso sfora: cinque nomi inglesi passano i sedici caratteri e il gioco li
+taglia da sempre («Ancient Research Facility» a 25). Un cancello tarato su zero
+assoluto chiederebbe all'italiano di essere **migliore dell'originale**, e
+verrebbe allentato alla prima resa scomoda — che è come si allenta un cancello
+in silenzio. Il difetto vero è la resa che si taglia **dove l'inglese non si
+tagliava**, ed è la forma che usa già `menu_dialogo`.
+
+    tetto 16 (sempre)                     0 peggiorate su 52 rese
+    tetto 12 (dove si mostra il livello)  21 peggiorate su 52 rese
+
+⚠️ **Le ventuno sono un fronte aperto: misurate, non decise.** Sapere quali
+mappe mostrano il livello vuol dire sapere l'`adata(ADATA_TYPE)` di ciascuna a
+tempo di esecuzione; l'euristica del blocco più vicino ha dato un risultato
+**rumoroso** e non si eredita. È il candidato naturale per la prossima lista di
+collaudo: si entra in quelle mappe e si guarda la barra in alto.
+
+⚠️ La prima stesura del cancello appaiava **zero** voci — per una statica il
+campo `contesto` è vuoto, e il nome di mappa lo cercavo lì. L'ha detto la prova
+al contrario, invece di lasciar passare uno zero.
+
+---
+
+## Si allarga la colonna, non si accorciano i nomi già decisi — 2026-09-02, centoventiquattresima
+
+Il pannello della produzione (`*com_product`) incolonna i materiali che una
+ricetta chiede in **tre colonne da 192 px**, disegnate a font 11: **27
+caratteri**, e dentro ci sta `nome + " x " + quanti + "(" + posseduti + ")"`.
+**27 combinazioni su 113 sforavano**, la peggiore a 31 («macchina generatrice x
+2(99999)»). L'inglese ci sta perché il suo nome più lungo è 17 contro i 20
+italiani.
+
+Due strade, e la prima era la più ovvia:
+
+- **accorciare i tredici nomi.** No: sono decisi in `glossario.md`, ventisette
+  di loro dalla 42ª per un altro file, e sono già tarati sul budget dell'**altro**
+  pannello di questo stesso file (la 123ª: `nome + " x N"` in 212 px a font 12).
+  Accorciarli qui li romperebbe là — e a decidere sarebbe un modello, non uno
+  schermo;
+- **allargare la colonna.** Due da 288 px invece di tre da 192, cioè 41
+  caratteri. I sei materiali entrano lo stesso, su tre righe invece di due
+  (wy+334, +350, +366), e il suggerimento che chiude la finestra sta a wy+401.
+
+> Quando una resa non ci sta, la prima domanda non è «come la accorcio» ma «chi
+> ha deciso quella larghezza, e per chi». Qui l'aveva decisa monte per i suoi
+> nomi, e la decisione non ci riguardava.
+
+⚠️ Il cancello legge il passo delle colonne **da ciascun albero** invece di
+scriverselo: monte ne ha tre da 192, la build due da 288, e un numero fisso
+avrebbe misurato la geometria di un albero sull'altro. E la prova al contrario
+non è una stringa finta — rimisura le stesse 113 combinazioni italiane contro il
+passo di monte, dove si accende su 27.
+
+---
+
+## Due giapponesi sotto lo stesso inglese si rendono diversi — 2026-09-02, centoventiquattresima
+
+`quest.hsp:709` e `:717` hanno **lo stesso inglese** e due giapponesi diversi:
+
+    :709  エリアを制圧した！        "The area is secured!"   caccia e scorta
+    :717  盗賊団を返り討ちにした！   "The area is secured!"   i ladri
+
+Le **firme sono due**, perché la firma tiene dentro anche il giapponese, e
+quindi si possono rendere diverse. **Si rendono diverse**: «Zona sotto
+controllo!» e «Hai respinto la banda di ladri!», perché il giapponese distingue
+e l'inglese no.
+
+È la 122ª al rovescio — lì un inglese doppio **nascondeva** due oggetti, qui ne
+**libera** due. La regola sotto è la stessa: quando le due lingue di monte non
+dicono la stessa cosa, guarda chi porta più informazione, e qui è il giapponese.
+
+⭐ Stessa sessione, stesso principio su `map_rand.hsp:787`: «Mine area» è
+ambiguo in inglese, 地雷原 non lo è in giapponese, e il codice chiude la
+questione — l'etichetta è `*map_createDungeonMinefield` e le creature sono
+`CREATURE_ID_LANDMINE_GIRL`. È **campo minato**, non una zona mineraria.
+
+---
+
 ## Una parola di kanji comuni può essere un nome proprio, e si scopre cercandola — 2026-09-01, centoventunesima
 
 `db_item.hsp:57962`, le manette del 《神々の枷鎖》, dice:

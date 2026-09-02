@@ -41,6 +41,94 @@ fondo somma valori di sessioni diverse. Il conto vivo lo danno
 file di `data/` compresi. Finché nessuno rifà la tabella intera, **si guardano
 quelli**.
 
+⚠️⚠️ **E dalla 124ª `perimetro.py` non stampa più una percentuale ricavata da un
+rapporto.** Il suo «91%» era sbagliato di dieci punti — contava le descrizioni
+degli oggetti **due volte** al denominatore — e il numero che stampa adesso è
+una sottrazione: `fatte` e `da fare` contati con lo stesso `estrai`. Chi legge
+in giro per questo file un «perimetro 90%, totale 94%» sta leggendo il vecchio
+conto, non un arretramento.
+
+## Sei file mai estratti si chiudono, e il 91% era 99% — 2026-09-02, centoventiquattresima sessione
+
+Non `db_item.hsp`: il fronte aperto dalla 123ª, cioè i file che portano `lang()`
+e **non hanno mai avuto un dizionario**, invisibili a `_97-quanto-resta` perché
+non compaiono nemmeno come riga.
+
+    material.hsp             17 rese    il pannello della produzione
+    quest.hsp                22 rese    esiti di incarico, arena, autorità
+    etc.hsp                  11 rese    gli dèi che ti dicono di smettere
+    map_rand.hsp              6 rese    cinque nomi di mappa e un presagio
+    custom_nefiatypes.hsp     2 rese    il boss del Vuoto
+    scene.hsp                 1 resa    un nome di file, dichiarato invariato
+
+    file senza dizionario: 238 firme in 11 -> **174 in 5**, di cui 7 mute
+    applica: 30.466 -> **30.532**   (+19, +21, +26 — tre previsioni, tre esatte)
+    toppe:   1028 -> **1031**, e 1031 su 1031 agganciate
+
+### ⚠️⚠️⚠️ Il referto diceva 91%, e sbagliava due volte nello stesso senso
+
+L'ha chiesto l'utente — «siamo quasi alla fine?» — e i due modi di rispondere
+non tornavano: `perimetro.py` diceva che mancava il 9% (2.563 firme) e
+`verifica --dizionario` diceva che ogni file col dizionario è chiuso e che fuori
+ne restano 174. Mentiva il referto.
+
+1. `nomi_oggetto` **non è un conto del sorgente**: è `rese['db_item.hsp']`, cioè
+   *tutte* le voci di quel dizionario — e dalla 107ª le descrizioni stanno
+   **dentro** quel dizionario (2.831 su 4.407; le altre 1.576 sono i nomi).
+   Sommare `descrizioni` accanto le metteva al denominatore una seconda volta:
+   **2.832 di lavoro inesistente**, il 10% del progetto.
+2. Corretta quella veniva **101%**, e il 101 è la spia dell'altro guasto:
+   numeratore **vero** diviso per un denominatore **stimato per difetto del
+   2-4%**. Il rapporto fra un conteggio e una stima non è una percentuale.
+
+⭐ Il conto onesto è una **sottrazione**: quel che resta si conta con lo stesso
+`estrai` che scrive il dizionario, così «fatte» e «da fare» sono numeri della
+stessa specie.
+
+    firme rese                              26.159
+    firme ancora da fare, contate              167
+    --- fatto 26.159 su 26.326             = 99,4%
+
+⚠️ È la **terza** volta che questo referto sbaglia — la 98ª (rese dei file dati
+contate solo al denominatore), la 107ª (2.452 stringhe vuote), oggi — e tutte e
+tre mettendo al denominatore lavoro che non esisteva. Un denominatore gonfiato
+non desta sospetti in nessuno: rassicura chi teme di aver dimenticato qualcosa.
+
+### ⚠️⚠️ Una firma non è sempre lavoro
+
+`perimetro.firme_lang()` raccoglie l'argomento inglese di ogni `lang()`, e
+alcune non portano **nessun letterale**: `font lang(cfg_font1, cfg_font2)`
+sceglie il carattere. Sono **45** in tutto il sorgente, 26 delle quali
+`cfg_font2`, e `material.hsp` diceva 18 dove il lavoro vero era 17.
+`custom_pet.hsp` e `custom_dmgpop.hsp` hanno **una firma sola ciascuno ed è
+quella**: non si chiuderanno mai traducendoli, sono già finiti.
+
+### ⭐⭐ Quattordici rese su 59 erano già decise altrove — e una era sbagliata
+
+Una ricerca per **somiglianza del giapponese** su tutto il dizionario (la regola
+della 113ª applicata a un lotto intero) ha trovato quattordici gemelle già rese.
+E ha trovato un difetto nel lavoro **già in gioco**: `screen.hsp:1450` scriveva
+«Larneire» con una `n` sola, contro «Larnneire» in dodici rese su dodici.
+Nessuna rete lo vedeva — guardano la forma, l'inglese di monte e il dizionario,
+e un nome proprio storpiato di una lettera passa tutte e tre.
+
+> **La riga sorella non serve solo a copiare una resa: serve anche a
+> controllarla.**
+
+### ⚠️⚠️ Due pannelli misurati per la prima volta, e tutti e due sforavano
+
+**Il pannello della produzione** ha tre colonne e **due font diversi nella stessa
+finestra** (12 per l'elenco a `:299`, 11 per il dettaglio a `:252`). La colonna
+dei materiali richiesti è la più stretta del progetto — 192 px a font 11 fanno
+27 caratteri — e **27 combinazioni su 113 sforavano**, la peggiore a 31.
+Allargata con una toppa a due colonne da 288.
+
+**E i nomi di mappa hanno un tetto di 12 caratteri, non 16**: `screen.hsp:153`
+taglia con `strmid`, e sono 12 dove la mappa mostra il livello. Il cancello è
+sul **peggioramento** e non sullo zero assoluto, perché monte stesso sfora: al
+tetto pieno l'italiano non peggiora niente, al tetto stretto **peggiora ventuno
+rese già in gioco**. Fronte aperto, misurato e non deciso.
+
 ## Tre lotti, 67 rese, e si chiudono SCUDI, LIBRI e ARMATURE — 2026-09-01, centoventunesima sessione
 
 `db_item.hsp`, il **corpo** delle descrizioni. Tre categorie intere, una per

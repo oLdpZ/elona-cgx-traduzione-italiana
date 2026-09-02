@@ -376,6 +376,85 @@ dice «*ha scoperto di avere* Allegria», che regge per tutti e trentasei.
 «**ha una parte nuova:** Mano!», dove i due punti prendono il posto
 dell'articolo. Vale per le diciannove righe fra `action.hsp:12530` e `:19012`.
 
+## I nomi di mappa, decisi il 2026-09-02 dal lotto `map_rand-001`
+
+⚠️⚠️⚠️ **Un nome di mappa vive in DODICI caratteri.** `screen.hsp:153` lo taglia
+con `strmid(mdatan(MDATAN_NAME), 0, 16 - (maplevel() != "") * 4)`: sedici se la
+mappa non mostra il livello, **dodici se lo mostra** — e `maplevel()`
+(`text.hsp:2595`) lo mostra per Lesimas, i sotterranei casuali, `AREA_QUEST` e
+ogni mappa di tipo dungeon. Non c'è nessun avviso: il nome esce tagliato a metà
+parola. Il cancello è `scratchpad/_124-nomi-mappa.py`.
+
+| JP | EN | IT | riga |
+|---|---|---|---|
+| 街近郊 | Near town | **Periferia** (9) | `map_rand.hsp:784` |
+| 地雷原 | Mine area | **Campo minato** (12) | `:787` — ⚠️⚠️ **non è una zona mineraria**: 地雷 è la mina esplosiva, già resa «mina» (`db_item.hsp:144067`), e il codice chiude la questione — l'etichetta è `*map_createDungeonMinefield`, il contatore `GDATA_FLAG_MINEFIELD_QUEST_LEVEL`, e le creature sono `CREATURE_ID_LANDMINE_GIRL` e le sue tre sorelle. Qui la lingua ambigua è l'inglese |
+| 街周辺の畑 | Farmland | **Campi** (5) | `:938` |
+| パーティー場 | Party Room | **Sala feste** (10) | `:1287` |
+| 市街地 | Urban Area | **Zona urbana** (11) | `:1770` — già deciso da `text.hsp:3052` |
+
+⚠️ **Ventuno nomi di mappa già in gioco si tagliano al tetto stretto**, e sono un
+fronte aperto: «Fogne di Lumiest» (16) contro «The Sewer» (9), «Fondo di
+Lesimas», «Miniera di slime», «Sala dei Seguaci», «Salone piano 15/20/25/30» e
+altre. Misurati, **non decisi**: dipende dal tipo di ciascuna mappa.
+
+## Il pannello della produzione, misurato il 2026-09-02
+
+⚠️⚠️ **Sono DUE i pannelli di `material.hsp`, e hanno budget diversi.** La 123ª
+misurò quello dei materiali **posseduti** (`*com_material`, font 12); questo è
+quello della **produzione** (`*com_product`, `:216`-`:312`), che ha tre colonne
+e **due font nella stessa finestra**:
+
+    nome del prodotto     wx+86  -> wx+308   222 px, font 12 (7,7)  ->  28
+    «Crea [nome]»         wx+308 -> wx+610   302 px, font 12        ->  39
+    «Abilità richiesta: » wx+37  -> wx+610   573 px, font 11 (6,9)  ->  83
+    materiali richiesti   passo di colonna,          font 11        ->  vedi sotto
+
+⭐ **La colonna dei materiali richiesti è la più stretta del progetto.** A monte
+sono tre da 192 px, cioè 27 caratteri, e dentro ci sta
+`nome + " x " + quanti + "(" + posseduti + ")"` — più lungo del « x N» dell'altro
+pannello, **sugli stessi nomi**. 27 combinazioni su 113 sforavano. ⭐ **Non si
+sono accorciati i tredici nomi** (sono decisi qui sopra e tarati sull'altro
+pannello): si è allargata la colonna con una toppa, **due da 288 px**, cioè 41
+caratteri.
+
+| termine | resa | dove |
+|---|---|---|
+| 生産品の選択 / Production | **Produzione** | `material.hsp:219`, il titolo della finestra |
+| 生産品 / Product | **Prodotto** | `:221` |
+| 説明 / Detail | **Descrizione** | `:222` e `:434` — già `chara.hsp:3469` |
+| 詳細 / Requirement | **Requisiti** | `:223` |
+| 必要素材 / Material | **Materiali necessari** | `:224` |
+| 必要スキル: / Skill needed: | **Abilità richiesta: ** | `:253` — スキル è «abilità» |
+| 所持マテリアル / Name | **Nome** | `:433` — «Name» è «Nome» in quattordici rese |
+| アイテム[X] / Make [X] | **Crea [X]** | `:298` |
+| マテリアル:Xを N個失った / N X was consumed. | **Materiale consumato: X (N)** | `:160` — la gemella di `:120`, che la toppa della 123ª rende «Materiale ricevuto: X (N)». ⚠️ Resta **senza punteggiatura finale**: la chiude `:162`, «, ne restano M. », e `locvar_matgetmain_s` non è mai stampata da sola |
+
+⭐ **I quattro nomi di abilità non si sono decisi qui**: sono quelli di
+`skill.hsp` e si copiano — 錬金術 **Alchimia**, 工作 **Falegnameria**, 宝石細工
+**Oreficeria**, 裁縫 **Sartoria**. Li conferma `action.hsp:7230`-`:7272`
+(«Ottiene bonus in ...»).
+
+## «kitty» non si rende dove il giapponese non lo dice — 2026-09-02
+
+L'inglese di Elona+ fa chiamare il giocatore **«kitty»** da Lulwy anche dove il
+giapponese non dice 子猫ちゃん. Il progetto aveva già deciso in tutt'e due i
+sensi, e la 124ª ha solo applicato la regola alle tre battute di `etc.hsp`:
+
+- dove il giapponese **lo dice** (`command.hsp:7030`, `text.hsp:12156`,
+  `screen.hsp:1417`), la resa è **«gattino»**;
+- dove **non lo dice** (`text.hsp:12269`, `:12452`, e ora `etc.hsp:539`, `:548`,
+  `:551`), l'italiano **lo toglie**, come già faceva.
+
+⭐ E l'attribuzione delle battute degli dèi ha una forma fissa, presa dai
+gemelli di `screen.hsp`: **«Nome verbo: » + `cnvtalk("battuta")`** — «Lulwy
+sogghigna: », «Kumiromi si preoccupa: », «Opatos ride: », «Mani avverte: ».
+
+⚠️⚠️ **E il gemello può essere sbagliato.** Cercando la sorella di `etc.hsp:542`
+è saltato fuori che `screen.hsp:1450` scriveva **«Larneire»** con una `n` sola,
+contro «Larnneire» in dodici rese su dodici. La riga sorella non serve solo a
+copiare una resa: serve anche a controllarla.
+
 ## I materiali, decisi il 2026-08-15 dal lotto `command-014`
 
 ⚠️ **Questi nomi sono di `material_data.hsp`, non di `command.hsp`.** I 59
@@ -413,7 +492,11 @@ colonne strette e disegna a **font 12**, lo stesso dei menu, quindi vale il
     descrizione     wx+308 -> wx+560  = 252 px  ->  budget **32** caratteri
 
 Il cancello è `scratchpad/_123-larghezze-materiali.py`, e conta **cinque** cifre
-di contatore perché `mat()` non ha nessun tetto in tutto il sorgente. ⓘ Una sola
+di contatore perché `mat()` non ha nessun tetto in tutto il sorgente. ⚠️⚠️ **E dalla
+124ª c'è un SECONDO budget sugli stessi nomi**: il pannello della *produzione*
+li scrive come `nome + " x N(M)"` in una colonna più stretta (vedi la sezione
+qui sopra). Accorciare un nome per un pannello lo rompe nell'altro: prima di
+toccarne uno si guardano tutt'e due i cancelli. ⓘ Una sola
 eccezione **dichiarata**: «macchina generatrice» (20) sfora a cinque cifre, ma è
 livello 70 e rarità 7 (`material_data.hsp:228`) e a tre cifre sta dentro.
 

@@ -39,6 +39,7 @@ SORGENTE = r'C:\Games\Elona\_traduzione\sorgente\2.05-custom-gx'
 
 sys.path.insert(0, QUI)
 import perimetro  # noqa: E402  — per `firme_lang`, che e' la definizione buona
+from strumenti.estrai import estrai_da_testo  # noqa: E402  — il conto VERO
 
 LANG = re.compile(r'\blang\s*\(')
 
@@ -65,8 +66,18 @@ def main():
         # che non si puo' tradurre gonfia il numero. `material.hsp` diceva 18 e
         # il lavoro vero era 17: la diciottesima era il carattere.
         muti = len([x for x in tutte if '"' not in x])
+        # ⚠️⚠️ 124a, seconda correzione: «da fare» NON e' `firme - muti`. Sono
+        # due riconoscitori diversi — `firme_lang()` approssima con un
+        # analizzatore di parentesi e sbaglia per difetto del 2-4% (le righe con
+        # piu' `lang()`, le forme annidate) — e la sottrazione fra i due dava
+        # **166** dove `estrai` ne trova **167**: uno in `net.hsp`. Il numero che
+        # conta e' quello di `estrai`, perche' e' lo stesso codice che poi scrive
+        # il lotto: «da fare» deve essere il numero di righe che si aprono
+        # domani, non una stima.
+        da_fare = len({v['firma'] for v in estrai_da_testo(nome, testo)}) \
+            if nome not in con_dizionario else 0
         (con if nome in con_dizionario else senza).append(
-            (firme, len(LANG.findall(testo)), muti, nome))
+            (firme, len(LANG.findall(testo)), muti, da_fare, nome))
 
     senza.sort(reverse=True)
     print()
@@ -74,15 +85,20 @@ def main():
     print()
     print('   firme   lang()     muti   da fare   file')
     print('  ' + '-' * 58)
-    for firme, occorrenze, muti, nome in senza:
+    for firme, occorrenze, muti, da_fare, nome in senza:
         print('  %6d   %6d   %6d   %7d   %s'
-              % (firme, occorrenze, muti, firme - muti, nome))
+              % (firme, occorrenze, muti, da_fare, nome))
     print('  ' + '-' * 58)
     print('  %6d   %6d   %6d   %7d   TOTALE in %d file'
-          % (sum(f for f, _, _, _ in senza),
-             sum(o for _, o, _, _ in senza),
-             sum(m for _, _, m, _ in senza),
-             sum(f - m for f, _, m, _ in senza), len(senza)))
+          % (sum(f for f, _, _, _, _ in senza),
+             sum(o for _, o, _, _, _ in senza),
+             sum(m for _, _, m, _, _ in senza),
+             sum(d for _, _, _, d, _ in senza), len(senza)))
+    print()
+    print('  ⚠️ «firme» e «da fare» vengono da DUE riconoscitori: il primo e\' la')
+    print('    stima del perimetro, il secondo e\' `estrai`, cioe\' il codice che')
+    print('    scrive davvero il lotto. Non tornano per sottrazione, e il numero')
+    print('    su cui si lavora e\' il secondo.')
     print()
     print('  ⓘ referto, non cancello. Il valore atteso NON e\' zero: e\' il')
     print('    numero che `_97-quanto-resta` non puo\' vedere, e la colonna')
@@ -96,17 +112,17 @@ def main():
     # peggiore» e «non l'ho cercato abbastanza».
     if con:
         peggiore = max(con)
-        nomi_senza = [n for _, _, _, n in senza]
+        nomi_senza = [n for _, _, _, _, n in senza]
         print('  prova al contrario: il file CON dizionario piu\' carico e\' %s'
-              % peggiore[3])
+              % peggiore[4])
         print('    (%d firme, %d lang()), e la rete %s'
               % (peggiore[0], peggiore[1],
                  'lo TACE, com\'e\' giusto'
-                 if peggiore[3] not in nomi_senza else '⚠️ LO STAMPA: e\' rotta'))
+                 if peggiore[4] not in nomi_senza else '⚠️ LO STAMPA: e\' rotta'))
     # ⓘ 124a: e due file dell'elenco sono INTERAMENTE muti — `custom_pet.hsp` e
     #   `custom_dmgpop.hsp` hanno una firma sola ciascuno, ed e' `cfg_font2`.
     #   Non si chiuderanno mai «traducendoli»: sono gia' finiti.
-    muti_interi = [n for f, _, m, n in senza if f == m]
+    muti_interi = [n for f, _, m, d, n in senza if d == 0]
     if muti_interi:
         print()
         print('  ⓘ file senza NIENTE da tradurre (ogni firma e\' muta): %s'
