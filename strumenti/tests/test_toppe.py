@@ -143,6 +143,91 @@ def test_nessuna_toppa_porta_testo_che_cp932_non_sa_scrivere():
                         f"toppa.\n  {riga.strip()}") from None
 
 
+# I caratteri che `scratchpad/guardie.py` rifiuta da sempre nelle voci di
+# dizionario. L'elenco si tiene qui uguale a quello: due reti che cercano la
+# stessa cosa con due elenchi diversi sono due numeri incomparabili, ed e' la
+# lezione che `_126-referti-toppe.py` ha gia' scritto per i participi.
+PROIBITI_ITALIANI = "…“”～«»"
+
+# Gli intervalli del giapponese: kana (hiragana + katakana) e kanji.
+_GIAPPONESE = (("぀", "ヿ"), ("一", "鿿"))
+
+
+def _ha_giapponese(riga: str) -> bool:
+    return any(a <= c <= b for c in riga for a, b in _GIAPPONESE)
+
+
+def proibiti_in_italiano(riga: str) -> list[str]:
+    """I caratteri proibiti che la riga scrive, se la riga e' italiana.
+
+    Una riga che contiene kana o kanji e' il ramo `if ( jp )` che una toppa a
+    blocco si porta dietro: li' `…` e 《 》 sono scritti giusti, e non sono roba
+    nostra. Ritorna una lista ordinata, cosi' il messaggio d'errore e' stabile.
+    """
+    if _ha_giapponese(riga):
+        return []
+    return sorted({c for c in riga if c in PROIBITI_ITALIANI})
+
+
+def test_nessuna_toppa_scrive_in_italiano_un_carattere_a_doppia_larghezza():
+    """I caratteri proibiti nel dizionario sono proibiti anche nelle toppe.
+
+    ⚠️ **La rete qui sopra non basta, e per otto sessioni non e' bastata.**
+    `…` (U+2026) in CP932 esiste — e' 0x81 0x63 — quindi `encode("cp932")` non
+    solleva e quella prova resta verde. Ma e' un carattere a **doppia
+    larghezza**, e il ramo che la build italiana esegue disegna col carattere
+    latino dichiarato in `config.txt` (`font2. "Courier New"`): i due byte
+    diventano due glifi latini a caso. E' la stessa ragione per cui
+    `invariati.md` tiene 《 》 e 【 】 fuori dalle rese.
+
+    Il progetto lo sapeva: `…` sta in cima all'elenco `PROIBITI` di
+    `scratchpad/guardie.py` dalla 33a. Ma `guardie.py` legge i JSONL di lotto,
+    cioe' il **dizionario**, e una toppa una firma non ce l'ha: nella 127a se ne
+    sono trovate **cinque** nelle battute delle mosse speciali, scritte nella
+    126a — lo stesso giorno in cui erano nati i due referti sulle toppe, che
+    pero' cercavano participi ed elisioni, non caratteri.
+
+    ⚠️ Si giudica **riga per riga**, e le righe col giapponese si saltano: una
+    toppa a blocco porta dentro anche il ramo `if ( jp )`, dove 「疲れた…」 e'
+    scritta giusta — li' il carattere a doppia larghezza sta in una riga a
+    doppia larghezza, ed e' quel che quella lingua vuole. Il `cerca` si salta
+    per la stessa ragione al contrario: e' il sorgente di monte, e non e' roba
+    nostra.
+    """
+    for t in carica_toppe():
+        for riga in righe_di_toppa(t["sostituisci"]):
+            cattivi = proibiti_in_italiano(riga)
+            assert not cattivi, (
+                f"la toppa «{t['motivo'][:50]}…» scrive in italiano "
+                f"{cattivi!r}, che CP932 codifica a due byte e il carattere "
+                "latino della build disegna come due glifi a caso. I puntini "
+                "di sospensione si scrivono `...`, le virgolette `\"`.\n"
+                f"  {riga.strip()}")
+
+
+def test_la_rete_dei_caratteri_proibiti_vede_e_non_vede_quel_che_deve():
+    """La rete qui sopra su una riga inventata, nei due versi.
+
+    ⚠️ Una prova che gira su un corpus tutto sano non dimostra niente: resta
+    verde anche se la regola non guarda nessuno. Qui la regola si esercita su
+    una riga scritta apposta — quella vera che la 127a ha trovato — e sul caso
+    che deve invece lasciar passare.
+    """
+    italiana = '\t\t\ttxt cnvtalk("Clemenza… Clementia!")'
+    assert proibiti_in_italiano(italiana) == ["…"]
+
+    # la stessa riga scritta bene non accusa piu' niente
+    assert proibiti_in_italiano(italiana.replace("…", "...")) == []
+
+    # e il ramo giapponese di una toppa a blocco porta `…` a ragione: si salta
+    giapponese = '\t\t\ttxt name(tc) + "「疲れた…」"'
+    assert proibiti_in_italiano(giapponese) == []
+
+    # le altre quattro dell'elenco, per non lasciare la regola provata su uno solo
+    assert proibiti_in_italiano('mes "«ciao»"') == ["«", "»"]
+    assert proibiti_in_italiano('mes "“ciao”"') == ["“", "”"]
+
+
 # ---------------------------------------------------------------------------
 # Toppe a blocco: piu' righe consecutive al posto di una sola.
 #
