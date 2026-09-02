@@ -48,6 +48,36 @@ una sottrazione: `fatte` e `da fare` contati con lo stesso `estrai`. Chi legge
 in giro per questo file un «perimetro 90%, totale 94%» sta leggendo il vecchio
 conto, non un arretramento.
 
+## Una rinviata diventa una resa, e i rinvii diventano misurabili — 2026-09-02, centoventinovesima sessione
+
+Poco lavoro di traduzione e un pezzo di infrastruttura: la sessione ha reso
+**una** stringa, e ha reso **valutabili** le altre 113 rinviate.
+
+    _129-condizioni-dei-rinvii   MATURATE 0, ROTTE 0, SENZA CONDIZIONE 0
+                                 su 113 voci (erano 114 senza condizione)
+    _129-prova-al-contrario      8 famiglie su 8 si accendono
+    verifica --dizionario        112 -> **111** non tradotte, in 19 file
+    _97-quanto-resta             112/112/0 -> **111/111/0**
+    _125-non-tradotte            112/112/0 -> **111/111/0**
+    applica                      30.764 -> **30.766** sostituzioni
+    pytest                       796 -> **798** passed, 6 skipped
+    toppe                        1.172, agganciate 1.172 su 1.172   invariato
+    prova_identita               72/72 e 30.905                     invariato
+    perimetro                    26.326 su 26.326 = 100%            invariato
+
+⚠️ **Il +2 di `applica` non sono due stringhe: è una firma con due
+occorrenze.** `lang("階相当", " level")` vive a `command.hsp:2956` (morta, nel
+ramo `if ( jp )`) e a `:10710` (viva, nella scheda del personaggio). Il
+dizionario è indicizzato per firma, quindi la resa le tocca tutte e due — ed è
+proprio per questo che il rinvio, deciso guardando **solo** la prima, lasciava
+«0 level» a schermo accanto a «Potenza».
+
+⭐ **Il numero che vale più degli altri è quello che prima non esisteva.** Le
+113 rinviate erano 113 decisioni «da rileggere un giorno», e adesso sono 113
+condizioni con un valore atteso. Al primo giro il referto ne ha trovate quattro
+scadute — due toppe già arrivate, una gemella viva, una premessa falsa — su un
+registro che la sessione prima aveva cercato **a mano**.
+
 ## Il fronte delle righe nude si apre: 40 toppe e 14 righe che erano morte — 2026-09-02, centoventiseiesima sessione
 
 Il fronte aperto dalla 125ª scende da **181 a 141** righe vive in una sessione:

@@ -6,6 +6,124 @@ ancora aperte.
 
 ---
 
+## La condizione di un rinvio è un campo, e il campo è obbligatorio — 2026-09-02, centoventinovesima
+
+La 128ª aveva nominato il debito — «un rinvio con una condizione è una decisione
+rimandata a un evento che nessuno osserva» — e proposto di cercare i casi con un
+`grep` sulla prosa: `INSIEME|non prima|ASSEGNA|CONFRONT`.
+
+⚠️⚠️ **Provato, quel `grep` pesca più di sessanta voci su centoquattordici.**
+Non perché sessanta rinvii abbiano una condizione: perché «se » compare in quasi
+ogni `motivo`, e i termini specifici stanno nella prosa che *spiega* il rinvio
+quanto in quella che lo *condiziona*. Un filtro che lascia passare metà
+dell'insieme è l'elenco completo con un passaggio in più — cioè la cosa che
+nessuno rilegge, che era il problema di partenza.
+
+**La decisione: `condizione: {tipo, siti?, nota?}` accanto al `motivo`.** Il
+`motivo` resta obbligatorio e resta prosa, per chi legge; il campo è per la
+macchina, e il `tipo` non dice *perché* il rinvio esiste — dice **che cosa
+andare a misurare** per sapere se è scaduto. Sette tipi coprono tutte e 113 le
+voci: `riga_morta`, `morta_per_flusso`, `risolta_da_toppa`, `attende_toppa`,
+`attende_resa`, `attende_monte`, `mai`.
+
+**Tre scelte dentro la scelta**, e sono quelle che la rendono una rete:
+
+1. ⭐⭐ **Il vocabolario sta in `strumenti/estrai.py` (`TIPI_CONDIZIONE`), e a
+   pretenderlo è `carica_rinviate` — cioè ogni estrazione, non il referto.** Un
+   rinvio senza `condizione`, o con un `tipo` inventato, fa fallire
+   l'estrazione con un `ValueError`, esattamente come già il `motivo`. Una
+   disciplina che vive solo dentro uno script di `scratchpad/` chiede a
+   qualcuno di ricordarsi di lanciarlo, ed è la forma di rete che questo
+   progetto ha già visto fallire (la 120ª: un referto non è un test, non esce
+   con un codice d'errore, stampa un numero che qualcuno deve confrontare).
+2. ⭐ **Una classificazione sbagliata si accende da sola.** Marcare
+   `riga_morta` una riga viva non produce silenzio: produce «MATURATA», col
+   numero di riga. Il campo non è una dichiarazione da credere, è un'ipotesi da
+   falsificare — e quattro dei cinque difetti del primo giro sono usciti così,
+   sbagliando io la classificazione e lasciando che fosse il referto a dirlo.
+3. **`mai` pretende una `nota`.** È l'unico tipo che non si misura, e senza la
+   nota sarebbe un modo di dichiarare «non guardarmi» senza dire perché.
+
+**Il valore atteso è triplo, e il terzo conta quanto i primi due:** MATURATE 0,
+ROTTE 0, **SENZA CONDIZIONE 0**. Una voce senza condizione non è una voce senza
+condizione: è una voce che nessuno guarda, ed è lo stato in cui stavano tutte e
+114 il giorno prima.
+
+---
+
+## Che cosa si misura per dire «risolta da toppa»: la build, non l'elenco delle toppe — 2026-09-02, centoventinovesima
+
+Il primo tentativo cercava la riga del rinvio dentro il campo `cerca` di una
+toppa dello stesso file. Sembrava ovvio, ed era sbagliato su **sei rinvii su
+ventiquattro**: una toppa può cercare un **frammento** invece della riga
+intera, oppure riscrivere il blocco intorno senza nominare la riga.
+
+**La decisione**: la domanda non è «esiste una toppa che parla di questa riga»,
+è **«quel che il giocatore riceve è ancora l'inglese del sorgente?»**. Si
+confrontano le **occorrenze del testo esatto della riga** fra sorgente e build:
+se nella build sono meno, qualcosa l'ha cambiata — una toppa, il dizionario, o
+tutt'e due, e al rinvio non importa quale.
+
+⚠️ **Non si confrontano i numeri di riga.** Le toppe aggiungono righe: `map.hsp`
+nella build ne ha **cinque più** del sorgente, e un confronto posizionale
+leggerebbe la riga sbagliata senza dirlo. Contare le occorrenze regge anche il
+caso della riga ripetuta e cambiata in un punto solo.
+
+È la lezione della 128ª dall'altro lato: **si misura l'esito, non
+l'intenzione.**
+
+---
+
+## ` level` diventa « liv.», e la gemella era viva — 2026-09-02, centoventinovesima
+
+`lang("階相当", " level")` era fra le rinviate come «riga morta nel ramo
+`if ( jp )`», e per il sito che qualcuno aveva guardato — `command.hsp:2956` —
+era vero.
+
+⚠️⚠️ **Ma il dizionario è indicizzato per firma, e la stessa firma vive a
+`command.hsp:10710`, nella scheda del personaggio.** Lì il ramo è vivo, il
+pannello è italiano da cima a fondo («Vita, Mana, Follia, Velocità, Fama,
+Karma, **Potenza**») e accanto a «Potenza» il gioco scriveva **«0 level»**.
+
+**La resa: « liv.»**, con lo spazio davanti come l'inglese. Non è una scelta
+nuova — è la stessa di `lang("階", " Lv")` → « liv.» a `command.hsp:17435`, ed è
+quel che dice il glossario (`Level` → `Livello`, abbreviato `Lv.` come in
+inglese). La forma abbreviata è anche quella del pannello, che usa già «Peso
+eq.» e «Prot.».
+
+⭐ **La lezione non è sulla parola, è sul rinvio**: una firma si rinvia
+guardando **tutte** le sue occorrenze, perché il dizionario le tratta come una
+cosa sola. Un rinvio giusto per un sito e sbagliato per un altro non è mezzo
+giusto: è un frammento inglese a schermo, e nessun conteggio lo distingue dal
+lavoro chiuso.
+
+---
+
+## ` Plat` resta rinviata anche adesso che la toppa c'è — 2026-09-02, centoventinovesima
+
+Caso gemello del precedente, con esito opposto, e vale la pena scriverlo perché
+sembra un'incoerenza.
+
+`lang("枚", " Plat")` vive a `command.hsp:2982` (ramo `if ( jp )`, morto) e a
+**`:3067`, vivo**, nel ramo `else` del diario delle avventure. Anche qui il
+motivo vecchio era falso — diceva che la `lang()` «non viene valutata mai» — ma
+la resa **non passa dal dizionario**: tutto il blocco `:3040`-`:3069` è già
+italiano per via di una toppa (**«Il tuo cammino finora:», «Platino
+raccolto:», «Vittorie all'Arena delle Bestie:»**), e la stessa toppa ha
+riscritto la `lang()` in « pz.».
+
+Quindi: il rinvio **resta**, e il suo tipo diventa `risolta_da_toppa` con il
+sito `:3067`. Se un giorno quella toppa sparisse, il referto direbbe ROTTA.
+
+⚠️⚠️ **E questa l'avevo sbagliata io, mezz'ora dopo aver scritto la rete che
+l'ha corretta.** L'avevo classificata `attende_toppa` — «il ramo `else` è
+inglese nudo, aspetta chi lo renda» — **ricopiando la premessa dal motivo
+vecchio invece di misurarla**, che è precisamente il guasto che la 128ª aveva
+nominato («una premessa ereditata va rimisurata come un numero»). Il referto ha
+risposto MATURATA al primo giro. Una rete che corregge chi la sta costruendo è
+il modo più economico in cui poteva dimostrare di funzionare.
+
+---
 ## Un rinvio con una condizione è un debito che nessuno rilegge — 2026-09-02, centoventottesima
 
 `rinviate.jsonl` portava tre voci di `proc.hsp`, scritte nella 27ª e nella 60ª,
