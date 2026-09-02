@@ -903,3 +903,75 @@ di configurazione — vista dal lato della chiave invece che del valore.
 💡 Sono, come `command.hsp:4651`-`:4652`, un falso positivo del conteggio: il
 triage vede un letterale su una riga che compone, e non può sapere che quel che
 compone è un file e non una schermata.
+
+## Le ultime righe nude sparse, e perché restano — 127ª
+
+Chiudendo il fronte a 45, quel che resta fuori da `command.hsp` e `config.hsp`
+si riduce a queste. Nessuna è lavoro rimandato.
+
+**`screen.hsp:417` e `:423`, `"Sp"` e `"Lv"`** — le due sigle del pannello di
+stato, quello sempre a schermo. Sono simboli, come `Hp:`/`DV:`/`PV:` di
+`command.hsp`, e il pannello è il posto più stretto del gioco: `:417` e `:423`
+scrivono con `bmes` dentro una striscia che il giocatore ha sott'occhio a ogni
+turno, e «Liv» costerebbe un carattere su due.
+
+**`chara.hsp:3204`, `listn(0, cnt) = "*Debug*"`** — la voce di debug
+nell'elenco degli epiteti. Stessa classe di `screen.hsp:1125`: testo che esiste
+solo per chi sviluppa.
+
+**`chara.hsp:3450`, `"(extra)" + listn(0, cnt)`** — il prefisso delle razze
+aggiunte dal mod. ⚠️ **Non è inglese lasciato lì: è italiano che coincide**,
+come `Info` e `t ` più su. «Extra» in italiano è la stessa parola, e la forma
+piena («aggiuntiva») allungherebbe una voce di elenco senza dire niente di più.
+
+**`tcg.hsp:969`, `"Immune"`, e `tcg.hsp:3480`, `"Mana "`** — terza e quarta
+della stessa specie: «immune» e «mana» in italiano si scrivono così, e «mana» è
+già la parola del progetto in tutto il dizionario.
+
+**`custom_tweaks.hsp:1679`, `"Nani?!"`** — la descrizione del ritocco
+`TWEAK_MISC_HOKUTO_NO_KEN_MODE`. ⭐ È **la battuta stessa**, in rōmaji, ed è la
+gemella di `proc.hsp:14392` («Omae wa mou shindeiru»), già dichiarata nella
+126ª: là il rōmaji è una delle tre forme che il giocatore può scegliere, qui è
+il modo di annunciarlo. Tradurla spegnerebbe la citazione, che è tutto quello
+che quella riga è. ⓘ Le altre cinque descrizioni dello stesso blocco
+(`:1673`, `:1676`, `:1682`, `:1685`) sono invece tradotte.
+
+**`custom_itemlist.hsp:49`, `noteadd "ID⇥Type⇥JName⇥EName⇥Value"`** —
+l'intestazione del file che `*Save_Item_Highlights` esporta. È un TSV, e le
+cinque parole sono **nomi di colonna**, non testo di schermata; `JName` e
+`EName` per giunta nominano le due lingue del database, non due parole
+italiane. Chi legge quel file lo apre in un foglio di calcolo per costruirsi le
+regole di autopick.
+
+**`helloworld.hsp:4`, `mes "hello world"`** — ⚠️ **il file non fa parte della
+build.** Porta il suo `#packopt name "helloworld"` alla riga 2, cioè è un
+programma a sé che nessun `#include` tira dentro: è il file di prova dell'SDK
+rimasto nel clone di monte. Non è testo del gioco.
+
+**`system.hsp:4400`, la riga della console di debug** — `VARIANT_NAME + " v" +
+VERSION_STRING + " Debug Console…"`, dentro `*game_debug`. Stessa classe del
+`*debug*` di `screen.hsp`.
+
+### Un fronte misurato e NON chiuso: gli AP di `chara_func.hsp`
+
+**`chara_func.hsp:8430` e `:8522`**, `name(…) + " obtained " + N + " AP from
+the " + gain_ap_source + "."` — ⚠️⚠️ **queste due non sono dichiarate
+invariate: sono aperte, e la ragione va scritta perché non si perda.**
+
+`gain_ap_source` è **operando e testo insieme**, come `male`/`female` più su. Il
+codice lo confronta con `"talk"`, `"kill"` e `"destone"` in sette punti
+(`:8415`, `:8436`, `:8455`, `:8509`, `:8524`, `:8530`, `:8543`) per decidere
+che cosa fare, e **la stessa variabile finisce dentro la frase** che il
+giocatore legge. Tradurre l'operando romperebbe le sette condizioni in
+silenzio.
+
+⚠️ **E non è una parola sola: è una frase che si compone per ricorsione.**
+`:8533`-`:8560` richiamano `gain_ap` passandogli `gain_ap_source + " of yours"`,
+`+ " of your mount"`, `+ " of your minion"`, `+ " of " + his(…) + " tag-team
+partner"` — cioè altri quattro frammenti inglesi nudi, uno dei quali porta
+`his()` a un argomento, che è **morfologia inglese** e in italiano va tolta. A
+schermo esce «X obtained 3 AP from the kill of your minion.»
+
+✅ La strada c'è, ed è separare l'operando dalla resa: una tabella al **sito di
+stampa** che mappa le tre basi per le cinque code. È una toppa a blocco di una
+certa dimensione e vuole una sessione sua. Misurata, non decisa.

@@ -158,15 +158,40 @@ def _ha_giapponese(riga: str) -> bool:
 
 
 def proibiti_in_italiano(riga: str) -> list[str]:
-    """I caratteri proibiti che la riga scrive, se la riga e' italiana.
+    """I caratteri a doppia larghezza che la riga scrive, se la riga e' italiana.
 
     Una riga che contiene kana o kanji e' il ramo `if ( jp )` che una toppa a
     blocco si porta dietro: li' `…` e 《 》 sono scritti giusti, e non sono roba
     nostra. Ritorna una lista ordinata, cosi' il messaggio d'errore e' stabile.
+
+    ⭐⭐ **La regola non e' un elenco, e' una misura**: si guarda quanti byte
+    CP932 spende per il carattere. `PROIBITI_ITALIANI` era la prima stesura, e
+    un elenco chiuso avrebbe lasciato passare tutto quel che non ci sta dentro
+    — `—`, `–`, `’`, `′`, `※` — che sono a due byte esattamente come `…` e
+    fanno lo stesso danno. Chiedere la misura invece dell'appartenenza chiude
+    la famiglia intera, oggi e domani.
+
+    ⓘ `♪` e' l'unica deroga, ed e' vecchia: il progetto la ammette dalla 33a
+    perche' quel glifo il gioco lo disegna davvero (lo usa upstream nel ramo
+    inglese), e le toppe di `proc.hsp` ci contano.
     """
     if _ha_giapponese(riga):
         return []
-    return sorted({c for c in riga if c in PROIBITI_ITALIANI})
+    return sorted({c for c in riga if c != "♪" and not _un_byte_solo(c)})
+
+
+def _un_byte_solo(c: str) -> bool:
+    """Il carattere sta in un byte CP932, cioe' il carattere latino lo disegna.
+
+    Quel che CP932 non sa scrivere affatto (`«`, `“`) e quel che scrive in due
+    byte (`…`, `—`) sono due guasti diversi con lo stesso esito a schermo, e
+    qui si trattano insieme: il primo lo ferma anche `encode` piu' su, il
+    secondo no.
+    """
+    try:
+        return len(c.encode("cp932")) == 1
+    except UnicodeEncodeError:
+        return False
 
 
 def test_nessuna_toppa_scrive_in_italiano_un_carattere_a_doppia_larghezza():
@@ -223,9 +248,22 @@ def test_la_rete_dei_caratteri_proibiti_vede_e_non_vede_quel_che_deve():
     giapponese = '\t\t\ttxt name(tc) + "「疲れた…」"'
     assert proibiti_in_italiano(giapponese) == []
 
-    # le altre quattro dell'elenco, per non lasciare la regola provata su uno solo
+    # le altre dell'elenco storico, per non lasciare la regola provata su uno solo
     assert proibiti_in_italiano('mes "«ciao»"') == ["«", "»"]
     assert proibiti_in_italiano('mes "“ciao”"') == ["“", "”"]
+
+    # ⭐ e quel che l'ELENCO non avrebbe visto: la regola guarda i byte, non
+    #   l'appartenenza. Il trattino lungo e l'apostrofo tipografico sono a due
+    #   byte in CP932 come `…`, e vengono a mano scrivendo in italiano.
+    for fuori_elenco in ("—", "–", "’", "※"):
+        assert fuori_elenco not in PROIBITI_ITALIANI
+        assert proibiti_in_italiano('mes "a{}b"'.format(fuori_elenco)) == [fuori_elenco]
+
+    # ⓘ e ♪ resta ammesso: le toppe di proc.hsp lo usano nelle onomatopee
+    assert proibiti_in_italiano('txt " *♪* "') == []
+
+    # ⓘ l'italiano normale non accusa niente: accenti degradati, apostrofi ASCII
+    assert proibiti_in_italiano('txt "E\' cosi\' che si scrive, piu\' o meno."') == []
 
 
 # ---------------------------------------------------------------------------
