@@ -1,15 +1,15 @@
 # Ripresa sessione
 
-Aggiornato: 2026-09-02, fine della **centoventicinquesima** sessione (**167 rese
-in tre file, il perimetro `lang()` chiuso al 100%, 17 toppe, e un test che ha
-fermato un lotto per una cosa che non era ancora successa**).
+Aggiornato: 2026-09-02, fine della **centoventiseiesima** sessione (**il fronte
+delle righe nude si apre: 14 toppe in `proc.hsp`, tre strumenti nuovi, e due
+participi al maschile che stavano li' da sessioni dietro una catena verde**).
 
-⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 08:40 DEL 02/09**, ricompilato e
-ricopiato a mano dopo l'ultima resa. Se la data e' quella, non c'e' niente da
+⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 09:26 DEL 02/09**, ricompilato e
+ricopiato a mano dopo l'ultima toppa. Se la data e' quella, non c'e' niente da
 rifare. ⓘ Si legge con `ls -l C:\Games\Elona\elonaplus2.31\cgx-test.exe`.
 
-⭐⭐⭐ **IL PERIMETRO `lang()` E' CHIUSO. 26.326 SU 26.326, ZERO DA FARE.**
-Il conto **non si eredita da qui** — si rilancia:
+⭐⭐⭐ **IL PERIMETRO `lang()` RESTA CHIUSO AL 100%.** Il conto **non si eredita
+da qui** — si rilancia:
 
     PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/perimetro.py
 
@@ -17,39 +17,180 @@ Il conto **non si eredita da qui** — si rilancia:
         firme ancora da fare, contate                0
         --- fatto 26.326 su 26.326            = 100,0%
 
-ⓘ I due file che restano nell'elenco, `custom_pet.hsp` e `custom_dmgpop.hsp`,
-hanno **una firma sola ciascuno ed e' muta**: erano gia' finiti dalla 124a e non
-si chiuderanno mai traducendoli.
+⚠️⚠️⚠️ **IL FRONTE APERTO SONO LE RIGHE INGLESI NUDE, E OGGI NE RESTANO 181.**
+Non passano da nessuna `lang()`, non hanno firma, non hanno voce di dizionario e
+**nessun lotto puo' raggiungerle**: si toccano solo con una toppa. Il conto si
+rilancia, non si eredita:
 
-⚠️⚠️⚠️ **E IL 100% NON E' LA FINE DEL PROGETTO. RESTANO DUE FRONTI VERI.**
+    PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/_126-nudi-nel-ramo-jp.py
 
-  1. ⭐ **198 righe inglesi nude che sono TESTO** — `nudi_en.py` ne conta 400
-     ancora intatte, e `triage_nudi.py` le spacca: **198 testo**, 87 sigle (i
-     nomi delle tracce del jukebox), 93 `dbg` (la console da mago) e 22 spente
-     dentro un commento. Le 198 non passano da nessuna `lang()`, non hanno
-     firma, non hanno voce di dizionario e **nessun lotto puo' raggiungerle**:
-     si toccano solo con una toppa. Stanno in **blocchi**, e un blocco e' una
-     schermata sola:
+        testo, dal triage della 125a                184
+        dentro un `if ( jp )`, che la build en non esegue   3
+        --- vive, e sono il lavoro vero             181
 
-        13  item_func.hsp   *skipName            13  proc.hsp   *jump_changeCreature
-        11  item_func.hsp   *itemname             9  map_rand.hsp *map_randomDungeon
-         9  system.hsp      *game_title           8  command.hsp *txttargetnpcextrainfo
-         8  config.hsp      *com_config_loop_WHILE1
+Stanno in **blocchi**, e un blocco e' una schermata sola:
 
-     💡 **Questo e' il fronte da aprire domani**, ed e' l'unico rimasto che sia
-     lavoro di traduzione. Si comincia da `triage_nudi.py`, non da `nudi_en.py`.
-  2. Il **debito di collaudo**, sotto.
+    13  item_func.hsp  *skipName      11  item_func.hsp *itemname
+     9  map_rand.hsp   *map_randomDungeon   8  command.hsp *txttargetnpcextrainfo
+     8  config.hsp     *com_config_loop_WHILE1    7  system.hsp *game_title
+     6  command.hsp    *skipCustomizationOptions  5  screen.hsp *screen_drawStatus
 
-⚠️⚠️⚠️ **IL DEBITO DI COLLAUDO E' 9.516 E NON E' MISURATO DA NIENTE.** E' un
+⭐⭐⭐ **E PRIMA DI TOPARNE UNA SI GUARDA SE HA UNA SORELLA GIAPPONESE.** Quasi
+sempre il giapponese sta **tre righe sopra**, dentro il ramo `if ( jp )` di cui
+quella riga e' l'`else`: e' la coppia di sempre, scritta con un `if` invece che
+con una funzione. Chi legge solo l'`else` lavora con **una fonte su due**.
+
+    PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/_126-sorella-jp.py
+    ... --file proc.hsp     il dossier di un file, riga per riga
+
+        con sorella (due fonti, come tutto il resto)   24
+        senza sorella (l'inglese e' l'unica fonte)    157
+
+⚠️ **La corrispondenza NON e' riga per riga**, e il primo giro dello strumento
+ci ha provato e ha restituito una **graffa chiusa**: il ramo `jp` puo' avere un
+`if` dentro che l'`else` non ha. Adesso rende il ramo **intero**, ed e' contesto
+da leggere, non una coppia di cui fidarsi.
+
+💡 **Da dove ripartire.** `item_func.hsp:*skipName` e `*itemname` (24 righe
+insieme) sono la **morfologia inglese del nome degli oggetti** — «the », «es»,
+«ves», «ies», i nomi delle parti del corpo — e sono il blocco piu' grosso e il
+piu' delicato, perche' toccano `contratto-nomi.md`. `map_rand.hsp:*map_randomDungeon`
+(9) va **guardato prima di tradurlo**: sono `noteadd "atype[…];"`, cioe' un
+tabellone di parametri, e potrebbero non essere testo affatto.
+
+⚠️⚠️⚠️ **IL DEBITO DI COLLAUDO E' ~9.530 E NON E' MISURATO DA NIENTE.** E' un
 numero tenuto **a mano** in questo documento, non c'e' nessuno strumento che lo
-calcoli, e vale come ordine di grandezza e non come misura. ⓘ Nessuna delle 167
-rese di oggi e' stata vista a schermo, e nemmeno le 17 toppe.
+calcoli, e vale come ordine di grandezza e non come misura. ⓘ Nessuna delle 14
+toppe di oggi e' stata vista a schermo, ne' le 167 rese e le 17 toppe della 125a.
 
 ---
 
-## I TRE FILE CHIUSI, E CHE COSA AVEVANO DENTRO
+## LE QUATTORDICI TOPPE DELLA 126a, E CHE COSA AVEVANO DENTRO
 
-### `custom_itemenchantment.hsp` — 26 rese, 17 gia' decise altrove
+Tutte in `proc.hsp`, e tutte sono **battute che i personaggi si dicono addosso**
+quando usano una mossa speciale. Il file ne teneva **quindici** nude e vive: 14
+toppate, una lasciata invariata apposta.
+
+### ⭐⭐⭐ L'inglese della PROVOCAZIONE era l'inglese dell'INSULTO
+
+`:19733` e `:19736` stanno sotto `SKILL_SPACT_PROVOKE` — 挑発, il richiamo con
+cui ci si tira addosso l'aggro, che `:19715` annuncia come «provokes the enemy».
+Il giapponese di `:19724` e `:19727` e' esattamente quello: «vieni avanti»,
+«prova a prendermi», «giochiamo?».
+
+⚠️⚠️ **L'inglese di quelle due righe e' invece un elenco di insulti, ed e' lo
+stesso identico elenco che sta sotto `SKILL_SPACT_INSULT` a `:26024` e `:26027`.**
+Sette stringhe su sette ricopiate parola per parola da un'altra mossa; i due
+giapponesi non si somigliano per niente. E' il difetto della 119a — la riga
+gemella per costruzione — **alla scala di un pool intero**, e nessun cancello se
+ne accorge perche' non c'e' niente di malformato da nessuna parte.
+
+⭐ La provocazione si e' resa **dal giapponese**; l'insulto resta dall'inglese,
+che li' fa quel che deve. ⓘ Resta aperta una cosa: il giapponese dell'insulto e'
+piu' ricco e **spacca sul sesso di chi parla mentre l'inglese tira a sorte**.
+Prenderlo vuole una toppa a blocco che cambia l'`if`.
+
+### Tre battute che l'inglese ha buttato, e una che l'italiano aveva in casa
+
+    :20651  「ちょっとジャンプしてみろよ」  «fai un saltello», per sentire se
+            tintinnano altre monete. L'inglese ci ha messo una copia della riga dopo
+    :20599  「か、カネが欲しいんだな！？」  «e-e' i soldi che vuoi, vero?!»
+    :20664  「こりゃ儲けたな」            «bell'affare», detto da chi ha incassato
+
+⭐⭐ E `:20759` e' il caso opposto: 「許してクレメンティア」 e' «perdonami»
+incollato al nome della mossa `<Clementia>`, e l'inglese scrive `Forgive me...!`
+buttando il gioco di parole. In italiano *clemenza* e *Clementia* sono la stessa
+parola a due passi: la resa e' «Clemenza… Clementia!».
+
+### ⚠️ La riga che resta inglese apposta
+
+`proc.hsp:14384` e' uno `switch` su `TWEAK_MISC_HOKUTO_NO_KEN_MODE`, cioe' una
+**scelta del giocatore fra tre forme** della battuta di Ken il guerriero: il
+giapponese, la battuta nella lingua del gioco, la **traslitterazione**. Si topa
+solo la seconda («Tu sei gia' morto»); `:14392` resta in rōmaji, perche' e' il
+senso di quell'opzione. Dichiarato in `invariati.md`.
+⚠️ Resta pero' nel conto di `nudi_en` e `triage_nudi` come «da fare»: quei due
+contano i letterali **intatti**, e una riga che deve restare intatta e'
+indistinguibile da una che nessuno ha guardato. Stesso caso di `net.hsp:263`.
+
+---
+
+## ⚠️⚠️⚠️ LE TOPPE ERANO L'UNICO ITALIANO CHE NESSUNA RETE AVESSE MAI LETTO
+
+`referti.py` apre `dizionario/*.jsonl` e basta. `verifica`, `guardie`,
+`maiuscole`, `larghezze`, `menu_dialogo` e le tredici reti del lotto guardano le
+**firme**, e una toppa una firma non ce l'ha: e' la definizione stessa di toppa.
+Quindi **1.062 righe di italiano** entravano nel gioco senza che nessun referto
+le leggesse mai.
+
+    PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/_126-referti-toppe.py
+
+⭐⭐ **Alla prima passata ha trovato due participi maschili riferiti al
+giocatore**, che in Elona puo' essere donna, e nessuno dei due era di oggi:
+
+    command.hsp        «Come sei andato finora:»    ->  «Il tuo cammino finora:»
+    custom_tweaks.hsp  «in base a come sei andato»  ->  «in base al risultato»
+
+⚠️⚠️ **E lo zero che stampa adesso non vuol dire «nessun participio».** L'unico
+scritto apposta oggi — «Tu sei gia' morto» — quel referto **non lo vede**: fra
+«sei» e il participio c'e' «gia'», e «morto» non finisce con nessuna delle
+desinenze che l'espressione cerca. L'espressione resta identica a quella di
+`referti.py` apposta: due reti che cercano la stessa cosa con due regole diverse
+sono due numeri che non si possono confrontare. Chi la allarghera' la allarghi
+**in `referti.py`**, e qui arrivera' da sola.
+
+💡 **E i due referti sono solo i due piu' economici.** Sulle toppe non gira
+ancora niente che guardi il glossario, le larghezze o le maiuscole.
+
+---
+
+## ⚠️⚠️ LE TOPPE NON PASSANO DA `degrada()`
+
+Il dizionario tiene l'accento vero e `applica` lo degrada scrivendo la build; una
+toppa invece finisce nel file **com'e' scritta**. Nelle toppe si scrive gia'
+«e'», «piu'», «cosi'» — nelle 1.062 le vocali accentate sono **zero**.
+ⓘ La rete c'e' gia' ed e' `test_nessuna_toppa_porta_testo_che_cp932_non_sa_scrivere`:
+il codec CP932 di Python su «è» **solleva**, non degrada in silenzio.
+
+---
+
+## I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 126a
+
+    pytest                   794 passed, 6 skipped
+                             ⓘ rilanciato DOPO aver scritto i documenti
+    prova_identita           72/72 e 30.905, **invariato**
+    applica                  30.764 sostituzioni, **invariato**
+                             ⓘ le toppe non sono sostituzioni: proc.hsp passa
+                                da 28 a **42 toppe**
+    perimetro.py             26.326 fatte, 0 da fare, 100,0%, **invariato**
+    triage_nudi              **testo 184** (era 198), sigla 87, dbg 93, spenta 22
+    _126-nudi-nel-ramo-jp    **181 vive**, 3 nel ramo jp
+    _126-sorella-jp          **24 con sorella**, 157 senza
+    _126-referti-toppe       **participi 0, elisioni 0** su 801 toppe con testo
+                             ⚠️ lo zero non e' «nessun participio»: vedi sopra
+    nudi_en                  struttura 1044, **ancora da fare 386** (era 400)
+    toppe                    **1.062**, e `_97-toppe-agganciate` **1.062 su 1.062**
+    referti                  **participi 9, elisioni 0** (il dizionario, invariato)
+                             ⚠️ rilanciato DOPO l'ultima resa, non prima
+
+Tutto il resto e' **fermo dov'era** e vale l'elenco della 125a piu' sotto:
+`_123-file-senza-dizionario` 2 firme mute, `menu_dialogo` 0 su 1.423,
+`_108-accento-decomposto` 0 su 26.326, `verifica --dizionario` 112 in 19 file,
+`_97-quanto-resta` 112/112/0, `_125-non-tradotte` 112/112/0, `creature`
+1131/2466/0/0, `larghezze` 0, `diario` 0 su 205, `riquadri` 0 su 38 e 0 su 71,
+`linguette` 0 e 0, `battute --divergenti` 13, `dati_sorgente` 7/7, `gronde` 0 su
+5, `maiuscole` 143/6/1/7/0, `bilingui` 0, `lang-nel-ramo-jp` 21 | 0,
+`_96-morte-nella-build` 0, e tutti i referti da `_107` a `_125`.
+
+⚠️⚠️ **TUTTO E' COMMITTATO E SPINTO** su `origin/fase-0`, e l'albero e' pulito.
+
+---
+
+## La centoventicinquesima sessione (per storia)
+
+### I TRE FILE CHIUSI, E CHE COSA AVEVANO DENTRO
+
+#### `custom_itemenchantment.hsp` — 26 rese, 17 gia' decise altrove
 
 Il giapponese di questo file e' **ricopiato identico** da `chat.hsp:11290`-
 `:11661`: e' la copia che Custom-GX ha fatto del fabbro di monte.
@@ -59,7 +200,7 @@ intero) trova **17 identiche, 4 somiglianti, 5 sole**.
 `chatval == 114514`, `chat.hsp:11287` tiene l'originale su `chatval == 1` — e
 per questo le 17 si **copiano**, non si riscrivono.
 
-### `net.hsp` — 24 rese, le funzioni in rete
+#### `net.hsp` — 24 rese, le funzioni in rete
 
 L'urna del **voto per l'esecuzione** dei lupi mannari, quella del **voto per
 l'epiteto** (il CGI di nifty.com, oggi fermo), la chat verso il server e le due
@@ -71,7 +212,7 @@ guardano `GDATA_NEXT_VOTE`, cioe' *il tuo diritto di voto*).
 ⚠️ **Quattro voci restano identiche all'inglese** e sono dichiarate in
 `invariati.md`: uno spazio e due parentesi, cioe' cornice.
 
-### `txtadv.hsp` — 117 rese, l'esplorazione e il casino'
+#### `txtadv.hsp` — 117 rese, l'esplorazione e il casino'
 
 ⚠️⚠️⚠️ **Le slot sono inglese scritto su giapponese ricopiato a caso**, e il
 segnaposto non e' nemmeno la riga giusta: `:1183` porta la spiegazione del
@@ -88,7 +229,7 @@ pezzo di troppo e l'italiano pure.
 
 ---
 
-## LE DICIASSETTE TOPPE DELLA 125a
+### LE DICIASSETTE TOPPE DELLA 125a
 
     custom_itemenchantment.hsp   3   l'etichetta del prezzo e due voci di menu
     txtadv.hsp                  12   gli esiti delle slot («3 putits!» e sorelle)
@@ -106,7 +247,7 @@ risponde. Resta nell'elenco di `nudi_en.py`: **misurata, non decisa**.
 
 ---
 
-## IL TEST CHE HA FERMATO UN LOTTO, E LA GEOMETRIA CHE HA COSTRETTO A LEGGERE
+### IL TEST CHE HA FERMATO UN LOTTO, E LA GEOMETRIA CHE HA COSTRETTO A LEGGERE
 
 ⭐⭐⭐ Dopo il reimporta di `txtadv.hsp`, `pytest` e' passato da 794 verdi a **1
 rosso**: `test_le_voci_tradotte_stanno_tutte_in_un_contenitore_misurabile`.
@@ -141,7 +282,7 @@ dicendo «tanto e' lo stesso carattere» e' esattamente il difetto.
 
 ---
 
-## IL REFERTO DEI PARTICIPI, E PERCHE' VA RILANCIATO IN CHIUSURA
+### IL REFERTO DEI PARTICIPI, E PERCHE' VA RILANCIATO IN CHIUSURA
 
 ⭐⭐ `scratchpad/referti.py` e' passato da **9 participi a 15** dopo il lotto di
 `txtadv.hsp`, e tutte e sei le nuove erano rese di oggi che danno del
@@ -162,7 +303,7 @@ ieri. I nove che restano vengono da `chat.hsp` e sono di sessioni vecchie.
 
 ---
 
-## I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 125a
+### I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 125a
 
     pytest                   794 passed, 6 skipped
                              ⓘ rilanciato DOPO aver scritto i documenti
@@ -226,18 +367,40 @@ caratteri. Se ne aggiungono tre, tutte **misurate e non decise**:
      rese di `txtadv.hsp` usano `matname(1)`, quindi dicono «fiche»;
  11. **`net.hsp:263`**, la parola `"net"` nella colonna dei voti (sopra).
 
-⭐⭐⭐ **LA LISTA DI COLLAUDO CHE SERVE ADESSO, in ordine di costo.** Nessuna
-delle 167 rese e' stata vista a schermo, e tre schermate nuove si guardano in
-pochi minuti:
+La 126a ne aggiunge due, tutt'e due **misurate e non decise**:
 
-  1. **il menu del fabbro** — fusione (`chatval 114514`) e disincantazione
+ 12. ⭐⭐ **Il pool giapponese dell'INSULTO e' piu' ricco dell'inglese e spacca
+     sul sesso di chi parla.** `proc.hsp:26008` ha nove battute maschili e
+     diciassette femminili in due pool; l'inglese di `:26024` e `:26027` ne ha
+     dieci e **tira a sorte** senza guardare il sesso. La 126a ha reso
+     dall'inglese, perche' li' l'inglese fa quel che deve e si corregge il
+     difetto, non si riscrive il testo che funziona. Prendere il giapponese
+     vuole una **toppa a blocco che cambia l'`if`**, ed e' una decisione;
+ 13. **`map_rand.hsp:*map_randomDungeon`**, 9 righe che `triage_nudi` chiama
+     testo e che sono `noteadd "atype["+…+"];"`: un tabellone di parametri della
+     mappa. ⚠️ **Vanno guardate prima di tradurle**: potrebbero essere una
+     quinta classe del triage — dato, non testo — e in quel caso il conto delle
+     righe nude cala di nove senza che nessuno traduca niente.
+
+⭐⭐⭐ **LA LISTA DI COLLAUDO CHE SERVE ADESSO, in ordine di costo.** Ne' le 167
+rese della 125a ne' le 14 toppe della 126a sono state viste a schermo, e le
+schermate nuove si guardano in pochi minuti:
+
+  1. ⭐ **la provocazione e l'insulto** (126a) — sono due mosse speciali, e si
+     leggono nel registro: `<Provoke>` deve dire «vieni avanti, prova a
+     prendermi», `<Insult>` deve dire insulti. **Se dicono la stessa cosa, la
+     toppa non ha agganciato la riga che credeva.** E' il collaudo piu' rapido
+     del blocco, perche' basta guardare che i due elenchi siano diversi;
+  2. **`<Clementia>` e la prostrazione** (126a) — le tre forme di `rtval` 1, 2 e
+     3, e il gioco di parole «Clemenza… Clementia!»;
+  3. **il menu del fabbro** — fusione (`chatval 114514`) e disincantazione
      (`69000`): le tre voci nuove («Potenziare?», «Indebolire?», «Cancellare?»),
      il prefisso del punteggio e l'etichetta del prezzo `[N oro]`;
-  2. **la schermata testuale** — l'esplorazione di un sito casuale e il casino'
+  4. **la schermata testuale** — l'esplorazione di un sito casuale e il casino'
      (blackjack e slot): e' l'unico posto dove si vede se il tetto di 48
      caratteri e quello di 71 tengono davvero, perche' il passo del font 14
      **non e' mai stato misurato a schermo**;
-  3. **i ventuno nomi di mappa** della 124a, che dipendono da
+  5. **i ventuno nomi di mappa** della 124a, che dipendono da
      `adata(ADATA_TYPE)` a tempo di esecuzione e che il codice non sa dare.
 
 ---
@@ -303,6 +466,17 @@ dicendo la loro, muoiono di file non trovato.
 ---
 
 ## Le regole che le reti non sanno far rispettare
+
+⚠️⚠️⚠️ **E DALLA 126a SI SA CHE LE RETI NON LEGGONO NEMMENO LE TOPPE.** Una
+toppa non ha firma — e' la sua definizione — quindi `verifica`, `guardie`,
+`maiuscole`, `larghezze` e `menu_dialogo` non la vedono, e `referti.py` legge il
+dizionario. Sono **1.062 righe di italiano fuori da ogni referto**, e i due piu'
+economici sono arrivati con `scratchpad/_126-referti-toppe.py`: **alla prima
+passata due participi maschili, tutt'e due di sessioni vecchie**. Del glossario,
+delle larghezze e delle maiuscole sulle toppe **non c'e' ancora niente**, e i
+termini che una toppa porta si cercano a mano come per un lotto.
+⚠️ **E la resa di una toppa si scrive gia' degradata** («e'», «piu'», «cosi'»):
+le toppe non passano da `degrada()`, che gira solo sul dizionario.
 
 ⚠️⚠️⚠️ **LE RETI DEL LOTTO NON LEGGONO IL GLOSSARIO.** `verifica`, `guardie` e
 le tredici reti dello script guardano la **forma** della resa, l'**inglese di

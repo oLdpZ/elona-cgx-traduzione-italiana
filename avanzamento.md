@@ -48,6 +48,46 @@ una sottrazione: `fatte` e `da fare` contati con lo stesso `estrai`. Chi legge
 in giro per questo file un «perimetro 90%, totale 94%» sta leggendo il vecchio
 conto, non un arretramento.
 
+## Il fronte delle righe nude si apre: 14 toppe in `proc.hsp` — 2026-09-02, centoventiseiesima sessione
+
+Il primo blocco del fronte aperto dalla 125ª. `proc.hsp` teneva **quindici**
+righe inglesi nude vive: le battute che i personaggi si dicono addosso quando
+usano una mossa speciale — la provocazione, l'insulto, `<Clementia>` e il colpo
+di Ken il guerriero. Quattordici sono state toppate, una resta invariata apposta.
+
+    triage_nudi     testo 184                      (erano 198)
+    nudi_en         ancora da fare 386             (erano 400)
+    toppe           1.062, agganciate 1.062        (erano 1.048)
+    pytest          794 passed, 6 skipped          invariato
+    prova_identita  72/72 e 30.905                 invariato
+    applica         30.764 sostituzioni + 42 toppe in proc.hsp   (erano 28)
+
+### ⭐⭐⭐ Le righe nude avevano una seconda fonte, e nessuno la leggeva
+
+Una riga nuda non ha firma né voce di dizionario, e per questo si legge come se
+l'inglese fosse l'unica fonte che ha. Non è vero: quasi sempre il giapponese sta
+**tre righe sopra**, dentro il ramo `if ( jp )` di cui quella riga è l'`else`.
+`scratchpad/_126-sorella-jp.py` lo misura — **37 righe su 195** ce l'hanno — e
+`decisioni.md` racconta perché l'accoppiamento riga-per-riga sbaglia in silenzio.
+
+### ⭐⭐⭐ E letta così, la provocazione diceva le battute dell'insulto
+
+`:19733` e `:19736` stanno sotto `SKILL_SPACT_PROVOKE` — 挑発, il richiamo — e
+il loro inglese è **lo stesso identico pool** che sta sotto `SKILL_SPACT_INSULT`
+a `:26024` e `:26027`, sette stringhe su sette. Il giapponese delle due mosse
+non si somiglia per niente. È il difetto della 119ª alla scala di un pool
+intero, e la provocazione si rende dal giapponese; l'insulto resta dall'inglese,
+che lì fa quel che deve.
+
+### ⚠️⚠️⚠️ E le toppe erano l'unico italiano che nessuna rete avesse mai letto
+
+`referti.py` legge il dizionario; ogni altra rete guarda le firme, e una toppa
+una firma non ce l'ha. Erano **1.062 righe di italiano fuori da ogni referto**.
+`scratchpad/_126-referti-toppe.py` ci gira sopra i due referti di `referti.py`, e
+alla prima passata ha trovato **due participi maschili riferiti al giocatore** —
+in `command.hsp` e `custom_tweaks.hsp`, tutt'e due di sessioni vecchie, dietro
+una catena tutta verde. Corretti.
+
 ## Il perimetro `lang()` si chiude al 100%: 167 rese in tre file — 2026-09-02, centoventicinquesima sessione
 
 `custom_itemenchantment.hsp` (26), `net.hsp` (24) e `txtadv.hsp` (117) chiudono

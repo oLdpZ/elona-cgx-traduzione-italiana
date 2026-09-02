@@ -6,6 +6,162 @@ ancora aperte.
 
 ---
 
+## Le righe nude non avevano una fonte sola: la sorella giapponese sta tre righe sopra — 2026-09-02, centoventiseiesima
+
+Una riga inglese nuda non ha firma, non ha voce di dizionario e per questo si
+legge come se l'inglese fosse **l'unica fonte** che ha. Ma la forma che ne
+produce una grossa parte è questa:
+
+```hsp
+if ( jp ) {
+    txt "「カネなら渡すから、許して" + _kure(3) + "！」", …
+}
+else {
+    txt cnvtalk("I'll give you all I have, please don't kill me....!"), …
+}
+```
+
+⭐⭐⭐ **Il giapponese c'è, e non è dentro la stessa `lang()`.** È la coppia di
+sempre — originale e riscrittura — scritta con un `if` invece che con una
+funzione. Chi topa leggendo solo il ramo `else` lavora con **una fonte su due**,
+e la regola della 110ª («le fonti sono cinque») resta scoperta proprio dove
+nessuna rete la copre.
+
+La misura è `scratchpad/_126-sorella-jp.py`: sulle 195 righe nude vive di allora,
+**37 hanno una sorella giapponese**, e tredici delle quindici di `proc.hsp` sono
+fra quelle.
+
+⚠️⚠️ **La corrispondenza non è riga per riga, e provarci sbaglia in silenzio.**
+Il primo giro dello strumento accoppiava la n-esima riga di qua con la n-esima
+di là, e su `:19733` ha restituito una **graffa chiusa**: il ramo giapponese ha
+un `if` sul sesso dentro e l'`else` no. Un accoppiamento sbagliato è peggio di
+nessuno, perché si legge come una fonte. Adesso rende il **ramo intero** e
+dichiara quando le due liste non hanno la stessa forma.
+
+## L'inglese della PROVOCAZIONE è l'inglese dell'INSULTO, e il codice lo smentisce — 2026-09-02, centoventiseiesima
+
+`proc.hsp:19733` e `:19736` stanno sotto `SKILL_SPACT_PROVOKE`, la mossa che
+`:19715` annuncia come «provokes the enemy» — 挑発, il richiamo con cui ci si
+tira addosso l'aggro. Il giapponese di `:19724` e `:19727` è esattamente quello:
+«vieni avanti», «prova a prendermi», «giochiamo?», «sei pronto?».
+
+⚠️⚠️⚠️ **L'inglese di quelle due righe è invece un elenco di insulti, ed è lo
+stesso identico elenco che sta sotto `SKILL_SPACT_INSULT` a `:26024` e `:26027`.**
+Sette stringhe su sette ricopiate parola per parola da un'altra mossa. Il
+giapponese delle due mosse non si somiglia per niente: 挑発 chiama, 罵倒 offende.
+
+È il difetto della 119ª — «la riga gemella per costruzione» — **alla scala di un
+pool intero**: ogni riga presa da sola è a posto, e il guasto esiste solo nel
+confronto fra le due mosse. Nessun cancello se ne accorge, perché non c'è niente
+di malformato da nessuna parte.
+
+⭐ **Quindi la provocazione si rende dal giapponese**, che è l'originale e
+l'unica delle due fonti che dica la cosa giusta per la mossa che la stampa. La
+struttura non si tocca: il ramo `else` ha già lo stesso spacco sul sesso di chi
+parla che ha il ramo giapponese, quindi la riga maschile prende `:19724` e
+quella femminile `:19727`.
+
+⚠️ **E l'insulto invece si rende dall'inglese, e non è un'incoerenza.** A
+`:26024` la mossa è 罵倒 e l'inglese sono insulti: fa quel che deve, e non c'è
+niente da correggere. Si corregge il difetto, non si riscrive il testo che
+funziona. ⓘ Resta **aperta e non decisa** una cosa: il giapponese dell'insulto è
+più ricco (nove battute maschili, diciassette femminili in due pool) e **spacca
+sul sesso di chi parla mentre l'inglese tira a sorte**. Prenderlo vuole una
+toppa a blocco che cambia l'`if`, ed è una decisione, non una resa.
+
+## Tre battute che l'inglese ha buttato, e una che aveva già l'italiano in casa — 2026-09-02, centoventiseiesima
+
+Lette confrontando ogni riga nuda di `proc.hsp` con la sua sorella giapponese:
+
+| riga | giapponese | inglese | che cosa manca |
+|---|---|---|---|
+| `:20651` | 「ちょっとジャンプしてみろよ」 | `Hey, that's all you've got?!` | la **battuta**: *fai un saltello*, per sentire se tintinnano altre monete addosso. L'inglese ci ha messo una seconda copia della riga dopo |
+| `:20599` | 「か、カネが欲しいんだな！？」 | `You can take all my money, so please forgive me...` | la **domanda**: «e-è i soldi che vuoi, vero?!». Anche qui l'inglese ripete la prima |
+| `:20664` | 「こりゃ儲けたな」 | `Yes! Money! it's money...` | il **cinismo**: «bell'affare» detto da chi ha appena incassato |
+
+⭐ E `:20759` è il caso opposto — l'italiano ha in casa quel che l'inglese ha
+perso. Il giapponese è 「許してクレメンティア」, cioè «perdonami» incollato al
+nome della mossa `<Clementia>`; l'inglese scrive `Forgive me...!` e il gioco di
+parole sparisce. In italiano *clemenza* e *Clementia* sono la stessa parola a
+due passi di distanza: la resa è «Clemenza… Clementia!», e il nome resta latino
+come dichiara `invariati.md`.
+
+## Le toppe erano l'unico italiano che nessuna rete aveva mai letto — 2026-09-02, centoventiseiesima
+
+`referti.py` apre `dizionario/*.jsonl` e basta. `verifica`, `guardie`,
+`maiuscole`, `larghezze`, `menu_dialogo` e le tredici reti del lotto guardano le
+**firme**, e una toppa una firma non ce l'ha: è la definizione stessa di toppa.
+
+⚠️⚠️⚠️ **Quindi 1.062 righe di italiano entravano nel gioco senza che nessun
+referto le leggesse mai.** Finché le toppe erano dieci articoli nudi non
+contava; adesso sono il fronte principale.
+
+`scratchpad/_126-referti-toppe.py` gira sulle toppe i due referti che
+`referti.py` gira sul dizionario, e **alla prima passata ha trovato due
+participi maschili riferiti al giocatore**, che in Elona può essere donna:
+
+    command.hsp        «Come sei andato finora:»    ->  «Il tuo cammino finora:»
+    custom_tweaks.hsp  «in base a come sei andato»  ->  «in base al risultato»
+
+⭐ Nessuno dei due era di oggi: stavano lì da sessioni vecchie, **dietro una
+catena tutta verde**. È la lezione della 120ª un'altra volta, e stavolta non su
+un referto rilanciato tardi ma su un pezzo di testo che nessun referto guardava.
+
+⚠️ **E lo zero che stampa adesso non vuol dire «nessun participio».** L'unico
+participio scritto apposta oggi — «Tu sei già morto» di `proc.hsp:14389`, la
+citazione di Ken il guerriero — quel referto **non lo vede**: fra «sei» e il
+participio c'è «già», e «morto» non finisce con nessuna delle desinenze che
+l'espressione cerca. L'espressione resta identica a quella di `referti.py`
+apposta, perché due reti che cercano la stessa cosa con due regole diverse sono
+due numeri che non si possono confrontare.
+
+## Una tabella in `invariati.md` è una dichiarazione, e il test l'ha fermata — 2026-09-02, centoventiseiesima
+
+La sezione nuova su `TWEAK_MISC_HOKUTO_NO_KEN_MODE` era scritta come tabella —
+le tre forme della battuta, una per riga — e `pytest` è passato da 794 verdi a
+**16 rossi**: `test_il_file_vero_degli_invariati_si_carica`, e con lui tutti i
+test che caricano il file.
+
+⭐ **`verifica.py` legge le tabelle di `invariati.md` come dichiarazioni di
+valore**, e pretende che ogni sezione che ne porti sia classificata invariante o
+no (`_e_invariante`, nessun default: «o è scritto, o si rompe»). Delle tre righe
+di quella tabella **una sola resta invariata**: dichiararle come tabella ne
+avrebbe dichiarate tre, e la sezione non poteva stare da nessuna delle due parti.
+
+⚠️ Il rimedio giusto non era classificare la sezione: era **togliere la
+tabella**. Le tre forme sono un blocco di testo indentato, che il caricatore non
+legge, e la riga che davvero resta invariata **non sta comunque nel dizionario**
+— è nuda — quindi `verifica.py` non la incontra mai. La dichiarazione che conta
+è la prosa e il `motivo` della toppa.
+
+⭐⭐ **È la seconda volta in due sessioni che un test ferma un lavoro per una
+cosa che non era ancora un danno**, dopo `menu_dialogo` nella 125ª. La forma è la
+stessa: non ha trovato un guasto, ha impedito un permesso.
+
+## Il triage delle righe nude non vedeva il ramo della lingua — 2026-09-02, centoventiseiesima
+
+`triage_nudi.py` (125ª) spacca le righe nude in quattro classi trovate nella
+forma: `spenta`, `dbg`, `sigla`, `testo`. Ma «testo» portava dentro una quinta
+famiglia di riga morta, e la 45ª l'aveva già nominata per un'altra domanda: la
+riga chiusa in un ramo `if ( jp )`, che **la build italiana non esegue**, perché
+è il ramo `en`.
+
+Si legge sul titolo: `system.hsp:3536` apre `if ( jp )` e dentro c'è l'elenco
+bilingue del menu; `:3539` apre `if ( en )` e dentro c'è quello che una toppa ha
+già reso in italiano. Le due righe stanno una sotto l'altra, tutt'e due sono
+«testo» per il triage, e **una sola delle due il giocatore la legge**.
+
+⚠️ Una riga così non è come una `spenta`: nel file è viva, non ha un carattere
+che la spenga, e chi la legge nell'elenco la scambia per lavoro.
+
+`scratchpad/_126-nudi-nel-ramo-jp.py` le conta, e sono **tre** su 198. Poche, ma
+il numero non era il punto: il punto è che il conto adesso è una sottrazione e
+non una fiducia. ⓘ La regola `^if ( jp ) {` copre 3.076 aperture su 3.083, e le
+sette che restano sono guardie composte: il referto può sbagliare **per difetto**
+di poche righe, mai per eccesso.
+
+---
+
 ## Il perimetro `lang()` si chiude: 100%, e l'ultimo file era inglese scritto su giapponese ricopiato a caso — 2026-09-02, centoventicinquesima
 
 `net.hsp` (24 rese) e `txtadv.hsp` (117) chiudono l'**ultimo fronte di `lang()`
