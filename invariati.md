@@ -780,3 +780,40 @@ indistinguibile da una che nessuno ha guardato. È lo stesso caso di
 `net.hsp:263` della 125ª — **misurata, non da fare** — e finché il triage non
 avrà una classe per «dichiarata invariata» il conto delle righe nude porterà
 dentro anche queste.
+
+## Le altre righe nude che restano inglesi, e perché — 126ª
+
+Nessuna di queste sta nel dizionario — sono nude — quindi `verifica.py` non le
+incontra e questa sezione non è una tabella di valori: è la dichiarazione, e sta
+qui perché non c'era nessun altro posto dove scriverla.
+
+**`item_func.hsp:1809`, `"the " + …`** — è il **ripiego dichiarato**
+dell'articolo, non una dimenticanza. La toppa che introduce
+`locvar_itemname_s9` lo dice nel proprio motivo: *«se l'articolo italiano manca
+resta quello inglese, come il plurale ripiega sul singolare»*. Renderlo «il »
+sarebbe **peggio**: il genere della testa del nome, nella stringa composta, sta
+in mezzo e qui non si conosce. La riga si spegne quando il nome ha il suo
+articolo, non toccando lei.
+
+**`item_func.hsp:2252`, `" <BGM" + … + ">"`** — `BGM` è la sigla della traccia
+musicale del disco, della stessa famiglia degli `mcTown1`/`mcBoss2` che
+`triage_nudi.py` classifica `sigla` e che il progetto lascia stare. Il numero
+accanto lo scrive il codice.
+
+**`screen.hsp:1125` e `:1128`, `"*debug*"` e `"loop… sub… "`** — stanno dentro
+`if ( gdata(GDATA_WIZARD) == 1 )`, cioè si vedono **solo in modo mago**. Sono la
+stessa cosa della classe `dbg` del triage, che riconosce le routine `dbg_*`:
+qui il nome della routine è `screen_drawStatus` e la regola per forma non le
+prende. ⓘ Le guardie `GDATA_WIZARD == 1` nel sorgente sono **tre** in tutto
+(`chara.hsp`, `screen.hsp`, `system.hsp`): troppo poche perché valga la pena di
+un referto, abbastanza perché valga la pena di scriverlo qui.
+
+## Una riga misurata e non decisa — 126ª
+
+**`screen.hsp:1031`, `mes "PF"`** — l'etichetta del contapunti del poker nel
+casinò (`pokert@cgx`). Non si sa che cosa siano quelle due lettere: non c'è un
+giapponese gemello, il codice non le scioglie, e `gcopy 3, 0, 416, 65 + en * 15, 15`
+dice solo che la casella che le contiene è più larga in inglese. ⚠️ E in
+italiano `PF` **si legge «Punti Ferita»**, che è un'altra cosa: tradurre a caso
+qui non è impreciso, è fuorviante. Resta inglese finché qualcuno non la vede a
+schermo con una mano di poker in corso.
