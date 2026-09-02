@@ -1140,6 +1140,27 @@ ninja dalla maschera demoniaca», e la formula «chi va all'avventura».
 Il compositore del nome degli oggetti. Tre famiglie, e in due l'inglese non e' il
 testimone da seguire.
 
+### Il fabbro degli incantamenti (`custom_itemenchantment.hsp`, `chat.hsp`)
+
+Il lessico è quello già in gioco dal dialogo di monte; qui c'è solo ciò che la
+125ª ha dovuto decidere per la copia di Custom-GX.
+
+| dove | IT | nota |
+|---|---|---|
+| エンチャント, in prosa | **incantamento** | come `chat.hsp:11290` e sorelle |
+| エンチャント, in una voce di menu | **incanto** | forma corta: il tetto della pergamena è 58 caratteri e nella parentesi ci va `cnvitemname()`. Già scelta in `chat.hsp:11347` |
+| サリムの言うエンチャント強度 | **la scala di Thalia** | サリム è **Thalia** in dodici rese su dodici; l'inglese di Custom-GX la chiama «hill folk rating» e ha cambiato nome lui, non il giapponese |
+| 固定アーティファクト / 奇跡品 / 神器品 | artefatti **unici** / **eccezionali** / **celestiali** | già in `chat.hsp:11290` |
+| 丘の民 | **gli abitanti della collina** | nove rese su nove |
+| `"[N gold] "`, etichetta di prezzo | **`"[N oro] "`** | forma corta come `<N oro>` di `text.hsp:193`: quella lista può passare le dieci voci e allora `chat.hsp:25166` la tronca a 24 caratteri |
+| 改造 / 弱める / 消去 dell'incantamento | **Potenziamento** / **Indebolimento** / **Cancellazione** | i tre messaggi finali, e le tre voci di menu che li aprono: «Potenziare?», «Indebolire?», «Cancellare?» |
+
+⚠️ **Le tre voci di menu sono il verbo solo**, senza il nome dell'oggetto:
+`cnvitemname()` può valere **38 caratteri** («pergamena di acquisizione di
+attributi») contro i 24 dell'inglese, e restano 18 per l'etichetta. Che cosa si
+potenzia lo dice il testo della finestra due righe sopra. Misura in
+`scratchpad/_125-larghezze-menu-incanti.py`.
+
 ### Le sigle degli incantamenti (`showresist == 4`)
 
 Abbreviano la lista distesa di `item_data.hsp:613`-`:709`, **gia' tradotta**: il

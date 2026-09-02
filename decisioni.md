@@ -6,6 +6,199 @@ ancora aperte.
 
 ---
 
+## In un file di mod la fonte copiata può essere il giapponese — 2026-09-02, centoventicinquesima
+
+`custom_itemenchantment.hsp` chiude con 26 rese, e **diciassette erano già
+decise**: il giapponese di questo file è ricopiato **identico** da
+`chat.hsp:11290`-`:11661`, cioè dal fabbro di monte. Le ha trovate tutte in un
+colpo `scratchpad/_125-sorelle-itemench.py`, che è la regola della 113ª — *il
+giapponese di ciò che stai per scrivere può essere già reso altrove* — applicata
+a un lotto intero invece che a una riga, come nella 124ª.
+
+⚠️⚠️ **E le due versioni sono tutt'e due vive**, non è codice morto sostituito:
+`chat.hsp:23306` manda a `*extrachat_diet_artifact_fusion` sulla voce di menu
+`chatval == 114514`, e `chat.hsp:11287` tiene la fusione originale su
+`chatval == 1`. Stesso fabbro, due voci di menu vicine. Se le due rese
+divergessero, il giocatore leggerebbe lo stesso discorso due volte, detto in due
+modi. **Le diciassette si copiano, non si riscrivono.**
+
+### La regola della 109ª, usata per la prima volta al rovescio
+
+Il progetto ripete da centoventi sessioni «si segue il giapponese», e la 109ª
+l'aveva già corretta in **«si segue la fonte più affidabile, e si guarda quale
+fonte è stata *copiata* e quale è stata *scritta*»**. Fin qui le due formule
+avevano sempre dato lo stesso risultato, perché il giapponese era sempre la
+fonte scritta. **Qui no.** Custom-GX ha ricopiato il giapponese parola per
+parola e ha riscritto l'inglese, e allora la fonte scritta è l'inglese.
+
+Ne seguono due trattamenti, e la differenza non è di gusto:
+
+- dove il giapponese è una **frase di monte** e l'inglese la riscrive, vale la
+  resa già decisa;
+- dove il giapponese è un **moncone** lasciato lì — 「むむむ。」 («Mmm.»),
+  「すまんのう。」 («Mi dispiace.»), 「どうだろう」 («che ne dici») — e l'inglese
+  porta il contenuto vero del mod, si rende **dall'inglese**. Sono `:115`,
+  `:267`, `:274` e `:276`: senza questo il giocatore italiano leggerebbe «Mmm.»
+  dove l'inglese gli dice **quanto oro costa** e **quale pozione serve**.
+
+⭐ **Il moncone non si butta, si riusa come attacco.** `:274` diventa
+«Mmm, \<incantamento\>... Per potenziare un incantamento normale ci vuole una
+pozione di mutazione…»: il giapponese ci resta dentro e l'inglese ci mette il
+resto.
+
+### Il prefisso del punteggio si tiene
+
+Tre righe (`:67`, `:108`, `:267`) hanno in inglese un'intestazione che il
+giapponese non ha: `"The item's hill folk rating is: " + p + "/" + p(1) + "..."`.
+`p` è la potenza degli incantamenti dell'oggetto e `p(1)` il limite del fabbro,
+calcolati da `*extrachat_get_thalia_score`: è il **numero concreto** della scala
+di cui il discorso d'apertura (`:58`) parla in astratto, ed è l'unico posto dove
+il giocatore lo legge. Tacerlo lascerebbe l'italiano più povero dell'inglese su
+un fatto che il codice calcola apposta.
+
+⭐ **La prova che è voluto e non un incidente è interna**: `:290` ha lo *stesso*
+giapponese di `:67` e l'inglese **senza** prefisso, perché lì il punteggio è già
+stato mostrato a `:267`. Due firme, due rese, e la differenza è coerente.
+⚠️ Si dice con le parole già in gioco — «la scala di Thalia», da `:58` — e non
+con «hill folk»: サリム è **Thalia** in dodici rese su dodici, ed è l'inglese di
+Custom-GX ad aver cambiato nome alla scala, non il giapponese.
+
+### E il caso opposto, che era già stato deciso
+
+`:88` è una voce di menu che in inglese dice «Sorry.» dove il giapponese dice
+エンチャントひとつ消去 e il codice (`chatval == 2`) cancella davvero un
+incantamento. **Non è una divergenza di Custom-GX**: `chat.hsp:11347` ha lo
+stesso «Sorry.» di monte, ed è già reso «Cancellare un incanto». Cercare la
+sorella ha evitato di ridecidere una cosa decisa — e di deciderla diversamente.
+
+---
+
+## «Try to remove» era l'indebolimento, e lo dice la stessa condizione due volte — 2026-09-02, centoventicinquesima
+
+`custom_itemenchantment.hsp:278` e `:280` sono la stessa voce di menu in due
+stati, e li sceglie `:279`:
+
+    :278   p_rem != val(1)   "Try to remove the enchantment? (...)"
+    :280   p_rem == val(1)   "Remove the enchantment? (...)"
+
+`p_rem == val(1)` è **la stessa identica condizione** che a `:324` sceglie il
+messaggio finale: «...The enchantment is removed!» contro «...The enchantment is
+**weakened**!». Quindi `:278` non è un tentativo incerto di cancellare: è
+l'**indebolimento**, e il codice lo dice due volte, a due righe di distanza.
+L'inglese scrive «Try to remove», che è vago dove il codice è preciso.
+
+**Reso «Indebolire?»**, contro «Cancellare?» della gemella. È la quinta fonte
+della 110ª — il codice — che vince su una fonte scritta, nello stesso file in
+cui la fonte scritta è l'inglese: *scritta* non vuol dire *giusta*, vuol dire
+solo che qualcuno ci ha pensato.
+
+⭐ E la resa torna simmetrica ai tre messaggi finali già scritti nel lotto:
+«Potenziamento», «Indebolimento», «Cancellazione».
+
+---
+
+## Un cancello che legge il dizionario non vede le righe messe da una toppa — 2026-09-02, centoventicinquesima
+
+`strumenti/menu_dialogo.py` ha detto **«voci fuori misura: 0 su 1383»** con tre
+voci fuori misura dentro quella schermata. Non è rotto: guarda un insieme che
+non le contiene, e per due motivi diversi.
+
+  1. **Legge il dizionario** (`voci_di_menu`, `:491`). `:278` e `:280` sono
+     letterali inglesi nudi messi da una toppa: voce di dizionario non ce
+     l'hanno, quindi non entrano nemmeno nel **denominatore**. Il 1383 non è
+     «1383 su 1386»: è 1383 su 1383, e le altre non esistono per nessuno.
+  2. `:276` nel dizionario c'è, ma `reso()` scioglie i segnaposto e una
+     **chiamata di funzione non porta caratteri**: `cnvitemname(p_item1)` viene
+     misurata come lunga **zero**, dove a schermo sono fino a 38.
+
+⚠️⚠️⚠️ **È la forma di guasto della 124ª con un'aggravante.** Là un cancello
+booleano non diceva il margine; qui il cancello non era booleano, **era verde**.
+E un verde su un denominatore che esclude proprio le righe che rischiano è
+peggio di un rosso: nessuno va a controllare cosa c'è dentro un numero che dice
+zero.
+
+**La decisione:** ogni volta che una toppa mette **testo che si legge a schermo**
+dentro un contenitore misurato, il cancello di quel contenitore va **guardato in
+faccia** — non basta che sia verde, bisogna sapere se quella riga è nel suo
+denominatore. Le tre di oggi le misura
+`scratchpad/_125-larghezze-menu-incanti.py`, e la sua prova al contrario non è
+una stringa finta: sono le **tre stesure vere scartate**, che sullo stesso metro
+si accendono su due.
+
+ⓘ La forma generale che manca: `nudi_en.py` sa **quali** righe sono di toppa, e
+`menu_dialogo.py` sa **come** si misura una voce di menu. Nessuno dei due sa
+dell'altro. Un cancello che leggesse la **build** invece del dizionario li
+unirebbe, ed è il candidato naturale per la prossima sessione che voglia
+costruire.
+
+---
+
+## Il nome italiano di un oggetto può costare quattordici caratteri più dell'inglese — 2026-09-02, centoventicinquesima
+
+Il tetto della pergamena del dialogo è **58 caratteri**. Dentro la parentesi
+delle tre voci di menu degli incantamenti ci va `cnvitemname()`, e il caso
+peggiore **non è quello che viene in mente**:
+
+    pozione di evoluzione                     21    potion of evolution        19
+    pozione di mutazione                      20    potion of mutation         18
+    pergamena di acquisizione di attributi    38    scroll of gain attribute   24
+
+Trentotto contro ventiquattro. `p_item2` è la pergamena quando l'incantamento è
+Ragnarok o succhiasangue (`:227`, `:232`), e le prime stesure sforavano di 4 e
+di 14 **dove l'inglese ci sta**:
+
+    "Provare a cancellare l'incanto? (pergamena di …)"   72   ✗
+    "Cancellare l'incanto? (pergamena di …)"             62   ✗
+    "Potenziare l'incanto? (pergamena di …)"             62   ✗
+
+Restano **18 caratteri** per l'etichetta, e allora l'etichetta è il verbo solo:
+«Potenziare? (…)», «Indebolire? (…)», «Cancellare? (…)», 52 nel caso peggiore.
+Che cosa si potenzia lo dice il testo della finestra due righe sopra (`:274`):
+la parola tolta non è informazione persa, è informazione **già in pagina**.
+
+⚠️ **Il nome dell'oggetto qui non è una variabile qualunque: è enumerabile.**
+`p_item1` e `p_item2` prendono tre soli valori in tutto il file
+(`*extrachat_calculate_enhance_cost`), e i loro nomi italiani stanno nel
+dizionario. Perciò il cancello non stima: prova **ogni combinazione**, e i nomi
+se li **legge** dal dizionario invece di scriverseli, così misura i nomi veri e
+non quelli che avevo in mente il giorno che l'ho scritto.
+
+---
+
+## Due valori attesi del referto d'apertura erano falsi, e nessuno dei due era misurabile a occhio — 2026-09-02, centoventicinquesima
+
+`RIPRESA-sessione.md` dava, fra i valori da aspettarsi in apertura:
+
+    verifica --dizionario    tutti 0 e 0, tranne `etc.hsp` 1 non tradotta
+    _97-quanto-resta         TOTALE 111 / 111 / 0
+
+In apertura della 125ª il primo dice **112 «non ancora tradotte» in diciannove
+file** e il secondo dice **112**. Nessuno dei due è una regressione, e si sa
+perché **è stato misurato**, non dedotto:
+
+- `confronta_col_sorgente` (`verifica.py:619`) fa `nel_sorgente - set(tradotte)`
+  e **non toglie le rinviate**. Il valore atteso non poteva essere zero nemmeno
+  il giorno in cui è stato scritto: quel referto conta le rinviate da sempre;
+- `scratchpad/_125-non-tradotte.py` fa la domanda giusta — *di chi sono quelle
+  righe?* — e risponde **112 non tradotte, 112 rinviate, 0 fuori**. Il numero
+  che conta è l'ultimo, ed è zero;
+- il 111 contro 112 non può venire dal lavoro di oggi: `git status --short` dice
+  che nessuno dei diciannove dizionari è stato toccato, quindi il numero era
+  **già 112 al commit precedente**.
+
+⚠️⚠️⚠️ **È la quarta volta**, e stavolta due volte nello stesso blocco. La 124ª
+aveva già scritto che *«un numero fisso dentro il referto che avverte di un punto
+cieco è esso stesso un punto cieco»*, e l'aveva scritto per `_97-quanto-resta` —
+proprio la riga che oggi risulta sbagliata di nuovo, in un altro modo. Scriverlo
+non basta.
+
+**La decisione:** un valore atteso che il referto **non sa rigenerare da solo**
+non si scrive come numero, si scrive come **comando**. Dove il comando ancora
+non c'è, la riga del valore atteso dice *da che cosa* viene il numero, così chi
+lo trova diverso sa dove guardare invece di chiedersi se ha rotto qualcosa. Le
+due righe qui sopra sono state riscritte così.
+
+---
 ## Un denominatore che contiene lavoro inesistente non desta sospetti in nessuno — 2026-09-02, centoventiquattresima
 
 L'utente ha chiesto **«siamo quasi alla fine?»**, e la risposta non stava nel

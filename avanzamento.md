@@ -48,6 +48,76 @@ una sottrazione: `fatte` e `da fare` contati con lo stesso `estrai`. Chi legge
 in giro per questo file un «perimetro 90%, totale 94%» sta leggendo il vecchio
 conto, non un arretramento.
 
+## `custom_itemenchantment.hsp` si chiude: 26 rese, 17 già decise — 2026-09-02, centoventicinquesima sessione
+
+Il fronte aperto dalla 123ª scende da tre file a **due**. Restano **141 firme**:
+`txtadv.hsp` 117 e `net.hsp` 24. Gli altri due file senza dizionario,
+`custom_pet.hsp` e `custom_dmgpop.hsp`, hanno una firma sola ciascuno ed è muta:
+sono già finiti (124ª).
+
+    perimetro.py    26.185 fatte, 141 da fare = 99,5%   (era 26.159 / 167)
+    applica         30.562 sostituzioni più 3 toppe     (era 30.532)
+    toppe           1.034                               (erano 1.031)
+
+⭐⭐⭐ **Diciassette rese su ventisei erano già decise**, e le ha trovate
+`scratchpad/_125-sorelle-itemench.py`: il giapponese di questo file è ricopiato
+**identico** da `chat.hsp:11290`-`:11661`, cioè dal fabbro di monte. Il file è
+la copia che Custom-GX ha fatto di quel dialogo, e le due versioni sono
+**tutt'e due vive** — `chat.hsp:23306` manda qui su `chatval == 114514`,
+`chat.hsp:11287` tiene l'originale su `chatval == 1`. Stesso fabbro, due voci di
+menu vicine: le diciassette si copiano, non si riscrivono.
+
+⚠️⚠️ **Le nove nuove sono quelle in cui il giapponese è un moncone**: むむむ。,
+すまんのう。, どうだろう. Lì la fonte scritta è l'inglese — è la regola della
+109ª usata per la prima volta al rovescio — e senza di essa il giocatore
+italiano leggerebbe «Mmm.» dove l'inglese gli dice quanto oro costa e quale
+pozione serve.
+
+### Le tre toppe
+
+`nudi_en.py` trovava tre righe inglesi nude, tutte lette a schermo nel menu
+della disincantazione. `custom_itemenchantment.hsp` passa da **3 intatte a 0**,
+e il totale del progetto da 417 a **414**.
+
+    :256   "[N gold] "                        -> "[N oro] "
+    :278   "Try to remove the enchantment?"   -> "Indebolire? (…)"
+    :280   "Remove the enchantment?"          -> "Cancellare? (…)"
+
+⭐ **«Try to remove» era l'indebolimento**, e lo dice `p_rem == val(1)`: la
+stessa condizione con cui `:324` sceglie fra «…removed!» e «…**weakened**!».
+
+### Un cancello verde su un denominatore che escludeva le righe a rischio
+
+`menu_dialogo` diceva «0 su 1383» con **tre voci fuori misura** dentro quella
+schermata: legge il dizionario, e una riga di toppa non ci sta; e per `:276`
+conta `cnvitemname()` come lunga zero, dove a schermo sono fino a 38 caratteri.
+Le misura ora `scratchpad/_125-larghezze-menu-incanti.py`, con la prova al
+contrario sulle **tre stesure vere scartate**.
+
+⚠️ «pergamena di acquisizione di attributi» sono **38** caratteri contro i 24 di
+«scroll of gain attribute», su un tetto di 58: è il posto misurato finora dove
+il nome italiano di un oggetto costa di più dell'inglese dentro un tetto stretto.
+
+### Due valori attesi del referto d'apertura erano falsi
+
+Non erano regressioni, ed è la **quarta** volta che questo referto porta un
+numero scritto a mano che non torna. `verifica --dizionario` non toglie le
+rinviate, quindi «tutti 0 e 0» non poteva essere vero il giorno che fu scritto;
+e `_97-quanto-resta` era già 112 al commit della 124ª, che ne scriveva 111.
+`scratchpad/_125-non-tradotte.py` fa la domanda giusta e risponde **112 non
+tradotte, 112 rinviate, 0 fuori**.
+
+### Il debito di collaudo
+
+⚠️⚠️ **Nessuna delle 26 rese è stata vista a schermo**, e nemmeno le tre toppe.
+Il debito sale da 9.349 a **9.375**.
+
+⭐ **La lista di collaudo di questa sessione è corta e si fa in due minuti**: il
+menu del fabbro, fusione (`chatval 114514`) e disincantazione (`69000`). Lì si
+leggono le tre voci nuove, il prefisso del punteggio e l'etichetta del prezzo.
+
+---
+
 ## Sei file mai estratti si chiudono, e il 91% era 99% — 2026-09-02, centoventiquattresima sessione
 
 Non `db_item.hsp`: il fronte aperto dalla 123ª, cioè i file che portano `lang()`
