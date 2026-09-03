@@ -49,6 +49,7 @@ from collections import defaultdict
 from dataclasses import dataclass
 
 from strumenti import percorsi
+from strumenti.commenti import righe_in_commento
 from strumenti.estrai import siti
 
 # Un letterale HSP, con la regola del backslash del progetto: `\"` non chiude
@@ -148,56 +149,223 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "File di prova di HSP, 6 righe. Nessuno lo `#include`: l'unica "
         "occorrenza di «helloworld» nel sorgente e' il suo `#packopt`. Non "
         "entra nell'eseguibile."),
+
+    # ---- il resto della famiglia TCG: appartiene al fronte del minigioco ---
+    "tcg.hsp": Dichiarazione(
+        "fronte", 52,
+        "IL TERZO PEZZO DEL GIOCO DI CARTE, in un file che ha gia' 102 toppe e "
+        "un dizionario: e' il contorno a essere stato lavorato, non le carte. "
+        "Le 26 righe `if` di :1568-:1605 sono le ETICHETTE che si appendono al "
+        "testo della carta — `[Command Card]`, `[Illegal Card]`, `<Mage "
+        "Guild>` — e le cinque di :3348-:3352 sono il menu «Sort by:». "
+        "Aggiungi tre `carddetailneff@tcg`, tre `efllistaddchat` e i "
+        "segnaposto delle schede (:4632-:4658, «race dependent», «[Random "
+        "AKA] [Random Name]»). ⚠️ Restano fuori 10 `proctcg`, che sono tracce "
+        "di debug. Vanno lavorate INSIEME a `tcg_mod` e `tcg_skill`: le "
+        "etichette entrano nella stessa stringa delle schede."),
+    "tcg_custom.hsp": Dichiarazione(
+        "fronte", 4,
+        "Tre tracce di debug (`proc`, `proctcg`, `poptext@tcg`) e una cosa "
+        "che al fronte TCG appartiene davvero: `sreplace ..., \"the The\"` "
+        "(:4566), cioe' la pezza che l'inglese mette per non scrivere «the "
+        "The» quando compone un nome di carta. In italiano quella pezza o "
+        "cambia o sparisce, e la decisione si prende con le carte in mano."),
+
+    # ---- fronti veri, piccoli, trovati dal triage della 135a ---------------
+    "buff.hsp": Dichiarazione(
+        "fronte", 48,
+        "I TESTI DEI BUFF, e sono un costrutto SPEZZATO A META' dal dizionario. "
+        "La forma e' `bufftxt(0, BUFF_X) = lang(jp, \" get\"), \" surrounded "
+        "by a hazy mist.\"`: l'assegnazione riempie DUE celle dell'array, la "
+        "prima con una `lang()` — che il dizionario prende — e la seconda con "
+        "il resto della frase, nudo. Il giapponese tiene tutto nella prima. "
+        "Li ricompone `chara_func.hsp:2310` e `:2377`. Quindi il file risulta "
+        "coperto per il verbo e scoperto per la frase, e le 48 sono tutte "
+        "testo che il giocatore legge a ogni buff."),
+    "system.hsp": Dichiarazione(
+        "fronte", 83,
+        "MISTO, e la parte grossa NON e' testo: 54 `noteadd` e 11 `proc` sono "
+        "la CONSOLE DI DEBUG, che si annuncia da sola a :4400 («Debug Console  "
+        "Type \\\"?\\\" for help»). Il testo vero e' il resto: 11 `dialog` "
+        "(«The name is too long.», «The first letter of the name must be "
+        "alphabetic.», :1924-:1934, quando si crea un oggetto o un PNG "
+        "personalizzato), il menu di :3537 («Restore an adventurer», "
+        "«Generate an adventurer», «Incarnate an adventurer», «View the "
+        "homepage»), un `mes` a :3521 e 4 `filedsc`, che sono le descrizioni "
+        "nelle finestre Apri/Salva di Windows. ⚠️ `%Elona Custom Item` (:1869) "
+        "e `%Elona Custom Npc` (:1972) NON si toccano: sono la firma dei file "
+        "che il gioco scrive e rilegge."),
+    "command.hsp": Dichiarazione(
+        "fronte", 16,
+        "MISTO, e qui la parte da NON tradurre e' la piu' insidiosa: le 7 "
+        "righe `if` di :4481-:4763 confrontano quel che il giocatore ha "
+        "scritto o il nome di un oggetto — «god inside», «dog whistle», «happy "
+        "new year», «merry christmas» — e sono innesti di uova di Pasqua. "
+        "Tradurle senza tradurre l'altro capo del confronto spegne l'evento in "
+        "silenzio. Il testo vero e': `display_topic \"Level(Piety Cost)\"` "
+        "(:7625, un'intestazione a schermo), due `dialog` a :13240, due "
+        "`description` a :16039-:16041, due `filedsc` e un `noteadd`."),
+    "main.hsp": Dichiarazione(
+        "fronte", 8,
+        "Sette `dialog` e una stringa di versione. I `dialog` sono i messaggi "
+        "d'avvio e di caricamento: «Could not find an installation of Elona+. "
+        "Please follow the install instructions…» (:61), e soprattutto "
+        "«Perform a quickload? You are playing in a mode where no-save "
+        "penalties apply.» (:3176) e «Perform a quickload?» (:3178), che un "
+        "giocatore vede spesso. ⚠️ `ElonaPlus Custom-GX 2.31.1.0` (:21) e' la "
+        "versione: non si tocca."),
+    "custom_ai.hsp": Dichiarazione(
+        "fronte", 8,
+        "Il menu dell'IA dei famigli: quattro `ActionName` («Throw Salt», "
+        "«Throw Greater Potion», «Throw Major Potion», «Throw Potion», "
+        ":3077-:3086) che si leggono nella lista delle azioni, un `ValueName` "
+        "(«Not Set», :3214), un `dialog` di conferma («Re-Initialize this "
+        "pet's spells and abilities?», :1663) e due `filedsc`. ⚠️ `\"not "
+        "set\"` a :71 sta in un `if`: e' l'operando, e va lasciato."),
+    "module.hsp": Dichiarazione(
+        "fronte", 10,
+        "⚠️ QUI LA DOMANDA E' PIU' GROSSA DELLE DIECI STRINGHE. Otto sono "
+        "`cnv_str fix_wish_arg1, \"card of \", \"\"` (:4815-:4825): sono i "
+        "prefissi che il gioco TOGLIE da quel che il giocatore scrive quando "
+        "esprime un desiderio, per capire che oggetto vuole. Non sono testo a "
+        "schermo, ma sono operandi tarati sui nomi INGLESI degli oggetti — e "
+        "i nostri nomi ora sono italiani, quindi con ogni probabilita' non "
+        "agganciano piu' niente. Vanno decisi col contratto dei nomi in mano, "
+        "non da soli. Le altre due: un `proc` di debug e il filtro «ALL files "
+        "(*.*)» di una finestra di Windows."),
+    "chara_func.hsp": Dichiarazione(
+        "fronte", 8,
+        "Tre `gain_ap` che sono testo a schermo (« of your mount», « "
+        "tag-team partner», « of your minion», :8536-:8546, la coda della "
+        "frase che dice a chi vanno i punti), tre `title` che scrivono nella "
+        "barra della finestra un messaggio diagnostico, un `proc`. ⚠️ E "
+        "`:8640` e' un caso a se': un `txt` in GIAPPONESE nudo "
+        "(«[SURVIVABILITY EXTENSION！]　フェイズ1が完了した…»), cioe' testo che "
+        "l'inglese non ha mai tradotto. Vedi il gemello in `item.hsp:4324`."),
+    "action.hsp": Dichiarazione(
+        "fronte", 11,
+        "Dieci `proc` sono tracce di debug del regalo di capodanno "
+        "(:3809-:3959). L'undicesima e' testo: `txt \"Potion-charge Lv\"` "
+        "(:6545), che il giocatore legge sulla pozione. Ha un gemello esatto "
+        "in `proc.hsp:13471`, e le due rese devono coincidere."),
+    "proc.hsp": Dichiarazione(
+        "fronte", 3,
+        "`txt \"Potion-charge Lv\"` (:13471), gemello di `action.hsp:6545`; "
+        "`studybuddy \"your friends\"` (:16980); e `txt \"Omae wa mou "
+        "shindeiru.\"` (:14392), che e' una citazione e va lasciata com'e' — "
+        "ma la decisione va scritta, non lasciata all'inerzia."),
+    "screen.hsp": Dichiarazione(
+        "fronte", 3,
+        "Un `dialog` che il giocatore puo' vedere davvero all'avvio "
+        "(«Invalid screen resolution detected. Custom-GX will attempt to reset "
+        "to a sane default.», :22) e due `title` diagnostici a :8288, che "
+        "scrivono nella barra della finestra."),
+    "db_creature.hsp": Dichiarazione(
+        "fronte", 4,
+        "Quattro grida di battaglia dei boss, nude fuori da `lang()` in un "
+        "file che ne ha 5.718: 「Last Danceが最後の行程に入った」 (:51263), "
+        "「HAPPY END！！」 (:53276), 「Target Acquired.」 e 「Resistance is "
+        "futile!」 (:99788). Le prime due sono giapponesi anche nel ramo "
+        "inglese; le altre due sono inglesi in tutt'e due i rami. Sono le "
+        "quattro righe di questo file che il dizionario non puo' vedere."),
+    "trait.hsp": Dichiarazione(
+        "fronte", 2,
+        "Un solo messaggio, spezzato in due letterali attorno al numero: "
+        "`\"This is an UNKNOWN_TRAIT[\" + ... + \"], report it.\"` (:1268). "
+        "Lo legge il giocatore nella lista dei tratti quando il gioco ne "
+        "incontra uno che non conosce, ed e' un invito a segnalare: la resa "
+        "italiana deve restare riconoscibile a chi riceve la segnalazione."),
+    "help.hsp": Dichiarazione(
+        "fronte", 2,
+        "`dialog \"help index not found \"` (:230) e — piu' interessante — "
+        "`s \"広域能力を使う(Wide apply)\"` (:409), una voce di menu che porta "
+        "il giapponese e l'inglese INSIEME nella stessa stringa, fuori da "
+        "`lang()`. Il dizionario non puo' prenderla, e in italiano va decisa "
+        "come una voce sola."),
+    "item.hsp": Dichiarazione(
+        "fronte", 1,
+        "`txt \"[HAPPY BIRTHDAY！！]　フェイズ2が完了した。\"` (:4324): "
+        "giapponese nudo che il ramo inglese non ha mai tradotto. Gemello di "
+        "`chara_func.hsp:8640`, e le due rese vanno decise insieme perche' "
+        "sono le due fasi della stessa catena."),
+    "db_card.hsp": Dichiarazione(
+        "fronte", 1,
+        "`cardrefskill` a :2695: una descrizione di carta lunga, in "
+        "giapponese, nuda fuori da `lang()` in un file che ne ha 2.326. "
+        "Appartiene al fronte TCG per contenuto, a `db_card` per posizione."),
+    "text.hsp": Dichiarazione(
+        "fronte", 2,
+        "`sg \"Unknown Code\"` (:9351), che il giocatore puo' leggere quando "
+        "il gioco incontra un codice che non conosce, e un `proc \"god text\"` "
+        "(:12150) che e' una traccia di debug."),
+
+    # ---- esenzioni trovate dal triage della 135a ---------------------------
+    "init.hsp": Dichiarazione(
+        "esente", 61,
+        "E' IL RAPPORTO DI ERRORE, tutto quanto. 41 `ErrorMsg` sono i nomi "
+        "degli errori dell'interprete HSP («Stack overflow», «Divided by "
+        "zero», «Array overflow», :2671-:2711), 14 `buf` sono le righe che il "
+        "gioco scrive nel rapporto quando crolla («* error in "
+        "function:chara_create:#», :2751-:2871), 5 sono `proc` di debug. "
+        "⚠️ Vanno lasciati in inglese di proposito: chi riceve un rapporto di "
+        "crash deve poterlo confrontare con quelli di monte, e un «Overflow "
+        "del buffer» in mezzo a una segnalazione la rende inutile. "
+        "`\"unknown user\"` (:549) e' per giunta un operando di confronto."),
+    "map.hsp": Dichiarazione(
+        "esente", 11,
+        "Undici `proc`, tutti tracce di debug del ciclo della mappa "
+        "(«Map:Check renew», «Map:Init music», «Map:Quest message», "
+        ":9616-:12211). Nessuna arriva a schermo."),
+    "config.hsp": Dichiarazione(
+        "esente", 4,
+        "Due `proc` di debug, e due falsi positivi di una specie che vale la "
+        "pena registrare: `s = lang(\"なし\", \"None\"), lang(\"direct "
+        "sound\", \"Direct sound\"), \"MCI\"` (:805 e :809). «direct sound» e' "
+        "l'argomento GIAPPONESE della `lang()` — il ramo giapponese scrive in "
+        "inglese il nome del driver — e il lato giapponese non si traduce per "
+        "costruzione, quindi `siti()` non lo copre e non deve coprirlo. "
+        "L'inglese, «Direct sound», sta gia' nel dizionario."),
+    "map_rand.hsp": Dichiarazione(
+        "esente", 1,
+        "`if ( ... == \"hobbit caves\" )` (:273): operando di confronto sul "
+        "nome interno di un tipo di nefia, non testo a schermo."),
+    "chat.hsp": Dichiarazione(
+        "esente", 1,
+        "Un solo `proc \"cnpc event start\"` (:952), traccia di debug, in un "
+        "file che per il resto e' coperto da 4.328 stringhe raggiunte."),
+    "event.hsp": Dichiarazione(
+        "esente", 1,
+        "Un solo `proc \"Random event\"` (:2), traccia di debug del generatore "
+        "di eventi casuali. Il resto del file — 693 stringhe — lo raggiunge il "
+        "dizionario: e' l'unica riga che gli sfugge."),
+    "net.hsp": Dichiarazione(
+        "esente", 1,
+        "`sockput \" HTTP/1.0\\nHost:???\\nUser-Agent: HSP ver3.0\\n\\n\"` "
+        "(:94): e' la richiesta HTTP che il gioco manda in rete. Non e' "
+        "testo, e' protocollo."),
 }
 
-# ⚠️⚠️ IL DEBITO NON ANCORA TRIATO, misurato alla 135a e non giudicato.
-#
-# Questi file hanno stringhe che nessuno raggiunge, e nessuno le ha ancora
-# guardate una per una. Il numero e' una **misura**, non un verdetto: dentro
-# ci sara' testo vero, tracce di debug (`system.hsp` ha una « Debug Console»),
-# etichette di configurazione e falsi positivi del riconoscitore.
-#
-# ⚠️ Stanno qui, e non fuori da ogni lista, per una ragione sola: cosi' il
-# cancello e' verde oggi e si accende domani, quando uno di questi conti si
-# muove o quando compare un file nuovo. Una riga qui dentro NON vuol dire
-# «va bene cosi'»: vuol dire «misurato il 2026-09-03, mai guardato».
-# Triarne uno significa toglierlo di qui e dargli una Dichiarazione con
-# scritto perche'.
-DA_TRIARE: dict[str, int] = {
-    "system.hsp": 83,
-    "custom_tweaks.hsp": 75,
-    "init.hsp": 61,
-    "tcg.hsp": 52,
-    "buff.hsp": 48,
-    "command.hsp": 16,
-    "action.hsp": 11,
-    "map.hsp": 11,
-    "module.hsp": 10,
-    "chara_func.hsp": 8,
-    "custom_ai.hsp": 8,
-    "main.hsp": 8,
-    "config.hsp": 4,
-    "db_creature.hsp": 4,
-    "tcg_custom.hsp": 4,
-    "proc.hsp": 3,
-    "screen.hsp": 3,
-    "help.hsp": 2,
-    "text.hsp": 2,
-    "trait.hsp": 2,
-    "chat.hsp": 1,
-    "db_card.hsp": 1,
-    "event.hsp": 1,
-    "item.hsp": 1,
-    "map_rand.hsp": 1,
-    "material.hsp": 1,
-    "net.hsp": 1,
-}
+# ⚠️ Il debito misurato e non guardato. Alla 135a e' stato svuotato: ogni file
+# con stringhe scoperte ha ora una Dichiarazione con scritto perche'. Resta qui
+# perche' e' la casella giusta dove mettere un file nuovo mentre lo si misura,
+# PRIMA di averlo guardato una stringa per volta — e perche' il cancello lo
+# tratta come una dichiarazione debole, che tiene il conto e non pretende una
+# ragione. Una riga qui NON vuol dire «va bene cosi'»: vuol dire «misurato,
+# mai guardato».
+DA_TRIARE: dict[str, int] = {}
 
 
-def letterali_di_prosa(testo: str) -> list[str]:
-    """I letterali del file che somigliano a una frase, righe morte escluse."""
+def letterali_di_prosa(testo: str, righe_morte: set[int] | None = None) -> list[str]:
+    """I letterali del file che somigliano a una frase, righe morte escluse.
+
+    `righe_morte` sono le righe dentro un `/* */`, che le chiama chi ha il
+    percorso del file (`commenti.righe_in_commento()` legge dal disco).
+    """
     fuori = []
-    for riga in testo.split("\n"):
+    morte = righe_morte or set()
+    for numero, riga in enumerate(testo.split("\n"), 1):
+        if numero in morte:
+            continue
         spoglia = riga.lstrip()
         # In HSP il commento e' `;` **oppure** `//`. Guardare solo il `;` e' il
         # guasto che le rinviate chiamano «la quarta volta»: `tcg.hsp:1505` e'
@@ -224,19 +392,30 @@ def _righe_con_toppa() -> dict[str, set[str]]:
     return per_file
 
 
-def scoperte_di(nome_file: str, testo: str, toppe: set[str]) -> list[str]:
+def scoperte_di(nome_file: str, testo: str, toppe: set[str],
+                righe_morte: set[int] | None = None) -> list[str]:
     """Le stringhe di prosa che non raggiunge ne' il dizionario ne' una toppa.
 
     Il dizionario si consulta attraverso `estrai.siti()`, che e' l'unica
     scansione del sorgente del progetto: cosi' questo modulo e `applica`
     camminano sugli stessi siti per costruzione e non per disciplina.
+
+    ⚠️ `righe_morte` sono le righe dentro un commento di blocco `/* */`, che
+    `commenti.righe_in_commento()` sa trovare e che questo modulo NON sapeva
+    saltare. Il caso vero: `custom_tweaks.hsp` apre con un `/*` a riga 1 e lo
+    chiude a riga 85, e in mezzo tiene l'elenco documentativo delle 75 voci
+    del menu Tweaks. Erano **tutte e 75** le «stringhe scoperte» del file, e
+    per mezz'ora sono state il secondo fronte piu' grosso del progetto.
     """
     span_per_riga: dict[int, list[tuple[int, int]]] = defaultdict(list)
     for sito in siti(testo):
         span_per_riga[sito[0]].append((sito[7], sito[8]))
+    morte = righe_morte or set()
 
     scoperte = []
     for numero, riga in enumerate(testo.split("\n"), 1):
+        if numero in morte:
+            continue
         spoglia = riga.lstrip()
         if spoglia.startswith(";") or spoglia.startswith("//"):
             continue
@@ -256,10 +435,12 @@ def censimento() -> list[dict]:
     righe = []
     for percorso in sorted(percorsi.SORGENTE_HSP.glob("*.hsp")):
         testo = percorso.read_bytes().decode("cp932")
-        prosa = letterali_di_prosa(testo)
+        morte = righe_in_commento(percorso)
+        prosa = letterali_di_prosa(testo, morte)
         if not prosa:
             continue
-        scoperte = scoperte_di(percorso.name, testo, toppe.get(percorso.name, set()))
+        scoperte = scoperte_di(percorso.name, testo,
+                               toppe.get(percorso.name, set()), morte)
         righe.append({
             "file": percorso.name,
             "prosa": len(prosa),
@@ -349,7 +530,11 @@ def main() -> None:
 
         fronti = {n: d for n, d in DICHIARATI.items() if d.tipo == "fronte"}
         print(f"\n  fronti dichiarati e non lavorati: {len(fronti)}, "
-              f"{sum(d.scoperte for d in fronti.values())} stringhe distinte")
+              f"{sum(d.scoperte for d in fronti.values())} stringhe SCOPERTE")
+        print("  ⚠️ «scoperte» non vuol dire «da tradurre»: nei file misti il "
+              "conto include\n     le tracce di debug e gli operandi di "
+              "confronto, che restano inglesi.\n     Quanto sia testo davvero "
+              "sta scritto nel motivo di ciascuno.")
         for nome, d in sorted(fronti.items(), key=lambda kv: -kv[1].scoperte):
             print(f"      {d.scoperte:>5}  {nome}")
         print(f"  debito misurato e non triato: {len(DA_TRIARE)} file, "

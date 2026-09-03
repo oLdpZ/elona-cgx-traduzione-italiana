@@ -15,6 +15,7 @@ stringa che ho scritto io.
 import pytest
 
 from strumenti import copertura, percorsi
+from strumenti.commenti import righe_in_commento
 
 # La riga vera di `sound.hsp:998`, che il riconoscitore NON deve salvare:
 # `close music` sono due parole inglesi, ma sono un comando MCI di Windows.
@@ -201,6 +202,48 @@ def test_ogni_dichiarazione_dice_perche(nome):
     assert dichiarata.tipo in ("esente", "fronte")
     assert dichiarata.scoperte > 0
     assert len(dichiarata.motivo) > 80
+
+
+def test_un_elenco_dentro_un_commento_di_blocco_non_e_un_fronte():
+    """⭐ LA PROVA AL CONTRARIO DEL RICONOSCITORE DI RIGHE MORTE.
+
+    `custom_tweaks.hsp` apre con un `/*` a riga 1, lo chiude a riga 85, e in
+    mezzo tiene l'elenco documentativo delle 75 voci del menu Tweaks. Erano
+    tutte e 75 le sue «stringhe scoperte», e per mezz'ora sono state il secondo
+    fronte piu' grosso del progetto — il file ha 264 toppe, quindi sembrava
+    perfino plausibile che il menu fosse restato indietro.
+
+    La prima asserzione e' la prova al contrario: senza le righe morte il caso
+    si riaccende, cosi' questa prova non passa perche' il file e' cambiato ma
+    perche' il salto funziona.
+    """
+    percorso = percorsi.SORGENTE_HSP / "custom_tweaks.hsp"
+    testo = percorso.read_bytes().decode("cp932")
+    morte = righe_in_commento(percorso)
+    toppe = copertura._righe_con_toppa()["custom_tweaks.hsp"]
+
+    assert len(copertura.scoperte_di("custom_tweaks.hsp", testo, toppe)) == 75
+    assert copertura.scoperte_di("custom_tweaks.hsp", testo, toppe, morte) == []
+    # ⓘ `righe_in_commento` marca l'apertura e il corpo ma NON la riga che
+    # chiude: la :85 di `*/` resta viva. E' la sua convenzione, e sbaglia
+    # dalla parte giusta — una stringa su quella riga verrebbe contata, non
+    # persa.
+    assert 1 in morte and 84 in morte
+    assert 85 not in morte and 86 not in morte
+
+    # e il file non deve comparire da nessuna parte: non e' un fronte
+    assert "custom_tweaks.hsp" not in copertura.DICHIARATI
+    assert "custom_tweaks.hsp" not in copertura.DA_TRIARE
+
+
+def test_ogni_file_con_stringhe_scoperte_e_dichiarato():
+    """Alla 135a `DA_TRIARE` e' stato svuotato: non resta un file misurato e
+    non guardato. Se questa cade, qualcuno ha aggiunto un file senza ragione."""
+    non_dichiarati = [r["file"] for r in copertura.censimento()
+                      if r["distinte"] and r["file"] not in copertura.MECCANISMI
+                      and r["file"] not in copertura.DICHIARATI]
+
+    assert non_dichiarati == []
 
 
 def test_il_debito_non_triato_non_si_confonde_coi_fronti():
