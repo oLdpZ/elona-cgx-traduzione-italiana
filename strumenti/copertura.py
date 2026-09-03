@@ -76,6 +76,16 @@ MECCANISMI = {
                   "stringhe che questo modulo vede sono le etichette "
                   "`{actor_N}` — `\"<Saimore> The Crown Prince of Zanan,54\"` — "
                   "che `scene.py:45` tratta come un tipo di blocco suo.",
+    "tcg_mod.hsp": "le descrizioni d'effetto delle carte, iniettate da "
+                   "`strumenti.carte --applica` e sorvegliate da "
+                   "`carte --referto` (833 su 833, piu' 8 battute su 8). "
+                   "Chiuso nella 136a. ⚠️ UNA stringa resta fuori e non e' "
+                   "dimenticata: `efftalk@tcg(TCG_EFF_LITTLESISTER)` "
+                   "(`tcg_mod.hsp:2354`) e' `cnvtalk(\"\" + _onii(...) + \"!\")`, "
+                   "una concatenazione e non un letterale. Il riconoscitore la "
+                   "rifiuta apposta -- meglio una riga in meno tradotta che una "
+                   "riga sbagliata iniettata -- e va guardata a mano insieme a "
+                   "`_onii()`, che decide come il fratellino chiama chi gioca.",
 }
 
 
@@ -92,15 +102,10 @@ class Dichiarazione:
 # il cancello lo dice invece di lasciarla passare per inerzia.
 DICHIARATI: dict[str, Dichiarazione] = {
     # ---- i due fronti veri trovati dalla 135a: il gioco di carte -----------
-    "tcg_mod.hsp": Dichiarazione(
-        "fronte", 809,
-        "IL FRONTE PIU' GROSSO TROVATO DALLA 135a. 813 delle 820 stringhe sono "
-        "`effdesc@tcg(...)`, cioe' il testo dell'effetto di ogni carta, "
-        "disegnato da `cardhelp effdesc@tcg(eff@tcg), 10` (`tcg.hsp:3935` e "
-        "`:4170`) e ricomposto in `\"Effect: \" + effdesc@tcg(...)` a "
-        "`tcg.hsp:1473`. Le altre 6 sono `efftalk@tcg`, battute. Il file HA un "
-        "dizionario, di **8** voci, e una toppa: e' quello che lo faceva "
-        "sembrare coperto."),
+    # ✅ `tcg_mod.hsp` NON sta piu' qui: la 136a l'ha chiuso, e ora e' in
+    # MECCANISMI. La sua riga di dichiarazione andava tolta insieme al lavoro,
+    # non lasciata: un file dichiarato E coperto veniva contato due volte, e il
+    # totale in fondo al referto diceva 1.020 scoperte quando ne restavano 211.
     "tcg_skill.hsp": Dichiarazione(
         "fronte", 142,
         "L'ALTRA META' DEL GIOCO DI CARTE. 7.686 righe, `#include` da "

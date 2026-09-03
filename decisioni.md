@@ -14856,3 +14856,155 @@ morta di proposito e il testo a schermo è giusto. Si distinguono chiedendo
    in un attrezzo laterale vuol dire ritrovarseli addosso nell'interfaccia.
 3. **`help.hsp:409`**, `s "広域能力を使う(Wide apply)"`: giapponese e inglese
    nella stessa stringa, fuori da `lang()`. Serve sapere cosa fa quel comando.
+
+---
+
+## La centotrentaseiesima — il gergo del gioco di carte si traduce, e il registro era già stato scelto — 2026-09-03
+
+Aperta la **Fase 5** su `tcg_mod.hsp` (piano:
+`piani/2026-09-03-fase-5-tcg-effdesc.md`). Tre decisioni, e una vale per sempre.
+
+### 1. Il gergo si traduce, e gli operandi si toppano
+
+Cinque righe cercano un letterale **dentro** il testo della carta
+(`tcg_skill.hsp:618`, `:4960`, `:4972`, `:5003`, `tcg.hsp:1470`). La ripresa
+della 135ª ne aveva viste tre e ne traeva la regola opposta: *la resa di
+«dragon» deve contenere «ragon»*.
+
+⭐ **Il conto rovescia la conclusione.** «Battlecry» compare in **475
+descrizioni su 835**; «ragon» in 4. Vincolare 475 rese a portarsi dietro una
+parola inglese per non toccare **un `if`** è il verso sbagliato di tre ordini di
+grandezza. Si toppa l'operando, che è quel che il progetto già fa per le uova di
+Pasqua di `command.hsp` (135ª).
+
+⚠️ **E le toppe vanno scritte prima delle rese.** Finché l'operando cerca
+l'inglese, ogni resa nuova spegne un effetto — in silenzio, perché nessun
+contatore del progetto guarda dentro un `instr`.
+
+### 2. Il registro era già deciso, e stava nelle toppe
+
+`glossario.md` non aveva **niente** sul gioco di carte. Le toppe di `tcg.hsp`
+sì: **ventisei parole chiave** tradotte da fasi — Raffica, Travolgere, Legame
+vitale, Tocco letale, Condanna, Anticipo, Doppio colpo — tutte **immagini**,
+nessuna funzionale. Gli innesti le seguono: `Battlecry` → **Grido di
+battaglia**, `Deathrattle` → **Rantolo di morte**, `Deathblow` → **Colpo di
+grazia**.
+
+⚠️ **Il modo in cui è stata presa questa decisione è la parte riusabile.** La
+domanda «come si traduce il gergo?» sembrava una questione di gusto, e non lo
+era: la risposta stava già a schermo, in venticinque toppe che nessuno aveva mai
+raccolto in un posto consultabile. Prima di decidere un registro si guarda **che
+cosa il gioco dice già**, e lo si guarda anche dove il glossario non arriva —
+`toppe.jsonl` è un documento di traduzione quanto `dizionario/`.
+
+⭐ E dove un nome evocativo non esiste non se ne inventa uno: `After Combat` è
+«Dopo lo scontro», `In-Hand` è «In mano». Un registro non è un obbligo di
+coniare.
+
+### 3. ⚠️⚠️ I due refusi di monte si riproducono, non si riparano
+
+`tcg_skill.hsp:618` chiede **due** cose per copiare un effetto: la marcatura
+`TCG_SKILL_TYPE_BATTLECRY` **e** la parola nel testo. Non coincidono: 491
+marcate, 19 senza la parola, 3 con la parola e non marcate. Diciassette delle
+diciannove sono volute — le carte degli dèi e i sette `KAMUI` parlano invece di
+dichiarare un innesto. **Due sono refusi**: `Batllecry` (`TCG_EFF_CARAVAN`) e
+`BattleCry` (`TCG_EFF_NAPLUS`).
+
+Oggi quelle due carte non vengono copiate. Scrivendole in italiano corretto si
+accenderebbero: **un cambio di comportamento nascosto dentro una traduzione**, e
+non è compito nostro. Si rendono con un refuso italiano equivalente («Grido di
+battglia», «Grido di Battaglia»), e il glossario dice perché.
+
+⭐ **L'invariante non è «la resa contiene la parola», è «la partizione resta 472
+/ 19».** È un numero, quindi si misura, quindi sta in un cancello — mentre «non
+rompere l'operando» è una raccomandazione, e le raccomandazioni non si accendono.
+
+### 4. Un numero che la misura ha tolto di mezzo
+
+Sembrava che la lunghezza del traducente contasse, perché il riquadro della
+scheda ha un soffitto di righe. Simulando `talk_conv` a 65 colonne sulle 835,
+col corpo gonfiato del 18%:
+
+    inglese com'è                    454 da 1 riga, 349 da 2, 25 da 3, 7 da 4
+    glossario intero, teste lunghe   355            436       33       11
+    glossario intero, teste corte    420            379       27        9
+
+**Nessun candidato supera le 4 righe, e a 4 ci arriva anche l'inglese.** La
+differenza fra «Grido di battaglia» e «Schieramento» è quante descrizioni stanno
+su una riga invece che su due: estetica, non sicurezza. ⭐ Il termine si è
+scelto sul significato **perché una misura aveva tolto di mezzo l'altro
+criterio** — che è il modo di usare una misura, invece di lasciare due argomenti
+a litigare.
+
+⭐⭐ **E il 18% era ipotizzato, quindi il risultato non valeva.** Rifatto
+cercando il punto di rottura invece di fissare un gonfiore plausibile:
+
+    gonfiore    1riga   2    3    4    5   la peggiore
+       0%        444  360   31   0    0   3 righe: TCG_EFF_SUZAKU
+      17%        351  438   36  10    0   4 righe: TCG_EFF_SUPERGRANDMASTER
+      25%        323  463   37  12    0   4 righe
+      50%        228  547   37  23    0   4 righe
+      75%        159  582   66  27    1   5 righe: TCG_EFF_ELEMENTALDRAGON
+
+**Il tetto resta 4 righe fino al +50%, e la prima da 5 compare a +75%** — un
+gonfiore che l'italiano non fa. *Questa* è la ragione dello zero, e senza di
+essa lo zero non era un risultato (lezione della 107ª): un margine di tre volte
+il gonfiore atteso è un'altra cosa da «col numero che ho scelto io non sfora».
+
+⚠️ Il conto va rifatto sulla forma **degradata** (`accenti.degrada`): CP932 non
+scrive nessuna vocale accentata italiana, e `Rarità` a schermo è `Rarita'`, un
+carattere in più. Il margine sopra lo assorbe, ma `carte --referto` deve contare
+le righe su quel che il gioco vede, non su quel che sta nel dizionario.
+
+⚠️ Resta aperto il soffitto vero del riquadro, che nessuno ha mai visto: fino a
+una schermata il cancello **avvisa e non rifiuta** (lezione della 134ª sui
+`{txt}`).
+
+### 5. ⚠️⚠️⚠️ UN CANCELLO CHE MISURA IL SORGENTE È UN VERDE CHE NON PUÒ DIVENTARE ROSSO
+
+`carte --referto` nasceva con la partizione misurata su **`sorgente/`**. Ma il
+sorgente è inglese e non cambia mai — è pinnato a un tag apposta — quindi quel
+`472 / 19` sarebbe stato verde per costruzione, in ogni sessione, qualunque cosa
+fosse successo alle rese. Non era un cancello: era una decorazione.
+
+⭐ **Il posto giusto è l'albero di build**, dove le rese ci sono davvero e dove
+sta il file che finisce nell'eseguibile. Spostandolo lì è uscito subito un
+guasto vero:
+
+    con la toppa che cercava la sola parola italiana:
+      marcate BATTLECRY che l'operando raggiunge   277 su 472
+      cioè 195 carte con la copia SPENTA nell'eseguibile appena installato
+
+**Perché succedeva:** a metà fase 475 descrizioni su 835 sono italiane e 360
+ancora inglesi. L'operando cercava «Grido di battaglia»; le 360 dicevano ancora
+«Battlecry», e uscivano dalla copia. Il piano diceva «le toppe prima delle
+rese», ed era giusto ma non bastava: proteggeva l'inizio e la fine, non il
+mezzo — e il mezzo, in una fase da 835 voci, dura sessioni.
+
+**La riparazione:** la toppa cerca **tutt'e due** le parole.
+
+    if ( cancopyeffect(dbid) == TRUE & ( instr(effdesc(dbid), 0, "Grido di
+        battaglia") != (-1) | instr(effdesc(dbid), 0, "Battlecry") != (-1) ) )
+
+⚠️ E resta esatta sui due refusi: `BattleCry` con la C maiuscola e `Batllecry`
+non combaciano con `"Battlecry"`, quindi i 19 esclusi restano 19. Dopo la
+riparazione: **472 su 472**.
+
+⭐⭐ **Come applicarlo, ed è la parte che vale oltre questa fase:** di un
+cancello non basta chiedere *cosa* misura, va chiesto **su quale copia del file
+lo misura**. Se legge una cosa che per costruzione non cambia — un sorgente
+pinnato, un file di monte, un valore atteso scritto a mano — non è un cancello,
+è un'asserzione su una costante. La prova che questo adesso è un cancello vero
+non è che dice 472: è che **poco prima, sullo stesso albero, diceva 277**.
+
+### 6. E le caporali sono la trappola alla terza sessione di fila
+
+`«»` non esistono in CP932. Ci era inciampata la 133ª, ci era inciampata la
+135ª, e ci sono inciampato io scrivendo tre rese (`TCG_EFF_ANUBIS`,
+`TCG_EFF_ANABOLICRESISTANCE`, `TCG_EFF_HEQET`).
+
+⭐ Ma stavolta **non è costata niente**, perché il cancello sta dove si scrive
+la resa: `carte --reimporta` si è fermato con il nome della costante e il
+carattere, e il dizionario non è stato nemmeno toccato. È la differenza fra una
+regola scritta in un documento e una rete messa nel punto giusto — la stessa
+lezione, dal lato in cui funziona.

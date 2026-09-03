@@ -1,5 +1,258 @@
 # Ripresa sessione
 
+Aggiornato: 2026-09-03, fine della **centotrentaseiesima** sessione (**la Fase 5
+apre e chiude il gioco di carte: 833 descrizioni d'effetto, e un cancello che
+misurava il sorgente**).
+
+⭐ **L'ESEGUIBILE IN GIOCO E' FRESCO: 23:05 del 03/09**, e contiene tutte e 833
+le descrizioni d'effetto piu' le 8 battute. ⓘ Si legge con
+`ls -l C:\Games\Elona\elonaplus2.31\cgx-test.exe`. I sei file dati non sono
+cambiati in questa sessione.
+
+⚠️⚠️ **L'ordine obbligato per portare tutto in gioco ha UN PASSO IN PIU'.**
+`applica.py` rigenera l'albero di build da `sorgente/` e **cancella** ogni
+iniezione:
+
+    python -m strumenti.applica            <- prima
+    python -m strumenti.scene --applica    <- POI
+    python -m strumenti.carte --applica    <- NUOVO, e POI
+    python -m strumenti.compila --eseguibile
+    cp .../build/2.05-custom-gx/elonapluscgx.exe .../elonaplus2.31/cgx-test.exe
+
+⚠️ **`strumenti.installa` NON ESISTE**: l'ultimo passo e' una copia a mano.
+
+---
+
+## DOVE SIAMO: la Fase 5 e' FINITA, 833 su 833
+
+`tcg_mod.hsp` era il fronte piu' grosso che la 135a avesse trovato sotto il
+100%. E' chiuso.
+
+    833 descrizioni d'effetto su 833      (2 delle 835 hanno l'inglese vuoto)
+      8 battute su 8                      (1 concatenata, esclusa e dichiarata)
+     44.029 caratteri, 39 prove nuove
+
+Il censimento della copertura passa da **8 fronti e 1.020 stringhe scoperte** a
+**7 e 211**.
+
+⚠️ **Nessuna delle 841 rese e' stata vista a schermo.** «E' in gioco» e «e'
+provato» restano due cose diverse, e questa fase ne aggiunge 841 a un debito che
+era gia' di ~11.400.
+
+---
+
+## ⚠️⚠️⚠️ LA COSA CHE PESA DI PIU' DELLA 136a: UN CANCELLO CHE MISURA IL SORGENTE
+
+`carte --referto` nasceva con l'invariante della copia misurato su `sorgente/`.
+Ma il sorgente e' inglese e **pinnato a un tag apposta**: quel `472 / 19`
+sarebbe stato verde per costruzione, in ogni sessione, qualunque cosa fosse
+successo alle rese. Non era un cancello, era una decorazione.
+
+Spostato sull'albero di build ha detto subito:
+
+    marcate BATTLECRY che l'operando raggiunge   277 su 472
+    cioe' 195 carte con la copia SPENTA nell'eseguibile appena installato
+
+**Perche':** a meta' fase 475 descrizioni erano italiane e 360 ancora inglesi.
+La toppa faceva cercare a `tcg_skill.hsp:618` la parola italiana, e le 360
+uscivano. Il piano diceva «le toppe prima delle rese» — giusto, ma proteggeva
+l'inizio e la fine, non il mezzo. E il mezzo, in una fase da 833 voci, dura
+sessioni.
+
+**Riparato** facendo cercare alla toppa **tutt'e due** le parole. A fine fase:
+**472 su 472 dal solo italiano, zero inglese residuo**.
+
+⭐⭐ **Come applicarlo:** di un cancello non basta chiedere *cosa* misura, va
+chiesto **su quale copia del file lo misura**. Se legge una cosa che per
+costruzione non cambia — un sorgente pinnato, un file di monte, un valore
+scritto a mano — non e' un cancello, e' un'asserzione su una costante. La prova
+che questo adesso e' un cancello vero non e' che dice 472: e' che **poco prima,
+sullo stesso albero, diceva 277**.
+
+---
+
+## ⭐⭐ IL GLOSSARIO ERA GIA' A SCHERMO, E NESSUNO L'AVEVA RACCOLTO
+
+`glossario.md` non aveva **niente** sul gioco di carte. Le toppe di `tcg.hsp`
+si': **ventisei parole chiave** tradotte da fasi — Raffica, Travolgere, Legame
+vitale, Tocco letale, Condanna, Anticipo, Doppio colpo — tutte immagini, nessuna
+funzionale. Gli innesti le seguono: `Battlecry` -> **Grido di battaglia**,
+`Deathrattle` -> **Rantolo di morte**, `Ongoing` -> **Continuo**.
+
+⭐ **Prima di decidere un registro si guarda che cosa il gioco dice gia', e lo si
+guarda anche dove il glossario non arriva:** `toppe.jsonl` e' un documento di
+traduzione quanto `dizionario/`, e nessuno lo leggeva come tale.
+
+⚠️ **Due parole chiave non erano fra le 26** e le ho decise io: `Haste` ->
+**Impeto** (nel registro di Raffica e Anticipo) e `Immune` -> **Immune** (le
+toppe scrivono gia' «Immune alla confusione»). Le loro etichette a schermo sono
+ancora inglesi: sono etichette di bit, cioe' Fase 6.
+
+---
+
+## ⚠️⚠️ I DUE REFUSI DI MONTE, E LA PARTIZIONE 472 / 19
+
+`tcg_skill.hsp:618` copia un effetto solo se la carta e' marcata
+`TCG_SKILL_TYPE_BATTLECRY` **e** la parola compare nel testo. Le due cose stanno
+in due posti diversi e non coincidono: 491 marcate, **19 senza la parola**, 3
+con la parola e non marcate.
+
+Diciassette dei diciannove sono voluti — le carte degli dei, i sette `KAMUI`,
+che parlano invece di dichiarare un innesto. **Due sono refusi**:
+
+    TCG_EFF_CARAVAN   "Batllecry: ..."        -> "Grido di battglia: ..."
+    TCG_EFF_NAPLUS    "BattleCry/InHand/..."  -> "Grido di Battaglia/In mano/..."
+
+Oggi quelle due carte **non vengono copiate**. Scriverle in italiano corretto le
+accenderebbe: un cambio di comportamento nascosto dentro una traduzione. Rese
+con un refuso italiano equivalente, e il glossario dice perche'.
+
+---
+
+## ⚠️ E C'E' UN DIFETTO PREESISTENTE CHE NON HA INTRODOTTO QUESTA FASE
+
+`instr(carddetailneff@tcg(...), 0, "ragon")` a `tcg_skill.hsp:4960`, `:4972`,
+`:5003` cerca dentro la **scheda** della carta, che porta il nome della carta —
+tradotto da una fase precedente.
+
+    stringhe di db_card.hsp che in inglese contengono «ragon»:   77
+    rese italiane che lo conservano:                              4
+
+Quel ramo e' quindi in gran parte spento **da prima della 136a**: l'ha spento la
+traduzione di `db_card`, non questa fase. ⚠️ **Non l'ho riparato di mia
+iniziativa** perche' la riparazione non e' ovvia: l'italiano scrive sia «drago»
+sia «draco», quindi non esiste una sottostringa unica da cercare, ed e' una
+decisione di glossario che tocca `db_card` — fuori dal perimetro della Fase 5.
+
+---
+
+## I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 136a
+
+    pytest                   **921 passed**, 6 skipped (erano 883: +38 su `carte`)
+    prova_identita           72/72 e 30.905, invariato
+    scene --referto          2199 blocchi, 1701 con testo, 1701 tradotte,
+                             4 righe morte, identita' OK, 0 fuori misura
+    **carte --referto**      **833 su 833, 8 battute su 8, identita' OK,
+                             partizione 472/19, raggiunte 472 su 472,
+                             0 fuori misura**
+    toppe                    **1.230** (erano 1.228), e `applica` non stampa
+                             ATTENZIONE
+    applica                  30.766 sostituzioni
+    perimetro                28.028 fatte, 0 da fare, 100,0%
+                             (**31.795** coi file dati)
+                             ⚠️ gira solo con `PYTHONPATH=. PYTHONIOENCODING=utf-8`
+                             e sta in `scratchpad/`, non in `strumenti/`
+    _97-quanto-resta         111 / 111 / 0   (stesse due variabili d'ambiente)
+    verifica --dizionario    0 da ritradurre, 111 non tradotte, uscita 0
+    **copertura**            **7 fronti, 211 scoperte, 0 file non dichiarati,
+                             uscita 0**
+
+⚠️ **Nessuno di questi numeri si eredita da qui: si rilanciano.** E in chiusura
+si rilancia tutto cio' che produce un numero atteso, **dopo** l'ultima modifica
+ai documenti.
+
+---
+
+## Che cosa guardare adesso: le cose aperte
+
+1. ⭐⭐⭐ **La Fase 6: le 198 stringhe che restano del gioco di carte.**
+   `tcg_skill.hsp` (142), `tcg.hsp` (52), `tcg_custom.hsp` (4), `db_card.hsp`
+   (1). ⚠️ Natura diversa dalla Fase 5, non dimensione diversa: `tcg_skill` non
+   ha una chiave stabile (79 `carddetailneff@tcg(cextra@tcg)` con indice
+   variabile e valore concatenato, 28 `efllistaddchat`, 5 liste `randomchat`), e
+   le etichette di `tcg.hsp:1560-1605` si **appendono** alla stessa stringa
+   delle schede: i due file vanno lavorati insieme.
+   ⓘ Qui dentro c'e' anche `"Bits:  "` (con DUE spazi), operando di
+   `tcg.hsp:1470`, e le etichette dei bit `Haste`/`Immune`, gia' decise nel
+   glossario dalla 136a.
+2. ⭐⭐⭐ **La schermata del dettaglio di una carta.** Il soffitto di righe del
+   riquadro **nessuno l'ha mai visto**. `tcg.hsp:3503` fa scendere il corpo da
+   13 a 11 sopra le 4 righe, ma quante ne entrino e' grafica. Oggi il cancello
+   **avvisa e non rifiuta**, e le rese vere arrivano al massimo a 3 righe — come
+   l'inglese. Serve una schermata di `TCG_EFF_ZEOME`, `TCG_EFF_SOCKS` o
+   `TCG_EFF_CHAOSUNICORN` con `displayinfo@tcg` acceso.
+3. ⭐⭐ **Il difetto preesistente di «ragon»** (vedi sopra): tocca `db_card` e
+   vuole una decisione di glossario fra «drago» e «draco».
+4. ⭐⭐ **`efftalk@tcg(TCG_EFF_LITTLESISTER)`** (`tcg_mod.hsp:2354`) resta
+   fuori: e' `cnvtalk("" + _onii(...) + "!")`, una concatenazione. Va guardata a
+   mano insieme a `_onii()`, che decide come il fratellino chiama chi gioca.
+5. ⭐⭐ **Il debito di collaudo: ~12.200 rese mai viste a schermo**, di cui 841
+   aggiunte da questa sessione.
+6. ⭐⭐ **`module.hsp`, 10 stringhe.** Gli otto `cnv_str fix_wish_arg1, "card of
+   ", ""` (:4815-:4825) tolgono i prefissi **INGLESI** da quel che il giocatore
+   scrive esprimendo un desiderio. I nostri nomi sono italiani da fasi: con ogni
+   probabilita' non agganciano piu' niente. ⚠️ Non e' solo traduzione: e' un
+   comportamento del gioco che potrebbe essere gia' rotto.
+7. ⭐⭐ **Il filtro delle 26 categorie d'oggetto** (`map_func.hsp:2517`).
+   Tradurlo **fisserebbe** i nomi italiani delle categorie, che il progetto non
+   ha.
+8. ⭐ **`help.hsp:409`**, `s "広域能力を使う(Wide apply)"`: giapponese e inglese
+   nella stessa stringa, fuori da `lang()`.
+9. ⭐⭐ **La rete delle grafie vale per `scene2.hsp` e ora per `tcg_mod.hsp`.**
+   ⭐ In `carte.py` la tabella nasce **con il cancello che la legge**, ed e' la
+   differenza con `scene.GRAFIE`, pronta dalla 133a e mai letta da nessuno. La
+   forma e' anche diversa: `scene` cerca inglese rimasto dentro l'italiano,
+   `carte` guarda **l'inglese di monte** e pretende il traducente canonico.
+10. ⭐⭐ **Due omografi**: 化身 e 下僕 sono tutt'e due «incarnazione».
+11. ⭐⭐ **`Rehmido` e' ambiguo**: レム・イド (la civilta') e レミード (le rovine).
+12. ⭐⭐ **Le quattro teste variabili senza articolo** (`JUICE`, `NECRO_PARTS`,
+    `PRODUCED_BOOK`, `EVITEM`), dalla 131a. Invariata.
+13. ⭐⭐ **Chi altro vive dentro l'uscita di un generatore?** Dalla 131a.
+14. ⭐⭐ **La rete che cerca l'operando di una SOSTITUZIONE** (`sreplace`,
+    `instr`, `strmid` con un letterale). Dalla 130a. ⚠️ La 136a le ha dato il
+    movente definitivo: `tcg_skill.hsp:618` non era nell'elenco dei vincoli
+    della 135a, e decideva la copia di 470 carte.
+15. ⭐ **Le reti sulle toppe: ne restano fuori due** — le maiuscole del testo e
+    le larghezze fuori dai menu. Dalla 130a.
+16. 💡 **La coda nuda di una `lang()` gia' resa** (`chat.hsp:17065`, 127a).
+17. ✅ ~~Il fronte TCG da ~1.007 stringhe~~ — **la meta' grossa e' CHIUSA nella
+    136a** (833 + 8). Restano le 198 del punto 1.
+
+---
+
+## Le trappole che la 136a ha trovato, e che valgono per chiunque tocchi il progetto
+
+⚠️⚠️ **Una tabella incompleta non sbaglia: tace.** `carte.PAROLE_CHIAVE` ne
+aveva **7 su 26**, e il buco non l'ha trovato nessun test: l'ha trovato la prova
+al contrario, iniettando «Ricarica» al posto di «Rigenerazione» e vedendo che
+**non si accendeva niente**. Ora una prova legge `toppe.jsonl` e pretende che
+ogni parola chiave a schermo sia decisa — o nel cancello, o esentata con la sua
+ragione. Al primo giro ne ha trovate due che non avevo deciso.
+
+⚠️ **Un traducente scritto gia' degradato non trova mai la resa.** `problemi()`
+confronta con la resa del **dizionario**, dove l'accento e' vero; `degrada`
+interviene dopo. `"Gravity": "Gravita'"` avrebbe detto rosso su una resa
+corretta. C'e' una prova apposta.
+
+⚠️ **CP932 non scrive nessuna vocale accentata italiana**, e l'a capo va
+calcolato sulla forma **degradata**: `Rarità` a schermo e' `Rarita'`, un
+carattere in piu'.
+
+⚠️ **Le caporali `«»`, terza sessione di fila** (133a, 135a, 136a). Stavolta non
+sono costate niente perche' il cancello sta dove si **scrive** la resa:
+`carte --reimporta` si e' fermato col nome della costante, e il dizionario non
+e' stato nemmeno toccato.
+
+⚠️⚠️ **Un file dichiarato E coperto viene contato due volte.** Aggiungendo
+`tcg_mod.hsp` a `copertura.MECCANISMI` senza togliere la sua vecchia riga da
+`DICHIARATI`, il referto continuava a dire «1.020 scoperte» quando ne restavano
+211. La riga di dichiarazione va tolta **insieme al lavoro**, non dopo.
+
+⚠️ **`talk_conv` non va MAI a capo sull'ultima parola.** La coda senza spazi
+finisce tutta sull'ultima riga, lunga quanto viene: e' l'unico modo in cui una
+riga puo' sforare in larghezza invece che in altezza. Vale per `scene` e per
+`carte`.
+
+⭐ **Una misura puo' TOGLIERE un criterio invece di aggiungerne uno.** Sembrava
+che la lunghezza del traducente contasse: cercando il punto di rottura invece di
+ipotizzare un gonfiore, il tetto delle righe tiene fino al **+50%** e la prima
+descrizione da 5 righe compare a **+75%**. Quindi il termine si e' scelto sul
+significato, e la lunghezza non e' stata un argomento.
+
+---
+
+## La centotrentacinquesima sessione (per storia)
+
 Aggiornato: 2026-09-03, fine della **centotrentacinquesima** sessione (**il 100%
 era il perimetro: sotto ci stava il gioco di carte, 1.007 stringhe inglesi a
 schermo che nessun contatore poteva vedere**).
