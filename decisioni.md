@@ -14586,6 +14586,63 @@ Riportata a **14**, che è il conto dell'inglese di monte: non perché 14 sia il
 soffitto — quel numero non lo sa nessuno — ma perché è l'unica altezza di quel
 blocco che qualcuno ha visto davvero funzionare a schermo. Vedi le cose aperte.
 
+
+### ⭐⭐⭐ E POI E' ARRIVATO LO SCREENSHOT: `{txt}` HA UN SOFFITTO, ED E' 20
+
+Chiuso il resto della sessione, l'utente ha mandato la foto del prologo (scena 0
+blocco 3, 11 righe, finestra 2560x1440). Il modello di `scene.hsp:451`-`:472`:
+
+    y1 = 60                                  la banda dell'immagine parte qui
+    y3 = windowh/2 - (n*20)/2 - y1
+    y  = y3 + 28 + cnt*20                    riga cnt, passo 20 px
+    x  = windoww/2 - strlen(s)*4             CENTRATA, 8 px per carattere
+
+**Tarato, non dedotto.** Previsto per quelle 11 righe: prima riga a y=578,
+ultima a 778, passo 20; riscalate sulla foto (2000 px su 2560) danno 451,6 /
+607,8 / 15,62. Misurate sulla foto: **~458 / ~615 / 15,7**. Combacia entro il
+mezzo per cento, su tutt'e due gli assi.
+
+Da li' il numero che mancava. Il vincolo che morde per primo e' il bordo **alto**
+— piu' righe ci sono, piu' il blocco sale, perche' e' centrato sulla finestra e
+spostato in su di `y1`:
+
+    prima riga = windowh//2 - 10n - 32 >= 60   ->   n <= (windowh//2 - 92)//10
+
+Alla finestra minima che `config.txt` dichiara (600 px): **20 righe**. Oltre, la
+prima riga esce dalla banda dell'immagine e finisce sulla fascia nera; oltre 26
+esce proprio dallo schermo.
+
+⚠️ **Quindi la mia resa da 16 righe stava dentro, e la compressione a 14 non
+serviva.** Non era sbagliato farla senza il numero — il conto dell'inglese era
+l'unica altezza mai vista funzionare — ma vale la pena registrare che la cautela
+e' costata due righe di ritmo al prologo di Gaius Vis, e che il modo di non
+pagarla era **chiedere lo scatto prima**, non dopo.
+
+⭐ Ora e' un cancello (`ALTEZZA_TXT` in `scene.py`), con due prove: una di
+soglia (20 passa, 21 si accende) e una sulla deroga.
+
+### ⚠️ La deroga: due blocchi che non si possono accorciare
+
+`400.23` e `400.29` — le liste dei crediti — fanno **24 e 22 righe, e le fanno
+gia' in inglese**. Accorciarle vorrebbe dire togliere qualcuno dai
+ringraziamenti. Il cancello non chiede quindi «stai sotto 20» ma **«non essere
+piu' alta di monte»**: sotto il soffitto sempre, sopra il soffitto solo dove
+l'inglese ci era gia'.
+
+⭐ Un cancello che chiede l'impossibile non viene rispettato, viene disattivato.
+La deroga sta nel codice con la sua ragione, non in una lista di eccezioni.
+
+### ⓘ E una cosa che lo screenshot dice e che NON e' un difetto nostro
+
+Leggendo il disegnatore fino in fondo: `dx = 80 + strlen(s)*8` e `if dx < 180 :
+dx = 0`. `dx` e' la larghezza dell'alone scuro dietro la riga, e a zero la riga
+esce **bianca sulla foto nuda**. La soglia e' 12 caratteri.
+
+Nel dizionario ci sono **93** righe italiane sotto quella soglia (`- Ruoza -`,
+`- Epilogo -`, i nomi dei crediti). Nell'inglese ce ne sono **95**. Non e' una
+regressione: e' come si comporta il gioco, e le targhe brevi escono senza alone
+anche di monte. Registrato per non riscoprirlo, non per ripararlo.
+
 ### Il giapponese decide, e in un punto decide contro sé stesso
 
 `scene1.hsp` chiama l'artefatto di Sophia `常闇の眼` **sei volte** e `混沌の眼`

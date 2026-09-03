@@ -78,23 +78,43 @@ uno vecchio, il primo sospettato e' il metodo nuovo.
 
 ---
 
-## ⚠️ E `{txt}` NON HA UN CANCELLO IN ALTEZZA
+## ⭐⭐⭐ E `{txt}` AVEVA UN SOFFITTO CHE NESSUNO SAPEVA: E' 20, E ORA E' UN CANCELLO
 
-`problemi()` misura la larghezza delle righe di un `{txt}` (90 caratteri) e
-rifiuta le righe vuote, ma **non le conta**. La mia resa del prologo di Gaius Vis
-(386.4) ne faceva **16**: piu' alta di qualunque `{txt}` che il progetto abbia
-mai disegnato, dove il massimo e' **11**. Nessuno strumento ha detto niente.
+`problemi()` misurava la larghezza delle righe di un `{txt}` (90 caratteri) e
+rifiutava le righe vuote, ma **non le contava**. La mia resa del prologo di
+Gaius Vis (386.4) ne faceva **16**, contro le 11 del piu' alto che il progetto
+disegni, e nessuno strumento ha detto niente.
 
-Riportata a **14**, il conto dell'inglese di monte — non perche' 14 sia il
-soffitto, ma perche' e' l'unica altezza di quel blocco che qualcuno ha visto
-funzionare a schermo. La rete manca ancora: vedi le cose aperte.
+**A chiudere la questione e' stato uno screenshot**, arrivato a sessione quasi
+finita: il prologo (scena 0 blocco 3, 11 righe, finestra 2560x1440). Il modello
+di `scene.hsp:451`-`:472` prevede prima riga a y=578, ultima a 778, passo 20;
+riscalati sulla foto danno 451,6 / 607,8 / 15,62 contro **~458 / ~615 / 15,7**
+misurati. Combacia entro il mezzo per cento su tutt'e due gli assi.
+
+    y3 = windowh/2 - (n*20)/2 - 60
+    prima riga = y3 + 28 >= 60   ->   n <= (windowh//2 - 92)//10
+
+Alla finestra minima che `config.txt` dichiara (600 px): **ALTEZZA_TXT = 20**.
+⚠️ Quindi le 16 righe stavano dentro e la compressione a 14 **non serviva**: il
+modo di non pagarla era chiedere lo scatto **prima**, non dopo.
+
+⚠️ **La deroga sta nel codice, non in una lista:** `400.23` e `400.29` (i
+crediti) fanno 24 e 22 righe **gia' in inglese**, e accorciarle vorrebbe dire
+togliere qualcuno dai ringraziamenti. Il cancello chiede «non piu' alta di
+monte», non «sotto 20»: un cancello che chiede l'impossibile viene disattivato,
+non rispettato.
+
+ⓘ **E una cosa che NON e' un difetto nostro:** `dx = 80 + strlen*8`, e sotto 180
+diventa 0 — cioe' una riga di 12 caratteri o meno esce **senza alone scuro**,
+bianca sulla foto nuda. Ce ne sono 93 in italiano e **95 in inglese**: e' come si
+comporta il gioco. Registrato per non riscoprirlo.
 
 ---
 
 ## I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 134a
 
-    pytest                   **834 passed**, 6 skipped (erano 833: +1 sulla
-                             rete nuova di verifica)
+    pytest                   **836 passed**, 6 skipped (erano 833: +1 sulla
+                             rete di verifica, +2 sul soffitto dei {txt})
     prova_identita           72/72 e 30.905, invariato
     scene --referto          2199 blocchi, 1701 con testo, **1701 tradotte**,
                              4 righe morte, identita' OK, 0 fuori misura
@@ -129,13 +149,12 @@ ai documenti — e non si scrive un numero prima di averlo letto da un comando
    prologo e i finali per il lotto D. ⚠️ Se c'e' una sola cosa da chiedere
    all'utente la prossima volta, e' uno screenshot di un `{txt}` alto — vedi il
    punto 3.
-3. ⭐⭐⭐ **`{txt}` non ha una rete in altezza, e il soffitto non lo sa nessuno.**
-   Il modello dice larghezza 90 e righe vuote cancellate; quante righe ci stiano
-   non e' mai stato misurato. Il piu' alto che il progetto disegna e' 11 righe
-   (scena 0 blocco 3), il piu' alto che l'**inglese** disegna e' 14 (386.4).
-   ⭐ Un solo screenshot del prologo taglia la questione, e da li' esce una
-   costante `ALTEZZA_TXT` e un cancello. Vedi
-   [[un-modello-del-rendering-va-tarato-su-un-pixel]].
+3. ✅ ~~`{txt}` non ha una rete in altezza~~ — **CHIUSA nella 134a stessa**, da
+   uno screenshot del prologo: `ALTEZZA_TXT = 20`, tarato al pixel. Vedi il
+   paragrafo qui sopra e [[un-modello-del-rendering-va-tarato-su-un-pixel]].
+   ⓘ Resta un residuo piccolo: la resa di `386.4` e' compressa a 14 righe
+   quando ne poteva fare 16, e le due righe tolte erano ritmo del prologo di
+   Gaius Vis. Si puo' rimettere quando qualcuno rilegge quel blocco.
 4. ⭐⭐ **La rete delle grafie vale solo per `scene2.hsp`.** Le 11 rese sbagliate
    corrette nella 133a stavano in `chat.hsp`, `db_item`, `db_race` e
    `dati/talk.txt`, dove un cancello equivalente **non c'e'**. La tabella

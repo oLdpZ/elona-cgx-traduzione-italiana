@@ -68,6 +68,40 @@ FILE = "scene2.hsp"
 FINESTRA_MINIMA = 800
 LARGHEZZA_TXT = (FINESTRA_MINIMA - 80) // 8          # 90
 
+# ⭐⭐ E L'ALTEZZA, tarata su uno screenshot il 2026-09-03 (134a). Fino a quel
+# giorno il `{txt}` aveva un cancello in larghezza e **nessuno in altezza**:
+# una resa da 16 righe passava, quando la piu' alta che il progetto disegni ne
+# fa 11 e nessuno sapeva dove fosse il soffitto.
+#
+# `scene.hsp:451`-`:472`, il ciclo che disegna un `{txt}`:
+#
+#     y1 = 60                                  la banda dell'immagine parte qui
+#     y3 = windowh/2 - (n*20)/2 - y1
+#     y  = y3 + 28 + cnt*20                    riga cnt, passo 20 px
+#     x  = windoww/2 - strlen(s)*4             CENTRATA, 8 px per carattere
+#
+# Il blocco e' centrato sulla finestra e **spostato in su di y1**: piu' righe ci
+# sono, piu' la prima sale. Il vincolo che morde per primo e' quindi il bordo
+# ALTO, non il basso.
+#
+#     prima riga = windowh//2 - 10n - 60 + 28  deve restare dentro la banda,
+#                                              cioe' >= y1 = 60
+#     -> 10n <= windowh//2 - 92
+#
+# ⭐ Il modello e' tarato, non dedotto: sulla foto della scena 0 blocco 3 (11
+# righe, finestra 2560x1440) prevede la prima riga a 578 e l'ultima a 778, con
+# passo 20; a schermo, riscalate, danno 451,6 e 607,8 con passo 15,62 — e le
+# misure sulla foto dicono ~458, ~615 e 15,7. Vedi
+# [[un-modello-del-rendering-va-tarato-su-un-pixel]].
+FINESTRA_MINIMA_ALTA = 600                           # `config.txt`: «min 600 dots»
+ALTEZZA_TXT = (FINESTRA_MINIMA_ALTA // 2 - 92) // 10                 # 20
+
+# ⚠️ Due blocchi dei titoli di coda (`400.23` e `400.29`) fanno 24 e 22 righe, e
+# le fanno **gia' in inglese**: sono elenchi di nomi, e accorciarli vorrebbe
+# dire togliere qualcuno dai crediti. Il cancello non chiede quindi «stai sotto
+# 20», ma «non essere piu' alta di monte»: sotto il soffitto sempre, e sopra il
+# soffitto solo dove l'inglese ci era gia'.
+
 # init.hsp:1279 -- talk_conv buff, 56 - en*3
 COLONNA_CHAT = 53
 
@@ -448,6 +482,13 @@ def problemi(voce: dict) -> list[str]:
         if not isinstance(reso, str):
             return ["una resa di {txt} e' una stringa sola, con le righe"
                     " separate da un a capo"]
+        disegnate = reso.split("\n")
+        soffitto = max(ALTEZZA_TXT, len((voce.get("en") or "").split("\n")))
+        if len(disegnate) > soffitto:
+            guai.append("%d righe, oltre le %d che la targa regge alla finestra"
+                        " minima (%d x %d)"
+                        % (len(disegnate), soffitto, FINESTRA_MINIMA,
+                           FINESTRA_MINIMA_ALTA))
         for numero, riga in enumerate(reso.split("\n"), 1):
             if riga.strip() == "":
                 guai.append("riga %d vuota: il gioco la cancella prima di"

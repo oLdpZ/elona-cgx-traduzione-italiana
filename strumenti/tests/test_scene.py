@@ -11,7 +11,7 @@ import json
 import pytest
 
 from strumenti import percorsi
-from strumenti.scene import (CODA_MASSIMA, COLONNA_CHAT, GRAFIE,
+from strumenti.scene import (ALTEZZA_TXT, CODA_MASSIMA, COLONNA_CHAT, GRAFIE,
                              LARGHEZZA_TXT, SOFFITTO_CHAT, applica_a_righe,
                              avvisi, blocchi, carico_inglese, firma, leggi,
                              problemi, righe_a_capo, voci)
@@ -445,3 +445,52 @@ def test_il_carico_di_un_blocco_senza_testo_e_niente():
     trovati, _ = blocchi(UN_FILE)
     immagine = next(b for b in trovati if b["tipo"] == "pic")
     assert carico_inglese(immagine, UN_FILE) is None
+
+
+def test_un_txt_troppo_alto_si_accende():
+    """⭐⭐ 134a: il cancello in altezza del `{txt}`, tarato su uno screenshot.
+
+    Fino alla 134a `problemi()` misurava la larghezza di ogni riga di un `{txt}`
+    e non ne contava le righe: la mia resa del prologo di Gaius Vis ne faceva
+    16, quando la piu' alta che il progetto disegni ne fa 11, e nessuno strumento
+    ha detto niente.
+
+    Il soffitto non e' stato dedotto ma **tarato**: il modello di
+    `scene.hsp:451`-`:472` prevede, per le 11 righe della scena 0 blocco 3 su
+    una finestra 2560x1440, la prima riga a y=578 e l'ultima a y=778 con passo
+    20 — e sulla foto, riscalate, danno 451,6 / 607,8 / 15,62 contro ~458 / ~615
+    / 15,7 misurati.
+
+    ⭐ La prova al contrario e' la seconda meta': una resa di 21 righe si
+    accende, una di 20 no. Il caso non e' inventato per far scattare il
+    cancello, e' il primo valore oltre il bordo.
+    """
+    voce = {"tipo": "txt", "en": "\n".join(["riga inglese"] * 3)}
+
+    voce["it"] = "\n".join(["una riga italiana"] * ALTEZZA_TXT)
+    assert problemi(voce) == [], "20 righe ci stanno e non devono accendersi"
+
+    voce["it"] = "\n".join(["una riga italiana"] * (ALTEZZA_TXT + 1))
+    guai = problemi(voce)
+    assert any("righe, oltre le" in g for g in guai), guai
+
+
+def test_ma_un_txt_alto_QUANTO_L_INGLESE_passa():
+    """⚠️ I titoli di coda `400.23` e `400.29` fanno 24 e 22 righe **gia' in
+    inglese**: sono elenchi di nomi, e accorciarli vorrebbe dire togliere
+    qualcuno dai crediti.
+
+    Il cancello non chiede «stai sotto 20» ma «non essere piu' alta di monte».
+    Senza questa deroga il referto si sarebbe fermato su due blocchi che nessuno
+    puo' ne' deve accorciare — cioe' sarebbe stato un cancello che chiede
+    l'impossibile, e che qualcuno avrebbe disattivato invece di rispettare.
+    """
+    alto = ALTEZZA_TXT + 4
+    voce = {"tipo": "txt",
+            "en": "\n".join(["english line"] * alto),
+            "it": "\n".join(["riga italiana"] * alto)}
+    assert problemi(voce) == [], "alta quanto l'inglese: deve passare"
+
+    voce["it"] = "\n".join(["riga italiana"] * (alto + 1))
+    assert any("righe, oltre le" in g for g in problemi(voce)), \
+        "una riga piu' alta dell'inglese: deve accendersi"
