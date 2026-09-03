@@ -1091,3 +1091,47 @@ del modo mago (`// Wizard F7 reload/regen map`), che rigenera la mappa. Testo
 che esiste solo per chi sviluppa, come `screen.hsp:1125` e `system.hsp:4400`.
 
 **`map_rand.hsp:691`** — la nona riga dello stesso dump, già nominata altrove.
+
+## Quattro oggetti che restano senza articolo, e perché — 131ª
+
+L'articolo italiano di un oggetto sta in `ioriginalnamearticolo(ITEM_ID)`, cioè
+in un array **indicizzato per tipo d'oggetto**. Vale finché la testa del nome è
+una proprietà del tipo. Per dodici oggetti non lo è: `ioriginalnameref` è la
+stringa vuota in tutt'e due i rami di lingua, e il nome lo compone
+`item_func.hsp` con un `if` sull'identità.
+
+    if ( inv(INV_ITEM_ID, itemowner_itemid) == ITEM_ID_COFFEE ) {
+        if ( ibit(ITEM_BIT_ACIDPROOF, itemowner_itemid) == 1 ) {
+            locvar_itemowner_s += lang("カフェオーレ", "caffelatte")
+
+Un nome che non sta nell'array non ha articolo nell'array, e il gioco ripiegava
+sull'inglese: «a caffe'», «a te' nero». ⚠️ **E questi ripiegavano sempre**, anche
+da identificati: non è il difetto della borraccia, che riguardava il solo stato
+non identificato.
+
+Di quei dodici, **due** erano già curati (`ITEM_ID_FISH` e `ITEM_ID_FISH_JUNK`:
+la specie sta in `SUB_NAME` e ha `fishdatanarticolo`, un array suo) e **sei**
+sono stati curati nella 131ª, perché la testa ha genere costante in tutte le
+varianti del ramo: `COFFEE` («caffè»/«caffelatte»), `BLACK_TEA` («tè nero»/«tè
+al latte») e i quattro `POTIOMAN`. La cura è una riga d'articolo in
+`db_item.hsp`, generata da `genera_toppe_nomi.py` §12.
+
+**I quattro qui sotto no, e non per pigrizia: il loro articolo non è un dato del
+tipo d'oggetto.** La testa del sintagma cambia da esemplare a esemplare, quindi
+non esiste una costante da mettere in un array indicizzato per `ITEM_ID`. Vanno
+curati dove il nome si compone, non dove il tipo si dichiara.
+
+| oggetto | perché la testa cambia |
+|---|---|
+| `ITEM_ID_JUICE` | il nome è `iknownnameref(SUB_NAME) + " " + mix/milk`: la testa è **il frutto**, cioè il nome di un altro oggetto. Il genere è quello del frutto |
+| `ITEM_ID_NECRO_PARTS` | la testa è **la parte del corpo** — le nove `lang()` di `item_func.hsp:1034` — e il nome della creatura segue dopo « di ». ⓘ Quelle nove oggi stanno nel ramo `& jp`, la settima famiglia di riga morta trovata nella 129ª: il giorno che vivranno, l'articolo servirà davvero |
+| `ITEM_ID_PRODUCED_BOOK` | la testa è il titolo **generato** dal gioco (`_bookselfs`), diverso a ogni libro che il giocatore scrive |
+| `ITEM_ID_EVITEM` | il nome sta fra parentesi angolari, `"<" + evitemn(...)`. ⓘ Prima di dargli un articolo va deciso **se una marca `<>` lo vuole**: è la domanda dei nomi in 《》, non quella dell'articolo — e il progetto su quelli ha già una regola |
+
+⭐ **L'elenco non è una nota: è un dato che una rete legge.**
+`scratchpad/_131-quanti-articoli-inglesi.py` porta gli stessi quattro nomi in
+`DICHIARATI`, e fallisce in tutt'e due i versi — se compare un quinto oggetto
+senza articolo lo chiama `SCONOSCIUTO`, e se uno di questi quattro *smette* di
+ripiegare lo chiama `STANTIO`, perché allora la riga qui sopra sarebbe diventata
+una bugia. È il modo di `strumenti/maiuscole.py`: il referto non chiede zero,
+chiede che l'elenco non si allunghi da solo.

@@ -14082,3 +14082,132 @@ pezzo si chiama col nome che il giocatore legge in cima al pannello, e l'indice
 122ª, va sistemata **a mano e fuori da un lotto del corpo**, perché sono righe
 di indici già chiusi e cambiarle di straforo è esattamente il genere di modifica
 che nessun conteggio segnala.
+
+## La centotrentunesima — quattro schermate, e una spia rotta sotto ciascuna
+
+Il giocatore ha mandato quattro schermate. Tre erano `scene2.hsp`, un file
+intero mai aperto (vedi RIPRESA). La quarta era **«a borraccia filtrante»**, e
+sotto ci stavano tre difetti diversi.
+
+### ⭐⭐⭐ Un articolo giusto, calcolato, salvato — e buttato una riga dopo
+
+`db_item.hsp` nella build ha la riga esatta:
+
+    ioriginalnamearticolo(ITEM_ID_FILTRATION_BOTTLE) = "una "
+
+Ce l'ha, ed è corretta. **Non veniva mai usata.** Il blocco che
+`genera_toppe_nomi.py` scrive in `item_func.hsp` faceva così:
+
+    if ( locvar_itemname_s8 == "" ) {
+        locvar_itemname_s8 = ioriginalnamearticolo(...)      <- "una "
+        if ( locvar_itemname_ignoto != "" ) {
+            if ( locvar_itemname_s2 == "" ) {
+                locvar_itemname_s8 = iknownnamearticolo(...) <- "", e SOVRASCRIVE
+
+Quando l'oggetto non è ancora identificato, l'articolo buono veniva sovrascritto
+da quello del **nome ignoto**, che `db_item.hsp` assegna a 261 oggetti soli.
+Vuoto, si cadeva nel ripiego inglese. Misurato: **1.060 oggetti su 1.321**.
+
+⚠️⚠️ **E il progetto aveva già scritto la frase giusta.** `strumenti/estrai.py`,
+sui 1.321 `iknownnameref` che non sono blocchi:
+
+> 847 rimandano al nome identificato (`= ioriginalnameref(...)`, **e allora
+> articolo e plurale di quello vanno bene anche qui**)
+
+Vero. Ed era esattamente ciò che il codice **non** faceva. ⭐ Percio' la cura non
+aggiunge un dato: **rende vera una frase già scritta**, con una guardia sul
+sovrascrivere — si scavalca solo se c'è con che scavalcare.
+
+### ⚠️⚠️⚠️ La rete c'era, e rispondeva ZERO
+
+`scratchpad/_83-banco-nome.py` stampa in coda, da sessioni:
+
+    senza articolo (ripiegherebbero sull'inglese a/an): 0
+
+Zero, mentre il gioco scriveva «a borraccia filtrante». Il suo ciclo parte da
+`noti = d["iknownnameref"]`, cioè dai soli oggetti che hanno una **voce di
+dizionario** per quell'array: sono 261. Gli altri 1.060 non entravano
+nell'insieme, e **chi non entra non può essere contato fuori**.
+
+> Uno zero misurato sull'insieme sbagliato non è un dato: è una spia rotta.
+
+È la 109ª e la 130ª da un terzo lato, e stavolta con un aggravante: le altre due
+volte il ciclo saltava le voci su un campo mancante, qui l'insieme di partenza
+era *legittimo* — solo, non era quello della domanda. Percio' la rete nuova
+(`_131-articolo-sul-nome-ignoto.py`) **non parte dal dizionario**: parte da
+`db_item.hsp` nella **build** e simula il blocco di `item_func.hsp` riga per
+riga, leggendo dalla build anche **se la guardia c'è**. Si misura l'esito.
+
+### ⭐⭐ Una coincidenza che reggeva sul 97% non è una regola
+
+`genera_toppe_casuali.py` dichiarava nella propria intestazione:
+
+> l'articolo non è un terzo problema: la testa del nome vero è la stessa parola
+> di famiglia, quindi `ioriginalnamearticolo` porta già l'articolo giusto anche
+> per il nome casuale.
+
+Vero su 208 oggetti su 213. **Falso su cinque**, e la rete nuova li ha nominati
+al primo giro:
+
+    ITEM_ID_ACIDPROOF_LIQUID   «liquido antiacido» (un )  ma ignoto è «pozione …»
+    ITEM_ID_FIREPROOF_LIQUID   idem
+    ITEM_ID_POISON             idem
+    ITEM_ID_SLEEPING_DRUG      idem
+    ITEM_ID_NECK_GUARD         «gorgiera» (una )         ma ignoto è «amuleto …»
+
+Il nome vero di quei cinque non è una pozione né un amuleto: è un liquido, un
+veleno, un farmaco, una gorgiera. Con la sola guardia si sarebbe letto «un
+pozione torbida» e «una amuleto d'ambra» — **cinque difetti nuovi introdotti da
+una cura**. Adesso l'articolo del nome casuale si **emette**, per tutti e 213 e
+non per i cinque: si deriva dalla parola di famiglia, e la parola si legge dal
+dizionario per firma, così se «pozione» diventasse «ampolla» l'articolo la
+seguirebbe da solo.
+
+### ⭐ Il ripiego inglese non era solo dei non identificati
+
+Allargando la stessa domanda a tutti gli oggetti — `_131-quanti-articoli-inglesi.py`
+— sono usciti **dodici** oggetti che ripiegavano **sempre**, anche da
+identificati: quelli il cui nome `db_item.hsp` non scrive affatto, e che
+`item_func.hsp` compone con un `if` («caffè», «tè nero», i `potioman`). Sei
+curati, due già curati (il pesce), quattro dichiarati in `invariati.md`.
+
+    1.060 -> 4      e i quattro sono letti, scritti, e riletti da una rete
+
+### ⚠️⚠️ «1 oggetti»: un motivo lungo quindici righe che non nomina il numero
+
+`command.hsp:14175` e `blend.hsp:1390`, il piede dell'inventario e quello della
+miscelazione: `s = "" + listmax + " items"`, toppato in « oggetti». Con un
+oggetto solo si leggeva **«1 oggetti»**.
+
+⚠️ **L'inglese sbagliava allo stesso modo** («1 items»), quindi il difetto non
+l'ha aggiunto la traduzione: l'ha **ricopiato**. E il `motivo` della toppa è
+lungo quindici righe — misura i pixel del piede, l'allineamento a destra di
+`display_note`, la regola della 46ª, il quinto punto cieco della 49ª — e **non
+nomina il numero**. Si può guardare a lungo la larghezza di una riga senza mai
+guardarne la grammatica.
+
+ⓘ La resa non cambia larghezza: «oggetto» e «oggetti» hanno le stesse sette
+lettere, quindi la misura scritta in quel motivo vale ancora.
+
+### ⚠️⚠️⚠️ E un dato che viveva dentro l'uscita di un generatore
+
+Rigenerando le toppe, `pytest` ha dato due rossi in `test_maiuscole.py`: un sito
+«giudicato» si era spostato di **dodici righe in su**. Ma la guardia nuova
+aggiunge righe, non le toglie.
+
+Erano spariti **i tredici articoli dei fiori selvatici** — «una rosa», «una
+margherita», «un'ortensia» — scritti nella 96ª. Stavano **a mano dentro una
+toppa marcata `generata: nomi`**, e `genera_toppe_nomi.py` sostituisce le proprie
+toppe a ogni giro. La sua stessa intestazione dice che rilanciarlo è «il primo
+comando da rilanciare» a ogni versione nuova di CGX: era una mina, armata dalla
+96ª e innescata oggi.
+
+> Un dato che vive dentro l'uscita di un generatore è un dato che il generatore
+> cancella. Il difetto non era del contenuto: era della **casa**.
+
+Adesso i fiori stanno nel generatore (`articolo_del_fiore`), accanto al pesce che
+ha la stessa forma. ⭐ **E a dirlo è stato l'unico controllo che poteva:** il test
+dei giudicati di `maiuscole`, che sorveglia una coordinata nella build per una
+ragione che con i fiori non c'entra niente. Il commento accanto a quella
+coordinata raccontava già due spostamenti; adesso ne racconta tre, e uno dei tre
+ha trovato un guasto che non era suo.
