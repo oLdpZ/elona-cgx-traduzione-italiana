@@ -14211,3 +14211,157 @@ dei giudicati di `maiuscole`, che sorveglia una coordinata nella build per una
 ragione che con i fiori non c'entra niente. Il commento accanto a quella
 coordinata raccontava già due spostamenti; adesso ne racconta tre, e uno dei tre
 ha trovato un guasto che non era suo.
+
+---
+
+## La centotrentaduesima — la Fase 4, e tre numeri dedotti che uno screenshot ha smentito — 2026-09-03
+
+### ⚠️⚠️ Una sezione di `invariati.md` può non essere classificabile, e non è una dimenticanza
+
+`pytest` in apertura dava **16 rossi**, tutti dalla sezione che la 131ª aveva
+aggiunto per gli oggetti senza articolo. `verifica.py` conosceva due categorie —
+«resta inglese per scelta» e «candidato da tradurre» — e tutt'e due danno per
+scontato che la prima colonna della tabella **sia una stringa del gioco**. Lì la
+prima colonna è fatta di identificativi del sorgente (`ITEM_ID_JUICE`), che nel
+dizionario non compaiono: le due affermazioni disponibili erano tutt'e due
+false.
+
+Ora c'è `_SEZIONI_SENZA_VALORI`, esplicita come le altre due. ⚠️ **La proprietà
+che non doveva rompersi è il silenzio**, comprata dal difetto del 2026-08-07:
+una sezione nuova continua ad alzare `ValueError` finché qualcuno non la
+classifica a mano, e un test lo prova puntando una sezione che *somiglia* alla
+nuova ma che nessuno ha dichiarato.
+
+💡 *Una terza categoria non è un varco, se resta esplicita come le prime due.*
+
+### ⭐⭐⭐ Un modello del rendering giusto è il posto più pericoloso dove sbagliare
+
+Tre schermate della scena 0 hanno confermato il modello dei `{txt}` **al
+pixel**: passo 20 px, centro a 1279 su `windoww/2` = 1280, e 8,03 / 8,05 / 8,12
+px per carattere contro gli 8 che il renderer assume quando centra con
+`strlen*4`. E hanno smentito tre cose che ci stavano sopra:
+
+- **il 7,7 px/carattere di `larghezze.py` non si eredita.** È lo stesso Courier
+  New a una **dimensione diversa** — i menu a 12, le scene a 14 (`16 - en*2`).
+  Un numero misurato a schermo resta legato alla condizione in cui fu misurato;
+- **`windoww` è configurazione, non 800** (`config.hsp:144` legge `windowW.`).
+  Quella macchina gioca a 2560, dove `80 + strlen*8` non stringe fino a 310
+  caratteri: le due righe inglesi «fuori misura» lì non si vedono affatto. ⭐ Il
+  budget quindi **non si prende dalla finestra di chi guarda**, si prende dal
+  minimo che il gioco dichiara di reggere («min 800 dots» in `config.txt`);
+- **una riga vuota dentro un `{txt}` non arriva a schermo.**
+  `scene.hsp:410-415` cancella le righe vuote dal buffer prima di disegnare. Il
+  secondo pannello del prologo ha tre capoversi separati da righe vuote nel
+  sorgente e a schermo è **un blocco compatto di 13 righe**. Un capoverso non si
+  separa: o si accetta com'è, o si spezza in due `{txt}`, che è un'altra
+  schermata.
+
+💡 *Un modello di **che cosa** il programma disegna si ricava dal codice; uno di
+**quanto è largo**, o di **che cosa arriva davvero a schermo**, no.*
+
+### ⚠️⚠️⚠️ E una correzione mia, ritirata nella stessa sessione
+
+A metà giornata ho ricalcolato a **14** il soffitto del riquadro di dialogo e
+l'ho scritto in un commit come se il **13** fosse un banale errore d'indice. Il
+13 non era un numero abbandonato: è la formula che
+`scratchpad/chat-lotto-misura.py` usa **dalla 70ª**.
+
+    (324 - n*19 - 43) // 19    n=1 -> 13    la fascia di 19 px di ogni riga
+                                            deve stare tutta sopra il menu
+    43 + 19*cnt < 307          -> 14        basta il punto di partenza del testo
+
+Sono due letture diverse di **quanto sia alta una riga**, differiscono di uno, e
+nessuna delle due è stata vista a schermo.
+
+⭐⭐⭐ **Si tiene il 13.** Tre ragioni, e la prima è quella che vale in generale:
+un cancello condiviso **non si allenta su un ricalcolo** — è la lezione della
+112ª (*un numero che migliora va guardato con lo stesso sospetto di uno che
+peggiora*) applicata a me. Poi l'asimmetria degli errori: un tetto troppo basso
+fa riscrivere una resa che ci stava, uno troppo alto lascia a schermo un difetto
+che nessuno guarda più. E infine: fra due letture entrambe non provate si sceglie
+quella che non può far danno.
+
+⚠️ **E prima di dichiarare sbagliato un numero del progetto, si cerca da dove
+viene.** `grep "tredici righe\|13 righe"` su `decisioni.md` e la ripresa ci ha
+messo venti secondi, e ha cambiato la conclusione.
+
+ⓘ L'inglese di monte fa **14 righe** nel blocco più lungo (scena 11), come già
+in `chat.hsp:7289` notato dalla 70ª. Non è un permesso: è l'inglese che sfora, e
+non lo si imita.
+
+### ⭐⭐ Il giapponese c'è anche per un file che non passa da `lang()`
+
+`scene1.hsp` è il gemello giapponese di `scene2.hsp`, e si appaia **blocco per
+blocco** dove la struttura combacia (81 scene su 89; sulle altre otto l'inglese
+ha tagliato dei `{txt}`, e appaiare per ordinale accosterebbe blocchi che non si
+corrispondono — peggio di nessun giapponese, perché sembra un dato).
+
+Serviva alla prima riga tradotta:
+
+    ヴィンデールの森   -> foresta di Vindale
+    異形の森           -> Foresta Eretica     (già in 17 voci del dizionario)
+
+L'inglese chiama tutt'e due «Vindale Forest» / «Heretical Forest» senza seguire
+una linea. Nel prologo fa **cambiare e insieme invadere** la stessa foresta e
+perde il continente orientale: il giapponese dice che a cambiare è la foresta di
+**Karune** e che l'anomalia comincia nella foresta di **Vindale**, a oriente.
+Senza l'appaiamento la scena più letta del gioco avrebbe avuto il nome sbagliato
+in due punti su tre.
+
+ⓘ La deroga «dove l'inglese di monte è rotto si segue il giapponese» è già del
+progetto (79ª-81ª): non è una scelta nuova. Lo stesso vale per `2.29`, dove
+l'inglese dice che Bethel non è più pericoloso e il giapponese l'opposto — non
+due sfumature, due frasi contrarie.
+
+⚠️ **Ma un nome già deciso non si cambia.** Il giapponese lo chiama ヴェセル
+(Veseru); il progetto ha `<Bethel> il falco bianco` in `db_creature.hsp` e
+`db_card.hsp`, e resta **Bethel**. La coerenza col resto del gioco vale più
+della fedeltà al giapponese su una traslitterazione.
+
+### ⭐ Quattro righe di `scene2.hsp` non arrivano mai a schermo
+
+Solo `{txt}`, `{chat_N}` e `{wait}` **aprono** un testo, e il marcatore
+successivo — quale che sia — lo chiude (`scene.hsp:56-108`). Quattro didascalie
+di luogo sono scritte dopo un `{pic}`, un `{fade}` e un `{actor_2}`: il gioco le
+salta. Sono morte per flusso, come le famiglie già trovate dentro le `lang()`, e
+il referto le conta con un numero atteso di **4**.
+
+### ⚠️ Due reti tarate sull'inglese dopo che avevano dato falsi allarmi
+
+- **I 53 caratteri non sono la larghezza massima.** `talk_conv` manda a capo
+  *prima* di una parola che sforerebbe, ma l'ultimo pezzo — quello senza più
+  spazi dentro — lo attacca alla riga corrente **senza controllare**
+  (`init.hsp:1368`, l'`arg1 += msgtemp` fuori dai due cicli). Nell'inglese di
+  monte succede in **125 blocchi su 1.181**, fino a 66 caratteri. Il tetto è
+  quello, non 53.
+- **«Una riga in più dell'inglese» è un avviso, non un rifiuto.** È come lo
+  separa `chat-lotto-misura.py` dalla 70ª: `fuori` e `peggiorate` sono due
+  numeri distinti. L'italiano è quasi sempre più lungo; un cancello rosso su una
+  resa corretta si smette di guardarlo.
+
+💡 *Una rete che si accende su ciò che il monte fa normalmente non misura la
+resa: misura la mia ipotesi.*
+
+### ⚠️ E due errori miei li hanno presi reti che non c'entravano niente
+
+Nel dizionario `it` dev'essere una **stringa**: le avevo scritte come liste per
+i `{txt}`, e ad accendersi sono stati `test_accenti` e `test_bilingui` — che
+leggono `it` e chiamano `.strip()` su tutti i file di `dizionario/`. E gli
+accenti nel dizionario si scrivono **veri**: a degradarli è l'iniezione, non chi
+traduce, ed è `_APOSTROFO_A_MANO` a dirlo.
+
+⭐ **Aggiungere un file al dizionario cambia l'ingresso di strumenti che non
+sanno di te.** È la stessa forma del guasto della 112ª (un documento di prosa
+che uno strumento legge non è prosa), applicata a un file di dati nuovo.
+
+### La catena della Fase 4
+
+`strumenti/scene.py`: `--estrai`, `--reimporta`, `--applica`, e un referto. Il
+cancello d'ingresso è l'**identità byte per byte** col dizionario vuoto, con la
+sua prova al contrario — senza la quale un `applica` che non facesse niente la
+passerebbe a occhi chiusi.
+
+⚠️⚠️ **E c'è un ordine obbligato per portare le scene in gioco**: `applica.py`
+rigenera l'albero di build da `sorgente/` e **cancella** l'iniezione, quindi
+`scene.py --applica` va lanciato **dopo**. Invertirli non dà errore: dà un
+eseguibile con le scene ancora in inglese e nessun segnale che manchi qualcosa.

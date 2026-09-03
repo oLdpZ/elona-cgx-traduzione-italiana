@@ -4324,3 +4324,42 @@ sono quattro stati distinti**, e qui il quarto manca. Le scelte più forti della
 sessione — le cinque righe dei resti col verbo distinto, le tre alghe che devono
 restare diverse, i tredici accorciamenti dei materiali — sono **giudicate solo
 da me**.
+
+---
+
+## 2026-09-03, centotrentaduesima — si apre un fronte fuori dal perimetro
+
+⚠️⚠️ **Il perimetro resta al 100,0% e il fronte cresce lo stesso.** I contatori
+del progetto (`perimetro.py`, `_97-quanto-resta`, `verifica --dizionario`)
+guardano le `lang()` degli `.hsp`, e `scene2.hsp` non ne ha nemmeno una: **è**
+il ramo inglese. Quindi «26.327 fatte, 0 da fare, 100,0%» era vero ieri, è vero
+oggi, e da oggi convive con un fronte aperto di 167.003 caratteri.
+
+    scene2.hsp   1.701 blocchi con testo, 167.003 caratteri
+                 tradotti nella 132a:  **95 blocchi**, lotto A (scene 0-5)
+                 restano:              1.606 blocchi, ~154.000 caratteri
+
+| lotto | scene | blocchi | caratteri | stato |
+|---|---|---:|---:|---|
+| A — prologo e Vernis | 0-5 | 95 | 13.407 | ✅ tradotto |
+| B — la storia principale | 7-30 | 173 | 33.190 | da fare |
+| C — il seguito | 101-135 | 477 | 56.393 | da fare |
+| D — il finale | 300-400 | 599 | 64.442 | da fare |
+
+ⓘ Il conteggio dei caratteri del lotto A (13.407) è più alto di quello del piano
+(12.978) perché il piano contava solo `{txt}` e `{chat_N}`, e le voci sono 95
+perché comprendono anche le 16 etichette `{actor_N}`.
+
+⚠️⚠️ **Nessuna delle 95 rese è stata vista a schermo, e stavolta non è solo il
+debito: non sono nemmeno nell'eseguibile.** Stanno nel dizionario e nell'albero
+di build; l'`cgx-test.exe` installato è ancora quello delle 02:00 del 03/09.
+Il debito di collaudo sale da 9.650 a **~9.745**.
+
+⭐ **Ma tre delle rese di oggi sono già state guardate in inglese**, ed è la
+ragione per cui la scena 0 è tradotta bene: le tre schermate del giocatore hanno
+tarato il modello dei `{txt}` prima che ci scrivessi sopra una riga. È il
+contrario dell'ordine solito — di norma si traduce e poi si guarda.
+
+ⓘ **Costruito, misurato dagli strumenti, provato al contrario, compilato e visto
+a schermo sono cinque stati distinti.** Qui i primi tre ci sono; il quarto e il
+quinto no.

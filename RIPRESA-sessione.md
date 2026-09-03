@@ -1,16 +1,172 @@
 # Ripresa sessione
 
-Aggiornato: 2026-09-03, fine della **centotrentunesima** sessione (**quattro
-schermate del giocatore, e sotto ognuna una spia rotta: 1.060 oggetti dicevano
-«a borraccia filtrante», i tredici fiori vivevano dentro l'uscita di un
-generatore, e `scene2.hsp` non l'ha mai aperto nessuno**).
+Aggiornato: 2026-09-03, fine della **centotrentaduesima** sessione (**la Fase 4
+si apre su `scene2.hsp`, e tre numeri che avevo dedotto dal codice li ha
+smentiti uno screenshot -- fra cui uno che avevo "corretto" io stesso poche ore
+prima**).
 
-⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' QUELLO DELLE 02:00 DEL 03/09**, ricompilato e
-ricopiato dopo la cura dell'articolo e il singolare del piede. Se la data e'
-quella, non c'e' niente da rifare. ⓘ Si legge con
+⚠️⚠️⚠️ **L'ESEGUIBILE IN GIOCO E' ANCORA QUELLO DELLE 02:00 DEL 03/09**, cioe'
+quello della 131a: **le 95 rese del lotto A NON sono in gioco.** Stanno nel
+dizionario e nell'albero di build, non nell'eseguibile. ⓘ Si legge con
 `ls -l C:\Games\Elona\elonaplus2.31\cgx-test.exe`.
 
+⚠️⚠️ **E c'e' un ordine obbligato per portarcele.** `applica.py` rigenera
+l'albero di build da `sorgente/` e **cancella** l'iniezione delle scene. La
+sequenza e':
+
+    python -m strumenti.applica            <- prima
+    python -m strumenti.scene --applica    <- POI, mai prima
+    python -m strumenti.compila --eseguibile
+    python -m strumenti.installa
+
+Invertire i primi due non da' errore: da' un eseguibile con le scene ancora in
+inglese e nessun segnale che manchi qualcosa.
+
 ---
+
+## ⚠️⚠️⚠️ LA COSA CHE PESA DI PIU' DELLA 132a: TRE NUMERI DEDOTTI, TRE SMENTITI
+
+Il modello del renderer dei `{txt}` letto nel codice era **esatto al pixel** --
+passo fra le righe 20 px, centro a 1279 su 1280, 8,03/8,05/8,12 px per carattere
+contro gli 8 che il renderer assume. E proprio per questo e' pericoloso: sopra
+un modello giusto avevo costruito tre numeri sbagliati.
+
+    7,7 px/carattere      <- di `larghezze.py`, ma e' lo STESSO font a una
+                             dimensione diversa (menu 12, scene 14). Qui fa 8,0.
+    finestra da 800 px    <- `windoww` e' CONFIGURAZIONE (`config.hsp:144`).
+                             Quella macchina gioca a 2560, dove non stringe
+                             niente fino a 310 caratteri. Il budget si prende
+                             dal minimo dichiarato da `config.txt`, non dalla
+                             finestra di chi guarda.
+    riga vuota = stacco   <- `scene.hsp:410-415` cancella le righe vuote prima
+                             di disegnare. Tre capoversi del prologo si vedono
+                             come 13 righe di seguito, senza stacco.
+
+⭐ **Come applicarlo:** un modello di *che cosa* il programma disegna si ricava
+dal codice; uno di *quanto e' largo* no, e nemmeno uno di *che cosa arriva a
+schermo*. Vedi [[un-modello-del-rendering-va-tarato-su-un-pixel]] nel vault.
+
+---
+
+## ⚠️⚠️⚠️ E UNA MIA CORREZIONE E' STATA RITIRATA NELLA STESSA SESSIONE
+
+A meta' giornata avevo ricalcolato a **14** il soffitto del riquadro di dialogo,
+e l'avevo scritto in un commit come se il **13** fosse un banale errore
+d'indice. Il 13 non era un numero abbandonato: e' la formula che
+`scratchpad/chat-lotto-misura.py` usa **dalla 70a**.
+
+    (324 - n*19 - 43) // 19    n=1 -> 13     <- la fascia di 19 px per riga
+    43 + 19*cnt < 307          -> 14         <- il solo punto di partenza
+
+Sono **due letture diverse di quanto sia alta una riga**, e differiscono di uno.
+Nessuna delle due e' stata vista a schermo.
+
+⭐⭐⭐ **Come applicarlo: un cancello condiviso non si allenta su un ricalcolo.**
+E' la lezione della 112a (*un numero che MIGLIORA va guardato con lo stesso
+sospetto di uno che peggiora*) applicata a me stesso. Fra due letture entrambe
+non provate si sceglie **quella che non puo' far danno**: un tetto troppo basso
+fa riscrivere una resa che ci stava, uno troppo alto lascia a schermo un difetto
+che nessuno guarda piu'. ⚠️ E prima di dichiarare sbagliato un numero del
+progetto **si cerca da dove viene**: `grep "13 righe\|tredici righe"` su
+`decisioni.md` e la ripresa ci ha messo venti secondi.
+
+---
+
+## ⭐⭐ IL GIAPPONESE C'E' ANCHE PER UN FILE SENZA `lang()`
+
+`scene1.hsp` e' il gemello giapponese di `scene2.hsp`, e `strumenti/scene.py` lo
+appaia **blocco per blocco** (solo dove la struttura combacia: 81 scene su 89).
+Serviva subito, e su la scena piu' letta del gioco:
+
+    ヴィンデールの森   -> foresta di Vindale
+    異形の森           -> Foresta Eretica      (gia' in 17 voci del dizionario)
+
+L'inglese chiama **tutt'e due** «Vindale Forest» / «Heretical Forest» senza
+seguire una linea, e nel prologo fa **cambiare e insieme invadere** la stessa
+foresta, perdendo il continente orientale che il giapponese nomina. Senza
+l'appaiamento, la scena 0 avrebbe avuto il nome sbagliato in due punti su tre.
+
+ⓘ La deroga «dove l'inglese di monte e' rotto si segue il giapponese» e' gia'
+del progetto (79a-81a, `decisioni.md`): non e' una scelta nuova di oggi.
+
+---
+
+## ⭐ QUATTRO RIGHE DEL FILE NON ARRIVANO MAI A SCHERMO
+
+Solo `{txt}`, `{chat_N}` e `{wait}` **aprono** un testo da disegnare, e il
+marcatore successivo -- quale che sia -- lo chiude (`scene.hsp:56-108`). La
+prosa che non ha sopra di se' un marcatore che apre non la disegna nessuno:
+
+    scene2.hsp:2977  - Near the Niesa / Eulderna Border -     (dopo un {pic})
+    scene2.hsp:3030  - Near the Niesa / Eulderna Border -     (dopo un {pic})
+    scene2.hsp:4568  - The Next Morning - Sacred Library... - (dopo un {fade})
+    scene2.hsp:4892  - Interdimensional Crevice -             (dopo un {actor_2})
+
+Morte per flusso, come le famiglie gia' trovate dentro le `lang()`. Il referto
+le conta e il numero atteso e' **4**: se diventano cinque, o il monte si e'
+mosso o abbiamo scritto italiano dove nessuno legge.
+
+---
+
+## I COMANDI NUOVI
+
+    PYTHONIOENCODING=utf-8 PYTHONPATH=. python -m strumenti.scene
+    ... --estrai 0-5                 lotto JSONL delle scene indicate
+    ... --reimporta lavoro/X.jsonl   valida tutto e solo se pulito scrive
+    ... --applica                    inietta in build/scene2.hsp
+    PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/_132-scene2-terreno.py --divergenza
+
+---
+
+## I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 132a
+
+    pytest                   **827 passed**, 6 skipped (erano 798+2: +27 di scene)
+    prova_identita           72/72 e 30.905, invariato
+    scene --referto          2199 blocchi, 1701 con testo, **95 tradotte**,
+                             4 righe morte, identita' OK, 0 fuori misura
+    _132-scene2-terreno      488 righe {txt}, 2 oltre la targa (inglese),
+                             il blocco chat piu' lungo e' 14 righe (scena 11)
+    toppe                    1.182, agganciate 1.182/1.182
+    perimetro.py             26.327 fatte, 0 da fare, 100,0%
+    _97-quanto-resta         111 / 111 / 0
+    verifica --dizionario    111 non tradotte, 0 da ritradurre
+
+⚠️ **Nessuno di questi numeri si eredita da qui**: si rilanciano. E in chiusura
+si rilancia **tutto cio' che produce un numero atteso**, dopo l'ultima modifica
+ai documenti.
+
+---
+
+## Che cosa guardare adesso: le cose aperte
+
+1. ⭐⭐⭐ **Il lotto B di `scene2.hsp`** (scene 7-30, 173 blocchi, 33.190
+   caratteri). La catena c'e', le reti ci sono, il metodo e' rodato su 95 rese.
+   Vedi `piani/2026-09-03-fase-4-scene2.md`.
+2. ⭐⭐⭐ **Lo scatto che manca: la scena 11.** E' il blocco da **14 righe su un
+   soffitto di 13**, l'unico punto del file dove l'inglese sfora. Serve a
+   sapere due cose che il conto non da': se la quattordicesima riga tocca
+   davvero la voce del menu, e **quante voci** ha quel menu (il 13 vale con
+   una voce sola; con due scende a 12). Si guarda **senza ricompilare**, con
+   l'eseguibile installato adesso, tramite il disco di riproduzione
+   (`ITEM_ID_PLAYBACK_DISC` = **576**). ⚠️ La lista di collaudo verificata sta
+   in fondo al piano della Fase 4.
+3. ⭐⭐ **Il debito di collaudo**, ~9.745 rese mai viste a schermo. Le 95 di
+   oggi non fanno eccezione: sono costruite e provate dagli strumenti, **non
+   viste**.
+4. ⭐⭐ **Le quattro teste variabili senza articolo** (`JUICE`, `NECRO_PARTS`,
+   `PRODUCED_BOOK`, `EVITEM`), dalla 131a. Invariata.
+5. ⭐⭐ **Chi altro vive dentro l'uscita di un generatore?** Dalla 131a: un
+   referto che confronti `toppe.jsonl` con quel che i generatori producono oggi
+   non esiste. Invariata.
+6. ⭐⭐ **La rete che cerca l'operando di una SOSTITUZIONE** (`sreplace`,
+   `instr`, `strmid` con un letterale). Invariata dalla 130a.
+7. ⭐ **Le reti sulle toppe: ne restano fuori due** -- le maiuscole del testo e
+   le larghezze fuori dai menu. Invariata dalla 130a.
+8. 💡 **La coda nuda di una `lang()` gia' resa** (`chat.hsp:17065`, 127a).
+
+---
+
+## La centotrentunesima sessione (per storia)
 
 ## ⚠️⚠️⚠️ LA COSA PIU' GROSSA DELLA 131a: L'ARTICOLO ERA CALCOLATO, SALVATO, E BUTTATO UNA RIGA DOPO
 
@@ -153,7 +309,7 @@ scritta in quel motivo vale ancora.
 
 ---
 
-## I COMANDI NUOVI
+## I COMANDI NUOVI DELLA 131a
 
     PYTHONIOENCODING=utf-8 PYTHONPATH=. python scratchpad/_131-articolo-sul-nome-ignoto.py
     ... --elenco     ogni oggetto che ripiega, con nome e famiglia
@@ -253,7 +409,10 @@ dizionario.
 
 ---
 
-## Che cosa guardare adesso: le cose aperte
+## Le cose aperte com'erano alla fine della 131a (per storia)
+
+ⓘ La voce 1 e' stata aperta dalla 132a: e' la Fase 4, e il suo piano sta in
+`piani/2026-09-03-fase-4-scene2.md`. L'elenco che vale e' quello in testa.
 
 1. ⭐⭐⭐ **`scene2.hsp`: ~1.675 righe di prosa, e va aperto come una fase con un
    piano suo.** E' il fronte piu' grosso che il progetto abbia oggi, ed e' il
