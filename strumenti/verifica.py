@@ -97,20 +97,48 @@ _SEZIONI_INVARIANTI = ("Valori di dato", "Versi senza contenuto linguistico",
                        "Termini coniati dentro una DESCRIZIONE")
 _SEZIONI_NON_INVARIANTI = ("Da decidere", "Nomi di creatura")
 
+# ⚠️ La terza categoria, nata nella 132a. Le due liste qui sopra rispondono
+# alla domanda «questi valori restano inglesi per scelta?», e per farlo danno
+# per scontato che la prima colonna della tabella **sia** una stringa del
+# gioco. Per qualche sezione non lo e': la sezione dell'articolo mancante,
+# scritta dalla 131a, ha per prima colonna degli identificativi del sorgente
+# (`ITEM_ID_JUICE`), che nel dizionario non compaiono e non possono ne'
+# restare inglesi ne' essere candidati a niente.
+#
+# Prima non c'era modo di dirlo, e il costo si e' visto in apertura della
+# 132a: `pytest` **16 rossi**, tutti da quella sezione, lasciati dal commit
+# dei documenti della 131a. Le due scelte disponibili erano tutt'e due false —
+# invariante avrebbe messo `ITEM_ID_JUICE` fra le stringhe che restano
+# inglesi, non invariante l'avrebbe messo fra i candidati da tradurre.
+#
+# La proprieta' che questa lista NON deve rompere e' l'unica che conta qui: il
+# silenzio. Una sezione nuova continua ad alzare `ValueError` finche' qualcuno
+# non la classifica a mano, e le tre categorie sono tre affermazioni diverse,
+# tutte esplicite.
+_SEZIONI_SENZA_VALORI = ("Quattro oggetti che restano senza articolo",)
 
-def _e_invariante(titolo: str) -> bool:
-    """Da che parte sta una sezione. Nessun default: o e' scritto, o si rompe."""
+
+def _classifica_sezione(titolo: str) -> str:
+    """Da che parte sta una sezione: `invariante`, `candidato` o `senza-valori`.
+
+    Nessun default: o e' scritto, o si rompe.
+    """
     for prefisso in _SEZIONI_INVARIANTI:
         if titolo.startswith(prefisso):
-            return True
+            return "invariante"
     for prefisso in _SEZIONI_NON_INVARIANTI:
         if titolo.startswith(prefisso):
-            return False
+            return "candidato"
+    for prefisso in _SEZIONI_SENZA_VALORI:
+        if titolo.startswith(prefisso):
+            return "senza-valori"
     raise ValueError(
         f"invariati.md: la sezione {titolo!r} porta dei valori ma non e'"
         " classificata. Aggiungi il suo prefisso a _SEZIONI_INVARIANTI (i suoi"
-        " valori restano inglesi per scelta) oppure a _SEZIONI_NON_INVARIANTI"
-        " (sono candidati, e verifica.py deve continuare a segnalarli)."
+        " valori restano inglesi per scelta), a _SEZIONI_NON_INVARIANTI"
+        " (sono candidati, e verifica.py deve continuare a segnalarli) oppure"
+        " a _SEZIONI_SENZA_VALORI (la prima colonna non e' una stringa del"
+        " gioco: sono identificativi, nomi di costante, riferimenti)."
     )
 
 
@@ -146,10 +174,12 @@ def carica_invariati(percorso: Path | None = None) -> set[str]:
 
     Si legge **sezione per sezione**. La tabella iniziale, prima di ogni
     titolo, sono gli invariati per scelta esplicita. Le sezioni successive
-    valgono secondo `_SEZIONI_INVARIANTI` e `_SEZIONI_NON_INVARIANTI`: alcune
-    elencano valori che devono restare inglesi (i valori di dato), altre
-    elencano candidati non ancora accettati, e leggerle li renderebbe
-    invariati di fatto, cioe' l'opposto di cio' che dichiarano.
+    valgono secondo `_classifica_sezione`: alcune elencano valori che devono
+    restare inglesi (i valori di dato), altre elencano candidati non ancora
+    accettati — e leggerle li renderebbe invariati di fatto, cioe' l'opposto
+    di cio' che dichiarano — e altre ancora hanno per prima colonna qualcosa
+    che non e' affatto una stringa del gioco (identificativi, nomi di
+    costante), e allora non c'e' niente da raccogliere.
 
     Una sezione che porta valori senza essere classificata alza `ValueError`.
     Una sezione di sola prosa non e' una decisione da prendere, e si ignora.
@@ -178,7 +208,7 @@ def carica_invariati(percorso: Path | None = None) -> set[str]:
     for titolo, trovati in per_sezione.items():
         if not trovati:
             continue
-        if titolo == "" or _e_invariante(titolo):
+        if titolo == "" or _classifica_sezione(titolo) == "invariante":
             valori.update(trovati)
     return valori
 

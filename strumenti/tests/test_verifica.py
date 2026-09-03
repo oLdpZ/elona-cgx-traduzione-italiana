@@ -464,6 +464,50 @@ def test_una_sezione_senza_tabella_non_va_classificata(tmp_path):
     assert carica_invariati(percorso) == {"Vernis"}
 
 
+def test_una_sezione_dichiarata_senza_valori_non_da_invariati(tmp_path):
+    """La terza categoria, nata dai 16 rossi in apertura della 132a.
+
+    La sezione dell'articolo mancante, scritta dalla 131a, ha per prima colonna
+    degli identificativi del sorgente (`ITEM_ID_JUICE`): non sono stringhe del
+    gioco, quindi non possono ne' «restare inglesi per scelta» ne' essere
+    «candidati da tradurre». Le due categorie di prima erano tutt'e due false,
+    e il file vero non era classificabile senza mentire.
+    """
+    percorso = tmp_path / "invariati.md"
+    percorso.write_text(
+        "| valore | motivo |\n|---|---|\n| Vernis | nome proprio |\n"
+        "\n## Quattro oggetti che restano senza articolo, e perche' — 131a\n\n"
+        "| oggetto | perche' la testa cambia |\n|---|---|\n"
+        "| `ITEM_ID_JUICE` | la testa e' il frutto |\n",
+        encoding="utf-8",
+    )
+    assert carica_invariati(percorso) == {"Vernis"}
+
+
+def test_la_terza_categoria_non_apre_un_varco_al_silenzio(tmp_path):
+    # la prova al contrario della categoria nuova: aggiungerne una terza
+    # sarebbe stato un guasto se avesse dato un default a chi non classifica.
+    # Una sezione che le somiglia -- stessa forma di tabella, prima colonna di
+    # identificativi -- ma che nessuno ha scritto in `_SEZIONI_SENZA_VALORI`
+    # deve rompere come prima
+    percorso = tmp_path / "invariati.md"
+    percorso.write_text(
+        "| valore | motivo |\n|---|---|\n| Vernis | nome proprio |\n"
+        "\n## Cinque oggetti che restano senza plurale, e perche' — 999a\n\n"
+        "| oggetto | perche' |\n|---|---|\n"
+        "| `ITEM_ID_QUALCOSA` | boh |\n",
+        encoding="utf-8",
+    )
+    try:
+        carica_invariati(percorso)
+    except ValueError as errore:
+        assert "Cinque oggetti che restano senza plurale" in str(errore)
+        assert "_SEZIONI_SENZA_VALORI" in str(errore)
+    else:
+        raise AssertionError("la terza categoria non deve valere per prefissi"
+                             " che nessuno ha dichiarato")
+
+
 def test_il_file_vero_ha_tutte_le_sezioni_classificate():
     # la rete di sicurezza vera: gira sul file del progetto, non su un
     # tmp_path costruito ad arte. Se domani qualcuno aggiunge una sezione a
