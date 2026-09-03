@@ -64,6 +64,21 @@ _LETTERALE = re.compile(r'"((?:[^"\\]|\\.)*)"')
 # Un falso positivo costa una riga di dichiarazione con scritto perche'; un
 # falso negativo costa un'altra Fase 4 chiusa al 100% con 951 stringhe inglesi
 # dentro.
+# ⚠️⚠️ QUESTA EURISTICA NON VEDE LE ETICHETTE, E UN'INTERFACCIA E' FATTA DI
+# ETICHETTE. Pretende DUE parole: `"Regeneration "` e' una parola sola seguita
+# da uno spazio, e dopo lo spazio non c'e' nessuna lettera, quindi non aggancia.
+# La 137a ne ha trovate **32 a schermo** cosi' -- le 31 etichette dei bit di
+# `tcg.hsp:1522-1605` piu' `"Bits:  "` -- dentro un file che questo modulo
+# dichiarava e contava. Non erano un fronte non dichiarato: erano dentro un
+# fronte dichiarato, e il numero del fronte non le comprendeva.
+#
+# ⚠️ Il buco vale per TUTTO il sorgente, non solo per `tcg.hsp`. Quante siano
+# altrove nessuno l'ha misurato, ed e' una cosa aperta scritta in
+# `RIPRESA-sessione.md`, non un lavoro fatto a meta' in silenzio. Allargare
+# l'euristica alla parola sola qui dentro pero' non si puo': in HSP la
+# stragrande maggioranza dei letterali di una parola sono identificatori, e il
+# referto annegherebbe. Serve una rete che parta da CHI DISEGNA, non dalla forma
+# della stringa.
 _PROSA = re.compile(r"[A-Za-z]{3}[a-z]*\s+[A-Za-z]")
 
 
@@ -172,7 +187,12 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "segnaposto delle schede (:4632-:4658, «race dependent», «[Random "
         "AKA] [Random Name]»). ⚠️ Restano fuori 10 `proctcg`, che sono tracce "
         "di debug. Vanno lavorate INSIEME a `tcg_mod` e `tcg_skill`: le "
-        "etichette entrano nella stessa stringa delle schede."),
+        "etichette entrano nella stessa stringa delle schede. "
+        "⚠️⚠️ E QUESTO 52 NON E' TUTTO: la 137ª ha reso **32 stringhe a "
+        "schermo di questo stesso file** che il conto non comprende — le 31 "
+        "etichette dei bit (`\"Flying \"`, `\"Haste \"`...) e `\"Bits:  \"` — "
+        "perché `_PROSA` pretende due parole. Il 52 resta 52: quelle 32 non "
+        "c'erano dentro nemmeno prima."),
     "tcg_custom.hsp": Dichiarazione(
         "fronte", 4,
         "Tre tracce di debug (`proc`, `proctcg`, `poptext@tcg`) e una cosa "

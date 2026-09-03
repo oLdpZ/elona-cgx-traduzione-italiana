@@ -525,3 +525,78 @@ def test_letterali_di_lang_prende_solo_quel_che_sta_dentro():
 def test_letterali_di_lang_regge_le_virgolette_protette():
     riga = '\ttxt lang("a", "dice \\"si\\" e basta"), "fuori"'
     assert letterali_di_lang([riga]) == ['"a"', '"dice \\"si\\" e basta"']
+
+
+# --- la riga dei tratti della scheda: quattro siti che stanno o cadono insieme
+#
+# ⚠️⚠️ Il cancello legge la **BUILD**, non `sorgente/`. E' la lezione piu' cara
+# della 136a: il sorgente e' pinnato a un tag apposta, e un invariante misurato
+# li' e' verde per costruzione in ogni sessione, qualunque cosa succeda alle
+# rese. Non e' un cancello, e' un'asserzione su una costante.
+
+TRATTI_EN = '"Bits:  "'
+TRATTI_IT = '"Tratti:  "'
+SITI_TRATTI = 4          # 1 che la scrive (:1522), 3 che la CERCANO
+
+
+def _build_tcg() -> str:
+    percorso = percorsi.BUILD_HSP / "tcg.hsp"
+    if not percorso.exists():
+        pytest.skip("albero di build assente: `python -m strumenti.applica`")
+    return percorso.read_text(encoding="cp932")
+
+
+def test_i_quattro_siti_di_tratti_sono_concordi():
+    """`"Bits:  "` la scrive `tcg.hsp:1522` e la CERCANO `:1470`, `:4625` e
+    `:4630`. Tradotta solo dove si scrive, la riga dei tratti sparisce dalla
+    scheda di ogni carta che ne abbia -- ed e' esattamente il modo in cui la
+    136a aveva spento la copia di 195 carte senza che niente diventasse rosso.
+
+    ⚠️ I DUE SPAZI sono portanti: chi la cerca la cerca esatta.
+    """
+    build = _build_tcg()
+    assert build.count(TRATTI_IT) == SITI_TRATTI
+    assert build.count(TRATTI_EN) == 0
+
+
+def test_il_cancello_dei_tratti_guarda_la_copia_che_cambia():
+    """La prova al contrario, e non e' un booleano: dice **dove** si accende.
+
+    Se questo cancello leggesse `sorgente/` troverebbe quattro `"Bits:  "` e
+    zero `"Tratti:  "`, cioe' il contrario esatto. E' quella differenza -- non
+    il 4 -- a rendere il verde qui sopra una notizia.
+    """
+    sorgente_tcg = (percorsi.SORGENTE_HSP / "tcg.hsp").read_text(encoding="cp932")
+    assert sorgente_tcg.count(TRATTI_EN) == SITI_TRATTI
+    assert sorgente_tcg.count(TRATTI_IT) == 0
+
+
+def test_nessuna_etichetta_di_bit_resta_inglese_nella_build():
+    """Le 31 etichette che `copertura._PROSA` non puo' vedere: una parola sola,
+    quindi nessun conto del progetto le contava, e stavano a schermo in inglese
+    dentro la riga dei tratti di ogni carta.
+
+    ⚠️ `Immune` e `Kamikaze` non sono nell'elenco: in italiano si scrivono
+    uguali, e restano invariate per decisione. Una toppa muta `applica` la
+    rifiuta, e ha ragione.
+    """
+    rimaste = [e for e in ("Regeneration", "Armored", "Flying", "Intimidate",
+                           "Reach", "Lifelink", "Haste", "Trample",
+                           "First-Strike", "Dual-Strike", "Deathtouch",
+                           "Critical", "Windfury", "Vigilance", "Defender",
+                           "Splits", "Rider", "Barrier", "Evasion",
+                           "Deathword", "Gravity", "Bleeding", "Poisoned",
+                           "Paralysed", "Silenced", "Frozen", "Insane",
+                           "Confused")
+               if 's@tcg += "%s ' % e in _build_tcg()]
+    assert rimaste == []
+
+
+def test_l_operando_di_effetto_e_stato_reso_con_la_stringa():
+    """La toppa 1230 aveva reso `"Effect: "` in `"Effetto: "` a `:1473`, ma
+    `:4628` toglieva ancora il prefisso INGLESE dal testo esportato in
+    `TCG_card_list.txt`. Un operando dimenticato non e' un refuso: e' un
+    comportamento che la traduzione ha cambiato senza dirlo."""
+    build = _build_tcg()
+    assert 'sreplace s@tcg, s@tcg, "Effect: ", ""' not in build
+    assert 'sreplace s@tcg, s@tcg, "Effetto: ", ""' in build
