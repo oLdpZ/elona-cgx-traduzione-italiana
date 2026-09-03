@@ -21,12 +21,14 @@ from pathlib import Path
 
 from strumenti import scene
 
-LOTTO = Path("lavoro/scene2-7-30.jsonl")
+PREDEFINITO = Path("lavoro/scene2-7-30.jsonl")
 
 
 def main() -> int:
+    argomenti = [a for a in sys.argv[1:] if not a.startswith("-")]
+    LOTTO = Path(argomenti[0]) if argomenti else PREDEFINITO
     if not LOTTO.exists():
-        print(f"{LOTTO} non c'e': lancia `python -m strumenti.scene --estrai 7-30`")
+        print(f"{LOTTO} non c'e': estrailo con `scene --estrai`")
         return 1
 
     voci = [json.loads(r) for r in LOTTO.read_text(encoding="utf-8").splitlines()

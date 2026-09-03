@@ -432,6 +432,18 @@ def problemi(voce: dict) -> list[str]:
         if inglese in testo:
             guai.append("la resa scrive «%s»: in italiano il progetto scrive"
                         " «%s»" % (inglese, italiano))
+    # ⚠️⚠️ E il carattere che CP932 non sa scrivere. `degrada` toglie gli
+    # accenti, non tutto: le virgolette caporali «» passavano di qui indenni e
+    # scoppiavano dopo, dentro `--applica`, a lotto gia' reimportato. Il
+    # cancello va dove si scrive la resa, non dove si costruisce l'albero.
+    # ⓘ Le virgolette curve “” invece CP932 le scrive -- a doppia larghezza,
+    # che a schermo e' un'altra cosa: quelle le vede l'occhio, non il codice.
+    try:
+        degrada(testo).encode("cp932")
+    except UnicodeEncodeError as errore:
+        fuori = degrada(testo)[errore.start:errore.end]
+        guai.append("il carattere %r non esiste in CP932: il gioco non puo'"
+                    " scriverlo" % fuori)
     if tipo == "txt":
         if not isinstance(reso, str):
             return ["una resa di {txt} e' una stringa sola, con le righe"

@@ -16,8 +16,8 @@ from strumenti import scene
 LOTTO = Path("lavoro/scene2-7-30.jsonl")
 
 
-def carica() -> list[dict]:
-    return [json.loads(r) for r in LOTTO.read_text(encoding="utf-8").splitlines()
+def carica(percorso: Path = LOTTO) -> list[dict]:
+    return [json.loads(r) for r in percorso.read_text(encoding="utf-8").splitlines()
             if r.strip()]
 
 
@@ -26,9 +26,10 @@ def main() -> None:
     analizzatore.add_argument("--scene", nargs="*", default=None)
     analizzatore.add_argument("--da", type=int, default=0)
     analizzatore.add_argument("--attori", action="store_true")
+    analizzatore.add_argument("--lotto", default=None)
     argomenti = analizzatore.parse_args()
 
-    voci = carica()
+    voci = carica(Path(argomenti.lotto) if argomenti.lotto else LOTTO)
 
     if argomenti.attori:
         conto: Counter[str] = Counter()
@@ -41,7 +42,7 @@ def main() -> None:
         for etichetta, quante in conto.most_common():
             voce = esempio[etichetta]
             print(f"{quante:>3}x  {etichetta}")
-            print(f"       jp: {voce['jp']}")
+            print(f"       jp: {voce.get('jp') or '(la scena non si appaia col giapponese)'}")
         return
 
     for voce in voci:

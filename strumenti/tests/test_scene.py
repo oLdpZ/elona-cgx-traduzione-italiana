@@ -400,6 +400,25 @@ def test_il_dizionario_vero_non_porta_piu_nessuna_grafia_inglese():
     assert fuori == [], fuori
 
 
+# --- il carattere che CP932 non sa scrivere --------------------------------
+
+def test_un_carattere_fuori_da_cp932_si_accende():
+    """⚠️ La prova al contrario, sul carattere che ci e' quasi scappato.
+
+    Le caporali «» sono la punteggiatura che il progetto usa nei DOCUMENTI, e
+    scriverle in una resa e' un gesto naturale. `degrada` non le tocca, e
+    `--applica` sarebbe morto molto piu' tardi, a lotto gia' reimportato.
+    """
+    guai = problemi({"tipo": "chat_1", "it": "«quella cosa» stava lassu'."})
+    assert any("CP932" in g for g in guai), guai
+
+
+def test_gli_accenti_italiani_NON_si_accendono():
+    """La coppia: quello che `degrada` sa tradurre deve passare muto."""
+    assert problemi({"tipo": "chat_1",
+                     "it": "Perché è così, però: né più né meno."}) == []
+
+
 def test_le_forme_sbagliate_si_riconoscono():
     assert any("stringa sola" in p
                for p in problemi({"tipo": "txt", "it": ["una", "lista"]}))

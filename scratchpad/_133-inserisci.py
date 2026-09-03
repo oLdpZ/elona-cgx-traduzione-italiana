@@ -70,8 +70,13 @@ def main() -> int:
     mancanti = [k for k, v in per_chiave.items() if not v.get("it")]
     print("\nrese messe: %d   ancora senza: %d   fuori misura: %d"
           % (len(rese), len(mancanti), guasti))
-    if mancanti:
+    # ⚠️ elencarle tutte su un lotto da 632 voci vuol dire seppellire le tre
+    # righe che contano sotto trecento chiavi: un comando che stampa troppo e'
+    # muto quanto uno che non stampa niente.
+    if mancanti and len(mancanti) <= 30:
         print("  senza resa: %s" % ", ".join(mancanti))
+    elif mancanti:
+        print("  senza resa, le prime: %s ..." % ", ".join(mancanti[:10]))
 
     if argomenti.scrivi:
         if guasti:
