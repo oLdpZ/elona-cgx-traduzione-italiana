@@ -173,55 +173,66 @@ DICHIARATI: dict[str, Dichiarazione] = {
 
     # ---- fronti veri, piccoli, trovati dal triage della 135a ---------------
     "buff.hsp": Dichiarazione(
-        "fronte", 48,
-        "I TESTI DEI BUFF, e sono un costrutto SPEZZATO A META' dal dizionario. "
-        "La forma e' `bufftxt(0, BUFF_X) = lang(jp, \" get\"), \" surrounded "
-        "by a hazy mist.\"`: l'assegnazione riempie DUE celle dell'array, la "
-        "prima con una `lang()` — che il dizionario prende — e la seconda con "
-        "il resto della frase, nudo. Il giapponese tiene tutto nella prima. "
-        "Li ricompone `chara_func.hsp:2310` e `:2377`. Quindi il file risulta "
-        "coperto per il verbo e scoperto per la frase, e le 48 sono tutte "
-        "testo che il giocatore legge a ogni buff."),
+        "esente", 48,
+        "⭐ MORTE PER TOPPA — la QUARTA specie di copertura, dopo il dizionario, "
+        "la toppa che riscrive e il meccanismo proprio. La forma e' "
+        "`bufftxt(0, BUFF_X) = lang(jp, \" get\"), \" surrounded by a hazy "
+        "mist.\"`: l'assegnazione riempie DUE celle, la prima con una `lang()` "
+        "e la seconda col resto della frase, nudo. L'inglese le ricomponeva in "
+        "`nome + bufftxt(0) + _s(...) + bufftxt(1)`, e quel `_s()` e' la "
+        "desinenza inglese di terza persona, che in italiano cadrebbe in mezzo "
+        "alla frase. ⚠️ Il progetto l'aveva GIA' risolto: una toppa sostituisce "
+        "tutto il blocco `if ( en )` di `chara_func.hsp` con "
+        "`txt name(addbuff_charid) + bufftxt(0, addbuff_buffid)`, cioe' la "
+        "composizione a una parte sola. Da allora la frase italiana sta INTERA "
+        "nella `lang()`, e `bufftxt(1)` non lo legge piu' nessuno. Verificato "
+        "sull'albero di build: l'unica occorrenza di `bufftxt(1` che resta e' "
+        "`chara_func.hsp:2310`, dentro il `/* ORIGINAL */`. "
+        "⚠️ Questo modulo non puo' dedurlo — non sa che una toppa ha tolto il "
+        "lettore — e senza qualcuno che vada a guardare le avrebbe tenute per "
+        "un fronte da 48."),
     "system.hsp": Dichiarazione(
-        "fronte", 83,
-        "MISTO, e la parte grossa NON e' testo: 54 `noteadd` e 11 `proc` sono "
-        "la CONSOLE DI DEBUG, che si annuncia da sola a :4400 («Debug Console  "
-        "Type \\\"?\\\" for help»). Il testo vero e' il resto: 11 `dialog` "
-        "(«The name is too long.», «The first letter of the name must be "
-        "alphabetic.», :1924-:1934, quando si crea un oggetto o un PNG "
-        "personalizzato), il menu di :3537 («Restore an adventurer», "
-        "«Generate an adventurer», «Incarnate an adventurer», «View the "
-        "homepage»), un `mes` a :3521 e 4 `filedsc`, che sono le descrizioni "
-        "nelle finestre Apri/Salva di Windows. ⚠️ `%Elona Custom Item` (:1869) "
-        "e `%Elona Custom Npc` (:1972) NON si toccano: sono la firma dei file "
-        "che il gioco scrive e rilegge."),
+        "esente", 74,
+        "Quel che resta dopo le nove rese della 135a: NON e' testo. 54 `noteadd` "
+        "e 11 `proc` sono la CONSOLE DI DEBUG, che si annuncia da sola a :4400 "
+        "(«Debug Console  Type \\\"?\\\" for help»); `%Elona Custom Item` (:1869) e "
+        "`%Elona Custom Npc` (:1972) sono la firma dei file che il gioco scrive "
+        "e rilegge; il `s = ...` di :3537 e' il ramo `if ( jp )` del menu del "
+        "titolo, e il ramo inglese e' gia' reso da una toppa di sessioni fa; "
+        "due `dialog` a :3995 e :4002 dicono «Failed to get WINDOW ID» e restano "
+        "diagnostici. ⓘ Rese alla 135a: le tre regole sul nome (:1924-:1934, "
+        "gemelle a :2060-:2068), i quattro `filedsc`, il filtro BMP|JPG, "
+        "l'avviso di migrazione dei Tweak (:72) e la riga dei crediti di :3521."),
     "command.hsp": Dichiarazione(
-        "fronte", 16,
-        "MISTO, e qui la parte da NON tradurre e' la piu' insidiosa: le 7 "
-        "righe `if` di :4481-:4763 confrontano quel che il giocatore ha "
-        "scritto o il nome di un oggetto — «god inside», «dog whistle», «happy "
-        "new year», «merry christmas» — e sono innesti di uova di Pasqua. "
-        "Tradurle senza tradurre l'altro capo del confronto spegne l'evento in "
-        "silenzio. Il testo vero e': `display_topic \"Level(Piety Cost)\"` "
-        "(:7625, un'intestazione a schermo), due `dialog` a :13240, due "
-        "`description` a :16039-:16041, due `filedsc` e un `noteadd`."),
+        "esente", 10,
+        "Quel che resta dopo le cinque rese della 135a non si traduce, e sette "
+        "decimi sono la trappola: le righe `if` di :4481-:4763 confrontano quel "
+        "che il giocatore ha scritto o il nome di un oggetto — «god inside», "
+        "«man inside», «dog whistle», «happy new year», «merry christmas», "
+        "«small coin», «small medal» — e sono innesti di uova di Pasqua. "
+        "Tradurle senza l'altro capo del confronto spegne l'evento in silenzio. "
+        "Le altre tre: `\"ElonaPlus Custom-GX \"` e' l'operando di uno "
+        "`sreplace` (:413), e «Elona Version » (:17658) e «Level(Piety Cost)» "
+        "(:7625) sono gli argomenti GIAPPONESI di due `lang()`, che non si "
+        "traducono per costruzione. ⓘ Rese alla 135a: i due `dialog` di :13240, "
+        "le due `description` dell'oggetto Omake e i due `filedsc`."),
     "main.hsp": Dichiarazione(
-        "fronte", 8,
-        "Sette `dialog` e una stringa di versione. I `dialog` sono i messaggi "
-        "d'avvio e di caricamento: «Could not find an installation of Elona+. "
-        "Please follow the install instructions…» (:61), e soprattutto "
-        "«Perform a quickload? You are playing in a mode where no-save "
-        "penalties apply.» (:3176) e «Perform a quickload?» (:3178), che un "
-        "giocatore vede spesso. ⚠️ `ElonaPlus Custom-GX 2.31.1.0` (:21) e' la "
-        "versione: non si tocca."),
+        "esente", 2,
+        "Quel che resta dopo le cinque rese della 135a: "
+        "`ElonaPlus Custom-GX 2.31.1.0` (:21) e' la stringa di VERSIONE, e "
+        "`Invalid defLoadFolder. name` (:212) e' un errore che scatta solo con "
+        "un albero di sviluppo rotto — chi lo vede sta compilando, non "
+        "giocando. ⓘ Rese alla 135a: le due finestre d'avvio (:61 e :73 "
+        "insieme, :66), l'avviso di posizione non valida (:1987) e le due "
+        "conferme di caricamento rapido (:3176, :3178)."),
     "custom_ai.hsp": Dichiarazione(
-        "fronte", 8,
-        "Il menu dell'IA dei famigli: quattro `ActionName` («Throw Salt», "
-        "«Throw Greater Potion», «Throw Major Potion», «Throw Potion», "
-        ":3077-:3086) che si leggono nella lista delle azioni, un `ValueName` "
-        "(«Not Set», :3214), un `dialog` di conferma («Re-Initialize this "
-        "pet's spells and abilities?», :1663) e due `filedsc`. ⚠️ `\"not "
-        "set\"` a :71 sta in un `if`: e' l'operando, e va lasciato."),
+        "esente", 1,
+        "Resta `\"not set\"` minuscolo a :71, che sta dentro un `if`: e' "
+        "l'operando del confronto, non l'etichetta. L'etichetta e' il `Not Set` "
+        "maiuscolo di :3214, ed e' resa. ⓘ Rese alla 135a: le quattro azioni "
+        "dell'IA dei famigli (:3077-:3086), il valore vuoto del menu, la "
+        "conferma di reimpostazione (:1663) e la descrizione del file "
+        "(:3483, gemella a :3501)."),
     "module.hsp": Dichiarazione(
         "fronte", 10,
         "⚠️ QUI LA DOMANDA E' PIU' GROSSA DELLE DIECI STRINGHE. Otto sono "
@@ -243,23 +254,28 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "(«[SURVIVABILITY EXTENSION！]　フェイズ1が完了した…»), cioe' testo che "
         "l'inglese non ha mai tradotto. Vedi il gemello in `item.hsp:4324`."),
     "action.hsp": Dichiarazione(
-        "fronte", 11,
+        "esente", 11,
         "Dieci `proc` sono tracce di debug del regalo di capodanno "
-        "(:3809-:3959). L'undicesima e' testo: `txt \"Potion-charge Lv\"` "
-        "(:6545), che il giocatore legge sulla pozione. Ha un gemello esatto "
-        "in `proc.hsp:13471`, e le due rese devono coincidere."),
+        "(:3809-:3959). L'undicesima, `Potion-charge Lv` (:6545), e' "
+        "l'argomento GIAPPONESE di una `lang()` in cui i due rami portano la "
+        "stessa stringa: l'inglese sta nel dizionario, e il gemello e' "
+        "`proc.hsp:13471`. Nessuna delle undici e' lavoro."),
     "proc.hsp": Dichiarazione(
-        "fronte", 3,
-        "`txt \"Potion-charge Lv\"` (:13471), gemello di `action.hsp:6545`; "
-        "`studybuddy \"your friends\"` (:16980); e `txt \"Omae wa mou "
-        "shindeiru.\"` (:14392), che e' una citazione e va lasciata com'e' — "
-        "ma la decisione va scritta, non lasciata all'inerzia."),
+        "esente", 2,
+        "`Omae wa mou shindeiru.` (:14392) e' una citazione e resta com'e': "
+        "tradurla la spegnerebbe. `Potion-charge Lv` (:13471) e' l'argomento "
+        "GIAPPONESE di una `lang()` in cui i due rami portano la stessa "
+        "stringa; l'inglese sta nel dizionario. ⓘ Rese alla 135a: «your "
+        "friends» due volte (:16980 e :19167), e con loro il difetto che le "
+        "teneva nascoste — due rese avevano inghiottito la variabile col nome "
+        "del compagno. Vedi il motivo delle due toppe."),
     "screen.hsp": Dichiarazione(
-        "fronte", 3,
-        "Un `dialog` che il giocatore puo' vedere davvero all'avvio "
-        "(«Invalid screen resolution detected. Custom-GX will attempt to reset "
-        "to a sane default.», :22) e due `title` diagnostici a :8288, che "
-        "scrivono nella barra della finestra."),
+        "esente", 2,
+        "Restano i due letterali di :8288, che scrivono nella BARRA DEL TITOLO "
+        "della finestra un messaggio diagnostico («Invalid race id detected on "
+        "map [...], removing race id from ...»): non e' testo di gioco, e chi "
+        "lo legge lo sta segnalando. ⓘ Resa alla 135a: la finestra della "
+        "risoluzione non valida (:22), che il giocatore vede all'avvio."),
     "db_creature.hsp": Dichiarazione(
         "fronte", 4,
         "Quattro grida di battaglia dei boss, nude fuori da `lang()` in un "
@@ -268,20 +284,14 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "futile!」 (:99788). Le prime due sono giapponesi anche nel ramo "
         "inglese; le altre due sono inglesi in tutt'e due i rami. Sono le "
         "quattro righe di questo file che il dizionario non puo' vedere."),
-    "trait.hsp": Dichiarazione(
-        "fronte", 2,
-        "Un solo messaggio, spezzato in due letterali attorno al numero: "
-        "`\"This is an UNKNOWN_TRAIT[\" + ... + \"], report it.\"` (:1268). "
-        "Lo legge il giocatore nella lista dei tratti quando il gioco ne "
-        "incontra uno che non conosce, ed e' un invito a segnalare: la resa "
-        "italiana deve restare riconoscibile a chi riceve la segnalazione."),
     "help.hsp": Dichiarazione(
-        "fronte", 2,
-        "`dialog \"help index not found \"` (:230) e — piu' interessante — "
-        "`s \"広域能力を使う(Wide apply)\"` (:409), una voce di menu che porta "
-        "il giapponese e l'inglese INSIEME nella stessa stringa, fuori da "
+        "fronte", 1,
+        "Resta `s \"広域能力を使う(Wide apply)\"` (:409): una voce di menu che "
+        "porta il giapponese e l'inglese INSIEME nella stessa stringa, fuori da "
         "`lang()`. Il dizionario non puo' prenderla, e in italiano va decisa "
-        "come una voce sola."),
+        "come una voce sola — cioe' bisogna prima sapere che cosa fa quel "
+        "comando, e nessuno l'ha ancora guardato in gioco. ⓘ Resa alla 135a: "
+        "il `dialog` dell'indice della guida mancante (:230)."),
     "item.hsp": Dichiarazione(
         "fronte", 1,
         "`txt \"[HAPPY BIRTHDAY！！]　フェイズ2が完了した。\"` (:4324): "
@@ -294,10 +304,10 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "giapponese, nuda fuori da `lang()` in un file che ne ha 2.326. "
         "Appartiene al fronte TCG per contenuto, a `db_card` per posizione."),
     "text.hsp": Dichiarazione(
-        "fronte", 2,
-        "`sg \"Unknown Code\"` (:9351), che il giocatore puo' leggere quando "
-        "il gioco incontra un codice che non conosce, e un `proc \"god text\"` "
-        "(:12150) che e' una traccia di debug."),
+        "esente", 1,
+        "Resta `proc \"god text\"` (:12150), una traccia di debug. ⓘ Resa alla "
+        "135a: `sg \"Unknown Code\"` (:9351), che il giocatore legge al posto "
+        "di un codice che il gioco non riconosce."),
 
     # ---- esenzioni trovate dal triage della 135a ---------------------------
     "init.hsp": Dichiarazione(
