@@ -2522,9 +2522,22 @@ fa».
 
 ## Da decidere
 
-*Vuota dal 2026-08-07.* I sei termini che stavano qui — `Gauge`, `Chaos`,
-`Abyss`, `Skill`, `Sister`, `Body` — sono decisi e spostati nelle tabelle sopra,
-insieme ai cinque toponimi che erano in `invariati.md`.
+*Era vuota dal 2026-08-07*, ed è tornata ad avere due voci il 2026-09-03 (134ª).
+Non sono termini nuovi: sono **due omografi già in circolo**, cioè una parola
+italiana che il progetto usa per due concetti che il giapponese tiene separati.
+Vanno sciolti una volta sola qui, non scena per scena.
+
+| italiano | i due giapponesi | dove si vede | stato |
+|---|---|---|---|
+| il mondo di sotto | 下界 (il mondo dei mortali visto dal cielo) · 裏社会 (la malavita) | `chat.hsp` per tutti e due; nel lotto D della Fase 4 compaiono a poche scene di distanza (135.8 e 315.17) | ⚠️ **spezzato a metà**: nel lotto D 裏社会 è reso «la malavita». L'unica occorrenza di `chat.hsp` è ancora «il mondo di sotto» |
+| incarnazione | 化身 (l'avatar di un dio) · 下僕 (il servo che un dio concede) | `chat.hsp` («l'incarnazione dell'oblio») e la decisione sui 下僕; nel lotto D a tredici battute di distanza (365.29 e 365.16) | ⬜ **non toccato**: in tutt'e due i punti la frase regge, e non ho voluto forzare una scelta dentro una scena |
+
+⚠️ In tutt'e due i casi la coerenza col precedente e la distinzione fra i due
+concetti **tirano in direzioni opposte**, ed è la ragione per cui la voce sta
+qui invece che nelle tabelle sopra: la formula della 42ª («la coerenza batte il
+giapponese») vale quando le due lingue dicono la stessa cosa, e qui non la
+dicono. Vedi `decisioni.md`, 134ª.
+
 
 ## Le righe-fonte delle descrizioni di `db_item.hsp` — 112ª
 

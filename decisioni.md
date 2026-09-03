@@ -14510,3 +14510,142 @@ lo mette** anche se l'inglese scrive «Meanwhile». Così `-ザナンの皇子�
 (scene 8 e 11) è «- L'accampamento del principe di Zanan -», identico alla
 scena 3 che invece ha 同刻 e quindi tiene «Alla stessa ora». È la forma già
 fissata dal lotto A.
+
+---
+
+## La centotrentaquattresima — `scene2.hsp` finito, e lo stesso guasto della 133ª in un secondo strumento — 2026-09-03
+
+809 rese: il residuo del lotto C (scene 132-135) e il lotto D intero (scene
+300-400, il finale). `scene2.hsp` chiude a **1.701 su 1.701** e la Fase 4 è
+finita.
+
+### ⚠️⚠️ La cosa che pesa di più: un conteggio per firma ha nascosto cinque blocchi
+
+Ricontando il residuo del lotto C ho scritto «69, non 74: il conto della 133ª era
+una stima». Era **falso in tutti e due i pezzi**. Il 74 era una misura giusta; a
+sbagliare era il mio conto, perché l'avevo fatto confrontando le **firme** del
+file di lavoro col dizionario — e la firma è l'impronta della *stringa*, non del
+posto. Cinque blocchi che dicono solo `...` (133.20, 135.7, 135.9, 135.11,
+135.37) condividevano la firma con altri blocchi già resi, quindi risultavano
+fatti. Il dizionario però è indicizzato per `scena.blocco` (`scene._chiave`), e
+sotto la loro chiave non c'era niente: il gioco li avrebbe disegnati in inglese
+— che qui vuol dire «uguali», perché `...` è `...` in tutte le lingue, e infatti
+a schermo non si sarebbe visto nulla.
+
+**A trovarli non è stata una rilettura, ma un divario fra due numeri che
+dovevano coincidere:** `scene --referto` diceva 432 blocchi da fare, il file di
+lavoro del lotto D ne contava 427. Cinque.
+
+⭐ **Come applicarlo.** Due indici diversi sullo stesso materiale non danno lo
+stesso conto, e quello che vale è quello che usa il *consumatore* del dato —
+qui `applica`, che cerca per `scena.blocco`. E quando un numero nuovo smentisce
+uno vecchio, il primo sospettato è il metodo nuovo: è la regola della 112ª («un
+errore banale sopravvissuto sessanta sessioni quasi mai è banale») applicata a
+un numero invece che a una costante.
+
+### ⚠️⚠️ E lo stesso guasto della 133ª stava in un secondo strumento
+
+La 133ª aveva chiuso in `applica.py` un allarme che cresceva: `scene2.hsp.jsonl`
+sta fra i dizionari ma non è fatto di firme `lang()`, e il ciclo contava ogni
+resa nuova come «voce orfana».
+
+`verifica.py` ha un ciclo che fa **lo stesso identico giro** su
+`DIZIONARIO/*.jsonl`, e nessuno era andato a cercarlo.
+
+    all'apertura (892 rese)        scene2.hsp:   892 da ritradurre
+    a metà sessione (1.269)                    1.269
+    a fase finita (1.701)                      1.382
+
+⚠️ E `verifica --dizionario` **usciva con 1**: il cancello era rotto e lo diceva
+soltanto nel codice d'uscita, che nella catena di apertura non guarda nessuno,
+perché quel comando si legge dalla coda. È la forma della 96ª (uno strumento che
+segnala e va avanti) più la forma della 133ª (un allarme che cresce), nello
+stesso punto.
+
+**Riparato allo stesso modo, con la ragione scritta accanto:** `verifica.py`
+salta `scene2.hsp`, il cui cancello è `scene --referto`. La prova nuova
+(`test_verifica_dizionario_non_conta_le_scene_come_da_ritradurre`) ha una prova
+al contrario vera: la prima asserzione controlla che `confronta_col_sorgente`
+**da solo** produca ancora quel numero enorme, così la prova non passa perché il
+caso è sparito ma perché c'è e viene escluso. Tolta l'esclusione, si accende —
+provato.
+
+⭐ **Come applicarlo:** quando si ripara un ciclo che scorre una cartella di
+dati, si cercano subito **gli altri cicli che scorrono la stessa cartella**.
+Qui erano due, e per una sessione intera ne è stato riparato uno solo.
+
+### ⚠️ E `{txt}` non ha un cancello in altezza
+
+`problemi()` misura la larghezza di ogni riga di un `{txt}` (90 caratteri) e
+rifiuta le righe vuote, ma **non conta le righe**. La mia resa del prologo di
+Gaius Vis (386.4) ne faceva 16: più alta di qualunque `{txt}` che il progetto
+abbia mai disegnato, dove il massimo è 11 (scena 0 blocco 3, da 13 righe
+inglesi). Nessuno strumento ha detto niente.
+
+Riportata a **14**, che è il conto dell'inglese di monte: non perché 14 sia il
+soffitto — quel numero non lo sa nessuno — ma perché è l'unica altezza di quel
+blocco che qualcuno ha visto davvero funzionare a schermo. Vedi le cose aperte.
+
+### Il giapponese decide, e in un punto decide contro sé stesso
+
+`scene1.hsp` chiama l'artefatto di Sophia `常闇の眼` **sei volte** e `混沌の眼`
+**una sola**, dentro la stessa scena 381 e a quattro battute di distanza. È un
+lapsus dell'autore, non un secondo oggetto: nel resto del gioco `混沌の眼` non
+esiste, e l'inglese di monte legge anche quello come «the Origin». Reso
+«l'occhio delle tenebre eterne», cioè la grafia che il progetto porta già.
+
+### Termini coniati o riusati in questo lotto
+
+| giapponese | inglese | italiano | perché |
+|---|---|---|---|
+| 決戦因子 | `Decisive Factor` | **il Fattore Decisivo** | già del progetto, `chat.hsp` |
+| 陽牢の塔 | `Mirage Tower` | **la Torre Miraggio** | già del progetto |
+| ネフィア症候群 | `Nefia Syndrome` | **la sindrome di Nefia** | già in `db_item` |
+| 常闇の眼 / 常闇の杖 | `Origin/Staff of Vice` | **l'occhio / il bastone delle tenebre eterne** | già in `chat.hsp` |
+| 来光の牙 | `Origin of Light` | **la zanna della luce nascente** | già del progetto |
+| 神艦 | `godship` | **la Nave Divina** | già in `chat.hsp` e `map.hsp` |
+| 決死隊 | `suicide squad` | **la squadra suicida** | già in `chat.hsp` |
+| 覚醒の宝玉 | `jewel of awakening` | **il Risveglio di Nefia** | è il nome dell'oggetto, già in `db_item` |
+| イムウエル / エルシア / オズム / ザイール | `Imwell / Ercia / Ozum / Zaire` | **Aimwell / Elsia / Ozmu / Zaile** | ⚠️ i nomi di Gaius Vis il progetto **li ha già**, con grafie diverse da quelle inglesi: si copiano da `chat.hsp` e `db_card` |
+| ＬＦ計画 | `Project LF` | **il Progetto LF** | già in `chat.hsp` |
+| ボルト魔法 | `bolt magic` | **magie di saetta** | dai grimori di `db_item` |
+| 昆虫兵器 | `biological weapons` | **armi insetto** | ⚠️ l'inglese generalizza, il giapponese dice insetto |
+| マタタビ | `Silvervine` | **erba dei gatti** | coniato qui. La pianta non ha un nome italiano corrente, e la scena è una battuta su una dea gatto che si sbronza: conta che la funzione si capisca |
+| 神徳 | `domain` | **dominio divino** | coniato qui |
+| 結束 (della divinità) | `Of Unity` | **della Coesione** | coniato qui. ⚠️ NON «dell'Unione»: quello è già di 交合のミクシス in `chat.hsp` |
+| 剛石 | `The Vigilant Stone` | **della Pietra Tenace** | coniato qui, sul giapponese: 剛 è «rigido», non «vigile» |
+| 守護 (della divinità) | `The Protector` | **della Custodia** | da `db_item`, dove 守護の剣 è «la spada della custodia» |
+| 永遠 (della divinità) | `The Everlasting` | **dell'Eternità** | coniato qui |
+| 不幸 (della divinità) | `of Misfortune` | **della Sventura** | coniato qui |
+| アカシックネットワーク | `Akashic Network` | **la rete akashica** | coniato qui |
+
+### Le graffe del monte si conservano
+
+`scene2.hsp` scrive le targhe degli dei fra graffe (`{Sophia} The Wise`) e quelle
+dei mortali fra parentesi angolari (`<Halion> The Extremist`). Non è un capriccio
+del traduttore inglese: il giapponese usa `《》` per gli dei e `『』` per i
+mortali, e le due coppie giapponesi **non si possono scrivere** (CP932 le mette
+su due byte, e la build inglese disegna un glifo per byte). Le graffe ASCII sono
+la sola forma in cui quella distinzione sopravvive, e si tengono.
+
+⚠️ Nei db lo stesso `《癒しのジュア》` è reso `<Jure>` senza epiteto, perché lì
+l'inglese scrive `<Jure>` nudo e la voce è un **nome di creatura**. Qui è la
+targa di chi parla, e l'epiteto ci va: le rese per esteso esistono già in
+`chat.hsp` («Jure della Cura», «Opatos della Terra», «Itzpalt Elementale»).
+
+### ⓘ Una divergenza voluta: 裏社会 non è «il mondo di sotto»
+
+`chat.hsp` rende 裏社会 (la malavita) con «il mondo di sotto», che è anche la
+resa di 下界 (il mondo dei mortali visto dal cielo). Sono due concetti diversi, e
+nel lotto D compaiono tutt'e due (315.17 e 135.8). Qui 裏社会 è reso **«la
+malavita»**, contro il precedente, perché copiarlo avrebbe creato un omografo per
+due cose che il giapponese tiene separate. Resta aperto se riscrivere anche
+l'occorrenza di `chat.hsp`.
+
+### ⓘ E un'ambiguità che resta: 化身 e 下僕 sono tutt'e due «incarnazione»
+
+Il progetto rende 化身 («l'incarnazione dell'oblio», `chat.hsp`) e 下僕 (i servi
+che un dio concede) con la stessa parola. Nel lotto D compaiono a tredici battute
+di distanza (365.16 e 365.29) e in tutt'e due i casi la frase regge, quindi non
+ho forzato una scelta. Ma è un omografo su due concetti, come sopra, e andrebbe
+sciolto una volta sola invece che scena per scena.

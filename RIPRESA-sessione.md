@@ -1,5 +1,178 @@
 # Ripresa sessione
 
+Aggiornato: 2026-09-03, fine della **centotrentaquattresima** sessione
+(**`scene2.hsp` chiude a 1701 su 1701: la Fase 4 e' finita, e lo stesso guasto
+della 133a stava in un secondo strumento**).
+
+⭐ **L'ESEGUIBILE IN GIOCO E' FRESCO: 13:01 del 03/09**, e contiene tutti e
+**1.701** i blocchi delle scene. ⓘ Si legge con
+`ls -l C:\Games\Elona\elonaplus2.31\cgx-test.exe`. I sei file dati non sono
+cambiati in questa sessione.
+
+⚠️⚠️ **L'ordine obbligato per portare le scene in gioco non cambia.**
+`applica.py` rigenera l'albero di build da `sorgente/` e **cancella**
+l'iniezione delle scene:
+
+    python -m strumenti.applica            <- prima
+    python -m strumenti.scene --applica    <- POI, mai prima
+    python -m strumenti.compila --eseguibile
+    cp .../build/2.05-custom-gx/elonapluscgx.exe .../elonaplus2.31/cgx-test.exe
+
+⚠️ **`strumenti.installa` NON ESISTE**: l'ultimo passo e' una copia a mano.
+
+---
+
+## DOVE SIAMO: `scene2.hsp` e' FINITO, 1701 su 1701
+
+    lotto A  scene 0-5      95 voci   ✅ CHIUSO (132a)
+    lotto B  scene 7-30    239 voci   ✅ CHIUSO (133a)
+    lotto C  scene 101-135 632 voci   ✅ CHIUSO (133a-134a)
+    lotto D  scene 300-400 735 voci   ✅ CHIUSO (134a)
+
+**La Fase 4 non ha piu' un fronte aperto.** Il prossimo lavoro non e' in
+`scene2.hsp`: va scelto fra le cose aperte qui sotto.
+
+---
+
+## ⚠️⚠️⚠️ LA COSA CHE PESA DI PIU' DELLA 134a: LO STESSO GUASTO IN UN SECONDO STRUMENTO
+
+La 133a aveva chiuso in `applica.py` un allarme che cresceva:
+`dizionario/scene2.hsp.jsonl` sta fra i dizionari ma non e' fatto di firme
+`lang()`, e il ciclo contava ogni resa nuova come «voce orfana».
+
+`verifica.py` ha un ciclo che fa **lo stesso identico giro** su
+`DIZIONARIO/*.jsonl`, e nessuno era andato a cercarlo.
+
+    all'apertura (892 rese)     scene2.hsp:   892 «da ritradurre»
+    a meta' sessione (1.269)                1.269
+    a fase finita (1.701)                   1.382
+
+⚠️ E `verifica --dizionario` **usciva con 1**. Il cancello era rotto e lo diceva
+soltanto nel codice d'uscita, che nella catena di apertura non guarda nessuno,
+perche' quel comando si legge dalla coda.
+
+Riparato come in `applica.py`, con la ragione scritta accanto, e con una prova
+la cui **prima asserzione e' la prova al contrario**: controlla che
+`confronta_col_sorgente` da solo produca ancora quel numero enorme, cosi' la
+prova non passa perche' il caso e' sparito ma perche' c'e' e viene escluso.
+
+⭐ **Come applicarlo:** quando si ripara un ciclo che scorre una cartella di
+dati, si cercano subito **gli altri cicli che scorrono la stessa cartella**.
+
+---
+
+## ⚠️⚠️ E UN CONTEGGIO PER FIRMA AVEVA NASCOSTO CINQUE BLOCCHI
+
+Ricontando il residuo del lotto C avevo scritto «69, non 74: il conto della 133a
+era una stima». Falso in tutti e due i pezzi. Il 74 era **giusto**; a sbagliare
+era il mio conto, fatto confrontando le **firme** invece delle chiavi. Cinque
+blocchi di sole ellissi (133.20, 135.7, 135.9, 135.11, 135.37) condividevano la
+firma con altri gia' resi, e il dizionario e' indicizzato per `scena.blocco`.
+
+A trovarli e' stato un divario fra due numeri che dovevano coincidere: il
+referto diceva 432 da fare, il file di lavoro del lotto D ne contava 427.
+
+⭐ **Come applicarlo:** l'indice che vale e' quello che usa il **consumatore**
+del dato (`applica` cerca per `scena.blocco`). E quando un numero nuovo smentisce
+uno vecchio, il primo sospettato e' il metodo nuovo.
+
+---
+
+## ⚠️ E `{txt}` NON HA UN CANCELLO IN ALTEZZA
+
+`problemi()` misura la larghezza delle righe di un `{txt}` (90 caratteri) e
+rifiuta le righe vuote, ma **non le conta**. La mia resa del prologo di Gaius Vis
+(386.4) ne faceva **16**: piu' alta di qualunque `{txt}` che il progetto abbia
+mai disegnato, dove il massimo e' **11**. Nessuno strumento ha detto niente.
+
+Riportata a **14**, il conto dell'inglese di monte — non perche' 14 sia il
+soffitto, ma perche' e' l'unica altezza di quel blocco che qualcuno ha visto
+funzionare a schermo. La rete manca ancora: vedi le cose aperte.
+
+---
+
+## I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 134a
+
+    pytest                   **834 passed**, 6 skipped (erano 833: +1 sulla
+                             rete nuova di verifica)
+    prova_identita           72/72 e 30.905, invariato
+    scene --referto          2199 blocchi, 1701 con testo, **1701 tradotte**,
+                             4 righe morte, identita' OK, 0 fuori misura
+    toppe                    1.182, e `applica` non stampa ATTENZIONE
+    applica                  30.766 sostituzioni
+    perimetro                **28.028 fatte**, 0 da fare, 100,0%
+                             (**31.795** coi file dati)
+    _97-quanto-resta         111 / 111 / 0
+    verifica --dizionario    **0 da ritradurre**, 111 non tradotte, uscita 0
+
+⚠️ **Nessuno di questi numeri si eredita da qui: si rilanciano.** E in chiusura
+si rilancia tutto cio' che produce un numero atteso, **dopo** l'ultima modifica
+ai documenti — e non si scrive un numero prima di averlo letto da un comando
+(guasto della 133a).
+
+---
+
+## Che cosa guardare adesso: le cose aperte
+
+1. ⭐⭐⭐ **Non c'e' piu' un fronte di traduzione aperto dichiarato.** La Fase 4
+   e' chiusa e `perimetro.py` dice 100%. ⚠️ Ma il 100% e' il **perimetro**, non
+   il progetto: dice che ogni voce chiesta e' resa, non che non esistano fronti
+   che nessuno ha ancora chiesto — la 123a ne trovo' uno da 355 firme proprio
+   quando il referto diceva «TOTALE da fare 0». **Il primo lavoro della prossima
+   sessione e' cercare il fronte successivo**, non tradurre. Punti di partenza:
+   `scratchpad/_123-file-senza-dizionario.py` (che elenca `custom_dmgpop.hsp` e
+   `custom_pet.hsp`), e le 111 voci «non tradotte / rinviate» di
+   `_97-quanto-resta`, che sono ferme da molte sessioni e nessuno ha rivisto.
+2. ⭐⭐⭐ **Il debito di collaudo: ~11.351 rese mai viste a schermo**, e le 809
+   di oggi non fanno eccezione. **Sono in gioco** (eseguibile delle 13:01), e le
+   scene sono la parte piu' facile da guardare: bastano una partita nuova per il
+   prologo e i finali per il lotto D. ⚠️ Se c'e' una sola cosa da chiedere
+   all'utente la prossima volta, e' uno screenshot di un `{txt}` alto — vedi il
+   punto 3.
+3. ⭐⭐⭐ **`{txt}` non ha una rete in altezza, e il soffitto non lo sa nessuno.**
+   Il modello dice larghezza 90 e righe vuote cancellate; quante righe ci stiano
+   non e' mai stato misurato. Il piu' alto che il progetto disegna e' 11 righe
+   (scena 0 blocco 3), il piu' alto che l'**inglese** disegna e' 14 (386.4).
+   ⭐ Un solo screenshot del prologo taglia la questione, e da li' esce una
+   costante `ALTEZZA_TXT` e un cancello. Vedi
+   [[un-modello-del-rendering-va-tarato-su-un-pixel]].
+4. ⭐⭐ **La rete delle grafie vale solo per `scene2.hsp`.** Le 11 rese sbagliate
+   corrette nella 133a stavano in `chat.hsp`, `db_item`, `db_race` e
+   `dati/talk.txt`, dove un cancello equivalente **non c'e'**. La tabella
+   `scene.GRAFIE` e' gia' pronta per essere letta da `verifica.py` — e adesso
+   che `verifica.py` e' stato toccato, il punto d'innesto e' fresco.
+   ⚠️ E la tabella e' **incompleta per costruzione**: cinque righe perche' cinque
+   sono le grafie che mi sono capitate sotto.
+5. ⭐⭐ **Due omografi che il progetto si porta dietro.** 裏社会 (la malavita) e
+   下界 (il mondo dei mortali) sono tutt'e due «il mondo di sotto»; 化身 e 下僕
+   sono tutt'e due «incarnazione». Nella 134a ho diviso il primo (reso «la
+   malavita» nel lotto D) e lasciato il secondo. Vanno sciolti una volta sola,
+   nel glossario, non scena per scena. Vedi `decisioni.md`, 134a.
+6. ⭐⭐ **`Rehmido` e' ambiguo e per questo NON e' nella tabella delle grafie.**
+   L'inglese lo usa sia per レム・イド (la **civilta'**, → `Rehm-Ido`) sia per
+   レミード (le **rovine**, → `Remido`). Serve un cancello che dica «questa
+   parola in italiano non esiste, guarda il giapponese».
+7. ⭐⭐ **Il `keyrange` del riquadro di dialogo, che nessuno ha mai visto.** Il
+   soffitto e' 13 con una voce di menu, 12 con due, e le due letture del progetto
+   differiscono di una riga (vedi la 132a). Lo scatto va chiesto su un riquadro
+   qualunque, contando le voci del menu in fondo.
+8. ⭐⭐ **Le quattro teste variabili senza articolo** (`JUICE`, `NECRO_PARTS`,
+   `PRODUCED_BOOK`, `EVITEM`), dalla 131a. Invariata.
+9. ⭐⭐ **Chi altro vive dentro l'uscita di un generatore?** Dalla 131a. Invariata.
+10. ⭐⭐ **La rete che cerca l'operando di una SOSTITUZIONE** (`sreplace`,
+    `instr`, `strmid` con un letterale). Invariata dalla 130a.
+11. ⭐ **Le reti sulle toppe: ne restano fuori due** — le maiuscole del testo e
+    le larghezze fuori dai menu. Invariata dalla 130a.
+12. 💡 **La coda nuda di una `lang()` gia' resa** (`chat.hsp:17065`, 127a).
+13. 💡 **`_133-inserisci.py` rifiuta un file di rese che porti una chiave
+    `_nota`**, mentre `_133-attori-applica.py` le salta. Costa un giro perso a
+    chi documenta il proprio file, come e' successo oggi.
+
+---
+
+## La centotrentatreesima sessione (per storia)
+
+
 Aggiornato: 2026-09-03, fine della **centotrentatreesima** sessione (**il lotto
 B e mezzo lotto C di `scene2.hsp`, e due nomi propri che l'italiano scriveva in
 inglese**).
@@ -228,6 +401,8 @@ di un dato.
 9. ⭐ **Le reti sulle toppe: ne restano fuori due** — le maiuscole del testo e
    le larghezze fuori dai menu. Invariata dalla 130a.
 10. 💡 **La coda nuda di una `lang()` gia' resa** (`chat.hsp:17065`, 127a).
+
+---
 
 ---
 

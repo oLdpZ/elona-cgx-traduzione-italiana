@@ -4406,3 +4406,51 @@ Le due rese del lotto A che scrivevano «Ylva» invece di «Irva» non le ha tro
 nessuna misura: le ho trovate perché stavo per copiarle. Da lì 13 rese corrette
 in cinque dizionari e due cancelli nuovi (le grafie inglesi, e il carattere che
 CP932 non sa scrivere). Vedi `decisioni.md`, 133ª.
+
+---
+
+## 2026-09-03, centotrentaquattresima — `scene2.hsp` è finito, e la Fase 4 si chiude
+
+**809 rese in una sessione**: il residuo del lotto C e il lotto D intero.
+
+    scene2.hsp   1.701 blocchi con testo, 167.003 caratteri
+                 tradotti:  **1.701 blocchi** (100%)
+                 restano:   0
+
+| lotto | scene | voci | caratteri | stato |
+|---|---|---:|---:|---|
+| A — prologo e Vernis | 0-5 | 95 | 13.407 | ✅ tradotto (132ª) |
+| B — la storia principale | 7-30 | 239 | 33.190 | ✅ tradotto (133ª) |
+| C — il seguito | 101-135 | 632 | 56.397 | ✅ tradotto (133ª-134ª) |
+| D — il finale | 300-400 | 735 | 64.442 | ✅ tradotto (134ª) |
+
+⚠️ **La riga del lotto D dice 735 voci, non 599.** Il 599 del piano contava i
+**blocchi**; le voci comprendono le 139 etichette `{actor_N}`, che nel lotto D
+sono 65 distinte. È la stessa distinzione già annotata per il lotto C, e i due
+numeri non sono in disaccordo: contano cose diverse.
+
+⚠️⚠️ **E il residuo del lotto C era 74, non 69.** L'avevo ricontato **per
+firma**, e la firma è l'impronta del testo: cinque blocchi che dicono solo `...`
+la condividono con altri già resi, quindi risultavano fatti. Il dizionario è
+indicizzato per `scena.blocco`, e sotto la loro chiave non c'era niente. A
+trovarli è stato il divario fra due numeri che dovevano coincidere — il referto
+diceva 432 da fare, il file di lavoro del lotto D 427 — non una rilettura.
+⭐ Il «74» della 133ª era **giusto**: quando un numero vecchio e uno nuovo non
+tornano, il sospetto va prima sul metodo nuovo.
+
+⚠️ **Il perimetro sale ancora con le scene:** da 27.219 a **28.028** (+809), e
+**31.795** contando i file dati. Vale sempre l'avvertenza della 133ª: il
+«100,0%» dice che ogni voce chiesta è resa, non che il gioco sia tradotto.
+
+⭐ **Le rese sono in gioco.** `cgx-test.exe` ricompilato e installato alle
+**13:01 del 03/09**, con tutti e 1.701 i blocchi iniettati nell'ordine obbligato
+(`applica` → `scene --applica` → `compila` → copia a mano).
+
+⚠️⚠️ **Ma nessuna delle 809 è stata vista a schermo.** Il debito di collaudo
+sale da ~10.542 a **~11.351**. Dei cinque stati distinti — costruito, misurato,
+provato al contrario, compilato, visto a schermo — qui ci sono i primi quattro.
+
+Catena rimisurata **dopo** l'ultima modifica ai documenti: `pytest` **834
+passed** e 6 skipped, identità 72/72 e 30.905, toppe 1.182/1.182 senza
+ATTENZIONE, `scene --referto` 1.701 su 1.701 e 0 fuori misura, perimetro 28.028
+su 28.028, `verifica --dizionario` **0 da ritradurre** e uscita 0.

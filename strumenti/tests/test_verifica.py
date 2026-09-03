@@ -1142,3 +1142,54 @@ def test_il_file_vero_degli_invariati_si_carica():
     # diventare nostro.
     assert "scene2.hsp" in valori       # «Chiavi e nomi di file»
     assert "-Flaenix" in valori         # «Nomi coniati del potioman»
+
+
+def test_verifica_dizionario_non_conta_le_scene_come_da_ritradurre():
+    """⚠️⚠️ 134a: lo stesso guasto della 133a, in un secondo strumento.
+
+    `dizionario/scene2.hsp.jsonl` sta nella cartella dei dizionari ma non e'
+    fatto di firme `lang()`: lo riempie `strumenti.scene --reimporta` e lo
+    inietta `strumenti.scene --applica`. `confronta_col_sorgente` non trova nel
+    sorgente **nessuna** delle sue firme, quindi contava ogni resa come «da
+    ritradurre» -- un numero che cresceva col lavoro (1.382 a fase finita) e con
+    cui `--dizionario` usciva con 1.
+
+    La 133a aveva chiuso la stessa cosa in `applica.py` («voci orfane»). Il
+    ciclo di `verifica.py` faceva lo stesso giro su `DIZIONARIO/*.jsonl` e
+    nessuno lo aveva guardato.
+
+    ⭐ La prova al contrario e' la seconda asserzione: se l'esclusione sparisse,
+    `confronta_col_sorgente` da solo produce ancora quel numero enorme. Cosi'
+    la prova non passa perche' il caso non si presenta, ma perche' il caso c'e'
+    e viene escluso.
+    """
+    import contextlib
+    import io
+    import sys
+
+    from strumenti import verifica as modulo_verifica
+
+    orfane_se_non_lo_escludessimo, _ = confronta_col_sorgente("scene2.hsp")
+    assert len(orfane_se_non_lo_escludessimo) > 500, (
+        "il caso non si presenta piu': o scene2 e' passato alle firme lang(),"
+        " o questa prova non prova piu' niente"
+    )
+
+    uscita = io.StringIO()
+    codice = 0
+    argomenti_veri = sys.argv
+    sys.argv = ["verifica", "--dizionario"]
+    try:
+        with contextlib.redirect_stdout(uscita):
+            try:
+                modulo_verifica.main()
+            except SystemExit as uscita_di_sistema:
+                codice = uscita_di_sistema.code or 0
+    finally:
+        sys.argv = argomenti_veri
+    testo = uscita.getvalue()
+
+    assert "scene2.hsp:" not in testo, (
+        "verifica --dizionario nomina ancora scene2.hsp: l'esclusione non tiene"
+    )
+    assert codice == 0, f"--dizionario esce con {codice}:\n{testo[-800:]}"

@@ -661,6 +661,20 @@ def main() -> None:
     if argomenti.dizionario:
         totale_orfane = 0
         for percorso in sorted(percorsi.DIZIONARIO.glob("*.jsonl")):
+            # ⚠️⚠️ `scene2.hsp` NON passa di qui, per la stessa ragione per cui
+            # non passa dal ciclo di `applica.py` (chiusa nella 133a): le sue
+            # voci non sono firme di `lang()` ma blocchi di scena, e
+            # `confronta_col_sorgente` non trova nel sorgente NESSUNA delle sue
+            # firme. Ogni resa nuova diventava cosi' una «da ritradurre», e il
+            # numero cresceva col lavoro: 1.382 a fase finita, con
+            # `--dizionario` che usciva con 1 senza che nessuno lo leggesse.
+            # Il cancello di quel file e' `python -m strumenti.scene --referto`,
+            # che lo legge per quello che e'. ⭐ Lo stesso guasto in due
+            # strumenti diversi: quando si ripara un ciclo che scorre
+            # `DIZIONARIO/*.jsonl`, si cercano gli altri cicli che fanno lo
+            # stesso giro, invece di fermarsi al primo.
+            if percorso.stem == "scene2.hsp":
+                continue
             orfane, non_tradotte = confronta_col_sorgente(percorso.stem)
             totale_orfane += len(orfane)
             print(f"{percorso.stem}: {len(orfane)} da ritradurre, {non_tradotte} non ancora tradotte")
