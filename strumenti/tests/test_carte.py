@@ -15,8 +15,8 @@ ripararla.
 import pytest
 
 from strumenti.carte import (ATTESE, COLONNA_SCHEDA, GRAFIE, INNESTI,
-                             PAROLE_CHIAVE, PREFISSO,
-                             SOFFITTO_AVVISO, applica_a_righe,
+                             LARGHEZZA_MASSIMA, PAROLE_CHIAVE, PREFISSO,
+                             PREFISSO_MONTE, SOFFITTO_AVVISO, applica_a_righe,
                              avvisi, carica_dizionario, partizione_battlecry,
                              problemi, righe_a_capo, voci)
 
@@ -148,6 +148,123 @@ def test_una_coda_senza_spazi_resta_lunga_quanto_viene():
 def test_il_prefisso_della_scheda_entra_nel_conto():
     """`tcg.hsp:1473` manda a capo `"Effect: " + effdesc`, non `effdesc`."""
     assert PREFISSO == "Effetto: "
+
+
+# --- il blocco JAMES CUSTOM: l'a capo gia' scritto nel testo --------------
+
+def _senza_il_ramo(testo: str, colonna: int = COLONNA_SCHEDA) -> list[str]:
+    """Il modello della 136a: `talk_conv` **senza** il blocco JAMES CUSTOM.
+
+    Sta qui e non in `carte.py` perche' serve solo a far vedere che il ramo
+    cambia il risultato. Un cancello riparato senza il modello vecchio accanto
+    non ha modo di dimostrare che la riparazione conta.
+    """
+    resto, fuori, corrente = testo, [], ""
+    while True:
+        taglio = resto.find(" ")
+        if taglio == -1:
+            break
+        parola = resto[:taglio + 1]
+        if len(corrente) + len(parola) > colonna:
+            fuori.append(corrente)
+            corrente = ""
+        corrente += parola
+        resto = resto[taglio + 1:]
+    fuori.append(corrente + resto)
+    return fuori
+
+
+def test_l_a_capo_gia_nel_testo_spezza_la_riga():
+    """`init.hsp:1337-1352`: se prima del prossimo spazio c'e' un ritorno a capo,
+    `talk_conv` spezza li', anche se la riga e' cortissima."""
+    assert righe_a_capo("uno\ndue tre", 65) == ["uno", "due tre"]
+    assert _senza_il_ramo("uno\ndue tre", 65) == ["uno\ndue tre"]
+
+
+def test_il_ramo_dell_a_capo_si_accende_su_rese_vere_e_dice_dove():
+    """La prova al contrario del ramo, **cercata** e non ipotizzata.
+
+    ⚠️ La 107a insegna che una prova al contrario puo' passare senza provare
+    niente: quella li' costruiva un testo finto che non attraversava mai il
+    confine. Qui il caso peggiore si va a **cercare** nel dizionario vero, e se
+    non ce ne fosse nessuno la prova lo direbbe invece di tacere.
+
+    ⚠️ E l'esito non e' un booleano: il messaggio porta la resa e i due conti,
+    perche' «ho trovato il guasto» e «non l'ho cercato abbastanza» sono due cose
+    diverse e uno ✅ le confonde.
+    """
+    from strumenti.carte import _disegnate, degrada
+
+    divergenze = []
+    for voce in carica_dizionario().values():
+        reso = voce.get("it")
+        if not reso:
+            continue
+        vero = degrada(PREFISSO + reso).replace("\\n", "\n")
+        vecchio = len(_senza_il_ramo(vero))
+        nuovo = len(_disegnate(reso))
+        if nuovo != vecchio:
+            divergenze.append((nuovo - vecchio, vecchio, nuovo,
+                               voce["costante"]))
+    assert divergenze, ("nessuna resa contiene un a capo scritto: la prova non"
+                        " sta misurando il ramo")
+    divergenze.sort(reverse=True)
+    salto, vecchio, nuovo, costante = divergenze[0]
+    assert salto >= 1, divergenze[:3]
+    print("il ramo si accende su %d rese; la peggiore e' %s: %d righe contate"
+          " dal modello della 136a, %d vere"
+          % (len(divergenze), costante, vecchio, nuovo))
+
+
+def test_il_massimo_vero_e_quattro_righe_e_non_tre():
+    """Il numero che la 136a aveva scritto era 3, e veniva dal modello senza il
+    ramo. Con il ramo l'italiano arriva a 4 -- **quanto l'inglese di monte**,
+    che e' il motivo per cui il soffitto d'avviso resta dov'e'."""
+    from strumenti.carte import _disegnate
+
+    diz = carica_dizionario()
+    italiano = max(len(_disegnate(v["it"])) for v in diz.values() if v.get("it"))
+    inglese = max(len(_disegnate(v["en"])) for v in diz.values() if v.get("en"))
+    assert (italiano, inglese) == (4, 4)
+
+
+# --- la larghezza, che nessuno misurava ----------------------------------
+
+def test_una_riga_piu_larga_dell_inglese_si_rifiuta():
+    """La coda senza spazi esce dal riquadro: e' il difetto di monte della 23a,
+    e li' uno screenshot ha mostrato il testo tagliato davvero."""
+    coda = "x" * (LARGHEZZA_MASSIMA - len(PREFISSO) + 1)
+    guai = problemi({"costante": "X", "en": "a", "it": coda})
+    assert any("colonne" in g for g in guai), guai
+
+
+def test_una_riga_larga_esattamente_quanto_l_inglese_passa():
+    """Il confine si attraversa in tutt'e due i versi, o la prova non dice dove
+    sta: un carattere in meno e il cancello deve tacere."""
+    coda = "x" * (LARGHEZZA_MASSIMA - len(PREFISSO))
+    assert problemi({"costante": "X", "en": "a", "it": coda}) == []
+
+
+def test_la_larghezza_massima_e_quella_dell_inglese():
+    """⭐ Il soffitto non e' un numero scelto: e' il massimo che l'inglese di
+    monte **gia' disegna**, ricalcolato dal file a ogni giro. Cosi' non puo'
+    invecchiare in silenzio se il sorgente si muove, e non chiede all'italiano
+    una larghezza che il gioco non abbia gia' retto.
+
+    ⚠️ L'inglese si misura col **suo** prefisso: `"Effect: "` e' un carattere
+    piu' corto di `"Effetto: "`, e misurarlo con quello italiano gonfierebbe il
+    tetto di uno.
+    """
+    from strumenti.carte import degrada, leggi
+
+    largo = 0
+    for voce in voci(leggi()):
+        inglese = voce.get("en")
+        if not inglese:
+            continue
+        vero = degrada(PREFISSO_MONTE + inglese).replace("\\n", "\n")
+        largo = max(largo, max(len(r) for r in righe_a_capo(vero)))
+    assert largo == LARGHEZZA_MASSIMA
 
 
 # --- i cancelli sulla resa ------------------------------------------------

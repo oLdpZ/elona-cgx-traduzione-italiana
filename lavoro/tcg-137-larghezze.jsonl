@@ -1,0 +1,6 @@
+{"costante": "TCG_EFF_BATTLECRY_BOUNCETARGETOPPCARD", "riga": 1900, "en": "Battlecry: Return Target Opponent Card to Hand.", "it": "Grido di battaglia: rimanda in mano la carta bersaglio avversaria."}
+{"costante": "TCG_EFF_CLEANER", "riga": 3197, "en": "Battlecry: Remove 1 Generated Card of Opponent from Game.", "it": "Grido di battaglia: togli dal gioco 1 carta generata avversaria."}
+{"costante": "TCG_EFF_MANI2", "riga": 3374, "en": "Sacrifice your very soul to me and I shall hack your opponent's deck for you.", "it": "Sacrificami la tua stessa anima e ti manometto il mazzo avversario."}
+{"costante": "TCG_EFF_SOCKS", "riga": 3208, "en": "Battlecry: Everyone on Field gets -1/-1, except Kuroya gets +1/+1.\\n          If this is in your Hand when you win, get Opponent's socks.", "it": "Grido di battaglia: tutti in campo prendono -1/-1, tranne <Kuroya> che prende +1/+1.\\n          Se ce l'hai in mano quando vinci, ti prendi i calzini avversari."}
+{"costante": "TCG_EFF_ULZASSIL", "riga": 2193, "en": "Battlecry: Swap you and your opponent's Graveyard and Deck.", "it": "Grido di battaglia: scambia cimitero e mazzo, tuoi e avversari."}
+{"costante": "TCG_EFF_USERTHIEF", "riga": 2318, "en": "Battlecry: Draw Target Card from your opponent's deck.", "it": "Grido di battaglia: pesca la carta bersaglio dal mazzo avversario."}

@@ -57,6 +57,23 @@ TRADUCIBILI = 833
 COLONNA_SCHEDA = 65
 PREFISSO = "Effetto: "
 
+# Il prefisso che il gioco scrive **prima** della toppa 1230: serve per misurare
+# l'inglese come l'eseguibile di monte lo disegna, non come lo disegnerebbe la
+# build italiana.
+PREFISSO_MONTE = "Effect: "
+
+# ⚠️⚠️ **La larghezza NON era misurata da nessuno.** `talk_conv` non spezza mai
+# dentro una parola: quando la coda non ha piu' spazi la appende **senza
+# guardare la colonna** (difetto di monte, 23a sessione, `diario.py`). Cosi' una
+# riga puo' uscire a 81 colonne pur avendo il rientro a 65.
+#
+# Il soffitto non e' scelto: e' **il massimo che l'inglese di monte gia'
+# disegna**, cioe' l'unica larghezza di cui si sappia che il riquadro la regge.
+# Sopra quella non si sa niente, e la scelta che non puo' far danno e' stare
+# sotto. `test_la_larghezza_massima_e_quella_dell_inglese` lo ricalcola dal file
+# a ogni giro, cosi' non puo' invecchiare in silenzio.
+LARGHEZZA_MASSIMA = 77
+
 # ⚠️ Il soffitto VERO del riquadro nessuno l'ha mai visto a schermo: `mes`
 # disegna verbatim e `tcg.hsp:3503` fa scendere il corpo da 13 a 11 sopra le
 # quattro righe, ma quante ne entri prima che il testo esca dal riquadro e'
@@ -328,26 +345,52 @@ def applica_a_righe(righe: list[str], dizionario: dict) -> tuple[list[str], int]
 
 
 def righe_a_capo(testo: str, colonna: int = COLONNA_SCHEDA) -> list[str]:
-    """`talk_conv` nel ramo non giapponese (`init.hsp:1331-1363`).
+    """`talk_conv` nel ramo non giapponese (`init.hsp:1326-1367`).
 
     Si guarda il **prossimo spazio**: se la riga corrente piu' quella parola
     supera la colonna, si va a capo prima della parola. La coda senza spazi
     finisce tutta sull'ultima riga, lunga quanto viene -- ed e' l'unico modo in
     cui una riga puo' sforare in larghezza invece che in altezza.
+
+    ⚠️⚠️ **E c'e' il blocco JAMES CUSTOM (`:1337-1352`), che la 136a aveva
+    saltato:** se prima del prossimo spazio c'e' un ritorno a capo, `talk_conv`
+    spezza **li'**. Nel sorgente HSP quell'a capo e' scritto `\\n`, due
+    caratteri; nell'eseguibile e' un carattere solo, e il gioco ci va a capo
+    davvero. Senza questo ramo il conto delle righe usciva **corto su 24 rese
+    su 833**, e il massimo vero e' 4 righe, non 3.
+
+    ⚠️ Il ciclo esterno e' limitato a 1000 giri come in HSP, e non e' pedanteria:
+    quando il pezzo fino all'a capo e' **da solo** piu' largo della colonna, il
+    ramo emette un a capo senza consumare niente e ci ricasca. Li' HSP esaurisce
+    i giri e appende il resto grezzo; questa funzione fa lo stesso, perche' un
+    simulatore che «corregge» il difetto misura un gioco che non esiste
+    (la lezione di `diario.py`, 23a).
     """
-    resto, fuori, corrente = testo, [], ""
-    while True:
-        taglio = resto.find(" ")
-        if taglio == -1:
+    resto, fuori, corrente = testo, "", 0
+    for _ in range(1000):
+        corrente = 0
+        for _ in range(1000):
+            spazio = resto.find(" ")
+            if spazio == -1:
+                break
+            parola = spazio + 1
+            acapo = resto.find("\n")
+            if acapo != -1 and acapo + 1 < parola:
+                if corrente + acapo + 1 > colonna:
+                    fuori += "\n"
+                    break
+                fuori += resto[:acapo + 1]
+                resto = resto[acapo + 1:]
+                break
+            if corrente + parola > colonna:
+                fuori += "\n"
+                break
+            fuori += resto[:parola]
+            corrente += parola
+            resto = resto[parola:]
+        if resto.find(" ") == -1:
             break
-        parola = resto[:taglio + 1]
-        if len(corrente) + len(parola) > colonna:
-            fuori.append(corrente)
-            corrente = ""
-        corrente += parola
-        resto = resto[taglio + 1:]
-    fuori.append(corrente + resto)
-    return fuori
+    return (fuori + resto).split("\n")
 
 
 def _disegnate(testo: str) -> list[str]:
@@ -356,8 +399,12 @@ def _disegnate(testo: str) -> list[str]:
     ⚠️ `degrada` prima di contare, non dopo: CP932 non contiene nessuna vocale
     accentata italiana e `Rarità` a schermo e' `Rarita'`, un carattere in piu'.
     Contare sulla resa e' ottimista proprio sulle rese piu' italiane.
+
+    ⚠️ E `\\n` va sciolto **prima** di contare: nel file HSP sono due caratteri,
+    nell'eseguibile e' un ritorno a capo, e `righe_a_capo` ci spezza la riga solo
+    se lo vede per quello che e'.
     """
-    return righe_a_capo(degrada(PREFISSO + testo))
+    return righe_a_capo(degrada(PREFISSO + testo).replace("\\n", "\n"))
 
 
 def _teste(testo: str) -> list[str]:
@@ -384,6 +431,17 @@ def problemi(voce: dict) -> list[str]:
     if not reso:
         return []
     guai = []
+    # ⚠️⚠️ La larghezza, che e' un RIFIUTO mentre l'altezza e' un avviso. Non
+    # sono due pesi: dell'altezza nessuno sa il soffitto, della larghezza si sa
+    # che il riquadro **taglia** -- l'ha mostrato uno screenshot della 23a, sulla
+    # stessa `talk_conv`. E qui il tetto e' quello che l'inglese gia' disegna,
+    # quindi e' un cancello che si puo' rispettare, non uno da disattivare.
+    for numero, riga in enumerate(_disegnate(reso), 1):
+        if len(riga) > LARGHEZZA_MASSIMA:
+            guai.append("riga %d larga %d colonne: `talk_conv` non spezza dentro"
+                        " una parola e la coda esce dal riquadro; l'inglese non"
+                        " passa le %d"
+                        % (numero, len(riga), LARGHEZZA_MASSIMA))
     # ⚠️⚠️ Il carattere che CP932 non sa scrivere. `degrada` toglie gli accenti,
     # non tutto: le caporali «» passavano indenni e scoppiavano dopo, dentro
     # `--applica`, a lotto gia' reimportato (133a, e di nuovo la 135a). Il
@@ -423,7 +481,7 @@ def avvisi(voce: dict) -> list[str]:
     if not reso or not isinstance(reso, str) or not isinstance(inglese, str):
         return []
     dopo = len(_disegnate(reso))
-    prima = len(righe_a_capo(PREFISSO + inglese))
+    prima = len(_disegnate(inglese))
     fuori = []
     if dopo > prima:
         fuori.append("%d righe contro le %d dell'inglese" % (dopo, prima))
