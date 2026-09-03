@@ -115,13 +115,18 @@ DICHIARATI: dict[str, Dichiarazione] = {
 
     # ---- fronti piccoli, triati alla 135a ---------------------------------
     "map_func.hsp": Dichiarazione(
-        "fronte", 13,
-        "L'editor di mappe: menu Win32 (`AppendMenuA ... \"Map Mode\"`, "
-        ":1921-:1933), un `dialog` di conferma (:1857), la sua guida (:1896), "
-        "la casella `chkbox \"Auto Coast\"` (:2513) e il filtro a tendina delle "
-        "categorie (:2517). E' testo a schermo, ma di un'altra specie dal resto "
-        "del gioco — widget del sistema operativo, non finestre di Elona — e "
-        "le larghezze le decide Windows, non le reti del progetto."),
+        "fronte", 1,
+        "Resta il filtro a tendina delle categorie di oggetto (:2517): 26 voci "
+        "in una stringa sola, «All items\nFurniture\nJunk\n...». Non e' "
+        "lasciata indietro per fatica — quella lista FISSEREBBE i nomi italiani "
+        "delle categorie, e il progetto non ce li ha: `categorie.py` legge la "
+        "classe che il sorgente DICHIARA (`FILTER_ITEM_FOOD`...), che e' una "
+        "chiave, non un nome da mostrare. Deciderli in un attrezzo laterale "
+        "vorrebbe dire ritrovarseli addosso nell'interfaccia del gioco. "
+        "ⓘ Rese alla 135a: le quattro modalita' e i quattro comandi del menu "
+        "Win32, la conferma della mappa nuova, la guida (:1896) e la casella "
+        "«Costa automatica» — guida e casella insieme, perche' la prima nomina "
+        "la seconda."),
     # ---- esenzioni: sembrano prosa e non sono testo ------------------------
     "custom_itemlist.hsp": Dichiarazione(
         "esente", 1,
@@ -245,14 +250,18 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "non da soli. Le altre due: un `proc` di debug e il filtro «ALL files "
         "(*.*)» di una finestra di Windows."),
     "chara_func.hsp": Dichiarazione(
-        "fronte", 8,
-        "Tre `gain_ap` che sono testo a schermo (« of your mount», « "
-        "tag-team partner», « of your minion», :8536-:8546, la coda della "
-        "frase che dice a chi vanno i punti), tre `title` che scrivono nella "
-        "barra della finestra un messaggio diagnostico, un `proc`. ⚠️ E "
-        "`:8640` e' un caso a se': un `txt` in GIAPPONESE nudo "
-        "(«[SURVIVABILITY EXTENSION！]　フェイズ1が完了した…»), cioe' testo che "
-        "l'inglese non ha mai tradotto. Vedi il gemello in `item.hsp:4324`."),
+        "esente", 8,
+        "Nessuna delle otto e' lavoro, per tre ragioni diverse. Tre `title` e "
+        "un `proc` scrivono nella barra della finestra o nel log un messaggio "
+        "diagnostico. Il `txt` di :8640 e' l'argomento GIAPPONESE di una "
+        "`lang()` — l'inglese, «[SURVIVABILITY EXTENSION !] Phase 1 "
+        "completed...», sta nel dizionario; gemello di `item.hsp:4324`. "
+        "⚠️ E i tre `gain_ap (gain_ap_source + \" of your mount\")` "
+        "(:8536-:8546) sono MORTI PER RESA: due toppe di sessioni fa hanno "
+        "sostituito `gain_ap_source` con frasi fisse («dalla trattativa», "
+        "«dall'uccisione», «dalla pietra del risveglio»), e nella build quella "
+        "variabile non arriva piu' a nessun `txt` — resta solo negli `==`. "
+        "Verificato sull'albero di build."),
     "action.hsp": Dichiarazione(
         "esente", 11,
         "Dieci `proc` sono tracce di debug del regalo di capodanno "
@@ -277,13 +286,14 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "lo legge lo sta segnalando. ⓘ Resa alla 135a: la finestra della "
         "risoluzione non valida (:22), che il giocatore vede all'avvio."),
     "db_creature.hsp": Dichiarazione(
-        "fronte", 4,
-        "Quattro grida di battaglia dei boss, nude fuori da `lang()` in un "
-        "file che ne ha 5.718: 「Last Danceが最後の行程に入った」 (:51263), "
+        "esente", 4,
+        "Le quattro grida dei boss — 「Last Danceが最後の行程に入った」 (:51263), "
         "「HAPPY END！！」 (:53276), 「Target Acquired.」 e 「Resistance is "
-        "futile!」 (:99788). Le prime due sono giapponesi anche nel ramo "
-        "inglese; le altre due sono inglesi in tutt'e due i rami. Sono le "
-        "quattro righe di questo file che il dizionario non puo' vedere."),
+        "futile!」 (:99788) — sono gli argomenti GIAPPONESI di altrettante "
+        "`lang(jp, cnvtalk(en))`. L'inglese sta DENTRO la `cnvtalk` "
+        "nell'argomento `en`, quindi il dizionario lo copre gia'; il "
+        "giapponese non si traduce per costruzione. Sembravano scoperte perche' "
+        "il ramo giapponese di queste quattro e' scritto mezzo in latino."),
     "help.hsp": Dichiarazione(
         "fronte", 1,
         "Resta `s \"広域能力を使う(Wide apply)\"` (:409): una voce di menu che "
@@ -293,11 +303,11 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "comando, e nessuno l'ha ancora guardato in gioco. ⓘ Resa alla 135a: "
         "il `dialog` dell'indice della guida mancante (:230)."),
     "item.hsp": Dichiarazione(
-        "fronte", 1,
-        "`txt \"[HAPPY BIRTHDAY！！]　フェイズ2が完了した。\"` (:4324): "
-        "giapponese nudo che il ramo inglese non ha mai tradotto. Gemello di "
-        "`chara_func.hsp:8640`, e le due rese vanno decise insieme perche' "
-        "sono le due fasi della stessa catena."),
+        "esente", 1,
+        "`txt lang(\"[HAPPY BIRTHDAY！！]　フェイズ2が完了した。\", "
+        "\"[HAPPY BIRTHDAY!!] Phase 2 completed.\")` (:4324): e' l'argomento "
+        "GIAPPONESE, e l'inglese sta nel dizionario. Gemello di "
+        "`chara_func.hsp:8640`, che e' la fase 1 della stessa catena."),
     "db_card.hsp": Dichiarazione(
         "fronte", 1,
         "`cardrefskill` a :2695: una descrizione di carta lunga, in "
