@@ -1,5 +1,282 @@
 # Ripresa sessione
 
+Aggiornato: 2026-09-03, fine della **centotrentacinquesima** sessione (**il 100%
+era il perimetro: sotto ci stava il gioco di carte, 1.007 stringhe inglesi a
+schermo che nessun contatore poteva vedere**).
+
+⭐ **L'ESEGUIBILE IN GIOCO E' FRESCO: 19:11 del 03/09**, e contiene le 44 rese
+nuove della 135a. ⓘ Si legge con `ls -l C:\Games\Elona\elonaplus2.31\cgx-test.exe`.
+I sei file dati non sono cambiati in questa sessione.
+
+⚠️⚠️ **L'ordine obbligato per portare le scene in gioco non cambia.**
+`applica.py` rigenera l'albero di build da `sorgente/` e **cancella**
+l'iniezione delle scene:
+
+    python -m strumenti.applica            <- prima
+    python -m strumenti.scene --applica    <- POI, mai prima
+    python -m strumenti.compila --eseguibile
+    cp .../build/2.05-custom-gx/elonapluscgx.exe .../elonaplus2.31/cgx-test.exe
+
+⚠️ **`strumenti.installa` NON ESISTE**: l'ultimo passo e' una copia a mano.
+
+---
+
+## ⚠️⚠️⚠️ LA COSA CHE PESA DI PIU' DELLA 135a: IL 100% NON ERA IL PROGETTO
+
+La 134a aveva chiuso la Fase 4 e `perimetro.py` diceva **100,0%**. Quel numero
+misura le stringhe che qualcuno ha **chiesto**, e i quattro contatori del
+progetto partono tutti dall'elenco delle cose gia' coperte:
+
+    verifica --dizionario           scorre  DIZIONARIO/*.jsonl
+    applica                         scorre  DIZIONARIO/*.jsonl e toppe.jsonl
+    perimetro.py                    conta   firme lang(), nomi db_item, file dati
+    _123-file-senza-dizionario.py   i file CON lang() e SENZA dizionario
+
+Nessuno di questi puo' trovare un file che non ha **ne' `lang()` ne' dizionario
+ne' toppe**: non risulta scoperto, non risulta affatto. Il quarto sembra
+l'eccezione e non lo e' — chiede «con `lang()`», quindi vede solo chi ha gia'
+un piede dentro.
+
+`strumenti/copertura.py` parte dall'altro capo, **dall'elenco dei file del
+sorgente**. Sotto il 100% c'erano 968 stringhe inglesi distinte a schermo, e
+**951 erano il minigioco delle carte**.
+
+⭐ **Come applicarlo:** una rete che parte dall'elenco delle cose coperte non
+puo' trovare le cose scoperte. Di ogni contatore va chiesto **da quale elenco
+parte**, non solo cosa conta.
+
+---
+
+## IL FRONTE NUOVO: IL GIOCO DI CARTE, ~1.007 STRINGHE
+
+    tcg_mod.hsp     809   le descrizioni d'effetto di OGNI carta (`effdesc@tcg`),
+                          disegnate da `cardhelp effdesc@tcg(eff@tcg), 10`
+                          (`tcg.hsp:3935` e `:4170`) e ricomposte in
+                          `"Effect: " + effdesc@tcg(...)` a `tcg.hsp:1473`
+    tcg_skill.hsp   142   76 schede di carta (`carddetailneff@tcg`, disegnate da
+                          `cardhelp` a `tcg.hsp:691`), 35 battute, 17 randomchat
+    tcg.hsp          52   le etichette `[Command Card]`, `<Mage Guild>` che si
+                          APPENDONO al testo della carta (:1568-:1605) e il menu
+                          «Sort by:» (:3348-:3352)
+    tcg_custom.hsp    4   fra cui `sreplace ..., "the The"` (:4566)
+    db_card.hsp       1   una descrizione di carta giapponese nuda (:2695)
+
+⚠️ **La famiglia era stata lavorata a meta' senza che si vedesse**: 118 toppe sul
+contorno — le fasi del turno, il menu dei mazzi, le etichette — e il testo delle
+carte mai toccato. Chi apre il minigioco oggi legge italiano intorno al tavolo e
+inglese su ogni carta.
+
+⚠️ **`tcg_skill.hsp` ha ZERO byte non-ASCII**: non c'e' nessun ramo giapponese,
+l'inglese e' cablato e si legge qualunque lingua si scelga.
+
+### I tre vincoli da avere in mano PRIMA di scrivere una resa
+
+1. ⚠️⚠️ `instr(carddetailneff@tcg(...), 0, "ragon")` a `tcg_skill.hsp:4960`,
+   `:4972`, `:5003` **cerca dentro il testo della carta**: la resa di «dragon»
+   deve contenere «ragon» — «dragone» va, «drago» no.
+2. ⚠️ `tcg.hsp:1470` cerca `"Bits:  "` dentro lo stesso testo.
+3. ⚠️ Le etichette di `tcg.hsp` finiscono nella **stessa stringa** delle schede
+   di `tcg_skill.hsp`: i tre file vanno lavorati insieme, non uno per volta.
+
+### Perche' vuole un meccanismo suo, come `scene2.hsp`
+
+`effdesc@tcg(...)` e `carddetailneff@tcg(...)` sono **assegnazioni ad array**,
+non firme `lang()`: `estrai.siti()` non le vede e il dizionario non le
+raggiunge. Farle a toppe vorrebbe dire mille toppe. La forma giusta e' la
+stessa di `scene.py`: una scansione propria, un dizionario proprio indicizzato
+per identificatore di carta, un `--applica` e un `--referto`. E allora va messo
+in `copertura.MECCANISMI`, come `scene2.hsp`.
+
+---
+
+## LA RETE NUOVA: `strumenti/copertura.py`
+
+    python -m strumenti.copertura              <- cancello, esce 1 se c'e' un guaio
+    python -m strumenti.copertura --referto    <- censimento completo
+
+Non chiede «tutto coperto» — sarebbe un cancello che chiede l'impossibile, e
+quelli vengono disattivati (lezione del soffitto dei `{txt}`, 134a). Chiede che
+**ogni file con stringhe scoperte sia DICHIARATO**, col suo conto e con scritto
+perche'. Si accende su tre cose: un file non dichiarato, un conto che non torna
+piu' (il monte e' pinnato apposta), una dichiarazione diventata inutile.
+
+⚠️⚠️ **«Coperto» e' una proprieta' della STRINGA, non del file.** La prima
+versione chiedeva «questo file ha un dizionario o una toppa?» e dava
+`tcg_mod.hsp` per coperto: dizionario di **8** voci contro **809** stringhe.
+Ora una stringa e' raggiunta solo se lo e' lei — dentro una `lang()` (via
+`estrai.siti()`, l'unica scansione del progetto) o su una riga che riscrive una
+toppa.
+
+⚠️ **Il riconoscitore sbaglia per ECCESSO, ed e' voluto.** Un falso positivo
+costa una riga di dichiarazione con scritto perche'; un falso negativo costa
+un'altra fase chiusa al 100%. Ma vale solo finche' qualcuno guarda davvero:
+`custom_tweaks.hsp` ha esibito **75 voci di menu** che sembravano dimenticate —
+in un file con 264 toppe, quindi plausibile — ed erano l'elenco documentativo
+dentro il `/* */` che apre il file. La scansione saltava `;` e `//` e non i
+commenti di blocco, che `commenti.righe_in_commento()` sa trovare da sessioni.
+
+### Le quattro specie di copertura, ora che si sono viste tutte
+
+    1. il dizionario        la stringa sta dentro una `lang()`
+    2. una toppa            riscrive la riga
+    3. un meccanismo suo    `scene2.hsp` -> `scene --applica` (copertura.MECCANISMI)
+    4. morte per toppa      il LETTORE della stringa e' stato tolto da una toppa
+
+La quarta e' quella che nessuna rete puo' dedurre. `buff.hsp` sembrava un fronte
+da 48: la forma e' `bufftxt(0, X) = lang(jp, " get"), " surrounded by a hazy
+mist."` — due celle, la prima in `lang()` e la seconda nuda — e l'inglese le
+ricomponeva con `nome + bufftxt(0) + _s(...) + bufftxt(1)`, dove `_s()` e' la
+desinenza di terza persona che in italiano cadrebbe **in mezzo** alla frase.
+Il progetto l'aveva gia' risolto: una toppa sostituisce tutto il blocco
+`if ( en )` di `chara_func.hsp` con la composizione a una parte sola, e da
+allora `bufftxt(1)` non lo legge piu' nessuno. ⓘ Si verifica con un `grep` sulla
+BUILD, non sul sorgente.
+
+---
+
+## ⭐⭐ E DUE RESE AVEVANO INGHIOTTITO UNA VARIABILE
+
+    EN   "You started a reading party with " + studybuddy + "."
+    IT   "Cominci un circolo di lettura con i tuoi compagni."      <- sbagliata
+
+`studybuddy` vale **il nome del compagno** quando e' uno solo (`proc.hsp:16977`)
+e «your friends» quando sono piu' d'uno (`:16980`). In italiano quel ramo era
+sparito: leggendo con un compagno preciso il gioco non ne diceva il nome, e
+nella build `studybuddy` risultava assegnato e mai letto. Identico per
+l'ensemble con `performerpal` (`:19178`). Riparate tutt'e due: il dizionario
+rimette la variabile, due toppe rendono il suo altro valore.
+
+⭐ **Come le ho trovate:** «your friends» risultava **SCOPERTA**. Quando una resa
+butta via una variabile, l'altro valore di quella variabile resta li' e il
+censimento della copertura lo denuncia. E' un segnale al contrario, e vale la
+pena cercarlo apposta: una stringa non tradotta puo' denunciare una resa
+tradotta **male**, in un punto dove rileggere non basta.
+
+⚠️ Ha una faccia opposta legittima — i buff, i punti abilita' — dove la
+variabile e' morta di proposito e il testo e' giusto. Si distinguono chiedendo
+**quali valori puo' prendere la variabile**, non se la frase suona bene. Vedi
+[[una-resa-che-inghiotte-una-variabile]].
+
+---
+
+## I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 135a
+
+    pytest                   **883 passed**, 6 skipped (erano 836: +47, quasi
+                             tutte su `copertura`)
+    prova_identita           72/72 e 30.905, invariato
+    scene --referto          2199 blocchi, 1701 con testo, 1701 tradotte,
+                             4 righe morte, identita' OK, 0 fuori misura
+    toppe                    **1.228** (erano 1.182), e `applica` non stampa
+                             ATTENZIONE
+    applica                  30.766 sostituzioni
+    perimetro                28.028 fatte, 0 da fare, 100,0%
+                             (**31.795** coi file dati)
+    _97-quanto-resta         111 / 111 / 0
+    verifica --dizionario    0 da ritradurre, 111 non tradotte, uscita 0
+    **copertura**            **8 fronti, 1.020 scoperte, 0 file non dichiarati,
+                             uscita 0**
+
+⚠️ **Nessuno di questi numeri si eredita da qui: si rilanciano.** E in chiusura
+si rilancia tutto cio' che produce un numero atteso, **dopo** l'ultima modifica
+ai documenti.
+
+⚠️ **`copertura --referto` dice «scoperte», non «da tradurre».** Nei file misti
+il conto include tracce di debug e operandi di confronto. Quanto sia testo
+davvero sta scritto nel `motivo` di ciascuna dichiarazione, che e' il posto da
+leggere prima di aprire un fronte.
+
+---
+
+## Che cosa guardare adesso: le cose aperte
+
+1. ⭐⭐⭐ **Il fronte TCG, ~1.007 stringhe.** E' l'unica cosa grossa rimasta, ed e'
+   isolata bene. Vedi il paragrafo sopra per i tre vincoli e per il meccanismo
+   che vuole. **Da fare come fase a se'**, non a toppe.
+2. ⭐⭐ **Il debito di collaudo: ~11.400 rese mai viste a schermo.** Le 44 della
+   135a sono in gioco (eseguibile delle 19:11) e nessuna e' stata guardata. Le
+   piu' facili da verificare sono le finestre d'avvio di `main.hsp` e la
+   conferma di caricamento rapido, che compare spesso.
+3. ⭐⭐ **`module.hsp`, 10 stringhe, e la domanda e' piu' grossa delle dieci.**
+   Gli otto `cnv_str fix_wish_arg1, "card of ", ""` (:4815-:4825) tolgono i
+   prefissi **INGLESI** da quel che il giocatore scrive quando esprime un
+   desiderio, per capire che oggetto vuole. I nostri nomi sono italiani da
+   fasi: con ogni probabilita' non agganciano piu' niente. ⚠️ Va deciso col
+   `contratto-nomi.md` in mano, non da solo, e **non e' solo traduzione: e' un
+   comportamento del gioco che potrebbe essere gia' rotto.**
+4. ⭐⭐ **Il filtro delle 26 categorie d'oggetto** (`map_func.hsp:2517`,
+   «All items\nFurniture\nJunk\n...»). Tradurlo **fisserebbe** i nomi italiani
+   delle categorie, e il progetto non ce li ha: `categorie.py` legge la classe
+   che il sorgente DICHIARA (`FILTER_ITEM_FOOD`...), che e' una chiave, non un
+   nome da mostrare. Deciderli in un attrezzo laterale vuol dire ritrovarseli
+   addosso nell'interfaccia del gioco.
+5. ⭐ **`help.hsp:409`**, `s "広域能力を使う(Wide apply)"`: una voce di menu che
+   porta il giapponese e l'inglese INSIEME nella stessa stringa, fuori da
+   `lang()`. Serve sapere che cosa fa quel comando in gioco.
+6. ⭐⭐ **La rete delle grafie vale solo per `scene2.hsp`.** Invariata dalla 133a:
+   le 11 rese sbagliate stavano in `chat.hsp`, `db_item`, `db_race` e
+   `dati/talk.txt`, dove un cancello equivalente non c'e'. La tabella
+   `scene.GRAFIE` e' pronta per essere letta da `verifica.py`.
+7. ⭐⭐ **Due omografi che il progetto si porta dietro.** 化身 e 下僕 sono tutt'e
+   due «incarnazione». Da sciogliere nel glossario, non scena per scena.
+   (裏社会 / 下界 sciolto nella 134a.)
+8. ⭐⭐ **`Rehmido` e' ambiguo**: l'inglese lo usa sia per レム・イド (la civilta',
+   → `Rehm-Ido`) sia per レミード (le rovine, → `Remido`). Serve un cancello che
+   dica «questa parola in italiano non esiste, guarda il giapponese».
+9. ⭐⭐ **Il `keyrange` del riquadro di dialogo, che nessuno ha mai visto.** Il
+   soffitto e' 13 con una voce di menu, 12 con due, e le due letture del
+   progetto differiscono di una riga (132a). Lo scatto va chiesto su un
+   riquadro qualunque, contando le voci del menu in fondo.
+10. ⭐⭐ **Le quattro teste variabili senza articolo** (`JUICE`, `NECRO_PARTS`,
+    `PRODUCED_BOOK`, `EVITEM`), dalla 131a. Invariata.
+11. ⭐⭐ **Chi altro vive dentro l'uscita di un generatore?** Dalla 131a. Invariata.
+12. ⭐⭐ **La rete che cerca l'operando di una SOSTITUZIONE** (`sreplace`, `instr`,
+    `strmid` con un letterale). Invariata dalla 130a. ⚠️ La 135a ne ha trovati
+    altri tre casi veri — `instr(carddetail..., "ragon")` — quindi questa rete
+    adesso ha un movente in piu'.
+13. ⭐ **Le reti sulle toppe: ne restano fuori due** — le maiuscole del testo e
+    le larghezze fuori dai menu. Invariata dalla 130a.
+14. 💡 **La coda nuda di una `lang()` gia' resa** (`chat.hsp:17065`, 127a).
+15. 💡 **`_133-inserisci.py` rifiuta un file di rese che porti una chiave
+    `_nota`**, mentre `_133-attori-applica.py` le salta.
+16. ✅ ~~Il debito misurato e non triato~~ — **CHIUSO nella 135a**: `DA_TRIARE`
+    e' vuoto, non resta un file misurato e mai guardato.
+
+---
+
+## Le trappole che il triage della 135a ha trovato, e che valgono per chiunque tocchi quei file
+
+⚠️ **`command.hsp`: sette stringhe sono OPERANDI di uova di Pasqua.** «god
+inside», «man inside», «dog whistle», «happy new year», «merry christmas»,
+«small coin», «small medal» (:4481-:4763) sono confrontate con quel che il
+giocatore ha scritto o col nome di un oggetto. Tradurle senza tradurre l'altro
+capo del confronto **spegne l'evento in silenzio**.
+
+⚠️ **Gli argomenti GIAPPONESI di `lang()` sembrano scoperti, e non lo sono.**
+Quando il ramo giapponese e' scritto in latino — `lang("direct sound", "Direct
+sound")` in `config.hsp:805`, `lang("Level(Piety Cost)", ...)` in
+`command.hsp:7625`, le grida dei boss `lang("「Target Acquired.」", cnvtalk(...))`
+in `db_creature.hsp` — il censimento li vede. Il lato giapponese non si traduce
+per costruzione: l'inglese sta gia' nel dizionario.
+
+⚠️ **`init.hsp` e' il rapporto di crash, e resta in inglese di PROPOSITO.** 41
+nomi d'errore HSP e 14 righe di rapporto: chi riceve una segnalazione deve
+poterla confrontare con quelle di monte, e un «Overflow del buffer» in mezzo la
+rende inutile.
+
+⚠️ **Le caporali `«»` CP932 non le sa scrivere**, ed e' la stessa cosa su cui e'
+inciampata la 133a. La 135a ci e' inciampata di nuovo, scrivendo «Costa
+automatica» dentro una resa: l'hanno fermata due reti prima dell'albero di
+build. Una rete che ferma chi l'ha scritta e' una rete che serve.
+
+⚠️ **Cinque toppe della 135a vogliono `"tutte": true`**, e la catena l'ha fatto
+scoprire fermandosi: le tre regole sul nome esistono due volte (oggetto e PNG),
+il `filedsc` del bitmap idem, la descrizione dell'IA una per l'Apri e una per il
+Salva, e la finestra d'avvio sta in tutt'e due i rami di `#ifdef _DEBUG`.
+
+---
+
+## La centotrentaquattresima sessione (per storia)
+
 Aggiornato: 2026-09-03, fine della **centotrentaquattresima** sessione
 (**`scene2.hsp` chiude a 1701 su 1701: la Fase 4 e' finita, e lo stesso guasto
 della 133a stava in un secondo strumento**).

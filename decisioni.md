@@ -14706,3 +14706,153 @@ che un dio concede) con la stessa parola. Nel lotto D compaiono a tredici battut
 di distanza (365.16 e 365.29) e in tutt'e due i casi la frase regge, quindi non
 ho forzato una scelta. Ma è un omografo su due concetti, come sopra, e andrebbe
 sciolto una volta sola invece che scena per scena.
+
+---
+
+## La centotrentacinquesima — il 100% era il perimetro, e sotto c'era il gioco di carte — 2026-09-03
+
+Domanda d'apertura dell'utente: «tutto finito allora?». La catena era tutta
+verde e `perimetro.py` diceva 100,0%, quindi la risposta è arrivata cercando il
+fronte successivo invece di rileggere il referto.
+
+### Perché nessun contatore poteva trovarlo
+
+I quattro contatori del progetto partono tutti dall'elenco delle cose **già
+coperte** — `DIZIONARIO/*.jsonl`, `toppe.jsonl`, le firme `lang()`. Un file che
+non ha né `lang()` né dizionario né toppe non risulta scoperto: non risulta
+affatto. `_123-file-senza-dizionario.py` sembra l'eccezione e non lo è, perché
+chiede «con `lang()` e senza dizionario».
+
+`strumenti/copertura.py` parte dai file del **sorgente**. Sotto il 100%: 968
+stringhe inglesi distinte a schermo, 951 delle quali il minigioco delle carte.
+La famiglia TCG era stata lavorata per il suo contorno (118 toppe: le fasi del
+turno, il menu dei mazzi) e mai per il testo delle carte.
+
+### La decisione sulla forma del cancello
+
+Non «ogni stringa dev'essere coperta»: sarebbe un cancello che chiede
+l'impossibile, e quelli vengono disattivati, non rispettati — è la lezione del
+soffitto dei `{txt}` della 134ª. Chiede che **ogni file con stringhe scoperte
+sia dichiarato**, col suo conto e con scritto perché, e si accende su tre cose:
+un file non dichiarato, un conto che non torna più, una dichiarazione diventata
+inutile.
+
+Il terzo ramo l'ho scritto e poi l'ho visto fallire su un caso vero: chiuso
+`custom_lib.hsp` con la sua toppa, il file non sparisce dal censimento — resta,
+con zero scoperte — e il ciclo, che guardava solo se la riga mancava, lo
+lasciava passare. **Una rete mai esercitata non è una rete**, e va esercitata su
+un caso vero, non su uno finto.
+
+### E «coperto» è una proprietà della stringa, non del file
+
+La prima versione chiedeva «questo file ha un dizionario o una toppa?». Con
+quella domanda `tcg_mod.hsp` risultava **coperto**: dizionario di **8** voci
+contro **809** stringhe. Un file coperto per un ottavo di percento era
+indistinguibile da uno coperto davvero. Ora una stringa è raggiunta solo se lo è
+lei: dentro una `lang()` (via `estrai.siti()`, l'unica scansione del progetto) o
+su una riga che riscrive una toppa.
+
+### Il riconoscitore sbaglia per eccesso, ed è voluto — col suo prezzo
+
+Un falso positivo costa una riga di dichiarazione con scritto perché; un falso
+negativo costa un'altra fase chiusa al 100% con novecento stringhe dentro.
+
+⚠️ Ma vale solo finché qualcuno guarda davvero cosa ha trovato.
+`custom_tweaks.hsp` ha esibito **75 voci del menu Tweaks** che sembravano
+dimenticate — in un file con 264 toppe, quindi plausibile — ed erano l'elenco
+documentativo dentro il `/* */` che apre il file. La scansione saltava `;` e
+`//` e non i commenti di blocco, che `commenti.righe_in_commento()` sa trovare
+da sessioni. Per mezz'ora sono state il secondo fronte più grosso del progetto.
+
+### La quarta specie di copertura: la morte per toppa
+
+`buff.hsp` sembrava un fronte da 48. La forma è `bufftxt(0, X) = lang(jp,
+" get"), " surrounded by a hazy mist."` — due celle, la prima dentro una
+`lang()` e la seconda nuda — e l'inglese le ricomponeva con
+`nome + bufftxt(0) + _s(...) + bufftxt(1)`, dove `_s()` è la desinenza inglese
+di terza persona, che in italiano cadrebbe **in mezzo** alla frase.
+
+Il progetto l'aveva già risolto: una toppa sostituisce tutto il blocco
+`if ( en )` di `chara_func.hsp` con la composizione a una parte sola, e da
+allora `bufftxt(1)` non lo legge più nessuno. **Nessuna rete può dedurlo** — non
+sa che una toppa ha tolto il lettore — e si verifica solo con un `grep`
+sull'albero di **build**, non sul sorgente.
+
+### Due rese che avevano inghiottito una variabile
+
+    EN   "You started a reading party with " + studybuddy + "."
+    IT   "Cominci un circolo di lettura con i tuoi compagni."
+
+`studybuddy` vale il **nome** del compagno quando è uno solo (`proc.hsp:16977`)
+e «your friends» quando sono più d'uno (`:16980`). In italiano quel ramo era
+sparito: leggendo con un compagno preciso il gioco non ne diceva il nome, e
+nella build la variabile risultava assegnata e mai letta. Identico per
+l'ensemble con `performerpal` (`:19178`).
+
+Riparate tutt'e due: il dizionario rimette la variabile nella frase, due toppe
+rendono il suo altro valore.
+
+⭐ **Come le ho trovate, e perché conta:** «your friends» risultava SCOPERTA.
+Quando una resa butta via una variabile, l'altro valore di quella variabile
+resta lì e il censimento della copertura lo denuncia. Una stringa non tradotta
+può denunciare una resa tradotta **male**, in un punto dove rileggere non basta.
+
+⚠️ La faccia opposta è legittima — i buff, i punti abilità — dove la variabile è
+morta di proposito e il testo a schermo è giusto. Si distinguono chiedendo
+**quali valori può prendere la variabile**, non se la frase suona bene.
+
+### Le decisioni di resa che vale la pena ritrovare
+
+- **`init.hsp` resta in inglese di proposito.** 41 nomi d'errore HSP e 14 righe
+  di rapporto di crash: chi riceve una segnalazione deve poterla confrontare con
+  quelle di monte, e un «Overflow del buffer» in mezzo la rende inutile.
+- **`UNKNOWN_TRAIT[<n>]` resta in inglese** dentro una frase italiana
+  (`trait.hsp:1268`), per la stessa ragione: è la stringa che chi riceve la
+  segnalazione deve poter cercare.
+- **`Major` → «potente», non «maggiore».** `custom_ai.hsp` ha due gradi vicini
+  nella stessa lista, `Greater` (:3080) e `Major` (:3083); il glossario dà
+  «maggiore» per `greater`, quindi `major` prende un'altra parola o le due voci
+  di menu diventano identiche.
+- **`Object Mode` → «Modalità strutture», non «oggetti».** Nell'editor di mappe
+  sta accanto a `Item Mode` (:1922 e :1924) e devono restare distinguibili a
+  colpo d'occhio; gli `object` di Elona sono porte, altari, insegne — quel che
+  sta fisso sulla mappa.
+- **Guida e casella di spunta rese nella stessa passata** (`map_func.hsp:1896` e
+  `:2513`): la guida **nomina** la casella, e due rese diverse manderebbero il
+  giocatore a cercare un comando che a schermo si chiama in un altro modo.
+- **`(Omake CItem)` → «(Oggetto Omake)»**: `CItem` è un'abbreviazione, non un
+  identificatore, e si scioglie. «Omake» resta, è il nome del ramo.
+
+### Quel che NON si tocca, e perché
+
+- **Le sette uova di Pasqua di `command.hsp`** (:4481-:4763): «god inside»,
+  «dog whistle», «happy new year»… sono confrontate con quel che il giocatore
+  scrive o col nome di un oggetto. Tradurle senza l'altro capo del confronto
+  spegne l'evento **in silenzio**.
+- **Gli argomenti giapponesi di `lang()` scritti in latino**:
+  `lang("direct sound", "Direct sound")` (`config.hsp:805`),
+  `lang("Level(Piety Cost)", ...)` (`command.hsp:7625`), le grida dei boss
+  `lang("「Target Acquired.」", cnvtalk(...))` (`db_creature.hsp:99788`). Il lato
+  giapponese non si traduce per costruzione.
+- **`"%Elona Custom Item"`, l'intestazione TSV di `custom_itemlist.hsp`, i
+  comandi MCI di `sound.hsp`, la richiesta HTTP di `net.hsp`**: firme di
+  formato, protocolli, API. Tradurli non cambierebbe una parola a schermo —
+  romperebbe qualcosa.
+- **`"Omae wa mou shindeiru."`** (`proc.hsp:14392`): è una citazione, e tradurla
+  la spegnerebbe. La decisione è scritta perché non resti all'inerzia.
+
+### Le domande che restano aperte, e non sono traduzione
+
+1. **`module.hsp`, gli otto `cnv_str fix_wish_arg1, "card of ", ""`**
+   (:4815-:4825). Tolgono i prefissi **inglesi** da quel che il giocatore scrive
+   quando esprime un desiderio, per capire che oggetto vuole. I nostri nomi sono
+   italiani da fasi: con ogni probabilità non agganciano più niente. ⚠️ Non è
+   solo traduzione — **è un comportamento del gioco che potrebbe essere già
+   rotto**, e va guardato col `contratto-nomi.md` in mano.
+2. **Il filtro delle 26 categorie d'oggetto** (`map_func.hsp:2517`). Tradurlo
+   fisserebbe i nomi italiani delle categorie, e il progetto non ce li ha:
+   `categorie.py` legge la classe che il sorgente **dichiara**
+   (`FILTER_ITEM_FOOD`…), che è una chiave, non un nome da mostrare. Deciderli
+   in un attrezzo laterale vuol dire ritrovarseli addosso nell'interfaccia.
+3. **`help.hsp:409`**, `s "広域能力を使う(Wide apply)"`: giapponese e inglese
+   nella stessa stringa, fuori da `lang()`. Serve sapere cosa fa quel comando.
