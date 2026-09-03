@@ -1,0 +1,835 @@
+{"costante": "TCG_EFF_NONE", "riga": 1572, "en": "No Effect.", "it": "Nessun effetto."}
+{"costante": "TCG_EFF_NOLIMIT", "riga": 1574, "en": "You can put more than 4 of this in your deck.", "it": "Puoi metterne più di 4 nel mazzo."}
+{"costante": "TCG_EFF_PLAYER", "riga": 1575, "en": "This Card is literally me.", "it": "Questa carta sono letteralmente io."}
+{"costante": "TCG_EFF_CNPC", "riga": 1576, "en": "Wait a minute, WHO are you?", "it": "Un momento, TU chi saresti?"}
+{"costante": "TCG_EFF_NOVICE", "riga": 1577, "en": "This Card has random skills. You can put more than 2 of them in your deck.", "it": "Questa carta ha abilità a caso. Puoi metterne più di 2 nel mazzo."}
+{"costante": "TCG_EFF_RETURNTODECKWHENKILLED", "riga": 1579, "en": "Return to Deck when Killed.", "it": "Torna nel mazzo quando muore."}
+{"costante": "TCG_EFF_RETURNTOHANDWHENKILLED", "riga": 1581, "en": "Return to Hand when Killed. (to Deck if Hand is Full)", "it": "Torna in mano quando muore. (nel mazzo se la mano è piena)"}
+{"costante": "TCG_EFF_NOCOMBATDAMAGE", "riga": 1582, "en": "This Card Receive NO Combat Damage.", "it": "Questa carta non subisce danno da scontro."}
+{"costante": "TCG_EFF_POKER", "riga": 1585, "en": "This Card has 13 different effects.\\n          You can put up to 13 of them in deck.", "it": "Questa carta ha 13 effetti diversi.\\n          Puoi metterne fino a 13 nel mazzo."}
+{"costante": "TCG_EFF_SACRIFICE_DRAW1CARD", "riga": 1588, "en": "Sacrifice: Draw 1 Card.", "it": "Sacrificio: pesca 1 carta."}
+{"costante": "TCG_EFF_SACRIFICE_GAIN1MANA", "riga": 1590, "en": "Sacrifice: Gain 1 Extra Mana.", "it": "Sacrificio: ottieni 1 mana in più."}
+{"costante": "TCG_EFF_SACRIFICE_GAIN1MANANEXTTURN", "riga": 1592, "en": "Sacrifice: Gain 1 Extra Mana Next Turn.", "it": "Sacrificio: ottieni 1 mana in più il turno prossimo."}
+{"costante": "TCG_EFF_SACRIFICE_SAVE1MANA", "riga": 1594, "en": "Sacrifice: Pay 2 Mana to Get 2 Extra Mana Next Turn.", "it": "Sacrificio: paga 2 mana per averne 2 in più il turno prossimo."}
+{"costante": "TCG_EFF_SACRIFICE_DRAFT1MANA", "riga": 1596, "en": "Sacrifice: Get 2 Extra Mana, but Lose 2 Mana Next Turn.", "it": "Sacrificio: ottieni 2 mana in più, ma ne perdi 2 il turno prossimo."}
+{"costante": "TCG_EFF_SACRIFICE_OPPONENTLOSE1MANANEXTTURN", "riga": 1598, "en": "Sacrifice: Opponent Lose 1 Mana Next Turn.", "it": "Sacrificio: l'avversario perde 1 mana il turno prossimo."}
+{"costante": "TCG_EFF_SACRIFICE_BOTHPLAYERGAIN2MANANEXTTURN", "riga": 1600, "en": "Sacrifice: Both Player Gain 2 Mana Next Turn.", "it": "Sacrificio: tutt'e due i giocatori ottengono 2 mana il turno prossimo."}
+{"costante": "TCG_EFF_SACRIFICE_TARGETFIELDCREATUREGET11", "riga": 1602, "en": "Sacrifice: Target Card on Field gets +1/+1.", "it": "Sacrificio: la carta bersaglio in campo ottiene +1/+1."}
+{"costante": "TCG_EFF_SACRIFICE_TARGETFIELDCREATUREGET02", "riga": 1604, "en": "Sacrifice: Target Card on Field gets +0/+2.", "it": "Sacrificio: la carta bersaglio in campo ottiene +0/+2."}
+{"costante": "TCG_EFF_SACRIFICE_TARGETHANDCREATUREGET20", "riga": 1606, "en": "Sacrifice: Target Card in Hand gets +2/+0.", "it": "Sacrificio: la carta bersaglio in mano ottiene +2/+0."}
+{"costante": "TCG_EFF_SACRIFICE_TARGETHANDCREATUREGET02", "riga": 1608, "en": "Sacrifice: Target Card in Hand gets +0/+2.", "it": "Sacrificio: la carta bersaglio in mano ottiene +0/+2."}
+{"costante": "TCG_EFF_SACRIFICE_TARGETHANDCREATURECOSTREDUCE", "riga": 1610, "en": "Sacrifice: Target Card in Hand gets -1 cost.", "it": "Sacrificio: la carta bersaglio in mano costa 1 in meno."}
+{"costante": "TCG_EFF_SACRIFICE_TARGETHANDCREATUREGETREGEN", "riga": 1612, "en": "Sacrifice: Target Card in Hand gets Regeneration.", "it": "Sacrificio: la carta bersaglio in mano ottiene Rigenerazione."}
+{"costante": "TCG_EFF_SACRIFICE_TARGETFIELDCREATURECLEANSE", "riga": 1614, "en": "Sacrifice: Cleanse Debuff from Target Card.", "it": "Sacrificio: togli le penalità dalla carta bersaglio."}
+{"costante": "TCG_EFF_SACRIFICE_ALLFIELDCREATURECLEANSE", "riga": 1616, "en": "Sacrifice: Cleanse Debuff from All Cards.", "it": "Sacrificio: togli le penalità da tutte le carte."}
+{"costante": "TCG_EFF_SACRIFICE_TARGETCREATUREGETDEATHWORD", "riga": 1618, "en": "Sacrifice: Inflict Target Card with Deathword.", "it": "Sacrificio: infliggi Condanna alla carta bersaglio."}
+{"costante": "TCG_EFF_SACRIFICE_TARGETCREATUREGETAHORSE", "riga": 1620, "en": "Sacrifice: Give 1 Random Card of yours a Horse to Ride. (They need to have same cost.)", "it": "Sacrificio: dai un cavallo da cavalcare a una tua carta a caso. (devono costare uguale.)"}
+{"costante": "TCG_EFF_SACRIFICE_TARGETCREATUREGETABIKE", "riga": 1622, "en": "Sacrifice: Give 1 Random Card of yours a Bike to Ride. (They need to have same cost.)", "it": "Sacrificio: dai una bici da cavalcare a una tua carta a caso. (devono costare uguale.)"}
+{"costante": "TCG_EFF_SACRIFICE_TARGETCREATUREGET10EVERYTURN", "riga": 1624, "en": "Sacrifice: Target Card's Effect become: Begin Phase - Gain 1 Attack.", "it": "Sacrificio: l'effetto della carta bersaglio diventa: Fase iniziale - ottiene 1 attacco."}
+{"costante": "TCG_EFF_SACRIFICE_SUMMONITSELF", "riga": 1626, "en": "Sacrifice: Summon Itself.", "it": "Sacrificio: evoca sé stessa."}
+{"costante": "TCG_EFF_SACRIFICE_HEALTARGET", "riga": 1628, "en": "Sacrifice: Heal Target to Full Hp.", "it": "Sacrificio: cura del tutto la carta bersaglio."}
+{"costante": "TCG_EFF_SACRIFICE_HEAL2RANDOMCARD", "riga": 1630, "en": "Sacrifice: Heal Your 2 Random Cards to Full Hp.", "it": "Sacrificio: cura del tutto 2 tue carte a caso."}
+{"costante": "TCG_EFF_SACRIFICE_HEALALLCARD", "riga": 1632, "en": "Sacrifice: Heal All Your Cards to Full Hp.", "it": "Sacrificio: cura del tutto tutte le tue carte."}
+{"costante": "TCG_EFF_SACRIFICE_SETTARGETHEALTHTO1", "riga": 1634, "en": "Sacrifice: Reduce Target Heath to 1.", "it": "Sacrificio: porta a 1 la vita della carta bersaglio."}
+{"costante": "TCG_EFF_SACRIFICE_PARALYSECARD", "riga": 1636, "en": "Sacrifice: Paralyse Target Card.", "it": "Sacrificio: paralizza la carta bersaglio."}
+{"costante": "TCG_EFF_SACRIFICE_BOUNCECARD", "riga": 1638, "en": "Sacrifice: Return Your Target Card to Hand.", "it": "Sacrificio: rimanda in mano la tua carta bersaglio."}
+{"costante": "TCG_EFF_BATTLECRY_SUMMONACOPY", "riga": 1641, "en": "Battlecry: Summon a copy of this Card.", "it": "Grido di battaglia: evoca una copia di questa carta."}
+{"costante": "TCG_EFF_BATTLECRY_SUMMONACOPY01", "riga": 1643, "en": "Battlecry: Summon a 0/1 copy of this Card.", "it": "Grido di battaglia: evoca una copia 0/1 di questa carta."}
+{"costante": "TCG_EFF_BATTLECRY_SUMMONACOPY0X", "riga": 1645, "en": "Battlecry: Summon a 0-Attack copy of this Card.", "it": "Grido di battaglia: evoca una copia con 0 attacco di questa carta."}
+{"costante": "TCG_EFF_BATTLECRY_SUMMON2COPY", "riga": 1647, "en": "Battlecry: Summon 2 copies of this Card.", "it": "Grido di battaglia: evoca 2 copie di questa carta."}
+{"costante": "TCG_EFF_BATTLECRY_SUMMON2COPY01", "riga": 1649, "en": "Battlecry: Summon 2 0/1 copies of this Card.", "it": "Grido di battaglia: evoca 2 copie 0/1 di questa carta."}
+{"costante": "TCG_EFF_BATTLECRY_SUMMON2COPY0X", "riga": 1651, "en": "Battlecry: Summon 2 0-Attack copies of this Card.", "it": "Grido di battaglia: evoca 2 copie con 0 attacco di questa carta."}
+{"costante": "TCG_EFF_BATTLECRY_DRAW1CARD", "riga": 1654, "en": "Battlecry: Draw 1 Card.", "it": "Grido di battaglia: pesca 1 carta."}
+{"costante": "TCG_EFF_BATTLECRY_DRAW2CARD", "riga": 1656, "en": "Battlecry: Draw 2 Card.", "it": "Grido di battaglia: pesca 2 carte."}
+{"costante": "TCG_EFF_BATTLECRY_DRAW3CARD", "riga": 1658, "en": "Battlecry: Draw 3 Card.", "it": "Grido di battaglia: pesca 3 carte."}
+{"costante": "TCG_EFF_BATTLECRY_GAIN1MANANEXTTURN", "riga": 1660, "en": "Battlecry: Gain 1 Extra Mana Next Turn.", "it": "Grido di battaglia: ottieni 1 mana in più il turno prossimo."}
+{"costante": "TCG_EFF_BATTLECRY_GAIN1MANA", "riga": 1662, "en": "Battlecry: Gain 1 Extra Mana.", "it": "Grido di battaglia: ottieni 1 mana in più."}
+{"costante": "TCG_EFF_BATTLECRY_DEALOPPONENT2DAMAGE", "riga": 1665, "en": "Battlecry: Deal Opponent 2 Damage.", "it": "Grido di battaglia: infliggi 2 danni all'avversario."}
+{"costante": "TCG_EFF_BATTLECRY_DEALOPPONENT3DAMAGE", "riga": 1667, "en": "Battlecry: Deal Opponent 3 Damage.", "it": "Grido di battaglia: infliggi 3 danni all'avversario."}
+{"costante": "TCG_EFF_BATTLECRY_DEALOPPONENT4DAMAGE", "riga": 1669, "en": "Battlecry: Deal Opponent 4 Damage.", "it": "Grido di battaglia: infliggi 4 danni all'avversario."}
+{"costante": "TCG_EFF_BATTLECRY_DEALOPPONENT5DAMAGE", "riga": 1671, "en": "Battlecry: Deal Opponent 5 Damage.", "it": "Grido di battaglia: infliggi 5 danni all'avversario."}
+{"costante": "TCG_EFF_BATTLECRY_HEALPLAYER1DAMAGE", "riga": 1674, "en": "Battlecry: Heal Player 1 Damage.", "it": "Grido di battaglia: curati 1 danno."}
+{"costante": "TCG_EFF_BATTLECRY_HEALPLAYER2DAMAGE", "riga": 1676, "en": "Battlecry: Heal Player 2 Damage.", "it": "Grido di battaglia: curati 2 danni."}
+{"costante": "TCG_EFF_BATTLECRY_HEALPLAYER6DAMAGE", "riga": 1678, "en": "Battlecry: Heal Player 6 Damage.", "it": "Grido di battaglia: curati 6 danni."}
+{"costante": "TCG_EFF_BATTLECRY_HEALALLCARD", "riga": 1680, "en": "Battlecry: Heal All Your Cards to Full Hp.", "it": "Grido di battaglia: cura del tutto tutte le tue carte."}
+{"costante": "TCG_EFF_BATTLECRY_DEALEVERYONE1DAMAGE", "riga": 1683, "en": "Battlecry: Deal 1 Damage to every card.", "it": "Grido di battaglia: infliggi 1 danno a ogni carta."}
+{"costante": "TCG_EFF_BATTLECRY_DEALEVERYONE3DAMAGE", "riga": 1685, "en": "Battlecry: Deal 3 Damage to every card.", "it": "Grido di battaglia: infliggi 3 danni a ogni carta."}
+{"costante": "TCG_EFF_BATTLECRY_DEALEVERYONE9DAMAGE", "riga": 1687, "en": "Battlecry: Deal 9 Damage to every card.", "it": "Grido di battaglia: infliggi 9 danni a ogni carta."}
+{"costante": "TCG_EFF_BATTLECRY_DEALEVERYONEXDAMAGE", "riga": 1689, "en": "Battlecry: Deal 0 Damage to every card.", "it": "Grido di battaglia: infliggi 0 danni a ogni carta."}
+{"costante": "TCG_EFF_BATTLECRY_DEALRANDOMENEMY3DAMAGE", "riga": 1692, "en": "Battlecry: Deal 3 Damage to an Enemy.", "it": "Grido di battaglia: infliggi 3 danni a un nemico."}
+{"costante": "TCG_EFF_BATTLECRY_DEAL2RANDOMENEMY2DAMAGE", "riga": 1694, "en": "Battlecry: Deal 2 Damage to 2 Enemies.", "it": "Grido di battaglia: infliggi 2 danni a 2 nemici."}
+{"costante": "TCG_EFF_BATTLECRY_DEALRANDOMENEMY6DAMAGE", "riga": 1696, "en": "Battlecry: Deal 6 Damage to an Enemy.", "it": "Grido di battaglia: infliggi 6 danni a un nemico."}
+{"costante": "TCG_EFF_BATTLECRY_DEAL3RANDOMENEMY3DAMAGE", "riga": 1698, "en": "Battlecry: Deal 3 Damage to 3 Enemies.", "it": "Grido di battaglia: infliggi 3 danni a 3 nemici."}
+{"costante": "TCG_EFF_BATTLECRY_DEALALLENEMY2DAMAGE", "riga": 1700, "en": "Battlecry: Deal 2 Damage to all Enemies.", "it": "Grido di battaglia: infliggi 2 danni a tutti i nemici."}
+{"costante": "TCG_EFF_BATTLECRY_DEALALLENEMY3DAMAGE", "riga": 1702, "en": "Battlecry: Deal 3 Damage to all Enemies.", "it": "Grido di battaglia: infliggi 3 danni a tutti i nemici."}
+{"costante": "TCG_EFF_BATTLECRY_DEALRANDOMENEMY1DAMAGE", "riga": 1704, "en": "Battlecry: Deal 1 Damage to an Enemy.", "it": "Grido di battaglia: infliggi 1 danno a un nemico."}
+{"costante": "TCG_EFF_BATTLECRY_DEALRANDOMENEMY2DAMAGE", "riga": 1706, "en": "Battlecry: Deal 2 Damage to an Enemy.", "it": "Grido di battaglia: infliggi 2 danni a un nemico."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1CARD", "riga": 1709, "en": "Battlecry: Search Deck for 1 Card.", "it": "Grido di battaglia: cerca 1 carta nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1CARDNEUTRAL", "riga": 1711, "en": "Battlecry: Search Deck for 1 Neutral Card.", "it": "Grido di battaglia: cerca 1 carta neutra nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1WARRIOR", "riga": 1713, "en": "Battlecry: Search Deck for 1 Warrior.", "it": "Grido di battaglia: cerca 1 guerriero nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1THIEF", "riga": 1715, "en": "Battlecry: Search Deck for 1 Thief.", "it": "Grido di battaglia: cerca 1 ladro nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1WIZARD", "riga": 1717, "en": "Battlecry: Search Deck for 1 Wizard.", "it": "Grido di battaglia: cerca 1 mago nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1CLAYMORE", "riga": 1719, "en": "Battlecry: Search Deck for 1 Claymore.", "it": "Grido di battaglia: cerca 1 claymore nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1PRIEST", "riga": 1721, "en": "Battlecry: Search Deck for 1 Priest.", "it": "Grido di battaglia: cerca 1 sacerdote nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1ARCHER", "riga": 1723, "en": "Battlecry: Search Deck for 1 Archer.", "it": "Grido di battaglia: cerca 1 arciere nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1WARMAGE", "riga": 1725, "en": "Battlecry: Search Deck for 1 Warmage.", "it": "Grido di battaglia: cerca 1 mago guerriero nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1GUNNER", "riga": 1727, "en": "Battlecry: Search Deck for 1 Gunner.", "it": "Grido di battaglia: cerca 1 fuciliere nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1PREDATOR", "riga": 1729, "en": "Battlecry: Search Deck for 1 Predator.", "it": "Grido di battaglia: cerca 1 predatore nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1FARMER", "riga": 1731, "en": "Battlecry: Search Deck for 1 Farmer.", "it": "Grido di battaglia: cerca 1 contadino nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1PIANIST", "riga": 1733, "en": "Battlecry: Search Deck for 1 Pianist.", "it": "Grido di battaglia: cerca 1 pianista nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1TOURIST", "riga": 1735, "en": "Battlecry: Search Deck for 1 Tourist.", "it": "Grido di battaglia: cerca 1 turista nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1CLASSLESS", "riga": 1737, "en": "Battlecry: Search Deck for 1 Classless Card.", "it": "Grido di battaglia: cerca 1 carta senza classe nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1COST0CARD", "riga": 1740, "en": "Battlecry: Search Deck for 1 Cost 0 Card.", "it": "Grido di battaglia: cerca 1 carta da 0 nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1COST1CARD", "riga": 1742, "en": "Battlecry: Search Deck for 1 Cost 1 Card.", "it": "Grido di battaglia: cerca 1 carta da 1 nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1COST2CARD", "riga": 1744, "en": "Battlecry: Search Deck for 1 Cost 2 Card.", "it": "Grido di battaglia: cerca 1 carta da 2 nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1COST3CARD", "riga": 1746, "en": "Battlecry: Search Deck for 1 Cost 3 Card.", "it": "Grido di battaglia: cerca 1 carta da 3 nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1COST4CARD", "riga": 1748, "en": "Battlecry: Search Deck for 1 Cost 4 Card.", "it": "Grido di battaglia: cerca 1 carta da 4 nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_SEARCHDECKFOR1COST5CARD", "riga": 1750, "en": "Battlecry: Search Deck for 1 Cost 5 Card.", "it": "Grido di battaglia: cerca 1 carta da 5 nel mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_DRAWRANDOMBLUE", "riga": 1753, "en": "Battlecry: Draw a Blue Card from your Deck.", "it": "Grido di battaglia: pesca dal mazzo una carta blu."}
+{"costante": "TCG_EFF_BATTLECRY_DRAWRANDOMGREEN", "riga": 1755, "en": "Battlecry: Draw a Green Card from your Deck.", "it": "Grido di battaglia: pesca dal mazzo una carta verde."}
+{"costante": "TCG_EFF_BATTLECRY_DRAWRANDOMWHITE", "riga": 1757, "en": "Battlecry: Draw a White Card from your Deck.", "it": "Grido di battaglia: pesca dal mazzo una carta bianca."}
+{"costante": "TCG_EFF_BATTLECRY_DRAWRANDOMBLACK", "riga": 1759, "en": "Battlecry: Draw a Black Card from your Deck.", "it": "Grido di battaglia: pesca dal mazzo una carta nera."}
+{"costante": "TCG_EFF_BATTLECRY_DRAWRANDOMNEUTRAL", "riga": 1761, "en": "Battlecry: Draw a Neutral Card from your Deck.", "it": "Grido di battaglia: pesca dal mazzo una carta neutra."}
+{"costante": "TCG_EFF_BATTLECRY_DRAWRANDOMLEGO", "riga": 1763, "en": "Battlecry: Draw a Legendary Card from your Deck.", "it": "Grido di battaglia: pesca dal mazzo una carta leggendaria."}
+{"costante": "TCG_EFF_BATTLECRY_DRAWRANDOMGRAY", "riga": 1765, "en": "Battlecry: Draw a Gray Card from your Deck.", "it": "Grido di battaglia: pesca dal mazzo una carta grigia."}
+{"costante": "TCG_EFF_BATTLECRY_DRAWRANDOMRED", "riga": 1767, "en": "Battlecry: Draw a Red Card from your Deck.", "it": "Grido di battaglia: pesca dal mazzo una carta rossa."}
+{"costante": "TCG_EFF_BATTLECRY_DEALCHOSENENEMY2DAMAGE", "riga": 1770, "en": "Battlecry: Deal 2 Damage to Target Card.", "it": "Grido di battaglia: infliggi 2 danni alla carta bersaglio."}
+{"costante": "TCG_EFF_BATTLECRY_DEALCHOSENENEMY3DAMAGE", "riga": 1772, "en": "Battlecry: Deal 3 Damage to Target Card.", "it": "Grido di battaglia: infliggi 3 danni alla carta bersaglio."}
+{"costante": "TCG_EFF_BATTLECRY_DEALCHOSENENEMY4DAMAGE", "riga": 1774, "en": "Battlecry: Deal 4 Damage to Target Card.", "it": "Grido di battaglia: infliggi 4 danni alla carta bersaglio."}
+{"costante": "TCG_EFF_BATTLECRY_DEALCHOSENENEMY5DAMAGE", "riga": 1776, "en": "Battlecry: Deal 5 Damage to Target Card.", "it": "Grido di battaglia: infliggi 5 danni alla carta bersaglio."}
+{"costante": "TCG_EFF_BATTLECRY_DEALCHOSENENEMY6DAMAGE", "riga": 1778, "en": "Battlecry: Deal 6 Damage to Target Card.", "it": "Grido di battaglia: infliggi 6 danni alla carta bersaglio."}
+{"costante": "TCG_EFF_BATTLECRY_POISONCHOSENENEMY", "riga": 1781, "en": "Battlecry: Poison Target Card.", "it": "Grido di battaglia: avvelena la carta bersaglio."}
+{"costante": "TCG_EFF_BATTLECRY_FREEZECHOSENENEMY", "riga": 1783, "en": "Battlecry: Freeze Target Card.", "it": "Grido di battaglia: congela la carta bersaglio."}
+{"costante": "TCG_EFF_BATTLECRY_PARALYSECHOSENENEMY", "riga": 1785, "en": "Battlecry: Paralyse Target Card.", "it": "Grido di battaglia: paralizza la carta bersaglio."}
+{"costante": "TCG_EFF_BATTLECRY_WEAKENCHOSENENEMY", "riga": 1787, "en": "Battlecry: Weaken Target Card by 1.", "it": "Grido di battaglia: indebolisci di 1 la carta bersaglio."}
+{"costante": "TCG_EFF_BATTLECRY_SILENCECHOSENENEMY", "riga": 1789, "en": "Battlecry: Silence Target Card.", "it": "Grido di battaglia: silenzia la carta bersaglio."}
+{"costante": "TCG_EFF_BATTLECRY_BLEEDCHOSENENEMY", "riga": 1791, "en": "Battlecry: Bleed Target Card.", "it": "Grido di battaglia: fai sanguinare la carta bersaglio."}
+{"costante": "TCG_EFF_BATTLECRY_DEBUFFCHOSENENEMY", "riga": 1793, "en": "Battlecry: Inflict Target Card with Random Debuff.", "it": "Grido di battaglia: infliggi una penalità a caso alla carta bersaglio."}
+{"costante": "TCG_EFF_BATTLECRY_DESTROYCHOSENENEMY", "riga": 1795, "en": "Battlecry: Destroy Target Card.", "it": "Grido di battaglia: distruggi la carta bersaglio."}
+{"costante": "TCG_EFF_CLINGHOST", "riga": 1798, "en": "Deathrattle: Shuffle 2 Clinghost into your Deck, all Clinghosts have +1/+1.", "it": "Rantolo di morte: mescola 2 Clinghost nel mazzo, e tutti i Clinghost hanno +1/+1."}
+{"costante": "TCG_EFF_CLINGHOST11", "riga": 1800, "en": "Deathrattle: All Clinghosts have +1/+1.", "it": "Rantolo di morte: tutti i Clinghost hanno +1/+1."}
+{"costante": "TCG_EFF_AMURDAD", "riga": 1802, "en": "Battlecry/OnKill: Activate all Deathrattle in your Grave.", "it": "Grido di battaglia/All'uccisione: attiva tutti i Rantoli di morte nel tuo cimitero."}
+{"costante": "TCG_EFF_HELLLABRYNTH", "riga": 1804, "en": "Battlecry/OnKill: Activate Random Enemy Field Card's Deathrattle.", "it": "Grido di battaglia/All'uccisione: attiva il Rantolo di morte di una carta nemica in campo a caso."}
+{"costante": "TCG_EFF_STRAYSOUL", "riga": 1806, "en": "Sacrifice/Deathrattle: Activate 1 of your Field Card's Deathrattle.", "it": "Sacrificio/Rantolo di morte: attiva il Rantolo di morte di una tua carta in campo."}
+{"costante": "TCG_EFF_BATTLECRY_POISONALLENEMY", "riga": 1809, "en": "Battlecry: Poison All Enemies.", "it": "Grido di battaglia: avvelena tutti i nemici."}
+{"costante": "TCG_EFF_BATTLECRY_FREEZEALLENEMY", "riga": 1811, "en": "Battlecry: Freeze All Enemies.", "it": "Grido di battaglia: congela tutti i nemici."}
+{"costante": "TCG_EFF_BATTLECRY_PARALYSEALLENEMY", "riga": 1813, "en": "Battlecry: Paralyse All Enemies.", "it": "Grido di battaglia: paralizza tutti i nemici."}
+{"costante": "TCG_EFF_BATTLECRY_WEAKENALLENEMY", "riga": 1815, "en": "Battlecry: Weaken All Enemies by 1.", "it": "Grido di battaglia: indebolisci di 1 tutti i nemici."}
+{"costante": "TCG_EFF_BATTLECRY_SILENCEALLENEMY", "riga": 1817, "en": "Battlecry: Silence All Enemies (both on Field and in Hand).", "it": "Grido di battaglia: silenzia tutti i nemici (in campo e in mano)."}
+{"costante": "TCG_EFF_BATTLECRY_BLEEDALLENEMY", "riga": 1819, "en": "Battlecry: Bleed All Enemies.", "it": "Grido di battaglia: fai sanguinare tutti i nemici."}
+{"costante": "TCG_EFF_BATTLECRY_DEBUFFALLENEMY", "riga": 1821, "en": "Battlecry: Inflict All Enemies with Random Debuff.", "it": "Grido di battaglia: infliggi una penalità a caso a tutti i nemici."}
+{"costante": "TCG_EFF_BATTLECRY_DEBUFFALLENEMYHAND", "riga": 1823, "en": "Battlecry: Inflict All Cards in Opponent's Hand with Random Debuff.", "it": "Grido di battaglia: infliggi una penalità a caso a tutte le carte in mano all'avversario."}
+{"costante": "TCG_EFF_BATTLECRY_GRAVITYALLENEMY", "riga": 1825, "en": "Battlecry: Inflict Gravity on All Enemies.", "it": "Grido di battaglia: infliggi Gravità a tutti i nemici."}
+{"costante": "TCG_EFF_BATTLECRY_FREEZERANDOMENEMY", "riga": 1828, "en": "Battlecry: Freeze Random Enemy.", "it": "Grido di battaglia: congela un nemico a caso."}
+{"costante": "TCG_EFF_BATTLECRY_PARALYSERANDOMENEMY", "riga": 1830, "en": "Battlecry: Paralyse Random Enemy.", "it": "Grido di battaglia: paralizza un nemico a caso."}
+{"costante": "TCG_EFF_BATTLECRY_WEAKENRANDOMENEMY", "riga": 1832, "en": "Battlecry: Weaken a Random Enemy by 1.", "it": "Grido di battaglia: indebolisci di 1 un nemico a caso."}
+{"costante": "TCG_EFF_BATTLECRY_SILENCERANDOM3ENEMY", "riga": 1834, "en": "Battlecry: Silence 3 Random Enemies.", "it": "Grido di battaglia: silenzia 3 nemici a caso."}
+{"costante": "TCG_EFF_BATTLECRY_DEBUFFRANDOMENEMY", "riga": 1836, "en": "Battlecry: Inflict a Random Card with Random Debuff.", "it": "Grido di battaglia: infliggi una penalità a caso a una carta a caso."}
+{"costante": "TCG_EFF_BATTLECRY_DEBUFFRANDOM2ENEMY", "riga": 1838, "en": "Battlecry: Inflict 2 Random Card with Random Debuff.", "it": "Grido di battaglia: infliggi una penalità a caso a 2 carte a caso."}
+{"costante": "TCG_EFF_BATTLECRY_DEBUFFRANDOMSELFHAND", "riga": 1840, "en": "Battlecry: Inflict a Random Card in Controller's Hand with Random Debuff.", "it": "Grido di battaglia: infliggi una penalità a caso a una carta a caso in mano a chi controlla."}
+{"costante": "TCG_EFF_BATTLECRY_DEBUFFRANDOM2SELFHAND", "riga": 1842, "en": "Battlecry: Inflict 2 Random Cards in Controller's Hand with Random Debuff.", "it": "Grido di battaglia: infliggi una penalità a caso a 2 carte a caso in mano a chi controlla."}
+{"costante": "TCG_EFF_BATTLECRY_CONFUSEDALLENEMY", "riga": 1845, "en": "Battlecry: Confuse All Enemies Cards on Field.", "it": "Grido di battaglia: confondi tutte le carte nemiche in campo."}
+{"costante": "TCG_EFF_BATTLECRY_CONFUSEDRANDOM3ENEMY", "riga": 1847, "en": "Battlecry: Confuse 3 Random Enemy Cards.", "it": "Grido di battaglia: confondi 3 carte nemiche a caso."}
+{"costante": "TCG_EFF_BATTLECRY_CONFUSEDALLENEMYINHAND", "riga": 1849, "en": "Battlecry: Confuse All Enemies Cards.", "it": "Grido di battaglia: confondi tutte le carte nemiche."}
+{"costante": "TCG_EFF_BATTLECRY_CONFUSEDTARGETENEMY", "riga": 1851, "en": "Battlecry: Confuse Target Card.", "it": "Grido di battaglia: confondi la carta bersaglio."}
+{"costante": "TCG_EFF_BATTLECRY_TARGETFIELDCREATUREGET02", "riga": 1854, "en": "Battlecry: Target Card on Field gets +0/+2.", "it": "Grido di battaglia: la carta bersaglio in campo ottiene +0/+2."}
+{"costante": "TCG_EFF_BATTLECRY_TARGETFIELDCREATUREGET20", "riga": 1856, "en": "Battlecry: Target Card on Field gets +2/+0.", "it": "Grido di battaglia: la carta bersaglio in campo ottiene +2/+0."}
+{"costante": "TCG_EFF_BATTLECRY_TARGETFIELDCREATUREGET22", "riga": 1858, "en": "Battlecry: Target Card on Field gets +2/+2.", "it": "Grido di battaglia: la carta bersaglio in campo ottiene +2/+2."}
+{"costante": "TCG_EFF_BATTLECRY_TARGETHANDCREATUREGET02", "riga": 1860, "en": "Battlecry: Target Card in Hand gets +0/+2.", "it": "Grido di battaglia: la carta bersaglio in mano ottiene +0/+2."}
+{"costante": "TCG_EFF_BATTLECRY_TARGETHANDCREATUREGET20", "riga": 1862, "en": "Battlecry: Target Card in Hand gets +2/+0.", "it": "Grido di battaglia: la carta bersaglio in mano ottiene +2/+0."}
+{"costante": "TCG_EFF_BATTLECRY_DRAW1OPPONENTCARD", "riga": 1865, "en": "Battlecry: Draw 1 Card from your opponent's deck.", "it": "Grido di battaglia: pesca 1 carta dal mazzo dell'avversario."}
+{"costante": "TCG_EFF_BATTLECRY_DRAW2OPPONENTCARD", "riga": 1867, "en": "Battlecry: Draw 2 Card from your opponent's deck.", "it": "Grido di battaglia: pesca 2 carte dal mazzo dell'avversario."}
+{"costante": "TCG_EFF_BATTLECRY_DRAW3OPPONENTCARD", "riga": 1869, "en": "Battlecry: Draw 3 Card from your opponent's deck.", "it": "Grido di battaglia: pesca 3 carte dal mazzo dell'avversario."}
+{"costante": "TCG_EFF_BATTLECRY_COPYTARGETCARDONFIELDNOLIMIT", "riga": 1872, "en": "Battlecry: Draw a Copy of Target Card on Field.", "it": "Grido di battaglia: pesca una copia della carta bersaglio in campo."}
+{"costante": "TCG_EFF_BATTLECRY_COPYTARGETCARDONFIELD", "riga": 1874, "en": "Battlecry: Draw a Copy of Target Non-Legendary Card on Field.", "it": "Grido di battaglia: pesca una copia della carta bersaglio non leggendaria in campo."}
+{"costante": "TCG_EFF_BATTLECRY_COPYRANDOMOPPONENTHAND", "riga": 1876, "en": "Battlecry: Draw a Copy of Random Non-Legendary Card in Opponent's Hand.", "it": "Grido di battaglia: pesca una copia di una carta non leggendaria a caso in mano all'avversario."}
+{"costante": "TCG_EFF_BATTLECRY_MILL1CARD", "riga": 1879, "en": "Battlecry: Send 1 Card in your Deck to Graveyard.", "it": "Grido di battaglia: manda nel cimitero 1 carta del tuo mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_MILL2CARD", "riga": 1881, "en": "Battlecry: Send 2 Card in your Deck to Graveyard.", "it": "Grido di battaglia: manda nel cimitero 2 carte del tuo mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_MILL3CARD", "riga": 1883, "en": "Battlecry: Send 3 Card in your Deck to Graveyard.", "it": "Grido di battaglia: manda nel cimitero 3 carte del tuo mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_MILL6CARD", "riga": 1885, "en": "Battlecry: Send 6 Card in your Deck to Graveyard.", "it": "Grido di battaglia: manda nel cimitero 6 carte del tuo mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_MILLTARGETCARD", "riga": 1887, "en": "Battlecry: Send Target Card in your Deck to Graveyard.", "it": "Grido di battaglia: manda nel cimitero la carta bersaglio del tuo mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_OPPONENTMILL1CARD", "riga": 1889, "en": "Battlecry: Send 1 Card from Opponent's Deck to Graveyard.", "it": "Grido di battaglia: manda nel cimitero 1 carta del mazzo avversario."}
+{"costante": "TCG_EFF_BATTLECRY_OPPONENTMILL2CARD", "riga": 1891, "en": "Battlecry: Send 2 Card from Opponent's Deck to Graveyard.", "it": "Grido di battaglia: manda nel cimitero 2 carte del mazzo avversario."}
+{"costante": "TCG_EFF_BATTLECRY_OPPONENTMILL3CARD", "riga": 1893, "en": "Battlecry: Send 3 Card from Opponent's Deck to Graveyard.", "it": "Grido di battaglia: manda nel cimitero 3 carte del mazzo avversario."}
+{"costante": "TCG_EFF_BATTLECRY_MILLTARGETUNDEAD", "riga": 1895, "en": "Battlecry: Send Target Ressurecting Undead in your Deck to Graveyard.", "it": "Grido di battaglia: manda nel cimitero il non morto che risorge, bersaglio nel tuo mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_BOUNCETARGETCARD", "riga": 1898, "en": "Battlecry: Return Target Card to Hand.", "it": "Grido di battaglia: rimanda in mano la carta bersaglio."}
+{"costante": "TCG_EFF_BATTLECRY_BOUNCETARGETOPPCARD", "riga": 1900, "en": "Battlecry: Return Target Opponent Card to Hand.", "it": "Grido di battaglia: rimanda in mano la carta bersaglio dell'avversario."}
+{"costante": "TCG_EFF_BATTLECRY_BOUNCEALOT", "riga": 1902, "en": "Battlecry: Return All (as many as possible) Opponent Card to Hand.", "it": "Grido di battaglia: rimanda in mano tutte le carte dell'avversario che puoi."}
+{"costante": "TCG_EFF_TURN_START_DRAW1CARD", "riga": 1905, "en": "Begin Phase: Draw 1 Card.", "it": "Fase iniziale: pesca 1 carta."}
+{"costante": "TCG_EFF_TURN_START_DEALOPPONENT2DAMAGE", "riga": 1907, "en": "Begin Phase: Deal Opponent 2 Damage.", "it": "Fase iniziale: infliggi 2 danni all'avversario."}
+{"costante": "TCG_EFF_TURN_START_DEALOPPONENT3DAMAGE", "riga": 1909, "en": "Begin Phase: Deal Opponent 3 Damage.", "it": "Fase iniziale: infliggi 3 danni all'avversario."}
+{"costante": "TCG_EFF_TURN_START_HEALPLAYER2DAMAGE", "riga": 1911, "en": "Begin Phase: Heal Player 2 Damage.", "it": "Fase iniziale: curati 2 danni."}
+{"costante": "TCG_EFF_TURN_START_HEALPLAYER5DAMAGE", "riga": 1913, "en": "Begin Phase: Heal Player 5 Damage.", "it": "Fase iniziale: curati 5 danni."}
+{"costante": "TCG_EFF_TURN_START_GAIN1ATK", "riga": 1915, "en": "Begin Phase: Gain 1 Attack.", "it": "Fase iniziale: ottiene 1 attacco."}
+{"costante": "TCG_EFF_TURN_START_GAIN2ATK", "riga": 1917, "en": "Begin Phase: Gain 2 Attack.", "it": "Fase iniziale: ottiene 2 attacco."}
+{"costante": "TCG_EFF_TURN_START_GAIN1ATK1HP", "riga": 1919, "en": "Begin Phase: Gain +1/+1.", "it": "Fase iniziale: ottiene +1/+1."}
+{"costante": "TCG_EFF_TURN_START_DEALEVERYONE1DAMAGE", "riga": 1921, "en": "Begin Phase: Deal 1 Damage to every card on Field.", "it": "Fase iniziale: infliggi 1 danno a ogni carta in campo."}
+{"costante": "TCG_EFF_TURN_START_PARALYSERANDOMENEMY", "riga": 1924, "en": "Begin Phase: Paralyse Random Enemy.", "it": "Fase iniziale: paralizza un nemico a caso."}
+{"costante": "TCG_EFF_TURN_START_DEBUFFRANDOMENEMY", "riga": 1926, "en": "Begin Phase: Inflict Random Enemy with Random Debuff.", "it": "Fase iniziale: infliggi una penalità a caso a un nemico a caso."}
+{"costante": "TCG_EFF_TURN_START_DEBUFFALLENEMY", "riga": 1928, "en": "Begin Phase: Inflict All Enemies with Random Debuff.", "it": "Fase iniziale: infliggi una penalità a caso a tutti i nemici."}
+{"costante": "TCG_EFF_TURN_START_DEATHWORDRANDOMENEMY", "riga": 1930, "en": "Begin Phase: Inflict Random Enemy with Deathword.", "it": "Fase iniziale: infliggi Condanna a un nemico a caso."}
+{"costante": "TCG_EFF_TURN_START_SPLITSELF", "riga": 1933, "en": "Begin Phase: Summon a copy of this.", "it": "Fase iniziale: evoca una copia di sé."}
+{"costante": "TCG_EFF_TURN_START_SPLITSELFALOT", "riga": 1935, "en": "Begin Phase: Fill the field with copies of this.", "it": "Fase iniziale: riempi il campo di copie di sé."}
+{"costante": "TCG_EFF_DEATHRATTLE_DRAW1CARD", "riga": 1938, "en": "Deathrattle: Draw 1 Card.", "it": "Rantolo di morte: pesca 1 carta."}
+{"costante": "TCG_EFF_DEATHRATTLE_DRAW2CARD", "riga": 1940, "en": "Deathrattle: Draw 2 Card.", "it": "Rantolo di morte: pesca 2 carte."}
+{"costante": "TCG_EFF_DEATHRATTLE_DRAW3CARD", "riga": 1942, "en": "Deathrattle: Draw 3 Card.", "it": "Rantolo di morte: pesca 3 carte."}
+{"costante": "TCG_EFF_DEATHRATTLE_GAIN1MANANEXTTURN", "riga": 1944, "en": "Deathrattle: Gain 1 Extra Mana Next Turn.", "it": "Rantolo di morte: ottieni 1 mana in più il turno prossimo."}
+{"costante": "TCG_EFF_DEATHRATTLE_POISONRANDOMENEMY", "riga": 1946, "en": "Deathrattle: Poison Random Enemy.", "it": "Rantolo di morte: avvelena un nemico a caso."}
+{"costante": "TCG_EFF_DEATHRATTLE_POISONTARGETENEMY", "riga": 1948, "en": "Deathrattle: Poison Target Enemy.", "it": "Rantolo di morte: avvelena il nemico bersaglio."}
+{"costante": "TCG_EFF_DEATHRATTLE_POISON2RANDOMENEMY", "riga": 1950, "en": "Deathrattle: Poison 2 Random Enemy.", "it": "Rantolo di morte: avvelena 2 nemici a caso."}
+{"costante": "TCG_EFF_DEATHRATTLE_POISONALLENEMY", "riga": 1952, "en": "Deathrattle: Poison All Enemies.", "it": "Rantolo di morte: avvelena tutti i nemici."}
+{"costante": "TCG_EFF_DEATHRATTLE_WEAKENRANDOM2ENEMYBY2", "riga": 1954, "en": "Deathrattle: Weaken 2 Random Enemy by 2.", "it": "Rantolo di morte: indebolisci di 2 due nemici a caso."}
+{"costante": "TCG_EFF_DEATHRATTLE_DEBUFFALLENEMY", "riga": 1956, "en": "Deathrattle: Inflict All Enemies with Random Debuff.", "it": "Rantolo di morte: infliggi una penalità a caso a tutti i nemici."}
+{"costante": "TCG_EFF_DEATHRATTLE_WEAKENALLENEMYBY2", "riga": 1958, "en": "Deathrattle: Weaken All Enemies by 2.", "it": "Rantolo di morte: indebolisci di 2 tutti i nemici."}
+{"costante": "TCG_EFF_DEATHRATTLE_BLEEDALLENEMY", "riga": 1960, "en": "Deathrattle: Bleed All Enemies.", "it": "Rantolo di morte: fai sanguinare tutti i nemici."}
+{"costante": "TCG_EFF_DEATHRATTLE_BLEEDRANDOMENEMY", "riga": 1962, "en": "Deathrattle: Bleed Random Enemies.", "it": "Rantolo di morte: fai sanguinare un nemico a caso."}
+{"costante": "TCG_EFF_DEATHRATTLE_DEALEVERYONE1DAMAGE", "riga": 1964, "en": "Deathrattle: Deal 1 Damage to every card.", "it": "Rantolo di morte: infliggi 1 danno a ogni carta."}
+{"costante": "TCG_EFF_DEATHRATTLE_DEALEVERYONE3DAMAGE", "riga": 1966, "en": "Deathrattle: Deal 3 Damage to every card.", "it": "Rantolo di morte: infliggi 3 danni a ogni carta."}
+{"costante": "TCG_EFF_DEATHRATTLE_DEALEVERYONE9DAMAGE", "riga": 1968, "en": "Deathrattle: Deal 9 Damage to every card.", "it": "Rantolo di morte: infliggi 9 danni a ogni carta."}
+{"costante": "TCG_EFF_DEATHRATTLE_RETURNTODECKGET22", "riga": 1970, "en": "Deathrattle: Return this to your Deck with +2/+2.", "it": "Rantolo di morte: torna nel tuo mazzo con +2/+2."}
+{"costante": "TCG_EFF_DEATHRATTLE_GAINARMOR", "riga": 1972, "en": "Deathrattle: Gain Armor Bit.", "it": "Rantolo di morte: ottiene Corazza."}
+{"costante": "TCG_EFF_ONKILL_DRAW1CARD", "riga": 1975, "en": "Deathblow: Draw 1 Card.", "it": "Colpo di grazia: pesca 1 carta."}
+{"costante": "TCG_EFF_AFTERCOMBAT_POISONOPPONENT", "riga": 1978, "en": "After Combat: Poison Opponent.", "it": "Dopo lo scontro: avvelena l'avversario."}
+{"costante": "TCG_EFF_AFTERCOMBAT_PARALYSEOPPONENT", "riga": 1980, "en": "After Combat: Paralyse Opponent.", "it": "Dopo lo scontro: paralizza l'avversario."}
+{"costante": "TCG_EFF_AFTERCOMBAT_BLEEDOPPONENT", "riga": 1982, "en": "After Combat: Bleed Opponent.", "it": "Dopo lo scontro: fai sanguinare l'avversario."}
+{"costante": "TCG_EFF_AFTERCOMBAT_WEAKENOPPONENTBY1", "riga": 1984, "en": "After Combat: Weaken Opponent by 1.", "it": "Dopo lo scontro: indebolisci di 1 l'avversario."}
+{"costante": "TCG_EFF_AFTERCOMBAT_DEALOPPONENT1DAMAGE", "riga": 1987, "en": "After Combat: Deal 1 Damage to Combat Opponent.", "it": "Dopo lo scontro: infliggi 1 danno alla carta con cui hai combattuto."}
+{"costante": "TCG_EFF_AFTERCOMBAT_DEALOPPONENT2DAMAGE", "riga": 1989, "en": "After Combat: Deal 2 Damage to Combat Opponent.", "it": "Dopo lo scontro: infliggi 2 danni alla carta con cui hai combattuto."}
+{"costante": "TCG_EFF_AFTERCOMBAT_DEALENEMY2DAMAGE", "riga": 1991, "en": "After Combat: Deal 2 Damage to Opponent.", "it": "Dopo lo scontro: infliggi 2 danni all'avversario."}
+{"costante": "TCG_EFF_AFTERCOMBAT_DEALENEMY3DAMAGE", "riga": 1993, "en": "After Combat: Deal 3 Damage to Opponent.", "it": "Dopo lo scontro: infliggi 3 danni all'avversario."}
+{"costante": "TCG_EFF_AFTERCOMBAT_SETTARGETHEALTHTO1", "riga": 1995, "en": "After Combat: Reduce Combat Opponent Heath to 1.", "it": "Dopo lo scontro: porta a 1 la vita della carta con cui hai combattuto."}
+{"costante": "TCG_EFF_ONGOING_REDUCECOSTEACHTURN", "riga": 1998, "en": "This Card's Cost reduce by 1 every turn in your Hand.", "it": "Questa carta costa 1 in meno per ogni turno passato in mano."}
+{"costante": "TCG_EFF_ONGOING_INCREASECOSTEACH2TURN", "riga": 2000, "en": "This Card's Cost increase by 1 every turn in your Hand.", "it": "Questa carta costa 1 in più per ogni turno passato in mano."}
+{"costante": "TCG_EFF_ONGOING_REDUCECOSTEACHHAND", "riga": 2002, "en": "This Card's Cost reduce by 1 for each Card in your Hand.", "it": "Questa carta costa 1 in meno per ogni carta che hai in mano."}
+{"costante": "TCG_EFF_ONGOING_INCREASECOSTEACHHAND", "riga": 2004, "en": "This Card's Cost increase by 1 for each card in your Hand.", "it": "Questa carta costa 1 in più per ogni carta che hai in mano."}
+{"costante": "TCG_EFF_ONGOING_REDUCECOSTEACHFIELD", "riga": 2006, "en": "This Card's Cost reduce by 1 for each Card on your Field.", "it": "Questa carta costa 1 in meno per ogni tua carta in campo."}
+{"costante": "TCG_EFF_ONGOING_INCREASECOSTEACHFIELD", "riga": 2008, "en": "This Card's Cost increase by 1 for each card on your Field.", "it": "Questa carta costa 1 in più per ogni tua carta in campo."}
+{"costante": "TCG_EFF_ONGOING_INCREASECOSTEACHDECK", "riga": 2010, "en": "This Card's Cost increase by 1 for each card in your Deck.", "it": "Questa carta costa 1 in più per ogni carta nel tuo mazzo."}
+{"costante": "TCG_EFF_ONGOING_REDUCECOSTEACHOPPONENT", "riga": 2012, "en": "This Card's Cost reduce by 1 for each Card on Opponent's Field.", "it": "Questa carta costa 1 in meno per ogni carta nel campo avversario."}
+{"costante": "TCG_EFF_ONGOING_INCREASECOSTEACHOPPONENT", "riga": 2014, "en": "This Card's Cost increase by 1 for each card on Opponent's Field.", "it": "Questa carta costa 1 in più per ogni carta nel campo avversario."}
+{"costante": "TCG_EFF_ONGOING_REDUCECOSTEACHMANASPENT", "riga": 2016, "en": "This Card's Cost reduce by 1 for each Mana Spent.", "it": "Questa carta costa 1 in meno per ogni mana speso."}
+{"costante": "TCG_EFF_ONGOING_REDUCECOSTEACHOPPONENTMANASPENT", "riga": 2018, "en": "This Card's Cost reduce by 1 for each Mana Opponent Spent.", "it": "Questa carta costa 1 in meno per ogni mana speso dall'avversario."}
+{"costante": "TCG_EFF_ONGOING_REDUCECOSTEACHTOTALTURN", "riga": 2020, "en": "This Card's Cost reduce by 1 every 2 game turn.", "it": "Questa carta costa 1 in meno ogni 2 turni di partita."}
+{"costante": "TCG_EFF_ONGOING_INCREASECOSTEACH3TOTALTURN", "riga": 2022, "en": "This Card's Cost increase by 1 every 5 game turn.", "it": "Questa carta costa 1 in più ogni 5 turni di partita."}
+{"costante": "TCG_EFF_ONGOING_REDUCECOSTEACHDMGTAKEN", "riga": 2024, "en": "This Card's Cost reduce by 1 for each damage you has taken.", "it": "Questa carta costa 1 in meno per ogni danno che hai subito."}
+{"costante": "TCG_EFF_ONGOING_REDUCECOSTEACHENEMYDMGTAKEN", "riga": 2026, "en": "This Card's Cost reduce by 1 for each damage dealt to opponent.", "it": "Questa carta costa 1 in meno per ogni danno inflitto all'avversario."}
+{"costante": "TCG_EFF_ONGOING_INCREASE5ATTACKWHENWOUNDED", "riga": 2029, "en": "Ongoing: This Card's Attack increase by its Damage taken.", "it": "Continuo: l'attacco di questa carta cresce col danno subito."}
+{"costante": "TCG_EFF_4MANA77", "riga": 2031, "en": "This Card cost 4 Mana, has 7 Attack and 7 Health (With no immediate apparent downsides).", "it": "Questa carta costa 4 mana e ha 7 di attacco e 7 di vita (senza svantaggi che si vedano lì per lì)."}
+{"costante": "TCG_EFF_4MANA77CONVERTION", "riga": 2034, "en": "Battlecry: Make Target Card a 4 Cost Card with 7 Attack and 7 Health (With no immediate apparent downsides).", "it": "Grido di battaglia: rendi la carta bersaglio una carta da 4 con 7 di attacco e 7 di vita (senza svantaggi che si vedano lì per lì)."}
+{"costante": "TCG_EFF_HUNGRYSEALION", "riga": 2036, "en": "This Card's Cost less the more hungry you are.\\n           (Cost 0 if you are STARVING!).", "it": "Questa carta costa meno quanta più fame hai.\\n           (costa 0 se sei ALLO STREMO!)."}
+{"costante": "TCG_EFF_SINGORILLA", "riga": 2038, "en": "Battlecry/OnKill: Double this Card's Stats.", "it": "Grido di battaglia/All'uccisione: raddoppia le statistiche di questa carta."}
+{"costante": "TCG_EFF_SUZAKU", "riga": 2040, "en": "Battlecry: Shuffle Flame of Suzaku into your Deck. \\n      Begin Phase: Deal 2 Damage to all Field Cards.", "it": "Grido di battaglia: mescola la Fiamma dell'uccello vermiglio nel mazzo. \\n      Fase iniziale: infliggi 2 danni a tutte le carte in campo."}
+{"costante": "TCG_EFF_SUZAKU_FLAME", "riga": 2042, "en": "Battlecry: Suzaku Revives.", "it": "Grido di battaglia: l'uccello vermiglio risorge."}
+{"costante": "TCG_EFF_KIRIN", "riga": 2044, "en": "Battlecry/AfterCombat/DeathRattle: Draw 1 Card.", "it": "Grido di battaglia/Dopo lo scontro/Rantolo di morte: pesca 1 carta."}
+{"costante": "TCG_EFF_LEIKI", "riga": 2046, "en": "AfterCombat/OnKill: Deal Opponent 1 Damage.", "it": "Dopo lo scontro/All'uccisione: infliggi 1 danno all'avversario."}
+{"costante": "TCG_EFF_CERBERUS", "riga": 2048, "en": "Battlecry: Attack 3 Enemies.", "it": "Grido di battaglia: attacca 3 nemici."}
+{"costante": "TCG_EFF_ATTACKALLENEMY", "riga": 2051, "en": "Battlecry: Attack Every Enemy.", "it": "Grido di battaglia: attacca ogni nemico."}
+{"costante": "TCG_EFF_ATTACKUNTILDIE", "riga": 2053, "en": "Battlecry: Attack Target Enemy (on Field or in Hand, UNTIL DEATH).", "it": "Grido di battaglia: attacca il nemico bersaglio (in campo o in mano, FINO ALLA MORTE)."}
+{"costante": "TCG_EFF_ATTACKCHOSENENEMY", "riga": 2055, "en": "Battlecry: Attack Target Enemy.", "it": "Grido di battaglia: attacca il nemico bersaglio."}
+{"costante": "TCG_EFF_ATTACKCHOSENENEMYHAND", "riga": 2057, "en": "Battlecry: Attack Target Enemy (in Hand).", "it": "Grido di battaglia: attacca il nemico bersaglio (in mano)."}
+{"costante": "TCG_EFF_ATTACKCHOSENENEMYHANDFIELD", "riga": 2059, "en": "Battlecry: Attack Target Enemy (on Field or in Hand).", "it": "Grido di battaglia: attacca il nemico bersaglio (in campo o in mano)."}
+{"costante": "TCG_EFF_SHANGCHI", "riga": 2062, "en": "Battlecry: Destroy Every Enemy Card on Field with 7+ Attack.", "it": "Grido di battaglia: distruggi ogni carta nemica in campo con 7 o più di attacco."}
+{"costante": "TCG_EFF_BATTLECRYDIE", "riga": 2064, "en": "Battlecry: Die.", "it": "Grido di battaglia: muori."}
+{"costante": "TCG_EFF_DISCOVER8", "riga": 2066, "en": "Battlecry: Discover a Card. (Out of 8 Cards)", "it": "Grido di battaglia: scopri una carta. (fra 8 carte)"}
+{"costante": "TCG_EFF_GETAPUTIT", "riga": 2068, "en": "Battlecry: Discover a putit of your choice!", "it": "Grido di battaglia: scopri il putit che vuoi!"}
+{"costante": "TCG_EFF_GRAVEFOSSIL", "riga": 2071, "en": "Battlecry: Unfossil a Card from your Deck.", "it": "Grido di battaglia: dissotterra una carta dal tuo mazzo."}
+{"costante": "TCG_EFF_GRAVEFOSSILALL", "riga": 2073, "en": "Battlecry: Unfossil Every Card in your Deck.", "it": "Grido di battaglia: dissotterra ogni carta del tuo mazzo."}
+{"costante": "TCG_EFF_YEEK", "riga": 2076, "en": "Battlecry: Draw 1 Yeek.", "it": "Grido di battaglia: pesca 1 yeek."}
+{"costante": "TCG_EFF_YEEKMASTER", "riga": 2078, "en": "Battlecry: Return All Yeeks in your Grave to your Deck.", "it": "Grido di battaglia: rimetti nel mazzo tutti gli yeek del tuo cimitero."}
+{"costante": "TCG_EFF_RODLOB_THE_YEEK_CHIEF", "riga": 2080, "en": "Battlecry: Fill your Field with Yeeks from your Deck.\\n          (She will try very hard, please be patient.)", "it": "Grido di battaglia: riempi il campo con gli yeek del tuo mazzo.\\n          (ce la mette tutta, abbi pazienza.)"}
+{"costante": "TCG_EFF_ARCHYEEK", "riga": 2082, "en": "Begin Phase: Draw 1 Yeek.", "it": "Fase iniziale: pesca 1 yeek."}
+{"costante": "TCG_EFF_MASTER_ARCHAYEEK", "riga": 2084, "en": "Begin Phase: Return All Yeeks in your Grave to your Deck.", "it": "Fase iniziale: rimetti nel mazzo tutti gli yeek del tuo cimitero."}
+{"costante": "TCG_EFF_LUNATYEEK", "riga": 2086, "en": "Battlecry: Turn an Enemy into a Yeek (and take it).", "it": "Grido di battaglia: trasforma un nemico in uno yeek (e prendilo)."}
+{"costante": "TCG_EFF_HEROYEEK", "riga": 2088, "en": "Begin Phase: All your Yeek Gain 1 Attack.", "it": "Fase iniziale: tutti i tuoi yeek ottengono 1 attacco."}
+{"costante": "TCG_EFF_METAMORPH", "riga": 2091, "en": "Battlecry: Mutate into a random blue card.", "it": "Grido di battaglia: muta in una carta blu a caso."}
+{"costante": "TCG_EFF_SHOGGOTH", "riga": 2093, "en": "Battlecry: Transform into a target blue card in your deck.", "it": "Grido di battaglia: trasformati in una carta blu bersaglio del tuo mazzo."}
+{"costante": "TCG_EFF_MUTANT", "riga": 2095, "en": "Battlecry: Mutate into a random card.", "it": "Grido di battaglia: muta in una carta a caso."}
+{"costante": "TCG_EFF_BIG_SISTER", "riga": 2097, "en": "Battlecry: Mutate target into a random card.", "it": "Grido di battaglia: fai mutare il bersaglio in una carta a caso."}
+{"costante": "TCG_EFF_LITTLE_SISTER", "riga": 2099, "en": "Sacrifice: Gain +1 Mana and Max Mana, take 5 damage.", "it": "Sacrificio: ottieni +1 mana e +1 mana massimo, e subisci 5 danni."}
+{"costante": "TCG_EFF_BIG_DADDY", "riga": 2101, "en": "Deathrattle: Add a Little Sister to your Opponent's Hand.", "it": "Rantolo di morte: aggiungi una <Little Sister> alla mano dell'avversario."}
+{"costante": "TCG_EFF_STRANGE_SCIENTIST", "riga": 2103, "en": "Battlecry: Draw your Little Sister(s), wherever they are.", "it": "Grido di battaglia: pesca le tue <Little Sister>, ovunque siano."}
+{"costante": "TCG_EFF_CHAOSHAPRINCESS_ZEHLS", "riga": 2105, "en": "Battlecry: Fill your Field with Dead Mutants.", "it": "Grido di battaglia: riempi il campo di mutanti morti."}
+{"costante": "TCG_EFF_PAWN", "riga": 2108, "en": "Ongoing: Adjacent Chesspieces have +2 Attack.", "it": "Continuo: i pezzi degli scacchi adiacenti hanno +2 di attacco."}
+{"costante": "TCG_EFF_ROOK", "riga": 2110, "en": "Ongoing: Enemy in Front have -1 Attack.", "it": "Continuo: il nemico davanti ha -1 di attacco."}
+{"costante": "TCG_EFF_KNIGHT", "riga": 2112, "en": "Ongoing: Enemies in Diagonal have -1 Attack.", "it": "Continuo: i nemici in diagonale hanno -1 di attacco."}
+{"costante": "TCG_EFF_BISHOP", "riga": 2114, "en": "Battlecry: Summon 2 Pawns from your Deck (or Grave, if it cannot).", "it": "Grido di battaglia: evoca 2 <Pedone> dal tuo mazzo (o dal cimitero, se non può)."}
+{"costante": "TCG_EFF_QUEEN", "riga": 2116, "en": "Battlecry: Gain every Bit effect from your Chesspieces.", "it": "Grido di battaglia: ottieni ogni bit dei tuoi pezzi degli scacchi."}
+{"costante": "TCG_EFF_KING", "riga": 2118, "en": "Battlecry: Give all your Chesspieces Armor, Draw 1 Card if you do.", "it": "Grido di battaglia: dai Corazza a tutti i tuoi pezzi degli scacchi, e se lo fai pesca 1 carta."}
+{"costante": "TCG_EFF_GRANDMASTER", "riga": 2120, "en": "Battlecry: Fire all Battlecry of your Chesspieces on Field.", "it": "Grido di battaglia: scatena tutti i Gridi di battaglia dei tuoi pezzi degli scacchi in campo."}
+{"costante": "TCG_EFF_SUPERGRANDMASTER", "riga": 2122, "en": "Ongoing: Your Chesspiece's Ongoing Effects are Doubled.\\n          And their Effects are no longer limited to Chesspieces.", "it": "Continuo: gli effetti Continuo dei tuoi pezzi degli scacchi sono raddoppiati.\\n          E i loro effetti non valgono più solo per i pezzi degli scacchi."}
+{"costante": "TCG_EFF_WYNAN", "riga": 2124, "en": "Battlecry/BeginPhase: Deal 1 Damage to Opponent for every Piece on Field.", "it": "Grido di battaglia/Fase iniziale: infliggi all'avversario 1 danno per ogni pezzo in campo."}
+{"costante": "TCG_EFF_NOEL", "riga": 2127, "en": "Begin Phase: Summon 1 Rock from your Deck.", "it": "Fase iniziale: evoca 1 roccia dal tuo mazzo."}
+{"costante": "TCG_EFF_ETHERGENERATOR", "riga": 2129, "en": "Begin Phase: Deal 1 Damage to Every Card, wherever they are.", "it": "Fase iniziale: infliggi 1 danno a ogni carta, ovunque sia."}
+{"costante": "TCG_EFF_CLUSTERBOMB", "riga": 2131, "en": "Battlecry: Summon 3 Bomb Rocks.", "it": "Grido di battaglia: evoca 3 rocce bomba."}
+{"costante": "TCG_EFF_SEIRYU", "riga": 2134, "en": "Ongoing: Your Effect Damage to Cards +3.", "it": "Continuo: i danni dei tuoi effetti alle carte +3."}
+{"costante": "TCG_EFF_SCHOLAR", "riga": 2136, "en": "Ongoing: Your Effect Damage to Cards +1.", "it": "Continuo: i danni dei tuoi effetti alle carte +1."}
+{"costante": "TCG_EFF_MAGICARCHER", "riga": 2138, "en": "Battlecry: Deal 4 Damage Split Among Enemies.", "it": "Grido di battaglia: infliggi 4 danni ripartiti fra i nemici."}
+{"costante": "TCG_EFF_KOBOLD", "riga": 2141, "en": "This card cost only 1 but have 3/2??? This is terrible statline design.", "it": "Questa carta costa solo 1 e ha 3/2??? Che progetto di statistiche orrendo."}
+{"costante": "TCG_EFF_POISONKOBALD", "riga": 2143, "en": "Battlecry: Summon a copy of this Card. Poison Random Enemy.", "it": "Grido di battaglia: evoca una copia di questa carta. Avvelena un nemico a caso."}
+{"costante": "TCG_EFF_BLEEDKOBALD", "riga": 2145, "en": "Battlecry: Summon a copy of this Card, Deal 2 Damage to Random Enemy if you do.", "it": "Grido di battaglia: evoca una copia di questa carta, e se lo fai infliggi 2 danni a un nemico a caso."}
+{"costante": "TCG_EFF_LIGHTNINGKOBALD", "riga": 2147, "en": "Battlecry/OnKill: Paralyse Random Enemy.", "it": "Grido di battaglia/All'uccisione: paralizza un nemico a caso."}
+{"costante": "TCG_EFF_DARKNESSKOBALD", "riga": 2149, "en": "Battlecry/OnKill: Weaken All Enemies by 1.", "it": "Grido di battaglia/All'uccisione: indebolisci di 1 tutti i nemici."}
+{"costante": "TCG_EFF_KOBOLINA", "riga": 2151, "en": "Sacrifice/Battlecry/Deathrattle: Draw Target Kobolt from your Deck.", "it": "Sacrificio/Grido di battaglia/Rantolo di morte: pesca il coboldo bersaglio dal tuo mazzo."}
+{"costante": "TCG_EFF_KOBOLBLASTER", "riga": 2153, "en": "Battlecry: Summon a lot of Kobolt Blasters out of nowhere.", "it": "Grido di battaglia: evoca un sacco di coboldi cannonieri dal nulla."}
+{"costante": "TCG_EFF_TUWEN", "riga": 2156, "en": "Start of the Game: Add the Summoning Ritual to your Hand.", "it": "Inizio partita: aggiungi il Rito di evocazione alla tua mano."}
+{"costante": "TCG_EFF_SUMMONRITUAL1", "riga": 2158, "en": "Battlecry: Destroy a Card in your Hand to try to Summon TUWEN.", "it": "Grido di battaglia: distruggi una carta in mano per provare a evocare <Tuwen>."}
+{"costante": "TCG_EFF_SUMMONRITUAL2", "riga": 2160, "en": "Battlecry: Steal +1/+1 from Cards on Field to try to Summon TUWEN.", "it": "Grido di battaglia: ruba +1/+1 alle carte in campo per provare a evocare <Tuwen>."}
+{"costante": "TCG_EFF_SUMMONRITUAL3", "riga": 2162, "en": "Battlecry: Destroy your Hand to Summon TUWEN.", "it": "Grido di battaglia: distruggi la tua mano per evocare <Tuwen>."}
+{"costante": "TCG_EFF_COFFIN", "riga": 2165, "en": "Deathrattle: Summon 1 Cost (0-2) Undead from your Deck.", "it": "Rantolo di morte: evoca dal tuo mazzo 1 non morto da 0-2."}
+{"costante": "TCG_EFF_COFFIN2", "riga": 2167, "en": "Deathrattle: Summon 1 Cost (3-5) Undead from your Deck.", "it": "Rantolo di morte: evoca dal tuo mazzo 1 non morto da 3-5."}
+{"costante": "TCG_EFF_ZOMBIE_GIRL", "riga": 2169, "en": "Evolves when it Kills Something.", "it": "Si evolve quando uccide qualcosa."}
+{"costante": "TCG_EFF_ZOMBIE_QUEEN", "riga": 2171, "en": "Ongoing: Your Undeads Cost 1 less and Gain +1 Attack.", "it": "Continuo: i tuoi non morti costano 1 in meno e ottengono +1 di attacco."}
+{"costante": "TCG_EFF_VERYSLOWUNDEAD", "riga": 2173, "en": "Resurrect itself after 5 turns.", "it": "Risorge dopo 5 turni."}
+{"costante": "TCG_EFF_MUMMY", "riga": 2175, "en": "Resurrect itself after 4 turns.", "it": "Risorge dopo 4 turni."}
+{"costante": "TCG_EFF_SKELETON", "riga": 2177, "en": "Resurrect itself after 3 turns.", "it": "Risorge dopo 3 turni."}
+{"costante": "TCG_EFF_VERYFASTUNDEAD", "riga": 2179, "en": "Resurrect itself after 2 turns.", "it": "Risorge dopo 2 turni."}
+{"costante": "TCG_EFF_INCREDIBLYFASTUNDEAD", "riga": 2181, "en": "Resurrect itself next turn.", "it": "Risorge il turno prossimo."}
+{"costante": "TCG_EFF_SKELLYMAGIC", "riga": 2183, "en": "Battlecry: Return Highest-Cost Card in your Grave to Deck.", "it": "Grido di battaglia: rimetti nel mazzo la carta di costo più alto del tuo cimitero."}
+{"costante": "TCG_EFF_SKELLYMAGIC2", "riga": 2185, "en": "Battlecry: Return Highest-Cost Card in your Grave to Deck, and Draw 1 Card.", "it": "Grido di battaglia: rimetti nel mazzo la carta di costo più alto del tuo cimitero, e pesca 1 carta."}
+{"costante": "TCG_EFF_ISSIZZIL", "riga": 2187, "en": "Battlecry: Your Undeads Resurrect faster.", "it": "Grido di battaglia: i tuoi non morti risorgono più in fretta."}
+{"costante": "TCG_EFF_AZZRSSIL", "riga": 2189, "en": "Battlecry: Your Undeads Resurrect much faster.", "it": "Grido di battaglia: i tuoi non morti risorgono molto più in fretta."}
+{"costante": "TCG_EFF_EXOSSIL", "riga": 2191, "en": "Battlecry: Swap your Graveyard and Deck.", "it": "Grido di battaglia: scambia il tuo cimitero col tuo mazzo."}
+{"costante": "TCG_EFF_ULZASSIL", "riga": 2193, "en": "Battlecry: Swap you and your opponent's Graveyard and Deck.", "it": "Grido di battaglia: scambia cimitero e mazzo, tuoi e dell'avversario."}
+{"costante": "TCG_EFF_SSIL", "riga": 2195, "en": "Battlecry: Replace all Hand and Field Cards with Random Cards (except self) (they cost the same).", "it": "Grido di battaglia: sostituisci tutte le carte in mano e in campo con carte a caso (tranne sé stessa) (di pari costo)."}
+{"costante": "TCG_EFF_SHADE", "riga": 2197, "en": "Battlecry: Copy the Effect and Shape of 1 Random Enemy.", "it": "Grido di battaglia: copia effetto e forma di 1 nemico a caso."}
+{"costante": "TCG_EFF_SHADOW", "riga": 2199, "en": "Battlecry: Copy the Effect and Shape of 1 Target Enemy.", "it": "Grido di battaglia: copia effetto e forma di 1 nemico bersaglio."}
+{"costante": "TCG_EFF_13STEPGHOST", "riga": 2201, "en": "Battlecry: Make Target a Ghost.", "it": "Grido di battaglia: rendi il bersaglio un Fantasma."}
+{"costante": "TCG_EFF_ZASIKIWARAI", "riga": 2203, "en": "Battlecry: Gain +1/+1.", "it": "Grido di battaglia: ottiene +1/+1."}
+{"costante": "TCG_EFF_PUMPKIN_DISCARD1", "riga": 2206, "en": "When Opponent Draw this: They Discard Another Card.", "it": "Se la pesca l'avversario: scarta un'altra carta."}
+{"costante": "TCG_EFF_PUMPKIN_TAKE6DAMAGE", "riga": 2208, "en": "When Opponent Draw this: They Take 6 Damage.", "it": "Se la pesca l'avversario: subisce 6 danni."}
+{"costante": "TCG_EFF_PUMPKIN_DESTROYFIELDCARD", "riga": 2210, "en": "When Opponent Draw this: Destroy Random Card on Their Field.", "it": "Se la pesca l'avversario: distruggi una carta a caso del suo campo."}
+{"costante": "TCG_EFF_PUMPKIN_LOSE2MANA", "riga": 2212, "en": "When Opponent Draw this: They Lose 2 Mana.", "it": "Se la pesca l'avversario: perde 2 mana."}
+{"costante": "TCG_EFF_PUMPKIN_CONFUSEALLOWNCARD", "riga": 2214, "en": "When Opponent Draw this: Confuse All Card They Have.", "it": "Se la pesca l'avversario: confondi tutte le carte che ha."}
+{"costante": "TCG_EFF_GOLDBELL", "riga": 2217, "en": "Draw another Card when you draw this.", "it": "Quando la peschi, pesca un'altra carta."}
+{"costante": "TCG_EFF_PLATINABELL", "riga": 2219, "en": "Gain +1 Mana when you draw this.", "it": "Quando la peschi, ottieni +1 mana."}
+{"costante": "TCG_EFF_EMERGENCYBELL", "riga": 2221, "en": "Put 1 Card onto Field when you draw this.", "it": "Quando la peschi, metti 1 carta in campo."}
+{"costante": "TCG_EFF_ENDBELL", "riga": 2223, "en": "Destroy 1 Card on Field when you draw this.", "it": "Quando la peschi, distruggi 1 carta in campo."}
+{"costante": "TCG_EFF_OLDBELL", "riga": 2225, "en": "Gain +1 Max Mana when you draw this.", "it": "Quando la peschi, ottieni +1 mana massimo."}
+{"costante": "TCG_EFF_MIMIC1", "riga": 2227, "en": "Battlecry: Transform into a Card in Your Hand.", "it": "Grido di battaglia: trasformati in una carta della tua mano."}
+{"costante": "TCG_EFF_MIMIC2", "riga": 2229, "en": "Battlecry: Transform into a Card in Opponent's Hand.", "it": "Grido di battaglia: trasformati in una carta della mano avversaria."}
+{"costante": "TCG_EFF_KARATA", "riga": 2231, "en": "Battlecry: Destroy Every Card on Opponent's Field if you control no other Cards.", "it": "Grido di battaglia: se non controlli altre carte, distruggi ogni carta nel campo avversario."}
+{"costante": "TCG_EFF_EYE11", "riga": 2234, "en": "Battlecry: Random Opponent Card in Hand costs 1 more.", "it": "Grido di battaglia: una carta a caso in mano all'avversario costa 1 in più."}
+{"costante": "TCG_EFF_EYE12", "riga": 2236, "en": "Battlecry: 2 Random Opponent Card in Hand costs 1 more.", "it": "Grido di battaglia: 2 carte a caso in mano all'avversario costano 1 in più."}
+{"costante": "TCG_EFF_EYE13", "riga": 2238, "en": "Battlecry: Random Opponent Card in Hand costs 5 more.", "it": "Grido di battaglia: una carta a caso in mano all'avversario costa 5 in più."}
+{"costante": "TCG_EFF_EYE21", "riga": 2240, "en": "Battlecry: 2 Random Opponent Card in Hand lose 1 attack.", "it": "Grido di battaglia: 2 carte a caso in mano all'avversario perdono 1 di attacco."}
+{"costante": "TCG_EFF_EYE22", "riga": 2242, "en": "Battlecry: 3 Random Opponent Card in Hand lose 1 attack.", "it": "Grido di battaglia: 3 carte a caso in mano all'avversario perdono 1 di attacco."}
+{"costante": "TCG_EFF_EYE23", "riga": 2244, "en": "Battlecry: 3 Random Opponent Card in Hand lose 2 attack.", "it": "Grido di battaglia: 3 carte a caso in mano all'avversario perdono 2 di attacco."}
+{"costante": "TCG_EFF_EYE24", "riga": 2246, "en": "Battlecry: All Opponent Card in Hand lose 2 attack.", "it": "Grido di battaglia: tutte le carte in mano all'avversario perdono 2 di attacco."}
+{"costante": "TCG_EFF_MONOEYE", "riga": 2248, "en": "Battlecry: Draw Target Eye from your Deck.", "it": "Grido di battaglia: pesca l'occhio bersaglio dal tuo mazzo."}
+{"costante": "TCG_EFF_HORUS", "riga": 2250, "en": "Ongoing: Your Opponent's Card Costs 1 more.", "it": "Continuo: le carte dell'avversario costano 1 in più."}
+{"costante": "TCG_EFF_PROVIDENCE", "riga": 2252, "en": "Ongoing: Your Opponent's Card Have -1 attack.", "it": "Continuo: le carte dell'avversario hanno -1 di attacco."}
+{"costante": "TCG_EFF_GODEYE", "riga": 2254, "en": "Ongoing: Your Opponent's Card Costs 1 more, and have -1 attack.", "it": "Continuo: le carte dell'avversario costano 1 in più e hanno -1 di attacco."}
+{"costante": "TCG_EFF_WEREWOLF0", "riga": 2257, "en": "Battlecry: Transform into a Random Neutral Card of Cost 0 in your Deck.", "it": "Grido di battaglia: trasformati in una carta neutra a caso da 0 del tuo mazzo."}
+{"costante": "TCG_EFF_WEREWOLF1", "riga": 2259, "en": "Battlecry: Transform into a Random Neutral Card of Cost 1 in your Deck.", "it": "Grido di battaglia: trasformati in una carta neutra a caso da 1 del tuo mazzo."}
+{"costante": "TCG_EFF_WEREWOLF2", "riga": 2261, "en": "Battlecry: Transform into a Random Neutral Card of Cost 2 in your Deck.", "it": "Grido di battaglia: trasformati in una carta neutra a caso da 2 del tuo mazzo."}
+{"costante": "TCG_EFF_WEREWOLF3", "riga": 2263, "en": "Battlecry: Transform into a Random Neutral Card of Cost 3 in your Deck.", "it": "Grido di battaglia: trasformati in una carta neutra a caso da 3 del tuo mazzo."}
+{"costante": "TCG_EFF_TOFU", "riga": 2266, "en": "Battlecry: Feed the Fried Tofu to 1 of your Card.", "it": "Grido di battaglia: dai il tofu fritto a 1 delle tue carte."}
+{"costante": "TCG_EFF_KYUBI", "riga": 2268, "en": "Battlecry/OnKill: Kyu-bi gives you a Fried Tofu.\\n          (You'd better feed them to Kyu-bi)", "it": "Grido di battaglia/All'uccisione: Kyu-bi ti dà un tofu fritto.\\n          (faresti bene a darlo a Kyu-bi)"}
+{"costante": "TCG_EFF_GODWOLF", "riga": 2270, "en": "Battlecry: Transform all Cards on your Field into random Legendaries.", "it": "Grido di battaglia: trasforma tutte le carte del tuo campo in leggendarie a caso."}
+{"costante": "TCG_EFF_HOUND", "riga": 2273, "en": "Evolves into another Hound in your Deck when it Kills Something.", "it": "Si evolve in un altro segugio del tuo mazzo quando uccide qualcosa."}
+{"costante": "TCG_EFF_CHAOS_HOUND", "riga": 2275, "en": "Battlecry: Activate Battlecry of 3 Hounds in your Deck.", "it": "Grido di battaglia: attiva il Grido di battaglia di 3 segugi del tuo mazzo."}
+{"costante": "TCG_EFF_DOG", "riga": 2277, "en": "Battlecry: Draw Target Dog from your Deck.", "it": "Grido di battaglia: pesca il cane bersaglio dal tuo mazzo."}
+{"costante": "TCG_EFF_DOG_GANG", "riga": 2279, "en": "Battlecry: Summon a Dog from your Deck.", "it": "Grido di battaglia: evoca un cane dal tuo mazzo."}
+{"costante": "TCG_EFF_DOG_COMMAND", "riga": 2281, "en": "Battlecry: Give another Dog you control Vigilance.", "it": "Grido di battaglia: dai Vigilanza a un altro cane che controlli."}
+{"costante": "TCG_EFF_DOG_LEGEND", "riga": 2283, "en": "Battlecry: Give another Dog you control Windfury.", "it": "Grido di battaglia: dai Raffica a un altro cane che controlli."}
+{"costante": "TCG_EFF_PASCAL", "riga": 2285, "en": "Begin Phase: Summon a Dog from your Deck.", "it": "Fase iniziale: evoca un cane dal tuo mazzo."}
+{"costante": "TCG_EFF_DOG_COP", "riga": 2287, "en": "End Phase: Return all Dogs and Cats in your Graveyard to your Deck.", "it": "Fase finale: rimetti nel mazzo tutti i cani e i gatti del tuo cimitero."}
+{"costante": "TCG_EFF_POPPY", "riga": 2289, "en": "Return to Deck when Killed.\\n          Whenever you draw Poppy, he gets +2/+2.", "it": "Torna nel mazzo quando muore.\\n          Ogni volta che peschi <Poppy>, ottiene +2/+2."}
+{"costante": "TCG_EFF_RILIAN", "riga": 2291, "en": "In-Hand: Shuffle Poppy into your Deck, then Draw 1 Card.", "it": "In mano: mescola <Poppy> nel tuo mazzo, poi pesca 1 carta."}
+{"costante": "TCG_EFF_ANUBIS", "riga": 2293, "en": "Battlecry: Change the Effect of every Dog in your Graveyard to 'Resurrect itself after 5 turns'.", "it": "Grido di battaglia: cambia l'effetto di ogni cane del tuo cimitero in 'Risorge dopo 5 turni'."}
+{"costante": "TCG_EFF_ELDER", "riga": 2296, "en": "Battlecry: Summon 2 citizens from your Deck.", "it": "Grido di battaglia: evoca 2 cittadini dal tuo mazzo."}
+{"costante": "TCG_EFF_CAPTAIN", "riga": 2298, "en": "Battlecry: Summon 2 sailors from your Deck.", "it": "Grido di battaglia: evoca 2 marinai dal tuo mazzo."}
+{"costante": "TCG_EFF_GUARD", "riga": 2300, "en": "Deathblow: Arrest Target Card!", "it": "Colpo di grazia: arresta la carta bersaglio!"}
+{"costante": "TCG_EFF_MIRAL", "riga": 2303, "en": "In-Hand: Give Another Card in your Hand +1 HP", "it": "In mano: dai +1 di vita a un'altra carta della tua mano"}
+{"costante": "TCG_EFF_GAROK", "riga": 2305, "en": "In-Hand: Give Another Card in your Hand +1 Attack", "it": "In mano: dai +1 di attacco a un'altra carta della tua mano"}
+{"costante": "TCG_EFF_DAIN", "riga": 2307, "en": "In-Hand: Give Another Card in your Hand +1/+1", "it": "In mano: dai +1/+1 a un'altra carta della tua mano"}
+{"costante": "TCG_EFF_IRMA", "riga": 2309, "en": "In-Hand: Give Another Card in your Hand -2 Cost", "it": "In mano: dai -2 di costo a un'altra carta della tua mano"}
+{"costante": "TCG_EFF_THALIA", "riga": 2311, "en": "Battlecry: Add Irma to your Hand.", "it": "Grido di battaglia: aggiungi <Irma> alla tua mano."}
+{"costante": "TCG_EFF_DWARFKEEPER", "riga": 2313, "en": "Battlecry: Draw 1 Target Dwarf from your Deck.", "it": "Grido di battaglia: pesca 1 nano bersaglio dal tuo mazzo."}
+{"costante": "TCG_EFF_MANYTIA", "riga": 2315, "en": "In Hand: Collect your unspent Mana last turn.\\n      Battlecry: Summon random Card(s) that costs the same.", "it": "In mano: raccogli il mana che non hai speso il turno scorso.\\n      Grido di battaglia: evoca carte a caso che costino altrettanto."}
+{"costante": "TCG_EFF_USERTHIEF", "riga": 2318, "en": "Battlecry: Draw Target Card from your opponent's deck.", "it": "Grido di battaglia: pesca la carta bersaglio dal mazzo dell'avversario."}
+{"costante": "TCG_EFF_USERTOURIST", "riga": 2320, "en": "Sacrifice/Battlecry/Deathrattle: Inflict Target Card with Deathword.", "it": "Sacrificio/Grido di battaglia/Rantolo di morte: infliggi Condanna alla carta bersaglio."}
+{"costante": "TCG_EFF_USERPIANIST", "riga": 2322, "en": "Begin Phase/After Combat: Draw 1 Card.", "it": "Fase iniziale/Dopo lo scontro: pesca 1 carta."}
+{"costante": "TCG_EFF_MESHERA_TESTER", "riga": 2325, "en": "Battlecry: Transform 1 Card in Deck into a Meshera.", "it": "Grido di battaglia: trasforma 1 carta del mazzo in un Meshera."}
+{"costante": "TCG_EFF_MESHERA_BETA", "riga": 2327, "en": "Battlecry: Transform 3 Card in Opponent Deck into a Meshera.", "it": "Grido di battaglia: trasforma 3 carte del mazzo avversario in Meshera."}
+{"costante": "TCG_EFF_MESHERA_GAMMA", "riga": 2329, "en": "Battlecry: Transform 1 Card in Opponent Hand into a Meshera.", "it": "Grido di battaglia: trasforma 1 carta della mano avversaria in un Meshera."}
+{"costante": "TCG_EFF_MESHERA_DELTA", "riga": 2331, "en": "Battlecry: Transform 1 Card on Opponent Field into a Meshera.", "it": "Grido di battaglia: trasforma 1 carta del campo avversario in un Meshera."}
+{"costante": "TCG_EFF_MESHERA_PLANT", "riga": 2333, "en": "Begin Phase: Add 1 Meshera into your Hand.", "it": "Fase iniziale: aggiungi 1 Meshera alla tua mano."}
+{"costante": "TCG_EFF_YERLESMESHERA", "riga": 2335, "en": "Begin Phase: Mutate into a random Meshera.", "it": "Fase iniziale: muta in un Meshera a caso."}
+{"costante": "TCG_EFF_BOUNCETERIA", "riga": 2337, "en": "Sacrifice: Add 1 Meshera into your Hand.", "it": "Sacrificio: aggiungi 1 Meshera alla tua mano."}
+{"costante": "TCG_EFF_MONSTERIA", "riga": 2339, "en": "Battlecry: Add Target Meshera into your Hand.", "it": "Grido di battaglia: aggiungi alla tua mano il Meshera bersaglio."}
+{"costante": "TCG_EFF_ANABOLICRESISTANCE", "riga": 2341, "en": "Battlecry: Change the Effect of every other Card on the Field to 'Begin Phase: Transform into a random Meshera.", "it": "Grido di battaglia: cambia l'effetto di ogni altra carta in campo in 'Fase iniziale: trasformati in un Meshera a caso."}
+{"costante": "TCG_EFF_MESHERA_ALPHA", "riga": 2344, "en": "If Every Card in Opponent's Hand, Deck, and Field is a Meshera, you win the game.", "it": "Se ogni carta in mano, nel mazzo e in campo all'avversario è un Meshera, vinci la partita."}
+{"costante": "TCG_EFF_RENAI", "riga": 2346, "en": "Start of the game: Heal all Meshera. Give them -1 Cost.", "it": "Inizio partita: cura tutti i Meshera. Dai loro -1 di costo."}
+{"costante": "TCG_EFF_REGULUS", "riga": 2348, "en": "Battlecry: Merge 3 Cards in Deck into Regulus, gain their Stats, and Bits (Max 2).", "it": "Grido di battaglia: fondi 3 carte del mazzo in <Regulus>, che ne prende statistiche e bit (max 2)."}
+{"costante": "TCG_EFF_MYSTPROD", "riga": 2351, "en": "Start of the game: Evolve your (Evolvable) Rorans.", "it": "Inizio partita: fai evolvere i tuoi Roran (quelli che possono)."}
+{"costante": "TCG_EFF_LITTLESISTER", "riga": 2353, "en": "Battlecry: Target Card on Field gets +1/+1.", "it": "Grido di battaglia: la carta bersaglio in campo ottiene +1/+1."}
+{"costante": "TCG_EFF_BIGSISTER", "riga": 2356, "en": "Battlecry: Target Card in Hand gets +1/+1.", "it": "Grido di battaglia: la carta bersaglio in mano ottiene +1/+1."}
+{"costante": "TCG_EFF_YOUNGERSISTERSHOP", "riga": 2359, "en": "Battlecry: Fill your Field with Younger Sisters!", "it": "Grido di battaglia: riempi il campo di sorelline!"}
+{"costante": "TCG_EFF_OLDERSISTERUNIQUE", "riga": 2361, "en": "Battlecry: Fill your Field with Older Sisters!", "it": "Grido di battaglia: riempi il campo di sorelle maggiori!"}
+{"costante": "TCG_EFF_MGIRL", "riga": 2363, "en": "AfterCombat/Deathrattle: Draw 1 Card.", "it": "Dopo lo scontro/Rantolo di morte: pesca 1 carta."}
+{"costante": "TCG_EFF_MAIDSANN", "riga": 2365, "en": "Battlecry/EndPhase: Spend 1 Mana and Draw 1 Card.", "it": "Grido di battaglia/Fase finale: spendi 1 mana e pesca 1 carta."}
+{"costante": "TCG_EFF_LUNE", "riga": 2367, "en": "Battlecry/EndPhase: Spend all your Mana, Draw 1 Card Each.", "it": "Grido di battaglia/Fase finale: spendi tutto il mana e pesca 1 carta per ognuno."}
+{"costante": "TCG_EFF_MEFAN", "riga": 2369, "en": "Begin Phase: Draw until you have 5 Cards.", "it": "Fase iniziale: pesca finché non hai 5 carte."}
+{"costante": "TCG_EFF_GWEN", "riga": 2371, "en": "Return to Hand when Killed. (to Deck if Hand is Full)", "it": "Torna in mano quando muore. (nel mazzo se la mano è piena)"}
+{"costante": "TCG_EFF_GWENTHEPITILESS", "riga": 2373, "en": "Whenever Gwen gets killed, she gets +2/+2.", "it": "Ogni volta che <Gwen> viene uccisa, ottiene +2/+2."}
+{"costante": "TCG_EFF_LITTLEGIRL", "riga": 2375, "en": "Battlecry: Target Card in your Hand gets -1 Cost.", "it": "Grido di battaglia: la carta bersaglio in mano ottiene -1 di costo."}
+{"costante": "TCG_EFF_VALKYRIE", "riga": 2377, "en": "Battlecry: All Cards in your Hand gets +1/+1, or -1 Cost.", "it": "Grido di battaglia: tutte le carte in mano ottengono +1/+1, oppure -1 di costo."}
+{"costante": "TCG_EFF_YOUJO", "riga": 2379, "en": "Battlecry: Target Card in your Hand gets +1/+1, and -1 Cost.", "it": "Grido di battaglia: la carta bersaglio in mano ottiene +1/+1 e -1 di costo."}
+{"costante": "TCG_EFF_WITCH", "riga": 2381, "en": "Battlecry: Draw a Card from your Deck, swap its Cost with this card's Attack.", "it": "Grido di battaglia: pesca una carta dal mazzo e scambia il suo costo con l'attacco di questa carta."}
+{"costante": "TCG_EFF_YOUNGLADY", "riga": 2383, "en": "Battlecry: Inflict Target Card with (up to 2) Random Debuff.", "it": "Grido di battaglia: infliggi (fino a 2) penalità a caso alla carta bersaglio."}
+{"costante": "TCG_EFF_YOUNGLADYWHITE", "riga": 2385, "en": "Battlecry: Inflict Target Card with (A LOT OF) Random Debuff.", "it": "Grido di battaglia: infliggi (UN SACCO DI) penalità a caso alla carta bersaglio."}
+{"costante": "TCG_EFF_YOUNGLADYBLACK", "riga": 2387, "en": "OnDraw/Battlecry/AfterCombat: Inflict Random Enemy with Random Debuff.", "it": "Alla pesca/Grido di battaglia/Dopo lo scontro: infliggi una penalità a caso a un nemico a caso."}
+{"costante": "TCG_EFF_YANDERE", "riga": 2389, "en": "Battlecry: Draw (You) from your Deck, (You) get +1/+1, but (You) dies if you don't play (You) this turn.", "it": "Grido di battaglia: pesca (Te) dal tuo mazzo, (Te) ottiene +1/+1, ma (Te) muore se non lo giochi in questo turno."}
+{"costante": "TCG_EFF_SMALLOLDERSISTER", "riga": 2391, "en": "Ongoing: Your Cards gets -1 Cost.", "it": "Continuo: le tue carte ottengono -1 di costo."}
+{"costante": "TCG_EFF_SUMMEROLDERSISTER", "riga": 2393, "en": "Ongoing: Your Cards gets +2 Attack.", "it": "Continuo: le tue carte ottengono +2 di attacco."}
+{"costante": "TCG_EFF_ONGOING_YOURCARDSHAVEPLUS1ATTACK", "riga": 2395, "en": "Ongoing: Your Cards gets +1 Attack.", "it": "Continuo: le tue carte ottengono +1 di attacco."}
+{"costante": "TCG_EFF_FRAY", "riga": 2398, "en": "Battlecry: Warriors in your Deck Double Their Stats.", "it": "Grido di battaglia: i guerrieri del tuo mazzo raddoppiano le statistiche."}
+{"costante": "TCG_EFF_DORIA", "riga": 2400, "en": "Battlecry: Summon the highest cost Fighter Guild Member From your Deck.", "it": "Grido di battaglia: evoca dal tuo mazzo il membro della Gilda dei Guerrieri che costa di più."}
+{"costante": "TCG_EFF_RATIN", "riga": 2402, "en": "Battlecry: Draw 2 Fighter Guild Member (Except Fray) From your Deck.", "it": "Grido di battaglia: pesca dal tuo mazzo 2 membri della Gilda dei Guerrieri (tranne <Fray>)."}
+{"costante": "TCG_EFF_FIGHTERGUILD", "riga": 2404, "en": "Battlecry: Warriors in your Deck gets +1/+1.", "it": "Grido di battaglia: i guerrieri del tuo mazzo ottengono +1/+1."}
+{"costante": "TCG_EFF_SIN", "riga": 2407, "en": "Ongoing: Your Stolen Cards gets -2 Cost.", "it": "Continuo: le carte che hai rubato ottengono -2 di costo."}
+{"costante": "TCG_EFF_ABYSS", "riga": 2409, "en": "Battlecry: Summon the highest cost Thief Guild Member From your Deck.", "it": "Grido di battaglia: evoca dal tuo mazzo il membro della Gilda dei Ladri che costa di più."}
+{"costante": "TCG_EFF_NAGA", "riga": 2411, "en": "Battlecry: Draw 2 Thief Guild Memberr (Except Sin) From your Deck.", "it": "Grido di battaglia: pesca dal tuo mazzo 2 membri della Gilda dei Ladri (tranne <Sin>)."}
+{"costante": "TCG_EFF_REVLUS", "riga": 2414, "en": "Ongoing: Your Generated Cards gets -2 Cost.", "it": "Continuo: le carte che hai generato ottengono -2 di costo."}
+{"costante": "TCG_EFF_LEXUS", "riga": 2416, "en": "Battlecry: Summon the highest cost Mage Guild Member From your Deck.", "it": "Grido di battaglia: evoca dal tuo mazzo il membro della Gilda dei Maghi che costa di più."}
+{"costante": "TCG_EFF_LENAS", "riga": 2418, "en": "Battlecry: Draw 2 Mage Guild Memberr (Except Revlus) From your Deck.", "it": "Grido di battaglia: pesca dal tuo mazzo 2 membri della Gilda dei Maghi (tranne <Revlus>)."}
+{"costante": "TCG_EFF_WRANGWRANG", "riga": 2420, "en": "Battlecry: Draw a Copy of this Card.", "it": "Grido di battaglia: pesca una copia di questa carta."}
+{"costante": "TCG_EFF_GOBLIN", "riga": 2423, "en": "Battlecry: Steal 1 Citizen from your Opponent.", "it": "Grido di battaglia: ruba 1 cittadino all'avversario."}
+{"costante": "TCG_EFF_GOBLINWIZARD", "riga": 2425, "en": "Battlecry: Draw 1 Goblin from your Deck.", "it": "Grido di battaglia: pesca 1 goblin dal tuo mazzo."}
+{"costante": "TCG_EFF_GOBLINSHAMAN", "riga": 2427, "en": "Battlecry: Revive 1 Goblin from your Grave.", "it": "Grido di battaglia: riporta in vita 1 goblin dal tuo cimitero."}
+{"costante": "TCG_EFF_CULTISTOFFIRE", "riga": 2429, "en": "Battlecry: Summon 2 Flame Tower Monsters.", "it": "Grido di battaglia: evoca 2 mostri della Torre di Fuoco."}
+{"costante": "TCG_EFF_QURUIZA", "riga": 2431, "en": "Battlecry: Summon Corgon.\\n          Ongoing: Your Flame Tower Cards gets +2 Attack and -1 Cost.", "it": "Grido di battaglia: evoca <Corgon>.\\n          Continuo: le tue carte Torre di Fuoco ottengono +2 di attacco e -1 di costo."}
+{"costante": "TCG_EFF_QURUIZA2", "riga": 2433, "en": "Battlecry: Summon Corgon.\\n          Ongoing: Your Flame Tower Cards gets +1 Attack and -1 Cost.", "it": "Grido di battaglia: evoca <Corgon>.\\n          Continuo: le tue carte Torre di Fuoco ottengono +1 di attacco e -1 di costo."}
+{"costante": "TCG_EFF_CORGON", "riga": 2435, "en": "Battlecry: Summon Quruiza.", "it": "Grido di battaglia: evoca <Quruiza>."}
+{"costante": "TCG_EFF_ABYSSDWELLER", "riga": 2438, "en": "Deathrattle: Draw a Seamonster from your Deck.", "it": "Rantolo di morte: pesca un mostro marino dal tuo mazzo."}
+{"costante": "TCG_EFF_ABYSSANIMAL", "riga": 2440, "en": "Battlecry: Draw Target Seamonster from your Deck.", "it": "Grido di battaglia: pesca il mostro marino bersaglio dal tuo mazzo."}
+{"costante": "TCG_EFF_SEAFALLENANGEL", "riga": 2442, "en": "Battlecry: Summon 3 Seamonsters from your Graveyard.", "it": "Grido di battaglia: evoca 3 mostri marini dal tuo cimitero."}
+{"costante": "TCG_EFF_DEATHMANEKI", "riga": 2444, "en": "Battlecry: Both Player Draw until their Hand is Full.", "it": "Grido di battaglia: tutt'e due i giocatori pescano finché la mano non è piena."}
+{"costante": "TCG_EFF_FLOWERCORAL", "riga": 2446, "en": "Battlecry: Silence All Card on the Field.", "it": "Grido di battaglia: silenzia tutte le carte in campo."}
+{"costante": "TCG_EFF_MOSTMUSCYLLA", "riga": 2448, "en": "Begin Phase: Double this Card's Stats.", "it": "Fase iniziale: raddoppia le statistiche di questa carta."}
+{"costante": "TCG_EFF_KAMIKAZEMAIMAI", "riga": 2450, "en": "Begin Phase: Deal 3 Damage to every card.", "it": "Fase iniziale: infliggi 3 danni a ogni carta."}
+{"costante": "TCG_EFF_AROMALOCARIS", "riga": 2452, "en": "Begin Phase: Lose 2 HP, Gain 1 Extra Mana Next Turn.", "it": "Fase iniziale: perdi 2 di vita e ottieni 1 mana in più il turno prossimo."}
+{"costante": "TCG_EFF_BAMBOOSPIRIT", "riga": 2455, "en": "Begin Phase: Deal damage to Random Enemy equal to this cards' attack.", "it": "Fase iniziale: infliggi a un nemico a caso danni pari all'attacco di questa carta."}
+{"costante": "TCG_EFF_DYS", "riga": 2457, "en": "Battlecry: Double this Card's Stats.", "it": "Grido di battaglia: raddoppia le statistiche di questa carta."}
+{"costante": "TCG_EFF_CHAOSSPIRIT", "riga": 2459, "en": "Battlecry: Evolve your Spirits on the Field, Draw 1 Card Each.", "it": "Grido di battaglia: fai evolvere i tuoi spiriti in campo, e pesca 1 carta per ognuno."}
+{"costante": "TCG_EFF_CHAOSSEED", "riga": 2461, "en": "Evolve this after 3 turns.", "it": "Si evolve dopo 3 turni."}
+{"costante": "TCG_EFF_SYLPH", "riga": 2463, "en": "Battlecry: Draw Target Spirit from your Deck.", "it": "Grido di battaglia: pesca lo spirito bersaglio dal tuo mazzo."}
+{"costante": "TCG_EFF_CHAOSSERPENT", "riga": 2465, "en": "Battlecry: Silence All Enemies.", "it": "Grido di battaglia: silenzia tutti i nemici."}
+{"costante": "TCG_EFF_BOYCIANA", "riga": 2468, "en": "Battlecry: Add a copy of You with 1/1 into Your Hand, they cost 0.", "it": "Grido di battaglia: aggiungi alla tua mano una copia di Te con 1/1, e costa 0."}
+{"costante": "TCG_EFF_LASTRAVEN", "riga": 2470, "en": "Ongoing: If your Hand is Empty, gain +4 atk and Double Strike.\\nIf you Control no other Cards, gain +4 atk and Vigilance.", "it": "Continuo: se hai la mano vuota, ottieni +4 di attacco e Doppio colpo.\\nSe non controlli altre carte, ottieni +4 di attacco e Vigilanza."}
+{"costante": "TCG_EFF_PEACEMAKER", "riga": 2472, "en": "Begin Phase: Add a Ragnarock to your Hand, it costs 0.", "it": "Fase iniziale: aggiungi un <Ragnarocca> alla tua mano, e costa 0."}
+{"costante": "TCG_EFF_CHICKEN", "riga": 2474, "en": "Sacrifice: Add 1 Bird into your Hand. If you do, gain 1 Mana", "it": "Sacrificio: aggiungi 1 uccello alla tua mano. Se lo fai, ottieni 1 mana"}
+{"costante": "TCG_EFF_SHOPKEEPERCROW", "riga": 2476, "en": "Battlecry: Draw Target Bird from your Deck.", "it": "Grido di battaglia: pesca l'uccello bersaglio dal tuo mazzo."}
+{"costante": "TCG_EFF_SCARD", "riga": 2478, "en": "Battlecry: Summon 3 cute Young Swallows, they WILL make you happy.", "it": "Grido di battaglia: evoca 3 giovani rondini adorabili, che TI FARANNO felice."}
+{"costante": "TCG_EFF_ALIEN", "riga": 2481, "en": "Battlecry: Bleed Non-Legendary Enemy, Summon a 1/1 copy of target.", "it": "Grido di battaglia: fai sanguinare un nemico non leggendario ed evoca una copia 1/1 del bersaglio."}
+{"costante": "TCG_EFF_GRAVEED", "riga": 2483, "en": "Begin Phase: Inflict Gravity on All Cards in Opponent's Hand and Field.", "it": "Fase iniziale: infliggi Gravità a tutte le carte in mano e in campo all'avversario."}
+{"costante": "TCG_EFF_GANESH", "riga": 2486, "en": "Begin Phase: Add Ganesa Impact to your Hand!", "it": "Fase iniziale: aggiungi <Impatto di Ganesa> alla tua mano!"}
+{"costante": "TCG_EFF_GANESHIMPACT", "riga": 2488, "en": "Deal 1 Damage to every card.", "it": "Infliggi 1 danno a ogni carta."}
+{"costante": "TCG_EFF_KONOSENSEIKINOKO", "riga": 2491, "en": "I know this might sound crazy but I think this teacher is a mushroom.", "it": "So che sembra una follia, ma secondo me questo insegnante è un fungo."}
+{"costante": "TCG_EFF_MANTAGODDESS", "riga": 2493, "en": "Battlecry/OnKill: Inflict All Enemies with a bunch of Random Debuff.", "it": "Grido di battaglia/All'uccisione: infliggi a tutti i nemici un mucchio di penalità a caso."}
+{"costante": "TCG_EFF_DARKDOME", "riga": 2495, "en": "Battlecry/AfterCombat: Inflict All Enemies with a Random Debuff.", "it": "Grido di battaglia/Dopo lo scontro: infliggi a tutti i nemici una penalità a caso."}
+{"costante": "TCG_EFF_SHELLKING", "riga": 2497, "en": "End Phase: Afflict every Card with -1/-1 for every Debuff on them.", "it": "Fase finale: affliggi ogni carta con -1/-1 per ogni penalità che ha addosso."}
+{"costante": "TCG_EFF_HEQET", "riga": 2499, "en": "Battlecry: Change the Effect of Target Card on Field to\\n          'End Phase: Summon a Notadpole on Opponent Field'.", "it": "Grido di battaglia: cambia l'effetto della carta bersaglio in campo in\\n          'Fase finale: evoca una <Girinota> nel campo avversario'."}
+{"costante": "TCG_EFF_HEQET_BABY", "riga": 2501, "en": "End Phase: Summon a Musical Notadpole on Opponent Field.", "it": "Fase finale: evoca una <Girinota> musicale nel campo avversario."}
+{"costante": "TCG_EFF_MUCENCAB", "riga": 2504, "en": "Battlecry: Fill your Field with Hornets From your Deck.", "it": "Grido di battaglia: riempi il campo con i calabroni del tuo mazzo."}
+{"costante": "TCG_EFF_QUEENANT", "riga": 2506, "en": "Battlecry: Summon 2 Ants From your Deck.", "it": "Grido di battaglia: evoca 2 formiche dal tuo mazzo."}
+{"costante": "TCG_EFF_ALICE", "riga": 2508, "en": "Battlecry: Summon the Highest Cost Wasp from your Deck.", "it": "Grido di battaglia: evoca dal tuo mazzo la vespa che costa di più."}
+{"costante": "TCG_EFF_OXODE", "riga": 2510, "en": "Battlecry: Summon 3 magic bees.", "it": "Grido di battaglia: evoca 3 api magiche."}
+{"costante": "TCG_EFF_ARAONIBI", "riga": 2513, "en": "Battlecry: Pull all 1-hp Card from Hand to the Field.", "it": "Grido di battaglia: tira in campo tutte le carte da 1 di vita che hai in mano."}
+{"costante": "TCG_EFF_LILY", "riga": 2516, "en": "Begin Phase: Progress Lily's Ether Disease.", "it": "Fase iniziale: il mal d'etere di <Lily> avanza."}
+{"costante": "TCG_EFF_PAEL", "riga": 2518, "en": "Battlecry: Cure Lily's Ether Disease!", "it": "Grido di battaglia: cura il mal d'etere di <Lily>!"}
+{"costante": "TCG_EFF_BATTLEDRAKE", "riga": 2521, "en": "Battlecry/Deathrattle: 3 Cards on your field gets +1 HP.", "it": "Grido di battaglia/Rantolo di morte: 3 carte del tuo campo ottengono +1 di vita."}
+{"costante": "TCG_EFF_SACDRAKE", "riga": 2523, "en": "Sacrifice: 3 Cards on your field gets +1 HP.", "it": "Sacrificio: 3 carte del tuo campo ottengono +1 di vita."}
+{"costante": "TCG_EFF_BAMBOOSPROUT", "riga": 2525, "en": "Ongoing: Your Ents/Mandrakes gets -1 Cost and +1 Attack.", "it": "Continuo: i tuoi Ent e le tue mandragore ottengono -1 di costo e +1 di attacco."}
+{"costante": "TCG_EFF_SKOGSRA", "riga": 2527, "en": "Ongoing: Your Ents/Mandrake/Mushrooms gets +2 Attack.", "it": "Continuo: i tuoi Ent, mandragore e funghi ottengono +2 di attacco."}
+{"costante": "TCG_EFF_TREEINCARNATION", "riga": 2529, "en": "Ongoing: Your Ents/Mandrake/Mushrooms gets +3 Attack.", "it": "Continuo: i tuoi Ent, mandragore e funghi ottengono +3 di attacco."}
+{"costante": "TCG_EFF_ALRAUNE", "riga": 2531, "en": "Battlecry: Ents/Mandrake/Mushrooms on your field gets +1/+1.", "it": "Grido di battaglia: gli Ent, le mandragore e i funghi del tuo campo ottengono +1/+1."}
+{"costante": "TCG_EFF_HELRAUNE", "riga": 2533, "en": "Battlecry: Ents/Mandrake/Mushrooms on your field gets +3/+3.", "it": "Grido di battaglia: gli Ent, le mandragore e i funghi del tuo campo ottengono +3/+3."}
+{"costante": "TCG_EFF_HOGWEEDER", "riga": 2535, "en": "Begin Phase: Poison a Card in Opponent's Hand.", "it": "Fase iniziale: avvelena una carta in mano all'avversario."}
+{"costante": "TCG_EFF_KINGHOGWEEDER", "riga": 2537, "en": "Battlecry: Poison all Cards in Opponent's Hand.", "it": "Grido di battaglia: avvelena tutte le carte in mano all'avversario."}
+{"costante": "TCG_EFF_MANEATER", "riga": 2539, "en": "Battlecry: Deal 2 Damage to a Card in Opponent's Hand.", "it": "Grido di battaglia: infliggi 2 danni a una carta in mano all'avversario."}
+{"costante": "TCG_EFF_MANEATER2", "riga": 2541, "en": "Battlecry: Deal 3 Damage to a Card in Opponent's Hand.", "it": "Grido di battaglia: infliggi 3 danni a una carta in mano all'avversario."}
+{"costante": "TCG_EFF_GIANTEATER", "riga": 2543, "en": "Battlecry: Pull a Card in Opponent's Hand onto the Field.\\n          Weaken it by 2. Their effect won't activate.", "it": "Grido di battaglia: tira in campo una carta della mano avversaria.\\n          Indeboliscila di 2. Il suo effetto non scatta."}
+{"costante": "TCG_EFF_HELLFIREFLOWER", "riga": 2545, "en": "Begin Phase: Deal 1 Damage to every Card in Opponent's Hand.", "it": "Fase iniziale: infliggi 1 danno a ogni carta in mano all'avversario."}
+{"costante": "TCG_EFF_MOTUHEGUI", "riga": 2548, "en": "If it sees a citizen, MAUL it to death to gain +1/+1.", "it": "Se vede un cittadino, lo SBRANA per ottenere +1/+1."}
+{"costante": "TCG_EFF_DARKCOALA", "riga": 2550, "en": "Battlecry: Weaken 2 Random Enemy by 2.", "it": "Grido di battaglia: indebolisci di 2 due nemici a caso."}
+{"costante": "TCG_EFF_BEARCUB", "riga": 2552, "en": "If in Grave: All Bears gets +1 Attack.", "it": "Se è nel cimitero: tutti gli orsi ottengono +1 di attacco."}
+{"costante": "TCG_EFF_BEARCUBSUMMON", "riga": 2554, "en": "Battlecry: Summon a 0/1 Bear Cub (Bears are protective of them).", "it": "Grido di battaglia: evoca un orsacchiotto 0/1 (gli orsi ci tengono)."}
+{"costante": "TCG_EFF_BEARCUBSUMMONABUNCH", "riga": 2556, "en": "Battlecry: Summon 3 0/1 Bear Cub (Bears are protective of them).", "it": "Grido di battaglia: evoca 3 orsacchiotti 0/1 (gli orsi ci tengono)."}
+{"costante": "TCG_EFF_CHUPACABURA", "riga": 2558, "en": "Battlecry: Destroy all Field Cards that does not start in any Deck.", "it": "Grido di battaglia: distruggi tutte le carte in campo che non partono da un mazzo."}
+{"costante": "TCG_EFF_ARKTOUROS", "riga": 2560, "en": "Ongoing: Your 1 Hp Cards have +3 Atk.", "it": "Continuo: le tue carte da 1 di vita hanno +3 di attacco."}
+{"costante": "TCG_EFF_CONDUCTOR_KOALA", "riga": 2562, "en": "Battlecry: Summon all your Koalas, wherever they are.", "it": "Grido di battaglia: evoca tutti i tuoi koala, ovunque siano."}
+{"costante": "TCG_EFF_TITANIA", "riga": 2565, "en": "End Phase: Randomize ALL your Fairy's Stats.", "it": "Fase finale: rendi casuali le statistiche di TUTTE le tue fate."}
+{"costante": "TCG_EFF_PIXIE", "riga": 2567, "en": "Sacrifice: Randomize Target Card's Stats.", "it": "Sacrificio: rendi casuali le statistiche della carta bersaglio."}
+{"costante": "TCG_EFF_GIGANTICFAIRY", "riga": 2569, "en": "This Card has Randomized Stats.", "it": "Questa carta ha statistiche casuali."}
+{"costante": "TCG_EFF_PERI", "riga": 2571, "en": "This Card has Randomized Stats. (but better)", "it": "Questa carta ha statistiche casuali. (ma migliori)"}
+{"costante": "TCG_EFF_GORATH", "riga": 2573, "en": "Battlecry: Randomize Everyone's Stats.", "it": "Grido di battaglia: rendi casuali le statistiche di tutti quanti."}
+{"costante": "TCG_EFF_SHININGFAIRY", "riga": 2575, "en": "End Phase: Randomize ALL your Fairy's Stats. (but better)", "it": "Fase finale: rendi casuali le statistiche di TUTTE le tue fate. (ma migliori)"}
+{"costante": "TCG_EFF_YONORNE", "riga": 2577, "en": "Sacrifice/Battlecry/Deathrattle: Discover a Card. (Out of 5 Cards)", "it": "Sacrificio/Grido di battaglia/Rantolo di morte: scopri una carta. (fra 5 carte)"}
+{"costante": "TCG_EFF_KABUTO", "riga": 2580, "en": "Battlecry: Take another turn after this turn.", "it": "Grido di battaglia: gioca un altro turno dopo questo."}
+{"costante": "TCG_EFF_GOKIBURI1", "riga": 2582, "en": "Ongoing: Your Cards on Field have -1 Attack.", "it": "Continuo: le tue carte in campo hanno -1 di attacco."}
+{"costante": "TCG_EFF_GOKIBURI2", "riga": 2584, "en": "This card has no Effect, you probably don't want this.", "it": "Questa carta non ha effetti, e probabilmente non la vuoi."}
+{"costante": "TCG_EFF_GOKIBURIKING", "riga": 2586, "en": "Battlecry: Shuffle 5 Cockroaches into your Opponent's Deck.", "it": "Grido di battaglia: mescola 5 scarafaggi nel mazzo dell'avversario."}
+{"costante": "TCG_EFF_NURSINGMOTH", "riga": 2588, "en": "Begin Phase: Heal all your Green Cards.", "it": "Fase iniziale: cura tutte le tue carte verdi."}
+{"costante": "TCG_EFF_MAGICMOTH", "riga": 2590, "en": "Ongoing: Your Beetles on Field have +2 Attack.", "it": "Continuo: i tuoi scarabei in campo hanno +2 di attacco."}
+{"costante": "TCG_EFF_MOLOCH", "riga": 2593, "en": "Battlecry: Draw Target Minotaur from your Deck.", "it": "Grido di battaglia: pesca il minotauro bersaglio dal tuo mazzo."}
+{"costante": "TCG_EFF_MINOTAURKING", "riga": 2595, "en": "Battlecry: Draw a Minotaur from your Deck.", "it": "Grido di battaglia: pesca un minotauro dal tuo mazzo."}
+{"costante": "TCG_EFF_BLUEBULL", "riga": 2597, "en": "Begin Phase: Minotaur on your Field Gain +1 Attack.", "it": "Fase iniziale: i minotauri del tuo campo ottengono +1 di attacco."}
+{"costante": "TCG_EFF_STEELMINOTAUR", "riga": 2599, "en": "Ongoing: Gain 1 Attack for every Minotaur on your Field and in your Grave.", "it": "Continuo: ottiene 1 di attacco per ogni minotauro nel tuo campo e nel tuo cimitero."}
+{"costante": "TCG_EFF_UNGAGA", "riga": 2601, "en": "Ongoing: Gain 1 Attack for every 2 Minotaur you own.", "it": "Continuo: ottiene 1 di attacco ogni 2 minotauri che hai."}
+{"costante": "TCG_EFF_CHIHYU", "riga": 2603, "en": "Battlecry: Gain +1/+1 for every Minotaur on your Field and in your Grave.", "it": "Grido di battaglia: ottiene +1/+1 per ogni minotauro nel tuo campo e nel tuo cimitero."}
+{"costante": "TCG_EFF_ASTERIOS", "riga": 2605, "en": "Battlecry: Gain +1/+1 for every Minotaur you own.", "it": "Grido di battaglia: ottiene +1/+1 per ogni minotauro che hai."}
+{"costante": "TCG_EFF_CATTLE", "riga": 2608, "en": "Sacrifice: Draw another Cattle from your Deck.", "it": "Sacrificio: pesca un altro bovino dal tuo mazzo."}
+{"costante": "TCG_EFF_BATTLECRY_DRAWSELF", "riga": 2611, "en": "Battlecry: Draw a Card of Same Name.", "it": "Grido di battaglia: pesca una carta con lo stesso nome."}
+{"costante": "TCG_EFF_BATTLECRY_DRAWSELFPOISON1", "riga": 2613, "en": "Battlecry: Draw a Card of Same Name. Poison Random Enemy.", "it": "Grido di battaglia: pesca una carta con lo stesso nome. Avvelena un nemico a caso."}
+{"costante": "TCG_EFF_BATTLECRY_DRAWSELFBLEED1", "riga": 2615, "en": "Battlecry: Draw a Card of Same Name, Deal 2 Damage to Random Enemy if you do.", "it": "Grido di battaglia: pesca una carta con lo stesso nome, e se lo fai infliggi 2 danni a un nemico a caso."}
+{"costante": "TCG_EFF_LIZARDMANMAGE", "riga": 2617, "en": "Ongoing: Your Lizardman Cost 1 less.", "it": "Continuo: i tuoi uomini lucertola costano 1 in meno."}
+{"costante": "TCG_EFF_DRAGONEQUS", "riga": 2619, "en": "Ongoing: Gain 13 Attack if it's not your Turn.", "it": "Continuo: ottiene 13 di attacco se non è il tuo turno."}
+{"costante": "TCG_EFF_CLAYMOREDRAGONEWT", "riga": 2621, "en": "Ongoing: Gain 5 Attack if it's not your Turn.", "it": "Continuo: ottiene 5 di attacco se non è il tuo turno."}
+{"costante": "TCG_EFF_LIZARDMANASSASSIN", "riga": 2623, "en": "Ongoing: Gain 5 Attack on your Turn.", "it": "Continuo: ottiene 5 di attacco nel tuo turno."}
+{"costante": "TCG_EFF_SUPERDRAGONEWT", "riga": 2625, "en": "Ongoing: Gain 8 Attack on your Turn.", "it": "Continuo: ottiene 8 di attacco nel tuo turno."}
+{"costante": "TCG_EFF_MEDUSA", "riga": 2628, "en": "Battlecry: Draw a Euryale from your Deck.", "it": "Grido di battaglia: pesca un'euriale dal tuo mazzo."}
+{"costante": "TCG_EFF_EURYALE", "riga": 2630, "en": "Battlecry: Draw a Stheno from your Deck.", "it": "Grido di battaglia: pesca una stenno dal tuo mazzo."}
+{"costante": "TCG_EFF_STHENO", "riga": 2632, "en": "Battlecry: Draw a Medusa from your Deck.", "it": "Grido di battaglia: pesca una medusa dal tuo mazzo."}
+{"costante": "TCG_EFF_TELCHINES", "riga": 2634, "en": "Ongoing: Your Medusas Gain +1 Attack and Cost 1 less.", "it": "Continuo: le tue meduse ottengono +1 di attacco e costano 1 in meno."}
+{"costante": "TCG_EFF_DELPHYNE", "riga": 2636, "en": "Battlecry: Return all Graveyard Medusas to your Deck.", "it": "Grido di battaglia: rimetti nel mazzo tutte le meduse del cimitero."}
+{"costante": "TCG_EFF_ORC", "riga": 2639, "en": "Deathrattle: Summon the STRONGEST Orc (of lower Cost) from your Deck.", "it": "Rantolo di morte: evoca dal tuo mazzo l'orco PIÙ FORTE (di costo minore)."}
+{"costante": "TCG_EFF_PORC", "riga": 2641, "en": "Sacrifice: Draw the BEST Porc (of lower Cost) from your Deck.", "it": "Sacrificio: pesca dal tuo mazzo il MIGLIOR porc (di costo minore)."}
+{"costante": "TCG_EFF_GODA", "riga": 2643, "en": "Ongoing: Your Orc's effect can now target Orcs of same Cost.", "it": "Continuo: l'effetto dei tuoi orchi può ora prendere di mira orchi di pari costo."}
+{"costante": "TCG_EFF_ALKONOST", "riga": 2646, "en": "Battlecry: Inflict All Cards on Field and Hand with Deathword.", "it": "Grido di battaglia: infliggi Condanna a tutte le carte in campo e in mano."}
+{"costante": "TCG_EFF_MISHAGUZI", "riga": 2649, "en": "Battlecry: Inflict Gravity on all Enemy Card on the Field.", "it": "Grido di battaglia: infliggi Gravità a tutte le carte nemiche in campo."}
+{"costante": "TCG_EFF_SUGAAR", "riga": 2651, "en": "Battlecry/OnKill: Deal 1 Damage to All Enemies.", "it": "Grido di battaglia/All'uccisione: infliggi 1 danno a tutti i nemici."}
+{"costante": "TCG_EFF_HAMSTER", "riga": 2654, "en": "Sacrifice: Draw a Rat from your Deck.", "it": "Sacrificio: pesca un ratto dal tuo mazzo."}
+{"costante": "TCG_EFF_RATSBRINGER", "riga": 2656, "en": "Battlecry/EndPhase: Summon a Rat with 3- Modified Cost from your Deck.", "it": "Grido di battaglia/Fase finale: evoca dal tuo mazzo un ratto di costo modificato 3 o meno."}
+{"costante": "TCG_EFF_HAMTAIROU", "riga": 2658, "en": "Ongoing: Your Rats Cost 1 less.", "it": "Continuo: i tuoi ratti costano 1 in meno."}
+{"costante": "TCG_EFF_DISASTER", "riga": 2660, "en": "Battlecry: Mutate Chosen Card in Opponent's Hand to Random Rat.", "it": "Grido di battaglia: fai mutare la carta scelta in mano all'avversario in un ratto a caso."}
+{"costante": "TCG_EFF_DEATHHAMSTER", "riga": 2662, "en": "Ongoing: Give all your Rats Deathtouch.", "it": "Continuo: dai Tocco letale a tutti i tuoi ratti."}
+{"costante": "TCG_EFF_RATRUSH", "riga": 2664, "en": "Ongoing: Give all your Rats Haste.", "it": "Continuo: dai Impeto a tutti i tuoi ratti."}
+{"costante": "TCG_EFF_RATFILL", "riga": 2666, "en": "Ongoing: You draw all Rats with 0 Modified Cost from your Deck, whenever you can.", "it": "Continuo: peschi dal mazzo tutti i ratti di costo modificato 0, ogni volta che puoi."}
+{"costante": "TCG_EFF_RATPOWER", "riga": 2668, "en": "Ongoing: Your Rats Gain +5 Attack.", "it": "Continuo: i tuoi ratti ottengono +5 di attacco."}
+{"costante": "TCG_EFF_HAND2", "riga": 2671, "en": "Battlecry: Pull a Card in Opponent's Hand onto the Field.\\n          Deal it 2 Damage.", "it": "Grido di battaglia: tira in campo una carta della mano avversaria.\\n          Infliggile 2 danni."}
+{"costante": "TCG_EFF_HAND5", "riga": 2673, "en": "Battlecry: Pull a Card in Opponent's Hand onto the Field.\\n          Deal it 5 Damage.", "it": "Grido di battaglia: tira in campo una carta della mano avversaria.\\n          Infliggile 5 danni."}
+{"costante": "TCG_EFF_HAND999", "riga": 2675, "en": "Battlecry: Pull a Card in Opponent's Hand onto the Field\\n          Deal it 999 Damage.", "it": "Grido di battaglia: tira in campo una carta della mano avversaria\\n          Infliggile 999 danni."}
+{"costante": "TCG_EFF_HANDSELF3", "riga": 2677, "en": "Battlecry: Pull a Card in your Hand onto the Field\\n          Deal it 3 Damage.", "it": "Grido di battaglia: tira in campo una carta della tua mano\\n          Infliggile 3 danni."}
+{"costante": "TCG_EFF_HANDTWO2", "riga": 2679, "en": "Battlecry: Pull 2 Card in Opponent's Hand onto the Field.\\n          Deal them 2 Damage.", "it": "Grido di battaglia: tira in campo 2 carte della mano avversaria.\\n          Infliggi loro 2 danni."}
+{"costante": "TCG_EFF_HANDTWO5", "riga": 2681, "en": "Battlecry: Pull 2 Card in Opponent's Hand onto the Field.\\n          Deal them 5 Damage.", "it": "Grido di battaglia: tira in campo 2 carte della mano avversaria.\\n          Infliggi loro 5 danni."}
+{"costante": "TCG_EFF_GREEN_DRAGON", "riga": 2684, "en": "Battlecry: Gain +3/+3 and Trample if you control no other Cards.", "it": "Grido di battaglia: se non controlli altre carte, ottieni +3/+3 e Travolgere."}
+{"costante": "TCG_EFF_BLUE_DRAGON", "riga": 2686, "en": "Battlecry: Deal 2 Damage to all Enemies.", "it": "Grido di battaglia: infliggi 2 danni a tutti i nemici."}
+{"costante": "TCG_EFF_RED_DRAGON", "riga": 2688, "en": "Battlecry: Deal Opponent 4 Damage.", "it": "Grido di battaglia: infliggi 4 danni all'avversario."}
+{"costante": "TCG_EFF_WHITE_DRAGON", "riga": 2690, "en": "Battlecry: Heal Player 6 Damage.", "it": "Grido di battaglia: curati 6 danni."}
+{"costante": "TCG_EFF_BLACK_DRAGON", "riga": 2692, "en": "Battlecry: Weaken All Enemies by 1.", "it": "Grido di battaglia: indebolisci di 1 tutti i nemici."}
+{"costante": "TCG_EFF_GRAY_DRAGON", "riga": 2694, "en": "Battlecry: Inflict All Enemies with Random Debuff.", "it": "Grido di battaglia: infliggi una penalità a caso a tutti i nemici."}
+{"costante": "TCG_EFF_BEILGENA", "riga": 2697, "en": "Battlecry: Cards on left gain +2/+2, Cards on right get -2 Cost.", "it": "Grido di battaglia: le carte a sinistra ottengono +2/+2, quelle a destra -2 di costo."}
+{"costante": "TCG_EFF_ELEMENTALDRAGON", "riga": 2699, "en": "Ongoing: Gain Bits according to Domains on Field:\\nRed:Trample Green:Crit Blue:Barrier Gray:Evasion Black:Regen White:Lifelink", "it": "Continuo: ottieni bit a seconda dei domini in campo:\\nRosso:Travolgere Verde:Critico Blu:Barriera Grigio:Schivata Nero:Rigenerazione Bianco:Legame vitale"}
+{"costante": "TCG_EFF_FIVEHEADDRAGON", "riga": 2701, "en": "Battlecry: For each Domain of 5-Cost-Dragon you have:\\n          Gain +2/+2 and Fire corresponding Battlecry.", "it": "Grido di battaglia: per ogni dominio di drago da 5 che hai:\\n          ottieni +2/+2 e scatena il Grido di battaglia corrispondente."}
+{"costante": "TCG_EFF_SUNRISE", "riga": 2703, "en": "Battlecry: Discover and Fire 3 Battlecry of 5-Cost-Dragons.", "it": "Grido di battaglia: scopri e scatena 3 Gridi di battaglia di draghi da 5."}
+{"costante": "TCG_EFF_STAGGOD", "riga": 2706, "en": "Battlecry: If your Deck has NO DUPLICATES and <6 LEGENDARY: \\n                   Gain +X/+X, where X is your Deck Size, minus 30.", "it": "Grido di battaglia: se il tuo mazzo NON HA DOPPIONI e meno di 6 LEGGENDARIE: \\n                   ottieni +X/+X, dove X è la misura del mazzo meno 30."}
+{"costante": "TCG_EFF_CHAOSUNICORN", "riga": 2708, "en": "Battlecry: If your Deck has NO DUPLICATES and <6 LEGENDARY: \\n                   Gain Immune and Attack all Enemies.", "it": "Grido di battaglia: se il tuo mazzo NON HA DOPPIONI e meno di 6 LEGGENDARIE: \\n                   diventi Immune e attacchi tutti i nemici."}
+{"costante": "TCG_EFF_SPIPHA", "riga": 2711, "en": "Battlecry/EndPhase(Every3Turn): Fire up to 6 Dragonslayer Bolt (2 Damage) at Opponent's Hand.", "it": "Grido di battaglia/Fase finale(ogni 3 turni): spara fino a 6 dardi ammazzadraghi (2 danni) contro la mano avversaria."}
+{"costante": "TCG_EFF_ARIBEL", "riga": 2713, "en": "EndPhase(Every3Turn): Unleashes a Flurry of Blows (8 Damage) at Opponent's Field.", "it": "Fase finale(ogni 3 turni): scatena una gragnola di colpi (8 danni) sul campo avversario."}
+{"costante": "TCG_EFF_MARY", "riga": 2715, "en": "In Hand: Makes you 1 Potion of Evolution.\\n            (Transform Target into Card that Costs +1)", "it": "In mano: ti fa 1 pozione dell'evoluzione.\\n            (trasforma il bersaglio in una carta che costa +1)"}
+{"costante": "TCG_EFF_EVOLUTION", "riga": 2717, "en": "Battlecry: Evolve Target Card of yours into Card of +1 Cost (Max 9).", "it": "Grido di battaglia: fai evolvere una tua carta bersaglio in una carta di costo +1 (max 9)."}
+{"costante": "TCG_EFF_DOROTHIA", "riga": 2720, "en": "End Phase: You lose 1 Max Mana, and Dorothia gains +3/+3.", "it": "Fase finale: perdi 1 di mana massimo, e <Dorothia> ottiene +3/+3."}
+{"costante": "TCG_EFF_PROJET", "riga": 2723, "en": "Battlecry: CUSTOMIZE and BUILD your VERY OWN PRO-JET,\\n            Selecting 2 from 8 modules and return it to Hand.", "it": "Grido di battaglia: PERSONALIZZA e COSTRUISCI il TUO PRO-JET,\\n            scegliendo 2 moduli fra 8, e rimettilo in mano."}
+{"costante": "TCG_EFF_PROJETP1", "riga": 2725, "en": "", "it": ""}
+{"costante": "TCG_EFF_PROJETP2", "riga": 2727, "en": "", "it": ""}
+{"costante": "TCG_EFF_MISTDRAGON", "riga": 2730, "en": "Battlecry: Cards in Opponent's Hand Costs 1 More.", "it": "Grido di battaglia: le carte in mano all'avversario costano 1 in più."}
+{"costante": "TCG_EFF_BERSERKDRAGON", "riga": 2732, "en": "Ongoing: Costs 0 if this Card is Wounded.", "it": "Continuo: costa 0 se questa carta è ferita."}
+{"costante": "TCG_EFF_DRAGONCHILD", "riga": 2734, "en": "Deathrattle: Reduce the Cost of a Random Dragon in your Hand by 3.", "it": "Rantolo di morte: riduci di 3 il costo di un drago a caso della tua mano."}
+{"costante": "TCG_EFF_PERFORMAIDBLOODRESS", "riga": 2737, "en": "Begin Phase: Bleed all Cards on Field.", "it": "Fase iniziale: fai sanguinare tutte le carte in campo."}
+{"costante": "TCG_EFF_PERFORMAIDCOCRUEL", "riga": 2739, "en": "Begin Phase: Deal 4 Damage Split Among Enemies.", "it": "Fase iniziale: infliggi 4 danni ripartiti fra i nemici."}
+{"costante": "TCG_EFF_PERFORMAIDDESWEEPER", "riga": 2741, "en": "Begin Phase: Deal 3 Damage Split Among Enemies.", "it": "Fase iniziale: infliggi 3 danni ripartiti fra i nemici."}
+{"costante": "TCG_EFF_PERFORMAIDPINCHIEF", "riga": 2743, "en": "Begin Phase: Summon a Performaid from your Deck.", "it": "Fase iniziale: evoca una spettacameriera dal tuo mazzo."}
+{"costante": "TCG_EFF_PERFORMAIDBITCHIACK", "riga": 2745, "en": "End Phase: This Card Switch Side.", "it": "Fase finale: questa carta cambia schieramento."}
+{"costante": "TCG_EFF_PAPERCRANE", "riga": 2748, "en": "StartOfGame/Battlecry: Pay 2 Hp, Gain +1 Hand Limit.", "it": "Inizio partita/Grido di battaglia: paga 2 di vita e ottieni +1 al limite della mano."}
+{"costante": "TCG_EFF_PAPERSHURIKEN", "riga": 2750, "en": "Begin Phase: Deal 2 Damage Split Among Enemies.", "it": "Fase iniziale: infliggi 2 danni ripartiti fra i nemici."}
+{"costante": "TCG_EFF_PAPERPLANE", "riga": 2752, "en": "StartOfGame/Battlecry: Pay 3 Hp, Gain +1 Field Limit.", "it": "Inizio partita/Grido di battaglia: paga 3 di vita e ottieni +1 al limite del campo."}
+{"costante": "TCG_EFF_KAMIKAKUSHI", "riga": 2754, "en": "Battlecry: Turn every Card in your Hand into kamikaze paper bombs - Battlecry: Deal 3 Dmg to Target and Draw 1 Card.", "it": "Grido di battaglia: trasforma ogni carta della tua mano in una bomba di carta kamikaze - Grido di battaglia: infliggi 3 danni al bersaglio e pesca 1 carta."}
+{"costante": "TCG_EFF_HIDENSHIKIORIGAMI", "riga": 2756, "en": "Battlecry: Deal 3 Damage to an Enemy, and Draw 1 Card.", "it": "Grido di battaglia: infliggi 3 danni a un nemico e pesca 1 carta."}
+{"costante": "TCG_EFF_BISQUEDOLL", "riga": 2759, "en": "Battlecry: Merge with another Bisque Doll.", "it": "Grido di battaglia: fonditi con un'altra bambola di porcellana."}
+{"costante": "TCG_EFF_GIANT", "riga": 2762, "en": "This Card Costs 2 less if Opponent Control more Cards than you.", "it": "Questa carta costa 2 in meno se l'avversario controlla più carte di te."}
+{"costante": "TCG_EFF_DARKARTIFICIALGIANT", "riga": 2764, "en": "Battlecry: Destroy Every Card on your Opponent's Field.", "it": "Grido di battaglia: distruggi ogni carta nel campo avversario."}
+{"costante": "TCG_EFF_EIGHTYSHAKU", "riga": 2766, "en": "This Card Costs 1 less for each Neutral Card that Costs less than 2 in your Hand.", "it": "Questa carta costa 1 in meno per ogni carta neutra da meno di 2 che hai in mano."}
+{"costante": "TCG_EFF_CHESTNUTGIANT", "riga": 2768, "en": "This Card Costs 1 less for every 10 chestnuts you've thrown.", "it": "Questa carta costa 1 in meno ogni 10 castagne che hai tirato."}
+{"costante": "TCG_EFF_TROLL", "riga": 2770, "en": "You can't play this until turn 10.", "it": "Non puoi giocare questa carta prima del turno 10."}
+{"costante": "TCG_EFF_OLOG", "riga": 2772, "en": "You can't play this until turn 15.", "it": "Non puoi giocare questa carta prima del turno 15."}
+{"costante": "TCG_EFF_SLEEPINGGIANT", "riga": 2774, "en": "You can't play this until turn 20.", "it": "Non puoi giocare questa carta prima del turno 20."}
+{"costante": "TCG_EFF_YERLESPLANE", "riga": 2777, "en": "Battlecry: Merge with a Yerles Machine Infantry.", "it": "Grido di battaglia: fonditi con una fanteria meccanica Yerles."}
+{"costante": "TCG_EFF_YERLESLATESTOUTFIT", "riga": 2779, "en": "Deathrattle: Summon a Yerles Machine Infantry.", "it": "Rantolo di morte: evoca una fanteria meccanica Yerles."}
+{"costante": "TCG_EFF_YERLESELITE", "riga": 2781, "en": "This Card is treated as a Yerles Machine Infantry on Field.", "it": "In campo questa carta conta come una fanteria meccanica Yerles."}
+{"costante": "TCG_EFF_PUTITTANK", "riga": 2783, "en": "Sacrifice: Draw Random Yerles Army Affliated Card from your Deck.", "it": "Sacrificio: pesca dal tuo mazzo una carta a caso dell'esercito Yerles."}
+{"costante": "TCG_EFF_MELUGAST", "riga": 2785, "en": "Battlecry: Draw Target Yerles Army Affliated Card from your Deck.", "it": "Grido di battaglia: pesca dal tuo mazzo la carta bersaglio dell'esercito Yerles."}
+{"costante": "TCG_EFF_MELUGAST0", "riga": 2787, "en": "Ongoing: Draw Random Yerles Army Card until you have 4 Cards.", "it": "Continuo: peschi carte a caso dell'esercito Yerles finché non ne hai 4."}
+{"costante": "TCG_EFF_MELUGASTAOI", "riga": 2789, "en": "End Phase: Summon Random Yerles Army Cards until you have 8 Cards.", "it": "Fase finale: evoca carte a caso dell'esercito Yerles finché non ne hai 8."}
+{"costante": "TCG_EFF_MOBILECOMM", "riga": 2791, "en": "Begin Phase: Yerles Army Cards in your Hand get -1 Cost or +1/+1.", "it": "Fase iniziale: le carte dell'esercito Yerles in mano ottengono -1 di costo oppure +1/+1."}
+{"costante": "TCG_EFF_HEINRICH", "riga": 2793, "en": "Battlecry: Deploy a Small Yerles Troop.", "it": "Grido di battaglia: schiera un piccolo drappello Yerles."}
+{"costante": "TCG_EFF_ORVILLE", "riga": 2795, "en": "This Card Costs 1 less for every Yerles Army in your Grave.", "it": "Questa carta costa 1 in meno per ogni carta dell'esercito Yerles nel tuo cimitero."}
+{"costante": "TCG_EFF_MILIS", "riga": 2797, "en": "This Card Costs 0 if you had a Military Putit/Putit Tank on Field.", "it": "Questa carta costa 0 se avevi in campo un putit militare o un putit corazzato."}
+{"costante": "TCG_EFF_GAVELA", "riga": 2799, "en": "Battlecry: Upgrade your Yerles Army, they Costs the Same.", "it": "Grido di battaglia: potenzia il tuo esercito Yerles, e il costo resta lo stesso."}
+{"costante": "TCG_EFF_YERLES_PROPAGANDA", "riga": 2801, "en": "Ongoing: Your Yerles Army Affliated Card\\n          Gain +1 Attack and Cost 1 less.", "it": "Continuo: le tue carte dell'esercito Yerles\\n          ottengono +1 di attacco e costano 1 in meno."}
+{"costante": "TCG_EFF_RCLEANER", "riga": 2804, "en": "Sacrifice: Draw an Ancient Xeren Machine from your Deck.", "it": "Sacrificio: pesca dal tuo mazzo una macchina antica Xeren."}
+{"costante": "TCG_EFF_XERENSATELLITE", "riga": 2806, "en": "Battlecry: Draw Target Ancient Xeren Machine from your Deck.", "it": "Grido di battaglia: pesca dal tuo mazzo la macchina antica Xeren bersaglio."}
+{"costante": "TCG_EFF_BLACKBOX", "riga": 2808, "en": "Deathrattle: Summon a Cube.", "it": "Rantolo di morte: evoca un cubo."}
+{"costante": "TCG_EFF_GCUBE", "riga": 2810, "en": "Deathrattle: Summon a Blackbox.", "it": "Rantolo di morte: evoca una scatola nera."}
+{"costante": "TCG_EFF_MINEDOG", "riga": 2812, "en": "Battlecry: Make a Cards in Opponent's Hand Explode on Summon.", "it": "Grido di battaglia: fai in modo che una carta in mano all'avversario esploda quando viene evocata."}
+{"costante": "TCG_EFF_MADEER", "riga": 2815, "en": "Deathrattle: Summon 3 Maticks. Eww.", "it": "Rantolo di morte: evoca 3 zecche magiche. Bleah."}
+{"costante": "TCG_EFF_SACINSANE", "riga": 2818, "en": "Sacrifice: Inflict insanity on Random Enemy.", "it": "Sacrificio: infliggi Follia a un nemico a caso."}
+{"costante": "TCG_EFF_INSANETARGET", "riga": 2820, "en": "Battlecry: Inflict insanity on Target Enemy.", "it": "Grido di battaglia: infliggi Follia al nemico bersaglio."}
+{"costante": "TCG_EFF_INSANE1", "riga": 2822, "en": "Battlecry: Inflict insanity on a random Enemy.", "it": "Grido di battaglia: infliggi Follia a un nemico a caso."}
+{"costante": "TCG_EFF_INSANE2", "riga": 2824, "en": "Battlecry: Inflict insanity on 2 random Enemies.", "it": "Grido di battaglia: infliggi Follia a 2 nemici a caso."}
+{"costante": "TCG_EFF_INSANE3", "riga": 2826, "en": "Battlecry: Inflict insanity on 3 random Enemies.", "it": "Grido di battaglia: infliggi Follia a 3 nemici a caso."}
+{"costante": "TCG_EFF_INSANEALL", "riga": 2828, "en": "Battlecry: Inflict insanity on all Enemies.", "it": "Grido di battaglia: infliggi Follia a tutti i nemici."}
+{"costante": "TCG_EFF_INSANECOMBATOPPONENT", "riga": 2830, "en": "After Combat: Inflict insanity on Opponent.", "it": "Dopo lo scontro: infliggi Follia all'avversario."}
+{"costante": "TCG_EFF_INSANEWAVE", "riga": 2832, "en": "Begin Phase: Inflict insanity on all Enemies.", "it": "Fase iniziale: infliggi Follia a tutti i nemici."}
+{"costante": "TCG_EFF_MIZUKI", "riga": 2834, "en": "Start of the game: Players now draw 2 Cards instead of 1 in this game.", "it": "Inizio partita: in questa partita i giocatori pescano 2 carte invece di 1."}
+{"costante": "TCG_EFF_SPAGHETTI", "riga": 2836, "en": "Battlecry: Change Every Card on Field and in Hand a Spaghetti.", "it": "Grido di battaglia: trasforma in spaghetti ogni carta in campo e in mano."}
+{"costante": "TCG_EFF_CTHUGHA", "riga": 2838, "en": "Battlecry: Summon a Yogmagtho.", "it": "Grido di battaglia: evoca uno <Yogmagtho>."}
+{"costante": "TCG_EFF_CTHUHIME", "riga": 2840, "en": "Evolve itself after 6 turns.", "it": "Si evolve dopo 6 turni."}
+{"costante": "TCG_EFF_KALI", "riga": 2843, "en": "Battlecry: Summon 2 Copy of this Card.", "it": "Grido di battaglia: evoca 2 copie di questa carta."}
+{"costante": "TCG_EFF_VAMPIRE", "riga": 2846, "en": "Battlecry: Deal 5 Damage to this card's Controller.", "it": "Grido di battaglia: infliggi 5 danni a chi controlla questa carta."}
+{"costante": "TCG_EFF_VAMPIRE2", "riga": 2848, "en": "Battlecry: Deal 8 Damage to this card's Controller.", "it": "Grido di battaglia: infliggi 8 danni a chi controlla questa carta."}
+{"costante": "TCG_EFF_OGRE", "riga": 2850, "en": "Battlecry: Destroy Random Card on the Field.", "it": "Grido di battaglia: distruggi una carta a caso in campo."}
+{"costante": "TCG_EFF_SPIDERSUMMON1", "riga": 2853, "en": "End Phase: Summon 1 Random Lesser Spiders.", "it": "Fase finale: evoca 1 ragno minore a caso."}
+{"costante": "TCG_EFF_SPIDERSUMMON2", "riga": 2855, "en": "End Phase: Summon 2 Random Lesser Spiders.", "it": "Fase finale: evoca 2 ragni minori a caso."}
+{"costante": "TCG_EFF_EK_CHUAH", "riga": 2857, "en": "After Combat: Halve Opponent's Health.", "it": "Dopo lo scontro: dimezza la vita dell'avversario."}
+{"costante": "TCG_EFF_DEMON10", "riga": 2860, "en": "Begin Phase: If you have less than 10 Life, it switches side.", "it": "Fase iniziale: se hai meno di 10 di vita, cambia schieramento."}
+{"costante": "TCG_EFF_DEMON15", "riga": 2862, "en": "Begin Phase: If you have less than 15 Life, it switches side.", "it": "Fase iniziale: se hai meno di 15 di vita, cambia schieramento."}
+{"costante": "TCG_EFF_DEMON20", "riga": 2864, "en": "Begin Phase: If you have less than 20 Life, it switches side.", "it": "Fase iniziale: se hai meno di 20 di vita, cambia schieramento."}
+{"costante": "TCG_EFF_DEMONSCOMMANDER", "riga": 2866, "en": "Ongoing: Your Imps Cost 1 less.", "it": "Continuo: i tuoi folletti costano 1 in meno."}
+{"costante": "TCG_EFF_LAZASYE", "riga": 2868, "en": "Battlecry: Freeze every other Card, wherever they are.", "it": "Grido di battaglia: congela ogni altra carta, ovunque sia."}
+{"costante": "TCG_EFF_ROATONIS", "riga": 2870, "en": "Battlecry: Change the Effect of every Card in Graveyard to 'Resurrect itself after 5 turns'.", "it": "Grido di battaglia: cambia l'effetto di ogni carta del cimitero in 'Risorge dopo 5 turni'."}
+{"costante": "TCG_EFF_EGELVEIL", "riga": 2872, "en": "Begin Phase: Summon 2 Bind Devil Worms.", "it": "Fase iniziale: evoca 2 vermi diavolo legatori."}
+{"costante": "TCG_EFF_INQTUAL", "riga": 2874, "en": "Battlecry: Infuse Chaos into your Cards, they costs the same.", "it": "Grido di battaglia: infondi il caos nelle tue carte, e il costo resta lo stesso."}
+{"costante": "TCG_EFF_CHEETAH", "riga": 2877, "en": "This Card is Illegal.", "it": "Questa carta è illegale."}
+{"costante": "TCG_EFF_BLAZELION", "riga": 2879, "en": "Deathrattle: Destroy Target Card.", "it": "Rantolo di morte: distruggi la carta bersaglio."}
+{"costante": "TCG_EFF_GLARETIGER", "riga": 2881, "en": "Paralyse Random Enemy Card on Field when you Draw this.", "it": "Quando la peschi, paralizza una carta nemica a caso in campo."}
+{"costante": "TCG_EFF_MANTICORE", "riga": 2883, "en": "Battlecry: Duel with a Card in Opponent's Hand! Destroy the loser.", "it": "Grido di battaglia: sfida a duello una carta in mano all'avversario! Chi perde viene distrutto."}
+{"costante": "TCG_EFF_LICH", "riga": 2886, "en": "Resurrect itself after 4 turns, and Draw 1 Card.", "it": "Risorge dopo 4 turni, e pesca 1 carta."}
+{"costante": "TCG_EFF_FASTLICH", "riga": 2888, "en": "Resurrect itself after 3 turns, and Draw 1 Card.", "it": "Risorge dopo 3 turni, e pesca 1 carta."}
+{"costante": "TCG_EFF_SUPERFASTLICH", "riga": 2890, "en": "Resurrect itself after 2 turns, and Draw 1 Card.", "it": "Risorge dopo 2 turni, e pesca 1 carta."}
+{"costante": "TCG_EFF_MEGASUPERFASTLICH", "riga": 2892, "en": "Resurrect itself next turn, and Draw 1 Card.", "it": "Risorge il turno prossimo, e pesca 1 carta."}
+{"costante": "TCG_EFF_EXECUTIONER", "riga": 2895, "en": "Battlecry: Inflict Deathword on Chosen Enemy.", "it": "Grido di battaglia: infliggi Condanna al nemico scelto."}
+{"costante": "TCG_EFF_EXECUTIONER2", "riga": 2897, "en": "Battlecry: Inflict Deathword on All Enemies.", "it": "Grido di battaglia: infliggi Condanna a tutti i nemici."}
+{"costante": "TCG_EFF_DEATHPRIEST", "riga": 2899, "en": "Battlecry: Change the Effect of Target Card in Graveyard to 'Resurrect itself after 3 turns'.", "it": "Grido di battaglia: cambia l'effetto della carta bersaglio nel cimitero in 'Risorge dopo 3 turni'."}
+{"costante": "TCG_EFF_LASTDANCER", "riga": 2902, "en": "Begin Phase: If this is the only Card on the Field, Deal Opponent 30 Damage.", "it": "Fase iniziale: se questa è l'unica carta in campo, infliggi 30 danni all'avversario."}
+{"costante": "TCG_EFF_FALLENANGEL", "riga": 2904, "en": "Begin Phase: Gain +1/+1 for each unspent Mana.", "it": "Fase iniziale: ottiene +1/+1 per ogni mana non speso."}
+{"costante": "TCG_EFF_ANGEL", "riga": 2906, "en": "Begin Phase: Give another Card of yours +1 HP.", "it": "Fase iniziale: dai +1 di vita a un'altra tua carta."}
+{"costante": "TCG_EFF_DOMINION", "riga": 2908, "en": "Begin Phase: Give 2 Cards in your Hand +1 HP.", "it": "Fase iniziale: dai +1 di vita a 2 carte della tua mano."}
+{"costante": "TCG_EFF_SERAPH", "riga": 2910, "en": "Begin Phase: Give your Cards +1 HP, wherever they are.", "it": "Fase iniziale: dai +1 di vita alle tue carte, ovunque siano."}
+{"costante": "TCG_EFF_KURON", "riga": 2913, "en": "Battlecry: Draw Siraha, wherever he is, and Deal 1 Damage to Opponent.", "it": "Grido di battaglia: pesca <Siraha> ovunque sia, e infliggi 1 danno all'avversario."}
+{"costante": "TCG_EFF_SIRAHA", "riga": 2915, "en": "Battlecry: Draw Kuron, wherever she is, and Heal Player 1 Damage.", "it": "Grido di battaglia: pesca <Kuron> ovunque sia, e curati 1 danno."}
+{"costante": "TCG_EFF_NOBLE", "riga": 2918, "en": "Battlecry: Draw 1 Card and Gain 1 Mana if you have Shena on the Field.", "it": "Grido di battaglia: se hai <Shena> in campo, pesca 1 carta e ottieni 1 mana."}
+{"costante": "TCG_EFF_HALLOWEEN1", "riga": 2920, "en": "Battlecry: Draw a Card from Opponent's Deck.", "it": "Grido di battaglia: pesca una carta dal mazzo dell'avversario."}
+{"costante": "TCG_EFF_HALLOWEEN2", "riga": 2922, "en": "Battlecry: Draw a Card from Opponent's Grave.", "it": "Grido di battaglia: pesca una carta dal cimitero dell'avversario."}
+{"costante": "TCG_EFF_SUMMONKNIGHT", "riga": 2924, "en": "Battlecry: Summon 2 Eulderna Troop from your Deck.", "it": "Grido di battaglia: evoca 2 soldati Eulderna dal tuo mazzo."}
+{"costante": "TCG_EFF_WANGNIN", "riga": 2926, "en": "Battlecry: Every Male Card you have gain +1 Attack, wherever they are.", "it": "Grido di battaglia: ogni tua carta maschile ottiene +1 di attacco, ovunque sia."}
+{"costante": "TCG_EFF_NEIN", "riga": 2929, "en": "Battlecry: Next turn, you gain +1 Mana for each turn you've ended with unspent Mana.", "it": "Grido di battaglia: il turno prossimo ottieni +1 mana per ogni turno chiuso con del mana non speso."}
+{"costante": "TCG_EFF_RAIZEL", "riga": 2931, "en": "Battlecry: Spend all your Mana, deal everyone else that many damage.", "it": "Grido di battaglia: spendi tutto il mana e infliggi a tutti gli altri altrettanti danni."}
+{"costante": "TCG_EFF_GIVESHOVEL", "riga": 2933, "en": "Battlecry: Add <Spadille> to your Hand.\\n          (Reusable 1 Cost: Deal Damage to target Card.)", "it": "Grido di battaglia: aggiungi <Spadille> alla tua mano.\\n          (riusabile, costo 1: infliggi danni alla carta bersaglio.)"}
+{"costante": "TCG_EFF_SHOVEL", "riga": 2935, "en": "Battlecry: BONK Target Card, Dealing (Attack Value) Damage.", "it": "Grido di battaglia: PAM sulla carta bersaglio, danni pari al valore d'attacco."}
+{"costante": "TCG_EFF_KAKOI_ANAGUMA", "riga": 2938, "en": "Battlecry: Discover a raccoon? of your choice!", "it": "Grido di battaglia: scopri un procione? a tua scelta!"}
+{"costante": "TCG_EFF_TRUCK", "riga": 2940, "en": "End Phase: Ram into 3 Enemies, Dealing (Attack Value) Damage.", "it": "Fase finale: sperona 3 nemici, danni pari al valore d'attacco."}
+{"costante": "TCG_EFF_MINECART", "riga": 2942, "en": "OnDraw/Battlecry/EndPhase/BeginPhase: Ram into an Enemy,\\n          Dealing (Attack Value) Damage.", "it": "Alla pesca/Grido di battaglia/Fase finale/Fase iniziale: sperona un nemico,\\n          danni pari al valore d'attacco."}
+{"costante": "TCG_EFF_SEDONA", "riga": 2944, "en": "Begin Phase: Gain 1 Extra Mana.", "it": "Fase iniziale: ottieni 1 mana in più."}
+{"costante": "TCG_EFF_MOSQUITO", "riga": 2947, "en": "Battlecry: Steal 1 Attack and 1 HP from target Enemy.", "it": "Grido di battaglia: ruba 1 di attacco e 1 di vita al nemico bersaglio."}
+{"costante": "TCG_EFF_MOMALARIA", "riga": 2949, "en": "Battlecry/OnKill: Steal 1 Attack and 1 HP from 3 Random Enemy.", "it": "Grido di battaglia/All'uccisione: ruba 1 di attacco e 1 di vita a 3 nemici a caso."}
+{"costante": "TCG_EFF_NAPLUS", "riga": 2952, "en": "BattleCry/InHand/BeginPhase: Make you 1 Alchemical-Masterpiece.", "it": "Grido di Battaglia/In mano/Fase iniziale: ti fa 1 capolavoro alchemico.", "_nota": "riproduce la maiuscola di «BattleCry» di monte"}
+{"costante": "TCG_EFF_PUFFPUFFBREAD", "riga": 2954, "en": "Battlecry: Feed the Puff Puff Bread to 1 of your Card.", "it": "Grido di battaglia: dai il pane soffice a 1 delle tue carte."}
+{"costante": "TCG_EFF_POKEBALL", "riga": 2956, "en": "Battlecry: Enslave Target 1-HP Card.", "it": "Grido di battaglia: asservisci la carta bersaglio da 1 di vita."}
+{"costante": "TCG_EFF_ICOLLE", "riga": 2958, "en": "Battlecry: Make you 1 Monster Ball.", "it": "Grido di battaglia: ti fa 1 sfera acchiappamostri."}
+{"costante": "TCG_EFF_NURSE1", "riga": 2961, "en": "Begin Phase: Heal All Your Cards to Full Hp.", "it": "Fase iniziale: cura del tutto tutte le tue carte."}
+{"costante": "TCG_EFF_NURSE2", "riga": 2963, "en": "Begin Phase: Remove all Ailment from your Cards.", "it": "Fase iniziale: togli ogni malanno dalle tue carte."}
+{"costante": "TCG_EFF_CARAVAN", "riga": 2966, "en": "Batllecry: Your next 5 Draw prioritize Cards Costs of your current Mana.", "it": "Grido di battglia: le tue prossime 5 pescate preferiscono le carte che costano quanto il tuo mana.", "_nota": "riproduce il refuso «Batllecry» di monte"}
+{"costante": "TCG_EFF_FESTIVALTOURIST", "riga": 2968, "en": "Costs -1 and Gain +1 Attack for each Item-Card in your Hand.", "it": "Costa -1 e ottiene +1 di attacco per ogni carta oggetto nella tua mano."}
+{"costante": "TCG_EFF_HOLY_BEAST", "riga": 2970, "en": "Drawn by Effect: Deal Opponent 2 Damage and return to Deck.", "it": "Pescata da un effetto: infliggi 2 danni all'avversario e torna nel mazzo."}
+{"costante": "TCG_EFF_HOTSPRING", "riga": 2972, "en": "Ongoing: Make the screen cloudy.", "it": "Continuo: annebbia lo schermo."}
+{"costante": "TCG_EFF_JUREFANATIC", "riga": 2975, "en": "Ongoing: Gain +5 Attack in December.", "it": "Continuo: ottiene +5 di attacco a dicembre."}
+{"costante": "TCG_EFF_FISHERMAN", "riga": 2977, "en": "Ongoing: Gain +5 Attack on the Seas.", "it": "Continuo: ottiene +5 di attacco per mare."}
+{"costante": "TCG_EFF_OLDHUMAN", "riga": 2979, "en": "This Cards costs 1 less for every 100 hours you've wasted on this game.", "it": "Questa carta costa 1 in meno per ogni 100 ore che hai buttato su questo gioco."}
+{"costante": "TCG_EFF_WORKER01", "riga": 2981, "en": "Ongoing: Gain +1 Attack for every hour you've been playing ElonaPlus.", "it": "Continuo: ottiene +1 di attacco per ogni ora che hai passato su ElonaPlus."}
+{"costante": "TCG_EFF_WORKER02", "riga": 2983, "en": "Ongoing: Gain +10 Attack if you've been playing for more than 3 hours, please take a break.", "it": "Continuo: ottiene +10 di attacco se giochi da più di 3 ore; fai una pausa, per favore."}
+{"costante": "TCG_EFF_GARZEIM", "riga": 2985, "en": "Battlecry: Win the Game if you've been playing ElonaPlus for more than 24 hours...", "it": "Grido di battaglia: vinci la partita se giochi a ElonaPlus da più di 24 ore..."}
+{"costante": "TCG_EFF_DOGGOD", "riga": 2988, "en": "Battlecry: Summon Estork.\\n            Cards with Cost between their Attack Values Costs 0.", "it": "Grido di battaglia: evoca <Estork>.\\n            Le carte il cui costo sta fra i loro valori d'attacco costano 0."}
+{"costante": "TCG_EFF_DOGGOD2", "riga": 2990, "en": "Battlecry: Summon Saimef.\\n            Cards with Cost between their Attack Values Costs 0.", "it": "Grido di battaglia: evoca <Saimef>.\\n            Le carte il cui costo sta fra i loro valori d'attacco costano 0."}
+{"costante": "TCG_EFF_DOGGOD3", "riga": 2992, "en": "Ongoing: If you have both Saimef and Estork, some Cards costs 0. \\n          Some say this effect is called 'Pendulum Summon'", "it": "Continuo: se hai sia <Saimef> sia <Estork>, alcune carte costano 0. \\n          C'è chi lo chiama 'evocazione a pendolo'"}
+{"costante": "TCG_EFF_SIVA", "riga": 2994, "en": "Battlecry: Destroy 8 other Card on the Field/in Hand", "it": "Grido di battaglia: distruggi 8 altre carte in campo o in mano"}
+{"costante": "TCG_EFF_TALONSOLDIER", "riga": 2997, "en": "Battlecry: Bleed 3 other Cards on the Field", "it": "Grido di battaglia: fai sanguinare 3 altre carte in campo"}
+{"costante": "TCG_EFF_FINCROCODILE", "riga": 2999, "en": "Ongoing: Gain +5 Attack when Bleeding.", "it": "Continuo: ottiene +5 di attacco quando ha Sangue."}
+{"costante": "TCG_EFF_DEFENDER", "riga": 3002, "en": "Battlecry: Give Immune to Target Card on your Field.", "it": "Grido di battaglia: dai Immune alla carta bersaglio del tuo campo."}
+{"costante": "TCG_EFF_ROVID", "riga": 3004, "en": "Battlecry: Give Defender to All your Cards on the Field.", "it": "Grido di battaglia: dai Difensore a tutte le tue carte in campo."}
+{"costante": "TCG_EFF_BLACKANGEL", "riga": 3006, "en": "OnDraw/Battlecry/AfterCombat: Deal 1 Damage to an Enemy and the Controller.", "it": "Alla pesca/Grido di battaglia/Dopo lo scontro: infliggi 1 danno a un nemico e a chi lo controlla."}
+{"costante": "TCG_EFF_ARASIEL", "riga": 3008, "en": "OnDraw/OnKill: Steal a Card from Opponent's Hand.", "it": "Alla pesca/All'uccisione: ruba una carta dalla mano dell'avversario."}
+{"costante": "TCG_EFF_ANDROID", "riga": 3010, "en": "Battlecry: Copy and activate the last Battlecry activated.", "it": "Grido di battaglia: copia e attiva l'ultimo Grido di battaglia attivato."}
+{"costante": "TCG_EFF_CUTEFAIRY", "riga": 3012, "en": "Battlecry: Return All Sacrificed Card to Grave.", "it": "Grido di battaglia: riporta nel cimitero tutte le carte sacrificate."}
+{"costante": "TCG_EFF_GOLDKNIGHT", "riga": 3014, "en": "Battlecry: Gain +X/+X, where X is your ((Deck Size - 30)/5).", "it": "Grido di battaglia: ottieni +X/+X, dove X è (misura del mazzo - 30)/5."}
+{"costante": "TCG_EFF_URCAGUARY", "riga": 3016, "en": "Battlecry: Gain +X/+X, where X is your ((Your Total Card - 30)/4).", "it": "Grido di battaglia: ottieni +X/+X, dove X è (totale delle tue carte - 30)/4."}
+{"costante": "TCG_EFF_EXILE", "riga": 3018, "en": "Battlecry: Your Next Battlecry fire twice.", "it": "Grido di battaglia: il tuo prossimo Grido di battaglia scatta due volte."}
+{"costante": "TCG_EFF_SOPHIA", "riga": 3020, "en": "Battlecry: All of your Battlecry now fire twice.", "it": "Grido di battaglia: tutti i tuoi Gridi di battaglia scattano due volte."}
+{"costante": "TCG_EFF_BLACKCAT", "riga": 3022, "en": "Battlecry: All Cards in your Deck swap Cost with another Card in your Deck.", "it": "Grido di battaglia: tutte le carte del tuo mazzo si scambiano il costo con un'altra carta del mazzo."}
+{"costante": "TCG_EFF_SINAHA", "riga": 3024, "en": "Battlecry: Every Card of Yours have swap Cost with another Card in your Deck.", "it": "Grido di battaglia: ogni tua carta si scambia il costo con un'altra carta del tuo mazzo."}
+{"costante": "TCG_EFF_GOOSE", "riga": 3026, "en": "Start/End Phase: Gain +1/+1 if you spent all your Mana.", "it": "Fase iniziale/Fase finale: ottiene +1/+1 se hai speso tutto il mana."}
+{"costante": "TCG_EFF_KARAVIKA", "riga": 3028, "en": "Start/End Phase: Gain +2/+2 if you spent all your Mana.", "it": "Fase iniziale/Fase finale: ottiene +2/+2 se hai speso tutto il mana."}
+{"costante": "TCG_EFF_JALDABAOTH", "riga": 3030, "en": "Begin Phase: Grant Controller 1 Godly Power (Destroy Controller on 8th).", "it": "Fase iniziale: concedi a chi controlla 1 potere divino (all'ottavo lo distrugge)."}
+{"costante": "TCG_EFF_KAMUI1", "riga": 3032, "en": "<Respiration of Creative Gods>: Restore Player Health to Full.", "it": "<Respiro degli dei creatori>: riporta al massimo la vita del giocatore."}
+{"costante": "TCG_EFF_KAMUI2", "riga": 3034, "en": "<Roar of Fighting Gods>: Double the Stats of all your Cards on Field.", "it": "<Ruggito degli dei guerrieri>: raddoppia le statistiche di tutte le tue carte in campo."}
+{"costante": "TCG_EFF_KAMUI3", "riga": 3036, "en": "<Assault of Beast Gods>: Half the Health of all enemy Cards on Field.", "it": "<Assalto degli dei bestiali>: dimezza la vita di tutte le carte nemiche in campo."}
+{"costante": "TCG_EFF_KAMUI4", "riga": 3038, "en": "<Referee of Judicial Gods>: Inflict Paralyse and Deathword on all enemy Cards on Field.", "it": "<Arbitrio degli dei giudici>: infliggi Paralisi e Condanna a tutte le carte nemiche in campo."}
+{"costante": "TCG_EFF_KAMUI5", "riga": 3040, "en": "<Grudge of Abominable Gods>: Inflict Insanity on all enemy Cards on Field.", "it": "<Rancore degli dei abominevoli>: infliggi Follia a tutte le carte nemiche in campo."}
+{"costante": "TCG_EFF_KAMUI6", "riga": 3042, "en": "<Commandment of Hell Gods>: Half the Attack of all enemy Cards on Field or in Hand.", "it": "<Comandamento degli dei infernali>: dimezza l'attacco di tutte le carte nemiche in campo o in mano."}
+{"costante": "TCG_EFF_KAMUI7", "riga": 3044, "en": "<Elements Killing>: Destroy Opponent's Deck.", "it": "<Uccisione degli elementi>: distruggi il mazzo dell'avversario."}
+{"costante": "TCG_EFF_OLDSOLDIER", "riga": 3047, "en": "Battlecry: Summon a Zanan Soldier from your Deck.", "it": "Grido di battaglia: evoca un soldato di Zanan dal tuo mazzo."}
+{"costante": "TCG_EFF_ELEA", "riga": 3049, "en": "Battlecry: Draw a Elea Remnant of same Cost but different No. from your Deck.", "it": "Grido di battaglia: pesca dal tuo mazzo un superstite Elea di pari costo ma di numero diverso."}
+{"costante": "TCG_EFF_CARLA", "riga": 3051, "en": "Battlecry/Deathrattle: Draw Target Elea Remnant from your Deck.", "it": "Grido di battaglia/Rantolo di morte: pesca dal tuo mazzo il superstite Elea bersaglio."}
+{"costante": "TCG_EFF_MILOS", "riga": 3053, "en": "Battlecry: Summon 2 Elea Remnants with 4 or lower Cost from your Deck.", "it": "Grido di battaglia: evoca dal tuo mazzo 2 superstiti Elea che costino 4 o meno."}
+{"costante": "TCG_EFF_REFUGEE", "riga": 3055, "en": "Deathrattle: Draw a Elea Remnant with 4 or lower Cost from your Deck.", "it": "Rantolo di morte: pesca dal tuo mazzo un superstite Elea che costi 4 o meno."}
+{"costante": "TCG_EFF_HALION", "riga": 3057, "en": "OnDraw/Deathrattle: Add a copy of every Elea in grave to your Deck, gain +1 HP each (Up to max HP).", "it": "Alla pesca/Rantolo di morte: aggiungi al mazzo una copia di ogni Elea nel cimitero, e ognuna ottiene +1 di vita (fino al massimo)."}
+{"costante": "TCG_EFF_LANKATA", "riga": 3059, "en": "OnDraw/Battlecry: Your Lothrian Remnant gain +2 Attack/Haste.", "it": "Alla pesca/Grido di battaglia: i tuoi superstiti Lothrian ottengono +2 di attacco e Impeto."}
+{"costante": "TCG_EFF_ALFRED", "riga": 3062, "en": "OnDraw/Battlecry: Your Lothrian Remnant gain +2 Hp/Armor.", "it": "Alla pesca/Grido di battaglia: i tuoi superstiti Lothrian ottengono +2 di vita e Corazza."}
+{"costante": "TCG_EFF_LOTHRIAN", "riga": 3065, "en": "Battlecry: Draw a Copy of this Card, with -1 Cost/ATK/HP (min 1).", "it": "Grido di battaglia: pesca una copia di questa carta, con -1 a costo, attacco e vita (minimo 1)."}
+{"costante": "TCG_EFF_ELEAINSTIGATOR", "riga": 3067, "en": "Battlecry: Summon 3 Elea mobs from your deck.", "it": "Grido di battaglia: evoca 3 Elea inferociti dal tuo mazzo."}
+{"costante": "TCG_EFF_ELEAWANDERER", "riga": 3069, "en": "Deathrattle: Draw a Elea Mob from your Deck.", "it": "Rantolo di morte: pesca un Elea inferocito dal tuo mazzo."}
+{"costante": "TCG_EFF_ELEAMOB", "riga": 3071, "en": "Ongoing: Gain +1 Attack for every Elea Refugee in your Graveyard.", "it": "Continuo: ottiene +1 di attacco per ogni profugo Elea nel tuo cimitero."}
+{"costante": "TCG_EFF_DARKELEA", "riga": 3073, "en": "Battlecry: Send 8 Cost 2 or Lower Card from Deck to Graveyard.", "it": "Grido di battaglia: manda nel cimitero 8 carte del mazzo che costino 2 o meno."}
+{"costante": "TCG_EFF_LENDTAKER", "riga": 3076, "en": "Start of the game: shuffle all your pets into your deck.", "it": "Inizio partita: mescola tutti i tuoi animali nel mazzo."}
+{"costante": "TCG_EFF_RENTON", "riga": 3078, "en": "Start of the game: shuffle 4 Rachel's Book into your deck.", "it": "Inizio partita: mescola 4 <Libro di Rachel> nel tuo mazzo."}
+{"costante": "TCG_EFF_RACHELSBOOKHANDLE", "riga": 3080, "en": "If you've played all 4 books, Renton has +6/+6 (wherever he is).", "it": "Se hai giocato tutti e 4 i libri, <Renton> ha +6/+6 (ovunque sia)."}
+{"costante": "TCG_EFF_RACHELSBOOK1", "riga": 3082, "en": "Battlecry: Draw 2 1-cost Cards.\\n          If you've played all 4 books, Renton has +6/+6 (wherever he is).", "it": "Grido di battaglia: pesca 2 carte da 1.\\n          Se hai giocato tutti e 4 i libri, <Renton> ha +6/+6 (ovunque sia)."}
+{"costante": "TCG_EFF_RACHELSBOOK2", "riga": 3084, "en": "Battlecry: Gain +2 Mana. Draw 1 Card.\\n          If you've played all 4 books, Renton has +6/+6 (wherever he is).", "it": "Grido di battaglia: ottieni +2 mana. Pesca 1 carta.\\n          Se hai giocato tutti e 4 i libri, <Renton> ha +6/+6 (ovunque sia)."}
+{"costante": "TCG_EFF_RACHELSBOOK3", "riga": 3086, "en": "Battlecry: Give All Card on your Field +1 HP. Draw 1 Card.\\n          If you've played all 4 books, Renton has +6/+6 (wherever he is).", "it": "Grido di battaglia: dai +1 di vita a tutte le carte del tuo campo. Pesca 1 carta.\\n          Se hai giocato tutti e 4 i libri, <Renton> ha +6/+6 (ovunque sia)."}
+{"costante": "TCG_EFF_RACHELSBOOK4", "riga": 3088, "en": "Battlecry: Weaken All Enemies on Field by 1. Draw 1 Card.\\n          If you've played all 4 books, Renton has +6/+6 (wherever he is).", "it": "Grido di battaglia: indebolisci di 1 tutti i nemici in campo. Pesca 1 carta.\\n          Se hai giocato tutti e 4 i libri, <Renton> ha +6/+6 (ovunque sia)."}
+{"costante": "TCG_EFF_LEOLD_PING", "riga": 3091, "en": "Battlecry: Deal Opponent 2 Damage.", "it": "Grido di battaglia: infliggi 2 danni all'avversario."}
+{"costante": "TCG_EFF_LEOLD_BOMB", "riga": 3093, "en": "Battlecry: Deal 2 Damage to Target Card.", "it": "Grido di battaglia: infliggi 2 danni alla carta bersaglio."}
+{"costante": "TCG_EFF_LEOLD_BANG", "riga": 3095, "en": "Battlecry: Deal 1 Damage to every card.", "it": "Grido di battaglia: infliggi 1 danno a ogni carta."}
+{"costante": "TCG_EFF_LEOLD_RETURN", "riga": 3097, "en": "Battlecry: Return Leold to your Hand.", "it": "Grido di battaglia: rimetti <Leold> nella tua mano."}
+{"costante": "TCG_EFF_LEOLD", "riga": 3099, "en": "Battlecry: Add up to 6 Command Cards into your Hand.", "it": "Grido di battaglia: aggiungi fino a 6 carte comando alla tua mano."}
+{"costante": "TCG_EFF_TEZCATLIPOCA", "riga": 3102, "en": "Start of the game: Shuffle 4 Awakened Powers into your deck.", "it": "Inizio partita: mescola 4 poteri risvegliati nel tuo mazzo."}
+{"costante": "TCG_EFF_TEZ_MIRROR", "riga": 3104, "en": "Battlecry: Transform Cards on your Field into images of Tezcatlipoca.", "it": "Grido di battaglia: trasforma le carte del tuo campo in immagini di <Tezcatlipoca>."}
+{"costante": "TCG_EFF_TEZ_SMOKE", "riga": 3106, "en": "Battlecry: Make Strongest Enemy Card on Field a 0/0.", "it": "Grido di battaglia: rendi 0/0 la carta nemica più forte in campo."}
+{"costante": "TCG_EFF_TEZ_AWAKEN", "riga": 3108, "en": "Battlecry: Next Turn, you get +4 Mana.", "it": "Grido di battaglia: il turno prossimo ottieni +4 mana."}
+{"costante": "TCG_EFF_TEZ_HEART", "riga": 3110, "en": "Battlecry: Draw Tezcatlipoca, wherever he is, give him +3/+3.", "it": "Grido di battaglia: pesca <Tezcatlipoca> ovunque sia, e dagli +3/+3."}
+{"costante": "TCG_EFF_MELGET", "riga": 3113, "en": "Battlecry: Your Opponent's Hand is now visible.\\n            You can now view opponent's deck with 'f'.", "it": "Grido di battaglia: ora vedi la mano dell'avversario.\\n            E con 'f' puoi guardare il suo mazzo."}
+{"costante": "TCG_EFF_JIN", "riga": 3116, "en": "Ongoing: All Ongoing Attack change is Doubled.", "it": "Continuo: ogni variazione d'attacco Continuo è raddoppiata."}
+{"costante": "TCG_EFF_MARKA", "riga": 3119, "en": "Begin/End Phase: Deal damage to Random Enemy equal to this cards' attack. (She is a \\\"bear\\\" card, obviously.)", "it": "Fase iniziale/Fase finale: infliggi a un nemico a caso danni pari all'attacco di questa carta. (è una carta \\\"orso\\\", ovvio.)"}
+{"costante": "TCG_EFF_BETHEL", "riga": 3121, "en": "End Phase: Fire a Battlecry from a Card in your Grave, Exile that Card.", "it": "Fase finale: scatena un Grido di battaglia da una carta del tuo cimitero, ed esiliala."}
+{"costante": "TCG_EFF_RIANNA", "riga": 3123, "en": "In-Hand: Rianna Plays your Cards for you.", "it": "In mano: <Rianna> gioca le carte al posto tuo."}
+{"costante": "TCG_EFF_STOKE", "riga": 3126, "en": "Battlecry: Gets +1/+1 for every 10000 Music Ticket in your Inventory.", "it": "Grido di battaglia: ottiene +1/+1 per ogni 10000 biglietti per il concerto che hai addosso."}
+{"costante": "TCG_EFF_ZISILION", "riga": 3128, "en": "Battlecry: Gets +1/+1 for every 50 Platinum Coin in your Inventory.", "it": "Grido di battaglia: ottiene +1/+1 per ogni 50 monete di platino che hai addosso."}
+{"costante": "TCG_EFF_GUO", "riga": 3130, "en": "Battlecry: Gets +1/+1 for every digit of gold in your Inventory.", "it": "Grido di battaglia: ottiene +1/+1 per ogni cifra dell'oro che hai addosso."}
+{"costante": "TCG_EFF_LEND", "riga": 3132, "en": "Battlecry: Gets +1/+1 for every 3 Pet in your Team.", "it": "Grido di battaglia: ottiene +1/+1 ogni 3 animali che hai in squadra."}
+{"costante": "TCG_EFF_PARTTIMEWORKER2", "riga": 3134, "en": "Deathrattle: Destroy every Card on the Field.", "it": "Rantolo di morte: distruggi ogni carta in campo."}
+{"costante": "TCG_EFF_KYLE", "riga": 3136, "en": "Battlecry: Cleanse debuff from all your Cards in Hand and on Field.", "it": "Grido di battaglia: togli le penalità da tutte le tue carte, in mano e in campo."}
+{"costante": "TCG_EFF_CAIM", "riga": 3138, "en": "Battlecry: Activate a Battlecry from your Deck.", "it": "Grido di battaglia: attiva un Grido di battaglia dal tuo mazzo."}
+{"costante": "TCG_EFF_HARDGAY", "riga": 3140, "en": "Battlecry: Makes everyone gay, FOOOOOOOO!", "it": "Grido di battaglia: rende tutti gay, FOOOOOOOO!"}
+{"costante": "TCG_EFF_AINC", "riga": 3142, "en": "Deathrattle: Return this to your Deck with +2/+2.", "it": "Rantolo di morte: torna nel tuo mazzo con +2/+2."}
+{"costante": "TCG_EFF_TAM", "riga": 3144, "en": "Battlecry: Shuffle a bunch of Annoying Cats into Opponent's Deck!", "it": "Grido di battaglia: mescola un mucchio di gatti molesti nel mazzo dell'avversario!"}
+{"costante": "TCG_EFF_ARNORD", "riga": 3146, "en": "Battlecry: Destroy all Kamikaze monsters, wherever they are.", "it": "Grido di battaglia: distruggi tutti i mostri kamikaze, ovunque siano."}
+{"costante": "TCG_EFF_CONERY", "riga": 3148, "en": "Battlecry: Gain +1/+1 for each of your Citizen on Field/in Grave/Sacrificed.", "it": "Grido di battaglia: ottieni +1/+1 per ogni tuo cittadino in campo, nel cimitero o sacrificato."}
+{"costante": "TCG_EFF_WEL", "riga": 3150, "en": "Battlecry: Shuffle 10 Random Card into both player's Deck.", "it": "Grido di battaglia: mescola 10 carte a caso nel mazzo di tutt'e due i giocatori."}
+{"costante": "TCG_EFF_ERYSTIA", "riga": 3152, "en": "Battlecry: Every Card in this game is now Drawn Prioritized when your Mana = Card Cost.", "it": "Grido di battaglia: ogni carta di questa partita viene ora pescata di preferenza quando il tuo mana è pari al suo costo."}
+{"costante": "TCG_EFF_MOYER", "riga": 3154, "en": "Battlecry: Draw a Legendary Card from your Opponent's Deck.", "it": "Grido di battaglia: pesca una carta leggendaria dal mazzo dell'avversario."}
+{"costante": "TCG_EFF_ENTHUMESIS", "riga": 3157, "en": "Battlecry: Activate every Battlecry in your Deck.", "it": "Grido di battaglia: attiva ogni Grido di battaglia del tuo mazzo."}
+{"costante": "TCG_EFF_MIKRAANESIS", "riga": 3159, "en": "Battlecry: Play another Turn after this Turn.", "it": "Grido di battaglia: gioca un altro turno dopo questo."}
+{"costante": "TCG_EFF_XABI", "riga": 3162, "en": "Deathrattle: Summon as many Citizens from your Deck as possible.", "it": "Rantolo di morte: evoca dal tuo mazzo quanti più cittadini puoi."}
+{"costante": "TCG_EFF_STERSHA", "riga": 3164, "en": "Battlecry: Summon 3 Citizens from your Deck.", "it": "Grido di battaglia: evoca 3 cittadini dal tuo mazzo."}
+{"costante": "TCG_EFF_SLAN", "riga": 3166, "en": "Battlecry: Shuffle your Hand into Deck, Draw 5 Cards.", "it": "Grido di battaglia: mescola la tua mano nel mazzo e pesca 5 carte."}
+{"costante": "TCG_EFF_KARAM", "riga": 3168, "en": "Battlecry: Opponent shuffle their Hand into Deck, they Draw 3 Cards.", "it": "Grido di battaglia: l'avversario mescola la sua mano nel mazzo e pesca 3 carte."}
+{"costante": "TCG_EFF_NERES", "riga": 3171, "en": "Whenever Neres see someone with no Effects? Whack! She smacks one (Battlecry Effect) into them! (May took multiple smacks)", "it": "Quando <Neres> vede qualcuno senza effetti? Zac! Gliene appioppa uno (un Grido di battaglia)! (a volte servono più zac)"}
+{"costante": "TCG_EFF_RYUTYE", "riga": 3173, "en": "In-Hand: Ryutye try to remember his (Battlecry) Effect.. ", "it": "In mano: <Ryutye> cerca di ricordarsi il suo effetto (un Grido di battaglia).. "}
+{"costante": "TCG_EFF_LOYTER", "riga": 3176, "en": "Battlecry/Aftercombat/Deathrattle: Deal 3 Damage to an Enemy.", "it": "Grido di battaglia/Dopo lo scontro/Rantolo di morte: infliggi 3 danni a un nemico."}
+{"costante": "TCG_EFF_MIA", "riga": 3179, "en": "If you have this: Your Cats get +3 attack.", "it": "Se ce l'hai: i tuoi gatti ottengono +3 di attacco."}
+{"costante": "TCG_EFF_CACY", "riga": 3181, "en": "Begin Phase: Draw cats until your Hand is full, they costs 1 less.", "it": "Fase iniziale: pesca gatti finché la mano non è piena, e costano 1 in meno."}
+{"costante": "TCG_EFF_FRISIA", "riga": 3184, "en": "This Card Costs 1 less for every Cat in the Grave.", "it": "Questa carta costa 1 in meno per ogni gatto nel cimitero."}
+{"costante": "TCG_EFF_GILPHEM", "riga": 3186, "en": "Battlecry: Summon 2 Golden Armors.", "it": "Grido di battaglia: evoca 2 armature dorate."}
+{"costante": "TCG_EFF_MURDERKNIGHT", "riga": 3188, "en": "Costs 1 less for each Card in Opponent's Graveyard.", "it": "Costa 1 in meno per ogni carta nel cimitero dell'avversario."}
+{"costante": "TCG_EFF_SILVIA", "riga": 3190, "en": "Your Cards in front of her have +3 Atk.\\n          The Card on her right have -1 Cost.", "it": "Le tue carte davanti a lei hanno +3 di attacco.\\n          La carta alla sua destra ha -1 di costo."}
+{"costante": "TCG_EFF_LEOPARD", "riga": 3192, "en": "Silvia's effect is tripled on this Card.", "it": "Su questa carta l'effetto di <Silvia> vale il triplo."}
+{"costante": "TCG_EFF_SNAILRIDER", "riga": 3195, "en": "Battlecry: Absorb Target Enemy.", "it": "Grido di battaglia: assorbi il nemico bersaglio."}
+{"costante": "TCG_EFF_CLEANER", "riga": 3197, "en": "Battlecry: Remove 1 Generated Card of Opponent from Game.", "it": "Grido di battaglia: togli dal gioco 1 carta generata dall'avversario."}
+{"costante": "TCG_EFF_BALZAK", "riga": 3199, "en": "Battlecry: Steal 1 Generated Card from Opponent.", "it": "Grido di battaglia: ruba 1 carta generata all'avversario."}
+{"costante": "TCG_EFF_RECONCILEDCLEANER", "riga": 3201, "en": "Battlecry: Remove all Generated Card from Game.\\n          Ongoing: Cards CANNOT be Generated.", "it": "Grido di battaglia: togli dal gioco tutte le carte generate.\\n          Continuo: non si possono più generare carte."}
+{"costante": "TCG_EFF_BELPHAT", "riga": 3204, "en": "Begin Phase: Draw a Item Card you have, from anywhere.", "it": "Fase iniziale: pesca una carta oggetto che hai, da dovunque sia."}
+{"costante": "TCG_EFF_KUROYA", "riga": 3206, "en": "Battlecry: Steal Opponent's socks.", "it": "Grido di battaglia: ruba i calzini all'avversario."}
+{"costante": "TCG_EFF_SOCKS", "riga": 3208, "en": "Battlecry: Everyone on Field gets -1/-1, except Kuroya gets +1/+1.\\n          If this is in your Hand when you win, get Opponent's socks.", "it": "Grido di battaglia: tutti in campo prendono -1/-1, tranne <Kuroya> che prende +1/+1.\\n          Se ce l'hai in mano quando vinci, ti prendi i calzini dell'avversario."}
+{"costante": "TCG_EFF_AIME", "riga": 3211, "en": "Start the Game with a Randomly Generated Deck (and Aime),\\n        You Draw 2 Cards instead of 1 in this game.", "it": "Cominci la partita con un mazzo generato a caso (e <Aime>),\\n        e in questa partita peschi 2 carte invece di 1."}
+{"costante": "TCG_EFF_AMBEREYES", "riga": 3214, "en": "Battlecry: Swap Deck with opponent.", "it": "Grido di battaglia: scambia il mazzo con l'avversario."}
+{"costante": "TCG_EFF_AIKAGE", "riga": 3216, "en": "Battlecry: Fill the Field with 0 Attack copies of this Card.\\n          Ongoing: Your 0-Attack Cards have +1 Attack.", "it": "Grido di battaglia: riempi il campo di copie di questa carta con 0 di attacco.\\n          Continuo: le tue carte con 0 di attacco hanno +1 di attacco."}
+{"costante": "TCG_EFF_GETUEI", "riga": 3218, "en": "Battlecry: Summon 2 0-Attack copies of this Card.\\n          Ongoing: Your 0-Attack Cards have +1 Attack.", "it": "Grido di battaglia: evoca 2 copie di questa carta con 0 di attacco.\\n          Continuo: le tue carte con 0 di attacco hanno +1 di attacco."}
+{"costante": "TCG_EFF_EILA", "riga": 3220, "en": "Ongoing: Cards on your field gain Attack = (HP - Attack).", "it": "Continuo: le carte del tuo campo ottengono attacco = (vita - attacco)."}
+{"costante": "TCG_EFF_EILAFASHIONABLE", "riga": 3222, "en": "Battlecry: 8 Cards on Field have Attack reduced to 0.", "it": "Grido di battaglia: 8 carte in campo si vedono ridurre l'attacco a 0."}
+{"costante": "TCG_EFF_UNITDEAD", "riga": 3225, "en": "If you have all four Unit-Dead in your Hand, and your initial Deck size is 60, you win the game.", "it": "Se hai in mano tutti e quattro gli unimorti e il tuo mazzo iniziale è da 60, vinci la partita."}
+{"costante": "TCG_EFF_DUNGEONCLEANER", "riga": 3227, "en": "Battlecry: Return all Cards in Grave to Deck.", "it": "Grido di battaglia: rimetti nel mazzo tutte le carte del cimitero."}
+{"costante": "TCG_EFF_WHOMDWELL", "riga": 3229, "en": "Battlecry: Let's Ragnarok!", "it": "Grido di battaglia: facciamo il Ragnarok!"}
+{"costante": "TCG_EFF_ISCA", "riga": 3232, "en": "Battlecry: Freeze all Card on the Field.", "it": "Grido di battaglia: congela tutte le carte in campo."}
+{"costante": "TCG_EFF_MADSCIENTIST", "riga": 3235, "en": "In-Hand: Mutate another Card in your Hand.", "it": "In mano: fai mutare un'altra carta della tua mano."}
+{"costante": "TCG_EFF_DARKGUARDIAN", "riga": 3237, "en": "Battlecry: Summon other Dark Guardians (wherever they are).", "it": "Grido di battaglia: evoca gli altri soldati oscuri (ovunque siano)."}
+{"costante": "TCG_EFF_MARKS", "riga": 3239, "en": "Battlecry: Swap Cards in your Hand with Cards in Opponent's Deck. They Costs 2 less.", "it": "Grido di battaglia: scambia le carte della tua mano con carte del mazzo avversario. Costano 2 in meno."}
+{"costante": "TCG_EFF_LARNNEIRE", "riga": 3242, "en": "Battlecry: Draw Target Legendary Card from your Deck.", "it": "Grido di battaglia: pesca la carta leggendaria bersaglio dal tuo mazzo."}
+{"costante": "TCG_EFF_LOMIAS", "riga": 3244, "en": "Battlecry: Summon three 2/2 Putits with Haste.", "it": "Grido di battaglia: evoca tre putit 2/2 con Impeto."}
+{"costante": "TCG_EFF_RAPHAEL", "riga": 3246, "en": "Sacrifice: Draw Target Female Card from your Deck.", "it": "Sacrificio: pesca la carta femminile bersaglio dal tuo mazzo."}
+{"costante": "TCG_EFF_MICHES", "riga": 3248, "en": "Battlecry: Change all your cards into 2/3 putits.", "it": "Grido di battaglia: trasforma tutte le tue carte in putit 2/3."}
+{"costante": "TCG_EFF_ZEOME", "riga": 3250, "en": "Battlecry: Shuffle Zeome into your Deck to Draw another Card.\\nOn Draw: If this is Last Card of a 45+ Deck, you win the game.", "it": "Grido di battaglia: mescola <Zeome> nel mazzo per pescare un'altra carta.\\nAlla pesca: se è l'ultima carta di un mazzo da 45 o più, vinci la partita."}
+{"costante": "TCG_EFF_ORPHE", "riga": 3252, "en": "Deathrattle: This Card's Controller take 200 Damage.", "it": "Rantolo di morte: chi controlla questa carta subisce 200 danni."}
+{"costante": "TCG_EFF_PART_TIME_WORKER", "riga": 3253, "en": "Sacrifice: Try to Make your Opponent a Believer of Jure.", "it": "Sacrificio: prova a convertire l'avversario alla fede di <Jure>."}
+{"costante": "TCG_EFF_ZAILE", "riga": 3256, "en": "You can't seem to remember this Card's Effect.", "it": "Non riesci a ricordarti l'effetto di questa carta."}
+{"costante": "TCG_EFF_OBLIVIONBEAST1", "riga": 3258, "en": "Battlecry: Delete 3 Card's Effect from Opponent's Deck.", "it": "Grido di battaglia: cancella l'effetto di 3 carte del mazzo avversario."}
+{"costante": "TCG_EFF_OBLIVIONBEAST2", "riga": 3260, "en": "Battlecry: Delete 2 Card's Effect from Opponent's Hand.", "it": "Grido di battaglia: cancella l'effetto di 2 carte della mano avversaria."}
+{"costante": "TCG_EFF_OBLIVIONBEAST3", "riga": 3262, "en": "Battlecry: Delete a lot of Card Effect from this Game.", "it": "Grido di battaglia: cancella un mucchio di effetti da questa partita."}
+{"costante": "TCG_EFF_OBLIVIONDEVOTEE", "riga": 3264, "en": "Battlecry: Deal Opponent 1 Damage for every 5 Card without a Effect in this game.", "it": "Grido di battaglia: infliggi all'avversario 1 danno ogni 5 carte senza effetto in questa partita."}
+{"costante": "TCG_EFF_OBLIVIONSHAMAN", "riga": 3266, "en": "Battlecry: Gets +1/+1 for every 3 Card without a Effect in this game.", "it": "Grido di battaglia: ottiene +1/+1 ogni 3 carte senza effetto in questa partita."}
+{"costante": "TCG_EFF_JUERE", "riga": 3269, "en": "Deathrattle: Draw a Juere Army Card, both of them get +1 Attack.", "it": "Rantolo di morte: pesca una carta dell'esercito Juere, e tutt'e due ottengono +1 di attacco."}
+{"costante": "TCG_EFF_GILBERT", "riga": 3271, "en": "Begin Phase: Return 5 Juere Army from your Grave to Deck,\\n                     Draw 1 Card each.", "it": "Fase iniziale: rimetti nel mazzo 5 carte dell'esercito Juere dal cimitero,\\n                     e pesca 1 carta per ognuna."}
+{"costante": "TCG_EFF_NAZUNA", "riga": 3274, "en": "While you hold this, your Adventurers have -1 Cost.", "it": "Finché la tieni, i tuoi avventurieri hanno -1 di costo."}
+{"costante": "TCG_EFF_IDURU", "riga": 3276, "en": "While you hold this, your Adventurers have +1 Attack.", "it": "Finché la tieni, i tuoi avventurieri hanno +1 di attacco."}
+{"costante": "TCG_EFF_AJETALIO", "riga": 3278, "en": "In-Hand: Give a Adventurer Card in your Hand +2 HP", "it": "In mano: dai +2 di vita a una carta avventuriero della tua mano"}
+{"costante": "TCG_EFF_MITO", "riga": 3280, "en": "In-Hand: Give a Adventurer Card in your Hand +2 Atk", "it": "In mano: dai +2 di attacco a una carta avventuriero della tua mano"}
+{"costante": "TCG_EFF_CRESCE", "riga": 3282, "en": "In-Hand: Give a Adventurer Card in your Hand -1 Cost", "it": "In mano: dai -1 di costo a una carta avventuriero della tua mano"}
+{"costante": "TCG_EFF_REDSWORD", "riga": 3284, "en": "Battlecry: Draw Target Teacher Card from your Deck.", "it": "Grido di battaglia: pesca la carta insegnante bersaglio dal tuo mazzo."}
+{"costante": "TCG_EFF_TEACHER", "riga": 3286, "en": "Battlecry: Draw Taget Adventurer Card from your Deck.", "it": "Grido di battaglia: pesca la carta avventuriero bersaglio dal tuo mazzo."}
+{"costante": "TCG_EFF_FOXBROTHER", "riga": 3289, "en": "Battlecry: Shove a Card in your Hand into Opponent Hand. (Replace a Card if possible.)", "it": "Grido di battaglia: spingi una carta della tua mano nella mano avversaria. (se puoi, ne sostituisci una.)"}
+{"costante": "TCG_EFF_SILVERFOXBROTHER", "riga": 3291, "en": "Battlecry: Swap as many Hand Card with Opponent as possible.", "it": "Grido di battaglia: scambia con l'avversario quante più carte in mano puoi."}
+{"costante": "TCG_EFF_SICKOLDERBROTHER", "riga": 3293, "en": "Battlecry: Choose a Card in Deck, Grave all Opponent's Card of Same ID.", "it": "Grido di battaglia: scegli una carta nel mazzo, e manda nel cimitero tutte le carte avversarie con lo stesso identificativo."}
+{"costante": "TCG_EFF_LITTLEBOY", "riga": 3295, "en": "Begin Phase: Gain +1/+1.", "it": "Fase iniziale: ottiene +1/+1."}
+{"costante": "TCG_EFF_SBOY", "riga": 3297, "en": "Battlecry: Destroy all Cards with 1 HP.", "it": "Grido di battaglia: distruggi tutte le carte con 1 di vita."}
+{"costante": "TCG_EFF_TOURGUIDE1", "riga": 3300, "en": "Battlecry: Discover a CNPC Card. (Out of 8, If you had.)", "it": "Grido di battaglia: scopri una carta CNPC. (fra 8, se ne avevi.)"}
+{"costante": "TCG_EFF_TOURGUIDE2", "riga": 3302, "en": "Battlecry: Discover a non-Legendary CNPC Card, draw 5 of it. (If you had any.)", "it": "Grido di battaglia: scopri una carta CNPC non leggendaria e pescane 5. (se ne avevi.)"}
+{"costante": "TCG_EFF_TOURGUIDE3", "riga": 3304, "en": "Battlecry: Summon a random Legendary CNPC Card. (If you had any.)", "it": "Grido di battaglia: evoca una carta CNPC leggendaria a caso. (se ne avevi.)"}
+{"costante": "TCG_EFF_ROGUEBOSS", "riga": 3307, "en": "Battlecry: Summon 3 Bandits from your Deck.", "it": "Grido di battaglia: evoca 3 banditi dal tuo mazzo."}
+{"costante": "TCG_EFF_ZERNARD", "riga": 3310, "en": "Battlecry: Shuffle 10 Bullets into your Deck.\\n        Begin Phase: Draw Bullet until you have 5 Cards.", "it": "Grido di battaglia: mescola 10 proiettili nel tuo mazzo.\\n        Fase iniziale: pesca proiettili finché non hai 5 carte."}
+{"costante": "TCG_EFF_ZERNARD_DRAW", "riga": 3312, "en": "Begin Phase: Draw Bullet until you have 5 Cards.", "it": "Fase iniziale: pesca proiettili finché non hai 5 carte."}
+{"costante": "TCG_EFF_BULLET1", "riga": 3314, "en": "Battlecry: Turn an Enemy into a 1/1 Prostitute.", "it": "Grido di battaglia: trasforma un nemico in una prostituta 1/1."}
+{"costante": "TCG_EFF_BULLET2", "riga": 3316, "en": "Battlecry: Deal 1 Damage and Bleed All non-armored Enemies.", "it": "Grido di battaglia: infliggi 1 danno e fai sanguinare tutti i nemici senza corazza."}
+{"costante": "TCG_EFF_BULLET3", "riga": 3318, "en": "Battlecry: Summon 1 Black Magician Girl.", "it": "Grido di battaglia: evoca 1 maga nera."}
+{"costante": "TCG_EFF_BULLET4", "riga": 3320, "en": "Battlecry: Deals 0 Damage to an Enemy, Amazing.", "it": "Grido di battaglia: infliggi 0 danni a un nemico. Fantastico."}
+{"costante": "TCG_EFF_BULLET5", "riga": 3322, "en": "Battlecry: Deals 5 Damage and add a little Marker on an Enemy.", "it": "Grido di battaglia: infliggi 5 danni e metti un segnetto su un nemico."}
+{"costante": "TCG_EFF_BULLET6", "riga": 3324, "en": "Battlecry: Inflict Insanity on Random Field Card, 10 Times.", "it": "Grido di battaglia: infliggi Follia a una carta a caso in campo, 10 volte."}
+{"costante": "TCG_EFF_BULLET7", "riga": 3326, "en": "Battlecry: Deal 5 Damage Split Among Enemies.", "it": "Grido di battaglia: infliggi 5 danni ripartiti fra i nemici."}
+{"costante": "TCG_EFF_BULLET8", "riga": 3328, "en": "Battlecry: Deal 1 Damage to an Enemy, 4 times.", "it": "Grido di battaglia: infliggi 1 danno a un nemico, 4 volte."}
+{"costante": "TCG_EFF_BULLET9", "riga": 3330, "en": "Battlecry: Silence and Deals 3 Damage to an Enemy.", "it": "Grido di battaglia: silenzia un nemico e infliggigli 3 danni."}
+{"costante": "TCG_EFF_BULLET10", "riga": 3332, "en": "Battlecry: Deal 2 Damage and Bleed 3 Random Enemies.", "it": "Grido di battaglia: infliggi 2 danni e fai sanguinare 3 nemici a caso."}
+{"costante": "TCG_EFF_PIRATE", "riga": 3334, "en": "Battlecry: Discover a Bullet. (Out of 3 Bullets)", "it": "Grido di battaglia: scopri un proiettile. (fra 3 proiettili)"}
+{"costante": "TCG_EFF_PIRATEMUSKTEER", "riga": 3336, "en": "End Phase: Discover and Shoot a Bullet. (Out of 2 Bullets)", "it": "Fase finale: scopri e spara un proiettile. (fra 2 proiettili)"}
+{"costante": "TCG_EFF_PIRATEROUGH", "riga": 3338, "en": "On Kill: Discover and Shoot a Bullet. (Out of 4 Bullets)", "it": "All'uccisione: scopri e spara un proiettile. (fra 4 proiettili)"}
+{"costante": "TCG_EFF_PIRATEBOSS", "riga": 3340, "en": "Battlecry: Gain +1/+1 for every Bullet you fired.", "it": "Grido di battaglia: ottiene +1/+1 per ogni proiettile che hai sparato."}
+{"costante": "TCG_EFF_ALSAPIA", "riga": 3343, "en": "Battlecry: Shuffle 3 Zanan Assassins into your Opponent's Deck.", "it": "Grido di battaglia: mescola 3 assassini di Zanan nel mazzo dell'avversario."}
+{"costante": "TCG_EFF_ZANAN_ASSASSIN", "riga": 3345, "en": "On Draw: Take 2 Damage, Summon itself, and Draw 1 Card.", "it": "Alla pesca: subisci 2 danni, evoca sé stessa e pesca 1 carta."}
+{"costante": "TCG_EFF_ULTIMA", "riga": 3347, "en": "End Phase: Destroy all non-Legendary Cards on Field.", "it": "Fase finale: distruggi tutte le carte non leggendarie in campo."}
+{"costante": "TCG_EFF_SIST", "riga": 3349, "en": "Battlecry: Set your Life to 30, if it's <30.", "it": "Grido di battaglia: se la tua vita è sotto 30, portala a 30."}
+{"costante": "TCG_EFF_EHEKATL", "riga": 3352, "en": "Mewmewmew! You Cards have Random Costs!", "it": "Miao miao miao! Le tue carte hanno costi a caso!"}
+{"costante": "TCG_EFF_EHEKATL2", "riga": 3354, "en": "Hssssst!!! You Cards!! have RANDOM COSTS!!!!", "it": "Sssssss!!! Le tue carte!! hanno COSTI A CASO!!!!"}
+{"costante": "TCG_EFF_KUMIROMI", "riga": 3356, "en": "...death comes for all...", "it": "...la morte viene per tutti..."}
+{"costante": "TCG_EFF_KUMIROMI2", "riga": 3358, "en": "..it's unevitable..", "it": "..è inevitabile.."}
+{"costante": "TCG_EFF_YACATECT", "riga": 3360, "en": "Here's your Yaca Points! Pleasure doing business with you!", "it": "Ecco i tuoi punti Yaca! È un piacere fare affari con te!"}
+{"costante": "TCG_EFF_YACATECT2", "riga": 3362, "en": "YOU BREAK IT, YOU BUY IT!", "it": "SE LO ROMPI LO PAGHI!"}
+{"costante": "TCG_EFF_OPATOS", "riga": 3364, "en": "Muwahahahaha! Weak!", "it": "Muahahahaha! Debole!"}
+{"costante": "TCG_EFF_OPATOS2", "riga": 3366, "en": "Die! Die! Mwahahaha!", "it": "Muori! Muori! Muahahaha!"}
+{"costante": "TCG_EFF_LULWY", "riga": 3368, "en": "I hate this stupid little game, play a little faster would you?", "it": "Odio questo stupido giochino, non è che potresti sbrigarti?"}
+{"costante": "TCG_EFF_LULWY2", "riga": 3370, "en": "Ugh! Enough games! Die!", "it": "Uff! Basta giochi! Muori!"}
+{"costante": "TCG_EFF_MANI", "riga": 3372, "en": "Pathetic to waste your life playing children's card game. I will enable the auto-combat feature for you.", "it": "Patetico, sprecare la vita a un gioco di carte per bambini. Ti attivo il combattimento automatico."}
+{"costante": "TCG_EFF_MANI2", "riga": 3374, "en": "Sacrifice your very soul to me and I shall hack your opponent's deck for you.", "it": "Sacrificami la tua stessa anima e ti manometto il mazzo dell'avversario."}
+{"costante": "TCG_EFF_JURE", "riga": 3376, "en": "W-What? I healed the cards for you? N-No! I-It's not like I want to do that for you! Stupid!", "it": "C-Cosa? Ti ho curato le carte? N-No! N-Non è mica che volessi farlo per te! Sciocco!"}
+{"costante": "TCG_EFF_JURE2", "riga": 3378, "en": "No one dies on my watch.", "it": "Sotto il mio sguardo non muore nessuno."}
+{"costante": "TCG_EFF_ITZPALT", "riga": 3380, "en": "Impressive, mortal. I shall bestow my wisdom of this card game upon you.", "it": "Notevole, mortale. Ti concederò la mia sapienza di questo gioco di carte."}
+{"costante": "TCG_EFF_ITZPALT2", "riga": 3382, "en": "Very impressive, mortal. You shall be the one worthy under the rule of the gods.", "it": "Molto notevole, mortale. Sarai tu il degno sotto il governo degli dei."}
+{"costante": "TCG_EFF_OPPONENTDRAW1FATIGUE", "riga": 3385, "en": "Battlecry: Your Opponent Draw 1 Fatigue.", "it": "Grido di battaglia: l'avversario pesca 1 Sfinimento."}
+{"costante": "TCG_EFF_FATIGUE", "riga": 3387, "en": "You are out of Cards!!!", "it": "Hai finito le carte!!!"}

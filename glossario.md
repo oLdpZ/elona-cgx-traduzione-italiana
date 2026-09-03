@@ -2807,3 +2807,133 @@ arrivano mai a schermo: la forma è `～鑑定報告書：＜食物＞カテゴ�
 | `arrested arsonist` | `un incendiario in arresto` | 1 |
 | `outcast Eulderna Researcher` | `un ricercatore Eulderna ripudiato` | 1 |
 | `~some Bearded Guy~` | `~un tizio con la barba~` | 1 |
+
+## Il gioco di carte: gli innesti e il vocabolario, decisi nella 136ª
+
+Per la Fase 5, `tcg_mod.hsp` — le 835 descrizioni d'effetto, 44.029 caratteri.
+Le occorrenze sono contate sulle 835, non stimate.
+
+⭐ **Il registro è quello che il progetto aveva già scelto senza saperlo.** Le
+ventisei parole chiave qui sotto sono tradotte da fasi, ma vivono nelle **toppe**
+di `tcg.hsp` e non erano mai state raccolte in un posto consultabile. Sono tutte
+immagini, nessuna è funzionale — `Deathtouch` è «Tocco letale», non «tocco che
+uccide» — e gli innesti le seguono.
+
+### Le ventisei già a schermo (toppe di `tcg.hsp`, non ridiscutibili)
+
+| EN | IT | | EN | IT |
+|---|---|---|---|---|
+| Windfury | Raffica | | Silenced | Silenzio |
+| Trample | Travolgere | | Confused | Confusione |
+| Lifelink | Legame vitale | | Poisoned | Veleno |
+| Deathtouch | Tocco letale | | Bleeding | Sangue |
+| Deathword | Condanna | | Paralysed | Paralisi |
+| First Strike | Anticipo | | Insane | Follia |
+| Dual Strike | Doppio colpo | | Frozen | Gelo |
+| Critical | Critico | | Gravity | Gravità |
+| Barrier | Barriera | | Regeneration | Rigenerazione |
+| Evasion | Schivata | | Armored | Corazza |
+| Vigilance | Vigilanza | | Flying | Volo |
+| Defender | Difensore | | Intimidate | Minaccia |
+| Split | Sdoppia | | Reach | Portata |
+| Rider | Cavaliere | | Ghost | Fantasma |
+
+⚠️ Una resa nuova che contraddica una di queste non è una variante: è una
+seconda traduzione della stessa parola, in un gioco dove le due si vedono nella
+stessa schermata.
+
+### Gli innesti (la meccanica nominata prima dei due punti)
+
+| EN | IT | occ. | note |
+|---|---|---|---|
+| `Battlecry:` | **Grido di battaglia:** | 470 | la voce più pesante del progetto. ⚠️ Vincola `tcg_skill.hsp:618` — vedi sotto |
+| `Ongoing:` | **Continuo:** | 57 | scartato «Permanente»: in Magic italiano è un **tipo di carta**, e chi viene da lì lo legge storto |
+| `Deathrattle:` | **Rantolo di morte:** | 46 | in fila con Condanna e Tocco letale |
+| `Sacrifice:` | **Sacrificio:** | 43 | ancorato al dizionario, «Sacrifichi la carta» |
+| `Begin Phase:` | **Fase iniziale:** | 67 | ancorato alla toppa `Begin → Inizio` |
+| `End Phase:` | **Fase finale:** | 20 | ancorato alla toppa `End → Fine` |
+| `After Combat:` | **Dopo lo scontro:** | 17 | ⓘ non ha un nome evocativo naturale, e non se ne inventa uno: qui la frase temporale è la resa giusta |
+| `In-Hand:` | **In mano:** | 14 | idem |
+| `OnKill:` | **All'uccisione:** | 12 | ⚠️ **non** «Colpo mortale», che si confonderebbe con `Deathblow` |
+| `OnDraw:` | **Alla pesca:** | 9 | ancorato alla toppa `Draw → Pesca` |
+| `Start of the game:` | **Inizio partita:** | 9 | |
+| `When Opponent Draw this:` | **Se la pesca l'avversario:** | 5 | |
+| `Deathblow:` | **Colpo di grazia:** | 2 | |
+| `Drawn by Effect:` | **Pescata da un effetto:** | 1 | |
+| `If in Grave:` | **Se è nel cimitero:** | 1 | `Grave → Cimitero`, dalla toppa `G [View Grave]` |
+| `If you have this:` | **Se ce l'hai:** | 1 | |
+
+⚠️⚠️ **L'inglese scrive gli stessi innesti in più modi, e l'italiano ne ha uno
+solo.** `Begin Phase`/`BeginPhase`/`Begin`, `End Phase`/`EndPhase`, `After
+Combat`/`AfterCombat`, `In-Hand`/`In Hand`/`InHand`, `OnKill`/`On Kill`,
+`OnDraw`/`On Draw`, `Start of the game`/`Start of the Game`/`StartOfGame`.
+Questa tabella è la sorgente di `carte.GRAFIE`, e il cancello di
+`carte --referto` la legge: una resa che scrive «Fase d'inizio» dove qui c'è
+«Fase iniziale» si accende. ⭐ È la differenza con `scene.GRAFIE`, che dalla 133ª
+è pronta e non la legge nessuno.
+
+### ⚠️⚠️ I due refusi di monte si RIPRODUCONO, non si riparano
+
+`tcg_skill.hsp:618` copia un effetto solo se la carta è marcata
+`TCG_SKILL_TYPE_BATTLECRY` **e** la parola compare nel testo. Le due cose non
+coincidono: 491 marcate, **19 senza la parola** (le carte degli dèi, i sette
+`KAMUI`, che parlano invece di dichiarare un innesto) e 3 con la parola e non
+marcate. Due delle diciannove sono refusi:
+
+    TCG_EFF_CARAVAN   "Batllecry: ..."        <- 'tll'
+    TCG_EFF_NAPLUS    "BattleCry/InHand/..."  <- 'C' maiuscola
+
+Oggi quelle due carte **non vengono copiate**. Scrivendole in italiano corretto
+si accenderebbero, e sarebbe un cambio di comportamento nascosto dentro una
+traduzione. Vanno rese con un refuso italiano equivalente:
+
+| costante | IT | perché |
+|---|---|---|
+| `TCG_EFF_CARAVAN` | `Grido di battglia:` | riproduce `Batllecry` |
+| `TCG_EFF_NAPLUS` | `Grido di Battaglia/In mano/Fase iniziale:` | riproduce la maiuscola di `BattleCry` |
+
+⭐ **L'invariante da sorvegliare non è «la resa contiene la parola»: è che la
+partizione resti 472 / 19.** È un numero, si misura, e sta nel cancello.
+
+### Il vocabolario chiuso
+
+Le trenta parole che tornano più di quindici volte. Sotto questa soglia si
+traduce nel lotto.
+
+| EN | IT | occ. | note |
+|---|---|---|---|
+| Card / Cards | carta / carte | 406 | |
+| Deck | mazzo | 162 | toppa `Deck → Mazzo` |
+| Hand | mano | 124 | |
+| Draw | pescare | 113 | toppa `Draw → Pesca` |
+| Opponent | avversario | 104 | toppa `Opponent → Avversario` |
+| Damage | danno | 94 | già in glossario |
+| Field | campo | 94 | dizionario, «Il tuo campo è pieno» |
+| Phase | fase | 84 | |
+| Target | bersaglio | 83 | già in glossario, mai «obiettivo» |
+| Cost | costo | 94 | |
+| Random | a caso | 74 | ⓘ avverbio, non aggettivo: «un nemico a caso», non «un nemico casuale» |
+| Deal / Inflict | infliggere | 110 | una parola sola per due: l'inglese le alterna senza distinguere |
+| Summon | evocare | 73 | già in glossario, `Summon → Evoca / Evocazione` |
+| Attack | attacco | 72 | sostantivo qui, non comando |
+| Enemy / Enemies | nemico / nemici | 101 | |
+| Gain | ottenere | 54 | |
+| Mana | mana | 37 | invariato, `invariati.md:50` |
+| Graveyard / Grave | cimitero | 39 | toppa `G [View Grave] → G [Cimitero]` |
+| Effect | effetto | 21 | dizionario, `Effect: → Effetto: ` |
+| Search | cercare | 21 | |
+| Give | dare | 20 | |
+| Debuff | penalità | 19 | i singoli si chiamano col loro nome (Veleno, Paralisi...): «penalità» è solo la categoria |
+| Turn | turno | 18 | toppa `Turn → Turno` |
+| Destroy | distruggere | 17 | |
+| Combat | scontro | 16 | |
+| Return | rimandare | 16 | «rimanda la carta nel mazzo», che è sempre un ritorno a un posto |
+| Transform | trasformare | 15 | |
+| Life | vita | | toppa `Life → Vita` |
+| Exile | esiliare | | toppa, «l'esiliato nel gioco di carte» |
+| Domain | dominio | | toppa `Domain * → Dominio * ` |
+
+⚠️ **`"Effect: "` sta in DUE posti e uno solo è nel dizionario.** `tcg.hsp:1610`
+è dentro `lang("Effect: ", "Effect: ")` e ce l'ha; `tcg.hsp:1473` è nudo, dentro
+la ricomposizione della scheda, e vuole una **toppa**. Tradotto uno solo, la
+scheda esce mezza in inglese.
