@@ -116,6 +116,36 @@ CODA_MASSIMA = 66
 # che sfora, e non lo si imita.
 SOFFITTO_CHAT = (380 - 56 - 1 * 19 - 43) // 19          # 13
 
+# ⚠️⚠️ LE GRAFIE INGLESI CHE IN ITALIANO IL PROGETTO NON SCRIVE COSI'.
+#
+# Non e' una lista di gusti: ogni riga porta il conto misurato sul dizionario
+# il 2026-09-03, e ognuna nasce da una resa che aveva gia' la grafia sbagliata.
+# La regola e' quella del progetto dalla 79a -- dove l'inglese di monte e'
+# incoerente si segue il giapponese -- applicata ai nomi propri.
+#
+#   Ylva        -> Irva            イルヴァ: 1.058 «Irva» nelle rese, e le sole
+#                                  due «Ylva» erano le scene della 132a
+#   North Tyris -> Tyris del Nord  164 rese su 165, zero eccezioni
+#   Port Kapul  -> Porto Kapul     24 rese contro 1 rimasta in inglese
+#   Sierre Terre-> Sierra Terre    シエラ・テール. ⚠️ L'INGLESE SI CONTRADDICE DA
+#                                  SOLO: `scene2.hsp` scrive «Sierra» 8 volte,
+#                                  `chat.hsp` «Sierre» 7. Il giapponese ne ha
+#                                  una sola, e le 10 rese col refuso lo
+#                                  copiavano
+#   Rosura      -> Lothria         ロスリア. Un refuso dell'inglese, in
+#                                  `scene2.hsp:1139` e solo li': nello stesso
+#                                  file «Lothria» compare 29 volte
+#
+# ⚠️ Nessuna delle forme di destra contiene quella di sinistra, quindi la
+# sostituzione non si morde la coda. Chi aggiunge una riga lo verifichi.
+GRAFIE = {
+    "Ylva": "Irva",
+    "North Tyris": "Tyris del Nord",
+    "Port Kapul": "Porto Kapul",
+    "Sierre Terre": "Sierra Terre",
+    "Rosura": "Lothria",
+}
+
 # i soli marcatori che aprono un testo da disegnare (scene.hsp:70-105)
 _APRONO = ("txt", "wait")
 
@@ -392,6 +422,16 @@ def problemi(voce: dict) -> list[str]:
         return []
     guai = []
     tipo = voce["tipo"]
+    # ⚠️ prima di tutto il resto, e per ogni tipo: una grafia inglese dentro
+    # una resa italiana. Costa niente e la 133a ne ha trovate due gia' scritte
+    # dalla sessione prima -- che senza questo cancello avrei imitato lotto
+    # dopo lotto, perche' il modo in cui si sbaglia un nome proprio e'
+    # guardare come l'ha reso chi ha tradotto prima.
+    testo = reso if isinstance(reso, str) else "\n".join(reso)
+    for inglese, italiano in GRAFIE.items():
+        if inglese in testo:
+            guai.append("la resa scrive «%s»: in italiano il progetto scrive"
+                        " «%s»" % (inglese, italiano))
     if tipo == "txt":
         if not isinstance(reso, str):
             return ["una resa di {txt} e' una stringa sola, con le righe"

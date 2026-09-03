@@ -11,10 +11,10 @@ import json
 import pytest
 
 from strumenti import percorsi
-from strumenti.scene import (CODA_MASSIMA, COLONNA_CHAT, LARGHEZZA_TXT,
-                             SOFFITTO_CHAT, applica_a_righe, avvisi, blocchi,
-                             carico_inglese, firma, leggi, problemi,
-                             righe_a_capo, voci)
+from strumenti.scene import (CODA_MASSIMA, COLONNA_CHAT, GRAFIE,
+                             LARGHEZZA_TXT, SOFFITTO_CHAT, applica_a_righe,
+                             avvisi, blocchi, carico_inglese, firma, leggi,
+                             problemi, righe_a_capo, voci)
 
 
 def _righe(testo: str) -> list[str]:
@@ -336,6 +336,68 @@ def test_una_virgola_nel_nome_dell_attore_si_accende():
     # ritratto e il gioco disegna la faccia sbagliata
     voce = {"tipo": "actor_1", "it": "<Saimore>, principe di Zanan"}
     assert any("virgola" in p for p in problemi(voce))
+
+
+# --- le grafie inglesi dentro le rese --------------------------------------
+
+def test_la_grafia_inglese_di_un_nome_proprio_si_accende():
+    """⚠️ La prova al contrario, puntata sul difetto VERO della 132a.
+
+    Questa non e' una riga inventata per far accendere il cancello: e' la
+    resa del prologo com'era scritta nel dizionario fino al 2026-09-03,
+    parola per parola. Se questo test smette di fallire togliendo il
+    cancello, vuol dire che il cancello serviva.
+    """
+    com_era = ("In tempi ormai dimenticati la terra di Ylva vide dieci grandi"
+               " civiltà,\ne le loro rovine punteggiano ancora il suolo.")
+    guai = problemi({"tipo": "txt", "it": com_era})
+    assert any("«Ylva»" in g and "«Irva»" in g for g in guai), guai
+
+
+def test_ogni_grafia_del_cancello_si_accende_davvero():
+    """Nessuna riga della tabella e' li' per bellezza: una per una.
+
+    ⓘ Stampa quale riga non si accende invece di un booleano: uno zero senza
+    la ragione dello zero non e' un risultato.
+    """
+    spente = [ing for ing, ita in GRAFIE.items()
+              if not any("«%s»" % ing in g
+                         for g in problemi({"tipo": "chat_1",
+                                            "it": "Il viaggio verso %s." % ing}))]
+    assert spente == [], "queste grafie non accendono niente: %s" % spente
+
+
+def test_la_forma_italiana_NON_si_accende():
+    """E la coppia: la resa giusta deve passare muta.
+
+    ⚠️ Vale solo perche' nessuna forma italiana contiene quella inglese --
+    e' la condizione scritta accanto alla tabella, e qui si misura invece di
+    darla per buona.
+    """
+    for inglese, italiano in GRAFIE.items():
+        assert inglese not in italiano, (inglese, italiano)
+        voce = {"tipo": "chat_1", "it": "Il viaggio verso %s." % italiano}
+        assert problemi(voce) == [], (italiano, problemi(voce))
+
+
+def test_il_dizionario_vero_non_porta_piu_nessuna_grafia_inglese():
+    """Il cancello puntato sul dizionario di oggi: deve essere zero.
+
+    ⓘ E lo zero ha la sua ragione: le due rese che lo rompevano sono state
+    corrette nella 133a, e da qui in poi il cancello le riprende al volo.
+    """
+    percorso = percorsi.DIZIONARIO / "scene2.hsp.jsonl"
+    if not percorso.exists():
+        pytest.skip("il dizionario delle scene non c'e' ancora")
+    fuori = []
+    for riga in percorso.read_text(encoding="utf-8").splitlines():
+        if not riga.strip():
+            continue
+        voce = json.loads(riga)
+        for guaio in problemi(voce):
+            if "il progetto scrive" in guaio:
+                fuori.append((voce["scena"], voce["blocco"], guaio))
+    assert fuori == [], fuori
 
 
 def test_le_forme_sbagliate_si_riconoscono():

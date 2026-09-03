@@ -14,7 +14,7 @@ import shutil
 import stat
 from pathlib import Path
 
-from strumenti import percorsi
+from strumenti import percorsi, scene
 from strumenti.accenti import degrada
 from strumenti.articolo import GENERI, articoli
 from strumenti.estrai import (ARRAY_IN_LANG, _argomenti, _letterali, avvii, avvio_descrizione,
@@ -771,6 +771,16 @@ def main() -> None:
     totale_plurali = 0  # righe di plurale e articolo
     for percorso_dizionario in sorted(percorsi.DIZIONARIO.glob("*.jsonl")):
         nome_file = percorso_dizionario.stem
+        # ⚠️⚠️ `scene2.hsp` NON passa di qui: le sue voci non sono firme di
+        # `lang()` ma blocchi di scena, e le inietta `strumenti.scene
+        # --applica` in un giro suo. Lasciandolo nel ciclo ogni resa nuova
+        # diventava una «voce orfana»: alla 132a l'ATTENZIONE in coda diceva
+        # 86, alla 133a diceva 258, e sarebbe salita a 1.701 a fase finita.
+        # Un allarme che suona sempre e cresce e' peggio di nessun allarme,
+        # perche' seppellisce l'orfana VERA -- quella che dice che il monte si
+        # e' mosso sotto una resa. Vedi `strumenti/scene.py`.
+        if nome_file == scene.FILE:
+            continue
         voci = [json.loads(r) for r in percorso_dizionario.read_text(encoding="utf-8").splitlines() if r.strip()]
         dizionario = {v["firma"]: v for v in voci}
         tradotte = {c for c, v in dizionario.items() if v.get("it")}
