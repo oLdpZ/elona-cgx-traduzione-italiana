@@ -715,6 +715,63 @@ def articolo_delle_cablate(indentazione):
     return righe
 
 
+# La tabella dei tredici fiori, nata nella 96a. ⚠️ E' la stessa di
+# `scratchpad/_96-rese-coda.py`, che porta i **nomi**: si cambiano insieme.
+FIORI = {
+    0: ('fiore selvatico', 'm'),
+    1: ('narciso', 'm'),
+    2: ('margherita', 'f'),
+    3: ('tarassaco', 'm'),
+    4: ('tulipano', 'm'),
+    5: ('rosa', 'f'),
+    6: ('ortensia', 'f'),
+    7: ('giglio', 'm'),
+    8: ('girasole', 'm'),
+    9: ('calendula', 'f'),
+    10: ('cosmea', 'f'),
+    11: ('crisantemo', 'm'),
+    12: ('primula', 'f'),   # ⚠️ e' il ramo `>= 12`, non solo il 12
+}
+
+
+def articolo_del_fiore(indentazione):
+    """L'articolo dei tredici fiori selvatici, che dividono un `ITEM_ID` solo.
+
+    `INV_ITEM_PARAM2` sceglie **il nome** fra tredici, ma l'articolo verrebbe
+    una volta sola da `ioriginalnamearticolo(ITEM_ID_WILD_FLOWER)`, cioe' dal
+    genere di «fiore selvatico»: maschile. Sei fiori su tredici sono femminili e
+    «ortensia» vuole l'elisione — senza questo blocco si legge «un rosa», «un
+    margherita», «un ortensia». Stessa forma di `articolo_del_pesce`, e per la
+    stessa ragione: un nome che non e' quello dell'`ITEM_ID` non ha l'articolo
+    dell'`ITEM_ID`.
+
+    ⚠️⚠️ **Questo blocco e' stato scritto nella 96a e fino al 2026-09-03 NON
+    stava qui**: stava a mano dentro `toppe.jsonl`, dentro la toppa marcata
+    `generata: nomi`. Siccome questo strumento **sostituisce** a ogni giro tutte
+    le proprie toppe, il primo rilancio lo cancellava — e l'intestazione di
+    questo file dice che rilanciarlo e' «il primo comando» a ogni versione nuova
+    di CGX. Il 2026-09-03 e' successo: i tredici articoli sono spariti, e a
+    dirlo e' stato `pytest`, perche' spostando dodici righe di `item_func.hsp`
+    ha spostato un sito «giudicato» di `maiuscole`. Il difetto non era del
+    contenuto ma della **casa**: un dato che vive dentro l'uscita di un
+    generatore e' un dato che il generatore cancella.
+    """
+    per_coppia = {}
+    for p, (nome, genere) in FIORI.items():
+        per_coppia.setdefault(articoli(genere, nome), []).append(p)
+    righe = [f'{indentazione}if ( inv(INV_ITEM_ID, itemname_itemid) == ITEM_ID_WILD_FLOWER ) {{']
+    for (indet, det), params in sorted(per_coppia.items(), key=lambda x: min(x[1])):
+        prove = [f'inv(INV_ITEM_PARAM2, itemname_itemid) '
+                 f'{">=" if p == 12 else "=="} {p}' for p in sorted(params)]
+        commento = ', '.join(FIORI[p][0] for p in sorted(params))
+        righe += [f'{indentazione}\tif ( {" | ".join(prove)} ) {{\t// {commento}',
+                  f'{indentazione}\t\tlocvar_itemname_s8 = "{indet}"',
+                  f'{indentazione}\t\tlocvar_itemname_s9 = "{det}"',
+                  f'{indentazione}\t}}']
+    righe.append(f'{indentazione}}}')
+    return righe
+
+
 def articolo_del_pesce(indentazione):
     """L'articolo del pesce, che non sta in `ioriginalnamearticolo`.
 
@@ -768,12 +825,24 @@ toppe.append({
         f'{i1}\tlocvar_itemname_s9 = ioriginalnamearticolodet(inv(INV_ITEM_ID, itemname_itemid))',
         f'{i1}\tif ( {IGNOTO} != "" ) {{',
         f'{i1}\t\tif ( locvar_itemname_s2 == "" ) {{',
-        f'{i1}\t\t\tlocvar_itemname_s8 = iknownnamearticolo(inv(INV_ITEM_ID, itemname_itemid))',
-        f'{i1}\t\t\tlocvar_itemname_s9 = iknownnamearticolodet(inv(INV_ITEM_ID, itemname_itemid))',
+        # ⚠️ la terza guardia, dal 2026-09-03: si SCAVALCA solo se c'e' davvero
+        # qualcosa con cui scavalcare. Senza, l'articolo buono del nome
+        # identificato veniva sovrascritto con la stringa vuota su 847 oggetti —
+        # tutti quelli in cui `db_item.hsp` scrive
+        # `iknownnameref(X) = ioriginalnameref(X)`, cioe' il nome ignoto E' il
+        # nome vero — e il gioco ripiegava sull'inglese: «a borraccia filtrante».
+        # Annidata e non unita con `&`: HSP valuta da sinistra a destra senza
+        # precedenza fra operatori, come gia' dichiara `articolo_del_pesce`.
+        # ⓘ Basta guardare l'indeterminativo: i due array si scrivono in coppia,
+        # e non esiste una riga che ne assegni uno solo.
+        f'{i1}\t\t\tif ( iknownnamearticolo(inv(INV_ITEM_ID, itemname_itemid)) != "" ) {{',
+        f'{i1}\t\t\t\tlocvar_itemname_s8 = iknownnamearticolo(inv(INV_ITEM_ID, itemname_itemid))',
+        f'{i1}\t\t\t\tlocvar_itemname_s9 = iknownnamearticolodet(inv(INV_ITEM_ID, itemname_itemid))',
+        f'{i1}\t\t\t}}',
         f'{i1}\t\t}}',
         f'{i1}\t}}',
         f'{i1}}}',
-    ] + articolo_del_pesce(i1) + [
+    ] + articolo_del_fiore(i1) + articolo_del_pesce(i1) + [
         condizione_the,
         f'{i1}\tif ( locvar_itemname_s9 != "" ) {{',
         f'{i1}\t\tlocvar_itemowner_s = locvar_itemname_s9 + locvar_itemowner_s',
@@ -794,11 +863,71 @@ toppe.append({
         blocco[18],
         blocco[19],
     ],
-    "motivo": "l'articolo inglese si sceglie sulla prima lettera della stringa (a/an); in italiano dipende dal GENERE della testa del nome, che nella stringa composta sta in mezzo. Il genere e' un dato del dizionario, la stringa dell'articolo la deriva strumenti/articolo.py e arriva in ioriginalnamearticolo/ioriginalnamearticolodet. Le parole-contatore cablate vincono sull'array perche' quando ci sono la testa del sintagma e' la parola-contatore («un paio di stivali pesanti»). Se l'articolo italiano manca resta quello inglese, come il plurale ripiega sul singolare",
+    "motivo": "l'articolo inglese si sceglie sulla prima lettera della stringa (a/an); in italiano dipende dal GENERE della testa del nome, che nella stringa composta sta in mezzo. Il genere e' un dato del dizionario, la stringa dell'articolo la deriva strumenti/articolo.py e arriva in ioriginalnamearticolo/ioriginalnamearticolodet. Le parole-contatore cablate vincono sull'array perche' quando ci sono la testa del sintagma e' la parola-contatore («un paio di stivali pesanti»). Se l'articolo italiano manca resta quello inglese, come il plurale ripiega sul singolare. ⚠️⚠️ 2026-09-03: l'array del nome IGNOTO scavalca quello del nome vero solo se non e' vuoto. Prima lo scavalcava sempre, e siccome `db_item.hsp` assegna `iknownnamearticolo` a 261 oggetti soli mentre 847 scrivono `iknownnameref(X) = ioriginalnameref(X)` — il nome ignoto E' il nome vero — l'articolo buono veniva buttato e il gioco scriveva «a borraccia filtrante» su ogni oggetto non ancora identificato. `strumenti/estrai.py` lo diceva gia' («e allora articolo e plurale di quello vanno bene anche qui»): la guardia non aggiunge un dato, rende vera una frase gia' scritta. Misurato da scratchpad/_131-articolo-sul-nome-ignoto.py",
 })
 
+# 12. L'articolo degli oggetti il cui NOME NON STA IN `db_item.hsp`.
+#
+#     Per dodici oggetti `ioriginalnameref` e' la stringa vuota in tutt'e due i
+#     rami di lingua: il nome lo compone `item_func.hsp` con un `if`
+#     sull'identita'. Un nome che non sta nell'array non ha un articolo
+#     nell'array, e il gioco ripiega sull'inglese — «a caffe'», «a te' nero».
+#     ⚠️ E questi ripiegano SEMPRE, anche da identificati: non e' il difetto
+#     della borraccia, che riguardava il solo stato non identificato.
+#
+#     Due dei dodici sono gia' curati (`ITEM_ID_FISH` e `ITEM_ID_FISH_JUNK`,
+#     vedi `articolo_del_pesce`: li' la specie sta in `SUB_NAME` e ha un array
+#     suo). Dei restanti dieci, **sei** hanno la testa di genere costante e si
+#     curano qui, con una riga di articolo nell'array che il blocco legge
+#     comunque. Gli altri quattro NO, e sono dichiarati in `invariati.md`:
+#     la loro testa cambia a ogni oggetto — il frutto di un succo, la parte del
+#     corpo di un pezzo di non-morto, il titolo generato di un libro scritto dal
+#     giocatore, il nome dell'oggetto d'evoluzione fra parentesi angolari.
+#
+#     ⓘ Perche' `ioriginalnamearticolo` e non `iknownnamearticolo`: il nome non
+#     dipende dallo stato d'identificazione, quindi l'articolo nemmeno, e
+#     l'array del nome vero e' quello che vale in tutt'e due i rami.
+NOMI_COMPOSTI_A_MANO = {
+    # ITEM_ID                 genere  testa che si legge a schermo
+    "ITEM_ID_COFFEE":         ("m", "caffe'"),      # «caffe'» / «caffelatte»
+    "ITEM_ID_BLACK_TEA":      ("m", "te'"),         # «te' nero» / «te' al latte»
+    "ITEM_ID_CF_POTIOMAN":    ("m", "potioman"),
+    "ITEM_ID_CRUSH_POTIOMAN": ("m", "potioman"),
+    "ITEM_ID_BATTLE_POTIOMAN":("m", "potioman"),
+    "ITEM_ID_SUPER_POTIOMAN": ("m", "potioman"),
+}
+DB = righe('db_item.hsp')
+for oggetto, (genere, testa) in NOMI_COMPOSTI_A_MANO.items():
+    # l'aggancio e' `ioriginalnameref2(X) = ""`, ultima riga del ramo `else`:
+    # unica per oggetto, e gia' dentro il ramo non giapponese
+    ancora = f'\t\tioriginalnameref2({oggetto}) = ""'
+    indeterminativo, determinativo = articoli(genere, testa)
+    toppe.append({
+        "file": "db_item.hsp",
+        "cerca": ancora,
+        "sostituisci": [
+            ancora,
+            f'\t\tioriginalnamearticolo({oggetto}) = "{indeterminativo}"',
+            f'\t\tioriginalnamearticolodet({oggetto}) = "{determinativo}"',
+        ],
+        "motivo": (
+            f"il nome di {oggetto} non sta in db_item.hsp — `ioriginalnameref` "
+            f"e' la stringa vuota in tutt'e due i rami di lingua — e lo compone "
+            f"`item_func.hsp` con un `if` sull'identita' dell'oggetto. Senza una "
+            f"riga d'articolo il gioco ripiegava sull'inglese e scriveva «a "
+            f"{testa}», da identificato come da non identificato. La testa e' "
+            f"«{testa}», {genere}, e resta la stessa in tutte le varianti del "
+            f"ramo, quindi l'articolo e' una costante e sta nell'array del nome "
+            f"vero. ⚠️ Quattro fratelli di questo NON si curano cosi' e sono "
+            f"dichiarati in invariati.md: succo, pezzo di non-morto, libro "
+            f"prodotto e oggetto d'evoluzione hanno la testa che cambia a ogni "
+            f"oggetto. Misurato da scratchpad/_131-quanti-articoli-inglesi.py"
+        ),
+    })
+
 # --- il controllo che conta: ogni blocco compare esattamente una volta -------
-sorgenti = {"init.hsp": INIT, "item_func.hsp": ITEM, "item_data.hsp": DATA}
+sorgenti = {"init.hsp": INIT, "item_func.hsp": ITEM, "item_data.hsp": DATA,
+            "db_item.hsp": DB}
 for t in toppe:
     cerca = t["cerca"] if isinstance(t["cerca"], list) else [t["cerca"]]
     r = sorgenti[t["file"]]
