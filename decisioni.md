@@ -15436,7 +15436,7 @@ righe.
 
 ---
 
-## La domanda aperta più grossa ha un numero: 160 — 2026-09-04, centotrentottesima sessione
+## La domanda aperta più grossa ha un numero: 153 — 2026-09-04, centotrentottesima sessione
 
 Da due sessioni il progetto sapeva che `copertura._PROSA` non vede le
 etichette, e da due sessioni la domanda «quante ce ne sono negli altri novanta
@@ -15444,15 +15444,15 @@ file» era la cosa aperta più grossa — perché finché non ha una risposta, o
 «quanto manca» è un numero di cui non ci si può fidare.
 
 `strumenti/disegnate.py` la risponde partendo da **chi manda un testo allo
-schermo** invece che dalla forma della stringa: **162 stringhe distinte
-disegnate e non coperte, su 12 file, di cui 160 che il censimento vecchio non
+schermo** invece che dalla forma della stringa: **158 stringhe distinte
+disegnate e non coperte, su 11 file, di cui 153 che il censimento vecchio non
 vedeva.**
 
 ⭐⭐ **Il gradino che mancava è il salto per variabile.** Da sola, la riga del
 comando (`mes "Dv:"`) trova 34 stringhe in tutto il sorgente — e le 58
 etichette della 137ª non ci sarebbero state, perché non stavano su una riga di
 `mes`: stavano in `s@tcg += "[Command Card] "`, e `s@tcg` finiva a schermo
-venti righe più giù. Coi due livelli insieme il conto è 162. Un salto solo, e
+venti righe più giù. Coi due livelli insieme il conto è 158. Un salto solo, e
 dentro lo stesso file: è un limite **dichiarato**, e il modo giusto di
 dichiararlo è misurarne il costo, non nasconderlo.
 
@@ -15463,9 +15463,9 @@ dall'ASCII. Ma `chat.hsp:6711` è `lang("Yes", "Yes.")`, e il primo giro della
 rete l'ha contato come «scoperto», cioè **ha detto che manca del lavoro che
 c'è**. Il filtro sui byte non basta: serve leggere `jp_grezzo` dai siti.
 
-⭐ **Le due reti si scoprono a vicenda, e nessuna basta.** `_PROSA` vede 301
+⭐ **Le due reti si scoprono a vicenda, e nessuna basta.** `_PROSA` vede 300
 cose che `disegnate` non vede (tracce di debug, stringhe di dato, testo che
-passa per più di un salto); `disegnate` ne vede 160 che `_PROSA` non vede. Non
+passa per più di un salto); `disegnate` ne vede 153 che `_PROSA` non vede. Non
 è una che sostituisce l'altra: `copertura` è il cancello del **dizionario**,
 `disegnate` è il cancello dello **schermo**, e tutt'e due chiedono la stessa
 cosa — o è coperta, o è dichiarata con scritto perché.

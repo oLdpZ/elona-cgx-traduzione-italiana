@@ -111,23 +111,21 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "`cnv_str` tolgono prefissi inglesi da quel che il giocatore scrive. "
         "La resa deve essere quella di `db_class.hsp`, non una nuova."),
     "command.hsp": Dichiarazione(
-        "fronte", 4,
-        "`\"Dv:\"` e `\" Pv:\"` (`:14191`, `:14205`), le due statistiche "
-        "d'armatura nella scheda del personaggio. ⚠️ **Sono decise: restano "
-        "invariate.** `glossario.md` mette `DV`, `PV`, `HP`, `MP`, `SP` fra "
-        "gli invariati, e la riga sotto di loro traduce `EquipWt:` dentro una "
-        "`lang()`. Quel che manca e' la RIGA IN `invariati.md`, non la "
-        "traduzione — e finche' non c'e' questo censimento le ripropone. "
-        "Restano `\",Tab \"` (`:14077`, il suggerimento di tasto, che compare "
-        "uguale in `module.hsp`) e `\"d\"`, che non e' testo: e' la «d» dei "
-        "dadi (`3d5`)."),
+        "fronte", 2,
+        "✅ `\"Dv:\"` e `\" Pv:\"` (`:14191`, `:14205`) sono uscite di qui "
+        "nella 138ª: erano gia' decise dal glossario, e quel che mancava era "
+        "la riga in `invariati.md` — che ora c'e'. Restano `\",Tab \"` "
+        "(`:14077`, il suggerimento di tasto, che compare uguale in "
+        "`module.hsp` e va deciso una volta per tutt'e due) e `\"d\"`, che "
+        "non e' testo: e' la «d» dei dadi (`3d5`)."),
     "screen.hsp": Dichiarazione(
-        "esente", 4,
-        "`\"Sp\"` e `\"Lv\"` (`:417`, `:423`) sono le etichette della barra "
-        "in basso, e sono **italiano che coincide**: `glossario.md` tiene "
-        "`SP` fra gli invariati, e «Lv» e' l'abbreviazione italiana di "
-        "livello — in uno slot dove non ci sta altro. `\"*debug*\"` e "
-        "`\"loop\"` (`:1125`, `:1128`) escono solo col debug acceso."),
+        "esente", 3,
+        "✅ `\"Sp\"` (`:417`) e' uscita di qui nella 138ª, dentro "
+        "`invariati.md` insieme alle altre sigle del glossario. Restano "
+        "`\"Lv\"` (`:423`), che NON e' esente ma va deciso insieme al "
+        "` liv.` del dizionario e al `lv:` di `main.hsp` — oggi il progetto "
+        "ne ha tre grafie — e `\"*debug*\"` e `\"loop\"` (`:1125`, `:1128`), "
+        "che escono solo col debug acceso."),
     "system.hsp": Dichiarazione(
         "esente", 3,
         "Tre finestre d'errore del sistema: «invalid version», «Failed to get "
@@ -146,13 +144,11 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "schermo, ed e' l'unica del gruppo che vada decisa insieme al «Lv» "
         "della barra e al « liv.» che il dizionario usa in `command.hsp`: "
         "**oggi il progetto ne ha due grafie**, e questa e' la terza."),
-    "proc.hsp": Dichiarazione(
-        "esente", 1,
-        "«Omae wa mou shindeiru.» (`:14392`): la battuta di Ken il guerriero, "
-        "in romaji dentro un gioco giapponese. In italiano circola cosi', e "
-        "tradurla la spegnerebbe. ⓘ Vale la riga di `invariati.md` prima o "
-        "poi, ma la sua ragione non e' «non e' testo»: e' «e' una "
-        "citazione»."),
+    # ✅ `proc.hsp` NON sta piu' qui: la sua unica stringa — «Omae wa mou
+    # shindeiru.», la citazione di Ken il guerriero — e' entrata in
+    # `invariati.md` nella 138ª, e la riga di dichiarazione va tolta INSIEME al
+    # lavoro. Lasciarla direbbe aperto un fronte che e' chiuso: e' la lezione
+    # che alla 136ª e' costata un referto sbagliato di 800 stringhe.
     "etc.hsp": Dichiarazione(
         "esente", 2,
         "«Jo» (`:95`) e' la sigla del **Jolly** sulla carta da poker, e «X » "
@@ -395,9 +391,16 @@ def censimento() -> list[dict]:
 
 
 def confronto() -> list[dict]:
-    """Quante ne perde `_PROSA`: la domanda che la 137a ha lasciato aperta."""
+    """Quante ne perde `_PROSA`: la domanda che la 137a ha lasciato aperta.
+
+    ⚠️ Sottrae le **stesse** cose del censimento, `invariati.md` compreso: due
+    misure della stessa cosa che tolgono liste diverse sono due numeri che non
+    si possono confrontare, e la prossima sessione ne troverebbe due e non
+    saprebbe quale credere.
+    """
     toppe = copertura._righe_con_toppa()
     rese = _rese_note()
+    invarianti = _invarianti()
     fuori = []
     for percorso in sorted(percorsi.SORGENTE_HSP.glob("*.hsp")):
         nome = percorso.name
@@ -409,13 +412,15 @@ def confronto() -> list[dict]:
 
         mie = set()
         for numero, _comando, letterale in tutte_di(nome, testo, morte):
-            if letterale in rese.get(nome, set()):
+            if letterale in rese.get(nome, set()) or letterale in invarianti:
                 continue
             if righe_del_file[numero - 1].strip() in toppe.get(nome, set()):
                 continue
             mie.add(letterale)
-        sue = set(copertura.scoperte_di(nome, testo, toppe.get(nome, set()),
-                                        morte, rese.get(nome, set())))
+        sue = {s for s in copertura.scoperte_di(nome, testo,
+                                                toppe.get(nome, set()), morte,
+                                                rese.get(nome, set()))
+               if s not in invarianti}
         if mie or sue:
             fuori.append({"file": nome, "disegnate": mie, "prosa": sue,
                           "solo_mie": mie - sue, "solo_sue": sue - mie})

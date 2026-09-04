@@ -100,7 +100,12 @@ _SEZIONI_INVARIANTI = ("Valori di dato", "Versi senza contenuto linguistico",
                        # punteggiatura e due sono versi -- lo stesso criterio
                        # della sezione dei versi, su un meccanismo diverso
                        # (`dizionario/carte/dialoghi.jsonl`, campo `invariata`).
-                       "Le sei battute della nuvoletta")
+                       "Le sei battute della nuvoletta",
+                       # 138a: `Dv:`, ` Pv:`, `Sp` e la citazione di Ken il
+                       # guerriero. Il glossario le aveva gia' decise; stanno
+                       # fuori da `lang()`, quindi non le raggiungeva nessun
+                       # dizionario e non le dichiarava nessuna riga.
+                       "Le sigle nude che il glossario")
 _SEZIONI_NON_INVARIANTI = ("Da decidere", "Nomi di creatura")
 
 # ⚠️ La terza categoria, nata nella 132a. Le due liste qui sopra rispondono

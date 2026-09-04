@@ -1,20 +1,21 @@
 # Ripresa sessione
 
-Aggiornato: 2026-09-04, fine della **centotrentasettesima** sessione (**un
-cancello che contava corto, 58 stringhe che nessuno vedeva, e un passo che
-cancellava le toppe del passo prima**).
+Aggiornato: 2026-09-04, fine della **centotrentottesima** sessione (**le
+battute della nuvoletta, gli sparsi del gioco di carte, e la rete che parte da
+chi disegna**).
 
-⭐ **L'ESEGUIBILE IN GIOCO E' FRESCO: 08:02 del 04/09**, e contiene le 165 rese
-nuove della Fase 6 piu' tutto il pregresso. ⓘ Si legge con
+⭐ **L'ESEGUIBILE IN GIOCO E' FRESCO: 18:10 del 04/09**, e contiene le 165 rese
+della Fase 6 fino alla 137a **piu' le 92 di questa sessione**. ⓘ Si legge con
 `ls -l C:\Games\Elona\elonaplus2.31\cgx-test.exe`. I sei file dati non sono
 cambiati.
 
-⚠️⚠️ **L'ordine obbligato per portare tutto in gioco ha UN PASSO IN PIU'.**
+⚠️⚠️ **L'ordine obbligato per portare tutto in gioco ha SEI PASSI.**
 
     python -m strumenti.applica            <- prima
     python -m strumenti.scene --applica    <- POI
     python -m strumenti.carte --applica    <- POI
-    python -m strumenti.schede --applica   <- NUOVO, e POI
+    python -m strumenti.schede --applica   <- POI
+    python -m strumenti.dialoghi --applica <- NUOVO (138a), e POI
     python -m strumenti.compila --eseguibile
     cp .../build/2.05-custom-gx/elonapluscgx.exe .../elonaplus2.31/cgx-test.exe
 
@@ -22,212 +23,255 @@ cambiati.
 
 ---
 
-## ⚠️⚠️⚠️ LA COSA CHE PESA DI PIU' DELLA 137a: UN PASSO CHE CANCELLAVA IL LAVORO DEL PASSO PRIMA
+## LA COSA CHE PESA DI PIU' DELLA 138a: la domanda aperta piu' grossa ha un numero
 
-`carte --applica` e `scene --applica` leggevano dal **sorgente** e riscrivevano
-il file nell'albero di build. Cioe' lo **rifacevano da capo**, buttando via le
-toppe che `applica.py` ci aveva appena messo.
+Da due sessioni il progetto sapeva che `copertura._PROSA` — «due parole
+alfabetiche separate da uno spazio» — **non vede le etichette**, e da due
+sessioni la domanda «quante ce ne sono negli **altri novanta file**» era la
+cosa aperta piu' grossa: finche' non ha una risposta, ogni «quanto manca» e' un
+numero di cui non ci si puo' fidare.
 
-Su `tcg_mod.hsp` la toppa e' una sola — i nomi delle fasi del turno,
-`"Inizio", "Pesca", "Principale", "Fine"` — ed e' tornata **inglese in ogni
-eseguibile dalla 136a al 04/09**. Su `tcg.hsp`, che di toppe ne ha 165, il
-lotto C l'avrebbe fatto esplodere: e' il file che `schede --applica` riscrive.
+⭐⭐ **Adesso c'e': 153.** `strumenti/disegnate.py` parte da **chi manda un
+testo allo schermo** (`txt`, `mes`, `bmes`, `chatList`, `chatMore`, `cardhelp`,
+`dialog`, `mesbox`, `objprm`, `poptext`) e lavora su due livelli:
 
-**Perche' nessun conto se ne accorgeva:** il numero delle toppe lo stampa
-`applica`, cioe' **prima** che i passi successivi le cancellino. Il cancello
-c'era, il numero era giusto, ed era preso nel momento sbagliato.
+    livello 0   il letterale sta sulla RIGA del comando
+                    mes "Dv:" + dvr1
+    livello 1   il letterale e' assegnato a una VARIABILE che qualcuno disegna
+                    s@tcg += "[Command Card] "     ...poi   mes s@tcg
 
-⭐⭐ **Come applicarlo:** la 136a aveva imparato che di un cancello non basta
-chiedere *cosa* misura, va chiesto **su quale copia**. Questa aggiunge il
-gradino dopo: va chiesto anche **in quale momento della catena**. Una misura
-giusta presa prima dell'ultimo passo che tocca il file e' indistinguibile da
-una sbagliata.
+⚠️ **Il livello 1 e' il gradino che mancava, e senza di lui la rete non serve a
+niente**: da solo il livello 0 su tutto il sorgente trova **34** stringhe, e le
+58 etichette della 137a non ci sarebbero — non stavano su una riga di `mes`.
+Coi due insieme: **158 distinte su 11 file, e 153 di loro nessun
+censimento le vedeva**.
 
-⭐ Ora tutt'e tre i passi leggono la build, e
-`test_i_passi_dopo_applica_non_buttano_via_le_toppe` pretende che le toppe dei
-quattro file riscritti siano vive **dopo** l'ultimo passo. Accanto c'e'
-`test_i_nomi_delle_fasi_del_turno_sono_in_italiano`, che nomina il caso: uno
-zero senza il caso che l'ha fatto nascere non si legge.
+⚠️⚠️ **Il ramo giapponese puo' essere scritto in lettere latine.**
+`chat.hsp:6711` e' `lang("Yes", "Yes.")`, e il primo giro della rete l'ha
+contato come «scoperto» — cioe' ha detto che **manca del lavoro che c'e'**. Il
+filtro sui byte non-ASCII non basta: serve leggere `jp_grezzo` dai siti.
 
----
-
-## ⚠️⚠️ `copertura` NON PUO' VEDERE LE ETICHETTE, E UN'INTERFACCIA E' FATTA DI ETICHETTE
-
-`copertura._PROSA` e' `[A-Za-z]{3}[a-z]*\s+[A-Za-z]`: pretende **due parole
-alfabetiche separate da uno spazio**. E ne basta meno per sparire:
-
-    "Regeneration "        una parola sola             -> INVISIBILE
-    "<Yerles> "            una parola sola             -> INVISIBILE
-    "Filter: Attack   "    due parole, ma coi due punti attaccati alla prima
-                                                       -> INVISIBILE
-    "Sort by: Attack   "   due parole vere             -> vista
-
-Delle **84 etichette** che `tcg.hsp:1520-1605` appende alla scheda di una
-carta, `_PROSA` **ne vede 26**. Le altre **58** stavano a schermo in inglese
-dentro un fronte **dichiarato e contato**, e il conto non le comprendeva.
-
-    58 invisibili   ->  37 rese dalla 137a
-                        13 invariate per decisione (nomi propri, sigle,
-                           parole uguali in italiano)
-                         8 ancora da fare: i `Filter:` del lotto B2
-
-⚠️⚠️ **Il buco vale per TUTTO il sorgente, non solo per `tcg.hsp`, e questa
-sessione non l'ha misurato altrove.** Allargare l'euristica alla parola sola
-non si puo': in HSP quasi tutti i letterali di una parola sono identificatori,
-e il referto annegherebbe. Serve una rete che parta da **chi disegna** (`mes`,
-`bmes`, `txt`, `s@tcg +=` che finisce in una stringa disegnata), non dalla
-forma della stringa. **E' la cosa aperta piu' grossa che lascia la 137a.**
+⭐ **Le due reti si scoprono a vicenda e nessuna basta.** `_PROSA` vede 300 cose
+che `disegnate` non vede (tracce di debug, stringhe di dato, testo che passa
+per piu' di un salto); `disegnate` ne vede 153 che `_PROSA` non vede.
+`copertura` e' il cancello del **dizionario**, `disegnate` quello dello
+**schermo**, e tutt'e due chiedono la stessa cosa: o e' coperta, o e'
+dichiarata con scritto perche'.
 
 ---
 
-## ⚠️⚠️ IL CANCELLO DELLA FASE 5 CONTAVA LE RIGHE CORTE
+## ⭐⭐ IL FRONTE CHE HA TROVATO: 126 etichette che nessuno contava
 
-`carte.righe_a_capo` modellava `talk_conv` (`init.hsp:1326-1367`) saltandone il
-blocco **JAMES CUSTOM** (`:1337-1352`), che manda a capo su un ritorno a capo
-**gia' presente nel testo**. Nel file HSP quel `\n` sono due caratteri;
-nell'eseguibile e' uno solo, e il gioco ci spezza la riga.
+`tcg.hsp:3552-3632`, `cfname@tcg`: il **menu dei filtri dell'editor di mazzo**.
 
-    conto corto su       28 rese su 833
-    massimo vero          4 righe, non le 3 scritte dalla 136a
+    All  Blue  Green  White  Black  Neutral  Legendary  Gray  Red
+    Cost 0 … Cost 8+      1- Atk … 9+ Atk      1 HP … 9+ HP
+    seamonster  frog  snail  spirit  slime  bird  mushroom  …
+    warrior  thief  wizard  claymore  priest  archer  warmage  gunner  …
 
-E **la larghezza non la misurava nessuno**: `talk_conv` non spezza mai dentro
-una parola, e la coda senza spazi la appende senza guardare la colonna
-(difetto di monte, gia' visto tagliare a schermo nella 23a). Sei rese
-uscivano fino a **81 colonne** pur avendo il rientro a 65.
+Sono a schermo da sempre, in inglese, dentro un file che il progetto ha
+lavorato tre volte. **Non sono state tradotte, e non per fatica:**
 
-⭐ **La domanda del riquadro si e' sciolta da sola, e con la ragione:**
-l'altezza massima italiana e' 4 righe e **anche quella inglese e' 4**. La
-traduzione non chiede al riquadro niente che l'inglese non gli chieda gia'.
-Non e' lo zero a essere un risultato: e' la ragione dello zero.
+1. ⚠️ stanno in **slot a larghezza fissa**, gli stessi degli 8 `Filter:` del
+   lotto B2, e l'italiano e' piu' lungo: **vanno guardate a schermo prima**;
+2. ⚠️⚠️ le razze e le classi **non si decidono qui**: sono gli stessi nomi di
+   `db_race.hsp`, `db_class.hsp` e delle carte. Se il filtro dice «dragon» e la
+   carta dice «drago», il giocatore non trova le sue carte.
 
----
+Il triage completo degli altri file sta in
+`piani/2026-09-04-fase-7-chi-disegna.md`.
 
-## DOVE SIAMO: la Fase 6 e' a tre lotti su cinque
-
-    lotto A   32 etichette dei bit + "Bits:  " -> "Tratti:  "     toppe
-    lotto B   21 etichette della scheda                            toppe
-    lotto C   72 schede di carta scritte a mano    strumenti/schede.py
-    ─────────────────────────────────────────────────────────────
-              165 rese nuove, nessuna vista a schermo
-
-⚠️⚠️ **`"Bits:  "` ha DUE spazi e sono portanti.** La scrive `tcg.hsp:1522`, la
-**cercano** `:1470`, `:4625` e `:4630`. Tradotta solo dove si scrive, la riga
-dei tratti sparisce dalla scheda di ogni carta che ne abbia — la trappola
-esatta della 136a, stavolta censita **prima** di tradurre. Il cancello legge la
-build e la prova al contrario ne rimette **uno** in inglese su una copia: dice
-`3 == 4`, non un booleano.
-
-⭐ **Il vocabolario della scheda e' un RIFIUTO, non un avviso.** Il ramo
-dinamico scrive gia' italiano dentro `lang()` (`tcg.hsp:1495-1610`):
-
-    "  No."   -> "  N."         "Effect: " -> "Effetto: "
-    "  Rare:" -> "  Rarita':"   "Bits:  "  -> "Tratti:  "  (137a)
-
-Una scheda scritta a mano che dicesse ancora `Rare:` spaccherebbe il gioco in
-due meta' che parlano lingue diverse, e non lo vedrebbe nessun cancello che
-guardi la resa per conto suo.
-
-⭐ **Gli innesti li giudica `carte.problemi`, non una regola nuova.** Li' dentro
-c'e' gia' la distinzione che serve: si controllano **solo in testa**, perche'
-`Sacrifice` in testa e' «Sacrificio:» ma a meta' frase e' il verbo «sacrifica».
-Due copie della stessa tabella sono due tabelle.
-
-⚠️ **72 schede, non le 76 del censimento.** Il conto e' stato **rifatto**, non
-aggiustato: le sette di differenza sono giunture dichiarate (`"ace of "`,
-`"High Potion of "`) piu' una traccia di debug.
-`scratchpad/_137-schede-riconcilia.py` lo fa vedere.
+⭐ **Quattro sono uscite dal fronte senza tradurre niente.** `Dv:`, ` Pv:`, `Sp`
+e «Omae wa mou shindeiru.» erano decisioni **gia' prese** in `glossario.md` che
+nessuna riga dichiarava, perche' stanno fuori da `lang()` e nessun dizionario
+le raggiunge. Una decisione va scritta **dove la cerca chi misura**, non solo
+dove la cerca chi traduce.
 
 ---
 
-## I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 137a
+## Il lotto D: 77 siti dove il piano ne contava 52
 
-    pytest                   **952 passed**, 6 skipped (erano 921)
+`strumenti/dialoghi.py` e' lo stesso metodo su un fronte solo: le battute della
+nuvoletta del gioco di carte, prese da **chi parla** (`efllistaddchat`, e gli
+array che qualcuno gli passa — `randomchat@tcg`, `imaritsuka@tcg`,
+`manytiadialog@tcg`). 74 chiavi: **68 rese, 6 invariate**.
+
+⚠️ Tre cose che le schede non avevano, e che ora hanno un cancello ciascuna:
+
+- **una chiave sta su PIU' righe** (`"H means HIGHLANDER!"` a `:1716` e
+  `:7187`): 68 rese fanno **71 sostituzioni**, e i tre in piu' sono
+  esattamente quelli. Una prova legge la build dopo tutta la catena e pretende
+  che la battuta compaia **due volte** in italiano;
+- **i sette kamui hanno due nomi inglesi per la stessa cosa** — la nuvoletta li
+  annuncia, `effdesc@tcg` li descrive — e due di quei nomi sono **identici**.
+  La meta' che nomina gli dei e' un vincolo, non una scelta:
+  `dialoghi.VOCABOLARIO` la rifiuta;
+- **«invariata» e' un CAMPO, non un silenzio**: `decise()` conta insieme rese e
+  invariate, o il referto chiederebbe per sempre un lavoro che non c'e'.
+
+⚠️ `efftalk@tcg` e' un array che parla ed e' **esente**: lo rende gia'
+`carte.battute()`. Due meccanismi che scrivono la stessa riga sono il modo in
+cui una resa sparisce senza che nessuno lo veda.
+
+---
+
+## Il lotto E: 24 toppe, e un cancello che chiedeva la riga intera
+
+Le giunture che compongono un nome di carta a runtime («asso di », «Pozione
+forte di », «calzini di »), i dieci nomi di bevanda, le scritte del bollino,
+i nove segnaposto della tabella che il gioco esporta in `TCG_card_list.txt`, il
+nome del tipo di file del dialogo mazzo, e **due descrizioni d'effetto che
+vivono fuori da `tcg_mod.hsp`** — l'unico file che `carte.py` guarda.
+
+⚠️⚠️ **Due meccanismi possono lavorare sulla stessa riga, ognuno sul suo
+pezzo.** `tcg_skill.hsp:931` porta la giuntura (una toppa) **e** la scheda
+della carta (dizionario di `schede.py`): funziona per **ordine**, perche'
+`applica` gira per primo, quando il letterale inglese e' ancora li' da
+agganciare.
+
+⭐ Ma ha fatto suonare `test_i_passi_dopo_applica_non_buttano_via_le_toppe`,
+che pretendeva la riga di `sostituisci` **intera** dentro la build. Le toppe
+erano vive; la riga no. **«La toppa e' viva» e «la riga della toppa e' intatta»
+non sono la stessa affermazione**, e il cancello chiedeva la seconda credendo
+di chiedere la prima. Ora `novita_di()` tiene solo il pezzo che la toppa
+cambia — piu' un ramo per l'unica toppa del progetto che **toglie e basta**.
+
+---
+
+## I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 138a
+
+    pytest                   **1.001 passed**, 6 skipped (erano 952)
     prova_identita           72/72 e 30.905, invariato
     scene --referto          1701 su 1701, 4 righe morte, 0 fuori misura
-    carte --referto          833/833, 8 battute, partizione 472/19,
-                             raggiunte 472/472, 0 fuori misura,
-                             **192 da guardare** (erano 186: il conto giusto)
-    **schede --referto**     **72 su 72, 8 giunture dichiarate, soffitto 78
-                             colonne, 0 fuori misura, 0 da guardare**
-    toppe                    **1.293** (erano 1.230), tutte agganciate,
-                             e `applica` non stampa ATTENZIONE
+    carte --referto          833/833, 8 battute, 0 fuori misura,
+                             192 da guardare
+    schede --referto         72 su 72, 8 giunture dichiarate, 0 fuori misura
+    **dialoghi --referto**   **77 siti su 77, 74 decise (68 rese, 6
+                             invariate), 0 fuori misura, 5 da guardare**
+    **disegnate**            **158 distinte disegnate e scoperte, 11 file,
+                             tutti dichiarati, uscita 0**
+    toppe                    **1.317** (erano 1.293), tutte vive DOPO l'ultimo
+                             passo, e `applica` non stampa ATTENZIONE
     applica                  30.766 sostituzioni
     perimetro                28.028 fatte, 0 da fare, 100,0%
                              (**31.795** coi file dati)
                              ⚠️ gira solo con `PYTHONPATH=. PYTHONIOENCODING=utf-8`
     _97-quanto-resta         111 / 111 / 0
     verifica --dizionario    0 da ritradurre, uscita 0
-    **copertura**            **7 fronti, 118 scoperte** (erano 211),
-                             0 file non dichiarati, uscita 0
+    **copertura**            **6 fronti, 31 scoperte** (erano 7 e 118),
+                             `tcg_skill.hsp` da FRONTE a ESENTE
 
 ⚠️ **Nessuno di questi numeri si eredita da qui: si rilanciano.** E in chiusura
 si rilancia tutto cio' che produce un numero atteso, **dopo** l'ultima modifica
 ai documenti. ⚠️ E un numero non si **scrive** finche' non e' stato appena
-letto da un comando: la 133a aveva scritto due previsioni credendole misure.
+letto da un comando: la 133a aveva scritto due previsioni credendole misure, e
+la 138a ha scritto «pytest 978» dove erano 981.
 
 ---
 
 ## Che cosa guardare adesso: le cose aperte
 
-1. ⭐⭐⭐ **La rete che parte da CHI DISEGNA, non dalla forma della stringa.**
-   E' il seguito del buco di `_PROSA`: 58 stringhe a schermo in un solo file
-   non le contava nessuno, e nessuno ha misurato quante siano negli altri 90.
-   ⚠️ Non e' un lotto di traduzione: e' una rete, e va costruita prima di
-   fidarsi di nuovo del numero «quanto manca».
-2. ⭐⭐⭐ **La schermata del dettaglio di una carta: nessuno l'ha mai vista.**
-   Col tasto **`c`** nella schermata di modifica mazzo. Tre cose da guardare:
-   la riga **`Tratti:`** invece di `Bits:`, un'etichetta come
-   **`[Carta comando]`**, e una delle 72 schede a mano (la piu' facile da
-   trovare e' **Cristallo di Cura** fra le carte comando).
-   ⓘ La piu' **alta** e' **Zeome** (`<Zeome> the false prophet`, costo 3, 3/3,
-   dominio 5): 4 righe d'effetto piu' la riga dei tratti piu' il nome.
-   La piu' **larga** e' **Deus Ex Manina** (costo 9, 24/12): 76 colonne.
-3. ⭐⭐ **Fase 6, lotto D**: 35 battute (`efllistaddchat`, `cnvtalk`) e 17
-   `randomchat@tcg` di `tcg_skill.hsp`. ⚠️ Serve un riconoscitore nuovo: le
-   `randomchat` stanno in liste con **piu' stringhe sulla stessa riga**, e la
-   chiave-letterale di `schede.py` non basta cosi' com'e'.
-4. ⭐⭐ **Fase 6, lotto B2**: gli 8 `Filter:` della schermata mazzo (piu' i 5
-   `Sort by:`, che il censimento invece vede). ⚠️ Sono disegnati in slot a
-   larghezza fissa e l'italiano e' piu' lungo di 4 caratteri: **guardarli a
-   schermo prima di tradurli.**
-5. ⭐⭐ **Fase 6, lotto E**: 12 sparsi di `tcg.hsp`, la pezza `"the The"`
-   (`tcg_custom.hsp:4566`, che coi nomi italiani non aggancia piu'), e la
-   descrizione ancora giapponese di `db_card.hsp:2695`.
-6. ⭐⭐ **Il debito di collaudo: ~12.300 rese mai viste a schermo**, di cui 165
-   aggiunte dalla 137a.
-7. ⭐⭐ **Il difetto preesistente di «ragon»** (`tcg_skill.hsp:4960`, `:4972`,
-   `:5003`): tocca `db_card` e vuole una decisione di glossario fra «drago» e
-   «draco».
-8. ⭐⭐ **`tcg_skill.hsp:2003` non manda a capo.** E' la seconda ricomposizione
-   della scheda (il lich che sale di grado): il prefisso ora e' `Effetto:`
-   grazie a una toppa della 137a, ma li' **non c'e' `talk_conv`**, quindi una
-   descrizione lunga esce su una riga sola. Non l'ha introdotto la traduzione.
-9. ⭐⭐ **`efftalk@tcg(TCG_EFF_LITTLESISTER)`** (`tcg_mod.hsp:2354`) resta
-   fuori: e' una concatenazione, va guardata a mano con `_onii()`.
-10. ⭐⭐ **`module.hsp`, 10 stringhe.** Gli otto `cnv_str fix_wish_arg1,
+1. ⭐⭐⭐ **Il collaudo a schermo, ed e' l'unica cosa che il modello non puo'
+   fare.** In gioco ci sono **257 rese della Fase 6** che nessuno ha mai visto:
+   165 dalla 137a e 92 da questa. I tre posti da guardare:
+   - la **scheda di dettaglio di una carta**, col tasto `c` nella schermata di
+     modifica mazzo: la riga `Tratti:` invece di `Bits:`, un'etichetta come
+     `[Carta comando]`, e una delle 72 schede a mano (la piu' facile da trovare
+     e' **Cristallo di Cura** fra le carte comando). ⓘ La piu' **alta** e'
+     **Zeome** (4 righe d'effetto); la piu' **larga** e' **Deus Ex Manina** (76
+     colonne);
+   - una **nuvoletta** qualsiasi durante un turno (le 68 battute nuove);
+   - il **menu dei filtri** del mazzo, che e' il fronte del punto 2.
+2. ⭐⭐⭐ **Il menu dei filtri: 126 etichette** (`tcg.hsp:3552-3632`), piu' gli
+   8 `Filter:` e i 5 `Sort by:` del lotto B2. ⚠️ Slot a larghezza fissa: prima
+   lo schermo, poi la traduzione. ⚠️⚠️ E le razze/classi vanno decise insieme a
+   `db_race.hsp` e `db_class.hsp`.
+3. ⭐⭐ **Il secondo salto della rete.** `disegnate` fa **un salto solo, dentro
+   lo stesso file**: una stringa messa in una variabile, passata a una funzione
+   e disegnata altrove resta fuori. Quanto costi non lo sa nessuno — ed e' la
+   stessa forma della domanda a cui questa sessione ha risposto.
+4. ⭐⭐ **`noteadd` non e' fra i comandi che disegnano**, e ci passano la lista
+   delle carte e il diario. Sta fuori perche' scrive **anche** i file di dato:
+   mescolarlo direbbe «da tradurre» a righe che tradotte romperebbero un
+   salvataggio. Vuole una decisione, non un allargamento.
+5. ⭐⭐ **Tre grafie per la stessa cosa**: `Lv` (`screen.hsp:423`), ` liv.`
+   (dizionario di `command.hsp`), `lv:` (`main.hsp:3258`). Vanno unificate.
+6. ⭐⭐ **Le 12 classi di `action.hsp:13670-13703`**, scritte dentro il nome
+   della creatura dal comando dei desideri. ⚠️ Sulla stessa riga c'e'
+   l'**operando** (`if inputlog == "warrior"`), che e' quel che il giocatore
+   digita e non si tocca.
+7. ⭐⭐ **La pezza «the The»** (`tcg_custom.hsp:4566`) e il nome composto
+   `randomname() + ", the " + random_title()`: coi nomi italiani non aggancia
+   piu' niente, e la giuntura `", the "` e' invisibile a `_PROSA`. Vuole le
+   regole di `contratto-nomi.md`, non una toppa.
+8. ⭐⭐ **`db_card.hsp:2695`**, una descrizione rimasta giapponese.
+9. ⭐⭐ **Il difetto preesistente di «ragon»** (`tcg_skill.hsp:4960`, `:4972`,
+   `:5003`): `instr` cerca dentro il testo della carta, quindi la resa di
+   «dragon» deve **contenere** «ragon». Vuole una decisione di glossario fra
+   «drago» e «dragone». ⚠️ Si incrocia col punto 2: il filtro delle razze
+   contiene `dragon`.
+10. ⭐⭐ **`tcg_skill.hsp:2003` non manda a capo**: e' la seconda ricomposizione
+    della scheda, e li' non c'e' `talk_conv`, quindi una descrizione lunga esce
+    su una riga sola. Non l'ha introdotto la traduzione.
+11. ⭐⭐ **`efftalk@tcg(TCG_EFF_LITTLESISTER)`** (`tcg_mod.hsp:2354`): una
+    concatenazione con `_onii()`, da guardare a mano.
+12. ⭐⭐ **`module.hsp`, 10 stringhe.** Gli otto `cnv_str fix_wish_arg1,
     "card of ", ""` tolgono i prefissi **INGLESI** da quel che il giocatore
-    scrive esprimendo un desiderio: coi nomi italiani non agganciano piu'
-    niente. ⚠️ E' un comportamento del gioco che potrebbe essere gia' rotto.
-11. ⭐⭐ **Il filtro delle 26 categorie d'oggetto** (`map_func.hsp:2517`):
+    scrive: coi nomi italiani non agganciano piu' niente. Potrebbe essere gia'
+    rotto.
+13. ⭐⭐ **Il filtro delle 26 categorie d'oggetto** (`map_func.hsp:2517`):
     tradurlo **fisserebbe** i nomi italiani delle categorie, che il progetto
     non ha.
-12. ⭐ **`help.hsp:409`**, `s "広域能力を使う(Wide apply)"`: giapponese e inglese
+14. ⭐ **`help.hsp:409`**, `s "広域能力を使う(Wide apply)"`: giapponese e inglese
     nella stessa stringa, fuori da `lang()`.
-13. ⭐⭐ **Due omografi**: 化身 e 下僕 sono tutt'e due «incarnazione».
-14. ⭐⭐ **`Rehmido` e' ambiguo**: レム・イド (la civilta') e レミード (le rovine).
-15. ⭐⭐ **Le quattro teste variabili senza articolo** (`JUICE`, `NECRO_PARTS`,
+15. ⭐⭐ **Due omografi**: 化身 e 下僕 sono tutt'e due «incarnazione».
+16. ⭐⭐ **`Rehmido` e' ambiguo**: レム・イド (la civilta') e レミード (le rovine).
+17. ⭐⭐ **Le quattro teste variabili senza articolo** (`JUICE`, `NECRO_PARTS`,
     `PRODUCED_BOOK`, `EVITEM`), dalla 131a. Invariata.
-16. ⭐⭐ **La rete che cerca l'operando di una SOSTITUZIONE** (`sreplace`,
-    `instr`, `strmid` con un letterale). Dalla 130a. ⚠️ La 137a le ha dato il
-    terzo movente: `"Bits:  "` era cercata in tre posti e scritta in uno, e
-    `"Effect: "` aveva **due** operandi dimenticati (`tcg.hsp:4628` e
-    `tcg_skill.hsp:2003`). Ogni volta l'ha trovata una lettura a mano.
-17. ⭐ **Le reti sulle toppe: ne restano fuori due** — le maiuscole del testo e
+18. ⭐⭐ **La rete che cerca l'operando di una SOSTITUZIONE** (`sreplace`,
+    `instr`, `strmid` con un letterale). Dalla 130a, e la 138a le ha dato il
+    quarto movente: le 12 classi di `action.hsp` stanno **accanto** al loro
+    operando, sulla riga di sopra.
+19. ⭐ **Le reti sulle toppe: ne restano fuori due** — le maiuscole del testo e
     le larghezze fuori dai menu. Dalla 130a.
-18. 💡 **La coda nuda di una `lang()` gia' resa** (`chat.hsp:17065`, 127a).
-19. ✅ ~~Il soffitto del riquadro delle descrizioni d'effetto~~ — **sciolto
-    dalla 137a**: l'italiano non supera l'inglese ne' in altezza (4 = 4) ne'
-    in larghezza (il cancello lo tiene sotto 77).
+20. 💡 **La coda nuda di una `lang()` gia' resa** (`chat.hsp:17065`, 127a).
+21. ✅ ~~La rete che parte da chi disegna~~ — **fatta dalla 138a**, ed e'
+    `strumenti/disegnate.py`. Quel che resta e' il **secondo** salto (punto 3),
+    non il primo.
+
+---
+
+## Le trappole che la 138a ha trovato
+
+⚠️⚠️ **Un cancello puo' chiedere una cosa piu' forte di quella che intende.**
+`test_i_passi_dopo_applica_non_buttano_via_le_toppe` pretendeva la riga di
+`sostituisci` **intera** dentro la build, credendo di chiedere «la toppa e'
+viva». Quando due meccanismi hanno cominciato a lavorare sulla stessa riga su
+pezzi diversi, ha detto morte due toppe vivissime. ⭐ La correzione non e'
+un'esenzione: e' una domanda piu' precisa (`novita_di()`, il pezzo che la toppa
+cambia). Un'esenzione avrebbe spento il cancello anche per il caso vero.
+
+⚠️⚠️ **Un filtro che si fida della forma sbaglia sui casi di bordo.** «Il
+giapponese ha byte fuori dall'ASCII» e' vero mille volte e falso una:
+`lang("Yes", "Yes.")`. Quella volta il censimento dice «manca del lavoro che
+c'e'» — l'errore piu' caro dei due, perche' manda a lavorare su una riga
+finita.
+
+⚠️ **Una decisione va scritta dove la cerca chi MISURA.** `Dv:`, ` Pv:` e `Sp`
+erano decise da sessioni in `glossario.md`, ma stanno fuori da `lang()`: nessun
+dizionario le raggiunge, nessuna riga le dichiarava, e la rete nuova le ha
+ripresentate come lavoro da fare. Sono uscite dal fronte **senza tradurre
+niente**, scrivendo la riga che mancava in `invariati.md`.
+
+⚠️ **Un numero non si scrive finche' non e' stato letto.** In questa sessione
+«pytest 978» e' finito in un piano prima di lanciarlo: erano **981**. La
+133a aveva fatto lo stesso con due previsioni. Il numero si legge, poi si
+scrive.
+
+⚠️ **La deroga `tutte` di una toppa e' una dichiarazione, e il cancello la
+pretende esatta**: dichiararla su una riga unica e' una bugia, e il generatore
+del lotto E si e' fermato tre volte prima di scrivere una riga — due per
+`tutte` mancante, una per `tutte` di troppo.
 
 ---
 

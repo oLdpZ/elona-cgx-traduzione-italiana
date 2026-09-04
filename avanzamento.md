@@ -4454,3 +4454,52 @@ Catena rimisurata **dopo** l'ultima modifica ai documenti: `pytest` **834
 passed** e 6 skipped, identità 72/72 e 30.905, toppe 1.182/1.182 senza
 ATTENZIONE, `scene --referto` 1.701 su 1.701 e 0 fuori misura, perimetro 28.028
 su 28.028, `verifica --dizionario` **0 da ritradurre** e uscita 0.
+
+---
+
+## 2026-09-04, centotrentottesima — il gioco di carte finisce di parlare, e la rete cambia metro
+
+⚠️ **Questo file salta dalla 134ª alla 138ª, e non è una dimenticanza di
+oggi**: dalla 135ª alla 137ª il racconto è finito in `decisioni.md` e nei
+piani, che sono i documenti che la routine di chiusura nomina. La riga qui
+serve a non far credere che fra i due estremi non sia successo niente: in
+mezzo ci stanno la Fase 5 (833 descrizioni d'effetto) e i lotti A, B e C della
+Fase 6 (165 rese, le schede di carta scritte a mano).
+
+**92 rese in questa sessione**, in due lotti e una rete.
+
+| lotto | che cosa | quante | meccanismo |
+|---|---|---:|---|
+| D | le battute della nuvoletta | 68 rese + 6 invariate | `strumenti/dialoghi.py` |
+| E | giunture, bevande, segnaposto, 2 descrizioni d'effetto | 24 toppe | `toppe.jsonl` |
+
+⭐⭐ **Il numero più importante della sessione non è 92: è 153.** Da due
+sessioni si sapeva che `copertura._PROSA` non vede le etichette, e non si
+sapeva quanto costasse fuori dai file già guardati.
+`strumenti/disegnate.py` parte da **chi manda un testo allo schermo** e
+risponde: **158 stringhe distinte disegnate e non coperte, su 11 file, di cui
+153 invisibili al censimento vecchio**. ⓘ Il primo giro diceva 162 e 160: le
+quattro di differenza sono uscite dal fronte entrando in `invariati.md`, senza
+tradurre niente.
+
+⚠️ **Il perimetro non si muove, e va detto.** Resta 28.028 su 28.028 (31.795
+coi file dati, 100,0%), perché il perimetro conta le voci che qualcuno ha
+**chiesto** — cioè quel che sta in un dizionario. Queste 92 rese e le 158
+scoperte stanno **fuori** da quel conto: è esattamente l'avvertenza della
+133ª, e questa sessione le dà un numero invece che una nota.
+
+⚠️⚠️ **Nessuna delle 92 è stata vista a schermo.** Il debito di collaudo sale,
+e con le 165 della 137ª fanno **257 rese della Fase 6** mai guardate. Dei
+cinque stati distinti — costruito, misurato, provato al contrario, compilato,
+visto a schermo — qui ci sono i primi quattro.
+
+⭐ **Le rese sono in gioco.** `cgx-test.exe` ricompilato e installato alle
+**18:10 del 04/09**, con l'ordine obbligato che ora ha **sei** passi: il
+quinto è `dialoghi --applica`.
+
+Catena rimisurata **dopo** l'ultima modifica ai documenti: `pytest` **1.001
+passed** e 6 skipped, identità 72/72 e 30.905, toppe **1.317** tutte vive dopo
+l'ultimo passo, `dialoghi --referto` 77 su 77 e 0 fuori misura, `schede
+--referto` 72 su 72, `copertura` **6 fronti e 31 scoperte**, `disegnate` 11
+file tutti dichiarati e uscita 0, `verifica --dizionario` 0 da ritradurre e
+uscita 0.

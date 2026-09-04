@@ -1158,3 +1158,22 @@ lingua*.
 | `!@#$` | `tcg_skill.hsp:1415`, l'imprecazione mascherata dei fumetti (*grawlix*). Non sono parole: sono i segni sopra i tasti dei numeri, uguali in ogni lingua |
 | `!` | `tcg_skill.hsp:7435`, il punto esclamativo che chiude la battuta di `<Aime>` **dopo** `_onii()`: la riga è `"Hahaha! Hope you like Aime's Deck, " + _onii(...) + "!"`, e questo è il pezzo dopo la variabile. Un segno, non una parola. ⚠️ La prima metà **si traduce** ed è tradotta: qui la cornice e il testo stanno in due letterali diversi, al contrario di `[Made by][` |
 | `Faaaaaaaa!! Oh Oh Oh Oh!` | `tcg_skill.hsp:6620`, una delle dieci battute a caso di `<Rianna>` quando gioca male: otto «a» e quattro «Oh». È la risata-lamento, non una frase, e in italiano si legge uguale |
+
+## Le sigle nude che il glossario aveva già deciso — 138ª
+
+⚠️ **Non sono decisioni nuove: sono decisioni scritte.** `glossario.md` mette
+`DV`, `PV`, `HP`, `MP`, `SP`, `AP` fra gli invariati da sessioni («il giapponese
+stesso le scrive in latino»), ma queste tre stanno **fuori da `lang()`**, nude
+dentro un `mes`, quindi nessun dizionario le raggiunge e nessuna riga le
+dichiarava. La rete di `disegnate.py` le ha ritrovate e le ha chiamate «da
+fare», che era falso: quel che mancava era questa riga.
+
+⭐ È la ragione per cui una decisione va scritta **dove la cerca chi misura**, e
+non solo dove la cerca chi traduce.
+
+| valore | motivo |
+|---|---|
+| `Dv:` | `command.hsp:14191` e `:14205`, la difesa nella scheda del personaggio. `glossario.md` tiene `DV` fra gli invariati, e la riga **sotto** questa traduce `EquipWt:` dentro una `lang()`: la sigla resta, l'etichetta si traduce. ⚠️ Il valore dichiarato è `Dv:` coi due punti, perché il letterale è quello — `mes "Dv:" + dvr1` |
+| ` Pv:` | `command.hsp:14191` e `:14205`, la protezione, sulla stessa riga di `Dv:` e per la stessa ragione. ⚠️ Lo spazio iniziale è portante: separa le due sigle |
+| `Sp` | `screen.hsp:417`, la resistenza nella barra in basso (`bmes "Sp" + cdata(CDATA_SP...)`). Stessa famiglia, e in più lo slot è quello: 38 px dal bordo |
+| `Omae wa mou shindeiru.` | `proc.hsp:14392`, la citazione di Ken il guerriero in *romaji* dentro un gioco giapponese. ⚠️ **Non è inglese lasciato lì**, ed è il rovescio di `Info` e `t `: qui non è italiano che coincide, è una citazione che in italiano circola in questa forma. Tradurla — «tu sei già morto» — la spegnerebbe, perché quel che si riconosce è la frase giapponese, non il suo senso |

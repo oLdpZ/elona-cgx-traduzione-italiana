@@ -17,7 +17,7 @@ progetto:
 
 > *quante stringhe a schermo non le vede nessuno, negli altri novanta file?*
 
-**Adesso c'è un numero: 160.**
+**Adesso c'è un numero: 153.**
 
 ## Come
 
@@ -32,7 +32,8 @@ manda un testo allo schermo** — `txt`, `mes`, `bmes`, `chatList`, `chatMore`,
 
 ⭐ Il livello 1 è il gradino che mancava, ed è esattamente il caso costato due
 volte: da solo, il livello 0 su tutto il sorgente trova 34 stringhe. Coi due
-livelli insieme ne trova 162.
+livelli insieme ne trova 162 — 158 dopo che quattro sono uscite
+entrando in `invariati.md`.
 
 Cosa si sottrae, e perché: il ramo giapponese di ogni `lang()` (⚠️ **anche
 quando è scritto in lettere latine** — `chat.hsp:6711` è `lang("Yes", "Yes.")`,
@@ -49,9 +50,9 @@ che tradotte romperebbero un salvataggio.
 
 ## Che cosa ha trovato
 
-    162 stringhe distinte disegnate e non coperte, su 12 file
-    160 di queste il censimento vecchio NON le vedeva
-    301 ne vede `_PROSA` che questa rete non vede (tracce di debug,
+    158 stringhe distinte disegnate e non coperte, su 11 file
+    153 di queste il censimento vecchio NON le vedeva
+    300 ne vede `_PROSA` che questa rete non vede (tracce di debug,
         stringhe di dato, e il testo che passa per più di un salto)
 
 Le due reti si scoprono a vicenda, e nessuna delle due basta da sola: è per
@@ -82,23 +83,32 @@ lotto va fatto **insieme** a quella tabella, non prima.
 | file | quante | che cosa |
 |---|---|---|
 | `action.hsp` | 12 | le classi che il comando dei desideri scrive dentro il nome della creatura. ⚠️ Sulla stessa riga c'è l'**operando** (`if inputlog == "warrior"`), che è quel che il giocatore digita e non si tocca |
-| `command.hsp` | 4 | `Dv:` e ` Pv:` — **decise invariate** dal glossario, manca solo la riga in `invariati.md` — più `,Tab ` e la «d» dei dadi |
-| `main.hsp` | 2 | `lv:`, che va deciso insieme al `Lv` della barra e al ` liv.` del dizionario: **oggi il progetto ne ha due grafie e questa è la terza** |
-| `module.hsp` | 1 | `,Tab `, lo stesso di `command.hsp` |
-| `screen.hsp` | 4 | `Sp` e `Lv` della barra (italiano che coincide), più due tracce di debug |
+| `command.hsp` | 2 | `,Tab ` e la «d» dei dadi. ✅ `Dv:` e ` Pv:` sono uscite: erano **già decise** dal glossario, e la 138ª ha scritto la riga che mancava |
+| `main.hsp` | 2 | `lv:`, che va deciso insieme al `Lv` della barra e al ` liv.` del dizionario: **oggi il progetto ne ha tre grafie** |
+| `module.hsp` | 1 | `,Tab `, lo stesso di `command.hsp`: si decide una volta per tutt'e due |
+| `screen.hsp` | 3 | `Lv` della barra (vedi `main.hsp`) e due tracce di debug. ✅ `Sp` è uscita con `Dv:` e ` Pv:` |
 | `system.hsp`, `net.hsp` | 5 | finestre d'errore di sistema, stessa famiglia dei comandi MCI di `sound.hsp` |
 | `etc.hsp` | 2 | `Jo` (il Jolly) e `X ` (il segno di moltiplicazione della pila) |
-| `proc.hsp` | 1 | «Omae wa mou shindeiru.», la citazione di Ken il guerriero: in italiano circola così |
 | `config.hsp` | 1 | `%.1f`, un formato |
 | `helloworld.hsp` | 1 | file di prova che nessuno `#include` |
+| ~~`proc.hsp`~~ | ✅ | «Omae wa mou shindeiru.» è in `invariati.md`, e **la riga di dichiarazione è stata tolta insieme al lavoro** |
+
+⭐ **Quattro sono uscite subito, e non traducendole.** `Dv:`, ` Pv:`, `Sp` e la
+citazione di Ken il guerriero erano decisioni già prese — scritte in
+`glossario.md` — che nessuna riga dichiarava, perché stanno **fuori da
+`lang()`** e nessun dizionario le raggiunge. Una decisione va scritta dove la
+cerca chi **misura**, non solo dove la cerca chi traduce: 162 → 158.
 
 ## Come si saprà che è finita
 
-    disegnate            12 file dichiarati -> il fronte di `tcg.hsp` a 3,
-                         e la riga di `action.hsp` tolta
-    invariati.md         `Dv:`, ` Pv:`, `Sp`, `Omae wa mou shindeiru.`
-                         con la loro ragione
-    una grafia sola      per `Lv` / ` liv.` / `lv:`
+    disegnate            158 -> ~20 distinte: il fronte di `tcg.hsp` sceso a
+                         3 (i due sparsi e l'etichetta «Immune»), e la riga di
+                         `action.hsp` tolta insieme al lavoro
+    una grafia sola      per `Lv` / ` liv.` / `lv:`, e una per `,Tab `
     pytest               verde DOPO i documenti, non prima
+
+    ✅ fatto dalla 138ª: `Dv:`, ` Pv:`, `Sp` e «Omae wa mou shindeiru.» in
+       `invariati.md` con la loro ragione, e la dichiarazione di `proc.hsp`
+       tolta
 
 ⚠️ Nessuno di questi numeri si eredita da qui: si rilanciano.
