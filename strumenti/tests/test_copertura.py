@@ -2,7 +2,7 @@
 """La rete che parte dal sorgente invece che dai dizionari.
 
 Il caso vero che l'ha fatta nascere e' il gioco di carte: `tcg_mod.hsp` (809
-stringhe inglesi distinte a schermo) e `tcg_skill.hsp` (142), dentro un
+stringhe inglesi distinte a schermo) e `tcg_skill.hsp` (72 dopo la 137a), dentro un
 progetto in cui **quattro** contatori dicevano 100% perche' partivano tutti
 dall'elenco delle cose gia' coperte. Vedi la testa di `strumenti/copertura.py`.
 
@@ -129,20 +129,20 @@ def test_il_caso_vero_si_accende_senza_la_sua_riga(monkeypatch):
     guai = copertura.problemi()
 
     assert len(guai) == 1
-    assert guai[0].startswith("tcg_skill.hsp: 142 stringhe inglesi distinte")
+    assert guai[0].startswith("tcg_skill.hsp: 72 stringhe inglesi distinte")
 
 
 def test_un_conto_dichiarato_che_non_torna_si_accende(monkeypatch):
     """Il monte e' pinnato a un tag apposta: se si muovesse, una dichiarazione
     vecchia coprirebbe un file diverso da quello che descriveva."""
     finto = dict(copertura.DICHIARATI)
-    finto["tcg_skill.hsp"] = copertura.Dichiarazione("fronte", 141, "conto vecchio")
+    finto["tcg_skill.hsp"] = copertura.Dichiarazione("fronte", 71, "conto vecchio")
     monkeypatch.setattr(copertura, "DICHIARATI", finto)
 
     guai = copertura.problemi()
 
     assert len(guai) == 1
-    assert "dichiarate 141 stringhe scoperte, nel sorgente ne sono 142" in guai[0]
+    assert "dichiarate 71 stringhe scoperte, nel sorgente ne sono 72" in guai[0]
 
 
 def test_una_dichiarazione_diventata_inutile_si_accende():

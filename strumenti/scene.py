@@ -615,11 +615,17 @@ def main() -> None:
         return
 
     if argomenti.applica:
-        origine = percorsi.SORGENTE_HSP / FILE
+        # ⚠️⚠️ Si legge dalla BUILD: leggendo dal sorgente questo passo rifa il
+        # file da capo e butta via le toppe che `applica.py` ci ha appena messo.
+        # Su `scene2.hsp` oggi non ce n'e' nessuna, quindi non si perdeva
+        # niente -- ma su `tcg_mod.hsp` il gemello di questa riga ha fatto
+        # sparire i nomi delle fasi del turno da ogni eseguibile dalla 136a in
+        # poi. Un difetto che non fa danno solo perche' il file e' vuoto e'
+        # comunque un difetto.
         bersaglio = percorsi.BUILD_HSP / FILE
         if not bersaglio.exists():
             raise SystemExit("albero di build assente: lancia prima `applica.py`")
-        righe, fatte = applica_a_righe(leggi(origine), carica_dizionario())
+        righe, fatte = applica_a_righe(leggi(bersaglio), carica_dizionario())
         scrivi(righe, bersaglio)
         print("%s: %d blocchi iniettati" % (bersaglio, fatte))
         return

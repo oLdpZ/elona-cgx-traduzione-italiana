@@ -600,3 +600,71 @@ def test_l_operando_di_effetto_e_stato_reso_con_la_stringa():
     build = _build_tcg()
     assert 'sreplace s@tcg, s@tcg, "Effect: ", ""' not in build
     assert 'sreplace s@tcg, s@tcg, "Effetto: ", ""' in build
+
+
+# --- i passi che RIFANNO un file dopo `applica` --------------------------
+#
+# ⚠️⚠️ `scene --applica`, `carte --applica` e `schede --applica` riscrivono
+# quattro file dell'albero di build. Finche' leggevano dal SORGENTE, quel
+# passo rifaceva il file da capo e buttava via le toppe che `applica.py` ci
+# aveva appena messo -- e nessun conto se ne accorgeva, perche' il numero di
+# toppe lo stampa `applica`, cioe' **prima** che vengano cancellate.
+#
+# Su `tcg_mod.hsp` e' costato i nomi delle fasi del turno
+# («Inizio/Pesca/Principale/Fine»), tornati inglesi in ogni eseguibile dalla
+# 136a alla 137a. Su `tcg.hsp`, dove le toppe sono 165, sarebbe costato molto
+# di piu': ed e' il file che il lotto C ha cominciato a riscrivere.
+
+FILE_RISCRITTI = ("scene2.hsp", "tcg_mod.hsp", "tcg_skill.hsp", "tcg.hsp")
+
+
+def _toppe_di_una_riga(nome: str) -> list[dict]:
+    percorso = percorsi.PROGETTO / "toppe.jsonl"
+    fuori = []
+    for testo in percorso.read_text(encoding="utf-8").splitlines():
+        if not testo.strip():
+            continue
+        toppa = json.loads(testo)
+        if toppa["file"] == nome and isinstance(toppa["sostituisci"], str):
+            fuori.append(toppa)
+    return fuori
+
+
+def test_i_passi_dopo_applica_non_buttano_via_le_toppe():
+    """Il cancello legge la build **dopo l'ultimo che ci scrive**.
+
+    ⭐ E' la lezione della 136a («di un cancello non basta chiedere cosa misura,
+    va chiesto su quale copia») portata un gradino piu' in la': non basta che
+    misuri la build, deve misurarla dopo tutti i passi che la toccano.
+
+    ⚠️ Il cancello e' ristretto ai quattro file riscritti apposta. Su tutto il
+    sorgente lo stesso controllo darebbe una decina di falsi allarmi, perche'
+    il passo del dizionario riscrive ancora la riga gia' toppata quando dentro
+    c'e' una `lang()`: la toppa e' viva, ma la sua `sostituisci` non c'e' piu'
+    alla lettera. Un cancello che chiede l'impossibile viene disattivato.
+    """
+    morte = []
+    for nome in FILE_RISCRITTI:
+        percorso = percorsi.BUILD_HSP / nome
+        if not percorso.exists():
+            pytest.skip("albero di build assente: `python -m strumenti.applica`")
+        testo = percorso.read_text(encoding="cp932")
+        for toppa in _toppe_di_una_riga(nome):
+            if toppa["sostituisci"] not in testo:
+                morte.append((nome, toppa["sostituisci"].strip()[:70]))
+    assert morte == []
+
+
+def test_i_nomi_delle_fasi_del_turno_sono_in_italiano():
+    """La toppa che il difetto faceva sparire, nominata.
+
+    Un cancello che conta «zero morte» non dice quale sia il caso che l'ha
+    fatto nascere. Questo lo dice: se torna «Begin, Draw, Main, End», il passo
+    delle descrizioni ha ricominciato a leggere dal sorgente.
+    """
+    percorso = percorsi.BUILD_HSP / "tcg_mod.hsp"
+    if not percorso.exists():
+        pytest.skip("albero di build assente")
+    testo = percorso.read_text(encoding="cp932")
+    assert '"Inizio", "Pesca", "Principale", "Fine"' in testo
+    assert '"Begin", "Draw", "Main", "End"' not in testo

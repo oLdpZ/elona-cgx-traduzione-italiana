@@ -673,9 +673,20 @@ def main() -> None:
         quante = reimporta(Path(argomenti.reimporta))
         print("rese entrate nel dizionario: %d" % quante)
     elif argomenti.applica:
-        origine = percorsi.SORGENTE_HSP / FILE
+        # ⚠️⚠️ SI LEGGE DALLA BUILD, NON DAL SORGENTE. Leggendo dal sorgente
+        # questo passo **rifaceva il file da capo** e buttava via le toppe che
+        # `applica.py` ci aveva appena messo. Su `tcg_mod.hsp` la toppa e' una
+        # sola -- i nomi delle fasi del turno, «Inizio/Pesca/Principale/Fine» --
+        # ed e' tornata inglese in ogni eseguibile dalla 136a in poi, senza che
+        # niente diventasse rosso: il conto delle toppe lo stampa `applica`,
+        # cioe' **prima** che questo passo le cancelli.
+        # ⭐ E' la lezione della 136a («di un cancello va chiesto su quale copia
+        # misura») portata un gradino piu' in la': non basta che il cancello
+        # legga la build, deve leggerla DOPO l'ultimo che ci scrive.
         bersaglio = percorsi.BUILD_HSP / FILE
-        righe, fatte = applica_a_righe(leggi(origine), carica_dizionario())
+        if not bersaglio.exists():
+            raise SystemExit("albero di build assente: lancia prima `applica.py`")
+        righe, fatte = applica_a_righe(leggi(bersaglio), carica_dizionario())
         righe, dette = applica_battute_a_righe(righe, carica_battute())
         scrivi(righe, bersaglio)
         print("%s: %d descrizioni e %d battute iniettate"

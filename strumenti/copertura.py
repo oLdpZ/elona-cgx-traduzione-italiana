@@ -122,7 +122,12 @@ DICHIARATI: dict[str, Dichiarazione] = {
     # non lasciata: un file dichiarato E coperto veniva contato due volte, e il
     # totale in fondo al referto diceva 1.020 scoperte quando ne restavano 211.
     "tcg_skill.hsp": Dichiarazione(
-        "fronte", 142,
+        "fronte", 72,
+        "⭐ ERANO 142: la 137ª ne ha rese **70**, le schede di carta scritte a "
+        "mano dentro il codice, con `strumenti/schede.py` e "
+        "`dizionario/carte/schede.jsonl`. Restano 35 battute "
+        "(`efllistaddchat`, `cnvtalk`), 17 `randomchat@tcg`, 8 tracce di "
+        "debug, 2 `markerwords` e 4 sparsi. "
         "L'ALTRA META' DEL GIOCO DI CARTE. 7.686 righe, `#include` da "
         "`tcg.hsp:3`, zero byte non-ASCII: non c'e' nessun ramo giapponese, "
         "l'inglese e' cablato e il giocatore lo legge qualunque lingua scelga. "
@@ -177,7 +182,11 @@ DICHIARATI: dict[str, Dichiarazione] = {
 
     # ---- il resto della famiglia TCG: appartiene al fronte del minigioco ---
     "tcg.hsp": Dichiarazione(
-        "fronte", 52,
+        "fronte", 29,
+        "⭐ ERANO 52: la 137ª ne ha rese **23** — le 21 etichette della scheda "
+        "(`[Carta comando]`, `<Gilda dei Maghi>`) come toppe del lotto B, e le "
+        "2 schede scritte a mano con `schede.py`. Restano i 5 «Sort by:», i "
+        "segnaposto delle schede, 10 `proctcg` di debug e gli sparsi. "
         "IL TERZO PEZZO DEL GIOCO DI CARTE, in un file che ha gia' 102 toppe e "
         "un dizionario: e' il contorno a essere stato lavorato, non le carte. "
         "Le 26 righe `if` di :1568-:1605 sono le ETICHETTE che si appendono al "
@@ -437,8 +446,28 @@ def _righe_con_toppa() -> dict[str, set[str]]:
     return per_file
 
 
+def rese_da_meccanismo() -> dict[str, set[str]]:
+    """I letterali che un meccanismo proprio del progetto copre gia'.
+
+    ⚠️ `MECCANISMI` marca un file INTERO come coperto, e per `scene2.hsp` e
+    `tcg_mod.hsp` va bene: li' la catena prende tutto. `tcg_skill.hsp` no --
+    `schede.py` ne copre le 70 schede di carta e non le battute, le
+    `randomchat` e le tracce. Senza questo, `copertura` continuerebbe a
+    contare come scoperte settantadue stringhe **gia' tradotte**, cioe' a
+    dire che manca del lavoro che c'e'.
+    """
+    from strumenti import schede
+
+    fuori: dict[str, set[str]] = defaultdict(set)
+    for chiave, voce in schede.carica_dizionario().items():
+        if voce.get("it"):
+            fuori[voce["file"]].add(chiave)
+    return fuori
+
+
 def scoperte_di(nome_file: str, testo: str, toppe: set[str],
-                righe_morte: set[int] | None = None) -> list[str]:
+                righe_morte: set[int] | None = None,
+                rese: set[str] | None = None) -> list[str]:
     """Le stringhe di prosa che non raggiunge ne' il dizionario ne' una toppa.
 
     Il dizionario si consulta attraverso `estrai.siti()`, che e' l'unica
@@ -467,6 +496,8 @@ def scoperte_di(nome_file: str, testo: str, toppe: set[str],
         for trovato in _LETTERALE.finditer(riga):
             if not _PROSA.search(trovato.group(1)):
                 continue
+            if trovato.group(1) in (rese or set()):
+                continue
             dentro_lang = any(inizio <= trovato.start(1) and trovato.end(1) <= fine
                               for inizio, fine in span_per_riga.get(numero, []))
             if not dentro_lang and riga.strip() not in toppe:
@@ -477,6 +508,7 @@ def scoperte_di(nome_file: str, testo: str, toppe: set[str],
 def censimento() -> list[dict]:
     """Una riga per ogni `.hsp` del sorgente che ha stringhe scoperte."""
     toppe = _righe_con_toppa()
+    rese = rese_da_meccanismo()
     righe = []
     for percorso in sorted(percorsi.SORGENTE_HSP.glob("*.hsp")):
         testo = percorso.read_bytes().decode("cp932")
@@ -485,7 +517,8 @@ def censimento() -> list[dict]:
         if not prosa:
             continue
         scoperte = scoperte_di(percorso.name, testo,
-                               toppe.get(percorso.name, set()), morte)
+                               toppe.get(percorso.name, set()), morte,
+                               rese.get(percorso.name, set()))
         righe.append({
             "file": percorso.name,
             "prosa": len(prosa),
