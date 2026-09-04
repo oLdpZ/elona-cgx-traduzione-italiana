@@ -122,12 +122,21 @@ DICHIARATI: dict[str, Dichiarazione] = {
     # non lasciata: un file dichiarato E coperto veniva contato due volte, e il
     # totale in fondo al referto diceva 1.020 scoperte quando ne restavano 211.
     "tcg_skill.hsp": Dichiarazione(
-        "fronte", 72,
-        "⭐ ERANO 142: la 137ª ne ha rese **70**, le schede di carta scritte a "
-        "mano dentro il codice, con `strumenti/schede.py` e "
-        "`dizionario/carte/schede.jsonl`. Restano 35 battute "
-        "(`efllistaddchat`, `cnvtalk`), 17 `randomchat@tcg`, 8 tracce di "
-        "debug, 2 `markerwords` e 4 sparsi. "
+        "fronte", 20,
+        "⭐ ERANO 142: la 137ª ne ha rese **70** (le schede di carta scritte a "
+        "mano, `strumenti/schede.py`) e la 138ª le **52 battute** che questo "
+        "modulo vedeva, con `strumenti/dialoghi.py` e "
+        "`dizionario/carte/dialoghi.jsonl`. ⚠️ Le battute vere erano **77 "
+        "siti**, non 52: le altre 25 — `\"One!\"`, `\"AIEEE!!!\"`, "
+        "`\"Cheapskate.\"` — `_PROSA` non le vedeva, e infatti questo numero "
+        "non cala di 77. Sono rese lo stesso: il conto del fronte e quello del "
+        "lavoro sono due cose diverse, e la seconda la tiene `dialoghi "
+        "--referto`. "
+        "Restano 8 tracce di debug, 5 giunture del poker e dei nomi generati "
+        "(dichiarate in `schede.GIUNTURE`), 2 `markerwords`, 2 nomi di "
+        "pozione di `boozenames@tcg` e **2 `effdesc@tcg`** — `:602` e "
+        "`:6208`: descrizioni d'effetto che stanno in QUESTO file e non in "
+        "`tcg_mod.hsp`, dove `carte.py` e' l'unico a guardare. "
         "L'ALTRA META' DEL GIOCO DI CARTE. 7.686 righe, `#include` da "
         "`tcg.hsp:3`, zero byte non-ASCII: non c'e' nessun ramo giapponese, "
         "l'inglese e' cablato e il giocatore lo legge qualunque lingua scelga. "
@@ -182,11 +191,13 @@ DICHIARATI: dict[str, Dichiarazione] = {
 
     # ---- il resto della famiglia TCG: appartiene al fronte del minigioco ---
     "tcg.hsp": Dichiarazione(
-        "fronte", 29,
+        "fronte", 25,
         "⭐ ERANO 52: la 137ª ne ha rese **23** — le 21 etichette della scheda "
         "(`[Carta comando]`, `<Gilda dei Maghi>`) come toppe del lotto B, e le "
-        "2 schede scritte a mano con `schede.py`. Restano i 5 «Sort by:», i "
-        "segnaposto delle schede, 10 `proctcg` di debug e gli sparsi. "
+        "2 schede scritte a mano con `schede.py` — e la 138ª le **4 battute** "
+        "della nuvoletta (`dialoghi.py`: <Rianna> che perde, `imaritsuka@tcg` "
+        "che sfotte, «Sia la luce...»). Restano i 5 «Sort by:», i 9 segnaposto "
+        "delle schede, 10 `proctcg` di debug e il nome del file di mazzo. "
         "IL TERZO PEZZO DEL GIOCO DI CARTE, in un file che ha gia' 102 toppe e "
         "un dizionario: e' il contorno a essere stato lavorato, non le carte. "
         "Le 26 righe `if` di :1568-:1605 sono le ETICHETTE che si appendono al "
@@ -455,13 +466,23 @@ def rese_da_meccanismo() -> dict[str, set[str]]:
     `randomchat` e le tracce. Senza questo, `copertura` continuerebbe a
     contare come scoperte settantadue stringhe **gia' tradotte**, cioe' a
     dire che manca del lavoro che c'e'.
+
+    ⚠️⚠️ Di `dialoghi.py` entrano anche le **invariate**, e le schede non ne
+    hanno: una battuta come `"AIEEE!!!"` e' stata **decisa** — sta in
+    `invariati.md` con la sua ragione — e contarla ancora fra le scoperte
+    vorrebbe dire chiedere per sempre un lavoro che non c'e'. E' la stessa
+    regola che `verifica.py` applica leggendo `invariati.md`.
     """
-    from strumenti import schede
+    from strumenti import dialoghi, schede
 
     fuori: dict[str, set[str]] = defaultdict(set)
     for chiave, voce in schede.carica_dizionario().items():
         if voce.get("it"):
             fuori[voce["file"]].add(chiave)
+    diz_dialoghi = dialoghi.carica_dizionario()
+    for chiave in dialoghi.decise(diz_dialoghi):
+        for sito in diz_dialoghi[chiave].get("siti", []):
+            fuori[sito["file"]].add(chiave)
     return fuori
 
 

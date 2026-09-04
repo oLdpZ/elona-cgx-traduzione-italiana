@@ -1,0 +1,74 @@
+{"en": " hours and ", "it": " ore e ", "siti": [{"file": "tcg_skill.hsp", "riga": 6630, "come": "diretta"}]}
+{"en": " minutes.\\\"", "it": " minuti.\\\"", "siti": [{"file": "tcg_skill.hsp", "riga": 6630, "come": "diretta"}]}
+{"en": "!", "invariata": "il punto esclamativo che chiude la battuta di <Aime> dopo `_onii()` (`tcg_skill.hsp:7435`): un segno, non una parola. L'italiano lo scrive uguale", "siti": [{"file": "tcg_skill.hsp", "riga": 7435, "come": "diretta"}]}
+{"en": "!!!!", "invariata": "punteggiatura, e la punteggiatura non ha lingua: e' il precedente di `???` (`chat.hsp:19135`), gia' dichiarato", "siti": [{"file": "tcg_skill.hsp", "riga": 1407, "come": "diretta"}]}
+{"en": "!@#$", "invariata": "l'imprecazione mascherata dei fumetti (grawlix). Non sono parole: sono i segni sopra i tasti dei numeri, uguali in ogni lingua", "siti": [{"file": "tcg_skill.hsp", "riga": 1415, "come": "diretta"}]}
+{"en": "*vroom*", "invariata": "verso di un motore: il camioncino del ladro (`CREATURE_ID_THIEF_LIGHT_TRUCK`). In italiano il rumore si scrive con le stesse lettere, e non c'e' nessuna parola dentro", "siti": [{"file": "tcg_skill.hsp", "riga": 1040, "come": "diretta"}]}
+{"en": "..and done!", "it": "..e fatto!", "siti": [{"file": "tcg_skill.hsp", "riga": 5127, "come": "diretta"}]}
+{"en": "<Claws of the Beast Gods>", "it": "<Artigli degli dei bestiali>", "siti": [{"file": "tcg_skill.hsp", "riga": 7304, "come": "diretta"}]}
+{"en": "<Commandment of the Hell Gods>", "it": "<Comandamento degli dei infernali>", "siti": [{"file": "tcg_skill.hsp", "riga": 7307, "come": "diretta"}]}
+{"en": "<End of All Things>", "it": "<Fine di ogni cosa>", "siti": [{"file": "tcg_skill.hsp", "riga": 7308, "come": "diretta"}]}
+{"en": "<Grudge of the Abominable Gods>", "it": "<Rancore degli dei abominevoli>", "siti": [{"file": "tcg_skill.hsp", "riga": 7306, "come": "diretta"}]}
+{"en": "<HOROBI NO YARI> Destroy Target Player", "it": "<HOROBI NO YARI> Distruggi il giocatore bersaglio", "siti": [{"file": "tcg_skill.hsp", "riga": 7245, "come": "diretta"}]}
+{"en": "<Origin of Chaos> Remove the Chaos Child's Card Text", "it": "<Origine del Caos> Cancella il testo della carta del Figlio del Caos", "siti": [{"file": "tcg_skill.hsp", "riga": 7258, "come": "diretta"}]}
+{"en": "<Roar of the War Gods>", "it": "<Ruggito degli dei guerrieri>", "siti": [{"file": "tcg_skill.hsp", "riga": 7303, "come": "diretta"}]}
+{"en": "<Sentence of the Judicial Gods>", "it": "<Sentenza degli dei giudici>", "siti": [{"file": "tcg_skill.hsp", "riga": 7305, "come": "diretta"}]}
+{"en": "<Sigh of the Creator Gods>", "it": "<Sospiro degli dei creatori>", "siti": [{"file": "tcg_skill.hsp", "riga": 7302, "come": "diretta"}]}
+{"en": "AIEEE!!!", "invariata": "urlo: quattro lettere e tre punti esclamativi. Non e' una parola inglese, e' un suono, e in italiano si legge uguale", "siti": [{"file": "tcg_skill.hsp", "riga": 1068, "come": "diretta"}]}
+{"en": "Aaaaah! I'm going to lose!", "it": "Aaaaah! Sto per perdere!", "siti": [{"file": "tcg_skill.hsp", "riga": 6620, "come": "randomchat@tcg"}]}
+{"en": "Acting kinda sus lately~", "it": "Che tipo sospetto, ultimamente~", "siti": [{"file": "tcg.hsp", "riga": 1916, "come": "imaritsuka@tcg"}]}
+{"en": "Ahhh! I don't want to lose!", "it": "Ahhh! Non voglio perdere!", "siti": [{"file": "tcg.hsp", "riga": 1946, "come": "diretta"}]}
+{"en": "All done! Let's roll!", "it": "Tutto pronto! Si parte!", "siti": [{"file": "tcg_skill.hsp", "riga": 4611, "come": "diretta"}]}
+{"en": "And..!", "it": "E..!", "siti": [{"file": "tcg_skill.hsp", "riga": 5098, "come": "manytiadialog@tcg"}]}
+{"en": "Be honored, I collected your wasted mana!", "it": "Sentiti onorato, ho raccolto il mana che sprecavi!", "siti": [{"file": "tcg_skill.hsp", "riga": 465, "come": "randomchat@tcg"}]}
+{"en": "Be honored, I collected your wasted.. nothing?!", "it": "Sentiti onorato, ho raccolto il tuo sprecato.. niente?!", "siti": [{"file": "tcg_skill.hsp", "riga": 470, "come": "randomchat@tcg"}]}
+{"en": "Bethel... *sob*", "it": "Bethel... *snif*", "siti": [{"file": "tcg_skill.hsp", "riga": 6620, "come": "randomchat@tcg"}]}
+{"en": "But since that I have obtained this tremendous power, that is now a trifling matter...", "it": "Ma ora che ho ottenuto questo potere immenso, e' una faccenda da nulla...", "siti": [{"file": "tcg_skill.hsp", "riga": 7256, "come": "diretta"}]}
+{"en": "Cheapskate.", "it": "Che spilorcio.", "siti": [{"file": "tcg_skill.hsp", "riga": 5096, "come": "diretta"}]}
+{"en": "DESTINY DRAW! Oh come on!", "it": "PESCA DEL DESTINO! Ma dai!", "siti": [{"file": "tcg_skill.hsp", "riga": 6620, "come": "randomchat@tcg"}]}
+{"en": "Faaaaaaaa!! Oh Oh Oh Oh!", "invariata": "verso: la risata-lamento di <Rianna>, otto «a» e quattro «Oh». Non c'e' una parola dentro, e in italiano si legge uguale", "siti": [{"file": "tcg_skill.hsp", "riga": 6620, "come": "randomchat@tcg"}]}
+{"en": "H means HIGHLANDER!", "it": "H sta per HIGHLANDER!", "siti": [{"file": "tcg_skill.hsp", "riga": 1716, "come": "diretta"}, {"file": "tcg_skill.hsp", "riga": 7187, "come": "diretta"}]}
+{"en": "HAPPY! HAPPY! All of you must be HAPPY!", "it": "FELICI! FELICI! Dovete essere tutti FELICI!", "siti": [{"file": "tcg_skill.hsp", "riga": 7190, "come": "diretta"}]}
+{"en": "Hahaha! Hope you like Aime's Deck, ", "it": "Ahahah! Spero ti piaccia il mazzo di Aime, ", "siti": [{"file": "tcg_skill.hsp", "riga": 7435, "come": "diretta"}]}
+{"en": "I am finished with your games... All of you shall turn to ash.", "it": "Ho chiuso con i vostri giochi... Sarete tutti ridotti in cenere.", "siti": [{"file": "tcg_skill.hsp", "riga": 7243, "come": "diretta"}]}
+{"en": "I do wonder if it's only temporary though...", "it": "Anche se mi chiedo se sia solo temporaneo...", "siti": [{"file": "tcg_skill.hsp", "riga": 3280, "come": "randomchat@tcg"}]}
+{"en": "I don't know what you expected, but you don't have any CNPCs in your user folder!", "it": "Non so che ti aspettassi, ma nella cartella user non hai nessun CNPC!", "siti": [{"file": "tcg_skill.hsp", "riga": 2633, "come": "diretta"}]}
+{"en": "I tire of this stupid card game.", "it": "Mi ha stancato questo stupido gioco di carte.", "siti": [{"file": "tcg_skill.hsp", "riga": 7254, "come": "diretta"}, {"file": "tcg_skill.hsp", "riga": 7271, "come": "diretta"}]}
+{"en": "I tire of this.", "it": "Mi avete stancato.", "siti": [{"file": "tcg_skill.hsp", "riga": 7241, "come": "diretta"}]}
+{"en": "I will give up!! I give up!!", "it": "Mollo tutto!! Mi arrendo!!", "siti": [{"file": "tcg_skill.hsp", "riga": 6620, "come": "randomchat@tcg"}]}
+{"en": "I'm leaving, you win.", "it": "Me ne vado, hai vinto.", "siti": [{"file": "tcg_skill.hsp", "riga": 7273, "come": "diretta"}]}
+{"en": "I'm not good at card games, hehe.", "it": "Non sono brava coi giochi di carte, eheh.", "siti": [{"file": "tcg_skill.hsp", "riga": 6620, "come": "randomchat@tcg"}]}
+{"en": "It is done! It is alive!", "it": "E' fatta! E' viva!", "siti": [{"file": "tcg_skill.hsp", "riga": 3280, "come": "randomchat@tcg"}]}
+{"en": "Join me! Renai!", "it": "Renai, unisciti a me!", "siti": [{"file": "tcg_skill.hsp", "riga": 3470, "come": "diretta"}]}
+{"en": "Keep this a secret from my daughter, okay?", "it": "Non dirlo a mia figlia, okay?", "siti": [{"file": "tcg_skill.hsp", "riga": 3280, "come": "randomchat@tcg"}]}
+{"en": "Let there be light...", "it": "Sia la luce...", "siti": [{"file": "tcg.hsp", "riga": 2724, "come": "diretta"}]}
+{"en": "Mom! Not again!", "it": "Mamma! Un'altra volta no!", "siti": [{"file": "tcg_skill.hsp", "riga": 3290, "come": "diretta"}]}
+{"en": "No CNPCs in user folder? Ahhh! you ruined my plan!", "it": "Nessun CNPC nella cartella user? Ahhh! mi hai rovinato il piano!", "siti": [{"file": "tcg_skill.hsp", "riga": 2672, "come": "diretta"}]}
+{"en": "No Cards in your Hand?", "it": "Non hai carte in mano?", "siti": [{"file": "tcg_skill.hsp", "riga": 4927, "come": "diretta"}]}
+{"en": "No Mana? You reminds me of... ummm..", "it": "Niente mana? Tu mi ricordi... ehm..", "siti": [{"file": "tcg_skill.hsp", "riga": 1128, "come": "diretta"}]}
+{"en": "No board spaces, are you daft?", "it": "Niente spazio in campo, sei rimbambito?", "siti": [{"file": "tcg_skill.hsp", "riga": 5120, "come": "diretta"}]}
+{"en": "No one's on the field?", "it": "Non c'e' nessuno in campo?", "siti": [{"file": "tcg_skill.hsp", "riga": 4882, "come": "diretta"}]}
+{"en": "No places on your Field?", "it": "Non hai posto in campo?", "siti": [{"file": "tcg_skill.hsp", "riga": 4923, "come": "diretta"}]}
+{"en": "No sacrifices?", "it": "Nessun sacrificio?", "siti": [{"file": "tcg_skill.hsp", "riga": 4808, "come": "diretta"}]}
+{"en": "Okay! Science, here we go!?", "it": "Okay! Scienza, si parte!?", "siti": [{"file": "tcg_skill.hsp", "riga": 3283, "come": "randomchat@tcg"}]}
+{"en": "One!", "it": "Uno!", "siti": [{"file": "tcg_skill.hsp", "riga": 5098, "come": "manytiadialog@tcg"}]}
+{"en": "Pfft! What's that~?", "it": "Pfff! E quello che sarebbe~?", "siti": [{"file": "tcg.hsp", "riga": 1916, "come": "imaritsuka@tcg"}]}
+{"en": "Playing Highlander makes me HAPPY! HAPPY!", "it": "Giocare Highlander mi rende FELICE! FELICE!", "siti": [{"file": "tcg_skill.hsp", "riga": 1719, "come": "diretta"}]}
+{"en": "Rent-free!", "it": "Alloggio gratis!", "siti": [{"file": "tcg.hsp", "riga": 1916, "come": "imaritsuka@tcg"}]}
+{"en": "Something from beyond laughs.", "it": "Qualcosa dall'aldila' ride.", "siti": [{"file": "tcg_skill.hsp", "riga": 1725, "come": "diretta"}, {"file": "tcg_skill.hsp", "riga": 7198, "come": "diretta"}]}
+{"en": "This is how a prestige uses her mana!", "it": "Ecco come una vera maga usa il suo mana!", "siti": [{"file": "tcg_skill.hsp", "riga": 465, "come": "randomchat@tcg"}]}
+{"en": "This one is known as... wait.. you don't have no CNPCs in your user folder?", "it": "Costui e' noto come... aspetta.. non hai nessun CNPC nella cartella user?", "siti": [{"file": "tcg_skill.hsp", "riga": 2577, "come": "diretta"}]}
+{"en": "Three!", "it": "Tre!", "siti": [{"file": "tcg_skill.hsp", "riga": 5098, "come": "manytiadialog@tcg"}]}
+{"en": "Totally not my fault.", "it": "Non e' mica colpa mia.", "siti": [{"file": "tcg.hsp", "riga": 2795, "come": "diretta"}]}
+{"en": "Two!", "it": "Due!", "siti": [{"file": "tcg_skill.hsp", "riga": 5098, "come": "manytiadialog@tcg"}]}
+{"en": "Ugh! You didn't left any mana for me!", "it": "Uffa! Non mi hai lasciato neanche un po' di mana!", "siti": [{"file": "tcg_skill.hsp", "riga": 470, "come": "randomchat@tcg"}]}
+{"en": "Wait! Not now, brother!", "it": "Aspetta! Non adesso, fratello!", "siti": [{"file": "tcg_skill.hsp", "riga": 3481, "come": "diretta"}]}
+{"en": "Weakling~ weakling!", "it": "Debolino~ debolino!", "siti": [{"file": "tcg.hsp", "riga": 1916, "come": "imaritsuka@tcg"}]}
+{"en": "What is this Hand?! Chikusho!", "it": "Ma che mano e'?! Chikusho!", "siti": [{"file": "tcg_skill.hsp", "riga": 6620, "come": "randomchat@tcg"}]}
+{"en": "What would Bethel play...", "it": "Cosa giocherebbe Bethel...", "siti": [{"file": "tcg_skill.hsp", "riga": 6620, "come": "randomchat@tcg"}]}
+{"en": "You do have Bethel in your Deck, right? Right?", "it": "Ce l'hai Bethel nel mazzo, vero? Vero?", "siti": [{"file": "tcg_skill.hsp", "riga": 6620, "come": "randomchat@tcg"}]}
+{"en": "You don't see Tezcatlipoca anywhere. Strange.", "it": "Tezcatlipoca non si vede da nessuna parte. Strano.", "siti": [{"file": "tcg_skill.hsp", "riga": 4531, "come": "diretta"}]}
+{"en": "You just can't help but be jealous of my talent!", "it": "Non puoi che invidiare il mio talento!", "siti": [{"file": "tcg_skill.hsp", "riga": 465, "come": "randomchat@tcg"}]}
+{"en": "You just can't help but.. wait, no mana?", "it": "Non puoi che invidiare il... aspetta, niente mana?", "siti": [{"file": "tcg_skill.hsp", "riga": 470, "come": "randomchat@tcg"}]}
+{"en": "Your deck is ASS, seriously!", "it": "Il tuo mazzo fa SCHIFO, davvero!", "siti": [{"file": "tcg_skill.hsp", "riga": 6620, "come": "randomchat@tcg"}]}
+{"en": "\\\"Hmm, you've been playing for ", "it": "\\\"Hmm, stai giocando da ", "siti": [{"file": "tcg_skill.hsp", "riga": 6630, "come": "diretta"}]}

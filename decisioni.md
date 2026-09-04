@@ -15240,3 +15240,113 @@ i due «Batllecry»/«BattleCry» della 136ª, che decidono se una carta viene
 copiata. Questo non ne porta: niente cerca dentro questa scheda. Quindi la resa
 è la frase intera, «Se no, è solo un sasso.», e la scelta è scritta qui invece
 di essere presa in silenzio.
+
+---
+
+## Il primo riconoscitore che parte da CHI PARLA, e le 25 battute che nessun conto vedeva — 2026-09-04, centotrentottesima sessione
+
+La 137ª aveva lasciato scritto che `copertura._PROSA` — «due parole alfabetiche
+separate da uno spazio» — non vede le etichette, e che la rete giusta deve
+partire da **chi disegna**, non dalla forma della stringa. Il lotto D della
+Fase 6 è il primo pezzo di quella rete, costruito su un fronte solo: la
+nuvoletta del gioco di carte.
+
+Il riconoscitore di `strumenti/dialoghi.py` non guarda com'è fatta una stringa.
+Guarda i due siti che mandano un testo alla nuvoletta:
+
+    efllistaddchat "Totally not my fault.", c@tcg        <- letterale diretto
+    efllistaddchat randomchat@tcg(rnd(3)), ac@tcg        <- da un array
+
+e quando l'argomento è un array, si segna il **nome dell'array** e va a
+leggerne le assegnazioni, che portano più letterali sulla stessa riga.
+
+⚠️⚠️ **Il piano della Fase 6 diceva 52 battute. I siti veri sono 77.** Le 25 di
+differenza sono `"One!"`, `"Two!"`, `"AIEEE!!!"`, `"Cheapskate."`,
+`"Rent-free!"`, `"Bethel... *sob*"`: stringhe a schermo che `_PROSA` non poteva
+vedere perché non hanno due parole. Il conto è stato **rifatto**, non
+aggiustato — come le 72 schede della 137ª.
+
+⭐ **E il numero del fronte non è il numero del lavoro.** Dopo il lotto,
+`copertura` scende da 118 a 62 scoperte, cioè di 56, non di 77: le 25 invisibili
+non erano contate nemmeno prima. Due misure diverse della stessa cosa vanno
+tenute separate e dichiarate, o la prossima sessione crederà che manchino 25
+battute che sono già a schermo in italiano.
+
+⚠️ **`efftalk@tcg` è un array che parla, ed è ESENTE.** Lo rende `carte.battute()`
+dalla Fase 5, con la costante dell'effetto per chiave. Riconoscerlo anche qui
+vorrebbe dire due meccanismi che scrivono la stessa riga, che è il modo in cui
+una resa sparisce senza che nessuno lo veda. Sta in `ARRAY_ESENTI` con la sua
+ragione, non sparito dal censimento.
+
+---
+
+## Una battuta sta su due righe, e la chiave non può più essere il sito — 2026-09-04, centotrentottesima sessione
+
+`schede.py` pretende che i letterali siano tutti distinti, e sulle 72 schede
+regge. Qui no: `"H means HIGHLANDER!"` sta a `tcg_skill.hsp:1716` **e** a
+`:7187`, `"Something from beyond laughs."` a `:1725` e `:7198`, `"I tire of this
+stupid card game."` a `:7254` e `:7271`.
+
+La chiave resta il **letterale** — `file:riga` non si può usare, la riga si
+sposta sotto una resa (lezione della Fase 4) — ma una voce porta una **lista di
+siti**, e l'iniezione li serve tutti. Renderne uno solo vuol dire un gioco che
+dice due cose diverse nello stesso momento, e il difetto sarebbe invisibile a
+chiunque conti le rese invece delle sostituzioni: 68 rese fanno **71**
+sostituzioni, e i tre in più sono esattamente questi.
+
+⭐ Il caso è nominato da una prova che legge la build **dopo tutta la catena**
+(`test_le_battute_della_nuvoletta_sono_in_italiano_dopo_tutta_la_catena`): non
+chiede «zero morte», chiede che quella battuta compaia **due volte** in
+italiano.
+
+---
+
+## I sette kamui hanno due nomi inglesi per la stessa cosa — 2026-09-04, centotrentottesima sessione
+
+`tcg_skill.hsp:7302-7308` **annuncia** il kamui nella nuvoletta;
+`effdesc@tcg(TCG_EFF_KAMUI1..7)` lo **descrive** nella scheda della carta. Sono
+gli stessi sette poteri, nello stesso ordine, con nomi inglesi diversi:
+
+| annuncio (138ª) | descrizione (resa in Fase 5) |
+|---|---|
+| `<Sigh of the Creator Gods>` | `<Respiration of Creative Gods>` |
+| `<Roar of the War Gods>` | `<Roar of Fighting Gods>` |
+| `<Claws of the Beast Gods>` | `<Assault of Beast Gods>` |
+| `<Sentence of the Judicial Gods>` | `<Referee of Judicial Gods>` |
+| `<Grudge of the Abominable Gods>` | `<Grudge of Abominable Gods>` — **uguale** |
+| `<Commandment of the Hell Gods>` | `<Commandment of Hell Gods>` — **uguale** |
+
+Due grafie di monte, un traducente solo: è la regola già presa per
+`Dual-Strike`/`Double-Strike` nelle schede. La metà che nomina gli dei **deve**
+dire quel che la scheda dice già — «degli dei creatori», «guerrieri»,
+«bestiali», «giudici», «abominevoli», «infernali» — o il giocatore si vede
+annunciare un potere e descriverne un altro.
+
+⭐ **È un rifiuto, non un avviso**, ed è la lezione del lotto C portata su un
+altro meccanismo: `dialoghi.VOCABOLARIO` rifiuta la resa che non lo segue, con
+la prova al contrario che gli inietta «dei ripugnanti» e pretende che si
+accenda. Dentro ci sono anche `Deck`→mazzo, `Hand`→mano, `Field`→campo, che
+altrove nel gioco sono decisi da 162 toppe.
+
+⚠️ Le due righe che l'inglese scrive **uguali** sono la parte che conta: lì la
+resa non è una scelta, è un vincolo, e senza il cancello nessuno se ne
+accorgerebbe rileggendo la sola battuta.
+
+---
+
+## Sei battute restano identiche, e «invariata» è un campo, non un silenzio — 2026-09-04, centotrentottesima sessione
+
+Delle 74 chiavi del lotto D, 68 sono rese e 6 restano identiche all'inglese:
+`*vroom*`, `AIEEE!!!`, `!!!!`, `!@#$`, `!`, `Faaaaaaaa!! Oh Oh Oh Oh!`. Quattro
+sono punteggiatura (il precedente è `???`, `chat.hsp:19135`), due sono versi.
+
+⭐ **La decisione è un dato, non una nota.** La voce nel dizionario non ha `it`:
+ha `invariata` con dentro la ragione, e `dialoghi.decise()` conta insieme le
+rese e le invariate. Senza quel campo il referto direbbe per sempre «6 da fare»
+su un lavoro che non c'è — e il motivo per cui `copertura` le conta come
+coperte è lo stesso per cui `verifica.py` legge `invariati.md`.
+
+⚠️ `!` è il pezzo **dopo** la variabile in `"Hahaha! Hope you like Aime's Deck, "
++ _onii(...) + "!"`: la prima metà si traduce e infatti è tradotta. Qui la
+cornice e il testo stanno in due letterali diversi, al contrario di
+`[Made by][`.

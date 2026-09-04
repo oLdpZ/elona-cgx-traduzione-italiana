@@ -1135,3 +1135,26 @@ senza articolo lo chiama `SCONOSCIUTO`, e se uno di questi quattro *smette* di
 ripiegare lo chiama `STANTIO`, perché allora la riga qui sopra sarebbe diventata
 una bugia. È il modo di `strumenti/maiuscole.py`: il referto non chiede zero,
 chiede che l'elenco non si allunghi da solo.
+
+## Le sei battute della nuvoletta che restano identiche — 138ª
+
+Il lotto D della Fase 6 ha reso 68 battute del gioco di carte su 74. Le sei qui
+sotto sono **decise**, non dimenticate, e la differenza la tiene un dato: la
+loro voce in `dizionario/carte/dialoghi.jsonl` non ha `it`, ha `invariata` con
+dentro la ragione, e `dialoghi.decise()` le conta insieme alle rese. Senza quel
+campo il referto direbbe per sempre «6 da fare» su un lavoro che non c'è, ed è
+lo stesso motivo per cui questo file esiste.
+
+⚠️ **La sezione dei versi qui sopra copre il criterio, non l'elenco**: quattro
+di queste sei non sono versi di creatura ma segni di punteggiatura, e stanno
+qui per il precedente di `???` (`chat.hsp:19135`) — *la punteggiatura non ha
+lingua*.
+
+| valore | motivo |
+|---|---|
+| `*vroom*` | `tcg_skill.hsp:1040`, il camioncino del ladro (`CREATURE_ID_THIEF_LIGHT_TRUCK`) che si muove in campo. È il rumore di un motore, e in italiano si scrive con le stesse lettere: dentro non c'è nessuna parola da rendere |
+| `AIEEE!!!` | `tcg_skill.hsp:1068`, l'urlo di una carta che finisce nel cimitero. Quattro lettere e tre punti esclamativi: un suono, non una parola inglese, e in italiano si legge uguale |
+| `!!!!` | `tcg_skill.hsp:1407`, quel che dice una carta che sta per perdere lo scontro. È punteggiatura, e la punteggiatura non ha lingua |
+| `!@#$` | `tcg_skill.hsp:1415`, l'imprecazione mascherata dei fumetti (*grawlix*). Non sono parole: sono i segni sopra i tasti dei numeri, uguali in ogni lingua |
+| `!` | `tcg_skill.hsp:7435`, il punto esclamativo che chiude la battuta di `<Aime>` **dopo** `_onii()`: la riga è `"Hahaha! Hope you like Aime's Deck, " + _onii(...) + "!"`, e questo è il pezzo dopo la variabile. Un segno, non una parola. ⚠️ La prima metà **si traduce** ed è tradotta: qui la cornice e il testo stanno in due letterali diversi, al contrario di `[Made by][` |
+| `Faaaaaaaa!! Oh Oh Oh Oh!` | `tcg_skill.hsp:6620`, una delle dieci battute a caso di `<Rianna>` quando gioca male: otto «a» e quattro «Oh». È la risata-lamento, non una frase, e in italiano si legge uguale |

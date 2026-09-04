@@ -1,0 +1,918 @@
+==============================================================================
+ 1. "Ahhh! I don't want to lose!"
+    --- tcg.hsp:1946 (diretta)
+        1940 		}
+        1941 	}
+        1942 	if ( dmgcard_dmg != 0 ) { 
+        1943 		efllistadd 1, -dmgcard_dmg, card@tcg(TCG_CARD_X, dmgcard_arg1), card@tcg(TCG_CARD_Y, dmgcard_arg1)
+        1944 		if ( (dmgcard_dmg > 0) & card@tcg(TCG_CARD_REF_PIC, dmgcard_arg1) == xy2pic(25, 35) & card@tcg(TCG_CARD_REF_CHARA_PIC, dmgcard_arg1) == 1 ) {
+        1945 			efllistaddcard 26, dmgcard_arg1
+    >>  1946 			efllistaddchat "Ahhh! I don't want to lose!", dmgcard_arg1
+        1947 			card@tcg(TCG_CARD_REF_PIC, dmgcard_arg1) = xy2pic(25, 36)
+        1948 		}
+==============================================================================
+ 2. 'Let there be light...'
+    --- tcg.hsp:2724 (diretta)
+        2718 				if ( card@tcg(TCG_CARD_CONTROLLER, cnt) == 0 | f@tcg == 1 ) {
+        2719 					gravecard cnt
+        2720 				} else {
+        2721 					cdbitmod TCG_BIT_ENEMY, cnt, 0
+        2722 					putcardfree@tcg = 1
+        2723 					putcard cnt, TCG_CONTROLLER_OPPONENT
+    >>  2724 					efllistaddchat cnvtalk("Let there be light..."), cnt
+        2725 					f@tcg = 1
+        2726 				}
+==============================================================================
+ 3. 'Totally not my fault.'
+    --- tcg.hsp:2795 (diretta)
+        2789 		s = "You Lose!"
+        2790 		file = "bg_re7"
+        2791 		chatList 1, lang("また今度ね", "Noooooooooooooo!")
+        2792 		repeat clistmax@tcg(0)
+        2793 			c@tcg = clist@tcg(cnt, 0)
+        2794 			if ( card@tcg(TCG_CARD_REF_DBID, c@tcg) == CREATURE_ID_RIANNA_THE_DAYDREAMER ) {
+    >>  2795 				efllistaddchat "Totally not my fault.", c@tcg
+        2796 				break
+        2797 			}
+==============================================================================
+ 4. 'Acting kinda sus lately~'
+    --- tcg.hsp:1916 (imaritsuka@tcg)
+        1910 	if ( card@tcg(TCG_CARD_EFFECT, dmgcard_arg1) == TCG_EFF_NOCOMBATDAMAGE & dmgcard_arg_combat == TRUE ) {
+        1911 		efllistaddcard 18, dmgcard_arg1
+        1912 		return
+        1913 	}
+        1914 	if ( cdbit(TCG_BIT_IMMUNE, dmgcard_arg1) & dmgcard_dmg > 0 ) {
+        1915 		if ( card@tcg(TCG_CARD_REF_DBID, dmgcard_arg1) == CREATURE_ID_IMARITUKA_THE_ZASIKI_WARAI ) {
+    >>  1916 			imaritsuka@tcg = "Acting kinda sus lately~", "Pfft! What's that~?", "Weakling~ weakling!", "Rent-free!"
+        1917 			efllistaddchat imaritsuka@tcg(rnd(4)), dmgcard_arg1
+        1918 		}
+==============================================================================
+ 5. "Pfft! What's that~?"
+    --- tcg.hsp:1916 (imaritsuka@tcg)
+        1910 	if ( card@tcg(TCG_CARD_EFFECT, dmgcard_arg1) == TCG_EFF_NOCOMBATDAMAGE & dmgcard_arg_combat == TRUE ) {
+        1911 		efllistaddcard 18, dmgcard_arg1
+        1912 		return
+        1913 	}
+        1914 	if ( cdbit(TCG_BIT_IMMUNE, dmgcard_arg1) & dmgcard_dmg > 0 ) {
+        1915 		if ( card@tcg(TCG_CARD_REF_DBID, dmgcard_arg1) == CREATURE_ID_IMARITUKA_THE_ZASIKI_WARAI ) {
+    >>  1916 			imaritsuka@tcg = "Acting kinda sus lately~", "Pfft! What's that~?", "Weakling~ weakling!", "Rent-free!"
+        1917 			efllistaddchat imaritsuka@tcg(rnd(4)), dmgcard_arg1
+        1918 		}
+==============================================================================
+ 6. 'Weakling~ weakling!'
+    --- tcg.hsp:1916 (imaritsuka@tcg)
+        1910 	if ( card@tcg(TCG_CARD_EFFECT, dmgcard_arg1) == TCG_EFF_NOCOMBATDAMAGE & dmgcard_arg_combat == TRUE ) {
+        1911 		efllistaddcard 18, dmgcard_arg1
+        1912 		return
+        1913 	}
+        1914 	if ( cdbit(TCG_BIT_IMMUNE, dmgcard_arg1) & dmgcard_dmg > 0 ) {
+        1915 		if ( card@tcg(TCG_CARD_REF_DBID, dmgcard_arg1) == CREATURE_ID_IMARITUKA_THE_ZASIKI_WARAI ) {
+    >>  1916 			imaritsuka@tcg = "Acting kinda sus lately~", "Pfft! What's that~?", "Weakling~ weakling!", "Rent-free!"
+        1917 			efllistaddchat imaritsuka@tcg(rnd(4)), dmgcard_arg1
+        1918 		}
+==============================================================================
+ 7. 'Rent-free!'
+    --- tcg.hsp:1916 (imaritsuka@tcg)
+        1910 	if ( card@tcg(TCG_CARD_EFFECT, dmgcard_arg1) == TCG_EFF_NOCOMBATDAMAGE & dmgcard_arg_combat == TRUE ) {
+        1911 		efllistaddcard 18, dmgcard_arg1
+        1912 		return
+        1913 	}
+        1914 	if ( cdbit(TCG_BIT_IMMUNE, dmgcard_arg1) & dmgcard_dmg > 0 ) {
+        1915 		if ( card@tcg(TCG_CARD_REF_DBID, dmgcard_arg1) == CREATURE_ID_IMARITUKA_THE_ZASIKI_WARAI ) {
+    >>  1916 			imaritsuka@tcg = "Acting kinda sus lately~", "Pfft! What's that~?", "Weakling~ weakling!", "Rent-free!"
+        1917 			efllistaddchat imaritsuka@tcg(rnd(4)), dmgcard_arg1
+        1918 		}
+==============================================================================
+ 8. '*vroom*'
+    --- tcg_skill.hsp:1040 (diretta)
+        1034 						break
+        1035 					}
+        1036 					card@tcg(TCG_CARD_TEMP, cnt) = 0
+        1037 					if (aeff@tcg == TCG_EFF_SHOVEL) { card@tcg(TCG_CARD_TEMP, cnt) = 1234 }
+        1038 					if (aeff@tcg == TCG_EFF_MINECART & card@tcg(TCG_CARD_LOCATION, cnt) == TCG_LOCATION_HAND ) { card@tcg(TCG_CARD_TEMP, cnt) = 2345 }
+        1039 					if ( card@tcg(TCG_CARD_REF_DBID, cnt) == CREATURE_ID_THIEF_LIGHT_TRUCK ) {
+    >>  1040 						efllistaddchat "*vroom*", cnt
+        1041 					}
+        1042 					card@tcg(TCG_CARD_X_MOVETO, cnt) = card@tcg(TCG_CARD_X, aeft@tcg) + 20, card@tcg(TCG_CARD_Y, aeft@tcg) + 20
+==============================================================================
+ 9. 'AIEEE!!!'
+    --- tcg_skill.hsp:1068 (diretta)
+        1062 			if ( ac@tcg >= 0 & ac@tcg < maxcard@tcg ) {
+        1063 				repeat 1, ac@tcg
+        1064 					card@tcg(TCG_CARD_TEMP, cnt) = aeff@tcg
+        1065 					card@tcg(TCG_CARD_X_MOVETO, cnt) = card@tcg(TCG_CARD_X, aeft@tcg) + 20, card@tcg(TCG_CARD_Y, aeft@tcg) + 20
+        1066 					tcgpass 20
+        1067 					efllistaddcard 16, aeft@tcg
+    >>  1068 					efllistaddchat "AIEEE!!!", aeft@tcg
+        1069                     gravecard aeft@tcg
+        1070 					card@tcg(TCG_CARD_ATTACK, cnt) += 1
+==============================================================================
+10. 'No Mana? You reminds me of... ummm..'
+    --- tcg_skill.hsp:1128 (diretta)
+        1122 				eff@tcg = TCG_EFF_BATTLECRY_DEALEVERYONEXDAMAGE
+        1123 				efftrigger@tcg = TCG_SKILL_TYPE_BATTLECRY
+        1124 				effdonotdouble@tcg = 1 // Proxy effect, do not double proc
+        1125 				gosub *card_action_choose_target
+        1126 			} else {
+        1127 				if ( card@tcg(TCG_CARD_REF_DBID, ac@tcg) == CREATURE_ID_RAIZEL_THE_OLD_WIZARD ) {
+    >>  1128 					efllistaddchat "No Mana? You reminds me of... ummm..", ac@tcg
+        1129 				}
+        1130 			}
+==============================================================================
+11. '!!!!'
+    --- tcg_skill.hsp:1407 (diretta)
+        1401 					efllistadd 1, card@tcg(TCG_CARD_ATTACK, ac@tcg), card@tcg(TCG_CARD_X, ac@tcg), card@tcg(TCG_CARD_Y, ac@tcg), card@tcg(TCG_CARD_X, ac@tcg), card@t
+        1402 					efllistadd 1, (-1) * card@tcg(TCG_CARD_ATTACK, aeft@tcg), card@tcg(TCG_CARD_X, aeft@tcg), card@tcg(TCG_CARD_Y, aeft@tcg), card@tcg(TCG_CARD_X, ae
+        1403 					tcgpass 60
+        1404 					gravecard aeft@tcg
+        1405 				} else {
+        1406 					if ( card@tcg(TCG_CARD_ATTACK, aeft@tcg) > card@tcg(TCG_CARD_ATTACK, ac@tcg)) {
+    >>  1407 						efllistaddchat "!!!!", ac@tcg
+        1408 						efllistaddcard 18, aeft@tcg
+        1409 						efllistaddcard 19, ac@tcg
+==============================================================================
+12. '!@#$'
+    --- tcg_skill.hsp:1415 (diretta)
+        1409 						efllistaddcard 19, ac@tcg
+        1410 						efllistadd 1, (-1) * card@tcg(TCG_CARD_ATTACK, ac@tcg), card@tcg(TCG_CARD_X, ac@tcg), card@tcg(TCG_CARD_Y, ac@tcg), card@tcg(TCG_CARD_X, ac@tcg)
+        1411 						efllistadd 1, card@tcg(TCG_CARD_ATTACK, aeft@tcg), card@tcg(TCG_CARD_X, aeft@tcg), card@tcg(TCG_CARD_Y, aeft@tcg), card@tcg(TCG_CARD_X, aeft@tcg
+        1412 						tcgpass 60
+        1413 						gravecard ac@tcg
+        1414 					} else {
+    >>  1415 						efllistaddchat "!@#$", ac@tcg
+        1416 						efllistadd 1, card@tcg(TCG_CARD_ATTACK, ac@tcg), card@tcg(TCG_CARD_X, ac@tcg), card@tcg(TCG_CARD_Y, ac@tcg), card@tcg(TCG_CARD_X, ac@tcg), card@
+        1417 						efllistadd 1, card@tcg(TCG_CARD_ATTACK, aeft@tcg), card@tcg(TCG_CARD_X, aeft@tcg), card@tcg(TCG_CARD_Y, aeft@tcg), card@tcg(TCG_CARD_X, aeft@tcg
+==============================================================================
+13. 'H means HIGHLANDER!'
+    --- tcg_skill.hsp:1716 (diretta)
+        1710 				loop
+        1711 				x@tcg = (x@tcg(0)+x@tcg(1)+x@tcg(2)+x@tcg(3)+x@tcg(6)+x@tcg(7)) * 3
+        1712 			}
+        1713 			if ( effref@tcg(TCG_SKILL_POWER, aeff@tcg) == -4 ) {
+        1714 				if ( specialrulehighlander@tcg(ap@tcg) > 0 ) {
+        1715 					if ( cdata(CDATA_ID, tc) == CREATURE_ID_H_SISTER | cdata(CDATA_ID, tc) == CREATURE_ID_H_SISTER2 ) {
+    >>  1716 						efllistaddchatplayer "H means HIGHLANDER!", aeft@tcg
+        1717 					}
+        1718 					if ( cdata(CDATA_ID, tc) == CREATURE_ID_SCARD_THE_HAPPY_SWALLOW ) {
+    --- tcg_skill.hsp:7187 (diretta)
+        7181 		_switch_sw@tcg = 0
+        7182 		if ( aeft@tcg >= 0 & aeft@tcg < maxcard@tcg ) {
+        7183 			aeftpplayer@tcg = card@tcg(TCG_CARD_CONTROLLER, aeft@tcg)
+        7184 			if ( aeftpplayer@tcg == 0 | aeftpplayer@tcg == 1 ) {
+        7185 				if ( specialrulehighlander@tcg(aeftpplayer@tcg) > 0 ) {
+        7186 					if ( cdata(CDATA_ID, tc) == CREATURE_ID_H_SISTER | cdata(CDATA_ID, tc) == CREATURE_ID_H_SISTER2 ) {
+    >>  7187 						efllistaddchatplayer "H means HIGHLANDER!", aeft@tcg
+        7188 					}
+        7189 					if ( cdata(CDATA_ID, tc) == CREATURE_ID_SCARD_THE_HAPPY_SWALLOW ) {
+==============================================================================
+14. 'Playing Highlander makes me HAPPY! HAPPY!'
+    --- tcg_skill.hsp:1719 (diretta)
+        1713 			if ( effref@tcg(TCG_SKILL_POWER, aeff@tcg) == -4 ) {
+        1714 				if ( specialrulehighlander@tcg(ap@tcg) > 0 ) {
+        1715 					if ( cdata(CDATA_ID, tc) == CREATURE_ID_H_SISTER | cdata(CDATA_ID, tc) == CREATURE_ID_H_SISTER2 ) {
+        1716 						efllistaddchatplayer "H means HIGHLANDER!", aeft@tcg
+        1717 					}
+        1718 					if ( cdata(CDATA_ID, tc) == CREATURE_ID_SCARD_THE_HAPPY_SWALLOW ) {
+    >>  1719 						efllistaddchatplayer "Playing Highlander makes me HAPPY! HAPPY!", aeft@tcg
+        1720 					}
+        1721 					repeat 30
+==============================================================================
+15. 'Something from beyond laughs.'
+    --- tcg_skill.hsp:1725 (diretta)
+        1719 						efllistaddchatplayer "Playing Highlander makes me HAPPY! HAPPY!", aeft@tcg
+        1720 					}
+        1721 					repeat 30
+        1722 						if ( card@tcg(TCG_CARD_REF_DBID, 100 * ap@tcg + 30 + cnt) != 0 ) { x@tcg++ }
+        1723 					loop
+        1724 				} else {
+    >>  1725 					efllistaddchat "Something from beyond laughs.", aeft@tcg
+        1726 				}
+        1727 			}
+    --- tcg_skill.hsp:7198 (diretta)
+        7192 					cdbitmod TCG_BIT_IMMUNE, aeft@tcg, 1
+        7193 					effac@tcg = aeft@tcg
+        7194 					eff@tcg = TCG_EFF_ATTACKALLENEMY
+        7195 					efftrigger@tcg = TCG_SKILL_TYPE_BATTLECRY
+        7196 					gosub *card_action_choose_target
+        7197 				} else {
+    >>  7198 					efllistaddchat "Something from beyond laughs.", ac@tcg
+        7199 				}
+        7200 			}
+==============================================================================
+16. "This one is known as... wait.. you don't have no CNPCs in your user folder?"
+    --- tcg_skill.hsp:2577 (diretta)
+        2571 					create_extra_card aeft@tcg, CREATURE_ID_NOVICE
+        2572 					if ( cextra@tcg >= 0 ) {
+        2573 						gettargetcard cextra@tcg
+        2574 					}
+        2575 				} else {
+        2576 					if ( ac@tcg >= 0 & ac@tcg < maxcard@tcg & usernpcmax == 0 ) {
+    >>  2577 						efllistaddchat "This one is known as... wait.. you don't have no CNPCs in your user folder?", ac@tcg
+        2578 					}
+        2579 				}
+==============================================================================
+17. "I don't know what you expected, but you don't have any CNPCs in your user folder!"
+    --- tcg_skill.hsp:2633 (diretta)
+        2627 								gettargetcard cextra@tcg
+        2628 							}
+        2629 						loop
+        2630 					}
+        2631 				} else {
+        2632 					if ( ac@tcg >= 0 & ac@tcg < maxcard@tcg & usernpcmax == 0 ) {
+    >>  2633 						efllistaddchat "I don't know what you expected, but you don't have any CNPCs in your user folder!", ac@tcg
+        2634 					}
+        2635 				}
+==============================================================================
+18. 'No CNPCs in user folder? Ahhh! you ruined my plan!'
+    --- tcg_skill.hsp:2672 (diretta)
+        2666 						if ( cextra@tcg >= 0 ) {
+        2667 							putcard cextra@tcg, card@tcg(TCG_CARD_CONTROLLER, cextra@tcg)
+        2668 						}
+        2669 					}
+        2670 				} else {
+        2671 					if ( ac@tcg >= 0 & ac@tcg < maxcard@tcg & usernpcmax == 0 ) {
+    >>  2672 						efllistaddchat "No CNPCs in user folder? Ahhh! you ruined my plan!", ac@tcg
+        2673 					}
+        2674 				}
+==============================================================================
+19. 'Mom! Not again!'
+    --- tcg_skill.hsp:3290 (diretta)
+        3284 						randomp@tcg = 0
+        3285 					}
+        3286 					efllistaddchat randomchat@tcg(randomp@tcg), mary@tcg
+        3287 					if ( randomp@tcg == 0 & aribel@tcg >= 0 & aribel@tcg < maxcard@tcg ) {
+        3288 						tcgpass 30
+        3289 						cdbitmod TCG_BIT_FACE_UP, aribel@tcg, 1
+    >>  3290 						efllistaddchat "Mom! Not again!", aribel@tcg
+        3291 					}
+        3292 				}
+==============================================================================
+20. 'Join me! Renai!'
+    --- tcg_skill.hsp:3470 (diretta)
+        3464 				regulustarget@tcg(0) = regulus@tcg(1)
+        3465 			}
+        3466 			repeat 3
+        3467 				aeft@tcg = regulustarget@tcg(cnt)
+        3468 				if ( aeft@tcg >= 0 & aeft@tcg < maxcard@tcg ) {
+        3469 					if ( card@tcg(TCG_CARD_REF_DBID, aeft@tcg) == CREATURE_ID_RENAI_THE_OVER_MESHERA ) {
+    >>  3470 						efllistaddchat "Join me! Renai!", ac@tcg
+        3471 					}
+        3472 					card@tcg(TCG_CARD_LOCATION, aeft@tcg) = TCG_LOCATION_ANIM
+==============================================================================
+21. 'Wait! Not now, brother!'
+    --- tcg_skill.hsp:3481 (diretta)
+        3475 					if ( card@tcg(TCG_CARD_LOCATION, aeft@tcg) == TCG_LOCATION_DECK ) {
+        3476 						card@tcg(TCG_CARD_X, aeft@tcg) = holderix@tcg(ap@tcg) - holderspace@tcg, holderiy@tcg(ap@tcg)
+        3477 					}
+        3478 					card@tcg(TCG_CARD_X_MOVETO, aeft@tcg) = holderix@tcg(ap@tcg) - holderspace@tcg, card@tcg(TCG_CARD_Y, ac@tcg) - 48 + 96 * ap@tcg
+        3479 					tcgpass 30
+        3480 					if ( card@tcg(TCG_CARD_REF_DBID, aeft@tcg) == CREATURE_ID_RENAI_THE_OVER_MESHERA ) {
+    >>  3481 						efllistaddchat "Wait! Not now, brother!", aeft@tcg
+        3482 					}
+        3483 					card@tcg(TCG_CARD_X_MOVETO, aeft@tcg) = holderix@tcg(ap@tcg) + holderspace@tcg, card@tcg(TCG_CARD_Y, ac@tcg) - 72 + 144 * ap@tcg
+==============================================================================
+22. "You don't see Tezcatlipoca anywhere. Strange."
+    --- tcg_skill.hsp:4531 (diretta)
+        4525 			cdbitmod TCG_BIT_FACE_UP, cnt, 1
+        4526 			break
+        4527 		loop
+        4528 		if ( aeft@tcg >= 0 & aeft@tcg < maxcard@tcg ) {
+        4529 			if ( ac@tcg >= 0 & ac@tcg < maxcard@tcg ) {
+        4530 				if ( cdbit(TCG_BIT_COMMAND, ac@tcg) == TRUE ) {
+    >>  4531 					efllistaddchat "You don't see Tezcatlipoca anywhere. Strange.", ac@tcg
+        4532 				} else {
+        4533 					efllistaddcard 14, ac@tcg, 0, 0, aeft@tcg + 1
+==============================================================================
+23. "All done! Let's roll!"
+    --- tcg_skill.hsp:4611 (diretta)
+        4605 			ac@tcg = cnt
+        4606 			break
+        4607 		loop
+        4608 		if ( aeft@tcg == 0 | aeft@tcg == 1 ) {
+        4609 			if ( ac@tcg >= 0 & ac@tcg < maxcard@tcg ) {
+        4610 				if ( cdbit(TCG_BIT_COMMAND, ac@tcg) != TRUE ) { 
+    >>  4611 					efllistaddchat "All done! Let's roll!", ac@tcg
+        4612 				}
+        4613 				efllistaddcard 9, ac@tcg
+==============================================================================
+24. 'No sacrifices?'
+    --- tcg_skill.hsp:4808 (diretta)
+        4802 						tcgpass 15
+        4803 					loop
+        4804 					card@tcg(TCG_CARD_LOCATION, cextra@tcg) = TCG_LOCATION_HAND
+        4805 					gettargetcard cextra@tcg
+        4806 				}
+        4807 			} else {
+    >>  4808 				efllistaddchatplayer "No sacrifices?", 1
+        4809 			}
+        4810 		}
+==============================================================================
+25. "No one's on the field?"
+    --- tcg_skill.hsp:4882 (diretta)
+        4876 					loop
+        4877 					card@tcg(TCG_CARD_LOCATION, cextra@tcg) = TCG_LOCATION_HAND
+        4878 					gettargetcard cextra@tcg
+        4879 					gosub *card_resolve_ongoing
+        4880 				}
+        4881 			} else {
+    >>  4882 				efllistaddchatplayer "No one's on the field?", 1
+        4883 			}
+        4884 		}
+==============================================================================
+26. 'No places on your Field?'
+    --- tcg_skill.hsp:4923 (diretta)
+        4917 				loop
+        4918 				aeft@tcg = tuwen@tcg(0)
+        4919 				if ( hasspotspace(card@tcg(TCG_CARD_CONTROLLER, aeft@tcg)) ) {
+        4920 					putcardfree@tcg = 1
+        4921 					putcard aeft@tcg, card@tcg(TCG_CARD_CONTROLLER, aeft@tcg)
+        4922 				} else {
+    >>  4923 					efllistaddchatplayer "No places on your Field?", 1
+        4924 				}
+        4925 				gosub *card_resolve_ongoing
+==============================================================================
+27. 'No Cards in your Hand?'
+    --- tcg_skill.hsp:4927 (diretta)
+        4921 					putcard aeft@tcg, card@tcg(TCG_CARD_CONTROLLER, aeft@tcg)
+        4922 				} else {
+        4923 					efllistaddchatplayer "No places on your Field?", 1
+        4924 				}
+        4925 				gosub *card_resolve_ongoing
+        4926 			} else {
+    >>  4927 				efllistaddchatplayer "No Cards in your Hand?", 1
+        4928 			}
+        4929 		}
+==============================================================================
+28. 'Cheapskate.'
+    --- tcg_skill.hsp:5096 (diretta)
+        5090 		_switch_sw@tcg = 0
+        5091 		if ( ac@tcg >= 0 & ac@tcg < maxcard@tcg ) {
+        5092 			manytia@tcg = ac@tcg
+        5093 			manytiaap@tcg = ap@tcg
+        5094 			if ( aeftg@tcg == TCG_SKILL_TYPE_BATTLECRY ) {
+        5095 				if ( specialrulemanytia@tcg(manytiaap@tcg) <= rnd(5) ) { 
+    >>  5096 					efllistaddchat "Cheapskate.", manytia@tcg
+        5097 				}
+        5098 				manytiadialog@tcg = "One!", "Two!", "Three!", "And..!"
+==============================================================================
+29. 'No board spaces, are you daft?'
+    --- tcg_skill.hsp:5120 (diretta)
+        5114 								putcard cextra@tcg, manytiaap@tcg
+        5115 								tcgpass 60
+        5116 								efllistaddchat manytiadialog@tcg(limit(manytiasummoned@tcg, 0, 3)), manytiatarget@tcg
+        5117 							}
+        5118 						}
+        5119 					} else {
+    >>  5120 						efllistaddchat "No board spaces, are you daft?", manytia@tcg
+        5121 						manytiasummoned@tcg = 0
+        5122 						break
+==============================================================================
+30. '..and done!'
+    --- tcg_skill.hsp:5127 (diretta)
+        5121 						manytiasummoned@tcg = 0
+        5122 						break
+        5123 					}
+        5124 					manytiasummoned@tcg += 1
+        5125 				loop
+        5126 				if ( manytiasummoned@tcg > 0 ) {
+    >>  5127 					efllistaddchat "..and done!", manytia@tcg
+        5128 				}
+        5129 			} else {
+==============================================================================
+31. '\\"Hmm, you\'ve been playing for '
+    --- tcg_skill.hsp:6630 (diretta)
+        6624 		}
+        6625 		goto *actionproc_SWEND1
+        6626 		_switch_sw@tcg++
+        6627 	}
+        6628 	if ( _switch_val@tcg == TCG_SKILL_EFF_GARZEIM | _switch_sw@tcg ) {
+        6629 		_switch_sw@tcg = 0
+    >>  6630 		efllistaddchat "\"Hmm, you've been playing for " + hour_played + " hours and " + ((timeGetTime() / 1000 - time_warn)/60) + " minutes.\"", ac@tcg
+        6631 		if ( hour_played >= 24 ) {
+        6632 			winningplayer@tcg = ap@tcg
+==============================================================================
+32. ' hours and '
+    --- tcg_skill.hsp:6630 (diretta)
+        6624 		}
+        6625 		goto *actionproc_SWEND1
+        6626 		_switch_sw@tcg++
+        6627 	}
+        6628 	if ( _switch_val@tcg == TCG_SKILL_EFF_GARZEIM | _switch_sw@tcg ) {
+        6629 		_switch_sw@tcg = 0
+    >>  6630 		efllistaddchat "\"Hmm, you've been playing for " + hour_played + " hours and " + ((timeGetTime() / 1000 - time_warn)/60) + " minutes.\"", ac@tcg
+        6631 		if ( hour_played >= 24 ) {
+        6632 			winningplayer@tcg = ap@tcg
+==============================================================================
+33. ' minutes.\\"'
+    --- tcg_skill.hsp:6630 (diretta)
+        6624 		}
+        6625 		goto *actionproc_SWEND1
+        6626 		_switch_sw@tcg++
+        6627 	}
+        6628 	if ( _switch_val@tcg == TCG_SKILL_EFF_GARZEIM | _switch_sw@tcg ) {
+        6629 		_switch_sw@tcg = 0
+    >>  6630 		efllistaddchat "\"Hmm, you've been playing for " + hour_played + " hours and " + ((timeGetTime() / 1000 - time_warn)/60) + " minutes.\"", ac@tcg
+        6631 		if ( hour_played >= 24 ) {
+        6632 			winningplayer@tcg = ap@tcg
+==============================================================================
+34. 'HAPPY! HAPPY! All of you must be HAPPY!'
+    --- tcg_skill.hsp:7190 (diretta)
+        7184 			if ( aeftpplayer@tcg == 0 | aeftpplayer@tcg == 1 ) {
+        7185 				if ( specialrulehighlander@tcg(aeftpplayer@tcg) > 0 ) {
+        7186 					if ( cdata(CDATA_ID, tc) == CREATURE_ID_H_SISTER | cdata(CDATA_ID, tc) == CREATURE_ID_H_SISTER2 ) {
+        7187 						efllistaddchatplayer "H means HIGHLANDER!", aeft@tcg
+        7188 					}
+        7189 					if ( cdata(CDATA_ID, tc) == CREATURE_ID_SCARD_THE_HAPPY_SWALLOW ) {
+    >>  7190 						efllistaddchatplayer "HAPPY! HAPPY! All of you must be HAPPY!", aeft@tcg
+        7191 					}
+        7192 					cdbitmod TCG_BIT_IMMUNE, aeft@tcg, 1
+==============================================================================
+35. 'I tire of this.'
+    --- tcg_skill.hsp:7241 (diretta)
+        7235 		if ( aeft@tcg == 0 | aeft@tcg == 1 ) {
+        7236 			specialrulekamui@tcg(aeft@tcg)++
+        7237 			if ( specialrulekamui@tcg(aeft@tcg) == 8 ) {
+        7238 				if ( cdata(CDATA_ID, tc) == CREATURE_ID_JALDABAOTH_THE_CHAOS_CHILD | cdata(CDATA_ID, tc) == CREATURE_ID_THE_CHAOS_CHILD ) {
+        7239 					if ( aeft@tcg == 1 & cdata(CDATA_ID, tc) == CREATURE_ID_THE_CHAOS_CHILD ) {
+        7240 						// (probably) Impossible to beat variant.
+    >>  7241 						efllistaddchat cnvtalk("I tire of this."), ac@tcg
+        7242 						tcgpass 150
+        7243 						efllistaddchat cnvtalk("I am finished with your games... All of you shall turn to ash."), ac@tcg
+==============================================================================
+36. 'I am finished with your games... All of you shall turn to ash.'
+    --- tcg_skill.hsp:7243 (diretta)
+        7237 			if ( specialrulekamui@tcg(aeft@tcg) == 8 ) {
+        7238 				if ( cdata(CDATA_ID, tc) == CREATURE_ID_JALDABAOTH_THE_CHAOS_CHILD | cdata(CDATA_ID, tc) == CREATURE_ID_THE_CHAOS_CHILD ) {
+        7239 					if ( aeft@tcg == 1 & cdata(CDATA_ID, tc) == CREATURE_ID_THE_CHAOS_CHILD ) {
+        7240 						// (probably) Impossible to beat variant.
+        7241 						efllistaddchat cnvtalk("I tire of this."), ac@tcg
+        7242 						tcgpass 150
+    >>  7243 						efllistaddchat cnvtalk("I am finished with your games... All of you shall turn to ash."), ac@tcg
+        7244 						tcgpass 150
+        7245 						efllistaddchat cnvtalk("<HOROBI NO YARI> Destroy Target Player"), ac@tcg
+==============================================================================
+37. '<HOROBI NO YARI> Destroy Target Player'
+    --- tcg_skill.hsp:7245 (diretta)
+        7239 					if ( aeft@tcg == 1 & cdata(CDATA_ID, tc) == CREATURE_ID_THE_CHAOS_CHILD ) {
+        7240 						// (probably) Impossible to beat variant.
+        7241 						efllistaddchat cnvtalk("I tire of this."), ac@tcg
+        7242 						tcgpass 150
+        7243 						efllistaddchat cnvtalk("I am finished with your games... All of you shall turn to ash."), ac@tcg
+        7244 						tcgpass 150
+    >>  7245 						efllistaddchat cnvtalk("<HOROBI NO YARI> Destroy Target Player"), ac@tcg
+        7246 						tcgpass 150
+        7247 						cpdata@tcg(TCG_PLAYER_LIFE, TCG_CONTROLLER_PLAYER) = 0
+==============================================================================
+38. 'I tire of this stupid card game.'
+    --- tcg_skill.hsp:7254 (diretta)
+        7248 						gameresult@tcg = 15 + (TCG_CONTROLLER_PLAYER == 0)
+        7249 						tcgpass 30
+        7250 						goto *actionproc_WEND1
+        7251 					}
+        7252 					if ( aeft@tcg == 1 & cdata(CDATA_ID, tc) != CREATURE_ID_THE_CHAOS_CHILD ) {
+        7253 						// Possible to beat variant.
+    >>  7254 						efllistaddchat cnvtalk("I tire of this stupid card game."), ac@tcg
+        7255 						tcgpass 150
+        7256 						efllistaddchat cnvtalk("But since that I have obtained this tremendous power, that is now a trifling matter..."), ac@tcg
+    --- tcg_skill.hsp:7271 (diretta)
+        7265 						goto *actionproc_WEND1
+        7266 					}
+        7267 				}
+        7268 				winningplayer@tcg = 1 - aeft@tcg
+        7269 				card@tcg(TCG_CARD_X_MOVETO, ac@tcg) = cpx@tcg(1 - winningplayer@tcg), cpy@tcg(1 - winningplayer@tcg) + 27
+        7270 				tcgdraw
+    >>  7271 				efllistaddchat cnvtalk("I tire of this stupid card game."), ac@tcg
+        7272 				tcgpass 150
+        7273 				efllistaddchat cnvtalk("I'm leaving, you win."), ac@tcg
+==============================================================================
+39. 'But since that I have obtained this tremendous power, that is now a trifling matter...'
+    --- tcg_skill.hsp:7256 (diretta)
+        7250 						goto *actionproc_WEND1
+        7251 					}
+        7252 					if ( aeft@tcg == 1 & cdata(CDATA_ID, tc) != CREATURE_ID_THE_CHAOS_CHILD ) {
+        7253 						// Possible to beat variant.
+        7254 						efllistaddchat cnvtalk("I tire of this stupid card game."), ac@tcg
+        7255 						tcgpass 150
+    >>  7256 						efllistaddchat cnvtalk("But since that I have obtained this tremendous power, that is now a trifling matter..."), ac@tcg
+        7257 						tcgpass 150
+        7258 						efllistaddchat cnvtalk("<Origin of Chaos> Remove the Chaos Child's Card Text"), ac@tcg
+==============================================================================
+40. "<Origin of Chaos> Remove the Chaos Child's Card Text"
+    --- tcg_skill.hsp:7258 (diretta)
+        7252 					if ( aeft@tcg == 1 & cdata(CDATA_ID, tc) != CREATURE_ID_THE_CHAOS_CHILD ) {
+        7253 						// Possible to beat variant.
+        7254 						efllistaddchat cnvtalk("I tire of this stupid card game."), ac@tcg
+        7255 						tcgpass 150
+        7256 						efllistaddchat cnvtalk("But since that I have obtained this tremendous power, that is now a trifling matter..."), ac@tcg
+        7257 						tcgpass 150
+    >>  7258 						efllistaddchat cnvtalk("<Origin of Chaos> Remove the Chaos Child's Card Text"), ac@tcg
+        7259 						tcgpass 150
+        7260 						cdbitmod TCG_BIT_ENEMY, ac@tcg, 0
+==============================================================================
+41. "I'm leaving, you win."
+    --- tcg_skill.hsp:7273 (diretta)
+        7267 				}
+        7268 				winningplayer@tcg = 1 - aeft@tcg
+        7269 				card@tcg(TCG_CARD_X_MOVETO, ac@tcg) = cpx@tcg(1 - winningplayer@tcg), cpy@tcg(1 - winningplayer@tcg) + 27
+        7270 				tcgdraw
+        7271 				efllistaddchat cnvtalk("I tire of this stupid card game."), ac@tcg
+        7272 				tcgpass 150
+    >>  7273 				efllistaddchat cnvtalk("I'm leaving, you win."), ac@tcg
+        7274 				tcgpass 150
+        7275 				chaoschild@tcg = ac@tcg
+==============================================================================
+42. '<Sigh of the Creator Gods>'
+    --- tcg_skill.hsp:7302 (diretta)
+        7296 					card@tcg(TCG_CARD_REF_ATTACK, cextra@tcg) = 1
+        7297 					cdbitmod TCG_BIT_ENEMY, cextra@tcg, 0
+        7298 					cdbitmod TCG_BIT_REGENERATION, cextra@tcg, 0
+        7299 					cdbitmod TCG_BIT_DEFENDER, cextra@tcg, 0
+        7300 					cdbitmod TCG_BIT_EVASION, cextra@tcg, 0
+        7301 					cdbitmod TCG_BIT_COMMAND, cextra@tcg, 1
+    >>  7302 					if ( specialrulekamui@tcg(aeft@tcg) == 1 ) { efllistaddchat cnvtalk("<Sigh of the Creator Gods>"), ac@tcg }
+        7303 					if ( specialrulekamui@tcg(aeft@tcg) == 2 ) { efllistaddchat cnvtalk("<Roar of the War Gods>"), ac@tcg }
+        7304 					if ( specialrulekamui@tcg(aeft@tcg) == 3 ) { efllistaddchat cnvtalk("<Claws of the Beast Gods>"), ac@tcg }
+==============================================================================
+43. '<Roar of the War Gods>'
+    --- tcg_skill.hsp:7303 (diretta)
+        7297 					cdbitmod TCG_BIT_ENEMY, cextra@tcg, 0
+        7298 					cdbitmod TCG_BIT_REGENERATION, cextra@tcg, 0
+        7299 					cdbitmod TCG_BIT_DEFENDER, cextra@tcg, 0
+        7300 					cdbitmod TCG_BIT_EVASION, cextra@tcg, 0
+        7301 					cdbitmod TCG_BIT_COMMAND, cextra@tcg, 1
+        7302 					if ( specialrulekamui@tcg(aeft@tcg) == 1 ) { efllistaddchat cnvtalk("<Sigh of the Creator Gods>"), ac@tcg }
+    >>  7303 					if ( specialrulekamui@tcg(aeft@tcg) == 2 ) { efllistaddchat cnvtalk("<Roar of the War Gods>"), ac@tcg }
+        7304 					if ( specialrulekamui@tcg(aeft@tcg) == 3 ) { efllistaddchat cnvtalk("<Claws of the Beast Gods>"), ac@tcg }
+        7305 					if ( specialrulekamui@tcg(aeft@tcg) == 4 ) { efllistaddchat cnvtalk("<Sentence of the Judicial Gods>"), ac@tcg }
+==============================================================================
+44. '<Claws of the Beast Gods>'
+    --- tcg_skill.hsp:7304 (diretta)
+        7298 					cdbitmod TCG_BIT_REGENERATION, cextra@tcg, 0
+        7299 					cdbitmod TCG_BIT_DEFENDER, cextra@tcg, 0
+        7300 					cdbitmod TCG_BIT_EVASION, cextra@tcg, 0
+        7301 					cdbitmod TCG_BIT_COMMAND, cextra@tcg, 1
+        7302 					if ( specialrulekamui@tcg(aeft@tcg) == 1 ) { efllistaddchat cnvtalk("<Sigh of the Creator Gods>"), ac@tcg }
+        7303 					if ( specialrulekamui@tcg(aeft@tcg) == 2 ) { efllistaddchat cnvtalk("<Roar of the War Gods>"), ac@tcg }
+    >>  7304 					if ( specialrulekamui@tcg(aeft@tcg) == 3 ) { efllistaddchat cnvtalk("<Claws of the Beast Gods>"), ac@tcg }
+        7305 					if ( specialrulekamui@tcg(aeft@tcg) == 4 ) { efllistaddchat cnvtalk("<Sentence of the Judicial Gods>"), ac@tcg }
+        7306 					if ( specialrulekamui@tcg(aeft@tcg) == 5 ) { efllistaddchat cnvtalk("<Grudge of the Abominable Gods>"), ac@tcg }
+==============================================================================
+45. '<Sentence of the Judicial Gods>'
+    --- tcg_skill.hsp:7305 (diretta)
+        7299 					cdbitmod TCG_BIT_DEFENDER, cextra@tcg, 0
+        7300 					cdbitmod TCG_BIT_EVASION, cextra@tcg, 0
+        7301 					cdbitmod TCG_BIT_COMMAND, cextra@tcg, 1
+        7302 					if ( specialrulekamui@tcg(aeft@tcg) == 1 ) { efllistaddchat cnvtalk("<Sigh of the Creator Gods>"), ac@tcg }
+        7303 					if ( specialrulekamui@tcg(aeft@tcg) == 2 ) { efllistaddchat cnvtalk("<Roar of the War Gods>"), ac@tcg }
+        7304 					if ( specialrulekamui@tcg(aeft@tcg) == 3 ) { efllistaddchat cnvtalk("<Claws of the Beast Gods>"), ac@tcg }
+    >>  7305 					if ( specialrulekamui@tcg(aeft@tcg) == 4 ) { efllistaddchat cnvtalk("<Sentence of the Judicial Gods>"), ac@tcg }
+        7306 					if ( specialrulekamui@tcg(aeft@tcg) == 5 ) { efllistaddchat cnvtalk("<Grudge of the Abominable Gods>"), ac@tcg }
+        7307 					if ( specialrulekamui@tcg(aeft@tcg) == 6 ) { efllistaddchat cnvtalk("<Commandment of the Hell Gods>"), ac@tcg }
+==============================================================================
+46. '<Grudge of the Abominable Gods>'
+    --- tcg_skill.hsp:7306 (diretta)
+        7300 					cdbitmod TCG_BIT_EVASION, cextra@tcg, 0
+        7301 					cdbitmod TCG_BIT_COMMAND, cextra@tcg, 1
+        7302 					if ( specialrulekamui@tcg(aeft@tcg) == 1 ) { efllistaddchat cnvtalk("<Sigh of the Creator Gods>"), ac@tcg }
+        7303 					if ( specialrulekamui@tcg(aeft@tcg) == 2 ) { efllistaddchat cnvtalk("<Roar of the War Gods>"), ac@tcg }
+        7304 					if ( specialrulekamui@tcg(aeft@tcg) == 3 ) { efllistaddchat cnvtalk("<Claws of the Beast Gods>"), ac@tcg }
+        7305 					if ( specialrulekamui@tcg(aeft@tcg) == 4 ) { efllistaddchat cnvtalk("<Sentence of the Judicial Gods>"), ac@tcg }
+    >>  7306 					if ( specialrulekamui@tcg(aeft@tcg) == 5 ) { efllistaddchat cnvtalk("<Grudge of the Abominable Gods>"), ac@tcg }
+        7307 					if ( specialrulekamui@tcg(aeft@tcg) == 6 ) { efllistaddchat cnvtalk("<Commandment of the Hell Gods>"), ac@tcg }
+        7308 					if ( specialrulekamui@tcg(aeft@tcg) == 7 ) { efllistaddchat cnvtalk("<End of All Things>"), ac@tcg }
+==============================================================================
+47. '<Commandment of the Hell Gods>'
+    --- tcg_skill.hsp:7307 (diretta)
+        7301 					cdbitmod TCG_BIT_COMMAND, cextra@tcg, 1
+        7302 					if ( specialrulekamui@tcg(aeft@tcg) == 1 ) { efllistaddchat cnvtalk("<Sigh of the Creator Gods>"), ac@tcg }
+        7303 					if ( specialrulekamui@tcg(aeft@tcg) == 2 ) { efllistaddchat cnvtalk("<Roar of the War Gods>"), ac@tcg }
+        7304 					if ( specialrulekamui@tcg(aeft@tcg) == 3 ) { efllistaddchat cnvtalk("<Claws of the Beast Gods>"), ac@tcg }
+        7305 					if ( specialrulekamui@tcg(aeft@tcg) == 4 ) { efllistaddchat cnvtalk("<Sentence of the Judicial Gods>"), ac@tcg }
+        7306 					if ( specialrulekamui@tcg(aeft@tcg) == 5 ) { efllistaddchat cnvtalk("<Grudge of the Abominable Gods>"), ac@tcg }
+    >>  7307 					if ( specialrulekamui@tcg(aeft@tcg) == 6 ) { efllistaddchat cnvtalk("<Commandment of the Hell Gods>"), ac@tcg }
+        7308 					if ( specialrulekamui@tcg(aeft@tcg) == 7 ) { efllistaddchat cnvtalk("<End of All Things>"), ac@tcg }
+        7309 					card@tcg(TCG_CARD_X, cextra@tcg) = card@tcg(TCG_CARD_X, effac@tcg), card@tcg(TCG_CARD_Y, effac@tcg)
+==============================================================================
+48. '<End of All Things>'
+    --- tcg_skill.hsp:7308 (diretta)
+        7302 					if ( specialrulekamui@tcg(aeft@tcg) == 1 ) { efllistaddchat cnvtalk("<Sigh of the Creator Gods>"), ac@tcg }
+        7303 					if ( specialrulekamui@tcg(aeft@tcg) == 2 ) { efllistaddchat cnvtalk("<Roar of the War Gods>"), ac@tcg }
+        7304 					if ( specialrulekamui@tcg(aeft@tcg) == 3 ) { efllistaddchat cnvtalk("<Claws of the Beast Gods>"), ac@tcg }
+        7305 					if ( specialrulekamui@tcg(aeft@tcg) == 4 ) { efllistaddchat cnvtalk("<Sentence of the Judicial Gods>"), ac@tcg }
+        7306 					if ( specialrulekamui@tcg(aeft@tcg) == 5 ) { efllistaddchat cnvtalk("<Grudge of the Abominable Gods>"), ac@tcg }
+        7307 					if ( specialrulekamui@tcg(aeft@tcg) == 6 ) { efllistaddchat cnvtalk("<Commandment of the Hell Gods>"), ac@tcg }
+    >>  7308 					if ( specialrulekamui@tcg(aeft@tcg) == 7 ) { efllistaddchat cnvtalk("<End of All Things>"), ac@tcg }
+        7309 					card@tcg(TCG_CARD_X, cextra@tcg) = card@tcg(TCG_CARD_X, effac@tcg), card@tcg(TCG_CARD_Y, effac@tcg)
+        7310 					kamuilist@tcg = 0, TCG_EFF_KAMUI1, TCG_EFF_KAMUI2, TCG_EFF_KAMUI3, TCG_EFF_KAMUI4, TCG_EFF_KAMUI5, TCG_EFF_KAMUI6, TCG_EFF_KAMUI7
+==============================================================================
+49. "Hahaha! Hope you like Aime's Deck, "
+    --- tcg_skill.hsp:7435 (diretta)
+        7429 		if ( aeft@tcg == 0 ) {
+        7430 			card@tcg(TCG_CARD_X, effac@tcg) = holderix@tcg(0) - holderspace@tcg, holderiy@tcg(0), holderix@tcg(0) - holderspace@tcg, holderiy@tcg(0) - 100
+        7431 			card@tcg(TCG_CARD_LOCATION, effac@tcg) = TCG_LOCATION_ANIM
+        7432 			cdbitmod TCG_BIT_FACE_UP, effac@tcg, 1
+        7433 			tcgdraw
+        7434 			efllistaddcard 20, effac@tcg
+    >>  7435 			efllistaddchat "Hahaha! Hope you like Aime's Deck, " + _onii(cdata(CDATA_SEX, CHARA_PLAYER)) + "!", effac@tcg
+        7436 			tcgpass 180
+        7437 			card@tcg(TCG_CARD_X_MOVETO, effac@tcg) = holderix@tcg(0) - holderspace@tcg, holderiy@tcg(0)
+==============================================================================
+50. '!'
+    --- tcg_skill.hsp:7435 (diretta)
+        7429 		if ( aeft@tcg == 0 ) {
+        7430 			card@tcg(TCG_CARD_X, effac@tcg) = holderix@tcg(0) - holderspace@tcg, holderiy@tcg(0), holderix@tcg(0) - holderspace@tcg, holderiy@tcg(0) - 100
+        7431 			card@tcg(TCG_CARD_LOCATION, effac@tcg) = TCG_LOCATION_ANIM
+        7432 			cdbitmod TCG_BIT_FACE_UP, effac@tcg, 1
+        7433 			tcgdraw
+        7434 			efllistaddcard 20, effac@tcg
+    >>  7435 			efllistaddchat "Hahaha! Hope you like Aime's Deck, " + _onii(cdata(CDATA_SEX, CHARA_PLAYER)) + "!", effac@tcg
+        7436 			tcgpass 180
+        7437 			card@tcg(TCG_CARD_X_MOVETO, effac@tcg) = holderix@tcg(0) - holderspace@tcg, holderiy@tcg(0)
+==============================================================================
+51. 'One!'
+    --- tcg_skill.hsp:5098 (manytiadialog@tcg)
+        5092 			manytia@tcg = ac@tcg
+        5093 			manytiaap@tcg = ap@tcg
+        5094 			if ( aeftg@tcg == TCG_SKILL_TYPE_BATTLECRY ) {
+        5095 				if ( specialrulemanytia@tcg(manytiaap@tcg) <= rnd(5) ) { 
+        5096 					efllistaddchat "Cheapskate.", manytia@tcg
+        5097 				}
+    >>  5098 				manytiadialog@tcg = "One!", "Two!", "Three!", "And..!"
+        5099 				manytiasummoned@tcg = 0
+        5100 				repeat limit((specialrulemanytia@tcg(manytiaap@tcg) / 10) + 1, 1, 10)
+==============================================================================
+52. 'Two!'
+    --- tcg_skill.hsp:5098 (manytiadialog@tcg)
+        5092 			manytia@tcg = ac@tcg
+        5093 			manytiaap@tcg = ap@tcg
+        5094 			if ( aeftg@tcg == TCG_SKILL_TYPE_BATTLECRY ) {
+        5095 				if ( specialrulemanytia@tcg(manytiaap@tcg) <= rnd(5) ) { 
+        5096 					efllistaddchat "Cheapskate.", manytia@tcg
+        5097 				}
+    >>  5098 				manytiadialog@tcg = "One!", "Two!", "Three!", "And..!"
+        5099 				manytiasummoned@tcg = 0
+        5100 				repeat limit((specialrulemanytia@tcg(manytiaap@tcg) / 10) + 1, 1, 10)
+==============================================================================
+53. 'Three!'
+    --- tcg_skill.hsp:5098 (manytiadialog@tcg)
+        5092 			manytia@tcg = ac@tcg
+        5093 			manytiaap@tcg = ap@tcg
+        5094 			if ( aeftg@tcg == TCG_SKILL_TYPE_BATTLECRY ) {
+        5095 				if ( specialrulemanytia@tcg(manytiaap@tcg) <= rnd(5) ) { 
+        5096 					efllistaddchat "Cheapskate.", manytia@tcg
+        5097 				}
+    >>  5098 				manytiadialog@tcg = "One!", "Two!", "Three!", "And..!"
+        5099 				manytiasummoned@tcg = 0
+        5100 				repeat limit((specialrulemanytia@tcg(manytiaap@tcg) / 10) + 1, 1, 10)
+==============================================================================
+54. 'And..!'
+    --- tcg_skill.hsp:5098 (manytiadialog@tcg)
+        5092 			manytia@tcg = ac@tcg
+        5093 			manytiaap@tcg = ap@tcg
+        5094 			if ( aeftg@tcg == TCG_SKILL_TYPE_BATTLECRY ) {
+        5095 				if ( specialrulemanytia@tcg(manytiaap@tcg) <= rnd(5) ) { 
+        5096 					efllistaddchat "Cheapskate.", manytia@tcg
+        5097 				}
+    >>  5098 				manytiadialog@tcg = "One!", "Two!", "Three!", "And..!"
+        5099 				manytiasummoned@tcg = 0
+        5100 				repeat limit((specialrulemanytia@tcg(manytiaap@tcg) / 10) + 1, 1, 10)
+==============================================================================
+55. "You just can't help but be jealous of my talent!"
+    --- tcg_skill.hsp:465 (randomchat@tcg)
+         459 	if ( _switch_val@tcg == TCG_SKILL_EFF_NEIN | _switch_sw@tcg ) {
+         460 		_switch_sw@tcg = 0
+         461 		if ( aeft@tcg == 0 | aeft@tcg == 1 ) {
+         462 			if ( ac@tcg >= 0 & ac@tcg < maxcard@tcg ) {
+         463 				if (specialruleturnendmanaleft@tcg(aeft@tcg) > 0 ) {
+         464 					if ( card@tcg(TCG_CARD_REF_DBID, ac@tcg) == CREATURE_ID_NEIN_THE_FLYING_WITCH ) {
+    >>   465 						randomchat@tcg = "You just can't help but be jealous of my talent!", "This is how a prestige uses her mana!", "Be honored, I collected your wast
+         466 						efllistaddchat randomchat@tcg(rnd(3)), ac@tcg
+         467 					}
+==============================================================================
+56. 'This is how a prestige uses her mana!'
+    --- tcg_skill.hsp:465 (randomchat@tcg)
+         459 	if ( _switch_val@tcg == TCG_SKILL_EFF_NEIN | _switch_sw@tcg ) {
+         460 		_switch_sw@tcg = 0
+         461 		if ( aeft@tcg == 0 | aeft@tcg == 1 ) {
+         462 			if ( ac@tcg >= 0 & ac@tcg < maxcard@tcg ) {
+         463 				if (specialruleturnendmanaleft@tcg(aeft@tcg) > 0 ) {
+         464 					if ( card@tcg(TCG_CARD_REF_DBID, ac@tcg) == CREATURE_ID_NEIN_THE_FLYING_WITCH ) {
+    >>   465 						randomchat@tcg = "You just can't help but be jealous of my talent!", "This is how a prestige uses her mana!", "Be honored, I collected your wast
+         466 						efllistaddchat randomchat@tcg(rnd(3)), ac@tcg
+         467 					}
+==============================================================================
+57. 'Be honored, I collected your wasted mana!'
+    --- tcg_skill.hsp:465 (randomchat@tcg)
+         459 	if ( _switch_val@tcg == TCG_SKILL_EFF_NEIN | _switch_sw@tcg ) {
+         460 		_switch_sw@tcg = 0
+         461 		if ( aeft@tcg == 0 | aeft@tcg == 1 ) {
+         462 			if ( ac@tcg >= 0 & ac@tcg < maxcard@tcg ) {
+         463 				if (specialruleturnendmanaleft@tcg(aeft@tcg) > 0 ) {
+         464 					if ( card@tcg(TCG_CARD_REF_DBID, ac@tcg) == CREATURE_ID_NEIN_THE_FLYING_WITCH ) {
+    >>   465 						randomchat@tcg = "You just can't help but be jealous of my talent!", "This is how a prestige uses her mana!", "Be honored, I collected your wast
+         466 						efllistaddchat randomchat@tcg(rnd(3)), ac@tcg
+         467 					}
+==============================================================================
+58. "You just can't help but.. wait, no mana?"
+    --- tcg_skill.hsp:470 (randomchat@tcg)
+         464 					if ( card@tcg(TCG_CARD_REF_DBID, ac@tcg) == CREATURE_ID_NEIN_THE_FLYING_WITCH ) {
+         465 						randomchat@tcg = "You just can't help but be jealous of my talent!", "This is how a prestige uses her mana!", "Be honored, I collected your wast
+         466 						efllistaddchat randomchat@tcg(rnd(3)), ac@tcg
+         467 					}
+         468 				} else {
+         469 					if ( card@tcg(TCG_CARD_REF_DBID, ac@tcg) == CREATURE_ID_NEIN_THE_FLYING_WITCH ) {
+    >>   470 						randomchat@tcg = "You just can't help but.. wait, no mana?", "Ugh! You didn't left any mana for me!", "Be honored, I collected your wasted.. not
+         471 						efllistaddchat randomchat@tcg(rnd(3)), ac@tcg
+         472 					}
+==============================================================================
+59. "Ugh! You didn't left any mana for me!"
+    --- tcg_skill.hsp:470 (randomchat@tcg)
+         464 					if ( card@tcg(TCG_CARD_REF_DBID, ac@tcg) == CREATURE_ID_NEIN_THE_FLYING_WITCH ) {
+         465 						randomchat@tcg = "You just can't help but be jealous of my talent!", "This is how a prestige uses her mana!", "Be honored, I collected your wast
+         466 						efllistaddchat randomchat@tcg(rnd(3)), ac@tcg
+         467 					}
+         468 				} else {
+         469 					if ( card@tcg(TCG_CARD_REF_DBID, ac@tcg) == CREATURE_ID_NEIN_THE_FLYING_WITCH ) {
+    >>   470 						randomchat@tcg = "You just can't help but.. wait, no mana?", "Ugh! You didn't left any mana for me!", "Be honored, I collected your wasted.. not
+         471 						efllistaddchat randomchat@tcg(rnd(3)), ac@tcg
+         472 					}
+==============================================================================
+60. 'Be honored, I collected your wasted.. nothing?!'
+    --- tcg_skill.hsp:470 (randomchat@tcg)
+         464 					if ( card@tcg(TCG_CARD_REF_DBID, ac@tcg) == CREATURE_ID_NEIN_THE_FLYING_WITCH ) {
+         465 						randomchat@tcg = "You just can't help but be jealous of my talent!", "This is how a prestige uses her mana!", "Be honored, I collected your wast
+         466 						efllistaddchat randomchat@tcg(rnd(3)), ac@tcg
+         467 					}
+         468 				} else {
+         469 					if ( card@tcg(TCG_CARD_REF_DBID, ac@tcg) == CREATURE_ID_NEIN_THE_FLYING_WITCH ) {
+    >>   470 						randomchat@tcg = "You just can't help but.. wait, no mana?", "Ugh! You didn't left any mana for me!", "Be honored, I collected your wasted.. not
+         471 						efllistaddchat randomchat@tcg(rnd(3)), ac@tcg
+         472 					}
+==============================================================================
+61. 'Keep this a secret from my daughter, okay?'
+    --- tcg_skill.hsp:3280 (randomchat@tcg)
+        3274 			if ( rnddomain@tcg == 0 ) { rnddomain@tcg = 5 }
+        3275 			rndcost@tcg = limit(card@tcg(TCG_CARD_REF_COST, aeft@tcg) + 1, 1, 9)
+        3276 			gosub *card_filter
+        3277 			if ( cardno >= 0 ) {
+        3278 				if ( mary@tcg >= 0 & mary@tcg < maxcard@tcg ) {
+        3279 					cdbitmod TCG_BIT_FACE_UP, mary@tcg, 1
+    >>  3280 					randomchat@tcg = "Keep this a secret from my daughter, okay?", "It is done! It is alive!", "I do wonder if it's only temporary though..."
+        3281 					randomp@tcg = rnd(3)
+        3282 					if ( aeft@tcg == mary@tcg ) {
+==============================================================================
+62. 'It is done! It is alive!'
+    --- tcg_skill.hsp:3280 (randomchat@tcg)
+        3274 			if ( rnddomain@tcg == 0 ) { rnddomain@tcg = 5 }
+        3275 			rndcost@tcg = limit(card@tcg(TCG_CARD_REF_COST, aeft@tcg) + 1, 1, 9)
+        3276 			gosub *card_filter
+        3277 			if ( cardno >= 0 ) {
+        3278 				if ( mary@tcg >= 0 & mary@tcg < maxcard@tcg ) {
+        3279 					cdbitmod TCG_BIT_FACE_UP, mary@tcg, 1
+    >>  3280 					randomchat@tcg = "Keep this a secret from my daughter, okay?", "It is done! It is alive!", "I do wonder if it's only temporary though..."
+        3281 					randomp@tcg = rnd(3)
+        3282 					if ( aeft@tcg == mary@tcg ) {
+==============================================================================
+63. "I do wonder if it's only temporary though..."
+    --- tcg_skill.hsp:3280 (randomchat@tcg)
+        3274 			if ( rnddomain@tcg == 0 ) { rnddomain@tcg = 5 }
+        3275 			rndcost@tcg = limit(card@tcg(TCG_CARD_REF_COST, aeft@tcg) + 1, 1, 9)
+        3276 			gosub *card_filter
+        3277 			if ( cardno >= 0 ) {
+        3278 				if ( mary@tcg >= 0 & mary@tcg < maxcard@tcg ) {
+        3279 					cdbitmod TCG_BIT_FACE_UP, mary@tcg, 1
+    >>  3280 					randomchat@tcg = "Keep this a secret from my daughter, okay?", "It is done! It is alive!", "I do wonder if it's only temporary though..."
+        3281 					randomp@tcg = rnd(3)
+        3282 					if ( aeft@tcg == mary@tcg ) {
+==============================================================================
+64. 'Okay! Science, here we go!?'
+    --- tcg_skill.hsp:3283 (randomchat@tcg)
+        3277 			if ( cardno >= 0 ) {
+        3278 				if ( mary@tcg >= 0 & mary@tcg < maxcard@tcg ) {
+        3279 					cdbitmod TCG_BIT_FACE_UP, mary@tcg, 1
+        3280 					randomchat@tcg = "Keep this a secret from my daughter, okay?", "It is done! It is alive!", "I do wonder if it's only temporary though..."
+        3281 					randomp@tcg = rnd(3)
+        3282 					if ( aeft@tcg == mary@tcg ) {
+    >>  3283 						randomchat@tcg = "Okay! Science, here we go!?"
+        3284 						randomp@tcg = 0
+        3285 					}
+==============================================================================
+65. "I'm not good at card games, hehe."
+    --- tcg_skill.hsp:6620 (randomchat@tcg)
+        6614 				cdbitmod TCG_BIT_FACE_UP, effac@tcg, 1
+        6615 				tcgpass 30
+        6616 				efllistaddcard 18 + rnd(3), effac@tcg
+        6617 				tcgpass 30
+        6618 				card@tcg(TCG_CARD_Y_MOVETO, effac@tcg) = holderiy@tcg(0)
+        6619 				tcgpass 30
+    >>  6620 				randomchat@tcg = "I'm not good at card games, hehe.", "What would Bethel play...", "Your deck is ASS, seriously!", "You do have Bethel in your Dec
+        6621 				efllistaddchat randomchat@tcg(rnd(10)), effac@tcg
+        6622 			}
+==============================================================================
+66. 'What would Bethel play...'
+    --- tcg_skill.hsp:6620 (randomchat@tcg)
+        6614 				cdbitmod TCG_BIT_FACE_UP, effac@tcg, 1
+        6615 				tcgpass 30
+        6616 				efllistaddcard 18 + rnd(3), effac@tcg
+        6617 				tcgpass 30
+        6618 				card@tcg(TCG_CARD_Y_MOVETO, effac@tcg) = holderiy@tcg(0)
+        6619 				tcgpass 30
+    >>  6620 				randomchat@tcg = "I'm not good at card games, hehe.", "What would Bethel play...", "Your deck is ASS, seriously!", "You do have Bethel in your Dec
+        6621 				efllistaddchat randomchat@tcg(rnd(10)), effac@tcg
+        6622 			}
+==============================================================================
+67. 'Your deck is ASS, seriously!'
+    --- tcg_skill.hsp:6620 (randomchat@tcg)
+        6614 				cdbitmod TCG_BIT_FACE_UP, effac@tcg, 1
+        6615 				tcgpass 30
+        6616 				efllistaddcard 18 + rnd(3), effac@tcg
+        6617 				tcgpass 30
+        6618 				card@tcg(TCG_CARD_Y_MOVETO, effac@tcg) = holderiy@tcg(0)
+        6619 				tcgpass 30
+    >>  6620 				randomchat@tcg = "I'm not good at card games, hehe.", "What would Bethel play...", "Your deck is ASS, seriously!", "You do have Bethel in your Dec
+        6621 				efllistaddchat randomchat@tcg(rnd(10)), effac@tcg
+        6622 			}
+==============================================================================
+68. 'You do have Bethel in your Deck, right? Right?'
+    --- tcg_skill.hsp:6620 (randomchat@tcg)
+        6614 				cdbitmod TCG_BIT_FACE_UP, effac@tcg, 1
+        6615 				tcgpass 30
+        6616 				efllistaddcard 18 + rnd(3), effac@tcg
+        6617 				tcgpass 30
+        6618 				card@tcg(TCG_CARD_Y_MOVETO, effac@tcg) = holderiy@tcg(0)
+        6619 				tcgpass 30
+    >>  6620 				randomchat@tcg = "I'm not good at card games, hehe.", "What would Bethel play...", "Your deck is ASS, seriously!", "You do have Bethel in your Dec
+        6621 				efllistaddchat randomchat@tcg(rnd(10)), effac@tcg
+        6622 			}
+==============================================================================
+69. 'What is this Hand?! Chikusho!'
+    --- tcg_skill.hsp:6620 (randomchat@tcg)
+        6614 				cdbitmod TCG_BIT_FACE_UP, effac@tcg, 1
+        6615 				tcgpass 30
+        6616 				efllistaddcard 18 + rnd(3), effac@tcg
+        6617 				tcgpass 30
+        6618 				card@tcg(TCG_CARD_Y_MOVETO, effac@tcg) = holderiy@tcg(0)
+        6619 				tcgpass 30
+    >>  6620 				randomchat@tcg = "I'm not good at card games, hehe.", "What would Bethel play...", "Your deck is ASS, seriously!", "You do have Bethel in your Dec
+        6621 				efllistaddchat randomchat@tcg(rnd(10)), effac@tcg
+        6622 			}
+==============================================================================
+70. "Aaaaah! I'm going to lose!"
+    --- tcg_skill.hsp:6620 (randomchat@tcg)
+        6614 				cdbitmod TCG_BIT_FACE_UP, effac@tcg, 1
+        6615 				tcgpass 30
+        6616 				efllistaddcard 18 + rnd(3), effac@tcg
+        6617 				tcgpass 30
+        6618 				card@tcg(TCG_CARD_Y_MOVETO, effac@tcg) = holderiy@tcg(0)
+        6619 				tcgpass 30
+    >>  6620 				randomchat@tcg = "I'm not good at card games, hehe.", "What would Bethel play...", "Your deck is ASS, seriously!", "You do have Bethel in your Dec
+        6621 				efllistaddchat randomchat@tcg(rnd(10)), effac@tcg
+        6622 			}
+==============================================================================
+71. 'DESTINY DRAW! Oh come on!'
+    --- tcg_skill.hsp:6620 (randomchat@tcg)
+        6614 				cdbitmod TCG_BIT_FACE_UP, effac@tcg, 1
+        6615 				tcgpass 30
+        6616 				efllistaddcard 18 + rnd(3), effac@tcg
+        6617 				tcgpass 30
+        6618 				card@tcg(TCG_CARD_Y_MOVETO, effac@tcg) = holderiy@tcg(0)
+        6619 				tcgpass 30
+    >>  6620 				randomchat@tcg = "I'm not good at card games, hehe.", "What would Bethel play...", "Your deck is ASS, seriously!", "You do have Bethel in your Dec
+        6621 				efllistaddchat randomchat@tcg(rnd(10)), effac@tcg
+        6622 			}
+==============================================================================
+72. 'Faaaaaaaa!! Oh Oh Oh Oh!'
+    --- tcg_skill.hsp:6620 (randomchat@tcg)
+        6614 				cdbitmod TCG_BIT_FACE_UP, effac@tcg, 1
+        6615 				tcgpass 30
+        6616 				efllistaddcard 18 + rnd(3), effac@tcg
+        6617 				tcgpass 30
+        6618 				card@tcg(TCG_CARD_Y_MOVETO, effac@tcg) = holderiy@tcg(0)
+        6619 				tcgpass 30
+    >>  6620 				randomchat@tcg = "I'm not good at card games, hehe.", "What would Bethel play...", "Your deck is ASS, seriously!", "You do have Bethel in your Dec
+        6621 				efllistaddchat randomchat@tcg(rnd(10)), effac@tcg
+        6622 			}
+==============================================================================
+73. 'I will give up!! I give up!!'
+    --- tcg_skill.hsp:6620 (randomchat@tcg)
+        6614 				cdbitmod TCG_BIT_FACE_UP, effac@tcg, 1
+        6615 				tcgpass 30
+        6616 				efllistaddcard 18 + rnd(3), effac@tcg
+        6617 				tcgpass 30
+        6618 				card@tcg(TCG_CARD_Y_MOVETO, effac@tcg) = holderiy@tcg(0)
+        6619 				tcgpass 30
+    >>  6620 				randomchat@tcg = "I'm not good at card games, hehe.", "What would Bethel play...", "Your deck is ASS, seriously!", "You do have Bethel in your Dec
+        6621 				efllistaddchat randomchat@tcg(rnd(10)), effac@tcg
+        6622 			}
+==============================================================================
+74. 'Bethel... *sob*'
+    --- tcg_skill.hsp:6620 (randomchat@tcg)
+        6614 				cdbitmod TCG_BIT_FACE_UP, effac@tcg, 1
+        6615 				tcgpass 30
+        6616 				efllistaddcard 18 + rnd(3), effac@tcg
+        6617 				tcgpass 30
+        6618 				card@tcg(TCG_CARD_Y_MOVETO, effac@tcg) = holderiy@tcg(0)
+        6619 				tcgpass 30
+    >>  6620 				randomchat@tcg = "I'm not good at card games, hehe.", "What would Bethel play...", "Your deck is ASS, seriously!", "You do have Bethel in your Dec
+        6621 				efllistaddchat randomchat@tcg(rnd(10)), effac@tcg
+        6622 			}

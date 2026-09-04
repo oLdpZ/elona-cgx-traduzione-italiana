@@ -2,21 +2,33 @@
 
 Aperta nella **centotrentasettesima** sessione, 2026-09-04.
 
-## STATO: tre lotti su cinque chiusi, 165 rese
+## STATO: quattro lotti su cinque chiusi, 233 rese
 
     lotto A   ✅  32 etichette dei bit + "Bits:  " -> "Tratti:  "      toppe
     lotto B   ✅  21 etichette della scheda                             toppe
     lotto C   ✅  72 schede di carta scritte a mano   strumenti/schede.py
-    lotto D   ⬜  35 battute + 17 randomchat
+    lotto D   ✅  74 battute della nuvoletta       strumenti/dialoghi.py
+                  (68 rese + 6 invariate, su 77 SITI — non le 52 di questo
+                   piano: vedi qui sotto)
     lotto B2  ⬜  8 `Filter:` (+ 5 `Sort by:`)
-    lotto E   ⬜  12 sparsi, la pezza «the The», db_card.hsp:2695
+    lotto E   ⬜  gli sparsi, la pezza «the The», db_card.hsp:2695
 
     strumenti/schede.py + 19 prove   --estrai/--reimporta/--applica/--referto
+    strumenti/dialoghi.py + 25 prove idem, piu' `--referto` sui siti
     dizionario/carte/schede.jsonl    72 rese
-    toppe                            1.230 -> 1.293
-    copertura                        7 fronti / 211 -> 7 / 118 scoperte
-    pytest                           921 -> 952
-    in gioco                         eseguibile delle 08:02 del 04/09
+    dizionario/carte/dialoghi.jsonl  68 rese + 6 invariate
+    toppe                            1.230 -> 1.293 (il lotto D non ne usa)
+    copertura                        7 fronti / 211 -> 118 -> **62** scoperte
+    pytest                           921 -> 952 -> **981**
+    in gioco                         eseguibile delle 17:43 del 04/09
+
+⚠️⚠️ **Il lotto D non era 52: erano 77 siti.** Le 25 di differenza —
+`"One!"`, `"AIEEE!!!"`, `"Cheapskate."`, `"Rent-free!"` — `copertura._PROSA`
+non le vedeva, ed è lo stesso buco delle 58 etichette della 137ª. Il
+riconoscitore nuovo parte da **chi parla** (`efllistaddchat`, e gli array che
+qualcuno gli passa), non dalla forma della stringa. ⭐ Per questo `copertura`
+cala di 56 e non di 77: il conto del fronte e quello del lavoro sono due misure
+diverse, e vanno lette separate.
 
 ⚠️ **Tre cose sono andate diversamente da come le prevedeva questo piano**, e
 stanno scritte in `decisioni.md` (137ª):

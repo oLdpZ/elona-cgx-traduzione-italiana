@@ -615,7 +615,12 @@ def test_l_operando_di_effetto_e_stato_reso_con_la_stringa():
 # 136a alla 137a. Su `tcg.hsp`, dove le toppe sono 165, sarebbe costato molto
 # di piu': ed e' il file che il lotto C ha cominciato a riscrivere.
 
-FILE_RISCRITTI = ("scene2.hsp", "tcg_mod.hsp", "tcg_skill.hsp", "tcg.hsp")
+# ⚠️ La 138ª ne ha aggiunto un quinto passo, `dialoghi --applica`, e con lui
+# `tcg_custom.hsp`: quel file non ha nemmeno una battuta da rendere, ma il
+# passo lo **riscrive lo stesso**, e un file riscritto e' un file dove una
+# toppa puo' morire. L'elenco segue chi SCRIVE, non chi traduce.
+FILE_RISCRITTI = ("scene2.hsp", "tcg_mod.hsp", "tcg_skill.hsp", "tcg.hsp",
+                  "tcg_custom.hsp")
 
 
 def _toppe_di_una_riga(nome: str) -> list[dict]:
@@ -668,3 +673,16 @@ def test_i_nomi_delle_fasi_del_turno_sono_in_italiano():
     testo = percorso.read_text(encoding="cp932")
     assert '"Inizio", "Pesca", "Principale", "Fine"' in testo
     assert '"Begin", "Draw", "Main", "End"' not in testo
+
+
+def test_le_battute_della_nuvoletta_sono_in_italiano_dopo_tutta_la_catena():
+    """L'altro caso nominato: `dialoghi --applica` e' l'ultimo passo che tocca
+    `tcg_skill.hsp`, e questa e' la battuta che sta su DUE righe (`:7254` e
+    `:7271`). Se ne torna inglese una sola, l'iniezione ha smesso di servire
+    tutti i siti di una chiave."""
+    percorso = percorsi.BUILD_HSP / "tcg_skill.hsp"
+    if not percorso.exists():
+        pytest.skip("albero di build assente")
+    testo = percorso.read_text(encoding="cp932")
+    assert testo.count('"Mi ha stancato questo stupido gioco di carte."') == 2
+    assert '"I tire of this stupid card game."' not in testo

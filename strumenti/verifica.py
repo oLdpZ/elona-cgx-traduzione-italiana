@@ -94,7 +94,13 @@ _CAMPI_SOLO_NOME = ("plurale", "genere", "array")
 # il silenzio.
 _SEZIONI_INVARIANTI = ("Valori di dato", "Versi senza contenuto linguistico",
                        "Chiavi e nomi di file", "Nomi coniati del potioman",
-                       "Termini coniati dentro una DESCRIZIONE")
+                       "Termini coniati dentro una DESCRIZIONE",
+                       # 138a: le sei battute della nuvoletta del gioco di
+                       # carte che restano identiche. Quattro sono
+                       # punteggiatura e due sono versi -- lo stesso criterio
+                       # della sezione dei versi, su un meccanismo diverso
+                       # (`dizionario/carte/dialoghi.jsonl`, campo `invariata`).
+                       "Le sei battute della nuvoletta")
 _SEZIONI_NON_INVARIANTI = ("Da decidere", "Nomi di creatura")
 
 # ⚠️ La terza categoria, nata nella 132a. Le due liste qui sopra rispondono
