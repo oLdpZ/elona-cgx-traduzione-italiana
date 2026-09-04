@@ -124,9 +124,10 @@ def test_il_caso_vero_si_accende_senza_la_sua_riga(monkeypatch):
     perche' c'e' e viene riconosciuto.
 
     ⓘ Il numero scende con il lavoro — 142 alla 135a, 72 dopo le schede della
-    137a, 20 dopo le battute della 138a — e va riletto dal referto, non
-    ricordato: sta qui perche' la prova deve dire QUALE file, non solo che
-    qualcosa si e' acceso.
+    137a, 20 dopo le battute della 138a, 8 dopo il suo lotto E — e va riletto
+    dal referto, non ricordato: sta qui perche' la prova deve dire QUALE file,
+    non solo che qualcosa si e' acceso. Gli 8 che restano sono tracce di
+    debug, e per questo la dichiarazione ora dice `esente`.
     """
     senza = {n: d for n, d in copertura.DICHIARATI.items() if n != "tcg_skill.hsp"}
     monkeypatch.setattr(copertura, "DICHIARATI", senza)
@@ -134,20 +135,20 @@ def test_il_caso_vero_si_accende_senza_la_sua_riga(monkeypatch):
     guai = copertura.problemi()
 
     assert len(guai) == 1
-    assert guai[0].startswith("tcg_skill.hsp: 20 stringhe inglesi distinte")
+    assert guai[0].startswith("tcg_skill.hsp: 8 stringhe inglesi distinte")
 
 
 def test_un_conto_dichiarato_che_non_torna_si_accende(monkeypatch):
     """Il monte e' pinnato a un tag apposta: se si muovesse, una dichiarazione
     vecchia coprirebbe un file diverso da quello che descriveva."""
     finto = dict(copertura.DICHIARATI)
-    finto["tcg_skill.hsp"] = copertura.Dichiarazione("fronte", 19, "conto vecchio")
+    finto["tcg_skill.hsp"] = copertura.Dichiarazione("fronte", 7, "conto vecchio")
     monkeypatch.setattr(copertura, "DICHIARATI", finto)
 
     guai = copertura.problemi()
 
     assert len(guai) == 1
-    assert "dichiarate 19 stringhe scoperte, nel sorgente ne sono 20" in guai[0]
+    assert "dichiarate 7 stringhe scoperte, nel sorgente ne sono 8" in guai[0]
 
 
 def test_una_dichiarazione_diventata_inutile_si_accende():

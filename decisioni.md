@@ -15350,3 +15350,86 @@ coperte è lo stesso per cui `verifica.py` legge `invariati.md`.
 + _onii(...) + "!"`: la prima metà si traduce e infatti è tradotta. Qui la
 cornice e il testo stanno in due letterali diversi, al contrario di
 `[Made by][`.
+
+---
+
+## Due meccanismi sulla stessa riga, ognuno sul suo pezzo — 2026-09-04, centotrentottesima sessione
+
+Il lotto E ha portato in italiano le giunture che compongono un nome di carta a
+runtime: `"High Potion of "`, `"socks of "`, e le cinque del gioco del poker
+(`"ace of "`, `" of "`, `"jack of "`, `"queen of "`, `"king of "`). Erano
+dichiarate in `schede.GIUNTURE` dalla 137ª — «sono testo, ma non sono schede» —
+e aspettavano proprio questa decisione.
+
+⚠️ **Due di quelle righe portano anche una scheda**, che sta nel dizionario di
+`schede.py`. La toppa cambia la giuntura, `schede --applica` cambia la scheda, e
+la riga finita porta tutt'e due:
+
+    carddetailneff@tcg(cextra@tcg) = "Pozione forte di " + boozenames@tcg(rnd(10))
+        + "    N.???   birra molto forte  Rarita':Nessuna\n[Carta comando]..."
+
+Funziona per **ordine**: `applica` (le toppe) gira per primo, quando il
+letterale inglese della scheda è ancora lì da agganciare.
+
+⚠️⚠️ **E ha rotto il cancello della catena, che aveva ragione a suonare.**
+`test_i_passi_dopo_applica_non_buttano_via_le_toppe` pretendeva la riga di
+`sostituisci` **intera** dentro la build. Le due toppe sono vivissime, ma la
+loro riga intera non esiste più da nessuna parte: l'ha riscritta a metà un
+altro meccanismo.
+
+⭐ La correzione non è un'esenzione, è una domanda più precisa: `novita_di()`
+taglia il prefisso e il suffisso comuni fra `cerca` e `sostituisci` e tiene il
+mezzo — cioè **esattamente quel che la toppa ha messo lì** — e cerca quello.
+«La toppa è viva» e «la riga della toppa è intatta» non sono la stessa
+affermazione, e il cancello chiedeva la seconda credendo di chiedere la prima.
+
+⚠️ C'è un caso che la novità non copre: una toppa che **toglie e basta**
+(`lang("のデッキ", " Deck")` → `lang("のデッキ", "")`, l'unica del progetto). Lì
+il mezzo è vuoto, e la prova è al contrario: la riga di monte non deve esserci
+più.
+
+---
+
+## Una tabella per la wiki è testo, un'intestazione TSV no — 2026-09-04, centotrentottesima sessione
+
+`tcg.hsp:4612` esporta `TCG_card_list.txt`, la lista completa delle carte come
+tabella MediaWiki, e per tre carte speciali scrive dei segnaposto al posto dei
+numeri: «race dependent», «class/affliation dependent», «[Random AKA] [Random
+Name]».
+
+La domanda era se somigliassero all'intestazione TSV di `custom_itemlist.hsp`,
+che il progetto dichiara **esente** perché tradurla romperebbe il formato. Non
+è lo stesso caso, ed è il contrario: qui il formato sono le barre verticali, e
+dentro le celle ci arrivano già in italiano il nome della carta, la
+descrizione d'effetto e i tratti, presi dal resto della catena. Lasciare
+inglesi questi nove farebbe una tabella metà e metà.
+
+⭐ Le parole non si inventano: «Razza», «Classe» e «Alias» sono quelle che il
+gioco usa già nella scheda del personaggio (`chara.hsp`, `command.hsp`).
+
+ⓘ «affliation» è un refuso di monte. Non porta nessun comportamento — nessuno
+cerca dentro quella stringa — quindi la resa è la parola giusta, «affiliazione»,
+e non il refuso riprodotto. La regola dei refusi è quella della 136ª: si
+riproducono quando **portano un comportamento**, e solo allora.
+
+---
+
+## `TCG_EFF_NONE` ha due testi, e non è una contraddizione — 2026-09-04, centotrentottesima sessione
+
+`tcg_mod.hsp` assegna `effdesc@tcg(TCG_EFF_NONE) = "No Effect."`, reso
+«Nessun effetto.» in Fase 5. `tcg_skill.hsp:6208` **riassegna la stessa
+costante** con `"You can't seem to remember this Card's Effect."`, quando
+`<Zaile>` cancella il testo delle carte.
+
+Le due non si contraddicono perché la seconda sostituisce la prima **a
+runtime**: la costante è la stessa, il momento no. Quindi la resa di questa
+NON deve essere «Nessun effetto.» — sarebbe la stessa parola per due cose
+diverse, e per giunta perderebbe la battuta, che è il giocatore che *non
+riesce a ricordare*.
+
+⚠️ Insieme a `effdesc@tcg(TCG_EFF_RYUTYE)` (`:602`) sono **due descrizioni
+d'effetto che vivono fuori da `tcg_mod.hsp`**, l'unico file che `carte.py`
+guarda. Nessuna rete le vedeva come descrizioni: le ha trovate il censimento
+del lotto E, e sono rese come toppe invece che estendere `carte.py` a un
+secondo file — 833 rese che dipendono da `ATTESE = 835` non si toccano per due
+righe.

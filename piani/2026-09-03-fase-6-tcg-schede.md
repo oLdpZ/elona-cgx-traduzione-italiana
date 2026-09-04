@@ -10,17 +10,22 @@ Aperta nella **centotrentasettesima** sessione, 2026-09-04.
     lotto D   ✅  74 battute della nuvoletta       strumenti/dialoghi.py
                   (68 rese + 6 invariate, su 77 SITI — non le 52 di questo
                    piano: vedi qui sotto)
-    lotto B2  ⬜  8 `Filter:` (+ 5 `Sort by:`)
-    lotto E   ⬜  gli sparsi, la pezza «the The», db_card.hsp:2695
+    lotto B2  ⬜  8 `Filter:` (+ 5 `Sort by:`) — vuole lo SCHERMO prima
+    lotto E   🔶  24 toppe fatte; restano la pezza «the The» e
+                  db_card.hsp:2695
 
     strumenti/schede.py + 19 prove   --estrai/--reimporta/--applica/--referto
     strumenti/dialoghi.py + 25 prove idem, piu' `--referto` sui siti
     dizionario/carte/schede.jsonl    72 rese
     dizionario/carte/dialoghi.jsonl  68 rese + 6 invariate
-    toppe                            1.230 -> 1.293 (il lotto D non ne usa)
-    copertura                        7 fronti / 211 -> 118 -> **62** scoperte
-    pytest                           921 -> 952 -> **981**
-    in gioco                         eseguibile delle 17:43 del 04/09
+    toppe                            1.230 -> 1.293 -> **1.317** (24 del
+                                     lotto E; il lotto D non ne usa nessuna)
+    copertura                        7 fronti / 211 -> 118 -> 62 -> **31**
+                                     scoperte, e i fronti sono **6**:
+                                     `tcg_skill.hsp` e' passato a ESENTE,
+                                     gli 8 che restano sono tracce di debug
+    pytest                           921 -> 952 -> **982**
+    in gioco                         eseguibile delle 18:10 del 04/09
 
 ⚠️⚠️ **Il lotto D non era 52: erano 77 siti.** Le 25 di differenza —
 `"One!"`, `"AIEEE!!!"`, `"Cheapskate."`, `"Rent-free!"` — `copertura._PROSA`

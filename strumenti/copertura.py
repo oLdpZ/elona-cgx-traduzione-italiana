@@ -122,30 +122,25 @@ DICHIARATI: dict[str, Dichiarazione] = {
     # non lasciata: un file dichiarato E coperto veniva contato due volte, e il
     # totale in fondo al referto diceva 1.020 scoperte quando ne restavano 211.
     "tcg_skill.hsp": Dichiarazione(
-        "fronte", 20,
-        "⭐ ERANO 142: la 137ª ne ha rese **70** (le schede di carta scritte a "
-        "mano, `strumenti/schede.py`) e la 138ª le **52 battute** che questo "
-        "modulo vedeva, con `strumenti/dialoghi.py` e "
-        "`dizionario/carte/dialoghi.jsonl`. ⚠️ Le battute vere erano **77 "
-        "siti**, non 52: le altre 25 — `\"One!\"`, `\"AIEEE!!!\"`, "
-        "`\"Cheapskate.\"` — `_PROSA` non le vedeva, e infatti questo numero "
-        "non cala di 77. Sono rese lo stesso: il conto del fronte e quello del "
-        "lavoro sono due cose diverse, e la seconda la tiene `dialoghi "
-        "--referto`. "
-        "Restano 8 tracce di debug, 5 giunture del poker e dei nomi generati "
-        "(dichiarate in `schede.GIUNTURE`), 2 `markerwords`, 2 nomi di "
-        "pozione di `boozenames@tcg` e **2 `effdesc@tcg`** — `:602` e "
-        "`:6208`: descrizioni d'effetto che stanno in QUESTO file e non in "
-        "`tcg_mod.hsp`, dove `carte.py` e' l'unico a guardare. "
-        "L'ALTRA META' DEL GIOCO DI CARTE. 7.686 righe, `#include` da "
-        "`tcg.hsp:3`, zero byte non-ASCII: non c'e' nessun ramo giapponese, "
-        "l'inglese e' cablato e il giocatore lo legge qualunque lingua scelga. "
-        "76 schede di carta (`carddetailneff@tcg(...)`, disegnate da `cardhelp` "
-        "a `tcg.hsp:691`), 35 battute (`efllistaddchat`, `cnvtalk`), 17 "
-        "`randomchat@tcg`, 2 `markerwords`. ⚠️ Tre `instr(carddetailneff@tcg"
-        "(...), 0, \"ragon\")` (`:4960`, `:4972`, `:5003`) CERCANO dentro il "
-        "testo della carta: la resa di «dragon» deve contenere «ragon» — "
-        "«dragone» va, «drago» no."),
+        "esente", 8,
+        "✅ CHIUSO NELLA 138ª, ed erano 142. La 137ª ne ha rese 70 (le schede "
+        "di carta scritte a mano, `strumenti/schede.py`), la 138ª le battute "
+        "della nuvoletta (`strumenti/dialoghi.py`) e gli sparsi del lotto E "
+        "come toppe. Quel che resta sono **8 tracce di debug** — `proctcg "
+        "\"tcg attacking: \"` e compagne, che escono solo con `dbg_tcg` — e "
+        "per questo la riga e' passata da `fronte` a `esente`. "
+        "⚠️⚠️ «Esente» vale per quel che questo modulo VEDE. Delle 77 battute "
+        "vere `_PROSA` ne vedeva 52: le altre 25 — `\"One!\"`, "
+        "`\"AIEEE!!!\"`, `\"Cheapskate.\"` — erano a schermo dentro un file "
+        "dichiarato, e nessun conto le comprendeva. Sono rese, ma la domanda "
+        "«quante altre ce ne sono negli altri 90 file» resta aperta ed e' "
+        "scritta in `RIPRESA-sessione.md`: il conto del fronte e quello del "
+        "lavoro sono due misure diverse. "
+        "⚠️ Tre `instr(carddetailneff@tcg(...), 0, \"ragon\")` (`:4960`, "
+        "`:4972`, `:5003`) CERCANO dentro il testo della carta: la resa di "
+        "«dragon» deve contenere «ragon» — «dragone» va, «drago» no. E' un "
+        "difetto preesistente, non lo ha introdotto la traduzione, e la "
+        "decisione di glossario non e' ancora presa."),
 
     # ---- fronti piccoli, triati alla 135a ---------------------------------
     "map_func.hsp": Dichiarazione(
@@ -191,13 +186,20 @@ DICHIARATI: dict[str, Dichiarazione] = {
 
     # ---- il resto della famiglia TCG: appartiene al fronte del minigioco ---
     "tcg.hsp": Dichiarazione(
-        "fronte", 25,
-        "⭐ ERANO 52: la 137ª ne ha rese **23** — le 21 etichette della scheda "
+        "fronte", 14,
+        "⭐ ERANO 52: la 137ª ne ha rese 23 — le 21 etichette della scheda "
         "(`[Carta comando]`, `<Gilda dei Maghi>`) come toppe del lotto B, e le "
-        "2 schede scritte a mano con `schede.py` — e la 138ª le **4 battute** "
-        "della nuvoletta (`dialoghi.py`: <Rianna> che perde, `imaritsuka@tcg` "
-        "che sfotte, «Sia la luce...»). Restano i 5 «Sort by:», i 9 segnaposto "
-        "delle schede, 10 `proctcg` di debug e il nome del file di mazzo. "
+        "2 schede scritte a mano con `schede.py` — e la 138ª altre 15: le 4 "
+        "battute della nuvoletta (`dialoghi.py`: <Rianna> che perde, "
+        "`imaritsuka@tcg` che sfotte, «Sia la luce...») piu' gli 11 sparsi "
+        "del lotto E come toppe — i 9 segnaposto della tabella che "
+        "`TCG_card_list.txt` esporta e il nome del tipo di file nella "
+        "finestra di dialogo del mazzo. "
+        "⚠️ **Restano 14, e 5 sono un lotto vero**: i «Sort by:» del menu "
+        "mazzo (`:3348-:3352`), che stanno in slot a larghezza fissa insieme "
+        "agli 8 «Filter:» — il lotto B2, che vuole essere GUARDATO a schermo "
+        "prima di essere tradotto perche' l'italiano e' piu' lungo. Gli altri "
+        "9 sono `proctcg` di debug. "
         "IL TERZO PEZZO DEL GIOCO DI CARTE, in un file che ha gia' 102 toppe e "
         "un dizionario: e' il contorno a essere stato lavorato, non le carte. "
         "Le 26 righe `if` di :1568-:1605 sono le ETICHETTE che si appendono al "

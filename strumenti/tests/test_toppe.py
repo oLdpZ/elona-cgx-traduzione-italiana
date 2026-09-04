@@ -635,6 +635,32 @@ def _toppe_di_una_riga(nome: str) -> list[dict]:
     return fuori
 
 
+def novita_di(toppa: dict) -> str:
+    """Il pezzo di riga che la toppa CAMBIA, senza il contorno che lascia com'e'.
+
+    ⚠️⚠️ Serve perche' «la toppa e' viva» e «la riga della toppa e' intatta»
+    non sono la stessa affermazione, e la 138a l'ha pagato: due toppe del
+    lotto E cambiano la **giuntura** di una riga il cui resto e' una scheda di
+    carta, che `schede --applica` riscrive dopo, dal suo dizionario. Le due
+    toppe sono vivissime — «Pozione forte di », «calzini di » sono li' — ma la
+    loro `sostituisci` intera non compare piu' da nessuna parte.
+
+    Un cancello che pretenda la riga intera in un caso cosi' chiede
+    l'impossibile, e un cancello che chiede l'impossibile viene disattivato.
+    Questo taglia il prefisso e il suffisso comuni e tiene il mezzo, che e'
+    esattamente cio' che la toppa ha messo li'.
+    """
+    prima, dopo = toppa["cerca"], toppa["sostituisci"]
+    testa = 0
+    while testa < min(len(prima), len(dopo)) and prima[testa] == dopo[testa]:
+        testa += 1
+    coda = 0
+    while (coda < min(len(prima), len(dopo)) - testa
+           and prima[len(prima) - 1 - coda] == dopo[len(dopo) - 1 - coda]):
+        coda += 1
+    return dopo[testa:len(dopo) - coda]
+
+
 def test_i_passi_dopo_applica_non_buttano_via_le_toppe():
     """Il cancello legge la build **dopo l'ultimo che ci scrive**.
 
@@ -642,11 +668,15 @@ def test_i_passi_dopo_applica_non_buttano_via_le_toppe():
     va chiesto su quale copia») portata un gradino piu' in la': non basta che
     misuri la build, deve misurarla dopo tutti i passi che la toccano.
 
-    ⚠️ Il cancello e' ristretto ai quattro file riscritti apposta. Su tutto il
+    ⚠️ Il cancello e' ristretto ai cinque file riscritti apposta. Su tutto il
     sorgente lo stesso controllo darebbe una decina di falsi allarmi, perche'
     il passo del dizionario riscrive ancora la riga gia' toppata quando dentro
-    c'e' una `lang()`: la toppa e' viva, ma la sua `sostituisci` non c'e' piu'
-    alla lettera. Un cancello che chiede l'impossibile viene disattivato.
+    c'e' una `lang()`.
+
+    ⚠️⚠️ E guarda quel che la toppa **cambia** (`novita_di`), non la riga
+    intera: due meccanismi possono lavorare sulla stessa riga su pezzi
+    diversi, ed e' il caso vero delle giunture del lotto E. Vedi la prova qui
+    sotto, che nomina quel caso.
     """
     morte = []
     for nome in FILE_RISCRITTI:
@@ -655,9 +685,36 @@ def test_i_passi_dopo_applica_non_buttano_via_le_toppe():
             pytest.skip("albero di build assente: `python -m strumenti.applica`")
         testo = percorso.read_text(encoding="cp932")
         for toppa in _toppe_di_una_riga(nome):
-            if toppa["sostituisci"] not in testo:
-                morte.append((nome, toppa["sostituisci"].strip()[:70]))
+            novita = novita_di(toppa)
+            if novita:
+                if novita not in testo:
+                    morte.append((nome, novita[:70]))
+            # ⚠️ Una toppa che TOGLIE e basta non ha novita' da cercare: la
+            # sua prova e' che la riga di monte non ci sia piu'. Senza questo
+            # ramo il cancello direbbe morta una toppa viva.
+            elif toppa["cerca"] in testo:
+                morte.append((nome, "toglie e basta: %s"
+                              % toppa["cerca"].strip()[:56]))
     assert morte == []
+
+
+def test_due_meccanismi_sulla_stessa_riga_lavorano_ognuno_sul_suo_pezzo():
+    """Il caso che ha fatto nascere `novita_di`, nominato.
+
+    `tcg_skill.hsp:931` porta DUE cose: la giuntura «High Potion of », che e'
+    una toppa del lotto E, e la scheda della carta, che sta in
+    `dizionario/carte/schede.jsonl`. Dopo tutta la catena la riga deve
+    portarle **tutt'e due** in italiano — e nessuna delle due deve aver
+    cancellato l'altra.
+    """
+    percorso = percorsi.BUILD_HSP / "tcg_skill.hsp"
+    if not percorso.exists():
+        pytest.skip("albero di build assente")
+    testo = percorso.read_text(encoding="cp932")
+    assert '"Pozione forte di " + boozenames@tcg' in testo
+    assert '"High Potion of "' not in testo
+    assert "birra molto forte" in testo          # la scheda, da schede.py
+    assert "very potent beer" not in testo
 
 
 def test_i_nomi_delle_fasi_del_turno_sono_in_italiano():
