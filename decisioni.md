@@ -15780,3 +15780,83 @@ perché si sia lavorato, ma perché si è andati a guardare.
 ⚠️ Difetto di monte che resta e non è nostro: `cnv_str "card"` morde **dentro**
 i nomi, quindi «figure of Scard» diventa «s» e combacia con la prima creatura
 che contiene una «s».
+
+## Il secondo salto costa otto stringhe, e stavano a schermo — 2026-09-05, centoquarantesima sessione
+
+La 139ª aveva messo fra le cose da misurare il **secondo salto** della rete di
+`disegnate.py`: una stringa messa in una variabile, passata altrove e disegnata
+lì, resta fuori. *Quanto costi non lo sa nessuno*, diceva. Costa **otto
+stringhe**, e la prima volta che si è andati a guardare erano tutte a schermo.
+
+`tcg.hsp:3348-:3360` monta con tredici `+=` la riga che l'editor di mazzo
+scrive in fondo — «Sort by: Cost   Filter: Domain   » — e la disegna quindici
+righe più giù (`mes s@tcg`, `:3363`).
+
+⚠️⚠️ **Nessuna delle due reti la vedeva, e per due motivi diversi.**
+`copertura._PROSA` pretende due parole alfabetiche e ne contava **5 su 13**:
+«Filter: DBID» non gli basta. `disegnate.py` ne vedeva **zero**, perché fa un
+salto solo e da un'assegnazione semplice. Tredici etichette a schermo, in
+inglese, dentro un file dichiarato e contato — e il referto diceva cinque.
+
+⭐ **E le cinque che il referto vedeva erano dichiarate «da guardare a schermo
+prima di tradurre, perché l'italiano è più lungo».** La cautela era ragionevole
+e il rinvio no: la misura non chiedeva di andare a schermo, chiedeva di
+leggere tre righe di sorgente.
+
+    tcg_mod.hsp:3490   basew@tcg = 800                        il pannello
+    tcg.hsp:3362       pos basex@tcg + 130, basey@tcg + 500   dove parte
+    tcg.hsp:3345       font ..., 13 - en * 2                  corpo 11
+
+`Courier New` fa 6,6 px a corpo 11, e la riga non ha niente alla sua destra:
+`(800 − 130) / 6,6` = **101 caratteri**. La coppia italiana peggiore — «Ordina
+per: Dominio   » più «Filtro: Classe2 e sesso   » — ne fa **48**.
+
+⭐ **L'ancora di monte sta sulla riga di sotto**: la legenda dei tasti parte
+anch'essa da `basex + 130` e ha «Pag. N/M» a `basex + 700`, cioè 570 px, cioè
+86 caratteri; l'inglese ne scrive 77. Due misure indipendenti che stanno
+d'accordo, come le linguette e `largeanimal` nella 139ª.
+
+⚠️ **Il tetto vale sulla COPPIA**, non sulla singola etichetta: la riga porta
+sempre un ordinamento *e* un filtro, concatenati. Il cancello misura la coppia
+peggiore, e `Filtro: Razza` conta con la cifra e le tre spaziature che gli
+arrivano in coda.
+
+Le parole non sono nuove: «dominio» è di `glossario.md`, e «Costo», «Attacco»,
+«Vita» sono quelle delle linguette decise dalla 139ª. `DBID` resta `DBID`: è il
+numero di riga del database, non una parola.
+
+## «Con le carte in mano» era una riga di dati — 2026-09-05, centoquarantesima sessione
+
+`tcg_custom.hsp:4565` compone il nome della carta Novizio come
+`randomname() + ", the " + random_title()`, e la riga dopo toglie il doppione
+inglese: `sreplace cardrefn, cardrefn, "the The", "the"`. La dichiarazione di
+`copertura.py` diceva che «in italiano quella pezza o cambia o sparisce, e la
+decisione si prende con le carte in mano».
+
+✅ **Le carte non servivano, e la regola c'era già.** È dell'**82ª**, presa su
+`chat.hsp:16472` — l'unica altra riga del progetto che concatena epiteto e
+nome: l'epiteto italiano è un sintagma intero e **senza articolo**, e la forma
+che tiene è l'**apposizione**. La giuntura diventa `", "`, e il nome esce
+«Zaine, principe».
+
+⭐ **E la seconda riga sparisce**, perché in italiano non c'è nessun articolo da
+raddoppiare. Verificato invece di dedotto: nessuno dei **365** titoli di
+`data/ndata-i.csv` — il file che la build carica al posto di `ndata-e.csv`
+(`etc.hsp:335`, toppa del progetto) — comincia per «il », «la », «lo » o
+«the ». Sono nomi comuni minuscoli: «principe», «duca», «regina», «impero».
+
+⚠️ E `random_title()` è lo stesso che scrive `cdatan(CDATAN_AKA, …)` in tutto
+il gioco: la carta adesso dice quel che dice la scheda.
+
+### Il bilancio di `copertura` in una sessione: 6 fronti → 3, 31 scoperte → 3
+
+    module.hsp        fronte 10  ->  esente 10   era chiuso dalla 81ª
+    tcg.hsp           fronte 14  ->  esente  9   13 rese, 8 mai contate
+    tcg_custom.hsp    fronte  4  ->  esente  3   la giuntura del Novizio
+    command.hsp       esente 10  ->  esente  5   le parole del desiderio
+
+⚠️ **Tre dichiarazioni su quattro erano sbagliate nel motivo, non nel numero.**
+Il numero è misurato sul sorgente pinnato e non può sbagliare; la prosa accanto
+sì, e nessun cancello legge la prosa. Restano tre fronti da una stringa
+ciascuno: le 26 categorie d'oggetto (`map_func.hsp:2517`), `help.hsp:409` e
+`db_card.hsp:2695`.

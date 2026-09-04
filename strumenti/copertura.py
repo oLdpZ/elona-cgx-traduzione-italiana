@@ -186,7 +186,25 @@ DICHIARATI: dict[str, Dichiarazione] = {
 
     # ---- il resto della famiglia TCG: appartiene al fronte del minigioco ---
     "tcg.hsp": Dichiarazione(
-        "fronte", 14,
+        "esente", 9,
+        # ⚠️⚠️ 2026-09-05, 140ª: ERANO 14, E IL «LOTTO B2» ERANO 13, NON 5.
+        # La dichiarazione qui sotto diceva bene che i cinque «Sort by:»
+        # stavano in slot a larghezza fissa insieme a otto «Filter:», e che
+        # volevano una misura prima di una resa. La misura c'e': il pannello e'
+        # largo 800 (`tcg_mod.hsp:3490`), la riga parte a `basex + 130`
+        # (`tcg.hsp:3362`) ed e' `Courier New` a corpo 11 (:3345), cioe' 6,6 px
+        # per carattere, cioe' **101 caratteri**; la coppia italiana peggiore
+        # ne fa 48. L'ancora di monte e' la riga di sotto, che in 570 px scrive
+        # 77 caratteri di legenda. Tutte e tredici sono rese
+        # (`strumenti/genera_toppe_riga_stato.py`).
+        # ⚠️⚠️ E gli otto «Filter:» questo conto non li vedeva: `_PROSA`
+        # pretende due parole alfabetiche e «Filter: DBID» non gli basta.
+        # Nemmeno `disegnate.py` li vedeva, perche' la riga si monta con
+        # tredici `+=` su `s@tcg` e si disegna quindici righe piu' giu' — e'
+        # il SECONDO SALTO. Otto stringhe a schermo, in inglese, dentro un
+        # file dichiarato e contato, e nessuno dei due censimenti le contava.
+        # I 9 che restano sono tutti `proctcg` di debug: la riga e' percio'
+        # passata da `fronte` a `esente`.
         "⭐ ERANO 52: la 137ª ne ha rese 23 — le 21 etichette della scheda "
         "(`[Carta comando]`, `<Gilda dei Maghi>`) come toppe del lotto B, e le "
         "2 schede scritte a mano con `schede.py` — e la 138ª altre 15: le 4 "
@@ -216,12 +234,19 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "perché `_PROSA` pretende due parole. Il 52 resta 52: quelle 32 non "
         "c'erano dentro nemmeno prima."),
     "tcg_custom.hsp": Dichiarazione(
-        "fronte", 4,
-        "Tre tracce di debug (`proc`, `proctcg`, `poptext@tcg`) e una cosa "
-        "che al fronte TCG appartiene davvero: `sreplace ..., \"the The\"` "
-        "(:4566), cioe' la pezza che l'inglese mette per non scrivere «the "
-        "The» quando compone un nome di carta. In italiano quella pezza o "
-        "cambia o sparisce, e la decisione si prende con le carte in mano."),
+        "esente", 3,
+        "Tre tracce di debug (`proc`, `proctcg`, `poptext@tcg`), e basta. "
+        "✅ La quarta era `sreplace ..., \"the The\"` (:4566), la pezza che "
+        "l'inglese mette per non scrivere «the The» quando compone il nome "
+        "della carta Novizio: **e' sparita nella 140ª**, insieme all'articolo "
+        "inglese della giuntura. La regola non era nuova — e' dell'82ª, presa "
+        "su `chat.hsp:16472`: l'epiteto italiano e' un sintagma intero e "
+        "senza articolo, e la forma che tiene e' l'apposizione, «Zaine, "
+        "principe». ⭐ E non c'era niente da decidere «con le carte in mano»: "
+        "bastava guardare i 365 titoli di `data/ndata-i.csv`, il file che la "
+        "build carica al posto di `ndata-e.csv` (`etc.hsp:335`), e vedere che "
+        "nessuno comincia per articolo — quindi il doppione che quella riga "
+        "toglieva non si puo' piu' formare."),
 
     # ---- fronti veri, piccoli, trovati dal triage della 135a ---------------
     "buff.hsp": Dichiarazione(
