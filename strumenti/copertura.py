@@ -256,18 +256,28 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "gemelle a :2060-:2068), i quattro `filedsc`, il filtro BMP|JPG, "
         "l'avviso di migrazione dei Tweak (:72) e la riga dei crediti di :3521."),
     "command.hsp": Dichiarazione(
-        "esente", 10,
-        "Quel che resta dopo le cinque rese della 135a non si traduce, e sette "
-        "decimi sono la trappola: le righe `if` di :4481-:4763 confrontano quel "
-        "che il giocatore ha scritto o il nome di un oggetto — «god inside», "
-        "«man inside», «dog whistle», «happy new year», «merry christmas», "
-        "«small coin», «small medal» — e sono innesti di uova di Pasqua. "
-        "Tradurle senza l'altro capo del confronto spegne l'evento in silenzio. "
-        "Le altre tre: `\"ElonaPlus Custom-GX \"` e' l'operando di uno "
-        "`sreplace` (:413), e «Elona Version » (:17658) e «Level(Piety Cost)» "
-        "(:7625) sono gli argomenti GIAPPONESI di due `lang()`, che non si "
-        "traducono per costruzione. ⓘ Rese alla 135a: i due `dialog` di :13240, "
-        "le due `description` dell'oggetto Omake e i due `filedsc`."),
+        "esente", 5,
+        "⭐ ERANO 10 FINO ALLA 140ª, e la dichiarazione della 135ª aveva ragione "
+        "sulla meta' sbagliata della domanda. Diceva bene che «dog whistle», "
+        "«happy new year», «merry christmas», «small coin» e «small medal» non "
+        "si TRADUCONO — sono operandi di `==` contro quel che il giocatore "
+        "digita nella finestra del desiderio, e tradurli spegne l'evento in "
+        "silenzio — ma da li' concludeva «non si tocca», e la conclusione "
+        "giusta era **si aggiunge**: la 140ª ha allungato quelle condizioni "
+        "con le parole italiane invece di riscriverle "
+        "(`strumenti/genera_toppe_desideri.py`), e ora il desiderio risponde a "
+        "chi scrive «medaglietta» come rispondeva a chi scriveva «small "
+        "medal». Le cinque che restano: `\"ElonaPlus Custom-GX \"` e' "
+        "l'operando di uno `sreplace` (:413); «Elona Version » (:17658) e "
+        "«Level(Piety Cost)» (:7625) sono gli argomenti GIAPPONESI di due "
+        "`lang()`, che non si traducono per costruzione; e «god inside» / «man "
+        "inside» (:4481, :4485) sono i due `instr` scherzosi su 中の神 e 中の人, "
+        "gli unici della catena che hanno la forma della sottostringa e non "
+        "del confronto. ⚠️ Quei due restano aperti apposta: vogliono una "
+        "decisione sulla battuta, non una parola chiave, e il testo che "
+        "stampano e' gia' italiano mentre la parola che li accende non lo e'. "
+        "ⓘ Rese alla 135a: i due `dialog` di :13240, le due `description` "
+        "dell'oggetto Omake e i due `filedsc`."),
     "main.hsp": Dichiarazione(
         "esente", 2,
         "Quel che resta dopo le cinque rese della 135a: "
@@ -286,15 +296,25 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "conferma di reimpostazione (:1663) e la descrizione del file "
         "(:3483, gemella a :3501)."),
     "module.hsp": Dichiarazione(
-        "fronte", 10,
-        "⚠️ QUI LA DOMANDA E' PIU' GROSSA DELLE DIECI STRINGHE. Otto sono "
-        "`cnv_str fix_wish_arg1, \"card of \", \"\"` (:4815-:4825): sono i "
-        "prefissi che il gioco TOGLIE da quel che il giocatore scrive quando "
-        "esprime un desiderio, per capire che oggetto vuole. Non sono testo a "
-        "schermo, ma sono operandi tarati sui nomi INGLESI degli oggetti — e "
-        "i nostri nomi ora sono italiani, quindi con ogni probabilita' non "
-        "agganciano piu' niente. Vanno decisi col contratto dei nomi in mano, "
-        "non da soli. Le altre due: un `proc` di debug e il filtro «ALL files "
+        "esente", 10,
+        "⚠️⚠️ ERA UN «FRONTE», E NON LO ERA PIU' DA CINQUANTAQUATTRO SESSIONI. "
+        "La dichiarazione della 135ª diceva che gli otto `cnv_str "
+        "fix_wish_arg1, \"card of \", \"\"` (:4815-:4825) — i prefissi che il "
+        "gioco TOGLIE da quel che il giocatore scrive per capire che oggetto "
+        "vuole — erano tarati sui nomi inglesi e «con ogni probabilita' non "
+        "agganciano piu' niente». Il lavoro c'era gia': la **81ª** aveva "
+        "aggiunto le dodici righe italiane accanto a quelle inglesi con una "
+        "toppa su :4826 (`carta di `, `statuetta di `, `bambola dorata di `, "
+        "`bambola di carne di `), provandolo sul banco HSP — monte in inglese "
+        "da' `[telhureza]`, la build senza toppa `[statuetta di telhureza]` e "
+        "nessun nome, la build con la toppa `[telhureza]` e combacia "
+        "(`scratchpad/_81-banco-desiderio.py`). Verificato di nuovo nella 140ª "
+        "**sulla build**, non sul sorgente. Le righe inglesi restano perche' "
+        "non costano niente e perche' il sorgente non si riscrive. "
+        "⚠️ Difetto di MONTE che resta, e non e' nostro: `cnv_str \"card\"` "
+        "morde dentro i nomi, quindi «figure of Scard» diventa «s». "
+        "💡 La lezione: un fronte dichiarato aperto non e' un fronte aperto. "
+        "Le altre due stringhe: un `proc` di debug e il filtro «ALL files "
         "(*.*)» di una finestra di Windows."),
     "chara_func.hsp": Dichiarazione(
         "esente", 8,

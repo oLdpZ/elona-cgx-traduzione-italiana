@@ -15662,3 +15662,121 @@ strumento del progetto quelle due stringhe erano lavoro da fare.
 applicata all'indietro, su una decisione più vecchia di quella lezione. ⚠️ E il
 valore conta com'è: `glossario.md` dichiara «Mana» da sessioni, ma il letterale
 è `"Mana "` **con lo spazio**, e lo spazio separa la parola dal numero.
+
+## «Non si traduce» non vuol dire «non si tocca»: 89 parole aggiunte al desiderio — 2026-09-05, centoquarantesima sessione
+
+La 139ª aveva stabilito che l'operando di `==` non è un'etichetta e non si
+traduce, e aveva ragione. Da lì però la dichiarazione di `copertura.py` — e
+prima ancora quella della 135ª — concludevano **«non si tocca»**, e la
+conclusione giusta era un'altra: **si aggiunge**.
+
+`command.hsp:4460` chiede «Che cosa desideri?» e confronta quel che il
+giocatore ha scritto con una lista chiusa di parole giapponesi o inglesi. Chi
+legge un'interfaccia italiana scrive italiano, e **il desiderio fallisce in
+silenzio**: nessun messaggio d'errore, nessun cancello acceso, perché tutti i
+cancelli del progetto misurano il testo a schermo e un operando di `==` non è
+testo a schermo. Lo stesso vale per i due banchi che chiedono la nuova classe,
+`command.hsp:4581` (dal desiderio) e `action.hsp:13659` (dalla pergamena).
+
+⭐ **41 righe toppate, 89 parole aggiunte, zero operandi riscritti.** Le toppe
+allungano la sola **condizione**: `test_le_toppe_non_toccano_mai_l_operando_della_chiave`
+verifica che ogni confronto che c'era prima ci sia ancora dopo e che fuori dai
+confronti la riga sia identica. La chiave `cdatan(CDATAN_CLASS, tc) = "warrior"`
+resta dov'era, e con lei le 77 comparazioni in 13 file.
+
+### ⚠️⚠️ I due tetti non erano nella finestra: erano nel `mesbox`
+
+`*prompt_word` (`system.hsp:3885`) passa a `mesbox` come massimo numero di
+caratteri **`val(2) * (1 + en)`** (`system.hsp:3985` e `:3989`), dove `val(2)`
+è il terzo numero della riga `val = ...` che precede la chiamata:
+
+    command.hsp:4461   ..., winposy(90), 16, 0, 0   ->  16 * 2 = 32   il desiderio
+    command.hsp:4582   ..., winposy(90), 12, 1, 0   ->  12 * 2 = 24   la classe
+    action.hsp:13660   ..., winposy(90), 12, 1, 0   ->  12 * 2 = 24   la classe
+
+Non è un tetto estetico come quello delle linguette: oltre quel numero **la
+casella smette di accettare caratteri**, e una parola più lunga non si potrebbe
+nemmeno digitare. `_controlla_tetti_dichiarati` rilegge quei tre numeri dal
+sorgente a ogni giro, così se il monte stringe la casella il cancello si accende
+invece di lasciare in giro una parola che nessuno riesce a scrivere.
+«Mago guerriero» ne fa 14 su 24: il più lungo, e ci sta.
+
+### ⚠️ Il desiderio abbassa le maiuscole, i due banchi della classe no
+
+`command.hsp:4473` fa `if ( en ) { inputlog = getpath(inputlog, 16) }`, quindi
+le parole del desiderio si scrivono **tutte minuscole** o sono morte in
+partenza. I due banchi della classe quella riga non ce l'hanno, e **non gliela
+si aggiunge**: subito dopo il confronto sta
+`cdatan(CDATAN_FAKE_CLASS, ...) = "" + inputlog`, cioè il giocatore può
+scriverci dentro qualunque cosa come falsa classe, e abbassarne le maiuscole
+rovinerebbe quella libertà per tutti. Si aggiungono perciò **due** forme,
+«Guerriero» e «guerriero». ⭐ Per `claymore` ne basta una: la minuscola è già
+la chiave inglese, e il generatore non la ripete.
+
+### ⭐ I nomi delle classi non si sono decisi qui
+
+Il generatore li legge da `dizionario/db_class.hsp.jsonl` — la stessa fonte da
+cui `genera_toppe_filtri.py` prende le linguette — e alza `KeyError` su una
+classe che nessuno ha reso. È l'unico modo perché la parola da digitare sia la
+stessa che la scheda del personaggio mostra. Le uniche decisioni nuove sono le
+**17 righe di parole del desiderio**: `giovinezza`/`eta`/`bellezza`,
+`epiteto`/`titolo`, `classe`/`professione`, `razza`/`reincarnazione`, `sesso`,
+`redenzione`/`espiazione`, `morte`, `amico`/`alleato`, `soldi`/`denaro`/`oro`,
+`medaglia`/`medaglietta`, `platino`, `fischietto`, `buon anno`, `buon natale`,
+`cioccolato`, `personaggio segreto`, `rimpatrio`.
+
+⚠️ **Nessun accento**: CP932 non ha le vocali accentate e la casella non le
+accetta — «eta», non «età». È un cancello, non una raccomandazione.
+
+⚠️ **E nessuna parola può ripetersi dentro la stessa catena**, perché la catena
+non ha `else`: vincerebbe il primo ramo e il secondo resterebbe muto per
+sempre. La stessa parola nei **due** banchi invece va bene, e cercare la doppia
+fra i file dichiarerebbe guasto proprio il lavoro fatto bene — è la prima
+stesura della rete, corretta prima di scrivere.
+
+### Che cosa resta fuori, dichiarato
+
+Gli otto nomi di dio si scrivono uguale in italiano, la `q` della creatura
+quantistica è una lettera sola, e i due confronti col vuoto dicono che il
+giocatore ha annullato: sono in `SENZA_ITALIANO`, con un motivo per riga. Una
+riga della catena che non sta né lì né nelle tabelle fa alzare `KeyError` — è
+la prova al contrario, ed è l'unica rete che questa catena abbia.
+
+⚠️ **Restano aperti i due `instr` scherzosi** di `:4481` e `:4485`
+(「中の神」 / «god inside», 「中の人」 / «man inside»): hanno la forma della
+sottostringa e non del confronto, e vogliono una decisione sulla battuta. Il
+testo che stampano è già italiano; la parola che li accende no.
+
+## Un fronte dichiarato aperto non è un fronte aperto: `module.hsp` era chiuso dalla 81ª — 2026-09-05, centoquarantesima sessione
+
+`copertura.py` dichiarava `module.hsp` come **fronte** da dieci stringhe, con
+scritto che gli otto `cnv_str fix_wish_arg1, "card of ", ""` erano tarati sui
+nomi inglesi e «con ogni probabilità non agganciano più niente». La stessa
+frase è finita nel punto 3 della lista della 138ª e nel punto 12 di quella
+della 139ª, dove diceva **«sono già rotti oggi»**.
+
+⚠️⚠️ **Non lo erano, e non lo erano da cinquantaquattro sessioni.** La **81ª**
+aveva aggiunto le dodici righe italiane accanto a quelle inglesi con una toppa
+su `module.hsp:4826` — `carta di `, `statuetta di `, `bambola dorata di `,
+`bambola di carne di ` — e l'aveva provata sul banco HSP:
+
+    monte, in inglese          [telhureza]                  combacia
+    build senza la toppa       [statuetta di telhureza]     nessun nome
+    build con la toppa         [telhureza]                  combacia
+
+Verificato di nuovo qui **sulla build**, non sul sorgente: le righe ci sono,
+`module.hsp:4827-:4838`. E la stessa `decisioni.md` lo dice dalla 103ª, nella
+sezione sul collaudo delle carte.
+
+💡 **La lezione, e stavolta è la seconda volta di fila.** Il conto di
+`copertura.py` è misurato sul **sorgente pinnato**, dove le righe inglesi
+restano per sempre: quel numero non poteva accorgersi che accanto ne erano nate
+dodici italiane, perché quelle vivono in una toppa. Il numero era giusto, il
+motivo scritto accanto no — e un motivo sbagliato sopravvive a tutti i cancelli,
+perché nessun cancello legge la prosa. La riga è passata da `fronte` a
+`esente`: i fronti scendono da **6 a 5** e le scoperte da **31 a 21**, e non
+perché si sia lavorato, ma perché si è andati a guardare.
+
+⚠️ Difetto di monte che resta e non è nostro: `cnv_str "card"` morde **dentro**
+i nomi, quindi «figure of Scard» diventa «s» e combacia con la prima creatura
+che contiene una «s».
