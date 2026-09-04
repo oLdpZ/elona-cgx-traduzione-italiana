@@ -15433,3 +15433,71 @@ guarda. Nessuna rete le vedeva come descrizioni: le ha trovate il censimento
 del lotto E, e sono rese come toppe invece che estendere `carte.py` a un
 secondo file — 833 rese che dipendono da `ATTESE = 835` non si toccano per due
 righe.
+
+---
+
+## La domanda aperta più grossa ha un numero: 160 — 2026-09-04, centotrentottesima sessione
+
+Da due sessioni il progetto sapeva che `copertura._PROSA` non vede le
+etichette, e da due sessioni la domanda «quante ce ne sono negli altri novanta
+file» era la cosa aperta più grossa — perché finché non ha una risposta, ogni
+«quanto manca» è un numero di cui non ci si può fidare.
+
+`strumenti/disegnate.py` la risponde partendo da **chi manda un testo allo
+schermo** invece che dalla forma della stringa: **162 stringhe distinte
+disegnate e non coperte, su 12 file, di cui 160 che il censimento vecchio non
+vedeva.**
+
+⭐⭐ **Il gradino che mancava è il salto per variabile.** Da sola, la riga del
+comando (`mes "Dv:"`) trova 34 stringhe in tutto il sorgente — e le 58
+etichette della 137ª non ci sarebbero state, perché non stavano su una riga di
+`mes`: stavano in `s@tcg += "[Command Card] "`, e `s@tcg` finiva a schermo
+venti righe più giù. Coi due livelli insieme il conto è 162. Un salto solo, e
+dentro lo stesso file: è un limite **dichiarato**, e il modo giusto di
+dichiararlo è misurarne il costo, non nasconderlo.
+
+⚠️⚠️ **Il ramo giapponese può essere scritto in lettere latine.**
+`estrai.siti()` dà lo span del solo letterale inglese, perché è quello che il
+dizionario riscrive; il giapponese di solito si riconosce da sé — ha byte fuori
+dall'ASCII. Ma `chat.hsp:6711` è `lang("Yes", "Yes.")`, e il primo giro della
+rete l'ha contato come «scoperto», cioè **ha detto che manca del lavoro che
+c'è**. Il filtro sui byte non basta: serve leggere `jp_grezzo` dai siti.
+
+⭐ **Le due reti si scoprono a vicenda, e nessuna basta.** `_PROSA` vede 301
+cose che `disegnate` non vede (tracce di debug, stringhe di dato, testo che
+passa per più di un salto); `disegnate` ne vede 160 che `_PROSA` non vede. Non
+è una che sostituisce l'altra: `copertura` è il cancello del **dizionario**,
+`disegnate` è il cancello dello **schermo**, e tutt'e due chiedono la stessa
+cosa — o è coperta, o è dichiarata con scritto perché.
+
+⚠️ **E un censimento senza cancello è una misura che invecchia.** Le 58 e le 25
+sono state trovate a mano tutt'e due le volte. Il modo di non trovarle una
+terza è che il numero si accenda da solo: `disegnate.problemi()` fa esattamente
+quel che fa `copertura.problemi()`, con la prova al contrario che toglie la
+dichiarazione di `tcg.hsp` e pretende che il cancello suoni sul file vero.
+
+---
+
+## Il fronte che la rete ha trovato: 126 etichette che nessuno contava — 2026-09-04, centotrentottesima sessione
+
+`tcg.hsp:3552-3632`, `cfname@tcg`: il **menu dei filtri dell'editor di mazzo**.
+«All», «Blue», «Cost 0», «1 HP», «2 Atk», e l'elenco intero delle razze e delle
+classi del gioco. Sono a schermo da sempre, in inglese, dentro un file che il
+progetto ha lavorato tre volte.
+
+Non sono state tradotte in questa sessione, e la ragione non è la fatica:
+
+1. ⚠️ stanno in **slot a larghezza fissa**, gli stessi degli 8 `Filter:` del
+   lotto B2, e l'italiano è più lungo. Vanno **guardate a schermo prima**: è la
+   stessa regola che il lotto B2 si è dato, e tradurle al buio vorrebbe dire
+   scoprire a schermo quel che si poteva sapere prima;
+2. ⚠️⚠️ le razze e le classi **non si decidono qui**. Sono gli stessi nomi che
+   `db_race.hsp`, `db_class.hsp` e le carte usano altrove: se il filtro dice
+   «dragon» e la carta dice «drago», il giocatore non trova le sue carte. Il
+   lotto va fatto insieme a quella tabella, non prima.
+
+Il piano sta in `piani/2026-09-04-fase-7-chi-disegna.md`, col triage degli
+altri undici file — dove la scoperta più utile è che `Dv:` e ` Pv:`
+(`command.hsp:14191`) sono **già decise invariate** dal glossario, e quel che
+manca non è la traduzione ma la riga in `invariati.md`. Un censimento che non
+legga le decisioni prese ripropone per sempre lo stesso lavoro.
