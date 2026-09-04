@@ -15860,3 +15860,92 @@ Il numero è misurato sul sorgente pinnato e non può sbagliare; la prosa accant
 sì, e nessun cancello legge la prosa. Restano tre fronti da una stringa
 ciascuno: le 26 categorie d'oggetto (`map_func.hsp:2517`), `help.hsp:409` e
 `db_card.hsp:2695`.
+
+## Una stringa dichiarata ne nascondeva trentotto: la schermata di aiuto — 2026-09-05, centoquarantesima sessione
+
+`help.hsp` era un fronte da **una** stringa, e la dichiarazione diceva così:
+
+> Resta `s "広域能力を使う(Wide apply)"` (`:409`): una voce di menu che porta il
+> giapponese e l'inglese INSIEME nella stessa stringa, fuori da `lang()`. […]
+> in italiano va decisa come una voce sola — cioè bisogna prima sapere che cosa
+> fa quel comando, e nessuno l'ha ancora guardato in gioco.
+
+⚠️⚠️ **Non era una voce sola, ed era una su trentotto.** `*convertHelp`
+(`help.hsp:284`) in inglese butta via il giapponese e tiene **solo quel che sta
+fra le parentesi**:
+
+    s(cnt) = cnven(strmid(s(cnt), instr(s(cnt), 0, "(") + 1, ...))
+
+Quindi l'etichetta che il giocatore legge è la parola dentro le parentesi, e le
+sette righe di `:387-:440` ne portano **38**. La schermata dove si va a
+imparare i comandi diceva «Get», «Quaff», «Zap», «Hi jump».
+
+⭐ **E la domanda «che cosa fa quel comando» aveva la risposta accanto**: la
+riga porta anche il nome della variabile del tasto. `広域能力を使う(Wide apply)`
+sta accanto a `key_wipe`, e il dizionario rende `W Skill` — la stessa voce
+della barra dei comandi in cima a questo stesso file — con «Ab. ampia». Non
+serviva andare in gioco; serviva leggere la riga intera.
+
+### Perché nessuno le contava: il secondo salto, di nuovo
+
+È lo stesso punto cieco della riga di stato dell'editor di mazzo, e nella
+stessa sessione. `copertura._PROSA` ne vedeva **una su 38** — solo «Wide apply»
+ha due parole alfabetiche — e `disegnate.py` **nessuna**, perché il valore
+finisce in `s(cnt)`, lo riscrive un altro sottoprogramma e lo disegna
+`mes s(cnt * 2)` venti righe più giù.
+
+    editor di mazzo   13 etichette   copertura ne vedeva 5, disegnate 0
+    aiuto (F1)        38 etichette   copertura ne vedeva 1, disegnate 0
+
+💡 **Il secondo salto, misurato due volte, costa 51 stringhe a schermo.** La
+139ª chiedeva «quanto costi non lo sa nessuno»: due sondaggi, e tutt'e due
+hanno trovato testo vero.
+
+### Il tetto, e da dove vengono le parole
+
+    help.hsp:393   pos x + 38 + cnt / 6 * 290, ...    l'etichetta parte a 38
+    help.hsp:396   pos x + 248 + cnt / 6 * 290, ...   il tasto sta a 248
+    help.hsp:392   font ..., 13 - en * 2              corpo 11
+
+`(248 − 38) / 6,6` = **31 caratteri**, e le colonne distano 290 px, quindi 31
+non invade la colonna accanto. La resa più lunga («Interagire») ne fa 10.
+
+⭐ **22 parole su 38 non si sono decise qui**: la barra dei comandi in cima allo
+stesso file (`help.hsp:16-:58`) è già nel dizionario, e il generatore legge di
+lì — `Pick Up` → «Raccogli», `Zap` → «Agita», `Skill` → «Abilità». Se le due
+schermate chiamassero un comando con due parole diverse, il giocatore
+imparerebbe il nome sbagliato.
+
+⚠️ **Il prezzo consapevole**: la barra abbrevia per il *suo* tetto, e qui ci
+sarebbe posto per intero. «Equip.» e «Ab. ampia» arrivano abbreviate anche dove
+starebbero larghe. Si tiene l'abbreviazione: la coerenza fra le due schermate
+vale più dei quattro caratteri, ed è esattamente la divergenza che il rinvio al
+dizionario esiste per impedire.
+
+Le sedici nuove: `quaff` → **Bevi**, `cast` → **Magia** (non «Lancia», che è già
+`throw`, e due comandi non possono chiamarsi uguale in una schermata che serve
+a distinguerli), `blend` → **Sintesi**, `search` → **Esplora**, `go down` →
+**Scendi**, `go up` → **Sali**, `wait` → **Attendi**, `open` → **Apri**,
+`target` → **Bersaglio**, `material` → **Materie**, `feat` → **Tratti**,
+`save` → **Salva**, `close` → **Chiudi**, `give` → **Dai**, `offer` →
+**Offri**, `hi jump` → **Salto alto**.
+
+⚠️ **Gli accenti li degrada il generatore**, non chi scrive la tabella: una
+toppa scrive nel CP932 e non passa da `accenti.degrada`, quindi «Abilità»
+arriva nella build come «Abilita'». E `degrada` conosce le sole vocali
+accentate: per il resto — un trattino lungo, una virgoletta a caporale — c'è il
+cancello sull'ASCII.
+
+⚠️ **E una parentesi dentro la resa romperebbe tutto**: `*convertHelp` taglia
+sulla **prima** `(` e sulla **prima** `)`. Anche quello è un cancello.
+
+### `copertura` alla fine della 140ª: 6 fronti → 2, 31 scoperte → 2
+
+    module.hsp        fronte 10  ->  esente 10   era chiuso dalla 81ª
+    tcg.hsp           fronte 14  ->  esente  9   13 rese, 8 mai contate
+    tcg_custom.hsp    fronte  4  ->  esente  3   la giuntura del Novizio
+    help.hsp          fronte  1  ->  tolto       38 rese, 37 mai contate
+    command.hsp       esente 10  ->  esente  5   le parole del desiderio
+
+Restano `map_func.hsp:2517` (le 26 categorie d'oggetto, che vogliono nomi che
+il progetto non ha) e `db_card.hsp:2695` (una descrizione rimasta giapponese).

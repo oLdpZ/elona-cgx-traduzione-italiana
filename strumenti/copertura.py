@@ -386,14 +386,23 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "nell'argomento `en`, quindi il dizionario lo copre gia'; il "
         "giapponese non si traduce per costruzione. Sembravano scoperte perche' "
         "il ramo giapponese di queste quattro e' scritto mezzo in latino."),
-    "help.hsp": Dichiarazione(
-        "fronte", 1,
-        "Resta `s \"広域能力を使う(Wide apply)\"` (:409): una voce di menu che "
-        "porta il giapponese e l'inglese INSIEME nella stessa stringa, fuori da "
-        "`lang()`. Il dizionario non puo' prenderla, e in italiano va decisa "
-        "come una voce sola — cioe' bisogna prima sapere che cosa fa quel "
-        "comando, e nessuno l'ha ancora guardato in gioco. ⓘ Resa alla 135a: "
-        "il `dialog` dell'indice della guida mancante (:230)."),
+    # ✅ `help.hsp` NON sta piu' qui: la 140ª l'ha chiuso, e la sua riga
+    # andava tolta insieme al lavoro — un file dichiarato E coperto verrebbe
+    # contato due volte, come era successo a `tcg_mod.hsp` nella 136ª.
+    # ⚠️⚠️ E la dichiarazione che c'era diceva la cosa sbagliata. Chiamava
+    # `s "広域能力を使う(Wide apply)"` (:409) «una voce di menu che porta il
+    # giapponese e l'inglese insieme, e che in italiano va decisa come una
+    # voce sola — bisogna prima sapere che cosa fa quel comando». Non era una
+    # voce sola ed era una su TRENTOTTO: `*convertHelp` (:284) in inglese
+    # butta via il giapponese e tiene solo quel che sta fra le parentesi,
+    # quindi tutte e trentotto le etichette dei tasti erano inglesi, nella
+    # schermata dove si va a imparare i comandi. Questo conto ne vedeva una
+    # perche' `_PROSA` pretende due parole alfabetiche e solo «Wide apply» ne
+    # ha due; `disegnate.py` non ne vedeva nessuna, perche' il valore passa
+    # per `s(cnt)`, lo riscrive un altro sottoprogramma e lo disegna venti
+    # righe piu' giu' — il SECONDO SALTO, di nuovo.
+    # Rese dalla 140ª: `strumenti/genera_toppe_tasti_aiuto.py`, che 22 parole
+    # su 38 le legge dalla barra dei comandi di questo stesso file.
     "item.hsp": Dichiarazione(
         "esente", 1,
         "`txt lang(\"[HAPPY BIRTHDAY！！]　フェイズ2が完了した。\", "
