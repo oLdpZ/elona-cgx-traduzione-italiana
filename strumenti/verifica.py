@@ -105,7 +105,14 @@ _SEZIONI_INVARIANTI = ("Valori di dato", "Versi senza contenuto linguistico",
                        # guerriero. Il glossario le aveva gia' decise; stanno
                        # fuori da `lang()`, quindi non le raggiungeva nessun
                        # dizionario e non le dichiarava nessuna riga.
-                       "Le sigle nude che il glossario")
+                       "Le sigle nude che il glossario",
+                       # 139a: `Lv`, `,Tab ` e la «d» dei dadi. Stessa specie
+                       # della sezione qui sopra -- letterali nudi che
+                       # `disegnate.py` ha ripresentato come lavoro da fare --
+                       # ma qui la decisione non era gia' scritta nel
+                       # glossario: si prende adesso, e il criterio di `Lv` e'
+                       # il giapponese (レベル la parola, `Lv` la sigla).
+                       "Le sigle e i segni nudi")
 _SEZIONI_NON_INVARIANTI = ("Da decidere", "Nomi di creatura")
 
 # ⚠️ La terza categoria, nata nella 132a. Le due liste qui sopra rispondono

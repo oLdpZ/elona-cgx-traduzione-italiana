@@ -126,22 +126,29 @@ def test_il_cancello_del_sorgente_vero_e_verde():
 
 
 def test_il_caso_vero_si_accende_senza_la_sua_riga(monkeypatch):
-    """⭐ LA PROVA AL CONTRARIO. Tolta la dichiarazione di `tcg.hsp`, il
-    cancello deve accendersi **sul file vero**."""
-    senza = {n: d for n, d in DICHIARATI.items() if n != "tcg.hsp"}
+    """⭐ LA PROVA AL CONTRARIO. Tolta la dichiarazione di `action.hsp`, il
+    cancello deve accendersi **sul file vero**.
+
+    ⚠️ L'ancora era `tcg.hsp` fino alla 138a, ed e' stata spostata quando la
+    139a ha tradotto le 129 etichette del menu dei filtri: quel file non ha
+    piu' nessuna stringa scoperta, e una prova al contrario ancorata a un
+    fronte chiuso non prova piu' niente. **L'ancora si sposta insieme al
+    lavoro**, come la dichiarazione.
+    """
+    senza = {n: d for n, d in DICHIARATI.items() if n != "action.hsp"}
     monkeypatch.setattr(disegnate, "DICHIARATI", senza)
     guai = problemi()
     assert len(guai) == 1
-    assert guai[0].startswith("tcg.hsp: 129 stringhe disegnate")
+    assert guai[0].startswith("action.hsp: 12 stringhe disegnate")
 
 
 def test_un_conto_dichiarato_che_non_torna_si_accende(monkeypatch):
     finto = dict(DICHIARATI)
-    finto["tcg.hsp"] = disegnate.Dichiarazione("fronte", 128, "conto vecchio")
+    finto["action.hsp"] = disegnate.Dichiarazione("fronte", 11, "conto vecchio")
     monkeypatch.setattr(disegnate, "DICHIARATI", finto)
     guai = problemi()
     assert len(guai) == 1
-    assert "dichiarate 128 stringhe disegnate e scoperte, nel sorgente ne sono 129" \
+    assert "dichiarate 11 stringhe disegnate e scoperte, nel sorgente ne sono 12" \
         in guai[0]
 
 
@@ -156,12 +163,25 @@ def test_una_dichiarazione_diventata_inutile_si_accende(monkeypatch):
     assert any("db_race.hsp" in g and "va tolta" in g for g in problemi())
 
 
-def test_questa_rete_vede_cose_che_PROSA_non_vede():
-    """⚠️⚠️ La prova che dice se il modulo serve. Se il numero scendesse a
-    zero, o il progetto ha finito il lavoro, o la rete ha smesso di cercare —
-    e le due cose vanno distinte guardando `--confronto`, non qui."""
-    solo_qui = sum(len(r["solo_mie"]) for r in disegnate.confronto())
-    assert solo_qui > 100
+def test_le_due_reti_si_scoprono_a_vicenda_e_nessuna_basta():
+    """⚠️⚠️ La prova che dice se il modulo serve, **nei due versi**.
+
+    Il numero da solo non basta a dire niente: era 153 nella 138a ed e' 20
+    dopo che la 139a ha tradotto le 129 etichette del menu dei filtri. Sceso
+    perche' il lavoro e' stato fatto, non perche' la rete abbia smesso di
+    cercare — e le due cose si distinguono guardando `--confronto`, non un
+    numero. Per questo la soglia non e' un conto ma la **proprieta'**: ognuna
+    delle due reti vede ancora qualcosa che l'altra non vede.
+
+    ⚠️ Se un giorno `solo_qui` arrivasse a zero, questa prova si accende ed e'
+    giusto che si accenda: vorra' dire che `copertura` da sola basta, e allora
+    o il modulo va tolto, o la rete ha smesso di guardare dove guardava.
+    """
+    confronto = disegnate.confronto()
+    solo_qui = sum(len(r["solo_mie"]) for r in confronto)
+    solo_prosa = sum(len(r["solo_sue"]) for r in confronto)
+    assert solo_qui > 0, "chi disegna non vede piu' niente che _PROSA non veda"
+    assert solo_prosa > solo_qui, "_PROSA vede tracce di debug e stringhe di dato"
 
 
 def test_ogni_dichiarazione_dice_perche():

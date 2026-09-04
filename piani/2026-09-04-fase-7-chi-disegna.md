@@ -99,6 +99,40 @@ citazione di Ken il guerriero erano decisioni già prese — scritte in
 `lang()`** e nessun dizionario le raggiunge. Una decisione va scritta dove la
 cerca chi **misura**, non solo dove la cerca chi traduce: 162 → 158.
 
+## Che cosa ha fatto la 139ª — e le due correzioni al piano qui sopra
+
+⭐⭐ **Il fronte dello schermo è chiuso: 158 → 25**, e le venticinque che restano
+sono tutte dichiarate (tracce di debug, finestre d'errore di sistema, un
+formato, un file di prova che nessuno `#include`, e le dodici chiavi di
+`action.hsp`). Nessuna è testo che un giocatore legga in italiano sbagliato.
+
+    tcg.hsp     129 -> 0    le 17 righe del menu dei filtri sono toppate,
+                            e i due sparsi sono entrati in `invariati.md`
+    action.hsp   12 -> 12   ma da FRONTE a ESENTE: sono chiavi
+    command.hsp   2 -> 0    `,Tab ` e la «d» dei dadi in `invariati.md`
+    module.hsp    1 -> 0    lo stesso `,Tab `
+    screen.hsp    3 -> 2    `Lv` in `invariati.md`
+    main.hsp      2 -> 2    ma `lv:` è una traccia di debug, non una grafia
+
+⚠️⚠️ **La prima correzione: `action.hsp` era un errore del piano.** «La resa
+deve essere quella di `db_class.hsp`» avrebbe rotto il gioco —
+`cdatan(CDATAN_CLASS, tc)` è la chiave che **77 confronti in 13 file** leggono
+e che tre siti passano come indice di database. L'etichetta che il giocatore legge è
+`classname`, un'altra stringa, già tradotta e già toppata nei due punti dove il
+ramo inglese mostrava la chiave. Quel che resta aperto è l'**operando** del
+comando dei desideri, che vuole un'alternativa italiana **aggiunta**, non una
+chiave tradotta. Vedi `decisioni.md`, 139ª.
+
+⚠️ **La seconda: le «tre grafie» di livello erano tre cose diverse** — una
+sigla (`Lv`), una parola (« liv.») e una traccia di debug (`lv:`) — e il
+criterio che le separa è il giapponese. Nessuna traduzione è cambiata.
+
+⭐ **E il tetto del menu dei filtri non ha avuto bisogno dello schermo**: si
+legge nel sorgente (passo 63 px, `Courier New` a corpo 9, 5,4 px per carattere
+→ **11 caratteri**), e l'ancora di monte cade sullo stesso numero, perché
+`largeanimal` ne fa esattamente 11. Il collaudo a schermo resta da fare, ma per
+**verificare** una misura, non per prenderla.
+
 ## Come si saprà che è finita
 
     disegnate            158 -> ~20 distinte: il fronte di `tcg.hsp` sceso a

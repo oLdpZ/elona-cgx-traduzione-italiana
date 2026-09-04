@@ -85,47 +85,48 @@ class Dichiarazione:
 # sono quelli di la' e non vanno confrontati riga per riga: `--confronto` dice
 # quanto le due reti si scoprono a vicenda.
 DICHIARATI: dict[str, Dichiarazione] = {
-    "tcg.hsp": Dichiarazione(
-        "fronte", 129,
-        "⭐⭐ IL RITROVAMENTO DELLA 138ª, e il fronte piu' grosso che resta nel "
-        "gioco di carte: il **menu dei filtri dell'editor di mazzo** "
-        "(`cfname@tcg`, `:3552-:3632`). Sono 126 etichette a schermo — «All», "
-        "«Blue», «Cost 0», «1 HP», «2 Atk», e l'elenco intero di razze e "
-        "classi — che NESSUN censimento ha mai contato: `_PROSA` pretende due "
-        "parole alfabetiche e queste ne hanno una. "
-        "⚠️ Vanno guardate a schermo prima di tradurle: stanno negli stessi "
-        "slot a larghezza fissa degli 8 «Filter:» del lotto B2, e l'italiano "
-        "e' piu' lungo. ⚠️ E le razze/classi vanno decise **insieme** ai nomi "
-        "che il progetto usa altrove (`db_class.hsp`, `db_race.hsp`), o il "
-        "filtro chiamerebbe «dragon» quel che la carta chiama «drago». "
-        "ⓘ Dentro il 129 ci sono anche 3 sparsi dello stesso file, che col "
-        "menu non c'entrano: `bmes \"Immune\"` (`:969`), `mes \"Mana \"` "
-        "(`:3480`) e un `\"Effect: \"` appeso a `s@tcg` (`:1610`). 126 + 3."),
+    # ✅ `tcg.hsp` NON sta piu' qui, e con lui se ne va il fronte piu' grosso
+    # che la rete dello schermo aveva trovato. Il **menu dei filtri
+    # dell'editor di mazzo** (`cfname@tcg`, `:3552-:3632`) — 129 etichette che
+    # nessun censimento aveva mai contato, perche' `_PROSA` pretende due
+    # parole alfabetiche e queste ne hanno una — e' tradotto dalla 139ª con le
+    # 17 toppe di `strumenti/genera_toppe_filtri.py`, e i due sparsi che
+    # restavano (`bmes "Immune"` `:969` e `mes "Mana "` `:3480`) sono entrati
+    # in `invariati.md`: erano decisi dalla 127ª, ma in **prosa**, e nessuno
+    # strumento legge un paragrafo.
     "action.hsp": Dichiarazione(
-        "fronte", 12,
-        "Le dodici classi che il comando dei desideri **scrive dentro il nome "
-        "della creatura** (`cdatan(CDATAN_CLASS, tc) = \"warrior\"`, "
-        "`:13670-:13703`). ⚠️ Sulla stessa riga c'e' l'OPERANDO — `if "
-        "inputlog == \"warrior\"` — che e' quel che il giocatore digita e "
-        "**non si tocca**: e' la trappola di `module.hsp`, dove otto "
-        "`cnv_str` tolgono prefissi inglesi da quel che il giocatore scrive. "
-        "La resa deve essere quella di `db_class.hsp`, non una nuova."),
-    "command.hsp": Dichiarazione(
-        "fronte", 2,
-        "✅ `\"Dv:\"` e `\" Pv:\"` (`:14191`, `:14205`) sono uscite di qui "
-        "nella 138ª: erano gia' decise dal glossario, e quel che mancava era "
-        "la riga in `invariati.md` — che ora c'e'. Restano `\",Tab \"` "
-        "(`:14077`, il suggerimento di tasto, che compare uguale in "
-        "`module.hsp` e va deciso una volta per tutt'e due) e `\"d\"`, che "
-        "non e' testo: e' la «d» dei dadi (`3d5`)."),
+        "esente", 12,
+        "⚠️⚠️ **NON sono testo: sono la CHIAVE della classe**, e la 139ª ha "
+        "ribaltato il verdetto della 138ª, che le dava per lavoro da fare. "
+        "`cdatan(CDATAN_CLASS, tc) = \"warrior\"` (`:13670-:13703`) scrive lo "
+        "stesso valore che `db_class.hsp:61` scrive alla creazione, e che il "
+        "resto del gioco **confronta 77 volte in 13 file** — `tcg_custom.hsp` "
+        "28, `proc.hsp` 16, `chara.hsp` 12, `screen.hsp` 4, `action.hsp` 3, "
+        "`calculation.hsp` 3, `command.hsp` 3, `custom_ai.hsp` 2, `item.hsp` "
+        "2, e uno per `ai.hsp`, `chara_func.hsp`, `custom_dmgparse.hsp`, "
+        "`map.hsp` — e lo passano "
+        "come `dbidn` a `*db_class` (`command.hsp:10644`, `:17652`, "
+        "`:17827`). Renderle «Guerriero» spegnerebbe il costo degli "
+        "incantesimi del mago, il colpo in piu' del guerriero e il "
+        "riconoscimento dell'IA. ⭐ L'etichetta che il giocatore legge e' "
+        "un'ALTRA stringa — `classname`, che `db_class.hsp:43` definisce con "
+        "`lang(\"戦士\", \"Warrior\")` e che il dizionario rende «Guerriero» — "
+        "e i due siti dove il ramo inglese mostrava la chiave invece "
+        "dell'etichetta **sono gia' toppati** (`command.hsp:10640` e "
+        "`:10647`). ⚠️ Quel che resta aperto non e' una resa ma "
+        "l'**operando**: `if ( inputlog == \"warrior\" )` sulla riga di sopra "
+        "e' quel che il giocatore digita, e un giocatore italiano che ha "
+        "scelto «Guerriero» alla creazione digitera' «guerriero» e non "
+        "aggancera' niente. Si risolve **aggiungendo** alternative, non "
+        "traducendo la chiave, ed e' la stessa domanda degli otto `cnv_str` "
+        "di `module.hsp`."),
     "screen.hsp": Dichiarazione(
-        "esente", 3,
-        "✅ `\"Sp\"` (`:417`) e' uscita di qui nella 138ª, dentro "
-        "`invariati.md` insieme alle altre sigle del glossario. Restano "
-        "`\"Lv\"` (`:423`), che NON e' esente ma va deciso insieme al "
-        "` liv.` del dizionario e al `lv:` di `main.hsp` — oggi il progetto "
-        "ne ha tre grafie — e `\"*debug*\"` e `\"loop\"` (`:1125`, `:1128`), "
-        "che escono solo col debug acceso."),
+        "esente", 2,
+        "✅ `\"Sp\"` (`:417`) e' uscita di qui nella 138ª e `\"Lv\"` (`:423`) "
+        "nella 139ª, tutt'e due dentro `invariati.md` con le altre sigle "
+        "nude. Restano `\"*debug*\"` e `\"loop\"` (`:1125`, `:1128`), che "
+        "stanno dentro `if ( gdata(GDATA_WIZARD) == 1 )` ed escono solo con "
+        "la modalita' mago accesa."),
     "system.hsp": Dichiarazione(
         "esente", 3,
         "Tre finestre d'errore del sistema: «invalid version», «Failed to get "
@@ -138,12 +139,15 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "connessione di rete, non testo di gioco. Il file e' gia' esente in "
         "`copertura` per la stessa ragione."),
     "main.hsp": Dichiarazione(
-        "fronte", 2,
-        "«Invalid defLoadFolder. name» e' un errore di sviluppo (esente per "
-        "la stessa ragione di `system.hsp`). «lv:» (`:3258`) invece e' a "
-        "schermo, ed e' l'unica del gruppo che vada decisa insieme al «Lv» "
-        "della barra e al « liv.» che il dizionario usa in `command.hsp`: "
-        "**oggi il progetto ne ha due grafie**, e questa e' la terza."),
+        "esente", 2,
+        "«Invalid defLoadFolder. name» (`:212`) e' un errore di sviluppo "
+        "(esente per la stessa ragione di `system.hsp`). ⭐ E «lv:» (`:3258`) "
+        "**non e' la terza grafia di `Lv`**, come la 138ª aveva scritto: sta "
+        "dentro il blocco «Wizard F7 reload/regen map» (`:3252`), cioe' e' "
+        "una traccia di debug come «*debug*» e «loop» di `screen.hsp`, e la "
+        "legge solo chi rigenera una mappa a mano. Le tre grafie erano tre "
+        "cose diverse — una sigla, una parola e una traccia — e la 139ª le ha "
+        "separate in `invariati.md` invece di unificarle."),
     # ✅ `proc.hsp` NON sta piu' qui: la sua unica stringa — «Omae wa mou
     # shindeiru.», la citazione di Ken il guerriero — e' entrata in
     # `invariati.md` nella 138ª, e la riga di dichiarazione va tolta INSIEME al
@@ -157,12 +161,12 @@ DICHIARATI: dict[str, Dichiarazione] = {
     "config.hsp": Dichiarazione(
         "esente", 1,
         "«%.1f» e' un formato di `strf`, non testo."),
-    "module.hsp": Dichiarazione(
-        "fronte", 1,
-        "«,Tab » (`:5195`), il suggerimento di tasto che compare uguale in "
-        "`command.hsp:14077`. Va deciso una volta per tutt'e due: «Tab» e' il "
-        "nome del tasto sulla tastiera e non si traduce, ma la virgola e lo "
-        "spazio sono la cornice di un elenco di tasti."),
+    # ✅ `command.hsp` e `module.hsp` NON stanno piu' qui: le loro tre
+    # stringhe — «,Tab » in tutt'e due i file e la «d» dei dadi — sono entrate
+    # in `invariati.md` nella 139ª, e le righe di dichiarazione vanno tolte
+    # INSIEME al lavoro. E' la stessa regola che nella 138ª ha tolto
+    # `proc.hsp`: una dichiarazione che sopravvive al suo fronte dice aperto
+    # quel che e' chiuso, e il cancello qui sotto la chiama STANTIA da sola.
     "helloworld.hsp": Dichiarazione(
         "esente", 1,
         "File di prova di HSP, 6 righe, che nessuno `#include`: non entra "

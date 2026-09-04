@@ -15501,3 +15501,164 @@ altri undici file — dove la scoperta più utile è che `Dv:` e ` Pv:`
 (`command.hsp:14191`) sono **già decise invariate** dal glossario, e quel che
 manca non è la traduzione ma la riga in `invariati.md`. Un censimento che non
 legga le decisioni prese ripropone per sempre lo stesso lavoro.
+
+## Una chiave non è un'etichetta: le dodici classi di `action.hsp` non si traducono — 2026-09-04, centotrentanovesima sessione
+
+Il piano della Fase 7 metteva `action.hsp:13670-:13703` fra il lavoro da fare,
+con scritto «la resa deve essere quella di `db_class.hsp`, non una nuova».
+**Sarebbe stato un guasto**, e la prova sta nel sorgente.
+
+`cdatan(CDATAN_CLASS, tc) = "warrior"` non scrive un'etichetta: scrive la
+**chiave** della classe, la stessa che `db_class.hsp:61` assegna alla creazione
+del personaggio e che il resto del gioco confronta **77 volte in 13 file**:
+
+    tcg_custom.hsp   28   il gioco di carte legge la classe della creatura
+    proc.hsp         16
+    chara.hsp        12   i dodici blocchi della creazione
+    screen.hsp        4
+    action.hsp        3   il colpo del fuciliere e quello del guerriero
+    calculation.hsp   3   il costo in mana e il fallimento dell'incantesimo
+    command.hsp       3
+    custom_ai.hsp     2   l'IA personalizzata dei ritocchi
+    item.hsp          2
+    ai.hsp            1   l'IA decide se lanciare (wizard, warmage, priest)
+    chara_func.hsp    1   il danno del pianista
+    custom_dmgparse.hsp 1
+    map.hsp           1
+
+e in più `command.hsp:10644`, `:17652` e `:17827` la passano come `dbidn` a
+`*db_class`, cioè la usano come **indice di database**. Renderla «Guerriero»
+avrebbe spento il costo degli incantesimi del mago, il colpo in più del
+guerriero e il riconoscimento dell'IA, senza che nessun cancello del progetto
+se ne accorgesse: tutti misurano il testo, e questa non è testo.
+
+⭐ **L'etichetta che il giocatore legge è un'altra stringa.** È `classname`, che
+`db_class.hsp:43` definisce con `lang("戦士", "Warrior")` e che il dizionario
+rende «Guerriero». E i due siti dove il ramo inglese mostrava la chiave al
+posto dell'etichetta — `command.hsp:10640` per la razza e `:10647` per la
+classe — **sono già toppati** da una sessione precedente. Il lavoro c'era già:
+quel che mancava era saperlo.
+
+⚠️ **Quel che resta aperto non è una resa: è l'operando.** Sulla riga di sopra
+sta `if ( inputlog == "戦士" | inputlog == "warrior" )`, cioè quel che il
+giocatore **digita** al comando dei desideri. Un giocatore italiano che alla
+creazione ha scelto «Guerriero» digiterà «guerriero», non aggancerà niente, e
+il desiderio fallirà in silenzio — `CDATAN_FAKE_CLASS` prenderà la parola
+digitata e `CDATAN_CLASS` resterà quella di prima. Si risolve **aggiungendo**
+un'alternativa italiana, mai traducendo la chiave, ed è la stessa domanda degli
+otto `cnv_str fix_wish_arg1, "card of ", ""` di `module.hsp`.
+
+💡 La regola: **prima di tradurre un letterale, si guarda chi altro lo legge.**
+Un letterale che compare in un `==` non è testo, per quanto sia una parola
+inglese scritta in chiaro dentro un file pieno di testo.
+
+## Tre grafie per «livello» erano tre cose diverse, e il criterio è il giapponese — 2026-09-04, centotrentanovesima sessione
+
+La 138ª aveva aperto una cosa da fare: «`Lv` (`screen.hsp:423`), ` liv.` (il
+dizionario di `command.hsp`), `lv:` (`main.hsp:3258`) vanno unificate». Non
+vanno unificate, perché non sono la stessa cosa, e il criterio per distinguerle
+era già nel sorgente.
+
+**Dove il giapponese scrive la parola レベル, l'italiano scrive la parola.**
+`command.hsp:8896`-`:8900` è `lang("制限レベル1", "Limiter LV.1")`, e la resa è
+«Limite liv. 1»: il giapponese ha scelto la parola piena, e l'italiano fa
+uguale.
+
+**Dove il giapponese scrive `Lv` in lettere latine, è una sigla e resta.**
+`item_func.hsp:2156` è `lang(" Lv", " Lv. ")`; `text.hsp:65` e `:68` sono
+`lang("拒食Lv0", "Anorexia-Lv0")` e `lang("病気Lv0", "Sick-Lv0")`. È la stessa
+famiglia di `DV`, `PV`, `HP`, `SP` — «il giapponese stesso le scrive in latino»
+— e `screen.hsp:423` è la sigla nella barra in basso, sei righe sotto lo `Sp`
+che la 138ª aveva già dichiarato.
+
+**E `lv:` non è nessuna delle due**: sta dentro il blocco «Wizard F7
+reload/regen map» (`main.hsp:3252`), cioè è una traccia di debug come
+`"*debug*"` e `"loop"` di `screen.hsp:1125`, e la legge solo chi rigenera una
+mappa a mano.
+
+⭐ Tre grafie, tre mestieri, zero traduzioni cambiate. **Una cosa che sembra
+un'incoerenza va prima capita e poi, semmai, corretta**: unificarle avrebbe
+riscritto cinque voci di dizionario giuste per far somigliare fra loro tre
+stringhe che non si incontrano mai a schermo.
+
+## Il menu dei filtri del mazzo: 129 etichette, un tetto letto nel sorgente e 52 nomi che non si decidevano lì — 2026-09-04, centotrentanovesima sessione
+
+Il fronte più grosso trovato dalla rete dello schermo è tradotto:
+`tcg.hsp:3552-:3632`, diciassette righe, **129 etichette** che nessun
+censimento aveva mai contato in centotrentotto sessioni.
+
+**Il tetto non si è stimato e non si è guardato a schermo: si è letto.**
+
+    tcg.hsp:3287   x = basex + 180 + cnt * 63    le linguette vanno a passo 63
+    tcg.hsp:3300   gcopy 7, 360, 96, 63, 20      la linguetta è larga 63 px
+    tcg.hsp:3302   pos x + 1, y + 4              il testo parte da x+1
+    tcg.hsp:3283   font ..., 10 + en - en * 2    corpo 9, perché `en` è 1
+
+Il carattere della build inglese è `Courier New`, **monospaziato** — 6,6 px a
+corpo 11 e 7,2 a 12, cioè 0,6 per il corpo — quindi 5,4 px a corpo 9, e
+`(63 − 2) / 5,4 = 11,3`: **undici caratteri**. ⭐ E l'ancora è di monte, come
+vuole `guida-stile.md`: l'etichetta inglese più lunga di tutt'e diciassette le
+pagine è `largeanimal`, **undici esatti**. Due misure indipendenti che cadono
+sullo stesso numero.
+
+⚠️ **Chi sfora non viene tagliato: viene coperto.** Le linguette si disegnano
+in un ciclo solo, e lo sfondo di quella dopo si posa sopra il testo di quella
+prima — semitrasparente (`gmode 4, , , 120`), quindi la parola lunga non
+sparisce: sporca.
+
+**Cinquantadue nomi su sessantadue non si sono decisi qui.** Il generatore
+`strumenti/genera_toppe_filtri.py` li **legge** da `dizionario/db_race.hsp.jsonl`
+e `dizionario/db_class.hsp.jsonl` invece di riscriverli, e alza `KeyError` su
+un'etichetta che nessuno ha deciso. È il modo di non far dire al filtro una
+parola diversa da quella della carta: se il filtro dicesse «dragon» e la carta
+«Drago», il giocatore non troverebbe le sue carte.
+
+Le dieci che sforavano sono l'unica decisione nuova — si tiene la parola del
+glossario e si abbrevia il resto col punto:
+
+| chiave | glossario | linguetta | car. |
+|---|---|---|---|
+| `beast` | Bestia fantastica | **Bestia f.** | 9 |
+| `catgod` | Dio dei gatti | **Dio gatti** | 9 |
+| `doggod` | Dio dei cani | **Dio cani** | 8 |
+| `largeanimal` | Bestia gigante | **Bestia gig.** | 11 |
+| `lizardman` | Uomo lucertola | **Uomo luc.** | 9 |
+| `machinegod` | Dio delle macchine | **Dio macch.** | 10 |
+| `seamonster` | Mostro marino | **Mostro mar.** | 11 |
+| `servant` | Incarnazione | **Incarnaz.** | 9 |
+| `undeadgod` | Dio dei non morti | **Dio non m.** | 10 |
+| `warmage` | Mago guerriero | **Mago guerr.** | 11 |
+
+⚠️ `Bestia` da sola non poteva restare: è la testa di **due** razze diverse,
+`beast` e `largeanimal`, e nella stessa pagina non le distinguerebbe.
+
+Le altre: i domini vengono da `tcg_mod.hsp:3479`, dove il dizionario rende già
+`BLUE` «BLU» e `LEGENDARY` «LEGGENDARIO» (undici, esattamente il tetto); `Atk`
+è «attacco» e `HP` è «vita» come in tutte le descrizioni d'effetto, col nome
+davanti al numero come fa già «Costo N»; `classless` è «Nessuna», la stessa
+parola con cui `db_class.hsp` rende `None`; i sette intervalli di
+identificativo (`0-150`, `900+  `) non hanno nemmeno una lettera e restano
+com'erano.
+
+✅ **E `cfname@tcg` è solo visualizzazione**, verificato prima di toccarlo:
+l'unico lettore è `mes cfname@tcg(p@tcg)` (`:3303`), e il filtro vero lavora
+sull'indice `cflist@tcg(ccf@tcg)` e su `filtertype@tcg`. È l'opposto esatto
+delle dodici classi di `action.hsp` decise nella stessa sessione — e le due
+domande si sono fatte a un'ora di distanza.
+
+⚠️ Le diciassette toppe sono dichiarate **`prima`**, perché ogni riga porta
+anche due `lang()` («List» e «Deck») che il dizionario deve ancora agganciare:
+è il caso preciso per cui quella deroga esiste (`applica._controlla_toppa_prima`).
+
+## Una decisione scritta in prosa non è una decisione — 2026-09-04, centotrentanovesima sessione
+
+`Immune` (`tcg.hsp:969`) e `Mana ` (`tcg.hsp:3480`) erano decise dalla **127ª**:
+la sezione «Le ultime righe nude sparse» di `invariati.md` le spiega da undici
+sessioni, e le spiega bene. Ma le spiega in un **paragrafo**, e
+`verifica.carica_invariati` legge le tabelle, non i paragrafi: per ogni
+strumento del progetto quelle due stringhe erano lavoro da fare.
+
+È la lezione della 138ª — *una decisione va scritta dove la cerca chi misura* —
+applicata all'indietro, su una decisione più vecchia di quella lezione. ⚠️ E il
+valore conta com'è: `glossario.md` dichiara «Mana» da sessioni, ma il letterale
+è `"Mana "` **con lo spazio**, e lo spazio separa la parola dal numero.

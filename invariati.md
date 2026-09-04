@@ -1177,3 +1177,30 @@ non solo dove la cerca chi traduce.
 | ` Pv:` | `command.hsp:14191` e `:14205`, la protezione, sulla stessa riga di `Dv:` e per la stessa ragione. ⚠️ Lo spazio iniziale è portante: separa le due sigle |
 | `Sp` | `screen.hsp:417`, la resistenza nella barra in basso (`bmes "Sp" + cdata(CDATA_SP...)`). Stessa famiglia, e in più lo slot è quello: 38 px dal bordo |
 | `Omae wa mou shindeiru.` | `proc.hsp:14392`, la citazione di Ken il guerriero in *romaji* dentro un gioco giapponese. ⚠️ **Non è inglese lasciato lì**, ed è il rovescio di `Info` e `t `: qui non è italiano che coincide, è una citazione che in italiano circola in questa forma. Tradurla — «tu sei già morto» — la spegnerebbe, perché quel che si riconosce è la frase giapponese, non il suo senso |
+
+## Le sigle e i segni nudi che la rete dello schermo ha ripresentato — 139ª
+
+Stessa specie della sezione qui sopra, e stesso movente: `disegnate.py` parte
+da **chi manda un testo a schermo**, quindi vede anche i letterali che non
+passano da nessuna `lang()` — e per quelli nessun dizionario è mai stato il
+posto dove scrivere una decisione. Le tre righe qui sotto non traducono niente:
+dichiarano perché non c'è niente da tradurre.
+
+⚠️ **`Lv` non contraddice il « liv.» che il dizionario usa altrove, e il
+criterio è il giapponese.** Dove il giapponese scrive la **parola** レベル,
+l'italiano scrive la parola: `command.hsp:8896`-`:8900` è
+`lang("制限レベル1", "Limiter LV.1")` e la resa è «Limite liv. 1». Dove il
+giapponese scrive **`Lv` in lettere latine**, è una sigla e resta:
+`item_func.hsp:2156` è `lang(" Lv", " Lv. ")`, `text.hsp:65` e `:68` sono
+`lang("拒食Lv0", "Anorexia-Lv0")` e `lang("病気Lv0", "Sick-Lv0")`. ⭐ Le «tre
+grafie per la stessa cosa» aperte dalla 138ª sono **tre cose diverse**: una
+sigla, una parola e — `main.hsp:3258` — una traccia di debug che esce solo col
+tasto F7 della modalità mago. Nessuna delle tre si tocca.
+
+| valore | motivo |
+|---|---|
+| `Lv` | `screen.hsp:423`, la sigla del livello nella barra in basso: `bmes "Lv" + cdata(CDATA_LEVEL, CHARA_PLAYER) + "/" + (...)`. È la vicina di `Sp` (`:417`, sei righe sopra) e della stessa famiglia di `Dv:` e ` Pv:`, e il progetto la scrive già così in `action.hsp:6545`. ⚠️ La riga ` Lv. ` più in alto in questo file dichiara **lo stesso** per la sfera dei mostri: quella porta il punto e lo spazio perché il numero segue subito, questa no |
+| `,Tab ` | `command.hsp:14077` e `module.hsp:5195`, lo stesso suggerimento di tasto in due file: `"" + key_prev + "," + key_next + ",Tab " + lang("[メニュー切替]", "[Change]")`. **`Tab` è la scritta stampata sul tasto**, identica su una tastiera italiana, e `key_prev` / `key_next` sono i due tasti diagonali che il giocatore si configura (`config.hsp:332`). Quel che c'è da tradurre sta dentro la `lang()` accanto, ed è tradotto: «[Cambia menu]» qui, «[Cambia]» là. ⚠️ **Non è in contraddizione con `command.hsp:11849`**, dove «Right,left [Change]» diventa «Dx,Sx [Cambia]»: lì sono due parole — destra e sinistra — qui è il nome di un tasto. ⚠️ La virgola in testa e lo spazio in coda sono la cornice dell'elenco e contano |
+| `Immune` | `tcg.hsp:969`, l'etichetta del tratto `TCG_BIT_IMMUNE` nella scheda di una carta. **Italiano che coincide**: «immune» si scrive così. ⚠️ **Non è una decisione nuova: è una decisione della 127ª rimasta in prosa** — la sezione «Le ultime righe nude sparse» qui sopra la spiega da undici sessioni, ma la spiega in un paragrafo, e i paragrafi non li legge nessuno strumento. È la lezione della 138ª applicata all'indietro: una decisione va scritta dove la cerca chi misura |
+| `Mana ` | `tcg.hsp:3480`, il mana del giocatore nel riepilogo di inizio partita (`mes "Mana " + cpdata@tcg(TCG_PLAYER_MAX_MANA, 0)`). `glossario.md:52` tiene «Mana» fra gli invariati da sessioni — «termine acquisito» — e le tre righe sorelle (`"Life "`, `"Card "`, `"Domain * "`) sono già toppate. ⚠️ **Lo spazio in coda è portante**: separa la parola dal numero, ed è la ragione per cui la riga del glossario non bastava — il valore dichiarato là è `Mana`, questo è `Mana ` |
+| `d` | `command.hsp:10750`, la «d» dei dadi nella riga della protezione della scheda: `mes "" + (100 - 10000 / (prot + 100)) + "% + " + protdice1 + "d" + protdice2`, che a schermo fa «2d5». **Non è una parola: è la notazione dei dadi**, e in italiano si scrive con la stessa lettera — «2d5» si legge «due dadi a cinque facce» in tutt'e due le lingue. È il caso di `t ` e di `Info` visto dal lato della notazione invece che da quello dell'abbreviazione |

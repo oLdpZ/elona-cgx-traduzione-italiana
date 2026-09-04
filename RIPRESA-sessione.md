@@ -1,11 +1,12 @@
 # Ripresa sessione
 
-Aggiornato: 2026-09-04, fine della **centotrentottesima** sessione (**le
-battute della nuvoletta, gli sparsi del gioco di carte, e la rete che parte da
-chi disegna**).
+Aggiornato: 2026-09-04, fine della **centotrentanovesima** sessione (**il menu
+dei filtri del mazzo, e due volte in cui il piano diceva di rompere il
+gioco**).
 
-⭐ **L'ESEGUIBILE IN GIOCO E' FRESCO: 18:10 del 04/09**, e contiene le 165 rese
-della Fase 6 fino alla 137a **piu' le 92 di questa sessione**. ⓘ Si legge con
+⭐ **L'ESEGUIBILE IN GIOCO E' FRESCO: 22:08 del 04/09** (17.669.621 byte), e
+contiene le 257 rese della Fase 6 **piu' le 129 etichette del menu dei filtri**
+di questa sessione. ⓘ Si legge con
 `ls -l C:\Games\Elona\elonaplus2.31\cgx-test.exe`. I sei file dati non sono
 cambiati.
 
@@ -20,6 +21,185 @@ cambiati.
     cp .../build/2.05-custom-gx/elonapluscgx.exe .../elonaplus2.31/cgx-test.exe
 
 ⚠️ **`strumenti.installa` NON ESISTE**: l'ultimo passo e' una copia a mano.
+
+---
+
+## LA COSA CHE PESA DI PIU' DELLA 139a: due volte il piano diceva di rompere il gioco
+
+Il piano della Fase 7 metteva `action.hsp:13670-:13703` fra il lavoro da fare,
+con scritto **«la resa deve essere quella di `db_class.hsp`»**. Sarebbe stato
+un guasto, e la prova stava nel sorgente da sempre.
+
+⚠️⚠️ **`cdatan(CDATAN_CLASS, tc) = "warrior"` non scrive un'etichetta: scrive
+una CHIAVE.** Il gioco la confronta **77 volte in 13 file** —
+`tcg_custom.hsp` 28, `proc.hsp` 16, `chara.hsp` 12, `screen.hsp` 4,
+`action.hsp` 3, `calculation.hsp` 3, `command.hsp` 3 — e tre siti la passano
+come `dbidn` a `*db_class`, cioe' come **indice di database**. Renderla
+«Guerriero» avrebbe spento il costo degli incantesimi del mago
+(`calculation.hsp:992`), il colpo in piu' del guerriero (`action.hsp:5723`) e
+il riconoscimento dell'IA (`ai.hsp:2546`) — **senza accendere nessun
+cancello**, perche' tutti i cancelli del progetto misurano il testo e quella
+non e' testo.
+
+⭐ **L'etichetta che il giocatore legge e' un'ALTRA stringa**: `classname`, che
+`db_class.hsp:43` definisce con `lang("戦士", "Warrior")` e che il dizionario
+rende «Guerriero». E i due siti dove il ramo inglese mostrava la chiave al
+posto dell'etichetta — `command.hsp:10640` e `:10647` — **erano gia' toppati**
+da una sessione precedente. Il lavoro c'era: quel che mancava era saperlo.
+
+⚠️ **Quel che resta aperto e' l'OPERANDO, non la resa.** Sulla riga di sopra
+sta `if ( inputlog == "戦士" | inputlog == "warrior" )`, cioe' quel che il
+giocatore **digita** al comando dei desideri: chi ha scelto «Guerriero» alla
+creazione digitera' «guerriero» e non agganciera' niente. Si risolve
+**aggiungendo** un'alternativa italiana, mai traducendo la chiave.
+
+⚠️ **La seconda volta**: le «tre grafie per livello» da unificare erano tre
+cose diverse — una sigla (`Lv`, `screen.hsp:423`, dove il giapponese scrive
+`Lv` in lettere latine), una parola (« liv.», dove il giapponese scrive
+レベル) e una traccia di debug (`lv:`, `main.hsp:3258`, dentro il blocco del
+tasto F7 della modalita' mago). Unificarle avrebbe riscritto cinque voci
+giuste.
+
+💡 **La regola: prima di tradurre un letterale, si guarda chi altro lo legge.**
+Un letterale che compare dentro un `==` non e' testo, per quanto sia una parola
+inglese in chiaro dentro un file pieno di testo.
+
+---
+
+## ⭐⭐ IL FRONTE DELLO SCHERMO E' CHIUSO: 158 -> 25
+
+Le **129 etichette** del menu dei filtri dell'editor di mazzo
+(`tcg.hsp:3552-:3632`) sono tradotte, con 17 toppe generate da
+`strumenti/genera_toppe_filtri.py`. Le venticinque che restano sono **tutte
+dichiarate, e nessuna e' testo da tradurre**:
+
+    action.hsp   12   le chiavi di classe (vedi sopra: non si toccano MAI)
+    system.hsp    3   finestre d'errore di Windows
+    etc.hsp       2   «Jo» del jolly e «X » della pila di carte
+    main.hsp      2   un errore di sviluppo e una traccia di debug
+    net.hsp       2   il diario della connessione, dietro `dbg_net`
+    screen.hsp    2   «*debug*» e «loop», dietro `gdata(GDATA_WIZARD)`
+    config.hsp    1   «%.1f», un formato di `strf`
+    helloworld.hsp 1  un file di prova che nessuno `#include`
+
+⭐ **Il tetto non si e' guardato a schermo: si e' letto nel sorgente.**
+Linguette a passo 63 px (`:3287`), il ritaglio e' largo 63 (`:3300`), il testo
+parte da `x+1` (`:3302`), carattere `Courier New` a corpo 9 (`:3283`), 5,4 px
+per carattere → **11 CARATTERI**. ⚠️ E l'ancora di monte cade sullo stesso
+numero: `largeanimal`, l'etichetta inglese piu' lunga delle diciassette
+pagine, ne fa **esattamente 11**. Due misure indipendenti.
+
+⚠️ **Chi sfora non viene tagliato: viene coperto** dallo sfondo
+semitrasparente della linguetta seguente (`gmode 4, , , 120`), che si posa
+dopo. Non sparisce: sporca.
+
+⭐ **52 nomi su 62 non si sono decisi qui.** Il generatore li **legge** da
+`dizionario/db_race.hsp.jsonl` e `db_class.hsp.jsonl` e alza `KeyError` su
+un'etichetta che nessuno ha deciso: e' il modo di non far dire al filtro una
+parola diversa da quella della carta. Le dieci che sforavano sono l'unica
+decisione nuova — si tiene la parola del glossario e si abbrevia il resto col
+punto: **Bestia f., Dio gatti, Dio cani, Bestia gig., Uomo luc., Dio macch.,
+Mostro mar., Incarnaz., Dio non m., Mago guerr.**
+
+⚠️ Le 17 toppe sono dichiarate **`prima`**: ogni riga porta anche due `lang()`
+(«List» e «Deck») che il dizionario deve ancora agganciare, ed e' il caso
+preciso per cui quella deroga esiste.
+
+---
+
+## Le trappole che la 139a ha trovato
+
+⚠️⚠️ **Una prova al contrario ancorata a un fronte chiuso non prova piu'
+niente.** Tre prove di `test_disegnate.py` erano ancorate a `tcg.hsp` — «tolta
+la sua dichiarazione il cancello deve accendersi» — e sono diventate rosse
+appena il fronte e' stato lavorato. Non si spengono: si **riancorano** (ora
+`action.hsp`). L'ancora si sposta insieme al lavoro, come la dichiarazione.
+
+⚠️⚠️ **Una soglia numerica invecchia; una proprieta' no.**
+`test_questa_rete_vede_cose_che_PROSA_non_vede` chiedeva `> 100`, ed era 153
+quando fu scritta e 20 il giorno dopo, non perche' la rete avesse smesso di
+guardare ma perche' il lavoro era fatto. Ora chiede la **proprieta'**: ognuna
+delle due reti vede ancora qualcosa che l'altra non vede (295 contro 20).
+
+⚠️ **Una decisione scritta in prosa non e' una decisione.** `Immune`
+(`tcg.hsp:969`) e `Mana ` (`:3480`) erano decise dalla **127a**, e spiegate
+bene — in un **paragrafo** di `invariati.md`. Ma `carica_invariati` legge le
+tabelle, non i paragrafi: per ogni strumento erano lavoro da fare. ⚠️ E il
+valore conta com'e': il glossario dichiara «Mana», il letterale e' `"Mana "`
+**con lo spazio**.
+
+⚠️ **Un cancello mezzo applicato mente.** Due prove di `test_toppe.py` sono
+uscite rosse perche' `pytest` era girato dopo `applica` ma **prima** degli
+altri quattro passi: leggono la build dopo l'ultimo che ci scrive. Verdi
+appena la catena e' stata finita. La catena si finisce, poi si misura.
+
+---
+
+## I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 139a
+
+    pytest                   **1.001 passed**, 6 skipped
+    prova_identita           72/72 e 30.905, invariato
+    scene --referto          1701 su 1701, 0 fuori misura
+    carte --referto          833/833, 0 fuori misura, 192 da guardare
+    schede --referto         72 su 72, 0 fuori misura
+    dialoghi --referto       77 su 77, 0 fuori misura, 5 da guardare
+    **disegnate**            **25 distinte su 8 file** (erano 158 su 11),
+                             tutte dichiarate, uscita 0
+    toppe                    **1.334** (erano 1.317), tutte vive DOPO
+                             l'ultimo passo, e `applica` non stampa ATTENZIONE
+    applica                  30.766 sostituzioni
+    perimetro                28.028 fatte, 0 da fare, 100,0%
+                             (**31.795** coi file dati)
+                             ⚠️ gira con `python scratchpad/perimetro.py`
+    _97-quanto-resta         111 / 111 / 0
+    verifica --dizionario    0 da ritradurre, uscita 0
+    copertura                6 fronti, 31 scoperte (invariato)
+
+⚠️ **Nessuno di questi numeri si eredita da qui: si rilanciano.**
+
+---
+
+## Che cosa guardare adesso, dopo la 139a
+
+⚠️ Questa lista **sostituisce** quella della 138a qui sotto per i punti che
+nomina; gli altri restano validi la' dove sono.
+
+1. ⭐⭐⭐ **Il collaudo a schermo, ed e' l'unica cosa che il modello non puo'
+   fare.** In gioco ci sono **386 rese mai viste**: le 257 della Fase 6 e le
+   **129 etichette del menu dei filtri** di questa sessione. Il posto nuovo:
+   l'**editor di mazzo**, tasto per cambiare filtro, e si scorrono le
+   diciassette pagine. Le tre da guardare per prime, perche' sono quelle
+   esattamente al tetto di 11: **«Leggendario»** (pagina dei colori),
+   **«Bestia gig.»** (pagina 6) e **«Mostro mar.»** (pagina 5). Se una di
+   queste tre e' pulita, il tetto misurato e' giusto e lo sono tutte.
+2. ⭐⭐ **L'operando del comando dei desideri.** `action.hsp:13669` e le
+   undici righe gemelle accettano il giapponese o l'inglese; un giocatore
+   italiano digitera' italiano e il desiderio fallira' in silenzio. Vuole
+   dodici alternative **aggiunte** (`| inputlog == "guerriero"`), mai la
+   chiave tradotta. ⚠️ Stessa famiglia dei dieci `cnv_str` di `module.hsp`
+   (punto 12 della lista della 138a), che tolgono prefissi **inglesi** da
+   quel che il giocatore scrive: sono gia' rotti oggi.
+3. ⭐⭐ **Il secondo salto della rete.** `disegnate` fa un salto solo e dentro
+   lo stesso file: una stringa messa in una variabile, passata a una funzione
+   e disegnata altrove resta fuori. Quanto costi non lo sa nessuno — ed e' la
+   stessa forma della domanda a cui la 138a ha risposto con 153.
+4. ⭐⭐ **Le 31 scoperte di `copertura`, che e' l'altra rete**: 14 in
+   `tcg.hsp`, 10 in `module.hsp`, 4 in `tcg_custom.hsp`, e una per
+   `map_func.hsp`, `help.hsp`, `db_card.hsp`. Sono l'ultimo fronte misurato
+   che resti, e il motivo di ciascuno dice quanto sia testo davvero.
+5. ✅ ~~Le 126 etichette del menu dei filtri~~ — **fatte dalla 139a**, e sono
+   129.
+6. ✅ ~~Le tre grafie di `Lv`~~ — **non erano tre grafie**: erano tre cose
+   diverse, e nessuna si tocca.
+7. ✅ ~~Le 12 classi di `action.hsp`~~ — **non si traducono**: sono chiavi.
+   Quel che resta e' il punto 2 qui sopra.
+
+⚠️ Restano aperti, invariati, i punti 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18,
+19 e 20 della lista della 138a qui sotto — «the The», `db_card.hsp:2695`, il
+difetto di «ragon», `tcg_skill.hsp:2003`, `efftalk@tcg`, le 26 categorie
+d'oggetto, `help.hsp:409`, i due omografi, `Rehmido`, le quattro teste senza
+articolo, la rete degli operandi di sostituzione, le due reti sulle toppe e la
+coda nuda di `chat.hsp:17065`.
 
 ---
 

@@ -4503,3 +4503,74 @@ l'ultimo passo, `dialoghi --referto` 77 su 77 e 0 fuori misura, `schede
 --referto` 72 su 72, `copertura` **6 fronti e 31 scoperte**, `disegnate` 11
 file tutti dichiarati e uscita 0, `verifica --dizionario` 0 da ritradurre e
 uscita 0.
+
+## 2026-09-04, centotrentanovesima — il menu dei filtri, e due volte in cui il piano diceva di rompere il gioco
+
+⭐⭐ **Il fronte che la rete dello schermo aveva trovato è chiuso: 158 → 25.**
+Le 129 etichette del menu dei filtri dell'editor di mazzo (`tcg.hsp:3552-:3632`)
+sono tradotte, e le venticinque che restano sono **tutte dichiarate**: tracce di
+debug, finestre d'errore di sistema, un formato di `strf`, un file di prova che
+nessuno `#include`, e dodici chiavi che non sono testo.
+
+    prima   158 distinte su 11 file
+    dopo     25 distinte su  8 file, e nessuna è testo da tradurre
+
+⚠️⚠️ **Due volte il piano diceva di fare una cosa che avrebbe rotto il gioco, e
+tutt'e due le volte la prova stava nel sorgente.**
+
+1. `action.hsp:13670-:13703` era scritto come lavoro da fare, con «la resa deve
+   essere quella di `db_class.hsp`». Ma `cdatan(CDATAN_CLASS, tc)` non è
+   un'etichetta: è la **chiave** della classe, che il gioco confronta **77
+   volte in 13 file** — 28 nel gioco di carte, 16 in `proc.hsp`, 12 nella
+   creazione del personaggio — e che tre siti passano come indice di database.
+   Tradurla avrebbe spento il costo degli incantesimi del mago, il colpo in più
+   del guerriero e il riconoscimento dell'IA, **senza accendere nessun
+   cancello**: tutti misurano il testo, e quella non è testo. L'etichetta che
+   il giocatore legge è un'altra stringa (`classname`), già tradotta e già
+   toppata nei due punti dove il ramo inglese mostrava la chiave.
+2. Le «tre grafie per livello» da unificare erano **tre cose diverse**: una
+   sigla (`Lv`, dove il giapponese scrive `Lv` in lettere latine), una parola
+   (« liv.», dove il giapponese scrive レベル) e una traccia di debug (`lv:`,
+   dentro il blocco del tasto F7 della modalità mago). Unificarle avrebbe
+   riscritto cinque voci giuste.
+
+⭐ **E il tetto del menu non ha avuto bisogno dello schermo: si legge.**
+Linguette a passo 63 px (`:3287`), testo a `x+1` (`:3302`), `Courier New` a
+corpo 9 (`:3283`), 5,4 px per carattere → **11 caratteri**. L'ancora di monte
+cade sullo stesso numero: `largeanimal`, l'etichetta inglese più lunga, ne fa
+esattamente 11. Due misure indipendenti, lo stesso risultato.
+
+⭐ **Cinquantadue nomi su sessantadue non si sono decisi qui**:
+`strumenti/genera_toppe_filtri.py` li **legge** da `db_race.hsp` e
+`db_class.hsp` invece di riscriverli, e alza `KeyError` su un'etichetta che
+nessuno ha deciso. Le dieci che sforavano sono l'unica decisione nuova — si
+tiene la parola del glossario e si abbrevia il resto col punto («Bestia gig.»,
+«Uomo luc.», «Mago guerr.»).
+
+⚠️ **Tre prove erano ancorate al fronte che questa sessione ha chiuso** e sono
+state riancorate a `action.hsp`, non spente: una prova al contrario ancorata a
+un fronte chiuso non prova più niente. E la prova «questa rete vede cose che
+`_PROSA` non vede» non chiede più un numero (`> 100`, oggi 20) ma la
+**proprietà**: ognuna delle due reti vede ancora qualcosa che l'altra non vede,
+295 contro 20.
+
+⚠️ **Il perimetro non si muove**: resta 28.028 su 28.028 (31.795 coi file dati,
+100,0%), perché conta le voci che stanno in un dizionario e queste 129 stanno
+in diciassette toppe. È la stessa avvertenza della 133ª e della 138ª.
+
+⚠️⚠️ **Nessuna delle 129 è stata vista a schermo**, e il debito di collaudo
+sale: con le 257 della Fase 6 fanno **386 rese mai guardate**. Dei cinque stati
+distinti — costruito, misurato, provato al contrario, compilato, visto a
+schermo — qui ci sono i primi quattro.
+
+⭐ **Le rese sono in gioco.** `cgx-test.exe` ricompilato e installato alle
+**22:08 del 04/09** (17.669.621 byte), con l'ordine obbligato a sei passi.
+
+Catena rimisurata **dopo** l'ultima modifica ai documenti: `pytest` **1.001
+passed** e 6 skipped, identità 72/72 e 30.905, toppe **1.334** tutte vive dopo
+l'ultimo passo, `applica` 30.766 sostituzioni e nessun ATTENZIONE, `scene
+--referto` 1701 su 1701 e 0 fuori misura, `carte --referto` 833 su 833,
+`schede --referto` 72 su 72 e 0 fuori misura, `dialoghi --referto` 77 su 77,
+`copertura` 6 fronti e 31 scoperte, `disegnate` **25 distinte su 8 file**,
+tutti dichiarati e uscita 0, `verifica --dizionario` 0 da ritradurre,
+`_97-quanto-resta` 111/111/0, perimetro 28.028 su 28.028.
