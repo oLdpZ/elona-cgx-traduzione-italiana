@@ -2937,3 +2937,121 @@ traduce nel lotto.
 è dentro `lang("Effect: ", "Effect: ")` e ce l'ha; `tcg.hsp:1473` è nudo, dentro
 la ricomposizione della scheda, e vuole una **toppa**. Tradotto uno solo, la
 scheda esce mezza in inglese.
+
+## Il gioco di carte: la scheda e i suoi tratti — 137ª sessione
+
+Il vocabolario dell'**intestazione** di una scheda, che il ramo dinamico scrive
+già dentro `lang()` (`tcg.hsp:1495-1610`) e che le 72 schede scritte a mano
+devono seguire, o il gioco si spacca in due metà che parlano lingue diverse.
+`strumenti/schede.py` lo pretende come **rifiuto**, non come avviso.
+
+| inglese | italiano | dove |
+|---|---|---|
+| `  No.` | **  N.** | `tcg.hsp:1495`, dizionario |
+| `  Rare:` | **  Rarità:** | `tcg.hsp:1509`, dizionario |
+| `Data: ` | **Dati: ** | `tcg.hsp:1512`, dizionario |
+| `Effect: ` | **Effetto: ** | `tcg.hsp:1610` + toppe 1230, `:4628`, `tcg_skill:2003` |
+| `Bits:  ` | **Tratti:  ** | toppa, 4 siti ⚠️ due spazi portanti |
+| ` <Land>` | ** <Terreno>** | `tcg.hsp:1499`, dizionario |
+| ` <Spell>` | ** <Magia>** | `tcg.hsp:1503`, dizionario |
+
+### Le etichette dei tratti (`TCG_BIT_*`)
+
+Il traducente è quello che `carte.PAROLE_CHIAVE` usa già nelle descrizioni
+d'effetto — il glossario che la 136ª aveva **ricavato dalle toppe** invece di
+deciderlo a tavolino. Qui sono diventate toppe anche le etichette a schermo.
+
+| inglese | italiano | | inglese | italiano |
+|---|---|---|---|---|
+| Regeneration | **Rigenerazione** | | Deathword | **Condanna** |
+| Armored | **Corazza** | | Gravity | **Gravità** |
+| Flying | **Volo** | | Bleeding | **Sangue** |
+| Intimidate | **Minaccia** | | Poisoned | **Veleno** |
+| Reach | **Portata** | | Paralysed | **Paralisi** |
+| Lifelink | **Legame vitale** | | Silenced | **Silenzio** |
+| Haste | **Impeto** | | Frozen | **Gelo** |
+| Trample | **Travolgere** | | Insane | **Follia** |
+| First-Strike | **Anticipo** | | Confused | **Confusione** |
+| Dual-Strike | **Doppio colpo** | | Splits | **Scissione** |
+| Deathtouch | **Tocco letale** | | Rider | **Cavaliere** |
+| Critical | **Critico** | | Barrier | **Barriera** |
+| Windfury | **Raffica** | | Evasion | **Schivata** |
+| Vigilance | **Vigilanza** | | Defender | **Difensore** |
+
+⚠️ **Due grafie di monte, un traducente solo:** il blocco delle etichette scrive
+`Dual-Strike`, le schede scritte a mano `Double-Strike`. Tutt'e due
+**Doppio colpo**.
+
+⚠️ **`Immune` e `Kamikaze` restano invariate per decisione**, non per
+dimenticanza: in italiano si scrivono uguali, e una toppa con `cerca` identico a
+`sostituisci` `applica` la rifiuta — è una toppa muta, cioè una di cui nessuno
+si accorgerebbe se smettesse di agganciare.
+
+### Le affiliazioni fra parentesi angolari
+
+| inglese | italiano | perché |
+|---|---|---|
+| `<Fighter Guild>` | **<Gilda dei Guerrieri>** | come `chat.hsp` e `db_card.hsp` |
+| `<Thief Guild>` | **<Gilda dei Ladri>** | idem |
+| `<Mage Guild>` | **<Gilda dei Maghi>** | idem |
+| `<Bandit>` | **<Bandito>** | |
+| `<Mercenary>` | **<Mercenario>** | «il mercenario», `db_creature` |
+| `<Citizen>` | **<Cittadino>** | «il cittadino», `db_creature` |
+| `<Adventurer>` | **<Avventuriero>** | |
+| `<Teacher>` | **<Insegnante>** | «l'insegnante», `db_creature` |
+| `<Pirate>` | **<Pirata>** | «il pirata», `db_creature` |
+| `<Flame>` | **<Fiamma>** | `TCG_BIT_FLAMETOWER` |
+| `<Elea Mob>` | **<Folla Elea>** | `ELEAMOB`, contro `ELEAREFUGEE` = `<Elea>` |
+
+**Invariate:** `<Yerles>`, `<Xeren>`, `<Zanan>`, `<Lothrian>`, `<Eulderna>`,
+`<Elea>`, `<Juere>`, `<Zaile>` (nomi propri di civiltà), `<Ninja>` (uguale in
+italiano), `<CNPC>` (sigla tecnica: la cartella dei Custom NPC dell'utente).
+
+### Le etichette fra parentesi quadre
+
+| inglese | italiano |
+|---|---|
+| `[Command Card]` | **[Carta comando]** |
+| `[Illegal Card]` | **[Carta illegale]** |
+| `[Cannot Sacrifice]` | **[Non sacrificabile]** |
+| `[No Deckbuild Limit]` | **[Nessun limite nel mazzo]** |
+| `[Starts in your Hand]` | **[Parte nella tua mano]** |
+| `[Starts in Opponent Deck]` | **[Parte nel mazzo avversario]** |
+| `[Summoned on Opponent Field]` | **[Evocata nel campo avversario]** |
+| `[Drawn when Mana=Cost]` | **[Pescata quando Mana=Costo]** |
+| `[Cannot be drawn when Mana<=2]` | **[Non si pesca con Mana<=2]** |
+| `[Cost at least 1 Mana]` | **[Costa almeno 1 Mana]** |
+| `[Effect Cost 2 Life]` | **[L'effetto costa 2 di vita]** |
+| `[Discard if not Played]` | **[Scartata se non giocata]** |
+| `[Return on Begin Phase]` | **[Torna alla Fase iniziale]** |
+| `[Reusable]` | **[Riutilizzabile]** |
+| `[After Drawn: Discard this and Draw 1]` | **[Dopo la pesca: scartala e pesca 1]** |
+| `[Does Nothing until Unfossiled/Graved]` | **[Inerte fino a dissotterramento/cimitero]** |
+| `[Summon itself when Sent to Graveyard from Deck]` | **[Si evoca se va dal mazzo al cimitero]** |
+| `[Summoned into Opponent Deck / Gain [OnDraw:Discard&Draw1]]` | **[Nel mazzo avversario / ottiene [Alla pesca: scarta e pesca 1]]** |
+
+⚠️ L'ultima è stata **accorciata**, non tradotta alla lettera: con «Evocata nel
+mazzo avversario» la riga dei tratti passava da 67 colonne in inglese a 81 in
+italiano, ed era l'**unica** delle 249 combinazioni di bit vere a uscire per
+colpa della traduzione. «Nel mazzo avversario» dice dove finisce la carta, che
+è quel che serve sapere.
+
+`[???]` resta invariata: è un segnaposto, non una parola.
+
+### La rarità nelle schede scritte a mano
+
+Il ramo dinamico stampa asterischi (`cnvrare` torna `*`, `**`, …), non parole.
+Le 72 schede scritte a mano invece hanno rarità scritte a mano, spesso per
+scherzo, e si rendono libere:
+
+    Rare:None -> Rarità:Nessuna      Rare:Very  -> Rarità:Molta
+    Rare:Antique -> Rarità:Antica    Rare:why?  -> Rarità:perché?
+    Rare: Common -> Rarità: Comune   Rare: pasta -> Rarità: pasta
+    Rare:Not Very -> Rarità:Non molta
+
+### «avversario» come aggettivo
+
+Il file usa già la forma aggettivale — «mano avversaria», 12 volte — e le sei
+rese che sforavano in larghezza ci sono passate: «carta bersaglio avversaria»,
+«mazzo avversario», «calzini avversari». Accorciare invece di imbottire è il
+verso giusto imparato nella 23ª.

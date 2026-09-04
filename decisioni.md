@@ -15008,3 +15008,235 @@ la resa: `carte --reimporta` si è fermato con il nome della costante e il
 carattere, e il dizionario non è stato nemmeno toccato. È la differenza fra una
 regola scritta in un documento e una rete messa nel punto giusto — la stessa
 lezione, dal lato in cui funziona.
+
+## Un passo della catena cancellava le toppe del passo prima — 2026-09-04, centotrentasettesima sessione
+
+`carte --applica` e `scene --applica` leggevano dal **sorgente pinnato** e
+riscrivevano il file nell'albero di build. Cioè lo **rifacevano da capo**,
+buttando via le toppe che `applica.py` ci aveva appena messo.
+
+Su `tcg_mod.hsp` la toppa è una sola — i nomi delle fasi del turno,
+«Inizio, Pesca, Principale, Fine» — ed è tornata **inglese in ogni eseguibile
+dalla 136ª al 04/09**. Su `tcg.hsp`, che di toppe ne ha 165, il lotto C della
+Fase 6 l'avrebbe fatto esplodere: è il file che `schede --applica` riscrive.
+
+### Perché nessun conto se ne accorgeva
+
+Il numero delle toppe lo stampa `applica`, cioè **prima** che i passi
+successivi le cancellino. Il cancello c'era, il numero era giusto — 1.293 su
+1.293 — ed era preso nel momento sbagliato.
+
+⭐⭐ La 136ª aveva imparato che di un cancello non basta chiedere *cosa* misura,
+va chiesto **su quale copia**. Questa aggiunge il gradino dopo: va chiesto
+anche **in quale momento della catena**. Una misura giusta presa prima
+dell'ultimo passo che tocca il file è indistinguibile da una sbagliata.
+
+### La riparazione, e la prova che la nomina
+
+Tutt'e tre i passi (`scene`, `carte`, `schede`) ora leggono la **build**.
+`test_i_passi_dopo_applica_non_buttano_via_le_toppe` pretende che le toppe dei
+quattro file riscritti siano vive **dopo** l'ultimo passo.
+
+⚠️ Il cancello è ristretto a quei quattro file apposta. Su tutto il sorgente lo
+stesso controllo dà una decina di falsi allarmi, perché il passo del dizionario
+riscrive ancora la riga già toppata quando dentro c'è una `lang()`: la toppa è
+viva, ma la sua `sostituisci` non c'è più alla lettera. Un cancello che chiede
+l'impossibile viene disattivato, non rispettato.
+
+⭐ Accanto c'è `test_i_nomi_delle_fasi_del_turno_sono_in_italiano`, che **nomina
+il caso**. Un cancello che dice «zero morte» non dice quale sia il difetto che
+l'ha fatto nascere, e uno zero senza il suo caso non si legge.
+
+---
+
+## `copertura` non può vedere le etichette, e un'interfaccia è fatta di etichette — 2026-09-04, centotrentasettesima sessione
+
+`copertura._PROSA` è `[A-Za-z]{3}[a-z]*\s+[A-Za-z]`: pretende **due parole
+alfabetiche separate da uno spazio**. E ne basta meno per sparire:
+
+    "Regeneration "        una parola sola                       -> INVISIBILE
+    "<Yerles> "            una parola sola                       -> INVISIBILE
+    "Filter: Attack   "    due parole, coi due punti attaccati   -> INVISIBILE
+    "Sort by: Attack   "   due parole vere                       -> vista
+
+Le ultime due stanno **nello stesso menu**, una riga sotto l'altra, e il
+censimento ne vedeva una sola.
+
+Delle **84 etichette** che `tcg.hsp:1520-1605` appende alla scheda di una
+carta, `_PROSA` ne vede **26**. Le altre **58** stavano a schermo in inglese
+dentro un fronte **dichiarato e contato**, e il conto del fronte non le
+comprendeva. Non erano un fronte non dichiarato — quello `copertura` lo trova:
+erano dentro uno dichiarato.
+
+    58 invisibili  ->  37 rese dalla 137ª
+                       13 invariate per decisione
+                        8 ancora da fare: i `Filter:` del lotto B2
+
+### Perché non si allarga l'euristica
+
+In HSP la stragrande maggioranza dei letterali di una parola sola sono
+identificatori, e il referto annegherebbe. Serve una rete che parta da **chi
+disegna** — `mes`, `bmes`, `txt`, un `s@tcg +=` che finisce in una stringa
+disegnata — non dalla forma della stringa. È la cosa aperta più grossa che
+lascia questa sessione, ed è scritta in `RIPRESA-sessione.md` invece di essere
+fatta a metà in silenzio.
+
+⚠️ **E quante siano nel resto del sorgente nessuno l'ha misurato.**
+
+### Una misura contaminata dal lavoro appena fatto
+
+Contando quante etichette fossero invisibili **dopo** averle toppate,
+`scoperte_di` ne dava 79 — ma perché toglie dal conto le righe già toppate, non
+perché non le veda. La domanda «è invisibile?» la sa rispondere solo
+l'euristica **da sola**, e la risposta vera è 58 su 84.
+
+---
+
+## Il vocabolario della scheda di una carta è un rifiuto, non un avviso — 2026-09-04, centotrentasettesima sessione
+
+`tcg_skill.hsp` e `tcg.hsp` assegnano a `carddetailneff@tcg(...)` **schede
+intere già composte**, invece di lasciarle costruire a `card_ref`. Sono 72, e
+il loro vocabolario è **già italiano nel ramo dinamico**, deciso da fasi
+precedenti dentro `lang()` (`tcg.hsp:1495-1610`) e dal lotto B di questa:
+
+    "  No."   -> "  N."         "Effect: " -> "Effetto: "
+    "  Rare:" -> "  Rarità:"    "Bits:  "  -> "Tratti:  "   (137ª)
+
+Una scheda scritta a mano che dicesse ancora `Rare:` spaccherebbe il gioco in
+**due metà che parlano lingue diverse** — e non lo vedrebbe nessun cancello che
+guardi la resa per conto suo, perché la resa in sé sarebbe italiana e corretta.
+Per questo è un rifiuto.
+
+⭐ **Gli innesti invece li giudica `carte.problemi`**, non una regola nuova. Lì
+dentro c'è già la distinzione che serve: si controllano **solo in testa**,
+perché `Sacrifice` in testa è «Sacrificio:» ma a metà frase è il verbo
+«sacrifica», e un cancello che lo cercasse ovunque direbbe rosso su una resa
+giusta (la lezione della 70ª). Due copie della stessa tabella sono due tabelle,
+e la prima a restare indietro non lo dice a nessuno.
+
+### La chiave è il letterale, non la costante e non la riga
+
+La Fase 5 aveva `effdesc@tcg(COSTANTE)`. Qui l'indice è una **variabile**
+(`cextra@tcg`, `aeft@tcg`, `tcggen_arg1`, `cnt`) e non dice niente. E non può
+essere `file:riga`, che la Fase 4 ha imparato a proprie spese: la riga si
+sposta sotto una resa. Resta il **letterale inglese**, che su questi due file è
+distinto — 72 su 72.
+
+### 72, non 76: il conto è stato rifatto
+
+Il censimento della 135ª ne dichiarava 76 per `tcg_skill.hsp`. Le sette di
+differenza sono **giunture** — «ace of », «High Potion of », «socks of », i
+pezzi del gioco del poker — più una traccia di debug che nomina
+`carddetailneff@tcg` dentro un `proctcg` senza assegnarci niente.
+`scratchpad/_137-schede-riconcilia.py` lo fa vedere riga per riga.
+
+⚠️ Un numero atteso che non torna vuol dire «il conto va rifatto», non «la
+costante va aggiustata», e rifarlo vuol dire **far vedere quali** stringhe
+stanno da una parte e non dall'altra.
+
+---
+
+## «Bits:  » ha due spazi, e sono portanti — 2026-09-04, centotrentasettesima sessione
+
+La scrive **un sito solo** (`tcg.hsp:1522`) e la **cercano tre**: `:1470`,
+`:4625`, `:4630`. Tradotta solo dove si scrive, la riga dei tratti sparisce
+dalla scheda di ogni carta che ne abbia.
+
+È la trappola esatta della 136ª — dove un operando non censito aveva spento la
+copia di 195 carte — stavolta **censita prima di tradurre una riga**. Il piano
+della Fase 6 comincia con una tabella di chi scrive e chi cerca.
+
+Nella stessa famiglia c'erano **due operandi di «Effect: » dimenticati** dalla
+136ª: `tcg.hsp:4628`, che toglieva il prefisso inglese dal testo esportato in
+`TCG_card_list.txt`, e `tcg_skill.hsp:2003`, la seconda ricomposizione della
+scheda quando un lich sale di grado.
+
+⚠️ Ogni volta questi operandi li ha trovati una **lettura a mano**. La rete che
+cerca l'operando di una sostituzione (`sreplace`, `instr`, `strmid` con un
+letterale) è aperta dalla 130ª e questa sessione le ha dato il terzo movente.
+
+### Le due etichette che restano invariate per decisione
+
+`Immune` e `Kamikaze` in italiano si scrivono uguali. Non sono dimenticanze:
+una toppa con `cerca` identico a `sostituisci` `applica` la rifiuta, e ha
+ragione — è una toppa muta, cioè una di cui nessuno si accorgerebbe se
+smettesse di agganciare.
+
+---
+
+## Il ramo di `talk_conv` che la 136ª non aveva modellato — 2026-09-04, centotrentasettesima sessione
+
+`carte.righe_a_capo` modellava `talk_conv` (`init.hsp:1326-1367`) saltandone il
+blocco **JAMES CUSTOM** (`:1337-1352`), che manda a capo su un ritorno a capo
+**già presente nel testo**. Nel file HSP quell'a capo sono due caratteri;
+nell'eseguibile è uno solo, e il gioco ci spezza la riga davvero.
+
+Il conto usciva **corto su 28 rese su 833**, e il massimo vero è **4 righe**,
+non le 3 che la 136ª aveva scritto nei documenti.
+
+E **la larghezza non la misurava nessuno**. `talk_conv` non spezza mai dentro
+una parola: quando la coda non ha più spazi la appende **senza guardare la
+colonna** (difetto di monte, già visto tagliare a schermo nella 23ª). Sei rese
+uscivano fino a **81 colonne** pur avendo il rientro a 65.
+
+### Il tetto non è scelto: è quello che l'inglese già disegna
+
+77 colonne per le descrizioni d'effetto, 78 per le schede scritte a mano —
+tutt'e due **ricalcolati dal file a ogni giro** da una prova, così non possono
+invecchiare in silenzio. Sopra quella larghezza non si sa niente, e la lettura
+che non può far danno è stare sotto.
+
+⭐ **E la domanda del riquadro si è sciolta da sola, con la ragione:** l'altezza
+massima italiana è 4 righe e **anche quella inglese è 4**. La traduzione non
+chiede al riquadro niente che l'inglese non gli chieda già. Non è lo zero a
+essere un risultato: è la ragione dello zero.
+
+### Il verso giusto è accorciare, non imbottire
+
+Le sei rese fuori misura sono passate alla forma aggettivale **già in uso nel
+file** — «mano avversaria», 12 volte — invece di essere spezzate a forza. Per
+la riga dei tratti, l'unica delle 249 combinazioni di bit vere che l'italiano
+faceva uscire è stata accorciata da «Evocata nel mazzo avversario» a «Nel mazzo
+avversario», che dice dove finisce la carta, cioè quel che serve sapere.
+
+---
+
+## Due modi di scrivere una guardia che non può accendersi — 2026-09-04, centotrentasettesima sessione
+
+**Il primo: la premessa del controllo è falsa.** Il generatore delle toppe del
+lotto A divideva il sorgente sul terminatore sbagliato, che in quel file non
+c'è. Usciva **una riga sola lunga tutto il file**, e il controllo «una riga sola
+deve agganciare» diceva «unica» proprio **perché** la divisione era fallita.
+Trentasei toppe con dentro l'intero sorgente. L'ha fermato `applica`, non il
+controllo.
+
+⭐ Ora la premessa si prova prima del controllo: se le righe sono meno di mille,
+la divisione è fallita e si esce. Un controllo di unicità su un elenco di uno
+non prova niente.
+
+**Il secondo: il ramo è irraggiungibile.** In `schede.py` l'iniezione camminava
+sui letterali **del file** invece che sul **dizionario**: una voce il cui monte
+fosse cambiato non dava errore, semplicemente non veniva trovata e spariva in
+silenzio. Il `ValueError` scritto per proteggere quel caso **non poteva
+accendersi mai**, ed è peggio che non averlo, perché sembra una rete.
+
+⭐ L'ha trovata **la prova scritta per verificarla**, non una rilettura del
+codice. E il verso giusto è quello di `carte.py`: si cammina sul dizionario e
+si pretende che il monte ci sia ancora.
+
+---
+
+## La scheda troncata a metà parola, e i 200 byte che non c'entrano — 2026-09-04, centotrentasettesima sessione
+
+`tcg.hsp:2639` porta una scheda che di monte finisce con «Otherwise, it's just
+a ston»: troncata a metà parola.
+
+Il sospetto era il tetto di `sdim carddetailneff@tcg, 200`. **Non è quello:**
+due schede del progetto fanno 209 e 210 caratteri e il gioco regge, quindi HSP
+allarga da solo il buffer. È un refuso di monte e basta.
+
+⚠️ Il progetto **riproduce** i refusi di monte quando portano un comportamento —
+i due «Batllecry»/«BattleCry» della 136ª, che decidono se una carta viene
+copiata. Questo non ne porta: niente cerca dentro questa scheda. Quindi la resa
+è la frase intera, «Se no, è solo un sasso.», e la scelta è scritta qui invece
+di essere presa in silenzio.
