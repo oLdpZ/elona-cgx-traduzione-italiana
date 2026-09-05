@@ -1,0 +1,125 @@
+ELONA+ CUSTOM-GX — TRADUZIONE ITALIANA
+======================================
+
+Per Elona+ Custom-GX versione 2.31.2.0.
+
+
+COSA TI SERVE
+-------------
+
+1. Elona+ 2.31 con Custom-GX 2.31.2.0 gia' installato e funzionante.
+   Custom-GX si scarica da:
+   https://github.com/JianmengYu/ElonaPlusCustom-GX/releases
+
+2. Python 3.11 o piu' nuovo:
+   https://www.python.org/downloads/
+   ATTENZIONE: durante l'installazione spunta la casella
+   "Add python.exe to PATH", se no il resto non parte.
+
+3. Una connessione: la prima volta si scaricano circa 60 MB.
+
+
+COME SI FA
+----------
+
+Doppio clic su   costruisci.bat
+
+E' tutto. Il programma cerca da solo la cartella del gioco, si prende
+quel che gli serve, e alla fine ti dice cosa lanciare.
+
+Se non trova il gioco da solo, aprilo cosi' (Prompt dei comandi):
+
+    python costruisci.py --gioco "C:\percorso\alla\tua\elonaplus2.31"
+
+Ci vogliono pochi minuti. La prima volta di piu', perche' scarica.
+
+
+PERCHE' NON C'E' UN ESEGUIBILE GIA' PRONTO
+------------------------------------------
+
+Perche' non e' nostro da regalare. Il sorgente di Custom-GX non ha una
+licenza, quindi nessuno ci ha dato il permesso di distribuire il gioco
+compilato, e non ce lo prendiamo da soli.
+
+Questo programma non distribuisce niente di nessuno:
+
+  - il SORGENTE se lo prende da GitHub, dagli autori di Custom-GX;
+  - l'SDK HSP dal sito di Onion Software, che lo pubblica;
+  - i FILE DI TESTO del gioco dalla tua installazione;
+  - da noi arriva solo il DIZIONARIO, che e' l'unica cosa nostra.
+
+L'italiano lo mette insieme il tuo computer, in casa tua.
+
+
+COSA TOCCA, E COSA NO
+---------------------
+
+AGGIUNGE alla cartella del gioco:
+
+    cgx-ita.exe                 <- il gioco in italiano
+    data\autopick_it.txt        <- questi sei file il gioco li legge
+    data\board_it.txt              solo se ci sono, e non sostituiscono
+    data\book_it.txt               niente
+    data\exhelp_it.txt
+    data\manual_ENG_it.txt
+    data\talk_it.txt
+    disinstalla-italiano.bat
+
+NON TOCCA:
+
+    elonapluscgx.exe            <- resta com'e' e funziona come prima
+    i tuoi salvataggi           <- non vengono aperti nemmeno per sbaglio
+    tutto il resto
+
+Per giocare in italiano lanci cgx-ita.exe; per giocare in inglese lanci
+elonapluscgx.exe come hai sempre fatto. Gli stessi salvataggi vanno bene
+per tutt'e due.
+
+
+PER TOGLIERLA
+-------------
+
+Doppio clic su   disinstalla-italiano.bat   nella cartella del gioco.
+Cancella i sette file aggiunti e basta.
+
+
+SE QUALCOSA NON VA
+------------------
+
+"Il tuo elonapluscgx.exe non e' la versione 2.31.2.0"
+    Hai una versione diversa di Custom-GX. La traduzione e' fatta su
+    quella, e su un'altra aggancerebbe righe che nel frattempo sono
+    cambiate. Installa la 2.31.2.0, oppure aspetta che la traduzione
+    venga aggiornata.
+
+"Serve Python 3.11 o piu' nuovo"
+    Installalo dal sito qui sopra, ricordandoti della casella
+    "Add python.exe to PATH".
+
+Il programma si ferma a meta'
+    Non ha rotto niente: finche' non arriva in fondo, nella cartella del
+    gioco non scrive. Rilancialo: riprende da dove puo'.
+
+
+UNA COSA DA SAPERE
+------------------
+
+Ogni volta che compili esce un file diverso, anche partendo dagli stessi
+identici file: HSP rimescola il programma dentro l'eseguibile a ogni
+compilazione (l'abbiamo misurato: due build dello stesso albero
+condividono il 3,4% dei byte). Quindi non confrontare l'impronta del tuo
+cgx-ita.exe con quella di nessun altro: e' normale che siano diverse.
+
+
+GRAZIE A
+--------
+
+JianmengYu, che mantiene Elona+ Custom-GX.
+Ruin0x11, che l'ha creato.
+Glyphy, per Elona+ Custom-G.
+AnnaBannana e BloodyShade, per Elona+ Custom.
+Ano, per Elona+.
+Noa, per Elona.
+
+Questa e' una traduzione amatoriale, non ufficiale, e non e' affiliata a
+nessuno di loro.
