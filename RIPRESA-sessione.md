@@ -1,15 +1,23 @@
 # Ripresa sessione
 
-Aggiornato: 2026-09-05, fine della **centoquarantaduesima** sessione (**il
-succo parla italiano, l'ultimo rinvio in attesa di toppa esisteva gia', e due
-toppe scrivevano la stessa cosa nello stesso punto**).
+Aggiornato: 2026-09-06, fine della **centoquarantatreesima** sessione (**la
+chiave non e' il testo: la quarta rete, dodici righe che nessuno vedeva, e la
+strada per pubblicare**).
 
-⭐ **L'ESEGUIBILE IN GIOCO E' FRESCO: 18:58 del 05/09** (17.672.345 byte), e
-contiene tutto il lavoro della 142a: il succo nell'ordine italiano, la taglia
-del pesce in coda, il cioccolatino della dea dei desideri, la forza eterna in
-coda e le due battute del desiderio che rispondono all'italiano. ⓘ Si legge con
-`ls -l C:\Games\Elona\elonaplus2.31\cgx-test.exe`. I sei file dati non sono
-cambiati.
+⭐ **L'ESEGUIBILE IN GIOCO E' FRESCO, e adesso ce ne sono DUE**, tutt'e due di
+17.673.776 byte:
+
+    cgx-test.exe   00:17 del 06/09   la nostra catena di sempre
+    cgx-ita.exe    01:10 del 06/09   prodotto da `costruisci.py`, cioe' dal
+                                     pacchetto che si pubblica
+
+⚠️ **Non confrontarne le impronte: sono diverse, e va bene.** L'eseguibile HSP
+non e' riproducibile — due compilazioni dello stesso identico albero
+differiscono nel 96,56% dei byte. E' misurato, sta in `decisioni.md`, e cambia
+quel che si puo' promettere a chi installa.
+
+ⓘ `cgx-ita.exe` e' quello che vedrebbe un utente. Nella cartella del gioco ci
+sono anche i sei `data\*_it.txt` e `disinstalla-italiano.bat`.
 
 ⚠️⚠️ **L'ordine obbligato per portare tutto in gioco ha SEI PASSI.**
 
@@ -38,6 +46,181 @@ seguono, o l'albero resta in uno stato che nessun documento descrive.
 la 141a ci ha perso un giro perche' la shell ha mangiato le barre rovesce di
 una regex (`[^"\\]` e' diventato `[^"]`), e l'errore e' arrivato come
 `re.PatternError` a venti righe di distanza dalla causa.
+
+---
+
+## LA COSA CHE PESA DI PIU' DELLA 143a: c'era un quarto asse, e nessuna rete lo guardava
+
+Le tre reti guardano tutte il testo che il giocatore **legge**. La **chiave** —
+il letterale che `instr`, `sreplace` o `cnv_str` cercano *dentro* una stringa —
+non e' testo a schermo: e' quel che accende il codice, e non la vedeva nessuno.
+
+⭐ Il segnale c'era ed era la 142a stessa: aveva trovato **due volte per caso**
+la stessa forma di difetto, una battuta italiana da sessioni che restava spenta
+perche' la parola che l'accendeva era inglese. Due ritrovamenti fortuiti
+vogliono dire che manca una misura.
+
+Adesso c'e' `strumenti/operandi.py`, e la misura dice:
+
+    328 righe candidate su 36 pagliai
+    260 esenti · 60 seguite · 4 inutili · 0 nel fronte
+    margine: altre 144 chiavi passano gia' da una `lang()`
+
+⚠️⚠️ **Questa rete legge la `build/`, unica fra le quattro**, e va rilanciata
+**dopo** i cinque passi di `applica`. Sul sorgente pinnato direbbe cose false,
+perche' quasi tutte le righe che guarda le ha gia' riscritte una toppa.
+
+⭐⭐ **E ha quattro esiti, non due.** Quello che vale di piu' e' `inutile`: la
+pagina dei tratti di un compagno (`command.hsp:2561`) scambia ` your` col
+pronome del PNG e in italiano non aggancia — **ma non serve che agganci**,
+perche' le descrizioni degli incantamenti sono impersonali («Aumenta Forza di
+3.») e vanno bene identiche per la `@` e per il compagno. Senza quel quarto
+esito ci si lavorava sopra per niente.
+
+⚠️ **Il limite dichiarato**: la rete legge la chiave, **non il pagliaio**. Se
+un giorno una resa tornasse alla seconda persona, quel punto si riaprirebbe e
+nessun cancello lo direbbe.
+
+---
+
+## IL FRONTE: era 12 righe su 4 pagliai, e la sessione l'ha chiuso
+
+- ✅ **La cacciatrice di draghi** (`tcg_skill.hsp:4960`, `:4972`, `:5003`) —
+  punto 9 della lista della 138a. ⭐⭐ **E la premessa del punto era falsa**: non
+  mancava nessuna decisione di glossario, `dragon → drago` e' fissato dalla 96a
+  (glossario riga 278). Mancava che la chiave la seguisse. Misurato su
+  `db_card.hsp`: `"ragon"` c'era ancora **4 volte, tutte «dragonewt»** — e
+  «drago» 60, «Drago» 2, «draghi» 28.
+- ✅ **L'alchimista** (cinque righe in `command.hsp`, piu' `action.hsp:123`):
+  la professione finta la digita il giocatore, e in italiano scrive
+  «alchimista». Ora `"lchimista"` sta accanto a `"lchemist"`.
+- ✅ **La giuntura del nome composto** (`custom_dmgpop.hsp:230`): in italiano la
+  giuntura e' **l'articolo**, e resta attaccato all'epiteto.
+- ➖ La pagina dei tratti: `inutile`, vedi sopra.
+
+⚠️ **Zero nel fronte non vuol dire che non ci sia piu' niente.** Vuol dire una
+cosa sola: fra le chiavi che sono un **letterale**, dentro un pagliaio che e'
+testo nostro, non ce n'e' piu' nessuna che lasci indietro il giocatore italiano.
+
+⭐ Verificati per strada e **gia' chiusi** senza che nessuno lo sapesse: i punti
+**6**, **7**, **12** e **20** della lista della 138a. ⚠️ I punti **10**, **11**,
+**15**, **16** e **19** questa sessione **non li ha guardati**: sono riportati
+dalla lista, non misurati.
+
+---
+
+## LA STRADA PER PUBBLICARE, e la misura che ne ha bocciata una
+
+⭐ **Il sorgente di Custom-GX non ha licenza.** Quindi il nostro eseguibile —
+che e' una build del loro albero — non si pubblica senza chiedere.
+
+1. **Chiesto**: [issue #37](https://github.com/JianmengYu/ElonaPlusCustom-GX/issues/37),
+   aperta dall'account `oLdpZ` il 05/09 alle 22:59 UTC. In attesa.
+2. **Intanto si compila in casa**: `costruisci.py` + `costruisci.bat` +
+   `LEGGIMI.txt`, e `python -m strumenti.pacchetto` fa l'archivio (119 file,
+   5,0 MB). Dentro non c'e' un byte del gioco.
+
+⚠️⚠️ **La patch binaria non si puo' fare, ed e' misurato**: fra l'eseguibile
+ufficiale e il nostro si puo' copiare l'**1,1%**; la patch peserebbe quanto il
+gioco. La causa e' HSP, non la distanza dal monte — due build **nostre** dello
+stesso albero condividono il 3,4%. ⓘ Il controllo che rende credibile la
+misura: l'ufficiale contro se stesso da' 100,0%.
+
+⚠️ **L'SDK HSP 3.4 non e' piu' nell'elenco di hsp.tv** (oggi 3.6 e 3.7), ma sta
+ancora su `http://www.onionsoft.net/hsp/file/hsp34a.zip` — 37.016.153 byte,
+impronta fissata in `costruisci.py`.
+
+⚠️ **Il sorgente scaricato si verifica sul manifesto delle 72 impronte, non
+sull'archivio**: GitHub rigenera i suoi zip.
+
+---
+
+## Le trappole che la 143a ha trovato
+
+⚠️⚠️ **La quinta famiglia di riga morta era nominata e non trovabile.**
+`item_func.hsp:2041`-`:2131` sta dentro un `if ( 0 ) { … }` **che l'ha scritto
+il progetto** (`genera_toppe_nomi.py:359`, il plurale italiano viene da
+`ioriginalnamerefplur`). Senza saperlo, la rete nuova avrebbe aperto un fronte
+di quattro righe (`"coffins"`, `"ves"`, `"ies"`) sul codice che il progetto
+aveva appena spento. Adesso c'e' `commenti.righe_in_ramo_spento()`. E' la
+trappola di leggere la build.
+
+⚠️ **Una toppa che scrive `§` in un commento HSP fa cadere `test_toppe`**, e ha
+ragione: CP932 lo codifica a due byte e il font latino della build disegna due
+glifi a caso. Si scrive «par. 4».
+
+⚠️ **Sia l'archivio dell'SDK sia quello di GitHub avvolgono tutto in una
+cartella**, e chi estrae e basta cerca quel che gli serve un gradino piu' su. Ha
+fermato la prima prova di `costruisci.py`; adesso c'e' `srotola()`.
+
+⚠️ **`dialoghi --applica` non e' idempotente**: rilanciarlo su un albero gia'
+trattato si ferma con «il letterale su cui questa resa fu scritta non esiste
+piu'». Non e' un guasto, e' la catena rilanciata a meta'.
+
+---
+
+## I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 143a
+
+    pytest                   **1.148 passed**, 6 skipped (erano 1.127: +21 la
+                             rete dell'operando)
+    prova_identita           72/72 e 30.905, invariato
+    scene --referto          1701 su 1701, 0 fuori misura
+    carte --referto          833/833, 0 fuori misura
+    schede --referto         72 su 72, 0 fuori misura
+    dialoghi --referto       74 su 74, 0 fuori misura
+    disegnate                verde, tutte dichiarate
+    copertura                0 fronti, 0 scoperte
+    salti                    verde, tutte dichiarate
+    **operandi**             **328 righe su 36 pagliai; 260 esenti, 60
+                             seguite, 4 inutili, 0 nel fronte**
+    toppe                    **1.431** (erano 1.426)
+    applica                  30.766 sostituzioni, nessun ATTENZIONE
+    perimetro                28.028 fatte, 0 da fare, 100,0%
+                             (**31.795** coi file dati)
+                             ⚠️ `PYTHONPATH=. PYTHONIOENCODING=utf-8`
+    verifica --dizionario    0 da ritradurre, uscita 0
+    rinviate                 113 voci: 57 riga morta, 34 risolte da toppa,
+                             15 morte per flusso, 6 aspettano monte, 1 mai.
+                             **Nessuna aspetta lavoro.**
+
+⚠️ **Nessuno di questi numeri si eredita da qui: si rilanciano.**
+
+---
+
+## Che cosa guardare adesso, dopo la 143a
+
+⚠️ Questa lista **sostituisce** quella della 142a qui sotto per i punti che
+nomina.
+
+1. ⭐⭐⭐ **Il collaudo a schermo, e non ha piu' rivali.** Non c'e' un solo
+   rinvio in attesa di codice e non c'e' un fronte aperto in nessuna delle
+   quattro reti: quel che resta e' che **nessuna misura dice che una resa sia
+   stata vista**. Le voci nuove da guardare, oltre a quelle della 142a mai
+   viste (succo, desiderio, pannello dell'equipaggiamento, evocazione CNPC,
+   marcatore `(T)`):
+   - la **cacciatrice di draghi** nel gioco di carte, che adesso deve uccidere
+     un drago riconosciuto dal testo italiano;
+   - la **battuta dell'alchimista**: desiderare la professione scrivendo
+     «alchimista», poi la castagna;
+   - il **fumetto del danno** con `showNameChatMultilined` acceso, su un PNG con
+     nome ed epiteto («Arnord il mercenario»): due righe, non una.
+   ⓘ `collaudo/schermo.ps1` sa pilotare il gioco e catturare lo schermo: la
+   parte meccanica non aspetta che ci sia qualcuno a giocare.
+2. ⭐⭐ **La pubblicazione**, quando si decide: rendere pubblico il repo (dentro
+   non c'e' codice di monte) e pubblicare la release. Il `README` e' gia'
+   riscritto per quello.
+3. ⭐⭐ **Le tre stringhe che aspettano la larghezza**, invariate dalla 141a:
+   `Rank.` (`command.hsp:3638`), `Free` / `NPC/TOWN` (`map_func.hsp:2053`).
+4. ⭐ **Gli 11 nomi di abilita' tagliati a quattro caratteri**, e **quante il
+   pannello ne disegni davvero non e' misurato**.
+5. ⭐ **Le tre teste variabili di cui non si sa l'articolo** — `NECRO_PARTS`,
+   `PRODUCED_BOOK`, `EVITEM`: dieci minuti l'una, si guarda se
+   `locvar_itemname_s2` prende un contatore.
+6. **Sei rinvii aspettano il monte**: righe commentate a monte, non si possono
+   fare.
+7. ⚠️ **I punti 10, 11, 15, 16 e 19 della lista della 138a non sono stati
+   riverificati.** Prima di riaprirne uno **si guarda la build**: dei cinque
+   che questa sessione ha toccato, quattro erano gia' chiusi.
 
 ---
 

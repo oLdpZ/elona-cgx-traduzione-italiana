@@ -6,6 +6,182 @@ ancora aperte.
 
 ---
 
+## La chiave non e' il testo: la quarta rete guarda quel che il codice CERCA — 2026-09-06, centoquarantatreesima
+
+Le tre reti del progetto guardano tutte lo stesso asse, il testo che il
+giocatore **legge**: `copertura` le `lang()`, `disegnate` e `salti` quel che
+arriva a un comando che disegna. Nessuna guardava il letterale che `instr`,
+`sreplace` o `cnv_str` vanno a cercare **dentro** una stringa.
+
+E quella non e' una sfumatura: la 142a ha trovato due volte, per caso, la
+stessa forma di difetto — una battuta italiana da sessioni che restava spenta
+perche' la parola che l'accendeva era inglese. Due ritrovamenti fortuiti sono
+il segnale che manca una misura, non che il problema sia piccolo.
+
+**La decisione**: `strumenti/operandi.py`, e tre scelte che la separano da un
+`grep`.
+
+1. **Legge la BUILD, non il sorgente.** E' l'unica rete che lo fa, ed e'
+   obbligatorio: quasi tutte le righe interessanti le ha gia' riscritte una
+   toppa, e chiedere al sorgente vorrebbe dire riaprire fronti chiusi — l'errore
+   che la 142a ha fatto sul punto 12 della lista della 138a.
+2. **Prende solo l'argomento-chiave.** In `cnv_str v, "%", "per"` la chiave e'
+   `"%"`, un simbolo; `"per"` e' quel che ci si scrive al posto. Contare tutti i
+   letterali della riga avrebbe gonfiato il fronte della meta' e detto «chiave
+   italiana» dove non ce n'era nessuna.
+3. **Classifica per PAGLIAIO**, cioe' per dentro-che-cosa-si-cerca. Lo stesso
+   letterale inglese dentro `autopick.txt` — che lo scrive il giocatore — non e'
+   un difetto; dentro il testo di una carta lo e'. Quel che distingue i due casi
+   non e' mai il letterale.
+
+⭐⭐ **E quattro esiti, non due.** «Chiave inglese» da sola non dice niente:
+
+    esente    il pagliaio non e' testo nostro
+    seguita   la chiave e' stata portata dietro alla resa
+    inutile   non aggancia piu' niente, e non c'e' niente da agganciare
+    fronte    il giocatore italiano ci perde qualcosa
+
+L'`inutile` e' la voce che ha piu' valore, perche' e' quella che si sarebbe
+lavorata per sbaglio: la pagina dei tratti di un compagno (`command.hsp:2561`)
+scambia ` your` col pronome del PNG, e in italiano non aggancia — ma **non
+serve che agganci**, perche' le descrizioni italiane degli incantamenti sono
+impersonali («Aumenta Forza di 3.») e vanno bene identiche per la `@` e per il
+compagno. L'inglese aveva bisogno di quel giro perche' scrive «You gain».
+
+⚠️ **Il limite dichiarato**: la rete legge la chiave, **non il pagliaio**. Se un
+giorno una resa italiana tornasse alla seconda persona, quel punto si
+riaprirebbe e nessun cancello lo direbbe.
+
+ⓘ Il fronte misurato era **12 righe su 4 pagliai**, e la sessione l'ha portato a
+zero. Il margine, che sta accanto al conto perche' un numero solo mentirebbe:
+**144 chiavi passano gia' da una `lang()`**, ed e' la forma giusta.
+
+## Il punto 9 non aspettava una decisione: la decisione c'era, e mancava la chiave — 2026-09-06, centoquarantatreesima
+
+Il punto 9 della lista della 138a diceva: il difetto di «ragon»
+(`tcg_skill.hsp:4960`, `:4972`, `:5003`) «vuole una decisione di glossario fra
+*drago* e *dragone*». **Non era vero.** La decisione c'e' dalla 96a, glossario
+riga 278: `dragon` → **drago**.
+
+Quel che mancava era portarle dietro la chiave. L'effetto della cacciatrice di
+draghi uccide la carta se e' un drago, e lo riconosce in due modi: la razza
+(`== "dragon"`, chiave interna che resta inglese) oppure il **testo** della
+carta, cercandoci dentro `"ragon"` — il troncone senza la `d`, per pigliare
+anche `Dragon`.
+
+⭐⭐ **Misurato su `db_card.hsp` della build**: `"ragon"` ci compare ancora **4
+volte, e sono tutte «dragonewt»**. Cioe' l'effetto agganciava per testo quei
+quattro e nient'altro, mentre «drago» ci sta 60 volte, «Drago» 2 e «draghi» 28.
+
+**La decisione**: si aggiungono in `or` le tre forme `"drago"`, `"Drago"`,
+`"draghi"`, e `"ragon"` resta per i dragonewt e per chi gioca di monte.
+
+⚠️ **E non il troncone `"rago"`**, che sarebbe stato l'analogo esatto
+dell'inglese: prenderebbe anche «mandragora», «aragosta», «fragore» e
+«fragorosa». Qui un errore non e' una parola storta, e' **una carta uccisa che
+non doveva morire**: dove la chiave comanda un effetto e non un testo, si
+sbaglia dalla parte del non agganciare.
+
+Stessa forma per la professione dell'alchimista (cinque righe in `command.hsp`
+piu' la castagna di `action.hsp:123`): la professione finta la **digita** il
+giocatore col desiderio, e in italiano scrivera' «alchimista». Accanto a
+`"lchemist"` adesso c'e' `"lchimista"`, col troncone senza la prima lettera per
+la stessa ragione dell'inglese.
+
+## La giuntura del nome composto e' l'articolo, e resta attaccato all'epiteto — 2026-09-06, centoquarantatreesima
+
+`custom_dmgpop.hsp` scrive il nome di un PNG su due righe sopra la testa —
+sopra l'epiteto, sotto il nome proprio — e per spezzarlo cerca `" the "`
+(«Arnord the mercenary»).
+
+⭐ **Nella build un `" the "` di giuntura non esiste piu'.** Il contratto dei
+nomi §4 dice che l'articolo lo porta il nome, e la composizione italiana e'
+`randomname() + " " + cdatan(CDATAN_NAME, rc)` in **152 siti** di
+`db_creature.hsp`: «Arnord il mercenario». Il fumetto non spezzava piu' niente.
+
+**La decisione**: la giuntura italiana e' **l'articolo**, e si prende quello che
+viene **prima nella stringa**, non il primo dell'elenco — un nome puo' portarne
+piu' d'uno, e la giuntura e' sempre la prima.
+
+⭐ **E l'articolo resta attaccato all'epiteto**, dove l'inglese butta via il suo
+`the`. Non e' una svista: «the mercenary» da solo non si scrive, «il
+mercenario» si'. Per la stessa ragione `:225` — il `the ` di testa dell'alias —
+si lascia com'e': toglierlo darebbe «mercenario» nudo.
+
+ⓘ E' la meta' del punto 7 della lista della 138a che riguarda il fumetto.
+L'altra meta', la pezza «the The» di `tcg_custom.hsp:4566`, **era gia' chiusa**:
+nella build quella riga dice `randomname() + ", " + random_title()`.
+
+## Non si pubblica un binario che non e' nostro: si chiede, e intanto si compila in casa — 2026-09-06, centoquarantatreesima
+
+Il sorgente di Custom-GX **non ha una licenza**: nel repo di JianmengYu non c'e'
+nessun file di licenza, quindi non c'e' permesso ne' in un senso ne' nell'altro.
+Il nostro eseguibile e' una build del loro albero: pubblicarlo com'e' vuol dire
+ridistribuire codice loro e di monte.
+
+**Le decisioni, due e in questo ordine.**
+
+1. **Si chiede.** [Issue #37](https://github.com/JianmengYu/ElonaPlusCustom-GX/issues/37),
+   aperta il 2026-09-05: si chiede di distribuire l'eseguibile come strato,
+   nello stile delle loro release, con il credito e il rimando al repo. Il testo
+   dice anche che **c'e' gia' un piano B**, perche' una richiesta che non mette
+   pressione e' piu' facile da accogliere.
+2. **Intanto si compila in casa.** `costruisci.py` fa i sette passi sul computer
+   di chi installa: il **sorgente** lo prende da GitHub, l'**SDK HSP 3.4** da
+   onionsoft.net, i **file di `data\`** dall'installazione dell'utente, e da noi
+   arriva solo il **dizionario**. Nell'archivio pubblicabile non entra un byte
+   del gioco.
+
+⚠️ Il pacchetto **aggiunge e non sostituisce**: `cgx-ita.exe` sta accanto a
+`elonapluscgx.exe`, e i sei file di testo si chiamano `*_it.txt` — il gioco li
+legge solo se ci sono. Disinstallare e' cancellare sette file, e c'e' il `.bat`
+che lo fa.
+
+⚠️ **Il sorgente scaricato si verifica sul manifesto, non sull'archivio**:
+GitHub rigenera i suoi zip e la stessa versione puo' avere impronte diverse in
+momenti diversi. Le 72 impronte dei file `.hsp` invece non cambiano.
+
+⚠️ **L'SDK HSP 3.4 non e' piu' nell'elenco dei download di hsp.tv**, che oggi
+mostra 3.6 e 3.7. Il file e' pero' ancora servito dal sito di Onion Software a
+`http://www.onionsoft.net/hsp/file/hsp34a.zip`, 37.016.153 byte, e il pacchetto
+ne fissa l'impronta: era un presupposto che nessuno controllava.
+
+## L'eseguibile HSP non e' riproducibile, e questo chiude la strada della patch binaria — 2026-09-06, centoquarantatreesima
+
+La strada che sembrava migliore per pubblicare senza ridistribuire niente era la
+**patch binaria**: si distribuisce solo la differenza fra l'eseguibile ufficiale
+e il nostro, l'utente parte dal suo e se lo trasforma in casa. Piccola, e senza
+un byte di nessun altro.
+
+**Misurato prima di costruirla**, col metodo di rsync/bsdiff:
+
+    ufficiale 16.895.548 byte, nostro 17.673.776
+    copiabile 202.357 byte = 1,1%
+    patch coi letterali in xz  3.044.292
+    il nostro eseguibile INTERO in xz  3.128.656
+
+La patch pesa quanto il gioco: il 3% risparmiato non paga, e soprattutto **una
+patch fatta quasi tutta di letterali E' una copia**, quindi non regge il motivo
+per cui la si voleva.
+
+⭐⭐ **La causa, trovata con un esperimento e non con una teoria.** Due
+compilazioni **dello stesso identico albero**, a un minuto di distanza,
+differiscono nel **96,56% dei byte**, in un tratto unico da 607.336 fino alla
+fine. Non e' la distanza fra noi e il monte: e' HSP, che rimescola il programma
+dentro l'eseguibile a ogni compilazione.
+
+Due conseguenze che valgono oltre la patch:
+
+- **non si puo' chiedere a nessuno di confrontare un'impronta.** Il `cgx-ita.exe`
+  di ogni utente sara' diverso da quello di ogni altro, ed e' normale: il
+  `LEGGIMI` lo dice, se no il primo utente scrupoloso pensera' di avere un file
+  manomesso;
+- **la verifica di una build non puo' essere l'uguaglianza byte per byte**, e
+  dev'essere funzionale.
+
+ⓘ Il controllo che rende la misura credibile: l'ufficiale contro se stesso da'
+**100,0%**, quindi il metro non era rotto.
+
 ## Il succo si compone dalla testa, e l'articolo lo portava gia' il contatore — 2026-09-05, centoquarantaduesima
 
 `item_func.hsp:923-938` costruisce il nome del succo alla maniera inglese: prima
