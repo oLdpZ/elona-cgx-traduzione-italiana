@@ -16051,3 +16051,243 @@ Quel che lo zero dice davvero: *ogni file del sorgente pinnato con stringhe che
 somigliano a una frase è raggiunto da qualcuno, o ha scritto accanto perché
 no.* È una proprietà utile e non è la fine del lavoro. Il debito che resta è il
 **collaudo a schermo**, che nessuna rete può pagare.
+
+## Il secondo salto non esisteva: erano tre ancore — 2026-09-05, centoquarantunesima sessione
+
+La 139ª e la 140ª avevano lasciato scritto che a `disegnate.py` mancava il
+**secondo salto** — una stringa messa in una variabile, passata a un'altra e
+disegnata lì — e che le 51 stringhe trovate a mano erano invisibili per quello.
+Andando a guardare il sorgente, **nessuno dei due casi era un secondo salto**.
+
+    tcg.hsp:3348   if ( sortmode@tcg == 0 ) { s@tcg += "Sort by: DBID   " }
+    tcg.hsp:3363   mes s@tcg
+
+È **un salto solo**, e `disegnate` conosce sia la variabile che il comando: non
+lo vedeva perché `_ASSEGNAZIONE` è ancorata a `^\s*` e lì l'assegnazione sta
+dentro un `if` a graffe. L'altro caso — le 38 etichette di F1 — è un salto solo
+anche lui: non lo vedeva perché `s` sta in `_TROPPO_GENERICHE`, escluso su
+tutto il file.
+
+⭐ **I limiti veri erano tre ANCORE, e la terza non l'aveva mai nominata
+nessuno:**
+
+    1. l'assegnazione dentro un `if` a graffe
+    2. il nome generico escluso su tutto il file, invece che per blocco
+    3. la variabile CONCATENATA dentro l'argomento, non passata come argomento
+
+Il terzo si vede così:
+
+    mes s                                       ->  vede `s`
+    txt lang("…", "A " + s + " is summoned…")   ->  vede `lang`, e perde `s`
+
+⚠️⚠️ **E la catena transitiva — il «secondo salto» vero, `a = "…"`, `b = a`,
+`mes b` — nel sorgente di oggi non trova niente da sola.** Sta in
+`salti._catena` perché costa sei righe, non perché serva.
+
+💡 **La regola: quel che una sessione lascia scritto come diagnosi va
+verificato come un piano.** Il numero era giusto — 51 stringhe, misurate — e il
+motivo accanto no. È la quinta volta in quattro sessioni.
+
+### Il modulo, e le tre scelte che lo reggono
+
+`strumenti/salti.py` (141ª):
+
+- **l'assegnazione si legge dovunque stia sulla riga**, dopo `{` e dopo `:`.
+  `(?!=)` tiene fuori `==`, che è un confronto;
+- **la lista dei nomi generici diventa un AMBITO invece di un'esclusione**:
+  dentro un solo blocco fra due `*etichetta`, `s` vuol dire una cosa sola e si
+  può guardare. Un nome specifico (`s@tcg`, `locvar_equipinfo_s`) vale su tutto
+  il file come prima. ⚠️ Il prezzo è dichiarato: `s` riempito in `*apparecchia`
+  e disegnato in `*mostra` non lo vede nessuno — **e vale 133 stringhe,
+  misurate, tutte non-testo** (nomi delle tracce musicali, estensioni, percorsi
+  di salvataggio, il ramo giapponese del menu del titolo);
+- **ogni nome nella coda del comando**, coi letterali tolti prima — o
+  `lang("Have a nice day")` darebbe «Have», «a», «nice», «day» come variabili.
+
+⚠️ **Il conto del censimento sottrae quel che `disegnate` già vede.** Le chiavi
+di classe di `action.hsp` e la «Jo» del jolly rimbalzano a schermo e sono già
+dichiarate là: due dichiarazioni della stessa cosa prima o poi divergono, ed è
+la 136ª, dove un file contato due volte ha sbagliato un referto di 800 stringhe.
+
+### L'altro asse, misurato e chiuso
+
+`salti --misti` conta i letterali che portano **giapponese e inglese insieme,
+fuori da `lang()`** — il vero motivo per cui le 38 etichette di F1 erano
+invisibili a tutt'e due le reti vecchie, e non il salto. Sono **38 in tutto il
+sorgente**, tutte in `help.hsp`, tutte già fatte dalla 140ª: zero scoperte.
+Non c'è un fronte nascosto dietro quell'asse.
+
+## Le 15 sigle del pannello dell'equipaggiamento, e un tetto che è un taglio — 2026-09-05, centoquarantunesima sessione
+
+`item_func.hsp:2592-:2651` (`*equipinfo_mmah`, ramo `showresist == 3`) disegna
+in fila i potenziamenti dell'oggetto equipaggiato, uno per abilità, con quindici
+sigle a quattro caratteri scritte a mano nel ramo `else` di `if ( jp )`.
+
+⚠️⚠️ **Il nome dell'abilità arriva lì già in italiano** — `skillname()` (`:2601`)
+è tradotto dal dizionario — **e le quindici sigle no**: un giocatore italiano
+guardava un anello e leggeva `Read`, `Hv-A`, `2Hnd`.
+
+⭐ **Il tetto è 4 caratteri, e non è una stima in pixel: è un taglio nel
+codice.** `item_func.hsp:2629` fa `strmid(locvar_equipinfo_s, 0, 4)`. Una sigla
+di cinque caratteri **non sborda dal pannello: viene tagliata**, e il giocatore
+legge un troncone. E `:2651` fa avanzare la fila con `strlen(s) * 8`, quindi
+quattro caratteri esatti lasciano la geometria identica all'inglese.
+
+    Read -> Lett   Lettura              Md-A -> Magl   Maglia
+    Wt-L -> S-Pe   Sollevamento pesi    Li-A -> Fars   Farsetto
+    Mine -> Scav   Scavo                M-Dv -> D-Mg   Dispositivi magici
+    M-Cp -> C-Mg   Capacità magica      EoMn -> O-Me   Occhio della mente
+    D-Wd -> D-Ar   Doppia arma          G-Ev -> Intu   Intuito
+    2Hnd -> 2Man   Due mani             Ct-M -> Ctrl   Controllo magia
+    Shld -> Scud   Scudo                Hv-A -> Cora   Corazza
+
+Lo schema segue l'inglese perché la fila si legge di colpo: nome di **una
+parola** → le prime quattro lettere (`Lettura` → `Lett`, come `Mining` →
+`Mine`); nome di **due parole** → iniziale, trattino, due lettere
+(`Sollevamento pesi` → `S-Pe`, come `Weight Lifting` → `Wt-L`).
+
+⭐ **Nessuna è inventata: ognuna abbrevia il nome italiano che il dizionario dà
+a quell'abilità**, e il rinvio è un cancello — `problemi()` rilegge
+`dizionario/skill.hsp.jsonl` e si accende se quel nome cambia.
+
+Due deroghe allo schema, e il perché:
+
+- **`Ct-M` non diventa `C-Ma`.** Accanto a `C-Mg` («Capacità magica»), sulla
+  stessa riga, due sigle che si distinguono per l'ultima lettera sono due sigle
+  che il giocatore confonde. Si tiene `Ctrl`.
+- **`Trap` non si tocca**, ed è l'unica: abbrevia «trappole» con le stesse
+  quattro lettere di `trap`. Non genera toppa — sarebbe una riga uguale a sé
+  stessa — e va perciò in `invariati.md`. ⚠️ Un cancello nuovo si accende se una
+  sigla coincidente **non** è dichiarata lì.
+
+### Il taglio secco che resta, misurato
+
+Delle 445 abilità con un nome, **421** arrivano al pannello più lunghe di
+quattro caratteri e vengono tagliate. ⭐ **410 di quelle lo sono anche in
+inglese**: è come si comporta il gioco di monte, non una perdita dell'italiano.
+Le altre **11** sono quelle dove l'inglese ci sta intero e l'italiano no —
+`Luck`/«Fortuna», `Will`/«Volontà», `Axe`/«Ascia», più otto fra incantesimi e
+resistenze. ⚠️⚠️ **Quali degli 11 quel ramo disegni davvero non è misurato**: le
+famiglie che ci arrivano sono `ENCHANT_ATTRIBUTE`, `ENCHANT_SKILL` e
+`ENCHANT_AMMO`.
+
+## La terza volta che una decisione viveva solo in prosa — 2026-09-05, centoquarantunesima sessione
+
+Le dodici parole chiave delle carte che `salti` ha ripresentato — `<Yerles> `,
+`<Xeren> `, `<Zanan> `, `<Lothrian> `, `<Eulderna> `, `<Elea> `, `<Juere> `,
+`<Zaile> `, `<Ninja> `, `<CNPC> `, `Immune `, `Kamikaze ` — **erano già tutte
+decise**, e scritte in `glossario.md:3006`: «Invariate: nomi propri di civiltà…
+`<Ninja>` (uguale in italiano), `<CNPC>` (sigla tecnica)».
+
+⚠️⚠️ **E nessuno strumento legge un paragrafo.** La 138ª l'ha imparato su `Dv:`,
+la 139ª su `Immune` di `tcg.hsp:969`, la 141ª su queste dodici: è la terza
+volta, ed è sempre la stessa cosa. **Una decisione va scritta dove la cerca chi
+misura**, cioè in `invariati.md`.
+
+⭐ Il confine passa **in mezzo** alla colonna e non attorno: `<Bandit> `,
+`<Citizen> `, `<Mercenary> `, `<Teacher> `, `<Adventurer> `, `<Pirate> `,
+`<Flame> `, `<Elea Mob> ` e le tre gilde si traducono e sono toppate, perché
+sono nomi comuni. Restano fuori solo i nomi propri e le due parole che
+l'italiano scrive uguali.
+
+⚠️ **Lo spazio in coda fa parte del valore**: i tratti si concatenano in
+`s@tcg`, e lo spazio è quel che li separa a schermo. `<Elea> ` non è `<Elea>`.
+
+### E quattordici sigle nude, con lo stesso criterio della 138ª
+
+`command.hsp`: `Lv:`, ` DV:`, ` PV:`, ` HP: `, ` MP: `, `Hp:`, `Lv.`, ` Lv.`,
+`(Hp: `, `(MAX)`, ` cm`, ` kg`, `p `, ` x`. **Dove il giapponese scrive la
+parola, l'italiano scrive la parola; dove il sorgente scrive una sigla latina
+nuda, fuori da `lang()`, quella sigla la legge anche chi gioca in giapponese** —
+è una sigla che il monte ha scelto per tutt'e due le lingue. `p ` è il caso di
+`t ` (i turni) e ` x` quello della `d` dei dadi: stanno perfino nella stessa
+espressione.
+
+Con loro `GuruGuruSMF4` (`config.hsp:809`, nome di driver — la riga di
+`Direct music` lo nominava già **in un motivo altrui**, e un motivo altrui non
+lo legge nessuno) e `Nani?!` (`custom_tweaks.hsp:1679`), che è **l'altra metà
+della citazione di Ken il guerriero**: `Omae wa mou shindeiru.` era già
+dichiarata, e questa è la risposta di chi se la sente dire.
+
+## Il marcatore `(P)` dell'editor dell'IA diventa `(T)` — 2026-09-05, centoquarantunesima sessione
+
+`custom_ai.hsp:1115` e `:1571` appendono `(P)` alla riga di una tattica che
+**tiene** il bersaglio. `P` sta per *Preserve*, e la voce di menu che accende
+quel comportamento (`:1703`) il progetto la rende «**Tieni** il soggetto come
+bersaglio o il suo gruppo»: lasciando `P`, il giocatore non avrebbe più niente a
+cui agganciarlo, perché nella sua lingua nessuna parola di quella schermata
+comincia per P. Diventa `(T)`, lunga uguale.
+
+## La sola resa del progetto che buttava via un operando — 2026-09-05, centoquarantunesima sessione
+
+`command.hsp:7724` è `txt lang("別世界の何かを召喚した！", "A " + s + " is
+summoned from another world!")`, e la resa italiana era **«Qualcosa di un altro
+mondo è stato evocato!»**: `s` — la qualità **più** il nome del CNPC evocato —
+veniva scartato. Il giocatore inglese legge chi è arrivato, quello italiano no.
+È la specie della 131ª, «l'articolo era calcolato, salvato e buttato una riga
+dopo».
+
+⚠️⚠️ **Il conto grezzo non voleva dire niente, e i quattro passaggi contano:**
+
+    832   rese dinamiche (su 2.891) che perdono un operando
+    118   tolti gli aiuti grammaticali per NOME (`_s`, `is`, `was`, `his`, `your`)
+     10   tolti anche i loro ARGOMENTI (`is2(inv(INV_ITEM_NUM, ci))`)
+      1   tolto `cnvrank`, che è l'ordinale inglese e in giapponese
+          restituisce già il numero nudo (`init.hsp:149`)
+
+💡 **Un numero di cose da fare non dice niente finché non è spaccato fra deciso
+e residuo.** Qui il residuo era **uno su 832**.
+
+⚠️ Anche `proc.hsp:18744` sembrava una perdita e non lo è: l'inglese scrive
+`name(tc)` e **il giapponese stesso scrive `name(0)`**, e il blocco agisce
+sempre su `CHARA_PLAYER`. L'italiano ha seguito il giapponese, che lì ha
+ragione.
+
+### Le sei qualità, e perché non bastava tradurre sei parole
+
+    Bad -> , scadente        Professional -> , professionista
+    Common -> , comune       Legendary    -> , da leggenda
+    Skilled -> , abile       Well-Known   -> , celebre
+    la giuntura -> s = userdatan(3, knowCNPC) + s
+
+⚠️⚠️ **Gli aggettivi sono invariabili in genere, e non è una preferenza.** `s`
+esce attaccato al nome di un CNPC, **che lo scrive il giocatore**: nessuno ne sa
+il sesso. «leggendario» diventerebbe «leggendaria» davanti a metà dei nomi; «da
+leggenda» no, «celebre» no, «professionista» no — è un sostantivo e non
+concorda. È la regola che `guida-stile.md` aveva imparato **a schermo** sulle
+sei qualità dell'oggetto, e adesso un cancello la fa rispettare: una resa che
+finisce in «o» accende il referto.
+
+⚠️ **E la giuntura si sposta.** In inglese la qualità sta davanti al nome («a
+Legendary Fulano») e in italiano un aggettivo davanti a un nome proprio non
+regge: la forma che tiene è l'**apposizione** — «Fulano, da leggenda» — come la
+82ª aveva deciso per epiteto e nome in `chat.hsp:16472`. ⭐ Le sei rese portano
+perciò la virgola **in testa** invece dello spazio in coda: così un CNPC senza
+qualità esce «Fulano» e non «Fulano, ».
+
+⭐ E la resa nuova evita l'accordo anche nel verbo: «Da un altro mondo arriva "
++ s + "!"», non «è stato evocato», che concorderebbe col nome che lo precede.
+
+⭐ Due parole su sei non si decidono qui: «scadente» e «comune» sono già le
+qualità dell'oggetto di `text.hsp:106`, e il generatore le rilegge dal
+dizionario invece di riscriverle — se le due schermate le chiamassero con
+parole diverse, il giocatore penserebbe a due scale diverse.
+
+## Un censimento che cresce non dice che c'è più lavoro — 2026-09-05, centoquarantunesima sessione
+
+Tolto il terzo punto cieco, `salti` è passato da **6 a 121** stringhe scoperte.
+Il lavoro era di **sei** — le qualità del CNPC — e le altre **115** sono
+infrastruttura che finisce sotto gli occhi di chi disegna:
+
+    system.hsp    76   nomi di file, di cartella e di campo (`gdata.s1`, `tmp\\map_`)
+    command.hsp   17   13 chiavi di classe, 3 percorsi di ritratto, `Rank.`
+    text.hsp      12   i marcatori di tipo di missione (`%HARVEST`)
+    chat.hsp       3   marcatori (`%txt_ucnpc_ev_b`, `{ev}`)
+    net.hsp        3   due indirizzi e il nome di una voce
+    map_func.hsp   2   `Free` e `NPC/TOWN`, che aspettano la larghezza
+    action.hsp     1   `%txtName`, il segnaposto del nome
+    main.hsp       1   un pezzo di percorso
+
+💡 **Un contatore dice quanto la rete guarda, non quanto c'è da fare.** Lo
+spacco fra deciso e residuo lo fanno le dichiarazioni, non il totale — ed è la
+lezione della 140ª in un'altra forma.

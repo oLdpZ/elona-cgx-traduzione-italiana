@@ -4644,3 +4644,62 @@ passed** e 6 skipped, identità 72/72 e 30.905, toppe **1.397**, `applica`
 scoperte**, `disegnate` 25 distinte su 8 file tutte dichiarate e uscita 0,
 `verifica --dizionario` 0 da ritradurre e uscita 0, perimetro 28.028 su 28.028
 (31.795 coi file dati).
+
+## La centoquarantunesima sessione — 2026-09-05
+
+⭐⭐ **Il secondo salto non esisteva: erano tre ancore.** La 139ª e la 140ª
+avevano lasciato scritto che a `disegnate` mancava il *secondo salto*, e che le
+51 stringhe trovate a mano erano invisibili per quello. Nessuno dei due casi era
+un secondo salto: `tcg.hsp:3348` è un salto solo con l'assegnazione dentro un
+`if` a graffe, e `help.hsp:387` un salto solo con la variabile `s` esclusa su
+tutto il file. **Il numero era misurato e giusto, il motivo accanto no** — la
+quinta volta in quattro sessioni.
+
+`strumenti/salti.py`, 141ª: legge l'assegnazione dovunque stia sulla riga, fa
+del nome generico un **ambito** (il blocco fra due `*etichetta`) invece di
+un'esclusione, e — terza ancora, che nessuno aveva mai nominato — guarda **ogni
+nome nella coda** del comando che disegna, non solo il primo:
+
+    mes s                                       ->  vede `s`
+    txt lang("…", "A " + s + " is summoned…")   ->  vede `lang`, e perde `s`
+
+**Il fronte che ha aperto: 50 stringhe su 7 file**, e la stessa sessione lo ha
+chiuso quasi tutto.
+
+| lavoro | quante | come |
+|---|---|---|
+| sigle del pannello dell'equipaggiamento | 15 | 14 toppe + `Trap` invariata |
+| parole chiave delle carte | 12 | **erano già decise in `glossario.md`** |
+| sigle nude della scheda e della lista compagni | 14 | `invariati.md` |
+| qualità del CNPC evocato | 6 | 6 toppe + la giuntura spostata |
+| marcatore dell'editor dell'IA | 1 | `(P)` → `(T)` |
+| driver audio, citazione di Ken | 2 | `invariati.md` |
+
+⚠️⚠️ **E la sola resa del progetto che buttava via un operando.**
+`command.hsp:7724` rendeva `"A " + s + " is summoned from another world!"` con
+«Qualcosa di un altro mondo è stato evocato!»: `s` — qualità **più** nome del
+CNPC — veniva scartato. Delle 2.891 rese dinamiche, 832 perdono un operando,
+822 lo perdono giustamente (accordo del verbo inglese, ordinale `cnvrank`), e
+**la perdita vera era una**.
+
+⚠️ **Un censimento che cresce non dice che c'è più lavoro.** Tolto il terzo
+punto cieco, `salti` è passato da 6 a 121 stringhe scoperte: il lavoro era di
+**sei**, e le altre 115 sono nomi di file, marcatori di missione e chiavi di
+classe — otto dichiarazioni, una per file.
+
+⚠️ **Il perimetro non si muove**: resta 28.028 su 28.028 (31.795 coi file dati,
+100,0%), perché conta le voci che stanno in un dizionario e queste stanno in
+toppe. È la stessa avvertenza della 133ª, della 138ª, della 139ª e della 140ª.
+
+⭐ **Le rese sono in gioco.** `cgx-test.exe` ricompilato e installato alle
+**14:03 del 05/09** (17.672.161 byte), con l'ordine obbligato a sei passi.
+
+Catena rimisurata **dopo** l'ultima modifica al codice: `pytest` **1.124
+passed** e 6 skipped, identità 72/72 e 30.905, toppe **1.420**, `applica`
+30.766 sostituzioni e nessun ATTENZIONE, `scene --referto` 1701 su 1701,
+`carte --referto` 833 su 833, `schede --referto` 72 su 72, `dialoghi
+--referto` 74 su 74 — tutti 0 fuori misura —, `copertura` 0 fronti e 0
+scoperte, `disegnate` verde, **`salti` verde** (128 scoperte, 115 che
+`disegnate` non vede, tutte dichiarate su 8 file), `salti --misti` 38 letterali
+misti e **0 ancora scoperti**, `verifica --dizionario` 0 da ritradurre e uscita
+0, perimetro 28.028 su 28.028 (31.795 coi file dati).

@@ -1,14 +1,14 @@
 # Ripresa sessione
 
-Aggiornato: 2026-09-05, fine della **centoquarantesima** sessione (**il
-desiderio parla italiano, e quattro fronti su sei non erano fronti**).
+Aggiornato: 2026-09-05, fine della **centoquarantunesima** sessione (**il
+secondo salto non c'era: erano tre ancore, e una resa buttava via un
+operando**).
 
-⭐ **L'ESEGUIBILE IN GIOCO E' FRESCO: 02:30 del 05/09** (17.672.142 byte), e
-contiene le 257 rese della Fase 6, le 129 etichette del menu dei filtri della
-139a e **tutto il lavoro della 140a**: 89 parole del desiderio, 13 etichette
-della riga di stato dell'editor di mazzo, 38 etichette dei tasti della
-schermata di aiuto, 26 categorie del filtro dell'editor di mappe. ⓘ Si legge
-con `ls -l C:\Games\Elona\elonaplus2.31\cgx-test.exe`. I sei file dati non sono
+⭐ **L'ESEGUIBILE IN GIOCO E' FRESCO: 14:03 del 05/09** (17.672.161 byte), e
+contiene tutto il lavoro della 141a: le 15 sigle del pannello
+dell'equipaggiamento, il marcatore `(T)` dell'editor dell'IA, le 6 qualita' del
+CNPC evocato con la giuntura spostata. ⓘ Si legge con
+`ls -l C:\Games\Elona\elonaplus2.31\cgx-test.exe`. I sei file dati non sono
 cambiati.
 
 ⚠️⚠️ **L'ordine obbligato per portare tutto in gioco ha SEI PASSI.**
@@ -17,16 +17,201 @@ cambiati.
     python -m strumenti.scene --applica    <- POI
     python -m strumenti.carte --applica    <- POI
     python -m strumenti.schede --applica   <- POI
-    python -m strumenti.dialoghi --applica <- NUOVO (138a), e POI
+    python -m strumenti.dialoghi --applica <- POI
     python -m strumenti.compila --eseguibile
     cp .../build/2.05-custom-gx/elonapluscgx.exe .../elonaplus2.31/cgx-test.exe
 
 ⚠️ **`strumenti.installa` NON ESISTE**: l'ultimo passo e' una copia a mano.
 
 ⚠️ `scratchpad/perimetro.py` vuole **due** variabili d'ambiente, non una:
-`PYTHONPATH=.` **e** `PYTHONIOENCODING=utf-8`. Senza la seconda, cp1252 non sa
-scrivere ⭐ e la traccia esplode a meta' referto, dopo aver stampato numeri che
-sembrano completi.
+`PYTHONPATH=.` **e** `PYTHONIOENCODING=utf-8`.
+
+⚠️⚠️ **E i file non si scrivono con un heredoc**, nemmeno dentro `python - <<'PY'`:
+la 141a ci ha perso un giro perche' la shell ha mangiato le barre rovesce di
+una regex (`[^"\\]` e' diventato `[^"]`), e l'errore e' arrivato come
+`re.PatternError` a venti righe di distanza dalla causa.
+
+---
+
+## LA COSA CHE PESA DI PIU' DELLA 141a: il secondo salto non esisteva
+
+La 139a e la 140a avevano lasciato scritto che a `disegnate` mancava il
+**secondo salto**, e che le 51 stringhe trovate a mano erano invisibili per
+quello. Andando a guardare il sorgente, **nessuno dei due casi era un secondo
+salto**, e i limiti veri erano tre ANCORE:
+
+    1. l'assegnazione dentro un `if` a graffe   `_ASSEGNAZIONE` e' ancorata a `^`
+    2. il nome generico (`s`) escluso su tutto il file, invece che per blocco
+    3. la variabile CONCATENATA dentro l'argomento, non passata come argomento
+
+Il terzo e' quello che nessuno aveva mai nominato:
+
+    mes s                                       ->  vede `s`
+    txt lang("…", "A " + s + " is summoned…")   ->  vede `lang`, e perde `s`
+
+⚠️⚠️ **La catena transitiva — il «secondo salto» vero, `a = "…"`, `b = a`,
+`mes b` — e' scritta e nel sorgente di oggi NON TROVA NIENTE DA SOLA.** Sta in
+`salti._catena` perche' costa sei righe, non perche' serva.
+
+💡 La regola: **quel che una sessione lascia scritto come diagnosi va
+verificato come un piano.** Il numero era giusto (51 stringhe), il motivo
+accanto no — ed e' la quinta volta in quattro sessioni.
+
+---
+
+## ⭐⭐ LA SOLA RESA DEL PROGETTO CHE BUTTAVA VIA UN OPERANDO
+
+`command.hsp:7724` e' `txt lang("別世界の何かを召喚した！", "A " + s + " is
+summoned from another world!")`, e la resa italiana era **«Qualcosa di un altro
+mondo e' stato evocato!»**: `s` — la qualita' PIU' il nome del CNPC evocato —
+veniva scartato. Il giocatore inglese legge chi e' arrivato, quello italiano
+no. E' la specie della 131a, «l'articolo era calcolato, salvato e buttato una
+riga dopo».
+
+⚠️⚠️ **Il conto grezzo non voleva dire niente, e i quattro passaggi contano.**
+
+    832   rese dinamiche (su 2.891) che perdono un operando
+    118   tolti gli aiuti grammaticali per NOME (`_s`, `is`, `was`, `his`, `your`)
+     10   tolti anche i loro ARGOMENTI (`is2(inv(INV_ITEM_NUM, ci))`)
+      1   tolto `cnvrank`, che e' l'ordinale inglese e in giapponese
+          restituisce gia' il numero nudo (`init.hsp:149`)
+
+💡 Un numero di cose da fare non dice niente finche' non e' spaccato fra deciso
+e residuo. Qui il residuo era **uno su 832**.
+
+⭐ Il sondaggio sta in `scratchpad/operandi_veri.py` (non e' una rete del
+progetto: e' una misura, e chi la vuole cancello la scriva).
+
+---
+
+## Le trappole che la 141a ha trovato
+
+⚠️⚠️ **Un aggettivo che esce attaccato al nome di un CNPC non puo' concordare.**
+I CNPC li scrive il giocatore, e il sesso non lo sa nessuno: «leggendario»
+diventerebbe «leggendaria» davanti a meta' dei nomi. Le sei qualita' sono
+percio' invariabili in genere — `da leggenda`, `celebre`, `professionista` — ed
+e' la regola che `guida-stile.md` aveva gia' imparato **a schermo** sulle sei
+qualita' dell'oggetto. Adesso c'e' un cancello: una resa che finisce in «o»
+accende il referto.
+
+⚠️ **E non bastava tradurre sei parole: bisognava spostare la giuntura.** In
+inglese la qualita' sta davanti al nome, in italiano la forma che tiene e'
+l'apposizione — «Fulano, da leggenda» — come la 82a aveva deciso per epiteto e
+nome. ⭐ Le sei rese portano percio' la virgola in TESTA invece dello spazio in
+coda: cosi' un CNPC senza qualita' esce «Fulano» e non «Fulano, ».
+
+⚠️⚠️ **Un tetto puo' essere un TAGLIO invece di un bordo.** `item_func.hsp:2629`
+fa `strmid(s, 0, 4)`: una sigla di cinque caratteri non sborda dal pannello,
+**viene tagliata**, e il giocatore legge un troncone senza che niente se ne
+accorga. E' il contrario dei tetti misurati in pixel, e si riconosce leggendo
+il codice invece di contare i pixel.
+
+⚠️ **Un censimento che cresce non dice che c'e' piu' lavoro.** Tolto il terzo
+punto cieco, `salti` e' passato da 6 a 121 stringhe: il lavoro era di **sei**,
+e le altre 115 sono nomi di file, marcatori di missione e chiavi di classe.
+Sono sei dichiarazioni nuove, una per file. Un contatore dice quanto la rete
+guarda, non quanto c'e' da fare.
+
+⚠️ **La terza volta che una decisione viveva solo in prosa.** Le dodici parole
+chiave delle carte (`<Yerles> `, `<Ninja> `, `Immune `, `Kamikaze `) erano gia'
+decise in `glossario.md`, alla riga «Invariate: nomi propri di civilta'…», e
+nessuno strumento legge un paragrafo. La 138a l'ha imparato su `Dv:`, la 139a
+su `Immune` di `tcg.hsp:969`, la 141a su queste. **Una decisione va scritta
+dove la cerca chi misura.**
+
+⚠️ **Lo spazio in coda fa parte del valore.** `<Elea> ` non e' `<Elea>` e
+` Lv.` non e' `Lv.`: le sigle e i tratti si concatenano, e lo spazio e' quel
+che li separa a schermo. `verifica.py` legge verbatim quel che sta fra apici
+inversi, ed e' per questo.
+
+---
+
+## I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 141a
+
+    pytest                   **1.124 passed**, 6 skipped
+    prova_identita           72/72 e 30.905, invariato
+    scene --referto          1701 su 1701, 0 fuori misura
+    carte --referto          833/833, 0 fuori misura
+    schede --referto         72 su 72, 0 fuori misura
+    dialoghi --referto       77 siti, 74 su 74, 0 fuori misura
+    disegnate                verde, tutte dichiarate
+    copertura                0 fronti, 0 scoperte
+    **salti**                **verde**: 128 scoperte, 115 che `disegnate` non
+                             vede, tutte dichiarate su 8 file
+    salti --misti            38 letterali misti, **0 ancora scoperti**
+    toppe                    **1.420** (erano 1.397)
+    applica                  30.766 sostituzioni, nessun ATTENZIONE
+    perimetro                28.028 fatte, 0 da fare, 100,0%
+                             (**31.795** coi file dati)
+                             ⚠️ `PYTHONPATH=. PYTHONIOENCODING=utf-8`
+    verifica --dizionario    0 da ritradurre, uscita 0
+
+⚠️ **Nessuno di questi numeri si eredita da qui: si rilanciano.**
+
+⚠️⚠️ **E `salti` verde NON vuol dire che il progetto e' finito**, come lo zero
+di `copertura` non lo voleva dire. Verde vuol dire: *ogni stringa che rimbalza
+a schermo o e' coperta, o ha scritto accanto perche' no.*
+
+---
+
+## Che cosa guardare adesso, dopo la 141a
+
+⚠️ Questa lista **sostituisce** quella della 140a qui sotto per i punti che
+nomina; gli altri restano validi la' dove sono.
+
+1. ⭐⭐⭐ **Il collaudo a schermo, ed e' l'unica cosa che il modello non puo'
+   fare — ed e' ormai l'unico debito grosso.** In gioco ci sono le 386 rese mai
+   viste di prima, le 77 della 140a e **22 nuove**. Le schermate nuove e
+   facili:
+   - il **pannello dell'equipaggiamento** (`showresist == 3`): le 15 sigle,
+     `Lett`, `Cora`, `2Man`, `Ctrl`. Basta equipaggiare un oggetto con un
+     potenziamento di abilita';
+   - **evocare un Custom NPC**: «Da un altro mondo arriva Tizio, da leggenda!»;
+   - l'**editor dell'IA personalizzata**: il marcatore `(T)` in fondo a una
+     riga di tattica.
+2. ⭐⭐ **Le tre stringhe che hanno gia' la parola e aspettano la larghezza.**
+   Nessuna si chiude calcolando meglio:
+   - `Rank.` (`command.hsp:3638`) -> «Rango »: colonna di 140 px a corpo 12, e
+     il 19 e' **derivato** (6,6 px a corpo 11 x 12/11), non misurato.
+     «Rango 3 sconosciuto» ne fa 19 esatti;
+   - `Free` / `NPC/TOWN` (`map_func.hsp:2053`) -> «Libera» / «PNG/Citta'»: il
+     testo parte a `pos 740, 545` e la striscia finisce a 800, cioe' sette
+     caratteri, e **l'inglese di monte ne scrive gia' otto**. Non si sa se
+     `mes` sborda o se lo taglia la finestra.
+3. ⭐⭐ **I sette rinvii di `item_func.hsp` che aspettano la toppa che sposta la
+   concatenazione** (`mix`, `milk`, `juice`, `cm `, `Wish Goddess `,
+   `eternal force`, uno spazio): l'italiano vuole la testa davanti — «succo di
+   mela» — e nessuna resa di quelle `lang()` puo' spostare i pezzi. La strada
+   e' tracciata a `item_func.hsp:1399`, che era lo stesso problema ed e'
+   risolto. ⚠️ E' il gruppo di lavoro piu' grosso che resta.
+4. ⭐ **Gli 11 nomi di abilita' tagliati a quattro caratteri** dove l'inglese ci
+   sta intero e l'italiano no (`Fortuna`->`Fort`, `Volonta'`->`Volo`,
+   `Ascia`->`Asci`). ⚠️ Delle 421 tagliate, **410 lo sono anche in inglese**:
+   e' come si comporta il gioco di monte. ⚠️⚠️ E **quante degli 11 il pannello
+   disegni davvero NON e' misurato**: le famiglie che ci arrivano sono
+   `ENCHANT_ATTRIBUTE`, `ENCHANT_SKILL` e `ENCHANT_AMMO`.
+5. ⭐ **I due `instr` scherzosi di `command.hsp:4481` e `:4485`** (「中の神」 /
+   «god inside», 「中の人」 / «man inside»): vogliono una decisione sulla
+   battuta.
+6. **Sei rinvii aspettano il monte** (`chat.hsp:19327`, `:19334`, `:13991`,
+   `:14036`-`:14038`): oggi sono righe commentate a monte, cioe' codice morto.
+   Non si possono fare.
+7. ✅ ~~La rete del secondo salto~~ — **scritta**, ed e' `strumenti/salti.py`.
+   Il secondo salto non esisteva: erano tre ancore.
+8. ✅ ~~Le 51 stringhe del secondo salto~~, ~~le 15 sigle del pannello~~, ~~le
+   12 parole chiave delle carte~~, ~~le 14 sigle nude~~, ~~il marcatore
+   `(P)`~~, ~~le 6 qualita' del CNPC~~ — **fatte**.
+
+⚠️ Restano aperti, invariati, i punti 9, 10, 11, 15, 16, 17, 18, 19 e 20 della
+lista della 138a qui sotto — il difetto di «ragon», `tcg_skill.hsp:2003`,
+`efftalk@tcg`, i due omografi, `Rehmido`, le quattro teste senza articolo, la
+rete degli operandi di sostituzione, le due reti sulle toppe e la coda nuda di
+`chat.hsp:17065`. ⚠️⚠️ **E non sono stati riverificati dalla 141a**: sono la
+lista di allora, e questa sessione ha appena mostrato per la quinta volta che
+una diagnosi ereditata va verificata prima di crederci.
+
+⭐ **Il punto 15 — «la rete degli operandi di sostituzione» — e' pero' MISURATO
+adesso**, e vale una perdita sola: vedi la sezione qui sopra.
 
 ---
 
