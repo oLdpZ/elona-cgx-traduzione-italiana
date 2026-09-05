@@ -301,12 +301,22 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "«Drago», «draghi» — non il troncone «rago», che avrebbe pigliato "
         "«mandragora» e «aragosta» e ucciso carte che non dovevano morire."),
     "custom_dmgpop.hsp:s@DP": Dichiarazione(
-        "fronte", 3,
-        "⚠️ Il fumetto del danno smonta il nome composto all'inglese: toglie "
-        "il `the ` dell'alias e spezza su ` the ` («A the mercenary»). E' la "
-        "stessa giuntura del punto 7 della lista della 138a — la pezza «the "
-        "The» di `tcg_custom.hsp:4566` — e vuole la stessa decisione, quella "
-        "di `contratto-nomi.md`, non una toppa per riga."),
+        "seguita", 4,
+        "⭐⭐ Il fumetto del danno scrive il nome di un PNG su due righe sopra "
+        "la testa, e per spezzarlo cercava ` the ` («Arnord the mercenary»). "
+        "**Misurato**: nella build un ` the ` di giuntura non esiste piu', "
+        "perche' il contratto dei nomi §4 dice che l'articolo lo porta il "
+        "nome, e la composizione italiana e' `randomname() + \" \" + "
+        "cdatan(CDATAN_NAME, rc)` in 152 siti di `db_creature.hsp` — «Arnord "
+        "il mercenario». Il fumetto non spezzava piu' niente. Chiuso nella "
+        "143a: `:238` prova la giuntura italiana, cioe' l'ARTICOLO, e prende "
+        "quello che viene prima nella stringa. ⚠️ `:225` — il `the ` di testa "
+        "dell'alias — resta com'e' **apposta**: l'inglese butta via il suo "
+        "articolo perche' «the mercenary» da solo non si scrive, e l'italiano "
+        "lo tiene perche' «il mercenario» si'. ⓘ E' il punto 7 della lista "
+        "della 138a per la parte che riguarda il fumetto; la pezza «the The» "
+        "di `tcg_custom.hsp:4566` era gia' chiusa, e nella build quella riga "
+        "dice `randomname() + \", \" + random_title()`."),
 }
 
 

@@ -135,17 +135,34 @@ def test_trova_le_battute_dell_alchimista():
     assert {c["chiavi"][0] for c in casi} == {"lchemist", "lchimista"}
 
 
-def test_il_fronte_e_di_tre_righe_su_un_pagliaio_solo():
-    """⚠️ Il conto non si eredita: se cambia, o si e' chiuso un fronte o se
-    n'e' aperto uno, e in tutt'e due i casi va scritto perche'.
+def test_il_fronte_e_vuoto_e_si_sa_di_preciso_che_cosa_vuol_dire():
+    """⚠️⚠️ Zero fronti non vuol dire «il progetto e' finito», e nemmeno «non
+    c'e' piu' nessuna chiave rimasta indietro». Vuol dire una cosa sola: fra le
+    chiavi che sono un LETTERALE, dentro un pagliaio che e' testo nostro, non
+    ce n'e' piu' nessuna che lasci indietro il giocatore italiano.
 
-    ⓘ Era di 12 righe su 4 pagliai quando la 143a l'ha misurato la prima
-    volta: l'alchimista e la cacciatrice di draghi si sono chiusi nella stessa
-    sessione, e quel che resta e' la giuntura inglese del nome composto, che
-    vuole `contratto-nomi.md` e non una toppa per riga."""
+    Quel che continua a stare fuori, e sta scritto nel modulo:
+    - la chiave costruita da un'espressione (144 passano da una `lang()`, 27
+      da un'altra concatenazione): la rete non la legge;
+    - il PAGLIAIO non viene guardato. Se un giorno una resa italiana tornasse
+      alla seconda persona, `command.hsp:listn` riaprirebbe e questa rete non
+      lo direbbe;
+    - `if ( 0 )` senza graffe, e il salto fra due file.
+
+    ⓘ Il fronte era di 12 righe su 4 pagliai quando la 143a l'ha misurato la
+    prima volta: l'alchimista, la cacciatrice di draghi e la giuntura del nome
+    composto si sono chiusi nella stessa sessione."""
     fronti = {n: d for n, d in DICHIARATI.items() if d.tipo == "fronte"}
-    assert set(fronti) == {"custom_dmgpop.hsp:s@DP"}
-    assert sum(d.casi for d in fronti.values()) == 3
+    assert fronti == {}
+    assert operandi.__doc__.count("dichiarat") >= 1
+
+
+def test_la_giuntura_italiana_del_nome_composto_e_nella_build():
+    """⭐ La prova al contrario dell'ultimo fronte chiuso: il fumetto del danno
+    deve avere, accanto al ramo inglese, il ramo che spezza sull'articolo."""
+    testo = (percorsi.BUILD_HSP / "custom_dmgpop.hsp").read_bytes().decode("cp932")
+    assert '''articoliIT@DP = " gli ", " il ", " lo ", " la ", " le ", " l'", " i "''' in testo
+    assert 'if ( instr(s@DP, 0, " the ") != (-1) ) {' in testo, "il ramo inglese non si tocca"
 
 
 def test_le_chiavi_gia_a_posto_sono_il_margine():
