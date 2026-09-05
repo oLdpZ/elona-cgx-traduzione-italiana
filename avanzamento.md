@@ -4574,3 +4574,73 @@ l'ultimo passo, `applica` 30.766 sostituzioni e nessun ATTENZIONE, `scene
 `copertura` 6 fronti e 31 scoperte, `disegnate` **25 distinte su 8 file**,
 tutti dichiarati e uscita 0, `verifica --dizionario` 0 da ritradurre,
 `_97-quanto-resta` 111/111/0, perimetro 28.028 su 28.028.
+
+
+## 2026-09-05, centoquarantesima — il desiderio parla italiano, e quattro fronti su sei non erano fronti
+
+**166 stringhe rese in quattro lotti**, e `copertura` che passa da **6 fronti e
+31 scoperte a 0 e 0**. Ma il conto delle rese non è la cosa che pesa di più:
+**quattro dichiarazioni su sette dicevano una cosa falsa**, e le liste delle
+sessioni 138ª e 139ª le avevano ereditate come lavoro da fare.
+
+⭐ **89 parole aggiunte al desiderio, zero operandi riscritti.**
+`command.hsp:4460` confronta quel che il giocatore *digita* con una lista
+chiusa di parole giapponesi o inglesi; lo stesso fanno i due banchi che
+chiedono la nuova classe (`command.hsp:4581` e `action.hsp:13659`). Chi gioca
+in italiano scrive italiano, e **il desiderio falliva in silenzio** — senza
+messaggio d'errore e senza accendere niente, perché tutti i cancelli del
+progetto misurano il testo a schermo e un operando di `==` non è testo a
+schermo. 41 righe toppate su tre catene, e una prova verifica che ogni
+confronto che c'era prima ci sia ancora dopo.
+
+⚠️⚠️ **I due tetti non erano geometria.** `*prompt_word` passa a `mesbox` un
+massimo di `val(2) * (1 + en)` **caratteri** (`system.hsp:3985`): 32 per il
+desiderio, 24 per la classe. Oltre quel numero la casella *smette di accettare
+caratteri*, cioè la parola non si potrebbe nemmeno digitare. Il generatore
+rilegge i tre `val(2)` dal sorgente a ogni giro.
+
+⭐⭐ **Il secondo salto costa 51 stringhe, e stavano tutte a schermo.** La 139ª
+chiedeva quanto costasse — una stringa messa in una variabile e disegnata
+altrove. Due sondaggi, due volte testo vero che nessuna delle due reti vedeva:
+la **riga di stato dell'editor di mazzo** (13 etichette: `copertura` ne vedeva
+5, `disegnate` 0) e la **schermata di aiuto F1** (38 etichette dei tasti:
+`copertura` 1, `disegnate` 0). Nella seconda l'inglese sta *dentro le
+parentesi* — `*convertHelp` butta via il giapponese e tiene solo quello — e la
+schermata dove si va a imparare i comandi diceva «Get», «Quaff», «Zap».
+⚠️ La rete generale per il secondo salto **non è stata scritta**: sono due
+sondaggi a mano.
+
+⭐ **Le parole non si decidono nei generatori: si leggono.** Le 12 classi dal
+dizionario di `db_class.hsp`; 22 delle 38 etichette dei tasti dalla barra dei
+comandi dello stesso `help.hsp`; 23 delle 26 categorie dell'editor di mappe
+dalle categorie dell'**autopick**, che sono quelle che il giocatore filtra
+davvero. Ogni generatore alza `KeyError` sulla voce che nessuno ha deciso.
+
+⚠️⚠️ **Una specie di falso positivo spiegata sei volte in prosa invece che una
+volta nella rete.** Gli span di `copertura.scoperte_di` coprono il solo ramo
+**inglese**; un ramo giapponese scritto in lettere latine diventa una
+«scoperta». Erano **dodici in otto file**, e sei dichiarazioni diverse dicevano
+tutte la stessa cosa. Ora la rete li salta: cinque dichiarazioni si sono
+accorciate e tre sono sparite **senza tradurre niente**.
+
+⚠️ **Il perimetro non si muove**: resta 28.028 su 28.028 (31.795 coi file dati,
+100,0%), perché conta le voci che stanno in un dizionario e queste 166 stanno
+in toppe. È la stessa avvertenza della 133ª, della 138ª e della 139ª.
+
+⚠️⚠️ **E lo zero di `copertura` non vuol dire che il progetto è finito**, ed è
+scritto in `decisioni.md` e in `RIPRESA-sessione.md` perché il numero è
+seducente: `_PROSA` pretende due parole alfabetiche, e un'interfaccia è fatta
+di etichette da una parola. Il debito che resta è il **collaudo a schermo**:
+386 rese mai viste più le 77 nuove.
+
+⭐ **Le rese sono in gioco.** `cgx-test.exe` ricompilato e installato alle
+**02:30 del 05/09** (17.672.142 byte), con l'ordine obbligato a sei passi.
+
+Catena rimisurata **dopo** l'ultima modifica al codice: `pytest` **1.056
+passed** e 6 skipped, identità 72/72 e 30.905, toppe **1.397**, `applica`
+30.766 sostituzioni e nessun ATTENZIONE, `scene --referto` 1701 su 1701,
+`carte --referto` 833 su 833, `schede --referto` 72 su 72, `dialoghi
+--referto` 77 su 77 — tutti 0 fuori misura —, **`copertura` 0 fronti e 0
+scoperte**, `disegnate` 25 distinte su 8 file tutte dichiarate e uscita 0,
+`verifica --dizionario` 0 da ritradurre e uscita 0, perimetro 28.028 su 28.028
+(31.795 coi file dati).

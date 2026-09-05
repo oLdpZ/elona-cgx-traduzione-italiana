@@ -1,13 +1,14 @@
 # Ripresa sessione
 
-Aggiornato: 2026-09-04, fine della **centotrentanovesima** sessione (**il menu
-dei filtri del mazzo, e due volte in cui il piano diceva di rompere il
-gioco**).
+Aggiornato: 2026-09-05, fine della **centoquarantesima** sessione (**il
+desiderio parla italiano, e quattro fronti su sei non erano fronti**).
 
-⭐ **L'ESEGUIBILE IN GIOCO E' FRESCO: 22:08 del 04/09** (17.669.621 byte), e
-contiene le 257 rese della Fase 6 **piu' le 129 etichette del menu dei filtri**
-di questa sessione. ⓘ Si legge con
-`ls -l C:\Games\Elona\elonaplus2.31\cgx-test.exe`. I sei file dati non sono
+⭐ **L'ESEGUIBILE IN GIOCO E' FRESCO: 02:30 del 05/09** (17.672.142 byte), e
+contiene le 257 rese della Fase 6, le 129 etichette del menu dei filtri della
+139a e **tutto il lavoro della 140a**: 89 parole del desiderio, 13 etichette
+della riga di stato dell'editor di mazzo, 38 etichette dei tasti della
+schermata di aiuto, 26 categorie del filtro dell'editor di mappe. ⓘ Si legge
+con `ls -l C:\Games\Elona\elonaplus2.31\cgx-test.exe`. I sei file dati non sono
 cambiati.
 
 ⚠️⚠️ **L'ordine obbligato per portare tutto in gioco ha SEI PASSI.**
@@ -21,6 +22,170 @@ cambiati.
     cp .../build/2.05-custom-gx/elonapluscgx.exe .../elonaplus2.31/cgx-test.exe
 
 ⚠️ **`strumenti.installa` NON ESISTE**: l'ultimo passo e' una copia a mano.
+
+⚠️ `scratchpad/perimetro.py` vuole **due** variabili d'ambiente, non una:
+`PYTHONPATH=.` **e** `PYTHONIOENCODING=utf-8`. Senza la seconda, cp1252 non sa
+scrivere ⭐ e la traccia esplode a meta' referto, dopo aver stampato numeri che
+sembrano completi.
+
+---
+
+## LA COSA CHE PESA DI PIU' DELLA 140a: quattro fronti su sei non erano fronti
+
+`copertura` apriva la sessione con **6 fronti e 31 stringhe scoperte**. Ne
+restano **0 e 0**, e solo due dei sei sono stati chiusi lavorando.
+
+    module.hsp        fronte 10  ->  esente 10   chiuso dalla 81a, 54 sessioni fa
+    db_card.hsp       fronte  1  ->  tolto       il ramo giapponese di una lang()
+    tcg.hsp           fronte 14  ->  esente  9   13 rese, di cui 8 mai contate
+    tcg_custom.hsp    fronte  4  ->  esente  3   la giuntura del Novizio
+    help.hsp          fronte  1  ->  tolto       38 rese, di cui 37 mai contate
+    map_func.hsp      fronte  1  ->  tolto       26 rese, i nomi erano gia' decisi
+    command.hsp       esente 10  ->  esente  3   le parole del desiderio
+
+⚠️⚠️ **Il numero di una dichiarazione e' misurato e non puo' sbagliare; il
+motivo scritto accanto e' prosa, e nessun cancello legge la prosa.** Quattro
+motivi su sette dicevano una cosa falsa, e le liste delle sessioni 138a e 139a
+li avevano ereditati come lavoro da fare:
+
+- «gli otto `cnv_str fix_wish` **sono gia' rotti oggi**» — la 81a li aveva
+  aggiustati, con prova sul banco HSP;
+- «`db_card.hsp:2695` e' una descrizione **nuda fuori da `lang()`**» — e'
+  l'argomento giapponese di una `lang()` regolare, resa da fasi;
+- «le 26 categorie **fisserebbero** nomi italiani che il progetto non ha» — il
+  progetto ce li ha e li legge il giocatore: sono quelli dell'autopick;
+- «`help.hsp:409` e' una voce di menu che **va decisa come voce sola**, e
+  bisogna prima guardarla in gioco» — era una su 38, e la risposta stava sulla
+  riga stessa.
+
+💡 La regola: **quel che una dichiarazione dice va verificato prima di
+crederci, come un piano.** Il conto accanto no: quello e' misurato.
+
+---
+
+## ⭐⭐ IL SECONDO SALTO COSTA 51 STRINGHE, E STAVANO TUTTE A SCHERMO
+
+La 139a chiedeva quanto costasse il **secondo salto** — una stringa messa in
+una variabile, passata altrove e disegnata li'. Due sondaggi, due volte testo
+vero che **nessuna delle due reti vedeva**:
+
+    riga di stato dell'editor di mazzo   13 etichette   copertura 5, disegnate 0
+    schermata di aiuto (F1)              38 etichette   copertura 1, disegnate 0
+
+`copertura._PROSA` pretende due parole alfabetiche; `disegnate.py` fa **un
+salto solo** e da un'assegnazione semplice. Nell'editor di mazzo il valore si
+monta con tredici `+=` su `s@tcg` e si disegna quindici righe piu' giu'; nella
+schermata di aiuto finisce in `s(cnt)`, lo riscrive `*convertHelp` e lo disegna
+`mes s(cnt * 2)` venti righe piu' giu'.
+
+⚠️ **La rete generale per il secondo salto NON e' stata scritta.** Sono due
+sondaggi a mano, e dicono che il fronte esiste ed e' fatto di interfaccia. Chi
+la scrive parta di qui.
+
+---
+
+## Le trappole che la 140a ha trovato
+
+⚠️⚠️ **Una specie di falso positivo spiegata sei volte in prosa invece che una
+volta nella rete.** Gli span di `copertura.scoperte_di` vengono da `siti()` e
+coprono il **solo ramo inglese**; un ramo giapponese scritto in lettere latine
+diventa una «scoperta». Erano **dodici in otto file**, e sei dichiarazioni
+diverse — scritte in sessioni diverse — dicevano tutte «e' il ramo giapponese,
+l'inglese sta nel dizionario». Nessuna aveva fatto il passo dopo. Ora la rete
+li salta: cinque dichiarazioni si sono accorciate e tre sono sparite **senza
+tradurre niente**.
+
+⚠️ **«Non si traduce» non vuol dire «non si tocca».** La 139a aveva ragione che
+l'operando di `==` non e' un'etichetta; da li' pero' la dichiarazione
+concludeva «non si tocca», e la cura giusta era **aggiungere** un'alternativa
+italiana accanto a quella inglese, senza toccare l'operando.
+
+⚠️ **Un tetto puo' stare in un posto che non somiglia a un tetto.** Quello
+delle caselle di testo non e' geometria: `*prompt_word` passa a `mesbox` un
+massimo di `val(2) * (1 + en)` **caratteri** (`system.hsp:3985`), e oltre
+quello la casella **smette di accettare** quel che si digita. 32 per il
+desiderio, 24 per la classe.
+
+⚠️ **E un tetto puo' non essere misurabile affatto.** La casella del filtro
+dell'editor di mappe e' un `combox`, un controllo **nativo di Windows**: la
+matematica in pixel del progetto non ci si applica, e il 13 di
+`genera_toppe_filtro_medit` e' dichiarato come **stima**, non come misura. Un
+numero stimato spacciato per misurato e' peggio di nessun numero.
+
+⚠️ **Una lista di etichette e una lista di costanti che si leggono per
+posizione sono un vincolo sul NUMERO, non sul testo.** `map_func.hsp:2517` e
+`:2518`: una voce in piu' sposterebbe tutti i filtri di uno, e nessun cancello
+del progetto misurava quello.
+
+---
+
+## I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 140a
+
+    pytest                   **1.056 passed**, 6 skipped
+    prova_identita           72/72 e 30.905, invariato
+    scene --referto          1701 su 1701, 0 fuori misura
+    carte --referto          833/833, 0 fuori misura
+    schede --referto         72 su 72, 0 fuori misura
+    dialoghi --referto       77 su 77, 0 fuori misura
+    disegnate                25 distinte su 8 file, tutte dichiarate, uscita 0
+    **copertura**            **0 fronti, 0 scoperte** (erano 6 e 31)
+    toppe                    **1.397** (erano 1.334)
+    applica                  30.766 sostituzioni, nessun ATTENZIONE
+    perimetro                28.028 fatte, 0 da fare, 100,0%
+                             (**31.795** coi file dati)
+                             ⚠️ `PYTHONPATH=. PYTHONIOENCODING=utf-8`
+    verifica --dizionario    0 da ritradurre, uscita 0
+
+⚠️ **Nessuno di questi numeri si eredita da qui: si rilanciano.**
+
+⚠️⚠️ **E lo zero di `copertura` NON vuol dire che il progetto e' finito.**
+Quella rete misura una cosa sola, con un'euristica che il suo stesso docstring
+chiama grossolana: `_PROSA` pretende **due parole alfabetiche**, e
+un'interfaccia e' fatta di etichette da una parola. Le 51 stringhe trovate
+nella 140a le hanno trovate **un'altra rete e la lettura a mano**. Lo zero dice
+soltanto: *ogni file del sorgente con stringhe che somigliano a una frase e'
+raggiunto da qualcuno, o ha scritto accanto perche' no.*
+
+---
+
+## Che cosa guardare adesso, dopo la 140a
+
+⚠️ Questa lista **sostituisce** quelle della 139a e della 138a qui sotto per i
+punti che nomina; gli altri restano validi la' dove sono.
+
+1. ⭐⭐⭐ **Il collaudo a schermo, ed e' l'unica cosa che il modello non puo'
+   fare — ed e' ormai l'unico debito grosso rimasto.** In gioco ci sono le 386
+   rese mai viste di prima **piu' 77 nuove**. Le schermate nuove e facili:
+   - **F1**, la schermata di aiuto: 38 etichette dei tasti. Si vede tutta in
+     un colpo, ed e' la prova piu' economica della sessione;
+   - la **riga in fondo all'editor di mazzo**: «Ordina per: … Filtro: …»;
+   - le **17 pagine del menu filtri** della 139a, e le tre al tetto di 11:
+     «Leggendario», «Bestia gig.», «Mostro mar.»;
+   - la **bacchetta dei desideri** (`Z`): «medaglietta», «classe» e poi
+     «guerriero», «razza», «morte».
+2. ⭐⭐ **La rete del secondo salto**, che resta da scrivere. I due sondaggi
+   della 140a dicono che il fronte esiste ed e' interfaccia; quanto sia grosso
+   negli altri 90 file non lo sa nessuno.
+3. ⭐⭐ **I due `instr` scherzosi di `command.hsp:4481` e `:4485`** (「中の神」 /
+   «god inside», 「中の人」 / «man inside»): hanno la forma della sottostringa e
+   non del confronto, e vogliono una decisione sulla **battuta**. Il testo che
+   stampano e' gia' italiano; la parola che li accende no.
+4. ⭐⭐ **`disegnate`: 25 stringhe distinte su 8 file**, tutte dichiarate. E'
+   l'unico conto che resta sopra lo zero, ed e' fatto di chiavi di classe,
+   finestre d'errore di Windows e tracce di debug.
+5. ✅ ~~Le 31 scoperte di `copertura`~~ — **zero**, ed e' scritto sopra che cosa
+   quello zero non vuol dire.
+6. ✅ ~~L'operando del comando dei desideri~~ — **fatto**, 89 parole.
+7. ✅ ~~I dieci `cnv_str` di `module.hsp`~~ — **non erano rotti**: la 81a li
+   aveva aggiustati.
+8. ✅ ~~«the The»~~, ~~`db_card.hsp:2695`~~, ~~le 26 categorie~~,
+   ~~`help.hsp:409`~~ — **fatti o smentiti**.
+
+⚠️ Restano aperti, invariati, i punti 9, 10, 11, 15, 16, 17, 18, 19 e 20 della
+lista della 138a qui sotto — il difetto di «ragon», `tcg_skill.hsp:2003`,
+`efftalk@tcg`, i due omografi, `Rehmido`, le quattro teste senza articolo, la
+rete degli operandi di sostituzione, le due reti sulle toppe e la coda nuda di
+`chat.hsp:17065`.
 
 ---
 
