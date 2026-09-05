@@ -114,7 +114,16 @@ GIUDICATI = {
     # proprie a ogni giro. Adesso i fiori stanno nel generatore
     # (`articolo_del_fiore`). Il test dei giudicati e' l'unica cosa che se ne
     # e' accorta.
-    ("item_func.hsp", 2368): "il tassello del materiale, «[Mithril]». Fa parte "
+    # ⚠️ 142a: era :2366 fino alla 130a, :2368 fino alla 141a, ed e' sempre la
+    # stessa riga — riletta nella build, dice ancora `lang("[" + mtname(...) +
+    # "製]", "[" + cnven(mtname(...)) + "]")`. A spostarla di **6** sono le
+    # quattro toppe che sciolgono i rinvii di questo file: quella del succo
+    # cresce di 5 righe (16 -> 21, la testa italiana va davanti e il frutto la
+    # segue) e quella della taglia del pesce di 1 (il conto in centimetri esce
+    # in una riga sua). Quarta volta che questa coordinata si muove per una
+    # toppa che cresce sopra di lei, e il test ha ragione a scattare tutt'e
+    # quattro.
+    ("item_func.hsp", 2374): "il tassello del materiale, «[Mithril]». Fa parte "
                              "del muro del materiale, che vuole il suo giro: "
                              "la postposizione italiana («spada DI mithril») "
                              "sposta il sito, non solo la maiuscola",
