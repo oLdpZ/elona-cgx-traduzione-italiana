@@ -87,6 +87,45 @@ def test_una_stringa_dentro_lang_e_raggiunta_e_una_fuori_no():
     assert scoperte == ["goodbye cruel world"]
 
 
+def test_il_ramo_giapponese_scritto_in_LATINO_non_e_una_scoperta():
+    """⚠️⚠️ Il caso vero, ed e' costato a `db_card.hsp` centoquaranta sessioni
+    da «ultimo fronte del progetto» con la resa italiana gia' nella build.
+
+    Gli span di `siti()` coprono il solo ramo INGLESE, che e' quello che il
+    dizionario riscrive; il giapponese resta fuori e non fa danni **fin che e'
+    scritto in giapponese**, perche' `_PROSA` pretende due parole alfabetiche.
+    `db_card.hsp:2695` apre il suo ramo giapponese con
+    «All Options-Implemented、», e allora ne ha due.
+    """
+    testo = ('\tcardrefskill = lang("All Options-Implemented、すなわち全オプション",'
+             ' "All options implemented, that is")\n')
+
+    assert copertura.scoperte_di("finto.hsp", testo, set()) == []
+
+
+def test_e_un_inglese_NUDO_resta_una_scoperta_anche_accanto_a_una_lang():
+    """Il prezzo del salto e' pagato solo sulla stessa riga: un letterale
+    inglese nudo su una riga sua continua a contare."""
+    testo = ('\tcardrefskill = lang("All Options-Implemented、すなわち",'
+             ' "All options implemented")\n'
+             '\tmes "goodbye cruel world"\n')
+
+    assert copertura.scoperte_di("finto.hsp", testo, set()) == [
+        "goodbye cruel world"]
+
+
+def test_il_salto_del_giapponese_non_copre_il_ramo_inglese():
+    """⭐ La prova che tiene onesto il salto: se il ramo inglese e quello
+    giapponese portassero stringhe diverse, e l'inglese fosse NUDO fuori dalla
+    `lang()`, il conto lo deve ancora vedere."""
+    testo = ('\ttxt lang("Potion-charge Lv", "Potion-charge Lv")\n')
+    assert copertura.scoperte_di("finto.hsp", testo, set()) == []
+
+    fuori = '\tmes "Potion-charge Lv now"\n'
+    assert copertura.scoperte_di("finto.hsp", fuori, set()) == [
+        "Potion-charge Lv now"]
+
+
 def test_una_riga_riscritta_da_una_toppa_e_raggiunta():
     riga = '\tmes "goodbye cruel world"'
     testo = riga + "\n"

@@ -15949,3 +15949,105 @@ sulla **prima** `(` e sulla **prima** `)`. Anche quello è un cancello.
 
 Restano `map_func.hsp:2517` (le 26 categorie d'oggetto, che vogliono nomi che
 il progetto non ha) e `db_card.hsp:2695` (una descrizione rimasta giapponese).
+
+## L'ultimo fronte non esisteva, e la rete lo diceva da centoquaranta sessioni — 2026-09-05, centoquarantesima sessione
+
+`db_card.hsp:2695` era «una descrizione di carta lunga, in giapponese, **nuda
+fuori da `lang()`**». Non era nuda e non era fuori: è l'argomento giapponese di
+una `lang()` regolare, e la resa italiana sta nella build da quando il fronte
+TCG è stato lavorato. Sembrava scoperta perché quel ramo giapponese apre con
+**«All Options-Implemented、»**, cioè con due parole latine, e `_PROSA` conta
+due parole latine.
+
+⭐ **Non era un caso isolato: era una specie.** Gli span che `scoperte_di` usa
+vengono da `siti()` e coprono il **solo ramo inglese**, che è quello che il
+dizionario riscrive. Il ramo giapponese resta fuori, e non fa danni *fin che è
+scritto in giapponese*. Quando non lo è, diventa un falso positivo — e nel
+sorgente ce n'erano **dodici, in otto file**:
+
+    action.hsp      «Potion-charge Lv»           i due rami portano la stessa stringa
+    proc.hsp        «Potion-charge Lv»           il gemello
+    chara_func.hsp  «[SURVIVABILITY EXTENSION！]…»
+    item.hsp        «[HAPPY BIRTHDAY！！]…»        la fase 2 della stessa catena
+    command.hsp     «Elona Version », «Level(Piety Cost)»
+    config.hsp      «direct sound», «direct music»
+    db_creature.hsp le quattro grida dei boss, 「Target Acquired.」…
+    db_card.hsp     «All Options-Implemented、…»
+
+⚠️⚠️ **E ognuno di quei dodici aveva una riga di prosa che lo spiegava.** Sei
+dichiarazioni diverse, scritte in sessioni diverse, dicevano tutte la stessa
+cosa con parole diverse: *è il ramo giapponese, l'inglese sta nel dizionario*.
+Nessuna aveva fatto il passo successivo.
+
+💡 **La prosa non è il posto dove si spiega un difetto di misura.** Una riga di
+motivo mette a tacere il sintomo una volta; la volta dopo qualcun altro la
+riscrive per un altro file. Adesso `scoperte_di` salta i letterali del ramo
+giapponese, e cinque dichiarazioni si sono accorciate e tre sono sparite senza
+che si traducesse niente.
+
+⚠️ **Il prezzo, dichiarato**: un letterale inglese **nudo** identico al ramo
+giapponese di una `lang()` **sulla stessa riga** sparirebbe dal conto. È lo
+stesso compromesso che `disegnate.py` accetta con la sua seconda mappa, e vale
+la stessa ragione: contare come lavoro una metà che il progetto non traduce per
+costruzione insegna a non fidarsi del referto. C'è una prova che lo fissa.
+
+## Le 26 categorie: i nomi c'erano, e li usa il giocatore — 2026-09-05, centoquarantesima sessione
+
+L'ultimo fronte vero era `map_func.hsp:2517`, il filtro a tendina delle
+categorie d'oggetto nell'editor di mappe. La dichiarazione diceva:
+
+> Non è lasciata indietro per fatica — quella lista **fisserebbe** i nomi
+> italiani delle categorie, e il progetto non ce li ha.
+
+⚠️ **Il progetto ce li ha, e non sono in un attrezzo laterale: li legge il
+giocatore.** Sono le categorie dell'**autopick**
+(`custom_autopick.hsp:366-:555`), decise e nel dizionario da fasi — `helm` →
+«elmo», `ore` → «minerale», `belt` → «cintura», `rod` → «bacchetta». **23 voci
+su 26** sono un rinvio a quelle, e il generatore alza `KeyError` sulla
+categoria che nessuno ha deciso.
+
+Le tre nuove: `All items` → **Tutti** (l'autopick non ha una voce «tutto»),
+`Trade` → **Merce** (l'autopick dice «merce da commercio», 18 caratteri: nella
+casella non ci sta) e `Weapon` → **Arma** (l'autopick distingue «arma da
+mischia» da «arma da tiro», e qui la voce accanto è già «Arma da tiro»).
+
+⚠️ **Due vincoli veri, e nessuno dei due è la lunghezza.**
+
+1. **Il numero di voci non si tocca.** `:2517` monta le 26 etichette in una
+   stringa sola separate da `\n`, e `:2518` mette in fila le 26 costanti
+   `FILTER_*`: si leggono **per posizione**. Una voce in più o in meno
+   sposterebbe tutti i filtri di uno — l'editor mostrerebbe le pozioni a chi
+   sceglie «Pergamena» — e nessun cancello del progetto misura quello. Adesso
+   uno sì, e guarda pure che nessuna resa contenga un `\n`.
+2. **L'editor di mappe non è una schermata del gioco.** `main.hsp:186` ci entra
+   solo con `if ( dirinfo(4) == "medit" )`, cioè se l'eseguibile si **chiama**
+   `medit`. Si è tradotto lo stesso perché delle 13 stringhe di prosa del file
+   **12 erano già italiane** da sessioni — «Salva mappa con nome...», «Costa
+   automatica» — e questa era la tredicesima: uno strumento tradotto per dodici
+   tredicesimi è peggio di uno tradotto o di uno lasciato stare.
+
+⚠️ **Il tetto qui è una stima e non una misura, e va detto.** La casella è un
+`combox`, un controllo **nativo di Windows**: non è testo disegnato da `mes`, e
+la matematica in pixel del progetto non ci si applica. L'unico numero che il
+sorgente dichiara è `objsize 100, 25` (`:2533`), che a ~7,5 px per carattere fa
+una tredicina. Il cancello sta a 13 per tenere le voci corte; chi sfora si vede
+tagliato nella casella chiusa, e in uno strumento che il giocatore non apre il
+prezzo di sbagliare è cosmetico.
+
+## `copertura`: 0 fronti, 0 scoperte — e che cosa NON vuol dire
+
+    inizio 140ª    6 fronti,  31 scoperte
+    fine   140ª    0 fronti,   0 scoperte
+
+⚠️⚠️ **Non vuol dire che il progetto è finito, e va scritto qui perché il
+numero è seducente.** `copertura` misura una cosa sola e la misura con
+un'euristica grossolana che il suo stesso docstring chiama tale: `_PROSA`
+pretende **due parole alfabetiche**, e le interfacce sono fatte di etichette da
+una parola. La 137ª ne trovò 32 a schermo dentro un file dichiarato e contato;
+questa sessione ne ha trovate 51 altrove, e le ha trovate **con un'altra rete e
+poi a mano**, non con questa.
+
+Quel che lo zero dice davvero: *ogni file del sorgente pinnato con stringhe che
+somigliano a una frase è raggiunto da qualcuno, o ha scritto accanto perché
+no.* È una proprietà utile e non è la fine del lavoro. Il debito che resta è il
+**collaudo a schermo**, che nessuna rete può pagare.

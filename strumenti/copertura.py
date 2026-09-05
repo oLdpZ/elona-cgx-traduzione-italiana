@@ -143,19 +143,25 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "decisione di glossario non e' ancora presa."),
 
     # ---- fronti piccoli, triati alla 135a ---------------------------------
-    "map_func.hsp": Dichiarazione(
-        "fronte", 1,
-        "Resta il filtro a tendina delle categorie di oggetto (:2517): 26 voci "
-        "in una stringa sola, «All items\nFurniture\nJunk\n...». Non e' "
-        "lasciata indietro per fatica — quella lista FISSEREBBE i nomi italiani "
-        "delle categorie, e il progetto non ce li ha: `categorie.py` legge la "
-        "classe che il sorgente DICHIARA (`FILTER_ITEM_FOOD`...), che e' una "
-        "chiave, non un nome da mostrare. Deciderli in un attrezzo laterale "
-        "vorrebbe dire ritrovarseli addosso nell'interfaccia del gioco. "
-        "ⓘ Rese alla 135a: le quattro modalita' e i quattro comandi del menu "
-        "Win32, la conferma della mappa nuova, la guida (:1896) e la casella "
-        "«Costa automatica» — guida e casella insieme, perche' la prima nomina "
-        "la seconda."),
+    # ✅✅ `map_func.hsp` NON sta piu' qui, ed era **l'ultimo fronte rimasto**.
+    # La sua dichiarazione diceva del filtro a tendina delle categorie
+    # d'oggetto (:2517, 26 voci in una stringa sola): «non e' lasciata indietro
+    # per fatica — quella lista FISSEREBBE i nomi italiani delle categorie, e
+    # il progetto non ce li ha». ⚠️⚠️ Il progetto ce li ha, e li usa il
+    # giocatore: sono le categorie dell'AUTOPICK
+    # (`custom_autopick.hsp:366-:555`), decise e nel dizionario — `helm` →
+    # «elmo», `ore` → «minerale», `belt` → «cintura». 23 voci su 26 sono un
+    # rinvio a quelle; le altre tre sono l'unica decisione nuova.
+    # ⓘ E l'editor di mappe non e' nemmeno una schermata del gioco:
+    # `main.hsp:186` ci entra solo `if ( dirinfo(4) == "medit" )`, cioe' se
+    # l'eseguibile si CHIAMA `medit`. Si e' tradotto lo stesso perche' delle 13
+    # stringhe di prosa del file 12 erano gia' italiane, e questa era la
+    # tredicesima. Rese dalla 140ª:
+    # `strumenti/genera_toppe_filtro_medit.py`.
+    # ⓘ Rese alla 135a: le quattro modalita' e i quattro comandi del menu
+    # Win32, la conferma della mappa nuova, la guida (:1896) e la casella
+    # «Costa automatica» — guida e casella insieme, perche' la prima nomina la
+    # seconda.
     # ---- esenzioni: sembrano prosa e non sono testo ------------------------
     "custom_itemlist.hsp": Dichiarazione(
         "esente", 1,
@@ -281,7 +287,7 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "gemelle a :2060-:2068), i quattro `filedsc`, il filtro BMP|JPG, "
         "l'avviso di migrazione dei Tweak (:72) e la riga dei crediti di :3521."),
     "command.hsp": Dichiarazione(
-        "esente", 5,
+        "esente", 3,
         "⭐ ERANO 10 FINO ALLA 140ª, e la dichiarazione della 135ª aveva ragione "
         "sulla meta' sbagliata della domanda. Diceva bene che «dog whistle», "
         "«happy new year», «merry christmas», «small coin» e «small medal» non "
@@ -292,17 +298,18 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "con le parole italiane invece di riscriverle "
         "(`strumenti/genera_toppe_desideri.py`), e ora il desiderio risponde a "
         "chi scrive «medaglietta» come rispondeva a chi scriveva «small "
-        "medal». Le cinque che restano: `\"ElonaPlus Custom-GX \"` e' "
-        "l'operando di uno `sreplace` (:413); «Elona Version » (:17658) e "
-        "«Level(Piety Cost)» (:7625) sono gli argomenti GIAPPONESI di due "
-        "`lang()`, che non si traducono per costruzione; e «god inside» / «man "
+        "medal». Le tre che restano: `\"ElonaPlus Custom-GX \"` e' "
+        "l'operando di uno `sreplace` (:413); e «god inside» / «man "
         "inside» (:4481, :4485) sono i due `instr` scherzosi su 中の神 e 中の人, "
         "gli unici della catena che hanno la forma della sottostringa e non "
         "del confronto. ⚠️ Quei due restano aperti apposta: vogliono una "
         "decisione sulla battuta, non una parola chiave, e il testo che "
         "stampano e' gia' italiano mentre la parola che li accende non lo e'. "
-        "ⓘ Rese alla 135a: i due `dialog` di :13240, le due `description` "
-        "dell'oggetto Omake e i due `filedsc`."),
+        "ⓘ Erano 5 dopo il lavoro sul desiderio, e due erano falsi "
+        "positivi: «Elona Version » (:17658) e «Level(Piety Cost)» (:7625) "
+        "sono i rami GIAPPONESI di due `lang()`, che la rete adesso salta da "
+        "se'. ⓘ Rese alla 135a: i due `dialog` di :13240, le due "
+        "`description` dell'oggetto Omake e i due `filedsc`."),
     "main.hsp": Dichiarazione(
         "esente", 2,
         "Quel che resta dopo le cinque rese della 135a: "
@@ -342,31 +349,31 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "Le altre due stringhe: un `proc` di debug e il filtro «ALL files "
         "(*.*)» di una finestra di Windows."),
     "chara_func.hsp": Dichiarazione(
-        "esente", 8,
-        "Nessuna delle otto e' lavoro, per tre ragioni diverse. Tre `title` e "
+        "esente", 7,
+        "Nessuna delle sette e' lavoro, per due ragioni diverse. Tre `title` e "
         "un `proc` scrivono nella barra della finestra o nel log un messaggio "
-        "diagnostico. Il `txt` di :8640 e' l'argomento GIAPPONESE di una "
-        "`lang()` — l'inglese, «[SURVIVABILITY EXTENSION !] Phase 1 "
-        "completed...», sta nel dizionario; gemello di `item.hsp:4324`. "
+        "diagnostico. "
         "⚠️ E i tre `gain_ap (gain_ap_source + \" of your mount\")` "
         "(:8536-:8546) sono MORTI PER RESA: due toppe di sessioni fa hanno "
         "sostituito `gain_ap_source` con frasi fisse («dalla trattativa», "
         "«dall'uccisione», «dalla pietra del risveglio»), e nella build quella "
         "variabile non arriva piu' a nessun `txt` — resta solo negli `==`. "
-        "Verificato sull'albero di build."),
+        "Verificato sull'albero di build. ⓘ Erano 8 fino alla 140ª: "
+        "l'ottava era il `txt` di :8640, il ramo GIAPPONESE di una `lang()`, "
+        "che la rete adesso salta da se'."),
     "action.hsp": Dichiarazione(
-        "esente", 11,
-        "Dieci `proc` sono tracce di debug del regalo di capodanno "
-        "(:3809-:3959). L'undicesima, `Potion-charge Lv` (:6545), e' "
-        "l'argomento GIAPPONESE di una `lang()` in cui i due rami portano la "
-        "stessa stringa: l'inglese sta nel dizionario, e il gemello e' "
-        "`proc.hsp:13471`. Nessuna delle undici e' lavoro."),
+        "esente", 10,
+        "Dieci `proc`, tracce di debug del regalo di capodanno "
+        "(:3809-:3959). Nessuna e' lavoro. ⓘ Erano 11 fino alla 140ª: "
+        "l'undicesima era `Potion-charge Lv` (:6545), il ramo GIAPPONESE di "
+        "una `lang()` che porta la stessa stringa da tutt'e due i lati — un "
+        "falso positivo che adesso la rete salta da se'."),
     "proc.hsp": Dichiarazione(
-        "esente", 2,
+        "esente", 1,
         "`Omae wa mou shindeiru.` (:14392) e' una citazione e resta com'e': "
-        "tradurla la spegnerebbe. `Potion-charge Lv` (:13471) e' l'argomento "
-        "GIAPPONESE di una `lang()` in cui i due rami portano la stessa "
-        "stringa; l'inglese sta nel dizionario. ⓘ Rese alla 135a: «your "
+        "tradurla la spegnerebbe. ⓘ Era 2 fino alla 140ª: l'altra era "
+        "`Potion-charge Lv` (:13471), ramo GIAPPONESE di una `lang()`, che la "
+        "rete adesso salta da se'. ⓘ Rese alla 135a: «your "
         "friends» due volte (:16980 e :19167), e con loro il difetto che le "
         "teneva nascoste — due rese avevano inghiottito la variabile col nome "
         "del compagno. Vedi il motivo delle due toppe."),
@@ -377,15 +384,11 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "map [...], removing race id from ...»): non e' testo di gioco, e chi "
         "lo legge lo sta segnalando. ⓘ Resa alla 135a: la finestra della "
         "risoluzione non valida (:22), che il giocatore vede all'avvio."),
-    "db_creature.hsp": Dichiarazione(
-        "esente", 4,
-        "Le quattro grida dei boss — 「Last Danceが最後の行程に入った」 (:51263), "
-        "「HAPPY END！！」 (:53276), 「Target Acquired.」 e 「Resistance is "
-        "futile!」 (:99788) — sono gli argomenti GIAPPONESI di altrettante "
-        "`lang(jp, cnvtalk(en))`. L'inglese sta DENTRO la `cnvtalk` "
-        "nell'argomento `en`, quindi il dizionario lo copre gia'; il "
-        "giapponese non si traduce per costruzione. Sembravano scoperte perche' "
-        "il ramo giapponese di queste quattro e' scritto mezzo in latino."),
+    # ✅ `db_creature.hsp` NON sta piu' qui: le sue quattro «scoperte» erano
+    # le grida dei boss — 「Last Danceが最後の行程に入った」, 「HAPPY END！！」,
+    # 「Target Acquired.」, 「Resistance is futile!」 — cioe' i rami
+    # GIAPPONESI di altrettante `lang(jp, cnvtalk(en))`, scritti mezzo in
+    # latino. La dichiarazione lo diceva; dalla 140ª lo sa la rete.
     # ✅ `help.hsp` NON sta piu' qui: la 140ª l'ha chiuso, e la sua riga
     # andava tolta insieme al lavoro — un file dichiarato E coperto verrebbe
     # contato due volte, come era successo a `tcg_mod.hsp` nella 136ª.
@@ -403,17 +406,17 @@ DICHIARATI: dict[str, Dichiarazione] = {
     # righe piu' giu' — il SECONDO SALTO, di nuovo.
     # Rese dalla 140ª: `strumenti/genera_toppe_tasti_aiuto.py`, che 22 parole
     # su 38 le legge dalla barra dei comandi di questo stesso file.
-    "item.hsp": Dichiarazione(
-        "esente", 1,
-        "`txt lang(\"[HAPPY BIRTHDAY！！]　フェイズ2が完了した。\", "
-        "\"[HAPPY BIRTHDAY!!] Phase 2 completed.\")` (:4324): e' l'argomento "
-        "GIAPPONESE, e l'inglese sta nel dizionario. Gemello di "
-        "`chara_func.hsp:8640`, che e' la fase 1 della stessa catena."),
-    "db_card.hsp": Dichiarazione(
-        "fronte", 1,
-        "`cardrefskill` a :2695: una descrizione di carta lunga, in "
-        "giapponese, nuda fuori da `lang()` in un file che ne ha 2.326. "
-        "Appartiene al fronte TCG per contenuto, a `db_card` per posizione."),
+    # ✅ `item.hsp` NON sta piu' qui: la sua unica «scoperta» era il ramo
+    # GIAPPONESE di `lang("[HAPPY BIRTHDAY！！]　フェイズ2が完了した。", ...)`
+    # (:4324), gemello di `chara_func.hsp:8640`.
+    # ✅✅ E NEMMENO `db_card.hsp`, che era **l'ultimo fronte del progetto**.
+    # La sua dichiarazione diceva: «`cardrefskill` a :2695, una descrizione di
+    # carta lunga, in giapponese, NUDA FUORI DA `lang()`». Non era nuda e non
+    # era fuori: e' l'argomento giapponese di una `lang()` regolare, e la resa
+    # italiana sta nella build da quando il fronte TCG e' stato lavorato.
+    # Sembrava scoperta perche' quel ramo giapponese apre con
+    # «All Options-Implemented、», cioe' con due parole latine, e `_PROSA` le
+    # contava. Un fronte che non era mai esistito, chiuso guardandolo.
     "text.hsp": Dichiarazione(
         "esente", 1,
         "Resta `proc \"god text\"` (:12150), una traccia di debug. ⓘ Resa alla "
@@ -438,14 +441,15 @@ DICHIARATI: dict[str, Dichiarazione] = {
         "(«Map:Check renew», «Map:Init music», «Map:Quest message», "
         ":9616-:12211). Nessuna arriva a schermo."),
     "config.hsp": Dichiarazione(
-        "esente", 4,
-        "Due `proc` di debug, e due falsi positivi di una specie che vale la "
-        "pena registrare: `s = lang(\"なし\", \"None\"), lang(\"direct "
-        "sound\", \"Direct sound\"), \"MCI\"` (:805 e :809). «direct sound» e' "
-        "l'argomento GIAPPONESE della `lang()` — il ramo giapponese scrive in "
-        "inglese il nome del driver — e il lato giapponese non si traduce per "
-        "costruzione, quindi `siti()` non lo copre e non deve coprirlo. "
-        "L'inglese, «Direct sound», sta gia' nel dizionario."),
+        "esente", 2,
+        "Due `proc` di debug. ⭐ Erano 4, e i due di troppo sono la specie di "
+        "falso positivo che nella 140ª ha fatto cambiare la rete: `s = "
+        "lang(\"なし\", \"None\"), lang(\"direct sound\", \"Direct "
+        "sound\"), \"MCI\"` (:805 e :809) ha un ramo GIAPPONESE scritto in "
+        "lettere latine. La dichiarazione lo spiegava da sessioni, e la prosa "
+        "non e' il posto dove si spiega un difetto di misura: adesso "
+        "`scoperte_di` salta i letterali del ramo giapponese, e il conto "
+        "torna da se'."),
     "map_rand.hsp": Dichiarazione(
         "esente", 1,
         "`if ( ... == \"hobbit caves\" )` (:273): operando di confronto sul "
@@ -559,8 +563,25 @@ def scoperte_di(nome_file: str, testo: str, toppe: set[str],
     per mezz'ora sono state il secondo fronte piu' grosso del progetto.
     """
     span_per_riga: dict[int, list[tuple[int, int]]] = defaultdict(list)
+    # ⚠️⚠️ Gli span vengono da `siti()` e coprono il solo ramo INGLESE, che e'
+    #    quello che il dizionario riscrive. Il ramo giapponese resta fuori, e
+    #    fin che e' scritto in giapponese non fa danni perche' `_PROSA`
+    #    pretende due parole alfabetiche. Ma un ramo giapponese puo' cominciare
+    #    in lettere latine: `db_card.hsp:2695` apre con
+    #    «All Options-Implemented、すなわち…», e per centoquaranta sessioni e'
+    #    stato l'ultimo «fronte» del progetto — con la resa italiana gia' nella
+    #    build. Si saltano percio' anche i letterali del ramo giapponese, presi
+    #    dalla stessa scansione.
+    #    ⓘ Il prezzo: un letterale inglese NUDO identico al ramo giapponese di
+    #    una `lang()` **sulla stessa riga** sparirebbe dal conto. E' lo stesso
+    #    compromesso che `disegnate.py` accetta con la sua seconda mappa, e
+    #    vale la stessa ragione: contare come lavoro da fare una meta' che il
+    #    progetto non traduce per costruzione insegna a non fidarsi del
+    #    referto.
+    giapponesi_per_riga: dict[int, set[str]] = defaultdict(set)
     for sito in siti(testo):
         span_per_riga[sito[0]].append((sito[7], sito[8]))
+        giapponesi_per_riga[sito[0]].update(_LETTERALE.findall(sito[4]))
     morte = righe_morte or set()
 
     scoperte = []
@@ -574,6 +595,8 @@ def scoperte_di(nome_file: str, testo: str, toppe: set[str],
             if not _PROSA.search(trovato.group(1)):
                 continue
             if trovato.group(1) in (rese or set()):
+                continue
+            if trovato.group(1) in giapponesi_per_riga.get(numero, set()):
                 continue
             dentro_lang = any(inizio <= trovato.start(1) and trovato.end(1) <= fine
                               for inizio, fine in span_per_riga.get(numero, []))
