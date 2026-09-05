@@ -609,6 +609,48 @@ def righe_di_toppa(valore: str | list[str]) -> list[str]:
     return list(valore) if isinstance(valore, list) else [valore]
 
 
+def toppe_annidate(toppe: list[dict]) -> list[tuple[str, str, str]]:
+    """Le coppie in cui il `cerca` di una toppa sta DENTRO quello di un'altra.
+
+    Nata nella 142a da un doppione che nessuna guardia vedeva. La toppa 772
+    aggancia la riga sola `cnv_str fix_wish_arg1, "flesh doll", ""` e ci
+    appende dodici righe italiane; io ne ho scritta un'altra che fa la stessa
+    identica cosa agganciando il **blocco di tre** righe che finisce con
+    quella. Le due `cerca` non si somigliano — una e' una stringa, l'altra una
+    lista — quindi il controllo dei doppioni per uguaglianza non ha visto
+    niente, `applica` non si e' fermata (ogni ancora compariva una volta sola,
+    e la seconda ha lavorato sul testo gia' toccato dalla prima), e nella build
+    le dodici righe sono finite **due volte**.
+
+    ⚠️ Non basta chiedere che due toppe non condividano una riga: `toppe.jsonl`
+    ha da sempre due toppe di `module.hsp` che iniziano tutt'e due con
+    `s = "Page." ...` e si distinguono per la riga di contorno. Quel che non ha
+    senso e' che un blocco sia **contenuto** in un altro: allora le due toppe
+    parlano dello stesso punto, e o sono la stessa cosa scritta due volte o una
+    delle due sta per lavorare sul risultato dell'altra.
+
+    Torna una lista di `(file, cerca contenuto, cerca contenitore)`, vuota
+    quando va tutto bene.
+    """
+    guasti: list[tuple[str, str, str]] = []
+    per_file: dict[str, list[dict]] = {}
+    for toppa in toppe:
+        per_file.setdefault(toppa["file"], []).append(toppa)
+    for nome_file, mie in per_file.items():
+        blocchi = [(t, righe_di_toppa(t["cerca"])) for t in mie]
+        for dentro, righe_dentro in blocchi:
+            for fuori, righe_fuori in blocchi:
+                if dentro is fuori or len(righe_dentro) >= len(righe_fuori):
+                    continue
+                contenuto = any(
+                    righe_fuori[i:i + len(righe_dentro)] == righe_dentro
+                    for i in range(len(righe_fuori) - len(righe_dentro) + 1)
+                )
+                if contenuto:
+                    guasti.append((nome_file, dentro["motivo"][:60], fuori["motivo"][:60]))
+    return guasti
+
+
 def applica_toppe(nome_file: str, testo: str, toppe: list[dict]) -> tuple[str, int]:
     """Applica a `testo` le toppe che riguardano `nome_file`. (testo, quante).
 

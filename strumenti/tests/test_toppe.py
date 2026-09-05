@@ -6,7 +6,8 @@ import pytest
 
 from strumenti import percorsi
 from strumenti.applica import (SorgenteCorrotto, applica_toppe, carica_toppe,
-                               letterali_di_lang, righe_di_toppa)
+                               letterali_di_lang, righe_di_toppa,
+                               toppe_annidate)
 
 RIGA_NAME = '\t\treturn "the " + cdatan(CDATAN_NAME, name_arg1)'
 
@@ -743,3 +744,60 @@ def test_le_battute_della_nuvoletta_sono_in_italiano_dopo_tutta_la_catena():
     testo = percorso.read_text(encoding="cp932")
     assert testo.count('"Mi ha stancato questo stupido gioco di carte."') == 2
     assert '"I tire of this stupid card game."' not in testo
+# --- la rete delle toppe annidate, 142a --------------------------------------
+
+def test_nessuna_toppa_del_progetto_e_annidata_in_un_altra():
+    """La guardia vera, sul `toppe.jsonl` del progetto.
+
+    Il caso da cui nasce: due toppe che appendevano le stesse dodici righe
+    italiane a `fix_wish`, una agganciata alla riga sola «flesh doll» e una al
+    blocco di tre che finisce con quella. `applica` non si e' fermata — ogni
+    ancora compariva una volta sola — e nella build le dodici righe sono
+    finite due volte.
+    """
+    annidate = toppe_annidate(carica_toppe())
+    assert annidate == [], "\n".join(
+        "%s: %r sta dentro %r" % g for g in annidate)
+
+
+def test_la_rete_si_accende_sul_caso_che_l_ha_fatta_nascere():
+    """La prova al contrario, e non e' un booleano: dice **quale** coppia ha
+    trovato. Le due toppe qui sotto sono la forma esatta del doppione della
+    142a — una riga sola contro il blocco di tre che la contiene."""
+    dentro = toppa(file="module.hsp",
+                   cerca='\tcnv_str fix_wish_arg1, "flesh doll", ""',
+                   sostituisci=['\tcnv_str fix_wish_arg1, "flesh doll", ""',
+                                '\tcnv_str fix_wish_arg1, "carta di ", ""'],
+                   motivo="quella che c'era gia'")
+    fuori = toppa(file="module.hsp",
+                  cerca=['\tcnv_str fix_wish_arg1, "flesh doll of ", ""',
+                         '\tcnv_str fix_wish_arg1, "flesh doll ", ""',
+                         '\tcnv_str fix_wish_arg1, "flesh doll", ""'],
+                  sostituisci=['\tcnv_str fix_wish_arg1, "flesh doll of ", ""',
+                               '\tcnv_str fix_wish_arg1, "flesh doll ", ""',
+                               '\tcnv_str fix_wish_arg1, "flesh doll", ""',
+                               '\tcnv_str fix_wish_arg1, "carta di ", ""'],
+                  motivo="quella scritta per sbaglio")
+    trovate = toppe_annidate([dentro, fuori])
+    assert len(trovate) == 1
+    assert trovate[0][0] == "module.hsp"
+    assert trovate[0][1].startswith("quella che c'era gia'")
+    assert trovate[0][2].startswith("quella scritta per sbaglio")
+
+
+def test_due_toppe_che_condividono_una_riga_di_contorno_non_sono_annidate():
+    """⚠️ La rete non deve essere piu' larga di cosi': `module.hsp` ha da sempre
+    due toppe che iniziano tutt'e due con la stessa riga «Page.» e si
+    distinguono per la riga dopo. Quelle sono legittime — nessuna delle due sta
+    **dentro** l'altra — e una guardia che le fermasse costringerebbe a
+    riscriverle senza motivo."""
+    riga = '\t\ts = "Page." + (page + 1) + "/" + (pagemax + 1)'
+    prima = toppa(file="module.hsp", cerca=[riga, "\t\tpos x, y"],
+                  sostituisci=['\t\ts = "Pag." + (page + 1) + "/" + (pagemax + 1)',
+                               "\t\tpos x, y"],
+                  motivo="la prima")
+    seconda = toppa(file="module.hsp", cerca=[riga, "\t\tfont f, 12"],
+                    sostituisci=['\t\ts = "Pag." + (page + 1) + "/" + (pagemax + 1)',
+                                 "\t\tfont f, 12"],
+                    motivo="la seconda")
+    assert toppe_annidate([prima, seconda]) == []
