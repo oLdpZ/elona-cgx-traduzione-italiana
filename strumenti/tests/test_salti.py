@@ -187,34 +187,34 @@ def test_le_38_etichette_dei_tasti_di_F1_si_contano_fra_i_MISTI():
         assert parola in inglesi
 
 
-def test_il_fronte_che_la_rete_ha_trovato_e_di_50_stringhe():
+def test_il_fronte_che_resta_aperto_e_di_35_stringhe():
     """⚠️⚠️ IL CONTO E' MISURATO, e questa prova esiste per farlo muovere solo
-    insieme al lavoro. Sette file, 50 stringhe che **nessun'altra rete del
-    progetto vede**: le sigle della riga di stato e della scheda del
-    personaggio, i quattordici tag dell'equipaggiamento, dodici parole chiave
-    delle carte, due voci dell'editor di mappe.
+    insieme al lavoro. Il fronte che la rete ha aperto era di **50** stringhe
+    su sette file; le 15 sigle del pannello dell'equipaggiamento sono state
+    lavorate nella stessa 141a (`strumenti/genera_toppe_tag_equip.py`, piu'
+    `Trap` in `invariati.md`), e `item_func.hsp` e' uscito dal censimento.
 
-    ⚠️ Quando il fronte si lavora, questo numero scende e la riga corrispondente
-    entra o esce da `DICHIARATI`. Il numero qui non e' una soglia da tenere: e'
-    la fotografia di un fronte aperto.
+    ⚠️ Il numero qui non e' una soglia da tenere: e' la fotografia di un fronte
+    aperto, e scende solo insieme al lavoro.
     """
     per_file = {r["file"]: r["distinte"] for r in salti.censimento()
                 if r["distinte"]}
-    assert per_file == {"command.hsp": 18, "item_func.hsp": 15, "tcg.hsp": 12,
-                        "map_func.hsp": 2, "config.hsp": 1, "custom_ai.hsp": 1,
+    assert per_file == {"command.hsp": 18, "tcg.hsp": 12, "map_func.hsp": 2,
+                        "config.hsp": 1, "custom_ai.hsp": 1,
                         "custom_tweaks.hsp": 1}
-    assert sum(per_file.values()) == 50
+    assert sum(per_file.values()) == 35
+    assert "item_func.hsp" not in per_file
 
 
 def test_il_cancello_e_ROSSO_e_dice_di_ogni_file_perche():
     """⚠️⚠️ **Questa rete nasce rossa, ed e' l'unica del progetto che lo e'.**
     Non e' un difetto: un censimento nuovo che nascesse verde vorrebbe dire che
-    non ha trovato niente. Il cancello resta acceso finche' ognuno dei sette
+    non ha trovato niente. Il cancello resta acceso finche' ognuno dei sei
     file non e' o lavorato o dichiarato, ed e' la ragione per cui `salti` NON
     sta ancora fra i valori attesi in apertura.
     """
     guai = problemi()
-    assert len(guai) == 7
+    assert len(guai) == 6
     assert all("nessuna dichiarazione in salti.py" in g for g in guai)
 
 
@@ -235,16 +235,16 @@ def test_le_due_reti_si_scoprono_a_vicenda():
     vorrebbe dire che `disegnate` da sola basta, e allora o il modulo va tolto
     o la rete ha smesso di guardare dove guardava."""
     confronto = salti.confronto()
-    assert sum(len(r["solo_mie"]) for r in confronto) == 50
+    assert sum(len(r["solo_mie"]) for r in confronto) == 35
     assert sum(len(r["solo_sue"]) for r in confronto) > 0
 
 
 def test_una_dichiarazione_col_conto_sbagliato_si_accende(monkeypatch):
-    finto = {"item_func.hsp": salti.Dichiarazione("fronte", 14, "conto vecchio")}
+    finto = {"tcg.hsp": salti.Dichiarazione("fronte", 11, "conto vecchio")}
     monkeypatch.setattr(salti, "DICHIARATI", finto)
     guai = problemi()
-    assert any("dichiarate 14 stringhe che saltano a schermo, nel sorgente ne "
-               "sono 15" in g for g in guai)
+    assert any("dichiarate 11 stringhe che saltano a schermo, nel sorgente ne "
+               "sono 12" in g for g in guai)
 
 
 def test_una_dichiarazione_diventata_inutile_si_accende(monkeypatch):

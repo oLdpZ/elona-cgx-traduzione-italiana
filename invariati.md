@@ -1204,3 +1204,24 @@ tasto F7 della modalità mago. Nessuna delle tre si tocca.
 | `Immune` | `tcg.hsp:969`, l'etichetta del tratto `TCG_BIT_IMMUNE` nella scheda di una carta. **Italiano che coincide**: «immune» si scrive così. ⚠️ **Non è una decisione nuova: è una decisione della 127ª rimasta in prosa** — la sezione «Le ultime righe nude sparse» qui sopra la spiega da undici sessioni, ma la spiega in un paragrafo, e i paragrafi non li legge nessuno strumento. È la lezione della 138ª applicata all'indietro: una decisione va scritta dove la cerca chi misura |
 | `Mana ` | `tcg.hsp:3480`, il mana del giocatore nel riepilogo di inizio partita (`mes "Mana " + cpdata@tcg(TCG_PLAYER_MAX_MANA, 0)`). `glossario.md:52` tiene «Mana» fra gli invariati da sessioni — «termine acquisito» — e le tre righe sorelle (`"Life "`, `"Card "`, `"Domain * "`) sono già toppate. ⚠️ **Lo spazio in coda è portante**: separa la parola dal numero, ed è la ragione per cui la riga del glossario non bastava — il valore dichiarato là è `Mana`, questo è `Mana ` |
 | `d` | `command.hsp:10750`, la «d» dei dadi nella riga della protezione della scheda: `mes "" + (100 - 10000 / (prot + 100)) + "% + " + protdice1 + "d" + protdice2`, che a schermo fa «2d5». **Non è una parola: è la notazione dei dadi**, e in italiano si scrive con la stessa lettera — «2d5» si legge «due dadi a cinque facce» in tutt'e due le lingue. È il caso di `t ` e di `Info` visto dal lato della notazione invece che da quello dell'abbreviazione |
+
+## Le sigle del pannello dell'equipaggiamento che la rete del salto ha ripresentato — 141ª
+
+Stessa specie delle due sezioni qui sopra, e la terza rete che le ripresenta.
+`strumenti/salti.py` parte da chi disegna e **segue la variabile anche quando
+l'assegnazione sta dentro un `if` a graffe**: `item_func.hsp:2612`-`:2626`
+riempie `locvar_equipinfo_s` così quindici volte, con le sigle a quattro
+caratteri delle abilità potenziate su un oggetto equipaggiato.
+
+⭐ **Quattordici delle quindici si toppano** — `Read` diventa `Lett`, `Hv-A`
+diventa `Cora` — e le fa `strumenti/genera_toppe_tag_equip.py`, che ricava ogni
+sigla dal nome italiano dell'abilità e rilegge il dizionario per accorgersi se
+quel nome cambia. Qui sotto sta l'unica che non si tocca.
+
+⚠️ Il tetto è di **quattro caratteri**, e non è una stima in pixel:
+`item_func.hsp:2629` fa `strmid(locvar_equipinfo_s, 0, 4)`. Una sigla più
+lunga non sborda dal pannello — viene tagliata.
+
+| valore | motivo |
+|---|---|
+| `Trap` | `item_func.hsp:2623`, la sigla di `Disarmo trappole` nel pannello dell'equipaggiamento. **Italiano che coincide**, come `Info`, `t ` e `Immune` nelle sezioni qui sopra: la sigla abbrevia «trappole», che si scrive con le stesse quattro lettere di `trap`. ⚠️ **Non è l'inglese lasciato lì per pigrizia**: le altre quattordici sigle della stessa fila sono tutte cambiate, e questa è l'unica dove la forma italiana e quella inglese arrivano allo stesso posto. Cambiarla — `D-Tr`, `Dis.` — allontanerebbe la sigla dalla parola che il giocatore legge nella lista delle abilità, che è proprio quel che il rinvio al dizionario esiste per impedire |

@@ -112,7 +112,14 @@ _SEZIONI_INVARIANTI = ("Valori di dato", "Versi senza contenuto linguistico",
                        # ma qui la decisione non era gia' scritta nel
                        # glossario: si prende adesso, e il criterio di `Lv` e'
                        # il giapponese (レベル la parola, `Lv` la sigla).
-                       "Le sigle e i segni nudi")
+                       "Le sigle e i segni nudi",
+                       # 141a: `Trap`, l'unica delle quindici sigle del
+                       # pannello dell'equipaggiamento che non si tocca --
+                       # abbrevia «trappole» con le stesse quattro lettere di
+                       # `trap`. Le altre quattordici sono toppe di
+                       # `genera_toppe_tag_equip.py`. La rete che le ha
+                       # ripresentate e' la terza, `strumenti/salti.py`.
+                       "Le sigle del pannello dell'equipaggiamento")
 _SEZIONI_NON_INVARIANTI = ("Da decidere", "Nomi di creatura")
 
 # ⚠️ La terza categoria, nata nella 132a. Le due liste qui sopra rispondono
