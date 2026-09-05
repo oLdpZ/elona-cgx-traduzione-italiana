@@ -207,22 +207,47 @@ def test_del_fronte_di_50_ne_restano_6_e_sono_dichiarate():
     """
     per_file = {r["file"]: r["distinte"] for r in salti.censimento()
                 if r["distinte"]}
-    assert per_file == {"command.hsp": 4, "map_func.hsp": 2}
-    assert sum(per_file.values()) == 6
+    assert per_file == {"system.hsp": 76, "command.hsp": 17, "text.hsp": 12,
+                        "chat.hsp": 3, "net.hsp": 3, "map_func.hsp": 2,
+                        "action.hsp": 1, "main.hsp": 1}
+    assert sum(per_file.values()) == 115
     for nome in ("item_func.hsp", "tcg.hsp", "custom_ai.hsp", "config.hsp",
                  "custom_tweaks.hsp"):
         assert nome not in per_file
 
 
-def test_il_cancello_e_verde_e_le_due_dichiarazioni_dicono_perche():
+def test_delle_115_una_sola_famiglia_era_testo():
+    """⚠️⚠️ **Il numero grosso non e' il fronte.** Aperto il terzo punto cieco
+    il censimento e' passato da 6 a 121 stringhe, e di quelle **sei** erano
+    testo — le qualita' del CNPC evocato, lavorate nella stessa 141a. Le altre
+    115 sono infrastruttura che finisce sotto gli occhi di chi disegna:
+    76 nomi di file, 12 marcatori di missione, 13 chiavi di classe, tre
+    percorsi di ritratto, due indirizzi di rete, quattro segnaposto.
+
+    ⚠️ E' la lezione della 140a in un'altra forma: un contatore che cresce non
+    dice quanto lavoro c'e', dice quanto la rete guarda. Lo spacco fra deciso
+    e residuo lo fanno le dichiarazioni, non il totale.
+    """
+    per_file = {r["file"]: r for r in salti.censimento()}
+    # ⭐ le sei qualita' sono uscite dal censimento perche' sono TRADOTTE
+    testo = (percorsi.SORGENTE_HSP / "command.hsp").read_bytes().decode("cp932")
+    valori = {t[3] for t in scoperte_di("command.hsp", testo)}
+    for qualita in ("Bad ", "Legendary ", "Well-Known "):
+        assert qualita in valori, "la rete deve continuare a VEDERLE"
+    assert per_file["command.hsp"]["distinte"] == 17
+
+
+def test_il_cancello_e_verde_e_ogni_dichiarazione_dice_perche():
     """⚠️⚠️ **Questa rete e' nata rossa**, ed e' stata l'unica del progetto a
     nascere cosi': un censimento nuovo che nascesse verde vorrebbe dire che non
     ha trovato niente. Adesso e' verde perche' ogni file e' o lavorato o
     dichiarato — non perche' la rete abbia smesso di guardare, e le due cose si
-    distinguono da `test_del_fronte_di_50_ne_restano_6_e_sono_dichiarate`.
+    distinguono da `test_delle_115_una_sola_famiglia_era_testo`.
     """
     assert problemi() == []
-    assert set(DICHIARATI) == {"command.hsp", "map_func.hsp"}
+    assert set(DICHIARATI) == {"system.hsp", "command.hsp", "text.hsp",
+                               "chat.hsp", "net.hsp", "map_func.hsp",
+                               "action.hsp", "main.hsp"}
 
 
 def test_quel_che_disegnate_vede_gia_non_si_dichiara_due_volte():
@@ -232,8 +257,11 @@ def test_quel_che_disegnate_vede_gia_non_si_dichiara_due_volte():
     prima o poi divergono. E' la 136a, dove un file contato due volte ha
     sbagliato un referto di 800 stringhe."""
     per_file = {r["file"]: r for r in salti.censimento()}
-    assert per_file["action.hsp"]["viste"] == 12
-    assert per_file["action.hsp"]["distinte"] == 0
+    # 13 viste = le 12 chiavi di classe piu' `%txtName`, che il terzo punto
+    # cieco ha aggiunto; solo `%txtName` resta da dichiarare qui, le altre
+    # dodici sono gia' di `disegnate` e restano sue.
+    assert per_file["action.hsp"]["viste"] == 13
+    assert per_file["action.hsp"]["distinte"] == 1
     assert "action.hsp" in disegnate.DICHIARATI
 
 
@@ -242,17 +270,17 @@ def test_le_due_reti_si_scoprono_a_vicenda():
     vorrebbe dire che `disegnate` da sola basta, e allora o il modulo va tolto
     o la rete ha smesso di guardare dove guardava."""
     confronto = salti.confronto()
-    assert sum(len(r["solo_mie"]) for r in confronto) == 6
+    assert sum(len(r["solo_mie"]) for r in confronto) == 115
     assert sum(len(r["solo_sue"]) for r in confronto) > 0
 
 
 def test_una_dichiarazione_col_conto_sbagliato_si_accende(monkeypatch):
-    finto = {"command.hsp": salti.Dichiarazione("fronte", 3, "conto vecchio"),
-             "map_func.hsp": DICHIARATI["map_func.hsp"]}
+    finto = dict(DICHIARATI)
+    finto["command.hsp"] = salti.Dichiarazione("fronte", 16, "conto vecchio")
     monkeypatch.setattr(salti, "DICHIARATI", finto)
     guai = problemi()
-    assert any("dichiarate 3 stringhe che saltano a schermo, nel sorgente ne "
-               "sono 4" in g for g in guai)
+    assert any("dichiarate 16 stringhe che saltano a schermo, nel sorgente ne "
+               "sono 17" in g for g in guai)
 
 
 def test_una_dichiarazione_diventata_inutile_si_accende(monkeypatch):
@@ -335,3 +363,36 @@ def test_nella_build_il_marcatore_dell_IA_e_italiano():
     assert testo.count('s += "(T)"') == 2
     assert '"(P)"' not in testo
     assert "Tieni il soggetto come bersaglio" in testo
+
+
+# --- il terzo punto cieco: la variabile concatenata dentro l'argomento -----
+
+def test_vede_la_variabile_CONCATENATA_dentro_l_argomento():
+    """⭐⭐ IL TERZO CASO VERO. `command.hsp:7724` e' `txt lang("…", "A " + s +
+    " is summoned from another world!")`: il primo simbolo dopo il comando e'
+    `lang`, e le reti perdevano `s` — che porta la qualita' e il nome del CNPC
+    evocato. Non era un salto in piu': era un'altra ancora."""
+    testo = _testo("*evoca",
+                   '\tif ( q == 5 ) { s = "Legendary " }',
+                   '\ttxt lang("召喚した！", "A " + s + " is summoned!")')
+    assert _valori(testo) == ["Legendary "]
+
+
+def test_un_letterale_dentro_la_coda_non_diventa_un_nome():
+    """⚠️ I letterali si tolgono prima di cercare i nomi, o `lang("Have a nice
+    day")` darebbe «Have», «a», «nice», «day» come variabili — e ognuna di
+    quelle, se qualcuno la assegnasse altrove, porterebbe testo che non
+    c'entra niente."""
+    assert salti._disegnate_sulla_riga('\tmes lang("Have a nice day", "x")') \
+        == {"lang"}
+
+
+def test_la_qualita_del_CNPC_e_l_unico_testo_del_terzo_punto_cieco():
+    """⚠️⚠️ Il censimento e' passato da 6 a 121 stringhe e il **lavoro** era
+    di sei. Le altre 115 sono nomi di file, marcatori e chiavi: la prova che
+    un contatore che cresce dice quanto la rete guarda, non quanto c'e' da
+    fare."""
+    testo = (percorsi.SORGENTE_HSP / "command.hsp").read_bytes().decode("cp932")
+    valori = {t[3] for t in scoperte_di("command.hsp", testo)}
+    assert {"Bad ", "Common ", "Skilled ", "Professional ", "Legendary ",
+            "Well-Known "} <= valori

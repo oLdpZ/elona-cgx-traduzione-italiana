@@ -102,6 +102,10 @@ _ASSEGNA = re.compile(r"(?:^|[{:])\s*(%s)\s*(?:\([^)]*\))?\s*\+?=(?!=)\s*"
 # Il primo argomento di un comando che disegna: `mes s`, `mes s(cnt * 2)`.
 _ARGOMENTO = re.compile(r"^(%s)\s*(?:\([^)]*\))?\s*(?:$|[,)+\s])" % _NOME)
 
+# Ogni nome nella coda di un comando che disegna, non solo il primo: e' il
+# terzo punto cieco, quello della variabile CONCATENATA dentro l'argomento.
+_NOME_NELLA_CODA = re.compile(r"(?<![A-Za-z0-9_@])(%s)" % _NOME)
+
 _LETTERALE = disegnate._LETTERALE
 _COMANDO = disegnate._COMANDO
 
@@ -128,10 +132,82 @@ class Dichiarazione:
 # della 140a, dove quattro motivi su sette dicevano una cosa falsa. Chi tocca
 # una di queste righe verifichi il motivo prima di ereditarlo.
 DICHIARATI: dict[str, Dichiarazione] = {
+    # ⭐ Le sei dichiarazioni qui sotto sono nate col TERZO punto cieco: da
+    #    quando la rete guarda ogni nome nella coda di un comando che disegna,
+    #    e non piu' il solo primo, vede anche quel che una variabile porta
+    #    dentro un `dialog`, un `mes` o una `lang()` per concatenazione.
+    #    ⚠️ Il ritrovamento vero e' stato UNO — le sei qualita' del CNPC
+    #    evocato — e tutto il resto e' infrastruttura che finisce sotto gli
+    #    occhi di chi disegna senza essere testo.
+    "system.hsp": Dichiarazione(
+        "esente", 76,
+        "⚠️ **Nessuna delle 76 e' testo: sono nomi di file, di cartella e di "
+        "campo.** Il file monta i percorsi del salvataggio in `file` e in "
+        "`folder` — `gdata.s1`, `cdata_`, `tmp\\\\map_`, `save\\\\*` — e le "
+        "stesse variabili finiscono dentro le finestre d'errore che dicono "
+        "quale file non si e' potuto aprire, che e' il motivo per cui la rete "
+        "le vede. Tradurle vorrebbe dire cercare un salvataggio che non "
+        "esiste. ⭐ Le quattro che non sono percorsi sono chiavi di campo di "
+        "un CSV (`name.`, `irangepow.`, `irangehit.`, `unknown,unknown`), "
+        "cioe' la stessa specie: quel che il codice confronta, non quel che "
+        "il giocatore legge. ⚠️ Le tre finestre d'errore vere di questo file "
+        "— «invalid version», «Failed to get WINDOW ID», «Failed to get "
+        "OBJECT ID» — stanno gia' dichiarate in `disegnate.DICHIARATI`, e non "
+        "si contano due volte."),
+    "text.hsp": Dichiarazione(
+        "esente", 12,
+        "I dodici marcatori di tipo di missione (`%HARVEST`, `%TRAP,`, "
+        "`%PARTY`, `%ESCORT,`, `%HUNT`, `%SUPPLY`, `%DELIVER,`, `%COOK,`, "
+        "`%COOK,GENERAL`, `%CONQUER`, `%HUNTEX`, `%COLLECT`), messi in `s` "
+        "fra `:11698` e `:11829` e passati a `*talk_quest_load`. ⚠️ **Non "
+        "sono testo: sono la CHIAVE con cui il caricatore va a pescare la "
+        "battuta** dentro `data/talk.txt`, e il `%` in testa e' il segno che "
+        "il progetto usa per i marcatori. Tradurli scollegherebbe ogni "
+        "missione dalle sue frasi — che sono tradotte, e stanno nel file di "
+        "dato."),
+    "chat.hsp": Dichiarazione(
+        "esente", 3,
+        "Tre marcatori di `*chat_unique`: `%txt_ucnpc_ev_b` e "
+        "`%txt_ucnpc_ev_e` (`:953`) delimitano il blocco degli eventi di un "
+        "CNPC dentro il file di dato del giocatore, e `{ev}` (`:1005`) e' il "
+        "segnaposto che ci sta in mezzo. Stessa specie dei `%…` di "
+        "`text.hsp`: chiavi che il codice confronta."),
+    "net.hsp": Dichiarazione(
+        "esente", 3,
+        "Due indirizzi di rete (`homepage3.nifty.com`, "
+        "`noaneko.squares.net`) e la parola `net`, che e' il nome della "
+        "voce di elenco. Gli indirizzi sono quelli del sito di monte e "
+        "finiscono nel diario della connessione: il file e' gia' esente in "
+        "`copertura` e in `disegnate` per la stessa ragione."),
+    "action.hsp": Dichiarazione(
+        "esente", 1,
+        "`%txtName` (`:4815` e `:5308`), il segnaposto che il compositore "
+        "delle frasi di combattimento sostituisce col nome della creatura. "
+        "⚠️ **Non e' testo: e' un buco nel testo**, ed e' la stessa famiglia "
+        "dei `%…` di `text.hsp`. Le dodici chiavi di classe di questo file "
+        "sono dichiarate in `disegnate.DICHIARATI` e non si contano due "
+        "volte."),
+    "main.hsp": Dichiarazione(
+        "esente", 1,
+        "`\\\\..\\\\assets\\\\2.05-custom-gx\\\\` (`:58`), il pezzo di "
+        "percorso che porta alla cartella delle risorse e che finisce in "
+        "`exedir`. Non e' testo, ed e' la stessa specie dei 76 di "
+        "`system.hsp`."),
     "command.hsp": Dichiarazione(
-        "fronte", 4,
-        "⚠️ **Tre delle quattro non sono testo: sono pezzi di un percorso di "
-        "file.** `:10449` monta `exedir + \"user\\\\graphic\\\\face\" + n + "
+        "fronte", 17,
+        "⚠️ **Tredici delle diciassette sono le CHIAVI DI CLASSE** "
+        "(`:4591`-`:4624`): `cdatan(CDATAN_CLASS, …) = \"warrior\"` dentro "
+        "`*com_wish`, cioe' il comando dei desideri, e sono lo stesso valore "
+        "che `db_class.hsp:61` scrive alla creazione e che il resto del gioco "
+        "confronta 77 volte in 13 file. Renderle «Guerriero» spegnerebbe il "
+        "costo degli incantesimi del mago e il colpo in piu' del guerriero: "
+        "la dichiarazione lunga sta in `disegnate.DICHIARATI` per `action.hsp` "
+        "e vale identica qui. ⭐ L'etichetta che il giocatore legge e' "
+        "un'ALTRA stringa, `classname`, e il dizionario la rende. ⚠️ E "
+        "`temp` (`:537`) e' il nome della cartella d'appoggio "
+        "dell'importazione, non una parola. "
+        "⚠️ **Tre delle quattro che restano non sono testo: sono pezzi di un "
+        "percorso di file.** `:10449` monta `exedir + \"user\\\\graphic\\\\face\" + n + "
         "\".bmp\"` e `:11804` fa lo stesso con `\"user\\\\graphic\\\\Pic_\"`, "
         "e finiscono in `s` — la stessa variabile che venti righe piu' giu' "
         "quel blocco disegna. E' il falso positivo che l'ambito del blocco "
@@ -199,12 +275,27 @@ def blocchi(righe: list[str]) -> list[tuple[str, int, int]]:
 
 
 def _disegnate_sulla_riga(riga: str) -> set[str]:
-    """I nomi passati come primo argomento a un comando che disegna."""
+    """OGNI nome che compare nella coda di un comando che disegna.
+
+    ⚠️⚠️ **Il terzo punto cieco, e la 141a l'ha trovato per caso.** Fino a
+    questa riga le tre reti prendevano il **primo** simbolo dopo il comando:
+
+        mes s                                       ->  vede `s`
+        txt lang("…", "A " + s + " is summoned…")   ->  vede `lang`, perde `s`
+
+    `command.hsp:7715-:7724` monta in `s` la qualita' del CNPC evocato —
+    `Bad `, `Common `, `Skilled `, `Professional `, `Legendary `,
+    `Well-Known ` — e la infila **dentro** il ramo inglese di una `lang()`.
+    E' testo a schermo, e non era un salto in piu': era un'altra ancora, la
+    terza dopo quella della graffa e quella del nome generico.
+
+    ⚠️ I letterali si tolgono prima di cercare i nomi, o `lang("Have a nice
+    day")` darebbe «Have», «a», «nice», «day» come nomi di variabile.
+    """
     fuori = set()
     for trovato in _COMANDO.finditer(riga):
-        nome = _ARGOMENTO.match(riga[trovato.end():].lstrip())
-        if nome:
-            fuori.add(nome.group(1))
+        coda = _LETTERALE.sub('""', riga[trovato.end():])
+        fuori |= set(_NOME_NELLA_CODA.findall(coda))
     return fuori
 
 
