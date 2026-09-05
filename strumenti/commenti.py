@@ -23,6 +23,7 @@ l'`if ( 0 )`. Misurata: 9 righe con una `lang()` in tutto il sorgente, di cui
 **una gia' tradotta** (`command.hsp:17515`), cioe' lavoro speso su testo che il
 giocatore non legge.
 """
+import re
 from pathlib import Path
 
 
@@ -93,3 +94,60 @@ def lang_spenta_da_barre(riga: str) -> bool:
     """Vero se la riga porta una `lang()` che sta **dopo** un `//`."""
     colonna = colonna_commento_riga(riga)
     return colonna is not None and "lang(" in riga[colonna:]
+
+
+_IF_ZERO = re.compile(r"^\s*if\s*\(\s*0\s*\)\s*\{")
+
+
+def _graffe(riga: str) -> tuple[int, int]:
+    """Le graffe che contano: fuori dalle stringhe e fuori dal commento."""
+    colonna = colonna_commento_riga(riga)
+    if colonna is not None:
+        riga = riga[:colonna]
+    apre = chiude = 0
+    dentro_stringa = False
+    for carattere in riga:
+        if carattere == '"':
+            dentro_stringa = not dentro_stringa
+        elif dentro_stringa:
+            continue
+        elif carattere == ";":
+            break
+        elif carattere == "{":
+            apre += 1
+        elif carattere == "}":
+            chiude += 1
+    return apre, chiude
+
+
+def righe_in_ramo_spento(percorso: Path | str) -> set[int]:
+    """I numeri di riga (1-based) dentro un `if ( 0 ) { … }`.
+
+    ⚠️⚠️ **E' la quinta famiglia di riga morta, e il progetto la SCRIVE.**
+    `genera_toppe_nomi.py:359` spegne cosi' il pluralizzatore inglese di
+    `item_func.hsp:2041` — «il plurale italiano viene da
+    `ioriginalnamerefplur`» — e nella build ce ne sono sei blocchi. Una rete che
+    legge `build/` e non conosce questa forma riapre come fronte proprio il
+    codice che il progetto ha appena spento: le quattro righe del plurale
+    inglese (`"coffins"`, `"ves"`, `"ies"`) sarebbero sembrate una chiave
+    rimasta in inglese dentro un nome italiano, e non girano piu' dalla 131a.
+
+    ⚠️ Guarda solo la forma con la graffa sulla stessa riga, che e' quella che
+    il progetto scrive e l'unica presente nella build. Un `if ( 0 )` senza
+    graffe spegne la sola riga dopo, e questa funzione **non lo vede**.
+    """
+    testo = Path(percorso).read_bytes().decode("cp932", "replace").split("\n")
+    morte: set[int] = set()
+    profondita = 0
+    for n, riga in enumerate(testo, 1):
+        if profondita == 0:
+            if not _IF_ZERO.match(riga):
+                continue
+            apre, chiude = _graffe(riga)
+            profondita = apre - chiude
+            morte.add(n)
+            continue
+        morte.add(n)
+        apre, chiude = _graffe(riga)
+        profondita += apre - chiude
+    return morte
