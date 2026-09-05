@@ -1,13 +1,13 @@
 # Ripresa sessione
 
-Aggiornato: 2026-09-05, fine della **centoquarantunesima** sessione (**il
-secondo salto non c'era: erano tre ancore, e una resa buttava via un
-operando**).
+Aggiornato: 2026-09-05, fine della **centoquarantaduesima** sessione (**il
+succo parla italiano, l'ultimo rinvio in attesa di toppa esisteva gia', e due
+toppe scrivevano la stessa cosa nello stesso punto**).
 
-⭐ **L'ESEGUIBILE IN GIOCO E' FRESCO: 14:03 del 05/09** (17.672.161 byte), e
-contiene tutto il lavoro della 141a: le 15 sigle del pannello
-dell'equipaggiamento, il marcatore `(T)` dell'editor dell'IA, le 6 qualita' del
-CNPC evocato con la giuntura spostata. ⓘ Si legge con
+⭐ **L'ESEGUIBILE IN GIOCO E' FRESCO: 18:58 del 05/09** (17.672.345 byte), e
+contiene tutto il lavoro della 142a: il succo nell'ordine italiano, la taglia
+del pesce in coda, il cioccolatino della dea dei desideri, la forza eterna in
+coda e le due battute del desiderio che rispondono all'italiano. ⓘ Si legge con
 `ls -l C:\Games\Elona\elonaplus2.31\cgx-test.exe`. I sei file dati non sono
 cambiati.
 
@@ -23,6 +23,14 @@ cambiati.
 
 ⚠️ **`strumenti.installa` NON ESISTE**: l'ultimo passo e' una copia a mano.
 
+⚠️⚠️⚠️ **E i cinque passi dopo `applica` NON sono facoltativi: in apertura della
+142a `pytest` era ROSSO per questo.** L'albero di build portava un `applica`
+delle 18:11 lanciato **da solo**, senza i quattro `--applica` che vengono dopo,
+e due test che leggono la build sono caduti. Non era una regressione del codice:
+era la catena lasciata a meta'. ⓘ Chi lancia `applica` per qualunque motivo —
+anche solo per guardare un numero — deve rilanciare tutti e cinque i passi che
+seguono, o l'albero resta in uno stato che nessun documento descrive.
+
 ⚠️ `scratchpad/perimetro.py` vuole **due** variabili d'ambiente, non una:
 `PYTHONPATH=.` **e** `PYTHONIOENCODING=utf-8`.
 
@@ -30,6 +38,235 @@ cambiati.
 la 141a ci ha perso un giro perche' la shell ha mangiato le barre rovesce di
 una regex (`[^"\\]` e' diventato `[^"]`), e l'errore e' arrivato come
 `re.PatternError` a venti righe di distanza dalla causa.
+
+---
+
+## LA COSA CHE PESA DI PIU' DELLA 142a: due toppe scrivevano la stessa cosa nello stesso punto, e nessuna guardia lo vedeva
+
+Ho scritto una toppa per `fix_wish` (`module.hsp:4804`) convinto che il fronte
+fosse aperto: nel **sorgente** quella funzione toglie solo i nomi inglesi degli
+oggetti (`card of `, `figure `, `golden doll`, `flesh doll`), e coi nomi
+italiani non aggancia piu' niente. Era vero, ed era gia' riparato: la **toppa
+772** aggiunge le dodici forme italiane dalla 138a.
+
+Le due toppe non si somigliavano — la 772 aggancia la riga sola
+`cnv_str fix_wish_arg1, "flesh doll", ""`, la mia il **blocco di tre** righe che
+finisce con quella — quindi:
+
+- il mio controllo dei doppioni, che confronta `cerca` per uguaglianza, non ha
+  visto niente;
+- `applica` non si e' fermata, perche' ogni ancora compare una volta sola e la
+  seconda toppa ha lavorato sul testo che la prima aveva gia' scritto;
+- nella build le dodici righe italiane sono finite **due volte**, e la build
+  compilava lo stesso.
+
+⭐ **La regola c'era gia', ed e' della 129a**: «che cosa si misura per dire
+*risolta da toppa*: **la build, non l'elenco delle toppe**». L'avevo applicata
+ai rinvii e non a un punto della lista delle cose aperte — e un punto di quella
+lista e' esattamente la stessa domanda: *quel che il giocatore riceve e' ancora
+l'inglese?* La risposta si legge in `_traduzione/build/`, mai in
+`_traduzione/sorgente/`.
+
+⭐ **E adesso c'e' la rete**: `applica.toppe_annidate()` segnala ogni coppia in
+cui il `cerca` di una toppa sta **dentro** quello di un'altra, e
+`test_nessuna_toppa_del_progetto_e_annidata_in_un_altra` la fa girare su tutto
+`toppe.jsonl`. ⚠️ Non chiede che due toppe non condividano una riga: `module.hsp`
+ne ha due legittime che iniziano tutt'e due con `s = "Page." ...` e si
+distinguono per la riga di contorno; quel che non ha senso e' il **contenimento**.
+⭐ La prova al contrario e' scritta sul caso vero e dice **quale** coppia trova,
+non un ✅.
+
+---
+
+## ⭐⭐ IL FRONTE PIU' GROSSO CHE RESTAVA E' CHIUSO: i sette rinvii di `item_func.hsp`
+
+Erano l'unico gruppo di lavoro grosso rimasto, e aspettavano tutti la stessa
+cosa: **la toppa che sposta la concatenazione**, perche' nessuna resa dentro una
+`lang()` puo' cambiare l'ordine dei pezzi (`contratto-nomi.md` §3).
+
+    ' ' 'mix' 'milk' 'juice'   item_func.hsp:923-938   il succo
+    'cm '                      item_func.hsp:1308      la taglia del pesce
+    'Wish Goddess '            item_func.hsp:1390      il cioccolatino
+    'eternal force'            item_func.hsp:1458      l'oggetto definitivo
+
+Le tre singole vanno tutte nella stessa fessura, `locvar_itemname_s6`, che la
+build riversa dopo `*skipName` (`:1899`) — la strada tracciata da `:1399`:
+
+    da 34cm            in coda al nome del pesce
+    della dea dei desideri   in coda al cioccolatino fatto a mano
+    della forza eterna       in coda all'oggetto definitivo
+
+⭐ **«la dea dei desideri» non e' una scelta nuova**: e' la resa gia' decisa per
+願いの女神 in `chat.hsp:13143`, `command.hsp:4449` e `proc.hsp:14492`. Una
+decisione presa altrove non si ridecide.
+
+### Il succo: il blocco riscritto, e l'articolo lo portava gia' il contatore
+
+In inglese il codice scrive il frutto e poi la parola «juice»; in italiano la
+testa e' **succo** e va davanti. Il blocco di 16 righe diventa di 21:
+
+    succo [misto] di <frutto> [al latte]
+
+- `ITEM_BIT_HERBED_IN` (ミックス) -> **«misto»**, che e' la parola che la
+  descrizione italiana dell'oggetto usa gia' («per farne un misto»);
+- `ITEM_BIT_ACIDPROOF` (オーレ, au lait) -> **«al latte»**, come «te' al latte»
+  deciso nella 96a per la coppia gemella del te';
+- l'elisione si decide **a runtime** sulla prima lettera del frutto, perche' il
+  frutto lo sceglie il giocatore col frullatore e puo' essere qualunque cibo:
+  «succo di mela», ma «succo d'uva».
+
+⭐⭐ **E qui c'e' un fatto che vale oltre il succo, ed e' un pezzo del punto 17
+della lista della 138a** («le quattro teste variabili senza articolo»):
+`ITEM_ID_JUICE` **non e' senza articolo**. Il suo nome in `db_item` e' la stringa
+vuota — tutto il nome nasce in `*itemNameSub` — ma il compositore gli mette
+davanti la parola-contatore **«bottiglia»** (`item_func.hsp:1234` della build),
+e da li' `locvar_itemname_s8` prende «una ». A schermo esce **«una bottiglia di
+succo di mela»**, e il nome resta al singolare anche in «due bottiglie di».
+⚠️ Delle altre tre teste (`NECRO_PARTS`, `PRODUCED_BOOK`, `EVITEM`) questa
+sessione **non ha misurato niente**: `PRODUCED_BOOK` ha l'aria di passare dallo
+stesso contatore, ma e' un'ipotesi, non una misura.
+
+---
+
+## ⭐ L'ULTIMO RINVIO IN ATTESA DI TOPPA ASPETTAVA UNA TOPPA CHE C'ERA GIA'
+
+Chiusi i sette di `item_func.hsp`, ne restava **uno** in tutto il progetto:
+`command.hsp:11066`, `s += lang("*", "#")`, rinviata «con la toppa che dara' un
+italiano al letterale nudo `"Have"` di `:11069`».
+
+Quella toppa esiste dalla 130a circa: nella build le due righe dicono **«Hai»**,
+con la larghezza misurata (la colonna sta fra `wx+282` e `wx+330`, 48 px, sei
+caratteri). Restava aperta solo la scheda del rinvio. Aggiornata a
+`morta_per_flusso` — che e' la condizione giusta, perche' **nessuna toppa tocca
+quella riga**: la `lang()` e' viva, il valore lo butta via `s = "Hai"` tre righe
+dopo, e a schermo ci arriva l'italiano per altra via.
+
+⭐ **`rinviate.jsonl` non ha piu' nessuna voce `attende_toppa`.** Non vuol dire
+che il progetto sia finito: vuol dire che non c'e' piu' nessuna resa ferma in
+attesa che qualcuno scriva un pezzo di codice.
+
+---
+
+## ⭐ LE DUE BATTUTE DEL DESIDERIO: la parola chiave si legge dalla risposta
+
+`command.hsp:4481` e `:4485` sono gli unici due siti della catena del desiderio
+che `genera_toppe_desideri.py` lasciava fuori **dichiarandolo**, perche' hanno
+la forma dell'`instr` e non del confronto, e perche' «vogliono una decisione
+sulla battuta».
+
+La decisione non ha avuto bisogno di inventare niente: la **risposta** dice gia'
+«Dev'essere dura per il **dio dentro**...» e «Dev'essere dura per la **persona
+dentro**.», quindi la chiave e' quella. Le due forme si sono **aggiunte** in
+`or` accanto al giapponese e all'inglese, come vuole la regola del generatore:
+il letterale a destra non e' un'etichetta, e chi conosce il gioco di monte deve
+continuare a poter scrivere «god inside».
+
+ⓘ La dichiarazione di `copertura` per `command.hsp` passa percio' da **3** a
+**1**, e quello che resta e' `"ElonaPlus Custom-GX "` di `:413`, operando di uno
+`sreplace`.
+
+---
+
+## Le trappole che la 142a ha trovato
+
+⚠️⚠️ **Una coordinata di `maiuscole.GIUDICATI` si e' mossa per la quarta volta**,
+e per la ragione di sempre: la chiave di quella tabella e' una riga nella
+**build**, e la build la muoviamo noi. `item_func.hsp:2368` -> `:2374`, cioe'
++6, che e' esattamente quel che aggiungono la toppa del succo (+5) e quella
+della taglia del pesce (+1). Il test ha ragione a scattare; il rimedio e'
+rileggere la riga, non allentare il test.
+
+⚠️ **Un `lang()` puo' essere ancora scoperto quando il testo che stampa e' gia'
+tradotto.** I due `instr` scherzosi stampavano italiano da sessioni, ma la
+parola che li accendeva era inglese: `copertura` li contava, ed era giusto
+contarli. Il testo a schermo e la chiave che ci arriva sono due cose diverse.
+
+⚠️ **In HSP un'espressione che mescola stringa e aritmetica non si riscrive a
+occhio.** La riga della taglia del pesce e' `"" + peso / 100 * sqrt(...)`, e
+spostare quel conto dentro un'altra concatenazione avrebbe voluto sapere come
+HSP ordina gli operatori. Il conto e' rimasto **identico**, in una riga sua
+(`locvar_itemname_s12`), e la concatenazione italiana usa il risultato.
+
+⚠️ **`succo di grappolo d'uva`.** Il nome italiano dell'uva in `db_item` e'
+«grappolo d'uva», e col genitivo esce cosi'. Non e' sbagliato, ma e' brutto, e
+si vede solo a schermo: e' uno dei punti da guardare nel collaudo.
+
+---
+
+## I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 142a
+
+    pytest                   **1.127 passed**, 6 skipped (erano 1.124: +3 la
+                             rete delle toppe annidate)
+    prova_identita           72/72 e 30.905, invariato
+    scene --referto          1701 su 1701, 0 fuori misura
+    carte --referto          833/833, 0 fuori misura
+    schede --referto         72 su 72, 0 fuori misura
+    dialoghi --referto       74 su 74, 0 fuori misura
+    disegnate                verde, tutte dichiarate
+    copertura                0 fronti, 0 scoperte (command.hsp: 1, era 3)
+    salti                    verde, tutte dichiarate
+    salti --misti            38 letterali misti, 0 ancora scoperti
+    toppe                    **1.426** (erano 1.420)
+    applica                  30.766 sostituzioni, nessun ATTENZIONE
+    perimetro                28.028 fatte, 0 da fare, 100,0%
+                             (**31.795** coi file dati)
+                             ⚠️ `PYTHONPATH=. PYTHONIOENCODING=utf-8`
+    verifica --dizionario    0 da ritradurre, uscita 0
+    rinviate `attende_toppa` **0** (era 8)
+
+⚠️ **Nessuno di questi numeri si eredita da qui: si rilanciano.**
+
+---
+
+## Che cosa guardare adesso, dopo la 142a
+
+⚠️ Questa lista **sostituisce** quella della 141a qui sotto per i punti che
+nomina; gli altri restano validi la' dove sono.
+
+1. ⭐⭐⭐ **Il collaudo a schermo, ed e' rimasto l'unico debito grosso** — e da
+   questa sessione lo e' senza rivali, perche' non c'e' piu' nessun rinvio in
+   attesa di codice. Le schermate nuove, con i comandi verificati nel sorgente:
+   - **il succo**: `spawn_item 1004` (frullatore), `spawn_item 180` (mela),
+     `spawn_item 181` (grappolo d'uva), `spawn_item 574` (bottiglia di latte).
+     Usare il frullatore su un frutto -> «una bottiglia di succo di mela»;
+     versare il latte sul succo -> «al latte»; versare un succo su un altro
+     succo -> «misto»;
+   - **il desiderio**: `spawn_item 290` (bacchetta dei desideri). Scrivendo
+     `cioccolato`/`chocolate` esce **il cioccolatino della dea dei desideri**;
+     scrivendo `dio dentro` e `persona dentro` escono le due battute;
+     scrivendo `carta di putit` esce la carta giusta e non quella della `@`;
+   - il **pannello dell'equipaggiamento** (`showresist == 3`) e le 15 sigle,
+     l'**evocazione di un CNPC**, il marcatore `(T)` dell'editor dell'IA —
+     restano dalla 141a e non sono stati visti.
+   ⚠️ **La forza eterna e la taglia del pesce non hanno un comando facile**:
+   `ITEM_BIT_ULTIMATE` arriva a caso sulle armi di qualita' divina
+   (`item_data.hsp:1230`), e la taglia in centimetri vuole un pesce crudo
+   (`FILTER_ITEM_FOOD`, `PARAM1/1000 == 6`, `PARAM2 == 0`).
+2. ⭐⭐ **Le tre stringhe che hanno gia' la parola e aspettano la larghezza**,
+   invariate dalla 141a: `Rank.` (`command.hsp:3638`), `Free` / `NPC/TOWN`
+   (`map_func.hsp:2053`). Nessuna si chiude calcolando meglio.
+3. ⭐ **Gli 11 nomi di abilita' tagliati a quattro caratteri**, invariato: e
+   **quante il pannello ne disegni davvero non e' misurato**.
+4. ⭐ **Le tre teste variabili di cui non si sa l'articolo** — `NECRO_PARTS`,
+   `PRODUCED_BOOK`, `EVITEM`. Erano quattro: il succo e' misurato adesso, e la
+   risposta era la parola-contatore. Le altre tre vogliono la stessa misura,
+   che e' di dieci minuti: si guarda se `locvar_itemname_s2` prende un
+   contatore per quell'oggetto.
+5. **Sei rinvii aspettano il monte** (`chat.hsp:19327`, `:19334`, `:13991`,
+   `:14036`-`:14038`): righe commentate a monte, cioe' codice morto. Non si
+   possono fare.
+6. ✅ ~~I sette rinvii di `item_func.hsp`~~, ~~i due `instr` scherzosi~~,
+   ~~l'ultimo `attende_toppa`~~ — **fatti**.
+
+⚠️ Restano aperti, invariati, i punti 9, 10, 11, 15, 16, 18, 19 e 20 della
+lista della 138a qui sotto — il difetto di «ragon», `tcg_skill.hsp:2003`,
+`efftalk@tcg`, i due omografi, `Rehmido`, la rete degli operandi di
+sostituzione, le due reti sulle toppe e la coda nuda di `chat.hsp:17065`.
+⚠️⚠️ **E non sono stati riverificati dalla 142a.** Il punto 17 e' stato tolto
+dall'elenco perche' e' diventato il punto 4 qui sopra, ridotto a tre teste su
+quattro. ⚠️ Il punto **12** (`module.hsp`, i prefissi inglesi di `fix_wish`)
+**era gia' chiuso dalla 138a**, e questa sessione l'ha scoperto rifacendolo:
+prima di riaprire un punto di questa lista si guarda la **build**.
 
 ---
 

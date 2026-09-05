@@ -6,6 +6,142 @@ ancora aperte.
 
 ---
 
+## Il succo si compone dalla testa, e l'articolo lo portava gia' il contatore — 2026-09-05, centoquarantaduesima
+
+`item_func.hsp:923-938` costruisce il nome del succo alla maniera inglese: prima
+il frutto (`iknownnameref` del sotto-nome), poi ミックス/オーレ/ジュース. In
+italiano la testa del sintagma e' **succo** e va davanti, e nessuna resa dentro
+una `lang()` puo' spostare i pezzi: e' il caso di scuola di
+`contratto-nomi.md` §3, «dove i pezzi si uniscono e' codice nostro».
+
+**La decisione**: si riscrive il blocco, non si piega il lessico. Sedici righe
+diventano ventuno e producono
+
+    succo [misto] di <frutto> [al latte]
+
+- **«misto»** per `ITEM_BIT_HERBED_IN` (ミックス). Non e' una parola scelta
+  adesso: la descrizione italiana dell'oggetto (`db_item.hsp:63794`) dice gia'
+  «si possono mescolare piu' qualita' per farne **un misto**». Il lessico di una
+  meccanica sta gia' scritto da qualche parte, quasi sempre.
+- **«al latte»** per `ITEM_BIT_ACIDPROOF` (オーレ, au lait), come «te' al latte»
+  deciso nella 96a per la coppia gemella del te'. ⓘ L'inglese qui **omette** la
+  testa — scrive «apple milk», non «apple milk juice» — e l'italiano non puo':
+  «mela al latte» non e' una bevanda. La testa si aggiunge, perche' l'oggetto e'
+  un `ITEM_ID_JUICE`.
+- **L'elisione si decide a runtime**, sulla prima lettera del frutto: «succo di
+  mela» ma «succo d'uva». Non c'e' una tabella come `mtcomplemento` perche' il
+  frutto lo sceglie il giocatore col frullatore e puo' essere **qualunque
+  cibo**; un elenco scritto a mano sarebbe incompleto per costruzione.
+
+### Il fatto che non ci si aspettava: il succo non e' senza articolo
+
+Il punto 17 della lista della 138a elenca `JUICE` fra le «quattro teste
+variabili **senza articolo**», e per il succo non e' vero. Il suo
+`ioriginalnameref` in `db_item` e' la stringa **vuota** — tutto il nome nasce in
+`*itemNameSub`, che e' proprio il motivo per cui sembrava un caso senza
+articolo — ma `item_func.hsp:1234` della build gli mette davanti la
+parola-contatore **«bottiglia»**, e lo `switch` di `:1905` ne ricava «una » e
+«la ». A schermo esce «**una bottiglia di succo di mela**», e in due copie «due
+**bottiglie** di succo di mela», col nome che resta singolare.
+
+⭐ **La lezione generale:** un nome composto a runtime non e' automaticamente un
+nome senza articolo. Prima di dichiarare il buco si guarda se il compositore gli
+mette davanti un contatore — `locvar_itemname_s2` — perche' li' l'articolo c'e'
+gia'. ⚠️ Delle altre tre teste (`NECRO_PARTS`, `PRODUCED_BOOK`, `EVITEM`) questa
+sessione **non ha misurato niente**, e l'ipotesi che `PRODUCED_BOOK` passi dallo
+stesso contatore resta un'ipotesi.
+
+---
+
+## Due toppe per lo stesso punto: perche' il doppione non si vedeva, e la rete che ora lo vede — 2026-09-05, centoquarantaduesima
+
+Il punto 12 della lista delle cose aperte diceva: «`module.hsp`, gli otto
+`cnv_str fix_wish_arg1, "card of ", ""` tolgono i prefissi **inglesi** da quel
+che il giocatore scrive: coi nomi italiani non agganciano piu' niente. Potrebbe
+essere gia' rotto.» Sono andato a guardare il **sorgente pinnato**, ho visto
+dodici `cnv_str` tutti inglesi, e ho scritto la toppa che aggiunge le forme
+italiane.
+
+Era gia' stata scritta dalla 138a — e' la toppa **772** — e la mia l'ha
+raddoppiata.
+
+### Perche' nessuna guardia ha detto niente
+
+- Il mio controllo dei doppioni confronta `cerca` per **uguaglianza**. La 772
+  aggancia la riga sola `cnv_str fix_wish_arg1, "flesh doll", ""`; la mia il
+  **blocco di tre** righe che finisce con quella. Due ancore diverse per lo
+  stesso punto non si somigliano.
+- `applica` rifiuta l'ambiguita' — un `cerca` che compare due volte ferma la
+  catena — ma qui ogni ancora compariva **una volta sola**. La seconda toppa ha
+  semplicemente lavorato sul testo che la prima aveva gia' scritto.
+- La build compilava, e le dodici righe italiane erano innocue in doppio: un
+  `cnv_str` che non trova piu' niente da togliere non fa danni. Il difetto era
+  **muto per costruzione**.
+
+### La decisione
+
+`applica.toppe_annidate()` segnala ogni coppia di toppe dello stesso file in cui
+il `cerca` di una sta **dentro** quello dell'altra, e
+`test_nessuna_toppa_del_progetto_e_annidata_in_un_altra` la fa girare su tutto
+`toppe.jsonl`.
+
+⚠️ **La rete non chiede che due toppe non condividano una riga**, e la
+distinzione conta: `module.hsp` ha da sempre due toppe che iniziano tutt'e due
+con `s = "Page." + (page + 1) + "/" + (pagemax + 1)` e si distinguono per la
+riga di contorno. Quelle sono legittime — nessuna delle due sta *dentro*
+l'altra — e una guardia piu' larga costringerebbe a riscriverle senza motivo.
+C'e' un test apposta che lo fissa.
+
+⭐ **La prova al contrario e' scritta sul caso vero** (la riga sola contro il
+blocco di tre che la contiene) e **dice quale coppia ha trovato**, non un ✅:
+un esito booleano non distinguerebbe «ho trovato il doppione» da «non l'ho
+cercato».
+
+### Ma la regola vera c'era gia', ed e' della 129a
+
+«Che cosa si misura per dire *risolta da toppa*: **la build, non l'elenco delle
+toppe**.» L'avevo applicata ai rinvii — `rinviate.jsonl` la usa — e non a un
+punto della lista delle cose aperte, benche' sia la stessa domanda: *quel che il
+giocatore riceve e' ancora l'inglese del sorgente?* Il sorgente pinnato non puo'
+rispondere, per definizione: e' il posto che non si tocca mai.
+
+⭐ **Come applicarlo:** prima di riaprire un punto della lista, `grep` sulla
+**build**. Costa dieci secondi e in questo caso avrebbe fatto risparmiare
+un'ora — e la stessa mossa avrebbe chiuso in un attimo anche l'ultimo rinvio
+`attende_toppa`, che aspettava una toppa scritta dodici sessioni fa.
+
+---
+
+## La parola chiave di una battuta si legge dalla risposta — 2026-09-05, centoquarantaduesima
+
+`command.hsp:4481` e `:4485` sono i due `instr` scherzosi del desiderio (中の神 /
+«god inside», 中の人 / «man inside»), gli unici siti della catena che
+`genera_toppe_desideri.py` lasciava fuori **dichiarandolo**: hanno la forma
+della sottostringa e non del confronto, e la sua docstring diceva «vogliono una
+decisione sulla battuta, non una parola chiave».
+
+**La decisione**: la parola italiana non si inventa, si **legge dalla risposta**.
+Il testo che quelle due righe stampano e' tradotto da sessioni e dice
+«Dev'essere dura per il **dio dentro**...» e «Dev'essere dura per la **persona
+dentro**.». Se la risposta nomina quella cosa cosi', quella e' la chiave: una
+battuta che risponde con parole diverse da quelle che la accendono e' una
+battuta che nessuno trova.
+
+Le due forme si **aggiungono** in `or`, non sostituiscono: e' la stessa regola
+che il generatore applica alle parole del desiderio e ai due banchi della
+classe. Il giapponese e l'inglese restano.
+
+⭐ **Il fatto che questo caso insegna:** un sito puo' essere **scoperto** anche
+quando il testo che stampa e' gia' tutto italiano. `copertura` contava quei due
+letterali ed era giusto contarli — a essere inglese non era quel che si legge,
+era **la chiave che ci arriva**. Le due cose stanno sulla stessa riga e si
+guardano separate.
+
+ⓘ La dichiarazione di `copertura` per `command.hsp` scende percio' da 3 a 1, e
+l'unica rimasta e' `"ElonaPlus Custom-GX "` di `:413`, operando di uno `sreplace`.
+
+---
+
 ## Una parola sola per la barra, e due eccezioni che il glossario si tiene — 2026-09-03, centotrentesima
 
 La rete nuova sul glossario ha segnalato una toppa che scrive «Forza liberata»
