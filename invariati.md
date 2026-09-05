@@ -1225,3 +1225,91 @@ lunga non sborda dal pannello — viene tagliata.
 | valore | motivo |
 |---|---|
 | `Trap` | `item_func.hsp:2623`, la sigla di `Disarmo trappole` nel pannello dell'equipaggiamento. **Italiano che coincide**, come `Info`, `t ` e `Immune` nelle sezioni qui sopra: la sigla abbrevia «trappole», che si scrive con le stesse quattro lettere di `trap`. ⚠️ **Non è l'inglese lasciato lì per pigrizia**: le altre quattordici sigle della stessa fila sono tutte cambiate, e questa è l'unica dove la forma italiana e quella inglese arrivano allo stesso posto. Cambiarla — `D-Tr`, `Dis.` — allontanerebbe la sigla dalla parola che il giocatore legge nella lista delle abilità, che è proprio quel che il rinvio al dizionario esiste per impedire |
+
+## Le dodici parole chiave delle carte che stavano solo nel glossario — 141ª
+
+⚠️⚠️ **Nessuna di queste dodici è una decisione nuova: erano tutte già prese, e
+scritte in `glossario.md`.** La sezione «Le affiliazioni fra parentesi
+angolari» (`glossario.md:3006`) chiude con la riga «**Invariate:** `<Yerles>`,
+`<Xeren>`, `<Zanan>`, `<Lothrian>`, `<Eulderna>`, `<Elea>`, `<Juere>`,
+`<Zaile>` (nomi propri di civiltà), `<Ninja>` (uguale in italiano), `<CNPC>`
+(sigla tecnica)», e quella sopra dice che `Immune` e `Kamikaze` restano
+invariate «per decisione, non per dimenticanza».
+
+⚠️ **E nessuno strumento legge un paragrafo.** È la terza volta che succede —
+la 138ª l'ha imparato su `Dv:`, la 139ª su `Immune` di `tcg.hsp:969` — e la
+terza rete a ripresentarle è `strumenti/salti.py`, che segue `s@tcg` anche
+quando l'assegnazione sta dentro un `if` a graffe (`tcg.hsp:1533`-`:1585`,
+`*tcgdraw_WEND1`, la riga dei tratti sulla scheda di una carta). Le
+quarantasei sorelle della stessa colonna sono tradotte da toppe; queste dodici
+no, e senza una riga qui il censimento avrebbe continuato a chiederle.
+
+⚠️ **Lo spazio in coda è portante e fa parte del valore.** I tratti si
+concatenano uno dopo l'altro in `s@tcg`, e lo spazio è quel che li separa a
+schermo: il valore dichiarato è `<Elea> `, non `<Elea>`. È la stessa ragione
+per cui `Mana ` è una riga diversa da `Mana` più in alto in questo file.
+
+⭐ E il confine passa in mezzo alla colonna, non attorno: `<Bandit> `,
+`<Citizen> `, `<Mercenary> `, `<Teacher> `, `<Adventurer> `, `<Pirate> `,
+`<Flame> `, `<Elea Mob> ` e le tre gilde **si traducono** e sono toppate, perché
+sono nomi comuni. Restano solo i nomi propri, e le due parole che l'italiano
+scrive uguali.
+
+| valore | motivo |
+|---|---|
+| `<Yerles> ` | `tcg.hsp:1565`, l'affiliazione della carta. **Nome proprio di civiltà del canone Elona**, già invariato in `glossario.md:289` insieme agli altri: «in italiano c'è sempre, perché nel nome c'è sempre» — `Yerles machine infantry` è «la fanteria meccanica Yerles». ⚠️ Lo spazio in coda separa il tratto dal successivo |
+| `<Xeren> ` | `tcg.hsp:1566`, per la stessa ragione di `<Yerles> `: nome proprio di popolo |
+| `<Zanan> ` | `tcg.hsp:1571`, nome proprio di nazione. `glossario.md:2641` e `:2666` lo tengono così anche nei titoli dei libri: «Parole di un Ricercatore di Zanan» |
+| `<Lothrian> ` | `tcg.hsp:1572`, nome proprio di popolo. ⚠️ Il glossario scrive la nazione «Lothria» (`:899`) e l'aggettivo di popolo resta `Lothrian` com'è nel canone: sono due parole diverse, e questa è l'etichetta della carta |
+| `<Eulderna> ` | `tcg.hsp:1573`, nome proprio di popolo. `glossario.md:2794`-`:2808` lo usa invariato come aggettivo in nove rese: «un ricercatore Eulderna» |
+| `<Elea> ` | `tcg.hsp:1574`, nome proprio di popolo (`TCG_BIT_ELEAREFUGEE`). ⚠️ **Non è in contraddizione con `<Elea Mob> ` → `<Folla Elea> `**, che si traduce: lì la parola comune «folla» c'è e si rende, qui il tratto è il solo nome del popolo |
+| `<Juere> ` | `tcg.hsp:1576`, nome proprio di nazione. ⚠️ `glossario.md:289` avverte che ジューア (Juere) **non è** ジュア (Jure), la dea: un carattere di differenza, e le due si somigliano anche in italiano |
+| `<Zaile> ` | `tcg.hsp:1578`, nome proprio. `glossario.md:1461` lo fissa su ザイール, ed è quello degli «Atlante dei Minerali di Zaile» |
+| `<Ninja> ` | `tcg.hsp:1580`. **Italiano che coincide**, come `Info` e `t ` nelle sezioni qui sopra: «ninja» è la parola italiana, prestito acquisito. ⚠️ Non è un nome proprio come le otto righe qui sopra, ed è la ragione per cui ha un motivo suo: i suoi vicini di colonna — `<Teacher> ` → `<Insegnante> `, `<Adventurer> ` → `<Avventuriero> ` — sono nomi comuni e infatti si traducono |
+| `<CNPC> ` | `tcg.hsp:1585`. **Sigla tecnica, non una parola**: è la cartella dei *Custom NPC* che il giocatore si mette da sé, e il tratto dice che la carta viene di lì. Stessa famiglia di `DBID`, che la riga di stato dell'editor di mazzo tiene identico |
+| `Immune ` | `tcg.hsp:1549`, il tratto dell'immunità nella riga dei tratti. **Italiano che coincide**: «immune» si scrive così. ⚠️ **Non è un doppione della riga `Immune` più in alto in questo file**: quella è `tcg.hsp:969`, un `bmes` nella scheda della carta, questa è la voce della colonna dei tratti e porta lo spazio di separazione. Il confronto di `verifica.py` è sulla stringa intera, e le due stringhe sono diverse |
+| `Kamikaze ` | `tcg.hsp:1558`, il tratto di `TCG_BIT_SUICIDE`. **Italiano che coincide**: «kamikaze» è prestito acquisito, e lo usa anche chi non sa che cosa voglia dire in giapponese. ⚠️ La costante dice `SUICIDE` e la parola no — ma quel che il giocatore legge è la parola, e l'inglese di monte ha già scelto il prestito invece di `Suicide` |
+
+## Le sigle nude della scheda e della lista dei compagni — 141ª
+
+Stessa specie delle tre sezioni qui sopra, e la stessa rete: `strumenti/salti.py`
+segue `s` **dentro il blocco che lo disegna**, e in `command.hsp` ha ripresentato
+diciotto letterali che nessuna delle due reti vecchie vedeva. Quattordici sono
+sigle e unità di misura, e stanno qui.
+
+⚠️ **Il criterio non è nuovo: è quello che la 138ª e la 139ª hanno già usato su
+`Dv:`, ` Pv:`, `Sp` e `Lv`.** Dove il giapponese scrive la parola, l'italiano
+scrive la parola; dove il sorgente scrive una sigla latina **nuda, fuori da
+`lang()`**, quella sigla la legge anche chi gioca in giapponese — cioè è una
+sigla che il gioco di monte ha scelto per tutt'e due le lingue, e l'italiano
+non ha una terza grafia da metterci.
+
+⚠️ **Gli spazi in testa e in coda sono portanti e fanno parte del valore.** Le
+sigle si concatenano una dopo l'altra in `s`, e lo spazio è quel che le separa:
+il valore dichiarato è ` DV:`, non `DV:`, e ` Lv.` è una riga diversa da `Lv.`.
+È la ragione per cui `verifica.py` legge i valori fra apici inversi verbatim.
+
+⚠️ **Restano fuori di qui quattro cose di `command.hsp`, dichiarate in
+`salti.DICHIARATI`**: tre pezzi di percorso di file — che non sono testo — e
+`Rank.`, che è l'unica **parola** delle diciotto e va decisa guardando la
+schermata, perché il progetto rende `Rank` con «Rango» dappertutto e la colonna
+in cui sta è larga 140 px.
+
+| valore | motivo |
+|---|---|
+| `Lv:` | `command.hsp:188`, il livello nella riga che descrive il bersaglio (`s += " " + "Lv:" + cdata(CDATA_LEVEL, …)`). Sigla latina nuda: la stessa famiglia di `Lv` di `screen.hsp:423`, già invariato dalla 139ª, e il progetto la scrive così anche in `action.hsp:6545` |
+| ` DV:` | `command.hsp:189`, la schivata, sulla stessa riga e per la stessa ragione. ⚠️ **Non è un doppione di `Dv:`**, dichiarato più in alto per `command.hsp:14191`: là è minuscolo e senza spazio, qui è maiuscolo e lo spazio separa dalla sigla precedente. Il confronto è sulla stringa intera, e sono due stringhe |
+| ` PV:` | `command.hsp:190`, la protezione, e vale la stessa nota: ` Pv:` di `:14205` è un'altra stringa |
+| ` HP: ` | `command.hsp:208`, i punti ferita nella riga del bersaglio. Sigla latina nuda, e i due spazi la staccano dal numero e dalla sigla accanto |
+| ` MP: ` | `command.hsp:208`, i punti magia, sulla stessa riga di ` HP: ` e per la stessa ragione |
+| `Hp:` | `command.hsp:1348` e `:3614`, la percentuale di vita nella lista dei compagni e in quella dei png (`"Hp:" + … + "%"`). Terza grafia della stessa sigla — `HP`, `Hp:`, ` HP: ` — e sono tre stringhe diverse perché tre punti diversi del gioco le scrivono diversamente: l'italiano non uniforma quel che il monte tiene separato |
+| `Lv.` | `command.hsp:1365` e `:3631`, il livello nella lista dei compagni (`"Lv." + … + " "`). ⚠️ Il punto è l'abbreviazione, e in italiano si abbrevia con lo stesso punto: `item_func.hsp:2156` scrive già `lang(" Lv", " Lv. ")` |
+| ` Lv.` | `command.hsp:1468`, la stessa sigla con lo spazio davanti, perché lì segue un altro campo |
+| `(Hp: ` | `command.hsp:1387` e `:1401`, la vita fra parentesi in coda al nome del compagno. La parentesi e lo spazio sono la cornice, `Hp` è la sigla di sopra |
+| `(MAX)` | `command.hsp:2131`, il tratto che ha raggiunto il livello massimo (`traitrefn2(…) + "(MAX)"`). **Italiano che coincide**: «MAX» è l'abbreviazione internazionale, e in italiano si scrive uguale — la forma piena, «(MASSIMO)», è cinque caratteri più lunga in una riga che porta già il nome del tratto |
+| ` cm` | `command.hsp:10659`, l'altezza nella scheda del personaggio. **Unità di misura del sistema internazionale**: non ha lingua, e in italiano si scrive con le stesse due lettere minuscole. Lo spazio davanti stacca dal numero |
+| ` kg` | `command.hsp:10659`, il peso, sulla stessa riga e per la stessa ragione |
+| `p ` | `command.hsp:11020` e `:11023`, il costo in punti per allenare o imparare un'abilità (`calctraincost(…) + "p "`). **Italiano che coincide**: la parola è «punti», l'abbreviazione italiana è la stessa lettera. ⚠️ È esattamente il caso di `t ` per i turni, dichiarato più in alto in questo file, e lo spazio in coda conta allo stesso modo |
+| ` x` | `command.hsp:12450`, il moltiplicatore nella riga del danno (`"" + dice1 + "d" + dice2 + … + " x" + …`), che a schermo fa «2d5+3 x1.5». **Non è una parola: è il segno di moltiplicazione**, e in italiano si scrive con la stessa lettera. È la riga sorella della `d` dei dadi, dichiarata dalla 139ª — e infatti le due stanno nella stessa espressione |
+| `GuruGuruSMF4` | `config.hsp:809`, il quarto driver audio del pannello, accanto a `None`, `Direct music` e `MCI`. **Nome di un driver, non una parola**: la riga di `Direct music` più in alto in questo file lo nominava già in prosa — «il terzo e il quarto valore della stessa riga sono `MCI` e `GuruGuruSMF4`, letterali nudi che nessun dizionario raggiunge» — e adesso ha la sua riga, perché una decisione che vive in un motivo altrui non la legge nessuno strumento |
+| `Nani?!` | `custom_tweaks.hsp:1679`, la descrizione della modifica «Fist of the North Star Mode» (`TWEAK_MISC_HOKUTO_NO_KEN_MODE`). ⚠️ **È l'altra metà della citazione di Ken il guerriero**, e la prima — `Omae wa mou shindeiru.` — è già dichiarata più in alto in questo file: 「何！？」 è quel che risponde chi se la sente dire, e circola in *romaji* come la frase che la precede. Tradurla — «Cosa?!» — la spegnerebbe, perché quel che si riconosce è il suono giapponese, non il senso |

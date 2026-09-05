@@ -127,7 +127,55 @@ class Dichiarazione:
 # scritto accanto e' prosa, e nessun cancello legge la prosa** — la lezione
 # della 140a, dove quattro motivi su sette dicevano una cosa falsa. Chi tocca
 # una di queste righe verifichi il motivo prima di ereditarlo.
-DICHIARATI: dict[str, Dichiarazione] = {}
+DICHIARATI: dict[str, Dichiarazione] = {
+    "command.hsp": Dichiarazione(
+        "fronte", 4,
+        "⚠️ **Tre delle quattro non sono testo: sono pezzi di un percorso di "
+        "file.** `:10449` monta `exedir + \"user\\\\graphic\\\\face\" + n + "
+        "\".bmp\"` e `:11804` fa lo stesso con `\"user\\\\graphic\\\\Pic_\"`, "
+        "e finiscono in `s` — la stessa variabile che venti righe piu' giu' "
+        "quel blocco disegna. E' il falso positivo che l'ambito del blocco "
+        "paga per poter guardare `s`: la rete non sa distinguere un ritratto "
+        "da un'etichetta, e nessuna euristica sulla forma della stringa lo "
+        "farebbe senza buttare via anche le sigle vere. Tradurli "
+        "spegnerebbe il caricamento dei ritratti. "
+        "⭐ Le altre quattordici stringhe di questo file sono sigle e unita' "
+        "di misura, e stanno in `invariati.md`, sezione «Le sigle nude della "
+        "scheda» (141a). "
+        "⚠️⚠️ **La quarta e' l'unica PAROLA delle diciotto, e non e' "
+        "decisa**: `Rank.` (`:3638`, `\"Rank.\" + cdata(CDATA_EVOLUTION_STAGE"
+        ", i) + \" \"`), il rango di evoluzione nella lista dei compagni. Il "
+        "progetto rende `Rank` con «Rango» **dappertutto** — «Rango del "
+        "museo», «Rango dei cimeli», « Rango:» del negozio — quindi qui la "
+        "resa sarebbe «Rango », e il dubbio non e' la parola ma la larghezza. "
+        "⚠️ La colonna e' larga **140 px**: il testo parte a `wx + 372` e il "
+        "successivo a `wx + 512` (`:3705` e `:3708`), con `font ..., 14 - en "
+        "* 2` cioe' corpo 12. ⚠️⚠️ **E qui il numero e' DERIVATO, non "
+        "misurato**: il progetto ha misurato 6,6 px per carattere a corpo 11 "
+        "(140a) e 7,7 nei menu; 6,6 x 12/11 da' 7,2, e 140 / 7,2 da' **19 "
+        "caratteri**. Con quel 19: l'inglese peggiore e' «Rank.3 bisexual», "
+        "15 caratteri; l'italiano peggiore sarebbe «Rango 3 sconosciuto», "
+        "**19 esatti**, cioe' proprio sul filo di un tetto che nessuno ha "
+        "visto a schermo. Un numero stimato spacciato per misurato e' peggio "
+        "di nessun numero (140a): questa riga si chiude guardando la lista "
+        "dei compagni in gioco, non calcolando meglio."),
+    "map_func.hsp": Dichiarazione(
+        "fronte", 2,
+        "Le due proprieta' della mappa nell'editor: `q = \"Free\", "
+        "\"NPC/TOWN\"` (`:2053`), disegnate da `mes q(mproperty)` due righe "
+        "sotto. ⭐ **Le parole ci sono gia' e non sono in dubbio**: l'editor "
+        "di mappe e' tradotto dalle toppe della 140a, e li' `NPC Mode` e' "
+        "«Modalita' PNG» — quindi `NPC/TOWN` e' «PNG/Citta'» e `Free` e' "
+        "«Libera». ⚠️⚠️ **Quel che manca e' la larghezza, e non si deduce**: "
+        "il testo parte a `pos 740, 545` dentro una striscia che `boxf 400, "
+        "540, 800, 600` chiude a **800**, cioe' 60 px, e a 7,7 px per "
+        "carattere ci stanno **sette** caratteri. `NPC/TOWN` ne ha otto: "
+        "**l'inglese di monte e' gia' oltre il bordo della sua striscia**, e "
+        "finche' non si guarda non si sa se `mes` sborda sul fondo (e allora "
+        "«PNG/Citta'», dieci, sborda di piu' ma si legge) o se lo taglia la "
+        "finestra (e allora ci vuole una resa da sette). ⚠️ Il conto di 60 px "
+        "e' misurato sul sorgente; quel che succede al nono carattere no."),
+}
 
 
 def blocchi(righe: list[str]) -> list[tuple[str, int, int]]:

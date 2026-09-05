@@ -119,7 +119,20 @@ _SEZIONI_INVARIANTI = ("Valori di dato", "Versi senza contenuto linguistico",
                        # `trap`. Le altre quattordici sono toppe di
                        # `genera_toppe_tag_equip.py`. La rete che le ha
                        # ripresentate e' la terza, `strumenti/salti.py`.
-                       "Le sigle del pannello dell'equipaggiamento")
+                       "Le sigle del pannello dell'equipaggiamento",
+                       # 141a: le otto civilta', `<Ninja>`, `<CNPC>`,
+                       # `Immune ` e `Kamikaze ` della riga dei tratti di una
+                       # carta. ⚠️ Nessuna e' una decisione nuova: stavano
+                       # tutte in `glossario.md`, in prosa, e nessuno
+                       # strumento legge un paragrafo. Terza volta.
+                       "Le dodici parole chiave delle carte",
+                       # 141a: le 14 sigle e unita' di misura della scheda e
+                       # della lista dei compagni (`command.hsp`), piu' il
+                       # driver audio di `config.hsp` e la seconda meta' della
+                       # citazione di Ken il guerriero. Stesso criterio di
+                       # `Dv:` e `Lv`: una sigla latina NUDA la legge anche
+                       # chi gioca in giapponese.
+                       "Le sigle nude della scheda")
 _SEZIONI_NON_INVARIANTI = ("Da decidere", "Nomi di creatura")
 
 # ⚠️ La terza categoria, nata nella 132a. Le due liste qui sopra rispondono

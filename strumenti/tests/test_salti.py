@@ -187,35 +187,42 @@ def test_le_38_etichette_dei_tasti_di_F1_si_contano_fra_i_MISTI():
         assert parola in inglesi
 
 
-def test_il_fronte_che_resta_aperto_e_di_35_stringhe():
+def test_del_fronte_di_50_ne_restano_6_e_sono_dichiarate():
     """⚠️⚠️ IL CONTO E' MISURATO, e questa prova esiste per farlo muovere solo
     insieme al lavoro. Il fronte che la rete ha aperto era di **50** stringhe
-    su sette file; le 15 sigle del pannello dell'equipaggiamento sono state
-    lavorate nella stessa 141a (`strumenti/genera_toppe_tag_equip.py`, piu'
-    `Trap` in `invariati.md`), e `item_func.hsp` e' uscito dal censimento.
+    su sette file, e la 141a lo ha chiuso quasi tutto nella stessa sessione:
 
-    ⚠️ Il numero qui non e' una soglia da tenere: e' la fotografia di un fronte
-    aperto, e scende solo insieme al lavoro.
+        item_func.hsp  15  ->  0   le sigle del pannello, 14 toppe + `Trap`
+        tcg.hsp        12  ->  0   erano gia' decise in `glossario.md`
+        command.hsp    18  ->  4   14 sigle nude in `invariati.md`
+        custom_ai.hsp   1  ->  0   il marcatore `(P)` diventa `(T)`
+        config.hsp      1  ->  0   `GuruGuruSMF4`, nome di driver
+        custom_tweaks   1  ->  0   `Nani?!`, l'altra meta' di una citazione
+        map_func.hsp    2  ->  2   servono a schermo, non a tavolino
+
+    ⚠️ Le sei che restano sono **dichiarate**, non dimenticate: tre pezzi di
+    percorso che non sono testo, e tre che si decidono guardando la larghezza
+    a schermo. Il numero qui non e' una soglia da tenere: e' la fotografia di
+    quel che resta.
     """
     per_file = {r["file"]: r["distinte"] for r in salti.censimento()
                 if r["distinte"]}
-    assert per_file == {"command.hsp": 18, "tcg.hsp": 12, "map_func.hsp": 2,
-                        "config.hsp": 1, "custom_ai.hsp": 1,
-                        "custom_tweaks.hsp": 1}
-    assert sum(per_file.values()) == 35
-    assert "item_func.hsp" not in per_file
+    assert per_file == {"command.hsp": 4, "map_func.hsp": 2}
+    assert sum(per_file.values()) == 6
+    for nome in ("item_func.hsp", "tcg.hsp", "custom_ai.hsp", "config.hsp",
+                 "custom_tweaks.hsp"):
+        assert nome not in per_file
 
 
-def test_il_cancello_e_ROSSO_e_dice_di_ogni_file_perche():
-    """⚠️⚠️ **Questa rete nasce rossa, ed e' l'unica del progetto che lo e'.**
-    Non e' un difetto: un censimento nuovo che nascesse verde vorrebbe dire che
-    non ha trovato niente. Il cancello resta acceso finche' ognuno dei sei
-    file non e' o lavorato o dichiarato, ed e' la ragione per cui `salti` NON
-    sta ancora fra i valori attesi in apertura.
+def test_il_cancello_e_verde_e_le_due_dichiarazioni_dicono_perche():
+    """⚠️⚠️ **Questa rete e' nata rossa**, ed e' stata l'unica del progetto a
+    nascere cosi': un censimento nuovo che nascesse verde vorrebbe dire che non
+    ha trovato niente. Adesso e' verde perche' ogni file e' o lavorato o
+    dichiarato — non perche' la rete abbia smesso di guardare, e le due cose si
+    distinguono da `test_del_fronte_di_50_ne_restano_6_e_sono_dichiarate`.
     """
-    guai = problemi()
-    assert len(guai) == 6
-    assert all("nessuna dichiarazione in salti.py" in g for g in guai)
+    assert problemi() == []
+    assert set(DICHIARATI) == {"command.hsp", "map_func.hsp"}
 
 
 def test_quel_che_disegnate_vede_gia_non_si_dichiara_due_volte():
@@ -235,16 +242,17 @@ def test_le_due_reti_si_scoprono_a_vicenda():
     vorrebbe dire che `disegnate` da sola basta, e allora o il modulo va tolto
     o la rete ha smesso di guardare dove guardava."""
     confronto = salti.confronto()
-    assert sum(len(r["solo_mie"]) for r in confronto) == 35
+    assert sum(len(r["solo_mie"]) for r in confronto) == 6
     assert sum(len(r["solo_sue"]) for r in confronto) > 0
 
 
 def test_una_dichiarazione_col_conto_sbagliato_si_accende(monkeypatch):
-    finto = {"tcg.hsp": salti.Dichiarazione("fronte", 11, "conto vecchio")}
+    finto = {"command.hsp": salti.Dichiarazione("fronte", 3, "conto vecchio"),
+             "map_func.hsp": DICHIARATI["map_func.hsp"]}
     monkeypatch.setattr(salti, "DICHIARATI", finto)
     guai = problemi()
-    assert any("dichiarate 11 stringhe che saltano a schermo, nel sorgente ne "
-               "sono 12" in g for g in guai)
+    assert any("dichiarate 3 stringhe che saltano a schermo, nel sorgente ne "
+               "sono 4" in g for g in guai)
 
 
 def test_una_dichiarazione_diventata_inutile_si_accende(monkeypatch):
@@ -274,3 +282,56 @@ def test_le_liste_sottratte_sono_le_stesse_delle_altre_reti():
     assert toppe == copertura._righe_con_toppa()
     assert rese == disegnate._rese_note()
     assert invarianti == disegnate._invarianti()
+
+
+# --- quel che la 141a ha deciso a partire da questa rete -------------------
+
+def test_le_dodici_parole_chiave_delle_carte_sono_dichiarate():
+    """⚠️⚠️ Erano gia' decise **in `glossario.md`**, e nessuno strumento legge
+    un paragrafo: e' la terza volta che il progetto lo impara (138a su `Dv:`,
+    139a su `Immune`). ⚠️ Lo spazio in coda fa parte del valore: i tratti si
+    concatenano in `s@tcg` e lo spazio e' quel che li separa a schermo."""
+    from strumenti.verifica import carica_invariati
+
+    invarianti = carica_invariati()
+    for tratto in ("<Yerles> ", "<Xeren> ", "<Zanan> ", "<Lothrian> ",
+                   "<Eulderna> ", "<Elea> ", "<Juere> ", "<Zaile> ",
+                   "<Ninja> ", "<CNPC> ", "Immune ", "Kamikaze "):
+        assert tratto in invarianti, tratto
+    # ⭐ E il confine passa in mezzo alla colonna: i nomi comuni si traducono.
+    for tradotto in ("<Bandit> ", "<Citizen> ", "<Teacher> "):
+        assert tradotto not in invarianti, tradotto
+
+
+def test_le_quattordici_sigle_nude_sono_dichiarate():
+    """Stesso criterio di `Dv:` e `Lv`: una sigla latina **nuda**, fuori da
+    `lang()`, la legge anche chi gioca in giapponese."""
+    from strumenti.verifica import carica_invariati
+
+    invarianti = carica_invariati()
+    for sigla in ("Lv:", " DV:", " PV:", " HP: ", " MP: ", "Hp:", "Lv.",
+                  "(Hp: ", " Lv.", "(MAX)", " cm", " kg", "p ", " x",
+                  "GuruGuruSMF4", "Nani?!"):
+        assert sigla in invarianti, repr(sigla)
+
+
+def test_lo_spazio_in_coda_fa_parte_del_valore():
+    """⚠️ ` Lv.` e `Lv.` sono due stringhe diverse, e tutt'e due esistono nel
+    sorgente: se `invariati.md` le confondesse, una delle due resterebbe
+    scoperta per sempre senza che niente lo dicesse."""
+    from strumenti.verifica import carica_invariati
+
+    invarianti = carica_invariati()
+    assert "Lv." in invarianti and " Lv." in invarianti
+    assert "p " in invarianti and "p" not in invarianti
+
+
+def test_nella_build_il_marcatore_dell_IA_e_italiano():
+    """⭐ `(P)` sta per *Preserve*, e la voce di menu che accende quel
+    comportamento il progetto la rende «**Tieni** il soggetto come bersaglio»:
+    se il marcatore restasse `P`, nella lingua del giocatore non ci sarebbe
+    piu' nessuna parola a cui agganciarlo."""
+    testo = (percorsi.BUILD_HSP / "custom_ai.hsp").read_bytes().decode("cp932")
+    assert testo.count('s += "(T)"') == 2
+    assert '"(P)"' not in testo
+    assert "Tieni il soggetto come bersaglio" in testo
