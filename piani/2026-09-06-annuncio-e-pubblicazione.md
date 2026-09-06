@@ -166,28 +166,32 @@ guarda da browser loggato, sono dieci secondi.
 Titolo proposto: **`Elona+ Custom-GX Italian`**, sulla forma di
 `Omake Overhaul English`. Wikitesto:
 
-    '''Elona+ Custom-GX Italian''' is an unofficial Italian localization of
-    [[Elona+ Custom|Elona+ Custom-GX]] 2.31.2.0.
+```
+'''Elona+ Custom-GX Italian''' is an unofficial Italian localization of
+[[Elona+ Custom|Elona+ Custom-GX]] 2.31.2.0.
 
-    It is distributed as a dictionary plus a build script, not as a prebuilt
-    executable: the script downloads Custom-GX's source and the HSP SDK and
-    compiles an Italian executable on the player's own machine. It requires
-    Python 3.11 or later.
+It is distributed as a dictionary plus a build script, not as a prebuilt
+executable: the script downloads Custom-GX's source and the HSP SDK and
+compiles an Italian executable on the player's own machine. It requires
+Python 3.11 or later.
 
-    The Italian build is written as <code>cgx-ita.exe</code> alongside the
-    existing <code>elonapluscgx.exe</code>, which is left unchanged; saves are
-    shared between the two. Six additive <code>data/*_it.txt</code> files are
-    added, and an uninstaller removes them.
+The Italian build is written as <code>cgx-ita.exe</code> alongside the
+existing <code>elonapluscgx.exe</code>, which is left unchanged; saves are
+shared between the two. Six additive <code>data/*_it.txt</code> files are
+added, and an uninstaller removes them.
 
-    Download and instructions: [https://github.com/oLdpZ/elona-cgx-traduzione-italiana project page]
+Download and instructions: [https://github.com/oLdpZ/elona-cgx-traduzione-italiana project page]
 
-    [[Category:Elona variants]]
-    [[Category:Elona+]]
+[[Category:Elona variants]]
+[[Category:Elona+]]
+```
 
 E il link da `Elona+ Custom` e dalla sezione `=== Elona+ custom ===` di
 `Elona variants`, una riga sola:
 
-    See also: [[Elona+ Custom-GX Italian]] — unofficial Italian localization.
+```
+See also: [[Elona+ Custom-GX Italian]] — unofficial Italian localization.
+```
 
 
 ### La riga per la pagina principale, e il precedente che la giustifica
@@ -199,9 +203,30 @@ riga sarebbe una forzatura.
 
 Nel formato esatto delle altre voci (nome, versione con link alla release, data
 in grassetto, `<abbr>` con la descrizione), da inserire **subito dopo** la riga
-di Elona+ Custom-GX e prima di Omake overhaul:
+di Elona+ Custom-GX e prima di Omake overhaul.
 
-    *[[Elona+ Custom-GX Italian]] (version [https://github.com/oLdpZ/elona-cgx-traduzione-italiana/releases/tag/2.31.2.0-ita 2.31.2.0-ita], '''2026/09/06''')<sup>(<abbr title="Unofficial Italian localization of Elona+ Custom-GX. Distributed as a dictionary plus a build script that compiles on the player's own machine; requires Python.">info</abbr>)</sup>
+⚠️⚠️⚠️ **LA RIGA DEVE COMINCIARE IN COLONNA 1, SENZA NESSUNO SPAZIO DAVANTI, E
+STARE SU UNA RIGA SOLA.** In MediaWiki una riga che inizia con uno spazio
+diventa **testo preformattato** — un riquadro grigio a caratteri fissi — e
+l'asterisco, non essendo più in colonna 1, smette di fare l'elenco e resta un
+asterisco. Succede nel 06/09: la riga è stata copiata da un blocco di codice
+**rientrato di quattro spazi** di questo stesso piano, e il rientro è venuto
+via col copia-incolla. ⭐ È il difetto che viene dal *contenitore* della
+lista di passi, non dal passo: il testo era giusto, e a renderlo muto è stato
+il modo in cui gliel'avevo dato. Chi copia da qui **toglie il rientro**.
+
+Il testo (una riga sola, senza a capo e senza rientro):
+
+```
+*[[Elona+ Custom-GX Italian]] (version [https://github.com/oLdpZ/elona-cgx-traduzione-italiana/releases/tag/2.31.2.0-ita 2.31.2.0-ita], '''2026/09/06''')<sup>(<abbr title="Unofficial Italian localization of Elona+ Custom-GX. Distributed as a dictionary plus a build script that compiles on the player's own machine; requires Python.">info</abbr>)</sup>
+```
+
+ⓘ **Come si riconosce che è venuto bene**, senza salvare: in anteprima la voce
+è un **punto elenco** come le altre, non un riquadro grigio, e il nome è un
+collegamento **blu**. Blu vuol dire che la pagina propria esiste già, cioè che
+i passi 1-3 sono stati fatti: **rosso vuol dire che si è arrivati qui troppo
+presto**, e un link rosso in homepage da un account nuovo verso un progetto
+proprio ha l'aria di spam.
 
 ### ⚠️⚠️ E la pagina principale dice che Custom-GX è alla 2.32.1.3
 
