@@ -161,6 +161,48 @@ la ricerca che di solito si salta.
 `piani/2026-09-06-annuncio-e-pubblicazione.md`, con l'indirizzo vero. Non
 riscriverlo.
 
+⚠️⚠️⚠️ **E NON SI CONSEGNA UN WIKITESTO RIENTRATO.** In MediaWiki una riga che
+comincia con uno spazio diventa **testo preformattato** — riquadro grigio a
+caratteri fissi — e l'asterisco fuori dalla colonna 1 smette di fare elenco.
+Nella 144ª la riga della homepage è finita così, e il testo era **giusto**: a
+renderlo muto è stato il blocco rientrato di quattro spazi del piano, portato
+via dal copia-incolla. I tre blocchi ora sono recinti ```` ``` ````. ⓘ Il segno
+per accorgersene senza salvare: in anteprima dev'essere un punto elenco e non
+un riquadro, e il nome dev'essere **blu** — rosso vuol dire che si è arrivati
+in homepage prima di aver creato la pagina.
+
+**Le quattro destinazioni del wiki, in ordine obbligato:**
+
+    1. Elona+ Custom-GX Italian   <- la pagina propria, PRIMA
+    2. Elona+ Custom              <- la riga «See also»
+    3. Elona variants             <- idem, sezione === Elona+ custom ===
+    4. Elona Wiki                 <- la HOME, sezione Links, PER ULTIMA
+
+⭐ Che una traduzione stia nei `Links` della home non è una forzatura:
+`Omake Overhaul English` — una traduzione, non una variante di gioco — è già
+lì. Senza quel precedente lo sarebbe.
+
+---
+
+## ⚠️⚠️ IL MONTE SI È BIFORCATO, E IL WIKI SEGUE IL RAMO CON TRE STELLE
+
+    Ruin0x11        l'originale         ferma al 2023   2.15R.1.1   170 ★
+    JianmengYu      fork di Ruin0x11    lug 2026        2.31.2.0    214 ★  <- il nostro
+    BitingChicken   fork di JianmengYu  ago 2026        2.32.1.3      3 ★  <- quello del wiki
+
+**La nostra 2.31.2.0 è l'ultima release taggata di JianmengYu** (24 maggio):
+non siamo indietro rispetto a ciò a cui ci siamo agganciati, e il pin a un
+**tag** anziché a un ramo era una scelta. ⓘ Ma il README di JianmengYu si
+intitola «Custom-GX 2.32»: il ramo è avanti del tag.
+
+ⓘ **L'issue #37 è sul repo giusto** — il fork non cambia a chi si chiede il
+permesso.
+
+💡 **Domanda aperta, e non è di wiki**: se il pubblico sta sulla 2.32.1.3, la
+traduzione va ripuntata. Si decide misurando **quante firme del dizionario e
+quante ancore di toppa si romperebbero**, non guardando l'ordine dei numeri.
+Finché quella misura non c'è, non c'è la decisione.
+
 ---
 
 ## ⚠️⚠️ «DENTRO NON C'È CODICE DI MONTE» È VERO E INCOMPLETO
@@ -224,9 +266,13 @@ i punti che nomina.
    CNPC, marcatore `(T)`, cacciatrice di draghi, battuta dell'alchimista,
    fumetto del danno a due righe). ⓘ `collaudo/schermo.ps1` sa pilotare il
    gioco e catturare lo schermo.
-2. ⭐⭐ **I quattro passi sul wiki**, che aspettano solo il login: creare
-   `Elona+ Custom-GX Italian` col wikitesto già scritto, e il rimando da
-   `Elona+ Custom` e da `Elona variants`.
+2. ⭐⭐ **I quattro passi sul wiki**, che aspettano solo il login, **in
+   quest'ordine**: la pagina propria, i due rimandi, e **per ultima** la
+   sezione `Links` della home. Il wikitesto è già scritto nel piano, nei
+   recinti — ⚠️ e va incollato **senza spazi davanti**, o diventa un riquadro
+   grigio. Nella 144ª è successo.
+   ⓘ Il 06/09 la riga della home era stata messa **per prima** ed era rossa:
+   se in anteprima il nome non è blu, la pagina del passo 1 non esiste.
 3. ⭐⭐ **Il commento sulla issue #37** — «fatto, ecco il link». È il posto
    dove c'è già gente con CGX installato, ed è anche dove si aspetta la
    risposta sul permesso.
@@ -240,6 +286,12 @@ i punti che nomina.
 8. ⚠️ I punti **10, 11, 15, 16 e 19** della lista della 138ª non sono stati
    riverificati. Prima di riaprirne uno **si guarda la build**: dei cinque che
    la 143ª ha toccato, quattro erano già chiusi.
+9. ⚠️⚠️ **La misura della divergenza col monte**, che è il presupposto di una
+   decisione e non una decisione: quante firme del dizionario e quante ancore
+   di toppa si romperebbero passando dalla 2.31.2.0 di JianmengYu alla
+   2.32.1.3 di BitingChicken — o anche solo al ramo di JianmengYu, che è
+   avanti del suo ultimo tag. Finché il numero non c'è, «ripuntare o no» non
+   è una domanda a cui si può rispondere.
 
 ---
 

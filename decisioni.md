@@ -16863,3 +16863,78 @@ qualcosa che andava bene.** La regola: due file si confrontano per impronta
 dei byte, mai per liste di righe ottenute con due funzioni diverse — e se un
 conteggio dice «uguali» e il contenuto dice «diversi», il sospetto va prima al
 metodo di lettura che ai file.
+
+---
+
+## Il contenitore di un'istruzione ne cambia il significato — 2026-09-06, centoquarantaquattresima sessione
+
+Uno screenshot della pagina principale del wiki ha mostrato la riga nuova
+dentro un **riquadro grigio a caratteri fissi**, con l'asterisco letterale al
+posto del punto elenco, e il collegamento non agganciato.
+
+In MediaWiki **una riga che comincia con uno spazio diventa testo
+preformattato**, e l'asterisco, non essendo più in colonna 1, smette di fare
+elenco.
+
+⭐⭐ **Il testo era giusto. A renderlo muto è stato il contenitore in cui
+gliel'avevo dato**: nel piano stava dentro un blocco rientrato di quattro
+spazi, e il rientro è venuto via col copia-incolla insieme al testo.
+
+Le tre regole che il progetto aveva già sulle liste di passi — cercare ogni
+identificativo nel sorgente, seguire il percorso fino a chi accende la cosa,
+controllare che il comando di controllo mostri la cosa e solo quella —
+riguardano tutte il **contenuto** del passo. Ne serviva una quarta sulla sua
+**forma**: un testo da incollare va consegnato nel formato in cui deve
+arrivare, perché la formattazione del documento che lo contiene può
+significare qualcosa nel posto di destinazione.
+
+**Contromisura applicata**: tutti e tre i blocchi di wikitesto del piano sono
+passati da rientro di quattro spazi a recinto ```` ``` ````, che si copia senza
+spazi davanti. E accanto c'è scritto perché, perché un blocco rientrato si
+riscrive da solo la prossima volta che qualcuno riformatta il documento.
+
+ⓘ **E il segno per accorgersene senza salvare**, che ora sta nel piano: in
+anteprima la voce dev'essere un punto elenco e non un riquadro grigio, e il
+nome dev'essere **blu**. Blu vuol dire che la pagina propria esiste; rosso, che
+si è arrivati in homepage troppo presto.
+
+💡 È la lezione della 100ª e della 120ª in una forma nuova: lì un passo era
+muto perché il tasto non accendeva niente, qui perché la sua **formattazione**
+cambiava significato a destinazione. Uno schermo che non cambia e un riquadro
+grigio si leggono tutt'e due come «non funziona», e in nessuno dei due casi il
+difetto stava nel contenuto.
+
+---
+
+## Il monte si è biforcato, e il wiki segue il ramo con tre stelle — 2026-09-06, centoquarantaquattresima sessione
+
+Leggendo la pagina principale del wiki per capire dove mettere la riga della
+traduzione, è saltato fuori che dà per «Custom-GX corrente» la **2.32.1.3 di
+BitingChicken**. Misurato:
+
+    Ruin0x11        l'originale         ultima spinta gen 2023   2.15R.1.1   170 ★
+    JianmengYu      fork di Ruin0x11    ultima spinta lug 2026   2.31.2.0    214 ★
+    BitingChicken   fork di JianmengYu  ultima spinta ago 2026   2.32.1.3      3 ★
+
+**La nostra 2.31.2.0 è l'ultima release taggata di JianmengYu** (24 maggio
+2026). Non siamo indietro rispetto a ciò a cui ci siamo agganciati, e il pin a
+un **tag** anziché a un ramo era una scelta esplicita del progetto.
+
+ⓘ Il README di JianmengYu però si intitola «Elona+ Custom-GX 2.32» e dice
+«updated with the changes in Elona+ up to version 2.32»: il **ramo** è avanti
+del tag, che è fermo a maggio. Quindi anche restando su JianmengYu esiste
+lavoro non taggato che non abbiamo.
+
+⚠️ **Il fatto che conta per chi legge**: una riga che dice *2.31.2.0* messa
+due righe sotto una che dice *2.32.1.3* si legge come vecchia, a prescindere
+da quale sia il monte giusto.
+
+ⓘ **L'issue #37 resta sul repo giusto**: è JianmengYu che ci ha dato il
+sorgente, ed è ancora il repo da 214 stelle il cui README è la descrizione
+canonica di Custom-GX. Il fork non cambia a chi si chiede il permesso.
+
+💡 **Domanda aperta, e non è una domanda di wiki**: se il pubblico sta sulla
+2.32.1.3, prima o poi la traduzione va ripuntata. Va decisa misurando **quanto
+i due sorgenti divergano** — quante firme del dizionario e quante ancore di
+toppa si romperebbero — non guardando l'ordine dei numeri di versione. Finché
+quella misura non c'è, non c'è nemmeno la decisione.
