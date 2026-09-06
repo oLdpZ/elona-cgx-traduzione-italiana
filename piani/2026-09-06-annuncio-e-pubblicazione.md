@@ -77,11 +77,18 @@ settimane; una riga su un wiki la trova fra due anni chi cerca «elona italian»
 | **una pagina propria** sul wiki (non esiste ancora) | la voce qui sotto | **resta** |
 | [Elona+ Custom](https://elona.fandom.com/wiki/Elona%2B_Custom) | un link alla pagina propria | **resta** |
 | [Elona variants](https://elona.fandom.com/wiki/Elona_variants), sezione `=== Elona+ custom ===` | un link alla pagina propria | **resta** |
+| [Elona Wiki](https://elona.fandom.com/wiki/Elona_Wiki) — **la pagina principale**, sezione `Links` | la riga in formato lista, qui sotto | **resta** |
 | [Discussions del wiki](https://elona.fandom.com/f) | l'annuncio in inglese | scorre |
 | [issue #37](https://github.com/JianmengYu/ElonaPlusCustom-GX/issues/37) | «fatto, ecco il link» — e lì c'è già chi ha CGX installato | resta |
 | [OldGamesItalia](https://www.oldgamesitalia.net/forum/) | l'annuncio in italiano; è il posto storico delle traduzioni amatoriali | scorre |
 | [RPG Italia](https://steamcommunity.com/groups/rpgitalia) | idem, pubblico GDR | scorre |
 | Discord Elin/Elona | le domande, si risponde in giornata | scorre |
+
+⚠️⚠️ **L'ordine fra le quattro destinazioni del wiki non è libero: la pagina
+principale è l'ultima.** `[[Elona+ Custom-GX Italian]]` resta un **link rosso**
+finché la pagina non esiste, e un link rosso sulla pagina più sorvegliata del
+wiki, messo da un account nuovo, verso un progetto proprio, è la combinazione
+che viene tolta più in fretta. Prima la pagina, poi i due rimandi, poi la home.
 
 ⚠️ Il Discord esiste ed è attivo, ma **non abbiamo un invito verificato**: si
 prende dai canali ufficiali di Elin o dal wiki, e non si copia un link vecchio.
@@ -181,6 +188,48 @@ E il link da `Elona+ Custom` e dalla sezione `=== Elona+ custom ===` di
 `Elona variants`, una riga sola:
 
     See also: [[Elona+ Custom-GX Italian]] — unofficial Italian localization.
+
+
+### La riga per la pagina principale, e il precedente che la giustifica
+
+⭐ **`Omake Overhaul English` — una traduzione, non una variante di gioco — sta
+già nella lista `Links` della pagina principale.** Quindi una traduzione lì
+dentro non è fuori posto: è già la forma della lista. Senza quel precedente la
+riga sarebbe una forzatura.
+
+Nel formato esatto delle altre voci (nome, versione con link alla release, data
+in grassetto, `<abbr>` con la descrizione), da inserire **subito dopo** la riga
+di Elona+ Custom-GX e prima di Omake overhaul:
+
+    *[[Elona+ Custom-GX Italian]] (version [https://github.com/oLdpZ/elona-cgx-traduzione-italiana/releases/tag/2.31.2.0-ita 2.31.2.0-ita], '''2026/09/06''')<sup>(<abbr title="Unofficial Italian localization of Elona+ Custom-GX. Distributed as a dictionary plus a build script that compiles on the player's own machine; requires Python.">info</abbr>)</sup>
+
+### ⚠️⚠️ E la pagina principale dice che Custom-GX è alla 2.32.1.3
+
+La successione dei repo, verificata il 06/09 nella 144ª:
+
+    Ruin0x11        l'originale       ultima spinta gen 2023   rel 2.15R.1.1   170 ★
+    JianmengYu      fork di Ruin0x11  ultima spinta lug 2026   rel 2.31.2.0    214 ★
+    BitingChicken   fork di JianmengYu ultima spinta ago 2026  rel 2.32.1.3      3 ★
+
+**La nostra 2.31.2.0 è l'ultima release taggata di JianmengYu** (24 maggio
+2026): non siamo indietro rispetto a ciò a cui ci siamo agganciati, e il pin a
+un tag invece che a un ramo era una scelta. ⓘ Il README di JianmengYu però
+dice «Custom-GX 2.32» e il ramo è avanti del tag — il tag è fermo a maggio.
+
+⚠️ Ma la pagina principale del wiki presenta come «Custom-GX corrente» un
+**fork di terzo livello con 3 stelle**, avanti di una minor. Una riga che dice
+*2.31.2.0* finisce due righe sotto una che dice *2.32.1.3*, e chi legge conclude
+che la traduzione è vecchia — anche se non lo è rispetto al suo monte. È una
+cosa da sapere prima di scrivere la riga, non dopo.
+
+ⓘ **L'issue #37 è sul repo giusto**: è JianmengYu che ci ha dato il sorgente,
+ed è ancora il repo da 214 stelle il cui README è la descrizione canonica di
+Custom-GX. Il fork di BitingChicken non cambia a chi si chiede il permesso.
+
+⭐ **La domanda aperta, che non è di questo piano**: se il pubblico è sulla
+2.32.1.3, la traduzione va prima o poi ripuntata lì. Non è una riga di wiki, è
+una decisione sul monte — e va presa guardando quanto le due versioni
+divergano, non l'ordine dei numeri.
 
 ⚠️ **Il tono cambia col posto, e non è un dettaglio.** Nel post la prima persona
 è quella giusta («I've been working on…»); nella pagina wiki si scrive in terza
