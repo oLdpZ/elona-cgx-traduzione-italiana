@@ -13,12 +13,18 @@ Il resto — l'ordine dei passi e il testo dell'annuncio — è invariato.
     repo        oLdpZ/elona-cgx-traduzione-italiana — **PUBBLICO dalla 144ª**
                 https://github.com/oLdpZ/elona-cgx-traduzione-italiana
     release     2.31.2.0-ita, creata nella 144ª; l'asset si scarica in anonimo
-                (provato: 200, 4.972.407 byte, impronta 60579b39… identica al
+                (provato: 200, 4.973.020 byte, impronta 900e06e5… identica al
                 file locale)
-    rami        master == fase-0 == origin/* == 5f7d591, tutto spinto
-                (misurato nella 144ª; PR #1 risulta MERGED)
+                ⚠️ Rifatto nella stessa sessione dopo la toppa dell'ottava riga
+                di crediti: il primo pacchetto, di 4.972.407 byte, compilava
+                senza il credito. Ogni toppa nuova invecchia l'asset, e
+                sostituirlo e' `gh release upload … --clobber`.
+    rami        master == fase-0 == origin/*, tutto spinto; PR #1 MERGED
+                ⓘ Qui non si scrive l'impronta del commit: invecchia al
+                commit dopo, e un valore vecchio in un documento di ripresa
+                si legge come vero. Si guarda con `git status -sb`.
     archivio    C:\Games\Elona\_traduzione\dist\elona-cgx-ita-2.31.2.0.zip
-                4.972.407 byte — si rifà con `python -m strumenti.pacchetto`
+                4.973.020 byte — si rifà con `python -m strumenti.pacchetto`
     permesso    issue #37 sul repo di Custom-GX, aperta il 05/09, in attesa
 
 ## L'ordine, e perché è questo
