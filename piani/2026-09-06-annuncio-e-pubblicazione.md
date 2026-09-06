@@ -10,9 +10,13 @@ Il resto — l'ordine dei passi e il testo dell'annuncio — è invariato.
 
 ## Stato
 
-    repo        oLdpZ/elona-cgx-traduzione-italiana — **PRIVATO**
-    rami        master == fase-0 == origin/* == b0033a7, tutto spinto
-                (misurato in apertura della 144ª; PR #1 risulta MERGED)
+    repo        oLdpZ/elona-cgx-traduzione-italiana — **PUBBLICO dalla 144ª**
+                https://github.com/oLdpZ/elona-cgx-traduzione-italiana
+    release     2.31.2.0-ita, creata nella 144ª; l'asset si scarica in anonimo
+                (provato: 200, 4.972.407 byte, impronta 60579b39… identica al
+                file locale)
+    rami        master == fase-0 == origin/* == 5f7d591, tutto spinto
+                (misurato nella 144ª; PR #1 risulta MERGED)
     archivio    C:\Games\Elona\_traduzione\dist\elona-cgx-ita-2.31.2.0.zip
                 4.972.407 byte — si rifà con `python -m strumenti.pacchetto`
     permesso    issue #37 sul repo di Custom-GX, aperta il 05/09, in attesa
@@ -25,6 +29,25 @@ Il resto — l'ordine dei passi e il testo dell'annuncio — è invariato.
    dal primo che scarica costa più di una settimana di attesa.
 2. **Repo pubblico.** Dentro non c'è codice di monte: dizionario, strumenti e
    documenti. Il `README` è già scritto per essere la pagina di chi arriva.
+
+   ⚠️⚠️ **«Non c'è codice di monte» è vero e incompleto, ed è stato verificato
+   nella 144ª**: zero file `.hsp` tracciati, ma il dizionario conserva
+   l'originale **inglese e giapponese riga per riga** (`en`, `jp_contesto`), e
+   i 64 file del dizionario stanno anche dentro lo zip che si scarica.
+   `dizionario/dati/book.txt.jsonl` da solo è 8,0 MB su 2.241 righe: è il testo
+   dei libri del gioco per intero. Non è codice, è **testo di monte
+   ripubblicato integralmente in due lingue** — cioè la cosa su cui verte
+   l'issue #37, che il piano trattava come se riguardasse solo l'eseguibile.
+
+   ⓘ `jp_contesto` **nessuno strumento lo legge**: lo scrive `dati_estrai.py` e
+   lo leggono solo i test; nessun passo di `applica` o di `costruisci.py` lo
+   tocca. Si potrebbe togliere dal pacchetto senza rompere niente, e toglierebbe
+   di mezzo il giapponese. L'`en` invece serve, perché è la chiave con cui la
+   toppa trova la riga da sostituire.
+
+   ⭐ **Deciso nella 144ª: si pubblica com'è**, dizionario intero, sul
+   presupposto che la #37 copra già la domanda. Scritto qui perché è una scelta,
+   non una svista, e perché la strada per tornare indietro esiste ed è misurata.
 3. **La release**, col tag che dice a quale versione di Custom-GX corrisponde —
    è l'informazione che serve davvero a chi installa:
 
@@ -119,7 +142,7 @@ guarda da browser loggato, sono dieci secondi.
 > saves work with both — plus six additive `data/*_it.txt` files the game only
 > loads if present. There's an uninstaller that deletes those seven files.
 >
-> Download and instructions: <link al repo>
+> Download and instructions: https://github.com/oLdpZ/elona-cgx-traduzione-italiana
 >
 > This is unofficial and not affiliated with the Custom-GX maintainers. Thanks to
 > JianmengYu, Ruin0x11, Ano and Noa. Feedback and bug reports very welcome —
@@ -143,7 +166,7 @@ Titolo proposto: **`Elona+ Custom-GX Italian`**, sulla forma di
     shared between the two. Six additive <code>data/*_it.txt</code> files are
     added, and an uninstaller removes them.
 
-    Download and instructions: [<link> project page]
+    Download and instructions: [https://github.com/oLdpZ/elona-cgx-traduzione-italiana project page]
 
     [[Category:Elona variants]]
     [[Category:Elona+]]
