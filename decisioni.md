@@ -6,6 +6,34 @@ ancora aperte.
 
 ---
 
+## Un posto che resta vale piu' di un posto grande — 2026-09-06, centoquarantatreesima
+
+Scelti i canali dell'annuncio. Il pubblico e' due pubblici che non si
+sovrappongono quasi: chi gioca a Elona e' quasi tutto anglofono, e chi cerca
+giochi in italiano non sa cosa sia Elona. L'intersezione — italiani che giocano
+a Custom-GX — e' piccolissima.
+
+**La decisione**: non si ordina per grandezza del posto, si ordina per **durata**.
+
+- quel che **resta**: la riga su `Elona variants/Resources` del wiki di Elona, e
+  la issue #37, dove sta gia' chi ha CGX installato. Fra due anni chi cerca
+  «elona italian» trova quella riga, non un post;
+- quel che **scorre**: le Discussions del wiki, OldGamesItalia (il posto storico
+  delle traduzioni amatoriali italiane), RPG Italia, il Discord.
+
+⭐ **E il tono cambia col posto**: nel post la prima persona e' quella giusta,
+nella pagina wiki si scrive in terza persona e senza aggettivi promozionali. Su
+un wiki la forma promozionale la toglie qualcun altro, ed e' giusto cosi'.
+
+⚠️ **Il primo passo dell'ordine non e' un annuncio: e' il collaudo**, e il
+secondo sono due o tre persone che installino su macchine che non sono la
+nostra. Su un pubblico di poche decine la prima impressione e' quasi tutto quel
+che si ottiene, e un difetto banale trovato dal primo che scarica costa piu' di
+una settimana di attesa.
+
+ⓘ I testi pronti — l'annuncio inglese e la riga per il wiki — stanno in
+`piani/2026-09-06-annuncio-e-pubblicazione.md`.
+
 ## La chiave non e' il testo: la quarta rete guarda quel che il codice CERCA — 2026-09-06, centoquarantatreesima
 
 Le tre reti del progetto guardano tutte lo stesso asse, il testo che il

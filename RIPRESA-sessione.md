@@ -120,6 +120,24 @@ che e' una build del loro albero — non si pubblica senza chiedere.
    `LEGGIMI.txt`, e `python -m strumenti.pacchetto` fa l'archivio (119 file,
    5,0 MB). Dentro non c'e' un byte del gioco.
 
+⭐ **Il piano della pubblicazione, coi testi gia' scritti, sta in
+`piani/2026-09-06-annuncio-e-pubblicazione.md`**: l'ordine dei passi, dove si
+annuncia e perche', il testo inglese del post e la riga per il wiki. Non
+riscriverli: sono gia' li'.
+
+    repo      oLdpZ/elona-cgx-traduzione-italiana — ancora **PRIVATO**
+    rami      master == fase-0 == 8bc7138, tutto spinto; PR #1 risulta MERGED
+    archivio  _traduzione\dist\elona-cgx-ita-2.31.2.0.zip (4.972.407 byte)
+
+⚠️⚠️ **Il primo passo della pubblicazione non e' rendere pubblico il repo: e' il
+collaudo.** Una volta che la gente scarica non si torna indietro, e nessuna resa
+di questo progetto e' ancora stata vista a schermo.
+
+⚠️ La 143a ha trovato **41 commit non spinti** — cioe' tutto il lavoro di due
+giorni esisteva solo su questo disco — e `master` fermo 906 commit indietro, al
+piano della Fase 0. Adesso sono a posto: in apertura vale la pena guardare
+`git status -sb`, non solo `git status`.
+
 ⚠️⚠️ **La patch binaria non si puo' fare, ed e' misurato**: fra l'eseguibile
 ufficiale e il nostro si puo' copiare l'**1,1%**; la patch peserebbe quanto il
 gioco. La causa e' HSP, non la distanza dal monte — due build **nostre** dello
