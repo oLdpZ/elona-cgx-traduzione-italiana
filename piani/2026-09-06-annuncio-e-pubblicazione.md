@@ -4,10 +4,15 @@ Quel che serve per far arrivare la traduzione a qualcuno che non sia noi. I
 testi stanno qui e non in una chat perché il giorno in cui si pubblica non è
 oggi, e chi li riscrive da capo li riscrive peggio.
 
+⚠️ **Corretto nella 144ª, il 2026-09-06**: la voce «resta» mandava su una
+pagina del wiki che non è quella giusta, e adesso la sezione «Dove» dice perché.
+Il resto — l'ordine dei passi e il testo dell'annuncio — è invariato.
+
 ## Stato
 
     repo        oLdpZ/elona-cgx-traduzione-italiana — **PRIVATO**
-    rami        master == fase-0 == 8bc7138, tutto spinto; PR #1 risulta MERGED
+    rami        master == fase-0 == origin/* == b0033a7, tutto spinto
+                (misurato in apertura della 144ª; PR #1 risulta MERGED)
     archivio    C:\Games\Elona\_traduzione\dist\elona-cgx-ita-2.31.2.0.zip
                 4.972.407 byte — si rifà con `python -m strumenti.pacchetto`
     permesso    issue #37 sul repo di Custom-GX, aperta il 05/09, in attesa
@@ -40,7 +45,9 @@ settimane; una riga su un wiki la trova fra due anni chi cerca «elona italian»
 
 | dove | che cosa ci va | tipo |
 |---|---|---|
-| [Elona variants/Resources](https://elona.fandom.com/wiki/Elona_variants/Resources) | la riga neutra qui sotto | **resta** |
+| **una pagina propria** sul wiki (non esiste ancora) | la voce qui sotto | **resta** |
+| [Elona+ Custom](https://elona.fandom.com/wiki/Elona%2B_Custom) | un link alla pagina propria | **resta** |
+| [Elona variants](https://elona.fandom.com/wiki/Elona_variants), sezione `=== Elona+ custom ===` | un link alla pagina propria | **resta** |
 | [Discussions del wiki](https://elona.fandom.com/f) | l'annuncio in inglese | scorre |
 | [issue #37](https://github.com/JianmengYu/ElonaPlusCustom-GX/issues/37) | «fatto, ecco il link» — e lì c'è già chi ha CGX installato | resta |
 | [OldGamesItalia](https://www.oldgamesitalia.net/forum/) | l'annuncio in italiano; è il posto storico delle traduzioni amatoriali | scorre |
@@ -51,6 +58,43 @@ settimane; una riga su un wiki la trova fra due anni chi cerca «elona italian»
 prende dai canali ufficiali di Elin o dal wiki, e non si copia un link vecchio.
 
 ⚠️ **Un post solo per posto.** Non uno per categoria.
+
+### ⚠️⚠️ La riga «resta» di questo piano indicava la pagina sbagliata, ed è misurato
+
+Fino al 06/09 questa tabella mandava la voce neutra su
+[Elona variants/Resources](https://elona.fandom.com/wiki/Elona_variants/Resources).
+La pagina esiste (pageid 23306) ma **non è un elenco di risorse per i
+giocatori**: dentro c'è un CSV per generare il diagramma ad albero delle
+varianti e una tabella «Editing progress» con le spunte `✔ ⏰ ✘` di chi cura il
+wiki. Ultima modifica **7 novembre 2016**. Una voce lì non la legge nessuno.
+Era un'ipotesi plausibile scritta senza aprire la pagina.
+
+⭐ **Quel wiki non ha un indice delle traduzioni: le indicizza come varianti,
+con una pagina propria.** I due precedenti:
+
+- `Omake Overhaul English` — cinque righe (cos'è, di che variante è la
+  traduzione) più `[[Category:Elona variants]]` e `[[Category:Article stubs]]`;
+- `Elona+ Japanese/English Translation` — pagina di progetto lunga, del 2012.
+
+⚠️ **E c'è il controesempio, che conta più dei due precedenti**: la pagina
+`Translation of the game into other languages` **esiste**, è lunga **36 byte**, e
+l'unica cosa che contiene è `[[Category:Candidates for deletion]]`. Qualcuno ha
+già provato a fare questa pagina, vuota, ed è finita in cancellazione. La pagina
+deve avere contenuto vero, non solo un link.
+
+ⓘ Una pagina `Elona+ Custom-GX` su quel wiki **non esiste proprio**, e
+`Elona+ Custom` è ferma ai download di Custom 1.89.3 e 1.90.4 su MEGA e Google
+Drive, roba pre-GX. Non è un problema nostro da risolvere, ma spiega perché non
+c'è un posto ovvio dove infilarsi.
+
+⚠️ **Il wiki è vivo ma lento**: otto modifiche dall'11 agosto al 6 settembre,
+due redattori. «Resta» sì, ma non porta traffico: il valore è che fra due anni
+chi cerca «elona italian» la trovi.
+
+⚠️ **Delle Discussions non sappiamo se siano attive.** Il 06/09 l'API ha
+risposto 404, ma il controllo su un wiki grande e sicuramente attivo ha dato
+**anche lui 404**: è rotto il metodo di sonda, non risposta la domanda. Si
+guarda da browser loggato, sono dieci secondi.
 
 ## Il testo dell'annuncio (inglese, per le Discussions)
 
@@ -81,12 +125,33 @@ prende dai canali ufficiali di Elin o dal wiki, e non si copia un link vecchio.
 > JianmengYu, Ruin0x11, Ano and Noa. Feedback and bug reports very welcome —
 > especially from anyone on a machine that isn't mine.
 
-## La riga per il wiki (terza persona, niente aggettivi)
+## La pagina per il wiki (terza persona, niente aggettivi)
 
-    * [Italian translation](<link>) — unofficial Italian localization of Elona+
-      Custom-GX 2.31.2.0. Distributed as a dictionary plus a build script that
-      compiles an Italian executable from the player's own copy of the game;
-      installs alongside the English executable.
+Titolo proposto: **`Elona+ Custom-GX Italian`**, sulla forma di
+`Omake Overhaul English`. Wikitesto:
+
+    '''Elona+ Custom-GX Italian''' is an unofficial Italian localization of
+    [[Elona+ Custom|Elona+ Custom-GX]] 2.31.2.0.
+
+    It is distributed as a dictionary plus a build script, not as a prebuilt
+    executable: the script downloads Custom-GX's source and the HSP SDK and
+    compiles an Italian executable on the player's own machine. It requires
+    Python 3.11 or later.
+
+    The Italian build is written as <code>cgx-ita.exe</code> alongside the
+    existing <code>elonapluscgx.exe</code>, which is left unchanged; saves are
+    shared between the two. Six additive <code>data/*_it.txt</code> files are
+    added, and an uninstaller removes them.
+
+    Download and instructions: [<link> project page]
+
+    [[Category:Elona variants]]
+    [[Category:Elona+]]
+
+E il link da `Elona+ Custom` e dalla sezione `=== Elona+ custom ===` di
+`Elona variants`, una riga sola:
+
+    See also: [[Elona+ Custom-GX Italian]] — unofficial Italian localization.
 
 ⚠️ **Il tono cambia col posto, e non è un dettaglio.** Nel post la prima persona
 è quella giusta («I've been working on…»); nella pagina wiki si scrive in terza
@@ -98,6 +163,8 @@ altro, ed è giusto così.
 
 1. accedere: senza login **il pulsante per scrivere non compare**, ed è la
    ragione più comune per cui sembra che le Discussions non ci siano;
+   ⚠️ ma su questo wiki potrebbero davvero non esserci — vedi sopra, non è
+   stato possibile verificarlo da riga di comando;
 2. `https://elona.fandom.com/f` → il pulsante in cima al feed (`+`, una matita o
    *New Post* a seconda della skin);
 3. categoria **General**, titolo, testo, *Post*;
