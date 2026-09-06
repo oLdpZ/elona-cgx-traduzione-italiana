@@ -16790,3 +16790,76 @@ coda a **sezione propria** («Limitazione nota»).
 💡 Un documento interno e uno pubblico non differiscono per quanto sono
 sinceri: differiscono per **chi è il "noi"**. Se il lettore non fa parte del
 noi, ogni «nostro» è una porta chiusa.
+
+---
+
+## Il pacchetto pubblicato è stato ESEGUITO, non solo ispezionato — 2026-09-06, centoquarantaquattresima sessione
+
+Fino a questo punto della sessione il pacchetto era stato **verificato nei
+contenuti** — 119 file confrontati uno per uno col disco, `toppe.jsonl`
+identico byte per byte, impronta uguale dopo il download in anonimo — e **mai
+lanciato**. Sono due domande diverse: *contiene le cose giuste?* e *funziona?*
+
+Il collaudo: zip scaricato **dalla release in anonimo**, estratto in una
+cartella vuota, `costruisci.py --gioco C:\Games\Elona\elonaplus2.31` lanciato
+come lo lancerebbe chiunque. Tutti e sette i passi:
+
+    [1-3]  SDK HSP 3.4 scaricato dal sito di Onion Software (35 MB)
+           sorgente Custom-GX preso da GitHub e verificato sul manifesto
+    [4]    i file di data\ letti dall'installazione locale
+    [5]    applica + scene + carte + schede + dialoghi
+    [6]    compilato: 17.673.835 byte
+    [7]    cgx-ita.exe e sei data\*_it.txt messi accanto al gioco
+
+Uscita **0**, **zero** segnali di guasto nel log.
+
+⭐ **La prova che conta non è il «FATTO» stampato in coda**, è che nel sorgente
+costruito **dal pacchetto** — non dal nostro albero di lavoro — c'è la riga
+aggiunta oggi:
+
+    _lavoro/build/2.05-custom-gx/system.hsp:3527
+      mes "Traduzione italiana a cura di oLd_pZ"
+
+E che l'eseguibile prodotto pesa **17.673.835 byte**, esattamente come quello
+della nostra catena: due alberi identici. ⚠️ Le impronte no, e non devono —
+HSP non è riproducibile.
+
+`elonapluscgx.exe` è rimasto quello ufficiale del 25 maggio, 16.895.548 byte,
+non toccato.
+
+💡 **Un artefatto ispezionato non è un artefatto provato**, ed è la stessa
+distinzione fra «costruito» e «visto a schermo» spostata di un gradino: qui
+«contiene i file giusti» e «produce il gioco giusto» sembravano la stessa cosa
+e non lo erano. Il collaudo costa dieci minuti e prova per intero il percorso
+che il README promette a chi installa — download, SDK, monte, compilazione,
+copia.
+
+ⓘ Resta fuori solo l'ultimo gradino: che quel che disegna sia giusto. La riga
+dei crediti a schermo è vista su `cgx-test.exe` e **riferita**, non misurata.
+
+---
+
+## Un confronto fra due file può dire «diversi» per un carattere che non c'è — 2026-09-06, centoquarantaquattresima sessione
+
+Controllando che l'asset in linea corrispondesse al repo:
+
+    toppe in linea : 1432
+    toppe nel repo : 1432
+    identiche      : False
+
+Un momento di allarme, e il difetto era nel confronto. Da una parte
+`zipfile.read(...).decode().splitlines()`, che l'a capo **lo toglie**;
+dall'altra `open(percorso)` iterato riga per riga, che l'a capo **lo tiene**.
+Tutte e 1.432 le righe differivano per un carattere invisibile.
+
+Il confronto giusto è **sui byte**:
+
+    b_zip = z.read("toppe.jsonl")
+    b_loc = open("toppe.jsonl", "rb").read()
+    b_zip == b_loc          # True, 1.515.464 byte, c4c00df3…
+
+💡 **Un falso allarme costa quanto un difetto mancato quando fa cambiare
+qualcosa che andava bene.** La regola: due file si confrontano per impronta
+dei byte, mai per liste di righe ottenute con due funzioni diverse — e se un
+conteggio dice «uguali» e il contenuto dice «diversi», il sospetto va prima al
+metodo di lettura che ai file.

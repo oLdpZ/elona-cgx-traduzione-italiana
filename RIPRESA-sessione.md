@@ -30,8 +30,27 @@ prova che il file arrivi.
 
 ## L'ESEGUIBILE IN GIOCO
 
-    cgx-test.exe   15:37 del 06/09   17.673.835 byte — porta il credito
-    cgx-ita.exe    01:10 del 06/09   17.673.776 byte — NON lo porta
+    cgx-test.exe   15:37 del 06/09   17.673.835 byte   la nostra catena
+    cgx-ita.exe    18:28 del 06/09   17.673.835 byte   prodotto dal PACCHETTO
+                                                       SCARICATO DALLA RELEASE
+
+ⓘ **Sono allineati, e la dimensione uguale è il segno giusto**: due alberi
+identici. Le impronte no, e non devono — HSP non è riproducibile.
+`elonapluscgx.exe` resta l'ufficiale del 25 maggio, 16.895.548 byte, mai
+toccato.
+
+⭐⭐ **E `cgx-ita.exe` non è una copia dell'altro: è il primo COLLAUDO
+end-to-end del pacchetto pubblicato.** Zip scaricato dalla release in anonimo,
+estratto in una cartella vuota, `costruisci.py --gioco …` lanciato come lo
+lancerebbe chiunque. Sette passi su sette, uscita 0, zero segnali di guasto —
+SDK scaricato, sorgente preso da GitHub e verificato sul manifesto, file di
+`data\` letti dall'installazione, compilazione, copia in gioco. La prova che
+conta non è il «FATTO» in coda, è che nel sorgente costruito **dal pacchetto**
+c'è `system.hsp:3527  mes "Traduzione italiana a cura di oLd_pZ"`.
+
+⚠️ Fino a quel momento il pacchetto era stato **ispezionato** e mai
+**eseguito**: «contiene i file giusti» e «produce il gioco giusto» sembravano
+la stessa domanda e non lo sono.
 
 ⚠️ **Non confrontarne le impronte: sono diverse, e va bene.** L'eseguibile HSP
 non è riproducibile — due compilazioni dello stesso identico albero
