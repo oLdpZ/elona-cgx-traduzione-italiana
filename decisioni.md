@@ -16631,3 +16631,162 @@ infrastruttura che finisce sotto gli occhi di chi disegna:
 💡 **Un contatore dice quanto la rete guarda, non quanto c'è da fare.** Lo
 spacco fra deciso e residuo lo fanno le dichiarazioni, non il totale — ed è la
 lezione della 140ª in un'altra forma.
+
+---
+
+## Si pubblica il dizionario com'è, giapponese compreso — 2026-09-06, centoquarantaquattresima sessione
+
+Il piano della pubblicazione diceva, del repo, «dentro non c'è codice di
+monte». È vero — **zero file `.hsp` tracciati** — ed è incompleto: il
+dizionario conserva l'originale **inglese e giapponese riga per riga**, e sta
+anche dentro lo zip che si scarica.
+
+    {"firma": "c522b1…", "file": "book.txt", "riga": 1,
+     "en": "I'll start writing in my diary from",
+     "jp_contesto": ["今日から毎日 日記をつけることにしよう。"],
+     "it": "Da oggi comincio a tenere un diario,"}
+
+`dizionario/dati/book.txt.jsonl` da solo è **8,0 MB su 2.241 righe**: è il
+testo dei libri del gioco per intero. Non è codice, è **testo di monte
+ripubblicato integralmente in due lingue** — cioè proprio la cosa su cui verte
+la issue #37, che il piano trattava come se riguardasse solo l'eseguibile.
+
+**La strada per tornare indietro esiste ed è misurata**: `jp_contesto` non lo
+legge **nessuno strumento**. Lo scrive `dati_estrai.py:57` e `:74`, lo leggono
+solo i test; nessun passo di `applica` o di `costruisci.py` lo tocca. Si può
+togliere dal pacchetto senza rompere niente, e toglierebbe di mezzo il
+giapponese. L'`en` invece serve: è la chiave con cui la toppa trova la riga.
+
+**Deciso: si pubblica com'è**, sul presupposto che la #37 copra già la domanda.
+
+💡 Scritto qui perché una scelta che non si scrive diventa una svista sei mesi
+dopo. La differenza fra le due, per chi legge, non si vede.
+
+---
+
+## Una toppa multiriga è una lista, non una stringa con dentro un a capo — 2026-09-06, centoquarantaquattresima sessione
+
+`righe_di_toppa()` (`applica.py:598`) tratta una stringa come **una riga sola**:
+
+    return list(valore) if isinstance(valore, list) else [valore]
+
+Non spezza sui `\n`. Una toppa scritta come `"riga uno\nriga due"` non aggancia
+**mai**, e l'errore che si riceve parla d'altro:
+
+    la riga della toppa "..." non esiste piu'. Se upstream l'ha riscritta,
+    la toppa va rifatta sulla nuova versione, non applicata alla cieca.
+
+⚠️ **Il messaggio punta a monte e la causa era in casa.** È scritto per il caso
+frequente — CGX riscrive una riga e l'ancora sparisce — e per quello va bene;
+ma copre anche il caso in cui l'ancora non è mai esistita nella forma cercata,
+e lì manda a cercare nel posto sbagliato.
+
+Le **58** toppe multiriga già presenti sono tutte liste. Trovato leggendo
+`righe_di_toppa()`, non il messaggio.
+
+💡 Quando un errore accusa qualcosa che non controlli, la prima cosa da provare
+è che l'input fosse malformato — soprattutto se l'input l'hai appena scritto tu.
+
+---
+
+## L'ottava riga dei crediti: la prima toppa che non traduce niente — 2026-09-06, centoquarantaquattresima sessione
+
+`system.hsp:*game_title` stampa sette righe di crediti sulla schermata del
+titolo, a passo di 18 px (`y = 10, 28, 46, 64, 82, 100, 118`). L'ottava, a
+`y = 136`, dice **«Traduzione italiana a cura di oLd_pZ»**.
+
+**È testo nuovo, non una resa**, e questo decide tutto il resto: non esiste
+nessuna `lang()` da riempire, quindi non c'è voce di dizionario che possa
+portarlo. Una riga nuova può esistere **solo** come toppa.
+
+- **Dopo** il blocco `if(jp)/else`, non dentro un ramo: esce in tutte e due le
+  lingue senza doverla scrivere due volte.
+- Agganciata alla `lang()` che segue, **non** al blocco dei Contributor: quel
+  blocco porta già l'ancora di un'altra toppa, e `toppe_annidate()` (142ª)
+  rifiuta il contenimento.
+- Dichiarata **`prima`** perché l'ancora contiene una `lang()` ancora inglese.
+  La sostituzione la lascia identica, quindi `_controlla_toppa_prima()` passa e
+  il dizionario continua a trovare il sito per firma.
+- **36 caratteri** contro le 98 della riga di AnnaBannana, che il gioco
+  spedisce e che quindi ci sta. Nessuna vocale accentata, con la prova al
+  contrario che si accende su `perché` e su `Nicolò`.
+
+ⓘ **Vista a schermo da oLd_pZ, non misurata**: HSP non lascia altra prova.
+
+---
+
+## Non si cerca una stringa dentro l'eseguibile HSP — 2026-09-06, centoquarantaquattresima sessione
+
+Aggiunta la riga dei crediti, l'ho cercata nell'eseguibile appena compilato:
+**0 occorrenze**. Prima di concludere che la toppa non avesse funzionato, ho
+cercato **quattro righe che ci sono di sicuro** — «Contributi di f1r3fly»,
+«Elona+ Custom-GX mod creata da Ruin0x11», «Il segnavia dell'avventura»,
+«Elona  Sviluppo di Noa»:
+
+    Traduzione italiana a cura di oLd_pZ          0
+    Contributi di f1r3fly                         0
+    Elona+ Custom-GX mod creata da Ruin0x11       0
+    Il segnavia dell'avventura                    0
+    Elona  Sviluppo di Noa                        0
+
+HSP impacchetta la tabella delle stringhe. Il `grep` non stava dicendo
+«manca», stava dicendo **niente**.
+
+**Quel che si guarda invece**: la `build/`, che è testo, e la variazione di
+dimensione dell'eseguibile — qui **+59 byte** per due istruzioni e un
+letterale di 36 caratteri.
+
+💡 **Un controllo che dà 0 va puntato su un caso che deve dare più di 0, prima
+di crederci.** Senza quel giro avrei cercato per mezz'ora un guasto in una
+toppa che funzionava. È la prova al contrario applicata a un `grep`, cioè al
+tipo di comando che sembra troppo semplice per meritarla.
+
+---
+
+## L'asset pubblicato invecchia a ogni toppa, e niente lo segnala — 2026-09-06, centoquarantaquattresima sessione
+
+Lo zip della release `2.31.2.0-ita` è stato pubblicato, e **mezz'ora dopo era
+già vecchio**: la toppa dei crediti è arrivata dopo, e chi avesse scaricato in
+mezzo avrebbe compilato un eseguibile senza il credito.
+
+Il modo di sbagliare è nuovo per questo progetto perché **il file cambia e il
+suo nome no**: `elona-cgx-ita-2.31.2.0.zip` resta identico, la versione
+dichiarata resta `2.31.2.0`, e nessun controllo esistente guarda un artefatto
+che sta su un server.
+
+**Dopo qualunque toppa o resa nuova:**
+
+    python -m strumenti.pacchetto
+    gh release upload 2.31.2.0-ita ".../dist/elona-cgx-ita-2.31.2.0.zip" \
+      --repo oLdpZ/elona-cgx-traduzione-italiana --clobber
+
+e si riverifica **scaricandolo in anonimo**, confrontando l'impronta col file
+locale. Il «PUBLIC» che dice GitHub non è una prova che il file arrivi: nella
+144ª la verifica è stata fatta due volte, e tutte e due le volte diceva
+qualcosa che l'API non diceva.
+
+💡 Le cinque reti guardano il sorgente e la build. **Nessuna guarda quel che è
+stato spedito**, ed è il primo artefatto di questo progetto che vive dove non
+possiamo misurarlo di continuo.
+
+---
+
+## Il README parlava a chi lavora al progetto, non a chi lo trova — 2026-09-06, centoquarantaquattresima sessione
+
+Il `README` era scritto nel dialetto interno: i marcatori `⚠️ ⭐ ⓘ` (dodici in
+177 righe), la prima persona plurale («non è nostro da regalare», «l'unica cosa
+nostra»), e la costruzione **«non è X: è Y»** in apertura di **sei sezioni su
+otto**.
+
+Fra chi lavora al progetto quei marcatori sono utili: dicono in un carattere se
+una riga è un avvertimento, una scoperta o una nota. Su una pagina pubblica
+sono rumore, e l'insieme sembra la trascrizione di una conversazione.
+
+Riscritto in forma dichiarativa, struttura convenzionale, **tenendo dentro
+tutti i punti scomodi** — HSP non riproducibile, il perimetro che non è il
+gioco intero, e la traduzione mai vista a schermo, che è passata da battuta in
+coda a **sezione propria** («Limitazione nota»).
+
+💡 Un documento interno e uno pubblico non differiscono per quanto sono
+sinceri: differiscono per **chi è il "noi"**. Se il lettore non fa parte del
+noi, ogni «nostro» è una porta chiusa.

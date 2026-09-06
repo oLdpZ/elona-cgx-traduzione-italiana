@@ -1,23 +1,50 @@
 # Ripresa sessione
 
-Aggiornato: 2026-09-06, fine della **centoquarantatreesima** sessione (**la
-chiave non e' il testo: la quarta rete, dodici righe che nessuno vedeva, e la
-strada per pubblicare**).
+Aggiornato: 2026-09-06, fine della **centoquarantaquattresima** sessione (**la
+traduzione esce di casa: repo pubblico, release, e il credito sul titolo**).
 
-⭐ **L'ESEGUIBILE IN GIOCO E' FRESCO, e adesso ce ne sono DUE**, tutt'e due di
-17.673.776 byte:
+⭐⭐⭐ **LA TRADUZIONE È PUBBLICA.** Non è più un progetto che gira su questa
+macchina:
 
-    cgx-test.exe   00:17 del 06/09   la nostra catena di sempre
-    cgx-ita.exe    01:10 del 06/09   prodotto da `costruisci.py`, cioe' dal
-                                     pacchetto che si pubblica
+    repo      https://github.com/oLdpZ/elona-cgx-traduzione-italiana
+              PUBBLICO dalla 144ª
+    release   2.31.2.0-ita, con lo zip attaccato
+    provato   scaricato in anonimo, 200, 4.973.020 byte, impronta identica
+              al file locale
+
+⚠️⚠️ **E L'ASSET PUBBLICATO INVECCHIA A OGNI TOPPA, SENZA CHE NIENTE LO DICA.**
+Nella 144ª lo zip è stato pubblicato e **mezz'ora dopo era già vecchio**: la
+toppa dei crediti è arrivata dopo, e chi avesse scaricato in mezzo avrebbe
+compilato senza il credito. Il numero di versione non cambia e il file sì.
+Dopo **qualunque** toppa o resa nuova:
+
+    python -m strumenti.pacchetto
+    gh release upload 2.31.2.0-ita ".../dist/elona-cgx-ita-2.31.2.0.zip" \
+      --repo oLdpZ/elona-cgx-traduzione-italiana --clobber
+
+ⓘ E si riverifica scaricandolo in anonimo: `curl -sL` sull'indirizzo pubblico
+e confronto d'impronta col file locale. Il «PUBLIC» che dice GitHub non è una
+prova che il file arrivi.
+
+---
+
+## L'ESEGUIBILE IN GIOCO
+
+    cgx-test.exe   15:37 del 06/09   17.673.835 byte — porta il credito
+    cgx-ita.exe    01:10 del 06/09   17.673.776 byte — NON lo porta
 
 ⚠️ **Non confrontarne le impronte: sono diverse, e va bene.** L'eseguibile HSP
-non e' riproducibile — due compilazioni dello stesso identico albero
-differiscono nel 96,56% dei byte. E' misurato, sta in `decisioni.md`, e cambia
-quel che si puo' promettere a chi installa.
+non è riproducibile — due compilazioni dello stesso identico albero
+differiscono nel 96,56% dei byte. È misurato, sta in `decisioni.md`.
 
-ⓘ `cgx-ita.exe` e' quello che vedrebbe un utente. Nella cartella del gioco ci
-sono anche i sei `data\*_it.txt` e `disinstalla-italiano.bat`.
+⚠️⚠️ **E NON SI CERCA UNA STRINGA DENTRO L'ESEGUIBILE: non se ne trova
+nessuna.** HSP impacchetta la tabella delle stringhe. Nella 144ª il `grep` su
+una riga appena aggiunta ha dato 0, e il controllo al contrario su **quattro
+righe che ci sono di sicuro** ha dato 0 anche lui. Il `grep` non diceva
+«manca», non diceva **niente**. Quel che si guarda è la `build/`, più la
+variazione di dimensione dell'eseguibile.
+
+---
 
 ⚠️⚠️ **L'ordine obbligato per portare tutto in gioco ha SEI PASSI.**
 
@@ -29,23 +56,171 @@ sono anche i sei `data\*_it.txt` e `disinstalla-italiano.bat`.
     python -m strumenti.compila --eseguibile
     cp .../build/2.05-custom-gx/elonapluscgx.exe .../elonaplus2.31/cgx-test.exe
 
-⚠️ **`strumenti.installa` NON ESISTE**: l'ultimo passo e' una copia a mano.
+⚠️ **`strumenti.installa` NON ESISTE**: l'ultimo passo è una copia a mano.
 
-⚠️⚠️⚠️ **E i cinque passi dopo `applica` NON sono facoltativi: in apertura della
-142a `pytest` era ROSSO per questo.** L'albero di build portava un `applica`
-delle 18:11 lanciato **da solo**, senza i quattro `--applica` che vengono dopo,
-e due test che leggono la build sono caduti. Non era una regressione del codice:
-era la catena lasciata a meta'. ⓘ Chi lancia `applica` per qualunque motivo —
-anche solo per guardare un numero — deve rilanciare tutti e cinque i passi che
-seguono, o l'albero resta in uno stato che nessun documento descrive.
+⚠️⚠️⚠️ **E i cinque passi dopo `applica` NON sono facoltativi**: un `applica`
+lanciato da solo lascia l'albero in uno stato che nessun documento descrive, e
+i test che leggono la build cadono (successo in apertura della 142ª).
+
+⚠️ **Un comando di build stampa molte righe e il pezzo che conta non è la
+coda.** Si cerca il segnale di guasto *prima* di dichiarare fatto:
+`grep -icE "attenzione|errore|non esiste|warning"`. ⓘ Nella 144ª `compila` ha
+dato 1 sul filtro, ed era `#No error detected.` — un falso positivo, guardato
+invece che ignorato.
 
 ⚠️ `scratchpad/perimetro.py` vuole **due** variabili d'ambiente, non una:
 `PYTHONPATH=.` **e** `PYTHONIOENCODING=utf-8`.
 
-⚠️⚠️ **E i file non si scrivono con un heredoc**, nemmeno dentro `python - <<'PY'`:
-la 141a ci ha perso un giro perche' la shell ha mangiato le barre rovesce di
-una regex (`[^"\\]` e' diventato `[^"]`), e l'errore e' arrivato come
-`re.PatternError` a venti righe di distanza dalla causa.
+⚠️⚠️ **E i file non si scrivono con un heredoc**, nemmeno dentro
+`python - <<'PY'`: la shell mangia le barre rovesce e gli apostrofi.
+
+---
+
+## LA COSA CHE PESA DI PIÙ DELLA 144ª: una toppa multiriga è una LISTA, non una stringa
+
+`righe_di_toppa()` tratta una stringa come **una riga sola** e non la spezza
+sui `\n`. Una toppa scritta come `"riga uno\nriga due"` non aggancia **mai**, e
+il messaggio che si riceve è quello di un'ancora sparita:
+
+    la riga della toppa "..." non esiste piu': '\t}\n\ts = lang(...)'.
+    Se upstream l'ha riscritta, la toppa va rifatta sulla nuova versione.
+
+⭐ Il messaggio punta a monte — «se upstream l'ha riscritta» — e la causa era
+in casa. Le 58 toppe multiriga che già c'erano sono tutte liste; l'ho scoperto
+leggendo `righe_di_toppa()`, non il messaggio.
+
+**La forma giusta:**
+
+    "cerca":       ["\t}", "\ts = lang(...)"]
+    "sostituisci": ["\t}", "\tpos 20, 136", "\tmes \"...\"", "\ts = lang(...)"]
+
+---
+
+## L'OTTAVA RIGA DEI CREDITI, e perché poteva esistere solo come toppa
+
+`system.hsp:*game_title` stampa sette righe di crediti a passo di 18 px
+(`y = 10, 28, 46, 64, 82, 100, 118`), tutte già rese da altrettante toppe.
+L'ottava, a `y = 136`, dice **«Traduzione italiana a cura di oLd_pZ»**.
+
+⭐ **È testo nuovo, non una resa.** Non esiste nessuna `lang()` da riempire,
+quindi non c'è voce di dizionario che possa portarlo: una riga nuova può
+esistere **solo** come toppa. È la prima di questo progetto che non traduce
+niente.
+
+- sta **dopo** il blocco `if(jp)/else`, non dentro un ramo, così esce in
+  tutte e due le lingue;
+- è agganciata alla `lang()` che segue, **non** al blocco dei Contributor:
+  quel blocco porta già l'ancora di un'altra toppa, e `toppe_annidate()`
+  (142ª) rifiuta il contenimento;
+- è dichiarata **`prima`** perché l'ancora contiene una `lang()` ancora
+  inglese; la sostituzione la lascia identica, quindi
+  `_controlla_toppa_prima()` passa e il dizionario trova il sito per firma;
+- 36 caratteri contro le 98 della riga di AnnaBannana, che il gioco spedisce
+  e che quindi ci sta.
+
+ⓘ **Vista a schermo da oLd_pZ, non misurata.** HSP non lascia altra prova.
+
+---
+
+## IL POSTO «CHE RESTA» ERA LA PAGINA SBAGLIATA
+
+Il piano della 143ª mandava la voce del wiki su `Elona variants/Resources`.
+Aperta: dentro c'è un CSV per generare il diagramma delle varianti e una
+tabella «Editing progress» coi segni di spunta dei redattori. Ultima modifica
+**7 novembre 2016**. Un'ipotesi plausibile scritta senza aprire la pagina.
+
+⭐ Quel wiki **non ha un indice delle traduzioni**: le indicizza come
+**varianti**, con una pagina propria — `Omake Overhaul English` è il modello.
+
+⭐⭐ **E il controesempio è valso più dei due precedenti**: la pagina
+`Translation of the game into other languages` **esiste già**, è lunga **36
+byte** e contiene solo `[[Category:Candidates for deletion]]`. Cercare i
+precedenti dice come si fa; cercare i **fallimenti** dice cosa non fare, ed è
+la ricerca che di solito si salta.
+
+⚠️ Il wikitesto pronto della pagina sta in
+`piani/2026-09-06-annuncio-e-pubblicazione.md`, con l'indirizzo vero. Non
+riscriverlo.
+
+---
+
+## ⚠️⚠️ «DENTRO NON C'È CODICE DI MONTE» È VERO E INCOMPLETO
+
+Zero file `.hsp` tracciati. Ma il dizionario conserva l'originale **inglese e
+giapponese riga per riga** (`en`, `jp_contesto`), e sta anche dentro lo zip:
+`dizionario/dati/book.txt.jsonl` da solo è 8,0 MB su 2.241 righe, cioè il
+testo dei libri del gioco per intero. Non è codice, è **testo di monte
+ripubblicato in due lingue** — l'oggetto della issue #37, che il piano
+trattava come se riguardasse solo l'eseguibile.
+
+ⓘ `jp_contesto` **non lo legge nessuno strumento**: lo scrive
+`dati_estrai.py`, lo leggono i test. Togliere il giapponese dal pacchetto è
+possibile e non rompe niente. L'`en` invece serve, è la chiave di ricerca
+delle toppe.
+
+⭐ **Deciso nella 144ª: si pubblica com'è.** È una scelta, non una svista, e
+sta scritta nel piano insieme alla strada per tornare indietro.
+
+---
+
+## I VALORI DA ASPETTARSI IN APERTURA, DOPO LA 144ª
+
+    pytest                   **1.148 passed**, 6 skipped
+    prova_identita           72/72 e 30.905, invariato
+    scene --referto          1701 su 1701, 0 fuori misura
+    carte --referto          833 su 833, 0 fuori misura
+    schede --referto         72 su 72, 0 fuori misura
+    dialoghi --referto       74 su 74 (68 rese, 6 invariate), 0 fuori misura
+    copertura                nessun file scoperto e non dichiarato
+    salti                    verde, tutte dichiarate
+    disegnate                verde, tutte dichiarate
+    operandi                 328 righe su 36 pagliai; 260 esenti, **64**
+                             seguite, 4 inutili, **0 nel fronte**
+    toppe                    **1.432** (era 1.431: +1, la riga dei crediti)
+    applica                  30.766 sostituzioni, nessun segnale di guasto
+    perimetro                28.028 su 28.028 = 100,0%
+                             (**31.795** coi file dati)
+                             ⚠️ `PYTHONPATH=.` **e** `PYTHONIOENCODING=utf-8`
+    dizionario               32.782 voci in 64 file, 0 da ritradurre, uscita 0
+    rinviate                 113 voci. **Nessuna aspetta lavoro.**
+    pacchetto                119 file, 4.973.020 byte, impronta 900e06e5…
+                             uguale a quella scaricata in anonimo
+
+⚠️ **Nessuno di questi numeri si eredita da qui: si rilanciano.** ⓘ Nella 143ª
+`operandi` fu scritto «60 seguite» e in apertura della 144ª ne dava **64**: il
+valore era stato preso prima delle ultime tre chiusure di quella sessione.
+Sesto modo, di nuovo.
+
+---
+
+## Che cosa guardare adesso, dopo la 144ª
+
+⚠️ Questa lista **sostituisce** quelle delle sessioni precedenti qui sotto per
+i punti che nomina.
+
+1. ⭐⭐⭐ **Il collaudo a schermo, e ora il debito è pubblico.** La schermata
+   del titolo è stata vista; **tutto il resto del gioco no**, e nel frattempo
+   chiunque può scaricare. Le voci da guardare restano quelle della 142ª e
+   della 143ª (succo, desiderio, pannello dell'equipaggiamento, evocazione
+   CNPC, marcatore `(T)`, cacciatrice di draghi, battuta dell'alchimista,
+   fumetto del danno a due righe). ⓘ `collaudo/schermo.ps1` sa pilotare il
+   gioco e catturare lo schermo.
+2. ⭐⭐ **I quattro passi sul wiki**, che aspettano solo il login: creare
+   `Elona+ Custom-GX Italian` col wikitesto già scritto, e il rimando da
+   `Elona+ Custom` e da `Elona variants`.
+3. ⭐⭐ **Il commento sulla issue #37** — «fatto, ecco il link». È il posto
+   dove c'è già gente con CGX installato, ed è anche dove si aspetta la
+   risposta sul permesso.
+4. ⭐ **Le tre stringhe che aspettano la larghezza**, invariate dalla 141ª:
+   `Rank.` (`command.hsp:3638`), `Free` / `NPC/TOWN` (`map_func.hsp:2053`).
+5. ⭐ Gli **11 nomi di abilità tagliati a quattro caratteri**, e quante il
+   pannello ne disegni davvero non è misurato.
+6. ⭐ Le **tre teste variabili** di cui non si sa l'articolo — `NECRO_PARTS`,
+   `PRODUCED_BOOK`, `EVITEM`.
+7. **Sei rinvii aspettano il monte**: righe commentate a monte.
+8. ⚠️ I punti **10, 11, 15, 16 e 19** della lista della 138ª non sono stati
+   riverificati. Prima di riaprirne uno **si guarda la build**: dei cinque che
+   la 143ª ha toccato, quattro erano già chiusi.
 
 ---
 
